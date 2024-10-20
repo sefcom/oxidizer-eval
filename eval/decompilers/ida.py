@@ -18,25 +18,32 @@ def _extract_function_body(output):
     return body
 
 
-def ida_dec(binary_path, func_name):
+def ida_dec(binary_path, function_list, cache_dir, cache_only=False):
     assert os.path.exists(binary_path)
 
-    binary_name = os.path.basename(binary_path)
-    cache = get_cached_decompiled_code("ida", binary_name, func_name)
-    if cache:
-        return cache
+    function_list = list(function_list)
+    result = {}
 
-    cmd = f"{IDA_PATH} -A -Ohexrays:{func_name}:{func_name} {os.path.abspath(binary_path)}"
-    subprocess.run(cmd.split())
-    output_path = f"{func_name}.c"
-    if os.path.exists(output_path):
-        with open(output_path, "r") as fd:
-            output = fd.readlines()
-        os.remove(output_path)
-        output = _extract_function_body(output)
-        save_output("ida", binary_name, func_name, output)
-        return output
-    return None
+    for func_name in list(function_list):
+        cached_output = load_cached_output(cache_dir, func_name)
+        if cached_output:
+            result[func_name] = cached_output
+            function_list.remove(func_name)
+
+    if function_list and not cache_only:
+        for func_name in function_list:
+            cmd = f"{IDA_PATH} -A -Ohexrays:{func_name}:{func_name} {os.path.abspath(binary_path)}"
+            subprocess.run(cmd.split())
+            output_path = f"{func_name}.c"
+            if os.path.exists(output_path):
+                with open(output_path, "r") as fd:
+                    output = fd.readlines()
+                os.remove(output_path)
+                output = _extract_function_body(output)
+                if output:
+                    save_output(cache_dir, func_name, output)
+                    result[func_name] = output
+    return result
 
 
 def ida_dec_with_script(binary_path, script_path):

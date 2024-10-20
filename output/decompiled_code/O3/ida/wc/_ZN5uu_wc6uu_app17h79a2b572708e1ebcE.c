@@ -1,0 +1,547 @@
+void *__fastcall uu_wc::uu_app(void *a1)
+{
+  __int64 v1; // rbx
+  __int64 v2; // rax
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // r14
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rbx
+  __int64 v20; // rax
+  __int64 v21; // rcx
+  __int64 v22; // rax
+  void *v23; // rbx
+  _OWORD v25[45]; // [rsp+0h] [rbp-AB8h] BYREF
+  _OWORD dest[45]; // [rsp+2D0h] [rbp-7E8h] BYREF
+  void *v27; // [rsp+5A0h] [rbp-518h]
+  __int64 v28; // [rsp+5A8h] [rbp-510h]
+  unsigned __int64 v29; // [rsp+5B0h] [rbp-508h]
+  __int64 v30; // [rsp+5B8h] [rbp-500h]
+  _OWORD src[37]; // [rsp+5C0h] [rbp-4F8h] BYREF
+  _QWORD v32[4]; // [rsp+810h] [rbp-2A8h] BYREF
+  _OWORD v33[40]; // [rsp+830h] [rbp-288h] BYREF
+
+  if ( uucore::UTIL_NAME != 2 )
+    once_cell::imp::OnceCell<T>::initialize(&uucore::UTIL_NAME, &uucore::UTIL_NAME);
+  clap_builder::builder::command::Command::new(v25, xmmword_F8220, *((_QWORD *)&xmmword_F8220 + 1));
+  *(_QWORD *)&v25[38] = a0027;
+  *((_QWORD *)&v25[38] + 1) = 6LL;
+  memcpy(dest, v25, 0x2C8uLL);
+  clap_builder::builder::command::Command::about(v25, dest, aDisplayNewline, 160LL);
+  uucore::format_usage(src, aOptionFile, 24LL);
+  v1 = *(_QWORD *)&src[0];
+  if ( *(_QWORD *)&src[0] != 0x8000000000000000LL )
+    dest[0] = *(_OWORD *)((char *)src + 8);
+  v27 = a1;
+  if ( *(_QWORD *)&v25[29] != 0x8000000000000000LL && *(_QWORD *)&v25[29] )
+    _rust_dealloc(*((_QWORD *)&v25[29] + 1), *(_QWORD *)&v25[29], 1LL);
+  *(_QWORD *)&v25[29] = v1;
+  *(_OWORD *)((char *)&v25[29] + 8) = dest[0];
+  memcpy(dest, v25, 0x2BCuLL);
+  *(_QWORD *)((char *)&dest[43] + 12) = *(_QWORD *)((char *)&v25[43] + 12) | 0x8800000088LL;
+  DWORD1(dest[44]) = DWORD1(v25[44]);
+  v25[7] = 8uLL;
+  v25[9] = 0LL;
+  v25[10] = 8uLL;
+  v25[12] = 0LL;
+  v25[13] = 8uLL;
+  v25[15] = 0LL;
+  v25[16] = 8uLL;
+  v25[18] = 0LL;
+  v25[19] = 8uLL;
+  v25[21] = 0LL;
+  v25[22] = 8uLL;
+  v25[24] = 0LL;
+  v25[25] = 8uLL;
+  *(_QWORD *)&v25[0] = 0LL;
+  *(_QWORD *)&v25[1] = 0LL;
+  *((_QWORD *)&v25[2] + 1) = 0LL;
+  *((_QWORD *)&v25[3] + 1) = 0LL;
+  *(_QWORD *)&v25[5] = 5LL;
+  *((_QWORD *)&v25[6] + 1) = 0LL;
+  *((_QWORD *)&v25[8] + 1) = 8LL;
+  *((_QWORD *)&v25[11] + 1) = 8LL;
+  *((_QWORD *)&v25[14] + 1) = 8LL;
+  *((_QWORD *)&v25[17] + 1) = 8LL;
+  *((_QWORD *)&v25[20] + 1) = 4LL;
+  *((_QWORD *)&v25[23] + 1) = 8LL;
+  *((_QWORD *)&v25[26] + 1) = 8LL;
+  *(_QWORD *)&v25[27] = 0LL;
+  *((_QWORD *)&v25[27] + 1) = 0x8000000000000000LL;
+  *(_QWORD *)&v25[29] = 0x8000000000000000LL;
+  *((_QWORD *)&v25[31] + 1) = 0x8000000000000001LL;
+  *(_QWORD *)&v25[33] = anon_777bb9d9a47a4fd760482fbc11f41de2_2_llvm_10162994613922154447;
+  *((_QWORD *)&v25[33] + 1) = 5LL;
+  *(_QWORD *)&v25[34] = anon_777bb9d9a47a4fd760482fbc11f41de2_2_llvm_10162994613922154447;
+  *((_QWORD *)&v25[34] + 1) = 5LL;
+  *(_QWORD *)&v25[35] = 0LL;
+  *(_QWORD *)&v25[36] = 0x11000000000063LL;
+  DWORD2(v25[36]) = 0;
+  WORD6(v25[36]) = 3337;
+  *(_QWORD *)&src[0] = 0LL;
+  *((_QWORD *)&src[0] + 1) = 1LL;
+  *(_QWORD *)&src[1] = 0LL;
+  alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle(src, 0LL, 21LL);
+  v2 = *((_QWORD *)&src[0] + 1);
+  v3 = *(_QWORD *)&src[1];
+  *(_OWORD *)(*((_QWORD *)&src[0] + 1) + *(_QWORD *)&src[1]) = unk_19E85;
+  *(_QWORD *)(v2 + v3 + 13) = 0x73746E756F632065LL;
+  *(_QWORD *)&src[1] = v3 + 21;
+  v4 = *(_QWORD *)&src[0];
+  v33[0] = *(_OWORD *)((char *)src + 8);
+  if ( *(_QWORD *)&src[0] != 0x8000000000000000LL )
+    src[0] = v33[0];
+  *((_QWORD *)&v25[27] + 1) = v4;
+  v25[28] = src[0];
+  memcpy(src, v25, 0x24CuLL);
+  *(_WORD *)((char *)&src[36] + 13) = *(_WORD *)((char *)&v25[36] + 13);
+  HIBYTE(src[36]) = HIBYTE(v25[36]);
+  BYTE12(src[36]) = 2;
+  clap_builder::builder::command::Command::arg(v25, dest);
+  dest[7] = 8uLL;
+  dest[9] = 0LL;
+  dest[10] = 8uLL;
+  dest[12] = 0LL;
+  dest[13] = 8uLL;
+  dest[15] = 0LL;
+  dest[16] = 8uLL;
+  dest[18] = 0LL;
+  dest[19] = 8uLL;
+  dest[21] = 0LL;
+  dest[22] = 8uLL;
+  dest[24] = 0LL;
+  dest[25] = 8uLL;
+  *(_QWORD *)&dest[0] = 0LL;
+  *(_QWORD *)&dest[1] = 0LL;
+  *((_QWORD *)&dest[2] + 1) = 0LL;
+  *((_QWORD *)&dest[3] + 1) = 0LL;
+  *(_QWORD *)&dest[5] = 5LL;
+  *((_QWORD *)&dest[6] + 1) = 0LL;
+  *((_QWORD *)&dest[8] + 1) = 8LL;
+  *((_QWORD *)&dest[11] + 1) = 8LL;
+  *((_QWORD *)&dest[14] + 1) = 8LL;
+  *((_QWORD *)&dest[17] + 1) = 8LL;
+  *((_QWORD *)&dest[20] + 1) = 4LL;
+  *((_QWORD *)&dest[23] + 1) = 8LL;
+  *((_QWORD *)&dest[26] + 1) = 8LL;
+  *(_QWORD *)&dest[27] = 0LL;
+  *((_QWORD *)&dest[27] + 1) = 0x8000000000000000LL;
+  *(_QWORD *)&dest[29] = 0x8000000000000000LL;
+  *((_QWORD *)&dest[31] + 1) = 0x8000000000000001LL;
+  *(_QWORD *)&dest[33] = anon_777bb9d9a47a4fd760482fbc11f41de2_3_llvm_10162994613922154447;
+  *((_QWORD *)&dest[33] + 1) = 5LL;
+  *(_QWORD *)&dest[34] = anon_777bb9d9a47a4fd760482fbc11f41de2_3_llvm_10162994613922154447;
+  *((_QWORD *)&dest[34] + 1) = 5LL;
+  *(_QWORD *)&dest[35] = 0LL;
+  *(_QWORD *)&dest[36] = 0x1100000000006DLL;
+  DWORD2(dest[36]) = 0;
+  WORD6(dest[36]) = 3337;
+  *(_QWORD *)&src[0] = 0LL;
+  *((_QWORD *)&src[0] + 1) = 1LL;
+  *(_QWORD *)&src[1] = 0LL;
+  alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle(src, 0LL, 26LL);
+  v5 = *((_QWORD *)&src[0] + 1);
+  v6 = *(_QWORD *)&src[1];
+  *(_OWORD *)(*((_QWORD *)&src[0] + 1) + *(_QWORD *)&src[1] + 10LL) = unk_19EA4;
+  *(_OWORD *)(v5 + v6) = unk_19E9A;
+  *(_QWORD *)&src[1] = v6 + 26;
+  v7 = *(_QWORD *)&src[0];
+  v33[0] = *(_OWORD *)((char *)src + 8);
+  if ( *(_QWORD *)&src[0] != 0x8000000000000000LL )
+    src[0] = v33[0];
+  *((_QWORD *)&dest[27] + 1) = v7;
+  dest[28] = src[0];
+  memcpy(src, dest, 0x24CuLL);
+  *(_WORD *)((char *)&src[36] + 13) = *(_WORD *)((char *)&dest[36] + 13);
+  HIBYTE(src[36]) = HIBYTE(dest[36]);
+  BYTE12(src[36]) = 2;
+  clap_builder::builder::command::Command::arg(dest, v25);
+  v25[7] = 8uLL;
+  v25[9] = 0LL;
+  v25[10] = 8uLL;
+  v25[12] = 0LL;
+  v25[13] = 8uLL;
+  v25[15] = 0LL;
+  v25[16] = 8uLL;
+  v25[18] = 0LL;
+  v25[19] = 8uLL;
+  v25[21] = 0LL;
+  v25[24] = 0LL;
+  v25[25] = 8uLL;
+  *(_QWORD *)&v25[0] = 0LL;
+  *(_QWORD *)&v25[1] = 0LL;
+  *((_QWORD *)&v25[2] + 1) = 0LL;
+  *((_QWORD *)&v25[3] + 1) = 0LL;
+  *(_QWORD *)&v25[5] = 5LL;
+  *((_QWORD *)&v25[6] + 1) = 0LL;
+  *((_QWORD *)&v25[8] + 1) = 8LL;
+  *((_QWORD *)&v25[11] + 1) = 8LL;
+  *((_QWORD *)&v25[14] + 1) = 8LL;
+  *((_QWORD *)&v25[17] + 1) = 8LL;
+  *((_QWORD *)&v25[20] + 1) = 4LL;
+  v25[22] = 8uLL;
+  *((_QWORD *)&v25[23] + 1) = 8LL;
+  *((_QWORD *)&v25[26] + 1) = 8LL;
+  *(_QWORD *)&v25[27] = 0LL;
+  *((_QWORD *)&v25[27] + 1) = 0x8000000000000000LL;
+  *(_QWORD *)&v25[29] = 0x8000000000000000LL;
+  *((_QWORD *)&v25[31] + 1) = 0x8000000000000001LL;
+  *(_QWORD *)&v25[33] = anon_777bb9d9a47a4fd760482fbc11f41de2_4_llvm_10162994613922154447;
+  *((_QWORD *)&v25[33] + 1) = 11LL;
+  *(_QWORD *)&v25[34] = anon_777bb9d9a47a4fd760482fbc11f41de2_4_llvm_10162994613922154447;
+  *((_QWORD *)&v25[34] + 1) = 11LL;
+  *(_QWORD *)&v25[35] = 0LL;
+  *(_QWORD *)&v25[36] = 0x11000000110000LL;
+  DWORD2(v25[36]) = 0;
+  WORD6(v25[36]) = 3337;
+  *(_QWORD *)&v33[0] = asc_19EB4;
+  *((_QWORD *)&v33[0] + 1) = 1LL;
+  *(_QWORD *)&v33[1] = 0LL;
+  *((_QWORD *)&v33[1] + 1) = 1LL;
+  <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(src, v33);
+  if ( *((_QWORD *)&v25[21] + 1) )
+    _rust_dealloc(8LL, 16LL * *((_QWORD *)&v25[21] + 1), 8LL);
+  *((_QWORD *)&v25[22] + 1) = *(_QWORD *)&src[1];
+  *(_OWORD *)((char *)&v25[21] + 8) = src[0];
+  memcpy(src, v25, sizeof(src));
+  *(_QWORD *)&v25[0] = 0LL;
+  *((_QWORD *)&v25[0] + 1) = 1LL;
+  *(_QWORD *)&v25[1] = 0LL;
+  alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle(v25, 0LL, 120LL);
+  v8 = *((_QWORD *)&v25[0] + 1);
+  v9 = *(_QWORD *)&v25[1];
+  *(_OWORD *)(*((_QWORD *)&v25[0] + 1) + *(_QWORD *)&v25[1] + 96LL) = unk_19F15;
+  qmemcpy(
+    (void *)(v8 + v9),
+    "read input from the files specified by\n  NUL-terminated names in file F;\n  If F is - then read n",
+    96);
+  *(_QWORD *)(v8 + v9 + 112) = 0x7475706E69206472LL;
+  *(_QWORD *)&v25[1] = v9 + 120;
+  v10 = *(_QWORD *)&v25[0];
+  v33[0] = *(_OWORD *)((char *)v25 + 8);
+  if ( *(_QWORD *)&v25[0] != 0x8000000000000000LL )
+    v25[0] = v33[0];
+  if ( *((_QWORD *)&src[27] + 1) != 0x8000000000000000LL && *((_QWORD *)&src[27] + 1) )
+    _rust_dealloc(*(_QWORD *)&src[28], *((_QWORD *)&src[27] + 1), 1LL);
+  *((_QWORD *)&src[27] + 1) = v10;
+  src[28] = v25[0];
+  memcpy(v25, src, 0x250uLL);
+  v28 = 2LL;
+  *(_QWORD *)&v33[1] = v30;
+  v33[0] = __PAIR128__(v29, 2LL);
+  clap_builder::builder::arg::Arg::value_parser(src, v25);
+  BYTE13(src[36]) = 3;
+  memcpy(v33, src, 0x250uLL);
+  clap_builder::builder::command::Command::arg(v25, dest);
+  dest[7] = 8uLL;
+  dest[9] = 0LL;
+  dest[10] = 8uLL;
+  dest[12] = 0LL;
+  dest[13] = 8uLL;
+  dest[15] = 0LL;
+  dest[16] = 8uLL;
+  dest[18] = 0LL;
+  dest[19] = 8uLL;
+  dest[21] = 0LL;
+  dest[22] = 8uLL;
+  dest[24] = 0LL;
+  dest[25] = 8uLL;
+  *(_QWORD *)&dest[0] = 0LL;
+  *(_QWORD *)&dest[1] = 0LL;
+  *((_QWORD *)&dest[2] + 1) = 0LL;
+  *((_QWORD *)&dest[3] + 1) = 0LL;
+  *(_QWORD *)&dest[5] = 5LL;
+  *((_QWORD *)&dest[6] + 1) = 0LL;
+  *((_QWORD *)&dest[8] + 1) = 8LL;
+  *((_QWORD *)&dest[11] + 1) = 8LL;
+  *((_QWORD *)&dest[14] + 1) = 8LL;
+  *((_QWORD *)&dest[17] + 1) = 8LL;
+  *((_QWORD *)&dest[20] + 1) = 4LL;
+  *((_QWORD *)&dest[23] + 1) = 8LL;
+  *((_QWORD *)&dest[26] + 1) = 8LL;
+  *(_QWORD *)&dest[27] = 0LL;
+  *((_QWORD *)&dest[27] + 1) = 0x8000000000000000LL;
+  *(_QWORD *)&dest[29] = 0x8000000000000000LL;
+  *((_QWORD *)&dest[31] + 1) = 0x8000000000000001LL;
+  *(_QWORD *)&dest[33] = anon_777bb9d9a47a4fd760482fbc11f41de2_5_llvm_10162994613922154447;
+  *((_QWORD *)&dest[33] + 1) = 5LL;
+  *(_QWORD *)&dest[34] = anon_777bb9d9a47a4fd760482fbc11f41de2_5_llvm_10162994613922154447;
+  *((_QWORD *)&dest[34] + 1) = 5LL;
+  *(_QWORD *)&dest[35] = 0LL;
+  *(_QWORD *)&dest[36] = 0x1100000000006CLL;
+  DWORD2(dest[36]) = 0;
+  WORD6(dest[36]) = 3337;
+  *(_QWORD *)&src[0] = 0LL;
+  *((_QWORD *)&src[0] + 1) = 1LL;
+  *(_QWORD *)&src[1] = 0LL;
+  alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle(src, 0LL, 24LL);
+  v11 = *((_QWORD *)&src[0] + 1);
+  v12 = *(_QWORD *)&src[1];
+  *(_OWORD *)(*((_QWORD *)&src[0] + 1) + *(_QWORD *)&src[1]) = unk_19F2D;
+  *(_QWORD *)(v11 + v12 + 16) = 0x73746E756F632065LL;
+  *(_QWORD *)&src[1] = v12 + 24;
+  v13 = *(_QWORD *)&src[0];
+  v33[0] = *(_OWORD *)((char *)src + 8);
+  if ( *(_QWORD *)&src[0] != 0x8000000000000000LL )
+    src[0] = v33[0];
+  *((_QWORD *)&dest[27] + 1) = v13;
+  dest[28] = src[0];
+  memcpy(src, dest, 0x24CuLL);
+  *(_WORD *)((char *)&src[36] + 13) = *(_WORD *)((char *)&dest[36] + 13);
+  HIBYTE(src[36]) = HIBYTE(dest[36]);
+  BYTE12(src[36]) = 2;
+  clap_builder::builder::command::Command::arg(dest, v25);
+  v25[7] = 8uLL;
+  v25[9] = 0LL;
+  v25[10] = 8uLL;
+  v25[12] = 0LL;
+  v25[13] = 8uLL;
+  v25[15] = 0LL;
+  v25[16] = 8uLL;
+  v25[18] = 0LL;
+  v25[19] = 8uLL;
+  v25[21] = 0LL;
+  v25[22] = 8uLL;
+  v25[24] = 0LL;
+  v25[25] = 8uLL;
+  *(_QWORD *)&v25[0] = 0LL;
+  *(_QWORD *)&v25[1] = 0LL;
+  *((_QWORD *)&v25[2] + 1) = 0LL;
+  *((_QWORD *)&v25[3] + 1) = 0LL;
+  *(_QWORD *)&v25[5] = 5LL;
+  *((_QWORD *)&v25[6] + 1) = 0LL;
+  *((_QWORD *)&v25[8] + 1) = 8LL;
+  *((_QWORD *)&v25[11] + 1) = 8LL;
+  *((_QWORD *)&v25[14] + 1) = 8LL;
+  *((_QWORD *)&v25[17] + 1) = 8LL;
+  *((_QWORD *)&v25[20] + 1) = 4LL;
+  *((_QWORD *)&v25[23] + 1) = 8LL;
+  *((_QWORD *)&v25[26] + 1) = 8LL;
+  *(_QWORD *)&v25[27] = 0LL;
+  *((_QWORD *)&v25[27] + 1) = 0x8000000000000000LL;
+  *(_QWORD *)&v25[29] = 0x8000000000000000LL;
+  *((_QWORD *)&v25[31] + 1) = 0x8000000000000001LL;
+  *(_QWORD *)&v25[33] = anon_777bb9d9a47a4fd760482fbc11f41de2_6_llvm_10162994613922154447;
+  *((_QWORD *)&v25[33] + 1) = 15LL;
+  *(_QWORD *)&v25[34] = anon_777bb9d9a47a4fd760482fbc11f41de2_6_llvm_10162994613922154447;
+  *((_QWORD *)&v25[34] + 1) = 15LL;
+  *(_QWORD *)&v25[35] = 0LL;
+  *(_QWORD *)&v25[36] = 0x1100000000004CLL;
+  DWORD2(v25[36]) = 0;
+  WORD6(v25[36]) = 3337;
+  *(_QWORD *)&src[0] = 0LL;
+  *((_QWORD *)&src[0] + 1) = 1LL;
+  *(_QWORD *)&src[1] = 0LL;
+  alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle(src, 0LL, 36LL);
+  v14 = *((_QWORD *)&src[0] + 1);
+  v15 = *(_QWORD *)&src[1];
+  *(_OWORD *)(*((_QWORD *)&src[0] + 1) + *(_QWORD *)&src[1] + 16LL) = unk_19F55;
+  *(_OWORD *)(v14 + v15) = unk_19F45;
+  *(_DWORD *)(v14 + v15 + 32) = 1701734764;
+  *(_QWORD *)&src[1] = v15 + 36;
+  v16 = *(_QWORD *)&src[0];
+  v33[0] = *(_OWORD *)((char *)src + 8);
+  if ( *(_QWORD *)&src[0] != 0x8000000000000000LL )
+    src[0] = v33[0];
+  *((_QWORD *)&v25[27] + 1) = v16;
+  v25[28] = src[0];
+  memcpy(src, v25, 0x24CuLL);
+  *(_WORD *)((char *)&src[36] + 13) = *(_WORD *)((char *)&v25[36] + 13);
+  HIBYTE(src[36]) = HIBYTE(v25[36]);
+  BYTE12(src[36]) = 2;
+  clap_builder::builder::command::Command::arg(v25, dest);
+  dest[7] = 8uLL;
+  dest[9] = 0LL;
+  dest[10] = 8uLL;
+  dest[12] = 0LL;
+  dest[13] = 8uLL;
+  dest[15] = 0LL;
+  dest[16] = 8uLL;
+  dest[18] = 0LL;
+  dest[19] = 8uLL;
+  dest[21] = 0LL;
+  dest[22] = 8uLL;
+  dest[24] = 0LL;
+  dest[25] = 8uLL;
+  *(_QWORD *)&dest[0] = 0LL;
+  *(_QWORD *)&dest[1] = 0LL;
+  *((_QWORD *)&dest[2] + 1) = 0LL;
+  *((_QWORD *)&dest[3] + 1) = 0LL;
+  *(_QWORD *)&dest[5] = 5LL;
+  *((_QWORD *)&dest[6] + 1) = 0LL;
+  *((_QWORD *)&dest[8] + 1) = 8LL;
+  *((_QWORD *)&dest[11] + 1) = 8LL;
+  *((_QWORD *)&dest[14] + 1) = 8LL;
+  *((_QWORD *)&dest[17] + 1) = 8LL;
+  *((_QWORD *)&dest[20] + 1) = 4LL;
+  *((_QWORD *)&dest[23] + 1) = 8LL;
+  *((_QWORD *)&dest[26] + 1) = 8LL;
+  *(_QWORD *)&dest[27] = 0LL;
+  *((_QWORD *)&dest[27] + 1) = 0x8000000000000000LL;
+  *(_QWORD *)&dest[29] = 0x8000000000000000LL;
+  *((_QWORD *)&dest[31] + 1) = 0x8000000000000001LL;
+  *(_QWORD *)&dest[33] = anon_777bb9d9a47a4fd760482fbc11f41de2_7_llvm_10162994613922154447;
+  *((_QWORD *)&dest[33] + 1) = 5LL;
+  *(_QWORD *)&dest[34] = anon_777bb9d9a47a4fd760482fbc11f41de2_7_llvm_10162994613922154447;
+  *((_QWORD *)&dest[34] + 1) = 5LL;
+  *(_QWORD *)&dest[35] = 0LL;
+  *(_QWORD *)&dest[36] = 0x11000000110000LL;
+  DWORD2(dest[36]) = 0;
+  WORD6(dest[36]) = 3337;
+  *(_QWORD *)&src[0] = aAuto;
+  *((_QWORD *)&src[0] + 1) = 4LL;
+  *(_QWORD *)&src[1] = aAlways;
+  *((_QWORD *)&src[1] + 1) = 6LL;
+  *(_QWORD *)&src[2] = aOnly_0;
+  *((_QWORD *)&src[2] + 1) = 4LL;
+  *(_QWORD *)&src[3] = aNever;
+  *((_QWORD *)&src[3] + 1) = 5LL;
+  *(_QWORD *)&src[4] = 0LL;
+  *((_QWORD *)&src[4] + 1) = 4LL;
+  <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(v33, src);
+  clap_builder::builder::arg::Arg::value_parser(src, dest);
+  memcpy(dest, src, 0x250uLL);
+  v32[0] = aWhen;
+  v32[1] = 4LL;
+  v32[2] = 0LL;
+  v32[3] = 1LL;
+  <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(v33, v32);
+  if ( *((_QWORD *)&dest[21] + 1) )
+    _rust_dealloc(*(_QWORD *)&dest[22], 16LL * *((_QWORD *)&dest[21] + 1), 8LL);
+  *((_QWORD *)&dest[22] + 1) = *(_QWORD *)&v33[1];
+  *(_OWORD *)((char *)&dest[21] + 8) = v33[0];
+  memcpy(v33, dest, 0x248uLL);
+  *((_QWORD *)&v33[36] + 1) = *((_QWORD *)&dest[36] + 1) | 0x10LL;
+  *(_QWORD *)&dest[0] = 0LL;
+  *((_QWORD *)&dest[0] + 1) = 1LL;
+  *(_QWORD *)&dest[1] = 0LL;
+  alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle(dest, 0LL, 80LL);
+  v17 = *((_QWORD *)&dest[0] + 1);
+  v18 = *(_QWORD *)&dest[1];
+  *(_OWORD *)(*((_QWORD *)&dest[0] + 1) + *(_QWORD *)&dest[1] + 64LL) = unk_19FA9;
+  qmemcpy((void *)(v17 + v18), "when to print a line with total counts;\n  WHEN can be: auto, alw", 64);
+  *(_QWORD *)&dest[1] = v18 + 80;
+  v19 = *(_QWORD *)&dest[0];
+  src[0] = *(_OWORD *)((char *)dest + 8);
+  if ( *(_QWORD *)&dest[0] != 0x8000000000000000LL )
+    dest[0] = src[0];
+  if ( *((_QWORD *)&v33[27] + 1) != 0x8000000000000000LL && *((_QWORD *)&v33[27] + 1) )
+    _rust_dealloc(*(_QWORD *)&v33[28], *((_QWORD *)&v33[27] + 1), 1LL);
+  *((_QWORD *)&v33[27] + 1) = v19;
+  v33[28] = dest[0];
+  memcpy(src, v33, sizeof(src));
+  clap_builder::builder::command::Command::arg(dest, v25);
+  v25[7] = 8uLL;
+  v25[9] = 0LL;
+  v25[10] = 8uLL;
+  v25[12] = 0LL;
+  v25[13] = 8uLL;
+  v25[15] = 0LL;
+  v25[16] = 8uLL;
+  v25[18] = 0LL;
+  v25[19] = 8uLL;
+  v25[21] = 0LL;
+  v25[22] = 8uLL;
+  v25[24] = 0LL;
+  v25[25] = 8uLL;
+  *(_QWORD *)&v25[0] = 0LL;
+  *(_QWORD *)&v25[1] = 0LL;
+  *((_QWORD *)&v25[2] + 1) = 0LL;
+  *((_QWORD *)&v25[3] + 1) = 0LL;
+  *(_QWORD *)&v25[5] = 5LL;
+  *((_QWORD *)&v25[6] + 1) = 0LL;
+  *((_QWORD *)&v25[8] + 1) = 8LL;
+  *((_QWORD *)&v25[11] + 1) = 8LL;
+  *((_QWORD *)&v25[14] + 1) = 8LL;
+  *((_QWORD *)&v25[17] + 1) = 8LL;
+  *((_QWORD *)&v25[20] + 1) = 4LL;
+  *((_QWORD *)&v25[23] + 1) = 8LL;
+  *((_QWORD *)&v25[26] + 1) = 8LL;
+  *(_QWORD *)&v25[27] = 0LL;
+  *((_QWORD *)&v25[27] + 1) = 0x8000000000000000LL;
+  *(_QWORD *)&v25[29] = 0x8000000000000000LL;
+  *((_QWORD *)&v25[31] + 1) = 0x8000000000000001LL;
+  *(_QWORD *)&v25[33] = anon_777bb9d9a47a4fd760482fbc11f41de2_8_llvm_10162994613922154447;
+  *((_QWORD *)&v25[33] + 1) = 5LL;
+  *(_QWORD *)&v25[34] = anon_777bb9d9a47a4fd760482fbc11f41de2_8_llvm_10162994613922154447;
+  *((_QWORD *)&v25[34] + 1) = 5LL;
+  *(_QWORD *)&v25[35] = 0LL;
+  *(_QWORD *)&v25[36] = 0x11000000000077LL;
+  DWORD2(v25[36]) = 0;
+  WORD6(v25[36]) = 3337;
+  *(_QWORD *)&src[0] = 0LL;
+  *((_QWORD *)&src[0] + 1) = 1LL;
+  *(_QWORD *)&src[1] = 0LL;
+  alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle(src, 0LL, 21LL);
+  v20 = *((_QWORD *)&src[0] + 1);
+  v21 = *(_QWORD *)&src[1];
+  *(_OWORD *)(*((_QWORD *)&src[0] + 1) + *(_QWORD *)&src[1]) = unk_19FB9;
+  *(_QWORD *)(v20 + v21 + 13) = 0x73746E756F632064LL;
+  *(_QWORD *)&src[1] = v21 + 21;
+  v22 = *(_QWORD *)&src[0];
+  v33[0] = *(_OWORD *)((char *)src + 8);
+  if ( *(_QWORD *)&src[0] != 0x8000000000000000LL )
+    src[0] = v33[0];
+  *((_QWORD *)&v25[27] + 1) = v22;
+  v25[28] = src[0];
+  memcpy(src, v25, 0x24CuLL);
+  *(_WORD *)((char *)&src[36] + 13) = *(_WORD *)((char *)&v25[36] + 13);
+  HIBYTE(src[36]) = HIBYTE(v25[36]);
+  BYTE12(src[36]) = 2;
+  clap_builder::builder::command::Command::arg(v25, dest);
+  dest[7] = 8uLL;
+  dest[9] = 0LL;
+  dest[10] = 8uLL;
+  dest[12] = 0LL;
+  dest[13] = 8uLL;
+  dest[15] = 0LL;
+  dest[16] = 8uLL;
+  dest[18] = 0LL;
+  dest[19] = 8uLL;
+  dest[21] = 0LL;
+  dest[22] = 8uLL;
+  dest[24] = 0LL;
+  dest[25] = 8uLL;
+  *(_QWORD *)&dest[0] = 0LL;
+  *(_QWORD *)&dest[1] = 0LL;
+  *((_QWORD *)&dest[2] + 1) = 0LL;
+  *((_QWORD *)&dest[3] + 1) = 0LL;
+  *(_QWORD *)&dest[5] = 5LL;
+  *((_QWORD *)&dest[6] + 1) = 0LL;
+  *((_QWORD *)&dest[8] + 1) = 8LL;
+  *((_QWORD *)&dest[11] + 1) = 8LL;
+  *((_QWORD *)&dest[14] + 1) = 8LL;
+  *((_QWORD *)&dest[17] + 1) = 8LL;
+  *((_QWORD *)&dest[20] + 1) = 4LL;
+  *((_QWORD *)&dest[23] + 1) = 8LL;
+  *((_QWORD *)&dest[26] + 1) = 8LL;
+  *(_QWORD *)&dest[27] = 0LL;
+  *((_QWORD *)&dest[27] + 1) = 0x8000000000000000LL;
+  *(_QWORD *)&dest[29] = 0x8000000000000000LL;
+  *((_QWORD *)&dest[31] + 1) = 0x8000000000000001LL;
+  *(_QWORD *)&dest[33] = aFiles;
+  *((_QWORD *)&dest[33] + 1) = 5LL;
+  *(_QWORD *)&dest[34] = 0LL;
+  *(_QWORD *)&dest[35] = 0LL;
+  *(_QWORD *)&dest[36] = 0x11000000110000LL;
+  DWORD2(dest[36]) = 0;
+  WORD6(dest[36]) = 3329;
+  clap_builder::builder::arg::Arg::value_parser(src, dest);
+  BYTE13(src[36]) = 3;
+  memcpy(dest, src, 0x250uLL);
+  v23 = v27;
+  clap_builder::builder::command::Command::arg(v27, v25);
+  return v23;
+}

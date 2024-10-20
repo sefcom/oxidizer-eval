@@ -1,0 +1,44 @@
+fn uu_wc::count_fast::count_bytes_chars_and_lines_fast(a0: void*, a1: u32) -> u64 {
+    let v0: void*;  // [sp-0x4038], Other Possible Types: u64
+    let v1: void*;  // [sp-0x4030]
+    let v2: void*;  // [sp-0x3030]
+    let v3: void*;  // [sp-0x2030]
+    let v4: void*;  // [sp-0x1030]
+    let v6: u64;  // rax
+    let v7: void*;  // r13
+    let v8: u64;  // rdx
+
+    v4 = 0;
+    v3 = 0;
+    v2 = 0;
+    v1 = 0;
+    v0 = v6;
+    v0 = 0;
+    memset(&v1, 0, 0x4000);
+    v7 = 0;
+    while (<std::fs::File as std::io::Read>::read(a1, &v1, 0x4000)) {
+LABEL_48d1a0:
+        if std::io::error::Error::kind(v8) as i8 != 35 {
+            a0->field_0 = v7;
+            a0->field_8 = 0;
+            a0->field_10 = v0;
+            *(&(&a0->field_10)[1] as &i128) = 0;
+            *((&a0->field_18 as &char + 8) as &u64) = v8;
+            return a0;
+        }
+    }
+    if !v8 {
+        a0->field_0 = v7;
+        a0->field_8 = 0;
+        a0->field_10 = v0;
+        *(&(&a0->field_10)[1] as &i128) = 0;
+        *((&a0->field_18 as &char + 8) as &i64) = 0;
+        return a0;
+    }
+    if v8 >= 16385 {
+        core::slice::index::slice_end_index_len_fail(); /* do not return */
+    }
+    v7 += v8;
+    v0 += bytecount::count(&v1, v8, 10);
+    goto LABEL_48d1a0;
+}

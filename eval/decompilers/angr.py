@@ -1,3 +1,5 @@
+import traceback
+
 import angr
 
 from .util import *
@@ -5,8 +7,8 @@ from .util import *
 
 def _extract_function_body(output):
     body = []
-    for line in output:
-        if len(body) == 0 and line.startswith("fn ") and line.endswith("{"):
+    for idx, line in enumerate(output):
+        if len(body) == 0 and line.endswith(")") and len(output) > idx + 1 and output[idx + 1].endswith("{"):
             body.append(line)
             continue
         elif len(body):
@@ -14,25 +16,37 @@ def _extract_function_body(output):
     return "\n".join(body)
 
 
-def angr_dec(binary_path, func_name, is_rust_binary=True):
-    binary_name = os.path.basename(binary_path)
-    cache = get_cached_decompiled_code("angr", binary_name, func_name)
-    if cache:
-        return cache
-    proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=is_rust_binary)
-    cfg = proj.analyses.CFGFast(normalize=True)
-    proj.analyses.CompleteCallingConventions(recover_variables=True, cfg=cfg)
-    for func_addr in proj.kb.functions:
-        func = proj.kb.functions[func_addr]
-        try:
-            if func.name == func_name:
-                decompiler = proj.analyses.Decompiler(cfg=cfg, func=func)
-                result = _extract_function_body(decompiler.codegen.text.split("\n"))
-                if result:
-                    save_output("angr", binary_name, func_name, result)
-                return result
-        except BaseException as e:
-            import traceback
+def angr_dec(binary_path, function_list, cache_dir, cache_only=False):
+    assert os.path.exists(binary_path)
 
-            traceback.print_exception(e)
-    return None
+    function_list = list(function_list)
+    result = {}
+
+    for func_name in list(function_list):
+        cached_output = load_cached_output(cache_dir, func_name)
+        if cached_output:
+            result[func_name] = cached_output
+            function_list.remove(func_name)
+
+    if function_list and not cache_only:
+        try:
+            proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=False)
+            cfg = proj.analyses.CFGFast(normalize=True)
+            proj.analyses.CompleteCallingConventions(recover_variables=True, cfg=cfg)
+        except:
+            # TODO: Log here
+            pass
+
+        for func_addr in proj.kb.functions:
+            func = proj.kb.functions[func_addr]
+            try:
+                if func.name in function_list:
+                    decompiler = proj.analyses.Decompiler(cfg=cfg, func=func)
+                    output = _extract_function_body(decompiler.codegen.text.split("\n"))
+                    if output:
+                        save_output(cache_dir, func.name, output)
+                        result[func.name] = output
+            except BaseException as e:
+                traceback.print_exception(e)
+                print(f"Failed to decompile functon: {demangle(func.name)}")
+    return result
