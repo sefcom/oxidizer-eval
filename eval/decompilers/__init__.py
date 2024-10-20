@@ -1,1 +1,1 @@
-from .ida_dec import ida_dec
+from .ida import ida_dec

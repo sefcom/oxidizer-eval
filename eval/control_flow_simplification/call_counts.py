@@ -9,7 +9,7 @@ from ailment import AILBlockWalker, Block
 from ailment.statement import Call, Statement
 from ailment.expression import Const
 import angr
-from angr.rust.utils.library import demangle
+from angr.rust.utils.library import demangle, normalize
 
 from ..decompilers import ida_dec
 from ..config import *
@@ -34,6 +34,8 @@ def normalize_result(result):
 
 def collect_call_counts_angr(name, rust_mode):
     path = os.path.abspath(f"dataset/{name}")
+    env = os.environ.copy()
+    env["RUSTC"] = "rust-scanner"
     subprocess.run(["cargo", "+nightly", "build", "--release"], cwd=path, stderr=subprocess.DEVNULL)
     path = os.path.join(path, "target", "release", name)
     proj = angr.Project(path, auto_load_libs=False, is_rust_binary=rust_mode)
@@ -104,6 +106,8 @@ def collect_call_counts_source(name):
     for line in result.stdout.decode().splitlines():
         if any(line.startswith(prefix) for prefix in prefixes):
             caller, callee = line.split("---")
+            caller = normalize(caller, remove_polymorphism=True)
+            callee = normalize(callee, remove_polymorphism=True)
             if caller not in counts:
                 counts[caller] = defaultdict(int)
             counts[caller][callee] += 1
