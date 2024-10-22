@@ -19,7 +19,7 @@ def eval_one(binary_path, opt_level):
     function_list = load_function_list(binary_path, module=f"uu_{binary_name}")
 
     angr_dec_result = angr_dec(
-        binary_path, function_list, cache_dir=f"O{opt_level}/angr/{binary_name}", cache_only=False
+        binary_path, function_list, cache_dir=f"O{opt_level}/angr/{binary_name}", cache_only=True
     )
     oxidizer_dec_result = oxidizer_dec(
         binary_path, function_list, cache_dir=f"O{opt_level}/oxidizer/{binary_name}", cache_only=True
@@ -46,6 +46,10 @@ def eval_one(binary_path, opt_level):
         func_eval_result.add_num_ptr_deref("IDA", num_ptr_deref(ida_output))
         func_eval_result.add_num_ptr_deref("Oxidizer", num_ptr_deref(oxidizer_output))
         func_eval_result.add_num_ptr_deref("angr", num_ptr_deref(angr_output))
+
+        func_eval_result.add_num_assignments("IDA", num_assignments(ida_output))
+        func_eval_result.add_num_assignments("Oxidizer", num_assignments(oxidizer_output))
+        func_eval_result.add_num_assignments("angr", num_assignments(angr_output))
 
         func_eval_result.add_num_whiles("IDA", num_whiles(ida_output))
         func_eval_result.add_num_whiles("Oxidizer", num_whiles(oxidizer_output))

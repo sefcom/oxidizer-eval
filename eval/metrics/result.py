@@ -5,9 +5,10 @@ DECOMPILERS = ("IDA", "Oxidizer", "angr")
 LOC = "LoC"
 NUM_VARIABLES = "# Variables"
 NUM_PTR_DEREF = "# Pointer dereference"
+NUM_ASSIGNMENTS = "# Assignments"
 NUM_WHILES = "# While Loops"
 NUM_GOTOS = "# Gotos"
-METRICS = (LOC, NUM_VARIABLES, NUM_PTR_DEREF, NUM_WHILES, NUM_GOTOS)
+METRICS = (LOC, NUM_VARIABLES, NUM_PTR_DEREF, NUM_ASSIGNMENTS, NUM_WHILES, NUM_GOTOS)
 
 
 class FunctionEvalResult:
@@ -24,6 +25,9 @@ class FunctionEvalResult:
 
     def add_num_ptr_deref(self, decompiler, value):
         self.eval_result[NUM_PTR_DEREF][decompiler] = value
+
+    def add_num_assignments(self, decompiler, value):
+        self.eval_result[NUM_ASSIGNMENTS][decompiler] = value
 
     def add_num_whiles(self, decompiler, value):
         self.eval_result[NUM_WHILES][decompiler] = value

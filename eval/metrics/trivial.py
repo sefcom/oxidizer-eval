@@ -39,3 +39,7 @@ def num_whiles(output):
 
 def num_gotos(output):
     return len(re.findall(r"goto .*;", output))
+
+
+def num_assignments(output):
+    return output.count(" = ")

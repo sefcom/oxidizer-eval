@@ -1,0 +1,19 @@
+import os
+import shutil
+
+from eval.decompilers import ida_dec
+from eval.decompilers.util import load_function_list
+
+
+def decompile_example(opt_level):
+    binary_path = f"example/example-o{opt_level}"
+    if os.path.exists(binary_path + ".i64"):
+        os.remove(binary_path + ".i64")
+    function_list = load_function_list(binary_path, module=f"example")
+    ida_dec(binary_path, function_list, cache_dir=f"example/O{opt_level}")
+
+
+if __name__ == "__main__":
+    shutil.rmtree("output/decompiled_code/example", ignore_errors=True)
+    decompile_example(opt_level=0)
+    decompile_example(opt_level=3)
