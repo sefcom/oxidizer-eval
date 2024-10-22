@@ -79,6 +79,8 @@ class EvalResult:
 
     def __str__(self) -> str:
         output = f"Overall Evaluation Result:\n"
+        output += f"# Binaries: {len(self.binary_eval_results)}\n"
+        output += f"# Functions: {sum(len(binary_eval_result.func_eval_results) for binary_eval_result in self.binary_eval_results)}\n"
         for metric in METRICS:
             output += f'Average {metric}({"/".join(DECOMPILERS)}): {"/".join([f"{self._average(decompiler, metric):.1f}" for decompiler in DECOMPILERS])}\n'
         return output
