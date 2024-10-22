@@ -58,6 +58,9 @@ class BinaryEvalResult:
         values = [func_eval_result.eval_result[metric][decompiler] for func_eval_result in self.func_eval_results]
         return sum(values) / len(values) if len(values) else -1.0
 
+    def is_valid(self):
+        return all(self._average(decompiler, metric) >= 0 for decompiler in DECOMPILERS for metric in METRICS)
+
     def __str__(self) -> str:
         output = f"Binary: {self.binary_path}\n"
         for metric in METRICS:

@@ -81,7 +81,7 @@ def eval_coreutils(opt_level):
     with Pool() as pool:
         results = pool.starmap(eval_one, tasks)
 
-    eval_result = EvalResult(results)
+    eval_result = EvalResult([result for result in results if result.is_valid()])
     print(eval_result)
     # for binary_path in binary_paths:
     #     eval_one(binary_path, opt_level)
