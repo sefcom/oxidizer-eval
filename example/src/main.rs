@@ -51,8 +51,32 @@ fn example_deref_coercion() {
     );
 }
 
+#[inline(never)]
+fn example_dividing_by_zero() {
+    let numerator = 10;
+
+    println!("Enter a divisor:");
+
+    let mut input = String::new();
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read line");
+
+    // Convert the input to an integer
+    let divisor: i32 = match input.trim().parse() {
+        Ok(num) => num,
+        Err(_) => {
+            println!("Please enter a valid integer.");
+            return;
+        }
+    };
+
+    println!("Result: {}", (numerator / divisor));
+}
+
 fn main() {
     example_argument_ownership_move();
     example_ownership_move();
     example_deref_coercion();
+    example_dividing_by_zero();
 }

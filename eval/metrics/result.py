@@ -8,7 +8,9 @@ NUM_PTR_DEREF = "# Pointer dereference"
 NUM_ASSIGNMENTS = "# Assignments"
 NUM_WHILES = "# While Loops"
 NUM_GOTOS = "# Gotos"
-METRICS = (LOC, NUM_VARIABLES, NUM_PTR_DEREF, NUM_ASSIGNMENTS, NUM_WHILES, NUM_GOTOS)
+NUM_CALL_COUNTS = "# Calls"
+# METRICS = (LOC, NUM_VARIABLES, NUM_PTR_DEREF, NUM_ASSIGNMENTS, NUM_WHILES, NUM_GOTOS)
+METRICS = (LOC, NUM_VARIABLES, NUM_ASSIGNMENTS, NUM_GOTOS, NUM_CALL_COUNTS)
 
 
 class FunctionEvalResult:
@@ -34,6 +36,17 @@ class FunctionEvalResult:
 
     def add_num_gotos(self, decompiler, value):
         self.eval_result[NUM_GOTOS][decompiler] = value
+
+    def add_num_call_counts(self, decompiler, value):
+        self.eval_result[NUM_CALL_COUNTS][decompiler] = value
+
+    @staticmethod
+    def merge(results):
+        new_result = FunctionEvalResult(results[0].func_name)
+        for result in results:
+            for metric in METRICS:
+                new_result.eval_result[metric].update(result.eval_result[metric])
+        return new_result
 
     def __str__(self) -> str:
         output = f"Function: {self.func_name}\n"
@@ -85,5 +98,5 @@ class EvalResult:
         output += f"# Binaries: {len(self.binary_eval_results)}\n"
         output += f"# Functions: {sum(len(binary_eval_result.func_eval_results) for binary_eval_result in self.binary_eval_results)}\n"
         for metric in METRICS:
-            output += f'Average {metric}({"/".join(DECOMPILERS)}): {"/".join([f"{self._average(decompiler, metric):.1f}" for decompiler in DECOMPILERS])}\n'
+            output += f'Average {metric}({"/".join(DECOMPILERS)}): {"/".join([f"{self._average(decompiler, metric):.2f}" for decompiler in DECOMPILERS])}\n'
         return output

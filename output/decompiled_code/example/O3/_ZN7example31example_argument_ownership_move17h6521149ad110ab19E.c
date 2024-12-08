@@ -16,7 +16,7 @@ __int64 example::example_argument_ownership_move()
   if ( (_QWORD)v3 == 0x8000000000000000LL )
   {
     *(_QWORD *)&v5[0] = *((_QWORD *)&v3 + 1);
-    core::result::unwrap_failed(aCalledResultUn, 43LL, v5, &off_567D8, &off_56880);
+    core::result::unwrap_failed(aCalledResultUn, 43LL, v5, &off_57138, &off_57200);
   }
   v5[1] = v4;
   v5[0] = v3;

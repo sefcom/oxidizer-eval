@@ -15,7 +15,7 @@ __int64 example::example_deref_coercion()
   v4[1] = 31LL;
   v3[0] = v4;
   v3[1] = <core::option::Option<T> as core::fmt::Debug>::fmt;
-  v5[0] = &unk_568B0;
+  v5[0] = &unk_57230;
   v5[1] = 2LL;
   v5[4] = 0LL;
   v5[2] = v3;

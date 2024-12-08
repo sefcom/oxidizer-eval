@@ -1,4 +1,6 @@
+import json
 import traceback
+from pprint import pformat
 
 import angr
 
@@ -24,8 +26,10 @@ def oxidizer_dec(binary_path, function_list, cache_dir, cache_only=False):
 
     for func_name in list(function_list):
         cached_output = load_cached_output(cache_dir, func_name)
-        if cached_output:
+        cached_call_counts_output = load_cached_output(cache_dir, "CALL_COUNTS_" + func_name)
+        if cached_output and cached_call_counts_output:
             result[func_name] = cached_output
+            result["CALL_COUNTS_" + func_name] = cached_call_counts_output
             function_list.remove(func_name)
 
     if function_list and not cache_only:
@@ -34,8 +38,7 @@ def oxidizer_dec(binary_path, function_list, cache_dir, cache_only=False):
             cfg = proj.analyses.CFGFast(normalize=True)
             proj.analyses.CompleteCallingConventions(recover_variables=True, cfg=cfg)
         except:
-            # TODO: Log here
-            pass
+            return result
 
         for func_addr in proj.kb.functions:
             func = proj.kb.functions[func_addr]
@@ -46,7 +49,12 @@ def oxidizer_dec(binary_path, function_list, cache_dir, cache_only=False):
                     if output:
                         save_output(cache_dir, func.name, output)
                         result[func.name] = output
+                    call_counter = CallCounter(proj)
+                    call_counter.walk(decompiler.seq_node)
+                    save_output(cache_dir, "CALL_COUNTS_" + func.name, json.dumps(dict(call_counter.call_counts), indent=2))
+
             except BaseException as e:
                 traceback.print_exception(e)
                 print(f"Failed to decompile functon: {demangle(func.name)}")
+                save_output(cache_dir, "ERROR_" + func.name, "".join(traceback.format_exception(e)))
     return result

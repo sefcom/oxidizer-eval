@@ -6,7 +6,7 @@ __int64 __fastcall example::example_ownership_move()
 
   example::Person::new(v1);
   if ( *(_QWORD *)&v1[0] == 0x8000000000000000LL )
-    example::example_ownership_move::panic_cold_explicit(&off_592D8);
+    example::example_ownership_move::panic_cold_explicit(&off_5B058);
   v2[1] = v1[1];
   v2[0] = v1[0];
   example::Person::print((__int64)v2);

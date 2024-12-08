@@ -11,57 +11,61 @@ from eval.metrics.result import FunctionEvalResult, BinaryEvalResult, EvalResult
 from eval.metrics.trivial import *
 
 
-def eval_one(binary_path, opt_level):
-    # if binary_path != "dataset/o3/fmt":
-    #     return BinaryEvalResult(binary_path)
+DEC_OPTIONS = {
+    "angr": {"dec_func": angr_dec, "cache_only": True},
+    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True},
+    "IDA": {"dec_func": ida_dec, "cache_only": True},
+}
 
+
+def eval_one_with_decompiler(binary_path, function_list, opt_level, decompiler):
+    options = DEC_OPTIONS[decompiler]
+    dec_func = options["dec_func"]
+    cache_only = options["cache_only"]
+
+    binary_name = os.path.basename(binary_path)
+    dec_result = dec_func(
+        binary_path,
+        function_list,
+        cache_dir=f"O{opt_level}/{decompiler.lower()}/{binary_name}",
+        cache_only=cache_only,
+    )
+
+    func_eval_results = []
+    for func_name in function_list:
+        if func_name in dec_result:
+            dec_output = dec_result[func_name]
+            call_counts_output = dec_result.get("CALL_COUNTS_" + func_name, "{}")
+
+            func_eval_result = FunctionEvalResult(func_name)
+            # Feeding outputs
+            func_eval_result.add_loc(decompiler, LoC(dec_output))
+            func_eval_result.add_num_assignments(decompiler, num_assignments(dec_output))
+            func_eval_result.add_num_variables(decompiler, num_variables(dec_output))
+            func_eval_result.add_num_gotos(decompiler, num_gotos(dec_output))
+            func_eval_result.add_num_call_counts(decompiler, num_call_counts(call_counts_output))
+            func_eval_results.append(func_eval_result)
+            print(func_eval_result)
+    return func_eval_results
+
+
+def eval_one(binary_path, opt_level):
     binary_name = os.path.basename(binary_path)
     function_list = load_function_list(binary_path, module=f"uu_{binary_name}")
 
-    angr_dec_result = angr_dec(
-        binary_path, function_list, cache_dir=f"O{opt_level}/angr/{binary_name}", cache_only=True
-    )
-    oxidizer_dec_result = oxidizer_dec(
-        binary_path, function_list, cache_dir=f"O{opt_level}/oxidizer/{binary_name}", cache_only=True
-    )
-    ida_dec_result = ida_dec(binary_path, function_list, cache_dir=f"O{opt_level}/ida/{binary_name}", cache_only=True)
-
     binary_eval_result = BinaryEvalResult(binary_path)
+    decompiler_and_func_name_to_func_eval_result = {}
+    for decompiler in DEC_OPTIONS:
+        func_eval_results = eval_one_with_decompiler(binary_path, function_list, opt_level, decompiler)
+        for func_eval_result in func_eval_results:
+            decompiler_and_func_name_to_func_eval_result[(decompiler, func_eval_result.func_name)] = func_eval_result
 
-    decompiled_function_list = set(oxidizer_dec_result.keys()).intersection(ida_dec_result.keys())
-    for func_name in decompiled_function_list:
-        oxidizer_output = oxidizer_dec_result[func_name]
-        ida_output = ida_dec_result[func_name]
-        angr_output = angr_dec_result[func_name]
-
-        func_eval_result = FunctionEvalResult(demangle(func_name))
-        func_eval_result.add_loc("IDA", LoC(ida_output))
-        func_eval_result.add_loc("Oxidizer", LoC(oxidizer_output))
-        func_eval_result.add_loc("angr", LoC(angr_output))
-
-        func_eval_result.add_num_variables("IDA", num_variables_ida(ida_output))
-        func_eval_result.add_num_variables("Oxidizer", num_variables_oxidizer(oxidizer_output))
-        func_eval_result.add_num_variables("angr", num_variables_angr(angr_output))
-
-        func_eval_result.add_num_ptr_deref("IDA", num_ptr_deref(ida_output))
-        func_eval_result.add_num_ptr_deref("Oxidizer", num_ptr_deref(oxidizer_output))
-        func_eval_result.add_num_ptr_deref("angr", num_ptr_deref(angr_output))
-
-        func_eval_result.add_num_assignments("IDA", num_assignments(ida_output))
-        func_eval_result.add_num_assignments("Oxidizer", num_assignments(oxidizer_output))
-        func_eval_result.add_num_assignments("angr", num_assignments(angr_output))
-
-        func_eval_result.add_num_whiles("IDA", num_whiles(ida_output))
-        func_eval_result.add_num_whiles("Oxidizer", num_whiles(oxidizer_output))
-        func_eval_result.add_num_whiles("angr", num_whiles(angr_output))
-
-        func_eval_result.add_num_gotos("IDA", num_gotos(ida_output))
-        func_eval_result.add_num_gotos("Oxidizer", num_gotos(oxidizer_output))
-        func_eval_result.add_num_gotos("angr", num_gotos(angr_output))
-
-        binary_eval_result.add_func_eval_reuslt(func_eval_result)
-
-        # print(func_eval_result)
+    for func_name in function_list:
+        if all((decompiler, func_name) in decompiler_and_func_name_to_func_eval_result for decompiler in DEC_OPTIONS):
+            merged_func_eval_result = FunctionEvalResult.merge(
+                [decompiler_and_func_name_to_func_eval_result[(decompiler, func_name)] for decompiler in DEC_OPTIONS]
+            )
+            binary_eval_result.add_func_eval_reuslt(merged_func_eval_result)
 
     print(binary_eval_result)
     return binary_eval_result
@@ -75,6 +79,8 @@ def eval_coreutils(opt_level):
             if "." in filename:
                 continue
             binary_paths.append(os.path.join(dirpath, filename))
+
+    binary_paths = ["dataset/o3/fmt"]
 
     tasks = [(binary_path, opt_level) for binary_path in binary_paths]
 

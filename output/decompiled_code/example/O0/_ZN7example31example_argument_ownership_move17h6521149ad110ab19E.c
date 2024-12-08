@@ -19,7 +19,7 @@ __int64 __fastcall example::example_argument_ownership_move()
   if ( (_QWORD)v6 == 0x8000000000000000LL )
   {
     v12[0] = *((_QWORD *)&v6 + 1);
-    core::result::unwrap_failed(aCalledResultUn, 43LL, v12, &off_591E8, &off_592C0);
+    core::result::unwrap_failed(aCalledResultUn, 43LL, v12, &off_5AF18, &off_5B040);
   }
   v3 = v6;
   v4 = v7;

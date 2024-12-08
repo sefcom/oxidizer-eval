@@ -20,7 +20,7 @@ __int64 __fastcall example::example_deref_coercion()
   *(_QWORD *)&v6 = v7;
   *((_QWORD *)&v6 + 1) = <core::option::Option<T> as core::fmt::Debug>::fmt;
   v5 = v6;
-  core::fmt::Arguments::new_v1(v4, &unk_592F0, &v5);
+  core::fmt::Arguments::new_v1(v4, &unk_5B070, &v5);
   std::io::stdio::_print(v4);
   return core::ptr::drop_in_place<alloc::string::String>(v8);
 }

@@ -60,7 +60,7 @@ __int64 __fastcall example::Person::new(_QWORD *a1)
     if ( v17[0] )
     {
       v9 = v17[1];
-      core::result::unwrap_failed(aCalledResultUn, 43LL, &v9, &unk_567B8, &off_56838);
+      core::result::unwrap_failed(aCalledResultUn, 43LL, &v9, &unk_57158, &off_571B8);
     }
     result = v18;
     *a1 = v5;

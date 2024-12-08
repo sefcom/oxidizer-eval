@@ -1,0 +1,6 @@
+long long uu_ls::colors::StyleManager::apply_style_based_on_metadata::hfcc015786de044fb(void* a0, unsigned long long *a1, unsigned long a2, unsigned long long a3, unsigned long a4, unsigned long a5)
+{
+    unsigned long v0;  // [bp+0x8]
+
+    return uu_ls::colors::StyleManager::apply_style::he583765b19bf794e(a0, a1, lscolors::LsColors::style_for_path_with_metadata::hffa3ee4d37dc23b2(*(a1), a2 + 24, a3, a3, a4, a5), a4, a5, (char)v0);
+}

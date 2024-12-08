@@ -15,6 +15,6 @@ __int64 __fastcall example::Person::print(__int64 a1)
   v3[1] = <alloc::string::String as core::fmt::Display>::fmt;
   v3[2] = a1 + 24;
   v3[3] = core::fmt::num::imp::<impl core::fmt::Display for isize>::fmt;
-  core::fmt::Arguments::new_v1(v2, &off_59290, v3);
+  core::fmt::Arguments::new_v1(v2, &off_5B010, v3);
   return std::io::stdio::_print(v2);
 }

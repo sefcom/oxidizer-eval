@@ -1,3 +1,4 @@
+import json
 import re
 
 
@@ -9,26 +10,10 @@ def num_ptr_deref(output):
     return output.count("*(")
 
 
-def num_variables_oxidizer(output):
+def num_variables(output):
     num_variables = 0
     for line in output.split("\n"):
-        if line.strip().startswith("let "):
-            num_variables += 1
-    return num_variables
-
-
-def num_variables_ida(output):
-    num_variables = 0
-    for line in output.split("\n"):
-        if re.match(r".*v[0-9]+; //.*", line):
-            num_variables += 1
-    return num_variables
-
-
-def num_variables_angr(output):
-    num_variables = 0
-    for line in output.split("\n"):
-        if re.match(r".*v[0-9]+;  //.*", line):
+        if "//" in line:
             num_variables += 1
     return num_variables
 
@@ -43,3 +28,8 @@ def num_gotos(output):
 
 def num_assignments(output):
     return output.count(" = ")
+
+
+def num_call_counts(output):
+    call_counts = json.loads(output)
+    return sum(call_counts.values())

@@ -1,0 +1,23 @@
+{
+  "core::ptr::drop_in_place<alloc::vec::Vec<std::ffi::os_str::OsString>>": 3,
+  "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+  "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 2,
+  "core::ptr::drop_in_place<alloc::vec::Vec<alloc::string::String>>": 2,
+  "core::ptr::drop_in_place<uu_fmt::FmtOptions>": 2,
+  "core::ptr::drop_in_place<std::io::buffered::bufwriter::BufWriter<std::io::stdio::Stdout>>": 2,
+  "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 1,
+  "std::io::buffered::bufwriter::BufWriter<W>::with_capacity": 1,
+  "std::io::stdio::stdout": 1,
+  "uu_fmt::FmtOptions::from_matches": 1,
+  "uu_fmt::extract_files": 1,
+  "clap_builder::builder::command::Command::try_get_matches_from": 1,
+  "uu_fmt::uu_app": 1,
+  "core::ptr::drop_in_place<alloc::borrow::Cow<str>>": 2,
+  "alloc::boxed::Box<T>::new": 1,
+  "core::option::Option<T>::map_or_else": 1,
+  "core::option::unwrap_failed": 1,
+  "<&str as core::str::pattern::Pattern>::strip_prefix_of": 1,
+  "core::char::methods::encode_utf8_raw": 1,
+  "std::sys::os_str::bytes::Slice::to_string_lossy": 1,
+  "core::iter::traits::iterator::Iterator::collect": 1
+}

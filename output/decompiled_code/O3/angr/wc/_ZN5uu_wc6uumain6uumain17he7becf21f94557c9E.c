@@ -1,0 +1,52 @@
+long long uu_wc::uumain::uumain::he7becf21f94557c9(unsigned long long a0, unsigned long long a1)
+{
+    char v0;  // [bp-0x370], Other Possible Types: unsigned long, unsigned long long
+    unsigned long v1;  // [sp-0x368]
+    char v2;  // [bp-0x360], Other Possible Types: unsigned long long
+    unsigned long long v3;  // [sp-0x358]
+    char v4;  // [bp-0x350]
+    char v5;  // [bp-0x340]
+    unsigned long v6;  // [sp-0x338], Other Possible Types: unsigned long long
+    unsigned long long v7;  // [sp-0x330]
+    int v8;  // [sp-0x328]
+    int v9;  // [sp-0x318]
+    unsigned long long v10;  // [sp-0x308]
+    char v11;  // [bp-0x300]
+    char v12;  // [bp-0x2e0]
+    char v13;  // [bp-0x2d8]
+    char v14;  // [bp-0x2d0]
+    char v15;  // [bp-0x2c8]
+    unsigned long long v17;  // rdx
+    unsigned long long v18;  // rax
+
+    uu_wc::uu_app::h8c86feaf3392fd85(&v12, a1, v17);
+    clap_builder::builder::command::Command::try_get_matches_from::ha863cd1209d522da(&v0, &v12, a0, a1);
+    if (v6 == 0x8000000000000000)
+    {
+        v18 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::h7cfa18d1f977710c(v7);
+        return v18;
+    }
+    v10 = *((long long *)&v5);
+    *((int128_t *)&v9) = *((int128_t *)&v4);
+    *((int128_t *)&v8) = *((int128_t *)&v2);
+    v6 = v0;
+    v7 = v1;
+    uu_wc::Settings::new::hd9679427fac1098c(&v11, &v6);
+    uu_wc::Inputs::new::h8949d0fa900a2976(&v12, &v6);
+    if (v0 == 3)
+    {
+        core::ptr::drop_in_place$LT$uu_wc..Settings$GT$::h524f24955c4026b8(&v11);
+    }
+    else
+    {
+        v0 = *((long long *)&v12);
+        v18 = *((long long *)&v13);
+        v2 = *((long long *)&v14);
+        v3 = *((long long *)&v15);
+        v18 = uu_wc::wc::h9968941e0febe722(&v0, &v11, v17);
+        core::ptr::drop_in_place$LT$uu_wc..Inputs$GT$::h7d9544b5d72a2120(&v0);
+        core::ptr::drop_in_place$LT$uu_wc..Settings$GT$::h524f24955c4026b8(&v11);
+    }
+    core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h2b253285933d7664(&v6);
+    return v18;
+}

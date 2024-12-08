@@ -42,7 +42,7 @@ _OWORD *__fastcall example::Person::new(_OWORD *a1)
     <core::result::Result<T,F> as core::ops::try_trait::FromResidual<core::result::Result<core::convert::Infallible,E>>>::from_residual(
       a1,
       v16,
-      &off_59278);
+      &off_5AFF8);
   }
   else
   {
@@ -62,7 +62,7 @@ _OWORD *__fastcall example::Person::new(_OWORD *a1)
       if ( (v22[0] & 1) != 0 )
       {
         v30[0] = v22[1];
-        core::result::unwrap_failed(aCalledResultUn, 43LL, v30, &unk_591C8, &off_59248);
+        core::result::unwrap_failed(aCalledResultUn, 43LL, v30, &unk_5AF38, &off_5AFC8);
       }
       v29 = 0;
       v27 = v18;
@@ -81,7 +81,7 @@ _OWORD *__fastcall example::Person::new(_OWORD *a1)
     <core::result::Result<T,F> as core::ops::try_trait::FromResidual<core::result::Result<core::convert::Infallible,E>>>::from_residual(
       a1,
       v21,
-      &off_59260);
+      &off_5AFE0);
     core::ptr::drop_in_place<alloc::string::String>(v19);
     core::ptr::drop_in_place<alloc::string::String>(&v17);
     v29 = 0;

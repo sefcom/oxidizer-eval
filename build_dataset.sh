@@ -87,8 +87,10 @@ cd dataset-src/coreutils
 
 compile () {
     echo "Compiling coreutils packages with O$1"
-    export RUSTFLAGS="-C opt-level=$1 -C lto=false"
+    export RUSTFLAGS="-C opt-level=$1 -C lto=false -Z inline-llvm=no"
     cargo build --release -p uu_*
+    rm -rf ../../dataset/o$1
+    mkdir ../../dataset/o$1
     for item in "${coreutils_packages[@]}"; do
         mv target/release/$item -f ../../dataset/o$1/$item
     done
