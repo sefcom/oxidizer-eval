@@ -1,31 +1,21 @@
 import json
+from collections import defaultdict, Counter
 import os
-from collections import defaultdict
 
-import idaapi
 import idautils
 import idc
-import ida_nalt
-
-
-def demangle(name):
-    result = idaapi.demangle_name(name, idc.INF_SHORT_DN)
-    return result if result is not None else name
+import idaapi
 
 
 if __name__ == "__main__":
-    with open("/home/34r7hm4n/dev/oxidizer/oxidizer-eval/test.log", "w") as fd:
-        fd.write("debug")
-    out_path = os.path.join("output", "call_counts", "ida", os.path.basename(ida_nalt.get_input_file_path() + ".json"))
-    os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    counts = {}
+    callees = defaultdict(list)
     for function_ea in idautils.Functions():
-        f_name = demangle(idc.get_func_name(function_ea))
-        # f_name = idc.get_func_name(function_ea)
+        func_name = str(idc.get_func_name(function_ea))
         for ref_ea in idautils.CodeRefsTo(function_ea, 0):
-            caller_name = demangle(idc.get_func_name(ref_ea))
-            if caller_name not in counts:
-                counts[caller_name] = defaultdict(int)
-            counts[caller_name][f_name] += 1
+            caller_name = str(idc.get_func_name(ref_ea))
+            callees[caller_name].append(func_name)
+    counts = {k: dict(Counter(v)) for k, v in callees.items()}
+    bin_name = os.path.basename(idaapi.get_input_file_path())
+    out_path = "CALL_COUNTS_" + bin_name + ".json"
     with open(out_path, "w") as fd:
         json.dump(counts, fd, indent=2)

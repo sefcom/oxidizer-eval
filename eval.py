@@ -24,7 +24,7 @@ def eval_one_with_decompiler(binary_path, function_list, opt_level, decompiler):
     cache_only = options["cache_only"]
 
     binary_name = os.path.basename(binary_path)
-    dec_result = dec_func(
+    decompilation_result, call_counts_result = dec_func(
         binary_path,
         function_list,
         cache_dir=f"O{opt_level}/{decompiler.lower()}/{binary_name}",
@@ -33,16 +33,16 @@ def eval_one_with_decompiler(binary_path, function_list, opt_level, decompiler):
 
     func_eval_results = []
     for func_name in function_list:
-        if func_name in dec_result:
-            dec_output = dec_result[func_name]
-            call_counts_output = dec_result.get("CALL_COUNTS_" + func_name, "{}")
+        if func_name in decompilation_result and func_name in call_counts_result:
+            decompilation_output = decompilation_result[func_name]
+            call_counts_output = call_counts_result[func_name]
 
             func_eval_result = FunctionEvalResult(func_name)
             # Feeding outputs
-            func_eval_result.add_loc(decompiler, LoC(dec_output))
-            func_eval_result.add_num_assignments(decompiler, num_assignments(dec_output))
-            func_eval_result.add_num_variables(decompiler, num_variables(dec_output))
-            func_eval_result.add_num_gotos(decompiler, num_gotos(dec_output))
+            func_eval_result.add_loc(decompiler, LoC(decompilation_output))
+            func_eval_result.add_num_assignments(decompiler, num_assignments(decompilation_output))
+            func_eval_result.add_num_variables(decompiler, num_variables(decompilation_output))
+            func_eval_result.add_num_gotos(decompiler, num_gotos(decompilation_output))
             func_eval_result.add_num_call_counts(decompiler, num_call_counts(call_counts_output))
             func_eval_results.append(func_eval_result)
             print(func_eval_result)
@@ -80,7 +80,7 @@ def eval_coreutils(opt_level):
                 continue
             binary_paths.append(os.path.join(dirpath, filename))
 
-    binary_paths = ["dataset/o3/fmt"]
+    # binary_paths = ["dataset/o3/fmt"]
 
     tasks = [(binary_path, opt_level) for binary_path in binary_paths]
 

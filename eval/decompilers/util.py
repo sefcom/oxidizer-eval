@@ -7,7 +7,7 @@ from angr.analyses.decompiler.sequence_walker import SequenceWalker
 from ailment import AILBlockWalker, Block, Const
 from ailment.statement import Call
 
-from ..config import CACHED_DECOMPILED_CODE_PATH
+from ..config import CACHED_DECOMPILED_CODE_PATH, CACHED_CALL_COUNTS_PATH
 
 
 def load_cached_output(cache_dir, func_name):
@@ -18,10 +18,25 @@ def load_cached_output(cache_dir, func_name):
     return None
 
 
+def load_cached_call_counts_output(cache_dir, func_name):
+    path = os.path.join(CACHED_CALL_COUNTS_PATH, cache_dir, func_name + ".json")
+    if os.path.exists(path):
+        with open(path, "r") as fd:
+            return fd.read()
+    return None
+
+
 def save_output(cache_dir, func_name, output):
     path = os.path.join(CACHED_DECOMPILED_CODE_PATH, cache_dir)
     os.makedirs(path, exist_ok=True)
     with open(os.path.join(path, func_name + ".c"), "w") as fd:
+        fd.write(output)
+
+
+def save_call_counts_output(cache_dir, func_name, output):
+    path = os.path.join(CACHED_CALL_COUNTS_PATH, cache_dir)
+    os.makedirs(path, exist_ok=True)
+    with open(os.path.join(path, func_name + ".json"), "w") as fd:
         fd.write(output)
 
 

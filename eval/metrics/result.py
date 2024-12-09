@@ -1,4 +1,5 @@
 from collections import defaultdict
+import statistics
 
 DECOMPILERS = ("IDA", "Oxidizer", "angr")
 
@@ -86,17 +87,36 @@ class EvalResult:
     def __init__(self, binary_eval_results):
         self.binary_eval_results = binary_eval_results
 
-    def _average(self, decompiler, metric):
+    def _values(self, decompiler, metric):
         all_func_eval_results = []
         for binary_eval_result in self.binary_eval_results:
             all_func_eval_results += binary_eval_result.func_eval_results
         values = [func_eval_result.eval_result[metric][decompiler] for func_eval_result in all_func_eval_results]
+        return values
+
+    def _average(self, decompiler, metric):
+        values = self._values(decompiler, metric)
         return sum(values) / len(values) if len(values) else -1.0
+
+    def _sum(self, decompiler, metric):
+        values = self._values(decompiler, metric)
+        return sum(values) if len(values) else -1
+
+    def _median(self, decompiler, metric):
+        values = self._values(decompiler, metric)
+        return statistics.median(values) if len(values) else -1
 
     def __str__(self) -> str:
         output = f"Overall Evaluation Result:\n"
         output += f"# Binaries: {len(self.binary_eval_results)}\n"
         output += f"# Functions: {sum(len(binary_eval_result.func_eval_results) for binary_eval_result in self.binary_eval_results)}\n"
+        output += "\n"
         for metric in METRICS:
             output += f'Average {metric}({"/".join(DECOMPILERS)}): {"/".join([f"{self._average(decompiler, metric):.2f}" for decompiler in DECOMPILERS])}\n'
+        output += "\n"
+        for metric in METRICS:
+            output += f'Sum {metric}({"/".join(DECOMPILERS)}): {"/".join([f"{self._sum(decompiler, metric)}" for decompiler in DECOMPILERS])}\n'
+        output += "\n"
+        for metric in METRICS:
+            output += f'Median {metric}({"/".join(DECOMPILERS)}): {"/".join([f"{self._median(decompiler, metric)}" for decompiler in DECOMPILERS])}\n'
         return output
