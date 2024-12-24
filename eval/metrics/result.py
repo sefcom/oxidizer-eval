@@ -1,7 +1,7 @@
 from collections import defaultdict
 import statistics
 
-DECOMPILERS = ("IDA", "Oxidizer", "angr")
+DECOMPILERS = ("Oxidizer", "angr", "IDA", "Ghidra")
 
 LOC = "LoC"
 NUM_VARIABLES = "# Variables"

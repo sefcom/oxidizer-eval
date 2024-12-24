@@ -6,6 +6,7 @@ from angr.rust.utils.library import demangle
 from eval.decompilers.ida import ida_dec
 from eval.decompilers.oxidizer import oxidizer_dec
 from eval.decompilers.angr import angr_dec
+from eval.decompilers.ghidra import ghidra_dec
 from eval.decompilers.util import load_function_list
 from eval.metrics.result import FunctionEvalResult, BinaryEvalResult, EvalResult
 from eval.metrics.trivial import *
@@ -15,6 +16,7 @@ DEC_OPTIONS = {
     "angr": {"dec_func": angr_dec, "cache_only": True},
     "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True},
     "IDA": {"dec_func": ida_dec, "cache_only": True},
+    "Ghidra": {"dec_func": ghidra_dec, "cache_only": True},
 }
 
 

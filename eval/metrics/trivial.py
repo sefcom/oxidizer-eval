@@ -12,8 +12,13 @@ def num_ptr_deref(output):
 
 def num_variables(output):
     num_variables = 0
-    for line in output.split("\n"):
-        if "//" in line:
+    start = False
+    for line in output.splitlines():
+        if line.endswith("{"):
+            start = True
+        elif start:
+            if line.strip() == "":
+                break
             num_variables += 1
     return num_variables
 

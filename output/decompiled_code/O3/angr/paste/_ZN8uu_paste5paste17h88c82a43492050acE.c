@@ -1,0 +1,281 @@
+long long uu_paste::paste::h88c82a43492050ac(struct_0 *a0, unsigned int a1, unsigned long long a2, unsigned long long a3, unsigned int a4)
+{
+    char v0;  // [sp-0x14d]
+    unsigned int v1;  // [sp-0x14c]
+    void* v2;  // [sp-0x148], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x140], Other Possible Types: unsigned long long
+    int v4;  // [bp-0x138], Other Possible Types: void*
+    unsigned long long v5;  // [sp-0x130]
+    void* v6;  // [sp-0x128], Other Possible Types: unsigned long long
+    unsigned long long v7;  // [sp-0x120]
+    unsigned int v8;  // [bp-0x118], Other Possible Types: unsigned long
+    void* v9;  // [sp-0x110]
+    char v10;  // [bp-0x108], Other Possible Types: unsigned long long
+    char *v11;  // [sp-0x100], Other Possible Types: unsigned long long
+    char v12;  // [bp-0xf8]
+    unsigned long v13;  // [sp-0xe8], Other Possible Types: unsigned long long
+    unsigned long long v14;  // [sp-0xe0]
+    void* v15;  // [sp-0xd8]
+    struct_0 *v16;  // [sp-0xd0]
+    unsigned long long v17;  // [sp-0xc8]
+    char v18;  // [bp-0xc0]
+    char v19;  // [bp-0xb0]
+    int v20;  // [bp-0xa8], Other Possible Types: char, unsigned long long
+    char v21;  // [bp-0xa0]
+    int v22;  // [bp-0x98], Other Possible Types: char
+    int v23;  // [sp-0x88]
+    int v24;  // [sp-0x58], Other Possible Types: unsigned long, unsigned long long
+    unsigned long long v25;  // [sp-0x50]
+    int v26;  // [bp-0x48], Other Possible Types: void*
+    unsigned long long v28;  // 4098
+    int v30;  // ymm0
+    int v31;  // ymm1
+    int v32;  // ymm2
+    int v33;  // xmm0
+    int v34;  // ymm0
+    unsigned long long v35;  // r15
+    unsigned long long v36;  // rbx
+    int v37;  // xmm0
+    int v38;  // xmm0
+    int v39;  // ymm0
+    int v40;  // xmm1
+    int v41;  // xmm2
+    unsigned long long v42;  // rdx
+    int v43;  // xmm0
+    int v44;  // xmm1
+    unsigned long long v45;  // rax
+    unsigned long long v46;  // rsi
+    unsigned long long v47;  // rdx
+    unsigned long long v48;  // rbx
+    unsigned int v49;  // r13d
+    unsigned long long v50;  // r14
+    unsigned long long v51;  // rax
+    unsigned long long v52;  // rax
+    unsigned long long v53;  // rax
+    void* v54;  // rbx
+    char *v55;  // rax
+    char *v56;  // r15
+    unsigned long long v59;  // rdx
+    unsigned long long v60;  // rax
+    unsigned long long v61;  // rax
+
+    uu_paste::parse_delimiters::hb664a1e25ab7532d(&v20, a2, a3);
+    v28 = *((long long *)&v20);
+    v2 = *((long long *)&v21);
+    if (v28)
+    {
+        core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::hb6a0512565d63f28(a0);
+        v2 = v2;
+        return v2;
+    }
+    v7 = *((long long *)&v22);
+    v9 = 0;
+    v16 = a0;
+    alloc::raw_vec::RawVec$LT$T$C$A$GT$::try_allocate_in::haae56d7083ca33aa(&v20, a0->field_10, 0);
+    v8 = a1;
+    v1 = a4;
+    if (*((long long *)&v20))
+        alloc::raw_vec::handle_error::h2372476369f9b8ac(); /* do not return */
+    v13 = *((long long *)&v21);
+    v14 = *((long long *)&v22);
+    v15 = 0;
+    _$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$::into_iter::h091a050a1b41589a(&v10, a0);
+    _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h21b6c4768c27adbd(&v18, &v10);
+    if (*((long long *)&v18) != 0x8000000000000000)
+    {
+        do
+        {
+            v6 = *((long long *)&v19);
+            v33 = *((int128_t *)&v18);
+            v34 = v30 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v33;
+            v4 = v33;
+            v35 = v5;
+            if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h38432cf967198ac5(v35, v6, "-", 1))
+            {
+                v36 = *((long long *)core::cell::once::OnceCell$LT$T$GT$::get_or_try_init::h6baf9a8581d70816(&v9));
+                alloc::rc::RcInnerPtr::inc_strong::h1589c55c207d08ba(v36);
+                v37 = v36;
+                v38 = (unsigned long long)v37 CONCAT 0;
+                v39 = v34 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v37 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v38;
+                continue;
+            }
+            else
+            {
+                std::fs::File::open::hb7967d9122de447d(&v20, v35, v6);
+                if ((int)v20)
+                {
+                    v45 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::he9f0d7c8a30f7b86((long long)(&v20)[8]);
+                    ::0x4aa640::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hedc7e3533bc5bce5(&v4);
+                    core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$::hfd3e25ef5610341b(&v10);
+                    goto LABEL_4ac3c8;
+                }
+                else
+                {
+                    std::io::buffered::bufreader::BufReader$LT$R$GT$::with_capacity::h74a83fb38d4f35f4(&v20, 0x2000, *((int *)&(&v20)[4]));
+                    v39 = v34 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (int128_t)v20;
+                    v40 = v22;
+                    v31 = v31 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v40;
+                    v41 = v23;
+                    v32 = v32 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v41;
+                    v24 = v40;
+                    v26 = v41;
+                }
+            }
+            v20 = v38;
+            v43 = *((int128_t *)&v24);
+            v30 = v39 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v43;
+            v44 = (int128_t)v26;
+            v31 = v31 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v44;
+            v23 = v44;
+            v22 = v43;
+            alloc::vec::Vec$LT$T$C$A$GT$::push::h6c2e0df2fab63c3d(&v13, &v20, v42);
+            ::0x4aa640::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hedc7e3533bc5bce5(&v4);
+            _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h21b6c4768c27adbd(&v18, &v10);
+        } while (*((long long *)&v18) != 0x8000000000000000);
+    }
+    core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$::hfd3e25ef5610341b(&v10);
+    v20 = std::io::stdio::stdout::h077da66234850927();
+    v3 = std::io::stdio::Stderr::lock::h890f7962a170fc90(&v20, v46, v47);
+    v48 = v1;
+    v0 = v48;
+    v17 = v15;
+    uu_paste::DelimiterState::new::he89e8a0a43be860a(&v20, v2, v7);
+    v4 = 0;
+    v5 = 1;
+    v6 = 0;
+    if (!(char)v8)
+    {
+        _$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$::from_elem::he6d5305d5280cf8f(&v10, v17);
+        v50 = &v4;
+        v8 = &g_5144c8;
+        v1 = v48;
+    }
+    else
+    {
+        v10 = _$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$::into_iter::hb8fe2e1e71a329ff(&v13);
+        v11 = v47;
+        v49 = v48;
+        while (true)
+        {
+LABEL_4ac0ad:
+            v51 = _$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h0ad377f3ebe2eea6(&v10);
+            if (!v51)
+                goto LABEL_4ac353;
+            v6 = 0;
+            while (true)
+            {
+                uu_paste::InputSource::read_until::hd9d395f8ff3c6f09(&v24, v51, v49, &v4);
+                v45 = v24;
+                if (v45)
+                    break;
+                if (v25)
+                {
+                    uu_paste::remove_trailing_line_ending_byte::h326177f080e83cbb(v49, &v4);
+                    uu_paste::DelimiterState::write_delimiter::h9b648f4de9e2a015(&v20, &v4, v47);
+                }
+                else
+                {
+                    uu_paste::DelimiterState::remove_trailing_delimiter::hc6a379bf3a9da53e(v20, (long long)v22, &v4);
+                    v52 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(&v3, v5, v6);
+                    if (v52)
+                    {
+                        v45 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::he9f0d7c8a30f7b86(v52);
+LABEL_4ac40e:
+                        goto LABEL_4ac3b4;
+                    }
+                    else
+                    {
+                        v53 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(&v3, &v0, 1);
+                        if (v53)
+                        {
+                            v45 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::he9f0d7c8a30f7b86(v53);
+                            goto LABEL_4ac40e;
+                        }
+                        goto LABEL_4ac0ad;
+                    }
+                }
+            }
+        }
+    }
+    while (true)
+    {
+        v6 = 0;
+        v24 = v14;
+        v25 = v15 * 48 + v24;
+        v26 = 0;
+        v54 = 0;
+        while (true)
+        {
+            v55 = _$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hdb880891a774a1ce(&v24);
+            if (!v47)
+                break;
+            v56 = v55;
+            if (v55 >= *((long long *)&v12))
+                core::panicking::panic_bounds_check::h25a5330941572dd1(); /* do not return */
+            if (*((char *)(v11 + v56)))
+            {
+LABEL_4ac200:
+                v54 += 1;
+                goto LABEL_4ac203;
+            }
+            else
+            {
+                uu_paste::InputSource::read_until::hd9d395f8ff3c6f09(&v18, v47, v1, v50);
+                v50 = v50;
+                v45 = *((long long *)&v18);
+                if (!(!v45))
+                    goto LABEL_4ac3aa;
+                if (*((long long *)&(&v18)[8]))
+                {
+                    uu_paste::remove_trailing_line_ending_byte::h326177f080e83cbb(v1, v50);
+LABEL_4ac203:
+                    uu_paste::DelimiterState::write_delimiter::h9b648f4de9e2a015(&v20, v50, v59);
+                }
+                else if (v56 < *((long long *)&v12))
+                {
+                    *((char *)(v11 + v56)) = 1;
+                    goto LABEL_4ac200;
+                }
+                else
+                {
+                    v8 = &g_5144e0;
+                    core::panicking::panic_bounds_check::h25a5330941572dd1(); /* do not return */
+                }
+            }
+        }
+        if (v54 == v17)
+        {
+            core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$bool$GT$$GT$::h12c305fc9020ea19(&v10);
+LABEL_4ac353:
+            ::0x4aa680::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h7223c4bdf8d07147(&v4);
+            core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::h417e1b3e50b7c6b8(v3);
+            core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uu_paste..InputSource$GT$$GT$::ha2d6068db0bb2131(&v13);
+            core::ptr::drop_in_place$LT$core..cell..once..OnceCell$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$std..io..stdio..Stdin$GT$$GT$$GT$$GT$::h8731d11b10c81312(&v9);
+            core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$u5d$$GT$$GT$::hdd1893cb718acb60(v2, v7);
+            return 0;
+        }
+        uu_paste::DelimiterState::remove_trailing_delimiter::hc6a379bf3a9da53e(v20, (long long)v22, v50);
+        v60 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(&v3, v5, v6);
+        if (v60)
+        {
+            v45 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::he9f0d7c8a30f7b86(v60);
+            goto LABEL_4ac3a4;
+        }
+        v61 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(&v3, &v0, 1);
+        if (v61)
+            break;
+        uu_paste::DelimiterState::reset_to_first_delimiter::h5608954f52e4d433(&v20);
+    }
+    v45 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::he9f0d7c8a30f7b86(v61);
+LABEL_4ac3a4:
+LABEL_4ac3aa:
+    core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$bool$GT$$GT$::h12c305fc9020ea19(&v10);
+LABEL_4ac3b4:
+    ::0x4aa680::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h7223c4bdf8d07147(&v4);
+    core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::h417e1b3e50b7c6b8(v3);
+LABEL_4ac3c8:
+    core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uu_paste..InputSource$GT$$GT$::ha2d6068db0bb2131(&v13);
+    core::ptr::drop_in_place$LT$core..cell..once..OnceCell$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$std..io..stdio..Stdin$GT$$GT$$GT$$GT$::h8731d11b10c81312(&v9);
+    core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$u5d$$GT$$GT$::hdd1893cb718acb60(v2, v7);
+    return v2;
+}

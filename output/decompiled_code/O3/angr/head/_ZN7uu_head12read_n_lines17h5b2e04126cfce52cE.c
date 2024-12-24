@@ -1,0 +1,24 @@
+long long uu_head::read_n_lines::h5b2e04126cfce52c(unsigned long a0, unsigned long a1, char a2)
+{
+    unsigned long v0;  // [sp-0x50], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long long v2;  // [sp-0x40]
+    char v3;  // [sp-0x38]
+    char v4;  // [bp-0x30]
+    unsigned long long v6;  // rsi
+    unsigned long long v7;  // rdx
+    void* v8;  // rbx
+
+    v1 = a0;
+    v2 = a1;
+    v3 = a2;
+    v0 = std::io::stdio::stdout::h077da66234850927();
+    std::io::buffered::bufwriter::BufWriter$LT$W$GT$::with_capacity::h984ac9cdcc949cc9(&v4, 0x4000, std::io::stdio::Stderr::lock::h890f7962a170fc90(&v0, v6, v7));
+    if (!_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..SpecCopy$GT$::copy::h47d20b2126756c12(&v1, &v4))
+    {
+        core::ptr::drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..StdoutLock$GT$$GT$::h7247be0bb18db66d(&v4);
+        return 0;
+    }
+    core::ptr::drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..StdoutLock$GT$$GT$::h7247be0bb18db66d(&v4);
+    return v8;
+}

@@ -1,0 +1,42 @@
+undefined8 * __rustcall
+uu_env::native_int_str::NativeStr::split_once(undefined8 *param_1,long param_2,undefined8 param_3)
+
+{
+  long lVar1;
+  ulong uVar2;
+  undefined extraout_DL;
+  undefined auVar3 [16];
+  undefined local_89;
+  long local_88;
+  long lStack_80;
+  undefined8 local_50;
+  undefined8 uStack_48;
+  undefined8 local_40;
+  undefined8 local_38;
+  undefined8 uStack_30;
+  undefined8 local_28;
+  
+  uVar2 = get_single_native_int_value(param_3);
+  if ((uVar2 & 1) != 0) {
+    local_88 = *(long *)(param_2 + 8);
+    lVar1 = *(long *)(param_2 + 0x10);
+    lStack_80 = local_88 + lVar1;
+    local_89 = extraout_DL;
+    auVar3 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::position
+                       (&local_88,&local_89);
+    if (auVar3._0_8_ != 0) {
+      slice(&local_50,param_2,0,auVar3._8_8_);
+                    /* try { // try from 001d92b6 to 001d92c8 has its CatchHandler @ 001d9336 */
+      slice(&local_38,param_2,auVar3._8_8_ + 1,lVar1);
+      *param_1 = local_50;
+      param_1[1] = uStack_48;
+      param_1[4] = uStack_30;
+      param_1[5] = local_28;
+      param_1[2] = local_40;
+      param_1[3] = local_38;
+      return param_1;
+    }
+  }
+  *param_1 = 0x8000000000000001;
+  return param_1;
+}

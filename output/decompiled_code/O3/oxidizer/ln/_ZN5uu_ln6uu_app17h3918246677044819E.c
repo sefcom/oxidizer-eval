@@ -1,0 +1,96 @@
+fn uu_ln::uu_app(a0: u32, a1: u32, a2: u32) -> u64 {
+    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct712, struct437
+    let v1: i4736;  // [sp-0x780], Other Possible Types: struct592, struct24
+    let v2: i5696;  // [sp-0x530], Other Possible Types: struct592, struct712
+    let v3: struct592;  // [sp-0x268], Other Possible Types: i4736
+    let v5: i64;  // rdx
+
+    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v5);
+    v2 = clap_builder::builder::command::Command::version(&v0, "0.0.28");
+    v0 = clap_builder::builder::command::Command::about(&v2, "Make links between files.");
+    v1 = uucore::format_usage(&g_41ea02, 131);
+    v2 = clap_builder::builder::command::Command::override_usage(&v0, &v1);
+    memcpy(&v0, &v2, 700);
+    v0.700 = 549755814016 | (stack_base)[628] as i64;
+    v0.708 = (stack_base)[620] as i32;
+    v1 = uucore::features::backup_control::arguments::backup();
+    v2 = clap_builder::builder::command::Command::arg(&v0, &v1);
+    v1 = uucore::features::backup_control::arguments::backup_no_args();
+    v0 = clap_builder::builder::command::Command::arg(&v2, &v1);
+    v2 = clap_builder::builder::arg::Arg::new("force");
+    v1 = clap_builder::builder::arg::Arg::short(&v2, 102);
+    v2 = clap_builder::builder::arg::Arg::long(&v1, "force");
+    v1 = clap_builder::builder::arg::Arg::help(&v2, "remove existing destination files");
+    v3 = clap_builder::builder::arg::Arg::action(&v1, 2);
+    v2 = clap_builder::builder::command::Command::arg(&v0, &v3);
+    v0 = clap_builder::builder::arg::Arg::new("interactive");
+    v1 = clap_builder::builder::arg::Arg::short(&v0, 105);
+    v0 = clap_builder::builder::arg::Arg::long(&v1, "interactive");
+    v1 = clap_builder::builder::arg::Arg::help(&v0, "prompt whether to remove existing destination files");
+    v3 = clap_builder::builder::arg::Arg::action(&v1, 2);
+    v0 = clap_builder::builder::command::Command::arg(&v2, &v3);
+    v2 = clap_builder::builder::arg::Arg::new("no-dereference");
+    v1 = clap_builder::builder::arg::Arg::short(&v2, 110);
+    v2 = clap_builder::builder::arg::Arg::long(&v1, "no-dereference");
+    v1 = clap_builder::builder::arg::Arg::help(&v2, "treat LINK_NAME as a normal file if it is a symbolic link to a directory");
+    v3 = clap_builder::builder::arg::Arg::action(&v1, 2);
+    v2 = clap_builder::builder::command::Command::arg(&v0, &v3);
+    v0 = clap_builder::builder::arg::Arg::new("logical");
+    v1 = clap_builder::builder::arg::Arg::short(&v0, 76);
+    v0 = clap_builder::builder::arg::Arg::long(&v1, "logical");
+    v1 = clap_builder::builder::arg::Arg::help(&v0, "follow TARGETs that are symbolic links");
+    v0 = clap_builder::builder::arg::Arg::overrides_with(&v1, "physical");
+    v1 = clap_builder::builder::arg::Arg::action(&v0, 2);
+    v0 = clap_builder::builder::command::Command::arg(&v2, &v1);
+    v2 = clap_builder::builder::arg::Arg::new("physical");
+    v1 = clap_builder::builder::arg::Arg::short(&v2, 80);
+    v2 = clap_builder::builder::arg::Arg::long(&v1, "physical");
+    v1 = clap_builder::builder::arg::Arg::help(&v2, "make hard links directly to symbolic links");
+    v3 = clap_builder::builder::arg::Arg::action(&v1, 2);
+    v2 = clap_builder::builder::command::Command::arg(&v0, &v3);
+    v0 = clap_builder::builder::arg::Arg::new("symbolic");
+    v1 = clap_builder::builder::arg::Arg::short(&v0, 115);
+    v0 = clap_builder::builder::arg::Arg::long(&v1, "symbolic");
+    v1 = clap_builder::builder::arg::Arg::help(&v0, "make symbolic links instead of hard links");
+    v0 = clap_builder::builder::arg::Arg::overrides_with(&v1, "symbolic");
+    v1 = clap_builder::builder::arg::Arg::action(&v0, 2);
+    v0 = clap_builder::builder::command::Command::arg(&v2, &v1);
+    v1 = uucore::features::backup_control::arguments::suffix();
+    v2 = clap_builder::builder::command::Command::arg(&v0, &v1);
+    v0 = clap_builder::builder::arg::Arg::new("target-directory");
+    v1 = clap_builder::builder::arg::Arg::short(&v0, 116);
+    v0 = clap_builder::builder::arg::Arg::long(&v1, "target-directory");
+    v1 = clap_builder::builder::arg::Arg::help(&v0, "specify the DIRECTORY in which to create the links");
+    v0 = clap_builder::builder::arg::Arg::value_name(&v1, v5);
+    v1 = clap_builder::builder::arg::Arg::value_hint(&v0, 4);
+    v3 = clap_builder::builder::arg::Arg::conflicts_with(&v1, "no-target-directory");
+    v0 = clap_builder::builder::command::Command::arg(&v2, &v3);
+    v2 = clap_builder::builder::arg::Arg::new("no-target-directory");
+    v1 = clap_builder::builder::arg::Arg::short(&v2, 84);
+    v2 = clap_builder::builder::arg::Arg::long(&v1, "no-target-directory");
+    v1 = clap_builder::builder::arg::Arg::help(&v2, "treat LINK_NAME as a normal file always");
+    v3 = clap_builder::builder::arg::Arg::action(&v1, 2);
+    v2 = clap_builder::builder::command::Command::arg(&v0, &v3);
+    v0 = clap_builder::builder::arg::Arg::new("relative");
+    v1 = clap_builder::builder::arg::Arg::short(&v0, 114);
+    v0 = clap_builder::builder::arg::Arg::long(&v1, "relative");
+    v1 = clap_builder::builder::arg::Arg::help(&v0, "create symbolic links relative to link location");
+    v0 = clap_builder::builder::arg::Arg::requires(&v1, "symbolic");
+    v1 = clap_builder::builder::arg::Arg::action(&v0, 2);
+    v0 = clap_builder::builder::command::Command::arg(&v2, &v1);
+    v2 = clap_builder::builder::arg::Arg::new("verbose");
+    v1 = clap_builder::builder::arg::Arg::short(&v2, 118);
+    v2 = clap_builder::builder::arg::Arg::long(&v1, "verbose");
+    v1 = clap_builder::builder::arg::Arg::help(&v2, "print name of each linked file");
+    v3 = clap_builder::builder::arg::Arg::action(&v1, 2);
+    v2 = clap_builder::builder::command::Command::arg(&v0, &v3);
+    v0 = clap_builder::builder::arg::Arg::new("files");
+    v1 = clap_builder::builder::arg::Arg::action(&v0, 1);
+    v0 = clap_builder::builder::arg::Arg::value_hint(&v1, 2);
+    memcpy(&v1, &v0, 584);
+    v1.584 = (stack_base)[0x800] as i32 | 1;
+    v1.588 = (stack_base)[2044] as i32;
+    v0 = clap_builder::builder::arg::Arg::num_args(&v1);
+    clap_builder::builder::command::Command::arg(a0, &v2, &v0);
+    return a0;
+}

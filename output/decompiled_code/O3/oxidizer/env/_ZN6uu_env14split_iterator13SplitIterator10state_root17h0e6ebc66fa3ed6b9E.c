@@ -1,0 +1,26 @@
+fn uu_env::split_iterator::SplitIterator::state_root(a0: i64, a1: i64, a2: i64) -> u64 {
+    let v0: i320;  // [sp-0x40], Other Possible Types: Option<struct40>
+    let v2: i32;  // eax
+    let v3: i64;  // rax
+    let v4: i128;  // xmm0
+
+    loop {
+        v0 = uu_env::split_iterator::SplitIterator::state_delimiter(a1, a2);
+        v2 = v0;
+        if v2 != 7 {
+            break;
+        }
+    }
+    if v2 != 6 {
+        v3 = *((&v0 as &char + 32) as &i64);
+        v4 = v0;
+        return struct40 {
+            field_0: v4
+            field_16: *((&v0 as &char + 16) as &i128)
+            field_32: v3
+        };
+    }
+    return struct4 {
+        field_0: 8
+    };
+}

@@ -1,0 +1,277 @@
+undefined8 __rustcall uu_touch::uu_app(undefined8 param_1)
+
+{
+  undefined8 uVar1;
+  undefined8 local_ad0;
+  undefined8 local_ac8;
+  undefined8 local_ac0;
+  undefined8 local_ab8;
+  undefined8 uStack_ab0;
+  undefined8 local_aa8;
+  undefined8 uStack_aa0;
+  undefined8 local_a98;
+  undefined8 uStack_a90;
+  undefined8 local_a88;
+  undefined8 uStack_a80;
+  undefined8 local_a78;
+  undefined8 uStack_a70;
+  undefined8 uStack_a68;
+  undefined local_a60;
+  undefined uStack_a5f;
+  undefined2 uStack_a5e;
+  undefined2 uStack_a5c;
+  undefined2 uStack_a5a;
+  undefined4 uStack_a58;
+  undefined4 uStack_a54;
+  undefined4 local_a50;
+  undefined4 uStack_a4c;
+  undefined4 uStack_a48;
+  undefined4 uStack_a44;
+  undefined4 local_a40;
+  undefined4 uStack_a3c;
+  undefined4 uStack_a38;
+  undefined4 uStack_a34;
+  undefined8 local_a30;
+  ulong local_7fc;
+  undefined4 local_7f4;
+  undefined8 local_7f0;
+  undefined8 uStack_7e8;
+  undefined8 local_7e0;
+  undefined8 uStack_7d8;
+  undefined8 local_7d0;
+  undefined8 uStack_7c8;
+  undefined8 local_7c0;
+  undefined8 uStack_7b8;
+  undefined8 local_7b0;
+  undefined8 local_798;
+  undefined8 uStack_790;
+  undefined4 local_788;
+  undefined4 uStack_784;
+  undefined4 uStack_780;
+  undefined4 uStack_77c;
+  undefined4 local_778;
+  undefined4 uStack_774;
+  undefined4 uStack_770;
+  undefined4 uStack_76c;
+  undefined4 local_768;
+  undefined4 uStack_764;
+  undefined4 uStack_760;
+  undefined4 uStack_75c;
+  undefined4 local_758;
+  undefined4 uStack_754;
+  undefined4 uStack_750;
+  undefined4 uStack_74c;
+  undefined8 local_748;
+  undefined local_740;
+  undefined local_73f;
+  undefined4 local_73e;
+  undefined2 local_73a;
+  uint local_550;
+  undefined4 local_54c;
+  undefined local_540 [584];
+  uint local_2f8;
+  undefined4 local_2f4;
+  ulong local_284;
+  undefined4 local_27c;
+  char *local_278;
+  undefined8 uStack_270;
+  char *local_268;
+  undefined8 uStack_260;
+  undefined8 local_258;
+  undefined8 uStack_250;
+  undefined4 local_248;
+  undefined4 uStack_244;
+  undefined4 uStack_240;
+  undefined4 uStack_23c;
+  undefined8 local_238;
+  
+  uVar1 = uucore::util_name();
+  clap_builder::builder::command::Command::new(local_540,uVar1);
+  clap_builder::builder::command::Command::version(&local_ab8,local_540,&DAT_00175152,6);
+  clap_builder::builder::command::Command::about(local_540,&local_ab8,&DAT_00175158,0x4c);
+                    /* try { // try from 002c1054 to 002c106d has its CatchHandler @ 002c1aa5 */
+  uucore::format_usage(&local_798,&DAT_001751a4,0x15);
+  clap_builder::builder::command::Command::override_usage(&local_ab8,local_540,&local_798);
+  (*(code *)PTR_memcpy_00450f20)(local_540,&local_ab8,700);
+  local_284 = local_7fc | 0x4008000040080;
+  local_27c = local_7f4;
+                    /* try { // try from 002c10c9 to 002c111a has its CatchHandler @ 002c1b3b */
+  clap_builder::builder::arg::Arg::new(&local_ab8,"helpt",4);
+  clap_builder::builder::arg::Arg::long(&local_798,&local_ab8,"helpt",4);
+  clap_builder::builder::arg::Arg::help(&local_ab8,&local_798,&DAT_001751b9,0x17);
+  clap_builder::builder::arg::Arg::action(&local_798,&local_ab8,5);
+  clap_builder::builder::command::Command::arg(&local_ab8,local_540,&local_798);
+                    /* try { // try from 002c114a to 002c119b has its CatchHandler @ 002c1ae4 */
+  clap_builder::builder::arg::Arg::new(local_540,"access",6);
+  clap_builder::builder::arg::Arg::short(&local_798,local_540,0x61);
+  clap_builder::builder::arg::Arg::help(local_540,&local_798,&DAT_001751d0,0x1b);
+  clap_builder::builder::arg::Arg::action(&local_798,local_540,2);
+  clap_builder::builder::command::Command::arg(local_540,&local_ab8,&local_798);
+                    /* try { // try from 002c11ce to 002c1234 has its CatchHandler @ 002c1b29 */
+  clap_builder::builder::arg::Arg::new(&local_ab8,"timestamp",9);
+  clap_builder::builder::arg::Arg::short(&local_798,&local_ab8,0x74);
+  clap_builder::builder::arg::Arg::help(&local_ab8,&local_798,&DAT_001751eb,0x35);
+  clap_builder::builder::arg::Arg::value_name(&local_798,&local_ab8,&DAT_00175220,5);
+  clap_builder::builder::command::Command::arg(&local_ab8,local_540,&local_798);
+                    /* try { // try from 002c124f to 002c12a3 has its CatchHandler @ 002c1b6e */
+  clap_builder::builder::arg::Arg::new(local_540,"date",4);
+  clap_builder::builder::arg::Arg::short(&local_798,local_540,100);
+  clap_builder::builder::arg::Arg::long(local_540,&local_798,"date",4);
+  (*(code *)PTR_memcpy_00450f20)(&local_798,local_540,0x248);
+  local_550 = local_2f8 | 0x20;
+  local_54c = local_2f4;
+                    /* try { // try from 002c12e1 to 002c133e has its CatchHandler @ 002c1b6e */
+  clap_builder::builder::arg::Arg::help(local_540,&local_798,&DAT_00175225,0x31);
+  clap_builder::builder::arg::Arg::value_name(&local_798,local_540,&DAT_00175256,6);
+  clap_builder::builder::arg::Arg::conflicts_with(&local_278,&local_798,"timestamp",9);
+  clap_builder::builder::command::Command::arg(local_540,&local_ab8,&local_278);
+                    /* try { // try from 002c1359 to 002c13a1 has its CatchHandler @ 002c1acf */
+  clap_builder::builder::arg::Arg::new(&local_ab8,"modification",0xc);
+  clap_builder::builder::arg::Arg::short(&local_798,&local_ab8,0x6d);
+  clap_builder::builder::arg::Arg::help(&local_ab8,&local_798,&DAT_0017525c,0x21);
+  clap_builder::builder::arg::Arg::action(&local_798,&local_ab8,2);
+  clap_builder::builder::command::Command::arg(&local_ab8,local_540,&local_798);
+                    /* try { // try from 002c13d1 to 002c1443 has its CatchHandler @ 002c1b1a */
+  clap_builder::builder::arg::Arg::new(local_540,"no-create",9);
+  clap_builder::builder::arg::Arg::short(&local_798,local_540,99);
+  clap_builder::builder::arg::Arg::long(local_540,&local_798,"no-create",9);
+  clap_builder::builder::arg::Arg::help(&local_798,local_540,&DAT_0017527d,0x17);
+  clap_builder::builder::arg::Arg::action(&local_278,&local_798,2);
+  clap_builder::builder::command::Command::arg(local_540,&local_ab8,&local_278);
+                    /* try { // try from 002c1476 to 002c14dc has its CatchHandler @ 002c1b08 */
+  clap_builder::builder::arg::Arg::new(&local_ab8,"no-dereference",0xe);
+  clap_builder::builder::arg::Arg::short(&local_798,&local_ab8,0x68);
+  clap_builder::builder::arg::Arg::long(&local_ab8,&local_798,"no-dereference",0xe);
+  clap_builder::builder::arg::Arg::help(&local_798,&local_ab8,&DAT_00175294,0x77);
+  clap_builder::builder::arg::Arg::action(&local_278,&local_798,2);
+  clap_builder::builder::command::Command::arg(&local_ab8,local_540,&local_278);
+                    /* try { // try from 002c150f to 002c1630 has its CatchHandler @ 002c1b7d */
+  clap_builder::builder::arg::Arg::new(local_540,"reference",9);
+  clap_builder::builder::arg::Arg::short(&local_798,local_540,0x72);
+  clap_builder::builder::arg::Arg::long(local_540,&local_798,"reference",9);
+  clap_builder::builder::arg::Arg::help(&local_798,local_540,&DAT_0017530b,0x31);
+  clap_builder::builder::arg::Arg::value_name(local_540,&local_798,&DAT_001652c0,4);
+  local_ad0 = 2;
+  local_268 = (char *)local_ac0;
+  local_278 = (char *)0x2;
+  uStack_270 = local_ac8;
+  clap_builder::builder::arg::Arg::value_parser(&local_798,local_540,&local_278);
+  clap_builder::builder::arg::Arg::value_hint(local_540,&local_798,2);
+  clap_builder::builder::arg::Arg::conflicts_with(&local_798,local_540,"timestamp",9);
+  clap_builder::builder::command::Command::arg(local_540,&local_ab8,&local_798);
+                    /* try { // try from 002c164b to 002c16ba has its CatchHandler @ 002c1b5c */
+  clap_builder::builder::arg::Arg::new(&local_ab8,"time",4);
+  clap_builder::builder::arg::Arg::long(&local_798,&local_ab8,"time",4);
+  clap_builder::builder::arg::Arg::help(&local_ab8,&local_798,&DAT_0017533c,0x7a);
+  clap_builder::builder::arg::Arg::value_name(&local_798,&local_ab8,&DAT_001652c4,4);
+  local_a88 = &DAT_001753b6;
+  uStack_a80 = 5;
+  uStack_aa0 = 0x8000000000000000;
+  local_ab8 = 0;
+  uStack_ab0 = 8;
+  local_aa8 = 0;
+  local_a78 = local_a78 & 0xffffffffffffff00;
+                    /* try { // try from 002c170c to 002c174a has its CatchHandler @ 002c1af6 */
+  clap_builder::builder::possible_value::PossibleValue::alias(&local_278,&local_ab8,&DAT_001753bb,6)
+  ;
+  clap_builder::builder::possible_value::PossibleValue::alias(&local_7f0,&local_278,&DAT_001753c1,3)
+  ;
+  local_a88 = &DAT_001753c4;
+  uStack_a80 = 5;
+  uStack_aa0 = 0x8000000000000000;
+  local_ab8 = 0;
+  uStack_ab0 = 8;
+  local_aa8 = 0;
+  local_a78 = local_a78 & 0xffffffffffffff00;
+                    /* try { // try from 002c1792 to 002c17af has its CatchHandler @ 002c1a93 */
+  clap_builder::builder::possible_value::PossibleValue::alias(&local_278,&local_ab8,&DAT_001753c9,6)
+  ;
+  local_ab8 = local_7f0;
+  uStack_ab0 = uStack_7e8;
+  local_aa8 = local_7e0;
+  uStack_aa0 = uStack_7d8;
+  local_a98 = local_7d0;
+  uStack_a90 = uStack_7c8;
+  local_a88 = (undefined *)local_7c0;
+  uStack_a80 = uStack_7b8;
+  local_a78 = local_7b0;
+  uStack_a70 = local_278;
+  uStack_a68 = uStack_270;
+  local_a60 = SUB81(local_268,0);
+  uStack_a5f = (undefined)((ulong)local_268 >> 8);
+  uStack_a5e = (undefined2)((ulong)local_268 >> 0x10);
+  uStack_a5c = (undefined2)((ulong)local_268 >> 0x20);
+  uStack_a5a = (undefined2)((ulong)local_268 >> 0x30);
+  uStack_a58 = (undefined4)uStack_260;
+  uStack_a54 = uStack_260._4_4_;
+  local_a50 = (undefined4)local_258;
+  uStack_a4c = local_258._4_4_;
+  uStack_a48 = (undefined4)uStack_250;
+  uStack_a44 = uStack_250._4_4_;
+  local_a40 = local_248;
+  uStack_a3c = uStack_244;
+  uStack_a38 = uStack_240;
+  uStack_a34 = uStack_23c;
+  local_a30 = local_238;
+                    /* try { // try from 002c183b to 002c184c has its CatchHandler @ 002c1af6 */
+  _<uucore::parser::shortcut_value_parser::ShortcutValueParser_as_core::convert::From<I>>::from
+            (&local_7f0,&local_ab8);
+                    /* try { // try from 002c184d to 002c1869 has its CatchHandler @ 002c1a8e */
+  clap_builder::builder::arg::Arg::value_parser(&local_278,&local_798,&local_7f0);
+  clap_builder::builder::command::Command::arg(&local_ab8,local_540,&local_278);
+                    /* try { // try from 002c1884 to 002c18fd has its CatchHandler @ 002c1b4d */
+  clap_builder::builder::arg::Arg::new(local_540,&DAT_0017514d,5);
+  clap_builder::builder::arg::Arg::action(&local_798,local_540,1);
+  clap_builder::builder::arg::Arg::num_args(local_540,&local_798);
+  clap_builder::builder::arg::Arg::value_parser(&local_798,local_540,&local_ad0);
+  clap_builder::builder::arg::Arg::value_hint(&local_278,&local_798,2);
+  clap_builder::builder::command::Command::arg(local_540,&local_ab8,&local_278);
+  uStack_a70 = (char *)0x1;
+  uStack_a68 = 0;
+  local_ab8 = 0;
+  uStack_ab0 = 8;
+  local_a60 = 0;
+  uStack_a5f = 0;
+  local_aa8 = 0;
+  uStack_aa0 = 0;
+  local_a98 = 8;
+  uStack_a90 = 0;
+  local_a88 = (undefined *)0x0;
+  uStack_a80 = 8;
+  local_a78 = 0;
+                    /* try { // try from 002c196b to 002c19de has its CatchHandler @ 002c1aba */
+  clap_builder::builder::arg_group::ArgGroup::id(&local_798,&local_ab8,"sources",7);
+  local_278 = "timestamp";
+  uStack_270 = 9;
+  local_268 = "date";
+  uStack_260 = 4;
+  local_258 = "reference";
+  uStack_250 = 9;
+  clap_builder::builder::arg_group::ArgGroup::args(&local_ab8,&local_798,&local_278);
+  uStack_a5f = 1;
+  local_798 = local_ab8;
+  uStack_790 = uStack_ab0;
+  local_788 = (undefined4)local_aa8;
+  uStack_784 = local_aa8._4_4_;
+  uStack_780 = (undefined4)uStack_aa0;
+  uStack_77c = uStack_aa0._4_4_;
+  local_778 = (undefined4)local_a98;
+  uStack_774 = local_a98._4_4_;
+  uStack_770 = (undefined4)uStack_a90;
+  uStack_76c = uStack_a90._4_4_;
+  local_768 = (undefined4)local_a88;
+  uStack_764 = local_a88._4_4_;
+  uStack_760 = (undefined4)uStack_a80;
+  uStack_75c = uStack_a80._4_4_;
+  local_758 = (undefined4)local_a78;
+  uStack_754 = local_a78._4_4_;
+  uStack_750 = (undefined4)uStack_a70;
+  uStack_74c = uStack_a70._4_4_;
+  local_748 = uStack_a68;
+  local_740 = local_a60;
+  local_73f = 1;
+  local_73e = CONCAT22(uStack_a5c,uStack_a5e);
+  local_73a = uStack_a5a;
+  clap_builder::builder::command::Command::group(param_1,local_540,&local_798);
+  return param_1;
+}
