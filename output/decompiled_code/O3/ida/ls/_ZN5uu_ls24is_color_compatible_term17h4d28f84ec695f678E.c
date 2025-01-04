@@ -1,0 +1,41 @@
+char uu_ls::is_color_compatible_term()
+{
+  __int64 v0; // r12
+  __int64 v1; // r13
+  _QWORD v3[4]; // [rsp+0h] [rbp-88h] BYREF
+  _BYTE v4[8]; // [rsp+20h] [rbp-68h] BYREF
+  __int64 v5; // [rsp+28h] [rbp-60h]
+  __int64 v6; // [rsp+30h] [rbp-58h]
+  _BYTE v7[16]; // [rsp+38h] [rbp-50h] BYREF
+  __int64 v8; // [rsp+48h] [rbp-40h]
+  _QWORD v9[7]; // [rsp+50h] [rbp-38h] BYREF
+
+  std::env::var(v3, aTerm, 4LL);
+  v0 = v3[0];
+  core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>(v3);
+  std::env::var(v3, &unk_34CE6, 9LL);
+  v1 = v3[0];
+  core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>(v3);
+  std::env::var(v3, aTerm, 4LL);
+  core::result::Result<T,E>::unwrap_or_default(v4, v3);
+  std::env::var(v3, &unk_34CE6, 9LL);
+  core::result::Result<T,E>::unwrap_or_default(v7, v3);
+  if ( (v0 | v1 || v6 || v8)
+    && (!v6
+     || (v9[0] = v5,
+         v9[1] = v6,
+         v3[0] = &anon_84df56382e2e566cd8a063a5d0153d3b_47_llvm_4004663911042702431,
+         v3[1] = &unk_216B60,
+         (unsigned __int8)<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::any(v3, v9))) )
+  {
+    core::ptr::drop_in_place<alloc::string::String>(v7);
+    core::ptr::drop_in_place<alloc::string::String>(v4);
+    return 1;
+  }
+  else
+  {
+    core::ptr::drop_in_place<alloc::string::String>(v7);
+    core::ptr::drop_in_place<alloc::string::String>(v4);
+    return 0;
+  }
+}

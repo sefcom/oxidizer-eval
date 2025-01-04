@@ -1,0 +1,137 @@
+fn uu_mv::rename_with_fallback(a0: u64, a1: u64, a2: u64, a3: u64, a4: u32) -> u64 {
+    let v0: i8;  // [bp-0x288]
+    let v1: struct24;  // [sp-0x278], Other Possible Types: i64
+    let v2: struct48;  // [sp-0x260], Other Possible Types: i384, struct24
+    let v3: i64;  // [sp-0x230]
+    let v4: i64;  // [sp-0x228]
+    let v5: i32;  // [sp-0x220]
+    let v6: i64;  // [sp-0x218]
+    let v7: i64;  // [sp-0x210]
+    let v8: i64;  // [sp-0x208]
+    let v9: i64;  // [sp-0x200]
+    let v10: i1088;  // [sp-0x1e8], Other Possible Types: Result<struct48, struct16>, struct48
+    let v11: i64;  // [sp-0x1e0]
+    let v12: i128;  // [bp-0x1d8]
+    let v13: i128;  // [bp-0x1c8]
+    let v14: i384;  // [bp-0x138], Other Possible Types: struct48
+    let v15: i128;  // [sp-0x128]
+    let v16: i128;  // [sp-0x118]
+    let v17: i64;  // [sp-0x108]
+    let v18: i64;  // [sp-0x100]
+    let v19: i64;  // [sp-0xf8]
+    let v20: i64;  // [sp-0xf0]
+    let v21: i192;  // [sp-0xe8], Other Possible Types: struct24
+    let v22: i192;  // [sp-0xd0]
+    let v23: i384;  // [sp-0xb8], Other Possible Types: struct136
+    let v25: i64;  // r14
+    let v26: i64;  // r12
+    let v27: i64;  // rbx
+    let v28: i64;  // r15
+    let v29: i32;  // eax
+    let v30: i64;  // rax
+    let v32: i64;  // rdx
+    let v33: i64;  // rax
+    let v34: i64;  // rdx
+
+    v25 = a3;
+    v26 = a2;
+    v27 = a1;
+    v28 = a0;
+    v6 = a0;
+    v7 = a1;
+    v8 = a2;
+    v9 = a3;
+    v10 = std::fs::rename(a0, a1, a2, a3);
+    if !v10 {
+        return 0;
+    }
+    v10 = std::fs::symlink_metadata(v28, v27);
+    if v10 == 2 {
+        return v30;
+    }
+    switch (v29) {
+    case 16384:
+        v10 = std::fs::metadata(v26, v25);
+        match v10 {
+            Ok(_) => {
+                v30 = std::fs::remove_dir_all(v26, v25, v34);
+                if v30 {
+                    return v30;
+                }
+            },
+            Err(_) => {
+                v5 = 0x10000;
+                v3 = 0xfa00;
+                v4 = 0;
+                v10 = fs_extra::dir::get_size(v28, v27);
+            },
+        }
+        if v10 != 0x8000000000000000 {
+            goto LABEL_4eba5a;
+        } else if !a4 {
+LABEL_4eba5a:
+            v1 = 0;
+            break;
+        } else {
+            v2 = indicatif::progress_bar::ProgressBar::new(v11, v34);
+            v10 = indicatif::style::ProgressStyle::with_template("{msg}: [{elapsed_precise}] {wide_bar} {bytes:>7}/{total_bytes:7}");
+            v23 = core::result::Result<T,E>::unwrap(&v10, "src/uu/mv/src/mv.rs");
+            v21 = indicatif::progress_bar::ProgressBar::with_style(&v2, &v23);
+            v1 = indicatif::multi::MultiProgress::add(a4, &v21);
+            break;
+        }
+        v10 = uucore::features::fsxattr::retrieve_xattrs(v28, v27);
+        if v10 {
+            v14 = v10;
+        } else {
+            v14 = uu_mv::rename_with_fallback::{{closure}}(v11, v34);
+        }
+        if !v1 {
+            v2 = fs_extra::dir::move_dir(v28, v27, v26, v25, &v3);
+        } else {
+            v2 = fs_extra::dir::move_dir_with_progress(v28, v27, v26, v25, &v3, v0);
+        }
+        v13 = v16;
+        v12 = v15;
+        v10 = v14;
+        core::result::Result<T,E>::unwrap(uucore::features::fsxattr::apply_xattrs(v26, v25, &v10));
+        if v2 != 0x8000000000000000 {
+            v23 = v2;
+            if *((&v23 as &char + 24) as &i64) != 9223372036854775809 {
+                v22 = format!("{:?}", &v23);
+                v30 = std::io::error::Error::new(39, &v22);
+            } else {
+                v30 = std::io::error::Error::new(1, "Permission denied");
+            }
+            return v30;
+        }
+    case 40960:
+        v30 = uu_mv::rename_symlink_fallback(v28, v27, v26, v25);
+        goto LABEL_4ebadc;
+    default:
+        if std::path::Path::is_symlink(v26, v25) as i8 {
+            v33 = std::fs::remove_file(v26, v25, v32);
+            v17 = v26;
+            v18 = v25;
+            v19 = v28;
+            v20 = v27;
+            if v33 {
+                v30 = uu_mv::rename_with_fallback::{{closure}}(&v17, v33);
+                return v30;
+            }
+        }
+        if !std::fs::copy(v28, v27, v26, v25) {
+            v30 = uucore::features::fsxattr::copy_xattrs(&v6, &v8, v32);
+            if v30 {
+                return v30;
+            }
+        } else if v30 {
+            return v30;
+        }
+        v30 = std::fs::remove_file(v28, v27, v30);
+LABEL_4ebadc:
+        if v30 {
+            return v30;
+        }
+    }
+}

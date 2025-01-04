@@ -1,5 +1,7 @@
 from collections import defaultdict
 import os
+from typing import Dict
+import json
 
 import angr
 from angr.rust.utils.library import demangle
@@ -7,7 +9,9 @@ from angr.analyses.decompiler.sequence_walker import SequenceWalker
 from ailment import AILBlockWalker, Block, Const
 from ailment.statement import Call
 
-from ..config import CACHED_DECOMPILED_CODE_PATH, CACHED_CALL_COUNTS_PATH
+from eval.type_recovery.function_prototype import FunctionPrototype
+
+from ..config import CACHED_DECOMPILED_CODE_PATH, CACHED_CALL_COUNTS_PATH, CACHED_INFERRED_PROTOTYPES_PATH
 
 
 def load_cached_output(cache_dir, func_name):
@@ -38,6 +42,28 @@ def save_call_counts_output(cache_dir, func_name, output):
     os.makedirs(path, exist_ok=True)
     with open(os.path.join(path, func_name + ".json"), "w") as fd:
         fd.write(output)
+
+
+def save_inferred_prototypes(cache_dir, bin_name, prototypes: Dict[str, FunctionPrototype]):
+    path = os.path.join(CACHED_INFERRED_PROTOTYPES_PATH, cache_dir)
+    os.makedirs(path, exist_ok=True)
+    object = {}
+    for prototype in prototypes.values():
+        object[prototype.name] = prototype.to_dict()
+    with open(os.path.join(path, bin_name + ".json"), "w") as fd:
+        json.dump(object, fd)
+
+
+def load_cached_inferred_prototypes(cache_dir, bin_name) -> Dict[str, FunctionPrototype]:
+    path = os.path.join(CACHED_INFERRED_PROTOTYPES_PATH, cache_dir, bin_name + ".json")
+    if os.path.exists(path):
+        with open(path, "r") as fd:
+            object = json.load(fd)
+            prototypes = {}
+            for name in object:
+                prototypes[name] = FunctionPrototype.from_dict(object[name])
+            return prototypes
+    return None
 
 
 def load_function_list(binary_path, module=None):

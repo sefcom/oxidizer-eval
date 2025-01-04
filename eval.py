@@ -7,9 +7,10 @@ from eval.decompilers.ida import ida_dec
 from eval.decompilers.oxidizer import oxidizer_dec
 from eval.decompilers.angr import angr_dec
 from eval.decompilers.ghidra import ghidra_dec
-from eval.decompilers.util import load_function_list
+from eval.decompilers.util import load_function_list, load_cached_inferred_prototypes
 from eval.metrics.result import FunctionEvalResult, BinaryEvalResult, EvalResult
 from eval.metrics.trivial import *
+from eval.type_recovery.dwarf_parser import extract_function_prototypes
 
 
 DEC_OPTIONS = {
@@ -51,11 +52,16 @@ def eval_one_with_decompiler(binary_path, function_list, opt_level, decompiler):
     return func_eval_results
 
 
+def convert_to_debug_path(path):
+    return path.replace("dataset", "dataset-debug")
+
+
 def eval_one(binary_path, opt_level):
     binary_name = os.path.basename(binary_path)
     function_list = load_function_list(binary_path, module=f"uu_{binary_name}")
 
     binary_eval_result = BinaryEvalResult(binary_path)
+
     decompiler_and_func_name_to_func_eval_result = {}
     for decompiler in DEC_OPTIONS:
         func_eval_results = eval_one_with_decompiler(binary_path, function_list, opt_level, decompiler)
@@ -68,6 +74,16 @@ def eval_one(binary_path, opt_level):
                 [decompiler_and_func_name_to_func_eval_result[(decompiler, func_name)] for decompiler in DEC_OPTIONS]
             )
             binary_eval_result.add_func_eval_reuslt(merged_func_eval_result)
+
+    cache_dir = f"O{opt_level}/oxidizer/{binary_name}"
+    binary_eval_result.inferred_prototypes = load_cached_inferred_prototypes(cache_dir, os.path.basename(binary_name))
+
+    # Type recovery evaluation
+    binary_eval_result.ground_truth_prototypes = extract_function_prototypes(
+        convert_to_debug_path(binary_path), list(binary_eval_result.inferred_prototypes.keys())
+    )
+
+    binary_eval_result.generate_type_recovery_pairs()
 
     print(binary_eval_result)
     return binary_eval_result
@@ -89,10 +105,13 @@ def eval_coreutils(opt_level):
     with Pool() as pool:
         results = pool.starmap(eval_one, tasks)
 
-    eval_result = EvalResult([result for result in results if result.is_valid()])
-    print(eval_result)
+    # results = []
     # for binary_path in binary_paths:
-    #     eval_one(binary_path, opt_level)
+    #     results.append(eval_one(binary_path, opt_level))
+
+    eval_result = EvalResult([result for result in results if result.is_valid()])
+    # eval_result = EvalResult([result for result in results])
+    print(eval_result)
 
 
 if __name__ == "__main__":

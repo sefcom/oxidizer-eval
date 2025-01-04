@@ -1,3 +1,0 @@
-fn uu_ls::display_inode(a0: &struct24, a1: u64) -> u64 {
-    return uu_ls::get_inode(a0, a1);
-}

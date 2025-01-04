@@ -91,8 +91,12 @@ compile () {
     cargo build --release -p uu_*
     rm -rf ../../dataset/o$1
     mkdir ../../dataset/o$1
+    rm -rf ../../dataset-debug/o$1
+    mkdir ../../dataset-debug/o$1
     for item in "${coreutils_packages[@]}"; do
         mv target/release/$item -f ../../dataset/o$1/$item
+        cp ../../dataset/o$1/$item ../../dataset-debug/o$1/$item
+        strip --strip-debug ../../dataset/o$1/$item
     done
 }
 

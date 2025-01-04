@@ -1,7 +1,10 @@
 import json
 import traceback
 
+from angr.rust.sim_type import *
+
 from .util import *
+from ..type_recovery.function_prototype import FunctionPrototype, Type
 
 
 def _extract_function_body(output):
@@ -13,6 +16,38 @@ def _extract_function_body(output):
         elif len(body):
             body.append(line)
     return "\n".join(body)
+
+
+def _normalize_type(ty: RustSimType) -> Type:
+    if ty is None:
+        return Type(None, None)
+    name = None
+    size = ty.size // 8
+    is_pointer = isinstance(ty, RustSimTypeReference)
+    if is_pointer:
+        ty = ty.pts_to
+    if isinstance(ty, RustSimTypeResult):
+        name = "Result"
+    elif isinstance(ty, RustSimTypeOption):
+        name = "Option"
+    elif isinstance(ty, RustSimStruct):
+        name = "struct"
+    else:
+        name = "primitive"
+    if is_pointer:
+        name += "*"
+    return Type(name, size)
+
+
+def _normalize_prototype(name, prototype: RustSimTypeFunction) -> FunctionPrototype:
+    args = prototype.args or []
+    return_type = prototype.returnty
+    if prototype.is_arg0_retbuf and args and isinstance(args[0], RustSimTypeReference):
+        return_type = args[0].pts_to
+        args = args[1:]
+    return_type = _normalize_type(return_type)
+    args = [_normalize_type(arg) for arg in args]
+    return FunctionPrototype(name, return_type, args)
 
 
 def _angr_dec_base(binary_path, function_list, cache_dir, extract_body_func, is_rust_binary, cache_only=False):
@@ -45,8 +80,10 @@ def _angr_dec_base(binary_path, function_list, cache_dir, extract_body_func, is_
                     decompiler = proj.analyses.Decompiler(cfg=cfg, func=func)
                     output = extract_body_func(decompiler.codegen.text.split("\n"))
                     if output:
+                        # Save decompilation result
                         save_output(cache_dir, func.name, output)
                         decompilation_result[func.name] = output
+                        # Save call counts result
                         call_counter = CallCounter(proj)
                         call_counter.walk(decompiler.seq_node)
                         call_counts_output = json.dumps(dict(call_counter.call_counts), indent=2)
@@ -56,6 +93,14 @@ def _angr_dec_base(binary_path, function_list, cache_dir, extract_body_func, is_
                 traceback.print_exception(e)
                 print(f"Failed to decompile functon: {demangle(func.name)}")
                 save_output(cache_dir, "ERROR_" + func.name, "".join(traceback.format_exception(e)))
+        # Save inferred prototypes
+        if is_rust_binary:
+            prototypes = {}
+            for func_addr in proj.kb.functions:
+                func = proj.kb.functions[func_addr]
+                if isinstance(func.prototype, RustSimTypeFunction):
+                    prototypes[func.name] = _normalize_prototype(func.name, func.prototype)
+            save_inferred_prototypes(cache_dir, os.path.basename(binary_path), prototypes)
     return decompilation_result, call_counts_result
 
 
