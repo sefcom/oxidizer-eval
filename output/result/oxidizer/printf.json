@@ -1,0 +1,524 @@
+{
+  "decompilation": {
+    "_ZN9uu_printf6uumain17hf6f73a55c61ccaa8E": "fn uu_printf::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0xa8]\n    let v1: u64;  // [sp-0x98]\n    let v2: u64;  // [sp-0x90]\n    let v3: &&struct_1;  // [sp-0x88]\n    let v4: u64;  // [sp-0x80]\n    let v5: void*;  // [sp-0x78]\n    let v6: u64;  // [sp-0x68]\n    let v7: &u64;  // [sp-0x60]\n    let v8: &u8;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: u64;  // [sp-0x38]\n    let v11: i8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v14: u64;  // rax\n    let v15: &u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v14 = uu_printf::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_40b060;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    core::option::Option<T>::map_or_else();\n    *(&v8 as &i8) = v11;\n    v10 = v12;\n    if v8 == \"\" {\n        v6 = uucore::util_name();\n        v7 = v15;\n        eprint!(\"{}: \", &v6);\n        eprintln!(\"{}\", &v8);\n    }\n    if !v15[13]() {\n        return v15[12]();\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v15;\n    eprintln!(\"Try '{} --help' for more information.\", &v6);\n}\n",
+    "_ZN9uu_printf6uumain6uumain17h9016f06e4b183cbbE": "fn uu_printf::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i256;  // [sp-0x4a8], Other Possible Types: struct32\n    let v1: i8;  // [sp-0x4a4]\n    let v2: i128;  // [bp-0x498]\n    let v3: i64;  // [sp-0x480], Other Possible Types: struct24\n    let v4: i64;  // [sp-0x478]\n    let v5: i64;  // [sp-0x470]\n    let v6: struct16;  // [bp-0x468]\n    let v7: struct32;  // [sp-0x458], Other Possible Types: i256\n    let v8: i64;  // [sp-0x438]\n    let v9: i64;  // [sp-0x430]\n    let v10: i64;  // [sp-0x428]\n    let v11: i64;  // [sp-0x418]\n    let v12: i64;  // [sp-0x410]\n    let v13: i320;  // [sp-0x408], Other Possible Types: struct40, struct64, struct24\n    let v14: i128;  // [sp-0x3c8]\n    let v15: i128;  // [bp-0x3b8]\n    let v16: i64;  // [sp-0x3a9]\n    let v17: i128;  // [sp-0x398]\n    let v18: i128;  // [bp-0x388]\n    let v19: i64;  // [sp-0x379]\n    let v20: i8;  // [bp-0x370]\n    let v21: struct64;  // [bp-0x338]\n    let v22: i8;  // [sp-0x2f8], Other Possible Types: struct712, struct56, Result<struct40, struct8>\n    let v23: i128;  // [bp-0x2f7]\n    let v24: i128;  // [bp-0x2e7]\n    let v25: i64;  // [sp-0x2d8]\n    let v27: i64;  // rbx\n    let v29: i256;  // ymm0\n    let v30: i256;  // ymm0\n    let v32: i256;  // ymm1\n    let v33: i256;  // ymm1\n    let v36: i64;  // rbp\n    let v37: i64;  // rax\n    let v38: i128;  // xmm0\n    let v39: i128;  // xmm1\n    let v40: i128;  // xmm0\n    let v41: i128;  // xmm1\n    let v46: i8;  // al\n    let v47: i128;  // xmm0\n    let v48: i128;  // xmm1\n    let v49: i128;  // xmm0\n    let v50: i128;  // xmm1\n    let v53: i64;  // rbx\n\n    v22 = uu_printf::uu_app();\n    clap_builder::builder::command::Command::get_matches_from(&v20, &v22, a0, a1);\n    v22 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v20, \"FORMAT\");\n    v27 = clap_builder::parser::error::MatchesError::unwrap(\"FORMAT\", &v22);\n    if !v27 {\n        v13 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"missing operand\");\n        alloc::boxed::Box<T>::new(&v22);\n        return v53;\n    }\n    v22 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v20, \"ARGUMENT\");\n    v13 = clap_builder::parser::error::MatchesError::unwrap(\"ARGUMENT\", &v22);\n    if !v13 {\n        v3 = 0;\n        v4 = 8;\n        v5 = 0;\n    } else {\n        v30 = v29 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v13;\n        v33 = v32 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((&v13 as &char + 16) as &i128);\n        v21 = struct64 {\n            field_0: v28\n            field_16: v31\n            field_32: *((&v13 as &char + 32) as &i128)\n            field_48: *((&v13 as &char + 48) as &i128)\n        };\n        v3 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v21);\n    }\n    v11 = 8;\n    v12 = 0 * 32 + v11;\n    v10 = 0;\n    v9 = *((v27 + 8) as &i64);\n    v6 = struct16 {\n        field_0: v9\n        field_8: v8\n    };\n    v8 = *((v27 + 16) as &i64);\n    v36 = 0;\n    loop {\n        v13 = uucore::features::format::parse_spec_and_escape::{{closure}}(&v6);\n        v37 = v13;\n        if v37 == 9 {\n            if !(v36 & 1) {\n                goto LABEL_46cc5f;\n            }\n            if !*(core::option::Option<T>::get_or_insert_with(&v11) as &i64) {\n                goto LABEL_46cdaf;\n            }\n            break;\n        } else {\n            v19 = *((&v13 as &char + 32) as &i64);\n            v38 = *((&v13 as &char + 1) as &i128);\n            v39 = *((&v13 as &char + 17) as &i128);\n            v18 = v39;\n            v17 = v38;\n            if (v37 - 7 & 255) >= 2 {\n                v36 = v36 & -0x100 | 1;\n            } else if v37 == 8 {\n                v0 = struct32 {\n                    field_0: v45\n                    field_16: *((&v18 as &char + 7) as &i128)\n                };\n                alloc::boxed::Box<T>::new(&v0);\n                goto LABEL_46cdd4;\n            }\n            v25 = *((&v13 as &char + 32) as &i64);\n            v40 = *((&v13 as &char + 1) as &i128);\n            v30 = (v30 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v38) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v40;\n            v41 = *((&v13 as &char + 17) as &i128);\n            v33 = (v33 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v39) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v41;\n            v24 = v41;\n            v23 = v40;\n            v22 = v37;\n            v7 = uucore::features::format::FormatItem<C>::write(&v22, std::io::stdio::stdout(), &v10);\n            if v0 != 14 {\n                v2 = *((&v7 as &char + 16) as &i128);\n                v0 = struct32 {\n                    field_0: v42\n                    field_16: <UNKNOWN>\n                };\n                alloc::boxed::Box<T>::new(&v0);\n                goto LABEL_46cdd4;\n            } else if v1 {\n                goto LABEL_46cc5f;\n            }\n        }\n    }\n    loop {\n        v6 = struct16 {\n            field_0: v9\n            field_8: v8\n        };\n        v13 = uucore::features::format::parse_spec_and_escape::{{closure}}(&v6);\n        v46 = v13;\n        if v46 != 9 {\n            v16 = *((&v13 as &char + 32) as &i64);\n            v47 = *((&v13 as &char + 1) as &i128);\n            v48 = *((&v13 as &char + 17) as &i128);\n            v15 = v48;\n            v14 = v47;\n            if v46 == 8 {\n                v0 = *((&v14 as &char + 7) as &i256);\n                alloc::boxed::Box<T>::new(&v0);\n                goto LABEL_46cdd4;\n            }\n            v25 = *((&v13 as &char + 32) as &i64);\n            v49 = *((&v13 as &char + 1) as &i128);\n            v30 = (v30 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v47) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v49;\n            v50 = *((&v13 as &char + 17) as &i128);\n            v33 = (v33 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v48) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v50;\n            v24 = v50;\n            v23 = v49;\n            v22 = v46;\n            v7 = uucore::features::format::FormatItem<C>::write(&v22, std::io::stdio::stdout(), &v10);\n            if v0 != 14 {\n                v2 = *((&v7 as &char + 16) as &i128);\n                v0 = struct32 {\n                    field_0: v51\n                    field_16: <UNKNOWN>\n                };\n                alloc::boxed::Box<T>::new(&v0);\nLABEL_46cdd4:\n                break;\n            } else {\n                if !v1 {\n                    continue;\n                }\nLABEL_46cc5f:\n                break;\n            }\n        } else if !*(core::option::Option<T>::get_or_insert_with(&v11) as &i64) {\nLABEL_46cdaf:\n            return 0;\n        }\n    }\n    return v53;\n}\n",
+    "_ZN9uu_printf6uu_app17hb517307267528c04E": "fn uu_printf::uu_app(a0: &struct712) -> u64 {\n    let v0: i5696;  // [sp-0x800], Other Possible Types: struct592, struct712, struct437\n    let v1: i8;  // [bp-0x544]\n    let v2: i8;  // [bp-0x540]\n    let v3: i32;  // [sp-0x53c]\n    let v4: i5696;  // [bp-0x538], Other Possible Types: struct712, struct592\n    let v5: i32;  // [sp-0x27c]\n    let v6: i64;  // [sp-0x278]\n    let v7: i4736;  // [sp-0x270], Other Possible Types: struct592, struct24\n    let v9: i64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);\n    memcpy(&v4, &v0, 700);\n    v5 = v1 | 2;\n    v6 = v2;\n    v0 = clap_builder::builder::command::Command::version(&v4);\n    v4 = clap_builder::builder::command::Command::about(&v0);\n    v0 = clap_builder::builder::command::Command::after_help(&v4);\n    v7 = uucore::format_usage(\"{} FORMAT [ARGUMENT]...\\n{} OPTION\");\n    v4 = clap_builder::builder::command::Command::override_usage(&v0, &v7);\n    memcpy(&v0, &v4, 700);\n    v1 = 0x14000000140000 | *((&v4 as &char + 700) as &i64);\n    v3 = *((&v4 as &char + 708) as &i32);\n    v4 = clap_builder::builder::arg::Arg::new(\"help\");\n    v7 = clap_builder::builder::arg::Arg::long(&v4, \"help\");\n    v4 = clap_builder::builder::arg::Arg::help(&v7, \"Print help information\");\n    v7 = clap_builder::builder::arg::Arg::action(&v4, 0x5);\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v7);\n    v0 = clap_builder::builder::arg::Arg::new(\"version\");\n    v7 = clap_builder::builder::arg::Arg::long(&v0, \"version\");\n    v0 = clap_builder::builder::arg::Arg::help(&v7, \"Print version information\");\n    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x8);\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v7);\n    v7 = clap_builder::builder::arg::Arg::new(\"FORMAT\");\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v7);\n    v0 = clap_builder::builder::arg::Arg::new(\"ARGUMENT\");\n    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x1);\n    clap_builder::builder::command::Command::arg(a0, &v4, &v7);\n    return a0;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN9uu_printf6uumain17hf6f73a55c61ccaa8E": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_printf::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN9uu_printf6uumain6uumain17h9016f06e4b183cbbE": {
+      "alloc::boxed::Box<T>::new": 5,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
+      "uucore::features::format::FormatItem<C>::write": 2,
+      "std::io::stdio::stdout": 2,
+      "uucore::features::format::parse_spec_and_escape::{{closure}}": 2,
+      "core::option::Option<T>::get_or_insert_with": 1,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 1,
+      "clap_builder::builder::command::Command::get_matches_from": 1,
+      "uu_printf::uu_app": 1
+    },
+    "_ZN9uu_printf6uu_app17hb517307267528c04E": {
+      "clap_builder::builder::command::Command::arg": 4,
+      "clap_builder::builder::arg::Arg::action": 3,
+      "clap_builder::builder::arg::Arg::new": 4,
+      "clap_builder::builder::arg::Arg::help": 2,
+      "clap_builder::builder::arg::Arg::long": 2,
+      "memcpy": 2,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN9uu_printf6uumain17hf6f73a55c61ccaa8E": {
+      "eprintln": 2,
+      "eprint": 1
+    },
+    "_ZN9uu_printf6uumain6uumain17h9016f06e4b183cbbE": {},
+    "_ZN9uu_printf6uu_app17hb517307267528c04E": {}
+  },
+  "node_counts": {
+    "_ZN9uu_printf6uumain17hf6f73a55c61ccaa8E": 9,
+    "_ZN9uu_printf6uumain6uumain17h9016f06e4b183cbbE": 38,
+    "_ZN9uu_printf6uu_app17hb517307267528c04E": 24
+  },
+  "prototypes": {
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h64277d1efa4af222E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h64277d1efa4af222E",
+      "return_type": [
+        "Result",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h88f0b841722b5820E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h88f0b841722b5820E",
+      "return_type": [
+        "struct",
+        56
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h53b6517dce077e4eE": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h53b6517dce077e4eE",
+      "return_type": [
+        "struct",
+        64
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command16get_matches_from17hc523ca07f4ae8a1eE": {
+      "name": "_ZN12clap_builder7builder7command7Command16get_matches_from17hc523ca07f4ae8a1eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore8features6format19FormatItem$LT$C$GT$5write17h356a71bb3f6c3126E": {
+      "name": "_ZN6uucore8features6format19FormatItem$LT$C$GT$5write17h356a71bb3f6c3126E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h828b818258ab71c4E": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h828b818258ab71c4E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h0d89bd17cb2a394fE": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h0d89bd17cb2a394fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h93334ed55f16e7bbE": {
+      "name": "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h93334ed55f16e7bbE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h628382bdce620a3cE": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h628382bdce620a3cE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h161932b779d78935E": {
+      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h161932b779d78935E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17ha4d9c65e78341d16E": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17ha4d9c65e78341d16E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17hb8b287ff2a6d6842E": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17hb8b287ff2a6d6842E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore8features6format21parse_spec_and_escape28_$u7b$$u7b$closure$u7d$$u7d$17hfb4855f1f81f1823E": {
+      "name": "_ZN6uucore8features6format21parse_spec_and_escape28_$u7b$$u7b$closure$u7d$$u7d$17hfb4855f1f81f1823E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
+      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
+      "return_type": [
+        "primitive",
+        1
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_printf6uumain17hf6f73a55c61ccaa8E": {
+      "name": "_ZN9uu_printf6uumain17hf6f73a55c61ccaa8E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_printf6uumain6uumain17h9016f06e4b183cbbE": {
+      "name": "_ZN9uu_printf6uumain6uumain17h9016f06e4b183cbbE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg3new17h1e35cf4a330f5baeE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg3new17h1e35cf4a330f5baeE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4help17hd2e95c0038444722E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4help17hd2e95c0038444722E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4long17h4bf6946a41ac2d48E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4long17h4bf6946a41ac2d48E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg6action17h41c3e58fb8362d36E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg6action17h41c3e58fb8362d36E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command10after_help17h48bb6db18ae6c072E": {
+      "name": "_ZN12clap_builder7builder7command7Command10after_help17h48bb6db18ae6c072E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command14override_usage17hdc0c293549a5ea36E": {
+      "name": "_ZN12clap_builder7builder7command7Command14override_usage17hdc0c293549a5ea36E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3arg17h4233fc0fe841c025E": {
+      "name": "_ZN12clap_builder7builder7command7Command3arg17h4233fc0fe841c025E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3new17hb929ef207e30f73bE": {
+      "name": "_ZN12clap_builder7builder7command7Command3new17hb929ef207e30f73bE",
+      "return_type": [
+        "struct",
+        438
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command5about17h816a3bedc6d880bdE": {
+      "name": "_ZN12clap_builder7builder7command7Command5about17h816a3bedc6d880bdE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command7version17h4a1a2c1f13d79a9fE": {
+      "name": "_ZN12clap_builder7builder7command7Command7version17h4a1a2c1f13d79a9fE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_printf6uu_app17hb517307267528c04E": {
+      "name": "_ZN9uu_printf6uu_app17hb517307267528c04E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
+      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
+      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    }
+  }
+}

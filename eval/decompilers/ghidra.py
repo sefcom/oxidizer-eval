@@ -1,15 +1,16 @@
 import os
 import subprocess
 import logging
-from tempfile import NamedTemporaryFile
+from tempfile import TemporaryDirectory, NamedTemporaryFile
 import traceback
 import shutil
+import json
 
 from angr.rust.utils.library import demangle
 
-from eval.decompilers.util import load_cached_call_counts_output, load_cached_output
+from eval.decompilers.util import load_cached_result, save_result
 
-from ..config import CACHED_DECOMPILED_CODE_PATH, CACHED_CALL_COUNTS_PATH, GHIDRA_PATH
+from ..config import GHIDRA_PATH
 
 l = logging.getLogger(__name__)
 
@@ -70,19 +71,23 @@ def _generate_function_mapping(function_list):
     return mapping
 
 
-def ghidra_dec(binary_path, function_list, cache_dir, cache_only=False):
+def ghidra_dec(binary_path, function_list, cache_only=False):
     binary_path = os.path.abspath(binary_path)
-    bin_name = os.path.basename(binary_path)
     function_list = list(function_list)
-    decompilation_result = {}
-    call_counts_result = {}
+    result = {
+        "decompilation": {},
+        "function_call_counts": {},
+        "macro_call_counts": {},
+        "node_counts": {},
+        "prototypes": {},
+    }
 
-    for func_name in list(function_list):
-        cached_output = load_cached_output(cache_dir, func_name)
-        cached_call_counts_output = load_cached_call_counts_output(cache_dir, func_name)
-        if cached_output and cached_call_counts_output:
-            decompilation_result[func_name] = cached_output
-            call_counts_result[func_name] = cached_call_counts_output
+    bin_name = os.path.basename(binary_path)
+    cached_result = load_cached_result("ghidra", bin_name)
+    if cached_result:
+        result = cached_result
+    for func_name in result["decompilation"]:
+        if func_name in function_list:
             function_list.remove(func_name)
 
     if function_list and not cache_only:
@@ -90,14 +95,12 @@ def ghidra_dec(binary_path, function_list, cache_dir, cache_only=False):
         function_mapping = _generate_function_mapping(function_list)
 
         # Create cache directories
-        decompiled_code_cache_dir = os.path.join(CACHED_DECOMPILED_CODE_PATH, cache_dir)
-        call_counts_cache_dir = os.path.join(CACHED_CALL_COUNTS_PATH, cache_dir)
-        os.makedirs(decompiled_code_cache_dir, exist_ok=True)
-        os.makedirs(call_counts_cache_dir, exist_ok=True)
+        decompilation_tmp_dir = TemporaryDirectory()
+        call_counts_tmp_dir = TemporaryDirectory()
+        decompilation_path = decompilation_tmp_dir.name
+        call_counts_path = call_counts_tmp_dir.name
 
-        post_dec_script = GHIDRA_POST_DEC_SCRIPT.format(
-            function_mapping, decompiled_code_cache_dir, call_counts_cache_dir
-        )
+        post_dec_script = GHIDRA_POST_DEC_SCRIPT.format(function_mapping, decompilation_path, call_counts_path)
         fd = NamedTemporaryFile("w", suffix=".py", delete=False)
         fd.write(post_dec_script)
         fd.close()
@@ -121,16 +124,26 @@ def ghidra_dec(binary_path, function_list, cache_dir, cache_only=False):
             )
             os.unlink(f"./temp_project_{bin_name}.gpr")
             shutil.rmtree(f"./temp_project_{bin_name}.rep")
-            cached_output = load_cached_output(cache_dir, func_name)
-            cached_call_counts_output = load_cached_call_counts_output(cache_dir, func_name)
-            if cached_output and cached_call_counts_output:
-                decompilation_result[func_name] = cached_output
-                call_counts_result[func_name] = cached_call_counts_output
+            for func_name in function_list:
+                decompilation_path = os.path.join(decompilation_tmp_dir.name, func_name + ".c")
+                call_counts_path = os.path.join(call_counts_tmp_dir.name, func_name + ".json")
+                if os.path.isfile(decompilation_path) and os.path.isfile(call_counts_path):
+                    with open(decompilation_path, "r") as fd:
+                        decompilation = fd.read()
+                    with open(call_counts_path, "r") as fd:
+                        call_counts = json.load(fd)
+                    result["decompilation"][func_name] = decompilation
+                    result["macro_call_counts"][func_name] = 0
+                    result["node_counts"][func_name] = 0
+                    result["function_call_counts"][func_name] = dict(call_counts)
         except Exception as e:
             l.critical(f"Ghidra decompilation exeception: {e}")
             l.critical("".join(traceback.format_exception(e)))
         finally:
             os.chdir(original_cwd)
             os.unlink(post_dec_script_path)
+            decompilation_tmp_dir.cleanup()
+            call_counts_tmp_dir.cleanup()
+        save_result("ghidra", bin_name, result)
 
-    return decompilation_result, call_counts_result
+    return result

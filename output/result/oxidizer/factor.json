@@ -1,0 +1,802 @@
+{
+  "decompilation": {
+    "_ZN9uu_factor17print_factors_str17he132e712a0bda753E": "fn uu_factor::print_factors_str(a0: u64, a1: u64, a2: &u64, a3: u32) -> u64 {\n    let v0: i8;  // [bp-0x148]\n    let v1: i64;  // [sp-0x140]\n    let v2: i64;  // [sp-0x138]\n    let v3: i64;  // [sp-0x128], Other Possible Types: struct24\n    let v4: i64;  // [sp-0x120]\n    let v5: i64;  // [sp-0x118]\n    let v6: i64;  // [sp-0xe8], Other Possible Types: struct24\n    let v7: i64;  // [sp-0xe0]\n    let v8: i64;  // [sp-0xd8]\n    let v9: i64;  // [sp-0xc8], Other Possible Types: struct24\n    let v10: i64;  // [sp-0xc0]\n    let v11: i64;  // [sp-0xb8]\n    let v12: i64;  // [bp-0xb0]\n    let v13: i8;  // [bp-0xa8]\n    let v14: i8;  // [bp-0xa0]\n    let v15: i192;  // [sp-0x98], Other Possible Types: Result<struct24, struct1>\n    let v16: i64;  // [sp-0x88]\n    let v17: i64;  // [sp-0x78]\n    let v18: i64;  // [sp-0x70]\n    let v19: i64;  // [sp-0x68]\n    let v20: i192;  // [sp-0x60], Other Possible Types: Result<struct24, struct1>\n    let v21: i192;  // [sp-0x48], Other Possible Types: struct24\n    let v23: i64;  // rdx\n    let v24: i64;  // rbx\n\n    v20 = num_bigint::biguint::convert::<impl num_traits::Num for num_bigint::biguint::BigUint>::from_str_radix(core::str::<impl str>::trim_matches(a0, a1), v23, 10);\n    match v20 {\n        Err(_) => {\n            v9 = uucore::util_name();\n            v10 = v23;\n            eprint!(\"{}: warning: \", &v9);\n            v9 = 0;\n            v10 = a0;\n            v11 = a1;\n            v12 = 0;\n            v0 = core::result::Result<T,E>::unwrap_err(&v20) as i8;\n            eprintln!(\"{}: {}\", &v9, &v0);\n            uucore::mods::error::set_exit_code(1);\n        },\n        Ok(_) => {\n            v15 = v20;\n            v21 = num_bigint::biguint::convert::<impl core::convert::From<u64> for num_bigint::biguint::BigUint>::from();\n            v3 = v21;\n            if num_bigint::biguint::cmp_slice(*((&v15 as &char + 8) as &i64), v16, v4, *((&v21 as &char + 16) as &i64)) as i8 != 1 {\n                v9 = 0;\n                v11 = 0;\n                v12 = 0x8000000000000000;\n            } else {\n                v3 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(&v15);\n                v6 = v3;\n                v3 = 2;\n                num_prime::nt_funcs::factors(&v9, &v6, &v3);\n            }\n            v19 = v11;\n            v17 = v9;\n            v18 = v10;\n            v2 = v14;\n            v0 = v12;\n            v1 = v13;\n            if v0 != 0x8000000000000000 {\n                v8 = v2;\n                v6 = v0;\n                v7 = v1;\n                v9 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n                v3 = v9;\n                alloc::boxed::Box<T>::new(&v3);\n                return v24;\n            }\n            v5 = v19;\n            v3 = v17;\n            v4 = v18;\n            if <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_factor::write_result(a2, &v15, &v3, a3 as u32 as u64)) {\n                return v24;\n            }\n        },\n    }\n    v24 = 0;\n    return 0;\n}\n",
+    "_ZN9uu_factor6uumain17he1d84bc6a32d937dE": "fn uu_factor::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0xa8]\n    let v1: u64;  // [sp-0x98]\n    let v2: u64;  // [sp-0x90]\n    let v3: &&struct_0;  // [sp-0x88]\n    let v4: u64;  // [sp-0x80]\n    let v5: void*;  // [sp-0x78]\n    let v6: u64;  // [sp-0x68]\n    let v7: &u64;  // [sp-0x60]\n    let v8: &u8;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: u64;  // [sp-0x38]\n    let v11: i8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v14: u64;  // rax\n    let v15: &u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v14 = uu_factor::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_419d80;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    core::option::Option<T>::map_or_else();\n    *(&v8 as &i8) = v11;\n    v10 = v12;\n    if v8 == \"\" {\n        v6 = uucore::util_name();\n        v7 = v15;\n        eprint!(\"{}: \", &v6);\n        eprintln!(\"{}\", &v8);\n    }\n    if !v15[13]() {\n        return v15[12]();\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v15;\n    eprintln!(\"Try '{} --help' for more information.\", &v6);\n}\n",
+    "_ZN9uu_factor6uumain6uumain17h8a5b39c1daa0c762E": "fn uu_factor::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0x408]\n    let v1: i8;  // [sp-0x400]\n    let v7: i512;  // [bp-0x3c0], Other Possible Types: struct64\n    let v8: i64;  // [sp-0x3b8]\n    let v9: i8;  // [bp-0x3b0]\n    let v10: i8;  // [bp-0x3a0]\n    let v11: i8;  // [bp-0x390]\n    let v12: i64;  // [sp-0x380]\n    let v13: i64;  // [sp-0x378]\n    let v14: i64;  // [sp-0x370]\n    let v15: i64;  // [sp-0x358]\n    let v16: i64;  // [sp-0x350]\n    let v17: i128;  // [sp-0x348]\n    let v18: i128;  // [sp-0x338]\n    let v19: i64;  // [sp-0x328]\n    let v20: i264;  // [sp-0x320], Other Possible Types: struct33\n    let v21: i5696;  // [sp-0x2f8], Other Possible Types: struct712, struct56\n    let v23: i128;  // [bp-0x2e8]\n    let v24: i128;  // [bp-0x2d8]\n    let v25: i128;  // [bp-0x2c8]\n    let v29: i32;  // ebp\n    let v30: i128;  // xmm0\n    let v31: i128;  // xmm1\n    let v32: i128;  // xmm2\n    let v33: struct8;  // rax\n    let v36: i8;  // rdx\n\n    v21 = uu_factor::uu_app();\n    clap_builder::builder::command::Command::try_get_matches_from(&v7, &v21, a0, a1);\n    if v15 == 0x8000000000000000 {\n        return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v16);\n    }\n    v19 = v11;\n    v18 = v10;\n    v17 = v9;\n    v15 = v7;\n    v16 = v8;\n    v29 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v15, _ZN9uu_factor7options9EXPONENTS17he776d04d341a4ac5E, g_58ddd8) as i32;\n    v13 = std::io::stdio::stdout();\n    v20 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x1000, std::io::stdio::Stderr::lock(&v13));\n    v21 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v15, _ZN9uu_factor7options6NUMBER17hef2df56071e79773E, g_58dde8);\n    v7 = clap_builder::parser::error::MatchesError::unwrap(_ZN9uu_factor7options6NUMBER17hef2df56071e79773E, g_58dde8, &v21);\n    if !v7 {\n        v14 = std::io::stdio::stdin();\n        v0 = std::io::stdio::Stdin::lock(&v14);\n        v1 = v36 & 1;\n        v12 = 9223372036854775809;\n    } else {\n        v30 = v7;\n        v31 = *((&v7 as &char + 16) as &i128);\n        v32 = *((&v7 as &char + 32) as &i128);\n        v25 = *((&v7 as &char + 48) as &i128);\n        v24 = v32;\n        v23 = v31;\n        v21 = v30;\n        do {\n            v33 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next();\n        } while (!uu_factor::print_factors_str(*((v33 + 8) as &i64), *((v33 + 16) as &i64), &v20, v29));\n    }\n}\n",
+    "_ZN9uu_factor6uu_app17h680fb957320d0cf8E": "fn uu_factor::uu_app(a0: &struct712) -> u64 {\n    let v0: i5696;  // [sp-0xa50], Other Possible Types: struct592, struct712, struct437\n    let v1: i64;  // [sp-0x794]\n    let v2: i32;  // [sp-0x78c]\n    let v3: i4736;  // [sp-0x788], Other Possible Types: struct592, struct712\n    let v4: i4736;  // [sp-0x4c0], Other Possible Types: struct592, struct24\n    let v5: struct592;  // [sp-0x270], Other Possible Types: i4736\n    let v7: i64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v7);\n    v3 = clap_builder::builder::command::Command::version(&v0);\n    v0 = clap_builder::builder::command::Command::about(&v3);\n    v4 = uucore::format_usage(\"{} [OPTION]... [NUMBER]...\");\n    v3 = clap_builder::builder::command::Command::override_usage(&v0, &v4);\n    memcpy(&v0, &v3, 700);\n    v1 = 1126484022657160 | *((&v3 as &char + 700) as &i64);\n    v2 = *((&v3 as &char + 708) as &i32);\n    v3 = clap_builder::builder::arg::Arg::new(\"NUMBER\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x1);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"exponents\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0);\n    v0 = clap_builder::builder::arg::Arg::long(&v4, \"exponents\");\n    v4 = clap_builder::builder::arg::Arg::help(&v0, \"Print factors in the form p^e\");\n    v5 = clap_builder::builder::arg::Arg::action(&v4, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v5);\n    v3 = clap_builder::builder::arg::Arg::new(\"help\");\n    v4 = clap_builder::builder::arg::Arg::long(&v3, \"help\");\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"Print help information.\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x5);\n    clap_builder::builder::command::Command::arg(a0, &v0, &v4);\n    return a0;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN9uu_factor17print_factors_str17he132e712a0bda753E": {
+      "uucore::mods::error::set_exit_code": 1,
+      "core::result::Result<T,E>::unwrap_err": 1,
+      "uucore::util_name": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
+      "num_prime::nt_funcs::factors": 1,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone": 1,
+      "num_bigint::biguint::convert::<impl core::convert::From<u64> for num_bigint::biguint::BigUint>::from": 1,
+      "num_bigint::biguint::convert::<impl num_traits::Num for num_bigint::biguint::BigUint>::from_str_radix": 1,
+      "core::str::<impl str>::trim_matches": 1
+    },
+    "_ZN9uu_factor6uumain17he1d84bc6a32d937dE": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_factor::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN9uu_factor6uumain6uumain17h8a5b39c1daa0c762E": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "std::io::stdio::Stdin::lock": 1,
+      "std::io::stdio::stdin": 1,
+      "<clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "std::io::buffered::bufwriter::BufWriter<W>::with_capacity": 1,
+      "std::io::stdio::Stderr::lock": 1,
+      "std::io::stdio::stdout": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_factor::uu_app": 1
+    },
+    "_ZN9uu_factor6uu_app17h680fb957320d0cf8E": {
+      "clap_builder::builder::command::Command::arg": 3,
+      "clap_builder::builder::arg::Arg::action": 3,
+      "clap_builder::builder::arg::Arg::help": 2,
+      "clap_builder::builder::arg::Arg::long": 2,
+      "clap_builder::builder::arg::Arg::new": 3,
+      "clap_builder::builder::arg::Arg::short": 1,
+      "memcpy": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN9uu_factor17print_factors_str17he132e712a0bda753E": {
+      "eprintln": 1,
+      "eprint": 1
+    },
+    "_ZN9uu_factor6uumain17he1d84bc6a32d937dE": {
+      "eprintln": 2,
+      "eprint": 1
+    },
+    "_ZN9uu_factor6uumain6uumain17h8a5b39c1daa0c762E": {},
+    "_ZN9uu_factor6uu_app17h680fb957320d0cf8E": {}
+  },
+  "node_counts": {
+    "_ZN9uu_factor17print_factors_str17he132e712a0bda753E": 18,
+    "_ZN9uu_factor6uumain17he1d84bc6a32d937dE": 9,
+    "_ZN9uu_factor6uumain6uumain17h8a5b39c1daa0c762E": 13,
+    "_ZN9uu_factor6uu_app17h680fb957320d0cf8E": 21
+  },
+  "prototypes": {
+    "_ZN10num_bigint7biguint7convert89_$LT$impl$u20$core..convert..From$LT$u64$GT$$u20$for$u20$num_bigint..biguint..BigUint$GT$4from17h863489988f6613a1E": {
+      "name": "_ZN10num_bigint7biguint7convert89_$LT$impl$u20$core..convert..From$LT$u64$GT$$u20$for$u20$num_bigint..biguint..BigUint$GT$4from17h863489988f6613a1E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": []
+    },
+    "_ZN10num_bigint7biguint9cmp_slice17h04e9fe9c6a1333c8E": {
+      "name": "_ZN10num_bigint7biguint9cmp_slice17h04e9fe9c6a1333c8E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h67a909a576bf9886E": {
+      "name": "_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h67a909a576bf9886E",
+      "return_type": [
+        "Result",
+        72
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core4iter6traits8iterator8Iterator8try_fold17h40e02e54eaed34f1E": {
+      "name": "_ZN4core4iter6traits8iterator8Iterator8try_fold17h40e02e54eaed34f1E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17ha848903e8938f6fdE": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17ha848903e8938f6fdE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17ha73152ddc07992a9E": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17ha73152ddc07992a9E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9329aa7fedbb9010E": {
+      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9329aa7fedbb9010E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": []
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h658e481b4643525fE": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h658e481b4643525fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
+      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
+      "return_type": [
+        "primitive",
+        1
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN95_$LT$core..str..pattern..MultiCharEqPattern$LT$C$GT$$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hf2619fac8d2a8106E": {
+      "name": "_ZN95_$LT$core..str..pattern..MultiCharEqPattern$LT$C$GT$$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hf2619fac8d2a8106E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_factor12write_result17h4349ac4ce4d74e96E": {
+      "name": "_ZN9uu_factor12write_result17h4349ac4ce4d74e96E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN9uu_factor17print_factors_str17he132e712a0bda753E": {
+      "name": "_ZN9uu_factor17print_factors_str17he132e712a0bda753E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN9uu_factor6uumain17he1d84bc6a32d937dE": {
+      "name": "_ZN9uu_factor6uumain17he1d84bc6a32d937dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_factor6uumain6uumain17h8a5b39c1daa0c762E": {
+      "name": "_ZN9uu_factor6uumain6uumain17h8a5b39c1daa0c762E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN121_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e00d23760fea2f1E": {
+      "name": "_ZN121_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e00d23760fea2f1E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h077ff7a07b830d8bE": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h077ff7a07b830d8bE",
+      "return_type": [
+        "struct",
+        64
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17ha0ed1229838b49f0E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17ha0ed1229838b49f0E",
+      "return_type": [
+        "struct",
+        56
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h356928954ce19a97E": {
+      "name": "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h356928954ce19a97E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io5Write9write_fmt17h3e05af1c32146a29E": {
+      "name": "_ZN3std2io5Write9write_fmt17h3e05af1c32146a29E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$13with_capacity17h65001697dc742481E": {
+      "name": "_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$13with_capacity17h65001697dc742481E",
+      "return_type": [
+        "struct",
+        33
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17h84c9340cd8b23129E": {
+      "name": "_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17h84c9340cd8b23129E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17hea36ead84b054e88E": {
+      "name": "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17hea36ead84b054e88E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0e547a70c3f80ae3E": {
+      "name": "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0e547a70c3f80ae3E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN82_$LT$std..io..Lines$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbb0d6e1edcb0826E": {
+      "name": "_ZN82_$LT$std..io..Lines$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbb0d6e1edcb0826E",
+      "return_type": [
+        "Option",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f3bdc940177747eE": {
+      "name": "_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f3bdc940177747eE",
+      "return_type": [
+        "Option",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9num_prime8nt_funcs7factors17h468006e1cecc35d2E": {
+      "name": "_ZN9num_prime8nt_funcs7factors17h468006e1cecc35d2E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io5stdio5stdin17h7215cc131abb55d8E": {
+      "name": "_ZN3std2io5stdio5stdin17h7215cc131abb55d8E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN3std2io5stdio6stdout17h077da66234850927E": {
+      "name": "_ZN3std2io5stdio6stdout17h077da66234850927E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5alloc3str21_$LT$impl$u20$str$GT$6repeat17h44a69ba09e43960aE": {
+      "name": "_ZN5alloc3str21_$LT$impl$u20$str$GT$6repeat17h44a69ba09e43960aE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg3new17hc1edbe40a47f8a49E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg3new17hc1edbe40a47f8a49E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4help17h09a32e7dd5808c59E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4help17h09a32e7dd5808c59E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4long17hf6fb7bfc1a444d08E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4long17hf6fb7bfc1a444d08E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg5short17he98ee2dd7a709e3eE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg5short17he98ee2dd7a709e3eE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg6action17h326cdfe38f2ce453E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg6action17h326cdfe38f2ce453E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command14override_usage17ha9e3b5847de0e11aE": {
+      "name": "_ZN12clap_builder7builder7command7Command14override_usage17ha9e3b5847de0e11aE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3arg17h7e95c5092dae0378E": {
+      "name": "_ZN12clap_builder7builder7command7Command3arg17h7e95c5092dae0378E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3new17hb5e4f03e9e5506b0E": {
+      "name": "_ZN12clap_builder7builder7command7Command3new17hb5e4f03e9e5506b0E",
+      "return_type": [
+        "struct",
+        438
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command5about17h7edd897f24cf3586E": {
+      "name": "_ZN12clap_builder7builder7command7Command5about17h7edd897f24cf3586E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command7version17h7b2f787e58b4ee93E": {
+      "name": "_ZN12clap_builder7builder7command7Command7version17h7b2f787e58b4ee93E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_factor6uu_app17h680fb957320d0cf8E": {
+      "name": "_ZN9uu_factor6uu_app17h680fb957320d0cf8E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": []
+    },
+    "_ZN10num_bigint7biguint7convert74_$LT$impl$u20$num_traits..Num$u20$for$u20$num_bigint..biguint..BigUint$GT$14from_str_radix17hdbc74ae67ae58087E": {
+      "name": "_ZN10num_bigint7biguint7convert74_$LT$impl$u20$num_traits..Num$u20$for$u20$num_bigint..biguint..BigUint$GT$14from_str_radix17hdbc74ae67ae58087E",
+      "return_type": [
+        "Result",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE": {
+      "name": "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
+      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
+      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E": {
+      "name": "_ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

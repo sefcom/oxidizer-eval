@@ -1,0 +1,3800 @@
+{
+  "decompilation": {
+    "_ZN5uu_dd6uumain17heeec4797224c983aE": "fn uu_dd::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0xa8]\n    let v1: u64;  // [sp-0x98]\n    let v2: u64;  // [sp-0x90]\n    let v3: &&struct_1;  // [sp-0x88]\n    let v4: u64;  // [sp-0x80]\n    let v5: void*;  // [sp-0x78]\n    let v6: u64;  // [sp-0x68]\n    let v7: &u64;  // [sp-0x60]\n    let v8: &u8;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: u64;  // [sp-0x38]\n    let v11: i8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v14: u64;  // rax\n    let v15: &u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v14 = uu_dd::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_419580;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    core::option::Option<T>::map_or_else();\n    *(&v8 as &i8) = v11;\n    v10 = v12;\n    if v8 == \"\" {\n        v6 = uucore::util_name();\n        v7 = v15;\n        eprint!(\"{}: \", &v6);\n        eprintln!(\"{}\", &v8);\n    }\n    if !v15[13]() {\n        return v15[12]();\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v15;\n    eprintln!(\"Try '{} --help' for more information.\", &v6);\n}\n",
+    "_ZN5uu_dd6uumain6uumain17h74b70bfc5a4ff6dcE": "fn uu_dd::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i192;  // [sp-0x578], Other Possible Types: struct24\n    let v1: i8;  // [sp-0x560]\n    let v2: i8;  // [bp-0x550]\n    let v3: i8;  // [bp-0x548]\n    let v4: i8;  // [bp-0x540]\n    let v5: i8;  // [bp-0x538]\n    let v6: i8;  // [bp-0x530]\n    let v7: i8;  // [bp-0x528]\n    let v8: i128;  // [sp-0x4b8]\n    let v9: i128;  // [sp-0x4a8]\n    let v10: i32;  // [sp-0x490], Other Possible Types: struct56\n    let v11: i32;  // [sp-0x48d]\n    let v12: i64;  // [sp-0x448]\n    let v13: i64;  // [sp-0x440]\n    let v14: i1312;  // [bp-0x410], Other Possible Types: Result<struct164, struct32>\n    let v15: i64;  // [sp-0x408]\n    let v16: struct64;  // [bp-0x368]\n    let v17: struct64;  // [sp-0x328]\n    let v18: i64;  // [sp-0x2e8], Other Possible Types: struct24, struct712, struct17\n    let v19: i32;  // [bp-0x2e7]\n    let v20: i32;  // [sp-0x2e4]\n    let v21: i128;  // [bp-0x2e0]\n    let v22: i64;  // [bp-0x2d8]\n    let v23: i64;  // [sp-0x2c8]\n    let v24: i64;  // [sp-0x2b8]\n    let v25: i128;  // [sp-0x2a8]\n    let v26: i128;  // [sp-0x298]\n    let v27: i64;  // [sp-0x288]\n    let v28: i64;  // [sp-0x278]\n    let v29: i64;  // [sp-0x260]\n    let v30: i128;  // [sp-0x248]\n    let v31: i128;  // [sp-0x238]\n    let v32: i128;  // [sp-0x228]\n    let v33: i8;  // [sp-0x218]\n    let v35: i64;  // rax\n    let v43: i64;  // r14\n    let v44: i64;  // rbx\n    let v45: i128;  // xmm0\n\n    v18 = uu_dd::uu_app();\n    clap_builder::builder::command::Command::try_get_matches_from(&v14, &v18, a0, a1);\n    if v12 == 0x8000000000000000 {\n        v35 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v13);\n        return v35;\n    }\n    v12 = v14;\n    v28 = 0x8000000000000000;\n    v29 = 0x8000000000000000;\n    v18 = 0;\n    v22 = 0;\n    v23 = 0;\n    v24 = 0;\n    v25 = 0;\n    v26 = 0;\n    v27 = 2;\n    v30 = 0;\n    v31 = 0;\n    v32 = 0;\n    v33 = 3;\n    v10 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v12, \"operands\");\n    v17 = clap_builder::parser::error::MatchesError::unwrap(\"operands\", &v10);\n    *(&v16.field_0 as &struct64) = struct64 {\n        field_0: v36\n        field_8: v37\n        field_16: v38\n        field_32: v39\n        field_48: v40\n        field_56: v41\n    };\n    v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v16);\n    v14 = uu_dd::parseargs::Parser::parse(&v18, *((&v0 as &char + 8) as &i64), *((&v0 as &char + 16) as &i64));\n    v8 = *((&v14 as &char + 8) as &i128);\n    v9 = *((&v14 as &char + 24) as &i128);\n    if v1 == 3 {\n        v18 = v8;\n        alloc::boxed::Box<T>::new(&v18);\n        return v35;\n    }\n    if v2 == 0x8000000000000000 {\n        v18 = uu_dd::Input::new_stdin(&v1);\n    } else if !uu_dd::is_fifo(v3, v4) as i8 {\n        v18 = uu_dd::Input::new_file(v3, v4, &v1);\n    } else {\n        v18 = uu_dd::Input::new_fifo(v3, v4, &v1);\n    }\n    v43 = *((&v18 as &char + 8) as &i64);\n    v44 = *((&v18 as &char + 16) as &i64);\n    if v18 {\n        return v35;\n    }\n    if v5 != 0x8000000000000000 {\n        if !uu_dd::is_fifo(v6, v7) as i8 {\n            v18 = uu_dd::Output::new_file(v6, v7, &v1);\n        } else {\n            v18 = uu_dd::Output::new_fifo(v6, v7, &v1);\n        }\n    } else {\n        if !uu_dd::is_stdout_redirected_to_seekable_file() as i8 {\n            v18 = uu_dd::Output::new_stdout(&v1);\n        } else {\n            v18 = uu_dd::Output::new_file_from_stdout(&v1);\n        }\n    }\n    if v18 != 4 {\n        v11 = v20;\n        v10 = *((&v18 as &char + 1) as &i32);\n        v45 = *((&v18 as &char + 8) as &i128);\n        v14 = v43;\n        v15 = v44;\n        v18 = v18;\n        v19 = v10;\n        v20 = v11;\n        v21 = v45;\n        <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_dd::dd_copy(&v14, &v18));\n        return v35;\n    }\n    return v35;\n}\n",
+    "_ZN5uu_dd9parseargs6Parser5parse17hd077653d220e666dE": "fn uu_dd::parseargs::Parser::parse(a0: &Result<struct164, struct32>, a1: u32, a2: u32, a3: u32) -> u64 {\n    let v0: i128;  // [sp-0x1e8]\n    let v1: i128;  // [sp-0x1d8]\n    let v2: i1728;  // [sp-0x1c0], Other Possible Types: Result<struct216, struct32>\n    let v3: struct40;  // [bp-0xe8]\n    let v4: i8;  // [bp-0xc0]\n\n    v2 = uu_dd::parseargs::Parser::read(a1, a2, a3);\n    v0 = *((&v2 as &char + 8) as &i128);\n    v1 = *((&v2 as &char + 24) as &i128);\n    match v2 {\n        Err(_) => {\n            return Err(struct32 {\n                field_0: v0\n                field_16: v1\n            });\n        },\n        Ok(_) => {\n            memcpy(&v4, &v2, 176);\n            v3 = struct40 {\n                field_0: v6\n                field_8: v0\n                field_24: v1\n            };\n            uu_dd::parseargs::Parser::validate(a0, &v3);\n        },\n    }\n}\n",
+    "_ZN5uu_dd9parseargs6Parser4read17h3585469891c58efdE": "fn uu_dd::parseargs::Parser::read(a0: &Result<struct216, struct32>, a1: u32, a2: u32, a3: u32) -> u64 {\n    let v0: i64;  // [sp-0x50]\n    let v1: i64;  // [sp-0x48]\n    let v2: i272;  // [sp-0x40], Other Possible Types: struct33\n    let v4: struct8;  // rax\n\n    v0 = a2;\n    v1 = a3 * 16 + a2;\n    v4 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();\n    if v4 {\n        do {\n            v2 = uu_dd::parseargs::Parser::parse_operand(a1, *(v4 as &i64), *((v4 + 8) as &i64));\n            if v2 != 14 {\n                return Err(struct32 {\n                    field_0: v5\n                    field_16: *((&v2 as &char + 16) as &i128)\n                });\n            }\n        } while ((v4 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(), v4));\n    }\n    return memcpy(a0, a1, 216);\n}\n",
+    "_ZN5uu_dd9parseargs6Parser8validate17hd2b1e31453916e87E": "fn uu_dd::parseargs::Parser::validate(a0: &struct164, a1: &struct40) -> int {\n    let v0: i8;  // [sp-0x5e]\n    let v1: i8;  // [sp-0x5d]\n    let v2: i8;  // [sp-0x5c]\n    let v3: i8;  // [sp-0x5b]\n    let v4: i8;  // [sp-0x5a]\n    let v5: i8;  // [sp-0x59]\n    let v6: i128;  // [sp-0x58]\n    let v7: struct18;  // [sp-0x48]\n    let v9: i64;  // r13\n    let v10: i8;  // dil\n    let v11: i8;  // sil\n    let v12: i8;  // cl\n    let v13: i8;  // al\n    let v14: i8;  // r15b\n    let v15: i8;  // r10b\n    let v16: i8;  // r11b\n    let v17: i128;  // xmm0\n    let v18: i8;  // r8b\n    let v19: i8;  // r9b\n    let v20: i64;  // r12\n    let v21: i64;  // r12\n    let v22: i64;  // r12\n    let v23: i64;  // r12\n    let v24: i64;  // r12\n    let v25: i64;  // r12\n    let v26: i64;  // r12\n    let v27: i32;  // ebp\n    let v33: i64;  // rcx\n    let v34: i8;  // sil\n    let v35: i8;  // dil\n    let v36: i8;  // r8b\n    let v37: i64;  // rdx\n    let v38: i256;  // ymm0\n    let v41: i64;  // rsi\n    let v50: i64;  // cc_dep1\n    let v57: i64;  // cc_dep1\n    let v62: i64;  // r9\n\n    v9 = *((a1 + 160) as &i8);\n    v10 = *((a1 + 161) as &i8);\n    v11 = *((a1 + 162) as &i8);\n    v12 = *((a1 + 163) as &i8);\n    v13 = *((a1 + 164) as &i8);\n    v4 = *((a1 + 165) as &i8);\n    v14 = *((a1 + 166) as &i8);\n    v15 = *((a1 + 167) as &i8);\n    v5 = *((a1 + 168) as &i8);\n    v16 = *((a1 + 169) as &i8);\n    v17 = *((a1 + 170) as &i32);\n    v18 = *((a1 + 174) as &i8);\n    v19 = *((a1 + 175) as &i8);\n    if v9 {\n        if !(!v11) || !(!v10) {\n            return v38;\n        }\n        if !v12 {\n            v3 = v16;\n            v0 = v15;\n            v1 = v19;\n            v2 = v18;\n            v6 = v17;\n            v20 = 0;\n        } else {\n            if !v13 {\n                v3 = v16;\n                v0 = v15;\n                v1 = v19;\n                v2 = v18;\n                v6 = v17;\n                v20 = 0;\n            } else {\n                return v38;\n            }\n        }\n    } else if v10 {\n        if v11 {\n            return v38;\n        }\n        if !v12 {\n            v3 = v16;\n            v0 = v15;\n            v1 = v19;\n            v2 = v18;\n            v6 = v17;\n            v20 = v21 & -0x100 | 1;\n        } else if !v13 {\n            v3 = v16;\n            v0 = v15;\n            v1 = v19;\n            v2 = v18;\n            v6 = v17;\n            v20 = v24 & -0x100 | 1;\n        } else {\n            return v38;\n        }\n    } else {\n        if v11 {\n            if !v12 {\n                v3 = v16;\n                v0 = v15;\n                v1 = v19;\n                v2 = v18;\n                v6 = v17;\n                v20 = v22 & -0x100 | 2;\n                goto LABEL_4d2cba;\n            } else if !v13 {\n                v3 = v16;\n                v0 = v15;\n                v1 = v19;\n                v2 = v18;\n                v6 = v17;\n                v20 = v25 & -0x100 | 2;\n            } else {\n                return v38;\n            }\n        } else {\n            if !v12 {\n                v3 = v16;\n                v0 = v15;\n                v1 = v19;\n                v2 = v18;\n                v6 = v17;\n                v20 = v23 & -0x100 | 3;\n                goto LABEL_4d2cba;\n            } else if !v13 {\n                v3 = v16;\n                v0 = v15;\n                v1 = v19;\n                v2 = v18;\n                v6 = v17;\n                v20 = v26 & -0x100 | 3;\n            } else {\n                return v38;\n            }\n        }\n    }\nLABEL_4d2cba:\n    v27 = v20;\n    v33 = (340282366920938463463374607431768211455 ^ ((BinaryOp CmpEQV >> 64 CONCAT BinaryOp CmpEQV >> 16 CONCAT BinaryOp CmpEQV >> 16 CONCAT BinaryOp CmpEQV >> 16 CONCAT BinaryOp CmpEQV >> 16) | BinaryOp CmpEQV)) >> 32 & 65535;\n    v34 = v2;\n    v35 = v1;\n    v36 = v0;\n    if (v33 & 1) {\n        return v38;\n    }\n    if !*((a1 + 48) as &i64) {\n        if !(!v14 && !v4) {\n            return v38;\n        }\n        v0 = v36;\n        v1 = v35;\n        v2 = v34;\n        v37 = 2;\nLABEL_4d2dd6:\n        v7 = uu_dd::parseargs::conversion_mode(uu_dd::parseargs::get_ctable(v27, (!v13) * 2), v37, v33, v9 & 4294967295, v5 & 4294967295);\n        v41 = *(a1 as &i64);\n        v50 = *((a1 + 64) as &i64);\n        v57 = *((a1 + 80) as &i64);\n        v62 = *((a1 + 96) as &i64);\n        return struct164 {\n            field_0: v62\n            field_8: v63\n            field_16: v64\n            field_32: *((a1 + 128) as &i64)\n            field_40: v65\n            field_56: *((a1 + 152) as &i64)\n            field_64: v66\n            field_80: v67\n            field_96: v7\n            field_104: v40 as i8\n            field_105: 32\n            field_106: v0\n            field_107: v39\n            field_112: <UNKNOWN>\n            field_120: <UNKNOWN>\n            field_128: <UNKNOWN>\n            field_136: <UNKNOWN>\n            field_144: <UNKNOWN>\n            field_148: v43 as i32\n            field_149: <UNKNOWN>\n            field_150: <UNKNOWN>\n            field_157: <UNKNOWN>\n            field_165: <UNKNOWN>\n            field_166: <UNKNOWN>\n        };\n    }\n    v33 = *((a1 + 56) as &i64);\n    if !v20 {\n        v0 = v36;\n        v1 = v35;\n        v2 = v34;\n        v37 = 1;\n        goto LABEL_4d2dd6;\n    }\n    if v27 == 3 {\n        if !v4 {\n            v0 = v36;\n            v1 = v35;\n            v2 = v34;\n            v37 = 1 + (v14 < 1);\n            goto LABEL_4d2dd6;\n        } else if v14 {\n            return v38;\n        }\n    }\n    v0 = v36;\n    v1 = v35;\n    v2 = v34;\n    v37 = 0;\n    goto LABEL_4d2dd6;\n}\n",
+    "_ZN5uu_dd9parseargs6Parser7parse_n17h10e17107a528a6d1E": "fn uu_dd::parseargs::Parser::parse_n(a0: &struct32, a1: u32, a2: u32) -> u64 {\n    let v0: u8;  // [bp-0x48]\n    let v1: i8;  // [bp-0x40]\n    let v4: u64;  // rax\n    let v6: u64;  // r13\n\n    v4 = uu_dd::parseargs::parse_bytes_with_opt_multiplier(&v0, a1, a2);\n    v6 = v1;\n    if *(&v0 as &i64) != 14 {\n        return struct32 {\n            field_0: v5\n            field_8: v6\n            field_16: v2\n        };\n    }\n    v4 = <char as core::str::pattern::Pattern>::is_contained_in(a1, a2);\n    a0->field_10 = v6;\n    v6 = v4 & 4294967295;\n}\n",
+    "_ZN5uu_dd9parseargs6Parser11parse_bytes17h54695c3411a8c383E": "fn uu_dd::parseargs::Parser::parse_bytes(a0: &struct32, a1: u32, a2: u32) -> u64 {\n    let v0: i8;  // [bp-0x28]\n    let v3: u64;  // rax\n    let v4: u128;  // xmm0\n\n    v3 = uu_dd::parseargs::parse_bytes_with_opt_multiplier();\n    v4 = v0;\n    return struct32 {\n        field_0: v4\n        field_16: v1\n    };\n}\n",
+    "_ZN5uu_dd9parseargs6Parser18parse_status_level17h34642a5ebdfca327E": "fn uu_dd::parseargs::Parser::parse_status_level(a0: &Option<struct1>, a1: u32, a2: u32) -> u64 {\n    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"none\") as i8 {\n        a0->field_8 = 2;\n        goto LABEL_4d35f2;\n    }\n    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"noxfer\") as i8 {\n        a0->field_8 = 1;\n        goto LABEL_4d35f2;\n    } else if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"progress\") as i8 {\n        <T as alloc::slice::hack::ConvertVec>::to_vec(&a0->field_8, a1, a2);\n    } else {\n        a0->field_8 = 0;\nLABEL_4d35f2:\n    }\n    return struct8 {\n        field_0: v1\n    };\n}\n",
+    "_ZN5uu_dd9parseargs6Parser18parse_output_flags17h73e155582080adb4E": "fn uu_dd::parseargs::Parser::parse_output_flags(a0: &Option<struct24>, a1: u32, a2: u32, a3: u32) -> u64 {\n    let v0: i64;  // [sp-0x130]\n    let v1: i64;  // [sp-0x128]\n    let v2: i64;  // [sp-0x120]\n    let v3: i64;  // [sp-0x118]\n    let v4: i64;  // [sp-0x110]\n    let v5: i64;  // [sp-0x108]\n    let v6: i64;  // [sp-0x100]\n    let v7: i64;  // [sp-0xf0]\n    let v8: i64;  // [sp-0xe8]\n    let v9: i64;  // [sp-0xe0]\n    let v10: struct24;  // [sp-0xd8]\n    let v11: struct24;  // [sp-0xc0]\n    let v12: struct24;  // [sp-0xa8]\n    let v13: struct24;  // [sp-0x90]\n    let v14: i64;  // [sp-0x78]\n    let v15: i64;  // [sp-0x70]\n    let v16: struct41;  // [sp-0x68]\n    let v17: i16;  // [sp-0x38]\n    let v19: struct8;  // rax\n    let v23: i64;  // r13\n    let v25: i64;  // r13\n    let v26: i64;  // r12\n\n    v16 = <char as core::str::pattern::Pattern>::into_searcher(0x2c, a2, a3);\n    v14 = 0;\n    v7 = a3;\n    v15 = a3;\n    v17 = 1;\n    v19 = core::str::iter::SplitInternal<P>::next();\n    if !v19 {\n        return struct8 {\n            field_0: 14\n        };\n    }\n    v0 = a1 + 207;\n    v1 = a1 + 193;\n    v2 = a1 + 203;\n    v3 = a1 + 202;\n    v4 = a1 + 201;\n    v5 = a1 + 200;\n    v6 = a1 + 199;\n    v8 = a1 + 198;\n    v9 = a1 + 197;\n    do {\n        v23 = v25;\n        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v23, \"cio\") as i8 {\n            <T as alloc::slice::hack::ConvertVec>::to_vec(a0 + 8, a2, v7);\n            return struct8 {\n                field_0: 11\n            };\n        }\n        v26 = a1 + 195;\n        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v23, \"direct\") as i8 {\nLABEL_4d3ce0:\n            *(v26 as &i8) = 1;\n        } else {\n            v26 = a1 + 196;\n            if (v19 = core::str::iter::SplitInternal<P>::next(), v19) {\n                goto LABEL_4d3ce0;\n            }\n            v26 = v8;\n            if (v19 = core::str::iter::SplitInternal<P>::next(), v19) {\n                goto LABEL_4d3ce0;\n            }\n            v26 = v5;\n            if (v19 = core::str::iter::SplitInternal<P>::next(), v19) {\n                goto LABEL_4d3ce0;\n            }\n            v26 = v3;\n            if (v19 = core::str::iter::SplitInternal<P>::next(), v19) {\n                goto LABEL_4d3ce0;\n            }\n            if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v23, \"nolinks\") as i8 {\n                v11 = <T as alloc::slice::hack::ConvertVec>::to_vec(v19, v23);\n                return struct32 {\n                    field_0: 11\n                    field_8: v11\n                    field_24: v28\n                };\n            }\n            if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v23, \"binary\") as i8 {\n                v12 = <T as alloc::slice::hack::ConvertVec>::to_vec(v19, v23);\n                return struct32 {\n                    field_0: 11\n                    field_8: v12\n                    field_24: v28\n                };\n            }\n            if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v23, \"text\") as i8 {\n                v13 = <T as alloc::slice::hack::ConvertVec>::to_vec(v19, v23);\n                return struct32 {\n                    field_0: 11\n                    field_8: v13\n                    field_24: v28\n                };\n            }\n            v26 = v1;\n            if (v19 = core::str::iter::SplitInternal<P>::next(), v19) {\n                goto LABEL_4d3ce0;\n            }\n            if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v23, \"fullblock\") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v23, \"count_bytes\") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v23, \"skip_bytes\") as i8 {\n                v10 = <T as alloc::slice::hack::ConvertVec>::to_vec(v19, v23);\n                return Some(struct24 {\n                    field_0: v10\n                    field_16: v28\n                });\n            }\n        }\n    } while ((v19 = core::str::iter::SplitInternal<P>::next(), v19));\n}\n",
+    "_ZN5uu_dd9parseargs6Parser16parse_conv_flags17h2792d84d78d66501E": "fn uu_dd::parseargs::Parser::parse_conv_flags(a0: &Option<struct24>, a1: &struct1, a2: u32, a3: u32) -> u64 {\n    let v0: struct24;  // [sp-0x90]\n    let v1: i64;  // [sp-0x78]\n    let v2: i64;  // [sp-0x70]\n    let v3: struct41;  // [sp-0x68]\n    let v4: i16;  // [sp-0x38]\n    let v7: struct8;  // rax\n    let v8: i64;  // rbp\n    let v9: i64;  // rdx\n    let v10: i64;  // rbp\n\n    v3 = <char as core::str::pattern::Pattern>::into_searcher(0x2c, a2, a3);\n    v1 = 0;\n    v2 = a3;\n    v4 = 1;\n    v7 = core::str::iter::SplitInternal<P>::next();\n    if !v7 {\n        return struct8 {\n            field_0: 14\n        };\n    }\n    do {\n        v8 = v10;\n        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"ascii\") as i8 {\n            *((a1 + 160) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"ebcdic\") as i8 {\n            *((a1 + 161) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"ibm\") as i8 {\n            *((a1 + 162) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"lcase\") as i8 {\n            *((a1 + 164) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"ucase\") as i8 {\n            *((a1 + 163) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"block\") as i8 {\n            *((a1 + 165) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"unblock\") as i8 {\n            *((a1 + 166) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"swab\") as i8 {\n            *((a1 + 167) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"sync\") as i8 {\n            *((a1 + 168) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"noerror\") as i8 {\n            *((a1 + 169) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"sparse\") as i8 {\n            *((a1 + 170) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"excl\") as i8 {\n            *((a1 + 171) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"nocreat\") as i8 {\n            *((a1 + 172) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"notrunc\") as i8 {\n            *((a1 + 173) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"fdatasync\") as i8 {\n            *((a1 + 174) as &i8) = 1;\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, \"fsync\") as i8 {\n            *((a1 + 175) as &i8) = 1;\n        } else {\n            v0 = <T as alloc::slice::hack::ConvertVec>::to_vec(v7, v8);\n            return Some(struct24 {\n                field_0: v0\n                field_16: v11\n            });\n        }\n    } while ((v7 = core::str::iter::SplitInternal<P>::next(), v10 = v9, v7));\n}\n",
+    "_ZN5uu_dd9parseargs28show_zero_multiplier_warning17hbe4ec55817d90dd4E": "fn uu_dd::parseargs::show_zero_multiplier_warning() -> u64 {\n    let v0: Arguments;  // [bp-0xa8]\n    let v1: void*;  // [sp-0x78]\n    let v2: u64;  // [sp-0x70]\n    let v3: u64;  // [sp-0x68]\n    let v4: u8;  // [sp-0x60]\n    let v5: void*;  // [sp-0x58], Other Possible Types: u64\n    let v6: u64;  // [sp-0x50]\n    let v7: u64;  // [sp-0x48]\n    let v8: u8;  // [sp-0x40]\n    let v9: Argument;  // [bp-0x38]\n    let v10: Argument;  // [bp-0x28]\n    let v12: u64;  // rdx\n\n    v5 = uucore::util_name();\n    v6 = v12;\n    eprint!(\"{}: warning: \", &v5);\n    v1 = 0;\n    v2 = &g_422fd5;\n    v3 = 2;\n    v4 = 1;\n    v5 = 0;\n    v6 = &g_422fd7;\n    v7 = 3;\n    v8 = 1;\n    v9 = Argument {\n        value: &v1\n        formatter: <os_display::Quoted as core::fmt::Display>::fmt\n    };\n    v10 = Argument {\n        value: &v5\n        formatter: <os_display::Quoted as core::fmt::Display>::fmt\n    };\n    v0 = Arguments {\n        pieces: [\"\", \" is a zero multiplier; use \", \" if that is intended\\n\"]\n        args: [&v9, &v10]\n        fmt: 0\n    };\n    return std::io::stdio::_eprint(&v0);\n}\n",
+    "_ZN5uu_dd9parseargs16parse_bytes_only17h08378519bfb033ceE": "fn uu_dd::parseargs::parse_bytes_only(a0: &Option<struct8>, a1: &u8, a2: u32, a3: &u8) -> u64 {\n    let v0: Result<struct8, struct1>;  // [sp-0x28], Other Possible Types: i72\n\n    v0 = core::num::<impl core::str::traits::FromStr for u64>::from_str(a1, a3);\n    match v0 {\n        Ok(_) => {\n            *((a0 + 8) as &i72) = v0;\n        },\n        Err(_) => {\n            <T as alloc::slice::hack::ConvertVec>::to_vec(a0 + 8, a1, a2);\n        },\n    }\n    return struct8 {\n        field_0: v2\n    };\n}\n",
+    "_ZN5uu_dd9parseargs10get_ctable17h8e7446a764b1d972E": "fn uu_dd::parseargs::get_ctable(a0: u32, a1: u8) -> u64 {\n    if a0 != 3 {\n        if a1 == 2 {\n            return (*((&g_423928 + 4 * (a0 & 255)) as &i32) + &g_423928) as i64;\n        } else if a0 != 2 {\n            if a0 != 1 {\n                if (a1 & 1) {\n                    return &g_423625;\n                }\n                return &g_423525;\n            } else {\n                if (a1 & 1) {\n                    return &g_423825;\n                }\n                return &g_423725;\n            }\n        } else {\n            if (a1 & 1) {\n                return &g_423525;\n            }\n            return &g_423625;\n        }\n    } else {\n        if a1 == 2 {\n            return 0;\n        } else if (a1 & 1) {\n            return &g_423125;\n        } else {\n            return &g_423025;\n        }\n    }\n}\n",
+    "_ZN5uu_dd9parseargs15conversion_mode17h18084a71126044cdE": "fn uu_dd::parseargs::conversion_mode(a0: &struct18, a1: u32, a2: u32, a3: u32, a4: u8, a5: u8) -> u64 {\n    if a1 {\n        if !a2 {\n            if a4 {\n                return struct1 {\n                    field_0: 4\n                };\n            }\n            return struct18 {\n                field_0: 3\n                field_1: a5\n                field_8: <UNKNOWN>\n                field_16: <UNKNOWN>\n            };\n        } else {\n            if a2 != 1 {\n                return struct9 {\n                    field_0: 0\n                    field_8: <UNKNOWN>\n                };\n            } else if !a4 {\n                return struct1 {\n                    field_0: 5\n                };\n            } else {\n                return struct1 {\n                    field_0: 6\n                };\n            }\n        }\n    } else {\n        if !a2 {\n            return struct10 {\n                field_0: 1\n                field_1: a5\n                field_8: <UNKNOWN>\n            };\n        } else if a2 == 1 {\n            return struct9 {\n                field_0: 2\n                field_8: <UNKNOWN>\n            };\n        } else {\n            return struct1 {\n                field_0: 7\n            };\n        }\n    }\n}\n",
+    "_ZN5uu_dd5Alarm13with_interval17he7e19ce09b7e3abfE": "fn uu_dd::Alarm::with_interval(a0: &struct20) -> u64 {\n    let v0: i64;  // [sp-0x68]\n    let v1: i64;  // [sp-0x60], Other Possible Types: struct24, struct8\n    let v2: i64;  // [sp-0x58]\n    let v3: i8;  // [bp-0x50]\n    let v4: i64;  // [sp-0x38]\n    let v5: i64;  // [sp-0x30]\n    let v6: i32;  // [sp-0x28]\n    let v7: struct24;  // [sp-0x20], Other Possible Types: i192\n\n    v1 = 1;\n    v2 = 1;\n    v3 = 0;\n    v0 = alloc::boxed::Box<T>::new(&v1);\n    v4 = alloc::sync::Arc<T,A>::downgrade(&v0);\n    v5 = 1;\n    v6 = 0;\n    v3 = 0x8000000000000000;\n    v1 = struct8 {\n        field_0: 0\n    };\n    v7 = std::thread::Builder::spawn_unchecked(&v1, &v4);\n    v1 = core::result::Result<T,E>::expect(&v7);\n    return struct20 {\n        field_0: v0\n        field_8: 1\n        field_16: 0\n    };\n}\n",
+    "_ZN5uu_dd5Alarm17manual_trigger_fn17h737085a66dc3c163E": "fn uu_dd::Alarm::manual_trigger_fn(a0: u64) -> u64 {\n    let v0: u64;  // [sp-0x8]\n    let v2: u64;  // rax\n\n    v0 = v2;\n    return alloc::boxed::Box<T>::new(alloc::sync::Arc<T,A>::downgrade(a0));\n}\n",
+    "_ZN5uu_dd5Alarm11get_trigger17h51a33321f8d9afe9E": "fn uu_dd::Alarm::get_trigger(a0: &&struct_0) -> u64 {\n    let v1: &struct_0;  // rcx\n    let v2: u8;  // 4100\n\n    v1 = *(a0);\n    v2 = v1->field_10;\n    v1->field_10 = 0;\n    if BinaryOp CasCmpNE {\n        goto LABEL_0x4d67a5;\n    }\n    return v2;\n}\n",
+    "_ZN5uu_dd6Source13stdin_as_file17h2487bb1f6c82b1ddE": "fn uu_dd::Source::stdin_as_file() -> u64 {\n    return std::io::stdio::stdin();\n}\n",
+    "_ZN5uu_dd6Source3len17hc3b1b96fe0850bcfE": "fn uu_dd::Source::len(a0: &u32) -> u64 {\n    let v0: struct16;  // [sp-0xb0], Other Possible Types: u128\n    let v1: i8;  // [bp-0x60]\n\n    if *(a0) {\n        return 0;\n    }\n    v0 = std::fs::File::metadata(a0 + 1);\n    if v0 as i32 == 2 {\n        return 1;\n    } else if v1 >= 9223372036854775807 {\n        return 0;\n    } else {\n        return 0;\n    }\n}\n",
+    "_ZN5uu_dd6Source4skip17hb4d238ded1ebd635E": "fn uu_dd::Source::skip(a0: &u32, a1: u32) -> u64 {\n    let v0: u128;  // [sp-0x78], Other Possible Types: Option<struct8>\n    let v1: u64;  // [sp-0x70]\n    let v2: u64;  // [sp-0x68]\n    let v3: u64;  // [sp-0x60]\n    let v4: u64;  // [sp-0x28]\n    let v5: u64;  // [sp-0x20]\n    let v7: u32;  // eax\n    let v8: u64;  // r15\n    let v9: void*;  // rax\n    let v10: u64;  // rdx\n    let v11: u64;  // rdx\n\n    v7 = *(a0);\n    v8 = a0 + 1;\n    if !v7 {\n        core::result::Result<T,E>::unwrap(a1 >> 63, \"src/uu/dd/src/dd.rs\");\n        v9 = <std::fs::File as std::io::Seek>::seek(v8, 2, a1);\n    } else if v7 != 1 {\n        v2 = v8;\n        v3 = a1;\n        v9 = std::io::copy::generic_copy();\n    } else {\n        v0 = uu_dd::try_get_len_of_block_device(v8);\n        if v0 as i32 == 1 && v1 < a1 {\n            v4 = uucore::util_name();\n            v5 = v10;\n            eprint!(\"{}: \", &v4);\n            eprintln!(\"'standard input': cannot skip: Invalid argument\");\n            uucore::mods::error::set_exit_code(1);\n            return 0;\n        }\n        v0 = v8;\n        v1 = a1;\n        v9 = std::io::copy::generic_copy();\n        if v9 {\n            return v9;\n        } else if v11 >= a1 {\n            return v9;\n        } else {\n            v4 = uucore::util_name();\n            v5 = v11;\n            eprint!(\"{}: \", &v4);\n            eprintln!(\"'standard input': cannot skip to specified offset\");\n            return v9;\n        }\n    }\n    return v9;\n}\n",
+    "_ZN5uu_dd6Source13discard_cache17h30a1a5912ab32cb4E": "fn uu_dd::Source::discard_cache(a0: u32, a1: u32, a2: u32, a3: u32) -> u64 {\n    if !a0 {\n        return nix::fcntl::posix_fadvise::posix_fadvise();\n    }\n    return 29;\n}\n",
+    "_ZN5uu_dd5Input9new_stdin17h814376ebbe5b03eaE": "fn uu_dd::Input::new_stdin(a0: &struct24, a1: void*) -> u64 {\n    let v0: u64;  // [sp-0xe8]\n    let v1: u64;  // [sp-0xd0]\n    let v2: u64;  // [sp-0xc8]\n    let v3: u128;  // [sp-0xc0], Other Possible Types: struct16\n    let v4: u64;  // [sp-0xb8]\n    let v5: i8;  // [bp-0x88]\n    let v8: u64;  // rdx\n\n    uu_dd::Source::stdin_as_file();\n    v0 = 1;\n    v3 = std::fs::File::metadata(&v0);\n    if v3 as i32 == 2 {\n        uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v4);\n    } else {\n        if (0xf000 & v5) == 0x8000 && a1->field_42 {\n            v1 = uucore::util_name();\n            v2 = v8;\n            eprint!(\"{}: \", &v1);\n            eprintln!(\"standard input: not a directory\");\n            uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from();\n        }\n        if !(a1->field_80 && uu_dd::Source::skip(&v0, a1->field_80)) {\n            return struct24 {\n                field_0: 0\n                field_8: v10 as u64\n                field_16: a1\n            };\n        }\n        uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v4);\n    }\n}\n",
+    "_ZN5uu_dd5Input8new_file17h22226df40ef2e7a0E": "fn uu_dd::Input::new_file(a0: &struct24, a1: u32, a2: u32, a3: void*) -> u64 {\n    let v0: i32;  // [sp-0x58], Other Possible Types: Result<struct4, struct8>\n    let v1: i32;  // [sp-0x54]\n    let v2: i32;  // [bp-0x48]\n    let v3: i32;  // [bp-0x40]\n    let v4: i16;  // [sp-0x3c]\n    let v5: i128;  // [sp-0x38], Other Possible Types: Result<struct16, struct4>\n    let v7: i32;  // edx\n    let v9: i64;  // rcx\n\n    v2 = 0x1b600000000;\n    v3 = 0;\n    v4 = 0;\n    v3 = 1;\n    if uu_dd::make_linux_iflags(a3 + 64) as i32 == 1 {\n        v2 = v7;\n    }\n    v0 = std::fs::OpenOptions::open(&v2, a1, a2);\n    v5 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v0, a1, a2);\n    match v5 {\n        Ok(_) => {\n            v9 = *((&v5 as &char + 8) as &i64);\n            return struct24 {\n                field_0: 1\n                field_8: v8\n                field_16: v9\n            };\n        },\n        Err(v1) => {\n            v0 = 0;\n            if !*((a3 + 128) as &i64) {\n                v0 = 0;\n            } else if !uu_dd::Source::skip(&v0, *((a3 + 128) as &i64)) {\n                return struct24 {\n                    field_0: 0\n                    field_8: v0\n                    field_12: v11\n                    field_16: a3\n                };\n            }\n        },\n    }\n}\n",
+    "_ZN5uu_dd5Input8new_fifo17h35e5c2fb1b3ef304E": "fn uu_dd::Input::new_fifo(a0: &struct24, a1: u32, a2: u32, a3: void*) -> u64 {\n    let v0: i32;  // [sp-0x48]\n    let v1: i32;  // [sp-0x44]\n    let v2: i32;  // [sp-0x40]\n    let v3: i64;  // [bp-0x3c]\n    let v4: i8;  // [sp-0x38]\n    let v5: i16;  // [sp-0x34]\n    let v6: Result<struct4, struct8>;  // [sp-0x30], Other Possible Types: i96\n    let v8: i32;  // eax\n    let v9: i32;  // eax\n    let v10: i32;  // edx\n    let v12: i64;  // rdx\n\n    v3 = 438;\n    v5 = 0;\n    v4 = 1;\n    v8 = uu_dd::make_linux_iflags(a3 + 64) as i32;\n    if !v8 {\n        v9 = v8;\n    } else {\n        v9 = v10;\n    }\n    v2 = v9;\n    v6 = std::fs::OpenOptions::open(&v2, a1, a2);\n    match v6 {\n        Err(_) => {\n            *((a0 + 8) as &long long) = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v6);\n            *((a0 + 16) as &i64) = v12;\n            *(a0 as &i64) = 1;\n        },\n        Ok(v1) => {\n            v0 = 2;\n            if !*((a3 + 128) as &i64) {\n                v0 = 2;\n            } else if !uu_dd::Source::skip(&v0, *((a3 + 128) as &i64)) {\n                return struct24 {\n                    field_0: 0\n                    field_8: v0\n                    field_12: v13\n                    field_16: a3\n                };\n            }\n        },\n    }\n}\n",
+    "_ZN5uu_dd17make_linux_iflags17hef93cf202b98b41fE": "fn uu_dd::make_linux_iflags(a0: &u64) -> u64 {\n    let v1: u32;  // eax\n    let v2: u32;  // eax\n    let v3: u32;  // eax\n\n    v1 = *((a0 as &char + 1) as &i8) * 0x4000;\n    if *((a0 as &char + 2) as &i8) {\n        v1 |= 0x10000;\n    }\n    v2 = (!*((a0 as &char + 3) as &i8) ? v1 : v1 + 0x1000);\n    if *((a0 as &char + 7) as &i8) {\n        v2 |= 0x40000;\n    }\n    if a0[1] as i8 {\n        v3 = v2 | 0x100;\n    }\n    if *((&a0[1] as &char + 1) as &i8) {\n        v3 |= 0x20000;\n    }\n    if *((a0 as &char + 6) as &i8) {\n        v3 |= 0x800;\n    }\n    if *((a0 as &char + 4) as &i8) {\n        v3 |= 0x101000;\n    }\n    return v3;\n}\n",
+    "_ZN5uu_dd5Input16fill_consecutive17h7d4bc8ab92dd656eE": "fn uu_dd::Input::fill_consecutive(a0: &Result<struct28, struct8>, a1: void*, a2: void*) -> u64 {\n    let v0: u128;  // [bp-0x60]\n    let v1: u64;  // [sp-0x50]\n    let v3: u64;  // rax\n    let v4: struct16;  // rax\n    let v5: void*;  // rbp\n    let v6: void*;  // r14\n    let v7: void*;  // r12\n    let v8: u64;  // rdx\n    let v9: u64;  // rax\n    let v10: u64;  // rdx\n\n    v3 = a1->field_8->field_70;\n    if !v1 {\n        panic!(\"chunk size must be non-zero\");\n    }\n    v0 = *(&(&a2->padding_0)[1] as &i128);\n    v1 = v3;\n    v4 = <core::slice::iter::ChunksMut<T> as core::iter::traits::iterator::Iterator>::next();\n    if !v4 {\n        v7 = 0;\n    } else {\n        v5 = 0;\n        v6 = 0;\n        v7 = 0;\n        do {\n            v9 = <uu_dd::Input as std::io::Read>::read(a1, v4, v8);\n            if v9 {\n                return Err(struct8 {\n                    field_0: v10\n                });\n            }\n            if a1->field_8->field_70 == v10 {\n                v5 += 1;\n            } else {\n                if !v10 {\n                    break;\n                }\n                v6 += 1;\n            }\n        } while ((v7 += v10, v4 = <core::slice::iter::ChunksMut<T> as core::iter::traits::iterator::Iterator>::next(), v4));\n    }\n    alloc::vec::Vec<T,A>::truncate(a2, v7);\n    return Ok(struct28 {\n        field_0: v5\n        field_8: v6\n        field_16: v7\n        field_24: 0\n    });\n}\n",
+    "_ZN5uu_dd4Dest5fsync17h5a325d3e1b2c36c4E": "fn uu_dd::Dest::fsync(a0: u32) -> u64 {\n    goto *((4340556 + *(vvar_0 as &i8) * 4) as &i32) + 4340556;\n}\n",
+    "_ZN5uu_dd4Dest9fdatasync17hb1784b836bce6fabE": "fn uu_dd::Dest::fdatasync(a0: u32) -> u64 {\n    goto *((4340572 + *(vvar_0 as &i8) * 4) as &i32) + 4340572;\n}\n",
+    "_ZN5uu_dd4Dest4seek17hf206f28f02b500d6E": "fn uu_dd::Dest::seek(a0: u32) -> u64 {\n    let v0: u64;  // [sp-0x18]\n    let v1: u64;  // [sp-0x10]\n    let v2: u64;  // [sp-0x8]\n    let v4: u64;  // r15\n    let v5: u64;  // r14\n    let v6: u64;  // rbx\n\n    v2 = v4;\n    v1 = v5;\n    v0 = v6;\n    goto *((4340588 + *(vvar_0 as &i8) * 4) as &i32) + 4340588;\n}\n",
+    "_ZN5uu_dd4Dest8truncate17h581044b4b2963b16E": "fn uu_dd::Dest::truncate(a0: &u8) -> u64 {\n    let v1: u64;  // rdx\n    let v2: u32;  // rdx\n\n    if *(a0) != 1 {\n        return 0;\n    } else if <std::fs::File as std::io::Seek>::seek(a0 + 4, 2, 0) {\n        return v1;\n    } else {\n        return std::fs::File::set_len(a0 + 4, v2);\n    }\n}\n",
+    "_ZN5uu_dd4Dest13discard_cache17h93c1738e4adad1fbE": "fn uu_dd::Dest::discard_cache(a0: u8, a1: u32, a2: u32, a3: u32) -> u64 {\n    if a0 == 1 {\n        return nix::fcntl::posix_fadvise::posix_fadvise();\n    }\n    return 29;\n}\n",
+    "_ZN5uu_dd4Dest3len17hc5f67b7ac477ff9eE": "fn uu_dd::Dest::len(a0: &u8) -> u64 {\n    let v0: struct16;  // [sp-0xb0], Other Possible Types: u128\n    let v3: u64;  // rax\n\n    if *(a0) != 1 {\n        return 0;\n    }\n    v0 = std::fs::File::metadata(a0 + 4);\n    if v0 as i32 == 2 {\n        v3 = 1;\n    } else {\n        v3 = 0;\n    }\n    return v3;\n}\n",
+    "_ZN5uu_dd9is_sparse17h5c816dd3d2c6117aE": "fn uu_dd::is_sparse(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x10]\n    let v1: u64;  // [sp-0x8]\n\n    v0 = a0;\n    v1 = a1 + a0;\n    return <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::all();\n}\n",
+    "_ZN5uu_dd6Output10new_stdout17h76c99dbdf4ef76d1E": "fn uu_dd::Output::new_stdout(a0: &struct24, a1: u32) -> u64 {\n    let v0: u8;  // [sp-0x30]\n    let v1: u64;  // [sp-0x28]\n    let v2: struct16;  // [sp-0x20], Other Possible Types: u128\n    let v4: u32;  // rdx\n    let v5: u64;  // r14\n    let v6: u64;  // r14\n\n    v1 = std::io::stdio::stdout();\n    v0 = 0;\n    v2 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_dd::Dest::seek(&v0), v4);\n    if !v2 as i64 {\n        a0->field_0 = *(&v0 as &i128);\n        v6 = a1;\n    } else {\n        v6 = v5;\n    }\n    a0->field_10 = v6;\n    return a0;\n}\n",
+    "_ZN5uu_dd6Output8new_file17h911369a13f3ee1abE": "fn uu_dd::Output::new_file(a0: &struct24, a1: u32, a2: u32, a3: void*) -> u64 {\n    let v0: i32;  // [sp-0x54]\n    let v1: i128;  // [sp-0x50], Other Possible Types: Result<struct16, struct4>\n    let v2: i64;  // [sp-0x40], Other Possible Types: Result<struct4, struct8>\n\n    v2 = uu_dd::Output::new_file::open_dst(a1, a2, *((a3 + 145) as &i8), *((a3 + 146) as &i8), a3 + 150);\n    v1 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v2, a1, a2);\n    match v1 {\n        Ok(_) => {\n            return struct17 {\n                field_0: 4\n                field_8: <UNKNOWN>\n                field_16: <UNKNOWN>\n            };\n        },\n        Err(v0) => {\n        },\n    }\n    if !*((a3 + 147) as &i8) {\n        v2 = std::fs::File::set_len(&v0, *((a3 + 136) as &i64));\n    }\n    uu_dd::Output::prepare_file(a0, v0, a3);\n}\n",
+    "_ZN5uu_dd6Output8new_file8open_dst17h968e64089c53b51aE": "fn uu_dd::Output::new_file::open_dst(a0: &Result<struct4, struct8>, a1: u64, a2: u64, a3: u8, a4: u8, a5: &u8) -> u64 {\n    let v0: u64;  // [bp-0x28]\n    let v1: u32;  // [bp-0x20]\n    let v2: u8;  // [sp-0x1e]\n    let v3: u8;  // [sp-0x1c]\n    let v4: u8;  // [sp-0x1b]\n    let v6: u32;  // edx\n\n    v0 = 0x1b600000000;\n    v1 = 0x100;\n    v3 = a4 ^ 1;\n    v4 = a3;\n    v2 = *(a5);\n    if uu_dd::make_linux_oflags(a5) as i32 == 1 {\n        v0 = v6;\n    }\n    return std::fs::OpenOptions::open(a0, &v0, a1, a2);\n}\n",
+    "_ZN5uu_dd6Output12prepare_file17h9725a129054f1a6aE": "fn uu_dd::Output::prepare_file(a0: &struct24, a1: u32, a2: void*) -> u64 {\n    let v0: u8;  // [sp-0x30]\n    let v1: u8;  // [sp-0x2f]\n    let v2: u128;  // [sp-0x20], Other Possible Types: struct16\n    let v4: u32;  // rdx\n    let v5: u64;  // rax\n    let v6: &struct_0;  // rbx\n    let v7: &struct_0;  // rbx\n    let v8: u64;  // rax\n    let v9: u64;  // rax\n\n    v1 = a2->field_90 ^ 1;\n    v0 = 1;\n    v2 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_dd::Dest::seek(&v0), v4);\n    v5 = v2;\n    if !v5 {\n        a0->field_0 = *(&v0 as &i128);\n        v7 = a2;\n        v9 = v5;\n    } else {\n        v7 = v6;\n        v9 = v8;\n    }\n    a0->field_10 = v7;\n    return v9;\n}\n",
+    "_ZN5uu_dd6Output20new_file_from_stdout17hc334670ba1ee52ecE": "fn uu_dd::Output::new_file_from_stdout(a0: &struct24, a1: u32) -> u64 {\n    let v0: i32;  // [sp-0x28], Other Possible Types: Result<struct4, struct8>\n    let v1: i32;  // [sp-0x24]\n    let v3: i32;  // ebp\n    let v4: i64;  // rdx\n    let v5: i32;  // edx\n\n    std::io::stdio::stdout();\n    v0 = uucore::mods::io::OwnedFileDescriptorOrHandle::from();\n    if v0 {\n        *((a0 + 8) as &long long) = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v0);\n        *((a0 + 16) as &i64) = v4;\n        *(a0 as &i8) = 4;\n        return a0;\n    }\n    v3 = v1;\n    if uu_dd::make_linux_oflags(a1 + 150) as i32 == 1 {\n        v1 = v5;\n        v0 = 5;\n        if nix::fcntl::fcntl(v3, &v0) as i32 {\n            return a0;\n        }\n    }\n    uu_dd::Output::prepare_file(a0, v3, a1);\n    return a0;\n}\n",
+    "_ZN5uu_dd6Output8new_fifo17h5805a896b59d1442E": "fn uu_dd::Output::new_fifo(a0: &struct17, a1: u32, a2: u32, a3: void*) -> u64 {\n    let v0: i32;  // [bp-0x48]\n    let v1: i64;  // [sp-0x44]\n    let v2: i8;  // [sp-0x3e]\n    let v3: i8;  // [sp-0x3c]\n    let v4: i8;  // [sp-0x3b]\n    let v5: i96;  // [sp-0x38], Other Possible Types: Result<struct4, struct8>\n    let v9: i32;  // eax\n    let v11: i32;  // eax\n    let v12: i64;  // rdx\n\n    if *((a3 + 136) as &i64) {\n        v5 = std::fs::File::open(a1, a2);\n        match v5 {\n            Err(_) => {\n                *((a0 + 8) as &long long) = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v5);\n                *((a0 + 16) as &i64) = v12;\n                *(a0 as &i8) = 4;\n            },\n            Ok(v1) => {\n                v0 = 2;\n            },\n        }\n    }\n    if (!*(a3 as &i64) || *(a3 as &i64) == 1) && !*((a3 + 8) as &i64) {\n        return struct9 {\n            field_0: 3\n            field_16: <UNKNOWN>\n        };\n    }\n    v1 = 1099511628214;\n    v3 = *((a3 + 146) as &i8) ^ 1;\n    v4 = *((a3 + 145) as &i8);\n    v2 = *((a3 + 150) as &i8);\n    v0 = v9;\n    v5 = std::fs::OpenOptions::open(&v0, a1, a2);\n    match v5 {\n        Ok(v11) => {\n            return struct5 {\n                field_0: 2\n                field_4: <UNKNOWN>\n            };\n        },\n        Err(_) => {\n            *((a0 + 8) as &long long) = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v5);\n            *((a0 + 16) as &i64) = v12;\n            *(a0 as &i8) = 4;\n        },\n    }\n}\n",
+    "_ZN5uu_dd6Output11write_block17h75bb814762c2a847E": "fn uu_dd::Output::write_block(a0: void*, a1: u32, a2: u32) -> u64 {\n    let v3: u64;  // rax\n\n    return v3;\n}\n",
+    "_ZN5uu_dd6Output12write_blocks17h78b56ae9a3f355f3E": "fn uu_dd::Output::write_blocks(a0: &Result<struct32, struct8>, a1: void*, a2: u32, a3: u32) -> u64 {\n    let v0: u64;  // [sp-0x60]\n    let v1: u64;  // [sp-0x58]\n    let v2: u64;  // [sp-0x50]\n    let v5: struct16;  // rax\n    let v6: void*;  // r12\n    let v7: void*;  // r13\n    let v8: void*;  // rbp\n    let v9: u64;  // rdx\n    let v11: u64;  // rdx\n\n    if !v2 {\n        panic!(\"chunk size must be non-zero\");\n    }\n    v0 = a2;\n    v1 = a3;\n    v2 = a1->field_10->field_78;\n    v5 = <core::slice::iter::Chunks<T> as core::iter::traits::iterator::Iterator>::next();\n    if !v5 {\n        return Ok(struct32 {\n            field_8: <UNKNOWN>\n            field_16: v8\n            field_24: 0\n            field_32: v6\n        });\n    }\n    v6 = 0;\n    v7 = 0;\n    v8 = 0;\n    do {\n        if uu_dd::Output::write_block(a1, v5, v9) {\n            return Err(struct8 {\n                field_0: v11\n            });\n        }\n    } while ((v7 += !(a1->field_10->field_78 <= v11) as u8 as u64, v6 += (a1->field_10->field_78 <= v11) as u8 as u64, v8 += v11, v5 = <core::slice::iter::Chunks<T> as core::iter::traits::iterator::Iterator>::next(), v5));\n}\n",
+    "_ZN5uu_dd6Output4sync17h13073efb3b69473eE": "fn uu_dd::Output::sync(a0: void*) -> u64 {\n    let v1: &u64;  // rax\n\n    v1 = a0->field_10;\n    if !(!*((&v1[18] as &char + 5) as &i8)) {\n        goto LABEL_0x4d7320;\n    }\n    if !(!*((&v1[18] as &char + 4) as &i8)) {\n        goto LABEL_0x4d7350;\n    }\n    return 0;\n}\n",
+    "_ZN5uu_dd6Output8truncate17h03e8e893bfb9669aE": "fn uu_dd::Output::truncate(a0: &u8) -> u64 {\n    return uu_dd::Dest::truncate(a0);\n}\n",
+    "_ZN5uu_dd11BlockWriter13discard_cache17hd6a990a3b71c9db7E": "fn uu_dd::BlockWriter::discard_cache(a0: &u64, a1: u32, a2: u32) -> u64 {\n    if *(a0) == 0x8000000000000000 {\n        return uu_dd::Output::discard_cache(a0 + 1, a1, a2);\n    }\n    return uu_dd::bufferedoutput::BufferedOutput::discard_cache(a0, a1, a2);\n}\n",
+    "_ZN5uu_dd11BlockWriter5flush17h48e8ffbb5b89f6d9E": "fn uu_dd::BlockWriter::flush(a0: &struct40, a1: &u64) -> u64 {\n    if !(*(a1) == 0x8000000000000000) {\n        goto LABEL_0x4eeb60;\n    }\n    return struct40 {\n        field_0: 0\n        field_16: <UNKNOWN>\n        field_32: <UNKNOWN>\n    };\n}\n",
+    "_ZN5uu_dd11BlockWriter4sync17h52e1c4b01c44f80eE": "fn uu_dd::BlockWriter::sync(a0: &u64) -> u64 {\n    if *(a0) == 0x8000000000000000 {\n        return uu_dd::Output::sync(a0 + 1);\n    }\n    return uu_dd::bufferedoutput::BufferedOutput::sync(a0);\n}\n",
+    "_ZN5uu_dd11BlockWriter8truncate17haed78b6dd922a309E": "fn uu_dd::BlockWriter::truncate(a0: &u64) -> u64 {\n    let v0: u64;  // [sp-0x8]\n    let v2: u64;  // rax\n\n    v0 = v2;\n    v0 = (*(a0) == 0x8000000000000000 ? uu_dd::Output::truncate(a0 + 1) : uu_dd::bufferedoutput::BufferedOutput::truncate(a0));\n    return v0;\n}\n",
+    "_ZN5uu_dd11BlockWriter12write_blocks17h4171594e3d4f7075E": "fn uu_dd::BlockWriter::write_blocks(a0: &Result<struct32, struct32>, a1: &u64) -> u64 {\n    let v1: u32;  // rdx\n    let v2: u32;  // rcx\n    let v3: u32;  // rdx\n    let v4: u32;  // rcx\n\n    if *(a1) == 0x8000000000000000 {\n        return uu_dd::Output::write_blocks(a0, a1 + 1, v1, v2);\n    }\n    return uu_dd::bufferedoutput::BufferedOutput::write_blocks(a0, a1, v3, v4);\n}\n",
+    "_ZN5uu_dd24flush_caches_full_length17h852ee23a16d52f1fE": "fn uu_dd::flush_caches_full_length(a0: void*, a1: u32) -> u64 {\n    let v1: &u64;  // r15\n    let v2: u64;  // rdx\n    let v3: void*;  // rcx\n\n    v1 = a0->field_8;\n    if *((&v1[8] as &char + 5) as &i8) {\n        if !uu_dd::Source::len(a0) {\n            uu_dd::Input::discard_cache(a0->field_0, a0->field_4, 0, v2);\n        } else {\n            return v3;\n        }\n    }\n    if *((&v1[19] as &char + 4) as &i8) {\n        if !uu_dd::Dest::len(a1) {\n            uu_dd::Output::discard_cache(a1, 0, v2);\n        } else {\n            return v3;\n        }\n    }\n    return 0;\n}\n",
+    "_ZN5uu_dd8finalize17hab8d4b3fb7143922E": "fn uu_dd::finalize(a0: &struct48, a1: &struct28, a2: &struct32, a3: u32, a4: u32, a5: u32) -> u64 {\n    let v0: i64;  // [sp-0x138]\n    let v1: i64;  // [sp-0x130]\n    let v2: i64;  // [sp-0x128]\n    let v3: i32;  // [sp-0x120]\n    let v4: i128;  // [sp-0x118]\n    let v5: i128;  // [sp-0x108]\n    let v6: i320;  // [sp-0xf8], Other Possible Types: struct40, struct96\n    let v7: i64;  // [sp-0xe8]\n    let v8: i64;  // [sp-0x98]\n    let v9: i32;  // [sp-0x90]\n    let v10: i128;  // [sp-0x88]\n    let v11: i128;  // [sp-0x78]\n    let v12: i64;  // [sp-0x68]\n    let v13: i64;  // [sp-0x60]\n    let v14: i128;  // [sp-0x58]\n    let v15: i8;  // [sp-0x48]\n    let v16: i64;  // [bp+0x8]\n    let v17: i8;  // [bp+0x10]\n    let v18: i64;  // r14\n    let v19: i64;  // rbp\n    let v21: i32;  // edx\n    let v22: i64;  // rcx\n    let v23: i64;  // rdx\n    let v24: i64;  // rbp\n\n    v18 = v16;\n    v2 = a3;\n    v3 = a4;\n    v6 = uu_dd::BlockWriter::flush(a0);\n    if v6 {\n        return v24;\n    }\n    v0 = v7;\n    v1 = *((&v6 as &char + 24) as &i64);\n    v5 = v7;\n    if uu_dd::BlockWriter::sync(a0) {\n        return v24;\n    }\n    if v17 {\n        uu_dd::BlockWriter::truncate(a0);\n    }\n    v4 = *((a2 + 16) as &i128);\n    v19 = *(a2 as &i64);\n    v11 = *((a1 + 16) as &i128);\n    v10 = *(a1 as &i128);\n    v12 = v19 + v0;\n    v13 = *((a2 + 8) as &i64) + v1 + ((v19 + v0 <= v19 ? 1 : 0) & 1);\n    v14 = BinaryOp AddV;\n    v8 = std::time::Instant::elapsed(&v2);\n    v9 = v21;\n    v15 = 2;\n    v6 = std::sync::mpmc::Sender<T>::send(a5, &v8, v22);\n    v7 = *((v18 + 16) as &i64);\n    v6 = *(v18 as &i128);\n    core::result::Result<T,E>::expect(std::thread::JoinInner<T>::join(&v6), v23);\n    return 0;\n}\n",
+    "_ZN5uu_dd17make_linux_oflags17hc5c67f9cb15d8524E": "fn uu_dd::make_linux_oflags(a0: &u64) -> u64 {\n    let v1: u32;  // eax\n\n    v1 = *(a0 as &i8) * 0x400;\n    if *((a0 as &char + 2) as &i8) {\n        v1 |= 0x4000;\n    }\n    if *((a0 as &char + 3) as &i8) {\n        v1 |= 0x10000;\n    }\n    if *((a0 as &char + 4) as &i8) {\n        v1 |= 0x1000;\n    }\n    if a0[1] as i8 {\n        v1 |= 0x40000;\n    }\n    if *((&a0[1] as &char + 1) as &i8) {\n        v1 |= 0x100;\n    }\n    if *((&a0[1] as &char + 2) as &i8) {\n        v1 |= 0x20000;\n    }\n    if *((a0 as &char + 7) as &i8) {\n        v1 |= 0x800;\n    }\n    if *((a0 as &char + 5) as &i8) {\n        v1 |= 0x101000;\n    }\n    return v1;\n}\n",
+    "_ZN5uu_dd11read_helper17h638d567deabbf60cE": "fn uu_dd::read_helper(a0: &Result<struct32, struct8>, a1: u32, a2: &struct24, a3: u32) -> u64 {\n    let v0: i64;  // [sp-0x80]\n    let v1: i128;  // [sp-0x78]\n    let v2: i64;  // [sp-0x68]\n    let v3: i288;  // [sp-0x60], Other Possible Types: struct24, Result<struct28, struct8>\n    let v4: i8;  // [bp-0x38]\n    let v5: i8;  // [bp-0x28]\n    let v7: i64;  // rax\n    let v9: i64;  // r12\n\n    alloc::vec::Vec<T,A>::resize(a2, a3, 221);\n    if !*((*((a1 + 8) as &i64) + 104) as &i8) {\n        v3 = uu_dd::Input::fill_consecutive(a1, a2);\n    } else {\n        uu_dd::Input::fill_blocks();\n    }\n    v7 = *((&v3 as &char + 8) as &i64);\n    match v3 {\n        Err(_) => {\n            return Err(struct8 {\n                field_0: v0\n            });\n        },\n        Ok(_) => {\n            v2 = v3;\n            v1 = *((&v3 as &char + 16) as &i128);\n            v0 = v7;\n            if !v0 && !v1 {\n                return Ok(struct32 {\n                    field_0: v8\n                    field_16: *((&v1 as &char + 8) as &i128)\n                });\n            }\n            v9 = *((a1 + 8) as &i64);\n            if *((v9 + 106) as &i8) {\n                v7 = uu_dd::read_helper::perform_swab(*((a2 + 8) as &i64), *((a2 + 16) as &i64));\n                v9 = *((a1 + 8) as &i64);\n            }\n            if *((v9 + 80) as &i8) == 7 {\n                return Ok(struct32 {\n                    field_0: v10\n                    field_16: *((&v1 as &char + 8) as &i128)\n                });\n            }\n            v3 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(a2);\n            uu_dd::blocks::conv_block_unblock_helper(&v4, &v3, v9 + 80, &v0);\n            *((a2 + 16) as &i8) = v5;\n            *(a2 as &i8) = v4;\n        },\n    }\n}\n",
+    "_ZN5uu_dd11read_helper12perform_swab17h674fb7c29172040eE": "fn uu_dd::read_helper::perform_swab(a0: u32, a1: u32) -> u64 {\n    let v0: i8;  // [bp-0x48]\n    let v1: i8;  // [bp-0x40]\n    let v2: i8;  // [bp-0x38]\n    let v4: struct25;  // rax\n    let v5: u64;  // r12\n    let v6: u64;  // r15\n    let v8: u64;  // r12\n\n    v4 = core::iter::adapters::step_by::StepBy<I>::new(a1);\n    v5 = v1;\n    if !v5 {\n        return v4;\n    }\n    v6 = v0;\n    do {\n        v8 = v5;\n        v4 = core::slice::<impl [T]>::swap(a0, a1, v6, v6 - 1);\n        v6 += v2 + 1;\n        v5 = v8 - 1;\n    } while (v8 != 1);\n    return v4;\n}\n",
+    "_ZN5uu_dd10calc_bsize17h13ab530ab475ef72E": "fn uu_dd::calc_bsize(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x18]\n    let v2: u64;  // rax\n    let v3: u64;  // rax\n\n    v0 = v2;\n    v3 = gcd::binary_usize(a0, a1);\n    return a1 * (!(v3 | a0) >> 32 ? ((0 CONCAT a0) % (v3 & 4294967295) CONCAT (0 CONCAT a0) / (v3 & 4294967295)) & 4294967295 : (0 CONCAT a0) % v3 CONCAT (0 CONCAT a0) / v3);\n}\n",
+    "_ZN5uu_dd15calc_loop_bsize17h77fb8cf8da4525ffE": "fn uu_dd::calc_loop_bsize(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32, a5: u32) -> u64 {\n    let v0: u64;  // [sp-0x8]\n    let v1: u32;  // [bp+0x8]\n    let v2: i8;  // [bp+0x10]\n    let v3: u64;  // rax\n    let v4: u64;  // rax\n\n    v0 = v3;\n    v4 = v2;\n    if !a0 {\n        return core::cmp::min_by(v4, *(&v1 as &i64) * (a1 - (a2 + a3)));\n    } else if a0 != 1 {\n        return v4;\n    } else {\n        return core::cmp::min_by(v4, 0, a1 - a4, -(a5) - (a1 < a4));\n    }\n}\n",
+    "_ZN5uu_dd20stdout_canonicalized17h8616e33a4059f2eeE": "fn uu_dd::stdout_canonicalized(a0: &struct24) -> u64 {\n    let v0: Result<struct24, struct8>;  // [sp-0x38], Other Possible Types: i192\n    let v1: struct24;  // [sp-0x20]\n    let v3: i64;  // rax\n\n    v0 = std::fs::canonicalize(\"/dev/stdout\");\n    match v0 {\n        Ok(_) => {\n            v3 = *((&v0 as &char + 16) as &i64);\n            return struct24 {\n                field_0: v0\n                field_16: v3\n            };\n        },\n        Err(_) => {\n            v1 = std::sys::os_str::bytes::Slice::to_owned(\"/dev/stdout\");\n        },\n    }\n}\n",
+    "_ZN5uu_dd37is_stdout_redirected_to_seekable_file17he86a24b914264a0aE": "fn uu_dd::is_stdout_redirected_to_seekable_file() -> u64 {\n    let v0: i32;  // [sp-0x4c]\n    let v1: i64;  // [sp-0x48]\n    let v2: i64;  // [sp-0x40]\n    let v3: i96;  // [sp-0x38]\n    let v4: i192;  // [sp-0x28], Other Possible Types: struct24\n    let v6: i64;  // rdx\n    let v7: i32;  // ebx\n\n    v4 = uu_dd::stdout_canonicalized();\n    v0 = std::fs::File::open(*((&v4 as &char + 8) as &i64), *((&v4 as &char + 16) as &i64))?;\n    v1 = <std::fs::File as std::io::Seek>::seek(&v0, 2, 0);\n    v2 = v6;\n    if v1 {\n        return v7;\n    }\n    v1 = <std::fs::File as std::io::Seek>::seek(&v0, 1, 0);\n    v2 = v6;\n    if !v1 {\n        return v7;\n    }\n}\n",
+    "_ZN5uu_dd27try_get_len_of_block_device17hf00af9fe29cc4b56E": "fn uu_dd::try_get_len_of_block_device(a0: &Option<struct8>, a1: u32) -> u64 {\n    let v0: struct16;  // [sp-0xc8], Other Possible Types: u128\n    let v1: i8;  // [bp-0x90]\n    let v3: u64;  // rax\n\n    v0 = std::fs::File::metadata(a1);\n    if v0 as i32 == 2 {\n        v3 = *((&v0 as &char + 8) as &i64);\n    } else if (0xf000 & v1) != 0x6000 {\n        return struct8 {\n            field_0: 0\n        };\n    } else {\n        v3 = <std::fs::File as std::io::Seek>::seek(a1, 1, 0);\n        if v3 {\n            return Some(struct8 {\n                field_0: v4\n            });\n        }\n        v3 = std::io::Seek::rewind(a1);\n        if !v3 {\n            return struct16 {\n                field_0: 1\n                field_8: v5\n            };\n        }\n    }\n    a0->field_8 = v3;\n}\n",
+    "_ZN5uu_dd7is_fifo17h9d574f34ee5f3724E": "fn uu_dd::is_fifo(a0: u32, a1: u32) -> u64 {\n    let v0: struct16;  // [sp-0xb0], Other Possible Types: u32\n    let v1: i8;  // [bp-0x78]\n\n    v0 = std::fs::metadata(a0, a1);\n    if v0 == 2 {\n        return 0;\n    } else if (0xf000 & v1) != 0x1000 {\n        return 0;\n    } else {\n        return core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>(&v0) & -0x100 | 1;\n    }\n}\n",
+    "_ZN5uu_dd6uu_app17h3802aa9aab1c575cE": "fn uu_dd::uu_app(a0: &struct712) -> u64 {\n    let v0: i5696;  // [sp-0x7f8], Other Possible Types: struct712, struct592, struct437\n    let v1: i5696;  // [sp-0x530], Other Possible Types: struct712\n    let v2: i64;  // [sp-0x274]\n    let v3: i32;  // [sp-0x26c]\n    let v4: i4736;  // [sp-0x268], Other Possible Types: struct592, struct24\n    let v6: i64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v6);\n    v1 = clap_builder::builder::command::Command::version(&v0, \"0.0.28\");\n    v0 = clap_builder::builder::command::Command::about(&v1, \"Copy, and optionally convert, a file system resource\");\n    v4 = uucore::format_usage(\"{} [OPERAND]...\\n{} OPTION\");\n    v1 = clap_builder::builder::command::Command::override_usage(&v0, &v4);\n    v0 = clap_builder::builder::command::Command::after_help(&v1, \"### Operands\\n\\n- bs=BYTES : read and write up to BYTES bytes at a time (default: 512);\\n   overwrites ibs and obs.\\n- cbs=BYTES : the 'conversion block size' in bytes. Applies to the\\n   conv=block, and conv=unblock operations.\\n- conv=CONVS : a comma-separated list of conversion options or (for legacy\\n   reasons) file flags.\\n- count=N : stop reading input after N ibs-sized read operations rather\\n   than proceeding until EOF. See iflag=count_bytes if stopping after N bytes\\n   is preferred\\n- ibs=N : the size of buffer used for reads (default: 512)\\n- if=FILE : the file used for input. When not specified, stdin is used instead\\n- iflag=FLAGS : a comma-separated list of input flags which specify how the\\n   input source is treated. FLAGS may be any of the input-flags or general-flags\\n   specified below.\\n- skip=N (or iseek=N) : skip N ibs-sized records into input before beginning\\n   copy/convert operations. See iflag=seek_bytes if seeking N bytes is preferred.\\n- obs=N : the size of buffer used for writes (default: 512)\\n- of=FILE : the file used for output. When not specified, stdout is used\\n   instead\\n- oflag=FLAGS : comma separated list of output flags which specify how the\\n   output source is treated. FLAGS may be any of the output flags or general\\n   flags specified below\\n- seek=N (or oseek=N) : seeks N obs-sized records into output before\\n   beginning copy/convert operations. See oflag=seek_bytes if seeking N bytes is\\n   preferred\\n- status=LEVEL : controls whether volume and performance stats are written to\\n   stderr.\\n\\n  When unspecified, dd will print stats upon completion. An example is below.\\n\\n  plain\\n    6+0 records in\\n    16+0 records out\\n    8192 bytes (8.2 kB, 8.0 KiB) copied, 0.00057009 s,\\n    14.4 MB/s\\n  \\n\\n  The first two lines are the 'volume' stats and the final line is the\\n  'performance' stats.\\n  The volume stats indicate the number of complete and partial ibs-sized reads,\\n  or obs-sized writes that took place during the copy. The format of the volume\\n  stats is <complete>+<partial>. If records have been truncated (see\\n  conv=block), the volume stats will contain the number of truncated records.\\n\\n  Possible LEVEL values are:\\n  - progress : Print periodic performance stats as the copy proceeds.\\n  - noxfer : Print final volume stats, but not performance stats.\\n  - none : Do not print any stats.\\n\\n  Printing performance stats is also triggered by the INFO signal (where supported),\\n  or the USR1 signal. Setting the POSIXLY_CORRECT environment variable to any value\\n  (including an empty value) will cause the USR1 signal to be ignored.\\n\\n### Conversion Options\\n\\n- ascii : convert from EBCDIC to ASCII. This is the inverse of the ebcdic\\n  option. Implies conv=unblock.\\n- ebcdic : convert from ASCII to EBCDIC. This is the inverse of the ascii\\n  option. Implies conv=block.\\n- ibm : convert from ASCII to EBCDIC, applying the conventions for [, ]\\n  and ~ specified in POSIX. Implies conv=block.\\n\\n- ucase : convert from lower-case to upper-case.\\n- lcase : converts from upper-case to lower-case.\\n\\n- block : for each newline less than the size indicated by cbs=BYTES, remove\\n  the newline and pad with spaces up to cbs. Lines longer than cbs are truncated.\\n- unblock : for each block of input of the size indicated by cbs=BYTES, remove\\n  right-trailing spaces and replace with a newline character.\\n\\n- sparse : attempts to seek the output when an obs-sized block consists of\\n  only zeros.\\n- swab : swaps each adjacent pair of bytes. If an odd number of bytes is\\n  present, the final byte is omitted.\\n- sync : pad each ibs-sided block with zeros. If block or unblock is\\n  specified, pad with spaces instead.\\n- excl : the output file must be created. Fail if the output file is already\\n  present.\\n- nocreat : the output file will not be created. Fail if the output file in\\n  not already present.\\n- notrunc : the output file will not be truncated. If this option is not\\n  present, output will be truncated when opened.\\n- noerror : all read errors will be ignored. If this option is not present,\\n  dd will only ignore Error::Interrupted.\\n- fdatasync : data will be written before finishing.\\n- fsync : data and metadata will be written before finishing.\\n\\n### Input flags\\n\\n- count_bytes : a value to count=N will be interpreted as bytes.\\n- skip_bytes : a value to skip=N will be interpreted as bytes.\\n- fullblock : wait for ibs bytes from each read. zero-length reads are still\\n  considered EOF.\\n\\n### Output flags\\n\\n- append : open file in append mode. Consider setting conv=notrunc as well.\\n- seek_bytes : a value to seek=N will be interpreted as bytes.\\n\\n### General Flags\\n\\n- direct : use direct I/O for data.\\n- directory : fail unless the given input (if used as an iflag) or\\n  output (if used as an oflag) is a directory.\\n- dsync : use synchronized I/O for data.\\n- sync : use synchronized I/O for data and metadata.\\n- nonblock : use non-blocking I/O.\\n- noatime : do not update access time.\\n- nocache : request that OS drop cache.\\n- noctty : do not assign a controlling tty.\\n- nofollow : do not follow system links.\");\n    memcpy(&v1, &v0, 700);\n    v2 = 549755814016 | *((&v0 as &char + 700) as &i64);\n    v3 = *((&v0 as &char + 708) as &i32);\n    v0 = clap_builder::builder::arg::Arg::new(\"operands\");\n    v4 = clap_builder::builder::arg::Arg::num_args(&v0);\n    clap_builder::builder::command::Command::arg(a0, &v1, &v4);\n    return a0;\n}\n",
+    "_ZN5uu_dd6blocks5block17h9496b01491ad8acbE": "fn uu_dd::blocks::block(a0: &struct24, a1: u64, a2: u64, a3: u64, a4: u64, a5: u64) -> int {\n    let v0: struct24;  // [bp-0x78], Other Possible Types: i64\n    let v1: i64;  // [sp-0x70]\n    let v2: i192;  // [sp-0x60], Other Possible Types: struct24\n    let v3: i64;  // [sp-0x50]\n    let v4: struct8;  // [bp-0x48]\n    let v5: struct17;  // [bp-0x40]\n    let v8: i64;  // r14\n    let v9: i64;  // r12\n\n    v4 = struct8 {\n        field_0: a3\n    };\n    v5 = struct17 {\n        field_0: a1\n        field_8: a2\n        field_16: 0\n    };\n    v0 = struct24 {\n        field_0: 0\n        field_8: 8\n        field_16: 0\n    };\n    v2 = core::iter::traits::iterator::Iterator::fold(&v5, &v0, &v4, a5 + 24);\n    v8 = *((&v2 as &char + 8) as &i64);\n    v9 = (v3 - 1) * 3;\n    v0 = *((v8 + v9 * 8 + 8) as &i64);\n    v1 = *((v8 + v9 * 8 + 16) as &i64) + v0;\n    return struct24 {\n        field_0: v10\n        field_16: v3\n    };\n}\n",
+    "_ZN5uu_dd6blocks7unblock17h328a1d7e73c47058E": "fn uu_dd::blocks::unblock(a0: &struct24, a1: u32, a2: u32, a3: u32) -> u64 {\n    let v0: void*;  // [sp-0x48]\n    let v1: u64;  // [sp-0x40]\n    let v2: void*;  // [sp-0x38]\n    let v3: u64;  // [sp-0x18]\n    let v4: u64;  // [sp-0x10]\n    let v5: u64;  // [sp-0x8]\n\n    if a3 {\n        v3 = a1;\n        v4 = a2;\n        v5 = a3;\n        v0 = 0;\n        v1 = 1;\n        v2 = 0;\n        return core::iter::traits::iterator::Iterator::fold(a0, &v3, &v0);\n    }\n    panic!(\"chunk size must be non-zero\");\n}\n",
+    "_ZN5uu_dd6blocks25conv_block_unblock_helper17he5e21bd733c5515fE": "fn uu_dd::blocks::conv_block_unblock_helper(a0: u32, a1: u32, a2: u32, a3: u32) -> u64 {\n    let v0: u64;  // [sp-0x28]\n    let v1: u64;  // [sp-0x20]\n    let v2: u64;  // [sp-0x18]\n    let v3: u64;  // [sp-0x10]\n    let v4: u64;  // [sp-0x8]\n    let v6: u64;  // r15\n    let v7: u64;  // r14\n    let v8: u64;  // r13\n    let v9: u64;  // r12\n    let v10: u64;  // rbx\n\n    v4 = v6;\n    v3 = v7;\n    v2 = v8;\n    v1 = v9;\n    v0 = v10;\n    goto *((4348736 + *(vvar_2 as &i8) * 4) as &i32) + 4348736;\n}\n",
+    "_ZN5uu_dd6blocks25conv_block_unblock_helper16apply_conversion17hf9fe48f88870342bE": "fn uu_dd::blocks::conv_block_unblock_helper::apply_conversion(a0: &struct32, a1: u64, a2: u32) -> u64 {\n    let v0: u64;  // [sp-0x18]\n    let v2: u64;  // rax\n\n    v0 = v2;\n    a0->field_20 = a2;\n    return <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a0, a1);\n}\n",
+    "_ZN5uu_dd7numbers10SuffixType15base_and_suffix17he90531716fe26654E": "fn uu_dd::numbers::SuffixType::base_and_suffix(a0: &struct32, a1: u64, a2: u64, a3: u64) -> int {\n    let v0: u64;  // [sp-0xe0]\n    let v1: u64;  // [sp-0xd8]\n    let v2: void*;  // [sp-0xd0], Other Possible Types: u64\n    let v3: u64;  // [sp-0xc8]\n    let v4: u8;  // [bp-0xc0]\n    let v6: u64;  // rdx\n    let v7: u64;  // r8\n    let v8: u64;  // r10\n    let v9: u64;  // r9\n    let v10: u64;  // r11\n    let v11: u64;  // r13\n    let v12: u64;  // rbp\n    let v13: u64;  // rax\n    let v14: u64;  // r12\n    let v17: void*;  // rdi\n\n    if !a1 {\n        memcpy(&v4, \"B\", 144);\n        v6 = 0x4000000;\n        v0 = 0x10000;\n        v1 = 64;\n        v9 = 0x1000000000000000;\n        v10 = 0x4000000000000;\n        v11 = 0x10000000000;\n        v12 = 0x40000000;\n        v13 = 0x100000;\n        v14 = 0x400;\n        v8 = 0;\n        v7 = 0;\n        v2 = 0;\n    } else {\n        memcpy(&v4, \"B\", 144);\n        v6 = 54210108;\n        v2 = 0x9fd0803ce8000000;\n        v0 = 54210;\n        v7 = 0x1bcecceda1000000;\n        v1 = 54;\n        v8 = 0x35c9adc5dea00000;\n        v9 = 0xde0b6b3a7640000;\n        v10 = 0x38d7ea4c68000;\n        v11 = 0xe8d4a51000;\n        v12 = 0x3b9aca00;\n        v13 = 1000000;\n        v14 = 1000;\n    }\n    if amd64g_calculate_condition(2, 16, -1 + ((v14 + -1 <= v14 ? 1 : 0) & 1), a3 ^ (v14 - 1 < a2) as u8 as u64, (v14 - 1 < a2) as u8 as u64) as char {\n        v3 = v6;\n        if amd64g_calculate_condition(2, 16, -((v13 < v14) as u8 as u64), a3 ^ (v13 - v14 < a2) as u8 as u64, (v13 - v14 < a2) as u8 as u64) as char && amd64g_calculate_condition(2, 16, -((v12 < v13) as u8 as u64), a3 ^ (v12 - v13 < a2) as u8 as u64, (v12 - v13 < a2) as u8 as u64) as char && amd64g_calculate_condition(2, 16, -((v11 < v12) as u8 as u64), a3 ^ (v11 - v12 < a2) as u8 as u64, (v11 - v12 < a2) as u8 as u64) as char && amd64g_calculate_condition(2, 16, -((v10 < v11) as u8 as u64), a3 ^ (v10 - v11 < a2) as u8 as u64, (v10 - v11 < a2) as u8 as u64) as char && amd64g_calculate_condition(2, 16, -((v9 < v10) as u8 as u64), a3 ^ (v9 - v10 < a2) as u8 as u64, (v9 - v10 < a2) as u8 as u64) as char && amd64g_calculate_condition(2, 16, v1 - 0 - (v8 < v9) as u8 as u64, a3 ^ (v8 - v9 < a2) as u8 as u64, (v8 - v9 < a2) as u8 as u64) as char && amd64g_calculate_condition(2, 16, v0 - v1 - (v7 < v8) as u8 as u64, a3 ^ (v7 - v8 < a2) as u8 as u64, (v7 - v8 < a2) as u8 as u64) as char {\n            v17 = v0;\n        }\n    }\n    return struct32 {\n        field_0: v18\n        field_8: v17\n        field_16: v20\n    };\n}\n",
+    "_ZN5uu_dd7numbers23to_magnitude_and_suffix17h88c44cbe00c16152E": "fn uu_dd::numbers::to_magnitude_and_suffix(a0: u32, a1: u32, a2: u32, a3: u32) -> u64 {\n    let v0: u64;  // [sp-0x118]\n    let v1: u64;  // [sp-0x110]\n    let v2: &u8;  // [sp-0x108], Other Possible Types: u64\n    let v3: u64;  // [sp-0x100]\n    let v4: &u8;  // [sp-0xf8]\n    let v5: u64;  // [sp-0xf0]\n    let v6: &u8;  // [sp-0xe8]\n    let v7: u64;  // [sp-0xe0]\n    let v8: u64;  // [sp-0xd8], Other Possible Types: i64\n    let v9: u64;  // [sp-0xd0]\n    let v10: &u8;  // [sp-0xc8]\n    let v11: u64;  // [sp-0xc0]\n    let v12: u64;  // [sp-0xb8], Other Possible Types: void*, struct32\n    let v13: u64;  // [sp-0xb0]\n    let v14: &&struct_0;  // [sp-0xa8], Other Possible Types: u64\n    let v15: u64;  // [sp-0xa0]\n    let v16: void*;  // [sp-0x98]\n    let v17: u64;  // [sp-0x90]\n    let v18: u8;  // [sp-0x88]\n    let v19: u64;  // [sp-0x80]\n    let v20: u64;  // [sp-0x70]\n    let v21: u64;  // [sp-0x60]\n    let v22: u64;  // [sp-0x58]\n    let v23: u8;  // [sp-0x50]\n    let v24: u128;  // [sp-0x40]\n    let v26: u128;  // xmm0\n    let v27: u256;  // ymm0\n    let v28: u256;  // ymm1\n    let v29: u256;  // ymm1\n    let v30: u128;  // xmm1\n\n    v12 = uu_dd::numbers::SuffixType::base_and_suffix(a3, a1, a2);\n    v26 = *((&v12 as &char + 16) as &i128);\n    v24 = v26;\n    __floatuntidf(a1, a2);\n    v0 = v27 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v26;\n    __floatuntidf(v12, v13);\n    v29 = v28 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 & 0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000 | v0;\n    v30 = BinaryOp DivV;\n    v1 = v29 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v30;\n    if ((BinaryOp CmpF & 69 | (BinaryOp CmpF & 69) >> 6) & 1) != 1 {\n        v8 = &v1;\n        v9 = core::fmt::float::<impl core::fmt::Display for f64>::fmt;\n        v10 = &v24;\n        v11 = <&T as core::fmt::Display>::fmt;\n        v12 = 0;\n        v13 = 1;\n        v14 = 2;\n        v16 = 0;\n        v17 = 32;\n        v18 = 3;\n        v19 = 2;\n        v20 = 2;\n        v21 = 1;\n        v22 = 32;\n        v23 = 3;\n        v2 = &g_561a88;\n        v3 = 2;\n        v6 = &v12;\n        v7 = 2;\n        v4 = &v8;\n        v5 = 2;\n    } else {\n        round(v0);\n        v8 = (v0 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 & 0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000 | 0x4024000000000000) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v30;\n        v2 = &v8;\n        v3 = core::fmt::float::<impl core::fmt::Display for f64>::fmt;\n        v4 = &v24;\n        v5 = <&T as core::fmt::Display>::fmt;\n        v12 = &g_561a88;\n        v13 = 2;\n        v16 = 0;\n        v14 = &v2;\n        v15 = 2;\n    }\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput3new17h93483d7819281523E": "fn uu_dd::bufferedoutput::BufferedOutput::new(a0: &struct48, a1: &struct24) -> int {\n    let v0: Result<struct16, struct16>;  // [sp-0x38], Other Possible Types: i192\n    let v2: i8;  // bpl\n    let v3: i32;  // ebx\n    let v4: i64;  // rdi\n    let v5: i64;  // rax\n    let v6: i128;  // xmm0\n\n    v2 = *(a1 as &i8);\n    v3 = *((a1 + 4) as &i32);\n    v0 = alloc::raw_vec::RawVec<T,A>::try_allocate_in(*((*((a1 + 16) as &i64) + 120) as &i64), 0);\n    v4 = *((&v0 as &char + 8) as &i64);\n    v5 = *((&v0 as &char + 16) as &i64);\n    v6 = *((a1 + 8) as &i128);\n    return struct48 {\n        field_0: v4\n        field_8: v5\n        field_16: 0\n        field_24: v2\n        field_25: *((a1 + 1) as &i16)\n        field_27: *((a1 + 3) as &i8)\n        field_28: v3\n        field_32: v6\n    };\n}\n",
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput13discard_cache17hcd08e47f1a015446E": "fn uu_dd::bufferedoutput::BufferedOutput::discard_cache(a0: u32, a1: u32, a2: u32) -> u64 {\n    return uu_dd::Output::discard_cache(a0 + 24, a1, a2);\n}\n",
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput5flush17hf0f2f33e15e5593bE": "fn uu_dd::bufferedoutput::BufferedOutput::flush(a0: &Result<struct32, struct8>, a1: u32) -> u64 {\n    let v0: Result<struct32, struct8>;  // [sp-0x78], Other Possible Types: struct40, i320\n    let v1: i128;  // [sp-0x48]\n    let v3: i64;  // r13\n\n    v0 = uu_dd::Output::write_blocks(a1 + 24, *((a1 + 8) as &i64), *((a1 + 16) as &i64));\n    match v0 {\n        Err(_) => {\n            *((a0 + 8) as &i64) = *((&v0 as &char + 8) as &i64);\n            v3 = 1;\n        },\n        Ok(_) => {\n            v1 = v0;\n            if !*((&v0 as &char + 24) as &i64) {\n                v3 = 0;\n                core::result::Result<T,E>::unwrap(0);\n                v0 = alloc::vec::Vec<T,A>::drain(a1, None, *((&v0 as &char + 16) as &i64));\n                return struct40 {\n                    field_0: v3\n                    field_16: <UNKNOWN>\n                    field_24: v4\n                    field_32: v5\n                };\n            }\n            core::result::Result<T,E>::unwrap(1);\n            [D] Unsupported jumpkind Ijk_SigTRAP at address 5172238()\n        },\n    }\n}\n",
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput4sync17hc76150547a85de18E": "fn uu_dd::bufferedoutput::BufferedOutput::sync(a0: u32) -> u64 {\n    return uu_dd::Output::sync(a0 + 24);\n}\n",
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput8truncate17h2d9d362dd2e62035E": "fn uu_dd::bufferedoutput::BufferedOutput::truncate(a0: u32) -> u64 {\n    return uu_dd::Dest::truncate(a0 + 24);\n}\n",
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput12write_blocks17h650a144b171239b2E": "fn uu_dd::bufferedoutput::BufferedOutput::write_blocks(a0: &Result<struct32, struct8>, a1: &struct8, a2: u32, a3: u32) -> u64 {\n    let v0: struct32;  // [sp-0x98], Other Possible Types: i256\n    let v1: i256;  // [sp-0x80]\n    let v2: i128;  // [sp-0x78]\n    let v3: i128;  // [sp-0x68]\n    let v4: Result<struct32, struct8>;  // [sp-0x58], Other Possible Types: i320\n    let v6: i64;  // rsi\n    let v7: i64;  // rax\n    let v8: i64;  // rdx\n    let v9: i64;  // rsi\n    let v10: i64;  // r12\n    let v11: i64;  // r13\n    let v12: i64;  // rdx\n\n    v6 = *((*((a1 + 40) as &i64) + 120) as &i64);\n    v7 = *((a1 + 16) as &i64) + a3;\n    v8 = (!(v7 | v6) >> 32 ? ((0 CONCAT v7) % (v6 & 4294967295) CONCAT (0 CONCAT v7) / (v6 & 4294967295)) >> 32 & 4294967295 : ((0 CONCAT v7) % v6 CONCAT (0 CONCAT v7) / v6) >> 64);\n    v9 = a3 - v8;\n    if v8 > a3 {\n        v9 = 0;\n    }\n    v0 = core::slice::<impl [T]>::split_at_unchecked(a2, a3, v9);\n    v10 = *((&v0 as &char + 16) as &i64);\n    v11 = *((&v0 as &char + 24) as &i64);\n    alloc::vec::Vec<T,A>::append_elements(a1, core::slice::iter::Iter<T>::make_slice(v0, *((&v0 as &char + 8) as &i64) + v0), v12);\n    v4 = uu_dd::Output::write_blocks(a1 + 24, *((a1 + 8) as &i64), *((a1 + 16) as &i64));\n    match v4 {\n        Err(_) => {\n            *((a0 + 8) as &i64) = *((&v4 as &char + 8) as &i64);\n        },\n        Ok(v1) => {\n            *((a1 + 16) as &i64) = 0;\n            alloc::vec::Vec<T,A>::append_elements(a1, core::slice::iter::Iter<T>::make_slice(v10, v11 + v10), v12);\n            *((a0 + 32) as &i128) = v3;\n            *((a0 + 16) as &i128) = v2;\n        },\n    }\n    return struct8 {\n        field_0: v13\n    };\n}\n",
+    "_ZN5uu_dd8progress10ProgUpdate14write_io_lines17h21e0c6ac1bc632a9E": "fn uu_dd::progress::ProgUpdate::write_io_lines(a0: void*, a1: u32) -> u64 {\n    let v0: u32;  // [sp-0x54]\n    let v1: u64;  // [sp-0x50]\n    let v2: u64;  // [sp-0x48]\n    let v3: u64;  // [sp-0x40], Other Possible Types: &&struct_0\n    let v4: u64;  // [bp-0x38]\n    let v5: void*;  // [sp-0x30]\n    let v6: &u8;  // [sp-0x20]\n    let v7: u64;  // [sp-0x18]\n    let v9: void*;  // rax\n    let v10: u32;  // eax\n\n    v9 = uu_dd::progress::ReadStat::report(&a0->padding_0[16] as &struct_1, a1);\n    if v9 {\n        return v9;\n    }\n    v9 = uu_dd::progress::WriteStat::report(&a0[1].padding_0[4] as &struct_1, a1);\n    if v9 {\n        return v9;\n    }\n    v10 = a0->field_28;\n    if !v10 {\n        return 0;\n    }\n    if v10 != 1 {\n        v0 = v10;\n        v6 = &v0;\n        v7 = core::fmt::num::imp::<impl core::fmt::Display for u32>::fmt;\n        v1 = &g_5622e8;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v6;\n        v4 = 1;\n    } else {\n        v1 = \"1 truncated record\\n\";\n        v2 = 1;\n        v3 = 8;\n        v4 = 0;\n    }\n    v9 = <std::io::stdio::Stderr as std::io::Write>::write_fmt(a1, &v1);\n    return v9;\n}\n",
+    "_ZN5uu_dd8progress10ProgUpdate15write_prog_line17h73fbaadaf172cb94E": "fn uu_dd::progress::ProgUpdate::write_prog_line(a0: void*, a1: u32, a2: u32) -> u64 {\n    let v0: i64;  // [sp-0x178]\n    let v1: i64;  // [sp-0x170]\n    let v2: i64;  // [sp-0x160]\n    let v3: i64;  // [sp-0x158]\n    let v4: i64;  // [sp-0x150]\n    let v5: i64;  // [sp-0x148]\n    let v6: i64;  // [sp-0x140]\n    let v7: i64;  // [bp-0x130], Other Possible Types: Result<struct16, struct10>, struct21\n    let v8: i64;  // [sp-0x128]\n    let v9: i64;  // [bp-0x120]\n    let v10: i64;  // [sp-0x118]\n    let v11: i64;  // [sp-0x110]\n    let v12: i64;  // [sp-0x108]\n    let v13: i64;  // [sp-0x100]\n    let v14: i64;  // [sp-0xf8]\n    let v15: i64;  // [sp-0xf0]\n    let v16: i64;  // [sp-0xe8]\n    let v17: i64;  // [sp-0xe0]\n    let v18: i64;  // [sp-0xd8]\n    let v19: i64;  // [sp-0xd0]\n    let v20: i64;  // [sp-0xc8]\n    let v21: i64;  // [sp-0xc0]\n    let v22: i64;  // [sp-0xb8]\n    let v23: i64;  // [sp-0xb0]\n    let v24: i64;  // [sp-0xa8]\n    let v25: struct24;  // [bp-0xa0]\n    let v26: i64;  // [sp-0x98]\n    let v27: i64;  // [sp-0x90]\n    let v28: i64;  // [sp-0x88]\n    let v29: i64;  // [sp-0x80]\n    let v30: i8;  // [bp-0x78]\n    let v31: i8;  // [bp-0x60]\n    let v32: i8;  // [bp-0x48]\n    let v33: i64;  // [sp-0x30]\n    let v34: i64;  // [sp-0x28]\n    let v36: i64;  // r12\n    let v37: i64;  // rbx\n    let v38: i64;  // rbp\n    let v39: i64;  // rdx\n    let v40: i64;  // r8\n    let v41: i64;  // r9\n    let v43: i64;  // rax\n    let v45: i64;  // rax\n    let v46: i64;  // rax\n    let v47: i64;  // rcx\n    let v48: i64;  // rax\n    let v49: i64;  // rax\n    let v50: i64;  // rax\n    let v51: i64;  // rax\n    let v52: i64;  // rbx\n\n    v34 = v36;\n    v33 = v37;\n    v38 = a2;\n    v0 = *((a0 + 48) as &i64);\n    v1 = *((a0 + 56) as &i64);\n    uu_dd::numbers::to_magnitude_and_suffix(&v30, v0, v1, 1);\n    uu_dd::numbers::to_magnitude_and_suffix(&v31, v0, v1, 0);\n    uu_dd::numbers::to_magnitude_and_suffix(&v32, __udivti3(v0, v1, core::cmp::max_by((*((a0 + 8) as &i32) * 1125899907 >> 50) + *(a0 as &i64) * 1000, *(a0 as &i64) / 18446744073709552 + (((*((a0 + 8) as &i32) * 1125899907 >> 50) + *(a0 as &i64) * 1000 <= *((a0 + 8) as &i32) * 1125899907 >> 50 ? 1 : 0) & 1)), v39, v40, v41) * 1000, __udivti3(v0, v1, core::cmp::max_by((*((a0 + 8) as &i32) * 1125899907 >> 50) + *(a0 as &i64) * 1000, *(a0 as &i64) / 18446744073709552 + (((*((a0 + 8) as &i32) * 1125899907 >> 50) + *(a0 as &i64) * 1000 <= *((a0 + 8) as &i32) * 1125899907 >> 50 ? 1 : 0) & 1)), v39, v40, v41) / 18446744073709552 + v39 * 1000, 1);\n    if !v38 {\n        v43 = 1;\n    } else {\n        v43 = &g_426a85;\n    }\n    v21 = v43;\n    v22 = v38 & 4294967295;\n    v23 = (v38 ? 1 : &g_426a84);\n    v24 = v22 & 4294967295 ^ 1;\n    v25 = struct24 {\n        field_0: 0\n        field_8: 1\n        field_16: 0\n    };\n    v7 = struct21 {\n        field_0: 0\n        field_8: 6\n        field_16: 2\n        field_17: 0\n    };\n    v45 = <uucore::features::format::num_format::Float as uucore::features::format::num_format::Formatter>::fmt(&v7, &v25);\n    if v45 {\n        uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v45);\n        return v52;\n    }\n    v7 = core::str::converts::from_utf8(v26, v27);\n    v28 = core::result::Result<T,E>::unwrap(&v7);\n    v29 = v39;\n    if UnaryOp GetMSBs != 65535 {\n        v47 = v0;\n        v48 = v1;\n        if amd64g_calculate_condition(2, 16, v48, (v47 < 1000) as u8 as u64, (v47 < 1000) as u8 as u64) as char {\n            v7 = &v21;\n            v8 = <&T as core::fmt::Display>::fmt;\n            v9 = &v0;\n            v10 = core::fmt::num::<impl core::fmt::Display for u128>::fmt;\n            v11 = &v28;\n            v12 = <&T as core::fmt::Display>::fmt;\n            v13 = &v32;\n            v14 = <alloc::string::String as core::fmt::Display>::fmt;\n            v15 = &v23;\n            v16 = <&T as core::fmt::Display>::fmt;\n            v2 = &g_562358;\n            v3 = 5;\n            v6 = 0;\n            v4 = &v7;\n            v5 = 5;\n            v49 = <std::io::stdio::Stderr as std::io::Write>::write_fmt(a1, &v2);\n            if v49 {\n                uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v49);\n                return v52;\n            }\n        } else if !(amd64g_calculate_condition(2, 16, v48, (v47 < 0x400) as u8 as u64, (v47 < 0x400) as u8 as u64) as char) {\n            v7 = &v21;\n            v8 = <&T as core::fmt::Display>::fmt;\n            v9 = &v0;\n            v10 = core::fmt::num::<impl core::fmt::Display for u128>::fmt;\n            v11 = &v30;\n            v12 = <alloc::string::String as core::fmt::Display>::fmt;\n            v13 = &v31;\n            v14 = <alloc::string::String as core::fmt::Display>::fmt;\n            v15 = &v28;\n            v16 = <&T as core::fmt::Display>::fmt;\n            v17 = &v32;\n            v18 = <alloc::string::String as core::fmt::Display>::fmt;\n            v19 = &v23;\n            v20 = <&T as core::fmt::Display>::fmt;\n            v2 = &g_562408;\n            v3 = 7;\n            v6 = 0;\n            v4 = &v7;\n            v5 = 7;\n            v51 = <std::io::stdio::Stderr as std::io::Write>::write_fmt(a1, &v2);\n            if v51 {\n                uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v51);\n                return v52;\n            }\n        } else {\n            v7 = &v21;\n            v8 = <&T as core::fmt::Display>::fmt;\n            v9 = &v0;\n            v10 = core::fmt::num::<impl core::fmt::Display for u128>::fmt;\n            v11 = &v30;\n            v12 = <alloc::string::String as core::fmt::Display>::fmt;\n            v13 = &v28;\n            v14 = <&T as core::fmt::Display>::fmt;\n            v15 = &v32;\n            v16 = <alloc::string::String as core::fmt::Display>::fmt;\n            v17 = &v23;\n            v18 = <&T as core::fmt::Display>::fmt;\n            v2 = &g_5623a8;\n            v3 = 6;\n            v6 = 0;\n            v4 = &v7;\n            v5 = 6;\n            v50 = <std::io::stdio::Stderr as std::io::Write>::write_fmt(a1, &v2);\n            if v50 {\n                uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v50);\n                return v52;\n            }\n        }\n    } else {\n        v7 = &v21;\n        v8 = <&T as core::fmt::Display>::fmt;\n        v9 = &v0;\n        v10 = core::fmt::num::<impl core::fmt::Display for u128>::fmt;\n        v11 = &v28;\n        v12 = <&T as core::fmt::Display>::fmt;\n        v13 = &v32;\n        v14 = <alloc::string::String as core::fmt::Display>::fmt;\n        v15 = &v23;\n        v16 = <&T as core::fmt::Display>::fmt;\n        v2 = &g_562308;\n        v3 = 5;\n        v6 = 0;\n        v4 = &v7;\n        v5 = 5;\n        v46 = <std::io::stdio::Stderr as std::io::Write>::write_fmt(a1, &v2);\n        if v46 {\n            uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v46);\n            return v52;\n        }\n    }\n    v52 = 0;\n    return 0;\n}\n",
+    "_ZN5uu_dd8progress10ProgUpdate20write_transfer_stats17h72fbc0aa2e615bbeE": "fn uu_dd::progress::ProgUpdate::write_transfer_stats(a0: u32, a1: u32, a2: u32) -> u64 {\n    let v0: u64;  // [sp-0x40]\n    let v1: u64;  // [sp-0x38]\n    let v2: u64;  // [sp-0x30]\n    let v3: u128;  // [sp-0x28]\n    let v5: u64;  // rax\n    let v6: u64;  // rax\n\n    if !a2 || (v0 = \"\\n\", v1 = 1, v2 = 8, v3 = 0, v5 = <std::io::stdio::Stderr as std::io::Write>::write_fmt(a1, &v0), !v5) {\n        v5 = uu_dd::progress::ProgUpdate::write_io_lines(a0, a1);\n        if !v5 {\n            v6 = uu_dd::progress::ProgUpdate::write_prog_line(a0, a1, 0);\n            return v6;\n        }\n    }\n    v6 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v5);\n    return v6;\n}\n",
+    "_ZN5uu_dd8progress10ProgUpdate14print_io_lines17h171b91d694144e42E": "fn uu_dd::progress::ProgUpdate::print_io_lines(a0: void*) -> u64 {\n    let v0: u64;  // [sp-0x8]\n    let v2: u64;  // rax\n\n    v0 = v2;\n    v0 = &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E;\n    core::result::Result<T,E>::unwrap(uu_dd::progress::ProgUpdate::write_io_lines(a0, &v0));\n    return v0;\n}\n",
+    "_ZN5uu_dd8progress10ProgUpdate17reprint_prog_line17hf26b8dca3329b931E": "fn uu_dd::progress::ProgUpdate::reprint_prog_line(a0: void*) -> u64 {\n    let v0: u64;  // [sp-0x8]\n    let v2: u64;  // rax\n    let v3: u64;  // rdx\n\n    v0 = v2;\n    v0 = &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E;\n    core::result::Result<T,E>::unwrap(uu_dd::progress::ProgUpdate::write_prog_line(a0, &v0, 1), v3, \"src/uu/dd/src/progress.rs\");\n    return v0;\n}\n",
+    "_ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17ha89ccd90455ae4e0E": "fn uu_dd::progress::ProgUpdate::print_transfer_stats(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x8]\n    let v2: u64;  // rax\n    let v3: u64;  // rdx\n\n    v0 = v2;\n    v0 = &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E;\n    core::result::Result<T,E>::unwrap(uu_dd::progress::ProgUpdate::write_transfer_stats(a0, &v0, a1), v3, \"src/uu/dd/src/progress.rs\");\n    return v0;\n}\n",
+    "_ZN5uu_dd8progress10ProgUpdate17print_final_stats17h62808bb79e95b615E": "fn uu_dd::progress::ProgUpdate::print_final_stats(a0: u32, a1: u32) -> u64 {\n    goto *((4352448 + vvar_1 * 4) as &i32) + 4352448;\n}\n",
+    "_ZN5uu_dd8progress8ReadStat6report17hd53d51fed1f91d80E": "fn uu_dd::progress::ReadStat::report(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x50]\n    let v1: u64;  // [sp-0x48]\n    let v2: u64;  // [sp-0x40]\n    let v3: u64;  // [sp-0x38]\n    let v4: u64;  // [sp-0x30]\n    let v5: u64;  // [sp-0x28]\n    let v6: &u8;  // [sp-0x20]\n    let v7: u64;  // [sp-0x18]\n    let v8: void*;  // [sp-0x10]\n\n    v0 = a0;\n    v1 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n    v2 = a0 + 8;\n    v3 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n    v4 = &g_562500;\n    v5 = 3;\n    v8 = 0;\n    v6 = &v0;\n    v7 = 2;\n    return <std::io::stdio::Stderr as std::io::Write>::write_fmt(a1, &v4);\n}\n",
+    "_ZN5uu_dd8progress9WriteStat6report17h421ce38315c3961aE": "fn uu_dd::progress::WriteStat::report(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x50]\n    let v1: u64;  // [sp-0x48]\n    let v2: u64;  // [sp-0x40]\n    let v3: u64;  // [sp-0x38]\n    let v4: u64;  // [sp-0x30]\n    let v5: u64;  // [sp-0x28]\n    let v6: &u8;  // [sp-0x20]\n    let v7: u64;  // [sp-0x18]\n    let v8: void*;  // [sp-0x10]\n\n    v0 = a0 + 16;\n    v1 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n    v2 = a0 + 24;\n    v3 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n    v4 = &g_562530;\n    v5 = 3;\n    v8 = 0;\n    v6 = &v0;\n    v7 = 2;\n    return <std::io::stdio::Stderr as std::io::Write>::write_fmt(a1, &v4);\n}\n",
+    "_ZN5uu_dd8progress13SignalHandler22install_signal_handler17he2c75cf1b31a635fE": "fn uu_dd::progress::SignalHandler::install_signal_handler(a0: &struct64, a1: u32, a2: u32) -> u64 {\n    let v0: i448;  // [sp-0x118], Other Possible Types: struct72, Result<struct56, struct8>, struct40\n    let v3: struct24;  // [sp-0xf0]\n    let v6: struct56;  // [bp-0xd0]\n    let v10: struct40;  // [sp-0x98]\n    let v11: struct24;  // [sp-0x70]\n    let v12: struct24;  // [sp-0x58], Other Possible Types: i192\n    let v13: struct8;  // [bp-0x40]\n    let v14: i64;  // [sp-0x30]\n    let v16: i64;  // rcx\n    let v17: i64;  // rax\n    let v18: i128;  // xmm0\n\n    v0 = signal_hook::iterator::SignalsInfo<E>::new(0xa);\n    v16 = v0;\n    v17 = *((&v0 as &char + 8) as &i64);\n    v6 = struct56 {\n        field_0: v16\n        field_8: v17\n        field_16: v1\n        field_32: *((&v0 as &char + 32) as &i128)\n        field_48: v4\n    };\n    v10 = <signal_hook::iterator::backend::Handle as core::clone::Clone>::clone(&v6);\n    v18 = *(&v6.field_0 as &i128);\n    v0 = struct72 {\n        field_0: v18\n        field_16: v7\n        field_32: v8\n        field_48: v9\n        field_56: a1\n        field_64: a2\n    };\n    v14 = 0x8000000000000000;\n    v13 = struct8 {\n        field_0: 0\n    };\n    v12 = std::thread::Builder::spawn_unchecked(&v13, &v0);\n    v11 = core::result::Result<T,E>::expect(&v12);\n    v0 = v10;\n    v3 = v11;\n    return struct64 {\n        field_0: v0\n        field_16: v1\n        field_32: v2\n        field_40: v3\n        field_48: v4\n        field_56: v5\n    };\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN5uu_dd6uumain17heeec4797224c983aE": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_dd::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN5uu_dd6uumain6uumain17h74b70bfc5a4ff6dcE": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "uu_dd::dd_copy": 1,
+      "uu_dd::Output::new_file": 1,
+      "uu_dd::Output::new_fifo": 1,
+      "uu_dd::Output::new_stdout": 1,
+      "uu_dd::Output::new_file_from_stdout": 1,
+      "uu_dd::Input::new_stdin": 1,
+      "uu_dd::Input::new_file": 1,
+      "uu_dd::Input::new_fifo": 1,
+      "uu_dd::parseargs::Parser::parse": 1,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_dd::uu_app": 1
+    },
+    "_ZN5uu_dd9parseargs6Parser5parse17hd077653d220e666dE": {
+      "uu_dd::parseargs::Parser::validate": 1,
+      "memcpy": 1,
+      "uu_dd::parseargs::Parser::read": 1
+    },
+    "_ZN5uu_dd9parseargs6Parser4read17h3585469891c58efdE": {
+      "memcpy": 1,
+      "uu_dd::parseargs::Parser::parse_operand": 1,
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 1
+    },
+    "_ZN5uu_dd9parseargs6Parser8validate17hd2b1e31453916e87E": {
+      "uu_dd::parseargs::conversion_mode": 1,
+      "uu_dd::parseargs::get_ctable": 1
+    },
+    "_ZN5uu_dd9parseargs6Parser7parse_n17h10e17107a528a6d1E": {
+      "<char as core::str::pattern::Pattern>::is_contained_in": 1,
+      "uu_dd::parseargs::parse_bytes_with_opt_multiplier": 1
+    },
+    "_ZN5uu_dd9parseargs6Parser11parse_bytes17h54695c3411a8c383E": {
+      "uu_dd::parseargs::parse_bytes_with_opt_multiplier": 1
+    },
+    "_ZN5uu_dd9parseargs6Parser18parse_status_level17h34642a5ebdfca327E": {
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1
+    },
+    "_ZN5uu_dd9parseargs6Parser18parse_output_flags17h73e155582080adb4E": {
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 5,
+      "core::str::iter::SplitInternal<P>::next": 1,
+      "<char as core::str::pattern::Pattern>::into_searcher": 1
+    },
+    "_ZN5uu_dd9parseargs6Parser16parse_conv_flags17h2792d84d78d66501E": {
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
+      "core::str::iter::SplitInternal<P>::next": 1,
+      "<char as core::str::pattern::Pattern>::into_searcher": 1
+    },
+    "_ZN5uu_dd9parseargs28show_zero_multiplier_warning17hbe4ec55817d90dd4E": {
+      "std::io::stdio::_eprint": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN5uu_dd9parseargs16parse_bytes_only17h08378519bfb033ceE": {
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
+      "core::num::<impl core::str::traits::FromStr for u64>::from_str": 1
+    },
+    "_ZN5uu_dd9parseargs10get_ctable17h8e7446a764b1d972E": {},
+    "_ZN5uu_dd9parseargs15conversion_mode17h18084a71126044cdE": {},
+    "_ZN5uu_dd5Alarm13with_interval17he7e19ce09b7e3abfE": {
+      "core::result::Result<T,E>::expect": 1,
+      "alloc::sync::Arc<T,A>::downgrade": 1,
+      "std::thread::Builder::spawn_unchecked": 1,
+      "alloc::boxed::Box<T>::new": 1
+    },
+    "_ZN5uu_dd5Alarm17manual_trigger_fn17h737085a66dc3c163E": {
+      "alloc::boxed::Box<T>::new": 1,
+      "alloc::sync::Arc<T,A>::downgrade": 1
+    },
+    "_ZN5uu_dd5Alarm11get_trigger17h51a33321f8d9afe9E": {},
+    "_ZN5uu_dd6Source13stdin_as_file17h2487bb1f6c82b1ddE": {
+      "std::io::stdio::stdin": 1
+    },
+    "_ZN5uu_dd6Source3len17hc3b1b96fe0850bcfE": {
+      "std::fs::File::metadata": 1
+    },
+    "_ZN5uu_dd6Source4skip17hb4d238ded1ebd635E": {
+      "<std::fs::File as std::io::Seek>::seek": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "std::io::copy::generic_copy": 2,
+      "uucore::util_name": 2,
+      "uucore::mods::error::set_exit_code": 1,
+      "uu_dd::try_get_len_of_block_device": 1
+    },
+    "_ZN5uu_dd6Source13discard_cache17h30a1a5912ab32cb4E": {
+      "nix::fcntl::posix_fadvise::posix_fadvise": 1
+    },
+    "_ZN5uu_dd5Input9new_stdin17h814376ebbe5b03eaE": {
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 2,
+      "uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uucore::util_name": 1,
+      "std::fs::File::metadata": 1,
+      "uu_dd::Source::stdin_as_file": 1
+    },
+    "_ZN5uu_dd5Input8new_file17h22226df40ef2e7a0E": {
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "std::fs::OpenOptions::open": 1
+    },
+    "_ZN5uu_dd5Input8new_fifo17h35e5c2fb1b3ef304E": {
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "std::fs::OpenOptions::open": 1,
+      "uu_dd::make_linux_iflags": 1
+    },
+    "_ZN5uu_dd17make_linux_iflags17hef93cf202b98b41fE": {},
+    "_ZN5uu_dd5Input16fill_consecutive17h7d4bc8ab92dd656eE": {
+      "alloc::vec::Vec<T,A>::truncate": 1,
+      "<uu_dd::Input as std::io::Read>::read": 1,
+      "<core::slice::iter::ChunksMut<T> as core::iter::traits::iterator::Iterator>::next": 1
+    },
+    "_ZN5uu_dd4Dest5fsync17h5a325d3e1b2c36c4E": {},
+    "_ZN5uu_dd4Dest9fdatasync17hb1784b836bce6fabE": {},
+    "_ZN5uu_dd4Dest4seek17hf206f28f02b500d6E": {},
+    "_ZN5uu_dd4Dest8truncate17h581044b4b2963b16E": {
+      "std::fs::File::set_len": 1
+    },
+    "_ZN5uu_dd4Dest13discard_cache17h93c1738e4adad1fbE": {
+      "nix::fcntl::posix_fadvise::posix_fadvise": 1
+    },
+    "_ZN5uu_dd4Dest3len17hc5f67b7ac477ff9eE": {
+      "std::fs::File::metadata": 1
+    },
+    "_ZN5uu_dd9is_sparse17h5c816dd3d2c6117aE": {
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::all": 1
+    },
+    "_ZN5uu_dd6Output10new_stdout17h76c99dbdf4ef76d1E": {
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "uu_dd::Dest::seek": 1,
+      "std::io::stdio::stdout": 1
+    },
+    "_ZN5uu_dd6Output8new_file17h911369a13f3ee1abE": {
+      "uu_dd::Output::prepare_file": 1,
+      "std::fs::File::set_len": 1,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "uu_dd::Output::new_file::open_dst": 1
+    },
+    "_ZN5uu_dd6Output8new_file8open_dst17h968e64089c53b51aE": {
+      "std::fs::OpenOptions::open": 1
+    },
+    "_ZN5uu_dd6Output12prepare_file17h9725a129054f1a6aE": {
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "uu_dd::Dest::seek": 1
+    },
+    "_ZN5uu_dd6Output20new_file_from_stdout17hc334670ba1ee52ecE": {
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uu_dd::Output::prepare_file": 1,
+      "uucore::mods::io::OwnedFileDescriptorOrHandle::from": 1,
+      "std::io::stdio::stdout": 1
+    },
+    "_ZN5uu_dd6Output8new_fifo17h5805a896b59d1442E": {
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 2,
+      "std::fs::OpenOptions::open": 1,
+      "std::fs::File::open": 1
+    },
+    "_ZN5uu_dd6Output11write_block17h75bb814762c2a847E": {},
+    "_ZN5uu_dd6Output12write_blocks17h78b56ae9a3f355f3E": {
+      "<core::slice::iter::Chunks<T> as core::iter::traits::iterator::Iterator>::next": 1
+    },
+    "_ZN5uu_dd6Output4sync17h13073efb3b69473eE": {},
+    "_ZN5uu_dd6Output8truncate17h03e8e893bfb9669aE": {
+      "uu_dd::Dest::truncate": 1
+    },
+    "_ZN5uu_dd11BlockWriter13discard_cache17hd6a990a3b71c9db7E": {
+      "uu_dd::Output::discard_cache": 1,
+      "uu_dd::bufferedoutput::BufferedOutput::discard_cache": 1
+    },
+    "_ZN5uu_dd11BlockWriter5flush17h48e8ffbb5b89f6d9E": {},
+    "_ZN5uu_dd11BlockWriter4sync17h52e1c4b01c44f80eE": {
+      "uu_dd::Output::sync": 1,
+      "uu_dd::bufferedoutput::BufferedOutput::sync": 1
+    },
+    "_ZN5uu_dd11BlockWriter8truncate17haed78b6dd922a309E": {
+      "uu_dd::Output::truncate": 1,
+      "uu_dd::bufferedoutput::BufferedOutput::truncate": 1
+    },
+    "_ZN5uu_dd11BlockWriter12write_blocks17h4171594e3d4f7075E": {
+      "uu_dd::Output::write_blocks": 1,
+      "uu_dd::bufferedoutput::BufferedOutput::write_blocks": 1
+    },
+    "_ZN5uu_dd24flush_caches_full_length17h852ee23a16d52f1fE": {
+      "uu_dd::Output::discard_cache": 1,
+      "uu_dd::Input::discard_cache": 1
+    },
+    "_ZN5uu_dd8finalize17hab8d4b3fb7143922E": {
+      "core::result::Result<T,E>::expect": 1,
+      "std::thread::JoinInner<T>::join": 1,
+      "std::time::Instant::elapsed": 1,
+      "std::sync::mpmc::Sender<T>::send": 1,
+      "uu_dd::BlockWriter::truncate": 1,
+      "uu_dd::BlockWriter::flush": 1
+    },
+    "_ZN5uu_dd17make_linux_oflags17hc5c67f9cb15d8524E": {},
+    "_ZN5uu_dd11read_helper17h638d567deabbf60cE": {
+      "uu_dd::blocks::conv_block_unblock_helper": 1,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone": 1,
+      "uu_dd::read_helper::perform_swab": 1,
+      "uu_dd::Input::fill_consecutive": 1,
+      "uu_dd::Input::fill_blocks": 1,
+      "alloc::vec::Vec<T,A>::resize": 1
+    },
+    "_ZN5uu_dd11read_helper12perform_swab17h674fb7c29172040eE": {
+      "core::slice::<impl [T]>::swap": 1,
+      "core::iter::adapters::step_by::StepBy<I>::new": 1
+    },
+    "_ZN5uu_dd10calc_bsize17h13ab530ab475ef72E": {
+      "gcd::binary_usize": 1
+    },
+    "_ZN5uu_dd15calc_loop_bsize17h77fb8cf8da4525ffE": {
+      "core::cmp::min_by": 2
+    },
+    "_ZN5uu_dd20stdout_canonicalized17h8616e33a4059f2eeE": {
+      "std::sys::os_str::bytes::Slice::to_owned": 1,
+      "std::fs::canonicalize": 1
+    },
+    "_ZN5uu_dd37is_stdout_redirected_to_seekable_file17he86a24b914264a0aE": {
+      "<std::fs::File as std::io::Seek>::seek": 2,
+      "std::fs::File::open": 1,
+      "uu_dd::stdout_canonicalized": 1
+    },
+    "_ZN5uu_dd27try_get_len_of_block_device17hf00af9fe29cc4b56E": {
+      "std::io::Seek::rewind": 1,
+      "<std::fs::File as std::io::Seek>::seek": 1,
+      "std::fs::File::metadata": 1
+    },
+    "_ZN5uu_dd7is_fifo17h9d574f34ee5f3724E": {
+      "core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>": 1,
+      "std::fs::metadata": 1
+    },
+    "_ZN5uu_dd6uu_app17h3802aa9aab1c575cE": {
+      "clap_builder::builder::command::Command::arg": 1,
+      "clap_builder::builder::arg::Arg::num_args": 1,
+      "clap_builder::builder::arg::Arg::new": 1,
+      "memcpy": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN5uu_dd6blocks5block17h9496b01491ad8acbE": {
+      "core::iter::traits::iterator::Iterator::fold": 1
+    },
+    "_ZN5uu_dd6blocks7unblock17h328a1d7e73c47058E": {
+      "core::iter::traits::iterator::Iterator::fold": 1
+    },
+    "_ZN5uu_dd6blocks25conv_block_unblock_helper17he5e21bd733c5515fE": {},
+    "_ZN5uu_dd6blocks25conv_block_unblock_helper16apply_conversion17hf9fe48f88870342bE": {
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1
+    },
+    "_ZN5uu_dd7numbers10SuffixType15base_and_suffix17he90531716fe26654E": {
+      "memcpy": 2
+    },
+    "_ZN5uu_dd7numbers23to_magnitude_and_suffix17h88c44cbe00c16152E": {
+      "core::option::Option<T>::map_or_else": 1,
+      "round": 1,
+      "__floatuntidf": 2,
+      "uu_dd::numbers::SuffixType::base_and_suffix": 1
+    },
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput3new17h93483d7819281523E": {
+      "alloc::raw_vec::RawVec<T,A>::try_allocate_in": 1
+    },
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput13discard_cache17hcd08e47f1a015446E": {
+      "uu_dd::Output::discard_cache": 1
+    },
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput5flush17hf0f2f33e15e5593bE": {
+      "alloc::vec::Vec<T,A>::drain": 1,
+      "core::result::Result<T,E>::unwrap": 2,
+      "uu_dd::Output::write_blocks": 1
+    },
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput4sync17hc76150547a85de18E": {
+      "uu_dd::Output::sync": 1
+    },
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput8truncate17h2d9d362dd2e62035E": {
+      "uu_dd::Dest::truncate": 1
+    },
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput12write_blocks17h650a144b171239b2E": {
+      "alloc::vec::Vec<T,A>::append_elements": 2,
+      "core::slice::iter::Iter<T>::make_slice": 2,
+      "uu_dd::Output::write_blocks": 1,
+      "core::slice::<impl [T]>::split_at_unchecked": 1
+    },
+    "_ZN5uu_dd8progress10ProgUpdate14write_io_lines17h21e0c6ac1bc632a9E": {
+      "<std::io::stdio::Stderr as std::io::Write>::write_fmt": 1,
+      "uu_dd::progress::WriteStat::report": 1,
+      "uu_dd::progress::ReadStat::report": 1
+    },
+    "_ZN5uu_dd8progress10ProgUpdate15write_prog_line17h73fbaadaf172cb94E": {
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 5,
+      "<std::io::stdio::Stderr as std::io::Write>::write_fmt": 4,
+      "core::result::Result<T,E>::unwrap": 1,
+      "core::str::converts::from_utf8": 1,
+      "<uucore::features::format::num_format::Float as uucore::features::format::num_format::Formatter>::fmt": 1,
+      "uu_dd::numbers::to_magnitude_and_suffix": 3,
+      "__udivti3": 2,
+      "core::cmp::max_by": 2
+    },
+    "_ZN5uu_dd8progress10ProgUpdate20write_transfer_stats17h72fbc0aa2e615bbeE": {
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uu_dd::progress::ProgUpdate::write_prog_line": 1,
+      "uu_dd::progress::ProgUpdate::write_io_lines": 1
+    },
+    "_ZN5uu_dd8progress10ProgUpdate14print_io_lines17h171b91d694144e42E": {
+      "core::result::Result<T,E>::unwrap": 1,
+      "uu_dd::progress::ProgUpdate::write_io_lines": 1
+    },
+    "_ZN5uu_dd8progress10ProgUpdate17reprint_prog_line17hf26b8dca3329b931E": {
+      "core::result::Result<T,E>::unwrap": 1,
+      "uu_dd::progress::ProgUpdate::write_prog_line": 1
+    },
+    "_ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17ha89ccd90455ae4e0E": {
+      "core::result::Result<T,E>::unwrap": 1,
+      "uu_dd::progress::ProgUpdate::write_transfer_stats": 1
+    },
+    "_ZN5uu_dd8progress10ProgUpdate17print_final_stats17h62808bb79e95b615E": {},
+    "_ZN5uu_dd8progress8ReadStat6report17hd53d51fed1f91d80E": {
+      "<std::io::stdio::Stderr as std::io::Write>::write_fmt": 1
+    },
+    "_ZN5uu_dd8progress9WriteStat6report17h421ce38315c3961aE": {
+      "<std::io::stdio::Stderr as std::io::Write>::write_fmt": 1
+    },
+    "_ZN5uu_dd8progress13SignalHandler22install_signal_handler17he2c75cf1b31a635fE": {
+      "core::result::Result<T,E>::expect": 1,
+      "std::thread::Builder::spawn_unchecked": 1,
+      "<signal_hook::iterator::backend::Handle as core::clone::Clone>::clone": 1,
+      "signal_hook::iterator::SignalsInfo<E>::new": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN5uu_dd6uumain17heeec4797224c983aE": {
+      "eprintln": 2,
+      "eprint": 1
+    },
+    "_ZN5uu_dd6uumain6uumain17h74b70bfc5a4ff6dcE": {},
+    "_ZN5uu_dd9parseargs6Parser5parse17hd077653d220e666dE": {},
+    "_ZN5uu_dd9parseargs6Parser4read17h3585469891c58efdE": {},
+    "_ZN5uu_dd9parseargs6Parser8validate17hd2b1e31453916e87E": {},
+    "_ZN5uu_dd9parseargs6Parser7parse_n17h10e17107a528a6d1E": {},
+    "_ZN5uu_dd9parseargs6Parser11parse_bytes17h54695c3411a8c383E": {},
+    "_ZN5uu_dd9parseargs6Parser18parse_status_level17h34642a5ebdfca327E": {},
+    "_ZN5uu_dd9parseargs6Parser18parse_output_flags17h73e155582080adb4E": {},
+    "_ZN5uu_dd9parseargs6Parser16parse_conv_flags17h2792d84d78d66501E": {},
+    "_ZN5uu_dd9parseargs28show_zero_multiplier_warning17hbe4ec55817d90dd4E": {
+      "eprint": 1
+    },
+    "_ZN5uu_dd9parseargs16parse_bytes_only17h08378519bfb033ceE": {},
+    "_ZN5uu_dd9parseargs10get_ctable17h8e7446a764b1d972E": {},
+    "_ZN5uu_dd9parseargs15conversion_mode17h18084a71126044cdE": {},
+    "_ZN5uu_dd5Alarm13with_interval17he7e19ce09b7e3abfE": {},
+    "_ZN5uu_dd5Alarm17manual_trigger_fn17h737085a66dc3c163E": {},
+    "_ZN5uu_dd5Alarm11get_trigger17h51a33321f8d9afe9E": {},
+    "_ZN5uu_dd6Source13stdin_as_file17h2487bb1f6c82b1ddE": {},
+    "_ZN5uu_dd6Source3len17hc3b1b96fe0850bcfE": {},
+    "_ZN5uu_dd6Source4skip17hb4d238ded1ebd635E": {
+      "eprintln": 2,
+      "eprint": 2
+    },
+    "_ZN5uu_dd6Source13discard_cache17h30a1a5912ab32cb4E": {},
+    "_ZN5uu_dd5Input9new_stdin17h814376ebbe5b03eaE": {
+      "eprintln": 1,
+      "eprint": 1
+    },
+    "_ZN5uu_dd5Input8new_file17h22226df40ef2e7a0E": {},
+    "_ZN5uu_dd5Input8new_fifo17h35e5c2fb1b3ef304E": {},
+    "_ZN5uu_dd17make_linux_iflags17hef93cf202b98b41fE": {},
+    "_ZN5uu_dd5Input16fill_consecutive17h7d4bc8ab92dd656eE": {
+      "panic": 1
+    },
+    "_ZN5uu_dd4Dest5fsync17h5a325d3e1b2c36c4E": {},
+    "_ZN5uu_dd4Dest9fdatasync17hb1784b836bce6fabE": {},
+    "_ZN5uu_dd4Dest4seek17hf206f28f02b500d6E": {},
+    "_ZN5uu_dd4Dest8truncate17h581044b4b2963b16E": {},
+    "_ZN5uu_dd4Dest13discard_cache17h93c1738e4adad1fbE": {},
+    "_ZN5uu_dd4Dest3len17hc5f67b7ac477ff9eE": {},
+    "_ZN5uu_dd9is_sparse17h5c816dd3d2c6117aE": {},
+    "_ZN5uu_dd6Output10new_stdout17h76c99dbdf4ef76d1E": {},
+    "_ZN5uu_dd6Output8new_file17h911369a13f3ee1abE": {},
+    "_ZN5uu_dd6Output8new_file8open_dst17h968e64089c53b51aE": {},
+    "_ZN5uu_dd6Output12prepare_file17h9725a129054f1a6aE": {},
+    "_ZN5uu_dd6Output20new_file_from_stdout17hc334670ba1ee52ecE": {},
+    "_ZN5uu_dd6Output8new_fifo17h5805a896b59d1442E": {},
+    "_ZN5uu_dd6Output11write_block17h75bb814762c2a847E": {},
+    "_ZN5uu_dd6Output12write_blocks17h78b56ae9a3f355f3E": {
+      "panic": 1
+    },
+    "_ZN5uu_dd6Output4sync17h13073efb3b69473eE": {},
+    "_ZN5uu_dd6Output8truncate17h03e8e893bfb9669aE": {},
+    "_ZN5uu_dd11BlockWriter13discard_cache17hd6a990a3b71c9db7E": {},
+    "_ZN5uu_dd11BlockWriter5flush17h48e8ffbb5b89f6d9E": {},
+    "_ZN5uu_dd11BlockWriter4sync17h52e1c4b01c44f80eE": {},
+    "_ZN5uu_dd11BlockWriter8truncate17haed78b6dd922a309E": {},
+    "_ZN5uu_dd11BlockWriter12write_blocks17h4171594e3d4f7075E": {},
+    "_ZN5uu_dd24flush_caches_full_length17h852ee23a16d52f1fE": {},
+    "_ZN5uu_dd8finalize17hab8d4b3fb7143922E": {},
+    "_ZN5uu_dd17make_linux_oflags17hc5c67f9cb15d8524E": {},
+    "_ZN5uu_dd11read_helper17h638d567deabbf60cE": {},
+    "_ZN5uu_dd11read_helper12perform_swab17h674fb7c29172040eE": {},
+    "_ZN5uu_dd10calc_bsize17h13ab530ab475ef72E": {},
+    "_ZN5uu_dd15calc_loop_bsize17h77fb8cf8da4525ffE": {},
+    "_ZN5uu_dd20stdout_canonicalized17h8616e33a4059f2eeE": {},
+    "_ZN5uu_dd37is_stdout_redirected_to_seekable_file17he86a24b914264a0aE": {},
+    "_ZN5uu_dd27try_get_len_of_block_device17hf00af9fe29cc4b56E": {},
+    "_ZN5uu_dd7is_fifo17h9d574f34ee5f3724E": {},
+    "_ZN5uu_dd6uu_app17h3802aa9aab1c575cE": {},
+    "_ZN5uu_dd6blocks5block17h9496b01491ad8acbE": {},
+    "_ZN5uu_dd6blocks7unblock17h328a1d7e73c47058E": {
+      "panic": 1
+    },
+    "_ZN5uu_dd6blocks25conv_block_unblock_helper17he5e21bd733c5515fE": {},
+    "_ZN5uu_dd6blocks25conv_block_unblock_helper16apply_conversion17hf9fe48f88870342bE": {},
+    "_ZN5uu_dd7numbers10SuffixType15base_and_suffix17he90531716fe26654E": {},
+    "_ZN5uu_dd7numbers23to_magnitude_and_suffix17h88c44cbe00c16152E": {},
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput3new17h93483d7819281523E": {},
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput13discard_cache17hcd08e47f1a015446E": {},
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput5flush17hf0f2f33e15e5593bE": {},
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput4sync17hc76150547a85de18E": {},
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput8truncate17h2d9d362dd2e62035E": {},
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput12write_blocks17h650a144b171239b2E": {},
+    "_ZN5uu_dd8progress10ProgUpdate14write_io_lines17h21e0c6ac1bc632a9E": {},
+    "_ZN5uu_dd8progress10ProgUpdate15write_prog_line17h73fbaadaf172cb94E": {},
+    "_ZN5uu_dd8progress10ProgUpdate20write_transfer_stats17h72fbc0aa2e615bbeE": {},
+    "_ZN5uu_dd8progress10ProgUpdate14print_io_lines17h171b91d694144e42E": {},
+    "_ZN5uu_dd8progress10ProgUpdate17reprint_prog_line17hf26b8dca3329b931E": {},
+    "_ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17ha89ccd90455ae4e0E": {},
+    "_ZN5uu_dd8progress10ProgUpdate17print_final_stats17h62808bb79e95b615E": {},
+    "_ZN5uu_dd8progress8ReadStat6report17hd53d51fed1f91d80E": {},
+    "_ZN5uu_dd8progress9WriteStat6report17h421ce38315c3961aE": {},
+    "_ZN5uu_dd8progress13SignalHandler22install_signal_handler17he2c75cf1b31a635fE": {}
+  },
+  "node_counts": {
+    "_ZN5uu_dd6uumain17heeec4797224c983aE": 9,
+    "_ZN5uu_dd6uumain6uumain17h74b70bfc5a4ff6dcE": 24,
+    "_ZN5uu_dd9parseargs6Parser5parse17hd077653d220e666dE": 5,
+    "_ZN5uu_dd9parseargs6Parser4read17h3585469891c58efdE": 4,
+    "_ZN5uu_dd9parseargs6Parser8validate17hd2b1e31453916e87E": 32,
+    "_ZN5uu_dd9parseargs6Parser7parse_n17h10e17107a528a6d1E": 5,
+    "_ZN5uu_dd9parseargs6Parser11parse_bytes17h54695c3411a8c383E": 3,
+    "_ZN5uu_dd9parseargs6Parser18parse_status_level17h34642a5ebdfca327E": 6,
+    "_ZN5uu_dd9parseargs6Parser18parse_output_flags17h73e155582080adb4E": 27,
+    "_ZN5uu_dd9parseargs6Parser16parse_conv_flags17h2792d84d78d66501E": 22,
+    "_ZN5uu_dd9parseargs28show_zero_multiplier_warning17hbe4ec55817d90dd4E": 3,
+    "_ZN5uu_dd9parseargs16parse_bytes_only17h08378519bfb033ceE": 4,
+    "_ZN5uu_dd9parseargs10get_ctable17h8e7446a764b1d972E": 10,
+    "_ZN5uu_dd9parseargs15conversion_mode17h18084a71126044cdE": 8,
+    "_ZN5uu_dd5Alarm13with_interval17he7e19ce09b7e3abfE": 5,
+    "_ZN5uu_dd5Alarm17manual_trigger_fn17h737085a66dc3c163E": 2,
+    "_ZN5uu_dd5Alarm11get_trigger17h51a33321f8d9afe9E": 1,
+    "_ZN5uu_dd6Source13stdin_as_file17h2487bb1f6c82b1ddE": 1,
+    "_ZN5uu_dd6Source3len17hc3b1b96fe0850bcfE": 5,
+    "_ZN5uu_dd6Source4skip17hb4d238ded1ebd635E": 17,
+    "_ZN5uu_dd6Source13discard_cache17h30a1a5912ab32cb4E": 2,
+    "_ZN5uu_dd5Input9new_stdin17h814376ebbe5b03eaE": 8,
+    "_ZN5uu_dd5Input8new_file17h22226df40ef2e7a0E": 8,
+    "_ZN5uu_dd5Input8new_fifo17h35e5c2fb1b3ef304E": 8,
+    "_ZN5uu_dd17make_linux_iflags17hef93cf202b98b41fE": 14,
+    "_ZN5uu_dd5Input16fill_consecutive17h7d4bc8ab92dd656eE": 11,
+    "_ZN5uu_dd4Dest5fsync17h5a325d3e1b2c36c4E": 1,
+    "_ZN5uu_dd4Dest9fdatasync17hb1784b836bce6fabE": 1,
+    "_ZN5uu_dd4Dest4seek17hf206f28f02b500d6E": 1,
+    "_ZN5uu_dd4Dest8truncate17h581044b4b2963b16E": 3,
+    "_ZN5uu_dd4Dest13discard_cache17h93c1738e4adad1fbE": 2,
+    "_ZN5uu_dd4Dest3len17hc5f67b7ac477ff9eE": 6,
+    "_ZN5uu_dd9is_sparse17h5c816dd3d2c6117aE": 2,
+    "_ZN5uu_dd6Output10new_stdout17h76c99dbdf4ef76d1E": 5,
+    "_ZN5uu_dd6Output8new_file17h911369a13f3ee1abE": 6,
+    "_ZN5uu_dd6Output8new_file8open_dst17h968e64089c53b51aE": 3,
+    "_ZN5uu_dd6Output12prepare_file17h9725a129054f1a6aE": 6,
+    "_ZN5uu_dd6Output20new_file_from_stdout17hc334670ba1ee52ecE": 9,
+    "_ZN5uu_dd6Output8new_fifo17h5805a896b59d1442E": 8,
+    "_ZN5uu_dd6Output11write_block17h75bb814762c2a847E": 1,
+    "_ZN5uu_dd6Output12write_blocks17h78b56ae9a3f355f3E": 6,
+    "_ZN5uu_dd6Output4sync17h13073efb3b69473eE": 3,
+    "_ZN5uu_dd6Output8truncate17h03e8e893bfb9669aE": 1,
+    "_ZN5uu_dd11BlockWriter13discard_cache17hd6a990a3b71c9db7E": 2,
+    "_ZN5uu_dd11BlockWriter5flush17h48e8ffbb5b89f6d9E": 2,
+    "_ZN5uu_dd11BlockWriter4sync17h52e1c4b01c44f80eE": 2,
+    "_ZN5uu_dd11BlockWriter8truncate17haed78b6dd922a309E": 3,
+    "_ZN5uu_dd11BlockWriter12write_blocks17h4171594e3d4f7075E": 2,
+    "_ZN5uu_dd24flush_caches_full_length17h852ee23a16d52f1fE": 6,
+    "_ZN5uu_dd8finalize17hab8d4b3fb7143922E": 10,
+    "_ZN5uu_dd17make_linux_oflags17hc5c67f9cb15d8524E": 17,
+    "_ZN5uu_dd11read_helper17h638d567deabbf60cE": 15,
+    "_ZN5uu_dd11read_helper12perform_swab17h674fb7c29172040eE": 7,
+    "_ZN5uu_dd10calc_bsize17h13ab530ab475ef72E": 2,
+    "_ZN5uu_dd15calc_loop_bsize17h77fb8cf8da4525ffE": 4,
+    "_ZN5uu_dd20stdout_canonicalized17h8616e33a4059f2eeE": 3,
+    "_ZN5uu_dd37is_stdout_redirected_to_seekable_file17he86a24b914264a0aE": 7,
+    "_ZN5uu_dd27try_get_len_of_block_device17hf00af9fe29cc4b56E": 8,
+    "_ZN5uu_dd7is_fifo17h9d574f34ee5f3724E": 4,
+    "_ZN5uu_dd6uu_app17h3802aa9aab1c575cE": 11,
+    "_ZN5uu_dd6blocks5block17h9496b01491ad8acbE": 3,
+    "_ZN5uu_dd6blocks7unblock17h328a1d7e73c47058E": 3,
+    "_ZN5uu_dd6blocks25conv_block_unblock_helper17he5e21bd733c5515fE": 1,
+    "_ZN5uu_dd6blocks25conv_block_unblock_helper16apply_conversion17hf9fe48f88870342bE": 2,
+    "_ZN5uu_dd7numbers10SuffixType15base_and_suffix17he90531716fe26654E": 8,
+    "_ZN5uu_dd7numbers23to_magnitude_and_suffix17h88c44cbe00c16152E": 9,
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput3new17h93483d7819281523E": 3,
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput13discard_cache17hcd08e47f1a015446E": 1,
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput5flush17hf0f2f33e15e5593bE": 8,
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput4sync17hc76150547a85de18E": 1,
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput8truncate17h2d9d362dd2e62035E": 1,
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput12write_blocks17h650a144b171239b2E": 13,
+    "_ZN5uu_dd8progress10ProgUpdate14write_io_lines17h21e0c6ac1bc632a9E": 10,
+    "_ZN5uu_dd8progress10ProgUpdate15write_prog_line17h73fbaadaf172cb94E": 26,
+    "_ZN5uu_dd8progress10ProgUpdate20write_transfer_stats17h72fbc0aa2e615bbeE": 5,
+    "_ZN5uu_dd8progress10ProgUpdate14print_io_lines17h171b91d694144e42E": 3,
+    "_ZN5uu_dd8progress10ProgUpdate17reprint_prog_line17hf26b8dca3329b931E": 3,
+    "_ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17ha89ccd90455ae4e0E": 3,
+    "_ZN5uu_dd8progress10ProgUpdate17print_final_stats17h62808bb79e95b615E": 1,
+    "_ZN5uu_dd8progress8ReadStat6report17hd53d51fed1f91d80E": 2,
+    "_ZN5uu_dd8progress9WriteStat6report17h421ce38315c3961aE": 2,
+    "_ZN5uu_dd8progress13SignalHandler22install_signal_handler17he2c75cf1b31a635fE": 6
+  },
+  "prototypes": {
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h46db0d96769f7017E": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h46db0d96769f7017E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17hfc48cb779f9cdf25E": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17hfc48cb779f9cdf25E",
+      "return_type": [
+        "struct",
+        64
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h4faa36fc29fbd10cE": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h4faa36fc29fbd10cE",
+      "return_type": [
+        "struct",
+        56
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h5a01ae36fb20ce9dE": {
+      "name": "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h5a01ae36fb20ce9dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17hfb43af8b489c04c9E": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17hfb43af8b489c04c9E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h11e8d24de8d0195bE": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h11e8d24de8d0195bE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h5e6beab2beaebe6eE": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h5e6beab2beaebe6eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6uumain17heeec4797224c983aE": {
+      "name": "_ZN5uu_dd6uumain17heeec4797224c983aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6uumain6uumain17h74b70bfc5a4ff6dcE": {
+      "name": "_ZN5uu_dd6uumain6uumain17h74b70bfc5a4ff6dcE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
+      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
+      "return_type": [
+        "primitive",
+        1
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4File7set_len17hd21acd2eeb028efbE": {
+      "name": "_ZN3std2fs4File7set_len17hd21acd2eeb028efbE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4File8metadata17he899a18112e6f19eE": {
+      "name": "_ZN3std2fs4File8metadata17he899a18112e6f19eE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Seek$GT$4seek17hf141ef1001f771f9E": {
+      "name": "_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Seek$GT$4seek17hf141ef1001f771f9E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io5stdio5stdin17h7215cc131abb55d8E": {
+      "name": "_ZN3std2io5stdio5stdin17h7215cc131abb55d8E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN3std2io5stdio6stdout17h077da66234850927E": {
+      "name": "_ZN3std2io5stdio6stdout17h077da66234850927E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN57_$LT$std..io..stdio..Stderr$u20$as$u20$std..io..Write$GT$9write_fmt17h82787f8382d2102cE": {
+      "name": "_ZN57_$LT$std..io..stdio..Stderr$u20$as$u20$std..io..Write$GT$9write_fmt17h82787f8382d2102cE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E": {
+      "name": "_ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc7raw_vec12handle_error17h2372476369f9b8acE": {
+      "name": "_ZN5alloc7raw_vec12handle_error17h2372476369f9b8acE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str8converts9from_utf817ha1effb4cca6d9901E": {
+      "name": "_ZN4core3str8converts9from_utf817ha1effb4cca6d9901E",
+      "return_type": [
+        "Result",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u64$GT$8from_str17h29411471c0770b67E": {
+      "name": "_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u64$GT$8from_str17h29411471c0770b67E",
+      "return_type": [
+        "Result",
+        9
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "__udivti3": {
+      "name": "__udivti3",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1fb4a3ee92f93d48E": {
+      "name": "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1fb4a3ee92f93d48E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h587279427cde36f1E": {
+      "name": "_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h587279427cde36f1E",
+      "return_type": [
+        "Option",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str21_$LT$impl$u20$str$GT$4find17he16eb61bb7887aecE": {
+      "name": "_ZN4core3str21_$LT$impl$u20$str$GT$4find17he16eb61bb7887aecE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h94ded9ee8a390a12E": {
+      "name": "_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h94ded9ee8a390a12E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h47b118536c82edfaE": {
+      "name": "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h47b118536c82edfaE",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h778f954dace7b409E": {
+      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h778f954dace7b409E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h77b0cfb9226a3587E": {
+      "name": "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h77b0cfb9226a3587E",
+      "return_type": [
+        "struct",
+        41
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17hf6fa57beb1c3cfdfE": {
+      "name": "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17hf6fa57beb1c3cfdfE",
+      "return_type": [
+        "primitive",
+        1
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h532aa9ace314f175E": {
+      "name": "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h532aa9ace314f175E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h12a8649b6eb511d9E": {
+      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h12a8649b6eb511d9E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_dd9parseargs6Parser5parse17hd077653d220e666dE": {
+      "name": "_ZN5uu_dd9parseargs6Parser5parse17hd077653d220e666dE",
+      "return_type": [
+        "Result",
+        164
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd9parseargs6Parser4read17h3585469891c58efdE": {
+      "name": "_ZN5uu_dd9parseargs6Parser4read17h3585469891c58efdE",
+      "return_type": [
+        "Result",
+        216
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd9parseargs6Parser8validate17hd2b1e31453916e87E": {
+      "name": "_ZN5uu_dd9parseargs6Parser8validate17hd2b1e31453916e87E",
+      "return_type": [
+        "struct",
+        164
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd9parseargs6Parser13parse_operand17h4dfdd7ca9dce5d89E": {
+      "name": "_ZN5uu_dd9parseargs6Parser13parse_operand17h4dfdd7ca9dce5d89E",
+      "return_type": [
+        "struct",
+        34
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd9parseargs6Parser7parse_n17h10e17107a528a6d1E": {
+      "name": "_ZN5uu_dd9parseargs6Parser7parse_n17h10e17107a528a6d1E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd9parseargs6Parser11parse_bytes17h54695c3411a8c383E": {
+      "name": "_ZN5uu_dd9parseargs6Parser11parse_bytes17h54695c3411a8c383E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd9parseargs6Parser18parse_status_level17h34642a5ebdfca327E": {
+      "name": "_ZN5uu_dd9parseargs6Parser18parse_status_level17h34642a5ebdfca327E",
+      "return_type": [
+        "Option",
+        9
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd9parseargs6Parser17parse_input_flags17h12f922d383d81c43E": {
+      "name": "_ZN5uu_dd9parseargs6Parser17parse_input_flags17h12f922d383d81c43E",
+      "return_type": [
+        "Option",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd9parseargs6Parser18parse_output_flags17h73e155582080adb4E": {
+      "name": "_ZN5uu_dd9parseargs6Parser18parse_output_flags17h73e155582080adb4E",
+      "return_type": [
+        "Option",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd9parseargs6Parser16parse_conv_flags17h2792d84d78d66501E": {
+      "name": "_ZN5uu_dd9parseargs6Parser16parse_conv_flags17h2792d84d78d66501E",
+      "return_type": [
+        "Option",
+        32
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd9parseargs28show_zero_multiplier_warning17hbe4ec55817d90dd4E": {
+      "name": "_ZN5uu_dd9parseargs28show_zero_multiplier_warning17hbe4ec55817d90dd4E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_dd9parseargs16parse_bytes_only17h08378519bfb033ceE": {
+      "name": "_ZN5uu_dd9parseargs16parse_bytes_only17h08378519bfb033ceE",
+      "return_type": [
+        "Option",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd9parseargs16parse_bytes_no_x17h9d66ee8239148f5fE": {
+      "name": "_ZN5uu_dd9parseargs16parse_bytes_no_x17h9d66ee8239148f5fE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd9parseargs10get_ctable17h8e7446a764b1d972E": {
+      "name": "_ZN5uu_dd9parseargs10get_ctable17h8e7446a764b1d972E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN5uu_dd9parseargs15conversion_mode17h18084a71126044cdE": {
+      "name": "_ZN5uu_dd9parseargs15conversion_mode17h18084a71126044cdE",
+      "return_type": [
+        "struct",
+        18
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h56fc8485fa379185E": {
+      "name": "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h56fc8485fa379185E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg8num_args17hf9a6d8997dc166ecE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg8num_args17hf9a6d8997dc166ecE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io5error5Error4kind17hb2ff5fa058639b3dE": {
+      "name": "_ZN3std2io5error5Error4kind17hb2ff5fa058639b3dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3cmp6min_by17h39295d55eac2d5ecE": {
+      "name": "_ZN4core3cmp6min_by17h39295d55eac2d5ecE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3cmp6min_by17h3a5b4e3765dbfb91E": {
+      "name": "_ZN4core3cmp6min_by17h3a5b4e3765dbfb91E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3cmp6min_by17hf29fead33a8278ecE": {
+      "name": "_ZN4core3cmp6min_by17hf29fead33a8278ecE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17he8a2e51a512ba290E": {
+      "name": "_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17he8a2e51a512ba290E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core4iter8adapters7step_by15StepBy$LT$I$GT$3new17hccaf6edfe6d8c61dE": {
+      "name": "_ZN4core4iter8adapters7step_by15StepBy$LT$I$GT$3new17hccaf6edfe6d8c61dE",
+      "return_type": [
+        "struct",
+        25
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17ha9fdd20b56a47561E": {
+      "name": "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17ha9fdd20b56a47561E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4f1d3531bd9b092bE": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4f1d3531bd9b092bE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hae1648ffdc1cd49bE": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hae1648ffdc1cd49bE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h561911936e9e2a34E": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h561911936e9e2a34E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6splice17h0fd839b9d32da106E": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6splice17h0fd839b9d32da106E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17hff327b290596ae78E": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17hff327b290596ae78E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h1a0e457649d60ac2E": {
+      "name": "_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h1a0e457649d60ac2E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h9f073f067a0e9b2eE": {
+      "name": "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h9f073f067a0e9b2eE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h94bf13423513b503E": {
+      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h94bf13423513b503E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN93_$LT$core..slice..iter..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45c1de6715574df6E": {
+      "name": "_ZN93_$LT$core..slice..iter..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45c1de6715574df6E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": []
+    },
+    "_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0385640c4904d04fE": {
+      "name": "_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0385640c4904d04fE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_dd5Alarm13with_interval17he7e19ce09b7e3abfE": {
+      "name": "_ZN5uu_dd5Alarm13with_interval17he7e19ce09b7e3abfE",
+      "return_type": [
+        "struct",
+        20
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_dd5Alarm17manual_trigger_fn17h737085a66dc3c163E": {
+      "name": "_ZN5uu_dd5Alarm17manual_trigger_fn17h737085a66dc3c163E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd5Alarm11get_trigger17h51a33321f8d9afe9E": {
+      "name": "_ZN5uu_dd5Alarm11get_trigger17h51a33321f8d9afe9E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Source13stdin_as_file17h2487bb1f6c82b1ddE": {
+      "name": "_ZN5uu_dd6Source13stdin_as_file17h2487bb1f6c82b1ddE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_dd6Source3len17hc3b1b96fe0850bcfE": {
+      "name": "_ZN5uu_dd6Source3len17hc3b1b96fe0850bcfE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Source4skip17hb4d238ded1ebd635E": {
+      "name": "_ZN5uu_dd6Source4skip17hb4d238ded1ebd635E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Source13discard_cache17h30a1a5912ab32cb4E": {
+      "name": "_ZN5uu_dd6Source13discard_cache17h30a1a5912ab32cb4E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd5Input9new_stdin17h814376ebbe5b03eaE": {
+      "name": "_ZN5uu_dd5Input9new_stdin17h814376ebbe5b03eaE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd5Input8new_file17h22226df40ef2e7a0E": {
+      "name": "_ZN5uu_dd5Input8new_file17h22226df40ef2e7a0E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd5Input8new_fifo17h35e5c2fb1b3ef304E": {
+      "name": "_ZN5uu_dd5Input8new_fifo17h35e5c2fb1b3ef304E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd17make_linux_iflags17hef93cf202b98b41fE": {
+      "name": "_ZN5uu_dd17make_linux_iflags17hef93cf202b98b41fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN46_$LT$uu_dd..Input$u20$as$u20$std..io..Read$GT$4read17h91bb47559be41a26E": {
+      "name": "_ZN46_$LT$uu_dd..Input$u20$as$u20$std..io..Read$GT$4read17h91bb47559be41a26E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd5Input13discard_cache17h2bede2b9be5bf459E": {
+      "name": "_ZN5uu_dd5Input13discard_cache17h2bede2b9be5bf459E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_dd5Input16fill_consecutive17h7d4bc8ab92dd656eE": {
+      "name": "_ZN5uu_dd5Input16fill_consecutive17h7d4bc8ab92dd656eE",
+      "return_type": [
+        "Result",
+        36
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd4Dest5fsync17h5a325d3e1b2c36c4E": {
+      "name": "_ZN5uu_dd4Dest5fsync17h5a325d3e1b2c36c4E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd4Dest9fdatasync17hb1784b836bce6fabE": {
+      "name": "_ZN5uu_dd4Dest9fdatasync17hb1784b836bce6fabE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd4Dest4seek17hf206f28f02b500d6E": {
+      "name": "_ZN5uu_dd4Dest4seek17hf206f28f02b500d6E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd4Dest8truncate17h581044b4b2963b16E": {
+      "name": "_ZN5uu_dd4Dest8truncate17h581044b4b2963b16E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd4Dest13discard_cache17h93c1738e4adad1fbE": {
+      "name": "_ZN5uu_dd4Dest13discard_cache17h93c1738e4adad1fbE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd4Dest3len17hc5f67b7ac477ff9eE": {
+      "name": "_ZN5uu_dd4Dest3len17hc5f67b7ac477ff9eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd9is_sparse17h5c816dd3d2c6117aE": {
+      "name": "_ZN5uu_dd9is_sparse17h5c816dd3d2c6117aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN46_$LT$uu_dd..Dest$u20$as$u20$std..io..Write$GT$5write17h3271a02f9286a322E": {
+      "name": "_ZN46_$LT$uu_dd..Dest$u20$as$u20$std..io..Write$GT$5write17h3271a02f9286a322E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Output10new_stdout17h76c99dbdf4ef76d1E": {
+      "name": "_ZN5uu_dd6Output10new_stdout17h76c99dbdf4ef76d1E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Output8new_file17h911369a13f3ee1abE": {
+      "name": "_ZN5uu_dd6Output8new_file17h911369a13f3ee1abE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Output8new_file8open_dst17h968e64089c53b51aE": {
+      "name": "_ZN5uu_dd6Output8new_file8open_dst17h968e64089c53b51aE",
+      "return_type": [
+        "Result",
+        12
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Output12prepare_file17h9725a129054f1a6aE": {
+      "name": "_ZN5uu_dd6Output12prepare_file17h9725a129054f1a6aE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Output20new_file_from_stdout17hc334670ba1ee52ecE": {
+      "name": "_ZN5uu_dd6Output20new_file_from_stdout17hc334670ba1ee52ecE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Output8new_fifo17h5805a896b59d1442E": {
+      "name": "_ZN5uu_dd6Output8new_fifo17h5805a896b59d1442E",
+      "return_type": [
+        "struct",
+        17
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Output13discard_cache17h9654de1740a6c207E": {
+      "name": "_ZN5uu_dd6Output13discard_cache17h9654de1740a6c207E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Output11write_block17h75bb814762c2a847E": {
+      "name": "_ZN5uu_dd6Output11write_block17h75bb814762c2a847E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Output12write_blocks17h78b56ae9a3f355f3E": {
+      "name": "_ZN5uu_dd6Output12write_blocks17h78b56ae9a3f355f3E",
+      "return_type": [
+        "Result",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Output4sync17h13073efb3b69473eE": {
+      "name": "_ZN5uu_dd6Output4sync17h13073efb3b69473eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6Output8truncate17h03e8e893bfb9669aE": {
+      "name": "_ZN5uu_dd6Output8truncate17h03e8e893bfb9669aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd11BlockWriter13discard_cache17hd6a990a3b71c9db7E": {
+      "name": "_ZN5uu_dd11BlockWriter13discard_cache17hd6a990a3b71c9db7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd11BlockWriter5flush17h48e8ffbb5b89f6d9E": {
+      "name": "_ZN5uu_dd11BlockWriter5flush17h48e8ffbb5b89f6d9E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd11BlockWriter4sync17h52e1c4b01c44f80eE": {
+      "name": "_ZN5uu_dd11BlockWriter4sync17h52e1c4b01c44f80eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd11BlockWriter8truncate17haed78b6dd922a309E": {
+      "name": "_ZN5uu_dd11BlockWriter8truncate17haed78b6dd922a309E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd11BlockWriter12write_blocks17h4171594e3d4f7075E": {
+      "name": "_ZN5uu_dd11BlockWriter12write_blocks17h4171594e3d4f7075E",
+      "return_type": [
+        "Result",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd24flush_caches_full_length17h852ee23a16d52f1fE": {
+      "name": "_ZN5uu_dd24flush_caches_full_length17h852ee23a16d52f1fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd7dd_copy17h1703f8a2fff7c692E": {
+      "name": "_ZN5uu_dd7dd_copy17h1703f8a2fff7c692E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd8finalize17hab8d4b3fb7143922E": {
+      "name": "_ZN5uu_dd8finalize17hab8d4b3fb7143922E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd17make_linux_oflags17hc5c67f9cb15d8524E": {
+      "name": "_ZN5uu_dd17make_linux_oflags17hc5c67f9cb15d8524E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd11read_helper17h638d567deabbf60cE": {
+      "name": "_ZN5uu_dd11read_helper17h638d567deabbf60cE",
+      "return_type": [
+        "Result",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd11read_helper12perform_swab17h674fb7c29172040eE": {
+      "name": "_ZN5uu_dd11read_helper12perform_swab17h674fb7c29172040eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd10calc_bsize17h13ab530ab475ef72E": {
+      "name": "_ZN5uu_dd10calc_bsize17h13ab530ab475ef72E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd15calc_loop_bsize17h77fb8cf8da4525ffE": {
+      "name": "_ZN5uu_dd15calc_loop_bsize17h77fb8cf8da4525ffE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd20stdout_canonicalized17h8616e33a4059f2eeE": {
+      "name": "_ZN5uu_dd20stdout_canonicalized17h8616e33a4059f2eeE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_dd37is_stdout_redirected_to_seekable_file17he86a24b914264a0aE": {
+      "name": "_ZN5uu_dd37is_stdout_redirected_to_seekable_file17he86a24b914264a0aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_dd27try_get_len_of_block_device17hf00af9fe29cc4b56E": {
+      "name": "_ZN5uu_dd27try_get_len_of_block_device17hf00af9fe29cc4b56E",
+      "return_type": [
+        "Option",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd7is_fifo17h9d574f34ee5f3724E": {
+      "name": "_ZN5uu_dd7is_fifo17h9d574f34ee5f3724E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6uu_app17h3802aa9aab1c575cE": {
+      "name": "_ZN5uu_dd6uu_app17h3802aa9aab1c575cE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": []
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hb073313df60fa3f3E": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hb073313df60fa3f3E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h7ed7dd5e8601bb1eE": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h7ed7dd5e8601bb1eE",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h705e1c902b347a7bE": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h705e1c902b347a7bE",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0fe0d79b2ed079ccE": {
+      "name": "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0fe0d79b2ed079ccE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h96366f3336c0a79dE": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h96366f3336c0a79dE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core4iter6traits8iterator8Iterator4fold17h2b84e305e1d72edfE": {
+      "name": "_ZN4core4iter6traits8iterator8Iterator4fold17h2b84e305e1d72edfE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core4iter6traits8iterator8Iterator4fold17h6a212979afd94415E": {
+      "name": "_ZN4core4iter6traits8iterator8Iterator4fold17h6a212979afd94415E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17hc1b70357c4d75658E": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17hc1b70357c4d75658E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_dd6blocks5block17h9496b01491ad8acbE": {
+      "name": "_ZN5uu_dd6blocks5block17h9496b01491ad8acbE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6blocks7unblock17h328a1d7e73c47058E": {
+      "name": "_ZN5uu_dd6blocks7unblock17h328a1d7e73c47058E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6blocks25conv_block_unblock_helper17he5e21bd733c5515fE": {
+      "name": "_ZN5uu_dd6blocks25conv_block_unblock_helper17he5e21bd733c5515fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd6blocks25conv_block_unblock_helper16apply_conversion17hf9fe48f88870342bE": {
+      "name": "_ZN5uu_dd6blocks25conv_block_unblock_helper16apply_conversion17hf9fe48f88870342bE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd7numbers10SuffixType15base_and_suffix17he90531716fe26654E": {
+      "name": "_ZN5uu_dd7numbers10SuffixType15base_and_suffix17he90531716fe26654E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd7numbers23to_magnitude_and_suffix17h88c44cbe00c16152E": {
+      "name": "_ZN5uu_dd7numbers23to_magnitude_and_suffix17h88c44cbe00c16152E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg3new17h6fd0ebadb6d2a465E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg3new17h6fd0ebadb6d2a465E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command10after_help17h7c32531b2b18b3b1E": {
+      "name": "_ZN12clap_builder7builder7command7Command10after_help17h7c32531b2b18b3b1E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command14override_usage17hf9cdd864c2ccec31E": {
+      "name": "_ZN12clap_builder7builder7command7Command14override_usage17hf9cdd864c2ccec31E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3arg17h29f22bc80a5408b1E": {
+      "name": "_ZN12clap_builder7builder7command7Command3arg17h29f22bc80a5408b1E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3new17hf97bd87459802514E": {
+      "name": "_ZN12clap_builder7builder7command7Command3new17hf97bd87459802514E",
+      "return_type": [
+        "struct",
+        438
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command5about17hd0a67f39e5f79877E": {
+      "name": "_ZN12clap_builder7builder7command7Command5about17hd0a67f39e5f79877E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command7version17h6f458816302443eeE": {
+      "name": "_ZN12clap_builder7builder7command7Command7version17h6f458816302443eeE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade17h3187bea099a37cc6E": {
+      "name": "_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade17h3187bea099a37cc6E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h27cd8ef99e7e17deE": {
+      "name": "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h27cd8ef99e7e17deE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs11OpenOptions4open17h1ecb7e9f905cf1c8E": {
+      "name": "_ZN3std2fs11OpenOptions4open17h1ecb7e9f905cf1c8E",
+      "return_type": [
+        "Result",
+        12
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs12canonicalize17hc098601a0f17255dE": {
+      "name": "_ZN3std2fs12canonicalize17hc098601a0f17255dE",
+      "return_type": [
+        "Result",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4File4open17h7106e998c3d1654bE": {
+      "name": "_ZN3std2fs4File4open17h7106e998c3d1654bE",
+      "return_type": [
+        "Result",
+        12
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs8metadata17he5d63b9e36b09796E": {
+      "name": "_ZN3std2fs8metadata17he5d63b9e36b09796E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io4Seek6rewind17h775fcf7d5bbb9e4dE": {
+      "name": "_ZN3std2io4Seek6rewind17h775fcf7d5bbb9e4dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std4sync4mpmc15Sender$LT$T$GT$4send17hf546e8e151154c35E": {
+      "name": "_ZN3std4sync4mpmc15Sender$LT$T$GT$4send17hf546e8e151154c35E",
+      "return_type": [
+        "struct",
+        96
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std4sync4mpmc7channel17h855ca8fb6aeda91cE": {
+      "name": "_ZN3std4sync4mpmc7channel17h855ca8fb6aeda91cE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": []
+    },
+    "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he1ec86b2283b0e90E": {
+      "name": "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he1ec86b2283b0e90E",
+      "return_type": [
+        "Result",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN11signal_hook8iterator20SignalsInfo$LT$E$GT$3new17hff46f358f252daddE": {
+      "name": "_ZN11signal_hook8iterator20SignalsInfo$LT$E$GT$3new17hff46f358f252daddE",
+      "return_type": [
+        "Result",
+        56
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io4copy12generic_copy17h94e6c8f4c841e7c1E": {
+      "name": "_ZN3std2io4copy12generic_copy17h94e6c8f4c841e7c1E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$uucore..features..format..num_format..Formatter$GT$3fmt17hdc40127ddb80f4d7E": {
+      "name": "_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$uucore..features..format..num_format..Formatter$GT$3fmt17hdc40127ddb80f4d7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h24d6e52343c10c0cE": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h24d6e52343c10c0cE",
+      "return_type": [
+        "Result",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h68ea94665ebd88f8E": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h68ea94665ebd88f8E",
+      "return_type": [
+        "Result",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hc598a8c5dfdf2321E": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hc598a8c5dfdf2321E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hc7b2fb4fd73e14a5E": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hc7b2fb4fd73e14a5E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$18split_at_unchecked17h4762251c5e3d149bE": {
+      "name": "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$18split_at_unchecked17h4762251c5e3d149bE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h92e74c7f2e34bccfE": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h92e74c7f2e34bccfE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h65897d0b259dad50E": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h65897d0b259dad50E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput3new17h93483d7819281523E": {
+      "name": "_ZN5uu_dd14bufferedoutput14BufferedOutput3new17h93483d7819281523E",
+      "return_type": [
+        "struct",
+        48
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput13discard_cache17hcd08e47f1a015446E": {
+      "name": "_ZN5uu_dd14bufferedoutput14BufferedOutput13discard_cache17hcd08e47f1a015446E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput5flush17hf0f2f33e15e5593bE": {
+      "name": "_ZN5uu_dd14bufferedoutput14BufferedOutput5flush17hf0f2f33e15e5593bE",
+      "return_type": [
+        "Result",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput4sync17hc76150547a85de18E": {
+      "name": "_ZN5uu_dd14bufferedoutput14BufferedOutput4sync17hc76150547a85de18E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput8truncate17h2d9d362dd2e62035E": {
+      "name": "_ZN5uu_dd14bufferedoutput14BufferedOutput8truncate17h2d9d362dd2e62035E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd14bufferedoutput14BufferedOutput12write_blocks17h650a144b171239b2E": {
+      "name": "_ZN5uu_dd14bufferedoutput14BufferedOutput12write_blocks17h650a144b171239b2E",
+      "return_type": [
+        "Result",
+        40
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3cmp6max_by17h2325bc61e56912fbE": {
+      "name": "_ZN4core3cmp6max_by17h2325bc61e56912fbE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc71a0300cb397bcbE": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc71a0300cb397bcbE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfd1ba91060291f04E": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfd1ba91060291f04E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN77_$LT$signal_hook..iterator..backend..Handle$u20$as$u20$core..clone..Clone$GT$5clone17h4933321813e84478E": {
+      "name": "_ZN77_$LT$signal_hook..iterator..backend..Handle$u20$as$u20$core..clone..Clone$GT$5clone17h4933321813e84478E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd8progress10ProgUpdate14write_io_lines17h21e0c6ac1bc632a9E": {
+      "name": "_ZN5uu_dd8progress10ProgUpdate14write_io_lines17h21e0c6ac1bc632a9E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd8progress10ProgUpdate15write_prog_line17h73fbaadaf172cb94E": {
+      "name": "_ZN5uu_dd8progress10ProgUpdate15write_prog_line17h73fbaadaf172cb94E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_dd8progress10ProgUpdate20write_transfer_stats17h72fbc0aa2e615bbeE": {
+      "name": "_ZN5uu_dd8progress10ProgUpdate20write_transfer_stats17h72fbc0aa2e615bbeE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_dd8progress10ProgUpdate14print_io_lines17h171b91d694144e42E": {
+      "name": "_ZN5uu_dd8progress10ProgUpdate14print_io_lines17h171b91d694144e42E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd8progress10ProgUpdate17reprint_prog_line17hf26b8dca3329b931E": {
+      "name": "_ZN5uu_dd8progress10ProgUpdate17reprint_prog_line17hf26b8dca3329b931E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17ha89ccd90455ae4e0E": {
+      "name": "_ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17ha89ccd90455ae4e0E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_dd8progress10ProgUpdate17print_final_stats17h62808bb79e95b615E": {
+      "name": "_ZN5uu_dd8progress10ProgUpdate17print_final_stats17h62808bb79e95b615E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_dd8progress8ReadStat6report17hd53d51fed1f91d80E": {
+      "name": "_ZN5uu_dd8progress8ReadStat6report17hd53d51fed1f91d80E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_dd8progress9WriteStat6report17h421ce38315c3961aE": {
+      "name": "_ZN5uu_dd8progress9WriteStat6report17h421ce38315c3961aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_dd8progress13SignalHandler22install_signal_handler17he2c75cf1b31a635fE": {
+      "name": "_ZN5uu_dd8progress13SignalHandler22install_signal_handler17he2c75cf1b31a635fE",
+      "return_type": [
+        "struct",
+        64
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std6thread7Builder15spawn_unchecked17h548e90d968e6b112E": {
+      "name": "_ZN3std6thread7Builder15spawn_unchecked17h548e90d968e6b112E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN3std6thread7Builder15spawn_unchecked17h860d342b6a02b1feE": {
+      "name": "_ZN3std6thread7Builder15spawn_unchecked17h860d342b6a02b1feE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN3std6thread7Builder15spawn_unchecked17hf6e5fc31be6cfac7E": {
+      "name": "_ZN3std6thread7Builder15spawn_unchecked17hf6e5fc31be6cfac7E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods2io27OwnedFileDescriptorOrHandle4from17h0d5d1d40c82f1b03E": {
+      "name": "_ZN6uucore4mods2io27OwnedFileDescriptorOrHandle4from17h0d5d1d40c82f1b03E",
+      "return_type": [
+        "Result",
+        12
+      ],
+      "parameters": []
+    },
+    "_ZN3gcd12binary_usize17hd3a68b124c884425E": {
+      "name": "_ZN3gcd12binary_usize17hd3a68b124c884425E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17hcd961c31063bf4faE": {
+      "name": "_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17hcd961c31063bf4faE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error121_$LT$impl$u20$core..convert..From$LT$i32$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h0b17f6d5d891df77E": {
+      "name": "_ZN6uucore4mods5error121_$LT$impl$u20$core..convert..From$LT$i32$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h0b17f6d5d891df77E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE": {
+      "name": "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
+      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
+      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E": {
+      "name": "_ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore6parser10parse_size6Parser9parse_u6417ha54ade59619f41e4E": {
+      "name": "_ZN6uucore6parser10parse_size6Parser9parse_u6417ha54ade59619f41e4E",
+      "return_type": [
+        "Option",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3nix5fcntl5fcntl17h80fd9880c7bb583bE": {
+      "name": "_ZN3nix5fcntl5fcntl17h80fd9880c7bb583bE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3nix5fcntl13posix_fadvise13posix_fadvise17ha1afd1e32ddb5f9dE": {
+      "name": "_ZN3nix5fcntl13posix_fadvise13posix_fadvise17ha1afd1e32ddb5f9dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    }
+  }
+}

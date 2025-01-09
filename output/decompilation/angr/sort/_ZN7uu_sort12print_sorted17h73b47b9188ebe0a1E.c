@@ -1,0 +1,27 @@
+long long uu_sort::print_sorted::h73b47b9188ebe0a1(struct_0 *a0, char a1[154], void* a2)
+{
+    int v0;  // [sp-0xa8]
+    int v1;  // [sp-0x98]
+    int v2;  // [sp-0x88]
+    int v3;  // [sp-0x78]
+    int v4;  // [sp-0x68]
+    unsigned long long v5;  // [sp-0x58]
+    char v6;  // [bp-0x48]
+    unsigned long long v8[2];  // rax
+
+    uu_sort::Output::into_write::h9c5c08d876f77806(&v6, a2);
+    v5 = a0->field_50;
+    *((uint128_t *)&v4) = a0->field_40;
+    *((uint128_t *)&v3) = a0->field_30;
+    *((uint128_t *)&v2) = a0->field_20;
+    *((uint128_t *)&v1) = a0->field_10;
+    *((uint128_t *)&v0) = a0->field_0;
+    while (true)
+    {
+        v8 = _$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h5b5124c46e724df6(&v0);
+        if (!v8)
+            break;
+        uu_sort::Line::print::he3975e626e2ad263(v8, &v6, a1);
+    }
+    return ::0x51a9c0::core::ptr::drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$GT$::h1183853de4007e7a(&v6);
+}

@@ -1,0 +1,3211 @@
+{
+  "decompilation": {
+    "_ZN5uu_od12inputdecoder21InputDecoder$LT$I$GT$9peek_read17h15c7373ba30f8765E": "fn uu_od::inputdecoder::InputDecoder<I>::peek_read(a0: &struct25, a1: &struct16) -> u64 {\n    let v0: i136;  // [sp-0x28], Other Possible Types: Result<struct16, struct8>\n\n    v0 = <uu_od::peekreader::PeekReader<R> as uu_od::peekreader::PeekRead>::peek_read(*((a1 + 24) as &i64), *((a1 + 8) as &i64), *((a1 + 16) as &i64), *((a1 + 32) as &i64));\n    return struct25 {\n        field_0: a1\n        field_8: v2\n        field_16: v3\n        field_24: 3\n    };\n    a1 = *((&v0 as &char + 8) as &i64);\n}\n",
+    "_ZN5uu_od10peekreader19PeekReader$LT$R$GT$19write_to_tempbuffer17h4611bd3540c7d609E": "fn uu_od::peekreader::PeekReader<R>::write_to_tempbuffer(a0: u32, a1: u64, a2: u32) -> u64 {\n    let v0: i192;  // [sp-0x80], Other Possible Types: struct24\n    let v1: i256;  // [sp-0x68], Other Possible Types: struct32\n    let v2: struct40;  // [sp-0x48], Other Possible Types: i320\n    let v4: i64;  // rbx\n    let v5: i64;  // rdx\n\n    v4 = a0 + 72;\n    v2 = alloc::vec::Vec<T,A>::drain(v4);\n    v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v2);\n    alloc::vec::Vec<T,A>::append_elements(v4, core::slice::iter::Iter<T>::make_slice(a1, a2 + a1), v5);\n    v1 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v0);\n    return <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,alloc::vec::into_iter::IntoIter<T>>>::spec_extend(v4, &v1);\n}\n",
+    "_ZN5uu_od10peekreader19PeekReader$LT$R$GT$20read_from_tempbuffer17h158749acb80b7ce3E": "fn uu_od::peekreader::PeekReader<R>::read_from_tempbuffer(a0: u32, a1: u32, a2: u32) -> u64 {\n    let v0: struct16;  // [bp-0x48]\n    let v1: struct40;  // [sp-0x38]\n    let v3: i64;  // rax\n\n    v0 = struct16 {\n        field_0: a1\n        field_8: a2\n    };\n    v3 = std::io::impls::<impl std::io::Write for &mut [u8]>::write(&v0, *((a0 + 80) as &i64), *((a0 + 88) as &i64));\n    v1 = alloc::vec::Vec<T,A>::drain(a0 + 72, v3);\n    return v3;\n}\n",
+    "_ZN5uu_od6odfunc17hf4c116c67e2cd288E": "fn uu_od::odfunc(a0: i64, a1: i64, a2: i64) -> u32 {\n    let v0: i8;  // [sp-0xe1]\n    let v1: i64;  // [sp-0xe0]\n    let v2: i8;  // [bp-0xd8]\n    let v3: i64;  // [sp-0xd0]\n    let v4: i64;  // [sp-0xc8]\n    let v5: i64;  // [bp-0xa8]\n    let v6: i64;  // [sp-0xa0]\n    let v7: i128;  // [sp-0x98]\n    let v8: i64;  // [sp-0x80]\n    let v9: i64;  // [sp-0x78]\n    let v10: i64;  // [sp-0x70]\n    let v11: i64;  // [sp-0x68]\n    let v12: struct25;  // [sp-0x50], Other Possible Types: i200\n    let v14: i64;  // r14\n    let v15: i64;  // rbp\n    let v16: i256;  // ymm0\n    let v17: i256;  // ymm1\n    let v18: i128;  // xmm0\n    let v19: i256;  // ymm0\n    let v20: i128;  // xmm1\n    let v21: i64;  // r13\n    let v22: i64;  // rdx\n    let v23: i64;  // r14\n    let v24: i64;  // rdx\n    let v25: i64;  // rbx\n\n    v8 = 0;\n    v9 = 1;\n    v10 = 0;\n    v14 = *((a2 + 24) as &i64);\n    v11 = *((a2 + 40) as &i64);\n    v0 = *((a2 + 48) as &i8);\n    v15 = 0;\n    loop {\n        v12 = uu_od::inputdecoder::InputDecoder<I>::peek_read(a1);\n        if *((&v12 as &char + 24) as &i8) == 3 {\n            v1 = v12;\n            v5 = uucore::util_name();\n            v6 = v24;\n            eprint!(\"{:?}: \", &v5);\n            eprintln!(\"{:?}\", &v1);\n            uu_od::inputoffset::InputOffset::print_final_offset(a0);\n            v25 = uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from();\n            return v25;\n        }\n        v18 = v12;\n        v19 = v16 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v18;\n        v20 = *((&v12 as &char + 16) as &i128);\n        v17 = v17 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v20;\n        v5 = v18;\n        v7 = v20;\n        v21 = v6;\n        if !v21 {\n            uu_od::inputoffset::InputOffset::print_final_offset(a0);\n            v25 = (!<uu_od::peekreader::PeekReader<R> as uu_od::multifilereader::HasError>::has_error(*((a1 + 24) as &i64)) as i8 ? 0 : uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from());\n            return v25;\n        }\n        if v21 != v14 {\n            v22 = v11 + v21;\n            if v14 <= v22 {\n                v23 = v14;\n            } else {\n                v23 = v22;\n            }\n            uu_od::inputdecoder::MemoryDecoder::zero_out_buffer(&v5, v21, v23);\n        } else if v0 || !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(uu_od::inputdecoder::MemoryDecoder::get_buffer(&v5, 0), v24, v9, v10) as i8 {\n            uu_od::inputdecoder::MemoryDecoder::clone_buffer(&v5, &v8);\n        } else {\n            v3 = v3;\n            v4 = v4;\n            if !(v15 & 1) {\n                v19 |= 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000;\n                println!(\"*\");\n                v15 = v15 | -0x100 | 1;\n                v3 = v3;\n                v4 = v4;\n                goto LABEL_476ec2;\n            }\n        }\n        uu_od::inputoffset::InputOffset::format_byte_offset(&v2, a0);\n        uu_od::print_bytes(v3, v4, &v5, a2);\n        v15 = 0;\n        v3 = v3;\n        v4 = v4;\nLABEL_476ec2:\n        v4 = v4;\n        v3 = v3;\n        *((a0 + 16) as &i64) = *((a0 + 16) as &i64) + v21;\n        if *(a0 as &i64) {\n            *(a0 as &i64) = 1;\n            *((a0 + 8) as &i64) = *((a0 + 8) as &i64) + v21;\n        }\n    }\n}\n",
+    "_ZN5uu_od6uumain17h81e1601eeca3cbbaE": "fn uu_od::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0xa8]\n    let v1: u64;  // [sp-0x98]\n    let v2: u64;  // [sp-0x90]\n    let v3: &&struct_1;  // [sp-0x88]\n    let v4: u64;  // [sp-0x80]\n    let v5: void*;  // [sp-0x78]\n    let v6: u64;  // [sp-0x68]\n    let v7: &u64;  // [sp-0x60]\n    let v8: &u8;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: u64;  // [sp-0x38]\n    let v11: i8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v14: u64;  // rax\n    let v15: &u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v14 = uu_od::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_40dad0;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    core::option::Option<T>::map_or_else();\n    *(&v8 as &i8) = v11;\n    v10 = v12;\n    if v8 == \"\" {\n        v6 = uucore::util_name();\n        v7 = v15;\n        eprint!(\"{:?}: \", &v6);\n        eprintln!(\"{:?}\", &v8);\n    }\n    if !v15[13]() {\n        return v15[12]();\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v15;\n    eprintln!(\"Try '{:?} --help' for more information.\", &v6);\n}\n",
+    "_ZN5uu_od6uumain6uumain17hd9531e2380c970fcE": "fn uu_od::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: struct24;  // [sp-0x498], Other Possible Types: i192\n    let v1: i64;  // [sp-0x480]\n    let v3: i64;  // [sp-0x470]\n    let v4: i128;  // [sp-0x468]\n    let v5: i128;  // [sp-0x458]\n    let v6: i128;  // [sp-0x448]\n    let v7: i128;  // [sp-0x438]\n    let v8: i128;  // [sp-0x428]\n    let v9: i384;  // [sp-0x418], Other Possible Types: Result<struct99, struct16>, struct48\n    let v10: i128;  // [bp-0x3c0]\n    let v11: struct56;  // [sp-0x3b0]\n    let v12: i64;  // [sp-0x3a8]\n    let v13: i64;  // [sp-0x378]\n    let v14: i64;  // [sp-0x370]\n    let v15: i64;  // [sp-0x368]\n    let v16: i8;  // [sp-0x360]\n    let v17: i192;  // [sp-0x358], Other Possible Types: struct24\n    let v18: i64;  // [sp-0x340]\n    let v19: i64;  // [sp-0x338]\n    let v20: i128;  // [sp-0x330]\n    let v21: i8;  // [sp-0x320]\n    let v22: struct24;  // [sp-0x310], Other Possible Types: struct25, i200\n    let v23: i5696;  // [sp-0x2d8], Other Possible Types: struct712\n    let v25: i64;  // rax\n\n    v0 = uucore::Args::collect_ignore(a0, a1);\n    v23 = uu_od::uu_app();\n    v9 = clap_builder::builder::command::Command::try_get_matches_from(&v23, &v0);\n    match v9 {\n        Err(_) => {\n            v25 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v12);\n            return v25;\n        },\n        Ok(_) => {\n            v11 = struct56 {\n                field_0: v26\n                field_8: v27\n                field_16: *((&v9 as &char + 16) as &i128)\n                field_32: *((&v9 as &char + 32) as &i128)\n                field_48: *((&v9 as &char + 48) as &i64)\n            };\n            v9 = uu_od::OdOptions::new(&v11, *((&v0 as &char + 8) as &i64), *((&v0 as &char + 16) as &i64));\n            match v9 {\n                Err(_) => {\n                    return v25;\n                },\n                Ok(_) => {\n                    v8 = v10;\n                    v7 = *((&v9 as &char + 72) as &i128);\n                    v6 = *((&v9 as &char + 56) as &i128);\n                    v5 = *((&v9 as &char + 40) as &i128);\n                    v4 = *((&v9 as &char + 24) as &i128);\n                    v1 = v9;\n                    v25 = *((&v9 as &char + 8) as &i64);\n                    v3 = *((&v9 as &char + 16) as &i64);\n                    v16 = *((&v8 as &char + 10) as &i8);\n                    v15 = *((&v7 as &char + 8) as &i64);\n                    v13 = v3;\n                    v14 = v4;\n                    v9 = uu_od::open_input_peek_reader(v5, *((&v5 as &char + 8) as &i64), v15, v1, v25);\n                    v22 = <u8 as alloc::vec::spec_from_elem::SpecFromElem>::from_elem(v8 + 4);\n                    v18 = &v9;\n                    v17 = v22;\n                    v19 = 4;\n                    v20 = 0;\n                    v21 = *((&v8 as &char + 9) as &i8);\n                    v22 = uu_od::output_info::OutputInfo::new(v8, *((&v6 as &char + 8) as &i64), v7, *((&v8 as &char + 8) as &i8) as u8 as u64);\n                    v25 = uu_od::odfunc(&v13, &v17, &v22) as u64;\n                    return v25;\n                },\n            }\n        },\n    }\n}\n",
+    "_ZN5uu_od6uu_app17hbbddbed21fc2c7d3E": "fn uu_od::uu_app(a0: &struct712) -> u64 {\n    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct712\n    let v1: i64;  // [sp-0x78c]\n    let v2: i32;  // [sp-0x784]\n    let v3: i4736;  // [sp-0x780], Other Possible Types: struct592, struct712, struct437\n    let v4: i4736;  // [sp-0x4b8], Other Possible Types: struct592, struct24, struct32\n    let v5: i32;  // [sp-0x270]\n    let v6: i32;  // [sp-0x26c]\n    let v7: i4736;  // [sp-0x268], Other Possible Types: struct592, struct24\n    let v9: i64;  // rdx\n\n    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);\n    v0 = clap_builder::builder::command::Command::version(&v3, \"0.0.28\");\n    v3 = clap_builder::builder::command::Command::about(&v0, \"Dump files in octal and other formats\");\n    v4 = uucore::format_usage(&g_4172da, 175);\n    v0 = clap_builder::builder::command::Command::override_usage(&v3, &v4);\n    v3 = clap_builder::builder::command::Command::after_help(&v0, &g_417389, 1805);\n    memcpy(&v0, &v3, 700);\n    v1 = 1126758900564200 | *((&v3 as &char + 700) as &i64);\n    v2 = *((&v3 as &char + 708) as &i32);\n    v3 = clap_builder::builder::arg::Arg::new(\"help\");\n    v4 = clap_builder::builder::arg::Arg::long(&v3, \"help\");\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"Print help information.\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x5);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"address-radix\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x41);\n    v0 = clap_builder::builder::arg::Arg::long(&v4, \"address-radix\");\n    v4 = clap_builder::builder::arg::Arg::help(&v0, \"Select the base in which file offsets are printed.\");\n    v7 = clap_builder::builder::arg::Arg::value_name(&v4, \"RADIX\");\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v7);\n    v3 = clap_builder::builder::arg::Arg::new(\"skip-bytes\");\n    v4 = clap_builder::builder::arg::Arg::short(&v3, 0x6a);\n    v3 = clap_builder::builder::arg::Arg::long(&v4, \"skip-bytes\");\n    v4 = clap_builder::builder::arg::Arg::help(&v3, \"Skip bytes input bytes before formatting and writing.\");\n    v7 = clap_builder::builder::arg::Arg::value_name(&v4, \"BYTES\");\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v7);\n    v0 = clap_builder::builder::arg::Arg::new(\"read-bytes\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x4e);\n    v0 = clap_builder::builder::arg::Arg::long(&v4, \"read-bytes\");\n    v4 = clap_builder::builder::arg::Arg::help(&v0, \"limit dump to BYTES input bytes\");\n    v7 = clap_builder::builder::arg::Arg::value_name(&v4, \"BYTES\");\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v7);\n    v3 = clap_builder::builder::arg::Arg::new(\"endian\");\n    v4 = clap_builder::builder::arg::Arg::long(&v3, \"endian\");\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"byte order to use for multi-byte formats\");\n    v4 = struct32 {\n        field_0: &g_4171cf\n        field_8: 3\n        field_16: &g_4171c9\n        field_24: 6\n    };\n    v7 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v4);\n    v4 = clap_builder::builder::arg::Arg::value_parser(&v3, &v7);\n    v7 = clap_builder::builder::arg::Arg::value_name(&v4, \"big|little\");\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v7);\n    v0 = clap_builder::builder::arg::Arg::new(\"strings\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x53);\n    v0 = clap_builder::builder::arg::Arg::long(&v4, \"strings\");\n    v4 = clap_builder::builder::arg::Arg::help(&v0, \"NotImplemented: output strings of at least BYTES graphic chars. 3 is assumed when BYTES is not specified.\");\n    v0 = clap_builder::builder::arg::Arg::default_missing_value(&v4, \"3\");\n    v4 = clap_builder::builder::arg::Arg::value_name(&v0, \"BYTES\");\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v4);\n    v3 = clap_builder::builder::arg::Arg::new(\"a\");\n    v4 = clap_builder::builder::arg::Arg::short(&v3, 0x61);\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"named characters, ignoring high-order bit\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"b\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x62);\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"octal bytes\");\n    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v4);\n    v3 = clap_builder::builder::arg::Arg::new(\"c\");\n    v4 = clap_builder::builder::arg::Arg::short(&v3, 0x63);\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"ASCII characters or backslash escapes\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"d\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x64);\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"unsigned decimal 2-byte units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v4);\n    v3 = clap_builder::builder::arg::Arg::new(\"D\");\n    v4 = clap_builder::builder::arg::Arg::short(&v3, 0x44);\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"unsigned decimal 4-byte units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"o\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x6f);\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"octal 2-byte units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v4);\n    v3 = clap_builder::builder::arg::Arg::new(\"I\");\n    v4 = clap_builder::builder::arg::Arg::short(&v3, 0x49);\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"decimal 8-byte units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"L\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x4c);\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"decimal 8-byte units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v4);\n    v3 = clap_builder::builder::arg::Arg::new(\"i\");\n    v4 = clap_builder::builder::arg::Arg::short(&v3, 0x69);\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"decimal 4-byte units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"l\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x6c);\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"decimal 8-byte units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v4);\n    v3 = clap_builder::builder::arg::Arg::new(\"x\");\n    v4 = clap_builder::builder::arg::Arg::short(&v3, 0x78);\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"hexadecimal 2-byte units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"h\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x68);\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"hexadecimal 2-byte units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v4);\n    v3 = clap_builder::builder::arg::Arg::new(\"O\");\n    v4 = clap_builder::builder::arg::Arg::short(&v3, 0x4f);\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"octal 4-byte units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"s\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x73);\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"decimal 2-byte units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v4);\n    v3 = clap_builder::builder::arg::Arg::new(\"X\");\n    v4 = clap_builder::builder::arg::Arg::short(&v3, 0x58);\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"hexadecimal 4-byte units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"H\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x48);\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"hexadecimal 4-byte units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v4);\n    v3 = clap_builder::builder::arg::Arg::new(\"e\");\n    v4 = clap_builder::builder::arg::Arg::short(&v3, 0x65);\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"floating point double precision (64-bit) units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"f\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x66);\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"floating point double precision (32-bit) units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v4);\n    v3 = clap_builder::builder::arg::Arg::new(\"F\");\n    v4 = clap_builder::builder::arg::Arg::short(&v3, 0x46);\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"floating point double precision (64-bit) units\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"format\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x74);\n    v0 = clap_builder::builder::arg::Arg::long(&v4, \"format\");\n    v4 = clap_builder::builder::arg::Arg::help(&v0, \"select output format or formats\");\n    v0 = clap_builder::builder::arg::Arg::action(&v4, 0x1);\n    v4 = clap_builder::builder::arg::Arg::num_args(&v0);\n    v7 = clap_builder::builder::arg::Arg::value_name(&v4, \"TYPE\");\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v7);\n    v3 = clap_builder::builder::arg::Arg::new(\"output-duplicates\");\n    v4 = clap_builder::builder::arg::Arg::short(&v3, 0x76);\n    v3 = clap_builder::builder::arg::Arg::long(&v4, \"output-duplicates\");\n    v4 = clap_builder::builder::arg::Arg::help(&v3, \"do not use * to mark line suppression\");\n    v7 = clap_builder::builder::arg::Arg::action(&v4, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v7);\n    v0 = clap_builder::builder::arg::Arg::new(\"width\");\n    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x77);\n    v0 = clap_builder::builder::arg::Arg::long(&v4, \"width\");\n    v4 = clap_builder::builder::arg::Arg::help(&v0, \"output BYTES bytes per output line. 32 is implied when BYTES is not specified.\");\n    v0 = clap_builder::builder::arg::Arg::default_missing_value(&v4, \"32\");\n    v4 = clap_builder::builder::arg::Arg::value_name(&v0, \"BYTES\");\n    v7 = clap_builder::builder::arg::Arg::num_args(&v4);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v7);\n    v3 = clap_builder::builder::arg::Arg::new(\"traditional\");\n    v4 = clap_builder::builder::arg::Arg::long(&v3, \"traditional\");\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"compatibility mode with one input, offset and label.\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"FILENAME\");\n    memcpy(&v4, &v0, 584);\n    v5 = *((&v0 as &char + 584) as &i32) | 4;\n    v6 = *((&v0 as &char + 588) as &i32);\n    v0 = clap_builder::builder::arg::Arg::action(&v4, 0x1);\n    v4 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    clap_builder::builder::command::Command::arg(a0, &v3, &v4);\n    return a0;\n}\n",
+    "_ZN5uu_od11print_bytes17h4e490ef4abfc23edE": "fn uu_od::print_bytes(a0: u64, a1: u32, a2: void*, a3: &u64) -> u64 {\n    let v0: i32;  // [sp-0x164]\n    let v1: i64;  // [sp-0x160], Other Possible Types: Arguments\n    let v2: i64;  // [sp-0x158]\n    let v3: i64;  // [sp-0x150]\n    let v4: i64;  // [sp-0x148]\n    let v5: i64;  // [sp-0x140]\n    let v6: i64;  // [sp-0x138]\n    let v7: i64;  // [sp-0x130]\n    let v8: i64;  // [sp-0x128]\n    let v9: i64;  // [sp-0x120]\n    let v10: i64;  // [sp-0x118]\n    let v11: i64;  // [sp-0x110]\n    let v12: i64;  // [sp-0x108]\n    let v13: i8;  // [sp-0x100]\n    let v14: i64;  // [sp-0xf8]\n    let v15: i64;  // [sp-0xe8]\n    let v16: i64;  // [sp-0xd8]\n    let v17: i64;  // [sp-0xd0]\n    let v18: i8;  // [sp-0xc8]\n    let v19: i64;  // [sp-0xc0]\n    let v20: i64;  // [sp-0xb8], Other Possible Types: Argument\n    let v21: i64;  // [sp-0xb0]\n    let v22: i64;  // [sp-0xa8]\n    let v23: i64;  // [sp-0xa0]\n    let v24: i64;  // [sp-0x98]\n    let v25: i64;  // [sp-0x90]\n    let v27: i128;  // [sp-0x78], Other Possible Types: struct16\n    let v28: i64;  // [sp-0x70]\n    let v29: i64;  // [sp-0x68]\n    let v30: i64;  // [sp-0x60]\n    let v31: i64;  // [sp-0x58]\n    let v32: i64;  // [sp-0x50]\n    let v33: struct24;  // [sp-0x48], Other Possible Types: i192\n    let v35: struct8;  // rax\n    let v36: i64;  // rbx\n    let v37: i64;  // r15\n    let v38: i64;  // rdx\n    let v39: i64;  // rax\n    let v40: i64;  // r12\n    let v41: i64;  // rdx\n    let v42: i64;  // rax\n    let v43: i64;  // r15\n    let v44: i64;  // r15\n\n    v31 = *((a3 + 8) as &i64);\n    v32 = *((a3 + 16) as &i64) * 104 + v31;\n    v35 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();\n    if !v35 {\n        return v35;\n    }\n    v19 = *((a2 + 8) as &i64);\n    v30 = *((a3 + 32) as &i64);\n    v36 = *((a3 + 40) as &i64);\n    v0 = v30 | -0x100 | 1;\n    loop {\n        v8 = v8;\n        v27 = 0;\n        v28 = 1;\n        v29 = 0;\n        if v19 {\n            if !v36 {\n                core::panicking::panic_const::panic_const_rem_by_zero(\"src/uu/od/src/od.rs\"); /* do not return */\n            }\n            v37 = 0;\n            do {\n                if !(v37 | v36) >> 32 {\n                    v38 = ((0 CONCAT v37) % (v36 & 4294967295) CONCAT (0 CONCAT v37) / (v36 & 4294967295)) >> 32 & 4294967295;\n                } else {\n                    v38 = ((0 CONCAT v37) % v36 CONCAT (0 CONCAT v37) / v36) >> 64;\n                }\n                v20 = &g_40dad0;\n                v21 = <&T as core::fmt::Display>::fmt;\n                v22 = *((v35 + v38 * 8 + 32) as &i64);\n                v23 = 0;\n                v7 = 2;\n                v9 = 1;\n                v10 = 1;\n                v11 = 0;\n                v12 = 32;\n                v13 = 1;\n                v1 = &g_40dad0;\n                v2 = 1;\n                v5 = &v7;\n                v6 = 1;\n                v3 = &v20;\n                v4 = 2;\n                core::result::Result<T,E>::unwrap(<&mut W as core::fmt::Write::write_fmt::SpecWriteFmt>::spec_write_fmt(&v27, &v1) as i32, \"src/uu/od/src/od.rs\");\n                v39 = *(v35 as &i64);\n                v40 = *((v35 + 8) as &i64);\n                if v39 == 2 {\n                    uu_od::inputdecoder::MemoryDecoder::get_full_buffer(a2, v37);\n                    v40();\n                    v27 = alloc::vec::Vec<T,A>::append_elements(core::slice::iter::Iter<T>::make_slice(v8, v9 + v8), v41);\n                } else if v39 == 1 {\n                    uu_od::inputdecoder::MemoryDecoder::read_float(a2, v37, *((v35 + 16) as &i64));\n                    v40();\n                    v27 = alloc::vec::Vec<T,A>::append_elements(core::slice::iter::Iter<T>::make_slice(v8, v9 + v8), v41);\n                } else {\n                    uu_od::inputdecoder::MemoryDecoder::read_uint(a2, v37, *((v35 + 16) as &i64));\n                    v40();\n                    v27 = alloc::vec::Vec<T,A>::append_elements(core::slice::iter::Iter<T>::make_slice(v8, v9 + v8), v41);\n                }\n                v37 += *((v35 + 16) as &i64);\n            } while (v37 < v19);\n        }\n        if *((v35 + 96) as &i8) {\n            v42 = <core::str::iter::Chars as core::iter::traits::iterator::Iterator>::count(v28, v29 + v28);\n            v43 = v30;\n            v44 = v43 - v42;\n            if v43 < v42 {\n                v44 = 0;\n            }\n            v33 = uu_od::prn_char::format_ascii_dump(uu_od::inputdecoder::MemoryDecoder::get_buffer(a2, 0), v41);\n            v1 = &g_40dad0;\n            v2 = <&T as core::fmt::Display>::fmt;\n            v3 = &v33;\n            v4 = <alloc::string::String as core::fmt::Display>::fmt;\n            v5 = v44;\n            v6 = 0;\n            v7 = 2;\n            v9 = 1;\n            v10 = 2;\n            v11 = 0;\n            v12 = 32;\n            v13 = 1;\n            v14 = 2;\n            v15 = 2;\n            v16 = 1;\n            v17 = 32;\n            v18 = 3;\n            v20 = &g_5417b8;\n            v21 = 2;\n            v24 = &v7;\n            v25 = 2;\n            v22 = &v1;\n            v23 = 3;\n            core::result::Result<T,E>::unwrap(<&mut W as core::fmt::Write::write_fmt::SpecWriteFmt>::spec_write_fmt(&v27, &v20) as i32, \"src/uu/od/src/od.rs\");\n        }\n        if !(v0 & 1) {\n            v20 = Argument {\n                value: &g_40dad0\n                formatter: <&T as core::fmt::Display>::fmt\n            };\n            v22 = <core::str::iter::Chars as core::iter::traits::iterator::Iterator>::count(a0, a1 + a0);\n            v23 = 0;\n            v7 = 2;\n            v9 = 1;\n            v10 = 1;\n            v11 = 0;\n            v12 = 32;\n            v13 = 1;\n            v1 = Arguments {\n                pieces: [\"\"]\n                args: [&v20, &v22]\n                fmt: &v7\n            };\n            v6 = 1;\n            std::io::stdio::_print(&v1);\n        } else {\n            print!(\"{:?}\", &v26);\n            v0 = 0;\n        }\n        println!(\"{:?}\", &v27);\n        v35 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();\n        v8 = v8;\n        if !v35 {\n            return v35;\n        }\n    }\n}\n",
+    "_ZN5uu_od22open_input_peek_reader17h114ec616b3c82f88E": "fn uu_od::open_input_peek_reader(a0: &struct48, a1: u32, a2: u32, a3: u32, a4: u32, a5: u32) -> u64 {\n    let v0: struct24;  // [sp-0x40], Other Possible Types: i192\n\n    v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(a1, a1 + a2 * 24);\n    uu_od::multifilereader::MultifileReader::new(a0 + 16, &v0);\n    return struct48 {\n        field_0: a4\n        field_8: a5\n        field_64: <UNKNOWN>\n        field_72: <UNKNOWN>\n        field_80: <UNKNOWN>\n        field_88: <UNKNOWN>\n    };\n}\n",
+    "_ZN5uu_od20format_error_message17h954b3c00e83b3e7fE": "fn uu_od::format_error_message(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32, a5: u32) -> u64 {\n    let v0: &u8;  // [sp-0x80], Other Possible Types: u64\n    let v1: u64;  // [sp-0x78]\n    let v2: &u8;  // [sp-0x70]\n    let v3: u64;  // [sp-0x68]\n    let v4: void*;  // [sp-0x60]\n    let v5: u64;  // [sp-0x58]\n    let v6: u64;  // [sp-0x50]\n    let v7: u8;  // [sp-0x48]\n    let v8: u64;  // [sp-0x40]\n    let v9: u64;  // [sp-0x38]\n    let v10: &u8;  // [sp-0x30]\n    let v11: u64;  // [sp-0x28]\n    let v12: void*;  // [sp-0x20]\n    let v13: u64;  // [sp-0x10]\n    let v14: u64;  // [sp-0x8]\n    let v16: u64;  // rax\n\n    v13 = a4;\n    v14 = a5;\n    if !a1 {\n        v4 = 0;\n        v5 = a2;\n        v6 = a3;\n        v7 = 1;\n        v0 = &v13;\n        v1 = <&T as core::fmt::Display>::fmt;\n        v2 = &v4;\n        v3 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v16 = \"invalid suffix in --\";\n        goto LABEL_4c851b;\n    } else if a1 != 1 {\n        v4 = 0;\n        v5 = a2;\n        v6 = a3;\n        v7 = 1;\n        v0 = &v13;\n        v1 = <&T as core::fmt::Display>::fmt;\n        v2 = &v4;\n        v3 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v8 = \"--\";\n        v9 = 3;\n    } else {\n        v4 = 0;\n        v5 = a2;\n        v6 = a3;\n        v7 = 1;\n        v0 = &v13;\n        v1 = <&T as core::fmt::Display>::fmt;\n        v2 = &v4;\n        v3 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v16 = \"invalid --\";\nLABEL_4c851b:\n        v8 = v16;\n        v9 = 2;\n    }\n    v12 = 0;\n    v10 = &v0;\n    v11 = 2;\n    return core::option::Option<T>::map_or_else();\n}\n",
+    "_ZN5uu_od13parse_formats30od_argument_traditional_format17h14da6a638cd1f622E": "fn uu_od::parse_formats::od_argument_traditional_format(a0: &Option<struct32>, a1: u64) -> int {\n    return Some(struct32 {\n        field_0: _ZN5uu_od7prn_int17FORMAT_ITEM_HEX3217h92607dc086bd3a3cE\n        field_16: g_541b80\n    });\n}\n",
+    "_ZN5uu_od13parse_formats14od_format_type17h6c27c20666861ca9E": "fn uu_od::parse_formats::od_format_type(a0: u32, a1: u32) -> u64 {\n    goto *((4292448 + vvar_1 * 4) as &i32) + 4292448;\n}\n",
+    "_ZN5uu_od13parse_formats18parse_format_flags17h9e51e9c420287b95E": "fn uu_od::parse_formats::parse_format_flags(a0: &Result<struct24, struct24>, a1: u32, a2: u32) -> u64 {\n    let v3: i64;  // [sp-0x170]\n    let v4: i64;  // [sp-0x168]\n    let v5: i64;  // [sp-0x160]\n    let v6: i8;  // [bp-0x158]\n    let v7: i8;  // [bp-0x150]\n    let v11: i8;  // [bp-0x130]\n    let v17: i64;  // [sp-0x100]\n    let v18: i64;  // [sp-0xf8]\n    let v19: i64;  // [sp-0xf0]\n    let v27: i64;  // r15\n    let v28: i64;  // rsi\n    let v29: i64;  // r14\n    let v30: i64;  // r13\n    let v31: i64;  // rbp\n\n    v3 = 0;\n    v4 = 8;\n    v5 = 0;\n    v17 = a1;\n    v18 = a1 + a2 * 24;\n    v19 = 1;\n    v27 = &v7;\n    v28 = 1;\n    v29 = 0;\n    v30 = &v11;\n    v31 = &v6;\n}\n",
+    "_ZN5uu_od13parse_formats19is_format_size_char17h42f5b1cb8010d6ddE": "fn uu_od::parse_formats::is_format_size_char(a0: u32, a1: u32, a2: &struct1) -> u64 {\n    let v1: u64;  // rax\n    let v2: u64;  // rax\n\n    if !a1 {\n        return 0;\n    }\n    v1 = a1 & 4294967295;\n    if v1 != 1 {\n        if a0 == 68 {\n            goto LABEL_4cb47b;\n        }\n        v2 = v1 | -0x100 | 4;\n        if a0 != 70 {\n            return 0;\n        }\n    } else {\n        v1 = 0;\n        switch (a0) {\n        case 67:\n            v2 = -255;\n            break;\n        case 73:\n            v2 = -252;\n            break;\n        case 76:\nLABEL_4cb47b:\n            v2 = v1 | -0x100 | 8;\n            break;\n        case 83:\n            v2 = -254;\n            break;\n        default:\nLABEL_4cb489:\n            return v1;\n        }\n    }\n    *(a2) = 4;\n    v1 = v2 | -0x100 | 1;\n    goto LABEL_4cb489;\n}\n",
+    "_ZN5uu_od13parse_formats22is_format_size_decimal17h9f07da48a23fad4fE": "fn uu_od::parse_formats::is_format_size_decimal(a0: u32, a1: u8, a2: u32) -> u64 {\n    let v1: u64;  // rbx\n\n    if (a0 - 48 < 10 & a1) {\n        alloc::string::String::push(a2, a0);\n    }\n    return (v1 | -0x100 | a0 - 48 < 10 & a1) & 4294967295 & 4294967295;\n}\n",
+    "_ZN5uu_od13parse_formats17parse_type_string17hb4158195487ebdc3E": "fn uu_od::parse_formats::parse_type_string(a0: &Result<struct24, struct25>, a1: u32, a2: u32) -> u64 {\n    let v0: struct1;  // [bp-0x135], Other Possible Types: u8\n    let v1: u32;  // [sp-0x134]\n    let v2: u64;  // [sp-0x128]\n    let v3: u64;  // [bp-0x118], Other Possible Types: void*\n    let v4: u64;  // [bp-0x111]\n    let v5: u64;  // [sp-0x110]\n    let v6: void*;  // [sp-0x108]\n    let v7: u64;  // [sp-0x100], Other Possible Types: struct33\n    let v8: u128;  // [sp-0xf8]\n    let v9: u64;  // [sp-0xe8]\n    let v10: struct16;  // [sp-0xd8], Other Possible Types: void*\n    let v11: u64;  // [sp-0xd0]\n    let v12: void*;  // [sp-0xc8]\n    let v13: struct24;  // [bp-0xc0], Other Possible Types: &u8\n    let v14: u64;  // [sp-0xb8]\n    let v15: u64;  // [sp-0xb0]\n    let v16: u64;  // [sp-0xa8]\n    let v17: u64;  // [sp-0xa0]\n    let v18: u128;  // [sp-0x98]\n    let v19: u64;  // [sp-0x88]\n    let v20: u64;  // [bp-0x78]\n    let v21: u64;  // [sp-0x71]\n    let v22: &u8;  // [sp-0x60]\n    let v23: u64;  // [sp-0x58]\n    let v24: u64;  // [sp-0x50]\n    let v25: struct24;  // [bp-0x48]\n    let v28: u32;  // edx\n    let v29: u32;  // ebp\n    let v30: u256;  // ymm0\n    let v32: u64;  // rax\n    let v33: u64;  // rax\n    let v35: u64;  // rsi\n    let v36: u64;  // r12\n    let v37: u64;  // r14\n    let v38: u32;  // ebp\n    let v39: u32;  // edx\n    let v40: u64;  // rsi\n    let v42: u8;  // dl\n    let v43: u64;  // rsi\n    let v44: u128;  // xmm0\n    let v46: u64;  // rdx\n    let v47: u64;  // rdi\n    let v48: u64;  // rcx\n    let v49: u64;  // rdi\n    let v50: u64;  // rcx\n\n    v10 = 0;\n    v11 = 8;\n    v12 = 0;\n    v2 = a1;\n    v16 = a1;\n    v17 = a1 + a2;\n    return Ok(struct24 {\n        field_0: *(&v10 as &i128)\n        field_16: v27\n    });\n    loop {\n        v7 = v7;\n        v8 = v8;\n        v9 = v9;\n        v1 = v29;\n        switch (v1) {\n        case 97:\n            v33 = 0;\n            break;\n        case 99:\n            v33 = v32 | -0x100 | 1;\n            break;\n        case 100:\n            v33 = v32 | -0x100 | 2;\n            break;\n        case 102:\n            v33 = v32 | -0x100 | 6;\n            break;\n        case 111:\n            v33 = v32 | -0x100 | 3;\n            break;\n        case 117:\n            v33 = v32 | -0x100 | 4;\n            break;\n        case 120:\n            v33 = v32 | -0x100 | 5;\n            break;\n        default:\n            v13 = struct24 {\n                field_0: &v1\n                field_8: v2\n                field_16: a2\n            };\n            uu_od::parse_formats::parse_type_string::{{closure}}(&v7, &v13);\n            v33 = v8;\n            v35 = *((&v8 as &char + 8) as &i64);\n            v3 = *((&v8 as &char + 1) as &i64);\n            v4 = v35;\n            if v7 != 0x8000000000000000 {\n                v46 = v3;\n                v47 = a0;\n                return Err(struct25 {\n                    field_0: v34\n                    field_8: v33 as u8\n                    field_9: v46\n                    field_16: <UNKNOWN>\n                });\n            }\n            goto LABEL_4cb614;\n        }\n        v13 = &v1;\n        v14 = v2;\n        v15 = a2;\nLABEL_4cb614:\n        v36 = v33 & 4294967295;\n        v37 = ((v36 * 8 & 4294967295 & 63) ? 0x2010101010000 >> (v36 * 8 & 4294967295 & 63) : 0x2010101010000 >> (v36 * 8 & 4294967295 & 63));\n        v38 = (!core::str::validations::next_code_point(&v16) as i32 ? 0x110000 : v28);\n        v0 = struct1 {\n            field_0: 0\n        };\n        if !uu_od::parse_formats::is_format_size_char(v38, v37 & 4294967295, &v0) as i8 {\n            v3 = 0;\n            v5 = 1;\n            v6 = 0;\n            while (uu_od::parse_formats::is_format_size_decimal(v38, v37 & 4294967295 & 4294967295, &v3) as i8) {\n                v38 = (!core::str::validations::next_code_point(&v16) as i32 ? 0x110000 : v28);\n            }\n            v40 = v6;\n            if v40 {\n                v22 = &v3;\n                v23 = v2;\n                v24 = a2;\n                if (core::num::<impl core::str::traits::FromStr for u8>::from_str(v5, v40) as i8 & 1) {\n                    uu_od::parse_formats::parse_type_string::{{closure}}(&v7, &v22);\n                    v42 = v8;\n                    v43 = *((&v8 as &char + 8) as &i64);\n                    v20 = *((&v8 as &char + 1) as &i64);\n                    v21 = v43;\n                    if v7 != 0x8000000000000000 {\n                        v48 = v20;\n                        v49 = a0;\n                        return Err(struct25 {\n                            field_0: v41\n                            field_8: v42\n                            field_9: v48\n                            field_16: <UNKNOWN>\n                        });\n                    }\n                }\n                v0 = v42;\n            }\n            v39 = v38;\nLABEL_4cb756:\n            v29 = v39;\n            if v29 != 122 {\n                goto LABEL_4cb780;\n            } else {\n                v29 = (!core::str::validations::next_code_point(&v16) as i32 ? 0x110000 : v28);\n                goto LABEL_4cb780;\n            }\n        } else if core::str::validations::next_code_point(&v16) as i32 {\n            v39 = v28;\n            goto LABEL_4cb756;\n        } else {\n            v29 = 0x110000;\nLABEL_4cb780:\n            uu_od::parse_formats::od_format_type(&v7, v36 & 4294967295);\n            if v7 == 3 {\n                v25 = struct24 {\n                    field_0: &v0\n                    field_8: v2\n                    field_16: a2\n                };\n                uu_od::parse_formats::parse_type_string::{{closure}}(&v3, &v25);\n                v18 = *(&v3 as &i128);\n                v19 = v6;\n                v50 = a0;\n                return struct32 {\n                    field_0: 1\n                    field_8: v18\n                    field_24: v19\n                };\n            }\n            v44 = v8;\n            v30 = v30 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v44;\n            v18 = v44;\n            v19 = v9;\n            v7 = struct33 {\n                field_0: v7\n                field_16: <UNKNOWN>\n                field_32: v45\n            };\n            v10 = alloc::vec::Vec<T,A>::push(&v7);\n            v9 = v9;\n            v8 = v8;\n            v7 = v7;\n        }\n    }\n}\n",
+    "_ZN5uu_od11inputoffset11InputOffset18format_byte_offset17hff6b546ad3ee8d97E": "fn uu_od::inputoffset::InputOffset::format_byte_offset(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x8]\n    let v2: u64;  // rbx\n\n    v0 = v2;\n    goto *((4293576 + *((vvar_1 + 24) as &i8) * 4) as &i32) + 4293576;\n}\n",
+    "_ZN5uu_od11inputoffset11InputOffset18print_final_offset17hf1e2d1b178ccd553E": "fn uu_od::inputoffset::InputOffset::print_final_offset(a0: void*) -> u64 {\n    let v0: u8;  // [bp-0x20]\n    let v2: u64;  // rax\n\n    if a0->field_18 == 3 && !a0->field_0 {\n        return v2;\n    }\n    uu_od::inputoffset::InputOffset::format_byte_offset(&v0, a0);\n    println!(\"{:?}\", &v0);\n    return v2;\n}\n",
+    "_ZN5uu_od7prn_int16format_item_oct817hd91785084b8a9d0aE.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_oct8(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::<impl core::fmt::Octal for isize>::fmt;\n    v3 = 3;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 34359738400;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int17format_item_oct1617h963ec640cff094caE.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_oct16(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::<impl core::fmt::Octal for isize>::fmt;\n    v3 = 6;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 34359738400;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int17format_item_oct3217hd2f6d38c4fcbc2caE.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_oct32(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::<impl core::fmt::Octal for isize>::fmt;\n    v3 = 11;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 34359738400;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int17format_item_oct6417h17aac2e77287140bE.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_oct64(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::<impl core::fmt::Octal for isize>::fmt;\n    v3 = 22;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 34359738400;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int16format_item_hex817h5849028187c6df88E.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_hex8(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::<impl core::fmt::LowerHex for isize>::fmt;\n    v3 = 2;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 34359738400;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int17format_item_hex1617h675ecab21f6b53e4E.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_hex16(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::<impl core::fmt::LowerHex for isize>::fmt;\n    v3 = 4;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 34359738400;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int17format_item_hex3217hd995f66e724ca0ddE.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_hex32(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::<impl core::fmt::LowerHex for isize>::fmt;\n    v3 = 8;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 34359738400;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int17format_item_hex6417h788cca31d31f5d05E.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_hex64(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::<impl core::fmt::LowerHex for isize>::fmt;\n    v3 = 16;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 34359738400;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int18format_item_dec_u817ha59345230c49b8dbE.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_dec_u8(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n    v3 = 3;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 32;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int19format_item_dec_u1617hf23ff983df810494E.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_dec_u16(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n    v3 = 5;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 32;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int19format_item_dec_u3217hc8910bf875c8c6a7E.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_dec_u32(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n    v3 = 10;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 32;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int19format_item_dec_u6417h6fce45ddf31373f9E.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_dec_u64(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n    v3 = 20;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 32;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int18format_item_dec_s817hb892acee55e2d4c6E.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_dec_s8(a0: u32, a1: u8) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::imp::<impl core::fmt::Display for isize>::fmt;\n    v3 = 4;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 32;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int19format_item_dec_s1617h362ca123fb194cf7E.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_dec_s16(a0: u32, ) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::imp::<impl core::fmt::Display for isize>::fmt;\n    v3 = 6;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 32;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int19format_item_dec_s3217hf79fdb8ff519490cE.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_dec_s32(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::imp::<impl core::fmt::Display for isize>::fmt;\n    v3 = 11;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 32;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od7prn_int19format_item_dec_s6417hb7841811c78a1efaE.llvm.6994087982725259584": "fn uu_od::prn_int::format_item_dec_s64(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x98]\n    let v1: &u8;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: void*;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: u64;  // [sp-0x68]\n    let v7: &&struct_0;  // [sp-0x60]\n    let v8: u64;  // [sp-0x58]\n    let v9: &u8;  // [sp-0x50]\n    let v10: u64;  // [sp-0x48]\n    let v11: u64;  // [sp-0x40]\n    let v12: u64;  // [sp-0x30]\n    let v13: u64;  // [sp-0x28]\n    let v14: void*;  // [sp-0x20]\n    let v15: u64;  // [sp-0x18]\n    let v16: u8;  // [sp-0x10]\n\n    v0 = a1;\n    v1 = &v0;\n    v2 = core::fmt::num::imp::<impl core::fmt::Display for isize>::fmt;\n    v3 = 20;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 32;\n    v16 = 3;\n    v5 = \" \";\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od12parse_inputs12parse_inputs17h38cbe1382e5c3650E": "fn uu_od::parse_inputs::parse_inputs(a0: &struct40, a1: u32, a2: u32) -> u64 {\n    let v0: struct16;  // [sp-0x60], Other Possible Types: i128\n    let v1: i8;  // [bp-0x58]\n    let v2: i8;  // [bp-0x50]\n    let v3: struct24;  // [bp-0x48], Other Possible Types: struct1\n    let v4: i128;  // [sp-0x30], Other Possible Types: struct16\n    let v6: i64;  // rdx\n    let v7: i64;  // r15\n    let v8: i64;  // rdx\n    let v9: i64;  // rax\n    let v11: i64;  // rax\n    let v12: i64;  // r14\n    let v13: i64;  // r15\n    let v14: i64;  // rax\n\n    v6 = a2;\n    *((a2 + 24) as &i64)();\n    v7 = *((a2 + 32) as &i64);\n    if v7() {\n        uu_od::parse_inputs::parse_inputs_traditional(a0, v1, v2);\n    } else {\n        v8 = v2;\n        if v8 - 1 < 2 {\n            v8 = v2;\n            if !v7() {\n                v9 = v1;\n                v4 = uu_od::parse_inputs::parse_offset_operand(*((v9 + (v8 - 1) * 16) as &i64), *((v9 + (v8 - 1) * 16 + 8) as &i64));\n                v8 = v2;\n                if !v4 {\n                    if v8 == 1 {\n                        v11 = v1;\n                        v12 = *(v11 as &i64);\n                        v13 = *((v11 + 8) as &i64);\n                        v3 = struct1 {\n                            field_0: 0\n                        };\n                        if core::slice::<impl [T]>::starts_with(v12, v13, core::char::methods::encode_utf8_raw(43, &v3), 1) as i8 {\n                            v3 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"-\");\n                            return struct40 {\n                                field_0: v3\n                                field_16: *((&v3 as &char + 16) as &i64)\n                                field_24: v10\n                                field_32: 0\n                            };\n                        }\n                        v8 = v2;\n                    }\n                    if v8 == 2 {\n                        v14 = v1;\n                        v3 = <T as alloc::slice::hack::ConvertVec>::to_vec(*(v14 as &i64), *((v14 + 8) as &i64));\n                    }\n                }\n            }\n        }\n        if v8 {\n            v3 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(*((&v0 as &char + 8) as &i64), v2 * 16 + *((&v0 as &char + 8) as &i64));\n            return struct32 {\n                field_0: v3\n                field_16: *((&v3 as &char + 16) as &i64)\n                field_32: <UNKNOWN>\n            };\n        }\n        v0 = alloc::vec::Vec<T,A>::push();\n    }\n}\n",
+    "_ZN5uu_od12parse_inputs24parse_inputs_traditional17h2788ba0cc89acb8cE": "fn uu_od::parse_inputs::parse_inputs_traditional(a0: &struct40, a1: u32, a2: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8], Other Possible Types: struct16\n    let v1: i64;  // [sp-0xa0]\n    let v2: i64;  // [sp-0x98]\n    let v3: struct24;  // [sp-0x90], Other Possible Types: i192\n    let v4: i64;  // [sp-0x88]\n    let v5: i64;  // [sp-0x80]\n    let v6: i64;  // [sp-0x78]\n    let v7: i64;  // [sp-0x70]\n    let v8: i128;  // [sp-0x60], Other Possible Types: struct16\n    let v9: struct16;  // [sp-0x50], Other Possible Types: i128\n    let v10: struct16;  // [sp-0x40], Other Possible Types: i128\n    let v11: i128;  // [sp-0x30], Other Possible Types: struct16\n    let v13: i64;  // rax\n    let v14: i64;  // r15\n    let v15: i64;  // r12\n    let v16: i64;  // r14\n    let v17: i64;  // rax\n    let v18: i128;  // xmm0\n    let v21: i64;  // r15\n    let v22: i64;  // 4096\n    let v25: i64;  // r12\n\n    switch (a2) {\n    case 0:\n        v16 = alloc::alloc::Global::alloc_impl();\n        v3 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"-\");\n        v2 = v5;\n        v18 = v3;\n        v0 = v18;\n        *((v16 + 16) as &i64) = v2;\n        *(v16 as &i128) = v18;\n        alloc::slice::hack::into_vec(a0, v16, 1);\n        *((a0 + 32) as &i64) = 2;\n    case 1:\n        v0 = uu_od::parse_inputs::parse_offset_operand(*(a1 as &i64), *((a1 + 8) as &i64));\n        if !v0 {\n            v3 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"-\");\n            v22 = v1;\n        } else {\n            v3 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(a1, a1 + 16);\n        }\n        return struct40 {\n            field_0: v3\n            field_16: v5\n            field_24: v22\n            field_32: v19\n        };\n    case 2:\n        v14 = *(a1 as &i64);\n        v15 = *((a1 + 8) as &i64);\n        v9 = uu_od::parse_inputs::parse_offset_operand(v14, v15);\n        v8 = uu_od::parse_inputs::parse_offset_operand(*((a1 + 16) as &i64), *((a1 + 24) as &i64));\n        v17 = v8;\n        if !v9 && !v17 {\n            v21 = *((&v8 as &char + 8) as &i64);\n            <T as alloc::slice::hack::ConvertVec>::to_vec(a0, \"-\");\n            *((a0 + 24) as &i64) = *((&v9 as &char + 8) as &i64);\n            *((a0 + 32) as &i64) = 1;\n            *((a0 + 40) as &i64) = v21;\n        } else if !v17 {\n            <T as alloc::slice::hack::ConvertVec>::to_vec(a0, v14, v15);\n            *((a0 + 24) as &i64) = *((&v8 as &char + 8) as &i64);\n            *((a0 + 32) as &i64) = 0;\n        }\nLABEL_4d2fb0:\n        v0 = a1 + 16;\n        v1 = <&T as core::fmt::Display>::fmt;\n        v13 = \"invalid offset: \";\n        break;\n    case 3:\n        v10 = uu_od::parse_inputs::parse_offset_operand(*((a1 + 16) as &i64), *((a1 + 24) as &i64));\n        v11 = uu_od::parse_inputs::parse_offset_operand(*((a1 + 32) as &i64), *((a1 + 40) as &i64));\n        if !(!v10) {\n            goto LABEL_4d2fb0;\n        }\n        if !v11 {\n            v25 = *((&v11 as &char + 8) as &i64);\n            <T as alloc::slice::hack::ConvertVec>::to_vec(a0, *(a1 as &i64), *((a1 + 8) as &i64));\n            *((a0 + 24) as &i64) = *((&v10 as &char + 8) as &i64);\n            *((a0 + 32) as &i64) = 1;\n            *((a0 + 40) as &i64) = v25;\n        }\n        v0 = a1 + 32;\n        v1 = <&T as core::fmt::Display>::fmt;\n        v13 = \"invalid label: \";\n        break;\n    default:\n        v0 = a1 + 48;\n        v1 = <&T as core::fmt::Display>::fmt;\n        v13 = \"too many inputs after --traditional: \";\n        break;\n    }\n    v3 = v13;\n    v4 = 1;\n    v7 = 0;\n    v5 = &v0;\n    v6 = 1;\n    core::option::Option<T>::map_or_else();\n    *((a0 + 32) as &i64) = 3;\n}\n",
+    "_ZN5uu_od12parse_inputs20parse_offset_operand17h71d36fc2ef6ee229E": "fn uu_od::parse_inputs::parse_offset_operand(a0: &struct16, a1: u32, a2: u32) -> u64 {\n    let v0: u32;  // [sp-0x50], Other Possible Types: struct1, Result<struct2, struct8>\n    let v2: u64;  // [sp-0x30]\n    let v3: u64;  // [sp-0x28]\n    let v4: u64;  // [sp-0x20]\n    let v5: u64;  // [sp-0x18]\n    let v6: u64;  // [sp-0x10]\n    let v8: u64;  // r15\n    let v9: u64;  // r14\n    let v10: u64;  // r13\n    let v11: u64;  // r12\n    let v12: u64;  // rbx\n    let v13: u64;  // r12\n    let v14: u64;  // rax\n    let v15: u64;  // rbp\n    let v16: u64;  // rdx\n    let v18: u32;  // ebp\n    let v19: u64;  // 4096\n    let v21: u64;  // r13\n    let v22: u64;  // rax\n    let v23: u64;  // r8\n    let v24: u64;  // rax\n    let v26: &u8;  // rax\n\n    v6 = v8;\n    v5 = v9;\n    v4 = v10;\n    v3 = v11;\n    v2 = v12;\n    v0 = 0;\n    v13 = core::slice::<impl [T]>::starts_with(a1, a2, core::char::methods::encode_utf8_raw(43, &v0), 1) as i32;\n    v14 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v13, a2, a1, a2);\n    if !v14 {\n        core::str::slice_error_fail(a1, a2, v13, a2, \"src/uu/od/src/parse_inputs.rs\"); /* do not return */\n    }\n    v15 = v14;\n    if core::slice::<impl [T]>::starts_with(v14, v16, \"0x\") as i8 || core::slice::<impl [T]>::starts_with(v15, v16, \"0X\") as i8 {\n        v13 |= 2;\n        v18 = 16;\n        goto LABEL_4d3226;\n    } else {\n        v0 = struct1 {\n            field_0: 0\n        };\n        v21 = a2 - core::slice::<impl [T]>::ends_with(v15, v16, core::char::methods::encode_utf8_raw(98, &v0), 1) as i32;\n        v22 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v13, v21, a1, a2);\n        if !v22 {\n            v23 = \"src/uu/od/src/parse_inputs.rs\";\n        } else {\n            v0 = 0;\n            v24 = core::slice::<impl [T]>::ends_with(v22, v16, core::char::methods::encode_utf8_raw(46, &v0), 1) as i32;\n            v18 = v24 * 2 + 8;\n            v19 = v21 - v24;\nLABEL_4d3226:\n            v21 = v19;\n            v26 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v13, v21, a1, a2);\n            if v26 {\n                v0 = core::num::<impl u64>::from_str_radix(v26, v16, v18) as u64;\n                return struct16 {\n                    field_0: v29\n                    field_8: v27\n                };\n            }\n            v23 = \"src/uu/od/src/parse_inputs.rs\";\n        }\n        core::str::slice_error_fail(a1, a2, v13, v21, v23); /* do not return */\n    }\n}\n",
+    "_ZN5uu_od9prn_float17format_item_flo1617hec403f238da07cb9E.llvm.13072642883736753861": "fn uu_od::prn_float::format_item_flo16(a0: &struct24) -> int {\n    let v0: &u8;  // [sp-0x80]\n    let v1: u64;  // [sp-0x78]\n    let v2: i8;  // [bp-0x70]\n    let v4: u64;  // [sp-0x58]\n    let v5: u64;  // [sp-0x50]\n    let v6: &&struct_0;  // [sp-0x48]\n    let v7: u64;  // [sp-0x40]\n    let v8: void*;  // [sp-0x38]\n    let v9: u8;  // [bp-0x28]\n    let v11: u128;  // xmm0\n\n    if !std_detect::detect::cache::test() as i8 {\n        uu_od::prn_float::format_flo16(&v9, half::binary16::arch::f64_to_f16_fallback() as i32);\n        v0 = &v9;\n        v1 = <alloc::string::String as core::fmt::Display>::fmt;\n        v4 = \" \";\n        v5 = 1;\n        v8 = 0;\n        v6 = &v0;\n        v7 = 1;\n        core::option::Option<T>::map_or_else();\n        v11 = v2;\n        return struct24 {\n            field_0: v11\n            field_16: v3\n        };\n    }\n    half::binary16::arch::x86::f32_to_f16_x86_f16c(); /* do not return */\n}\n",
+    "_ZN5uu_od9prn_float17format_item_flo3217h11ffc10f1bd70a14E.llvm.13072642883736753861": "fn uu_od::prn_float::format_item_flo32(a0: &struct24) -> int {\n    let v0: u64;  // [sp-0x80]\n    let v1: u64;  // [sp-0x78]\n    let v2: i8;  // [bp-0x70]\n    let v4: u64;  // [sp-0x58]\n    let v5: u64;  // [sp-0x50]\n    let v6: &u8;  // [sp-0x48]\n    let v7: u64;  // [sp-0x40]\n    let v8: void*;  // [sp-0x38]\n    let v9: u8;  // [bp-0x28]\n    let v11: u128;  // xmm0\n\n    uu_od::prn_float::format_flo32();\n    v0 = &v9;\n    v1 = <alloc::string::String as core::fmt::Display>::fmt;\n    v4 = \" \";\n    v5 = 1;\n    v8 = 0;\n    v6 = &v0;\n    v7 = 1;\n    core::option::Option<T>::map_or_else();\n    v11 = v2;\n    return struct24 {\n        field_0: v11\n        field_16: v3\n    };\n}\n",
+    "_ZN5uu_od9prn_float17format_item_flo6417h6af7f51f8054935cE.llvm.13072642883736753861": "fn uu_od::prn_float::format_item_flo64(a0: &struct24) -> int {\n    let v0: u64;  // [sp-0x80]\n    let v1: u64;  // [sp-0x78]\n    let v2: i8;  // [bp-0x70]\n    let v4: u64;  // [sp-0x58]\n    let v5: u64;  // [sp-0x50]\n    let v6: &u8;  // [sp-0x48]\n    let v7: u64;  // [sp-0x40]\n    let v8: void*;  // [sp-0x38]\n    let v9: u8;  // [bp-0x28]\n    let v11: u128;  // xmm0\n\n    uu_od::prn_float::format_flo64();\n    v0 = &v9;\n    v1 = <alloc::string::String as core::fmt::Display>::fmt;\n    v4 = \" \";\n    v5 = 1;\n    v8 = 0;\n    v6 = &v0;\n    v7 = 1;\n    core::option::Option<T>::map_or_else();\n    v11 = v2;\n    return struct24 {\n        field_0: v11\n        field_16: v3\n    };\n}\n",
+    "_ZN5uu_od9prn_float12format_flo1617hd8d34214ac1f2229E": "fn uu_od::prn_float::format_flo16(a0: u64, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x18]\n    let v2: u64;  // rax\n    let v3: u64;  // rdi\n\n    v0 = v2;\n    v3 = a1;\n    if !std_detect::detect::cache::test() as i8 {\n        half::binary16::arch::f16_to_f64_fallback(v3);\n        return uu_od::prn_float::format_float(a0, 9, 4);\n    }\n    half::binary16::arch::x86::f16_to_f32_x86_f16c(v3); /* do not return */\n}\n",
+    "_ZN5uu_od9prn_float12format_flo3217h9997a42b85d61a4bE": "fn uu_od::prn_float::format_flo32() -> u64 {\n    let v0: u32;  // [sp-0x8c]\n    let v1: &u8;  // [sp-0x88]\n    let v2: u64;  // [sp-0x80]\n    let v3: u64;  // [sp-0x78]\n    let v4: void*;  // [sp-0x70]\n    let v5: u64;  // [sp-0x68]\n    let v6: u64;  // [sp-0x60]\n    let v7: &&struct_0;  // [sp-0x58]\n    let v8: u64;  // [sp-0x50]\n    let v9: &u8;  // [sp-0x48]\n    let v10: u64;  // [sp-0x40]\n    let v11: u64;  // [sp-0x38]\n    let v12: u64;  // [sp-0x28]\n    let v13: u64;  // [sp-0x20]\n    let v14: void*;  // [sp-0x18]\n    let v15: u64;  // [sp-0x10]\n    let v16: u8;  // [sp-0x8]\n    let v18: u32;  // ymm0\n    let v19: u256;  // ymm1\n    let v20: u256;  // ymm0\n    let v21: u256;  // ymm1\n    let v22: u32;  // rdi\n\n    v0 = v18;\n    v21 = v19 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | 170141183420855150465331762880109871103 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | 170141183420855150465331762880109871103 & v20;\n    if !(((BinaryOp CmpF & 69) >> 6 & 1) != 1 && v21 && !(v20 & 0x7f800000)) {\n        return uu_od::prn_float::format_float(v22, 14, 8);\n    }\n    v1 = &v0;\n    v2 = core::fmt::float::<impl core::fmt::LowerExp for f32>::fmt;\n    v3 = 14;\n    v4 = 0;\n    v11 = 2;\n    v12 = 1;\n    v13 = 1;\n    v14 = 0;\n    v15 = 32;\n    v16 = 3;\n    v5 = &g_40dad0;\n    v6 = 1;\n    v9 = &v11;\n    v10 = 1;\n    v7 = &v1;\n    v8 = 2;\n    return core::option::Option<T>::map_or_else();\n}\n",
+    "_ZN5uu_od9prn_float12format_flo6417h9324c3c6da2cf7ceE": "fn uu_od::prn_float::format_flo64() -> u64 {\n    let v1: u32;  // rdi\n\n    return uu_od::prn_float::format_float(v1, 24, 17);\n}\n",
+    "_ZN5uu_od9prn_float12format_float17h341a0cfde1a47520E": "fn uu_od::prn_float::format_float(a0: u32, a1: u32, a2: u64) -> u64 {\n    let v0: &u8;  // [sp-0xd8], Other Possible Types: u64\n    let v1: u64;  // [sp-0xd0]\n    let v2: u64;  // [sp-0xc8], Other Possible Types: &u8\n    let v3: u64;  // [sp-0xc0], Other Possible Types: void*\n    let v4: u64;  // [sp-0xb8], Other Possible Types: &u8\n    let v5: void*;  // [sp-0xb0], Other Possible Types: u64\n    let v6: u64;  // [sp-0xa8]\n    let v7: u64;  // [sp-0xa0]\n    let v8: u64;  // [sp-0x98]\n    let v9: u64;  // [sp-0x90]\n    let v10: void*;  // [sp-0x88]\n    let v11: u64;  // [sp-0x80]\n    let v12: u8;  // [sp-0x78]\n    let v13: u64;  // [sp-0x70]\n    let v14: u64;  // [sp-0x68], Other Possible Types: &u8\n    let v15: u64;  // [sp-0x60]\n    let v16: u64;  // [sp-0x58], Other Possible Types: &u8\n    let v17: void*;  // [sp-0x50], Other Possible Types: u64\n    let v18: &u8;  // [sp-0x48]\n    let v19: u64;  // [sp-0x40]\n    let v20: u128;  // [sp-0x38]\n    let v22: u256;  // ymm0\n    let v23: u128;  // xmm1\n    let v24: u256;  // ymm1\n    let v25: u256;  // ymm1\n    let v26: u64;  // rax\n    let v27: u64;  // rcx\n    let v28: u64;  // cc_ndep\n    let v29: u64;  // cc_ndep\n    let v30: u256;  // ymm0\n    let v31: u128;  // xmm0\n    let v32: u256;  // ymm0\n    let v33: u256;  // ymm0\n    let v34: u32;  // ebp\n    let v35: u256;  // ymm2\n    let v38: u64;  // rax\n    let v39: u64;  // rax\n\n    v23 = v22;\n    v25 = v24 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v23;\n    v13 = v22;\n    v26 = v22;\n    if ((BinaryOp CmpF & 69) >> 2 & 1) {\nLABEL_4d51da:\n        v30 = v22 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000;\n        if ((BinaryOp CmpF & 69) >> 6 & 1) != 1 || amd64g_calculate_condition(10, 0, (BinaryOp CmpF & 69) as u32 as u64, 0, v29) as char || v26 >= 0 {\n            if ((BinaryOp CmpF & 69) >> 6 & 1) == 1 && !(amd64g_calculate_condition(10, 0, (BinaryOp CmpF & 69) as u32 as u64, 0, v29) as char) || ((BinaryOp CmpF & 69 | (BinaryOp CmpF & 69) >> 6) & 1) == 1 {\n                v14 = &v13;\n                v38 = core::fmt::float::<impl core::fmt::Display for f64>::fmt;\n            } else {\n                v14 = &v13;\n                v38 = core::fmt::float::<impl core::fmt::LowerExp for f64>::fmt;\n            }\n            v15 = v38;\n            v16 = a1;\n            v17 = 0;\n            v6 = 2;\n            v8 = 1;\n            v9 = 1;\n            v10 = 0;\n            v11 = 32;\n            v12 = 3;\n        } else {\n            v14 = \"-0\";\n            v15 = <&T as core::fmt::Display>::fmt;\n            v16 = a1;\n            v17 = 0;\n            v6 = 2;\n            v8 = 1;\n            v9 = 1;\n            v10 = 0;\n            v11 = 32;\n            v12 = 1;\n        }\n        v0 = &g_40dad0;\n        v1 = 1;\n        v4 = &v6;\n        v5 = 1;\n        v2 = &v14;\n        v3 = 2;\n    } else {\n        v27 = v26 & 0x7ff0000000000000;\n        if !(amd64g_calculate_condition(4, 32, v26 * 0x1000, v26 * 0x800, v28) as char) {\n            if !v27 {\n                goto LABEL_4d51da;\n            }\n        } else {\n            if !(v27) || !(v27 != 0x7ff0000000000000) {\n                goto LABEL_4d51da;\n            }\n        }\n        v31 = 170141183460469231722463931679029329919 & v23;\n        v32 = v22 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | 170141183460469231722463931679029329919 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v31;\n        v20 = v23;\n        log10(v32);\n        floor(v32);\n        v33 = v32 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MaxV | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MinV;\n        v34 = (amd64g_calculate_condition(11, 0, (BinaryOp CmpF & 69) as u32 as u64, 0, v29) as char ? v33 : 0);\n        __powidf2(v34);\n        if ... {\n            v34 -= 1;\n        }\n        if v34 < 0 || v34 >= a2 {\n            if v34 == -1 {\n                v0 = &v13;\n                v39 = core::fmt::float::<impl core::fmt::Display for f64>::fmt;\n            } else {\n                v0 = &v13;\n                v39 = core::fmt::float::<impl core::fmt::LowerExp for f64>::fmt;\n            }\n            v1 = v39;\n            v2 = a2 - 1;\n        } else {\n            v0 = &v13;\n            v1 = core::fmt::float::<impl core::fmt::Display for f64>::fmt;\n            v2 = ~(v34) + a2;\n        }\n        v3 = 0;\n        v4 = a1;\n        v5 = 0;\n        v6 = 1;\n        v7 = 1;\n        v8 = 1;\n        v9 = 2;\n        v10 = 0;\n        v11 = 32;\n        v12 = 3;\n        v14 = &g_40dad0;\n        v15 = 1;\n        v18 = &v6;\n        v19 = 1;\n        v16 = &v0;\n        v17 = 3;\n    }\n    return core::option::Option<T>::map_or_else();\n}\n",
+    "_ZN5uu_od8prn_char13format_item_a17h8571f28fca42a1f6E.llvm.2413193166722088455": "fn uu_od::prn_char::format_item_a(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x88]\n    let v1: &u8;  // [sp-0x80]\n    let v2: u64;  // [sp-0x78]\n    let v3: u64;  // [sp-0x70]\n    let v4: u64;  // [sp-0x68]\n    let v5: &&struct_0;  // [sp-0x60]\n    let v6: u64;  // [sp-0x58]\n    let v7: &u8;  // [sp-0x50]\n    let v8: u64;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: void*;  // [sp-0x30]\n    let v11: u64;  // [sp-0x28]\n    let v12: void*;  // [sp-0x20]\n    let v13: u64;  // [sp-0x18]\n    let v14: u8;  // [sp-0x10]\n\n    v0 = \"nul\" + ((a1 & 127) * 16 & 4294967295);\n    v1 = &v0;\n    v2 = <&T as core::fmt::Display>::fmt;\n    v9 = 2;\n    v10 = 0;\n    v11 = 4;\n    v12 = 0;\n    v13 = 32;\n    v14 = 1;\n    v3 = &g_40dad0;\n    v4 = 1;\n    v7 = &v9;\n    v8 = 1;\n    v5 = &v1;\n    v6 = 1;\n    core::option::Option<T>::map_or_else();\n    return a0;\n}\n",
+    "_ZN5uu_od8prn_char13format_item_c17hbeff54a2c941035dE.llvm.2413193166722088455": "fn uu_od::prn_char::format_item_c(a0: &struct24, a1: &u8, a2: u64) -> u64 {\n    let v0: i8;  // [sp-0xa9]\n    let v1: i64;  // [sp-0xa8]\n    let v2: i64;  // [sp-0xa0]\n    let v3: i64;  // [sp-0x98]\n    let v4: i64;  // [sp-0x90]\n    let v5: i64;  // [sp-0x88]\n    let v6: i64;  // [sp-0x80]\n    let v7: i64;  // [sp-0x78]\n    let v8: i64;  // [sp-0x70]\n    let v9: i64;  // [sp-0x68]\n    let v10: i64;  // [sp-0x58]\n    let v11: i64;  // [sp-0x50]\n    let v12: i64;  // [sp-0x48]\n    let v13: i64;  // [sp-0x40]\n    let v14: i8;  // [sp-0x38]\n    let v15: i64;  // [sp-0x30], Other Possible Types: Result<struct16, struct10>\n    let v16: i64;  // [sp-0x28]\n    let v17: i128;  // [sp-0x18]\n    let v19: i64;  // rax\n    let v20: i64;  // rcx\n    let v21: i64;  // rdi\n    let v22: i64;  // rax\n    let v23: i64;  // rdx\n    let v24: i64;  // rax\n\n    v0 = *(a1 as &i8);\n    if v0 >= 0 {\n        v1 = \"\\\\0\" + (v0 * 16 & 4294967295);\n        v15 = &v1;\n        v16 = <&T as core::fmt::Display>::fmt;\n        v9 = 2;\n        v10 = 0;\n        v11 = 4;\n        v12 = 0;\n        v13 = 32;\n        v14 = 1;\n        v19 = &g_40dad0;\n        goto LABEL_4d57dd;\n    }\n    if (v0 & 192) == 128 {\n        <T as alloc::slice::hack::ConvertVec>::to_vec(a0);\n        return a0;\n    }\n    if a2 != 1 && (v0 & 224) == 192 {\n        v20 = \"src/uu/od/src/prn_char.rs\";\n        v21 = 2;\n        goto LABEL_4d587e;\n    }\n    if a2 >= 3 && (v0 & 240) == 224 {\n        v20 = \"src/uu/od/src/prn_char.rs\";\n        v21 = 3;\n        goto LABEL_4d587e;\n    } else {\n        if a2 < 4 || (v0 & 248) != 240 {\n            v15 = &v0;\n            v16 = core::fmt::num::<impl core::fmt::Octal for i8>::fmt;\n            v9 = 2;\n            v10 = 0;\n            v11 = 3;\n            v12 = 0;\n            v13 = 34359738400;\n            v14 = 3;\n            v19 = \" \";\nLABEL_4d57dd:\n            v3 = v19;\n            v4 = 1;\n            v7 = &v9;\n            v8 = 1;\n            v22 = &v15;\n        } else {\n            v20 = \"src/uu/od/src/prn_char.rs\";\n            v21 = 4;\nLABEL_4d587e:\n            v15 = core::str::converts::from_utf8(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v21, a1, a2, v20), v23);\n            if v15 {\n                v1 = &v0;\n                v2 = core::fmt::num::<impl core::fmt::Octal for i8>::fmt;\n                v9 = 2;\n                v10 = 0;\n                v11 = 3;\n                v12 = 0;\n                v13 = 34359738400;\n                v14 = 3;\n                v24 = \" \";\n            } else {\n                v17 = v16;\n                v1 = &v17;\n                v2 = <&T as core::fmt::Display>::fmt;\n                v9 = 2;\n                v10 = 0;\n                v11 = 4;\n                v12 = 0;\n                v13 = 32;\n                v14 = 1;\n                v24 = &g_40dad0;\n            }\n            v3 = v24;\n            v4 = 1;\n            v7 = &v9;\n            v8 = 1;\n            v22 = &v1;\n        }\n        v5 = v22;\n        v6 = 1;\n        core::option::Option<T>::map_or_else();\n        return a0;\n    }\n}\n",
+    "_ZN5uu_od8prn_char17format_ascii_dump17h253c6e9b0061c235E": "fn uu_od::prn_char::format_ascii_dump(a0: &struct24, a1: u64, a2: u64) -> int {\n    let v0: struct16;  // [sp-0x48], Other Possible Types: void*\n    let v1: u64;  // [sp-0x40]\n    let v2: void*;  // [sp-0x38]\n    let v3: u64;  // [sp-0x30]\n    let v4: u64;  // [sp-0x28]\n    let v6: struct8;  // rax\n    let v7: u64;  // rax\n    let v8: u32;  // rdx\n\n    v0 = 0;\n    v1 = 1;\n    v2 = 0;\n    v0 = alloc::string::String::push(0x3e);\n    v3 = a1;\n    v4 = a2 + a1;\n    v6 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();\n    if v6 {\n        do {\n            v7 = *(v6 as &i8);\n            if (v7 - 32 & 255) >= 95 {\n                v0 = alloc::string::String::push(0x2e);\n            } else {\n                v0 = alloc::vec::Vec<T,A>::append_elements(core::slice::iter::Iter<T>::make_slice(*((((v7 & 4294967295) * 16 & 4294967295) + \"\\\\0\") as &i64), *(&(&g_5428a0)[(v7 & 4294967295) * 16 & 4294967295] as &i64) + *((((v7 & 4294967295) * 16 & 4294967295) + \"\\\\0\") as &i64)), v8);\n            }\n        } while ((v6 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(), v6));\n    }\n    v0 = alloc::string::String::push(0x3c);\n    return struct24 {\n        field_0: v9\n        field_16: v2\n    };\n}\n",
+    "_ZN5uu_od15multifilereader15MultifileReader3new17h9647a60ecaa9b78dE": "fn uu_od::multifilereader::MultifileReader::new(a0: &struct48, a1: u64) -> int {\n    let v0: struct16;  // [sp-0x38]\n    let v1: u64;  // [sp-0x28]\n    let v2: void*;  // [sp-0x20]\n    let v4: u8;  // [sp-0x10]\n    let v6: u128;  // xmm0\n    let v7: u128;  // xmm1\n\n    v1 = a1->field_10;\n    v6 = a1->field_0;\n    v2 = 0;\n    v4 = 0;\n    v0 = uu_od::multifilereader::MultifileReader::next_file();\n    v7 = *(&v1 as &i128);\n    return struct48 {\n        field_0: v8\n        field_16: v7\n        field_32: v3\n    };\n}\n",
+    "_ZN5uu_od15multifilereader15MultifileReader9next_file17h7ce1d576af53818dE": "fn uu_od::multifilereader::MultifileReader::next_file(a0: &struct16) -> u64 {\n    let v0: i64;  // [bp-0xd0]\n    let v1: i384;  // [sp-0xc8], Other Possible Types: struct48, struct44\n    let v2: i192;  // [sp-0x98], Other Possible Types: struct24\n    let v3: i64;  // [sp-0x80], Other Possible Types: Result<struct4, struct8>\n    let v4: i8;  // [bp-0x78]\n    let v5: i64;  // [sp-0x70]\n    let v6: i64;  // [sp-0x68]\n    let v7: i64;  // [sp-0x60]\n    let v8: i8;  // [sp-0x58]\n    let v10: i64;  // rax\n    let v11: i64;  // rbp\n    let v12: i64;  // r12\n    let v13: i64;  // rdx\n    let v15: i64;  // r15\n    let v16: i64;  // rax\n\n    if *((a0 + 16) as &i64) {\n        do {\n            v2 = alloc::vec::Vec<T,A>::remove(a0, None, \"src/uu/od/src/multifilereader.rs\");\n            v10 = v2;\n            if v10 {\n                if v10 == 1 {\n                    v1 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, std::io::stdio::stdin());\n                    *((a0 + 24) as &double) = alloc::boxed::Box<T>::new(&v1);\n                    *((a0 + 32) as &&i64) = &g_543218;\n                    return v16;\n                }\n                v15 = *((&v2 as &char + 16) as &i64);\n                *((a0 + 24) as &i64) = *((&v2 as &char + 8) as &i64);\n                *((a0 + 32) as &i64) = v15;\n                return v16;\n            }\n            v11 = *((&v2 as &char + 8) as &i64);\n            v12 = *((&v2 as &char + 16) as &i64);\n            v3 = std::fs::File::open(v11, v12) as u64;\n            match v3 {\n                Ok(_) => {\n                    v1 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, *((&v3 as &char + 4) as &i32) as u32 as u64);\n                    *((a0 + 24) as &double) = alloc::boxed::Box<T>::new(&v1);\n                    v16 = &g_5431c0;\n                    *((a0 + 32) as &i64) = v16;\n                    return v16;\n                },\n                Err(v0) => {\n                    v5 = uucore::util_name();\n                    v6 = v13;\n                    eprint!(\"{:?}: \", &v5);\n                    v5 = 0;\n                    v6 = v11;\n                    v7 = v12;\n                    v8 = 0;\n                    eprintln!(\"{:?}: {:?}\", &v5, &v0);\n                    *((a0 + 40) as &i8) = 1;\n                },\n            }\n        } while (*((a0 + 16) as &i64));\n    }\n    *((a0 + 24) as &i64) = 0;\n    return v16;\n}\n",
+    "_ZN5uu_od12inputdecoder13MemoryDecoder15zero_out_buffer17h21e27e94246f42e6E": "fn uu_od::inputdecoder::MemoryDecoder::zero_out_buffer(a0: &&struct_0, a1: &u8, a2: u32) -> u64 {\n    let v2: &u8;  // rbx\n    let v3: &u8;  // rax\n\n    if a1 >= a2 {\n        return v3;\n    }\n    do {\n        v2 = a1;\n    } while ((v3 = <usize as core::iter::range::Step>::forward_unchecked(v2), v2[*(a0)->field_8] = 0 as u8, a1 = v3, v3 < a2));\n    return v3;\n}\n",
+    "_ZN5uu_od12inputdecoder13MemoryDecoder12clone_buffer17hf45ff84df60b2968E": "fn uu_od::inputdecoder::MemoryDecoder::clone_buffer(a0: void*, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0x18]\n    let v2: u64;  // rax\n\n    v0 = v2;\n    <alloc::vec::Vec<T,A> as core::clone::Clone>::clone_from(a1, a0->field_0);\n    return alloc::vec::Vec<T,A>::resize(a1, a0->field_8, 0);\n}\n",
+    "_ZN5uu_od12inputdecoder13MemoryDecoder10get_buffer17he5dd43e20733f426E": "fn uu_od::inputdecoder::MemoryDecoder::get_buffer(a0: void*, a1: u64) -> u64 {\n    let v1: &u64;  // rcx\n\n    v1 = a0->field_0;\n    return <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1, *(&a0->field_8 as &i64), v1[1], v1[2], \"src/uu/od/src/inputdecoder.rs\");\n}\n",
+    "_ZN5uu_od12inputdecoder13MemoryDecoder15get_full_buffer17hbd44b98530cf6814E": "fn uu_od::inputdecoder::MemoryDecoder::get_full_buffer(a0: void*, a1: u64) -> u64 {\n    let v1: &u64;  // rcx\n\n    v1 = a0->field_0;\n    return <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1, a0->field_10 + a0->field_8, v1[1], v1[2], \"src/uu/od/src/inputdecoder.rs\");\n}\n",
+    "_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h33796a139b376ce0E": "fn uu_od::inputdecoder::MemoryDecoder::read_uint(a0: u32, a1: u32, a2: u32) -> u64 {\n    let v0: u64;  // [sp-0x50]\n    let v4: &u64;  // rcx\n    let v5: u64;  // rax\n    let v7: &u64;  // rcx\n    let v8: u64;  // rax\n    let v10: &u64;  // rcx\n    let v11: u64;  // rax\n    let v12: u64;  // rax\n    let v13: u32;  // rdx\n    let v14: u32;  // eax\n    let v15: u32;  // rdx\n    let v16: u64;  // rdx\n    let v17: u64;  // rdx\n    let v18: u32;  // rdx\n    let v19: u32;  // rdx\n\n    v0 = a2;\n    switch (a2) {\n    case 1:\n        v12 = a1[a0->field_0->field_8];\n        return v12;\n    case 2:\n        v10 = a0->field_0;\n        v11 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1, a1 + 2, v10[1], v10[2], \"src/uu/od/src/inputdecoder.rs\");\n        switch (a0->field_18) {\n        case 1:\n            v14 = <byteorder::BigEndian as byteorder::ByteOrder>::read_u16(v11, v13) as i32;\n            break;\n        default:\n            v14 = <byteorder::LittleEndian as byteorder::ByteOrder>::read_u16(v11, v15) as i32;\n        }\n        v12 = v14;\n        return v12;\n    case 4:\n        v4 = a0->field_0;\n        v5 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1, a1 + 4, v4[1], v4[2], \"src/uu/od/src/inputdecoder.rs\");\n        switch (a0->field_18) {\n        case 1:\n            v12 = <byteorder::BigEndian as byteorder::ByteOrder>::read_u32(v5, v16) as i32;\n            return v12;\n        default:\n            v12 = <byteorder::LittleEndian as byteorder::ByteOrder>::read_u32(v5, v17) as i32;\n            return v12;\n        }\n    case 8:\n        v7 = a0->field_0;\n        v8 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1, a1 + 8, v7[1], v7[2], \"src/uu/od/src/inputdecoder.rs\");\n        switch (a0->field_18) {\n        case 1:\n            return <byteorder::BigEndian as byteorder::ByteOrder>::read_u64(v8, v18);\n        default:\n            return <byteorder::LittleEndian as byteorder::ByteOrder>::read_u64(v8, v19);\n        }\n    default:\n        panic!(\"Invalid byte_size: {:?}\", &v0);\n    }\n}\n",
+    "_ZN5uu_od12inputdecoder13MemoryDecoder10read_float17hb631d528abcb6236E": "fn uu_od::inputdecoder::MemoryDecoder::read_float(a0: u32, a1: u32, a2: u32) -> u64 {\n    let v0: u64;  // [sp-0x50]\n    let v3: &u64;  // rcx\n    let v4: u64;  // rax\n    let v5: &u64;  // rcx\n    let v7: &u64;  // rcx\n    let v9: u32;  // rdx\n    let v10: u32;  // eax\n    let v11: u32;  // rdx\n    let v12: u64;  // rdx\n    let v13: u64;  // rdx\n\n    v0 = a2;\n    switch (a2) {\n    case 2:\n        v3 = a0->field_0;\n        v4 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1, a1 + 2, v3[1], v3[2], \"src/uu/od/src/inputdecoder.rs\");\n        if !a0->field_18 || a0->field_18 != 1 {\n            v10 = <byteorder::LittleEndian as byteorder::ByteOrder>::read_u16(v4, v11) as i32;\n        } else {\n            v10 = <byteorder::BigEndian as byteorder::ByteOrder>::read_u16(v4, v9) as i32;\n            break;\n        }\n        if !std_detect::detect::cache::test() as i8 {\n            return half::binary16::arch::f16_to_f64_fallback(v10);\n        }\n        half::binary16::arch::x86::f16_to_f32_x86_f16c(v10); /* do not return */\n    case 4:\n        v5 = a0->field_0;\n        return uu_od::byteorder_io::ByteOrder::read_f32(*(&a0->field_18 as &i32), <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1, a1 + 4, v5[1], v5[2], \"src/uu/od/src/inputdecoder.rs\"), v13);\n    case 8:\n        v7 = a0->field_0;\n        return uu_od::byteorder_io::ByteOrder::read_f64(*(&a0->field_18 as &i32), <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1, a1 + 8, v7[1], v7[2], \"src/uu/od/src/inputdecoder.rs\"), v12);\n    default:\n        panic!(\"Invalid byte_size: {:?}\", &v0);\n    }\n}\n",
+    "_ZN5uu_od11output_info10OutputInfo3new17hafb4075cd97b7856E": "fn uu_od::output_info::OutputInfo::new(a0: &struct25, a1: u32, a2: u32, a3: u32, a4: u8) -> u64 {\n    let v0: u32;  // [sp-0x3c]\n    let v1: struct8;  // [bp-0x38], Other Possible Types: u64\n    let v3: u64;  // rbx\n    let v4: u64;  // rbp\n    let v5: u64;  // rax\n\n    v0 = a4;\n    v3 = a2 + a3 * 40;\n    v4 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(a2, v3);\n    v1 = struct8 {\n        field_0: v4\n    };\n    v5 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(a2, v3, &v1);\n    if v4 {\n        uu_od::output_info::OutputInfo::create_spaced_formatter_info(a0, a2, a3, v4, v5);\n        a0[1].field_16 = a1;\n        a0[2].field_0 = v5 * (!(v4 | a1) >> 32 ? ((0 CONCAT a1) % (v4 & 4294967295) CONCAT (0 CONCAT a1) / (v4 & 4294967295)) & 4294967295 & 4294967295 : (0 CONCAT a1) % v4 CONCAT (0 CONCAT a1) / v4);\n        a0[2].field_16 = v1;\n        *(&a0[3].field_0 as &u8) = v0;\n        return a0;\n    }\n    core::panicking::panic_const::panic_const_div_by_zero(\"src/uu/od/src/output_info.rs\"); /* do not return */\n}\n",
+    "_ZN5uu_od11output_info10OutputInfo28create_spaced_formatter_info17h79701a83eb03afe1E": "fn uu_od::output_info::OutputInfo::create_spaced_formatter_info(a0: &struct24, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {\n    let v0: u64;  // [sp-0x30]\n    let v1: u64;  // [sp-0x28]\n    let v2: u64;  // [sp-0x20]\n    let v3: u64;  // [sp-0x18]\n    let v4: &u8;  // [sp-0x10]\n    let v5: &u8;  // [sp-0x8]\n\n    v0 = a3;\n    v1 = a4;\n    v2 = a1;\n    v3 = a1 + a2 * 40;\n    v4 = &v0;\n    v5 = &v1;\n    return <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(a0, &v2);\n}\n",
+    "_ZN5uu_od11output_info10OutputInfo19calculate_alignment17ha011183b33bb66dcE": "fn uu_od::output_info::OutputInfo::calculate_alignment(a0: &struct64, a1: u64, a2: u64, a3: u64, a4: u64) -> int {\n    let v0: u64;  // [sp-0xa0]\n    let v1: u128;  // [bp-0x98]\n    let v2: u128;  // [bp-0x88]\n    let v3: u128;  // [bp-0x78]\n    let v4: u128;  // [sp-0x68]\n    let v6: &u64;  // rdx\n    let v7: u64;  // rcx\n    let v8: u64;  // r12\n    let v9: u64;  // rax\n    let v10: u64;  // r15\n    let v15: u64;  // rbp\n    let v16: u64;  // r14\n    let v17: u64;  // rbp\n    let v18: u64;  // r12\n    let v19: void*;  // rax\n    let v20: u64;  // rax\n    let v21: u64;  // rax\n\n    v6 = a2;\n    v7 = a3;\n    v8 = a3;\n    if a3 >= 9 {\n        v0 = v8 * 8;\n        panic!(\"{:?}-bits types are unsupported. Current max={:?}-bits.\", &v0, &g_40e1c8);\n    }\n    v4 = 0;\n    v3 = 0;\n    v2 = 0;\n    v1 = 0;\n    v9 = a2[3]();\n    if !v9 {\n        core::panicking::panic_const::panic_const_div_by_zero(\"src/uu/od/src/output_info.rs\"); /* do not return */\n    }\n    v10 = v9;\n    return struct64 {\n        field_0: v14\n        field_16: v13\n        field_32: v12\n        field_48: v4\n    };\n    v15 = ((v8 & 4294967295 & 4294967295) % (v10 & 65535) CONCAT (v8 & 4294967295 & 4294967295) / (v10 & 65535)) & 65535;\n    v16 = a4 - v15 * a2[4]();\n    loop {\n        v17 = v15;\n        v18 = (!v16 >> 32 ? (0 CONCAT v16) % v17 CONCAT (0 CONCAT v16) / v17 : ((0 CONCAT v16) % (v17 & 4294967295) CONCAT (0 CONCAT v16) / (v17 & 4294967295)) & 4294967295 & 4294967295);\n        v19 = 0;\n        do {\n            v20 = v19;\n        } while ((v21 = <usize as core::iter::range::Step>::forward_unchecked(v20), *((&v1 as &u8 + 8 * v10 * v20) as &u64) = *((&v1 as &u8 + 8 * v10 * v20) as &i64) + v18, v16 -= v18, v19 = v21, v21 < v17));\n        v10 *= 2;\n        v15 = v17 >> 1;\n    }\n}\n",
+    "_ZN5uu_od12byteorder_io9ByteOrder8read_f3217hdad6667c13a77c60E": "fn uu_od::byteorder_io::ByteOrder::read_f32(a0: u64, a1: u64, a2: u64) -> int {\n    let v0: u64;  // [sp-0x8]\n    let v2: u64;  // rax\n    let v3: u64;  // rax\n    let v4: u256;  // ymm0\n\n    v0 = v2;\n    if !a0 || a0 != 1 {\n        v3 = <byteorder::LittleEndian as byteorder::ByteOrder>::read_u32(a1, a2);\n    } else {\n        v3 = <byteorder::BigEndian as byteorder::ByteOrder>::read_u32(a1, a2);\n    }\n    return v4 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v3;\n}\n",
+    "_ZN5uu_od12byteorder_io9ByteOrder8read_f6417hf4139851335640abE": "fn uu_od::byteorder_io::ByteOrder::read_f64(a0: u64, a1: u64, a2: u64) -> int {\n    let v0: u64;  // [sp-0x8]\n    let v2: u64;  // rax\n    let v3: u64;  // rax\n    let v4: u256;  // ymm0\n\n    v0 = v2;\n    if !a0 || a0 != 1 {\n        v3 = <byteorder::LittleEndian as byteorder::ByteOrder>::read_u64(a1, a2);\n    } else {\n        v3 = <byteorder::BigEndian as byteorder::ByteOrder>::read_u64(a1, a2);\n    }\n    return v4 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v3;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN5uu_od12inputdecoder21InputDecoder$LT$I$GT$9peek_read17h15c7373ba30f8765E": {
+      "<uu_od::peekreader::PeekReader<R> as uu_od::peekreader::PeekRead>::peek_read": 1
+    },
+    "_ZN5uu_od10peekreader19PeekReader$LT$R$GT$19write_to_tempbuffer17h4611bd3540c7d609E": {
+      "<alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,alloc::vec::into_iter::IntoIter<T>>>::spec_extend": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "alloc::vec::Vec<T,A>::append_elements": 1,
+      "core::slice::iter::Iter<T>::make_slice": 1,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
+      "alloc::vec::Vec<T,A>::drain": 1
+    },
+    "_ZN5uu_od10peekreader19PeekReader$LT$R$GT$20read_from_tempbuffer17h158749acb80b7ce3E": {
+      "alloc::vec::Vec<T,A>::drain": 1,
+      "std::io::impls::<impl std::io::Write for &mut [u8]>::write": 1
+    },
+    "_ZN5uu_od6odfunc17hf4c116c67e2cd288E": {
+      "uu_od::print_bytes": 1,
+      "uu_od::inputoffset::InputOffset::format_byte_offset": 1,
+      "uu_od::inputdecoder::MemoryDecoder::zero_out_buffer": 1,
+      "uu_od::inputdecoder::MemoryDecoder::clone_buffer": 1,
+      "<uu_od::peekreader::PeekReader<R> as uu_od::multifilereader::HasError>::has_error": 1,
+      "uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 2,
+      "uu_od::inputoffset::InputOffset::print_final_offset": 2,
+      "uucore::util_name": 1,
+      "uu_od::inputdecoder::InputDecoder<I>::peek_read": 1
+    },
+    "_ZN5uu_od6uumain17h81e1601eeca3cbbaE": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_od::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN5uu_od6uumain6uumain17hd9531e2380c970fcE": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uu_od::odfunc": 1,
+      "uu_od::output_info::OutputInfo::new": 1,
+      "<u8 as alloc::vec::spec_from_elem::SpecFromElem>::from_elem": 1,
+      "uu_od::open_input_peek_reader": 1,
+      "uu_od::OdOptions::new": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_od::uu_app": 1,
+      "uucore::Args::collect_ignore": 1
+    },
+    "_ZN5uu_od6uu_app17hbbddbed21fc2c7d3E": {
+      "clap_builder::builder::command::Command::arg": 30,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::arg::Arg::action": 24,
+      "memcpy": 2,
+      "clap_builder::builder::arg::Arg::new": 30,
+      "clap_builder::builder::arg::Arg::help": 29,
+      "clap_builder::builder::arg::Arg::long": 10,
+      "clap_builder::builder::arg::Arg::num_args": 2,
+      "clap_builder::builder::arg::Arg::value_name": 7,
+      "clap_builder::builder::arg::Arg::default_missing_value": 2,
+      "clap_builder::builder::arg::Arg::short": 26,
+      "clap_builder::builder::arg::Arg::value_parser": 1,
+      "<uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN5uu_od11print_bytes17h4e490ef4abfc23edE": {
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 2,
+      "<core::str::iter::Chars as core::iter::traits::iterator::Iterator>::count": 2,
+      "std::io::stdio::_print": 1,
+      "core::result::Result<T,E>::unwrap": 2,
+      "<&mut W as core::fmt::Write::write_fmt::SpecWriteFmt>::spec_write_fmt": 2,
+      "uu_od::prn_char::format_ascii_dump": 1,
+      "uu_od::inputdecoder::MemoryDecoder::get_buffer": 1,
+      "alloc::vec::Vec<T,A>::append_elements": 3,
+      "core::slice::iter::Iter<T>::make_slice": 3,
+      "uu_od::inputdecoder::MemoryDecoder::get_full_buffer": 1,
+      "uu_od::inputdecoder::MemoryDecoder::read_float": 1,
+      "uu_od::inputdecoder::MemoryDecoder::read_uint": 1,
+      "core::panicking::panic_const::panic_const_rem_by_zero": 1
+    },
+    "_ZN5uu_od22open_input_peek_reader17h114ec616b3c82f88E": {
+      "uu_od::multifilereader::MultifileReader::new": 1,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1
+    },
+    "_ZN5uu_od20format_error_message17h954b3c00e83b3e7fE": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od13parse_formats30od_argument_traditional_format17h14da6a638cd1f622E": {},
+    "_ZN5uu_od13parse_formats14od_format_type17h6c27c20666861ca9E": {},
+    "_ZN5uu_od13parse_formats18parse_format_flags17h9e51e9c420287b95E": {},
+    "_ZN5uu_od13parse_formats19is_format_size_char17h42f5b1cb8010d6ddE": {},
+    "_ZN5uu_od13parse_formats22is_format_size_decimal17h9f07da48a23fad4fE": {
+      "alloc::string::String::push": 1
+    },
+    "_ZN5uu_od13parse_formats17parse_type_string17hb4158195487ebdc3E": {
+      "core::str::validations::next_code_point": 3,
+      "uu_od::parse_formats::parse_type_string::{{closure}}": 3,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "uu_od::parse_formats::od_format_type": 1
+    },
+    "_ZN5uu_od11inputoffset11InputOffset18format_byte_offset17hff6b546ad3ee8d97E": {},
+    "_ZN5uu_od11inputoffset11InputOffset18print_final_offset17hf1e2d1b178ccd553E": {
+      "uu_od::inputoffset::InputOffset::format_byte_offset": 1
+    },
+    "_ZN5uu_od7prn_int16format_item_oct817hd91785084b8a9d0aE.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int17format_item_oct1617h963ec640cff094caE.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int17format_item_oct3217hd2f6d38c4fcbc2caE.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int17format_item_oct6417h17aac2e77287140bE.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int16format_item_hex817h5849028187c6df88E.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int17format_item_hex1617h675ecab21f6b53e4E.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int17format_item_hex3217hd995f66e724ca0ddE.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int17format_item_hex6417h788cca31d31f5d05E.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int18format_item_dec_u817ha59345230c49b8dbE.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int19format_item_dec_u1617hf23ff983df810494E.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int19format_item_dec_u3217hc8910bf875c8c6a7E.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int19format_item_dec_u6417h6fce45ddf31373f9E.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int18format_item_dec_s817hb892acee55e2d4c6E.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int19format_item_dec_s1617h362ca123fb194cf7E.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int19format_item_dec_s3217hf79fdb8ff519490cE.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od7prn_int19format_item_dec_s6417hb7841811c78a1efaE.llvm.6994087982725259584": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od12parse_inputs12parse_inputs17h38cbe1382e5c3650E": {
+      "uu_od::parse_inputs::parse_inputs_traditional": 1,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 2,
+      "uu_od::parse_inputs::parse_offset_operand": 1
+    },
+    "_ZN5uu_od12parse_inputs24parse_inputs_traditional17h2788ba0cc89acb8cE": {
+      "core::option::Option<T>::map_or_else": 1,
+      "alloc::slice::hack::into_vec": 1,
+      "alloc::alloc::Global::alloc_impl": 1,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 5,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
+      "uu_od::parse_inputs::parse_offset_operand": 5
+    },
+    "_ZN5uu_od12parse_inputs20parse_offset_operand17h71d36fc2ef6ee229E": {
+      "core::str::slice_error_fail": 2,
+      "core::num::<impl u64>::from_str_radix": 1,
+      "core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get": 3,
+      "core::slice::<impl [T]>::ends_with": 2,
+      "core::char::methods::encode_utf8_raw": 3,
+      "core::slice::<impl [T]>::starts_with": 1
+    },
+    "_ZN5uu_od9prn_float17format_item_flo1617hec403f238da07cb9E.llvm.13072642883736753861": {
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_od::prn_float::format_flo16": 1,
+      "half::binary16::arch::f64_to_f16_fallback": 1,
+      "half::binary16::arch::x86::f32_to_f16_x86_f16c": 1
+    },
+    "_ZN5uu_od9prn_float17format_item_flo3217h11ffc10f1bd70a14E.llvm.13072642883736753861": {
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_od::prn_float::format_flo32": 1
+    },
+    "_ZN5uu_od9prn_float17format_item_flo6417h6af7f51f8054935cE.llvm.13072642883736753861": {
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_od::prn_float::format_flo64": 1
+    },
+    "_ZN5uu_od9prn_float12format_flo1617hd8d34214ac1f2229E": {
+      "uu_od::prn_float::format_float": 1,
+      "half::binary16::arch::f16_to_f64_fallback": 1,
+      "half::binary16::arch::x86::f16_to_f32_x86_f16c": 1
+    },
+    "_ZN5uu_od9prn_float12format_flo3217h9997a42b85d61a4bE": {
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_od::prn_float::format_float": 1
+    },
+    "_ZN5uu_od9prn_float12format_flo6417h9324c3c6da2cf7ceE": {
+      "uu_od::prn_float::format_float": 1
+    },
+    "_ZN5uu_od9prn_float12format_float17h341a0cfde1a47520E": {
+      "core::option::Option<T>::map_or_else": 1,
+      "__powidf2": 1,
+      "floor": 1,
+      "log10": 1
+    },
+    "_ZN5uu_od8prn_char13format_item_a17h8571f28fca42a1f6E.llvm.2413193166722088455": {
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_od8prn_char13format_item_c17hbeff54a2c941035dE.llvm.2413193166722088455": {
+      "core::option::Option<T>::map_or_else": 1,
+      "core::str::converts::from_utf8": 1,
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index": 1,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1
+    },
+    "_ZN5uu_od8prn_char17format_ascii_dump17h253c6e9b0061c235E": {
+      "alloc::string::String::push": 3,
+      "alloc::vec::Vec<T,A>::append_elements": 1,
+      "core::slice::iter::Iter<T>::make_slice": 1,
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 1
+    },
+    "_ZN5uu_od15multifilereader15MultifileReader3new17h9647a60ecaa9b78dE": {
+      "uu_od::multifilereader::MultifileReader::next_file": 1
+    },
+    "_ZN5uu_od15multifilereader15MultifileReader9next_file17h7ce1d576af53818dE": {
+      "alloc::boxed::Box<T>::new": 2,
+      "std::io::buffered::bufreader::BufReader<R>::with_capacity": 2,
+      "uucore::util_name": 1,
+      "std::fs::File::open": 1,
+      "std::io::stdio::stdin": 1,
+      "alloc::vec::Vec<T,A>::remove": 1
+    },
+    "_ZN5uu_od12inputdecoder13MemoryDecoder15zero_out_buffer17h21e27e94246f42e6E": {},
+    "_ZN5uu_od12inputdecoder13MemoryDecoder12clone_buffer17hf45ff84df60b2968E": {
+      "alloc::vec::Vec<T,A>::resize": 1,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone_from": 1
+    },
+    "_ZN5uu_od12inputdecoder13MemoryDecoder10get_buffer17he5dd43e20733f426E": {
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index": 1
+    },
+    "_ZN5uu_od12inputdecoder13MemoryDecoder15get_full_buffer17hbd44b98530cf6814E": {
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index": 1
+    },
+    "_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h33796a139b376ce0E": {
+      "<byteorder::BigEndian as byteorder::ByteOrder>::read_u16": 1,
+      "<byteorder::LittleEndian as byteorder::ByteOrder>::read_u16": 1,
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index": 3,
+      "<byteorder::BigEndian as byteorder::ByteOrder>::read_u32": 1,
+      "<byteorder::LittleEndian as byteorder::ByteOrder>::read_u32": 1,
+      "<byteorder::BigEndian as byteorder::ByteOrder>::read_u64": 1,
+      "<byteorder::LittleEndian as byteorder::ByteOrder>::read_u64": 1
+    },
+    "_ZN5uu_od12inputdecoder13MemoryDecoder10read_float17hb631d528abcb6236E": {
+      "half::binary16::arch::f16_to_f64_fallback": 1,
+      "half::binary16::arch::x86::f16_to_f32_x86_f16c": 1,
+      "<byteorder::LittleEndian as byteorder::ByteOrder>::read_u16": 1,
+      "<byteorder::BigEndian as byteorder::ByteOrder>::read_u16": 1,
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index": 3,
+      "uu_od::byteorder_io::ByteOrder::read_f32": 1,
+      "uu_od::byteorder_io::ByteOrder::read_f64": 1
+    },
+    "_ZN5uu_od11output_info10OutputInfo3new17hafb4075cd97b7856E": {
+      "uu_od::output_info::OutputInfo::create_spaced_formatter_info": 1,
+      "core::panicking::panic_const::panic_const_div_by_zero": 1,
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold": 2
+    },
+    "_ZN5uu_od11output_info10OutputInfo28create_spaced_formatter_info17h79701a83eb03afe1E": {
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1
+    },
+    "_ZN5uu_od11output_info10OutputInfo19calculate_alignment17ha011183b33bb66dcE": {
+      "core::panicking::panic_const::panic_const_div_by_zero": 1
+    },
+    "_ZN5uu_od12byteorder_io9ByteOrder8read_f3217hdad6667c13a77c60E": {
+      "<byteorder::LittleEndian as byteorder::ByteOrder>::read_u32": 1,
+      "<byteorder::BigEndian as byteorder::ByteOrder>::read_u32": 1
+    },
+    "_ZN5uu_od12byteorder_io9ByteOrder8read_f6417hf4139851335640abE": {
+      "<byteorder::LittleEndian as byteorder::ByteOrder>::read_u64": 1,
+      "<byteorder::BigEndian as byteorder::ByteOrder>::read_u64": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN5uu_od12inputdecoder21InputDecoder$LT$I$GT$9peek_read17h15c7373ba30f8765E": {},
+    "_ZN5uu_od10peekreader19PeekReader$LT$R$GT$19write_to_tempbuffer17h4611bd3540c7d609E": {},
+    "_ZN5uu_od10peekreader19PeekReader$LT$R$GT$20read_from_tempbuffer17h158749acb80b7ce3E": {},
+    "_ZN5uu_od6odfunc17hf4c116c67e2cd288E": {
+      "println": 1,
+      "eprintln": 1,
+      "eprint": 1
+    },
+    "_ZN5uu_od6uumain17h81e1601eeca3cbbaE": {
+      "eprintln": 2,
+      "eprint": 1
+    },
+    "_ZN5uu_od6uumain6uumain17hd9531e2380c970fcE": {},
+    "_ZN5uu_od6uu_app17hbbddbed21fc2c7d3E": {},
+    "_ZN5uu_od11print_bytes17h4e490ef4abfc23edE": {
+      "println": 1,
+      "print": 1
+    },
+    "_ZN5uu_od22open_input_peek_reader17h114ec616b3c82f88E": {},
+    "_ZN5uu_od20format_error_message17h954b3c00e83b3e7fE": {},
+    "_ZN5uu_od13parse_formats30od_argument_traditional_format17h14da6a638cd1f622E": {},
+    "_ZN5uu_od13parse_formats14od_format_type17h6c27c20666861ca9E": {},
+    "_ZN5uu_od13parse_formats18parse_format_flags17h9e51e9c420287b95E": {},
+    "_ZN5uu_od13parse_formats19is_format_size_char17h42f5b1cb8010d6ddE": {},
+    "_ZN5uu_od13parse_formats22is_format_size_decimal17h9f07da48a23fad4fE": {},
+    "_ZN5uu_od13parse_formats17parse_type_string17hb4158195487ebdc3E": {},
+    "_ZN5uu_od11inputoffset11InputOffset18format_byte_offset17hff6b546ad3ee8d97E": {},
+    "_ZN5uu_od11inputoffset11InputOffset18print_final_offset17hf1e2d1b178ccd553E": {
+      "println": 1
+    },
+    "_ZN5uu_od7prn_int16format_item_oct817hd91785084b8a9d0aE.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int17format_item_oct1617h963ec640cff094caE.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int17format_item_oct3217hd2f6d38c4fcbc2caE.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int17format_item_oct6417h17aac2e77287140bE.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int16format_item_hex817h5849028187c6df88E.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int17format_item_hex1617h675ecab21f6b53e4E.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int17format_item_hex3217hd995f66e724ca0ddE.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int17format_item_hex6417h788cca31d31f5d05E.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int18format_item_dec_u817ha59345230c49b8dbE.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int19format_item_dec_u1617hf23ff983df810494E.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int19format_item_dec_u3217hc8910bf875c8c6a7E.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int19format_item_dec_u6417h6fce45ddf31373f9E.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int18format_item_dec_s817hb892acee55e2d4c6E.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int19format_item_dec_s1617h362ca123fb194cf7E.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int19format_item_dec_s3217hf79fdb8ff519490cE.llvm.6994087982725259584": {},
+    "_ZN5uu_od7prn_int19format_item_dec_s6417hb7841811c78a1efaE.llvm.6994087982725259584": {},
+    "_ZN5uu_od12parse_inputs12parse_inputs17h38cbe1382e5c3650E": {},
+    "_ZN5uu_od12parse_inputs24parse_inputs_traditional17h2788ba0cc89acb8cE": {},
+    "_ZN5uu_od12parse_inputs20parse_offset_operand17h71d36fc2ef6ee229E": {},
+    "_ZN5uu_od9prn_float17format_item_flo1617hec403f238da07cb9E.llvm.13072642883736753861": {},
+    "_ZN5uu_od9prn_float17format_item_flo3217h11ffc10f1bd70a14E.llvm.13072642883736753861": {},
+    "_ZN5uu_od9prn_float17format_item_flo6417h6af7f51f8054935cE.llvm.13072642883736753861": {},
+    "_ZN5uu_od9prn_float12format_flo1617hd8d34214ac1f2229E": {},
+    "_ZN5uu_od9prn_float12format_flo3217h9997a42b85d61a4bE": {},
+    "_ZN5uu_od9prn_float12format_flo6417h9324c3c6da2cf7ceE": {},
+    "_ZN5uu_od9prn_float12format_float17h341a0cfde1a47520E": {},
+    "_ZN5uu_od8prn_char13format_item_a17h8571f28fca42a1f6E.llvm.2413193166722088455": {},
+    "_ZN5uu_od8prn_char13format_item_c17hbeff54a2c941035dE.llvm.2413193166722088455": {},
+    "_ZN5uu_od8prn_char17format_ascii_dump17h253c6e9b0061c235E": {},
+    "_ZN5uu_od15multifilereader15MultifileReader3new17h9647a60ecaa9b78dE": {},
+    "_ZN5uu_od15multifilereader15MultifileReader9next_file17h7ce1d576af53818dE": {
+      "eprintln": 1,
+      "eprint": 1
+    },
+    "_ZN5uu_od12inputdecoder13MemoryDecoder15zero_out_buffer17h21e27e94246f42e6E": {},
+    "_ZN5uu_od12inputdecoder13MemoryDecoder12clone_buffer17hf45ff84df60b2968E": {},
+    "_ZN5uu_od12inputdecoder13MemoryDecoder10get_buffer17he5dd43e20733f426E": {},
+    "_ZN5uu_od12inputdecoder13MemoryDecoder15get_full_buffer17hbd44b98530cf6814E": {},
+    "_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h33796a139b376ce0E": {
+      "panic": 1
+    },
+    "_ZN5uu_od12inputdecoder13MemoryDecoder10read_float17hb631d528abcb6236E": {
+      "panic": 1
+    },
+    "_ZN5uu_od11output_info10OutputInfo3new17hafb4075cd97b7856E": {},
+    "_ZN5uu_od11output_info10OutputInfo28create_spaced_formatter_info17h79701a83eb03afe1E": {},
+    "_ZN5uu_od11output_info10OutputInfo19calculate_alignment17ha011183b33bb66dcE": {
+      "panic": 1
+    },
+    "_ZN5uu_od12byteorder_io9ByteOrder8read_f3217hdad6667c13a77c60E": {},
+    "_ZN5uu_od12byteorder_io9ByteOrder8read_f6417hf4139851335640abE": {}
+  },
+  "node_counts": {
+    "_ZN5uu_od12inputdecoder21InputDecoder$LT$I$GT$9peek_read17h15c7373ba30f8765E": 5,
+    "_ZN5uu_od10peekreader19PeekReader$LT$R$GT$19write_to_tempbuffer17h4611bd3540c7d609E": 7,
+    "_ZN5uu_od10peekreader19PeekReader$LT$R$GT$20read_from_tempbuffer17h158749acb80b7ce3E": 5,
+    "_ZN5uu_od6odfunc17hf4c116c67e2cd288E": 45,
+    "_ZN5uu_od6uumain17h81e1601eeca3cbbaE": 17,
+    "_ZN5uu_od6uumain6uumain17hd9531e2380c970fcE": 26,
+    "_ZN5uu_od6uu_app17hbbddbed21fc2c7d3E": 174,
+    "_ZN5uu_od11print_bytes17h4e490ef4abfc23edE": 62,
+    "_ZN5uu_od22open_input_peek_reader17h114ec616b3c82f88E": 5,
+    "_ZN5uu_od20format_error_message17h954b3c00e83b3e7fE": 11,
+    "_ZN5uu_od13parse_formats30od_argument_traditional_format17h14da6a638cd1f622E": 2,
+    "_ZN5uu_od13parse_formats14od_format_type17h6c27c20666861ca9E": 2,
+    "_ZN5uu_od13parse_formats18parse_format_flags17h9e51e9c420287b95E": 2,
+    "_ZN5uu_od13parse_formats19is_format_size_char17h42f5b1cb8010d6ddE": 28,
+    "_ZN5uu_od13parse_formats22is_format_size_decimal17h9f07da48a23fad4fE": 4,
+    "_ZN5uu_od13parse_formats17parse_type_string17hb4158195487ebdc3E": 80,
+    "_ZN5uu_od11inputoffset11InputOffset18format_byte_offset17hff6b546ad3ee8d97E": 2,
+    "_ZN5uu_od11inputoffset11InputOffset18print_final_offset17hf1e2d1b178ccd553E": 7,
+    "_ZN5uu_od7prn_int16format_item_oct817hd91785084b8a9d0aE.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int17format_item_oct1617h963ec640cff094caE.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int17format_item_oct3217hd2f6d38c4fcbc2caE.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int17format_item_oct6417h17aac2e77287140bE.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int16format_item_hex817h5849028187c6df88E.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int17format_item_hex1617h675ecab21f6b53e4E.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int17format_item_hex3217hd995f66e724ca0ddE.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int17format_item_hex6417h788cca31d31f5d05E.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int18format_item_dec_u817ha59345230c49b8dbE.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int19format_item_dec_u1617hf23ff983df810494E.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int19format_item_dec_u3217hc8910bf875c8c6a7E.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int19format_item_dec_u6417h6fce45ddf31373f9E.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int18format_item_dec_s817hb892acee55e2d4c6E.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int19format_item_dec_s1617h362ca123fb194cf7E.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int19format_item_dec_s3217hf79fdb8ff519490cE.llvm.6994087982725259584": 4,
+    "_ZN5uu_od7prn_int19format_item_dec_s6417hb7841811c78a1efaE.llvm.6994087982725259584": 4,
+    "_ZN5uu_od12parse_inputs12parse_inputs17h38cbe1382e5c3650E": 35,
+    "_ZN5uu_od12parse_inputs24parse_inputs_traditional17h2788ba0cc89acb8cE": 48,
+    "_ZN5uu_od12parse_inputs20parse_offset_operand17h71d36fc2ef6ee229E": 25,
+    "_ZN5uu_od9prn_float17format_item_flo1617hec403f238da07cb9E.llvm.13072642883736753861": 7,
+    "_ZN5uu_od9prn_float17format_item_flo3217h11ffc10f1bd70a14E.llvm.13072642883736753861": 5,
+    "_ZN5uu_od9prn_float17format_item_flo6417h6af7f51f8054935cE.llvm.13072642883736753861": 5,
+    "_ZN5uu_od9prn_float12format_flo1617hd8d34214ac1f2229E": 9,
+    "_ZN5uu_od9prn_float12format_flo3217h9997a42b85d61a4bE": 7,
+    "_ZN5uu_od9prn_float12format_flo6417h9324c3c6da2cf7ceE": 2,
+    "_ZN5uu_od9prn_float12format_float17h341a0cfde1a47520E": 37,
+    "_ZN5uu_od8prn_char13format_item_a17h8571f28fca42a1f6E.llvm.2413193166722088455": 4,
+    "_ZN5uu_od8prn_char13format_item_c17hbeff54a2c941035dE.llvm.2413193166722088455": 28,
+    "_ZN5uu_od8prn_char17format_ascii_dump17h253c6e9b0061c235E": 15,
+    "_ZN5uu_od15multifilereader15MultifileReader3new17h9647a60ecaa9b78dE": 4,
+    "_ZN5uu_od15multifilereader15MultifileReader9next_file17h7ce1d576af53818dE": 37,
+    "_ZN5uu_od12inputdecoder13MemoryDecoder15zero_out_buffer17h21e27e94246f42e6E": 8,
+    "_ZN5uu_od12inputdecoder13MemoryDecoder12clone_buffer17hf45ff84df60b2968E": 4,
+    "_ZN5uu_od12inputdecoder13MemoryDecoder10get_buffer17he5dd43e20733f426E": 4,
+    "_ZN5uu_od12inputdecoder13MemoryDecoder15get_full_buffer17hbd44b98530cf6814E": 4,
+    "_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h33796a139b376ce0E": 34,
+    "_ZN5uu_od12inputdecoder13MemoryDecoder10read_float17hb631d528abcb6236E": 22,
+    "_ZN5uu_od11output_info10OutputInfo3new17hafb4075cd97b7856E": 9,
+    "_ZN5uu_od11output_info10OutputInfo28create_spaced_formatter_info17h79701a83eb03afe1E": 4,
+    "_ZN5uu_od11output_info10OutputInfo19calculate_alignment17ha011183b33bb66dcE": 21,
+    "_ZN5uu_od12byteorder_io9ByteOrder8read_f3217hdad6667c13a77c60E": 6,
+    "_ZN5uu_od12byteorder_io9ByteOrder8read_f6417hf4139851335640abE": 6
+  },
+  "prototypes": {
+    "_ZN5uu_od12inputdecoder21InputDecoder$LT$I$GT$9peek_read17h15c7373ba30f8765E": {
+      "name": "_ZN5uu_od12inputdecoder21InputDecoder$LT$I$GT$9peek_read17h15c7373ba30f8765E",
+      "return_type": [
+        "struct",
+        25
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4Args14collect_ignore17h6c749d9347c7e8d2E": {
+      "name": "_ZN6uucore4Args14collect_ignore17h6c749d9347c7e8d2E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17h2dfbb914521bf3e6E": {
+      "name": "_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17h2dfbb914521bf3e6E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h40df76d8836e0b79E": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h40df76d8836e0b79E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h8d595f7286eec3fbE": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h8d595f7286eec3fbE",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h6c8deafb5c067f9dE": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h6c8deafb5c067f9dE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io5impls69_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$$u5b$u8$u5d$$GT$5write17hfda19f7f2bf76fb5E": {
+      "name": "_ZN3std2io5impls69_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$$u5b$u8$u5d$$GT$5write17hfda19f7f2bf76fb5E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h5a076726952885c5E": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h5a076726952885c5E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od10peekreader19PeekReader$LT$R$GT$19write_to_tempbuffer17h4611bd3540c7d609E": {
+      "name": "_ZN5uu_od10peekreader19PeekReader$LT$R$GT$19write_to_tempbuffer17h4611bd3540c7d609E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od10peekreader19PeekReader$LT$R$GT$20read_from_tempbuffer17h158749acb80b7ce3E": {
+      "name": "_ZN5uu_od10peekreader19PeekReader$LT$R$GT$20read_from_tempbuffer17h158749acb80b7ce3E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN86_$LT$uu_od..peekreader..PeekReader$LT$R$GT$$u20$as$u20$uu_od..peekreader..PeekRead$GT$9peek_read17h4ebaa1be718ea78eE": {
+      "name": "_ZN86_$LT$uu_od..peekreader..PeekReader$LT$R$GT$$u20$as$u20$uu_od..peekreader..PeekRead$GT$9peek_read17h4ebaa1be718ea78eE",
+      "return_type": [
+        "Result",
+        17
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc4d5cde4b690c154E": {
+      "name": "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc4d5cde4b690c154E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h78f1a570128a1ff3E": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h78f1a570128a1ff3E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h96ad35f07847f11dE": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h96ad35f07847f11dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_od6uumain17h81e1601eeca3cbbaE": {
+      "name": "_ZN5uu_od6uumain17h81e1601eeca3cbbaE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od6uumain6uumain17hd9531e2380c970fcE": {
+      "name": "_ZN5uu_od6uumain6uumain17hd9531e2380c970fcE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h1c962bd1b88deb3cE": {
+      "name": "_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h1c962bd1b88deb3cE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
+      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
+      "return_type": [
+        "primitive",
+        1
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command20try_get_matches_from17hd12027f76159d4b7E": {
+      "name": "_ZN12clap_builder7builder7command7Command20try_get_matches_from17hd12027f76159d4b7E",
+      "return_type": [
+        "Result",
+        57
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5alloc18handle_alloc_error17h3816d26e7f8ae8a1E": {
+      "name": "_ZN5alloc5alloc18handle_alloc_error17h3816d26e7f8ae8a1E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str8converts9from_utf817ha1effb4cca6d9901E": {
+      "name": "_ZN4core3str8converts9from_utf817ha1effb4cca6d9901E",
+      "return_type": [
+        "Result",
+        17
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str16slice_error_fail17h5dbb61534404fe7eE": {
+      "name": "_ZN4core3str16slice_error_fail17h5dbb61534404fe7eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3num59_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u8$GT$8from_str17h4c7dd843d3d7bcf1E": {
+      "name": "_ZN4core3num59_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u8$GT$8from_str17h4c7dd843d3d7bcf1E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3num21_$LT$impl$u20$u64$GT$14from_str_radix17h99ae39453f343bd7E": {
+      "name": "_ZN4core3num21_$LT$impl$u20$u64$GT$14from_str_radix17h99ae39453f343bd7E",
+      "return_type": [
+        "Result",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core9panicking11panic_const23panic_const_div_by_zero17haded503194f0bf6eE": {
+      "name": "_ZN4core9panicking11panic_const23panic_const_div_by_zero17haded503194f0bf6eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h9246b1d1945ea5ddE": {
+      "name": "_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h9246b1d1945ea5ddE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg10value_name17hf04d8fd04594ffa1E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg10value_name17hf04d8fd04594ffa1E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg21default_missing_value17h61d700cb9e1e17e3E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg21default_missing_value17h61d700cb9e1e17e3E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4help17h526a7c98ea600f1bE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4help17h526a7c98ea600f1bE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4long17h9e982e05d1967df1E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4long17h9e982e05d1967df1E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg5short17h979ed91ff0c4a334E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg5short17h979ed91ff0c4a334E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg6action17hf94e6b04f9335b82E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg6action17hf94e6b04f9335b82E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg8num_args17h394c78398f130568E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg8num_args17h394c78398f130568E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg8num_args17h4f7823f969f44fd2E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg8num_args17h4f7823f969f44fd2E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17hc22922308bfda6bfE": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17hc22922308bfda6bfE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6060708d4774fdb0E": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6060708d4774fdb0E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17ha029c3acdf37c34fE": {
+      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17ha029c3acdf37c34fE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h35da95ead3d0349fE": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h35da95ead3d0349fE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5alloc6Global10alloc_impl17hf61749d460433fffE": {
+      "name": "_ZN5alloc5alloc6Global10alloc_impl17hf61749d460433fffE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h222a7a04b251eb66E": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h222a7a04b251eb66E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hc7941fd67a47c62aE": {
+      "name": "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hc7941fd67a47c62aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf4e96e50d1a7b5efE": {
+      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf4e96e50d1a7b5efE",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_od9OdOptions3new17h0c238bf8480e2d7eE": {
+      "name": "_ZN5uu_od9OdOptions3new17h0c238bf8480e2d7eE",
+      "return_type": [
+        "Result",
+        100
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od9OdOptions3new28_$u7b$$u7b$closure$u7d$$u7d$17ha7a222c74d8e7c97E": {
+      "name": "_ZN5uu_od9OdOptions3new28_$u7b$$u7b$closure$u7d$$u7d$17ha7a222c74d8e7c97E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od6uu_app17hbbddbed21fc2c7d3E": {
+      "name": "_ZN5uu_od6uu_app17hbbddbed21fc2c7d3E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_od11print_bytes17h4e490ef4abfc23edE": {
+      "name": "_ZN5uu_od11print_bytes17h4e490ef4abfc23edE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od22open_input_peek_reader17h114ec616b3c82f88E": {
+      "name": "_ZN5uu_od22open_input_peek_reader17h114ec616b3c82f88E",
+      "return_type": [
+        "struct",
+        48
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od20format_error_message17h954b3c00e83b3e7fE": {
+      "name": "_ZN5uu_od20format_error_message17h954b3c00e83b3e7fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str11validations15next_code_point17h6c42fc7883874c6bE": {
+      "name": "_ZN4core3str11validations15next_code_point17h6c42fc7883874c6bE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E": {
+      "name": "_ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdb693d9c78fd2861E": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdb693d9c78fd2861E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc6string6String4push17h859ae11851fd8b8eE": {
+      "name": "_ZN5alloc6string6String4push17h859ae11851fd8b8eE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h7ba654970d2c1b3eE": {
+      "name": "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h7ba654970d2c1b3eE",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc19b1af496d38725E": {
+      "name": "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc19b1af496d38725E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he4c1fcebcd2dfb60E": {
+      "name": "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he4c1fcebcd2dfb60E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hb9a07d8be83b1a58E": {
+      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hb9a07d8be83b1a58E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h599d6995f23da721E": {
+      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h599d6995f23da721E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_od13parse_formats30od_argument_traditional_format17h14da6a638cd1f622E": {
+      "name": "_ZN5uu_od13parse_formats30od_argument_traditional_format17h14da6a638cd1f622E",
+      "return_type": [
+        "Option",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od13parse_formats14od_format_type17h6c27c20666861ca9E": {
+      "name": "_ZN5uu_od13parse_formats14od_format_type17h6c27c20666861ca9E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_od13parse_formats18parse_format_flags17h9e51e9c420287b95E": {
+      "name": "_ZN5uu_od13parse_formats18parse_format_flags17h9e51e9c420287b95E",
+      "return_type": [
+        "Result",
+        25
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od13parse_formats19is_format_size_char17h42f5b1cb8010d6ddE": {
+      "name": "_ZN5uu_od13parse_formats19is_format_size_char17h42f5b1cb8010d6ddE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od13parse_formats22is_format_size_decimal17h9f07da48a23fad4fE": {
+      "name": "_ZN5uu_od13parse_formats22is_format_size_decimal17h9f07da48a23fad4fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od13parse_formats17parse_type_string17hb4158195487ebdc3E": {
+      "name": "_ZN5uu_od13parse_formats17parse_type_string17hb4158195487ebdc3E",
+      "return_type": [
+        "Result",
+        26
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od13parse_formats17parse_type_string28_$u7b$$u7b$closure$u7d$$u7d$17hc6dc8de7beca6039E": {
+      "name": "_ZN5uu_od13parse_formats17parse_type_string28_$u7b$$u7b$closure$u7d$$u7d$17hc6dc8de7beca6039E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od13parse_formats17parse_type_string28_$u7b$$u7b$closure$u7d$$u7d$17h65fc53be62888ca5E": {
+      "name": "_ZN5uu_od13parse_formats17parse_type_string28_$u7b$$u7b$closure$u7d$$u7d$17h65fc53be62888ca5E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od13parse_formats17parse_type_string28_$u7b$$u7b$closure$u7d$$u7d$17hc6eb34f6de81c0faE": {
+      "name": "_ZN5uu_od13parse_formats17parse_type_string28_$u7b$$u7b$closure$u7d$$u7d$17hc6eb34f6de81c0faE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17h0b0ac924be580ac1E": {
+      "name": "_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17h0b0ac924be580ac1E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h5ed5aa81710c39daE": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h5ed5aa81710c39daE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hb14b84f6cf57ce91E": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hb14b84f6cf57ce91E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17h149a636de8e4d748E": {
+      "name": "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17h149a636de8e4d748E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h20a08bdd9390469fE": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h20a08bdd9390469fE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h6da545f9e2e553ecE": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h6da545f9e2e553ecE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h73fb87aa3d563877E": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h73fb87aa3d563877E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hff0e80f7eaa39b66E": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hff0e80f7eaa39b66E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN107_$LT$uucore..parser..shortcut_value_parser..ShortcutValueParser$u20$as$u20$core..convert..From$LT$I$GT$$GT$4from17h5e92bc9db343bff7E": {
+      "name": "_ZN107_$LT$uucore..parser..shortcut_value_parser..ShortcutValueParser$u20$as$u20$core..convert..From$LT$I$GT$$GT$4from17h5e92bc9db343bff7E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h1d26d5e9f1693520E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h1d26d5e9f1693520E",
+      "return_type": [
+        "Result",
+        41
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od11inputoffset11InputOffset18format_byte_offset17hff6b546ad3ee8d97E": {
+      "name": "_ZN5uu_od11inputoffset11InputOffset18format_byte_offset17hff6b546ad3ee8d97E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od11inputoffset11InputOffset18print_final_offset17hf1e2d1b178ccd553E": {
+      "name": "_ZN5uu_od11inputoffset11InputOffset18print_final_offset17hf1e2d1b178ccd553E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int16format_item_oct817hd91785084b8a9d0aE.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int16format_item_oct817hd91785084b8a9d0aE.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int17format_item_oct1617h963ec640cff094caE.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int17format_item_oct1617h963ec640cff094caE.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int17format_item_oct3217hd2f6d38c4fcbc2caE.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int17format_item_oct3217hd2f6d38c4fcbc2caE.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int17format_item_oct6417h17aac2e77287140bE.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int17format_item_oct6417h17aac2e77287140bE.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int16format_item_hex817h5849028187c6df88E.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int16format_item_hex817h5849028187c6df88E.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int17format_item_hex1617h675ecab21f6b53e4E.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int17format_item_hex1617h675ecab21f6b53e4E.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int17format_item_hex3217hd995f66e724ca0ddE.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int17format_item_hex3217hd995f66e724ca0ddE.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int17format_item_hex6417h788cca31d31f5d05E.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int17format_item_hex6417h788cca31d31f5d05E.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int18format_item_dec_u817ha59345230c49b8dbE.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int18format_item_dec_u817ha59345230c49b8dbE.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int19format_item_dec_u1617hf23ff983df810494E.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int19format_item_dec_u1617hf23ff983df810494E.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int19format_item_dec_u3217hc8910bf875c8c6a7E.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int19format_item_dec_u3217hc8910bf875c8c6a7E.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int19format_item_dec_u6417h6fce45ddf31373f9E.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int19format_item_dec_u6417h6fce45ddf31373f9E.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int18format_item_dec_s817hb892acee55e2d4c6E.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int18format_item_dec_s817hb892acee55e2d4c6E.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int19format_item_dec_s1617h362ca123fb194cf7E.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int19format_item_dec_s1617h362ca123fb194cf7E.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          2
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int19format_item_dec_s3217hf79fdb8ff519490cE.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int19format_item_dec_s3217hf79fdb8ff519490cE.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_od7prn_int19format_item_dec_s6417hb7841811c78a1efaE.llvm.6994087982725259584": {
+      "name": "_ZN5uu_od7prn_int19format_item_dec_s6417hb7841811c78a1efaE.llvm.6994087982725259584",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h009cf0e4b0406a7eE": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h009cf0e4b0406a7eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg10value_hint17hde7c948aedfb35d8E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg10value_hint17hde7c948aedfb35d8E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg12value_parser17h528a5cc439739288E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg12value_parser17h528a5cc439739288E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg3new17h3ee8def6fb85f401E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg3new17h3ee8def6fb85f401E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17ha0adff11cdf1efa4E": {
+      "name": "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17ha0adff11cdf1efa4E",
+      "return_type": [
+        "struct",
+        44
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17hdd333a46d728f0dcE": {
+      "name": "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17hdd333a46d728f0dcE",
+      "return_type": [
+        "struct",
+        48
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h3d479bbd9c610d76E": {
+      "name": "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h3d479bbd9c610d76E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hef5220248dbc45bbE": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hef5220248dbc45bbE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_od12parse_inputs12parse_inputs17h38cbe1382e5c3650E": {
+      "name": "_ZN5uu_od12parse_inputs12parse_inputs17h38cbe1382e5c3650E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od12parse_inputs24parse_inputs_traditional17h2788ba0cc89acb8cE": {
+      "name": "_ZN5uu_od12parse_inputs24parse_inputs_traditional17h2788ba0cc89acb8cE",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od12parse_inputs20parse_offset_operand17h71d36fc2ef6ee229E": {
+      "name": "_ZN5uu_od12parse_inputs20parse_offset_operand17h71d36fc2ef6ee229E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$char$GT$$GT$9from_iter17hb93a52d6c1b4019eE": {
+      "name": "_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$char$GT$$GT$9from_iter17hb93a52d6c1b4019eE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10std_detect6detect5cache4test17h15354216764ae092E": {
+      "name": "_ZN10std_detect6detect5cache4test17h15354216764ae092E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4half8binary164arch19f16_to_f64_fallback17h99c57f7b07aa0fd1E": {
+      "name": "_ZN4half8binary164arch19f16_to_f64_fallback17h99c57f7b07aa0fd1E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4half8binary164arch3x8619f16_to_f32_x86_f16c17hae4e4afa5bc8fbe3E": {
+      "name": "_ZN4half8binary164arch3x8619f16_to_f32_x86_f16c17hae4e4afa5bc8fbe3E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN4half8binary164arch3x8619f32_to_f16_x86_f16c17h664ec704d55f7139E": {
+      "name": "_ZN4half8binary164arch3x8619f32_to_f16_x86_f16c17h664ec704d55f7139E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5c6cac41b0728315E": {
+      "name": "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5c6cac41b0728315E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od9prn_float17format_item_flo1617hec403f238da07cb9E.llvm.13072642883736753861": {
+      "name": "_ZN5uu_od9prn_float17format_item_flo1617hec403f238da07cb9E.llvm.13072642883736753861",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_od9prn_float17format_item_flo3217h11ffc10f1bd70a14E.llvm.13072642883736753861": {
+      "name": "_ZN5uu_od9prn_float17format_item_flo3217h11ffc10f1bd70a14E.llvm.13072642883736753861",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_od9prn_float17format_item_flo6417h6af7f51f8054935cE.llvm.13072642883736753861": {
+      "name": "_ZN5uu_od9prn_float17format_item_flo6417h6af7f51f8054935cE.llvm.13072642883736753861",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_od9prn_float12format_flo1617hd8d34214ac1f2229E": {
+      "name": "_ZN5uu_od9prn_float12format_flo1617hd8d34214ac1f2229E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_od9prn_float12format_flo3217h9997a42b85d61a4bE": {
+      "name": "_ZN5uu_od9prn_float12format_flo3217h9997a42b85d61a4bE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_od9prn_float12format_flo6417h9324c3c6da2cf7ceE": {
+      "name": "_ZN5uu_od9prn_float12format_flo6417h9324c3c6da2cf7ceE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_od9prn_float12format_float17h341a0cfde1a47520E": {
+      "name": "_ZN5uu_od9prn_float12format_float17h341a0cfde1a47520E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacde45113f50203eE": {
+      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacde45113f50203eE",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_od8prn_char13format_item_a17h8571f28fca42a1f6E.llvm.2413193166722088455": {
+      "name": "_ZN5uu_od8prn_char13format_item_a17h8571f28fca42a1f6E.llvm.2413193166722088455",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_od8prn_char13format_item_c17hbeff54a2c941035dE.llvm.2413193166722088455": {
+      "name": "_ZN5uu_od8prn_char13format_item_c17hbeff54a2c941035dE.llvm.2413193166722088455",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od8prn_char17format_ascii_dump17h253c6e9b0061c235E": {
+      "name": "_ZN5uu_od8prn_char17format_ascii_dump17h253c6e9b0061c235E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command10after_help17hc9918c962e97ccb9E": {
+      "name": "_ZN12clap_builder7builder7command7Command10after_help17hc9918c962e97ccb9E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command14override_usage17h053935d0df82dda4E": {
+      "name": "_ZN12clap_builder7builder7command7Command14override_usage17h053935d0df82dda4E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3arg17hc3213052d83c3ed0E": {
+      "name": "_ZN12clap_builder7builder7command7Command3arg17hc3213052d83c3ed0E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3new17h47430efafb217caaE": {
+      "name": "_ZN12clap_builder7builder7command7Command3new17h47430efafb217caaE",
+      "return_type": [
+        "struct",
+        437
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command5about17h9feb1943aebb1d3fE": {
+      "name": "_ZN12clap_builder7builder7command7Command5about17h9feb1943aebb1d3fE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command7version17h563b12925e352954E": {
+      "name": "_ZN12clap_builder7builder7command7Command7version17h563b12925e352954E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4File4open17h35a119a0b35fa654E": {
+      "name": "_ZN3std2fs4File4open17h35a119a0b35fa654E",
+      "return_type": [
+        "Result",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h22131294aa53784eE": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h22131294aa53784eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h76e6865e403783a0E": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h76e6865e403783a0E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od15multifilereader15MultifileReader3new17h9647a60ecaa9b78dE": {
+      "name": "_ZN5uu_od15multifilereader15MultifileReader3new17h9647a60ecaa9b78dE",
+      "return_type": [
+        "struct",
+        48
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od15multifilereader15MultifileReader9next_file17h7ce1d576af53818dE": {
+      "name": "_ZN5uu_od15multifilereader15MultifileReader9next_file17h7ce1d576af53818dE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": []
+    },
+    "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3f1d93ee7475dcc4E": {
+      "name": "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3f1d93ee7475dcc4E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str11validations23next_code_point_reverse17hff7c38eb44570652E": {
+      "name": "_ZN4core3str11validations23next_code_point_reverse17hff7c38eb44570652E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hccefea64a1916a27E": {
+      "name": "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hccefea64a1916a27E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5slice4hack8into_vec17h371cf1993c745829E": {
+      "name": "_ZN5alloc5slice4hack8into_vec17h371cf1993c745829E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h85777a6afadc140aE": {
+      "name": "_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h85777a6afadc140aE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h805a03118b26e41eE": {
+      "name": "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h805a03118b26e41eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17he44ce7238773bbb8E": {
+      "name": "_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17he44ce7238773bbb8E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0450dff97e96928eE": {
+      "name": "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0450dff97e96928eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h083cd14a218276beE": {
+      "name": "_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h083cd14a218276beE",
+      "return_type": [
+        "primitive",
+        2
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217habec7fb2f414f2e9E": {
+      "name": "_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217habec7fb2f414f2e9E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hd7b11af3bfea982fE": {
+      "name": "_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hd7b11af3bfea982fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617hab4b8969433a088dE": {
+      "name": "_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617hab4b8969433a088dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217hc43338f212540fbcE": {
+      "name": "_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217hc43338f212540fbcE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417h313bb306d5e0a55eE": {
+      "name": "_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417h313bb306d5e0a55eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h903e90235b75c4dbE": {
+      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h903e90235b75c4dbE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od12inputdecoder13MemoryDecoder15zero_out_buffer17h21e27e94246f42e6E": {
+      "name": "_ZN5uu_od12inputdecoder13MemoryDecoder15zero_out_buffer17h21e27e94246f42e6E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od12inputdecoder13MemoryDecoder12clone_buffer17hf45ff84df60b2968E": {
+      "name": "_ZN5uu_od12inputdecoder13MemoryDecoder12clone_buffer17hf45ff84df60b2968E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od12inputdecoder13MemoryDecoder10get_buffer17he5dd43e20733f426E": {
+      "name": "_ZN5uu_od12inputdecoder13MemoryDecoder10get_buffer17he5dd43e20733f426E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od12inputdecoder13MemoryDecoder15get_full_buffer17hbd44b98530cf6814E": {
+      "name": "_ZN5uu_od12inputdecoder13MemoryDecoder15get_full_buffer17hbd44b98530cf6814E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h33796a139b376ce0E": {
+      "name": "_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h33796a139b376ce0E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od12inputdecoder13MemoryDecoder10read_float17hb631d528abcb6236E": {
+      "name": "_ZN5uu_od12inputdecoder13MemoryDecoder10read_float17hb631d528abcb6236E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od11output_info10OutputInfo3new17hafb4075cd97b7856E": {
+      "name": "_ZN5uu_od11output_info10OutputInfo3new17hafb4075cd97b7856E",
+      "return_type": [
+        "struct",
+        25
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN5uu_od11output_info10OutputInfo28create_spaced_formatter_info17h79701a83eb03afe1E": {
+      "name": "_ZN5uu_od11output_info10OutputInfo28create_spaced_formatter_info17h79701a83eb03afe1E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od11output_info10OutputInfo19calculate_alignment17ha011183b33bb66dcE": {
+      "name": "_ZN5uu_od11output_info10OutputInfo19calculate_alignment17ha011183b33bb66dcE",
+      "return_type": [
+        "struct",
+        64
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od12byteorder_io9ByteOrder8read_f3217hdad6667c13a77c60E": {
+      "name": "_ZN5uu_od12byteorder_io9ByteOrder8read_f3217hdad6667c13a77c60E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_od12byteorder_io9ByteOrder8read_f6417hf4139851335640abE": {
+      "name": "_ZN5uu_od12byteorder_io9ByteOrder8read_f6417hf4139851335640abE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error121_$LT$impl$u20$core..convert..From$LT$i32$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h0b17f6d5d891df77E": {
+      "name": "_ZN6uucore4mods5error121_$LT$impl$u20$core..convert..From$LT$i32$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h0b17f6d5d891df77E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE": {
+      "name": "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
+      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
+      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore6parser10parse_size14parse_size_u6417h6825c2c9656edafaE": {
+      "name": "_ZN6uucore6parser10parse_size14parse_size_u6417h6825c2c9656edafaE",
+      "return_type": [
+        "Option",
+        33
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12value_source17h1b5412f9501eb404E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12value_source17h1b5412f9501eb404E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

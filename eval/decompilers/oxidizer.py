@@ -12,5 +12,5 @@ def _extract_function_body(output):
     return "\n".join(body)
 
 
-def oxidizer_dec(binary_path, function_list, cache_dir, cache_only=False):
-    return _angr_dec_base(binary_path, function_list, cache_dir, _extract_function_body, True, cache_only)
+def oxidizer_dec(binary_path, function_list, cache_only=False):
+    return _angr_dec_base(binary_path, function_list, _extract_function_body, True, cache_only)

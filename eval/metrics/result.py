@@ -15,9 +15,11 @@ NUM_PTR_DEREF = "# Pointer dereference"
 NUM_ASSIGNMENTS = "# Assignments"
 NUM_WHILES = "# While Loops"
 NUM_GOTOS = "# Gotos"
-NUM_CALL_COUNTS = "# Calls"
+NUM_FUNCTION_CALL_COUNTS = "# Function Calls"
+NUM_NODE_COUNTS = "# Basic Blocks"
+NUM_OPERATORS = "# Operators"
 # METRICS = (LOC, NUM_VARIABLES, NUM_PTR_DEREF, NUM_ASSIGNMENTS, NUM_WHILES, NUM_GOTOS)
-METRICS = (LOC, NUM_VARIABLES, NUM_ASSIGNMENTS, NUM_GOTOS, NUM_CALL_COUNTS)
+METRICS = (LOC, NUM_GOTOS, NUM_NODE_COUNTS, NUM_VARIABLES, NUM_OPERATORS)
 
 
 class FunctionEvalResult:
@@ -46,6 +48,12 @@ class FunctionEvalResult:
 
     def add_num_call_counts(self, decompiler, value):
         self.eval_result[NUM_CALL_COUNTS][decompiler] = value
+
+    def add_num_node_counts(self, decompiler, value):
+        self.eval_result[NUM_NODE_COUNTS][decompiler] = value
+
+    def add_num_operators(self, decompiler, value):
+        self.eval_result[NUM_OPERATORS][decompiler] = value
 
     @staticmethod
     def merge(results):
@@ -88,6 +96,7 @@ class BinaryEvalResult:
         pairs = []
         for func_name in function_list:
             pairs.append((self.ground_truth_prototypes[func_name], self.inferred_prototypes[func_name]))
+        pprint(pairs)
         return pairs
 
     def __str__(self) -> str:

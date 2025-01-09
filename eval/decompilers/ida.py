@@ -7,10 +7,15 @@ from .util import *
 
 
 def _extract_function_body(output):
+    non_empty_lines = []
     body = ""
     for idx, line in enumerate(output):
+        if line != "\n":
+            non_empty_lines.append(line)
+        else:
+            non_empty_lines = []
         if body == "" and line.endswith(")\n") and len(output) > idx + 1 and output[idx + 1].endswith("{\n"):
-            body = line
+            body = "".join(non_empty_lines[1:])
             continue
         elif len(body):
             body += line
@@ -19,17 +24,24 @@ def _extract_function_body(output):
     return body
 
 
-def ida_dec(binary_path, function_list, cache_dir, cache_only=False):
+def ida_dec(binary_path, function_list, cache_only=False):
     assert os.path.exists(binary_path)
 
     function_list = list(function_list)
-    decompilation_result = {}
-    call_counts_result = {}
+    result = {
+        "decompilation": {},
+        "function_call_counts": {},
+        "macro_call_counts": {},
+        "node_counts": {},
+        "prototypes": {},
+    }
 
-    for func_name in list(function_list):
-        cached_output = load_cached_output(cache_dir, func_name)
-        if cached_output:
-            decompilation_result[func_name] = cached_output
+    bin_name = os.path.basename(binary_path)
+    cached_result = load_cached_result("ida", bin_name)
+    if cached_result:
+        result = cached_result
+    for func_name in result["decompilation"]:
+        if func_name in function_list:
             function_list.remove(func_name)
 
     if function_list and not cache_only:
@@ -44,36 +56,24 @@ def ida_dec(binary_path, function_list, cache_dir, cache_only=False):
                 os.remove(output_path)
                 output = _extract_function_body(output)
                 if output:
-                    save_output(cache_dir, func_name, output)
-                    decompilation_result[func_name] = output
+                    result["decompilation"][func_name] = output
+                    result["macro_call_counts"][func_name] = 0
+                    result["node_counts"][func_name] = 0
 
-    # Collect call counts
-    function_list = list(decompilation_result.keys())
-    # Load cache
-    for func_name in list(function_list):
-        cached_call_counts_output = load_cached_call_counts_output(cache_dir, func_name)
-        if cached_call_counts_output:
-            call_counts_result[func_name] = cached_call_counts_output
-            function_list.remove(func_name)
-
-    if function_list and not cache_only:
-        cmd = f"{IDA_PATH} -A -Ohexrays:ida_main:main -S{os.path.abspath(os.path.join(IDA_SCRIPTS_PATH, 'call_counts.py'))} {os.path.abspath(binary_path)}"
-        subprocess.run(cmd.split())
-        try:
-            os.remove("ida_main.c")
-        except:
-            pass
-        call_counts_output_path = f"CALL_COUNTS_{os.path.basename(binary_path)}.json"
-        if os.path.exists(call_counts_output_path):
-            with open(call_counts_output_path, "r") as fd:
-                counts = json.load(fd)
+            cmd = f"{IDA_PATH} -A -Ohexrays:ida_main:main -S{os.path.abspath(os.path.join(IDA_SCRIPTS_PATH, 'call_counts.py'))} {os.path.abspath(binary_path)}"
+            subprocess.run(cmd.split())
             try:
-                os.remove(call_counts_output_path)
+                os.remove("ida_main.c")
             except:
                 pass
-            for func_name in function_list:
-                if func_name in counts:
-                    call_counts_output = json.dumps(counts[func_name])
-                    call_counts_result[func_name] = call_counts_output
-                    save_call_counts_output(cache_dir, func_name, call_counts_output)
-    return decompilation_result, call_counts_result
+            call_counts_output_path = f"CALL_COUNTS_{os.path.basename(binary_path)}.json"
+            if os.path.exists(call_counts_output_path):
+                with open(call_counts_output_path, "r") as fd:
+                    counts = json.load(fd)
+                try:
+                    os.remove(call_counts_output_path)
+                except:
+                    pass
+                result["function_call_counts"] = dict(counts)
+        save_result("ida", bin_name, result)
+    return result

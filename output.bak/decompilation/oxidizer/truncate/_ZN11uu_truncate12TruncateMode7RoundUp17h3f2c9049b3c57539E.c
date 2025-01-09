@@ -1,0 +1,3 @@
+fn uu_truncate::TruncateMode::RoundUp(a0: u32) -> u64 {
+    return 6;
+}

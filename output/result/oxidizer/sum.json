@@ -1,0 +1,645 @@
+{
+  "decompilation": {
+    "_ZN6uu_sum6uumain17hcd014ba32d68c97eE": "fn uu_sum::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0xa8]\n    let v1: u64;  // [sp-0x98]\n    let v2: u64;  // [sp-0x90]\n    let v3: &&struct_1;  // [sp-0x88]\n    let v4: u64;  // [sp-0x80]\n    let v5: void*;  // [sp-0x78]\n    let v6: u64;  // [sp-0x68]\n    let v7: &u64;  // [sp-0x60]\n    let v8: &u8;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: u64;  // [sp-0x38]\n    let v11: i8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v14: u64;  // rax\n    let v15: &u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v14 = uu_sum::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_413f50;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    core::option::Option<T>::map_or_else();\n    *(&v8 as &i8) = v11;\n    v10 = v12;\n    if v8 == \"\" {\n        v6 = uucore::util_name();\n        v7 = v15;\n        eprint!(\"{}: \", &v6);\n        eprintln!(\"{}\", &v8);\n    }\n    if !v15[13]() {\n        return v15[12]();\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v15;\n    eprintln!(\"Try '{} --help' for more information.\", &v6);\n}\n",
+    "_ZN6uu_sum6uu_app17hbdfcd560e86e61faE": "fn uu_sum::uu_app(a0: &struct712) -> u64 {\n    let v0: i5696;  // [sp-0x7f8], Other Possible Types: struct592, struct712\n    let v1: i32;  // [sp-0x5b0]\n    let v2: i32;  // [sp-0x5ac]\n    let v3: i4736;  // [sp-0x530], Other Possible Types: struct592, struct24\n    let v4: i5696;  // [sp-0x2e0], Other Possible Types: struct592, struct712, struct437\n    let v5: i64;  // [sp-0x24]\n    let v6: i32;  // [sp-0x1c]\n    let v8: i64;  // rdx\n\n    v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v8);\n    v0 = clap_builder::builder::command::Command::version(&v4, \"0.0.28\");\n    v3 = uucore::format_usage(\"{} [OPTION]... [FILE]...\");\n    v4 = clap_builder::builder::command::Command::override_usage(&v0, &v3);\n    v0 = clap_builder::builder::command::Command::about(&v4, \"Checksum and count the blocks in a file.\\n\\nWith no FILE, or when FILE is -, read standard input.\");\n    memcpy(&v4, &v0, 700);\n    v5 = 549755814016 | *((&v0 as &char + 700) as &i64);\n    v6 = *((&v0 as &char + 708) as &i32);\n    v0 = clap_builder::builder::arg::Arg::new(\"file\");\n    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x1);\n    memcpy(&v0, &v3, 584);\n    v1 = *((&v3 as &char + 584) as &i32) | 4;\n    v2 = *((&v3 as &char + 588) as &i32);\n    v3 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v3);\n    v4 = clap_builder::builder::arg::Arg::new(\"r\");\n    v3 = clap_builder::builder::arg::Arg::short(&v4, 0x72);\n    v4 = clap_builder::builder::arg::Arg::help(&v3, \"use the BSD sum algorithm, use 1K blocks (default)\");\n    v3 = clap_builder::builder::arg::Arg::action(&v4, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v3);\n    v0 = clap_builder::builder::arg::Arg::new(\"sysv\");\n    v3 = clap_builder::builder::arg::Arg::short(&v0, 0x73);\n    v0 = clap_builder::builder::arg::Arg::long(&v3);\n    v3 = clap_builder::builder::arg::Arg::help(&v0, \"use System V sum algorithm, use 512 bytes blocks\");\n    v0 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    clap_builder::builder::command::Command::arg(a0, &v4, &v0);\n    return a0;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN6uu_sum6uumain17hcd014ba32d68c97eE": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_sum::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN6uu_sum6uu_app17hbdfcd560e86e61faE": {
+      "clap_builder::builder::command::Command::arg": 3,
+      "clap_builder::builder::arg::Arg::action": 3,
+      "clap_builder::builder::arg::Arg::help": 2,
+      "clap_builder::builder::arg::Arg::long": 1,
+      "clap_builder::builder::arg::Arg::short": 2,
+      "clap_builder::builder::arg::Arg::new": 3,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "memcpy": 2,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN6uu_sum6uumain17hcd014ba32d68c97eE": {
+      "eprintln": 2,
+      "eprint": 1
+    },
+    "_ZN6uu_sum6uu_app17hbdfcd560e86e61faE": {}
+  },
+  "node_counts": {
+    "_ZN6uu_sum6uumain17hcd014ba32d68c97eE": 9,
+    "_ZN6uu_sum6uu_app17hbdfcd560e86e61faE": 23
+  },
+  "prototypes": {
+    "_ZN5alloc5slice4hack8into_vec17h11f95d209dbce12aE": {
+      "name": "_ZN5alloc5slice4hack8into_vec17h11f95d209dbce12aE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd417ab4e14c6efefE": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd417ab4e14c6efefE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h8411335ddc2e2dacE": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h8411335ddc2e2dacE",
+      "return_type": [
+        "struct",
+        56
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h7bb4a4ed4c02a1a0E": {
+      "name": "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h7bb4a4ed4c02a1a0E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17hfdb31a146197eb07E": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17hfdb31a146197eb07E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4719278f211e34d7E": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4719278f211e34d7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5cbecd347a16c703E": {
+      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h5cbecd347a16c703E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": []
+    },
+    "_ZN5alloc5alloc6Global10alloc_impl17hf61749d460433fffE": {
+      "name": "_ZN5alloc5alloc6Global10alloc_impl17hf61749d460433fffE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN6uu_sum6uumain17hcd014ba32d68c97eE": {
+      "name": "_ZN6uu_sum6uumain17hcd014ba32d68c97eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_sum6uumain6uumain17ha903703fbf1bb802E": {
+      "name": "_ZN6uu_sum6uumain6uumain17ha903703fbf1bb802E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd4670608fe27979E": {
+      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd4670608fe27979E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE.specialized.2": {
+      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE.specialized.2",
+      "return_type": [
+        "primitive",
+        1
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h87f32a93d09a0aa2E": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h87f32a93d09a0aa2E",
+      "return_type": [
+        "struct",
+        64
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std4path4Path6is_dir17h9ac0db933706da51E": {
+      "name": "_ZN3std4path4Path6is_dir17h9ac0db933706da51E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5alloc18handle_alloc_error17h3816d26e7f8ae8a1E": {
+      "name": "_ZN5alloc5alloc18handle_alloc_error17h3816d26e7f8ae8a1E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4help17h1386c016a01bc406E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4help17h1386c016a01bc406E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4long17ha4bc876d2ea83518E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4long17ha4bc876d2ea83518E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg5short17h5bff8bc39b41d2d2E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg5short17h5bff8bc39b41d2d2E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg6action17h138a3d481854f0e9E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg6action17h138a3d481854f0e9E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hffc4471fbb8da2aaE": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hffc4471fbb8da2aaE",
+      "return_type": [
+        "Result",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h820392659395b4d8E": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h820392659395b4d8E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17hbb7787c82d15b868E": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17hbb7787c82d15b868E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h000bc77802a7698aE": {
+      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h000bc77802a7698aE",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN6uu_sum4open17hc6d78e625deb9f03E": {
+      "name": "_ZN6uu_sum4open17hc6d78e625deb9f03E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_sum6uu_app17hbdfcd560e86e61faE": {
+      "name": "_ZN6uu_sum6uu_app17hbdfcd560e86e61faE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": []
+    },
+    "_ZN12clap_builder7builder3arg3Arg10value_hint17hd181bcc601839ad2E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg10value_hint17hd181bcc601839ad2E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg3new17hff157f15b11d8e5fE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg3new17hff157f15b11d8e5fE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command14override_usage17hbab238ce668db690E": {
+      "name": "_ZN12clap_builder7builder7command7Command14override_usage17hbab238ce668db690E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3arg17h09f67cd4a8d99462E": {
+      "name": "_ZN12clap_builder7builder7command7Command3arg17h09f67cd4a8d99462E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3new17h145afba2524775e3E": {
+      "name": "_ZN12clap_builder7builder7command7Command3new17h145afba2524775e3E",
+      "return_type": [
+        "struct",
+        438
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command5about17h0dd67728983a96e6E": {
+      "name": "_ZN12clap_builder7builder7command7Command5about17h0dd67728983a96e6E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command7version17h5aa5f16b54449e9bE": {
+      "name": "_ZN12clap_builder7builder7command7Command7version17h5aa5f16b54449e9bE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4File4open17h2e5b1f9e9ac3c989E": {
+      "name": "_ZN3std2fs4File4open17h2e5b1f9e9ac3c989E",
+      "return_type": [
+        "Result",
+        12
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs8metadata17h8576c1285dae9481E": {
+      "name": "_ZN3std2fs8metadata17h8576c1285dae9481E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf36c24ac2157b89cE": {
+      "name": "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf36c24ac2157b89cE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE": {
+      "name": "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
+      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
+      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E": {
+      "name": "_ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

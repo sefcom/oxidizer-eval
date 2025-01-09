@@ -1,0 +1,1688 @@
+{
+  "decompilation": {
+    "_ZN7uu_shuf6uumain17h0b33dca666a9d647E": "fn uu_shuf::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0xa8]\n    let v1: u64;  // [sp-0x98]\n    let v2: u64;  // [sp-0x90]\n    let v3: &&struct_0;  // [sp-0x88]\n    let v4: u64;  // [sp-0x80]\n    let v5: void*;  // [sp-0x78]\n    let v6: u64;  // [sp-0x68]\n    let v7: &u64;  // [sp-0x60]\n    let v8: &u8;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: u64;  // [sp-0x38]\n    let v11: i8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v14: u64;  // rax\n    let v15: &u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v14 = uu_shuf::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_415c10;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    core::option::Option<T>::map_or_else();\n    *(&v8 as &i8) = v11;\n    v10 = v12;\n    if v8 == \"\" {\n        v6 = uucore::util_name();\n        v7 = v15;\n        eprint!(\"{}: \", &v6);\n        eprintln!(\"{}\", &v8);\n    }\n    if !v15[13]() {\n        return v15[12]();\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v15;\n    eprintln!(\"Try '{} --help' for more information.\", &v6);\n}\n",
+    "_ZN7uu_shuf6uumain6uumain17he0c9c6e9cffa8175E": "fn uu_shuf::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0x4d8], Other Possible Types: struct24, Result<struct16, struct4>, struct8\n    let v1: i64;  // [sp-0x4d0]\n    let v2: i64;  // [sp-0x4c8]\n    let v3: i64;  // [bp-0x4b8], Other Possible Types: struct64, struct24, struct8, Result<struct4, struct8>, Option<Result<struct17, struct24>>\n    let v4: i64;  // [sp-0x4b0]\n    let v5: i64;  // [bp-0x4a8]\n    let v6: i8;  // [bp-0x498]\n    let v7: i8;  // [bp-0x488]\n    let v8: i128;  // [bp-0x478], Other Possible Types: struct16\n    let v9: i64;  // [sp-0x468]\n    let v10: i64;  // [sp-0x458]\n    let v11: i128;  // [sp-0x450], Other Possible Types: struct24\n    let v12: i64;  // [sp-0x440]\n    let v13: i64;  // [bp-0x438]\n    let v14: i64;  // [sp-0x430]\n    let v15: i64;  // [bp-0x428]\n    let v16: i64;  // [sp-0x420]\n    let v17: i128;  // [bp-0x418]\n    let v18: i64;  // [sp-0x410]\n    let v19: i128;  // [bp-0x408]\n    let v20: i8;  // [bp-0x400]\n    let v21: i8;  // [sp-0x3ff]\n    let v22: i64;  // [sp-0x3f0]\n    let v23: i64;  // [sp-0x3e8]\n    let v24: i64;  // [sp-0x3e0]\n    let v25: i128;  // [sp-0x3d8]\n    let v26: i128;  // [sp-0x3c8]\n    let v27: i64;  // [sp-0x3b8]\n    let v28: i8;  // [bp-0x3b0]\n    let v29: struct64;  // [bp-0x398]\n    let v30: struct64;  // [bp-0x358]\n    let v31: i5696;  // [sp-0x318], Other Possible Types: struct24, Result<struct40, struct8>, struct56, struct28, struct712\n    let v32: i64;  // [sp-0x310]\n    let v33: i64;  // [sp-0x308]\n    let v34: i64;  // [bp-0x300]\n    let v35: i64;  // [bp-0x2f8]\n    let v36: i128;  // [sp-0x2e8]\n    let v37: struct24;  // [sp-0x48], Other Possible Types: i192\n    let v39: i64;  // rax\n    let v40: i64;  // rax\n    let v47: i128;  // xmm0\n    let v48: i128;  // xmm1\n    let v49: i128;  // xmm2\n    let v50: struct8;  // rax\n    let v51: struct8;  // rax\n    let v57: i64;  // r15\n    let v58: i8;  // al\n    let v59: i64;  // rax\n    let v60: i8;  // al\n    let v61: i128;  // xmm0\n    let v62: i128;  // xmm1\n    let v64: i64;  // rax\n    let v65: i128;  // xmm0\n    let v66: i128;  // xmm1\n    let v67: i128;  // xmm0\n    let v68: i128;  // xmm1\n\n    v31 = uu_shuf::uu_app();\n    clap_builder::builder::command::Command::try_get_matches_from(&v3, &v31, a0, a1);\n    if v23 == 0x8000000000000000 {\n        v39 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v24);\n        return v39;\n    }\n    v27 = v7;\n    v26 = v6;\n    v25 = v5;\n    v23 = v3;\n    v24 = v4;\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v23, _ZN7uu_shuf7options4ECHO17h4d6a54735092e1a8E, g_537f88) as i8 {\n        v31 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v23, _ZN7uu_shuf7options12FILE_OR_ARGS17h26f429c955b2c591E, g_537ff8);\n        v3 = clap_builder::parser::error::MatchesError::unwrap(_ZN7uu_shuf7options12FILE_OR_ARGS17h26f429c955b2c591E, g_537ff8, &v31);\n        *(&v29.field_0 as &struct64) = struct64 {\n            field_0: v41\n            field_8: v46\n            field_16: v42\n            field_32: v43\n            field_48: v44\n            field_56: v45\n        };\n        v31 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v29);\n        v11 = v31;\n        v10 = 1;\n    } else {\n        v31 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v23, _ZN7uu_shuf7options11INPUT_RANGE17ha18e79953fe11236E, g_537f98);\n        v40 = clap_builder::parser::error::MatchesError::unwrap(_ZN7uu_shuf7options11INPUT_RANGE17ha18e79953fe11236E, g_537f98, &v31);\n        if !v40 {\n            v31 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v23, _ZN7uu_shuf7options12FILE_OR_ARGS17h26f429c955b2c591E, g_537ff8);\n            v3 = clap_builder::parser::error::MatchesError::unwrap(_ZN7uu_shuf7options12FILE_OR_ARGS17h26f429c955b2c591E, g_537ff8, &v31);\n            if !v3 {\n                v13 = core::ops::function::FnOnce::call_once;\n                v14 = &_ZN105_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default5EMPTY17h09c5f4cd0790faa8E;\n                v15 = &_ZN105_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default5EMPTY17h09c5f4cd0790faa8E;\n                v16 = 0;\n                v18 = 0;\n                v20 = 0;\n            } else {\n                v47 = v3;\n                v48 = *((&v3 as &char + 16) as &i128);\n                v49 = *((&v3 as &char + 32) as &i128);\n                v19 = *((&v3 as &char + 48) as &i128);\n                v17 = v49;\n                v15 = v48;\n                v13 = v47;\n            }\n            v50 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next();\n            if !v50 {\n                v0 = 0x8000000000000000;\n            } else {\n                v31 = <alloc::string::String as core::clone::Clone>::clone(v50);\n                v0 = v31;\n            }\n            v31 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"-\");\n            if v0 == 0x8000000000000000 {\n                v9 = v5;\n                v8 = v3;\n            }\n            v51 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next();\n            if v51 {\n                v0 = v51;\n                v3 = &v0;\n                v4 = <&T as core::fmt::Display>::fmt;\n                v31 = struct28 {\n                    field_0: \"unexpected argument '\"\n                    field_16: &v3\n                    field_24: <UNKNOWN>\n                };\n                v35 = 0;\n                v34 = 1;\n                core::option::Option<T>::map_or_else();\n                v31 = v28;\n                alloc::boxed::Box<T>::new(&v31);\n                return v39;\n            }\n            v12 = v9;\n            v11 = v8;\n            v10 = 0;\n        } else {\n            v3 = uu_shuf::parse_range(*((v40 + 8) as &i64), *((v40 + 16) as &i64));\n            if v3 {\n                v31 = *((&v3 as &char + 8) as &i224);\n                alloc::boxed::Box<T>::new(&v31);\n                return v39;\n            }\n            v12 = *((&v3 as &char + 24) as &i64);\n            v11 = *((&v3 as &char + 8) as &i128);\n            v10 = 2;\n        }\n    }\n    v31 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v23, _ZN7uu_shuf7options10HEAD_COUNT17h84a4a88dc7c244fbE, g_537fa8);\n    v3 = clap_builder::parser::error::MatchesError::unwrap(_ZN7uu_shuf7options10HEAD_COUNT17h84a4a88dc7c244fbE, g_537fa8, &v31);\n    *(&v30.field_0 as &struct64) = struct64 {\n        field_0: v52\n        field_8: v4\n        field_16: v53\n        field_32: v54\n        field_48: v55\n        field_56: v56\n    };\n    v37 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v30);\n    v8 = uu_shuf::parse_head_count(&v37);\n    if v8 != 0x8000000000000000 {\n        v31 = v8;\n        alloc::boxed::Box<T>::new(&v31);\n        goto LABEL_470792;\n    }\n    v57 = *((&v8 as &char + 8) as &i64);\n    v31 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v23, _ZN7uu_shuf7options6OUTPUT17he214da8d3d01c4beE, g_537fb8);\n    if !clap_builder::parser::error::MatchesError::unwrap(_ZN7uu_shuf7options6OUTPUT17he214da8d3d01c4beE, g_537fb8, &v31) {\n        v0 = 0x8000000000000000;\n    } else {\n        core::ops::function::FnOnce::call_once();\n        v2 = v33;\n        v0 = v31;\n    }\n    v31 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v23, _ZN7uu_shuf7options13RANDOM_SOURCE17hbe4709ac8bb54b6cE, g_537fc8);\n    if !clap_builder::parser::error::MatchesError::unwrap(_ZN7uu_shuf7options13RANDOM_SOURCE17hbe4709ac8bb54b6cE, g_537fc8, &v31) {\n        v3 = 0x8000000000000000;\n    } else {\n        core::ops::function::FnOnce::call_once();\n        v5 = v33;\n        v3 = v31;\n    }\n    v58 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v23, _ZN7uu_shuf7options15ZERO_TERMINATED17haef6daedf12df78fE, g_537fe8) as i8 ? 0 : 10);\n    v19 = v57;\n    v13 = v0;\n    v15 = v2;\n    v16 = v3;\n    v18 = v5;\n    v20 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v23, _ZN7uu_shuf7options6REPEAT17h860841fa9720eb58E, g_537fd8) as i32;\n    v21 = v58;\n    if v57 {\n        v59 = v10;\n        if v59 {\n            if v59 == 1 {\n                v2 = v12;\n                v0 = v11;\n                v3 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(v1, v1 + v2 * 24);\n                v3 = uu_shuf::find_seps(v21);\n                v65 = v13;\n                v66 = v15;\n                v36 = v19;\n                v35 = *((&v16 as &char + 8) as &i128);\n                v33 = v66;\n                v31 = v65;\n                if uu_shuf::shuf_exec(&v3, &v31) {\nLABEL_470590:\n                    if !v10 {\n                        return v39;\n                    }\n                    return v39;\n                }\n            } else {\n                v5 = v12;\n                v3 = v11;\n                v61 = v13;\n                v62 = v15;\n                v36 = v19;\n                v35 = *((&v16 as &char + 8) as &i128);\n                v33 = v62;\n                v31 = v61;\n                if !uu_shuf::shuf_exec(&v3, &v31) {\n                    return 0;\n                }\nLABEL_470792:\n                goto LABEL_470590;\n            }\n        } else {\n            v9 = v12;\n            v8 = v11;\n            v31 = uu_shuf::read_input_file(*((&v8 as &char + 8) as &i64), v12);\n            if v0 == 0x8000000000000000 {\n                v22 = _ZN7uu_shuf7options13RANDOM_SOURCE17hbe4709ac8bb54b6cE & -0x100 | v0 != 0x8000000000000000;\n                goto LABEL_470a25;\n            }\n            v0 = v31;\n            v64 = alloc::alloc::Global::alloc_impl(8, 16);\n            *(v64 as &i128) = *((&v0 as &char + 8) as &i128);\n            v3 = alloc::slice::hack::into_vec(v64, 1);\n            v3 = uu_shuf::find_seps(v21);\n            v67 = v13;\n            v68 = v15;\n            v36 = v19;\n            v35 = *((&v16 as &char + 8) as &i128);\n            v33 = v68;\n            v31 = v67;\n            if uu_shuf::shuf_exec(&v3, &v31) {\n                v22 = v22;\nLABEL_470a25:\n                v60 = v22;\nLABEL_470a3a:\n                goto LABEL_470792;\n            }\n        }\n        v39 = 0;\n        return 0;\n    } else if v13 == 0x8000000000000000 {\n        v60 = 0;\n        goto LABEL_470a3a;\n    } else {\n        v33 = v15;\n        v31 = v13;\n        v3 = std::fs::File::create(v32, v15);\n        v0 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v3, &v31);\n    }\n}\n",
+    "_ZN7uu_shuf6uu_app17h710a705446bc3bb0E": "fn uu_shuf::uu_app(a0: &struct712) -> u64 {\n    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct24\n    let v1: i4736;  // [sp-0x7f8], Other Possible Types: struct592, struct712, struct437\n    let v2: i64;  // [sp-0x53c]\n    let v3: i32;  // [sp-0x534]\n    let v4: i5696;  // [sp-0x530], Other Possible Types: struct592, struct712\n    let v5: struct592;  // [sp-0x268], Other Possible Types: i4736\n    let v7: i64;  // rdx\n\n    v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v7);\n    v4 = clap_builder::builder::command::Command::about(&v1, \"Shuffle the input by outputting a random permutation of input lines.\\nEach output permutation is equally likely.\\nWith no FILE, or when FILE is -, read standard input.\");\n    v1 = clap_builder::builder::command::Command::version(&v4, \"0.0.28\");\n    v0 = uucore::format_usage(\"{} [OPTION]... [FILE]\\n{} -e [OPTION]... [ARG]...\\n{} -i LO-HI [OPTION]...\");\n    v4 = clap_builder::builder::command::Command::override_usage(&v1, &v0);\n    memcpy(&v1, &v4, 700);\n    v2 = 549755814016 | *((&v4 as &char + 700) as &i64);\n    v3 = *((&v4 as &char + 708) as &i32);\n    v4 = clap_builder::builder::arg::Arg::new(\"echo\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x65);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"echo\");\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"treat each ARG as an input line\");\n    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::arg::Arg::overrides_with(&v4, \"echo\");\n    v5 = clap_builder::builder::arg::Arg::conflicts_with(&v0, \"input-range\");\n    v4 = clap_builder::builder::command::Command::arg(&v1, &v5);\n    v1 = clap_builder::builder::arg::Arg::new(\"input-range\");\n    v0 = clap_builder::builder::arg::Arg::short(&v1, 0x69);\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"input-range\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v1, \"LO-HI\");\n    v1 = clap_builder::builder::arg::Arg::help(&v0, \"treat each number LO through HI as an input line\");\n    v0 = clap_builder::builder::arg::Arg::conflicts_with(&v1, \"file-or-args\");\n    v1 = clap_builder::builder::command::Command::arg(&v4, &v0);\n    v4 = clap_builder::builder::arg::Arg::new(\"head-count\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x6e);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"head-count\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v4, \"COUNT\");\n    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x1);\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"output at most COUNT lines\");\n    v4 = clap_builder::builder::command::Command::arg(&v1, &v0);\n    v1 = clap_builder::builder::arg::Arg::new(\"output\");\n    v0 = clap_builder::builder::arg::Arg::short(&v1, 0x6f);\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"output\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v1, \"FILE\");\n    v1 = clap_builder::builder::arg::Arg::help(&v0, \"write result to FILE instead of standard output\");\n    v0 = clap_builder::builder::arg::Arg::value_hint(&v1, 0x3);\n    v1 = clap_builder::builder::command::Command::arg(&v4, &v0);\n    v4 = clap_builder::builder::arg::Arg::new(\"random-source\");\n    v0 = clap_builder::builder::arg::Arg::long(&v4, \"random-source\");\n    v4 = clap_builder::builder::arg::Arg::value_name(&v0, \"FILE\");\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"get random bytes from FILE\");\n    v5 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    v4 = clap_builder::builder::command::Command::arg(&v1, &v5);\n    v1 = clap_builder::builder::arg::Arg::new(\"repeat\");\n    v0 = clap_builder::builder::arg::Arg::short(&v1, 0x72);\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"repeat\");\n    v0 = clap_builder::builder::arg::Arg::help(&v1, \"output lines can be repeated\");\n    v1 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::arg::Arg::overrides_with(&v1, \"repeat\");\n    v1 = clap_builder::builder::command::Command::arg(&v4, &v0);\n    v4 = clap_builder::builder::arg::Arg::new(\"zero-terminated\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x7a);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"zero-terminated\");\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"line delimiter is NUL, not newline\");\n    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::arg::Arg::overrides_with(&v4, \"zero-terminated\");\n    v4 = clap_builder::builder::command::Command::arg(&v1, &v0);\n    v1 = clap_builder::builder::arg::Arg::new(\"file-or-args\");\n    v0 = clap_builder::builder::arg::Arg::action(&v1, 0x1);\n    v1 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    clap_builder::builder::command::Command::arg(a0, &v4, &v1);\n    return a0;\n}\n",
+    "_ZN7uu_shuf15read_input_file17h39a00d9d5113d201E": "fn uu_shuf::read_input_file(a0: &struct24, a1: u32, a2: u32) -> u64 {\n    let v0: i128;  // [sp-0x80], Other Possible Types: struct16, Result<struct16, struct4>\n    let v1: i64;  // [sp-0x70], Other Possible Types: Result<struct4, struct8>\n    let v2: i64;  // [sp-0x68]\n    let v3: i64;  // [sp-0x60]\n    let v4: struct56;  // [sp-0x58], Other Possible Types: i448\n    let v6: i64;  // rax\n    let v7: i64;  // rcx\n    let v9: i64;  // rcx\n    let v10: i64;  // rdx\n\n    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"-\") as i8 {\n        v6 = alloc::boxed::Box<T>::new(std::io::stdio::stdin());\n        v7 = &g_537c80;\n    } else {\n        v1 = std::fs::File::open(a1, a2);\n        v0 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v1, a1, a2);\n        match v0 {\n            Ok(_) => {\n                v9 = *((&v0 as &char + 8) as &i64);\n                return struct24 {\n                    field_0: 0x8000000000000000\n                    field_8: v8\n                    field_16: v9\n                };\n            },\n            Err(_) => {\n                v6 = alloc::boxed::Box<T>::new(*((&v0 as &char + 8) as &i32) as u32 as u64);\n                v7 = &g_537c28;\n            },\n        }\n    }\n    v4 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, v6, v7);\n    v1 = 0;\n    v2 = 1;\n    v3 = 0;\n    v0 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(<std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read_to_end(&v4, &v1), v10, a1, a2);\n    if !v0 {\n        return struct24 {\n            field_0: v1\n            field_16: v3\n        };\n    }\n}\n",
+    "_ZN7uu_shuf9find_seps17h99b31571ceae9626E": "fn uu_shuf::find_seps(a0: &struct8, a1: u32) -> u64 {\n    let v0: u8;  // [bp-0x68]\n    let v1: u32;  // [sp-0x64]\n    let v2: u64;  // [sp-0x58]\n    let v3: u64;  // [sp-0x50]\n    let v4: u64;  // [sp-0x48]\n    let v5: u64;  // [sp-0x40]\n    let v6: u8;  // [bp-0x38]\n    let v8: u64;  // r14\n    let v9: struct8;  // rax\n    let v10: u64;  // r13\n    let v11: &struct_0;  // 4096\n    let v12: &struct_0;  // rbx\n    let v13: u64;  // r14\n    let v14: &&u8;  // rax\n    let v15: u64;  // r14\n    let v16: u64;  // r13\n    let v17: u64;  // rbp\n    let v18: u64;  // rdx\n    let v19: u64;  // r14\n    let v20: void*;  // r15\n    let v21: u64;  // rdx\n    let v22: &struct_0;  // 4096\n    let v23: u64;  // r13\n\n    v8 = a0[2];\n    if !v8 {\n        return v9;\n    }\n    if v8 == 1 {\n        v9 = a0[1];\n        if !*((v9 + 8) as &i64) {\n            a0[2] = 0;\n            return v9;\n        }\n    }\n    v10 = &v6;\n    v1 = v0;\n    v11 = a0;\n    do {\n        v12 = v11;\n        v13 = <usize as core::iter::range::Step>::backward_unchecked(v8);\n        v14 = v12->field_8;\n        v9 = core::slice::memchr::memchr(v1, v14[2 * v13], v14[1 + 2 * v13]);\n        v15 = v13;\n        v16 = v10;\n        if v9 == 1 {\n            v2 = v13;\n            v17 = alloc::vec::Vec<T,A>::swap_remove(v12, v13);\n            v3 = v17;\n            v4 = v17;\n            v5 = v17 + v18;\n            v6 = a1;\n            v19 = v10;\n            v9 = memchr::arch::generic::memchr::Iter::next(v10);\n            if !v9 {\n                v20 = 0;\n                v22 = a0;\n            } else {\n                v20 = 0;\n                v21 = v18;\n                do {\n                    v23 = v21;\n                    alloc::vec::Vec<T,A>::push(a0, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v20, v23, v17, v18, \"src/uu/shuf/src/shuf.rs\"), v18);\n                    v20 = v23 + 1;\n                    v9 = memchr::arch::generic::memchr::Iter::next(v19);\n                    v21 = v18;\n                } while (v9);\n            }\n            v12 = v22;\n            v15 = v2;\n            v16 = v19;\n            if v18 > v20 {\n                v9 = alloc::vec::Vec<T,A>::push(v12, v17 + v20, v18 - v20);\n                v2 = v2;\n            }\n        }\n        v11 = v12;\n    } while (v15);\n    return v9;\n}\n",
+    "_ZN7uu_shuf20NonrepeatingIterator3new17h5c9f2f7db2741ba2E": "fn uu_shuf::NonrepeatingIterator::new(a0: &struct48, a1: u64, a2: u64, a3: u64) -> int {\n    let v0: u64;  // [sp-0x28]\n    let v2: u64;  // rax\n    let v3: u64;  // rcx\n    let v4: u64;  // rsi\n    let v5: u128;  // xmm0\n    let v6: u256;  // ymm0\n\n    v0 = v2;\n    v3 = *(a1);\n    v4 = a1[1];\n    if v4 < v3 {\n        a3 = 0;\n    } else if v3 || v4 != -1 {\n        a3 = core::cmp::min_by(a3, v4 - v3 + 1);\n    }\n    <hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default(a0);\n    a0[2].field_32 = a1[2];\n    v5 = *(&a1 as &i128);\n    *(&a0[2].field_0 as &u128) = v5;\n    a0[1].field_40 = a2;\n    a0[1].field_32 = a3;\n    return v6 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v5;\n}\n",
+    "_ZN7uu_shuf20NonrepeatingIterator7produce17h8504e8cc74b07c5cE": "fn uu_shuf::NonrepeatingIterator::produce(a0: &struct32) -> u64 {\n    let v0: struct8;  // [sp-0x80], Other Possible Types: struct24, i192\n    let v1: struct17;  // [sp-0x68], Other Possible Types: struct32, i144\n    let v3: struct8;  // [bp-0x48]\n    let v4: struct17;  // [sp-0x40]\n    let v6: i64;  // r12\n    let v7: i64;  // rax\n    let v9: i64;  // rax\n    let v10: i64;  // rax\n    let v11: i64;  // rax\n    let v12: i64;  // rax\n\n    if *(a0 as &i64) {\n        v6 = a0 + 64;\n        do {\n            v1 = <core::ops::range::RangeInclusive<Idx> as core::clone::Clone>::clone(v6);\n            v9 = rand::rng::Rng::gen_range(*((a0 + 56) as &i64), &v1);\n        } while (hashbrown::map::HashMap<K,V,S,A>::insert(a0, v9));\n        v10 = *((a0 + 72) as &i64);\n        v11 = v10 - *((a0 + 64) as &i64);\n        v12 = v11 + 1;\n        if !(amd64g_calculate_condition(5, 24, v11 + 1, 0, (v10 < *((a0 + 64) as &i64)) as u8 as u64) as char) {\n            v12 = -1;\n        }\n        v4 = <core::ops::range::RangeInclusive<Idx> as core::clone::Clone>::clone(v6);\n        v3 = struct8 {\n            field_0: a0\n        };\n        v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v3);\n        if *((&v0 as &char + 16) as &i64) >= *((a0 + 48) as &i64) {\n            v1 = <[T] as rand::seq::SliceRandom>::partial_shuffle(*((&v0 as &char + 8) as &i64), *((&v0 as &char + 16) as &i64), a0 + 56, *((a0 + 48) as &i64));\n            v0 = alloc::vec::Vec<T,A>::truncate(*((a0 + 48) as &i64));\n            return struct32 {\n                field_0: 0\n                field_8: v1\n                field_24: v2\n            };\n        }\n        core::panicking::panic(\"assertion failed: remaining.len() >= self.remaining_count\", \"src/uu/shuf/src/shuf.rs\"); /* do not return */\n    }\n    v7 = *((a0 + 24) as &i64);\n    if !v7 {\n        core::option::unwrap_failed(\"src/uu/shuf/src/shuf.rs\"); /* do not return */\n    }\n    *((a0 + 24) as &i64) = v7 - 1;\n    v9 = *((*((a0 + 16) as &i64) + v7 * 8 - 8) as &i64);\n}\n",
+    "_ZN7uu_shuf16parse_head_count17h8e9cdbfd7a5f28a8E": "fn uu_shuf::parse_head_count(a0: &struct16, a1: u32) -> u64 {\n    let v0: i128;  // [sp-0x108]\n    let v1: i64;  // [sp-0xf8]\n    let v2: Option<struct24>;  // [sp-0xf0], Other Possible Types: i192\n    let v3: Result<struct8, struct1>;  // [sp-0xd8]\n    let v4: i64;  // [sp-0xc8]\n    let v5: i64;  // [sp-0xc0]\n    let v6: i256;  // [sp-0xb8], Other Possible Types: struct32\n    let v7: i64;  // [sp-0x80]\n    let v8: i64;  // [sp-0x78]\n    let v9: i64;  // [sp-0x70]\n    let v10: i64;  // [sp-0x68]\n    let v11: i64;  // [sp-0x60]\n    let v12: i64;  // [sp-0x50]\n    let v13: i128;  // [sp-0x48]\n    let v14: i8;  // [sp-0x38]\n    let v16: i64;  // r14\n    let v17: i256;  // ymm0\n    let v18: i128;  // xmm0\n    let v19: i64;  // rbx\n    let v20: i64;  // r14\n    let v21: i64;  // 4096\n    let v22: i64;  // rcx\n\n    v6 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a1);\n    v2 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v6);\n    v16 = -1;\n    match v2 {\n        Some(_) => {\n            do {\n                v1 = *((&v2 as &char + 16) as &i64);\n                v18 = v2;\n                v17 = v17 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v18 as u128 as u256;\n                v0 = v18;\n                v3 = core::num::<impl core::str::traits::FromStr for usize>::from_str(*((&v0 as &char + 8) as &i64), *((&v2 as &char + 16) as &i64));\n                match v3 {\n                    Err(_) => {\n                        v12 = 0;\n                        v13 = *((&v0 as &char + 8) as &i128);\n                        v14 = 1;\n                        v4 = &v12;\n                        v5 = <os_display::Quoted as core::fmt::Display>::fmt;\n                        v7 = \"invalid line count: \";\n                        v8 = 1;\n                        v11 = 0;\n                        v9 = &v4;\n                        v10 = 1;\n                        core::option::Option<T>::map_or_else();\n                        v21 = v22;\n                        return v21;\n                    },\n                    Ok(_) => {\n                        v16 = core::cmp::min_by(v16, v19);\n                        v2 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v6);\n                    },\n                }\n            } while (v2 != 0x8000000000000000);\n        },\n        None => {\n            *((a0 + 8) as &i64) = v20;\n            *(a0 as &i64) = 0x8000000000000000;\n            v21 = a0;\n        },\n    }\n    return v21;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN7uu_shuf6uumain17h0b33dca666a9d647E": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_shuf::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN7uu_shuf6uumain6uumain17he0c9c6e9cffa8175E": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uu_shuf::find_seps": 2,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 3,
+      "alloc::slice::hack::into_vec": 1,
+      "alloc::alloc::Global::alloc_impl": 1,
+      "uu_shuf::read_input_file": 1,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "std::fs::File::create": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 2,
+      "core::ops::function::FnOnce::call_once": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 3,
+      "alloc::boxed::Box<T>::new": 3,
+      "uu_shuf::parse_head_count": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 4,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 3,
+      "core::option::Option<T>::map_or_else": 1,
+      "<clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next": 2,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
+      "<alloc::string::String as core::clone::Clone>::clone": 1,
+      "uu_shuf::parse_range": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_shuf::uu_app": 1
+    },
+    "_ZN7uu_shuf6uu_app17h710a705446bc3bb0E": {
+      "clap_builder::builder::command::Command::arg": 8,
+      "clap_builder::builder::arg::Arg::value_hint": 3,
+      "clap_builder::builder::arg::Arg::action": 5,
+      "clap_builder::builder::arg::Arg::new": 8,
+      "clap_builder::builder::arg::Arg::overrides_with": 3,
+      "clap_builder::builder::arg::Arg::help": 7,
+      "clap_builder::builder::arg::Arg::long": 7,
+      "clap_builder::builder::arg::Arg::short": 6,
+      "clap_builder::builder::arg::Arg::value_name": 4,
+      "clap_builder::builder::arg::Arg::conflicts_with": 2,
+      "memcpy": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN7uu_shuf15read_input_file17h39a00d9d5113d201E": {
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 2,
+      "<std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read_to_end": 1,
+      "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1,
+      "alloc::boxed::Box<T>::new": 2,
+      "std::io::stdio::stdin": 1,
+      "std::fs::File::open": 1
+    },
+    "_ZN7uu_shuf9find_seps17h99b31571ceae9626E": {
+      "alloc::vec::Vec<T,A>::push": 2,
+      "memchr::arch::generic::memchr::Iter::next": 2,
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index": 1,
+      "alloc::vec::Vec<T,A>::swap_remove": 1,
+      "core::slice::memchr::memchr": 1,
+      "<usize as core::iter::range::Step>::backward_unchecked": 1
+    },
+    "_ZN7uu_shuf20NonrepeatingIterator3new17h5c9f2f7db2741ba2E": {
+      "<hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default": 1,
+      "core::cmp::min_by": 1
+    },
+    "_ZN7uu_shuf20NonrepeatingIterator7produce17h8504e8cc74b07c5cE": {
+      "core::option::unwrap_failed": 1,
+      "alloc::vec::Vec<T,A>::truncate": 1,
+      "<[T] as rand::seq::SliceRandom>::partial_shuffle": 1,
+      "core::panicking::panic": 1,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
+      "<core::ops::range::RangeInclusive<Idx> as core::clone::Clone>::clone": 2,
+      "rand::rng::Rng::gen_range": 1
+    },
+    "_ZN7uu_shuf16parse_head_count17h8e9cdbfd7a5f28a8E": {
+      "core::option::Option<T>::map_or_else": 1,
+      "core::cmp::min_by": 1,
+      "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next": 2,
+      "core::num::<impl core::str::traits::FromStr for usize>::from_str": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN7uu_shuf6uumain17h0b33dca666a9d647E": {
+      "eprintln": 2,
+      "eprint": 1
+    },
+    "_ZN7uu_shuf6uumain6uumain17he0c9c6e9cffa8175E": {},
+    "_ZN7uu_shuf6uu_app17h710a705446bc3bb0E": {},
+    "_ZN7uu_shuf15read_input_file17h39a00d9d5113d201E": {},
+    "_ZN7uu_shuf9find_seps17h99b31571ceae9626E": {},
+    "_ZN7uu_shuf20NonrepeatingIterator3new17h5c9f2f7db2741ba2E": {},
+    "_ZN7uu_shuf20NonrepeatingIterator7produce17h8504e8cc74b07c5cE": {},
+    "_ZN7uu_shuf16parse_head_count17h8e9cdbfd7a5f28a8E": {}
+  },
+  "node_counts": {
+    "_ZN7uu_shuf6uumain17h0b33dca666a9d647E": 9,
+    "_ZN7uu_shuf6uumain6uumain17he0c9c6e9cffa8175E": 73,
+    "_ZN7uu_shuf6uu_app17h710a705446bc3bb0E": 60,
+    "_ZN7uu_shuf15read_input_file17h39a00d9d5113d201E": 11,
+    "_ZN7uu_shuf9find_seps17h99b31571ceae9626E": 23,
+    "_ZN7uu_shuf20NonrepeatingIterator3new17h5c9f2f7db2741ba2E": 5,
+    "_ZN7uu_shuf20NonrepeatingIterator7produce17h8504e8cc74b07c5cE": 15,
+    "_ZN7uu_shuf16parse_head_count17h8e9cdbfd7a5f28a8E": 10
+  },
+  "prototypes": {
+    "_ZN43_$LT$usize$u20$as$u20$uu_shuf..Writable$GT$12write_all_to17h82642fb64fdc15b0E": {
+      "name": "_ZN43_$LT$usize$u20$as$u20$uu_shuf..Writable$GT$12write_all_to17h82642fb64fdc15b0E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17he44ce7238773bbb8E": {
+      "name": "_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17he44ce7238773bbb8E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3ops8function6FnOnce9call_once17h7c91e57bb3d70dfcE": {
+      "name": "_ZN4core3ops8function6FnOnce9call_once17h7c91e57bb3d70dfcE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h56059d1a533ad2f3E": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h56059d1a533ad2f3E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0e87b2a292888b49E": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0e87b2a292888b49E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h118a158527e98cdcE": {
+      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h118a158527e98cdcE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN54_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$uu_shuf..Writable$GT$12write_all_to17hde169efa667ae96bE": {
+      "name": "_ZN54_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$uu_shuf..Writable$GT$12write_all_to17hde169efa667ae96bE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5alloc6Global10alloc_impl17hf61749d460433fffE": {
+      "name": "_ZN5alloc5alloc6Global10alloc_impl17hf61749d460433fffE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h1b07cb96cdbb794fE": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h1b07cb96cdbb794fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17ha833a196b0b969ecE": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17ha833a196b0b969ecE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
+      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
+      "return_type": [
+        "primitive",
+        1
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN77_$LT$alloc..vec..Vec$LT$$RF$$u5b$u8$u5d$$GT$$u20$as$u20$uu_shuf..Shufable$GT$8is_empty17h1f0a71404213f066E": {
+      "name": "_ZN77_$LT$alloc..vec..Vec$LT$$RF$$u5b$u8$u5d$$GT$$u20$as$u20$uu_shuf..Shufable$GT$8is_empty17h1f0a71404213f066E",
+      "return_type": [
+        "primitive",
+        1
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_shuf6uumain17h0b33dca666a9d647E": {
+      "name": "_ZN7uu_shuf6uumain17h0b33dca666a9d647E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_shuf6uumain6uumain17he0c9c6e9cffa8175E": {
+      "name": "_ZN7uu_shuf6uumain6uumain17he0c9c6e9cffa8175E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN83_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$uu_shuf..Shufable$GT$8is_empty17h6a6ce60ea82c78f8E": {
+      "name": "_ZN83_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$uu_shuf..Shufable$GT$8is_empty17h6a6ce60ea82c78f8E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0c1703a302f6baf2E": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h0c1703a302f6baf2E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8ae58320f9a9f8d8E": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8ae58320f9a9f8d8E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd3beca26ae3e93d6E": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd3beca26ae3e93d6E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4File4open17h1adc330ffb93a969E": {
+      "name": "_ZN3std2fs4File4open17h1adc330ffb93a969E",
+      "return_type": [
+        "Result",
+        12
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4File6create17hb8ccd5b0dd142e83E": {
+      "name": "_ZN3std2fs4File6create17hb8ccd5b0dd142e83E",
+      "return_type": [
+        "Result",
+        12
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$13with_capacity17h2cd23da24bfb1765E": {
+      "name": "_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$13with_capacity17h2cd23da24bfb1765E",
+      "return_type": [
+        "struct",
+        41
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17ha5c718a139f25917E": {
+      "name": "_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17ha5c718a139f25917E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc52c302a5b3cda84E": {
+      "name": "_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc52c302a5b3cda84E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN12clap_builder7builder7command7Command20try_get_matches_from17hb99de62d0bac49c5E": {
+      "name": "_ZN12clap_builder7builder7command7Command20try_get_matches_from17hb99de62d0bac49c5E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5slice4hack8into_vec17hd1dfd8daa9e7ad57E": {
+      "name": "_ZN5alloc5slice4hack8into_vec17hd1dfd8daa9e7ad57E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN121_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5474297f1719323fE": {
+      "name": "_ZN121_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5474297f1719323fE",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h15a6d75047b4cc93E": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h15a6d75047b4cc93E",
+      "return_type": [
+        "struct",
+        64
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h700c3f9b5e5ff3dcE": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h700c3f9b5e5ff3dcE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h5130577ecdee41f3E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h5130577ecdee41f3E",
+      "return_type": [
+        "Result",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h1c55b0f937b7ea2bE": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h1c55b0f937b7ea2bE",
+      "return_type": [
+        "struct",
+        56
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h67140753012254c0E": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h67140753012254c0E",
+      "return_type": [
+        "Result",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h7dc9de6d5fccb23eE": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h7dc9de6d5fccb23eE",
+      "return_type": [
+        "Result",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h8a19c40d77640a40E": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h8a19c40d77640a40E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h9af4e70239f5c3baE": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h9af4e70239f5c3baE",
+      "return_type": [
+        "Result",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h9b8bd7b325589adcE": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h9b8bd7b325589adcE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hb868c3ea7eaf226eE": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hb868c3ea7eaf226eE",
+      "return_type": [
+        "Result",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hbce3d77c15c7998eE": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hbce3d77c15c7998eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hddbe3a5b2ee70831E": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hddbe3a5b2ee70831E",
+      "return_type": [
+        "Result",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17he24158e12de6068bE": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17he24158e12de6068bE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io5stdio5stdin17h7215cc131abb55d8E": {
+      "name": "_ZN3std2io5stdio5stdin17h7215cc131abb55d8E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN3std2io5stdio6stdout17h077da66234850927E": {
+      "name": "_ZN3std2io5stdio6stdout17h077da66234850927E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5alloc5alloc18handle_alloc_error17h3816d26e7f8ae8a1E": {
+      "name": "_ZN5alloc5alloc18handle_alloc_error17h3816d26e7f8ae8a1E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h8f45b0d02f4dafdaE": {
+      "name": "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h8f45b0d02f4dafdaE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option13unwrap_failed17h0e11329e76906eaaE": {
+      "name": "_ZN4core6option13unwrap_failed17h0e11329e76906eaaE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core9panicking5panic17h8c3a660c3523e4a4E": {
+      "name": "_ZN4core9panicking5panic17h8c3a660c3523e4a4E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h35e67cae0c0452a5E": {
+      "name": "_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h35e67cae0c0452a5E",
+      "return_type": [
+        "Result",
+        9
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h500d15644f3f8d52E": {
+      "name": "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h500d15644f3f8d52E",
+      "return_type": [
+        "Option",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg10value_name17h07ba2a10b48e0628E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg10value_name17h07ba2a10b48e0628E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4help17h60914f8564d33ae9E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4help17h60914f8564d33ae9E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4long17h4f4cbd0b31a73627E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4long17h4f4cbd0b31a73627E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg5short17hc5895820c9001562E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg5short17hc5895820c9001562E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg6action17haa75458d1b56b731E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg6action17haa75458d1b56b731E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN4core3cmp6min_by17h9901c89ba00e38afE": {
+      "name": "_ZN4core3cmp6min_by17h9901c89ba00e38afE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h8f190cd472d8d64bE": {
+      "name": "_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h8f190cd472d8d64bE",
+      "return_type": [
+        "Option",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core5slice6memchr6memchr17hd9bdb72df61b073bE": {
+      "name": "_ZN4core5slice6memchr6memchr17hd9bdb72df61b073bE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h7c94a57f03ee0317E": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h7c94a57f03ee0317E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4rand3rng3Rng9gen_range17h870d3f4f62006495E": {
+      "name": "_ZN4rand3rng3Rng9gen_range17h870d3f4f62006495E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h77e0d20633c95084E": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h77e0d20633c95084E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h76bc6918f77c692bE": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h76bc6918f77c692bE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN6memchr4arch7generic6memchr4Iter4next17h49b397ad764296c0E": {
+      "name": "_ZN6memchr4arch7generic6memchr4Iter4next17h49b397ad764296c0E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN82_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9f1d5fa88ae4bf9dE": {
+      "name": "_ZN82_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9f1d5fa88ae4bf9dE",
+      "return_type": [
+        "struct",
+        18
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hce8092579b78d193E": {
+      "name": "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hce8092579b78d193E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_shuf6uu_app17h710a705446bc3bb0E": {
+      "name": "_ZN7uu_shuf6uu_app17h710a705446bc3bb0E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": []
+    },
+    "_ZN7uu_shuf15read_input_file17h39a00d9d5113d201E": {
+      "name": "_ZN7uu_shuf15read_input_file17h39a00d9d5113d201E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_shuf9find_seps17h99b31571ceae9626E": {
+      "name": "_ZN7uu_shuf9find_seps17h99b31571ceae9626E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_shuf20NonrepeatingIterator3new17h5c9f2f7db2741ba2E": {
+      "name": "_ZN7uu_shuf20NonrepeatingIterator3new17h5c9f2f7db2741ba2E",
+      "return_type": [
+        "struct",
+        48
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_shuf20NonrepeatingIterator7produce17h8504e8cc74b07c5cE": {
+      "name": "_ZN7uu_shuf20NonrepeatingIterator7produce17h8504e8cc74b07c5cE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": []
+    },
+    "_ZN88_$LT$uu_shuf..NonrepeatingIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h09329f8e3b6424f0E": {
+      "name": "_ZN88_$LT$uu_shuf..NonrepeatingIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h09329f8e3b6424f0E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": []
+    },
+    "_ZN7uu_shuf11parse_range17h895d1bf452e4062aE": {
+      "name": "_ZN7uu_shuf11parse_range17h895d1bf452e4062aE",
+      "return_type": [
+        "Option",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_shuf11parse_range28_$u7b$$u7b$closure$u7d$$u7d$17h12498d1826f58d1eE": {
+      "name": "_ZN7uu_shuf11parse_range28_$u7b$$u7b$closure$u7d$$u7d$17h12498d1826f58d1eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_shuf11parse_range28_$u7b$$u7b$closure$u7d$$u7d$17ha46b1477c8a092d1E": {
+      "name": "_ZN7uu_shuf11parse_range28_$u7b$$u7b$closure$u7d$$u7d$17ha46b1477c8a092d1E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_shuf16parse_head_count17h8e9cdbfd7a5f28a8E": {
+      "name": "_ZN7uu_shuf16parse_head_count17h8e9cdbfd7a5f28a8E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h44a724dea645e385E": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h44a724dea645e385E",
+      "return_type": [
+        "Result",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h6f9450da0d088758E": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h6f9450da0d088758E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h7d287012b593b0a9E": {
+      "name": "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h7d287012b593b0a9E",
+      "return_type": [
+        "struct",
+        56
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN54_$LT$$u5b$T$u5d$$u20$as$u20$rand..seq..SliceRandom$GT$15partial_shuffle17h688065f2043dca7fE": {
+      "name": "_ZN54_$LT$$u5b$T$u5d$$u20$as$u20$rand..seq..SliceRandom$GT$15partial_shuffle17h688065f2043dca7fE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7a1eebabf92f0a45E": {
+      "name": "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7a1eebabf92f0a45E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4File4open17h6de938cd2a1a2187E": {
+      "name": "_ZN3std2fs4File4open17h6de938cd2a1a2187E",
+      "return_type": [
+        "Result",
+        12
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h95449713c67fbf2aE": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h95449713c67fbf2aE",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd81dd14c50db9414E": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd81dd14c50db9414E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN77_$LT$alloc..vec..Vec$LT$$RF$$u5b$u8$u5d$$GT$$u20$as$u20$uu_shuf..Shufable$GT$6choose17h3523e9548edb7615E": {
+      "name": "_ZN77_$LT$alloc..vec..Vec$LT$$RF$$u5b$u8$u5d$$GT$$u20$as$u20$uu_shuf..Shufable$GT$6choose17h3523e9548edb7615E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg10value_hint17h546644f1bcd1fd0eE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg10value_hint17h546644f1bcd1fd0eE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg14conflicts_with17h6545cdf5d75a2560E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg14conflicts_with17h6545cdf5d75a2560E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg14overrides_with17h5143f80bad1c105aE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg14overrides_with17h5143f80bad1c105aE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg3new17hb55e6547f701c544E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg3new17hb55e6547f701c544E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command14override_usage17h86fbf536ab62a2a8E": {
+      "name": "_ZN12clap_builder7builder7command7Command14override_usage17h86fbf536ab62a2a8E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3arg17h1b9d832713c89b77E": {
+      "name": "_ZN12clap_builder7builder7command7Command3arg17h1b9d832713c89b77E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3new17h0bf11a27185a90baE": {
+      "name": "_ZN12clap_builder7builder7command7Command3new17h0bf11a27185a90baE",
+      "return_type": [
+        "struct",
+        438
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command5about17hd597994d8cea349dE": {
+      "name": "_ZN12clap_builder7builder7command7Command5about17hd597994d8cea349dE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command7version17habf91e8854255576E": {
+      "name": "_ZN12clap_builder7builder7command7Command7version17habf91e8854255576E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN83_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$uu_shuf..Shufable$GT$15partial_shuffle17h177e4352b7cdd512E": {
+      "name": "_ZN83_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$uu_shuf..Shufable$GT$15partial_shuffle17h177e4352b7cdd512E",
+      "return_type": [
+        "struct",
+        48
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17hf7b2857436e5a11eE": {
+      "name": "_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17hf7b2857436e5a11eE",
+      "return_type": [
+        "struct",
+        48
+      ],
+      "parameters": []
+    },
+    "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h02d9e5528042f514E": {
+      "name": "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h02d9e5528042f514E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE": {
+      "name": "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
+      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
+      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

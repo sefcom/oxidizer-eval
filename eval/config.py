@@ -3,8 +3,10 @@ import os
 IDA_PATH = os.path.abspath("./idapro-9.0/idat64")
 GHIDRA_PATH = os.path.abspath("../ghidra_11.2.1_PUBLIC/support/analyzeHeadless")
 IDA_SCRIPTS_PATH = os.path.abspath("scripts/ida")
+CACHE_DIR = os.path.abspath("output")
 CACHED_DECOMPILED_CODE_PATH = os.path.abspath("output/decompiled_code")
 CACHED_CALL_COUNTS_PATH = os.path.abspath("output/call_counts")
+CACHED_OTHER_PATH = os.path.abspath("output/other")
 CACHED_INFERRED_PROTOTYPES_PATH = os.path.abspath("output/inferred_prototypes")
 
 TYPE_EVAL_RESULT_TEMPLATE = r"""

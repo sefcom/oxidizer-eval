@@ -1,0 +1,11 @@
+long long uu_cp::ClobberMode::from_matches::h0d784cad540272bc(unsigned long long a0)
+{
+    unsigned long long v1;  // rax
+
+    if (!(char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a0, "force", 5))
+    {
+        v1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a0, "remove-destination", 18);
+        return v1 & 0xffffffffffffff00 | 2 - (char)(v1 & 4294967295);
+    }
+    return 0;
+}

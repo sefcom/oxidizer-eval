@@ -1,0 +1,35 @@
+fn uu_ls::classify_file(a0: u32, a1: u32) -> u64 {
+    let v0: u64;  // [sp-0x18]
+    let v2: u64;  // rax
+    let v3: &u32;  // rcx
+    let v6: &struct_0;  // rax
+
+    v0 = v2;
+    v3 = uu_ls::PathData::file_type(a0, a1);
+    if !v3 {
+        return 0x110000;
+    }
+    match ((0xf000 & *(v3)) - 0x1000 >> 12) {
+        0 => {
+            return 124;
+        }
+        3 => {
+            return 47;
+        }
+        7 => {
+            v6 = uu_ls::PathData::get_metadata(a0, a1);
+            if v6 && core::ops::function::FnOnce::call_once(v6->field_38) as i32 {
+                return 42;
+            }
+        }
+        9 => {
+            return 64;
+        }
+        11 => {
+            return 61;
+        }
+        _ => {
+            return 0x110000;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+fn uu_split::strategy::Strategy::Bytes(a0: &struct16, a1: u32) -> u64 {
+    return struct16 {
+        field_0: 7
+        field_8: a1
+    };
+}

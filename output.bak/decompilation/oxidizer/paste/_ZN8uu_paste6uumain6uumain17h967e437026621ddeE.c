@@ -1,0 +1,43 @@
+fn uu_paste::uumain::uumain(a0: u32, a1: u32) -> u64 {
+    let v0: struct64;  // [sp-0x3a0], Other Possible Types: struct24, i512, Result<struct56, struct8>
+    let v1: struct56;  // [sp-0x360], Other Possible Types: i64
+    let v2: i64;  // [sp-0x358]
+    let v3: struct64;  // [bp-0x328]
+    let v4: i328;  // [sp-0x2e8], Other Possible Types: struct712, Result<struct40, struct8>, struct24, struct56
+    let v9: i64;  // r14
+    let v10: i64;  // rdi
+
+    v4 = uu_paste::uu_app();
+    v0 = clap_builder::builder::command::Command::try_get_matches_from(&v4, a0, a1);
+    if v1 == 0x8000000000000000 {
+        return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v2);
+    }
+    v1 = struct56 {
+        field_0: v6
+        field_8: v7
+        field_16: *((&v0 as &char + 16) as &i128)
+        field_32: *((&v0 as &char + 32) as &i128)
+        field_48: *((&v0 as &char + 48) as &i64)
+    };
+    v4 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v1, "delimiters");
+    v9 = clap_builder::parser::error::MatchesError::unwrap("delimiters", &v4);
+    if !v9 {
+        v10 = "/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/paste/src/paste.rs";
+    } else {
+        v4 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v1, "file");
+        v0 = clap_builder::parser::error::MatchesError::unwrap("file", &v4);
+        if v0 {
+            v3 = struct64 {
+                field_0: v0
+                field_16: *((&v0 as &char + 16) as &i128)
+                field_32: *((&v0 as &char + 32) as &i128)
+                field_48: *((&v0 as &char + 48) as &i128)
+            };
+            v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v3);
+            v4 = v0;
+            return uu_paste::paste(&v4, clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v1, "serial") as i32, *((v9 + 8) as &i64), *((v9 + 16) as &i64), (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v1, "zero-terminated") as i8 ? 0 : 10));
+        }
+        v10 = "/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/paste/src/paste.rs";
+    }
+    core::option::unwrap_failed(v10); /* do not return */
+}

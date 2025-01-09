@@ -1,3 +1,4 @@
+from collections import defaultdict
 import json
 import re
 
@@ -35,6 +36,20 @@ def num_assignments(output):
     return output.count(" = ")
 
 
+def num_operators(output):
+    return output.count(" = ")
+
+
 def num_call_counts(output):
     call_counts = json.loads(output)
     return sum(call_counts.values())
+
+
+def collect_string_literals(output):
+    string_literals = defaultdict(int)
+    pattern = r'"(?:\\.|[^"\\])*"'
+    matches = re.findall(pattern, output)
+
+    for match in matches:
+        string_literals[match[1:-1]] += 1
+    return string_literals

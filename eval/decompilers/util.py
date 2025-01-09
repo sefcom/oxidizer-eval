@@ -2,63 +2,50 @@ from collections import defaultdict
 import os
 from typing import Dict
 import json
+import re
 
 import angr
 from angr.rust.utils.library import demangle
+from angr.rust.ailment.statement import FunctionLikeMacro
 from angr.analyses.decompiler.sequence_walker import SequenceWalker
 from ailment import AILBlockWalker, Block, Const
 from ailment.statement import Call
 
 from eval.type_recovery.function_prototype import FunctionPrototype
 
-from ..config import CACHED_DECOMPILED_CODE_PATH, CACHED_CALL_COUNTS_PATH, CACHED_INFERRED_PROTOTYPES_PATH
+from ..config import (
+    CACHE_DIR,
+    CACHED_INFERRED_PROTOTYPES_PATH,
+)
 
 
-def load_cached_output(cache_dir, func_name):
-    path = os.path.join(CACHED_DECOMPILED_CODE_PATH, cache_dir, func_name + ".c")
+def save_result(decompiler, bin_name, result):
+    result = dict(result)
+    for func_name, decompilation in result["decompilation"].items():
+        path = os.path.join(CACHE_DIR, "decompilation", decompiler, bin_name, func_name + ".c")
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w") as fd:
+            fd.write(decompilation)
+    path = os.path.join(CACHE_DIR, "result", decompiler, bin_name + ".json")
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as fd:
+        json.dump(result, fd, indent=2)
+
+
+def load_cached_result(decompiler, bin_name):
+    result = None
+    path = os.path.join(CACHE_DIR, "result", decompiler, bin_name + ".json")
     if os.path.exists(path):
         with open(path, "r") as fd:
-            return fd.read()
-    return None
+            result = json.load(fd)
+    return result
 
 
-def load_cached_call_counts_output(cache_dir, func_name):
-    path = os.path.join(CACHED_CALL_COUNTS_PATH, cache_dir, func_name + ".json")
+def load_cached_inferred_prototypes(bin_name) -> Dict[str, FunctionPrototype]:
+    path = os.path.join(CACHE_DIR, "result", "oxidizer", bin_name + ".json")
     if os.path.exists(path):
         with open(path, "r") as fd:
-            return fd.read()
-    return None
-
-
-def save_output(cache_dir, func_name, output):
-    path = os.path.join(CACHED_DECOMPILED_CODE_PATH, cache_dir)
-    os.makedirs(path, exist_ok=True)
-    with open(os.path.join(path, func_name + ".c"), "w") as fd:
-        fd.write(output)
-
-
-def save_call_counts_output(cache_dir, func_name, output):
-    path = os.path.join(CACHED_CALL_COUNTS_PATH, cache_dir)
-    os.makedirs(path, exist_ok=True)
-    with open(os.path.join(path, func_name + ".json"), "w") as fd:
-        fd.write(output)
-
-
-def save_inferred_prototypes(cache_dir, bin_name, prototypes: Dict[str, FunctionPrototype]):
-    path = os.path.join(CACHED_INFERRED_PROTOTYPES_PATH, cache_dir)
-    os.makedirs(path, exist_ok=True)
-    object = {}
-    for prototype in prototypes.values():
-        object[prototype.name] = prototype.to_dict()
-    with open(os.path.join(path, bin_name + ".json"), "w") as fd:
-        json.dump(object, fd)
-
-
-def load_cached_inferred_prototypes(cache_dir, bin_name) -> Dict[str, FunctionPrototype]:
-    path = os.path.join(CACHED_INFERRED_PROTOTYPES_PATH, cache_dir, bin_name + ".json")
-    if os.path.exists(path):
-        with open(path, "r") as fd:
-            object = json.load(fd)
+            object = json.load(fd)["prototypes"]
             prototypes = {}
             for name in object:
                 prototypes[name] = FunctionPrototype.from_dict(object[name])
@@ -77,21 +64,40 @@ def load_function_list(binary_path, module=None):
     )
 
 
+def collect_string_literals(output):
+    string_literals = defaultdict(int)
+    pattern = r'"(?:\\.|[^"\\])*"'
+    matches = re.findall(pattern, output)
+
+    for match in matches:
+        string_literals[match[1:-1]] += 1
+    return string_literals
+
+
 class BlockCallCounter(AILBlockWalker):
 
     def __init__(self, project):
         super().__init__()
         self.project = project
-        self.call_counts = defaultdict(int)
+        self.function_call_counts = defaultdict(int)
+        self.macro_call_counts = defaultdict(int)
 
     def record_call(self, call: Call):
         if isinstance(call.target, Const):
             func_addr = call.target.value
             if func_addr in self.project.kb.functions:
                 func = self.project.kb.functions[func_addr]
-                self.call_counts[demangle(func.name)] += 1
-                return
-        self.call_counts["UNKNOWN_FUNCTION"] += 1
+                self.function_call_counts[demangle(func.name)] += 1
+
+    def _handle_stmt(self, stmt_idx, stmt, block):
+        if isinstance(stmt, FunctionLikeMacro):
+            self.macro_call_counts[stmt.name] += 1
+        return super()._handle_stmt(stmt_idx, stmt, block)
+
+    def _handle_expr(self, expr_idx, expr, stmt_idx, stmt, block):
+        if isinstance(expr, FunctionLikeMacro):
+            self.macro_call_counts[expr.name] += 1
+        return super()._handle_expr(expr_idx, expr, stmt_idx, stmt, block)
 
     def _handle_CallExpr(self, expr_idx, expr, stmt_idx, stmt, block):
         self.record_call(expr)
@@ -109,10 +115,24 @@ class CallCounter(SequenceWalker):
         self.project = project
         self._handlers[Block] = self._handle_AILBlock
 
-        self.call_counts = defaultdict(int)
+        self.function_call_counts = defaultdict(int)
+        self.macro_call_counts = defaultdict(int)
 
     def _handle_AILBlock(self, node, **kwargs):
         walker = BlockCallCounter(self.project)
         walker.walk(node)
-        for func_name in walker.call_counts:
-            self.call_counts[func_name] += walker.call_counts[func_name]
+        for func_name in walker.function_call_counts:
+            self.function_call_counts[func_name] += walker.function_call_counts[func_name]
+        for macro_name in walker.macro_call_counts:
+            self.macro_call_counts[macro_name] += walker.macro_call_counts[macro_name]
+
+
+class NodeCounter(SequenceWalker):
+
+    def __init__(self):
+        super().__init__()
+        self._handlers[Block] = self._handle_AILBlock
+        self.node_counts = 0
+
+    def _handle_AILBlock(self, node, **kwargs):
+        self.node_counts += 1

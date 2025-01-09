@@ -1,0 +1,1925 @@
+{
+  "decompilation": {
+    "_ZN8uu_touch6uumain17h8225500c1a21f08aE": "fn uu_touch::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0xa8]\n    let v1: u64;  // [sp-0x98]\n    let v2: u64;  // [sp-0x90]\n    let v3: &&struct_1;  // [sp-0x88]\n    let v4: u64;  // [sp-0x80]\n    let v5: void*;  // [sp-0x78]\n    let v6: u64;  // [sp-0x68]\n    let v7: &u64;  // [sp-0x60]\n    let v8: &u8;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: u64;  // [sp-0x38]\n    let v11: i8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v14: u64;  // rax\n    let v15: &u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v14 = uu_touch::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_467fd0;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    core::option::Option<T>::map_or_else();\n    *(&v8 as &i8) = v11;\n    v10 = v12;\n    if v8 == \"\" {\n        v6 = uucore::util_name();\n        v7 = v15;\n        eprint!(\"{}: \", &v6);\n        eprintln!(\"{}\", &v8);\n    }\n    if !v15[13]() {\n        return v15[12]();\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v15;\n    eprintln!(\"Try '{} --help' for more information.\", &v6);\n}\n",
+    "_ZN8uu_touch6uumain6uumain17h705f09c8dae5a0adE": "fn uu_touch::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0x438], Other Possible Types: struct24\n    let v1: i96;  // [sp-0x430]\n    let v2: i8;  // [bp-0x418], Other Possible Types: struct48, struct64\n    let v4: i64;  // [sp-0x408]\n    let v5: i448;  // [sp-0x3d0]\n    let v6: i64;  // [sp-0x3c8]\n    let v7: i192;  // [bp-0x398]\n    let v8: i64;  // [sp-0x388]\n    let v9: struct24;  // [sp-0x380]\n    let v10: i128;  // [sp-0x368]\n    let v11: i64;  // [sp-0x358]\n    let v14: i64;  // [sp-0x338], Other Possible Types: struct64\n    let v15: i5696;  // [sp-0x2f8], Other Possible Types: Result<struct40, struct8>, struct24, struct56, struct712\n    let v16: i64;  // [sp-0x2e8]\n    let v17: i128;  // [sp-0x2e0]\n    let v18: i64;  // [sp-0x2d0]\n    let v19: i8;  // [sp-0x2c8]\n    let v20: i8;  // [sp-0x2c7]\n    let v21: i8;  // [sp-0x2c6]\n    let v22: i8;  // [sp-0x2c5]\n    let v25: i64;  // rax\n    let v26: i8;  // al\n    let v27: i64;  // r14\n    let v28: i64;  // rax\n    let v29: i64;  // rax\n\n    v15 = uu_touch::uu_app();\n    clap_builder::builder::command::Command::try_get_matches_from(&v2, &v15, a0, a1);\n    if v5 == 0x8000000000000000 {\n        v25 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v6);\n        return v25;\n    }\n    v5 = v2;\n    v15 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v5, _ZN8uu_touch9ARG_FILES17h3d59eb602f5bfe9bE, g_710d40);\n    v2 = clap_builder::parser::error::MatchesError::unwrap(_ZN8uu_touch9ARG_FILES17h3d59eb602f5bfe9bE, g_710d40, &v15);\n    if !v14 {\n        uu_touch::uumain::uumain::{{closure}}();\n        return v25;\n    }\n    v14 = v2;\n    v9 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v14);\n    v26 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, _ZN8uu_touch7options8NO_DEREF17h87e2d6a561434778E, g_711590);\n    v15 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v5, _ZN8uu_touch7options7sources9REFERENCE17h77df47f4ac86215eE, g_7115d0);\n    v27 = clap_builder::parser::error::MatchesError::unwrap(_ZN8uu_touch7options7sources9REFERENCE17h77df47f4ac86215eE, g_7115d0, &v15);\n    v15 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v5, _ZN8uu_touch7options7sources9TIMESTAMP17h7271dcbbfda0a8a3E, g_7115e0);\n    v28 = clap_builder::parser::error::MatchesError::unwrap(_ZN8uu_touch7options7sources9TIMESTAMP17h7271dcbbfda0a8a3E, g_7115e0, &v15);\n    if v27 {\n        v15 = std::sys::os_str::bytes::Slice::to_owned(*((v27 + 8) as &i64), *((v27 + 16) as &i64));\n        v0 = v15;\n    } else if !v28 {\n        v0 = 9223372036854775809;\n    } else {\n        v1 = uu_touch::parse_timestamp(*((v28 + 8) as &i64), *((v28 + 16) as &i64))?;\n        v0 = 0x8000000000000000;\n    }\n    v15 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v5, _ZN8uu_touch7options7sources4DATE17h12ee10ec74f71cb0E, g_7115c0);\n    v29 = clap_builder::parser::error::MatchesError::unwrap(_ZN8uu_touch7options7sources4DATE17h12ee10ec74f71cb0E, g_7115c0, &v15);\n    if !v29 {\n        v7 = 0x8000000000000000;\n    } else {\n        v15 = <alloc::string::String as core::clone::Clone>::clone(v29);\n    }\n    v11 = *((&v0 as &char + 16) as &i64);\n    v10 = v0;\n    v4 = v8;\n    v2 = v7;\n    v19 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, _ZN8uu_touch7options9NO_CREATE17hab80ce86436bd515E, g_711580) as i32;\n    v20 = v26;\n    v17 = v10;\n    v18 = v11;\n    v15 = v2;\n    v16 = v4;\n    v22 = uu_touch::determine_atime_mtime_change(&v5) as i8;\n    v21 = 0;\n    uu_touch::touch(&v10);\n    if v2 != 9223372036854775812 {\n        v2 = struct48 {\n            field_0: v30\n            field_8: *((&v10 as &char + 8) as &i128)\n            field_24: v12\n            field_40: v13\n        };\n        alloc::boxed::Box<T>::new(&v2);\n        return v25;\n    }\n    return 0;\n}\n",
+    "_ZN8uu_touch20datetime_to_filetime17h06ea8034382622dbE": "fn uu_touch::datetime_to_filetime(a0: &u64) -> u64 {\n    return (chrono::naive::date::NaiveDate::num_days_from_ce(*(a0 as &i32)) as i32 - 719163) * 86400 + *((a0 as &char + 4) as &i32);\n}\n",
+    "_ZN8uu_touch20datetime_to_filetime17h45fb62f820aa2d2dE": "fn uu_touch::datetime_to_filetime(a0: &u64) -> u64 {\n    return (chrono::naive::date::NaiveDate::num_days_from_ce(*(a0 as &i32)) as i32 - 719163) * 86400 + *((a0 as &char + 4) as &i32);\n}\n",
+    "_ZN8uu_touch20datetime_to_filetime17hee2fe932dd2f3a25E": "fn uu_touch::datetime_to_filetime(a0: &u64) -> u64 {\n    return (chrono::naive::date::NaiveDate::num_days_from_ce(*(a0 as &i32)) as i32 - 719163) * 86400 + *((a0 as &char + 4) as &i32);\n}\n",
+    "_ZN8uu_touch20filetime_to_datetime17h118b2d8253ee418fE": "fn uu_touch::filetime_to_datetime(a0: &Option<struct16>, a1: u32, a2: u32) -> u64 {\n    let v0: i8;  // [bp-0x24]\n    let v1: i96;  // [sp-0x18]\n    let v3: Option<struct12>;  // rax\n\n    v3 = chrono::datetime::DateTime<chrono::offset::utc::Utc>::from_timestamp(a1, a2);\n    if !v0 {\n        return struct4 {\n            field_0: 0\n        };\n    }\n    v1 = v0;\n    v3 = <chrono::datetime::DateTime<chrono::offset::local::Local> as core::convert::From<chrono::datetime::DateTime<chrono::offset::utc::Utc>>>::from(a0, &v1);\n}\n",
+    "_ZN8uu_touch6uu_app17h6cafa39b57a66b7bE": "fn uu_touch::uu_app(a0: &struct712) -> u64 {\n    let v0: i64;  // [sp-0xad0]\n    let v1: i8;  // [bp-0xac8]\n    let v2: i8;  // [bp-0xac0]\n    let v3: i4736;  // [sp-0xab8], Other Possible Types: struct592, struct712, struct8, struct96, struct144, struct90\n    let v4: i64;  // [sp-0xab0]\n    let v5: i64;  // [sp-0xaa8]\n    let v6: i64;  // [sp-0xaa0]\n    let v7: i128;  // [bp-0xa98]\n    let v8: i64;  // [sp-0xa88]\n    let v9: i64;  // [sp-0xa80]\n    let v10: i8;  // [bp-0xa78]\n    let v11: struct72;  // [sp-0xa70]\n    let v12: i8;  // [sp-0xa5f]\n    let v13: i192;  // [sp-0x7f0], Other Possible Types: struct24, struct72\n    let v14: i8;  // [bp-0x7a8]\n    let v15: i4736;  // [sp-0x798], Other Possible Types: struct592, struct96, struct24\n    let v16: i32;  // [sp-0x550]\n    let v17: i32;  // [sp-0x54c]\n    let v18: i3504;  // [sp-0x540], Other Possible Types: struct592, struct712, struct437\n    let v19: i64;  // [sp-0x284]\n    let v20: i32;  // [sp-0x27c]\n    let v21: i64;  // [sp-0x278], Other Possible Types: struct592, struct72, struct48\n    let v22: i64;  // [sp-0x270]\n    let v23: i64;  // [sp-0x268]\n    let v25: i64;  // rdx\n    let v26: i128;  // xmm1\n    let v27: i128;  // xmm2\n    let v28: i128;  // xmm3\n    let v29: i128;  // xmm1\n    let v30: i128;  // xmm2\n    let v31: i128;  // xmm3\n\n    v18 = clap_builder::builder::command::Command::new(uucore::util_name(), v25);\n    v3 = clap_builder::builder::command::Command::version(&v18, \"0.0.28\");\n    v18 = clap_builder::builder::command::Command::about(&v3, \"Update the access and modification times of each `FILE` to the current time.\");\n    v15 = uucore::format_usage(\"{} [OPTION]... [USER]\");\n    v3 = clap_builder::builder::command::Command::override_usage(&v18, &v15);\n    memcpy(&v18, &v3, 700);\n    v19 = 1126449662918784 | *((&v3 as &char + 700) as &i64);\n    v20 = *((&v3 as &char + 708) as &i32);\n    v3 = clap_builder::builder::arg::Arg::new(\"help\");\n    v15 = clap_builder::builder::arg::Arg::long(&v3, \"help\");\n    v3 = clap_builder::builder::arg::Arg::help(&v15, \"Print help information.\");\n    v15 = clap_builder::builder::arg::Arg::action(&v3, 0x5);\n    v3 = clap_builder::builder::command::Command::arg(&v18, &v15);\n    v18 = clap_builder::builder::arg::Arg::new(\"access\");\n    v15 = clap_builder::builder::arg::Arg::short(&v18, 0x61);\n    v18 = clap_builder::builder::arg::Arg::help(&v15, \"change only the access time\");\n    v15 = clap_builder::builder::arg::Arg::action(&v18, 0x2);\n    v18 = clap_builder::builder::command::Command::arg(&v3, &v15);\n    v3 = clap_builder::builder::arg::Arg::new(\"timestamp\");\n    v15 = clap_builder::builder::arg::Arg::short(&v3, 0x74);\n    v3 = clap_builder::builder::arg::Arg::help(&v15, \"use [[CC]YY]MMDDhhmm[.ss] instead of the current time\");\n    v15 = clap_builder::builder::arg::Arg::value_name(&v3, \"STAMP\");\n    v3 = clap_builder::builder::command::Command::arg(&v18, &v15);\n    v18 = clap_builder::builder::arg::Arg::new(\"date\");\n    v15 = clap_builder::builder::arg::Arg::short(&v18, 0x64);\n    v18 = clap_builder::builder::arg::Arg::long(&v15, \"date\");\n    memcpy(&v15, &v18, 584);\n    v16 = *((&v18 as &char + 584) as &i32) | 32;\n    v17 = *((&v18 as &char + 588) as &i32);\n    v18 = clap_builder::builder::arg::Arg::help(&v15, \"parse argument and use it instead of current time\");\n    v15 = clap_builder::builder::arg::Arg::value_name(&v18, \"STRING\");\n    v21 = clap_builder::builder::arg::Arg::conflicts_with(&v15, \"timestamp\");\n    v18 = clap_builder::builder::command::Command::arg(&v3, &v21);\n    v3 = clap_builder::builder::arg::Arg::new(\"modification\");\n    v15 = clap_builder::builder::arg::Arg::short(&v3, 0x6d);\n    v3 = clap_builder::builder::arg::Arg::help(&v15, \"change only the modification time\");\n    v15 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v18, &v15);\n    v18 = clap_builder::builder::arg::Arg::new(\"no-create\");\n    v15 = clap_builder::builder::arg::Arg::short(&v18, 0x63);\n    v18 = clap_builder::builder::arg::Arg::long(&v15, \"no-create\");\n    v15 = clap_builder::builder::arg::Arg::help(&v18, \"do not create any files\");\n    v21 = clap_builder::builder::arg::Arg::action(&v15, 0x2);\n    v18 = clap_builder::builder::command::Command::arg(&v3, &v21);\n    v3 = clap_builder::builder::arg::Arg::new(\"no-dereference\");\n    v15 = clap_builder::builder::arg::Arg::short(&v3, 0x68);\n    v3 = clap_builder::builder::arg::Arg::long(&v15, \"no-dereference\");\n    v15 = clap_builder::builder::arg::Arg::help(&v3, \"affect each symbolic link instead of any referenced file (only for systems that can change the timestamps of a symlink)\");\n    v21 = clap_builder::builder::arg::Arg::action(&v15, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v18, &v21);\n    v18 = clap_builder::builder::arg::Arg::new(\"reference\");\n    v15 = clap_builder::builder::arg::Arg::short(&v18, 0x72);\n    v18 = clap_builder::builder::arg::Arg::long(&v15, \"reference\");\n    v15 = clap_builder::builder::arg::Arg::help(&v18, \"use this file's times instead of the current time\");\n    v18 = clap_builder::builder::arg::Arg::value_name(&v15, \"FILE\");\n    v0 = 2;\n    v23 = v2;\n    v21 = v0;\n    v22 = v1;\n    v15 = clap_builder::builder::arg::Arg::value_parser(&v18, &v21);\n    v18 = clap_builder::builder::arg::Arg::value_hint(&v15, 0x2);\n    v15 = clap_builder::builder::arg::Arg::conflicts_with(&v18, \"timestamp\");\n    v18 = clap_builder::builder::command::Command::arg(&v3, &v15);\n    v3 = clap_builder::builder::arg::Arg::new(\"time\");\n    v15 = clap_builder::builder::arg::Arg::long(&v3, \"time\");\n    v3 = clap_builder::builder::arg::Arg::help(&v15, \"change only the specified time: \\\"access\\\", \\\"atime\\\", or \\\"use\\\" are equivalent to -a; \\\"modify\\\" or \\\"mtime\\\" are equivalent to -m\");\n    v15 = clap_builder::builder::arg::Arg::value_name(&v3, \"WORD\");\n    v8 = &g_475002;\n    v9 = 5;\n    v6 = 0x8000000000000000;\n    v7 = v14;\n    v3 = struct8 {\n        field_16: 0\n    };\n    v4 = 8;\n    v5 = 0;\n    v10 = 0;\n    v21 = clap_builder::builder::possible_value::PossibleValue::alias(&v3, \"access\");\n    v13 = clap_builder::builder::possible_value::PossibleValue::alias(&v21, \"use\");\n    v8 = &g_475007;\n    v9 = 5;\n    v6 = 0x8000000000000000;\n    v7 = v14;\n    v3 = struct8 {\n        field_16: 0\n    };\n    v4 = 8;\n    v5 = 0;\n    v10 = 0;\n    v21 = clap_builder::builder::possible_value::PossibleValue::alias(&v3, \"modify\");\n    v26 = *((&v13 as &char + 16) as &i128);\n    v27 = *((&v13 as &char + 32) as &i128);\n    v28 = *((&v13 as &char + 48) as &i128);\n    v3 = struct144 {\n        field_0: v13\n        field_16: v26\n        field_32: v27\n        field_48: v28\n        field_64: *((&v13 as &char + 64) as &i64)\n        field_72: <UNKNOWN>\n        field_88: <UNKNOWN>\n        field_104: <UNKNOWN>\n        field_120: <UNKNOWN>\n        field_136: <UNKNOWN>\n    };\n    v29 = *((&v21 as &char + 16) as &i128);\n    v30 = *((&v21 as &char + 32) as &i128);\n    v31 = *((&v21 as &char + 48) as &i128);\n    v11 = v21;\n    v13 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v3);\n    v21 = clap_builder::builder::arg::Arg::value_parser(&v15, &v13);\n    v3 = clap_builder::builder::command::Command::arg(&v18, &v21);\n    v18 = clap_builder::builder::arg::Arg::new(\"files\");\n    v15 = clap_builder::builder::arg::Arg::action(&v18, 0x1);\n    v18 = clap_builder::builder::arg::Arg::num_args(&v15);\n    v15 = clap_builder::builder::arg::Arg::value_parser(&v18, &v0);\n    v21 = clap_builder::builder::arg::Arg::value_hint(&v15, 0x2);\n    v18 = clap_builder::builder::command::Command::arg(&v3, &v21);\n    v3 = struct90 {\n        field_0: 0\n        field_8: 8\n        field_16: 0\n        field_32: 8\n        field_40: 0\n        field_56: 8\n        field_64: 0\n        field_72: 1\n        field_80: 0\n        field_88: 0\n    };\n    v15 = clap_builder::builder::arg_group::ArgGroup::id(&v3, \"sources\");\n    v21 = struct48 {\n        field_0: &anon.9140edd4b155a5c33d3a3382a80f889a.4.llvm.18306172555780859939\n        field_8: 9\n        field_16: &anon.9140edd4b155a5c33d3a3382a80f889a.2.llvm.18306172555780859939\n        field_24: 4\n        field_32: &anon.9140edd4b155a5c33d3a3382a80f889a.3.llvm.18306172555780859939\n        field_40: 9\n    };\n    v3 = clap_builder::builder::arg_group::ArgGroup::args(&v15, &v21);\n    v12 = 1;\n    v15 = v3;\n    clap_builder::builder::command::Command::group(a0, &v18, &v15);\n    return a0;\n}\n",
+    "_ZN8uu_touch28determine_atime_mtime_change17hda9df64dc3778c17E": "fn uu_touch::determine_atime_mtime_change(a0: u32) -> u64 {\n    let v0: i320;  // [sp-0x48], Other Possible Types: Result<struct40, struct8>\n    let v3: i64;  // rax\n    let v4: i64;  // rbp\n    let v8: i64;  // rax\n    let v12: i64;  // rax\n\n    if !clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(a0, \"time\") as i8 {\nLABEL_5c2ff2:\n        if !(!clap_builder::parser::matches::arg_matches::ArgMatches::get_flag() as i8) {\n            goto LABEL_5c300e;\n        }\n        clap_builder::parser::matches::arg_matches::ArgMatches::get_flag();\n    } else {\n        v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, \"time\");\n        v3 = clap_builder::parser::error::MatchesError::unwrap(\"time\", &v0);\n        if !v3 {\n            goto LABEL_5c2ff2;\n        }\n        v4 = uu_touch::determine_atime_mtime_change::{{closure}}(*((v3 + 8) as &i64), *((v3 + 16) as &i64));\n        if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag() as i8 {\nLABEL_5c300e:\n            v8 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag();\n            v4 = v4 & -0x100 | 1;\n            if !v8 {\n                return 0;\n            }\n            v12 = (v8 & -0x100 | 1) & -0x100 | 2 - (!(v4 & 255 & 255));\n            return v12;\n        } else if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag() as i8 {\n            return v12;\n        } else if v4 {\n            if (v4 & 4294967295) != 1 {\n                return v12;\n            }\n            return 0;\n        }\n    }\n    return v12;\n}\n",
+    "_ZN8uu_touch12update_times17h392cecc13adcf2b7E": "fn uu_touch::update_times(a0: u32, a1: u32, a2: u64, a3: u8, a4: u32, a5: u64) -> u64 {\n    let v0: i32;  // [sp-0x8c]\n    let v1: Result<struct32, struct16>;  // [sp-0x88], Other Possible Types: i320\n    let v2: i256;  // [sp-0x58], Other Possible Types: Result<struct24, struct8>\n    let v3: i64;  // [bp+0x8]\n    let v4: i8;  // [bp+0x10]\n    let v5: i8;  // [bp+0x18]\n    let v6: i32;  // r15d\n    let v7: i32;  // r13d\n    let v8: i64;  // rbp\n    let v9: i64;  // rax\n    let v10: i64;  // rax\n\n    v6 = v3;\n    if !a4 {\n        v0 = a2;\n        v2 = uu_touch::stat(a0, a1, !a3);\n        v1 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v2, a0, a1);\n        match v1 {\n            Err(_) => {\n                v9 = *((&v1 as &char + 8) as &i64);\n                return v9;\n            },\n            Ok(_) => {\n                v8 = *((&v1 as &char + 24) as &i64);\n                v7 = *((&v1 as &char + 32) as &i32);\n            },\n        }\n    } else {\n        v7 = v5;\n        v8 = v4;\n        if !(a4 == 1) {\n            goto LABEL_5c320f;\n        }\n        v0 = a2;\n        v2 = uu_touch::stat(a0, a1, !a3);\n        v1 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v2, a0, a1);\n        v6 = *((&v1 as &char + 16) as &i64);\n        match v1 {\n            Err(_) => {\n                v9 = *((&v1 as &char + 8) as &i64);\n                return v9;\n            },\n            Ok(_) => {\n                a5 = *((&v1 as &char + 8) as &i64);\n            },\n        }\n    }\nLABEL_5c320f:\n    if !a3 || v0 {\n        v10 = filetime::set_file_times(a0, a1, a5, v6, v8, v7);\n    } else {\n        v10 = filetime::set_symlink_file_times(a0, a1, a5, v6, v8, v7);\n    }\n    v9 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v10, a0, a1);\n    return v9;\n}\n",
+    "_ZN8uu_touch10parse_date17h59fdcf28d83a7f45E": "fn uu_touch::parse_date(a0: &Option<struct12>, a1: &struct16, a2: u32, a3: u32) -> u64 {\n    let v0: i64;  // [sp-0xc0], Other Possible Types: Result<struct2, struct8>, struct16, Option<Result<struct16, struct32>>\n    let v1: i64;  // [sp-0xb8]\n    let v2: i64;  // [sp-0xb0]\n    let v3: i64;  // [sp-0xa8]\n    let v4: i64;  // [sp-0xa0]\n    let v5: i64;  // [sp-0x98]\n    let v6: i64;  // [sp-0x90]\n    let v7: i64;  // [sp-0x88]\n    let v8: i64;  // [sp-0x80]\n    let v9: i64;  // [sp-0x78]\n    let v10: struct12;  // [sp-0x64], Other Possible Types: i96\n    let v11: struct12;  // [sp-0x58]\n    let v12: struct12;  // [bp-0x4c]\n    let v13: i128;  // [bp-0x40], Other Possible Types: struct16\n    let v15: i64;  // rax\n    let v16: i64;  // rax\n    let v17: i64;  // rdx\n    let v19: i64;  // rax\n\n    v10 = chrono::naive::datetime::NaiveDateTime::parse_from_str(a2, a3, \"%a %b %e %H:%M:%S %Y\");\n    if v10 {\n        v15 = uu_touch::datetime_to_filetime(&v10);\n    } else {\n        v0 = &g_4752dc;\n        v1 = 17;\n        v2 = &g_4752ed;\n        v3 = 20;\n        v4 = &g_475301;\n        v5 = 14;\n        v6 = &g_47530f;\n        v7 = 17;\n        v8 = 0;\n        v9 = 4;\n        loop {\n            v16 = <core::array::iter::IntoIter<T,_> as core::iter::traits::iterator::Iterator>::next(&v0);\n            if !v16 {\n                break;\n            }\n            v11 = chrono::naive::datetime::NaiveDateTime::parse_from_str(a2, a3, v16, v17);\n        }\n        if !(chrono::naive::date::NaiveDate::parse_from_str(a2, a3, \"%Y-%m-%d\") as i8 & 1) {\n            v12 = struct12 {\n                field_0: (v18 >> 32) as i32\n                field_4: 0\n            };\n            <chrono::offset::local::Local as chrono::offset::TimeZone>::offset_from_local_datetime(&v13, 1, &v12);\n            v0 = chrono::offset::LocalResult<T>::and_then(&v13, &v12);\n            v13 = chrono::offset::LocalResult<T>::unwrap(&v0, \"src/uu/touch/src/touch.rs\");\n            v15 = uu_touch::datetime_to_filetime(&v13);\n        } else {\n            v0 = struct16 {\n                field_0: a2\n                field_8: a2 + a3\n            };\n            v19 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v0);\n            if v19 && *(v19 as &i8) == 64 {\n                v0 = core::num::<impl core::str::traits::FromStr for i64>::from_str(core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(1, a2, a3), v17);\n                if !v0 {\n                    *((a0 + 8) as &i64) = v1;\n                    *((a0 + 16) as &i32) = 0;\n                }\n            }\n            parse_datetime::parse_datetime_at_date(&v0, a1, a2, a3);\n            if v0 != 9223372036854775810 {\n                <T as alloc::slice::hack::ConvertVec>::to_vec(a0 + 8, a2, a3);\n                return struct8 {\n                    field_0: 0x8000000000000000\n                };\n            }\n        }\n    }\n    return Some(struct12 {\n        field_0: v15\n        field_8: v20 as i32\n    });\n}\n",
+    "_ZN8uu_touch15parse_timestamp17h96cd6cd8bd424ce5E": "fn uu_touch::parse_timestamp(a0: &Result<struct12, struct16>, a1: u32, a2: u32) -> u64 {\n    let v0: i64;  // [sp-0x148], Other Possible Types: struct12, struct16, struct28, Option<struct16>\n    let v1: i64;  // [sp-0x140]\n    let v2: i64;  // [sp-0x138]\n    let v3: i64;  // [bp-0x130]\n    let v4: i64;  // [sp-0x128]\n    let v5: i64;  // [sp-0x118], Other Possible Types: struct12, Option<Result<struct16, struct32>>\n    let v6: i64;  // [sp-0x110]\n    let v7: i64;  // [sp-0x108]\n    let v8: i32;  // [bp-0x100]\n    let v9: i64;  // [sp-0xe8], Other Possible Types: struct24\n    let v10: i64;  // [sp-0xe0]\n    let v11: i64;  // [sp-0xd8]\n    let v12: struct16;  // [bp-0xc8], Other Possible Types: i128\n    let v13: i64;  // [bp-0xb8]\n    let v14: i64;  // [sp-0xb0]\n    let v15: i64;  // [sp-0xa8]\n    let v16: i8;  // [sp-0xa0]\n    let v17: i64;  // [sp-0x98], Other Possible Types: struct24\n    let v18: i64;  // [sp-0x90]\n    let v19: i64;  // [sp-0x80]\n    let v20: i64;  // [sp-0x78]\n    let v21: i32;  // [sp-0x6c], Other Possible Types: struct12\n    let v22: struct16;  // [bp-0x60]\n    let v23: i8;  // [bp-0x50]\n    let v24: i8;  // [bp-0x38]\n    let v26: i64;  // r14\n    let v27: i64;  // r15\n    let v29: i64;  // r8\n    let v30: i64;  // rcx\n    let v34: i128;  // xmm0\n    let v35: i64;  // rdx\n    let v36: i64;  // rdi\n    let v39: i32;  // edx\n\n    v26 = a2;\n    v27 = a1;\n    v19 = a1;\n    v20 = a2;\n    match (<core::str::iter::Chars as core::iter::traits::iterator::Iterator>::count(v27, a1 + a2)) {\n        8 => {\n            v0 = chrono::offset::local::Local::now();\n            v5 = chrono::naive::datetime::NaiveDateTime::overflowing_add_offset(&v0, *((&v0 as &char + 12) as &i32));\n            v13 = v5 >> 13;\n            v5 = &v13;\n            v6 = core::fmt::num::imp::<impl core::fmt::Display for i32>::fmt;\n            v7 = &v19;\n            v8 = <&T as core::fmt::Display>::fmt;\n            v0 = &g_46c700;\n            v1 = 2;\n            v4 = 0;\n            v2 = &v5;\n            v3 = 2;\nLABEL_5c38da:\n            core::option::Option<T>::map_or_else();\nLABEL_5c38ff:\n            v29 = 10;\n            v30 = &g_475397;\n            break;\n        }\n        10 => {\n            v5 = &v19;\n            v6 = <&T as core::fmt::Display>::fmt;\n            v0 = \"20\";\n            v1 = 1;\n            v4 = 0;\n            v2 = &v5;\n            v3 = 1;\n            goto LABEL_5c38da;\n        }\n        11 => {\n            v0 = chrono::offset::local::Local::now();\n            v5 = chrono::naive::datetime::NaiveDateTime::overflowing_add_offset(&v0, *((&v0 as &char + 12) as &i32));\n            v13 = v5 >> 13;\n            v5 = &v13;\n            v6 = core::fmt::num::imp::<impl core::fmt::Display for i32>::fmt;\n            v7 = &v19;\n            v8 = <&T as core::fmt::Display>::fmt;\n            v0 = &g_46c700;\n            v1 = 2;\n            v4 = 0;\n            v2 = &v5;\n            v3 = 2;\nLABEL_5c3957:\n            core::option::Option<T>::map_or_else();\nLABEL_5c3967:\n            v29 = 13;\n            v30 = &g_47538a;\n            break;\n        }\n        12 => {\n            v17 = <T as alloc::slice::hack::ConvertVec>::to_vec(v27, v26);\n            goto LABEL_5c38ff;\n        }\n        13 => {\n            v5 = &v19;\n            v6 = <&T as core::fmt::Display>::fmt;\n            v0 = \"20\";\n            v1 = 1;\n            v4 = 0;\n            v2 = &v5;\n            v3 = 1;\n            goto LABEL_5c3957;\n        }\n        15 => {\n            v17 = <T as alloc::slice::hack::ConvertVec>::to_vec(v27, v26);\n            goto LABEL_5c3967;\n        }\n        _ => {\n            v13 = 0;\n            v14 = v27;\n            v15 = v26;\n            v16 = 1;\n            v9 = &v13;\n            v10 = <os_display::Quoted as core::fmt::Display>::fmt;\n            v0 = \"invalid date format \";\n            v1 = 1;\n            v4 = 0;\n            v2 = &v9;\n            v3 = 1;\n            core::option::Option<T>::map_or_else();\n            v8 = 1;\n            *((a0 + 8) as &double) = alloc::boxed::Box<T>::new(&v5);\n            *((a0 + 16) as &&i64) = &g_710e78;\n            *(a0 as &i64) = 1;\n        }\n    }\n    v9 = v17;\n    v0 = chrono::naive::datetime::NaiveDateTime::parse_from_str(v10, *((&v17 as &char + 16) as &i64), v30, v29);\n    if !v21 {\n        uu_touch::parse_timestamp::{{closure}}(v10, v11);\n        return Err(struct16 {\n            field_0: v33\n            field_8: &g_710e78\n        });\n    }\n    v21 = struct12 {\n        field_0: v32\n        field_4: *((&v0 as &char + 4) as &i64)\n    };\n    <chrono::offset::local::Local as chrono::offset::TimeZone>::offset_from_local_datetime(&v0, 1, &v21);\n    v5 = chrono::offset::LocalResult<T>::and_then(&v0, &v21);\n    if v5 {\n        v34 = *((&v9 as &char + 8) as &i128);\n        v13 = 0;\n        v14 = v34;\n        v16 = 1;\n        v17 = &v13;\n        v18 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v0 = struct28 {\n            field_0: \"invalid date ts format \"\n            field_16: &v17\n            field_24: <UNKNOWN>\n        };\n        v4 = 0;\n        v3 = 1;\n        core::option::Option<T>::map_or_else();\n        v0 = v23;\n        alloc::boxed::Box<T>::new(&v0);\n    } else {\n        *(&v12.field_0 as &struct16) = struct16 {\n            field_0: *((&v5 as &char + 4) as &i128)\n        };\n        v0 = chrono::naive::datetime::NaiveDateTime::overflowing_add_offset(&v12, v12.field_12);\n        if (*((&v0 as &char + 4) as &i32) * 4008636143 - 286331157 >> 2 | (*((&v0 as &char + 4) as &i32) * 4008636143 - 286331157) * 0x40000000) <= 71582787 && core::slice::<impl [T]>::ends_with(v10, v11, \".60\") as i8 {\n            v12 = <chrono::datetime::DateTime<Tz> as core::ops::arith::AddAssign<chrono::time_delta::TimeDelta>>::add_assign();\n        }\n        v0 = chrono::datetime::DateTime<Tz>::checked_add_signed(&v12);\n        match v0 {\n            None => {\n                v35 = \"/home/34r7hm4n/.cargo/registry/src/index.crates.io-6f17d22bba15001f/chrono-0.4.38/src/datetime/mod.rs\";\n                v36 = &g_474e0c;\n            },\n            Some(_) => {\n                v5 = v0;\n                v0 = chrono::datetime::DateTime<Tz>::checked_sub_signed(&v5);\n                match v0 {\n                    None => {\n                        v35 = \"/home/34r7hm4n/.cargo/registry/src/index.crates.io-6f17d22bba15001f/chrono-0.4.38/src/datetime/mod.rs\";\n                        v36 = &g_475369;\n                    },\n                    Some(_) => {\n                        *(&v22.field_0 as &struct16) = struct16 {\n                            field_0: v0\n                        };\n                        v0 = chrono::naive::datetime::NaiveDateTime::overflowing_add_offset(&v12, *((&v12 as &char + 12) as &i32) as u32 as u64);\n                        v0 = chrono::naive::datetime::NaiveDateTime::overflowing_add_offset(&v22, *((&v0 as &char + 12) as &i32) as u32 as u64);\n                        if (*((&v0 as &char + 4) as &i32) as u32 as u64 / 3600) as u32 == (*((&v0 as &char + 4) as &i32) as u32 as u64 / 3600) as u32 {\n                            *((a0 + 8) as &long long) = uu_touch::datetime_to_filetime(&v12);\n                            *((a0 + 16) as &i32) = v39;\n                            *(a0 as &i64) = 0;\n                        }\n                        v5 = 0;\n                        v6 = v19;\n                        v8 = 1;\n                        v13 = &v5 as i64;\n                        v14 = <os_display::Quoted as core::fmt::Display>::fmt;\n                        v0 = struct28 {\n                            field_0: \"invalid date format \"\n                            field_16: &v13\n                            field_24: <UNKNOWN>\n                        };\n                        v4 = 0;\n                        v3 = 1;\n                        core::option::Option<T>::map_or_else();\n                        v0 = v24;\n                        alloc::boxed::Box<T>::new(&v0);\n                    },\n                }\n            },\n        }\n        core::option::expect_failed(v36, 33, v35); /* do not return */\n    }\n}\n",
+    "_ZN8uu_touch19pathbuf_from_stdout17h2920ee1b816c3101E": "fn uu_touch::pathbuf_from_stdout(a0: &struct8) -> u64 {\n    std::sys::os_str::bytes::Slice::to_owned(a0 + 8, \"/dev/stdout\");\n    return struct8 {\n        field_0: 9223372036854775812\n    };\n}\n",
+    "_ZN8uu_touch5error11to_uioerror17had05960f9149df06E": "fn uu_touch::error::to_uioerror(a0: u32, a1: u32) -> u64 {\n    let v0: struct9;  // [sp-0x20]\n    let v1: i64;  // [sp-0x10]\n    let v2: i64;  // [sp-0x8]\n    let v4: i64;  // r14\n    let v5: i64;  // rbx\n\n    v2 = v4;\n    v1 = v5;\n    v0 = std::io::error::repr_bitpacked::decode_repr(a1);\n    goto *((4676980 + (stack_base)[32] as i8 * 4) as &i32) + 4676980;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN8uu_touch6uumain17h8225500c1a21f08aE": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_touch::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN8uu_touch6uumain6uumain17h705f09c8dae5a0adE": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uu_touch::uumain::uumain::{{closure}}": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 2,
+      "uu_touch::determine_atime_mtime_change": 1,
+      "uu_touch::touch": 1,
+      "<alloc::string::String as core::clone::Clone>::clone": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 4,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 3,
+      "std::sys::os_str::bytes::Slice::to_owned": 1,
+      "uu_touch::parse_timestamp": 1,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_touch::uu_app": 1
+    },
+    "_ZN8uu_touch20datetime_to_filetime17h06ea8034382622dbE": {
+      "chrono::naive::date::NaiveDate::num_days_from_ce": 1
+    },
+    "_ZN8uu_touch20datetime_to_filetime17h45fb62f820aa2d2dE": {
+      "chrono::naive::date::NaiveDate::num_days_from_ce": 1
+    },
+    "_ZN8uu_touch20datetime_to_filetime17hee2fe932dd2f3a25E": {
+      "chrono::naive::date::NaiveDate::num_days_from_ce": 1
+    },
+    "_ZN8uu_touch20filetime_to_datetime17h118b2d8253ee418fE": {
+      "<chrono::datetime::DateTime<chrono::offset::local::Local> as core::convert::From<chrono::datetime::DateTime<chrono::offset::utc::Utc>>>::from": 1,
+      "chrono::datetime::DateTime<chrono::offset::utc::Utc>::from_timestamp": 1
+    },
+    "_ZN8uu_touch6uu_app17h6cafa39b57a66b7bE": {
+      "clap_builder::builder::command::Command::group": 1,
+      "clap_builder::builder::arg_group::ArgGroup::args": 1,
+      "clap_builder::builder::arg_group::ArgGroup::id": 1,
+      "clap_builder::builder::command::Command::arg": 10,
+      "clap_builder::builder::arg::Arg::value_hint": 2,
+      "clap_builder::builder::arg::Arg::value_parser": 3,
+      "clap_builder::builder::arg::Arg::num_args": 1,
+      "clap_builder::builder::arg::Arg::action": 6,
+      "clap_builder::builder::arg::Arg::new": 10,
+      "<uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from": 1,
+      "clap_builder::builder::possible_value::PossibleValue::alias": 3,
+      "clap_builder::builder::arg::Arg::value_name": 4,
+      "clap_builder::builder::arg::Arg::help": 9,
+      "clap_builder::builder::arg::Arg::long": 6,
+      "clap_builder::builder::arg::Arg::conflicts_with": 2,
+      "clap_builder::builder::arg::Arg::short": 7,
+      "memcpy": 2,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN8uu_touch28determine_atime_mtime_change17hda9df64dc3778c17E": {
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 2,
+      "uu_touch::determine_atime_mtime_change::{{closure}}": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 1
+    },
+    "_ZN8uu_touch12update_times17h392cecc13adcf2b7E": {
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 3,
+      "filetime::set_file_times": 1,
+      "filetime::set_symlink_file_times": 1,
+      "uu_touch::stat": 2
+    },
+    "_ZN8uu_touch10parse_date17h59fdcf28d83a7f45E": {
+      "uu_touch::datetime_to_filetime": 2,
+      "chrono::offset::LocalResult<T>::unwrap": 1,
+      "chrono::offset::LocalResult<T>::and_then": 1,
+      "<chrono::offset::local::Local as chrono::offset::TimeZone>::offset_from_local_datetime": 1,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
+      "parse_datetime::parse_datetime_at_date": 1,
+      "core::num::<impl core::str::traits::FromStr for i64>::from_str": 1,
+      "core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get": 1,
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 1,
+      "chrono::naive::datetime::NaiveDateTime::parse_from_str": 2,
+      "<core::array::iter::IntoIter<T,_> as core::iter::traits::iterator::Iterator>::next": 1
+    },
+    "_ZN8uu_touch15parse_timestamp17h96cd6cd8bd424ce5E": {
+      "alloc::boxed::Box<T>::new": 3,
+      "core::option::Option<T>::map_or_else": 5,
+      "core::option::expect_failed": 1,
+      "uu_touch::datetime_to_filetime": 1,
+      "chrono::naive::datetime::NaiveDateTime::overflowing_add_offset": 5,
+      "chrono::datetime::DateTime<Tz>::checked_sub_signed": 1,
+      "chrono::datetime::DateTime<Tz>::checked_add_signed": 1,
+      "<chrono::datetime::DateTime<Tz> as core::ops::arith::AddAssign<chrono::time_delta::TimeDelta>>::add_assign": 1,
+      "chrono::offset::LocalResult<T>::and_then": 1,
+      "<chrono::offset::local::Local as chrono::offset::TimeZone>::offset_from_local_datetime": 1,
+      "uu_touch::parse_timestamp::{{closure}}": 1,
+      "chrono::naive::datetime::NaiveDateTime::parse_from_str": 1,
+      "chrono::offset::local::Local::now": 2,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 2
+    },
+    "_ZN8uu_touch19pathbuf_from_stdout17h2920ee1b816c3101E": {
+      "std::sys::os_str::bytes::Slice::to_owned": 1
+    },
+    "_ZN8uu_touch5error11to_uioerror17had05960f9149df06E": {
+      "std::io::error::repr_bitpacked::decode_repr": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN8uu_touch6uumain17h8225500c1a21f08aE": {
+      "eprintln": 2,
+      "eprint": 1
+    },
+    "_ZN8uu_touch6uumain6uumain17h705f09c8dae5a0adE": {},
+    "_ZN8uu_touch20datetime_to_filetime17h06ea8034382622dbE": {},
+    "_ZN8uu_touch20datetime_to_filetime17h45fb62f820aa2d2dE": {},
+    "_ZN8uu_touch20datetime_to_filetime17hee2fe932dd2f3a25E": {},
+    "_ZN8uu_touch20filetime_to_datetime17h118b2d8253ee418fE": {},
+    "_ZN8uu_touch6uu_app17h6cafa39b57a66b7bE": {},
+    "_ZN8uu_touch28determine_atime_mtime_change17hda9df64dc3778c17E": {},
+    "_ZN8uu_touch12update_times17h392cecc13adcf2b7E": {},
+    "_ZN8uu_touch10parse_date17h59fdcf28d83a7f45E": {},
+    "_ZN8uu_touch15parse_timestamp17h96cd6cd8bd424ce5E": {},
+    "_ZN8uu_touch19pathbuf_from_stdout17h2920ee1b816c3101E": {},
+    "_ZN8uu_touch5error11to_uioerror17had05960f9149df06E": {}
+  },
+  "node_counts": {
+    "_ZN8uu_touch6uumain17h8225500c1a21f08aE": 9,
+    "_ZN8uu_touch6uumain6uumain17h705f09c8dae5a0adE": 28,
+    "_ZN8uu_touch20datetime_to_filetime17h06ea8034382622dbE": 1,
+    "_ZN8uu_touch20datetime_to_filetime17h45fb62f820aa2d2dE": 1,
+    "_ZN8uu_touch20datetime_to_filetime17hee2fe932dd2f3a25E": 1,
+    "_ZN8uu_touch20filetime_to_datetime17h118b2d8253ee418fE": 3,
+    "_ZN8uu_touch6uu_app17h6cafa39b57a66b7bE": 75,
+    "_ZN8uu_touch28determine_atime_mtime_change17hda9df64dc3778c17E": 16,
+    "_ZN8uu_touch12update_times17h392cecc13adcf2b7E": 20,
+    "_ZN8uu_touch10parse_date17h59fdcf28d83a7f45E": 16,
+    "_ZN8uu_touch15parse_timestamp17h96cd6cd8bd424ce5E": 39,
+    "_ZN8uu_touch19pathbuf_from_stdout17h2920ee1b816c3101E": 2,
+    "_ZN8uu_touch5error11to_uioerror17had05960f9149df06E": 2
+  },
+  "prototypes": {
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h153b4a940d494604E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h153b4a940d494604E",
+      "return_type": [
+        "Result",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17haaca2baeff626b88E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17haaca2baeff626b88E",
+      "return_type": [
+        "Result",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h219e52a321966872E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h219e52a321966872E",
+      "return_type": [
+        "struct",
+        56
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he495c32affd9a0b5E": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he495c32affd9a0b5E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h561b5f65ff575257E": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h561b5f65ff575257E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3cb0cf428bee6564E": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3cb0cf428bee6564E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h5aa8999775824872E": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h5aa8999775824872E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
+      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
+      "return_type": [
+        "primitive",
+        1
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch6uumain17h8225500c1a21f08aE": {
+      "name": "_ZN8uu_touch6uumain17h8225500c1a21f08aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch6uumain6uumain17h705f09c8dae5a0adE": {
+      "name": "_ZN8uu_touch6uumain6uumain17h705f09c8dae5a0adE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch6uumain6uumain28_$u7b$$u7b$closure$u7d$$u7d$17h649caa4cf9839cd8E": {
+      "name": "_ZN8uu_touch6uumain6uumain28_$u7b$$u7b$closure$u7d$$u7d$17h649caa4cf9839cd8E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h253c999d17ec96d2E": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h253c999d17ec96d2E",
+      "return_type": [
+        "struct",
+        64
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17ha8b85f67119db88bE": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17ha8b85f67119db88bE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h839733911ffe4e3dE": {
+      "name": "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h839733911ffe4e3dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h816275565265bd85E": {
+      "name": "_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h816275565265bd85E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E": {
+      "name": "_ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h8f45b0d02f4dafdaE": {
+      "name": "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h8f45b0d02f4dafdaE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option13expect_failed17h9e03a1f6ff88dbcfE": {
+      "name": "_ZN4core6option13expect_failed17h9e03a1f6ff88dbcfE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i64$GT$8from_str17hb0cdd6b069f41ab1E": {
+      "name": "_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i64$GT$8from_str17hb0cdd6b069f41ab1E",
+      "return_type": [
+        "Result",
+        9
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h549ada4c33c82e7dE": {
+      "name": "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h549ada4c33c82e7dE",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN121_$LT$chrono..datetime..DateTime$LT$Tz$GT$$u20$as$u20$core..ops..arith..AddAssign$LT$chrono..time_delta..TimeDelta$GT$$GT$10add_assign17hbb08d14e863a0c01E": {
+      "name": "_ZN121_$LT$chrono..datetime..DateTime$LT$Tz$GT$$u20$as$u20$core..ops..arith..AddAssign$LT$chrono..time_delta..TimeDelta$GT$$GT$10add_assign17hbb08d14e863a0c01E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": []
+    },
+    "_ZN12clap_builder7builder3arg3Arg10value_name17h8a691a2761ad8028E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg10value_name17h8a691a2761ad8028E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4help17he46e0f1463526103E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4help17he46e0f1463526103E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4long17h1fa6b659a5adc704E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4long17h1fa6b659a5adc704E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg5short17h4ab824318e650028E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg5short17h4ab824318e650028E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg6action17h85c65443e8a0877fE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg6action17h85c65443e8a0877fE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg8num_args17h203cb77198aa86ddE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg8num_args17h203cb77198aa86ddE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command5group17hdb1f30e6b6af6197E": {
+      "name": "_ZN12clap_builder7builder7command7Command5group17hdb1f30e6b6af6197E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io5error5Error4kind17hb2ff5fa058639b3dE": {
+      "name": "_ZN3std2io5error5Error4kind17hb2ff5fa058639b3dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h7b6c1f916f50a915E": {
+      "name": "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h7b6c1f916f50a915E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str11validations23next_code_point_reverse17h49d445a14546f521E": {
+      "name": "_ZN4core3str11validations23next_code_point_reverse17h49d445a14546f521E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hccefea64a1916a27E": {
+      "name": "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hccefea64a1916a27E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17hfcce5e0c4efe3dfbE": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17hfcce5e0c4efe3dfbE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17he7405723912f7c0bE": {
+      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17he7405723912f7c0bE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h6ec029cbb0371e9dE": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h6ec029cbb0371e9dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h3a5ee0596b8da218E": {
+      "name": "_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h3a5ee0596b8da218E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN6chrono8datetime18DateTime$LT$Tz$GT$18checked_add_signed17hdc8fa11fc4c46678E": {
+      "name": "_ZN6chrono8datetime18DateTime$LT$Tz$GT$18checked_add_signed17hdc8fa11fc4c46678E",
+      "return_type": [
+        "Option",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6chrono8datetime18DateTime$LT$Tz$GT$18checked_sub_signed17h40e2b72c9b42b946E": {
+      "name": "_ZN6chrono8datetime18DateTime$LT$Tz$GT$18checked_sub_signed17h40e2b72c9b42b946E",
+      "return_type": [
+        "Option",
+        16
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h8ab0e73f75167f24E": {
+      "name": "_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h8ab0e73f75167f24E",
+      "return_type": [
+        "Option",
+        12
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hc7941fd67a47c62aE": {
+      "name": "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hc7941fd67a47c62aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3fb6acca9c1eba45E": {
+      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3fb6acca9c1eba45E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch20datetime_to_filetime17h06ea8034382622dbE": {
+      "name": "_ZN8uu_touch20datetime_to_filetime17h06ea8034382622dbE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch20datetime_to_filetime17h45fb62f820aa2d2dE": {
+      "name": "_ZN8uu_touch20datetime_to_filetime17h45fb62f820aa2d2dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch20datetime_to_filetime17hee2fe932dd2f3a25E": {
+      "name": "_ZN8uu_touch20datetime_to_filetime17hee2fe932dd2f3a25E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch20filetime_to_datetime17h118b2d8253ee418fE": {
+      "name": "_ZN8uu_touch20filetime_to_datetime17h118b2d8253ee418fE",
+      "return_type": [
+        "Option",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch6uu_app17h6cafa39b57a66b7bE": {
+      "name": "_ZN8uu_touch6uu_app17h6cafa39b57a66b7bE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": []
+    },
+    "_ZN8uu_touch5touch28_$u7b$$u7b$closure$u7d$$u7d$17hdd400a1e630fbbb5E": {
+      "name": "_ZN8uu_touch5touch28_$u7b$$u7b$closure$u7d$$u7d$17hdd400a1e630fbbb5E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch5touch28_$u7b$$u7b$closure$u7d$$u7d$17hf4c84b0974a1c31bE": {
+      "name": "_ZN8uu_touch5touch28_$u7b$$u7b$closure$u7d$$u7d$17hf4c84b0974a1c31bE",
+      "return_type": [
+        "struct",
+        48
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch10touch_file17h877dc0441f137307E": {
+      "name": "_ZN8uu_touch10touch_file17h877dc0441f137307E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN8uu_touch28determine_atime_mtime_change17hda9df64dc3778c17E": {
+      "name": "_ZN8uu_touch28determine_atime_mtime_change17hda9df64dc3778c17E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch12update_times17h392cecc13adcf2b7E": {
+      "name": "_ZN8uu_touch12update_times17h392cecc13adcf2b7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch4stat17haa73667d17037b3bE": {
+      "name": "_ZN8uu_touch4stat17haa73667d17037b3bE",
+      "return_type": [
+        "Result",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN8uu_touch4stat28_$u7b$$u7b$closure$u7d$$u7d$17hfaffa2c55f8502edE": {
+      "name": "_ZN8uu_touch4stat28_$u7b$$u7b$closure$u7d$$u7d$17hfaffa2c55f8502edE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch10parse_date17h59fdcf28d83a7f45E": {
+      "name": "_ZN8uu_touch10parse_date17h59fdcf28d83a7f45E",
+      "return_type": [
+        "Option",
+        20
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch15parse_timestamp17h96cd6cd8bd424ce5E": {
+      "name": "_ZN8uu_touch15parse_timestamp17h96cd6cd8bd424ce5E",
+      "return_type": [
+        "Result",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch15parse_timestamp28_$u7b$$u7b$closure$u7d$$u7d$17h911368d5f366668bE": {
+      "name": "_ZN8uu_touch15parse_timestamp28_$u7b$$u7b$closure$u7d$$u7d$17h911368d5f366668bE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch19pathbuf_from_stdout17h2920ee1b816c3101E": {
+      "name": "_ZN8uu_touch19pathbuf_from_stdout17h2920ee1b816c3101E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN57_$LT$uu_touch..Source$u20$as$u20$core..cmp..PartialEq$GT$2eq17h078dd8660d87ce4cE": {
+      "name": "_ZN57_$LT$uu_touch..Source$u20$as$u20$core..cmp..PartialEq$GT$2eq17h078dd8660d87ce4cE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN131_$LT$std..io..error..Error$u20$as$u20$uucore..mods..error..FromIo$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$$GT$15map_err_context17h8e02b6420ed2dfd1E": {
+      "name": "_ZN131_$LT$std..io..error..Error$u20$as$u20$uucore..mods..error..FromIo$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$$GT$15map_err_context17h8e02b6420ed2dfd1E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io5error5Error3new17hffe4f6be3d139c83E": {
+      "name": "_ZN3std2io5error5Error3new17hffe4f6be3d139c83E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io5error14repr_bitpacked11decode_repr17h64152757b01d7bffE": {
+      "name": "_ZN3std2io5error14repr_bitpacked11decode_repr17h64152757b01d7bffE",
+      "return_type": [
+        "struct",
+        9
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_touch5error11to_uioerror17had05960f9149df06E": {
+      "name": "_ZN8uu_touch5error11to_uioerror17had05960f9149df06E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg10value_hint17h404e11100d0a1c16E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg10value_hint17h404e11100d0a1c16E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg12value_parser17hb52e9aea5bfdb3a1E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg12value_parser17hb52e9aea5bfdb3a1E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg12value_parser17he866d5515236ff25E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg12value_parser17he866d5515236ff25E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg14conflicts_with17hdbb9d93b1671065aE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg14conflicts_with17hdbb9d93b1671065aE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg3new17h8a6f67a0846ec11eE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg3new17h8a6f67a0846ec11eE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder9arg_group8ArgGroup2id17hcace4fe8ee13b965E": {
+      "name": "_ZN12clap_builder7builder9arg_group8ArgGroup2id17hcace4fe8ee13b965E",
+      "return_type": [
+        "struct",
+        96
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder9arg_group8ArgGroup4args17hb7318d04a0d50504E": {
+      "name": "_ZN12clap_builder7builder9arg_group8ArgGroup4args17hb7318d04a0d50504E",
+      "return_type": [
+        "struct",
+        96
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN107_$LT$uucore..parser..shortcut_value_parser..ShortcutValueParser$u20$as$u20$core..convert..From$LT$I$GT$$GT$4from17hc2cee83c12a38d49E": {
+      "name": "_ZN107_$LT$uucore..parser..shortcut_value_parser..ShortcutValueParser$u20$as$u20$core..convert..From$LT$I$GT$$GT$4from17hc2cee83c12a38d49E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h0fd0d44a61af13caE": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h0fd0d44a61af13caE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf835c51125603d99E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf835c51125603d99E",
+      "return_type": [
+        "Result",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder14possible_value13PossibleValue5alias17he1a3bd2271689855E": {
+      "name": "_ZN12clap_builder7builder14possible_value13PossibleValue5alias17he1a3bd2271689855E",
+      "return_type": [
+        "struct",
+        72
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs16symlink_metadata17ha4686baccc39e49aE": {
+      "name": "_ZN3std2fs16symlink_metadata17ha4686baccc39e49aE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4File6create17h17c7edca8c2f4adeE": {
+      "name": "_ZN3std2fs4File6create17h17c7edca8c2f4adeE",
+      "return_type": [
+        "Result",
+        12
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs8metadata17h73b841bac6708bdfE": {
+      "name": "_ZN3std2fs8metadata17h73b841bac6708bdfE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h93c3b4fdd31a96baE": {
+      "name": "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h93c3b4fdd31a96baE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8filetime14set_file_times17hbfafa69b31a805ceE": {
+      "name": "_ZN8filetime14set_file_times17hbfafa69b31a805ceE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN8filetime22set_symlink_file_times17hd7eb213bf3122499E": {
+      "name": "_ZN8filetime22set_symlink_file_times17hd7eb213bf3122499E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h72940ebfc6d6072eE": {
+      "name": "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h72940ebfc6d6072eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command14override_usage17h4f72e345e4c2d551E": {
+      "name": "_ZN12clap_builder7builder7command7Command14override_usage17h4f72e345e4c2d551E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3arg17h44214e8458888adcE": {
+      "name": "_ZN12clap_builder7builder7command7Command3arg17h44214e8458888adcE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3new17h8f6f053073336047E": {
+      "name": "_ZN12clap_builder7builder7command7Command3new17h8f6f053073336047E",
+      "return_type": [
+        "struct",
+        438
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command5about17hcd0c64ae1fb3bf44E": {
+      "name": "_ZN12clap_builder7builder7command7Command5about17hcd0c64ae1fb3bf44E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command7version17h249a8addfe9218b9E": {
+      "name": "_ZN12clap_builder7builder7command7Command7version17h249a8addfe9218b9E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h2d49cffdd9c7d093E": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h2d49cffdd9c7d093E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hc7a727021908757aE": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hc7a727021908757aE",
+      "return_type": [
+        "Result",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hcdbd76867b98bd36E": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hcdbd76867b98bd36E",
+      "return_type": [
+        "Result",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6chrono6offset20LocalResult$LT$T$GT$6unwrap17h8b21848d5a0bbe28E": {
+      "name": "_ZN6chrono6offset20LocalResult$LT$T$GT$6unwrap17h8b21848d5a0bbe28E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6chrono6offset20LocalResult$LT$T$GT$8and_then17h38ad213f398289fdE": {
+      "name": "_ZN6chrono6offset20LocalResult$LT$T$GT$8and_then17h38ad213f398289fdE",
+      "return_type": [
+        "Option",
+        36
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN168_$LT$chrono..datetime..DateTime$LT$chrono..offset..local..Local$GT$$u20$as$u20$core..convert..From$LT$chrono..datetime..DateTime$LT$chrono..offset..utc..Utc$GT$$GT$$GT$4from17he1bf453ed4172c95E": {
+      "name": "_ZN168_$LT$chrono..datetime..DateTime$LT$chrono..offset..local..Local$GT$$u20$as$u20$core..convert..From$LT$chrono..datetime..DateTime$LT$chrono..offset..utc..Utc$GT$$GT$$GT$4from17he1bf453ed4172c95E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN6chrono5naive8datetime13NaiveDateTime14parse_from_str17hd1f2c37615fc2a8cE": {
+      "name": "_ZN6chrono5naive8datetime13NaiveDateTime14parse_from_str17hd1f2c37615fc2a8cE",
+      "return_type": [
+        "struct",
+        12
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6chrono5naive8datetime13NaiveDateTime22overflowing_add_offset17h44e7199241db0904E": {
+      "name": "_ZN6chrono5naive8datetime13NaiveDateTime22overflowing_add_offset17h44e7199241db0904E",
+      "return_type": [
+        "struct",
+        12
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6chrono5naive4date9NaiveDate14parse_from_str17hb11b16b6a593980dE": {
+      "name": "_ZN6chrono5naive4date9NaiveDate14parse_from_str17hb11b16b6a593980dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6chrono6offset5local5Local3now17ha82adb6e05d16f38E": {
+      "name": "_ZN6chrono6offset5local5Local3now17ha82adb6e05d16f38E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": []
+    },
+    "_ZN73_$LT$chrono..offset..local..Local$u20$as$u20$chrono..offset..TimeZone$GT$26offset_from_local_datetime17h0fa0613822fc0925E": {
+      "name": "_ZN73_$LT$chrono..offset..local..Local$u20$as$u20$chrono..offset..TimeZone$GT$26offset_from_local_datetime17h0fa0613822fc0925E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE": {
+      "name": "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
+      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
+      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E": {
+      "name": "_ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

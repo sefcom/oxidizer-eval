@@ -15,7 +15,7 @@ from eval.type_recovery.dwarf_parser import extract_function_prototypes
 
 DEC_OPTIONS = {
     "angr": {"dec_func": angr_dec, "cache_only": True},
-    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True},
+    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False},
     "IDA": {"dec_func": ida_dec, "cache_only": True},
     "Ghidra": {"dec_func": ghidra_dec, "cache_only": True},
 }
@@ -26,29 +26,29 @@ def eval_one_with_decompiler(binary_path, function_list, opt_level, decompiler):
     dec_func = options["dec_func"]
     cache_only = options["cache_only"]
 
-    binary_name = os.path.basename(binary_path)
-    decompilation_result, call_counts_result = dec_func(
+    result = dec_func(
         binary_path,
         function_list,
-        cache_dir=f"O{opt_level}/{decompiler.lower()}/{binary_name}",
         cache_only=cache_only,
     )
 
     func_eval_results = []
     for func_name in function_list:
-        if func_name in decompilation_result and func_name in call_counts_result:
-            decompilation_output = decompilation_result[func_name]
-            call_counts_output = call_counts_result[func_name]
+        if func_name in result["decompilation"]:
+            decompilation = result["decompilation"][func_name]
+            string_literals = collect_string_literals(decompilation)
+            # call_counts_output = result["call_counts"][func_name]
 
             func_eval_result = FunctionEvalResult(func_name)
             # Feeding outputs
-            func_eval_result.add_loc(decompiler, LoC(decompilation_output))
-            func_eval_result.add_num_assignments(decompiler, num_assignments(decompilation_output))
-            func_eval_result.add_num_variables(decompiler, num_variables(decompilation_output))
-            func_eval_result.add_num_gotos(decompiler, num_gotos(decompilation_output))
-            func_eval_result.add_num_call_counts(decompiler, num_call_counts(call_counts_output))
+            func_eval_result.add_loc(decompiler, LoC(decompilation))
+            func_eval_result.add_num_gotos(decompiler, num_gotos(decompilation))
+            func_eval_result.add_num_node_counts(decompiler, result["node_counts"][func_name])
+            func_eval_result.add_num_variables(decompiler, num_variables(decompilation))
+            func_eval_result.add_num_operators(decompiler, num_operators(decompilation))
             func_eval_results.append(func_eval_result)
             print(func_eval_result)
+
     return func_eval_results
 
 
@@ -75,8 +75,7 @@ def eval_one(binary_path, opt_level):
             )
             binary_eval_result.add_func_eval_reuslt(merged_func_eval_result)
 
-    cache_dir = f"O{opt_level}/oxidizer/{binary_name}"
-    binary_eval_result.inferred_prototypes = load_cached_inferred_prototypes(cache_dir, os.path.basename(binary_name))
+    binary_eval_result.inferred_prototypes = load_cached_inferred_prototypes(os.path.basename(binary_name))
 
     # Type recovery evaluation
     binary_eval_result.ground_truth_prototypes = extract_function_prototypes(

@@ -1,0 +1,1898 @@
+{
+  "decompilation": {
+    "_ZN9uu_csplit11SplitWriter10do_to_line17h079b38feb919ada0E": "fn uu_csplit::SplitWriter::do_to_line(a0: &Result<struct40, struct8>, a1: void*, a2: u32, a3: u32, a4: u32, a5: void*) -> u64 {\n    let v0: i64;  // [sp-0xe0]\n    let v1: i64;  // [sp-0xd8]\n    let v2: i64;  // [sp-0xd0]\n    let v3: Option<struct24>;  // [sp-0xc8], Other Possible Types: i192\n    let v4: i64;  // [sp-0xb0]\n    let v5: struct24;  // [sp-0xa8]\n    let v7: struct24;  // [bp-0x88], Other Possible Types: i64, Arguments\n    let v8: i256;  // [sp-0x50], Other Possible Types: struct32\n    let v10: i64;  // rcx\n    let v12: i64;  // rdx\n    let v13: i64;  // rcx\n    let v16: i8;  // bpl\n\n    *((a5 + 88) as &i8) = 1;\n    *((a5 + 80) as &i64) = 1;\n    v5 = <T as alloc::slice::hack::ConvertVec>::to_vec(a2, a3);\n    v4 = 1;\n    loop {\n        v8 = <uu_csplit::InputSplitter<I> as core::iter::traits::iterator::Iterator>::next(a5);\n        v10 = *((&v8 as &char + 8) as &i64);\n        if v10 == 9223372036854775809 {\n            break;\n        }\n        if v10 == 0x8000000000000000 {\n            return Err(struct8 {\n                field_0: v1\n            });\n        }\n        v12 = v8;\n        v0 = v10;\n        v1 = *((&v8 as &char + 16) as &i64);\n        v2 = *((&v8 as &char + 24) as &i64);\n        v13 = (!(v12 + 1 <= a4) ? 255 : (-0x100 | v12 + 1 != a4) & 4294967295 & 4294967295);\n        if v13 == 1 {\n            uu_csplit::SplitWriter::writeln(a1, v1, v2);\n            return Err(struct8 {\n                field_0: v14\n            });\n        } else if v13 {\n            *(&v7.field_0 as &struct24) = struct24 {\n                field_0: v0\n                field_16: v2\n            };\n            v3 = uu_csplit::InputSplitter<I>::add_line_to_buffer(a5, v12, &v7);\n            if v3 != 0x8000000000000000 {\n                v7 = \"the buffer is big enough to contain 1 line\";\n                core::panicking::panic_fmt(&v7); /* do not return */\n            }\n            v4 = 12;\n            break;\n        } else {\n            v16 = *((*((a1 + 32) as &i64) + 99) as &i8);\n            if !v16 {\n                *(&v7.field_0 as &struct24) = struct24 {\n                    field_0: v0\n                    field_16: v2\n                };\n                v3 = uu_csplit::InputSplitter<I>::add_line_to_buffer(a5, v12, &v7);\n                if v3 != 0x8000000000000000 {\n                    v7 = Arguments {\n                        pieces: [\"the buffer is big enough to contain 1 line\"]\n                        args: []\n                        fmt: 0\n                    };\n                    core::panicking::panic_fmt(&v7); /* do not return */\n                }\n            }\n            v4 = 12;\n            if v16 {\n                break;\n            }\n        }\n    }\n    uu_csplit::SplitWriter::finish_split(a1);\n    return Ok(struct40 {\n        field_0: v19\n        field_16: *((&v5 as &char + 8) as &i128)\n        field_32: v17\n    });\n}\n",
+    "_ZN9uu_csplit11SplitWriter10do_to_line17h321143eb79b39c5dE": "fn uu_csplit::SplitWriter::do_to_line(a0: &Result<struct40, struct8>, a1: void*, a2: u32, a3: u32, a4: u32, a5: void*) -> u64 {\n    let v0: i64;  // [sp-0xe0]\n    let v1: i64;  // [sp-0xd8]\n    let v2: i64;  // [sp-0xd0]\n    let v3: Option<struct24>;  // [sp-0xc8], Other Possible Types: i192\n    let v4: i64;  // [sp-0xb0]\n    let v5: struct24;  // [sp-0xa8]\n    let v7: i320;  // [bp-0x88], Other Possible Types: struct24, Arguments\n    let v8: i256;  // [sp-0x50], Other Possible Types: struct32\n    let v10: i64;  // rcx\n    let v12: i64;  // rdx\n    let v13: i64;  // rcx\n    let v16: i8;  // bpl\n\n    *((a5 + 56) as &i8) = 1;\n    *((a5 + 48) as &i64) = 1;\n    v5 = <T as alloc::slice::hack::ConvertVec>::to_vec(a2, a3);\n    v4 = 1;\n    loop {\n        v8 = <uu_csplit::InputSplitter<I> as core::iter::traits::iterator::Iterator>::next(a5);\n        v10 = *((&v8 as &char + 8) as &i64);\n        if v10 == 9223372036854775809 {\n            break;\n        }\n        if v10 == 0x8000000000000000 {\n            return Err(struct8 {\n                field_0: v1\n            });\n        }\n        v12 = v8;\n        v0 = v10;\n        v1 = *((&v8 as &char + 16) as &i64);\n        v2 = *((&v8 as &char + 24) as &i64);\n        v13 = (!(v12 + 1 <= a4) ? 255 : (-0x100 | v12 + 1 != a4) & 4294967295 & 4294967295);\n        if v13 == 1 {\n            uu_csplit::SplitWriter::writeln(a1, v1, v2);\n            return Err(struct8 {\n                field_0: v14\n            });\n        } else if !v13 {\n            v16 = *((*((a1 + 32) as &i64) + 99) as &i8);\n            if !v16 {\n                *(&v7.field_0 as &struct24) = struct24 {\n                    field_0: v0\n                    field_16: v2\n                };\n                v3 = uu_csplit::InputSplitter<I>::add_line_to_buffer(a5, v12, &v7);\n                if v3 != 0x8000000000000000 {\n                    v7 = Arguments {\n                        pieces: [\"the buffer is big enough to contain 1 line\"]\n                        args: []\n                        fmt: 0\n                    };\n                    core::panicking::panic_fmt(&v7); /* do not return */\n                }\n            }\n            v4 = 12;\n            if v16 {\n                break;\n            }\n        } else {\n            *(&v7.field_0 as &struct24) = struct24 {\n                field_0: v0\n                field_16: v2\n            };\n            v3 = uu_csplit::InputSplitter<I>::add_line_to_buffer(a5, v12, &v7);\n            match v3 {\n                Some(_) => {\n                    v7 = \"the buffer is big enough to contain 1 line\";\n                    core::panicking::panic_fmt(&v7); /* do not return */\n                },\n                None => {\n                    v4 = 12;\n                    break;\n                },\n            }\n        }\n    }\n    uu_csplit::SplitWriter::finish_split(a1);\n    return Ok(struct40 {\n        field_0: v19\n        field_16: *((&v5 as &char + 8) as &i128)\n        field_32: v17\n    });\n}\n",
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$18add_line_to_buffer17h69a145175e6beff8E": "fn uu_csplit::InputSplitter<I>::add_line_to_buffer(a0: &Option<struct24>, a1: void*, a2: u32, a3: &struct24) -> u64 {\n    let v0: struct32;  // [bp-0x58], Other Possible Types: struct56, struct24\n    let v5: u64;  // rax\n\n    if a1->field_58 {\n        *(&v0 as &struct32) = struct32 {\n            field_0: a2\n            field_8: a3->field_0\n            field_24: a3->field_10\n        };\n        alloc::vec::Vec<T,A>::insert(a1, 0, &v0);\n        return struct8 {\n            field_0: 0x8000000000000000\n        };\n    }\n    if a1->field_10 < a1->field_50 {\n        *(&v0 as &struct56) = struct56 {\n            field_0: a2\n            field_8: a3->field_0\n            field_24: a3->field_10\n            field_32: <UNKNOWN>\n            field_48: <UNKNOWN>\n        };\n        alloc::vec::Vec<T,A>::push(a1, &v0);\n    }\n    v0 = alloc::vec::Vec<T,A>::remove(a1, None, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/csplit/src/csplit.rs\");\n    *(&v0 as &struct56) = struct56 {\n        field_0: a2\n        field_8: a3->field_0\n        field_24: a3->field_10\n        field_32: v0.field_8\n        field_48: v1\n    };\n    alloc::vec::Vec<T,A>::push(a1, &v0);\n    v0 = struct24 {\n        field_0: v2\n        field_16: v3\n    };\n    v5 = core::result::Result<T,E>::unwrap(a0, &v0, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/csplit/src/csplit.rs\");\n}\n",
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$18add_line_to_buffer17hf666c82950bc0262E": "fn uu_csplit::InputSplitter<I>::add_line_to_buffer(a0: &Option<struct24>, a1: void*, a2: u32, a3: &struct24) -> u64 {\n    let v0: struct32;  // [bp-0x58], Other Possible Types: struct56, struct24\n    let v5: u64;  // rax\n\n    if a1->field_38 {\n        *(&v0 as &struct32) = struct32 {\n            field_0: a2\n            field_8: a3->field_0\n            field_24: a3->field_10\n        };\n        alloc::vec::Vec<T,A>::insert(a1, 0, &v0);\n        return struct8 {\n            field_0: 0x8000000000000000\n        };\n    }\n    if a1->field_10 < a1->field_30 {\n        *(&v0 as &struct56) = struct56 {\n            field_0: a2\n            field_8: a3->field_0\n            field_24: a3->field_10\n            field_32: <UNKNOWN>\n            field_48: <UNKNOWN>\n        };\n        alloc::vec::Vec<T,A>::push(a1, &v0);\n    }\n    v0 = alloc::vec::Vec<T,A>::remove(a1, None, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/csplit/src/csplit.rs\");\n    *(&v0 as &struct56) = struct56 {\n        field_0: a2\n        field_8: a3->field_0\n        field_24: a3->field_10\n        field_32: v0.field_8\n        field_48: v1\n    };\n    alloc::vec::Vec<T,A>::push(a1, &v0);\n    v0 = struct24 {\n        field_0: v2\n        field_16: v3\n    };\n    v5 = core::result::Result<T,E>::unwrap(a0, &v0, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/csplit/src/csplit.rs\");\n}\n",
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$21shrink_buffer_to_size17h0c5a68fe88e0f0c5E": "fn uu_csplit::InputSplitter<I>::shrink_buffer_to_size(a0: &struct40, a1: &u64) -> u64 {\n    let v1: u64;  // rax\n    let v2: void*;  // rax\n\n    v1 = a1[2];\n    v2 = v1 - a1[6];\n    if a1[6] > v1 {\n        v2 = 0;\n    }\n    return alloc::vec::Vec<T,A>::drain(a0, a1, v2);\n}\n",
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$21shrink_buffer_to_size17h2f0373906384d08bE": "fn uu_csplit::InputSplitter<I>::shrink_buffer_to_size(a0: &struct40, a1: &u64) -> u64 {\n    let v1: u64;  // rax\n    let v2: void*;  // rax\n\n    v1 = a1[2];\n    v2 = v1 - a1[10];\n    if a1[10] > v1 {\n        v2 = 0;\n    }\n    return alloc::vec::Vec<T,A>::drain(a0, a1, v2);\n}\n",
+    "_ZN9uu_csplit6csplit17habea2b7448100cb7E": "fn uu_csplit::csplit(a0: &struct40, a1: void*, a2: u32, a3: u32, a4: u64, a5: u32) -> u64 {\n    let v0: i128;  // [sp-0x1a8]\n    let v1: i64;  // [sp-0x198]\n    let v2: i8;  // [bp-0x188]\n    let v3: i64;  // [sp-0x178], Other Possible Types: struct40\n    let v4: i64;  // [sp-0x170]\n    let v5: i128;  // [bp-0x168]\n    let v6: i128;  // [sp-0x158]\n    let v7: i128;  // [sp-0x148]\n    let v8: i128;  // [sp-0x138]\n    let v9: i64;  // [sp-0x128]\n    let v10: struct1;  // [bp-0x120]\n    let v11: i64;  // [sp-0x118]\n    let v12: i128;  // [sp-0x110]\n    let v13: i64;  // [sp-0x100]\n    let v14: i8;  // [sp-0xf8]\n    let v15: i64;  // [sp-0xf0]\n    let v16: i8;  // [sp-0xe8]\n    let v17: i64;  // [sp-0xe0]\n    let v18: i64;  // [sp-0xd8]\n    let v19: i64;  // [sp-0xd0]\n    let v20: i64;  // [sp-0xc8], Other Possible Types: struct8\n    let v21: i64;  // [sp-0xa8]\n    let v22: i128;  // [sp-0xa0]\n    let v23: i8;  // [sp-0x90]\n    let v24: i128;  // [sp-0x88]\n    let v25: i64;  // [sp-0x78]\n    let v26: i256;  // [sp-0x70], Other Possible Types: struct32\n    let v27: i256;  // [sp-0x50], Other Possible Types: struct32\n    let v29: i8;  // dl\n    let v30: i64;  // rax\n    let v31: i64;  // rcx\n    let v32: struct49;  // rax\n    let v33: i64;  // rax\n    let v34: i64;  // rsi\n    let v35: i64;  // rdx\n    let v36: struct16;  // rax\n    let v37: i128;  // xmm0\n    let v38: i64;  // rax\n    let v39: i64;  // rsi\n    let v40: struct16;  // rax\n    let v41: i64;  // rax\n    let v42: i64;  // rax\n\n    v13 = std::io::BufRead::lines(a4, a5);\n    v14 = v29 & 1;\n    v10 = struct1 {\n        field_56: 0\n    };\n    v11 = 8;\n    v12 = 0;\n    v15 = 1;\n    v16 = 0;\n    v21 = a1;\n    v22 = 0;\n    v20 = 0x8000000000000000;\n    v23 = 0;\n    v3 = uu_csplit::patterns::get_patterns(a2, a3);\n    v30 = v3;\n    v0 = *((&v3 as &char + 8) as &i128);\n    v1 = *((&v3 as &char + 24) as &i64);\n    if v30 != 12 {\n        v31 = *((&v3 as &char + 32) as &i64);\n        *((a0 + 24) as &i64) = v1;\n        *((a0 + 8) as &i128) = v0;\n        *(a0 as &i64) = v30;\n        *((a0 + 32) as &i64) = v31;\n        goto LABEL_560bd0;\n    }\n    v24 = v0;\n    v25 = v1;\n    uu_csplit::do_csplit(&v0, &v20, &v24, &v10);\n    if v0 != 12 {\nLABEL_560972:\n        if !(!*((a1 + 96) as &i8)) || !((v41 = uu_csplit::SplitWriter::delete_all_splits(&v20), v41)) {\n            *((a0 + 32) as &i8) = v2;\n            *((a0 + 16) as &i64) = v1;\n            *(a0 as &i128) = v0;\n            return v42;\n        }\n        *(a0 as &i64) = 0;\n        *((a0 + 8) as &i64) = v41;\n        goto LABEL_560bd0;\n        goto LABEL_560bd0;\n    }\n    v16 = 1;\n    v27 = <uu_csplit::InputSplitter<I> as core::iter::traits::iterator::Iterator>::next(&v10);\n    if *((&v27 as &char + 8) as &i64) != 9223372036854775809 {\n        v9 = *((&v27 as &char + 24) as &i64);\n        v8 = *((&v27 as &char + 8) as &i128);\n        v32 = uu_csplit::SplitWriter::new_writer();\n        if v32 {\n            *(a0 as &i64) = 0;\n            *((a0 + 8) as &struct49) = v32;\n            goto LABEL_560bd0;\n        }\n        v33 = v8;\n        v34 = *((&v8 as &char + 8) as &i64);\n        if v3 == 0x8000000000000000 {\n            *(a0 as &i64) = 0;\n            *((a0 + 8) as &i64) = v4;\n            goto LABEL_560a97;\n        }\n        v35 = v9;\n        v3 = v33;\n        v4 = v34;\n        v5 = v35;\n        v36 = uu_csplit::SplitWriter::writeln(v4, v35);\n        if !v36 {\n            v37 = *(&v10 as &i128);\n            v7 = v15;\n            v6 = v13;\n            v5 = v12;\n            v3 = v37;\n        } else {\n            *(a0 as &i64) = 0;\n            *((a0 + 8) as &struct16) = v36;\nLABEL_560a97:\n            goto LABEL_560bd0;\n        }\n        loop {\n            v26 = <uu_csplit::InputSplitter<I> as core::iter::traits::iterator::Iterator>::next(&v3);\n            v38 = *((&v26 as &char + 8) as &i64);\n            if v38 == 9223372036854775809 {\n                break;\n            }\n            v39 = *((&v26 as &char + 16) as &i64);\n            if v38 == 0x8000000000000000 {\n                *(a0 as &i64) = 0;\n                *((a0 + 8) as &i64) = v18;\n                goto LABEL_560bd0;\n            }\n            v17 = v38;\n            v18 = v39;\n            v19 = *((&v26 as &char + 24) as &i64);\n            v40 = uu_csplit::SplitWriter::writeln(v18, v19);\n            if v40 {\n                *(a0 as &i64) = 0;\n                *((a0 + 8) as &struct16) = v40;\nLABEL_560bd0:\n                return v42;\n            }\n        }\n        v20 = uu_csplit::SplitWriter::finish_split();\n    }\n    goto LABEL_560972;\n}\n",
+    "_ZN9uu_csplit6csplit17hbd1c068a297fe5d8E": "fn uu_csplit::csplit(a0: &struct40, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {\n    let v0: i128;  // [sp-0x1e8]\n    let v1: i64;  // [sp-0x1d8]\n    let v2: i8;  // [bp-0x1c8]\n    let v3: i128;  // [sp-0x1b8]\n    let v4: i64;  // [sp-0x1a8]\n    let v5: i64;  // [sp-0x1a0]\n    let v6: i64;  // [sp-0x198]\n    let v7: i64;  // [sp-0x190]\n    let v8: i128;  // [sp-0x188], Other Possible Types: struct40\n    let v9: i64;  // [sp-0x180]\n    let v10: i128;  // [bp-0x178]\n    let v11: i128;  // [sp-0x168]\n    let v12: i128;  // [sp-0x158]\n    let v13: i128;  // [sp-0x148]\n    let v14: i128;  // [sp-0x138]\n    let v15: i64;  // [sp-0x128], Other Possible Types: struct8\n    let v16: i64;  // [sp-0x108]\n    let v17: i128;  // [sp-0x100]\n    let v18: i8;  // [sp-0xf0]\n    let v19: struct1;  // [bp-0xe8]\n    let v20: i64;  // [sp-0xe0]\n    let v21: i64;  // [sp-0xd8]\n    let v22: i384;  // [sp-0xd0], Other Possible Types: struct48\n    let v23: i64;  // [sp-0xa0]\n    let v24: i64;  // [sp-0x98]\n    let v25: i8;  // [sp-0x90]\n    let v26: i128;  // [sp-0x88]\n    let v27: i64;  // [sp-0x78]\n    let v28: struct32;  // [sp-0x70], Other Possible Types: i256\n    let v29: i256;  // [sp-0x50], Other Possible Types: struct32\n    let v31: i64;  // rax\n    let v32: i64;  // rcx\n    let v33: struct49;  // rax\n    let v34: i64;  // rax\n    let v35: i64;  // rsi\n    let v36: i64;  // rdx\n    let v37: struct16;  // rax\n    let v38: i128;  // xmm0\n    let v39: i64;  // rax\n    let v40: i64;  // rsi\n    let v41: struct16;  // rax\n    let v42: i64;  // rax\n    let v43: i64;  // rax\n\n    v22 = std::io::BufRead::lines(a4);\n    v23 = 0;\n    v19 = struct1 {\n        field_88: 0\n    };\n    v20 = 8;\n    v21 = 0;\n    v24 = 1;\n    v25 = 0;\n    v16 = a1;\n    v17 = 0;\n    v15 = 0x8000000000000000;\n    v18 = 0;\n    v8 = uu_csplit::patterns::get_patterns(a2, a3);\n    v31 = v8;\n    v0 = *((&v8 as &char + 8) as &i128);\n    v1 = *((&v8 as &char + 24) as &i64);\n    if v31 != 12 {\n        v32 = *((&v8 as &char + 32) as &i64);\n        *((a0 + 24) as &i64) = v1;\n        *((a0 + 8) as &i128) = v0;\n        *(a0 as &i64) = v31;\n        *((a0 + 32) as &i64) = v32;\n        goto LABEL_561037;\n    }\n    v26 = v0;\n    v27 = v1;\n    uu_csplit::do_csplit(&v0, &v15, &v26, &v19);\n    if v0 != 12 {\nLABEL_560dc5:\n        if !(!*((a1 + 96) as &i8)) || !((v42 = uu_csplit::SplitWriter::delete_all_splits(&v15), v42)) {\n            *((a0 + 32) as &i8) = v2;\n            *((a0 + 16) as &i64) = v1;\n            *(a0 as &i128) = v0;\n            return v43;\n        }\n        *(a0 as &i64) = 0;\n        *((a0 + 8) as &i64) = v42;\n        goto LABEL_561037;\n        goto LABEL_561037;\n    }\n    v25 = 1;\n    v29 = <uu_csplit::InputSplitter<I> as core::iter::traits::iterator::Iterator>::next(&v19);\n    if *((&v29 as &char + 8) as &i64) != 9223372036854775809 {\n        v4 = *((&v29 as &char + 24) as &i64);\n        v3 = *((&v29 as &char + 8) as &i128);\n        v33 = uu_csplit::SplitWriter::new_writer();\n        if v33 {\n            *(a0 as &i64) = 0;\n            *((a0 + 8) as &struct49) = v33;\n            goto LABEL_561037;\n        }\n        v34 = v3;\n        v35 = *((&v3 as &char + 8) as &i64);\n        if v8 == 0x8000000000000000 {\n            *(a0 as &i64) = 0;\n            *((a0 + 8) as &i64) = v9;\n            goto LABEL_560ee7;\n        }\n        v36 = v4;\n        v8 = v34;\n        v9 = v35;\n        v10 = v36;\n        v37 = uu_csplit::SplitWriter::writeln(v9, v36);\n        if !v37 {\n            v14 = v24;\n            v13 = *((&v22 as &char + 40) as &i128);\n            v38 = *(&v19 as &i128);\n            v12 = *((&v22 as &char + 24) as &i128);\n            v11 = *((&v22 as &char + 8) as &i128);\n            v10 = v21;\n            v8 = v38;\n        } else {\n            *(a0 as &i64) = 0;\n            *((a0 + 8) as &struct16) = v37;\nLABEL_560ee7:\n            goto LABEL_561037;\n        }\n        loop {\n            v28 = <uu_csplit::InputSplitter<I> as core::iter::traits::iterator::Iterator>::next(&v8);\n            v39 = *((&v28 as &char + 8) as &i64);\n            if v39 == 9223372036854775809 {\n                break;\n            }\n            v40 = *((&v28 as &char + 16) as &i64);\n            if v39 == 0x8000000000000000 {\n                *(a0 as &i64) = 0;\n                *((a0 + 8) as &i64) = v6;\n                goto LABEL_561037;\n            }\n            v5 = v39;\n            v6 = v40;\n            v7 = *((&v28 as &char + 24) as &i64);\n            v41 = uu_csplit::SplitWriter::writeln(v6, v7);\n            if v41 {\n                *(a0 as &i64) = 0;\n                *((a0 + 8) as &struct16) = v41;\nLABEL_561037:\n                return v43;\n            }\n        }\n        v15 = uu_csplit::SplitWriter::finish_split();\n    }\n    goto LABEL_560dc5;\n}\n",
+    "_ZN9uu_csplit6uumain17h72ccbfeb07f030a3E": "fn uu_csplit::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0xa8]\n    let v1: u64;  // [sp-0x98]\n    let v2: u64;  // [sp-0x90]\n    let v3: &&struct_0;  // [sp-0x88]\n    let v4: u64;  // [sp-0x80]\n    let v5: void*;  // [sp-0x78]\n    let v6: u64;  // [sp-0x68]\n    let v7: &u64;  // [sp-0x60]\n    let v8: &u8;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: u64;  // [sp-0x38]\n    let v11: i8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v14: u64;  // rax\n    let v15: &u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v14 = uu_csplit::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_465f80;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    core::option::Option<T>::map_or_else();\n    *(&v8 as &i8) = v11;\n    v10 = v12;\n    if v8 == \"\" {\n        v6 = uucore::util_name();\n        v7 = v15;\n        eprint!(\"{:?}: \", &v6);\n        eprintln!(\"{:?}\", &v8);\n    }\n    if !v15[13]() {\n        return v15[12]();\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v15;\n    eprintln!(\"Try '{:?} --help' for more information.\", &v6);\n}\n",
+    "_ZN9uu_csplit8patterns12get_patterns17h1caf3c5952747e62E": "fn uu_csplit::patterns::get_patterns(a0: &struct40, a1: u32, a2: u32) -> u64 {\n    let v0: i128;  // [sp-0x68]\n    let v1: i64;  // [sp-0x58]\n    let v2: i128;  // [sp-0x48]\n    let v3: i64;  // [sp-0x38]\n    let v4: Result<struct40, struct24>;  // [sp-0x30], Other Possible Types: i328, struct40\n    let v7: i64;  // rcx\n\n    v4 = uu_csplit::patterns::extract_patterns(a1, a2);\n    v2 = *((&v4 as &char + 8) as &i128);\n    v3 = *((&v4 as &char + 24) as &i64);\n    if v4 == 12 {\n        v0 = v2;\n        v1 = v3;\n        v4 = uu_csplit::patterns::validate_line_numbers(*((&v0 as &char + 8) as &i64), v3);\n        return struct40 {\n            field_0: v8\n            field_16: *((&v4 as &char + 16) as &i128)\n            field_32: *((&v4 as &char + 32) as &i64)\n        };\n    }\n    v7 = *((&v4 as &char + 32) as &i64);\n    return struct40 {\n        field_0: v6\n        field_8: v2\n        field_24: v3\n        field_32: v7\n    };\n}\n",
+    "_ZN9uu_csplit8patterns16extract_patterns17h32f79fa60a6aa1abE": "fn uu_csplit::patterns::extract_patterns(a0: &Result<struct40, struct24>, a1: u32, a2: u32) -> u64 {\n    let v0: i64;  // [sp-0x210]\n    let v1: i64;  // [sp-0x208]\n    let v2: i32;  // [sp-0x1fc]\n    let v3: i256;  // [sp-0x1f8], Other Possible Types: Option<struct24>, struct4, struct32, Result<struct8, struct1>\n    let v4: i32;  // [sp-0x1f4]\n    let v5: i64;  // [sp-0x1d0]\n    let v6: i64;  // [sp-0x1c8]\n    let v7: i256;  // [sp-0x1b8], Other Possible Types: struct32, Result<struct16, struct8>, struct24, struct4\n    let v8: i64;  // [bp-0x1b0]\n    let v9: i64;  // [sp-0x1a8]\n    let v10: i64;  // [sp-0x1a0]\n    let v11: i128;  // [sp-0x198]\n    let v12: i128;  // [sp-0x188]\n    let v13: i64;  // [sp-0x178]\n    let v14: i128;  // [sp-0x168]\n    let v15: i128;  // [sp-0x158]\n    let v16: struct16;  // [bp-0x148], Other Possible Types: i128\n    let v17: i64;  // [sp-0x138]\n    let v18: i64;  // [bp-0x130]\n    let v19: i8;  // [bp-0x128]\n    let v20: i64;  // [bp-0x120]\n    let v21: i64;  // [sp-0x118]\n    let v22: struct32;  // [sp-0x110], Other Possible Types: i256\n    let v23: i8;  // [bp-0xf0]\n    let v24: i8;  // [bp-0xe0]\n    let v25: i8;  // [bp-0xd0]\n    let v26: i8;  // [bp-0xc0]\n    let v27: i8;  // [bp-0xb0]\n    let v28: i128;  // [sp-0xa8]\n    let v29: i128;  // [sp-0x98]\n    let v30: struct24;  // [bp-0x88]\n    let v31: i8;  // [bp-0x70]\n    let v32: struct32;  // [sp-0x50], Other Possible Types: i256\n    let v34: i64;  // rbp\n    let v35: i64;  // rax\n    let v36: i64;  // r13\n    let v37: i256;  // ymm0\n    let v38: i256;  // ymm1\n    let v39: i256;  // ymm2\n    let v40: i256;  // ymm3\n    let v41: i64;  // rbx\n    let v42: i64;  // rax\n    let v43: i64;  // 4120\n    let v44: i128;  // xmm0\n    let v45: i128;  // xmm1\n    let v46: i128;  // xmm2\n    let v47: i128;  // xmm3\n    let v48: i64;  // 4108\n    let v49: i64;  // r15\n    let v50: i64;  // r14\n    let v51: i64;  // r12\n    let v52: i64;  // r13\n    let v53: i64;  // rax\n    let v54: i64;  // rax\n    let v55: i64;  // rdx\n    let v56: i64;  // r14\n    let v57: i64;  // r15\n    let v58: i128;  // xmm0\n    let v59: i128;  // xmm1\n    let v60: i128;  // xmm2\n    let v61: i128;  // xmm3\n    let v62: i64;  // r14\n    let v63: i64;  // rbp\n    let v64: i64;  // r15\n    let v65: i64;  // r13\n    let v66: i32;  // r12d\n    let v67: i64;  // rax\n    let v68: i64;  // rax\n    let v69: i128;  // xmm0\n    let v70: i256;  // ymm0\n    let v71: i128;  // xmm1\n    let v72: i256;  // ymm1\n    let v73: i128;  // xmm0\n    let v75: i128;  // xmm0\n    let v76: i128;  // xmm1\n    let v77: i128;  // xmm0\n    let v78: i128;  // xmm1\n    let v79: i128;  // xmm0\n    let v80: i256;  // ymm0\n    let v81: i128;  // xmm1\n    let v82: i256;  // ymm1\n    let v83: i128;  // xmm0\n    let v84: i128;  // xmm0\n    let v85: i128;  // xmm1\n    let v86: i128;  // xmm0\n    let v87: i128;  // xmm1\n    let v88: i64;  // rcx\n    let v91: i128;  // [sp-0x1f0]\n    let v92: i128;  // [sp-0x1e0]\n\n    v7 = alloc::raw_vec::RawVec<T,A>::try_allocate_in(a2, 0);\n    v16 = v7;\n    v17 = 0;\n    v7 = regex::regex::string::Regex::new(\"^(/(?P<UPTO>.+)/|%(?P<SKIPTO>.+)%)(?P<OFFSET>[\\\\+-]\\\\d+)?$\");\n    v2 = core::result::Result<T,E>::unwrap(&v31, &v7, \"src/uu/csplit/src/patterns.rs\") | -0x100 | 1;\n    v7 = regex::regex::string::Regex::new(\"^\\\\{(?P<TIMES>\\\\d+)|\\\\*\\\\}$\");\n    v32 = core::result::Result<T,E>::unwrap(&v7, \"src/uu/csplit/src/patterns.rs\");\n    v34 = &v20;\n    v20 = a1;\n    v21 = a1 + a2 * 24;\n    v36 = &v23;\n    loop {\n        v41 = v19;\n        v35 = 0;\n        if !0 {\n            v41 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(v34);\n        }\n        if !v41 {\n            v88 = a0;\n            *((v88 + 24) as &i64) = v17;\n            *((v88 + 8) as &i128) = v16;\n            *(v88 as &i64) = 12;\n            v2 = 0;\n        }\n        v42 = *(core::option::Option<T>::get_or_insert_with(&v18, v34) as &i64);\n        if !v42 {\n            v1 = 1;\n            v0 = 1;\n        } else {\n            regex::regex::string::Regex::captures_at(v36, &v32, *((v42 + 8) as &i64), *((v42 + 16) as &i64));\n            v1 = 1;\n            v43 = v23;\n            v0 = 1;\n            if v43 != 2 {\n                v13 = v27;\n                v44 = v23;\n                v37 = v37 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v44;\n                v45 = v24;\n                v38 = v38 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v45;\n                v46 = v25;\n                v39 = v39 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v46;\n                v47 = v26;\n                v40 = v40 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v47;\n                v12 = v47;\n                v11 = v46;\n                v9 = v45;\n                v7 = v44;\n                v48 = v35;\n                v35 = 0;\n                if !v48 {\n                    <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(v34);\n                }\n                v3 = regex_automata::util::captures::Captures::get_group_by_name(&v9, \"TIMES\");\n                match v3 {\n                    None => {\n                        v54 = 0;\n                    },\n                    Some(_) => {\n                        v49 = *((&v12 as &char + 8) as &i64);\n                        v50 = v13;\n                        v51 = *((&v3 as &char + 8) as &i64);\n                        v52 = *((&v3 as &char + 16) as &i64);\n                        v53 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v51, v52, v49, v50);\n                        if !v53 {\n                            core::str::slice_error_fail(v49, v50, v51, v52, \"/home/34r7hm4n/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-1.11.1/src/regex/string.rs\"); /* do not return */\n                        }\n                        v3 = core::num::<impl core::str::traits::FromStr for usize>::from_str(v53, v55) as u64;\n                        v36 = &v23;\n                        v1 = core::result::Result<T,E>::unwrap(&v3) + 1;\n                        v54 = 1;\n                    },\n                }\n                v0 = v54;\n            }\n        }\n        v56 = *((v41 + 8) as &i64);\n        v57 = *((v41 + 16) as &i64);\n        regex::regex::string::Regex::captures_at(v36, &v31, v56, v57);\n        if v23 == 2 {\n            v3 = core::num::<impl core::str::traits::FromStr for usize>::from_str(v56, v57) as u64;\n            match v3 {\n                Err(_) => {\n                    v7 = <alloc::string::String as core::clone::Clone>::clone(v41);\n                    return Err(struct24 {\n                        field_0: v7\n                        field_16: v9\n                    });\n                },\n                Ok(v8) => {\n                    v9 = v0;\n                    v10 = v1;\n                    v7 = struct4 {\n                        field_0: 0\n                    };\n                    v16 = alloc::vec::Vec<T,A>::push(&v7);\n                },\n            }\n        } else {\n            v13 = v27;\n            v58 = v23;\n            v37 = v37 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v58;\n            v59 = v24;\n            v38 = v38 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v59;\n            v60 = v25;\n            v39 = v39 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v60;\n            v61 = v26;\n            v40 = v40 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v61;\n            v12 = v61;\n            v11 = v60;\n            v9 = v59;\n            v7 = v58;\n            v3 = regex_automata::util::captures::Captures::get_group_by_name(&v9, \"OFFSET\");\n            match v3 {\n                None => {\n                    v66 = 0;\n                },\n                Some(_) => {\n                    v62 = *((&v12 as &char + 8) as &i64);\n                    v63 = v13;\n                    v64 = *((&v3 as &char + 8) as &i64);\n                    v65 = *((&v3 as &char + 16) as &i64);\n                    if !core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v64, v65, v62, v63) {\n                        break;\n                    }\n                    v34 = &v20;\n                    v36 = &v23;\n                    v66 = core::result::Result<T,E>::unwrap(core::num::<impl core::str::traits::FromStr for i32>::from_str()) as i32;\n                },\n            }\n            v3 = regex_automata::util::captures::Captures::get_group_by_name(&v9, \"UPTO\");\n            match v3 {\n                Some(_) => {\n                    v62 = *((&v12 as &char + 8) as &i64);\n                    v63 = v13;\n                    v64 = *((&v3 as &char + 8) as &i64);\n                    v65 = *((&v3 as &char + 16) as &i64);\n                    v67 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v64, v65, v62, v63);\n                    if !v67 {\n                        core::str::slice_error_fail(v62, v63, v64, v65, \"/home/34r7hm4n/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-1.11.1/src/regex/string.rs\"); /* do not return */\n                    }\n                    v22 = regex::regex::string::Regex::new(v67, v55);\n                    v34 = &v20;\n                    v36 = &v23;\n                    if v22 {\n                        v69 = v22;\n                        v70 = v37 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v69 as u128 as u256;\n                        v71 = *((&v22 as &char + 16) as &i128);\n                        v72 = v38 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v71 as u128 as u256;\n                        v15 = v71;\n                        v14 = v69;\n                    } else {\n                        v73 = *((&v22 as &char + 8) as &i128);\n                        v30 = struct24 {\n                            field_0: v73\n                            field_16: *((&v22 as &char + 24) as &i64)\n                        };\n                        v3 = uu_csplit::patterns::extract_patterns::{{closure}}(v41, &v30);\n                        v75 = v91;\n                        v70 = v37 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v73 as u128 as u256 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v75 as u128 as u256;\n                        v76 = v92;\n                        v72 = v38 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v76 as u128 as u256;\n                        v14 = v75;\n                        v15 = v76;\n                        if v3 != 12 {\n                            vvar_883{stack -152} = v15;\n                            vvar_884{stack -168} = v14;\n                            return Ok(struct40 {\n                                field_0: v74\n                                field_8: v28\n                                field_24: v29\n                            });\n                        }\n                    }\n                    v77 = v14;\n                    v37 = v70 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v77 as u128 as u256;\n                    v78 = v15;\n                    v38 = v72 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v78 as u128 as u256;\n                    v29 = v78;\n                    v28 = v77;\n                    v92 = v78;\n                    v91 = v77;\n                    v4 = v66;\n                    v5 = v0;\n                    v6 = v1;\n                    v3 = struct4 {\n                        field_0: 1\n                    };\n                    v16 = alloc::vec::Vec<T,A>::push(&v3);\n                },\n                None => {\n                    v3 = regex_automata::util::captures::Captures::get_group_by_name(&v9, \"SKIPTO\");\n                    if v3 {\n                        v62 = *((&v12 as &char + 8) as &i64);\n                        v63 = v13;\n                        v64 = *((&v3 as &char + 8) as &i64);\n                        v65 = *((&v3 as &char + 16) as &i64);\n                        v68 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v64, v65, v62, v63);\n                        if !v68 {\n                            break;\n                        }\n                        v22 = regex::regex::string::Regex::new(v68, v55);\n                        v34 = &v20;\n                        v36 = &v23;\n                        if v22 {\n                            v79 = v22;\n                            v80 = v37 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v79 as u128 as u256;\n                            v81 = *((&v22 as &char + 16) as &i128);\n                            v82 = v38 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v81 as u128 as u256;\n                            v15 = v81;\n                            v14 = v79;\n                        } else {\n                            v83 = *((&v22 as &char + 8) as &i128);\n                            v30 = struct24 {\n                                field_0: v83\n                                field_16: *((&v22 as &char + 24) as &i64)\n                            };\n                            v3 = uu_csplit::patterns::extract_patterns::{{closure}}(v41, &v30);\n                            v84 = v91;\n                            v80 = v37 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v83 as u128 as u256 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v84 as u128 as u256;\n                            v85 = v92;\n                            v82 = v38 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v85 as u128 as u256;\n                            v14 = v84;\n                            v15 = v85;\n                            if v3 != 12 {\n                                v29 = v15;\n                                v28 = v14;\n                                return Ok(struct40 {\n                                    field_0: v74\n                                    field_8: v28\n                                    field_24: v29\n                                });\n                            }\n                        }\n                        v86 = v14;\n                        v37 = v80 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v86 as u128 as u256;\n                        v87 = v15;\n                        v38 = v82 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v87 as u128 as u256;\n                        v29 = v87;\n                        v28 = v86;\n                        v92 = v87;\n                        v91 = v86;\n                        v4 = v66;\n                        v5 = v0;\n                        v6 = v1;\n                        v3 = struct4 {\n                            field_0: 2\n                        };\n                        v16 = alloc::vec::Vec<T,A>::push(&v3);\n                    }\n                },\n            }\n        }\n    }\n    core::str::slice_error_fail(v62, v63, v64, v65, \"/home/34r7hm4n/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-1.11.1/src/regex/string.rs\"); /* do not return */\n}\n",
+    "_ZN9uu_csplit8patterns21validate_line_numbers17hf11a42b855ce2ce0E": "fn uu_csplit::patterns::validate_line_numbers(a0: &struct40, a1: u32, a2: u32) -> u64 {\n    let v0: struct16;  // [bp-0x40]\n    let v1: Result<struct40, struct8>;  // [sp-0x30], Other Possible Types: i328\n    let v3: i64;  // rax\n    let v4: i64;  // rcx\n\n    v0 = struct16 {\n        field_0: a1\n        field_8: a2 * 56 + a1\n    };\n    v1 = core::iter::traits::iterator::Iterator::try_fold(&v0);\n    v3 = v1;\n    v4 = *((&v1 as &char + 8) as &i64);\n    return struct40 {\n        field_0: v3\n        field_8: v4\n        field_16: *((&v1 as &char + 16) as &i128)\n        field_32: *((&v1 as &char + 32) as &i64)\n    };\n}\n",
+    "_ZN9uu_csplit10split_name9SplitName3get17h6978abebafad78dbE": "fn uu_csplit::split_name::SplitName::get(a0: &struct24, a1: u32, a2: u64) -> u64 {\n    let v0: struct24;  // [sp-0x50], Other Possible Types: i192\n    let v1: i192;  // [sp-0x38], Other Possible Types: struct24\n\n    v0 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(a1);\n    core::result::Result<T,E>::unwrap(uucore::features::format::Format<F>::fmt(a1 + 24, &v0, a2));\n    v1 = alloc::string::String::from_utf8_lossy(*((&v0 as &char + 8) as &i64), *((&v0 as &char + 16) as &i64));\n    <alloc::borrow::Cow<str> as alloc::string::ToString>::to_string(a0, *((&v1 as &char + 8) as &i64), *((&v1 as &char + 16) as &i64));\n    return a0;\n}\n",
+    "_ZN9uu_csplit13CsplitOptions3new17h18a4d0e2255fb53bE": "fn uu_csplit::CsplitOptions::new(a0: &struct100, a1: u64) -> int {\n    let v0: i8;  // [sp-0x11b]\n    let v1: i8;  // [sp-0x11a]\n    let v2: i8;  // [sp-0x119]\n    let v3: i128;  // [sp-0x118]\n    let v4: i64;  // [sp-0x108]\n    let v5: i192;  // [sp-0xe0], Other Possible Types: struct24\n    let v6: i64;  // [sp-0xd8]\n    let v7: i192;  // [sp-0xc8], Other Possible Types: Result<struct40, struct8>, struct24, struct96\n    let v8: i128;  // [bp-0x68]\n    let v9: i128;  // [bp-0x58]\n    let v10: i64;  // [sp-0x48]\n    let v12: i8;  // al\n    let v13: i64;  // rax\n    let v14: i64;  // rax\n    let v15: i128;  // xmm0\n    let v16: i256;  // ymm0\n    let v17: i256;  // ymm0\n    let v18: i64;  // rax\n    let v19: i128;  // xmm0\n    let v22: i128;  // xmm0\n    let v23: i64;  // rdx\n\n    v2 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"keep-files\") as i8;\n    v1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"quiet\") as i8;\n    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"elide-empty-files\") as i8;\n    v12 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"suppress-matched\") as i32;\n    v7 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, \"prefix\");\n    v13 = clap_builder::parser::error::MatchesError::unwrap(\"prefix\", &v7);\n    if !v13 {\n        v5 = 0x8000000000000000;\n    } else {\n        v5 = <alloc::string::String as core::clone::Clone>::clone(v13);\n    }\n    v7 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, \"suffix-format\");\n    v14 = clap_builder::parser::error::MatchesError::unwrap(\"suffix-format\", &v7);\n    if !v14 {\n        v8 = 0x8000000000000000;\n    } else {\n        v7 = <alloc::string::String as core::clone::Clone>::clone(v14);\n        v9 = *((&v7 as &char + 16) as &i64);\n        v15 = v7;\n        v17 = v16 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v15;\n        v8 = v15;\n    }\n    v7 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, \"digits\");\n    v18 = clap_builder::parser::error::MatchesError::unwrap(\"digits\", &v7);\n    if !v18 {\n        v3 = 0x8000000000000000;\n    } else {\n        v7 = <alloc::string::String as core::clone::Clone>::clone(v18);\n        v4 = *((&v7 as &char + 16) as &i64);\n        v19 = v7;\n        v17 = v17 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v19;\n        v3 = v19;\n    }\n    v7 = uu_csplit::split_name::SplitName::new(&v5, &v8, &v3);\n    return struct100 {\n        field_0: v16 as u128\n        field_16: v21\n        field_32: v20\n        field_48: *((&v7 as &char + 48) as &i128)\n        field_64: v16 as u128\n        field_80: v16 as u128\n        field_96: v2\n        field_97: v1\n        field_98: v0\n        field_99: v12\n    };\n    v10 = *((&v7 as &char + 40) as &i64);\n    v22 = *((&v7 as &char + 8) as &i128);\n    v9 = *((&v7 as &char + 24) as &i128);\n    v8 = v22;\n    v5 = uucore::util_name();\n    v6 = v23;\n    eprint!(\"{:?}: \", &v5);\n    eprintln!(\"{:?}\", &v8);\n    std::process::exit(1); /* do not return */\n}\n",
+    "_ZN9uu_csplit11SplitWriter10new_writer17hf8bcfdadfd914b2eE": "fn uu_csplit::SplitWriter::new_writer(a0: &struct49) -> u64 {\n    let v0: i64;  // [sp-0x48], Other Possible Types: Result<struct4, struct8>, struct29\n    let v1: i8;  // [bp-0x40]\n    let v2: i128;  // [bp-0x38]\n    let v3: i192;  // [sp-0x28], Other Possible Types: struct24\n    let v6: i128;  // xmm0\n\n    v3 = uu_csplit::split_name::SplitName::get(*((a0 + 32) as &i64), *((a0 + 40) as &i64));\n    v0 = std::fs::File::create(&v3) as u64;\n    if v0 {\n        return v1;\n    }\n    v0 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x2000, *((&v0 as &char + 4) as &i32));\n    v6 = v0;\n    *((a0 + 16) as &i128) = v2;\n    *(a0 as &i128) = v6;\n    *((a0 + 40) as &i64) = *((a0 + 40) as &i64) + 1;\n    *((a0 + 48) as &i64) = 0;\n    *((a0 + 56) as &i8) = 0;\n    return 0;\n}\n",
+    "_ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE": "fn uu_csplit::SplitWriter::writeln(a0: &struct16, a1: u32, a2: u32) -> u64 {\n    let v1: u64;  // rax\n    let v2: &u8;  // r15\n    let v3: void*;  // rax\n    let v4: &u8;  // r15\n\n    if a0->field_38 {\n        return 0;\n    }\n    v1 = a0->field_0;\n    if v1 == 0x8000000000000000 {\n        panic!(\"trying to write to a split that was not created\");\n    }\n    v2 = a0->field_10;\n    if v1 - v2 > a2 {\n        memcpy(&v2[a0->field_8], a1, a2);\n        v4 = &v2[a2];\n        a0->field_10 = v4;\n    } else {\n        v3 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a0, a1, a2);\n        if v3 {\n            return v3;\n        }\n        v4 = a0->field_10;\n    }\n    if a0->field_0 - v4 >= 2 {\n        v4[a0->field_8] = 10;\n        a0->field_10 = &v4[1];\n    } else {\n        v3 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a0, &g_470537, 1);\n        if v3 {\n            return v3;\n        }\n    }\n    a0->field_30 = a0->field_30 + a2 + 1;\n}\n",
+    "_ZN9uu_csplit11SplitWriter12finish_split17h2b71f2c0808d1b8bE": "fn uu_csplit::SplitWriter::finish_split(a0: &struct8) -> u64 {\n    let v0: Argument;  // [bp-0x40]\n    let v1: Arguments;  // [bp-0x30]\n    let v3: &u64;  // rax\n\n    if a0->field_38 {\n        return v3;\n    }\n    v3 = a0->field_20;\n    if *((&v3[12] as &char + 2) as &i8) && !a0->field_30 {\n        a0->field_28 = a0->field_28 - 1;\n        return v3;\n    }\n    if !*((&v3[12] as &char + 1) as &i8) {\n        v0 = Argument {\n            value: a0 + 48\n            formatter: core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt\n        };\n        v1 = Arguments {\n            pieces: [\"\", \"\\n\"]\n            args: [&v0]\n            fmt: 0\n        };\n        return std::io::stdio::_print(&v1);\n    }\n    return v3;\n}\n",
+    "_ZN9uu_csplit11SplitWriter17delete_all_splits17h651b08e5afba42d7E": "fn uu_csplit::SplitWriter::delete_all_splits(a0: &u64) -> u64 {\n    let v0: i64;  // [sp-0x50]\n    let v1: i192;  // [sp-0x48], Other Possible Types: struct24\n    let v3: i64;  // r15\n    let v6: i64;  // rbp\n    let v7: i64;  // r12\n    let v8: i64;  // rbp\n    let v9: i64;  // r13\n    let v10: i64;  // rbp\n\n    v0 = 0;\n    v3 = *((a0 + 40) as &i64);\n    if !v3 {\n        return 0;\n    }\n    v6 = 0;\n    do {\n        v8 = v6;\n        v9 = <usize as core::iter::range::Step>::forward_unchecked(v8);\n        v1 = uu_csplit::split_name::SplitName::get(*((a0 + 32) as &i64), v8);\n        v10 = std::fs::remove_file(&v1);\n        v7 = 0;\n        if v10 {\n            v0 = v10;\n            v7 = v10;\n        }\n    } while ((v6 = v9, v9 < v3));\n    return v7;\n}\n",
+    "_ZN9uu_csplit6uu_app17h86eb726b6073e125E": "fn uu_csplit::uu_app(a0: &struct712) -> u64 {\n    let v0: i5696;  // [sp-0xa50], Other Possible Types: struct592, struct712\n    let v1: i192;  // [sp-0x788], Other Possible Types: struct592, struct24\n    let v2: i32;  // [sp-0x540]\n    let v3: i32;  // [sp-0x53c]\n    let v4: i5696;  // [sp-0x538], Other Possible Types: struct592, struct712, struct437\n    let v5: i64;  // [sp-0x27c]\n    let v6: i32;  // [sp-0x274]\n    let v7: struct592;  // [sp-0x270], Other Possible Types: i4736\n    let v9: i64;  // rdx\n\n    v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);\n    v0 = clap_builder::builder::command::Command::version(&v4, \"0.0.28\");\n    v4 = clap_builder::builder::command::Command::about(&v0, \"Split a file into sections determined by context lines\");\n    v1 = uucore::format_usage(\"{} [OPTION]... FILE PATTERN...\");\n    v0 = clap_builder::builder::command::Command::override_usage(&v4, &v1);\n    memcpy(&v4, &v0, 700);\n    v5 = 584115552392 | *((&v0 as &char + 700) as &i64);\n    v6 = *((&v0 as &char + 708) as &i32);\n    v0 = clap_builder::builder::arg::Arg::new(\"suffix-format\");\n    v1 = clap_builder::builder::arg::Arg::short(&v0, 0x62);\n    v0 = clap_builder::builder::arg::Arg::long(&v1, \"suffix-format\");\n    v1 = clap_builder::builder::arg::Arg::value_name(&v0, &g_470611);\n    v7 = clap_builder::builder::arg::Arg::help(&v1, \"use sprintf FORMAT instead of %02d\");\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v7);\n    v4 = clap_builder::builder::arg::Arg::new(\"prefix\");\n    v1 = clap_builder::builder::arg::Arg::short(&v4, 0x66);\n    v4 = clap_builder::builder::arg::Arg::long(&v1, \"prefix\");\n    v1 = clap_builder::builder::arg::Arg::value_name(&v4, &g_470639);\n    v7 = clap_builder::builder::arg::Arg::help(&v1, \"use PREFIX instead of 'xx'\");\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v7);\n    v0 = clap_builder::builder::arg::Arg::new(\"keep-files\");\n    v1 = clap_builder::builder::arg::Arg::short(&v0, 0x6b);\n    v0 = clap_builder::builder::arg::Arg::long(&v1, \"keep-files\");\n    v1 = clap_builder::builder::arg::Arg::help(&v0, \"do not remove output files on errors\");\n    v7 = clap_builder::builder::arg::Arg::action(&v1, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v7);\n    v4 = clap_builder::builder::arg::Arg::new(\"suppress-matched\");\n    v1 = clap_builder::builder::arg::Arg::long(&v4, \"suppress-matched\");\n    v4 = clap_builder::builder::arg::Arg::help(&v1, \"suppress the lines matching PATTERN\");\n    v1 = clap_builder::builder::arg::Arg::action(&v4, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v1);\n    v0 = clap_builder::builder::arg::Arg::new(\"digits\");\n    v1 = clap_builder::builder::arg::Arg::short(&v0, 0x6e);\n    v0 = clap_builder::builder::arg::Arg::long(&v1, \"digits\");\n    v1 = clap_builder::builder::arg::Arg::value_name(&v0, &g_4706a0);\n    v7 = clap_builder::builder::arg::Arg::help(&v1, \"use specified number of digits instead of 2\");\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v7);\n    v4 = clap_builder::builder::arg::Arg::new(\"quiet\");\n    v1 = clap_builder::builder::arg::Arg::short(&v4, 0x73);\n    v4 = clap_builder::builder::arg::Arg::long(&v1, \"quiet\");\n    v1 = clap_builder::builder::arg::Arg::visible_alias(&v4, \"silent\");\n    v4 = clap_builder::builder::arg::Arg::help(&v1, \"do not print counts of output file sizes\");\n    v1 = clap_builder::builder::arg::Arg::action(&v4, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v1);\n    v0 = clap_builder::builder::arg::Arg::new(\"elide-empty-files\");\n    v1 = clap_builder::builder::arg::Arg::short(&v0, 0x7a);\n    v0 = clap_builder::builder::arg::Arg::long(&v1, \"elide-empty-files\");\n    v1 = clap_builder::builder::arg::Arg::help(&v0, \"remove empty output files\");\n    v7 = clap_builder::builder::arg::Arg::action(&v1, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v7);\n    v4 = clap_builder::builder::arg::Arg::new(\"file\");\n    memcpy(&v1, &v4, 584);\n    v2 = *((&v4 as &char + 584) as &i32) | 5;\n    v3 = *((&v4 as &char + 588) as &i32);\n    v7 = clap_builder::builder::arg::Arg::value_hint(&v1, 0x3);\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v7);\n    v0 = clap_builder::builder::arg::Arg::new(\"pattern\");\n    memcpy(&v1, &v0, 584);\n    v2 = *((&v0 as &char + 584) as &i32) | 4;\n    v3 = *((&v0 as &char + 588) as &i32);\n    v0 = clap_builder::builder::arg::Arg::action(&v1, 0x1);\n    memcpy(&v1, &v0, 584);\n    v2 = *((&v0 as &char + 584) as &i32) | 1;\n    v3 = *((&v0 as &char + 588) as &i32);\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v1);\n    clap_builder::builder::command::Command::after_help(a0, &v0, \"Output pieces of FILE separated by PATTERN(s) to files 'xx00', 'xx01', ..., and output byte counts of each piece to standard output.\");\n    return a0;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN9uu_csplit11SplitWriter10do_to_line17h079b38feb919ada0E": {
+      "uu_csplit::SplitWriter::finish_split": 1,
+      "uu_csplit::SplitWriter::writeln": 1,
+      "core::panicking::panic_fmt": 2,
+      "uu_csplit::InputSplitter<I>::add_line_to_buffer": 2,
+      "<uu_csplit::InputSplitter<I> as core::iter::traits::iterator::Iterator>::next": 1,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1
+    },
+    "_ZN9uu_csplit11SplitWriter10do_to_line17h321143eb79b39c5dE": {
+      "uu_csplit::SplitWriter::finish_split": 1,
+      "uu_csplit::SplitWriter::writeln": 1,
+      "core::panicking::panic_fmt": 2,
+      "uu_csplit::InputSplitter<I>::add_line_to_buffer": 2,
+      "<uu_csplit::InputSplitter<I> as core::iter::traits::iterator::Iterator>::next": 1,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1
+    },
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$18add_line_to_buffer17h69a145175e6beff8E": {
+      "alloc::vec::Vec<T,A>::push": 2,
+      "core::result::Result<T,E>::unwrap": 1,
+      "alloc::vec::Vec<T,A>::remove": 1,
+      "alloc::vec::Vec<T,A>::insert": 1
+    },
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$18add_line_to_buffer17hf666c82950bc0262E": {
+      "alloc::vec::Vec<T,A>::push": 2,
+      "core::result::Result<T,E>::unwrap": 1,
+      "alloc::vec::Vec<T,A>::remove": 1,
+      "alloc::vec::Vec<T,A>::insert": 1
+    },
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$21shrink_buffer_to_size17h0c5a68fe88e0f0c5E": {
+      "alloc::vec::Vec<T,A>::drain": 1
+    },
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$21shrink_buffer_to_size17h2f0373906384d08bE": {
+      "alloc::vec::Vec<T,A>::drain": 1
+    },
+    "_ZN9uu_csplit6csplit17habea2b7448100cb7E": {
+      "uu_csplit::SplitWriter::finish_split": 1,
+      "uu_csplit::SplitWriter::writeln": 2,
+      "<uu_csplit::InputSplitter<I> as core::iter::traits::iterator::Iterator>::next": 2,
+      "uu_csplit::SplitWriter::new_writer": 1,
+      "uu_csplit::do_csplit": 1,
+      "std::io::BufRead::lines": 1,
+      "uu_csplit::patterns::get_patterns": 1
+    },
+    "_ZN9uu_csplit6csplit17hbd1c068a297fe5d8E": {
+      "uu_csplit::SplitWriter::finish_split": 1,
+      "uu_csplit::SplitWriter::writeln": 2,
+      "<uu_csplit::InputSplitter<I> as core::iter::traits::iterator::Iterator>::next": 2,
+      "uu_csplit::SplitWriter::new_writer": 1,
+      "uu_csplit::do_csplit": 1,
+      "uu_csplit::patterns::get_patterns": 1,
+      "std::io::BufRead::lines": 1
+    },
+    "_ZN9uu_csplit6uumain17h72ccbfeb07f030a3E": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_csplit::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN9uu_csplit8patterns12get_patterns17h1caf3c5952747e62E": {
+      "uu_csplit::patterns::validate_line_numbers": 1,
+      "uu_csplit::patterns::extract_patterns": 1
+    },
+    "_ZN9uu_csplit8patterns16extract_patterns17h32f79fa60a6aa1abE": {
+      "core::str::slice_error_fail": 3,
+      "<alloc::string::String as core::clone::Clone>::clone": 1,
+      "alloc::vec::Vec<T,A>::push": 3,
+      "core::num::<impl core::str::traits::FromStr for usize>::from_str": 2,
+      "uu_csplit::patterns::extract_patterns::{{closure}}": 2,
+      "regex::regex::string::Regex::new": 4,
+      "core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get": 3,
+      "regex_automata::util::captures::Captures::get_group_by_name": 4,
+      "core::result::Result<T,E>::unwrap": 4,
+      "core::num::<impl core::str::traits::FromStr for i32>::from_str": 1,
+      "regex::regex::string::Regex::captures_at": 2,
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 2,
+      "core::option::Option<T>::get_or_insert_with": 1,
+      "alloc::raw_vec::RawVec<T,A>::try_allocate_in": 1
+    },
+    "_ZN9uu_csplit8patterns21validate_line_numbers17hf11a42b855ce2ce0E": {
+      "core::iter::traits::iterator::Iterator::try_fold": 1
+    },
+    "_ZN9uu_csplit10split_name9SplitName3get17h6978abebafad78dbE": {
+      "<alloc::borrow::Cow<str> as alloc::string::ToString>::to_string": 1,
+      "alloc::string::String::from_utf8_lossy": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "uucore::features::format::Format<F>::fmt": 1,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone": 1
+    },
+    "_ZN9uu_csplit13CsplitOptions3new17h18a4d0e2255fb53bE": {
+      "std::process::exit": 1,
+      "uucore::util_name": 1,
+      "uu_csplit::split_name::SplitName::new": 1,
+      "<alloc::string::String as core::clone::Clone>::clone": 3,
+      "clap_builder::parser::error::MatchesError::unwrap": 3,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 3,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 4
+    },
+    "_ZN9uu_csplit11SplitWriter10new_writer17hf8bcfdadfd914b2eE": {
+      "std::io::buffered::bufwriter::BufWriter<W>::with_capacity": 1,
+      "std::fs::File::create": 1,
+      "uu_csplit::split_name::SplitName::get": 1
+    },
+    "_ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE": {
+      "std::io::buffered::bufwriter::BufWriter<W>::write_all_cold": 2,
+      "memcpy": 1
+    },
+    "_ZN9uu_csplit11SplitWriter12finish_split17h2b71f2c0808d1b8bE": {
+      "std::io::stdio::_print": 1
+    },
+    "_ZN9uu_csplit11SplitWriter17delete_all_splits17h651b08e5afba42d7E": {
+      "std::fs::remove_file": 1,
+      "<usize as core::iter::range::Step>::forward_unchecked": 1,
+      "uu_csplit::split_name::SplitName::get": 1
+    },
+    "_ZN9uu_csplit6uu_app17h86eb726b6073e125E": {
+      "clap_builder::builder::command::Command::after_help": 1,
+      "clap_builder::builder::command::Command::arg": 9,
+      "memcpy": 4,
+      "clap_builder::builder::arg::Arg::action": 5,
+      "clap_builder::builder::arg::Arg::new": 9,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::arg::Arg::help": 7,
+      "clap_builder::builder::arg::Arg::long": 7,
+      "clap_builder::builder::arg::Arg::short": 6,
+      "clap_builder::builder::arg::Arg::visible_alias": 1,
+      "clap_builder::builder::arg::Arg::value_name": 3,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN9uu_csplit11SplitWriter10do_to_line17h079b38feb919ada0E": {},
+    "_ZN9uu_csplit11SplitWriter10do_to_line17h321143eb79b39c5dE": {},
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$18add_line_to_buffer17h69a145175e6beff8E": {},
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$18add_line_to_buffer17hf666c82950bc0262E": {},
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$21shrink_buffer_to_size17h0c5a68fe88e0f0c5E": {},
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$21shrink_buffer_to_size17h2f0373906384d08bE": {},
+    "_ZN9uu_csplit6csplit17habea2b7448100cb7E": {},
+    "_ZN9uu_csplit6csplit17hbd1c068a297fe5d8E": {},
+    "_ZN9uu_csplit6uumain17h72ccbfeb07f030a3E": {
+      "eprintln": 2,
+      "eprint": 1
+    },
+    "_ZN9uu_csplit8patterns12get_patterns17h1caf3c5952747e62E": {},
+    "_ZN9uu_csplit8patterns16extract_patterns17h32f79fa60a6aa1abE": {},
+    "_ZN9uu_csplit8patterns21validate_line_numbers17hf11a42b855ce2ce0E": {},
+    "_ZN9uu_csplit10split_name9SplitName3get17h6978abebafad78dbE": {},
+    "_ZN9uu_csplit13CsplitOptions3new17h18a4d0e2255fb53bE": {
+      "eprintln": 1,
+      "eprint": 1
+    },
+    "_ZN9uu_csplit11SplitWriter10new_writer17hf8bcfdadfd914b2eE": {},
+    "_ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE": {
+      "panic": 1
+    },
+    "_ZN9uu_csplit11SplitWriter12finish_split17h2b71f2c0808d1b8bE": {},
+    "_ZN9uu_csplit11SplitWriter17delete_all_splits17h651b08e5afba42d7E": {},
+    "_ZN9uu_csplit6uu_app17h86eb726b6073e125E": {}
+  },
+  "node_counts": {
+    "_ZN9uu_csplit11SplitWriter10do_to_line17h079b38feb919ada0E": 44,
+    "_ZN9uu_csplit11SplitWriter10do_to_line17h321143eb79b39c5dE": 45,
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$18add_line_to_buffer17h69a145175e6beff8E": 11,
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$18add_line_to_buffer17hf666c82950bc0262E": 11,
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$21shrink_buffer_to_size17h0c5a68fe88e0f0c5E": 7,
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$21shrink_buffer_to_size17h2f0373906384d08bE": 7,
+    "_ZN9uu_csplit6csplit17habea2b7448100cb7E": 52,
+    "_ZN9uu_csplit6csplit17hbd1c068a297fe5d8E": 53,
+    "_ZN9uu_csplit6uumain17h72ccbfeb07f030a3E": 17,
+    "_ZN9uu_csplit8patterns12get_patterns17h1caf3c5952747e62E": 9,
+    "_ZN9uu_csplit8patterns16extract_patterns17h32f79fa60a6aa1abE": 104,
+    "_ZN9uu_csplit8patterns21validate_line_numbers17hf11a42b855ce2ce0E": 5,
+    "_ZN9uu_csplit10split_name9SplitName3get17h6978abebafad78dbE": 7,
+    "_ZN9uu_csplit13CsplitOptions3new17h18a4d0e2255fb53bE": 34,
+    "_ZN9uu_csplit11SplitWriter10new_writer17hf8bcfdadfd914b2eE": 11,
+    "_ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE": 26,
+    "_ZN9uu_csplit11SplitWriter12finish_split17h2b71f2c0808d1b8bE": 12,
+    "_ZN9uu_csplit11SplitWriter17delete_all_splits17h651b08e5afba42d7E": 16,
+    "_ZN9uu_csplit6uu_app17h86eb726b6073e125E": 61
+  },
+  "prototypes": {
+    "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3521a3a7c64a9732E": {
+      "name": "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3521a3a7c64a9732E",
+      "return_type": [
+        "Option",
+        56
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io7BufRead5lines17hb5077b34f6593e01E": {
+      "name": "_ZN3std2io7BufRead5lines17hb5077b34f6593e01E",
+      "return_type": [
+        "struct",
+        48
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hf41bf485036a1869E": {
+      "name": "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hf41bf485036a1869E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h255b9cb46bd12424E": {
+      "name": "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h255b9cb46bd12424E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h4a2bc384fee84094E": {
+      "name": "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h4a2bc384fee84094E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h658f25410d6929d8E": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h658f25410d6929d8E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h5cd507503bf62b3cE": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h5cd507503bf62b3cE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4cee2f6f31529f0E": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4cee2f6f31529f0E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h86097ab9bff6af61E": {
+      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h86097ab9bff6af61E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h59c271c22061c5dbE": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h59c271c22061c5dbE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h6b837569a0db69e2E": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h6b837569a0db69e2E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5regex5regex6string5Regex11is_match_at17ha92ef8a3ebc0bbf1E": {
+      "name": "_ZN5regex5regex6string5Regex11is_match_at17ha92ef8a3ebc0bbf1E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
+      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
+      "return_type": [
+        "primitive",
+        1
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h8cfd37faa97e5c9aE": {
+      "name": "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h8cfd37faa97e5c9aE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f19bf5df3e367fE": {
+      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f19bf5df3e367fE",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN92_$LT$uu_csplit..InputSplitter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8dbaf25fcfb0cb29E": {
+      "name": "_ZN92_$LT$uu_csplit..InputSplitter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8dbaf25fcfb0cb29E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN92_$LT$uu_csplit..InputSplitter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92638e6c16058415E": {
+      "name": "_ZN92_$LT$uu_csplit..InputSplitter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92638e6c16058415E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit11SplitWriter10do_to_line17h079b38feb919ada0E": {
+      "name": "_ZN9uu_csplit11SplitWriter10do_to_line17h079b38feb919ada0E",
+      "return_type": [
+        "Result",
+        41
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit11SplitWriter10do_to_line17h321143eb79b39c5dE": {
+      "name": "_ZN9uu_csplit11SplitWriter10do_to_line17h321143eb79b39c5dE",
+      "return_type": [
+        "Result",
+        41
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$18add_line_to_buffer17h69a145175e6beff8E": {
+      "name": "_ZN9uu_csplit22InputSplitter$LT$I$GT$18add_line_to_buffer17h69a145175e6beff8E",
+      "return_type": [
+        "Option",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$18add_line_to_buffer17hf666c82950bc0262E": {
+      "name": "_ZN9uu_csplit22InputSplitter$LT$I$GT$18add_line_to_buffer17hf666c82950bc0262E",
+      "return_type": [
+        "Option",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$21shrink_buffer_to_size17h0c5a68fe88e0f0c5E": {
+      "name": "_ZN9uu_csplit22InputSplitter$LT$I$GT$21shrink_buffer_to_size17h0c5a68fe88e0f0c5E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit22InputSplitter$LT$I$GT$21shrink_buffer_to_size17h2f0373906384d08bE": {
+      "name": "_ZN9uu_csplit22InputSplitter$LT$I$GT$21shrink_buffer_to_size17h2f0373906384d08bE",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit6csplit17habea2b7448100cb7E": {
+      "name": "_ZN9uu_csplit6csplit17habea2b7448100cb7E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN9uu_csplit6csplit17hbd1c068a297fe5d8E": {
+      "name": "_ZN9uu_csplit6csplit17hbd1c068a297fe5d8E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit6uumain17h72ccbfeb07f030a3E": {
+      "name": "_ZN9uu_csplit6uumain17h72ccbfeb07f030a3E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit6uumain6uumain17h6eadb50264c4f8c1E": {
+      "name": "_ZN9uu_csplit6uumain6uumain17h6eadb50264c4f8c1E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h58787e57b634cf4dE": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h58787e57b634cf4dE",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hf59e40ec0b90ed17E": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hf59e40ec0b90ed17E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hfd2eab809c60b3f4E": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hfd2eab809c60b3f4E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17ha187cc186cdc8061E": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17ha187cc186cdc8061E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha175ecf279fa0b9bE": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha175ecf279fa0b9bE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17hb8cfc70c55ca00cfE": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17hb8cfc70c55ca00cfE",
+      "return_type": [
+        "struct",
+        64
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hc5a9f76a4b949bc1E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hc5a9f76a4b949bc1E",
+      "return_type": [
+        "Result",
+        41
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h22bc54f1ce978fddE": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h22bc54f1ce978fddE",
+      "return_type": [
+        "struct",
+        56
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17hc0bfa7f749c36949E": {
+      "name": "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17hc0bfa7f749c36949E",
+      "return_type": [
+        "struct",
+        44
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command20try_get_matches_from17hcae3b529826e6a0dE": {
+      "name": "_ZN12clap_builder7builder7command7Command20try_get_matches_from17hcae3b529826e6a0dE",
+      "return_type": [
+        "Result",
+        57
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3b2659a33d278162E": {
+      "name": "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3b2659a33d278162E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hdd6233119bcf60a2E": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hdd6233119bcf60a2E",
+      "return_type": [
+        "Result",
+        17
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hde00539526dd8324E": {
+      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17hde00539526dd8324E",
+      "return_type": [
+        "Result",
+        177
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4File4open17hffa7441d5a04c38cE": {
+      "name": "_ZN3std2fs4File4open17hffa7441d5a04c38cE",
+      "return_type": [
+        "Result",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4File8metadata17he899a18112e6f19eE": {
+      "name": "_ZN3std2fs4File8metadata17he899a18112e6f19eE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN3std7process4exit17hf8c1b9d00a2a86fdE": {
+      "name": "_ZN3std7process4exit17hf8c1b9d00a2a86fdE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5alloc7raw_vec12handle_error17h2372476369f9b8acE": {
+      "name": "_ZN5alloc7raw_vec12handle_error17h2372476369f9b8acE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc6string6String15from_utf8_lossy17hea505cf60d4f919bE": {
+      "name": "_ZN5alloc6string6String15from_utf8_lossy17hea505cf60d4f919bE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h8f45b0d02f4dafdaE": {
+      "name": "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h8f45b0d02f4dafdaE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option13unwrap_failed17h0e11329e76906eaaE": {
+      "name": "_ZN4core6option13unwrap_failed17h0e11329e76906eaaE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str16slice_error_fail17h5dbb61534404fe7eE": {
+      "name": "_ZN4core3str16slice_error_fail17h5dbb61534404fe7eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h35e67cae0c0452a5E": {
+      "name": "_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h35e67cae0c0452a5E",
+      "return_type": [
+        "Result",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h3d479bbd9c610d76E": {
+      "name": "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h3d479bbd9c610d76E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core4iter6traits8iterator8Iterator8try_fold17he4ea7283460072b7E": {
+      "name": "_ZN4core4iter6traits8iterator8Iterator8try_fold17he4ea7283460072b7E",
+      "return_type": [
+        "Result",
+        41
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf27699ee494e2119E": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf27699ee494e2119E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ddec6a458d87dc2E": {
+      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ddec6a458d87dc2E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5regex5regex6string5Regex11captures_at17h3dfa64f8a9d1e89bE": {
+      "name": "_ZN5regex5regex6string5Regex11captures_at17h3dfa64f8a9d1e89bE",
+      "return_type": [
+        "Option",
+        65
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbc8bea844643f0ffE": {
+      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbc8bea844643f0ffE",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN9uu_csplit8patterns12get_patterns17h1caf3c5952747e62E": {
+      "name": "_ZN9uu_csplit8patterns12get_patterns17h1caf3c5952747e62E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit8patterns16extract_patterns17h32f79fa60a6aa1abE": {
+      "name": "_ZN9uu_csplit8patterns16extract_patterns17h32f79fa60a6aa1abE",
+      "return_type": [
+        "Result",
+        41
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit8patterns16extract_patterns28_$u7b$$u7b$closure$u7d$$u7d$17he081b352c4f42a24E": {
+      "name": "_ZN9uu_csplit8patterns16extract_patterns28_$u7b$$u7b$closure$u7d$$u7d$17he081b352c4f42a24E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit8patterns16extract_patterns28_$u7b$$u7b$closure$u7d$$u7d$17h10799cc375fc8eeaE": {
+      "name": "_ZN9uu_csplit8patterns16extract_patterns28_$u7b$$u7b$closure$u7d$$u7d$17h10799cc375fc8eeaE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit8patterns21validate_line_numbers17hf11a42b855ce2ce0E": {
+      "name": "_ZN9uu_csplit8patterns21validate_line_numbers17hf11a42b855ce2ce0E",
+      "return_type": [
+        "struct",
+        40
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hbb046a74d6073176E": {
+      "name": "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hbb046a74d6073176E",
+      "return_type": [
+        "Result",
+        17
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h74fbf09aad9a8f46E": {
+      "name": "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h74fbf09aad9a8f46E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg10value_hint17h3e8455d3453ae831E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg10value_hint17h3e8455d3453ae831E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg13visible_alias17h1c77802993eed174E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg13visible_alias17h1c77802993eed174E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg3new17h58dfbbb12e485797E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg3new17h58dfbbb12e485797E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4File6create17hf27309c53a086f3bE": {
+      "name": "_ZN3std2fs4File6create17hf27309c53a086f3bE",
+      "return_type": [
+        "Result",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$13with_capacity17h49ebb8e54e383c4eE": {
+      "name": "_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$13with_capacity17h49ebb8e54e383c4eE",
+      "return_type": [
+        "struct",
+        29
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17h97889b217ec5f319E": {
+      "name": "_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17h97889b217ec5f319E",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h81a1a3b547a1f055E": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h81a1a3b547a1f055E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hce29fca315d99298E": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hce29fca315d99298E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9e14181950c07716E": {
+      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9e14181950c07716E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN73_$LT$alloc..borrow..Cow$LT$str$GT$$u20$as$u20$alloc..string..ToString$GT$9to_string17ha2cb0370e40ab073E": {
+      "name": "_ZN73_$LT$alloc..borrow..Cow$LT$str$GT$$u20$as$u20$alloc..string..ToString$GT$9to_string17ha2cb0370e40ab073E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN9uu_csplit10split_name9SplitName3new17h3397569db94b2c64E": {
+      "name": "_ZN9uu_csplit10split_name9SplitName3new17h3397569db94b2c64E",
+      "return_type": [
+        "struct",
+        96
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit10split_name9SplitName3new28_$u7b$$u7b$closure$u7d$$u7d$17ha06daa8d9c661eb9E": {
+      "name": "_ZN9uu_csplit10split_name9SplitName3new28_$u7b$$u7b$closure$u7d$$u7d$17ha06daa8d9c661eb9E",
+      "return_type": [
+        "Result",
+        25
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit10split_name9SplitName3get17h6978abebafad78dbE": {
+      "name": "_ZN9uu_csplit10split_name9SplitName3get17h6978abebafad78dbE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg10value_name17h433bed507f4a0ecaE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg10value_name17h433bed507f4a0ecaE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4help17h453b8918274ccd7fE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4help17h453b8918274ccd7fE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4long17h5b9f19b5fc5c0111E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4long17h5b9f19b5fc5c0111E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg5short17h4278cc11f1512de5E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg5short17h4278cc11f1512de5E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg6action17h9b4010247a2cfc2eE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg6action17h9b4010247a2cfc2eE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN9uu_csplit13CsplitOptions3new17h18a4d0e2255fb53bE": {
+      "name": "_ZN9uu_csplit13CsplitOptions3new17h18a4d0e2255fb53bE",
+      "return_type": [
+        "struct",
+        100
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit11SplitWriter10new_writer17hf8bcfdadfd914b2eE": {
+      "name": "_ZN9uu_csplit11SplitWriter10new_writer17hf8bcfdadfd914b2eE",
+      "return_type": [
+        "struct",
+        49
+      ],
+      "parameters": []
+    },
+    "_ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE": {
+      "name": "_ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit11SplitWriter12finish_split17h2b71f2c0808d1b8bE": {
+      "name": "_ZN9uu_csplit11SplitWriter12finish_split17h2b71f2c0808d1b8bE",
+      "return_type": [
+        "struct",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN9uu_csplit11SplitWriter17delete_all_splits17h651b08e5afba42d7E": {
+      "name": "_ZN9uu_csplit11SplitWriter17delete_all_splits17h651b08e5afba42d7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_csplit6uu_app17h86eb726b6073e125E": {
+      "name": "_ZN9uu_csplit6uu_app17h86eb726b6073e125E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": []
+    },
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17hd942431c9d8b51dcE": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17hd942431c9d8b51dcE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf15a83bd2d124092E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf15a83bd2d124092E",
+      "return_type": [
+        "Result",
+        41
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command10after_help17ha6aa7879de8ba777E": {
+      "name": "_ZN12clap_builder7builder7command7Command10after_help17ha6aa7879de8ba777E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command14override_usage17h8d1bbf79058ebe18E": {
+      "name": "_ZN12clap_builder7builder7command7Command14override_usage17h8d1bbf79058ebe18E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3arg17h37d599ab080beb55E": {
+      "name": "_ZN12clap_builder7builder7command7Command3arg17h37d599ab080beb55E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3new17hb6d046c22d0ef603E": {
+      "name": "_ZN12clap_builder7builder7command7Command3new17hb6d046c22d0ef603E",
+      "return_type": [
+        "struct",
+        437
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command5about17hf404c7feac6198e2E": {
+      "name": "_ZN12clap_builder7builder7command7Command5about17hf404c7feac6198e2E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command7version17hbce6c3f8c7c6cd3aE": {
+      "name": "_ZN12clap_builder7builder7command7Command7version17hbce6c3f8c7c6cd3aE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore8features6format15Format$LT$F$GT$5parse17h75087b964e14f528E": {
+      "name": "_ZN6uucore8features6format15Format$LT$F$GT$5parse17h75087b964e14f528E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE": {
+      "name": "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
+      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
+      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN5regex5regex6string5Regex3new17h2b022f3b326b0361E": {
+      "name": "_ZN5regex5regex6string5Regex3new17h2b022f3b326b0361E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN14regex_automata4util8captures8Captures17get_group_by_name17hae7742685345d0b9E": {
+      "name": "_ZN14regex_automata4util8captures8Captures17get_group_by_name17hae7742685345d0b9E",
+      "return_type": [
+        "Option",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

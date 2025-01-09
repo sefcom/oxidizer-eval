@@ -1,0 +1,2497 @@
+{
+  "decompilation": {
+    "_ZN5uu_mv6uumain17h93a74df50da19c72E": "fn uu_mv::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0xa8]\n    let v1: u64;  // [sp-0x98]\n    let v2: u64;  // [sp-0x90]\n    let v3: &&struct_1;  // [sp-0x88]\n    let v4: u64;  // [sp-0x80]\n    let v5: void*;  // [sp-0x78]\n    let v6: u64;  // [sp-0x68]\n    let v7: &u64;  // [sp-0x60]\n    let v8: &u8;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: u64;  // [sp-0x38]\n    let v11: i8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v14: u64;  // rax\n    let v15: &u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v14 = uu_mv::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_41c350;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    core::option::Option<T>::map_or_else();\n    *(&v8 as &i8) = v11;\n    v10 = v12;\n    if v8 == \"\" {\n        v6 = uucore::util_name();\n        v7 = v15;\n        eprint!(\"{:?}: \", &v6);\n        eprintln!(\"{:?}\", &v8);\n    }\n    if !v15[13]() {\n        return v15[12]();\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v15;\n    eprintln!(\"Try '{:?} --help' for more information.\", &v6);\n}\n",
+    "_ZN5uu_mv6uumain6uumain17h01b12df543510b6cE": "fn uu_mv::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i8;  // [sp-0x479]\n    let v1: i328;  // [sp-0x478], Other Possible Types: Result<struct56, struct8>, struct56, struct28, struct32, struct24\n    let v2: i64;  // [sp-0x470]\n    let v3: i64;  // [sp-0x468]\n    let v4: i64;  // [bp-0x460]\n    let v5: i64;  // [sp-0x458]\n    let v6: i8;  // [sp-0x444]\n    let v7: i192;  // [bp-0x428], Other Possible Types: struct24\n    let v8: i64;  // [sp-0x418]\n    let v9: struct56;  // [sp-0x410], Other Possible Types: i64\n    let v10: i64;  // [sp-0x408]\n    let v11: i64;  // [sp-0x3d8], Other Possible Types: struct24, struct64, struct25\n    let v12: i64;  // [sp-0x3d0]\n    let v13: i64;  // [sp-0x3c8]\n    let v14: struct24;  // [sp-0x398]\n    let v16: struct24;  // [sp-0x380], Other Possible Types: i192\n    let v17: struct24;  // [sp-0x368]\n    let v18: struct64;  // [bp-0x350]\n    let v19: i8;  // [bp-0x310]\n    let v20: i5696;  // [sp-0x2f8], Other Possible Types: struct712\n    let v22: i64;  // rax\n    let v31: i8;  // r13b\n    let v32: i64;  // rax\n\n    v20 = uu_mv::uu_app();\n    v1 = clap_builder::builder::command::Command::try_get_matches_from_mut(&v20, a0, a1);\n    if v9 == 0x8000000000000000 {\n        v22 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v10);\n        return v22;\n    }\n    v9 = struct56 {\n        field_0: v1\n        field_8: v2\n        field_16: *((&v1 as &char + 16) as &i128)\n        field_32: *((&v1 as &char + 32) as &i128)\n        field_48: *((&v1 as &char + 48) as &i64)\n    };\n    v1 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v9, _ZN5uu_mv9ARG_FILES17h6d8adaf7ec2b89d6E, g_587d88);\n    v11 = clap_builder::parser::error::MatchesError::unwrap(_ZN5uu_mv9ARG_FILES17h6d8adaf7ec2b89d6E, g_587d88, &v1);\n    *(&v18.field_0 as &struct64) = struct64 {\n        field_0: v23\n        field_8: v24\n        field_16: v25\n        field_32: v26\n        field_48: v27\n        field_56: v28\n    };\n    v16 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v18);\n    if *((&v16 as &char + 16) as &i64) == 1 && !clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v9, _ZN5uu_mv20OPT_TARGET_DIRECTORY17h9ab0542800d4ad00E, g_587d48) as i8 {\n        v11 = \"files\";\n        v12 = <&T as core::fmt::Display>::fmt;\n        v1 = \"The argument '<\";\n        v2 = 2;\n        v5 = 0;\n        v3 = &v11;\n        v4 = 1;\n        core::option::Option<T>::map_or_else();\n        v1 = clap_builder::error::Error<F>::format(clap_builder::error::Error<F>::raw(6, &v19), &v20);\n        clap_builder::error::Error<F>::exit(&v1); /* do not return */\n    }\n    v1 = uucore::features::backup_control::determine_backup_mode(&v9);\n    if v1 {\n        return v22;\n    }\n    v31 = uucore::features::update_control::determine_update_mode(&v9) as i32;\n    if *((&v1 as &char + 8) as &i8) && (!uu_mv::determine_overwrite_mode(&v9) as i32 || (v31 & 1)) {\n        v11 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n        v1 = struct28 {\n            field_0: v11\n            field_16: v13\n            field_24: 1\n        };\n        v22 = alloc::boxed::Box<T>::new(&v1);\n    } else {\n        v17 = uucore::features::backup_control::determine_backup_suffix(&v9);\n        v1 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v9, _ZN5uu_mv20OPT_TARGET_DIRECTORY17h9ab0542800d4ad00E, g_587d48);\n        v32 = clap_builder::parser::error::MatchesError::unwrap(_ZN5uu_mv20OPT_TARGET_DIRECTORY17h9ab0542800d4ad00E, g_587d48, &v1);\n        if !v32 {\n            v7 = 0x8000000000000000;\n            goto LABEL_492f77;\n        } else {\n            v1 = core::ops::function::FnOnce::call_once(v32);\n            v7 = v1;\n            if !(v7 != 0x8000000000000000) || !(!std::path::Path::is_dir(*((&v7 as &char + 8) as &i64), v8) as i8) {\nLABEL_492f77:\n                v0 = v31;\n                v14 = v17;\n                v13 = v8;\n                v11 = v7;\n                v12 = *((&v7 as &char + 8) as &i64);\n                clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, _ZN5uu_mv23OPT_NO_TARGET_DIRECTORY17hcc24806db1a5c249E, g_587d58);\n                if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, _ZN5uu_mv11OPT_VERBOSE17h564b3b5f0c97021dE, g_587d68) as i8 {\n                    clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, _ZN5uu_mv9OPT_DEBUG17h6ab2aef4c0c3b5ccE, g_587d98);\n                }\n                *(&v1.field_0 as &struct56) = struct56 {\n                    field_0: v14\n                    field_16: v15\n                    field_24: v11\n                    field_40: v13\n                    field_48: v23 as u8\n                    field_49: 1\n                    field_50: clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, _ZN5uu_mv26OPT_STRIP_TRAILING_SLASHES17h51274aa3e0aeb94eE, g_587d38) as i32 as i8\n                    field_51: clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, _ZN5uu_mv12OPT_PROGRESS17h1c7c0a4244182235E, g_587d78) as i32 as i8\n                    field_52: v6\n                    field_53: v29\n                    field_54: v30\n                    field_55: v0\n                };\n                v6 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, _ZN5uu_mv9OPT_DEBUG17h6ab2aef4c0c3b5ccE, g_587d98) as i8;\n                v22 = uu_mv::mv(*((&v16 as &char + 8) as &i64), *((&v16 as &char + 16) as &i64), &v1);\n                return v22;\n            }\n            v11 = struct25 {\n                field_0: 1\n                field_8: *((&v7 as &char + 8) as &i128)\n                field_24: 1\n            };\n            v14 = <T as alloc::string::ToString>::to_string(&v11);\n            v1 = struct32 {\n                field_0: 8\n                field_8: v14\n                field_24: v15\n            };\n            v22 = alloc::boxed::Box<T>::new(&v1);\n        }\n    }\n    return v22;\n}\n",
+    "_ZN5uu_mv6uu_app17hfdaaab3614528530E": "fn uu_mv::uu_app(a0: &struct712) -> u64 {\n    let v0: struct24;  // [bp-0xa88]\n    let v1: i4736;  // [sp-0xa70], Other Possible Types: struct592, struct24\n    let v2: i64;  // [sp-0xa68]\n    let v3: i64;  // [sp-0xa60]\n    let v4: i64;  // [sp-0xa58]\n    let v5: i32;  // [sp-0x828]\n    let v6: i32;  // [sp-0x824]\n    let v7: i5696;  // [sp-0x820], Other Possible Types: struct592, struct712\n    let v8: i64;  // [sp-0x564]\n    let v9: i32;  // [sp-0x55c]\n    let v10: i8;  // [bp-0x558]\n    let v11: i4736;  // [sp-0x540], Other Possible Types: struct592, struct712, struct437\n    let v12: i64;  // [sp-0x538]\n    let v13: i64;  // [sp-0x530]\n    let v14: i64;  // [sp-0x528]\n    let v15: i64;  // [sp-0x520]\n    let v16: struct32;  // [bp-0x278], Other Possible Types: struct592, i4736, struct24\n    let v18: i64;  // rdx\n\n    v11 = clap_builder::builder::command::Command::new(uucore::util_name(), v18);\n    v7 = clap_builder::builder::command::Command::version(&v11, \"0.0.28\");\n    v11 = clap_builder::builder::command::Command::about(&v7, \"Move `SOURCE` to `DEST`, or multiple `SOURCE`(s) to `DIRECTORY`.\");\n    v1 = uucore::format_usage(&g_426937, 104);\n    v7 = clap_builder::builder::command::Command::override_usage(&v11, &v1);\n    v1 = \"When specifying more than one of -i, -f, -n, only the final one will take effect.\\n\\nDo not move a non-directory that has an existing destination with the same or newer modification timestamp;\\ninstead, silently skip the file without failing. If the move is across file system boundaries, the comparison is\\nto the source timestamp truncated to the resolutions of the destination file system and of the system calls used\\nto update timestamps; this avoids duplicate work if several mv -u commands are executed with the same source\\nand destination. This option is ignored if the -n or --no-clobber option is also specified. which gives more control\\nover which existing files in the destination are replaced, and its value can be one of the following:\\n\\n* all    This is the default operation when an --update option is not specified, and results in all existing files in the destination being replaced.\\n* none   This is similar to the --no-clobber option, in that no files in the destination are replaced, but also skipping a file does not induce a failure.\\n* older  This is the default operation when --update is specified, and results in files being replaced if they\u2019re older than the corresponding source file.\";\n    v2 = <&T as core::fmt::Display>::fmt;\n    v3 = \"The backup suffix is '~', unless set with --suffix or SIMPLE_BACKUP_SUFFIX.\\nThe version control method may be selected via the --backup option or through\\nthe VERSION_CONTROL environment variable.  Here are the values:\\n\\n  none, off       never make backups (even if --backup is given)\\n  numbered, t     make numbered backups\\n  existing, nil   numbered if numbered backups exist, simple otherwise\\n  simple, never   always make simple backups\";\n    v4 = <&T as core::fmt::Display>::fmt;\n    v11 = &g_587dc0;\n    v12 = 2;\n    v15 = 0;\n    v13 = &v1;\n    v14 = 2;\n    core::option::Option<T>::map_or_else();\n    v11 = clap_builder::builder::command::Command::after_help(&v7, &v10);\n    memcpy(&v7, &v11, 700);\n    v8 = 549755814016 | *((&v11 as &char + 700) as &i64);\n    v9 = *((&v11 as &char + 708) as &i32);\n    v11 = clap_builder::builder::arg::Arg::new(\"force\");\n    v1 = clap_builder::builder::arg::Arg::short(&v11, 0x66);\n    v11 = clap_builder::builder::arg::Arg::long(&v1, \"force\");\n    v1 = clap_builder::builder::arg::Arg::help(&v11, \"do not prompt before overwriting\");\n    v16 = struct32 {\n        field_0: &g_426231\n        field_8: 11\n        field_16: &g_42623c\n        field_24: 10\n    };\n    v11 = clap_builder::builder::arg::Arg::overrides_with_all(&v1, &v16);\n    v1 = clap_builder::builder::arg::Arg::action(&v11, 0x2);\n    v11 = clap_builder::builder::command::Command::arg(&v7, &v1);\n    v7 = clap_builder::builder::arg::Arg::new(\"interactive\");\n    v1 = clap_builder::builder::arg::Arg::short(&v7, 0x69);\n    v7 = clap_builder::builder::arg::Arg::long(&v1, \"interactive\");\n    v1 = clap_builder::builder::arg::Arg::help(&v7, \"prompt before override\");\n    v16 = struct32 {\n        field_0: &g_42622c\n        field_8: 5\n        field_16: &g_42623c\n        field_24: 10\n    };\n    v7 = clap_builder::builder::arg::Arg::overrides_with_all(&v1, &v16);\n    v1 = clap_builder::builder::arg::Arg::action(&v7, 0x2);\n    v7 = clap_builder::builder::command::Command::arg(&v11, &v1);\n    v11 = clap_builder::builder::arg::Arg::new(\"no-clobber\");\n    v1 = clap_builder::builder::arg::Arg::short(&v11, 0x6e);\n    v11 = clap_builder::builder::arg::Arg::long(&v1, \"no-clobber\");\n    v1 = clap_builder::builder::arg::Arg::help(&v11, \"do not overwrite an existing file\");\n    v16 = struct32 {\n        field_0: &g_42622c\n        field_8: 5\n        field_16: &g_426231\n        field_24: 11\n    };\n    v11 = clap_builder::builder::arg::Arg::overrides_with_all(&v1, &v16);\n    v1 = clap_builder::builder::arg::Arg::action(&v11, 0x2);\n    v11 = clap_builder::builder::command::Command::arg(&v7, &v1);\n    v7 = clap_builder::builder::arg::Arg::new(\"strip-trailing-slashes\");\n    v1 = clap_builder::builder::arg::Arg::long(&v7, \"strip-trailing-slashes\");\n    v7 = clap_builder::builder::arg::Arg::help(&v1, \"remove any trailing slashes from each SOURCE argument\");\n    v1 = clap_builder::builder::arg::Arg::action(&v7, 0x2);\n    v7 = clap_builder::builder::command::Command::arg(&v11, &v1);\n    v1 = uucore::features::backup_control::arguments::backup();\n    v11 = clap_builder::builder::command::Command::arg(&v7, &v1);\n    v1 = uucore::features::backup_control::arguments::backup_no_args();\n    v7 = clap_builder::builder::command::Command::arg(&v11, &v1);\n    v1 = uucore::features::backup_control::arguments::suffix();\n    v11 = clap_builder::builder::command::Command::arg(&v7, &v1);\n    v1 = uucore::features::update_control::arguments::update();\n    v7 = clap_builder::builder::command::Command::arg(&v11, &v1);\n    v1 = uucore::features::update_control::arguments::update_no_args();\n    v11 = clap_builder::builder::command::Command::arg(&v7, &v1);\n    v7 = clap_builder::builder::arg::Arg::new(\"target-directory\");\n    v1 = clap_builder::builder::arg::Arg::short(&v7, 0x74);\n    v7 = clap_builder::builder::arg::Arg::long(&v1, \"target-directory\");\n    v1 = clap_builder::builder::arg::Arg::help(&v7, \"move all SOURCE arguments into DIRECTORY\");\n    v7 = clap_builder::builder::arg::Arg::value_name(&v1);\n    v1 = clap_builder::builder::arg::Arg::value_hint(&v7, 0x4);\n    v7 = clap_builder::builder::arg::Arg::conflicts_with(&v1, \"no-target-directory\");\n    *(&v0.field_0 as &struct24) = struct24 {\n        field_0: 2\n        field_8: <UNKNOWN>\n        field_16: <UNKNOWN>\n    };\n    *(&v16.field_0 as &struct24) = struct24 {\n        field_0: v0\n        field_8: *((&v0.field_0 as &char + 8) as &i64)\n        field_16: v0.field_16\n    };\n    v1 = clap_builder::builder::arg::Arg::value_parser(&v7, &v16);\n    v7 = clap_builder::builder::command::Command::arg(&v11, &v1);\n    v11 = clap_builder::builder::arg::Arg::new(\"no-target-directory\");\n    v1 = clap_builder::builder::arg::Arg::short(&v11, 0x54);\n    v11 = clap_builder::builder::arg::Arg::long(&v1, \"no-target-directory\");\n    v1 = clap_builder::builder::arg::Arg::help(&v11, \"treat DEST as a normal file\");\n    v16 = clap_builder::builder::arg::Arg::action(&v1, 0x2);\n    v11 = clap_builder::builder::command::Command::arg(&v7, &v16);\n    v7 = clap_builder::builder::arg::Arg::new(\"verbose\");\n    v1 = clap_builder::builder::arg::Arg::short(&v7, 0x76);\n    v7 = clap_builder::builder::arg::Arg::long(&v1, \"verbose\");\n    v1 = clap_builder::builder::arg::Arg::help(&v7, \"explain what is being done\");\n    v16 = clap_builder::builder::arg::Arg::action(&v1, 0x2);\n    v7 = clap_builder::builder::command::Command::arg(&v11, &v16);\n    v11 = clap_builder::builder::arg::Arg::new(\"progress\");\n    v1 = clap_builder::builder::arg::Arg::short(&v11, 0x67);\n    v11 = clap_builder::builder::arg::Arg::long(&v1, \"progress\");\n    v1 = clap_builder::builder::arg::Arg::help(&v11, &g_426a71, 78);\n    v16 = clap_builder::builder::arg::Arg::action(&v1, 0x2);\n    v11 = clap_builder::builder::command::Command::arg(&v7, &v16);\n    v7 = clap_builder::builder::arg::Arg::new(\"files\");\n    v1 = clap_builder::builder::arg::Arg::action(&v7, 0x1);\n    v7 = clap_builder::builder::arg::Arg::num_args(&v1);\n    memcpy(&v1, &v7, 584);\n    v5 = *((&v7 as &char + 584) as &i32) | 1;\n    v6 = *((&v7 as &char + 588) as &i32);\n    v7 = clap_builder::builder::arg::Arg::value_parser(&v1, &v0);\n    v1 = clap_builder::builder::arg::Arg::value_hint(&v7, 0x2);\n    v7 = clap_builder::builder::command::Command::arg(&v11, &v1);\n    v11 = clap_builder::builder::arg::Arg::new(\"debug\");\n    v1 = clap_builder::builder::arg::Arg::long(&v11, \"debug\");\n    v11 = clap_builder::builder::arg::Arg::help(&v1, \"explain how a file is copied. Implies -v\");\n    v1 = clap_builder::builder::arg::Arg::action(&v11, 0x2);\n    clap_builder::builder::command::Command::arg(a0, &v7, &v1);\n    return a0;\n}\n",
+    "_ZN5uu_mv24determine_overwrite_mode17h2a7c21ee43665632E": "fn uu_mv::determine_overwrite_mode(a0: u32) -> u64 {\n    let v1: u64;  // rax\n\n    if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"no-clobber\") as i8 {\n        v1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"interactive\");\n        return v1 | -0x100 | 2 - (v1 & 4294967295);\n    }\n    return 0;\n}\n",
+    "_ZN5uu_mv11parse_paths17hd84bd62365a1b7ccE": "fn uu_mv::parse_paths(a0: &struct24, a1: u64, a2: u32, a3: u8) -> u64 {\n    if !(!a3) {\n        goto LABEL_0x4f6700;\n    }\n    return <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(a0, a1, a1 + a2 * 24);\n}\n",
+    "_ZN5uu_mv16handle_two_paths17hbd0a81168087f696E": "fn uu_mv::handle_two_paths(a0: &u8, a1: u32, a2: &&struct_0, a3: u32, a4: void*) -> u64 {\n    let v0: i64;  // [sp-0x1b8]\n    let v1: i64;  // [sp-0x1a8], Other Possible Types: struct25, struct20, struct16, struct24\n    let v2: i64;  // [sp-0x1a0]\n    let v3: i64;  // [sp-0x198]\n    let v4: i8;  // [sp-0x190]\n    let v5: struct25;  // [sp-0x168], Other Possible Types: i64, struct24\n    let v6: i64;  // [sp-0x160]\n    let v7: i64;  // [sp-0x158]\n    let v8: i8;  // [sp-0x150]\n    let v9: i64;  // [sp-0x148]\n    let v10: i64;  // [sp-0x140]\n    let v11: struct24;  // [bp-0x138], Other Possible Types: struct8, struct16\n    let v12: i64;  // [sp-0x120], Other Possible Types: struct24, struct16\n    let v13: i64;  // [sp-0x118]\n    let v14: i64;  // [sp-0x110]\n    let v15: i64;  // [sp-0x108]\n    let v16: i64;  // [sp-0x100]\n    let v17: i64;  // [sp-0xf8], Other Possible Types: struct20, struct16, struct24\n    let v18: struct24;  // [sp-0xf0], Other Possible Types: i64\n    let v19: i64;  // [sp-0xe8]\n    let v20: i64;  // [sp-0xe0]\n    let v21: struct24;  // [bp-0xd8], Other Possible Types: i64\n    let v22: i8;  // [bp-0x48]\n    let v24: i8;  // r13b\n    let v25: i64;  // rax\n    let v27: i64;  // r14\n    let v28: i64;  // r15\n    let v29: i64;  // r12\n    let v30: i64;  // rbp\n    let v32: i64;  // r14\n    let v33: i64;  // r12\n    let v34: i64;  // r15\n    let v35: i8;  // r13b\n    let v37: i64;  // r15\n    let v38: i64;  // r13\n    let v39: i64;  // r15\n    let v41: i64;  // r12\n    let v42: i64;  // rax\n    let v43: i32;  // eax\n    let v44: i64;  // rax\n    let v45: i64;  // rdx\n    let v46: i64;  // rax\n\n    v24 = *((a4 + 54) as &i8);\n    if v24 == 1 && uucore::features::backup_control::source_is_target_backup(a0, a1, a2, a3, *((a4 + 8) as &i64), *((a4 + 16) as &i64)) as i8 {\n        v5 = 1;\n        v6 = a2;\n        v7 = a3;\n        v8 = 1;\n        v1 = 1;\n        v2 = a0;\n        v3 = a1;\n        v4 = 1;\n        v12 = &v5;\n        v13 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v14 = &v1;\n        v15 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v17 = \"backing up \";\n        v18 = 3;\n        v21 = 0;\n        v19 = &v12;\n        v20 = 2;\n        core::option::Option<T>::map_or_else();\n        v25 = std::io::error::Error::new(0, &v22);\n        uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v25);\n        return v42;\n    }\n    v0 = a2;\n    v10 = a3;\n    v17 = std::fs::symlink_metadata(a0, a1);\n    if v17 != 2 {\n        v16 = a1;\n        v1 = std::path::Path::components(a0, v16);\n        v27 = v0;\n        v28 = a0;\n        v29 = v10;\n        v17 = std::path::Path::components(v27, v29);\n        v30 = v16;\n        v9 = v28;\n        if !(!<std::path::Components as core::cmp::PartialEq>::eq(&v1, &v17)) || !(!uucore::features::fs::are_hardlinks_to_same_file(v28, v30, v27, v29) as i8) {\n            if !(!v24) {\n                goto LABEL_4e93c2;\n            }\n        } else {\n            if !(!v24) || !(uucore::features::fs::are_hardlinks_or_one_way_symlink_to_same_file(v28, v30, v27, v29) as i8) {\nLABEL_4e93c2:\n                v32 = v0;\n                v33 = v10;\n                v35 = std::path::Path::is_dir(v32, v33) as i32;\n                if !uucore::features::fs::path_ends_with_terminator(v32, v33) as i8 {\n                    if !v35 {\n                        goto LABEL_4e966c;\n                    }\n                } else {\n                    if !v35 {\n                        if !std::path::Path::is_dir(v9, v30) as i32 && !*((a4 + 48) as &i8) && *((a4 + 55) as &i8) != 2 {\n                            v1 = struct25 {\n                                field_0: 1\n                                field_8: v0\n                                field_16: v33\n                                field_24: 1\n                            };\n                            v18 = <T as alloc::string::ToString>::to_string(&v1);\n                            v17 = 9;\n                            alloc::boxed::Box<T>::new(&v17);\n                            return v42;\n                        }\nLABEL_4e966c:\n                        v17 = std::fs::metadata(v0, v33);\n                        v41 = v9;\n                        if v17 != 2 && std::path::Path::is_dir(v41, v30) as i8 {\n                            switch (v43) {\n                            case 0:\n                                return 0;\n                            case 2:\n                                v5 = struct25 {\n                                    field_0: 1\n                                    field_8: v41\n                                    field_16: vvar_104{reg 56}\n                                    field_24: 1\n                                };\n                                v11 = <T as alloc::string::ToString>::to_string(&v5);\n                                v1 = struct25 {\n                                    field_0: 1\n                                    field_8: v0\n                                    field_16: v47\n                                    field_24: 1\n                                };\n                                v12 = <T as alloc::string::ToString>::to_string(&v1);\n                                v18 = v11;\n                                v21 = v12;\n                                v17 = 6;\n                                v42 = alloc::boxed::Box<T>::new(&v17);\n                                return v42;\n                            default:\n                                v1 = uucore::util_name();\n                                v2 = v45;\n                                eprint!(\"{:?}: \", &v1);\n                                v1 = 1;\n                                v2 = v0;\n                                v3 = v10;\n                                v4 = 1;\n                                eprint!(\"overwrite {:?}? \", &v1);\n                                eprint!(\" \");\n                                v11 = struct8 {\n                                    field_0: &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E\n                                };\n                                v46 = <std::io::stdio::Stderr as std::io::Write>::flush(&v11);\n                                if v46 {\n                                    v12 = v46;\n                                    v1 = uucore::util_name();\n                                    v2 = v45;\n                                    eprint!(\"{:?}: \", &v1);\n                                    eprintln!(\"{:?}\", &v12);\n                                    std::process::exit(1); /* do not return */\n                                }\n                                if !uucore::read_yes() as i8 {\n                                    v25 = std::io::error::Error::new(39, 1, 0);\n                                    v42 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v25);\n                                    return v42;\n                                }\n                            }\n                        }\n                        v44 = uu_mv::rename(v41, v30, v0, v10, a4, 0);\n                        v42 = (!v44 ? 0 : uu_mv::handle_two_paths::{{closure}}(v44));\n                        return v42;\n                    }\n                }\n                if *((a4 + 48) as &i8) {\n                    v37 = v9;\n                    if !std::path::Path::is_dir(v37, v30) as i8 {\n                        v1 = struct25 {\n                            field_0: 1\n                            field_8: v0\n                            field_16: v33\n                            field_24: 1\n                        };\n                        v18 = <T as alloc::string::ToString>::to_string(&v1);\n                        v17 = 5;\n                        alloc::boxed::Box<T>::new(&v17);\n                        return v42;\n                    }\n                    v17 = v37;\n                    v18 = v30;\n                    v19 = v0;\n                    v20 = v33;\n                    v42 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_mv::rename(v37, v30, v19, v33, a4, 0), &v17);\n                    return v42;\n                } else {\n                    v38 = v0;\n                    v39 = v9;\n                    if std::path::Path::starts_with(v38, v33, v39, v30) as i8 {\n                        v11 = struct16 {\n                            field_0: v39\n                            field_8: v30\n                        };\n                        v5 = <T as alloc::string::ToString>::to_string(&v11);\n                        v12 = struct16 {\n                            field_0: v38\n                            field_8: v33\n                        };\n                        v1 = <T as alloc::string::ToString>::to_string(&v12);\n                        v18 = v5;\n                        v21 = v1;\n                        v17 = 4;\n                        alloc::boxed::Box<T>::new(&v17);\n                        return v42;\n                    }\n                    v17 = std::sys::pal::unix::os::split_paths::bytes_to_path(v39, v30);\n                    v42 = uu_mv::move_files_into_dir(&v17, 1, v38, v33, a4);\n                    return v42;\n                }\n            }\n        }\n        v34 = v9;\n        v1 = std::path::Path::components(v34, v30);\n        v17 = std::path::Path::components(\".\");\n        if !<std::path::Components as core::cmp::PartialEq>::eq(&v1, &v17) && !std::path::Path::ends_with(v34, v30, \"/.\") as i8 && !std::path::Path::is_file(v34, v30) as i8 {\n            v1 = struct16 {\n                field_0: v34\n                field_8: v30\n            };\n            v18 = <T as alloc::string::ToString>::to_string(&v1);\n            v17 = 3;\n            alloc::boxed::Box<T>::new(&v17);\n            return v42;\n        }\n        v5 = struct25 {\n            field_0: 1\n            field_8: v34\n            field_16: v30\n            field_24: 1\n        };\n        v11 = <T as alloc::string::ToString>::to_string(&v5);\n        v1 = struct25 {\n            field_0: 1\n            field_8: v0\n            field_16: v10\n            field_24: 1\n        };\n        v12 = <T as alloc::string::ToString>::to_string(&v1);\n        v18 = v11;\n        v21 = v12;\n        v17 = 2;\n        alloc::boxed::Box<T>::new(&v17);\n        return v42;\n    } else if uucore::features::fs::path_ends_with_terminator(a0, a1) as i8 {\n        v1 = struct25 {\n            field_0: 1\n            field_8: a0\n            field_16: a1\n            field_24: 1\n        };\n        v18 = <T as alloc::string::ToString>::to_string(&v1);\n        v17 = 1;\n        alloc::boxed::Box<T>::new(&v17);\n        return v42;\n    } else {\n        v1 = struct25 {\n            field_0: 1\n            field_8: a0\n            field_16: a1\n            field_24: 1\n        };\n        v18 = <T as alloc::string::ToString>::to_string(&v1);\n        v17 = 0;\n        alloc::boxed::Box<T>::new(&v17);\n        return v42;\n    }\n}\n",
+    "_ZN5uu_mv21handle_multiple_paths17h86c7b11f84ad2502E": "fn uu_mv::handle_multiple_paths(a0: void*, a1: u32, a2: void*) -> u64 {\n    let v0: &u8;  // [sp-0x98]\n    let v1: u64;  // [sp-0x90]\n    let v2: u64;  // [sp-0x88]\n    let v3: u64;  // [sp-0x80]\n    let v4: &&struct_0;  // [sp-0x78]\n    let v5: u64;  // [sp-0x70]\n    let v6: void*;  // [sp-0x68]\n    let v7: u64;  // [sp-0x58]\n    let v8: u128;  // [sp-0x50]\n    let v9: u8;  // [sp-0x40]\n    let v10: u8;  // [bp-0x38]\n    let v11: u32;  // [sp-0x20]\n    let v13: u64;  // rax\n    let v14: u32;  // rdx\n\n    if a2->field_30 {\n        v7 = 1;\n        v8 = *(&(&a0->padding_0)[1] as &i128);\n        v9 = 1;\n        v0 = &v7;\n        v1 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v2 = \"mv: extra operand \";\n        v3 = 1;\n        v6 = 0;\n        v4 = &v0;\n        v5 = 1;\n        core::option::Option<T>::map_or_else();\n        v11 = 1;\n        v13 = alloc::boxed::Box<T>::new(&v10);\n        return v13;\n    } else if !a1 {\n        core::option::unwrap_failed(\"src/uu/mv/src/mv.rs\"); /* do not return */\n    } else {\n        v13 = uu_mv::move_files_into_dir(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1 - 1, a0, a1), v14, *(&a0->padding_0[16 + 24 * a1] as &i64), *(&a0->padding_0[8 + 24 * a1] as &i64), a2);\n        return v13;\n    }\n}\n",
+    "_ZN5uu_mv2mv17h15eff797ddd7e01aE": "fn uu_mv::mv(a0: u32, a1: u32, a2: &struct56) -> u64 {\n    let v0: i192;  // [sp-0x60], Other Possible Types: struct24\n    let v1: struct24;  // [sp-0x48], Other Possible Types: i192\n    let v2: struct24;  // [sp-0x30], Other Possible Types: i192\n    let v4: i64;  // rdi\n    let v5: i64;  // rax\n\n    v0 = uu_mv::parse_paths(a0, a1, *((a2 + 50) as &i8));\n    if *((a2 + 24) as &i64) == 0x8000000000000000 {\n        v4 = *((&v0 as &char + 8) as &i64);\n        v5 = (*((&v0 as &char + 16) as &i64) == 2 ? uu_mv::handle_two_paths(*((v4 + 8) as &i64), *((v4 + 16) as &i64), *((v4 + 32) as &i64), *((v4 + 40) as &i64), a2) : uu_mv::handle_multiple_paths(v4, *((&v0 as &char + 16) as &i64), a2));\n        return v5;\n    }\n    v2 = std::sys::os_str::bytes::Slice::to_owned(*((a2 + 32) as &i64), *((a2 + 40) as &i64));\n    v1 = v2;\n    v5 = uu_mv::move_files_into_dir(*((&v0 as &char + 8) as &i64), *((&v0 as &char + 16) as &i64), *((&v1 as &char + 8) as &i64), *((&v2 as &char + 16) as &i64), a2);\n    return v5;\n}\n",
+    "_ZN5uu_mv19move_files_into_dir17hea74a81b456dd214E": "fn uu_mv::move_files_into_dir(a0: u32, a1: u32, a2: u32, a3: u32, a4: &u64) -> u64 {\n    let v0: i8;  // [sp-0x301]\n    let v1: i128;  // [sp-0x300], Other Possible Types: struct24\n    let v2: i64;  // [sp-0x2f8]\n    let v3: i64;  // [sp-0x2e8]\n    let v4: i64;  // [sp-0x2d0], Other Possible Types: struct24, struct56\n    let v5: i64;  // [sp-0x2c8]\n    let v6: i64;  // [sp-0x2c0]\n    let v7: i64;  // [sp-0x290], Other Possible Types: struct24\n    let v8: i128;  // [bp-0x278]\n    let v9: i64;  // [sp-0x268]\n    let v10: struct24;  // [sp-0x258], Other Possible Types: i192\n    let v11: i200;  // [sp-0x240], Other Possible Types: Result<struct24, struct8>\n    let v12: i1088;  // [bp-0x228], Other Possible Types: struct24, struct25, struct1, struct136\n    let v13: i64;  // [sp-0x220]\n    let v14: i64;  // [sp-0x218]\n    let v15: i64;  // [bp-0x210]\n    let v16: i64;  // [sp-0x208]\n    let v17: i128;  // [sp-0x198], Other Possible Types: struct24\n    let v18: i64;  // [sp-0x188]\n    let v19: i64;  // [sp-0x178], Other Possible Types: struct24, Result<struct136, struct5>, struct16, struct20, Option<struct16>\n    let v20: i64;  // [sp-0x170]\n    let v21: i64;  // [sp-0x168]\n    let v22: i64;  // [bp-0x160]\n    let v23: i64;  // [sp-0x158]\n    let v24: i64;  // [sp-0x150]\n    let v25: i128;  // [sp-0xc8]\n    let v26: i64;  // [sp-0xb8]\n    let v27: struct16;  // [bp-0xa8]\n    let v28: i64;  // [sp-0x98]\n    let v29: i64;  // [sp-0x90]\n    let v30: i256;  // [sp-0x88], Other Possible Types: struct32, struct16\n    let v31: i8;  // [bp-0x58]\n    let v32: i8;  // [bp-0x48]\n    let v33: i128;  // [sp-0x40]\n    let v35: i64;  // rdx\n    let v37: i128;  // xmm0\n    let v38: i256;  // ymm0\n    let v39: i256;  // ymm0\n    let v40: i128;  // xmm0\n    let v41: i64;  // rax\n    let v42: i256;  // ymm0\n    let v43: i64;  // r15\n    let v44: i64;  // r14\n    let v45: i128;  // xmm0\n    let v46: i256;  // ymm0\n    let v47: i64;  // rax\n    let v48: i128;  // xmm0\n    let v49: i128;  // xmm0\n    let v50: i128;  // xmm0\n    let v51: i128;  // xmm0\n    let v52: i256;  // ymm0\n    let v53: i128;  // xmm0\n    let v56: i64;  // r9\n    let v58: i64;  // rax\n    let v59: i128;  // xmm0\n    let v60: i64;  // rax\n\n    v19 = std::thread::local::LocalKey<T>::try_with();\n    v30 = hashbrown::map::HashMap<K,V,S>::with_capacity_and_hasher(a1, core::result::Result<T,E>::expect(&v19), v35);\n    if !std::path::Path::is_dir(a2, a3) as i8 {\n        v12 = struct25 {\n            field_0: 1\n            field_8: a2\n            field_16: a3\n            field_24: 1\n        };\n        v4 = <T as alloc::string::ToString>::to_string(&v12);\n        v19 = 7;\n        return alloc::boxed::Box<T>::new(&v19);\n    }\n    v19 = std::fs::canonicalize(a2, a3);\n    if v19 != 0x8000000000000000 {\n        v18 = v21;\n        v37 = v19;\n        v39 = v38 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v37;\n        v17 = v37;\n    } else {\n        v17 = uu_mv::move_files_into_dir::{{closure}}(a2, a3, v20);\n    }\n    if !*((a4 + 51) as &i8) {\n        v3 = 0;\n        goto LABEL_4ea143;\n    } else {\n        v3 = core::ops::function::FnOnce::call_once();\n        if a1 <= 1 {\nLABEL_4ea143:\n            v8 = 0;\n        } else {\n            v4 = indicatif::progress_bar::ProgressBar::new(a1);\n            v19 = indicatif::style::ProgressStyle::with_template(&g_426c0f);\n            v12 = core::result::Result<T,E>::unwrap(&v19, \"src/uu/mv/src/mv.rs\");\n            v19 = indicatif::progress_bar::ProgressBar::with_style(&v4, &v12);\n            v12 = indicatif::multi::MultiProgress::add(&v3, &v19);\n            v40 = v12;\n            v39 = v39 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v40;\n            v8 = v40;\n            v9 = v14;\n        }\n    }\n    v27 = struct16 {\n        field_0: a0\n        field_8: a0 + a1 * 24\n    };\n    v41 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v27);\n    if !v41 {\n        return 0;\n    }\n    v0 = *((a4 + 54) as &i8);\n    do {\n        v43 = *((v41 + 8) as &i64);\n        v44 = *((v41 + 16) as &i64);\n        v19 = std::fs::metadata(v43, v44);\n        if v19 == 2 {\n            v12 = struct25 {\n                field_0: 1\n                field_8: v43\n                field_16: v44\n                field_24: 1\n            };\n            v4 = <T as alloc::string::ToString>::to_string(&v12);\n            v22 = v6;\n            v45 = v4;\n            v46 = v42 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v45;\n            v20 = v45;\n            v19 = 0;\n            uucore::mods::error::set_exit_code(1);\n            v1 = uucore::util_name();\n            v2 = v35;\n            eprintln!(\"{:?}: {:?}\", &v1, &v19);\n            v6 = v6;\n        } else {\n            if v8 {\n                v19 = std::sys::os_str::bytes::Slice::to_string_lossy(v43, v44);\n                v12 = <alloc::borrow::Cow<str> as alloc::string::ToString>::to_string(v20, v21);\n                indicatif::progress_bar::ProgressBar::set_message(&v8, &v12);\n            }\n            v47 = std::path::Path::file_name(v43, v44);\n            if !v47 {\n                v12 = struct25 {\n                    field_0: 1\n                    field_8: v43\n                    field_16: v44\n                    field_24: 1\n                };\n                v4 = <T as alloc::string::ToString>::to_string(&v12);\n                v22 = v6;\n                v48 = v4;\n                v46 = v42 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v48;\n                v20 = v48;\n                v19 = 0;\n                uucore::mods::error::set_exit_code(1);\n                v1 = uucore::util_name();\n                v2 = v35;\n                eprintln!(\"{:?}: {:?}\", &v1, &v19);\n                v6 = v6;\n            } else {\n                v10 = std::path::Path::join(a2, a3, v47, v35);\n                if hashbrown::map::HashMap<K,V,S,A>::get_inner(&v30, &v10) && v0 != 2 {\n                    v49 = *((&v10 as &char + 8) as &i128);\n                    v1 = v49;\n                    v4 = v43;\n                    v5 = v44;\n                    v12 = &v1;\n                    v13 = <std::path::Display as core::fmt::Display>::fmt;\n                    v14 = &v4;\n                    v15 = <std::path::Display as core::fmt::Display>::fmt;\n                    v19 = \"will not overwrite just-created '\";\n                    v20 = 3;\n                    v23 = 0;\n                    v21 = &v12;\n                    v22 = 2;\n                    core::option::Option<T>::map_or_else();\n                    v22 = 1;\n                    v50 = v31;\n                    v46 = v42 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v49 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v50;\n                    v19 = v50;\n                    v21 = v32;\n                    v1 = alloc::boxed::Box<T>::new(&v19);\n                    v2 = &g_587f60;\n                    uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v1) as i32);\n                    v4 = uucore::util_name();\n                    v5 = v35;\n                    eprintln!(\"{:?}: {:?}\", &v4, &v1);\n                    v20 = v20;\n                    v21 = v21;\n                } else {\n                    v11 = std::fs::canonicalize(v43, v44);\n                    if v11 == 0x8000000000000000 {\n                        goto LABEL_0x4ea61c;\n                    }\n                    v51 = v11;\n                    v52 = v42 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v51;\n                    v25 = v51;\n                    v26 = *((&v11 as &char + 16) as &i64);\n                    if <std::path::PathBuf as core::cmp::PartialEq>::eq(*((&v25 as &char + 8) as &i64), *((&v11 as &char + 16) as &i64), *((&v17 as &char + 8) as &i64), v18) as i8 {\n                        v28 = v43;\n                        v29 = v44;\n                        v7 = uucore::features::fs::normalize_path(a2, a3);\n                        v53 = *((&v7 as &char + 8) as &i128);\n                        v33 = v53;\n                        v19 = std::path::Path::components(*((&v17 as &char + 8) as &i64), v18);\n                        v12 = struct1 {\n                            field_0: 10\n                        };\n                        v4 = core::iter::traits::iterator::Iterator::fold(&v19, &v12);\n                        v1 = core::option::Option<T>::map_or_else(&v4, a2, a3);\n                        v19 = &v28;\n                        v20 = <std::path::Display as core::fmt::Display>::fmt;\n                        v21 = &v33;\n                        v22 = <std::path::Display as core::fmt::Display>::fmt;\n                        v23 = &v1;\n                        v24 = <alloc::string::String as core::fmt::Display>::fmt;\n                        *(&v12 as &&str) = \"cannot move '\";\n                        v13 = 4;\n                        v16 = 0;\n                        v14 = &v19;\n                        v15 = 3;\n                        core::option::Option<T>::map_or_else();\n                        v21 = v6;\n                        v59 = v4;\n                        v46 = v52 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v53 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v59;\n                        v19 = v59;\n                        v22 = 1;\n                        v1 = alloc::boxed::Box<T>::new(&v19);\n                        v2 = &g_587f60;\n                        uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v1) as i32);\n                        v4 = uucore::util_name();\n                        v5 = v35;\n                        eprintln!(\"{:?}: {:?}\", &v4, &v1);\n                        v20 = v20;\n                        v21 = v21;\n                        if v11 == 0x8000000000000000 {\n                            v20 = v20;\n                            v21 = v21;\n                        }\n                    } else {\n                        v56 = v3;\n                        if v56 {\n                            v58 = stack_base + -744;\n                        }\n                        v7 = uu_mv::rename(v43, v44, *((&v10 as &char + 8) as &i64), *((&v10 as &char + 16) as &i64), a4, v58);\n                        v20 = v20;\n                        v21 = v21;\n                        if v7 {\n                            v19 = <T as alloc::string::ToString>::to_string(&v7);\n                            if !v21 {\n                                v19 = v7;\n                                uucore::mods::error::set_exit_code(1);\n                                v20 = v20;\n                                v21 = v21;\n                            } else {\n                                v60 = <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(v7, v41, &v10);\n                                if v3 {\n                                    indicatif::multi::MultiProgress::suspend(&v3, v60);\n                                    v20 = v20;\n                                    v21 = v21;\n                                } else {\n                                    v1 = v60;\n                                    uucore::mods::error::set_exit_code(1);\n                                    v4 = uucore::util_name();\n                                    v5 = v35;\n                                    eprintln!(\"{:?}: {:?}\", &v4, &v1);\n                                    v20 = v20;\n                                    v21 = v21;\n                                }\n                            }\n                        }\n                        v21 = v21;\n                        v20 = v20;\n                        if v8 {\n                            indicatif::progress_bar::ProgressBar::inc(&v8, 1);\n                        }\n                        v19 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(&v10);\n                        v46 = v52 | 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v19;\n                        v12 = struct24 {\n                            field_0: v38 as u128\n                            field_16: v21\n                        };\n                        v30 = hashbrown::map::HashMap<K,V,S,A>::insert(&v12);\n                        v6 = v6;\n                        continue;\n                    }\n                }\n                v21 = v21;\n                v20 = v20;\n                v6 = v6;\n            }\n        }\n    } while ((v6 = v6, v41 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v27), v41));\n}\n",
+    "_ZN5uu_mv6rename17hfc95a4bd2fcddeecE": "fn uu_mv::rename(a0: u32, a1: u32, a2: u32, a3: u32, a4: &u64, a5: u32) -> u64 {\n    let v0: i32;  // [sp-0x32c]\n    let v1: i128;  // [bp-0x318]\n    let v2: i64;  // [sp-0x308]\n    let v3: i64;  // [sp-0x2f0], Other Possible Types: struct12\n    let v4: i64;  // [sp-0x2e8]\n    let v5: i64;  // [sp-0x2e0]\n    let v6: i64;  // [bp-0x2d8]\n    let v7: i32;  // [sp-0x2cc]\n    let v8: i128;  // [sp-0x2c8], Other Possible Types: struct16\n    let v9: i64;  // [sp-0x2c0]\n    let v10: i64;  // [sp-0x2b8]\n    let v11: i64;  // [sp-0x2b0]\n    let v12: i64;  // [sp-0x2a8]\n    let v13: i64;  // [sp-0x2a0]\n    let v14: i64;  // [sp-0x218], Other Possible Types: struct16, struct12\n    let v15: i64;  // [sp-0x210]\n    let v16: i64;  // [sp-0x208]\n    let v17: i8;  // [bp-0x200]\n    let v18: i64;  // [sp-0x1f8]\n    let v19: i128;  // [sp-0x168]\n    let v20: i64;  // [sp-0x158]\n    let v21: i64;  // [sp-0x150]\n    let v22: i64;  // [bp-0x148], Other Possible Types: struct8\n    let v23: i64;  // [sp-0x140]\n    let v24: i64;  // [sp-0x138]\n    let v25: i8;  // [sp-0x130]\n    let v26: i64;  // [sp-0x128], Other Possible Types: struct16\n    let v27: i64;  // [sp-0x120]\n    let v28: i8;  // [bp-0x118]\n    let v29: i8;  // [sp-0x110]\n    let v30: i8;  // [bp-0x78]\n    let v31: i8;  // [bp-0x68]\n    let v32: i8;  // [bp-0x60]\n    let v33: i8;  // [bp-0x50]\n    let v34: i8;  // [bp-0x48]\n    let v36: i64;  // r13\n    let v37: i64;  // rax\n    let v38: i64;  // r12\n    let v39: i8;  // al\n    let v40: i64;  // rax\n    let v43: i32;  // eax\n    let v44: i64;  // rcx\n    let v45: i32;  // esi\n    let v46: i8;  // sil\n    let v47: i32;  // eax\n    let v48: i64;  // rdx\n    let v49: i64;  // rax\n    let v52: i8;  // bl\n\n    v36 = 0x8000000000000000;\n    v1 = 0x8000000000000000;\n    v0 = v37 | -0x100 | 1;\n    v8 = std::fs::metadata(a2, a3);\n    if v8 == 2 {\n        goto LABEL_4ead3f;\n    }\n    v38 = *((a4 + 53) as &i8);\n    v39 = *((a4 + 55) as &i8);\n    if v39 == 2 && v38 == 1 {\n        return v40;\n    }\n    if v39 == 1 {\n        if !*((a4 + 52) as &i8) {\n            return v40;\n        }\n        v14 = 1;\n        v15 = a2;\n        v16 = a3;\n        v17 = 1;\n        println!(\"skipped {:?}\", &v14);\n    }\n    if v39 != 2 {\n        if v39 == 3 {\n            v14 = 1;\n            v15 = a2;\n            v16 = a3;\n            v17 = 1;\n            v26 = &v14;\n            v27 = <os_display::Quoted as core::fmt::Display>::fmt;\n            v8 = \"not replacing \";\n            v9 = 1;\n            v12 = 0;\n            v10 = &v26;\n            v11 = 1;\n            core::option::Option<T>::map_or_else();\n            std::io::error::Error::new(39, &v34);\n            return v40;\n        }\nLABEL_4eb40e:\n        v47 = v38;\n        if !v47 {\n            if *((a4 + 52) as &i8) {\n                v14 = 1;\n                v15 = a2;\n                v16 = a3;\n                v17 = 1;\n                println!(\"skipped {:?}\", &v14);\n                return v40;\n            }\n            return v40;\n        }\n        if v47 == 1 {\n            v14 = uucore::util_name();\n            v15 = v48;\n            eprint!(\"{:?}: \", &v14);\n            v14 = 1;\n            v15 = a2;\n            v16 = a3;\n            v17 = 1;\n            eprint!(\"overwrite {:?}?\", &v14);\n            eprint!(\" \");\n            v22 = struct8 {\n                field_0: &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E\n            };\n            v49 = <std::io::stdio::Stderr as std::io::Write>::flush(&v22);\n            if v49 {\n                v3 = v49;\n                v14 = uucore::util_name();\n                v15 = v48;\n                eprint!(\"{:?}: \", &v14);\n                eprintln!(\"{:?}\", &v3);\n                std::process::exit(1); /* do not return */\n            } else if !uucore::read_yes() as i8 {\n                std::io::error::Error::new(39, &g_426c4c, 19);\n                return v40;\n            }\n        }\n        uucore::features::backup_control::get_backup_path(&v8, *((a4 + 54) as &i8));\n        v2 = v10;\n        if !(v1 != 0x8000000000000000) || !((v40 = uu_mv::rename_with_fallback(a2, a3, *((&v1 as &char + 8) as &i64), v2, a5), v40)) {\nLABEL_4ead3f:\n            v8 = std::fs::metadata(a2, a3);\n            if v8 != 2 && std::path::Path::is_dir(a2, a3) as i8 && std::path::Path::is_dir(a0, a1) as i8 {\n                if !uu_mv::is_empty_dir(a2, a3) as i8 {\n                    std::io::error::Error::new(39, &g_426c4c, 19);\n                    return v40;\n                }\n                v40 = std::fs::remove_dir(a2, a3);\n                if v40 {\n                    return v40;\n                }\n            }\n            v40 = uu_mv::rename_with_fallback(a0, a1, a2, a3, a5);\n            if v40 {\n                return v40;\n            }\n            if !*((a4 + 49) as &i8) {\n                v52 = 0;\n            } else {\n                v52 = v40 | -0x100 | v1 != v36;\n                if v1 == v36 {\n                    v26 = 1;\n                    v27 = a0;\n                    v28 = a1;\n                    v29 = 1;\n                    v14 = 1;\n                    v15 = a2;\n                    v16 = a3;\n                    v17 = 1;\n                    v3 = &v26;\n                    v4 = <os_display::Quoted as core::fmt::Display>::fmt;\n                    v5 = &v14;\n                    v6 = <os_display::Quoted as core::fmt::Display>::fmt;\n                    v8 = \"renamed \";\n                    v9 = 2;\n                    v12 = 0;\n                    v10 = &v3;\n                    v11 = 2;\n                    core::option::Option<T>::map_or_else();\n                    v14 = v32;\n                    v16 = v33;\n                    v0 = v16 | -0x100 | 1;\n                } else {\n                    v20 = v2;\n                    v19 = v1;\n                    v22 = 1;\n                    v23 = a0;\n                    v24 = a1;\n                    v25 = 1;\n                    v3 = 1;\n                    v4 = a2;\n                    v5 = a3;\n                    v6 = 1;\n                    v26 = 1;\n                    v27 = *((&v19 as &char + 8) as &i64);\n                    v28 = v20;\n                    v29 = 1;\n                    v8 = &v22;\n                    v9 = <os_display::Quoted as core::fmt::Display>::fmt;\n                    v10 = &v3;\n                    v11 = <os_display::Quoted as core::fmt::Display>::fmt;\n                    v12 = &v26;\n                    v13 = <os_display::Quoted as core::fmt::Display>::fmt;\n                    v14 = \"renamed \";\n                    v15 = 4;\n                    v18 = 0;\n                    v16 = &v8;\n                    v17 = 3;\n                    core::option::Option<T>::map_or_else();\n                    v14 = v30;\n                    v16 = v31;\n                    v0 = 0;\n                    v0 = 0;\n                }\n                if !a5 {\n                    println!(\"{:?}\", &v14);\n                } else {\n                    indicatif::multi::MultiProgress::suspend(a5, &v14);\n                }\n            }\n            return 0;\n        }\n    } else {\n        v8 = std::fs::metadata(a0, a1);\n        if v8 == 2 {\n            return v40;\n        }\n        memcpy(&v28, &v10, 160);\n        v26 = struct16 {\n            field_0: v41\n            field_8: v42\n        };\n        v14 = std::fs::Metadata::modified(&v26);\n        v40 = v14;\n        v7 = *((&v14 as &char + 8) as &i32);\n        if v7 != 0x3b9aca00 {\n            v8 = std::fs::metadata(a2, a3);\n            if v8 == 2 {\n                return v40;\n            }\n            v21 = v9;\n            memcpy(&v16, &v10, 160);\n            v14 = struct16 {\n                field_0: v41\n                field_8: v21\n            };\n            v36 = 0x8000000000000000;\n            v3 = std::fs::Metadata::modified(&v14);\n            v43 = *((&v3 as &char + 8) as &i32);\n            if v43 == 0x3b9aca00 {\n                return v40;\n            }\n            v44 = (v40 < v3 ? (-0x100 | v40 != v3) & 4294967295 & 4294967295 : 255);\n            if v7 < v43 {\n                v45 = 255;\n            } else {\n                v45 = -0x100 | v7 != v43;\n            }\n            v46 = ((v44 & 255 & 255) ? v44 & 4294967295 : v45);\n            if v46 != 1 {\n                return v40;\n            }\n            goto LABEL_4eb40e;\n        }\n    }\n    return v40;\n}\n",
+    "_ZN5uu_mv20rename_with_fallback17h48f1d4f2ed6b729fE": "fn uu_mv::rename_with_fallback(a0: u64, a1: u64, a2: u64, a3: u64, a4: u32) -> u64 {\n    let v0: i64;  // [sp-0x288]\n    let v1: i64;  // [sp-0x278], Other Possible Types: struct24\n    let v2: struct48;  // [sp-0x260], Other Possible Types: i384, struct24\n    let v3: i64;  // [sp-0x230]\n    let v4: i64;  // [sp-0x228]\n    let v5: i32;  // [sp-0x220]\n    let v6: i64;  // [sp-0x218]\n    let v7: i64;  // [sp-0x210]\n    let v8: i64;  // [sp-0x208]\n    let v9: i64;  // [sp-0x200]\n    let v10: i64;  // [sp-0x1f8]\n    let v11: i64;  // [sp-0x1f0]\n    let v12: i1096;  // [sp-0x1e8], Other Possible Types: struct16, Result<struct136, struct5>, struct48\n    let v13: i64;  // [sp-0x1e0]\n    let v14: i128;  // [bp-0x1d8]\n    let v15: i64;  // [sp-0x1d0]\n    let v16: i64;  // [bp-0x1c8]\n    let v18: i128;  // [sp-0x138], Other Possible Types: struct48\n    let v19: i128;  // [sp-0x128]\n    let v20: i128;  // [sp-0x118]\n    let v21: i64;  // [sp-0x108]\n    let v22: i64;  // [sp-0x100]\n    let v23: i64;  // [sp-0xf8]\n    let v24: i64;  // [sp-0xf0]\n    let v25: struct24;  // [sp-0xe8], Other Possible Types: i192\n    let v26: i8;  // [bp-0xd0]\n    let v27: i384;  // [sp-0xb8], Other Possible Types: struct136, struct48\n    let v29: i64;  // r14\n    let v30: i64;  // r12\n    let v31: i64;  // rbx\n    let v32: i64;  // r15\n    let v33: i32;  // eax\n    let v34: i64;  // rax\n    let v36: i64;  // rax\n\n    v29 = a3;\n    v30 = a2;\n    v31 = a1;\n    v32 = a0;\n    v6 = a0;\n    v7 = a1;\n    v8 = a2;\n    v9 = a3;\n    v12 = std::fs::rename(a0, a1, a2, a3);\n    if !v12 {\n        return 0;\n    }\n    v12 = std::fs::symlink_metadata(v32, v31);\n    if v12 == 2 {\n        return v34;\n    }\n    switch (v33) {\n    case 16384:\n        v12 = std::fs::metadata(v30, v29);\n        if v12 != 2 {\n            v34 = std::fs::remove_dir_all(v30, v29);\n            if v34 {\n                return v34;\n            }\n        }\n        v5 = 0x10000;\n        v3 = 0xfa00;\n        v4 = 0;\n        v12 = fs_extra::dir::get_size(v32, v31);\n        if v12 != 0x8000000000000000 {\n            goto LABEL_4eba5a;\n        } else if !a4 {\nLABEL_4eba5a:\n            v1 = 0;\n            break;\n        } else {\n            v2 = indicatif::progress_bar::ProgressBar::new(v13);\n            v12 = indicatif::style::ProgressStyle::with_template(&g_426c5f);\n            v27 = core::result::Result<T,E>::unwrap(&v12, \"src/uu/mv/src/mv.rs\");\n            v25 = indicatif::progress_bar::ProgressBar::with_style(&v2, &v27);\n            v1 = indicatif::multi::MultiProgress::add(a4, &v25);\n            break;\n        }\n        v12 = uucore::features::fsxattr::retrieve_xattrs(v32, v31);\n        if v12 {\n            v20 = *((&v12 as &char + 32) as &i128);\n            v19 = *((&v12 as &char + 16) as &i128);\n            v18 = v12;\n        } else {\n            v18 = uu_mv::rename_with_fallback::{{closure}}(v13);\n        }\n        if !v1 {\n            v2 = fs_extra::dir::move_dir(v32, v31, v30, v29, &v3);\n        } else {\n            v0 = &v1;\n            v2 = fs_extra::dir::move_dir_with_progress(v32, v31, v30, v29, &v3);\n        }\n        v16 = v20;\n        v14 = v19;\n        v12 = v18;\n        core::result::Result<T,E>::unwrap(uucore::features::fsxattr::apply_xattrs(v30, v29, &v12));\n        if v2 != 0x8000000000000000 {\n            v27 = v2;\n            if *((&v27 as &char + 24) as &i64) != 9223372036854775809 {\n                v10 = &v27;\n                v11 = <fs_extra::error::Error as core::fmt::Debug>::fmt;\n                v12 = &g_41c350;\n                v13 = 1;\n                v16 = 0;\n                v14 = &v10;\n                v15 = 1;\n                core::option::Option<T>::map_or_else();\n                v34 = std::io::error::Error::new(39, &v26);\n            } else {\n                v34 = std::io::error::Error::new(1, \"Permission denied\");\n            }\n            return v34;\n        }\n    case 40960:\n        v34 = uu_mv::rename_symlink_fallback(v32, v31, v30);\n        goto LABEL_4ebadc;\n    default:\n        if std::path::Path::is_symlink(v30, v29) as i8 {\n            v36 = std::fs::remove_file(v30, v29);\n            v21 = v30;\n            v22 = v29;\n            v23 = v32;\n            v24 = v31;\n            if v36 {\n                v34 = uu_mv::rename_with_fallback::{{closure}}(&v21, v36);\n                return v34;\n            }\n        }\n        if !std::fs::copy(v32, v31, v30, v29) {\n            v34 = uucore::features::fsxattr::copy_xattrs(&v6, &v8);\n            if v34 {\n                return v34;\n            }\n        } else if v34 {\n            return v34;\n        }\n        v34 = std::fs::remove_file(v32, v31);\nLABEL_4ebadc:\n        if v34 {\n            return v34;\n        }\n    }\n}\n",
+    "_ZN5uu_mv23rename_symlink_fallback17h50f184778666e82cE": "fn uu_mv::rename_symlink_fallback(a0: u32, a1: u32, a2: u32) -> u64 {\n    let v0: i200;  // [sp-0x50], Other Possible Types: Result<struct24, struct8>\n    let v1: struct24;  // [sp-0x38]\n    let v3: i64;  // rax\n    let v4: i64;  // rcx\n\n    v0 = std::fs::read_link(a0, a1);\n    v3 = *((&v0 as &char + 8) as &i64);\n    match v0 {\n        Err(_) => {\n            return v3;\n        },\n        Ok(_) => {\n            v1 = struct24 {\n                field_0: v4\n                field_8: v3\n                field_16: *((&v0 as &char + 16) as &i64)\n            };\n            v3 = std::os::unix::fs::symlink(&v1, a2, v4);\n            if !v3 {\n                return std::fs::remove_file(a0, a1);\n            }\n            return v3;\n        },\n    }\n}\n",
+    "_ZN5uu_mv12is_empty_dir17he3f2d58304cc65e8E": "fn uu_mv::is_empty_dir(a0: u32, a1: u32) -> u64 {\n    let v0: struct9;  // [sp-0x58], Other Possible Types: i72\n    let v1: i64;  // [sp-0x48], Other Possible Types: struct48\n    let v3: i8;  // [sp-0x10]\n    let v7: i64;  // rbx\n\n    v0 = std::fs::read_dir(a0, a1);\n    if v3 == 2 {\n        v1 = v0;\n        return 0;\n    }\n    v1 = struct48 {\n        field_0: 2\n        field_16: <UNKNOWN>\n        field_32: <UNKNOWN>\n    };\n    core::option::Option<T>::get_or_insert_with(&v1);\n    return v7 | -0x100 | !v1;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN5uu_mv6uumain17h93a74df50da19c72E": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_mv::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN5uu_mv6uumain6uumain17h01b12df543510b6cE": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "alloc::boxed::Box<T>::new": 2,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
+      "<T as alloc::string::ToString>::to_string": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 3,
+      "uu_mv::mv": 1,
+      "core::ops::function::FnOnce::call_once": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 1,
+      "uucore::features::backup_control::determine_backup_suffix": 1,
+      "uucore::features::update_control::determine_update_mode": 1,
+      "uucore::features::backup_control::determine_backup_mode": 1,
+      "clap_builder::error::Error<F>::format": 1,
+      "clap_builder::error::Error<F>::raw": 1,
+      "clap_builder::error::Error<F>::exit": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from_mut": 1,
+      "uu_mv::uu_app": 1
+    },
+    "_ZN5uu_mv6uu_app17hfdaaab3614528530E": {
+      "clap_builder::builder::command::Command::arg": 15,
+      "clap_builder::builder::arg::Arg::action": 9,
+      "clap_builder::builder::arg::Arg::help": 9,
+      "clap_builder::builder::arg::Arg::long": 9,
+      "clap_builder::builder::arg::Arg::new": 10,
+      "clap_builder::builder::arg::Arg::value_hint": 2,
+      "clap_builder::builder::arg::Arg::value_parser": 2,
+      "memcpy": 2,
+      "clap_builder::builder::arg::Arg::num_args": 1,
+      "clap_builder::builder::arg::Arg::short": 7,
+      "clap_builder::builder::arg::Arg::conflicts_with": 1,
+      "clap_builder::builder::arg::Arg::value_name": 1,
+      "uucore::features::update_control::arguments::update_no_args": 1,
+      "uucore::features::update_control::arguments::update": 1,
+      "uucore::features::backup_control::arguments::suffix": 1,
+      "uucore::features::backup_control::arguments::backup_no_args": 1,
+      "uucore::features::backup_control::arguments::backup": 1,
+      "clap_builder::builder::arg::Arg::overrides_with_all": 3,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN5uu_mv24determine_overwrite_mode17h2a7c21ee43665632E": {
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 1
+    },
+    "_ZN5uu_mv11parse_paths17hd84bd62365a1b7ccE": {
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1
+    },
+    "_ZN5uu_mv16handle_two_paths17hbd0a81168087f696E": {
+      "alloc::boxed::Box<T>::new": 8,
+      "<T as alloc::string::ToString>::to_string": 11,
+      "std::path::Path::components": 4,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "uu_mv::rename": 2,
+      "uu_mv::move_files_into_dir": 1,
+      "std::sys::pal::unix::os::split_paths::bytes_to_path": 1,
+      "uu_mv::handle_two_paths::{{closure}}": 1,
+      "std::process::exit": 1,
+      "uucore::util_name": 2,
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 2,
+      "std::io::error::Error::new": 2,
+      "<std::io::stdio::Stderr as std::io::Write>::flush": 1,
+      "std::fs::metadata": 1,
+      "std::path::Path::is_dir": 1,
+      "std::fs::symlink_metadata": 1,
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN5uu_mv21handle_multiple_paths17h86c7b11f84ad2502E": {
+      "alloc::boxed::Box<T>::new": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "core::option::unwrap_failed": 1,
+      "uu_mv::move_files_into_dir": 1,
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index": 1
+    },
+    "_ZN5uu_mv2mv17h15eff797ddd7e01aE": {
+      "uu_mv::handle_two_paths": 1,
+      "uu_mv::handle_multiple_paths": 1,
+      "uu_mv::move_files_into_dir": 1,
+      "std::sys::os_str::bytes::Slice::to_owned": 1,
+      "uu_mv::parse_paths": 1
+    },
+    "_ZN5uu_mv19move_files_into_dir17hea74a81b456dd214E": {
+      "alloc::boxed::Box<T>::new": 3,
+      "<T as alloc::string::ToString>::to_string": 4,
+      "uucore::util_name": 5,
+      "uucore::mods::error::set_exit_code": 6,
+      "<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code": 2,
+      "core::option::Option<T>::map_or_else": 3,
+      "core::iter::traits::iterator::Iterator::fold": 1,
+      "std::path::Path::components": 1,
+      "uucore::features::fs::normalize_path": 1,
+      "hashbrown::map::HashMap<K,V,S,A>::insert": 1,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone": 1,
+      "indicatif::progress_bar::ProgressBar::inc": 1,
+      "indicatif::multi::MultiProgress::suspend": 1,
+      "<std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context": 1,
+      "uu_mv::rename": 1,
+      "std::fs::canonicalize": 2,
+      "std::path::Path::join": 1,
+      "std::path::Path::file_name": 1,
+      "indicatif::progress_bar::ProgressBar::set_message": 1,
+      "<alloc::borrow::Cow<str> as alloc::string::ToString>::to_string": 1,
+      "std::sys::os_str::bytes::Slice::to_string_lossy": 1,
+      "std::fs::metadata": 1,
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 1,
+      "indicatif::multi::MultiProgress::add": 1,
+      "indicatif::progress_bar::ProgressBar::with_style": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "indicatif::style::ProgressStyle::with_template": 1,
+      "indicatif::progress_bar::ProgressBar::new": 1,
+      "core::ops::function::FnOnce::call_once": 1,
+      "uu_mv::move_files_into_dir::{{closure}}": 1,
+      "hashbrown::map::HashMap<K,V,S>::with_capacity_and_hasher": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "std::thread::local::LocalKey<T>::try_with": 1
+    },
+    "_ZN5uu_mv6rename17hfc95a4bd2fcddeecE": {
+      "indicatif::multi::MultiProgress::suspend": 1,
+      "core::option::Option<T>::map_or_else": 3,
+      "uu_mv::rename_with_fallback": 1,
+      "std::io::error::Error::new": 3,
+      "std::fs::remove_dir": 1,
+      "std::fs::metadata": 4,
+      "uucore::features::backup_control::get_backup_path": 1,
+      "std::process::exit": 1,
+      "uucore::util_name": 2,
+      "<std::io::stdio::Stderr as std::io::Write>::flush": 1,
+      "std::fs::Metadata::modified": 2,
+      "memcpy": 2
+    },
+    "_ZN5uu_mv20rename_with_fallback17h48f1d4f2ed6b729fE": {
+      "std::io::error::Error::new": 2,
+      "core::option::Option<T>::map_or_else": 1,
+      "core::result::Result<T,E>::unwrap": 2,
+      "uucore::features::fsxattr::apply_xattrs": 1,
+      "fs_extra::dir::move_dir": 1,
+      "fs_extra::dir::move_dir_with_progress": 1,
+      "uu_mv::rename_with_fallback::{{closure}}": 2,
+      "uucore::features::fsxattr::retrieve_xattrs": 1,
+      "indicatif::multi::MultiProgress::add": 1,
+      "indicatif::progress_bar::ProgressBar::with_style": 1,
+      "indicatif::style::ProgressStyle::with_template": 1,
+      "indicatif::progress_bar::ProgressBar::new": 1,
+      "fs_extra::dir::get_size": 1,
+      "std::fs::remove_dir_all": 1,
+      "std::fs::metadata": 1,
+      "uu_mv::rename_symlink_fallback": 1,
+      "std::fs::remove_file": 2,
+      "uucore::features::fsxattr::copy_xattrs": 1,
+      "std::fs::symlink_metadata": 1,
+      "std::fs::rename": 1
+    },
+    "_ZN5uu_mv23rename_symlink_fallback17h50f184778666e82cE": {
+      "std::fs::remove_file": 1,
+      "std::os::unix::fs::symlink": 1,
+      "std::fs::read_link": 1
+    },
+    "_ZN5uu_mv12is_empty_dir17he3f2d58304cc65e8E": {
+      "core::option::Option<T>::get_or_insert_with": 1,
+      "std::fs::read_dir": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN5uu_mv6uumain17h93a74df50da19c72E": {
+      "eprintln": 2,
+      "eprint": 1
+    },
+    "_ZN5uu_mv6uumain6uumain17h01b12df543510b6cE": {},
+    "_ZN5uu_mv6uu_app17hfdaaab3614528530E": {},
+    "_ZN5uu_mv24determine_overwrite_mode17h2a7c21ee43665632E": {},
+    "_ZN5uu_mv11parse_paths17hd84bd62365a1b7ccE": {},
+    "_ZN5uu_mv16handle_two_paths17hbd0a81168087f696E": {
+      "eprintln": 1,
+      "eprint": 4
+    },
+    "_ZN5uu_mv21handle_multiple_paths17h86c7b11f84ad2502E": {},
+    "_ZN5uu_mv2mv17h15eff797ddd7e01aE": {},
+    "_ZN5uu_mv19move_files_into_dir17hea74a81b456dd214E": {
+      "eprintln": 5
+    },
+    "_ZN5uu_mv6rename17hfc95a4bd2fcddeecE": {
+      "println": 3,
+      "eprintln": 1,
+      "eprint": 4
+    },
+    "_ZN5uu_mv20rename_with_fallback17h48f1d4f2ed6b729fE": {},
+    "_ZN5uu_mv23rename_symlink_fallback17h50f184778666e82cE": {},
+    "_ZN5uu_mv12is_empty_dir17he3f2d58304cc65e8E": {}
+  },
+  "node_counts": {
+    "_ZN5uu_mv6uumain17h93a74df50da19c72E": 17,
+    "_ZN5uu_mv6uumain6uumain17h01b12df543510b6cE": 54,
+    "_ZN5uu_mv6uu_app17hfdaaab3614528530E": 86,
+    "_ZN5uu_mv24determine_overwrite_mode17h2a7c21ee43665632E": 6,
+    "_ZN5uu_mv11parse_paths17hd84bd62365a1b7ccE": 3,
+    "_ZN5uu_mv16handle_two_paths17hbd0a81168087f696E": 128,
+    "_ZN5uu_mv21handle_multiple_paths17h86c7b11f84ad2502E": 11,
+    "_ZN5uu_mv2mv17h15eff797ddd7e01aE": 12,
+    "_ZN5uu_mv19move_files_into_dir17hea74a81b456dd214E": 121,
+    "_ZN5uu_mv6rename17hfc95a4bd2fcddeecE": 112,
+    "_ZN5uu_mv20rename_with_fallback17h48f1d4f2ed6b729fE": 76,
+    "_ZN5uu_mv23rename_symlink_fallback17h50f184778666e82cE": 12,
+    "_ZN5uu_mv12is_empty_dir17he3f2d58304cc65e8E": 9
+  },
+  "prototypes": {
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h89c82ab2bd8d6091E": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h89c82ab2bd8d6091E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h99178e80da74aca8E": {
+      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h99178e80da74aca8E",
+      "return_type": [
+        "struct",
+        64
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command24try_get_matches_from_mut17h2240c66d1acfe0faE": {
+      "name": "_ZN12clap_builder7builder7command7Command24try_get_matches_from_mut17h2240c66d1acfe0faE",
+      "return_type": [
+        "Result",
+        57
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h9d67ef52ab94ff93E": {
+      "name": "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h9d67ef52ab94ff93E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3ops8function6FnOnce9call_once17h16aa1e2e39857890E": {
+      "name": "_ZN4core3ops8function6FnOnce9call_once17h16aa1e2e39857890E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17hdb640919041b3b75E": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17hdb640919041b3b75E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hbe92a4ce825dd6b5E": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hbe92a4ce825dd6b5E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1716e8528db7e4a4E": {
+      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1716e8528db7e4a4E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": []
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h18b7328edc97dea9E": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h18b7328edc97dea9E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h5f90fa1e3f4cd7b7E": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h5f90fa1e3f4cd7b7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv6uumain17h93a74df50da19c72E": {
+      "name": "_ZN5uu_mv6uumain17h93a74df50da19c72E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv6uumain6uumain17h01b12df543510b6cE": {
+      "name": "_ZN5uu_mv6uumain6uumain17h01b12df543510b6cE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
+      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
+      "return_type": [
+        "primitive",
+        1
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder5error14Error$LT$F$GT$4exit17hd8209c520a8761e9E": {
+      "name": "_ZN12clap_builder5error14Error$LT$F$GT$4exit17hd8209c520a8761e9E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h4d9e7d247c306b7fE": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h4d9e7d247c306b7fE",
+      "return_type": [
+        "Result",
+        41
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hff279e0ad4a0eeacE": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hff279e0ad4a0eeacE",
+      "return_type": [
+        "struct",
+        56
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9d30ac2cc0f0b64eE": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9d30ac2cc0f0b64eE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs8Metadata8modified17h6f16921acf618ae6E": {
+      "name": "_ZN3std2fs8Metadata8modified17h6f16921acf618ae6E",
+      "return_type": [
+        "struct",
+        12
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN57_$LT$std..io..stdio..Stderr$u20$as$u20$std..io..Write$GT$5flush17hf7b2528795edb6d7E": {
+      "name": "_ZN57_$LT$std..io..stdio..Stderr$u20$as$u20$std..io..Write$GT$5flush17hf7b2528795edb6d7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN3std4path4Path9file_name17h79ecbb7850a9c7f3E": {
+      "name": "_ZN3std4path4Path9file_name17h79ecbb7850a9c7f3E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std4path4Path10components17h4f3217acf0fc8653E": {
+      "name": "_ZN3std4path4Path10components17h4f3217acf0fc8653E",
+      "return_type": [
+        "struct",
+        20
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std4path4Path7is_file17h82f08f46fb8d8099E": {
+      "name": "_ZN3std4path4Path7is_file17h82f08f46fb8d8099E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std4path4Path6is_dir17h9ac0db933706da51E": {
+      "name": "_ZN3std4path4Path6is_dir17h9ac0db933706da51E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std4path4Path10is_symlink17h6ab8b58756c51c6bE": {
+      "name": "_ZN3std4path4Path10is_symlink17h6ab8b58756c51c6bE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std7process4exit17hf8c1b9d00a2a86fdE": {
+      "name": "_ZN3std7process4exit17hf8c1b9d00a2a86fdE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN3std3sys3pal4unix2os11split_paths13bytes_to_path17h0549813f23b52483E": {
+      "name": "_ZN3std3sys3pal4unix2os11split_paths13bytes_to_path17h0549813f23b52483E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h816275565265bd85E": {
+      "name": "_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h816275565265bd85E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E": {
+      "name": "_ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option13unwrap_failed17h0e11329e76906eaaE": {
+      "name": "_ZN4core6option13unwrap_failed17h0e11329e76906eaaE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1ae6fd92abd5a845E": {
+      "name": "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1ae6fd92abd5a845E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg10value_name17h6c7f718e13d12b61E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg10value_name17h6c7f718e13d12b61E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4help17hfb37332b8e05b438E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4help17hfb37332b8e05b438E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg4long17hed17bfa77e83592dE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg4long17hed17bfa77e83592dE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg5short17hdbbca410bd052cabE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg5short17hdbbca410bd052cabE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg6action17h1e93e8b84edc4ec8E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg6action17h1e93e8b84edc4ec8E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg8num_args17hf9359e8da3676a05E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg8num_args17hf9359e8da3676a05E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17ha3d0a2de6b6a2a9fE": {
+      "name": "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17ha3d0a2de6b6a2a9fE",
+      "return_type": [
+        "Option",
+        17
+      ],
+      "parameters": []
+    },
+    "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h23e5007a1b44b441E": {
+      "name": "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h23e5007a1b44b441E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h29e878758f75f5edE": {
+      "name": "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h29e878758f75f5edE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17he15fdbfc0d7582caE": {
+      "name": "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17he15fdbfc0d7582caE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core4iter6traits8iterator8Iterator4fold17h37e4f9fde7d2dd93E": {
+      "name": "_ZN4core4iter6traits8iterator8Iterator4fold17h37e4f9fde7d2dd93E",
+      "return_type": [
+        "struct",
+        56
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h70402eff178ea70dE": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h70402eff178ea70dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core6option15Option$LT$T$GT$11map_or_else17ha11fb6aa50fc66bfE": {
+      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17ha11fb6aa50fc66bfE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h2664734a8f2b2304E": {
+      "name": "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h2664734a8f2b2304E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7d26c333f6a83544E": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7d26c333f6a83544E",
+      "return_type": [
+        "struct",
+        136
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h925beb8dbedc658cE": {
+      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h925beb8dbedc658cE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d8861b9e1bd0bd7E": {
+      "name": "_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d8861b9e1bd0bd7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h0e8b01bf032e1a6aE": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h0e8b01bf032e1a6aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5boxed12Box$LT$T$GT$3new17hbe638d0f99162453E": {
+      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17hbe638d0f99162453E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5cac1ec2999e76daE": {
+      "name": "_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5cac1ec2999e76daE",
+      "return_type": [
+        "primitive",
+        1
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN73_$LT$alloc..borrow..Cow$LT$str$GT$$u20$as$u20$alloc..string..ToString$GT$9to_string17ha2cb0370e40ab073E": {
+      "name": "_ZN73_$LT$alloc..borrow..Cow$LT$str$GT$$u20$as$u20$alloc..string..ToString$GT$9to_string17ha2cb0370e40ab073E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68171754d1dad8d6E": {
+      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68171754d1dad8d6E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c44f985d977b358E": {
+      "name": "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c44f985d977b358E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv6uu_app17hfdaaab3614528530E": {
+      "name": "_ZN5uu_mv6uu_app17hfdaaab3614528530E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": []
+    },
+    "_ZN5uu_mv24determine_overwrite_mode17h2a7c21ee43665632E": {
+      "name": "_ZN5uu_mv24determine_overwrite_mode17h2a7c21ee43665632E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv11parse_paths17hd84bd62365a1b7ccE": {
+      "name": "_ZN5uu_mv11parse_paths17hd84bd62365a1b7ccE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN5uu_mv16handle_two_paths17hbd0a81168087f696E": {
+      "name": "_ZN5uu_mv16handle_two_paths17hbd0a81168087f696E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv21handle_multiple_paths17h86c7b11f84ad2502E": {
+      "name": "_ZN5uu_mv21handle_multiple_paths17h86c7b11f84ad2502E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv2mv17h15eff797ddd7e01aE": {
+      "name": "_ZN5uu_mv2mv17h15eff797ddd7e01aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv19move_files_into_dir17hea74a81b456dd214E": {
+      "name": "_ZN5uu_mv19move_files_into_dir17hea74a81b456dd214E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv19move_files_into_dir28_$u7b$$u7b$closure$u7d$$u7d$17he4f083fce89ebeffE": {
+      "name": "_ZN5uu_mv19move_files_into_dir28_$u7b$$u7b$closure$u7d$$u7d$17he4f083fce89ebeffE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv6rename17hfc95a4bd2fcddeecE": {
+      "name": "_ZN5uu_mv6rename17hfc95a4bd2fcddeecE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv20rename_with_fallback17h48f1d4f2ed6b729fE": {
+      "name": "_ZN5uu_mv20rename_with_fallback17h48f1d4f2ed6b729fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv20rename_with_fallback28_$u7b$$u7b$closure$u7d$$u7d$17h82d99eba55661758E": {
+      "name": "_ZN5uu_mv20rename_with_fallback28_$u7b$$u7b$closure$u7d$$u7d$17h82d99eba55661758E",
+      "return_type": [
+        "struct",
+        48
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv20rename_with_fallback28_$u7b$$u7b$closure$u7d$$u7d$17hc604898f20a204e8E": {
+      "name": "_ZN5uu_mv20rename_with_fallback28_$u7b$$u7b$closure$u7d$$u7d$17hc604898f20a204e8E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv23rename_symlink_fallback17h50f184778666e82cE": {
+      "name": "_ZN5uu_mv23rename_symlink_fallback17h50f184778666e82cE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_mv12is_empty_dir17he3f2d58304cc65e8E": {
+      "name": "_ZN5uu_mv12is_empty_dir17he3f2d58304cc65e8E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8fs_extra3dir22move_dir_with_progress17hc90f1a00a6c1a6faE": {
+      "name": "_ZN8fs_extra3dir22move_dir_with_progress17hc90f1a00a6c1a6faE",
+      "return_type": [
+        "struct",
+        48
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8fs_extra3dir8get_size17hbbe91904dfa02d0cE": {
+      "name": "_ZN8fs_extra3dir8get_size17hbbe91904dfa02d0cE",
+      "return_type": [
+        "struct",
+        48
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8fs_extra3dir8move_dir17h895849f132645a29E": {
+      "name": "_ZN8fs_extra3dir8move_dir17h895849f132645a29E",
+      "return_type": [
+        "struct",
+        48
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN131_$LT$std..io..error..Error$u20$as$u20$uucore..mods..error..FromIo$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$$GT$15map_err_context17hc501c0ef7d3cfc3fE": {
+      "name": "_ZN131_$LT$std..io..error..Error$u20$as$u20$uucore..mods..error..FromIo$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$$GT$15map_err_context17hc501c0ef7d3cfc3fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs10remove_dir17hab61638394c5814dE": {
+      "name": "_ZN3std2fs10remove_dir17hab61638394c5814dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs11remove_file17hac48d4e29d9c97eaE": {
+      "name": "_ZN3std2fs11remove_file17hac48d4e29d9c97eaE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs12canonicalize17hde632c5d9c152691E": {
+      "name": "_ZN3std2fs12canonicalize17hde632c5d9c152691E",
+      "return_type": [
+        "Result",
+        25
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs14remove_dir_all17heb08d5b595e80c8aE": {
+      "name": "_ZN3std2fs14remove_dir_all17heb08d5b595e80c8aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs16symlink_metadata17h7febb2c461a7cc90E": {
+      "name": "_ZN3std2fs16symlink_metadata17h7febb2c461a7cc90E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4copy17h1bd7b955a3942b36E": {
+      "name": "_ZN3std2fs4copy17h1bd7b955a3942b36E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs6rename17hd948dfb1db41879eE": {
+      "name": "_ZN3std2fs6rename17hd948dfb1db41879eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs8metadata17h1d9ddf5324749f9aE": {
+      "name": "_ZN3std2fs8metadata17h1d9ddf5324749f9aE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs8read_dir17hac14a9f3c8669bd0E": {
+      "name": "_ZN3std2fs8read_dir17hac14a9f3c8669bd0E",
+      "return_type": [
+        "struct",
+        9
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs9read_link17h2d828447d51f8a7fE": {
+      "name": "_ZN3std2fs9read_link17h2d828447d51f8a7fE",
+      "return_type": [
+        "Result",
+        25
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io5error5Error3new17h0657970bda442b78E": {
+      "name": "_ZN3std2io5error5Error3new17h0657970bda442b78E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2io5error5Error3new17h3b474d96466fa494E": {
+      "name": "_ZN3std2io5error5Error3new17h3b474d96466fa494E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2os4unix2fs7symlink17h7819e981045b41e0E": {
+      "name": "_ZN3std2os4unix2fs7symlink17h7819e981045b41e0E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9hashbrown3map24HashMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17hdc874b6797fedd23E": {
+      "name": "_ZN9hashbrown3map24HashMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17hdc874b6797fedd23E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h663343a02dd1e8c9E": {
+      "name": "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h663343a02dd1e8c9E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN9indicatif12progress_bar11ProgressBar11set_message17h77492990969b1322E": {
+      "name": "_ZN9indicatif12progress_bar11ProgressBar11set_message17h77492990969b1322E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std4path4Path11starts_with17h893fbbf855320e98E": {
+      "name": "_ZN3std4path4Path11starts_with17h893fbbf855320e98E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std4path4Path4join17h3b80008b40549e98E": {
+      "name": "_ZN3std4path4Path4join17h3b80008b40549e98E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std4path4Path9ends_with17h69a96bb2edb5d121E": {
+      "name": "_ZN3std4path4Path9ends_with17h69a96bb2edb5d121E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1e71081e8e91d8e8E": {
+      "name": "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1e71081e8e91d8e8E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h5b8bcb7d7220f2b8E": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h5b8bcb7d7220f2b8E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg10value_hint17hd834dc4c6585e22dE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg10value_hint17hd834dc4c6585e22dE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg12value_parser17h36c41d5fcbf32a50E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg12value_parser17h36c41d5fcbf32a50E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg14conflicts_with17h84a620ed2b3e8926E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg14conflicts_with17h84a620ed2b3e8926E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg18overrides_with_all17h23a4bf7baf701fb5E": {
+      "name": "_ZN12clap_builder7builder3arg3Arg18overrides_with_all17h23a4bf7baf701fb5E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder3arg3Arg3new17h412655cb859ad9efE": {
+      "name": "_ZN12clap_builder7builder3arg3Arg3new17h412655cb859ad9efE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore8features7fsxattr15retrieve_xattrs17h93bd4c6665c83aa3E": {
+      "name": "_ZN6uucore8features7fsxattr15retrieve_xattrs17h93bd4c6665c83aa3E",
+      "return_type": [
+        "Result",
+        49
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command10after_help17hffed433d7565392eE": {
+      "name": "_ZN12clap_builder7builder7command7Command10after_help17hffed433d7565392eE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command14override_usage17h447655dada94692dE": {
+      "name": "_ZN12clap_builder7builder7command7Command14override_usage17h447655dada94692dE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3arg17h6ced883a66281c56E": {
+      "name": "_ZN12clap_builder7builder7command7Command3arg17h6ced883a66281c56E",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command3new17h3ac40d4d2ba218e2E": {
+      "name": "_ZN12clap_builder7builder7command7Command3new17h3ac40d4d2ba218e2E",
+      "return_type": [
+        "struct",
+        437
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command5about17h1d1180b4bea582edE": {
+      "name": "_ZN12clap_builder7builder7command7Command5about17h1d1180b4bea582edE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder7builder7command7Command7version17h3a5176627196e52eE": {
+      "name": "_ZN12clap_builder7builder7command7Command7version17h3a5176627196e52eE",
+      "return_type": [
+        "struct",
+        712
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9indicatif5multi13MultiProgress7suspend17hc6003d08fa5df55bE": {
+      "name": "_ZN9indicatif5multi13MultiProgress7suspend17hc6003d08fa5df55bE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9indicatif5multi13MultiProgress7suspend17hfe9402cb2a1cce7fE": {
+      "name": "_ZN9indicatif5multi13MultiProgress7suspend17hfe9402cb2a1cce7fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9indicatif5style13ProgressStyle13with_template17hadd9cefcdac397a1E": {
+      "name": "_ZN9indicatif5style13ProgressStyle13with_template17hadd9cefcdac397a1E",
+      "return_type": [
+        "Result",
+        137
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9indicatif12progress_bar11ProgressBar3new17h3f65a405722ce42aE": {
+      "name": "_ZN9indicatif12progress_bar11ProgressBar3new17h3f65a405722ce42aE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9indicatif12progress_bar11ProgressBar10with_style17hfb345490eb32754bE": {
+      "name": "_ZN9indicatif12progress_bar11ProgressBar10with_style17hfb345490eb32754bE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9indicatif12progress_bar11ProgressBar3inc17he12f7743cfc9ae04E": {
+      "name": "_ZN9indicatif12progress_bar11ProgressBar3inc17he12f7743cfc9ae04E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9indicatif5multi13MultiProgress3add17h9f882db003b558aeE": {
+      "name": "_ZN9indicatif5multi13MultiProgress3add17h9f882db003b558aeE",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17hcd961c31063bf4faE": {
+      "name": "_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17hcd961c31063bf4faE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE": {
+      "name": "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore8features14backup_control9arguments6backup17h804b9c4d220a6bfaE": {
+      "name": "_ZN6uucore8features14backup_control9arguments6backup17h804b9c4d220a6bfaE",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore8features14backup_control9arguments14backup_no_args17h7f5ee465b0f6b670E": {
+      "name": "_ZN6uucore8features14backup_control9arguments14backup_no_args17h7f5ee465b0f6b670E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore8features14backup_control9arguments6suffix17h659b6e9a409bb614E": {
+      "name": "_ZN6uucore8features14backup_control9arguments6suffix17h659b6e9a409bb614E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
+      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore8read_yes17hc350e858ab85cf03E": {
+      "name": "_ZN6uucore8read_yes17hc350e858ab85cf03E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore8features2fs14normalize_path17hf9d1827f61a753a1E": {
+      "name": "_ZN6uucore8features2fs14normalize_path17hf9d1827f61a753a1E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore8features2fs26are_hardlinks_to_same_file17h58f3d52af664165aE": {
+      "name": "_ZN6uucore8features2fs26are_hardlinks_to_same_file17h58f3d52af664165aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore8features2fs45are_hardlinks_or_one_way_symlink_to_same_file17hd5db584ecbb68737E": {
+      "name": "_ZN6uucore8features2fs45are_hardlinks_or_one_way_symlink_to_same_file17hd5db584ecbb68737E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore8features2fs25path_ends_with_terminator17h30fe62ab1cf88eeeE": {
+      "name": "_ZN6uucore8features2fs25path_ends_with_terminator17h30fe62ab1cf88eeeE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
+      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E": {
+      "name": "_ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore8features14update_control9arguments6update17h43d52bfaa3e04136E": {
+      "name": "_ZN6uucore8features14update_control9arguments6update17h43d52bfaa3e04136E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore8features14update_control9arguments14update_no_args17h0df581fe31ef9923E": {
+      "name": "_ZN6uucore8features14update_control9arguments14update_no_args17h0df581fe31ef9923E",
+      "return_type": [
+        "struct",
+        592
+      ],
+      "parameters": []
+    },
+    "_ZN6uucore8features14backup_control23determine_backup_suffix17h1f59e1b98a321786E": {
+      "name": "_ZN6uucore8features14backup_control23determine_backup_suffix17h1f59e1b98a321786E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore8features14backup_control21determine_backup_mode17h17e48f842769eb29E": {
+      "name": "_ZN6uucore8features14backup_control21determine_backup_mode17h17e48f842769eb29E",
+      "return_type": [
+        "Result",
+        17
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uucore8features14backup_control15get_backup_path17hb28e229807111f9dE": {
+      "name": "_ZN6uucore8features14backup_control15get_backup_path17hb28e229807111f9dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN6uucore8features14backup_control23source_is_target_backup17hf52468b25c2dfb23E": {
+      "name": "_ZN6uucore8features14backup_control23source_is_target_backup17hf52468b25c2dfb23E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E": {
+      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}
