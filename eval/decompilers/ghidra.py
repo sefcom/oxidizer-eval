@@ -13,6 +13,12 @@ from ..config import CACHED_DECOMPILED_CODE_PATH, CACHED_CALL_COUNTS_PATH, GHIDR
 
 l = logging.getLogger(__name__)
 
+GHIDRA_PRE_DEC_SCRIPT = r"""
+options = getCurrentAnalysisOptionsAndValues(currentProgram)
+if 'Demangler Rust' in options:
+    setAnalysisOption(currentProgram, 'Demangler Rust', 'false');
+"""
+
 GHIDRA_POST_DEC_SCRIPT = r"""
 import os
 import traceback
@@ -95,6 +101,12 @@ def ghidra_dec(binary_path, function_list, cache_dir, cache_only=False):
         os.makedirs(decompiled_code_cache_dir, exist_ok=True)
         os.makedirs(call_counts_cache_dir, exist_ok=True)
 
+        pre_dec_script = GHIDRA_PRE_DEC_SCRIPT
+        fd = NamedTemporaryFile("w", suffix=".py", delete=False)
+        fd.write(pre_dec_script)
+        fd.close()
+        pre_dec_script_path = fd.name
+
         post_dec_script = GHIDRA_POST_DEC_SCRIPT.format(
             function_mapping, decompiled_code_cache_dir, call_counts_cache_dir
         )
@@ -115,6 +127,8 @@ def ghidra_dec(binary_path, function_list, cache_dir, cache_only=False):
                     f"temp_project_{bin_name}",
                     "-import",
                     os.path.basename(binary_path),
+                    "-preScript",
+                    f"{pre_dec_script_path}",
                     "-postScript",
                     f"{post_dec_script_path}",
                 ]
