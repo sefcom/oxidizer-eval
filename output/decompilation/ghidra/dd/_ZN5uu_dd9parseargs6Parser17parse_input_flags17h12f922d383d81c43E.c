@@ -1,6 +1,5 @@
-void __rustcall
-uu_dd::parseargs::Parser::parse_input_flags
-          (undefined8 *param_1,long param_2,undefined8 param_3,undefined8 param_4)
+void _ZN5uu_dd9parseargs6Parser17parse_input_flags17h12f922d383d81c43E
+               (undefined8 *param_1,long param_2,undefined8 param_3,undefined8 param_4)
 
 {
   char cVar1;
@@ -19,51 +18,57 @@ uu_dd::parseargs::Parser::parse_input_flags
   undefined8 local_60 [3];
   undefined8 local_48 [3];
   
-  _<char_as_core::str::pattern::Pattern>::into_searcher(local_e0,0x2c);
+  _ZN52__LT_char_u20_as_u20_core__str__pattern__Pattern_GT_13into_searcher17h77b0cfb9226a3587E
+            (local_e0,0x2c);
   local_f0 = 0;
   local_b0 = 1;
   local_e8 = param_4;
-  auVar5 = core::str::iter::SplitInternal<P>::next(&local_f0);
+  auVar5 = _ZN4core3str4iter22SplitInternal_LT_P_GT_4next17h47b118536c82edfaE(&local_f0);
   if (auVar5._0_8_ != 0) {
     local_100 = 0xb;
     do {
       uVar3 = auVar5._8_8_;
       uVar2 = auVar5._0_8_;
-      cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(uVar2,uVar3,&DAT_00122ce7,3);
+      cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
+                        (uVar2,uVar3,&DAT_00122ce7,3);
       if (cVar1 != '\0') {
         puVar4 = local_90;
         goto LAB_001d396f;
       }
-      cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(uVar2,uVar3,&DAT_00122cea,6);
+      cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
+                        (uVar2,uVar3,&DAT_00122cea,6);
       if (cVar1 == '\0') {
-        cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(uVar2,uVar3,&DAT_00122cf0,9);
+        cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
+                          (uVar2,uVar3,&DAT_00122cf0,9);
         if (cVar1 == '\0') {
-          cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(uVar2,uVar3,&DAT_00122cf9,5);
+          cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
+                            (uVar2,uVar3,&DAT_00122cf9,5);
           if (cVar1 == '\0') {
-            cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(uVar2,uVar3,&DAT_00118ee4,4)
-            ;
+            cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
+                              (uVar2,uVar3,&DAT_00118ee4,4);
             if (cVar1 == '\0') {
-              cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+              cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
                                 (uVar2,uVar3,&DAT_00122cfe,7);
               if (cVar1 == '\0') {
-                cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+                cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
                                   (uVar2,uVar3,&DAT_00118c58,8);
                 if (cVar1 == '\0') {
-                  cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+                  cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
                                     (uVar2,uVar3,&DAT_00122d05,7);
                   if (cVar1 == '\0') {
-                    cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+                    cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
                                       (uVar2,uVar3,&DAT_00122d0c,6);
                     if (cVar1 == '\0') {
-                      cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+                      cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
                                         (uVar2,uVar3,"nofollow",8);
                       if (cVar1 == '\0') {
-                        cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+                        cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
                                           (uVar2,uVar3,&DAT_00122d12,7);
                         if (cVar1 != '\0') {
                           puVar4 = local_78;
 LAB_001d396f:
-                          _<T_as_alloc::slice::hack::ConvertVec>::to_vec(puVar4,uVar2,uVar3);
+                          _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h778f954dace7b409E
+                                    (puVar4,uVar2,uVar3);
                           *param_1 = local_100;
                           uVar2 = puVar4[1];
                           param_1[1] = *puVar4;
@@ -71,31 +76,31 @@ LAB_001d396f:
                           param_1[3] = puVar4[2];
                           return;
                         }
-                        cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+                        cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
                                           (uVar2,uVar3,&DAT_00122d19,6);
                         if (cVar1 != '\0') {
                           puVar4 = local_60;
                           goto LAB_001d396f;
                         }
-                        cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+                        cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
                                           (uVar2,uVar3,&DAT_00118e84,4);
                         if (cVar1 != '\0') {
                           puVar4 = local_48;
                           goto LAB_001d396f;
                         }
-                        cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+                        cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
                                           (uVar2,uVar3,&DAT_00122d1f,9);
                         if (cVar1 == '\0') {
-                          cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+                          cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
                                             (uVar2,uVar3,&DAT_00122d28,0xb);
                           if (cVar1 == '\0') {
-                            cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+                            cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
                                               (uVar2,uVar3,&DAT_00122d33,10);
                             if (cVar1 == '\0') {
-                              cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+                              cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
                                                 (uVar2,uVar3,&DAT_00122d3d,6);
                               if ((cVar1 == '\0') &&
-                                 (cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+                                 (cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h27cd8ef99e7e17deE
                                                     (uVar2,uVar3,&DAT_00122d43,10), cVar1 == '\0'))
                               {
                                 local_100 = 5;
@@ -150,7 +155,7 @@ LAB_001d396f:
       else {
         *(undefined *)(param_2 + 0xb1) = 1;
       }
-      auVar5 = core::str::iter::SplitInternal<P>::next(&local_f0);
+      auVar5 = _ZN4core3str4iter22SplitInternal_LT_P_GT_4next17h47b118536c82edfaE(&local_f0);
     } while (auVar5._0_8_ != 0);
   }
   *param_1 = 0xe;

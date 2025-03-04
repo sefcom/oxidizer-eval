@@ -1,4 +1,4 @@
-void __rustcall uu_cp::show_debug(byte *param_1)
+void _ZN5uu_cp10show_debug17hb7db704407dbf64fE(byte *param_1)
 
 {
                     /* WARNING: Could not recover jumptable at 0x001ff598. Too many branches */

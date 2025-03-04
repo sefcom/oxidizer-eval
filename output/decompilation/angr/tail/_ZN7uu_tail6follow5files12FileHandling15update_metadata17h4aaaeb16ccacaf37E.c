@@ -4,7 +4,7 @@ long long uu_tail::follow::files::FileHandling::update_metadata::h4aaaeb16ccacaf
     char v1;  // [bp-0x170]
     char v2;  // [bp-0xc8]
     unsigned long long v4;  // r12
-    void* v5;  // rcx
+    char *v5;  // rsi
     unsigned long long *v6;  // rax
 
     v4 = *(a3);
@@ -19,7 +19,7 @@ long long uu_tail::follow::files::FileHandling::update_metadata::h4aaaeb16ccacaf
         v4 = *((long long *)&v0);
         if (v4 == 2)
         {
-            ::0x50d690::core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$::he6af43ab7f514533();
+            ::0x50d690::core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$::he6af43ab7f514533(*((long long *)&v1));
         }
         else
         {

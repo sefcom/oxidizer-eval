@@ -11,7 +11,7 @@ long long uu_ptx::read_word_filter_file::h2a4d49b02fae1e68(struct_0 *a0, unsigne
     char v8;  // [bp-0xa8]
     char v9;  // [bp-0xa0]
     char v10;  // [bp-0x98]
-    unsigned long v11;  // [sp-0x90], Other Possible Types: unsigned long long
+    unsigned long v11;  // [sp-0x90]
     unsigned long long v12;  // [sp-0x88]
     unsigned long long v13;  // [sp-0x80]
     char v14;  // [bp-0x78]
@@ -63,7 +63,7 @@ long long uu_ptx::read_word_filter_file::h2a4d49b02fae1e68(struct_0 *a0, unsigne
             *((unsigned long long *)&v23->padding_8[0]) = v12;
             v23->field_0 = 0;
             core::ptr::drop_in_place$LT$std..io..Lines$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$::h61fe1397cadf3f84(&v0);
-            v20 = core::ptr::drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$GT$$GT$::h0fe902575fe225c7();
+            v20 = core::ptr::drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$GT$$GT$::h0fe902575fe225c7(&v5);
             return v20;
         }
         v11 = v21;

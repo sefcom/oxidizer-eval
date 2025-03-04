@@ -1,6 +1,6 @@
 long long uu_wc::word_count_from_reader_specialized::hbca2cb602ec99f92(struct_0 *a0, unsigned long long a1, unsigned int a2)
 {
-    unsigned long v0;  // [sp-0x98], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x98]
     char v1;  // [sp-0x90]
     void* v2;  // [sp-0x88]
     unsigned int v3;  // [sp-0x80]
@@ -40,7 +40,7 @@ long long uu_wc::word_count_from_reader_specialized::hbca2cb602ec99f92(struct_0 
             *((void*)&a0->field_10) = v6;
             *((void*)&a0->field_0) = v18;
             a0->field_28 = 0;
-            return core::ptr::drop_in_place$LT$uu_wc..utf8..read..BufReadDecoder$LT$std..io..stdio..StdinLock$GT$$GT$::he866ed42fb199a6f();
+            return core::ptr::drop_in_place$LT$uu_wc..utf8..read..BufReadDecoder$LT$std..io..stdio..StdinLock$GT$$GT$::he866ed42fb199a6f(v0, *((int *)&v1));
         }
         v15 = *((long long *)&v10);
         v16 = *((long long *)&v11);
@@ -59,7 +59,7 @@ long long uu_wc::word_count_from_reader_specialized::hbca2cb602ec99f92(struct_0 
             *((void*)&a0->field_10) = v6;
             *((void*)&a0->field_0) = v17;
             a0->field_28 = v16;
-            return core::ptr::drop_in_place$LT$uu_wc..utf8..read..BufReadDecoder$LT$std..io..stdio..StdinLock$GT$$GT$::he866ed42fb199a6f();
+            return core::ptr::drop_in_place$LT$uu_wc..utf8..read..BufReadDecoder$LT$std..io..stdio..StdinLock$GT$$GT$::he866ed42fb199a6f(v0, *((int *)&v1));
         }
     }
 }

@@ -1,6 +1,6 @@
 long long uu_tail::follow::files::FileHandling::tail_file::h8ac57e4964e40afa(struct_2 *a0, struct_1 *a1, unsigned long long a2, unsigned long long a3, unsigned int a4)
 {
-    unsigned long v0;  // [sp-0x158], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x158]
     void* v1;  // [sp-0x150]
     unsigned long long v2;  // [sp-0x148]
     int v3;  // [sp-0x140]

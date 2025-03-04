@@ -1,5 +1,5 @@
 fn uu_od::open_input_peek_reader(a0: &struct48, a1: u32, a2: u32, a3: u32, a4: u32, a5: u32) -> u64 {
-    let v0: i192;  // [sp-0x40], Other Possible Types: struct24
+    let v0: struct24;  // [sp-0x40]
 
     v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(a1, a1 + a2 * 24);
     uu_od::multifilereader::MultifileReader::new(a0 + 16, &v0);

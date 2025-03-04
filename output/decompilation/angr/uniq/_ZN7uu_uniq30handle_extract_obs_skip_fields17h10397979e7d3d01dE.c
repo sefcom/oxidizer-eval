@@ -12,7 +12,7 @@ long long uu_uniq::handle_extract_obs_skip_fields::h10397979e7d3d01d(unsigned lo
     char v9;  // [bp-0x80]
     char v10;  // [bp-0x78]
     char v11;  // [bp-0x68]
-    unsigned long v12;  // [sp-0x60], Other Possible Types: unsigned long long
+    unsigned long v12;  // [sp-0x60]
     unsigned long long v13;  // [sp-0x58]
     char *v14;  // [sp-0x50]
     char *v15;  // [sp-0x48]
@@ -20,8 +20,7 @@ long long uu_uniq::handle_extract_obs_skip_fields::h10397979e7d3d01d(unsigned lo
     char v17;  // [bp-0x38]
     char v18;  // [bp-0x28]
     unsigned long long v20;  // rax
-    unsigned long long v21;  // rdx
-    unsigned long long v22;  // rax
+    unsigned long long v21;  // rax
 
     v4 = 0;
     v5 = 4;
@@ -52,21 +51,21 @@ long long uu_uniq::handle_extract_obs_skip_fields::h10397979e7d3d01d(unsigned lo
         {
             _$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$RF$char$GT$$GT$::from_iter::h251793bacb3d3b4d(&v10, v5, v5 + v20 * 4);
             if (a3[0] != 0x8000000000000000)
-                ::0x4bc630::alloc::vec::Vec$LT$T$C$A$GT$::append_elements::h3b7ebe941ba9df82(&v10, ::0x4bc4e0::core::slice::iter::Iter$LT$T$GT$::make_slice::hefccf66255f5452a(a3[1], a3[2] + a3[1]), v21);
+                ::0x4bc630::alloc::vec::Vec$LT$T$C$A$GT$::append_elements::h3b7ebe941ba9df82(&v10, ::0x4bc4e0::core::slice::iter::Iter$LT$T$GT$::make_slice::hefccf66255f5452a(a3[1], a3[2] + a3[1]), a2);
             v3 = *((long long *)&v11);
             *((int128_t *)&v2) = *((int128_t *)&v10);
             ::0x4bbc20::core::ptr::drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$::haaebd7cc9f7d6887(a3);
             a3[2] = v3;
             *((void*)&a3[0]) = v2;
         }
-        v22 = *((long long *)&v9);
-        if (v22 < 2)
+        v21 = *((long long *)&v9);
+        if (v21 < 2)
         {
             a0[0] = 0x8000000000000000;
         }
         else
         {
-            _$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$RF$char$GT$$GT$::from_iter::h251793bacb3d3b4d(&v17, *((long long *)&v8), *((long long *)&v8) + v22 * 4);
+            _$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$RF$char$GT$$GT$::from_iter::h251793bacb3d3b4d(&v17, *((long long *)&v8), *((long long *)&v8) + v21 * 4);
             a0[2] = *((long long *)&v18);
 LABEL_4bdab2:
             *((void*)&a0[0]) = v2;

@@ -1,4 +1,4 @@
-long long uu_split::strategy::Strategy::from::get_and_parse::h2131435d3ea4b88e(struct_0 *a0, unsigned long long a1, unsigned long long a2, unsigned long long a3, struct struct_1 **a4, struct struct_1 **a5)
+long long uu_split::strategy::Strategy::from::get_and_parse::h2131435d3ea4b88e(struct_1 *a0, unsigned long long a1, unsigned long long a2, unsigned long long a3, struct struct_0 **a4, struct struct_0 **a5)
 {
     char v0;  // [bp-0x78], Other Possible Types: unsigned long long
     char v1;  // [bp-0x70]

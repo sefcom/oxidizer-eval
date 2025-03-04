@@ -1,5 +1,6 @@
-undefined8 __rustcall
-uu_mkdir::exec(undefined4 *param_1,undefined param_2,undefined4 param_3,undefined param_4)
+undefined8
+_ZN8uu_mkdir4exec17h97ad3c032066465dE
+          (undefined4 *param_1,undefined param_2,undefined4 param_3,undefined param_4)
 
 {
   undefined4 uVar1;
@@ -54,11 +55,11 @@ uu_mkdir::exec(undefined4 *param_1,undefined param_2,undefined4 param_3,undefine
   uStack_44 = param_1[0xd];
   uStack_40 = param_1[0xe];
   uStack_3c = param_1[0xf];
-  lVar2 = _<clap_builder::parser::matches::arg_matches::ValuesRef<T>as_core::iter::traits::iterator::Iterator>
-          ::next(&local_78);
+  lVar2 = _ZN121__LT_clap_builder__parser__matches__arg_matches__ValuesRef_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h3cb259793dced06bE
+                    (&local_78);
   if (lVar2 != 0) {
     do {
-      std::sys::os_str::bytes::Slice::to_owned
+      _ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E
                 (&local_c8,*(undefined8 *)(lVar2 + 8),*(undefined8 *)(lVar2 + 0x10));
       local_e8 = local_b8;
       local_f8 = (undefined4)local_c8;
@@ -66,16 +67,18 @@ uu_mkdir::exec(undefined4 *param_1,undefined param_2,undefined4 param_3,undefine
       uStack_f0 = (undefined4)uStack_c0;
       uStack_ec = uStack_c0._4_4_;
                     /* try { // try from 001b2c83 to 001b2c8e has its CatchHandler @ 001b2d4c */
-      auVar3 = mkdir(uStack_c0,local_b8,param_2,param_3,param_4);
+      auVar3 = _ZN8uu_mkdir5mkdir17h25ca5a950d7e6473E(uStack_c0,local_b8,param_2,param_3,param_4);
       if (auVar3._0_8_ != 0) {
                     /* try { // try from 001b2c9d to 001b2d24 has its CatchHandler @ 001b2d51 */
         local_108 = auVar3;
         uVar1 = (**(code **)(auVar3._8_8_ + 0x60))(auVar3._0_8_);
-        uucore::mods::error::set_exit_code(uVar1);
-        auVar3 = uucore::util_name();
+        _ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E(uVar1);
+        auVar3 = _ZN6uucore9util_name17h60d842bf27b05e82E();
         local_98 = (undefined8 *)local_d8;
-        local_90 = _<&T_as_core::fmt::Display>::fmt;
-        local_80 = _<alloc::boxed::Box<T,A>as_core::fmt::Display>::fmt;
+        local_90 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17hfd6a55cddc5280deE;
+        local_80 = 
+        _ZN69__LT_alloc__boxed__Box_LT_T_C_A_GT__u20_as_u20_core__fmt__Display_GT_3fmt17hf47c6583a9945374E
+        ;
         local_c8 = &DAT_00220510;
         uStack_c0 = 3;
         local_a8 = 0;
@@ -83,14 +86,14 @@ uu_mkdir::exec(undefined4 *param_1,undefined param_2,undefined4 param_3,undefine
         local_b0 = 2;
         local_88 = local_108;
         local_d8 = auVar3;
-        std::io::stdio::_eprint(&local_c8);
+        _ZN3std2io5stdio7_eprint17hcdfeec148c7134f7E(&local_c8);
                     /* try { // try from 001b2d2e to 001b2d32 has its CatchHandler @ 001b2d4c */
-        core::ptr::drop_in_place<alloc::boxed::Box<dyn_uucore::mods::error::UError>>
+        _ZN4core3ptr81drop_in_place_LT_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_17h71810d9408842807E
                   (local_108._0_8_,local_108._8_8_);
       }
-      core::ptr::drop_in_place<std::path::PathBuf>(&local_f8);
-      lVar2 = _<clap_builder::parser::matches::arg_matches::ValuesRef<T>as_core::iter::traits::iterator::Iterator>
-              ::next(&local_78);
+      _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17hb7551ff5f0211b82E(&local_f8);
+      lVar2 = _ZN121__LT_clap_builder__parser__matches__arg_matches__ValuesRef_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h3cb259793dced06bE
+                        (&local_78);
     } while (lVar2 != 0);
   }
   return 0;

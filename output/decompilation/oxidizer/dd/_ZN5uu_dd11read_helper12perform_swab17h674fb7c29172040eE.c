@@ -8,15 +8,15 @@ fn uu_dd::read_helper::perform_swab(a0: u32, a1: u32) -> u64 {
     let v8: u64;  // r12
 
     v4 = core::iter::adapters::step_by::StepBy<I>::new(a1);
-    v5 = v1;
+    v5 = *(&v1 as &i64);
     if !v5 {
         return v4;
     }
-    v6 = v0;
+    v6 = *(&v0 as &i64);
     do {
         v8 = v5;
         v4 = core::slice::<impl [T]>::swap(a0, a1, v6, v6 - 1);
-        v6 += v2 + 1;
+        v6 += *(&v2 as &i64) + 1;
         v5 = v8 - 1;
     } while (v8 != 1);
     return v4;

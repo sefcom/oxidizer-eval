@@ -1,6 +1,6 @@
 long long uu_wc::compute_number_width::h0dc7206969488842(unsigned long long a0[4], void* a1)
 {
-    unsigned long v0;  // [sp-0xf0], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xf0]
     unsigned long long v1;  // [sp-0xe8]
     char v2;  // [bp-0xe0]
     char v3;  // [bp-0xd8]

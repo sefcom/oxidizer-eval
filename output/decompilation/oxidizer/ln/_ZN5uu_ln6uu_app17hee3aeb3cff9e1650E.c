@@ -1,22 +1,25 @@
 fn uu_ln::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct712, struct437
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct712, struct437
     let v1: i64;  // [sp-0x78c]
     let v2: i32;  // [sp-0x784]
-    let v3: i4736;  // [sp-0x780], Other Possible Types: struct592, struct24
+    let v3: struct592;  // [sp-0x780], Other Possible Types: struct24
     let v4: i32;  // [sp-0x538]
     let v5: i32;  // [sp-0x534]
-    let v6: i4736;  // [sp-0x530], Other Possible Types: struct592, struct712
-    let v7: i4736;  // [sp-0x268], Other Possible Types: struct592
+    let v6: struct592;  // [sp-0x530], Other Possible Types: struct712
+    let v7: struct592;  // [sp-0x268]
     let v9: i64;  // rdx
 
     v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
     v6 = clap_builder::builder::command::Command::version(&v0, "0.0.28");
     v0 = clap_builder::builder::command::Command::about(&v6, "Make links between files.");
-    v3 = uucore::format_usage("{} [OPTION]... [-T] TARGET LINK_NAME\n{} [OPTION]... TARGET\n{} [OPTION]... TARGET... DIRECTORY\n{} [OPTION]... -t DIRECTORY TARGET...");
+    v3 = uucore::format_usage("{} [OPTION]... [-T] TARGET LINK_NAME
+{} [OPTION]... TARGET
+{} [OPTION]... TARGET... DIRECTORY
+{} [OPTION]... -t DIRECTORY TARGET...");
     v6 = clap_builder::builder::command::Command::override_usage(&v0, &v3);
     memcpy(&v0, &v6, 700);
-    v1 = 549755814016 | *((&v6 as &char + 700) as &i64);
-    v2 = *((&v6 as &char + 708) as &i32);
+    v1 = 549755814016 | *((&v6.field_0 as &char + 700) as &i64);
+    v2 = *((&v6.field_0 as &char + 708) as &i32);
     v3 = uucore::features::backup_control::arguments::backup();
     v6 = clap_builder::builder::command::Command::arg(&v0, &v3);
     v3 = uucore::features::backup_control::arguments::backup_no_args();
@@ -92,8 +95,8 @@ fn uu_ln::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::arg::Arg::action(&v0, 0x1);
     v0 = clap_builder::builder::arg::Arg::value_hint(&v3, 0x2);
     memcpy(&v3, &v0, 584);
-    v4 = *((&v0 as &char + 584) as &i32) | 1;
-    v5 = *((&v0 as &char + 588) as &i32);
+    v4 = *((&v0.field_0 as &char + 584) as &i32) | 1;
+    v5 = *((&v0.field_0 as &char + 588) as &i32);
     v0 = clap_builder::builder::arg::Arg::num_args(&v3);
     clap_builder::builder::command::Command::arg(a0, &v6, &v0);
     return a0;

@@ -1,4 +1,4 @@
-bool __rustcall uu_dd::make_linux_iflags(long param_1)
+bool _ZN5uu_dd17make_linux_iflags17hef93cf202b98b41fE(long param_1)
 
 {
   uint uVar1;

@@ -1,7 +1,6 @@
-void __rustcall
-uu_cp::platform::linux::handle_reflink_auto_sparse_auto
-          (undefined *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
-          undefined8 param_5)
+void _ZN5uu_cp8platform5linux31handle_reflink_auto_sparse_auto17h1e687e1533235ec7E
+               (undefined *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5)
 
 {
   undefined uVar1;
@@ -19,14 +18,14 @@ uu_cp::platform::linux::handle_reflink_auto_sparse_auto
   long local_40;
   long local_38;
   
-  check_for_data(&local_50);
+  _ZN5uu_cp8platform5linux14check_for_data17h21b9fcb33088a74cE(&local_50);
   cVar6 = local_48;
   if (local_48 == '\x02') {
     uVar4 = CONCAT62(uStack_4e,CONCAT11(cStack_4f,local_50));
   }
   else {
     local_38 = CONCAT62(uStack_4e,CONCAT11(cStack_4f,local_50));
-    check_sparse_detection(&local_50,param_2,param_3);
+    _ZN5uu_cp8platform5linux22check_sparse_detection17he625f50b8a9bdb43E(&local_50,param_2,param_3);
     if (local_50 == '\0') {
       if (cVar6 == '\0') {
         cVar6 = (local_38 - 1U < 0x1ff) * '\x02';
@@ -53,7 +52,7 @@ uu_cp::platform::linux::handle_reflink_auto_sparse_auto
           }
         }
       }
-      cVar2 = check_dest_is_fifo(param_4,param_5);
+      cVar2 = _ZN5uu_cp8platform5linux18check_dest_is_fifo17h1ec55e7a10ac562cE(param_4,param_5);
       bVar3 = 1;
       if (cVar2 == '\0') {
         bVar3 = bVar7;

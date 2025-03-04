@@ -1,7 +1,7 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-long * __rustcall
-uu_seq::numberparse::parse_hexadecimal(long *param_1,undefined8 param_2,undefined8 param_3)
+long * _ZN6uu_seq11numberparse17parse_hexadecimal17ha820262dcdf3b692E
+                 (long *param_1,undefined8 param_2,undefined8 param_3)
 
 {
   char cVar1;
@@ -34,11 +34,11 @@ uu_seq::numberparse::parse_hexadecimal(long *param_1,undefined8 param_2,undefine
   local_88[1] = '\0';
   local_88[2] = '\0';
   local_88[3] = '\0';
-  uVar3 = core::char::methods::encode_utf8_raw(0x2d,local_88);
-  cVar1 = core::slice::_<impl[T]>::starts_with(param_2,param_3,uVar3,1);
+  uVar3 = _ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E(0x2d,local_88);
+  cVar1 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_11starts_with17h9cb9db4a84f1050bE
+                    (param_2,param_3,uVar3,1);
   if (cVar1 == '\0') {
-    auVar8 = core::str::traits::
-             _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::RangeFrom<usize>>::get
+    auVar8 = _ZN4core3str6traits112__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeFrom_LT_usize_GT__GT_3get17hccefea64a1916a27E
                        (2,param_2,param_3);
     if (auVar8._0_8_ == 0) {
       ppuVar7 = &PTR_s_src_uu_seq_src_numberparse_rs_00243fa0;
@@ -47,16 +47,16 @@ uu_seq::numberparse::parse_hexadecimal(long *param_1,undefined8 param_2,undefine
     }
   }
   else {
-    auVar8 = core::str::traits::
-             _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::RangeFrom<usize>>::get
+    auVar8 = _ZN4core3str6traits112__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeFrom_LT_usize_GT__GT_3get17hccefea64a1916a27E
                        (3,param_2,param_3);
     if (auVar8._0_8_ == 0) {
       ppuVar7 = &PTR_s_src_uu_seq_src_numberparse_rs_00243fb8;
       uVar3 = 3;
 LAB_001ce45e:
-      uVar3 = core::str::slice_error_fail(param_2,param_3,uVar3,param_3,ppuVar7);
+      uVar3 = _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE
+                        (param_2,param_3,uVar3,param_3,ppuVar7);
                     /* catch() { ... } // from try @ 001ce3c2 with catch @ 001ce46d */
-      core::ptr::drop_in_place<bigdecimal::BigDecimal>(local_88);
+      _ZN4core3ptr43drop_in_place_LT_bigdecimal__BigDecimal_GT_17h9ea64fcf6ce46304E(local_88);
       plVar5 = (long *)_Unwind_Resume(uVar3);
       return plVar5;
     }
@@ -67,18 +67,20 @@ LAB_001ce45e:
   local_88[1] = '\0';
   local_88[2] = '\0';
   local_88[3] = '\0';
-  uVar4 = core::char::methods::encode_utf8_raw(0x2d,local_88);
-  cVar2 = core::slice::_<impl[T]>::starts_with(uVar3,uVar6,uVar4,1);
+  uVar4 = _ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E(0x2d,local_88);
+  cVar2 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_11starts_with17h9cb9db4a84f1050bE
+                    (uVar3,uVar6,uVar4,1);
   if (cVar2 == '\0') {
     local_88[0] = '\0';
     local_88[1] = '\0';
     local_88[2] = '\0';
     local_88[3] = '\0';
-    uVar4 = core::char::methods::encode_utf8_raw(0x2b,local_88);
-    cVar2 = core::slice::_<impl[T]>::starts_with(uVar3,uVar6,uVar4,1);
+    uVar4 = _ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E(0x2b,local_88);
+    cVar2 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_11starts_with17h9cb9db4a84f1050bE
+                      (uVar3,uVar6,uVar4,1);
     if (cVar2 == '\0') {
-      num_bigint::bigint::convert::_<impl_num_traits::Num_for_num_bigint::bigint::BigInt>::
-      from_str_radix(local_88,uVar3,uVar6,0x10);
+      _ZN10num_bigint6bigint7convert72__LT_impl_u20_num_traits__Num_u20_for_u20_num_bigint__bigint__BigInt_GT_14from_str_radix17hb9365f03b0604201E
+                (local_88,uVar3,uVar6,0x10);
       local_58 = CONCAT44(uStack_84,local_88);
       if (local_58 != -0x8000000000000000) {
         uStack_3c = (undefined4)((uint7)uStack_6f >> 0x18);
@@ -102,7 +104,7 @@ LAB_001ce45e:
         uStack_7c = _UNK_0011b884;
         local_68 = 0;
                     /* try { // try from 001ce394 to 001ce3a1 has its CatchHandler @ 001ce472 */
-        cVar2 = bigdecimal::impl_cmp::_<impl_core::cmp::PartialEq_for_bigdecimal::BigDecimal>::eq
+        cVar2 = _ZN10bigdecimal8impl_cmp73__LT_impl_u20_core__cmp__PartialEq_u20_for_u20_bigdecimal__BigDecimal_GT_2eq17h0c7161c8c911041fE
                           (&local_58,local_88);
         if (cVar1 == '\0') {
           param_1[4] = local_38;
@@ -137,9 +139,9 @@ LAB_001ce45e:
           param_1[5] = 2;
           param_1[6] = 0;
                     /* try { // try from 001ce3c2 to 001ce3cb has its CatchHandler @ 001ce46d */
-          core::ptr::drop_in_place<bigdecimal::BigDecimal>(&local_58);
+          _ZN4core3ptr43drop_in_place_LT_bigdecimal__BigDecimal_GT_17h9ea64fcf6ce46304E(&local_58);
         }
-        core::ptr::drop_in_place<bigdecimal::BigDecimal>(local_88);
+        _ZN4core3ptr43drop_in_place_LT_bigdecimal__BigDecimal_GT_17h9ea64fcf6ce46304E(local_88);
         return param_1;
       }
       *(undefined *)(param_1 + 1) = 2;

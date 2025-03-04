@@ -1,5 +1,5 @@
-void __rustcall
-uu_ls::colors::StyleManager::get_style_code(undefined8 *param_1,long param_2,undefined4 *param_3)
+void _ZN5uu_ls6colors12StyleManager14get_style_code17h3f5da10be94133b8E
+               (undefined8 *param_1,long param_2,undefined4 *param_3)
 
 {
   undefined4 uVar1;
@@ -33,7 +33,7 @@ uu_ls::colors::StyleManager::get_style_code(undefined8 *param_1,long param_2,und
   *(undefined4 *)(param_2 + 0xc) = uVar1;
   *(undefined4 *)(param_2 + 0x10) = uVar2;
   *(undefined4 *)(param_2 + 0x14) = uVar3;
-  lscolors::style::Style::to_nu_ansi_term_style(&local_79,param_3);
+  _ZN8lscolors5style5Style21to_nu_ansi_term_style17hd70be39300867c91E(&local_79,param_3);
   local_71 = 0;
   local_10 = local_69;
   local_20 = local_79;
@@ -46,10 +46,12 @@ uu_ls::colors::StyleManager::get_style_code(undefined8 *param_1,long param_2,und
   local_40 = 0;
   local_38 = 0x8000000000000002;
                     /* try { // try from 00239c3e to 00239c4c has its CatchHandler @ 00239c84 */
-  _<T_as_alloc::string::ToString>::to_string(&local_68,&local_50);
+  _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17hce018959f2b6d404E
+            (&local_68,&local_50);
                     /* try { // try from 00239c4d to 00239c69 has its CatchHandler @ 00239c93 */
-  core::ptr::drop_in_place<nu_ansi_term::display::AnsiGenericString<str>>(&local_50);
-  ::alloc::string::String::truncate(&local_68,local_58 + -4);
+  _ZN4core3ptr72drop_in_place_LT_nu_ansi_term__display__AnsiGenericString_LT_str_GT__GT_17h9e949c0413661d2aE
+            (&local_50);
+  _ZN5alloc6string6String8truncate17hafe089c60c3201e9E(&local_68,local_58 + -4);
   param_1[2] = local_58;
   *param_1 = local_68;
   param_1[1] = uStack_60;

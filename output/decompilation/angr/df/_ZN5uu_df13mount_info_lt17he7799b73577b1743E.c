@@ -1,6 +1,6 @@
 long long uu_df::mount_info_lt::he7799b73577b1743(unsigned long long a0[15], unsigned long long a1[15])
 {
-    unsigned long v0;  // [bp-0x38], Other Possible Types: unsigned int
+    unsigned int v0;  // [bp-0x38], Other Possible Types: unsigned long
     unsigned int v1;  // [sp-0x34]
     unsigned long v3;  // rax
     unsigned long long v4;  // r15

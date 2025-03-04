@@ -1,4 +1,5 @@
-undefined4 * __rustcall uu_sort::tmp_dir::TmpDirWrapper::next_file(undefined4 *param_1,long param_2)
+undefined4 *
+_ZN7uu_sort7tmp_dir13TmpDirWrapper9next_file17h05b3ad075068705fE(undefined4 *param_1,long param_2)
 
 {
   undefined8 uVar1;
@@ -20,26 +21,29 @@ undefined4 * __rustcall uu_sort::tmp_dir::TmpDirWrapper::next_file(undefined4 *p
   undefined4 uStack_34;
   undefined8 local_28;
   
-  if ((*(char *)(param_2 + 0x28) == '\x02') && (auVar4 = init_tmp_dir(param_2), auVar4._0_8_ != 0))
-  {
+  if ((*(char *)(param_2 + 0x28) == '\x02') &&
+     (auVar4 = _ZN7uu_sort7tmp_dir13TmpDirWrapper12init_tmp_dir17h98cc8f29e16f1909E(param_2),
+     auVar4._0_8_ != 0)) {
     *(undefined (*) [16])(param_1 + 4) = auVar4;
     *(undefined8 *)(param_1 + 2) = 0x8000000000000000;
     return param_1;
   }
-  std::sync::mutex::Mutex<T>::lock(&local_78,*(long *)(param_2 + 0x30) + 0x10);
-  uVar2 = core::result::Result<T,E>::unwrap(&local_78,&DAT_00301078);
+  _ZN3std4sync5mutex14Mutex_LT_T_GT_4lock17h2fdf4238f9db328bE
+            (&local_78,*(long *)(param_2 + 0x30) + 0x10);
+  uVar2 = _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17he8ec3f841ca899b2E(&local_78,&DAT_00301078);
                     /* try { // try from 00248ac2 to 00248ace has its CatchHandler @ 00248c0b */
-  _<T_as_alloc::string::ToString>::to_string(&local_38,param_2 + 0x38);
+  _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17hbab597f68101a0a6E
+            (&local_38,param_2 + 0x38);
   *(long *)(param_2 + 0x38) = *(long *)(param_2 + 0x38) + 1;
   if (*(char *)(param_2 + 0x28) != '\x02') {
     local_68 = local_28;
     local_78 = local_38;
     uStack_74 = uStack_34;
                     /* try { // try from 00248b00 to 00248b0e has its CatchHandler @ 00248bf7 */
-    std::path::Path::join
+    _ZN3std4path4Path4join17h2322a65c0d7509acE
               (&local_b0,*(undefined8 *)(param_2 + 0x18),*(undefined8 *)(param_2 + 0x20),&local_78);
                     /* try { // try from 00248b0f to 00248b1d has its CatchHandler @ 00248be8 */
-    std::fs::File::create(&local_78,&local_b0);
+    _ZN3std2fs4File6create17h360b3028bf6903a2E(&local_78,&local_b0);
     if (local_78 == 0) {
       local_90 = local_b0;
       uVar3 = local_90;
@@ -62,20 +66,23 @@ undefined4 * __rustcall uu_sort::tmp_dir::TmpDirWrapper::next_file(undefined4 *p
     else {
       local_78 = CONCAT31(local_78._1_3_,4);
                     /* try { // try from 00248b34 to 00248b3d has its CatchHandler @ 00248bcd */
-      uVar3 = ::alloc::boxed::Box<T>::new(&local_78);
+      uVar3 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hebf92c849c48588dE(&local_78);
       *(undefined8 *)(param_1 + 4) = uVar3;
-      *(undefined ***)(param_1 + 6) = &PTR_drop_in_place<uu_sort_SortError>_00300f08;
+      *(undefined ***)(param_1 + 6) =
+           &PTR__ZN4core3ptr39drop_in_place_LT_uu_sort__SortError_GT_17he8a54a56651c7a8bE_00300f08;
       *(undefined8 *)(param_1 + 2) = 0x8000000000000000;
                     /* try { // try from 00248b5b to 00248b64 has its CatchHandler @ 00248bc8 */
-      core::ptr::drop_in_place<std::path::PathBuf>(&local_b0);
+      _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17he13e3ddf5562bb7eE(&local_b0);
     }
-    core::ptr::drop_in_place<std::sync::mutex::MutexGuard<()>>(uVar2,extraout_DL & 1);
+    _ZN4core3ptr65drop_in_place_LT_std__sync__mutex__MutexGuard_LT__LP__RP__GT__GT_17h1ece0fb60dffd106E
+              (uVar2,extraout_DL & 1);
     return param_1;
   }
                     /* try { // try from 00248bbb to 00248bc7 has its CatchHandler @ 00248bf9 */
-  uVar3 = core::option::unwrap_failed(&DAT_00301090);
+  uVar3 = _ZN4core6option13unwrap_failed17h0e11329e76906eaaE(&DAT_00301090);
                     /* catch() { ... } // from try @ 00248b5b with catch @ 00248bc8 */
-  core::ptr::drop_in_place<std::sync::mutex::MutexGuard<()>>(uVar2,extraout_DL & 1);
+  _ZN4core3ptr65drop_in_place_LT_std__sync__mutex__MutexGuard_LT__LP__RP__GT__GT_17h1ece0fb60dffd106E
+            (uVar2,extraout_DL & 1);
                     /* WARNING: Subroutine does not return */
   _Unwind_Resume(uVar3);
 }

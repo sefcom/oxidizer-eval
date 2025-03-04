@@ -1,11 +1,11 @@
 long long uu_test::parser::Parser::lparen::h57f06a78ce35371d(struct_2 *a0, void* a1)
 {
-    void* v0;  // [sp-0x178], Other Possible Types: unsigned long long, unsigned long
+    void* v0;  // [sp-0x178], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0x170]
     struct struct_1 **v2;  // [sp-0x168]
     unsigned long v3;  // [sp-0x160], Other Possible Types: unsigned long long
     void* v4;  // [sp-0x158]
-    struct_0 *v5;  // [sp-0x148], Other Possible Types: unsigned long
+    struct_0 *v5;  // [bp-0x148], Other Possible Types: unsigned long
     char v6;  // [bp-0x140]
     char v7;  // [bp-0x138]
     char v8;  // [bp-0x130]
@@ -24,6 +24,7 @@ long long uu_test::parser::Parser::lparen::h57f06a78ce35371d(struct_2 *a0, void*
     struct_0 *v23;  // r15
     unsigned long long v24;  // rax
     int v25;  // xmm0
+    unsigned long long v26;  // rax
     unsigned long long v27;  // rax
 
     _$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$::clone::h86ce5a051be3bc0b(&v19, a1 + 24);
@@ -51,7 +52,7 @@ long long uu_test::parser::Parser::lparen::h57f06a78ce35371d(struct_2 *a0, void*
         v4 = 0;
         v2 = &v12;
         v3 = 1;
-        core::option::Option$LT$T$GT$::map_or_else::ha47e44f34eb359bd();
+        core::option::Option$LT$T$GT$::map_or_else::ha47e44f34eb359bd(&v14, &v0);
         *((long long *)((char *)&a0->field_8 + 8)) = *((long long *)&v15);
         *((int128_t *)&(&a0->field_0)[1]) = *((int128_t *)&v14);
         a0->field_0 = 3;
@@ -71,7 +72,7 @@ LABEL_4af300:
             uu_test::parser::Parser::next_token::hec2da245067de41f(&v17, a1);
             uu_test::parser::Parser::literal::h487831028acf0989(&v0, a1, &v17);
             v27 = v0;
-            if (v23->field_0 == 4 && v23->field_28 == 3 && (char)::0x4ae430::_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$::eq::hcddac707bfdce135(v23->field_38, v23->field_40))
+            if (!(v27 == 7))
                 goto LABEL_4af3b9;
             uu_test::parser::Parser::expect::h264bdd99a51ab46d(&v0, a1);
             goto LABEL_4af3a6;
@@ -80,7 +81,7 @@ LABEL_4af300:
         v24 = *((long long *)&v23->field_0);
         if (v24 == 4)
         {
-            if (v23->field_0 == 4 && v23->field_28 == 3 && (char)::0x4ae430::_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$::eq::hcddac707bfdce135(v23->field_38, v23->field_40))
+            if (!(v23->field_28 == 3 && (char)::0x4ae430::_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$::eq::hcddac707bfdce135(v23->field_38, v23->field_40)))
                 goto LABEL_4af291;
 LABEL_4af265:
             v0 = 0;
@@ -113,9 +114,10 @@ LABEL_4af3c7:
                 goto LABEL_4af3a6;
             }
 LABEL_4af291:
-            if (*((long long *)&v23->field_28) == 3)
+            v26 = *((long long *)&v23->field_28);
+            if (v26 == 3)
             {
-                if (v23->field_0 == 4 && v23->field_28 == 3 && (char)::0x4ae430::_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$::eq::hcddac707bfdce135(v23->field_38, v23->field_40))
+                if (!(!(::0x4ae430::_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$::eq::hcddac707bfdce135(v23->field_38, v23->field_40) & 255 & 255 & 255)))
                     goto LABEL_4af300;
 LABEL_4af33e:
                 if (*((long long *)&v23->field_0) == 4)
@@ -129,14 +131,14 @@ LABEL_4af344:
             }
             else
             {
-                if (v23->field_0 == 4 && v23->field_28 == 3 && (char)::0x4ae430::_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$::eq::hcddac707bfdce135(v23->field_38, v23->field_40))
+                if (!((unsigned int)v26 == 4))
                     goto LABEL_4af33e;
-                if (v23->field_0 == 4 && v23->field_28 == 3 && (char)::0x4ae430::_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$::eq::hcddac707bfdce135(v23->field_38, v23->field_40))
+                if (!(v23->field_0 == 4))
                     goto LABEL_4af386;
                 uu_test::parser::Parser::next_token::hec2da245067de41f(&v18, a1);
                 uu_test::parser::Parser::literal::h487831028acf0989(&v0, a1, &v18);
                 v27 = v0;
-                if (v23->field_0 == 4 && v23->field_28 == 3 && (char)::0x4ae430::_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$::eq::hcddac707bfdce135(v23->field_38, v23->field_40))
+                if (!(v27 == 7))
                     goto LABEL_4af3b9;
                 uu_test::parser::Parser::expect::h264bdd99a51ab46d(&v0, a1);
             }
@@ -152,7 +154,7 @@ LABEL_4af3b9:
 LABEL_4af386:
         uu_test::parser::Parser::expr::h14b244d6254724ab(&v0, a1);
         v27 = v0;
-        if (v23->field_0 == 4 && v23->field_28 == 3 && (char)::0x4ae430::_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$::eq::hcddac707bfdce135(v23->field_38, v23->field_40))
+        if (!(v27 == 7))
             goto LABEL_4af3b9;
         uu_test::parser::Parser::expect::h264bdd99a51ab46d(&v0, a1);
         goto LABEL_4af3a6;

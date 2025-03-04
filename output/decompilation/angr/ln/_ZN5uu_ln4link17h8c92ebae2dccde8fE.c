@@ -13,10 +13,10 @@ long long uu_ln::link::h8c92ebae2dccde8f(unsigned long long a0, unsigned long lo
     unsigned long long v10;  // [sp-0x140]
     char v11;  // [bp-0x130]
     unsigned long long v12[3];  // [bp-0x128], Other Possible Types: unsigned long long
-    unsigned long v13;  // [sp-0x120], Other Possible Types: unsigned long long
+    unsigned long v13;  // [sp-0x120]
     unsigned long long v14;  // [sp-0x118]
     unsigned long long v15;  // [sp-0x110]
-    char *v16;  // [bp-0x108], Other Possible Types: unsigned long, unsigned long long
+    char *v16;  // [sp-0x108], Other Possible Types: unsigned long, unsigned long long
     unsigned long v17;  // [sp-0x100], Other Possible Types: unsigned long long
     struct struct_0 **v18;  // [sp-0xf8], Other Possible Types: unsigned long long
     int v19;  // [sp-0xf0], Other Possible Types: unsigned long long
@@ -29,7 +29,7 @@ long long uu_ln::link::h8c92ebae2dccde8f(unsigned long long a0, unsigned long lo
     unsigned long long v27;  // 4149
     unsigned long long v28;  // rsi
     unsigned long long v29;  // rax
-    void* v30;  // rax
+    void* v30;  // rbp
     char v31;  // bl
 
     v26 = 0x8000000000000000;
@@ -49,7 +49,7 @@ long long uu_ln::link::h8c92ebae2dccde8f(unsigned long long a0, unsigned long lo
     v1 = v26 & 0xffffffffffffff00 | 1;
     if ((char)std::path::Path::is_symlink::h6ab8b58756c51c6b(a2, a3))
     {
-        goto *((int *)(4319464 + a4[1 + 1] * 4)) + 4319464;
+        goto *((int *)(4319464 + *((char *)(vvar_4 + 55)) * 4)) + 4319464;
     }
     else
     {
@@ -58,15 +58,15 @@ long long uu_ln::link::h8c92ebae2dccde8f(unsigned long long a0, unsigned long lo
         if (v16 != 2)
         {
             ::0x4b84f0::core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$::h834abcfa2f925b76(v16, v28);
-            goto *((int *)(4319464 + a4[1 + 1] * 4)) + 4319464;
+            goto *((int *)(4319464 + *((char *)(vvar_4 + 55)) * 4)) + 4319464;
         }
         else
         {
             ::0x4b84f0::core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$::h834abcfa2f925b76(2, v28);
-            v0 = a4[48];
+            v0 = *((char *)(vvar_4 + 48));
             if (!v0)
             {
-                if (!a4[50] || !(char)std::path::Path::is_symlink::h6ab8b58756c51c6b(v13, v14))
+                if (!*((char *)(vvar_4 + 50)) || !(char)std::path::Path::is_symlink::h6ab8b58756c51c6b(v13, v14))
                 {
                     std::sys::pal::unix::os::split_paths::bytes_to_path::h0549813f23b52483(&v6, v13, v14);
                 }
@@ -95,7 +95,7 @@ long long uu_ln::link::h8c92ebae2dccde8f(unsigned long long a0, unsigned long lo
                 if (!v30)
                 {
 LABEL_4baa44:
-                    if (!a4[53])
+                    if (!*((char *)(vvar_4 + 53)))
                     {
 LABEL_4bab5c:
                         v31 = 0;
@@ -137,7 +137,7 @@ LABEL_4bab5c:
                             v19 = 1;
                             std::io::stdio::_print::he918bceb0c89db46(&v16);
                             v1 = 0;
-                            ::0x4b7ac0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hff8990cc0a5456e3();
+                            ::0x4b7ac0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hff8990cc0a5456e3(&v6);
                             v31 = 1;
                         }
                         else
@@ -153,7 +153,7 @@ LABEL_4bab5c:
                     core::ptr::drop_in_place$LT$alloc..borrow..Cow$LT$std..path..Path$GT$$GT$::h64f669095bad1067(v12);
                     if (!(v10 != 0x8000000000000000 & ~(v31)))
                         return 0;
-                    ::0x4b7ac0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hff8990cc0a5456e3();
+                    ::0x4b7ac0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hff8990cc0a5456e3(&v10);
                 }
             }
             else

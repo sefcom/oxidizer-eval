@@ -1,8 +1,7 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void __rustcall
-uu_od::prn_float::format_float
-          (double param_1,undefined8 param_2,undefined8 *param_3,double **param_4)
+void _ZN5uu_od9prn_float12format_float17h341a0cfde1a47520E
+               (double param_1,undefined8 param_2,undefined8 *param_3,double **param_4)
 
 {
   ulong uVar1;
@@ -62,17 +61,23 @@ LAB_001d525a:
       }
       if (((int)uVar2 < 0) || ((int)param_4 <= (int)uVar2)) {
         if (uVar2 == 0xffffffff) {
-          local_d0 = core::fmt::float::_<impl_core::fmt::Display_for_f64>::fmt;
+          local_d0 = 
+          _ZN4core3fmt5float52__LT_impl_u20_core__fmt__Display_u20_for_u20_f64_GT_3fmt17hdf81dcc7e03fc666E
+          ;
           local_c8 = param_4;
         }
         else {
           local_c8 = (double **)((long)param_4 + -1);
-          local_d0 = core::fmt::float::_<impl_core::fmt::LowerExp_for_f64>::fmt;
+          local_d0 = 
+          _ZN4core3fmt5float53__LT_impl_u20_core__fmt__LowerExp_u20_for_u20_f64_GT_3fmt17h74a47d8602c716a3E
+          ;
         }
       }
       else {
         local_c8 = (double **)(~(ulong)uVar2 + (long)param_4);
-        local_d0 = core::fmt::float::_<impl_core::fmt::Display_for_f64>::fmt;
+        local_d0 = 
+        _ZN4core3fmt5float52__LT_impl_u20_core__fmt__Display_u20_for_u20_f64_GT_3fmt17hdf81dcc7e03fc666E
+        ;
       }
       local_d8 = &local_70;
       local_c0 = 0;
@@ -95,17 +100,21 @@ LAB_001d525a:
   if (((param_1 != 0.0) || (NAN(param_1))) || (-1 < (long)param_1)) {
     if (((param_1 == 0.0) && (!NAN(param_1))) ||
        (_s__0010e090 <= (double)((ulong)param_1 & _DAT_0010d940))) {
-      local_60 = core::fmt::float::_<impl_core::fmt::Display_for_f64>::fmt;
+      local_60 = 
+      _ZN4core3fmt5float52__LT_impl_u20_core__fmt__Display_u20_for_u20_f64_GT_3fmt17hdf81dcc7e03fc666E
+      ;
     }
     else {
-      local_60 = core::fmt::float::_<impl_core::fmt::LowerExp_for_f64>::fmt;
+      local_60 = 
+      _ZN4core3fmt5float53__LT_impl_u20_core__fmt__LowerExp_u20_for_u20_f64_GT_3fmt17h74a47d8602c716a3E
+      ;
     }
     local_68 = &local_70;
     local_78 = 3;
   }
   else {
     local_68 = (double *)&DAT_00242048;
-    local_60 = _<&T_as_core::fmt::Display>::fmt;
+    local_60 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h49e5a621c8f1f534E;
     local_78 = 1;
   }
   local_50 = 0;
@@ -122,6 +131,6 @@ LAB_001d54b3:
   local_80 = 0x20;
   local_88 = 0;
   local_98 = 1;
-  core::option::Option<T>::map_or_else(param_2,ppdVar3);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17hc22922308bfda6bfE(param_2,ppdVar3);
   return;
 }

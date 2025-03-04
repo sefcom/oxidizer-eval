@@ -1,4 +1,5 @@
-undefined8 * __rustcall uu_ptx::WordFilter::new(undefined8 *param_1,undefined8 param_2,long param_3)
+undefined8 *
+_ZN6uu_ptx10WordFilter3new17h834513af9e48d5eeE(undefined8 *param_1,undefined8 param_2,long param_3)
 
 {
   bool bVar1;
@@ -64,10 +65,11 @@ undefined8 * __rustcall uu_ptx::WordFilter::new(undefined8 *param_1,undefined8 p
   undefined8 *local_38;
   code *local_30;
   
-  cVar2 = clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(param_2,"only-file",9)
-  ;
+  cVar2 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E
+                    (param_2,"only-file",9);
   if (cVar2 == '\0') {
-    _<hashbrown::map::HashMap<K,V,S,A>as_core::default::Default>::default(&local_188);
+    _ZN87__LT_hashbrown__map__HashMap_LT_K_C_V_C_S_C_A_GT__u20_as_u20_core__default__Default_GT_7default17h46266b0c4833887cE
+              (&local_188);
     local_108 = uStack_170;
     uStack_100 = uStack_168;
     local_f8 = (undefined8 **)CONCAT44(uStack_15c,uStack_160);
@@ -76,9 +78,9 @@ undefined8 * __rustcall uu_ptx::WordFilter::new(undefined8 *param_1,undefined8 p
     local_88 = ppuStack_178;
   }
   else {
-    read_word_filter_file(&local_188,param_2,"only-file",9);
-    _<core::result::Result<T,std::io::error::Error>as_uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn_uucore::mods::error::UError>>>>
-    ::map_err_context(&local_148,&local_188);
+    _ZN6uu_ptx21read_word_filter_file17h2a4d49b02fae1e68E(&local_188,param_2,"only-file",9);
+    _ZN201__LT_core__result__Result_LT_T_C_std__io__error__Error_GT__u20_as_u20_uucore__mods__error__FromIo_LT_core__result__Result_LT_T_C_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT__GT__GT_15map_err_context17h6f2e9e1358d3e397E
+              (&local_148,&local_188);
     if (local_148 == (undefined **)0x0) {
       param_1[1] = uStack_140;
       param_1[2] = ppuStack_138;
@@ -98,10 +100,11 @@ undefined8 * __rustcall uu_ptx::WordFilter::new(undefined8 *param_1,undefined8 p
   uStack_74 = uStack_100._4_4_;
   ppuStack_70 = local_f8;
                     /* try { // try from 002b5bb6 to 002b5c31 has its CatchHandler @ 002b60d6 */
-  cVar3 = clap_builder::parser::matches::arg_matches::ArgMatches::contains_id
+  cVar3 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E
                     (param_2,"ignore-file",0xb);
   if (cVar3 == '\0') {
-    _<hashbrown::map::HashMap<K,V,S,A>as_core::default::Default>::default(&local_188);
+    _ZN87__LT_hashbrown__map__HashMap_LT_K_C_V_C_S_C_A_GT__u20_as_u20_core__default__Default_GT_7default17h46266b0c4833887cE
+              (&local_188);
     local_108 = uStack_170;
     uStack_100 = uStack_168;
     local_f8 = (undefined8 **)CONCAT44(uStack_15c,uStack_160);
@@ -110,9 +113,9 @@ undefined8 * __rustcall uu_ptx::WordFilter::new(undefined8 *param_1,undefined8 p
     local_58 = ppuStack_178;
   }
   else {
-    read_word_filter_file(&local_188,param_2,"ignore-file",0xb);
-    _<core::result::Result<T,std::io::error::Error>as_uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn_uucore::mods::error::UError>>>>
-    ::map_err_context(&local_148,&local_188);
+    _ZN6uu_ptx21read_word_filter_file17h2a4d49b02fae1e68E(&local_188,param_2,"ignore-file",0xb);
+    _ZN201__LT_core__result__Result_LT_T_C_std__io__error__Error_GT__u20_as_u20_uucore__mods__error__FromIo_LT_core__result__Result_LT_T_C_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT__GT__GT_15map_err_context17h6f2e9e1358d3e397E
+              (&local_148,&local_188);
     if (local_148 == (undefined **)0x0) {
       param_1[1] = uStack_140;
       param_1[2] = ppuStack_138;
@@ -132,27 +135,27 @@ undefined8 * __rustcall uu_ptx::WordFilter::new(undefined8 *param_1,undefined8 p
   uStack_44 = uStack_100._4_4_;
   uStack_40 = local_f8;
                     /* try { // try from 002b5c92 to 002b5cbf has its CatchHandler @ 002b60b2 */
-  cVar4 = clap_builder::parser::matches::arg_matches::ArgMatches::contains_id
+  cVar4 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E
                     (param_2,"break-file",10);
   if ((cVar4 == '\0') ||
-     (cVar4 = clap_builder::parser::matches::arg_matches::ArgMatches::contains_id
+     (cVar4 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E
                         (param_2,"word-regexp",0xb), cVar4 != '\0')) {
     local_c8 = (undefined **)0x0;
   }
   else {
                     /* try { // try from 002b5e76 to 002b5e8d has its CatchHandler @ 002b60b2 */
-    read_char_filter_file(&local_188,param_2);
-    _<core::result::Result<T,std::io::error::Error>as_uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn_uucore::mods::error::UError>>>>
-    ::map_err_context(&local_148,&local_188);
+    _ZN6uu_ptx21read_char_filter_file17hb5c562555cafe5d8E(&local_188,param_2);
+    _ZN201__LT_core__result__Result_LT_T_C_std__io__error__Error_GT__u20_as_u20_uucore__mods__error__FromIo_LT_core__result__Result_LT_T_C_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT__GT__GT_15map_err_context17hd4e54632205870f7E
+              (&local_148,&local_188);
     if (local_148 == (undefined **)0x0) {
       param_1[1] = uStack_140;
       param_1[2] = ppuStack_138;
       *param_1 = 0x8000000000000000;
                     /* try { // try from 002b5fd5 to 002b5fe1 has its CatchHandler @ 002b60d6 */
-      core::ptr::drop_in_place<std::collections::hash::set::HashSet<alloc::string::String>>
+      _ZN4core3ptr86drop_in_place_LT_std__collections__hash__set__HashSet_LT_alloc__string__String_GT__GT_17h0fe902575fe225c7E
                 (&local_68);
 LAB_002b5fe2:
-      core::ptr::drop_in_place<std::collections::hash::set::HashSet<alloc::string::String>>
+      _ZN4core3ptr86drop_in_place_LT_std__collections__hash__set__HashSet_LT_alloc__string__String_GT__GT_17h0fe902575fe225c7E
                 (&local_98);
       return param_1;
     }
@@ -166,12 +169,13 @@ LAB_002b5fe2:
     local_f8 = ppuStack_138;
     if (*(char *)(param_3 + 0x58) == '\0') {
                     /* try { // try from 002b6002 to 002b600b has its CatchHandler @ 002b607a */
-      _<std::collections::hash::set::HashSet<T,S>as_core::iter::traits::collect::FromIterator<T>>::
-      from_iter(&local_148);
+      _ZN120__LT_std__collections__hash__set__HashSet_LT_T_C_S_GT__u20_as_u20_core__iter__traits__collect__FromIterator_LT_T_GT__GT_9from_iter17h72643febd655a837E
+                (&local_148);
     }
     else {
                     /* try { // try from 002b5ee3 to 002b5eea has its CatchHandler @ 002b607a */
-      _<hashbrown::map::HashMap<K,V,S,A>as_core::default::Default>::default(&local_188);
+      _ZN87__LT_hashbrown__map__HashMap_LT_K_C_V_C_S_C_A_GT__u20_as_u20_core__default__Default_GT_7default17h78c5b7e8cc9844e2E
+                (&local_188);
       local_120 = (undefined8 **)CONCAT44(uStack_15c,uStack_160);
       uStack_128 = uStack_168;
       ppuStack_138 = ppuStack_178;
@@ -187,7 +191,7 @@ LAB_002b5fe2:
     local_188 = local_108;
     uStack_180 = uStack_100;
                     /* try { // try from 002b6032 to 002b603e has its CatchHandler @ 002b606b */
-    _<hashbrown::set::HashSet<T,S,A>as_core::iter::traits::collect::Extend<T>>::extend
+    _ZN105__LT_hashbrown__set__HashSet_LT_T_C_S_C_A_GT__u20_as_u20_core__iter__traits__collect__Extend_LT_T_GT__GT_6extend17h5ce7b6f887806e63E
               (&local_148,&local_188);
     uStack_c0 = (undefined4)uStack_140;
     uStack_bc = uStack_140._4_4_;
@@ -198,7 +202,7 @@ LAB_002b5fe2:
     local_c8 = local_148;
   }
                     /* try { // try from 002b5cd4 to 002b5d2f has its CatchHandler @ 002b60b7 */
-  cVar4 = clap_builder::parser::matches::arg_matches::ArgMatches::contains_id
+  cVar4 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E
                     (param_2,"word-regexp",0xb);
   if (cVar4 == '\0') {
 LAB_002b5d35:
@@ -210,7 +214,7 @@ LAB_002b5d35:
       ppuStack_138 = ppuStack_b8;
       local_148 = local_c8;
                     /* try { // try from 002b5d72 to 002b5dba has its CatchHandler @ 002b60ad */
-      _<hashbrown::map::HashMap<K,V,S,A>as_core::iter::traits::collect::IntoIterator>::into_iter
+      _ZN106__LT_hashbrown__map__HashMap_LT_K_C_V_C_S_C_A_GT__u20_as_u20_core__iter__traits__collect__IntoIterator_GT_9into_iter17h288b3fee388f1b9bE
                 (&local_188,&local_148);
       local_148 = local_188;
       uStack_140 = uStack_180;
@@ -222,9 +226,10 @@ LAB_002b5d35:
       uStack_114 = uStack_154;
       uStack_110 = uStack_150;
       uStack_10c = uStack_14c;
-      _<alloc::string::String_as_core::iter::traits::collect::FromIterator<alloc::string::String>>::
-      from_iter(&local_108,&local_148);
-      local_30 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+      _ZN112__LT_alloc__string__String_u20_as_u20_core__iter__traits__collect__FromIterator_LT_alloc__string__String_GT__GT_9from_iter17hbea44346f7b7ebb1E
+                (&local_108,&local_148);
+      local_30 = 
+      _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
       local_188 = &PTR_s______003edb98;
       uStack_180 = 2;
       uStack_168 = 0;
@@ -232,9 +237,9 @@ LAB_002b5d35:
       uStack_170 = (undefined **)0x1;
                     /* try { // try from 002b5e05 to 002b5e11 has its CatchHandler @ 002b609b */
       local_38 = &local_108;
-      core::option::Option<T>::map_or_else(&local_148,&local_188);
+      _ZN4core6option15Option_LT_T_GT_11map_or_else17hb716a3158a91a555E(&local_148,&local_188);
                     /* try { // try from 002b5e12 to 002b5e1e has its CatchHandler @ 002b608c */
-      core::ptr::drop_in_place<alloc::string::String>(&local_108);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hbabe7cf62dac4e15E(&local_108);
       local_d8 = uStack_140;
       uStack_d0 = ppuStack_138;
       bVar1 = false;
@@ -243,19 +248,23 @@ LAB_002b5d35:
     }
     if (*(char *)(param_3 + 0x58) == '\0') {
                     /* try { // try from 002b5f27 to 002b5f3a has its CatchHandler @ 002b60b7 */
-      _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_188,"[^ \t\n]+",7);
+      _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h881c0d1e76b3a749E
+                (&local_188,"[^ \t\n]+",7);
     }
     else {
                     /* try { // try from 002b5e5d to 002b5e70 has its CatchHandler @ 002b60b7 */
-      _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_188,"\\w+",3);
+      _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h881c0d1e76b3a749E
+                (&local_188,"\\w+",3);
     }
   }
   else {
-    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+    _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h0320162aad36ecc4E
               (&local_188,param_2,"word-regexp",0xb);
-    lVar5 = clap_builder::parser::error::MatchesError::unwrap("word-regexp",0xb,&local_188);
+    lVar5 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h3979b7ce1fd00743E
+                      ("word-regexp",0xb,&local_188);
     if ((lVar5 == 0) || (*(long *)(lVar5 + 0x10) == 0)) goto LAB_002b5d35;
-    _<alloc::string::String_as_core::clone::Clone>::clone(&local_188,lVar5);
+    _ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h8f45b0d02f4dafdaE
+              (&local_188,lVar5);
   }
   local_d8 = uStack_180;
   uStack_d0 = ppuStack_178;
@@ -286,7 +295,7 @@ LAB_002b5f4e:
   *(char *)(param_1 + 0xf) = cVar2;
   *(char *)((long)param_1 + 0x79) = cVar3;
   if (bVar1) {
-    core::ptr::drop_in_place<core::option::Option<std::collections::hash::set::HashSet<char>>>
+    _ZN4core3ptr97drop_in_place_LT_core__option__Option_LT_std__collections__hash__set__HashSet_LT_char_GT__GT__GT_17h37dcaeaff8167ce4E
               (&local_c8);
   }
   return param_1;

@@ -1,5 +1,5 @@
 fn uu_df::table::RowFormatter::scaled_bytes(a0: &struct24, a1: void*, a2: u64) -> u64 {
-    let v0: u64;  // [sp-0x10], Other Possible Types: i64
+    let v0: u64;  // [sp-0x10]
     let v1: u64;  // [sp-0x8]
     let v3: u64;  // rax
     let v4: u64;  // rbx

@@ -1,6 +1,6 @@
 fn uu_yes::args_into_buffer(a0: &struct8, a1: &u64) -> u64 {
-    let v0: struct24;  // [sp-0xc0], Other Possible Types: i192
-    let v1: i512;  // [sp-0x58], Other Possible Types: struct64
+    let v0: struct24;  // [sp-0xc0]
+    let v1: struct64;  // [sp-0x58]
     let v3: i64;  // rax
     let v4: i64;  // rdx
     let v5: i64;  // rdx

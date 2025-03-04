@@ -9,12 +9,13 @@ fn uu_cat::write_new_line(a0: &struct24, a1: u32, a2: &u64, a3: void*, a4: u32) 
     let v7: u64;  // [sp-0x68]
     let v8: struct48;  // [bp-0x60]
     let v10: u64;  // rax
-    let v11: u64;  // r8
-    let v12: u64;  // rdx
-    let v13: u64;  // rcx
-    let v14: u64;  // r8
-    let v15: u64;  // rdx
-    let v16: u64;  // rcx
+    let v11: u64;  // r15
+    let v12: u64;  // r8
+    let v13: u64;  // rdx
+    let v14: u64;  // rcx
+    let v15: u64;  // r8
+    let v16: u64;  // rdx
+    let v17: u64;  // rcx
 
     if !a3->field_9 {
         v10 = a3->field_8;
@@ -47,15 +48,15 @@ fn uu_cat::write_new_line(a0: &struct24, a1: u32, a2: &u64, a3: void*, a4: u32) 
                 a3->field_0 = a3->field_0 + 1;
             }
             if *((a2 as &char + 2) as &i8) {
-                v14 = a4;
-                v15 = &g_41ce24;
-                v16 = 2;
+                v15 = a4;
+                v16 = &g_41ce24;
+                v17 = 2;
             } else {
-                v14 = a4;
-                v15 = &g_41ce0c;
-                v16 = 1;
+                v15 = a4;
+                v16 = &g_41ce0c;
+                v17 = 1;
             }
-            v0 = uu_cat::write_end_of_line(a1, v15, v16, v14);
+            v0 = uu_cat::write_end_of_line(a1, v16, v17, v15);
             if v0 != 9223372036854775814 {
                 return struct24 {
                     field_0: v10
@@ -65,7 +66,8 @@ fn uu_cat::write_new_line(a0: &struct24, a1: u32, a2: &u64, a3: void*, a4: u32) 
         }
     } else {
         if !*((a2 as &char + 2) as &i8) {
-            v10 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a1, "\r");
+            v11 = a1;
+            v10 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a1, "");
             if v10 {
                 return struct16 {
                     field_0: 0x8000000000000000
@@ -73,10 +75,11 @@ fn uu_cat::write_new_line(a0: &struct24, a1: u32, a2: &u64, a3: void*, a4: u32) 
                 };
             }
             a3->field_9 = 0;
-            v11 = a4;
-            v12 = &g_41ce0c;
-            v13 = 1;
+            v12 = a4;
+            v13 = &g_41ce0c;
+            v14 = 1;
         } else {
+            v11 = a1;
             v10 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a1, "^M");
             if v10 {
                 return struct16 {
@@ -85,11 +88,11 @@ fn uu_cat::write_new_line(a0: &struct24, a1: u32, a2: &u64, a3: void*, a4: u32) 
                 };
             }
             a3->field_9 = 0;
-            v11 = a4;
-            v12 = &g_41ce24;
-            v13 = 2;
+            v12 = a4;
+            v13 = &g_41ce24;
+            v14 = 2;
         }
-        uu_cat::write_end_of_line(a1, v12, v13, v11);
+        uu_cat::write_end_of_line(v11, v13, v14, v12);
         if v0 != 9223372036854775814 {
             return struct24 {
                 field_0: *(&v0 as &i128)

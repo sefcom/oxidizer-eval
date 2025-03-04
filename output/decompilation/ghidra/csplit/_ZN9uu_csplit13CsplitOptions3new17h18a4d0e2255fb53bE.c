@@ -1,4 +1,5 @@
-undefined8 * __rustcall uu_csplit::CsplitOptions::new(undefined8 *param_1,undefined8 param_2)
+undefined8 *
+_ZN9uu_csplit13CsplitOptions3new17h18a4d0e2255fb53bE(undefined8 *param_1,undefined8 param_2)
 
 {
   undefined uVar1;
@@ -40,45 +41,55 @@ undefined8 * __rustcall uu_csplit::CsplitOptions::new(undefined8 *param_1,undefi
   undefined8 *local_40;
   code *local_38;
   
-  uVar1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"keep-files",10);
-  uVar2 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"quiet",5);
-  uVar3 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+  uVar1 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                    (param_2,"keep-files",10);
+  uVar2 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                    (param_2,"quiet",5);
+  uVar3 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                     (param_2,"elide-empty-files",0x11);
-  uVar4 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+  uVar4 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                     (param_2,&DAT_00165d60,0x10);
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&local_c8,param_2,"prefix",6);
-  lVar5 = clap_builder::parser::error::MatchesError::unwrap("prefix",6,&local_c8);
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf15a83bd2d124092E
+            (&local_c8,param_2,"prefix",6);
+  lVar5 = _ZN12clap_builder6parser5error12MatchesError6unwrap17hd942431c9d8b51dcE
+                    ("prefix",6,&local_c8);
   if (lVar5 == 0) {
     local_e0._0_8_ = 0x8000000000000000;
   }
   else {
-    _<alloc::string::String_as_core::clone::Clone>::clone(local_e0,lVar5);
+    _ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h8f45b0d02f4dafdaE
+              (local_e0,lVar5);
   }
                     /* try { // try from 002bcf58 to 002bcf99 has its CatchHandler @ 002bd1bd */
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf15a83bd2d124092E
             (&local_c8,param_2,"suffix-format",0xd);
-  lVar5 = clap_builder::parser::error::MatchesError::unwrap("suffix-format",0xd,&local_c8);
+  lVar5 = _ZN12clap_builder6parser5error12MatchesError6unwrap17hd942431c9d8b51dcE
+                    ("suffix-format",0xd,&local_c8);
   if (lVar5 == 0) {
     local_68 = 0x8000000000000000;
   }
   else {
-    _<alloc::string::String_as_core::clone::Clone>::clone(&local_c8,lVar5);
+    _ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h8f45b0d02f4dafdaE
+              (&local_c8,lVar5);
     local_68 = CONCAT44(uStack_c4,local_c8);
     uStack_60 = uStack_c0;
     uStack_5c = uStack_bc;
   }
                     /* try { // try from 002bcfbe to 002bcfff has its CatchHandler @ 002bd1ab */
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf15a83bd2d124092E
             (&local_c8,param_2,"digits: ",6);
-  lVar5 = clap_builder::parser::error::MatchesError::unwrap("digits: ",6,&local_c8);
+  lVar5 = _ZN12clap_builder6parser5error12MatchesError6unwrap17hd942431c9d8b51dcE
+                    ("digits: ",6,&local_c8);
   if (lVar5 == 0) {
     local_118 = (undefined *)0x8000000000000000;
   }
   else {
-    _<alloc::string::String_as_core::clone::Clone>::clone(&local_c8,lVar5);
+    _ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h8f45b0d02f4dafdaE
+              (&local_c8,lVar5);
     local_118 = (undefined *)CONCAT44(uStack_c4,local_c8);
   }
-  split_name::SplitName::new(&local_c8,local_e0,&local_68,&local_118);
+  _ZN9uu_csplit10split_name9SplitName3new17h3397569db94b2c64E
+            (&local_c8,local_e0,&local_68,&local_118);
   if (CONCAT44(uStack_c4,local_c8) != -0x8000000000000000) {
     param_1[10] = local_78;
     param_1[0xb] = uStack_70;
@@ -104,27 +115,30 @@ undefined8 * __rustcall uu_csplit::CsplitOptions::new(undefined8 *param_1,undefi
   uStack_60 = local_b8;
   uStack_5c = uStack_b4;
                     /* try { // try from 002bd0e0 to 002bd198 has its CatchHandler @ 002bd199 */
-  local_e0._0_16_ = uucore::util_name();
-  local_38 = _<&T_as_core::fmt::Display>::fmt;
+  local_e0._0_16_ = _ZN6uucore9util_name17h60d842bf27b05e82E();
+  local_38 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h2dda48c026ef89ebE;
   local_118 = &DAT_003e1d78;
   uStack_110 = 2;
   local_f8 = 0;
   local_108 = &local_40;
   local_100 = 1;
   local_40 = (undefined8 *)local_e0;
-  std::io::stdio::_eprint(&local_118);
-  local_e0._8_8_ = _<uu_csplit::csplit_error::CsplitError_as_core::fmt::Display>::fmt;
+  _ZN3std2io5stdio7_eprint17hcdfeec148c7134f7E(&local_118);
+  local_e0._8_8_ =
+       _ZN75__LT_uu_csplit__csplit_error__CsplitError_u20_as_u20_core__fmt__Display_GT_3fmt17hf6930a6d48bf4e10E
+  ;
   local_118 = &DAT_003e1d98;
   uStack_110 = 2;
   local_f8 = 0;
   local_100 = 1;
   local_108 = (undefined8 **)local_e0;
   local_e0._0_8_ = &local_68;
-  std::io::stdio::_eprint(&local_118);
-  uVar6 = std::process::exit(1);
+  _ZN3std2io5stdio7_eprint17hcdfeec148c7134f7E(&local_118);
+  uVar6 = _ZN3std7process4exit17hf8c1b9d00a2a86fdE(1);
                     /* catch() { ... } // from try @ 002bd0e0 with catch @ 002bd199 */
                     /* try { // try from 002bd19c to 002bd1c9 has its CatchHandler @ 002bd1d2 */
-  core::ptr::drop_in_place<uu_csplit::csplit_error::CsplitError>(&local_68);
+  _ZN4core3ptr57drop_in_place_LT_uu_csplit__csplit_error__CsplitError_GT_17h6243e11635bc4809E
+            (&local_68);
   puVar7 = (undefined8 *)_Unwind_Resume(uVar6);
   return puVar7;
 }

@@ -4,7 +4,7 @@ long long uu_comm::LineReader::read_line::h3933b983d3202395(struct_0 *a0, unsign
     char v1;  // [sp-0x30]
     unsigned long long v3;  // r12
     unsigned int v4;  // ebp
-    unsigned long long v5;  // rax
+    unsigned long long v5;  // r14
     char v6;  // dl
     unsigned long long v7;  // rdi
     unsigned long long v8;  // rsi
@@ -19,8 +19,8 @@ long long uu_comm::LineReader::read_line::h3933b983d3202395(struct_0 *a0, unsign
     {
         v0 = std::io::stdio::Stdin::lock::h161a36d857331d7f(&a0->padding_8);
         v1 = v6 & 1;
-        v5 = _$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..BufRead$GT$::read_until::h22767f011618eb41(&v0, v4, a1);
-        core::ptr::drop_in_place$LT$std..io..stdio..StdinLock$GT$::h53bab959efd69a8e();
+        v5 = _$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..BufRead$GT$::read_until::h22767f011618eb41(&v0, v4);
+        core::ptr::drop_in_place$LT$std..io..stdio..StdinLock$GT$::h53bab959efd69a8e(v0, *((int *)&v1));
     }
     v7 = a1[1];
     v8 = a1[2];

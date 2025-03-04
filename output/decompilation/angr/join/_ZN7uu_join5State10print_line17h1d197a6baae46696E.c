@@ -1,10 +1,10 @@
-long long uu_join::State::print_line::h1d197a6baae46696(struct_0 *a0, unsigned long long a1, void* a2, struct_1 *a3)
+long long uu_join::State::print_line::h1d197a6baae46696(struct_1 *a0, unsigned long long a1, void* a2, struct_0 *a3)
 {
     unsigned long v0;  // [bp-0x28]
     char v1;  // [sp-0x21]
     unsigned long v3;  // rax
     unsigned long long v4;  // rax
-    unsigned long v5;  // r15
+    unsigned long long v5;  // r15
     unsigned long long v6;  // rax
 
     v0 = v3;

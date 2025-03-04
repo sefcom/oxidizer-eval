@@ -1,20 +1,20 @@
 fn uu_cat::write_fast(a0: &Option<Result<struct25, struct8>>, a1: u32) -> u64 {
-    let <0x4af950[is_3]|Stack bp-0x10030, 1 B>: i64;  // [bp-0x10030]
+    let <0x4af950[is_2]|Stack bp-0x10030, 1 B>: i64;  // [bp-0x10030]
     let v0: i64;  // [sp-0x10058]
     let v1: i64;  // [sp-0x10048]
     let v2: i64;  // [sp-0x10040]
     let v3: i64;  // [sp-0x10038]
-    let v4: Result<struct4, struct1>;  // [sp-0x10030], Other Possible Types: i96
+    let v4: Result<struct4, struct1>;  // [sp-0x10030]
     let v6: i64;  // [sp-0x2030]
     let v12: i64;  // rdx
 
     do {
         v6 = 0;
-    } while (&v6 != &<0x4af950[is_3]|Stack bp-0x10030, 1 B>);
+    } while (&v6 != &<0x4af950[is_2]|Stack bp-0x10030, 1 B>);
     v3 = std::io::stdio::stdout();
     v0 = std::io::stdio::Stderr::lock(&v3);
     v4 = uu_cat::splice::write_fast_using_splice(a1, &v0);
-    if v4 != 9223372036854775814 {
+    if v4 as i64 != 9223372036854775814 {
         return Some(struct25 {
             field_0: v8
             field_8: v9

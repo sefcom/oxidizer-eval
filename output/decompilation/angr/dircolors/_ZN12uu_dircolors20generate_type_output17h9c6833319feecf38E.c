@@ -3,7 +3,7 @@ long long uu_dircolors::generate_type_output::h9c6833319feecf38(struct_0 *a0, ch
     char v0;  // [bp-0x38]
     char v1;  // [bp-0x30]
     char v2;  // [bp-0x28]
-    char v3;  // [bp-0x20]
+    char v3;  // [sp-0x20]
     char v4;  // [bp-0x10]
 
     if (*(a1) != 2)

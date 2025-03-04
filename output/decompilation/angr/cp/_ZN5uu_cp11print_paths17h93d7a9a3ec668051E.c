@@ -1,9 +1,9 @@
 long long uu_cp::print_paths::h93d7a9a3ec668051(unsigned int a0, unsigned long a1, unsigned long a2, unsigned long a3, unsigned long a4)
 {
-    struct struct_0 **v0;  // [bp-0x100], Other Possible Types: unsigned long
+    struct struct_0 **v0;  // [sp-0x100], Other Possible Types: unsigned long
     unsigned long v1;  // [sp-0xf8], Other Possible Types: unsigned long long
     char v2;  // [bp-0xf0]
-    unsigned long v3;  // [bp-0xe0], Other Possible Types: unsigned long long
+    unsigned long v3;  // [bp-0xe0]
     unsigned long long v4;  // [sp-0xd8]
     struct struct_0 **v5;  // [sp-0xd0], Other Possible Types: struct struct_1 **
     unsigned long long v6;  // [sp-0xc8]
@@ -12,7 +12,7 @@ long long uu_cp::print_paths::h93d7a9a3ec668051(unsigned int a0, unsigned long a
     unsigned long long v9;  // [sp-0x88]
     char *v10;  // [sp-0x80]
     unsigned long long v11;  // [sp-0x78]
-    unsigned long v12;  // [sp-0x70], Other Possible Types: unsigned long long
+    unsigned long v12;  // [sp-0x70]
     unsigned long long v13;  // [sp-0x68]
     char v14;  // [bp-0x60]
     int v15;  // [sp-0x40]

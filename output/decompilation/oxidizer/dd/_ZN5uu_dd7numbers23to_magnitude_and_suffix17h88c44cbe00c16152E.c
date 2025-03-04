@@ -1,19 +1,19 @@
-fn uu_dd::numbers::to_magnitude_and_suffix(a0: u32, a1: u32, a2: u32, a3: u32) -> u64 {
+fn uu_dd::numbers::to_magnitude_and_suffix(a0: &struct24, a1: u32, a2: u32, a3: u32) -> u64 {
     let v0: u64;  // [sp-0x118]
     let v1: u64;  // [sp-0x110]
-    let v2: &u8;  // [sp-0x108], Other Possible Types: u64
+    let v2: &&struct_0;  // [sp-0x108]
     let v3: u64;  // [sp-0x100]
-    let v4: &u8;  // [sp-0xf8]
+    let v4: &u8;  // [sp-0xf8], Other Possible Types: &&struct_0
     let v5: u64;  // [sp-0xf0]
-    let v6: &u8;  // [sp-0xe8]
+    let v6: &&struct_1;  // [sp-0xe8]
     let v7: u64;  // [sp-0xe0]
-    let v8: u64;  // [sp-0xd8], Other Possible Types: i64
+    let v8: u64;  // [sp-0xd8], Other Possible Types: &u8
     let v9: u64;  // [sp-0xd0]
     let v10: &u8;  // [sp-0xc8]
     let v11: u64;  // [sp-0xc0]
-    let v12: u64;  // [sp-0xb8], Other Possible Types: void*, struct32
+    let v12: &&struct_0;  // [sp-0xb8], Other Possible Types: struct32, u64
     let v13: u64;  // [sp-0xb0]
-    let v14: &&struct_0;  // [sp-0xa8], Other Possible Types: u64
+    let v14: u64;  // [sp-0xa8], Other Possible Types: &&struct_1
     let v15: u64;  // [sp-0xa0]
     let v16: void*;  // [sp-0x98]
     let v17: u64;  // [sp-0x90]
@@ -29,9 +29,10 @@ fn uu_dd::numbers::to_magnitude_and_suffix(a0: u32, a1: u32, a2: u32, a3: u32) -
     let v28: u256;  // ymm1
     let v29: u256;  // ymm1
     let v30: u128;  // xmm1
+    let v31: &&struct_1;  // rsi
 
     v12 = uu_dd::numbers::SuffixType::base_and_suffix(a3, a1, a2);
-    v26 = *((&v12 as &char + 16) as &i128);
+    v26 = v12.field_16;
     v24 = v26;
     __floatuntidf(a1, a2);
     v0 = v27 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v26;
@@ -61,6 +62,7 @@ fn uu_dd::numbers::to_magnitude_and_suffix(a0: u32, a1: u32, a2: u32, a3: u32) -
         v7 = 2;
         v4 = &v8;
         v5 = 2;
+        v31 = &v2;
     } else {
         round(v0);
         v8 = (v0 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 & 0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000 | 0x4024000000000000) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v30;
@@ -73,7 +75,8 @@ fn uu_dd::numbers::to_magnitude_and_suffix(a0: u32, a1: u32, a2: u32, a3: u32) -
         v16 = 0;
         v14 = &v2;
         v15 = 2;
+        v31 = &v12;
     }
-    core::option::Option<T>::map_or_else();
+    core::option::Option<T>::map_or_else(a0, v31);
     return a0;
 }

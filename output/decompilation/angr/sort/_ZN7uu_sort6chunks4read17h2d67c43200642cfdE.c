@@ -1,4 +1,4 @@
-long long uu_sort::chunks::read::h2d67c43200642cfd(unsigned long long *a0, unsigned long long a1, struct_0 *a2, unsigned long long a3, unsigned long long a4, unsigned long long a5[3])
+long long uu_sort::chunks::read::h2d67c43200642cfd(unsigned long long *a0, unsigned long long a1, struct_0 *a2, unsigned long long a3, unsigned long long a4, unsigned long long a5[3], unsigned long long a6, unsigned long long *a7, unsigned int a8)
 {
     unsigned long long v0;  // [sp-0x180]
     int v1;  // [sp-0x178]
@@ -28,17 +28,15 @@ long long uu_sort::chunks::read::h2d67c43200642cfd(unsigned long long *a0, unsig
     unsigned long long v25;  // [sp-0x58]
     int v26;  // [sp-0x48]
     unsigned long long v27;  // [sp-0x38]
-    unsigned long long v28;  // [bp+0x8]
-    char v29;  // [bp+0x10]
-    char v30;  // [bp+0x18]
-    char v31;  // [bp+0x20]
-    unsigned long long v32;  // rbp
-    unsigned long long v34;  // rdx
-    char v35;  // bpl
+    char v28;  // [bp+0x20]
+    unsigned long long v29;  // rdx
+    unsigned long long v30;  // rbp
+    unsigned long long v31;  // rdx
+    char v32;  // bpl
+    unsigned long long v33;  // rsi
+    unsigned long long v34;  // rax
+    unsigned long long v35;  // rax
     unsigned long long v36;  // rsi
-    unsigned long long v37;  // rax
-    unsigned long long v38;  // rax
-    unsigned long long v39;  // rsi
 
     v4 = a2->field_10;
     *((uint128_t *)&v3) = a2->field_0;
@@ -48,18 +46,18 @@ long long uu_sort::chunks::read::h2d67c43200642cfd(unsigned long long *a0, unsig
     *((int128_t *)&v7) = *((int128_t *)&a2->field_28);
     v10 = (&a2->field_40)[1];
     *((int128_t *)&v9) = *((int128_t *)((char *)&a2->field_30 + 8));
-    v2 = a2->field_58;
+    v29 = a2->field_58;
+    v2 = v29;
     *((uint128_t *)&v1) = a2->field_48;
-    v32 = a5[2];
-    v2 = v2;
-    if (v2 < v32)
+    v30 = a5[2];
+    if (v2 < v30)
     {
-        alloc::vec::Vec$LT$T$C$A$GT$::resize::h8264c119ba4725ae(&v1, v32 + 0x2800, 0);
-        v2 = v2;
+        alloc::vec::Vec$LT$T$C$A$GT$::resize::h8264c119ba4725ae(&v1, v30 + 0x2800, 0);
+        v29 = v2;
     }
-    core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::copy_from_slice::hd9ca431368e04b79(::0x5595f0::_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$::index_mut::h4242e70a6429aee1(v32, (long long)(&v1)[8], v2, &g_6017e0), v34, a5[1], v32, &g_6017f8);
-    v0 = *((int *)&v30);
-    uu_sort::chunks::read_to_buffer::h99260db6365b1537(&v14, v28, *((long long *)*((long long *)&v29)), &v1, a3, a4, a5[2]);
+    core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::copy_from_slice::hd9ca431368e04b79(::0x5595f0::_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$::index_mut::h4242e70a6429aee1(v30, (long long)(&v1)[8], v29, &g_6017e0), v31, a5[1], v30, &g_6017f8);
+    v0 = a8;
+    uu_sort::chunks::read_to_buffer::h99260db6365b1537(&v14, a6, *(a7), &v1, a3, a4, a5[2]);
     if (*((long long *)&v14))
     {
         *((int128_t *)&a0) = *((int128_t *)&v15);
@@ -70,17 +68,17 @@ long long uu_sort::chunks::read::h2d67c43200642cfd(unsigned long long *a0, unsig
     }
     else
     {
-        v35 = v16;
+        v32 = v16;
         v11 = *((long long *)&v15);
         a5[2] = 0;
-        v36 = v2;
-        if (v11 > v36)
-            core::slice::index::slice_start_index_len_fail::hff2ebd3969f5a2ec(v11, v36, &g_601828); /* do not return */
-        v37 = (long long)(&v1)[8];
-        ::0x55ac00::alloc::vec::Vec$LT$T$C$A$GT$::append_elements::h40580542cdab00bd(a5, ::0x55a8c0::core::slice::iter::Iter$LT$T$GT$::make_slice::h57e6a10e070b3bc9(v37 + v11, v36 + v37), v34);
+        v33 = v2;
+        if (v11 > v33)
+            core::slice::index::slice_start_index_len_fail::hff2ebd3969f5a2ec(v11, v33, &g_601828); /* do not return */
+        v34 = (long long)(&v1)[8];
+        ::0x55ac00::alloc::vec::Vec$LT$T$C$A$GT$::append_elements::h40580542cdab00bd(a5, ::0x55a8c0::core::slice::iter::Iter$LT$T$GT$::make_slice::h57e6a10e070b3bc9(v34 + v11, v33 + v34), a2);
         if (!v11)
         {
-            *((char *)&a0[1]) = v35;
+            *((char *)&a0[1]) = v32;
             *(a0) = 0;
             ::0x55a180::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h026152d332835070(&v1);
             ::0x55a4e0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uu_sort..GeneralF64ParseResult$GT$$GT$::h9d2c36f5ae56d73c(&v9);
@@ -100,19 +98,19 @@ long long uu_sort::chunks::read::h2d67c43200642cfd(unsigned long long *a0, unsig
             v20 = v8;
             v21 = v9;
             v22 = v10;
-            v24 = &v30;
-            v25 = *((long long *)&v31);
+            v24 = &a8;
+            v25 = *((long long *)&v28);
             uu_sort::chunks::Chunk::try_new::he46abfb7fea210cb(&v12, &v26, &v14);
-            v38 = *((long long *)&v12);
-            v39 = *((long long *)&v13);
-            if (v38)
+            v35 = *((long long *)&v12);
+            v36 = *((long long *)&v13);
+            if (v35)
             {
-                *(a0) = v38;
-                a0[1] = v39;
+                *(a0) = v35;
+                a0[1] = v36;
                 return a0;
             }
-            core::result::Result$LT$T$C$E$GT$::unwrap::hd1d5e6f7e0663c01(std::sync::mpmc::Sender$LT$T$GT$::send::h6e2915accf477763(a1, v39, v34));
-            *((char *)&a0[1]) = v35;
+            core::result::Result$LT$T$C$E$GT$::unwrap::hd1d5e6f7e0663c01(std::sync::mpmc::Sender$LT$T$GT$::send::h6e2915accf477763(a1, v36, a2));
+            *((char *)&a0[1]) = v32;
             *(a0) = 0;
             return a0;
         }

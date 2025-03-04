@@ -1,4 +1,4 @@
-long long uu_ls::calculate_padding_collection::h885b95310ac7cc45(unsigned long long a0[9], unsigned long a1, unsigned long a2, struct_1 *a3, unsigned long long a4)
+long long uu_ls::calculate_padding_collection::h885b95310ac7cc45(unsigned long long a0[9], unsigned long a1, unsigned long a2, struct_2 *a3, unsigned long long a4)
 {
     char v0;  // [sp-0xed]
     char v1;  // [sp-0xec]
@@ -23,7 +23,7 @@ long long uu_ls::calculate_padding_collection::h885b95310ac7cc45(unsigned long l
     char v20;  // [bp-0x58]
     char v21;  // [bp-0x50]
     char v22;  // [bp-0x48]
-    unsigned long v23;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v23;  // [sp-0x40]
     unsigned long long v24;  // [sp-0x38]
     unsigned long long v26;  // r12
     unsigned long long v27;  // rax
@@ -32,7 +32,7 @@ long long uu_ls::calculate_padding_collection::h885b95310ac7cc45(unsigned long l
     unsigned long long v30;  // r15
     struct_0 *v31;  // rax
     struct_0 *v32;  // r12
-    struct_2 *v33;  // rax
+    struct_1 *v33;  // rax
     struct_0 *v34;  // rax
     unsigned int v36[25];  // rax
 
@@ -93,7 +93,6 @@ LABEL_52d2f2:
                     } while ((v32 = v31, v33 = uu_ls::PathData::get_metadata::hc7a96a0547653f90(v31, a4), !v33));
                     v5 = v28;
                     uu_ls::display_inode::h3361fe679ac3feaa(v17, *((long long *)&v33->field_28));
-                    v30 = v30;
                     ::0x51a6c0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb27a9c8978a01f77(v17);
                     v28 = ::0x519cb0::core::cmp::max_by::h7ee1a79e2ed707c0(*((long long *)&v19), v5);
                     if (!v3)
@@ -102,9 +101,10 @@ LABEL_52d2f2:
                 v36 = uu_ls::PathData::get_metadata::hc7a96a0547653f90(v32, a4);
                 if (v36)
                 {
-                    v28 = v28;
+                    v5 = v28;
                     uu_ls::display_size::hba9b1cbdd7c6b199(v17, uu_ls::get_block_size::h2a7c975a8304f17e(v36[14], *((long long *)&v36[24]), v16, v1), v1);
                     ::0x51a6c0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb27a9c8978a01f77(v17);
+                    v28 = v5;
                     v30 = ::0x519cb0::core::cmp::max_by::h7ee1a79e2ed707c0(*((long long *)&v19), v30);
                 }
             } while (v2 != 1);

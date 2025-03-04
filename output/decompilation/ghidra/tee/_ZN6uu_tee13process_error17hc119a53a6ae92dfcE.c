@@ -1,5 +1,6 @@
-undefined8 __rustcall
-uu_tee::process_error(byte *param_1,undefined8 param_2,long param_3,long *param_4)
+undefined8
+_ZN6uu_tee13process_error17hc119a53a6ae92dfcE
+          (byte *param_1,undefined8 param_2,long param_3,long *param_4)
 
 {
   char cVar1;
@@ -26,24 +27,26 @@ uu_tee::process_error(byte *param_1,undefined8 param_2,long param_3,long *param_
     uVar2 = (*(code *)(&DAT_00113afc + *(int *)(&DAT_00113afc + (ulong)*param_1 * 4)))();
     return uVar2;
   }
-  cVar1 = std::io::error::Error::kind(param_2);
+  cVar1 = _ZN3std2io5error5Error4kind17hb2ff5fa058639b3dE(param_2);
   if (cVar1 != '\v') {
-    local_40 = uucore::util_name();
-    local_58 = _<&T_as_core::fmt::Display>::fmt;
+    local_40 = _ZN6uucore9util_name17h60d842bf27b05e82E();
+    local_58 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h845947ade0b20afcE;
     local_90 = &DAT_0021f9a8;
     local_88 = 2;
     local_70 = 0;
     local_78 = 1;
     local_80 = &local_60;
     local_60 = (undefined8 *)local_40;
-    std::io::stdio::_eprint(&local_90);
+    _ZN3std2io5stdio7_eprint17hcdfeec148c7134f7E(&local_90);
     local_40._8_8_ = *(undefined8 *)(param_3 + 8);
     uStack_30 = *(undefined4 *)(param_3 + 0x10);
     uStack_2c = *(undefined4 *)(param_3 + 0x14);
     local_40._0_8_ = 0;
     local_28 = 0;
-    local_58 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
-    local_48 = _<std::io::error::Error_as_core::fmt::Display>::fmt;
+    local_58 = 
+    _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
+    local_48 = 
+    _ZN60__LT_std__io__error__Error_u20_as_u20_core__fmt__Display_GT_3fmt17h59fe8285afbb4739E;
     local_90 = &DAT_0021f9c8;
     local_88 = 3;
     local_70 = 0;
@@ -51,10 +54,10 @@ uu_tee::process_error(byte *param_1,undefined8 param_2,long param_3,long *param_
     local_80 = &local_60;
     local_60 = (undefined8 *)local_40;
     local_50 = (undefined *)&local_98;
-    std::io::stdio::_eprint(&local_90);
+    _ZN3std2io5stdio7_eprint17hcdfeec148c7134f7E(&local_90);
     *param_4 = *param_4 + 1;
     param_2 = local_98;
   }
-  core::ptr::drop_in_place<std::io::error::Error>(param_2);
+  _ZN4core3ptr42drop_in_place_LT_std__io__error__Error_GT_17hb33ceb02c1cf9a1dE(param_2);
   return 0;
 }

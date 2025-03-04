@@ -1,6 +1,6 @@
-long long uu_env::variable_parser::VariableParser::parse_unbraced_variable_name::hb6cd479313718b9d(struct_1 *a0, struct_0 *a1)
+long long uu_env::variable_parser::VariableParser::parse_unbraced_variable_name::hb6cd479313718b9d(struct_0 *a0, struct_1 *a1)
 {
-    char v0;  // [bp-0x48], Other Possible Types: unsigned long long
+    char v0;  // [bp-0x48], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0x40]
     char v2;  // [bp-0x38]
     char v3;  // [bp-0x28]
@@ -30,7 +30,7 @@ long long uu_env::variable_parser::VariableParser::parse_unbraced_variable_name:
             if (*((int *)&v0) != 8)
             {
                 a0->field_20 = *((long long *)&v3);
-                vvar_159{reg 224} = *((int128_t *)&v0);
+                vvar_157{reg 224} = *((int128_t *)&v0);
                 *((int128_t *)&a0->field_10) = *((int128_t *)&v2);
                 *((void*)&a0->field_0) = v9;
                 return v8;

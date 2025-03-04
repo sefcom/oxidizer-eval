@@ -1,5 +1,5 @@
-void __rustcall
-uu_env::split_iterator::SplitIterator::state_comment(undefined8 *param_1,long param_2)
+void _ZN6uu_env14split_iterator13SplitIterator13state_comment17ha611e5f8f3a5f309E
+               (undefined8 *param_1,long param_2)
 
 {
   int iVar1;
@@ -11,9 +11,10 @@ uu_env::split_iterator::SplitIterator::state_comment(undefined8 *param_1,long pa
   undefined8 local_28;
   
   while( true ) {
-    iVar1 = get_current_char(param_2);
+    iVar1 = _ZN6uu_env14split_iterator13SplitIterator16get_current_char17h5ca55267f11846dcE(param_2)
+    ;
     if (iVar1 == 10) {
-      skip_one(&local_48,param_2);
+      _ZN6uu_env14split_iterator13SplitIterator8skip_one17hcd63dec953ae1fd1E(&local_48,param_2);
       if (local_48 == 8) {
         *(undefined4 *)param_1 = 8;
       }
@@ -27,7 +28,8 @@ uu_env::split_iterator::SplitIterator::state_comment(undefined8 *param_1,long pa
       return;
     }
     if (iVar1 == 0x110000) break;
-    string_parser::StringParser::skip_until_char_or_end(param_2 + 0x18,10);
+    _ZN6uu_env13string_parser12StringParser22skip_until_char_or_end17h68bc5015a87f77faE
+              (param_2 + 0x18,10);
   }
   *(undefined4 *)param_1 = 6;
   return;

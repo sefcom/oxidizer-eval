@@ -1,6 +1,7 @@
-undefined8 * __rustcall
-uu_join::State::new(undefined8 *param_1,undefined param_2,undefined8 param_3,undefined8 param_4,
-                   undefined8 param_5,undefined8 param_6,undefined param_7,undefined param_8)
+undefined8 *
+_ZN7uu_join5State3new17h1e047ff86b763ae6E
+          (undefined8 *param_1,undefined param_2,undefined8 param_3,undefined8 param_4,
+          undefined8 param_5,undefined8 param_6,undefined param_7,undefined param_8)
 
 {
   char cVar1;
@@ -12,25 +13,31 @@ uu_join::State::new(undefined8 *param_1,undefined param_2,undefined8 param_3,und
   undefined4 uStack_64;
   undefined local_60 [48];
   
-  cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(param_3,param_4,"-",1);
+  cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hab9f309aad09d5a2E
+                    (param_3,param_4,"-",1);
   if (cVar1 == '\0') {
-    std::fs::File::open(local_60,param_3,param_4);
-    _<core::result::Result<T,std::io::error::Error>as_uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn_uucore::mods::error::UError>>>>
-    ::map_err_context(&local_70,local_60,param_3,param_4);
+    _ZN3std2fs4File4open17h5119db07cecb01a2E(local_60,param_3,param_4);
+    _ZN201__LT_core__result__Result_LT_T_C_std__io__error__Error_GT__u20_as_u20_uucore__mods__error__FromIo_LT_core__result__Result_LT_T_C_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT__GT__GT_15map_err_context17h7f1f9b7a34a3754bE
+              (&local_70,local_60,param_3,param_4);
     if (local_70 != 0) {
       param_1[1] = local_70;
       param_1[2] = CONCAT44(uStack_64,local_68);
       *param_1 = 0x8000000000000000;
       return param_1;
     }
-    std::io::buffered::bufreader::BufReader<R>::with_capacity(local_60,0x2000,local_68);
-    uVar2 = ::alloc::boxed::Box<T>::new(local_60);
-    ppuVar3 = &PTR_drop_in_place<std_io_buffered_bufreader_BufReader<std_fs_File>>_00235340;
+    _ZN3std2io8buffered9bufreader18BufReader_LT_R_GT_13with_capacity17hde7863a5cb2c8fe9E
+              (local_60,0x2000,local_68);
+    uVar2 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h27c807e2bc113c31E(local_60);
+    ppuVar3 = &
+              PTR__ZN4core3ptr81drop_in_place_LT_std__io__buffered__bufreader__BufReader_LT_std__fs__File_GT__GT_17hbb47e49cdc346051E_00235340
+    ;
   }
   else {
-    auVar4 = std::io::stdio::Stdin::lock(param_5);
-    uVar2 = ::alloc::boxed::Box<T>::new(auVar4._0_8_,auVar4._8_4_ & 1);
-    ppuVar3 = &PTR_drop_in_place<std_io_stdio_StdinLock>_002353c8;
+    auVar4 = _ZN3std2io5stdio5Stdin4lock17h161a36d857331d7fE(param_5);
+    uVar2 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hf2d7d209ce9381d4E(auVar4._0_8_,auVar4._8_4_ & 1);
+    ppuVar3 = &
+              PTR__ZN4core3ptr46drop_in_place_LT_std__io__stdio__StdinLock_GT_17h0f85b25f7f9a1e6fE_002353c8
+    ;
   }
   *param_1 = 0;
   param_1[1] = 8;

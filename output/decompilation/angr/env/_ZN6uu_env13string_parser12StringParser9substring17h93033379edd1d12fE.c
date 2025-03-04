@@ -1,6 +1,6 @@
 long long uu_env::string_parser::StringParser::substring::h93033379edd1d12f(unsigned long long a0[2], unsigned long long a1[2])
 {
-    unsigned long v0;  // [sp-0x80], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x80]
     unsigned long long v1;  // [sp-0x78]
     unsigned long long v2;  // [sp-0x70]
     int v3;  // [sp-0x68]

@@ -1,5 +1,5 @@
-undefined8 * __rustcall
-uu_base32::base_common::parse_base_cmd_args
+undefined8 *
+_ZN9uu_base3211base_common19parse_base_cmd_args17h94218dbfb2ea4ba6E
           (undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
           undefined8 param_5,undefined8 param_6,undefined8 param_7)
 
@@ -29,11 +29,14 @@ uu_base32::base_common::parse_base_cmd_args
   undefined8 local_2f0;
   undefined local_2e8 [712];
   
-  (*(code *)PTR_base_app_0024df48)(local_2e8,param_4,param_5,param_6,param_7);
-  clap_builder::builder::command::Command::try_get_matches_from
+  (*(code *)PTR__ZN9uu_base3211base_common8base_app17ha21d2a66676032efE_0024df48)
+            (local_2e8,param_4,param_5,param_6,param_7);
+  _ZN12clap_builder7builder7command7Command20try_get_matches_from17hd471734dc146ea72E
             (&local_320,local_2e8,param_2,param_3);
   if (local_320 == -0x8000000000000000) {
-    auVar1 = (*(code *)PTR_from_0024df50)();
+    auVar1 = (*(code *)
+               PTR__ZN6uucore4mods5error144__LT_impl_u20_core__convert__From_LT_clap_builder__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7fb9d0425989847aE_0024df50
+             )();
     *(undefined (*) [16])(param_1 + 1) = auVar1;
     *param_1 = 2;
   }
@@ -50,8 +53,10 @@ uu_base32::base_common::parse_base_cmd_args
     local_358 = local_320;
     local_350 = local_318;
                     /* try { // try from 00178d43 to 00178d4e has its CatchHandler @ 00178d69 */
-    (*(code *)PTR_from_0024df58)(param_1,&local_358);
-    core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(&local_358);
+    (*(code *)PTR__ZN9uu_base3211base_common6Config4from17h8f03cd9b16c9529cE_0024df58)
+              (param_1,&local_358);
+    _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17hcb9c8c91441f9e13E
+              (&local_358);
   }
   return param_1;
 }

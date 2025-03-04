@@ -47,5 +47,5 @@ fn uu_df::table::RowFormatter::get_values(a0: &struct24, a1: u64) -> int {
     v8 = v20 + 192;
     v7 = v20 + 184;
     v6 = v20 + 80;
-    goto *((4283040 + *(vvar_29{reg 16} as &i8) * 4) as &i32) + 4283040;
+    goto *((4283040 + *(vvar_27{reg 16} as &i8) * 4) as &i32) + 4283040;
 }

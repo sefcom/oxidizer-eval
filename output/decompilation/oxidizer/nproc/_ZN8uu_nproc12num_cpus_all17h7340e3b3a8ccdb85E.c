@@ -5,11 +5,8 @@ fn uu_nproc::num_cpus_all() -> u64 {
 
     v0 = v2;
     v3 = sysconf(83);
-    if v3 == 1 {
-        return uu_nproc::available_parallelism();
-    } else if v3 <= 1 {
-        return 1;
-    } else {
-        return v3;
+    if v3 != 1 {
+        return (v3 > 1 ? v3 : 1);
     }
+    return uu_nproc::available_parallelism();
 }

@@ -1,5 +1,6 @@
-undefined8 * __rustcall
-uu_ls::colors::StyleManager::apply_normal(undefined8 *param_1,undefined8 param_2)
+undefined8 *
+_ZN5uu_ls6colors12StyleManager12apply_normal17h404909a10cb94e2bE
+          (undefined8 *param_1,undefined8 param_2)
 
 {
   undefined8 *puVar1;
@@ -13,7 +14,8 @@ uu_ls::colors::StyleManager::apply_normal(undefined8 *param_1,undefined8 param_2
   undefined4 uStack_1c;
   undefined5 uStack_18;
   
-  puVar1 = (undefined8 *)get_normal_style(param_2);
+  puVar1 = (undefined8 *)
+           _ZN5uu_ls6colors12StyleManager16get_normal_style17hc92a465b83f2ab18E(param_2);
   if (puVar1 == (undefined8 *)0x0) {
     *param_1 = 0;
     param_1[1] = 1;
@@ -29,7 +31,7 @@ uu_ls::colors::StyleManager::apply_normal(undefined8 *param_1,undefined8 param_2
     uStack_24 = uStack_44;
     uStack_20 = uStack_40;
     uStack_1c = uStack_3c;
-    get_style_code(param_1,param_2,&local_28);
+    _ZN5uu_ls6colors12StyleManager14get_style_code17h3f5da10be94133b8E(param_1,param_2,&local_28);
   }
   return param_1;
 }

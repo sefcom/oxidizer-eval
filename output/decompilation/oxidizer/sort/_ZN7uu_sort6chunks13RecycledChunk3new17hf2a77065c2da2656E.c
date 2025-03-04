@@ -11,12 +11,12 @@ fn uu_sort::chunks::RecycledChunk::new(a0: &struct120, a1: u64) -> int {
     let v9: i64;  // [sp-0x38]
     let v10: i64;  // [sp-0x30]
     let v11: i64;  // [sp-0x28]
-    let v12: i192;  // [sp-0x20], Other Possible Types: struct24
-    let v14: i128;  // xmm0
-    let v15: i128;  // xmm0
-    let v16: i128;  // xmm0
-    let v17: i128;  // xmm0
-    let v18: i128;  // xmm0
+    let v12: struct24;  // [sp-0x20]
+    let v14: iNone;  // xmm0
+    let v15: iNone;  // xmm0
+    let v16: iNone;  // xmm0
+    let v17: iNone;  // xmm0
+    let v18: iNone;  // xmm0
 
     v0 = 0;
     v1 = 8;
@@ -31,11 +31,11 @@ fn uu_sort::chunks::RecycledChunk::new(a0: &struct120, a1: u64) -> int {
     v10 = 8;
     v11 = 0;
     v12 = <u8 as alloc::vec::spec_from_elem::SpecFromElem>::from_elem(a1);
-    v14 = v0;
-    v15 = v3;
-    v16 = v6;
-    v17 = v9;
-    v18 = v12;
+    v14 = *(&v0 as &i128);
+    v15 = *(&v3 as &i128);
+    v16 = *(&v6 as &i128);
+    v17 = *(&v9 as &i128);
+    v18 = *(&v12.field_0 as &i128);
     return struct120 {
         field_0: v14
         field_16: v2
@@ -46,6 +46,6 @@ fn uu_sort::chunks::RecycledChunk::new(a0: &struct120, a1: u64) -> int {
         field_72: v17
         field_88: v11
         field_96: v18
-        field_112: *((&v12 as &char + 16) as &i64)
+        field_112: v12.field_16
     };
 }

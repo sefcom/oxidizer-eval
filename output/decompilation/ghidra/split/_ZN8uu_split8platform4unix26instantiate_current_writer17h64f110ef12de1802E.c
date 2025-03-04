@@ -1,5 +1,5 @@
-undefined8 * __rustcall
-uu_split::platform::unix::instantiate_current_writer
+undefined8 *
+_ZN8uu_split8platform4unix26instantiate_current_writer17h64f110ef12de1802E
           (undefined8 *param_1,long *param_2,undefined8 param_3,undefined8 param_4,char param_5)
 
 {
@@ -40,9 +40,10 @@ uu_split::platform::unix::instantiate_current_writer
       uStack_54 = 0;
       uStack_53 = 0;
       uStack_56 = 1;
-      std::fs::OpenOptions::open(&local_78,&local_60,param_3,param_4);
+      _ZN3std2fs11OpenOptions4open17h4e39116029faf268E(&local_78,&local_60,param_3,param_4);
       if (local_78 == 0) goto LAB_001d606c;
-      uVar1 = instantiate_current_writer::___closure__(&local_40,CONCAT44(uStack_6c,uStack_70));
+      uVar1 = _ZN8uu_split8platform4unix26instantiate_current_writer28__u7b__u7b_closure_u7d__u7d_17hab48b66e59ddb53bE
+                        (&local_40,CONCAT44(uStack_6c,uStack_70));
     }
     else {
       local_60 = 0x1b600000000;
@@ -52,21 +53,24 @@ uu_split::platform::unix::instantiate_current_writer
       uStack_57 = 1;
       uStack_54 = 1;
       uStack_55 = 1;
-      std::fs::OpenOptions::open(&local_78,&local_60,param_3,param_4);
+      _ZN3std2fs11OpenOptions4open17h4e39116029faf268E(&local_78,&local_60,param_3,param_4);
       if (local_78 == 0) {
 LAB_001d606c:
-        uVar1 = ::alloc::boxed::Box<T>::new(uStack_74);
-        ppuVar2 = &PTR_drop_in_place<std_fs_File>_00248d80;
+        uVar1 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h8fc4b41669740c9dE(uStack_74);
+        ppuVar2 = &PTR__ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17hc63c21dac960bcdfE_00248d80
+        ;
         goto LAB_001d607c;
       }
-      uVar1 = instantiate_current_writer::___closure__(&local_40,CONCAT44(uStack_6c,uStack_70));
+      uVar1 = _ZN8uu_split8platform4unix26instantiate_current_writer28__u7b__u7b_closure_u7d__u7d_17hbae22fb731dd8eddE
+                        (&local_40,CONCAT44(uStack_6c,uStack_70));
     }
 LAB_001d6030:
     param_1[1] = uVar1;
     *param_1 = 0x8000000000000000;
   }
   else {
-    FilterWriter::new(&local_60,param_2[1],param_2[2],param_3,param_4);
+    _ZN8uu_split8platform4unix12FilterWriter3new17h45813eca9ccac0a5E
+              (&local_60,param_2[1],param_2[2],param_3,param_4);
     if ((int)local_60 != 0) {
       uVar1 = CONCAT26(uStack_52,
                        CONCAT15(uStack_53,
@@ -85,10 +89,13 @@ LAB_001d6030:
     uStack_1c = uStack_4c;
     uStack_18 = uStack_48;
     uStack_14 = uStack_44;
-    uVar1 = ::alloc::boxed::Box<T>::new(local_2c);
-    ppuVar2 = &PTR_drop_in_place<uu_split_platform_unix_FilterWriter>_00248dd0;
+    uVar1 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hf533c4985f354361E(local_2c);
+    ppuVar2 = &
+              PTR__ZN4core3ptr59drop_in_place_LT_uu_split__platform__unix__FilterWriter_GT_17h7a9f3cb54b117423E_00248dd0
+    ;
 LAB_001d607c:
-    std::io::buffered::bufwriter::BufWriter<W>::with_capacity(param_1,0x2000,uVar1,ppuVar2);
+    _ZN3std2io8buffered9bufwriter18BufWriter_LT_W_GT_13with_capacity17h1c3d443048ae43d7E
+              (param_1,0x2000,uVar1,ppuVar2);
   }
   return param_1;
 }

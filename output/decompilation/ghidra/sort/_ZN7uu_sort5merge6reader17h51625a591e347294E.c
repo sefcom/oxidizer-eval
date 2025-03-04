@@ -1,6 +1,5 @@
-long __rustcall
-uu_sort::merge::reader
-          (undefined8 param_1,long param_2,ulong param_3,undefined8 param_4,undefined param_5)
+long _ZN7uu_sort5merge6reader17h51625a591e347294E
+               (undefined8 param_1,long param_2,ulong param_3,undefined8 param_4,undefined param_5)
 
 {
   long *plVar1;
@@ -83,7 +82,8 @@ uu_sort::merge::reader
   
   local_1a8 = param_1;
   local_1a0 = param_4;
-  _<std::sync::mpsc::Iter<T>as_core::iter::traits::iterator::Iterator>::next(&local_b0,&local_1a8);
+  _ZN89__LT_std__sync__mpsc__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h8c1c43cf00029e13E
+            (&local_b0,&local_1a8);
   if (CONCAT44(uStack_a4,local_a8) != -0x8000000000000000) {
     do {
       local_b8 = local_38;
@@ -112,17 +112,20 @@ uu_sort::merge::reader
       if (param_3 <= local_b0) {
                     /* try { // try from 0023298a to 00232999 has its CatchHandler @ 002329c5 */
                     /* WARNING: Subroutine does not return */
-        core::panicking::panic_bounds_check(local_b0,param_3,&PTR_DAT_00300408);
+        _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E
+                  (local_b0,param_3,&PTR_DAT_00300408);
       }
       if (*(int *)(param_2 + local_b0 * 0x48) == 3) {
-        core::ptr::drop_in_place<uu_sort::chunks::RecycledChunk>(&local_128);
+        _ZN4core3ptr51drop_in_place_LT_uu_sort__chunks__RecycledChunk_GT_17h27a074d6bbea78e7E
+                  (&local_128);
       }
       else {
         plVar1 = (long *)(param_2 + local_b0 * 0x48);
-        uVar6 = _<uu_sort::merge::PlainTmpMergeInput_as_uu_sort::merge::MergeInput>::as_read
+        uVar6 = _ZN81__LT_uu_sort__merge__PlainTmpMergeInput_u20_as_u20_uu_sort__merge__MergeInput_GT_7as_read17hc6f60a099c87a3aaE
                           (plVar1 + 2);
-        chunks::read(&local_198,plVar1,&local_a8,0,&local_1a9,plVar1 + 6,uVar6,&local_1a9,param_5,
-                     local_1a0);
+        _ZN7uu_sort6chunks4read17h83fa724a03d73d23E
+                  (&local_198,plVar1,&local_a8,0,&local_1a9,plVar1 + 6,uVar6,&local_1a9,param_5,
+                   local_1a0);
         if (local_198 != 0) {
           return local_198;
         }
@@ -130,9 +133,10 @@ uu_sort::merge::reader
           lVar2 = *plVar1;
           *plVar1 = 3;
           if (lVar2 == 3) {
-            uVar6 = core::option::unwrap_failed(&PTR_DAT_00300420);
+            uVar6 = _ZN4core6option13unwrap_failed17h0e11329e76906eaaE(&PTR_DAT_00300420);
                     /* catch() { ... } // from try @ 00232950 with catch @ 002329a7 */
-            core::ptr::drop_in_place<uu_sort::merge::PlainTmpMergeInput>(&local_148);
+            _ZN4core3ptr55drop_in_place_LT_uu_sort__merge__PlainTmpMergeInput_GT_17hbdd2ab16c964fb99E
+                      (&local_148);
                     /* WARNING: Subroutine does not return */
             _Unwind_Resume(uVar6);
           }
@@ -167,18 +171,20 @@ uu_sort::merge::reader
           uStack_178 = lVar5;
           uStack_130 = local_170;
           uStack_12c = uStack_16c;
-          core::ptr::drop_in_place<std::sync::mpsc::SyncSender<uu_sort::chunks::Chunk>>(&local_198);
+          _ZN4core3ptr78drop_in_place_LT_std__sync__mpsc__SyncSender_LT_uu_sort__chunks__Chunk_GT__GT_17h65b4bf175f2f49afE
+                    (&local_198);
                     /* try { // try from 00232950 to 00232959 has its CatchHandler @ 002329a7 */
-          core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&uStack_168);
+          _ZN4core3ptr46drop_in_place_LT_alloc__vec__Vec_LT_u8_GT__GT_17h026152d332835070E
+                    (&uStack_168);
           uStack_188 = CONCAT44(uStack_134,local_138);
           local_180 = CONCAT44(uStack_12c,uStack_130);
           local_198 = CONCAT44(uStack_144,local_148);
           uStack_190 = CONCAT44(uStack_13c,uStack_140);
-          _<uu_sort::merge::PlainTmpMergeInput_as_uu_sort::merge::MergeInput>::finished_reading
+          _ZN81__LT_uu_sort__merge__PlainTmpMergeInput_u20_as_u20_uu_sort__merge__MergeInput_GT_16finished_reading17h15f37bc70ab25a56E
                     (&local_198);
         }
       }
-      _<std::sync::mpsc::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+      _ZN89__LT_std__sync__mpsc__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h8c1c43cf00029e13E
                 (&local_b0,&local_1a8);
     } while (CONCAT44(uStack_a4,local_a8) != -0x8000000000000000);
   }

@@ -9,9 +9,9 @@ long long uu_dd::Output::new_fifo::h5805a896b59d1442(struct_1 *a0, unsigned long
     char v6;  // [bp-0x34]
     char v7;  // [bp-0x30]
     unsigned long long v9;  // rdx
-    unsigned int v12;  // eax
-    unsigned int v14;  // eax
-    unsigned long v15;  // rdx
+    unsigned int v11;  // eax
+    unsigned int v13;  // eax
+    unsigned long v14;  // rdx
 
     if (a3->field_88)
     {
@@ -19,7 +19,7 @@ long long uu_dd::Output::new_fifo::h5805a896b59d1442(struct_1 *a0, unsigned long
         if (*((int *)&v5))
         {
             a0->field_8 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(*((long long *)&v7));
-            a0->field_10 = v15;
+            a0->field_10 = v14;
             a0->field_0 = 4;
             return a0;
         }
@@ -41,18 +41,19 @@ long long uu_dd::Output::new_fifo::h5805a896b59d1442(struct_1 *a0, unsigned long
         v3 = a3->field_92 ^ 1;
         v4 = a3->field_91;
         v2 = a3->field_96;
-        v0 = v12;
+        v11 = uu_dd::make_linux_oflags::hc5c67f9cb15d8524(&a3->field_96);
+        v0 = v11;
         std::fs::OpenOptions::open::h1ecb7e9f905cf1c8(&v5, &v0, a1, a2);
         if (*((int *)&v5))
         {
             a0->field_8 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(*((long long *)&v7));
-            a0->field_10 = v15;
+            a0->field_10 = v14;
             a0->field_0 = 4;
             return a0;
         }
-        v14 = *((int *)&v6);
+        v13 = *((int *)&v6);
         a0->field_0 = 2;
-        a0->field_4 = v14;
+        a0->field_4 = v13;
     }
     else
     {

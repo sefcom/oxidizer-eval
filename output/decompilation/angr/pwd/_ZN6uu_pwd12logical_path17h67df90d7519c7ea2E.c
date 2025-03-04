@@ -23,7 +23,7 @@ long long uu_pwd::logical_path::h67df90d7519c7ea2(struct_0 *a0)
     std::env::current_dir::h8e5fbaefdf378c8c(a0);
     if (v0 != 0x8000000000000000)
     {
-        core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h5f81ac5c3a3e7dd1();
+        core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h5f81ac5c3a3e7dd1(&v0);
         return a0;
     }
     return a0;

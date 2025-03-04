@@ -1,5 +1,5 @@
-void __rustcall
-uu_touch::parse_date(undefined8 *param_1,undefined8 param_2,undefined *param_3,long param_4)
+void _ZN8uu_touch10parse_date17h59fdcf28d83a7f45E
+               (undefined8 *param_1,undefined8 param_2,undefined *param_3,long param_4)
 
 {
   ulong uVar1;
@@ -25,7 +25,7 @@ uu_touch::parse_date(undefined8 *param_1,undefined8 param_2,undefined *param_3,l
   undefined8 local_48;
   undefined local_40 [16];
   
-  chrono::naive::datetime::NaiveDateTime::parse_from_str
+  _ZN6chrono5naive8datetime13NaiveDateTime14parse_from_str17hd1f2c37615fc2a8cE
             (local_64,param_3,param_4,&DAT_001752c8,0x14);
   if (local_64[0] == 0) {
     local_c0 = &DAT_001752dc;
@@ -41,71 +41,78 @@ uu_touch::parse_date(undefined8 *param_1,undefined8 param_2,undefined *param_3,l
     local_70 = param_2;
     do {
                     /* try { // try from 002c3460 to 002c347e has its CatchHandler @ 002c3644 */
-      auVar5 = _<core::array::iter::IntoIter<T,_>as_core::iter::traits::iterator::Iterator>::next
+      auVar5 = _ZN99__LT_core__array__iter__IntoIter_LT_T_C___GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h72940ebfc6d6072eE
                          (&local_c0);
       if (auVar5._0_8_ == 0) {
-        core::ptr::drop_in_place<core::array::iter::IntoIter<&str,4_usize>>(&local_c0);
-        uVar1 = chrono::naive::date::NaiveDate::parse_from_str(param_3,param_4,&DAT_00166f40,8);
+        _ZN4core3ptr73drop_in_place_LT_core__array__iter__IntoIter_LT__RF_str_C_4_usize_GT__GT_17he66c702aa3ce8ef4E
+                  (&local_c0);
+        uVar1 = _ZN6chrono5naive4date9NaiveDate14parse_from_str17hb11b16b6a593980dE
+                          (param_3,param_4,&DAT_00166f40,8);
         if ((uVar1 & 1) == 0) {
           local_4c = (undefined4)(uVar1 >> 0x20);
           local_48 = 0;
-          _<chrono::offset::local::Local_as_chrono::offset::TimeZone>::offset_from_local_datetime
+          _ZN73__LT_chrono__offset__local__Local_u20_as_u20_chrono__offset__TimeZone_GT_26offset_from_local_datetime17h0fa0613822fc0925E
                     (local_40,1,&local_4c);
-          chrono::offset::LocalResult<T>::and_then(&local_c0,local_40,&local_4c);
-          chrono::offset::LocalResult<T>::unwrap(local_40,&local_c0,&PTR_DAT_00410ee8);
-          auVar6 = datetime_to_filetime(local_40);
+          _ZN6chrono6offset20LocalResult_LT_T_GT_8and_then17h38ad213f398289fdE
+                    (&local_c0,local_40,&local_4c);
+          _ZN6chrono6offset20LocalResult_LT_T_GT_6unwrap17h8b21848d5a0bbe28E
+                    (local_40,&local_c0,&PTR_DAT_00410ee8);
+          auVar6 = _ZN8uu_touch20datetime_to_filetime17hee2fe932dd2f3a25E(local_40);
           goto LAB_002c33bc;
         }
         local_b8 = param_3 + param_4;
         local_c0 = param_3;
-        pcVar2 = (char *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::
-                         next(&local_c0);
+        pcVar2 = (char *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h3fb6acca9c1eba45E
+                                   (&local_c0);
         if ((pcVar2 != (char *)0x0) && (*pcVar2 == '@')) {
-          lVar3 = core::str::traits::
-                  _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::RangeFrom<usize>>
-                  ::get(1,param_3,param_4);
+          lVar3 = _ZN4core3str6traits112__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeFrom_LT_usize_GT__GT_3get17hccefea64a1916a27E
+                            (1,param_3,param_4);
           if (lVar3 == 0) {
-            uVar4 = core::str::slice_error_fail(param_3,param_4,1,param_4,&PTR_DAT_00410f00);
+            uVar4 = _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE
+                              (param_3,param_4,1,param_4,&PTR_DAT_00410f00);
                     /* catch() { ... } // from try @ 002c3460 with catch @ 002c3644 */
                     /* try { // try from 002c3647 to 002c3650 has its CatchHandler @ 002c3659 */
-            core::ptr::drop_in_place<core::array::iter::IntoIter<&str,4_usize>>(&local_c0);
+            _ZN4core3ptr73drop_in_place_LT_core__array__iter__IntoIter_LT__RF_str_C_4_usize_GT__GT_17he66c702aa3ce8ef4E
+                      (&local_c0);
             _Unwind_Resume(uVar4);
             return;
           }
-          core::num::_<impl_core::str::traits::FromStr_for_i64>::from_str(&local_c0,lVar3);
+          _ZN4core3num60__LT_impl_u20_core__str__traits__FromStr_u20_for_u20_i64_GT_8from_str17hb0cdd6b069f41ab1E
+                    (&local_c0,lVar3);
           if ((char)local_c0 == '\0') {
             param_1[1] = local_b8;
             *(undefined4 *)(param_1 + 2) = 0;
             goto LAB_002c33c3;
           }
         }
-        parse_datetime::parse_datetime_at_date(&local_c0,local_70,param_3,param_4);
+        _ZN14parse_datetime22parse_datetime_at_date17h00767a45bcedb78eE
+                  (&local_c0,local_70,param_3,param_4);
         if (local_c0 == (undefined *)0x8000000000000002) {
-          auVar6 = datetime_to_filetime(&local_b8);
+          auVar6 = _ZN8uu_touch20datetime_to_filetime17h45fb62f820aa2d2dE(&local_b8);
           *(undefined (*) [12])(param_1 + 1) = auVar6;
           *param_1 = 0x8000000000000004;
-          core::ptr::
-          drop_in_place<core::result::Result<chrono::datetime::DateTime<chrono::offset::fixed::FixedOffset>,parse_datetime::ParseDateTimeError>>
+          _ZN4core3ptr154drop_in_place_LT_core__result__Result_LT_chrono__datetime__DateTime_LT_chrono__offset__fixed__FixedOffset_GT__C_parse_datetime__ParseDateTimeError_GT__GT_17h4dc4571e2e7b5171E
                     (&local_c0);
           return;
         }
-        core::ptr::
-        drop_in_place<core::result::Result<chrono::datetime::DateTime<chrono::offset::fixed::FixedOffset>,parse_datetime::ParseDateTimeError>>
+        _ZN4core3ptr154drop_in_place_LT_core__result__Result_LT_chrono__datetime__DateTime_LT_chrono__offset__fixed__FixedOffset_GT__C_parse_datetime__ParseDateTimeError_GT__GT_17h4dc4571e2e7b5171E
                   (&local_c0);
-        _<T_as_alloc::slice::hack::ConvertVec>::to_vec(param_1 + 1,param_3,param_4);
+        _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17he7405723912f7c0bE
+                  (param_1 + 1,param_3,param_4);
         *param_1 = 0x8000000000000000;
         return;
       }
-      chrono::naive::datetime::NaiveDateTime::parse_from_str
+      _ZN6chrono5naive8datetime13NaiveDateTime14parse_from_str17hd1f2c37615fc2a8cE
                 (local_58,param_3,param_4,auVar5._0_8_,auVar5._8_8_);
     } while (local_58[0] == 0);
-    auVar6 = datetime_to_filetime(local_58);
+    auVar6 = _ZN8uu_touch20datetime_to_filetime17h06ea8034382622dbE(local_58);
     *(undefined (*) [12])(param_1 + 1) = auVar6;
     *param_1 = 0x8000000000000004;
-    core::ptr::drop_in_place<core::array::iter::IntoIter<&str,4_usize>>(&local_c0);
+    _ZN4core3ptr73drop_in_place_LT_core__array__iter__IntoIter_LT__RF_str_C_4_usize_GT__GT_17he66c702aa3ce8ef4E
+              (&local_c0);
   }
   else {
-    auVar6 = datetime_to_filetime(local_64);
+    auVar6 = _ZN8uu_touch20datetime_to_filetime17h06ea8034382622dbE(local_64);
 LAB_002c33bc:
     *(undefined (*) [12])(param_1 + 1) = auVar6;
 LAB_002c33c3:

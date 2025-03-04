@@ -1,7 +1,7 @@
 fn uu_test::parser::Symbol::new(a0: &Option<Result<struct24, struct32>>, a1: void*) -> u64 {
-    let v0: i128;  // [sp-0x58]
+    let v0: iNone;  // [sp-0x58]
     let v1: i64;  // [sp-0x48]
-    let v2: Result<struct16, struct10>;  // [sp-0x38], Other Possible Types: i192
+    let v2: Result<struct16, struct10>;  // [sp-0x38]
     let v4: i64;  // r14
     let v5: i64;  // r15
 
@@ -12,7 +12,7 @@ fn uu_test::parser::Symbol::new(a0: &Option<Result<struct24, struct32>>, a1: voi
     }
     v0 = *(a1 as &i128);
     v1 = *((a1 + 16) as &i64);
-    v2 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(*((&v0 as &char + 8) as &i64), *((a1 + 16) as &i64));
+    v2 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from((&v0)[8] as i64, *((a1 + 16) as &i64));
     match v2 {
         Err(_) => {
             return struct32 {

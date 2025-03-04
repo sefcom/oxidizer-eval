@@ -1,16 +1,16 @@
 long long uu_shred::pass_name::hc502fb7b05ee159f(unsigned long long a0, char *a1)
 {
-    unsigned long v0;  // [sp-0xf8], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xf8]
     char *v1;  // [sp-0xf0]
     unsigned long long v2;  // [sp-0xe8]
-    unsigned long long v3;  // [sp-0xe0]
+    unsigned long v3;  // [sp-0xe0], Other Possible Types: unsigned long long
     unsigned long long v4;  // [sp-0xd8]
     struct struct_0 **v5;  // [sp-0xd0]
     unsigned long long v6;  // [sp-0xc8]
     void* v7;  // [sp-0xc0], Other Possible Types: struct struct_0 **
     unsigned long long v8;  // [sp-0xb8]
-    unsigned long v9;  // [sp-0xb0], Other Possible Types: unsigned long long
-    char *v10;  // [sp-0xa8], Other Possible Types: unsigned long long
+    unsigned long v9;  // [sp-0xb0]
+    char *v10;  // [sp-0xa8]
     unsigned long long v11;  // [sp-0xa0]
     char *v12;  // [sp-0x98], Other Possible Types: unsigned long long
     unsigned long long v13;  // [sp-0x90]
@@ -75,5 +75,5 @@ long long uu_shred::pass_name::hc502fb7b05ee159f(unsigned long long a0, char *a1
         v6 = 3;
         break;
     }
-    return ::0x4bbba0::core::option::Option$LT$T$GT$::map_or_else::h2a91f0892e8dc529();
+    return ::0x4bbba0::core::option::Option$LT$T$GT$::map_or_else::h2a91f0892e8dc529(a0, &v3);
 }

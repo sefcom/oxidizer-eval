@@ -1,6 +1,6 @@
 long long uu_cp::copy_link::h3110b816ad64228e(unsigned long long a0[2], unsigned long long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4, unsigned long long a5)
 {
-    unsigned long long v0;  // [sp-0x50]
+    unsigned long v0;  // [sp-0x50]
     unsigned long long v1;  // [sp-0x48]
     unsigned long long v2;  // [sp-0x40]
     char v3;  // [bp-0x38]
@@ -27,6 +27,6 @@ long long uu_cp::copy_link::h3110b816ad64228e(unsigned long long a0[2], unsigned
         a0[0] = 2;
         a0[1] = v9;
     }
-    ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
+    ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v0);
     return a0;
 }

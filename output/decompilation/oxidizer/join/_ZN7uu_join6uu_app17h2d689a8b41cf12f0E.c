@@ -1,26 +1,29 @@
 fn uu_join::uu_app(a0: &struct712) -> u64 {
-    let v0: i192;  // [sp-0xa58], Other Possible Types: struct592, struct24
+    let v0: struct592;  // [sp-0xa58], Other Possible Types: struct24
     let v1: i32;  // [sp-0x810]
     let v2: i32;  // [sp-0x80c]
-    let v3: i4736;  // [sp-0x808], Other Possible Types: struct592, struct712
+    let v3: struct592;  // [sp-0x808], Other Possible Types: struct712
     let v4: i32;  // [sp-0x5c0]
     let v5: i32;  // [sp-0x5bc]
-    let v6: i5696;  // [sp-0x540], Other Possible Types: struct592, struct712, struct437
+    let v6: struct592;  // [sp-0x540], Other Possible Types: struct712, struct437
     let v7: i64;  // [sp-0x284]
     let v8: i32;  // [sp-0x27c]
-    let v9: i4736;  // [bp-0x278], Other Possible Types: struct592, struct32, struct8
+    let v9: struct592;  // [bp-0x278], Other Possible Types: struct32, struct8
     let v10: i32;  // [sp-0x30]
     let v11: i32;  // [sp-0x2c]
     let v13: i64;  // rdx
 
     v6 = clap_builder::builder::command::Command::new(uucore::util_name(), v13);
     v3 = clap_builder::builder::command::Command::version(&v6, "0.0.28");
-    v6 = clap_builder::builder::command::Command::about(&v3, "For each pair of input lines with identical join fields, write a line to\nstandard output. The default join field is the first, delimited by blanks.\n\nWhen `FILE1` or `FILE2` (not both) is `-`, read standard input.");
+    v6 = clap_builder::builder::command::Command::about(&v3, "For each pair of input lines with identical join fields, write a line to
+standard output. The default join field is the first, delimited by blanks.
+
+When `FILE1` or `FILE2` (not both) is `-`, read standard input.");
     v0 = uucore::format_usage("{} [OPTION]... FILE1 FILE2");
     v3 = clap_builder::builder::command::Command::override_usage(&v6, &v0);
     memcpy(&v6, &v3, 700);
-    v7 = 549755814016 | *((&v3 as &char + 700) as &i64);
-    v8 = *((&v3 as &char + 708) as &i32);
+    v7 = 549755814016 | *((&v3.field_0 as &char + 700) as &i64);
+    v8 = *((&v3.field_0 as &char + 708) as &i32);
     v3 = clap_builder::builder::arg::Arg::new("a");
     v0 = clap_builder::builder::arg::Arg::short(&v3, 0x61);
     v3 = clap_builder::builder::arg::Arg::action(&v0, 0x1);
@@ -33,7 +36,8 @@ fn uu_join::uu_app(a0: &struct712) -> u64 {
     };
     v3 = clap_builder::builder::arg::Arg::value_parser(&v0, &v9);
     v0 = clap_builder::builder::arg::Arg::value_name(&v3, "FILENUM");
-    v9 = clap_builder::builder::arg::Arg::help(&v0, "also print unpairable lines from file FILENUM, where\nFILENUM is 1 or 2, corresponding to FILE1 or FILE2");
+    v9 = clap_builder::builder::arg::Arg::help(&v0, "also print unpairable lines from file FILENUM, where
+FILENUM is 1 or 2, corresponding to FILE1 or FILE2");
     v3 = clap_builder::builder::command::Command::arg(&v6, &v9);
     v6 = clap_builder::builder::arg::Arg::new("v");
     v0 = clap_builder::builder::arg::Arg::short(&v6, 0x76);
@@ -112,8 +116,8 @@ fn uu_join::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::command::Command::arg(&v6, &v9);
     v6 = clap_builder::builder::arg::Arg::new("file1");
     memcpy(&v0, &v6, 584);
-    v1 = *((&v6 as &char + 584) as &i32) | 1;
-    v2 = *((&v6 as &char + 588) as &i32);
+    v1 = *((&v6.field_0 as &char + 584) as &i32) | 1;
+    v2 = *((&v6.field_0 as &char + 588) as &i32);
     v6 = clap_builder::builder::arg::Arg::value_name(&v0, "FILE1");
     v0 = clap_builder::builder::arg::Arg::value_hint(&v6, 0x3);
     memcpy(&v9, &v0, 584);

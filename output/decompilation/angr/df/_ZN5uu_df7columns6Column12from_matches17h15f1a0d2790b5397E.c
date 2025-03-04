@@ -1,6 +1,6 @@
 long long uu_df::columns::Column::from_matches::h15f1a0d2790b5397(struct_0 *a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0xf8], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xf8]
     void* v1;  // [sp-0xe8]
     unsigned long long v2;  // [sp-0xe0]
     void* v3;  // [sp-0xd8]
@@ -89,7 +89,7 @@ long long uu_df::columns::Column::from_matches::h15f1a0d2790b5397(struct_0 *a0, 
                     return a0;
                 }
 LABEL_4d4fc6:
-                v19 = ::0x4d4040::alloc::alloc::Global::alloc_impl::hf61749d460433fff();
+                v19 = ::0x4d4040::alloc::alloc::Global::alloc_impl::hf61749d460433fff(6);
                 if (v19)
                 {
                     v19->field_0 = 0x3020100;
@@ -102,7 +102,7 @@ LABEL_4d4fc6:
                 alloc::alloc::handle_alloc_error::h3816d26e7f8ae8a1(1, 6); /* do not return */
             }
 LABEL_4d4e26:
-            v19 = ::0x4d4040::alloc::alloc::Global::alloc_impl::hf61749d460433fff();
+            v19 = ::0x4d4040::alloc::alloc::Global::alloc_impl::hf61749d460433fff(6);
             if (v19)
             {
                 v19->field_0 = 0x8070600;
@@ -118,7 +118,7 @@ LABEL_4d4e26:
             if (v18 == 2)
                 core::panicking::panic::h8c3a660c3523e4a4("internal error: entered unreachable code", 40, &g_541f20); /* do not return */
 LABEL_4d4e52:
-            v19 = ::0x4d4040::alloc::alloc::Global::alloc_impl::hf61749d460433fff();
+            v19 = ::0x4d4040::alloc::alloc::Global::alloc_impl::hf61749d460433fff(7);
             if (v19)
             {
                 v19->field_0 = 0x2010b00;
@@ -149,7 +149,7 @@ LABEL_4d4e52:
             goto LABEL_4d4e52;
         }
     }
-    v19 = ::0x4d4040::alloc::alloc::Global::alloc_impl::hf61749d460433fff();
+    v19 = ::0x4d4040::alloc::alloc::Global::alloc_impl::hf61749d460433fff(7);
     if (v19)
     {
         v19->field_0 = 0x7060b00;

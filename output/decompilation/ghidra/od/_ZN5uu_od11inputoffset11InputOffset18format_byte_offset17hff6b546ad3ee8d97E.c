@@ -1,5 +1,5 @@
-void __rustcall
-uu_od::inputoffset::InputOffset::format_byte_offset(undefined8 param_1,undefined8 *param_2)
+void _ZN5uu_od11inputoffset11InputOffset18format_byte_offset17hff6b546ad3ee8d97E
+               (undefined8 param_1,undefined8 *param_2)
 
 {
                     /* WARNING: Could not recover jumptable at 0x001cf294. Too many branches */

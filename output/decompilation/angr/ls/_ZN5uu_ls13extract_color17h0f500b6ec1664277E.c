@@ -14,7 +14,7 @@ long long uu_ls::extract_color::h0f500b6ec1664277(unsigned long long a0)
         return clap_builder::parser::matches::arg_matches::ArgMatches::contains_id::h8ab577f2647f3b72(a0, "colorpathsindicator-styletime-stylefull-timeignorecontextgroup-directories-firstdiredhyperlink ", 5);
     v3 = v2[1];
     v4 = v2[2];
-    v5 = vvar_38{reg 56} & 0xffffffffffffff00 | 1;
+    v5 = vvar_37{reg 56} & 0xffffffffffffff00 | 1;
     if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h615ea01bc1975db3(v3, v4, 1, 0))
     {
         return v5;

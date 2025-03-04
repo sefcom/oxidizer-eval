@@ -7,7 +7,7 @@ fn uu_tsort::Graph::dfs(a0: u32, a1: u32, a2: u32, a3: u32, a4: &struct8) -> u64
     let v6: struct8;  // rax
     let v7: u64;  // rax
 
-    v4 = vvar_57{reg 56} & -0x100 | 1;
+    v4 = vvar_52{reg 56} & -0x100 | 1;
     if <T as core::slice::cmp::SliceContains>::slice_contains(&v0, a4[1], a4[2]) as i8 {
         return v4;
     }

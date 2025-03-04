@@ -1,5 +1,6 @@
-undefined8 * __rustcall
-uu_od::parse_nrofbytes::parse_number_of_bytes(undefined8 *param_1,long param_2,long param_3)
+undefined8 *
+_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h85777a6afadc140aE
+          (undefined8 *param_1,long param_2,long param_3)
 
 {
   code *pcVar1;
@@ -24,22 +25,24 @@ uu_od::parse_nrofbytes::parse_number_of_bytes(undefined8 *param_1,long param_2,l
   long local_38;
   
   uVar9 = 2;
-  cVar4 = core::slice::_<impl[T]>::starts_with(param_2,param_3,"0x",2);
+  cVar4 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_11starts_with17h0450dff97e96928eE
+                    (param_2,param_3,"0x",2);
   uVar8 = 0x10;
   bVar3 = true;
   if (cVar4 == '\0') {
     uVar9 = 2;
-    cVar4 = core::slice::_<impl[T]>::starts_with(param_2,param_3,"0X",2);
+    cVar4 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_11starts_with17h0450dff97e96928eE
+                      (param_2,param_3,"0X",2);
     if (cVar4 == '\0') {
       local_50 = 0;
-      auVar11 = core::char::methods::encode_utf8_raw(0x30,&local_50);
-      cVar4 = core::slice::_<impl[T]>::starts_with(param_2,param_3,auVar11._0_8_,auVar11._8_8_);
+      auVar11 = _ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E(0x30,&local_50);
+      cVar4 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_11starts_with17h0450dff97e96928eE
+                        (param_2,param_3,auVar11._0_8_,auVar11._8_8_);
       if (cVar4 == '\0') {
-        lVar6 = core::str::traits::
-                _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::RangeFrom<usize>>::
-                get(param_2,param_3);
+        lVar6 = _ZN4core3str6traits112__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeFrom_LT_usize_GT__GT_3get17hccefea64a1916a27E
+                          (param_2,param_3);
         if (lVar6 != 0) {
-          uucore::parser::parse_size::parse_size_u64(param_1,lVar6);
+          _ZN6uucore6parser10parse_size14parse_size_u6417h6825c2c9656edafaE(param_1,lVar6);
           return param_1;
         }
         goto LAB_001d7c39;
@@ -52,7 +55,7 @@ uu_od::parse_nrofbytes::parse_number_of_bytes(undefined8 *param_1,long param_2,l
   local_38 = param_2 + param_3;
   local_60 = param_1;
   local_40 = param_2;
-  iVar5 = core::str::validations::next_code_point_reverse(&local_40);
+  iVar5 = _ZN4core3str11validations23next_code_point_reverse17hff7c38eb44570652E(&local_40);
   uVar10 = 1;
   lVar6 = param_3;
   local_54 = uVar8;
@@ -63,11 +66,12 @@ switchD_001d7a17_caseD_43:
     switch(extraout_EDX) {
     case 0x42:
       if (!bVar3) {
-        iVar5 = core::str::validations::next_code_point_reverse(&local_40);
+        iVar5 = _ZN4core3str11validations23next_code_point_reverse17hff7c38eb44570652E(&local_40);
         puVar7 = local_60;
         if ((iVar5 == 0) || (0x28 < extraout_EDX_00 - 0x45U)) {
 switchD_001d7ac1_caseD_46:
-          _<T_as_alloc::slice::hack::ConvertVec>::to_vec(local_60 + 1,param_2,param_3);
+          _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17ha029c3acdf37c34fE
+                    (local_60 + 1,param_2,param_3);
           *puVar7 = 1;
           return puVar7;
         }
@@ -136,11 +140,11 @@ switchD_001d7ac1_caseD_46:
       }
     }
   }
-  auVar11 = core::str::traits::
-            _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::Range<usize>>::get
+  auVar11 = _ZN4core3str6traits108__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__Range_LT_usize_GT__GT_3get17h3d479bbd9c610d76E
                       (uVar9,lVar6,param_2,param_3);
   if (auVar11._0_8_ != 0) {
-    core::num::_<impl_u64>::from_str_radix(&local_50,auVar11._0_8_,auVar11._8_8_,local_54);
+    _ZN4core3num21__LT_impl_u20_u64_GT_14from_str_radix17h99ae39453f343bd7E
+              (&local_50,auVar11._0_8_,auVar11._8_8_,local_54);
     puVar7 = local_60;
     if ((char)local_50 == '\0') {
       auVar11._8_8_ = 0;
@@ -152,22 +156,24 @@ switchD_001d7ac1_caseD_46:
         uVar9 = 3;
       }
       else {
-        _<T_as_alloc::slice::hack::ConvertVec>::to_vec(local_60 + 1,param_2,param_3);
+        _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17ha029c3acdf37c34fE
+                  (local_60 + 1,param_2,param_3);
         uVar9 = 2;
       }
       *puVar7 = uVar9;
     }
     else {
       local_61 = local_50._1_1_;
-      _<T_as_alloc::string::ToString>::to_string(local_60 + 1,&local_61);
+      _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17h3f1d93ee7475dcc4E
+                (local_60 + 1,&local_61);
       *puVar7 = 1;
     }
     return puVar7;
   }
-  core::str::slice_error_fail
+  _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE
             (param_2,param_3,uVar9,lVar6,&PTR_s_src_uu_od_src_parse_nrofbytes_rs_00243340);
 LAB_001d7c39:
-  core::str::slice_error_fail
+  _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE
             (param_2,param_3,0,param_3,&PTR_s_src_uu_od_src_parse_nrofbytes_rs_00243328);
   pcVar1 = (code *)swi(3);
   puVar7 = (undefined8 *)(*pcVar1)();

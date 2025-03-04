@@ -1,5 +1,6 @@
-undefined8 * __rustcall
-uu_split::strategy::StrategyError::Lines(undefined8 *param_1,undefined8 *param_2)
+undefined8 *
+_ZN8uu_split8strategy13StrategyError5Lines17h90ca753e299957d9E
+          (undefined8 *param_1,undefined8 *param_2)
 
 {
   undefined8 uVar1;

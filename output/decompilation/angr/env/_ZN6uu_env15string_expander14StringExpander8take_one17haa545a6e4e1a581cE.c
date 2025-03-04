@@ -5,7 +5,7 @@ long long uu_env::string_expander::StringExpander::take_one::haa545a6e4e1a581c(u
     char v2;  // [bp-0x60]
     char v3;  // [bp-0x5f]
     char v4;  // [bp-0x5c]
-    unsigned long v5;  // [sp-0x50], Other Possible Types: unsigned long long
+    unsigned long v5;  // [sp-0x50]
     unsigned long long v6;  // [sp-0x48]
     char v7;  // [sp-0x40]
     unsigned int v8;  // [bp-0x3f]

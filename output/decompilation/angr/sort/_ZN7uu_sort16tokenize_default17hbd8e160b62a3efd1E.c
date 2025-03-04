@@ -1,6 +1,6 @@
 long long uu_sort::tokenize_default::hbd8e160b62a3efd1(unsigned long a0, unsigned long a1, unsigned long long a2[3])
 {
-    unsigned long v0;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x40]
     unsigned long long v1;  // [sp-0x38]
     void* v2;  // [sp-0x30]
     unsigned long v4;  // rcx

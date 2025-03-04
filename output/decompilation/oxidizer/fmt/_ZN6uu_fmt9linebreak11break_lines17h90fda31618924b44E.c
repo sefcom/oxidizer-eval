@@ -1,15 +1,15 @@
 fn uu_fmt::linebreak::break_lines(a0: void*, a1: &u64, a2: &struct8) -> u64 {
     let v0: i64;  // [sp-0xb0]
-    let v1: i128;  // [sp-0xa8]
+    let v1: iNone;  // [sp-0xa8], Other Possible Types: unsigned long
     let v2: i64;  // [sp-0xa0]
     let v3: i64;  // [sp-0x98]
     let v4: i64;  // [sp-0x90]
-    let v5: i128;  // [sp-0x88]
+    let v5: iNone;  // [sp-0x88]
     let v6: i64;  // [sp-0x78]
     let v7: i64;  // [sp-0x70]
     let v8: i64;  // [sp-0x68]
     let v9: i8;  // [sp-0x60]
-    let v10: i320;  // [sp-0x58], Other Possible Types: struct40
+    let v10: struct40;  // [sp-0x58]
     let v12: i64;  // r13
     let v13: i64;  // rax
     let v14: i64;  // r12
@@ -28,16 +28,17 @@ fn uu_fmt::linebreak::break_lines(a0: void*, a1: &u64, a2: &struct8) -> u64 {
 
     v12 = *((a0 + 88) as &i64);
     v10 = uu_fmt::parasplit::ParaWords::new(a1, a0);
-    v1 = *((&v10 as &char + 8) as &i128);
+    v1 = *((&v10.field_0 as &char + 8) as &i128);
     v13 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v1);
     if !v13 {
         v16 = *((a2 + 16) as &i64);
         if *(a2 as &i64) - v16 > 1 {
             *((*((a2 + 8) as &i64) + v16) as &i8) = 10;
-            *((a2 + 16) as &i64) = v16 + 1;
+            *((a2 + 16) as &unsigned long) = v16 + 1;
             return v26;
         }
-        std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, "\n");
+        std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, "
+");
     } else {
         v14 = v13;
         v3 = *((v13 + 40) as &i64);
@@ -49,7 +50,7 @@ fn uu_fmt::linebreak::break_lines(a0: void*, a1: &u64, a2: &struct8) -> u64 {
             v19 = *((a2 + 16) as &i64);
             if v18 < *(a2 as &i64) - v19 {
                 memcpy(*((a2 + 8) as &i64) + v19, v17, v18);
-                *((a2 + 16) as &i64) = v19 + v18;
+                *((a2 + 16) as &unsigned long) = v19 + v18;
             } else {
                 if std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, v17, v18) {
                     return v26;
@@ -61,7 +62,7 @@ fn uu_fmt::linebreak::break_lines(a0: void*, a1: &u64, a2: &struct8) -> u64 {
             v22 = *((a2 + 16) as &i64);
             if v21 < *(a2 as &i64) - v22 {
                 memcpy(*((a2 + 8) as &i64) + v22, v20, v21);
-                *((a2 + 16) as &i64) = v22 + v21;
+                *((a2 + 16) as &unsigned long) = v22 + v21;
             } else if std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, v20, v21) {
                 return v26;
             }
@@ -71,7 +72,7 @@ fn uu_fmt::linebreak::break_lines(a0: void*, a1: &u64, a2: &struct8) -> u64 {
         v25 = *((a2 + 16) as &i64);
         if v24 < *(a2 as &i64) - v25 {
             memcpy(*((a2 + 8) as &i64) + v25, v23, v24);
-            *((a2 + 16) as &i64) = v25 + v24;
+            *((a2 + 16) as &unsigned long) = v25 + v24;
         } else if std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, v23, v24) {
             return v26;
         }

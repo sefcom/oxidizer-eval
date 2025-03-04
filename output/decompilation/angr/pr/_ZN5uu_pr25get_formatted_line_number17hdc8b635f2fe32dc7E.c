@@ -1,9 +1,9 @@
 long long uu_pr::get_formatted_line_number::hdc8b635f2fe32dc7(unsigned long long a0[3], unsigned long long a1[31], unsigned long a2, unsigned long a3)
 {
-    unsigned long v0;  // [sp-0x160], Other Possible Types: unsigned long long
-    unsigned long long v1;  // [sp-0x158]
+    unsigned long v0;  // [sp-0x160]
+    unsigned long v1;  // [sp-0x158]
     unsigned long long v2;  // [sp-0x150]
-    struct struct_0 **v3;  // [sp-0x148]
+    struct struct_1 **v3;  // [sp-0x148]
     unsigned long long v4;  // [sp-0x140]
     char *v5;  // [sp-0x138]
     unsigned long long v6;  // [sp-0x130]
@@ -13,7 +13,7 @@ long long uu_pr::get_formatted_line_number::hdc8b635f2fe32dc7(unsigned long long
     unsigned long long v10;  // [sp-0x110]
     unsigned long long v11;  // [sp-0x108]
     void* v12;  // [sp-0x100]
-    unsigned long v13;  // [sp-0xf8], Other Possible Types: unsigned long long
+    unsigned long v13;  // [sp-0xf8]
     unsigned long long v14;  // [sp-0xf0]
     unsigned long long v15;  // [sp-0xe0]
     unsigned long long v16;  // [sp-0xd8]
@@ -28,14 +28,14 @@ long long uu_pr::get_formatted_line_number::hdc8b635f2fe32dc7(unsigned long long
     char v25;  // [bp-0x80]
     char v26;  // [bp-0x78]
     char v27;  // [bp-0x70]
-    unsigned long v28;  // [sp-0x68], Other Possible Types: unsigned long long
+    unsigned long v28;  // [sp-0x68]
     unsigned long long v29;  // [sp-0x60]
     char v30;  // [bp-0x58]
     char v31;  // [bp-0x40]
     unsigned long long v34;  // r13
     unsigned long long v35;  // r14
     unsigned long long v36;  // r14
-    struct_1 *v37;  // rbx
+    struct_0 *v37;  // rbx
     unsigned long long v38;  // r15
     unsigned long long v39;  // rax
     unsigned long v40;  // rdx
@@ -84,7 +84,7 @@ LABEL_5c85ec:
                     v3 = &v7;
                     v4 = 3;
                     v37 = &v31;
-                    core::option::Option$LT$T$GT$::map_or_else::h4ea8d69383c77fdd();
+                    core::option::Option$LT$T$GT$::map_or_else::h4ea8d69383c77fdd(&v31, &v1);
                 }
                 else
                 {
@@ -118,10 +118,10 @@ LABEL_5c85ec:
                     v3 = &v7;
                     v4 = 3;
                     v37 = &v30;
-                    core::option::Option$LT$T$GT$::map_or_else::h4ea8d69383c77fdd();
+                    core::option::Option$LT$T$GT$::map_or_else::h4ea8d69383c77fdd(&v30, &v1);
                 }
                 a0[2] = v37->field_10;
-                *((uint128_t *)&a0[0]) = v37->field_0;
+                *((int128_t *)&a0[0]) = *((int128_t *)&v37->field_0);
                 return ::0x5bfce0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h93d342cc5e2da10e(&v25);
             }
         }

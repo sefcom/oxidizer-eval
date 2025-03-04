@@ -91,7 +91,7 @@ long long uu_env::split_iterator::SplitIterator::state_unquoted_backslash::h3819
             if (*((int *)&v0) != 8)
             {
                 *((long long *)&a0->field_10) = *((long long *)&v5);
-                vvar_211{reg 224} = *((int128_t *)&v0);
+                vvar_209{reg 224} = *((int128_t *)&v0);
                 a0->field_5 = *((int128_t *)&v3);
                 *((void*)&a0->field_0) = v13;
                 return v10;
@@ -104,7 +104,7 @@ long long uu_env::split_iterator::SplitIterator::state_unquoted_backslash::h3819
             if (*((int *)&v0) != 8)
             {
                 *((long long *)&a0->field_10) = *((long long *)&v5);
-                vvar_216{reg 224} = *((int128_t *)&v0);
+                vvar_214{reg 224} = *((int128_t *)&v0);
                 a0->field_5 = *((int128_t *)&v3);
                 *((void*)&a0->field_0) = v13;
                 return v10;

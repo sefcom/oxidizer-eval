@@ -1,4 +1,4 @@
-long long uu_sort::tmp_dir::TmpDirWrapper::init_tmp_dir::h98cc8f29e16f1909(struct_0 *a0)
+long long uu_sort::tmp_dir::TmpDirWrapper::init_tmp_dir::h98cc8f29e16f1909(struct_1 *a0)
 {
     char v0;  // [bp-0xe0]
     char v1;  // [bp-0xd0]
@@ -20,7 +20,7 @@ long long uu_sort::tmp_dir::TmpDirWrapper::init_tmp_dir::h98cc8f29e16f1909(struc
     char v17;  // [bp-0x40]
     char v18;  // [bp-0x30]
     char v19;  // [bp-0x20]
-    struct_2 *v21;  // r14
+    struct_0 *v21;  // r14
     char v22;  // al
     void* v23;  // rax
     unsigned long long v24;  // cc_dep1

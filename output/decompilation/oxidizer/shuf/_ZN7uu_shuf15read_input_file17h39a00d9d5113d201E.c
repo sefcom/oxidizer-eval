@@ -1,13 +1,12 @@
 fn uu_shuf::read_input_file(a0: &struct24, a1: u32, a2: u32) -> u64 {
-    let v0: i128;  // [sp-0x80], Other Possible Types: struct16, Result<struct16, struct4>
+    let v0: struct16;  // [sp-0x80], Other Possible Types: Result<struct16, struct4>
     let v1: i64;  // [sp-0x70], Other Possible Types: Result<struct4, struct8>
     let v2: i64;  // [sp-0x68]
     let v3: i64;  // [sp-0x60]
-    let v4: struct56;  // [sp-0x58], Other Possible Types: i448
+    let v4: struct56;  // [sp-0x58]
     let v6: i64;  // rax
     let v7: i64;  // rcx
     let v9: i64;  // rcx
-    let v10: i64;  // rdx
 
     if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, "-") as i8 {
         v6 = alloc::boxed::Box<T>::new(std::io::stdio::stdin());
@@ -34,10 +33,10 @@ fn uu_shuf::read_input_file(a0: &struct24, a1: u32, a2: u32) -> u64 {
     v1 = 0;
     v2 = 1;
     v3 = 0;
-    v0 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(<std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read_to_end(&v4, &v1), v10, a1, a2);
-    if !v0 {
+    v0 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(<std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read_to_end(&v4, &v1), a2, a1, a2);
+    if !v0.field_0 {
         return struct24 {
-            field_0: v1
+            field_0: *(&v1 as &i128)
             field_16: v3
         };
     }

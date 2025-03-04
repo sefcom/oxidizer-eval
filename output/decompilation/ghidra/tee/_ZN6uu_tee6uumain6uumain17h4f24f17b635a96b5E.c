@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_tee::uumain::uumain(undefined8 param_1,undefined8 param_2)
+undefined  [16] _ZN6uu_tee6uumain6uumain17h4f24f17b635a96b5E(undefined8 param_1,undefined8 param_2)
 
 {
   undefined8 uVar1;
@@ -62,10 +62,13 @@ undefined  [16] __rustcall uu_tee::uumain::uumain(undefined8 param_1,undefined8 
   undefined4 uStack_2ac;
   
   puVar9 = &local_2e8;
-  (*(code *)PTR_uu_app_002235e8)(puVar9);
-  clap_builder::builder::command::Command::try_get_matches_from(&local_340,puVar9,param_1,param_2);
+  (*(code *)PTR__ZN6uu_tee6uu_app17hd12bc0652bb3e89dE_002235e8)(puVar9);
+  _ZN12clap_builder7builder7command7Command20try_get_matches_from17h11c1e228193462c3E
+            (&local_340,puVar9,param_1,param_2);
   if (CONCAT44(uStack_33c,local_340) == -0x8000000000000000) {
-    auVar10 = (*(code *)PTR_from_002235f0)();
+    auVar10 = (*(code *)
+                PTR__ZN6uucore4mods5error144__LT_impl_u20_core__convert__From_LT_clap_builder__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7fb9d0425989847aE_002235f0
+              )();
     return auVar10;
   }
   local_358 = local_320;
@@ -77,10 +80,16 @@ undefined  [16] __rustcall uu_tee::uumain::uumain(undefined8 param_1,undefined8 
   uStack_360 = uStack_328;
   uStack_35c = uStack_324;
                     /* try { // try from 00166a6c to 00166b21 has its CatchHandler @ 00166d47 */
-  uVar4 = (*(code *)PTR_get_flag_002235f8)(local_378,&DAT_0010b3b3,6);
-  uVar5 = (*(code *)PTR_get_flag_002235f8)(local_378,&DAT_0010b3b9,0x11);
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&local_2e8,local_378);
-  clap_builder::parser::error::MatchesError::unwrap(&local_340,"file",4,&local_2e8);
+  uVar4 = (*(code *)
+            PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE_002235f8
+          )(local_378,&DAT_0010b3b3,6);
+  uVar5 = (*(code *)
+            PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE_002235f8
+          )(local_378,&DAT_0010b3b9,0x11);
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h5619aa58ea2d0a49E
+            (&local_2e8,local_378);
+  _ZN12clap_builder6parser5error12MatchesError6unwrap17h12e60ca066924c5fE
+            (&local_340,"file",4,&local_2e8);
   if (CONCAT44(uStack_33c,local_340) == 0) {
     local_390 = 0;
     uStack_388 = 8;
@@ -102,7 +111,7 @@ undefined  [16] __rustcall uu_tee::uumain::uumain(undefined8 param_1,undefined8 
     uStack_2e4 = uStack_33c;
     uStack_2e0 = uStack_338;
     uStack_2dc = uStack_334;
-    _<alloc::vec::Vec<T>as_alloc::vec::spec_from_iter_nested::SpecFromIterNested<T,I>>::from_iter
+    _ZN111__LT_alloc__vec__Vec_LT_T_GT__u20_as_u20_alloc__vec__spec_from_iter_nested__SpecFromIterNested_LT_T_C_I_GT__GT_9from_iter17h4a98ffca8b57971dE
               (&local_300,&local_2e8);
     uStack_388 = local_2f8;
     uStack_384 = uStack_2f4;
@@ -110,33 +119,41 @@ undefined  [16] __rustcall uu_tee::uumain::uumain(undefined8 param_1,undefined8 
     local_390 = local_300;
   }
                     /* try { // try from 00166b59 to 00166c43 has its CatchHandler @ 00166d38 */
-  cVar6 = (*(code *)PTR_get_flag_002235f8)(local_378,&DAT_0010b3ca,0x12);
+  cVar6 = (*(code *)
+            PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE_002235f8
+          )(local_378,&DAT_0010b3ca,0x12);
   if (cVar6 == '\0') {
-    cVar6 = (*(code *)PTR_contains_id_00223600)(local_378,&DAT_0010b391,0xc);
+    cVar6 = (*(code *)
+              PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E_00223600
+            )(local_378,&DAT_0010b391,0xc);
     uVar8 = 4;
     if (cVar6 == '\0') goto LAB_00166c4e;
-    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&local_2e8,local_378);
-    lVar7 = clap_builder::parser::error::MatchesError::unwrap(&DAT_0010b391,0xc,&local_2e8);
+    _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17had8f468e20909500E
+              (&local_2e8,local_378);
+    lVar7 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h5d8204b5c404fdeeE
+                      (&DAT_0010b391,0xc,&local_2e8);
     if (lVar7 != 0) {
       uVar1 = *(undefined8 *)(lVar7 + 8);
       puVar9 = *(undefined4 **)(lVar7 + 0x10);
-      cVar6 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(uVar1,puVar9,&DAT_0010aaf4);
+      cVar6 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hf4afa01266150c3cE
+                        (uVar1,puVar9,&DAT_0010aaf4);
       if (cVar6 == '\0') {
-        cVar6 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(uVar1,puVar9,&DAT_0010b39d,0xb);
+        cVar6 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hf4afa01266150c3cE
+                          (uVar1,puVar9,&DAT_0010b39d,0xb);
         uVar8 = 1;
         if (cVar6 == '\0') {
-          cVar6 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+          cVar6 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hf4afa01266150c3cE
                             (uVar1,puVar9,
                              "exitERANGEEDEADLKENAMETOOLONGENOLCKENOSYSENOTEMPTYELOOPENOMSGEIDRMECHRNG"
                              ,4);
           uVar8 = 2;
           if (cVar6 == '\0') {
-            cVar6 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+            cVar6 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hf4afa01266150c3cE
                               (uVar1,puVar9,&DAT_0010b3a8,0xb);
             uVar8 = 3;
             if (cVar6 == '\0') {
                     /* try { // try from 00166cdd to 00166cf5 has its CatchHandler @ 00166d38 */
-              (*(code *)PTR_panic_00223618)
+              (*(code *)PTR__ZN4core9panicking5panic17h8c3a660c3523e4a4E_00223618)
                         ("internal error: entered unreachable codeUnknownErrnoEPERMENOENTESRCHEINTREIOENXIOE2BIGENOEXECEBADFECHILDEAGAINENOMEMEACCESEFAULTENOTBLKEBUSYEEXISTEXDEVENODEVENOTDIREISDIREINVALENFILEEMFILEENOTTYETXTBSYEFBIGENOSPCESPIPEEROFSEMLINKEPIPE"
                          ,0x28,&PTR_DAT_0021d090);
                     /* WARNING: Does not return */
@@ -163,7 +180,7 @@ LAB_00166c4e:
   uStack_2d0._3_1_ = SUB41(uVar3,3);
   uStack_2d0._0_3_ = CONCAT12(uVar8,CONCAT11(uVar5,uVar4));
                     /* try { // try from 00166c7e to 00166c8b has its CatchHandler @ 00166d26 */
-  lVar7 = (*(code *)PTR_tee_00223608)(&local_2e8);
+  lVar7 = (*(code *)PTR__ZN6uu_tee3tee17hda7657f7329b70fcE_00223608)(&local_2e8);
   if (lVar7 == 0) {
     auVar10._8_8_ = 0;
     auVar10._0_8_ = puVar9;
@@ -171,12 +188,16 @@ LAB_00166c4e:
   }
   else {
                     /* try { // try from 00166c94 to 00166c9e has its CatchHandler @ 00166cf8 */
-    auVar10 = (*(code *)PTR_from_00223610)(1);
+    auVar10 = (*(code *)
+                PTR__ZN6uucore4mods5error121__LT_impl_u20_core__convert__From_LT_i32_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h0b17f6d5d891df77E_00223610
+              )(1);
   }
                     /* try { // try from 00166caa to 00166cb6 has its CatchHandler @ 00166d0f */
-  core::ptr::drop_in_place<uu_tee::Options>(&local_2e8);
+  _ZN4core3ptr36drop_in_place_LT_uu_tee__Options_GT_17h96fa9444c1876fc5E(&local_2e8);
                     /* try { // try from 00166cb7 to 00166cc0 has its CatchHandler @ 00166d0a */
-  core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(local_378);
-  core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(lVar7);
+  _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17h706c76a15fabed08E
+            (local_378);
+  _ZN4core3ptr81drop_in_place_LT_core__result__Result_LT__LP__RP__C_std__io__error__Error_GT__GT_17hc4231765db700f47E
+            (lVar7);
   return auVar10;
 }

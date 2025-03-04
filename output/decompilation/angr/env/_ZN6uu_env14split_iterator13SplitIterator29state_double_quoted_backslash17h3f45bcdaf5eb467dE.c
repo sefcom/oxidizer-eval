@@ -30,7 +30,7 @@ long long uu_env::split_iterator::SplitIterator::state_double_quoted_backslash::
             v9 = a1->field_38;
             *((unsigned long long *)&a0->field_0) = 0x2200000000;
         }
-        *((unsigned long long *)&(&a0->field_4)[4]) = v9;
+        *((unsigned long long *)&(&a0->padding_4)[4]) = v9;
         return v9;
     }
     else
@@ -55,7 +55,7 @@ LABEL_4da224:
             if (*((int *)&v0) != 8)
             {
                 *((long long *)&a0->field_10) = *((long long *)&v5);
-                vvar_167{reg 224} = *((int128_t *)&v0);
+                vvar_165{reg 224} = *((int128_t *)&v0);
                 a0->field_5 = *((int128_t *)&v3);
                 *((void*)&a0->field_0) = v11;
                 return v9;
@@ -72,17 +72,17 @@ LABEL_4da26a:
                 *((int *)((char *)&a0->field_10 + 4)) = *((int *)&v6);
                 v12 = *((int128_t *)&v2);
                 *((int128_t *)((char *)&a0->field_5 + 5)) = *((int128_t *)&v4);
-                *((void*)&(&a0->field_4)[1]) = v12;
+                *((void*)&(&a0->padding_4)[1]) = v12;
                 a0->field_0 = v10;
-                a0->field_4 = v9;
+                a0->padding_4[0] = v9;
                 return v9;
             }
             else if (!(char)v9)
             {
                 v9 = a1->field_38;
                 a0->field_0 = 3;
-                *((unsigned int *)&a0->field_4) = v8;
-                *((unsigned long long *)&(&a0->field_4)[4]) = v9;
+                *((unsigned int *)&a0->padding_4) = v8;
+                *((unsigned long long *)&(&a0->padding_4)[4]) = v9;
                 return v9;
             }
         }

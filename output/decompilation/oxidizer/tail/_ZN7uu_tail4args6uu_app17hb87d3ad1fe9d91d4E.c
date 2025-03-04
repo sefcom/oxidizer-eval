@@ -7,14 +7,14 @@ fn uu_tail::args::uu_app(a0: &struct712) -> u64 {
     let v5: i64;  // [sp-0xa60]
     let v6: i64;  // [sp-0xa58]
     let v7: i64;  // [sp-0xa50]
-    let v8: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct24
+    let v8: struct592;  // [sp-0xa48], Other Possible Types: struct24
     let v9: i32;  // [sp-0x800]
     let v10: i32;  // [sp-0x7fc]
-    let v11: i4736;  // [sp-0x7f8], Other Possible Types: struct592, struct712, struct32, struct437
+    let v11: struct592;  // [sp-0x7f8], Other Possible Types: struct712, struct437, struct32
     let v12: i64;  // [sp-0x53c]
     let v13: i32;  // [sp-0x534]
-    let v14: i4736;  // [sp-0x530], Other Possible Types: struct592, struct712
-    let v15: i64;  // [sp-0x268], Other Possible Types: struct592, struct17, struct8, struct24
+    let v14: struct592;  // [sp-0x530], Other Possible Types: struct712
+    let v15: struct592;  // [sp-0x268], Other Possible Types: unsigned long, struct24, struct8, struct17
     let v16: i64;  // [sp-0x260]
     let v17: i64;  // [bp-0x258]
     let v18: i64;  // [sp-0x250]
@@ -22,18 +22,22 @@ fn uu_tail::args::uu_app(a0: &struct712) -> u64 {
 
     v11 = clap_builder::builder::command::Command::new(uucore::util_name(), v20);
     v14 = clap_builder::builder::command::Command::version(&v11, "0.0.28");
-    v11 = clap_builder::builder::command::Command::about(&v14, "Print the last 10 lines of each FILE to standard output.\nWith more than one FILE, precede each with a header giving the file name.\nWith no FILE, or when FILE is -, read standard input.\n\nMandatory arguments to long flags are mandatory for short flags too.");
+    v11 = clap_builder::builder::command::Command::about(&v14, "Print the last 10 lines of each FILE to standard output.
+With more than one FILE, precede each with a header giving the file name.
+With no FILE, or when FILE is -, read standard input.
+
+Mandatory arguments to long flags are mandatory for short flags too.");
     v8 = uucore::format_usage("{} [FLAG]... [FILE]...");
     v14 = clap_builder::builder::command::Command::override_usage(&v11, &v8);
     memcpy(&v11, &v14, 700);
-    v12 = 549755814016 | *((&v14 as &char + 700) as &i64);
-    v13 = *((&v14 as &char + 708) as &i32);
+    v12 = 549755814016 | *((&v14.field_0 as &char + 700) as &i64);
+    v13 = *((&v14.field_0 as &char + 708) as &i32);
     v14 = clap_builder::builder::arg::Arg::new("bytes");
     v8 = clap_builder::builder::arg::Arg::short(&v14, 0x63);
     v14 = clap_builder::builder::arg::Arg::long(&v8, "bytes");
     memcpy(&v8, &v14, 584);
-    v9 = *((&v14 as &char + 584) as &i32) | 32;
-    v10 = *((&v14 as &char + 588) as &i32);
+    v9 = *((&v14.field_0 as &char + 584) as &i32) | 32;
+    v10 = *((&v14.field_0 as &char + 588) as &i32);
     v0 = &g_4284e3;
     v1 = 5;
     v2 = &g_428503;
@@ -56,8 +60,8 @@ fn uu_tail::args::uu_app(a0: &struct712) -> u64 {
     };
     v11 = clap_builder::builder::arg::Arg::num_args(&v8, &v15);
     memcpy(&v8, &v11, 584);
-    v9 = 128 | *((&v11 as &char + 584) as &i32);
-    v10 = *((&v11 as &char + 588) as &i32);
+    v9 = 128 | *((&v11.field_0 as &char + 584) as &i32);
+    v10 = *((&v11.field_0 as &char + 588) as &i32);
     v11 = struct32 {
         field_0: &g_42891a
         field_8: 10
@@ -73,8 +77,8 @@ fn uu_tail::args::uu_app(a0: &struct712) -> u64 {
     v8 = clap_builder::builder::arg::Arg::short(&v14, 0x6e);
     v14 = clap_builder::builder::arg::Arg::long(&v8, "lines");
     memcpy(&v8, &v14, 584);
-    v9 = *((&v14 as &char + 584) as &i32) | 32;
-    v10 = *((&v14 as &char + 588) as &i32);
+    v9 = *((&v14.field_0 as &char + 584) as &i32) | 32;
+    v10 = *((&v14.field_0 as &char + 588) as &i32);
     v14 = clap_builder::builder::arg::Arg::overrides_with_all(&v8, &v0);
     v8 = clap_builder::builder::arg::Arg::help(&v14, "Number of lines to print");
     v14 = clap_builder::builder::command::Command::arg(&v11, &v8);
@@ -147,8 +151,8 @@ fn uu_tail::args::uu_app(a0: &struct712) -> u64 {
     v8 = clap_builder::builder::arg::Arg::long(&v14, "presume-input-pipe");
     v14 = clap_builder::builder::arg::Arg::alias(&v8, "-presume-input-pipe");
     memcpy(&v8, &v14, 584);
-    v9 = *((&v14 as &char + 584) as &i32) | 4;
-    v10 = *((&v14 as &char + 588) as &i32);
+    v9 = *((&v14.field_0 as &char + 584) as &i32) | 4;
+    v10 = *((&v14.field_0 as &char + 588) as &i32);
     v15 = clap_builder::builder::arg::Arg::action(&v8, 0x2);
     v14 = clap_builder::builder::command::Command::arg(&v11, &v15);
     v11 = clap_builder::builder::arg::Arg::new("files");

@@ -3,7 +3,7 @@ long long uu_cat::cat_path::h3f1de2b8bdfd86c8(struct_0 *a0, unsigned long long a
     unsigned long v0;  // [bp-0xd8], Other Possible Types: unsigned int
     char v1;  // [bp-0xc8], Other Possible Types: unsigned long, unsigned int
     char v2;  // [sp-0xc4]
-    char v3;  // [sp-0xc0]
+    char v3;  // [bp-0xc0]
     char v4;  // [bp-0xbf]
     unsigned long v5;  // [bp-0xb8]
     unsigned long long v7;  // rax
@@ -48,13 +48,13 @@ long long uu_cat::cat_path::h3f1de2b8bdfd86c8(struct_0 *a0, unsigned long long a
             {
                 a0->field_0 = 0x8000000000000000;
                 *((unsigned long long *)&a0->field_8) = v11;
-                v7 = core::ptr::drop_in_place$LT$std..os..unix..net..stream..UnixStream$GT$::ha55321e5b25e8ec9();
+                v7 = core::ptr::drop_in_place$LT$std..os..unix..net..stream..UnixStream$GT$::ha55321e5b25e8ec9(v10);
                 return v7;
             }
             v1 = v10;
             v2 = 0;
             uu_cat::cat_handle::hd11b5f8e6960e509(a0, &v1, a3, a4);
-            v7 = core::ptr::drop_in_place$LT$uu_cat..InputHandle$LT$std..os..unix..net..stream..UnixStream$GT$$GT$::ha5653865c3424521();
+            v7 = core::ptr::drop_in_place$LT$uu_cat..InputHandle$LT$std..os..unix..net..stream..UnixStream$GT$$GT$::ha5653865c3424521(v1);
             return v7;
         }
     default:
@@ -75,14 +75,14 @@ long long uu_cat::cat_path::h3f1de2b8bdfd86c8(struct_0 *a0, unsigned long long a
                 else if (*((long long *)&v3) == a5[0] && v5 == a5[1])
                 {
                     a0->field_0 = 9223372036854775812;
-                    v7 = core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f();
+                    v7 = core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f(v12);
                     return v7;
                 }
             }
             v1 = v12;
             v2 = 0;
             uu_cat::cat_handle::h13bdbf50278acfc8(a0, &v1, a3, a4);
-            v7 = core::ptr::drop_in_place$LT$uu_cat..InputHandle$LT$std..fs..File$GT$$GT$::hc879bc74ba17ed2f();
+            v7 = core::ptr::drop_in_place$LT$uu_cat..InputHandle$LT$std..fs..File$GT$$GT$::hc879bc74ba17ed2f(v1);
             return v7;
         }
     }

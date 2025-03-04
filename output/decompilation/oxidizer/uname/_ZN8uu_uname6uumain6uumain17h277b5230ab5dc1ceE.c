@@ -6,18 +6,19 @@ fn uu_uname::uumain::uumain(a0: u32, a1: u32) -> u64 {
     let v4: i8;  // [sp-0x430]
     let v5: i64;  // [sp-0x428]
     let v6: i64;  // [sp-0x420]
-    let v7: i128;  // [sp-0x418]
-    let v8: i128;  // [sp-0x408]
+    let v7: iNone;  // [sp-0x418]
+    let v8: iNone;  // [sp-0x408]
     let v9: i64;  // [sp-0x3f8]
-    let v10: struct24;  // [sp-0x3f0], Other Possible Types: i192
+    let v10: struct24;  // [sp-0x3f0]
     let v11: i64;  // [sp-0x3c8]
     let v12: i64;  // [sp-0x3c0]
-    let v13: i64;  // [bp-0x3b8], Other Possible Types: struct24
+    let v13: struct24;  // [sp-0x3b8], Other Possible Types: unsigned long, char
     let v14: i64;  // [sp-0x3b0]
     let v15: i8;  // [bp-0x3a8]
     let v16: i8;  // [bp-0x398]
     let v17: i8;  // [bp-0x388]
-    let v18: i5696;  // [sp-0x2f8], Other Possible Types: struct712, Result<struct168, struct16>
+    let v18: struct712;  // [sp-0x2f8], Other Possible Types: unsigned long, Result<struct168, struct16>
+    let v19: i64;  // [sp-0x2f0]
     let v22: i64;  // rax
     let v29: i64;  // rdx
 
@@ -27,9 +28,9 @@ fn uu_uname::uumain::uumain(a0: u32, a1: u32) -> u64 {
         v22 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v6);
         return v22;
     }
-    v9 = v17;
-    v8 = v16;
-    v7 = v15;
+    v9 = *(&v17 as &i64);
+    v8 = *(&v16 as &i128);
+    v7 = *(&v15 as &i128);
     v5 = v13;
     v6 = v14;
     v2 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, _ZN8uu_uname7options3ALL17h054e7ec081e21667E, g_50b070) as i8;
@@ -39,12 +40,13 @@ fn uu_uname::uumain::uumain(a0: u32, a1: u32) -> u64 {
     clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, _ZN8uu_uname7options14KERNEL_VERSION17h386a14a0fc5a7bbdE, g_50b0a0);
     clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, _ZN8uu_uname7options7MACHINE17h2642e1b53ab636dcE, g_50b0c0);
     v3 = struct9 {
-        field_0: ((((v27 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v23 as u128 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | ((v25 as u32 as u64 * 0x1000000) as u32 | (v0 as u8 as u64 * 0x10000) as u32 | (v1 as u8 as u64 * 0x100) as u32 | v2 as u8 as u32) as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | ((0 CONCAT (((v26 as u32 as u64 * 0x100) as u32 | v24) & 65535) as u64 * 0x100000000) | ((v25 as u32 as u64 * 0x1000000) as u32 | (v0 as u8 as u64 * 0x10000) as u32 | (v1 as u8 as u64 * 0x100) as u32 | v2 as u8 as u32) as u128 & 340282366920938463463374325961086468095) as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | ((0 CONCAT (((clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, _ZN8uu_uname7options17HARDWARE_PLATFORM17h46d1d76756312c03E, g_50b0e0) as i32 as u32 as u64 * 0x100) as u32 | clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, _ZN8uu_uname7options9PROCESSOR17h85b80fd217463c16E, g_50b0d0) as i32) & 65535) as u64 * 0x1000000000000) | ((0 CONCAT (((v26 as u32 as u64 * 0x100) as u32 | v24) & 65535) as u64 * 0x100000000) | ((v25 as u32 as u64 * 0x1000000) as u32 | (v0 as u8 as u64 * 0x10000) as u32 | (v1 as u8 as u64 * 0x100) as u32 | v2 as u8 as u32) as u128 & 340282366920938463463374325961086468095) & 340282366920938463444928144833035370495) as u128 as u256) as u64
+        field_0: ((((v27 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v23 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | ((v25 as u64 * 0x1000000) as u32 | (v0 as u64 * 0x10000) as u32 | (v1 as u64 * 0x100) as u32 | v2 as u32) as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | ((0 CONCAT (((v26 as u64 * 0x100) as u32 | v24) & 65535) as u64 * 0x100000000) | ((v25 as u64 * 0x1000000) as u32 | (v0 as u64 * 0x10000) as u32 | (v1 as u64 * 0x100) as u32 | v2 as u32) as u128 & 340282366920938463463374325961086468095) as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | ((0 CONCAT (((clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, _ZN8uu_uname7options17HARDWARE_PLATFORM17h46d1d76756312c03E, g_50b0e0) as i32 as u32 as u64 * 0x100) as u32 | clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, _ZN8uu_uname7options9PROCESSOR17h85b80fd217463c16E, g_50b0d0) as i32) & 65535) as u64 * 0x1000000000000) | ((0 CONCAT (((v26 as u64 * 0x100) as u32 | v24) & 65535) as u64 * 0x100000000) | ((v25 as u64 * 0x1000000) as u32 | (v0 as u64 * 0x10000) as u32 | (v1 as u64 * 0x100) as u32 | v2 as u32) as u128 & 340282366920938463463374325961086468095) & 340282366920938463444928144833035370495) as u128 as u256) as u64
         field_8: v4
     };
     v4 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, _ZN8uu_uname7options2OS17h4892fc38c9982147E, g_50b0f0) as i8;
     v18 = uu_uname::UNameOutput::new(&v3);
     if v18 == 9223372036854775809 {
+        v22 = v19;
         return v22;
     }
     memcpy(&v15, &v18, 168);
@@ -54,7 +56,7 @@ fn uu_uname::uumain::uumain(a0: u32, a1: u32) -> u64 {
         field_16: v20
     };
     v10 = uu_uname::UNameOutput::display(&v13);
-    v11 = core::str::<impl str>::trim_end_matches(*((&v10 as &char + 8) as &i64), *((&v10 as &char + 16) as &i64));
+    v11 = core::str::<impl str>::trim_end_matches(v10.field_8, v10.field_16);
     v12 = v29;
     println!("{}", &v11);
     return 0;

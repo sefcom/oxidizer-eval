@@ -1,5 +1,3 @@
-fn uu_mkdir::strip_minus_from_mode() -> u64 {
-    let v1: u32;  // rdi
-
-    return uucore::features::mode::strip_minus_from_mode(v1);
+fn uu_mkdir::strip_minus_from_mode(a0: u64) -> u64 {
+    return uucore::features::mode::strip_minus_from_mode(a0);
 }

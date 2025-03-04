@@ -1,4 +1,5 @@
-long __rustcall uu_expand::next_tabstop(ulong *param_1,long param_2,ulong param_3,char param_4)
+long _ZN9uu_expand12next_tabstop17h053856bdaef20e1aE
+               (ulong *param_1,long param_2,ulong param_3,char param_4)
 
 {
   code *pcVar1;
@@ -25,16 +26,17 @@ LAB_001b29fb:
         }
         return uVar4 - (param_3 & 0xffffffff) % (uVar4 & 0xffffffff);
       }
-      core::panicking::panic_const::panic_const_rem_by_zero(&PTR_DAT_0021ce70);
+      _ZN4core9panicking11panic_const23panic_const_rem_by_zero17h9246b1d1945ea5ddE
+                (&PTR_DAT_0021ce70);
 LAB_001b2af2:
       ppuVar6 = &PTR_DAT_0021cea0;
 LAB_001b2b02:
                     /* WARNING: Subroutine does not return */
-      core::panicking::panic_bounds_check(unaff_R12,0,ppuVar6);
+      _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E(unaff_R12,0,ppuVar6);
     }
     local_30 = param_1 + param_2;
     local_38 = param_1;
-    plVar2 = (long *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::find
+    plVar2 = (long *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4find17hf95545e01abab4a0E
                                (&local_38,&local_28);
     if (plVar2 == (long *)0x0) {
       return 1;
@@ -43,28 +45,29 @@ LAB_001b2b02:
   else {
     unaff_R12 = param_2 + -1;
     if (param_4 == '\x01') {
-      auVar7 = _<core::ops::range::Range<usize>as_core::slice::index::SliceIndex<[T]>>::index
+      auVar7 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17hc559d2d2cb947946E
                          (unaff_R12,param_1,param_2,&PTR_DAT_0021ce88);
       local_38 = auVar7._0_8_;
       local_30 = local_38 + auVar7._8_8_;
-      plVar2 = (long *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::find
+      plVar2 = (long *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4find17h4c63399f73daa1d6E
                                  (&local_38,&local_28);
       if (plVar2 == (long *)0x0) {
         if (param_2 != 0) {
           uVar4 = param_1[param_2 + -1];
           if (uVar4 != 0) goto LAB_001b29fb;
-          core::panicking::panic_const::panic_const_rem_by_zero(&PTR_DAT_0021ceb8);
+          _ZN4core9panicking11panic_const23panic_const_rem_by_zero17h9246b1d1945ea5ddE
+                    (&PTR_DAT_0021ceb8);
           goto LAB_001b29e5;
         }
         goto LAB_001b2af2;
       }
     }
     else {
-      auVar7 = _<core::ops::range::Range<usize>as_core::slice::index::SliceIndex<[T]>>::index
+      auVar7 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17hc559d2d2cb947946E
                          (unaff_R12,param_1,param_2,&PTR_DAT_0021ced0);
       local_38 = auVar7._0_8_;
       local_30 = local_38 + auVar7._8_8_;
-      plVar2 = (long *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::find
+      plVar2 = (long *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4find17h7026d95030402bbdE
                                  (&local_38,&local_28);
       if (plVar2 == (long *)0x0) {
         if (param_2 == 0) {
@@ -73,11 +76,13 @@ LAB_001b2b02:
         }
         if (param_2 == 1) {
                     /* WARNING: Subroutine does not return */
-          core::panicking::panic_bounds_check(0xffffffffffffffff,1,&PTR_DAT_0021cf00);
+          _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E
+                    (0xffffffffffffffff,1,&PTR_DAT_0021cf00);
         }
         uVar4 = param_1[param_2 + -1];
         if (uVar4 == 0) {
-          core::panicking::panic_const::panic_const_div_by_zero(&PTR_DAT_0021cf18);
+          _ZN4core9panicking11panic_const23panic_const_div_by_zero17haded503194f0bf6eE
+                    (&PTR_DAT_0021cf18);
           pcVar1 = (code *)swi(3);
           lVar5 = (*pcVar1)();
           return lVar5;

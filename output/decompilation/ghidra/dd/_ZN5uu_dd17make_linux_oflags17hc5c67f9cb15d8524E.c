@@ -1,4 +1,4 @@
-bool __rustcall uu_dd::make_linux_oflags(byte *param_1)
+bool _ZN5uu_dd17make_linux_oflags17hc5c67f9cb15d8524E(byte *param_1)
 
 {
   uint uVar1;

@@ -1,6 +1,6 @@
 long long uu_dd::is_sparse::h5c816dd3d2c6117a(unsigned long a0, unsigned long a1)
 {
-    unsigned long v0;  // [sp-0x10], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x10]
     unsigned long long v1;  // [sp-0x8]
 
     v0 = a0;

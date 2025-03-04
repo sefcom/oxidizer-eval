@@ -1,5 +1,5 @@
-void __rustcall
-uu_dd::Input::fill_blocks(undefined8 *param_1,long param_2,long param_3,undefined param_4)
+void _ZN5uu_dd5Input11fill_blocks17h45cc08a13ee607a5E
+               (undefined8 *param_1,long param_2,long param_3,undefined param_4)
 
 {
   long lVar1;
@@ -28,10 +28,11 @@ uu_dd::Input::fill_blocks(undefined8 *param_1,long param_2,long param_3,undefine
     uVar4 = 0;
     lVar3 = 0;
     do {
-      lVar1 = core::cmp::min_by(lVar1 + uVar4,uVar5);
-      uVar2 = _<core::ops::range::Range<usize>as_core::slice::index::SliceIndex<[T]>>::index_mut
+      lVar1 = _ZN4core3cmp6min_by17hf29fead33a8278ecE(lVar1 + uVar4,uVar5);
+      uVar2 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_9index_mut17h56fc8485fa379185E
                         (uVar4,lVar1,*(undefined8 *)(param_3 + 8),uVar5);
-      auVar6 = _<uu_dd::Input_as_std::io::Read>::read(param_2,uVar2);
+      auVar6 = _ZN46__LT_uu_dd__Input_u20_as_u20_std__io__Read_GT_4read17h91bb47559be41a26E
+                         (param_2,uVar2);
       uVar5 = auVar6._8_8_;
       if (auVar6._0_8_ != 0) {
         param_1[1] = uVar5;
@@ -41,11 +42,13 @@ uu_dd::Input::fill_blocks(undefined8 *param_1,long param_2,long param_3,undefine
       if (uVar5 == 0) break;
       if (uVar5 < lVar1 - uVar4) {
         local_d8 = local_d8 + 1;
-        _<u8_as_alloc::vec::spec_from_elem::SpecFromElem>::from_elem(local_b0,param_4);
-        _<alloc::vec::Vec<T,A>as_core::iter::traits::collect::IntoIterator>::into_iter
+        _ZN63__LT_u8_u20_as_u20_alloc__vec__spec_from_elem__SpecFromElem_GT_9from_elem17h1a0e457649d60ac2E
+                  (local_b0,param_4);
+        _ZN90__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__iter__traits__collect__IntoIterator_GT_9into_iter17h9f073f067a0e9b2eE
                   (local_98,local_b0);
-        ::alloc::vec::Vec<T,A>::splice(local_78,param_3,uVar4 + uVar5,lVar1,local_98);
-        core::ptr::drop_in_place<alloc::vec::splice::Splice<alloc::vec::into_iter::IntoIter<u8>>>
+        _ZN5alloc3vec16Vec_LT_T_C_A_GT_6splice17h0fd839b9d32da106E
+                  (local_78,param_3,uVar4 + uVar5,lVar1,local_98);
+        _ZN4core3ptr96drop_in_place_LT_alloc__vec__splice__Splice_LT_alloc__vec__into_iter__IntoIter_LT_u8_GT__GT__GT_17hfe92d49d1adc9d71E
                   (local_78);
       }
       else {
@@ -57,7 +60,7 @@ uu_dd::Input::fill_blocks(undefined8 *param_1,long param_2,long param_3,undefine
       uVar5 = *(ulong *)(param_3 + 0x10);
     } while (uVar4 < uVar5);
   }
-  ::alloc::vec::Vec<T,A>::truncate(param_3,uVar4);
+  _ZN5alloc3vec16Vec_LT_T_C_A_GT_8truncate17h705e1c902b347a7bE(param_3,uVar4);
   param_1[1] = local_d0;
   param_1[2] = local_d8;
   param_1[3] = lVar3;

@@ -7,7 +7,7 @@ long long uu_split::platform::unix::FilterWriter::new::h45813eca9ccac0a5(struct_
     char v4;  // [bp-0x1a4]
     char v5;  // [bp-0x1a0]
     char v6;  // [bp-0x198]
-    int v7;  // [bp-0x188], Other Possible Types: char
+    int v7;  // [sp-0x188], Other Possible Types: char
     unsigned long long v8;  // [sp-0x178]
     int v9;  // [sp-0x168]
     unsigned long long v10;  // [sp-0x158]
@@ -16,8 +16,7 @@ long long uu_split::platform::unix::FilterWriter::new::h45813eca9ccac0a5(struct_
     char v13;  // [bp-0x138]
     char v14;  // [bp-0x130]
     char v15;  // [bp-0xf8]
-    unsigned long long v17;  // rdx
-    int v18;  // xmm0
+    int v17;  // xmm0
 
     uu_split::platform::unix::WithEnvVarSet::new::h0ec58cf89e23bdc9(&v14, a3, a4);
     std::env::var::h9ad1bceb8fc4ff71(&v11, "SHELL", 5);
@@ -33,16 +32,16 @@ long long uu_split::platform::unix::FilterWriter::new::h45813eca9ccac0a5(struct_
         uu_split::platform::unix::FilterWriter::new::_$u7b$$u7b$closure$u7d$$u7d$::he2bcca465f325ad8(&v7, &v9);
     }
     std::process::Command::new::h0377d9f8406faa73(&v15, &v7);
-    std::process::Command::spawn::h512586d0d6bfbf9c(&v3, std::process::Command::stdin::hd49f7a7c2d0c6c7f(std::process::Command::arg::h5f291569404c895b(std::process::Command::arg::h5f291569404c895b(&v15, "-c", 2), a1, a2), 2, v17));
+    std::process::Command::spawn::h512586d0d6bfbf9c(&v3, std::process::Command::stdin::hd49f7a7c2d0c6c7f(std::process::Command::arg::h5f291569404c895b(std::process::Command::arg::h5f291569404c895b(&v15, "-c", 2), a1, a2), 2, a2));
     if (!*((int *)&v3))
     {
         v0 = *((int *)&v4);
         v1 = *((long long *)&v5);
         *((int128_t *)&v2) = *((int128_t *)&v6);
         core::ptr::drop_in_place$LT$std..process..Command$GT$::hdf90771df9651af5(&v15);
-        v18 = *((int128_t *)&v0);
+        v17 = *((int128_t *)&v0);
         *((void*)&a0->field_4) = v2;
-        *((void*)&(&a0->field_0)[1]) = v18;
+        *((void*)&(&a0->field_0)[1]) = v17;
         a0->field_0 = 0;
     }
     else

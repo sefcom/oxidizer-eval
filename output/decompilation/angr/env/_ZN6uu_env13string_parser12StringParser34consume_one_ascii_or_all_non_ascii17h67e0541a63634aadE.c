@@ -8,7 +8,7 @@ long long uu_env::string_parser::StringParser::consume_one_ascii_or_all_non_asci
     char v5;  // [bp-0x48]
     char v6;  // [bp-0x47]
     char v7;  // [bp-0x44]
-    unsigned long v8;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v8;  // [sp-0x40]
     char v9;  // [sp-0x38]
     unsigned int v10;  // [bp-0x37]
     unsigned int v11;  // [sp-0x34]
@@ -27,7 +27,7 @@ long long uu_env::string_parser::StringParser::consume_one_ascii_or_all_non_asci
         if (*((long long *)&v3))
         {
             v16 = a0;
-            *((unsigned long long *)&v16->padding_8[0]) = v8;
+            *((unsigned long *)&v16->padding_8[0]) = v8;
             v16->field_10 = v9;
             v16->field_0 = 0x8000000000000000;
             ::0x4d5e00::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uu_env..string_parser..Chunk$GT$$GT$::hf332c5c32dd375fc(&v0);

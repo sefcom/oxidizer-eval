@@ -15,6 +15,7 @@ long long uu_sort::tmp_dir::TmpDirWrapper::next_file::h05b3ad075068705f(struct_1
     unsigned long long v14;  // rsi
     unsigned long long v15;  // rdx
     unsigned long long v16;  // rax
+    char v17;  // dl
 
     if (a1->field_28 == 2)
     {
@@ -55,8 +56,8 @@ long long uu_sort::tmp_dir::TmpDirWrapper::next_file::h05b3ad075068705f(struct_1
         *((double *)&a0->field_4) = ::0x547370::alloc::boxed::Box$LT$T$GT$::new::hebf92c849c48588d(&v5);
         *((char **)((char *)&a0->field_4 + 8)) = &g_600f08;
         *((unsigned long long *)&(&a0->field_0)[2]) = 0x8000000000000000;
-        ::0x546100::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::he13e3ddf5562bb7e();
+        ::0x546100::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::he13e3ddf5562bb7e(&v0);
     }
-    ::0x546600::core::ptr::drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$::h1ece0fb60dffd106(::0x546e30::core::result::Result$LT$T$C$E$GT$::unwrap::he8ec3f841ca899b2(&v5, &g_601078));
+    ::0x546600::core::ptr::drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$::h1ece0fb60dffd106(::0x546e30::core::result::Result$LT$T$C$E$GT$::unwrap::he8ec3f841ca899b2(&v5, &g_601078), v17 & 1);
     return a0;
 }

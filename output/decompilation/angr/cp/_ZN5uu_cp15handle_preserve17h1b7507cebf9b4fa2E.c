@@ -8,7 +8,7 @@ long long uu_cp::handle_preserve::h1b7507cebf9b4fa2(struct_0 *a0, char a1, char 
     char v5;  // [bp-0x70]
     char v6;  // [bp-0x68]
     char v7;  // [bp-0x60]
-    int v8;  // [sp-0x58], Other Possible Types: unsigned long long
+    unsigned long long v8;  // [sp-0x58]
     int v9;  // [sp-0x48]
     int v10;  // [sp-0x38]
     int v11;  // [sp-0x28]

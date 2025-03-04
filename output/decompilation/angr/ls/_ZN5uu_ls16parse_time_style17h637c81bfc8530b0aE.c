@@ -8,7 +8,7 @@ long long uu_ls::parse_time_style::h637c81bfc8530b0a(struct_1 *a0, unsigned long
     unsigned long long v5;  // [sp-0xb8]
     int v6;  // [sp-0xa8]
     unsigned long long v7;  // [sp-0x98]
-    int v8;  // [bp-0x88], Other Possible Types: unsigned long, unsigned long long
+    int v8;  // [sp-0x88], Other Possible Types: unsigned long
     unsigned long long v9;  // [sp-0x80]
     unsigned long long v10;  // [sp-0x78]
     int v11;  // [sp-0x68]
@@ -21,11 +21,10 @@ long long uu_ls::parse_time_style::h637c81bfc8530b0a(struct_1 *a0, unsigned long
     unsigned long long v22;  // rdx
     unsigned long long v23;  // r12
     unsigned long long v24;  // r14
-    unsigned long long v25;  // rax
     unsigned long long v27;  // rax
     unsigned long long v28;  // rax
 
-    v16 = ::0x51d470::alloc::alloc::Global::alloc_impl::hf61749d460433fff();
+    v16 = ::0x51d470::alloc::alloc::Global::alloc_impl::hf61749d460433fff(120);
     if (!v16)
         alloc::alloc::handle_alloc_error::h3816d26e7f8ae8a1(8, 120); /* do not return */
     v17 = v16;
@@ -72,74 +71,79 @@ long long uu_ls::parse_time_style::h637c81bfc8530b0a(struct_1 *a0, unsigned long
             v5 = *((long long *)&v2);
             *((int128_t *)&v4) = *((int128_t *)&v0);
             if (core::iter::traits::iterator::Iterator::fold::hedf7a65ebd7287e8(&v4) && (!(core::iter::traits::iterator::Iterator::fold::hedf7a65ebd7287e8(&v4)) || !(v22 <= v22)))
-                goto LABEL_51ea78;
+            {
+                *((unsigned long long *)&(&a0->field_0)[8]) = 0x8000000000000000;
+                a0->field_0 = 7;
+                ::0x51afa0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::hbaa87f9dbd448729(&v6);
+                return v28;
+            }
         }
         v23 = v18[1];
         v24 = v18[2];
-        if (!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h615ea01bc1975db3(v23, v24, "full-isoBorrowedENOTSOCKclassify", 8))
+        if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h615ea01bc1975db3(v23, v24, "full-isoBorrowedENOTSOCKclassify", 8))
         {
-            if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h615ea01bc1975db3(v23, v24, "long-isoDateTime", 8))
-            {
-                v25 = 9223372036854775809;
-            }
-            else
-            {
-                if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h615ea01bc1975db3(v23, v24, "isolocale+FORMAT (e.g., +%H:%M) for a 'date'-style formatsrc/uu/ls/src/ls.rs", 3))
-                {
-                    v25 = 9223372036854775810;
-                }
-                else
-                {
-                    if (!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h615ea01bc1975db3(v23, v24, "locale+FORMAT (e.g., +%H:%M) for a 'date'-style formatsrc/uu/ls/src/ls.rs", 6))
-                    {
-                        v8 = v23;
-                        v9 = v23 + v24;
-                        switch (((int)::0x51b730::core::str::validations::next_code_point::haf8c055704158b90(&v8) ? (unsigned int)v22 : 0x110000))
-                        {
-                        case 43:
-                            v27 = ::0x51b7e0::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::hccefea64a1916a27(1, v23, v24);
-                            if (v27)
-                            {
-                                ::0x51d030::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h09d6369a280ff05a(&v0, v27, v22);
-                                *((long long *)((char *)&a0->field_1 + 8)) = *((long long *)&v2);
-                                *((int128_t *)&(&a0->field_0)[8]) = *((int128_t *)&v0);
-                                a0->field_0 = 7;
-                                v28 = ::0x51afa0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::hbaa87f9dbd448729(&v6);
-                                return v28;
-                            }
-                            core::str::slice_error_fail::h5dbb61534404fe7e(v23, v24, 1, v24, &g_612238); /* do not return */
-                        case 1114112:
-                            core::option::unwrap_failed::h0e11329e76906eaa(&g_612220); /* do not return */
-                        default:
-                            _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h8f45b0d02f4dafda(&v4, v18);
-                            *((unsigned long long *)&a0->field_20) = v7;
-                            *((void*)&a0->padding_11[0]) = v6;
-                            v1 = v4;
-                            v3 = v5;
-                            a0->field_0 = 6;
-                            v28 = (long long)(&v1)[8];
-                            *((int128_t *)&(&a0->field_0)[1]) = *((int128_t *)&v0);
-                            *((unsigned long long *)&a0->field_1) = v28;
-                            *((unsigned long long *)((char *)&a0->field_1 + 8)) = v3;
-                            return v28;
-                        }
-                    }
-LABEL_51eaca:
-                    v25 = 9223372036854775811;
-                }
-            }
-            *((unsigned long long *)&(&a0->field_0)[8]) = v25;
+            *((unsigned long long *)&(&a0->field_0)[8]) = 0x8000000000000000;
             a0->field_0 = 7;
             ::0x51afa0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::hbaa87f9dbd448729(&v6);
             return v28;
         }
+        if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h615ea01bc1975db3(v23, v24, "long-isoDateTime", 8))
+        {
+            *((unsigned long long *)&(&a0->field_0)[8]) = 9223372036854775809;
+            a0->field_0 = 7;
+            ::0x51afa0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::hbaa87f9dbd448729(&v6);
+            return v28;
+        }
+        if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h615ea01bc1975db3(v23, v24, "isolocale+FORMAT (e.g., +%H:%M) for a 'date'-style formatsrc/uu/ls/src/ls.rs", 3))
+        {
+            *((unsigned long long *)&(&a0->field_0)[8]) = 9223372036854775810;
+            a0->field_0 = 7;
+            ::0x51afa0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::hbaa87f9dbd448729(&v6);
+            return v28;
+        }
+        if (!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h615ea01bc1975db3(v23, v24, "locale+FORMAT (e.g., +%H:%M) for a 'date'-style formatsrc/uu/ls/src/ls.rs", 6))
+        {
+            v8 = v23;
+            v9 = v23 + v24;
+            switch (((int)::0x51b730::core::str::validations::next_code_point::haf8c055704158b90(&v8) ? (unsigned int)v22 : 0x110000))
+            {
+            case 43:
+                v27 = ::0x51b7e0::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::hccefea64a1916a27(1, v23, v24);
+                if (v27)
+                {
+                    ::0x51d030::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h09d6369a280ff05a(&v0, v27, v22);
+                    *((long long *)((char *)&a0->field_1 + 8)) = *((long long *)&v2);
+                    *((int128_t *)&(&a0->field_0)[8]) = *((int128_t *)&v0);
+                    a0->field_0 = 7;
+                    v28 = ::0x51afa0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::hbaa87f9dbd448729(&v6);
+                    return v28;
+                }
+                core::str::slice_error_fail::h5dbb61534404fe7e(v23, v24, 1, v24, &g_612238); /* do not return */
+            case 1114112:
+                core::option::unwrap_failed::h0e11329e76906eaa(&g_612220); /* do not return */
+            default:
+                _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h8f45b0d02f4dafda(&v4, v18);
+                *((unsigned long long *)&a0->field_20) = v7;
+                *((void*)&a0->padding_11[0]) = v6;
+                v1 = v4;
+                v3 = v5;
+                a0->field_0 = 6;
+                v28 = (long long)(&v1)[8];
+                *((int128_t *)&(&a0->field_0)[1]) = *((int128_t *)&v0);
+                *((unsigned long long *)&a0->field_1) = v28;
+                *((unsigned long long *)((char *)&a0->field_1 + 8)) = v3;
+                return v28;
+            }
+        }
     }
-    else if (!(char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a1, "full-timeignorecontextgroup-directories-firstdiredhyperlink ", 9))
+    else if ((char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a1, "full-timeignorecontextgroup-directories-firstdiredhyperlink ", 9))
     {
-        goto LABEL_51eaca;
+        *((unsigned long long *)&(&a0->field_0)[8]) = 0x8000000000000000;
+        a0->field_0 = 7;
+        ::0x51afa0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::hbaa87f9dbd448729(&v6);
+        return v28;
     }
-LABEL_51ea78:
-    *((unsigned long long *)&(&a0->field_0)[8]) = 0x8000000000000000;
+    *((unsigned long long *)&(&a0->field_0)[8]) = 9223372036854775811;
     a0->field_0 = 7;
     ::0x51afa0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::hbaa87f9dbd448729(&v6);
     return v28;

@@ -1,6 +1,6 @@
 long long uu_tail::uumain::uumain::h5c3c638d6b95c620(unsigned long long a0, unsigned long long a1)
 {
-    int v0;  // [bp-0xf8], Other Possible Types: char, unsigned long, unsigned long long
+    int v0;  // [bp-0xf8], Other Possible Types: char, unsigned long
     unsigned long v1;  // [sp-0xf0], Other Possible Types: unsigned long long
     struct struct_0 **v2;  // [sp-0xe8], Other Possible Types: unsigned long, unsigned long long
     char v3;  // [bp-0xe0], Other Possible Types: unsigned int, unsigned long long
@@ -10,8 +10,8 @@ long long uu_tail::uumain::uumain::h5c3c638d6b95c620(unsigned long long a0, unsi
     char v7;  // [bp-0xb0]
     char *v8;  // [sp-0xa8]
     unsigned long long v9;  // [sp-0xa0]
-    unsigned long v10;  // [sp-0x98], Other Possible Types: unsigned long long
-    void* v11;  // [sp-0x90]
+    unsigned long v10;  // [sp-0x98]
+    unsigned long long v11;  // [sp-0x90]
     unsigned long long v12;  // [sp-0x88]
     int v13;  // [sp-0x80]
     int v14;  // [sp-0x70]
@@ -24,24 +24,27 @@ long long uu_tail::uumain::uumain::h5c3c638d6b95c620(unsigned long long a0, unsi
     char v21;  // [bp-0x28]
     char v22;  // [bp-0x18]
     unsigned long long v24;  // rax
+    unsigned long long v25;  // rax
+    void* v26;  // rbx
 
     uu_tail::args::parse_args::h21b79a77363e2b6a(&v0, a0, a1);
+    v24 = v1;
     if (v10 == 5)
-        return v11;
+        return v24;
     v16 = *((long long *)&v7);
     *((int128_t *)&v15) = *((int128_t *)&v6);
     *((int128_t *)&v14) = *((int128_t *)&v5);
     *((int128_t *)&v13) = *((int128_t *)&v3);
     v10 = v0;
-    v11 = v1;
+    v11 = v24;
     v12 = v2;
     uu_tail::args::Settings::check_warnings::hc95159a783f4a1c8(&v10);
-    v24 = uu_tail::args::Settings::verify::h67589dab63f9aa61(&v10);
-    if ((char)v24 == 2)
+    v25 = uu_tail::args::Settings::verify::h67589dab63f9aa61(&v10);
+    if ((char)v25 == 2)
     {
-        v11 = 0;
+        v26 = 0;
     }
-    else if ((unsigned int)v24 == 1)
+    else if ((unsigned int)v25 == 1)
     {
         v17 = 0;
         v18 = "-cannot follow ";
@@ -54,11 +57,11 @@ long long uu_tail::uumain::uumain::h5c3c638d6b95c620(unsigned long long a0, unsi
         v4 = 0;
         v2 = &v8;
         v3 = 1;
-        core::option::Option$LT$T$GT$::map_or_else::h0da0019156620c79();
+        core::option::Option$LT$T$GT$::map_or_else::h0da0019156620c79(&v21, &v0);
         v3 = 1;
         *((int128_t *)&v0) = *((int128_t *)&v21);
         v2 = *((long long *)&v22);
-        v11 = alloc::boxed::Box$LT$T$GT$::new::h6de0ca5f93407dd6(&v0);
+        v26 = alloc::boxed::Box$LT$T$GT$::new::h6de0ca5f93407dd6(&v0);
     }
     else
     {
@@ -66,5 +69,6 @@ long long uu_tail::uumain::uumain::h5c3c638d6b95c620(unsigned long long a0, unsi
         return uu_tail::uu_tail::h84841135fb1b0c3f(&v10);
     }
     ::0x4a6190::core::ptr::drop_in_place$LT$uu_tail..args..Settings$GT$::h333061858f2bc617(&v10);
-    return v11;
+    v24 = v26;
+    return v24;
 }

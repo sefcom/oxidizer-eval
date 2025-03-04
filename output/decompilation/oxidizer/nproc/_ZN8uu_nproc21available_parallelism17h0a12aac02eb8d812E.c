@@ -1,8 +1,7 @@
 fn uu_nproc::available_parallelism() -> u64 {
-    let v1: u64;  // rbx
+    let v1: u64;  // rax
+    let v2: u64;  // rbx
 
-    if !std::thread::available_parallelism() {
-        return v1;
-    }
-    return v1;
+    v1 = std::thread::available_parallelism();
+    return v2;
 }

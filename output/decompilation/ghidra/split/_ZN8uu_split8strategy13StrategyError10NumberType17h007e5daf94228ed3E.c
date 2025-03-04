@@ -1,5 +1,5 @@
-void __rustcall
-uu_split::strategy::StrategyError::NumberType(undefined8 *param_1,undefined8 *param_2)
+void _ZN8uu_split8strategy13StrategyError10NumberType17h007e5daf94228ed3E
+               (undefined8 *param_1,undefined8 *param_2)
 
 {
   undefined8 uVar1;

@@ -1,6 +1,5 @@
-long __rustcall
-uu_expand::expand_line
-          (long param_1,long *param_2,undefined8 param_3,undefined8 param_4,long param_5)
+long _ZN9uu_expand11expand_line17h40856abb6fde71c0E
+               (long param_1,long *param_2,undefined8 param_3,undefined8 param_4,long param_5)
 
 {
   char cVar1;
@@ -64,7 +63,7 @@ LAB_001b2d03:
           if (cVar20 != '\x01') goto LAB_001b2d12;
         }
 LAB_001b2de0:
-        uVar17 = next_tabstop(local_50,local_48,local_98,uVar3);
+        uVar17 = _ZN9uu_expand12next_tabstop17h053856bdaef20e1aE(local_50,local_48,local_98,uVar3);
         auVar7._8_8_ = uVar17;
         auVar7._0_8_ = lVar12;
         auVar22._8_8_ = uVar17;
@@ -76,10 +75,11 @@ LAB_001b2de0:
         }
         if (uVar17 <= uVar5) {
           if (((uVar17 != 0) && (uVar17 < uVar5)) && (*(char *)(lVar12 + uVar17) < -0x40)) {
-            uVar11 = core::str::slice_error_fail(lVar12,uVar5,0,uVar17,&PTR_DAT_0021cf60);
+            uVar11 = _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE
+                               (lVar12,uVar5,0,uVar17,&PTR_DAT_0021cf60);
                     /* catch() { ... } // from try @ 001b2ebe with catch @ 001b2f6d */
                     /* try { // try from 001b2f70 to 001b2f79 has its CatchHandler @ 001b2f82 */
-            core::ptr::drop_in_place<alloc::string::String>(&local_70);
+            _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17ha7a8555218b598c1E(&local_70);
             lVar12 = _Unwind_Resume(uVar11);
             return lVar12;
           }
@@ -88,7 +88,8 @@ LAB_001b2de0:
           lVar18 = param_2[1] + lVar10;
           goto LAB_001b2c50;
         }
-        ::alloc::str::_<impl_str>::repeat(&local_70,&DAT_0011d0ab,1,uVar17);
+        _ZN5alloc3str21__LT_impl_u20_str_GT_6repeat17h44a69ba09e43960aE
+                  (&local_70,&DAT_0011d0ab,1,uVar17);
         uVar17 = local_60;
         lVar10 = param_2[2];
         if (local_60 < (ulong)(*param_2 - lVar10)) {
@@ -97,14 +98,14 @@ LAB_001b2de0:
         }
         else {
                     /* try { // try from 001b2ebe to 001b2ec8 has its CatchHandler @ 001b2f6d */
-          lVar10 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold
+          lVar10 = _ZN3std2io8buffered9bufwriter18BufWriter_LT_W_GT_14write_all_cold17h4607e557ce367ef1E
                              (param_2,local_68,local_60);
           if (lVar10 != 0) {
-            core::ptr::drop_in_place<alloc::string::String>(&local_70);
+            _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17ha7a8555218b598c1E(&local_70);
             return lVar10;
           }
         }
-        core::ptr::drop_in_place<alloc::string::String>(&local_70);
+        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17ha7a8555218b598c1E(&local_70);
       }
       else {
         uVar17 = uVar16 + 1 + (ulong)(cVar20 < '\0');
@@ -115,9 +116,9 @@ LAB_001b2bf0:
           local_98 = local_98 + lVar10;
         }
         else {
-          uVar11 = _<core::ops::range::Range<usize>as_core::slice::index::SliceIndex<[T]>>::index
+          uVar11 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17h165bffab35878e2aE
                              (uVar16,uVar17,lVar6,uVar4,&PTR_DAT_0021cf30);
-          core::str::converts::from_utf8(&local_70,uVar11);
+          _ZN4core3str8converts9from_utf817ha1effb4cca6d9901E(&local_70,uVar11);
           if (local_70 != 0) {
             cVar20 = '\x02';
             goto LAB_001b2d03;
@@ -125,7 +126,7 @@ LAB_001b2bf0:
           lVar15 = (ulong)(cVar20 < '\0') + 1;
           local_38 = local_60 + local_68;
           local_40 = local_68;
-          iVar9 = core::str::validations::next_code_point(&local_40);
+          iVar9 = _ZN4core3str11validations15next_code_point17h87ad66f27761ddf6E(&local_40);
           puVar14 = (uleb128 *)(extraout_RDX & 0xffffffff);
           if (iVar9 == 0) {
             puVar14 = &uleb128_00110000;
@@ -149,7 +150,8 @@ LAB_001b2dc7:
             }
             else {
               if (uVar13 < 0xa0) goto LAB_001b2dc7;
-              lVar10 = unicode_width::tables::charwidth::lookup_width(puVar14);
+              lVar10 = _ZN13unicode_width6tables9charwidth12lookup_width17hfd0b3b0958e151ecE
+                                 (puVar14);
             }
           }
           if (cVar20 == '\x01') goto LAB_001b2de0;
@@ -163,14 +165,15 @@ LAB_001b2d12:
         }
         if (uVar4 <= uVar16) {
                     /* WARNING: Subroutine does not return */
-          core::panicking::panic_bounds_check(uVar16,uVar4,&PTR_DAT_0021cf78);
+          _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E(uVar16,uVar4,&PTR_DAT_0021cf78)
+          ;
         }
         if (*(char *)(lVar6 + uVar16) != ' ') {
           bVar8 = false;
         }
         ppuVar19 = &PTR_DAT_0021cf90;
 LAB_001b2c2b:
-        auVar22 = _<core::ops::range::Range<usize>as_core::slice::index::SliceIndex<[T]>>::index
+        auVar22 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17h165bffab35878e2aE
                             (uVar16,lVar15 + uVar16,lVar6,uVar4,ppuVar19);
         lVar10 = param_2[2];
         auVar7 = auVar22;
@@ -182,7 +185,7 @@ LAB_001b2c50:
         }
         else {
 LAB_001b2da6:
-          lVar10 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold
+          lVar10 = _ZN3std2io8buffered9bufwriter18BufWriter_LT_W_GT_14write_all_cold17h4607e557ce367ef1E
                              (param_2,auVar7._0_8_,auVar7._8_8_);
           if (lVar10 != 0) {
             return lVar10;
@@ -192,9 +195,10 @@ LAB_001b2da6:
       uVar16 = uVar16 + lVar15;
     } while (uVar16 < uVar4);
   }
-  lVar12 = _<std::io::buffered::bufwriter::BufWriter<W>as_std::io::Write>::flush(param_2);
+  lVar12 = _ZN83__LT_std__io__buffered__bufwriter__BufWriter_LT_W_GT__u20_as_u20_std__io__Write_GT_5flush17h1b96ef1d18ffca54E
+                     (param_2);
   if (lVar12 == 0) {
-    ::alloc::vec::Vec<T,A>::truncate(local_58,0);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_8truncate17habfea7c34b2cc233E(local_58,0);
     lVar12 = 0;
   }
   return lVar12;

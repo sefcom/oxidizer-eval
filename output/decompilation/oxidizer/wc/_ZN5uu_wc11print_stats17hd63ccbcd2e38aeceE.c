@@ -5,13 +5,13 @@ fn uu_wc::print_stats(a0: &u64, a1: &u64, a2: u32, a3: u32, a4: u32) -> u64 {
     let v3: &u8;  // [sp-0x168]
     let v4: u64;  // [sp-0x160]
     let v5: u64;  // [sp-0x158]
-    let v6: Argument;  // [sp-0x150], Other Possible Types: &u8
+    let v6: &u8;  // [sp-0x150], Other Possible Types: Argument
     let v7: u64;  // [sp-0x148]
     let v8: &u8;  // [sp-0x140], Other Possible Types: Argument
     let v9: u64;  // [sp-0x138]
     let v10: u64;  // [sp-0x130]
     let v11: void*;  // [sp-0x128]
-    let v12: u64;  // [sp-0x120], Other Possible Types: struct40, Arguments
+    let v12: struct40;  // [sp-0x120], Other Possible Types: Arguments, u64
     let v13: u64;  // [sp-0x110]
     let v14: void*;  // [sp-0x100]
     let v15: u64;  // [sp-0xf8]
@@ -22,43 +22,46 @@ fn uu_wc::print_stats(a0: &u64, a1: &u64, a2: u32, a3: u32, a4: u32) -> u64 {
     let v20: u64;  // [sp-0xc8]
     let v21: u64;  // [sp-0xc0]
     let v22: u8;  // [sp-0xb8]
-    let v23: struct40;  // [bp-0xb0], Other Possible Types: u64
+    let v23: u64;  // [sp-0xb0]
     let v24: u64;  // [sp-0xa8]
-    let v25: u64;  // [sp-0x88]
-    let v26: u8;  // [sp-0x80]
-    let v27: u64;  // [sp-0x78]
-    let v28: u8;  // [sp-0x70]
-    let v29: u64;  // [sp-0x68]
-    let v30: u8;  // [sp-0x60]
-    let v31: u64;  // [sp-0x58]
-    let v32: u8;  // [sp-0x50]
-    let v33: u64;  // [sp-0x48]
-    let v34: u8;  // [sp-0x40]
-    let v35: u64;  // [sp-0x38]
-    let v36: u8;  // [bp-0x30]
-    let v38: struct8;  // rax
-    let v39: u64;  // r14
+    let v25: &&struct_0;  // [sp-0xa0]
+    let v26: u64;  // [sp-0x98]
+    let v27: &u8;  // [sp-0x90]
+    let v28: u64;  // [sp-0x88]
+    let v29: u8;  // [sp-0x80]
+    let v30: u64;  // [sp-0x78]
+    let v31: u8;  // [sp-0x70]
+    let v32: u64;  // [sp-0x68]
+    let v33: u8;  // [sp-0x60]
+    let v34: u64;  // [sp-0x58]
+    let v35: u8;  // [sp-0x50]
+    let v36: u64;  // [sp-0x48]
+    let v37: u8;  // [sp-0x40]
+    let v38: u64;  // [sp-0x38]
+    let v39: u8;  // [bp-0x30]
+    let v41: struct8;  // rax
+    let v42: u64;  // r14
 
     v12 = std::io::stdio::stdout();
     v0 = std::io::stdio::Stderr::lock(&v12);
-    v26 = *((&a0[3] as &char + 2) as &i8);
-    v27 = a1[2];
-    v28 = *((&a0[3] as &char + 3) as &i8);
-    v29 = a1[3];
-    v30 = *((&a0[3] as &char + 1) as &i8);
-    v31 = a1[1];
-    v32 = a0[3];
-    v33 = *(a1);
-    v34 = *((&a0[3] as &char + 4) as &i8);
-    v35 = a1[4];
+    v29 = *((&a0[3] as &char + 2) as &i8);
+    v30 = a1[2];
+    v31 = *((&a0[3] as &char + 3) as &i8);
+    v32 = a1[3];
+    v33 = *((&a0[3] as &char + 1) as &i8);
+    v34 = a1[1];
+    v35 = a0[3];
+    v36 = *(a1);
+    v37 = *((&a0[3] as &char + 4) as &i8);
+    v38 = a1[4];
     v1 = 1;
     v2 = 0;
-    v3 = &v26;
-    v4 = &v36;
-    v38 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::find();
-    if v38 {
+    v3 = &v29;
+    v4 = &v39;
+    v41 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::find();
+    if v41 {
         do {
-            v5 = v38 + 8;
+            v5 = v41 + 8;
             v6 = &v1;
             v7 = <&T as core::fmt::Display>::fmt;
             v8 = &v5;
@@ -76,17 +79,16 @@ fn uu_wc::print_stats(a0: &u64, a1: &u64, a2: u32, a3: u32, a4: u32) -> u64 {
             v20 = 1;
             v21 = 32;
             v22 = 3;
-            *(&v23 as &struct40) = struct40 {
-                field_0: &g_419ac8
-                field_8: 2
-                field_16: &v6
-                field_24: 3
-            };
-            v25 = 2;
+            v23 = &g_419ac8;
+            v24 = 2;
+            v27 = &v12;
+            v28 = 2;
+            v25 = &v6;
+            v26 = 3;
             if std::io::Write::write_fmt(&v0, &v23) {
-                return v39;
+                return v42;
             }
-        } while ((v1 = &g_41e579, v2 = 1, v38 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::find(), v38));
+        } while ((v1 = &g_41e579, v2 = 1, v41 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::find(), v41));
     }
     if !v23 {
         *(&v12 as &struct40) = struct40 {
@@ -114,5 +116,5 @@ fn uu_wc::print_stats(a0: &u64, a1: &u64, a2: u32, a3: u32, a4: u32) -> u64 {
         };
         std::io::Write::write_fmt(&v0, &v12);
     }
-    return v39;
+    return v42;
 }

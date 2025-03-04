@@ -1,4 +1,4 @@
-long long uu_cp::context_for::h98549e35fded8509(unsigned long a0, unsigned long a1, unsigned long a2, unsigned long a3, unsigned long a4)
+long long uu_cp::context_for::h98549e35fded8509(unsigned long long a0, unsigned long a1, unsigned long a2, unsigned long a3, unsigned long a4)
 {
     char *v0;  // [sp-0x98]
     unsigned long long v1;  // [sp-0x90]
@@ -12,7 +12,7 @@ long long uu_cp::context_for::h98549e35fded8509(unsigned long a0, unsigned long 
     unsigned long long v9;  // [sp-0x50]
     unsigned long long v10;  // [sp-0x48]
     char v11;  // [sp-0x40]
-    unsigned long long v12;  // [sp-0x38]
+    unsigned long v12;  // [sp-0x38]
     unsigned long long v13;  // [sp-0x30]
     struct struct_0 **v14;  // [sp-0x28]
     unsigned long long v15;  // [sp-0x20]
@@ -35,6 +35,6 @@ long long uu_cp::context_for::h98549e35fded8509(unsigned long a0, unsigned long 
     v16 = 0;
     v14 = &v0;
     v15 = 2;
-    ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2();
+    ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2(a0, &v12);
     return a0;
 }

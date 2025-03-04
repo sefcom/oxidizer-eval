@@ -1,4 +1,4 @@
-void __rustcall uu_ls::display_date(undefined8 param_1,undefined8 param_2,long param_3)
+void _ZN5uu_ls12display_date17h5db6390c2e0df8d3E(undefined8 param_1,undefined8 param_2,long param_3)
 
 {
   char cVar1;
@@ -18,28 +18,30 @@ void __rustcall uu_ls::display_date(undefined8 param_1,undefined8 param_2,long p
   undefined4 uStack_6c;
   int local_68 [20];
   
-  get_time(&local_78);
+  _ZN5uu_ls8get_time17h8b131fbbcfeb99ccE(&local_78);
   if (local_78 == 0) {
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(param_1,&DAT_001362e5,3);
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h09d6369a280ff05aE
+              (param_1,&DAT_001362e5,3);
     return;
   }
   local_88 = local_78;
   uStack_84 = uStack_74;
   uStack_80 = uStack_70;
   uStack_7c = uStack_6c;
-  chrono::datetime::DateTime<Tz>::checked_add_signed(local_68,&local_78);
+  _ZN6chrono8datetime18DateTime_LT_Tz_GT_18checked_add_signed17h05dd0e1cc9a47e1aE
+            (local_68,&local_78);
   if (local_68[0] == 0) {
-    uVar3 = core::option::expect_failed(&DAT_001362e8,0x21,&PTR_DAT_00312988);
+    uVar3 = _ZN4core6option13expect_failed17h9e03a1f6ff88dbcfE(&DAT_001362e8,0x21,&PTR_DAT_00312988)
+    ;
                     /* catch() { ... } // from try @ 0022bedd with catch @ 0022bf1a */
                     /* try { // try from 0022bf1d to 0022bf26 has its CatchHandler @ 0022bf2f */
-    core::ptr::
-    drop_in_place<chrono::format::formatting::DelayedFormat<chrono::format::strftime::StrftimeItems>>
+    _ZN4core3ptr109drop_in_place_LT_chrono__format__formatting__DelayedFormat_LT_chrono__format__strftime__StrftimeItems_GT__GT_17h2d8af8695fb24873E
               (local_68);
     _Unwind_Resume(uVar3);
     return;
   }
-  chrono::offset::local::Local::now(local_68);
-  cVar1 = _<chrono::naive::datetime::NaiveDateTime_as_core::cmp::PartialOrd>::partial_cmp
+  _ZN6chrono6offset5local5Local3now17ha82adb6e05d16f38E(local_68);
+  cVar1 = _ZN80__LT_chrono__naive__datetime__NaiveDateTime_u20_as_u20_core__cmp__PartialOrd_GT_11partial_cmp17hd709d884e1631950E
                     (&local_a8,local_68);
   switch(*(ulong *)(param_3 + 0xb8) ^ 0x8000000000000000) {
   case 0:
@@ -69,11 +71,12 @@ LAB_0022be8e:
   }
   local_98 = 8;
   local_90 = 0;
-  chrono::datetime::DateTime<Tz>::format_with_items(local_68,&local_88,&local_a8);
+  _ZN6chrono8datetime18DateTime_LT_Tz_GT_17format_with_items17h13d00874c810e2f8E
+            (local_68,&local_88,&local_a8);
                     /* try { // try from 0022bedd to 0022bee9 has its CatchHandler @ 0022bf1a */
-  _<T_as_alloc::string::ToString>::to_string(param_1,local_68);
-  core::ptr::
-  drop_in_place<chrono::format::formatting::DelayedFormat<chrono::format::strftime::StrftimeItems>>
+  _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17h4f934844aadf293cE(param_1,local_68)
+  ;
+  _ZN4core3ptr109drop_in_place_LT_chrono__format__formatting__DelayedFormat_LT_chrono__format__strftime__StrftimeItems_GT__GT_17h2d8af8695fb24873E
             (local_68);
   return;
 }

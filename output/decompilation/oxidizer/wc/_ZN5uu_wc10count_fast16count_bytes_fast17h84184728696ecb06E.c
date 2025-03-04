@@ -1,12 +1,12 @@
 fn uu_wc::count_fast::count_bytes_fast(a0: u32) -> u64 {
-    let v0: Option<struct4>;  // [sp-0x4028], Other Possible Types: u64
+    let v0: Option<struct4>;  // [sp-0x4028]
     let v1: u8;  // [bp-0x4007]
     let v2: void*;  // [sp-0x3028]
     let v3: void*;  // [sp-0x2028]
     let v4: void*;  // [sp-0x1028]
-    let v6: void*;  // rbx
+    let v6: u64;  // rbx, Other Possible Types: void*
     let v7: u32;  // rdx
-    let v8: u64;  // rbx
+    let v8: u64;  // rax
 
     v4 = 0;
     v3 = 0;
@@ -17,14 +17,15 @@ fn uu_wc::count_fast::count_bytes_fast(a0: u32) -> u64 {
         Some(_) => {
 LABEL_4b862e:
             memset(&v0, 0, 0x4000);
+            v8 = v6;
             do {
-                v8 = v6;
+                v6 = v8;
                 while (<std::io::stdio::StdinLock as std::io::Read>::read(a0)) {
                     if std::io::error::Error::kind(v7) as i8 != 35 {
-                        return v8;
+                        return v6;
                     }
                 }
-                v6 = v8 + v7;
+                v8 = v6 + v7;
             } while (v7);
         },
         None => {
@@ -38,5 +39,5 @@ LABEL_4b862e:
             }
         },
     }
-    return v8;
+    return v6;
 }

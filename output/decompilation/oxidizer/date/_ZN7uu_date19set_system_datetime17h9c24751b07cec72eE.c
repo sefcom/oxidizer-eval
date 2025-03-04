@@ -1,4 +1,4 @@
-fn uu_date::set_system_datetime(a0: &struct12) -> u64 {
+fn uu_date::set_system_datetime(a0: &u64) -> u64 {
     let v0: u64;  // [sp-0x18]
     let v1: u64;  // [sp-0x10]
     let v4: u64;  // r8

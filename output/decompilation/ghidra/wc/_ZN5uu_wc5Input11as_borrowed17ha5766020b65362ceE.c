@@ -1,4 +1,4 @@
-void __rustcall uu_wc::Input::as_borrowed(undefined8 *param_1,long *param_2)
+void _ZN5uu_wc5Input11as_borrowed17ha5766020b65362ceE(undefined8 *param_1,long *param_2)
 
 {
   long lVar1;

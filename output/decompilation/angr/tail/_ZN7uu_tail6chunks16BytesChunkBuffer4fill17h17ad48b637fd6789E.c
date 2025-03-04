@@ -6,13 +6,13 @@ long long uu_tail::chunks::BytesChunkBuffer::fill::h17ad48b637fd6789(unsigned lo
     void* v3;  // [sp-0x2038]
     void* v4;  // [sp-0x2030]
     void* v5;  // [sp-0x1030]
-    struct_0 *v7;  // rax
+    struct_0 *v7;  // r14
     unsigned long v8;  // rax
     unsigned long long v9;  // rax
-    void* v10;  // rcx
-    void* v11;  // r15
-    unsigned long long v12;  // rax
-    void* v13;  // rax
+    unsigned long v10;  // rdx
+    struct_0 *v12;  // rax
+    void* v13;  // rbx
+    void* v14;  // r15
 
     v5 = 0;
     v4 = 0;
@@ -26,23 +26,21 @@ long long uu_tail::chunks::BytesChunkBuffer::fill::h17ad48b637fd6789(unsigned lo
         uu_tail::chunks::BytesChunk::fill::h462ffdeafb1fcc09(&v0, v7, a1);
         if (v8)
         {
+            v13 = v1;
             break;
         }
         else if (!v1)
         {
             if (a0[3])
             {
-                v11 = alloc::collections::vec_deque::VecDeque$LT$T$C$A$GT$::pop_front::hf015bc98e843c630(a0);
-                if (!v11)
+                v14 = alloc::collections::vec_deque::VecDeque$LT$T$C$A$GT$::pop_front::hf015bc98e843c630(a0);
+                if (!v14)
                     core::option::unwrap_failed::h0e11329e76906eaa(&g_5bc8a8); /* do not return */
-                v12 = a0[5];
-                v13 = v12 - a0[4];
-                if (a0[4] > v12)
-                    v13 = 0;
-                uu_tail::chunks::BytesChunk::from_chunk::hb6067992a01f279a(&v0, v11, v13);
+                uu_tail::chunks::BytesChunk::from_chunk::hb6067992a01f279a(&v0, v14, (a0[4] <= a0[5] ? a0[5] - a0[4] : 0));
                 alloc::collections::vec_deque::VecDeque$LT$T$C$A$GT$::push_front::hc9231dd819dfa519(a0, alloc::boxed::Box$LT$T$GT$::new::h5d3de1da27eb11e8(&v0));
-                ::0x511dc0::core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$uu_tail..chunks..BytesChunk$GT$$GT$::h186d7d501d28deee();
+                ::0x511dc0::core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$uu_tail..chunks..BytesChunk$GT$$GT$::h186d7d501d28deee(v14);
             }
+            v13 = 0;
             break;
         }
         else
@@ -52,10 +50,7 @@ long long uu_tail::chunks::BytesChunkBuffer::fill::h17ad48b637fd6789(unsigned lo
             if (!a0[3])
                 core::option::expect_failed::h9e03a1f6ff88dbcf("Out of bounds access", 20, &g_5bc878); /* do not return */
             v9 = a0[2];
-            v10 = a0[0];
-            if (v10 > v9)
-                v10 = 0;
-            if (a0[5] - *((long long *)(*((long long *)(a0[1] + (v9 - v10) * 8)) + 0x2000)) <= a0[4])
+            if (a0[5] - *((long long *)(*((long long *)(a0[1] + (v9 - (v10 <= v9 ? a0[0] : 0)) * 8)) + 0x2000)) <= a0[4])
             {
                 memcpy(&v0, &v4, 0x2000);
                 v3 = 0;
@@ -63,13 +58,14 @@ long long uu_tail::chunks::BytesChunkBuffer::fill::h17ad48b637fd6789(unsigned lo
             }
             else
             {
-                v7 = alloc::collections::vec_deque::VecDeque$LT$T$C$A$GT$::pop_front::hf015bc98e843c630(a0);
-                if (!v7)
+                v12 = alloc::collections::vec_deque::VecDeque$LT$T$C$A$GT$::pop_front::hf015bc98e843c630(a0);
+                if (!v12)
                     core::option::unwrap_failed::h0e11329e76906eaa(&g_5bc890); /* do not return */
-                a0[5] = a0[5] - v7->field_2000;
+                v7 = v12;
+                a0[5] = a0[5] - v12->field_2000;
             }
         }
     }
-    ::0x511dc0::core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$uu_tail..chunks..BytesChunk$GT$$GT$::h186d7d501d28deee();
-    return 0;
+    ::0x511dc0::core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$uu_tail..chunks..BytesChunk$GT$$GT$::h186d7d501d28deee(v7);
+    return v13;
 }

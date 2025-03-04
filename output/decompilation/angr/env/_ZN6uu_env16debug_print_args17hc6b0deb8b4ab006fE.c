@@ -1,12 +1,12 @@
 long long uu_env::debug_print_args::hc6b0deb8b4ab006f(unsigned long a0, unsigned long a1)
 {
-    unsigned long v0;  // [sp-0xc0], Other Possible Types: unsigned long long
-    unsigned long v1;  // [sp-0xb8], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xc0]
+    unsigned long v1;  // [sp-0xb8]
     unsigned long long v2;  // [sp-0xb0]
-    struct struct_0 **v3;  // [sp-0xa8], Other Possible Types: unsigned long long
-    int v4;  // [bp-0xa0], Other Possible Types: unsigned long long
+    struct struct_1 **v3;  // [sp-0xa8], Other Possible Types: unsigned long long
+    int v4;  // [sp-0xa0], Other Possible Types: unsigned long long
     void* v5;  // [sp-0x98]
-    unsigned long v6;  // [sp-0x88], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x88]
     unsigned long long v7;  // [sp-0x80]
     void* v8;  // [sp-0x78]
     char *v9;  // [sp-0x70]
@@ -19,8 +19,8 @@ long long uu_env::debug_print_args::hc6b0deb8b4ab006f(unsigned long a0, unsigned
     int v17;  // ymm0
     int v18;  // ymm0
     unsigned long long v19;  // rax
-    struct_1 *v20;  // rdx
-    struct_1 *v21;  // rdx
+    struct_0 *v20;  // rdx
+    struct_0 *v21;  // rdx
     int v22;  // xmm0
 
     v1 = &g_5489e8;

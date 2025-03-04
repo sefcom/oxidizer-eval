@@ -15,8 +15,8 @@ long long uu_factor::write_result::h4349ac4ce4d74e96(unsigned long long a0[3], u
     char v12;  // [bp-0xe0]
     char v13;  // [bp-0xd0]
     char v14;  // [bp-0xc8]
-    unsigned long v15;  // [sp-0xc0], Other Possible Types: unsigned long long
-    unsigned long v16;  // [sp-0xb8], Other Possible Types: unsigned long long
+    unsigned long v15;  // [sp-0xc0]
+    unsigned long v16;  // [sp-0xb8]
     unsigned long long v17;  // [sp-0xb0]
     struct struct_1 **v18;  // [sp-0xa8], Other Possible Types: unsigned long long
     struct struct_0 **v19;  // [sp-0xa0], Other Possible Types: unsigned long long
@@ -28,15 +28,16 @@ long long uu_factor::write_result::h4349ac4ce4d74e96(unsigned long long a0[3], u
     unsigned long long v25;  // [sp-0x50]
     char v26;  // [bp-0x48]
     char v27;  // [bp-0x38]
-    unsigned long long v29;  // rax
+    unsigned long long v29;  // r13
     int v30;  // ymm0
     struct struct_0 **v31;  // xmm0
-    int v32;  // ymm0
-    struct struct_0 **v33;  // xmm0
+    unsigned long long v32;  // rax
+    int v33;  // ymm0
     struct struct_0 **v34;  // xmm0
-    unsigned long long v35;  // rsi
-    unsigned long long v36;  // r13
-    unsigned long long v37;  // rbp
+    struct struct_0 **v35;  // xmm0
+    unsigned long long v36;  // rsi
+    unsigned long long v37;  // r13
+    unsigned long long v38;  // rbp
 
     v15 = a1;
     v0 = &v15;
@@ -76,7 +77,7 @@ long long uu_factor::write_result::h4349ac4ce4d74e96(unsigned long long a0[3], u
                 v4 = 0;
                 v2 = &v5;
                 v3 = 2;
-                v29 = std::io::Write::write_fmt::h3e05af1c32146a29(a0, &v0);
+                v32 = std::io::Write::write_fmt::h3e05af1c32146a29(a0, &v0);
             }
             else
             {
@@ -87,9 +88,9 @@ long long uu_factor::write_result::h4349ac4ce4d74e96(unsigned long long a0[3], u
                 v4 = 0;
                 v2 = &v5;
                 v3 = 1;
-                v29 = std::io::Write::write_fmt::h3e05af1c32146a29(a0, &v0);
+                v32 = std::io::Write::write_fmt::h3e05af1c32146a29(a0, &v0);
             }
-            if (v29)
+            if (v32)
             {
                 ::0x4a2500::core::ptr::drop_in_place$LT$num_bigint..biguint..BigUint$GT$::hcd1b174757cb0819(&v10);
                 ::0x4a2360::core::ptr::drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$num_bigint..biguint..BigUint$C$usize$GT$$GT$::h58b1d517ade24c2d(&v16);
@@ -106,8 +107,8 @@ long long uu_factor::write_result::h4349ac4ce4d74e96(unsigned long long a0[3], u
             if (*((long long *)&v12) == 0x8000000000000000)
                 break;
             v11 = *((long long *)&v13);
-            v33 = *((int128_t *)&v12);
-            v10 = v33;
+            v34 = *((int128_t *)&v12);
+            v10 = v34;
             v9 = *((long long *)&v14);
             v24 = &v10;
             v25 = _$LT$num_bigint..biguint..BigUint$u20$as$u20$core..fmt..Display$GT$::fmt::h3b55b5376c9fe64d;
@@ -116,23 +117,23 @@ long long uu_factor::write_result::h4349ac4ce4d74e96(unsigned long long a0[3], u
             v4 = 0;
             v2 = &v24;
             v3 = 1;
-            core::option::Option$LT$T$GT$::map_or_else::ha848903e8938f6fd();
-            v34 = *((int128_t *)&v26);
-            v32 = (v32 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v33) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v34;
-            v5 = v34;
+            core::option::Option$LT$T$GT$::map_or_else::ha848903e8938f6fd(&v26, &v0);
+            v35 = *((int128_t *)&v26);
+            v33 = (v33 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v34) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v35;
+            v5 = v35;
             v7 = *((long long *)&v27);
             alloc::str::_$LT$impl$u20$str$GT$::repeat::h44a69ba09e43960a(&v21, v6, *((long long *)&v27), v9);
-            v35 = *((long long *)&v22);
-            v36 = *((long long *)&v23);
-            v37 = a0[2];
-            if (v36 < a0[0] - v37)
+            v36 = *((long long *)&v22);
+            v37 = *((long long *)&v23);
+            v38 = a0[2];
+            if (v37 < a0[0] - v38)
             {
-                memcpy(a0[1] + v37, v35, v36);
-                a0[2] = v37 + v36;
+                memcpy(a0[1] + v38, v36, v37);
+                a0[2] = v38 + v37;
             }
             else
             {
-                v29 = std::io::buffered::bufwriter::BufWriter$LT$W$GT$::write_all_cold::h84c9340cd8b23129(a0, v35, v36);
+                v29 = std::io::buffered::bufwriter::BufWriter$LT$W$GT$::write_all_cold::h84c9340cd8b23129(a0, v36, v37);
                 if (v29)
                 {
                     ::0x4a2430::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h0c60f8fdd24455a3(&v21);

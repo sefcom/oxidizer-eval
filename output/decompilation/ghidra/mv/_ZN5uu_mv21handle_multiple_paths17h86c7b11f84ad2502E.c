@@ -1,4 +1,4 @@
-void __rustcall uu_mv::handle_multiple_paths(long param_1,ulong param_2,long param_3)
+void _ZN5uu_mv21handle_multiple_paths17h86c7b11f84ad2502E(long param_1,ulong param_2,long param_3)
 
 {
   long lVar1;
@@ -23,21 +23,23 @@ void __rustcall uu_mv::handle_multiple_paths(long param_1,ulong param_2,long par
   local_78 = (undefined *)&local_98;
   if (*(char *)(param_3 + 0x30) == '\0') {
     if (param_2 == 0) {
-      core::option::unwrap_failed(&PTR_s_src_uu_mv_src_mv_rs_00287fe0);
+      _ZN4core6option13unwrap_failed17h0e11329e76906eaaE(&PTR_s_src_uu_mv_src_mv_rs_00287fe0);
       pcVar2 = (code *)swi(3);
       (*pcVar2)();
       return;
     }
     lVar1 = param_2 - 1;
-    auVar3 = _<core::ops::range::Range<usize>as_core::slice::index::SliceIndex<[T]>>::index
+    auVar3 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17h1ae6fd92abd5a845E
                        (lVar1,param_1,param_2);
-    move_files_into_dir(auVar3._0_8_,auVar3._8_8_,*(undefined8 *)(param_1 + 8 + lVar1 * 0x18),
-                        *(undefined8 *)(param_1 + 0x10 + lVar1 * 0x18),param_3);
+    _ZN5uu_mv19move_files_into_dir17hea74a81b456dd214E
+              (auVar3._0_8_,auVar3._8_8_,*(undefined8 *)(param_1 + 8 + lVar1 * 0x18),
+               *(undefined8 *)(param_1 + 0x10 + lVar1 * 0x18),param_3);
   }
   else {
     if (param_2 < 3) {
                     /* WARNING: Subroutine does not return */
-      core::panicking::panic_bounds_check(2,param_2,&PTR_s_src_uu_mv_src_mv_rs_00288010);
+      _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E
+                (2,param_2,&PTR_s_src_uu_mv_src_mv_rs_00288010);
     }
     local_50 = *(undefined4 *)(param_1 + 0x38);
     uStack_4c = *(undefined4 *)(param_1 + 0x3c);
@@ -46,14 +48,15 @@ void __rustcall uu_mv::handle_multiple_paths(long param_1,ulong param_2,long par
     local_58 = 1;
     local_40 = 1;
     local_98 = &local_58;
-    local_90 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+    local_90 = 
+    _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
     local_88 = &PTR_s_mv__extra_operand_00287fd0;
     local_80 = 1;
     local_68 = 0;
     local_70 = 1;
-    core::option::Option<T>::map_or_else(local_38,&local_88);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17h70402eff178ea70dE(local_38,&local_88);
     local_20 = 1;
-    ::alloc::boxed::Box<T>::new(local_38);
+    _ZN5alloc5boxed12Box_LT_T_GT_3new17hbe638d0f99162453E(local_38);
   }
   return;
 }

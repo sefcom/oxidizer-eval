@@ -1,6 +1,6 @@
 long long uu_df::filesystem::Filesystem::from_path::h5b49a475fd8fdd25(unsigned long long *a0, unsigned long long a1, unsigned long long a2, unsigned long long a3)
 {
-    int v0;  // [sp-0xe8], Other Possible Types: unsigned long, unsigned long long
+    int v0;  // [sp-0xe8], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0xe0]
     unsigned long long v2;  // [sp-0xd8]
     char v3;  // [bp-0xd0]

@@ -1,10 +1,10 @@
 fn uu_env::split_iterator::SplitIterator::check_and_replace_ascii_escape_code(a0: &Result<struct40, struct1>, a1: u32, a2: u32) -> u64 {
     let v0: struct4;  // [bp-0x54]
     let v1: struct16;  // [bp-0x50]
-    let v2: struct21;  // [sp-0x40], Other Possible Types: i168
+    let v2: struct21;  // [sp-0x40]
     let v3: i8;  // [bp-0x20]
     let v5: i64;  // rax
-    let v6: i128;  // xmm0
+    let v6: iNone;  // xmm0
 
     v0 = struct4 {
         field_0: a2
@@ -20,17 +20,17 @@ fn uu_env::split_iterator::SplitIterator::check_and_replace_ascii_escape_code(a0
         });
     }
     v2 = uu_env::split_iterator::SplitIterator::skip_one(a1);
-    if v2 == 8 {
+    if v2.field_0 == 8 {
         v5 = uu_env::split_iterator::SplitIterator::push_char_to_word(a1, *((v5 + 4) as &i32));
         return Err(struct1 {
             field_0: 1
         });
     }
-    v5 = v3;
-    v6 = v2;
+    v5 = *(&v3 as &i64);
+    v6 = *(&v2.field_0 as &i128);
     return Ok(struct40 {
         field_0: v6
-        field_16: v2
+        field_16: *(&v2.field_0 as &i128)
         field_32: v5
     });
 }

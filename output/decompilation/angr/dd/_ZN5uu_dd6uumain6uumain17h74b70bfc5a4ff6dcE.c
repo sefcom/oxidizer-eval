@@ -3,7 +3,7 @@ long long uu_dd::uumain::uumain::h74b70bfc5a4ff6dc(unsigned long long a0, unsign
     char v0;  // [bp-0x578]
     char v1;  // [bp-0x570]
     char v2;  // [bp-0x568]
-    unsigned long v3;  // [sp-0x560], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x560]
     int v4;  // [sp-0x558]
     int v5;  // [sp-0x548]
     int v6;  // [sp-0x538]
@@ -18,12 +18,12 @@ long long uu_dd::uumain::uumain::h74b70bfc5a4ff6dc(unsigned long long a0, unsign
     int v15;  // [sp-0x4a8]
     char v16;  // [bp-0x490], Other Possible Types: unsigned int
     unsigned int v17;  // [sp-0x48d]
-    unsigned long v18;  // [sp-0x448], Other Possible Types: unsigned long long
+    unsigned long v18;  // [sp-0x448]
     unsigned long long v19;  // [sp-0x440]
     int v20;  // [sp-0x438]
     int v21;  // [sp-0x428]
     unsigned long long v22;  // [sp-0x418]
-    char v23;  // [bp-0x410], Other Possible Types: unsigned long long, unsigned long
+    char v23;  // [sp-0x410], Other Possible Types: unsigned long
     unsigned long v24;  // [sp-0x408], Other Possible Types: unsigned long long
     char v25;  // [bp-0x400]
     char v26;  // [bp-0x3f0]
@@ -35,7 +35,7 @@ long long uu_dd::uumain::uumain::h74b70bfc5a4ff6dc(unsigned long long a0, unsign
     char v32;  // [bp-0x398]
     char v33;  // [bp-0x388]
     char v34;  // [bp-0x378]
-    unsigned long v35;  // [sp-0x368], Other Possible Types: unsigned long long
+    unsigned long v35;  // [sp-0x368]
     unsigned long long v36;  // [sp-0x360]
     int v37;  // [sp-0x358]
     int v38;  // [sp-0x348]
@@ -63,12 +63,13 @@ long long uu_dd::uumain::uumain::h74b70bfc5a4ff6dc(unsigned long long a0, unsign
     int v60;  // [sp-0x238]
     int v61;  // [sp-0x228]
     char v62;  // [sp-0x218]
-    unsigned long long v64;  // rax
+    unsigned long long v64;  // r15
     unsigned long long v65;  // rax
     unsigned long long v66;  // rcx
     unsigned long long v70;  // rdx
     unsigned long long v71;  // rbx
-    int v72;  // xmm0
+    unsigned long long v72;  // r15
+    int v74;  // xmm0
 
     uu_dd::uu_app::h3802aa9aab1c575c(&v47);
     clap_builder::builder::command::Command::try_get_matches_from::h5a01ae36fb20ce9d(&v23, &v47, a0, a1);
@@ -152,8 +153,8 @@ long long uu_dd::uumain::uumain::h74b70bfc5a4ff6dc(unsigned long long a0, unsign
         {
             uu_dd::Input::new_fifo::h35e5c2fb1b3ef304(&v47, (long long)v5, (long long)(&v5)[8], &v3);
         }
-        v64 = *((long long *)&v50);
         v71 = v51;
+        v72 = *((long long *)&v50);
         if (v47)
         {
 LABEL_4857cc:
@@ -179,20 +180,20 @@ LABEL_4857cc:
             {
                 v17 = v49;
                 v16 = *((int *)((char *)&v47 + 1));
-                v72 = *((int128_t *)&v50);
-                v23 = v64;
+                v74 = *((int128_t *)&v50);
+                v23 = v72;
                 v24 = v71;
                 v47 = v47;
                 v48 = v16;
                 v49 = v17;
-                v50 = v72;
+                v50 = v74;
                 v64 = _$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$::map_err_context::h80210fa1ce24478c(uu_dd::dd_copy::h1703f8a2fff7c692(&v23, &v47));
                 core::ptr::drop_in_place$LT$uu_dd..Settings$GT$::he59f0dfde8a940ec(&v3);
             }
             else
             {
+                core::ptr::drop_in_place$LT$uu_dd..Input$GT$::hef16b694c3cf3941(v72 >> 32 & 4294967295);
                 v64 = *((long long *)&v50);
-                core::ptr::drop_in_place$LT$uu_dd..Input$GT$::hef16b694c3cf3941();
                 goto LABEL_4857cc;
             }
         }

@@ -1,13 +1,13 @@
 long long uu_dd::progress::ProgUpdate::write_prog_line::h73fbaadaf172cb94(struct_1 *a0, unsigned long long a1, unsigned int a2)
 {
-    unsigned long v0;  // [sp-0x178], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x178]
     unsigned long long v1;  // [sp-0x170]
-    unsigned long v2;  // [sp-0x160], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x160]
     unsigned long long v3;  // [sp-0x158]
     struct struct_0 **v4;  // [sp-0x150]
     unsigned long long v5;  // [sp-0x148]
     void* v6;  // [sp-0x140]
-    void* v7;  // [sp-0x130], Other Possible Types: char *
+    char *v7;  // [sp-0x130]
     unsigned long long v8;  // [sp-0x128]
     char *v9;  // [sp-0x120], Other Possible Types: char
     unsigned int v10;  // [sp-0x11f]
@@ -22,14 +22,14 @@ long long uu_dd::progress::ProgUpdate::write_prog_line::h73fbaadaf172cb94(struct
     unsigned long long v19;  // [sp-0xd8]
     char *v20;  // [sp-0xd0]
     unsigned long long v21;  // [sp-0xc8]
-    unsigned long v22;  // [sp-0xc0], Other Possible Types: unsigned long long
+    unsigned long v22;  // [sp-0xc0]
     unsigned long long v23;  // [sp-0xb8]
-    unsigned long v24;  // [sp-0xb0], Other Possible Types: unsigned long long
+    unsigned long v24;  // [sp-0xb0]
     unsigned long v25;  // [sp-0xa8]
     void* v26;  // [sp-0xa0]
     unsigned long long v27;  // [sp-0x98]
     void* v28;  // [sp-0x90]
-    unsigned long v29;  // [sp-0x88], Other Possible Types: unsigned long long
+    unsigned long v29;  // [sp-0x88]
     unsigned long long v30;  // [sp-0x80]
     char v31;  // [bp-0x78]
     char v32;  // [bp-0x60]
@@ -45,13 +45,14 @@ long long uu_dd::progress::ProgUpdate::write_prog_line::h73fbaadaf172cb94(struct
     unsigned long long v43;  // r9
     unsigned long long v45;  // rax
     unsigned long long v47;  // rax
-    void* v48;  // rax
+    unsigned long long v48;  // rax
     unsigned long long v49;  // rax
     unsigned long long v50;  // rcx
     unsigned long long v51;  // rax
     unsigned long long v52;  // rax
     unsigned long long v53;  // rax
     unsigned long long v54;  // rax
+    void* v55;  // rbx
 
     v35 = v37;
     v34 = v38;
@@ -195,9 +196,10 @@ LABEL_4f0230:
         }
     }
 LABEL_4efdfe:
+    v55 = v48;
     ::0x4ef2c0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::hcaeb013c8c4216fe(&v26);
     ::0x4ef290::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h3d63831bb78bbaa7(&v33);
     ::0x4ef290::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h3d63831bb78bbaa7(&v32);
     ::0x4ef290::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h3d63831bb78bbaa7(&v31);
-    return v48;
+    return v55;
 }

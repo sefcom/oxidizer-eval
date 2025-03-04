@@ -1,4 +1,4 @@
-undefined8 __rustcall uu_split::uu_app(undefined8 param_1)
+undefined8 _ZN8uu_split6uu_app17h157e905e8df93f6dE(undefined8 param_1)
 
 {
   undefined8 uVar1;
@@ -36,108 +36,117 @@ undefined8 __rustcall uu_split::uu_app(undefined8 param_1)
   char *local_248;
   undefined8 uStack_240;
   
-  uVar1 = uucore::util_name();
-  clap_builder::builder::command::Command::new(local_808,uVar1);
-  clap_builder::builder::command::Command::version(local_540,local_808,"0.0.28",6);
-  clap_builder::builder::command::Command::about
+  uVar1 = _ZN6uucore9util_name17h60d842bf27b05e82E();
+  _ZN12clap_builder7builder7command7Command3new17h0d66166954a99b3eE(local_808,uVar1);
+  _ZN12clap_builder7builder7command7Command7version17h19697d4afff15525E
+            (local_540,local_808,"0.0.28",6);
+  _ZN12clap_builder7builder7command7Command5about17hf7a64f51fdbb94d5E
             (local_808,local_540,
              "Create output files containing consecutive or interleaved sections of input",0x4b);
-  clap_builder::builder::command::Command::after_help
+  _ZN12clap_builder7builder7command7Command10after_help17ha86584327cc30ce7E
             (local_540,local_808,
              "Output fixed-size pieces of INPUT to PREFIXaa, PREFIXab, ...; default size is 1000, and default PREFIX is \'x\'. With no INPUT, or when INPUT is -, read standard input.\n\nThe SIZE argument is an integer and optional unit (example: 10K is 10*1024).\nUnits are K,M,G,T,P,E,Z,Y,R,Q (powers of 1024) or KB,MB,... (powers of 1000).\nBinary prefixes can be used, too: KiB=K, MiB=M, and so on.\n\nCHUNKS may be:\n\n- N       split into N files based on size of input\n- K/N     output Kth of N to stdout\n- l/N     split into N files without splitting lines/records\n- l/K/N   output Kth of N to stdout without splitting lines/records\n- r/N     like \'l\' but use round robin distribution\n- r/K/N   likewise but only output Kth of N to stdout"
              ,0x2d1);
                     /* try { // try from 001ca1f4 to 001ca20a has its CatchHandler @ 001cb08e */
-  uucore::format_usage(local_a58,"{} [OPTION]... [INPUT [PREFIX]]",0x1f);
-  clap_builder::builder::command::Command::override_usage(local_808,local_540,local_a58);
+  _ZN6uucore12format_usage17h76fcb2d15fbabc58E(local_a58,"{} [OPTION]... [INPUT [PREFIX]]",0x1f);
+  _ZN12clap_builder7builder7command7Command14override_usage17h6c4df92a788a0f94E
+            (local_808,local_540,local_a58);
   (*(code *)PTR_memcpy_0024cfc0)(local_540,local_808,700);
   local_284 = local_54c | 0x8000000080;
   local_27c = local_544;
                     /* try { // try from 001ca266 to 001ca2b4 has its CatchHandler @ 001cb184 */
-  clap_builder::builder::arg::Arg::new(local_808,"bytes",5);
-  clap_builder::builder::arg::Arg::short(local_a58,local_808,0x62);
-  clap_builder::builder::arg::Arg::long(local_808,local_a58,"bytes",5);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_808,"bytes",5);
+  _ZN12clap_builder7builder3arg3Arg5short17h4c75e70428513a63E(local_a58,local_808,0x62);
+  _ZN12clap_builder7builder3arg3Arg4long17hd7c1cf324c4cc25dE(local_808,local_a58,"bytes",5);
   (*(code *)PTR_memcpy_0024cfc0)(local_a58,local_808,0x248);
   local_810 = local_5c0 | 0x20;
   local_80c = local_5bc;
                     /* try { // try from 001ca2ef to 001ca328 has its CatchHandler @ 001cb184 */
-  clap_builder::builder::arg::Arg::value_name(local_808,local_a58,&DAT_00117a58,4);
-  clap_builder::builder::arg::Arg::help(local_a58,local_808,"put SIZE bytes per output file",0x1e);
-  clap_builder::builder::command::Command::arg(local_808,local_540,local_a58);
+  _ZN12clap_builder7builder3arg3Arg10value_name17h9845504f21c8416aE
+            (local_808,local_a58,&DAT_00117a58,4);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
+            (local_a58,local_808,"put SIZE bytes per output file",0x1e);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_808,local_540,local_a58);
                     /* try { // try from 001ca343 to 001ca391 has its CatchHandler @ 001cb172 */
-  clap_builder::builder::arg::Arg::new(local_540,"line-bytes",10);
-  clap_builder::builder::arg::Arg::short(local_a58,local_540,0x43);
-  clap_builder::builder::arg::Arg::long(local_540,local_a58,"line-bytes",10);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_540,"line-bytes",10);
+  _ZN12clap_builder7builder3arg3Arg5short17h4c75e70428513a63E(local_a58,local_540,0x43);
+  _ZN12clap_builder7builder3arg3Arg4long17hd7c1cf324c4cc25dE(local_540,local_a58,"line-bytes",10);
   (*(code *)PTR_memcpy_0024cfc0)(local_a58,local_540,0x248);
   local_810 = local_2f8 | 0x20;
   local_80c = local_2f4;
                     /* try { // try from 001ca3cc to 001ca405 has its CatchHandler @ 001cb172 */
-  clap_builder::builder::arg::Arg::value_name(local_540,local_a58,&DAT_00117a58,4);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg10value_name17h9845504f21c8416aE
+            (local_540,local_a58,&DAT_00117a58,4);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
             (local_a58,local_540,"put at most SIZE bytes of lines per output file",0x2f);
-  clap_builder::builder::command::Command::arg(local_540,local_808,local_a58);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_540,local_808,local_a58);
                     /* try { // try from 001ca420 to 001ca46e has its CatchHandler @ 001cb1ba */
-  clap_builder::builder::arg::Arg::new(local_808,"lines",5);
-  clap_builder::builder::arg::Arg::short(local_a58,local_808,0x6c);
-  clap_builder::builder::arg::Arg::long(local_808,local_a58,"lines",5);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_808,"lines",5);
+  _ZN12clap_builder7builder3arg3Arg5short17h4c75e70428513a63E(local_a58,local_808,0x6c);
+  _ZN12clap_builder7builder3arg3Arg4long17hd7c1cf324c4cc25dE(local_808,local_a58,"lines",5);
   (*(code *)PTR_memcpy_0024cfc0)(local_a58,local_808,0x248);
   local_810 = local_5c0 | 0x20;
   local_80c = local_5bc;
                     /* try { // try from 001ca4a9 to 001ca500 has its CatchHandler @ 001cb1ba */
-  clap_builder::builder::arg::Arg::value_name(local_808,local_a58,"NUMBER",6);
-  clap_builder::builder::arg::Arg::default_value(local_a58,local_808,&DAT_00117aac,4);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg10value_name17h9845504f21c8416aE(local_808,local_a58,"NUMBER",6);
+  _ZN12clap_builder7builder3arg3Arg13default_value17h48cc9ffdd06268dbE
+            (local_a58,local_808,&DAT_00117aac,4);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
             (&local_278,local_a58,"put NUMBER lines/records per output file",0x28);
-  clap_builder::builder::command::Command::arg(local_808,local_540,&local_278);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_808,local_540,&local_278);
                     /* try { // try from 001ca51e to 001ca56c has its CatchHandler @ 001cb160 */
-  clap_builder::builder::arg::Arg::new(local_540,"number",6);
-  clap_builder::builder::arg::Arg::short(local_a58,local_540,0x6e);
-  clap_builder::builder::arg::Arg::long(local_540,local_a58,"number",6);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_540,"number",6);
+  _ZN12clap_builder7builder3arg3Arg5short17h4c75e70428513a63E(local_a58,local_540,0x6e);
+  _ZN12clap_builder7builder3arg3Arg4long17hd7c1cf324c4cc25dE(local_540,local_a58,"number",6);
   (*(code *)PTR_memcpy_0024cfc0)(local_a58,local_540,0x248);
   local_810 = local_2f8 | 0x20;
   local_80c = local_2f4;
                     /* try { // try from 001ca5a7 to 001ca5e0 has its CatchHandler @ 001cb160 */
-  clap_builder::builder::arg::Arg::value_name(local_540,local_a58,"CHUNKS",6);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg10value_name17h9845504f21c8416aE(local_540,local_a58,"CHUNKS",6);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
             (local_a58,local_540,"generate CHUNKS output files; see explanation below",0x33);
-  clap_builder::builder::command::Command::arg(local_540,local_808,local_a58);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_540,local_808,local_a58);
                     /* try { // try from 001ca5fb to 001ca631 has its CatchHandler @ 001cb1a8 */
-  clap_builder::builder::arg::Arg::new(local_808,"additional-suffix",0x11);
-  clap_builder::builder::arg::Arg::long(local_a58,local_808,"additional-suffix",0x11);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_808,"additional-suffix",0x11);
+  _ZN12clap_builder7builder3arg3Arg4long17hd7c1cf324c4cc25dE
+            (local_a58,local_808,"additional-suffix",0x11);
   (*(code *)PTR_memcpy_0024cfc0)(local_808,local_a58,0x248);
   local_5c0 = local_810 | 0x20;
   local_5bc = local_80c;
                     /* try { // try from 001ca66c to 001ca6bb has its CatchHandler @ 001cb1a8 */
-  clap_builder::builder::arg::Arg::value_name(local_a58,local_808,"SUFFIX",6);
-  clap_builder::builder::arg::Arg::default_value(local_808,local_a58,1,0);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg10value_name17h9845504f21c8416aE(local_a58,local_808,"SUFFIX",6);
+  _ZN12clap_builder7builder3arg3Arg13default_value17h48cc9ffdd06268dbE(local_808,local_a58,1,0);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
             (local_a58,local_808,"additional SUFFIX to append to output file names",0x30);
-  clap_builder::builder::command::Command::arg(local_808,local_540,local_a58);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_808,local_540,local_a58);
                     /* try { // try from 001ca6d6 to 001ca70c has its CatchHandler @ 001cb196 */
-  clap_builder::builder::arg::Arg::new(local_540,"filter",6);
-  clap_builder::builder::arg::Arg::long(local_a58,local_540,"filter",6);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_540,"filter",6);
+  _ZN12clap_builder7builder3arg3Arg4long17hd7c1cf324c4cc25dE(local_a58,local_540,"filter",6);
   (*(code *)PTR_memcpy_0024cfc0)(local_540,local_a58,0x248);
   local_2f8 = local_810 | 0x20;
   local_2f4 = local_80c;
                     /* try { // try from 001ca747 to 001ca794 has its CatchHandler @ 001cb196 */
-  clap_builder::builder::arg::Arg::value_name(local_a58,local_540,"COMMAND",7);
-  clap_builder::builder::arg::Arg::value_hint(local_540,local_a58,6);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg10value_name17h9845504f21c8416aE(local_a58,local_540,"COMMAND",7)
+  ;
+  _ZN12clap_builder7builder3arg3Arg10value_hint17h6bcc63344f8bbb02E(local_540,local_a58,6);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
             (local_a58,local_540,
              "write to shell COMMAND; file name is $FILE (Currently not implemented for Windows)",
              0x52);
-  clap_builder::builder::command::Command::arg(local_540,local_808,local_a58);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_540,local_808,local_a58);
                     /* try { // try from 001ca7af to 001ca818 has its CatchHandler @ 001cb121 */
-  clap_builder::builder::arg::Arg::new(local_808,"elide-empty-files",0x11);
-  clap_builder::builder::arg::Arg::long(local_a58,local_808,"elide-empty-files",0x11);
-  clap_builder::builder::arg::Arg::short(local_808,local_a58,0x65);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_808,"elide-empty-files",0x11);
+  _ZN12clap_builder7builder3arg3Arg4long17hd7c1cf324c4cc25dE
+            (local_a58,local_808,"elide-empty-files",0x11);
+  _ZN12clap_builder7builder3arg3Arg5short17h4c75e70428513a63E(local_808,local_a58,0x65);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
             (local_a58,local_808,"do not generate empty output files with \'-n\'",0x2c);
-  clap_builder::builder::arg::Arg::action(&local_278,local_a58,2);
-  clap_builder::builder::command::Command::arg(local_808,local_540,&local_278);
+  _ZN12clap_builder7builder3arg3Arg6action17hfc40aae07e82fc86E(&local_278,local_a58,2);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_808,local_540,&local_278);
                     /* try { // try from 001ca84b to 001ca973 has its CatchHandler @ 001cb10c */
-  clap_builder::builder::arg::Arg::new(local_540,"-d",2);
-  clap_builder::builder::arg::Arg::short(local_a58,local_540,100);
-  clap_builder::builder::arg::Arg::action(local_540,local_a58,2);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_540,"-d",2);
+  _ZN12clap_builder7builder3arg3Arg5short17h4c75e70428513a63E(local_a58,local_540,100);
+  _ZN12clap_builder7builder3arg3Arg6action17hfc40aae07e82fc86E(local_540,local_a58,2);
   local_ab0 = "numeric-suffixes";
   uStack_aa8 = 0x10;
   local_aa0 = "-d";
@@ -154,13 +163,15 @@ undefined8 __rustcall uu_split::uu_app(undefined8 param_1)
   uStack_260 = 2;
   local_278 = "numeric-suffixes";
   uStack_270 = 0x10;
-  clap_builder::builder::arg::Arg::overrides_with_all(local_a58,local_540,&local_278);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg18overrides_with_all17h0f85aaf739527b15E
+            (local_a58,local_540,&local_278);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
             (&local_278,local_a58,"use numeric suffixes starting at 0, not alphabetic",0x32);
-  clap_builder::builder::command::Command::arg(local_540,local_808,&local_278);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_540,local_808,&local_278);
                     /* try { // try from 001ca991 to 001ca9c7 has its CatchHandler @ 001cb1de */
-  clap_builder::builder::arg::Arg::new(local_808,"numeric-suffixes",0x10);
-  clap_builder::builder::arg::Arg::long(local_a58,local_808,"numeric-suffixes",0x10);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_808,"numeric-suffixes",0x10);
+  _ZN12clap_builder7builder3arg3Arg4long17hd7c1cf324c4cc25dE
+            (local_a58,local_808,"numeric-suffixes",0x10);
   (*(code *)PTR_memcpy_0024cfc0)(local_808,local_a58,0x248);
   local_5c0 = local_810 | 0x80;
   local_5bc = local_80c;
@@ -171,7 +182,7 @@ undefined8 __rustcall uu_split::uu_app(undefined8 param_1)
   local_278 = (char *)0x0;
   uStack_270 = 1;
                     /* try { // try from 001caa42 to 001caae0 has its CatchHandler @ 001cb1de */
-  clap_builder::builder::arg::Arg::num_args(local_a58,local_808,&local_278);
+  _ZN12clap_builder7builder3arg3Arg8num_args17heae8fe644d507918E(local_a58,local_808,&local_278);
   local_248 = local_a80;
   uStack_240 = uStack_a78;
   local_258 = local_a90;
@@ -180,15 +191,17 @@ undefined8 __rustcall uu_split::uu_app(undefined8 param_1)
   uStack_260 = uStack_a98;
   local_278 = local_ab0;
   uStack_270 = uStack_aa8;
-  clap_builder::builder::arg::Arg::overrides_with_all(local_808,local_a58,&local_278);
-  clap_builder::builder::arg::Arg::value_name(local_a58,local_808,&DAT_00117b04,4);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg18overrides_with_all17h0f85aaf739527b15E
+            (local_808,local_a58,&local_278);
+  _ZN12clap_builder7builder3arg3Arg10value_name17h9845504f21c8416aE
+            (local_a58,local_808,&DAT_00117b04,4);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
             (&local_278,local_a58,"same as -d, but allow setting the start value",0x2d);
-  clap_builder::builder::command::Command::arg(local_808,local_540,&local_278);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_808,local_540,&local_278);
                     /* try { // try from 001caafe to 001cabaf has its CatchHandler @ 001cb0f7 */
-  clap_builder::builder::arg::Arg::new(local_540,"-x",2);
-  clap_builder::builder::arg::Arg::short(local_a58,local_540,0x78);
-  clap_builder::builder::arg::Arg::action(local_540,local_a58,2);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_540,"-x",2);
+  _ZN12clap_builder7builder3arg3Arg5short17h4c75e70428513a63E(local_a58,local_540,0x78);
+  _ZN12clap_builder7builder3arg3Arg6action17hfc40aae07e82fc86E(local_540,local_a58,2);
   local_248 = local_a80;
   uStack_240 = uStack_a78;
   local_258 = local_a90;
@@ -197,76 +210,82 @@ undefined8 __rustcall uu_split::uu_app(undefined8 param_1)
   uStack_260 = uStack_a98;
   local_278 = local_ab0;
   uStack_270 = uStack_aa8;
-  clap_builder::builder::arg::Arg::overrides_with_all(local_a58,local_540,&local_278);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg18overrides_with_all17h0f85aaf739527b15E
+            (local_a58,local_540,&local_278);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
             (&local_278,local_a58,"use hex suffixes starting at 0, not alphabetic",0x2e);
-  clap_builder::builder::command::Command::arg(local_540,local_808,&local_278);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_540,local_808,&local_278);
                     /* try { // try from 001cabcd to 001cac03 has its CatchHandler @ 001cb1cc */
-  clap_builder::builder::arg::Arg::new(local_808,"hex-suffixes",0xc);
-  clap_builder::builder::arg::Arg::long(local_a58,local_808,"hex-suffixes",0xc);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_808,"hex-suffixes",0xc);
+  _ZN12clap_builder7builder3arg3Arg4long17hd7c1cf324c4cc25dE(local_a58,local_808,"hex-suffixes",0xc)
+  ;
   (*(code *)PTR_memcpy_0024cfc0)(local_808,local_a58,0x248);
   local_5c0 = local_810 | 0x80;
   local_5bc = local_80c;
                     /* try { // try from 001cac40 to 001caca4 has its CatchHandler @ 001cb1cc */
-  clap_builder::builder::arg::Arg::num_args(local_a58,local_808,&local_a70);
-  clap_builder::builder::arg::Arg::overrides_with_all(local_808,local_a58,&local_ab0);
-  clap_builder::builder::arg::Arg::value_name(local_a58,local_808,&DAT_00117b04,4);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg8num_args17heae8fe644d507918E(local_a58,local_808,&local_a70);
+  _ZN12clap_builder7builder3arg3Arg18overrides_with_all17h0f85aaf739527b15E
+            (local_808,local_a58,&local_ab0);
+  _ZN12clap_builder7builder3arg3Arg10value_name17h9845504f21c8416aE
+            (local_a58,local_808,&DAT_00117b04,4);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
             (&local_278,local_a58,"same as -x, but allow setting the start value",0x2d);
-  clap_builder::builder::command::Command::arg(local_808,local_540,&local_278);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_808,local_540,&local_278);
                     /* try { // try from 001cacc2 to 001cad10 has its CatchHandler @ 001cb14b */
-  clap_builder::builder::arg::Arg::new(local_540,"suffix-length",0xd);
-  clap_builder::builder::arg::Arg::short(local_a58,local_540,0x61);
-  clap_builder::builder::arg::Arg::long(local_540,local_a58,"suffix-length",0xd);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_540,"suffix-length",0xd);
+  _ZN12clap_builder7builder3arg3Arg5short17h4c75e70428513a63E(local_a58,local_540,0x61);
+  _ZN12clap_builder7builder3arg3Arg4long17hd7c1cf324c4cc25dE
+            (local_540,local_a58,"suffix-length",0xd);
   (*(code *)PTR_memcpy_0024cfc0)(local_a58,local_540,0x248);
   local_810 = local_2f8 | 0x20;
   local_80c = local_2f4;
                     /* try { // try from 001cad4b to 001cad84 has its CatchHandler @ 001cb14b */
-  clap_builder::builder::arg::Arg::value_name(local_540,local_a58,"N",1);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg10value_name17h9845504f21c8416aE(local_540,local_a58,"N",1);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
             (local_a58,local_540,"generate suffixes of length N (default 2)",0x29);
-  clap_builder::builder::command::Command::arg(local_540,local_808,local_a58);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_540,local_808,local_a58);
                     /* try { // try from 001cad9f to 001cadf3 has its CatchHandler @ 001cb0e2 */
-  clap_builder::builder::arg::Arg::new(local_808,"verbose",7);
-  clap_builder::builder::arg::Arg::long(local_a58,local_808,"verbose",7);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_808,"verbose",7);
+  _ZN12clap_builder7builder3arg3Arg4long17hd7c1cf324c4cc25dE(local_a58,local_808,"verbose",7);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
             (local_808,local_a58,"print a diagnostic just before each output file is opened",0x39);
-  clap_builder::builder::arg::Arg::action(local_a58,local_808,2);
-  clap_builder::builder::command::Command::arg(local_808,local_540,local_a58);
+  _ZN12clap_builder7builder3arg3Arg6action17hfc40aae07e82fc86E(local_a58,local_808,2);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_808,local_540,local_a58);
                     /* try { // try from 001cae26 to 001cae74 has its CatchHandler @ 001cb136 */
-  clap_builder::builder::arg::Arg::new(local_540,"separator",9);
-  clap_builder::builder::arg::Arg::short(local_a58,local_540,0x74);
-  clap_builder::builder::arg::Arg::long(local_540,local_a58,"separator",9);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_540,"separator",9);
+  _ZN12clap_builder7builder3arg3Arg5short17h4c75e70428513a63E(local_a58,local_540,0x74);
+  _ZN12clap_builder7builder3arg3Arg4long17hd7c1cf324c4cc25dE(local_540,local_a58,"separator",9);
   (*(code *)PTR_memcpy_0024cfc0)(local_a58,local_540,0x248);
   local_810 = local_2f8 | 0x20;
   local_80c = local_2f4;
                     /* try { // try from 001caeaf to 001caf00 has its CatchHandler @ 001cb136 */
-  clap_builder::builder::arg::Arg::value_name(local_540,local_a58,"SEP",3);
-  clap_builder::builder::arg::Arg::action(local_a58,local_540,1);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg10value_name17h9845504f21c8416aE(local_540,local_a58,"SEP",3);
+  _ZN12clap_builder7builder3arg3Arg6action17hfc40aae07e82fc86E(local_a58,local_540,1);
+  _ZN12clap_builder7builder3arg3Arg4help17h41365591449d20b2E
             (&local_278,local_a58,
              "use SEP instead of newline as the record separator; \'\\0\' (zero) specifies the NUL character"
              ,0x5b);
-  clap_builder::builder::command::Command::arg(local_540,local_808,&local_278);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_540,local_808,&local_278);
                     /* try { // try from 001caf1e to 001caf72 has its CatchHandler @ 001cb0cd */
-  clap_builder::builder::arg::Arg::new(local_808,"-io-blksize",0xb);
-  clap_builder::builder::arg::Arg::long(local_a58,local_808,"io-blksize",10);
-  clap_builder::builder::arg::Arg::alias(local_808,local_a58,"-io-blksize",0xb);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_808,"-io-blksize",0xb);
+  _ZN12clap_builder7builder3arg3Arg4long17hd7c1cf324c4cc25dE(local_a58,local_808,"io-blksize",10);
+  _ZN12clap_builder7builder3arg3Arg5alias17h7251c9734033b15dE(local_808,local_a58,"-io-blksize",0xb)
+  ;
   (*(code *)PTR_memcpy_0024cfc0)(local_a58,local_808,0x248);
   local_810 = local_5c0 | 4;
   local_80c = local_5bc;
-  clap_builder::builder::command::Command::arg(local_808,local_540,local_a58);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_808,local_540,local_a58);
                     /* try { // try from 001cafc5 to 001cb012 has its CatchHandler @ 001cb0b8 */
-  clap_builder::builder::arg::Arg::new(local_540,"input",5);
-  clap_builder::builder::arg::Arg::default_value(local_a58,local_540,"-",1);
-  clap_builder::builder::arg::Arg::value_hint(&local_278,local_a58,3);
-  clap_builder::builder::command::Command::arg(local_540,local_808,&local_278);
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_540,"input",5);
+  _ZN12clap_builder7builder3arg3Arg13default_value17h48cc9ffdd06268dbE(local_a58,local_540,"-",1);
+  _ZN12clap_builder7builder3arg3Arg10value_hint17h6bcc63344f8bbb02E(&local_278,local_a58,3);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(local_540,local_808,&local_278);
                     /* try { // try from 001cb030 to 001cb066 has its CatchHandler @ 001cb0a3 */
-  clap_builder::builder::arg::Arg::new(local_808,"prefix",6);
-  clap_builder::builder::arg::Arg::default_value
+  _ZN12clap_builder7builder3arg3Arg3new17h0098277cabbd9825E(local_808,"prefix",6);
+  _ZN12clap_builder7builder3arg3Arg13default_value17h48cc9ffdd06268dbE
             (local_a58,local_808,
              "xmulti-character separator multiple separator characters specified--filter does not process a chunk extracted to stdoutinvalid IO block size: "
              ,1);
-  clap_builder::builder::command::Command::arg(param_1,local_540,local_a58);
+  _ZN12clap_builder7builder7command7Command3arg17h708b562346dd5323E(param_1,local_540,local_a58);
   return param_1;
 }

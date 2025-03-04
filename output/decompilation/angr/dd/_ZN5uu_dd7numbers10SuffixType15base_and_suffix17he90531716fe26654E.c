@@ -16,9 +16,8 @@ double uu_dd::numbers::SuffixType::base_and_suffix::he90531716fe26654(long long 
     unsigned long long v14;  // r12
     void* v15;  // rdi
     unsigned int v16;  // ecx
-    unsigned long long v17;  // r12
-    int v18;  // xmm0
-    int v19;  // ymm0
+    int v17;  // xmm0
+    int v18;  // ymm0
 
     if (!a1)
     {
@@ -56,7 +55,7 @@ double uu_dd::numbers::SuffixType::base_and_suffix::he90531716fe26654(long long 
     }
     if (!((char)amd64g_calculate_condition(2, 16, 18446744073709551615 + ((v14 + -1 <= v14 ? 1 : 0) & 1), a3 ^ (unsigned long long)(char)(v14 - 1 < a2), (unsigned long long)(char)(v14 - 1 < a2))))
     {
-        v17 = 1;
+        v14 = 1;
         v15 = 0;
         v16 = 0;
     }
@@ -64,37 +63,36 @@ double uu_dd::numbers::SuffixType::base_and_suffix::he90531716fe26654(long long 
     {
         v3 = v6;
         v16 = 1;
-        v17 = v14;
         if ((char)amd64g_calculate_condition(2, 16, -((unsigned long long)(char)(v13 < v14)), a3 ^ (unsigned long long)(char)(v13 - v14 < a2), (unsigned long long)(char)(v13 - v14 < a2)))
         {
             v16 = 2;
-            v17 = v13;
+            v14 = v13;
             if ((char)amd64g_calculate_condition(2, 16, -((unsigned long long)(char)(v12 < v13)), a3 ^ (unsigned long long)(char)(v12 - v13 < a2), (unsigned long long)(char)(v12 - v13 < a2)))
             {
                 v16 = 3;
-                v17 = v12;
+                v14 = v12;
                 if ((char)amd64g_calculate_condition(2, 16, -((unsigned long long)(char)(v11 < v12)), a3 ^ (unsigned long long)(char)(v11 - v12 < a2), (unsigned long long)(char)(v11 - v12 < a2)))
                 {
                     v16 = 4;
-                    v17 = v11;
+                    v14 = v11;
                     if ((char)amd64g_calculate_condition(2, 16, -((unsigned long long)(char)(v10 < v11)), a3 ^ (unsigned long long)(char)(v10 - v11 < a2), (unsigned long long)(char)(v10 - v11 < a2)))
                     {
                         v16 = 5;
-                        v17 = v10;
+                        v14 = v10;
                         if ((char)amd64g_calculate_condition(2, 16, -((unsigned long long)(char)(v9 < v10)), a3 ^ (unsigned long long)(char)(v9 - v10 < a2), (unsigned long long)(char)(v9 - v10 < a2)))
                         {
                             v16 = 6;
-                            v17 = v9;
+                            v14 = v9;
                             if ((char)amd64g_calculate_condition(2, 16, v1 - 0 - (unsigned long long)(char)(v8 < v9), a3 ^ (unsigned long long)(char)(v8 - v9 < a2), (unsigned long long)(char)(v8 - v9 < a2)))
                             {
                                 v15 = v1;
                                 v16 = 7;
-                                v17 = v8;
+                                v14 = v8;
                                 if ((char)amd64g_calculate_condition(2, 16, v0 - v15 - (unsigned long long)(char)(v7 < v8), a3 ^ (unsigned long long)(char)(v7 - v8 < a2), (unsigned long long)(char)(v7 - v8 < a2)))
                                 {
                                     v15 = v0;
                                     v16 = 8;
-                                    v17 = v7;
+                                    v14 = v7;
                                     if ((char)amd64g_calculate_condition(2, 16, v3 - v15 - (unsigned long long)(char)(v2 < v7), a3 ^ (unsigned long long)(char)(v2 - v7 < a2), (unsigned long long)(char)(v2 - v7 < a2)))
                                         core::panicking::panic_bounds_check::h25a5330941572dd1(10, 10, &g_561a70); /* do not return */
                                 }
@@ -105,9 +103,9 @@ double uu_dd::numbers::SuffixType::base_and_suffix::he90531716fe26654(long long 
             }
         }
     }
-    v18 = *((int128_t *)&(&v4)[v16 * 16 & 4294967295]);
+    v17 = *((int128_t *)&(&v4)[v16 * 16 & 4294967295]);
     a0->field_8 = v15;
-    a0->field_0 = v17;
-    *((void*)&a0->field_10) = v18;
-    return (unsigned long long)(v19 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v18);
+    a0->field_0 = v14;
+    *((void*)&a0->field_10) = v17;
+    return (unsigned long long)(v18 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v17);
 }

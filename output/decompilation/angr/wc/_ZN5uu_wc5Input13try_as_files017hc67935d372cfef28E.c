@@ -10,7 +10,7 @@ long long uu_wc::Input::try_as_files0::hc67935d372cfef28(unsigned long long a0[3
     char v7;  // [bp-0x1a0]
     char v8;  // [bp-0x190]
     char v9;  // [bp-0x180]
-    unsigned long v10;  // [sp-0x178], Other Possible Types: unsigned long long
+    unsigned long v10;  // [sp-0x178]
     unsigned long long v11;  // [sp-0x170]
     unsigned long long v12;  // [sp-0x168]
     int v13;  // [sp-0x160]
@@ -27,10 +27,11 @@ long long uu_wc::Input::try_as_files0::hc67935d372cfef28(unsigned long long a0[3
     unsigned long long v25;  // rdi
     unsigned long long v26;  // rdx
     unsigned long long v27;  // rcx
-    unsigned long long v29;  // rax
-    unsigned long long v30;  // rcx
-    unsigned long long v31;  // rdx
-    unsigned long long v32;  // rsi
+    unsigned long long v28;  // r14
+    unsigned long long v30;  // rax
+    unsigned long long v31;  // rcx
+    unsigned long long v32;  // rdx
+    unsigned long long v33;  // rsi
 
     if (a1[0] != 9223372036854775809)
     {
@@ -43,27 +44,29 @@ long long uu_wc::Input::try_as_files0::hc67935d372cfef28(unsigned long long a0[3
         }
         else
         {
-            v25 = v25;
+            v28 = v25;
             uu_wc::files0_iter_file::h4e3b8ab8e030dfca(&v3, a1[1], a1[2]);
-            v29 = *((long long *)&v4);
-            v30 = *((long long *)&v5);
-            if (v10 == 9223372036854775809 || (v16 = (unsigned long long)*((long long *)&v9), *((int128_t *)&v15) = *((int128_t *)&v8), *((int128_t *)&v14) = *((int128_t *)&v7), *((int128_t *)&v13) = *((int128_t *)&v6), v10 = (unsigned long long)*((long long *)&v3), v11 = v29, v12 = v30, core::iter::adapters::try_process::h5f1b943b2c05a233(&v0, &v10), v31 = *((long long *)&v0), v29 = *((long long *)&v1), v30 = *((long long *)&v2), v31 == 0x8000000000000000))
+            v30 = *((long long *)&v4);
+            v31 = *((long long *)&v5);
+            if (v10 == 9223372036854775809 || (v16 = (unsigned long long)*((long long *)&v9), *((int128_t *)&v15) = *((int128_t *)&v8), *((int128_t *)&v14) = *((int128_t *)&v7), *((int128_t *)&v13) = *((int128_t *)&v6), v10 = (unsigned long)*((long long *)&v3), v11 = v30, v12 = v31, core::iter::adapters::try_process::h5f1b943b2c05a233(&v0, &v10), v32 = *((long long *)&v0), v30 = *((long long *)&v1), v31 = *((long long *)&v2), v32 == 0x8000000000000000))
             {
-                a0[1] = v29;
-                a0[2] = v30;
+                a0[1] = v30;
+                a0[2] = v31;
                 a0[0] = 9223372036854775809;
-                v32 = *((long long *)&v18);
+                v33 = *((long long *)&v18);
+                v25 = v28;
             }
             else
             {
-                a0[0] = v31;
-                a0[1] = v29;
-                a0[2] = v30;
+                a0[0] = v32;
+                a0[1] = v30;
+                a0[2] = v31;
+                v25 = v28;
 LABEL_4b9296:
-                v32 = *((long long *)&v18);
+                v33 = *((long long *)&v18);
             }
         }
-        v24 = core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$::hc7378430642e479d(v25, v32);
+        v24 = core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$::hc7378430642e479d(v25, v33);
         return v24;
     }
     else

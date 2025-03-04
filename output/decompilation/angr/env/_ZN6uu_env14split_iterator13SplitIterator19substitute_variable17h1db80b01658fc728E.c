@@ -5,7 +5,7 @@ long long uu_env::split_iterator::SplitIterator::substitute_variable::h1db80b016
     char v2;  // [bp-0x68]
     char v3;  // [bp-0x58]
     char v4;  // [bp-0x50]
-    struct_0 *v5;  // [sp-0x48], Other Possible Types: unsigned long long
+    struct_1 *v5;  // [sp-0x48]
     unsigned long long v6;  // [sp-0x40]
     int v7;  // [sp-0x38]
     unsigned long long v9;  // rax
@@ -22,10 +22,10 @@ long long uu_env::split_iterator::SplitIterator::substitute_variable::h1db80b016
         v12 = *((int *)&v1);
         v13 = *((int128_t *)&v2);
         v14 = *((int128_t *)&v3);
-        *((unsigned int *)&a0->padding_0[0]) = v9;
-        *((unsigned int *)&a0->padding_0[4]) = v12;
-        *((void*)&a0->padding_0[8]) = v13;
-        *((void*)&a0->padding_0[24]) = v14;
+        a0->field_0 = v9;
+        a0->field_4 = v12;
+        *((void*)&(&a0->field_4)[1]) = v13;
+        *((void*)((char *)&a0->field_8 + 8)) = v14;
         return v9;
     }
     v10 = *((long long *)&v3);
@@ -40,7 +40,7 @@ long long uu_env::split_iterator::SplitIterator::substitute_variable::h1db80b016
     {
         uu_env::string_expander::StringExpander::put_native_string::h4ed77b672753a87e(a1, v10, *((long long *)&v4));
     }
-    *((unsigned int *)&a0->padding_0[0]) = 8;
+    a0->field_0 = 8;
     v9 = ::0x4d94b0::core::ptr::drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$::h424bf7a51d52b228(&v0);
     return v9;
 }

@@ -17,6 +17,6 @@ long long uu_whoami::platform::unix::get_username::hecd22d348e0efc05(unsigned lo
     uucore::features::entries::uid2usr::_$u7b$$u7b$closure$u7d$$u7d$::h39d946a14e614e73(&v0, &v2);
     v0 = v0;
     v1 = v1;
-    v5 = core::ops::function::FnOnce::call_once::h3bdbc0715ca1c228();
+    v5 = core::ops::function::FnOnce::call_once::h3bdbc0715ca1c228(a0, &v0);
     return v5;
 }

@@ -1,5 +1,5 @@
-undefined8 * __rustcall
-uu_od::output_info::OutputInfo::calculate_alignment
+undefined8 *
+_ZN5uu_od11output_info10OutputInfo19calculate_alignment17ha011183b33bb66dcE
           (undefined8 *param_1,undefined8 param_2,long param_3,ulong param_4,long param_5)
 
 {
@@ -23,16 +23,20 @@ uu_od::output_info::OutputInfo::calculate_alignment
   if (8 < param_4) {
     local_a0 = param_4 << 3;
     local_50 = &local_a0;
-    local_48 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+    local_48 = 
+    _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+    ;
     local_40 = "@";
-    local_38 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+    local_38 = 
+    _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+    ;
     local_98[0] = (long **)&DAT_00243668;
     local_98[1] = (long **)0x3;
     local_98[4] = (long **)0x0;
     local_98[2] = &local_50;
     local_98[3] = (long **)0x2;
                     /* WARNING: Subroutine does not return */
-    core::panicking::panic_fmt(local_98,&DAT_00243698);
+    _ZN4core9panicking9panic_fmt17he12d0d7468628bb4E(local_98,&DAT_00243698);
   }
   local_98[6] = (long **)0x0;
   local_98[7] = (long **)0x0;
@@ -44,7 +48,7 @@ uu_od::output_info::OutputInfo::calculate_alignment
   local_98[1] = (long **)0x0;
   uVar3 = (**(code **)(param_3 + 0x18))(param_2);
   if (uVar3 == 0) {
-    core::panicking::panic_const::panic_const_div_by_zero(&DAT_002436b0);
+    _ZN4core9panicking11panic_const23panic_const_div_by_zero17haded503194f0bf6eE(&DAT_002436b0);
     pcVar1 = (code *)swi(3);
     puVar6 = (undefined8 *)(*pcVar1)();
     return puVar6;
@@ -63,9 +67,10 @@ uu_od::output_info::OutputInfo::calculate_alignment
         uVar8 = uVar5 * uVar3;
         if (7 < uVar8) {
                     /* WARNING: Subroutine does not return */
-          core::panicking::panic_bounds_check(uVar8,8,&DAT_002436c8);
+          _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E(uVar8,8,&DAT_002436c8);
         }
-        uVar5 = _<usize_as_core::iter::range::Step>::forward_unchecked(uVar5);
+        uVar5 = _ZN49__LT_usize_u20_as_u20_core__iter__range__Step_GT_17forward_unchecked17he44ce7238773bbb8E
+                          (uVar5);
         local_98[uVar8] = (long **)((long)local_98[uVar8] + uVar2 / uVar7);
         uVar9 = uVar9 - uVar2 / uVar7;
       } while (uVar5 < uVar7);

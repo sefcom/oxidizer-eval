@@ -7,7 +7,7 @@ long long uu_ls::show_dir_name::h15f4c75d324b24c3(unsigned long long a0[6], unsi
     char v4;  // [bp-0x68]
     char v5;  // [bp-0x60]
     char v6;  // [bp-0x58]
-    unsigned long v7;  // [sp-0x50], Other Possible Types: unsigned long long
+    unsigned long v7;  // [sp-0x50]
     unsigned long long v8;  // [sp-0x48]
     struct struct_0 **v9;  // [sp-0x40]
     unsigned long long v10;  // [sp-0x38]

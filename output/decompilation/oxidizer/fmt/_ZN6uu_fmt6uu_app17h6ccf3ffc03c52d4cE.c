@@ -1,12 +1,12 @@
 fn uu_fmt::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct712, struct437
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct712, struct437
     let v1: i32;  // [sp-0x800]
     let v2: i32;  // [sp-0x7fc]
     let v3: i64;  // [sp-0x78c]
     let v4: i32;  // [sp-0x784]
-    let v5: i4736;  // [sp-0x780], Other Possible Types: struct592, struct24
-    let v6: i4736;  // [sp-0x530], Other Possible Types: struct592, struct712
-    let v7: i4736;  // [sp-0x268], Other Possible Types: struct592
+    let v5: struct592;  // [sp-0x780], Other Possible Types: struct24
+    let v6: struct592;  // [sp-0x530], Other Possible Types: struct712
+    let v7: struct592;  // [sp-0x268]
     let v9: i64;  // rdx
 
     v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
@@ -15,8 +15,8 @@ fn uu_fmt::uu_app(a0: &struct712) -> u64 {
     v5 = uucore::format_usage("{} [-WIDTH] [OPTION]... [FILE]...");
     v6 = clap_builder::builder::command::Command::override_usage(&v0, &v5);
     memcpy(&v0, &v6, 700);
-    v3 = 584115552392 | *((&v6 as &char + 700) as &i64);
-    v4 = *((&v6 as &char + 708) as &i32);
+    v3 = 584115552392 | *((&v6.field_0 as &char + 700) as &i64);
+    v4 = *((&v6.field_0 as &char + 708) as &i32);
     v6 = clap_builder::builder::arg::Arg::new("crown-margin");
     v5 = clap_builder::builder::arg::Arg::short(&v6, 0x63);
     v6 = clap_builder::builder::arg::Arg::long(&v5, "crown-margin");
@@ -100,8 +100,8 @@ fn uu_fmt::uu_app(a0: &struct712) -> u64 {
     v0 = clap_builder::builder::arg::Arg::value_name(&v5, "FILES");
     v5 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);
     memcpy(&v0, &v5, 584);
-    v1 = *((&v5 as &char + 584) as &i32) | 64;
-    v2 = *((&v5 as &char + 588) as &i32);
+    v1 = *((&v5.field_0 as &char + 584) as &i32) | 64;
+    v2 = *((&v5.field_0 as &char + 588) as &i32);
     clap_builder::builder::command::Command::arg(a0, &v6, &v0);
     return a0;
 }

@@ -1,5 +1,5 @@
-void __rustcall
-uu_tr::operation::Sequence::single_char(undefined8 *param_1,undefined8 param_2,undefined8 param_3)
+void _ZN5uu_tr9operation8Sequence11single_char17h93cc794f46bbaaa6E
+               (undefined8 *param_1,undefined8 param_2,undefined8 param_3)
 
 {
   undefined uVar1;
@@ -10,12 +10,14 @@ uu_tr::operation::Sequence::single_char(undefined8 *param_1,undefined8 param_2,u
   undefined *local_28;
   long lStack_20;
   
-  uVar2 = nom::bytes::complete::take(1);
-  nom::bytes::complete::take::___closure__(&local_40,uVar2,param_2,param_3);
+  uVar2 = _ZN3nom5bytes8complete4take17hb83f4516c7d13b17E(1);
+  _ZN3nom5bytes8complete4take28__u7b__u7b_closure_u7d__u7d_17h6d20bacba5a47d43E
+            (&local_40,uVar2,param_2,param_3);
   if (local_40 == 0) {
     if (lStack_20 == 0) {
                     /* WARNING: Subroutine does not return */
-      core::panicking::panic_bounds_check(0,0,&PTR_s_src_uu_tr_src_operation_rs_0022f420);
+      _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E
+                (0,0,&PTR_s_src_uu_tr_src_operation_rs_0022f420);
     }
     uVar1 = *local_28;
     param_1[1] = local_38;

@@ -1,15 +1,15 @@
 long long uu_head::uumain::uumain::h5ea3dd696b7d584e(unsigned long long a0, unsigned long long a1)
 {
-    int v0;  // [bp-0x368], Other Possible Types: unsigned long long (64 bits)[3]
+    unsigned long long v0[3];  // [sp-0x368]
     char v1;  // [bp-0x360]
     unsigned long long v2;  // [sp-0x358]
     unsigned int v3;  // [sp-0x350]
-    int v4;  // [bp-0x348], Other Possible Types: char
+    int v4;  // [sp-0x348], Other Possible Types: char
     char v5;  // [bp-0x340]
     int v6;  // [sp-0x338]
     int v7;  // [sp-0x328]
     char v8;  // [bp-0x318]
-    unsigned long v9;  // [sp-0x310], Other Possible Types: unsigned long long
+    unsigned long v9;  // [sp-0x310]
     unsigned long long v10;  // [sp-0x308]
     int v11;  // [sp-0x300]
     int v12;  // [sp-0x2f0]
@@ -44,7 +44,7 @@ long long uu_head::uumain::uumain::h5ea3dd696b7d584e(unsigned long long a0, unsi
     if (*((int *)&v14) == 4)
     {
         v2 = *((long long *)&v17);
-        *((int128_t *)&v0) = *((int128_t *)&v15);
+        *((int128_t *)v0) = *((int128_t *)&v15);
         v3 = 1;
         v20 = alloc::boxed::Box$LT$T$GT$::new::hec34c9cb33ab5596(v0);
         core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h7f3766ce6d351c3b(&v9);

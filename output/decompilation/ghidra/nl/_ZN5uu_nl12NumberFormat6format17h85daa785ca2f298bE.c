@@ -1,7 +1,8 @@
 /* WARNING: Type propagation algorithm not settling */
 
-undefined8 __rustcall
-uu_nl::NumberFormat::format(undefined8 param_1,char *param_2,long param_3,long param_4)
+undefined8
+_ZN5uu_nl12NumberFormat6format17h85daa785ca2f298bE
+          (undefined8 param_1,char *param_2,long param_3,long param_4)
 
 {
   long *local_a0;
@@ -53,13 +54,15 @@ LAB_002acdcc:
   local_38 = 1;
   local_50[1] = 2;
   local_88 = 0;
-  local_98 = core::fmt::num::imp::_<impl_core::fmt::Display_for_isize>::fmt;
+  local_98 = 
+  _ZN4core3fmt3num3imp54__LT_impl_u20_core__fmt__Display_u20_for_u20_isize_GT_3fmt17he353d7b3f48ba6e6E
+  ;
   local_78 = 1;
   local_60 = local_50 + 1;
   local_58 = 1;
   local_70 = &local_a0;
   local_68 = 2;
   local_50[0] = param_3;
-  core::option::Option<T>::map_or_else(param_1,&local_80);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17h0a2f0cb8f97eeebdE(param_1,&local_80);
   return param_1;
 }

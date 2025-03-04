@@ -1,6 +1,5 @@
-void __rustcall
-uu_tr::operation::Sequence::parse_char_equal
-          (undefined8 param_1,undefined8 param_2,undefined8 param_3)
+void _ZN5uu_tr9operation8Sequence16parse_char_equal17h17d2adf3d03ebd14E
+               (undefined8 param_1,undefined8 param_2,undefined8 param_3)
 
 {
   undefined8 local_50 [3];
@@ -19,9 +18,9 @@ uu_tr::operation::Sequence::parse_char_equal
   local_18 = "=]";
   local_10 = 2;
                     /* try { // try from 001be602 to 001be60b has its CatchHandler @ 001be61c */
-  nom::sequence::delimited::___closure__(param_1,local_50,param_2,param_3);
-  core::ptr::
-  drop_in_place<nom::sequence::delimited<&[u8],&[u8],core::result::Result<uu_tr::operation::Sequence,uu_tr::operation::BadSequence>,&[u8],nom::error::Error<&[u8]>,nom::bytes::complete::tag<&str,&[u8],nom::error::Error<&[u8]>>::__closure__,nom::branch::alt<&[u8],core::result::Result<uu_tr::operation::Sequence,uu_tr::operation::BadSequence>,nom::error::Error<&[u8]>,(nom::combinator::value<&[u8],core::result::Result<uu_tr::operation::Sequence,uu_tr::operation::BadSequence>,&[u8],nom::error::Error<&[u8]>,nom::combinator::peek<&[u8],&[u8],nom::error::Error<&[u8]>,nom::bytes::complete::tag<&str,&[u8],nom::error::Error<&[u8]>>::__closure__>::__closure__>::__closure__,nom::combinator::map<&[u8],u8,core::result::Result<uu_tr::operation::Sequence,uu_tr::operation::BadSequence>,nom::error::Error<&[u8]>,uu_tr::operation::Sequence::parse_backslash_or_char,uu_tr::operation::Sequence::parse_char_equal::__closure__>::__closure__)>::__closure__,nom::bytes::complete::tag<&str,&[u8],nom::error::Error<&[u8]>>::__closure__>::__closure__>
+  _ZN3nom8sequence9delimited28__u7b__u7b_closure_u7d__u7d_17h6b7112f957791fb2E
+            (param_1,local_50,param_2,param_3);
+  _ZN4core3ptr1601drop_in_place_LT_nom__sequence__delimited_LT__RF__u5b_u8_u5d__C__RF__u5b_u8_u5d__C_core__result__Result_LT_uu_tr__operation__Sequence_C_uu_tr__operation__BadSequence_GT__C__RF__u5b_u8_u5d__C_nom__error__Error_LT__RF__u5b_u8_u5d__GT__C_nom__bytes__complete__tag_LT__RF_str_C__RF__u5b_u8_u5d__C_nom__error__Error_LT__RF__u5b_u8_u5d__GT__GT____u7b__u7b_closure_u7d__u7d__C_nom__branch__alt_LT__RF__u5b_u8_u5d__C_core__result__Result_LT_uu_tr__operation__Sequence_C_uu_tr__operation__BadSequence_GT__C_nom__error__Error_LT__RF__u5b_u8_u5d__GT__C__LP_nom__combinator__value_LT__RF__u5b_u8_u5d__C_core__result__Result_LT_uu_tr__operation__Sequence_C_uu_tr__operation__BadSequence_GT__C__RF__u5b_u8_u5d__C_nom__error__Error_LT__RF__u5b_u8_u5d__GT__C_nom__combinator__peek_LT__RF__u5b_u8_u5d__C__RF__u5b_u8_u5d__C_nom__error__Error_LT__RF__u5b_u8_u5d__GT__C_nom__bytes__complete__tag_LT__RF_str_C__RF__u5b_u8_u5d__C_nom__error__Error_LT__RF__u5b_u8_u5d__GT__GT____u7b__u7b_closure_u7d__u7d__GT____u7b__u7b_closure_u7d__u7d__GT____u7b__u7b_closure_u7d__u7d__C_nom__combinator__map_LT__RF__u5b_u8_u5d__C_u8_C_core__result__Result_LT_uu_tr__operation__Sequence_C_uu_tr__operation__BadSequence_GT__C_nom__error__Error_LT__RF__u5b_u8_u5d__GT__C_uu_tr__operation__Sequence__parse_backslash_or_char_C_uu_tr__operation__Sequence__parse_char_equal___u7b__u7b_closure_u7d__u7d__GT____u7b__u7b_closure_u7d__u7d__RP__GT____u7b__u7b_closure_u7d__u7d__C_nom__bytes__complete__tag_LT__RF_str_C__RF__u5b_u8_u5d__C_nom__error__Error_LT__RF__u5b_u8_u5d__GT__GT____u7b__u7b_closure_u7d__u7d__GT____u7b__u7b_closure_u7d__u7d__GT_17h200aabed5cc245d0E
             (local_50);
   return;
 }

@@ -15,11 +15,11 @@ fn uu_od::parse_inputs::parse_offset_operand(a0: &struct16, a1: u32, a2: u32) ->
     let v15: i64;  // rbp
     let v16: i64;  // rdx
     let v18: i32;  // ebp
-    let v19: i64;  // 4096
+    let v19: i64;  // r13
     let v21: i64;  // r13
     let v22: i64;  // rax
     let v23: i64;  // rax
-    let v25: i64;  // rax
+    let v24: i64;  // rax
 
     v6 = v8;
     v5 = v9;
@@ -43,16 +43,16 @@ fn uu_od::parse_inputs::parse_offset_operand(a0: &struct16, a1: u32, a2: u32) ->
         if v22 {
             v0 = 0;
             v23 = core::slice::<impl [T]>::ends_with(v22, v16, core::char::methods::encode_utf8_raw(46, &v0), 1) as i32;
-            v18 = v23 * 2 + 8;
             v19 = v21 - v23;
+            v18 = (v23 * 2 + 8) as u32;
         }
     }
-    v25 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v13, v19, a1, a2);
-    if v25 {
-        v0 = core::num::<impl u64>::from_str_radix(v25, v16, v18);
+    v24 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v13, v19, a1, a2);
+    if v24 {
+        v0 = core::num::<impl u64>::from_str_radix(v24, a2, v18 as u64);
         return struct16 {
             field_0: v28
-            field_8: v26
+            field_8: v27
         };
     }
 }

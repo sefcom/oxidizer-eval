@@ -1,8 +1,8 @@
 long long uu_ls::dired::print_dired_output::h12a985547a0b3a50(struct_0 *a0, unsigned long long a1[6], unsigned long long a2)
 {
-    unsigned long v0;  // [sp-0x50], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x50]
     unsigned long long v1;  // [sp-0x48]
-    unsigned long v2;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x40]
     unsigned long long v3;  // [sp-0x38]
     char *v4;  // [sp-0x30]
     unsigned long long v5;  // [sp-0x28]

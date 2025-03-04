@@ -1,6 +1,6 @@
 long long uu_sum::sysv_sum::h29b452e8d3fae5cd(unsigned long long a0, struct_1 *a1)
 {
-    unsigned long v0;  // [sp-0x1040], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x1040]
     unsigned long long v1;  // [sp-0x1038]
     void* v2;  // [sp-0x1030]
     unsigned long long v4;  // rbx

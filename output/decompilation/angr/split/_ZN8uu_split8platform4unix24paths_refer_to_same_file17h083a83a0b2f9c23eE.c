@@ -1,7 +1,7 @@
 long long uu_split::platform::unix::paths_refer_to_same_file::h083a83a0b2f9c23e(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long a3)
 {
     char v0;  // [bp-0x150]
-    unsigned long v1;  // [sp-0xb8], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0xb8]
 
     if (!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::hfe60e619d7fc1608(a0, a1, "-", 1))
     {

@@ -1,7 +1,7 @@
 long long uu_tail::unbounded_tail::hc66e4f3b3653bc33(unsigned long a0, unsigned long a1)
 {
     char v0;  // [bp-0x2090]
-    unsigned long v1;  // [sp-0x2050], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0x2050]
     void* v2;  // [sp-0x2030]
     void* v3;  // [sp-0x1030]
     unsigned long long v4;  // [sp-0x30]

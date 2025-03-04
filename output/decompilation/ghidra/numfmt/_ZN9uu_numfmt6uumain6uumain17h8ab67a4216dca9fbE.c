@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_numfmt::uumain::uumain(ulong param_1,undefined8 param_2)
+undefined  [16] _ZN9uu_numfmt6uumain6uumain17h8ab67a4216dca9fbE(ulong param_1,undefined8 param_2)
 
 {
   uint extraout_EAX;
@@ -58,11 +58,13 @@ undefined  [16] __rustcall uu_numfmt::uumain::uumain(ulong param_1,undefined8 pa
   undefined4 uStack_2c4;
   undefined local_2c0 [680];
   
-  (*(code *)PTR_uu_app_00239970)(&local_2e8);
-  clap_builder::builder::command::Command::try_get_matches_from
+  (*(code *)PTR__ZN9uu_numfmt6uu_app17hfdc8a28206314692E_00239970)(&local_2e8);
+  _ZN12clap_builder7builder7command7Command20try_get_matches_from17h23f58464f9be56a7E
             (&local_3f8,&local_2e8,param_1,param_2);
   if (local_3f8 == -0x8000000000000000) {
-    auVar3 = (*(code *)PTR_from_00239978)();
+    auVar3 = (*(code *)
+               PTR__ZN6uucore4mods5error144__LT_impl_u20_core__convert__From_LT_clap_builder__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7fb9d0425989847aE_00239978
+             )();
     return auVar3;
   }
   local_420 = local_3c8;
@@ -76,7 +78,7 @@ undefined  [16] __rustcall uu_numfmt::uumain::uumain(ulong param_1,undefined8 pa
   uStack_434 = uStack_3dc;
   local_450[0] = local_3f8;
                     /* try { // try from 001718ea to 0017194a has its CatchHandler @ 00171b0b */
-  (*(code *)PTR_parse_options_00239980)(&local_2e8,local_450);
+  (*(code *)PTR__ZN9uu_numfmt13parse_options17h74b780a1d54305dfE_00239980)(&local_2e8,local_450);
   lVar2 = local_2e8;
   if (local_2e8 != 2) {
     local_468 = uStack_2d0;
@@ -102,24 +104,27 @@ undefined  [16] __rustcall uu_numfmt::uumain::uumain(ulong param_1,undefined8 pa
     uStack_3d4 = uStack_45c;
     local_3f8 = lVar2;
                     /* try { // try from 001719b5 to 00171a37 has its CatchHandler @ 00171af9 */
-    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many
+    _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hb133da43c8fa0f0eE
               (&local_2e8,local_450,"NUMBER",6);
-    clap_builder::parser::error::MatchesError::unwrap(local_328,"NUMBER",6,&local_2e8);
+    _ZN12clap_builder6parser5error12MatchesError6unwrap17h9995f03ceaefcc81E
+              (local_328,"NUMBER",6,&local_2e8);
     if (local_328[0] == 0) {
-      (*(code *)PTR_stdin_00239988)();
+      (*(code *)PTR__ZN3std2io5stdio5stdin17h7215cc131abb55d8E_00239988)();
       local_478 = extraout_EAX;
       uStack_474 = extraout_var;
-      local_2e8 = (*(code *)PTR_lock_00239990)(&local_478);
+      local_2e8 = (*(code *)PTR__ZN3std2io5stdio5Stdin4lock17h161a36d857331d7fE_00239990)
+                            (&local_478);
       uStack_2e0 = CONCAT31(uStack_2e0._1_3_,extraout_DL) & 0xffffff01;
                     /* try { // try from 00171a4a to 00171a5e has its CatchHandler @ 00171ad0 */
-      auVar4 = handle_buffer(&local_2e8,&local_3f8);
+      auVar4 = _ZN9uu_numfmt13handle_buffer17h9ad60b7403393a62E(&local_2e8,&local_3f8);
       param_1 = auVar4._8_8_;
       lVar2 = auVar4._0_8_;
                     /* try { // try from 00171a74 to 00171a78 has its CatchHandler @ 00171af9 */
-      core::ptr::drop_in_place<std::io::stdio::StdinLock>(local_2e8,uStack_2e0);
+      _ZN4core3ptr46drop_in_place_LT_std__io__stdio__StdinLock_GT_17hd8f521f94a788c9eE
+                (local_2e8,uStack_2e0);
     }
     else {
-      auVar4 = handle_args(local_328,&local_3f8);
+      auVar4 = _ZN9uu_numfmt11handle_args17ha10f500c4512be74E(local_328,&local_3f8);
       lVar2 = auVar4._0_8_;
     }
     if (lVar2 == 0) {
@@ -129,16 +134,20 @@ undefined  [16] __rustcall uu_numfmt::uumain::uumain(ulong param_1,undefined8 pa
     }
     else {
                     /* try { // try from 00171a7e to 00171aa1 has its CatchHandler @ 00171ae9 */
-      local_2e8 = (*(code *)PTR_stdout_00239998)();
-      uVar1 = (*(code *)PTR_flush_002399a0)(&local_2e8);
-      core::result::Result<T,E>::expect(uVar1);
+      local_2e8 = (*(code *)PTR__ZN3std2io5stdio6stdout17h077da66234850927E_00239998)();
+      uVar1 = (*(code *)
+                PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_5flush17h392d0be644ab70e9E_002399a0
+              )(&local_2e8);
+      _ZN4core6result19Result_LT_T_C_E_GT_6expect17hc9085200e0221a50E(uVar1);
     }
                     /* try { // try from 00171aa6 to 00171ab2 has its CatchHandler @ 00171b0b */
-    core::ptr::drop_in_place<uu_numfmt::options::NumfmtOptions>(&local_3f8);
-    core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(local_450);
+    _ZN4core3ptr54drop_in_place_LT_uu_numfmt__options__NumfmtOptions_GT_17h2da773dd799c8198E
+              (&local_3f8);
+    _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17h7a0abc69fd02c535E
+              (local_450);
     return auVar4;
   }
-  core::ops::function::FnOnce::call_once(&local_478);
+  _ZN4core3ops8function6FnOnce9call_once17hf9126f76b4d13315E(&local_478);
   local_418 = local_478;
   uStack_414 = uStack_474;
   uStack_410 = uStack_470;
@@ -153,9 +162,12 @@ undefined  [16] __rustcall uu_numfmt::uumain::uumain(ulong param_1,undefined8 pa
   uStack_2cc = uStack_45c;
   uStack_2e0 = uStack_470;
   uStack_2dc = uStack_46c;
-  uVar1 = ::alloc::boxed::Box<T>::new(&local_2e8);
-  core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(local_450);
-  auVar3._8_8_ = &PTR_drop_in_place<uu_numfmt_errors_NumfmtError>_002329c0;
+  uVar1 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hb050645051cd6acaE(&local_2e8);
+  _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17h7a0abc69fd02c535E
+            (local_450);
+  auVar3._8_8_ = &
+                 PTR__ZN4core3ptr51drop_in_place_LT_uu_numfmt__errors__NumfmtError_GT_17h9519fa4ce8294667E_002329c0
+  ;
   auVar3._0_8_ = uVar1;
   return auVar3;
 }

@@ -1,10 +1,10 @@
 fn uu_dd::bufferedoutput::BufferedOutput::new(a0: &struct48, a1: &struct24) -> int {
-    let v0: Result<struct16, struct16>;  // [sp-0x38], Other Possible Types: i192
+    let v0: Result<struct16, struct16>;  // [sp-0x38]
     let v2: i8;  // bpl
     let v3: i32;  // ebx
     let v4: i64;  // rdi
     let v5: i64;  // rax
-    let v6: i128;  // xmm0
+    let v6: iNone;  // xmm0
 
     v2 = *(a1 as &i8);
     v3 = *((a1 + 4) as &i32);

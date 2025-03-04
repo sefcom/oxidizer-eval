@@ -1,6 +1,6 @@
 long long uu_cp::Attributes::parse_iter::h4e9dbe07d5fad3ae(struct_0 *a0, uint128_t a1[2])
 {
-    void* v0;  // [sp-0xd0], Other Possible Types: unsigned long long
+    unsigned long long v0;  // [sp-0xd0]
     unsigned int v1;  // [sp-0xc8]
     unsigned long long v2;  // [sp-0xc0]
     unsigned int v3;  // [sp-0xb8]

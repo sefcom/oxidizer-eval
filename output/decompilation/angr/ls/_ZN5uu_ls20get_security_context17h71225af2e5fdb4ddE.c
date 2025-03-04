@@ -6,12 +6,12 @@ double uu_ls::get_security_context::h71225af2e5fdb4dd(long long a0, long long a1
     unsigned long long v3;  // [sp-0x168]
     char *v4;  // [sp-0x160]
     unsigned long long v5;  // [sp-0x158]
-    char v6;  // [bp-0x150], Other Possible Types: unsigned long long
+    char v6;  // [sp-0x150], Other Possible Types: unsigned long
     unsigned long long v7;  // [sp-0x148]
     struct struct_0 **v8;  // [sp-0x140], Other Possible Types: unsigned long
     unsigned long long v9;  // [sp-0x138]
     void* v10;  // [sp-0x130]
-    unsigned long v11;  // [sp-0x120], Other Possible Types: unsigned long long
+    unsigned long v11;  // [sp-0x120]
     unsigned long long v12;  // [sp-0x118]
     unsigned short v13;  // [sp-0x110]
     unsigned long long v14;  // [sp-0x108]

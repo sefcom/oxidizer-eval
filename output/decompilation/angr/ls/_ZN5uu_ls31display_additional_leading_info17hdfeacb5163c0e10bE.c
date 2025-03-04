@@ -1,24 +1,24 @@
 double uu_ls::display_additional_leading_info::hdfeacb5163c0e10b(long long a0, long long a1, long long a2, long long a3, long long a4, long long a5)
 {
-    int v0;  // [bp-0xc8], Other Possible Types: char
-    struct struct_3 **v1;  // [sp-0xb8]
-    char v2;  // [bp-0xa8], Other Possible Types: unsigned long, unsigned long long
+    int v0;  // [sp-0xc8], Other Possible Types: char
+    struct struct_1 **v1;  // [sp-0xb8]
+    char v2;  // [sp-0xa8], Other Possible Types: unsigned long
     unsigned long long v3;  // [sp-0xa0]
-    struct struct_1 **v4;  // [sp-0x98], Other Possible Types: struct struct_3 **
+    struct struct_0 **v4;  // [sp-0x98], Other Possible Types: struct struct_1 **
     unsigned long long v5;  // [sp-0x90]
     void* v6;  // [sp-0x88]
     void* v7;  // [sp-0x78]
     unsigned long long v8;  // [sp-0x70]
     void* v9;  // [sp-0x68]
-    struct struct_1 **v10;  // [sp-0x60]
+    struct struct_0 **v10;  // [sp-0x60]
     unsigned long long v11;  // [sp-0x58]
     char *v12;  // [bp-0x50]
     unsigned long long v13;  // [sp-0x48]
-    struct_0 *v15;  // rax
+    struct_4 *v15;  // rax
     int v16;  // xmm0
     int v17;  // ymm0
     int v18;  // ymm0
-    struct_2 *v19;  // rax
+    struct_5 *v19;  // rax
     unsigned int v20;  // ebp
     int v21;  // xmm0
     int v22;  // xmm0

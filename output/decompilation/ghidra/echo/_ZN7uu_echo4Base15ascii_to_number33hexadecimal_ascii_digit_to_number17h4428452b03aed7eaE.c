@@ -1,5 +1,5 @@
-undefined  [16] __rustcall
-uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number
+undefined  [16]
+_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE
           (undefined param_1,undefined8 param_2,ulong param_3)
 
 {

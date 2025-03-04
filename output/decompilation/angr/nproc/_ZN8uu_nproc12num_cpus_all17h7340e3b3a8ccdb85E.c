@@ -6,16 +6,7 @@ long long uu_nproc::num_cpus_all::h7340e3b3a8ccdb85()
 
     v0 = v2;
     v3 = sysconf(83);
-    if (v3 == 1)
-    {
-        return uu_nproc::available_parallelism::h0a12aac02eb8d812();
-    }
-    else if (v3 <= 1)
-    {
-        return 1;
-    }
-    else
-    {
-        return v3;
-    }
+    if (v3 != 1)
+        return (v3 > 1 ? v3 : 1);
+    return uu_nproc::available_parallelism::h0a12aac02eb8d812();
 }

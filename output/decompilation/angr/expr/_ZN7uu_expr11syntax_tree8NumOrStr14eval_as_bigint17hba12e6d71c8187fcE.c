@@ -1,11 +1,11 @@
-long long uu_expr::syntax_tree::NumOrStr::eval_as_bigint::hba12e6d71c8187fc(struct_2 *a0, struct_1 *a1)
+long long uu_expr::syntax_tree::NumOrStr::eval_as_bigint::hba12e6d71c8187fc(struct_1 *a0, struct_0 *a1)
 {
     int v0;  // [sp-0x48]
     unsigned long long v1;  // [sp-0x38]
     char v2;  // [bp-0x30]
     char v3;  // [bp-0x20]
     int v5;  // xmm0
-    struct_0 *v6;  // rax
+    struct_2 *v6;  // rax
     unsigned long long v7;  // rax
     int v8;  // xmm0
     unsigned long long v9;  // rax

@@ -3,7 +3,7 @@ long long uu_csplit::csplit::habea2b7448100cb7(struct_1 *a0, struct_0 *a1, unsig
     int v0;  // [sp-0x1a8]
     unsigned long long v1;  // [sp-0x198]
     char v2;  // [bp-0x188]
-    int v3;  // [bp-0x178], Other Possible Types: char, unsigned long, unsigned long long
+    int v3;  // [bp-0x178], Other Possible Types: char, unsigned long
     char v4;  // [bp-0x170], Other Possible Types: unsigned long long
     int v5;  // [bp-0x168], Other Possible Types: unsigned long
     char v6;  // [bp-0x160]
@@ -14,11 +14,11 @@ long long uu_csplit::csplit::habea2b7448100cb7(struct_1 *a0, struct_0 *a1, unsig
     void* v11;  // [sp-0x120]
     unsigned long long v12;  // [sp-0x118]
     int v13;  // [sp-0x110]
-    unsigned long v14;  // [sp-0x100], Other Possible Types: unsigned long long
+    unsigned long v14;  // [sp-0x100]
     char v15;  // [sp-0xf8]
     unsigned long long v16;  // [sp-0xf0]
     char v17;  // [sp-0xe8]
-    unsigned long v18;  // [sp-0xe0], Other Possible Types: unsigned long long
+    unsigned long v18;  // [sp-0xe0]
     unsigned long long v19;  // [sp-0xd8]
     unsigned long long v20;  // [sp-0xd0]
     unsigned long long v21;  // [sp-0xc8]

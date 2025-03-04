@@ -1,12 +1,12 @@
 fn uu_truncate::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct24
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct24
     let v1: i32;  // [sp-0x800]
     let v2: i32;  // [sp-0x7fc]
-    let v3: i5696;  // [sp-0x7f8], Other Possible Types: struct592, struct712
-    let v4: i4736;  // [sp-0x530], Other Possible Types: struct592, struct712, struct437
+    let v3: struct592;  // [sp-0x7f8], Other Possible Types: struct712
+    let v4: struct592;  // [sp-0x530], Other Possible Types: struct712, struct437
     let v5: i64;  // [sp-0x274]
     let v6: i32;  // [sp-0x26c]
-    let v7: i4736;  // [sp-0x268], Other Possible Types: struct592
+    let v7: struct592;  // [sp-0x268]
     let v9: i64;  // rdx
 
     v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
@@ -15,8 +15,8 @@ fn uu_truncate::uu_app(a0: &struct712) -> u64 {
     v0 = uucore::format_usage("{} [OPTION]... [FILE]...");
     v3 = clap_builder::builder::command::Command::override_usage(&v4, &v0);
     memcpy(&v4, &v3, 700);
-    v5 = 549755814016 | *((&v3 as &char + 700) as &i64);
-    v6 = *((&v3 as &char + 708) as &i32);
+    v5 = 549755814016 | *((&v3.field_0 as &char + 700) as &i64);
+    v6 = *((&v3.field_0 as &char + 708) as &i32);
     v3 = clap_builder::builder::arg::Arg::new("io-blocks");
     v0 = clap_builder::builder::arg::Arg::short(&v3, 0x6f);
     v3 = clap_builder::builder::arg::Arg::long(&v0, "io-blocks");
@@ -48,8 +48,8 @@ fn uu_truncate::uu_app(a0: &struct712) -> u64 {
     v0 = clap_builder::builder::arg::Arg::value_name(&v3, "FILE");
     v3 = clap_builder::builder::arg::Arg::action(&v0, 0x1);
     memcpy(&v0, &v3, 584);
-    v1 = *((&v3 as &char + 584) as &i32) | 1;
-    v2 = *((&v3 as &char + 588) as &i32);
+    v1 = *((&v3.field_0 as &char + 584) as &i32) | 1;
+    v2 = *((&v3.field_0 as &char + 588) as &i32);
     v3 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);
     clap_builder::builder::command::Command::arg(a0, &v4, &v3);
     return a0;

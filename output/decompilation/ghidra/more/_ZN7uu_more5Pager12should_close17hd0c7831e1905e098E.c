@@ -1,4 +1,4 @@
-undefined8 __rustcall uu_more::Pager::should_close(long param_1)
+undefined8 _ZN7uu_more5Pager12should_close17hd0c7831e1905e098E(long param_1)
 
 {
   ulong uVar1;

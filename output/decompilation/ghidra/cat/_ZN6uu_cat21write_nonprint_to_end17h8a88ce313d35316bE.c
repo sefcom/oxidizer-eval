@@ -1,6 +1,5 @@
-long __rustcall
-uu_cat::write_nonprint_to_end
-          (long param_1,long param_2,undefined8 param_3,ushort *param_4,undefined8 param_5)
+long _ZN6uu_cat21write_nonprint_to_end17h8a88ce313d35316bE
+               (long param_1,long param_2,undefined8 param_3,ushort *param_4,undefined8 param_5)
 
 {
   byte bVar1;
@@ -18,7 +17,7 @@ uu_cat::write_nonprint_to_end
   local_38 = param_2 + param_1;
   local_48 = param_5;
   local_40 = param_1;
-  pbVar2 = (byte *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+  pbVar2 = (byte *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h9b5a5efb688e09cfE
                              (&local_40);
   lVar5 = 0;
   if (pbVar2 != (byte *)0x0) {
@@ -63,10 +62,12 @@ uu_cat::write_nonprint_to_end
         }
       }
 LAB_001b0e4f:
-      uVar3 = _<std::io::stdio::StdoutLock_as_std::io::Write>::write_all(param_3,puVar4,uVar3);
-      core::result::Result<T,E>::unwrap(uVar3,&PTR_s_src_uu_cat_src_cat_rs_00218838);
+      uVar3 = _ZN61__LT_std__io__stdio__StdoutLock_u20_as_u20_std__io__Write_GT_9write_all17h10000d12d1c1ff48E
+                        (param_3,puVar4,uVar3);
+      _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h0fc6b3beec18547fE
+                (uVar3,&PTR_s_src_uu_cat_src_cat_rs_00218838);
       lVar5 = lVar5 + 1;
-      pbVar2 = (byte *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+      pbVar2 = (byte *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h9b5a5efb688e09cfE
                                  (&local_40);
     } while (pbVar2 != (byte *)0x0);
   }

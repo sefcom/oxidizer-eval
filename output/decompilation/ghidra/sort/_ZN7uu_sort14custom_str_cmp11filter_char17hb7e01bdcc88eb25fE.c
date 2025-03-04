@@ -1,4 +1,5 @@
-bool __rustcall uu_sort::custom_str_cmp::filter_char(uint param_1,char param_2,int param_3)
+bool _ZN7uu_sort14custom_str_cmp11filter_char17hb7e01bdcc88eb25fE
+               (uint param_1,char param_2,int param_3)
 
 {
   bool bVar1;

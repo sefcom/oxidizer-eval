@@ -1,12 +1,12 @@
 fn uu_cksum::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct24
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct24
     let v1: i32;  // [sp-0x800]
     let v2: i32;  // [sp-0x7fc]
-    let v3: i4736;  // [sp-0x7f8], Other Possible Types: struct592, struct712, struct437
+    let v3: struct592;  // [sp-0x7f8], Other Possible Types: struct712, struct437
     let v4: i64;  // [sp-0x53c]
     let v5: i32;  // [sp-0x534]
-    let v6: i4736;  // [sp-0x530], Other Possible Types: struct592, struct712
-    let v7: struct592;  // [bp-0x268], Other Possible Types: i4736, struct24, struct8
+    let v6: struct592;  // [sp-0x530], Other Possible Types: struct712
+    let v7: struct592;  // [sp-0x268], Other Possible Types: struct24, struct8
     let v8: i64;  // [sp-0x260]
     let v10: i64;  // rdx
 
@@ -16,12 +16,12 @@ fn uu_cksum::uu_app(a0: &struct712) -> u64 {
     v0 = uucore::format_usage("{} [OPTIONS] [FILE]...");
     v6 = clap_builder::builder::command::Command::override_usage(&v3, &v0);
     memcpy(&v3, &v6, 700);
-    v4 = 584115552392 | *((&v6 as &char + 700) as &i64);
-    v5 = *((&v6 as &char + 708) as &i32);
+    v4 = 584115552392 | *((&v6.field_0 as &char + 700) as &i64);
+    v5 = *((&v6.field_0 as &char + 708) as &i32);
     v6 = clap_builder::builder::arg::Arg::new("file");
     memcpy(&v0, &v6, 584);
-    v1 = *((&v6 as &char + 584) as &i32) | 4;
-    v2 = *((&v6 as &char + 588) as &i32);
+    v1 = *((&v6.field_0 as &char + 584) as &i32) | 4;
+    v2 = *((&v6.field_0 as &char + 588) as &i32);
     v6 = clap_builder::builder::arg::Arg::action(&v0, 0x1);
     v7 = struct8 {
         field_0: 2
@@ -89,8 +89,8 @@ fn uu_cksum::uu_app(a0: &struct712) -> u64 {
     v0 = clap_builder::builder::arg::Arg::long(&v3, "text");
     v3 = clap_builder::builder::arg::Arg::short(&v0, 0x74);
     memcpy(&v0, &v3, 584);
-    v1 = *((&v3 as &char + 584) as &i32) | 4;
-    v2 = *((&v3 as &char + 588) as &i32);
+    v1 = *((&v3.field_0 as &char + 584) as &i32) | 4;
+    v2 = *((&v3.field_0 as &char + 588) as &i32);
     v3 = clap_builder::builder::arg::Arg::overrides_with(&v0, "binary");
     v0 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
     v3 = clap_builder::builder::command::Command::arg(&v6, &v0);
@@ -98,8 +98,8 @@ fn uu_cksum::uu_app(a0: &struct712) -> u64 {
     v0 = clap_builder::builder::arg::Arg::long(&v6, "binary");
     v6 = clap_builder::builder::arg::Arg::short(&v0, 0x62);
     memcpy(&v0, &v6, 584);
-    v1 = *((&v6 as &char + 584) as &i32) | 4;
-    v2 = *((&v6 as &char + 588) as &i32);
+    v1 = *((&v6.field_0 as &char + 584) as &i32) | 4;
+    v2 = *((&v6.field_0 as &char + 588) as &i32);
     v6 = clap_builder::builder::arg::Arg::overrides_with(&v0, "text");
     v0 = clap_builder::builder::arg::Arg::action(&v6, 0x2);
     v6 = clap_builder::builder::command::Command::arg(&v3, &v0);
@@ -127,9 +127,22 @@ fn uu_cksum::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::arg::Arg::new("zero");
     v0 = clap_builder::builder::arg::Arg::long(&v3, "zero");
     v3 = clap_builder::builder::arg::Arg::short(&v0, 0x7a);
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "end each output line with NUL, not newline,\n and disable file name escaping");
+    v0 = clap_builder::builder::arg::Arg::help(&v3, "end each output line with NUL, not newline,
+ and disable file name escaping");
     v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
     v3 = clap_builder::builder::command::Command::arg(&v6, &v7);
-    clap_builder::builder::command::Command::after_help(a0, &v3, "DIGEST determines the digest algorithm and default output format:\n\n- sysv:    (equivalent to sum -s)\n- bsd:     (equivalent to sum -r)\n- crc:     (equivalent to cksum)\n- md5:     (equivalent to md5sum)\n- sha1:    (equivalent to sha1sum)\n- sha224:  (equivalent to sha224sum)\n- sha256:  (equivalent to sha256sum)\n- sha384:  (equivalent to sha384sum)\n- sha512:  (equivalent to sha512sum)\n- blake2b: (equivalent to b2sum)\n- sm3:     (only available through cksum)");
+    clap_builder::builder::command::Command::after_help(a0, &v3, "DIGEST determines the digest algorithm and default output format:
+
+- sysv:    (equivalent to sum -s)
+- bsd:     (equivalent to sum -r)
+- crc:     (equivalent to cksum)
+- md5:     (equivalent to md5sum)
+- sha1:    (equivalent to sha1sum)
+- sha224:  (equivalent to sha224sum)
+- sha256:  (equivalent to sha256sum)
+- sha384:  (equivalent to sha384sum)
+- sha512:  (equivalent to sha512sum)
+- blake2b: (equivalent to b2sum)
+- sm3:     (only available through cksum)");
     return a0;
 }

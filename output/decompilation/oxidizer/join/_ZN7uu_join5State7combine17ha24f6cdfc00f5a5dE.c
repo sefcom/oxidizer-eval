@@ -23,13 +23,9 @@ fn uu_join::State::combine(a0: &u64, a1: u32, a2: &u64) -> u64 {
     let v22: u64;  // rax
     let v23: &struct_0;  // rcx
     let v24: u64;  // 4111
-    let v25: u64;  // rcx
-    let v26: u64;  // rax
-    let v27: struct8;  // rax
-    let v28: void*;  // rax
-    let v30: u64;  // rcx
-    let v31: u64;  // rax
-    let v32: struct8;  // rax
+    let v25: struct8;  // rax
+    let v26: void*;  // rax
+    let v28: struct8;  // rax
 
     v17 = uu_join::State::get_current_key(a0);
     v14 = v17;
@@ -54,67 +50,63 @@ fn uu_join::State::combine(a0: &u64, a1: u32, a2: &u64) -> u64 {
             v3 = v23->field_20;
         }
         v8 = a2[8];
-        v30 = v21;
-        v31 = v22;
         do {
-            v4 = v30;
-            v5 = v31;
+            v4 = v21;
+            v5 = v22;
             loop {
-                v32 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-                if !v32 {
+                v28 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
+                if !v28 {
                     break;
                 }
-                v28 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, v17, v3);
-                if v28 {
-                    return v28;
+                v26 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, v17, v3);
+                if v26 {
+                    return v26;
                 }
-                v28 = uu_join::Repr<Sep>::print_fields(v23, a1, v20, a0[8]);
-                if v28 {
-                    return v28;
+                v26 = uu_join::Repr<Sep>::print_fields(v23, a1, v20, a0[8]);
+                if v26 {
+                    return v26;
                 }
-                v28 = uu_join::Repr<Sep>::print_fields(v23, a1, v32, v8);
-                if v28 {
-                    return v28;
+                v26 = uu_join::Repr<Sep>::print_fields(v23, a1, v28, v8);
+                if v26 {
+                    return v26;
                 }
                 v9 = v0;
-                v28 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, &v9, 1);
-                if v28 {
-                    return v28;
+                v26 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, &v9, 1);
+                if v26 {
+                    return v26;
                 }
             }
             v20 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-            v30 = v2;
-            v31 = v1;
+            v21 = v2;
+            v22 = v1;
         } while (v20);
     } else {
-        v25 = v21;
-        v26 = v22;
         do {
-            v4 = v25;
-            v5 = v26;
+            v4 = v21;
+            v5 = v22;
             loop {
-                v27 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-                if !v27 {
+                v25 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
+                if !v25 {
                     break;
                 }
                 v9 = &v14;
                 v10 = a0;
                 v11 = v20;
                 v12 = a2;
-                v13 = v27;
-                v28 = uu_join::Repr<Sep>::print_format(v23, a1, &v9);
-                if v28 {
-                    return v28;
+                v13 = v25;
+                v26 = uu_join::Repr<Sep>::print_format(v23, a1, &v9);
+                if v26 {
+                    return v26;
                 }
                 v9 = v0;
-                v28 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, &v9, 1);
-                if v28 {
-                    return v28;
+                v26 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, &v9, 1);
+                if v26 {
+                    return v26;
                 }
             }
             v20 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-            v25 = v2;
-            v26 = v1;
+            v21 = v2;
+            v22 = v1;
         } while (v20);
     }
 }

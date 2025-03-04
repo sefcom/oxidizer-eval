@@ -32,12 +32,13 @@ fn uu_sort::compare_by(a0: &u64, a1: &u64, a2: void*, a3: &u64, a4: &u64) -> u64
     let v31: struct8;  // rbx
     let v32: u32;  // eax
     let v35: u64;  // rdx
-    let v36: u64;  // rbx
-    let v38: u64;  // rbx
+    let v36: u64;  // rdx
+    let v38: u64;  // rdx
     let v39: u64;  // cc_ndep
     let v40: u64;  // rax
-    let v41: u64;  // rax
-    let v42: u64;  // rax
+    let v41: u64;  // rbx
+    let v43: u64;  // rbx
+    let v44: u64;  // rax
 
     v22 = a2->field_8;
     v23 = a2->field_10 * 56 + v22;
@@ -73,27 +74,26 @@ fn uu_sort::compare_by(a0: &u64, a1: &u64, a2: void*, a3: &u64, a4: &u64) -> u64
         v32 = 0;
         if a2->field_98 != 5 && !a2->field_83 && !a2->field_84 {
             v35 = a1[1];
-            v36 = a0[1];
-            if v36 < v35 {
-                v38 = v36;
-            } else {
+            if v36 >= v35 {
                 v38 = v35;
+            } else {
+                v38 = v36;
             }
             v40 = memcmp(*(a0), *(a1), v38) as u32;
-            if v40 {
-                v41 = v40;
+            if v41 {
+                v43 = v40;
             } else {
-                v41 = v36 - v35;
+                v43 = v36 - v35;
             }
-            v32 = (amd64g_calculate_condition(9, 20, v41, 0, v39) as char ? v41 : 255);
+            v32 = (amd64g_calculate_condition(9, 20, v43, 0, v39) as char ? v43 : 255);
         }
-        v42 = (!a2->field_82 ? v32 : -(v32));
-        return v42;
+        v44 = (!a2->field_82 ? v32 : -(v32));
+        return v44;
     }
     v31 = v30;
     if !*((v30 + 55) as &i8) {
-        goto *((4385600 + *((vvar_83{reg 40} + 53) as &i8) * 4) as &i32) + 4385600;
+        goto *((4385600 + *((vvar_78{reg 40} + 53) as &i8) * 4) as &i32) + 4385600;
     } else {
-        goto *((4385600 + *((vvar_83{reg 40} + 53) as &i8) * 4) as &i32) + 4385600;
+        goto *((4385600 + *((vvar_78{reg 40} + 53) as &i8) * 4) as &i32) + 4385600;
     }
 }

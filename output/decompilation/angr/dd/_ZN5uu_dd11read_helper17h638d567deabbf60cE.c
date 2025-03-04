@@ -1,6 +1,6 @@
 long long uu_dd::read_helper::h638d567deabbf60c(struct_2 *a0, struct_0 *a1, unsigned long long a2[3], unsigned long long a3)
 {
-    unsigned long v0;  // [sp-0x80], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x80]
     int v1;  // [sp-0x78]
     unsigned long long v2;  // [sp-0x68]
     char v3;  // [bp-0x60]

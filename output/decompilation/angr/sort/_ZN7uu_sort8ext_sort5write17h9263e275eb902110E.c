@@ -2,7 +2,7 @@ long long uu_sort::ext_sort::write::h9263e275eb902110(unsigned long long a0[3], 
 {
     int v0;  // [bp-0x108], Other Possible Types: char
     char v1;  // [bp-0x100]
-    int v2;  // [bp-0xf8], Other Possible Types: char
+    int v2;  // [sp-0xf8], Other Possible Types: char
     char v3;  // [bp-0xf0]
     int v4;  // [sp-0xe8]
     char v5;  // [bp-0xe0]
@@ -14,9 +14,9 @@ long long uu_sort::ext_sort::write::h9263e275eb902110(unsigned long long a0[3], 
     char v11;  // [bp-0xb0]
     int v12;  // [sp-0xa8]
     char v13;  // [bp-0xa0]
-    unsigned long v14;  // [sp-0x90], Other Possible Types: unsigned long long
+    unsigned long v14;  // [sp-0x90]
     unsigned long long v15;  // [sp-0x88]
-    unsigned long v16;  // [sp-0x80], Other Possible Types: unsigned long long
+    unsigned long v16;  // [sp-0x80]
     int v17;  // [sp-0x78]
     int v18;  // [sp-0x68]
     int v19;  // [sp-0x58]

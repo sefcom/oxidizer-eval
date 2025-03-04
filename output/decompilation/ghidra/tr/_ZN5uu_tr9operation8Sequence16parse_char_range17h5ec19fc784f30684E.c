@@ -1,6 +1,5 @@
-void __rustcall
-uu_tr::operation::Sequence::parse_char_range
-          (undefined8 *param_1,undefined8 param_2,undefined8 param_3)
+void _ZN5uu_tr9operation8Sequence16parse_char_range17h5ec19fc784f30684E
+               (undefined8 *param_1,undefined8 param_2,undefined8 param_3)
 
 {
   uint uVar1;
@@ -17,7 +16,8 @@ uu_tr::operation::Sequence::parse_char_range
   
   local_18 = "-\' are in reverse collating sequence order";
   local_10 = 1;
-  nom::sequence::separated_pair::___closure__(&local_38,&local_18,param_2,param_3);
+  _ZN3nom8sequence14separated_pair28__u7b__u7b_closure_u7d__u7d_17h10f375dd8b7b174eE
+            (&local_38,&local_18,param_2,param_3);
   if (local_38 == 3) {
     uVar2 = 0x800000000000000b;
     uVar1 = (uint)bStack_20 * 0x100 + 1 + (uint)bStack_1f * 0x10000;

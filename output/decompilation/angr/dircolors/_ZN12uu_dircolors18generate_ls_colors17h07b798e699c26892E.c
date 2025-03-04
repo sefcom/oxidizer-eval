@@ -1,41 +1,41 @@
-long long uu_dircolors::generate_ls_colors::h07b798e699c26892(struct_1 *a0, char *a1, unsigned long long a2, unsigned long long a3)
+long long uu_dircolors::generate_ls_colors::h07b798e699c26892(struct_0 *a0, char *a1, unsigned long long a2, unsigned long long a3)
 {
-    void* v0;  // [sp-0x278], Other Possible Types: unsigned long, unsigned long long
+    void* v0;  // [sp-0x278], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0x270]
     void* v2;  // [sp-0x268], Other Possible Types: unsigned long
     char v3;  // [bp-0x25f]
     char v4;  // [bp-0x25c]
-    int v5;  // [sp-0x258], Other Possible Types: unsigned long, unsigned long long
+    int v5;  // [sp-0x258], Other Possible Types: unsigned long
     unsigned long long v6;  // [sp-0x250]
-    struct struct_0 **v7;  // [sp-0x248]
-    void* v8;  // [sp-0x240], Other Possible Types: unsigned long, unsigned long long
+    struct struct_2 **v7;  // [sp-0x248]
+    void* v8;  // [sp-0x240], Other Possible Types: unsigned long
     unsigned long long v9;  // [sp-0x238]
     void* v10;  // [sp-0x230]
-    char *v11;  // [bp-0x228], Other Possible Types: unsigned long long
+    char *v11;  // [sp-0x228]
     unsigned long long v12;  // [sp-0x220]
-    struct struct_0 **v13;  // [sp-0x218], Other Possible Types: char *
+    struct struct_2 **v13;  // [sp-0x218], Other Possible Types: char *
     unsigned long long v14;  // [sp-0x210]
     void* v15;  // [sp-0x208], Other Possible Types: char *
     unsigned long long v16;  // [sp-0x200]
-    int v17;  // [sp-0x1f8], Other Possible Types: unsigned long long
+    int v17;  // [bp-0x1f8], Other Possible Types: unsigned long
     unsigned long long v18;  // [sp-0x1f0]
     unsigned long long v19;  // [sp-0x1e8]
-    int v20;  // [bp-0x1d8], Other Possible Types: unsigned long, unsigned long long
+    int v20;  // [bp-0x1d8], Other Possible Types: unsigned long
     unsigned long long v21;  // [sp-0x1d0]
-    struct struct_0 **v22;  // [sp-0x1c8]
-    int v23;  // [bp-0x1b8], Other Possible Types: char, unsigned long long
+    struct struct_2 **v22;  // [sp-0x1c8]
+    int v23;  // [bp-0x1b8], Other Possible Types: unsigned long
     unsigned long long v24;  // [sp-0x1b0]
-    struct struct_0 **v25;  // [sp-0x1a8], Other Possible Types: unsigned long long
+    struct struct_2 **v25;  // [sp-0x1a8], Other Possible Types: unsigned long long
     unsigned long long v26;  // [sp-0x1a0]
-    struct struct_0 **v27;  // [sp-0x198]
+    struct struct_2 **v27;  // [sp-0x198]
     unsigned long long v28;  // [sp-0x190]
     char *v29;  // [bp-0x170]
     unsigned long long v30;  // [sp-0x168]
-    char *v31;  // [sp-0x160], Other Possible Types: struct struct_0 **, unsigned long long
+    char *v31;  // [sp-0x160], Other Possible Types: struct struct_2 **, unsigned long long
     unsigned long long v32;  // [sp-0x158]
     char *v33;  // [sp-0x150], Other Possible Types: void*
     unsigned long v34;  // [sp-0x148], Other Possible Types: unsigned long long
-    char *v35;  // [sp-0x140], Other Possible Types: char
+    char *v35;  // [bp-0x140], Other Possible Types: char
     unsigned int v36;  // [bp-0x13f]
     unsigned int v37;  // [sp-0x13c]
     unsigned long long v38;  // [sp-0x138]
@@ -61,9 +61,9 @@ long long uu_dircolors::generate_ls_colors::h07b798e699c26892(struct_1 *a0, char
     char v58;  // [bp-0x60]
     char v59;  // [bp-0x48]
     unsigned long long v61;  // 4140
-    struct_2 *v62;  // rax
-    struct_2 *v63;  // rax
-    struct struct_0 **v64;  // rbx
+    struct_1 *v62;  // rax
+    struct_1 *v63;  // rax
+    struct struct_2 **v64;  // rbx
     char *v65;  // r15
     int v66;  // ymm0
     int v67;  // xmm0
@@ -74,7 +74,7 @@ long long uu_dircolors::generate_ls_colors::h07b798e699c26892(struct_1 *a0, char
     int v73;  // xmm0
     unsigned long long v74;  // rdx
     char v75;  // al
-    struct_1 *v77;  // r15
+    struct_0 *v77;  // r15
     char *v78;  // rdi
 
     v61 = *(a1);
@@ -129,7 +129,7 @@ long long uu_dircolors::generate_ls_colors::h07b798e699c26892(struct_1 *a0, char
                 v50 = 0;
                 v51 = 32;
                 v52 = 3;
-                v54 = *((int *)&v4);
+                v54 = *((int *)&(&v3)[3]);
                 v53 = *((int *)&v3);
                 v23 = &g_527158;
                 v24 = 5;
@@ -137,7 +137,7 @@ long long uu_dircolors::generate_ls_colors::h07b798e699c26892(struct_1 *a0, char
                 v28 = 4;
                 v25 = &v11;
                 v26 = 3;
-                ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918();
+                ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918(&v58, &v23);
                 alloc::vec::Vec$LT$T$C$A$GT$::push::h7d8f0025391e3f05(&v0, &v58);
                 v63 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h61adeb40505b726f(&v8);
             } while (v63);
@@ -167,8 +167,6 @@ long long uu_dircolors::generate_ls_colors::h07b798e699c26892(struct_1 *a0, char
                 v67 = v62->field_10;
                 v20 = v67;
                 *((unsigned int *)&v29) = 0;
-                v65 = v65;
-                v64 = v64;
                 v69 = core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::starts_with::he3aceff540041b05(v17, v18, ::0x4bb2d0::core::char::methods::encode_utf8_raw::h4a752b0d300141c4(42, &v29), v68);
                 *((int *)&v0) = (v69 ? 1 : "*");
                 v1 = v69 ^ 1;
@@ -181,7 +179,7 @@ long long uu_dircolors::generate_ls_colors::h07b798e699c26892(struct_1 *a0, char
                 v33 = 0;
                 v31 = v64;
                 v32 = 2;
-                ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918();
+                ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918(&v55, &v29);
                 v71 = *((int128_t *)&v55);
                 v66 = (v66 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v67) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v71;
                 v23 = v71;
@@ -195,7 +193,7 @@ long long uu_dircolors::generate_ls_colors::h07b798e699c26892(struct_1 *a0, char
                 v33 = 0;
                 v31 = v64;
                 v32 = 2;
-                ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918();
+                ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918(&v59, &v29);
                 alloc::vec::Vec$LT$T$C$A$GT$::push::h7d8f0025391e3f05(&v8, &v59);
                 ::0x4ba5e0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h201e2b6c2cdf2ea1(v65);
                 v62 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h61adeb40505b726f(&v5);
@@ -224,7 +222,7 @@ long long uu_dircolors::generate_ls_colors::h07b798e699c26892(struct_1 *a0, char
         v15 = 0;
         v13 = &v29;
         v14 = 4;
-        ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918();
+        ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918(&v0, &v11);
         ::0x4ba5e0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h201e2b6c2cdf2ea1(&v23);
         v77->field_10 = v2;
         v77->field_0 = *((int128_t *)&v0);

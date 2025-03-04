@@ -3,7 +3,7 @@ long long uu_wc::uu_app::h62af8873bd1507e0(unsigned long long a0)
     unsigned long long v0;  // [sp-0xa60]
     char v1;  // [bp-0xa58]
     char v2;  // [bp-0xa50]
-    char v3;  // [bp-0xa48], Other Possible Types: unsigned long long
+    char v3;  // [bp-0xa48], Other Possible Types: unsigned long
     unsigned long long v4;  // [sp-0xa40]
     unsigned long long v5;  // [sp-0xa38]
     unsigned long long v6;  // [sp-0xa30]
@@ -21,7 +21,7 @@ long long uu_wc::uu_app::h62af8873bd1507e0(unsigned long long a0)
     char v18;  // [bp-0x530]
     char v19;  // [bp-0x274]
     char v20;  // [bp-0x26c]
-    char v21;  // [bp-0x268], Other Possible Types: unsigned long long
+    char v21;  // [sp-0x268], Other Possible Types: unsigned long
     unsigned long long v22;  // [sp-0x260]
     unsigned long long v23;  // [sp-0x258]
     unsigned long long v25;  // rdx

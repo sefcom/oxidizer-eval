@@ -2,19 +2,19 @@ long long uu_sum::uumain::uumain::ha903703fbf1bb802(unsigned long long a0, unsig
 {
     char v0;  // [sp-0x43a]
     char v1;  // [sp-0x439]
-    char *v2;  // [bp-0x438], Other Possible Types: unsigned long
+    char *v2;  // [sp-0x438], Other Possible Types: unsigned long
     unsigned long v3;  // [sp-0x430], Other Possible Types: unsigned long long
-    char *v4;  // [bp-0x428], Other Possible Types: char
+    char *v4;  // [sp-0x428], Other Possible Types: char
     unsigned long long v5;  // [sp-0x420]
-    struct struct_4 **v6;  // [bp-0x418], Other Possible Types: char, unsigned long long
+    struct struct_4 **v6;  // [sp-0x418], Other Possible Types: char, unsigned long long
     void* v7;  // [sp-0x410], Other Possible Types: unsigned long long
     unsigned long v8;  // [sp-0x408], Other Possible Types: unsigned long long
     void* v9;  // [sp-0x400]
-    unsigned long long v10;  // [bp-0x3f8], Other Possible Types: unsigned short
-    struct_2 *v11;  // [sp-0x3f0]
-    int v12;  // [bp-0x3e8], Other Possible Types: unsigned long, unsigned long long
+    unsigned long v10;  // [bp-0x3f8], Other Possible Types: unsigned short
+    struct_1 *v11;  // [sp-0x3f0]
+    int v12;  // [bp-0x3e8], Other Possible Types: unsigned long
     unsigned long long v13;  // [sp-0x3e0]
-    struct_2 *v14;  // [sp-0x3d8]
+    struct_1 *v14;  // [sp-0x3d8]
     unsigned long long v15;  // [sp-0x3d0]
     char *v16;  // [sp-0x3c8]
     unsigned long long v17;  // [sp-0x3c0]
@@ -24,9 +24,9 @@ long long uu_sum::uumain::uumain::ha903703fbf1bb802(unsigned long long a0, unsig
     unsigned long long v21;  // [sp-0x398]
     unsigned long long v22;  // [sp-0x390]
     unsigned long long v23[3];  // [sp-0x388]
-    unsigned long v24;  // [sp-0x380], Other Possible Types: unsigned long long
+    unsigned long v24;  // [sp-0x380]
     unsigned long long v25;  // [sp-0x378]
-    unsigned long v26;  // [sp-0x370], Other Possible Types: unsigned long long
+    unsigned long v26;  // [sp-0x370]
     unsigned long long v27;  // [sp-0x368]
     int v28;  // [sp-0x360]
     int v29;  // [sp-0x350]
@@ -35,9 +35,9 @@ long long uu_sum::uumain::uumain::ha903703fbf1bb802(unsigned long long a0, unsig
     int v32;  // [sp-0x328]
     int v33;  // [sp-0x318]
     int v34;  // [sp-0x308]
-    char v35;  // [bp-0x2f8], Other Possible Types: unsigned long long
+    char v35;  // [bp-0x2f8], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v36;  // [sp-0x2f0]
-    struct_2 *v37;  // [sp-0x2e8], Other Possible Types: unsigned long long
+    struct_1 *v37;  // [sp-0x2e8], Other Possible Types: unsigned long long
     unsigned long long v38;  // [sp-0x2e0]
     void* v39;  // [sp-0x2d8]
     unsigned long long v40;  // [sp-0x2d0]
@@ -53,15 +53,15 @@ long long uu_sum::uumain::uumain::ha903703fbf1bb802(unsigned long long a0, unsig
     unsigned long long v50;  // [sp-0x268]
     unsigned long long v51;  // [sp-0x260]
     char v52;  // [sp-0x258]
-    struct_0 *v55;  // rax
-    struct_0 *v56;  // r15
+    struct_3 *v55;  // rax
+    struct_3 *v56;  // r15
     int v57;  // xmm0
     unsigned long long v58;  // rax
     unsigned long long v59[3];  // rax
     unsigned long long v60[3];  // rax
     unsigned long long v61;  // rbx
     unsigned long long v62;  // rdi
-    unsigned long v64;  // dx, Other Possible Types: unsigned short
+    unsigned long v64;  // dx
 
     uu_sum::uu_app::hbdfcd560e86e61fa(&v35);
     clap_builder::builder::command::Command::try_get_matches_from::h7bb4a4ed4c02a1a0(&v2, &v35, a0, a1);
@@ -116,7 +116,7 @@ long long uu_sum::uumain::uumain::ha903703fbf1bb802(unsigned long long a0, unsig
         do
         {
             v23[0] = v60;
-            uu_sum::open::hc6d78e625deb9f03(&v12, v23[1], v23[2]);
+            uu_sum::open::hc6d78e625deb9f03(&v12, v60[1], v60[2]);
             v62 = v13;
             if (v12)
             {
@@ -141,7 +141,35 @@ long long uu_sum::uumain::uumain::ha903703fbf1bb802(unsigned long long a0, unsig
             {
                 *((int *)&v24) = (!v1 ? uu_sum::bsd_sum::h3ffaf9234bf825c3(v62, v11) : uu_sum::sysv_sum::h29b452e8d3fae5cd(v62, v11));
                 v10 = v64;
-                if (v0)
+                if (!v0)
+                {
+                    v2 = &v10;
+                    v3 = core::fmt::num::imp::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u16$GT$::fmt::hc16e9a303f8fca40;
+                    v4 = &v24;
+                    v5 = core::fmt::num::imp::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$::fmt::he829b250bc010c8b;
+                    v6 = v61;
+                    v7 = 0;
+                    v35 = 2;
+                    v37 = 1;
+                    v38 = 2;
+                    v39 = 0;
+                    v40 = 34359738400;
+                    v41 = 3;
+                    v42 = 2;
+                    v43 = 1;
+                    v44 = 2;
+                    v45 = 1;
+                    v46 = 32;
+                    v47 = 3;
+                    v12 = &g_50fab8;
+                    v13 = 3;
+                    v16 = &v35;
+                    v17 = 2;
+                    v14 = &v2;
+                    v15 = 3;
+                    std::io::stdio::_print::he918bceb0c89db46(&v12);
+                }
+                else
                 {
                     v2 = &v10;
                     v3 = core::fmt::num::imp::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u16$GT$::fmt::hc16e9a303f8fca40;
@@ -174,34 +202,6 @@ long long uu_sum::uumain::uumain::ha903703fbf1bb802(unsigned long long a0, unsig
                     v17 = 3;
                     v14 = &v2;
                     v15 = 4;
-                    std::io::stdio::_print::he918bceb0c89db46(&v12);
-                }
-                else
-                {
-                    v2 = &v10;
-                    v3 = core::fmt::num::imp::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u16$GT$::fmt::hc16e9a303f8fca40;
-                    v4 = &v24;
-                    v5 = core::fmt::num::imp::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$::fmt::he829b250bc010c8b;
-                    v6 = v61;
-                    v7 = 0;
-                    v35 = 2;
-                    v37 = 1;
-                    v38 = 2;
-                    v39 = 0;
-                    v40 = 34359738400;
-                    v41 = 3;
-                    v42 = 2;
-                    v43 = 1;
-                    v44 = 2;
-                    v45 = 1;
-                    v46 = 32;
-                    v47 = 3;
-                    v12 = &g_50fab8;
-                    v13 = 3;
-                    v16 = &v35;
-                    v17 = 2;
-                    v14 = &v2;
-                    v15 = 3;
                     std::io::stdio::_print::he918bceb0c89db46(&v12);
                 }
             }

@@ -1,8 +1,8 @@
-long long uu_test::parser::Parser::literal::h487831028acf0989(struct_1 *a0, void* a1, unsigned int a2)
+long long uu_test::parser::Parser::literal::h487831028acf0989(struct_0 *a0, void* a1, unsigned int a2)
 {
-    int v0;  // [bp-0x118], Other Possible Types: char, unsigned long long
+    int v0;  // [bp-0x118], Other Possible Types: char, unsigned long
     unsigned long long v1;  // [sp-0x110]
-    int v2;  // [sp-0x108], Other Possible Types: struct struct_0 **
+    int v2;  // [sp-0x108], Other Possible Types: struct struct_1 **
     unsigned long long v3;  // [sp-0x100]
     void* v4;  // [sp-0xf8], Other Possible Types: unsigned long long
     char *v5;  // [sp-0xe8]
@@ -38,7 +38,7 @@ long long uu_test::parser::Parser::literal::h487831028acf0989(struct_1 *a0, void
             v4 = 0;
             v2 = &v5;
             v3 = 1;
-            core::option::Option$LT$T$GT$::map_or_else::ha47e44f34eb359bd();
+            core::option::Option$LT$T$GT$::map_or_else::ha47e44f34eb359bd(&v14, &v0);
             *((long long *)((char *)&a0->field_8 + 8)) = *((long long *)&v15);
             *((int128_t *)&(&a0->field_0)[1]) = *((int128_t *)&v14);
             a0->field_0 = 3;

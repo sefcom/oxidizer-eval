@@ -1,5 +1,5 @@
 fn uu_df::table::RowFormatter::percentage(a0: &struct24, a1: u32) -> u64 {
-    let v0: u64;  // [sp-0x90], Other Possible Types: i64
+    let v0: u64;  // [sp-0x90]
     let v1: u64;  // [sp-0x88]
     let v2: u64;  // [sp-0x80]
     let v3: u64;  // [sp-0x78]
@@ -35,7 +35,7 @@ fn uu_df::table::RowFormatter::percentage(a0: &struct24, a1: u32) -> u64 {
         v8 = 1;
         v5 = &v1;
         v6 = 1;
-        return core::option::Option<T>::map_or_else();
+        return core::option::Option<T>::map_or_else(a0, &v3);
     }
     return <T as alloc::slice::hack::ConvertVec>::to_vec(a0, "-");
 }

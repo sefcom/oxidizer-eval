@@ -13,7 +13,7 @@ long long uu_mv::is_empty_dir::he3f2d58304cc65e8(unsigned long long a0, unsigned
         v3 = *((long long *)&v0);
         v4 = v1;
         v2 = 2;
-        core::option::Option$LT$T$GT$::get_or_insert_with::h2664734a8f2b2304(&v2);
+        core::option::Option$LT$T$GT$::get_or_insert_with::h2664734a8f2b2304(&v2, &v3);
         core::ptr::drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$std..fs..ReadDir$GT$$GT$::h4d32aa70b54d5e21(&v2);
         return (unsigned int)(v8 & 0xffffffffffffff00 | !v2);
     }

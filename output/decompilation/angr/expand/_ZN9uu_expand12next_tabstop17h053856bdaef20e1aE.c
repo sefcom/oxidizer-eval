@@ -2,7 +2,7 @@ long long uu_expand::next_tabstop::h053856bdaef20e1a(unsigned long long *a0, uns
 {
     unsigned long long *v0;  // [sp-0x38]
     unsigned long long v1;  // [sp-0x30]
-    unsigned long v2;  // [sp-0x28], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x28]
     unsigned long long v4;  // rbx
     unsigned long long v5;  // r12
     unsigned long long v6;  // rcx
@@ -10,10 +10,9 @@ long long uu_expand::next_tabstop::h053856bdaef20e1a(unsigned long long *a0, uns
     unsigned long v8;  // rdx
     unsigned long v9;  // rdx
     unsigned long long v10;  // rcx
+    unsigned long long v11;  // rcx
     unsigned long long v13;  // rsi
-    unsigned long long v14;  // rcx
 
-    v4 = a2;
     v2 = a2;
     if ((char)a3)
     {
@@ -32,9 +31,9 @@ long long uu_expand::next_tabstop::h053856bdaef20e1a(unsigned long long *a0, uns
                 v13 = a0[1 + a1];
                 if (v13)
                 {
-                    v4 -= a0[2 + a1];
-                    v14 = (!(v4 | v13) >> 32 ? (unsigned long long)((0 CONCAT v4) % v13) CONCAT (unsigned long long)((0 CONCAT v4) / v13) : ((unsigned int)((0 CONCAT (unsigned int)v4) % (v13 & 4294967295)) CONCAT (unsigned int)((0 CONCAT (unsigned int)v4) / (v13 & 4294967295))) & 4294967295 & 4294967295);
-                    v10 = v13 * (v14 + 1) - v4;
+                    v4 = a2 - a0[2 + a1];
+                    v11 = v13 * ((!(v4 | v13) >> 32 ? (unsigned long long)((0 CONCAT v4) % v13) CONCAT (unsigned long long)((0 CONCAT v4) / v13) : ((unsigned int)((0 CONCAT (unsigned int)v4) % (v13 & 4294967295)) CONCAT (unsigned int)((0 CONCAT (unsigned int)v4) / (v13 & 4294967295))) & 4294967295 & 4294967295) + 1);
+                    v10 = v11 - v4;
                     return v10;
                 }
                 core::panicking::panic_const::panic_const_div_by_zero::haded503194f0bf6e(&g_51cf18); /* do not return */
@@ -52,7 +51,7 @@ long long uu_expand::next_tabstop::h053856bdaef20e1a(unsigned long long *a0, uns
                 v6 = a0[1 + a1];
                 if (v6)
                 {
-                    v10 = (!(v4 | v6) >> 32 ? v6 - (((unsigned int)((0 CONCAT (unsigned int)v4) % (v6 & 4294967295)) CONCAT (unsigned int)((0 CONCAT (unsigned int)v4) / (v6 & 4294967295))) >> 32 & 4294967295) : v6 - (((unsigned long long)((0 CONCAT v4) % v6) CONCAT (unsigned long long)((0 CONCAT v4) / v6)) >> 64));
+                    v10 = (!(a2 | v6) >> 32 ? v6 - (((unsigned int)((0 CONCAT (unsigned int)a2) % (v6 & 4294967295)) CONCAT (unsigned int)((0 CONCAT (unsigned int)a2) / (v6 & 4294967295))) >> 32 & 4294967295) : v6 - (((unsigned long long)((0 CONCAT a2) % v6) CONCAT (unsigned long long)((0 CONCAT a2) / v6)) >> 64));
                     return v10;
                 }
                 core::panicking::panic_const::panic_const_rem_by_zero::h9246b1d1945ea5dd(&g_51ceb8); /* do not return */

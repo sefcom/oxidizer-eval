@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_df::uumain::uumain(undefined8 param_1,undefined8 param_2)
+undefined  [16] _ZN5uu_df6uumain6uumain17h3e2d3a10a280da4eE(undefined8 param_1,undefined8 param_2)
 
 {
   ulong uVar1;
@@ -95,11 +95,13 @@ undefined  [16] __rustcall uu_df::uumain::uumain(undefined8 param_1,undefined8 p
   undefined4 uStack_298;
   undefined4 uStack_294;
   
-  (*(code *)PTR_uu_app_00245b80)(&local_2e8);
-  clap_builder::builder::command::Command::try_get_matches_from
+  (*(code *)PTR__ZN5uu_df6uu_app17h9c55c0d492ce5ccfE_00245b80)(&local_2e8);
+  _ZN12clap_builder7builder7command7Command20try_get_matches_from17h7ec40c233007e04cE
             (&local_3b8,&local_2e8,param_1,param_2);
   if (local_3b8 == -0x8000000000000000) {
-    auVar5 = (*(code *)PTR_from_00245b88)();
+    auVar5 = (*(code *)
+               PTR__ZN6uucore4mods5error144__LT_impl_u20_core__convert__From_LT_clap_builder__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7fb9d0425989847aE_00245b88
+             )();
     return auVar5;
   }
   local_340 = uStack_398;
@@ -112,9 +114,9 @@ undefined  [16] __rustcall uu_df::uumain::uumain(undefined8 param_1,undefined8 p
   uStack_344 = uStack_39c;
   local_360[0] = local_3b8;
                     /* try { // try from 00173afb to 00173b60 has its CatchHandler @ 00173ee9 */
-  (*(code *)PTR_from_00245b90)(&local_2e8,local_360);
+  (*(code *)PTR__ZN5uu_df7Options4from17h9a68833b14202507E_00245b90)(&local_2e8,local_360);
   if (CONCAT44(uStack_2e4,local_2e8) == -0x8000000000000000) {
-    core::ops::function::FnOnce::call_once(&local_3f8);
+    _ZN4core3ops8function6FnOnce9call_once17h863533e3c19f7681E(&local_3f8);
     uStack_430._0_4_ = (undefined4)uStack_3f0;
     uStack_430._4_4_ = uStack_3f0._4_4_;
     local_428 = (long)local_3e8;
@@ -127,8 +129,8 @@ undefined  [16] __rustcall uu_df::uumain::uumain(undefined8 param_1,undefined8 p
     uStack_2e4 = local_3f8._4_4_;
     uStack_2e0 = (undefined4)uStack_3f0;
     uStack_2dc = uStack_3f0._4_4_;
-    uVar3 = ::alloc::boxed::Box<T>::new(&local_2e8);
-    ppuVar4 = &PTR_drop_in_place<uu_df_DfError>_0023eb40;
+    uVar3 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hf8971d9a7f69a8c7E(&local_2e8);
+    ppuVar4 = &PTR__ZN4core3ptr35drop_in_place_LT_uu_df__DfError_GT_17hba142f83d025e934E_0023eb40;
   }
   else {
     uStack_390 = local_2c0;
@@ -155,18 +157,20 @@ undefined  [16] __rustcall uu_df::uumain::uumain(undefined8 param_1,undefined8 p
     uStack_39c = uStack_2cc;
     uStack_398 = uStack_2c8;
     uStack_394 = uStack_2c4;
-    uVar3 = *(undefined8 *)PTR_OPT_PATHS_00245b98;
-    uVar1 = *(ulong *)(PTR_OPT_PATHS_00245b98 + 8);
+    uVar3 = *(undefined8 *)PTR__ZN5uu_df9OPT_PATHS17hdb48872164be5ec7E_00245b98;
+    uVar1 = *(ulong *)(PTR__ZN5uu_df9OPT_PATHS17hdb48872164be5ec7E_00245b98 + 8);
                     /* try { // try from 00173bd2 to 00173c5c has its CatchHandler @ 00173eee */
-    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many
+    _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hff4ab90c18903b33E
               (&local_2e8,local_360,uVar3,uVar1);
-    clap_builder::parser::error::MatchesError::unwrap(&local_3f8,uVar3,uVar1,&local_2e8);
+    _ZN12clap_builder6parser5error12MatchesError6unwrap17hc21f192ef43813f5E
+              (&local_3f8,uVar3,uVar1,&local_2e8);
     if (local_3f8 == (undefined *)0x0) {
                     /* try { // try from 00173cad to 00173da0 has its CatchHandler @ 00173eee */
-      (*(code *)PTR_get_all_filesystems_00245ba0)(&local_2e8,&local_3b8);
+      (*(code *)PTR__ZN5uu_df19get_all_filesystems17ha419c9a63b8c437aE_00245ba0)
+                (&local_2e8,&local_3b8);
       local_418 = CONCAT44(uStack_2e4,local_2e8);
       if (local_418 == -0x8000000000000000) {
-        uVar3 = uumain::___closure__();
+        uVar3 = _ZN5uu_df6uumain6uumain28__u7b__u7b_closure_u7d__u7d_17h5335e9feeb0174e9E();
       }
       else {
         local_440 = local_2d8;
@@ -175,18 +179,22 @@ undefined  [16] __rustcall uu_df::uumain::uumain(undefined8 param_1,undefined8 p
           goto LAB_00173d65;
         }
                     /* try { // try from 00173e3a to 00173e75 has its CatchHandler @ 00173eb9 */
-        _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_438);
+        _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h7a10e08ff6fcd418E
+                  (&local_438);
         local_2d8 = local_428;
         local_2e8 = (undefined4)local_438;
         uStack_2e4 = local_438._4_4_;
         uStack_2e0 = (undefined4)uStack_430;
         uStack_2dc = uStack_430._4_4_;
         uStack_2d0 = 1;
-        uVar3 = ::alloc::boxed::Box<T>::new(&local_2e8);
+        uVar3 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h373238094c284474E(&local_2e8);
                     /* try { // try from 00173e76 to 00173e82 has its CatchHandler @ 00173eee */
-        core::ptr::drop_in_place<alloc::vec::Vec<uu_df::filesystem::Filesystem>>(local_450);
+        _ZN4core3ptr73drop_in_place_LT_alloc__vec__Vec_LT_uu_df__filesystem__Filesystem_GT__GT_17h10c83d45de38d664E
+                  (local_450);
       }
-      ppuVar4 = &PTR_drop_in_place<uucore_mods_error_USimpleError>_0023ea20;
+      ppuVar4 = &
+                PTR__ZN4core3ptr54drop_in_place_LT_uucore__mods__error__USimpleError_GT_17h1ae1cfaf92546e70E_0023ea20
+      ;
     }
     else {
       local_2f8 = local_3c8;
@@ -205,14 +213,17 @@ undefined  [16] __rustcall uu_df::uumain::uumain(undefined8 param_1,undefined8 p
       uStack_324 = local_3f8._4_4_;
       uStack_320 = (undefined4)uStack_3f0;
       uStack_31c = uStack_3f0._4_4_;
-      _<alloc::vec::Vec<T>as_alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+      _ZN98__LT_alloc__vec__Vec_LT_T_GT__u20_as_u20_alloc__vec__spec_from_iter__SpecFromIter_LT_T_C_I_GT__GT_9from_iter17h8a263af31a8d7fc8E
                 (local_450,&local_328);
                     /* try { // try from 00173c67 to 00173c9d has its CatchHandler @ 00173eda */
-      get_named_filesystems(&local_2e8,local_448,local_440,&local_3b8);
+      _ZN5uu_df21get_named_filesystems17hf6e388544e0196ffE
+                (&local_2e8,local_448,local_440,&local_3b8);
       local_418 = CONCAT44(uStack_2e4,local_2e8);
       if (local_418 == -0x8000000000000000) {
-        uVar3 = uumain::___closure__();
-        ppuVar4 = &PTR_drop_in_place<uucore_mods_error_USimpleError>_0023ea20;
+        uVar3 = _ZN5uu_df6uumain6uumain28__u7b__u7b_closure_u7d__u7d_17h5335e9feeb0174e9E();
+        ppuVar4 = &
+                  PTR__ZN4core3ptr54drop_in_place_LT_uucore__mods__error__USimpleError_GT_17h1ae1cfaf92546e70E_0023ea20
+        ;
       }
       else {
         local_428 = local_2d8;
@@ -220,12 +231,16 @@ undefined  [16] __rustcall uu_df::uumain::uumain(undefined8 param_1,undefined8 p
         uStack_430._4_4_ = uStack_2dc;
         if (local_2d8 != 0) {
           local_408 = local_2d8;
-          core::ptr::drop_in_place<alloc::vec::Vec<&alloc::string::String>>(local_450);
+          _ZN4core3ptr69drop_in_place_LT_alloc__vec__Vec_LT__RF_alloc__string__String_GT__GT_17h8f2c1f41fdac9f86E
+                    (local_450);
 LAB_00173d65:
           local_3e8 = (undefined8 *)local_408;
           local_3f8 = (undefined *)local_418;
-          (*(code *)PTR_new_00245ba8)(&local_2e8,&local_3b8,&local_3f8);
-          uStack_430 = PTR_fmt_00245bb0;
+          (*(code *)PTR__ZN5uu_df5table5Table3new17h150da2e8fce38b34E_00245ba8)
+                    (&local_2e8,&local_3b8,&local_3f8);
+          uStack_430 = 
+          PTR__ZN58__LT_uu_df__table__Table_u20_as_u20_core__fmt__Display_GT_3fmt17h176e29e24006d431E_00245bb0
+          ;
           local_3f8 = &DAT_0023eab0;
           uStack_3f0 = 2;
           local_3d8 = 0;
@@ -233,30 +248,33 @@ LAB_00173d65:
           uStack_3e0 = 1;
                     /* try { // try from 00173de6 to 00173df0 has its CatchHandler @ 00173ec8 */
           local_438 = &local_2e8;
-          (*(code *)PTR__print_00245bb8)(&local_3f8);
+          (*(code *)PTR__ZN3std2io5stdio6_print17he918bceb0c89db46E_00245bb8)(&local_3f8);
                     /* try { // try from 00173df1 to 00173dfd has its CatchHandler @ 00173eee */
-          core::ptr::drop_in_place<uu_df::table::Table>(&local_2e8);
+          _ZN4core3ptr40drop_in_place_LT_uu_df__table__Table_GT_17h912b6fdb4689292dE(&local_2e8);
                     /* try { // try from 00173dfe to 00173e0a has its CatchHandler @ 00173ee9 */
-          core::ptr::drop_in_place<uu_df::Options>(&local_3b8);
-          core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>
+          _ZN4core3ptr35drop_in_place_LT_uu_df__Options_GT_17hac76dba687740daeE(&local_3b8);
+          _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17hf2cbfd61c61225fdE
                     (local_360);
           auVar5._8_8_ = 0;
           auVar5._0_8_ = uVar1;
           return auVar5 << 0x40;
         }
                     /* try { // try from 00173e1f to 00173e28 has its CatchHandler @ 00173eda */
-        core::ptr::drop_in_place<alloc::vec::Vec<uu_df::filesystem::Filesystem>>(&local_438);
+        _ZN4core3ptr73drop_in_place_LT_alloc__vec__Vec_LT_uu_df__filesystem__Filesystem_GT__GT_17h10c83d45de38d664E
+                  (&local_438);
         ppuVar4 = (undefined **)0x0;
         uVar3 = 0;
       }
                     /* try { // try from 00173e2e to 00173e37 has its CatchHandler @ 00173eee */
-      core::ptr::drop_in_place<alloc::vec::Vec<&alloc::string::String>>(local_450);
+      _ZN4core3ptr69drop_in_place_LT_alloc__vec__Vec_LT__RF_alloc__string__String_GT__GT_17h8f2c1f41fdac9f86E
+                (local_450);
     }
                     /* try { // try from 00173e8a to 00173e96 has its CatchHandler @ 00173ee9 */
-    core::ptr::drop_in_place<uu_df::Options>(&local_3b8);
+    _ZN4core3ptr35drop_in_place_LT_uu_df__Options_GT_17hac76dba687740daeE(&local_3b8);
   }
   auVar2._8_8_ = ppuVar4;
   auVar2._0_8_ = uVar3;
-  core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(local_360);
+  _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17hf2cbfd61c61225fdE
+            (local_360);
   return auVar2;
 }

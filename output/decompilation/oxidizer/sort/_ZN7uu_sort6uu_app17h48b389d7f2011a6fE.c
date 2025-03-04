@@ -10,16 +10,16 @@ fn uu_sort::uu_app(a0: &struct712) -> u64 {
     let v8: i64;  // [sp-0xa88]
     let v9: i64;  // [sp-0xa80]
     let v10: i64;  // [sp-0xa78]
-    let v11: i4736;  // [sp-0xa70], Other Possible Types: struct592, struct48, struct24
+    let v11: struct592;  // [sp-0xa70], Other Possible Types: struct24, struct48
     let v12: i32;  // [sp-0x828]
     let v13: i32;  // [sp-0x824]
-    let v14: i4736;  // [sp-0x820], Other Possible Types: struct592, struct712, struct96, struct437
-    let v15: i5696;  // [sp-0x558], Other Possible Types: struct592, struct712
+    let v14: struct592;  // [sp-0x820], Other Possible Types: struct712, struct437, struct96
+    let v15: struct592;  // [sp-0x558], Other Possible Types: struct712, unsigned long
     let v16: i64;  // [sp-0x550]
     let v17: i64;  // [sp-0x548]
     let v18: i64;  // [sp-0x29c]
     let v19: i32;  // [sp-0x294]
-    let v20: i4736;  // [sp-0x288], Other Possible Types: struct592, struct24, struct96
+    let v20: struct592;  // [sp-0x288], Other Possible Types: int, struct24, struct96
     let v21: i64;  // [sp-0x278]
     let v22: i64;  // [sp-0x270]
     let v23: i64;  // [sp-0x268]
@@ -31,12 +31,20 @@ fn uu_sort::uu_app(a0: &struct712) -> u64 {
     v14 = clap_builder::builder::command::Command::new(uucore::util_name(), v28);
     v15 = clap_builder::builder::command::Command::version(&v14, "0.0.28");
     v14 = clap_builder::builder::command::Command::about(&v15, "Display sorted concatenation of all FILE(s). With no FILE, or when FILE is -, read standard input.");
-    v15 = clap_builder::builder::command::Command::after_help(&v14, "The key format is FIELD[.CHAR][OPTIONS][,FIELD[.CHAR]][OPTIONS].\n\nFields by default are separated by the first whitespace after a non-whitespace character. Use -t to specify a custom separator.\nIn the default case, whitespace is appended at the beginning of each field. Custom separators however are not included in fields.\n\nFIELD and CHAR both start at 1 (i.e. they are 1-indexed). If there is no end specified after a comma, the end will be the end of the line.\nIf CHAR is set 0, it means the end of the field. CHAR defaults to 1 for the start position and to 0 for the end position.\n\nValid options are: MbdfhnRrV. They override the global options for this key.");
+    v15 = clap_builder::builder::command::Command::after_help(&v14, "The key format is FIELD[.CHAR][OPTIONS][,FIELD[.CHAR]][OPTIONS].
+
+Fields by default are separated by the first whitespace after a non-whitespace character. Use -t to specify a custom separator.
+In the default case, whitespace is appended at the beginning of each field. Custom separators however are not included in fields.
+
+FIELD and CHAR both start at 1 (i.e. they are 1-indexed). If there is no end specified after a comma, the end will be the end of the line.
+If CHAR is set 0, it means the end of the field. CHAR defaults to 1 for the start position and to 0 for the end position.
+
+Valid options are: MbdfhnRrV. They override the global options for this key.");
     v11 = uucore::format_usage("{} [OPTION]... [FILE]...");
     v14 = clap_builder::builder::command::Command::override_usage(&v15, &v11);
     memcpy(&v15, &v14, 700);
-    v18 = 5630083651076232 | *((&v14 as &char + 700) as &i64);
-    v19 = *((&v14 as &char + 708) as &i32);
+    v18 = 5630083651076232 | *((&v14.field_0 as &char + 700) as &i64);
+    v19 = *((&v14.field_0 as &char + 708) as &i32);
     v14 = clap_builder::builder::arg::Arg::new("help");
     v11 = clap_builder::builder::arg::Arg::long(&v14, "help");
     v14 = clap_builder::builder::arg::Arg::help(&v11, "Print help information.");
@@ -105,7 +113,7 @@ fn uu_sort::uu_app(a0: &struct712) -> u64 {
     v24 = v8;
     v21 = v5;
     v22 = v6;
-    v20 = v3;
+    v20 = *(&v3 as &i128);
     v15 = clap_builder::builder::arg::Arg::conflicts_with_all(&v11, &v20);
     v11 = clap_builder::builder::arg::Arg::action(&v15, 0x2);
     v15 = clap_builder::builder::command::Command::arg(&v14, &v11);
@@ -119,8 +127,8 @@ fn uu_sort::uu_app(a0: &struct712) -> u64 {
     v11 = clap_builder::builder::arg::Arg::short(&v15, 0x63);
     v15 = clap_builder::builder::arg::Arg::long(&v11, "check");
     memcpy(&v11, &v15, 584);
-    v12 = 128 | *((&v15 as &char + 584) as &i32);
-    v13 = *((&v15 as &char + 588) as &i32);
+    v12 = 128 | *((&v15.field_0 as &char + 584) as &i32);
+    v13 = *((&v15.field_0 as &char + 588) as &i32);
     v15 = clap_builder::builder::arg::Arg::num_args(&v11);
     v11 = struct48 {
         field_0: &g_42f544
@@ -198,9 +206,9 @@ fn uu_sort::uu_app(a0: &struct712) -> u64 {
     v15 = clap_builder::builder::arg::Arg::long(&v11, "field-separator");
     v11 = clap_builder::builder::arg::Arg::help(&v15, "custom separator for -k");
     v0 = 2;
-    v17 = v2;
+    v17 = *(&v2 as &i64);
     v15 = v0;
-    v16 = v1;
+    v16 = *(&v1 as &i64);
     v20 = clap_builder::builder::arg::Arg::value_parser(&v11, &v15);
     v15 = clap_builder::builder::command::Command::arg(&v14, &v20);
     v14 = clap_builder::builder::arg::Arg::new("zero-terminated");
@@ -243,8 +251,8 @@ fn uu_sort::uu_app(a0: &struct712) -> u64 {
     v14 = clap_builder::builder::arg::Arg::help(&v11, "read input from the files specified by NUL-terminated NUL_FILES");
     v11 = clap_builder::builder::arg::Arg::value_name(&v14, "NUL_FILES");
     v14 = clap_builder::builder::arg::Arg::action(&v11, 0x1);
-    v21 = v2;
-    v20 = v0;
+    v21 = *(&v2 as &i64);
+    v20 = *(&v0 as &i128);
     v11 = clap_builder::builder::arg::Arg::value_parser(&v14, &v20);
     v20 = clap_builder::builder::arg::Arg::value_hint(&v11, 0x3);
     v14 = clap_builder::builder::command::Command::arg(&v15, &v20);

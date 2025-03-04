@@ -1,7 +1,7 @@
 long long uu_ls::extract_hyperlink::h45e754338713ef3e(unsigned long long a0)
 {
     char v0;  // [bp-0x50]
-    char v1;  // [bp-0x48], Other Possible Types: unsigned long long
+    char v1;  // [bp-0x48], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v2;  // [sp-0x40]
     unsigned long long v3;  // [sp-0x38]
     int v4;  // [sp-0x30]
@@ -16,7 +16,7 @@ long long uu_ls::extract_hyperlink::h45e754338713ef3e(unsigned long long a0)
         core::option::unwrap_failed::h0e11329e76906eaa(&g_6122f0); /* do not return */
     v7 = v6[1];
     v8 = v6[2];
-    v9 = vvar_31{reg 56} & 0xffffffffffffff00 | 1;
+    v9 = vvar_30{reg 56} & 0xffffffffffffff00 | 1;
     if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h615ea01bc1975db3(v7, v8, "alwaysyesforcettyif-ttynevernointernal error: entered unreachable code: should be handled by clap", 6))
     {
         return v9;

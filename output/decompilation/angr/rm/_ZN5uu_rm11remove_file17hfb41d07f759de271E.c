@@ -1,16 +1,16 @@
 long long uu_rm::remove_file::hfb41d07f759de271(unsigned long long a0, unsigned long long a1, char a2, unsigned int a3)
 {
-    unsigned long v0;  // [sp-0xa8], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xa8]
     unsigned long long v1;  // [sp-0xa0]
     struct struct_0 **v2;  // [sp-0x98]
     unsigned long long v3;  // [sp-0x90]
     void* v4;  // [sp-0x88]
     unsigned long v5;  // [sp-0x78], Other Possible Types: unsigned long long
-    int v6;  // [bp-0x70], Other Possible Types: unsigned long long
+    int v6;  // [sp-0x70], Other Possible Types: unsigned long long
     unsigned long long v7;  // [sp-0x68]
     char v8;  // [sp-0x60]
-    char *v9;  // [bp-0x58]
-    char v10;  // [bp-0x50], Other Possible Types: unsigned long long
+    char *v9;  // [sp-0x58]
+    char v10;  // [sp-0x50], Other Possible Types: unsigned long long
     struct struct_0 **v11;  // [sp-0x48]
     unsigned long long v12;  // [sp-0x40]
     char *v13;  // [sp-0x38]
@@ -81,7 +81,7 @@ long long uu_rm::remove_file::hfb41d07f759de271(unsigned long long a0, unsigned 
     }
     else if (a2)
     {
-        uu_rm::normalize::hc5c72b2dd9f7b482(&v9);
+        uu_rm::normalize::hc5c72b2dd9f7b482(&v9, a0, a1);
         v5 = 1;
         *((int128_t *)&v6) = *((int128_t *)&v10);
         v8 = 1;
@@ -93,6 +93,6 @@ long long uu_rm::remove_file::hfb41d07f759de271(unsigned long long a0, unsigned 
         v2 = &v13;
         v3 = 1;
         std::io::stdio::_print::he918bceb0c89db46(&v0);
-        ::0x4b54b0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h7c5c2bfda3b8aa48();
+        ::0x4b54b0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h7c5c2bfda3b8aa48(&v9);
     }
 }

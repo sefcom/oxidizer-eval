@@ -25,45 +25,45 @@ fn uu_od::print_bytes(a0: u64, a1: u32, a2: void*, a3: &u64) -> u64 {
     let v23: i64;  // [sp-0xa0]
     let v24: i64;  // [sp-0x98]
     let v25: i64;  // [sp-0x90]
-    let v27: struct16;  // [sp-0x78], Other Possible Types: i64
-    let v28: i64;  // [sp-0x70]
-    let v29: i64;  // [sp-0x68]
-    let v30: i64;  // [sp-0x60]
-    let v31: i64;  // [sp-0x58]
-    let v32: i64;  // [sp-0x50]
-    let v33: i192;  // [sp-0x48], Other Possible Types: struct24
-    let v35: struct8;  // rax
+    let v27: struct16;  // [sp-0x78], Other Possible Types: unsigned long, int
+    let v28: i64;  // [sp-0x68]
+    let v29: i64;  // [sp-0x60]
+    let v30: i64;  // [sp-0x58]
+    let v31: i64;  // [sp-0x50]
+    let v32: struct24;  // [sp-0x48]
+    let v34: struct8;  // rax
+    let v35: struct8;  // rbp
     let v36: i64;  // rbx
     let v37: i64;  // r15
     let v38: i64;  // rdx
     let v39: i64;  // rax
     let v40: i64;  // r12
-    let v41: i64;  // rdx
-    let v42: i64;  // rax
+    let v41: i64;  // rax
+    let v42: i64;  // r15
     let v43: i64;  // r15
-    let v44: i64;  // r15
 
-    v31 = *((a3 + 8) as &i64);
-    v32 = *((a3 + 16) as &i64) * 104 + v31;
-    v35 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-    if !v35 {
-        return v35;
+    v30 = *((a3 + 8) as &i64);
+    v31 = *((a3 + 16) as &i64) * 104 + v30;
+    v34 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
+    if !v34 {
+        return v34;
     }
+    v35 = v34;
     v19 = *((a2 + 8) as &i64);
-    v30 = *((a3 + 32) as &i64);
+    v29 = *((a3 + 32) as &i64);
     v36 = *((a3 + 40) as &i64);
-    v0 = v30 & -0x100 | 1;
+    v0 = (v29 & -0x100 | 1) as u32;
     do {
         v27 = 0;
-        v28 = 1;
-        v29 = 0;
+        v27 = 1;
+        v28 = 0;
         if v19 {
             v37 = 0;
             do {
                 if (v37 | v36) >> 32 {
-                    v38 = ((0 CONCAT v37) % v36 CONCAT (0 CONCAT v37) / v36) >> 64;
+                    v38 = ((0 CONCAT v37) % v36 as u128 CONCAT (0 CONCAT v37) / v36 as u128) >> 64;
                 } else {
-                    v38 = ((0 CONCAT v37) % (v36 & 4294967295) CONCAT (0 CONCAT v37) / (v36 & 4294967295)) >> 32 & 4294967295;
+                    v38 = (((0 CONCAT v37 as u32) % (v36 & 4294967295)) as u32 CONCAT ((0 CONCAT v37 as u32) / (v36 & 4294967295)) as u32) >> 32 & 4294967295;
                 }
                 v20 = &g_40dad0;
                 v21 = <&T as core::fmt::Display>::fmt;
@@ -87,32 +87,32 @@ fn uu_od::print_bytes(a0: u64, a1: u32, a2: void*, a3: &u64) -> u64 {
                 if v39 == 2 {
                     uu_od::inputdecoder::MemoryDecoder::get_full_buffer(a2, v37);
                     v40();
-                    v27 = alloc::vec::Vec<T,A>::append_elements(core::slice::iter::Iter<T>::make_slice(v8, v9 + v8), v41);
-                } else if v39 == 1 {
-                    uu_od::inputdecoder::MemoryDecoder::read_float(a2, v37, *((v35 + 16) as &i64));
-                    v40();
-                    v27 = alloc::vec::Vec<T,A>::append_elements(core::slice::iter::Iter<T>::make_slice(v8, v9 + v8), v41);
-                } else {
+                    v27 = alloc::vec::Vec<T,A>::append_elements(core::slice::iter::Iter<T>::make_slice(v8, v9 + v8), a2);
+                } else if v39 as u32 != 1 {
                     uu_od::inputdecoder::MemoryDecoder::read_uint(a2, v37, *((v35 + 16) as &i64));
                     v40();
-                    v27 = alloc::vec::Vec<T,A>::append_elements(core::slice::iter::Iter<T>::make_slice(v8, v9 + v8), v41);
+                    v27 = alloc::vec::Vec<T,A>::append_elements(core::slice::iter::Iter<T>::make_slice(v8, v9 + v8), a2);
+                } else {
+                    uu_od::inputdecoder::MemoryDecoder::read_float(a2, v37, *((v35 + 16) as &i64));
+                    v40();
+                    v27 = alloc::vec::Vec<T,A>::append_elements(core::slice::iter::Iter<T>::make_slice(v8, v9 + v8), a2);
                 }
                 v37 += *((v35 + 16) as &i64);
             } while (v37 < v19);
         }
         if *((v35 + 96) as &i8) {
-            v42 = <core::str::iter::Chars as core::iter::traits::iterator::Iterator>::count(v28, v29 + v28);
-            v43 = v30;
-            v44 = v43 - v42;
-            if v43 < v42 {
-                v44 = 0;
+            v41 = <core::str::iter::Chars as core::iter::traits::iterator::Iterator>::count(v27, v28 + v27);
+            v42 = v29;
+            v43 = v42 - v41;
+            if v42 < v41 {
+                v43 = 0;
             }
-            v33 = uu_od::prn_char::format_ascii_dump(uu_od::inputdecoder::MemoryDecoder::get_buffer(a2, 0), v41);
+            v32 = uu_od::prn_char::format_ascii_dump(uu_od::inputdecoder::MemoryDecoder::get_buffer(a2, 0), a2);
             v1 = &g_40dad0;
             v2 = <&T as core::fmt::Display>::fmt;
-            v3 = &v33;
+            v3 = &v32;
             v4 = <alloc::string::String as core::fmt::Display>::fmt;
-            v5 = v44;
+            v5 = v43;
             v6 = 0;
             v7 = 2;
             v9 = 1;
@@ -133,7 +133,7 @@ fn uu_od::print_bytes(a0: u64, a1: u32, a2: void*, a3: &u64) -> u64 {
             v23 = 3;
             core::result::Result<T,E>::unwrap(<&mut W as core::fmt::Write::write_fmt::SpecWriteFmt>::spec_write_fmt(&v27, &v20) as i32, "src/uu/od/src/od.rs");
         }
-        if !(v0 & 1) {
+        if !(v0 as i8 & 1) {
             v20 = Argument {
                 value: &g_40dad0
                 formatter: <&T as core::fmt::Display>::fmt
@@ -158,7 +158,8 @@ fn uu_od::print_bytes(a0: u64, a1: u32, a2: void*, a3: &u64) -> u64 {
             v0 = 0;
         }
         println!("{}", &v27);
-        v35 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
+        v34 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
+        v35 = v34;
     } while (v35);
-    return v35;
+    return v34;
 }

@@ -5,7 +5,7 @@ double uu_more::Options::from::hc98fb754786f3522(long long a0, long long a1)
     unsigned int v2;  // [sp-0x8c]
     unsigned long long v3;  // [sp-0x88]
     unsigned short *v4;  // [sp-0x80]
-    int v5;  // [bp-0x78], Other Possible Types: char
+    int v5;  // [sp-0x78], Other Possible Types: char
     unsigned long long v6;  // [sp-0x68]
     char v7;  // [bp-0x48], Other Possible Types: unsigned long long
     char v8;  // [bp-0x38]
@@ -28,10 +28,8 @@ double uu_more::Options::from::hc98fb754786f3522(long long a0, long long a1)
     unsigned short v29;  // si
     unsigned short v30;  // di
     unsigned short v31;  // cx
-    unsigned long long v33;  // r8
-    unsigned long long *v34;  // rdx
-    unsigned long long *v35;  // r13
-    int v36;  // ymm0
+    unsigned long long *v32;  // rsi
+    int v33;  // ymm0
 
     v13 = v15;
     v12 = v16;
@@ -66,26 +64,20 @@ double uu_more::Options::from::hc98fb754786f3522(long long a0, long long a1)
     v5 = v25;
     v29 = v1;
     v30 = v2;
+    v31 = (!v4 ? v30 : v29 & v22);
     if (!v4)
-        v31 = v29 & v22;
-    else
-        v31 = v30;
-    v33 = v3;
-    v34 = v33 - 1;
-    if (2 > v33)
-        v34 = 0;
+        v30 = v29;
+    v32 = (2 <= v3 ? v3 - 1 : 0);
     if (!v23)
-        v35 = v23;
-    else
-        v35 = v34;
+        v32 = v23;
     a0->field_24 = v0;
-    a0->field_18 = v35;
+    a0->field_18 = v32;
     a0->field_20 = v31;
-    *((int *)&a0->field_22) = (!v4 ? v29 : v30) + 1;
+    a0->field_22 = v30 + 1;
     *((void*)&a0->field_0) = v5;
     a0->field_10 = v6;
     a0->field_25 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a1, "print-oversilentsqueezeDisplay the contents of a text file{} [OPTIONS] FILE...0.0.28Do not scroll, display text and clean line endsDisplay help instead of ringing bellDo not scroll, clean screen and display textSqueeze multiple blank lines into oneplainDis", 10);
     a0->field_26 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a1, "silentsqueezeDisplay the contents of a text file{} [OPTIONS] FILE...0.0.28Do not scroll, display text and clean line endsDisplay help instead of ringing bellDo not scroll, clean screen and display textSqueeze multiple blank lines into oneplainDisplay file ", 6);
     a0->field_27 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a1, "squeezeDisplay the contents of a text file{} [OPTIONS] FILE...0.0.28Do not scroll, display text and clean line endsDisplay help instead of ringing bellDo not scroll, clean screen and display textSqueeze multiple blank lines into oneplainDisplay file beginn", 7);
-    return (unsigned long long)((v36 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v25) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v5);
+    return (unsigned long long)((v33 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v25) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v5);
 }

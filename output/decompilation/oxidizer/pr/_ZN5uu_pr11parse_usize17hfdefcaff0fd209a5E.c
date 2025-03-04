@@ -1,7 +1,7 @@
 fn uu_pr::parse_usize(a0: &Option<Result<struct32, struct8>>, a1: u32, a2: u32, a3: u32) -> u64 {
     let v0: i64;  // [sp-0x90]
     let v1: i64;  // [sp-0x88]
-    let v2: i384;  // [sp-0x80], Other Possible Types: Result<struct40, struct8>, struct48
+    let v2: Result<struct40, struct8>;  // [sp-0x80], Other Possible Types: struct48
     let v3: struct48;  // [sp-0x50]
     let v5: i64;  // rax
     let v6: i64;  // rax

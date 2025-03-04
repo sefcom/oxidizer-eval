@@ -1,9 +1,9 @@
 double uu_od::output_info::OutputInfo::calculate_alignment::ha011183b33bb66dc(long long a0, long long a1, long long a2, long long a3, long long a4)
 {
     unsigned long long v0;  // [sp-0xa0]
-    int v1;  // [bp-0x98], Other Possible Types: unsigned long, unsigned long long
+    int v1;  // [sp-0x98], Other Possible Types: unsigned long
     unsigned long long v2;  // [sp-0x90]
-    int v3;  // [bp-0x88], Other Possible Types: struct struct_1 **
+    int v3;  // [sp-0x88], Other Possible Types: struct struct_0 **
     unsigned long long v4;  // [sp-0x80]
     int v5;  // [bp-0x78], Other Possible Types: void*
     int v6;  // [sp-0x68]

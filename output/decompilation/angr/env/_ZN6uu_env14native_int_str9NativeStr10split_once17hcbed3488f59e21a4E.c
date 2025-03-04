@@ -1,7 +1,7 @@
 long long uu_env::native_int_str::NativeStr::split_once::hcbed3488f59e21a4(unsigned long long a0[6], unsigned long long a1[3], unsigned int *a2)
 {
     char v0;  // [sp-0x89]
-    int v1;  // [sp-0x88], Other Possible Types: unsigned long, unsigned long long
+    int v1;  // [sp-0x88], Other Possible Types: unsigned long
     unsigned long long v2;  // [sp-0x80]
     unsigned long long v3;  // [sp-0x78]
     int v4;  // [sp-0x70]

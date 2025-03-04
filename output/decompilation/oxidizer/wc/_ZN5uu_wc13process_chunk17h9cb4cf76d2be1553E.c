@@ -3,26 +3,27 @@ fn uu_wc::process_chunk(a0: &struct24, a1: u32, a2: u32, a3: &struct8, a4: &u8) 
     let v1: u64;  // [sp-0x40]
     let v2: u64;  // [sp-0x38]
     let v4: u64;  // r15
-    let v5: void*;  // r13
-    let v6: u64;  // r12
-    let v7: u64;  // rbp
-    let v9: u32;  // r14d
-    let v11: u32;  // r14d
-    let v13: u64;  // rax
+    let v5: u64;  // r13, Other Possible Types: void*
+    let v6: u32;  // edx
+    let v7: u32;  // r14d
+    let v8: u64;  // r12
+    let v9: u64;  // rbp
+    let v10: u64;  // rax
+    let v11: u64;  // rax
 
     v1 = a1;
     v2 = a1 + a2;
     v4 = *(a4);
     v5 = *(a3);
     if !core::str::validations::next_code_point(&v1) as i32 {
-        v7 = a0[4];
+        v9 = a0[4];
     } else {
-        v6 = a0[2];
+        v7 = v6;
+        v8 = a0[2];
         v0 = a0[3];
-        v7 = a0[4];
+        v9 = a0[4];
         do {
-            v9 = v11;
-            if v9 - 9 < 5 || v9 == 32 || v9 >= 128 && core::unicode::unicode_data::white_space::lookup(v9) as i8 {
+            if v7 - 9 < 5 || v7 == 32 || v7 >= 128 && core::unicode::unicode_data::white_space::lookup(v7) as i8 {
                 *(a4) = 0;
                 v4 = 0;
             } else if !v4 {
@@ -31,33 +32,34 @@ fn uu_wc::process_chunk(a0: &struct24, a1: u32, a2: u32, a3: &struct8, a4: &u8) 
                 a0[3] = v0;
                 v4 = v4 & -0x100 | 1;
             }
-            if v9 - 12 < 2 {
+            if v7 - 12 < 2 {
 LABEL_4baabe:
-                v7 = core::cmp::max_by(v5, v7);
-                a0[4] = v7;
+                v9 = core::cmp::max_by(v5, v9);
+                a0[4] = v9;
                 v5 = 0;
                 goto LABEL_4bab47;
             } else {
-                if v9 == 9 {
+                if v7 == 9 {
                     v5 = (v5 & -8) + 8;
                     *(a3) = v5;
                     continue;
                 }
-                if v9 == 10 {
+                if v7 == 10 {
                     goto LABEL_4baabe;
                 }
-                v5 += (v9 < 127 ? 32 <= v9 : (v9 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v9)));
+                v10 = (v7 < 127 ? 32 <= v7 : (v7 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v7)));
+                v5 += v10;
 LABEL_4bab47:
                 *(a3) = v5;
-                if v9 == 10 {
-                    v6 += 1;
-                    a0[2] = v6;
+                if v7 == 10 {
+                    v8 += 1;
+                    a0[2] = v8;
                 }
             }
-        } while (core::str::validations::next_code_point(&v1) as i32);
+        } while ((v7 = v6, core::str::validations::next_code_point(&v1) as i32));
     }
     *(a0) = *(a0) + a2;
-    v13 = core::cmp::max_by(v5, v7);
-    a0[4] = v13;
-    return v13;
+    v11 = core::cmp::max_by(v5, v9);
+    a0[4] = v11;
+    return v11;
 }

@@ -1,4 +1,4 @@
-void __rustcall uu_ls::colors::StyleManager::new(undefined8 *param_1,undefined8 param_2)
+void _ZN5uu_ls6colors12StyleManager3new17h1e99becc1aa42c57E(undefined8 *param_1,undefined8 param_2)
 
 {
   *(undefined *)(param_1 + 1) = 2;

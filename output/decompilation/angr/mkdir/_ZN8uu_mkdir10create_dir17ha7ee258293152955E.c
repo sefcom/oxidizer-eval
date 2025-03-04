@@ -3,7 +3,7 @@ long long uu_mkdir::create_dir::ha7ee258293152955(struct struct_0 **a0, unsigned
     unsigned int v0;  // [sp-0x168]
     struct struct_0 **v1;  // [sp-0x160]
     unsigned long long v2;  // [sp-0x158]
-    unsigned long v3;  // [sp-0x150], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x150]
     struct struct_0 **v4;  // [sp-0x148]
     struct struct_0 **v5;  // [sp-0x140]
     unsigned long long v6;  // [sp-0x138]
@@ -13,7 +13,7 @@ long long uu_mkdir::create_dir::ha7ee258293152955(struct struct_0 **a0, unsigned
     struct struct_0 **v10;  // [sp-0x118]
     unsigned long long v11;  // [sp-0x110]
     char v12;  // [bp-0x108], Other Possible Types: unsigned int
-    char v13;  // [bp-0xe0], Other Possible Types: unsigned long, unsigned long long
+    char v13;  // [sp-0xe0], Other Possible Types: unsigned long
     unsigned long v14;  // [sp-0xd8], Other Possible Types: unsigned long long
     struct struct_0 **v15;  // [sp-0xd0]
     unsigned int v16;  // [bp-0xc8], Other Possible Types: unsigned long long
@@ -26,7 +26,9 @@ long long uu_mkdir::create_dir::ha7ee258293152955(struct struct_0 **a0, unsigned
     unsigned long long v24;  // rax
     unsigned long long v25;  // rdx
     unsigned long long v26;  // rax
-    unsigned int v27;  // r15d
+    unsigned long long v27;  // rax
+    unsigned long long v28;  // rdi
+    unsigned int v29;  // r15d
 
     v0 = a3;
     std::fs::metadata::hde9f2ae1e0e2ce8d(&v13, a0, a1);
@@ -50,7 +52,7 @@ long long uu_mkdir::create_dir::ha7ee258293152955(struct struct_0 **a0, unsigned
             v17 = 0;
             v15 = &v1;
             v16 = 1;
-            ::0x4b1e60::core::option::Option$LT$T$GT$::map_or_else::h6db0321d2b87c404();
+            ::0x4b1e60::core::option::Option$LT$T$GT$::map_or_else::h6db0321d2b87c404(&v9, &v13);
             v12 = 1;
             v21 = alloc::boxed::Box$LT$T$GT$::new::h121d1d0fd1fc2533(&v9);
             return v21;
@@ -75,13 +77,13 @@ long long uu_mkdir::create_dir::ha7ee258293152955(struct struct_0 **a0, unsigned
         }
         else
         {
-            v21 = uu_mkdir::create_dir::ha7ee258293152955(v24, v25, 1, (char)v0, 1, a5);
-            if (v21)
+            v26 = uu_mkdir::create_dir::ha7ee258293152955(v24, v25, 1, (char)v0, 1, a5);
+            if (v26)
                 return v21;
         }
     }
-    v26 = std::fs::create_dir::h301da8cdba059b54(v23, v22);
-    if (!v26)
+    v27 = std::fs::create_dir::h301da8cdba059b54(v23, v22);
+    if (!v27)
     {
         if ((char)v0)
         {
@@ -102,23 +104,25 @@ long long uu_mkdir::create_dir::ha7ee258293152955(struct struct_0 **a0, unsigned
             v16 = 2;
             std::io::stdio::_print::he918bceb0c89db46(&v13);
         }
-        v27 = a5;
+        v29 = a5;
         if ((int)v3 == 2)
         {
             if (a4)
-                v27 = (int)uucore::features::mode::get_umask::hd2aa58752ad993fa() & 319 ^ 511;
-            v27 |= (int)uucore::features::fsxattr::get_acl_perm_bits_from_xattr::h877432bdc0435850(v23, v22);
+                v29 = (int)uucore::features::mode::get_umask::hd2aa58752ad993fa() & 319 ^ 511;
+            v29 |= (int)uucore::features::fsxattr::get_acl_perm_bits_from_xattr::h877432bdc0435850(v23, v22);
         }
-        v21 = uu_mkdir::chmod::hedcae91ac0dc9632(v23, v22, v27);
-    }
-    else if (!(char)std::path::Path::is_dir::h9ac0db933706da51(v23, v22))
-    {
-        v21 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v26);
+        v26 = uu_mkdir::chmod::hedcae91ac0dc9632(v23, v22, v29);
     }
     else
     {
-        ::0x4b1200::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h3ed53d85887f0f2d();
-        return 0;
+        v28 = v27;
+        if ((char)std::path::Path::is_dir::h9ac0db933706da51(v23, v22))
+        {
+            ::0x4b1200::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h3ed53d85887f0f2d(v28);
+            return 0;
+        }
+        v26 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v28);
     }
+    v21 = v26;
     return v21;
 }

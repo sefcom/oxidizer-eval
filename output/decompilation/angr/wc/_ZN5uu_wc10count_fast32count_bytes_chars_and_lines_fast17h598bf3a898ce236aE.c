@@ -22,7 +22,7 @@ long long uu_wc::count_fast::count_bytes_chars_and_lines_fast::h598bf3a898ce236a
         {
             if ((char)::0x4be3e0::std::io::error::Error::kind::hb2ff5fa058639b3d(v8) == 35)
             {
-                ::0x4be580::core::ptr::drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$::hd9e364499d096c21();
+                ::0x4be580::core::ptr::drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$::hd9e364499d096c21(v8);
             }
             else
             {

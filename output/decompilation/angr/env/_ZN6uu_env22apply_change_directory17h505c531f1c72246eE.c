@@ -1,7 +1,7 @@
 long long uu_env::apply_change_directory::h505c531f1c72246e(unsigned long long a0[17])
 {
-    unsigned long v0;  // [sp-0xa0], Other Possible Types: unsigned long long
-    int v1;  // [bp-0x98], Other Possible Types: char, unsigned long long
+    unsigned long v0;  // [sp-0xa0]
+    int v1;  // [bp-0x98], Other Possible Types: char, unsigned long
     unsigned long long v2;  // [sp-0x90]
     struct struct_0 **v3;  // [sp-0x88], Other Possible Types: unsigned long long
     unsigned long long v4;  // [bp-0x80], Other Possible Types: unsigned int
@@ -49,7 +49,7 @@ long long uu_env::apply_change_directory::h505c531f1c72246e(unsigned long long a
         v5 = 0;
         v3 = &v6;
         v4 = 2;
-        ::0x4cb1b0::core::option::Option$LT$T$GT$::map_or_else::ha7b9eb55e1cbc84d();
+        ::0x4cb1b0::core::option::Option$LT$T$GT$::map_or_else::ha7b9eb55e1cbc84d(&v14, &v1);
         v4 = 125;
         *((int128_t *)&v1) = *((int128_t *)&v14);
         v3 = *((long long *)&v15);

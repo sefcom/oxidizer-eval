@@ -1,4 +1,4 @@
-void __rustcall uu_wc::Settings::number_enabled(long param_1)
+void _ZN5uu_wc8Settings14number_enabled17he133dd856851d2dcE(long param_1)
 
 {
   undefined4 uVar1;
@@ -31,6 +31,7 @@ void __rustcall uu_wc::Settings::number_enabled(long param_1)
   ;
   local_18 = 0;
   local_10 = 5;
-  _<core::array::iter::IntoIter<T,_>as_core::iter::traits::iterator::Iterator>::fold(&local_18);
+  _ZN99__LT_core__array__iter__IntoIter_LT_T_C___GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4fold17hadc7269f3b59da04E
+            (&local_18);
   return;
 }

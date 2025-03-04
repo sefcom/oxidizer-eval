@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_date::make_format_string(long param_1)
+undefined  [16] _ZN7uu_date18make_format_string17h93ce19862c203cfbE(long param_1)
 
 {
   undefined auVar1 [16];

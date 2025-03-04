@@ -1,7 +1,7 @@
 long long uu_touch::uumain::h8225500c1a21f08a(unsigned long long a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0xa8], Other Possible Types: unsigned long long
-    unsigned long v1;  // [sp-0x98], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xa8]
+    unsigned long v1;  // [sp-0x98]
     unsigned long long v2;  // [sp-0x90]
     struct struct_0 **v3;  // [sp-0x88], Other Possible Types: struct struct_1 **, struct struct_3 **
     unsigned long long v4;  // [sp-0x80]
@@ -10,7 +10,7 @@ long long uu_touch::uumain::h8225500c1a21f08a(unsigned long long a0, unsigned lo
     struct struct_2 *v7[14];  // [sp-0x60], Other Possible Types: unsigned long long
     struct struct_1 **v8;  // [sp-0x58]
     unsigned long long v9;  // [sp-0x50]
-    char *v10;  // [sp-0x48]
+    char *v10;  // [bp-0x48]
     unsigned long long v11;  // [sp-0x40]
     unsigned long long v12;  // [sp-0x38]
     char v13;  // [bp-0x28]
@@ -30,7 +30,7 @@ long long uu_touch::uumain::h8225500c1a21f08a(unsigned long long a0, unsigned lo
     v5 = 0;
     v3 = &v10;
     v4 = 1;
-    core::option::Option$LT$T$GT$::map_or_else::h561b5f65ff575257();
+    core::option::Option$LT$T$GT$::map_or_else::h561b5f65ff575257(&v13, &v1);
     *((int128_t *)&v10) = *((int128_t *)&v13);
     v12 = *((long long *)&v14);
     if (::0x5737e0::_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$::ne::hb4f2d17f007cd88a(v11, *((long long *)&v14)))

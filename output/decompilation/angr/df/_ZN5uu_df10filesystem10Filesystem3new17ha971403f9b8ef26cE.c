@@ -1,4 +1,4 @@
-long long uu_df::filesystem::Filesystem::new::ha971403f9b8ef26c(unsigned long long *a0, struct_0 *a1, struct_1 *a2)
+long long uu_df::filesystem::Filesystem::new::ha971403f9b8ef26c(unsigned long long *a0, struct_1 *a1, struct_0 *a2)
 {
     int v0;  // [sp-0x1e8]
     unsigned long long v1;  // [sp-0x1d8]
@@ -31,13 +31,12 @@ long long uu_df::filesystem::Filesystem::new::ha971403f9b8ef26c(unsigned long lo
     int v28;  // [sp-0x48]
     int v29;  // [sp-0x38]
     unsigned long long v30;  // [sp-0x28]
-    unsigned long long v34;  // rax
+    unsigned long long v32;  // rsi
 
+    v32 = &a1->padding_0[96];
     if (!a1->field_70)
-        v34 = &a1->padding_0[24];
-    else
-        v34 = &a1->padding_0[96];
-    _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h8f45b0d02f4dafda(&v2, v34);
+        v32 = &a1->padding_0[24];
+    _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h8f45b0d02f4dafda(&v2, v32);
     v1 = *((long long *)&v3);
     *((int128_t *)&v0) = *((int128_t *)&v2);
     uucore::features::fsext::statfs::h7710e674e131f3de(&v8, &v0);

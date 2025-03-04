@@ -1,5 +1,5 @@
-undefined8 * __rustcall
-uu_sort::FieldSelector::new
+undefined8 *
+_ZN7uu_sort13FieldSelector3new17h76b0cdeb9dd3e1ddE
           (undefined8 *param_1,long *param_2,undefined8 *param_3,undefined8 param_4)
 
 {
@@ -16,7 +16,7 @@ uu_sort::FieldSelector::new
   bool bVar11;
   
   if (param_2[1] == 0) {
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h1d4334c76f34ab0eE
               (param_1,"invalid character index 0 for the start position of a field",0x3b);
     *(undefined *)((long)param_1 + 0x37) = 2;
   }

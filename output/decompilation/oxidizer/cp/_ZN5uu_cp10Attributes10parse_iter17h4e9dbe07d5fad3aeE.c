@@ -1,12 +1,12 @@
 fn uu_cp::Attributes::parse_iter(a0: &struct20, a1: &u64) -> u64 {
-    let v0: i64;  // [sp-0xd0], Other Possible Types: struct12
+    let v0: struct12;  // [sp-0xd0], Other Possible Types: unsigned long
     let v1: i32;  // [sp-0xc8]
     let v2: i64;  // [sp-0xc0]
     let v3: i32;  // [sp-0xb8]
     let v4: struct12;  // [sp-0xa4]
-    let v5: i128;  // [sp-0x98]
-    let v6: i128;  // [sp-0x88]
-    let v7: Result<struct24, struct12>;  // [sp-0x70], Other Possible Types: i256
+    let v5: iNone;  // [sp-0x98]
+    let v6: iNone;  // [sp-0x88]
+    let v7: Result<struct24, struct12>;  // [sp-0x70]
     let v9: struct8;  // rax
     let v10: i64;  // rdx
 

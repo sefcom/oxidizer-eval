@@ -1,5 +1,5 @@
-long * __rustcall
-uu_sort::numeric_str_cmp::NumInfo::parse(long *param_1,long param_2,long param_3,uint *param_4)
+long * _ZN7uu_sort15numeric_str_cmp7NumInfo5parse17h2d1625adef450396E
+                 (long *param_1,long param_2,long param_3,uint *param_4)
 
 {
   uint uVar1;
@@ -32,7 +32,7 @@ uu_sort::numeric_str_cmp::NumInfo::parse(long *param_1,long param_2,long param_3
   local_48 = param_2 + param_3;
   local_40 = 0;
   local_50 = param_2;
-  auVar13 = _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next
+  auVar13 = _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
                       (&local_50);
   local_68 = param_1;
   if (auVar13._8_4_ != 0x110000) {
@@ -61,11 +61,12 @@ LAB_0027092c:
             local_84 = 0;
           }
           else {
-            cVar4 = core::unicode::unicode_data::white_space::lookup(uVar10);
+            cVar4 = _ZN4core7unicode12unicode_data11white_space6lookup17hc2937f3d40e148abE(uVar10);
             if (cVar4 == '\0') {
 LAB_00270a23:
               if ((uVar1 == 0x110000) || (uVar1 != uVar9)) {
-                uVar5 = is_invalid_char(uVar10,&local_85,uVar2);
+                uVar5 = _ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17hbc2ad2d78102039cE
+                                  (uVar10,&local_85,uVar2);
                 if ((char)uVar5 != '\0') {
                   if (local_70 != 0) goto LAB_00270b99;
                   local_80 = 0;
@@ -92,7 +93,7 @@ LAB_00270a23:
             }
           }
         }
-        auVar13 = _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next
+        auVar13 = _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
                             (&local_50);
         lVar12 = auVar13._0_8_;
         uVar10 = auVar13._8_8_ & 0xffffffff;
@@ -111,11 +112,12 @@ LAB_00270a23:
           local_84 = 0;
         }
         else {
-          cVar4 = core::unicode::unicode_data::white_space::lookup(uVar10);
+          cVar4 = _ZN4core7unicode12unicode_data11white_space6lookup17hc2937f3d40e148abE(uVar10);
           if (cVar4 == '\0') {
 LAB_00270973:
             if ((uVar1 == 0x110000) || (uVar1 != uVar9)) {
-              uVar5 = is_invalid_char(uVar10,&local_85,uVar2);
+              uVar5 = _ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17hbc2ad2d78102039cE
+                                (uVar10,&local_85,uVar2);
               if ((char)uVar5 != '\0') {
 LAB_00270b99:
                 if (((*(char *)(local_38 + 2) != '\0') && (uVar9 - 0x45 < 0x27)) &&
@@ -136,7 +138,7 @@ LAB_00270bd7:
           }
         }
       }
-      auVar13 = _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next
+      auVar13 = _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
                           (&local_50);
       lVar12 = auVar13._0_8_;
       uVar10 = auVar13._8_8_ & 0xffffffff;
@@ -176,7 +178,7 @@ LAB_00270ae7:
     local_78 = lVar12;
   }
   uVar11 = (ulong)(byte)(local_70 == 1 | (byte)uVar8);
-  auVar13 = _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next
+  auVar13 = _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
                       (&local_50);
   uVar8 = CONCAT71((int7)(uVar8 >> 8),1);
   bVar3 = false;

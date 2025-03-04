@@ -18,6 +18,8 @@ GHIDRA_PRE_DEC_SCRIPT = r"""
 options = getCurrentAnalysisOptionsAndValues(currentProgram)
 if 'Demangler Rust' in options:
     setAnalysisOption(currentProgram, 'Demangler Rust', 'false');
+if 'Demangler GNU' in options:
+    setAnalysisOption(currentProgram, 'Demangler GNU', 'false');
 """
 
 GHIDRA_POST_DEC_SCRIPT = r"""
@@ -50,13 +52,12 @@ call_counts_cache_dir = "{}"
 
 for func in currentProgram.getFunctionManager().getFunctions(True):
     try:
-        demangled_func_name = str(func.getName(True))
-        if demangled_func_name in function_mapping:
+        func_name = str(func.getName(True))
+        if func_name in function_mapping.values():
             func.setComment(None)
             di = DecompInterface()
             di.openProgram(currentProgram)
             dec_func = di.decompileFunction(func, 0, None)
-            func_name = function_mapping[demangled_func_name]
             func_text = dec_func.getDecompiledFunction().getC().strip()
             with open(os.path.join(decompiled_code_cache_dir, func_name + ".c"), "w") as fd:
                 fd.write(func_text)
@@ -147,7 +148,7 @@ def ghidra_dec(binary_path, function_list, cache_only=False):
                     with open(call_counts_path, "r") as fd:
                         call_counts = json.load(fd)
                     result["decompilation"][func_name] = decompilation
-                    result["macro_call_counts"][func_name] = 0
+                    result["macro_call_counts"][func_name] = {}
                     result["node_counts"][func_name] = 0
                     result["function_call_counts"][func_name] = dict(call_counts)
         except Exception as e:

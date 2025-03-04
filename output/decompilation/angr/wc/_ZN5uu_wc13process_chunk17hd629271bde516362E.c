@@ -1,8 +1,8 @@
 long long uu_wc::process_chunk::hd629271bde516362(unsigned long long a0[5], unsigned long a1, unsigned long a2, unsigned long long *a3)
 {
-    unsigned long v0;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x40]
     unsigned long long v1;  // [sp-0x38]
-    void* v3;  // r12
+    void* v3;  // r12, Other Possible Types: unsigned long long
     unsigned long long v4;  // r13
     unsigned long long v5;  // rdx
     unsigned long long v7;  // rax

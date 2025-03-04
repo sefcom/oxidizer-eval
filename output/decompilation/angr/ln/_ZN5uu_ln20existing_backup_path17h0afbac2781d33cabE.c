@@ -20,5 +20,5 @@ long long uu_ln::existing_backup_path::h0afbac2781d33cab(unsigned long long a0, 
         ::0x4b84f0::core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$::h834abcfa2f925b76(2, v7);
         uu_ln::simple_backup_path::hd90ca54508e22200(a0, a1, a2, a3, a4);
     }
-    return ::0x4b7ac0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hff8990cc0a5456e3();
+    return ::0x4b7ac0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hff8990cc0a5456e3(&v0);
 }

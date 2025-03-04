@@ -1,4 +1,4 @@
-fn uu_comm::comm(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {
+fn uu_comm::comm(a0: u64, a1: u64, a2: u32, a3: u32, a4: u32) -> u64 {
     let v0: i32;  // [sp-0x2e8]
     let v1: i8;  // [sp-0x2e0]
     let v2: i8;  // [bp-0x2df]
@@ -66,54 +66,51 @@ fn uu_comm::comm(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {
     let v64: i64;  // [sp-0x48]
     let v65: i64;  // [sp-0x40]
     let v66: i8;  // [sp-0x38]
-    let v68: i64;  // rbx
-    let v69: i64;  // r14
-    let v70: i64;  // r15
-    let v71: i64;  // rax
-    let v72: i64;  // rax
-    let v73: i32;  // eax
-    let v78: i64;  // rbx
-    let v79: i64;  // r12
-    let v80: i64;  // rbx
-    let v81: i64;  // rax
-    let v82: i64;  // 4096
-    let v83: i64;  // 4096
+    let v69: i64;  // r15
+    let v70: i64;  // r14
+    let v71: i64;  // rdx
+    let v72: i64;  // rbx
+    let v75: i32;  // eax
+    let v76: i64;  // r13
+    let v77: i64;  // r12
+    let v78: i64;  // r15
+    let v80: i64;  // rbp
+    let v82: i64;  // rax
     let v87: i32;  // ecx
 
-    v68 = a3;
-    v69 = a2;
     v22 = a2;
     v23 = a3;
-    v70 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "1") as i8 ^ 1;
-    v24 = alloc::str::<impl str>::repeat(v69, v68, v70);
-    v25 = alloc::str::<impl str>::repeat(v69, v68, (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, &g_41c4e5, 1) as i8 ^ 1) + v70);
+    v69 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "1") as i8 ^ 1;
+    v24 = alloc::str::<impl str>::repeat(a2, a3, v69);
+    v25 = alloc::str::<impl str>::repeat(a2, a3, (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, &g_41c4e5, 1) as i8 ^ 1) + v69);
     v8 = 0;
     v9 = 1;
     v10 = 0;
-    v71 = uu_comm::LineReader::read_line(a0, &v8);
+    v70 = uu_comm::LineReader::read_line(a0, &v8);
+    v72 = v71;
     v11 = 0;
     v12 = 1;
     v13 = 0;
-    v72 = uu_comm::LineReader::read_line(a1, &v11);
     v5 = 0;
     v6 = 0;
     v7 = 0;
-    v73 = 0;
+    v75 = 0;
     v4 = 0;
     v0 = 0;
+    v77 = v71;
     loop {
-        v14 = v73;
+        v14 = v75;
+        v78 = v77;
+        v80 = v76;
         loop {
-            v78 = v80;
-            v79 = v79;
-            if v71 {
-                if !(!v72) {
+            if v70 {
+                if !(!v80) {
                     goto LABEL_4aaff0;
                 }
                 goto LABEL_4aaee9;
             }
-            if !v72 {
-                if !v78 && !v79 {
+            if !v80 {
+                if !v72 && !v78 {
 LABEL_4aaff0:
                     if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "total") as i8 {
                         return;
@@ -149,8 +146,8 @@ LABEL_4aaff0:
                     v33 = 1;
                     v34 = 32;
                     v35 = 3;
-                    v87 = v3;
-                    v36 = v2;
+                    v87 = *(&v3 as &i32);
+                    *(&v36 as &i32) = *(&v2 as &i32);
                     v37 = v87;
                     v38 = 2;
                     v39 = 2;
@@ -162,8 +159,8 @@ LABEL_4aaff0:
                     v45 = 1;
                     v46 = 32;
                     v47 = 3;
-                    v49 = (&v2)[3];
-                    v48 = v2;
+                    v49 = *(&(&v2)[3] as &i32);
+                    *(&v48 as &i32) = *(&v2 as &i32);
                     v50 = 2;
                     v51 = 2;
                     v52 = 3;
@@ -174,8 +171,8 @@ LABEL_4aaff0:
                     v57 = 1;
                     v58 = 32;
                     v59 = 3;
-                    v61 = (&v2)[3];
-                    v60 = v2;
+                    v61 = *(&(&v2)[3] as &i32);
+                    *(&v60 as &i32) = *(&v2 as &i32);
                     v62 = 2;
                     v63 = 2;
                     v64 = 4;
@@ -189,36 +186,35 @@ LABEL_4aaff0:
                     v16 = 7;
                     std::io::stdio::_print(&v15);
                 }
-                if !v78 {
+                if !v72 {
 LABEL_4aaee9:
                     if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "2") as i8 {
                         v15 = alloc::string::String::from_utf8_lossy(v12, v13);
                         print!("{}{}", &v24, &v15);
                     }
                     v13 = 0;
-                    v72 = uu_comm::LineReader::read_line(a1, &v11);
-                    v73 = v14 + 1;
-                    v6 = v73;
+                    v75 = v14 + 1;
+                    v6 = v75;
                     break;
                 } else {
-                    if !v79 {
+                    if !v78 {
                         goto LABEL_4aadf0;
                     }
-                    v81 = <alloc::vec::Vec<T,A> as core::cmp::Ord>::cmp(v9, v10, v12, v13);
-                    if !v81 {
+                    v82 = <alloc::vec::Vec<T,A> as core::cmp::Ord>::cmp(v9, v10, v12, v13);
+                    if !v82 as u8 {
                         if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "3") as i8 {
                             v15 = alloc::string::String::from_utf8_lossy(v9, v10);
                             print!("{}{}", &v25, &v15);
                         }
                         v10 = 0;
                         v13 = 0;
-                        v71 = uu_comm::LineReader::read_line(v82, &v8);
-                        v72 = uu_comm::LineReader::read_line(a1, &v11);
                         v0 += 1;
                         v7 = v0;
+                        v78 = v71;
+                        v72 = v71;
                         continue;
                     }
-                    if v81 == 1 {
+                    if v82 as u32 == 1 {
                         goto LABEL_4aaee9;
                     }
                 }
@@ -229,9 +225,9 @@ LABEL_4aadf0:
                 print!("{}", &v17);
             }
             v10 = 0;
-            v71 = uu_comm::LineReader::read_line(v83, &v8);
             v4 += 1;
             v5 = v4;
+            v72 = v71;
         }
     }
 }

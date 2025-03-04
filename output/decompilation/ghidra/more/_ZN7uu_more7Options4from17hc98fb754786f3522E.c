@@ -1,4 +1,4 @@
-undefined8 * __rustcall uu_more::Options::from(undefined8 *param_1,undefined8 param_2)
+undefined8 * _ZN7uu_more7Options4from17hc98fb754786f3522E(undefined8 *param_1,undefined8 param_2)
 
 {
   short sVar1;
@@ -24,37 +24,44 @@ undefined8 * __rustcall uu_more::Options::from(undefined8 *param_1,undefined8 pa
   undefined4 uStack_3c;
   undefined8 local_38;
   
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h5faaeded7704dcb7E
             (&local_78,param_2,&DAT_00118bdb,5);
-  puVar7 = (ushort *)clap_builder::parser::error::MatchesError::unwrap(&DAT_00118bdb,5,&local_78);
+  puVar7 = (ushort *)
+           _ZN12clap_builder6parser5error12MatchesError6unwrap17h2202a89f344cb1a0E
+                     (&DAT_00118bdb,5,&local_78);
   puVar8 = puVar7;
   if (puVar7 != (ushort *)0x0) {
     puVar8 = (ushort *)(ulong)*puVar7;
   }
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h5faaeded7704dcb7E
             (&local_78,param_2,&DAT_00118be0,6);
-  puVar9 = (ushort *)clap_builder::parser::error::MatchesError::unwrap(&DAT_00118be0,6,&local_78);
+  puVar9 = (ushort *)
+           _ZN12clap_builder6parser5error12MatchesError6unwrap17h2202a89f344cb1a0E
+                     (&DAT_00118be0,6,&local_78);
   puVar10 = puVar9;
   if (puVar9 != (ushort *)0x0) {
     puVar10 = (ushort *)(ulong)*puVar9;
   }
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hc3ec2a4b53b285b0E
             (&local_78,param_2,&DAT_00118be6,9);
-  puVar11 = (ulong *)clap_builder::parser::error::MatchesError::unwrap(&DAT_00118be6,9,&local_78);
+  puVar11 = (ulong *)_ZN12clap_builder6parser5error12MatchesError6unwrap17hf31638e1afc90cd2E
+                               (&DAT_00118be6,9,&local_78);
   if (puVar11 != (ulong *)0x0) {
     local_88 = *puVar11;
   }
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h0776bc345d7a7a82E
             (&local_78,param_2,&DAT_00118bef,7);
-  lVar12 = clap_builder::parser::error::MatchesError::unwrap(&DAT_00118bef,7,&local_78);
+  lVar12 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h64788ee122c687a0E
+                     (&DAT_00118bef,7,&local_78);
   if (lVar12 == 0) {
     local_48 = 0x8000000000000000;
   }
   else {
-    _<alloc::string::String_as_core::clone::Clone>::clone(&local_48,lVar12);
+    _ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h8f45b0d02f4dafdaE
+              (&local_48,lVar12);
   }
                     /* try { // try from 001dc16a to 001dc182 has its CatchHandler @ 001dc269 */
-  uVar3 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+  uVar3 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                     (param_2,&DAT_00118bf6,0xb);
   local_68 = local_38;
   local_78 = (undefined4)local_48;
@@ -62,10 +69,12 @@ undefined8 * __rustcall uu_more::Options::from(undefined8 *param_1,undefined8 pa
   uStack_70 = uStack_40;
   uStack_6c = uStack_3c;
                     /* try { // try from 001dc197 to 001dc1da has its CatchHandler @ 001dc278 */
-  uVar4 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,&DAT_00118c01,10)
-  ;
-  uVar5 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,&DAT_00118c0b,6);
-  uVar6 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,&DAT_00118c11,7);
+  uVar4 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                    (param_2,&DAT_00118c01,10);
+  uVar5 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                    (param_2,&DAT_00118c0b,6);
+  uVar6 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                    (param_2,&DAT_00118c11,7);
   bVar2 = (short)puVar8 != 0;
   sVar1 = (short)puVar8;
   if (puVar7 == (ushort *)0x0) {

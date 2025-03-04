@@ -1,34 +1,41 @@
 {
   "decompilation": {
-    "_ZN11uu_unexpand6uumain17hb575d4250b52fbdfE": "fn uu_unexpand::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0xa8]\n    let v1: u64;  // [sp-0x98]\n    let v2: u64;  // [sp-0x90]\n    let v3: &&struct_0;  // [sp-0x88]\n    let v4: u64;  // [sp-0x80]\n    let v5: void*;  // [sp-0x78]\n    let v6: u64;  // [sp-0x68]\n    let v7: &u64;  // [sp-0x60]\n    let v8: &u8;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: u64;  // [sp-0x38]\n    let v11: i8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v14: u64;  // rax\n    let v15: &u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v14 = uu_unexpand::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_414490;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    core::option::Option<T>::map_or_else();\n    *(&v8 as &i8) = v11;\n    v10 = v12;\n    if v8 == \"\" {\n        v6 = uucore::util_name();\n        v7 = v15;\n        eprint!(\"{}: \", &v6);\n        eprintln!(\"{}\", &v8);\n    }\n    if !v15[13]() {\n        return v15[12]();\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v15;\n    eprintln!(\"Try '{} --help' for more information.\", &v6);\n}\n",
-    "_ZN11uu_unexpand7Options3new17hba98640d35916d8dE": "fn uu_unexpand::Options::new(a0: &struct50, a1: &struct56) -> u64 {\n    let v0: i128;  // [sp-0x1b8], Other Possible Types: struct24\n    let v1: i64;  // [sp-0x1a8]\n    let v2: i448;  // [sp-0x198], Other Possible Types: struct24, struct56\n    let v3: i64;  // [sp-0x188]\n    let v5: Vec<u64>;  // [sp-0x148]\n    let v6: i128;  // [sp-0x128]\n    let v7: i64;  // [sp-0x118]\n    let v8: i192;  // [sp-0x108]\n    let v9: struct64;  // [sp-0xe8], Other Possible Types: i512\n    let v10: i512;  // [sp-0xa8], Other Possible Types: struct64\n    let v11: i512;  // [sp-0x68], Other Possible Types: struct64\n    let v13: i64;  // 4098\n    let v15: i8;  // bpl\n    let v16: i8;  // al\n    let v18: i64;  // r14\n\n    v2 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(a1, \"tabs\");\n    v9 = clap_builder::parser::error::MatchesError::unwrap(\"tabs\", &v2);\n    if !v9 {\n        v5 = vec![8];\n    } else {\n        v10 = v9;\n        v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v10);\n        v2 = alloc::str::join_generic_copy(*((&v0 as &char + 8) as &i64), v1, \",\");\n        v8 = v2;\n        v2 = uu_unexpand::tabstops_parse(*((&v8 as &char + 8) as &i64), v3);\n        v13 = v2;\n        v6 = *((&v2 as &char + 8) as &i128);\n        v7 = *((&v2 as &char + 24) as &i64);\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"all\") as i8 || clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(a1, \"tabs\") as i8 {\n        v15 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"first-only\") as i32 & 0xffffffffffffff00 | clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"first-only\") as i32 ^ 1;\n    } else {\n        v15 = 0;\n    }\n    v16 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"no-utf8\") as i32;\n    v2 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(a1, \"file\");\n    v9 = clap_builder::parser::error::MatchesError::unwrap(\"file\", &v2);\n    if v9 {\n        v11 = v9;\n        v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v11);\n        return struct50 {\n            field_0: v2\n            field_16: v3\n            field_24: *((&v2 as &char + 24) as &i64)\n            field_32: *((&v2 as &char + 32) as &i64)\n            field_40: v4\n            field_48: v15\n            field_49: v16 ^ 1\n        };\n    }\n    v18 = alloc::alloc::Global::alloc_impl(8, 24);\n    v2 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"-\");\n    v0 = v2;\n    *((v18 + 16) as &i64) = v1;\n    *(v18 as &i128) = v0;\n    alloc::slice::hack::into_vec(&v0, v18, 1);\n}\n",
+    "_ZN11uu_unexpand6uumain17hb575d4250b52fbdfE": "fn uu_unexpand::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: String;  // [sp-0x48]\n    let v4: String;  // [sp-0x28]\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v6 = uu_unexpand::uumain::uumain(a0, a1);\n    if !v6 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v6;\n    v4 = format!(\"{}\", &v0);\n    v3 = v4;\n    if v3 == \"\" {\n        v2 = v7;\n        show_error!(\"{}\", &v3);\n    }\n    if !*((v7 + 104) as &i64)() {\n        return *((v7 + 96) as &i64)();\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v7;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n}\n",
+    "_ZN11uu_unexpand6uumain6uumain17he0b2f932f6bdcbaeE": "fn uu_unexpand::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: struct24;  // [sp-0x380]\n    let v1: iNone;  // [sp-0x368], Other Possible Types: struct24\n    let v2: i64;  // [sp-0x358]\n    let v3: i8;  // [sp-0x348], Other Possible Types: unsigned long\n    let v4: iNone;  // [sp-0x340]\n    let v5: i64;  // [sp-0x330]\n    let v6: iNone;  // [sp-0x328]\n    let v7: i64;  // [sp-0x318]\n    let v8: i64;  // [sp-0x310], Other Possible Types: int\n    let v9: struct712;  // [sp-0x2d8], Other Possible Types: int, struct50\n    let v10: i64;  // [sp-0x2c8]\n    let v14: i64;  // rbx\n\n    v0 = uucore::Args::collect_ignore(a0, a1);\n    v9 = uu_unexpand::uu_app();\n    v1 = uu_unexpand::expand_shortcuts(*((&v0.field_0 as &char + 8) as &i64), v0.field_16);\n    clap_builder::builder::command::Command::try_get_matches_from(&v3, &v9, &v1);\n    if v8 == 0x8000000000000000 {\n        return v14;\n    }\n    v8 = *(&v3 as &i448);\n    v9 = uu_unexpand::Options::new(&v8);\n    v1 = *((&v9.field_0 as &char + 8) as &i128);\n    v2 = v9.field_24;\n    if v3 == 0x8000000000000000 {\n        v10 = v2;\n        v9 = v1;\n        return v14;\n    }\n    v7 = *((&v9.field_0 as &char + 48) as &i64);\n    v6 = *(&v9.field_32 as &i128);\n    v4 = v1;\n    v5 = v2;\n    v3 = v9.field_0 as i64;\n    return v14;\n}\n",
+    "_ZN11uu_unexpand7Options3new17hba98640d35916d8dE": "fn uu_unexpand::Options::new(a0: &struct50, a1: &struct56) -> u64 {\n    let v0: struct24;  // [sp-0x1b8], Other Possible Types: int\n    let v1: i64;  // [sp-0x1a8]\n    let v2: struct24;  // [sp-0x198], Other Possible Types: struct56, int\n    let v3: i64;  // [sp-0x188]\n    let v4: iNone;  // [sp-0x180]\n    let v5: i64;  // [sp-0x170]\n    let v6: Vec<u64>;  // [sp-0x148], Other Possible Types: int\n    let v7: i64;  // [sp-0x138]\n    let v8: iNone;  // [sp-0x128]\n    let v9: i64;  // [sp-0x118]\n    let v10: iNone;  // [sp-0x108]\n    let v11: struct64;  // [sp-0xe8]\n    let v12: struct64;  // [sp-0xa8]\n    let v13: struct64;  // [sp-0x68]\n    let v15: i64;  // 4098\n    let v16: i32;  // eax\n    let v20: i64;  // r14\n\n    v2 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(a1, \"tabs\");\n    v11 = clap_builder::parser::error::MatchesError::unwrap(\"tabs\", &v2);\n    if !v11.field_0 as i64 {\n        v6 = vec![8];\n    } else {\n        v12 = v11;\n        v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v12);\n        v2 = alloc::str::join_generic_copy(v0.field_8, v1, \",\");\n        v10 = v2;\n        v2 = uu_unexpand::tabstops_parse((&v10)[8] as i64, v3);\n        v15 = v2.field_0;\n        v8 = *(&v2.field_8 as &i128);\n        v9 = v2.field_24;\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"all\") as i8 || clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(a1, \"tabs\") as i8 {\n        v16 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"first-only\") as i32;\n    }\n    clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"no-utf8\");\n    v2 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(a1, \"file\");\n    v11 = clap_builder::parser::error::MatchesError::unwrap(\"file\", &v2);\n    if v11.field_0 as i64 {\n        v13 = v11;\n        v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v13);\n    } else {\n        v20 = alloc::alloc::Global::alloc_impl(8, 24);\n        v2 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"-\");\n        v0 = v2;\n        *((v20 + 16) as &unsigned long) = v1;\n        *(v20 as void*) = v0;\n        alloc::slice::hack::into_vec(&v0, v20, 1);\n    }\n    v3 = v1;\n    v2 = v0;\n    v5 = v7;\n    v4 = v6;\n    return struct50 {\n        field_0: v2\n        field_16: v3\n        field_24: v4 as i64\n        field_32: (&v4)[8] as i64\n        field_40: v5\n        field_48: v17\n        field_49: v18 ^ 1\n    };\n}\n",
     "_ZN11uu_unexpand17is_digit_or_comma17h901545046b084f1bE": "fn uu_unexpand::is_digit_or_comma(a0: u32) -> u64 {\n    let v1: u64;  // rax\n\n    v1 = a0 - 48 & 4294967295;\n    return v1 & -0x100 | a0 == 44 | v1 < 10;\n}\n",
-    "_ZN11uu_unexpand16expand_shortcuts17he534dbf7f6ef5d0bE": "fn uu_unexpand::expand_shortcuts(a0: &struct24, a1: u64, a2: u64) -> int {\n    let v0: i32;  // [sp-0xd0]\n    let v1: i32;  // [sp-0xcc]\n    let v2: i192;  // [sp-0xc8], Other Possible Types: struct24, Result<struct16, struct8>\n    let v3: i64;  // [sp-0xc0]\n    let v4: i128;  // [sp-0xb0], Other Possible Types: struct16\n    let v5: i64;  // [sp-0xa0]\n    let v6: i128;  // [sp-0x98]\n    let v7: i64;  // [sp-0x90]\n    let v8: i64;  // [sp-0x88]\n    let v9: struct16;  // [bp-0x78]\n    let v10: i16;  // [sp-0x38]\n    let v12: struct8;  // rax\n    let v13: i64;  // rbx\n    let v14: i64;  // r12\n    let v15: i64;  // rax\n    let v16: i64;  // rbp\n    let v17: i64;  // rdx\n    let v18: i64;  // rax\n\n    v2 = alloc::raw_vec::RawVec<T,A>::try_allocate_in(a2, 0);\n    v4 = *((&v2 as &char + 8) as &i128);\n    v5 = 0;\n    v6 = a1;\n    v7 = a1 + a2 * 24;\n    v12 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();\n    if !v12 {\n        return struct24 {\n            field_0: v22\n            field_16: v5\n        };\n    }\n    v0 = 0;\n    v1 = 0;\n    do {\n        v13 = *((v12 + 8) as &i64);\n        v14 = *((v12 + 16) as &i64);\n        v2 = 0;\n        if core::slice::<impl [T]>::starts_with(v13, v14, core::char::methods::encode_utf8_raw(45, &v2), 1) as i8 {\n            v15 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v13, v14);\n            v16 = v15;\n            v2 = v16;\n            v3 = v15 + v17;\n            if <core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq(core::iter::traits::iterator::Iterator::try_fold(&v2)) {\n                v9 = struct16 {\n                    field_0: 0\n                    field_8: v17\n                };\n                v10 = 1;\n                v0 = (<char as core::str::pattern::Pattern>::into_searcher(v16, v17) & -0x100 | 1) as u32;\n                core::iter::traits::iterator::Iterator::fold(&v9, &v4);\n                continue;\n            }\n        }\n        v2 = <alloc::string::String as core::clone::Clone>::clone(v12);\n        v4 = alloc::vec::Vec<T,A>::push(&v2);\n        v18 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v13, v14, \"--all\");\n        if v18 || (v18 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v13, v14, \"-a\"), v18 as i8) {\n            v1 = v18 & -0x100 | 1;\n        }\n    } while ((v12 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(), v12));\n    if (v0 & 1) && !(v1 & 1) {\n        v2 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"--first-only\");\n        v8 = *((&v2 as &char + 16) as &i64);\n        v6 = v2;\n        v4 = alloc::vec::Vec<T,A>::push(&v6);\n    }\n}\n",
-    "_ZN11uu_unexpand6uu_app17hf57dc54f13226ed2E": "fn uu_unexpand::uu_app(a0: &struct712) -> u64 {\n    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct712\n    let v1: i192;  // [sp-0x780], Other Possible Types: struct592, struct24\n    let v2: i32;  // [sp-0x538]\n    let v3: i32;  // [sp-0x534]\n    let v4: i5696;  // [sp-0x530], Other Possible Types: struct592, struct712, struct437\n    let v5: i64;  // [sp-0x274]\n    let v6: i32;  // [sp-0x26c]\n    let v7: i4736;  // [sp-0x268], Other Possible Types: struct592\n    let v9: i64;  // rdx\n\n    v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);\n    v0 = clap_builder::builder::command::Command::version(&v4, \"0.0.28\");\n    v1 = uucore::format_usage(\"{} [OPTION]... [FILE]...\");\n    v4 = clap_builder::builder::command::Command::override_usage(&v0, &v1);\n    v0 = clap_builder::builder::command::Command::about(&v4, \"Convert blanks in each `FILE` to tabs, writing to standard output.\\nWith no `FILE`, or when `FILE` is `-`, read standard input.\");\n    memcpy(&v4, &v0, 700);\n    v5 = 549755814016 | *((&v0 as &char + 700) as &i64);\n    v6 = *((&v0 as &char + 708) as &i32);\n    v0 = clap_builder::builder::arg::Arg::new(\"file\");\n    memcpy(&v1, &v0, 584);\n    v2 = *((&v0 as &char + 584) as &i32) | 4;\n    v3 = *((&v0 as &char + 588) as &i32);\n    v0 = clap_builder::builder::arg::Arg::action(&v1, 0x1);\n    v1 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v1);\n    v4 = clap_builder::builder::arg::Arg::new(\"all\");\n    v1 = clap_builder::builder::arg::Arg::short(&v4, 0x61);\n    v4 = clap_builder::builder::arg::Arg::long(&v1, \"all\");\n    v1 = clap_builder::builder::arg::Arg::help(&v4, \"convert all blanks, instead of just initial blanks\");\n    v7 = clap_builder::builder::arg::Arg::action(&v1, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v7);\n    v0 = clap_builder::builder::arg::Arg::new(\"first-only\");\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"first-only\");\n    v0 = clap_builder::builder::arg::Arg::help(&v1, \"convert only leading sequences of blanks (overrides -a)\");\n    v1 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v1);\n    v4 = clap_builder::builder::arg::Arg::new(\"tabs\");\n    v1 = clap_builder::builder::arg::Arg::short(&v4, 0x74);\n    v4 = clap_builder::builder::arg::Arg::long(&v1, \"tabs\");\n    v1 = clap_builder::builder::arg::Arg::help(&v4, \"use comma separated LIST of tab positions or have tabs N characters apart instead of 8 (enables -a)\");\n    v4 = clap_builder::builder::arg::Arg::action(&v1, 0x1);\n    v1 = clap_builder::builder::arg::Arg::value_name(&v4);\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v1);\n    v0 = clap_builder::builder::arg::Arg::new(\"no-utf8\");\n    v1 = clap_builder::builder::arg::Arg::short(&v0, 0x55);\n    v0 = clap_builder::builder::arg::Arg::long(&v1, \"no-utf8\");\n    v1 = clap_builder::builder::arg::Arg::help(&v0, \"interpret input file as 8-bit ASCII rather than UTF-8\");\n    v0 = clap_builder::builder::arg::Arg::action(&v1, 0x2);\n    clap_builder::builder::command::Command::arg(a0, &v4, &v0);\n    return a0;\n}\n",
-    "_ZN11uu_unexpand4open17h29e09d4acbe1a140E": "fn uu_unexpand::open(a0: &Result<struct56, struct16>, a1: u32, a2: u32) -> u64 {\n    let v0: i8;  // [bp-0x90], Other Possible Types: Result<struct16, struct4>\n    let v1: i32;  // [sp-0x78]\n    let v2: i64;  // [sp-0x70]\n    let v3: i64;  // [sp-0x68]\n    let v4: i64;  // [sp-0x60]\n    let v5: i64;  // [sp-0x58]\n    let v6: i64;  // [sp-0x50], Other Possible Types: Result<struct4, struct8>\n    let v7: i64;  // [sp-0x48]\n    let v8: i64;  // [sp-0x40]\n    let v9: i64;  // [sp-0x38]\n    let v10: i64;  // [sp-0x30]\n    let v13: i64;  // rax\n    let v14: i64;  // rcx\n\n    if std::path::Path::is_dir(a1, a2) as i8 {\n        v4 = a1;\n        v5 = a2;\n        v2 = &v4;\n        v3 = <std::path::Display as core::fmt::Display>::fmt;\n        v6 = &g_51cf70;\n        v7 = 2;\n        v10 = 0;\n        v8 = &v2;\n        v9 = 1;\n        core::option::Option<T>::map_or_else();\n        v1 = 1;\n        *((a0 + 8) as &double) = alloc::boxed::Box<T>::new(&v0);\n        *((a0 + 16) as &&i64) = &g_51d078;\n    }\n    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"-\") as i8 {\n        v13 = alloc::boxed::Box<T>::new(std::io::stdio::stdin());\n        v14 = &g_51cfe8;\n    } else {\n        v6 = std::fs::File::open(a1, a2);\n        v0 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v6, a1, a2);\n        match v0 {\n            Ok(_) => {\n                return Err(struct16 {\n                    field_0: v12\n                    field_8: v15\n                });\n            },\n            Err(_) => {\n                v13 = alloc::boxed::Box<T>::new(*((&v0 as &char + 8) as &i32) as u32 as u64);\n                v14 = &g_51cf90;\n            },\n        }\n    }\n    return std::io::buffered::bufreader::BufReader<R>::with_capacity(a0, 0x2000, v13, v14);\n}\n",
+    "_ZN11uu_unexpand16expand_shortcuts17he534dbf7f6ef5d0bE": "fn uu_unexpand::expand_shortcuts(a0: &struct24, a1: u64, a2: u64) -> int {\n    let v0: i32;  // [sp-0xd0]\n    let v1: i32;  // [sp-0xcc]\n    let v2: struct24;  // [sp-0xc8], Other Possible Types: unsigned long, Result<struct16, struct8>, unsigned int\n    let v3: i64;  // [sp-0xc0]\n    let v4: struct16;  // [sp-0xb0], Other Possible Types: int\n    let v5: i64;  // [sp-0xa0]\n    let v6: iNone;  // [bp-0x98], Other Possible Types: struct16\n    let v7: i64;  // [sp-0x88]\n    let v8: struct16;  // [bp-0x78]\n    let v9: i16;  // [sp-0x38]\n    let v11: i64;  // rax\n    let v12: i64;  // r14\n    let v13: i64;  // rbx\n    let v14: i64;  // r12\n    let v15: i64;  // rax\n    let v16: i64;  // rbp\n    let v17: i64;  // rdx\n    let v18: i64;  // rax\n\n    v2 = alloc::raw_vec::RawVec<T,A>::try_allocate_in(a2, 0);\n    v4 = *((&v2 as &char + 8) as &i128);\n    v5 = 0;\n    v6 = struct16 {\n        field_0: a1\n        field_8: a1 + a2 * 24\n    };\n    v11 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v6);\n    if !v11 {\n        return struct24 {\n            field_0: v22\n            field_16: v5\n        };\n    }\n    v12 = v11;\n    v0 = 0;\n    v1 = 0;\n    do {\n        v13 = *((v12 + 8) as &i64);\n        v14 = *((v12 + 16) as &i64);\n        *(&v2 as &i32) = 0;\n        if core::slice::<impl [T]>::starts_with(v13, v14, core::char::methods::encode_utf8_raw(45, &v2), 1) as i8 {\n            v15 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v13, v14);\n            v16 = v15;\n            v2 = v16;\n            v3 = v15 + v17;\n            if <core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq(core::iter::traits::iterator::Iterator::try_fold(&v2)) {\n                v8 = struct16 {\n                    field_0: 0\n                    field_8: v17\n                };\n                v9 = 1;\n                v0 = (<char as core::str::pattern::Pattern>::into_searcher(v16, v17) & -0x100 | 1) as u32;\n                core::iter::traits::iterator::Iterator::fold(&v8, &v4);\n                continue;\n            }\n        }\n        v2 = <alloc::string::String as core::clone::Clone>::clone(v12);\n        v4 = alloc::vec::Vec<T,A>::push(&v2);\n        v18 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v13, v14, \"--all\");\n        if v18 as u8 || (v18 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v13, v14, \"-a\"), v18 as u8) {\n            v1 = (v18 & -0x100 | 1) as u32;\n        }\n    } while ((v12 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v6), v12));\n    if (v0 as i8 & 1) && !(v1 as u8 & 1) {\n        v2 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"--first-only\");\n        v7 = v2.field_16;\n        *(&v6 as &i128) = *(&v2.field_0 as &i128);\n        v4 = alloc::vec::Vec<T,A>::push(&v6);\n    }\n}\n",
+    "_ZN11uu_unexpand6uu_app17hf57dc54f13226ed2E": "fn uu_unexpand::uu_app(a0: &struct712) -> u64 {\n    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct712\n    let v1: struct592;  // [sp-0x780], Other Possible Types: struct24\n    let v2: i32;  // [sp-0x538]\n    let v3: i32;  // [sp-0x534]\n    let v4: struct592;  // [sp-0x530], Other Possible Types: struct712, struct437\n    let v5: i64;  // [sp-0x274]\n    let v6: i32;  // [sp-0x26c]\n    let v7: struct592;  // [sp-0x268]\n    let v9: i64;  // rdx\n\n    v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);\n    v0 = clap_builder::builder::command::Command::version(&v4, \"0.0.28\");\n    v1 = uucore::format_usage(\"{} [OPTION]... [FILE]...\");\n    v4 = clap_builder::builder::command::Command::override_usage(&v0, &v1);\n    v0 = clap_builder::builder::command::Command::about(&v4, \"Convert blanks in each `FILE` to tabs, writing to standard output.\nWith no `FILE`, or when `FILE` is `-`, read standard input.\");\n    memcpy(&v4, &v0, 700);\n    v5 = 549755814016 | *((&v0.field_0 as &char + 700) as &i64);\n    v6 = *((&v0.field_0 as &char + 708) as &i32);\n    v0 = clap_builder::builder::arg::Arg::new(\"file\");\n    memcpy(&v1, &v0, 584);\n    v2 = *((&v0.field_0 as &char + 584) as &i32) | 4;\n    v3 = *((&v0.field_0 as &char + 588) as &i32);\n    v0 = clap_builder::builder::arg::Arg::action(&v1, 0x1);\n    v1 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v1);\n    v4 = clap_builder::builder::arg::Arg::new(\"all\");\n    v1 = clap_builder::builder::arg::Arg::short(&v4, 0x61);\n    v4 = clap_builder::builder::arg::Arg::long(&v1, \"all\");\n    v1 = clap_builder::builder::arg::Arg::help(&v4, \"convert all blanks, instead of just initial blanks\");\n    v7 = clap_builder::builder::arg::Arg::action(&v1, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v7);\n    v0 = clap_builder::builder::arg::Arg::new(\"first-only\");\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"first-only\");\n    v0 = clap_builder::builder::arg::Arg::help(&v1, \"convert only leading sequences of blanks (overrides -a)\");\n    v1 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v1);\n    v4 = clap_builder::builder::arg::Arg::new(\"tabs\");\n    v1 = clap_builder::builder::arg::Arg::short(&v4, 0x74);\n    v4 = clap_builder::builder::arg::Arg::long(&v1, \"tabs\");\n    v1 = clap_builder::builder::arg::Arg::help(&v4, \"use comma separated LIST of tab positions or have tabs N characters apart instead of 8 (enables -a)\");\n    v4 = clap_builder::builder::arg::Arg::action(&v1, 0x1);\n    v1 = clap_builder::builder::arg::Arg::value_name(&v4);\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v1);\n    v0 = clap_builder::builder::arg::Arg::new(\"no-utf8\");\n    v1 = clap_builder::builder::arg::Arg::short(&v0, 0x55);\n    v0 = clap_builder::builder::arg::Arg::long(&v1, \"no-utf8\");\n    v1 = clap_builder::builder::arg::Arg::help(&v0, \"interpret input file as 8-bit ASCII rather than UTF-8\");\n    v0 = clap_builder::builder::arg::Arg::action(&v1, 0x2);\n    clap_builder::builder::command::Command::arg(a0, &v4, &v0);\n    return a0;\n}\n",
+    "_ZN11uu_unexpand4open17h29e09d4acbe1a140E": "fn uu_unexpand::open(a0: &Result<struct56, struct16>, a1: u32, a2: u32) -> u64 {\n    let v0: String;  // [sp-0x90], Other Possible Types: Result<struct16, struct4>\n    let v1: i32;  // [sp-0x78]\n    let v2: i64;  // [sp-0x60]\n    let v3: i64;  // [sp-0x58]\n    let v4: Result<struct4, struct8>;  // [sp-0x50]\n    let v7: i64;  // rax\n    let v8: i64;  // rcx\n\n    if std::path::Path::is_dir(a1, a2) as i8 {\n        v2 = a1;\n        v3 = a2;\n        v0 = format!(\"{}: Is a directory\", &v2);\n        v1 = 1;\n        *((a0 + 8) as &double) = alloc::boxed::Box<T>::new(&v0);\n        *((a0 + 16) as &&i64) = &g_51d078;\n    }\n    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"-\") as i8 {\n        v7 = alloc::boxed::Box<T>::new(std::io::stdio::stdin());\n        v8 = &g_51cfe8;\n    } else {\n        v4 = std::fs::File::open(a1, a2);\n        v0 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v4, a1, a2);\n        match v0 {\n            Ok(_) => {\n                return Err(struct16 {\n                    field_0: v6\n                    field_8: v9\n                });\n            },\n            Err(_) => {\n                v7 = alloc::boxed::Box<T>::new(*((&v0 as &char + 8) as &i32) as u32 as u64);\n                v8 = &g_51cf90;\n            },\n        }\n    }\n    return std::io::buffered::bufreader::BufReader<R>::with_capacity(a0, 0x2000, v7, v8);\n}\n",
     "_ZN11uu_unexpand12next_tabstop17h948056bd8ee01f21E": "fn uu_unexpand::next_tabstop(a0: &u64, a1: u32, a2: u32) -> u64 {\n    let v0: u64;  // [sp-0x20]\n    let v1: &u64;  // [sp-0x18]\n    let v2: u64;  // [sp-0x10]\n    let v4: u64;  // rcx\n\n    v0 = a2;\n    if a1 == 1 {\n        v4 = *(a0);\n    } else {\n        v1 = a0;\n        v2 = &a0[a1];\n        if !<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::find(&v0) {\n            return 0;\n        }\n    }\n    return 1;\n}\n",
-    "_ZN11uu_unexpand10write_tabs17h8e9e933eb88f89cfE": "fn uu_unexpand::write_tabs(a0: &struct8, a1: u32, a2: u32, a3: u64, a4: u32, a5: u8) -> u64 {\n    let v0: u64;  // [sp-0x88]\n    let v1: u64;  // [sp-0x80]\n    let v2: u64;  // [sp-0x78]\n    let v3: i64;  // [bp+0x8]\n    let v4: u8;  // [bp+0x10]\n    let v5: u64;  // rax\n    let v6: u8;  // cl\n    let v7: u64;  // rbp\n    let v8: u64;  // rdx\n    let v9: u64;  // r13\n    let v10: &u8;  // rax\n    let v11: void*;  // rax\n    let v12: u64;  // rbx\n    let v13: u64;  // rbx\n    let v14: &u8;  // rax\n\n    v5 = v3;\n    if v5 {\n        v6 = a3 & -0x100 | 1;\n    } else {\n        v6 = v4;\n    }\n    if !a5 && a3 + 1 < a4 || a4 > a3 && ((v6 & a5) || v5) {\n        loop {\n            v7 = a3;\n            v5 = uu_unexpand::next_tabstop(a1, a2, v7);\n            if !(v5 == 1) || !((v9 = v8 + v7, v9 <= a4)) {\n                break;\n            }\n            v10 = a0->field_10;\n            if a0->field_0 - v10 <= 1 {\n                v11 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a0, \"\\t\");\n            } else {\n                v10[a0->field_8] = 9;\n                a0->field_10 = &v10[1];\n                v11 = 0;\n            }\n            a3 = v9;\n            if v0 {\n                v0 = v11;\n                v1 = uucore::util_name();\n                v2 = v8;\n                eprint!(\"{}: \", &v1);\n                eprintln!(\"{}\", &v0);\n                std::process::exit(1); /* do not return */\n            }\n        }\n    }\n    v12 = a4 - v7;\n    if a4 <= v7 {\n        return v5;\n    }\n    loop {\n        v13 = v12;\n        v14 = a0->field_10;\n        if a0->field_0 - v14 >= 2 {\n            v14[a0->field_8] = 32;\n            v5 = v14 + 1;\n            a0->field_10 = v5;\n        } else {\n            v5 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a0, \" \");\n            if v5 {\n                v0 = v5;\n                v1 = uucore::util_name();\n                v2 = v8;\n                eprint!(\"{}: \", &v1);\n                eprintln!(\"{}\", &v0);\n                std::process::exit(1); /* do not return */\n            }\n        }\n        v12 = v13 - 1;\n        if v13 == 1 {\n            return v5;\n        }\n    }\n}\n",
-    "_ZN11uu_unexpand14next_char_info17hda448420cf4eb947E": "fn uu_unexpand::next_char_info(a0: &struct17, a1: u32, a2: &u8, a3: u32, a4: &u8) -> u64 {\n    let v0: i64;  // [sp-0x40]\n    let v1: i64;  // [sp-0x38]\n    let v2: i192;  // [sp-0x30], Other Possible Types: Result<struct16, struct10>\n    let v4: i64;  // r14\n    let v5: i32;  // ecx\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    if !a1 {\n        if a4 < a3 {\n            match (v5) {\n                8 => {\n                    break;\n                }\n                9 => {\n                    break;\n                }\n                32 => {\n                    break;\n                }\n                _ => {\n                    goto LABEL_4b2aa1;\n                }\n            }\n        }\nLABEL_4b2aa1:\n    } else {\n        v4 = *((a2 + a4) as &i8) < 0;\n        if v4 + a4 + 1 > a3 {\n            goto LABEL_4b2aa1;\n        } else {\n            v2 = core::str::converts::from_utf8(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a4, v4 + a4 + 1, a2, a3, \"src/uu/unexpand/src/unexpand.rs\"), v7);\n            if !v2 {\n                v0 = *((&v2 as &char + 8) as &i64);\n                v1 = *((&v2 as &char + 16) as &i64) + v0;\n                if core::str::validations::next_code_point(&v0) as i32 {\n                    match (v7 as u32) {\n                        8 => {\n                            break;\n                        }\n                        9 => {\n                            break;\n                        }\n                        32 => {\n                            break;\n                        }\n                        _ => {\n                            v6 = (v7 as u32 < 127 ? 32 <= v7 as u32 : (v7 as u32 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v7 as u32)));\n                            break;\n                        }\n                    }\n                }\n            }\n        }\n    }\n    return struct17 {\n        field_0: v6\n        field_8: 3\n        field_16: <UNKNOWN>\n    };\n}\n",
-    "_ZN11uu_unexpand13unexpand_line17hfe287a3731b6a7afE": "fn uu_unexpand::unexpand_line(a0: void*, a1: &struct8, a2: u32, a3: u32, a4: u32, a5: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0xa0]\n    let v2: i8;  // [sp-0x91]\n    let v3: i32;  // [sp-0x90]\n    let v4: i8;  // [sp-0x89]\n    let v5: i64;  // [sp-0x88]\n    let v6: i32;  // [sp-0x6c]\n    let v7: i64;  // [sp-0x60]\n    let v8: i32;  // [sp-0x54]\n    let v9: i64;  // [sp-0x50]\n    let v10: struct17;  // [sp-0x48], Other Possible Types: i136\n    let v11: i64;  // [sp-0x20]\n    let v12: i64;  // [bp+0x8]\n    let v13: i64;  // r13\n    let v15: i64;  // rax\n    let v16: i64;  // rax\n    let v17: i64;  // rbp\n    let v18: i64;  // r15\n    let v19: i64;  // r12\n    let v20: i64;  // r13\n    let v21: i64;  // rax\n    let v22: i64;  // rbx\n\n    v11 = v13;\n    v8 = a3;\n    v6 = a2;\n    if !v7 {\n        v3 = v16 & -0x100 | 1;\n        v5 = 0;\n    } else {\n        v3 = v15 & -0x100 | 1;\n        v5 = 0;\n        v7 = *((a0 + 16) as &i64);\n        v9 = a4 - 1;\n        v2 = 3;\n        if v9 >= 0 {\n            v10 = uu_unexpand::next_char_info(v8, *((a0 + 8) as &i64), v7, 0);\n            v4 = *((&v10 as &char + 8) as &i8);\n            goto *((4313588 + vvar_275{stack -137} * 4) as &i32) + 4313588;\n        } else {\n            v17 = a1;\n            v1 = 1;\n            v0 = v3 & 1;\n            uu_unexpand::write_tabs(v17, a5, v12, v5, 0, v2 == 2);\n            v18 = v7 - 0;\n            v19 = 0 + *((a0 + 8) as &i64);\n            v20 = *((v17 + 16) as &i64);\n            if v18 < *(v17 as &i64) - v20 {\n                memcpy(*((v17 + 8) as &i64) + v20, v19, v18);\n                *((v17 + 16) as &i64) = v20 + v18;\n                v5 = 0;\n            } else {\n                v21 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(v17, v19, v18);\n                v5 = 0;\n                if v21 {\n                    return v21;\n                }\n            }\n        }\n    }\n    v22 = a1;\n    v1 = 1;\n    v0 = v3 & 1;\n    uu_unexpand::write_tabs(v22, a5, v12, v5, 0, 0);\n    v21 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::flush(v22);\n    if !v21 {\n        alloc::vec::Vec<T,A>::truncate(a0, 0);\n        return 0;\n    }\n    return v21;\n}\n"
+    "_ZN11uu_unexpand10write_tabs17h8e9e933eb88f89cfE": "fn uu_unexpand::write_tabs(a0: &struct8, a1: u32, a2: u32, a3: u32, a4: u32, a5: u8, a6: u8, a7: u8) -> u64 {\n    let v0: u64;  // [sp-0x88]\n    let v1: u64;  // [sp-0x78]\n    let v2: u64;  // rbp\n    let v3: u64;  // rax\n    let v4: u8;  // cl\n    let v5: u64;  // rdx\n    let v6: u64;  // r13\n    let v7: &u8;  // rax\n    let v8: void*;  // rax\n    let v9: u64;  // rbx\n    let v10: u64;  // rbx\n    let v11: &u8;  // rax\n\n    v2 = a3;\n    v3 = a6;\n    if v3 {\n        v4 = a3 & -0x100 | 1;\n    } else {\n        v4 = a7;\n        if a7 && !a5 && a3 + 1 < a4 || a4 > a3 && ((v4 & a5) || v3) {\n            loop {\n                v3 = uu_unexpand::next_tabstop(a1, a2, v2);\n                if !(v3 == 1) || !((v6 = v5 + v2, v6 <= a4)) {\n                    break;\n                }\n                v7 = a0->field_10;\n                if a0->field_0 - v7 > 1 {\n                    v7[a0->field_8] = 9;\n                    a0->field_10 = &v7[1];\n                    v8 = 0;\n                } else {\n                    v8 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a0, \"\t\");\n                }\n                v2 = v6;\n                if v8 {\n                    v0 = v8;\n                    v1 = v5;\n                    show_error!(\"{}\", &v0);\n                    std::process::exit(1); /* do not return */\n                }\n            }\n        }\n    }\n    v9 = a4 - v2;\n    if a4 <= v2 {\n        return v3;\n    }\n    loop {\n        v10 = v9;\n        v11 = a0->field_10;\n        if a0->field_0 - v11 >= 2 {\n            v11[a0->field_8] = 32;\n            v3 = v11 + 1;\n            a0->field_10 = v3;\n        } else {\n            v3 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a0, \" \");\n            if v3 {\n                v0 = v3;\n                v1 = v5;\n                show_error!(\"{}\", &v0);\n                std::process::exit(1); /* do not return */\n            }\n        }\n        v9 = v10 - 1;\n        if v10 == 1 {\n            return v3;\n        }\n    }\n}\n",
+    "_ZN11uu_unexpand14next_char_info17hda448420cf4eb947E": "fn uu_unexpand::next_char_info(a0: void*, a1: u32, a2: &u8, a3: u32, a4: &u8) -> u64 {\n    let v0: i64;  // [sp-0x40]\n    let v1: i64;  // [sp-0x38]\n    let v2: Result<struct16, struct10>;  // [sp-0x30]\n    let v4: i64;  // r14\n    let v5: i32;  // ecx\n    let v6: i64;  // rax\n    let v7: i64;  // rcx\n    let v8: i32;  // edx\n    let v9: i64;  // r14\n\n    if !a1 {\n        if a4 < a3 {\n            v6 = 1;\n            match (v5) {\n                8 => {\n                    break;\n                }\n                9 => {\n                    break;\n                }\n                32 => {\n                    break;\n                }\n                _ => {\n                    goto LABEL_4b2aa1;\n                }\n            }\n        }\nLABEL_4b2aa1:\n        v7 = 1;\n    } else {\n        v4 = *((a2 + a4) as &i8) < 0;\n        if v4 + a4 + 1 > a3 {\n            v6 = 1;\n            goto LABEL_4b2aa1;\n        } else {\n            v2 = core::str::converts::from_utf8(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a4, v4 + a4 + 1, a2, a3, \"src/uu/unexpand/src/unexpand.rs\"), a2);\n            match v2 {\n                Err(_) => {\n                    v6 = 1;\n                    v7 = 1;\n                },\n                Ok(_) => {\n                    v0 = *((&v2 as &char + 8) as &i64);\n                    v1 = *((&v2 as &char + 16) as &i64) + v0;\n                    v7 = 1;\n                    if !core::str::validations::next_code_point(&v0) as i32 {\n                        v6 = 1;\n                    } else {\n                        match (v8) {\n                            8 => {\n                                v6 = 0;\n                                break;\n                            }\n                            9 => {\n                                v6 = 0;\n                                break;\n                            }\n                            32 => {\n                                v6 = 0;\n                                break;\n                            }\n                            _ => {\n                                v9 = v4 + 1;\n                                if v8 < 127 {\n                                    v6 = (32 <= v8) as u8 as u64;\n                                    v7 = v9;\n                                    break;\n                                } else if v8 <= 159 {\n                                    v6 = 0;\n                                    v7 = v9;\n                                    break;\n                                } else {\n                                    v6 = unicode_width::tables::charwidth::lookup_width(v8 as u64);\n                                    v7 = v9;\n                                    break;\n                                }\n                            }\n                        }\n                    }\n                },\n            }\n        }\n    }\n    *((a0 + 8) as &i8) = 3;\n    *(a0 as &unsigned long) = v6;\n    *((a0 + 16) as &unsigned long) = v7;\n    return v6;\n}\n",
+    "_ZN11uu_unexpand13unexpand_line17hfe287a3731b6a7afE": "fn uu_unexpand::unexpand_line(a0: void*, a1: &struct8, a2: u32, a3: u32, a4: u32, a5: u32, a6: u32) -> u64 {\n    let v0: u8;  // [bp-0xa8]\n    let v1: u8;  // [bp-0xa0]\n    let v2: u8;  // [sp-0x91]\n    let v3: u32;  // [sp-0x90]\n    let v4: u8;  // [sp-0x89]\n    let v5: void*;  // [sp-0x88]\n    let v6: &u64;  // [sp-0x80]\n    let v7: u32;  // [sp-0x6c]\n    let v8: u64;  // [sp-0x60]\n    let v9: u32;  // [sp-0x54]\n    let v10: u64;  // [sp-0x50]\n    let v11: u8;  // [bp-0x48]\n    let v12: u8;  // [bp-0x40]\n    let v13: u64;  // [sp-0x20]\n    let v14: u64;  // r13\n    let v15: &u64;  // r13\n    let v17: u64;  // rax\n    let v18: u64;  // rax\n    let v19: &u64;  // rbp\n    let v20: u64;  // r15\n    let v21: u64;  // r12\n    let v22: u64;  // r13\n    let v23: void*;  // rax\n    let v24: &u64;  // rbx\n\n    v13 = v14;\n    v9 = a3;\n    v7 = a2;\n    v15 = a0;\n    if !v8 {\n        v3 = v18 & -0x100 | 1;\n        v5 = 0;\n    } else {\n        v3 = v17 & -0x100 | 1;\n        v5 = 0;\n        v6 = a0;\n        v8 = a0->field_10;\n        v10 = a4 - 1;\n        v2 = 3;\n        if v10 >= 0 {\n            uu_unexpand::next_char_info(&v11, v9 as i8, a0->field_8, v8, 0);\n            v4 = v12;\n            goto *((4313588 + vvar_270{stack -137} * 4) as &i32) + 4313588;\n        } else {\n            v19 = a1;\n            uu_unexpand::write_tabs(v19, a5, a6, v5, 0, v2 == 2, v0, v1);\n            v20 = v8 - 0;\n            v21 = 0 + a0->field_8;\n            v22 = v19[2];\n            if v20 < *(v19) - v22 {\n                memcpy(v19[1] + v22, v21, v20);\n                v19[2] = v22 + v20;\n                v5 = 0;\n                v15 = v6;\n            } else {\n                v23 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(v19, v21, v20);\n                v5 = 0;\n                v15 = v6;\n                if v23 {\n                    return v23;\n                }\n            }\n        }\n    }\n    v24 = a1;\n    uu_unexpand::write_tabs(v24, a5, a6, v5, 0, 0, v0, v1);\n    v23 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::flush(v24);\n    if !v23 {\n        alloc::vec::Vec<T,A>::truncate(v15, 0);\n        return 0;\n    }\n    return v23;\n}\n",
+    "_ZN11uu_unexpand8unexpand17h7da24873393494e4E": "fn uu_unexpand::unexpand(a0: u32) -> u64 {\n    let v0: iNone;  // [sp-0x160]\n    let v1: i64;  // [sp-0x158]\n    let v2: i64;  // [sp-0x150]\n    let v3: i64;  // [sp-0x148]\n    let v4: i64;  // [sp-0x140]\n    let v5: struct16;  // [sp-0x138]\n    let v6: i64;  // [sp-0x128]\n    let v7: i64;  // [sp-0x120]\n    let v8: iNone;  // [sp-0xf8]\n    let v9: iNone;  // [sp-0xe8]\n    let v10: iNone;  // [sp-0xd8]\n    let v11: i64;  // [sp-0xc8]\n    let v12: Result<struct56, struct16>;  // [sp-0xc0]\n    let v13: struct33;  // [sp-0x88]\n    let v15: i64;  // rbx\n    let v16: i64;  // rbp\n    let v17: i64;  // r14\n    let v18: i64;  // rax\n    let v21: iNone;  // ymm0\n    let v22: iNone;  // ymm1\n    let v23: iNone;  // ymm2\n    let v24: iNone;  // xmm0\n    let v25: iNone;  // xmm1\n    let v26: iNone;  // xmm2\n    let v27: i64;  // rdx\n    let v28: i64;  // rcx\n    let v29: i64;  // rbx\n\n    v13 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x2000, std::io::stdio::stdout());\n    v15 = *((a0 + 32) as &i64);\n    v16 = *((a0 + 40) as &i64);\n    v2 = 0;\n    v3 = 1;\n    v4 = 0;\n    v17 = (v16 <= 1 ? 0 : *((v15 + v16 * 8 - 8) as &i64));\n    v5 = struct16 {\n        field_0: *((a0 + 8) as &i64)\n        field_8: v5 + *((a0 + 16) as &i64) * 24\n    };\n    v18 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v5);\n    if !v18 {\n        return 0;\n    }\n    do {\n        v12 = uu_unexpand::open(*((v18 + 8) as &i64), *((v18 + 16) as &i64));\n        match v12 {\n            Err(v0) => {\n                uucore::mods::error::set_exit_code(*((v1 + 96) as &i64)() as u64);\n                v6 = uucore::util_name();\n                v7 = v27;\n                eprintln!(\"{}: {}\", &v6, &v0);\n            },\n            Ok(_) => {\n                v11 = *((&v12 as &char + 48) as &i64);\n                v24 = v12 as i128;\n                v21 = v21 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v24 as u256;\n                v25 = *((&v12 as &char + 16) as &i128);\n                v22 = v22 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v25 as u256;\n                v26 = *((&v12 as &char + 32) as &i128);\n                v23 = v23 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v26 as u256;\n                v10 = v26;\n                v9 = v25;\n                v8 = v24;\n                loop {\n                    v28 = v27;\n                    if std::io::read_until(0xa, &v2) {\n                        v28 = v4;\n                    }\n                    if !v28 {\n                        break;\n                    }\n                    if uu_unexpand::unexpand_line(&v2, &v13, *((a0 + 48) as &i8) as u8 as u32 as u64, *((a0 + 49) as &i8) as u8 as u32 as u64, v17, v15, v16) {\n                        return v29;\n                    }\n                }\n            },\n        }\n    } while ((v18 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v5), v18));\n}\n"
   },
   "function_call_counts": {
     "_ZN11uu_unexpand6uumain17hb575d4250b52fbdfE": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
-      "uucore::util_name": 1,
-      "core::option::Option<T>::map_or_else": 1,
       "uu_unexpand::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
     },
+    "_ZN11uu_unexpand6uumain6uumain17he0b2f932f6bdcbaeE": {
+      "uu_unexpand::Options::new": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_unexpand::expand_shortcuts": 1,
+      "uu_unexpand::uu_app": 1,
+      "uucore::Args::collect_ignore": 1
+    },
     "_ZN11uu_unexpand7Options3new17hba98640d35916d8dE": {
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 2,
       "alloc::slice::hack::into_vec": 1,
       "alloc::alloc::Global::alloc_impl": 1,
       "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
-      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 2,
       "clap_builder::parser::error::MatchesError::unwrap": 2,
       "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 2,
-      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 3,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 2,
       "uu_unexpand::tabstops_parse": 1,
       "alloc::str::join_generic_copy": 1
     },
@@ -63,7 +70,6 @@
     },
     "_ZN11uu_unexpand4open17h29e09d4acbe1a140E": {
       "alloc::boxed::Box<T>::new": 3,
-      "core::option::Option<T>::map_or_else": 1,
       "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1,
       "std::io::stdio::stdin": 1,
       "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
@@ -72,7 +78,6 @@
     "_ZN11uu_unexpand12next_tabstop17h948056bd8ee01f21E": {},
     "_ZN11uu_unexpand10write_tabs17h8e9e933eb88f89cfE": {
       "std::process::exit": 2,
-      "uucore::util_name": 2,
       "std::io::buffered::bufwriter::BufWriter<W>::write_all_cold": 2,
       "uu_unexpand::next_tabstop": 1
     },
@@ -88,39 +93,55 @@
       "uu_unexpand::next_char_info": 1,
       "memcpy": 1,
       "std::io::buffered::bufwriter::BufWriter<W>::write_all_cold": 1
+    },
+    "_ZN11uu_unexpand8unexpand17h7da24873393494e4E": {
+      "uucore::util_name": 1,
+      "uucore::mods::error::set_exit_code": 1,
+      "uu_unexpand::open": 1,
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 1,
+      "std::io::buffered::bufwriter::BufWriter<W>::with_capacity": 1,
+      "std::io::stdio::stdout": 1
     }
   },
   "macro_call_counts": {
     "_ZN11uu_unexpand6uumain17hb575d4250b52fbdfE": {
-      "eprintln": 2,
-      "eprint": 1
+      "eprintln": 1,
+      "show_error": 1,
+      "format": 1
     },
+    "_ZN11uu_unexpand6uumain6uumain17he0b2f932f6bdcbaeE": {},
     "_ZN11uu_unexpand7Options3new17hba98640d35916d8dE": {
       "vec": 1
     },
     "_ZN11uu_unexpand17is_digit_or_comma17h901545046b084f1bE": {},
     "_ZN11uu_unexpand16expand_shortcuts17he534dbf7f6ef5d0bE": {},
     "_ZN11uu_unexpand6uu_app17hf57dc54f13226ed2E": {},
-    "_ZN11uu_unexpand4open17h29e09d4acbe1a140E": {},
+    "_ZN11uu_unexpand4open17h29e09d4acbe1a140E": {
+      "format": 1
+    },
     "_ZN11uu_unexpand12next_tabstop17h948056bd8ee01f21E": {},
     "_ZN11uu_unexpand10write_tabs17h8e9e933eb88f89cfE": {
-      "eprintln": 2,
-      "eprint": 2
+      "show_error": 2
     },
     "_ZN11uu_unexpand14next_char_info17hda448420cf4eb947E": {},
-    "_ZN11uu_unexpand13unexpand_line17hfe287a3731b6a7afE": {}
+    "_ZN11uu_unexpand13unexpand_line17hfe287a3731b6a7afE": {},
+    "_ZN11uu_unexpand8unexpand17h7da24873393494e4E": {
+      "eprintln": 1
+    }
   },
   "node_counts": {
     "_ZN11uu_unexpand6uumain17hb575d4250b52fbdfE": 9,
-    "_ZN11uu_unexpand7Options3new17hba98640d35916d8dE": 17,
+    "_ZN11uu_unexpand6uumain6uumain17he0b2f932f6bdcbaeE": 11,
+    "_ZN11uu_unexpand7Options3new17hba98640d35916d8dE": 16,
     "_ZN11uu_unexpand17is_digit_or_comma17h901545046b084f1bE": 1,
     "_ZN11uu_unexpand16expand_shortcuts17he534dbf7f6ef5d0bE": 14,
     "_ZN11uu_unexpand6uu_app17hf57dc54f13226ed2E": 36,
     "_ZN11uu_unexpand4open17h29e09d4acbe1a140E": 12,
     "_ZN11uu_unexpand12next_tabstop17h948056bd8ee01f21E": 5,
-    "_ZN11uu_unexpand10write_tabs17h8e9e933eb88f89cfE": 24,
-    "_ZN11uu_unexpand14next_char_info17hda448420cf4eb947E": 8,
-    "_ZN11uu_unexpand13unexpand_line17hfe287a3731b6a7afE": 19
+    "_ZN11uu_unexpand10write_tabs17h8e9e933eb88f89cfE": 23,
+    "_ZN11uu_unexpand14next_char_info17hda448420cf4eb947E": 19,
+    "_ZN11uu_unexpand13unexpand_line17hfe287a3731b6a7afE": 19,
+    "_ZN11uu_unexpand8unexpand17h7da24873393494e4E": 12
   },
   "prototypes": {
     "_ZN11uu_unexpand6uumain17hb575d4250b52fbdfE": {
@@ -181,10 +202,15 @@
     "_ZN4core6option15Option$LT$T$GT$11map_or_else17h3078854782337037E": {
       "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h3078854782337037E",
       "return_type": [
-        "primitive",
-        8
+        "struct",
+        24
       ],
-      "parameters": []
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
     },
     "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h061c44035de7586cE": {
       "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h061c44035de7586cE",
@@ -196,19 +222,6 @@
         [
           "primitive",
           4
-        ]
-      ]
-    },
-    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h8f2659aa029cb46aE": {
-      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h8f2659aa029cb46aE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
         ]
       ]
     },
@@ -454,6 +467,19 @@
         ]
       ]
     },
+    "_ZN13unicode_width6tables9charwidth12lookup_width17hfd0b3b0958e151ecE": {
+      "name": "_ZN13unicode_width6tables9charwidth12lookup_width17hfd0b3b0958e151ecE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
     "_ZN4core3str11validations15next_code_point17h56f7f2fe969e6a13E": {
       "name": "_ZN4core3str11validations15next_code_point17h56f7f2fe969e6a13E",
       "return_type": [
@@ -534,10 +560,15 @@
     "_ZN4core6option15Option$LT$T$GT$11map_or_else17h76d79f35edc71809E": {
       "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h76d79f35edc71809E",
       "return_type": [
-        "primitive",
-        8
+        "struct",
+        24
       ],
-      "parameters": []
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
     },
     "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hde6101a7564f34fbE": {
       "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hde6101a7564f34fbE",
@@ -670,10 +701,15 @@
     "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb914319815ce2a7E": {
       "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb914319815ce2a7E",
       "return_type": [
-        "struct",
+        "primitive",
         8
       ],
-      "parameters": []
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
     },
     "_ZN11uu_unexpand14tabstops_parse17h79f903e022d9dc45E": {
       "name": "_ZN11uu_unexpand14tabstops_parse17h79f903e022d9dc45E",
@@ -807,16 +843,28 @@
         [
           "primitive",
           1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
         ]
       ]
     },
     "_ZN11uu_unexpand14next_char_info17hda448420cf4eb947E": {
       "name": "_ZN11uu_unexpand14next_char_info17hda448420cf4eb947E",
       "return_type": [
-        "struct",
-        17
+        "primitive",
+        8
       ],
       "parameters": [
+        [
+          "primitive",
+          8
+        ],
         [
           "primitive",
           4
@@ -862,6 +910,23 @@
           "primitive",
           8
         ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11uu_unexpand8unexpand17h7da24873393494e4E": {
+      "name": "_ZN11uu_unexpand8unexpand17h7da24873393494e4E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
         [
           "primitive",
           8
@@ -1112,15 +1177,10 @@
     "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17h0afaa565343b58bdE": {
       "name": "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17h0afaa565343b58bdE",
       "return_type": [
-        "primitive",
-        8
+        "struct",
+        1
       ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
+      "parameters": []
     },
     "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h1ee9d91d0a67d274E": {
       "name": "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h1ee9d91d0a67d274E",
@@ -1298,32 +1358,6 @@
           "primitive",
           8
         ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17hcd961c31063bf4faE": {
-      "name": "_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17hcd961c31063bf4faE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE": {
-      "name": "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
         [
           "primitive",
           8

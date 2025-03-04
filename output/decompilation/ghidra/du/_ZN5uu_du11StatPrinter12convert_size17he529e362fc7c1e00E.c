@@ -1,4 +1,5 @@
-void __rustcall uu_du::StatPrinter::convert_size(undefined8 param_1,long param_2,ulong param_3)
+void _ZN5uu_du11StatPrinter12convert_size17he529e362fc7c1e00E
+               (undefined8 param_1,long param_2,ulong param_3)
 
 {
   ulong uVar1;
@@ -10,17 +11,18 @@ void __rustcall uu_du::StatPrinter::convert_size(undefined8 param_1,long param_2
   
   local_10 = param_3;
   if (*(long *)(param_2 + 0x20) == 0) {
-    uucore::features::format::human::human_readable(param_1,param_3,2);
+    _ZN6uucore8features6format5human14human_readable17h9f8a5d008cf29026E(param_1,param_3,2);
     return;
   }
   if ((int)*(long *)(param_2 + 0x20) == 1) {
-    uucore::features::format::human::human_readable(param_1,param_3,1);
+    _ZN6uucore8features6format5human14human_readable17h9f8a5d008cf29026E(param_1,param_3,1);
     return;
   }
   if (*(char *)(param_2 + 0x49) == '\0') {
     uVar1 = *(ulong *)(param_2 + 0x28);
     if (uVar1 == 0) {
-      core::panicking::panic_const::panic_const_div_by_zero(&PTR_DAT_00284618);
+      _ZN4core9panicking11panic_const23panic_const_div_by_zero17haded503194f0bf6eE
+                (&PTR_DAT_00284618);
       pcVar2 = (code *)swi(3);
       (*pcVar2)();
       return;
@@ -39,6 +41,6 @@ void __rustcall uu_du::StatPrinter::convert_size(undefined8 param_1,long param_2
   else {
     puVar4 = &local_10;
   }
-  _<T_as_alloc::string::ToString>::to_string(param_1,puVar4);
+  _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17h2f753f516b2c872eE(param_1,puVar4);
   return;
 }

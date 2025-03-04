@@ -1,12 +1,12 @@
 fn uu_more::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct32, struct24
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct32, struct24
     let v1: i32;  // [sp-0x800]
     let v2: i32;  // [sp-0x7fc]
-    let v3: i4736;  // [sp-0x7f8], Other Possible Types: struct592, struct712, struct437
+    let v3: struct592;  // [sp-0x7f8], Other Possible Types: struct712, struct437
     let v4: i64;  // [sp-0x53c]
     let v5: i32;  // [sp-0x534]
-    let v6: i4736;  // [sp-0x530], Other Possible Types: struct592, struct712
-    let v7: i4736;  // [sp-0x268], Other Possible Types: struct592, struct32, struct24
+    let v6: struct592;  // [sp-0x530], Other Possible Types: struct712
+    let v7: struct592;  // [sp-0x268], Other Possible Types: struct32, struct24
     let v8: i64;  // [sp-0x260]
     let v9: i32;  // [sp-0x20]
     let v10: i32;  // [sp-0x1c]
@@ -19,8 +19,8 @@ fn uu_more::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::command::Command::override_usage(&v6, &v0);
     v6 = clap_builder::builder::command::Command::version(&v3, "0.0.28");
     memcpy(&v3, &v6, 700);
-    v4 = 549755814016 | *((&v6 as &char + 700) as &i64);
-    v5 = *((&v6 as &char + 708) as &i32);
+    v4 = 549755814016 | *((&v6.field_0 as &char + 700) as &i64);
+    v5 = *((&v6.field_0 as &char + 708) as &i32);
     v6 = clap_builder::builder::arg::Arg::new("print-over");
     v0 = clap_builder::builder::arg::Arg::short(&v6, 0x63);
     v6 = clap_builder::builder::arg::Arg::long(&v0, "print-over");
@@ -57,8 +57,8 @@ fn uu_more::uu_app(a0: &struct712) -> u64 {
     v0 = clap_builder::builder::arg::Arg::short(&v3, 0x50);
     v3 = clap_builder::builder::arg::Arg::long(&v0, "pattern");
     memcpy(&v0, &v3, 584);
-    v1 = *((&v3 as &char + 584) as &i32) & -34 | 32;
-    v2 = *((&v3 as &char + 588) as &i32);
+    v1 = *((&v3.field_0 as &char + 584) as &i32) & -34 | 32;
+    v2 = *((&v3.field_0 as &char + 588) as &i32);
     v3 = clap_builder::builder::arg::Arg::value_name(&v0, "pattern");
     v0 = clap_builder::builder::arg::Arg::help(&v3, "Display file beginning from pattern match");
     v3 = clap_builder::builder::command::Command::arg(&v6, &v0);
@@ -96,8 +96,8 @@ fn uu_more::uu_app(a0: &struct712) -> u64 {
     v6 = clap_builder::builder::command::Command::arg(&v3, &v7);
     v3 = clap_builder::builder::arg::Arg::new("files");
     memcpy(&v0, &v3, 584);
-    v1 = *((&v3 as &char + 584) as &i32) & -2;
-    v2 = *((&v3 as &char + 588) as &i32);
+    v1 = *((&v3.field_0 as &char + 584) as &i32) & -2;
+    v2 = *((&v3.field_0 as &char + 588) as &i32);
     v3 = clap_builder::builder::arg::Arg::action(&v0, 0x1);
     v0 = clap_builder::builder::arg::Arg::help(&v3, "Path to the files to be read");
     v3 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);

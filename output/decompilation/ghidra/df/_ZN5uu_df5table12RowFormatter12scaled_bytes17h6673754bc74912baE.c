@@ -1,7 +1,7 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void __rustcall
-uu_df::table::RowFormatter::scaled_bytes(undefined8 param_1,long param_2,undefined8 param_3)
+void _ZN5uu_df5table12RowFormatter12scaled_bytes17h6673754bc74912baE
+               (undefined8 param_1,long param_2,undefined8 param_3)
 
 {
   undefined8 uVar1;
@@ -23,9 +23,11 @@ uu_df::table::RowFormatter::scaled_bytes(undefined8 param_1,long param_2,undefin
                           / ((auVar2._8_8_ - _UNK_0010b8a8) +
                             ((double)CONCAT44(SUB164(_DAT_0010b900,0),(int)uVar1) - _DAT_0010b8a0)))
     ;
-    _<T_as_alloc::string::ToString>::to_string(param_1,&local_10);
+    _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17h22804fad5dd1c657E
+              (param_1,&local_10);
     return;
   }
-  blocks::to_magnitude_and_suffix(param_1,param_3,0,*(char *)(param_2 + 0x54));
+  _ZN5uu_df6blocks23to_magnitude_and_suffix17hfc39cb976c1a05edE
+            (param_1,param_3,0,*(char *)(param_2 + 0x54));
   return;
 }

@@ -1,14 +1,15 @@
 long long uu_wc::process_chunk::h5a18b758b2ccb002(unsigned long long a0[5], unsigned long a1, unsigned long a2, unsigned long long *a3, char *a4)
 {
     unsigned long long v0;  // [sp-0x50]
-    unsigned long v1;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0x40]
     unsigned long long v2;  // [sp-0x38]
     unsigned long long v4;  // rbx
     void* v5;  // r13
-    unsigned long long v6;  // rbp
-    unsigned int v8;  // r14d
-    unsigned int v10;  // r14d
-    unsigned long long v12;  // rax
+    unsigned int v6;  // edx
+    unsigned int v7;  // r14d
+    unsigned long long v8;  // rbp
+    unsigned long long v9;  // rax
+    unsigned long long v10;  // rax
 
     v1 = a1;
     v2 = a1 + a2;
@@ -16,16 +17,16 @@ long long uu_wc::process_chunk::h5a18b758b2ccb002(unsigned long long a0[5], unsi
     v5 = *(a3);
     if (!(int)core::str::validations::next_code_point::hb01acf43b4359c77(&v1))
     {
-        v6 = a0[4];
+        v8 = a0[4];
     }
     else
     {
+        v7 = v6;
         v0 = a0[3];
-        v6 = a0[4];
+        v8 = a0[4];
         do
         {
-            v8 = v10;
-            if (v8 - 9 < 5 || v8 == 32 || v8 >= 128 && (char)::0x4b7b10::core::unicode::unicode_data::white_space::lookup::hc2937f3d40e148ab(v8))
+            if (v7 - 9 < 5 || v7 == 32 || v7 >= 128 && (char)::0x4b7b10::core::unicode::unicode_data::white_space::lookup::hc2937f3d40e148ab(v7))
             {
                 *(a4) = 0;
                 v4 = 0;
@@ -37,28 +38,29 @@ long long uu_wc::process_chunk::h5a18b758b2ccb002(unsigned long long a0[5], unsi
                 a0[3] = v0;
                 v4 = v4 & 0xffffffffffffff00 | 1;
             }
-            if (v8 - 12 < 2)
+            if (v7 - 12 < 2)
             {
 LABEL_4ba780:
-                v6 = ::0x4b6250::core::cmp::max_by::h29d87775ffd58160(v5, v6);
-                a0[4] = v6;
+                v8 = ::0x4b6250::core::cmp::max_by::h29d87775ffd58160(v5, v8);
+                a0[4] = v8;
                 v5 = 0;
             }
             else
             {
-                if (v8 == 9)
+                if (v7 == 9)
                 {
                     v5 = (v5 & 18446744073709551608) + 8;
                     continue;
                 }
-                if (v8 == 10)
+                if (v7 == 10)
                     goto LABEL_4ba780;
-                v5 += (v8 < 127 ? 32 <= v8 : (v8 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width::hfd0b3b0958e151ec(v8)));
+                v9 = (v7 < 127 ? 32 <= v7 : (v7 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width::hfd0b3b0958e151ec(v7)));
+                v5 += v9;
             }
-        } while ((*(a3) = (unsigned long long)v5, (int)core::str::validations::next_code_point::hb01acf43b4359c77(&v1)));
+        } while ((*(a3) = (unsigned long long)v5, v7 = v6, (int)core::str::validations::next_code_point::hb01acf43b4359c77(&v1)));
     }
     a0[0] = a0[0] + a2;
-    v12 = ::0x4b6250::core::cmp::max_by::h29d87775ffd58160(v5, v6);
-    a0[4] = v12;
-    return v12;
+    v10 = ::0x4b6250::core::cmp::max_by::h29d87775ffd58160(v5, v8);
+    a0[4] = v10;
+    return v10;
 }

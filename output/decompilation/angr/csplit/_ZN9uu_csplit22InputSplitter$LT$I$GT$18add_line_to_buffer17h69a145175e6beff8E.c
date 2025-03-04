@@ -1,6 +1,6 @@
-long long uu_csplit::InputSplitter$LT$I$GT$::add_line_to_buffer::h69a145175e6beff8(unsigned long long *a0, struct_0 *a1, unsigned long a2, struct_1 *a3)
+long long uu_csplit::InputSplitter$LT$I$GT$::add_line_to_buffer::h69a145175e6beff8(unsigned long long *a0, struct_1 *a1, unsigned long a2, struct_0 *a3)
 {
-    int v0;  // [sp-0x58], Other Possible Types: unsigned long, unsigned long long
+    int v0;  // [sp-0x58], Other Possible Types: unsigned long
     int v1;  // [bp-0x50]
     unsigned long long v2;  // [sp-0x48]
     unsigned long v3;  // [sp-0x40], Other Possible Types: unsigned long long

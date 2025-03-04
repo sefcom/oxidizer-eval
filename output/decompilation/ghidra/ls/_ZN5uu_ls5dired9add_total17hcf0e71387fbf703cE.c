@@ -1,4 +1,4 @@
-void __rustcall uu_ls::dired::add_total(long param_1,long param_2)
+void _ZN5uu_ls5dired9add_total17hcf0e71387fbf703cE(long param_1,long param_2)
 
 {
   long lVar1;

@@ -7,7 +7,7 @@ long long uu_sort::merge::FileMerger::write_all_to::h13897dacf7fa302c(struct_0 *
     do
     { } while ((char)uu_sort::merge::FileMerger::write_next::h8e1994d240da19ce(a0, a1, a2));
     *((uint128_t *)&v0) = a0->field_0;
-    core::ptr::drop_in_place$LT$std..sync..mpsc..Sender$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$::h2b3b5e18f7d08066();
+    core::ptr::drop_in_place$LT$std..sync..mpsc..Sender$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$::h2b3b5e18f7d08066(&v0);
     v1 = a0->field_40;
     *((uint128_t *)&v0) = a0->field_30;
     std::thread::JoinInner$LT$T$GT$::join::h890e6ba2e8eeef40(&v2, &v0);

@@ -1,18 +1,18 @@
 long long uu_rm::prompt_file_permission_readonly::h2197b873951768fc(unsigned long long a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0x150], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x150]
     unsigned long long v1;  // [sp-0x148]
     struct struct_0 **v2;  // [sp-0x140], Other Possible Types: struct struct_1 **, unsigned long long
     int v3;  // [sp-0x138], Other Possible Types: unsigned long long
     void* v4;  // [sp-0x130]
     struct struct_0 **v5;  // [sp-0x120]
     unsigned long long v6;  // [sp-0x118]
-    unsigned long v7;  // [sp-0x110], Other Possible Types: unsigned long long
-    char *v8;  // [sp-0x108], Other Possible Types: unsigned long long
+    unsigned long v7;  // [sp-0x110]
+    char *v8;  // [sp-0x108]
     unsigned long long v9;  // [sp-0x100]
     unsigned long long v10;  // [sp-0xf8]
     char v11;  // [sp-0xf0]
-    unsigned long v12;  // [sp-0xe8], Other Possible Types: unsigned long long
+    unsigned long v12;  // [sp-0xe8]
     char v13;  // [bp-0xe0]
     char v14;  // [bp-0xa8]
     char v15;  // [bp-0x90]
@@ -25,7 +25,7 @@ long long uu_rm::prompt_file_permission_readonly::h2197b873951768fc(unsigned lon
     std::fs::metadata::h6df0603967c240bb(&v13, a0, a1);
     if (*((int *)&v13) != 2)
     {
-        v17 = vvar_33{reg 56} & 0xffffffffffffff00 | 1;
+        v17 = vvar_31{reg 56} & 0xffffffffffffff00 | 1;
         if ((v14 & 146))
         {
             core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$::h539b7fb1f87034ca(&v13);
@@ -64,7 +64,7 @@ long long uu_rm::prompt_file_permission_readonly::h2197b873951768fc(unsigned lon
             v21 = _$LT$std..io..stdio..Stderr$u20$as$u20$std..io..Write$GT$::flush::hf7b2528795edb6d7(&v12);
             if (!v21)
             {
-                vvar_314{reg 16} = uucore::read_yes::hc350e858ab85cf03();
+                vvar_313{reg 56} = uucore::read_yes::hc350e858ab85cf03();
                 core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$::h539b7fb1f87034ca(&v13);
                 return v17;
             }

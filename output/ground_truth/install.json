@@ -1,0 +1,499 @@
+{
+  "uu_install::mode::parse": {
+    "func_calls": {
+      "is_ascii_digit": 1,
+      "parse_numeric": 1,
+      "chars": 1,
+      "any": 1,
+      "parse_symbolic": 1
+    },
+    "macro_calls": {},
+    "string_literals": {}
+  },
+  "uu_install::mode::chmod": {
+    "func_calls": {
+      "Ok": 1
+    },
+    "macro_calls": {},
+    "string_literals": {}
+  },
+  "uu_install::chown_optional_user_group": {
+    "func_calls": {
+      "is_some": 2,
+      "Some": 2,
+      "to_path_buf": 1,
+      "wrap_chown": 1,
+      "geteuid": 1,
+      "MetadataFailed": 1,
+      "Ok": 2,
+      "into": 2,
+      "ChownFailed": 1,
+      "is_none": 1,
+      "metadata": 1,
+      "is_empty": 1,
+      "Err": 2
+    },
+    "macro_calls": {
+      "println": 1
+    },
+    "string_literals": {
+      "chown: {msg}": 1
+    }
+  },
+  "uu_install::InstallError::code": {
+    "func_calls": {},
+    "macro_calls": {},
+    "string_literals": {}
+  },
+  "uu_install::InstallError::fmt": {
+    "func_calls": {
+      "fmt": 4
+    },
+    "macro_calls": {
+      "write": 11,
+      "uio_error": 4
+    },
+    "string_literals": {
+      "omitting directory {}": 1,
+      "{} with -d requires at least one argument.": 1,
+      "": 1,
+      "cannot backup {} to {}": 1,
+      "failed to chmod {}": 1,
+      "target {} is not a directory": 1,
+      "invalid target {}: No such file or directory": 1,
+      "invalid user: {}": 1,
+      "Unimplemented feature: {opt}": 1,
+      "failed to create {}": 1,
+      "failed to chown {}: {}": 1,
+      "cannot install {} to {}": 1,
+      "strip program failed: {msg}": 1,
+      "invalid group: {}": 1,
+      "failed to access {}: Not a directory": 1
+    }
+  },
+  "uu_install::perform_backup": {
+    "func_calls": {
+      "to_path_buf": 1,
+      "rename": 1,
+      "Ok": 2,
+      "get_backup_path": 1,
+      "clone": 1,
+      "BackupFailed": 1,
+      "into": 1,
+      "exists": 1,
+      "Err": 1
+    },
+    "macro_calls": {
+      "println": 1
+    },
+    "string_literals": {
+      "removed {}": 1
+    }
+  },
+  "uu_install::set_ownership_and_permissions": {
+    "func_calls": {
+      "into": 1,
+      "ChmodFailed": 1,
+      "to_path_buf": 1,
+      "chmod": 1,
+      "Ok": 1,
+      "chown_optional_user_group": 1,
+      "is_err": 1,
+      "mode": 1,
+      "Err": 1
+    },
+    "macro_calls": {},
+    "string_literals": {}
+  },
+  "uu_install::preserve_timestamps": {
+    "func_calls": {
+      "into": 1,
+      "MetadataFailed": 1,
+      "from_last_access_time": 1,
+      "set_file_times": 1,
+      "metadata": 1,
+      "from_last_modification_time": 1,
+      "Err": 1,
+      "Ok": 2
+    },
+    "macro_calls": {
+      "show_error": 1
+    },
+    "string_literals": {
+      "{}": 1
+    }
+  },
+  "uu_install::need_copy": {
+    "func_calls": {
+      "is_file": 2,
+      "diff": 1,
+      "unwrap": 2,
+      "mode": 4,
+      "unwrap_or": 1,
+      "len": 2,
+      "Ok": 11,
+      "metadata": 2,
+      "gid": 2,
+      "getegid": 1,
+      "to_str": 2,
+      "uid": 2,
+      "geteuid": 1
+    },
+    "macro_calls": {},
+    "string_literals": {}
+  },
+  "uu_install::copy": {
+    "func_calls": {
+      "perform_backup": 1,
+      "strip_file": 1,
+      "preserve_timestamps": 1,
+      "set_ownership_and_permissions": 1,
+      "Ok": 2,
+      "need_copy": 1,
+      "copy_file": 1
+    },
+    "macro_calls": {
+      "println": 2,
+      "print": 1
+    },
+    "string_literals": {
+      "{} -> {}": 1,
+      " (backup: {})": 1
+    }
+  },
+  "uu_install::Behavior::mode": {
+    "func_calls": {},
+    "macro_calls": {},
+    "string_literals": {}
+  },
+  "uu_install::is_new_file_path": {
+    "func_calls": {
+      "is_empty": 1,
+      "unwrap_or": 1,
+      "map": 1,
+      "parent": 2,
+      "as_os_str": 1,
+      "exists": 1,
+      "unwrap": 1
+    },
+    "macro_calls": {},
+    "string_literals": {}
+  },
+  "uu_install::standard": {
+    "func_calls": {
+      "iter": 1,
+      "as_path": 1,
+      "collect": 1,
+      "map": 1,
+      "is_some": 2,
+      "is_potential_directory_path": 2,
+      "first": 1,
+      "parent": 1,
+      "unwrap": 4,
+      "OmittingDirectory": 1,
+      "is_file": 1,
+      "is_new_file_path": 1,
+      "Some": 1,
+      "into": 6,
+      "len": 2,
+      "CreateDirFailed": 1,
+      "InvalidTarget": 1,
+      "push": 1,
+      "components": 1,
+      "to_str": 1,
+      "to_path_buf": 2,
+      "pop": 1,
+      "copy_files_into_dir": 1,
+      "is_dir": 3,
+      "copy": 1,
+      "new": 4,
+      "ends_with": 1,
+      "clone": 1,
+      "to_string_lossy": 1,
+      "as_os_str": 1,
+      "is_empty": 2,
+      "create_dir_all": 1,
+      "Err": 6,
+      "trim_end_matches": 1,
+      "NotADirectory": 1,
+      "exists": 2
+    },
+    "macro_calls": {
+      "println": 1,
+      "format": 1
+    },
+    "string_literals": {
+      "missing file operand": 1,
+      "missing destination file operand after '{}'": 1,
+      "install: creating directory {}": 1
+    }
+  },
+  "uu_install::directory": {
+    "func_calls": {
+      "create_dir_all": 1,
+      "is_err": 1,
+      "mode": 1,
+      "map": 1,
+      "exists": 1,
+      "dir_strip_dot_for_creation": 1,
+      "to_string": 1,
+      "as_path": 2,
+      "into": 1,
+      "set_exit_code": 1,
+      "maybe_quote": 1,
+      "map_err_context": 1,
+      "DirNeedsArg": 1,
+      "Ok": 1,
+      "is_empty": 1,
+      "chmod": 1,
+      "Err": 1,
+      "iter": 1
+    },
+    "macro_calls": {
+      "println": 1,
+      "show_if_err": 1,
+      "show": 1
+    },
+    "string_literals": {
+      "creating directory {}": 1
+    }
+  },
+  "uu_install::copy_files_into_dir": {
+    "func_calls": {
+      "last": 1,
+      "push": 1,
+      "TargetDirIsntDir": 1,
+      "OmittingDirectory": 1,
+      "components": 1,
+      "to_path_buf": 2,
+      "unwrap": 1,
+      "Ok": 1,
+      "metadata": 1,
+      "is_dir": 2,
+      "map_err_context": 1,
+      "Err": 1,
+      "into": 1,
+      "clone": 1
+    },
+    "macro_calls": {
+      "show": 2,
+      "show_if_err": 1,
+      "format": 1
+    },
+    "string_literals": {
+      "cannot stat {}": 1
+    }
+  },
+  "uu_install::InstallError::usage": {
+    "func_calls": {},
+    "macro_calls": {},
+    "string_literals": {}
+  },
+  "uu_install::uumain::uumain": {
+    "func_calls": {
+      "unwrap_or_default": 1,
+      "behavior": 1,
+      "collect": 1,
+      "standard": 1,
+      "try_get_matches_from": 1,
+      "get_many": 1,
+      "directory": 1,
+      "uu_app": 1,
+      "check_unimplemented": 1,
+      "map": 2
+    },
+    "macro_calls": {},
+    "string_literals": {
+      "files": 1
+    }
+  },
+  "uu_install::uu_app": {
+    "func_calls": {
+      "new": 17,
+      "backup": 1,
+      "suffix": 1,
+      "action": 11,
+      "arg": 19,
+      "infer_long_args": 1,
+      "version": 1,
+      "backup_no_args": 1,
+      "value_hint": 4,
+      "help": 15,
+      "util_name": 1,
+      "override_usage": 1,
+      "format_usage": 1,
+      "value_name": 6,
+      "about": 1,
+      "long": 13,
+      "short": 14,
+      "num_args": 1
+    },
+    "macro_calls": {
+      "crate_version": 1
+    },
+    "string_literals": {
+      "no-target-directory": 2,
+      "verbose": 2,
+      "set ownership (super-user only)": 1,
+      "create-leading": 1,
+      "target-directory": 2,
+      "preserve-context": 2,
+      "CONTEXT": 1,
+      "preserve-timestamps": 2,
+      "DIRECTORY": 1,
+      "compare each pair of source and destination files, and in some cases, do not modify the destination at all": 1,
+      "set group ownership, instead of process's current group": 1,
+      "strip symbol tables (no action Windows)": 1,
+      "(unimplemented) preserve security context": 1,
+      "set permission mode (as in chmod), instead of rwxr-xr-x": 1,
+      "PROGRAM": 1,
+      "strip": 2,
+      "OWNER": 1,
+      "program used to strip binaries (no action Windows)": 1,
+      "(unimplemented) treat DEST as a normal file": 1,
+      "explain what is being done": 1,
+      "move all SOURCE arguments into DIRECTORY": 1,
+      "(unimplemented) set security context of files and directories": 1,
+      "mode": 2,
+      "MODE": 1,
+      "owner": 2,
+      "group": 2,
+      "apply access/modification times of SOURCE files to corresponding destination files": 1,
+      "strip-program": 2,
+      "treat all arguments as directory names. create all components of the specified directories": 1,
+      "directory": 2,
+      "GROUP": 1,
+      "compare": 2,
+      "create all leading components of DEST except the last, then copy SOURCE to DEST": 1,
+      "context": 2,
+      "files": 1,
+      "ignored": 2
+    }
+  },
+  "uu_install::check_unimplemented": {
+    "func_calls": {
+      "Unimplemented": 3,
+      "Err": 3,
+      "into": 3,
+      "Ok": 1,
+      "from": 3,
+      "get_flag": 3
+    },
+    "macro_calls": {},
+    "string_literals": {
+      "--context, -Z": 1,
+      "--preserve-context, -P": 1,
+      "no-target-directory": 1,
+      "context": 1,
+      "--no-target-directory, -T": 1,
+      "preserve-context": 1
+    }
+  },
+  "uu_install::is_potential_directory_path": {
+    "func_calls": {
+      "to_string_lossy": 1,
+      "ends_with": 2,
+      "is_dir": 1
+    },
+    "macro_calls": {},
+    "string_literals": {}
+  },
+  "uu_install::copy_file": {
+    "func_calls": {
+      "to_path_buf": 4,
+      "into": 2,
+      "remove_file": 1,
+      "Ok": 1,
+      "create": 1,
+      "InstallFailed": 2,
+      "Err": 2,
+      "copy": 1,
+      "as_os_str": 1,
+      "kind": 1
+    },
+    "macro_calls": {
+      "show_error": 1
+    },
+    "string_literals": {
+      "Failed to remove existing file {}. Error: {:?}": 1,
+      "/dev/null": 1
+    }
+  },
+  "uu_install::strip_file": {
+    "func_calls": {
+      "Err": 2,
+      "push": 1,
+      "arg": 1,
+      "to_str": 1,
+      "into": 2,
+      "new": 1,
+      "to_path_buf": 1,
+      "unwrap_or_default": 1,
+      "StripProgramFailed": 2,
+      "from": 1,
+      "status": 1,
+      "as_os_str": 1,
+      "success": 1,
+      "remove_file": 2,
+      "to_string": 1,
+      "Ok": 1,
+      "starts_with": 1
+    },
+    "macro_calls": {
+      "format": 1
+    },
+    "string_literals": {
+      "strip process terminated abnormally - exit code: {}": 1,
+      ".": 1
+    }
+  },
+  "uu_install::behavior": {
+    "func_calls": {
+      "determine_backup_mode": 1,
+      "get_one": 5,
+      "to_string": 2,
+      "InvalidGroup": 1,
+      "Some": 3,
+      "map_err": 1,
+      "cloned": 1,
+      "Err": 4,
+      "as_str": 3,
+      "InvalidUser": 1,
+      "clone": 2,
+      "Ok": 1,
+      "parse": 1,
+      "determine_backup_suffix": 1,
+      "grp2gid": 1,
+      "ok_or": 1,
+      "get_flag": 6,
+      "unwrap_or": 3,
+      "is_empty": 2,
+      "from": 1,
+      "into": 4,
+      "get_umask": 1,
+      "usr2uid": 1,
+      "map": 3,
+      "contains_id": 1
+    },
+    "macro_calls": {
+      "show_error": 3
+    },
+    "string_literals": {
+      "Options --compare and --preserve-timestamps are mutually exclusive": 1,
+      "strip": 2,
+      "Options --compare and --strip are mutually exclusive": 1,
+      "mode": 2,
+      "strip-program": 1,
+      "directory": 1,
+      "Invalid mode string: {}": 1,
+      "": 2,
+      "group": 1,
+      "compare": 1,
+      "preserve-timestamps": 1,
+      "owner": 1,
+      "verbose": 1,
+      "target-directory": 1,
+      "create-leading": 1
+    }
+  }
+}

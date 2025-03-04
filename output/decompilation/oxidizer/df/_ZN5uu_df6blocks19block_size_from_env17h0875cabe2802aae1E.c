@@ -1,6 +1,6 @@
 fn uu_df::blocks::block_size_from_env() -> u64 {
-    let v0: i256;  // [sp-0xb8], Other Possible Types: Result<struct24, struct8>
-    let v1: i192;  // [sp-0x98]
+    let v0: Result<struct24, struct8>;  // [sp-0xb8]
+    let v1: iNone;  // [sp-0x98]
     let v2: i64;  // [sp-0x78]
     let v3: i64;  // [sp-0x70]
     let v4: i64;  // [sp-0x68]
@@ -28,8 +28,8 @@ fn uu_df::blocks::block_size_from_env() -> u64 {
             return 0;
         }
         v0 = std::env::var(v12, v13);
-        if !v0 {
-            v10 = uucore::parser::parse_size::parse_size_u64(*((&v1 as &char + 8) as &i64), *((&v0 as &char + 24) as &i64));
+        if !v0 as i64 {
+            v10 = uucore::parser::parse_size::parse_size_u64((&v1)[8] as i64, *((&v0 as &char + 24) as &i64));
             return v14;
         }
     }

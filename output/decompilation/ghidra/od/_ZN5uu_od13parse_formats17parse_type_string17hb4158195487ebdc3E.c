@@ -1,5 +1,5 @@
-void __rustcall
-uu_od::parse_formats::parse_type_string(undefined8 *param_1,long param_2,long param_3)
+void _ZN5uu_od13parse_formats17parse_type_string17hb4158195487ebdc3E
+               (undefined8 *param_1,long param_2,long param_3)
 
 {
   char cVar1;
@@ -62,7 +62,7 @@ uu_od::parse_formats::parse_type_string(undefined8 *param_1,long param_2,long pa
   local_128 = param_2;
   local_120 = param_3;
   local_a8 = param_2;
-  iVar3 = core::str::validations::next_code_point(&local_a8);
+  iVar3 = _ZN4core3str11validations15next_code_point17h6c42fc7883874c6bE(&local_a8);
   if ((iVar3 != 0) && (pcVar4 = (char *)(extraout_RDX & 0xffffffff), (int)extraout_RDX != 0x110000))
   {
     do {
@@ -76,7 +76,8 @@ uu_od::parse_formats::parse_type_string(undefined8 *param_1,long param_2,long pa
         local_b8 = local_128;
         local_b0 = local_120;
                     /* try { // try from 001cb597 to 001cb5a5 has its CatchHandler @ 001cb8f0 */
-        parse_type_string::___closure__(&local_100,&local_c0);
+        _ZN5uu_od13parse_formats17parse_type_string28__u7b__u7b_closure_u7d__u7d_17hc6dc8de7beca6039E
+                  (&local_100,&local_c0);
         local_118 = (undefined4)CONCAT43(uStack_f4,local_f8._1_3_);
         uStack_114._3_1_ = (undefined)uStack_f0;
         uStack_114 = CONCAT13(uStack_114._3_1_,(int3)((uint)uStack_f4 >> 8));
@@ -115,13 +116,14 @@ uu_od::parse_formats::parse_type_string(undefined8 *param_1,long param_2,long pa
       local_b0 = local_120;
 LAB_001cb614:
       uVar6 = 0x2010101010000 >> (cVar1 * '\b' & 0x3fU);
-      iVar3 = core::str::validations::next_code_point(&local_a8);
+      iVar3 = _ZN4core3str11validations15next_code_point17h6c42fc7883874c6bE(&local_a8);
       pcVar4 = (char *)(ulong)extraout_EDX;
       if (iVar3 == 0) {
         pcVar4 = "b";
       }
       local_135 = 0;
-      cVar2 = is_format_size_char(pcVar4,uVar6 & 0xffffffff,&local_135);
+      cVar2 = _ZN5uu_od13parse_formats19is_format_size_char17h42f5b1cb8010d6ddE
+                        (pcVar4,uVar6 & 0xffffffff,&local_135);
       if (cVar2 == '\0') {
         local_118 = 0;
         uStack_114 = 0;
@@ -129,8 +131,9 @@ LAB_001cb614:
         uStack_10c = 0;
         local_108 = 0;
                     /* try { // try from 001cb690 to 001cb69c has its CatchHandler @ 001cb8f5 */
-        while (cVar2 = is_format_size_decimal(pcVar4,uVar6 & 0xff,&local_118), cVar2 != '\0') {
-          iVar3 = core::str::validations::next_code_point(&local_a8);
+        while (cVar2 = _ZN5uu_od13parse_formats22is_format_size_decimal17h9f07da48a23fad4fE
+                                 (pcVar4,uVar6 & 0xff,&local_118), cVar2 != '\0') {
+          iVar3 = _ZN4core3str11validations15next_code_point17h6c42fc7883874c6bE(&local_a8);
           pcVar4 = (char *)(ulong)extraout_EDX_00;
           if (iVar3 == 0) {
             pcVar4 = "b";
@@ -139,14 +142,15 @@ LAB_001cb614:
         uVar5 = local_135;
         if (local_108 != 0) {
                     /* try { // try from 001cb6d3 to 001cb710 has its CatchHandler @ 001cb8ee */
-          uVar6 = core::num::_<impl_core::str::traits::FromStr_for_u8>::from_str
+          uVar6 = _ZN4core3num59__LT_impl_u20_core__str__traits__FromStr_u20_for_u20_u8_GT_8from_str17h4c7dd843d3d7bcf1E
                             (CONCAT44(uStack_10c,uStack_110));
           local_58 = local_128;
           local_50 = local_120;
           uVar5 = extraout_DL;
           local_60 = &local_118;
           if ((uVar6 & 1) != 0) {
-            parse_type_string::___closure__(&local_100,&local_60);
+            _ZN5uu_od13parse_formats17parse_type_string28__u7b__u7b_closure_u7d__u7d_17h65fc53be62888ca5E
+                      (&local_100,&local_60);
             local_78 = CONCAT43(uStack_f4,local_f8._1_3_);
             uStack_71 = (undefined)uStack_f0;
             uStack_70 = (undefined7)(CONCAT44(uStack_ec,uStack_f0) >> 8);
@@ -158,17 +162,18 @@ LAB_001cb614:
               *(char *)(local_130 + 2) = (char)local_f8;
               *local_130 = 1;
                     /* try { // try from 001cb8b6 to 001cb8bf has its CatchHandler @ 001cb8e9 */
-              core::ptr::drop_in_place<alloc::string::String>(&local_118);
+              _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h265121219f172febE
+                        (&local_118);
               goto LAB_001cb86f;
             }
           }
         }
                     /* try { // try from 001cb74e to 001cb7db has its CatchHandler @ 001cb8f0 */
         local_135 = uVar5;
-        core::ptr::drop_in_place<alloc::string::String>(&local_118);
+        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h265121219f172febE(&local_118);
 LAB_001cb756:
         if ((int)pcVar4 == 0x7a) {
-          iVar3 = core::str::validations::next_code_point(&local_a8);
+          iVar3 = _ZN4core3str11validations15next_code_point17h6c42fc7883874c6bE(&local_a8);
           pcVar4 = (char *)(ulong)extraout_EDX_01;
           if (iVar3 == 0) {
             pcVar4 = "b";
@@ -180,7 +185,7 @@ LAB_001cb756:
         }
       }
       else {
-        iVar3 = core::str::validations::next_code_point(&local_a8);
+        iVar3 = _ZN4core3str11validations15next_code_point17h6c42fc7883874c6bE(&local_a8);
         if (iVar3 != 0) {
           pcVar4 = (char *)(extraout_RDX_00 & 0xffffffff);
           goto LAB_001cb756;
@@ -188,13 +193,14 @@ LAB_001cb756:
         uVar5 = 0;
         pcVar4 = "b";
       }
-      od_format_type(&local_100,cVar1,local_135);
+      _ZN5uu_od13parse_formats14od_format_type17h6c27c20666861ca9E(&local_100,cVar1,local_135);
       if (local_100 == 3) {
         local_40 = local_128;
         local_38 = local_120;
         local_48 = &local_135;
                     /* try { // try from 001cb82f to 001cb840 has its CatchHandler @ 001cb8e9 */
-        parse_type_string::___closure__(&local_118,&local_48);
+        _ZN5uu_od13parse_formats17parse_type_string28__u7b__u7b_closure_u7d__u7d_17hc6eb34f6de81c0faE
+                  (&local_118,&local_48);
         local_98 = local_118;
         uStack_94 = uStack_114;
         uStack_90 = uStack_110;
@@ -207,7 +213,7 @@ LAB_001cb756:
         *(undefined4 *)((long)local_130 + 0x14) = uStack_10c;
         *local_130 = 1;
 LAB_001cb86f:
-        core::ptr::drop_in_place<alloc::vec::Vec<uu_od::parse_formats::ParsedFormatterItemInfo>>
+        _ZN4core3ptr89drop_in_place_LT_alloc__vec__Vec_LT_uu_od__parse_formats__ParsedFormatterItemInfo_GT__GT_17hf096e71933bd90a6E
                   (&local_d8);
         return;
       }
@@ -217,7 +223,7 @@ LAB_001cb86f:
       uStack_8c = uStack_ec;
       local_88 = local_e8;
       local_e0 = uVar5;
-      ::alloc::vec::Vec<T,A>::push(&local_d8,&local_100);
+      _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17hdb693d9c78fd2861E(&local_d8,&local_100);
     } while ((int)pcVar4 != 0x110000);
   }
   local_130[3] = local_c8;

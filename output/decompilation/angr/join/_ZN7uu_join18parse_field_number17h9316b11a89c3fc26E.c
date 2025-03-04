@@ -9,7 +9,7 @@ long long uu_join::parse_field_number::h9316b11a89c3fc26(unsigned long long a0[2
     unsigned long long v6;  // [sp-0x80]
     unsigned long long v7;  // [sp-0x78]
     char v8;  // [sp-0x70]
-    unsigned long long v9;  // [sp-0x68]
+    unsigned long v9;  // [sp-0x68]
     unsigned long long v10;  // [sp-0x60]
     struct struct_0 **v11;  // [sp-0x58]
     unsigned long long v12;  // [sp-0x50]
@@ -48,7 +48,7 @@ long long uu_join::parse_field_number::h9316b11a89c3fc26(unsigned long long a0[2
     v13 = 0;
     v11 = &v3;
     v12 = 1;
-    ::0x4c2990::core::option::Option$LT$T$GT$::map_or_else::h84da32fb4d9c85b4();
+    ::0x4c2990::core::option::Option$LT$T$GT$::map_or_else::h84da32fb4d9c85b4(&v14, &v9);
     v15 = 1;
     *((double *)&a0[0]) = alloc::boxed::Box$LT$T$GT$::new::h7aaaeb17d3fe937d(&v14);
     a0[1] = &g_5352b8;

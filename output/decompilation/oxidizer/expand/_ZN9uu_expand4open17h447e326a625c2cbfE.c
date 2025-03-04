@@ -1,6 +1,6 @@
 fn uu_expand::open(a0: &Result<struct56, struct16>, a1: u32, a2: u32) -> u64 {
-    let v0: Result<struct16, struct4>;  // [sp-0x40], Other Possible Types: i128
-    let v1: Result<struct4, struct8>;  // [sp-0x30], Other Possible Types: i96
+    let v0: Result<struct16, struct4>;  // [sp-0x40]
+    let v1: Result<struct4, struct8>;  // [sp-0x30]
     let v3: i64;  // rax
     let v4: i64;  // rcx
 

@@ -3,7 +3,7 @@ long long uu_head::arg_iterate::h2f4030183cfe2e94(unsigned long long a0[3], unsi
     char v0;  // [bp-0x1a8]
     char *v1;  // [bp-0x198], Other Possible Types: unsigned long
     unsigned long v2;  // [sp-0x190], Other Possible Types: unsigned long long
-    struct struct_0 **v3;  // [sp-0x188], Other Possible Types: unsigned long, unsigned long long
+    struct struct_2 **v3;  // [sp-0x188], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v4;  // [bp-0x180], Other Possible Types: unsigned int
     void* v5;  // [sp-0x178]
     char *v6;  // [sp-0x138]
@@ -31,7 +31,7 @@ long long uu_head::arg_iterate::h2f4030183cfe2e94(unsigned long long a0[3], unsi
     unsigned long long v29;  // r15
     unsigned long long v30;  // r14
     unsigned long long v31;  // rax
-    struct_2 *v32;  // rax
+    struct_0 *v32;  // rax
     struct_1 *v33;  // rax
     unsigned long long v34;  // rax
 
@@ -62,7 +62,7 @@ long long uu_head::arg_iterate::h2f4030183cfe2e94(unsigned long long a0[3], unsi
             uu_head::parse::parse_obsolete::ha14ffc23c3e4c861(&v19, v29, v30);
             if (!*((long long *)&v19))
             {
-                v32 = ::0x46b440::alloc::alloc::Global::alloc_impl::hf61749d460433fff();
+                v32 = ::0x46b440::alloc::alloc::Global::alloc_impl::hf61749d460433fff(48);
                 if (v32)
                 {
                     v3 = v18;
@@ -85,7 +85,7 @@ long long uu_head::arg_iterate::h2f4030183cfe2e94(unsigned long long a0[3], unsi
             {
                 *((int128_t *)&v12) = *((int128_t *)&v22);
                 *((int128_t *)&v10) = *((int128_t *)&v20);
-                v33 = ::0x46b440::alloc::alloc::Global::alloc_impl::hf61749d460433fff();
+                v33 = ::0x46b440::alloc::alloc::Global::alloc_impl::hf61749d460433fff(24);
                 if (!v33)
                     alloc::alloc::handle_alloc_error::h3816d26e7f8ae8a1(8, 24); /* do not return */
                 v33->field_10 = v7;
@@ -113,7 +113,7 @@ long long uu_head::arg_iterate::h2f4030183cfe2e94(unsigned long long a0[3], unsi
                     v5 = 0;
                     v3 = &v10;
                     v4 = 1;
-                    core::option::Option$LT$T$GT$::map_or_else::h1dd76b100b962b8a();
+                    core::option::Option$LT$T$GT$::map_or_else::h1dd76b100b962b8a(&v23, &v1);
                     v4 = 1;
                     *((int128_t *)&v1) = *((int128_t *)&v23);
                     v3 = *((long long *)&v24);
@@ -132,7 +132,7 @@ long long uu_head::arg_iterate::h2f4030183cfe2e94(unsigned long long a0[3], unsi
                     v5 = 0;
                     v3 = &v10;
                     v4 = 1;
-                    core::option::Option$LT$T$GT$::map_or_else::h1dd76b100b962b8a();
+                    core::option::Option$LT$T$GT$::map_or_else::h1dd76b100b962b8a(&v25, &v1);
                     v4 = 1;
                     *((int128_t *)&v1) = *((int128_t *)&v25);
                     v3 = *((long long *)&v26);
@@ -143,14 +143,14 @@ LABEL_46c23f:
                 a0[2] = &g_52a490;
                 a0[0] = 1;
             }
-            v34 = ::0x46a740::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h04b221221386ed4a();
-            v34 = ::0x46a740::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h04b221221386ed4a();
+            v34 = ::0x46a740::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h04b221221386ed4a(&v17);
+            v34 = ::0x46a740::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h04b221221386ed4a(&v6);
             return v34;
         }
     }
     else
     {
-        v28 = ::0x46b440::alloc::alloc::Global::alloc_impl::hf61749d460433fff();
+        v28 = ::0x46b440::alloc::alloc::Global::alloc_impl::hf61749d460433fff(24);
         if (!v28)
             alloc::alloc::handle_alloc_error::h3816d26e7f8ae8a1(8, 24); /* do not return */
         v28->field_10 = v7;
@@ -162,7 +162,7 @@ LABEL_46c23f:
         a0[0] = 0;
         if (*((long long *)&v8) != 0x8000000000000000)
         {
-            v34 = ::0x46a740::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h04b221221386ed4a();
+            v34 = ::0x46a740::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h04b221221386ed4a(&v8);
             return v34;
         }
         return &g_52a500;

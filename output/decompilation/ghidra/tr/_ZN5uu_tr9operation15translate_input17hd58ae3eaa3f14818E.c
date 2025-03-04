@@ -1,5 +1,5 @@
-void __rustcall
-uu_tr::operation::translate_input(undefined8 param_1,undefined8 param_2,undefined8 param_3)
+void _ZN5uu_tr9operation15translate_input17hd58ae3eaa3f14818E
+               (undefined8 param_1,undefined8 param_2,undefined8 param_3)
 
 {
   undefined *puVar1;
@@ -16,7 +16,9 @@ uu_tr::operation::translate_input(undefined8 param_1,undefined8 param_2,undefine
   long local_40;
   undefined8 local_38;
   
-  puVar1 = PTR_read_until_00232f38;
+  puVar1 = 
+  PTR__ZN62__LT_std__io__stdio__StdinLock_u20_as_u20_std__io__BufRead_GT_10read_until17h22767f011618eb41E_00232f38
+  ;
   local_88 = 0;
   local_80 = 1;
   local_78 = 0;
@@ -32,24 +34,25 @@ uu_tr::operation::translate_input(undefined8 param_1,undefined8 param_2,undefine
     local_48 = local_80;
                     /* try { // try from 001722fd to 00172325 has its CatchHandler @ 00172389 */
     local_38 = param_3;
-    _<alloc::vec::Vec<T,A>as_alloc::vec::spec_extend::SpecExtend<T,I>>::spec_extend
+    _ZN97__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_alloc__vec__spec_extend__SpecExtend_LT_T_C_I_GT__GT_11spec_extend17hd45417de63711eb1E
               (&local_70,&local_48);
-    uVar2 = _<std::io::buffered::bufwriter::BufWriter<W>as_std::io::Write>::write_all
+    uVar2 = _ZN83__LT_std__io__buffered__bufwriter__BufWriter_LT_W_GT__u20_as_u20_std__io__Write_GT_9write_all17h266d567e2e387c1eE
                       (param_2,local_68,local_60);
-    core::result::Result<T,E>::unwrap(uVar2);
+    _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hdacc8680b3e233fdE(uVar2);
     local_78 = 0;
     local_60 = 0;
                     /* try { // try from 00172338 to 0017233f has its CatchHandler @ 00172384 */
-    core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(local_58);
+    _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17h3721ff3632bfcddfE
+              (local_58);
   }
                     /* try { // try from 00172345 to 0017234e has its CatchHandler @ 00172382 */
-  core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(local_58);
+  _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17h3721ff3632bfcddfE
+            (local_58);
                     /* try { // try from 0017234f to 00172358 has its CatchHandler @ 0017237d */
-  core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&local_70);
+  _ZN4core3ptr46drop_in_place_LT_alloc__vec__Vec_LT_u8_GT__GT_17hefea7399e2ac3a44E(&local_70);
                     /* try { // try from 00172359 to 00172360 has its CatchHandler @ 00172378 */
-  core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&local_88);
-  core::ptr::
-  drop_in_place<uu_tr::operation::ChainedSymbolTranslator<uu_tr::operation::TranslateOperation,uu_tr::operation::SqueezeOperation>>
+  _ZN4core3ptr46drop_in_place_LT_alloc__vec__Vec_LT_u8_GT__GT_17hefea7399e2ac3a44E(&local_88);
+  _ZN4core3ptr143drop_in_place_LT_uu_tr__operation__ChainedSymbolTranslator_LT_uu_tr__operation__TranslateOperation_C_uu_tr__operation__SqueezeOperation_GT__GT_17hf3ef7a5e03e34340E
             (param_3);
   return;
 }

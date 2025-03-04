@@ -11,7 +11,7 @@ long long uu_mkdir::uu_app::h2281d15957ce8683(unsigned long long a0)
     char v8;  // [bp-0x530]
     char v9;  // [bp-0x274]
     char v10;  // [bp-0x26c]
-    char v11;  // [bp-0x268], Other Possible Types: unsigned long long
+    char v11;  // [sp-0x268], Other Possible Types: unsigned long long
     unsigned long long v13;  // rdx
 
     clap_builder::builder::command::Command::new::h795eb4adb8e3c50a(&v0, uucore::util_name::h60d842bf27b05e82(), v13);

@@ -1,4 +1,4 @@
-long long uu_ls::display_len_or_rdev::habe6b45626a6ff16(struct_0 *a0, struct_1 *a1, unsigned long a2, unsigned int a3)
+long long uu_ls::display_len_or_rdev::habe6b45626a6ff16(struct_1 *a0, struct_0 *a1, unsigned long a2, unsigned int a3)
 {
     unsigned int v0;  // [sp-0x40]
     unsigned int v1;  // [sp-0x3c]

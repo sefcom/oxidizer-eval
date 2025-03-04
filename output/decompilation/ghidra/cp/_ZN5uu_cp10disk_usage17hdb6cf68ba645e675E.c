@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_cp::disk_usage(long param_1,long param_2,char param_3)
+undefined  [16] _ZN5uu_cp10disk_usage17hdb6cf68ba645e675E(long param_1,long param_2,char param_3)
 
 {
   long lVar1;
@@ -15,14 +15,15 @@ undefined  [16] __rustcall uu_cp::disk_usage(long param_1,long param_2,char para
   
   local_e0 = param_1 + param_2 * 0x18;
   local_e8 = param_1;
-  lVar1 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next(&local_e8);
+  lVar1 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h0721f68d5f0414eaE
+                    (&local_e8);
   if (lVar1 == 0) {
     lVar3 = 0;
   }
   else if (param_3 == '\0') {
     lVar3 = 0;
     do {
-      std::fs::metadata(local_d8,lVar1);
+      _ZN3std2fs8metadata17hcf81ab27d993cd47E(local_d8,lVar1);
       lVar4 = local_d0;
       if (local_d8[0] == 2) goto LAB_00208a5d;
       lVar1 = local_88;
@@ -30,24 +31,25 @@ undefined  [16] __rustcall uu_cp::disk_usage(long param_1,long param_2,char para
         lVar1 = 0;
       }
       lVar3 = lVar3 + lVar1;
-      lVar1 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+      lVar1 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h0721f68d5f0414eaE
                         (&local_e8);
     } while (lVar1 != 0);
   }
   else {
     lVar3 = 0;
     do {
-      std::fs::metadata(local_d8,lVar1);
+      _ZN3std2fs8metadata17hcf81ab27d993cd47E(local_d8,lVar1);
       lVar4 = local_d0;
       if (local_d8[0] == 2) goto LAB_00208a5d;
       lVar4 = local_88;
       if ((local_a0 & 0xf000) == 0x4000) {
-        auVar5 = disk_usage_directory(*(undefined8 *)(lVar1 + 8),*(undefined8 *)(lVar1 + 0x10));
+        auVar5 = _ZN5uu_cp20disk_usage_directory17h440b87226599f819E
+                           (*(undefined8 *)(lVar1 + 8),*(undefined8 *)(lVar1 + 0x10));
         lVar4 = auVar5._8_8_;
         if (auVar5._0_8_ != 0) goto LAB_00208a5d;
       }
       lVar3 = lVar3 + lVar4;
-      lVar1 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+      lVar1 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h0721f68d5f0414eaE
                         (&local_e8);
     } while (lVar1 != 0);
   }

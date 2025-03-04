@@ -1,12 +1,12 @@
 long long uu_sort::get_rlimit::h790b745a9692d371(unsigned long long a0[2])
 {
-    int v0;  // [sp-0x48], Other Possible Types: unsigned int (32 bits)[3]
+    unsigned int v0[3];  // [sp-0x48]
     char v1;  // [bp-0x30]
     unsigned int v2;  // [sp-0x18]
     unsigned long long v4;  // rcx
     void* v5;  // rax
 
-    *((uint128_t *)&v0) = 0;
+    *((uint128_t *)v0) = 0;
     if (!getrlimit(7, v0))
     {
         v4 = *((long long *)&v0[0]);

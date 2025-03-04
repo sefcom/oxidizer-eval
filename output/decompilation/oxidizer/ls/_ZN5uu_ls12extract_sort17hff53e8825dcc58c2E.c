@@ -1,5 +1,5 @@
 fn uu_ls::extract_sort(a0: u32) -> u64 {
-    let v0: i320;  // [sp-0x48], Other Possible Types: Result<struct40, struct8>
+    let v0: Result<struct40, struct8>;  // [sp-0x48]
     let v2: i64;  // rax
     let v3: i64;  // rbx
     let v4: i64;  // r14
@@ -20,19 +20,19 @@ fn uu_ls::extract_sort(a0: u32) -> u64 {
     if !v2 {
         v5 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "t");
         v6 = v5 & -0x100 | 3;
-        if v5 {
+        if v5 as u8 {
             return v6;
         }
         v8 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "S");
         v6 = v8 & -0x100 | 2;
-        if v8 {
+        if v8 as u8 {
             return v6;
         } else if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "U") as i8 {
             v11 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "v");
             v6 = v11 & -0x100 | 4;
-            if !v11 {
+            if !v11 as u8 {
                 v13 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "X");
-                v6 = v13 & -0x100 | (v13 & 255) * 4 | 1;
+                v6 = v13 & -0x100 | ((v13 & 255) * 4) as u8 | 1;
                 return v6;
             }
             return v6;
@@ -43,32 +43,32 @@ fn uu_ls::extract_sort(a0: u32) -> u64 {
         if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "none") as i8 {
             v7 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "name");
             v6 = v7 & -0x100 | 1;
-            if v7 {
+            if v7 as u8 {
                 return v6;
             }
             v9 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "time");
             v6 = v9 & -0x100 | 3;
-            if v9 {
+            if v9 as u8 {
                 return v6;
             }
             v10 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "size");
             v6 = v10 & -0x100 | 2;
-            if v10 {
+            if v10 as u8 {
                 return v6;
             }
             v12 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "version");
             v6 = v12 & -0x100 | 4;
-            if v12 {
+            if v12 as u8 {
                 return v6;
             }
             v14 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "extension");
             v6 = v14 & -0x100 | 5;
-            if v14 {
+            if v14 as u8 {
                 return v6;
             }
             v15 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "width");
             v6 = v15 & -0x100 | 6;
-            if v15 {
+            if v15 as u8 {
                 return v6;
             }
             panic!("internal error: entered unreachable code: Invalid field for --sort");

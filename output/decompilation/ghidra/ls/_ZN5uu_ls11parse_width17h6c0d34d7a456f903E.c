@@ -1,4 +1,4 @@
-void __rustcall uu_ls::parse_width(char *param_1,long param_2)
+void _ZN5uu_ls11parse_width17h6c0d34d7a456f903E(char *param_1,long param_2)
 
 {
   undefined4 uVar1;
@@ -20,9 +20,9 @@ void __rustcall uu_ls::parse_width(char *param_1,long param_2)
   undefined8 local_10;
   
   if (param_2 == 0) {
-    std::env::var_os(&local_20,&DAT_00134e37,7);
+    _ZN3std3env6var_os17h00ce706604dc1520E(&local_20,&DAT_00134e37,7);
     if (CONCAT44(uStack_1c,local_20) == -0x8000000000000000) {
-      uVar1 = terminal_size::unix::terminal_size();
+      uVar1 = _ZN13terminal_size4unix13terminal_size17h9cd9ea50976260baE();
       local_58._2_2_ = 0x50;
       if ((short)uVar1 != 0) {
         local_58._2_2_ = (short)((uint)uVar1 >> 0x10);
@@ -35,11 +35,12 @@ void __rustcall uu_ls::parse_width(char *param_1,long param_2)
       uStack_54 = uStack_1c;
       uStack_50 = uStack_18;
       uStack_4c = uStack_14;
-      local_58._2_2_ = parse_width::___closure__(&local_58);
+      local_58._2_2_ =
+           _ZN5uu_ls11parse_width28__u7b__u7b_closure_u7d__u7d_17h0185f2defe4792c8E(&local_58);
     }
   }
   else {
-    parse_width::___closure__
+    _ZN5uu_ls11parse_width28__u7b__u7b_closure_u7d__u7d_17h592058b1caa92954E
               (&local_58,*(undefined8 *)(param_2 + 8),*(undefined8 *)(param_2 + 0x10));
     if ((char)local_58 != '\a') {
       *(undefined4 *)(param_1 + 0x34) = local_24;

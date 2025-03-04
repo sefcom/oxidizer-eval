@@ -3,14 +3,14 @@ long long uu_join::State::initialize::h1944f11392ba49f9(struct_3 *a0, unsigned l
     unsigned long long v0;  // [sp-0xc8]
     char *v1;  // [sp-0xc0]
     unsigned long long v2;  // [sp-0xb8]
-    unsigned long v3;  // [sp-0xb0], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0xb0]
     unsigned long long v4;  // [sp-0xa8]
     struct struct_0 **v5;  // [sp-0xa0], Other Possible Types: struct struct_1 **
     unsigned long long v6;  // [sp-0x98]
     void* v7;  // [sp-0x90]
     struct struct_0 **v8;  // [sp-0x80]
     unsigned long long v9;  // [sp-0x78]
-    unsigned long v10;  // [sp-0x70], Other Possible Types: unsigned long long
+    unsigned long v10;  // [sp-0x70]
     int v11;  // [sp-0x68]
     int v12;  // [sp-0x58]
     unsigned long long v13;  // [sp-0x48]

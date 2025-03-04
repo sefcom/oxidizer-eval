@@ -1,4 +1,4 @@
-void __rustcall uu_df::DfError::OptionsError(undefined8 *param_1,undefined8 *param_2)
+void _ZN5uu_df7DfError12OptionsError17h3bfb3e3701beab84E(undefined8 *param_1,undefined8 *param_2)
 
 {
   undefined8 uVar1;

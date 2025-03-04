@@ -9,13 +9,13 @@ long long uu_vdir::uumain::uumain::hdf045730deb38ec7(unsigned long long a0, unsi
     char v6;  // [bp-0x528]
     char v7;  // [bp-0x518]
     char v8;  // [bp-0x508]
-    int v9;  // [bp-0x4f8], Other Possible Types: char, unsigned long, unsigned long long
+    int v9;  // [bp-0x4f8], Other Possible Types: char, unsigned long
     unsigned long v10;  // [sp-0x4f0], Other Possible Types: unsigned long long
     int v11;  // [bp-0x4e8], Other Possible Types: char, unsigned long long
     char v12;  // [bp-0x4e0]
     int v13;  // [sp-0x4d8]
     int v14;  // [sp-0x4c8]
-    unsigned long v15;  // [sp-0x3f0], Other Possible Types: unsigned long long
+    unsigned long v15;  // [sp-0x3f0]
     unsigned long long v16;  // [sp-0x3e8]
     unsigned long long v17;  // [sp-0x3e0]
     char v18;  // [bp-0x3d8]

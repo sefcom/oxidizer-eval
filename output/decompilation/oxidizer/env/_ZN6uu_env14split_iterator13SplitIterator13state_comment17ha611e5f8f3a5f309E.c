@@ -8,12 +8,12 @@ fn uu_env::split_iterator::SplitIterator::state_comment(a0: &Option<struct40>, a
     match (v4 as u32) {
         10 => {
             v4 = uu_env::split_iterator::SplitIterator::skip_one(a1);
-            if v0 != 8 {
-                v4 = v2;
-                v5 = v0;
+            if *(&v0 as &i32) != 8 {
+                v4 = *(&v2 as &i64);
+                v5 = *(&v0 as &i128);
                 return Some(struct40 {
                     field_0: v5
-                    field_16: v1
+                    field_16: *(&v1 as &i128)
                     field_32: v4
                 });
             }

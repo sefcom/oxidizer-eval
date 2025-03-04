@@ -3,7 +3,7 @@ long long uu_cp::copydir::ends_with_slash_dot::h7ca260d86f8cd653(unsigned long l
     char v0;  // [bp-0x30]
     char v1;  // [bp-0x28]
     char v2;  // [bp-0x20]
-    unsigned long v3;  // [sp-0x18], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x18]
     unsigned long long v4;  // [sp-0x10]
     unsigned long v6;  // rdx
 

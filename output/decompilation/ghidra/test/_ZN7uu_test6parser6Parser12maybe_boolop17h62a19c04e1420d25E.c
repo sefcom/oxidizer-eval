@@ -1,4 +1,4 @@
-void __rustcall uu_test::parser::Parser::maybe_boolop(int *param_1,undefined8 param_2)
+void _ZN7uu_test6parser6Parser12maybe_boolop17h62a19c04e1420d25E(int *param_1,undefined8 param_2)
 
 {
   char cVar1;
@@ -38,16 +38,16 @@ void __rustcall uu_test::parser::Parser::maybe_boolop(int *param_1,undefined8 pa
   int iStack_18;
   int iStack_14;
   
-  cVar1 = peek_is_boolop(param_2);
+  cVar1 = _ZN7uu_test6parser6Parser14peek_is_boolop17h626769eb8da01166E(param_2);
   if (cVar1 == '\0') {
 LAB_001af7d4:
     param_1[0] = 7;
     param_1[1] = 0;
   }
   else {
-    next_token(&local_a8,param_2);
+    _ZN7uu_test6parser6Parser10next_token17hec2da245067de41fE(&local_a8,param_2);
                     /* try { // try from 001af70d to 001af71c has its CatchHandler @ 001af811 */
-    peek(local_58,param_2);
+    _ZN7uu_test6parser6Parser4peek17hd4e8be8df06376c2E(local_58,param_2);
     if (local_58[0] == 6) {
       local_b8 = local_88;
       local_c8 = local_98;
@@ -59,8 +59,8 @@ LAB_001af7d4:
       iStack_d0 = iStack_a0;
       iStack_cc = iStack_9c;
                     /* try { // try from 001af744 to 001af7c0 has its CatchHandler @ 001af820 */
-      Symbol::into_literal(&local_80,&local_d8);
-      literal(&local_30,param_2,&local_80);
+      _ZN7uu_test6parser6Symbol12into_literal17hae4d6fad5ad71dcbE(&local_80,&local_d8);
+      _ZN7uu_test6parser6Parser7literal17h487831028acf0989E(&local_30,param_2,&local_80);
       local_80 = local_30;
       iStack_7c = iStack_2c;
       iStack_78 = iStack_28;
@@ -71,7 +71,7 @@ LAB_001af7d4:
       iStack_64 = iStack_14;
 joined_r0x001af7c5:
       if (local_80 == 7) {
-        core::ptr::drop_in_place<uu_test::parser::Symbol>(local_58);
+        _ZN4core3ptr44drop_in_place_LT_uu_test__parser__Symbol_GT_17h2e64046051177754E(local_58);
         goto LAB_001af7d4;
       }
     }
@@ -85,9 +85,9 @@ joined_r0x001af7c5:
       iStack_d4 = iStack_a4;
       iStack_d0 = iStack_a0;
       iStack_cc = iStack_9c;
-      boolop(&local_80,param_2,&local_d8);
+      _ZN7uu_test6parser6Parser6boolop17h3c27ebf1f812d540E(&local_80,param_2,&local_d8);
       if (local_80 == 7) {
-        maybe_boolop(&local_d8,param_2);
+        _ZN7uu_test6parser6Parser12maybe_boolop17h62a19c04e1420d25E(&local_d8,param_2);
         local_80 = local_d8;
         iStack_7c = iStack_d4;
         iStack_78 = iStack_d0;
@@ -107,7 +107,7 @@ joined_r0x001af7c5:
     param_1[1] = iStack_7c;
     param_1[2] = iStack_78;
     param_1[3] = iStack_74;
-    core::ptr::drop_in_place<uu_test::parser::Symbol>(local_58);
+    _ZN4core3ptr44drop_in_place_LT_uu_test__parser__Symbol_GT_17h2e64046051177754E(local_58);
   }
   return;
 }

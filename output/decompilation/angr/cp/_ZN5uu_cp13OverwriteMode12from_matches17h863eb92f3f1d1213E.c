@@ -5,7 +5,7 @@ long long uu_cp::OverwriteMode::from_matches::h863eb92f3f1d1213(unsigned long lo
     unsigned long long v3;  // rbp
 
     v0 = v2;
-    v3 = vvar_21{reg 56} & 0xffffffffffffff00 | 1;
+    v3 = vvar_20{reg 56} & 0xffffffffffffff00 | 1;
     if ((char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a0, "interactive", 11))
     {
 LABEL_50141f:

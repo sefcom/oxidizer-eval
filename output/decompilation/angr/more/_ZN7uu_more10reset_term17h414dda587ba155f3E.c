@@ -1,6 +1,6 @@
 long long uu_more::reset_term::h414dda587ba155f3(unsigned long long a0)
 {
-    unsigned long v0;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x38]
     unsigned long long v1;  // [sp-0x30]
     unsigned long long v2;  // [sp-0x28]
     int v3;  // [sp-0x20]

@@ -16,6 +16,6 @@ long long uu_env::apply_removal_of_all_env_vars::h7a792f149fdec8bf(struct_0 *a0)
         core::ptr::drop_in_place$LT$core..option..Option$LT$$LP$std..ffi..os_str..OsString$C$std..ffi..os_str..OsString$RP$$GT$$GT$::h51bca49ba82cc3a5(&v1);
     }
     core::ptr::drop_in_place$LT$core..option..Option$LT$$LP$std..ffi..os_str..OsString$C$std..ffi..os_str..OsString$RP$$GT$$GT$::h51bca49ba82cc3a5(&v1);
-    v3 = core::ptr::drop_in_place$LT$std..env..VarsOs$GT$::h6ba13bc04ee97109();
+    v3 = core::ptr::drop_in_place$LT$std..env..VarsOs$GT$::h6ba13bc04ee97109(&v0);
     return v3;
 }

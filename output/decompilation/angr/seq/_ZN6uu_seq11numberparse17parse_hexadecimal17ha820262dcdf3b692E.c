@@ -6,7 +6,7 @@ long long uu_seq::numberparse::parse_hexadecimal::ha820262dcdf3b692(unsigned lon
     int v3;  // [sp-0x78]
     char v4;  // [bp-0x70]
     void* v5;  // [sp-0x68]
-    unsigned long v6;  // [sp-0x58], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x58]
     char v7;  // [sp-0x50]
     int v8;  // [bp-0x4f]
     unsigned long long v9;  // [sp-0x40]
@@ -85,7 +85,7 @@ LABEL_4ce2a3:
                         a0[0] = 9223372036854775810;
                         a0[5] = 2;
                         a0[1] = 0;
-                        ::0x4ccea0::core::ptr::drop_in_place$LT$bigdecimal..BigDecimal$GT$::h9ea64fcf6ce46304();
+                        ::0x4ccea0::core::ptr::drop_in_place$LT$bigdecimal..BigDecimal$GT$::h9ea64fcf6ce46304(&v6);
                     }
                     else
                     {
@@ -112,7 +112,7 @@ LABEL_4ce2a3:
                         v25->field_0 = 0;
                         v25->field_10 = 0;
                     }
-                    ::0x4ccea0::core::ptr::drop_in_place$LT$bigdecimal..BigDecimal$GT$::h9ea64fcf6ce46304();
+                    ::0x4ccea0::core::ptr::drop_in_place$LT$bigdecimal..BigDecimal$GT$::h9ea64fcf6ce46304(&v0);
                     return a0;
                 }
             }

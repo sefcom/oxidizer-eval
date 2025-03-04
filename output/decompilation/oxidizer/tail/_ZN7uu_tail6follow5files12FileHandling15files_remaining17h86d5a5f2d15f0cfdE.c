@@ -1,5 +1,5 @@
 fn uu_tail::follow::files::FileHandling::files_remaining(a0: u32) -> u8 {
-    let v0: struct26;  // [sp-0x58], Other Possible Types: i208
+    let v0: struct26;  // [sp-0x58]
     let v2: i64;  // r14
     let v3: i64;  // r15
     let v4: i64;  // r12

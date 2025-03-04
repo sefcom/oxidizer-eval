@@ -1,19 +1,19 @@
 long long uu_numfmt::format::format_and_print_delimited::h8362ae98c5bd7b3f(unsigned long long a0[3], unsigned long long a1, unsigned long long a2)
 {
-    unsigned long v0;  // [sp-0x1e8], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x1e8]
     unsigned long long v1;  // [sp-0x1e0]
     int v2;  // [sp-0x1d8]
     unsigned long long v3[3];  // [sp-0x1c8]
-    unsigned long v4;  // [sp-0x1b8], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0x1b8]
     char v5;  // [bp-0x1b0]
     char v6;  // [bp-0x1a8]
     char v7;  // [bp-0x1a0]
     char *v8;  // [sp-0x198]
-    unsigned long v9;  // [sp-0x190], Other Possible Types: unsigned long long
+    unsigned long long v9;  // [sp-0x190], Other Possible Types: unsigned long
     char v10;  // [bp-0x180]
     char *v11;  // [sp-0x178]
     unsigned long long v12;  // [sp-0x170]
-    char v13;  // [bp-0x168], Other Possible Types: unsigned long long
+    char v13;  // [sp-0x168], Other Possible Types: unsigned long
     unsigned long long v14;  // [sp-0x160]
     struct struct_0 **v15;  // [sp-0x158]
     unsigned long long v16;  // [sp-0x150]
@@ -23,7 +23,7 @@ long long uu_numfmt::format::format_and_print_delimited::h8362ae98c5bd7b3f(unsig
     unsigned short v20;  // [sp-0xf0]
     int v21;  // [sp-0xe8]
     unsigned long long v22[3];  // [sp-0xd8]
-    char v23;  // [bp-0xd0], Other Possible Types: unsigned long long
+    char v23;  // [sp-0xd0], Other Possible Types: unsigned long
     unsigned long long v24;  // [sp-0xc8]
     unsigned long long v25;  // [sp-0xc0]
     int v26;  // [sp-0xb8]
@@ -32,13 +32,12 @@ long long uu_numfmt::format::format_and_print_delimited::h8362ae98c5bd7b3f(unsig
     int v32;  // ymm0
     unsigned long long v33;  // r14
     char v34;  // al
-    unsigned long long v35;  // rdx
-    unsigned int v36;  // r9
-    char *v37;  // 4098
+    unsigned int v35;  // r9
+    char *v36;  // 4098
+    int v37;  // xmm0
     int v38;  // xmm0
-    int v39;  // xmm0
-    unsigned long long v40[3];  // rax
-    unsigned long long v41[3];  // rcx
+    unsigned long long v39[3];  // rax
+    unsigned long long v40[3];  // rcx
 
     if (v28[14] == 0x8000000000000000)
         core::option::unwrap_failed::h0e11329e76906eaa(&g_535bb0); /* do not return */
@@ -82,23 +81,23 @@ long long uu_numfmt::format::format_and_print_delimited::h8362ae98c5bd7b3f(unsig
             }
             else
             {
-                uu_numfmt::format::format_string::h230c6a9d10700455(&v8, core::str::_$LT$impl$u20$str$GT$::trim_start_matches::hd29dae6a79270574(v0, v1), v35, v28, 0, v36);
-                v37 = v8;
-                v38 = *((int128_t *)&v9);
-                v2 = v38;
+                uu_numfmt::format::format_string::h230c6a9d10700455(&v8, core::str::_$LT$impl$u20$str$GT$::trim_start_matches::hd29dae6a79270574(v0, v1), a2, v28, 0, v35);
+                v36 = v8;
+                v37 = *((int128_t *)&v9);
+                v2 = v37;
                 v3[0] = *((long long *)&v10);
-                if (v37)
+                if (v36)
                 {
-                    v40 = v3;
-                    v41 = a0;
-                    v41[2] = v40;
-                    *((void*)&v41[0]) = v2;
-                    return v40;
+                    v39 = v3;
+                    v40 = a0;
+                    v40[2] = v39;
+                    *((void*)&v40[0]) = v2;
+                    return v39;
                 }
                 v22[0] = v3;
-                v39 = v2;
-                v32 = (v32 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v38) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v39;
-                v21 = v39;
+                v38 = v2;
+                v32 = (v32 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v37) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v38;
+                v21 = v38;
                 v11 = &v21;
                 v12 = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::hf84d46339d179f53;
                 v13 = &g_416000;
@@ -118,7 +117,7 @@ long long uu_numfmt::format::format_and_print_delimited::h8362ae98c5bd7b3f(unsig
     v25 = 8;
     *((uint128_t *)&v26) = 0;
     std::io::stdio::_print::he918bceb0c89db46(&v23);
-    v40 = a0;
-    v40[0] = 0x8000000000000000;
-    return v40;
+    v39 = a0;
+    v39[0] = 0x8000000000000000;
+    return v39;
 }

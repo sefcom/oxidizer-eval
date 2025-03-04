@@ -1,7 +1,7 @@
 fn uu_tr::operation::TranslateOperation::new(a0: &struct48, a1: void*, a2: &u64) -> u64 {
-    let v0: i256;  // [sp-0xd0], Other Possible Types: struct96, Option<struct16>, struct32
-    let v1: i256;  // [sp-0x70], Other Possible Types: struct32
-    let v2: i272;  // [sp-0x50], Other Possible Types: struct34
+    let v0: struct96;  // [sp-0xd0], Other Possible Types: Option<struct16>, struct32
+    let v1: struct32;  // [sp-0x70]
+    let v2: struct34;  // [sp-0x50]
     let v4: i64;  // rax
     let v6: i64;  // rdx
 
@@ -18,7 +18,7 @@ fn uu_tr::operation::TranslateOperation::new(a0: &struct48, a1: void*, a2: &u64)
             *((a0 + 16) as &i128) = g_52eef8;
             *(a0 as &i128) = g_52eee8;
             *((a0 + 32) as &long long) = core::result::Result<T,E>::expect(&v0);
-            *((a0 + 40) as &i64) = v6;
+            *((a0 + 40) as &unsigned long) = v6;
         }
         return struct16 {
             field_0: 0

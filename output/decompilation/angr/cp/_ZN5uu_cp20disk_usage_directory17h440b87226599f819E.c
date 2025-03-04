@@ -1,8 +1,8 @@
 long long uu_cp::disk_usage_directory::h440b87226599f819(unsigned long long a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0x148], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x148]
     char v1;  // [sp-0x140]
-    unsigned long v2;  // [sp-0x138], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x138]
     unsigned long long v3;  // [sp-0x130]
     int v4;  // [sp-0x128]
     unsigned long long v5;  // [sp-0x118]
@@ -18,6 +18,7 @@ long long uu_cp::disk_usage_directory::h440b87226599f819(unsigned long long a0, 
     void* v18;  // rbx
     int v19;  // ymm0
     int v22;  // xmm0
+    unsigned long v23;  // rdx
     unsigned long long v24;  // rbp
 
     std::fs::read_dir::h8e79f9b54e02cd93(&v11, a0, a1);
@@ -31,7 +32,7 @@ long long uu_cp::disk_usage_directory::h440b87226599f819(unsigned long long a0, 
         _$LT$std..fs..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h153c1e0177592fe2(&v6, &v0);
         if (!*((long long *)&v6))
         {
-            ::0x4fc3e0::core::ptr::drop_in_place$LT$std..fs..ReadDir$GT$::h9fae80e55e0d42e2();
+            ::0x4fc3e0::core::ptr::drop_in_place$LT$std..fs..ReadDir$GT$::h9fae80e55e0d42e2(&v0);
             return 0;
         }
         if (!v2)
@@ -53,13 +54,14 @@ LABEL_508bab:
             if (((short)*((int *)&(&v11)[4]) & 0xf000) == 0x4000)
             {
                 std::fs::DirEntry::path::h5b1bdb0f1090af27(&v11, &v2);
+                v24 = v23;
                 if (!uu_cp::disk_usage_directory::h440b87226599f819(*((long long *)&v12), *((long long *)&v13)))
                 {
-                    ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
+                    ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v11);
                 }
                 else
                 {
-                    ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
+                    ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v11);
 LABEL_508bd0:
                     core::ptr::drop_in_place$LT$std..fs..DirEntry$GT$::hb26f2e4edf913520(&v2);
                     break;
@@ -76,5 +78,5 @@ LABEL_508bd0:
             v18 += v24;
         }
     }
-    ::0x4fc3e0::core::ptr::drop_in_place$LT$std..fs..ReadDir$GT$::h9fae80e55e0d42e2();
+    ::0x4fc3e0::core::ptr::drop_in_place$LT$std..fs..ReadDir$GT$::h9fae80e55e0d42e2(&v0);
 }

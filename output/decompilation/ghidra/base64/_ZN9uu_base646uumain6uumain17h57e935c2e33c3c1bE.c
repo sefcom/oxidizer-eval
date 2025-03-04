@@ -1,4 +1,5 @@
-undefined  [16] __rustcall uu_base64::uumain::uumain(undefined8 param_1,undefined8 param_2)
+undefined  [16]
+_ZN9uu_base646uumain6uumain17h57e935c2e33c3c1bE(undefined8 param_1,undefined8 param_2)
 
 {
   undefined auVar1 [16];
@@ -26,7 +27,7 @@ undefined  [16] __rustcall uu_base64::uumain::uumain(undefined8 param_1,undefine
   undefined4 uStack_18;
   undefined4 uStack_14;
   
-  uu_base32::base_common::parse_base_cmd_args
+  _ZN9uu_base3211base_common19parse_base_cmd_args17hebf5c3bfe7660b5fE
             (&local_78,param_1,param_2,
              "encode/decode data and print to standard output\nWith no FILE, or when FILE is -, read standard input.\n\nThe data are encoded as described for the base64 alphabet in RFC 3548.\nWhen decoding, the input may contain newlines in addition\nto the bytes of the formal base64 alphabet. Use --ignore-garbage\nto attempt to recover from any other non-alphabet bytes in the\nencoded stream."
              ,0x177,"{} [OPTION]... [FILE]",0x15);
@@ -43,7 +44,8 @@ undefined  [16] __rustcall uu_base64::uumain::uumain(undefined8 param_1,undefine
     uStack_20 = uStack_58;
     uStack_1c = uStack_54;
                     /* try { // try from 001744b5 to 001744c4 has its CatchHandler @ 00174556 */
-    (*(code *)PTR_get_input_0024de88)(&local_78,&local_40);
+    (*(code *)PTR__ZN9uu_base3211base_common9get_input17h0f77b7573e033d64E_0024de88)
+              (&local_78,&local_40);
     local_88 = CONCAT44(uStack_6c,uStack_70);
     local_80 = CONCAT44(uStack_64,local_68);
     auVar1._8_8_ = local_80;
@@ -62,13 +64,13 @@ undefined  [16] __rustcall uu_base64::uumain::uumain(undefined8 param_1,undefine
       uStack_70 = (undefined4)uStack_38;
       uStack_6c = uStack_38._4_4_;
                     /* try { // try from 0017450b to 0017451b has its CatchHandler @ 00174542 */
-      auVar1 = uu_base32::base_common::handle_input(&local_88,0,&local_78);
-      core::ptr::
-      drop_in_place<alloc::boxed::Box<dyn_core::error::Error_core::marker::Sync_core::marker::Send>>
+      auVar1 = _ZN9uu_base3211base_common12handle_input17h3e33950ee952075bE(&local_88,0,&local_78);
+      _ZN4core3ptr118drop_in_place_LT_alloc__boxed__Box_LT_dyn_u20_core__error__Error_u2b_core__marker__Sync_u2b_core__marker__Send_GT__GT_17h7155bfd3c4b56ec3E
                 (local_88,local_80);
     }
     else {
-      core::ptr::drop_in_place<uu_base32::base_common::Config>(&local_40);
+      _ZN4core3ptr51drop_in_place_LT_uu_base32__base_common__Config_GT_17h99d51649836290b4E
+                (&local_40);
     }
   }
   return auVar1;

@@ -2,34 +2,34 @@ fn uu_touch::uu_app(a0: &struct712) -> u64 {
     let v0: i64;  // [sp-0xad0]
     let v1: i8;  // [bp-0xac8]
     let v2: i8;  // [bp-0xac0]
-    let v3: i4736;  // [sp-0xab8], Other Possible Types: struct592, struct712, struct8, struct96, struct144, struct90
+    let v3: struct592;  // [sp-0xab8], Other Possible Types: struct712, struct8, struct90, struct96, int
     let v4: i64;  // [sp-0xab0]
-    let v5: i64;  // [sp-0xaa8]
+    let v5: i64;  // [sp-0xaa8], Other Possible Types: int
     let v6: i64;  // [sp-0xaa0]
-    let v7: i128;  // [bp-0xa98]
-    let v8: i64;  // [sp-0xa88]
+    let v7: iNone;  // [bp-0xa98]
+    let v8: i64;  // [sp-0xa88], Other Possible Types: int
     let v9: i64;  // [sp-0xa80]
-    let v10: i8;  // [bp-0xa78]
+    let v10: i8;  // [bp-0xa78], Other Possible Types: unsigned long
     let v11: struct72;  // [sp-0xa70]
     let v12: i8;  // [sp-0xa5f]
-    let v13: i192;  // [sp-0x7f0], Other Possible Types: struct24, struct72
+    let v13: struct72;  // [sp-0x7f0], Other Possible Types: struct24
     let v14: i8;  // [bp-0x7a8]
-    let v15: i4736;  // [sp-0x798], Other Possible Types: struct592, struct96, struct24
+    let v15: struct592;  // [sp-0x798], Other Possible Types: struct96, struct24
     let v16: i32;  // [sp-0x550]
     let v17: i32;  // [sp-0x54c]
-    let v18: i3504;  // [sp-0x540], Other Possible Types: struct592, struct712, struct437
+    let v18: struct592;  // [sp-0x540], Other Possible Types: struct712, struct437
     let v19: i64;  // [sp-0x284]
     let v20: i32;  // [sp-0x27c]
-    let v21: i64;  // [sp-0x278], Other Possible Types: struct592, struct72, struct48
+    let v21: struct592;  // [sp-0x278], Other Possible Types: struct72, unsigned long, struct48
     let v22: i64;  // [sp-0x270]
     let v23: i64;  // [sp-0x268]
     let v25: i64;  // rdx
-    let v26: i128;  // xmm1
-    let v27: i128;  // xmm2
-    let v28: i128;  // xmm3
-    let v29: i128;  // xmm1
-    let v30: i128;  // xmm2
-    let v31: i128;  // xmm3
+    let v26: iNone;  // xmm1
+    let v27: iNone;  // xmm2
+    let v28: iNone;  // xmm3
+    let v29: iNone;  // xmm1
+    let v30: iNone;  // xmm2
+    let v31: iNone;  // xmm3
 
     v18 = clap_builder::builder::command::Command::new(uucore::util_name(), v25);
     v3 = clap_builder::builder::command::Command::version(&v18, "0.0.28");
@@ -37,8 +37,8 @@ fn uu_touch::uu_app(a0: &struct712) -> u64 {
     v15 = uucore::format_usage("{} [OPTION]... [USER]");
     v3 = clap_builder::builder::command::Command::override_usage(&v18, &v15);
     memcpy(&v18, &v3, 700);
-    v19 = 1126449662918784 | *((&v3 as &char + 700) as &i64);
-    v20 = *((&v3 as &char + 708) as &i32);
+    v19 = 1126449662918784 | *((&v3.field_0 as &char + 700) as &i64);
+    v20 = *((&v3.field_0 as &char + 708) as &i32);
     v3 = clap_builder::builder::arg::Arg::new("help");
     v15 = clap_builder::builder::arg::Arg::long(&v3, "help");
     v3 = clap_builder::builder::arg::Arg::help(&v15, "Print help information.");
@@ -58,8 +58,8 @@ fn uu_touch::uu_app(a0: &struct712) -> u64 {
     v15 = clap_builder::builder::arg::Arg::short(&v18, 0x64);
     v18 = clap_builder::builder::arg::Arg::long(&v15, "date");
     memcpy(&v15, &v18, 584);
-    v16 = *((&v18 as &char + 584) as &i32) | 32;
-    v17 = *((&v18 as &char + 588) as &i32);
+    v16 = *((&v18.field_0 as &char + 584) as &i32) | 32;
+    v17 = *((&v18.field_0 as &char + 588) as &i32);
     v18 = clap_builder::builder::arg::Arg::help(&v15, "parse argument and use it instead of current time");
     v15 = clap_builder::builder::arg::Arg::value_name(&v18, "STRING");
     v21 = clap_builder::builder::arg::Arg::conflicts_with(&v15, "timestamp");
@@ -87,58 +87,51 @@ fn uu_touch::uu_app(a0: &struct712) -> u64 {
     v15 = clap_builder::builder::arg::Arg::help(&v18, "use this file's times instead of the current time");
     v18 = clap_builder::builder::arg::Arg::value_name(&v15, "FILE");
     v0 = 2;
-    v23 = v2;
+    v23 = *(&v2 as &i64);
     v21 = v0;
-    v22 = v1;
+    v22 = *(&v1 as &i64);
     v15 = clap_builder::builder::arg::Arg::value_parser(&v18, &v21);
     v18 = clap_builder::builder::arg::Arg::value_hint(&v15, 0x2);
     v15 = clap_builder::builder::arg::Arg::conflicts_with(&v18, "timestamp");
     v18 = clap_builder::builder::command::Command::arg(&v3, &v15);
     v3 = clap_builder::builder::arg::Arg::new("time");
     v15 = clap_builder::builder::arg::Arg::long(&v3, "time");
-    v3 = clap_builder::builder::arg::Arg::help(&v15, "change only the specified time: \"access\", \"atime\", or \"use\" are equivalent to -a; \"modify\" or \"mtime\" are equivalent to -m");
+    v3 = clap_builder::builder::arg::Arg::help(&v15, "change only the specified time: "access", "atime", or "use" are equivalent to -a; "modify" or "mtime" are equivalent to -m");
     v15 = clap_builder::builder::arg::Arg::value_name(&v3, "WORD");
     v8 = &g_475002;
     v9 = 5;
     v6 = 0x8000000000000000;
-    v7 = v14;
+    *(&v7 as &i128) = *(&v14 as &i128);
     v3 = struct8 {
         field_16: 0
     };
     v4 = 8;
     v5 = 0;
-    v10 = 0;
+    *(&v10 as &i8) = 0;
     v21 = clap_builder::builder::possible_value::PossibleValue::alias(&v3, "access");
     v13 = clap_builder::builder::possible_value::PossibleValue::alias(&v21, "use");
     v8 = &g_475007;
     v9 = 5;
     v6 = 0x8000000000000000;
-    v7 = v14;
+    *(&v7 as &i128) = *(&v14 as &i128);
     v3 = struct8 {
         field_16: 0
     };
     v4 = 8;
     v5 = 0;
-    v10 = 0;
+    *(&v10 as &i8) = 0;
     v21 = clap_builder::builder::possible_value::PossibleValue::alias(&v3, "modify");
-    v26 = *((&v13 as &char + 16) as &i128);
-    v27 = *((&v13 as &char + 32) as &i128);
-    v28 = *((&v13 as &char + 48) as &i128);
-    v3 = struct144 {
-        field_0: v13
-        field_16: v26
-        field_32: v27
-        field_48: v28
-        field_64: *((&v13 as &char + 64) as &i64)
-        field_72: <UNKNOWN>
-        field_88: <UNKNOWN>
-        field_104: <UNKNOWN>
-        field_120: <UNKNOWN>
-        field_136: <UNKNOWN>
-    };
-    v29 = *((&v21 as &char + 16) as &i128);
-    v30 = *((&v21 as &char + 32) as &i128);
-    v31 = *((&v21 as &char + 48) as &i128);
+    v26 = *(&v13.field_16 as &i128);
+    v27 = v13.field_32;
+    v28 = v13.field_48;
+    *(&v3 as &u128) = v13.field_0;
+    v5 = v26;
+    v7 = v27;
+    v8 = v28;
+    *(&v10 as &u64) = v13.field_64;
+    v29 = *(&v21.field_16 as &i128);
+    v30 = v21.field_32;
+    v31 = v21.field_48;
     v11 = v21;
     v13 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v3);
     v21 = clap_builder::builder::arg::Arg::value_parser(&v15, &v13);

@@ -40,7 +40,7 @@ long long uu_test::files::h2d66ad67db33f3bc(struct_0 *a0, unsigned long long a1,
     int v37;  // [sp-0x68]
     int v38;  // [sp-0x58]
     int v39;  // [sp-0x48]
-    unsigned long long v40;  // [bp+0x8]
+    unsigned long v40;  // [bp+0x8]
     unsigned long long v41;  // rax
     unsigned long long v42;  // r15
     unsigned long long v43;  // r12
@@ -117,10 +117,10 @@ long long uu_test::files::h2d66ad67db33f3bc(struct_0 *a0, unsigned long long a1,
             }
             else
             {
-                vvar_445{stack -600} = 1;
-                vvar_446{stack -592} = a5;
-                vvar_447{stack -584} = v40;
-                vvar_448{stack -576} = 1;
+                vvar_439{stack -600} = 1;
+                vvar_440{stack -592} = a5;
+                vvar_441{stack -584} = v40;
+                vvar_442{stack -576} = 1;
                 ::0x4ab340::_$LT$T$u20$as$u20$alloc..string..ToString$GT$::to_string::h0530b763d48a6791(&a0->field_8, &v0);
                 a0->field_0 = 4;
                 return v41;

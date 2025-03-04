@@ -1,4 +1,4 @@
-void __rustcall uu_test::parser::Parser::term(int *param_1,undefined8 param_2)
+void _ZN7uu_test6parser6Parser4term17h385cc0ae73b5bef0E(int *param_1,undefined8 param_2)
 
 {
   int local_88;
@@ -29,15 +29,15 @@ void __rustcall uu_test::parser::Parser::term(int *param_1,undefined8 param_2)
   undefined4 uStack_1c;
   undefined8 local_18;
   
-  next_token(&local_60);
+  _ZN7uu_test6parser6Parser10next_token17hec2da245067de41fE(&local_60);
   switch(CONCAT44(uStack_5c,local_60)) {
   case 0:
                     /* try { // try from 001aef56 to 001aef60 has its CatchHandler @ 001af053 */
-    lparen(&local_88,param_2);
+    _ZN7uu_test6parser6Parser6lparen17h57f06a78ce35371dE(&local_88,param_2);
     goto LAB_001aefa2;
   case 1:
                     /* try { // try from 001aef97 to 001aefa1 has its CatchHandler @ 001af053 */
-    bang(&local_88,param_2);
+    _ZN7uu_test6parser6Parser4bang17h9b754ef1da85f93eE(&local_88,param_2);
 LAB_001aefa2:
     if (local_88 == 7) {
       param_1[0] = 7;
@@ -51,7 +51,7 @@ LAB_001aefa2:
       param_1[2] = iStack_80;
       param_1[3] = iStack_7c;
     }
-    core::ptr::drop_in_place<uu_test::parser::Symbol>(&local_60);
+    _ZN4core3ptr44drop_in_place_LT_uu_test__parser__Symbol_GT_17h2e64046051177754E(&local_60);
     break;
   default:
     local_18 = local_40;
@@ -63,7 +63,7 @@ LAB_001aefa2:
     uStack_34 = uStack_5c;
     uStack_30 = uStack_58;
     uStack_2c = uStack_54;
-    literal(&local_88,param_2,&local_38);
+    _ZN7uu_test6parser6Parser7literal17h487831028acf0989E(&local_88,param_2,&local_38);
     if (local_88 == 7) {
       param_1[0] = 7;
       param_1[1] = 0;
@@ -85,7 +85,7 @@ LAB_001aefa2:
     iStack_84 = uStack_5c;
     iStack_80 = uStack_58;
     iStack_7c = uStack_54;
-    uop(param_2,&local_88);
+    _ZN7uu_test6parser6Parser3uop17h62a6f0e931485a3cE(param_2,&local_88);
     param_1[0] = 7;
     param_1[1] = 0;
     break;
@@ -99,7 +99,7 @@ LAB_001aefa2:
     iStack_84 = uStack_5c;
     iStack_80 = uStack_58;
     iStack_7c = uStack_54;
-    ::alloc::vec::Vec<T,A>::push(param_2,&local_88);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h254fc79c897546acE(param_2,&local_88);
     param_1[0] = 7;
     param_1[1] = 0;
   }

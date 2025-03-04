@@ -1,6 +1,6 @@
 long long uu_unexpand::next_tabstop::h948056bd8ee01f21(unsigned long long *a0, unsigned long a1, unsigned long a2)
 {
-    unsigned long v0;  // [sp-0x20], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x20]
     unsigned long long *v1;  // [sp-0x18]
     unsigned long long v2;  // [sp-0x10]
 

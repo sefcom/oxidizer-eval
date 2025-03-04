@@ -1,5 +1,5 @@
-undefined8 * __rustcall
-uu_seq::numberparse::parse_no_decimal_no_exponent
+undefined8 *
+_ZN6uu_seq11numberparse28parse_no_decimal_no_exponent17h94839c74700e929cE
           (undefined8 *param_1,undefined8 param_2,undefined8 param_3)
 
 {
@@ -28,44 +28,47 @@ uu_seq::numberparse::parse_no_decimal_no_exponent
   undefined8 local_38;
   undefined8 local_30;
   
-  bigdecimal::impl_num::_<impl_num_traits::Num_for_bigdecimal::BigDecimal>::from_str_radix
+  _ZN10bigdecimal8impl_num68__LT_impl_u20_num_traits__Num_u20_for_u20_bigdecimal__BigDecimal_GT_14from_str_radix17h190f4d397e37218eE
             (&local_68);
   if (CONCAT44(uStack_64,local_68) == -0x8000000000000000) {
                     /* try { // try from 001cdad5 to 001cdae4 has its CatchHandler @ 001cdca6 */
-    ::alloc::str::_<impl_str>::to_ascii_lowercase(local_40,param_2,param_3);
+    _ZN5alloc3str21__LT_impl_u20_str_GT_18to_ascii_lowercase17h8cd21fd193cd3011E
+              (local_40,param_2,param_3);
                     /* try { // try from 001cdaef to 001cdb61 has its CatchHandler @ 001cdcab */
-    cVar2 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(local_38,local_30,"inf",3);
+    cVar2 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hb94513a628a0df55E
+                      (local_38,local_30,"inf",3);
     uVar4 = 0x8000000000000000;
     if (cVar2 == '\0') {
-      cVar2 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(local_38,local_30,&DAT_00116bc0,8)
-      ;
+      cVar2 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hb94513a628a0df55E
+                        (local_38,local_30,&DAT_00116bc0,8);
       uVar4 = 0x8000000000000000;
       if (cVar2 == '\0') {
-        cVar2 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+        cVar2 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hb94513a628a0df55E
                           (local_38,local_30,&DAT_001169c8,4);
         uVar4 = 0x8000000000000001;
         if ((cVar2 == '\0') &&
-           (cVar2 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+           (cVar2 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hb94513a628a0df55E
                               (local_38,local_30,"-infinity",9), uVar4 = 0x8000000000000001,
            cVar2 == '\0')) {
                     /* try { // try from 001cdc3c to 001cdc71 has its CatchHandler @ 001cdcab */
-          cVar2 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(local_38,local_30,"nan",3);
+          cVar2 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hb94513a628a0df55E
+                            (local_38,local_30,"nan",3);
           uVar3 = 1;
           if (cVar2 == '\0') {
-            uVar3 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+            uVar3 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hb94513a628a0df55E
                               (local_38,local_30,&DAT_0011697c,4);
           }
           *(undefined *)(param_1 + 1) = uVar3;
           *param_1 = 0x8000000000000004;
                     /* try { // try from 001cdc7d to 001cdc86 has its CatchHandler @ 001cdca6 */
-          core::ptr::drop_in_place<alloc::string::String>(local_40);
+          _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hbf11645ab5eda60bE(local_40);
           goto LAB_001cdbec;
         }
       }
     }
                     /* try { // try from 001cdb6e to 001cdb77 has its CatchHandler @ 001cdc8c */
     local_98 = uVar4;
-    core::ptr::drop_in_place<alloc::string::String>(local_40);
+    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hbf11645ab5eda60bE(local_40);
     param_1[4] = local_78;
     param_1[2] = CONCAT44(uStack_84,local_88);
     param_1[3] = CONCAT44(uStack_7c,uStack_80);
@@ -85,7 +88,8 @@ uu_seq::numberparse::parse_no_decimal_no_exponent
     uStack_90 = uStack_60;
     uStack_8c = uStack_5c;
                     /* try { // try from 001cdbbe to 001cdbcb has its CatchHandler @ 001cdc99 */
-    cVar2 = is_minus_zero_int(param_2,param_3,&local_98);
+    cVar2 = _ZN6uu_seq11numberparse17is_minus_zero_int17h47d80c233c19cf6cE
+                      (param_2,param_3,&local_98);
     if (cVar2 == '\0') {
       param_1[4] = local_78;
       param_1[2] = CONCAT44(uStack_84,local_88);
@@ -103,14 +107,13 @@ uu_seq::numberparse::parse_no_decimal_no_exponent
     param_1[5] = param_3;
     param_1[6] = 0;
                     /* try { // try from 001cdbe4 to 001cdbeb has its CatchHandler @ 001cdca6 */
-    core::ptr::drop_in_place<bigdecimal::BigDecimal>(&local_98);
+    _ZN4core3ptr43drop_in_place_LT_bigdecimal__BigDecimal_GT_17h9ea64fcf6ce46304E(&local_98);
 LAB_001cdbec:
     lVar1 = CONCAT44(uStack_64,local_68);
   }
 joined_r0x001cdbf1:
   if (lVar1 == -0x8000000000000000) {
-    core::ptr::
-    drop_in_place<core::result::Result<bigdecimal::BigDecimal,bigdecimal::ParseBigDecimalError>>
+    _ZN4core3ptr106drop_in_place_LT_core__result__Result_LT_bigdecimal__BigDecimal_C_bigdecimal__ParseBigDecimalError_GT__GT_17h894d82047a2fe72dE
               (&local_68);
   }
   return param_1;

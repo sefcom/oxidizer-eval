@@ -1,4 +1,4 @@
-undefined8 * __rustcall uu_dd::parseargs::Parser::parse(undefined8 *param_1)
+undefined8 * _ZN5uu_dd9parseargs6Parser5parse17hd077653d220e666dE(undefined8 *param_1)
 
 {
   undefined4 local_1e8;
@@ -24,7 +24,7 @@ undefined8 * __rustcall uu_dd::parseargs::Parser::parse(undefined8 *param_1)
   undefined4 uStack_c4;
   undefined local_c0 [176];
   
-  read(&local_1c0);
+  _ZN5uu_dd9parseargs6Parser4read17h3585469891c58efdE(&local_1c0);
   if (local_1c0 == 2) {
     param_1[3] = CONCAT44(uStack_1a4,local_1a8);
     param_1[4] = CONCAT44(uStack_19c,uStack_1a0);
@@ -47,7 +47,7 @@ undefined8 * __rustcall uu_dd::parseargs::Parser::parse(undefined8 *param_1)
     uStack_cc = uStack_1a4;
     uStack_c8 = uStack_1a0;
     uStack_c4 = uStack_19c;
-    validate(param_1,&local_e8);
+    _ZN5uu_dd9parseargs6Parser8validate17hd2b1e31453916e87E(param_1,&local_e8);
   }
   return param_1;
 }

@@ -1,13 +1,14 @@
-fn uu_sort::exec(a0: u32, a1: u32, a2: u32, a3: &struct32, a4: u32) -> u64 {
-    let v0: struct24;  // [bp-0xf0], Other Possible Types: struct16
-    let v1: i192;  // [sp-0xd8], Other Possible Types: struct32, struct24
+fn uu_sort::exec(a0: &u64, a1: u32, a2: &u64, a3: &u64, a4: u32) -> u64 {
+    let v0: struct16;  // [bp-0xf0], Other Possible Types: struct24
+    let v1: struct32;  // [sp-0xd8], Other Possible Types: struct24
     let v3: i32;  // [bp-0xc0]
-    let v8: struct96;  // [sp-0x78], Other Possible Types: i64
+    let v8: i64;  // [bp-0x78], Other Possible Types: struct96
     let v13: i64;  // rax
+    let v18: i64;  // r14
 
     if *((a2 + 129) as &i8) {
         v1 = uu_sort::merge::merge(a0, a1, a2, (*(a3 as &i64) == 0x8000000000000000 ? 0 : *((a3 + 8) as &i64)), *((a3 + 16) as &i64), a4);
-        v13 = *((&v1 as &char + 8) as &i64);
+        v13 = v1.field_8;
         if v8 == 3 {
             return v13;
         }
@@ -15,11 +16,11 @@ fn uu_sort::exec(a0: u32, a1: u32, a2: u32, a3: &struct32, a4: u32) -> u64 {
             field_0: v14
             field_8: v13
             field_16: v2
-            field_24: v3
-            field_40: v4
-            field_56: v5
-            field_72: v6
-            field_88: v7
+            field_24: *(&v3 as &i128)
+            field_40: *(&v4 as &i128)
+            field_56: *(&v5 as &i128)
+            field_72: *(&v6 as &i128)
+            field_88: *(&v7 as &i64)
         };
         v1 = struct32 {
             field_0: v15
@@ -50,6 +51,7 @@ fn uu_sort::exec(a0: u32, a1: u32, a2: u32, a3: &struct32, a4: u32) -> u64 {
             }
             uu_sort::check::check(*((a0 + 8) as &i64), *((a0 + 16) as &i64));
         }
+        v13 = v18;
         return v13;
     }
 }

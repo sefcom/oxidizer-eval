@@ -31,17 +31,17 @@ long long uu_env::split_iterator::SplitIterator::state_delimiter_backslash::hda2
             *((int *)((char *)&a0->field_10 + 4)) = *((int *)&v6);
             v15 = *((int128_t *)&v2);
             *((int128_t *)((char *)&a0->field_5 + 5)) = *((int128_t *)&v4);
-            *((void*)&(&a0->field_4)[1]) = v15;
+            *((void*)&(&a0->padding_4)[1]) = v15;
             a0->field_0 = v13;
-            a0->field_4 = v11;
+            a0->padding_4[0] = v11;
             return v11;
         }
         else if (!(char)v11)
         {
             v11 = a1->field_38;
             a0->field_0 = 3;
-            *((unsigned int *)&a0->field_4) = v8;
-            *((unsigned long long *)&(&a0->field_4)[4]) = v11;
+            *((unsigned int *)&a0->padding_4) = v8;
+            *((unsigned long long *)&(&a0->padding_4)[4]) = v11;
             return v11;
         }
 LABEL_4d9b27:
@@ -65,7 +65,7 @@ LABEL_4d9b72:
             v12 = a1->field_38;
             v11 = ::0x4d9500::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::he132dab3b8589a55(&a0->field_5, "Delimiter", 9);
             a0->field_0 = 1;
-            *((unsigned long long *)&(&a0->field_4)[4]) = v12;
+            *((unsigned long long *)&(&a0->padding_4)[4]) = v12;
             return v11;
         }
     }

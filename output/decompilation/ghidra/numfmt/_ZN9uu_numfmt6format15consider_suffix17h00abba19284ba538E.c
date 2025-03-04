@@ -1,8 +1,7 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void __rustcall
-uu_numfmt::format::consider_suffix
-          (double param_1,undefined8 *param_2,byte param_3,undefined param_4,long param_5)
+void _ZN9uu_numfmt6format15consider_suffix17h00abba19284ba538E
+               (double param_1,undefined8 *param_2,byte param_3,undefined param_4,long param_5)
 
 {
   double dVar1;
@@ -53,23 +52,25 @@ switchD_001c3bbd_caseD_5:
         pcVar6 = "Number is too big and unsupported";
         uVar5 = 0x21;
 LAB_001c3bcb:
-        _<T_as_alloc::slice::hack::ConvertVec>::to_vec(param_2,pcVar6,uVar5);
+        _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h523a2f825c855b37E
+                  (param_2,pcVar6,uVar5);
         return;
       }
       lVar7 = 8;
       bVar3 = false;
     }
     if (param_5 == 0) {
-      dVar8 = (double)div_round(param_4);
+      dVar8 = (double)_ZN9uu_numfmt6format9div_round17hcdae20ad69b44c09E(param_4);
     }
     else {
-      dVar8 = (double)round_with_precision
+      dVar8 = (double)_ZN9uu_numfmt6format20round_with_precision17h7f1d296807047857E
                                 (param_1 / *(double *)(puVar4 + lVar7 * 8),param_4,param_5);
     }
     if (dVar1 <= (double)(_DAT_00115de0 & (ulong)dVar8)) {
       if (!bVar3) {
                     /* WARNING: Subroutine does not return */
-        core::panicking::panic_bounds_check(8,8,&PTR_s_src_uu_numfmt_src_format_rs_00235b88);
+        _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E
+                  (8,8,&PTR_s_src_uu_numfmt_src_format_rs_00235b88);
       }
       dVar8 = dVar8 / dVar1;
     }

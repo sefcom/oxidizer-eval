@@ -1,7 +1,7 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined8 __rustcall
-uu_fmt::linebreak::compute_demerits
+undefined8
+_ZN6uu_fmt9linebreak16compute_demerits17he468f5733cc0155bE
           (float param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,long param_5,
           ulong param_6,ulong param_7)
 
@@ -81,6 +81,6 @@ LAB_001bc385:
   if (!NAN(fVar7)) {
     lVar1 = lVar4;
   }
-  core::num::_<impl_i64>::pow(lVar5 + lVar2 + lVar1);
+  _ZN4core3num21__LT_impl_u20_i64_GT_3pow17h810e44ad9a934d7fE(lVar5 + lVar2 + lVar1);
   return CONCAT44(uVar9,fVar6);
 }

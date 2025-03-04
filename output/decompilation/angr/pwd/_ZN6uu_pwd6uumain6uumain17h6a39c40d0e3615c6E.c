@@ -1,6 +1,6 @@
 long long uu_pwd::uumain::uumain::h6a39c40d0e3615c6(unsigned long long a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0x370], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x370]
     unsigned long long v1;  // [sp-0x368]
     int v2;  // [sp-0x360]
     int v3;  // [sp-0x350]
@@ -10,10 +10,13 @@ long long uu_pwd::uumain::uumain::h6a39c40d0e3615c6(unsigned long long a0, unsig
     char v7;  // [bp-0x328]
     char v8;  // [bp-0x318]
     char v9;  // [bp-0x308]
-    unsigned long v10;  // [sp-0x300], Other Possible Types: unsigned long long
+    unsigned long v10;  // [sp-0x300]
+    unsigned long long v11;  // [sp-0x2f8]
     unsigned long long v12;  // [sp-0x2f0]
     char v13;  // [bp-0x2e8]
     void* v17;  // rax
+    unsigned long long v19;  // r14
+    unsigned long long v21;  // rax
 
     uu_pwd::uu_app::h4454d6573b8ab8c1(&v13);
     clap_builder::builder::command::Command::try_get_matches_from::h33e7466411a157e4(&v5, &v13, a0, a1);
@@ -52,18 +55,21 @@ LABEL_46029c:
         goto LABEL_46027f;
     }
     _$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$::map_err_context::hff586d9334aa0b44(&v5, &v13);
+    v19 = *((long long *)&v6);
     if (v10 != 0x8000000000000000)
     {
         v10 = *((long long *)&v5);
-        v17 = *((long long *)&v6);
+        v11 = v19;
         v12 = *((long long *)&v7);
-        v17 = _$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$::map_err_context::h022d8ad013205a62(uucore::mods::display::println_verbatim::he333530693d8dcfe(&v10));
-        if (!v17)
+        v21 = _$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$::map_err_context::h022d8ad013205a62(uucore::mods::display::println_verbatim::he333530693d8dcfe(&v10));
+        if (!v21)
         {
             core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::hff8689e77a915942(&v0);
             return 0;
         }
+        v19 = v21;
     }
     core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::hff8689e77a915942(&v0);
+    v17 = v19;
     return v17;
 }

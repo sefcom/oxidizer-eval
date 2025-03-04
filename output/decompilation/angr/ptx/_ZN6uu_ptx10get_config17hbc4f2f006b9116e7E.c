@@ -3,7 +3,7 @@ long long uu_ptx::get_config::hbc4f2f006b9116e7(struct_0 *a0, unsigned long long
     char v0;  // [sp-0xb8]
     unsigned int v1;  // [bp-0xb7]
     unsigned int v2;  // [sp-0xb4]
-    int v3;  // [sp-0xb0], Other Possible Types: unsigned long, unsigned long long
+    int v3;  // [sp-0xb0], Other Possible Types: unsigned long long, unsigned long
     unsigned long v4;  // [sp-0xa8], Other Possible Types: unsigned long long
     unsigned int v5;  // [bp-0x90]
     unsigned int v6;  // [sp-0x8d]
@@ -11,7 +11,7 @@ long long uu_ptx::get_config::hbc4f2f006b9116e7(struct_0 *a0, unsigned long long
     char v8;  // [bp-0x87]
     char v9;  // [bp-0x80]
     int v10;  // [bp-0x78], Other Possible Types: char
-    unsigned long v11;  // [sp-0x68], Other Possible Types: unsigned long long
+    unsigned long v11;  // [sp-0x68]
     int v12;  // [bp-0x60], Other Possible Types: char
     unsigned long long v13;  // [sp-0x50]
     char v14;  // [bp-0x48]
@@ -121,6 +121,7 @@ long long uu_ptx::get_config::hbc4f2f006b9116e7(struct_0 *a0, unsigned long long
                 core::ptr::drop_in_place$LT$uu_ptx..Config$GT$::h61e3e7302a3c0217(&v10);
                 return a0;
             }
+            v31 = v3;
         }
         v16 = v31;
     }
@@ -134,7 +135,6 @@ long long uu_ptx::get_config::hbc4f2f006b9116e7(struct_0 *a0, unsigned long long
         if (!v7)
         {
             v34 = *((long long *)&v9);
-            goto LABEL_5b6538;
         }
         else
         {
@@ -143,7 +143,7 @@ long long uu_ptx::get_config::hbc4f2f006b9116e7(struct_0 *a0, unsigned long long
             v6 = v2;
             if (v0 != 3)
             {
-                v35 = (int128_t)v3;
+                v35 = *((int128_t *)&v3);
                 v2 = v6;
                 v1 = v5;
                 v0 = v0;
@@ -155,7 +155,7 @@ long long uu_ptx::get_config::hbc4f2f006b9116e7(struct_0 *a0, unsigned long long
                 core::ptr::drop_in_place$LT$uu_ptx..Config$GT$::h61e3e7302a3c0217(&v10);
                 return a0;
             }
-LABEL_5b6538:
+            v34 = v3;
         }
         v17 = v34;
     }

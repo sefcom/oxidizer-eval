@@ -1,7 +1,7 @@
 long long uu_env::split_iterator::SplitIterator::check_and_replace_ascii_escape_code::h4d5fe0b4c9b39b36(struct_1 *a0, unsigned long a1, unsigned int a2)
 {
     unsigned int v0;  // [sp-0x54]
-    unsigned long v1;  // [sp-0x50], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0x50]
     unsigned long long v2;  // [sp-0x48]
     char v3;  // [bp-0x40]
     char v4;  // [bp-0x30]

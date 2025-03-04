@@ -13,22 +13,21 @@ long long uu_ls::colors::StyleManager::apply_style::h18367dbd5f6ecd0f(struct_2 *
     void* v11;  // [sp-0xb0]
     int v12;  // [sp-0xa8]
     unsigned int v13;  // [sp-0x98]
-    unsigned long v14;  // [sp-0x88], Other Possible Types: char
+    char v14;  // [bp-0x88], Other Possible Types: unsigned long
     int v15;  // [bp-0x87]
     unsigned long long v16;  // [sp-0x80]
     struct struct_1 **v17;  // [bp-0x78]
     unsigned int v18;  // [sp-0x77]
     unsigned long long v19;  // [sp-0x70]
     void* v20;  // [sp-0x68]
-    unsigned long v21;  // [sp-0x58], Other Possible Types: unsigned long long
+    unsigned long v21;  // [sp-0x58]
     unsigned long long v22;  // [sp-0x50]
-    unsigned long v23;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v23;  // [sp-0x48]
     unsigned long long v24;  // [sp-0x40]
     char v25;  // [bp-0x38]
     char v26;  // [bp-0x28]
     unsigned long long v28;  // rbp
     struct_0 *v29;  // rax
-    unsigned long long v31;  // rdx
 
     v28 = a5;
     v21 = a3;
@@ -49,7 +48,7 @@ long long uu_ls::colors::StyleManager::apply_style::h18367dbd5f6ecd0f(struct_2 *
                 v15 = v12;
                 v18 = v13;
                 uu_ls::colors::StyleManager::get_style_code::h3f5da10be94133b8(&v0, a1, &v14);
-                ::0x539210::alloc::vec::Vec$LT$T$C$A$GT$::append_elements::ha1fae1b53678c561(&v9, ::0x538b90::core::slice::iter::Iter$LT$T$GT$::make_slice::h6c1fcdef0407b044(v1, &v1[v3]), v31);
+                ::0x539210::alloc::vec::Vec$LT$T$C$A$GT$::append_elements::ha1fae1b53678c561(&v9, ::0x538b90::core::slice::iter::Iter$LT$T$GT$::make_slice::h6c1fcdef0407b044(v1, &v1[v3]), a2);
                 ::0x538840::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb27a9c8978a01f77(&v0);
             }
         }
@@ -59,10 +58,10 @@ long long uu_ls::colors::StyleManager::apply_style::h18367dbd5f6ecd0f(struct_2 *
         if (!(char)uu_ls::colors::StyleManager::is_current_style::h6647609893105167(a1, a2))
         {
             uu_ls::colors::StyleManager::reset::h8e7360f134edbed2(&v0, a1, !a1[29]);
-            ::0x539210::alloc::vec::Vec$LT$T$C$A$GT$::append_elements::ha1fae1b53678c561(&v9, ::0x538b90::core::slice::iter::Iter$LT$T$GT$::make_slice::h6c1fcdef0407b044(v1, &v1[v3]), v31);
+            ::0x539210::alloc::vec::Vec$LT$T$C$A$GT$::append_elements::ha1fae1b53678c561(&v9, ::0x538b90::core::slice::iter::Iter$LT$T$GT$::make_slice::h6c1fcdef0407b044(v1, &v1[v3]), a2);
             ::0x538840::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb27a9c8978a01f77(&v0);
             uu_ls::colors::StyleManager::get_style_code::h3f5da10be94133b8(&v0, a1, a2);
-            ::0x539210::alloc::vec::Vec$LT$T$C$A$GT$::append_elements::ha1fae1b53678c561(&v9, ::0x538b90::core::slice::iter::Iter$LT$T$GT$::make_slice::h6c1fcdef0407b044(v1, &v1[v3]), v31);
+            ::0x539210::alloc::vec::Vec$LT$T$C$A$GT$::append_elements::ha1fae1b53678c561(&v9, ::0x538b90::core::slice::iter::Iter$LT$T$GT$::make_slice::h6c1fcdef0407b044(v1, &v1[v3]), a2);
             ::0x538840::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb27a9c8978a01f77(&v0);
             goto LABEL_5399e1;
         }
@@ -76,7 +75,7 @@ LABEL_5399e1:
         else
         {
             uu_ls::colors::StyleManager::reset::h8e7360f134edbed2(&v0, a1, 0);
-            ::0x539210::alloc::vec::Vec$LT$T$C$A$GT$::append_elements::ha1fae1b53678c561(&v9, ::0x538b90::core::slice::iter::Iter$LT$T$GT$::make_slice::h6c1fcdef0407b044((&v0)[1], &((&v0)[1])[v3]), v31);
+            ::0x539210::alloc::vec::Vec$LT$T$C$A$GT$::append_elements::ha1fae1b53678c561(&v9, ::0x538b90::core::slice::iter::Iter$LT$T$GT$::make_slice::h6c1fcdef0407b044((&v0)[1], &((&v0)[1])[v3]), a2);
             ::0x538840::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb27a9c8978a01f77(&v0);
         }
     }
@@ -96,7 +95,7 @@ LABEL_5399e1:
     v20 = 0;
     v17 = &v0;
     v19 = 4;
-    ::0x539110::core::option::Option$LT$T$GT$::map_or_else::h7fca96e7ce97ddb7();
+    ::0x539110::core::option::Option$LT$T$GT$::map_or_else::h7fca96e7ce97ddb7(&v25, &v14);
     ::0x538840::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb27a9c8978a01f77(&v12);
     a0->field_10 = *((long long *)&v26);
     a0->field_0 = *((int128_t *)&v25);

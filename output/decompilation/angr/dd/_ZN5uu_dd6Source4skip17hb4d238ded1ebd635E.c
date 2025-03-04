@@ -1,15 +1,15 @@
 long long uu_dd::Source::skip::hb4d238ded1ebd635(unsigned int *a0, unsigned long long a1)
 {
-    char v0;  // [bp-0x78], Other Possible Types: unsigned long long
+    char v0;  // [bp-0x78], Other Possible Types: unsigned long
     unsigned long v1;  // [sp-0x70], Other Possible Types: unsigned long long
-    unsigned long v2;  // [sp-0x68], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x68]
     unsigned long long v3;  // [sp-0x60]
     struct struct_0 **v4;  // [sp-0x58], Other Possible Types: unsigned long long
     int v5;  // [sp-0x50], Other Possible Types: unsigned long long
     void* v6;  // [sp-0x48]
     char *v7;  // [sp-0x38]
     unsigned long long v8;  // [sp-0x30]
-    unsigned long v9;  // [sp-0x28], Other Possible Types: unsigned long long
+    unsigned long v9;  // [sp-0x28]
     unsigned long long v10;  // [sp-0x20]
     unsigned int v12;  // eax
     unsigned long long v13;  // r15
@@ -28,7 +28,7 @@ long long uu_dd::Source::skip::hb4d238ded1ebd635(unsigned int *a0, unsigned long
     {
         v2 = v13;
         v3 = a1;
-        v14 = std::io::copy::generic_copy::h94e6c8f4c841e7c1();
+        v14 = std::io::copy::generic_copy::h94e6c8f4c841e7c1(&v2);
     }
     else
     {
@@ -57,7 +57,7 @@ long long uu_dd::Source::skip::hb4d238ded1ebd635(unsigned int *a0, unsigned long
         core::ptr::drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$u64$GT$$C$std..io..error..Error$GT$$GT$::h7e0cb750979df1d6(&v0);
         v0 = v13;
         v1 = a1;
-        v14 = std::io::copy::generic_copy::h94e6c8f4c841e7c1();
+        v14 = std::io::copy::generic_copy::h94e6c8f4c841e7c1(&v0);
         if (v14)
         {
             return v14;

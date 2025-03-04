@@ -1,7 +1,7 @@
 fn uu_split::Settings::instantiate_current_writer(a0: &Result<struct41, struct8>, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {
     let v0: u64;  // [sp-0x90]
     let v1: u64;  // [sp-0x88]
-    let v2: u192;  // [sp-0x40], Other Possible Types: String
+    let v2: String;  // [sp-0x40]
 
     v0 = a2;
     v1 = a3;

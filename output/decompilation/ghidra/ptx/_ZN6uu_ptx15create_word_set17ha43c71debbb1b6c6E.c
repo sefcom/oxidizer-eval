@@ -1,5 +1,6 @@
-undefined4 * __rustcall
-uu_ptx::create_word_set(undefined4 *param_1,long param_2,long param_3,undefined8 param_4)
+undefined4 *
+_ZN6uu_ptx15create_word_set17ha43c71debbb1b6c6E
+          (undefined4 *param_1,long param_2,long param_3,undefined8 param_4)
 
 {
   char cVar1;
@@ -85,18 +86,20 @@ uu_ptx::create_word_set(undefined4 *param_1,long param_2,long param_3,undefined8
   long lStack_40;
   undefined8 local_38;
   
-  regex::regex::string::Regex::new
+  _ZN5regex5regex6string5Regex3new17h2b022f3b326b0361E
             (&local_148,*(undefined8 *)(param_3 + 8),*(undefined8 *)(param_3 + 0x10));
-  core::result::Result<T,E>::unwrap(local_90,&local_148,&PTR_s_src_uu_ptx_src_ptx_rs_003edd88);
+  _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hc501836100c48eb1E
+            (local_90,&local_148,&PTR_s_src_uu_ptx_src_ptx_rs_003edd88);
                     /* try { // try from 002b6af9 to 002b6b1f has its CatchHandler @ 002b6f7d */
-  regex::regex::string::Regex::new
+  _ZN5regex5regex6string5Regex3new17h2b022f3b326b0361E
             (&local_148,*(undefined8 *)(param_2 + 0x38),*(undefined8 *)(param_2 + 0x40));
-  core::result::Result<T,E>::unwrap(&local_b0,&local_148,&PTR_s_src_uu_ptx_src_ptx_rs_003edda0);
+  _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hc501836100c48eb1E
+            (&local_b0,&local_148,&PTR_s_src_uu_ptx_src_ptx_rs_003edda0);
   local_1e0 = 0;
   local_1d0 = 0;
                     /* try { // try from 002b6b37 to 002b6b46 has its CatchHandler @ 002b6f7b */
   local_210 = param_1;
-  hashbrown::map::HashMap<K,V,S,A>::iter(&local_148,param_4);
+  _ZN9hashbrown3map28HashMap_LT_K_C_V_C_S_C_A_GT_4iter17h033c4715d4164856E(&local_148,param_4);
   local_38 = local_128;
   local_48 = local_138;
   lStack_40 = lStack_130;
@@ -113,7 +116,7 @@ uu_ptx::create_word_set(undefined4 *param_1,long param_2,long param_3,undefined8
   do {
     do {
                     /* try { // try from 002b6bc0 to 002b6bcc has its CatchHandler @ 002b6f82 */
-      auVar13 = _<hashbrown::map::Iter<K,V>as_core::iter::traits::iterator::Iterator>::next
+      auVar13 = _ZN92__LT_hashbrown__map__Iter_LT_K_C_V_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17haf25f5bee2ea9502E
                           (&local_58);
       puVar12 = local_210;
       lVar9 = auVar13._8_8_;
@@ -124,15 +127,17 @@ uu_ptx::create_word_set(undefined4 *param_1,long param_2,long param_3,undefined8
         local_210[2] = uStack_1d8;
         local_210[3] = uStack_1d4;
                     /* try { // try from 002b6f33 to 002b6f3f has its CatchHandler @ 002b6f7d */
-        core::ptr::drop_in_place<regex::regex::string::Regex>(&local_b0);
-        core::ptr::drop_in_place<regex::regex::string::Regex>(local_90);
+        _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17hf34b8b1af3b36f38E
+                  (&local_b0);
+        _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17hf34b8b1af3b36f38E(local_90)
+        ;
         return puVar12;
       }
       local_208 = *(long *)(lVar9 + 0x30);
       local_1c8 = *(long *)(lVar9 + 8);
       local_1c0 = local_1c8 + *(long *)(lVar9 + 0x10) * 0x18;
       local_200 = auVar13._0_8_;
-      lVar9 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+      lVar9 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he2542eee79d3070cE
                         (&local_1c8);
     } while (lVar9 == 0);
     local_220 = 0;
@@ -140,14 +145,16 @@ uu_ptx::create_word_set(undefined4 *param_1,long param_2,long param_3,undefined8
       uVar11 = *(undefined8 *)(lVar9 + 8);
       uVar5 = *(undefined8 *)(lVar9 + 0x10);
                     /* try { // try from 002b6c38 to 002b6c87 has its CatchHandler @ 002b6f84 */
-      regex::regex::string::Regex::find_at(&local_148,local_b0,local_a8,uVar11,uVar5);
+      _ZN5regex5regex6string5Regex7find_at17hf05a7654ffba1dbbE
+                (&local_148,local_b0,local_a8,uVar11,uVar5);
       local_218 = CONCAT44(uStack_144,local_148);
       lVar9 = local_218;
       if (local_218 != 0) {
         local_218 = lStack_130;
         lVar9 = local_138;
       }
-      regex_automata::meta::regex::Regex::find_iter(&local_1b8,local_90,uVar11,uVar5);
+      _ZN14regex_automata4meta5regex5Regex9find_iter17h9e67946da93e5169E
+                (&local_1b8,local_90,uVar11,uVar5);
       local_e8 = local_158;
       local_f8 = local_168;
       uStack_f0 = uStack_160;
@@ -166,44 +173,48 @@ uu_ptx::create_word_set(undefined4 *param_1,long param_2,long param_3,undefined8
       local_1f0 = local_208 + local_220;
       local_e0 = uVar11;
       local_d8 = uVar5;
-      while (regex_automata::util::iter::Searcher::advance
+      while (_ZN14regex_automata4util4iter8Searcher7advance17hf2daab265d806bacE
                        (&local_1b8,&local_128,local_e8,&local_148), lVar7 = local_1a8,
             lVar6 = uStack_1b0, local_1b8 != 0) {
         if (((cVar1 == '\0') || (uStack_1b0 != lVar9)) ||
-           (cVar8 = core::cmp::impls::_<impl_core::cmp::PartialEq_for_usize>::eq
+           (cVar8 = _ZN4core3cmp5impls56__LT_impl_u20_core__cmp__PartialEq_u20_for_u20_usize_GT_2eq17h37bad34467ea7e13E
                               (local_1a8,local_218), cVar8 == '\0')) {
-          lVar10 = core::str::traits::
-                   _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::Range<usize>>::
-                   get(lVar6,lVar7,uVar11,uVar5);
+          lVar10 = _ZN4core3str6traits108__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__Range_LT_usize_GT__GT_3get17h3d479bbd9c610d76E
+                             (lVar6,lVar7,uVar11,uVar5);
           if (lVar10 == 0) {
                     /* try { // try from 002b6f62 to 002b6f7a has its CatchHandler @ 002b6fbc */
-            uVar11 = core::str::slice_error_fail
+            uVar11 = _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE
                                (uVar11,uVar5,lVar6,lVar7,&PTR_s_src_uu_ptx_src_ptx_rs_003eddb8);
                     /* catch() { ... } // from try @ 002b6b37 with catch @ 002b6f7b */
                     /* catch() { ... } // from try @ 002b6c38 with catch @ 002b6f84
                        catch() { ... } // from try @ 002b6ef0 with catch @ 002b6f84 */
-            core::ptr::drop_in_place<alloc::collections::btree::set::BTreeSet<uu_ptx::WordRef>>
+            _ZN4core3ptr84drop_in_place_LT_alloc__collections__btree__set__BTreeSet_LT_uu_ptx__WordRef_GT__GT_17h81ab225e13191748E
                       (&local_1e0);
-            core::ptr::drop_in_place<regex::regex::string::Regex>(&local_b0);
-            core::ptr::drop_in_place<regex::regex::string::Regex>(local_90);
+            _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17hf34b8b1af3b36f38E
+                      (&local_b0);
+            _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17hf34b8b1af3b36f38E
+                      (local_90);
             puVar12 = (undefined4 *)_Unwind_Resume(uVar11);
             return puVar12;
           }
-          _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_1b8,lVar10);
+          _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h881c0d1e76b3a749E
+                    (&local_1b8,lVar10);
           local_228 = local_1a8;
           local_238 = local_1b8;
           uStack_230 = uStack_1b0;
                     /* try { // try from 002b6dcc to 002b6e1c has its CatchHandler @ 002b6fbe */
           if (((cVar3 == '\0') ||
-              (lVar10 = hashbrown::map::HashMap<K,V,S,A>::get_inner(local_1e8,&local_238),
-              lVar10 != 0)) &&
+              (lVar10 = _ZN9hashbrown3map28HashMap_LT_K_C_V_C_S_C_A_GT_9get_inner17h627002b9e4e69103E
+                                  (local_1e8,&local_238), lVar10 != 0)) &&
              ((cVar4 == '\0' ||
-              (lVar10 = hashbrown::map::HashMap<K,V,S,A>::get_inner(local_1f8,&local_238),
-              lVar10 == 0)))) {
+              (lVar10 = _ZN9hashbrown3map28HashMap_LT_K_C_V_C_S_C_A_GT_9get_inner17h627002b9e4e69103E
+                                  (local_1f8,&local_238), lVar10 == 0)))) {
             if (cVar2 != '\0') {
-              ::alloc::str::_<impl_str>::to_lowercase(&local_1b8,uStack_230,local_228);
+              _ZN5alloc3str21__LT_impl_u20_str_GT_12to_lowercase17h8673807247540a26E
+                        (&local_1b8,uStack_230,local_228);
                     /* try { // try from 002b6e1d to 002b6e26 has its CatchHandler @ 002b6f89 */
-              core::ptr::drop_in_place<alloc::string::String>(&local_238);
+              _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hbabe7cf62dac4e15E
+                        (&local_238);
               local_228 = local_1a8;
               local_238 = local_1b8;
               uStack_230 = uStack_1b0;
@@ -214,7 +225,8 @@ uu_ptx::create_word_set(undefined4 *param_1,long param_2,long param_3,undefined8
             uStack_c0 = (undefined4)uStack_230;
             uStack_bc = uStack_230._4_4_;
                     /* try { // try from 002b6e5b to 002b6e6d has its CatchHandler @ 002b6faa */
-            _<alloc::string::String_as_core::clone::Clone>::clone(&local_70,local_200);
+            _ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h8f45b0d02f4dafdaE
+                      (&local_70,local_200);
             local_1a8 = local_b8;
             local_1b8 = CONCAT44(uStack_c4,local_c8);
             uStack_1b0 = CONCAT44(uStack_bc,uStack_c0);
@@ -228,18 +240,21 @@ uu_ptx::create_word_set(undefined4 *param_1,long param_2,long param_3,undefined8
             local_198 = uStack_68;
             uStack_194 = uStack_64;
                     /* try { // try from 002b6ed7 to 002b6ee3 has its CatchHandler @ 002b6fa8 */
-            ::alloc::collections::btree::map::BTreeMap<K,V,A>::insert(&local_1e0,&local_1b8);
+            _ZN5alloc11collections5btree3map25BTreeMap_LT_K_C_V_C_A_GT_6insert17h814780906c3007c3E
+                      (&local_1e0,&local_1b8);
           }
           else {
                     /* try { // try from 002b6d20 to 002b6daa has its CatchHandler @ 002b6fcd */
-            core::ptr::drop_in_place<alloc::string::String>(&local_238);
+            _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hbabe7cf62dac4e15E(&local_238)
+            ;
           }
         }
       }
                     /* try { // try from 002b6ef0 to 002b6efc has its CatchHandler @ 002b6f84 */
-      core::ptr::drop_in_place<regex::regex::string::Matches>(&local_148);
+      _ZN4core3ptr50drop_in_place_LT_regex__regex__string__Matches_GT_17h0da4c5b7d9432e00E
+                (&local_148);
       local_220 = local_220 + 1;
-      lVar9 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+      lVar9 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he2542eee79d3070cE
                         (&local_1c8);
     } while (lVar9 != 0);
   } while( true );

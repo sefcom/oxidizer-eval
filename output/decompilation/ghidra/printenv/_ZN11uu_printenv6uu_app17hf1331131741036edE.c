@@ -1,4 +1,4 @@
-undefined8 __rustcall uu_printenv::uu_app(undefined8 param_1)
+undefined8 _ZN11uu_printenv6uu_app17hf1331131741036edE(undefined8 param_1)
 
 {
   undefined8 uVar1;
@@ -11,26 +11,27 @@ undefined8 __rustcall uu_printenv::uu_app(undefined8 param_1)
   undefined4 local_274;
   undefined local_270 [592];
   
-  uVar1 = uucore::util_name();
-  clap_builder::builder::command::Command::new(local_a50,uVar1);
-  clap_builder::builder::command::Command::version(local_538,local_a50);
-  clap_builder::builder::command::Command::about(local_a50,local_538);
+  uVar1 = _ZN6uucore9util_name17h60d842bf27b05e82E();
+  _ZN12clap_builder7builder7command7Command3new17h756124d03d797937E(local_a50,uVar1);
+  _ZN12clap_builder7builder7command7Command7version17h2f0c204c3b28853eE(local_538,local_a50);
+  _ZN12clap_builder7builder7command7Command5about17h6ce0240f9b0c168eE(local_a50,local_538);
                     /* try { // try from 001a3887 to 001a38a0 has its CatchHandler @ 001a39f0 */
-  uucore::format_usage(local_788,"{} [OPTION]... [VARIABLE]...",0x1c);
-  clap_builder::builder::command::Command::override_usage(local_538,local_a50,local_788);
+  _ZN6uucore12format_usage17h76fcb2d15fbabc58E(local_788,"{} [OPTION]... [VARIABLE]...",0x1c);
+  _ZN12clap_builder7builder7command7Command14override_usage17h89030b7305223480E
+            (local_538,local_a50,local_788);
   (*(code *)PTR_memcpy_002064e0)(local_a50,local_538,700);
   local_794 = local_27c | 0x8000000080;
   local_78c = local_274;
-  clap_builder::builder::arg::Arg::new(local_538,&DAT_001124a8,4);
-  clap_builder::builder::arg::Arg::short(local_788,local_538);
-  clap_builder::builder::arg::Arg::long(local_538,local_788);
+  _ZN12clap_builder7builder3arg3Arg3new17h232af3154c6234e3E(local_538,&DAT_001124a8,4);
+  _ZN12clap_builder7builder3arg3Arg5short17h4b8b75b37ac110d0E(local_788,local_538);
+  _ZN12clap_builder7builder3arg3Arg4long17h26f18b50c67386c2E(local_538,local_788);
                     /* try { // try from 001a393b to 001a394a has its CatchHandler @ 001a39e1 */
-  clap_builder::builder::arg::Arg::help(local_788,local_538);
-  clap_builder::builder::arg::Arg::action(local_270,local_788,2);
-  clap_builder::builder::command::Command::arg(local_538,local_a50,local_270);
-  clap_builder::builder::arg::Arg::new(local_a50,"variables",9);
-  clap_builder::builder::arg::Arg::action(local_788,local_a50,1);
-  clap_builder::builder::arg::Arg::num_args(local_a50,local_788);
-  clap_builder::builder::command::Command::arg(param_1,local_538,local_a50);
+  _ZN12clap_builder7builder3arg3Arg4help17h457dd636a188a524E(local_788,local_538);
+  _ZN12clap_builder7builder3arg3Arg6action17hfac7705830aeadd1E(local_270,local_788,2);
+  _ZN12clap_builder7builder7command7Command3arg17h825aeeae1f3493f2E(local_538,local_a50,local_270);
+  _ZN12clap_builder7builder3arg3Arg3new17h232af3154c6234e3E(local_a50,"variables",9);
+  _ZN12clap_builder7builder3arg3Arg6action17hfac7705830aeadd1E(local_788,local_a50,1);
+  _ZN12clap_builder7builder3arg3Arg8num_args17h355828e295e06717E(local_a50,local_788);
+  _ZN12clap_builder7builder7command7Command3arg17h825aeeae1f3493f2E(param_1,local_538,local_a50);
   return param_1;
 }

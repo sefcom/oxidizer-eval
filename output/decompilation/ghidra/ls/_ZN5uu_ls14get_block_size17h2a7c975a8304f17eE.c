@@ -1,4 +1,5 @@
-ulong __rustcall uu_ls::get_block_size(uint param_1,long param_2,ulong param_3,char param_4)
+ulong _ZN5uu_ls14get_block_size17h2a7c975a8304f17eE
+                (uint param_1,long param_2,ulong param_3,char param_4)
 
 {
   code *pcVar1;
@@ -14,7 +15,7 @@ ulong __rustcall uu_ls::get_block_size(uint param_1,long param_2,ulong param_3,c
     return uVar2;
   }
   if (param_3 == 0) {
-    core::panicking::panic_const::panic_const_div_by_zero(&PTR_DAT_00312670);
+    _ZN4core9panicking11panic_const23panic_const_div_by_zero17haded503194f0bf6eE(&PTR_DAT_00312670);
     pcVar1 = (code *)swi(3);
     uVar2 = (*pcVar1)();
     return uVar2;

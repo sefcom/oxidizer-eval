@@ -44,26 +44,26 @@ double uu_dd::parseargs::Parser::validate::hd2b1e31453916e87(long long a0, long 
     char v44;  // sil
     char v45;  // dil
     char v46;  // r8b
-    unsigned long long v47;  // rdx
+    char v47;  // r9b
     char v48;  // r12b
-    unsigned long long v49;  // r13
-    unsigned long long v50;  // rsi
-    unsigned long long v51;  // rax
-    int v52;  // ymm1
-    unsigned long long v53;  // rax
-    unsigned long long v54;  // rcx
+    unsigned long long v49;  // rdx
+    unsigned long long v50;  // r13
+    unsigned long long v51;  // rsi
+    unsigned long long v52;  // rax
+    unsigned long long v53;  // rcx
+    int v54;  // ymm1
     char v55;  // dl
-    unsigned long long v57;  // rsi
-    unsigned long long v62;  // rsi
-    unsigned long long v64;  // rdi
-    unsigned long long v69;  // rdi
-    unsigned long long *v70;  // r11
-    unsigned long long v71;  // r9
-    unsigned long long v72;  // r8
-    int v73;  // xmm0
-    int v74;  // xmm0
-    int v75;  // xmm0
-    int v76;  // xmm0
+    unsigned long long v56;  // rsi
+    unsigned long long v58;  // rsi
+    unsigned long long v59;  // rdi
+    unsigned long long v61;  // rdi
+    unsigned long long *v62;  // r11
+    unsigned long long v63;  // r9
+    unsigned long long v64;  // r8
+    int v65;  // xmm0
+    int v66;  // xmm0
+    int v67;  // xmm0
+    int v68;  // xmm0
 
     v10 = (char)a1->field_98;
     v11 = *((char *)&a1->field_98 + 1);
@@ -215,6 +215,7 @@ LABEL_4d2cba:
                 v44 = v2;
                 v45 = v1;
                 v46 = v0;
+                v47 = v3;
                 if (((char)v43 & 1))
                 {
                     a0->field_8 = 4;
@@ -231,97 +232,110 @@ LABEL_4d2cba:
                         core::ptr::drop_in_place$LT$uu_dd..parseargs..Parser$GT$::h57b892102145e56e(a1);
                         return (unsigned long long)v24;
                     }
+                    v48 = v47;
                     v0 = v46;
                     v1 = v45;
                     v2 = v44;
-                    v47 = 2;
+                    v49 = 2;
 LABEL_4d2dd6:
-                    v49 = v5;
-                    uu_dd::parseargs::conversion_mode::h18084a71126044cd(&v7, uu_dd::parseargs::get_ctable::h8e7446a764b1d972(v32, (!v14) * 2), v47, v43, v10 & 4294967295, v49 & 4294967295);
-                    v50 = a1->field_0;
-                    if (v50)
+                    v50 = v5;
+                    uu_dd::parseargs::conversion_mode::h18084a71126044cd(&v7, uu_dd::parseargs::get_ctable::h8e7446a764b1d972(v32, (!v14) * 2), v49, v43, v10 & 4294967295, v50 & 4294967295);
+                    v51 = a1->field_0;
+                    if (v51)
                     {
-                        v51 = a1->field_8;
-                        v52 = v42 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v6;
+                        v52 = a1->field_8;
+                        v53 = v52;
+                        v54 = v42 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v6;
                     }
                     else
                     {
                         v53 = 0x200;
-                        v51 = 0x200;
+                        v52 = 0x200;
                         if (a1->field_10)
-                            v51 = a1->field_18;
-                        v52 = v42 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v6;
+                            v52 = a1->field_18;
+                        v54 = v42 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v6;
                         if (a1->field_20)
                             v53 = a1->field_28;
                     }
-                    v54 = v53;
                     v55 = 1;
-                    if (v50)
+                    if (v51)
                         v55 = a1->field_b0;
+                    v56 = v52;
                     if ((&a1->field_af)[6])
-                        v57 = 1;
-                    v62 = a1->field_48 * 1;
+                        v56 = 1;
+                    if (a1->field_40)
+                        v56 = v52;
+                    if (a1->field_40)
+                        v56 = 1;
+                    v58 = a1->field_48 * v56;
+                    v59 = v53;
                     if (*((char *)&a1->field_b0 + 15))
-                        v64 = 1;
-                    v69 = a1->field_58 * 1;
-                    v70 = (char *)&a1->field_b0 + 1;
-                    v71 = a1->field_60;
-                    v72 = a1->field_68;
-                    if (!v71)
+                        v59 = 1;
+                    if (a1->field_50)
+                        v59 = v53;
+                    if (a1->field_50)
+                        v59 = 1;
+                    v61 = a1->field_58 * v59;
+                    v62 = (char *)&a1->field_b0 + 1;
+                    v63 = a1->field_60;
+                    v64 = a1->field_68;
+                    if (!v63)
                     {
-                        v71 = (&a1->field_af)[5];
+                        v63 = (&a1->field_af)[5];
                     }
-                    else if ((unsigned int)v71 == 1)
+                    else if ((unsigned int)v63 == 1)
                     {
-                        v71 = 1;
+                        v63 = 1;
                     }
                     a0->field_20 = a1->field_80;
-                    v73 = a1->field_70;
-                    *((void*)&a0->field_10) = v73;
+                    v65 = a1->field_70;
+                    *((void*)&a0->field_10) = v65;
                     *((long long *)((char *)&a0->field_28 + 8)) = *((long long *)((char *)&a1->field_88 + 8));
-                    v74 = *((int128_t *)&(&a1->field_80)[1]);
-                    *((void*)&(&a0->field_20)[1]) = v74;
-                    v75 = *((int128_t *)&a1->field_a8);
-                    *((void*)&a0->field_38) = v75;
-                    *((unsigned long long *)((char *)&a0->field_80 + 6)) = *(v70);
-                    *((long long *)((char *)&a0->field_88 + 5)) = *((long long *)((char *)v70 + 7));
+                    v66 = *((int128_t *)&(&a1->field_80)[1]);
+                    *((void*)&(&a0->field_20)[1]) = v66;
+                    v67 = *((int128_t *)&a1->field_a8);
+                    *((void*)&a0->field_38) = v67;
+                    *((unsigned long long *)((char *)&a0->field_80 + 6)) = *(v62);
+                    *((long long *)((char *)&a0->field_88 + 5)) = *((long long *)((char *)v62 + 7));
                     *((long long *)&a0->field_50) = *((long long *)&v8);
-                    v76 = *((int128_t *)&v7);
-                    *((void*)&a0->field_40) = v76;
-                    a0->field_0 = v71;
-                    a0->field_8 = v72;
-                    *((char *)&a0->field_50 + 8) = v49;
+                    v68 = *((int128_t *)&v7);
+                    *((void*)&a0->field_40) = v68;
+                    a0->field_0 = v63;
+                    a0->field_8 = v64;
+                    *((char *)&a0->field_50 + 8) = v50;
                     *((char *)&a0->field_50 + 9) = 32;
                     *((char *)&a0->field_50 + 10) = v0;
                     *((char *)&a0->field_50 + 11) = v48;
-                    a0->field_60 = v51;
-                    *((unsigned long long *)&a0->field_68) = v54;
-                    a0->field_70 = v62;
-                    a0->field_78 = v69;
-                    *((unsigned int *)&a0->field_80) = (unsigned int)v52;
+                    a0->field_60 = v52;
+                    *((unsigned long long *)&a0->field_68) = v53;
+                    a0->field_70 = v58;
+                    a0->field_78 = v61;
+                    *((unsigned int *)&a0->field_80) = (unsigned int)v54;
                     *((char *)&a0->field_80 + 4) = v2;
                     *((char *)&a0->field_80 + 5) = v1;
                     a0->field_95 = v55;
                     (&a0->field_95)[1] = a1->field_c0;
-                    return (unsigned long long)((((((((v20 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v34) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v35) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v37) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v38) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v73) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v74) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v75) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v76);
+                    return (unsigned long long)((((((((v20 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v34) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v35) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v37) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v38) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v65) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v66) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v67) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v68);
                 }
                 v43 = a1->field_38;
                 if (!(char)v25)
                 {
+                    v48 = v47;
                     v0 = v46;
                     v1 = v45;
                     v2 = v44;
-                    v47 = 1;
+                    v49 = 1;
                     goto LABEL_4d2dd6;
                 }
                 if (v32 == 3)
                 {
                     if (!v4)
                     {
+                        v48 = v47;
                         v0 = v46;
                         v1 = v45;
                         v2 = v44;
-                        v47 = 1 + (v15 < 1);
+                        v49 = 1 + (v15 < 1);
                         goto LABEL_4d2dd6;
                     }
                     else if (v15)
@@ -332,10 +346,11 @@ LABEL_4d2dd6:
                         return (unsigned long long)v24;
                     }
                 }
+                v48 = v47;
                 v0 = v46;
                 v1 = v45;
                 v2 = v44;
-                v47 = 0;
+                v49 = 0;
                 goto LABEL_4d2dd6;
             }
         }

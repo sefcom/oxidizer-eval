@@ -18,7 +18,7 @@ long long uu_wc::utf8::Incomplete::try_complete_offsets::h9c1fcf79f71d155f(struc
     v6 = 4 - v5;
     v7 = ::0x4c6c60::core::cmp::min_by::h81988dc820cb7914(v6, a2);
     core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::copy_from_slice::heb9fab0cf9acb3ce(::0x4c61d0::_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$::index_mut::h91a2381faada637b(v7, &a0->padding_0[v5], v6, &g_5315a8), v8, ::0x4c61b0::_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$::index::hcc9c09d4ae31832d(v7, a1, a2, &g_5315c0), v8, &g_5315d8);
-    core::str::converts::from_utf8::ha1effb4cca6d9901(&v0, ::0x4c61b0::_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$::index::hcc9c09d4ae31832d(v7 + v5, a0, 4, &g_5315f0), v8);
+    core::str::converts::from_utf8::ha1effb4cca6d9901(&v0, ::0x4c61b0::_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$::index::hcc9c09d4ae31832d(v7 + v5, a0, 4, &g_5315f0), a2);
     if (!*((long long *)&v0))
     {
         a0->field_4 = v12;

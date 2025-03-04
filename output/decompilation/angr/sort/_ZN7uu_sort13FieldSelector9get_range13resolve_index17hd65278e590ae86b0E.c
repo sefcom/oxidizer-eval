@@ -1,6 +1,6 @@
 long long uu_sort::FieldSelector::get_range::resolve_index::hd65278e590ae86b0(unsigned long long a0, unsigned long long a1, unsigned long long *a2, unsigned long long a3, struct_0 *a4)
 {
-    unsigned long v0;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x40]
     unsigned long long v1;  // [sp-0x38]
     void* v2;  // [sp-0x30]
     unsigned long long v4;  // rdi

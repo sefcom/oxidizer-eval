@@ -1,4 +1,4 @@
-void __rustcall uu_shred::pass_name(undefined8 param_1,char *param_2)
+void _ZN8uu_shred9pass_name17hc502fb7b05ee159fE(undefined8 param_1,char *param_2)
 
 {
   char *local_f8;
@@ -33,7 +33,7 @@ void __rustcall uu_shred::pass_name(undefined8 param_1,char *param_2)
   local_98 = (undefined *)&local_f8;
   if (*param_2 == '\0') {
     local_f8 = param_2 + 1;
-    local_e8 = _<&T_as_core::fmt::LowerHex>::fmt;
+    local_e8 = _ZN45__LT__RF_T_u20_as_u20_core__fmt__LowerHex_GT_3fmt17hdd5c48a143c8004bE;
     local_a8 = (char **)0x2;
     local_98 = (undefined *)0x2;
     local_88 = (char **)0x0;
@@ -56,23 +56,23 @@ void __rustcall uu_shred::pass_name(undefined8 param_1,char *param_2)
   }
   else {
     if (*param_2 == '\x02') {
-      _<T_as_alloc::slice::hack::ConvertVec>::to_vec();
+      _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h1a8f6b081ce0a887E();
       return;
     }
     local_b0 = param_2 + 1;
     local_f8 = param_2 + 2;
     local_f0 = param_2 + 3;
     local_a8 = &local_b0;
-    local_a0 = _<&T_as_core::fmt::LowerHex>::fmt;
-    local_90 = _<&T_as_core::fmt::LowerHex>::fmt;
+    local_a0 = _ZN45__LT__RF_T_u20_as_u20_core__fmt__LowerHex_GT_3fmt17hdd5c48a143c8004bE;
+    local_90 = _ZN45__LT__RF_T_u20_as_u20_core__fmt__LowerHex_GT_3fmt17hdd5c48a143c8004bE;
     local_88 = &local_f0;
-    local_80 = _<&T_as_core::fmt::LowerHex>::fmt;
+    local_80 = _ZN45__LT__RF_T_u20_as_u20_core__fmt__LowerHex_GT_3fmt17hdd5c48a143c8004bE;
     local_c0 = (char ***)0x0;
     local_d0 = (char **)&local_a8;
     local_c8 = 3;
   }
   local_d8 = 3;
   local_e0 = &DAT_0011f050;
-  core::option::Option<T>::map_or_else(param_1,&local_e0);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17h2a91f0892e8dc529E(param_1,&local_e0);
   return;
 }

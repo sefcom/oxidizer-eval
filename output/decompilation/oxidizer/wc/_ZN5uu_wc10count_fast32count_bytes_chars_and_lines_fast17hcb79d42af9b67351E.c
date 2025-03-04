@@ -16,29 +16,26 @@ fn uu_wc::count_fast::count_bytes_chars_and_lines_fast(a0: &struct48, a1: u32) -
     v0 = v6;
     v7 = 0;
     memset(&v1, 0, 0x4000);
-    loop {
-        if !<std::io::stdio::StdinLock as std::io::Read>::read(a1) {
-            if v8 {
-                v9 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v8, &v1, "src/uu/wc/src/count_fast.rs");
-                v7 += <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(v9, v8 + v9);
-            } else {
-                return struct48 {
-                    field_0: 0
-                    field_8: v7
-                    field_16: 0
-                    field_32: 0
-                };
-            }
-        } else {
-            if std::io::error::Error::kind(v8) as i8 != 35 {
-                return struct48 {
-                    field_0: 0
-                    field_8: v7
-                    field_16: 0
-                    field_32: 0
-                    field_40: v8
-                };
-            }
+    for (; !<std::io::stdio::StdinLock as std::io::Read>::read(a1); v7 += <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(v9, v8 + v9)) {
+LABEL_4bf270:
+        if !v8 {
+            return struct48 {
+                field_0: 0
+                field_8: v7
+                field_16: 0
+                field_32: 0
+            };
         }
+        v9 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v8, &v1, "src/uu/wc/src/count_fast.rs");
     }
+    if std::io::error::Error::kind(v8) as i8 != 35 {
+        return struct48 {
+            field_0: 0
+            field_8: v7
+            field_16: 0
+            field_32: 0
+            field_40: v8
+        };
+    }
+    goto LABEL_4bf270;
 }

@@ -1,23 +1,39 @@
 fn uu_pr::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct24
-    let v1: i5696;  // [sp-0x7f8], Other Possible Types: struct592, struct712
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct24
+    let v1: struct592;  // [sp-0x7f8], Other Possible Types: struct712
     let v2: i32;  // [sp-0x5b0]
     let v3: i32;  // [sp-0x5ac]
     let v4: i64;  // [sp-0x53c]
     let v5: i32;  // [sp-0x534]
-    let v6: i4736;  // [sp-0x530], Other Possible Types: struct592, struct712, struct437
-    let v7: struct592;  // [sp-0x268], Other Possible Types: i4736
+    let v6: struct592;  // [sp-0x530], Other Possible Types: struct712, struct437
+    let v7: struct592;  // [sp-0x268]
     let v9: i64;  // rdx
 
     v6 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
     v1 = clap_builder::builder::command::Command::version(&v6, "0.0.28");
     v6 = clap_builder::builder::command::Command::about(&v1, "Write content of given file or standard input to standard output with pagination filter");
-    v1 = clap_builder::builder::command::Command::after_help(&v6, "+PAGE           Begin output at page number page of the formatted input.\n-COLUMN         Produce multi-column output. See --column\n\nThe pr utility is a printing and pagination filter for text files.\nWhen multiple input files are specified, each is read, formatted, and written to standard output.\nBy default, the input is separated into 66-line pages, each with\n\n* A 5-line header with the page number, date, time, and the pathname of the file.\n* A 5-line trailer consisting of blank lines.\n\nIf standard output is associated with a terminal, diagnostic messages are suppressed until the pr\nutility has completed processing.\n\nWhen multiple column output is specified, text columns are of equal width.\nBy default, text columns are separated by at least one <blank>.\nInput lines that do not fit into a text column are truncated.\nLines are not truncated under single column output.");
+    v1 = clap_builder::builder::command::Command::after_help(&v6, "+PAGE           Begin output at page number page of the formatted input.
+-COLUMN         Produce multi-column output. See --column
+
+The pr utility is a printing and pagination filter for text files.
+When multiple input files are specified, each is read, formatted, and written to standard output.
+By default, the input is separated into 66-line pages, each with
+
+* A 5-line header with the page number, date, time, and the pathname of the file.
+* A 5-line trailer consisting of blank lines.
+
+If standard output is associated with a terminal, diagnostic messages are suppressed until the pr
+utility has completed processing.
+
+When multiple column output is specified, text columns are of equal width.
+By default, text columns are separated by at least one <blank>.
+Input lines that do not fit into a text column are truncated.
+Lines are not truncated under single column output.");
     v0 = uucore::format_usage("{} [OPTION]... [FILE]...");
     v6 = clap_builder::builder::command::Command::override_usage(&v1, &v0);
     memcpy(&v1, &v6, 700);
-    v4 = 1126484022657160 | *((&v6 as &char + 700) as &i64);
-    v5 = *((&v6 as &char + 708) as &i32);
+    v4 = 1126484022657160 | *((&v6.field_0 as &char + 700) as &i64);
+    v5 = *((&v6.field_0 as &char + 708) as &i32);
     v6 = clap_builder::builder::arg::Arg::new("pages");
     v0 = clap_builder::builder::arg::Arg::long(&v6, "pages");
     v6 = clap_builder::builder::arg::Arg::help(&v0, "Begin and stop printing with page FIRST_PAGE[:LAST_PAGE]");
@@ -40,8 +56,8 @@ fn uu_pr::uu_app(a0: &struct712) -> u64 {
     v1 = clap_builder::builder::arg::Arg::long(&v0, "number-lines");
     v0 = clap_builder::builder::arg::Arg::help(&v1, "Provide width digit line numbering.  The default for width, if not specified, is 5.  The number occupies the first width column positions of each text column or each line of -m output.  If char (any non-digit character) is given, it is appended to the line number to separate it from whatever follows.  The default for char is a <tab>. Line numbers longer than width columns are truncated.");
     memcpy(&v1, &v0, 584);
-    v2 = *((&v0 as &char + 584) as &i32) | 32;
-    v3 = *((&v0 as &char + 588) as &i32);
+    v2 = *((&v0.field_0 as &char + 584) as &i32) | 32;
+    v3 = *((&v0.field_0 as &char + 588) as &i32);
     v0 = clap_builder::builder::arg::Arg::value_name(&v1, "[char][width]");
     v1 = clap_builder::builder::command::Command::arg(&v6, &v0);
     v6 = clap_builder::builder::arg::Arg::new("first-line-number");
@@ -107,7 +123,7 @@ fn uu_pr::uu_app(a0: &struct712) -> u64 {
     v6 = clap_builder::builder::arg::Arg::new("sep-string");
     v0 = clap_builder::builder::arg::Arg::short(&v6, 0x53);
     v6 = clap_builder::builder::arg::Arg::long(&v0, "sep-string");
-    v0 = clap_builder::builder::arg::Arg::help(&v6, "separate columns by STRING, without -S: Default separator <TAB> with -J and <space> otherwise (same as -S\" \"), no effect on column options");
+    v0 = clap_builder::builder::arg::Arg::help(&v6, "separate columns by STRING, without -S: Default separator <TAB> with -J and <space> otherwise (same as -S" "), no effect on column options");
     v7 = clap_builder::builder::arg::Arg::value_name(&v0, "string");
     v6 = clap_builder::builder::command::Command::arg(&v1, &v7);
     v1 = clap_builder::builder::arg::Arg::new("merge");

@@ -13,7 +13,7 @@ long long uu_join::uu_app::h2d689a8b41cf12f0(unsigned long long a0)
     char v10;  // [bp-0x2f4]
     unsigned long long v11;  // [sp-0x284]
     unsigned int v12;  // [sp-0x27c]
-    unsigned long v13;  // [sp-0x278], Other Possible Types: unsigned long long
+    unsigned long long v13;  // [sp-0x278], Other Possible Types: unsigned long
     unsigned long long v14;  // [sp-0x270]
     unsigned long long v15;  // [sp-0x268]
     unsigned long long v16;  // [sp-0x260]

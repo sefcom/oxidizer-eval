@@ -1,8 +1,8 @@
 long long uu_sort::numeric_str_cmp::numeric_str_cmp::h462d5662bf6f9278(struct_1 *a0, struct_1 *a1)
 {
-    unsigned long v0;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x40]
     unsigned long long v1;  // [sp-0x38]
-    unsigned long v2;  // [sp-0x30], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x30]
     unsigned long long v3;  // [sp-0x28]
     char v7;  // r15b
     char v8;  // cl

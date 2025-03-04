@@ -1,4 +1,4 @@
-void __rustcall uu_head::Mode::from(undefined8 *param_1,undefined8 param_2)
+void _ZN7uu_head4Mode4from17h53e4fee035ad00eeE(undefined8 *param_1,undefined8 param_2)
 
 {
   long lVar1;
@@ -25,18 +25,22 @@ void __rustcall uu_head::Mode::from(undefined8 *param_1,undefined8 param_2)
   undefined4 uStack_30;
   undefined4 uStack_2c;
   
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&local_48,param_2,"BYTES",5);
-  lVar1 = clap_builder::parser::error::MatchesError::unwrap("BYTES",5,&local_48);
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h93f14d0ecce99c1aE
+            (&local_48,param_2,"BYTES",5);
+  lVar1 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h1a803a7302dfb847E
+                    ("BYTES",5,&local_48);
   if (lVar1 == 0) {
-    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&local_48,param_2,"LINES",5)
-    ;
-    lVar1 = clap_builder::parser::error::MatchesError::unwrap("LINES",5,&local_48);
+    _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h93f14d0ecce99c1aE
+              (&local_48,param_2,"LINES",5);
+    lVar1 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h1a803a7302dfb847E
+                      ("LINES",5,&local_48);
     if (lVar1 == 0) {
       param_1[1] = 0;
       param_1[2] = 10;
       goto LAB_001b8edf;
     }
-    uu_head::parse::parse_num(&local_68,*(undefined8 *)(lVar1 + 8),*(undefined8 *)(lVar1 + 0x10));
+    _ZN7uu_head5parse9parse_num17h0b10a586c944e6e5E
+              (&local_68,*(undefined8 *)(lVar1 + 8),*(undefined8 *)(lVar1 + 0x10));
     if (local_68 != 3) {
       local_38 = local_58;
       uStack_34 = uStack_54;
@@ -46,7 +50,7 @@ void __rustcall uu_head::Mode::from(undefined8 *param_1,undefined8 param_2)
       uStack_44 = uStack_64;
       uStack_40 = uStack_60;
       uStack_3c = uStack_5c;
-      from::___closure__(&local_88,&local_48);
+      _ZN7uu_head4Mode4from28__u7b__u7b_closure_u7d__u7d_17hb5202c7fdcf4dd08E(&local_88,&local_48);
       goto LAB_001b8eb4;
     }
     uVar2 = CONCAT44(uStack_5c,uStack_60);
@@ -58,7 +62,8 @@ void __rustcall uu_head::Mode::from(undefined8 *param_1,undefined8 param_2)
     }
   }
   else {
-    uu_head::parse::parse_num(&local_68,*(undefined8 *)(lVar1 + 8),*(undefined8 *)(lVar1 + 0x10));
+    _ZN7uu_head5parse9parse_num17h0b10a586c944e6e5E
+              (&local_68,*(undefined8 *)(lVar1 + 8),*(undefined8 *)(lVar1 + 0x10));
     if (local_68 != 3) {
       local_38 = local_58;
       uStack_34 = uStack_54;
@@ -68,7 +73,7 @@ void __rustcall uu_head::Mode::from(undefined8 *param_1,undefined8 param_2)
       uStack_44 = uStack_64;
       uStack_40 = uStack_60;
       uStack_3c = uStack_5c;
-      from::___closure__(&local_88,&local_48);
+      _ZN7uu_head4Mode4from28__u7b__u7b_closure_u7d__u7d_17he18e9b8fbd48dd2eE(&local_88,&local_48);
 LAB_001b8eb4:
       *(uint *)((long)param_1 + 0x14) = CONCAT31(uStack_73,uStack_77._3_1_);
       *(undefined4 *)((long)param_1 + 0x11) = uStack_77;

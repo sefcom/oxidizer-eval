@@ -1,4 +1,5 @@
-undefined8 * __rustcall uu_dircolors::escape(undefined8 *param_1,long param_2,long param_3)
+undefined8 *
+_ZN12uu_dircolors6escape17h9e775b2dd37a0760E(undefined8 *param_1,long param_2,long param_3)
 
 {
   int iVar1;
@@ -20,7 +21,7 @@ undefined8 * __rustcall uu_dircolors::escape(undefined8 *param_1,long param_2,lo
   local_48 = 0;
   local_38 = param_3 + param_2;
   local_40 = param_2;
-  iVar1 = core::str::validations::next_code_point(&local_40);
+  iVar1 = _ZN4core3str11validations15next_code_point17h87d043ad57c0cd0eE(&local_40);
   if (iVar1 != 0) {
     uVar3 = 0x20;
     uVar4 = extraout_RDX;
@@ -29,8 +30,8 @@ undefined8 * __rustcall uu_dircolors::escape(undefined8 *param_1,long param_2,lo
         puVar6 = &DAT_00116cc0;
         puVar5 = &anon_84df56382e2e566cd8a063a5d0153d3b_161_llvm_4004663911042702431;
 LAB_001bccf6:
-        uVar2 = core::slice::iter::Iter<T>::make_slice(puVar6,puVar5);
-        ::alloc::vec::Vec<T,A>::append_elements(&local_58,uVar2);
+        uVar2 = _ZN4core5slice4iter13Iter_LT_T_GT_10make_slice17h25769b8f6cfce2a9E(puVar6,puVar5);
+        _ZN5alloc3vec16Vec_LT_T_C_A_GT_15append_elements17hcb56fdf4dd160d69E(&local_58,uVar2);
       }
       else {
         if (((int)uVar4 == 0x3a) && ((int)uVar3 != 0x5c)) {
@@ -39,9 +40,9 @@ LAB_001bccf6:
           goto LAB_001bccf6;
         }
                     /* try { // try from 001bccb0 to 001bcd05 has its CatchHandler @ 001bcd2a */
-        ::alloc::string::String::push(&local_58,uVar4 & 0xffffffff);
+        _ZN5alloc6string6String4push17h859ae11851fd8b8eE(&local_58,uVar4 & 0xffffffff);
       }
-      iVar1 = core::str::validations::next_code_point(&local_40);
+      iVar1 = _ZN4core3str11validations15next_code_point17h87d043ad57c0cd0eE(&local_40);
       uVar3 = uVar4 & 0xffffffff;
       uVar4 = extraout_RDX_00;
     } while (iVar1 != 0);

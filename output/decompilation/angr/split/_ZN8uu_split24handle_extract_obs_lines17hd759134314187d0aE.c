@@ -9,7 +9,7 @@ long long uu_split::handle_extract_obs_lines::hd759134314187d0a(unsigned long lo
     char v6;  // [bp-0x90]
     char v7;  // [bp-0x88]
     char v8;  // [bp-0x78]
-    unsigned long v9;  // [sp-0x70], Other Possible Types: unsigned long long
+    unsigned long v9;  // [sp-0x70]
     unsigned long long v10;  // [sp-0x68]
     char *v11;  // [sp-0x60]
     char *v12;  // [sp-0x58]

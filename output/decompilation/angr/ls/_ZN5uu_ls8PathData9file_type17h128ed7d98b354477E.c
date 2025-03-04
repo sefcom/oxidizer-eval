@@ -6,7 +6,5 @@ long long uu_ls::PathData::file_type::h128ed7d98b354477(unsigned long long a0, u
 
     v0 = v2;
     v3 = core::cell::once::OnceCell$LT$T$GT$::get_or_try_init::he9c14013ab1ff432(a0 + 248, a0, a1);
-    if (*(v3))
-        return v3 + 1;
-    return 0;
+    return (*(v3) ? v3 + 1 : 0);
 }

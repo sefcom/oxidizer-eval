@@ -4,7 +4,7 @@ long long uu_join::State::print_line::h59c9e6e17a0c0403(struct_0 *a0, unsigned l
     char v1;  // [sp-0x21]
     unsigned long v3;  // rax
     unsigned long long v4;  // rax
-    unsigned long v5;  // r15
+    unsigned long long v5;  // r15
     unsigned long long v6;  // rax
 
     v0 = v3;

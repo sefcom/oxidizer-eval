@@ -1,4 +1,4 @@
-undefined8 * __rustcall uu_sort::chunks::Chunk::recycle(undefined8 *param_1,long param_2)
+undefined8 * _ZN7uu_sort6chunks5Chunk7recycle17h5f1e538d67d10031E(undefined8 *param_1,long param_2)
 
 {
   undefined8 local_88;
@@ -19,9 +19,10 @@ undefined8 * __rustcall uu_sort::chunks::Chunk::recycle(undefined8 *param_1,long
   undefined4 uStack_1c;
   undefined8 local_18;
   
-  recycle::___closure__(&local_70,param_2 + 0x18);
+  _ZN7uu_sort6chunks5Chunk7recycle28__u7b__u7b_closure_u7d__u7d_17h749b46789b699b37E
+            (&local_70,param_2 + 0x18);
                     /* try { // try from 0025b778 to 0025b787 has its CatchHandler @ 0025b7f4 */
-  into_owner(&local_88,param_2);
+  _ZN7uu_sort6chunks5Chunk10into_owner17hb42f0e7ac9257e28E(&local_88,param_2);
   param_1[2] = local_60;
   *param_1 = local_70;
   param_1[1] = uStack_68;

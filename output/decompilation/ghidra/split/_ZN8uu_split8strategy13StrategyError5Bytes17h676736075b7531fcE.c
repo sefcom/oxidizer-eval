@@ -1,5 +1,6 @@
-undefined8 * __rustcall
-uu_split::strategy::StrategyError::Bytes(undefined8 *param_1,undefined8 *param_2)
+undefined8 *
+_ZN8uu_split8strategy13StrategyError5Bytes17h676736075b7531fcE
+          (undefined8 *param_1,undefined8 *param_2)
 
 {
   undefined8 uVar1;

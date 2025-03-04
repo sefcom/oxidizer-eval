@@ -1,5 +1,5 @@
-void __rustcall
-uu_realpath::canonicalize_relative(long *param_1,undefined8 param_2,undefined8 param_3,char param_4)
+void _ZN11uu_realpath21canonicalize_relative17h9315a0e677658306E
+               (long *param_1,undefined8 param_2,undefined8 param_3,char param_4)
 
 {
   long lVar1;
@@ -14,7 +14,7 @@ uu_realpath::canonicalize_relative(long *param_1,undefined8 param_2,undefined8 p
   long local_38;
   char local_30;
   
-  uucore::features::fs::canonicalize(&local_50);
+  _ZN6uucore8features2fs12canonicalize17h4be5c7a9ad65d7f1E(&local_50);
   lVar1 = CONCAT71(uStack_47,local_48);
   if (local_50 == -0x8000000000000000) {
     param_1[1] = lVar1;
@@ -25,18 +25,19 @@ uu_realpath::canonicalize_relative(long *param_1,undefined8 param_2,undefined8 p
     local_58 = local_40;
     local_60 = lVar1;
                     /* try { // try from 001b6889 to 001b68a8 has its CatchHandler @ 001b6901 */
-    if ((param_4 == '\x01') && (cVar2 = std::path::Path::is_dir(lVar1,local_40), cVar2 == '\0')) {
-      std::fs::read_dir(&local_50,lVar1,local_40);
+    if ((param_4 == '\x01') &&
+       (cVar2 = _ZN3std4path4Path6is_dir17h9ac0db933706da51E(lVar1,local_40), cVar2 == '\0')) {
+      _ZN3std2fs8read_dir17h4b97a66205288110E(&local_50,lVar1,local_40);
       if (local_48 == '\x02') {
         param_1[1] = local_50;
         *param_1 = -0x8000000000000000;
-        core::ptr::drop_in_place<std::path::PathBuf>(&local_68);
+        _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17h9cc26ee4129f6434E(&local_68);
         return;
       }
       local_38 = local_50;
       local_30 = local_48;
                     /* try { // try from 001b68d1 to 001b68da has its CatchHandler @ 001b6901 */
-      core::ptr::drop_in_place<std::fs::ReadDir>(&local_38);
+      _ZN4core3ptr37drop_in_place_LT_std__fs__ReadDir_GT_17h8145669f43335f0dE(&local_38);
     }
     param_1[2] = local_58;
     *param_1 = local_68;

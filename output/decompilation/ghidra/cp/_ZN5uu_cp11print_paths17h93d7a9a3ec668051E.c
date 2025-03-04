@@ -1,6 +1,6 @@
-void __rustcall
-uu_cp::print_paths(int param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
-                  undefined8 param_5)
+void _ZN5uu_cp11print_paths17h93d7a9a3ec668051E
+               (int param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5)
 
 {
   undefined8 **local_100;
@@ -35,10 +35,10 @@ uu_cp::print_paths(int param_1,undefined8 param_2,undefined8 param_3,undefined8 
     local_a8 = param_4;
     local_a0 = param_3;
     local_98 = param_2;
-    aligned_ancestors(&local_e0);
-    _<alloc::vec::Vec<T,A>as_core::iter::traits::collect::IntoIterator>::into_iter
+    _ZN5uu_cp17aligned_ancestors17h4cf131ef21f6aa74E(&local_e0);
+    _ZN90__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__iter__traits__collect__IntoIterator_GT_9into_iter17h6511090ed0ef25d3E
               (local_60,&local_e0);
-    _<alloc::vec::into_iter::IntoIter<T,A>as_core::iter::traits::iterator::Iterator>::next
+    _ZN103__LT_alloc__vec__into_iter__IntoIter_LT_T_C_A_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h109fcabe2eb45d25E
               (&local_100,local_60);
     if (local_100 != (undefined8 **)0x0) {
       do {
@@ -49,29 +49,32 @@ uu_cp::print_paths(int param_1,undefined8 param_2,undefined8 param_3,undefined8 
         uStack_38 = uStack_e8;
         uStack_34 = uStack_e4;
         local_90 = (long *)&local_70;
-        local_88 = _<std::path::Display_as_core::fmt::Display>::fmt;
+        local_88 = 
+        _ZN57__LT_std__path__Display_u20_as_u20_core__fmt__Display_GT_3fmt17h5a3c32fa16876e76E;
         local_80 = &local_40;
-        local_78 = _<std::path::Display_as_core::fmt::Display>::fmt;
+        local_78 = 
+        _ZN57__LT_std__path__Display_u20_as_u20_core__fmt__Display_GT_3fmt17h5a3c32fa16876e76E;
         local_e0 = &DAT_002b5f48;
         local_d8 = 3;
         local_c0 = 0;
         local_c8 = 2;
         local_d0 = &local_90;
                     /* try { // try from 002065db to 002065e0 has its CatchHandler @ 002066a0 */
-        std::io::stdio::_print(&local_e0);
-        _<alloc::vec::into_iter::IntoIter<T,A>as_core::iter::traits::iterator::Iterator>::next
+        _ZN3std2io5stdio6_print17he918bceb0c89db46E(&local_e0);
+        _ZN103__LT_alloc__vec__into_iter__IntoIter_LT_T_C_A_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h109fcabe2eb45d25E
                   (&local_100,local_60);
       } while (local_100 != (undefined8 **)0x0);
     }
-    core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<(&std::path::Path,&std::path::Path)>>
+    _ZN4core3ptr109drop_in_place_LT_alloc__vec__into_iter__IntoIter_LT__LP__RF_std__path__Path_C__RF_std__path__Path_RP__GT__GT_17h0c6e777e5bffd2a5E
               (local_60);
     param_4 = local_a8;
     param_3 = local_a0;
     param_2 = local_98;
     param_5 = local_b0;
   }
-  context_for(&local_90,param_2,param_3,param_4,param_5);
-  local_f8 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+  _ZN5uu_cp11context_for17h98549e35fded8509E(&local_90,param_2,param_3,param_4,param_5);
+  local_f8 = 
+  _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
   local_e0 = &DAT_002b5ce8;
   local_d8 = 2;
   local_c0 = 0;
@@ -79,7 +82,7 @@ uu_cp::print_paths(int param_1,undefined8 param_2,undefined8 param_3,undefined8 
   local_c8 = 1;
                     /* try { // try from 0020666a to 00206674 has its CatchHandler @ 00206691 */
   local_100 = &local_90;
-  std::io::stdio::_print(&local_e0);
-  core::ptr::drop_in_place<alloc::string::String>(&local_90);
+  _ZN3std2io5stdio6_print17he918bceb0c89db46E(&local_e0);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h5bdd96f6f34778b9E(&local_90);
   return;
 }

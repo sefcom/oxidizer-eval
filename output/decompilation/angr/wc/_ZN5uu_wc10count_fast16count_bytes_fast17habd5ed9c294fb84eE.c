@@ -10,18 +10,19 @@ long long uu_wc::count_fast::count_bytes_fast::habd5ed9c294fb84e(unsigned int *a
     void* v7;  // [sp-0x1030]
     unsigned long v9;  // rax
     unsigned int v10;  // ebp
-    void* v11;  // r12
-    unsigned long long v12;  // r15
-    unsigned long long v14;  // r14
-    unsigned long long v15;  // r12
-    unsigned long long v16;  // rax
-    unsigned long long v17;  // rcx
+    unsigned long long v11;  // r15
+    unsigned long long v12;  // r14
+    unsigned long long v13;  // r12
+    unsigned long long v14;  // rax
+    unsigned long long v15;  // rcx
+    unsigned long v16;  // rdx
+    unsigned long long v17;  // cc_dep1
     unsigned long long v18;  // rdx
-    unsigned long long v19;  // r14
-    unsigned long v20;  // cc_ndep
-    unsigned long long v22;  // rax
-    unsigned long long v23;  // rdx
-    unsigned long long v24;  // rdx
+    unsigned long v19;  // cc_ndep
+    unsigned long long v20;  // rdx
+    unsigned long long v21;  // rax
+    unsigned long long v22;  // rdx
+    void* v23;  // r12, Other Possible Types: unsigned long long
 
     v7 = 0;
     v6 = 0;
@@ -32,58 +33,62 @@ long long uu_wc::count_fast::count_bytes_fast::habd5ed9c294fb84e(unsigned int *a
     nix::sys::stat::fstat::h5414de4d70a08ddb(&v1, v10);
     if ((int)v1)
     {
-        v11 = 0;
+        v23 = 0;
         goto LABEL_4b8713;
     }
     else
     {
-        v12 = *((int *)&v2);
-        if (v10 > 0 && (unsigned short)v12 < 0)
+        v11 = *((int *)&v2);
+        v23 = 0;
+        if (v10 > 0 && (unsigned short)v11 < 0)
         {
-            v14 = *((long long *)&v3);
-            if (v14 > 0)
+            v12 = *((long long *)&v3);
+            if (v12 > 0)
             {
-                v15 = *((long long *)&v4);
-                v16 = sysconf(30);
-                if (!v16)
+                v13 = *((long long *)&v4);
+                v14 = sysconf(30);
+                if (!v14)
                     core::panicking::panic_const::panic_const_rem_by_zero::h9246b1d1945ea5dd(&g_530f10); /* do not return */
-                v17 = v16;
-                if (!(v16 | v14) >> 32)
+                v15 = v14;
+                if (!(v14 | v12) >> 32)
                 {
-                    v18 = ((unsigned int)((0 CONCAT (unsigned int)v14) % (v17 & 4294967295)) CONCAT (unsigned int)((0 CONCAT (unsigned int)v14) / (v17 & 4294967295))) >> 32 & 4294967295;
+                    v18 = ((unsigned int)((0 CONCAT (unsigned int)v12) % (v15 & 4294967295)) CONCAT (unsigned int)((0 CONCAT (unsigned int)v12) / (v15 & 4294967295))) >> 32 & 4294967295;
+                    v17 = v18;
                     if (v18)
-                        return v19;
+                        return v12;
                 }
                 else
                 {
-                    v18 = ((unsigned long long)((0 CONCAT v14) % v17) CONCAT (unsigned long long)((0 CONCAT v14) / v17)) >> 64;
-                    if (v18)
-                        return v19;
+                    v16 = ((unsigned long long)((0 CONCAT v12) % v15) CONCAT (unsigned long long)((0 CONCAT v12) / v15)) >> 64;
+                    v17 = v16;
+                    if (v16)
+                        return v12;
                 }
-                if ((char)amd64g_calculate_condition(4, 24, v15 + 1, 0, amd64g_calculate_rflags_c(20, v18, 0, v20)))
+                if ((char)amd64g_calculate_condition(4, 24, v13 + 1, 0, amd64g_calculate_rflags_c(20, v17, 0, v19)))
                     core::panicking::panic_const::panic_const_rem_by_zero::h9246b1d1945ea5dd(&g_530f28); /* do not return */
-                v22 = _$LT$std..fs..File$u20$as$u20$std..io..Seek$GT$::seek::hf141ef1001f771f9(a0, 0, v14 - (!(v14 | v15 + 1) >> 32 ? ((unsigned int)((0 CONCAT (unsigned int)v14) % (v15 + 1 & 4294967295)) CONCAT (unsigned int)((0 CONCAT (unsigned int)v14) / (v15 + 1 & 4294967295))) >> 32 & 4294967295 : ((long long)((v14 >> 63 CONCAT v14) % (v15 + 1)) CONCAT (long long)((v14 >> 63 CONCAT v14) / (v15 + 1))) >> 64));
-                if (v22)
-                    v24 = 0;
-                core::ptr::drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$::ha0f27aa6f0fdbae0(v22, v23);
+                v20 = (!(v12 | v13 + 1) >> 32 ? ((unsigned int)((0 CONCAT (unsigned int)v12) % (v13 + 1 & 4294967295)) CONCAT (unsigned int)((0 CONCAT (unsigned int)v12) / (v13 + 1 & 4294967295))) >> 32 & 4294967295 : ((long long)((v12 >> 63 CONCAT v12) % (v13 + 1)) CONCAT (long long)((v12 >> 63 CONCAT v12) / (v13 + 1))) >> 64);
+                v21 = _$LT$std..fs..File$u20$as$u20$std..io..Seek$GT$::seek::hf141ef1001f771f9(a0, 0, v12 - v20);
+                v23 = (!v21 ? v22 : 0);
+                core::ptr::drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$::ha0f27aa6f0fdbae0(v21, v22);
             }
         }
-        if (!((unsigned short)v12 & 0x1000) || uu_wc::count_fast::count_bytes_using_splice::h128e743cacc3bf6e(a0))
+        if (!((unsigned short)v11 & 0x1000) || (v23 = v22, v12 = v22, uu_wc::count_fast::count_bytes_using_splice::h128e743cacc3bf6e(a0)))
         {
 LABEL_4b8713:
             memset(&v1, 0, 0x4000);
             do
             {
-                v19 += v23;
+                v12 = v23;
                 while (_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$::read::h24fce4ed669fe556(a0, &v1, 0x4000))
                 {
-                    if ((char)::0x4b60f0::std::io::error::Error::kind::hb2ff5fa058639b3d(v23) == 35)
-                        ::0x4b7290::core::ptr::drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$::hd9e364499d096c21();
+                    if ((char)::0x4b60f0::std::io::error::Error::kind::hb2ff5fa058639b3d(v22) == 35)
+                        ::0x4b7290::core::ptr::drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$::hd9e364499d096c21(v22);
                     else
-                        return v19;
+                        return v12;
                 }
-            } while (v23);
+                v23 = v12 + v22;
+            } while (v22);
         }
-        return v19;
+        return v12;
     }
 }

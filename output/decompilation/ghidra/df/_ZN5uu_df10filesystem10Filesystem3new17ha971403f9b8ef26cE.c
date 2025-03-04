@@ -1,5 +1,6 @@
-undefined8 * __rustcall
-uu_df::filesystem::Filesystem::new(undefined8 *param_1,long param_2,undefined4 *param_3)
+undefined8 *
+_ZN5uu_df10filesystem10Filesystem3new17ha971403f9b8ef26cE
+          (undefined8 *param_1,long param_2,undefined4 *param_3)
 
 {
   undefined *puVar1;
@@ -98,13 +99,14 @@ uu_df::filesystem::Filesystem::new(undefined8 *param_1,long param_2,undefined4 *
     lVar2 = param_2 + 0x18;
   }
                     /* try { // try from 001d3b08 to 001d3b44 has its CatchHandler @ 001d3c82 */
-  _<alloc::string::String_as_core::clone::Clone>::clone(&local_1d0,lVar2);
+  _ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h8f45b0d02f4dafdaE
+            (&local_1d0,lVar2);
   local_1d8 = local_1c0;
   local_1e8 = local_1d0;
   uStack_1e4 = uStack_1cc;
   uStack_1e0 = uStack_1c8;
   uStack_1dc = uStack_1c4;
-  uucore::features::fsext::statfs(&local_180,&local_1e8);
+  _ZN6uucore8features5fsext6statfs17h7710e674e131f3deE(&local_180,&local_1e8);
   if (local_180 == 0) {
     local_28 = local_108;
     local_38 = local_118;
@@ -130,7 +132,7 @@ uu_df::filesystem::Filesystem::new(undefined8 *param_1,long param_2,undefined4 *
     uStack_90 = uStack_170;
     uStack_8c = uStack_16c;
                     /* try { // try from 001d3be4 to 001d3bf6 has its CatchHandler @ 001d3c82 */
-    uucore::features::fsext::FsUsage::new(&local_1b8,&local_98);
+    _ZN6uucore8features5fsext7FsUsage3new17h19810370d0ac518dE(&local_1b8,&local_98);
     puVar1 = PTR_memcpy_00245ae0;
     local_d8 = *(undefined8 *)(param_3 + 4);
     local_e8 = *param_3;
@@ -154,13 +156,14 @@ uu_df::filesystem::Filesystem::new(undefined8 *param_1,long param_2,undefined4 *
     (*(code *)puVar1)(param_1,&local_180,0xe8);
   }
   else {
-    core::ptr::
-    drop_in_place<core::result::Result<libc::unix::linux_like::linux::gnu::b64::x86_64::statfs,alloc::string::String>>
+    _ZN4core3ptr128drop_in_place_LT_core__result__Result_LT_libc__unix__linux_like__linux__gnu__b64__x86_64__statfs_C_alloc__string__String_GT__GT_17hc9dd6679bfd799beE
               (&local_180);
     *param_1 = 0x8000000000000000;
                     /* try { // try from 001d3b52 to 001d3b59 has its CatchHandler @ 001d3c7d */
-    core::ptr::drop_in_place<core::option::Option<alloc::string::String>>(param_3);
-    core::ptr::drop_in_place<uucore::features::fsext::MountInfo>(param_2);
+    _ZN4core3ptr70drop_in_place_LT_core__option__Option_LT_alloc__string__String_GT__GT_17h74894fec29a483d3E
+              (param_3);
+    _ZN4core3ptr55drop_in_place_LT_uucore__features__fsext__MountInfo_GT_17h9090e8568995f329E
+              (param_2);
   }
   return param_1;
 }

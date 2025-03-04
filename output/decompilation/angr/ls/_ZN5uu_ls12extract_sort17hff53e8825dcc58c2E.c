@@ -1,7 +1,7 @@
 long long uu_ls::extract_sort::hff53e8825dcc58c2(unsigned long long a0)
 {
     char v0;  // [bp-0x50]
-    char v1;  // [bp-0x48], Other Possible Types: unsigned long long
+    char v1;  // [bp-0x48], Other Possible Types: unsigned long
     unsigned long long v2;  // [sp-0x40]
     unsigned long long v3;  // [sp-0x38]
     int v4;  // [sp-0x30]

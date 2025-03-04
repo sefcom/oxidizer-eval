@@ -11,12 +11,12 @@ long long uu_df::uumain::uumain::h3e2d3a10a280da4e(unsigned long long a0, unsign
     unsigned long long v8;  // [sp-0x408]
     struct struct_0 **v9;  // [bp-0x3f8], Other Possible Types: unsigned long
     unsigned long long v10;  // [sp-0x3f0]
-    struct struct_0 **v11;  // [bp-0x3e8], Other Possible Types: char, unsigned long long
+    struct struct_0 **v11;  // [bp-0x3e8], Other Possible Types: unsigned long long, char
     unsigned long long v12;  // [sp-0x3e0]
     void* v13;  // [bp-0x3d8], Other Possible Types: char
     char v14;  // [bp-0x3c8]
-    char v15;  // [bp-0x3b8], Other Possible Types: unsigned long, unsigned long long
-    struct struct_0 **v16;  // [bp-0x3b0], Other Possible Types: char
+    char v15;  // [sp-0x3b8], Other Possible Types: unsigned long
+    struct struct_0 **v16;  // [sp-0x3b0], Other Possible Types: char
     char v17;  // [bp-0x3a8]
     struct struct_0 **v18;  // [sp-0x3a0]
     char v19;  // [bp-0x398]
@@ -24,7 +24,7 @@ long long uu_df::uumain::uumain::h3e2d3a10a280da4e(unsigned long long a0, unsign
     char v21;  // [bp-0x388]
     struct struct_0 **v22;  // [sp-0x380]
     struct struct_0 **v23;  // [sp-0x370]
-    unsigned long v24;  // [sp-0x360], Other Possible Types: unsigned long long
+    unsigned long v24;  // [sp-0x360]
     unsigned long long v25;  // [sp-0x358]
     struct struct_0 **v26;  // [sp-0x350]
     struct struct_0 **v27;  // [sp-0x340]
@@ -40,7 +40,7 @@ long long uu_df::uumain::uumain::h3e2d3a10a280da4e(unsigned long long a0, unsign
     char v37;  // [bp-0x2c0]
     char v38;  // [bp-0x2b0]
     char v39;  // [bp-0x2a0]
-    void* v42;  // rax
+    void* v42;  // rbx
     unsigned long long v43;  // rax
     struct struct_0 **v44;  // xmm0
     struct struct_0 **v45;  // xmm1

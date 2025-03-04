@@ -1,15 +1,15 @@
 long long uu_expand::uumain::uumain::h16f999daf06e85e0(unsigned long long a0, unsigned long long a1)
 {
-    int v0;  // [bp-0x3a8], Other Possible Types: char
+    int v0;  // [sp-0x3a8], Other Possible Types: char
     int v1;  // [sp-0x398]
     int v2;  // [sp-0x388]
-    unsigned long v3;  // [sp-0x378], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x378]
     unsigned long long v4;  // [sp-0x370]
     int v5;  // [sp-0x368]
     int v6;  // [sp-0x358]
     unsigned long long v7;  // [sp-0x348]
-    char v8;  // [bp-0x340], Other Possible Types: unsigned long, unsigned long long
-    int v9;  // [bp-0x338], Other Possible Types: char
+    char v8;  // [sp-0x340], Other Possible Types: unsigned long
+    int v9;  // [sp-0x338], Other Possible Types: char
     char v10;  // [bp-0x330]
     int v11;  // [sp-0x328]
     char v12;  // [bp-0x320]
@@ -26,7 +26,7 @@ long long uu_expand::uumain::uumain::h16f999daf06e85e0(unsigned long long a0, un
     char v23;  // [bp-0x2b0]
     char v24;  // [bp-0x2a0]
     char v25;  // [bp-0x290]
-    unsigned long long v28;  // rax
+    unsigned long long v28;  // rbx
 
     uu_expand::uu_app::h244b390e8990c65c(&v18);
     core::iter::traits::iterator::Iterator::collect::h086b5f75690f53ff(&v0, a0, a1);

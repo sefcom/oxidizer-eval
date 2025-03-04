@@ -10,7 +10,7 @@ long long uu_fold::uumain::uumain::h155a94364b670395(unsigned long long a0, unsi
     char v7;  // [bp-0x3f0]
     char v8;  // [bp-0x3e0]
     char v9;  // [bp-0x3d0]
-    unsigned long v10;  // [sp-0x3c0], Other Possible Types: unsigned long long
+    unsigned long v10;  // [sp-0x3c0]
     unsigned long long v11;  // [sp-0x3b8]
     int v12;  // [sp-0x3b0]
     int v13;  // [sp-0x3a0]
@@ -24,12 +24,12 @@ long long uu_fold::uumain::uumain::h155a94364b670395(unsigned long long a0, unsi
     int v21;  // [sp-0x328]
     int v22;  // [sp-0x318]
     int v23;  // [sp-0x308]
-    unsigned long long v24;  // [bp-0x2f8]
-    int v25;  // [sp-0x2f0]
-    int v26;  // [bp-0x2e8], Other Possible Types: char
+    int v24;  // [bp-0x2f8], Other Possible Types: char, unsigned long
+    unsigned long v25;  // [sp-0x2f8]
+    int v26;  // [sp-0x2f0]
     char v27;  // [bp-0x2e0]
     char v28;  // [bp-0x2d0]
-    unsigned long long v32;  // rax
+    unsigned long long v33;  // r14
     unsigned long long v35;  // r15
     unsigned long long v36;  // rax
     unsigned long long v37;  // r14
@@ -40,7 +40,7 @@ long long uu_fold::uumain::uumain::h155a94364b670395(unsigned long long a0, unsi
 
     uucore::Args::collect_lossy::h1cee8c2280f3bcb1(&v2, a0, a1);
     uu_fold::handle_obsolete::h3fddf2520a33c709(&v24, *((long long *)&v3), *((long long *)&v4));
-    v16 = *((long long *)&v26);
+    v16 = *((long long *)&v24);
     *((int128_t *)&v15) = *((int128_t *)&v24);
     v1 = *((long long *)&v28);
     *((int128_t *)&v0) = *((int128_t *)&v27);
@@ -50,7 +50,7 @@ long long uu_fold::uumain::uumain::h155a94364b670395(unsigned long long a0, unsi
     clap_builder::builder::command::Command::try_get_matches_from::hea47991cc25bd6e3(&v5, &v24, &v17);
     if (v10 == 0x8000000000000000)
     {
-        v32 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::h7fb9d0425989847a(v11);
+        v33 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::h7fb9d0425989847a(v11);
         goto LABEL_464980;
     }
     v14 = *((long long *)&v9);
@@ -72,19 +72,20 @@ long long uu_fold::uumain::uumain::h155a94364b670395(unsigned long long a0, unsi
     else
     {
         _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h8f45b0d02f4dafda(&v24, v35);
-        v19 = v25;
+        v36 = v25;
+        v19 = v26;
         v38 = (((v39 & 0xffffffffffffff00 | 1) & 0xffffffffffffff00 | 1) & 0xffffffffffffff00 | 1) & 0xffffffffffffff00 | 1;
 LABEL_464a86:
         v24 = v36;
-        v25 = v19;
-        core::num::_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$::from_str::h35e67cae0c0452a5(&v5, (long long)v25, (long long)(&v25)[8]);
+        v24 = v19;
+        core::num::_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$::from_str::h35e67cae0c0452a5(&v5, (long long)v24, (long long)(&v24)[8]);
         if (!v5)
         {
             v37 = *((long long *)&v6);
             goto LABEL_464b1f;
         }
-        v32 = uu_fold::uumain::uumain::_$u7b$$u7b$closure$u7d$$u7d$::hef0e7fe7c92ff8ac((long long)v25, (long long)(&v25)[8], (&v5)[1]);
-        if (!v32)
+        v33 = uu_fold::uumain::uumain::_$u7b$$u7b$closure$u7d$$u7d$::hef0e7fe7c92ff8ac((long long)v24, (long long)(&v24)[8], (&v5)[1]);
+        if (!v33)
         {
             v37 = &g_517fb8;
 LABEL_464b1f:
@@ -98,7 +99,7 @@ LABEL_464b1f:
             {
 LABEL_464c63:
                 ::0x4633b0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::h10b4bf408cda2574(&v2);
-                return v32;
+                return v33;
             }
 LABEL_464980:
             ::0x463430::core::ptr::drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$::hed570d098e0e6bfc(&v0);
@@ -116,18 +117,18 @@ LABEL_464980:
     }
     else
     {
-        v40 = ::0x4639a0::alloc::alloc::Global::alloc_impl::hf61749d460433fff();
+        v40 = ::0x4639a0::alloc::alloc::Global::alloc_impl::hf61749d460433fff(24);
         if (!v40)
             alloc::alloc::handle_alloc_error::h3816d26e7f8ae8a1(8, 24); /* do not return */
         v41 = v40;
         ::0x463660::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::hca3da16942e22ce7(&v24);
-        v18 = (long long)v26;
+        v18 = (long long)(&v24)[8];
         *((int128_t *)&v17) = *((int128_t *)&v24);
         v41->field_10 = v18;
         *((void*)&v41->field_0) = v17;
         alloc::slice::hack::into_vec::h8f55dd2e2988ff10(&v24, v41);
     }
-    v32 = uu_fold::fold::h0e99b4443f72c023((&v24)[1], (long long)v26, (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v10, "bytes", 5), (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v10, "spacesillegal width value (): /home/34r7hm4n/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap_builder-4.4.2/src/util/flat_map.rsMismatch between definition and access of ``. /home/34r7hm4n/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap_builder-4.4.2/src/parser/error.rs/rustc/8bfcae730a5db2438bbda72796175bba21427be1/library/core/src/iter/traits/exact_size.rs", 6), v37);
+    v33 = uu_fold::fold::h0e99b4443f72c023((&v24)[1], (long long)(&v24)[8], (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v10, "bytes", 5), (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v10, "spacesillegal width value (): /home/34r7hm4n/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap_builder-4.4.2/src/util/flat_map.rsMismatch between definition and access of ``. /home/34r7hm4n/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap_builder-4.4.2/src/parser/error.rs/rustc/8bfcae730a5db2438bbda72796175bba21427be1/library/core/src/iter/traits/exact_size.rs", 6), v37);
     ::0x4633b0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::h10b4bf408cda2574(&v24);
     core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::hc3e6f6c823a6e497(&v10);
     if (v38)

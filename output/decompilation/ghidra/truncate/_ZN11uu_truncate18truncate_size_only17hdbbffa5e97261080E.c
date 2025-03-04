@@ -1,6 +1,5 @@
-long __rustcall
-uu_truncate::truncate_size_only
-          (undefined8 param_1,undefined8 param_2,long param_3,long param_4,undefined param_5)
+long _ZN11uu_truncate18truncate_size_only17hdbbffa5e97261080E
+               (undefined8 param_1,undefined8 param_2,long param_3,long param_4,undefined param_5)
 
 {
   undefined8 uVar1;
@@ -33,25 +32,26 @@ uu_truncate::truncate_size_only
   uint local_b0;
   undefined8 local_98;
   
-  parse_mode_and_size(&local_178,param_1,param_2);
+  _ZN11uu_truncate19parse_mode_and_size17hbf18cbb89603c372E(&local_178,param_1,param_2);
   if ((int)local_178 == 3) {
     if (((uStack_170 == 5) || ((int)uStack_170 == 6)) && (local_168 == (undefined8 **)0x0)) {
-      _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_e8,&DAT_00113bb0,0x10);
+      _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h40f585cb9c895814E
+                (&local_e8,&DAT_00113bb0,0x10);
       uStack_d0 = 1;
-      lVar2 = ::alloc::boxed::Box<T>::new(&local_e8);
+      lVar2 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h2e09ae21cbeee3ecE(&local_e8);
     }
     else {
       local_138 = param_3 + param_4 * 0x18;
       local_140 = param_3;
       do {
-        lVar2 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+        lVar2 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h0f1a2111712b44afE
                           (&local_140);
         if (lVar2 == 0) {
           return 0;
         }
-        std::fs::metadata(&local_e8,lVar2);
+        _ZN3std2fs8metadata17h1cc9ec6f7ac4b82eE(&local_e8,lVar2);
         if (CONCAT44(uStack_e4,local_e8) == 2) {
-          core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>
+          _ZN4core3ptr90drop_in_place_LT_core__result__Result_LT_std__fs__Metadata_C_std__io__error__Error_GT__GT_17hf10946d364a1ba5fE
                     (2,CONCAT44(uStack_dc,iStack_e0));
           uVar1 = 0;
         }
@@ -65,25 +65,27 @@ uu_truncate::truncate_size_only
             local_108 = 0;
             local_f0 = 1;
             local_130 = &local_108;
-            local_128 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+            local_128 = 
+            _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
             local_178 = &PTR_s_cannot_open_for_writing__No_such_002165a0;
             uStack_170 = 2;
             local_158 = 0;
             local_168 = &local_130;
             uStack_160 = 1;
                     /* try { // try from 001ae113 to 001ae142 has its CatchHandler @ 001ae15b */
-            core::option::Option<T>::map_or_else(local_120,&local_178);
+            _ZN4core6option15Option_LT_T_GT_11map_or_else17ha526a84f6413e2dcE(local_120,&local_178);
             uStack_160 = CONCAT44(uStack_160._4_4_,1);
             local_168 = (undefined8 **)local_110;
-            lVar2 = ::alloc::boxed::Box<T>::new(&local_178);
-            core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>
+            lVar2 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h2e09ae21cbeee3ecE(&local_178);
+            _ZN4core3ptr90drop_in_place_LT_core__result__Result_LT_std__fs__Metadata_C_std__io__error__Error_GT__GT_17hf10946d364a1ba5fE
                       (CONCAT44(uStack_e4,local_e8),CONCAT44(uStack_dc,iStack_e0));
             return lVar2;
           }
         }
-        uVar1 = TruncateMode::to_size(uStack_170,local_168,uVar1);
-        lVar2 = file_truncate(*(undefined8 *)(lVar2 + 8),*(undefined8 *)(lVar2 + 0x10),param_5,uVar1
-                             );
+        uVar1 = _ZN11uu_truncate12TruncateMode7to_size17h56da67cab21ebb4eE
+                          (uStack_170,local_168,uVar1);
+        lVar2 = _ZN11uu_truncate13file_truncate17h8689dfa8e5b80143E
+                          (*(undefined8 *)(lVar2 + 8),*(undefined8 *)(lVar2 + 0x10),param_5,uVar1);
       } while (lVar2 == 0);
     }
   }
@@ -96,7 +98,8 @@ uu_truncate::truncate_size_only
     uStack_e4 = local_178._4_4_;
     iStack_e0 = (int)uStack_170;
     uStack_dc = uStack_170._4_4_;
-    lVar2 = truncate_size_only::___closure__(&local_e8);
+    lVar2 = _ZN11uu_truncate18truncate_size_only28__u7b__u7b_closure_u7d__u7d_17h73ee083b2ef723e0E
+                      (&local_e8);
   }
   return lVar2;
 }

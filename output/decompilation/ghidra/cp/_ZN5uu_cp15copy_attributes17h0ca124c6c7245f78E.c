@@ -1,5 +1,5 @@
-undefined8 * __rustcall
-uu_cp::copy_attributes
+undefined8 *
+_ZN5uu_cp15copy_attributes17h0ca124c6c7245f78E
           (undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 ***param_4,
           undefined8 param_5,undefined *param_6)
 
@@ -47,9 +47,11 @@ uu_cp::copy_attributes
   local_e0 = (undefined8 **)0x1;
   uStack_c8 = CONCAT31(uStack_c8._1_3_,1);
   local_118 = &local_230;
-  local_110 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+  local_110 = _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E
+  ;
   local_108 = (long *)&local_e0;
-  local_100 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+  local_100 = _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E
+  ;
   local_1e8 = (undefined8 **)&DAT_002b5e68;
   uStack_1e0 = (undefined8 ***)0x2;
   local_1c8 = 0;
@@ -63,18 +65,18 @@ uu_cp::copy_attributes
   local_130 = param_3;
   local_d8 = param_4;
   local_d0 = param_5;
-  core::option::Option<T>::map_or_else(local_200,&local_1e8);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17h805a87bba4bea7c2E(local_200,&local_1e8);
   local_128 = local_1f8;
   local_120 = local_1f0;
                     /* try { // try from 00205094 to 002050d1 has its CatchHandler @ 00205274 */
-  std::fs::symlink_metadata(&local_1e8,param_2,param_3);
+  _ZN3std2fs16symlink_metadata17h8589e79b0a107deeE(&local_1e8,param_2,param_3);
   pppuVar2 = uStack_1e0;
   ppuVar1 = local_1e8;
   if (local_1e8 == (undefined8 **)0x2) {
     local_230 = local_1f8;
     local_228 = local_1f0;
     local_220 = uStack_1e0;
-    _<uu_cp::Error_as_core::convert::From<quick_error::Context<&str,std::io::error::Error>>>::from
+    _ZN119__LT_uu_cp__Error_u20_as_u20_core__convert__From_LT_quick_error__Context_LT__RF_str_C_std__io__error__Error_GT__GT__GT_4from17h54c083f413b93682E
               (&local_1e8,&local_230);
   }
   else {
@@ -92,16 +94,18 @@ uu_cp::copy_attributes
                     /* try { // try from 00205149 to 002051ee has its CatchHandler @ 00205274 */
     local_228 = &local_210;
     local_220 = &local_128;
-    handle_preserve(&local_1e8,*param_6,param_6[1],&local_230);
+    _ZN5uu_cp15handle_preserve17h88839891003e3dd9E(&local_1e8,*param_6,param_6[1],&local_230);
     if ((int)local_1e8 == 0xd) {
       local_228 = &local_e0;
       local_230 = &local_210;
       local_220 = &local_128;
-      handle_preserve(&local_1e8,param_6[2],param_6[3],&local_230);
+      _ZN5uu_cp15handle_preserve17h61971e46c5a3aa58E(&local_1e8,param_6[2],param_6[3],&local_230);
       if (local_1e8 == (undefined8 **)0xd) {
-        handle_preserve(&local_1e8,param_6[4],param_6[5],&local_e0,&local_210);
+        _ZN5uu_cp15handle_preserve17hdf8d6c66ba5c03edE
+                  (&local_1e8,param_6[4],param_6[5],&local_e0,&local_210);
         if (local_1e8 == (undefined8 **)0xd) {
-          handle_preserve(&local_1e8,param_6[10],param_6[0xb],&local_138,&local_210);
+          _ZN5uu_cp15handle_preserve17h1b7507cebf9b4fa2E
+                    (&local_1e8,param_6[10],param_6[0xb],&local_138,&local_210);
           if (local_1e8 == (undefined8 **)0xd) {
             *param_1 = 0xd;
             goto LAB_00205255;
@@ -132,6 +136,6 @@ uu_cp::copy_attributes
   *(undefined4 *)(param_1 + 1) = (undefined4)uStack_1e0;
   *(undefined4 *)((long)param_1 + 0xc) = uStack_1e0._4_4_;
 LAB_00205255:
-  core::ptr::drop_in_place<alloc::string::String>(local_200);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h5bdd96f6f34778b9E(local_200);
   return param_1;
 }

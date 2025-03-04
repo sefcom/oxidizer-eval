@@ -6,21 +6,21 @@ long long uu_cksum::uumain::uumain::hf3578f9fe0c3201c(unsigned long long a0, uns
     unsigned long long v3;  // [sp-0x3d0]
     unsigned long long v4;  // [sp-0x3c8]
     unsigned long long v5;  // [sp-0x3c0]
-    unsigned long v6;  // [sp-0x3b0], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x3b0]
     unsigned long long v7;  // [sp-0x3a8]
     int v8;  // [sp-0x3a0]
     int v9;  // [sp-0x390]
     unsigned long long v10;  // [sp-0x380]
-    char v11;  // [bp-0x378], Other Possible Types: unsigned long, unsigned long long
+    char v11;  // [sp-0x378], Other Possible Types: unsigned long, unsigned long long
     unsigned long v12;  // [sp-0x370], Other Possible Types: unsigned long long
-    char v13;  // [bp-0x368], Other Possible Types: unsigned long, unsigned long long
+    char v13;  // [sp-0x368], Other Possible Types: unsigned long
     int v14;  // [sp-0x360]
     char v15;  // [bp-0x358]
     char v16;  // [bp-0x348]
     char v17;  // [bp-0x338], Other Possible Types: unsigned long long, unsigned long
     char v18;  // [sp-0x330], Other Possible Types: unsigned long, unsigned long long
     char v19;  // [bp-0x32f]
-    unsigned long v20;  // [sp-0x328], Other Possible Types: unsigned long long
+    unsigned long long v20;  // [sp-0x328], Other Possible Types: unsigned long
     char v21;  // [bp-0x320], Other Possible Types: unsigned long long
     unsigned long long v22;  // [sp-0x318]
     unsigned long long v23;  // [sp-0x310]
@@ -30,16 +30,18 @@ long long uu_cksum::uumain::uumain::hf3578f9fe0c3201c(unsigned long long a0, uns
     char v27;  // [sp-0x2fe]
     char v28;  // [sp-0x2fd]
     char v29;  // [bp-0x70]
-    void* v31;  // rax
+    void* v31;  // r15
     char v32;  // bpl
     struct_0 *v33;  // rax
     unsigned long long *v34;  // rax
-    unsigned long long v35;  // r13
-    char v38;  // r14b
-    unsigned long long v40;  // r13
-    unsigned long long v41;  // r13
-    unsigned long long v43;  // r12
-    unsigned long v45;  // rdx
+    void* v35;  // rbx
+    unsigned long long v37;  // r13
+    char v40;  // r14b
+    unsigned long long v42;  // r14
+    unsigned long long v43;  // r14
+    unsigned long long v46;  // r12
+    unsigned long long v48;  // rax
+    unsigned long v49;  // rdx
 
     uu_cksum::uu_app::hbfb998c9a541210b(&v17);
     clap_builder::builder::command::Command::try_get_matches_from::hb83dbc2a0c900676(&v11, &v17, a0, a1);
@@ -80,12 +82,13 @@ LABEL_580869:
             v34 = clap_builder::parser::error::MatchesError::unwrap::h0c465a2b7c337f9c("lengthcheckrawbase64binarystrictstatusignore-missingquiet", 6, &v17);
             if (!v34)
             {
-                v31 = 0;
+                v35 = 0;
                 goto LABEL_580903;
             }
             else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h3c86d19f285204ed(v2, v3, "blake2b  (BLAKE2b (", 7))
             {
                 uucore::features::checksum::calculate_blake2b_length::h2a821e36733dba3a(&v17, *(v34));
+                v35 = v18;
                 if (v17)
                 {
                     core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h8b2259fb47b2f9be(&v6);
@@ -101,53 +104,54 @@ LABEL_580903:
                     {
                         v0 = v18;
                         v1 = v19;
-                        uucore::features::checksum::detect_algo::hbb2f85fa7c8cfc19(&v17, v2, v3, v31, v4);
-                        v35 = v17;
+                        uucore::features::checksum::detect_algo::hbb2f85fa7c8cfc19(&v17, v2, v3, v35, v4);
+                        v37 = v17;
                         v31 = v18;
-                        if (v35)
+                        if (v37)
                         {
                             *((int128_t *)&v14) = *((int128_t *)&v21);
-                            v11 = v35;
+                            v11 = v37;
                             v12 = v31;
                             v13 = v20;
-                            v38 = ((char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v6, "zeroAnsib", 4) ? 0 : 10);
+                            v40 = ((char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v6, "zeroAnsib", 4) ? 0 : 10);
                             if (!(char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v6, "rawbase64binarystrictstatusignore-missingquiet", 3))
                                 clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v6, "base64binarystrictstatusignore-missingquiet", 6);
                             v5 = _$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$::call::h265c500e1079a618(&v13);
-                            v43 = (long long)(&v14)[8];
+                            v46 = (long long)(&v14)[8];
                             clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many::h30811e089b0b91d0(&v17, &v6, "filemode{", 4);
                             clap_builder::parser::error::MatchesError::unwrap::h1d7ac479b1fc21b9(&v29, "filemode{", 4, &v17);
                             if (!*((long long *)&v29))
                             {
-                                v17 = v31;
+                                v17 = v35;
                                 v18 = v4;
-                                v20 = v35;
+                                v20 = v37;
                                 v21 = v31;
                                 v22 = v5;
-                                v23 = v45;
-                                v24 = v43;
+                                v23 = v49;
+                                v24 = v46;
                                 v25 = v0;
                                 v26 = v1;
                                 v27 = 1;
-                                v28 = v38;
-                                v31 = uu_cksum::cksum::h3bc15d2c96f4f009();
+                                v28 = v40;
+                                v48 = uu_cksum::cksum::h3bc15d2c96f4f009();
                             }
                             else
                             {
-                                v17 = v31;
+                                v17 = v35;
                                 v18 = v4;
-                                v20 = v35;
+                                v20 = v37;
                                 v21 = v31;
                                 v22 = v5;
-                                v23 = v45;
-                                v24 = v43;
+                                v23 = v49;
+                                v24 = v46;
                                 v25 = v0;
                                 v26 = v1;
                                 v27 = 1;
-                                v28 = v38;
-                                v31 = uu_cksum::cksum::h968c8f5c05770fbe();
+                                v28 = v40;
+                                v48 = uu_cksum::cksum::h968c8f5c05770fbe(&v17, &v29);
                             }
-                            if (!v31)
+                            v31 = v48;
+                            if (!v48)
                             {
                                 core::ptr::drop_in_place$LT$uu_cksum..Options$GT$::h97266c7ff74129ed(v13, (long long)v14);
                                 core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h8b2259fb47b2f9be(&v6);
@@ -167,13 +171,13 @@ LABEL_580903:
                         core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h8b2259fb47b2f9be(&v6);
                         return v31;
                     }
-                    v40 = v3;
-                    if (v40)
-                        v41 = v2;
+                    v42 = v3;
+                    if (v42)
+                        v43 = v2;
                     clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many::h30811e089b0b91d0(&v17, &v6, "filemode{", 4);
                     clap_builder::parser::error::MatchesError::unwrap::h1d7ac479b1fc21b9(&v11, "filemode{", 4, &v17);
                     core::option::Option$LT$T$GT$::map_or_else::h59c346ae679b8aac(&v17, &v11);
-                    v31 = uucore::features::checksum::perform_checksum_validation::hcc8fa46a2280a7ae(v18, v20 * 16 + v18, v41, v40, v31, v4, (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v6, "warnZeroV", 4) * 0x10000000000 | v1 * 0x100000000 | v0 * 0x1000000 & 4294967295 | (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v6, "ignore-missingquiet", 14) * 0x100 & 4294967295 | (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v6, "quiet", 5) * 0x10000 & 4294967295);
+                    v31 = uucore::features::checksum::perform_checksum_validation::hcc8fa46a2280a7ae(v18, v20 * 16 + v18, v43, v42, v35, v4, (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v6, "warnZeroV", 4) * 0x10000000000 | v1 * 0x100000000 | v0 * 0x1000000 & 4294967295 | (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v6, "ignore-missingquiet", 14) * 0x100 & 4294967295 | (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v6, "quiet", 5) * 0x10000 & 4294967295);
                     ::0x57c780::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$$RF$std..ffi..os_str..OsStr$GT$$GT$::h6eb853ba25e83800(&v17);
                 }
                 core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h8b2259fb47b2f9be(&v6);

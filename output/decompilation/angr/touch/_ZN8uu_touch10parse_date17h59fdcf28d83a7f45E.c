@@ -1,6 +1,6 @@
 long long uu_touch::parse_date::h59fdcf28d83a7f45(struct_0 *a0, unsigned long long a1, unsigned long long a2, unsigned long long a3)
 {
-    unsigned long v0;  // [sp-0xc0], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xc0]
     unsigned int v1[2];  // [sp-0xb8], Other Possible Types: unsigned long long
     unsigned long long v2;  // [sp-0xb0]
     unsigned long long v3;  // [sp-0xa8]
@@ -70,17 +70,17 @@ long long uu_touch::parse_date::h59fdcf28d83a7f45(struct_0 *a0, unsigned long lo
         else
         {
             v0 = a2;
-            v1 = a2 + a3;
+            *((unsigned long long *)v1) = a2 + a3;
             v21 = ::0x5c1760::_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h3fb6acca9c1eba45(&v0);
             if (v21 && *(v21) == 64)
             {
                 v22 = ::0x5c0010::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::hccefea64a1916a27(1, a2, a3);
                 if (!v22)
                     core::str::slice_error_fail::h5dbb61534404fe7e(a2, a3, 1, a3, &g_710f00); /* do not return */
-                core::num::_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i64$GT$::from_str::hb0cdd6b069f41ab1(&v0, v22, v18);
+                core::num::_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i64$GT$::from_str::hb0cdd6b069f41ab1(&v0, v22, a2);
                 if (!(char)v0)
                 {
-                    a0->field_8 = v1;
+                    *((unsigned int [2])&a0->field_8) = v1;
                     a0->field_10 = 0;
                     a0->field_0 = 9223372036854775812;
                     return 9223372036854775812;

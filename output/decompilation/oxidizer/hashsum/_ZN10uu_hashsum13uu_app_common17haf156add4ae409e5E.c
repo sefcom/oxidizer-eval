@@ -1,10 +1,10 @@
 fn uu_hashsum::uu_app_common(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct24
-    let v1: i4736;  // [sp-0x7f8], Other Possible Types: struct592, struct712, struct437
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct24
+    let v1: struct592;  // [sp-0x7f8], Other Possible Types: struct712, struct437
     let v2: i64;  // [sp-0x53c]
     let v3: i32;  // [sp-0x534]
-    let v4: i5696;  // [sp-0x530], Other Possible Types: struct592, struct712
-    let v5: struct592;  // [sp-0x268], Other Possible Types: i4736, struct8
+    let v4: struct592;  // [sp-0x530], Other Possible Types: struct712
+    let v5: struct592;  // [sp-0x268], Other Possible Types: struct8
     let v7: i64;  // rdx
 
     v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v7);
@@ -13,8 +13,8 @@ fn uu_hashsum::uu_app_common(a0: &struct712) -> u64 {
     v0 = uucore::format_usage("{} [OPTIONS] [FILE]...");
     v4 = clap_builder::builder::command::Command::override_usage(&v1, &v0);
     memcpy(&v1, &v4, 700);
-    v2 = 584115552392 | *((&v4 as &char + 700) as &i64);
-    v3 = *((&v4 as &char + 708) as &i32);
+    v2 = 584115552392 | *((&v4.field_0 as &char + 700) as &i64);
+    v3 = *((&v4.field_0 as &char + 708) as &i32);
     v4 = clap_builder::builder::arg::Arg::new("binary");
     v0 = clap_builder::builder::arg::Arg::short(&v4, 0x62);
     v4 = clap_builder::builder::arg::Arg::long(&v0, "binary");

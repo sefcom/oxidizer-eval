@@ -1,6 +1,6 @@
 long long uu_tr::operation::Sequence::parse_char_repeat::hd85995b5ba07b318(unsigned long long *a0, unsigned long long a1, unsigned long long a2)
 {
-    unsigned long v0;  // [sp-0x60], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x60]
     unsigned long long v1;  // [sp-0x58]
     unsigned long long v2;  // [sp-0x50]
     unsigned long long v3;  // [sp-0x48]

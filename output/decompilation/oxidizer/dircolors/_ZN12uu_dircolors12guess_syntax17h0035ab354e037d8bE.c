@@ -1,5 +1,5 @@
 fn uu_dircolors::guess_syntax() -> u64 {
-    let v0: u256;  // [sp-0x30], Other Possible Types: Result<struct24, struct8>
+    let v0: Result<struct24, struct8>;  // [sp-0x30]
     let v2: u64;  // rsi
     let v3: u64;  // rbx
     let v4: u32;  // rdx

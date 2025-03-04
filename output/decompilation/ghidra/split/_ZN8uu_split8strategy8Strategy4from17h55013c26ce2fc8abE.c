@@ -1,7 +1,8 @@
 /* WARNING: Type propagation algorithm not settling */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-long * __rustcall uu_split::strategy::Strategy::from(long *param_1,undefined8 param_2,long *param_3)
+long * _ZN8uu_split8strategy8Strategy4from17h55013c26ce2fc8abE
+                 (long *param_1,undefined8 param_2,long *param_3)
 
 {
   char cVar1;
@@ -47,11 +48,14 @@ long * __rustcall uu_split::strategy::Strategy::from(long *param_1,undefined8 pa
   long lStack_40;
   long local_38;
   
-  cVar2 = clap_builder::parser::matches::arg_matches::ArgMatches::value_source(param_2,"lines",5);
-  cVar3 = clap_builder::parser::matches::arg_matches::ArgMatches::value_source(param_2,"bytes",5);
-  cVar4 = clap_builder::parser::matches::arg_matches::ArgMatches::value_source
+  cVar2 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12value_source17h1b5412f9501eb404E
+                    (param_2,"lines",5);
+  cVar3 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12value_source17h1b5412f9501eb404E
+                    (param_2,"bytes",5);
+  cVar4 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12value_source17h1b5412f9501eb404E
                     (param_2,"line-bytes",10);
-  cVar5 = clap_builder::parser::matches::arg_matches::ArgMatches::value_source(param_2,"number",6);
+  cVar5 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12value_source17h1b5412f9501eb404E
+                    (param_2,"number",6);
   if (cVar5 == '\x03') {
     cVar5 = cVar4;
     cVar1 = cVar3;
@@ -70,12 +74,13 @@ LAB_001d771f:
 joined_r0x001d75e4:
       if (cVar4 == '\x02') goto LAB_001d7663;
       pcVar9 = "bytes";
-      pcVar10 = Bytes;
-      pcVar11 = StrategyError::Bytes;
+      pcVar10 = _ZN8uu_split8strategy8Strategy5Bytes17hb7425c208cd7a728E;
+      pcVar11 = _ZN8uu_split8strategy13StrategyError5Bytes17h676736075b7531fcE;
 LAB_001d75fb:
       uVar8 = 5;
 LAB_001d7600:
-      from::get_and_parse(param_1,param_2,pcVar9,uVar8,pcVar10,pcVar11);
+      _ZN8uu_split8strategy8Strategy4from13get_and_parse17h2131435d3ea4b88eE
+                (param_1,param_2,pcVar9,uVar8,pcVar10,pcVar11);
       return param_1;
     }
   }
@@ -90,23 +95,25 @@ LAB_001d7600:
         }
         if (cVar4 != '\x02') {
           if (cVar5 == '\x02') {
-            clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+            _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h6b47e11c99165f29E
                       (&local_98,param_2,"number",6);
-            lVar6 = clap_builder::parser::error::MatchesError::unwrap("number",6,&local_98);
+            lVar6 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h5fb9f4927eec1abaE
+                              ("number",6,&local_98);
             if (lVar6 == 0) {
-              core::option::unwrap_failed(&PTR_DAT_00248f18);
+              _ZN4core6option13unwrap_failed17h0e11329e76906eaaE(&PTR_DAT_00248f18);
               pcVar10 = (code *)swi(3);
               plVar7 = (long *)(*pcVar10)();
               return plVar7;
             }
-            NumberType::from(local_50,*(undefined8 *)(lVar6 + 8),*(undefined8 *)(lVar6 + 0x10));
+            _ZN8uu_split8strategy10NumberType4from17h9e6ddc21e9e979a9E
+                      (local_50,*(undefined8 *)(lVar6 + 8),*(undefined8 *)(lVar6 + 0x10));
             if (local_50[0] == 2) {
               local_c8 = local_38;
               local_d8 = local_48;
               lStack_d0 = lStack_40;
             }
             else {
-              core::ops::function::FnOnce::call_once(&local_98,local_50);
+              _ZN4core3ops8function6FnOnce9call_once17h363c2133120cb604E(&local_98,local_50);
               lStack_d0 = CONCAT44(uStack_84,uStack_88);
               local_d8 = local_90;
               local_c8 = CONCAT44(uStack_7c,uStack_80);
@@ -130,8 +137,8 @@ LAB_001d7600:
         if (cVar5 == '\x02') goto LAB_001d7663;
 LAB_001d7684:
         pcVar9 = "line-bytes";
-        pcVar10 = LineBytes;
-        pcVar11 = StrategyError::Bytes;
+        pcVar10 = _ZN8uu_split8strategy8Strategy9LineBytes17hf26230de56a853ccE;
+        pcVar11 = _ZN8uu_split8strategy13StrategyError5Bytes17h676736075b7531fcE;
         uVar8 = 10;
         goto LAB_001d7600;
       }
@@ -141,8 +148,8 @@ LAB_001d7684:
 joined_r0x001d74b8:
       if ((cVar3 == '\x02') || (cVar5 == '\x02')) goto LAB_001d7663;
       pcVar9 = "lines";
-      pcVar10 = Lines;
-      pcVar11 = StrategyError::Lines;
+      pcVar10 = _ZN8uu_split8strategy8Strategy5Lines17h8a517b33f81912dbE;
+      pcVar11 = _ZN8uu_split8strategy13StrategyError5Lines17h90ca753e299957d9E;
       goto LAB_001d75fb;
     }
     bVar12 = cVar2 == '\x02';
@@ -151,11 +158,13 @@ joined_r0x001d74b8:
     if (bVar12) goto LAB_001d7663;
   }
   if (((cVar2 != '\x02') && (cVar1 != '\x02')) && (cVar5 != '\x02')) {
-    uucore::parser::parse_size::parse_size_u64_max(local_b8,param_3[1],param_3[2]);
+    _ZN6uucore6parser10parse_size18parse_size_u64_max17h351ae83d3c4e9b23E
+              (local_b8,param_3[1],param_3[2]);
     if (local_b8[0] != 3) {
       uStack_c0 = uStack_a0;
       uStack_bc = uStack_9c;
-      from::___closure__(&local_98,param_3,&local_d8);
+      _ZN8uu_split8strategy8Strategy4from28__u7b__u7b_closure_u7d__u7d_17h0a4775b5dcd4ac08E
+                (&local_98,param_3,&local_d8);
       local_68 = uStack_88;
       uStack_64 = uStack_84;
       uStack_60 = uStack_80;
@@ -172,7 +181,8 @@ joined_r0x001d74b8:
       }
     }
     if (lStack_b0 == 0) {
-      _<T_as_alloc::string::ToString>::to_string(param_1 + 2,local_70);
+      _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17hfac9650ce491ceb2E
+                (param_1 + 2,local_70);
       uVar13 = _DAT_00118050;
       uVar14 = _UNK_00118054;
       uVar15 = _UNK_00118058;

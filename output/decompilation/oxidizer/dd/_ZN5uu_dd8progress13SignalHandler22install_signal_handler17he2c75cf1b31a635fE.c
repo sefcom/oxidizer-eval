@@ -1,18 +1,18 @@
 fn uu_dd::progress::SignalHandler::install_signal_handler(a0: &struct64, a1: u32, a2: u32) -> u64 {
-    let v0: i448;  // [sp-0x118], Other Possible Types: struct72, Result<struct56, struct8>, struct40
+    let v0: struct72;  // [sp-0x118], Other Possible Types: Result<struct56, struct8>, struct40
     let v3: struct24;  // [sp-0xf0]
     let v6: struct56;  // [bp-0xd0]
     let v10: struct40;  // [sp-0x98]
     let v11: struct24;  // [sp-0x70]
-    let v12: struct24;  // [sp-0x58], Other Possible Types: i192
+    let v12: struct24;  // [sp-0x58]
     let v13: struct8;  // [bp-0x40]
     let v14: i64;  // [sp-0x30]
     let v16: i64;  // rcx
     let v17: i64;  // rax
-    let v18: i128;  // xmm0
+    let v18: iNone;  // xmm0
 
     v0 = signal_hook::iterator::SignalsInfo<E>::new(0xa);
-    v16 = v0;
+    v16 = v0 as i64;
     v17 = *((&v0 as &char + 8) as &i64);
     v6 = struct56 {
         field_0: v16
@@ -43,7 +43,7 @@ fn uu_dd::progress::SignalHandler::install_signal_handler(a0: &struct64, a1: u32
         field_0: v0
         field_16: v1
         field_32: v2
-        field_40: v3
+        field_40: v3.field_0
         field_48: v4
         field_56: v5
     };

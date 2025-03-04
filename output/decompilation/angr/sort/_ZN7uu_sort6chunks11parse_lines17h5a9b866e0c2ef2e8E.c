@@ -17,19 +17,15 @@ long long uu_sort::chunks::parse_lines::h5a9b866e0c2ef2e8(unsigned long long a0,
     unsigned short v14;  // [sp-0x38]
     unsigned long long v16;  // rdx
     unsigned long long v17;  // rax
-    unsigned long long v18;  // 4096
-    unsigned long long v19;  // 4096
+    unsigned long long v18;  // r12
 
     v3 = 0;
     v17 = _$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$::strip_suffix_of::h989ea700a39d3e29(::0x55a670::core::char::methods::encode_utf8_raw::h4a752b0d300141c4(a4, &v3), v16, a0, a1);
+    v18 = v16;
     if (!v17)
         v18 = a1;
-    else
-        v18 = v16;
     if (!v17)
-        v19 = a0;
-    else
-        v19 = v17;
+        v17 = a0;
     if (a2->field_10)
     {
         core::panicking::panic::h8c3a660c3523e4a4("assertion failed: lines.is_empty()", 34, &g_601948); /* do not return */
@@ -51,7 +47,7 @@ long long uu_sort::chunks::parse_lines::h5a9b866e0c2ef2e8(unsigned long long a0,
         v0 = 0;
         v1 = 8;
         v2 = 0;
-        ::0x55a9d0::_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$::into_searcher::h77b0cfb9226a3587(&v3, a4, v19, v18);
+        ::0x55a9d0::_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$::into_searcher::h77b0cfb9226a3587(&v3, a4, v17, v18);
         *((int128_t *)&v13) = *((int128_t *)&v5);
         *((int128_t *)&v12) = *((int128_t *)&v4);
         *((int128_t *)&v11) = *((int128_t *)&v3);

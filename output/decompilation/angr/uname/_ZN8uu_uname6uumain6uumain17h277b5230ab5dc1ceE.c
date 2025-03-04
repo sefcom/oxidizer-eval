@@ -5,7 +5,7 @@ long long uu_uname::uumain::uumain::h277b5230ab5dc1ce(unsigned long long a0, uns
     char v2;  // [sp-0x439]
     unsigned long v3;  // [sp-0x438]
     char v4;  // [sp-0x430]
-    unsigned long v5;  // [sp-0x428], Other Possible Types: unsigned long long
+    unsigned long v5;  // [sp-0x428]
     unsigned long long v6;  // [sp-0x420]
     int v7;  // [sp-0x418]
     int v8;  // [sp-0x408]
@@ -15,14 +15,14 @@ long long uu_uname::uumain::uumain::h277b5230ab5dc1ce(unsigned long long a0, uns
     char v12;  // [bp-0x3e0]
     char *v13;  // [sp-0x3d8]
     unsigned long long v14;  // [sp-0x3d0]
-    unsigned long v15;  // [sp-0x3c8], Other Possible Types: unsigned long long
+    unsigned long v15;  // [sp-0x3c8]
     unsigned long long v16;  // [sp-0x3c0]
-    char v17;  // [bp-0x3b8], Other Possible Types: unsigned long, unsigned long long
+    char v17;  // [sp-0x3b8], Other Possible Types: unsigned long
     unsigned long v18;  // [sp-0x3b0], Other Possible Types: unsigned long long
-    char v19;  // [bp-0x3a8], Other Possible Types: unsigned long long
+    char v19;  // [sp-0x3a8], Other Possible Types: unsigned long long
     char v20;  // [bp-0x398]
     char v21;  // [bp-0x388]
-    char v22;  // [bp-0x2f8], Other Possible Types: unsigned long, unsigned long long
+    char v22;  // [bp-0x2f8], Other Possible Types: unsigned long
     unsigned long v23;  // [sp-0x2f0], Other Possible Types: unsigned long long
     struct struct_0 **v24;  // [sp-0x2e8], Other Possible Types: unsigned long
     char v25;  // [bp-0x2e0], Other Possible Types: unsigned long long
@@ -31,7 +31,8 @@ long long uu_uname::uumain::uumain::h277b5230ab5dc1ce(unsigned long long a0, uns
     int v29;  // xmm0
     int v33;  // ymm0
     unsigned long long v34;  // r15
-    unsigned long v35;  // rdx
+    unsigned long long v35;  // r14
+    unsigned long v36;  // rdx
 
     uu_uname::uu_app::hbc99068917c28964(&v22);
     clap_builder::builder::command::Command::try_get_matches_from::h4d40ba92b41b639e(&v17, &v22, a0, a1);
@@ -53,19 +54,20 @@ long long uu_uname::uumain::uumain::h277b5230ab5dc1ce(unsigned long long a0, uns
     v4 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v5, _ZN8uu_uname7options2OS17h4892fc38c9982147E, g_50b0f0);
     uu_uname::UNameOutput::new::h351ea691cfe1026c(&v22, &v3);
     v34 = v22;
-    v28 = v23;
+    v35 = v23;
     if (v34 == 9223372036854775809)
     {
         core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h38dda6f74d1bca23(&v5);
+        v28 = v35;
         return v28;
     }
     memcpy(&v19, &v25, 168);
     v17 = v34;
-    v18 = v28;
+    v18 = v35;
     v19 = v24;
     uu_uname::UNameOutput::display::hd0fb8855ff2e124d(&v10, &v17);
     v15 = core::str::_$LT$impl$u20$str$GT$::trim_end_matches::hc9564037a709315f(*((long long *)&v11), *((long long *)&v12));
-    v16 = v35;
+    v16 = v36;
     v13 = &v15;
     v14 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h415ff689f5083721;
     v22 = &g_508900;

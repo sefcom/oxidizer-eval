@@ -1,4 +1,5 @@
-void __rustcall uu_pr::header_content(undefined8 *param_1,long param_2,undefined8 param_3)
+void _ZN5uu_pr14header_content17h02dbeaeea8884abbE
+               (undefined8 *param_1,long param_2,undefined8 param_3)
 
 {
   undefined8 *puVar1;
@@ -29,21 +30,25 @@ void __rustcall uu_pr::header_content(undefined8 *param_1,long param_2,undefined
   else {
     local_68 = param_2 + 0x78;
     local_58 = param_2 + 0x30;
-    local_60 = _<alloc::string::String_as_core::fmt::Display>::fmt;
-    local_50 = _<alloc::string::String_as_core::fmt::Display>::fmt;
-    local_40 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+    local_60 = 
+    _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
+    local_50 = 
+    _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
+    local_40 = 
+    _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+    ;
     local_38 = &DAT_00409590;
     local_30 = 3;
     local_18 = 0;
     local_28 = &local_68;
     local_20 = 3;
     local_88 = param_3;
-    core::option::Option<T>::map_or_else(&local_80,&local_38);
-    puVar1 = (undefined8 *)::alloc::alloc::Global::alloc_impl(8,0x78);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17h4ea8d69383c77fddE(&local_80,&local_38);
+    puVar1 = (undefined8 *)_ZN5alloc5alloc6Global10alloc_impl17hf61749d460433fffE(8,0x78);
     if (puVar1 == (undefined8 *)0x0) {
                     /* try { // try from 002c8a09 to 002c8a18 has its CatchHandler @ 002c8a19 */
                     /* WARNING: Subroutine does not return */
-      ::alloc::alloc::handle_alloc_error(8,0x78);
+      _ZN5alloc5alloc18handle_alloc_error17h3816d26e7f8ae8a1E(8,0x78);
     }
     *puVar1 = 0;
     puVar1[1] = 1;
@@ -62,7 +67,7 @@ void __rustcall uu_pr::header_content(undefined8 *param_1,long param_2,undefined
     puVar1[0xc] = 0;
     puVar1[0xd] = 1;
     puVar1[0xe] = 0;
-    ::alloc::slice::hack::into_vec(param_1,puVar1,5);
+    _ZN5alloc5slice4hack8into_vec17h00e2e55fcd83f713E(param_1,puVar1,5);
   }
   return;
 }

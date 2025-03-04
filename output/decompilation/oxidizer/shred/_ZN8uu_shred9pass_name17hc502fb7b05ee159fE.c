@@ -9,11 +9,11 @@ fn uu_shred::pass_name(a0: &struct24, a1: &u8) -> u64 {
     let v7: void*;  // [sp-0xc0], Other Possible Types: &&struct_0
     let v8: u64;  // [sp-0xb8]
     let v9: u64;  // [sp-0xb0]
-    let v10: &u8;  // [sp-0xa8], Other Possible Types: u64
+    let v10: &u8;  // [sp-0xa8]
     let v11: u64;  // [sp-0xa0]
     let v12: u64;  // [sp-0x98], Other Possible Types: &u8
     let v13: u64;  // [sp-0x90]
-    let v14: &&struct_0;  // [sp-0x88], Other Possible Types: void*
+    let v14: void*;  // [sp-0x88], Other Possible Types: &&struct_0
     let v15: u64;  // [sp-0x80]
     let v16: u8;  // [sp-0x78]
     let v17: u64;  // [sp-0x70]
@@ -76,5 +76,5 @@ fn uu_shred::pass_name(a0: &struct24, a1: &u8) -> u64 {
             break;
         }
     }
-    return core::option::Option<T>::map_or_else();
+    return core::option::Option<T>::map_or_else(a0, &v3);
 }

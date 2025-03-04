@@ -1,4 +1,5 @@
-undefined  [16] __rustcall uu_cut::matcher::ExactMatcher::new(undefined8 param_1,long param_2)
+undefined  [16]
+_ZN6uu_cut7matcher12ExactMatcher3new17h393e805b97031375E(undefined8 param_1,long param_2)
 
 {
   undefined auVar1 [16];
@@ -9,7 +10,7 @@ undefined  [16] __rustcall uu_cut::matcher::ExactMatcher::new(undefined8 param_1
     return auVar1;
   }
                     /* WARNING: Subroutine does not return */
-  core::panicking::panic
+  _ZN4core9panicking5panic17h8c3a660c3523e4a4E
             ("assertion failed: !needle.is_empty()src/uu/cut/src/matcher.rssrc/uu/cut/src/searcher.rs"
              ,0x24,&DAT_00229180);
 }

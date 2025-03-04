@@ -1,29 +1,29 @@
 long long uu_factor::uumain::uumain::h8a5b39c1daa0c762(unsigned long long a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0x408], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x408]
     char v1;  // [sp-0x400]
     struct struct_0 **v2;  // [sp-0x3f8]
     unsigned long long v3;  // [sp-0x3f0]
     unsigned long long v4;  // [sp-0x3e8]
-    unsigned long v5;  // [sp-0x3e0], Other Possible Types: unsigned long long
-    struct struct_0 **v6;  // [bp-0x3d8], Other Possible Types: char, unsigned long long
-    char *v7;  // [bp-0x3c0], Other Possible Types: unsigned long
+    unsigned long v5;  // [sp-0x3e0]
+    struct struct_0 **v6;  // [bp-0x3d8], Other Possible Types: char, unsigned long
+    char *v7;  // [sp-0x3c0], Other Possible Types: unsigned long
     unsigned long v8;  // [sp-0x3b8], Other Possible Types: unsigned long long
     char v9;  // [bp-0x3b0]
     char v10;  // [bp-0x3a0]
     char v11;  // [bp-0x390]
     unsigned long long v12;  // [sp-0x380]
-    unsigned long v13;  // [sp-0x378], Other Possible Types: unsigned long long
-    unsigned long v14;  // [sp-0x370], Other Possible Types: unsigned long long
+    unsigned long v13;  // [sp-0x378]
+    unsigned long v14;  // [sp-0x370]
     struct struct_1 **v15;  // [sp-0x368]
     unsigned long long v16;  // [sp-0x360]
-    unsigned long v17;  // [sp-0x358], Other Possible Types: unsigned long long
+    unsigned long v17;  // [sp-0x358]
     unsigned long long v18;  // [sp-0x350]
     int v19;  // [sp-0x348]
     int v20;  // [sp-0x338]
     unsigned long long v21;  // [sp-0x328]
     unsigned long long v22[3];  // [bp-0x320]
-    int v23;  // [bp-0x2f8], Other Possible Types: void*, char, unsigned long long
+    int v23;  // [bp-0x2f8], Other Possible Types: void*, char, unsigned long
     unsigned long long v24;  // [sp-0x2f0]
     int v25;  // [bp-0x2e8], Other Possible Types: struct struct_0 **, struct struct_2 **, struct struct_1 **, char
     unsigned long long v26;  // [sp-0x2e0]
@@ -31,7 +31,7 @@ long long uu_factor::uumain::uumain::h8a5b39c1daa0c762(unsigned long long a0, un
     int v28;  // [bp-0x2c8]
     unsigned short v29;  // [sp-0x2c0]
     char v30;  // [bp-0x2b8]
-    void* v32;  // rax
+    void* v32;  // r15
     unsigned int v33;  // ebp
     int v34;  // xmm0
     int v35;  // xmm1
@@ -39,7 +39,7 @@ long long uu_factor::uumain::uumain::h8a5b39c1daa0c762(unsigned long long a0, un
     unsigned long long v37[3];  // rax
     struct struct_0 **v38;  // rax
     unsigned long long v39;  // rax
-    char v40;  // rdx, Other Possible Types: unsigned long long
+    unsigned long long v40;  // rdx
     unsigned long long v41;  // rax
 
     uu_factor::uu_app::h680fb957320d0cf8(&v23);
@@ -63,7 +63,7 @@ long long uu_factor::uumain::uumain::h8a5b39c1daa0c762(unsigned long long a0, un
     {
         v14 = std::io::stdio::stdin::h7215cc131abb55d8();
         v0 = std::io::stdio::Stdin::lock::h161a36d857331d7f(&v14);
-        v1 = v40 & 1;
+        *((unsigned long long *)&v1) = v40 & 1;
         v12 = 9223372036854775809;
         while (true)
         {
@@ -71,7 +71,7 @@ long long uu_factor::uumain::uumain::h8a5b39c1daa0c762(unsigned long long a0, un
             v38 = v6;
             if (v38 == v12)
             {
-                core::ptr::drop_in_place$LT$std..io..Lines$LT$std..io..stdio..StdinLock$GT$$GT$::h55ca6e1999776e14();
+                core::ptr::drop_in_place$LT$std..io..Lines$LT$std..io..stdio..StdinLock$GT$$GT$::h55ca6e1999776e14(v0, *((int *)&v1));
 LABEL_4a48cc:
                 v41 = _$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$::flush::hea36ead84b054e88(v22);
                 if (v41)
@@ -95,7 +95,7 @@ LABEL_4a48cc:
                     v25 = &v7;
                     v26 = 1;
                     std::io::stdio::_eprint::hcdfeec148c7134f7(&v23);
-                    ::0x4a2440::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::hfc16f546d6f9e628();
+                    ::0x4a2440::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::hfc16f546d6f9e628(v6);
                 }
                 core::ptr::drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..StdoutLock$GT$$GT$::h7af400aa75a34036(v22);
                 core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h6f0186b4e8ff4b47(&v17);
@@ -144,10 +144,10 @@ LABEL_4a48cc:
         v25 = &v2;
         v26 = 1;
         std::io::stdio::_eprint::hcdfeec148c7134f7(&v23);
-        ::0x4a2440::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::hfc16f546d6f9e628();
+        ::0x4a2440::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::hfc16f546d6f9e628(v5);
         v32 = 0;
 LABEL_4a488e:
-        core::ptr::drop_in_place$LT$std..io..Lines$LT$std..io..stdio..StdinLock$GT$$GT$::h55ca6e1999776e14();
+        core::ptr::drop_in_place$LT$std..io..Lines$LT$std..io..stdio..StdinLock$GT$$GT$::h55ca6e1999776e14(v0, *((int *)&v1));
     }
     else
     {

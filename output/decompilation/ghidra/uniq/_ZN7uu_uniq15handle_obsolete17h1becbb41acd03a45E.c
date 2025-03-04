@@ -1,4 +1,5 @@
-void __rustcall uu_uniq::handle_obsolete(undefined8 *param_1,undefined8 param_2,undefined8 param_3)
+void _ZN7uu_uniq15handle_obsolete17h1becbb41acd03a45E
+               (undefined8 *param_1,undefined8 param_2,undefined8 param_3)
 
 {
   ulong extraout_RDX;
@@ -26,9 +27,10 @@ void __rustcall uu_uniq::handle_obsolete(undefined8 *param_1,undefined8 param_2,
   local_b8 = (long *)local_88;
   puStack_b0 = &local_c2;
   local_a8 = &local_c1;
-  core::iter::traits::iterator::Iterator::filter_map(local_58,param_2,param_3,&local_c0);
+  _ZN4core4iter6traits8iterator8Iterator10filter_map17hcec70c5cd690a3a4E
+            (local_58,param_2,param_3,&local_c0);
                     /* try { // try from 0017029a to 001702a6 has its CatchHandler @ 00170350 */
-  _<alloc::vec::Vec<T>as_alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+  _ZN98__LT_alloc__vec__Vec_LT_T_GT__u20_as_u20_alloc__vec__spec_from_iter__SpecFromIter_LT_T_C_I_GT__GT_9from_iter17h5a1dfc9d90ab14e5E
             (&local_70,local_58);
   if (local_a0[0] == (long *)0x8000000000000000) {
     auVar1._8_8_ = 0;
@@ -39,7 +41,8 @@ void __rustcall uu_uniq::handle_obsolete(undefined8 *param_1,undefined8 param_2,
   else {
     local_c0 = local_a0[0];
                     /* try { // try from 001702d4 to 00170308 has its CatchHandler @ 0017033a */
-    auVar1 = handle_obsolete::___closure__(&local_c0);
+    auVar1 = _ZN7uu_uniq15handle_obsolete28__u7b__u7b_closure_u7d__u7d_17h80beacdf87cc02d6E
+                       (&local_c0);
     unaff_R15 = auVar1._8_8_;
     local_c0 = local_88[0];
   }
@@ -50,7 +53,8 @@ void __rustcall uu_uniq::handle_obsolete(undefined8 *param_1,undefined8 param_2,
   }
   else {
     local_88[0] = local_c0;
-    auVar2 = handle_obsolete::___closure__(&local_c0);
+    auVar2 = _ZN7uu_uniq15handle_obsolete28__u7b__u7b_closure_u7d__u7d_17h80beacdf87cc02d6E
+                       (&local_c0);
   }
   param_1[4] = local_60;
   param_1[2] = local_70;

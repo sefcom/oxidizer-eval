@@ -1,4 +1,4 @@
-uint __rustcall uu_ls::should_display(undefined8 param_1,long param_2)
+uint _ZN5uu_ls14should_display17h04a8ace30b4ea77eE(undefined8 param_1,long param_2)
 
 {
   char cVar1;
@@ -22,20 +22,23 @@ uint __rustcall uu_ls::should_display(undefined8 param_1,long param_2)
   undefined8 local_28;
   undefined8 local_20;
   
-  if ((*(char *)(param_2 + 0xf0) == '\x02') && (cVar1 = is_hidden(param_1), cVar1 != '\0')) {
+  if ((*(char *)(param_2 + 0xf0) == '\x02') &&
+     (cVar1 = _ZN5uu_ls9is_hidden17he2cc02ae0ae5ae31E(param_1), cVar1 != '\0')) {
     return 0;
   }
   local_83 = 1;
   local_81 = 1;
-  std::fs::DirEntry::file_name(local_30,param_1);
+  _ZN3std2fs8DirEntry9file_name17habdd235db90dd152E(local_30,param_1);
                     /* try { // try from 00227daf to 00227e13 has its CatchHandler @ 00227e97 */
-  std::ffi::os_str::_<impl_core::convert::TryFrom<&std::ffi::os_str::OsStr>for&str>::try_from
+  _ZN3std3ffi6os_str95__LT_impl_u20_core__convert__TryFrom_LT__RF_std__ffi__os_str__OsStr_GT__u20_for_u20__RF_str_GT_8try_from17h660bab9c45707695E
             (&local_80,local_28,local_20);
   if (local_80 == 0) {
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_80,uStack_78,local_70);
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h09d6369a280ff05aE
+              (&local_80,uStack_78,local_70);
   }
   else {
-    std::sys::os_str::bytes::Slice::to_string_lossy(&local_48,local_28,local_20);
+    _ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h816275565265bd85E(&local_48,local_28,local_20)
+    ;
     if (CONCAT44(uStack_44,local_48) != -0x8000000000000000) {
       local_58 = local_38;
       local_80._0_4_ = local_48;
@@ -44,8 +47,8 @@ uint __rustcall uu_ls::should_display(undefined8 param_1,long param_2)
       uStack_78._4_4_ = uStack_3c;
       goto LAB_00227e34;
     }
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_80,CONCAT44(uStack_3c,uStack_40),local_38)
-    ;
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h09d6369a280ff05aE
+              (&local_80,CONCAT44(uStack_3c,uStack_40),local_38);
   }
   local_58 = local_70;
 LAB_00227e34:
@@ -56,10 +59,10 @@ LAB_00227e34:
   uStack_5c = uStack_78._4_4_;
   uStack_60 = (undefined4)uStack_78;
   uStack_78 = *(long *)(param_2 + 0x10) * 0x38 + *(long *)(param_2 + 8);
-  uVar2 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::any
+  uVar2 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_3any17haa0a26cb84a32dffE
                     (&local_80,&local_68,&local_83);
                     /* try { // try from 00227e63 to 00227e6e has its CatchHandler @ 00227e97 */
-  core::ptr::drop_in_place<alloc::string::String>(&local_68);
-  core::ptr::drop_in_place<std::ffi::os_str::OsString>(local_30);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&local_68);
+  _ZN4core3ptr47drop_in_place_LT_std__ffi__os_str__OsString_GT_17h51f173604a280fb6E(local_30);
   return uVar2 ^ 1;
 }

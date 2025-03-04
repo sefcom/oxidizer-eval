@@ -4,10 +4,9 @@
 /* WARNING: Type propagation algorithm not settling */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-qword * __rustcall
-uu_ls::PathData::new
-          (uint ****param_1,qword *param_2,code *param_3,uint ****param_4,ulong param_5,
-          ulong param_6,byte param_7)
+qword * _ZN5uu_ls8PathData3new17ha3e1f49dfc1f89b1E
+                  (uint ****param_1,qword *param_2,code *param_3,uint ****param_4,ulong param_5,
+                  ulong param_6,byte param_7)
 
 {
   code *pcVar1;
@@ -154,10 +153,12 @@ switchD_00226af9_caseD_b:
     case 0xd:
 switchD_00226af9_caseD_d:
       uVar17 = 0;
-      pqVar11 = (qword *)::alloc::slice::_<impl[T]>::sort_by_key();
+      pqVar11 = (qword *)_ZN5alloc5slice29__LT_impl_u20__u5b_T_u5d__GT_11sort_by_key17h2aba9a33173c270fE
+                                   ();
       if (param_3[0xe7] == (code)0x0) goto LAB_00227c70;
 LAB_00227c65:
-      pqVar11 = (qword *)core::slice::_<impl[T]>::reverse(param_4,param_2);
+      pqVar11 = (qword *)_ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_7reverse17h25fb624f2918bbe9E
+                                   (param_4,param_2);
       goto LAB_00227c70;
     case 0xe:
       goto switchD_00226af9_caseD_e;
@@ -181,88 +182,98 @@ switchD_00226af9_caseD_10:
         pppuStack_98 = (undefined8 ***)&DAT_00134771;
       }
       uStack_90 = (ulong)bVar22;
-      pad_left(&local_108,&DAT_0013623a,1,_DAT_00000008);
+      _ZN5uu_ls8pad_left17h1d7ef6cb0cce13f7E(&local_108,&DAT_0013623a,1,_DAT_00000008);
       local_148 = (uint ****)&pppuStack_78;
-      uStack_140 = _<&T_as_core::fmt::Display>::fmt;
+      uStack_140 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h2a9d35fa3fd2b5f3E;
       local_138 = (uint ****)&pppuStack_98;
-      pppuStack_130 = (uint ***)_<&T_as_core::fmt::Display>::fmt;
-      local_120 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+      pppuStack_130 =
+           (uint ***)_ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h2a9d35fa3fd2b5f3E;
+      local_120 = 
+      _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
       local_e8 = (undefined8 ****)&DAT_00312728;
       pppuStack_e0 = (uint ***)0x3;
       local_c8 = 0;
       local_d8 = (qword *)&local_148;
       pcStack_d0 = (code *)0x3;
       local_128 = &local_108;
-      uVar7 = _<&mut_W_as_core::fmt::Write::write_fmt::SpecWriteFmt>::spec_write_fmt
+      uVar7 = _ZN75__LT__RF_mut_u20_W_u20_as_u20_core__fmt__Write__write_fmt__SpecWriteFmt_GT_14spec_write_fmt17h47065a1d1059e603E
                         (local_b0,&local_e8);
-      core::result::Result<T,E>::unwrap(uVar7,&PTR_DAT_00312878);
-      core::ptr::drop_in_place<alloc::string::String>(&local_108);
+      _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h8d3e4b8c01ce74b9E(uVar7,&PTR_DAT_00312878);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&local_108);
       if (*(byte *)((long)param_4 + 0xe2) != 0) {
-        pad_right(&local_e8,&DAT_0013623a,1,_DAT_00000010);
-        uStack_100 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+        _ZN5uu_ls9pad_right17h03bdecf4fae380b6E(&local_e8,&DAT_0013623a,1,_DAT_00000010);
+        uStack_100 = 
+        _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
         local_148 = (uint ****)&PTR_DAT_003126d8;
         uStack_140 = (code *)0x1;
         local_128 = (undefined8 *)0x0;
         pppuStack_130 = (uint ***)0x1;
         local_138 = (uint ****)&local_108;
         local_108 = (uint ****)&local_e8;
-        uVar7 = _<&mut_W_as_core::fmt::Write::write_fmt::SpecWriteFmt>::spec_write_fmt
+        uVar7 = _ZN75__LT__RF_mut_u20_W_u20_as_u20_core__fmt__Write__write_fmt__SpecWriteFmt_GT_14spec_write_fmt17h47065a1d1059e603E
                           (local_b0,&local_148);
-        core::result::Result<T,E>::unwrap(uVar7,&PTR_DAT_00312890);
-        core::ptr::drop_in_place<alloc::string::String>(&local_e8);
+        _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h8d3e4b8c01ce74b9E(uVar7,&PTR_DAT_00312890);
+        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&local_e8);
       }
       if (*(byte *)((long)param_4 + 0xe1) != 0) {
-        pad_right(&local_e8,&DAT_0013623a,1,_DAT_00000018);
-        uStack_100 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+        _ZN5uu_ls9pad_right17h03bdecf4fae380b6E(&local_e8,&DAT_0013623a,1,_DAT_00000018);
+        uStack_100 = 
+        _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
         local_148 = (uint ****)&PTR_DAT_003126d8;
         uStack_140 = (code *)0x1;
         local_128 = (undefined8 *)0x0;
         pppuStack_130 = (uint ***)0x1;
         local_138 = (uint ****)&local_108;
         local_108 = (uint ****)&local_e8;
-        uVar7 = _<&mut_W_as_core::fmt::Write::write_fmt::SpecWriteFmt>::spec_write_fmt
+        uVar7 = _ZN75__LT__RF_mut_u20_W_u20_as_u20_core__fmt__Write__write_fmt__SpecWriteFmt_GT_14spec_write_fmt17h47065a1d1059e603E
                           (local_b0,&local_148);
-        core::result::Result<T,E>::unwrap(uVar7,&PTR_DAT_003128a8);
-        core::ptr::drop_in_place<alloc::string::String>(&local_e8);
+        _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h8d3e4b8c01ce74b9E(uVar7,&PTR_DAT_003128a8);
+        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&local_e8);
       }
       if (*(byte *)((long)param_4 + 0xeb) != 0) {
-        pad_right(&local_e8,*(undefined8 *)(lStack_b8 + 0x38),*(undefined8 *)(lStack_b8 + 0x40),
-                  _DAT_00000020);
-        uStack_100 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+        _ZN5uu_ls9pad_right17h03bdecf4fae380b6E
+                  (&local_e8,*(undefined8 *)(lStack_b8 + 0x38),*(undefined8 *)(lStack_b8 + 0x40),
+                   _DAT_00000020);
+        uStack_100 = 
+        _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
         local_148 = (uint ****)&PTR_DAT_003126d8;
         uStack_140 = (code *)0x1;
         local_128 = (undefined8 *)0x0;
         pppuStack_130 = (uint ***)0x1;
         local_138 = (uint ****)&local_108;
         local_108 = (uint ****)&local_e8;
-        uVar7 = _<&mut_W_as_core::fmt::Write::write_fmt::SpecWriteFmt>::spec_write_fmt
+        uVar7 = _ZN75__LT__RF_mut_u20_W_u20_as_u20_core__fmt__Write__write_fmt__SpecWriteFmt_GT_14spec_write_fmt17h47065a1d1059e603E
                           (local_b0,&local_148);
-        core::result::Result<T,E>::unwrap(uVar7,&PTR_DAT_003128c0);
-        core::ptr::drop_in_place<alloc::string::String>(&local_e8);
+        _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h8d3e4b8c01ce74b9E(uVar7,&PTR_DAT_003128c0);
+        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&local_e8);
       }
       if (*(byte *)(param_4 + 0x1c) != 0) {
-        pad_right(&local_e8,&DAT_0013623a,1,_DAT_00000010);
-        uStack_100 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+        _ZN5uu_ls9pad_right17h03bdecf4fae380b6E(&local_e8,&DAT_0013623a,1,_DAT_00000010);
+        uStack_100 = 
+        _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
         local_148 = (uint ****)&PTR_DAT_003126d8;
         uStack_140 = (code *)0x1;
         local_128 = (undefined8 *)0x0;
         pppuStack_130 = (uint ***)0x1;
         local_138 = (uint ****)&local_108;
         local_108 = (uint ****)&local_e8;
-        uVar7 = _<&mut_W_as_core::fmt::Write::write_fmt::SpecWriteFmt>::spec_write_fmt
+        uVar7 = _ZN75__LT__RF_mut_u20_W_u20_as_u20_core__fmt__Write__write_fmt__SpecWriteFmt_GT_14spec_write_fmt17h47065a1d1059e603E
                           (local_b0,&local_148);
-        core::result::Result<T,E>::unwrap(uVar7,&PTR_DAT_003128d8);
-        core::ptr::drop_in_place<alloc::string::String>(&local_e8);
+        _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h8d3e4b8c01ce74b9E(uVar7,&PTR_DAT_003128d8);
+        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&local_e8);
       }
       local_148 = (uint ****)0x0;
       uStack_140 = (code *)0x1;
       local_138 = (uint ****)0x0;
-      ansi_width::ansi_width(uStack_a8,lStack_a0);
-      display_item_name(&ppuStack_58,lStack_b8,param_4,0);
-      pad_left(&pppuStack_98,&DAT_0013623a,1,_DAT_00000028);
-      pad_left(&local_108,&DAT_0013623a,1,0xc);
-      pppuStack_e0 = (uint ***)_<alloc::string::String_as_core::fmt::Display>::fmt;
-      pcStack_d0 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+      _ZN10ansi_width10ansi_width17h2f2b875c576f64e5E(uStack_a8,lStack_a0);
+      _ZN5uu_ls17display_item_name17h2be516ffa591d327E(&ppuStack_58,lStack_b8,param_4,0);
+      _ZN5uu_ls8pad_left17h1d7ef6cb0cce13f7E(&pppuStack_98,&DAT_0013623a,1,_DAT_00000028);
+      _ZN5uu_ls8pad_left17h1d7ef6cb0cce13f7E(&local_108,&DAT_0013623a,1,0xc);
+      pppuStack_e0 = (uint ***)
+                     _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E
+      ;
+      pcStack_d0 = 
+      _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
       local_148 = (uint ****)&PTR_DAT_00312758;
       uStack_140 = (code *)0x3;
       local_128 = (qword *)0x0;
@@ -270,28 +281,32 @@ switchD_00226af9_caseD_10:
       pppuStack_130 = (uint ***)0x2;
       local_e8 = &pppuStack_98;
       local_d8 = &local_108;
-      uVar7 = _<&mut_W_as_core::fmt::Write::write_fmt::SpecWriteFmt>::spec_write_fmt
+      uVar7 = _ZN75__LT__RF_mut_u20_W_u20_as_u20_core__fmt__Write__write_fmt__SpecWriteFmt_GT_14spec_write_fmt17h47065a1d1059e603E
                         (local_b0,&local_148);
-      core::result::Result<T,E>::unwrap(uVar7,&PTR_DAT_003128f0);
-      core::ptr::drop_in_place<alloc::string::String>(&local_108);
-      core::ptr::drop_in_place<alloc::string::String>(&pppuStack_98);
+      _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h8d3e4b8c01ce74b9E(uVar7,&PTR_DAT_003128f0);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&local_108);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&pppuStack_98);
       if (uStack_150._7_1_ != '\0') {
-        core::str::_<impl_str>::trim_matches(uStack_50,uStack_48);
-        dired::calculate_and_update_positions(lStack_40,lStack_a0);
+        _ZN4core3str21__LT_impl_u20_str_GT_12trim_matches17hc93eafa728d7d508E(uStack_50,uStack_48);
+        _ZN5uu_ls5dired30calculate_and_update_positions17ha13b4b5d54cc4d09E(lStack_40,lStack_a0);
       }
       local_d8 = (qword *)((long)param_4 + 0xfa);
-      pppuStack_e0 = (uint ***)_<alloc::string::String_as_core::fmt::Display>::fmt;
-      pcStack_d0 = _<uucore::mods::line_ending::LineEnding_as_core::fmt::Display>::fmt;
+      pppuStack_e0 = (uint ***)
+                     _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E
+      ;
+      pcStack_d0 = 
+      _ZN76__LT_uucore__mods__line_ending__LineEnding_u20_as_u20_core__fmt__Display_GT_3fmt17h6643b2132dca5a5bE
+      ;
       local_148 = (uint ****)&DAT_00128c70;
       uStack_140 = (code *)0x2;
       local_128 = (qword *)0x0;
       local_138 = (uint ****)&local_e8;
       pppuStack_130 = (uint ***)0x2;
       local_e8 = (undefined8 ****)&ppuStack_58;
-      uVar7 = _<&mut_W_as_core::fmt::Write::write_fmt::SpecWriteFmt>::spec_write_fmt
+      uVar7 = _ZN75__LT__RF_mut_u20_W_u20_as_u20_core__fmt__Write__write_fmt__SpecWriteFmt_GT_14spec_write_fmt17h47065a1d1059e603E
                         (local_b0,&local_148);
-      core::result::Result<T,E>::unwrap(uVar7,&PTR_DAT_00312908);
-      core::ptr::drop_in_place<alloc::string::String>(&ppuStack_58);
+      _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h8d3e4b8c01ce74b9E(uVar7,&PTR_DAT_00312908);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&ppuStack_58);
       goto LAB_0022b4b8;
     case 0x11:
 switchD_00226af9_caseD_11:
@@ -301,7 +316,7 @@ switchD_00226af9_caseD_11:
       goto code_r0x0022b568;
     case 0x12:
 switchD_00226af9_caseD_12:
-      core::result::Result<T,E>::unwrap();
+      _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h8d3e4b8c01ce74b9E();
       goto switchD_00226a60_caseD_22ab82;
     case 0x13:
 switchD_00226af9_caseD_13:
@@ -328,11 +343,11 @@ switchD_00226af9_caseD_17:
       goto code_r0x0022bccc;
     case 0x18:
 switchD_00226af9_caseD_18:
-      chrono::datetime::DateTime<Tz>::checked_add_signed();
+      _ZN6chrono8datetime18DateTime_LT_Tz_GT_18checked_add_signed17h05dd0e1cc9a47e1aE();
       if ((uint)local_118 == 0) {
-        uVar12 = core::option::expect_failed(&DAT_001362e8,0x21,&PTR_DAT_00312988);
-        core::ptr::
-        drop_in_place<chrono::format::formatting::DelayedFormat<chrono::format::strftime::StrftimeItems>>
+        uVar12 = _ZN4core6option13expect_failed17h9e03a1f6ff88dbcfE
+                           (&DAT_001362e8,0x21,&PTR_DAT_00312988);
+        _ZN4core3ptr109drop_in_place_LT_chrono__format__formatting__DelayedFormat_LT_chrono__format__strftime__StrftimeItems_GT__GT_17h2d8af8695fb24873E
                   (&local_118);
         pqVar13 = (qword *)_Unwind_Resume(uVar12);
         return pqVar13;
@@ -375,7 +390,7 @@ switchD_00226af9_caseD_20:
     case 0x24:
 switchD_00226af9_caseD_24:
                     /* WARNING: Subroutine does not return */
-      core::panicking::panic_in_cleanup();
+      _ZN4core9panicking16panic_in_cleanup17h6cffdc082e08510bE();
     case 0x26:
 switchD_00226af9_caseD_26:
       param_2 = pqVar13;
@@ -425,9 +440,9 @@ switchD_00226a60_caseD_226b07:
     uStack_150._4_4_ = uVar10;
     uStack_150._0_4_ = (undefined4)CONCAT71((int7)((ulong)pqVar11 >> 8),1);
                     /* try { // try from 00226b1a to 00226c24 has its CatchHandler @ 00226d70 */
-    std::fs::metadata(&local_e8,(uint **)param_2[1],(uint **)param_2[2]);
+    _ZN3std2fs8metadata17h459aac21f85cb4dfE(&local_e8,(uint **)param_2[1],(uint **)param_2[2]);
     ppppuVar6 = local_e8;
-    uVar12 = core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>
+    uVar12 = _ZN4core3ptr90drop_in_place_LT_core__result__Result_LT_std__fs__Metadata_C_std__io__error__Error_GT__GT_17hb9b2c6df5be91f44E
                        (&local_e8);
     bVar22 = (int)ppppuVar6 != 2;
     pqVar11 = (qword *)CONCAT71((int7)((ulong)uVar12 >> 8),bVar22);
@@ -451,7 +466,7 @@ switchD_00226af9_caseD_0:
       if (local_e8 == (undefined8 ****)0x0) {
         local_118 = (uint ***)0x0;
         uStack_150 = (qword *)(uVar20 << 0x20);
-        core::ptr::drop_in_place<core::result::Result<std::fs::DirEntry,std::io::error::Error>>
+        _ZN4core3ptr90drop_in_place_LT_core__result__Result_LT_std__fs__DirEntry_C_std__io__error__Error_GT__GT_17hacd81bda94bb4ea1E
                   (&local_e8);
       }
       else {
@@ -470,7 +485,8 @@ switchD_00226af9_caseD_0:
       else {
         uStack_150 = (qword *)((ulong)uStack_150._4_4_ << 0x20);
                     /* try { // try from 00226c41 to 00226c77 has its CatchHandler @ 00226d86 */
-        uVar9 = new::get_file_type(&local_118,(uint **)param_2[1],(uint **)param_2[2],uVar17);
+        uVar9 = _ZN5uu_ls8PathData3new13get_file_type17h50456aa863ca9f3aE
+                          (&local_118,(uint **)param_2[1],(uint **)param_2[2],uVar17);
         param_3 = (code *)(extraout_RDX & 0xffffffff);
         uStack_150 = (qword *)((ulong)uStack_150 & 0xffffffff00000000);
       }
@@ -481,7 +497,8 @@ switchD_00226af9_caseD_0:
       local_d8 = (qword *)0x0;
     }
     else {
-      get_security_context(&local_e8,(uint **)param_2[1],(uint **)param_2[2],uVar17);
+      _ZN5uu_ls20get_security_context17h71225af2e5fdb4ddE
+                (&local_e8,(uint **)param_2[1],(uint **)param_2[2],uVar17);
     }
     param_1[0x24] = local_f8;
     *(undefined4 *)(param_1 + 0x22) = (undefined4)local_108;
@@ -513,20 +530,23 @@ switchD_00226af9_caseD_0:
     if ((uStack_150._4_1_ != '\0') &&
        (pqVar13 = (qword *)0x0, *local_148 != (uint ***)0x8000000000000000)) {
                     /* try { // try from 00226d34 to 00226d38 has its CatchHandler @ 00226d69 */
-      pqVar13 = (qword *)core::ptr::drop_in_place<std::ffi::os_str::OsString>();
+      pqVar13 = (qword *)_ZN4core3ptr47drop_in_place_LT_std__ffi__os_str__OsString_GT_17h51f173604a280fb6E
+                                   ();
     }
     return pqVar13;
   }
   if (param_7 == 0) {
-    pqVar11 = (qword *)std::path::Path::file_name((uint **)param_2[1],(uint **)param_2[2]);
+    pqVar11 = (qword *)_ZN3std4path4Path9file_name17h79ecbb7850a9c7f3E
+                                 ((uint **)param_2[1],(uint **)param_2[2]);
     param_4 = unaff_R14;
     if (pqVar11 == (qword *)0x0) {
-      pqVar11 = (qword *)new::___closure__((uint **)param_2[1],(uint **)param_2[2]);
+      pqVar11 = (qword *)_ZN5uu_ls8PathData3new28__u7b__u7b_closure_u7d__u7d_17h0c5837aa9b0379e1E
+                                   ((uint **)param_2[1],(uint **)param_2[2]);
     }
     do {
       ppppuVar19 = (uint ****)&local_e8;
       pqVar13 = pqVar11;
-      std::sys::os_str::bytes::Slice::to_owned();
+      _ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E();
       local_128 = local_d8;
       local_138 = (uint ****)local_e8;
       pppuStack_130 = pppuStack_e0;
@@ -635,7 +655,8 @@ switchD_00226af9_caseD_5:
   }
                     /* try { // try from 00226a28 to 00226ac8 has its CatchHandler @ 00226d75 */
   ppppuVar19 = (uint ****)&local_e8;
-  _<alloc::vec::Vec<T,A>as_core::clone::Clone>::clone();
+  _ZN67__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__clone__Clone_GT_5clone17h4e545ed874bc91f1E
+            ();
   local_128 = local_d8;
   local_138 = (uint ****)local_e8;
   pppuStack_130 = pppuStack_e0;
@@ -705,26 +726,27 @@ switchD_00226a60_caseD_227c09:
     goto code_r0x00227c8f;
   case (uint *)0x22ab82:
 switchD_00226a60_caseD_22ab82:
-    core::ptr::drop_in_place<alloc::string::String>();
-    core::ptr::drop_in_place<alloc::string::String>(&pppuStack_98);
-    display_date(&local_e8,param_3,param_4);
-    uStack_100 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E();
+    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&pppuStack_98);
+    _ZN5uu_ls12display_date17h5db6390c2e0df8d3E(&local_e8,param_3,param_4);
+    uStack_100 = 
+    _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
     local_148 = (uint ****)&PTR_DAT_00312708;
     uStack_140 = (code *)0x2;
     local_128 = (qword *)0x0;
     local_138 = (uint ****)&local_108;
     pppuStack_130 = (uint ***)0x1;
     local_108 = (uint ****)&local_e8;
-    uVar7 = _<&mut_W_as_core::fmt::Write::write_fmt::SpecWriteFmt>::spec_write_fmt
+    uVar7 = _ZN75__LT__RF_mut_u20_W_u20_as_u20_core__fmt__Write__write_fmt__SpecWriteFmt_GT_14spec_write_fmt17h47065a1d1059e603E
                       (local_b0,&local_148);
-    core::result::Result<T,E>::unwrap(uVar7,&PTR_DAT_00312848);
-    core::ptr::drop_in_place<alloc::string::String>(&local_e8);
+    _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h8d3e4b8c01ce74b9E(uVar7,&PTR_DAT_00312848);
+    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&local_e8);
     local_148 = (uint ****)0x0;
     uStack_140 = (code *)0x1;
     local_138 = (uint ****)0x0;
-    ansi_width::ansi_width(uStack_a8,lStack_a0);
+    _ZN10ansi_width10ansi_width17h2f2b875c576f64e5E(uStack_a8,lStack_a0);
     pppuVar21 = (uint ***)&pppuStack_98;
-    display_item_name(pppuVar21,lStack_b8,param_4,0);
+    _ZN5uu_ls17display_item_name17h2be516ffa591d327E(pppuVar21,lStack_b8,param_4,0);
     uVar17 = uStack_90;
     if (in_stack_00000038 == '\0') {
 LAB_0022b35b:
@@ -732,18 +754,21 @@ LAB_0022b35b:
     }
     else {
       local_148 = (uint ****)((ulong)local_148 & 0xffffffff00000000);
-      auVar24 = core::char::methods::encode_utf8_raw(0x27,&local_148);
-      cVar8 = core::slice::_<impl[T]>::starts_with(uVar17,uStack_88,auVar24._0_8_,auVar24._8_8_);
+      auVar24 = _ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E(0x27,&local_148);
+      cVar8 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_11starts_with17h032fb0d9cebdd48eE
+                        (uVar17,uStack_88,auVar24._0_8_,auVar24._8_8_);
       if (cVar8 != '\0') goto LAB_0022b35b;
       local_e8 = &pppuStack_98;
-      pppuStack_e0 = (uint ***)_<alloc::string::String_as_core::fmt::Display>::fmt;
+      pppuStack_e0 = (uint ***)
+                     _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E
+      ;
       local_148 = (uint ****)&PTR_DAT_003126d8;
       uStack_140 = (code *)0x1;
       local_128 = (qword *)0x0;
       pppuStack_130 = (uint ***)0x1;
       pppuVar21 = (uint ***)&stack0xffffffffffffffe8;
       local_138 = (uint ****)&local_e8;
-      core::option::Option<T>::map_or_else(pppuVar21,&local_148);
+      _ZN4core6option15Option_LT_T_GT_11map_or_else17h7fca96e7ce97ddb7E(pppuVar21,&local_148);
       bVar22 = false;
     }
     local_f8 = (uint ***)pppuVar21[2];
@@ -756,42 +781,48 @@ LAB_0022b35b:
       else {
         lVar18 = *(long *)(*(long *)(lStack_40 + 0x10) * 0x10 + -8 + *(long *)(lStack_40 + 8)) + 1;
       }
-      dired::update_positions(lStack_40,lVar18 + lStack_a0,(long)pppuVar21[2] + lVar18 + lStack_a0);
+      _ZN5uu_ls5dired16update_positions17h1dc8b030d29268c5E
+                (lStack_40,lVar18 + lStack_a0,(long)pppuVar21[2] + lVar18 + lStack_a0);
     }
     local_d8 = (qword *)((long)param_4 + 0xfa);
     local_e8 = (undefined8 ****)&local_108;
-    pppuStack_e0 = (uint ***)_<alloc::string::String_as_core::fmt::Display>::fmt;
-    pcStack_d0 = _<uucore::mods::line_ending::LineEnding_as_core::fmt::Display>::fmt;
+    pppuStack_e0 = (uint ***)
+                   _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E
+    ;
+    pcStack_d0 = 
+    _ZN76__LT_uucore__mods__line_ending__LineEnding_u20_as_u20_core__fmt__Display_GT_3fmt17h6643b2132dca5a5bE
+    ;
     local_148 = (uint ****)&DAT_00128c70;
     uStack_140 = (code *)0x2;
     local_128 = (qword *)0x0;
     pppuStack_130 = (uint ***)0x2;
     local_138 = (uint ****)&local_e8;
-    uVar7 = _<&mut_W_as_core::fmt::Write::write_fmt::SpecWriteFmt>::spec_write_fmt
+    uVar7 = _ZN75__LT__RF_mut_u20_W_u20_as_u20_core__fmt__Write__write_fmt__SpecWriteFmt_GT_14spec_write_fmt17h47065a1d1059e603E
                       (local_b0,&local_148);
-    core::result::Result<T,E>::unwrap(uVar7,&PTR_DAT_00312860);
-    core::ptr::drop_in_place<alloc::string::String>(&local_108);
+    _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h8d3e4b8c01ce74b9E(uVar7,&PTR_DAT_00312860);
+    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&local_108);
     if (!bVar22) {
-      core::ptr::drop_in_place<alloc::string::String>(&pppuStack_98);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&pppuStack_98);
     }
 LAB_0022b4b8:
     local_e8 = (undefined8 ****)local_b0;
-    pppuStack_e0 = (uint ***)_<alloc::string::String_as_core::fmt::Display>::fmt;
+    pppuStack_e0 = (uint ***)
+                   _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E
+    ;
     local_148 = (uint ****)&DAT_00123c10;
     uStack_140 = (code *)0x1;
     local_128 = (qword *)0x0;
     local_138 = (uint ****)&local_e8;
     pppuStack_130 = (uint ***)0x1;
-    lVar18 = std::io::Write::write_fmt(uStack_80,&local_148);
+    lVar18 = _ZN3std2io5Write9write_fmt17h51abc44b465d2e67E(uStack_80,&local_148);
     if (lVar18 == 0) {
-      core::ptr::drop_in_place<alloc::string::String>(local_b0);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(local_b0);
       pqVar11 = (qword *)0x0;
     }
     else {
-      pqVar11 = (qword *)uucore::mods::error::
-                         _<impl_core::convert::From<std::io::error::Error>for_alloc::boxed::Box<dyn_uucore::mods::error::UError>>
-                         ::from(lVar18);
-      core::ptr::drop_in_place<alloc::string::String>(local_b0);
+      pqVar11 = (qword *)_ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17hcd961c31063bf4faE
+                                   (lVar18);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(local_b0);
     }
 switchD_00226af9_caseD_f:
     return pqVar11;
@@ -832,9 +863,9 @@ code_r0x0022bccc:
     pqVar13 = (qword *)(*(code *)((long)UNRECOVERED_JUMPTABLE + (long)UNRECOVERED_JUMPTABLE_00))();
     return pqVar13;
   case (uint *)0x22bcd4:
-    std::fs::Metadata::modified();
+    _ZN3std2fs8Metadata8modified17h6f16921acf618ae6E();
     if ((int)local_148 == 1000000000) {
-      core::ptr::drop_in_place<core::result::Result<std::time::SystemTime,std::io::error::Error>>
+      _ZN4core3ptr94drop_in_place_LT_core__result__Result_LT_std__time__SystemTime_C_std__io__error__Error_GT__GT_17hdc4a7fdaf1b94916E
                 (&uStack_150);
     }
     return uStack_150;
@@ -842,8 +873,8 @@ code_r0x0022bccc:
 switchD_00226a60_caseD_22bdcb:
     local_158 = (uint)local_118;
     uStack_154 = local_118._4_4_;
-    chrono::offset::local::Local::now(&local_118);
-    _<chrono::naive::datetime::NaiveDateTime_as_core::cmp::PartialOrd>::partial_cmp
+    _ZN6chrono6offset5local5Local3now17ha82adb6e05d16f38E(&local_118);
+    _ZN80__LT_chrono__naive__datetime__NaiveDateTime_u20_as_u20_core__cmp__PartialOrd_GT_11partial_cmp17hd709d884e1631950E
               (&local_158,&local_118);
     UNRECOVERED_JUMPTABLE = (uint *)((ulong)param_4[0x17] ^ 0x8000000000000000);
     bVar23 = UNRECOVERED_JUMPTABLE < (code *)0x4;
@@ -872,10 +903,11 @@ switchD_00226af9_caseD_1b:
     uStack_150 = (qword *)pqVar13[0x19];
     local_148 = (uint ****)0x8;
     uStack_140 = (code *)0x0;
-    chrono::datetime::DateTime<Tz>::format_with_items(&local_118,&local_138,&local_158);
-    _<T_as_alloc::string::ToString>::to_string(param_2,&local_118);
-    pqVar13 = (qword *)core::ptr::
-                       drop_in_place<chrono::format::formatting::DelayedFormat<chrono::format::strftime::StrftimeItems>>
+    _ZN6chrono8datetime18DateTime_LT_Tz_GT_17format_with_items17h13d00874c810e2f8E
+              (&local_118,&local_138,&local_158);
+    _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17h4f934844aadf293cE
+              (param_2,&local_118);
+    pqVar13 = (qword *)_ZN4core3ptr109drop_in_place_LT_chrono__format__formatting__DelayedFormat_LT_chrono__format__strftime__StrftimeItems_GT__GT_17h2d8af8695fb24873E
                                  (&local_118);
     return pqVar13;
   case (uint *)0x22c04c:
@@ -924,17 +956,21 @@ switchD_00226a60_caseD_22d379:
     return pqVar13;
   case (uint *)0x22d39c:
 switchD_00226a60_caseD_22d39c:
-    pqVar13 = (qword *)core::fmt::Formatter::debug_tuple_field1_finish(pqVar11);
+    pqVar13 = (qword *)_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h881f92590413f220E
+                                 (pqVar11);
     return pqVar13;
   case (uint *)0x22d3bf:
     uStack_150 = (qword *)UNRECOVERED_JUMPTABLE;
-    pqVar13 = (qword *)core::fmt::Formatter::debug_tuple_field3_finish
+    pqVar13 = (qword *)_ZN4core3fmt9Formatter25debug_tuple_field3_finish17h5f0310f9a47fa3c6E
                                  (pqVar11,
                                   "IOErrorContextBlockSizeParseErrorDiredAndZeroAreIncompatibleAlreadyListedErrorTimeStyleParseError/rustc/8bfcae730a5db2438bbda72796175bba21427be1/library/core/src/str/pattern.rs/rustc/8bfcae730a5db2438bbda72796175bba21427be1/library/core/src/slice/iter.rs%"
                                   ,0xe,ppppuVar19 + 1,
-                                  &PTR_drop_in_place<std_io_error_Error>_00311fc0,ppppuVar19 + 2,
-                                  &PTR_drop_in_place<std_path_PathBuf>_00312a78,&uStack_150,
-                                  &DAT_00312a98);
+                                  &
+                                  PTR__ZN4core3ptr42drop_in_place_LT_std__io__error__Error_GT_17h8a1f0142156ca749E_00311fc0
+                                  ,ppppuVar19 + 2,
+                                  &
+                                  PTR__ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17h585d8b757a674aeaE_00312a78
+                                  ,&uStack_150,&DAT_00312a98);
     return pqVar13;
   case (uint *)0x22d3ef:
                     /* WARNING: Bad instruction - Truncating control flow here */
@@ -946,7 +982,8 @@ LAB_00227c70:
   }
 switchD_00226af9_caseD_e:
 code_r0x00227c8f:
-  pqVar13 = (qword *)::alloc::slice::_<impl[T]>::sort_by_key();
+  pqVar13 = (qword *)_ZN5alloc5slice29__LT_impl_u20__u5b_T_u5d__GT_11sort_by_key17hf757b3fe9a47c1adE
+                               ();
   return pqVar13;
 switchD_00226af9_caseD_1a:
   UNRECOVERED_JUMPTABLE_00 = (uint *)(code *)0x4;
@@ -957,7 +994,7 @@ switchD_00226af9_caseD_1a:
   goto switchD_00226a60_caseD_22be12;
 switchD_00226a60_caseD_22c076:
   *(undefined8 *)((long)puVar15 + -8) = 0x22c07f;
-  UNRECOVERED_JUMPTABLE_00 = (uint *)file_type();
+  UNRECOVERED_JUMPTABLE_00 = (uint *)_ZN5uu_ls8PathData9file_type17h128ed7d98b354477E();
   pqVar13 = &__DT_RELA[0x9e9].r_addend;
   if (UNRECOVERED_JUMPTABLE_00 != (uint *)0x0) {
     pqVar11 = (qword *)(ulong)((*UNRECOVERED_JUMPTABLE_00 & 0xf000) - 0x1000);
@@ -976,11 +1013,11 @@ switchD_00226a60_caseD_22c08b:
       break;
     case 7:
       *(undefined8 *)((long)puVar16 + -0x10) = 0x22c0c2;
-      lVar18 = get_metadata(param_4,param_2);
+      lVar18 = _ZN5uu_ls8PathData12get_metadata17hc7a96a0547653f90E(param_4,param_2);
       if (lVar18 != 0) {
         uVar9 = *(undefined4 *)(lVar18 + 0x38);
         *(undefined8 *)((long)puVar16 + -0x10) = 0x22c0cf;
-        cVar8 = core::ops::function::FnOnce::call_once(uVar9);
+        cVar8 = _ZN4core3ops8function6FnOnce9call_once17h37c933d7708fabb0E(uVar9);
         if (cVar8 != '\0') {
           return (qword *)0x2a;
         }

@@ -5,10 +5,10 @@ long long uu_tail::follow::watch::Observer::init_files::ha6088192ed8373cd(struct
     int v2;  // [sp-0x98]
     unsigned long long v3;  // [sp-0x88]
     unsigned long long v4;  // [sp-0x78]
-    unsigned long long v5;  // [sp-0x70]
+    unsigned long v5;  // [sp-0x70]
     unsigned long long v6;  // [sp-0x68]
     unsigned long long v7;  // [sp-0x60]
-    unsigned long v8;  // [sp-0x58], Other Possible Types: unsigned long long
+    unsigned long v8;  // [sp-0x58]
     unsigned long long v9;  // [sp-0x50]
     char v10;  // [bp-0x48]
     char v11;  // [bp-0x38]
@@ -19,7 +19,7 @@ long long uu_tail::follow::watch::Observer::init_files::ha6088192ed8373cd(struct
     int v19;  // xmm0
     unsigned long long v20;  // rdx
     unsigned long long v21;  // rcx
-    void* v22;  // rax
+    void* v22;  // rbx
     int v23;  // xmm0
 
     if (a0->field_0 == 3)
@@ -45,7 +45,7 @@ long long uu_tail::follow::watch::Observer::init_files::ha6088192ed8373cd(struct
             if (v5 == 0x8000000000000000)
             {
                 v22 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v6);
-                ::0x503b00::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b();
+                ::0x503b00::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b(&v0);
                 return v22;
             }
             v5 = (long long)v2;
@@ -59,7 +59,7 @@ long long uu_tail::follow::watch::Observer::init_files::ha6088192ed8373cd(struct
             v13 = (v13 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v18) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v19;
             v0 = v19;
             v1 = *((long long *)&v11);
-            ::0x503b00::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b();
+            ::0x503b00::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b(&v5);
         }
         v20 = (long long)(&v0)[8];
         v21 = v1;
@@ -68,7 +68,7 @@ long long uu_tail::follow::watch::Observer::init_files::ha6088192ed8373cd(struct
             v22 = uu_tail::follow::watch::WatcherRx::watch_with_parent::h1fadf41504d6de8e(a0->field_10, a0->field_18, v20, v21);
             if (v22)
             {
-                ::0x503b00::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b();
+                ::0x503b00::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b(&v0);
                 return v22;
             }
         }
@@ -90,10 +90,10 @@ long long uu_tail::follow::watch::Observer::init_files::ha6088192ed8373cd(struct
             v22 = uu_tail::follow::watch::WatcherRx::watch::h12bff18e757f3bf5(a0->field_10, a0->field_18);
             if (v22)
             {
-                ::0x503b00::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b();
+                ::0x503b00::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b(&v0);
                 return v22;
             }
         }
-        ::0x503b00::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b();
+        ::0x503b00::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b(&v0);
     }
 }

@@ -1,4 +1,4 @@
-undefined8 __rustcall uu_join::State::reset_read_line(undefined8 param_1,long param_2)
+undefined8 _ZN7uu_join5State15reset_read_line17haac158f16f521e22E(undefined8 param_1,long param_2)
 
 {
   long local_68;
@@ -22,7 +22,7 @@ undefined8 __rustcall uu_join::State::reset_read_line(undefined8 param_1,long pa
   undefined4 uStack_10;
   undefined4 uStack_c;
   
-  read_line(&local_68,param_1,param_2 + 2);
+  _ZN7uu_join5State9read_line17hbc99b2e048ef8c59E(&local_68,param_1,param_2 + 2);
   if (local_68 != -0x7fffffffffffffff) {
     local_18 = local_48;
     uStack_14 = uStack_44;
@@ -34,7 +34,7 @@ undefined8 __rustcall uu_join::State::reset_read_line(undefined8 param_1,long pa
     uStack_1c = uStack_4c;
     local_38 = local_68;
     local_30 = local_60;
-    (*(code *)PTR_reset_00239390)(param_1,&local_38);
+    (*(code *)PTR__ZN7uu_join5State5reset17h80c820df90bbe344E_00239390)(param_1,&local_38);
     local_60 = 0;
   }
   return local_60;

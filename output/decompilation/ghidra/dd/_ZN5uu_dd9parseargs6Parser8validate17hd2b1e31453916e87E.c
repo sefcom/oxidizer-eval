@@ -1,4 +1,4 @@
-void __rustcall uu_dd::parseargs::Parser::validate(ulong *param_1,long *param_2)
+void _ZN5uu_dd9parseargs6Parser8validate17hd2b1e31453916e87E(ulong *param_1,long *param_2)
 
 {
   char cVar1;
@@ -97,7 +97,7 @@ LAB_001d2c46:
       cVar20 = '\0';
     }
   }
-  uVar13 = get_ctable(cVar20,cVar23);
+  uVar13 = _ZN5uu_dd9parseargs10get_ctable17h8e7446a764b1d972E(cVar20,cVar23);
   cVar25 = (char)((uint)uVar8 >> 0x18);
   auVar22[7] = cVar25;
   auVar22[6] = cVar25;
@@ -161,7 +161,8 @@ LAB_001d2c46:
       }
     }
 LAB_001d2dd6:
-    conversion_mode(&local_48,uVar13,cVar20,uVar14,cVar1,uVar4);
+    _ZN5uu_dd9parseargs15conversion_mode17h18084a71126044cdE
+              (&local_48,uVar13,cVar20,uVar14,cVar1,uVar4);
     if (*param_2 == 0) {
       uVar14 = 0x200;
       uVar16 = 0x200;
@@ -240,6 +241,6 @@ LAB_001d2dd6:
 LAB_001d2d10:
   param_1[1] = uVar16;
   *param_1 = 3;
-  core::ptr::drop_in_place<uu_dd::parseargs::Parser>(param_2);
+  _ZN4core3ptr45drop_in_place_LT_uu_dd__parseargs__Parser_GT_17h57b892102145e56eE(param_2);
   return;
 }

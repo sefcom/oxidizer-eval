@@ -1,6 +1,6 @@
 long long uu_tail::args::FilterMode::from::h013a88fb4d6b4428(unsigned long long a0[3], unsigned long long a1)
 {
-    int v0;  // [bp-0xd8], Other Possible Types: char, unsigned long long
+    int v0;  // [bp-0xd8], Other Possible Types: char, unsigned long
     unsigned long long v1;  // [sp-0xd0]
     struct struct_0 **v2;  // [sp-0xc8], Other Possible Types: unsigned long long
     unsigned int v3;  // [bp-0xc0], Other Possible Types: unsigned long long
@@ -51,7 +51,7 @@ long long uu_tail::args::FilterMode::from::h013a88fb4d6b4428(unsigned long long 
             v4 = 0;
             v2 = &v8;
             v3 = 1;
-            ::0x4f81f0::core::option::Option$LT$T$GT$::map_or_else::hb4ba59fb1ad49b60();
+            ::0x4f81f0::core::option::Option$LT$T$GT$::map_or_else::hb4ba59fb1ad49b60(&v14, &v0);
             v3 = 1;
             *((int128_t *)&v0) = *((int128_t *)&v14);
             v2 = *((long long *)&v15);
@@ -80,7 +80,7 @@ long long uu_tail::args::FilterMode::from::h013a88fb4d6b4428(unsigned long long 
             v4 = 0;
             v2 = &v8;
             v3 = 1;
-            ::0x4f81f0::core::option::Option$LT$T$GT$::map_or_else::hb4ba59fb1ad49b60();
+            ::0x4f81f0::core::option::Option$LT$T$GT$::map_or_else::hb4ba59fb1ad49b60(&v12, &v0);
             v3 = 1;
             *((int128_t *)&v0) = *((int128_t *)&v12);
             v2 = *((long long *)&v13);

@@ -1,7 +1,6 @@
-void __rustcall
-uu_dd::parseargs::conversion_mode
-          (undefined *param_1,long param_2,long param_3,undefined8 param_4,char param_5,
-          undefined param_6)
+void _ZN5uu_dd9parseargs15conversion_mode17h18084a71126044cdE
+               (undefined *param_1,long param_2,long param_3,undefined8 param_4,char param_5,
+               undefined param_6)
 
 {
   if (param_2 != 0) {

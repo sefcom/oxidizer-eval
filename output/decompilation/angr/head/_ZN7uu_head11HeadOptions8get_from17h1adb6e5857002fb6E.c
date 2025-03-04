@@ -1,8 +1,8 @@
-long long uu_head::HeadOptions::get_from::h1adb6e5857002fb6(struct_1 *a0, unsigned long long a1)
+long long uu_head::HeadOptions::get_from::h1adb6e5857002fb6(struct_0 *a0, unsigned long long a1)
 {
-    void* v0;  // [sp-0x130], Other Possible Types: unsigned long, unsigned long long
+    void* v0;  // [sp-0x130], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0x128]
-    int v2;  // [sp-0x120], Other Possible Types: void*
+    int v2;  // [bp-0x120], Other Possible Types: void*
     unsigned long long v3;  // [sp-0x118]
     void* v4;  // [sp-0x110], Other Possible Types: unsigned long long
     char v5;  // [bp-0x108], Other Possible Types: unsigned int
@@ -23,8 +23,8 @@ long long uu_head::HeadOptions::get_from::h1adb6e5857002fb6(struct_1 *a0, unsign
     int v20;  // [sp-0x38]
     int v21;  // [sp-0x28]
     unsigned long long v24;  // rdx
-    struct_0 *v27;  // rax
-    struct_0 *v28;  // r14
+    struct_1 *v27;  // rax
+    struct_1 *v28;  // r14
     int v29;  // xmm0
     int v30;  // xmm1
 
@@ -63,7 +63,7 @@ long long uu_head::HeadOptions::get_from::h1adb6e5857002fb6(struct_1 *a0, unsign
     }
     else
     {
-        v27 = ::0x4b8370::alloc::alloc::Global::alloc_impl::hf61749d460433fff();
+        v27 = ::0x4b8370::alloc::alloc::Global::alloc_impl::hf61749d460433fff(24);
         if (!v27)
             alloc::alloc::handle_alloc_error::h3816d26e7f8ae8a1(8, 24); /* do not return */
         v28 = v27;

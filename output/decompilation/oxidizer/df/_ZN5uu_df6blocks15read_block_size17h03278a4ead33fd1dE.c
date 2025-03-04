@@ -1,5 +1,5 @@
 fn uu_df::blocks::read_block_size(a0: &Option<Result<struct32, struct8>>, a1: u32) -> u64 {
-    let v0: i64;  // [sp-0x80], Other Possible Types: Result<struct40, struct8>, Option<Result<struct32, struct8>>
+    let v0: i64;  // [sp-0x80], Other Possible Types: Option<Result<struct32, struct8>>, Result<struct40, struct8>
     let v1: i64;  // [sp-0x78]
     let v2: i64;  // [sp-0x70]
     let v3: i64;  // [sp-0x68]
@@ -39,7 +39,7 @@ fn uu_df::blocks::read_block_size(a0: &Option<Result<struct32, struct8>>, a1: u3
             v4 = 0;
             v2 = &v5;
             v3 = 1;
-            core::option::Option<T>::map_or_else();
+            core::option::Option<T>::map_or_else(a0 + 8, &v0);
             return struct8 {
                 field_0: 1
             };

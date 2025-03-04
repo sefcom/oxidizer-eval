@@ -6,7 +6,7 @@ long long uu_join::State::reset_next_line::hdffe12cfae3f9f25(unsigned long long 
     char v3;  // [bp-0x70]
     char v4;  // [bp-0x60]
     char v5;  // [bp-0x58]
-    unsigned long v6;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x48]
     int v7;  // [sp-0x40]
     unsigned long long v8;  // [sp-0x30]
     int v9;  // [sp-0x28]

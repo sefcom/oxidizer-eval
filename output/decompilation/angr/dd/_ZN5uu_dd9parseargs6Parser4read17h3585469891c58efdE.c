@@ -1,6 +1,6 @@
 long long uu_dd::parseargs::Parser::read::h3585469891c58efd(struct_0 *a0, void* a1, unsigned long a2, unsigned long a3)
 {
-    unsigned long v0;  // [sp-0x50], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x50]
     unsigned long long v1;  // [sp-0x48]
     char v2;  // [bp-0x40]
     char v3;  // [bp-0x30]

@@ -33,11 +33,11 @@ long long uu_head::Mode::from::h53e4fee035ad00ee(struct_0 *a0, unsigned long lon
             *((int128_t *)&v8) = *((int128_t *)&v6);
             *((int128_t *)&v7) = *((int128_t *)&v4);
             uu_head::Mode::from::_$u7b$$u7b$closure$u7d$$u7d$::hb5202c7fdcf4dd08(&v0, &v7);
-            vvar_194{reg 16} = v1;
+            vvar_192{reg 16} = v1;
             a0->field_11 = *((int *)&v3);
             *((int *)&(&a0->field_10)[1]) = *((int *)&v2);
             *((int128_t *)&a0->field_0) = *((int128_t *)&v0);
-            a0->field_10 = vvar_194{reg 16};
+            a0->field_10 = vvar_192{reg 16};
             return v12;
         }
         v12 = 0x8000000000000000;

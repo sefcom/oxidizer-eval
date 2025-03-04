@@ -1,6 +1,6 @@
-void __rustcall
-uu_head::parse::process_num_block
-          (undefined8 *param_1,undefined8 param_2,undefined8 param_3,int param_4,undefined8 param_5)
+void _ZN7uu_head5parse17process_num_block17h8e5bdc2257d4c6b6E
+               (undefined8 *param_1,undefined8 param_2,undefined8 param_3,int param_4,
+               undefined8 param_5)
 
 {
   undefined auVar1 [16];
@@ -36,7 +36,8 @@ uu_head::parse::process_num_block
   undefined local_48 [16];
   undefined8 local_38;
   
-  core::num::_<impl_core::str::traits::FromStr_for_usize>::from_str(local_70);
+  _ZN4core3num62__LT_impl_u20_core__str__traits__FromStr_u20_for_u20_usize_GT_8from_str17h35e67cae0c0452a5E
+            (local_70);
   if (local_70[0] == '\0') {
     local_90 = local_68;
     local_80 = local_68;
@@ -88,7 +89,7 @@ LAB_001be433:
       bVar3 = true;
       break;
     case 0x71:
-      auVar7 = _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next
+      auVar7 = _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
                          (param_5);
       param_4 = auVar7._8_4_;
       bVar5 = false;
@@ -106,7 +107,8 @@ LAB_001be433:
     default:
       if (param_4 != 0) goto switchD_001be460_caseD_64;
     }
-    _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next(param_5);
+    _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
+              (param_5);
     param_4 = extraout_EDX;
     uVar4 = local_88;
     if (extraout_EDX == 0x110000) {
@@ -119,9 +121,9 @@ LAB_001be505:
         local_d0 = 0;
         local_d8 = 8;
         local_e0 = 0;
-        std::sys::os_str::bytes::Slice::to_owned(&local_c8,"-q",2);
+        _ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E(&local_c8,"-q",2);
         local_e8 = local_b8;
-        ::alloc::vec::Vec<T,A>::push(&local_e0,&local_f8);
+        _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17hbece7e609c79d9b2E(&local_e0,&local_f8);
       }
       if (bVar5) goto LAB_001be544;
       goto LAB_001be57e;
@@ -134,7 +136,8 @@ LAB_001be793:
   *param_1 = 1;
   return;
 switchD_001be460_caseD_76:
-  _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next(param_5);
+  _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
+            (param_5);
   bVar5 = true;
   param_4 = extraout_EDX_00;
   uVar4 = 0;
@@ -145,19 +148,19 @@ LAB_001be7e8:
   local_d8 = 8;
   local_d0 = 0;
 LAB_001be544:
-  std::sys::os_str::bytes::Slice::to_owned(&local_c8,"-v",2);
+  _ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E(&local_c8,"-v",2);
   local_e8 = local_b8;
-  ::alloc::vec::Vec<T,A>::push(&local_e0,&local_f8);
+  _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17hbece7e609c79d9b2E(&local_e0,&local_f8);
 LAB_001be57e:
   if (bVar6) {
-    std::sys::os_str::bytes::Slice::to_owned(&local_c8,"-z",2);
+    _ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E(&local_c8,"-z",2);
     local_e8 = local_b8;
-    ::alloc::vec::Vec<T,A>::push(&local_e0,&local_f8);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17hbece7e609c79d9b2E(&local_e0,&local_f8);
   }
   if (bVar3) {
-    std::sys::os_str::bytes::Slice::to_owned(&local_c8,"-c",2);
+    _ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E(&local_c8,"-c",2);
     local_e8 = local_b8;
-    ::alloc::vec::Vec<T,A>::push(&local_e0,&local_f8);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17hbece7e609c79d9b2E(&local_e0,&local_f8);
     auVar1._8_8_ = 0;
     auVar1._0_8_ = local_90;
     auVar2._8_8_ = 0;
@@ -167,38 +170,43 @@ LAB_001be57e:
       local_98[1] = 0;
       *(undefined *)(local_98 + 2) = 1;
       *local_98 = 1;
-      core::ptr::drop_in_place<alloc::vec::Vec<std::ffi::os_str::OsString>>(&local_e0);
+      _ZN4core3ptr70drop_in_place_LT_alloc__vec__Vec_LT_std__ffi__os_str__OsString_GT__GT_17hdf52de0dff688e82E
+                (&local_e0);
       return;
     }
     local_f8 = &local_78;
-    pcStack_f0 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+    pcStack_f0 = 
+    _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+    ;
     local_c8 = &DAT_00115290;
     uStack_c0 = 1;
     local_a8 = 0;
     local_b0 = 1;
     local_b8 = &local_f8;
-    core::option::Option<T>::map_or_else(local_60,&local_c8);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17hb3355800140cccf2E(local_60,&local_c8);
     local_b8 = (ulong **)local_50;
-    ::alloc::vec::Vec<T,A>::push(&local_e0,&local_c8);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17hbece7e609c79d9b2E(&local_e0,&local_c8);
   }
   else {
                     /* try { // try from 001be636 to 001be77f has its CatchHandler @ 001be808 */
-    std::sys::os_str::bytes::Slice::to_owned(&local_c8,"-n",2);
+    _ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E(&local_c8,"-n",2);
     local_e8 = local_b8;
-    ::alloc::vec::Vec<T,A>::push(&local_e0,&local_f8);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17hbece7e609c79d9b2E(&local_e0,&local_f8);
     local_f8 = &local_80;
-    pcStack_f0 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+    pcStack_f0 = 
+    _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+    ;
     local_c8 = &DAT_00115290;
     uStack_c0 = 1;
     local_a8 = 0;
     local_b0 = 1;
     local_b8 = &local_f8;
-    core::option::Option<T>::map_or_else(local_48,&local_c8);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17hb3355800140cccf2E(local_48,&local_c8);
     local_b8 = (ulong **)local_38;
-    ::alloc::vec::Vec<T,A>::push(&local_e0,&local_c8);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17hbece7e609c79d9b2E(&local_e0,&local_c8);
   }
   param_1 = local_98;
-  _<alloc::vec::Vec<T,A>as_core::iter::traits::collect::IntoIterator>::into_iter
+  _ZN90__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__iter__traits__collect__IntoIterator_GT_9into_iter17hf3a7c2118f75f767E
             (local_98 + 1,&local_e0);
   goto LAB_001be793;
 }

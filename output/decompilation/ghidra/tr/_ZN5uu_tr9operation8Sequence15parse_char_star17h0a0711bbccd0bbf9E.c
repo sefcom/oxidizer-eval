@@ -1,5 +1,5 @@
-void __rustcall
-uu_tr::operation::Sequence::parse_char_star(ulong *param_1,undefined8 param_2,undefined8 param_3)
+void _ZN5uu_tr9operation8Sequence15parse_char_star17h0a0711bbccd0bbf9E
+               (ulong *param_1,undefined8 param_2,undefined8 param_3)
 
 {
   int local_48;
@@ -17,7 +17,8 @@ uu_tr::operation::Sequence::parse_char_star(ulong *param_1,undefined8 param_2,un
   local_20 = 1;
   local_18 = "*]";
   local_10 = 2;
-  nom::sequence::delimited::___closure__(&local_48,&local_28,param_2,param_3);
+  _ZN3nom8sequence9delimited28__u7b__u7b_closure_u7d__u7d_17h05b95ced07dd6d44E
+            (&local_48,&local_28,param_2,param_3);
   if (local_48 != 3) {
     param_1[3] = uStack_38;
     param_1[4] = CONCAT71(uStack_2f,uStack_30);

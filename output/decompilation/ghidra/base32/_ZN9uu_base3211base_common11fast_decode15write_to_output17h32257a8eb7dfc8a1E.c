@@ -1,5 +1,5 @@
-void __rustcall
-uu_base32::base_common::fast_decode::write_to_output(long param_1,undefined8 param_2,long param_3)
+void _ZN9uu_base3211base_common11fast_decode15write_to_output17h32257a8eb7dfc8a1E
+               (long param_1,undefined8 param_2,long param_3)
 
 {
   long lVar1;

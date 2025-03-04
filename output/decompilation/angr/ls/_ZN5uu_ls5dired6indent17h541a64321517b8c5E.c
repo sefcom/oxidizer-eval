@@ -1,6 +1,6 @@
 long long uu_ls::dired::indent::h541a64321517b8c5(unsigned long long a0)
 {
-    unsigned long v0;  // [sp-0x30], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x30]
     unsigned long long v1;  // [sp-0x28]
     unsigned long long v2;  // [sp-0x20]
     int v3;  // [sp-0x18]

@@ -16,8 +16,8 @@ fn uu_tac::try_mmap_stdin(a0: &struct24) -> u64 {
     };
     v5 = 0;
     v6 = 0;
-    if !v1 {
-        *(&(&a0->field_0)[1] as &i8) = v2;
+    if !*(&v1 as &i64) {
+        *(&(&a0->field_0)[1] as &i128) = *(&v2 as &i128);
         a0->field_0 = 1;
         v10 = memmap2::MmapOptions::map(&v3, &v0);
         return v10;

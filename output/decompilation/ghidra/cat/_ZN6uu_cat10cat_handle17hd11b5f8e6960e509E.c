@@ -1,4 +1,5 @@
-void __rustcall uu_cat::cat_handle(long *param_1,long param_2,int *param_3,long *param_4)
+void _ZN6uu_cat10cat_handle17hd11b5f8e6960e509E
+               (long *param_1,long param_2,int *param_3,long *param_4)
 
 {
   undefined *puVar1;
@@ -67,9 +68,9 @@ void __rustcall uu_cat::cat_handle(long *param_1,long param_2,int *param_3,long 
     plStack_7cf8 = param_1;
     (*(code *)PTR_memset_0021c7a0)(auStack_7c30,0,0x7c00);
     puStack_7d10 = (undefined *)0x1b0556;
-    uStack_7c78 = std::io::stdio::stdout();
+    uStack_7c78 = _ZN3std2io5stdio6stdout17h077da66234850927E();
     puStack_7d10 = (undefined *)0x1b056c;
-    uStack_7d00 = std::io::stdio::Stderr::lock(&uStack_7c78);
+    uStack_7d00 = _ZN3std2io5stdio6Stderr4lock17h890f7962a170fc90E(&uStack_7c78);
     cStack_7d01 = *(char *)(param_3 + 1);
     bVar14 = *(char *)((long)param_3 + 2) != '\0';
     pcStack_7c90 = "$\n";
@@ -84,22 +85,23 @@ void __rustcall uu_cat::cat_handle(long *param_1,long param_2,int *param_3,long 
     piStack_7c80 = param_3;
     do {
       puStack_7d10 = (undefined *)0x1b05e1;
-      auVar15 = _<std::os::unix::net::stream::UnixStream_as_std::io::Read>::read
-                          (lStack_7cf0,auStack_7c30,0x7c00,
-                           _<std::os::unix::net::stream::UnixStream_as_std::io::Read>::read);
+      auVar15 = _ZN72__LT_std__os__unix__net__stream__UnixStream_u20_as_u20_std__io__Read_GT_4read17hcece2f3bec9614edE
+                          (lStack_7cf0,auStack_7c30,0x7c00);
       uVar10 = auVar15._8_8_;
       auStack_7cd8 = auVar15;
       if ((auVar15._0_8_ != 0) || (uVar10 == 0)) {
         puStack_7d10 = (undefined *)0x1b08cf;
-        core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(auStack_7cd8);
+        _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17hdeb0a990ca1d4581E
+                  (auStack_7cd8);
         *plStack_7cf8 = -0x7ffffffffffffffa;
 LAB_001b08a9:
         puStack_7d10 = (undefined *)0x1b08b3;
-        core::ptr::drop_in_place<std::io::stdio::StdoutLock>(uStack_7d00);
+        _ZN4core3ptr47drop_in_place_LT_std__io__stdio__StdoutLock_GT_17h7157efe841e7afadE
+                  (uStack_7d00);
         return;
       }
       puStack_7d10 = (undefined *)0x1b0617;
-      auVar15 = _<core::ops::range::Range<usize>as_core::slice::index::SliceIndex<[T]>>::index
+      auVar15 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17h2183ab5a6b7a9c40E
                           (uVar10,auStack_7c30,0x7c00,&PTR_s_src_uu_cat_src_cat_rs_002186f8);
       uVar11 = auVar15._8_8_;
       lVar7 = auVar15._0_8_;
@@ -109,8 +111,9 @@ LAB_001b08a9:
         if (uVar11 < uVar13 || uVar11 - uVar13 == 0) goto LAB_001b08f2;
         if (*(char *)(lVar7 + uVar13) == '\n') {
           puStack_7d10 = (undefined *)0x1b0670;
-          write_new_line(&lStack_7cc8,&uStack_7d00,piStack_7c80,param_4,
-                         *(undefined *)(lStack_7cf0 + 4));
+          _ZN6uu_cat14write_new_line17h703f4daf25cc548eE
+                    (&lStack_7cc8,&uStack_7d00,piStack_7c80,param_4,*(undefined *)(lStack_7cf0 + 4))
+          ;
           if (lStack_7cc8 != -0x7ffffffffffffffa) {
 LAB_001b0872:
             *(undefined4 *)(plStack_7cf8 + 1) = uStack_7cc0;
@@ -120,7 +123,7 @@ LAB_001b0872:
             *plStack_7cf8 = lStack_7cc8;
 LAB_001b089f:
             puStack_7d10 = (undefined *)0x1b08a9;
-            core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>
+            _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17hdeb0a990ca1d4581E
                       (auStack_7cd8);
             goto LAB_001b08a9;
           }
@@ -130,7 +133,8 @@ LAB_001b089f:
         else {
           if (*(char *)((long)param_4 + 9) != '\0') {
             puStack_7d10 = (undefined *)0x1b06be;
-            lVar8 = _<std::io::stdio::StdoutLock_as_std::io::Write>::write_all(&uStack_7d00,"\r",1);
+            lVar8 = _ZN61__LT_std__io__stdio__StdoutLock_u20_as_u20_std__io__Write_GT_9write_all17h10000d12d1c1ff48E
+                              (&uStack_7d00,"\r",1);
             if (lVar8 == 0) {
               *(undefined2 *)(param_4 + 1) = 0;
               *(undefined *)((long)param_4 + 10) = 0;
@@ -143,7 +147,9 @@ LAB_001b0885:
           }
           *(undefined *)((long)param_4 + 10) = 0;
           if ((*(char *)(param_4 + 1) != '\0') && (cStack_7d01 != '\0')) {
-            pcStack_7c68 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+            pcStack_7c68 = 
+            _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+            ;
             lStack_7cc8 = 2;
             uStack_7cb8 = 0;
             uStack_7cb0 = 6;
@@ -158,13 +164,14 @@ LAB_001b0885:
             uStack_7c48 = 1;
             puStack_7d10 = (undefined *)0x1b079e;
             plStack_7c70 = param_4;
-            lVar8 = std::io::Write::write_fmt(&uStack_7d00,&puStack_7c60);
+            lVar8 = _ZN3std2io5Write9write_fmt17h6cba046ccfa3b685E(&uStack_7d00,&puStack_7c60);
             if (lVar8 != 0) goto LAB_001b0885;
             *param_4 = *param_4 + 1;
           }
 LAB_001b07b0:
           puStack_7d10 = (undefined *)0x1b07ca;
-          lVar8 = write_end(&uStack_7d00,lVar7 + uVar13,uVar11 - uVar13,uStack_7ce4,uStack_7ce8);
+          lVar8 = _ZN6uu_cat9write_end17h5e37c7be961ff133E
+                            (&uStack_7d00,lVar7 + uVar13,uVar11 - uVar13,uStack_7ce4,uStack_7ce8);
           uVar9 = lVar8 + uVar13;
           if (uVar9 == uVar11) {
             *(undefined *)(param_4 + 1) = 0;
@@ -175,12 +182,13 @@ LAB_001b07b0:
 LAB_001b08f2:
                     /* WARNING: Subroutine does not return */
             puStack_7d10 = (undefined *)0x1b0903;
-            core::panicking::panic_bounds_check(uVar9,uVar11,ppuStack_7ce0);
+            _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E(uVar9,uVar11,ppuStack_7ce0);
           }
           if (*(char *)(lVar7 + uVar9) == '\n') {
             puStack_7d10 = (undefined *)0x1b0826;
-            write_end_of_line(&lStack_7cc8,&uStack_7d00,pcStack_7c90,lStack_7c88,
-                              *(undefined *)(lStack_7cf0 + 4));
+            _ZN6uu_cat17write_end_of_line17h4ed837c9dff89e3fE
+                      (&lStack_7cc8,&uStack_7d00,pcStack_7c90,lStack_7c88,
+                       *(undefined *)(lStack_7cf0 + 4));
             if (lStack_7cc8 != -0x7ffffffffffffffa) goto LAB_001b0872;
             *(undefined *)(param_4 + 1) = 1;
             uVar13 = uVar13 + lVar8 + 1;
@@ -189,11 +197,12 @@ LAB_001b08f2:
             if (*(char *)(lVar7 + uVar9) != '\r') {
               lStack_7cc8 = 0;
               puStack_7d10 = (undefined *)0x1b092c;
-              uVar6 = core::panicking::assert_failed
+              uVar6 = _ZN4core9panicking13assert_failed17hdf70ea46a40497a8E
                                 (0,lVar7 + uVar9,"\n",&lStack_7cc8,
                                  &PTR_s_src_uu_cat_src_cat_rs_00218760);
               puStack_7d10 = (undefined *)0x1b0951;
-              core::ptr::drop_in_place<std::io::stdio::StdoutLock>(uStack_7d00);
+              _ZN4core3ptr47drop_in_place_LT_std__io__stdio__StdoutLock_GT_17h7157efe841e7afadE
+                        (uStack_7d00);
               puStack_7d10 = &LAB_001b0959;
               _Unwind_Resume(uVar6);
               return;
@@ -204,11 +213,12 @@ LAB_001b08f2:
         }
       } while (uVar13 < uVar10);
       puStack_7d10 = (undefined *)0x1b0859;
-      core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(auStack_7cd8);
+      _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17hdeb0a990ca1d4581E
+                (auStack_7cd8);
     } while( true );
   }
   if (*(char *)(param_3 + 1) != '\0') {
-    write_lines();
+    _ZN6uu_cat11write_lines17hff42684e0ec60399E();
     return;
   }
   puVar1 = &stack0xffffffffffffffd0;
@@ -219,13 +229,14 @@ LAB_001b08f2:
   } while (puVar12 + -0x1000 != auStack_10030);
   *(long **)(puVar12 + -0x1020) = param_1;
   *(undefined8 *)(puVar12 + -0x1030) = 0x1af78a;
-  uVar6 = std::io::stdio::stdout();
+  uVar6 = _ZN3std2io5stdio6stdout17h077da66234850927E();
   *(undefined8 *)(puVar12 + -0x1008) = uVar6;
   *(undefined8 *)(puVar12 + -0x1030) = 0x1af79a;
-  uVar6 = std::io::stdio::Stderr::lock(puVar12 + -0x1008);
+  uVar6 = _ZN3std2io5stdio6Stderr4lock17h890f7962a170fc90E(puVar12 + -0x1008);
   *(undefined8 *)(puVar12 + -0x1028) = uVar6;
   *(undefined8 *)(puVar12 + -0x1030) = 0x1af7b1;
-  splice::write_fast_using_splice(puVar12 + -0x1000,param_2,puVar12 + -0x1028);
+  _ZN6uu_cat6splice23write_fast_using_splice17hbaaa5718090ebd33E
+            (puVar12 + -0x1000,param_2,puVar12 + -0x1028);
   lVar7 = *(long *)(puVar12 + -0x1000);
   cVar2 = puVar12[-0xff8];
   if (lVar7 == -0x7ffffffffffffffa) {
@@ -238,33 +249,35 @@ LAB_001b08f2:
       (*(code *)PTR_memset_0021c7a0)(puVar1,0,0x10000);
       while( true ) {
         *(undefined8 *)(puVar12 + -0x1030) = 0x1af81d;
-        auVar15 = _<std::os::unix::net::stream::UnixStream_as_std::io::Read>::read
+        auVar15 = _ZN72__LT_std__os__unix__net__stream__UnixStream_u20_as_u20_std__io__Read_GT_4read17hcece2f3bec9614edE
                             (param_2,puVar1,0x10000);
         *(undefined (*) [16])(puVar12 + -0x1018) = auVar15;
         if ((auVar15._0_8_ != 0) || (auVar15._8_8_ == 0)) break;
         *(undefined8 *)(puVar12 + -0x1030) = 0x1af848;
-        uVar6 = _<core::ops::range::Range<usize>as_core::slice::index::SliceIndex<[T]>>::index
+        uVar6 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17h2183ab5a6b7a9c40E
                           (auVar15._8_8_,puVar1,0x10000,&PTR_s_src_uu_cat_src_cat_rs_002186e0);
         *(undefined8 *)(puVar12 + -0x1030) = 0x1af851;
-        lVar7 = _<std::io::stdio::StdoutLock_as_std::io::Write>::write_all(puVar12 + -0x1028,uVar6);
+        lVar7 = _ZN61__LT_std__io__stdio__StdoutLock_u20_as_u20_std__io__Write_GT_9write_all17h10000d12d1c1ff48E
+                          (puVar12 + -0x1028,uVar6);
         if (lVar7 != 0) {
           puVar5 = *(undefined8 **)(puVar12 + -0x1020);
           *puVar5 = 0x8000000000000000;
           puVar5[1] = lVar7;
           *(undefined8 *)(puVar12 + -0x1030) = 0x1af8f4;
-          core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>
+          _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17hdeb0a990ca1d4581E
                     (puVar12 + -0x1018);
           goto LAB_001af908;
         }
         *(undefined8 *)(puVar12 + -0x1030) = 0x1af85e;
-        core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>
+        _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17hdeb0a990ca1d4581E
                   (puVar12 + -0x1018);
       }
       *(undefined8 *)(puVar12 + -0x1030) = 0x1af8a6;
-      core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(puVar12 + -0x1018)
-      ;
+      _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17hdeb0a990ca1d4581E
+                (puVar12 + -0x1018);
       *(undefined8 *)(puVar12 + -0x1030) = 0x1af8af;
-      lVar7 = _<std::io::stdio::StdoutLock_as_std::io::Write>::flush(puVar12 + -0x1028);
+      lVar7 = _ZN61__LT_std__io__stdio__StdoutLock_u20_as_u20_std__io__Write_GT_5flush17hf4899ae455fb37b6E
+                        (puVar12 + -0x1028);
       if (lVar7 == 0) {
         **(undefined8 **)(puVar12 + -0x1020) = 0x8000000000000006;
       }
@@ -286,6 +299,6 @@ LAB_001af908:
     *(char *)(plVar4 + 1) = cVar2;
   }
   *(undefined8 *)(puVar12 + -0x1030) = 0x1af911;
-  core::ptr::drop_in_place<std::io::stdio::StdoutLock>(uVar6);
+  _ZN4core3ptr47drop_in_place_LT_std__io__stdio__StdoutLock_GT_17h7157efe841e7afadE(uVar6);
   return;
 }

@@ -4,7 +4,7 @@ long long uu_tr::operation::Sequence::parse_char_star::h0a0711bbccd0bbf9(struct_
     char v1;  // [bp-0x40]
     char v2;  // [bp-0x38]
     char v3;  // [bp-0x30]
-    unsigned long v4;  // [sp-0x28], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0x28]
     unsigned long long v5;  // [sp-0x20]
     unsigned long long v6;  // [sp-0x18]
     unsigned long long v7;  // [sp-0x10]

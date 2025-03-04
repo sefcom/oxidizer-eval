@@ -1,7 +1,6 @@
-char __rustcall
-uu_sort::custom_str_cmp::custom_str_cmp
-          (long param_1,ulong param_2,long param_3,ulong param_4,char param_5,int param_6,
-          char param_7)
+char _ZN7uu_sort14custom_str_cmp14custom_str_cmp17h4737421826ca2422E
+               (long param_1,ulong param_2,long param_3,ulong param_4,char param_5,int param_6,
+               char param_7)
 
 {
   char cVar1;
@@ -47,15 +46,17 @@ uu_sort::custom_str_cmp::custom_str_cmp
     local_40 = local_60;
     local_38 = local_58;
     do {
-      iVar2 = core::iter::traits::iterator::Iterator::try_fold(&local_70,&local_60);
-      iVar3 = core::iter::traits::iterator::Iterator::try_fold(&local_50,&local_40);
+      iVar2 = _ZN4core4iter6traits8iterator8Iterator8try_fold17hd22c190233dc3738E
+                        (&local_70,&local_60);
+      iVar3 = _ZN4core4iter6traits8iterator8Iterator8try_fold17hba92221d128020d6E
+                        (&local_50,&local_40);
       if (iVar2 == 0x110000) {
         return -(iVar3 != 0x110000);
       }
       if (iVar3 == 0x110000) {
         return '\x01';
       }
-      cVar1 = cmp_chars(iVar2,iVar3,param_7);
+      cVar1 = _ZN7uu_sort14custom_str_cmp9cmp_chars17h48aa6e867f01ccd6E(iVar2,iVar3,param_7);
     } while (cVar1 == '\0');
   }
   return cVar1;

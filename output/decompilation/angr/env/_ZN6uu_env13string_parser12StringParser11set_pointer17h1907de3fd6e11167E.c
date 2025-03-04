@@ -1,6 +1,6 @@
 double uu_env::string_parser::StringParser::set_pointer::h1907de3fd6e11167(long long a0, long long a1)
 {
-    unsigned long v0;  // [sp-0x58], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x58]
     unsigned long long v1;  // [sp-0x50]
     unsigned long long v2;  // [sp-0x48]
     int v3;  // [sp-0x40]

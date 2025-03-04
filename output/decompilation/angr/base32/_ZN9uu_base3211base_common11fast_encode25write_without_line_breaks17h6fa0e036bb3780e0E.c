@@ -1,4 +1,4 @@
-long long uu_base32::base_common::fast_encode::write_without_line_breaks::h6fa0e036bb3780e0(struct_0 *a0, unsigned long long a1, struct struct_1 **a2, char a3)
+long long uu_base32::base_common::fast_encode::write_without_line_breaks::h6fa0e036bb3780e0(struct_1 *a0, unsigned long long a1, struct struct_0 **a2, char a3)
 {
     unsigned long long v0;  // [sp-0x28]
     unsigned long v2;  // rax

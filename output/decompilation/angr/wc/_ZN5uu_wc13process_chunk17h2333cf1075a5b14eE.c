@@ -1,39 +1,44 @@
-long long uu_wc::process_chunk::h2333cf1075a5b14e(unsigned long long a0[5], unsigned long a1, unsigned long long a2, char *a3)
+long long uu_wc::process_chunk::h2333cf1075a5b14e(unsigned long long a0[5], unsigned long a1, unsigned long a2, char *a3)
 {
-    unsigned long v0;  // [sp-0x40], Other Possible Types: unsigned long long
-    unsigned long long v1;  // [sp-0x38]
-    unsigned long long v3;  // rbp
-    unsigned long long v4;  // r13
-    unsigned long long v5;  // r14
-    unsigned long long v6;  // rdx
-    unsigned long long v7;  // rax
+    unsigned long long v0;  // [sp-0x48]
+    unsigned long v1;  // [sp-0x40]
+    unsigned long long v2;  // [sp-0x38]
+    unsigned long long v4;  // r14
+    unsigned long long v5;  // rbp
+    unsigned long long v6;  // r13
+    unsigned long long v7;  // r14
+    unsigned long long v8;  // rdx
+    unsigned long long v9;  // rax
 
-    v0 = a1;
-    v1 = a1 + a2;
-    v3 = *(a3);
-    if (!(int)core::str::validations::next_code_point::hb01acf43b4359c77(&v0))
+    v4 = a2;
+    v1 = a1;
+    v2 = a1 + a2;
+    v5 = *(a3);
+    if (!(int)core::str::validations::next_code_point::hb01acf43b4359c77(&v1))
     {
-        a0[0] = a0[0] + a2;
-        v7 = ::0x4b6250::core::cmp::max_by::h29d87775ffd58160(0, a0[4]);
-        a0[4] = v7;
-        return v7;
+        a0[0] = a0[0] + v4;
+        v9 = ::0x4b6250::core::cmp::max_by::h29d87775ffd58160(0, a0[4]);
+        a0[4] = v9;
+        return v9;
     }
-    v4 = a0[1];
-    v5 = a0[3];
+    v0 = a2;
+    v6 = a0[1];
+    v7 = a0[3];
     do
     {
-        if ((unsigned int)(v6 - 9) < 5 || (unsigned int)v6 == 32 || (unsigned int)v6 >= 128 && (char)::0x4b7b10::core::unicode::unicode_data::white_space::lookup::hc2937f3d40e148ab(v6 & 4294967295))
+        if ((unsigned int)(v8 - 9) < 5 || (unsigned int)v8 == 32 || (unsigned int)v8 >= 128 && (char)::0x4b7b10::core::unicode::unicode_data::white_space::lookup::hc2937f3d40e148ab(v8 & 4294967295))
         {
             *(a3) = 0;
-            v3 = 0;
+            v5 = 0;
         }
-        else if (!(char)v3)
+        else if (!(char)v5)
         {
             *(a3) = 1;
-            v5 += 1;
-            a0[3] = v5;
-            v3 = v3 & 0xffffffffffffff00 | 1;
+            v7 += 1;
+            a0[3] = v7;
+            v5 = v5 & 0xffffffffffffff00 | 1;
         }
-    } while ((v4 += 1, (int)core::str::validations::next_code_point::hb01acf43b4359c77(&v0)));
-    a0[1] = v4;
+    } while ((v6 += 1, (int)core::str::validations::next_code_point::hb01acf43b4359c77(&v1)));
+    a0[1] = v6;
+    v4 = v0;
 }

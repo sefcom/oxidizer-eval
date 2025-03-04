@@ -1,9 +1,9 @@
 fn uu_paste::uumain::uumain(a0: u32, a1: u32) -> u64 {
-    let v0: i512;  // [bp-0x3a0], Other Possible Types: struct24, struct64
+    let v0: struct64;  // [sp-0x3a0], Other Possible Types: struct24, char
     let v5: i64;  // [sp-0x360], Other Possible Types: struct56
     let v6: i64;  // [sp-0x358]
-    let v7: struct64;  // [sp-0x328], Other Possible Types: i512
-    let v8: i192;  // [sp-0x2e8], Other Possible Types: struct712, Result<struct40, struct8>, struct24, struct56
+    let v7: struct64;  // [sp-0x328]
+    let v8: Result<struct40, struct8>;  // [sp-0x2e8], Other Possible Types: struct56, struct712, struct24
     let v13: i64;  // r14
     let v14: i64;  // rdi
 
@@ -15,9 +15,9 @@ fn uu_paste::uumain::uumain(a0: u32, a1: u32) -> u64 {
     v5 = struct56 {
         field_0: v10
         field_8: v11
-        field_16: v2
-        field_32: v3
-        field_48: v4
+        field_16: *(&v2 as &i128)
+        field_32: *(&v3 as &i128)
+        field_48: *(&v4 as &i64)
     };
     v8 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v5, "delimiters");
     v13 = clap_builder::parser::error::MatchesError::unwrap("delimiters", &v8);
@@ -26,7 +26,7 @@ fn uu_paste::uumain::uumain(a0: u32, a1: u32) -> u64 {
     } else {
         v8 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v5, "file");
         v0 = clap_builder::parser::error::MatchesError::unwrap("file", &v8);
-        if v0 {
+        if v0.field_0 as i64 {
             v7 = v0;
             v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v7);
             v8 = v0;

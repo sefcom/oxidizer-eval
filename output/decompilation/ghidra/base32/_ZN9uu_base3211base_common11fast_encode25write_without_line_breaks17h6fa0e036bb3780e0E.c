@@ -1,12 +1,12 @@
-long __rustcall
-uu_base32::base_common::fast_encode::write_without_line_breaks
-          (long param_1,undefined8 param_2,code *UNRECOVERED_JUMPTABLE,char param_4)
+long _ZN9uu_base3211base_common11fast_encode25write_without_line_breaks17h6fa0e036bb3780e0E
+               (long param_1,undefined8 param_2,code *UNRECOVERED_JUMPTABLE,char param_4)
 
 {
   undefined8 uVar1;
   long lVar2;
   
-  uVar1 = ::alloc::collections::vec_deque::VecDeque<T,A>::make_contiguous();
+  uVar1 = _ZN5alloc11collections9vec_deque21VecDeque_LT_T_C_A_GT_15make_contiguous17h690597712d12ddddE
+                    ();
   lVar2 = (*UNRECOVERED_JUMPTABLE)(param_2,uVar1);
   if (lVar2 == 0) {
     if (param_4 != '\0') {
@@ -18,7 +18,7 @@ uu_base32::base_common::fast_encode::write_without_line_breaks
                          ,1);
       return lVar2;
     }
-    ::alloc::collections::vec_deque::VecDeque<T,A>::truncate(param_1,0);
+    _ZN5alloc11collections9vec_deque21VecDeque_LT_T_C_A_GT_8truncate17h73fe8c7a0c90d99eE(param_1,0);
     lVar2 = 0;
     *(undefined8 *)(param_1 + 0x10) = 0;
   }

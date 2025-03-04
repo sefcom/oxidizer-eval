@@ -1,4 +1,5 @@
-void __rustcall uu_csplit::patterns::extract_patterns(long *param_1,long param_2,long param_3)
+void _ZN9uu_csplit8patterns16extract_patterns17h32f79fa60a6aa1abE
+               (long *param_1,long param_2,long param_3)
 
 {
   uint uVar1;
@@ -92,22 +93,22 @@ void __rustcall uu_csplit::patterns::extract_patterns(long *param_1,long param_2
   undefined local_50 [32];
   
   local_1c0 = param_1;
-  ::alloc::raw_vec::RawVec<T,A>::try_allocate_in(&local_1b8,param_3,0);
+  _ZN5alloc7raw_vec19RawVec_LT_T_C_A_GT_15try_allocate_in17hbb046a74d6073176E(&local_1b8,param_3,0);
   if (CONCAT44(uStack_1b4,local_1b8) == 0) {
     local_148 = uStack_1b0;
     uStack_140 = local_1a8;
     local_138 = 0;
                     /* try { // try from 002b46cd to 002b46fc has its CatchHandler @ 002b4e98 */
-    regex::regex::string::Regex::new
+    _ZN5regex5regex6string5Regex3new17h2b022f3b326b0361E
               (&local_1b8,"^(/(?P<UPTO>.+)/|%(?P<SKIPTO>.+)%)(?P<OFFSET>[\\+-]\\d+)?$",0x38);
-    core::result::Result<T,E>::unwrap
+    _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hf27699ee494e2119E
               (local_70,&local_1b8,&PTR_s_src_uu_csplit_src_patterns_rs_003e1b08);
                     /* try { // try from 002b4703 to 002b4732 has its CatchHandler @ 002b4e9d */
-    regex::regex::string::Regex::new
+    _ZN5regex5regex6string5Regex3new17h2b022f3b326b0361E
               (&local_1b8,
                "^\\{(?P<TIMES>\\d+)|\\*\\}$/home/34r7hm4n/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-1.11.1/src/regex/string.rs: warning: line number \'\' is the same as preceding line number\n"
                ,0x17);
-    core::result::Result<T,E>::unwrap
+    _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hf27699ee494e2119E
               (local_50,&local_1b8,&PTR_s_src_uu_csplit_src_patterns_rs_003e1b20);
     local_118 = param_2 + param_3 * 0x18;
     lVar4 = 0;
@@ -116,7 +117,7 @@ void __rustcall uu_csplit::patterns::extract_patterns(long *param_1,long param_2
       local_130 = 0;
       lVar2 = local_128;
       if (lVar4 == 0) {
-        lVar2 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+        lVar2 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hbc8bea844643f0ffE
                           (&local_120);
       }
       if (lVar2 == 0) {
@@ -127,11 +128,14 @@ void __rustcall uu_csplit::patterns::extract_patterns(long *param_1,long param_2
         *(undefined4 *)((long)local_1c0 + 0x14) = uStack_140._4_4_;
         *local_1c0 = 0xc;
                     /* try { // try from 002b4d78 to 002b4d84 has its CatchHandler @ 002b4e9d */
-        core::ptr::drop_in_place<regex::regex::string::Regex>(local_50);
-        core::ptr::drop_in_place<regex::regex::string::Regex>(local_70);
+        _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17h15992d649913b2e2E(local_50)
+        ;
+        _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17h15992d649913b2e2E(local_70)
+        ;
         return;
       }
-      plVar3 = (long *)core::option::Option<T>::get_or_insert_with(&local_130,&local_120);
+      plVar3 = (long *)_ZN4core6option15Option_LT_T_GT_18get_or_insert_with17hb73444b718c0212eE
+                                 (&local_130,&local_120);
       lVar4 = *plVar3;
       if (lVar4 != 0) break;
       local_208 = 1;
@@ -139,13 +143,15 @@ void __rustcall uu_csplit::patterns::extract_patterns(long *param_1,long param_2
 LAB_002b4982:
       uVar5 = *(undefined8 *)(lVar2 + 8);
       uVar8 = *(undefined8 *)(lVar2 + 0x10);
-      regex::regex::string::Regex::captures_at(&local_f0,local_70,uVar5,uVar8);
+      _ZN5regex5regex6string5Regex11captures_at17h3dfa64f8a9d1e89bE(&local_f0,local_70,uVar5,uVar8);
       if (local_f0 == 2) {
                     /* try { // try from 002b49aa to 002b49fd has its CatchHandler @ 002b4ebe */
-        core::num::_<impl_core::str::traits::FromStr_for_usize>::from_str(&local_1f8,uVar5,uVar8);
+        _ZN4core3num62__LT_impl_u20_core__str__traits__FromStr_u20_for_u20_usize_GT_8from_str17h35e67cae0c0452a5E
+                  (&local_1f8,uVar5,uVar8);
         if ((char)local_1f8 != '\0') {
                     /* try { // try from 002b4d97 to 002b4da4 has its CatchHandler @ 002b4e96 */
-          _<alloc::string::String_as_core::clone::Clone>::clone(&local_1b8,lVar2);
+          _ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h8f45b0d02f4dafdaE
+                    (&local_1b8,lVar2);
           local_1c0[3] = local_1a8;
           *(int *)(local_1c0 + 1) = local_1b8;
           *(undefined4 *)((long)local_1c0 + 0xc) = uStack_1b4;
@@ -154,25 +160,30 @@ LAB_002b4982:
           *local_1c0 = 7;
           if (local_f0 != 2) {
                     /* try { // try from 002b4dcd to 002b4dd9 has its CatchHandler @ 002b4e91 */
-            core::ptr::drop_in_place<regex::regex::string::Captures>(&local_f0);
+            _ZN4core3ptr51drop_in_place_LT_regex__regex__string__Captures_GT_17h3fa27d75c57ab86dE
+                      (&local_f0);
           }
 LAB_002b4e16:
                     /* try { // try from 002b4e16 to 002b4e22 has its CatchHandler @ 002b4e9d */
-          core::ptr::drop_in_place<regex::regex::string::Regex>(local_50);
+          _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17h15992d649913b2e2E
+                    (local_50);
                     /* try { // try from 002b4e23 to 002b4e2f has its CatchHandler @ 002b4e98 */
-          core::ptr::drop_in_place<regex::regex::string::Regex>(local_70);
-          core::ptr::drop_in_place<alloc::vec::Vec<uu_csplit::patterns::Pattern>>(&local_148);
+          _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17h15992d649913b2e2E
+                    (local_70);
+          _ZN4core3ptr72drop_in_place_LT_alloc__vec__Vec_LT_uu_csplit__patterns__Pattern_GT__GT_17h3e87e3943a9612d3E
+                    (&local_148);
           return;
         }
         uStack_1b0 = CONCAT44(uStack_1ec,local_1f0);
         local_1a8 = local_210;
         uStack_1a0 = local_208;
         local_1b8 = 0;
-        ::alloc::vec::Vec<T,A>::push(&local_148,&local_1b8);
+        _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h5ddec6a458d87dc2E(&local_148,&local_1b8);
         lVar4 = local_130;
         if (local_f0 != 2) {
                     /* try { // try from 002b4a0c to 002b4a13 has its CatchHandler @ 002b4eda */
-          core::ptr::drop_in_place<regex::regex::string::Captures>(&local_f0);
+          _ZN4core3ptr51drop_in_place_LT_regex__regex__string__Captures_GT_17h3fa27d75c57ab86dE
+                    (&local_f0);
           lVar4 = local_130;
         }
       }
@@ -192,53 +203,52 @@ LAB_002b4e16:
         uStack_1b4 = uStack_ec;
         uStack_1b0 = CONCAT44(uStack_e4,uStack_e8);
                     /* try { // try from 002b4a6a to 002b4d46 has its CatchHandler @ 002b4edf */
-        regex_automata::util::captures::Captures::get_group_by_name
+        _ZN14regex_automata4util8captures8Captures17get_group_by_name17hae7742685345d0b9E
                   (&local_1f8,&local_1a8,"OFFSET",6);
         uVar6 = local_178;
         if (CONCAT44(uStack_1f4,local_1f8) != 0) {
           uVar5 = CONCAT44(uStack_17c,uStack_180);
           uVar8 = CONCAT44(uStack_1ec,local_1f0);
           uVar7 = CONCAT44(uStack_1e4,uStack_1e8);
-          auVar10 = core::str::traits::
-                    _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::Range<usize>>::
-                    get(uVar8,uVar7,uVar5,local_178);
+          auVar10 = _ZN4core3str6traits108__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__Range_LT_usize_GT__GT_3get17h3d479bbd9c610d76E
+                              (uVar8,uVar7,uVar5,local_178);
           if (auVar10._0_8_ != 0) {
-            uVar5 = core::num::_<impl_core::str::traits::FromStr_for_i32>::from_str
+            uVar5 = _ZN4core3num60__LT_impl_u20_core__str__traits__FromStr_u20_for_u20_i32_GT_8from_str17h5b8351ce1d7a5cacE
                               (auVar10._0_8_,auVar10._8_8_);
-            uVar1 = core::result::Result<T,E>::unwrap(uVar5);
+            uVar1 = _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hc26668503662d753E(uVar5);
             unaff_R12 = (ulong)uVar1;
             goto LAB_002b4aee;
           }
 LAB_002b4e4f:
                     /* try { // try from 002b4e4f to 002b4e67 has its CatchHandler @ 002b4ebc */
-          core::str::slice_error_fail(uVar5,uVar6,uVar8,uVar7,&DAT_003e1b38);
+          _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE(uVar5,uVar6,uVar8,uVar7,&DAT_003e1b38);
           goto LAB_002b4e68;
         }
         unaff_R12 = 0;
 LAB_002b4aee:
-        regex_automata::util::captures::Captures::get_group_by_name(&local_1f8,&local_1a8,"UPTOQ",4)
-        ;
+        _ZN14regex_automata4util8captures8Captures17get_group_by_name17hae7742685345d0b9E
+                  (&local_1f8,&local_1a8,"UPTOQ",4);
         uVar6 = local_178;
         if (CONCAT44(uStack_1f4,local_1f8) == 0) {
-          regex_automata::util::captures::Captures::get_group_by_name
+          _ZN14regex_automata4util8captures8Captures17get_group_by_name17hae7742685345d0b9E
                     (&local_1f8,&local_1a8,"SKIPTO",6);
           uVar6 = local_178;
           if (CONCAT44(uStack_1f4,local_1f8) != 0) {
             uVar5 = CONCAT44(uStack_17c,uStack_180);
             uVar8 = CONCAT44(uStack_1ec,local_1f0);
             uVar7 = CONCAT44(uStack_1e4,uStack_1e8);
-            lVar4 = core::str::traits::
-                    _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::Range<usize>>::
-                    get(uVar8,uVar7,uVar5,local_178);
+            lVar4 = _ZN4core3str6traits108__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__Range_LT_usize_GT__GT_3get17h3d479bbd9c610d76E
+                              (uVar8,uVar7,uVar5,local_178);
             if (lVar4 == 0) goto LAB_002b4e4f;
-            regex::regex::string::Regex::new(&local_110,lVar4);
+            _ZN5regex5regex6string5Regex3new17h2b022f3b326b0361E(&local_110,lVar4);
             if (local_110 == 0) {
               local_78 = uStack_f8;
               local_88 = uStack_108;
               uStack_84 = uStack_104;
               uStack_80 = uStack_100;
               uStack_7c = uStack_fc;
-              extract_patterns::___closure__(&local_1f8,lVar2,&local_88);
+              _ZN9uu_csplit8patterns16extract_patterns28__u7b__u7b_closure_u7d__u7d_17h10799cc375fc8eeaE
+                        (&local_1f8,lVar2,&local_88);
               lVar4 = CONCAT44(uStack_1f4,local_1f8);
               local_168 = CONCAT44(uStack_1ec,local_1f0);
               uStack_160 = CONCAT44(uStack_1e4,uStack_1e8);
@@ -272,25 +282,25 @@ LAB_002b4aee:
             local_1c8 = local_208;
             local_1f8 = 2;
             uStack_1f4 = (int)unaff_R12;
-            ::alloc::vec::Vec<T,A>::push(&local_148,&local_1f8);
+            _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h5ddec6a458d87dc2E(&local_148,&local_1f8);
           }
         }
         else {
           uVar5 = CONCAT44(uStack_17c,uStack_180);
           uVar8 = CONCAT44(uStack_1ec,local_1f0);
           uVar7 = CONCAT44(uStack_1e4,uStack_1e8);
-          lVar4 = core::str::traits::
-                  _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::Range<usize>>::get
+          lVar4 = _ZN4core3str6traits108__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__Range_LT_usize_GT__GT_3get17h3d479bbd9c610d76E
                             (uVar8,uVar7,uVar5,local_178);
           if (lVar4 == 0) goto LAB_002b4e4f;
-          regex::regex::string::Regex::new(&local_110,lVar4);
+          _ZN5regex5regex6string5Regex3new17h2b022f3b326b0361E(&local_110,lVar4);
           if (local_110 == 0) {
             local_78 = uStack_f8;
             local_88 = uStack_108;
             uStack_84 = uStack_104;
             uStack_80 = uStack_100;
             uStack_7c = uStack_fc;
-            extract_patterns::___closure__(&local_1f8,lVar2,&local_88);
+            _ZN9uu_csplit8patterns16extract_patterns28__u7b__u7b_closure_u7d__u7d_17he081b352c4f42a24E
+                      (&local_1f8,lVar2,&local_88);
             lVar4 = CONCAT44(uStack_1f4,local_1f8);
             local_168 = CONCAT44(uStack_1ec,local_1f0);
             uStack_160 = CONCAT44(uStack_1e4,uStack_1e8);
@@ -316,7 +326,8 @@ LAB_002b4ddc:
               *(undefined4 *)((long)local_1c0 + 0x14) = uStack_160._4_4_;
               *local_1c0 = lVar4;
                     /* try { // try from 002b4e0c to 002b4e15 has its CatchHandler @ 002b4e8c */
-              core::ptr::drop_in_place<regex::regex::string::Captures>(&local_1b8);
+              _ZN4core3ptr51drop_in_place_LT_regex__regex__string__Captures_GT_17h3fa27d75c57ab86dE
+                        (&local_1b8);
               goto LAB_002b4e16;
             }
           }
@@ -347,15 +358,16 @@ LAB_002b4ddc:
           local_1f8 = 1;
                     /* try { // try from 002b47cc to 002b47dd has its CatchHandler @ 002b4edf */
           uStack_1f4 = (int)unaff_R12;
-          ::alloc::vec::Vec<T,A>::push(&local_148,&local_1f8);
+          _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h5ddec6a458d87dc2E(&local_148,&local_1f8);
         }
                     /* try { // try from 002b47de to 002b47e7 has its CatchHandler @ 002b4ea8 */
-        core::ptr::drop_in_place<regex::regex::string::Captures>(&local_1b8);
+        _ZN4core3ptr51drop_in_place_LT_regex__regex__string__Captures_GT_17h3fa27d75c57ab86dE
+                  (&local_1b8);
         lVar4 = local_130;
       }
     }
                     /* try { // try from 002b4841 to 002b4850 has its CatchHandler @ 002b4eda */
-    regex::regex::string::Regex::captures_at
+    _ZN5regex5regex6string5Regex11captures_at17h3dfa64f8a9d1e89bE
               (&local_f0,local_50,*(undefined8 *)(lVar4 + 8),*(undefined8 *)(lVar4 + 0x10));
     local_208 = 1;
     local_210 = 1;
@@ -377,40 +389,44 @@ LAB_002b4ddc:
     bVar9 = local_130 == 0;
     local_130 = 0;
     if (bVar9) {
-      _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next(&local_120);
+      _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hbc8bea844643f0ffE
+                (&local_120);
     }
                     /* try { // try from 002b48d7 to 002b494e has its CatchHandler @ 002b4ead */
-    regex_automata::util::captures::Captures::get_group_by_name(&local_1f8,&local_1a8,"TIMES",5);
+    _ZN14regex_automata4util8captures8Captures17get_group_by_name17hae7742685345d0b9E
+              (&local_1f8,&local_1a8,"TIMES",5);
     uVar5 = local_178;
     if (CONCAT44(uStack_1f4,local_1f8) == 0) {
       local_210 = 0;
 LAB_002b4973:
                     /* try { // try from 002b4978 to 002b499f has its CatchHandler @ 002b4eda */
-      core::ptr::drop_in_place<regex::regex::string::Captures>(&local_1b8);
+      _ZN4core3ptr51drop_in_place_LT_regex__regex__string__Captures_GT_17h3fa27d75c57ab86dE
+                (&local_1b8);
       goto LAB_002b4982;
     }
     uVar8 = CONCAT44(uStack_17c,uStack_180);
     unaff_R12 = CONCAT44(uStack_1ec,local_1f0);
     uVar7 = CONCAT44(uStack_1e4,uStack_1e8);
-    lVar4 = core::str::traits::
-            _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::Range<usize>>::get
+    lVar4 = _ZN4core3str6traits108__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__Range_LT_usize_GT__GT_3get17h3d479bbd9c610d76E
                       (unaff_R12,uVar7,uVar8,local_178);
     if (lVar4 != 0) {
-      core::num::_<impl_core::str::traits::FromStr_for_usize>::from_str(&local_1f8,lVar4);
-      local_208 = core::result::Result<T,E>::unwrap(&local_1f8);
+      _ZN4core3num62__LT_impl_u20_core__str__traits__FromStr_u20_for_u20_usize_GT_8from_str17h35e67cae0c0452a5E
+                (&local_1f8,lVar4);
+      local_208 = _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hb1af2e219d173322E(&local_1f8);
       local_208 = local_208 + 1;
       local_210 = 1;
       goto LAB_002b4973;
     }
 LAB_002b4e68:
                     /* try { // try from 002b4e68 to 002b4e80 has its CatchHandler @ 002b4ea6 */
-    core::str::slice_error_fail(uVar8,uVar5,unaff_R12,uVar7,&DAT_003e1b38);
+    _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE(uVar8,uVar5,unaff_R12,uVar7,&DAT_003e1b38);
   }
-  uVar5 = ::alloc::raw_vec::handle_error();
+  uVar5 = _ZN5alloc7raw_vec12handle_error17h2372476369f9b8acE();
                     /* catch() { ... } // from try @ 002b4e0c with catch @ 002b4e8c */
-  core::ptr::drop_in_place<regex::regex::string::Regex>(local_50);
-  core::ptr::drop_in_place<regex::regex::string::Regex>(local_70);
-  core::ptr::drop_in_place<alloc::vec::Vec<uu_csplit::patterns::Pattern>>(&local_148);
+  _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17h15992d649913b2e2E(local_50);
+  _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17h15992d649913b2e2E(local_70);
+  _ZN4core3ptr72drop_in_place_LT_alloc__vec__Vec_LT_uu_csplit__patterns__Pattern_GT__GT_17h3e87e3943a9612d3E
+            (&local_148);
   _Unwind_Resume(uVar5);
   return;
 }

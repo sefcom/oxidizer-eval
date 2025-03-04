@@ -1,4 +1,4 @@
-void __rustcall uu_more::Pager::page_down(long param_1)
+void _ZN7uu_more5Pager9page_down17h61b22add167296daE(long param_1)
 
 {
   ulong uVar1;

@@ -1,4 +1,5 @@
-void __rustcall uu_cat::write_lines(long *param_1,long param_2,long param_3,long *param_4)
+void _ZN6uu_cat11write_lines17hff42684e0ec60399E
+               (long *param_1,long param_2,long param_3,long *param_4)
 
 {
   char cVar1;
@@ -56,8 +57,8 @@ void __rustcall uu_cat::write_lines(long *param_1,long param_2,long param_3,long
   local_7030 = 0;
   local_7cf8 = param_1;
   (*(code *)PTR_memset_0021c7a0)(local_7c30,0,0x7c00);
-  local_7c78 = std::io::stdio::stdout();
-  local_7d00 = std::io::stdio::Stderr::lock(&local_7c78);
+  local_7c78 = _ZN3std2io5stdio6stdout17h077da66234850927E();
+  local_7d00 = _ZN3std2io5stdio6Stderr4lock17h890f7962a170fc90E(&local_7c78);
   cVar1 = *(char *)(param_3 + 4);
   bVar9 = *(char *)(param_3 + 2) != '\0';
   local_7c90 = "$\n";
@@ -72,21 +73,21 @@ void __rustcall uu_cat::write_lines(long *param_1,long param_2,long param_3,long
   local_7c80 = param_3;
   do {
                     /* try { // try from 001b05d4 to 001b05e0 has its CatchHandler @ 001b0933 */
-    auVar10 = _<std::os::unix::net::stream::UnixStream_as_std::io::Read>::read
-                        (local_7cf0,local_7c30,0x7c00,
-                         _<std::os::unix::net::stream::UnixStream_as_std::io::Read>::read);
+    auVar10 = _ZN72__LT_std__os__unix__net__stream__UnixStream_u20_as_u20_std__io__Read_GT_4read17hcece2f3bec9614edE
+                        (local_7cf0,local_7c30,0x7c00);
     uVar6 = auVar10._8_8_;
     local_7cd8 = auVar10;
     if ((auVar10._0_8_ != 0) || (uVar6 == 0)) {
                     /* try { // try from 001b08c5 to 001b08ce has its CatchHandler @ 001b092c */
-      core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(local_7cd8);
+      _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17hdeb0a990ca1d4581E
+                (local_7cd8);
       *local_7cf8 = -0x7ffffffffffffffa;
 LAB_001b08a9:
-      core::ptr::drop_in_place<std::io::stdio::StdoutLock>(local_7d00);
+      _ZN4core3ptr47drop_in_place_LT_std__io__stdio__StdoutLock_GT_17h7157efe841e7afadE(local_7d00);
       return;
     }
                     /* try { // try from 001b0600 to 001b0616 has its CatchHandler @ 001b0931 */
-    auVar10 = _<core::ops::range::Range<usize>as_core::slice::index::SliceIndex<[T]>>::index
+    auVar10 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17h2183ab5a6b7a9c40E
                         (uVar6,local_7c30,0x7c00,&PTR_s_src_uu_cat_src_cat_rs_002186f8);
     uVar7 = auVar10._8_8_;
     lVar2 = auVar10._0_8_;
@@ -96,7 +97,8 @@ LAB_001b08a9:
       if (uVar7 < uVar8 || uVar7 - uVar8 == 0) goto LAB_001b08f2;
       if (*(char *)(lVar2 + uVar8) == '\n') {
                     /* try { // try from 001b0656 to 001b0825 has its CatchHandler @ 001b0938 */
-        write_new_line(&local_7cc8,&local_7d00,local_7c80,param_4,*(undefined *)(local_7cf0 + 4));
+        _ZN6uu_cat14write_new_line17h703f4daf25cc548eE
+                  (&local_7cc8,&local_7d00,local_7c80,param_4,*(undefined *)(local_7cf0 + 4));
         if (local_7cc8 != -0x7ffffffffffffffa) {
 LAB_001b0872:
           *(undefined4 *)(local_7cf8 + 1) = local_7cc0;
@@ -106,7 +108,8 @@ LAB_001b0872:
           *local_7cf8 = local_7cc8;
 LAB_001b089f:
                     /* try { // try from 001b089f to 001b08a8 has its CatchHandler @ 001b092c */
-          core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(local_7cd8);
+          _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17hdeb0a990ca1d4581E
+                    (local_7cd8);
           goto LAB_001b08a9;
         }
         *(undefined *)(param_4 + 1) = 1;
@@ -114,7 +117,8 @@ LAB_001b089f:
       }
       else {
         if (*(char *)((long)param_4 + 9) != '\0') {
-          lVar3 = _<std::io::stdio::StdoutLock_as_std::io::Write>::write_all(&local_7d00,"\r",1);
+          lVar3 = _ZN61__LT_std__io__stdio__StdoutLock_u20_as_u20_std__io__Write_GT_9write_all17h10000d12d1c1ff48E
+                            (&local_7d00,"\r",1);
           if (lVar3 == 0) {
             *(undefined2 *)(param_4 + 1) = 0;
             *(undefined *)((long)param_4 + 10) = 0;
@@ -127,7 +131,9 @@ LAB_001b0885:
         }
         *(undefined *)((long)param_4 + 10) = 0;
         if ((*(char *)(param_4 + 1) != '\0') && (cVar1 != '\0')) {
-          local_7c68 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+          local_7c68 = 
+          _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+          ;
           local_7cc8 = 2;
           uStack_7cb8 = 0;
           local_7cb0 = 6;
@@ -141,12 +147,13 @@ LAB_001b0885:
           local_7c50 = &local_7c70;
           local_7c48 = 1;
           local_7c70 = param_4;
-          lVar3 = std::io::Write::write_fmt(&local_7d00,&local_7c60);
+          lVar3 = _ZN3std2io5Write9write_fmt17h6cba046ccfa3b685E(&local_7d00,&local_7c60);
           if (lVar3 != 0) goto LAB_001b0885;
           *param_4 = *param_4 + 1;
         }
 LAB_001b07b0:
-        lVar3 = write_end(&local_7d00,lVar2 + uVar8,uVar7 - uVar8,local_7ce4,local_7ce8);
+        lVar3 = _ZN6uu_cat9write_end17h5e37c7be961ff133E
+                          (&local_7d00,lVar2 + uVar8,uVar7 - uVar8,local_7ce4,local_7ce8);
         uVar4 = lVar3 + uVar8;
         if (uVar4 == uVar7) {
           *(undefined *)(param_4 + 1) = 0;
@@ -157,11 +164,11 @@ LAB_001b07b0:
 LAB_001b08f2:
                     /* try { // try from 001b08f2 to 001b092b has its CatchHandler @ 001b093a */
                     /* WARNING: Subroutine does not return */
-          core::panicking::panic_bounds_check(uVar4,uVar7,local_7ce0);
+          _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E(uVar4,uVar7,local_7ce0);
         }
         if (*(char *)(lVar2 + uVar4) == '\n') {
-          write_end_of_line(&local_7cc8,&local_7d00,local_7c90,local_7c88,
-                            *(undefined *)(local_7cf0 + 4));
+          _ZN6uu_cat17write_end_of_line17h4ed837c9dff89e3fE
+                    (&local_7cc8,&local_7d00,local_7c90,local_7c88,*(undefined *)(local_7cf0 + 4));
           if (local_7cc8 != -0x7ffffffffffffffa) goto LAB_001b0872;
           *(undefined *)(param_4 + 1) = 1;
           uVar8 = uVar8 + lVar3 + 1;
@@ -169,12 +176,13 @@ LAB_001b08f2:
         else {
           if (*(char *)(lVar2 + uVar4) != '\r') {
             local_7cc8 = 0;
-            uVar5 = core::panicking::assert_failed
+            uVar5 = _ZN4core9panicking13assert_failed17hdf70ea46a40497a8E
                               (0,lVar2 + uVar4,"\n",&local_7cc8,
                                &PTR_s_src_uu_cat_src_cat_rs_00218760);
                     /* catch() { ... } // from try @ 001b089f with catch @ 001b092c
                        catch() { ... } // from try @ 001b08c5 with catch @ 001b092c */
-            core::ptr::drop_in_place<std::io::stdio::StdoutLock>(local_7d00);
+            _ZN4core3ptr47drop_in_place_LT_std__io__stdio__StdoutLock_GT_17h7157efe841e7afadE
+                      (local_7d00);
             _Unwind_Resume(uVar5);
             return;
           }
@@ -184,6 +192,7 @@ LAB_001b08f2:
       }
     } while (uVar8 < uVar6);
                     /* try { // try from 001b084f to 001b0858 has its CatchHandler @ 001b0933 */
-    core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(local_7cd8);
+    _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17hdeb0a990ca1d4581E
+              (local_7cd8);
   } while( true );
 }

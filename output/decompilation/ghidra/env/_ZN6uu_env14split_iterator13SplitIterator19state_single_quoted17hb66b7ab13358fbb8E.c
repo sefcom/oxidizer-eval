@@ -1,5 +1,5 @@
-void __rustcall
-uu_env::split_iterator::SplitIterator::state_single_quoted(undefined8 *param_1,long param_2)
+void _ZN6uu_env14split_iterator13SplitIterator19state_single_quoted17hb66b7ab13358fbb8E
+               (undefined8 *param_1,long param_2)
 
 {
   undefined8 uVar1;
@@ -12,15 +12,17 @@ uu_env::split_iterator::SplitIterator::state_single_quoted(undefined8 *param_1,l
   undefined8 local_20;
   
   do {
-    iVar2 = get_current_char(param_2);
+    iVar2 = _ZN6uu_env14split_iterator13SplitIterator16get_current_char17h5ca55267f11846dcE(param_2)
+    ;
     if (iVar2 == 0x5c) {
-      skip_one(&local_40,param_2);
+      _ZN6uu_env14split_iterator13SplitIterator8skip_one17hcd63dec953ae1fd1E(&local_40,param_2);
       if (local_40 != 8) break;
-      split_single_quoted_backslash(&local_40,param_2);
+      _ZN6uu_env14split_iterator13SplitIterator29split_single_quoted_backslash17h9a57405ea848f4dbE
+                (&local_40,param_2);
     }
     else {
       if (iVar2 == 0x27) {
-        skip_one(&local_40,param_2);
+        _ZN6uu_env14split_iterator13SplitIterator8skip_one17hcd63dec953ae1fd1E(&local_40,param_2);
         if (local_40 == 8) {
           *(undefined4 *)param_1 = 8;
           return;
@@ -33,7 +35,7 @@ uu_env::split_iterator::SplitIterator::state_single_quoted(undefined8 *param_1,l
         param_1[1] = uVar1;
         return;
       }
-      take_one(&local_40,param_2);
+      _ZN6uu_env14split_iterator13SplitIterator8take_one17h79c5ef4ea4fbd4eeE(&local_40,param_2);
     }
   } while (local_40 == 8);
   param_1[4] = local_20;

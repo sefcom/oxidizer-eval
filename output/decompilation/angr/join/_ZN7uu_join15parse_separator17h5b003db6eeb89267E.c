@@ -1,13 +1,13 @@
-long long uu_join::parse_separator::h5b003db6eeb89267(struct_1 *a0, char *a1, unsigned long long a2)
+long long uu_join::parse_separator::h5b003db6eeb89267(struct_0 *a0, char *a1, unsigned long long a2)
 {
-    unsigned long v0;  // [sp-0xa0], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xa0]
     unsigned long long v1;  // [sp-0x98]
-    char v2;  // [bp-0x90], Other Possible Types: unsigned long, unsigned long long
+    char v2;  // [bp-0x90], Other Possible Types: unsigned long
     unsigned long v3;  // [sp-0x88], Other Possible Types: unsigned long long
-    struct struct_0 **v4;  // [sp-0x80], Other Possible Types: unsigned long
+    struct struct_1 **v4;  // [sp-0x80], Other Possible Types: unsigned long
     unsigned int v5;  // [bp-0x78], Other Possible Types: unsigned long long
     void* v6;  // [sp-0x70]
-    unsigned long v7;  // [sp-0x60], Other Possible Types: unsigned long long
+    unsigned long v7;  // [sp-0x60]
     unsigned long long v8;  // [sp-0x58]
     char *v9;  // [sp-0x50]
     unsigned long long v10;  // [sp-0x48]
@@ -64,7 +64,7 @@ long long uu_join::parse_separator::h5b003db6eeb89267(struct_1 *a0, char *a1, un
         v6 = 0;
         v4 = &v9;
         v5 = 1;
-        ::0x4c2990::core::option::Option$LT$T$GT$::map_or_else::h84da32fb4d9c85b4();
+        ::0x4c2990::core::option::Option$LT$T$GT$::map_or_else::h84da32fb4d9c85b4(&v11, &v2);
         v12 = 1;
         *((double *)&a0->field_8) = alloc::boxed::Box$LT$T$GT$::new::h7aaaeb17d3fe937d(&v11);
         a0->field_10 = &g_5352b8;

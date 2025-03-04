@@ -1,5 +1,5 @@
-void __rustcall
-uu_dd::blocks::unblock(undefined8 param_1,undefined8 param_2,undefined8 param_3,long param_4)
+void _ZN5uu_dd6blocks7unblock17h328a1d7e73c47058E
+               (undefined8 param_1,undefined8 param_2,undefined8 param_3,long param_4)
 
 {
   undefined **local_48;
@@ -18,7 +18,7 @@ uu_dd::blocks::unblock(undefined8 param_1,undefined8 param_2,undefined8 param_3,
     local_18 = param_2;
     local_10 = param_3;
     local_8 = param_4;
-    core::iter::traits::iterator::Iterator::fold(param_1,&local_18,&local_48);
+    _ZN4core4iter6traits8iterator8Iterator4fold17h2b84e305e1d72edfE(param_1,&local_18,&local_48);
     return;
   }
   local_48 = &PTR_s_chunk_size_must_be_non_zero_00261910;
@@ -27,5 +27,6 @@ uu_dd::blocks::unblock(undefined8 param_1,undefined8 param_2,undefined8 param_3,
   local_30 = 0;
   uStack_28 = 0;
                     /* WARNING: Subroutine does not return */
-  core::panicking::panic_fmt(&local_48,&PTR_s_src_uu_dd_src_blocks_rs_00261920);
+  _ZN4core9panicking9panic_fmt17he12d0d7468628bb4E
+            (&local_48,&PTR_s_src_uu_dd_src_blocks_rs_00261920);
 }

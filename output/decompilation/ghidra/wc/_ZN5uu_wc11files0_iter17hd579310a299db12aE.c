@@ -1,5 +1,5 @@
-void __rustcall
-uu_wc::files0_iter(undefined8 *param_1,undefined8 param_2,undefined4 param_3,undefined8 *param_4)
+void _ZN5uu_wc11files0_iter17hd579310a299db12aE
+               (undefined8 *param_1,undefined8 param_2,undefined4 param_3,undefined8 *param_4)
 
 {
   undefined8 uVar1;
@@ -14,7 +14,8 @@ uu_wc::files0_iter(undefined8 *param_1,undefined8 param_2,undefined4 param_3,und
   undefined8 local_18;
   
                     /* try { // try from 001bd265 to 001bd273 has its CatchHandler @ 001bd2f8 */
-  std::io::buffered::bufreader::BufReader<R>::with_capacity(&local_48,0x2000,param_2,param_3);
+  _ZN3std2io8buffered9bufreader18BufReader_LT_R_GT_13with_capacity17h073544539c35aaaaE
+            (&local_48,0x2000,param_2,param_3);
   uVar1 = param_4[2];
   uVar2 = *param_4;
   uVar3 = param_4[1];

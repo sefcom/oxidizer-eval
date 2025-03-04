@@ -1,4 +1,5 @@
-undefined8 * __rustcall uu_tail::follow::files::FileHandling::from(undefined8 *param_1,long param_2)
+undefined8 *
+_ZN7uu_tail6follow5files12FileHandling4from17h5724fde3926cc316E(undefined8 *param_1,long param_2)
 
 {
   undefined uVar1;
@@ -7,9 +8,10 @@ undefined8 * __rustcall uu_tail::follow::files::FileHandling::from(undefined8 *p
   undefined auStack_38 [24];
   
   uVar2 = *(undefined8 *)(param_2 + 0x28);
-  std::thread::local::LocalKey<T>::try_with(auStack_38,core::ops::function::FnOnce::call_once);
-  auVar3 = core::result::Result<T,E>::expect(auStack_38);
-  hashbrown::map::HashMap<K,V,S>::with_capacity_and_hasher
+  _ZN3std6thread5local17LocalKey_LT_T_GT_8try_with17h177d26873406b9a9E
+            (auStack_38,_ZN4core3ops8function6FnOnce9call_once17h2aa5214872dea2faE);
+  auVar3 = _ZN4core6result19Result_LT_T_C_E_GT_6expect17hd618facf830007c4E(auStack_38);
+  _ZN9hashbrown3map24HashMap_LT_K_C_V_C_S_GT_24with_capacity_and_hasher17h6cfb6f035fd322ccE
             (param_1 + 3,uVar2,auVar3._0_8_,auVar3._8_8_);
   uVar1 = *(undefined *)(param_2 + 0x4a);
   *param_1 = 0x8000000000000000;

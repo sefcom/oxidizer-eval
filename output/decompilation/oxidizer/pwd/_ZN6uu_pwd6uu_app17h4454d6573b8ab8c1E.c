@@ -1,10 +1,10 @@
 fn uu_pwd::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct437, struct712
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct437, struct712
     let v1: i64;  // [sp-0x78c]
     let v2: i32;  // [sp-0x784]
-    let v3: i5696;  // [sp-0x780], Other Possible Types: struct712, struct592
-    let v4: i4736;  // [sp-0x4b8], Other Possible Types: struct592, struct24
-    let v5: struct592;  // [sp-0x268], Other Possible Types: i4736
+    let v3: struct712;  // [sp-0x780], Other Possible Types: struct592
+    let v4: struct592;  // [sp-0x4b8], Other Possible Types: struct24
+    let v5: struct592;  // [sp-0x268]
     let v7: i64;  // rdx
 
     v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v7);
@@ -13,8 +13,8 @@ fn uu_pwd::uu_app(a0: &struct712) -> u64 {
     v4 = uucore::format_usage("{} [OPTION]... [FILE]...");
     v3 = clap_builder::builder::command::Command::override_usage(&v0, &v4);
     memcpy(&v0, &v3, 700);
-    v1 = 549755814016 | *((&v3 as &char + 700) as &i64);
-    v2 = *((&v3 as &char + 708) as &i32);
+    v1 = 549755814016 | *((&v3.field_0 as &char + 700) as &i64);
+    v2 = *((&v3.field_0 as &char + 708) as &i32);
     v3 = clap_builder::builder::arg::Arg::new("logical");
     v4 = clap_builder::builder::arg::Arg::short(&v3, 0x4c);
     v3 = clap_builder::builder::arg::Arg::long(&v4, "logical");

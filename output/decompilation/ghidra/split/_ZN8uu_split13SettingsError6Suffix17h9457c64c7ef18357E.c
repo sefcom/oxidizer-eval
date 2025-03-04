@@ -1,4 +1,4 @@
-void __rustcall uu_split::SettingsError::Suffix(undefined8 *param_1,undefined8 *param_2)
+void _ZN8uu_split13SettingsError6Suffix17h9457c64c7ef18357E(undefined8 *param_1,undefined8 *param_2)
 
 {
   undefined8 uVar1;

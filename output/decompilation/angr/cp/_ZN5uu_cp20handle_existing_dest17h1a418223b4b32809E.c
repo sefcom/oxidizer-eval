@@ -1,4 +1,4 @@
-long long uu_cp::handle_existing_dest::h1a418223b4b32809(struct_2 *a0, unsigned long long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4, struct_1 *a5)
+long long uu_cp::handle_existing_dest::h1a418223b4b32809(struct_1 *a0, unsigned long long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4, struct_2 *a5, char a6, unsigned long a7)
 {
     char v0;  // [bp-0x148]
     unsigned long long v1;  // [sp-0x140]
@@ -7,8 +7,8 @@ long long uu_cp::handle_existing_dest::h1a418223b4b32809(struct_2 *a0, unsigned 
     unsigned long long v4;  // [sp-0x120]
     unsigned long long v5;  // [sp-0x118]
     char v6;  // [sp-0x110]
-    char v7;  // [sp-0x108], Other Possible Types: unsigned long long, unsigned long
-    char v8;  // [sp-0x100], Other Possible Types: unsigned long long
+    unsigned long v7;  // [sp-0x108]
+    unsigned long long v8;  // [sp-0x100]
     struct struct_0 **v9;  // [sp-0xf8]
     unsigned long v10;  // [sp-0xf0], Other Possible Types: unsigned long long
     void* v11;  // [sp-0xe8]
@@ -30,16 +30,14 @@ long long uu_cp::handle_existing_dest::h1a418223b4b32809(struct_2 *a0, unsigned 
     char v27;  // [bp-0x50]
     char v28;  // [bp-0x48]
     char v29;  // [bp-0x38]
-    unsigned long v30;  // [bp+0x8]
-    char v31;  // [bp+0x10]
-    unsigned long long v32;  // rax
-    unsigned long long v33;  // rax
-    int v34;  // xmm0
-    int v35;  // xmm0
-    int v36;  // xmm1
+    unsigned long long v30;  // rax
+    unsigned long long v31;  // rax
+    int v32;  // xmm0
+    int v33;  // xmm0
+    int v34;  // xmm1
 
-    v25 = (char)v30;
-    if ((char)uu_cp::is_forbidden_to_copy_to_same_file::h3bc6a23799758404(a1, a2, a3, a4, a5, v30))
+    v25 = a6;
+    if ((char)uu_cp::is_forbidden_to_copy_to_same_file::h3bc6a23799758404(a1, a2, a3, a4, a5, a6))
     {
         v15 = 1;
         v16 = a1;
@@ -58,24 +56,24 @@ long long uu_cp::handle_existing_dest::h1a418223b4b32809(struct_2 *a0, unsigned 
         v11 = 0;
         v9 = &v21;
         v10 = 2;
-        v32 = ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2();
+        v30 = ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2(&(&a0->field_0)[1], &v7);
         a0->field_0 = 4;
-        return v32;
+        return v30;
     }
     if (*((char *)&a5->field_4c + 1) != 2)
     {
         uu_cp::OverwriteMode::verify::h15b46a9de23bd96a(&v7, a5->field_3c, a3, a4, a5->field_47);
-        v32 = v7;
-        if (v32 != 13)
+        v30 = v7;
+        if (v30 != 13)
         {
             *((long long *)((char *)&a0->field_20 + 8)) = *((long long *)&v14);
-            v35 = *((int128_t *)&v8);
-            v36 = *((int128_t *)&v10);
+            v33 = *((int128_t *)&v8);
+            v34 = *((int128_t *)&v10);
             *((int128_t *)&(&a0->field_18)[1]) = *((int128_t *)&v12);
-            *((void*)((char *)&a0->field_8 + 8)) = v36;
-            *((void*)&(&a0->field_0)[1]) = v35;
-            a0->field_0 = v32;
-            return v32;
+            *((void*)((char *)&a0->field_8 + 8)) = v34;
+            *((void*)&(&a0->field_0)[1]) = v33;
+            a0->field_0 = v30;
+            return v30;
         }
     }
     uucore::features::backup_control::get_backup_path::hb28e229807111f9d(&v26, a5->field_4c);
@@ -102,53 +100,53 @@ long long uu_cp::handle_existing_dest::h1a418223b4b32809(struct_2 *a0, unsigned 
             v11 = 0;
             v9 = &v21;
             v10 = 2;
-            ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2();
+            ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2(&v28, &v7);
             *((long long *)((char *)&a0->field_8 + 8)) = *((long long *)&v29);
             *((int128_t *)&(&a0->field_0)[1]) = *((int128_t *)&v28);
             a0->field_0 = 4;
-            ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
-            return v32;
+            ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v19);
+            return v30;
         }
         v2 = std::path::Path::is_symlink::h6ab8b58756c51c6b(a3, a4);
         uu_cp::backup_dest::hb9d2dd191dda7572(&v7, a3, a4, (long long)(&v19)[8], v20, v2);
-        v33 = v7;
+        v31 = v7;
         *((int128_t *)&v3) = *((int128_t *)&v8);
         v5 = v10;
-        if (v33 != 13)
+        if (v31 != 13)
         {
-            v34 = *((int128_t *)&v11);
+            v32 = *((int128_t *)&v11);
             a0->field_20 = *((int128_t *)&v13);
-            *((void*)&a0->field_18) = v34;
+            *((void*)&a0->field_18) = v32;
             *((unsigned long long *)((char *)&a0->field_8 + 8)) = v5;
             *((int128_t *)&(&a0->field_0)[1]) = (int128_t)v3;
-            a0->field_0 = v33;
-            v32 = ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
-            return v32;
+            a0->field_0 = v31;
+            v30 = ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v19);
+            return v30;
         }
         *((int128_t *)&v15) = (int128_t)v3;
         v17 = v5;
-        ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
-        v32 = ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
+        ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v15);
+        v30 = ::0x4fc400::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v19);
         if (v2)
         {
             a0->field_0 = 13;
-            return v32;
+            return v30;
         }
     }
-    v1 = *((long long *)&v31);
+    v1 = a7;
     uu_cp::delete_dest_if_needed_and_allowed::h6af23b073bf255d0(&v7, a1, a2, a3, a4, a5, v0);
-    v32 = v7;
-    if (v32 != 13)
+    v30 = v7;
+    if (v30 != 13)
     {
         *((long long *)((char *)&a0->field_20 + 8)) = *((long long *)&v14);
-        vvar_418{reg 224} = *((int128_t *)&v8);
-        vvar_419{reg 256} = *((int128_t *)&v10);
+        vvar_414{reg 224} = *((int128_t *)&v8);
+        vvar_415{reg 256} = *((int128_t *)&v10);
         *((int128_t *)&(&a0->field_18)[1]) = *((int128_t *)&v12);
-        *((void*)((char *)&a0->field_8 + 8)) = v36;
-        *((void*)&(&a0->field_0)[1]) = v35;
-        a0->field_0 = v32;
-        return v32;
+        *((void*)((char *)&a0->field_8 + 8)) = v34;
+        *((void*)&(&a0->field_0)[1]) = v33;
+        a0->field_0 = v30;
+        return v30;
     }
     a0->field_0 = 13;
-    return v32;
+    return v30;
 }

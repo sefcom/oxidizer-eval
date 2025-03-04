@@ -1,5 +1,5 @@
-void __rustcall
-uu_pr::read_stream_and_create_pages(undefined4 *param_1,undefined8 *param_2,undefined8 param_3)
+void _ZN5uu_pr28read_stream_and_create_pages17h80b16bcd0c28d18cE
+               (undefined4 *param_1,undefined8 *param_2,undefined8 param_3)
 
 {
   undefined8 uVar1;
@@ -39,7 +39,7 @@ uu_pr::read_stream_and_create_pages(undefined4 *param_1,undefined8 *param_2,unde
   if (*(long *)(param_1 + 0x36) != -0x8000000000000000) {
     uVar2 = *(undefined8 *)(param_1 + 0x3e);
   }
-  local_a8 = lines_to_read_for_page(param_1);
+  local_a8 = _ZN5uu_pr22lines_to_read_for_page17hb2ad53ca8343fd2cE(param_1);
   local_c8 = param_2[6];
   local_f8 = *param_2;
   uStack_f0 = param_2[1];
@@ -68,6 +68,6 @@ uu_pr::read_stream_and_create_pages(undefined4 *param_1,undefined8 *param_2,unde
   local_b0 = param_3;
   local_58 = uVar1;
   local_38 = uVar1;
-  ::alloc::boxed::Box<T>::new(&local_140);
+  _ZN5alloc5boxed12Box_LT_T_GT_3new17hf465b4a863622154E(&local_140);
   return;
 }

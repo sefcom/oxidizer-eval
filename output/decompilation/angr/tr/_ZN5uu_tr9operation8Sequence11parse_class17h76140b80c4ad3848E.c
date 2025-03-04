@@ -1,6 +1,6 @@
 long long uu_tr::operation::Sequence::parse_class::h76140b80c4ad3848(unsigned long long a0, unsigned long long a1, unsigned long long a2)
 {
-    unsigned long v0;  // [sp-0x1d0], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x1d0]
     unsigned long long v1;  // [sp-0x1c8]
     unsigned long long v2;  // [sp-0x1c0]
     unsigned long long v3;  // [sp-0x1b8]

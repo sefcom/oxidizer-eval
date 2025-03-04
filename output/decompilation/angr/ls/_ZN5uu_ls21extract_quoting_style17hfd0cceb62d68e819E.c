@@ -1,10 +1,10 @@
 long long uu_ls::extract_quoting_style::hfd0cceb62d68e819(unsigned long long a0, unsigned int a1)
 {
     char v0;  // [bp-0x100]
-    char v1;  // [bp-0xf8], Other Possible Types: unsigned long long
+    char v1;  // [bp-0xf8], Other Possible Types: unsigned long long, unsigned long
     unsigned long long v2;  // [sp-0xf0]
     struct struct_0 **v3;  // [sp-0xe8], Other Possible Types: unsigned long, unsigned long long
-    int v4;  // [bp-0xe0], Other Possible Types: unsigned long long
+    int v4;  // [sp-0xe0], Other Possible Types: unsigned long long
     void* v5;  // [sp-0xd8]
     char v6;  // [bp-0xc8]
     char v7;  // [bp-0xc0]
@@ -20,19 +20,19 @@ long long uu_ls::extract_quoting_style::hfd0cceb62d68e819(unsigned long long a0,
     char v17;  // [bp-0x48]
     unsigned long long v19[3];  // rax
     unsigned int v20;  // ebp
-    unsigned int v23;  // ebp
-    char v25;  // al
+    unsigned int v21;  // r14d
+    char v23;  // al
 
     clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::h7f0bb7fe0c729ea9(&v1, a0, "quoting-stylehide-control-charsshow-control-charswidthauthorformatignore-backupsdirectoryinodereverserecursivecolorpathsindicator-styletime-stylefull-timeignorecontextgroup-directories-firstdiredhyperlink ", 13);
     v19 = clap_builder::parser::error::MatchesError::unwrap::hac05afd0923194a9("quoting-stylehide-control-charsshow-control-charswidthauthorformatignore-backupsdirectoryinodereverserecursivecolorpathsindicator-styletime-stylefull-timeignorecontextgroup-directories-firstdiredhyperlink ", 13, &v1);
     if (v19)
     {
         v20 = uu_ls::match_quoting_style_name::h6db1b7024e711c4a(v19[1], v19[2], a1);
-        a1 = v20 >> 16;
-        if (a1 != 4)
+        v21 = v20 >> 16;
+        if (v21 != 4)
         {
             a1 = v20 >> 8;
-            return v20 | (unsigned int)(a1 * 0x100) | (unsigned int)(a1 * 0x10000);
+            return v20 | (unsigned int)(a1 * 0x100) | (unsigned int)(v21 * 0x10000);
         }
         v1 = &g_612320;
         v2 = 1;
@@ -46,14 +46,14 @@ long long uu_ls::extract_quoting_style::hfd0cceb62d68e819(unsigned long long a0,
         {
             if ((char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a0, "escapeliteralquote-name", 6))
             {
-                a1 = a0 & 0xffffffffffffff00 | 2;
-                return 0 | (unsigned int)(a1 * 0x100) | (unsigned int)(a1 * 0x10000);
+                v21 = a0 & 0xffffffffffffff00 | 2;
+                return 0 | (unsigned int)(a1 * 0x100) | (unsigned int)(v21 * 0x10000);
             }
             else if ((char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a0, "quote-name", 10))
             {
-                a1 = a0 & 0xffffffffffffff00 | 2;
-                v20 = vvar_61{reg 56} & 0xffffffffffffff00 | 2;
-                return v20 | (unsigned int)(a1 * 0x100) | (unsigned int)(a1 * 0x10000);
+                v20 = vvar_59{reg 56} & 0xffffffffffffff00 | 2;
+                v21 = a0 & 0xffffffffffffff00 | 2;
+                return v20 | (unsigned int)(a1 * 0x100) | (unsigned int)(v21 * 0x10000);
             }
             else if (!(char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a0, "diredhyperlink ", 5))
             {
@@ -62,18 +62,18 @@ long long uu_ls::extract_quoting_style::hfd0cceb62d68e819(unsigned long long a0,
                 {
                     *((int128_t *)&v9) = *((int128_t *)&v7);
                     v10 = *((long long *)&v8);
-                    v23 = uu_ls::match_quoting_style_name::h6db1b7024e711c4a((long long)(&v9)[8], *((long long *)&v8), a1);
-                    a1 = v23 >> 16;
-                    if (a1 != 4)
+                    v20 = uu_ls::match_quoting_style_name::h6db1b7024e711c4a((long long)(&v9)[8], *((long long *)&v8), a1);
+                    v21 = v20 >> 16;
+                    if (v21 != 4)
                     {
                         ::0x51a6c0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb27a9c8978a01f77(&v9);
-                        a1 = v23 >> 8;
+                        a1 = v20 >> 8;
                         if (*((long long *)&v6))
                         {
                             core::ptr::drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$::h586f11e1c15586f9(&v6);
-                            return v20 | (unsigned int)(a1 * 0x100) | (unsigned int)(a1 * 0x10000);
+                            return v20 | (unsigned int)(a1 * 0x100) | (unsigned int)(v21 * 0x10000);
                         }
-                        return v20 | (unsigned int)(a1 * 0x100) | (unsigned int)(a1 * 0x10000);
+                        return v20 | (unsigned int)(a1 * 0x100) | (unsigned int)(v21 * 0x10000);
                     }
                     std::env::args::hcc0787e3c3e9e7bb(&v17);
                     _$LT$std..env..Args$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h6e31a9487ed13e72(&v13, &v17);
@@ -98,23 +98,27 @@ long long uu_ls::extract_quoting_style::hfd0cceb62d68e819(unsigned long long a0,
                     v4 = 2;
                     std::io::stdio::_eprint::hcdfeec148c7134f7(&v1);
                     ::0x51a6c0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb27a9c8978a01f77(&v11);
-                    ::0x51a4a0::core::ptr::drop_in_place$LT$std..env..Args$GT$::hab4f1d7d806d6c4a();
+                    ::0x51a4a0::core::ptr::drop_in_place$LT$std..env..Args$GT$::hab4f1d7d806d6c4a(&v17);
                     ::0x51a6c0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb27a9c8978a01f77(&v9);
                     if (!*((long long *)&v6))
                     {
 LABEL_51fa4e:
                         v1 = std::io::stdio::stdout::h077da66234850927();
-                        v25 = std::sys::pal::unix::io::is_terminal::hd2a7310729156a1e();
-                        if (!v25)
-                            a1 = 3;
-                        return v20 | (unsigned int)(0 * 0x100) | (unsigned int)(a1 * 0x10000);
+                        v23 = std::sys::pal::unix::io::is_terminal::hd2a7310729156a1e();
+                        if (v23)
+                            v20 = 1;
+                        else
+                            v20 = a1;
+                        v21 = (v23 ? 3 : a1);
+                        return v20 | (unsigned int)(0 * 0x100) | (unsigned int)(v21 * 0x10000);
                     }
                 }
                 core::ptr::drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$::h586f11e1c15586f9(&v6);
                 goto LABEL_51fa4e;
             }
         }
-        a1 = a0 & 0xffffffffffffff00 | 3;
-        return v20 | (unsigned int)(a1 * 0x100) | (unsigned int)(a1 * 0x10000);
+        v21 = a0 & 0xffffffffffffff00 | 3;
+        v20 = a1;
+        return v20 | (unsigned int)(a1 * 0x100) | (unsigned int)(v21 * 0x10000);
     }
 }

@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_dd::Source::len(int *param_1)
+undefined  [16] _ZN5uu_dd6Source3len17hc3b1b96fe0850bcfE(int *param_1)
 
 {
   undefined auVar1 [16];
@@ -11,7 +11,7 @@ undefined  [16] __rustcall uu_dd::Source::len(int *param_1)
   if (*param_1 != 0) {
     return ZEXT816(0) << 0x40;
   }
-  std::fs::File::metadata(local_b0,param_1 + 1,0);
+  _ZN3std2fs4File8metadata17he899a18112e6f19eE(local_b0,param_1 + 1,0);
   if (local_b0[0] == 2) {
     auVar3._8_8_ = local_a8;
     auVar3._0_8_ = 1;

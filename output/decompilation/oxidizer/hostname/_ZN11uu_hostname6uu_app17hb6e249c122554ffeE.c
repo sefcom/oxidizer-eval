@@ -7,25 +7,25 @@ fn uu_hostname::uu_app(a0: &struct712) -> u64 {
     let v5: i64;  // [sp-0x850]
     let v6: i64;  // [sp-0x848]
     let v7: i64;  // [sp-0x840]
-    let v8: i128;  // [bp-0x838], Other Possible Types: struct8
-    let v9: i128;  // [sp-0x828]
+    let v8: iNone;  // [bp-0x838], Other Possible Types: struct8
+    let v9: iNone;  // [sp-0x828], Other Possible Types: unsigned long
     let v10: i64;  // [sp-0x820]
-    let v11: i128;  // [sp-0x818]
+    let v11: iNone;  // [sp-0x818], Other Possible Types: unsigned long
     let v12: i64;  // [sp-0x810]
-    let v13: i128;  // [sp-0x808]
+    let v13: iNone;  // [sp-0x808], Other Possible Types: unsigned long
     let v14: i64;  // [sp-0x800]
-    let v15: i4736;  // [sp-0x7f8], Other Possible Types: struct592, struct712, struct437
+    let v15: struct592;  // [sp-0x7f8], Other Possible Types: struct712, struct437
     let v16: i64;  // [sp-0x53c]
     let v17: i32;  // [sp-0x534]
-    let v18: i4736;  // [sp-0x530], Other Possible Types: struct592, struct712
-    let v19: i4736;  // [sp-0x268], Other Possible Types: struct592, struct24
+    let v18: struct592;  // [sp-0x530], Other Possible Types: struct712
+    let v19: struct592;  // [sp-0x268], Other Possible Types: struct24
     let v21: i64;  // rdx
-    let v22: i128;  // xmm0
-    let v23: i128;  // xmm1
-    let v24: i128;  // xmm2
-    let v25: i128;  // xmm0
-    let v26: i128;  // xmm1
-    let v27: i128;  // xmm2
+    let v22: iNone;  // xmm0
+    let v23: iNone;  // xmm1
+    let v24: iNone;  // xmm2
+    let v25: iNone;  // xmm0
+    let v26: iNone;  // xmm1
+    let v27: iNone;  // xmm2
 
     v15 = clap_builder::builder::command::Command::new(uucore::util_name(), v21);
     v18 = clap_builder::builder::command::Command::version(&v15, "0.0.28");
@@ -33,8 +33,8 @@ fn uu_hostname::uu_app(a0: &struct712) -> u64 {
     v19 = uucore::format_usage("{} [OPTION]... [HOSTNAME]");
     v18 = clap_builder::builder::command::Command::override_usage(&v15, &v19);
     memcpy(&v15, &v18, 700);
-    v16 = 549755814016 | *((&v18 as &char + 700) as &i64);
-    v17 = *((&v18 as &char + 708) as &i32);
+    v16 = 549755814016 | *((&v18.field_0 as &char + 700) as &i64);
+    v17 = *((&v18.field_0 as &char + 708) as &i32);
     v18 = clap_builder::builder::arg::Arg::new("domain");
     v19 = clap_builder::builder::arg::Arg::short(&v18, 0x64);
     v18 = clap_builder::builder::arg::Arg::long(&v19, "domain");
@@ -52,7 +52,7 @@ fn uu_hostname::uu_app(a0: &struct712) -> u64 {
     v12 = v5;
     v9 = v2;
     v10 = v3;
-    v8 = v0;
+    *(&v8 as &i128) = *(&v0 as &i128);
     v19 = clap_builder::builder::arg::Arg::overrides_with_all(&v18, &v8);
     v18 = clap_builder::builder::arg::Arg::help(&v19, "Display the name of the DNS domain if possible");
     v19 = clap_builder::builder::arg::Arg::action(&v18);
@@ -60,10 +60,10 @@ fn uu_hostname::uu_app(a0: &struct712) -> u64 {
     v15 = clap_builder::builder::arg::Arg::new("ip-address");
     v19 = clap_builder::builder::arg::Arg::short(&v15, 0x69);
     v15 = clap_builder::builder::arg::Arg::long(&v19, "ip-address");
-    v22 = v0;
-    v23 = v2;
-    v24 = v4;
-    v13 = v6;
+    v22 = *(&v0 as &i128);
+    v23 = *(&v2 as &i128);
+    v24 = *(&v4 as &i128);
+    *(&v13 as &i128) = *(&v6 as &i128);
     v11 = v24;
     v9 = v23;
     v8 = v22;
@@ -74,10 +74,10 @@ fn uu_hostname::uu_app(a0: &struct712) -> u64 {
     v18 = clap_builder::builder::arg::Arg::new("fqdn");
     v19 = clap_builder::builder::arg::Arg::short(&v18, 0x66);
     v18 = clap_builder::builder::arg::Arg::long(&v19, "fqdn");
-    v25 = v0;
-    v26 = v2;
-    v27 = v4;
-    v13 = v6;
+    v25 = *(&v0 as &i128);
+    v26 = *(&v2 as &i128);
+    v27 = *(&v4 as &i128);
+    *(&v13 as &i128) = *(&v6 as &i128);
     v11 = v27;
     v9 = v26;
     v8 = v25;

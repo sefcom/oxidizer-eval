@@ -1,17 +1,17 @@
 double uu_dircolors::generate_dircolors_config::hf75f23ebe3da3611(long long a0)
 {
-    unsigned long v0;  // [sp-0x108], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x108]
     unsigned long long v1;  // [sp-0x100]
-    unsigned long v2;  // [sp-0xf8], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0xf8]
     void* v3;  // [sp-0xf0]
     unsigned long long v4;  // [sp-0xe8]
     void* v5;  // [sp-0xe0]
-    int v6;  // [sp-0xd8], Other Possible Types: unsigned long long
+    int v6;  // [bp-0xd8], Other Possible Types: unsigned long
     unsigned long long v7;  // [sp-0xd0]
-    struct struct_1 **v8;  // [sp-0xc8], Other Possible Types: unsigned long long
+    struct struct_0 **v8;  // [sp-0xc8], Other Possible Types: unsigned long long
     unsigned long long v9;  // [sp-0xc0]
     void* v10;  // [sp-0xb8]
-    unsigned long v11;  // [sp-0xa8], Other Possible Types: unsigned long long
+    unsigned long v11;  // [sp-0xa8]
     char *v12;  // [sp-0xa0]
     unsigned long long v13;  // [sp-0x98]
     char *v14;  // [sp-0x90]
@@ -52,7 +52,7 @@ double uu_dircolors::generate_dircolors_config::hf75f23ebe3da3611(long long a0)
             v10 = 0;
             v8 = &v12;
             v9 = 1;
-            ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918();
+            ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918(&v16, &v6);
             v25 = *((int128_t *)&v16);
             v24 = v24 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v25;
             v6 = v25;
@@ -71,7 +71,7 @@ double uu_dircolors::generate_dircolors_config::hf75f23ebe3da3611(long long a0)
         do
         {
             v11 = v27;
-            v2 = v11 + 32;
+            v2 = v27 + 32;
             v12 = &v11;
             v13 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h58765c92fea73f10;
             v14 = &v2;
@@ -81,7 +81,7 @@ double uu_dircolors::generate_dircolors_config::hf75f23ebe3da3611(long long a0)
             v10 = 0;
             v8 = &v12;
             v9 = 2;
-            ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918();
+            ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918(&v18, &v6);
             v28 = *((int128_t *)&v18);
             v24 = v24 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v28;
             v6 = v28;
@@ -108,7 +108,7 @@ double uu_dircolors::generate_dircolors_config::hf75f23ebe3da3611(long long a0)
     do
     {
         v11 = v29;
-        v2 = v11 + 16;
+        v2 = v29 + 16;
         v12 = &v11;
         v13 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h58765c92fea73f10;
         v14 = &v2;
@@ -118,7 +118,7 @@ double uu_dircolors::generate_dircolors_config::hf75f23ebe3da3611(long long a0)
         v10 = 0;
         v8 = &v12;
         v9 = 2;
-        ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918();
+        ::0x4bb450::core::option::Option$LT$T$GT$::map_or_else::h443112b6ce900918(&v20, &v6);
         v30 = *((int128_t *)&v20);
         v24 = v24 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v30;
         v6 = v30;

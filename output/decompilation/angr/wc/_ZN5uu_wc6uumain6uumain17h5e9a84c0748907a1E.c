@@ -1,12 +1,12 @@
 long long uu_wc::uumain::uumain::h5e9a84c0748907a1(unsigned long long a0, unsigned long long a1)
 {
-    char v0;  // [bp-0x370], Other Possible Types: unsigned long, unsigned long long
-    unsigned long v1;  // [sp-0x368]
-    char v2;  // [bp-0x360], Other Possible Types: unsigned long long
+    char v0;  // [sp-0x370], Other Possible Types: unsigned long
+    unsigned long v1;  // [sp-0x368], Other Possible Types: unsigned long long
+    char v2;  // [sp-0x360], Other Possible Types: unsigned long long
     unsigned long long v3;  // [sp-0x358]
     char v4;  // [bp-0x350]
     char v5;  // [bp-0x340]
-    unsigned long v6;  // [sp-0x338], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x338]
     unsigned long long v7;  // [sp-0x330]
     int v8;  // [sp-0x328]
     int v9;  // [sp-0x318]
@@ -16,7 +16,7 @@ long long uu_wc::uumain::uumain::h5e9a84c0748907a1(unsigned long long a0, unsign
     char v13;  // [bp-0x2d8]
     char v14;  // [bp-0x2d0]
     char v15;  // [bp-0x2c8]
-    unsigned long long v17;  // rax
+    unsigned long long v17;  // rbx
 
     uu_wc::uu_app::h62af8873bd1507e0(&v12);
     clap_builder::builder::command::Command::try_get_matches_from::h083d8fd88180a517(&v0, &v12, a0, a1);
@@ -32,6 +32,7 @@ long long uu_wc::uumain::uumain::h5e9a84c0748907a1(unsigned long long a0, unsign
     v7 = v1;
     uu_wc::Settings::new::h34807c3ccfb33cdb(&v11, &v6);
     uu_wc::Inputs::new::h8e829995353f568c(&v12, &v6);
+    v17 = *((long long *)&v13);
     if (v0 == 3)
     {
         core::ptr::drop_in_place$LT$uu_wc..Settings$GT$::hbdea90b142ccaaa3(&v11);
@@ -39,7 +40,7 @@ long long uu_wc::uumain::uumain::h5e9a84c0748907a1(unsigned long long a0, unsign
     else
     {
         v0 = *((long long *)&v12);
-        v17 = *((long long *)&v13);
+        v1 = v17;
         v2 = *((long long *)&v14);
         v3 = *((long long *)&v15);
         v17 = uu_wc::wc::hd5e1121da6170855(&v0, &v11);

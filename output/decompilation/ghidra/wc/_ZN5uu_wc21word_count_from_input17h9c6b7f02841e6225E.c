@@ -1,4 +1,5 @@
-void __rustcall uu_wc::word_count_from_input(ulong *param_1,long *param_2,undefined8 param_3)
+void _ZN5uu_wc21word_count_from_input17h9c6b7f02841e6225E
+               (ulong *param_1,long *param_2,undefined8 param_3)
 
 {
   undefined8 uVar1;
@@ -13,18 +14,18 @@ void __rustcall uu_wc::word_count_from_input(ulong *param_1,long *param_2,undefi
   ulong local_18;
   
   if (*param_2 == -0x7fffffffffffffff) {
-    local_50 = std::io::stdio::stdin();
-    uVar1 = std::io::stdio::Stdin::lock(&local_50);
-    word_count_from_reader(&local_40,uVar1,extraout_DL & 1,param_3);
+    local_50 = _ZN3std2io5stdio5stdin17h7215cc131abb55d8E();
+    uVar1 = _ZN3std2io5stdio5Stdin4lock17h161a36d857331d7fE(&local_50);
+    _ZN5uu_wc22word_count_from_reader17h5f3d93b09ec956faE(&local_40,uVar1,extraout_DL & 1,param_3);
   }
   else {
-    std::fs::File::open(&local_50);
+    _ZN3std2fs4File4open17h29294cdd33afafbdE(&local_50);
     if ((int)local_50 != 0) {
       param_1[1] = local_48;
       *param_1 = 2;
       return;
     }
-    word_count_from_reader(&local_40,local_50._4_4_,param_3);
+    _ZN5uu_wc22word_count_from_reader17hd0ebac2d03e30fccE(&local_40,local_50._4_4_,param_3);
   }
   param_1[5] = local_20;
   param_1[3] = local_30;

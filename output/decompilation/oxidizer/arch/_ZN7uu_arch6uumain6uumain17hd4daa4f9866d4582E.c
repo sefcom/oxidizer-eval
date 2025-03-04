@@ -3,13 +3,13 @@ fn uu_arch::uumain::uumain(a0: u32, a1: u32) -> u64 {
     let v1: i64;  // [sp-0x550]
     let v2: i64;  // [sp-0x510]
     let v3: i64;  // [sp-0x508]
-    let v4: i8;  // [bp-0x500]
+    let v4: i8;  // [sp-0x500], Other Possible Types: unsigned long
     let v5: i64;  // [sp-0x4f8]
     let v6: i64;  // [sp-0x4f0]
     let v7: i8;  // [bp-0x4e8]
     let v8: i8;  // [bp-0x498]
     let v9: i8;  // [bp-0x490]
-    let v10: i4288;  // [sp-0x2e8], Other Possible Types: Result<struct536, struct16>, struct712
+    let v10: struct712;  // [sp-0x2e8], Other Possible Types: Result<struct536, struct16>, unsigned long
     let v11: i64;  // [sp-0x2e0]
     let v12: i64;  // [sp-0x2d8]
     let v14: i64;  // rax
@@ -36,8 +36,8 @@ fn uu_arch::uumain::uumain(a0: u32, a1: u32) -> u64 {
     v4 = v15;
     v5 = v16;
     v6 = v17;
-    v0 = std::sys::os_str::bytes::Slice::to_string_lossy(v8, v9);
-    v2 = core::str::<impl str>::trim_matches(v1, *((&v0 as &char + 16) as &i64));
+    v0 = std::sys::os_str::bytes::Slice::to_string_lossy(*(&v8 as &i64), *(&v9 as &i64));
+    v2 = core::str::<impl str>::trim_matches(v1, v0.field_16);
     v3 = v18;
     println!("{}", &v2);
     return 0;

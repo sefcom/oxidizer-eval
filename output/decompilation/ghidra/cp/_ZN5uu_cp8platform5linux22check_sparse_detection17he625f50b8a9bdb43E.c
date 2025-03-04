@@ -1,18 +1,18 @@
-void __rustcall uu_cp::platform::linux::check_sparse_detection(undefined2 *param_1)
+void _ZN5uu_cp8platform5linux22check_sparse_detection17he625f50b8a9bdb43E(undefined2 *param_1)
 
 {
-  undefined4 local_c4;
+  int local_c4;
   int local_c0;
-  undefined4 local_bc;
+  int local_bc;
   undefined8 local_b8;
   ulong local_70;
   ulong local_60;
   
-  std::fs::File::open(&local_c0);
+  _ZN3std2fs4File4open17h2ade805364297b3fE(&local_c0);
   if (local_c0 == 0) {
     local_c4 = local_bc;
                     /* try { // try from 00212f33 to 00212f42 has its CatchHandler @ 00212f89 */
-    std::fs::File::metadata(&local_c0,&local_c4);
+    _ZN3std2fs4File8metadata17he899a18112e6f19eE(&local_c0,&local_c4);
     if (local_c0 == 2) {
       *(undefined8 *)(param_1 + 4) = local_b8;
       *(undefined *)param_1 = 1;
@@ -24,7 +24,7 @@ void __rustcall uu_cp::platform::linux::check_sparse_detection(undefined2 *param
     else {
       *param_1 = 0;
     }
-    core::ptr::drop_in_place<std::fs::File>(local_bc);
+    _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17h4b422317f52b3bf0E(local_bc);
   }
   else {
     *(undefined8 *)(param_1 + 4) = local_b8;

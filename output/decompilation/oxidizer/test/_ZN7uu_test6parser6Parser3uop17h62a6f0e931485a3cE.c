@@ -1,5 +1,5 @@
 fn uu_test::parser::Parser::uop(a0: &struct8, a1: &struct40) -> u64 {
-    let v0: u128;  // [sp-0xb8]
+    let v0: u128;  // [bp-0xb8]
     let v1: u128;  // [sp-0xa8]
     let v2: u64;  // [sp-0x98]
     let v3: u8;  // [bp-0x90]
@@ -20,8 +20,8 @@ fn uu_test::parser::Parser::uop(a0: &struct8, a1: &struct40) -> u64 {
         alloc::vec::Vec<T,A>::push(a0, &v9);
         return v11;
     }
-    v8 = v5;
-    v7 = v4;
+    v8 = *(&v5 as &i64);
+    v7 = *(&v4 as &i128);
     v6 = *(&v3 as &i128);
     uu_test::parser::Symbol::into_literal(&v0, &v6);
     alloc::vec::Vec<T,A>::push(a0, &v0);

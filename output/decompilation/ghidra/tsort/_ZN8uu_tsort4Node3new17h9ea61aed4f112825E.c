@@ -1,4 +1,4 @@
-void __rustcall uu_tsort::Node::new(undefined8 *param_1)
+void _ZN8uu_tsort4Node3new17h9ea61aed4f112825E(undefined8 *param_1)
 
 {
   *param_1 = 0;

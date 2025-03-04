@@ -1,23 +1,23 @@
-long long uu_nl::NumberFormat::format::h85daa785ca2f298b(unsigned long a0, char *a1, unsigned long a2, unsigned long a3)
+long long uu_nl::NumberFormat::format::h85daa785ca2f298b(unsigned long long a0, char *a1, unsigned long a2, unsigned long a3)
 {
     char *v0;  // [sp-0xa0], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0x98]
     unsigned long long v2;  // [sp-0x90]
     void* v3;  // [sp-0x88]
-    unsigned long long v4;  // [sp-0x80]
+    unsigned long v4;  // [sp-0x80]
     unsigned long long v5;  // [sp-0x78]
     char *v6;  // [sp-0x70]
     unsigned long long v7;  // [sp-0x68]
     char *v8;  // [sp-0x60]
     unsigned long long v9;  // [sp-0x58]
-    unsigned long v10;  // [sp-0x50], Other Possible Types: unsigned long long
+    unsigned long v10;  // [sp-0x50]
     unsigned long v11;  // [sp-0x48], Other Possible Types: unsigned long long
     unsigned long long v12;  // [sp-0x38]
     unsigned long long v13;  // [sp-0x30]
     void* v14;  // [sp-0x28]
     unsigned long long v15;  // [sp-0x20]
     char v16;  // [sp-0x18]
-    unsigned long v17;  // [sp-0x10], Other Possible Types: unsigned long long
+    unsigned long v17;  // [sp-0x10]
     unsigned int v19;  // eax
     unsigned long long v20;  // rax
 
@@ -87,6 +87,6 @@ LABEL_5acdc5:
     v9 = 1;
     v6 = &v0;
     v7 = 2;
-    ::0x5ac400::core::option::Option$LT$T$GT$::map_or_else::h0a2f0cb8f97eeebd();
+    ::0x5ac400::core::option::Option$LT$T$GT$::map_or_else::h0a2f0cb8f97eeebd(a0, &v4);
     return a0;
 }

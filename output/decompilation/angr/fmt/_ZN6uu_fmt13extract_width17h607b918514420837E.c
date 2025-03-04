@@ -19,14 +19,14 @@ long long uu_fmt::extract_width::h607b918514420837(unsigned long long a0[3], uns
     unsigned long long v17;  // r14
     unsigned long long v18;  // r15
     unsigned long long v19;  // rax
+    void* v20;  // rcx
     unsigned long long v21[3];  // r13
-    void* v22;  // rcx
-    unsigned long long v23;  // rcx
+    unsigned long long v22;  // rcx
+    unsigned long long v23;  // rdx
     unsigned long long v24;  // rdx
-    unsigned long long v25;  // rdx
-    unsigned long long v26[3];  // rax
-    unsigned long long v27;  // r14
-    unsigned long long v28;  // r15
+    unsigned long long v25[3];  // rax
+    unsigned long long v26;  // r14
+    unsigned long long v27;  // r15
 
     clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::h5d676eefe7e492ec(&v0, a1, "widthinvalid width: src/uu/fmt/src/fmt.rs", 5);
     v16 = clap_builder::parser::error::MatchesError::unwrap::h98df6b0c915d5d1b("widthinvalid width: src/uu/fmt/src/fmt.rs", 5, &v0);
@@ -37,9 +37,9 @@ long long uu_fmt::extract_width::h607b918514420837(unsigned long long a0[3], uns
         core::num::_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$::from_str::h35e67cae0c0452a5(&v5, v17, v18);
         if (!v5)
         {
-            v23 = *((long long *)&v6);
+            v22 = *((long long *)&v6);
             v19 = 1;
-            v24 = 0;
+            v23 = 0;
         }
         else
         {
@@ -54,50 +54,46 @@ long long uu_fmt::extract_width::h607b918514420837(unsigned long long a0[3], uns
             v4 = 0;
             v2 = &v7;
             v3 = 1;
-            ::0x4b48a0::core::option::Option$LT$T$GT$::map_or_else::h57a000129381aa23();
+            ::0x4b48a0::core::option::Option$LT$T$GT$::map_or_else::h57a000129381aa23(&v13, &v0);
             v14 = 1;
             v19 = alloc::boxed::Box$LT$T$GT$::new::had2f12c6fe048da6(&v13);
-            v24 = 1;
-            v23 = &g_526400;
+            v23 = 1;
+            v22 = &g_526400;
         }
         a0[1] = v19;
-        a0[2] = v23;
-        a0[0] = v24;
+        a0[2] = v22;
+        a0[0] = v23;
         return v19;
     }
     else
     {
         v19 = clap_builder::parser::matches::arg_matches::ArgMatches::index_of::hc3c8b487726d2353(a1, "files", 5);
+        v20 = 0;
         v21 = 8;
-        v22 = 0;
-        if (v19 == 1)
+        if (v19 == 1 && v24 == 1)
         {
-            v22 = 0;
-            if (v25 == 1)
+            clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::h5d676eefe7e492ec(&v0, a1, "files", 5);
+            v25 = clap_builder::parser::error::MatchesError::unwrap::h98df6b0c915d5d1b("files", 5, &v0);
+            if (!v25)
+                core::option::unwrap_failed::h0e11329e76906eaa(&g_526530); /* do not return */
+            v26 = v25[1];
+            v27 = v25[2];
+            v0 = 0;
+            v19 = ::0x4b4940::_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$::strip_prefix_of::hdb721c8cd5e22968(::0x4b4840::core::char::methods::encode_utf8_raw::h4a752b0d300141c4(&v0), v26, v27);
+            if (!v19)
             {
-                clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::h5d676eefe7e492ec(&v0, a1, "files", 5);
-                v26 = clap_builder::parser::error::MatchesError::unwrap::h98df6b0c915d5d1b("files", 5, &v0);
-                if (!v26)
-                    core::option::unwrap_failed::h0e11329e76906eaa(&g_526530); /* do not return */
-                v27 = v26[1];
-                v28 = v26[2];
-                v0 = 0;
-                v19 = ::0x4b4940::_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$::strip_prefix_of::hdb721c8cd5e22968(::0x4b4840::core::char::methods::encode_utf8_raw::h4a752b0d300141c4(&v0), v27, v28);
-                if (!v19)
-                {
-                    v22 = 0;
-                }
-                else
-                {
-                    core::num::_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$::from_str::h35e67cae0c0452a5(&v0, v19, v25);
-                    v19 = (char)v0 ^ 1;
-                    a0[1] = v19;
-                    v21 = 16;
-                    v22 = v1;
-                }
+                v20 = 0;
+            }
+            else
+            {
+                core::num::_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$::from_str::h35e67cae0c0452a5(&v0, v19, v24);
+                v20 = v1;
+                v19 = (char)v0 ^ 1;
+                a0[1] = v19;
+                v21 = 16;
             }
         }
-        *((void* *)(a0 + v21)) = v22;
+        *((void* *)(a0 + v21)) = v20;
         a0[0] = 0;
         return v19;
     }

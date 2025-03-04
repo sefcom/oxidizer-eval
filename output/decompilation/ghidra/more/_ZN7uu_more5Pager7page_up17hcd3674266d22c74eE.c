@@ -1,4 +1,4 @@
-void __rustcall uu_more::Pager::page_up(long param_1)
+void _ZN7uu_more5Pager7page_up17hcd3674266d22c74eE(long param_1)
 
 {
   long lVar1;
@@ -31,8 +31,8 @@ void __rustcall uu_more::Pager::page_up(long param_1)
           lVar1 = 0;
         }
         local_30 = local_30 - 1;
-        lVar1 = _<core::slice::iter::Iter<T>as_core::iter::traits::double_ended::DoubleEndedIterator>
-                ::nth_back(&local_40,lVar1);
+        lVar1 = _ZN106__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__double_ended__DoubleEndedIterator_GT_8nth_back17h9be320c1ff82071cE
+                          (&local_40,lVar1);
         if (lVar1 == 0) {
           return;
         }

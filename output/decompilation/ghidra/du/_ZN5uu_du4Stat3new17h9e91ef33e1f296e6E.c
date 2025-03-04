@@ -1,6 +1,6 @@
-undefined8 * __rustcall
-uu_du::Stat::new(undefined8 *param_1,undefined8 param_2,undefined8 param_3,long param_4,long param_5
-                )
+undefined8 *
+_ZN5uu_du4Stat3new17h9e91ef33e1f296e6E
+          (undefined8 *param_1,undefined8 param_2,undefined8 param_3,long param_4,long param_5)
 
 {
   undefined8 uVar1;
@@ -79,23 +79,25 @@ uu_du::Stat::new(undefined8 *param_1,undefined8 param_2,undefined8 param_3,long 
   }
   if (uVar3 == 0) {
 LAB_001f1a75:
-    std::fs::metadata(&local_1b8,param_2,param_3);
+    _ZN3std2fs8metadata17h99fffaa9766a0d76E(&local_1b8,param_2,param_3);
   }
   else {
     if (uVar3 == 1) {
       uVar5 = *(undefined8 *)(param_5 + 0x20);
       uVar1 = *(undefined8 *)(param_5 + 0x28);
-      std::sys::pal::unix::os::split_paths::bytes_to_path(&local_1b8,param_2,param_3);
+      _ZN3std3sys3pal4unix2os11split_paths13bytes_to_path17h0549813f23b52483E
+                (&local_1b8,param_2,param_3);
                     /* try { // try from 001f1a51 to 001f1a5e has its CatchHandler @ 001f1c91 */
-      cVar2 = _<T_as_core::slice::cmp::SliceContains>::slice_contains(&local_1b8,uVar5,uVar1);
-      core::ptr::drop_in_place<std::path::PathBuf>(&local_1b8);
+      cVar2 = _ZN53__LT_T_u20_as_u20_core__slice__cmp__SliceContains_GT_14slice_contains17hc0e47005068e24ddE
+                        (&local_1b8,uVar5,uVar1);
+      _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17hbd810d79ecac54eaE(&local_1b8);
       if (cVar2 != '\0') goto LAB_001f1a75;
     }
     if (param_4 == 0) {
-      std::fs::symlink_metadata(&local_1b8,param_2,param_3);
+      _ZN3std2fs16symlink_metadata17hb9962fb65fc66b61E(&local_1b8,param_2,param_3);
     }
     else {
-      std::fs::DirEntry::metadata(&local_1b8,param_4);
+      _ZN3std2fs8DirEntry8metadata17h92d6a6465cae443dE(&local_1b8,param_4);
     }
   }
   if (local_1b8 == 2) {
@@ -139,10 +141,11 @@ LAB_001f1a75:
     uStack_70 = uStack_148;
     uStack_6c = uStack_144;
     local_68 = local_140;
-    std::sys::pal::unix::os::split_paths::bytes_to_path(&local_1b8,param_2,param_3);
+    _ZN3std3sys3pal4unix2os11split_paths13bytes_to_path17h0549813f23b52483E
+              (&local_1b8,param_2,param_3);
                     /* try { // try from 001f1bcd to 001f1be7 has its CatchHandler @ 001f1ca0 */
-    cVar2 = std::path::Path::is_dir(param_2);
-    auVar6 = birth_u64(&local_e0);
+    cVar2 = _ZN3std4path4Path6is_dir17h9ac0db933706da51E(param_2);
+    auVar6 = _ZN5uu_du9birth_u6417hb35adc6a5de571b6E(&local_e0);
     uVar5 = 0;
     if (cVar2 == '\0') {
       uVar5 = CONCAT44(uStack_104,local_108);

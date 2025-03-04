@@ -1,6 +1,7 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined8 * __rustcall uu_tail::chunks::ReverseChunks::new(undefined8 *param_1,undefined8 param_2)
+undefined8 *
+_ZN7uu_tail6chunks13ReverseChunks3new17hc0b2e059517a0fa7E(undefined8 *param_1,undefined8 param_2)
 
 {
   long lVar1;
@@ -10,11 +11,13 @@ undefined8 * __rustcall uu_tail::chunks::ReverseChunks::new(undefined8 *param_1,
   double dVar5;
   undefined auVar6 [16];
   
-  auVar6 = _<std::fs::File_as_std::io::Seek>::seek(param_2,2,0);
-  lVar1 = core::result::Result<T,E>::unwrap
+  auVar6 = _ZN47__LT_std__fs__File_u20_as_u20_std__io__Seek_GT_4seek17hf141ef1001f771f9E
+                     (param_2,2,0);
+  lVar1 = _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hc23b1578389952beE
                     (auVar6._0_8_,auVar6._8_8_,&PTR_s_src_uu_tail_src_chunks_rs_002bc758);
-  auVar6 = _<std::fs::File_as_std::io::Seek>::seek(param_2,1,0);
-  lVar2 = core::result::Result<T,E>::unwrap
+  auVar6 = _ZN47__LT_std__fs__File_u20_as_u20_std__io__Seek_GT_4seek17hf141ef1001f771f9E
+                     (param_2,1,0);
+  lVar2 = _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hc23b1578389952beE
                     (auVar6._0_8_,auVar6._8_8_,&PTR_s_src_uu_tail_src_chunks_rs_002bc770);
   lVar2 = lVar2 - lVar1;
   auVar6._8_4_ = (int)((ulong)lVar2 >> 0x20);

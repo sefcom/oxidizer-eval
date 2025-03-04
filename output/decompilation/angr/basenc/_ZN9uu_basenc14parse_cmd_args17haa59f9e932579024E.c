@@ -1,8 +1,8 @@
 long long uu_basenc::parse_cmd_args::haa59f9e932579024(struct_0 *a0, unsigned long long a1, unsigned long long a2)
 {
-    char v0;  // [bp-0x370], Other Possible Types: unsigned long long
+    char v0;  // [sp-0x370], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0x368]
-    unsigned long v2;  // [sp-0x358], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x358]
     unsigned long long v3;  // [sp-0x350]
     unsigned int v4;  // [sp-0x348]
     int v5;  // [sp-0x344]

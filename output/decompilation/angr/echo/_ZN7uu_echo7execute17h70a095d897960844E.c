@@ -12,7 +12,8 @@ long long uu_echo::execute::h70a095d897960844(unsigned long long a0, unsigned in
     unsigned long long v11[3];  // rdx
     unsigned long long v12[3];  // rdx
     unsigned long long v15;  // rax
-    void* v18;  // rax
+    unsigned long long v18;  // rdi
+    void* v19;  // rax
 
     v0 = a1;
     *((uint128_t *)&v7) = a3[3];
@@ -47,8 +48,8 @@ LABEL_4a4d7c:
             uu_echo::print_escaped::hfb2c9877aef23019(&v1, v12[1], v12[2], a0);
             if (v1)
             {
-                uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v15);
-                return v18;
+                uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v18);
+                return v19;
             }
             if (v2)
                 return 0;
@@ -57,6 +58,7 @@ LABEL_4a4d7c:
                 goto LABEL_4a4d7c;
         }
     }
-    v18 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v15);
-    return v18;
+    v18 = v15;
+    v19 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v18);
+    return v19;
 }

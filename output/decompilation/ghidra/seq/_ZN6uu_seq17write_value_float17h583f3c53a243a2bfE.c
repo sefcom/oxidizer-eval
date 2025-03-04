@@ -1,5 +1,5 @@
-undefined8 __rustcall
-uu_seq::write_value_float
+undefined8
+_ZN6uu_seq17write_value_float17h583f3c53a243a2bfE
           (undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)
 
 {
@@ -28,10 +28,10 @@ uu_seq::write_value_float
   undefined8 local_38 [3];
   
   local_a0 = param_2;
-  cVar1 = _<uu_seq::extendedbigdecimal::ExtendedBigDecimal_as_core::cmp::PartialEq>::eq
+  cVar1 = _ZN87__LT_uu_seq__extendedbigdecimal__ExtendedBigDecimal_u20_as_u20_core__cmp__PartialEq_GT_2eq17h03c6b2bee9905beeE
                     (param_2,&DAT_00123b30);
   if (cVar1 == '\0') {
-    cVar1 = _<uu_seq::extendedbigdecimal::ExtendedBigDecimal_as_core::cmp::PartialEq>::eq
+    cVar1 = _ZN87__LT_uu_seq__extendedbigdecimal__ExtendedBigDecimal_u20_as_u20_core__cmp__PartialEq_GT_2eq17h03c6b2bee9905beeE
                       (param_2,&DAT_00123b58);
     if (cVar1 == '\0') {
       local_b0 = 0x800000020;
@@ -43,7 +43,7 @@ LAB_001c7abd:
   local_98 = &local_a0;
   local_70 = 0;
   local_80 = 0;
-  local_90 = _<&T_as_core::fmt::Display>::fmt;
+  local_90 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h2233a37d2c19bddaE;
   local_b8 = 0;
   local_c0 = 2;
   local_c8 = (undefined8 **)0x1;
@@ -58,16 +58,17 @@ LAB_001c7abd:
   local_88 = param_4;
   local_78 = param_3;
   local_48 = (undefined *)&local_d8;
-  core::option::Option<T>::map_or_else(local_38,&local_68);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17h91a2236e2fc5d115E(local_38,&local_68);
   local_98 = local_38;
-  local_90 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+  local_90 = 
+  _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
   local_d8 = &DAT_001176c0;
   local_d0 = 1;
   local_b8 = 0;
   local_c8 = &local_98;
   local_c0 = 1;
                     /* try { // try from 001c7b62 to 001c7b6c has its CatchHandler @ 001c7b8f */
-  uVar2 = std::io::Write::write_fmt(param_1,&local_d8);
-  core::ptr::drop_in_place<alloc::string::String>(local_38);
+  uVar2 = _ZN3std2io5Write9write_fmt17ha89a837e03ebc8dbE(param_1,&local_d8);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hbf11645ab5eda60bE(local_38);
   return uVar2;
 }

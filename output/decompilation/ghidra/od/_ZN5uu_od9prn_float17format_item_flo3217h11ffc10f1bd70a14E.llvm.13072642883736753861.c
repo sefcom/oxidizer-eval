@@ -1,4 +1,6 @@
-undefined8 * __rustcall uu_od::prn_float::format_item_flo32(double param_1,undefined8 *param_2)
+undefined8 *
+_ZN5uu_od9prn_float17format_item_flo3217h11ffc10f1bd70a14E_llvm_13072642883736753861
+          (double param_1,undefined8 *param_2)
 
 {
   undefined *local_80;
@@ -13,8 +15,9 @@ undefined8 * __rustcall uu_od::prn_float::format_item_flo32(double param_1,undef
   undefined8 local_38;
   undefined local_28 [24];
   
-  format_flo32((float)param_1,local_28);
-  local_78 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+  _ZN5uu_od9prn_float12format_flo3217h9997a42b85d61a4bE((float)param_1,local_28);
+  local_78 = 
+  _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
   local_58 = &DAT_00242038;
   local_50 = 1;
   local_38 = 0;
@@ -22,9 +25,9 @@ undefined8 * __rustcall uu_od::prn_float::format_item_flo32(double param_1,undef
   local_40 = 1;
                     /* try { // try from 001d4f0d to 001d4f1b has its CatchHandler @ 001d4f51 */
   local_80 = local_28;
-  core::option::Option<T>::map_or_else(&local_70,&local_58);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17hc22922308bfda6bfE(&local_70,&local_58);
                     /* try { // try from 001d4f1c to 001d4f25 has its CatchHandler @ 001d4f42 */
-  core::ptr::drop_in_place<alloc::string::String>(local_28);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h265121219f172febE(local_28);
   param_2[2] = local_60;
   *param_2 = local_70;
   param_2[1] = uStack_68;

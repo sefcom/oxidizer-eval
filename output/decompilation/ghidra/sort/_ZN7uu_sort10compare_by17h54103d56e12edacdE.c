@@ -1,5 +1,5 @@
-ulong __rustcall
-uu_sort::compare_by(undefined8 *param_1,undefined8 *param_2,long param_3,long param_4,long param_5)
+ulong _ZN7uu_sort10compare_by17h54103d56e12edacdE
+                (undefined8 *param_1,undefined8 *param_2,long param_3,long param_4,long param_5)
 
 {
   ulong uVar1;
@@ -19,7 +19,8 @@ uu_sort::compare_by(undefined8 *param_1,undefined8 *param_2,long param_3,long pa
   uVar8 = *(long *)(param_3 + 0x58) * param_1[2];
   uVar6 = *(ulong *)(param_5 + 0x10);
   uVar1 = *(ulong *)(param_4 + 0x10);
-  lVar5 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next(&local_40);
+  lVar5 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h1dc45998b69df0a3E
+                    (&local_40);
   if (lVar5 == 0) {
     bVar2 = 0;
     if (((*(char *)(param_3 + 0x98) != '\x05') && (bVar2 = 0, *(char *)(param_3 + 0x83) == '\0')) &&
@@ -55,7 +56,8 @@ uu_sort::compare_by(undefined8 *param_1,undefined8 *param_2,long param_3,long pa
   }
   if (uVar1 <= uVar8) {
                     /* WARNING: Subroutine does not return */
-    core::panicking::panic_bounds_check(uVar8,uVar1,&PTR_s_src_uu_sort_src_sort_rs_002ffd18);
+    _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E
+              (uVar8,uVar1,&PTR_s_src_uu_sort_src_sort_rs_002ffd18);
   }
   if (uVar7 < uVar6) {
                     /* WARNING: Could not recover jumptable at 0x00223dcd. Too many branches */
@@ -65,5 +67,6 @@ uu_sort::compare_by(undefined8 *param_1,undefined8 *param_2,long param_3,long pa
     return uVar6;
   }
                     /* WARNING: Subroutine does not return */
-  core::panicking::panic_bounds_check(uVar7,uVar6,&PTR_s_src_uu_sort_src_sort_rs_002ffd30);
+  _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E
+            (uVar7,uVar6,&PTR_s_src_uu_sort_src_sort_rs_002ffd30);
 }

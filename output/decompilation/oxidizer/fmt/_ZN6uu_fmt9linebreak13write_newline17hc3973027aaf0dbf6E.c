@@ -12,7 +12,8 @@ fn uu_fmt::linebreak::write_newline(a0: u32, a1: u32, a2: &struct8) -> u64 {
         v4 = v3 + 1;
         a2->field_10 = v4;
     } else {
-        v5 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, "\n");
+        v5 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, "
+");
         if v5 {
             return v5;
         }

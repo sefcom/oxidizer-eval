@@ -1,4 +1,4 @@
-void __rustcall uu_wc::Input::to_title(long *param_1,long *param_2)
+void _ZN5uu_wc5Input8to_title17hf944d4f2d9388afeE(long *param_1,long *param_2)
 
 {
   long lVar1;
@@ -14,14 +14,14 @@ void __rustcall uu_wc::Input::to_title(long *param_1,long *param_2)
   if (*param_2 != -0x7fffffffffffffff) {
     lVar1 = param_2[1];
     lVar2 = param_2[2];
-    std::ffi::os_str::_<impl_core::convert::TryFrom<&std::ffi::os_str::OsStr>for&str>::try_from
+    _ZN3std3ffi6os_str95__LT_impl_u20_core__convert__TryFrom_LT__RF_std__ffi__os_str__OsStr_GT__u20_for_u20__RF_str_GT_8try_from17h660bab9c45707695E
               (&local_48,lVar1,lVar2);
     lVar6 = local_38;
     lVar5 = local_40;
     if ((local_48 != 0) ||
-       (cVar3 = _<char_as_core::str::pattern::Pattern>::is_contained_in(local_40,local_38),
-       lVar4 = -0x8000000000000000, cVar3 != '\0')) {
-      uucore::features::quoting_style::escape_name
+       (cVar3 = _ZN52__LT_char_u20_as_u20_core__str__pattern__Pattern_GT_15is_contained_in17hf6fa57beb1c3cfdfE
+                          (local_40,local_38), lVar4 = -0x8000000000000000, cVar3 != '\0')) {
+      _ZN6uucore8features13quoting_style11escape_name17ha9b5831150e16363E
                 (&local_48,lVar1,lVar2,
                  &anon_7c7385208ddd1e4e4d864dc74576bdf1_19_llvm_3329604763963259673);
       lVar4 = local_48;

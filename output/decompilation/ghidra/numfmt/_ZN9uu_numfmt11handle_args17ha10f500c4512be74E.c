@@ -1,4 +1,4 @@
-long __rustcall uu_numfmt::handle_args(undefined4 *param_1,undefined8 param_2)
+long _ZN9uu_numfmt11handle_args17ha10f500c4512be74E(undefined4 *param_1,undefined8 param_2)
 
 {
   undefined *puVar1;
@@ -15,7 +15,7 @@ long __rustcall uu_numfmt::handle_args(undefined4 *param_1,undefined8 param_2)
   undefined8 local_28;
   undefined8 uStack_20;
   
-  puVar1 = PTR_format_and_handle_validation_00239938;
+  puVar1 = PTR__ZN9uu_numfmt28format_and_handle_validation17he0ebc98d5f24d5daE_00239938;
   local_58 = *param_1;
   uStack_54 = param_1[1];
   uStack_50 = param_1[2];
@@ -27,7 +27,7 @@ long __rustcall uu_numfmt::handle_args(undefined4 *param_1,undefined8 param_2)
   local_28 = *(undefined8 *)(param_1 + 0xc);
   uStack_20 = *(undefined8 *)(param_1 + 0xe);
   do {
-    auVar3 = _<core::iter::adapters::map::Map<I,F>as_core::iter::traits::iterator::Iterator>::next
+    auVar3 = _ZN102__LT_core__iter__adapters__map__Map_LT_I_C_F_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h16d90f60093eeb35E
                        (&local_58);
     if (auVar3._0_8_ == 0) {
       return 0;

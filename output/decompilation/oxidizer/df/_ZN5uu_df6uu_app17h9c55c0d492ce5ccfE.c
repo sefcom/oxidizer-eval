@@ -2,27 +2,34 @@ fn uu_df::uu_app(a0: &struct712) -> u64 {
     let v0: i64;  // [sp-0xa70]
     let v1: i8;  // [bp-0xa68]
     let v2: i8;  // [bp-0xa60]
-    let v3: i4736;  // [sp-0xa58], Other Possible Types: struct592, struct24
+    let v3: struct592;  // [sp-0xa58], Other Possible Types: struct24
     let v4: i32;  // [sp-0x810]
     let v5: i32;  // [sp-0x80c]
-    let v6: i4736;  // [sp-0x808], Other Possible Types: struct592, struct712, struct437
-    let v7: i4736;  // [sp-0x540], Other Possible Types: struct592, struct712
+    let v6: struct592;  // [sp-0x808], Other Possible Types: struct712, struct437
+    let v7: struct592;  // [sp-0x540], Other Possible Types: struct712
     let v8: i64;  // [sp-0x284]
     let v9: i32;  // [sp-0x27c]
-    let v10: i64;  // [bp-0x278], Other Possible Types: struct32, struct592, struct96, struct48
+    let v10: struct32;  // [bp-0x278], Other Possible Types: struct592, struct96, unsigned long, struct48
     let v11: i64;  // [sp-0x270]
     let v12: i64;  // [sp-0x268]
     let v14: i64;  // rdx
 
     v6 = clap_builder::builder::command::Command::new(uucore::util_name(), v14);
     v7 = clap_builder::builder::command::Command::version(&v6, "0.0.28");
-    v6 = clap_builder::builder::command::Command::about(&v7, "Show information about the file system on which each FILE resides,\nor all file systems by default.");
+    v6 = clap_builder::builder::command::Command::about(&v7, "Show information about the file system on which each FILE resides,
+or all file systems by default.");
     v3 = uucore::format_usage("{} [OPTION]... [FILE]...");
     v7 = clap_builder::builder::command::Command::override_usage(&v6, &v3);
-    v6 = clap_builder::builder::command::Command::after_help(&v7, "Display values are in units of the first available SIZE from --block-size,\nand the DF_BLOCK_SIZE, BLOCK_SIZE and BLOCKSIZE environment variables.\nOtherwise, units default to 1024 bytes (or 512 if POSIXLY_CORRECT is set).\n\nSIZE is an integer and optional unit (example: 10M is 10*1024*1024).\nUnits are K, M, G, T, P, E, Z, Y (powers of 1024) or KB, MB,... (powers\nof 1000).");
+    v6 = clap_builder::builder::command::Command::after_help(&v7, "Display values are in units of the first available SIZE from --block-size,
+and the DF_BLOCK_SIZE, BLOCK_SIZE and BLOCKSIZE environment variables.
+Otherwise, units default to 1024 bytes (or 512 if POSIXLY_CORRECT is set).
+
+SIZE is an integer and optional unit (example: 10M is 10*1024*1024).
+Units are K, M, G, T, P, E, Z, Y (powers of 1024) or KB, MB,... (powers
+of 1000).");
     memcpy(&v7, &v6, 700);
-    v8 = 1126449662918784 | *((&v6 as &char + 700) as &i64);
-    v9 = *((&v6 as &char + 708) as &i32);
+    v8 = 1126449662918784 | *((&v6.field_0 as &char + 700) as &i64);
+    v9 = *((&v6.field_0 as &char + 708) as &i32);
     v6 = clap_builder::builder::arg::Arg::new("help");
     v3 = clap_builder::builder::arg::Arg::long(&v6, "help");
     v6 = clap_builder::builder::arg::Arg::help(&v3, "Print help information.");
@@ -124,8 +131,8 @@ fn uu_df::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::arg::Arg::action(&v6, 0x1);
     v6 = clap_builder::builder::arg::Arg::num_args(&v3);
     memcpy(&v3, &v6, 584);
-    v4 = 128 | *((&v6 as &char + 584) as &i32);
-    v5 = *((&v6 as &char + 588) as &i32);
+    v4 = 128 | *((&v6.field_0 as &char + 584) as &i32);
+    v5 = *((&v6.field_0 as &char + 588) as &i32);
     v6 = clap_builder::builder::arg::Arg::use_value_delimiter(&v3, 0x1);
     memcpy(&v10, "source", 192);
     v3 = clap_builder::builder::arg::Arg::value_parser(&v6, &v10);
@@ -179,9 +186,9 @@ fn uu_df::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::arg::Arg::short(&v7, 0x74);
     v7 = clap_builder::builder::arg::Arg::long(&v3, "type");
     v0 = 2;
-    v12 = v2;
+    v12 = *(&v2 as &i64);
     v10 = v0;
-    v11 = v1;
+    v11 = *(&v1 as &i64);
     v3 = clap_builder::builder::arg::Arg::value_parser(&v7, &v10);
     v7 = clap_builder::builder::arg::Arg::value_name(&v3, "TYPE");
     v3 = clap_builder::builder::arg::Arg::action(&v7, 0x1);

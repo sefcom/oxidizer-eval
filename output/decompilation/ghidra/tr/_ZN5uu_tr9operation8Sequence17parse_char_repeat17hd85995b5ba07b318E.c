@@ -1,5 +1,5 @@
-void __rustcall
-uu_tr::operation::Sequence::parse_char_repeat(ulong *param_1,undefined8 param_2,undefined8 param_3)
+void _ZN5uu_tr9operation8Sequence17parse_char_repeat17hd85995b5ba07b318E
+               (ulong *param_1,undefined8 param_2,undefined8 param_3)
 
 {
   char *local_60;
@@ -20,7 +20,8 @@ uu_tr::operation::Sequence::parse_char_repeat(ulong *param_1,undefined8 param_2,
   local_48 = 1;
   local_40 = "]";
   local_38 = 1;
-  nom::sequence::delimited::___closure__(&local_30,&local_60,param_2,param_3);
+  _ZN3nom8sequence9delimited28__u7b__u7b_closure_u7d__u7d_17hbda65ba818a3ebf0E
+            (&local_30,&local_60,param_2,param_3);
   if (local_30 == 0) {
     param_1[3] = local_18;
     param_1[4] = uStack_10;
@@ -28,7 +29,8 @@ uu_tr::operation::Sequence::parse_char_repeat(ulong *param_1,undefined8 param_2,
     param_1[2] = uStack_20;
   }
   else {
-    parse_char_repeat::___closure__(param_1 + 1,&local_30);
+    _ZN5uu_tr9operation8Sequence17parse_char_repeat28__u7b__u7b_closure_u7d__u7d_17hb4b44df29a4e59ecE
+              (param_1 + 1,&local_30);
   }
   *param_1 = (ulong)(local_30 == 0);
   return;

@@ -1,4 +1,4 @@
-void __rustcall uu_fmt::parasplit::ParaWords::create_words(long param_1)
+void _ZN6uu_fmt9parasplit9ParaWords12create_words17hc7811e7c94ca3f17E(long param_1)
 
 {
   long lVar1;
@@ -28,7 +28,7 @@ void __rustcall uu_fmt::parasplit::ParaWords::create_words(long param_1)
     local_e0 = local_e8 + *(long *)(lVar1 + 0x10) * 0x18;
     local_9f = 2;
     local_5f = 2;
-    _<alloc::vec::Vec<T,A>as_alloc::vec::spec_extend::SpecExtend<T,I>>::spec_extend
+    _ZN97__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_alloc__vec__spec_extend__SpecExtend_LT_T_C_I_GT__GT_11spec_extend17h6e3e89d9b96b900dE
               (param_1,&local_e8);
     return;
   }
@@ -38,13 +38,13 @@ void __rustcall uu_fmt::parasplit::ParaWords::create_words(long param_1)
       uVar5 = *(undefined8 *)(lVar1 + 0x60);
       uVar4 = *(undefined8 *)(*(long *)(lVar1 + 8) + 8);
       uVar6 = *(undefined8 *)(*(long *)(lVar1 + 8) + 0x10);
-      auVar7 = core::str::traits::
-               _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::RangeFrom<usize>>::
-               get(uVar5,uVar4,uVar6);
+      auVar7 = _ZN4core3str6traits112__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeFrom_LT_usize_GT__GT_3get17hccefea64a1916a27E
+                         (uVar5,uVar4,uVar6);
       if (auVar7._0_8_ != 0) {
 LAB_001ba455:
-        WordSplit::new(local_58,lVar2,auVar7._0_8_,auVar7._8_8_);
-        _<alloc::vec::Vec<T,A>as_alloc::vec::spec_extend::SpecExtend<T,I>>::spec_extend
+        _ZN6uu_fmt9parasplit9WordSplit3new17h78514cc4bb6fc660E
+                  (local_58,lVar2,auVar7._0_8_,auVar7._8_8_);
+        _ZN97__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_alloc__vec__spec_extend__SpecExtend_LT_T_C_I_GT__GT_11spec_extend17h41916ca398d3ca71E
                   (param_1,local_58);
         lVar1 = *(long *)(param_1 + 0x20);
         if (1 < *(ulong *)(lVar1 + 0x10)) {
@@ -56,7 +56,7 @@ LAB_001ba455:
           local_120 = 2;
           local_f0 = 2;
           local_150 = (undefined *)&local_178;
-          _<alloc::vec::Vec<T,A>as_alloc::vec::spec_extend::SpecExtend<T,I>>::spec_extend
+          _ZN97__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_alloc__vec__spec_extend__SpecExtend_LT_T_C_I_GT__GT_11spec_extend17h6367ef051ef2e384E
                     (param_1,&local_170);
         }
         return;
@@ -73,16 +73,15 @@ LAB_001ba455:
     uVar5 = *(undefined8 *)(lVar1 + 0x50);
     uVar4 = *(undefined8 *)(*(long *)(lVar1 + 8) + 8);
     uVar6 = *(undefined8 *)(*(long *)(lVar1 + 8) + 0x10);
-    auVar7 = core::str::traits::
-             _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::RangeFrom<usize>>::get
+    auVar7 = _ZN4core3str6traits112__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeFrom_LT_usize_GT__GT_3get17hccefea64a1916a27E
                        (uVar5,uVar4,uVar6);
     if (auVar7._0_8_ != 0) goto LAB_001ba455;
     ppuVar3 = &PTR_s_src_uu_fmt_src_parasplit_rs_00226728;
 LAB_001ba53f:
-    core::str::slice_error_fail(uVar4,uVar6,uVar5,uVar6,ppuVar3);
+    _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE(uVar4,uVar6,uVar5,uVar6,ppuVar3);
   }
   ppuVar3 = &PTR_s_src_uu_fmt_src_parasplit_rs_002266e0;
 LAB_001ba52e:
                     /* WARNING: Subroutine does not return */
-  core::panicking::panic_bounds_check(0,0,ppuVar3);
+  _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E(0,0,ppuVar3);
 }

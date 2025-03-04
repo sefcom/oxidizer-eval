@@ -1,5 +1,6 @@
-undefined8 __rustcall
-uu_echo::execute(undefined8 param_1,char param_2,char param_3,undefined4 *param_4)
+undefined8
+_ZN7uu_echo7execute17h70a095d897960844E
+          (undefined8 param_1,char param_2,char param_3,undefined4 *param_4)
 
 {
   undefined8 uVar1;
@@ -44,20 +45,20 @@ uu_echo::execute(undefined8 param_1,char param_2,char param_3,undefined4 *param_
   uStack_40 = param_4[0xe];
   uStack_3c = param_4[0xf];
   local_38 = 0;
-  auVar4 = _<core::iter::adapters::enumerate::Enumerate<I>as_core::iter::traits::iterator::Iterator>
-           ::next(&local_78);
+  auVar4 = _ZN110__LT_core__iter__adapters__enumerate__Enumerate_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hbcfbc49f81d31fadE
+                     (&local_78);
   if (auVar4._8_8_ != 0) {
     if (param_3 == '\0') {
       do {
         uVar3 = *(undefined8 *)(auVar4._8_8_ + 8);
         uVar1 = *(undefined8 *)(auVar4._8_8_ + 0x10);
         if (((auVar4._0_8_ != 0) &&
-            (lVar2 = _<std::io::stdio::StdoutLock_as_std::io::Write>::write_all
+            (lVar2 = _ZN61__LT_std__io__stdio__StdoutLock_u20_as_u20_std__io__Write_GT_9write_all17h10000d12d1c1ff48E
                                (param_1,&DAT_0011b6d3,1), lVar2 != 0)) ||
-           (lVar2 = _<std::io::stdio::StdoutLock_as_std::io::Write>::write_all(param_1,uVar3,uVar1),
-           lVar2 != 0)) goto LAB_001a4da0;
-        auVar4 = _<core::iter::adapters::enumerate::Enumerate<I>as_core::iter::traits::iterator::Iterator>
-                 ::next(&local_78);
+           (lVar2 = _ZN61__LT_std__io__stdio__StdoutLock_u20_as_u20_std__io__Write_GT_9write_all17h10000d12d1c1ff48E
+                              (param_1,uVar3,uVar1), lVar2 != 0)) goto LAB_001a4da0;
+        auVar4 = _ZN110__LT_core__iter__adapters__enumerate__Enumerate_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hbcfbc49f81d31fadE
+                           (&local_78);
       } while (auVar4._8_8_ != 0);
     }
     else {
@@ -65,28 +66,27 @@ uu_echo::execute(undefined8 param_1,char param_2,char param_3,undefined4 *param_
         uVar3 = *(undefined8 *)(auVar4._8_8_ + 8);
         uVar1 = *(undefined8 *)(auVar4._8_8_ + 0x10);
         if (((auVar4._0_8_ != 0) &&
-            (lVar2 = _<std::io::stdio::StdoutLock_as_std::io::Write>::write_all
+            (lVar2 = _ZN61__LT_std__io__stdio__StdoutLock_u20_as_u20_std__io__Write_GT_9write_all17h10000d12d1c1ff48E
                                (param_1,&DAT_0011b6d3,1), lVar2 != 0)) ||
-           (print_escaped(&local_88,uVar3,uVar1,param_1), lVar2 = local_80, local_88 != '\0'))
-        goto LAB_001a4da0;
+           (_ZN7uu_echo13print_escaped17hfb2c9877aef23019E(&local_88,uVar3,uVar1,param_1),
+           lVar2 = local_80, local_88 != '\0')) goto LAB_001a4da0;
         if (local_87 != '\0') {
           return 0;
         }
-        auVar4 = _<core::iter::adapters::enumerate::Enumerate<I>as_core::iter::traits::iterator::Iterator>
-                 ::next(&local_78);
+        auVar4 = _ZN110__LT_core__iter__adapters__enumerate__Enumerate_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hbcfbc49f81d31fadE
+                           (&local_78);
       } while (auVar4._8_8_ != 0);
     }
   }
   if ((param_2 == '\0') ||
-     (lVar2 = _<std::io::stdio::StdoutLock_as_std::io::Write>::write_all(param_1,&DAT_0011b420,1),
-     lVar2 == 0)) {
+     (lVar2 = _ZN61__LT_std__io__stdio__StdoutLock_u20_as_u20_std__io__Write_GT_9write_all17h10000d12d1c1ff48E
+                        (param_1,&DAT_0011b420,1), lVar2 == 0)) {
     uVar3 = 0;
   }
   else {
 LAB_001a4da0:
-    uVar3 = uucore::mods::error::
-            _<impl_core::convert::From<std::io::error::Error>for_alloc::boxed::Box<dyn_uucore::mods::error::UError>>
-            ::from(lVar2);
+    uVar3 = _ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17hcd961c31063bf4faE
+                      (lVar2);
   }
   return uVar3;
 }

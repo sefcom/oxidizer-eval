@@ -1,6 +1,7 @@
-undefined  [16] __rustcall
-uu_ln::link(undefined8 param_1,undefined ****param_2,undefined8 param_3,undefined ****param_4,
-           long param_5)
+undefined  [16]
+_ZN5uu_ln4link17h8c92ebae2dccde8fE
+          (undefined8 param_1,undefined ****param_2,undefined8 param_3,undefined ****param_4,
+          long param_5)
 
 {
   undefined auVar1 [16];
@@ -44,10 +45,10 @@ uu_ln::link(undefined8 param_1,undefined ****param_2,undefined8 param_3,undefine
   }
   else {
                     /* try { // try from 001ba4a1 to 001ba4b3 has its CatchHandler @ 001badd3 */
-    relative_path(&local_128,param_1,param_2,param_3,param_4);
+    _ZN5uu_ln13relative_path17ha14d8bdd96810d1dE(&local_128,param_1,param_2,param_3,param_4);
   }
                     /* try { // try from 001ba4d1 to 001ba5bc has its CatchHandler @ 001baddd */
-  cVar2 = std::path::Path::is_symlink(param_3,param_4);
+  cVar2 = _ZN3std4path4Path10is_symlink17h6ab8b58756c51c6bE(param_3,param_4);
   if (cVar2 != '\0') {
                     /* WARNING: Could not recover jumptable at 0x001ba505. Too many branches */
                     /* WARNING: Treating indirect jump as call */
@@ -55,9 +56,9 @@ uu_ln::link(undefined8 param_1,undefined ****param_2,undefined8 param_3,undefine
                        *(int *)(&DAT_0011e8e8 + (ulong)*(byte *)(param_5 + 0x37) * 4)))();
     return auVar6;
   }
-  std::fs::metadata(&local_108,param_3,param_4);
+  _ZN3std2fs8metadata17hebad4fc3d3e825b8E(&local_108,param_3,param_4);
   if (local_108 != (undefined **)0x2) {
-    core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>
+    _ZN4core3ptr90drop_in_place_LT_core__result__Result_LT_std__fs__Metadata_C_std__io__error__Error_GT__GT_17h834abcfa2f925b76E
               (local_108,local_100);
                     /* WARNING: Could not recover jumptable at 0x001ba56e. Too many branches */
                     /* WARNING: Treating indirect jump as call */
@@ -65,17 +66,19 @@ uu_ln::link(undefined8 param_1,undefined ****param_2,undefined8 param_3,undefine
                        *(int *)(&DAT_0011e8e8 + (ulong)*(byte *)(param_5 + 0x37) * 4)))();
     return auVar6;
   }
-  core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>
+  _ZN4core3ptr90drop_in_place_LT_core__result__Result_LT_std__fs__Metadata_C_std__io__error__Error_GT__GT_17h834abcfa2f925b76E
             (2,local_100);
   if (*(char *)(param_5 + 0x30) == '\0') {
     if ((*(char *)(param_5 + 0x32) == '\0') ||
-       (cVar2 = std::path::Path::is_symlink(local_120,ppppuStack_118), cVar2 == '\0')) {
-      std::sys::pal::unix::os::split_paths::bytes_to_path(&local_168,local_120,ppppuStack_118);
+       (cVar2 = _ZN3std4path4Path10is_symlink17h6ab8b58756c51c6bE(local_120,ppppuStack_118),
+       cVar2 == '\0')) {
+      _ZN3std3sys3pal4unix2os11split_paths13bytes_to_path17h0549813f23b52483E
+                (&local_168,local_120,ppppuStack_118);
     }
     else {
-      std::fs::canonicalize(&local_108,&local_128);
-      _<core::result::Result<T,std::io::error::Error>as_uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn_uucore::mods::error::UError>>>>
-      ::map_err_context(&local_188,&local_108,&local_128);
+      _ZN3std2fs12canonicalize17h9984b9af66694330E(&local_108,&local_128);
+      _ZN201__LT_core__result__Result_LT_T_C_std__io__error__Error_GT__u20_as_u20_uucore__mods__error__FromIo_LT_core__result__Result_LT_T_C_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT__GT__GT_15map_err_context17h9a2705f0495ff63bE
+                (&local_188,&local_108,&local_128);
       auVar6._8_8_ = ppppuStack_178;
       auVar6._0_8_ = local_180;
       if (local_188 == (undefined **)0x8000000000000000) goto LAB_001bab92;
@@ -87,24 +90,25 @@ uu_ln::link(undefined8 param_1,undefined ****param_2,undefined8 param_3,undefine
     local_f8 = local_158;
     local_108 = local_168;
     local_100 = uStack_160;
-    uVar4 = std::fs::hard_link(&local_108,param_3,param_4);
+    uVar4 = _ZN3std2fs9hard_link17hedb4a065c044017dE(&local_108,param_3,param_4);
     local_108 = &local_128;
     local_100 = param_3;
     local_f8 = param_4;
-    auVar6 = _<core::result::Result<T,std::io::error::Error>as_uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn_uucore::mods::error::UError>>>>
-             ::map_err_context(uVar4,&local_108);
+    auVar6 = _ZN201__LT_core__result__Result_LT_T_C_std__io__error__Error_GT__u20_as_u20_uucore__mods__error__FromIo_LT_core__result__Result_LT_T_C_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT__GT__GT_15map_err_context17h35311f61e0a1e46bE
+                       (uVar4,&local_108);
     if (auVar6._0_8_ != 0) goto LAB_001bab92;
   }
   else {
-    lVar3 = std::os::unix::fs::symlink(&local_128,param_3,param_4);
+    lVar3 = _ZN3std2os4unix2fs7symlink17ha8160bb27397fc33E(&local_128,param_3,param_4);
     if (lVar3 != 0) {
-      auVar6 = uucore::mods::error::
-               _<impl_core::convert::From<std::io::error::Error>for_alloc::boxed::Box<dyn_uucore::mods::error::UError>>
-               ::from(lVar3);
+      auVar6 = _ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17hcd961c31063bf4faE
+                         (lVar3);
 LAB_001bab92:
                     /* try { // try from 001bab95 to 001bab9e has its CatchHandler @ 001badd3 */
-      core::ptr::drop_in_place<alloc::borrow::Cow<std::path::Path>>(&local_128);
-      core::ptr::drop_in_place<core::option::Option<std::path::PathBuf>>(&local_140);
+      _ZN4core3ptr62drop_in_place_LT_alloc__borrow__Cow_LT_std__path__Path_GT__GT_17h64f669095bad1067E
+                (&local_128);
+      _ZN4core3ptr67drop_in_place_LT_core__option__Option_LT_std__path__PathBuf_GT__GT_17h31d4f7ecf091fd1cE
+                (&local_140);
       return auVar6;
     }
   }
@@ -116,8 +120,10 @@ LAB_001bab92:
     ppppuStack_178 = ppppuStack_118;
     local_170 = 1;
     local_58 = &local_168;
-    local_50 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
-    local_40 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+    local_50 = 
+    _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
+    local_40 = 
+    _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
     local_108 = (undefined **)&DAT_0022d088;
     local_100 = 2;
     uStack_e8 = 0;
@@ -126,7 +132,7 @@ LAB_001bab92:
     local_158 = param_4;
     local_f8 = &local_58;
     local_48 = &local_188;
-    std::io::stdio::_print(&local_108);
+    _ZN3std2io5stdio6_print17he918bceb0c89db46E(&local_108);
     if (local_140 != (undefined **)0x8000000000000000) {
       local_158 = local_130;
       local_168 = local_140;
@@ -135,7 +141,8 @@ LAB_001bab92:
       local_180 = uStack_160;
       ppppuStack_178 = local_130;
       local_170 = 1;
-      local_50 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+      local_50 = 
+      _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
       local_108 = &PTR_s__backup____0022d0b8;
       local_100 = 2;
       uStack_e8 = 0;
@@ -143,9 +150,9 @@ LAB_001bab92:
                     /* try { // try from 001bac42 to 001bac4f has its CatchHandler @ 001bad81 */
       local_f8 = &local_58;
       local_58 = &local_188;
-      std::io::stdio::_print(&local_108);
+      _ZN3std2io5stdio6_print17he918bceb0c89db46E(&local_108);
                     /* try { // try from 001bac58 to 001bac61 has its CatchHandler @ 001baddd */
-      core::ptr::drop_in_place<std::path::PathBuf>(&local_168);
+      _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17hff8990cc0a5456e3E(&local_168);
       bVar5 = 1;
       goto LAB_001bac67;
     }
@@ -154,14 +161,15 @@ LAB_001bab92:
     local_f8 = (undefined ****)&DAT_00000008;
     local_f0 = 0;
     uStack_e8 = 0;
-    std::io::stdio::_print(&local_108);
+    _ZN3std2io5stdio6_print17he918bceb0c89db46E(&local_108);
   }
   bVar5 = 0;
 LAB_001bac67:
                     /* try { // try from 001bac67 to 001bac70 has its CatchHandler @ 001badd3 */
-  core::ptr::drop_in_place<alloc::borrow::Cow<std::path::Path>>(&local_128);
+  _ZN4core3ptr62drop_in_place_LT_alloc__borrow__Cow_LT_std__path__Path_GT__GT_17h64f669095bad1067E
+            (&local_128);
   if ((bool)(~bVar5 & local_140 != (undefined **)0x8000000000000000)) {
-    core::ptr::drop_in_place<std::path::PathBuf>(&local_140);
+    _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17hff8990cc0a5456e3E(&local_140);
   }
   auVar1._8_8_ = 0;
   auVar1._0_8_ = param_2;

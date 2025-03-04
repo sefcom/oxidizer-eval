@@ -8,7 +8,7 @@ long long uu_tail::follow::files::FileHandling::remove::h9a608e9706c93353(void* 
     if (*((int *)&v1) != 3)
     {
         memcpy(a0, &v1, 216);
-        ::0x50d380::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b();
+        ::0x50d380::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b(&v0);
         return a0;
     }
     core::option::unwrap_failed::h0e11329e76906eaa(&g_5bc480); /* do not return */

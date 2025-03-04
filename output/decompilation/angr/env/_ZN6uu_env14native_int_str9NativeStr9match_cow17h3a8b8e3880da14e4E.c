@@ -5,12 +5,16 @@ long long uu_env::native_int_str::NativeStr::match_cow::h3a8b8e3880da14e4(unsign
     char v2;  // [bp-0x38]
     unsigned long long v3;  // [sp-0x28]
     int v4;  // [sp-0x20]
+    unsigned long long v6;  // rcx
+    unsigned long long v7;  // rax
     unsigned long long v8;  // rax
     unsigned long v9;  // rdx
 
+    v6 = a1[1];
+    v7 = a1[2];
     if (a1[0] != 0x8000000000000000)
     {
-        v8 = uu_env::native_int_str::NativeStr::slice::_$u7b$$u7b$closure$u7d$$u7d$::h033cea41decbbfeb(&v0, a4, a5, a1[1], a1[2]);
+        v8 = uu_env::native_int_str::NativeStr::slice::_$u7b$$u7b$closure$u7d$$u7d$::h033cea41decbbfeb(&v0, a4, a5, v6, v7);
         if (*((long long *)&v0) != 0x8000000000000000)
         {
             core::ops::function::FnOnce::call_once::h63e4e715c9d610ef(&v1, &v0);
@@ -22,7 +26,7 @@ long long uu_env::native_int_str::NativeStr::match_cow::h3a8b8e3880da14e4(unsign
     }
     else
     {
-        v8 = uu_env::native_int_str::NativeStr::slice::_$u7b$$u7b$closure$u7d$$u7d$::h1d1e8395e04fa064(a2, a3);
+        v8 = uu_env::native_int_str::NativeStr::slice::_$u7b$$u7b$closure$u7d$$u7d$::h1d1e8395e04fa064(a2, a3, v6, v7);
         if (v8)
         {
             a0[0] = 0x8000000000000000;

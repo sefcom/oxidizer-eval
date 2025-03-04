@@ -1,6 +1,6 @@
 double uu_ln::numbered_backup_path::h43f0286cb18b9b8f(long long a0, long long a1, long long a2)
 {
-    unsigned long v0;  // [sp-0x138], Other Possible Types: unsigned long long
+    unsigned long long v0;  // [sp-0x138]
     char v1;  // [bp-0x128]
     char v2;  // [bp-0x120]
     char v3;  // [bp-0x118]
@@ -8,9 +8,9 @@ double uu_ln::numbered_backup_path::h43f0286cb18b9b8f(long long a0, long long a1
     unsigned long long v5;  // [sp-0x108]
     char v6;  // [bp-0x100]
     char v7;  // [bp-0xf0]
-    int v8;  // [sp-0xe8], Other Possible Types: unsigned long long
+    int v8;  // [bp-0xe8], Other Possible Types: unsigned long
     unsigned long long v9;  // [sp-0xe0]
-    struct struct_1 **v10;  // [sp-0xd8], Other Possible Types: unsigned long long
+    struct struct_0 **v10;  // [sp-0xd8], Other Possible Types: unsigned long long
     unsigned long long v11;  // [sp-0xd0]
     void* v12;  // [sp-0xc8]
     int v15;  // ymm0
@@ -30,7 +30,7 @@ double uu_ln::numbered_backup_path::h43f0286cb18b9b8f(long long a0, long long a1
         v12 = 0;
         v10 = &v4;
         v11 = 1;
-        ::0x4b8610::core::option::Option$LT$T$GT$::map_or_else::hf2027c020971d755();
+        ::0x4b8610::core::option::Option$LT$T$GT$::map_or_else::hf2027c020971d755(&v6, &v8);
         v17 = *((int128_t *)&v6);
         v8 = v17;
         v10 = *((long long *)&v7);
@@ -42,7 +42,7 @@ double uu_ln::numbered_backup_path::h43f0286cb18b9b8f(long long a0, long long a1
             break;
         ::0x4b84f0::core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$::h834abcfa2f925b76(v8, v19);
         v0 += 1;
-        ::0x4b7ac0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hff8990cc0a5456e3();
+        ::0x4b7ac0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hff8990cc0a5456e3(&v1);
         v16 = v15 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v17;
     }
     ::0x4b84f0::core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$::h834abcfa2f925b76(2, v19);

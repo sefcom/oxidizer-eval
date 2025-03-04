@@ -18,7 +18,7 @@ long long uu_tail::paths::Input::resolve::h81e1f38162942b9d(unsigned long long a
         std::sys::os_str::bytes::Slice::to_owned::h2d9ba69626881113(&v0, "/dev/stdin/dev/fd/0 <==\n\n", 10);
         v11 = a1[4];
         v12 = a1[5];
-        ::0x50fce0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b();
+        ::0x50fce0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b(&v0);
         if (!(char)::0x5105d0::_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$::eq::h1d8861b9e1bd0bd7(v11, v12, *((long long *)&v1), *((long long *)&v2)))
         {
             std::fs::canonicalize::hd214f5c614fa2ecb(&v0, v11, v12);
@@ -46,16 +46,16 @@ long long uu_tail::paths::Input::resolve::h81e1f38162942b9d(unsigned long long a
         *((int128_t *)&v5) = *((int128_t *)&v0);
         if (!(char)::0x5105d0::_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$::eq::h1d8861b9e1bd0bd7((long long)(&v3)[8], v4, (long long)(&v5)[8], *((long long *)&v2)))
         {
-            ::0x50fce0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b();
+            ::0x50fce0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b(&v5);
             a0[2] = v4;
             *((int128_t *)&a0[0]) = (int128_t)v3;
         }
         else
         {
-            ::0x50fce0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b();
+            ::0x50fce0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b(&v5);
             a0[0] = 0x8000000000000000;
             if ((long long)v3 != 0x8000000000000000)
-                ::0x50fce0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b();
+                ::0x50fce0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b(&v3);
         }
     }
     else
@@ -65,6 +65,6 @@ long long uu_tail::paths::Input::resolve::h81e1f38162942b9d(unsigned long long a
 LABEL_511105:
         a0[0] = 0x8000000000000000;
     }
-    ::0x50fce0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b();
+    ::0x50fce0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hd68403fe0abd735b(&v7);
     return a0;
 }

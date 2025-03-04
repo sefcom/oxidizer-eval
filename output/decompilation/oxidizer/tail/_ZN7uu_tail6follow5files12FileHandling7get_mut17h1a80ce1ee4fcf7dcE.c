@@ -1,5 +1,5 @@
 fn uu_tail::follow::files::FileHandling::get_mut(a0: u32, a1: u32, a2: u32) -> u64 {
-    let v0: i192;  // [sp-0x28], Other Possible Types: struct24
+    let v0: struct24;  // [sp-0x28]
     let v2: i64;  // rax
 
     v0 = uu_tail::follow::files::FileHandling::canonicalize_path(a1, a2);

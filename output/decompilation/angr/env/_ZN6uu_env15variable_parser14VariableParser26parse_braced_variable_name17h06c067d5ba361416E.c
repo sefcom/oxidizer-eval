@@ -1,9 +1,9 @@
 long long uu_env::variable_parser::VariableParser::parse_braced_variable_name::h06c067d5ba361416(struct_2 *a0, struct_1 *a1)
 {
-    char v0;  // [bp-0x78], Other Possible Types: unsigned long long
+    char v0;  // [bp-0x78], Other Possible Types: unsigned long
     char v1;  // [bp-0x74]
     unsigned long long v2;  // [sp-0x70]
-    struct struct_0 **v3;  // [bp-0x68], Other Possible Types: char
+    struct struct_0 **v3;  // [sp-0x68], Other Possible Types: char
     char v4;  // [bp-0x64]
     unsigned long long v5;  // [sp-0x60]
     void* v6;  // [sp-0x58], Other Possible Types: unsigned long
@@ -24,7 +24,6 @@ long long uu_env::variable_parser::VariableParser::parse_braced_variable_name::h
     void* v23;  // r15
     int v24;  // xmm0
     unsigned long v25;  // rdx
-    unsigned long long v26;  // r12
 
     v12 = a1->field_20;
     uu_env::variable_parser::VariableParser::check_variable_name_start::hb2ef1afab325da6e(&v0, a1);
@@ -85,7 +84,7 @@ LABEL_4d545e:
                             *((unsigned long long *)&(&a0->field_0)[2]) = v18;
                             *((unsigned long *)&a0->field_4) = v25;
                             *((void* *)((char *)&a0->field_4 + 8)) = v23;
-                            a0->field_10 = v26;
+                            a0->field_10 = v25;
                             a0->field_0 = 8;
                             return v18;
                         }
@@ -110,7 +109,7 @@ LABEL_4d548e:
                 v6 = 0;
                 v3 = &v9;
                 v5 = 1;
-                v18 = ::0x4d4ea0::core::option::Option$LT$T$GT$::map_or_else::ha7b9eb55e1cbc84d();
+                v18 = ::0x4d4ea0::core::option::Option$LT$T$GT$::map_or_else::ha7b9eb55e1cbc84d(&a0->field_4, &v0);
             }
             else
             {

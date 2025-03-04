@@ -112,7 +112,7 @@ fn uu_sort::numeric_str_cmp::human_numeric_str_cmp(a0: void*, a1: void*) -> u64 
             }
         }
     }
-    v17 = (v16 <= v12 ? v12 != v16 : 255);
+    v17 = (v16 <= v12 ? 255 : v12 != v16);
     if !v17 {
         v3 = struct24 {
             field_0: v9

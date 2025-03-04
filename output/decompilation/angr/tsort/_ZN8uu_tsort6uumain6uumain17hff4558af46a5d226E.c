@@ -2,19 +2,19 @@ long long uu_tsort::uumain::uumain::hff4558af46a5d226(unsigned long long a0, uns
 {
     char v0;  // [sp-0x4fd]
     unsigned int v1;  // [sp-0x4fc]
-    struct struct_0 **v2;  // [sp-0x4f8]
-    unsigned long v3;  // [sp-0x4f0], Other Possible Types: unsigned long long
-    char *v4;  // [bp-0x4e8], Other Possible Types: struct struct_0 **, char, unsigned long long
+    struct struct_0 **v2;  // [bp-0x4f8]
+    unsigned long long v3;  // [sp-0x4f0]
+    char *v4;  // [sp-0x4e8], Other Possible Types: struct struct_0 **, char, unsigned long long
     unsigned int v5;  // [bp-0x4e0], Other Possible Types: unsigned long long, unsigned long
     void* v6;  // [bp-0x4d8], Other Possible Types: char
-    struct struct_0 **v7;  // [bp-0x4c8], Other Possible Types: struct struct_1 **
+    struct struct_0 **v7;  // [sp-0x4c8]
     struct struct_0 **v8;  // [sp-0x4c0], Other Possible Types: unsigned long, unsigned long long
     unsigned long v9;  // [sp-0x4b8], Other Possible Types: unsigned long long
     struct_2 *v10;  // [sp-0x4b0]
-    struct struct_0 **v11;  // [sp-0x4a8]
+    struct struct_0 **v11;  // [bp-0x4a8]
     unsigned long long v12;  // [sp-0x4a0]
     unsigned long long v13;  // [sp-0x498]
-    struct struct_0 **v14;  // [sp-0x488], Other Possible Types: struct struct_1 **
+    struct struct_1 **v14;  // [sp-0x488], Other Possible Types: struct struct_0 **
     unsigned long long v15;  // [sp-0x480]
     void* v16;  // [sp-0x478]
     unsigned long long v17;  // [sp-0x470]
@@ -24,18 +24,18 @@ long long uu_tsort::uumain::uumain::hff4558af46a5d226(unsigned long long a0, uns
     char v21;  // [bp-0x450]
     char v22;  // [bp-0x440]
     char v23;  // [bp-0x430]
-    unsigned long v24;  // [sp-0x428], Other Possible Types: unsigned long long
-    unsigned long v25;  // [sp-0x420], Other Possible Types: unsigned long long
+    unsigned long v24;  // [sp-0x428]
+    unsigned long v25;  // [sp-0x420]
     unsigned long long v26;  // [sp-0x418]
-    unsigned long v27;  // [sp-0x410], Other Possible Types: unsigned long long
+    unsigned long v27;  // [sp-0x410]
     void* v28;  // [sp-0x408], Other Possible Types: char, unsigned long
-    struct struct_1 **v29;  // [sp-0x400], Other Possible Types: struct struct_0 **
+    struct struct_0 **v29;  // [sp-0x400]
     char v30;  // [sp-0x3f0]
-    struct struct_0 **v31;  // [sp-0x3e8]
+    int v31;  // [sp-0x3e8]
     struct struct_0 **v32;  // [sp-0x3d8]
     unsigned long long v33;  // [sp-0x3c8]
     unsigned long long v34;  // [sp-0x3c0]
-    unsigned long v35;  // [sp-0x3b8], Other Possible Types: unsigned long long
+    unsigned long v35;  // [sp-0x3b8]
     unsigned long long v36;  // [sp-0x3b0]
     struct struct_0 **v37;  // [sp-0x3a8]
     struct struct_0 **v38;  // [sp-0x398]
@@ -46,9 +46,9 @@ long long uu_tsort::uumain::uumain::hff4558af46a5d226(unsigned long long a0, uns
     char v43;  // [bp-0x358]
     char v44;  // [bp-0x350]
     char v45;  // [bp-0x340]
-    void* v46;  // [bp-0x338], Other Possible Types: struct struct_0 **, unsigned long long
+    struct struct_0 **v46;  // [bp-0x338]
     unsigned long long v47;  // [sp-0x330]
-    struct struct_1 **v48;  // [sp-0x328], Other Possible Types: struct struct_0 **, unsigned long, unsigned long long
+    struct struct_0 **v48;  // [sp-0x328], Other Possible Types: struct struct_1 **, unsigned long, unsigned long long
     struct struct_0 **v49;  // [bp-0x320], Other Possible Types: unsigned long long, unsigned int
     void* v50;  // [bp-0x318], Other Possible Types: struct struct_0 **
     struct struct_0 **v51;  // [sp-0x308]
@@ -58,7 +58,7 @@ long long uu_tsort::uumain::uumain::hff4558af46a5d226(unsigned long long a0, uns
     unsigned long long v55;  // [sp-0x68]
     char v56;  // [bp-0x60]
     unsigned short v57;  // [sp-0x38]
-    struct struct_0 **v61;  // rax
+    struct struct_0 **v61;  // r14
     struct_2 *v62;  // rax
     struct_2 *v63;  // rax
     unsigned long long v64;  // r14
@@ -113,7 +113,7 @@ long long uu_tsort::uumain::uumain::hff4558af46a5d226(unsigned long long a0, uns
             v50 = 0;
             v48 = &v2;
             v49 = 1;
-            core::option::Option$LT$T$GT$::map_or_else::h61e9aa31ff763042();
+            core::option::Option$LT$T$GT$::map_or_else::h61e9aa31ff763042(&v40, &v46);
             v49 = 1;
             *((int128_t *)&v46) = *((int128_t *)&v40);
             v48 = *((long long *)&v41);
@@ -141,7 +141,7 @@ LABEL_4673e4:
                 else
                 {
                     std::thread::local::LocalKey$LT$T$GT$::try_with::hce9af829f85cbcd2(&v46);
-                    *((int128_t *)&v31) = *((int128_t *)&g_51e9b0);
+                    *((uint128_t *)&v31) = g_51e9b0;
                     *((int128_t *)&v32) = *((int128_t *)&g_51e9c0);
                     v33 = core::result::Result$LT$T$C$E$GT$::expect::hcf1ae938213ad007(&v46);
                     v34 = v69;
@@ -196,7 +196,7 @@ LABEL_467861:
                                 v50 = 0;
                                 v48 = &v2;
                                 v49 = 2;
-                                core::option::Option$LT$T$GT$::map_or_else::h61e9aa31ff763042();
+                                core::option::Option$LT$T$GT$::map_or_else::h61e9aa31ff763042(&v44, &v46);
                                 *((int128_t *)&v11) = *((int128_t *)&v44);
                                 v13 = *((long long *)&v45);
                                 v25 = v8;
@@ -250,9 +250,9 @@ LABEL_467861:
                                 ::0x465a80::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h55282bba1fb61ecd(&v11);
                                 ::0x465b00::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$::h468c94d3c415e8e3(&v7);
                             }
-                            core::ptr::drop_in_place$LT$uu_tsort..Graph$GT$::hfb1817077245a538();
+                            core::ptr::drop_in_place$LT$uu_tsort..Graph$GT$::hfb1817077245a538(&v31);
                             ::0x465a80::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h55282bba1fb61ecd(&v16);
-                            core::ptr::drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$$RF$mut$u20$dyn$u20$std..io..Read$GT$$GT$::h6cf9e678dd9a4b95();
+                            core::ptr::drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$$RF$mut$u20$dyn$u20$std..io..Read$GT$$GT$::h6cf9e678dd9a4b95(*((long long *)&v19), *((long long *)&v20));
                             if (!v0)
                                 core::ptr::drop_in_place$LT$std..fs..File$GT$::hf29264b319478393(&v1);
                             core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h0a4c6af42426ce0a(&v35);
@@ -268,37 +268,39 @@ LABEL_467861:
                             v11 = v8;
                             v12 = v9;
                             v13 = 2;
-                            v74 = _$LT$core..slice..iter..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h89c26ee6dbdc37df(&v11);
-                            if (!v74)
+                            while (true)
                             {
-                                ::0x465b00::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$::h468c94d3c415e8e3(&v7);
-                                v12 = v12;
+                                v74 = _$LT$core..slice..iter..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h89c26ee6dbdc37df(&v11);
+                                if (!v74)
+                                    break;
+                                if (v69 == 2)
+                                {
+                                    uu_tsort::Graph::add_edge::h8f24cab5b427ccb3(&v31, v74[0], v74[1], v74[2], v74[3]);
+                                }
+                                else
+                                {
+                                    v28 = 0;
+                                    *((int128_t *)&v29) = *((int128_t *)&v10->field_8);
+                                    v30 = 0;
+                                    v14 = &v28;
+                                    v15 = _$LT$os_display..Quoted$u20$as$u20$core..fmt..Display$GT$::fmt::h75932a24bee941d9;
+                                    v2 = &g_51e7a8;
+                                    v3 = 2;
+                                    v6 = 0;
+                                    v4 = &v14;
+                                    v5 = 1;
+                                    core::option::Option$LT$T$GT$::map_or_else::h61e9aa31ff763042(&v42, &v2);
+                                    v5 = 1;
+                                    *((int128_t *)&v2) = *((int128_t *)&v42);
+                                    v4 = *((long long *)&v43);
+                                    v61 = alloc::boxed::Box$LT$T$GT$::new::h0a6e41ca1ff4979a(&v2);
+                                    ::0x465b00::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$::h468c94d3c415e8e3(&v7);
+                                    core::ptr::drop_in_place$LT$uu_tsort..Graph$GT$::hfb1817077245a538(&v31);
+                                    goto LABEL_4677e3;
+                                }
                             }
-                            else if (v69 != 2)
-                            {
-                                v28 = 0;
-                                *((int128_t *)&v29) = *((int128_t *)&v10->field_8);
-                                v30 = 0;
-                                v14 = &v28;
-                                v15 = _$LT$os_display..Quoted$u20$as$u20$core..fmt..Display$GT$::fmt::h75932a24bee941d9;
-                                v2 = &g_51e7a8;
-                                v3 = 2;
-                                v6 = 0;
-                                v4 = &v14;
-                                v5 = 1;
-                                core::option::Option$LT$T$GT$::map_or_else::h61e9aa31ff763042();
-                                v5 = 1;
-                                *((int128_t *)&v2) = *((int128_t *)&v42);
-                                v4 = *((long long *)&v43);
-                                v61 = alloc::boxed::Box$LT$T$GT$::new::h0a6e41ca1ff4979a(&v2);
-                                ::0x465b00::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$::h468c94d3c415e8e3(&v7);
-                                core::ptr::drop_in_place$LT$uu_tsort..Graph$GT$::hfb1817077245a538();
-                                break;
-                            }
-                            else
-                            {
-                                uu_tsort::Graph::add_edge::h8f24cab5b427ccb3(&v31, v74[0], v74[1], v74[2], v74[3]);
-                            }
+                            ::0x465b00::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$::h468c94d3c415e8e3(&v7);
+                            v12 = v12;
                         }
                         else
                         {
@@ -307,8 +309,9 @@ LABEL_467861:
                         }
                     }
                 }
+LABEL_4677e3:
                 ::0x465a80::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h55282bba1fb61ecd(&v16);
-                core::ptr::drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$$RF$mut$u20$dyn$u20$std..io..Read$GT$$GT$::h6cf9e678dd9a4b95();
+                core::ptr::drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$$RF$mut$u20$dyn$u20$std..io..Read$GT$$GT$::h6cf9e678dd9a4b95(*((long long *)&v19), *((long long *)&v20));
                 if (!v0)
                     core::ptr::drop_in_place$LT$std..fs..File$GT$::hf29264b319478393(&v1);
             }

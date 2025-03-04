@@ -1,5 +1,5 @@
-long __rustcall
-uu_fmt::linebreak::write_with_spaces(undefined8 param_1,ulong param_2,long param_3,long *param_4)
+long _ZN6uu_fmt9linebreak17write_with_spaces17hd5de12a13c23bcddE
+               (undefined8 param_1,ulong param_2,long param_3,long *param_4)
 
 {
   long lVar1;
@@ -12,7 +12,8 @@ uu_fmt::linebreak::write_with_spaces(undefined8 param_1,ulong param_2,long param
       pcVar3 = " ";
       uVar2 = 1;
 LAB_001bc6c6:
-      lVar1 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(param_4,pcVar3,uVar2);
+      lVar1 = _ZN3std2io8buffered9bufwriter18BufWriter_LT_W_GT_14write_all_cold17ha7722a1d537a2c8aE
+                        (param_4,pcVar3,uVar2);
       if (lVar1 != 0) {
         return lVar1;
       }
@@ -40,6 +41,7 @@ LAB_001bc65c:
     param_4[2] = lVar1 + param_2;
     return 0;
   }
-  lVar1 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(param_4,param_1,param_2);
+  lVar1 = _ZN3std2io8buffered9bufwriter18BufWriter_LT_W_GT_14write_all_cold17ha7722a1d537a2c8aE
+                    (param_4,param_1,param_2);
   return lVar1;
 }

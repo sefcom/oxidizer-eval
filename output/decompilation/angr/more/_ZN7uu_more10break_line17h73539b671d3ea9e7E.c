@@ -32,19 +32,19 @@ double uu_more::break_line::h73539b671d3ea9e7(long long a0, long long a1, long l
     unsigned long long v29;  // [sp-0x50]
     int v30;  // [sp-0x48]
     unsigned long long v31;  // [sp-0x38]
+    void* v33;  // r14
     int v34;  // xmm0
     int v35;  // ymm0
     int v36;  // ymm0
-    unsigned long long v38;  // rbp
-    unsigned long long v39;  // rdx
-    unsigned long long v40;  // rax
-    unsigned long long v41;  // r14
-    unsigned long long v42;  // rbp
+    unsigned long long v37;  // rbp
+    unsigned long long v38;  // rdx
+    unsigned long long v39;  // rax
+    unsigned long long v40;  // rbp
+    unsigned long long v41;  // rax
+    int v42;  // xmm0
     unsigned long long v43;  // rax
     int v44;  // xmm0
-    unsigned long long v45;  // rax
-    int v46;  // xmm0
-    int v47;  // xmm0
+    int v45;  // xmm0
 
     v3 = 0;
     v4 = 8;
@@ -85,47 +85,49 @@ double uu_more::break_line::h73539b671d3ea9e7(long long a0, long long a1, long l
         v29 = a1;
         v0 = 0;
         v8 = &g_562b98;
+        v33 = 0;
         while (true)
         {
-            v38 = _$LT$unicode_segmentation..grapheme..Graphemes$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h8ebf6d9da3d275ef(&v9);
-            if (!v38)
+            v37 = _$LT$unicode_segmentation..grapheme..Graphemes$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h8ebf6d9da3d275ef(&v9);
+            if (!v37)
                 break;
-            v40 = unicode_width::str_width::hf245007b39258182(v38, v39, 0);
-            v41 = 0 + v40;
-            if (v41 > a3)
+            v39 = unicode_width::str_width::hf245007b39258182(v37, v38, 0);
+            v33 += v39;
+            if (v33 > a3)
             {
-                v42 = v38 - v29;
-                v43 = ::0x4da560::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$::get::h3d479bbd9c610d76(v0, v42, v1, v2);
-                if (!v43)
-                    core::str::slice_error_fail::h5dbb61534404fe7e(v1, v2, v0, v42, v8); /* do not return */
-                ::0x4db4b0::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h12e9e4e6512a0ac3(&v6, v43, v39);
+                v40 = v37 - v29;
+                v41 = ::0x4da560::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$::get::h3d479bbd9c610d76(v0, v40, v1, v2);
+                if (!v41)
+                    core::str::slice_error_fail::h5dbb61534404fe7e(v1, v2, v0, v40, v8); /* do not return */
+                ::0x4db4b0::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h12e9e4e6512a0ac3(&v6, v41, a2);
                 v31 = v7;
-                v44 = v6;
-                v36 = v36 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v44;
-                v30 = v44;
+                v42 = v6;
+                v36 = v36 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v42;
+                v30 = v42;
                 alloc::vec::Vec$LT$T$C$A$GT$::push::hc1013e28eda8a57c(&v3, &v30);
-                v0 = v42;
+                v0 = v40;
+                v33 = v39;
             }
         }
-        v42 = v2;
-        if (v0 != v42)
+        v40 = v2;
+        if (v0 != v40)
         {
-            v45 = ::0x4da5a0::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::hccefea64a1916a27(v0, v1, v42);
-            if (!v45)
+            v43 = ::0x4da5a0::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::hccefea64a1916a27(v0, v1, v40);
+            if (!v43)
             {
                 v8 = &g_562b80;
-                core::str::slice_error_fail::h5dbb61534404fe7e(v1, v2, v0, v42, v8); /* do not return */
+                core::str::slice_error_fail::h5dbb61534404fe7e(v1, v2, v0, v40, v8); /* do not return */
             }
-            ::0x4db4b0::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h12e9e4e6512a0ac3(&v9, v45, v39);
+            ::0x4db4b0::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h12e9e4e6512a0ac3(&v9, v43, a2);
             v7 = v10;
-            v46 = *((int128_t *)&v9);
-            v36 = v36 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v46;
-            v6 = v46;
+            v44 = *((int128_t *)&v9);
+            v36 = v36 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v44;
+            v6 = v44;
             alloc::vec::Vec$LT$T$C$A$GT$::push::hc1013e28eda8a57c(&v3, &v6);
         }
     }
     a0->field_10 = v5;
-    v47 = *((int128_t *)&v3);
-    *((void*)&a0->field_0) = v47;
-    return (unsigned long long)(v36 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v47);
+    v45 = *((int128_t *)&v3);
+    *((void*)&a0->field_0) = v45;
+    return (unsigned long long)(v36 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v45);
 }

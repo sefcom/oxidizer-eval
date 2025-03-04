@@ -1,40 +1,37 @@
-fn uu_od::prn_char::format_item_c(a0: &struct24, a1: &u8, a2: u64) -> u64 {
+fn uu_od::prn_char::format_item_c(a0: &struct24, a1: &u8, a2: u32) -> u64 {
     let v0: i8;  // [sp-0xa9]
     let v1: i64;  // [sp-0xa8]
-    let v2: i64;  // [sp-0xa0]
-    let v3: i64;  // [sp-0x98]
-    let v4: i64;  // [sp-0x90]
-    let v5: i64;  // [sp-0x88]
-    let v6: i64;  // [sp-0x80]
-    let v7: i64;  // [sp-0x78]
-    let v8: i64;  // [sp-0x70]
-    let v9: i64;  // [sp-0x68]
-    let v10: i64;  // [sp-0x58]
-    let v11: i64;  // [sp-0x50]
-    let v12: i64;  // [sp-0x48]
-    let v13: i64;  // [sp-0x40]
-    let v14: i8;  // [sp-0x38]
+    let v2: i64;  // [sp-0xa8]
+    let v3: i64;  // [sp-0xa0]
+    let v4: i64;  // [sp-0x98], Other Possible Types: struct56, int
+    let v5: i64;  // [sp-0x90]
+    let v6: i64;  // [sp-0x70]
+    let v7: i64;  // [sp-0x68]
+    let v8: i64;  // [sp-0x68]
+    let v9: i64;  // [sp-0x58]
+    let v10: i64;  // [sp-0x50]
+    let v11: i64;  // [sp-0x48]
+    let v12: i64;  // [sp-0x40]
+    let v13: i8;  // [sp-0x38]
+    let v14: i64;  // [sp-0x30]
     let v15: i64;  // [sp-0x30], Other Possible Types: Result<struct16, struct10>
     let v16: i64;  // [sp-0x28]
-    let v17: i128;  // [sp-0x18]
+    let v17: iNone;  // [sp-0x18]
     let v19: i64;  // rax
     let v20: i64;  // rcx
     let v21: i64;  // rdi
-    let v22: i64;  // rax
-    let v23: i64;  // rdx
-    let v24: i64;  // rax
 
     v0 = *(a1 as &i8);
     if v0 >= 0 {
         v1 = "\\0" + (v0 * 16 & 4294967295);
-        v15 = &v1;
+        v14 = &v1;
         v16 = <&T as core::fmt::Display>::fmt;
-        v9 = 2;
-        v10 = 0;
-        v11 = 4;
-        v12 = 0;
-        v13 = 32;
-        v14 = 1;
+        v7 = 2;
+        v9 = 0;
+        v10 = 4;
+        v11 = 0;
+        v12 = 32;
+        v13 = 1;
         v19 = &g_40dad0;
         goto LABEL_4d57dd;
     }
@@ -53,57 +50,55 @@ fn uu_od::prn_char::format_item_c(a0: &struct24, a1: &u8, a2: u64) -> u64 {
         goto LABEL_4d587e;
     } else {
         if a2 < 4 || (v0 & 248) != 240 {
-            v15 = &v0;
+            v14 = &v0;
             v16 = core::fmt::num::<impl core::fmt::Octal for i8>::fmt;
-            v9 = 2;
-            v10 = 0;
-            v11 = 3;
-            v12 = 0;
-            v13 = 34359738400;
-            v14 = 3;
+            v7 = 2;
+            v9 = 0;
+            v10 = 3;
+            v11 = 0;
+            v12 = 34359738400;
+            v13 = 3;
             v19 = " ";
 LABEL_4d57dd:
-            v3 = v19;
-            v4 = 1;
-            v7 = &v9;
-            v8 = 1;
-            v22 = &v15;
+            v4 = v19;
+            v4 = &v7;
         } else {
             v20 = "src/uu/od/src/prn_char.rs";
             v21 = 4;
 LABEL_4d587e:
-            v15 = core::str::converts::from_utf8(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v21, a1, a2, v20), v23);
+            v15 = core::str::converts::from_utf8(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v21, a1, a2, v20), a2);
             if v15 {
-                v1 = &v0;
-                v2 = core::fmt::num::<impl core::fmt::Octal for i8>::fmt;
-                v9 = 2;
-                v10 = 0;
-                v11 = 3;
-                v12 = 0;
-                v13 = 34359738400;
-                v14 = 3;
-                v24 = " ";
+                v2 = &v0;
+                v3 = core::fmt::num::<impl core::fmt::Octal for i8>::fmt;
+                v9 = 0;
+                v10 = 3;
+                v11 = 0;
+                v12 = 34359738400;
+                v13 = 3;
             } else {
                 v17 = *((&v15 as &char + 8) as &i128);
-                v1 = &v17;
-                v2 = <&T as core::fmt::Display>::fmt;
-                v9 = 2;
-                v10 = 0;
-                v11 = 4;
-                v12 = 0;
-                v13 = 32;
-                v14 = 1;
-                v24 = &g_40dad0;
+                v2 = &v17;
+                v3 = <&T as core::fmt::Display>::fmt;
+                v8 = 2;
+                v9 = 0;
+                v10 = 4;
+                v11 = 0;
+                v12 = 32;
+                v13 = 1;
             }
-            v3 = v24;
-            v4 = 1;
-            v7 = &v9;
-            v8 = 1;
-            v22 = &v1;
+            v4 = struct56 {
+                field_0: v23
+                field_8: 1
+                field_16: v22
+                field_24: 1
+                field_32: &v8
+                field_40: 1
+                field_48: 2
+            };
+            v5 = 1;
+            v6 = 1;
         }
-        v5 = v22;
-        v6 = 1;
-        core::option::Option<T>::map_or_else();
+        core::option::Option<T>::map_or_else(a0, &v4);
         return a0;
     }
 }

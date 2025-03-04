@@ -1,42 +1,44 @@
-long long uu_tail::chunks::LinesChunk::calculate_bytes_offset_from::hf7157a0eade16c76(struct_0 *a0, unsigned long long a1)
+long long uu_tail::chunks::LinesChunk::calculate_bytes_offset_from::hf7157a0eade16c76(struct_0 *a0, unsigned long a1)
 {
-    unsigned long v0;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x40]
     unsigned long long v1;  // [sp-0x38]
-    unsigned long v3;  // rdx
-    char *v4;  // rax
-    void* v5;  // r14
-    unsigned long long v7;  // rbx
-    unsigned long long v8;  // r13
-    char v9;  // r13b
-    unsigned long long v10;  // r12
+    unsigned long long v3;  // rbx
+    unsigned long v4;  // rdx
+    char *v5;  // rax
+    void* v6;  // r14
+    unsigned long long v8;  // rbx
+    unsigned long long v9;  // r13
+    char v10;  // r13b
+    unsigned long long v11;  // r12
 
+    v3 = a1;
     v0 = uu_tail::chunks::LinesChunk::get_buffer::h4eee912e7ef2e0db(a0);
-    v1 = v3 + v0;
-    v4 = ::0x512470::_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hfe7d83be48d23115(&v0);
+    v1 = v4 + v0;
+    v5 = ::0x512470::_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hfe7d83be48d23115(&v0);
     if (!a1)
     {
         return 0;
     }
-    else if (!v4)
+    else if (!v5)
     {
         return 0;
     }
     else
     {
-        v5 = 0;
+        v6 = 0;
         while (true)
         {
-            v7 = a1;
-            v9 = *(v4) == a0->field_2010;
-            v8 = v8 & 0xffffffffffffff00 | v9;
-            v5 += 1;
-            v4 = ::0x512470::_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hfe7d83be48d23115(&v0);
-            if (!v4)
-                return v5;
-            v10 = v9;
-            a1 = v7 - v10;
-            if (v7 == v10)
-                return v5;
+            v8 = v3;
+            v10 = *(v5) == a0->field_2010;
+            v9 = v9 & 0xffffffffffffff00 | v10;
+            v6 += 1;
+            v5 = ::0x512470::_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hfe7d83be48d23115(&v0);
+            if (!v5)
+                return v6;
+            v11 = v10;
+            v3 = v8 - v11;
+            if (v8 == v11)
+                return v6;
         }
     }
 }

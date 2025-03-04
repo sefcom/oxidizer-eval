@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_tr::uumain::uumain(undefined8 param_1,undefined8 param_2)
+undefined  [16] _ZN5uu_tr6uumain6uumain17h5cf0371b8c66c032E(undefined8 param_1,undefined8 param_2)
 
 {
   undefined auVar1 [16];
@@ -197,15 +197,17 @@ undefined  [16] __rustcall uu_tr::uumain::uumain(undefined8 param_1,undefined8 p
   undefined8 local_a8;
   undefined local_68 [56];
   
-  (*(code *)PTR_uu_app_00232e48)(&local_8d8);
-  clap_builder::builder::command::Command::after_help
+  (*(code *)PTR__ZN5uu_tr6uu_app17h3af701eb291f0f4dE_00232e48)(&local_8d8);
+  _ZN12clap_builder7builder7command7Command10after_help17h6ea1792ab63c6686E
             (&local_498,&local_8d8,
              "Translate, squeeze, and/or delete characters from standard input, writing to standard output."
              ,0x5d);
-  clap_builder::builder::command::Command::try_get_matches_from
+  _ZN12clap_builder7builder7command7Command20try_get_matches_from17h79c70f38f211e142E
             (local_9b0,&local_498,param_1,param_2);
   if ((char ******)local_9b0._0_8_ == (char ******)0x8000000000000000) {
-    auVar16 = (*(code *)PTR_from_00232e50)();
+    auVar16 = (*(code *)
+                PTR__ZN6uucore4mods5error144__LT_impl_u20_core__convert__From_LT_clap_builder__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7fb9d0425989847aE_00232e50
+              )();
     return auVar16;
   }
   local_8e0 = local_980;
@@ -220,13 +222,22 @@ undefined  [16] __rustcall uu_tr::uumain::uumain(undefined8 param_1,undefined8 p
   local_910 = (char *****)local_9b0._0_8_;
   local_908 = (undefined *)local_9b0._8_8_;
                     /* try { // try from 0016bd84 to 0016beb1 has its CatchHandler @ 0016cb99 */
-  bVar8 = (*(code *)PTR_get_flag_00232e58)(&local_910,"delete",6);
-  (*(code *)PTR_get_flag_00232e58)(&local_910,"complement",10);
-  bVar9 = (*(code *)PTR_get_flag_00232e58)(&local_910,"squeeze-repeats",0xf);
-  (*(code *)PTR_get_flag_00232e58)(&local_910,"truncate-set1",0xd);
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many
+  bVar8 = (*(code *)
+            PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE_00232e58
+          )(&local_910,"delete",6);
+  (*(code *)
+    PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE_00232e58
+  )(&local_910,"complement",10);
+  bVar9 = (*(code *)
+            PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE_00232e58
+          )(&local_910,"squeeze-repeats",0xf);
+  (*(code *)
+    PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE_00232e58
+  )(&local_910,"truncate-set1",0xd);
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hec7e42da4cd7eb05E
             (&local_8d8,&local_910,&DAT_00115170,4);
-  clap_builder::parser::error::MatchesError::unwrap(&local_498,&DAT_00115170,4,&local_8d8);
+  _ZN12clap_builder6parser5error12MatchesError6unwrap17h750f5aa244a95e3bE
+            (&local_498,&DAT_00115170,4,&local_8d8);
   local_128 = (undefined4)local_498;
   uStack_124 = local_498._4_4_;
   uStack_120 = (undefined4)uStack_490;
@@ -246,23 +257,26 @@ undefined  [16] __rustcall uu_tr::uumain::uumain(undefined8 param_1,undefined8 p
   local_130 = 1;
   local_e8 = 0;
   local_a8 = 0;
-  _<alloc::vec::Vec<T>as_alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+  _ZN98__LT_alloc__vec__Vec_LT_T_GT__u20_as_u20_alloc__vec__spec_from_iter__SpecFromIter_LT_T_C_I_GT__GT_9from_iter17hacab1107395fe9c6E
             (local_9c8,&local_130);
   uVar3 = local_9b8;
   if (local_9b8 == 0) {
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_498,"missing operand",0xf);
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h03ae0bd4f3f5c044E
+              (&local_498,"missing operand",0xf);
     local_8c8 = local_488;
     local_8d8 = (undefined **)local_498;
     uStack_8d0 = (char *******)uStack_490;
     local_8c0 = (char *******)CONCAT44(local_8c0._4_4_,1);
-    uVar11 = ::alloc::boxed::Box<T>::new(&local_8d8);
+    uVar11 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h65d9bc0d13ef9a61E(&local_8d8);
   }
   else if ((local_9b8 == 1) && (bVar8 == 0 && bVar9 == 0)) {
     uStack_490 = *(code **)(local_9c0 + 8);
     local_488 = *(char ********)(local_9c0 + 0x10);
     local_498 = (char *******)&DAT_00000001;
     uStack_480 = (code *)CONCAT71(uStack_480._1_7_,1);
-    local_9b0._8_8_ = PTR_fmt_00232e60;
+    local_9b0._8_8_ =
+         PTR__ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E_00232e60
+    ;
     local_8d8 = &PTR_s_missing_operand_after_Two_string_0022c2c0;
     uStack_8d0 = (char *******)0x2;
     uStack_8b8 = (char *******)0x0;
@@ -270,31 +284,33 @@ undefined  [16] __rustcall uu_tr::uumain::uumain(undefined8 param_1,undefined8 p
                     /* try { // try from 0016bf46 to 0016c0c2 has its CatchHandler @ 0016cb8a */
     local_9b0._0_8_ = &local_498;
     local_8c8 = (char *******)local_9b0;
-    core::option::Option<T>::map_or_else(&local_608,&local_8d8);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17h94cf0975cba3d957E(&local_608,&local_8d8);
     local_8c0 = (char *******)CONCAT44(local_8c0._4_4_,1);
     local_8d8 = (undefined **)CONCAT44(uStack_604,local_608);
     uStack_8d0 = (char *******)CONCAT44(uStack_5fc,uStack_600);
     local_8c8 = (char *******)local_5f8;
-    uVar11 = ::alloc::boxed::Box<T>::new(&local_8d8);
+    uVar11 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h65d9bc0d13ef9a61E(&local_8d8);
   }
   else if (((bVar8 & bVar9) == 1) && (local_9b8 == 1)) {
     uStack_490 = *(code **)(local_9c0 + 8);
     local_488 = *(char ********)(local_9c0 + 0x10);
     local_498 = (char *******)&DAT_00000001;
     uStack_480 = (code *)CONCAT71(uStack_480._1_7_,1);
-    local_9b0._8_8_ = PTR_fmt_00232e60;
+    local_9b0._8_8_ =
+         PTR__ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E_00232e60
+    ;
     local_8d8 = &PTR_s_missing_operand_after_Two_string_0022c2e0;
     uStack_8d0 = (char *******)0x2;
     uStack_8b8 = (char *******)0x0;
     local_8c0 = (char *******)0x1;
     local_9b0._0_8_ = &local_498;
     local_8c8 = (char *******)local_9b0;
-    core::option::Option<T>::map_or_else(&local_5f0,&local_8d8);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17h94cf0975cba3d957E(&local_5f0,&local_8d8);
     local_8c0 = (char *******)CONCAT44(local_8c0._4_4_,1);
     local_8d8 = (undefined **)CONCAT44(uStack_5ec,local_5f0);
     uStack_8d0 = (char *******)CONCAT44(uStack_5e4,uStack_5e8);
     local_8c8 = (char *******)local_5e0;
-    uVar11 = ::alloc::boxed::Box<T>::new(&local_8d8);
+    uVar11 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h65d9bc0d13ef9a61E(&local_8d8);
   }
   else {
     if (local_9b8 == 1) {
@@ -303,45 +319,52 @@ LAB_0016c106:
       uStack_8d0 = (char *******)(*(long *)(local_9c0 + 0x10) + (long)local_8d8);
       local_8c8 = (char *******)((ulong)local_8c8 & 0xffffffffffffff00);
                     /* try { // try from 0016c12e to 0016c196 has its CatchHandler @ 0016cb8a */
-      uVar12 = _<core::iter::adapters::take_while::TakeWhile<I,P>as_core::iter::traits::iterator::Iterator>
-               ::fold(&local_8d8);
+      uVar12 = _ZN115__LT_core__iter__adapters__take_while__TakeWhile_LT_I_C_P_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4fold17hfc16fb0776f788feE
+                         (&local_8d8);
       if ((uVar12 & 1) != 0) {
-        _<T_as_alloc::slice::hack::ConvertVec>::to_vec
+        _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h03ae0bd4f3f5c044E
                   (&local_498,"warning: an unescaped backslash at end of string is not portable",
                    0x40);
         local_8c8 = local_488;
         local_8c0 = (char *******)((ulong)local_8c0 & 0xffffffff00000000);
-        local_a00 = (char ******)::alloc::boxed::Box<T>::new(&local_8d8);
-        local_9f8 = (char ******)&PTR_drop_in_place<uucore_mods_error_UUsageError>_0022c448;
-        uVar10 = _<uucore::mods::error::UUsageError_as_uucore::mods::error::UError>::code(local_a00)
+        local_a00 = (char ******)_ZN5alloc5boxed12Box_LT_T_GT_3new17h65d9bc0d13ef9a61E(&local_8d8);
+        local_9f8 = (char ******)
+                    &
+                    PTR__ZN4core3ptr53drop_in_place_LT_uucore__mods__error__UUsageError_GT_17h02885147b12490d7E_0022c448
         ;
+        uVar10 = _ZN80__LT_uucore__mods__error__UUsageError_u20_as_u20_uucore__mods__error__UError_GT_4code17he3a59f98489a3243E
+                           (local_a00);
                     /* try { // try from 0016c1b0 to 0016c243 has its CatchHandler @ 0016cb63 */
-        (*(code *)PTR_set_exit_code_00232e68)(uVar10);
-        local_9b0 = (*(code *)PTR_util_name_00232e28)();
-        uStack_490 = _<&T_as_core::fmt::Display>::fmt;
+        (*(code *)PTR__ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E_00232e68)(uVar10);
+        local_9b0 = (*(code *)PTR__ZN6uucore9util_name17h60d842bf27b05e82E_00232e28)();
+        uStack_490 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h349096513bb5cc07E;
         local_488 = &local_a00;
-        uStack_480 = _<alloc::boxed::Box<T,A>as_core::fmt::Display>::fmt;
+        uStack_480 = 
+        _ZN69__LT_alloc__boxed__Box_LT_T_C_A_GT__u20_as_u20_core__fmt__Display_GT_3fmt17hea79bf44bc57fb60E
+        ;
         local_8d8 = (undefined **)&DAT_0022c350;
         uStack_8d0 = (char *******)0x3;
         uStack_8b8 = (char *******)0x0;
         local_8c0 = (char *******)0x2;
         local_8c8 = (char *******)&local_498;
         local_498 = (char *******)local_9b0;
-        (*(code *)PTR__eprint_00232e30)(&local_8d8);
+        (*(code *)PTR__ZN3std2io5stdio7_eprint17hcdfeec148c7134f7E_00232e30)(&local_8d8);
                     /* try { // try from 0016c24e to 0016c26e has its CatchHandler @ 0016cb8a */
-        core::ptr::drop_in_place<alloc::boxed::Box<dyn_uucore::mods::error::UError>>
+        _ZN4core3ptr81drop_in_place_LT_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_17h24eb00e4a52f7e7cE
                   (local_a00,local_9f8);
       }
-      local_930 = (*(code *)PTR_stdin_00232e70)();
-      local_a10 = (*(code *)PTR_lock_00232e78)(&local_930);
+      local_930 = (*(code *)PTR__ZN3std2io5stdio5stdin17h7215cc131abb55d8E_00232e70)();
+      local_a10 = (*(code *)PTR__ZN3std2io5stdio5Stdin4lock17h161a36d857331d7fE_00232e78)
+                            (&local_930);
       local_a08 = CONCAT31(local_a08._1_3_,extraout_DL) & 0xffffff01;
                     /* try { // try from 0016c280 to 0016c2ad has its CatchHandler @ 0016cb77 */
-      local_928 = (*(code *)PTR_stdout_00232e80)();
-      uVar11 = (*(code *)PTR_lock_00232e88)(&local_928);
-      std::io::buffered::bufwriter::BufWriter<W>::with_capacity(local_9b0,0x2000,uVar11);
+      local_928 = (*(code *)PTR__ZN3std2io5stdio6stdout17h077da66234850927E_00232e80)();
+      uVar11 = (*(code *)PTR__ZN3std2io5stdio6Stderr4lock17h890f7962a170fc90E_00232e88)(&local_928);
+      _ZN3std2io8buffered9bufwriter18BufWriter_LT_W_GT_13with_capacity17hdc9c3452e7942aeaE
+                (local_9b0,0x2000,uVar11);
       local_918 = local_9c0 + local_9b8 * 0x18;
       local_920 = local_9c0;
-      lVar13 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+      lVar13 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hd6e9cd20df835715E
                          (&local_920);
       if (lVar13 == 0) {
         auVar16._8_8_ = 0;
@@ -349,26 +372,27 @@ LAB_0016c106:
         auVar16 = auVar16 << 0x40;
       }
       else {
-        auVar16 = core::ops::function::impls::_<impl_core::ops::function::FnOnce<A>for&mut_F>::
-                  call_once(*(undefined8 *)(lVar13 + 8),*(undefined8 *)(lVar13 + 0x10));
+        auVar16 = _ZN4core3ops8function5impls80__LT_impl_u20_core__ops__function__FnOnce_LT_A_GT__u20_for_u20__RF_mut_u20_F_GT_9call_once17h901a8d7c69801d4bE
+                            (*(undefined8 *)(lVar13 + 8),*(undefined8 *)(lVar13 + 0x10));
       }
       if (auVar16._0_8_ == 0) {
         auVar16 = ZEXT816(1);
       }
-      lVar13 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+      lVar13 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hd6e9cd20df835715E
                          (&local_920);
       if (lVar13 == 0) {
         lVar13 = 0;
       }
       else {
-        lVar13 = core::ops::function::impls::_<impl_core::ops::function::FnOnce<A>for&mut_F>::
-                 call_once(*(undefined8 *)(lVar13 + 8),*(undefined8 *)(lVar13 + 0x10));
+        lVar13 = _ZN4core3ops8function5impls80__LT_impl_u20_core__ops__function__FnOnce_LT_A_GT__u20_for_u20__RF_mut_u20_F_GT_9call_once17h901a8d7c69801d4bE
+                           (*(undefined8 *)(lVar13 + 8),*(undefined8 *)(lVar13 + 0x10));
       }
       if (lVar13 == 0) {
         lVar13 = 1;
       }
                     /* try { // try from 0016c51b to 0016c59d has its CatchHandler @ 0016cb54 */
-      (*(code *)PTR_solve_set_characters_00232e90)(&local_8d8,auVar16._0_8_,auVar16._8_8_,lVar13);
+      (*(code *)PTR__ZN5uu_tr9operation8Sequence20solve_set_characters17hf6b9e7c9837a7276E_00232e90)
+                (&local_8d8,auVar16._0_8_,auVar16._8_8_,lVar13);
       pppppppcVar4 = local_8c8;
       if ((char *******)local_8d8 == (char *******)0x8000000000000000) {
         local_488 = local_8c0;
@@ -377,7 +401,7 @@ LAB_0016c106:
         local_8c8 = local_8c0;
         local_8d8 = (undefined **)uStack_8d0;
         uStack_8d0 = pppppppcVar4;
-        uVar11 = ::alloc::boxed::Box<T>::new(&local_8d8);
+        uVar11 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h3beed998e9c5ecacE(&local_8d8);
       }
       else {
         local_478 = (char *******)local_8b0;
@@ -407,7 +431,8 @@ LAB_0016c106:
             local_8d8 = (undefined **)local_8c0;
             uStack_8d0 = uStack_8b8;
                     /* try { // try from 0016c63e to 0016c653 has its CatchHandler @ 0016cb2f */
-            (*(code *)PTR_new_00232e98)(&local_578,&local_8d8);
+            (*(code *)PTR__ZN5uu_tr9operation16SqueezeOperation3new17hd8d9f9e8de1d3b5cE_00232e98)
+                      (&local_578,&local_8d8);
             local_508 = (char ******)local_498;
             ppppppcStack_500 = (char ******)uStack_490;
             local_4f8 = (char ******)local_488;
@@ -425,7 +450,8 @@ LAB_0016c106:
             uStack_4c4 = uStack_54c;
             local_4c0 = local_548;
                     /* try { // try from 0016c6b4 to 0016c6ca has its CatchHandler @ 0016cb2d */
-            operation::translate_input(&local_a10,local_9b0,&local_508);
+            _ZN5uu_tr9operation15translate_input17h29bc490f8ef166daE
+                      (&local_a10,local_9b0,&local_508);
             goto LAB_0016ca5e;
           }
           local_5b8 = local_958._0_4_;
@@ -434,20 +460,22 @@ LAB_0016c106:
           uStack_5ac = local_8c8._4_4_;
           local_5c0 = (char ******)local_8d8;
                     /* try { // try from 0016c80a to 0016c820 has its CatchHandler @ 0016cb45 */
-          operation::translate_input(&local_a10,local_9b0,&local_5c0);
+          _ZN5uu_tr9operation15translate_input17h32a13ad4727c4ba9E(&local_a10,local_9b0,&local_5c0);
 LAB_0016c821:
                     /* try { // try from 0016c821 to 0016c82a has its CatchHandler @ 0016cb41 */
-          core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&local_9e8);
+          _ZN4core3ptr46drop_in_place_LT_alloc__vec__Vec_LT_u8_GT__GT_17hefea7399e2ac3a44E
+                    (&local_9e8);
 LAB_0016ca5e:
                     /* try { // try from 0016ca5e to 0016ca67 has its CatchHandler @ 0016cb77 */
-          core::ptr::
-          drop_in_place<std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutLock>>
+          _ZN4core3ptr94drop_in_place_LT_std__io__buffered__bufwriter__BufWriter_LT_std__io__stdio__StdoutLock_GT__GT_17hba009b7d471a5fe9E
                     (local_9b0);
                     /* try { // try from 0016ca71 to 0016ca75 has its CatchHandler @ 0016cb8a */
-          core::ptr::drop_in_place<std::io::stdio::StdinLock>(local_a10,local_a08);
+          _ZN4core3ptr46drop_in_place_LT_std__io__stdio__StdinLock_GT_17hb7e75a9540258d77E
+                    (local_a10,local_a08);
                     /* try { // try from 0016ca76 to 0016ca7f has its CatchHandler @ 0016cb99 */
-          core::ptr::drop_in_place<alloc::vec::Vec<std::ffi::os_str::OsString>>(local_9c8);
-          core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>
+          _ZN4core3ptr70drop_in_place_LT_alloc__vec__Vec_LT_std__ffi__os_str__OsString_GT__GT_17h6f1193934e73377fE
+                    (local_9c8);
+          _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17haa6d892d169dcffaE
                     (&local_910);
           auVar2._8_8_ = 0;
           auVar2._0_8_ = auVar16._0_8_;
@@ -461,7 +489,8 @@ LAB_0016ca5e:
           local_498 = local_8c0;
           uStack_490 = (code *)uStack_8b8;
                     /* try { // try from 0016c85c to 0016c8f6 has its CatchHandler @ 0016cb43 */
-          (*(code *)PTR_new_00232ea0)(&local_8d8,&local_a00,&local_498);
+          (*(code *)PTR__ZN5uu_tr9operation18TranslateOperation3new17h1640a7dbb9893994E_00232ea0)
+                    (&local_8d8,&local_a00,&local_498);
           pppppppcVar5 = local_8c8;
           local_978 = uStack_8d0;
           pppppppcVar4 = local_978;
@@ -482,29 +511,33 @@ LAB_0016ca5e:
             uStack_598 = (undefined4)uStack_970;
             uStack_594 = uStack_970._4_4_;
             local_590 = (char ******)local_8c0;
-            operation::translate_input(&local_a10,local_9b0,&local_5a8);
+            _ZN5uu_tr9operation15translate_input17hc00f303679b61048E
+                      (&local_a10,local_9b0,&local_5a8);
             goto LAB_0016ca5e;
           }
           local_8c8 = local_8c0;
           local_8d8 = (undefined **)uStack_8d0;
           uStack_8d0 = pppppppcVar5;
                     /* try { // try from 0016cab4 to 0016cac0 has its CatchHandler @ 0016cb43 */
-          uVar11 = ::alloc::boxed::Box<T>::new(&local_8d8);
+          uVar11 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h3beed998e9c5ecacE(&local_8d8);
         }
         else {
           if (uVar3 == 1) {
                     /* try { // try from 0016c6fb to 0016c727 has its CatchHandler @ 0016cb45 */
-            (*(code *)PTR_new_00232e98)(local_68,&local_8d8);
-            operation::translate_input(&local_a10,local_9b0,local_68);
+            (*(code *)PTR__ZN5uu_tr9operation16SqueezeOperation3new17hd8d9f9e8de1d3b5cE_00232e98)
+                      (local_68,&local_8d8);
+            _ZN5uu_tr9operation15translate_input17h61644504e49765d2E(&local_a10,local_9b0,local_68);
             goto LAB_0016c821;
           }
           local_978 = (char *******)local_8d8;
           uStack_970 = uStack_8d0;
           ppppppcStack_968 = (char ******)local_8c8;
                     /* try { // try from 0016c914 to 0016c922 has its CatchHandler @ 0016cb1b */
-          _<alloc::vec::Vec<T,A>as_core::clone::Clone>::clone(&local_a00,&local_9e8);
+          _ZN67__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__clone__Clone_GT_5clone17h786ff7c94a117f7fE
+                    (&local_a00,&local_9e8);
                     /* try { // try from 0016c923 to 0016c93d has its CatchHandler @ 0016cb19 */
-          (*(code *)PTR_new_00232ea0)(&local_8d8,&local_978,&local_a00);
+          (*(code *)PTR__ZN5uu_tr9operation18TranslateOperation3new17h1640a7dbb9893994E_00232ea0)
+                    (&local_8d8,&local_978,&local_a00);
           pppppppcVar4 = local_8c8;
           local_948 = (char ******)uStack_8d0;
           ppppppcStack_940 = (char ******)local_8c8;
@@ -520,7 +553,8 @@ LAB_0016ca5e:
             local_8d8 = (undefined **)CONCAT44(uStack_9e4,local_9e8);
             uStack_8d0 = (char *******)CONCAT44(uStack_9dc,uStack_9e0);
                     /* try { // try from 0016c9c1 to 0016c9d6 has its CatchHandler @ 0016cb07 */
-            (*(code *)PTR_new_00232e98)(&local_540,&local_8d8);
+            (*(code *)PTR__ZN5uu_tr9operation16SqueezeOperation3new17hd8d9f9e8de1d3b5cE_00232e98)
+                      (&local_540,&local_8d8);
             local_1c8 = (char ******)local_498;
             ppppppcStack_1c0 = (char ******)uStack_490;
             local_1b8 = (char ******)local_488;
@@ -541,28 +575,33 @@ LAB_0016ca5e:
             uStack_16c = uStack_514;
             local_168 = local_510;
                     /* try { // try from 0016ca47 to 0016ca5d has its CatchHandler @ 0016cb05 */
-            operation::translate_input(&local_a10,local_9b0,&local_1c8);
+            _ZN5uu_tr9operation15translate_input17hd58ae3eaa3f14818E
+                      (&local_a10,local_9b0,&local_1c8);
             goto LAB_0016ca5e;
           }
           local_8c8 = local_8c0;
           local_8d8 = (undefined **)uStack_8d0;
           uStack_8d0 = pppppppcVar4;
                     /* try { // try from 0016cae6 to 0016caf2 has its CatchHandler @ 0016cb45 */
-          uVar11 = ::alloc::boxed::Box<T>::new(&local_8d8);
+          uVar11 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h3beed998e9c5ecacE(&local_8d8);
                     /* try { // try from 0016caf3 to 0016caff has its CatchHandler @ 0016cb41 */
-          core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&local_9e8);
+          _ZN4core3ptr46drop_in_place_LT_alloc__vec__Vec_LT_u8_GT__GT_17hefea7399e2ac3a44E
+                    (&local_9e8);
         }
       }
                     /* try { // try from 0016c5a1 to 0016c5aa has its CatchHandler @ 0016cb77 */
-      core::ptr::drop_in_place<std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutLock>>
+      _ZN4core3ptr94drop_in_place_LT_std__io__buffered__bufwriter__BufWriter_LT_std__io__stdio__StdoutLock_GT__GT_17hba009b7d471a5fe9E
                 (local_9b0);
                     /* try { // try from 0016c5b4 to 0016c5b8 has its CatchHandler @ 0016cb8a */
-      core::ptr::drop_in_place<std::io::stdio::StdinLock>(local_a10,local_a08);
-      ppuVar15 = &PTR_drop_in_place<uu_tr_operation_BadSequence>_0022c4f0;
+      _ZN4core3ptr46drop_in_place_LT_std__io__stdio__StdinLock_GT_17hb7e75a9540258d77E
+                (local_a10,local_a08);
+      ppuVar15 = &
+                 PTR__ZN4core3ptr50drop_in_place_LT_uu_tr__operation__BadSequence_GT_17h74baee158421d047E_0022c4f0
+      ;
       goto LAB_0016c0cd;
     }
     local_a00 = (char ******)0x11538c;
-    local_9f8 = (char ******)&DAT_0000000d;
+    local_9f8 = (char ******)0xd;
     if ((byte)(bVar8 ^ 1 | bVar9) == 1) {
       if (local_9b8 < 3) goto LAB_0016c106;
       local_9b0._8_8_ = *(undefined8 *)(local_9c0 + 0x38);
@@ -571,8 +610,10 @@ LAB_0016ca5e:
       local_9b0._0_8_ = &DAT_00000001;
       uStack_998 = CONCAT31(uStack_998._1_3_,1);
       local_498 = &local_a00;
-      uStack_490 = _<&T_as_core::fmt::Display>::fmt;
-      uStack_480 = (code *)PTR_fmt_00232e60;
+      uStack_490 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h349096513bb5cc07E;
+      uStack_480 = (code *)
+                   PTR__ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E_00232e60
+      ;
       local_8d8 = (undefined **)&DAT_0022c330;
       uStack_8d0 = (char *******)0x2;
       uStack_8b8 = (char *******)0x0;
@@ -580,12 +621,12 @@ LAB_0016ca5e:
                     /* try { // try from 0016c3c4 to 0016c4c4 has its CatchHandler @ 0016cb8a */
       local_8c8 = (char *******)&local_498;
       local_488 = (char *******)local_9b0;
-      core::option::Option<T>::map_or_else(&local_5d8,&local_8d8);
+      _ZN4core6option15Option_LT_T_GT_11map_or_else17h94cf0975cba3d957E(&local_5d8,&local_8d8);
       local_8c0 = (char *******)CONCAT44(local_8c0._4_4_,1);
       local_8d8 = (undefined **)CONCAT44(uStack_5d4,local_5d8);
       uStack_8d0 = (char *******)CONCAT44(uStack_5cc,uStack_5d0);
       local_8c8 = (char *******)local_5c8;
-      uVar11 = ::alloc::boxed::Box<T>::new(&local_8d8);
+      uVar11 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h65d9bc0d13ef9a61E(&local_8d8);
     }
     else {
       local_9b0._8_8_ = *(undefined8 *)(local_9c0 + 0x20);
@@ -595,8 +636,10 @@ LAB_0016ca5e:
       uStack_998 = CONCAT31(uStack_998._1_3_,1);
       local_498 = &local_a00;
       if (local_9b8 == 2) {
-        uStack_490 = _<&T_as_core::fmt::Display>::fmt;
-        uStack_480 = (code *)PTR_fmt_00232e60;
+        uStack_490 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h349096513bb5cc07E;
+        uStack_480 = (code *)
+                     PTR__ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E_00232e60
+        ;
         local_8d8 = (undefined **)&DAT_0022c300;
         uStack_8d0 = (char *******)0x3;
         uStack_8b8 = (char *******)0x0;
@@ -604,11 +647,13 @@ LAB_0016ca5e:
         plVar14 = local_160;
         local_8c8 = (char *******)&local_498;
         local_488 = (char *******)local_9b0;
-        core::option::Option<T>::map_or_else(plVar14,&local_8d8);
+        _ZN4core6option15Option_LT_T_GT_11map_or_else17h94cf0975cba3d957E(plVar14,&local_8d8);
       }
       else {
-        uStack_490 = _<&T_as_core::fmt::Display>::fmt;
-        uStack_480 = (code *)PTR_fmt_00232e60;
+        uStack_490 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h349096513bb5cc07E;
+        uStack_480 = (code *)
+                     PTR__ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E_00232e60
+        ;
         local_8d8 = (undefined **)&DAT_0022c330;
         uStack_8d0 = (char *******)0x2;
         uStack_8b8 = (char *******)0x0;
@@ -617,7 +662,7 @@ LAB_0016ca5e:
         plVar14 = local_148;
         local_8c8 = (char *******)&local_498;
         local_488 = (char *******)local_9b0;
-        core::option::Option<T>::map_or_else(plVar14,&local_8d8);
+        _ZN4core6option15Option_LT_T_GT_11map_or_else17h94cf0975cba3d957E(plVar14,&local_8d8);
       }
       local_8c8 = (char *******)plVar14[2];
       local_4b8 = *(undefined4 *)plVar14;
@@ -628,15 +673,19 @@ LAB_0016ca5e:
       uStack_8d0 = (char *******)plVar14[1];
       local_8c0 = (char *******)CONCAT44(local_8c0._4_4_,1);
       local_4a8 = (char ******)local_8c8;
-      uVar11 = ::alloc::boxed::Box<T>::new(&local_8d8);
+      uVar11 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h65d9bc0d13ef9a61E(&local_8d8);
     }
   }
-  ppuVar15 = &PTR_drop_in_place<uucore_mods_error_UUsageError>_0022c3a0;
+  ppuVar15 = &
+             PTR__ZN4core3ptr53drop_in_place_LT_uucore__mods__error__UUsageError_GT_17h02885147b12490d7E_0022c3a0
+  ;
 LAB_0016c0cd:
                     /* try { // try from 0016c0cd to 0016c0d6 has its CatchHandler @ 0016cb99 */
   auVar1._8_8_ = ppuVar15;
   auVar1._0_8_ = uVar11;
-  core::ptr::drop_in_place<alloc::vec::Vec<std::ffi::os_str::OsString>>(local_9c8);
-  core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(&local_910);
+  _ZN4core3ptr70drop_in_place_LT_alloc__vec__Vec_LT_std__ffi__os_str__OsString_GT__GT_17h6f1193934e73377fE
+            (local_9c8);
+  _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17haa6d892d169dcffaE
+            (&local_910);
   return auVar1;
 }

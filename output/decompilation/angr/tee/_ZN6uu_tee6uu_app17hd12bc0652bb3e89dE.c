@@ -6,7 +6,7 @@ long long uu_tee::uu_app::hd12bc0652bb3e89d(unsigned long long a0)
     int v3;  // [sp-0xb18], Other Possible Types: void*
     unsigned long long v4;  // [sp-0xb10]
     int v5;  // [sp-0xb08]
-    int v6;  // [sp-0xaf8], Other Possible Types: unsigned long long
+    int v6;  // [sp-0xaf8], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v7;  // [sp-0xaf0]
     unsigned long long v8;  // [bp-0xae8], Other Possible Types: char
     int v9;  // [sp-0xae0]
@@ -49,7 +49,7 @@ long long uu_tee::uu_app::hd12bc0652bb3e89d(unsigned long long a0)
     char v46;  // [bp-0x530]
     char v47;  // [bp-0x274]
     char v48;  // [bp-0x26c]
-    void* v49;  // [bp-0x268], Other Possible Types: char
+    void* v49;  // [sp-0x268], Other Possible Types: char
     unsigned long long v50;  // [sp-0x260]
     char v51;  // [sp-0x258]
     char v52;  // [bp-0x248]

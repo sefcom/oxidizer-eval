@@ -2,7 +2,7 @@ long long uu_ls::should_display::h04a8ace30b4ea77e(unsigned long long a0, struct
 {
     unsigned short v0;  // [sp-0x83]
     char v1;  // [sp-0x81]
-    char v2;  // [bp-0x80], Other Possible Types: unsigned long, unsigned long long
+    char v2;  // [sp-0x80], Other Possible Types: unsigned long
     unsigned long long v3;  // [sp-0x78]
     char v4;  // [bp-0x70]
     int v5;  // [sp-0x68]
@@ -49,6 +49,6 @@ LABEL_527e14:
     v3 = a1->field_10 * 56 + v2;
     ::0x51a6c0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb27a9c8978a01f77(&v5);
     v14 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::any::haa0a26cb84a32dff(&v2, &v5, &v0) & 0xffffffffffffff00 | _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::any::haa0a26cb84a32dff(&v2, &v5, &v0) ^ 1;
-    ::0x51a7c0::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h51f173604a280fb6();
+    ::0x51a7c0::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h51f173604a280fb6(&v10);
     return v14;
 }

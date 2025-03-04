@@ -1,6 +1,6 @@
 long long uu_env::EnvAppData::parse_arguments::hd6f5805c37ad784f(struct_0 *a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0x360], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x360]
     unsigned long long v1;  // [sp-0x358]
     unsigned long long v2;  // [sp-0x350]
     char v3;  // [bp-0x348]

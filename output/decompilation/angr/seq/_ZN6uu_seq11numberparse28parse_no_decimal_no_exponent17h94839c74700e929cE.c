@@ -37,7 +37,7 @@ long long uu_seq::numberparse::parse_no_decimal_no_exponent::h94839c74700e929c(s
             a0->field_0 = 9223372036854775810;
             a0->field_28 = a2;
             a0[1].field_0 = 0;
-            ::0x4ccea0::core::ptr::drop_in_place$LT$bigdecimal..BigDecimal$GT$::h9ea64fcf6ce46304();
+            ::0x4ccea0::core::ptr::drop_in_place$LT$bigdecimal..BigDecimal$GT$::h9ea64fcf6ce46304(&v0);
             goto LABEL_4cdbec;
         }
     }
@@ -63,7 +63,7 @@ LABEL_4cdb6a:
         else
         {
             v12 = 9223372036854775809;
-            if (!(!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::hb94513a628a0df55(v10, v11, "-infhelpNoneshimname", 4)) || !(!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::hb94513a628a0df55(v10, v11, "-infinitynansrc/uu/seq/src/numberparse.rs", 9)))
+            if (!(!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::hb94513a628a0df55(v10, v11, "-infhelpNoneshimname", 4) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::hb94513a628a0df55(v10, v11, "-infinitynansrc/uu/seq/src/numberparse.rs", 9)))
                 goto LABEL_4cdb6a;
             if (!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::hb94513a628a0df55(v10, v11, "nansrc/uu/seq/src/numberparse.rs", 3))
                 _$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::hb94513a628a0df55(v10, v11, "-nan", 4);

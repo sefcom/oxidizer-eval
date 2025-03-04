@@ -3,10 +3,10 @@ long long uu_cp::copydir::path_has_prefix::hcf43da5c11f3d99b(struct_0 *a0, unsig
     char v0;  // [bp-0x78]
     char v1;  // [bp-0x70]
     char v2;  // [bp-0x68]
-    unsigned long long v3;  // [sp-0x60]
+    unsigned long v3;  // [sp-0x60]
     unsigned long long v4;  // [sp-0x58]
     unsigned long long v5;  // [sp-0x50]
-    unsigned long v6;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x48]
     unsigned long long v7;  // [sp-0x40]
     unsigned long long v8;  // [sp-0x38]
     unsigned long long v10;  // rax
@@ -40,6 +40,6 @@ long long uu_cp::copydir::path_has_prefix::hcf43da5c11f3d99b(struct_0 *a0, unsig
         a0->field_1 = std::path::Path::starts_with::h6a4d36631af7f3b4(v4, v5, &v6);
         a0->field_0 = 0;
     }
-    v10 = ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
+    v10 = ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v3);
     return v10;
 }

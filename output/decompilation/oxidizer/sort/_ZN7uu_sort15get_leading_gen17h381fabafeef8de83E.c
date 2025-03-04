@@ -1,7 +1,7 @@
 fn uu_sort::get_leading_gen(a0: u64, a1: u64) -> u64 {
-    let v0: i64;  // [sp-0x88], Other Possible Types: struct16
+    let v0: struct16;  // [sp-0x88], Other Possible Types: unsigned long
     let v1: i64;  // [sp-0x80]
-    let v2: i64;  // [sp-0x78]
+    let v2: iNone;  // [bp-0x78], Other Possible Types: unsigned long
     let v3: i64;  // [sp-0x70]
     let v4: i64;  // [sp-0x68], Other Possible Types: struct24
     let v5: i64;  // [sp-0x60]
@@ -60,25 +60,25 @@ fn uu_sort::get_leading_gen(a0: u64, a1: u64) -> u64 {
     v4 = core::iter::traits::iterator::Iterator::fuse(&v8);
     v0 = 0;
     v1 = 8;
-    v2 = 0;
+    *(&v2 as &i128) = 0;
     v12 = itertools::peek_nth::PeekNth<I>::peek_nth(None);
     if v12 && (*((v12 + 8) as &i32) == 45 || *((v12 + 8) as &i32) == 43) {
         v0 = <itertools::peek_nth::PeekNth<I> as core::iter::traits::iterator::Iterator>::next();
     }
     v14 = 0;
     loop {
-        v15 = v14;
+        v15 = v14 as u32;
         do {
-            v14 = v15;
+            v14 = v15 as u64;
             do {
                 v0 = <itertools::peek_nth::PeekNth<I> as core::iter::traits::iterator::Iterator>::next();
-                if v20 == 0x110000 {
+                if v20 as u32 == 0x110000 {
                     return a1 - v20;
                 }
-            } while (!(v20 == v20));
-            v15 = v16 & -0x100 | 1;
-        } while ((1 & !(v14 & 255 & 255) & v20 == 46));
-        if !((1 & (v20 & -33) == 69)) || !((v17 = itertools::peek_nth::PeekNth<I>::peek_nth(None), v17)) {
+            } while ((v16 = v20 - 48 & 4294967295, v16 as u32 < 10));
+            v15 = (v16 & -0x100 | 1) as u32;
+        } while ((1 & !(v14 & 255 & 255) & v20 as u32 == 46));
+        if !((1 & (v20 as u32 & -33) == 69)) || !((v17 = itertools::peek_nth::PeekNth<I>::peek_nth(None), v17)) {
             break;
         }
         v18 = *((v17 + 8) as &i32);

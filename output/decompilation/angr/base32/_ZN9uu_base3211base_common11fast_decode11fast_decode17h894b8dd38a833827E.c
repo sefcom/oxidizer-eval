@@ -10,11 +10,11 @@ long long uu_base32::base_common::fast_decode::fast_decode::h894b8dd38a833827(un
     unsigned long long v7;  // [sp-0x1c0]
     void* v8;  // [sp-0x1b8]
     unsigned long long v9;  // [sp-0x1b0]
-    unsigned long v10;  // [sp-0x198], Other Possible Types: unsigned long long
+    unsigned long v10;  // [sp-0x198]
     char v11;  // [bp-0x190]
     char v12;  // [bp-0x188]
     char v13;  // [bp-0x180]
-    int v14;  // [sp-0x178], Other Possible Types: unsigned long long
+    int v14;  // [sp-0x178], Other Possible Types: unsigned long
     unsigned long long v15;  // [sp-0x170]
     unsigned long long v16;  // [sp-0x168]
     unsigned int v17;  // [sp-0x160]
@@ -29,16 +29,14 @@ long long uu_base32::base_common::fast_decode::fast_decode::h894b8dd38a833827(un
     unsigned long long v28;  // rdx
     unsigned long long v29;  // rcx
     unsigned long long v30;  // rax
-    unsigned long long v31;  // rbp
+    void* v31;  // r14
     unsigned long long v32;  // rbp
-    unsigned long long v33;  // rdx
+    char *v33;  // rax
     char *v34;  // rax
-    char *v35;  // rax
-    unsigned long long v36;  // r14
-    unsigned long long v37;  // rbp
-    void* v38;  // rax
-    unsigned long long v39;  // rax
-    unsigned long long v40;  // rax
+    void* v35;  // r14
+    unsigned long long v36;  // rax
+    unsigned long long v37;  // rax
+    unsigned long long v38;  // rax
 
     v10 = a1;
     v25 = a3[7](a2);
@@ -71,17 +69,17 @@ long long uu_base32::base_common::fast_decode::fast_decode::h894b8dd38a833827(un
             v17 = 1;
             *((int128_t *)&v14) = *((int128_t *)&v20);
             v16 = *((long long *)&v21);
-            v38 = ::0x479290::alloc::boxed::Box$LT$T$GT$::new::h24c3b22d1586a670(&v14);
-            ::0x4790e0::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h4172b98dff79a5a1();
+            v35 = ::0x479290::alloc::boxed::Box$LT$T$GT$::new::h24c3b22d1586a670(&v14);
+            ::0x4790e0::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h4172b98dff79a5a1(v28);
             break;
         }
         if (!v28)
         {
-            v38 = a3[4](a2, v1, v2, &v3);
-            if (!(!v38))
+            v35 = a3[4](a2, v1, v2, &v3);
+            if (!(!v35))
                 goto LABEL_4797f0;
-            v40 = uu_base32::base_common::fast_decode::write_to_output::h32257a8eb7dfc8a1(&v3, &v10, &g_546cf0);
-            if (!v40)
+            v38 = uu_base32::base_common::fast_decode::write_to_output::h32257a8eb7dfc8a1(&v3, &v10, &g_546cf0);
+            if (!v38)
             {
                 ::0x479110::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h4668a2ded45dd356(&v6);
                 ::0x479110::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h4668a2ded45dd356(&v3);
@@ -89,35 +87,39 @@ long long uu_base32::base_common::fast_decode::fast_decode::h894b8dd38a833827(un
                 ::0x479110::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h4668a2ded45dd356(&v11);
                 return 0;
             }
-            v38 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v40);
+            v37 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v38);
             goto LABEL_4797ed;
         }
         v30 = ::0x478e70::_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$::index::hc824ce28ebfb8e30(v28, *((long long *)&v12), *((long long *)&v13));
-        v31 = v30;
+        v31 = v28;
+        v32 = v30;
         v14 = v30;
         v15 = v30 + v28;
         if (_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::any::hbce8a63a9619d87c(&v14, &v22))
         {
             v8 = 0;
-            v14 = v31;
+            v14 = v32;
             v15 = v15;
-            v34 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h984abb6bfeaeb974(&v14);
-            if (v34)
+            v33 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h984abb6bfeaeb974(&v14);
+            if (!v33)
+            {
+                v31 = 0;
+            }
+            else
             {
                 do
                 {
-                    v35 = *(v34);
-                    if (*((char *)(&v22 + v35)))
-                        alloc::vec::Vec$LT$T$C$A$GT$::push::h034f14c94017e4c6(&v6, v35 & 4294967295);
-                } while (!(!v38));
+                    v34 = *(v33);
+                    if (*((char *)(&v22 + v34)))
+                        alloc::vec::Vec$LT$T$C$A$GT$::push::h034f14c94017e4c6(&v6, v34 & 4294967295);
+                } while ((v33 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h984abb6bfeaeb974(&v14), v33));
+                v31 = v8;
             }
             v32 = v7;
         }
-        v36 = v33;
-        v37 = v32;
-        if (v26 - v2 > v36)
+        if (v26 - v2 > v31)
         {
-            _$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$::spec_extend::h92ffd1ad14137507(&v0, v37, v36 + v37);
+            _$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$::spec_extend::h92ffd1ad14137507(&v0, v32, v31 + v32);
             if (v2 >= v26)
             {
                 v9 = &g_546d70;
@@ -125,8 +127,8 @@ long long uu_base32::base_common::fast_decode::fast_decode::h894b8dd38a833827(un
             }
             goto LABEL_4795b0;
         }
-        v38 = uu_base32::base_common::fast_decode::decode_in_chunks_to_buffer::h65f2050a33e778c1(a2, a3, v26, v26 - v2, v37, v36, &v3, &v0);
-        if (v38)
+        v35 = uu_base32::base_common::fast_decode::decode_in_chunks_to_buffer::h65f2050a33e778c1(a2, a3, v26, v26 - v2, v32, v31, &v3, &v0);
+        if (v35)
         {
 LABEL_4797f0:
             break;
@@ -135,16 +137,17 @@ LABEL_4797f0:
         {
             if (v2 >= v26)
                 core::panicking::panic::h8c3a660c3523e4a4("assertion failed: leftover_buffer.len() < decode_in_chunks_of_size/rustc/8bfcae730a5db2438bbda72796175bba21427be1/library/alloc/src/collections/vec_deque/mod.rs", 66, v9); /* do not return */
-            v39 = uu_base32::base_common::fast_decode::write_to_output::h32257a8eb7dfc8a1(&v3, &v10, &g_546cf0);
-            if (!v39)
+            v36 = uu_base32::base_common::fast_decode::write_to_output::h32257a8eb7dfc8a1(&v3, &v10, &g_546cf0);
+            if (!v36)
             {
 LABEL_4795b0:
                 v29 = *((long long *)&v13);
             }
             else
             {
-                v38 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v39);
+                v37 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v36);
 LABEL_4797ed:
+                v35 = v37;
                 goto LABEL_4797f0;
             }
         }
@@ -153,5 +156,5 @@ LABEL_4797ed:
     ::0x479110::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h4668a2ded45dd356(&v3);
     ::0x479110::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h4668a2ded45dd356(&v0);
     ::0x479110::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h4668a2ded45dd356(&v11);
-    return v38;
+    return v35;
 }

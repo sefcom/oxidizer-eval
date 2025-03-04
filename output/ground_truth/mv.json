@@ -1,0 +1,373 @@
+{
+  "uu_mv::rename": {
+    "func_calls": {
+      "suspend": 1,
+      "modified": 2,
+      "Ok": 5,
+      "rename_with_fallback": 2,
+      "is_dir": 2,
+      "Err": 3,
+      "get_backup_path": 1,
+      "is_empty_dir": 1,
+      "exists": 2,
+      "metadata": 2,
+      "new": 3,
+      "remove_dir": 1
+    },
+    "macro_calls": {
+      "format": 3,
+      "prompt_yes": 1,
+      "println": 4
+    },
+    "string_literals": {
+      "skipped {}": 2,
+      "{message}": 2,
+      "Directory not empty": 1,
+      "overwrite {}?": 1,
+      "not replacing {}": 1,
+      "renamed {} -> {} (backup: {})": 1,
+      "": 1,
+      "renamed {} -> {}": 1
+    }
+  },
+  "uu_mv::rename_symlink_fallback": {
+    "func_calls": {
+      "symlink_file": 1,
+      "Err": 2,
+      "Ok": 1,
+      "symlink_dir": 1,
+      "is_dir": 1,
+      "new": 2,
+      "and_then": 1,
+      "exists": 1,
+      "symlink": 1,
+      "read_link": 1,
+      "remove_file": 2
+    },
+    "macro_calls": {},
+    "string_literals": {
+      "your operating system does not support symlinks": 1,
+      "can't determine symlink type, since it is dangling": 1
+    }
+  },
+  "uu_mv::move_files_into_dir": {
+    "func_calls": {
+      "clone": 1,
+      "file_name": 1,
+      "set_message": 1,
+      "exists": 1,
+      "len": 3,
+      "suspend": 1,
+      "Ok": 1,
+      "then": 1,
+      "as_ref": 1,
+      "quote": 1,
+      "map_err_context": 1,
+      "is_dir": 1,
+      "contains": 1,
+      "Err": 1,
+      "inc": 1,
+      "Some": 1,
+      "add": 1,
+      "to_string_lossy": 1,
+      "with_style": 1,
+      "try_into": 1,
+      "insert": 1,
+      "join": 1,
+      "is_empty": 1,
+      "with_capacity": 1,
+      "NotADirectory": 1,
+      "new": 1,
+      "unwrap": 2,
+      "rename": 1,
+      "canonicalize": 2,
+      "to_string": 3,
+      "into": 1,
+      "with_template": 1,
+      "unwrap_or_else": 1,
+      "set_exit_code": 1,
+      "to_path_buf": 1
+    },
+    "macro_calls": {
+      "format": 1,
+      "show": 6
+    },
+    "string_literals": {
+      "cannot move {} to {}": 1,
+      "moving {msg} {wide_bar} {pos}/{len}": 1
+    }
+  },
+  "uu_mv::handle_multiple_paths": {
+    "func_calls": {
+      "Err": 1,
+      "last": 1,
+      "new": 1,
+      "len": 1,
+      "move_files_into_dir": 1,
+      "unwrap": 1
+    },
+    "macro_calls": {
+      "format": 1
+    },
+    "string_literals": {
+      "mv: extra operand {}": 1
+    }
+  },
+  "uu_mv::rename_with_fallback": {
+    "func_calls": {
+      "unwrap_or_else": 1,
+      "dir_get_size": 1,
+      "move_dir_with_progress": 1,
+      "is_symlink": 2,
+      "Err": 2,
+      "kind": 1,
+      "symlink_metadata": 1,
+      "is_dir": 1,
+      "new": 6,
+      "with_template": 1,
+      "set_position": 1,
+      "rename_symlink_fallback": 1,
+      "file_type": 1,
+      "with_style": 1,
+      "unwrap": 2,
+      "set_message": 1,
+      "apply_xattrs": 1,
+      "Ok": 1,
+      "copy": 2,
+      "move_dir": 1,
+      "exists": 1,
+      "ok": 1,
+      "is_err": 1,
+      "Some": 1,
+      "retrieve_xattrs": 1,
+      "remove_file": 3,
+      "add": 1,
+      "map_err": 1,
+      "remove_dir_all": 1,
+      "copy_xattrs": 1,
+      "to_string_lossy": 2,
+      "and_then": 3,
+      "rename": 1
+    },
+    "macro_calls": {
+      "format": 2
+    },
+    "string_literals": {
+      "Permission denied": 1,
+      "{msg}: [{elapsed_precise}] {wide_bar} {bytes:>7}/{total_bytes:7}": 1,
+      "{err:?}": 1,
+      "inter-device move failed: '{from}' to '{to}'\\\n                            ; unable to remove target: {err}": 1
+    }
+  },
+  "uu_mv::parse_paths": {
+    "func_calls": {
+      "map": 3,
+      "iter": 1,
+      "to_owned": 2,
+      "as_path": 1,
+      "components": 1,
+      "collect": 2
+    },
+    "macro_calls": {},
+    "string_literals": {}
+  },
+  "uu_mv::mv": {
+    "func_calls": {
+      "len": 1,
+      "handle_multiple_paths": 1,
+      "handle_two_paths": 1,
+      "move_files_into_dir": 1,
+      "from": 1,
+      "parse_paths": 1
+    },
+    "macro_calls": {},
+    "string_literals": {}
+  },
+  "uu_mv::uumain::uumain": {
+    "func_calls": {
+      "get_one": 1,
+      "get_many": 1,
+      "to_string": 1,
+      "get_flag": 6,
+      "quote": 1,
+      "map": 1,
+      "len": 1,
+      "error": 1,
+      "mv": 1,
+      "determine_overwrite_mode": 1,
+      "determine_update_mode": 1,
+      "is_dir": 1,
+      "unwrap_or_default": 1,
+      "new": 2,
+      "collect": 1,
+      "determine_backup_suffix": 1,
+      "contains_id": 1,
+      "determine_backup_mode": 1,
+      "try_get_matches_from_mut": 1,
+      "uu_app": 1,
+      "exit": 1,
+      "cloned": 1,
+      "Err": 2,
+      "into": 1,
+      "TargetNotADirectory": 1
+    },
+    "macro_calls": {
+      "format": 1
+    },
+    "string_literals": {
+      "progress": 1,
+      "strip-trailing-slashes": 1,
+      "target-directory": 2,
+      "files": 1,
+      "debug": 2,
+      "The argument '<{ARG_FILES}>...' requires at least 2 values, but only 1 was provided": 1,
+      "verbose": 1,
+      "cannot combine --backup with -n/--no-clobber or --update=none-fail": 1,
+      "no-target-directory": 1
+    }
+  },
+  "uu_mv::uu_app": {
+    "func_calls": {
+      "action": 9,
+      "arg": 15,
+      "backup_no_args": 1,
+      "short": 7,
+      "backup": 1,
+      "update": 1,
+      "conflicts_with": 1,
+      "value_name": 1,
+      "override_usage": 1,
+      "after_help": 1,
+      "update_no_args": 1,
+      "infer_long_args": 1,
+      "overrides_with_all": 3,
+      "about": 1,
+      "format_usage": 1,
+      "suffix": 1,
+      "value_hint": 2,
+      "required": 1,
+      "new": 11,
+      "help": 9,
+      "util_name": 1,
+      "num_args": 1,
+      "version": 1,
+      "value_parser": 2,
+      "os_string": 2,
+      "long": 9
+    },
+    "macro_calls": {
+      "crate_version": 1,
+      "format": 1
+    },
+    "string_literals": {
+      "prompt before override": 1,
+      "DIRECTORY": 1,
+      "debug": 2,
+      "interactive": 2,
+      "verbose": 2,
+      "explain what is being done": 1,
+      "remove any trailing slashes from each SOURCE argument": 1,
+      "progress": 2,
+      "files": 1,
+      "strip-trailing-slashes": 2,
+      "force": 2,
+      "move all SOURCE arguments into DIRECTORY": 1,
+      "target-directory": 2,
+      "Display a progress bar. \nNote: this feature is not supported by GNU coreutils.": 1,
+      "do not prompt before overwriting": 1,
+      "no-clobber": 2,
+      "explain how a file is copied. Implies -v": 1,
+      "no-target-directory": 3,
+      "treat DEST as a normal file": 1,
+      "do not overwrite an existing file": 1,
+      "{AFTER_HELP}\\n\\n{}": 1
+    }
+  },
+  "uu_mv::is_empty_dir": {
+    "func_calls": {
+      "peek": 1,
+      "is_none": 1,
+      "read_dir": 1,
+      "peekable": 1
+    },
+    "macro_calls": {},
+    "string_literals": {}
+  },
+  "uu_mv::determine_overwrite_mode": {
+    "func_calls": {
+      "get_flag": 2
+    },
+    "macro_calls": {},
+    "string_literals": {
+      "interactive": 1,
+      "no-clobber": 1
+    }
+  },
+  "uu_mv::handle_two_paths": {
+    "func_calls": {
+      "NonDirectoryToDirectory": 1,
+      "symlink_metadata": 1,
+      "new": 4,
+      "display": 3,
+      "ends_with": 1,
+      "SameFile": 1,
+      "are_hardlinks_to_same_file": 1,
+      "starts_with": 1,
+      "NoSuchFile": 1,
+      "is_err": 1,
+      "is_dir": 4,
+      "path_ends_with_terminator": 2,
+      "CannotStatNotADirectory": 1,
+      "SelfTargetSubdirectory": 1,
+      "map_err_context": 1,
+      "SelfSubdirectory": 1,
+      "move_files_into_dir": 1,
+      "rename": 2,
+      "Ok": 1,
+      "Err": 9,
+      "quote": 8,
+      "to_path_buf": 1,
+      "are_hardlinks_or_one_way_symlink_to_same_file": 1,
+      "source_is_target_backup": 1,
+      "into": 10,
+      "DirectoryToNonDirectory": 1,
+      "is_file": 1,
+      "FailedToAccessNotADirectory": 1,
+      "exists": 1,
+      "eq": 2,
+      "map_err": 1,
+      "to_string": 11
+    },
+    "macro_calls": {
+      "format": 3,
+      "prompt_yes": 1
+    },
+    "string_literals": {
+      ".": 1,
+      "/.": 1,
+      "backing up {} might destroy source;  {} not moved": 1,
+      "overwrite {}? ": 1,
+      "cannot move {} to {}": 1,
+      "": 1,
+      "{e}": 1
+    }
+  },
+  "uu_mv::error::MvError::fmt": {
+    "func_calls": {},
+    "macro_calls": {
+      "write": 10
+    },
+    "string_literals": {
+      "cannot overwrite directory {t} with non-directory": 1,
+      "cannot stat {s}: No such file or directory": 1,
+      "cannot stat {s}: Not a directory": 1,
+      "cannot overwrite non-directory {t} with directory {s}": 1,
+      "target directory {t}: Not a directory": 1,
+      "cannot move '{s}' to a subdirectory of itself, '{t}/{s}'": 1,
+      "{s} and {t} are the same file": 1,
+      "cannot move '{s}' to a subdirectory of itself, '{s}/{s}'": 1,
+      "target {t}: Not a directory": 1,
+      "failed to access {t}: Not a directory": 1
+    }
+  }
+}

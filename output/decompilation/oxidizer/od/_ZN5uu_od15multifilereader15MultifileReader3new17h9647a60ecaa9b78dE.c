@@ -15,6 +15,6 @@ fn uu_od::multifilereader::MultifileReader::new(a0: &struct48, a1: u64) -> int {
     return struct48 {
         field_0: v8
         field_16: v7
-        field_32: v3
+        field_32: *(&v3 as &i128)
     };
 }

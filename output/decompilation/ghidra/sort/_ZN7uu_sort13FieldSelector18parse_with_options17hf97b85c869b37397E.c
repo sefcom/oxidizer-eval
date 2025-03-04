@@ -1,5 +1,5 @@
-void __rustcall
-uu_sort::FieldSelector::parse_with_options(long *param_1,undefined8 *param_2,long *param_3)
+void _ZN7uu_sort13FieldSelector18parse_with_options17hf97b85c869b37397E
+               (long *param_1,undefined8 *param_2,long *param_3)
 
 {
   undefined8 uVar1;
@@ -46,12 +46,14 @@ uu_sort::FieldSelector::parse_with_options(long *param_1,undefined8 *param_2,lon
   uVar3 = param_2[2];
   uVar4 = param_2[3];
   local_60 = param_3;
-  _<uu_sort::KeySettings_as_core::default::Default>::default();
+  _ZN63__LT_uu_sort__KeySettings_u20_as_u20_core__default__Default_GT_7default17h939b9802cdaabb58E()
+  ;
   local_dc = 0x600;
   local_e0 = 0;
-  parse_with_options::parse_key_settings(&local_d0,uVar3,uVar4,&local_e0);
+  _ZN7uu_sort13FieldSelector18parse_with_options18parse_key_settings17hbaa53af66f7d56a7E
+            (&local_d0,uVar3,uVar4,&local_e0);
   if (local_d0 == -0x8000000000000000) {
-    KeyPosition::new(&local_b8,uVar1,uVar2,1,uStack_c8);
+    _ZN7uu_sort11KeyPosition3new17h2335ce3d5d49b62eE(&local_b8,uVar1,uVar2,1,uStack_c8);
     local_88 = CONCAT44(uStack_9c,local_a0);
     local_98 = CONCAT44(uStack_ac,uStack_b0);
     uStack_90 = CONCAT44(uStack_a4,uStack_a8);
@@ -66,13 +68,15 @@ LAB_0022179b:
         uStack_ac = uStack_50._4_4_;
         uStack_a4 = CONCAT31(uStack_d4,uStack_d5);
         uStack_a8 = CONCAT31((int3)_local_d8,(undefined)local_a0);
-        new(param_1,&local_98,&local_b8,CONCAT26(uStack_da,CONCAT24(local_dc,local_e0)));
+        _ZN7uu_sort13FieldSelector3new17h76b0cdeb9dd3e1ddE
+                  (param_1,&local_98,&local_b8,CONCAT26(uStack_da,CONCAT24(local_dc,local_e0)));
         return;
       }
       lVar6 = local_60[1];
-      parse_with_options::parse_key_settings(&local_d0,local_60[2],local_60[3],&local_e0);
+      _ZN7uu_sort13FieldSelector18parse_with_options18parse_key_settings17hbaa53af66f7d56a7E
+                (&local_d0,local_60[2],local_60[3],&local_e0);
       if (local_d0 == -0x8000000000000000) {
-        KeyPosition::new(&local_b8,lVar5,lVar6,0,uStack_c8);
+        _ZN7uu_sort11KeyPosition3new17h2335ce3d5d49b62eE(&local_b8,lVar5,lVar6,0,uStack_c8);
         local_78 = CONCAT44(uStack_ac,uStack_b0);
         lStack_70 = CONCAT44(uStack_a4,uStack_a8);
         local_e8 = (undefined3)((uint)local_a0 >> 8);

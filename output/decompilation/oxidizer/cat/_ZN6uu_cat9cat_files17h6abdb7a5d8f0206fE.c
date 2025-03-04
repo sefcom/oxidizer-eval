@@ -1,109 +1,99 @@
 fn uu_cat::cat_files(a0: u32, a1: u32, a2: &struct5) -> u64 {
-    let v0: i64;  // [sp-0x248]
+    let v0: i64;  // [sp-0x248], Other Possible Types: struct24
     let v1: i64;  // [sp-0x240]
-    let v2: i64;  // [sp-0x238]
-    let v3: i64;  // [sp-0x230]
-    let v4: i64;  // [sp-0x220], Other Possible Types: struct24
-    let v5: i64;  // [sp-0x218]
-    let v6: i64;  // [sp-0x210]
-    let v7: i8;  // [sp-0x208]
-    let v8: i64;  // [sp-0x200], Other Possible Types: struct16
-    let v9: i64;  // [sp-0x1f8]
-    let v10: i64;  // [sp-0x1f0]
-    let v11: i64;  // [sp-0x1e8]
-    let v12: i16;  // [sp-0x1e0]
-    let v13: i8;  // [sp-0x1de]
-    let v14: struct16;  // [bp-0x1d8]
-    let v15: i128;  // [sp-0x1c8]
-    let v16: i64;  // [sp-0x1b8]
-    let v17: i8;  // [bp-0x1b0]
-    let v18: i8;  // [bp-0x1a0]
-    let v19: i64;  // [sp-0x198], Other Possible Types: Option<struct8>, struct28
-    let v20: i64;  // [sp-0x190]
-    let v21: i64;  // [sp-0x188]
-    let v22: i64;  // [bp-0x180]
-    let v23: i64;  // [sp-0x178]
-    let v24: i8;  // [bp-0xf8]
-    let v25: i8;  // [bp-0xe8]
-    let v26: i8;  // [bp-0xe0]
-    let v27: i64;  // [sp-0xc8]
-    let v28: i8;  // [bp-0xc0]
-    let v30: i64;  // rax
-    let v31: i256;  // ymm0
-    let v32: i64;  // r15
-    let v33: i64;  // r12
-    let v34: i128;  // xmm0
-    let v35: i64;  // rdx
-    let v37: i64;  // rbx
+    let v2: i64;  // [sp-0x220], Other Possible Types: struct24
+    let v3: i64;  // [sp-0x218]
+    let v4: i64;  // [sp-0x210]
+    let v5: i8;  // [sp-0x208]
+    let v6: i64;  // [sp-0x200], Other Possible Types: struct16
+    let v7: i64;  // [sp-0x1f8]
+    let v8: i64;  // [sp-0x1f0]
+    let v9: i64;  // [sp-0x1e8]
+    let v10: i16;  // [sp-0x1e0]
+    let v11: i8;  // [sp-0x1de]
+    let v12: struct16;  // [bp-0x1d8]
+    let v13: iNone;  // [sp-0x1c8]
+    let v14: i64;  // [sp-0x1b8]
+    let v15: struct25;  // [sp-0x1b0]
+    let v16: struct24;  // [sp-0x198], Other Possible Types: struct40, Option<struct8>, unsigned long
+    let v17: i32;  // [bp-0x180]
+    let v18: struct24;  // [sp-0xf8]
+    let v19: String;  // [sp-0xe0]
+    let v20: i64;  // [sp-0xc8]
+    let v21: i8;  // [bp-0xc0]
+    let v23: i64;  // rax
+    let v24: iNone;  // ymm0
+    let v25: i64;  // r15
+    let v26: i64;  // r12
+    let v27: i64;  // r9
+    let v28: iNone;  // xmm0
+    let v29: i64;  // rdx
+    let v30: i64;  // rbx
+    let v31: i64;  // rbx
 
-    v4 = std::io::stdio::stdout();
-    v19 = uucore::features::fs::FileInformation::from_file();
-    if !v19 {
-        memcpy(&v28, &v19, 144);
-        v27 = 1;
+    v2 = std::io::stdio::stdout();
+    v16 = uucore::features::fs::FileInformation::from_file();
+    if !v16 {
+        memcpy(&v21, &v16, 144);
+        v20 = 1;
     }
-    v11 = 1;
-    v12 = 1;
-    v13 = 0;
+    v9 = 1;
+    v10 = 1;
+    v11 = 0;
+    v6 = 0;
+    v7 = 8;
     v8 = 0;
-    v9 = 8;
-    v10 = 0;
-    v14 = struct16 {
+    v12 = struct16 {
         field_0: a0
         field_8: a0 + a1 * 24
     };
-    v30 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v14);
-    if v30 {
+    v23 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v12);
+    if v23 {
         do {
-            v32 = *((v30 + 8) as &i64);
-            v33 = *((v30 + 16) as &i64);
-            uu_cat::cat_path();
-            if v17 != 9223372036854775814 {
-                v16 = v18;
-                v34 = v17;
-                v31 = v31 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v34;
-                v15 = v34;
-                v4 = 0;
-                v5 = v32;
-                v6 = v33;
-                v7 = 0;
-                v0 = &v4;
-                v1 = <os_display::Quoted as core::fmt::Display>::fmt;
-                v2 = &v15;
-                v3 = <uu_cat::CatError as core::fmt::Display>::fmt;
-                v19 = &g_5185e8;
-                v20 = 2;
-                v23 = 0;
-                v21 = &v0;
-                v22 = 2;
-                core::option::Option<T>::map_or_else();
-                v8 = alloc::vec::Vec<T,A>::push(&v26);
+            v25 = *((v23 + 8) as &i64);
+            v26 = *((v23 + 16) as &i64);
+            v27 = v20;
+            if v27 {
+                v27 = &v21;
             }
-            v30 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v14);
-        } while (v30);
-        if *((&v12 as &char + 1) as &i8) {
-            print!("\r");
+            v15 = uu_cat::cat_path(v25, v26, a2, &v9, v27);
+            if v15.field_0 != 9223372036854775814 {
+                v14 = *((&v15.field_9 as &char + 7) as &i64);
+                v28 = *(&v15.field_0 as &i128);
+                v24 = v24 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v28 as u256;
+                v13 = v28;
+                v2 = 0;
+                v3 = v25;
+                v4 = v26;
+                v5 = 0;
+                v19 = format!("{}: {}", &v2, &v13);
+                v6 = alloc::vec::Vec<T,A>::push(&v19);
+            }
+            v23 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v12);
+        } while (v23);
+        if *((&v10 as &char + 1) as &i8) {
+            print!("");
         }
     }
-    if !v10 {
-        return v37;
+    if !v8 {
+        return v31;
     }
-    v4 = uucore::util_name();
-    v5 = v35;
-    v0 = &v4;
+    v2 = uucore::util_name();
+    v3 = v29;
+    v0 = &v2;
     v1 = <&T as core::fmt::Display>::fmt;
-    v19 = struct28 {
+    v16 = struct40 {
         field_0: "\n"
+        field_8: 2
         field_16: &v0
-        field_24: <UNKNOWN>
+        field_24: 1
+        field_32: 0
     };
-    v23 = 0;
-    v22 = 1;
-    core::option::Option<T>::map_or_else();
-    v0 = v24;
-    v2 = v25;
-    v4 = alloc::str::join_generic_copy(v9, v10, v1, v25);
-    v19 = v4;
-    alloc::boxed::Box<T>::new(&v19);
-    return v37;
+    v18 = core::option::Option<T>::map_or_else(&v16);
+    v0 = v18;
+    v30 = v8;
+    v2 = alloc::str::join_generic_copy(v7, v30, v1, v18.field_16);
+    v16 = v2;
+    *(&v17 as &u32) = v30 as u32;
+    return v31;
 }

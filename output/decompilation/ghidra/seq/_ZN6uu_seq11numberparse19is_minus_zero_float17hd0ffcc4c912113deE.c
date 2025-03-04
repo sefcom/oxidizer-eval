@@ -1,7 +1,8 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined4 __rustcall
-uu_seq::numberparse::is_minus_zero_float(undefined8 param_1,undefined8 param_2,undefined8 param_3)
+undefined4
+_ZN6uu_seq11numberparse19is_minus_zero_float17hd0ffcc4c912113deE
+          (undefined8 param_1,undefined8 param_2,undefined8 param_3)
 
 {
   char cVar1;
@@ -19,8 +20,9 @@ uu_seq::numberparse::is_minus_zero_float(undefined8 param_1,undefined8 param_2,u
   local_48[1] = '\0';
   local_48[2] = '\0';
   local_48[3] = '\0';
-  uVar3 = core::char::methods::encode_utf8_raw(0x2d,local_48);
-  cVar1 = core::slice::_<impl[T]>::starts_with(param_1,param_2,uVar3,1);
+  uVar3 = _ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E(0x2d,local_48);
+  cVar1 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_11starts_with17h9cb9db4a84f1050bE
+                    (param_1,param_2,uVar3,1);
   if (cVar1 == '\0') {
     uVar2 = 0;
   }
@@ -36,9 +38,9 @@ uu_seq::numberparse::is_minus_zero_float(undefined8 param_1,undefined8 param_2,u
     uStack_3c = _UNK_0011b884;
     local_28 = 0;
                     /* try { // try from 001cda5d to 001cda68 has its CatchHandler @ 001cda83 */
-    uVar2 = bigdecimal::impl_cmp::_<impl_core::cmp::PartialEq_for_bigdecimal::BigDecimal>::eq
+    uVar2 = _ZN10bigdecimal8impl_cmp73__LT_impl_u20_core__cmp__PartialEq_u20_for_u20_bigdecimal__BigDecimal_GT_2eq17h0c7161c8c911041fE
                       (param_3,local_48);
-    core::ptr::drop_in_place<bigdecimal::BigDecimal>(local_48);
+    _ZN4core3ptr43drop_in_place_LT_bigdecimal__BigDecimal_GT_17h9ea64fcf6ce46304E(local_48);
   }
   return uVar2;
 }

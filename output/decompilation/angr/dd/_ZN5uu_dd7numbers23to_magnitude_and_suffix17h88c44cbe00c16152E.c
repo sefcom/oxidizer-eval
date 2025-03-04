@@ -1,20 +1,20 @@
-long long uu_dd::numbers::to_magnitude_and_suffix::h88c44cbe00c16152(unsigned long a0, unsigned long long a1, unsigned long long a2, unsigned int a3)
+long long uu_dd::numbers::to_magnitude_and_suffix::h88c44cbe00c16152(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned int a3)
 {
     unsigned long v0;  // [sp-0x118]
     unsigned long v1;  // [sp-0x110]
-    char *v2;  // [sp-0x108], Other Possible Types: unsigned long long
+    struct struct_0 **v2;  // [sp-0x108]
     unsigned long long v3;  // [sp-0x100]
-    char *v4;  // [sp-0xf8]
+    char *v4;  // [sp-0xf8], Other Possible Types: struct struct_0 **
     unsigned long long v5;  // [sp-0xf0]
-    char *v6;  // [sp-0xe8]
+    struct struct_1 **v6;  // [sp-0xe8]
     unsigned long long v7;  // [sp-0xe0]
-    unsigned long long v8;  // [sp-0xd8], Other Possible Types: unsigned long
+    char *v8;  // [sp-0xd8], Other Possible Types: unsigned long
     unsigned long long v9;  // [sp-0xd0]
     char *v10;  // [sp-0xc8]
     unsigned long long v11;  // [sp-0xc0]
-    void* v12;  // [bp-0xb8], Other Possible Types: char, unsigned long long
+    struct struct_0 **v12;  // [bp-0xb8], Other Possible Types: unsigned long long
     unsigned long long v13;  // [sp-0xb0]
-    struct struct_0 **v14;  // [bp-0xa8], Other Possible Types: char, unsigned long long
+    struct struct_1 **v14;  // [sp-0xa8], Other Possible Types: char, unsigned long long
     unsigned long long v15;  // [sp-0xa0]
     void* v16;  // [sp-0x98]
     unsigned long long v17;  // [sp-0x90]
@@ -30,6 +30,7 @@ long long uu_dd::numbers::to_magnitude_and_suffix::h88c44cbe00c16152(unsigned lo
     int v28;  // ymm1
     int v29;  // ymm1
     int v30;  // xmm1
+    struct struct_1 **v31;  // rsi
 
     uu_dd::numbers::SuffixType::base_and_suffix::he90531716fe26654(&v12, a3, a1, a2);
     v26 = *((int128_t *)&v14);
@@ -63,6 +64,7 @@ long long uu_dd::numbers::to_magnitude_and_suffix::h88c44cbe00c16152(unsigned lo
         v7 = 2;
         v4 = &v8;
         v5 = 2;
+        v31 = &v2;
     }
     else
     {
@@ -77,7 +79,8 @@ long long uu_dd::numbers::to_magnitude_and_suffix::h88c44cbe00c16152(unsigned lo
         v16 = 0;
         v14 = &v2;
         v15 = 2;
+        v31 = &v12;
     }
-    ::0x4e30c0::core::option::Option$LT$T$GT$::map_or_else::hc1b70357c4d75658();
+    ::0x4e30c0::core::option::Option$LT$T$GT$::map_or_else::hc1b70357c4d75658(a0, v31);
     return a0;
 }

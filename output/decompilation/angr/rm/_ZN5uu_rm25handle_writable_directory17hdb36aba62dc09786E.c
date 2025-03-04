@@ -1,18 +1,18 @@
 char uu_rm::handle_writable_directory::hdb36aba62dc09786(unsigned long a0, unsigned long a1, char a2, char a3)
 {
-    unsigned long v0;  // [sp-0xa0], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xa0]
     unsigned long long v1;  // [sp-0x98]
     struct struct_0 **v2;  // [sp-0x90], Other Possible Types: struct struct_1 **, unsigned long long
     int v3;  // [sp-0x88], Other Possible Types: unsigned long long
     void* v4;  // [sp-0x80]
     struct struct_0 **v5;  // [sp-0x70]
     unsigned long long v6;  // [sp-0x68]
-    unsigned long v7;  // [sp-0x60], Other Possible Types: unsigned long long
-    char *v8;  // [sp-0x58], Other Possible Types: unsigned long long
+    unsigned long v7;  // [sp-0x60]
+    char *v8;  // [sp-0x58]
     unsigned long long v9;  // [sp-0x50]
     unsigned long long v10;  // [sp-0x48]
     char v11;  // [sp-0x40]
-    unsigned long v12;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v12;  // [sp-0x38]
     unsigned long v14;  // rdx
     unsigned long v15;  // rdx
     unsigned long long v16;  // rax

@@ -1,6 +1,6 @@
 fn uu_wc::files0_iter_file(a0: &Result<struct73, struct16>, a1: u32, a2: u32) -> u64 {
-    let v0: i96;  // [sp-0x68], Other Possible Types: Result<struct4, struct8>
-    let v1: struct24;  // [sp-0x58], Other Possible Types: i192
+    let v0: Result<struct4, struct8>;  // [sp-0x68]
+    let v1: struct24;  // [sp-0x58]
     let v2: struct24;  // [sp-0x38]
     let v4: i32;  // ebp
     let v5: i64;  // rax
@@ -15,7 +15,7 @@ fn uu_wc::files0_iter_file(a0: &Result<struct73, struct16>, a1: u32, a2: u32) ->
         },
         Err(_) => {
             *(a0 as &i64) = 9223372036854775809;
-            *((a0 + 8) as &long long) = <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(v0, a1, a2);
+            *((a0 + 8) as &long long) = <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(v0 as i64, a1, a2);
             *((a0 + 16) as &&i64) = &g_531158;
             return &g_531158;
         },

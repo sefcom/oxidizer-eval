@@ -1,4 +1,4 @@
-int * __rustcall uu_test::parser::parse(int *param_1)
+int * _ZN7uu_test6parser5parse17h8832bd6d00f7e405E(int *param_1)
 
 {
   int local_80;
@@ -16,9 +16,9 @@ int * __rustcall uu_test::parser::parse(int *param_1)
   undefined8 local_50;
   undefined local_48 [56];
   
-  Parser::new(&local_60);
+  _ZN7uu_test6parser6Parser3new17h6d612ffc55b5931eE(&local_60);
                     /* try { // try from 001afd57 to 001afd63 has its CatchHandler @ 001afdb6 */
-  Parser::parse(&local_80,&local_60);
+  _ZN7uu_test6parser6Parser5parse17h4b01a6d19b3f40dbE(&local_80,&local_60);
   if (local_80 == 7) {
     *(undefined8 *)(param_1 + 6) = local_50;
     param_1[2] = local_60;
@@ -27,8 +27,7 @@ int * __rustcall uu_test::parser::parse(int *param_1)
     param_1[5] = iStack_54;
     param_1[0] = 7;
     param_1[1] = 0;
-    core::ptr::
-    drop_in_place<core::iter::adapters::peekable::Peekable<alloc::vec::into_iter::IntoIter<std::ffi::os_str::OsString>>>
+    _ZN4core3ptr134drop_in_place_LT_core__iter__adapters__peekable__Peekable_LT_alloc__vec__into_iter__IntoIter_LT_std__ffi__os_str__OsString_GT__GT__GT_17h1d252f4392002ad9E
               (local_48);
   }
   else {
@@ -40,7 +39,7 @@ int * __rustcall uu_test::parser::parse(int *param_1)
     param_1[1] = iStack_7c;
     param_1[2] = iStack_78;
     param_1[3] = iStack_74;
-    core::ptr::drop_in_place<uu_test::parser::Parser>(&local_60);
+    _ZN4core3ptr44drop_in_place_LT_uu_test__parser__Parser_GT_17h69be05316ed7c9aeE(&local_60);
   }
   return param_1;
 }

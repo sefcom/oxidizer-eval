@@ -1,4 +1,4 @@
-fn uu_more::Pager::page_resize(a0: &struct2, a1: u32, ) -> u64 {
+fn uu_more::Pager::page_resize(a0: &struct2, a1: u32, a2: iNone) -> u64 {
     let v1: void*;  // rax
     let v2: u64;  // cc_ndep
 

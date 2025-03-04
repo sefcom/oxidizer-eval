@@ -1,11 +1,11 @@
 long long uu_truncate::truncate_size_only::hdbbffa5e97261080(unsigned long long a0, unsigned long long a1, unsigned long a2, unsigned long a3, unsigned int a4)
 {
-    int v0;  // [bp-0x178], Other Possible Types: char, unsigned long long
+    int v0;  // [bp-0x178], Other Possible Types: char, unsigned long
     unsigned long v1;  // [sp-0x170], Other Possible Types: unsigned long long
-    struct struct_1 **v2;  // [bp-0x168], Other Possible Types: char, unsigned long, unsigned long long
+    struct struct_1 **v2;  // [sp-0x168], Other Possible Types: char, unsigned long, unsigned long long
     unsigned int v3;  // [bp-0x160], Other Possible Types: unsigned long long
     void* v4;  // [sp-0x158]
-    unsigned long v5;  // [sp-0x140], Other Possible Types: unsigned long long
+    unsigned long v5;  // [sp-0x140]
     unsigned long long v6;  // [sp-0x138]
     char *v7;  // [sp-0x130]
     unsigned long long v8;  // [sp-0x128]
@@ -14,17 +14,19 @@ long long uu_truncate::truncate_size_only::hdbbffa5e97261080(unsigned long long 
     void* v11;  // [sp-0x108]
     int v12;  // [sp-0x100]
     char v13;  // [sp-0xf0]
-    int v14;  // [sp-0xe8], Other Possible Types: char
+    int v14;  // [bp-0xe8], Other Possible Types: char
     char v15;  // [bp-0xe0]
     int v16;  // [bp-0xd8]
     unsigned int v17;  // [sp-0xd0]
     char v18;  // [bp-0xb0]
     unsigned long v20;  // rbx
     int v21;  // xmm0
-    void* v22;  // rax
+    unsigned long long v22;  // rax
     struct_0 *v23;  // rax
     struct_0 *v24;  // r12
     unsigned long long v25;  // r13
+    unsigned long long v26;  // rax
+    void* v27;  // r12
 
     uu_truncate::parse_mode_and_size::hbf18cbb89603c372(&v0, a0, a1);
     if (*((int *)&v0) != 3)
@@ -66,17 +68,20 @@ long long uu_truncate::truncate_size_only::hdbbffa5e97261080(unsigned long long 
                     v4 = 0;
                     v2 = &v7;
                     v3 = 1;
-                    ::0x4acf90::core::option::Option$LT$T$GT$::map_or_else::ha526a84f6413e2dc();
+                    ::0x4acf90::core::option::Option$LT$T$GT$::map_or_else::ha526a84f6413e2dc(&v9, &v0);
                     v3 = 1;
                     *((int128_t *)&v0) = *((int128_t *)&v9);
                     v2 = *((long long *)&v10);
-                    v22 = alloc::boxed::Box$LT$T$GT$::new::h2e09ae21cbeee3ec(&v0);
+                    v27 = alloc::boxed::Box$LT$T$GT$::new::h2e09ae21cbeee3ec(&v0);
                     core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$::hf10946d364a1ba5f(v25, *((long long *)&v15));
                     break;
                 }
-                v22 = uu_truncate::file_truncate::h8689dfa8e5b80143(v24->field_8, v24[1].padding_0, a4, uu_truncate::TruncateMode::to_size::h56da67cab21ebb4e(v20));
-                if (v22)
-                    return v22;
+                v26 = uu_truncate::file_truncate::h8689dfa8e5b80143(v24->field_8, v24[1].padding_0, a4, uu_truncate::TruncateMode::to_size::h56da67cab21ebb4e(v20));
+                if (v26)
+                {
+                    v27 = v26;
+                    return v27;
+                }
             }
         }
         else
@@ -85,7 +90,8 @@ long long uu_truncate::truncate_size_only::hdbbffa5e97261080(unsigned long long 
             v17 = 1;
             v22 = alloc::boxed::Box$LT$T$GT$::new::h2e09ae21cbeee3ec(&v14);
 LABEL_4ae057:
+            v27 = v22;
         }
     }
-    return v22;
+    return v27;
 }

@@ -1,9 +1,9 @@
-long long uu_od::multifilereader::MultifileReader::next_file::h7ce1d576af53818d(struct_1 *a0)
+long long uu_od::multifilereader::MultifileReader::next_file::h7ce1d576af53818d(struct_0 *a0)
 {
     unsigned long long v0;  // [sp-0xd0]
-    unsigned long v1;  // [sp-0xc8], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0xc8]
     unsigned long long v2;  // [sp-0xc0]
-    struct struct_0 **v3;  // [sp-0xb8]
+    struct struct_1 **v3;  // [sp-0xb8]
     unsigned long long v4;  // [sp-0xb0]
     void* v5;  // [sp-0xa8]
     char v6;  // [bp-0x98]
@@ -12,7 +12,7 @@ long long uu_od::multifilereader::MultifileReader::next_file::h7ce1d576af53818d(
     char v9;  // [bp-0x80]
     char v10;  // [bp-0x7c]
     char v11;  // [bp-0x78]
-    void* v12;  // [sp-0x70], Other Possible Types: unsigned long, unsigned long long
+    void* v12;  // [sp-0x70], Other Possible Types: unsigned long
     unsigned long long v13;  // [sp-0x68]
     unsigned long long v14;  // [sp-0x60]
     char v15;  // [sp-0x58]
@@ -35,19 +35,19 @@ long long uu_od::multifilereader::MultifileReader::next_file::h7ce1d576af53818d(
             v21 = *((long long *)&v6);
             if (v21)
             {
-                if ((unsigned int)v21 != 1)
+                if ((unsigned int)v21 == 1)
                 {
-                    v27 = *((long long *)&v8);
-                    v25 = core::ptr::drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$::h57a2b63c3e431407(a0->field_18, a0->field_20);
-                    a0->field_18 = *((long long *)&v7);
-                    a0->field_20 = v27;
-                    return v25;
+                    std::io::buffered::bufreader::BufReader$LT$R$GT$::with_capacity::hdd333a46d728f0dc(&v1, 0x2000, std::io::stdio::stdin::h7215cc131abb55d8());
+                    core::ptr::drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$::h57a2b63c3e431407(a0->field_18, a0->field_20);
+                    *((double *)&a0->field_18) = alloc::boxed::Box$LT$T$GT$::new::h76e6865e403783a0(&v1);
+                    a0->field_20 = &g_543218;
+                    return &g_5431c0;
                 }
-                std::io::buffered::bufreader::BufReader$LT$R$GT$::with_capacity::hdd333a46d728f0dc(&v1, 0x2000, std::io::stdio::stdin::h7215cc131abb55d8());
-                core::ptr::drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$::h57a2b63c3e431407(a0->field_18, a0->field_20);
-                *((double *)&a0->field_18) = alloc::boxed::Box$LT$T$GT$::new::h76e6865e403783a0(&v1);
-                a0->field_20 = &g_543218;
-                return &g_5431c0;
+                v27 = *((long long *)&v8);
+                v25 = core::ptr::drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$::h57a2b63c3e431407(a0->field_18, a0->field_20);
+                a0->field_18 = *((long long *)&v7);
+                a0->field_20 = v27;
+                return v25;
             }
             v22 = *((long long *)&v7);
             v23 = *((long long *)&v8);
@@ -86,7 +86,7 @@ long long uu_od::multifilereader::MultifileReader::next_file::h7ce1d576af53818d(
             v4 = 2;
             std::io::stdio::_eprint::hcdfeec148c7134f7(&v1);
             a0->field_28 = 1;
-            ::0x4d6270::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::he48ae13975420feb();
+            ::0x4d6270::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::he48ae13975420feb(v0);
         } while (a0->field_10);
     }
     v25 = core::ptr::drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$::h57a2b63c3e431407(a0->field_18, a0->field_20);

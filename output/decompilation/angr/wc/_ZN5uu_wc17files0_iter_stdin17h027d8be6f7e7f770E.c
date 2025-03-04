@@ -1,6 +1,6 @@
 long long uu_wc::files0_iter_stdin::h027d8be6f7e7f770(unsigned long long a0)
 {
-    unsigned long v0;  // [sp-0x50], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x50]
     int v1;  // [sp-0x48]
     unsigned long long v2;  // [sp-0x38]
     char v3;  // [bp-0x30]

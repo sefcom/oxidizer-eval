@@ -1,22 +1,22 @@
 long long uu_arch::uumain::uumain::hd4daa4f9866d4582(unsigned long long a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0x558], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x558]
     unsigned long long v1;  // [sp-0x550]
     int v2;  // [sp-0x548]
     int v3;  // [sp-0x538]
     unsigned long long v4;  // [sp-0x528]
     char *v5;  // [sp-0x520]
     unsigned long long v6;  // [sp-0x518]
-    unsigned long v7;  // [sp-0x510], Other Possible Types: unsigned long long
+    unsigned long v7;  // [sp-0x510]
     unsigned long long v8;  // [sp-0x508]
-    char v9;  // [bp-0x500], Other Possible Types: unsigned long, unsigned long long
+    char v9;  // [sp-0x500], Other Possible Types: unsigned long
     unsigned long v10;  // [sp-0x4f8], Other Possible Types: unsigned long long
-    char v11;  // [bp-0x4f0], Other Possible Types: unsigned long long
+    char v11;  // [sp-0x4f0], Other Possible Types: unsigned long long
     char v12;  // [bp-0x4e0]
     char v13;  // [bp-0x4d0]
     char v14;  // [bp-0x498]
     char v15;  // [bp-0x490]
-    char v16;  // [bp-0x2e8], Other Possible Types: unsigned long, unsigned long long
+    char v16;  // [bp-0x2e8], Other Possible Types: unsigned long
     unsigned long v17;  // [sp-0x2e0], Other Possible Types: unsigned long long
     struct struct_0 **v18;  // [sp-0x2d8], Other Possible Types: unsigned long
     char v19;  // [bp-0x2d0], Other Possible Types: unsigned long long

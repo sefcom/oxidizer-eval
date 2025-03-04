@@ -1,5 +1,5 @@
-undefined  [16] __rustcall
-uu_base32::base_common::fast_encode::fast_encode
+undefined  [16]
+_ZN9uu_base3211base_common11fast_encode11fast_encode17he2f2c369f4c434ffE
           (undefined8 *param_1,undefined8 param_2,undefined8 param_3,long param_4,long param_5,
           long param_6)
 
@@ -49,7 +49,7 @@ uu_base32::base_common::fast_encode::fast_encode
   lVar4 = (**(code **)(param_4 + 0x30))(param_3);
   uVar7 = lVar4 * 0x400;
   if (uVar7 == 0) {
-    (*(code *)PTR_panic_0024de58)
+    (*(code *)PTR__ZN4core9panicking5panic17h8c3a660c3523e4a4E_0024de58)
               ("assertion failed: encode_in_chunks_of_size > 0",0x2e,
                &PTR_s__home_34r7hm4n_dev_oxidizer_oxid_00246860);
   }
@@ -70,7 +70,8 @@ uu_base32::base_common::fast_encode::fast_encode
       local_e8 = param_6;
     }
                     /* try { // try from 00173e9d to 00173ea6 has its CatchHandler @ 001741a0 */
-    _<u8_as_alloc::vec::spec_from_elem::SpecFromElem>::from_elem(local_c0);
+    _ZN63__LT_u8_u20_as_u20_alloc__vec__spec_from_elem__SpecFromElem_GT_9from_elem17hef424161f497c89eE
+              (local_c0);
     if (local_b0 != 0) {
       local_a8 = 0;
       local_98 = 0;
@@ -86,89 +87,104 @@ uu_base32::base_common::fast_encode::fast_encode
       do {
         while( true ) {
                     /* try { // try from 00173f1a to 00173fdd has its CatchHandler @ 001741a7 */
-          auVar8 = std::io::impls::_<impl_std::io::Read_for_alloc::boxed::Box<R>>::read
+          auVar8 = _ZN3std2io5impls70__LT_impl_u20_std__io__Read_u20_for_u20_alloc__boxed__Box_LT_R_GT__GT_4read17h47ae2d6432a5f7b4E
                              (uVar5,uVar1,local_b8,local_b0);
           uVar6 = auVar8._8_8_;
           if (auVar8._0_8_ != 0) {
-            uVar3 = std::io::error::Error::kind(uVar6);
+            uVar3 = _ZN3std2io5error5Error4kind17hb2ff5fa058639b3dE(uVar6);
                     /* try { // try from 00173ffd to 00174045 has its CatchHandler @ 00174189 */
-            (*(code *)PTR_format_read_error_0024de50)(&local_48,uVar3);
+            (*(code *)PTR__ZN9uu_base3211base_common17format_read_error17h8e4fcbf99236ba5fE_0024de50
+            )(&local_48,uVar3);
             local_50 = 1;
             local_68 = local_48;
             uStack_64 = uStack_44;
             uStack_60 = uStack_40;
             uStack_5c = uStack_3c;
             local_58 = local_38;
-            uVar5 = ::alloc::boxed::Box<T>::new(&local_68);
+            uVar5 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h24c3b22d1586a670E(&local_68);
                     /* try { // try from 00174046 to 001740b6 has its CatchHandler @ 001741a5 */
-            core::ptr::drop_in_place<std::io::error::Error>(uVar6);
-            auVar8._8_8_ = &PTR_drop_in_place<uucore_mods_error_USimpleError>_00246960;
+            _ZN4core3ptr42drop_in_place_LT_std__io__error__Error_GT_17h4172b98dff79a5a1E(uVar6);
+            auVar8._8_8_ = &
+                           PTR__ZN4core3ptr54drop_in_place_LT_uucore__mods__error__USimpleError_GT_17h01c4bfd7282bced1E_00246960
+            ;
             auVar8._0_8_ = uVar5;
             goto LAB_001740bd;
           }
           if (uVar6 == 0) {
-            auVar8 = ::alloc::collections::vec_deque::VecDeque<T,A>::make_contiguous(&local_a8);
+            auVar8 = _ZN5alloc11collections9vec_deque21VecDeque_LT_T_C_A_GT_15make_contiguous17h31f2209311368518E
+                               (&local_a8);
             auVar8 = (**(code **)(local_d0 + 0x28))(local_d8,auVar8._0_8_,auVar8._8_8_,&local_88);
             if (auVar8._0_8_ == 0) {
-              lVar4 = (*(code *)PTR_write_to_output_0024de40)
-                                (&local_100,&local_88,&local_c8,&DAT_00246890,1);
+              lVar4 = (*(code *)
+                        PTR__ZN9uu_base3211base_common11fast_encode15write_to_output17h5f7916e193db6f77E_0024de40
+                      )(&local_100,&local_88,&local_c8,&DAT_00246890,1);
               if (lVar4 == 0) {
                     /* try { // try from 00174100 to 0017410c has its CatchHandler @ 00174196 */
-                core::ptr::drop_in_place<alloc::collections::vec_deque::VecDeque<u8>>(&local_88);
+                _ZN4core3ptr70drop_in_place_LT_alloc__collections__vec_deque__VecDeque_LT_u8_GT__GT_17h874bc9c36ea52246E
+                          (&local_88);
                     /* try { // try from 0017410d to 00174116 has its CatchHandler @ 0017419b */
-                core::ptr::drop_in_place<alloc::collections::vec_deque::VecDeque<u8>>(&local_a8);
+                _ZN4core3ptr70drop_in_place_LT_alloc__collections__vec_deque__VecDeque_LT_u8_GT__GT_17h874bc9c36ea52246E
+                          (&local_a8);
                     /* try { // try from 00174117 to 00174120 has its CatchHandler @ 001741a0 */
-                core::ptr::drop_in_place<alloc::vec::Vec<u8>>(local_c0);
-                core::ptr::
-                drop_in_place<core::option::Option<uu_base32::base_common::fast_encode::LineWrapping>>
+                _ZN4core3ptr46drop_in_place_LT_alloc__vec__Vec_LT_u8_GT__GT_17h4668a2ded45dd356E
+                          (local_c0);
+                _ZN4core3ptr98drop_in_place_LT_core__option__Option_LT_uu_base32__base_common__fast_encode__LineWrapping_GT__GT_17h4fb2dff8abbfc10aE
                           (&local_100);
                 return ZEXT816(0);
               }
-              auVar8 = (*(code *)PTR_from_0024de48)(lVar4);
+              auVar8 = (*(code *)
+                         PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17hcd961c31063bf4faE_0024de48
+                       )(lVar4);
             }
             goto LAB_001740bd;
           }
-          auVar8 = _<core::ops::range::Range<usize>as_core::slice::index::SliceIndex<[T]>>::index
+          auVar8 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17hc824ce28ebfb8e30E
                              (uVar6,local_b8,local_b0);
           lVar4 = auVar8._0_8_;
           if (uVar6 < uVar7 - uStack_90) break;
-          auVar8 = (*(code *)PTR_encode_in_chunks_to_buffer_0024de38)
-                             (local_d8,local_d0,uVar7,uVar7 - uStack_90,lVar4,auVar8._8_8_,&local_88
-                              ,&local_a8);
+          auVar8 = (*(code *)
+                     PTR__ZN9uu_base3211base_common11fast_encode26encode_in_chunks_to_buffer17h2c86eb655e89e74fE_0024de38
+                   )(local_d8,local_d0,uVar7,uVar7 - uStack_90,lVar4,auVar8._8_8_,&local_88,
+                     &local_a8);
           if (auVar8._0_8_ != 0) goto LAB_001740bd;
           if (uVar7 <= uStack_90) goto LAB_0017413c;
-          lVar4 = (*(code *)PTR_write_to_output_0024de40)
-                            (&local_100,&local_88,&local_c8,&DAT_00246890,0);
+          lVar4 = (*(code *)
+                    PTR__ZN9uu_base3211base_common11fast_encode15write_to_output17h5f7916e193db6f77E_0024de40
+                  )(&local_100,&local_88,&local_c8,&DAT_00246890,0);
           if (lVar4 != 0) {
                     /* try { // try from 00173fe7 to 00173fef has its CatchHandler @ 001741a5 */
-            auVar8 = (*(code *)PTR_from_0024de48)(lVar4);
+            auVar8 = (*(code *)
+                       PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17hcd961c31063bf4faE_0024de48
+                     )(lVar4);
 LAB_001740bd:
                     /* try { // try from 001740bd to 001740c9 has its CatchHandler @ 00174196 */
-            core::ptr::drop_in_place<alloc::collections::vec_deque::VecDeque<u8>>(&local_88);
+            _ZN4core3ptr70drop_in_place_LT_alloc__collections__vec_deque__VecDeque_LT_u8_GT__GT_17h874bc9c36ea52246E
+                      (&local_88);
                     /* try { // try from 001740ca to 001740d3 has its CatchHandler @ 0017419b */
-            core::ptr::drop_in_place<alloc::collections::vec_deque::VecDeque<u8>>(&local_a8);
+            _ZN4core3ptr70drop_in_place_LT_alloc__collections__vec_deque__VecDeque_LT_u8_GT__GT_17h874bc9c36ea52246E
+                      (&local_a8);
                     /* try { // try from 001740d4 to 001740dd has its CatchHandler @ 001741a0 */
-            core::ptr::drop_in_place<alloc::vec::Vec<u8>>(local_c0);
-            core::ptr::
-            drop_in_place<core::option::Option<uu_base32::base_common::fast_encode::LineWrapping>>
+            _ZN4core3ptr46drop_in_place_LT_alloc__vec__Vec_LT_u8_GT__GT_17h4668a2ded45dd356E
+                      (local_c0);
+            _ZN4core3ptr98drop_in_place_LT_core__option__Option_LT_uu_base32__base_common__fast_encode__LineWrapping_GT__GT_17h4fb2dff8abbfc10aE
                       (&local_100);
             return auVar8;
           }
         }
-        _<alloc::collections::vec_deque::VecDeque<T,A>as_alloc::collections::vec_deque::spec_extend::SpecExtend<&T,core::slice::iter::Iter<T>>>
-        ::spec_extend(&local_a8,lVar4,lVar4 + auVar8._8_8_);
+        _ZN175__LT_alloc__collections__vec_deque__VecDeque_LT_T_C_A_GT__u20_as_u20_alloc__collections__vec_deque__spec_extend__SpecExtend_LT__RF_T_C_core__slice__iter__Iter_LT_T_GT__GT__GT_11spec_extend17h253d70056d378ecdE
+                  (&local_a8,lVar4,lVar4 + auVar8._8_8_);
       } while (uStack_90 < uVar7);
       local_e0 = &PTR_s__home_34r7hm4n_dev_oxidizer_oxid_00246910;
 LAB_0017413c:
                     /* try { // try from 0017413c to 00174152 has its CatchHandler @ 001741a5 */
-      (*(code *)PTR_panic_0024de58)
+      (*(code *)PTR__ZN4core9panicking5panic17h8c3a660c3523e4a4E_0024de58)
                 ("assertion failed: leftover_buffer.len() < encode_in_chunks_of_size",0x42,local_e0)
       ;
       goto LAB_00174187;
     }
   }
                     /* try { // try from 0017416e to 00174186 has its CatchHandler @ 0017419b */
-  (*(code *)PTR_panic_0024de58)
+  (*(code *)PTR__ZN4core9panicking5panic17h8c3a660c3523e4a4E_0024de58)
             ("assertion failed: !input_buffer.is_empty()",0x2a,
              &PTR_s__home_34r7hm4n_dev_oxidizer_oxid_00246878);
 LAB_00174187:

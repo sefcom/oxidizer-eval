@@ -2,21 +2,22 @@ long long uu_echo::print_escaped::hfb2c9877aef23019(struct_0 *a0, unsigned long 
 {
     char v0;  // [sp-0x5b]
     char v1;  // [sp-0x5a]
-    char v2;  // [sp-0x59]
-    void* v3;  // [bp-0x50]
-    char v4;  // [bp-0x48]
-    unsigned long v5;  // [sp-0x40], Other Possible Types: unsigned long long
-    unsigned long long v6;  // [sp-0x38]
-    void* v8;  // rcx
-    char *v9;  // rax
-    char v10;  // al
-    char *v11;  // rax
-    unsigned long long v12;  // rax
-    char *v13;  // rax
-    unsigned long long v14;  // 4099
-    char *v15;  // rsi
-    unsigned long long v16;  // 4096
-    char v17;  // al
+    char v2;  // [sp-0x5a]
+    char v3;  // [sp-0x59]
+    void* v4;  // [sp-0x50]
+    char v5;  // [bp-0x48]
+    unsigned long v6;  // [sp-0x40]
+    unsigned long long v7;  // [sp-0x38]
+    void* v9;  // rcx
+    char *v10;  // rax
+    char v11;  // al
+    char *v12;  // rax
+    unsigned long long v13;  // rax
+    char *v14;  // rax
+    unsigned long long v15;  // 4099
+    unsigned long long v16;  // rdi
+    char *v17;  // rsi
+    char v18;  // al
     unsigned long long v19;  // r13
     struct_0 *v20;  // rax
     char *v21;  // rsi
@@ -26,45 +27,52 @@ long long uu_echo::print_escaped::hfb2c9877aef23019(struct_0 *a0, unsigned long 
     struct_0 *v25;  // rcx
     struct_0 *v26;  // rcx
 
-    v5 = a1;
-    v6 = a2 + a1;
+    v6 = a1;
+    v7 = a2 + a1;
+    v9 = 0;
     while (true)
     {
-        v8 = 0;
-        if (!0)
-            v9 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h67bb1ffa54fe1617(&v5);
+        v4 = 0;
         if (!v9)
+            v10 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h67bb1ffa54fe1617(&v6);
+        if (!v10)
         {
             v20 = a0;
             *((unsigned short *)&v20->field_0) = 0;
             return v20;
         }
-        v10 = *(v9);
+        v11 = *(v10);
         if (v1 != 92)
         {
-            v1 = v10;
+            v1 = v11;
 LABEL_4a4764:
-            v15 = &v1;
             v16 = a3;
+            v17 = &v1;
             goto LABEL_4a476f;
         }
         else
         {
-            v11 = *((long long *)core::option::Option$LT$T$GT$::get_or_insert_with::hedc8c424b7d46203(&v3, &v5));
-            if (!(v11) || !((v12 = (unsigned long long)*(v11), (v12 - 49 & 255) < 7)))
+            v12 = *((long long *)core::option::Option$LT$T$GT$::get_or_insert_with::hedc8c424b7d46203(&v4, &v6));
+            if (!(v12 && (v13 = (unsigned long long)*(v12), (v13 - 49 & 255) < 7)))
             {
-                v13 = *((long long *)&v4);
-                v14 = v8;
-                v8 = 0;
-                if (!v14)
+                v14 = *((long long *)&v5);
+                v15 = v4;
+                v4 = 0;
+                if (v15)
                 {
-                    v13 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h67bb1ffa54fe1617(&v5);
-                    if (!v13)
+                    if (!v14)
+                        goto LABEL_4a47f0;
+                }
+                else
+                {
+                    v14 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h67bb1ffa54fe1617(&v6);
+                    if (!v14)
                     {
 LABEL_4a47f0:
-                        v15 = "\\";
+                        v16 = a3;
+                        v17 = "\\";
 LABEL_4a476f:
-                        v20 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(v16, v15, 1);
+                        v20 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(v16, v17, 1);
                         if (v20)
                         {
                             v25 = a0;
@@ -75,15 +83,11 @@ LABEL_4a476f:
                         goto LABEL_4a46f1;
                     }
                 }
-                else if (!v13)
-                {
-                    goto LABEL_4a47f0;
-                }
-                v17 = *(v13);
-                switch (v2)
+                v18 = *(v14);
+                switch (v3)
                 {
                 case 48:
-                    if (!((char)uu_echo::parse_backslash_number::he56ed8545e2dc3bc(&v3, 1, 4305632) & 1))
+                    if (!((char)uu_echo::parse_backslash_number::he56ed8545e2dc3bc(&v4, 1, 4305632) & 1))
                     {
                         v21 = &g_41b426;
                         break;
@@ -129,7 +133,7 @@ LABEL_4a476f:
                 case 120:
                     v19 = 2;
                     v21 = "\\x";
-                    if (((char)uu_echo::parse_backslash_number::he56ed8545e2dc3bc(&v3, 2, 4305632) & 1))
+                    if (((char)uu_echo::parse_backslash_number::he56ed8545e2dc3bc(&v4, 2, 4305632) & 1))
                     {
                         v0 = v22;
                         v21 = &v0;
@@ -137,8 +141,8 @@ LABEL_4a476f:
                         break;
                     }
                 default:
-                    v1 = 92;
-                    v2 = v17;
+                    v2 = 92;
+                    v3 = v18;
                     v19 = 2;
                     v21 = &v1;
                     break;
@@ -153,15 +157,17 @@ LABEL_4a476f:
                     return v20;
                 }
 LABEL_4a46f1:
-                v9 = *((long long *)&v4);
+                v9 = v4;
+                v10 = *((long long *)&v5);
+            }
+            else if (((char)uu_echo::parse_backslash_number::he56ed8545e2dc3bc(&v4, 0, v13 & 4294967295) & 1))
+            {
+                v1 = v22;
+                goto LABEL_4a4764;
             }
             else
             {
-                if (!((char)uu_echo::parse_backslash_number::he56ed8545e2dc3bc(&v3, 0, v12 & 4294967295) & 1))
-                    core::option::unwrap_failed::h0e11329e76906eaa(&g_5060f0); /* do not return */
-                v1 = v22;
-                goto LABEL_4a4764;
-                goto LABEL_4a4764;
+                core::option::unwrap_failed::h0e11329e76906eaa(&g_5060f0); /* do not return */
             }
         }
     }

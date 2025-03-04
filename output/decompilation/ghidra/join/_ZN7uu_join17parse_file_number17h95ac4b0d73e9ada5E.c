@@ -1,5 +1,5 @@
-void __rustcall
-uu_join::parse_file_number(undefined8 *param_1,undefined8 param_2,undefined8 param_3)
+void _ZN7uu_join17parse_file_number17h95ac4b0d73e9ada5E
+               (undefined8 *param_1,undefined8 param_2,undefined8 param_3)
 
 {
   char cVar1;
@@ -18,14 +18,17 @@ uu_join::parse_file_number(undefined8 *param_1,undefined8 param_2,undefined8 par
   undefined local_38 [24];
   undefined4 local_20;
   
-  cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(param_2,param_3,"1",1);
+  cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hab9f309aad09d5a2E
+                    (param_2,param_3,"1",1);
   if (cVar1 == '\0') {
-    cVar1 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(param_2,param_3,"2",1);
+    cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hab9f309aad09d5a2E
+                      (param_2,param_3,"2",1);
     if (cVar1 == '\0') {
       local_88 = 0;
       local_70 = 1;
       local_98 = &local_88;
-      local_90 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+      local_90 = 
+      _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
       local_68 = &DAT_002354c0;
       local_60 = 1;
       local_48 = 0;
@@ -33,11 +36,13 @@ uu_join::parse_file_number(undefined8 *param_1,undefined8 param_2,undefined8 par
       local_80 = param_2;
       local_78 = param_3;
       local_58 = (undefined *)&local_98;
-      core::option::Option<T>::map_or_else(local_38,&local_68);
+      _ZN4core6option15Option_LT_T_GT_11map_or_else17h84da32fb4d9c85b4E(local_38,&local_68);
       local_20 = 1;
-      uVar2 = ::alloc::boxed::Box<T>::new(local_38);
+      uVar2 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h7aaaeb17d3fe937dE(local_38);
       *param_1 = uVar2;
-      param_1[1] = &PTR_drop_in_place<uucore_mods_error_USimpleError>_002352b8;
+      param_1[1] = &
+                   PTR__ZN4core3ptr54drop_in_place_LT_uucore__mods__error__USimpleError_GT_17heab0da165463435bE_002352b8
+      ;
       return;
     }
     *(undefined *)(param_1 + 1) = 1;

@@ -1,4 +1,4 @@
-long long uu_ls::PathData::new::ha3e1f49dfc1f89b1(unsigned long a0, unsigned long long a1[3], unsigned long a2, unsigned long long a3[3], unsigned int a4, unsigned int a5)
+long long uu_ls::PathData::new::ha3e1f49dfc1f89b1(unsigned long a0, unsigned long long a1[3], unsigned long long a2, unsigned long long a3[3], unsigned int a4, unsigned int a5, char a6)
 {
     unsigned long long v0[3];  // [sp-0x148]
     unsigned int v1;  // [sp-0x13c]
@@ -12,32 +12,30 @@ long long uu_ls::PathData::new::ha3e1f49dfc1f89b1(unsigned long a0, unsigned lon
     unsigned long long v9;  // [sp-0x20]
     unsigned long long v10;  // [sp-0x18]
     unsigned long long v11;  // [sp-0x10]
-    unsigned long v12;  // [bp+0x8]
-    unsigned long v13;  // r15
-    unsigned long v14;  // r14
-    unsigned long v15;  // r13
-    unsigned long v16;  // r12
-    unsigned long v17;  // rbx
-    unsigned long long v18;  // 4113
-    unsigned long long v19;  // rax
-    unsigned long long v20;  // rdx
+    unsigned long v12;  // r15
+    unsigned long v13;  // r14
+    unsigned long v14;  // r13
+    unsigned long v15;  // r12
+    unsigned long v16;  // rbx
+    unsigned long long v17;  // 4113
+    unsigned long long v18;  // rax
 
-    v11 = v13;
-    v10 = v14;
-    v9 = v15;
-    v8 = v16;
-    v7 = v17;
-    v18 = a3[0];
+    v11 = v12;
+    v10 = v13;
+    v9 = v14;
+    v8 = v15;
+    v7 = v16;
+    v17 = a3[0];
     v4 = a2;
     v0[0] = a3;
     v1 = a4;
-    if (v18 != 0x8000000000000000)
+    if (v17 != 0x8000000000000000)
     {
         v3 = a3[2];
         *((int128_t *)&v2) = *((int128_t *)&a3[0]);
         goto *((int *)(4409008 + vvar_5 * 4)) + 4409008;
     }
-    else if ((char)v12)
+    else if (a6)
     {
         _$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$::clone::h4e545ed874bc91f1(&v5, a1);
         v3 = *((long long *)&v6);
@@ -46,10 +44,10 @@ long long uu_ls::PathData::new::ha3e1f49dfc1f89b1(unsigned long a0, unsigned lon
     }
     else
     {
-        v19 = std::path::Path::file_name::h79ecbb7850a9c7f3(a1[1], a1[2]);
-        if (!v19)
-            v19 = uu_ls::PathData::new::_$u7b$$u7b$closure$u7d$$u7d$::h0c5837aa9b0379e1(a1[1], a1[2]);
-        std::sys::os_str::bytes::Slice::to_owned::h2d9ba69626881113(&v5, v19, v20);
+        v18 = std::path::Path::file_name::h79ecbb7850a9c7f3(a1[1], a1[2]);
+        if (!v18)
+            v18 = uu_ls::PathData::new::_$u7b$$u7b$closure$u7d$$u7d$::h0c5837aa9b0379e1(a1[1], a1[2]);
+        std::sys::os_str::bytes::Slice::to_owned::h2d9ba69626881113(&v5, v18, a2);
         v3 = *((long long *)&v6);
         *((int128_t *)&v2) = *((int128_t *)&v5);
         goto *((int *)(4409008 + vvar_5 * 4)) + 4409008;

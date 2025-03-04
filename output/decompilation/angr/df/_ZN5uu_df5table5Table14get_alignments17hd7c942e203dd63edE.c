@@ -4,7 +4,7 @@ double uu_df::table::Table::get_alignments::hd7c942e203dd63ed(long long a0, long
     void* v1;  // [sp-0x48]
     unsigned long long v2;  // [sp-0x40]
     void* v3;  // [sp-0x38]
-    unsigned long v4;  // [sp-0x30], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0x30]
     unsigned long long v5;  // [sp-0x28]
     char *v7;  // rax
     int v8;  // xmm0

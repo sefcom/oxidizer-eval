@@ -1,4 +1,4 @@
-void __rustcall uu_cp::handle_copy_mode(void)
+void _ZN5uu_cp16handle_copy_mode17h448f778e1ab38150E(void)
 
 {
   long in_R9;

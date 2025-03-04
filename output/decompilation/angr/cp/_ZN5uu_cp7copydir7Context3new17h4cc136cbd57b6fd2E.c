@@ -1,6 +1,6 @@
 long long uu_cp::copydir::Context::new::h4cc136cbd57b6fd2(struct_0 *a0, unsigned long long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4)
 {
-    unsigned long v0;  // [sp-0x128], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x128]
     unsigned long long v1;  // [sp-0x120]
     unsigned long long v2;  // [sp-0x118]
     char v3;  // [bp-0x110]
@@ -14,7 +14,6 @@ long long uu_cp::copydir::Context::new::h4cc136cbd57b6fd2(struct_0 *a0, unsigned
     unsigned long long v12;  // rax
     unsigned long long v15;  // rsi
     unsigned long long v16;  // rax
-    unsigned long long v17;  // rdx
 
     v11 = 0x8000000000000000;
     std::env::current_dir::h8e5fbaefdf378c8c(&v7);
@@ -48,7 +47,7 @@ long long uu_cp::copydir::Context::new::h4cc136cbd57b6fd2(struct_0 *a0, unsigned
             v16 = std::path::Path::parent::h65c9a340a6266f2d(*((long long *)&v4), *((long long *)&v5));
             if (v16)
             {
-                std::sys::pal::unix::os::split_paths::bytes_to_path::h0549813f23b52483(&v7, v16, v17);
+                std::sys::pal::unix::os::split_paths::bytes_to_path::h0549813f23b52483(&v7, v16, a2);
                 v11 = *((long long *)&v7);
                 *((int128_t *)&v6) = *((int128_t *)&v8);
             }
@@ -60,7 +59,7 @@ long long uu_cp::copydir::Context::new::h4cc136cbd57b6fd2(struct_0 *a0, unsigned
             a0->field_38 = a4;
             a0->field_40 = a1;
             a0->field_48 = a2;
-            v12 = ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
+            v12 = ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v3);
             return v12;
         }
     }

@@ -1,6 +1,6 @@
-long __rustcall
-uu_wc::print_stats(long param_1,undefined8 *param_2,undefined *param_3,undefined8 param_4,
-                  undefined8 param_5)
+long _ZN5uu_wc11print_stats17hd63ccbcd2e38aeceE
+               (long param_1,undefined8 *param_2,undefined *param_3,undefined8 param_4,
+               undefined8 param_5)
 
 {
   long lVar1;
@@ -50,8 +50,8 @@ uu_wc::print_stats(long param_1,undefined8 *param_2,undefined *param_3,undefined
   
   local_178 = param_4;
   local_170 = param_3;
-  local_120 = (undefined **)std::io::stdio::stdout();
-  local_190 = std::io::stdio::Stderr::lock(&local_120);
+  local_120 = (undefined **)_ZN3std2io5stdio6stdout17h077da66234850927E();
+  local_190 = _ZN3std2io5stdio6Stderr4lock17h890f7962a170fc90E(&local_120);
   local_80[0] = *(undefined *)(param_1 + 0x1a);
   local_78 = param_2[2];
   local_70 = *(undefined *)(param_1 + 0x1b);
@@ -66,14 +66,15 @@ uu_wc::print_stats(long param_1,undefined8 *param_2,undefined *param_3,undefined
   local_180 = 0;
   local_160 = &stack0xffffffffffffffd0;
   local_168 = local_80;
-  lVar1 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::find(&local_168);
+  lVar1 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4find17ha2c1cf205952523eE
+                    (&local_168);
   if (lVar1 != 0) {
     do {
       local_158 = (undefined *)(lVar1 + 8);
       local_150 = &local_188;
-      local_148 = _<&T_as_core::fmt::Display>::fmt;
+      local_148 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17hf11328e4cb3e1bafE;
       local_140 = &local_158;
-      local_138 = _<&T_as_core::fmt::Display>::fmt;
+      local_138 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h401438c70327895cE;
       local_128 = 0;
       local_120 = (undefined **)0x2;
       local_110 = (char ***)0x2;
@@ -94,11 +95,11 @@ uu_wc::print_stats(long param_1,undefined8 *param_2,undefined *param_3,undefined
       local_98 = 3;
       local_130 = param_5;
                     /* try { // try from 001bded9 to 001bdee3 has its CatchHandler @ 001be00a */
-      lVar1 = std::io::Write::write_fmt(&local_190,&local_b0);
+      lVar1 = _ZN3std2io5Write9write_fmt17h12d662560afab62bE(&local_190,&local_b0);
       if (lVar1 != 0) goto LAB_001bdfe9;
       local_188 = " ";
       local_180 = 1;
-      lVar1 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::find
+      lVar1 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4find17ha2c1cf205952523eE
                         (&local_168);
     } while (lVar1 != 0);
   }
@@ -108,24 +109,24 @@ uu_wc::print_stats(long param_1,undefined8 *param_2,undefined *param_3,undefined
     local_110 = (undefined8 **)&DAT_00000008;
     local_108 = 0;
     uStack_100 = 0;
-    lVar1 = std::io::Write::write_fmt(&local_190,&local_120);
+    lVar1 = _ZN3std2io5Write9write_fmt17h12d662560afab62bE(&local_190,&local_120);
   }
   else {
     local_b0 = local_170;
     local_a8 = local_178;
     local_150 = &local_188;
-    local_148 = _<&T_as_core::fmt::Display>::fmt;
+    local_148 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17hf11328e4cb3e1bafE;
     local_140 = &local_b0;
-    local_138 = _<&T_as_core::fmt::Display>::fmt;
+    local_138 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17hf11328e4cb3e1bafE;
     local_120 = (undefined **)&DAT_00231208;
     local_118 = 3;
     uStack_100 = 0;
     local_110 = &local_150;
     local_108 = 2;
                     /* try { // try from 001bdf97 to 001bdfe5 has its CatchHandler @ 001be008 */
-    lVar1 = std::io::Write::write_fmt(&local_190,&local_120);
+    lVar1 = _ZN3std2io5Write9write_fmt17h12d662560afab62bE(&local_190,&local_120);
   }
 LAB_001bdfe9:
-  core::ptr::drop_in_place<std::io::stdio::StdoutLock>(local_190);
+  _ZN4core3ptr47drop_in_place_LT_std__io__stdio__StdoutLock_GT_17hf5250da0ddf6b680E(local_190);
   return lVar1;
 }

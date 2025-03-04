@@ -1,7 +1,7 @@
 long long uu_numfmt::format::remove_suffix::h52c5c1e5f9168522(unsigned long long a0[2], unsigned long a1, char a2, unsigned long a3)
 {
-    unsigned long v0;  // [sp-0x78], Other Possible Types: unsigned long long
-    unsigned long long v1;  // [sp-0x70]
+    unsigned long v0;  // [sp-0x78]
+    unsigned long v1;  // [sp-0x70]
     unsigned long long v2;  // [sp-0x68]
     struct struct_0 **v3;  // [sp-0x60]
     unsigned long long v4;  // [sp-0x58]
@@ -34,6 +34,6 @@ long long uu_numfmt::format::remove_suffix::h52c5c1e5f9168522(unsigned long long
         v5 = 0;
         v3 = &v6;
         v4 = 1;
-        return ::0x4c2a70::core::option::Option$LT$T$GT$::map_or_else::hab58af973b71ab82();
+        return ::0x4c2a70::core::option::Option$LT$T$GT$::map_or_else::hab58af973b71ab82(a0, &v1);
     }
 }

@@ -1,6 +1,6 @@
 long long uu_od::output_info::OutputInfo::new::hafb4075cd97b7856(struct_0 *a0, unsigned long a1, unsigned long long a2, unsigned long long a3, char a4)
 {
-    unsigned long v0;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x38]
     unsigned long long v2;  // rbx
     unsigned long long v3;  // rax
 

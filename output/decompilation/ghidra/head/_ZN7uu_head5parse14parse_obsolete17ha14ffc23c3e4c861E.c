@@ -1,5 +1,5 @@
-undefined8 * __rustcall
-uu_head::parse::parse_obsolete(undefined8 *param_1,long param_2,long param_3)
+undefined8 *
+_ZN7uu_head5parse14parse_obsolete17ha14ffc23c3e4c861E(undefined8 *param_1,long param_2,long param_3)
 
 {
   undefined8 uVar1;
@@ -19,13 +19,14 @@ uu_head::parse::parse_obsolete(undefined8 *param_1,long param_2,long param_3)
   local_58 = param_2 + param_3;
   local_50 = 0;
   local_60 = param_2;
-  _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next(&local_60);
+  _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
+            (&local_60);
   if (extraout_EDX == 0x2d) {
-    auVar6 = _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next
+    auVar6 = _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
                        (&local_60);
     local_40 = auVar6._0_8_;
     if (auVar6._8_4_ - 0x30U < 10) {
-      auVar4 = _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next
+      auVar4 = _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
                          (&local_60);
       if (auVar4._8_4_ == 0x110000) {
         uVar3 = 0;
@@ -33,7 +34,7 @@ uu_head::parse::parse_obsolete(undefined8 *param_1,long param_2,long param_3)
       else {
         uVar3 = auVar4._8_8_ & 0xffffffff;
         if (auVar4._8_4_ - 0x30U < 10) {
-          auVar5 = _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next
+          auVar5 = _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
                              (&local_60);
           iVar2 = auVar5._8_4_;
           local_40 = auVar4._0_8_;
@@ -41,7 +42,7 @@ uu_head::parse::parse_obsolete(undefined8 *param_1,long param_2,long param_3)
             uVar1 = auVar5._0_8_;
             uVar3 = auVar5._8_8_ & 0xffffffff;
             if (9 < auVar5._8_4_ - 0x30U) goto LAB_001be35b;
-            auVar5 = _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next
+            auVar5 = _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
                                (&local_60);
             local_40 = uVar1;
             iVar2 = auVar5._8_4_;
@@ -52,10 +53,10 @@ uu_head::parse::parse_obsolete(undefined8 *param_1,long param_2,long param_3)
 LAB_001be35b:
       local_48 = 1;
       local_38 = 0;
-      auVar4 = core::str::traits::
-               _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::RangeInclusive<usize>>
-               ::index(&local_48,param_2,param_3);
-      process_num_block(param_1,auVar4._0_8_,auVar4._8_8_,uVar3,&local_60);
+      auVar4 = _ZN4core3str6traits117__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeInclusive_LT_usize_GT__GT_5index17h3fe2ad0e36dabac9E
+                         (&local_48,param_2,param_3);
+      _ZN7uu_head5parse17process_num_block17h8e5bdc2257d4c6b6E
+                (param_1,auVar4._0_8_,auVar4._8_8_,uVar3,&local_60);
       return param_1;
     }
   }

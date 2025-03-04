@@ -1,14 +1,14 @@
-long long uu_mktemp::make_temp_file::hfdb13d12b9e8c76a(unsigned long long a0[3], unsigned long long a1, unsigned long long a2, unsigned long a3, unsigned long a4, unsigned long long a5)
+long long uu_mktemp::make_temp_file::hfdb13d12b9e8c76a(unsigned long long a0[3], unsigned long long a1, unsigned long long a2, unsigned long a3, unsigned long a4, unsigned long long a5, unsigned long a6, unsigned long a7)
 {
     char v0;  // [bp-0x190]
     char v1;  // [bp-0x180]
     char *v2;  // [sp-0x178]
     unsigned long long v3;  // [sp-0x170]
     struct struct_0 **v4;  // [sp-0x168], Other Possible Types: unsigned long long
-    int v5;  // [sp-0x160], Other Possible Types: unsigned long long
+    int v5;  // [sp-0x160], Other Possible Types: unsigned long, unsigned long long
     char *v6;  // [sp-0x158]
     unsigned long long v7;  // [sp-0x150]
-    unsigned long long v8;  // [bp-0x148], Other Possible Types: unsigned long
+    unsigned long v8;  // [bp-0x148]
     char v9;  // [bp-0x140], Other Possible Types: unsigned long long
     struct struct_0 **v10;  // [bp-0x138], Other Possible Types: char
     char v11;  // [bp-0x130], Other Possible Types: unsigned long long
@@ -17,9 +17,9 @@ long long uu_mktemp::make_temp_file::hfdb13d12b9e8c76a(unsigned long long a0[3],
     int v14;  // [bp-0x118], Other Possible Types: char *
     char *v15;  // [sp-0x108]
     unsigned long long v16;  // [sp-0xf8]
-    unsigned long v17;  // [sp-0xf0], Other Possible Types: unsigned long long
+    unsigned long v17;  // [sp-0xf0]
     unsigned long long v18;  // [sp-0xe8]
-    unsigned long v19;  // [sp-0xe0], Other Possible Types: unsigned long long
+    unsigned long v19;  // [sp-0xe0]
     unsigned long long v20;  // [sp-0xd8]
     char v21;  // [bp-0xd0]
     char v22;  // [bp-0xc0]
@@ -34,31 +34,29 @@ long long uu_mktemp::make_temp_file::hfdb13d12b9e8c76a(unsigned long long a0[3],
     unsigned long long v31;  // [sp-0x68]
     char *v32;  // [sp-0x58]
     char *v33;  // [sp-0x48]
-    unsigned long v34;  // [bp+0x8]
-    char v35;  // [bp+0x10]
-    unsigned long long v36;  // r14
-    unsigned long long v37;  // rax
-    unsigned long v38;  // rdx
+    unsigned long long v34;  // r14
+    unsigned long long v35;  // rax
+    unsigned long v36;  // rdx
 
     v17 = a3;
     v18 = a4;
-    v19 = v34;
-    v20 = *((long long *)&v35);
+    v19 = a6;
+    v20 = a7;
     v29 = 0;
     v23 = 0;
     v24 = a3;
     v25 = a4;
     v28 = a5;
-    v26 = v19;
-    v27 = v20;
+    v26 = a6;
+    v27 = a7;
     tempfile::Builder::tempfile_in::h727c1a87e0ab7b89(&v21, &v23, a1, a2);
     if (v22 == 2)
     {
-        v36 = *((long long *)&v21);
-        if ((char)::0x4bc760::std::io::error::Error::kind::hb2ff5fa058639b3d(v36))
+        v34 = *((long long *)&v21);
+        if ((char)::0x4bc760::std::io::error::Error::kind::hb2ff5fa058639b3d(v34))
         {
-            a0[1] = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v36);
-            a0[2] = v38;
+            a0[1] = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v34);
+            a0[2] = v36;
             a0[0] = 0x8000000000000000;
             return 0x8000000000000000;
         }
@@ -74,7 +72,7 @@ long long uu_mktemp::make_temp_file::hfdb13d12b9e8c76a(unsigned long long a0[3],
         v12 = 0;
         v10 = &v2;
         v11 = 3;
-        core::option::Option$LT$T$GT$::map_or_else::hcc2932731f604033();
+        core::option::Option$LT$T$GT$::map_or_else::hcc2932731f604033(&v0, &v8);
         ::0x4bcbe0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h068543f44d037b0a(&v14);
         *((int128_t *)&v30) = *((int128_t *)&v0);
         v31 = *((long long *)&v1);
@@ -89,9 +87,9 @@ long long uu_mktemp::make_temp_file::hfdb13d12b9e8c76a(unsigned long long a0[3],
         *((double *)&a0[1]) = alloc::boxed::Box$LT$T$GT$::new::hcdef1c0b923e2ad4(&v2);
         a0[2] = &g_536af0;
         a0[0] = 0x8000000000000000;
-        ::0x4bcbd0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hef8b921f38343bf4();
-        v37 = ::0x4bcbf0::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h023254833d2f52f9();
-        return v37;
+        ::0x4bcbd0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hef8b921f38343bf4(&v0);
+        v35 = ::0x4bcbf0::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h023254833d2f52f9(v34);
+        return v35;
     }
     else
     {
@@ -102,8 +100,8 @@ long long uu_mktemp::make_temp_file::hfdb13d12b9e8c76a(unsigned long long a0[3],
         {
             a0[2] = v12;
             *((int128_t *)&a0[0]) = *((int128_t *)&v10);
-            v37 = ::0x4bcba0::core::ptr::drop_in_place$LT$std..fs..File$GT$::h1cba195ba56b276e();
-            return v37;
+            v35 = ::0x4bcba0::core::ptr::drop_in_place$LT$std..fs..File$GT$::h1cba195ba56b276e(*((int *)&v9));
+            return v35;
         }
         v16 = *((long long *)&v13);
         *((int128_t *)&v15) = *((int128_t *)&v11);
@@ -115,7 +113,7 @@ long long uu_mktemp::make_temp_file::hfdb13d12b9e8c76a(unsigned long long a0[3],
         *((double *)&a0[1]) = alloc::boxed::Box$LT$T$GT$::new::hcdef1c0b923e2ad4(&v2);
         a0[2] = &g_536af0;
         a0[0] = 0x8000000000000000;
-        v37 = core::ptr::drop_in_place$LT$tempfile..file..PersistError$GT$::h5034deea9c047d89(&v14);
-        return v37;
+        v35 = core::ptr::drop_in_place$LT$tempfile..file..PersistError$GT$::h5034deea9c047d89(&v14);
+        return v35;
     }
 }

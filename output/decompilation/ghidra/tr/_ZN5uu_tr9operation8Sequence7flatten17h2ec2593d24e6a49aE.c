@@ -1,4 +1,4 @@
-void __rustcall uu_tr::operation::Sequence::flatten(byte *param_1)
+void _ZN5uu_tr9operation8Sequence7flatten17h2ec2593d24e6a49aE(byte *param_1)
 
 {
                     /* WARNING: Could not recover jumptable at 0x001bd2b8. Too many branches */

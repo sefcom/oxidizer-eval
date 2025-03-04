@@ -1,4 +1,5 @@
-long __rustcall uu_dd::progress::ProgUpdate::write_io_lines(long param_1,undefined8 param_2)
+long _ZN5uu_dd8progress10ProgUpdate14write_io_lines17h21e0c6ac1bc632a9E
+               (long param_1,undefined8 param_2)
 
 {
   int iVar1;
@@ -12,9 +13,9 @@ long __rustcall uu_dd::progress::ProgUpdate::write_io_lines(long param_1,undefin
   int *local_20;
   code *local_18;
   
-  lVar2 = ReadStat::report(param_1 + 0x10);
+  lVar2 = _ZN5uu_dd8progress8ReadStat6report17hd53d51fed1f91d80E(param_1 + 0x10);
   if (lVar2 == 0) {
-    lVar2 = WriteStat::report(param_1 + 0x30,param_2);
+    lVar2 = _ZN5uu_dd8progress9WriteStat6report17h421ce38315c3961aE(param_1 + 0x30,param_2);
     if (lVar2 == 0) {
       iVar1 = *(int *)(param_1 + 0x28);
       if (iVar1 == 0) {
@@ -23,7 +24,9 @@ long __rustcall uu_dd::progress::ProgUpdate::write_io_lines(long param_1,undefin
       else {
         if (iVar1 != 1) {
           local_20 = &local_54;
-          local_18 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u32>::fmt;
+          local_18 = 
+          _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u32_GT_3fmt17h4f78b68afca2dd09E
+          ;
           local_50 = (undefined **)&DAT_002622e8;
           local_48 = 2;
           local_40 = &local_20;
@@ -36,7 +39,8 @@ long __rustcall uu_dd::progress::ProgUpdate::write_io_lines(long param_1,undefin
         }
         uStack_30 = 0;
         local_38 = (ulong)(iVar1 != 1);
-        lVar2 = _<std::io::stdio::Stderr_as_std::io::Write>::write_fmt(param_2,&local_50);
+        lVar2 = _ZN57__LT_std__io__stdio__Stderr_u20_as_u20_std__io__Write_GT_9write_fmt17h82787f8382d2102cE
+                          (param_2,&local_50);
       }
     }
   }

@@ -1,4 +1,4 @@
-void __rustcall uu_numfmt::options::RoundMethod::round(byte *param_1)
+void _ZN9uu_numfmt7options11RoundMethod5round17hb878c776bde79bdeE(byte *param_1)
 
 {
                     /* WARNING: Could not recover jumptable at 0x001c7d61. Too many branches */

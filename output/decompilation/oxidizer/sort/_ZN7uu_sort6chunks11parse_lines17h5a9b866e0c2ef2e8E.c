@@ -2,12 +2,11 @@ fn uu_sort::chunks::parse_lines(a0: u32, a1: u32, a2: void*, a3: &u64, a4: u32, 
     let v0: i64;  // [sp-0xe0]
     let v1: i64;  // [sp-0xd8]
     let v2: i64;  // [sp-0xd0]
-    let v3: struct41;  // [bp-0xc8], Other Possible Types: struct4
+    let v3: struct4;  // [bp-0xc8], Other Possible Types: struct41
     let v5: struct98;  // [bp-0x98]
     let v7: i64;  // rdx
     let v8: i64;  // rax
-    let v9: i64;  // 4096
-    let v10: i64;  // 4096
+    let v9: i64;  // r12
 
     v3 = struct4 {
         field_0: 0
@@ -15,16 +14,13 @@ fn uu_sort::chunks::parse_lines(a0: u32, a1: u32, a2: void*, a3: &u64, a4: u32, 
         field_2: <UNKNOWN>
         field_3: <UNKNOWN>
     };
-    v8 = <&str as core::str::pattern::Pattern>::strip_suffix_of(core::char::methods::encode_utf8_raw(a4, &v3), v7, a0, a1);
+    v8 = <&str as core::str::pattern::Pattern>::strip_suffix_of(core::char::methods::encode_utf8_raw(a4 as u64, &v3), v7, a0, a1);
+    v9 = v7;
     if !v8 {
         v9 = a1;
-    } else {
-        v9 = v7;
     }
     if !v8 {
-        v10 = a0;
-    } else {
-        v10 = v8;
+        v8 = a0;
     }
     if *((a2 + 16) as &i64) {
         core::panicking::panic("assertion failed: lines.is_empty()", "src/uu/sort/src/chunks.rs"); /* do not return */
@@ -38,16 +34,16 @@ fn uu_sort::chunks::parse_lines(a0: u32, a1: u32, a2: void*, a3: &u64, a4: u32, 
         v0 = 0;
         v1 = 8;
         v2 = 0;
-        v3 = <char as core::str::pattern::Pattern>::into_searcher(a4, v10, v9);
+        v3 = <char as core::str::pattern::Pattern>::into_searcher(a4 as u64, v8, v9);
         v5 = struct98 {
             field_0: a3
             field_8: &v0
             field_16: a5
             field_24: 0
             field_40: v9
-            field_48: v3
-            field_64: *((&v3 as &char + 16) as &i128)
-            field_80: v4
+            field_48: *(&v3.field_0 as &i128)
+            field_64: *(&v3.field_16 as &i128)
+            field_80: v4 as i128
             field_96: 1
         };
         <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,I>>::spec_extend(a2, &v5);

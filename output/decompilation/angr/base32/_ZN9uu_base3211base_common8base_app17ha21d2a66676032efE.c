@@ -1,9 +1,9 @@
 long long uu_base32::base_common::base_app::ha21d2a66676032ef(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4)
 {
-    unsigned long v0;  // [sp-0x838], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x838]
     unsigned long long v1;  // [sp-0x830]
     char v2;  // [bp-0x828]
-    char v3;  // [bp-0x810], Other Possible Types: unsigned long long
+    char v3;  // [sp-0x810], Other Possible Types: unsigned long
     unsigned long long v4;  // [sp-0x808]
     char *v5;  // [sp-0x800]
     unsigned long long v6;  // [sp-0x7f8]
@@ -14,9 +14,8 @@ long long uu_base32::base_common::base_app::ha21d2a66676032ef(unsigned long long
     char v11;  // [bp-0x2f8]
     unsigned long long v12;  // [sp-0x3c]
     unsigned int v13;  // [sp-0x34]
-    unsigned long long v15;  // rdx
 
-    clap_builder::builder::command::Command::new::hfa716c44879ea464(&v11, uucore::util_name::h60d842bf27b05e82(), v15);
+    clap_builder::builder::command::Command::new::hfa716c44879ea464(&v11, uucore::util_name::h60d842bf27b05e82(), a2);
     clap_builder::builder::command::Command::version::hb92211e67539361a(&v3, &v11, "0.0.28", 6);
     clap_builder::builder::command::Command::about::hec0b9e41edbe4337(&v11, &v3, a1, a2);
     uucore::format_usage::h76fcb2d15fbabc58(&v10, a3, a4);
@@ -49,7 +48,7 @@ long long uu_base32::base_common::base_app::ha21d2a66676032ef(unsigned long long
     v7 = 0;
     v5 = &v0;
     v6 = 1;
-    core::option::Option$LT$T$GT$::map_or_else::hb37e8cc30801e00b();
+    core::option::Option$LT$T$GT$::map_or_else::hb37e8cc30801e00b(&v2, &v3);
     clap_builder::builder::arg::Arg::help::hd570429907ec6595(&v3, &v10, &v2);
     clap_builder::builder::arg::Arg::overrides_with::ha62caa77c6cf0524(&v10, &v3, "wrap", 4);
     clap_builder::builder::command::Command::arg::h4f860fc6ea6f3166(&v3, &v11, &v10);

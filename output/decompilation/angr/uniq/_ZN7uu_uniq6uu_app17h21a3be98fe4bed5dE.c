@@ -3,7 +3,7 @@ long long uu_uniq::uu_app::h21a3be98fe4bed5d(unsigned long long a0)
     void* v0;  // [sp-0xa70]
     unsigned long long v1;  // [sp-0xa68]
     char v2;  // [sp-0xa60]
-    char v3;  // [bp-0xa58], Other Possible Types: unsigned long long
+    char v3;  // [bp-0xa58], Other Possible Types: unsigned long
     unsigned long long v4;  // [sp-0xa50]
     unsigned long long v5;  // [sp-0xa48]
     unsigned long long v6;  // [sp-0xa40]
@@ -11,7 +11,7 @@ long long uu_uniq::uu_app::h21a3be98fe4bed5d(unsigned long long a0)
     unsigned long long v8;  // [sp-0xa30]
     unsigned int v9;  // [sp-0x810]
     unsigned int v10;  // [sp-0x80c]
-    char v11;  // [bp-0x808], Other Possible Types: unsigned long long
+    char v11;  // [bp-0x808], Other Possible Types: unsigned long
     unsigned long long v12;  // [sp-0x800]
     unsigned long long v13;  // [sp-0x7f8]
     unsigned long long v14;  // [sp-0x7f0]
@@ -28,7 +28,7 @@ long long uu_uniq::uu_app::h21a3be98fe4bed5d(unsigned long long a0)
     unsigned int v25;  // [sp-0x2f4]
     unsigned long long v26;  // [sp-0x284]
     unsigned int v27;  // [sp-0x27c]
-    void* v28;  // [bp-0x278], Other Possible Types: char, unsigned long long
+    void* v28;  // [bp-0x278], Other Possible Types: char, unsigned long, unsigned long long
     unsigned long long v29;  // [sp-0x270]
     char v30;  // [bp-0x268], Other Possible Types: unsigned long long
     unsigned int v31;  // [sp-0x30]

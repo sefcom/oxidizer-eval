@@ -2,7 +2,7 @@ long long uu_env::string_parser::StringParser::skip_until_char_or_end::h68bc5015
 {
     char v0;  // [sp-0x1d]
     unsigned int v1;  // [sp-0x1c]
-    unsigned long v2;  // [sp-0x18], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x18]
     unsigned long long v3;  // [sp-0x10]
     char v5;  // dl
     unsigned long v6;  // rdx

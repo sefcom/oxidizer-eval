@@ -1,20 +1,20 @@
 long long uu_ls::uu_app::hb4ccd0ffed05c357(unsigned long long a0)
 {
     char v0;  // [bp-0xdc8]
-    int v1;  // [bp-0xdb8], Other Possible Types: void*, char, unsigned long long
+    int v1;  // [bp-0xdb8], Other Possible Types: void*, char, unsigned long
     unsigned long long v2;  // [sp-0xdb0]
     int v3;  // [sp-0xda8], Other Possible Types: void*, unsigned long long
     unsigned long long v4;  // [sp-0xda0]
-    int v5;  // [sp-0xd98], Other Possible Types: unsigned long long
+    int v5;  // [bp-0xd98], Other Possible Types: unsigned long
     unsigned long long v6;  // [sp-0xd90]
-    int v7;  // [sp-0xd88], Other Possible Types: unsigned long long
+    int v7;  // [bp-0xd88], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v8;  // [sp-0xd80]
     unsigned long v9;  // [bp-0xd78], Other Possible Types: unsigned long long, char
-    int v10;  // [sp-0xd70], Other Possible Types: unsigned long long
+    int v10;  // [bp-0xd70], Other Possible Types: unsigned long long
     unsigned long long v11;  // [sp-0xd68]
-    int v12;  // [sp-0xd60], Other Possible Types: unsigned long long
+    int v12;  // [bp-0xd60], Other Possible Types: unsigned long long
     unsigned long long v13;  // [sp-0xd58]
-    int v14;  // [sp-0xd50], Other Possible Types: unsigned long long
+    int v14;  // [bp-0xd50], Other Possible Types: unsigned long long
     unsigned long long v15;  // [sp-0xd48]
     int v16;  // [bp-0xd40], Other Possible Types: unsigned long long
     unsigned long long v17;  // [sp-0xd30]
@@ -48,49 +48,49 @@ long long uu_ls::uu_app::hb4ccd0ffed05c357(unsigned long long a0)
     char v45;  // [sp-0xbc8]
     unsigned int v46;  // [sp-0xb70]
     unsigned int v47;  // [sp-0xb6c]
-    void* v48;  // [bp-0xb60], Other Possible Types: char
+    void* v48;  // [sp-0xb60], Other Possible Types: char
     unsigned long long v49;  // [sp-0xb58]
     void* v50;  // [bp-0xb50], Other Possible Types: char
     unsigned long long v51;  // [sp-0xb48]
     int v52;  // [sp-0xb40]
-    char v53;  // [bp-0xb30], Other Possible Types: unsigned long, unsigned long long
+    char v53;  // [bp-0xb30], Other Possible Types: unsigned long
     unsigned long long v54;  // [sp-0xb28]
     char v55;  // [bp-0xb20]
-    void* v56;  // [bp-0xb18], Other Possible Types: char
+    void* v56;  // [sp-0xb18], Other Possible Types: char
     unsigned long long v57;  // [sp-0xb10]
     void* v58;  // [bp-0xb08], Other Possible Types: char
     unsigned long long v59;  // [sp-0xb00]
     int v60;  // [sp-0xaf8]
-    char v61;  // [bp-0xae8], Other Possible Types: unsigned long, unsigned long long
+    char v61;  // [bp-0xae8], Other Possible Types: unsigned long
     unsigned long long v62;  // [sp-0xae0]
     char v63;  // [bp-0xad8]
-    void* v64;  // [bp-0xad0], Other Possible Types: char
+    void* v64;  // [sp-0xad0], Other Possible Types: char
     unsigned long long v65;  // [sp-0xac8]
-    void* v66;  // [bp-0xac0], Other Possible Types: char
+    void* v66;  // [sp-0xac0], Other Possible Types: char
     unsigned long long v67;  // [sp-0xab8]
     int v68;  // [sp-0xab0]
-    char v69;  // [bp-0xaa0], Other Possible Types: unsigned long, unsigned long long
+    char v69;  // [bp-0xaa0], Other Possible Types: unsigned long
     unsigned long long v70;  // [sp-0xa98]
     char v71;  // [bp-0xa90]
-    unsigned long v72;  // [sp-0xa88], Other Possible Types: unsigned long long
+    unsigned long v72;  // [sp-0xa88]
     unsigned long long v73;  // [sp-0xa80]
-    unsigned long v74;  // [sp-0xa78], Other Possible Types: unsigned long long
+    unsigned long v74;  // [sp-0xa78]
     unsigned long long v75;  // [sp-0xa70]
-    unsigned long v76;  // [sp-0xa68], Other Possible Types: unsigned long long
+    unsigned long v76;  // [sp-0xa68]
     unsigned long long v77;  // [sp-0xa60]
-    unsigned long v78;  // [sp-0xa58], Other Possible Types: unsigned long long
+    unsigned long v78;  // [sp-0xa58]
     unsigned long long v79;  // [sp-0xa50]
-    unsigned long v80;  // [sp-0xa48], Other Possible Types: unsigned long long
+    unsigned long v80;  // [sp-0xa48]
     unsigned long long v81;  // [sp-0xa40]
-    unsigned long v82;  // [sp-0xa38], Other Possible Types: unsigned long long
+    unsigned long v82;  // [sp-0xa38]
     unsigned long long v83;  // [sp-0xa30]
-    void* v84;  // [bp-0xa28], Other Possible Types: int, char, unsigned long long
+    void* v84;  // [bp-0xa28], Other Possible Types: int, char, unsigned long
     unsigned long long v85;  // [sp-0xa20]
-    int v86;  // [sp-0xa18], Other Possible Types: void*, unsigned long long
+    int v86;  // [sp-0xa18], Other Possible Types: void*, unsigned long, unsigned long long
     unsigned long long v87;  // [sp-0xa10]
-    int v88;  // [sp-0xa08], Other Possible Types: unsigned long long
+    int v88;  // [sp-0xa08], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v89;  // [sp-0xa00]
-    int v90;  // [sp-0x9f8], Other Possible Types: unsigned long long
+    int v90;  // [sp-0x9f8], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v91;  // [sp-0x9f0]
     unsigned long long v92;  // [bp-0x9e8], Other Possible Types: unsigned long, char
     int v93;  // [bp-0x9e0], Other Possible Types: unsigned long long
@@ -112,66 +112,66 @@ long long uu_ls::uu_app::hb4ccd0ffed05c357(unsigned long long a0)
     void* v109;  // [sp-0x760]
     unsigned long long v110;  // [sp-0x758]
     char v111;  // [sp-0x750]
-    unsigned long v112;  // [sp-0x748], Other Possible Types: unsigned long long
+    unsigned long v112;  // [sp-0x748]
     unsigned long long v113;  // [sp-0x740]
-    unsigned long v114;  // [sp-0x738], Other Possible Types: unsigned long long
+    unsigned long v114;  // [sp-0x738]
     unsigned long long v115;  // [sp-0x730]
-    unsigned long v116;  // [sp-0x728], Other Possible Types: unsigned long long
+    unsigned long v116;  // [sp-0x728]
     unsigned long long v117;  // [sp-0x720]
-    unsigned long v118;  // [sp-0x718], Other Possible Types: unsigned long long
+    unsigned long v118;  // [sp-0x718]
     unsigned long long v119;  // [sp-0x710]
-    unsigned long v120;  // [sp-0x708], Other Possible Types: unsigned long long
+    unsigned long v120;  // [sp-0x708]
     unsigned long long v121;  // [sp-0x700]
-    unsigned long v122;  // [sp-0x6f8], Other Possible Types: unsigned long long
+    unsigned long v122;  // [sp-0x6f8]
     unsigned long long v123;  // [sp-0x6f0]
-    unsigned long v124;  // [sp-0x6e8], Other Possible Types: unsigned long long
+    unsigned long v124;  // [sp-0x6e8]
     unsigned long long v125;  // [sp-0x6e0]
-    unsigned long v126;  // [sp-0x6d8], Other Possible Types: unsigned long long
+    unsigned long v126;  // [sp-0x6d8]
     unsigned long long v127;  // [sp-0x6d0]
-    int v128;  // [bp-0x6c8], Other Possible Types: char, unsigned long, unsigned long long
+    int v128;  // [sp-0x6c8], Other Possible Types: char, unsigned long long, unsigned long
     unsigned long long v129;  // [sp-0x6c0]
     int v130;  // [sp-0x6b8], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v131;  // [sp-0x6b0]
-    int v132;  // [sp-0x6a8], Other Possible Types: unsigned long long
+    int v132;  // [bp-0x6a8], Other Possible Types: unsigned long long, unsigned long
     unsigned long long v133;  // [sp-0x6a0]
-    int v134;  // [sp-0x698], Other Possible Types: unsigned long long
+    int v134;  // [bp-0x698], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v135;  // [sp-0x690]
-    int v136;  // [sp-0x688], Other Possible Types: unsigned long long
+    int v136;  // [bp-0x688], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v137;  // [sp-0x680]
-    int v138;  // [sp-0x678], Other Possible Types: unsigned long long
+    int v138;  // [bp-0x678], Other Possible Types: unsigned long
     unsigned long long v139;  // [sp-0x670]
-    unsigned long v140;  // [sp-0x478], Other Possible Types: unsigned long long
+    unsigned long v140;  // [sp-0x478]
     unsigned long long v141;  // [sp-0x470]
-    unsigned long v142;  // [sp-0x468], Other Possible Types: unsigned long long
+    unsigned long v142;  // [sp-0x468]
     unsigned long long v143;  // [sp-0x460]
-    unsigned long v144;  // [sp-0x458], Other Possible Types: unsigned long long
+    unsigned long v144;  // [sp-0x458]
     unsigned long long v145;  // [sp-0x450]
-    unsigned long v146;  // [sp-0x448], Other Possible Types: unsigned long long
+    unsigned long v146;  // [sp-0x448]
     unsigned long long v147;  // [sp-0x440]
-    unsigned long v148;  // [sp-0x438], Other Possible Types: unsigned long long
+    unsigned long v148;  // [sp-0x438]
     unsigned long long v149;  // [sp-0x430]
     char v150;  // [bp-0x428]
     unsigned int v151;  // [sp-0x1e0]
     unsigned int v152;  // [sp-0x1dc]
     unsigned long long v153;  // [sp-0x16c]
     unsigned int v154;  // [sp-0x164]
-    unsigned long v155;  // [sp-0x160], Other Possible Types: unsigned long long
+    unsigned long v155;  // [sp-0x160]
     unsigned long long v156;  // [sp-0x158]
-    unsigned long v157;  // [sp-0x150], Other Possible Types: unsigned long long
+    unsigned long v157;  // [sp-0x150]
     unsigned long long v158;  // [sp-0x148]
-    unsigned long v159;  // [sp-0x140], Other Possible Types: unsigned long long
+    unsigned long v159;  // [sp-0x140]
     unsigned long long v160;  // [sp-0x138]
-    unsigned long v161;  // [sp-0x130], Other Possible Types: unsigned long long
+    unsigned long v161;  // [sp-0x130]
     unsigned long long v162;  // [sp-0x128]
-    unsigned long v163;  // [sp-0x120], Other Possible Types: unsigned long long
+    unsigned long v163;  // [sp-0x120]
     unsigned long long v164;  // [sp-0x118]
-    unsigned long v165;  // [sp-0x110], Other Possible Types: unsigned long long
+    unsigned long v165;  // [sp-0x110]
     unsigned long long v166;  // [sp-0x108]
-    unsigned long v167;  // [sp-0x100], Other Possible Types: unsigned long long
+    unsigned long v167;  // [sp-0x100]
     unsigned long long v168;  // [sp-0xf8]
     unsigned long long v169;  // [sp-0xf0]
     unsigned long long v170;  // [sp-0xe8]
-    unsigned long v171;  // [sp-0xe0], Other Possible Types: unsigned long long
+    unsigned long v171;  // [sp-0xe0]
     unsigned long long v172;  // [sp-0xd8]
     unsigned long long v173;  // [sp-0xd0]
     unsigned long long v174;  // [sp-0xc8]
@@ -180,7 +180,7 @@ long long uu_ls::uu_app::hb4ccd0ffed05c357(unsigned long long a0)
     void* v177;  // [sp-0xb0]
     unsigned long long v178;  // [sp-0xa8]
     int v179;  // [sp-0xa0]
-    unsigned long v180;  // [sp-0x90], Other Possible Types: unsigned long long
+    unsigned long v180;  // [sp-0x90]
     unsigned long long v181;  // [sp-0x88]
     char v182;  // [sp-0x80]
     void* v183;  // [sp-0x78]
@@ -188,7 +188,7 @@ long long uu_ls::uu_app::hb4ccd0ffed05c357(unsigned long long a0)
     void* v185;  // [sp-0x68]
     unsigned long long v186;  // [sp-0x60]
     int v187;  // [sp-0x58]
-    unsigned long v188;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v188;  // [sp-0x48]
     unsigned long long v189;  // [sp-0x40]
     char v190;  // [sp-0x38]
     unsigned long long v192;  // rdx
@@ -552,7 +552,7 @@ long long uu_ls::uu_app::hb4ccd0ffed05c357(unsigned long long a0)
     v37 = v136;
     *((int128_t *)&v36) = (int128_t)v134;
     *((int128_t *)&v35) = (int128_t)v132;
-    *((int128_t *)&v34) = (int128_t)v130;
+    *((int128_t *)&v34) = *((int128_t *)&v130);
     *((int128_t *)&v33) = *((int128_t *)&v128);
     v38 = 0;
     v39 = 8;

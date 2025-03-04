@@ -9,19 +9,20 @@ long long uu_cat::write_new_line::h703f4daf25cc548e(unsigned long long a0[2], un
     char v6;  // [sp-0x78]
     struct_0 *v7;  // [sp-0x70]
     unsigned long long v8;  // [sp-0x68]
-    unsigned long v9;  // [sp-0x60], Other Possible Types: unsigned long long
+    unsigned long v9;  // [sp-0x60]
     unsigned long long v10;  // [sp-0x58]
     struct struct_0 **v11;  // [sp-0x50]
     unsigned long long v12;  // [sp-0x48]
     char *v13;  // [sp-0x40]
     unsigned long long v14;  // [sp-0x38]
     unsigned long long v16;  // rax
-    unsigned long long v17;  // r8
-    unsigned long long v18;  // rdx
-    unsigned long long v19;  // rcx
-    unsigned long long v20;  // r8
-    unsigned long long v21;  // rdx
-    unsigned long long v22;  // rcx
+    unsigned long long v17;  // r15
+    unsigned long long v18;  // r8
+    unsigned long long v19;  // rdx
+    unsigned long long v20;  // rcx
+    unsigned long long v21;  // r8
+    unsigned long long v22;  // rdx
+    unsigned long long v23;  // rcx
 
     if (!a3->field_9)
     {
@@ -56,17 +57,17 @@ long long uu_cat::write_new_line::h703f4daf25cc548e(unsigned long long a0[2], un
             }
             if (a2[2])
             {
-                v20 = a4;
-                v21 = "$\n";
-                v22 = 2;
+                v21 = a4;
+                v22 = "$\n";
+                v23 = 2;
             }
             else
             {
-                v20 = a4;
-                v21 = "\n";
-                v22 = 1;
+                v21 = a4;
+                v22 = "\n";
+                v23 = 1;
             }
-            uu_cat::write_end_of_line::h4ed837c9dff89e3f(&v0, a1, v21, v22, v20);
+            uu_cat::write_end_of_line::h4ed837c9dff89e3f(&v0, a1, v22, v23, v21);
             v16 = v0;
             if (v16 != 9223372036854775814)
             {
@@ -80,6 +81,7 @@ long long uu_cat::write_new_line::h703f4daf25cc548e(unsigned long long a0[2], un
     {
         if (!a2[2])
         {
+            v17 = a1;
             v16 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(a1, "\r", 1);
             if (v16)
             {
@@ -88,12 +90,13 @@ long long uu_cat::write_new_line::h703f4daf25cc548e(unsigned long long a0[2], un
                 return v16;
             }
             a3->field_9 = 0;
-            v17 = a4;
-            v18 = "\n";
-            v19 = 1;
+            v18 = a4;
+            v19 = "\n";
+            v20 = 1;
         }
         else
         {
+            v17 = a1;
             v16 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(a1, "^M", 2);
             if (v16)
             {
@@ -102,11 +105,11 @@ long long uu_cat::write_new_line::h703f4daf25cc548e(unsigned long long a0[2], un
                 return v16;
             }
             a3->field_9 = 0;
-            v17 = a4;
-            v18 = "$\n";
-            v19 = 2;
+            v18 = a4;
+            v19 = "$\n";
+            v20 = 2;
         }
-        v16 = uu_cat::write_end_of_line::h4ed837c9dff89e3f(&v0, a1, v18, v19, v17);
+        v16 = uu_cat::write_end_of_line::h4ed837c9dff89e3f(&v0, v17, v19, v20, v18);
         if (v0 != 9223372036854775814)
         {
             v16 = v2;

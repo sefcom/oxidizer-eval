@@ -14,7 +14,7 @@ long long uu_uniq::map_clap_errors::he2c06110a1bd6a68(struct_0 *a0)
     char v11;  // [bp-0x30]
     unsigned int v13;  // eax
     unsigned long long v14;  // rax
-    unsigned long long v15;  // rax
+    unsigned long long v15;  // rbx
     unsigned long long v16;  // rax
     unsigned long long v17;  // rax
     unsigned long long v18;  // rax
@@ -45,7 +45,7 @@ long long uu_uniq::map_clap_errors::he2c06110a1bd6a68(struct_0 *a0)
                 v2 = *((long long *)&v11);
                 v15 = alloc::boxed::Box$LT$T$GT$::new::h6692c4bb39238cc6(&v1);
                 ::0x4bb470::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h344c10062ee0b054(&v6);
-                break;
+                goto LABEL_4bde4c;
             }
         }
         v17 = clap_builder::error::Error$LT$F$GT$::get::h3e58576e747d3ab4(&v0, 5);
@@ -60,10 +60,11 @@ long long uu_uniq::map_clap_errors::he2c06110a1bd6a68(struct_0 *a0)
                 v15 = alloc::boxed::Box$LT$T$GT$::new::h6692c4bb39238cc6(&v1);
 LABEL_4bde3a:
                 ::0x4bb470::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h344c10062ee0b054(&v10);
-                if (false)
-                    ::0x4bb470::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h344c10062ee0b054(&v8);
                 core::ptr::drop_in_place$LT$clap_builder..error..Error$GT$::hdafbdf8e9e6375cf(a0);
                 return v15;
+LABEL_4bde4c:
+                ::0x4bb470::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h344c10062ee0b054(&v8);
+                break;
             }
         }
     case 8:

@@ -1,5 +1,5 @@
-undefined4 __rustcall
-uu_uniq::Uniq::cmp_key
+undefined4
+_ZN7uu_uniq4Uniq7cmp_key17ha1dc2d98ed65ef9eE
           (undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
           undefined8 param_5)
 
@@ -15,7 +15,7 @@ uu_uniq::Uniq::cmp_key
   long local_28;
   long local_20;
   
-  skip_fields(local_30,*param_1,param_1[1],param_2,param_3);
+  _ZN7uu_uniq4Uniq11skip_fields17hde61277d301acf25E(local_30,*param_1,param_1[1],param_2,param_3);
   lVar2 = local_20;
   if (param_1[2] == 0) {
     if (param_1[4] == 0) {
@@ -24,7 +24,8 @@ uu_uniq::Uniq::cmp_key
 LAB_001bd1bc:
           local_48 = local_20 + local_28;
           local_50 = local_28;
-          uVar1 = cmp_keys::_{{closure}}::___closure__(param_4,param_5,&local_50,&DAT_00230318);
+          uVar1 = _ZN7uu_uniq4Uniq8cmp_keys28__u7b__u7b_closure_u7d__u7d_28__u7b__u7b_closure_u7d__u7d_17h3c5213e1c3586ea6E
+                            (param_4,param_5,&local_50,&DAT_00230318);
           goto LAB_001bd21c;
         }
         lVar3 = 0;
@@ -54,7 +55,8 @@ LAB_001bd1b7:
         local_50 = local_28;
         local_40 = lVar3;
         local_38 = lVar2;
-        uVar1 = cmp_keys::_{{closure}}::___closure__(param_4,param_5,&local_50,&DAT_00230350);
+        uVar1 = _ZN7uu_uniq4Uniq8cmp_keys28__u7b__u7b_closure_u7d__u7d_28__u7b__u7b_closure_u7d__u7d_17h3c5213e1c3586ea6E
+                          (param_4,param_5,&local_50,&DAT_00230350);
         goto LAB_001bd21c;
       }
 LAB_001bd106:
@@ -64,7 +66,8 @@ LAB_001bd10b:
           local_48 = local_20 + local_28;
           local_50 = local_28;
                     /* try { // try from 001bd122 to 001bd21b has its CatchHandler @ 001bd234 */
-          uVar1 = cmp_keys::_{{closure}}::___closure__(param_4,param_5,&local_50,&DAT_002303f8);
+          uVar1 = _ZN7uu_uniq4Uniq8cmp_keys28__u7b__u7b_closure_u7d__u7d_28__u7b__u7b_closure_u7d__u7d_17h3c5213e1c3586ea6E
+                            (param_4,param_5,&local_50,&DAT_002303f8);
           goto LAB_001bd21c;
         }
       }
@@ -72,14 +75,16 @@ LAB_001bd10b:
       local_50 = local_28;
       local_40 = lVar3;
       local_38 = lVar2;
-      uVar1 = cmp_keys::_{{closure}}::___closure__(param_4,param_5,&local_50,&DAT_00230430);
+      uVar1 = _ZN7uu_uniq4Uniq8cmp_keys28__u7b__u7b_closure_u7d__u7d_28__u7b__u7b_closure_u7d__u7d_17h3c5213e1c3586ea6E
+                        (param_4,param_5,&local_50,&DAT_00230430);
       goto LAB_001bd21c;
     }
   }
   local_48 = local_20 + local_28;
   local_50 = local_28;
-  uVar1 = cmp_keys::_{{closure}}::___closure__(param_4,param_5,&local_50,&DAT_00230318);
+  uVar1 = _ZN7uu_uniq4Uniq8cmp_keys28__u7b__u7b_closure_u7d__u7d_28__u7b__u7b_closure_u7d__u7d_17h3c5213e1c3586ea6E
+                    (param_4,param_5,&local_50,&DAT_00230318);
 LAB_001bd21c:
-  core::ptr::drop_in_place<alloc::vec::Vec<u8>>(local_30);
+  _ZN4core3ptr46drop_in_place_LT_alloc__vec__Vec_LT_u8_GT__GT_17h0ecdab8b58963e2cE(local_30);
   return uVar1;
 }

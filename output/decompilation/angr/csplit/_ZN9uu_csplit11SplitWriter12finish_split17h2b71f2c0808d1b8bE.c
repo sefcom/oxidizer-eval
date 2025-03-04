@@ -1,8 +1,8 @@
 long long uu_csplit::SplitWriter::finish_split::h2b71f2c0808d1b8b(struct_0 *a0)
 {
-    unsigned long v0;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x40]
     unsigned long long v1;  // [sp-0x38]
-    unsigned long v2;  // [sp-0x30], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x30]
     unsigned long long v3;  // [sp-0x28]
     char *v4;  // [sp-0x20]
     unsigned long long v5;  // [sp-0x18]

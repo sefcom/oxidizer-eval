@@ -5,10 +5,10 @@ long long uu_csplit::csplit::hbd1c068a297fe5d8(struct_1 *a0, struct_0 *a1, unsig
     char v2;  // [bp-0x1c8]
     int v3;  // [sp-0x1b8]
     unsigned long long v4;  // [sp-0x1a8]
-    unsigned long v5;  // [sp-0x1a0], Other Possible Types: unsigned long long
+    unsigned long v5;  // [sp-0x1a0]
     unsigned long long v6;  // [sp-0x198]
     unsigned long long v7;  // [sp-0x190]
-    int v8;  // [bp-0x188], Other Possible Types: char, unsigned long, unsigned long long
+    int v8;  // [bp-0x188], Other Possible Types: char, unsigned long
     char v9;  // [bp-0x180], Other Possible Types: unsigned long long
     int v10;  // [bp-0x178], Other Possible Types: unsigned long
     char v11;  // [bp-0x170]

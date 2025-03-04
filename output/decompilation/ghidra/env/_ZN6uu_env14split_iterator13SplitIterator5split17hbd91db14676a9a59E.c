@@ -1,4 +1,4 @@
-int * __rustcall uu_env::split_iterator::SplitIterator::split(int *param_1,long param_2)
+int * _ZN6uu_env14split_iterator13SplitIterator5split17hbd91db14676a9a59E(int *param_1,long param_2)
 
 {
   int iVar1;
@@ -15,7 +15,7 @@ int * __rustcall uu_env::split_iterator::SplitIterator::split(int *param_1,long 
   undefined8 local_18;
   
                     /* try { // try from 001da37d to 001da384 has its CatchHandler @ 001da3db */
-  state_root(&local_38);
+  _ZN6uu_env14split_iterator13SplitIterator10state_root17ha7ad7ed6584dc219E(&local_38);
   if (local_38 == 8) {
     *(undefined8 *)(param_1 + 6) = *(undefined8 *)(param_2 + 0x50);
     iVar1 = *(int *)(param_2 + 0x44);
@@ -26,7 +26,8 @@ int * __rustcall uu_env::split_iterator::SplitIterator::split(int *param_1,long 
     param_1[4] = iVar2;
     param_1[5] = iVar3;
     *param_1 = 8;
-    core::ptr::drop_in_place<uu_env::string_expander::StringExpander>(param_2);
+    _ZN4core3ptr60drop_in_place_LT_uu_env__string_expander__StringExpander_GT_17ha4fe71f9740e15f8E
+              (param_2);
   }
   else {
     *(undefined8 *)(param_1 + 8) = local_18;
@@ -38,7 +39,8 @@ int * __rustcall uu_env::split_iterator::SplitIterator::split(int *param_1,long 
     param_1[1] = iStack_34;
     param_1[2] = iStack_30;
     param_1[3] = iStack_2c;
-    core::ptr::drop_in_place<uu_env::split_iterator::SplitIterator>(param_2);
+    _ZN4core3ptr58drop_in_place_LT_uu_env__split_iterator__SplitIterator_GT_17hd7192570ff598ae0E
+              (param_2);
   }
   return param_1;
 }

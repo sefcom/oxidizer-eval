@@ -3,9 +3,9 @@ long long uu_tail::args::parse_args::h21b79a77363e2b6a(struct_0 *a0, unsigned lo
     char v0;  // [bp-0x400]
     char v1;  // [bp-0x3f8]
     char v2;  // [bp-0x3f0]
-    char v3;  // [bp-0x3e8], Other Possible Types: unsigned long, unsigned long long
+    char v3;  // [sp-0x3e8], Other Possible Types: unsigned long long
     unsigned long long v4;  // [sp-0x3e0]
-    unsigned long v5;  // [sp-0x3d8], Other Possible Types: unsigned long long
+    unsigned long v5;  // [sp-0x3d8]
     int v6;  // [sp-0x3d0]
     int v7;  // [sp-0x3c0]
     int v8;  // [sp-0x3b0]
@@ -42,7 +42,7 @@ long long uu_tail::args::parse_args::h21b79a77363e2b6a(struct_0 *a0, unsigned lo
     int v40;  // xmm0
     unsigned long long v41;  // r15
     unsigned long long v42;  // r12
-    void* v43;  // rax
+    unsigned long long v43;  // rdx
     unsigned long long v44;  // rdx
     unsigned long long v45;  // rax
     unsigned long long v46;  // rcx
@@ -110,8 +110,8 @@ long long uu_tail::args::parse_args::h21b79a77363e2b6a(struct_0 *a0, unsigned lo
         if ((v33 & 18446744073709551614) != 2)
         {
             a0->field_30 = (int128_t)(&v8)[8];
-            vvar_392{reg 64} = (long long)v6;
-            vvar_393{reg 224} = (int128_t)(&v6)[8];
+            vvar_390{reg 64} = (long long)v6;
+            vvar_391{reg 224} = (int128_t)(&v6)[8];
             a0->field_28 = (int128_t)(&v7)[8];
             *((void*)&a0->field_20) = v40;
             a0->field_10 = v5;
@@ -126,9 +126,7 @@ long long uu_tail::args::parse_args::h21b79a77363e2b6a(struct_0 *a0, unsigned lo
         if (v31 == 0x8000000000000000)
         {
 LABEL_4aa694:
-            v43 = v37 + 1;
-            if (3 > v33)
-                v43 = 0;
+            v43 = (3 <= v33 ? 0 : v37 + 1);
             uu_tail::args::parse_obsolete::hfe2542368a23c75b(&v23, v38, v43);
             v44 = *((long long *)&v23);
             v45 = *((long long *)&v24);

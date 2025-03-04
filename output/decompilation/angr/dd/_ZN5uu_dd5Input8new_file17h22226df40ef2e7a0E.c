@@ -1,6 +1,6 @@
 long long uu_dd::Input::new_file::h22226df40ef2e7a0(struct_0 *a0, unsigned long long a1, unsigned long long a2, struct_1 *a3)
 {
-    unsigned int v0;  // [bp-0x58]
+    unsigned int v0;  // [sp-0x58]
     unsigned int v1;  // [sp-0x54]
     unsigned int v2;  // [bp-0x48], Other Possible Types: unsigned long, unsigned long long
     char v3;  // [bp-0x40], Other Possible Types: unsigned int
@@ -10,7 +10,9 @@ long long uu_dd::Input::new_file::h22226df40ef2e7a0(struct_0 *a0, unsigned long 
     unsigned int v8;  // edx
     unsigned long long v9;  // rax
     unsigned long long v10;  // rcx
-    unsigned long long v12;  // rdx
+    unsigned int v11;  // eax
+    unsigned int v13;  // ecx
+    unsigned long long v14;  // rdx
 
     v2 = 0x1b600000000;
     v3 = 0;
@@ -29,18 +31,28 @@ long long uu_dd::Input::new_file::h22226df40ef2e7a0(struct_0 *a0, unsigned long 
         a0->field_0 = 1;
         return a0;
     }
-    v1 = *((int *)&v6);
+    v11 = *((int *)&v6);
+    v1 = v11;
     v0 = 0;
-    if (a3->field_80 && uu_dd::Source::skip::hb4d238ded1ebd635(&v0, a3->field_80))
+    if (!a3->field_80)
     {
-        *((long long *)&a0->field_8) = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v12);
-        a0->field_10 = v12;
+        v13 = 0;
+    }
+    else if (!uu_dd::Source::skip::hb4d238ded1ebd635(&v0, a3->field_80))
+    {
+        v13 = v0;
+        v11 = v1;
+    }
+    else
+    {
+        *((long long *)&a0->field_8) = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v14);
+        a0->field_10 = v14;
         a0->field_0 = 1;
-        core::ptr::drop_in_place$LT$uu_dd..Source$GT$::hdffc88ceb2c212a0();
+        core::ptr::drop_in_place$LT$uu_dd..Source$GT$::hdffc88ceb2c212a0(v1);
         return a0;
     }
-    a0->field_8 = 0;
-    *((unsigned int *)&a0->padding_c[0]) = v1;
+    a0->field_8 = v13;
+    *((unsigned int *)&a0->padding_c[0]) = v11;
     a0->field_10 = a3;
     a0->field_0 = 0;
     return a0;

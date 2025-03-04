@@ -1,5 +1,6 @@
-undefined8 * __rustcall
-uu_env::native_int_str::NativeStr::split_once(undefined8 *param_1,long param_2,undefined8 param_3)
+undefined8 *
+_ZN6uu_env14native_int_str9NativeStr10split_once17hcbed3488f59e21a4E
+          (undefined8 *param_1,long param_2,undefined8 param_3)
 
 {
   long lVar1;
@@ -16,18 +17,20 @@ uu_env::native_int_str::NativeStr::split_once(undefined8 *param_1,long param_2,u
   undefined8 uStack_30;
   undefined8 local_28;
   
-  uVar2 = get_single_native_int_value(param_3);
+  uVar2 = _ZN6uu_env14native_int_str27get_single_native_int_value17h9b0956bba8ba8cc0E(param_3);
   if ((uVar2 & 1) != 0) {
     local_88 = *(long *)(param_2 + 8);
     lVar1 = *(long *)(param_2 + 0x10);
     lStack_80 = local_88 + lVar1;
     local_89 = extraout_DL;
-    auVar3 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::position
+    auVar3 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_8position17hb87f3f3f23ac2fdaE
                        (&local_88,&local_89);
     if (auVar3._0_8_ != 0) {
-      slice(&local_50,param_2,0,auVar3._8_8_);
+      _ZN6uu_env14native_int_str9NativeStr5slice17ha03bc113a9a10a12E
+                (&local_50,param_2,0,auVar3._8_8_);
                     /* try { // try from 001d91e6 to 001d91f8 has its CatchHandler @ 001d9266 */
-      slice(&local_38,param_2,auVar3._8_8_ + 1,lVar1);
+      _ZN6uu_env14native_int_str9NativeStr5slice17ha03bc113a9a10a12E
+                (&local_38,param_2,auVar3._8_8_ + 1,lVar1);
       *param_1 = local_50;
       param_1[1] = uStack_48;
       param_1[4] = uStack_30;

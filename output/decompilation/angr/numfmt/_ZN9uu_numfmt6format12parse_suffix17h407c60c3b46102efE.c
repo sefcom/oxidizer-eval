@@ -7,7 +7,7 @@ long long uu_numfmt::format::parse_suffix::h407c60c3b46102ef(struct_1 *a0, char 
     struct struct_0 **v4;  // [sp-0x80], Other Possible Types: unsigned long
     unsigned long long v5;  // [sp-0x78]
     void* v6;  // [sp-0x70]
-    void* v7;  // [sp-0x60], Other Possible Types: char
+    void* v7;  // [bp-0x60], Other Possible Types: char
     char *v8;  // [sp-0x58], Other Possible Types: unsigned long
     unsigned long long v9;  // [sp-0x50]
     char v10;  // [sp-0x48]
@@ -42,7 +42,7 @@ long long uu_numfmt::format::parse_suffix::h407c60c3b46102ef(struct_1 *a0, char 
         v6 = 0;
         v4 = &v11;
         v5 = 1;
-        v18 = ::0x4c2a70::core::option::Option$LT$T$GT$::map_or_else::hab58af973b71ab82();
+        v18 = ::0x4c2a70::core::option::Option$LT$T$GT$::map_or_else::hab58af973b71ab82(a0, &v2);
         return v18;
     }
     switch ((unsigned int)v15)
@@ -97,18 +97,18 @@ LABEL_4c3550:
     default:
         if (!(!(char)v14) || !(!(unsigned int)v15 - 58 < -10))
         {
-            vvar_305{stack -96} = 0;
-            vvar_306{stack -88} = a1;
-            vvar_307{stack -80} = a2;
-            vvar_308{stack -72} = 1;
-            vvar_309{stack -64} = &v7;
-            vvar_310{stack -56} = _$LT$os_display..Quoted$u20$as$u20$core..fmt..Display$GT$::fmt::h75932a24bee941d9;
+            vvar_302{stack -96} = 0;
+            vvar_303{stack -88} = a1;
+            vvar_304{stack -80} = a2;
+            vvar_305{stack -72} = 1;
+            vvar_306{stack -64} = &v7;
+            vvar_307{stack -56} = _$LT$os_display..Quoted$u20$as$u20$core..fmt..Display$GT$::fmt::h75932a24bee941d9;
             v2 = &g_535ac0;
-            vvar_311{stack -136} = 1;
-            vvar_312{stack -112} = 0;
-            vvar_313{stack -128} = &v11;
-            vvar_314{stack -120} = 1;
-            vvar_315{reg 16} = ::0x4c2a70::core::option::Option$LT$T$GT$::map_or_else::hab58af973b71ab82();
+            vvar_308{stack -136} = 1;
+            vvar_309{stack -112} = 0;
+            vvar_310{stack -128} = &v11;
+            vvar_311{stack -120} = 1;
+            vvar_312{reg 16} = ::0x4c2a70::core::option::Option$LT$T$GT$::map_or_else::hab58af973b71ab82(a0, &v2);
             return v18;
         }
         v19 = 0 + a2;

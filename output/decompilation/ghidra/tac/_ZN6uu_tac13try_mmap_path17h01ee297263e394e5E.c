@@ -1,45 +1,42 @@
-void __rustcall uu_tac::try_mmap_path(undefined8 *param_1)
+void _ZN6uu_tac13try_mmap_path17h01ee297263e394e5E(undefined8 *param_1)
 
 {
-  undefined4 uVar1;
-  undefined4 local_4c;
+  int __fd;
+  int local_4c;
   undefined8 local_48;
   undefined8 local_38;
   undefined local_30;
   undefined2 local_2e;
   long local_28;
-  undefined4 local_20;
-  undefined4 uStack_1c;
-  undefined4 uStack_18;
-  undefined4 uStack_14;
+  undefined8 local_20;
+  undefined8 uStack_18;
   
-  std::fs::File::open(&local_48);
+  _ZN3std2fs4File4open17h0ae14c8dddef61f7E(&local_48);
   if ((int)local_48 == 0) {
-    uVar1 = local_48._4_4_;
+    __fd = local_48._4_4_;
     local_4c = local_48._4_4_;
     local_38 = 0;
     local_48 = 0;
     local_30 = 0;
     local_2e = 0;
                     /* try { // try from 002a09a3 to 002a09c8 has its CatchHandler @ 002a09f4 */
-    memmap2::MmapOptions::map(&local_28,&local_48,&local_4c);
+    _ZN7memmap211MmapOptions3map17hf6d33351edcc2203E(&local_28,&local_48,&local_4c);
     if (local_28 == 0) {
-      *(undefined4 *)(param_1 + 1) = local_20;
-      *(undefined4 *)((long)param_1 + 0xc) = uStack_1c;
-      *(undefined4 *)(param_1 + 2) = uStack_18;
-      *(undefined4 *)((long)param_1 + 0x14) = uStack_14;
+      param_1[1] = local_20;
+      param_1[2] = uStack_18;
       *param_1 = 1;
     }
     else {
-      core::ptr::drop_in_place<core::result::Result<memmap2::Mmap,std::io::error::Error>>(&local_28)
-      ;
+      _ZN4core3ptr86drop_in_place_LT_core__result__Result_LT_memmap2__Mmap_C_std__io__error__Error_GT__GT_17h33f78c51d3eed1e5E
+                (&local_28);
       *param_1 = 0;
-      uVar1 = local_4c;
+      __fd = local_4c;
     }
-    core::ptr::drop_in_place<std::fs::File>(uVar1);
+    _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17h8bacf0b914d62b8aE(__fd);
   }
   else {
-    core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>(&local_48);
+    _ZN4core3ptr86drop_in_place_LT_core__result__Result_LT_std__fs__File_C_std__io__error__Error_GT__GT_17hb56a7153beea00aaE
+              (&local_48);
     *param_1 = 0;
   }
   return;

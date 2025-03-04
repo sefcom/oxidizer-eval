@@ -1,5 +1,5 @@
-void __rustcall
-uu_sort::chunks::Chunk::try_new(undefined8 *param_1,undefined8 *param_2,undefined4 *param_3)
+void _ZN7uu_sort6chunks5Chunk7try_new17he46abfb7fea210cbE
+               (undefined8 *param_1,undefined8 *param_2,undefined4 *param_3)
 
 {
   undefined8 *puVar1;
@@ -45,11 +45,11 @@ uu_sort::chunks::Chunk::try_new(undefined8 *param_1,undefined8 *param_2,undefine
   puVar1 = (undefined8 *)__rust_alloc(0x78,8);
   if (puVar1 == (undefined8 *)0x0) {
                     /* try { // try from 0025e857 to 0025e863 has its CatchHandler @ 0025e871 */
-    uVar2 = core::option::unwrap_failed(&PTR_s_src_uu_sort_src_chunks_rs_00301ac8);
+    uVar2 = _ZN4core6option13unwrap_failed17h0e11329e76906eaaE
+                      (&PTR_s_src_uu_sort_src_chunks_rs_00301ac8);
                     /* catch() { ... } // from try @ 0025e7c7 with catch @ 0025e864 */
                     /* try { // try from 0025e867 to 0025e883 has its CatchHandler @ 0025e88c */
-    core::ptr::
-    drop_in_place<self_cell::unsafe_self_cell::OwnerAndCellDropGuard<alloc::vec::Vec<u8>,uu_sort::chunks::ChunkContents>>
+    _ZN4core3ptr137drop_in_place_LT_self_cell__unsafe_self_cell__OwnerAndCellDropGuard_LT_alloc__vec__Vec_LT_u8_GT__C_uu_sort__chunks__ChunkContents_GT__GT_17h663a83b6b7b7cc61E
               ();
                     /* WARNING: Subroutine does not return */
     _Unwind_Resume(uVar2);
@@ -82,14 +82,14 @@ uu_sort::chunks::Chunk::try_new(undefined8 *param_1,undefined8 *param_2,undefine
   uStack_60 = param_3[0xe];
   uStack_5c = param_3[0xf];
                     /* try { // try from 0025e7c7 to 0025e7d3 has its CatchHandler @ 0025e864 */
-  chunks::read::___closure__(&local_f8,&local_98,puVar1[1],puVar1[2]);
+  _ZN7uu_sort6chunks4read28__u7b__u7b_closure_u7d__u7d_17h6b4a34b044bf865aE
+            (&local_f8,&local_98,puVar1[1],puVar1[2]);
   if (local_f8 == -0x8000000000000000) {
     *(undefined4 *)param_1 = uStack_f0;
     *(undefined4 *)((long)param_1 + 4) = uStack_ec;
     *(undefined4 *)(param_1 + 1) = uStack_e8;
     *(undefined4 *)((long)param_1 + 0xc) = uStack_e4;
-    core::ptr::
-    drop_in_place<self_cell::unsafe_self_cell::OwnerAndCellDropGuard<alloc::vec::Vec<u8>,uu_sort::chunks::ChunkContents>>
+    _ZN4core3ptr137drop_in_place_LT_self_cell__unsafe_self_cell__OwnerAndCellDropGuard_LT_alloc__vec__Vec_LT_u8_GT__C_uu_sort__chunks__ChunkContents_GT__GT_17h663a83b6b7b7cc61E
               (puVar1);
     return;
   }

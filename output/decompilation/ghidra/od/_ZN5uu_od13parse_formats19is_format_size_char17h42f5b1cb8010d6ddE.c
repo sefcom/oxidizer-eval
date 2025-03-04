@@ -1,5 +1,6 @@
-undefined8 __rustcall
-uu_od::parse_formats::is_format_size_char(int param_1,char param_2,undefined *param_3)
+undefined8
+_ZN5uu_od13parse_formats19is_format_size_char17h42f5b1cb8010d6ddE
+          (int param_1,char param_2,undefined *param_3)
 
 {
   undefined uVar1;

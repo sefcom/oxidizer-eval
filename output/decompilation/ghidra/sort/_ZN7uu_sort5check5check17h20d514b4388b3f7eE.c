@@ -1,6 +1,7 @@
 /* WARNING: Removing unreachable block (ram,0x00248539) */
 
-undefined8 __rustcall uu_sort::check::check(undefined8 param_1,undefined8 param_2,long param_3)
+undefined8
+_ZN7uu_sort5check5check17h20d514b4388b3f7eE(undefined8 param_1,undefined8 param_2,long param_3)
 
 {
   char cVar1;
@@ -61,14 +62,14 @@ undefined8 __rustcall uu_sort::check::check(undefined8 param_1,undefined8 param_
   
   cVar1 = *(char *)(param_3 + 0x84);
   cVar3 = -cVar1;
-  open(&local_1d0,param_1,param_2);
+  _ZN7uu_sort4open17h7400e7736be99f1eE(&local_1d0,param_1,param_2);
   if (local_1d0 == 0) {
     local_208 = uStack_1c8;
     local_200 = local_1c0;
                     /* try { // try from 00247f1c to 00247f2d has its CatchHandler @ 002484cf */
     local_268 = param_3;
     local_210 = param_2;
-    std::sync::mpmc::sync_channel(&local_1d0,2);
+    _ZN3std4sync4mpmc12sync_channel17h0128f0d8709ae6c6E(&local_1d0,2);
     uVar4 = uStack_1b8;
     lVar2 = local_1c0;
     local_1f8 = (undefined4)local_1d0;
@@ -79,7 +80,7 @@ undefined8 __rustcall uu_sort::check::check(undefined8 param_1,undefined8 param_
     local_f8 = uStack_1b8;
                     /* try { // try from 00247f63 to 00247f74 has its CatchHandler @ 002484be */
     local_250 = param_1;
-    std::sync::mpmc::sync_channel(&local_1d0,2);
+    _ZN3std4sync4mpmc12sync_channel17h3dc4982d6038534eE(&local_1d0,2);
     uVar8 = uStack_1c8;
     lVar10 = local_1d0;
     local_f0 = local_1d0;
@@ -89,7 +90,8 @@ undefined8 __rustcall uu_sort::check::check(undefined8 param_1,undefined8 param_
     local_1d8 = uStack_1b8;
     local_d8 = uStack_1b8;
                     /* try { // try from 00247fc4 to 00247fd5 has its CatchHandler @ 002484e5 */
-    _<uu_sort::GlobalSettings_as_core::clone::Clone>::clone(&local_d0,local_268);
+    _ZN62__LT_uu_sort__GlobalSettings_u20_as_u20_core__clone__Clone_GT_5clone17h4b1e280250293b78E
+              (&local_d0,local_268);
     local_110 = local_208;
     local_108 = local_200;
     local_1d0 = lVar2;
@@ -100,10 +102,9 @@ undefined8 __rustcall uu_sort::check::check(undefined8 param_1,undefined8 param_
     local_c0 = -0x8000000000000000;
     local_d0 = 0;
                     /* try { // try from 0024804b to 00248083 has its CatchHandler @ 002484e5 */
-    std::thread::Builder::spawn_unchecked(&local_248,&local_d0,&local_1d0);
-    core::result::Result<T,E>::expect(&local_d0,&local_248);
-    core::ptr::
-    drop_in_place<std::thread::JoinHandle<core::result::Result<(),alloc::boxed::Box<dyn_uucore::mods::error::UError>>>>
+    _ZN3std6thread7Builder15spawn_unchecked17h2ccfd943a76390cfE(&local_248,&local_d0,&local_1d0);
+    _ZN4core6result19Result_LT_T_C_E_GT_6expect17h2d31b0d7291505b3E(&local_d0,&local_248);
+    _ZN4core3ptr151drop_in_place_LT_std__thread__JoinHandle_LT_core__result__Result_LT__LP__RP__C_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT__GT__GT_17hd7c3b89971243bd4E
               (&local_d0);
     uVar11 = 0x19000;
     if (*(ulong *)(local_268 + 0x68) < 0x19000) {
@@ -111,12 +112,12 @@ undefined8 __rustcall uu_sort::check::check(undefined8 param_1,undefined8 param_
     }
     iVar6 = 0;
     do {
-      iVar6 = _<i32_as_core::iter::range::Step>::forward_unchecked(iVar6);
+      iVar6 = _ZN47__LT_i32_u20_as_u20_core__iter__range__Step_GT_17forward_unchecked17h712e9cb68f36e349E
+                        (iVar6);
                     /* try { // try from 002480cb to 002480eb has its CatchHandler @ 00248510 */
-      chunks::RecycledChunk::new(&local_1d0,uVar11);
-      std::sync::mpmc::Sender<T>::send(&local_d0,&local_1f8,&local_1d0);
-      core::ptr::
-      drop_in_place<core::result::Result<(),std::sync::mpsc::SendError<uu_sort::chunks::RecycledChunk>>>
+      _ZN7uu_sort6chunks13RecycledChunk3new17hf2a77065c2da2656E(&local_1d0,uVar11);
+      _ZN3std4sync4mpmc15Sender_LT_T_GT_4send17hcf2a828def35f69dE(&local_d0,&local_1f8,&local_1d0);
+      _ZN4core3ptr124drop_in_place_LT_core__result__Result_LT__LP__RP__C_std__sync__mpsc__SendError_LT_uu_sort__chunks__RecycledChunk_GT__GT__GT_17h84f93410a09308e1E
                 (&local_d0);
     } while (iVar6 < 2);
     local_270 = 0;
@@ -126,7 +127,7 @@ undefined8 __rustcall uu_sort::check::check(undefined8 param_1,undefined8 param_
     local_258 = &PTR_s_src_uu_sort_src_check_rs_00300ea0;
                     /* try { // try from 0024813c to 00248143 has its CatchHandler @ 002484ca */
     while (uVar8 = local_250,
-          lVar7 = _<std::sync::mpsc::IntoIter<T>as_core::iter::traits::iterator::Iterator>::next
+          lVar7 = _ZN93__LT_std__sync__mpsc__IntoIter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hbc73efb6024e804cE
                             (&local_1e8), lVar2 = local_270, lVar7 != 0) {
       lVar10 = lVar10 + 1;
       local_270 = 0;
@@ -136,15 +137,18 @@ undefined8 __rustcall uu_sort::check::check(undefined8 param_1,undefined8 param_
         if (*(long *)(lVar2 + 0x28) == 0) {
 LAB_0024847f:
                     /* try { // try from 0024847f to 00248489 has its CatchHandler @ 002484d4 */
-          uVar8 = core::option::unwrap_failed(local_258);
+          uVar8 = _ZN4core6option13unwrap_failed17h0e11329e76906eaaE(local_258);
                     /* catch() { ... } // from try @ 002483ea with catch @ 0024848a */
                     /* try { // try from 0024848d to 00248547 has its CatchHandler @ 0024856e */
-          core::ptr::drop_in_place<std::ffi::os_str::OsString>(&local_248);
-          core::ptr::drop_in_place<uu_sort::chunks::Chunk>(&local_228);
-          core::ptr::drop_in_place<uu_sort::chunks::Chunk>(&local_260);
-          core::ptr::drop_in_place<std::sync::mpsc::IntoIter<uu_sort::chunks::Chunk>>(&local_1e8);
-          core::ptr::drop_in_place<core::option::Option<uu_sort::chunks::Chunk>>(&local_270);
-          core::ptr::drop_in_place<std::sync::mpsc::SyncSender<uu_sort::chunks::RecycledChunk>>
+          _ZN4core3ptr47drop_in_place_LT_std__ffi__os_str__OsString_GT_17h5ef0e2e0fb72183bE
+                    (&local_248);
+          _ZN4core3ptr43drop_in_place_LT_uu_sort__chunks__Chunk_GT_17h110e2935f03a115dE(&local_228);
+          _ZN4core3ptr43drop_in_place_LT_uu_sort__chunks__Chunk_GT_17h110e2935f03a115dE(&local_260);
+          _ZN4core3ptr76drop_in_place_LT_std__sync__mpsc__IntoIter_LT_uu_sort__chunks__Chunk_GT__GT_17h92abcc67ee379694E
+                    (&local_1e8);
+          _ZN4core3ptr71drop_in_place_LT_core__option__Option_LT_uu_sort__chunks__Chunk_GT__GT_17ha6a3835cbbfd737cE
+                    (&local_270);
+          _ZN4core3ptr86drop_in_place_LT_std__sync__mpsc__SyncSender_LT_uu_sort__chunks__RecycledChunk_GT__GT_17h3a7b5e4f6158b683E
                     (&local_1f8);
                     /* WARNING: Subroutine does not return */
           _Unwind_Resume(uVar8);
@@ -155,18 +159,20 @@ LAB_0024847f:
         }
         puVar9 = *(undefined8 **)(lVar7 + 0x20);
                     /* try { // try from 002481a5 to 002481b4 has its CatchHandler @ 002484c6 */
-        cVar5 = compare_by(*(long *)(lVar2 + 0x20) + *(long *)(lVar2 + 0x28) * 0x18 + -0x18,puVar9,
+        cVar5 = _ZN7uu_sort10compare_by17h54103d56e12edacdE
+                          (*(long *)(lVar2 + 0x20) + *(long *)(lVar2 + 0x28) * 0x18 + -0x18,puVar9,
                            local_268,lVar2 + 0x30,lVar7 + 0x30);
         if (cVar5 != cVar3 && SBORROW1(cVar5,cVar3) == (char)(cVar5 + cVar1) < '\0') {
                     /* try { // try from 002483b3 to 002483c8 has its CatchHandler @ 002484d4 */
-          std::sys::os_str::bytes::Slice::to_owned(&local_1d0,uVar8,local_210);
+          _ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E(&local_1d0,uVar8,local_210);
           local_238 = local_1c0;
           local_248 = (undefined4)local_1d0;
           uStack_244 = local_1d0._4_4_;
           uStack_240 = (undefined4)uStack_1c8;
           uStack_23c = uStack_1c8._4_4_;
                     /* try { // try from 002483ea to 002483f6 has its CatchHandler @ 0024848a */
-          _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_d0,*puVar9,puVar9[1]);
+          _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h1d4334c76f34ab0eE
+                    (&local_d0,*puVar9,puVar9[1]);
           local_198 = local_c0;
           local_1a8 = local_d0;
           lStack_1a0 = lStack_c8;
@@ -176,26 +182,28 @@ LAB_0024847f:
           local_1d0 = (ulong)CONCAT61(local_1d0._2_6_,*(undefined *)(local_268 + 0x86)) << 8;
                     /* try { // try from 00248454 to 00248460 has its CatchHandler @ 002484d4 */
           uStack_1c8 = lVar10;
-          uVar8 = ::alloc::boxed::Box<T>::new(&local_1d0);
+          uVar8 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hebf92c849c48588dE(&local_1d0);
                     /* try { // try from 00248461 to 0024846d has its CatchHandler @ 002484c8 */
-          core::ptr::drop_in_place<uu_sort::chunks::Chunk>(&local_228);
+          _ZN4core3ptr43drop_in_place_LT_uu_sort__chunks__Chunk_GT_17h110e2935f03a115dE(&local_228);
 LAB_0024833c:
                     /* try { // try from 0024833c to 00248345 has its CatchHandler @ 002484b2 */
-          core::ptr::drop_in_place<uu_sort::chunks::Chunk>(&local_260);
+          _ZN4core3ptr43drop_in_place_LT_uu_sort__chunks__Chunk_GT_17h110e2935f03a115dE(&local_260);
                     /* try { // try from 00248346 to 00248352 has its CatchHandler @ 002484b9 */
-          core::ptr::drop_in_place<std::sync::mpsc::IntoIter<uu_sort::chunks::Chunk>>(&local_1e8);
+          _ZN4core3ptr76drop_in_place_LT_std__sync__mpsc__IntoIter_LT_uu_sort__chunks__Chunk_GT__GT_17h92abcc67ee379694E
+                    (&local_1e8);
                     /* try { // try from 00248353 to 0024835c has its CatchHandler @ 002484b4 */
-          core::ptr::drop_in_place<core::option::Option<uu_sort::chunks::Chunk>>(&local_270);
+          _ZN4core3ptr71drop_in_place_LT_core__option__Option_LT_uu_sort__chunks__Chunk_GT__GT_17ha6a3835cbbfd737cE
+                    (&local_270);
                     /* try { // try from 0024835f to 0024836b has its CatchHandler @ 002484cf */
-          core::ptr::drop_in_place<std::sync::mpsc::SyncSender<uu_sort::chunks::RecycledChunk>>
+          _ZN4core3ptr86drop_in_place_LT_std__sync__mpsc__SyncSender_LT_uu_sort__chunks__RecycledChunk_GT__GT_17h3a7b5e4f6158b683E
                     (&local_1f8);
           return uVar8;
         }
                     /* try { // try from 002481c3 to 002481ef has its CatchHandler @ 002484e3 */
-        chunks::Chunk::recycle(&local_1d0,local_228);
-        std::sync::mpmc::Sender<T>::send(&local_d0,&local_1f8,&local_1d0);
-        core::ptr::
-        drop_in_place<core::result::Result<(),std::sync::mpsc::SendError<uu_sort::chunks::RecycledChunk>>>
+        _ZN7uu_sort6chunks5Chunk7recycle17h5f1e538d67d10031E(&local_1d0,local_228);
+        _ZN3std4sync4mpmc15Sender_LT_T_GT_4send17hcf2a828def35f69dE(&local_d0,&local_1f8,&local_1d0)
+        ;
+        _ZN4core3ptr124drop_in_place_LT_core__result__Result_LT__LP__RP__C_std__sync__mpsc__SendError_LT_uu_sort__chunks__RecycledChunk_GT__GT__GT_17h84f93410a09308e1E
                   (&local_d0);
       }
       local_d0 = *(long *)(local_260 + 0x20);
@@ -203,21 +211,24 @@ LAB_0024833c:
       local_c0 = 0;
       while( true ) {
                     /* try { // try from 00248230 to 0024825b has its CatchHandler @ 002484ea */
-        auVar12 = _<itertools::tuple_impl::TupleWindows<I,T>as_core::iter::traits::iterator::Iterator>
-                  ::next(&local_d0);
+        auVar12 = _ZN107__LT_itertools__tuple_impl__TupleWindows_LT_I_C_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hba70f0f004cf2b2dE
+                            (&local_d0);
         puVar9 = auVar12._8_8_;
         if (auVar12._0_8_ == 0) break;
-        cVar5 = compare_by(auVar12._0_8_,puVar9,local_268,local_260 + 0x30,local_260 + 0x30);
+        cVar5 = _ZN7uu_sort10compare_by17h54103d56e12edacdE
+                          (auVar12._0_8_,puVar9,local_268,local_260 + 0x30,local_260 + 0x30);
         lVar10 = lVar10 + 1;
         if (cVar5 != cVar3 && SBORROW1(cVar5,cVar3) == (char)(cVar5 + cVar1) < '\0') {
                     /* try { // try from 00248291 to 002482a8 has its CatchHandler @ 002484c8 */
-          std::sys::os_str::bytes::Slice::to_owned(&local_1d0,local_250,local_210);
+          _ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E
+                    (&local_1d0,local_250,local_210);
           local_218 = local_1c0;
           local_228 = local_1d0;
           uStack_220 = (undefined4)uStack_1c8;
           uStack_21c = uStack_1c8._4_4_;
                     /* try { // try from 002482cb to 002482d4 has its CatchHandler @ 00248499 */
-          _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_248,*puVar9,puVar9[1]);
+          _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h1d4334c76f34ab0eE
+                    (&local_248,*puVar9,puVar9[1]);
           local_198 = local_238;
           local_1a8 = CONCAT44(uStack_244,local_248);
           lStack_1a0 = CONCAT44(uStack_23c,uStack_240);
@@ -227,21 +238,24 @@ LAB_0024833c:
           local_1d0 = (ulong)CONCAT61(local_1d0._2_6_,*(undefined *)(local_268 + 0x86)) << 8;
                     /* try { // try from 0024832c to 00248338 has its CatchHandler @ 002484c8 */
           uStack_1c8 = lVar10;
-          uVar8 = ::alloc::boxed::Box<T>::new(&local_1d0);
+          uVar8 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hebf92c849c48588dE(&local_1d0);
           goto LAB_0024833c;
         }
       }
       lVar2 = local_260;
                     /* try { // try from 00248275 to 0024827e has its CatchHandler @ 002484a8 */
-      core::ptr::drop_in_place<core::option::Option<uu_sort::chunks::Chunk>>(&local_270);
+      _ZN4core3ptr71drop_in_place_LT_core__option__Option_LT_uu_sort__chunks__Chunk_GT__GT_17ha6a3835cbbfd737cE
+                (&local_270);
       local_270 = lVar2;
     }
                     /* try { // try from 00248388 to 00248394 has its CatchHandler @ 002484b9 */
-    core::ptr::drop_in_place<std::sync::mpsc::IntoIter<uu_sort::chunks::Chunk>>(&local_1e8);
+    _ZN4core3ptr76drop_in_place_LT_std__sync__mpsc__IntoIter_LT_uu_sort__chunks__Chunk_GT__GT_17h92abcc67ee379694E
+              (&local_1e8);
                     /* try { // try from 00248395 to 0024839e has its CatchHandler @ 002484b4 */
-    core::ptr::drop_in_place<core::option::Option<uu_sort::chunks::Chunk>>(&local_270);
+    _ZN4core3ptr71drop_in_place_LT_core__option__Option_LT_uu_sort__chunks__Chunk_GT__GT_17ha6a3835cbbfd737cE
+              (&local_270);
                     /* try { // try from 002483a1 to 002483ad has its CatchHandler @ 002484cf */
-    core::ptr::drop_in_place<std::sync::mpsc::SyncSender<uu_sort::chunks::RecycledChunk>>
+    _ZN4core3ptr86drop_in_place_LT_std__sync__mpsc__SyncSender_LT_uu_sort__chunks__RecycledChunk_GT__GT_17h3a7b5e4f6158b683E
               (&local_1f8);
     uStack_1c8 = 0;
   }

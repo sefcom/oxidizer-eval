@@ -1,4 +1,6 @@
-undefined8 __rustcall uu_od::prn_int::format_item_dec_s8(undefined8 param_1,char param_2)
+undefined8
+_ZN5uu_od7prn_int18format_item_dec_s817hb892acee55e2d4c6E_llvm_6994087982725259584
+          (undefined8 param_1,char param_2)
 
 {
   long local_98;
@@ -21,7 +23,9 @@ undefined8 __rustcall uu_od::prn_int::format_item_dec_s8(undefined8 param_1,char
   
   local_90 = (undefined *)&local_98;
   local_98 = (long)param_2;
-  local_88 = core::fmt::num::imp::_<impl_core::fmt::Display_for_isize>::fmt;
+  local_88 = 
+  _ZN4core3fmt3num3imp54__LT_impl_u20_core__fmt__Display_u20_for_u20_isize_GT_3fmt17he353d7b3f48ba6e6E
+  ;
   local_80 = 4;
   local_78 = 0;
   local_40[0] = 2;
@@ -36,6 +40,6 @@ undefined8 __rustcall uu_od::prn_int::format_item_dec_s8(undefined8 param_1,char
   local_48 = 1;
   local_60 = &local_90;
   local_58 = 2;
-  core::option::Option<T>::map_or_else(param_1,&local_70);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17hc22922308bfda6bfE(param_1,&local_70);
   return param_1;
 }

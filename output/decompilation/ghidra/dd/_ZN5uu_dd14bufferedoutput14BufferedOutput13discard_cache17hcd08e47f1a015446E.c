@@ -1,6 +1,6 @@
-void __rustcall uu_dd::bufferedoutput::BufferedOutput::discard_cache(long param_1)
+void _ZN5uu_dd14bufferedoutput14BufferedOutput13discard_cache17hcd08e47f1a015446E(long param_1)
 
 {
-  Output::discard_cache(param_1 + 0x18);
+  _ZN5uu_dd6Output13discard_cache17h9654de1740a6c207E(param_1 + 0x18);
   return;
 }

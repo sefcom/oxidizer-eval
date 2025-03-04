@@ -1,5 +1,5 @@
 fn uu_ls::parse_width(a0: &Result<struct56, struct2>, a1: u32) -> u64 {
-    let v0: i192;  // [sp-0x58], Other Possible Types: Option<struct24>, Result<struct32, struct2>
+    let v0: Option<struct24>;  // [sp-0x58], Other Possible Types: Result<struct32, struct2>
     let v3: Option<struct24>;  // [sp-0x20]
     let v8: i64;  // rax
 
@@ -16,19 +16,19 @@ fn uu_ls::parse_width(a0: &Result<struct56, struct2>, a1: u32) -> u64 {
         }
     } else {
         v0 = uu_ls::parse_width::{{closure}}(*((a1 + 8) as &i64), *((a1 + 16) as &i64));
-        if v0 != 7 {
+        if v0 as i8 != 7 {
             return Ok(struct56 {
-                field_0: v5 as i8
+                field_0: v5 as u8
                 field_1: v6
                 field_2: v7
                 field_4: *((&v0 as &char + 4) as &i128)
-                field_20: v0
-                field_36: v1
-                field_52: v2
+                field_20: v0 as i128
+                field_36: *(&v1 as &i128)
+                field_52: *(&v2 as &i32)
             });
         }
     }
     return Err(struct2 {
-        field_1: <UNKNOWN>
+        field_0: v5 as u16
     });
 }

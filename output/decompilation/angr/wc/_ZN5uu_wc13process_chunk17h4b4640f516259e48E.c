@@ -1,13 +1,12 @@
 long long uu_wc::process_chunk::h4b4640f516259e48(unsigned long long a0[5], unsigned long a1, unsigned long a2, unsigned long long *a3)
 {
-    unsigned long v0;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x40]
     unsigned long long v1;  // [sp-0x38]
     void* v3;  // r12
     unsigned long long v4;  // r13
     unsigned long long v5;  // r14
     unsigned long long v6;  // rdx
-    unsigned long long v8;  // r12
-    unsigned long long v9;  // rax
+    unsigned long long v8;  // rax
 
     v0 = a1;
     v1 = a1 + a2;
@@ -43,7 +42,7 @@ LABEL_4ba550:
         } while ((*(a3) = (unsigned long long)v3, a0[1] = v5, v5 += 1, (int)core::str::validations::next_code_point::hb01acf43b4359c77(&v0)));
     }
     a0[0] = a0[0] + a2;
-    v9 = ::0x4b6250::core::cmp::max_by::h29d87775ffd58160(v8, v4);
-    a0[4] = v9;
-    return v9;
+    v8 = ::0x4b6250::core::cmp::max_by::h29d87775ffd58160(v3, v4);
+    a0[4] = v8;
+    return v8;
 }

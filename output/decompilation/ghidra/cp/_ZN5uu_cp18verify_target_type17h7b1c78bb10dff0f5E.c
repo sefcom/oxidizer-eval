@@ -1,5 +1,6 @@
-undefined8 * __rustcall
-uu_cp::verify_target_type(undefined8 *param_1,undefined8 param_2,undefined8 param_3,char *param_4)
+undefined8 *
+_ZN5uu_cp18verify_target_type17h7b1c78bb10dff0f5E
+          (undefined8 *param_1,undefined8 param_2,undefined8 param_3,char *param_4)
 
 {
   char cVar1;
@@ -16,7 +17,7 @@ uu_cp::verify_target_type(undefined8 *param_1,undefined8 param_2,undefined8 para
   undefined8 local_38;
   undefined8 local_30;
   
-  cVar1 = std::path::Path::is_dir(param_2,param_3);
+  cVar1 = _ZN3std4path4Path6is_dir17h9ac0db933706da51E(param_2,param_3);
   if (*param_4 == '\0') {
     uVar2 = 0xd;
     if (cVar1 != '\0') goto LAB_002088e9;
@@ -30,14 +31,14 @@ uu_cp::verify_target_type(undefined8 *param_1,undefined8 param_2,undefined8 para
   local_80 = &local_70;
   local_58 = 1;
   local_70 = 1;
-  local_78 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+  local_78 = _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
   local_48 = 2;
   local_30 = 0;
   local_40 = &local_80;
   local_38 = 1;
   local_68 = param_2;
   local_60 = param_3;
-  core::option::Option<T>::map_or_else(param_1 + 1,&local_50);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17h805a87bba4bea7c2E(param_1 + 1,&local_50);
   uVar2 = 4;
 LAB_002088e9:
   *param_1 = uVar2;

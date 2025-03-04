@@ -1,4 +1,4 @@
-long long uu_ls::display_dir_entry_size::hb89143fe2890521f(unsigned long long a0[5], unsigned long long a1, struct_1 *a2, unsigned long long a3)
+long long uu_ls::display_dir_entry_size::hb89143fe2890521f(unsigned long long a0[5], unsigned long long a1, struct_0 *a2, unsigned long long a3)
 {
     int v0;  // [sp-0xa8]
     unsigned long long v1;  // [sp-0x98]
@@ -10,8 +10,8 @@ long long uu_ls::display_dir_entry_size::hb89143fe2890521f(unsigned long long a0
     char v7;  // [bp-0x50]
     char v8;  // [bp-0x48]
     char v9;  // [bp-0x38]
-    struct_0 *v11;  // rax
-    struct_0 *v12;  // r14
+    struct_1 *v11;  // rax
+    struct_1 *v12;  // r14
     unsigned long long v13;  // r13
     unsigned long long v14;  // r12
     unsigned int v15;  // ebp

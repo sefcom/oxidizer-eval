@@ -1,7 +1,7 @@
 long long uu_fmt::parasplit::WordSplit::analyze_tabs::hc55c52ed9a76e808(unsigned long long a0[5], struct_0 *a1, unsigned long a2, unsigned long a3)
 {
     unsigned long long v0;  // [sp-0x58]
-    unsigned long v1;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0x48]
     unsigned long long v2;  // [sp-0x40]
     void* v3;  // [sp-0x38]
     unsigned long long v5;  // rbp

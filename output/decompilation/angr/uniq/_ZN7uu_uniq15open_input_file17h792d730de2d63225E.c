@@ -2,7 +2,7 @@ long long uu_uniq::open_input_file::h792d730de2d63225(unsigned long long a0[3], 
 {
     char v0;  // [bp-0x60]
     char v1;  // [bp-0x58]
-    unsigned long v2;  // [bp-0x50], Other Possible Types: unsigned long long
+    unsigned long v2;  // [bp-0x50]
     unsigned int v4;  // edx
     unsigned long long v5;  // rax
     unsigned long long v6;  // rcx

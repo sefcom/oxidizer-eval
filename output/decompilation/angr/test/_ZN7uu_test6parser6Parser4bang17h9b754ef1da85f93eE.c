@@ -1,6 +1,6 @@
 long long uu_test::parser::Parser::bang::h9b754ef1da85f93e(struct_0 *a0, void* a1)
 {
-    unsigned long long v0;  // [bp-0x148]
+    unsigned long long v0;  // [sp-0x148]
     char v1;  // [bp-0x138]
     char v2;  // [bp-0x128]
     char v3;  // [bp-0x118]
@@ -33,7 +33,7 @@ long long uu_test::parser::Parser::bang::h9b754ef1da85f93e(struct_0 *a0, void* a
             v0 = 1;
             uu_test::parser::Symbol::into_literal::hae4d6fad5ad71dcb(v4, &v0);
             alloc::vec::Vec$LT$T$C$A$GT$::push::h254fc79c897546ac(a1, v4);
-            vvar_348{reg 16} = ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v7);
+            vvar_346{reg 16} = ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v7);
             a0->field_0 = 7;
             return v23;
         }
@@ -49,11 +49,11 @@ long long uu_test::parser::Parser::bang::h9b754ef1da85f93e(struct_0 *a0, void* a
             uu_test::parser::Parser::term::h385cc0ae73b5bef0(&v0, a1);
             if ((int)v0 != 7)
             {
-                vvar_363{reg 224} = *((int128_t *)&v0);
+                vvar_361{reg 224} = *((int128_t *)&v0);
                 a0->field_10 = *((int128_t *)&v1);
                 *((void*)&a0->field_0) = v22;
                 ::0x4adfb0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uu_test..parser..Symbol$GT$$GT$::h8be5e6021bc91ab2(v4);
-                vvar_366{reg 16} = ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v7);
+                vvar_364{reg 16} = ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v7);
                 return v23;
             }
             v0 = 1;
@@ -68,7 +68,7 @@ long long uu_test::parser::Parser::bang::h9b754ef1da85f93e(struct_0 *a0, void* a
                 a0->field_10 = *((int128_t *)&v1);
                 *((void*)&a0->field_0) = v22;
                 ::0x4adfb0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uu_test..parser..Symbol$GT$$GT$::h8be5e6021bc91ab2(v4);
-                vvar_344{reg 16} = ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v7);
+                vvar_342{reg 16} = ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v7);
                 return v23;
             }
             v0 = 1;
@@ -104,7 +104,7 @@ long long uu_test::parser::Parser::bang::h9b754ef1da85f93e(struct_0 *a0, void* a
             *((void*)&a0->field_10) = v21;
             *((void*)&a0->field_0) = v20;
             ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v8);
-            vvar_359{reg 16} = ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v7);
+            vvar_357{reg 16} = ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v7);
             return v23;
         }
     }
@@ -118,14 +118,14 @@ long long uu_test::parser::Parser::bang::h9b754ef1da85f93e(struct_0 *a0, void* a
             *((void*)&a0->field_10) = v21;
             *((void*)&a0->field_0) = v20;
             ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v8);
-            vvar_372{reg 16} = ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v7);
+            vvar_370{reg 16} = ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v7);
             return v23;
         }
         v0 = 1;
         alloc::vec::Vec$LT$T$C$A$GT$::push::h254fc79c897546ac(a1, &v0);
     }
     ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v8);
-    vvar_353{reg 16} = ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v7);
+    vvar_351{reg 16} = ::0x4ade70::core::ptr::drop_in_place$LT$uu_test..parser..Symbol$GT$::h2e64046051177754(&v7);
     a0->field_0 = 7;
     return v23;
 }

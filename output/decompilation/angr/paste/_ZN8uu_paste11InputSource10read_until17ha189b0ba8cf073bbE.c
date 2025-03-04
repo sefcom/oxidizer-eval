@@ -1,13 +1,13 @@
 long long uu_paste::InputSource::read_until::ha189b0ba8cf073bb(unsigned long long a0[2], unsigned long long a1[2], unsigned int a2, unsigned long long a3)
 {
-    unsigned long v0;  // [sp-0x30], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x30]
     char v1;  // [sp-0x28]
     unsigned long long v3;  // rax
     unsigned long long v4;  // rax
     unsigned long long v5;  // rdx
     char v6;  // dl
     unsigned long long v7;  // rdx
-    unsigned long long v8;  // rdx
+    unsigned long long v9;  // rdx
 
     if (!a1[0])
     {
@@ -20,16 +20,16 @@ long long uu_paste::InputSource::read_until::ha189b0ba8cf073bb(unsigned long lon
         }
         v0 = std::io::stdio::Stdin::lock::h161a36d857331d7f(v4);
         v1 = v6 & 1;
-        if (_$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..BufRead$GT$::read_until::h22767f011618eb41(&v0, a2, a3))
+        if (_$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..BufRead$GT$::read_until::h22767f011618eb41(&v0, a2))
         {
             a0[0] = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v7);
             a0[1] = v7;
-            core::ptr::drop_in_place$LT$std..io..stdio..StdinLock$GT$::h4cb87d9107df2b81();
-            v3 = core::ptr::drop_in_place$LT$core..cell..Ref$LT$std..io..stdio..Stdin$GT$$GT$::h971a788c5bfdd900();
+            core::ptr::drop_in_place$LT$std..io..stdio..StdinLock$GT$::h4cb87d9107df2b81(v0, *((int *)&v1));
+            v3 = core::ptr::drop_in_place$LT$core..cell..Ref$LT$std..io..stdio..Stdin$GT$$GT$::h971a788c5bfdd900(v7);
             return v3;
         }
-        core::ptr::drop_in_place$LT$std..io..stdio..StdinLock$GT$::h4cb87d9107df2b81();
-        v3 = core::ptr::drop_in_place$LT$core..cell..Ref$LT$std..io..stdio..Stdin$GT$$GT$::h971a788c5bfdd900();
+        core::ptr::drop_in_place$LT$std..io..stdio..StdinLock$GT$::h4cb87d9107df2b81(v0, *((int *)&v1));
+        v3 = core::ptr::drop_in_place$LT$core..cell..Ref$LT$std..io..stdio..Stdin$GT$$GT$::h971a788c5bfdd900(v7);
     }
     else
     {
@@ -42,7 +42,7 @@ long long uu_paste::InputSource::read_until::ha189b0ba8cf073bb(unsigned long lon
             return v3;
         }
     }
-    a0[1] = v8;
+    a0[1] = v9;
     a0[0] = 0;
     return v3;
 }

@@ -1,21 +1,21 @@
-long long uu_cp::OverwriteMode::verify::h15b46a9de23bd96a(struct_2 *a0, unsigned long a1, unsigned long long a2, unsigned long long a3, char a4)
+long long uu_cp::OverwriteMode::verify::h15b46a9de23bd96a(struct_3 *a0, unsigned long a1, unsigned long long a2, unsigned long long a3, char a4)
 {
     struct struct_1 **v0;  // [sp-0x130]
     unsigned long long v1;  // [sp-0x128]
     char *v2;  // [sp-0x120], Other Possible Types: struct struct_0 **, struct struct_1 **, unsigned long long
-    int v3;  // [sp-0x118], Other Possible Types: unsigned long long
+    int v3;  // [sp-0x118], Other Possible Types: unsigned long, unsigned long long
     char *v4;  // [sp-0x110], Other Possible Types: void*
     unsigned long long v5;  // [sp-0x108]
-    char *v6;  // [sp-0x100], Other Possible Types: unsigned long long
+    char *v6;  // [sp-0x100]
     unsigned long long v7;  // [sp-0xf8]
-    struct struct_3 **v8;  // [sp-0xf0], Other Possible Types: unsigned long long
+    struct struct_2 **v8;  // [sp-0xf0], Other Possible Types: unsigned long long
     unsigned long long v9;  // [bp-0xe8], Other Possible Types: char
     void* v10;  // [sp-0xe0]
-    struct struct_0 **v11;  // [sp-0xd0], Other Possible Types: unsigned long long
+    struct struct_0 **v11;  // [sp-0xd0]
     unsigned long long v12;  // [sp-0xc8]
     unsigned long long v13;  // [sp-0xc0]
     char v14;  // [sp-0xb8]
-    unsigned long v15;  // [sp-0xb0], Other Possible Types: unsigned long long
+    unsigned long v15;  // [sp-0xb0]
     int v16;  // [bp-0xa8], Other Possible Types: unsigned long
     unsigned long long v17;  // [sp-0x98]
     struct struct_0 **v18;  // [bp-0x88], Other Possible Types: unsigned long
@@ -25,7 +25,7 @@ long long uu_cp::OverwriteMode::verify::h15b46a9de23bd96a(struct_2 *a0, unsigned
     char v22;  // [bp-0x60]
     int v23;  // [bp-0x58], Other Possible Types: unsigned long
     unsigned long long v24;  // [sp-0x48]
-    unsigned long v25;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v25;  // [sp-0x38]
     unsigned long long v27;  // rax
     unsigned long v28;  // rdx
     unsigned long v29;  // rdx

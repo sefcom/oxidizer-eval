@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_dd::Dest::len(char *param_1)
+undefined  [16] _ZN5uu_dd4Dest3len17hc5f67b7ac477ff9eE(char *param_1)
 
 {
   undefined8 uVar1;
@@ -11,7 +11,7 @@ undefined  [16] __rustcall uu_dd::Dest::len(char *param_1)
   uVar1 = 0;
   uVar2 = 0;
   if (*param_1 == '\x01') {
-    std::fs::File::metadata(local_b0,param_1 + 4,0);
+    _ZN3std2fs4File8metadata17he899a18112e6f19eE(local_b0,param_1 + 4,0);
     if (local_b0[0] == 2) {
       uVar1 = 1;
       uVar2 = local_a8;

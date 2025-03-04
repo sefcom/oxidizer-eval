@@ -1,4 +1,4 @@
-long long uu_sort::compare_by::h54103d56e12edacd(unsigned long long a0[3], unsigned long long a1[3], struct_1 *a2, unsigned long long a3[9], unsigned long long a4[9])
+long long uu_sort::compare_by::h54103d56e12edacd(unsigned long long a0[3], unsigned long long a1[3], struct_0 *a2, unsigned long long a3[9], unsigned long long a4[9])
 {
     char v0;  // [sp-0x131]
     unsigned long long v1;  // [sp-0x130]
@@ -22,24 +22,25 @@ long long uu_sort::compare_by::h54103d56e12edacd(unsigned long long a0[3], unsig
     unsigned long long v19;  // [sp-0x58]
     unsigned long long v20;  // [sp-0x50]
     unsigned long long v21;  // [sp-0x48]
-    unsigned long v22;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v22;  // [sp-0x40]
     unsigned long long v23;  // [sp-0x38]
     unsigned long long v25;  // rdi
     unsigned long long v26;  // r9
     unsigned long long v27;  // rax
     unsigned long long v28;  // rsi
     unsigned long long v29;  // r9
-    struct_0 *v30;  // rax
-    struct_0 *v31;  // rbx
+    struct_1 *v30;  // rax
+    struct_1 *v31;  // rbx
     unsigned int v32;  // eax
     unsigned long long v33;  // rax
     unsigned long long v36;  // rdx
-    unsigned long long v37;  // rbx
-    unsigned long v39;  // rbx
+    unsigned long v37;  // rdx
+    unsigned long v39;  // rdx
     unsigned long long v40;  // cc_ndep
     unsigned long long v41;  // rax
-    unsigned long long v42;  // rax
-    unsigned long long v43;  // rax
+    unsigned long v42;  // rbx
+    unsigned long long v44;  // rbx
+    unsigned long long v45;  // rax
 
     v22 = a2->field_8;
     v23 = a2->field_10 * 56 + v22;
@@ -77,25 +78,24 @@ long long uu_sort::compare_by::h54103d56e12edacd(unsigned long long a0[3], unsig
         if (a2->field_98 != 5 && !a2->field_83 && !a2->field_84)
         {
             v36 = a1[1];
-            v37 = a0[1];
-            if (v37 < v36)
-                v39 = v37;
-            else
+            if (v37 >= v36)
                 v39 = v36;
-            v41 = memcmp(a0[0], a1[0], v39);
-            if ((unsigned int)v41)
-                v42 = v41;
             else
-                v42 = v37 - v36;
-            v32 = ((char)amd64g_calculate_condition(9, 20, v42, 0, v40) ? v42 : 255);
+                v39 = v37;
+            v41 = memcmp(a0[0], a1[0], v39);
+            if ((unsigned int)v42)
+                v44 = v41;
+            else
+                v44 = v37 - v36;
+            v32 = ((char)amd64g_calculate_condition(9, 20, v44, 0, v40) ? v44 : 255);
         }
-        v43 = (!a2->field_82 ? v32 : -((char)v32));
-        return v43;
+        v45 = (!a2->field_82 ? v32 : -((char)v32));
+        return v45;
     }
     v31 = v30;
     if (!v30->field_37)
     {
-        goto *((int *)(4385600 + *((char *)(vvar_83{reg 40} + 53)) * 4)) + 4385600;
+        goto *((int *)(4385600 + *((char *)(vvar_78{reg 40} + 53)) * 4)) + 4385600;
     }
     else
     {
@@ -104,6 +104,6 @@ long long uu_sort::compare_by::h54103d56e12edacd(unsigned long long a0[3], unsig
         v33 = v20;
         if (v33 >= v11)
             core::panicking::panic_bounds_check::h25a5330941572dd1(v33, v11, &g_5ffd30); /* do not return */
-        goto *((int *)(4385600 + *((char *)(vvar_83{reg 40} + 53)) * 4)) + 4385600;
+        goto *((int *)(4385600 + *((char *)(vvar_78{reg 40} + 53)) * 4)) + 4385600;
     }
 }

@@ -3,15 +3,15 @@ long long uu_unexpand::uumain::uumain::he0b2f932f6bdcbae(unsigned long long a0, 
     char v0;  // [bp-0x380]
     char v1;  // [bp-0x378]
     char v2;  // [bp-0x370]
-    int v3;  // [bp-0x368], Other Possible Types: char
+    int v3;  // [sp-0x368], Other Possible Types: char
     unsigned long long v4;  // [sp-0x358]
-    char v5;  // [bp-0x348], Other Possible Types: unsigned long, unsigned long long
-    int v6;  // [bp-0x340], Other Possible Types: char
+    char v5;  // [sp-0x348], Other Possible Types: unsigned long
+    int v6;  // [sp-0x340], Other Possible Types: char
     char v7;  // [bp-0x338]
     unsigned long long v8;  // [sp-0x330]
     int v9;  // [sp-0x328]
     unsigned long v10;  // [sp-0x318], Other Possible Types: unsigned long long
-    unsigned long v11;  // [sp-0x310], Other Possible Types: unsigned long long
+    unsigned long v11;  // [sp-0x310]
     unsigned long long v12;  // [sp-0x308]
     int v13;  // [sp-0x300]
     int v14;  // [sp-0x2f0]
@@ -22,7 +22,7 @@ long long uu_unexpand::uumain::uumain::he0b2f932f6bdcbae(unsigned long long a0, 
     char v19;  // [bp-0x2c0]
     char v20;  // [bp-0x2b8]
     char v21;  // [bp-0x2a8]
-    unsigned long long v24;  // rax
+    unsigned long long v24;  // rbx
 
     uucore::Args::collect_ignore::h9dc0a2554c980106(&v0, a0, a1);
     uu_unexpand::uu_app::hf57dc54f13226ed2(&v16);

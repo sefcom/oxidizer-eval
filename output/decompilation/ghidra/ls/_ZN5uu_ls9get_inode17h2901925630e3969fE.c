@@ -1,4 +1,4 @@
-void __rustcall uu_ls::get_inode(undefined8 param_1,undefined8 param_2)
+void _ZN5uu_ls9get_inode17h2901925630e3969fE(undefined8 param_1,undefined8 param_2)
 
 {
   undefined8 local_48;
@@ -11,13 +11,15 @@ void __rustcall uu_ls::get_inode(undefined8 param_1,undefined8 param_2)
   undefined8 local_10;
   
   local_40 = (undefined *)&local_48;
-  local_38 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+  local_38 = 
+  _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+  ;
   local_30 = &DAT_00123c10;
   local_28 = 1;
   local_10 = 0;
   local_20 = &local_40;
   local_18 = 1;
   local_48 = param_2;
-  core::option::Option<T>::map_or_else(param_1,&local_30);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17h7fca96e7ce97ddb7E(param_1,&local_30);
   return;
 }

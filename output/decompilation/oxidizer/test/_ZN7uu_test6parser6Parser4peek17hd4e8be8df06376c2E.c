@@ -1,5 +1,5 @@
 fn uu_test::parser::Parser::peek(a0: &Option<Result<struct24, struct32>>, a1: void*) -> u64 {
-    let v0: i192;  // [sp-0x38], Other Possible Types: struct24
+    let v0: i64;  // [sp-0x38], Other Possible Types: int, struct24
     let v2: i64;  // r14
 
     v2 = a1 + 24;

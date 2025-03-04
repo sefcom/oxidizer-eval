@@ -1,6 +1,6 @@
 fn uu_hashsum::uu_app_opt_bits(a0: &struct712, a1: u32) -> u64 {
-    let v0: i4736;  // [sp-0x770], Other Possible Types: struct592
-    let v1: struct592;  // [sp-0x520], Other Possible Types: i4736
+    let v0: struct592;  // [sp-0x770]
+    let v1: struct592;  // [sp-0x520]
     let v2: i8;  // [bp-0x2d0]
 
     memcpy(&v2, a1, 712);

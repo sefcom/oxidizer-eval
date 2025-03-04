@@ -1,6 +1,6 @@
 long long uu_shred::uu_app::h2fbccd128ef7bb3f(unsigned long long a0)
 {
-    char v0;  // [bp-0xa48], Other Possible Types: unsigned long long
+    char v0;  // [bp-0xa48], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0xa40]
     unsigned long long v2;  // [sp-0xa38]
     unsigned long long v3;  // [sp-0xa30]
@@ -16,7 +16,7 @@ long long uu_shred::uu_app::h2fbccd128ef7bb3f(unsigned long long a0)
     char v13;  // [bp-0x530]
     unsigned long long v14;  // [sp-0x274]
     unsigned int v15;  // [sp-0x26c]
-    void* v16;  // [bp-0x268], Other Possible Types: char
+    void* v16;  // [sp-0x268], Other Possible Types: char
     unsigned long long v17;  // [sp-0x260]
     char v18;  // [sp-0x258]
     unsigned long long v20;  // rdx

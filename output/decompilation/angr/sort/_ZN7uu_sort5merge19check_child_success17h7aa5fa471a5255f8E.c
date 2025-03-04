@@ -6,7 +6,7 @@ long long uu_sort::merge::check_child_success::h7aa5fa471a5255f8(unsigned long l
     char v3;  // [bp-0x60]
     char v4;  // [bp-0x58]
     char v5;  // [bp-0x54]
-    int v6;  // [bp-0x50], Other Possible Types: char
+    int v6;  // [sp-0x50], Other Possible Types: char
     unsigned long long v7;  // [sp-0x40]
     unsigned long long v9;  // rax
     unsigned int v10;  // eax

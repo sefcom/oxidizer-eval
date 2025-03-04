@@ -1,4 +1,5 @@
-long * __rustcall uu_touch::touch(long *param_1,long *param_2,long param_3,long *param_4)
+long * _ZN8uu_touch5touch17h8e2a06923358d7c5E
+                 (long *param_1,long *param_2,long param_3,long *param_4)
 
 {
   long lVar1;
@@ -55,7 +56,8 @@ long * __rustcall uu_touch::touch(long *param_1,long *param_2,long param_3,long 
   local_c8 = param_3;
   if (lVar1 == 0) {
     param_2 = (long *)param_4[4];
-    stat(&local_118,param_2,param_4[5],*(char *)((long)param_4 + 0x31) == '\0');
+    _ZN8uu_touch4stat17haa73667d17037b3bE
+              (&local_118,param_2,param_4[5],*(char *)((long)param_4 + 0x31) == '\0');
     if (local_118 == 0) {
       uVar6 = local_108 & 0xffffffff;
       lVar1 = lStack_100;
@@ -64,7 +66,8 @@ long * __rustcall uu_touch::touch(long *param_1,long *param_2,long param_3,long 
     }
     else {
       param_2 = param_4 + 3;
-      touch::___closure__(&local_150,param_2,lStack_110);
+      _ZN8uu_touch5touch28__u7b__u7b_closure_u7d__u7d_17hdd400a1e630fbbb5E
+                (&local_150,param_2,lStack_110);
       uVar6 = CONCAT44(uStack_13c,uStack_140);
       lVar1 = CONCAT44(uStack_134,local_138);
       lVar7 = local_148;
@@ -87,8 +90,8 @@ long * __rustcall uu_touch::touch(long *param_1,long *param_2,long param_3,long 
     local_168 = uVar6;
   }
   else {
-    chrono::offset::local::Local::now(&local_150);
-    auVar8 = datetime_to_filetime(&local_150);
+    _ZN6chrono6offset5local5Local3now17ha82adb6e05d16f38E(&local_150);
+    auVar8 = _ZN8uu_touch20datetime_to_filetime17hee2fe932dd2f3a25E(&local_150);
     lVar1 = auVar8._0_8_;
     uVar6 = auVar8._8_8_ & 0xffffffff;
     lVar7 = lVar1;
@@ -102,8 +105,8 @@ LAB_002c25b5:
     local_80 = 0;
     do {
       while( true ) {
-        auVar8 = _<core::iter::adapters::enumerate::Enumerate<I>as_core::iter::traits::iterator::Iterator>
-                 ::next(&local_90);
+        auVar8 = _ZN110__LT_core__iter__adapters__enumerate__Enumerate_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h549ada4c33c82e7dE
+                           (&local_90);
         plVar4 = auVar8._8_8_;
         if (plVar4 == (long *)0x0) {
           *param_1 = -0x7ffffffffffffffc;
@@ -113,7 +116,7 @@ LAB_002c25b5:
         lVar2 = *plVar4;
         lVar3 = -0x8000000000000000;
         if (lVar2 == -0x8000000000000000) {
-          pathbuf_from_stdout(&local_150);
+          _ZN8uu_touch19pathbuf_from_stdout17h2920ee1b816c3101E(&local_150);
           plVar4 = (long *)CONCAT44(uStack_13c,uStack_140);
           param_2 = (long *)CONCAT44(uStack_134,local_138);
           lVar3 = local_148;
@@ -135,21 +138,24 @@ LAB_002c25b5:
         param_2 = (long *)plVar4[2];
                     /* try { // try from 002c268d to 002c26af has its CatchHandler @ 002c2963 */
         local_e8 = lVar3;
-        lVar2 = touch_file(plVar4[1],param_2,lVar2 == -0x8000000000000000,param_4,lVar7,
+        lVar2 = _ZN8uu_touch10touch_file17h877dc0441f137307E
+                          (plVar4[1],param_2,lVar2 == -0x8000000000000000,param_4,lVar7,
                            uVar6 & 0xffffffff,lVar1,local_168);
         local_a8 = local_d8;
         local_b8 = local_e8;
         plStack_b0 = plStack_e0;
         local_a0 = &local_c0;
         if (lVar2 != 0) break;
-        core::ptr::drop_in_place<uu_touch::touch::__closure__>(&local_b8);
+        _ZN4core3ptr65drop_in_place_LT_uu_touch__touch___u7b__u7b_closure_u7d__u7d__GT_17hc5b9fab259fe0862E
+                  (&local_b8);
       }
       local_68 = local_d8;
       local_78 = local_e8;
       plStack_70 = plStack_e0;
       param_2 = &local_78;
       local_60 = local_a0;
-      touch::___closure__(&local_150,param_2,lVar2);
+      _ZN8uu_touch5touch28__u7b__u7b_closure_u7d__u7d_17hf4c84b0974a1c31bE(&local_150,param_2,lVar2)
+      ;
     } while (local_150 == -0x7ffffffffffffffc);
     param_1[5] = local_128;
     param_1[3] = CONCAT44(uStack_134,local_138);
@@ -159,7 +165,7 @@ LAB_002c25b5:
     *param_1 = local_150;
   }
   else {
-    filetime_to_datetime(&local_118,lVar7,uVar6 & 0xffffffff);
+    _ZN8uu_touch20filetime_to_datetime17h118b2d8253ee418fE(&local_118,lVar7,uVar6 & 0xffffffff);
     if ((int)local_118 == 0) {
       *param_1 = -0x7fffffffffffffff;
     }
@@ -168,11 +174,11 @@ LAB_002c25b5:
       lStack_48 = lStack_110;
       lVar2 = param_4[1];
       local_d0 = param_4[2];
-      parse_date(&local_150,&local_50);
+      _ZN8uu_touch10parse_date17h59fdcf28d83a7f45E(&local_150,&local_50);
       lVar7 = local_148;
       uVar6 = (ulong)uStack_140;
       if (local_150 == -0x7ffffffffffffffc) {
-        filetime_to_datetime(&local_118,lVar1,local_168);
+        _ZN8uu_touch20filetime_to_datetime17h118b2d8253ee418fE(&local_118,lVar1,local_168);
         if ((int)local_118 == 0) {
           *param_1 = -0x7fffffffffffffff;
           param_1[1] = lVar1;
@@ -182,7 +188,7 @@ LAB_002c25b5:
         local_40 = local_118;
         lStack_38 = lStack_110;
         param_2 = &local_40;
-        parse_date(&local_150,param_2,lVar2,local_d0);
+        _ZN8uu_touch10parse_date17h59fdcf28d83a7f45E(&local_150,param_2,lVar2,local_d0);
         local_168 = (ulong)uStack_140;
         lVar1 = local_148;
         if (local_150 != -0x7ffffffffffffffc) {

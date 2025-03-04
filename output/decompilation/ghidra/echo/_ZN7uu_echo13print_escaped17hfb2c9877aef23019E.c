@@ -1,5 +1,5 @@
-void __rustcall
-uu_echo::print_escaped(undefined2 *param_1,long param_2,long param_3,undefined8 param_4)
+void _ZN7uu_echo13print_escaped17hfb2c9877aef23019E
+               (undefined2 *param_1,long param_2,long param_3,undefined8 param_4)
 
 {
   char cVar1;
@@ -34,8 +34,8 @@ uu_echo::print_escaped(undefined2 *param_1,long param_2,long param_3,undefined8 
     while( true ) {
       local_50 = 0;
       if (lVar8 == 0) {
-        in_RAX = (byte *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::
-                         next(&local_40);
+        in_RAX = (byte *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h67bb1ffa54fe1617E
+                                   (&local_40);
       }
       if (in_RAX == (byte *)0x0) {
         *local_58 = 0;
@@ -46,7 +46,8 @@ uu_echo::print_escaped(undefined2 *param_1,long param_2,long param_3,undefined8 
       if (*in_RAX == 0x5c) break;
 LAB_001a476f:
       local_5a = bVar3;
-      lVar6 = _<std::io::stdio::StdoutLock_as_std::io::Write>::write_all(param_4,pbVar7,1);
+      lVar6 = _ZN61__LT_std__io__stdio__StdoutLock_u20_as_u20_std__io__Write_GT_9write_all17h10000d12d1c1ff48E
+                        (param_4,pbVar7,1);
       in_RAX = local_48;
       lVar8 = local_50;
       if (lVar6 != 0) {
@@ -55,12 +56,14 @@ LAB_001a476f:
         return;
       }
     }
-    puVar4 = (undefined8 *)core::option::Option<T>::get_or_insert_with(&local_50,&local_40);
+    puVar4 = (undefined8 *)
+             _ZN4core6option15Option_LT_T_GT_18get_or_insert_with17hedc8c424b7d46203E
+                       (&local_50,&local_40);
     if (((char *)*puVar4 != (char *)0x0) && (cVar1 = *(char *)*puVar4, (byte)(cVar1 - 0x31U) < 7)) {
-      uVar5 = parse_backslash_number(&local_50,0,cVar1);
+      uVar5 = _ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE(&local_50,0,cVar1);
       bVar3 = extraout_DL;
       if ((uVar5 & 1) == 0) {
-        core::option::unwrap_failed(&PTR_DAT_002060f0);
+        _ZN4core6option13unwrap_failed17h0e11329e76906eaaE(&PTR_DAT_002060f0);
         pcVar2 = (code *)swi(3);
         (*pcVar2)();
         return;
@@ -71,7 +74,7 @@ LAB_001a476f:
     local_50 = 0;
     pbVar7 = local_48;
     if (bVar11) {
-      pbVar7 = (byte *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+      pbVar7 = (byte *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h67bb1ffa54fe1617E
                                  (&local_40);
     }
     if (pbVar7 == (byte *)0x0) {
@@ -82,7 +85,7 @@ LAB_001a476f:
     uVar10 = 1;
     switch(*pbVar7) {
     case 0x30:
-      uVar5 = parse_backslash_number(&local_50,1);
+      uVar5 = _ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE(&local_50,1);
       if ((uVar5 & 1) == 0) {
         pbVar9 = &DAT_0011b426;
       }
@@ -129,7 +132,7 @@ LAB_001a476f:
       pbVar9 = &DAT_0011b423;
       break;
     case 0x78:
-      uVar5 = parse_backslash_number(&local_50,2);
+      uVar5 = _ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE(&local_50,2);
       uVar10 = 2;
       pbVar9 = &DAT_0011b424;
       if ((uVar5 & 1) != 0) {
@@ -138,7 +141,8 @@ LAB_001a476f:
         local_5b = extraout_DL_01;
       }
     }
-    lVar6 = _<std::io::stdio::StdoutLock_as_std::io::Write>::write_all(param_4,pbVar9,uVar10);
+    lVar6 = _ZN61__LT_std__io__stdio__StdoutLock_u20_as_u20_std__io__Write_GT_9write_all17h10000d12d1c1ff48E
+                      (param_4,pbVar9,uVar10);
     in_RAX = local_48;
     lVar8 = local_50;
     if (lVar6 != 0) {

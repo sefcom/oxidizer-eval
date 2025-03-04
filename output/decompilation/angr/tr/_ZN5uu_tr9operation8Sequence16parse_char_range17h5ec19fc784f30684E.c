@@ -5,7 +5,7 @@ long long uu_tr::operation::Sequence::parse_char_range::h5ec19fc784f30684(struct
     char v2;  // [bp-0x28]
     char v3;  // [bp-0x20]
     char v4;  // [bp-0x1f]
-    unsigned long v5;  // [sp-0x18], Other Possible Types: unsigned long long
+    unsigned long v5;  // [sp-0x18]
     unsigned long long v6;  // [sp-0x10]
     unsigned long long v9;  // rax
     unsigned long long v10;  // rcx

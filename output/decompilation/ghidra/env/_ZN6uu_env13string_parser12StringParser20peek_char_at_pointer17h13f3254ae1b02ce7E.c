@@ -1,6 +1,5 @@
-int * __rustcall
-uu_env::string_parser::StringParser::peek_char_at_pointer
-          (int *param_1,undefined8 *param_2,ulong param_3)
+int * _ZN6uu_env13string_parser12StringParser20peek_char_at_pointer17h13f3254ae1b02ce7E
+                (int *param_1,undefined8 *param_2,ulong param_3)
 
 {
   undefined uVar1;
@@ -15,13 +14,14 @@ uu_env::string_parser::StringParser::peek_char_at_pointer
   long local_18;
   
   if (param_3 <= (ulong)param_2[1]) {
-    core::slice::_<impl[T]>::split_at_unchecked(local_30,*param_2);
+    _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_18split_at_unchecked17ha4016ee41c394a20E
+              (local_30,*param_2);
     if (local_18 == 0) {
       *(undefined8 *)param_1 = param_2[4];
       uVar1 = 0;
     }
     else {
-      iVar2 = native_int_str::get_char_from_native_int(*local_20);
+      iVar2 = _ZN6uu_env14native_int_str24get_char_from_native_int17hd9478fe3e880cfe1E(*local_20);
       if (iVar2 == 0x110000) {
         *param_1 = 0xfffd;
       }
@@ -39,5 +39,6 @@ uu_env::string_parser::StringParser::peek_char_at_pointer
   local_48 = 0;
   uStack_40 = 0;
                     /* WARNING: Subroutine does not return */
-  core::panicking::panic_fmt(&local_60,&PTR_s_src_uu_env_src_string_parser_rs_00248e90);
+  _ZN4core9panicking9panic_fmt17he12d0d7468628bb4E
+            (&local_60,&PTR_s_src_uu_env_src_string_parser_rs_00248e90);
 }

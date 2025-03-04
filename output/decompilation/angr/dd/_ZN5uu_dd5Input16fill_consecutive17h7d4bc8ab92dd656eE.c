@@ -1,6 +1,6 @@
 long long uu_dd::Input::fill_consecutive::h7d4bc8ab92dd656e(struct_3 *a0, struct_1 *a1, struct_2 *a2)
 {
-    int v0;  // [bp-0x60], Other Possible Types: unsigned long, unsigned long long
+    int v0;  // [bp-0x60], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0x58]
     unsigned long long v2;  // [sp-0x50]
     int v3;  // [sp-0x48]

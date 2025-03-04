@@ -1,11 +1,11 @@
 long long uu_sort::numeric_str_cmp::human_numeric_str_cmp::h66afeed8410636b1(struct_1 *a0, struct_1 *a1)
 {
-    unsigned long v0;  // [sp-0x70], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x70]
     unsigned long long v1;  // [sp-0x68]
     struct_0 *v2;  // [sp-0x60]
     unsigned long long v3;  // [sp-0x58]
     unsigned long long v4;  // [sp-0x50]
-    unsigned long v5;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v5;  // [sp-0x48]
     unsigned long long v6;  // [sp-0x40]
     struct_0 *v7;  // [sp-0x38]
     struct_0 *v9;  // r14
@@ -112,7 +112,7 @@ long long uu_sort::numeric_str_cmp::human_numeric_str_cmp::h66afeed8410636b1(str
             break;
         }
     }
-    v21 = (v20 <= v16 ? v16 != v20 : 255);
+    v21 = (v20 <= v16 ? 255 : v16 != v20);
     if (!(char)v21)
     {
         v5 = v13;

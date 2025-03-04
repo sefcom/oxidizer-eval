@@ -1,7 +1,6 @@
-void __rustcall
-uu_ptx::get_reference
-          (long *param_1,char param_2,char param_3,long param_4,undefined8 param_5,
-          undefined8 param_6,undefined8 param_7,undefined8 param_8)
+void _ZN6uu_ptx13get_reference17hde200eae24bcb508E
+               (long *param_1,char param_2,char param_3,long param_4,undefined8 param_5,
+               undefined8 param_6,undefined8 param_7,undefined8 param_8)
 
 {
   code *pcVar1;
@@ -32,24 +31,25 @@ uu_ptx::get_reference
       param_1[2] = 0;
     }
     else {
-      regex::regex::string::Regex::find_at(&local_a0,param_7,param_8,param_5,param_6);
+      _ZN5regex5regex6string5Regex7find_at17hf05a7654ffba1dbbE
+                (&local_a0,param_7,param_8,param_5,param_6);
       puVar3 = local_a0;
       ppuVar4 = (undefined8 **)local_a0;
       if (local_a0 != (undefined *)0x0) {
         puVar3 = local_88;
         ppuVar4 = local_90;
       }
-      lVar2 = core::str::traits::
-              _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::Range<usize>>::get
+      lVar2 = _ZN4core3str6traits108__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__Range_LT_usize_GT__GT_3get17h3d479bbd9c610d76E
                         (ppuVar4,puVar3,param_5,param_6);
       if (lVar2 == 0) {
-        core::str::slice_error_fail
+        _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE
                   (param_5,param_6,ppuVar4,puVar3,&PTR_s_src_uu_ptx_src_ptx_rs_003eddf0);
         pcVar1 = (code *)swi(3);
         (*pcVar1)();
         return;
       }
-      _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_a0,lVar2);
+      _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h881c0d1e76b3a749E
+                (&local_a0,lVar2);
       param_1[2] = (long)local_90;
       *param_1 = (long)local_a0;
       param_1[1] = lStack_98;
@@ -64,15 +64,18 @@ uu_ptx::get_reference
     local_30 = 0;
     local_70 = *(long *)(param_4 + 0x38) + 1;
     local_68 = &local_48;
-    local_60 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+    local_60 = 
+    _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
     local_58 = &local_70;
-    local_50 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+    local_50 = 
+    _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+    ;
     local_a0 = &DAT_003eddd0;
     lStack_98 = 2;
     local_80 = 0;
     local_90 = &local_68;
     local_88 = (undefined *)0x2;
-    core::option::Option<T>::map_or_else(param_1,&local_a0);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17hb716a3158a91a555E(param_1,&local_a0);
   }
   return;
 }

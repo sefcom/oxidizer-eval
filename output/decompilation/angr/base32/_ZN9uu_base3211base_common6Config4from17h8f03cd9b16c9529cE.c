@@ -1,4 +1,4 @@
-long long uu_base32::base_common::Config::from::h8f03cd9b16c9529c(struct_0 *a0, unsigned long long a1)
+long long uu_base32::base_common::Config::from::h8f03cd9b16c9529c(struct_1 *a0, unsigned long long a1)
 {
     char *v0;  // [sp-0x1c0]
     unsigned long long v1;  // [sp-0x1b8]
@@ -10,9 +10,9 @@ long long uu_base32::base_common::Config::from::h8f03cd9b16c9529c(struct_0 *a0, 
     char v7;  // [sp-0x180]
     char v8;  // [bp-0x178]
     unsigned int v9;  // [sp-0x160]
-    char v10;  // [bp-0x158], Other Possible Types: unsigned long, unsigned long long
+    char v10;  // [bp-0x158], Other Possible Types: unsigned long long, unsigned long
     unsigned long v11;  // [sp-0x150], Other Possible Types: unsigned long long
-    struct struct_1 **v12;  // [sp-0x148]
+    struct struct_0 **v12;  // [sp-0x148]
     unsigned long long v13;  // [sp-0x140]
     void* v14;  // [sp-0x138]
     int v15;  // [sp-0xa8]
@@ -60,7 +60,7 @@ long long uu_base32::base_common::Config::from::h8f03cd9b16c9529c(struct_0 *a0, 
             v14 = 0;
             v12 = &v0;
             v13 = 1;
-            core::option::Option$LT$T$GT$::map_or_else::hb37e8cc30801e00b();
+            core::option::Option$LT$T$GT$::map_or_else::hb37e8cc30801e00b(&v8, &v10);
             v9 = 1;
             v29 = alloc::boxed::Box$LT$T$GT$::new::ha198aac8b81d8d24(&v8);
             a0->field_8 = v29;
@@ -88,7 +88,7 @@ long long uu_base32::base_common::Config::from::h8f03cd9b16c9529c(struct_0 *a0, 
                 v14 = 0;
                 v12 = &v0;
                 v13 = 1;
-                core::option::Option$LT$T$GT$::map_or_else::hb37e8cc30801e00b();
+                core::option::Option$LT$T$GT$::map_or_else::hb37e8cc30801e00b(&v8, &v10);
                 v9 = 1;
                 v29 = alloc::boxed::Box$LT$T$GT$::new::h89f85ffc87d48af0(&v8);
                 a0->field_8 = v29;

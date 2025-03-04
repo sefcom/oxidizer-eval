@@ -1,20 +1,20 @@
-long long uu_pr::header_content::h02dbeaeea8884abb(unsigned long long a0[3], struct_1 *a1, unsigned long a2)
+long long uu_pr::header_content::h02dbeaeea8884abb(unsigned long long a0[3], struct_0 *a1, unsigned long a2)
 {
-    unsigned long v0;  // [sp-0x88], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x88]
     char v1;  // [bp-0x80]
     char v2;  // [bp-0x70]
-    unsigned long v3;  // [sp-0x68], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x68]
     unsigned long long v4;  // [sp-0x60]
     unsigned long long v5;  // [sp-0x58]
     unsigned long long v6;  // [sp-0x50]
     char *v7;  // [sp-0x48]
     unsigned long long v8;  // [sp-0x40]
-    unsigned long long v9;  // [sp-0x38]
+    unsigned long v9;  // [sp-0x38]
     unsigned long long v10;  // [sp-0x30]
     char *v11;  // [sp-0x28]
     unsigned long long v12;  // [sp-0x20]
     void* v13;  // [sp-0x18]
-    struct_0 *v15;  // rax
+    struct_1 *v15;  // rax
     unsigned long long v16;  // rax
 
     v0 = a2;
@@ -36,7 +36,7 @@ long long uu_pr::header_content::h02dbeaeea8884abb(unsigned long long a0[3], str
     v13 = 0;
     v11 = &v3;
     v12 = 3;
-    core::option::Option$LT$T$GT$::map_or_else::h4ea8d69383c77fdd();
+    core::option::Option$LT$T$GT$::map_or_else::h4ea8d69383c77fdd(&v1, &v9);
     v15 = ::0x5c2420::alloc::alloc::Global::alloc_impl::hf61749d460433fff(8, 120);
     if (v15)
     {

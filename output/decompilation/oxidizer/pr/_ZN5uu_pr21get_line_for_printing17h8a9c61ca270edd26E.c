@@ -1,98 +1,66 @@
-fn uu_pr::get_line_for_printing(a0: u32, a1: void*, a2: void*, a3: u32, a4: u32, a5: u32) -> u64 {
-    let v0: &u8;  // [sp-0x168]
-    let v1: u64;  // [sp-0x160]
-    let v2: &u8;  // [sp-0x158], Other Possible Types: &&struct_1, u64
-    let v3: u64;  // [sp-0x150]
-    let v4: void*;  // [sp-0x148], Other Possible Types: &&struct_1
-    let v5: u64;  // [sp-0x140]
-    let v6: u64;  // [sp-0x138], Other Possible Types: &u8
-    let v7: u64;  // [sp-0x128]
-    let v8: &u8;  // [sp-0x118]
-    let v9: u64;  // [sp-0x108]
-    let v10: &u8;  // [sp-0xf8], Other Possible Types: u64
-    let v11: u64;  // [sp-0xf0]
-    let v12: &u8;  // [sp-0xe8], Other Possible Types: &&struct_1
-    let v13: u64;  // [sp-0xe0]
-    let v14: void*;  // [sp-0xd8]
-    let v15: u64;  // [sp-0xc8]
-    let v16: void*;  // [sp-0xc0]
-    let v17: u64;  // [sp-0xb8]
-    let v18: void*;  // [sp-0xb0]
-    let v19: u64;  // [sp-0xa8]
-    let v20: u64;  // [sp-0xa0]
-    let v21: &u8;  // [sp-0x98]
-    let v22: i8;  // [bp-0x90]
-    let v23: i8;  // [bp-0x80]
-    let v24: &u8;  // [sp-0x60]
-    let v25: &u8;  // [sp-0x58]
-    let v26: &&struct_1;  // [sp-0x50]
-    let v27: u8;  // [bp-0x48]
-    let v28: u64;  // [bp+0x8]
-    let v29: i8;  // [bp+0x10]
-    let v32: u64;  // rbp
-    let v36: &u8;  // rdx
-    let v38: &u8;  // rdx
+fn uu_pr::get_line_for_printing(a0: u32, a1: void*, a2: void*, a3: u32, a4: u32, a5: u32, a6: u32, a7: u32) -> u64 {
+    let v0: i8;  // [bp-0x168]
+    let v1: iNone;  // [sp-0x168], Other Possible Types: String, unsigned long
+    let v2: i8;  // [bp-0x160]
+    let v3: i64;  // [sp-0x138], Other Possible Types: int
+    let v4: i64;  // [sp-0x128]
+    let v5: iNone;  // [sp-0x118]
+    let v6: i64;  // [sp-0x108]
+    let v7: iNone;  // [bp-0xf8]
+    let v8: i64;  // [sp-0xc8]
+    let v9: i64;  // [sp-0xc0]
+    let v10: i64;  // [sp-0xb8]
+    let v11: i64;  // [sp-0xb0]
+    let v12: i64;  // [sp-0xa8]
+    let v13: i64;  // [sp-0xa0]
+    let v14: i64;  // [sp-0x98]
+    let v15: String;  // [sp-0x90]
+    let v16: String;  // [sp-0x78]
+    let v17: i64;  // [sp-0x60]
+    let v18: i64;  // [sp-0x58]
+    let v19: i64;  // [sp-0x50]
+    let v20: struct24;  // [sp-0x48]
+    let v22: i64;  // rbp
+    let v24: i64;  // rax
 
-    v15 = a3;
-    v16 = 0;
-    v17 = 1;
-    v18 = 0;
-    uu_pr::get_formatted_line_number(&v27, a1, a2[4], a4);
-    core::result::Result<T,E>::unwrap(*(a2) == 0x8000000000000000, v6);
-    v6 = &a2[*(a2) == 0x8000000000000000];
-    v10 = &v27;
-    v11 = <alloc::string::String as core::fmt::Display>::fmt;
-    v12 = &v6;
-    v13 = <&T as core::fmt::Display>::fmt;
-    v0 = &g_46bf10;
-    v1 = 2;
-    v4 = 0;
-    v2 = &v10;
-    v3 = 2;
-    core::option::Option<T>::map_or_else();
-    v8 = v22;
-    v32 = v23;
-    v9 = v32;
-    v19 = &a1->padding_0[168];
-    if a1->field_143 {
-        v36 = stack_base + -192;
-    } else {
-        v36 = &a1->padding_0[192];
+    v8 = a3;
+    v9 = 0;
+    v10 = 1;
+    v11 = 0;
+    v20 = uu_pr::get_formatted_line_number(a1, *((a2 + 32) as &i64), a4);
+    core::result::Result<T,E>::unwrap(*(a2 as &i64) == 0x8000000000000000, v3);
+    v3 = a2 + (*(a2 as &i64) == 0x8000000000000000) * 8;
+    v15 = format!("{}{}", &v20, &v3);
+    v5 = *(&v15.ptr as &i128);
+    v22 = v15.len;
+    v6 = v22;
+    v12 = a1 + 168;
+    v24 = a1 + 192;
+    if *((a1 + 323) as &i8) {
+        v24 = &v9;
     }
-    v20 = core::iter::traits::iterator::Iterator::fold((&v8)[1], &((&v8)[1])[v32]) * 7 + v32;
-    if a4 + 1 == v29 {
-        v38 = stack_base + -192;
+    v13 = core::iter::traits::iterator::Iterator::fold((&v5)[8] as i64, (&v5)[8] as i64 + v22) * 7 + v22;
+    if a4 + 1 == a7 {
+        v24 = &v9;
     }
-    v21 = v38;
-    v24 = &v15;
-    v25 = &v20;
-    v26 = &v8;
+    v14 = v24;
+    v17 = &v8;
+    v18 = &v13;
+    v19 = &v5;
     if !a5 {
-        v2 = v23;
-        *(&v0 as &i8) = v22;
+        v1 = v15;
         goto LABEL_5c8434;
     } else {
-        uu_pr::get_line_for_printing::{{closure}}(&v0, &v24, v28);
-        *(&v10 as &i128) = *(&v1 as &i128);
-        v2 = v9;
-        v0 = v8;
-        if v6 == 0x8000000000000000 {
+        uu_pr::get_line_for_printing::{{closure}}(&v0, &v17, a6);
+        *(&v7 as &i128) = *(&v2 as &i128);
+        v1 = v6;
+        v1 = v5;
+        if v3 == 0x8000000000000000 {
 LABEL_5c8434:
-            v7 = v2;
-            *(&v6 as &i128) = *(&v0 as &i128);
+            v4 = v1;
+            *(&v3 as &i128) = v1 as i128;
         }
     }
-    v0 = &v19;
-    v1 = <&T as core::fmt::Display>::fmt;
-    v2 = &v6;
-    v3 = <alloc::string::String as core::fmt::Display>::fmt;
-    v4 = &v21;
-    v5 = <&T as core::fmt::Display>::fmt;
-    v10 = &g_475660;
-    v11 = 3;
-    v14 = 0;
-    v12 = &v0;
-    v13 = 3;
-    core::option::Option<T>::map_or_else();
+    v16 = format!("{}{}{}", &v12, &v3, &v14);
     return;
 }

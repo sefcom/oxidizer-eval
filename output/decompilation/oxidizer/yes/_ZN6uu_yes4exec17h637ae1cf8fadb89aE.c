@@ -1,5 +1,5 @@
 fn uu_yes::exec(a0: u32, a1: u32) -> u64 {
-    let v0: u64;  // [sp-0x38], Other Possible Types: &struct_0
+    let v0: &struct_0;  // [sp-0x38]
     let v1: u32;  // [sp-0x2c]
     let v2: u64;  // [sp-0x28]
     let v4: u64;  // rax

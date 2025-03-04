@@ -1,5 +1,5 @@
 fn uu_tail::follow::files::FileHandling::from(a0: &struct10, a1: void*) -> u64 {
-    let v0: i192;  // [sp-0x38], Other Possible Types: Option<struct16>
+    let v0: Option<struct16>;  // [sp-0x38]
     let v3: i64;  // rdx
     let v4: i8;  // al
 

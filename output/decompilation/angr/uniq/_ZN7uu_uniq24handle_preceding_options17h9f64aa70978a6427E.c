@@ -1,31 +1,36 @@
 long long uu_uniq::handle_preceding_options::h9f64aa70978a6427(unsigned long long a0, unsigned long long a1, char *a2, char *a3)
 {
     unsigned int v0;  // [sp-0x3c]
-    unsigned long long v2;  // rax
-    unsigned long long v3;  // r13
-    unsigned long long v4;  // rdx
-    unsigned long long v5;  // rax
+    char *v1;  // [sp-0x38]
+    char *v3;  // r13
+    unsigned long long v4;  // rax
+    unsigned long long v5;  // r13
+    unsigned long long v6;  // rdx
+    unsigned long long v7;  // rax
 
+    v3 = a2;
     if ((char)core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::starts_with::haa80fb3b22d1f855(a0, a1, "--", 2))
     {
-        v2 = ::0x4bc150::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::hccefea64a1916a27(a0, a1);
-        if (!v2)
+        v1 = a2;
+        v4 = ::0x4bc150::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::hccefea64a1916a27(a0, a1);
+        if (!v4)
             core::str::slice_error_fail::h5dbb61534404fe7e(a0, a1, 2, a1, &g_530530); /* do not return */
-        v3 = v2;
-        if (!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h34f4df7d1e205d5a(v2, v4, "skip-chars", 10) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h34f4df7d1e205d5a(v3, v4, "skip-fields", 11) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h34f4df7d1e205d5a(v3, v4, "check-chars", 11) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h34f4df7d1e205d5a(v3, v4, "group", 5))
-            _$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h34f4df7d1e205d5a(v3, v4, "all-repeated", 12);
-        *(a2) = 1;
+        v5 = v4;
+        if (!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h34f4df7d1e205d5a(v4, v6, "skip-chars", 10) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h34f4df7d1e205d5a(v5, v6, "skip-fields", 11) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h34f4df7d1e205d5a(v5, v6, "check-chars", 11) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h34f4df7d1e205d5a(v5, v6, "group", 5))
+            _$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h34f4df7d1e205d5a(v5, v6, "all-repeated", 12);
+        v3 = v1;
+        *(v3) = 1;
     }
     if (!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h34f4df7d1e205d5a(a0, a1, "-s", 2) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h34f4df7d1e205d5a(a0, a1, "-f", 2))
         _$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h34f4df7d1e205d5a(a0, a1, "-wsrc/uu/uniq/src/uniq.rs", 2);
     *(a3) = 1;
     v0 = 0;
-    v5 = core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::starts_with::haa80fb3b22d1f855(a0, a1, ::0x4bc1a0::core::char::methods::encode_utf8_raw::h4a752b0d300141c4(45, &v0), v4);
-    if (!(char)v5)
+    v7 = core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::starts_with::haa80fb3b22d1f855(a0, a1, ::0x4bc1a0::core::char::methods::encode_utf8_raw::h4a752b0d300141c4(45, &v0), v6);
+    if (!(char)v7)
     {
         *(a3) = 0;
-        *(a2) = 0;
-        return v5;
+        *(v3) = 0;
+        return v7;
     }
-    return v5;
+    return v7;
 }

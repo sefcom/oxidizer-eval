@@ -1,18 +1,18 @@
 long long uu_wc::print_stats::hd63ccbcd2e38aece(char a0[29], unsigned long long a1[5], unsigned long a2, unsigned long a3, unsigned long a4)
 {
-    unsigned long v0;  // [sp-0x190], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x190]
     unsigned long v1;  // [sp-0x188], Other Possible Types: unsigned long long
     void* v2;  // [sp-0x180], Other Possible Types: unsigned long long
     char *v3;  // [sp-0x168]
     unsigned long long v4;  // [sp-0x160]
-    unsigned long v5;  // [sp-0x158], Other Possible Types: unsigned long long
+    unsigned long v5;  // [sp-0x158]
     char *v6;  // [sp-0x150]
     unsigned long long v7;  // [sp-0x148]
     char *v8;  // [sp-0x140]
     unsigned long long v9;  // [sp-0x138]
     unsigned long long v10;  // [sp-0x130]
     void* v11;  // [sp-0x128]
-    unsigned long v12;  // [sp-0x120], Other Possible Types: unsigned long long
+    unsigned long long v12;  // [sp-0x120], Other Possible Types: unsigned long
     unsigned long long v13;  // [sp-0x118]
     struct struct_0 **v14;  // [sp-0x110], Other Possible Types: unsigned long long
     int v15;  // [sp-0x108], Other Possible Types: unsigned long long
@@ -25,7 +25,7 @@ long long uu_wc::print_stats::hd63ccbcd2e38aece(char a0[29], unsigned long long 
     unsigned long long v22;  // [sp-0xc8]
     unsigned long long v23;  // [sp-0xc0]
     char v24;  // [sp-0xb8]
-    unsigned long v25;  // [sp-0xb0], Other Possible Types: unsigned long long
+    unsigned long v25;  // [sp-0xb0]
     unsigned long long v26;  // [sp-0xa8]
     struct struct_0 **v27;  // [sp-0xa0]
     unsigned long long v28;  // [sp-0x98]
@@ -43,7 +43,8 @@ long long uu_wc::print_stats::hd63ccbcd2e38aece(char a0[29], unsigned long long 
     unsigned long long v40;  // [sp-0x38]
     char v41;  // [bp-0x30]
     unsigned long long v43;  // rax
-    unsigned long long v44;  // rax
+    unsigned long long v44;  // r14
+    unsigned long long v45;  // rax
 
     v12 = std::io::stdio::stdout::h077da66234850927();
     v0 = std::io::stdio::Stderr::lock::h890f7962a170fc90(&v12);
@@ -71,7 +72,7 @@ LABEL_4bdf0f:
             v13 = 1;
             v14 = 8;
             *((uint128_t *)&v15) = 0;
-            v44 = std::io::Write::write_fmt::h12d662560afab62b(&v0, &v12);
+            v45 = std::io::Write::write_fmt::h12d662560afab62b(&v0, &v12);
         }
         else
         {
@@ -86,8 +87,9 @@ LABEL_4bdf0f:
             v16 = 0;
             v14 = &v6;
             v15 = 2;
-            v44 = std::io::Write::write_fmt::h12d662560afab62b(&v0, &v12);
+            v45 = std::io::Write::write_fmt::h12d662560afab62b(&v0, &v12);
         }
+        v44 = v45;
     }
     else
     {
@@ -127,6 +129,6 @@ LABEL_4bdf0f:
                 goto LABEL_4bdf0f;
         }
     }
-    core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::hf5250da0ddf6b680();
+    core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::hf5250da0ddf6b680(v0);
     return v44;
 }

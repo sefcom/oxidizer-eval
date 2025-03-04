@@ -5,7 +5,7 @@ long long uu_df::blocks::block_size_from_env::h0875cabe2802aae1()
     char v2;  // [bp-0xa0]
     int v3;  // [sp-0x98]
     unsigned long long v4;  // [sp-0x88]
-    unsigned long v5;  // [sp-0x78], Other Possible Types: unsigned long long
+    unsigned long v5;  // [sp-0x78]
     unsigned long long v6;  // [sp-0x70]
     unsigned long long v7;  // [sp-0x68]
     unsigned long long v8;  // [sp-0x60]

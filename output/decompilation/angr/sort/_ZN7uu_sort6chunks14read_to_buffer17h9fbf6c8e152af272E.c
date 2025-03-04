@@ -1,7 +1,7 @@
 long long uu_sort::chunks::read_to_buffer::h9fbf6c8e152af272(struct_0 *a0, unsigned int *a1, struct_1 *a2, unsigned long a3, unsigned long a4, unsigned long long a5)
 {
-    unsigned long v0;  // [sp-0x90], Other Possible Types: unsigned long long
-    char *v1;  // [sp-0x88]
+    unsigned long v0;  // [sp-0x90]
+    char *v1;  // [bp-0x88]
     char *v2;  // [sp-0x80]
     unsigned long long v3;  // [sp-0x78]
     char v4;  // [bp-0x70], Other Possible Types: unsigned int
@@ -17,21 +17,21 @@ long long uu_sort::chunks::read_to_buffer::h9fbf6c8e152af272(struct_0 *a0, unsig
     unsigned long v15;  // rdx
     unsigned long long v16;  // r12
     unsigned long long v17;  // rbp
-    unsigned long long v19;  // 4096
-    unsigned long long v21;  // rbx
-    char *v23;  // rax
-    unsigned long long v25;  // rbp
-    unsigned long long v27;  // rbx
-    unsigned long long v29;  // rsi
-    char *v30;  // rbp
-    char *v31;  // rdi
-    char *v32;  // rax
-    char v33;  // cl
-    char *v34;  // rax
-    unsigned long long v35;  // rbx
-    struct_0 *v36;  // rcx
-    struct_0 *v37;  // rax
-    struct_0 *v38;  // rcx
+    unsigned long long v18;  // rsi
+    unsigned long long v20;  // rbx
+    char *v21;  // rax
+    unsigned long long v23;  // rbp
+    unsigned long long v25;  // rbx
+    unsigned long long v26;  // rsi
+    char *v27;  // rbp
+    char *v28;  // rdi
+    char *v29;  // rax
+    char v30;  // cl
+    char *v31;  // rax
+    unsigned long long v32;  // rbx
+    struct_0 *v33;  // rcx
+    struct_0 *v34;  // rax
+    struct_0 *v35;  // rcx
 
     v11 = a2->field_10;
     v12 = v11 - a5;
@@ -42,10 +42,9 @@ long long uu_sort::chunks::read_to_buffer::h9fbf6c8e152af272(struct_0 *a0, unsig
     while (true)
     {
         v5 = v12;
-        v5 = v5;
+        v14 = v12;
         while (true)
         {
-            v14 = v5;
             v16 = v15;
             if (_$LT$std..process..ChildStderr$u20$as$u20$std..io..Read$GT$::read::h32246dfc537b2638(a1, v13, v14))
             {
@@ -57,14 +56,14 @@ LABEL_55df17:
                     v4 = 2;
                     *((int128_t *)&v1) = *((int128_t *)&v7);
                     v3 = *((long long *)&v8);
-                    v38 = a0;
-                    *((double *)&v38->field_8) = ::0x55ad10::alloc::boxed::Box$LT$T$GT$::new::h7a4ce38e59829aec(&v1);
-                    *((char **)&v38->field_10) = &g_601a40;
-                    v38->field_0 = 1;
-                    v37 = ::0x55a150::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h0ea81dc276204afd();
-                    return v37;
+                    v35 = a0;
+                    *((double *)&v35->field_8) = ::0x55ad10::alloc::boxed::Box$LT$T$GT$::new::h7a4ce38e59829aec(&v1);
+                    *((char **)&v35->field_10) = &g_601a40;
+                    v35->field_0 = 1;
+                    v34 = ::0x55a150::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h0ea81dc276204afd(v0);
+                    return v34;
                 }
-                ::0x55a150::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h0ea81dc276204afd();
+                ::0x55a150::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h0ea81dc276204afd(v16);
             }
             else
             {
@@ -72,7 +71,7 @@ LABEL_55df17:
                 {
                     if (!(!v15))
                         goto LABEL_55dfb7;
-                    if (!(!v15))
+                    if (!(!v14))
                         goto LABEL_55e060;
                     v17 = a2->field_10;
                     goto LABEL_55dfd8;
@@ -80,10 +79,10 @@ LABEL_55df17:
                 if (v16)
                 {
 LABEL_55dfb7:
+                    v14 -= v16;
                     if (v14 < v16)
                         core::slice::index::slice_start_index_len_fail::hff2ebd3969f5a2ec(v16, v14, &g_6019f0); /* do not return */
                     v13 += v16;
-                    v5 = v14 - v16;
                     continue;
                 }
                 if (v14)
@@ -92,25 +91,26 @@ LABEL_55e060:
                     v12 = v5;
                     if (v12 != v14)
                     {
-                        v29 = a2->field_10;
-                        v30 = v29 - v14;
-                        v31 = v30 + 1;
-                        if (v31 >= v29)
-                            core::panicking::panic_bounds_check::h25a5330941572dd1(v31, v29, &g_6019a8); /* do not return */
-                        v32 = a2->field_8;
-                        v33 = v9;
-                        if (*((char *)(v32 + v31)) != v33)
+                        v26 = a2->field_10;
+                        v27 = v26 - v14;
+                        v28 = v27 + 1;
+                        if (v28 >= v26)
+                            core::panicking::panic_bounds_check::h25a5330941572dd1(v28, v26, &g_6019a8); /* do not return */
+                        v29 = a2->field_8;
+                        v30 = v9;
+                        if (*((char *)(v29 + v28)) != v30)
                         {
-                            if (v29 < v14)
-                                core::panicking::panic_bounds_check::h25a5330941572dd1(v30, v29, &g_6019c0); /* do not return */
-                            *((char *)(v32 + v30)) = v33;
+                            if (v26 < v14)
+                                core::panicking::panic_bounds_check::h25a5330941572dd1(v27, v26, &g_6019c0); /* do not return */
+                            *((char *)(v29 + v27)) = v30;
                             v14 -= 1;
-                            v29 = a2->field_10;
-                            v30 = v29 - v14;
+                            v26 = a2->field_10;
+                            v27 = v26 - v14;
                         }
-                        if (v14 > v29)
-                            core::slice::index::slice_start_index_len_fail::hff2ebd3969f5a2ec(v30, v29, &g_6019d8); /* do not return */
-                        v13 = v30 + a2->field_8;
+                        v12 = v14;
+                        if (v14 > v26)
+                            core::slice::index::slice_start_index_len_fail::hff2ebd3969f5a2ec(v27, v26, &g_6019d8); /* do not return */
+                        v13 = v27 + a2->field_8;
                         break;
                     }
                 }
@@ -118,42 +118,38 @@ LABEL_55e060:
                 if (v17 >= a4)
                 {
 LABEL_55dfd8:
-                    v23 = a2->field_8;
-                    v1 = v23;
-                    v2 = v23;
-                    v3 = &v23[v17];
+                    v21 = a2->field_8;
+                    v1 = v21;
+                    v2 = v21;
+                    v3 = &v21[v17];
                     v4 = v9;
-                    if (memchr::arch::generic::memchr::Iter::next_back::ha68dd67eda4e11ad(&v1, &v4) != 1)
+                    if (memchr::arch::generic::memchr::Iter::next_back::ha68dd67eda4e11ad(&v1, &v4) == 1)
                     {
-                        v25 = a2->field_10;
-                        alloc::vec::Vec$LT$T$C$A$GT$::resize::h8264c119ba4725ae(a2, v25 + 0x2800, 0);
-                        v27 = a2->field_10;
-                        if (v27 < v25)
-                            core::slice::index::slice_start_index_len_fail::hff2ebd3969f5a2ec(v25, a2->field_10, &g_601990); /* do not return */
-                        v13 = &a2->field_8[v25];
-                        v5 = v27 - v25;
+                        if (!memchr::arch::generic::memchr::Iter::next_back::ha68dd67eda4e11ad(&v1, &v4))
+                            core::option::unwrap_failed::h0e11329e76906eaa(&g_601978); /* do not return */
+                        v34 = a0;
+                        v34->field_8 = v15 + 1;
+                        v34->field_10 = 1;
+                        v34->field_0 = 0;
+                        return v34;
                     }
-                    else if (!memchr::arch::generic::memchr::Iter::next_back::ha68dd67eda4e11ad(&v1, &v4))
-                    {
-                        core::option::unwrap_failed::h0e11329e76906eaa(&g_601978); /* do not return */
-                    }
-                    else
-                    {
-                        v37 = a0;
-                        v37->field_8 = v15 + 1;
-                        v37->field_10 = 1;
-                        v37->field_0 = 0;
-                        return v37;
-                    }
+                    v23 = a2->field_10;
+                    alloc::vec::Vec$LT$T$C$A$GT$::resize::h8264c119ba4725ae(a2, v23 + 0x2800, 0);
+                    v25 = a2->field_10;
+                    v14 = v25 - v23;
+                    if (v25 < v23)
+                        core::slice::index::slice_start_index_len_fail::hff2ebd3969f5a2ec(v23, a2->field_10, &g_601990); /* do not return */
+                    v13 = &a2->field_8[v23];
                 }
                 else
                 {
-                    if (v6 > v17)
-                        v19 = v17 * 2;
-                    alloc::vec::Vec$LT$T$C$A$GT$::resize::h8264c119ba4725ae(a2, v19, 0);
-                    v21 = a2->field_10;
-                    v14 = v21 - v17;
-                    if (v21 < v17)
+                    v18 = v17 * 2;
+                    if (v6 <= v17)
+                        v18 = a4;
+                    alloc::vec::Vec$LT$T$C$A$GT$::resize::h8264c119ba4725ae(a2, v18, 0);
+                    v20 = a2->field_10;
+                    v14 = v20 - v17;
+                    if (v20 < v17)
                         core::slice::index::slice_start_index_len_fail::hff2ebd3969f5a2ec(v17, a2->field_10, &g_601960); /* do not return */
                     v13 = &a2->field_8[v17];
                     v16 = v15;
@@ -166,31 +162,31 @@ LABEL_55dfd8:
         _$LT$core..iter..sources..empty..Empty$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hd44e082068a075a0(&v1);
         if (!v1)
         {
-            v36 = a0;
-            v36->field_8 = a2->field_10 - v12;
-            v36->field_10 = 0;
-            v37 = 0;
+            v33 = a0;
+            v33->field_8 = a2->field_10 - v12;
+            v33->field_10 = 0;
+            v34 = 0;
             break;
         }
         else
         {
-            v34 = v2;
-            v35 = v3;
-            if (!v34)
+            v31 = v2;
+            v32 = v3;
+            if (!v31)
             {
-                ::0x55a1c0::core::ptr::drop_in_place$LT$std..process..ChildStdout$GT$::h1576bcb3cdfb83b9();
-                *(a1) = v35;
+                ::0x55a1c0::core::ptr::drop_in_place$LT$std..process..ChildStdout$GT$::h1576bcb3cdfb83b9(*(a1));
+                *(a1) = v32;
             }
             else
             {
-                v36 = a0;
-                v36->field_8 = v34;
-                *((unsigned long long *)&v36->field_10) = v35;
-                v37 = 1;
+                v33 = a0;
+                v33->field_8 = v31;
+                *((unsigned long long *)&v33->field_10) = v32;
+                v34 = 1;
                 break;
             }
         }
     }
-    v36->field_0 = v37;
-    return v37;
+    v33->field_0 = v34;
+    return v34;
 }

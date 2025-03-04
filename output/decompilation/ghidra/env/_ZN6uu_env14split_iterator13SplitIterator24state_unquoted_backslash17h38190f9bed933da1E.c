@@ -1,5 +1,5 @@
-void __rustcall
-uu_env::split_iterator::SplitIterator::state_unquoted_backslash(int *param_1,long param_2)
+void _ZN6uu_env14split_iterator13SplitIterator24state_unquoted_backslash17h38190f9bed933da1E
+               (int *param_1,long param_2)
 
 {
   undefined8 uVar1;
@@ -15,11 +15,11 @@ uu_env::split_iterator::SplitIterator::state_unquoted_backslash(int *param_1,lon
   undefined4 local_20;
   int iStack_1c;
   
-  iVar2 = get_current_char(param_2);
+  iVar2 = _ZN6uu_env14split_iterator13SplitIterator16get_current_char17h5ca55267f11846dcE(param_2);
   if (iVar2 < 0x5c) {
     switch(iVar2) {
     case 10:
-      skip_one(&local_40,param_2);
+      _ZN6uu_env14split_iterator13SplitIterator8skip_one17hcd63dec953ae1fd1E(&local_40,param_2);
       break;
     default:
       goto switchD_001d9dda_caseD_b;
@@ -27,7 +27,7 @@ uu_env::split_iterator::SplitIterator::state_unquoted_backslash(int *param_1,lon
     case 0x24:
     case 0x27:
 switchD_001d9dda_caseD_22:
-      take_one(&local_40,param_2);
+      _ZN6uu_env14split_iterator13SplitIterator8take_one17h79c5ef4ea4fbd4eeE(&local_40,param_2);
     }
     if (local_40 != 8) {
 LAB_001d9e4e:
@@ -43,9 +43,10 @@ LAB_001d9e4e:
     if (iVar2 < 99) {
       if (iVar2 == 0x5c) goto switchD_001d9dda_caseD_22;
       if (iVar2 == 0x5f) {
-        skip_one(&local_40,param_2);
+        _ZN6uu_env14split_iterator13SplitIterator8skip_one17hcd63dec953ae1fd1E(&local_40,param_2);
         if (local_40 == 8) {
-          push_word_to_words(param_2);
+          _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h2e43e9c5d0186d6cE(param_2)
+          ;
           *param_1 = 7;
           return;
         }
@@ -54,20 +55,22 @@ LAB_001d9e4e:
     }
     else {
       if (iVar2 == 99) {
-        push_word_to_words(param_2);
+        _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h2e43e9c5d0186d6cE(param_2);
         *param_1 = 6;
         return;
       }
       if (iVar2 == 0x110000) {
         uVar1 = *(undefined8 *)(param_2 + 0x38);
-        _<T_as_alloc::slice::hack::ConvertVec>::to_vec(param_1 + 4,&DAT_001179f8,8);
+        _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17he132dab3b8589a55E
+                  (param_1 + 4,&DAT_001179f8,8);
         *param_1 = 1;
         *(undefined8 *)(param_1 + 2) = uVar1;
         return;
       }
     }
 switchD_001d9dda_caseD_b:
-    check_and_replace_ascii_escape_code(&local_40,param_2,iVar2);
+    _ZN6uu_env14split_iterator13SplitIterator35check_and_replace_ascii_escape_code17h4d5fe0b4c9b39b36E
+              (&local_40,param_2,iVar2);
     if (local_40 != 8) {
       param_1[9] = iStack_1c;
       *(ulong *)((long)param_1 + 0x15) = CONCAT53(uStack_28,uStack_2b);

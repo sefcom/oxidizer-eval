@@ -1,4 +1,4 @@
-long __rustcall uu_csplit::SplitWriter::delete_all_splits(long param_1)
+long _ZN9uu_csplit11SplitWriter17delete_all_splits17h651b08e5afba42d7E(long param_1)
 
 {
   ulong uVar1;
@@ -20,13 +20,15 @@ long __rustcall uu_csplit::SplitWriter::delete_all_splits(long param_1)
     lVar6 = 0;
     uVar5 = 0;
     do {
-      uVar3 = _<usize_as_core::iter::range::Step>::forward_unchecked(uVar5);
+      uVar3 = _ZN49__LT_usize_u20_as_u20_core__iter__range__Step_GT_17forward_unchecked17he44ce7238773bbb8E
+                        (uVar5);
                     /* try { // try from 002bd473 to 002bd488 has its CatchHandler @ 002bd4c4 */
-      split_name::SplitName::get(local_48,uVar2,uVar5);
-      lVar4 = std::fs::remove_file(local_48);
+      _ZN9uu_csplit10split_name9SplitName3get17h6978abebafad78dbE(local_48,uVar2,uVar5);
+      lVar4 = _ZN3std2fs11remove_file17he9a77943a534f5d9E(local_48);
       if (lVar4 != 0) {
                     /* try { // try from 002bd491 to 002bd49a has its CatchHandler @ 002bd4ba */
-        core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(&local_50);
+        _ZN4core3ptr81drop_in_place_LT_core__result__Result_LT__LP__RP__C_std__io__error__Error_GT__GT_17h6090d7ef5efdac7eE
+                  (&local_50);
         lVar6 = lVar4;
         local_50 = lVar4;
       }

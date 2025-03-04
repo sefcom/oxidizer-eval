@@ -3,7 +3,7 @@ long long uu_sort::uu_app::h48b389d7f2011a6f(unsigned long long a0)
     unsigned long long v0;  // [sp-0xac8]
     char v1;  // [bp-0xac0]
     char v2;  // [bp-0xab8]
-    unsigned long v3;  // [sp-0xab0], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0xab0]
     unsigned long long v4;  // [sp-0xaa8]
     unsigned long long v5;  // [sp-0xaa0]
     unsigned long long v6;  // [sp-0xa98]
@@ -11,7 +11,7 @@ long long uu_sort::uu_app::h48b389d7f2011a6f(unsigned long long a0)
     unsigned long long v8;  // [sp-0xa88]
     unsigned long long v9;  // [sp-0xa80]
     unsigned long long v10;  // [sp-0xa78]
-    char v11;  // [bp-0xa70], Other Possible Types: unsigned long long
+    char v11;  // [bp-0xa70], Other Possible Types: unsigned long
     unsigned long long v12;  // [sp-0xa68]
     unsigned long long v13;  // [sp-0xa60]
     unsigned long long v14;  // [sp-0xa58]
@@ -19,7 +19,7 @@ long long uu_sort::uu_app::h48b389d7f2011a6f(unsigned long long a0)
     unsigned long long v16;  // [sp-0xa48]
     unsigned int v17;  // [sp-0x828]
     unsigned int v18;  // [sp-0x824]
-    char v19;  // [bp-0x820], Other Possible Types: unsigned long long
+    char v19;  // [bp-0x820], Other Possible Types: unsigned long
     unsigned long long v20;  // [sp-0x818]
     unsigned long long v21;  // [sp-0x810]
     unsigned long long v22;  // [sp-0x808]
@@ -33,7 +33,7 @@ long long uu_sort::uu_app::h48b389d7f2011a6f(unsigned long long a0)
     unsigned long long v30;  // [sp-0x7c8]
     char v31;  // [bp-0x564]
     char v32;  // [bp-0x55c]
-    char v33;  // [bp-0x558], Other Possible Types: unsigned long long
+    char v33;  // [bp-0x558], Other Possible Types: unsigned long
     unsigned long long v34;  // [sp-0x550]
     unsigned long long v35;  // [sp-0x548]
     char v36;  // [bp-0x310]

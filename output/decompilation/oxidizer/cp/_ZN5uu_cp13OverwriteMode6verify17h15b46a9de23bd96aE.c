@@ -8,10 +8,10 @@ fn uu_cp::OverwriteMode::verify(a0: &Option<struct1>, a1: u32, a2: u32, a3: u32,
     let v6: i64;  // [sp-0xc0]
     let v7: i8;  // [sp-0xb8]
     let v8: i64;  // [sp-0xb0]
-    let v9: i128;  // [bp-0xa8]
+    let v9: i64;  // [bp-0xa8], Other Possible Types: int
     let v10: i64;  // [sp-0x98]
-    let v11: i384;  // [sp-0x88], Other Possible Types: Option<struct48>
-    let v12: struct8;  // [bp-0x58], Other Possible Types: i128
+    let v11: i64;  // [sp-0x88], Other Possible Types: Option<struct48>
+    let v12: iNone;  // [bp-0x58], Other Possible Types: struct8
     let v13: i64;  // [sp-0x48]
     let v14: struct8;  // [bp-0x38]
     let v17: i64;  // rdx
@@ -19,12 +19,12 @@ fn uu_cp::OverwriteMode::verify(a0: &Option<struct1>, a1: u32, a2: u32, a3: u32,
     let v19: i64;  // rax
     let v20: i64;  // rax
 
-    if !a1 {
+    if !a1 as u8 {
         return struct8 {
             field_0: 13
         };
     }
-    if (a1 & 4294967295) != 1 {
+    if (a1 & 4294967295) as u32 != 1 {
         if !a4 {
             return Some(struct1 {
                 field_0: 0
@@ -33,7 +33,7 @@ fn uu_cp::OverwriteMode::verify(a0: &Option<struct1>, a1: u32, a2: u32, a3: u32,
         v0 = 1;
         v1 = a2;
         v2 = a3;
-        v3 = 1;
+        *(&v3 as &i8) = 1;
     } else {
         v11 = uu_cp::file_mode_for_interactive_overwrite(a2, a3);
         if v11 == 0x8000000000000000 {
@@ -43,7 +43,7 @@ fn uu_cp::OverwriteMode::verify(a0: &Option<struct1>, a1: u32, a2: u32, a3: u32,
             v0 = 1;
             v1 = a2;
             v2 = a3;
-            v3 = 1;
+            *(&v3 as &i8) = 1;
             eprint!("overwrite {}?", &v0);
             eprint!(" ");
             v12 = struct8 {
@@ -52,17 +52,15 @@ fn uu_cp::OverwriteMode::verify(a0: &Option<struct1>, a1: u32, a2: u32, a3: u32,
             v20 = <std::io::stdio::Stderr as std::io::Write>::flush(&v12);
             if v20 {
                 v9 = v20;
-                v0 = uucore::util_name();
                 v1 = v18;
-                eprint!("{}: ", &v0);
-                eprintln!("{}", &v9);
+                show_error!("{}", &v9);
                 std::process::exit(1); /* do not return */
             }
         } else {
             v13 = *((&v11 as &char + 16) as &i64);
-            v12 = v11;
+            *(&v12 as &i128) = v11 as i128;
             v10 = *((&v11 as &char + 40) as &i64);
-            v9 = *((&v11 as &char + 24) as &i128);
+            *(&v9 as &i128) = *((&v11 as &char + 24) as &i128);
             v0 = uucore::util_name();
             v1 = v17;
             eprint!("{}: ", &v0);
@@ -78,10 +76,8 @@ fn uu_cp::OverwriteMode::verify(a0: &Option<struct1>, a1: u32, a2: u32, a3: u32,
             v19 = <std::io::stdio::Stderr as std::io::Write>::flush(&v14);
             if v19 {
                 v8 = v19;
-                v0 = uucore::util_name();
                 v1 = v17;
-                eprint!("{}: ", &v0);
-                eprintln!("{}", &v8);
+                show_error!("{}", &v8);
                 std::process::exit(1); /* do not return */
             }
         }

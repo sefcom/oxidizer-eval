@@ -1,35 +1,37 @@
 fn uu_df::Options::get_intersected_types(a0: &struct24, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {
-    let v0: i64;  // [sp-0x80], Other Possible Types: struct16
-    let v1: i64;  // [sp-0x78]
-    let v2: i64;  // [sp-0x70]
-    let v3: i128;  // [sp-0x68], Other Possible Types: struct24, struct16
-    let v4: i64;  // [sp-0x58]
-    let v5: i64;  // [sp-0x40]
-    let v6: i64;  // [sp-0x38]
-    let v8: struct8;  // rax
-    let v9: i64;  // rax
+    let v0: i64;  // [sp-0x80], Other Possible Types: struct16, int
+    let v1: i64;  // [sp-0x70]
+    let v2: iNone;  // [sp-0x68], Other Possible Types: struct24
+    let v3: i64;  // [sp-0x58]
+    let v4: struct16;  // [bp-0x40]
+    let v6: i64;  // rax
+    let v7: i64;  // rbx
+    let v8: i64;  // rax
 
     v0 = 0;
-    v1 = 8;
-    v2 = 0;
-    v5 = a1;
-    v6 = a1 + a2 * 24;
-    v8 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-    if !v8 {
-        v4 = v2;
-        v3 = v0;
+    v0 = 8;
+    v1 = 0;
+    v4 = struct16 {
+        field_0: a1
+        field_8: a1 + a2 * 24
+    };
+    v6 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v4);
+    if !v6 {
+        v3 = v1;
+        v2 = *(&v0 as &i128);
     }
+    v7 = v6;
     do {
-        if <T as core::slice::cmp::SliceContains>::slice_contains(v8, a3, a4) as i8 {
-            v3 = <alloc::string::String as core::clone::Clone>::clone(v8);
-            v0 = alloc::vec::Vec<T,A>::push(&v3);
+        if <T as core::slice::cmp::SliceContains>::slice_contains(v7, a3, a4) as i8 {
+            v2 = <alloc::string::String as core::clone::Clone>::clone(v7);
+            v0 = alloc::vec::Vec<T,A>::push(&v2);
         }
-    } while ((v8 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(), v8));
-    v4 = v2;
-    v3 = v0;
-    v9 = v2;
+    } while ((v7 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v4), v7));
+    v3 = v1;
+    v2 = v0 as i128;
+    v8 = v1;
     return struct24 {
-        field_0: v0
-        field_16: v9
+        field_0: v0 as i128
+        field_16: v8
     };
 }

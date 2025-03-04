@@ -1,4 +1,4 @@
-void __rustcall uu_test::parser::Parser::uop(undefined8 param_1,undefined4 *param_2)
+void _ZN7uu_test6parser6Parser3uop17h62a6f0e931485a3cE(undefined8 param_1,undefined4 *param_2)
 
 {
   undefined4 local_b8;
@@ -31,7 +31,7 @@ void __rustcall uu_test::parser::Parser::uop(undefined8 param_1,undefined4 *para
   undefined local_40 [40];
   
                     /* try { // try from 001af954 to 001af960 has its CatchHandler @ 001afa25 */
-  next_token(&local_90,param_1);
+  _ZN7uu_test6parser6Parser10next_token17hec2da245067de41fE(&local_90,param_1);
   if (local_90 == 6) {
     local_98 = *(undefined8 *)(param_2 + 8);
     local_b8 = *param_2;
@@ -43,10 +43,10 @@ void __rustcall uu_test::parser::Parser::uop(undefined8 param_1,undefined4 *para
     uStack_a0 = param_2[6];
     uStack_9c = param_2[7];
                     /* try { // try from 001af981 to 001af99a has its CatchHandler @ 001afa14 */
-    Symbol::into_literal(local_40,&local_b8);
-    ::alloc::vec::Vec<T,A>::push(param_1,local_40);
+    _ZN7uu_test6parser6Symbol12into_literal17hae4d6fad5ad71dcbE(local_40,&local_b8);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h254fc79c897546acE(param_1,local_40);
                     /* try { // try from 001af99d to 001af9a6 has its CatchHandler @ 001afa25 */
-    core::ptr::drop_in_place<uu_test::parser::Symbol>(&local_90);
+    _ZN4core3ptr44drop_in_place_LT_uu_test__parser__Symbol_GT_17h2e64046051177754E(&local_90);
   }
   else {
     local_48 = local_70;
@@ -59,8 +59,8 @@ void __rustcall uu_test::parser::Parser::uop(undefined8 param_1,undefined4 *para
     uStack_60 = uStack_88;
     uStack_5c = uStack_84;
                     /* try { // try from 001af9ca to 001afa07 has its CatchHandler @ 001afa23 */
-    Symbol::into_literal(&local_b8,&local_68);
-    ::alloc::vec::Vec<T,A>::push(param_1,&local_b8);
+    _ZN7uu_test6parser6Symbol12into_literal17hae4d6fad5ad71dcbE(&local_b8,&local_68);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h254fc79c897546acE(param_1,&local_b8);
     local_98 = *(undefined8 *)(param_2 + 8);
     local_b8 = *param_2;
     uStack_b4 = param_2[1];
@@ -70,7 +70,7 @@ void __rustcall uu_test::parser::Parser::uop(undefined8 param_1,undefined4 *para
     uStack_a4 = param_2[5];
     uStack_a0 = param_2[6];
     uStack_9c = param_2[7];
-    ::alloc::vec::Vec<T,A>::push(param_1,&local_b8);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h254fc79c897546acE(param_1,&local_b8);
   }
   return;
 }

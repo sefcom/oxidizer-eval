@@ -2,7 +2,7 @@ long long uu_numfmt::parse_unit_size_suffix::h0d4904f7b87ea86b(unsigned long lon
 {
     unsigned int v0;  // [sp-0x28]
     unsigned int v1;  // [sp-0x24]
-    unsigned long v2;  // [sp-0x20], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x20]
     unsigned long long v3;  // [sp-0x18]
     unsigned int v6;  // edx
     unsigned long long v7;  // cc_ndep

@@ -1,7 +1,7 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined8 __rustcall
-uu_dd::numbers::to_magnitude_and_suffix
+undefined8
+_ZN5uu_dd7numbers23to_magnitude_and_suffix17h88c44cbe00c16152E
           (undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined4 param_4)
 
 {
@@ -34,7 +34,8 @@ uu_dd::numbers::to_magnitude_and_suffix
   undefined8 *local_40;
   undefined8 uStack_38;
   
-  SuffixType::base_and_suffix(&local_b8,param_4,param_2,param_3);
+  _ZN5uu_dd7numbers10SuffixType15base_and_suffix17he90531716fe26654E
+            (&local_b8,param_4,param_2,param_3);
   puVar1 = PTR___floatuntidf_00266e90;
   local_40 = local_a8;
   uStack_38 = uStack_a0;
@@ -44,9 +45,11 @@ uu_dd::numbers::to_magnitude_and_suffix
   if (_s__00118ba0 <= local_110) {
     local_d8 = (double *)(*(code *)PTR_round_00266e98)(local_110);
     local_108 = &local_d8;
-    local_100 = core::fmt::float::_<impl_core::fmt::Display_for_f64>::fmt;
+    local_100 = 
+    _ZN4core3fmt5float52__LT_impl_u20_core__fmt__Display_u20_for_u20_f64_GT_3fmt17hdf81dcc7e03fc666E
+    ;
     local_f8 = &local_40;
-    local_f0 = _<&T_as_core::fmt::Display>::fmt;
+    local_f0 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h377362f42c043423E;
     local_b8 = (undefined8 *)&DAT_00261a88;
     local_b0 = 2;
     local_a8 = &local_108;
@@ -55,9 +58,11 @@ uu_dd::numbers::to_magnitude_and_suffix
   }
   else {
     local_d8 = &local_110;
-    local_d0 = core::fmt::float::_<impl_core::fmt::Display_for_f64>::fmt;
+    local_d0 = 
+    _ZN4core3fmt5float52__LT_impl_u20_core__fmt__Display_u20_for_u20_f64_GT_3fmt17hdf81dcc7e03fc666E
+    ;
     local_c8 = &local_40;
-    local_c0 = _<&T_as_core::fmt::Display>::fmt;
+    local_c0 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h377362f42c043423E;
     local_b8 = (undefined8 **)0x0;
     local_b0 = 1;
     local_a8 = (undefined8 ***)0x2;
@@ -77,6 +82,6 @@ uu_dd::numbers::to_magnitude_and_suffix
     pppuVar2 = &local_108;
   }
   local_98 = 0;
-  core::option::Option<T>::map_or_else(param_1,pppuVar2);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17hc1b70357c4d75658E(param_1,pppuVar2);
   return param_1;
 }

@@ -1,5 +1,5 @@
 fn uu_env::variable_parser::VariableParser::parse_unbraced_variable_name(a0: &struct40, a1: void*) -> u64 {
-    let v0: i168;  // [sp-0x48], Other Possible Types: struct16, struct21, Option<struct8>
+    let v0: struct21;  // [sp-0x48], Other Possible Types: Option<struct8>, struct16
     let v1: i64;  // [sp-0x40]
     let v6: i32;  // eax
 
@@ -8,7 +8,7 @@ fn uu_env::variable_parser::VariableParser::parse_unbraced_variable_name(a0: &st
         Some(_) => {
             return struct40 {
                 field_0: v9
-                field_16: v2
+                field_16: v2 as i128
                 field_32: v8
             };
         },
@@ -17,10 +17,10 @@ fn uu_env::variable_parser::VariableParser::parse_unbraced_variable_name(a0: &st
             if v6 != 0x110000 {
                 while (v6 == 95 || v6 - 48 < 10 || (v6 & 2097119) - 65 <= 25) {
                     v0 = uu_env::variable_parser::VariableParser::skip_one(a1);
-                    if v0 != 8 {
+                    if v0.field_0 != 8 {
                         return struct40 {
                             field_0: v9
-                            field_16: v2
+                            field_16: v2 as i128
                             field_32: v8
                         };
                     }

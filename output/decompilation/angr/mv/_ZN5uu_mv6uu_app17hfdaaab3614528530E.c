@@ -3,7 +3,7 @@ long long uu_mv::uu_app::hfdaaab3614528530(unsigned long long a0)
     unsigned long long v0;  // [sp-0xa88]
     char v1;  // [bp-0xa80]
     char v2;  // [bp-0xa78]
-    char v3;  // [bp-0xa70], Other Possible Types: unsigned long long
+    char v3;  // [bp-0xa70], Other Possible Types: unsigned long
     unsigned long long v4;  // [sp-0xa68]
     unsigned long long v5;  // [sp-0xa60]
     unsigned long long v6;  // [sp-0xa58]
@@ -15,14 +15,14 @@ long long uu_mv::uu_app::hfdaaab3614528530(unsigned long long a0)
     unsigned long long v12;  // [sp-0x564]
     unsigned int v13;  // [sp-0x55c]
     char v14;  // [bp-0x558]
-    char v15;  // [bp-0x540], Other Possible Types: unsigned long long
+    char v15;  // [bp-0x540], Other Possible Types: unsigned long
     unsigned long long v16;  // [sp-0x538]
     char *v17;  // [sp-0x530]
     unsigned long long v18;  // [sp-0x528]
     void* v19;  // [sp-0x520]
     char v20;  // [bp-0x284]
     char v21;  // [bp-0x27c]
-    unsigned long v22;  // [sp-0x278], Other Possible Types: unsigned long long
+    unsigned long v22;  // [sp-0x278]
     unsigned long long v23;  // [sp-0x270]
     unsigned long long v24;  // [sp-0x268]
     unsigned long long v25;  // [sp-0x260]
@@ -42,7 +42,7 @@ long long uu_mv::uu_app::hfdaaab3614528530(unsigned long long a0)
     v19 = 0;
     v17 = &v3;
     v18 = 2;
-    ::0x4e7680::core::option::Option$LT$T$GT$::map_or_else::h70402eff178ea70d();
+    ::0x4e7680::core::option::Option$LT$T$GT$::map_or_else::h70402eff178ea70d(&v14, &v15);
     clap_builder::builder::command::Command::after_help::hffed433d7565392e(&v15, &v9, &v14);
     memcpy(&v9, &v15, 700);
     v12 = 549755814016 | *((long long *)&v20);

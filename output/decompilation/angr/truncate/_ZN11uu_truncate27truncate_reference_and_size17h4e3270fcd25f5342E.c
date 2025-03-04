@@ -9,7 +9,7 @@ long long uu_truncate::truncate_reference_and_size::h4e3270fcd25f5342(unsigned l
     int v6;  // [sp-0x118]
     char v7;  // [bp-0x100]
     char v8;  // [bp-0xf0]
-    int v9;  // [sp-0xe8], Other Possible Types: unsigned long long
+    int v9;  // [bp-0xe8], Other Possible Types: unsigned long
     unsigned long long v10;  // [sp-0xe0]
     struct struct_0 **v11;  // [sp-0xd8], Other Possible Types: unsigned long long
     unsigned long long v12;  // [bp-0xd0], Other Possible Types: unsigned int
@@ -33,7 +33,7 @@ long long uu_truncate::truncate_reference_and_size::h4e3270fcd25f5342(unsigned l
         v13 = 0;
         v11 = &v3;
         v12 = 1;
-        ::0x4acf90::core::option::Option$LT$T$GT$::map_or_else::ha526a84f6413e2dc();
+        ::0x4acf90::core::option::Option$LT$T$GT$::map_or_else::ha526a84f6413e2dc(&v7, &v9);
         v12 = 1;
         *((int128_t *)&v9) = *((int128_t *)&v7);
         v11 = *((long long *)&v8);

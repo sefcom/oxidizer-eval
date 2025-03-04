@@ -1,6 +1,6 @@
 long long uu_sort::print_sorted::h399956c01eacbd36(unsigned long a0, unsigned long a1, char a2[154], void* a3)
 {
-    unsigned long v0;  // [sp-0x60], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x60]
     unsigned long long v1;  // [sp-0x58]
     char v2;  // [bp-0x50]
     unsigned long long v4[2];  // rax

@@ -1,6 +1,5 @@
-void __rustcall
-uu_expr::syntax_tree::BinOp::eval
-          (undefined8 *param_1,char param_2,byte param_3,undefined8 param_4,undefined8 param_5)
+void _ZN7uu_expr11syntax_tree5BinOp4eval17h63e87d3d608dec64E
+               (undefined8 *param_1,char param_2,byte param_3,undefined8 param_4,undefined8 param_5)
 
 {
   undefined4 uStack_138;
@@ -55,11 +54,11 @@ uu_expr::syntax_tree::BinOp::eval
   undefined4 uStack_1c;
   
   if (param_2 == '\0') {
-    RelationOp::eval(param_1,param_3,param_4,param_5);
+    _ZN7uu_expr11syntax_tree10RelationOp4eval17hd7a9fc0cf468118dE(param_1,param_3,param_4,param_5);
     return;
   }
   if (param_2 == '\x01') {
-    AstNode::eval(&lStack_e8,param_4);
+    _ZN7uu_expr11syntax_tree7AstNode4eval17h0e7cef87b1c8bd3fE(&lStack_e8,param_4);
     uStack_58 = uStack_e0;
     uStack_54 = uStack_dc;
     uStack_50 = uStack_d8;
@@ -77,7 +76,7 @@ uu_expr::syntax_tree::BinOp::eval
     uStack_120 = uStack_c8;
     uStack_11c = uStack_c4;
     if (lStack_e8 == 0) {
-      NumOrStr::eval_as_bigint(alStack_118,&uStack_58);
+      _ZN7uu_expr11syntax_tree8NumOrStr14eval_as_bigint17hba12e6d71c8187fcE(alStack_118,&uStack_58);
       uStack_138 = (undefined4)alStack_118[1];
       uStack_134 = (undefined4)((ulong)alStack_118[1] >> 0x20);
       uStack_130 = (undefined4)alStack_118[2];
@@ -95,7 +94,7 @@ uu_expr::syntax_tree::BinOp::eval
         uStack_94 = uStack_134;
         uStack_90 = uStack_130;
         uStack_8c = uStack_12c;
-        AstNode::eval(&lStack_e8,param_5);
+        _ZN7uu_expr11syntax_tree7AstNode4eval17h0e7cef87b1c8bd3fE(&lStack_e8,param_5);
         uStack_38 = uStack_e0;
         uStack_34 = uStack_dc;
         uStack_30 = uStack_d8;
@@ -113,7 +112,8 @@ uu_expr::syntax_tree::BinOp::eval
         uStack_120 = uStack_c8;
         uStack_11c = uStack_c4;
         if (lStack_e8 == 0) {
-          NumOrStr::eval_as_bigint(alStack_118,&uStack_38);
+          _ZN7uu_expr11syntax_tree8NumOrStr14eval_as_bigint17hba12e6d71c8187fcE
+                    (alStack_118,&uStack_38);
           uStack_138 = (undefined4)alStack_118[1];
           uStack_134 = (undefined4)((ulong)alStack_118[1] >> 0x20);
           uStack_130 = (undefined4)alStack_118[2];
@@ -147,7 +147,8 @@ uu_expr::syntax_tree::BinOp::eval
         *(undefined4 *)(param_1 + 2) = uStack_130;
         *(undefined4 *)((long)param_1 + 0x14) = uStack_12c;
         *param_1 = 1;
-        core::ptr::drop_in_place<num_bigint::bigint::BigInt>(&uStack_98);
+        _ZN4core3ptr47drop_in_place_LT_num_bigint__bigint__BigInt_GT_17h4ffd1c0c3ebf756bE
+                  (&uStack_98);
         return;
       }
     }
@@ -162,6 +163,6 @@ uu_expr::syntax_tree::BinOp::eval
     *param_1 = 1;
     return;
   }
-  StringOp::eval();
+  _ZN7uu_expr11syntax_tree8StringOp4eval17h01695848f5743b72E();
   return;
 }

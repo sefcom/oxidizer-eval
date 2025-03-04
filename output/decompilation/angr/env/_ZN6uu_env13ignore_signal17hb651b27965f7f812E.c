@@ -3,13 +3,13 @@ long long uu_env::ignore_signal::hb651b27965f7f812(unsigned int a0)
     unsigned int v0;  // [sp-0x9c]
     char v1;  // [bp-0x98]
     char v2;  // [bp-0x90]
-    unsigned long v3;  // [sp-0x88], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x88]
     unsigned long long v4;  // [sp-0x80]
     char *v5;  // [sp-0x78]
     unsigned long long v6;  // [sp-0x70]
     char *v7;  // [sp-0x68]
     unsigned long long v8;  // [sp-0x60]
-    unsigned long long v9;  // [sp-0x58]
+    unsigned long v9;  // [sp-0x58]
     unsigned long long v10;  // [sp-0x50]
     struct struct_0 **v11;  // [sp-0x48]
     unsigned long long v12;  // [sp-0x40]
@@ -33,7 +33,7 @@ long long uu_env::ignore_signal::hb651b27965f7f812(unsigned int a0)
     v13 = 0;
     v11 = &v5;
     v12 = 2;
-    ::0x4cb1b0::core::option::Option$LT$T$GT$::map_or_else::ha7b9eb55e1cbc84d();
+    ::0x4cb1b0::core::option::Option$LT$T$GT$::map_or_else::ha7b9eb55e1cbc84d(&v14, &v9);
     v15 = 125;
     return alloc::boxed::Box$LT$T$GT$::new::h48315bbd00cc7109(&v14);
 }

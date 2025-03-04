@@ -1,4 +1,4 @@
-long long uu_expand::Options::new::h6622e02df3c5f858(struct_1 *a0, unsigned long long a1)
+long long uu_expand::Options::new::h6622e02df3c5f858(struct_0 *a0, unsigned long long a1)
 {
     int v0;  // [bp-0x1c8], Other Possible Types: char
     unsigned long v1;  // [sp-0x1b8], Other Possible Types: unsigned long long
@@ -10,7 +10,7 @@ long long uu_expand::Options::new::h6622e02df3c5f858(struct_1 *a0, unsigned long
     int v7;  // [bp-0x168], Other Possible Types: char, unsigned long, unsigned long long
     char v8;  // [bp-0x160], Other Possible Types: unsigned long long
     char v9;  // [bp-0x15f]
-    void* v10;  // [sp-0x158], Other Possible Types: unsigned long, unsigned long long
+    void* v10;  // [sp-0x158], Other Possible Types: unsigned long
     int v11;  // [sp-0x150]
     char v12;  // [bp-0x140], Other Possible Types: unsigned long long
     int v13;  // [sp-0x138]
@@ -36,8 +36,8 @@ long long uu_expand::Options::new::h6622e02df3c5f858(struct_1 *a0, unsigned long
     unsigned long long v34;  // 4098
     char v35;  // r12b
     unsigned long long v38;  // rdx
-    struct_0 *v39;  // rax
-    struct_0 *v40;  // r14
+    struct_1 *v39;  // rax
+    struct_1 *v40;  // r14
     int v41;  // xmm0
     int v42;  // xmm0
 
@@ -69,7 +69,7 @@ long long uu_expand::Options::new::h6622e02df3c5f858(struct_1 *a0, unsigned long
         v3 = v11;
         if (v34)
         {
-            *((int128_t *)((char *)&a0->field_10 + 8)) = *((int128_t *)&v12);
+            *((int128_t *)((char *)&a0->field_18 + 8)) = *((int128_t *)&v12);
             *((int128_t *)((char *)&a0->field_9 + 8)) = (int128_t)v3;
             *((int128_t *)&(&a0->padding_8)[1]) = (int128_t)v2;
             a0->padding_8[0] = v35;
@@ -122,14 +122,14 @@ long long uu_expand::Options::new::h6622e02df3c5f858(struct_1 *a0, unsigned long
     v11 = v0;
     v14 = v6;
     v13 = v5;
-    a0->field_28 = v14;
-    *((void*)&a0->field_18) = v13;
+    *((unsigned long long *)&a0->padding_30[8]) = v14;
+    *((void*)&a0->field_28) = v13;
     *((void*)&a0->field_0) = v42;
-    *((long long *)&a0->field_10) = (long long)(&v11)[8];
-    *((unsigned long long *)((char *)&a0->field_10 + 8)) = v12;
+    *((long long *)&a0->field_18) = (long long)(&v11)[8];
+    *((unsigned long long *)((char *)&a0->field_18 + 8)) = v12;
     a0->field_9 = *((int128_t *)&v10);
-    a0->padding_30[0] = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a1, "initial", 7);
-    a0->padding_30[1] = (char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a1, "no-utf8", 7) ^ 1;
-    a0->padding_30[2] = v35;
+    *((char *)&a0->field_40) = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a1, "initial", 7);
+    *((char *)&a0->field_40 + 1) = (char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a1, "no-utf8", 7) ^ 1;
+    *((char *)&a0->field_40 + 2) = v35;
     return a0;
 }

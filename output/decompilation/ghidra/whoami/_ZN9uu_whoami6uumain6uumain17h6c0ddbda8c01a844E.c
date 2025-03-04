@@ -1,4 +1,4 @@
-void __rustcall uu_whoami::uumain::uumain(undefined8 param_1,undefined8 param_2)
+void _ZN9uu_whoami6uumain6uumain17h6c0ddbda8c01a844E(undefined8 param_1,undefined8 param_2)
 
 {
   undefined8 uVar1;
@@ -31,11 +31,13 @@ void __rustcall uu_whoami::uumain::uumain(undefined8 param_1,undefined8 param_2)
   undefined8 local_2e0;
   undefined8 local_2d8;
   
-  (*(code *)PTR_uu_app_0020b718)(&local_2e8);
-  clap_builder::builder::command::Command::try_get_matches_from
+  (*(code *)PTR__ZN9uu_whoami6uu_app17h74b0fb3ed938f565E_0020b718)(&local_2e8);
+  _ZN12clap_builder7builder7command7Command20try_get_matches_from17hc9ef77e42fd4ef1dE
             (&local_320,&local_2e8,param_1,param_2);
   if (local_320 == -0x8000000000000000) {
-    (*(code *)PTR_from_0020b720)();
+    (*(code *)
+      PTR__ZN6uucore4mods5error144__LT_impl_u20_core__convert__From_LT_clap_builder__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7fb9d0425989847aE_0020b720
+    )();
   }
   else {
     local_328 = local_2f0;
@@ -49,15 +51,16 @@ void __rustcall uu_whoami::uumain::uumain(undefined8 param_1,undefined8 param_2)
     uStack_33c = uStack_304;
     local_358 = local_320;
     local_350 = local_318;
-    core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(&local_358);
-    (*(code *)PTR_whoami_0020b728)(&local_2e8);
+    _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17h61cf24ab013da276E
+              (&local_358);
+    (*(code *)PTR__ZN9uu_whoami6whoami17h4c4b8e85df7041a6E_0020b728)(&local_2e8);
     if (local_2e8 != -0x8000000000000000) {
       local_370 = local_2e8;
       local_368 = local_2e0;
       local_360 = local_2d8;
-      uVar1 = uucore::mods::display::println_verbatim(&local_370);
-      _<core::result::Result<T,std::io::error::Error>as_uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn_uucore::mods::error::UError>>>>
-      ::map_err_context(uVar1);
+      uVar1 = _ZN6uucore4mods7display16println_verbatim17h0dd006cf780b5f2cE(&local_370);
+      _ZN201__LT_core__result__Result_LT_T_C_std__io__error__Error_GT__u20_as_u20_uucore__mods__error__FromIo_LT_core__result__Result_LT_T_C_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT__GT__GT_15map_err_context17h986f92b3628ea713E
+                (uVar1);
     }
   }
   return;

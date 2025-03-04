@@ -1,4 +1,4 @@
-uint __rustcall uu_sort::numeric_str_cmp::numeric_str_cmp(long *param_1,long *param_2)
+uint _ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h462d5662bf6f9278E(long *param_1,long *param_2)
 
 {
   byte bVar1;
@@ -34,12 +34,13 @@ uint __rustcall uu_sort::numeric_str_cmp::numeric_str_cmp(long *param_1,long *pa
   local_38 = param_1[1] + local_40;
   local_28 = param_2[1] + local_30;
   do {
-    uVar8 = core::iter::traits::iterator::Iterator::try_fold(&local_40);
-    uVar9 = core::iter::traits::iterator::Iterator::try_fold(&local_30);
+    uVar8 = _ZN4core4iter6traits8iterator8Iterator8try_fold17h31e394c0050656feE(&local_40);
+    uVar9 = _ZN4core4iter6traits8iterator8Iterator8try_fold17h31e394c0050656feE(&local_30);
     if (uVar8 == 0x110000) {
       if (uVar9 == 0x30) {
-        uVar6 = core::iter::traits::iterator::Iterator::try_fold(&local_30);
-        cVar7 = _<core::ops::control_flow::ControlFlow<B,C>as_core::cmp::PartialEq>::eq(uVar6);
+        uVar6 = _ZN4core4iter6traits8iterator8Iterator8try_fold17h06b3cdfc65d0e745E(&local_30);
+        cVar7 = _ZN90__LT_core__ops__control_flow__ControlFlow_LT_B_C_C_GT__u20_as_u20_core__cmp__PartialEq_GT_2eq17h197dcbabd20ebd5cE
+                          (uVar6);
         if (cVar7 == '\0') goto LAB_00270ebb;
       }
       else if (uVar9 != 0x110000) {
@@ -53,8 +54,9 @@ LAB_00270ebb:
     if (uVar9 == 0x110000) {
       bVar4 = 1;
       if (uVar8 == 0x30) {
-        uVar6 = core::iter::traits::iterator::Iterator::try_fold(&local_40);
-        bVar4 = _<core::ops::control_flow::ControlFlow<B,C>as_core::cmp::PartialEq>::eq(uVar6);
+        uVar6 = _ZN4core4iter6traits8iterator8Iterator8try_fold17h38cf5fff87cdbaf2E(&local_40);
+        bVar4 = _ZN90__LT_core__ops__control_flow__ControlFlow_LT_B_C_C_GT__u20_as_u20_core__cmp__PartialEq_GT_2eq17h197dcbabd20ebd5cE
+                          (uVar6);
         bVar4 = bVar4 ^ 1;
       }
       goto LAB_00270e5f;

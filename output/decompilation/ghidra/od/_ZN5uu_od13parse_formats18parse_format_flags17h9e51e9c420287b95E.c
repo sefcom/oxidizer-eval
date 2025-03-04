@@ -1,5 +1,6 @@
-undefined8 * __rustcall
-uu_od::parse_formats::parse_format_flags(undefined8 *param_1,long param_2,long param_3)
+undefined8 *
+_ZN5uu_od13parse_formats18parse_format_flags17h9e51e9c420287b95E
+          (undefined8 *param_1,long param_2,long param_3)
 
 {
   bool bVar1;
@@ -66,19 +67,22 @@ uu_od::parse_formats::parse_format_flags(undefined8 *param_1,long param_2,long p
   local_100 = param_2;
 LAB_001caee0:
   local_f0 = 0;
-  lVar7 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::nth(&local_100);
+  lVar7 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_3nth17hb9a07d8be83b1a58E
+                    (&local_100);
 joined_r0x001caefc:
   if (lVar7 == 0) {
     if (!bVar1) {
 LAB_001cb2ec:
       if (local_160 == 0) {
-        local_148 = prn_int::FORMAT_ITEM_OCT16._16_8_;
-        uStack_140 = prn_int::FORMAT_ITEM_OCT16._24_8_;
-        local_158 = CONCAT44(prn_int::FORMAT_ITEM_OCT16._4_4_,prn_int::FORMAT_ITEM_OCT16._0_4_);
-        uStack_150 = CONCAT44(prn_int::FORMAT_ITEM_OCT16._12_4_,prn_int::FORMAT_ITEM_OCT16._8_4_);
+        local_148 = _ZN5uu_od7prn_int17FORMAT_ITEM_OCT1617h64be8d56f8dc029eE._16_8_;
+        uStack_140 = _ZN5uu_od7prn_int17FORMAT_ITEM_OCT1617h64be8d56f8dc029eE._24_8_;
+        local_158 = CONCAT44(_ZN5uu_od7prn_int17FORMAT_ITEM_OCT1617h64be8d56f8dc029eE._4_4_,
+                             _ZN5uu_od7prn_int17FORMAT_ITEM_OCT1617h64be8d56f8dc029eE._0_4_);
+        uStack_150 = CONCAT44(_ZN5uu_od7prn_int17FORMAT_ITEM_OCT1617h64be8d56f8dc029eE._12_4_,
+                              _ZN5uu_od7prn_int17FORMAT_ITEM_OCT1617h64be8d56f8dc029eE._8_4_);
         local_138 = 0;
                     /* try { // try from 001cb311 to 001cb34c has its CatchHandler @ 001cb3f8 */
-        ::alloc::vec::Vec<T,A>::push(&local_170,&local_158);
+        _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17hdb693d9c78fd2861E(&local_170,&local_158);
       }
       param_1[3] = local_160;
       param_1[1] = local_170;
@@ -86,7 +90,8 @@ LAB_001cb2ec:
       *param_1 = 0;
       return param_1;
     }
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_158);
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17ha029c3acdf37c34fE(&local_158)
+    ;
     param_1[3] = local_148;
     uVar10 = (undefined4)local_158;
     uVar11 = local_158._4_4_;
@@ -101,7 +106,8 @@ LAB_001cb375:
     goto LAB_001cb380;
   }
   if (bVar1) {
-    parse_type_string(&local_158,*(undefined8 *)(lVar7 + 8),*(undefined8 *)(lVar7 + 0x10));
+    _ZN5uu_od13parse_formats17parse_type_string17hb4158195487ebdc3E
+              (&local_158,*(undefined8 *)(lVar7 + 8),*(undefined8 *)(lVar7 + 0x10));
     local_198 = uStack_150;
     uVar9 = local_198;
     uStack_190 = local_148;
@@ -126,21 +132,23 @@ LAB_001cb375:
     uStack_e4 = local_198._4_4_;
     uStack_e0 = (undefined4)uStack_190;
     uStack_dc = uStack_190._4_4_;
-    _<alloc::vec::Vec<T,A>as_core::iter::traits::collect::IntoIterator>::into_iter
+    _ZN90__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__iter__traits__collect__IntoIterator_GT_9into_iter17he4c1fcebcd2dfb60E
               (local_90,&local_e8);
-    _<alloc::vec::Vec<T,A>as_alloc::vec::spec_extend::SpecExtend<T,alloc::vec::into_iter::IntoIter<T>>>
-    ::spec_extend(&local_170,local_90);
+    _ZN136__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_alloc__vec__spec_extend__SpecExtend_LT_T_C_alloc__vec__into_iter__IntoIter_LT_T_GT__GT__GT_11spec_extend17h0b0ac924be580ac1E
+              (&local_170,local_90);
     bVar1 = false;
   }
   else {
     uVar9 = *(ulong *)(lVar7 + 8);
     lVar7 = *(long *)(lVar7 + 0x10);
                     /* try { // try from 001caf38 to 001cafa6 has its CatchHandler @ 001cb41d */
-    cVar5 = core::slice::_<impl[T]>::starts_with(uVar9,lVar7,"--",2);
+    cVar5 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_11starts_with17h0450dff97e96928eE
+                      (uVar9,lVar7,"--",2);
     if (cVar5 == '\0') {
       local_158 = local_158 & 0xffffffff00000000;
-      auVar14 = core::char::methods::encode_utf8_raw(0x2d,&local_158);
-      cVar5 = core::slice::_<impl[T]>::starts_with(uVar9,lVar7,auVar14._0_8_,auVar14._8_8_);
+      auVar14 = _ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E(0x2d,&local_158);
+      cVar5 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_11starts_with17h0450dff97e96928eE
+                        (uVar9,lVar7,auVar14._0_8_,auVar14._8_8_);
       if (cVar5 != '\0') {
         local_128 = lVar7 + uVar9;
         local_118 = 0;
@@ -153,17 +161,17 @@ LAB_001cb17d:
         do {
           bVar1 = bVar4;
           if (local_120 == 0) {
-            uVar8 = _<core::str::iter::Chars_as_core::iter::traits::iterator::Iterator>::next
+            uVar8 = _ZN81__LT_core__str__iter__Chars_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hc19b1af496d38725E
                               (&local_130);
             uVar9 = (ulong)uVar8;
           }
           else {
             local_120 = 0;
-            lVar7 = _<core::str::iter::Chars_as_core::iter::traits::iterator::Iterator>::advance_by
+            lVar7 = _ZN81__LT_core__str__iter__Chars_u20_as_u20_core__iter__traits__iterator__Iterator_GT_10advance_by17h7ba654970d2c1b3eE
                               (&local_130);
             if ((lVar7 != 0) ||
-               (iVar6 = core::str::validations::next_code_point(&local_130), iVar6 == 0))
-            goto LAB_001cb239;
+               (iVar6 = _ZN4core3str11validations15next_code_point17h6c42fc7883874c6bE(&local_130),
+               iVar6 == 0)) goto LAB_001cb239;
             uVar8 = (uint)extraout_RDX;
             uVar9 = extraout_RDX;
           }
@@ -174,23 +182,25 @@ LAB_001cb17d:
             goto LAB_001cb1f8;
           }
                     /* try { // try from 001cb160 to 001cb230 has its CatchHandler @ 001cb40b */
-          ::alloc::string::String::push(&local_118,uVar9 & 0xffffffff);
+          _ZN5alloc6string6String4push17h859ae11851fd8b8eE(&local_118,uVar9 & 0xffffffff);
           bVar4 = bVar1;
         } while( true );
       }
     }
     else {
       if (lVar7 == 2) goto LAB_001cb2ec;
-      cVar5 = core::slice::_<impl[T]>::starts_with(uVar9,lVar7,"--format=",9);
+      cVar5 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_11starts_with17h0450dff97e96928eE
+                        (uVar9,lVar7,"--format=",9);
       if (cVar5 != '\0') {
         local_148 = uVar9 + lVar7;
         uStack_140 = uStack_140 & 0xffffffffffffff00;
         local_158 = 1;
         uStack_150 = uVar9;
-        _<alloc::string::String_as_core::iter::traits::collect::FromIterator<char>>::from_iter
+        _ZN95__LT_alloc__string__String_u20_as_u20_core__iter__traits__collect__FromIterator_LT_char_GT__GT_9from_iter17hb93a52d6c1b4019eE
                   (&local_130,&local_158);
                     /* try { // try from 001cafb7 to 001cb02c has its CatchHandler @ 001cb3fc */
-        parse_type_string(&local_158,local_128,local_120);
+        _ZN5uu_od13parse_formats17parse_type_string17hb4158195487ebdc3E
+                  (&local_158,local_128,local_120);
         local_198 = uStack_150;
         uVar2 = local_198;
         uStack_190 = local_148;
@@ -210,7 +220,7 @@ LAB_001cb17d:
           *(undefined4 *)((long)param_1 + 0x14) = uStack_190._4_4_;
           *param_1 = 1;
                     /* try { // try from 001cb3bf to 001cb3f5 has its CatchHandler @ 001cb3f8 */
-          core::ptr::drop_in_place<alloc::string::String>(&local_130);
+          _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h265121219f172febE(&local_130);
           goto LAB_001cb380;
         }
         local_b8 = uStack_140;
@@ -218,14 +228,15 @@ LAB_001cb17d:
         uStack_c4 = local_198._4_4_;
         uStack_c0 = (undefined4)uStack_190;
         uStack_bc = uStack_190._4_4_;
-        _<alloc::vec::Vec<T,A>as_core::iter::traits::collect::IntoIterator>::into_iter
+        _ZN90__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__iter__traits__collect__IntoIterator_GT_9into_iter17he4c1fcebcd2dfb60E
                   (local_70,&local_c8);
-        _<alloc::vec::Vec<T,A>as_alloc::vec::spec_extend::SpecExtend<T,alloc::vec::into_iter::IntoIter<T>>>
-        ::spec_extend(&local_170,local_70);
+        _ZN136__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_alloc__vec__spec_extend__SpecExtend_LT_T_C_alloc__vec__into_iter__IntoIter_LT_T_GT__GT__GT_11spec_extend17h0b0ac924be580ac1E
+                  (&local_170,local_70);
                     /* try { // try from 001cb02d to 001cb105 has its CatchHandler @ 001cb41d */
-        core::ptr::drop_in_place<alloc::string::String>(&local_130);
+        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h265121219f172febE(&local_130);
       }
-      cVar5 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(uVar9,lVar7,&DAT_0010e178,8);
+      cVar5 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h5c6cac41b0728315E
+                        (uVar9,lVar7,&DAT_0010e178,8);
       if (cVar5 != '\0') {
         bVar1 = true;
       }
@@ -237,7 +248,8 @@ code_r0x001cb1e0:
   if ((ulong)uVar8 != 0x33) {
     if ((0x40020000042001U >> ((ulong)uVar8 & 0x3f) & 1) != 0) goto LAB_001cb239;
 LAB_001cb1f8:
-    od_argument_traditional_format(&local_198,uVar9 & 0xffffffff);
+    _ZN5uu_od13parse_formats30od_argument_traditional_format17h14da6a638cd1f622E
+              (&local_198,uVar9 & 0xffffffff);
     bVar4 = bVar1;
     if ((int)local_198 != 3) {
       local_148 = local_188;
@@ -245,14 +257,14 @@ LAB_001cb1f8:
       local_158 = local_198;
       uStack_150 = uStack_190;
       local_138 = 0;
-      ::alloc::vec::Vec<T,A>::push(&local_170,&local_158);
+      _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17hdb693d9c78fd2861E(&local_170,&local_158);
     }
   }
   goto LAB_001cb17d;
 LAB_001cb239:
   if (local_108 != 0) {
                     /* try { // try from 001cb24e to 001cb2b2 has its CatchHandler @ 001cb3fa */
-    parse_type_string(&local_158,local_110);
+    _ZN5uu_od13parse_formats17parse_type_string17hb4158195487ebdc3E(&local_158,local_110);
     local_198 = uStack_150;
     uVar9 = local_198;
     uStack_190 = local_148;
@@ -271,9 +283,9 @@ LAB_001cb239:
       *(undefined4 *)(param_1 + 2) = (undefined4)uStack_190;
       *(undefined4 *)((long)param_1 + 0x14) = uStack_190._4_4_;
       *param_1 = 1;
-      core::ptr::drop_in_place<alloc::string::String>(&local_118);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h265121219f172febE(&local_118);
 LAB_001cb380:
-      core::ptr::drop_in_place<alloc::vec::Vec<uu_od::parse_formats::ParsedFormatterItemInfo>>
+      _ZN4core3ptr89drop_in_place_LT_alloc__vec__Vec_LT_uu_od__parse_formats__ParsedFormatterItemInfo_GT__GT_17hf096e71933bd90a6E
                 (&local_170);
       return param_1;
     }
@@ -282,16 +294,17 @@ LAB_001cb380:
     uStack_a4 = local_198._4_4_;
     uStack_a0 = (undefined4)uStack_190;
     uStack_9c = uStack_190._4_4_;
-    _<alloc::vec::Vec<T,A>as_core::iter::traits::collect::IntoIterator>::into_iter
+    _ZN90__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__iter__traits__collect__IntoIterator_GT_9into_iter17he4c1fcebcd2dfb60E
               (local_50,&local_a8);
-    _<alloc::vec::Vec<T,A>as_alloc::vec::spec_extend::SpecExtend<T,alloc::vec::into_iter::IntoIter<T>>>
-    ::spec_extend(&local_170,local_50);
+    _ZN136__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_alloc__vec__spec_extend__SpecExtend_LT_T_C_alloc__vec__into_iter__IntoIter_LT_T_GT__GT__GT_11spec_extend17h0b0ac924be580ac1E
+              (&local_170,local_50);
     bVar1 = false;
   }
                     /* try { // try from 001cb2b6 to 001cb2c2 has its CatchHandler @ 001cb41d */
-  core::ptr::drop_in_place<alloc::string::String>(&local_118);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h265121219f172febE(&local_118);
 LAB_001cb2d0:
   if (local_f0 != 0) goto LAB_001caee0;
-  lVar7 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next(&local_100);
+  lVar7 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h599d6995f23da721E
+                    (&local_100);
   goto joined_r0x001caefc;
 }

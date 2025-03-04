@@ -1,10 +1,10 @@
 fn uu_basenc::parse_cmd_args(a0: &Result<struct49, struct16>, a1: u32, a2: u32) -> u64 {
-    let v0: struct24;  // [sp-0x370], Other Possible Types: struct16, i192
-    let v1: i64;  // [sp-0x358], Other Possible Types: struct56
+    let v0: struct16;  // [bp-0x370], Other Possible Types: struct24
+    let v1: i64;  // [bp-0x358], Other Possible Types: struct56
     let v2: i64;  // [sp-0x350]
-    let v3: struct24;  // [bp-0x320], Other Possible Types: i8
+    let v3: i8;  // [sp-0x320], Other Possible Types: struct24
     let v4: i8;  // [bp-0x318]
-    let v9: i5696;  // [sp-0x2e8], Other Possible Types: struct712, Result<struct34, struct16>, struct24
+    let v9: struct712;  // [sp-0x2e8], Other Possible Types: struct24, Result<struct34, struct16>
     let v10: i64;  // [sp-0x2d8]
     let v11: i32;  // [sp-0x2d0]
     let v13: i64;  // rax
@@ -18,8 +18,8 @@ fn uu_basenc::parse_cmd_args(a0: &Result<struct49, struct16>, a1: u32, a2: u32) 
     v9 = uu_basenc::uu_app();
     v0 = uucore::Args::collect_lossy(a1, a2);
     clap_builder::builder::command::Command::try_get_matches_from(&v3, &v9, &v0);
-    v13 = v3;
-    v14 = v4;
+    v13 = *(&v3 as &i64);
+    v14 = *(&v4 as &i64);
     if v1 == 0x8000000000000000 {
         *((a0 + 8) as &long long) = alloc::boxed::Box<T>::new(v2);
         v16 = &g_54cd90;
@@ -29,10 +29,10 @@ fn uu_basenc::parse_cmd_args(a0: &Result<struct49, struct16>, a1: u32, a2: u32) 
     v1 = struct56 {
         field_0: v13
         field_8: v14
-        field_16: v5
-        field_20: v6
-        field_36: v7
-        field_52: v8
+        field_16: *(&v5 as &i32)
+        field_20: *(&v6 as &i128)
+        field_36: *(&v7 as &i128)
+        field_52: *(&v8 as &i32)
     };
     v0 = struct16 {
         field_0: "base64"
@@ -57,7 +57,7 @@ fn uu_basenc::parse_cmd_args(a0: &Result<struct49, struct16>, a1: u32, a2: u32) 
                 field_8: v19
                 field_16: v20
                 field_24: *((&v9 as &char + 24) as &i128)
-                field_40: *((&v9 as &char + 40) as &i64)
+                field_40: *((&v9.field_0 as &char + 40) as &i64)
                 field_48: v17
             });
         },

@@ -1,20 +1,24 @@
 fn uu_shuf::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct24
-    let v1: i4736;  // [sp-0x7f8], Other Possible Types: struct592, struct712, struct437
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct24
+    let v1: struct592;  // [sp-0x7f8], Other Possible Types: struct712, struct437
     let v2: i64;  // [sp-0x53c]
     let v3: i32;  // [sp-0x534]
-    let v4: i5696;  // [sp-0x530], Other Possible Types: struct592, struct712
-    let v5: struct592;  // [sp-0x268], Other Possible Types: i4736
+    let v4: struct592;  // [sp-0x530], Other Possible Types: struct712
+    let v5: struct592;  // [sp-0x268]
     let v7: i64;  // rdx
 
     v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v7);
-    v4 = clap_builder::builder::command::Command::about(&v1, "Shuffle the input by outputting a random permutation of input lines.\nEach output permutation is equally likely.\nWith no FILE, or when FILE is -, read standard input.");
+    v4 = clap_builder::builder::command::Command::about(&v1, "Shuffle the input by outputting a random permutation of input lines.
+Each output permutation is equally likely.
+With no FILE, or when FILE is -, read standard input.");
     v1 = clap_builder::builder::command::Command::version(&v4, "0.0.28");
-    v0 = uucore::format_usage("{} [OPTION]... [FILE]\n{} -e [OPTION]... [ARG]...\n{} -i LO-HI [OPTION]...");
+    v0 = uucore::format_usage("{} [OPTION]... [FILE]
+{} -e [OPTION]... [ARG]...
+{} -i LO-HI [OPTION]...");
     v4 = clap_builder::builder::command::Command::override_usage(&v1, &v0);
     memcpy(&v1, &v4, 700);
-    v2 = 549755814016 | *((&v4 as &char + 700) as &i64);
-    v3 = *((&v4 as &char + 708) as &i32);
+    v2 = 549755814016 | *((&v4.field_0 as &char + 700) as &i64);
+    v3 = *((&v4.field_0 as &char + 708) as &i32);
     v4 = clap_builder::builder::arg::Arg::new("echo");
     v0 = clap_builder::builder::arg::Arg::short(&v4, 0x65);
     v4 = clap_builder::builder::arg::Arg::long(&v0, "echo");

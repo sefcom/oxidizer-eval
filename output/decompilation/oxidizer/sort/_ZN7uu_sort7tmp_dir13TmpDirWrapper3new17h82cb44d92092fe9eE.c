@@ -8,7 +8,7 @@ fn uu_sort::tmp_dir::TmpDirWrapper::new(a0: &struct64, a1: &struct24) -> int {
     v1 = a1->field_10;
     v0 = a1->field_0;
     v3 = 2;
-    v6 = v2;
+    v6 = *(&v2 as &i128);
     return struct64 {
         field_0: v0
         field_16: v1

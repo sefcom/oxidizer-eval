@@ -12,7 +12,7 @@ long long uu_tail::args::parse_obsolete::hfe2542368a23c75b(unsigned long long *a
     {
         v5 = v1;
         std::sys::os_str::bytes::Slice::to_string_lossy::h816275565265bd85(&v0, a1[1], a1[2]);
-        goto *((int *)(4358892 + vvar_38{reg 112} * 4)) + 4358892;
+        goto *((int *)(4358892 + vvar_35{reg 112} * 4)) + 4358892;
     }
     else if (v4 != 3)
     {

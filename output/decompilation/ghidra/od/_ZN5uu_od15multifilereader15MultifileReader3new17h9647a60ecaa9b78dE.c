@@ -1,5 +1,6 @@
-undefined8 * __rustcall
-uu_od::multifilereader::MultifileReader::new(undefined8 *param_1,undefined4 *param_2)
+undefined8 *
+_ZN5uu_od15multifilereader15MultifileReader3new17h9647a60ecaa9b78dE
+          (undefined8 *param_1,undefined4 *param_2)
 
 {
   undefined4 local_38;
@@ -20,7 +21,7 @@ uu_od::multifilereader::MultifileReader::new(undefined8 *param_1,undefined4 *par
   uStack_20 = 0;
   uStack_10 = 0;
                     /* try { // try from 001d6e36 to 001d6e3d has its CatchHandler @ 001d6e60 */
-  next_file(&local_38);
+  _ZN5uu_od15multifilereader15MultifileReader9next_file17h7ce1d576af53818dE(&local_38);
   param_1[4] = local_18;
   param_1[5] = CONCAT71(uStack_f,uStack_10);
   param_1[2] = local_28;

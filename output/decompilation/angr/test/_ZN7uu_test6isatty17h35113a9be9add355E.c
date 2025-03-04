@@ -13,7 +13,7 @@ long long uu_test::isatty::h35113a9be9add355(struct_0 *a0, unsigned long long a1
     std::ffi::os_str::_$LT$impl$u20$core..convert..TryFrom$LT$$RF$std..ffi..os_str..OsStr$GT$$u20$for$u20$$RF$str$GT$::try_from::h660bab9c45707695(&v0, a1, a2);
     if (!v0)
     {
-        v8 = core::num::_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i32$GT$::from_str::h5b8351ce1d7a5cac();
+        v8 = core::num::_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i32$GT$::from_str::h5b8351ce1d7a5cac(v1, v2);
         if (!((char)v8 & 1))
         {
             v9 = isatty(v8 >> 32 & 4294967295 & 4294967295);

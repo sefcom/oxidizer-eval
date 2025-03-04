@@ -5,13 +5,13 @@ long long uu_sort::exec::h00f1df48122bfa65(unsigned long long a0[3], unsigned lo
     char v2;  // [bp-0xe0]
     int v3;  // [bp-0xd8], Other Possible Types: char
     char v4;  // [bp-0xd0]
-    int v5;  // [bp-0xc8], Other Possible Types: unsigned long, unsigned long long
+    int v5;  // [sp-0xc8], Other Possible Types: unsigned long, unsigned long long
     char v6;  // [bp-0xc0], Other Possible Types: unsigned int
     char v7;  // [bp-0xb0]
     char v8;  // [bp-0xa0]
     char v9;  // [bp-0x90]
     char v10;  // [bp-0x80]
-    unsigned long v11;  // [sp-0x78], Other Possible Types: unsigned long long
+    unsigned long v11;  // [sp-0x78]
     unsigned long long v12;  // [sp-0x70]
     unsigned long long v13;  // [sp-0x68]
     int v14;  // [sp-0x60]
@@ -22,6 +22,7 @@ long long uu_sort::exec::h00f1df48122bfa65(unsigned long long a0[3], unsigned lo
     int v22;  // xmm0
     unsigned long long v23;  // rax
     int v25;  // xmm0
+    unsigned long long v26;  // r14
 
     if (a2[129])
     {
@@ -64,15 +65,16 @@ long long uu_sort::exec::h00f1df48122bfa65(unsigned long long a0[3], unsigned lo
             v5 = *((long long *)&v2);
             *((int128_t *)&v3) = *((int128_t *)&v0);
             v6 = 2;
-            v23 = alloc::boxed::Box$LT$T$GT$::new::hab49dd9f0ca1dd34(&v3);
+            v26 = alloc::boxed::Box$LT$T$GT$::new::hab49dd9f0ca1dd34(&v3);
         }
         else
         {
             if (a1 != 1)
                 core::option::unwrap_failed::h0e11329e76906eaa(&g_5ffd00); /* do not return */
-            v23 = uu_sort::check::check::h20d514b4388b3f7e(a0[1], a0[2]);
+            v26 = uu_sort::check::check::h20d514b4388b3f7e(a0[1], a0[2]);
         }
         ::0x51ac10::core::ptr::drop_in_place$LT$uu_sort..Output$GT$::hc73b799533ae265a(a3);
+        v23 = v26;
         return v23;
     }
 }

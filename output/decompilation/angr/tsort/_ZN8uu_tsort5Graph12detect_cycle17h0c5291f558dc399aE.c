@@ -1,6 +1,6 @@
-long long uu_tsort::Graph::detect_cycle::h0c5291f558dc399a(struct_1 *a0, struct_0 *a1)
+long long uu_tsort::Graph::detect_cycle::h0c5291f558dc399a(struct_0 *a0, struct_1 *a1)
 {
-    unsigned long v0;  // [sp-0xd0], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xd0]
     unsigned long long v1;  // [sp-0xc8]
     void* v2;  // [sp-0xc0]
     char v3;  // [bp-0xb0]
@@ -37,5 +37,5 @@ long long uu_tsort::Graph::detect_cycle::h0c5291f558dc399a(struct_1 *a0, struct_
     } while (!(char)uu_tsort::Graph::dfs::h6d3ff1788ece85a8(a1, v14, v15, &v10, &v0));
     a0->field_10 = v2;
     a0->field_0 = *((int128_t *)&v0);
-    return core::ptr::drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$str$GT$$GT$::h784233dee5191ff5();
+    return core::ptr::drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$str$GT$$GT$::h784233dee5191ff5(&v10);
 }

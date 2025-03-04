@@ -1,5 +1,6 @@
-undefined8 * __rustcall
-uu_dd::Output::write_blocks(undefined8 *param_1,long param_2,undefined **param_3,undefined8 param_4)
+undefined8 *
+_ZN5uu_dd6Output12write_blocks17h78b56ae9a3f355f3E
+          (undefined8 *param_1,long param_2,undefined **param_3,undefined8 param_4)
 
 {
   ulong uVar1;
@@ -23,11 +24,12 @@ uu_dd::Output::write_blocks(undefined8 *param_1,long param_2,undefined **param_3
     local_48 = 0;
     uStack_40 = 0;
                     /* WARNING: Subroutine does not return */
-    core::panicking::panic_fmt(&local_60,&PTR_DAT_00261120);
+    _ZN4core9panicking9panic_fmt17he12d0d7468628bb4E(&local_60,&PTR_DAT_00261120);
   }
   local_60 = param_3;
   local_58 = param_4;
-  lVar2 = _<core::slice::iter::Chunks<T>as_core::iter::traits::iterator::Iterator>::next(&local_60);
+  lVar2 = _ZN93__LT_core__slice__iter__Chunks_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h45c1de6715574df6E
+                    (&local_60);
   if (lVar2 == 0) {
     lVar4 = 0;
     lVar6 = 0;
@@ -38,7 +40,7 @@ uu_dd::Output::write_blocks(undefined8 *param_1,long param_2,undefined **param_3
     lVar6 = 0;
     lVar4 = 0;
     do {
-      auVar7 = write_block(param_2,lVar2);
+      auVar7 = _ZN5uu_dd6Output11write_block17h75bb814762c2a847E(param_2,lVar2);
       uVar3 = auVar7._8_8_;
       if (auVar7._0_8_ != 0) {
         param_1[1] = uVar3;
@@ -49,7 +51,7 @@ uu_dd::Output::write_blocks(undefined8 *param_1,long param_2,undefined **param_3
       lVar6 = lVar6 + (ulong)(uVar3 < uVar1);
       lVar5 = lVar5 + (ulong)(uVar1 <= uVar3);
       lVar4 = lVar4 + uVar3;
-      lVar2 = _<core::slice::iter::Chunks<T>as_core::iter::traits::iterator::Iterator>::next
+      lVar2 = _ZN93__LT_core__slice__iter__Chunks_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h45c1de6715574df6E
                         (&local_60);
     } while (lVar2 != 0);
   }

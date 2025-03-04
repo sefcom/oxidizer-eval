@@ -1,7 +1,7 @@
 /* WARNING: Type propagation algorithm not settling */
 
-void __rustcall
-uu_pr::get_formatted_line_number(undefined8 *param_1,long param_2,long param_3,long param_4)
+void _ZN5uu_pr25get_formatted_line_number17hdc8b635f2fe32dc7E
+               (undefined8 *param_1,long param_2,long param_3,long param_4)
 
 {
   undefined4 uVar1;
@@ -47,13 +47,15 @@ uu_pr::get_formatted_line_number(undefined8 *param_1,long param_2,long param_3,l
     else if ((param_3 != 0) && (param_4 == 0)) {
 LAB_002c85ec:
       local_f8[0] = param_3;
-      _<T_as_alloc::string::ToString>::to_string(&local_80,local_f8);
+      _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17h465f4145a69c72a5E
+                (&local_80,local_f8);
       local_108 = *(ulong *)(param_2 + 0xf0);
       local_160 = param_2 + 0xd8;
       if (local_70 < local_108) {
-        local_120 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+        local_120 = 
+        _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
         local_118 = &local_160;
-        local_110 = _<&T_as_core::fmt::Display>::fmt;
+        local_110 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17hc92107804a18d2f9E;
         local_100 = 0;
         local_f8[1] = 2;
         local_e0 = 1;
@@ -75,28 +77,27 @@ LAB_002c85ec:
                     /* try { // try from 002c871a to 002c8868 has its CatchHandler @ 002c88b1 */
         puVar5 = local_40;
         local_128 = &local_80;
-        core::option::Option<T>::map_or_else(puVar5,&local_158);
+        _ZN4core6option15Option_LT_T_GT_11map_or_else17h4ea8d69383c77fddE(puVar5,&local_158);
       }
       else {
-        local_68 = core::str::traits::
-                   _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::RangeFrom<usize>>
-                   ::get(local_70 - local_108,local_78,local_70);
+        local_68 = _ZN4core3str6traits112__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeFrom_LT_usize_GT__GT_3get17hccefea64a1916a27E
+                             (local_70 - local_108,local_78,local_70);
         if (local_68._0_8_ == 0) {
                     /* try { // try from 002c8898 to 002c88b0 has its CatchHandler @ 002c88b1 */
-          uVar4 = core::str::slice_error_fail
+          uVar4 = _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE
                             (local_78,local_70,local_70 - local_108,local_70,
                              &PTR_s_src_uu_pr_src_pr_rs_00409578);
                     /* catch() { ... } // from try @ 002c871a with catch @ 002c88b1
                        catch() { ... } // from try @ 002c8898 with catch @ 002c88b1 */
                     /* try { // try from 002c88b4 to 002c88c0 has its CatchHandler @ 002c88c9 */
-          core::ptr::drop_in_place<alloc::string::String>(&local_80);
+          _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h93d342cc5e2da10eE(&local_80);
           _Unwind_Resume(uVar4);
           return;
         }
         local_128 = (undefined8 *)local_68;
-        local_120 = _<&T_as_core::fmt::Display>::fmt;
+        local_120 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h50d13b2eb6feaccbE;
         local_118 = &local_160;
-        local_110 = _<&T_as_core::fmt::Display>::fmt;
+        local_110 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17hc92107804a18d2f9E;
         local_100 = 0;
         local_f8[1] = 2;
         local_e0 = 1;
@@ -116,7 +117,7 @@ LAB_002c85ec:
         local_148 = &local_128;
         local_140 = 3;
         puVar5 = local_58;
-        core::option::Option<T>::map_or_else(puVar5,&local_158);
+        _ZN4core6option15Option_LT_T_GT_11map_or_else17h4ea8d69383c77fddE(puVar5,&local_158);
       }
       param_1[2] = *(undefined8 *)(puVar5 + 4);
       uVar1 = puVar5[1];
@@ -126,7 +127,7 @@ LAB_002c85ec:
       *(undefined4 *)((long)param_1 + 4) = uVar1;
       *(undefined4 *)(param_1 + 1) = uVar2;
       *(undefined4 *)((long)param_1 + 0xc) = uVar3;
-      core::ptr::drop_in_place<alloc::string::String>(&local_80);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h93d342cc5e2da10eE(&local_80);
       return;
     }
   }

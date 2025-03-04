@@ -1,6 +1,6 @@
 long long uu_cksum::had_reset::h64707811948cf7fa(unsigned long a0, unsigned long a1)
 {
-    unsigned long v0;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long long v0;  // [sp-0x40], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0x38]
     unsigned long long v3;  // rbp
     unsigned long v7;  // rdx
@@ -10,7 +10,7 @@ long long uu_cksum::had_reset::h64707811948cf7fa(unsigned long a0, unsigned long
     v1 = v3;
     v0 = a0;
     v1 = v3;
-    v0 = v0;
+    v0 = a0;
     v1 = v3;
     if (_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::position::h35a4fc5d12fa25d2(&v0) != 1)
     {

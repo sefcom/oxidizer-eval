@@ -1,10 +1,10 @@
 fn uu_tr::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct24
-    let v1: i4736;  // [sp-0x7f8], Other Possible Types: struct592, struct712
-    let v2: i4736;  // [sp-0x530], Other Possible Types: struct592, struct712, struct437
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct24
+    let v1: struct592;  // [sp-0x7f8], Other Possible Types: struct712
+    let v2: struct592;  // [sp-0x530], Other Possible Types: struct712, struct437
     let v3: i32;  // [sp-0x274]
     let v4: i64;  // [sp-0x270]
-    let v5: struct592;  // [sp-0x268], Other Possible Types: i4736, struct8
+    let v5: struct592;  // [sp-0x268], Other Possible Types: struct8
     let v7: i64;  // rdx
 
     v2 = clap_builder::builder::command::Command::new(uucore::util_name(), v7);
@@ -13,8 +13,8 @@ fn uu_tr::uu_app(a0: &struct712) -> u64 {
     v0 = uucore::format_usage("{} [OPTION]... SET1 [SET2]");
     v1 = clap_builder::builder::command::Command::override_usage(&v2, &v0);
     memcpy(&v2, &v1, 700);
-    v3 = 160 | *((&v1 as &char + 700) as &i32);
-    v4 = 128 | *((&v1 as &char + 704) as &i64);
+    v3 = 160 | *((&v1.field_0 as &char + 700) as &i32);
+    v4 = 128 | *((&v1.field_0 as &char + 704) as &i64);
     v1 = clap_builder::builder::arg::Arg::new("complement");
     v0 = clap_builder::builder::arg::Arg::visible_short_alias(&v1, 0x43);
     v1 = clap_builder::builder::arg::Arg::short(&v0, 0x63);

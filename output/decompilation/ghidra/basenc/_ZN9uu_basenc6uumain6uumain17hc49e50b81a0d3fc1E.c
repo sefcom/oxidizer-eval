@@ -1,4 +1,5 @@
-undefined  [16] __rustcall uu_basenc::uumain::uumain(undefined8 param_1,undefined8 param_2)
+undefined  [16]
+_ZN9uu_basenc6uumain6uumain17hc49e50b81a0d3fc1E(undefined8 param_1,undefined8 param_2)
 
 {
   undefined auVar1 [16];
@@ -27,7 +28,7 @@ undefined  [16] __rustcall uu_basenc::uumain::uumain(undefined8 param_1,undefine
   undefined4 uStack_20;
   undefined4 uStack_1c;
   
-  parse_cmd_args(&local_88,param_1,param_2);
+  _ZN9uu_basenc14parse_cmd_args17haa59f9e932579024E(&local_88,param_1,param_2);
   local_48 = CONCAT44(uStack_84,local_88);
   uStack_40 = CONCAT44(uStack_7c,uStack_80);
   local_38 = CONCAT44(uStack_74,local_78);
@@ -41,7 +42,8 @@ undefined  [16] __rustcall uu_basenc::uumain::uumain(undefined8 param_1,undefine
     uStack_28 = uStack_68;
     uStack_24 = uStack_64;
                     /* try { // try from 0017d1dc to 0017d1eb has its CatchHandler @ 0017d27b */
-    (*(code *)PTR_get_input_00254060)(&local_88,&local_48);
+    (*(code *)PTR__ZN9uu_base3211base_common9get_input17h0f77b7573e033d64E_00254060)
+              (&local_88,&local_48);
     local_98 = CONCAT44(uStack_7c,uStack_80);
     local_90 = CONCAT44(uStack_74,local_78);
     auVar1._8_8_ = local_90;
@@ -60,13 +62,14 @@ undefined  [16] __rustcall uu_basenc::uumain::uumain(undefined8 param_1,undefine
       uStack_80 = (undefined4)uStack_40;
       uStack_7c = uStack_40._4_4_;
                     /* try { // try from 0017d231 to 0017d241 has its CatchHandler @ 0017d268 */
-      auVar1 = uu_base32::base_common::handle_input(&local_98,local_58,&local_88);
-      core::ptr::
-      drop_in_place<alloc::boxed::Box<dyn_clap_builder::builder::value_parser::AnyValueParser>>
+      auVar1 = _ZN9uu_base3211base_common12handle_input17hb7a3beef6816c6b6E
+                         (&local_98,local_58,&local_88);
+      _ZN4core3ptr105drop_in_place_LT_alloc__boxed__Box_LT_dyn_u20_clap_builder__builder__value_parser__AnyValueParser_GT__GT_17h96419b3cbf10967fE
                 (local_98,local_90);
     }
     else {
-      core::ptr::drop_in_place<uu_base32::base_common::Config>(&local_48);
+      _ZN4core3ptr51drop_in_place_LT_uu_base32__base_common__Config_GT_17h700cc0223f36aeb6E
+                (&local_48);
     }
   }
   return auVar1;

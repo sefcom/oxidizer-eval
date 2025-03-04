@@ -1,11 +1,13 @@
-void __rustcall uu_sort::chunks::Chunk::into_owner(undefined4 *param_1,undefined4 *param_2)
+void _ZN7uu_sort6chunks5Chunk10into_owner17hb42f0e7ac9257e28E
+               (undefined4 *param_1,undefined4 *param_2)
 
 {
   undefined4 uVar1;
   undefined4 uVar2;
   undefined4 uVar3;
   
-  core::ptr::drop_in_place<uu_sort::chunks::ChunkContents>(param_2 + 6);
+  _ZN4core3ptr51drop_in_place_LT_uu_sort__chunks__ChunkContents_GT_17hac7bebb9584b9cb8E(param_2 + 6)
+  ;
   *(undefined8 *)(param_1 + 4) = *(undefined8 *)(param_2 + 4);
   uVar1 = param_2[1];
   uVar2 = param_2[2];

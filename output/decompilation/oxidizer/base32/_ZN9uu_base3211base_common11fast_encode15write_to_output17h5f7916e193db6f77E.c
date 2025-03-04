@@ -7,13 +7,13 @@ fn uu_base32::base_common::fast_encode::write_to_output(a0: &struct8, a1: u32, a
     v0 = v2;
     v3 = a3->field_38;
     if *(a0) == 0x8000000000000000 {
-        v4 = uu_base32::base_common::fast_encode::write_without_line_breaks(a1, a2, v3, a4);
+        v4 = uu_base32::base_common::fast_encode::write_without_line_breaks(a1, a2, v3, a4 & 255);
         if !v4 {
             return 0;
         }
         return v4;
     } else {
-        v4 = uu_base32::base_common::fast_encode::write_with_line_breaks(a0, a1, a2, v3, a4);
+        v4 = uu_base32::base_common::fast_encode::write_with_line_breaks(a0, a1, a2, v3, a4 & 255);
         if !v4 {
             return 0;
         }

@@ -1,6 +1,6 @@
 long long uu_env::string_parser::StringParser::peek_char_at_pointer::h13f3254ae1b02ce7(struct_0 *a0, unsigned long long a1[5], unsigned long long a2)
 {
-    unsigned long v0;  // [sp-0x60], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x60]
     unsigned long long v1;  // [sp-0x58]
     unsigned long long v2;  // [sp-0x50]
     int v3;  // [sp-0x48]

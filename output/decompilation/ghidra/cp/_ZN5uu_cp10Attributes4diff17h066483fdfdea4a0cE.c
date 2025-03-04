@@ -1,6 +1,6 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void __rustcall uu_cp::Attributes::diff(ulong *param_1,ulong *param_2,char *param_3)
+void _ZN5uu_cp10Attributes4diff17h066483fdfdea4a0cE(ulong *param_1,ulong *param_2,char *param_3)
 
 {
   char cVar1;

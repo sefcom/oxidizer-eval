@@ -26,6 +26,6 @@ long long uu_split::filter_args::hc9c131d0e8e2f9ae(struct_0 *a0, unsigned long l
     uu_split::handle_preceding_options::ha9316461586fd0f7(v6, v7, a3, a4);
     a0->field_10 = v4;
     *((void*)&a0->field_0) = v3;
-    ::0x4c88c0::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h0758cff7b902e55a();
+    ::0x4c88c0::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h0758cff7b902e55a(a1);
     return a0;
 }

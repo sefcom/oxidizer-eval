@@ -1,5 +1,5 @@
-void __rustcall
-uu_pr::parse_usize(undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)
+void _ZN5uu_pr11parse_usize17hfdefcaff0fd209a5E
+               (undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)
 
 {
   long lVar1;
@@ -24,13 +24,16 @@ uu_pr::parse_usize(undefined8 *param_1,undefined8 param_2,undefined8 param_3,und
   
   local_90 = param_3;
   local_88 = param_4;
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&local_80);
-  lVar1 = clap_builder::parser::error::MatchesError::unwrap(param_3,param_4,&local_80);
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf528812c919d4af6E
+            (&local_80);
+  lVar1 = _ZN12clap_builder6parser5error12MatchesError6unwrap17hf38d98c9afef2728E
+                    (param_3,param_4,&local_80);
   if (lVar1 == 0) {
     *param_1 = 0x8000000000000006;
   }
   else {
-    parse_usize::___closure__(&local_50,&local_90,lVar1);
+    _ZN5uu_pr11parse_usize28__u7b__u7b_closure_u7d__u7d_17h92e0561d74ff38ebE
+              (&local_50,&local_90,lVar1);
     local_58 = local_28;
     local_68 = local_38;
     uStack_60 = uStack_30;
@@ -39,7 +42,7 @@ uu_pr::parse_usize(undefined8 *param_1,undefined8 param_2,undefined8 param_3,und
     uStack_70 = uStack_40;
     uStack_6c = uStack_3c;
     local_80 = local_50;
-    core::ops::function::FnOnce::call_once(param_1,&local_80);
+    _ZN4core3ops8function6FnOnce9call_once17hc0c7aacdfde921b9E(param_1,&local_80);
   }
   return;
 }

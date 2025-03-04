@@ -1,5 +1,6 @@
-undefined8 __rustcall
-uu_sort::exec(long param_1,ulong param_2,long param_3,long *param_4,undefined8 param_5)
+undefined8
+_ZN7uu_sort4exec17h00f1df48122bfa65E
+          (long param_1,ulong param_2,long param_3,long *param_4,undefined8 param_5)
 
 {
   long lVar1;
@@ -52,27 +53,30 @@ uu_sort::exec(long param_1,ulong param_2,long param_3,long *param_4,undefined8 p
       uStack_c0 = *(undefined4 *)(param_4 + 3);
       uStack_bc = *(undefined4 *)((long)param_4 + 0x1c);
       local_f0 = param_1;
-      uVar2 = ext_sort::ext_sort(&local_f0,param_3,&local_d8,param_5);
+      uVar2 = _ZN7uu_sort8ext_sort8ext_sort17hc251c769f969c18aE(&local_f0,param_3,&local_d8,param_5)
+      ;
     }
     else {
       if (param_2 < 2) {
         if (param_2 != 1) {
                     /* try { // try from 00223b90 to 00223b9c has its CatchHandler @ 00223b9d */
-          uVar2 = core::option::unwrap_failed(&PTR_s_src_uu_sort_src_sort_rs_002ffd00);
+          uVar2 = _ZN4core6option13unwrap_failed17h0e11329e76906eaaE
+                            (&PTR_s_src_uu_sort_src_sort_rs_002ffd00);
                     /* catch() { ... } // from try @ 00223a13 with catch @ 00223b9d
                        catch() { ... } // from try @ 00223b67 with catch @ 00223b9d
                        catch() { ... } // from try @ 00223b90 with catch @ 00223b9d */
                     /* try { // try from 00223ba0 to 00223ba7 has its CatchHandler @ 00223bb0 */
-          core::ptr::drop_in_place<uu_sort::Output>(param_4);
+          _ZN4core3ptr36drop_in_place_LT_uu_sort__Output_GT_17hc73b799533ae265aE(param_4);
                     /* WARNING: Subroutine does not return */
           _Unwind_Resume(uVar2);
         }
                     /* try { // try from 00223b67 to 00223b6e has its CatchHandler @ 00223b9d */
-        uVar2 = check::check(*(undefined8 *)(param_1 + 8),*(undefined8 *)(param_1 + 0x10),param_3);
+        uVar2 = _ZN7uu_sort5check5check17h20d514b4388b3f7eE
+                          (*(undefined8 *)(param_1 + 8),*(undefined8 *)(param_1 + 0x10),param_3);
       }
       else {
                     /* try { // try from 00223a13 to 00223a73 has its CatchHandler @ 00223b9d */
-        _<T_as_alloc::slice::hack::ConvertVec>::to_vec
+        _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h1d4334c76f34ab0eE
                   (&local_f0,"only one file allowed with -c",0x1d);
         local_c8 = local_e0;
         local_d8 = (undefined4)local_f0;
@@ -80,9 +84,9 @@ uu_sort::exec(long param_1,ulong param_2,long param_3,long *param_4,undefined8 p
         uStack_d0 = (undefined4)uStack_e8;
         uStack_cc = uStack_e8._4_4_;
         uStack_c0 = 2;
-        uVar2 = ::alloc::boxed::Box<T>::new(&local_d8);
+        uVar2 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hab49dd9f0ca1dd34E(&local_d8);
       }
-      core::ptr::drop_in_place<uu_sort::Output>(param_4);
+      _ZN4core3ptr36drop_in_place_LT_uu_sort__Output_GT_17hc73b799533ae265aE(param_4);
     }
   }
   else {
@@ -92,10 +96,11 @@ uu_sort::exec(long param_1,ulong param_2,long param_3,long *param_4,undefined8 p
     else {
       lVar1 = param_4[1];
     }
-    merge::merge(&local_d8,param_1,param_2,param_3,lVar1,param_4[2],param_5);
+    _ZN7uu_sort5merge5merge17h37f56e954177d019E
+              (&local_d8,param_1,param_2,param_3,lVar1,param_4[2],param_5);
     uVar2 = CONCAT44(uStack_cc,uStack_d0);
     if (CONCAT44(uStack_d4,local_d8) == 3) {
-      core::ptr::drop_in_place<uu_sort::Output>(param_4);
+      _ZN4core3ptr36drop_in_place_LT_uu_sort__Output_GT_17hc73b799533ae265aE(param_4);
     }
     else {
       local_20 = local_80;
@@ -118,7 +123,8 @@ uu_sort::exec(long param_1,ulong param_2,long param_3,long *param_4,undefined8 p
       local_c8 = param_4[2];
       uStack_c0 = *(undefined4 *)(param_4 + 3);
       uStack_bc = *(undefined4 *)((long)param_4 + 0x1c);
-      uVar2 = merge::FileMerger::write_all(local_78,param_3,&local_d8);
+      uVar2 = _ZN7uu_sort5merge10FileMerger9write_all17h8ffbbdd0c487cde8E
+                        (local_78,param_3,&local_d8);
     }
   }
   return uVar2;

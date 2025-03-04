@@ -19,5 +19,5 @@ fn uu_df::table::Header::get_headers(a0: &struct24, a1: u64) -> int {
             field_16: v2
         };
     }
-    goto *((4283088 + *(vvar_27{reg 16} as &i8) * 4) as &i32) + 4283088;
+    goto *((4283088 + *(vvar_25{reg 16} as &i8) * 4) as &i32) + 4283088;
 }

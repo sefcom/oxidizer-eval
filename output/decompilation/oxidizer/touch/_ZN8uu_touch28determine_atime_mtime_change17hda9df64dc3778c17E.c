@@ -1,9 +1,9 @@
 fn uu_touch::determine_atime_mtime_change(a0: u32) -> u64 {
-    let v0: i320;  // [sp-0x48], Other Possible Types: Result<struct40, struct8>
+    let v0: Result<struct40, struct8>;  // [sp-0x48]
     let v3: i64;  // rax
     let v4: i64;  // rbp
     let v8: i64;  // rax
-    let v12: i64;  // rax
+    let v11: i64;  // rax
 
     if !clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(a0, "time") as i8 {
 LABEL_5c2ff2:
@@ -22,19 +22,19 @@ LABEL_5c2ff2:
 LABEL_5c300e:
             v8 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag();
             v4 = v4 & -0x100 | 1;
-            if !v8 {
+            if !v8 as u8 {
                 return 0;
             }
-            v12 = (v8 & -0x100 | 1) & -0x100 | 2 - (!(v4 & 255 & 255));
-            return v12;
+            v11 = (v8 & -0x100 | 1) & -0x100 | 2 - (!(v4 & 255 & 255));
+            return v11;
         } else if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag() as i8 {
-            return v12;
-        } else if v4 {
-            if (v4 & 4294967295) != 1 {
-                return v12;
+            return v11;
+        } else if v4 as u8 {
+            if (v4 & 4294967295) as u8 != 1 {
+                return v11;
             }
             return 0;
         }
     }
-    return v12;
+    return v11;
 }

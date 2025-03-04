@@ -5,8 +5,7 @@ fn uu_wc::process_chunk(a0: &struct24, a1: u32, a2: u32, a3: &struct8) -> u64 {
     let v4: u64;  // r13
     let v5: u64;  // r14
     let v6: u64;  // rdx
-    let v8: u64;  // r12
-    let v9: u64;  // rax
+    let v8: u64;  // rax
 
     v0 = a1;
     v1 = a1 + a2;
@@ -35,7 +34,7 @@ LABEL_4ba550:
         } while ((*(a3) = v3 as u64, a0[1] = v5, v5 += 1, core::str::validations::next_code_point(&v0) as i32));
     }
     *(a0) = *(a0) + a2;
-    v9 = core::cmp::max_by(v8, v4);
-    a0[4] = v9;
-    return v9;
+    v8 = core::cmp::max_by(v3, v4);
+    a0[4] = v8;
+    return v8;
 }

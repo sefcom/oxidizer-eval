@@ -1,8 +1,8 @@
 long long uu_head::is_seekable::h10276630579ab154(unsigned long long a0)
 {
-    unsigned long v0;  // [sp-0x30], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x30]
     unsigned long long v1;  // [sp-0x28]
-    unsigned long v2;  // [sp-0x20], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x20]
     unsigned long long v3;  // [sp-0x18]
     unsigned long long v5;  // rdx
 

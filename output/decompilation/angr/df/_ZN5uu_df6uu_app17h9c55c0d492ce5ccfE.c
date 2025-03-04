@@ -14,7 +14,7 @@ long long uu_df::uu_app::h9c55c0d492ce5ccf(unsigned long long a0)
     char v11;  // [bp-0x540]
     unsigned long long v12;  // [sp-0x284]
     unsigned int v13;  // [sp-0x27c]
-    unsigned long v14;  // [sp-0x278], Other Possible Types: unsigned long long
+    unsigned long v14;  // [sp-0x278]
     unsigned long long v15;  // [sp-0x270]
     unsigned long long v16;  // [sp-0x268]
     unsigned long long v17;  // [sp-0x260]

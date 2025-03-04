@@ -1,25 +1,25 @@
-long long uu_join::State::next_line::hdcd6fa155f18f200(struct_2 *a0, struct_1 *a1, char a2[2])
+long long uu_join::State::next_line::hdcd6fa155f18f200(struct_1 *a0, struct_0 *a1, char a2[2])
 {
     char v0;  // [sp-0x159]
     char *v1;  // [bp-0x158], Other Possible Types: unsigned long
     unsigned long v2;  // [sp-0x150], Other Possible Types: unsigned long long
-    struct struct_0 **v3;  // [bp-0x148], Other Possible Types: char, unsigned long long
+    struct struct_2 **v3;  // [sp-0x148], Other Possible Types: char, unsigned long long
     unsigned long long v4;  // [sp-0x140]
-    void* v5;  // [bp-0x138], Other Possible Types: char *, char
+    void* v5;  // [sp-0x138], Other Possible Types: char *, char
     unsigned long long v6;  // [sp-0x130]
-    unsigned long v7;  // [sp-0x128], Other Possible Types: unsigned long long
+    unsigned long v7;  // [sp-0x128]
     unsigned long long v8;  // [sp-0x120]
     int v9;  // [sp-0x118]
     int v10;  // [sp-0x108]
     int v11;  // [sp-0xf8]
     unsigned long long v12;  // [sp-0xe8]
     void* v13;  // [sp-0xd8]
-    char *v14;  // [sp-0xd0], Other Possible Types: unsigned long long
+    char *v14;  // [sp-0xd0]
     unsigned long long v15;  // [sp-0xc8]
-    char *v16;  // [sp-0xc0], Other Possible Types: struct struct_0 **
+    char *v16;  // [sp-0xc0], Other Possible Types: struct struct_2 **
     unsigned long long v17;  // [sp-0xb8]
     void* v18;  // [sp-0xb0]
-    void* v19;  // [sp-0xa0], Other Possible Types: unsigned long, unsigned long long
+    void* v19;  // [sp-0xa0], Other Possible Types: unsigned long
     int v20;  // [bp-0x98], Other Possible Types: unsigned long
     char v21;  // [sp-0x88]
     char v22;  // [bp-0x80]
@@ -82,7 +82,7 @@ long long uu_join::State::next_line::hdcd6fa155f18f200(struct_2 *a0, struct_1 *a
                 v18 = 0;
                 v16 = &v1;
                 v17 = 3;
-                core::option::Option$LT$T$GT$::map_or_else::h8935355a4f11714a();
+                core::option::Option$LT$T$GT$::map_or_else::h8935355a4f11714a(&v22, &v14);
                 core::ptr::drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$::h047006ab4df47656(&v26);
                 *((int128_t *)&v11) = *((int128_t *)&v22);
                 v12 = *((long long *)&v23);

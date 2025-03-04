@@ -1,7 +1,7 @@
 long long uu_ls::extract_format::h7d78a4a0dcc4169d(struct_0 *a0, unsigned long long a1)
 {
     char v0;  // [bp-0x60]
-    char v1;  // [bp-0x58], Other Possible Types: unsigned long long
+    char v1;  // [bp-0x58], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v2;  // [sp-0x50]
     unsigned long long v3;  // [sp-0x48]
     int v4;  // [sp-0x40]

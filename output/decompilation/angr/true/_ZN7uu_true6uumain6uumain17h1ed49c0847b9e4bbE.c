@@ -1,15 +1,15 @@
 long long uu_true::uumain::uumain::h1ed49c0847b9e4bb(unsigned long long a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0x3a8], Other Possible Types: unsigned long long
-    unsigned long v1;  // [sp-0x3a0], Other Possible Types: unsigned long long
-    struct struct_0 **v2;  // [sp-0x398]
+    unsigned long v0;  // [sp-0x3a8]
+    unsigned long v1;  // [sp-0x3a0]
+    struct struct_1 **v2;  // [sp-0x398]
     unsigned long long v3;  // [sp-0x390]
-    int v4;  // [bp-0x388], Other Possible Types: unsigned long long
+    int v4;  // [sp-0x388], Other Possible Types: unsigned long
     unsigned long long v5;  // [sp-0x380]
-    struct struct_0 **v6;  // [sp-0x378], Other Possible Types: unsigned long long
+    struct struct_1 **v6;  // [sp-0x378], Other Possible Types: unsigned long long
     unsigned long long v7;  // [sp-0x370]
     void* v8;  // [sp-0x368]
-    struct struct_0 **v9;  // [bp-0x350]
+    struct struct_1 **v9;  // [bp-0x350]
     unsigned long long v10;  // [sp-0x348]
     char *v11;  // [sp-0x340]
     unsigned long long v12;  // [sp-0x338]
@@ -77,14 +77,14 @@ LABEL_459248:
                     v7 = 2;
                     core::ptr::drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$::h3c6ebbb1cd20ddd4(_$LT$std..io..stdio..Stderr$u20$as$u20$std..io..Write$GT$::write_fmt::h82787f8382d2102c(&v1, &v4));
                     uucore::mods::error::set_exit_code::hf3c39c5b4c05c2c0(1);
-                    ::0x457b90::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::ha0de51bb71c1211e();
+                    ::0x457b90::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::ha0de51bb71c1211e(v0);
                 }
             default:
                 goto LABEL_4592ef;
             }
 LABEL_4592ef:
             core::ptr::drop_in_place$LT$clap_builder..error..Error$GT$::h3be515c51c88d197(*((long long *)&v16));
-            if (!(!v21))
+            if (!(*((long long *)&v15) == 0x8000000000000000))
                 goto LABEL_459301;
         }
     }

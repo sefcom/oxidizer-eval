@@ -1,6 +1,7 @@
-undefined8 * __rustcall
-uu_du::du(undefined8 *param_1,long *param_2,long param_3,long param_4,undefined8 param_5,
-         undefined8 param_6)
+undefined8 *
+_ZN5uu_du2du17ha667a9e24cfc9f10E
+          (undefined8 *param_1,long *param_2,long param_3,long param_4,undefined8 param_5,
+          undefined8 param_6)
 
 {
   char cVar1;
@@ -141,15 +142,17 @@ LAB_001f2871:
   }
   else {
                     /* try { // try from 001f203a to 001f20a3 has its CatchHandler @ 001f2a17 */
-    std::fs::read_dir(&local_208,param_2 + 8);
+    _ZN3std2fs8read_dir17h62350172118b109cE(&local_208,param_2 + 8);
     if (local_200 == '\x02') {
       auStack_3d8 = (undefined  [8])
-                    _<std::io::error::Error_as_uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>
-                    ::map_err_context(local_208,param_2 + 8);
-      local_3d0 = &PTR_drop_in_place<uucore_mods_error_UIoError>_002843f0;
+                    _ZN131__LT_std__io__error__Error_u20_as_u20_uucore__mods__error__FromIo_LT_alloc__boxed__Box_LT_uucore__mods__error__UIoError_GT__GT__GT_15map_err_context17h48a9c401437e4328E
+                              (local_208,param_2 + 8);
+      local_3d0 = &
+                  PTR__ZN4core3ptr50drop_in_place_LT_uucore__mods__error__UIoError_GT_17he185e2a3ca67f702E_002843f0
+      ;
       local_3e0 = 0;
       local_3e8 = (undefined *)0x2;
-      std::sync::mpmc::Sender<T>::send(&local_2c8,param_6,&local_3e8);
+      _ZN3std4sync4mpmc15Sender_LT_T_GT_4send17h0f9fc14a9ceb05b9E(&local_2c8,param_6,&local_3e8);
       uVar13 = uStack_2c0;
       puVar6 = local_2c8;
       auVar15[0] = -((char)local_2c8 == DAT_0010f110);
@@ -188,7 +191,7 @@ LAB_001f2871:
       local_3e0 = uVar13;
       local_3e8 = puVar6;
                     /* try { // try from 001f20f6 to 001f20ff has its CatchHandler @ 001f2a17 */
-      uVar13 = ::alloc::boxed::Box<T>::new(&local_3e8);
+      uVar13 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h757b8ba3534c23ebE(&local_3e8);
       param_1[2] = uVar13;
       param_1[1] = 0;
       *param_1 = 2;
@@ -207,11 +210,11 @@ LAB_001f2871:
       do {
         while( true ) {
                     /* try { // try from 001f21b0 to 001f21c2 has its CatchHandler @ 001f2a36 */
-          _<std::fs::ReadDir_as_core::iter::traits::iterator::Iterator>::next(&local_110,&local_3f8)
-          ;
+          _ZN75__LT_std__fs__ReadDir_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h153c1e0177592fe2E
+                    (&local_110,&local_3f8);
           if (local_110 == 0) {
                     /* try { // try from 001f285d to 001f286b has its CatchHandler @ 001f2a17 */
-            core::ptr::drop_in_place<std::fs::ReadDir>(&local_3f8);
+            _ZN4core3ptr37drop_in_place_LT_std__fs__ReadDir_GT_17h2f49c189e78799baE(&local_3f8);
             goto LAB_001f2871;
           }
           if (local_108 == 0) break;
@@ -221,9 +224,9 @@ LAB_001f2871:
           local_310 = local_f8;
           uStack_308 = uStack_f0;
                     /* try { // try from 001f221b to 001f2233 has its CatchHandler @ 001f2a2a */
-          std::fs::DirEntry::path(local_348,&local_320);
+          _ZN3std2fs8DirEntry4path17h5b1bdb0f1090af27E(local_348,&local_320);
                     /* try { // try from 001f2244 to 001f2258 has its CatchHandler @ 001f2a2f */
-          Stat::new(&local_c8,local_340,local_338,&local_320,param_3);
+          _ZN5uu_du4Stat3new17h9e91ef33e1f296e6E(&local_c8,local_340,local_338,&local_320,param_3);
           auVar16[0] = -(local_c8 == DAT_0010ef80);
           auVar16[1] = -(cStack_c7 == UNK_0010ef81);
           auVar16[2] = -(cStack_c6 == UNK_0010ef82);
@@ -257,13 +260,16 @@ LAB_001f2871:
                        (ushort)(SUB161(auVar16 >> 0x77,0) & 1) << 0xe |
                       (ushort)(auVar16[0xf] >> 7) << 0xf) == 0xffff) {
                     /* try { // try from 001f2281 to 001f22c5 has its CatchHandler @ 001f2a25 */
-            uVar13 = _<std::io::error::Error_as_uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>
-                     ::map_err_context(local_b8,&local_320);
-            local_3d0 = &PTR_drop_in_place<uucore_mods_error_UIoError>_002843f0;
+            uVar13 = _ZN131__LT_std__io__error__Error_u20_as_u20_uucore__mods__error__FromIo_LT_alloc__boxed__Box_LT_uucore__mods__error__UIoError_GT__GT__GT_15map_err_context17h6097e5bae67e7f0aE
+                               (local_b8,&local_320);
+            local_3d0 = &
+                        PTR__ZN4core3ptr50drop_in_place_LT_uucore__mods__error__UIoError_GT_17he185e2a3ca67f702E_002843f0
+            ;
             local_3e0 = 0;
             local_3e8 = (undefined *)0x2;
             auStack_3d8 = (undefined  [8])uVar13;
-            std::sync::mpmc::Sender<T>::send(&local_2c8,param_6,&local_3e8);
+            _ZN3std4sync4mpmc15Sender_LT_T_GT_4send17h0f9fc14a9ceb05b9E
+                      (&local_2c8,param_6,&local_3e8);
             uVar13 = uStack_2c0;
             puVar6 = local_2c8;
             auVar17[0] = -((char)local_2c8 == DAT_0010f110);
@@ -302,30 +308,32 @@ LAB_001f2871:
               local_3e0 = uVar13;
               local_3e8 = puVar6;
                     /* try { // try from 001f2917 to 001f2920 has its CatchHandler @ 001f2a09 */
-              uVar13 = ::alloc::boxed::Box<T>::new(&local_3e8);
+              uVar13 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h757b8ba3534c23ebE(&local_3e8);
               goto LAB_001f2921;
             }
 LAB_001f22e6:
                     /* try { // try from 001f22e6 to 001f22f2 has its CatchHandler @ 001f2a23 */
-            core::ptr::drop_in_place<std::path::PathBuf>(local_348);
+            _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17hbd810d79ecac54eaE(local_348);
                     /* try { // try from 001f22f3 to 001f2346 has its CatchHandler @ 001f2a34 */
-            core::ptr::drop_in_place<std::fs::DirEntry>(&local_320);
+            _ZN4core3ptr38drop_in_place_LT_std__fs__DirEntry_GT_17h4ad97d7767b93694E(&local_320);
           }
           else {
             (*(code *)PTR_memcpy_0028a2d8)(&local_208,&local_c8,0x90);
             local_2f8 = local_328;
             local_2f0 = local_330;
             while( true ) {
-              lVar14 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+              lVar14 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hbb4494b75e1b7e30E
                                  (&local_2f8);
               if (lVar14 == 0) break;
                     /* try { // try from 001f23d9 to 001f23e1 has its CatchHandler @ 001f2a5c */
-              std::sys::os_str::bytes::Slice::to_string_lossy(&local_3e8,local_1c0,uStack_1b8);
+              _ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h816275565265bd85E
+                        (&local_3e8,local_1c0,uStack_1b8);
                     /* try { // try from 001f23ec to 001f23f4 has its CatchHandler @ 001f2a4d */
-              cVar12 = glob::Pattern::matches(lVar14,local_3e0,auStack_3d8);
+              cVar12 = _ZN4glob7Pattern7matches17hb817b847971d5388E(lVar14,local_3e0,auStack_3d8);
               if (cVar12 != '\0') {
                     /* try { // try from 001f26e6 to 001f278c has its CatchHandler @ 001f2a21 */
-                core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&local_3e8);
+                _ZN4core3ptr50drop_in_place_LT_alloc__borrow__Cow_LT_str_GT__GT_17h7fa1288604a001f4E
+                          (&local_3e8);
                 auVar21 = local_2b8;
 LAB_001f26f8:
                 local_2b8 = auVar21;
@@ -337,33 +345,38 @@ LAB_001f26f8:
                   local_2b8[8] = 1;
                   local_2d0 = &local_2c8;
                   local_2e8 = &local_2d0;
-                  local_2e0 = _<&T_as_core::fmt::Display>::fmt;
+                  local_2e0 = 
+                  _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h50e55b5d7d795045E;
                   local_3e8 = &DAT_00284380;
                   local_3e0 = 2;
                   uStack_3c8 = 0;
                   local_3d0 = (undefined **)0x1;
                   auStack_3d8 = (undefined  [8])&local_2e8;
-                  std::io::stdio::_print(&local_3e8);
+                  _ZN3std2io5stdio6_print17he918bceb0c89db46E(&local_3e8);
                 }
                 goto LAB_001f278d;
               }
                     /* try { // try from 001f23fd to 001f244f has its CatchHandler @ 001f2a5c */
-              core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&local_3e8);
-              std::fs::DirEntry::file_name(local_e0,&local_320);
-              std::sys::os_str::bytes::Buf::into_string(&local_3e8,local_e0);
+              _ZN4core3ptr50drop_in_place_LT_alloc__borrow__Cow_LT_str_GT__GT_17h7fa1288604a001f4E
+                        (&local_3e8);
+              _ZN3std2fs8DirEntry9file_name17habdd235db90dd152E(local_e0,&local_320);
+              _ZN3std3sys6os_str5bytes3Buf11into_string17h7b5acb763c5a1dedE(&local_3e8,local_e0);
               uStack_2c0 = local_3e0;
               local_2c8 = local_3e8;
               local_2b8 = _auStack_3d8;
-              core::result::Result<T,E>::unwrap(&local_2e8,&local_2c8);
+              _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hbe98b57ab5f25fd3E(&local_2e8,&local_2c8)
+              ;
                     /* try { // try from 001f2460 to 001f2468 has its CatchHandler @ 001f2a3b */
-              cVar12 = glob::Pattern::matches(lVar14,local_2e0,local_2d8);
+              cVar12 = _ZN4glob7Pattern7matches17hb817b847971d5388E(lVar14,local_2e0,local_2d8);
               if (cVar12 != '\0') {
-                core::ptr::drop_in_place<alloc::string::String>(&local_2e8);
+                _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h5d86c71ca1632ad3E
+                          (&local_2e8);
                 auVar21 = local_2b8;
                 goto LAB_001f26f8;
               }
                     /* try { // try from 001f2471 to 001f2478 has its CatchHandler @ 001f2a5c */
-              core::ptr::drop_in_place<alloc::string::String>(&local_2e8);
+              _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h5d86c71ca1632ad3E
+                        (&local_2e8);
             }
             if (local_208 == 0 && CONCAT71(uStack_1ff,local_200) == 0) {
 LAB_001f2501:
@@ -373,13 +386,14 @@ LAB_001f2501:
                 param_2[0xc] = param_2[0xc] + lStack_1a8;
                 if (cVar3 == '\0') {
                     /* try { // try from 001f283d to 001f2849 has its CatchHandler @ 001f2a25 */
-                  core::ptr::drop_in_place<uu_du::Stat>(&local_208);
+                  _ZN4core3ptr32drop_in_place_LT_uu_du__Stat_GT_17h701ab588e12d6784E(&local_208);
                 }
                 else {
                   (*(code *)PTR_memcpy_0028a2d8)(&local_3e8,&local_208,0x90);
                     /* try { // try from 001f2803 to 001f2817 has its CatchHandler @ 001f2a12 */
                   local_358 = param_4;
-                  std::sync::mpmc::Sender<T>::send(&local_2c8,param_6,&local_3e8);
+                  _ZN3std4sync4mpmc15Sender_LT_T_GT_4send17h0f9fc14a9ceb05b9E
+                            (&local_2c8,param_6,&local_3e8);
                   uVar13 = uStack_2c0;
                   puVar6 = local_2c8;
                   auVar20[0] = -((char)local_2c8 == DAT_0010f110);
@@ -418,7 +432,7 @@ LAB_001f2501:
                     local_3e0 = uVar13;
                     local_3e8 = puVar6;
                     /* try { // try from 001f29f5 to 001f29fe has its CatchHandler @ 001f2a04 */
-                    uVar13 = ::alloc::boxed::Box<T>::new(&local_3e8);
+                    uVar13 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h757b8ba3534c23ebE(&local_3e8);
                     goto LAB_001f2921;
                   }
                 }
@@ -428,7 +442,8 @@ LAB_001f2501:
                  (local_1e8 == param_2[4])) {
                 (*(code *)PTR_memcpy_0028a2d8)(&local_3e8,&local_208,0x90);
                     /* try { // try from 001f2559 to 001f26c0 has its CatchHandler @ 001f2a12 */
-                du(&local_2c8,&local_3e8,param_3,param_4,param_5,param_6);
+                _ZN5uu_du2du17ha667a9e24cfc9f10E
+                          (&local_2c8,&local_3e8,param_3,param_4,param_5,param_6);
                 auVar18[0] = -((char)local_2c8 == DAT_0010ef80);
                 auVar18[1] = -(local_2c8._1_1_ == UNK_0010ef81);
                 auVar18[2] = -(local_2c8._2_1_ == UNK_0010ef82);
@@ -527,7 +542,8 @@ LAB_001f2501:
                   local_128 = uVar10;
                   uStack_120 = uVar11;
                   _auStack_3d8 = local_2b8;
-                  std::sync::mpmc::Sender<T>::send(&local_2c8,param_6,&local_3e8);
+                  _ZN3std4sync4mpmc15Sender_LT_T_GT_4send17h0f9fc14a9ceb05b9E
+                            (&local_2c8,param_6,&local_3e8);
                   uVar13 = uStack_2c0;
                   puVar6 = local_2c8;
                   auVar19[0] = -((char)local_2c8 == DAT_0010f110);
@@ -566,16 +582,18 @@ LAB_001f2501:
                   local_3e0 = uVar13;
                   local_3e8 = puVar6;
                     /* try { // try from 001f29b4 to 001f29bd has its CatchHandler @ 001f2a04 */
-                  uVar13 = ::alloc::boxed::Box<T>::new(&local_3e8);
+                  uVar13 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h757b8ba3534c23ebE(&local_3e8);
                 }
 LAB_001f2921:
                 param_1[2] = uVar13;
                 param_1[1] = 0;
                 *param_1 = 2;
                     /* try { // try from 001f2941 to 001f294d has its CatchHandler @ 001f2a0e */
-                core::ptr::drop_in_place<std::path::PathBuf>(local_348);
+                _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17hbd810d79ecac54eaE(local_348)
+                ;
                     /* try { // try from 001f294e to 001f295a has its CatchHandler @ 001f2a10 */
-                core::ptr::drop_in_place<std::fs::DirEntry>(&local_320);
+                _ZN4core3ptr38drop_in_place_LT_std__fs__DirEntry_GT_17h4ad97d7767b93694E(&local_320)
+                ;
                 goto LAB_001f295b;
               }
             }
@@ -584,10 +602,12 @@ LAB_001f2921:
               uStack_220 = uStack_1f0;
               local_218 = local_1e8;
                     /* try { // try from 001f24b2 to 001f2500 has its CatchHandler @ 001f2a21 */
-              lVar14 = hashbrown::map::HashMap<K,V,S,A>::get_inner(param_5,&local_228);
+              lVar14 = _ZN9hashbrown3map28HashMap_LT_K_C_V_C_S_C_A_GT_9get_inner17hd97e7f5240db6501E
+                                 (param_5,&local_228);
               if (lVar14 == 0) {
 LAB_001f24df:
-                hashbrown::map::HashMap<K,V,S,A>::insert(param_5,local_228,uStack_220,local_218);
+                _ZN9hashbrown3map28HashMap_LT_K_C_V_C_S_C_A_GT_6insert17h4a8fe37a6ecf7570E
+                          (param_5,local_228,uStack_220,local_218);
                 goto LAB_001f2501;
               }
               if (cVar2 != '\0') {
@@ -597,20 +617,19 @@ LAB_001f24df:
             }
 LAB_001f278d:
                     /* try { // try from 001f278d to 001f2799 has its CatchHandler @ 001f2a2f */
-            core::ptr::drop_in_place<uu_du::Stat>(&local_208);
+            _ZN4core3ptr32drop_in_place_LT_uu_du__Stat_GT_17h701ab588e12d6784E(&local_208);
                     /* try { // try from 001f279a to 001f27a6 has its CatchHandler @ 001f2a2a */
-            core::ptr::drop_in_place<std::path::PathBuf>(local_348);
+            _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17hbd810d79ecac54eaE(local_348);
                     /* try { // try from 001f27af to 001f27b3 has its CatchHandler @ 001f2a36 */
-            core::ptr::drop_in_place<std::fs::DirEntry>(&local_320);
+            _ZN4core3ptr38drop_in_place_LT_std__fs__DirEntry_GT_17h4ad97d7767b93694E(&local_320);
           }
         }
-        auVar21 = uucore::mods::error::
-                  _<impl_core::convert::From<std::io::error::Error>for_alloc::boxed::Box<dyn_uucore::mods::error::UError>>
-                  ::from();
+        auVar21 = _ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17hcd961c31063bf4faE
+                            ();
         local_3e0 = 0;
         local_3e8 = (undefined *)0x2;
         _auStack_3d8 = auVar21;
-        std::sync::mpmc::Sender<T>::send(&local_2c8,param_6,&local_3e8);
+        _ZN3std4sync4mpmc15Sender_LT_T_GT_4send17h0f9fc14a9ceb05b9E(&local_2c8,param_6,&local_3e8);
         uVar13 = uStack_2c0;
         puVar6 = local_2c8;
         auVar21[0] = -((char)local_2c8 == DAT_0010f110);
@@ -649,15 +668,15 @@ LAB_001f278d:
       local_3e0 = uVar13;
       local_3e8 = puVar6;
                     /* try { // try from 001f28b9 to 001f28c7 has its CatchHandler @ 001f2a10 */
-      uVar13 = ::alloc::boxed::Box<T>::new(&local_3e8);
+      uVar13 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h757b8ba3534c23ebE(&local_3e8);
       param_1[2] = uVar13;
       param_1[1] = 0;
       *param_1 = 2;
 LAB_001f295b:
                     /* try { // try from 001f295b to 001f2964 has its CatchHandler @ 001f2a17 */
-      core::ptr::drop_in_place<std::fs::ReadDir>(&local_3f8);
+      _ZN4core3ptr37drop_in_place_LT_std__fs__ReadDir_GT_17h2f49c189e78799baE(&local_3f8);
     }
-    core::ptr::drop_in_place<uu_du::Stat>(param_2);
+    _ZN4core3ptr32drop_in_place_LT_uu_du__Stat_GT_17h701ab588e12d6784E(param_2);
   }
   return param_1;
 }

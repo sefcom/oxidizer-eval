@@ -1,4 +1,4 @@
-void __rustcall uu_fmt::parasplit::Line::get_noformatline(long *param_1,long *param_2)
+void _ZN6uu_fmt9parasplit4Line16get_noformatline17h86ff5ba6ba43aa31E(long *param_1,long *param_2)
 
 {
   long lVar1;
@@ -23,5 +23,6 @@ void __rustcall uu_fmt::parasplit::Line::get_noformatline(long *param_1,long *pa
   uStack_20 = 0;
                     /* try { // try from 001b96bd to 001b96ce has its CatchHandler @ 001b96cf */
                     /* WARNING: Subroutine does not return */
-  core::panicking::panic_fmt(&local_40,&PTR_s_src_uu_fmt_src_parasplit_rs_00226608);
+  _ZN4core9panicking9panic_fmt17he12d0d7468628bb4E
+            (&local_40,&PTR_s_src_uu_fmt_src_parasplit_rs_00226608);
 }

@@ -1,7 +1,7 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined8 __rustcall
-uu_base32::base_common::fast_decode::alphabet_to_table
+undefined8
+_ZN9uu_base3211base_common11fast_decode17alphabet_to_table17h5796dc70b852cfc7E
           (undefined8 param_1,long param_2,long param_3,int param_4)
 
 {
@@ -82,18 +82,20 @@ uu_base32::base_common::fast_decode::alphabet_to_table
     local_120 = 0xd0a;
     while( true ) {
                     /* try { // try from 001c4db0 to 001c4db7 has its CatchHandler @ 001c4e2c */
-      auVar3 = _<core::array::iter::IntoIter<T,_>as_core::iter::traits::iterator::Iterator>::next
+      auVar3 = _ZN99__LT_core__array__iter__IntoIter_LT_T_C___GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hfd1264c7489ab82fE
                          (&local_130);
       if ((auVar3 & (undefined  [16])0x1) == (undefined  [16])0x0) break;
       uVar2 = auVar3._8_8_ & 0xff;
       if (*(char *)((long)&local_118 + uVar2) == '\0') {
                     /* try { // try from 001c4df8 to 001c4e10 has its CatchHandler @ 001c4e2a */
                     /* WARNING: Subroutine does not return */
-        core::panicking::panic(&DAT_00119e50,0x1b,&PTR_s_src_uu_base32_src_base_common_rs_00249b58);
+        _ZN4core9panicking5panic17h8c3a660c3523e4a4E
+                  (&DAT_00119e50,0x1b,&PTR_s_src_uu_base32_src_base_common_rs_00249b58);
       }
       *(undefined *)((long)&local_118 + uVar2) = 0;
     }
-    core::ptr::drop_in_place<core::array::iter::IntoIter<u8,2_usize>>(&local_130);
+    _ZN4core3ptr68drop_in_place_LT_core__array__iter__IntoIter_LT_u8_C_2_usize_GT__GT_17h9ff64d9a32df343bE
+              (&local_130);
   }
   else {
     local_28 = 0;
@@ -130,18 +132,18 @@ uu_base32::base_common::fast_decode::alphabet_to_table
     uStack_110 = 0;
     local_128 = param_3 + param_2;
     local_130 = param_2;
-    pbVar1 = (byte *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+    pbVar1 = (byte *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17ha61c831695091875E
                                (&local_130);
     if (pbVar1 != (byte *)0x0) {
       do {
         if (*(char *)((long)&local_118 + (ulong)*pbVar1) != '\0') {
                     /* WARNING: Subroutine does not return */
-          core::panicking::panic
+          _ZN4core9panicking5panic17h8c3a660c3523e4a4E
                     (&DAT_00119e6b,0x1c,&PTR_s_src_uu_base32_src_base_common_rs_00249b70);
         }
         *(undefined *)((long)&local_118 + (ulong)*pbVar1) = 1;
-        pbVar1 = (byte *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::
-                         next(&local_130);
+        pbVar1 = (byte *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17ha61c831695091875E
+                                   (&local_130);
       } while (pbVar1 != (byte *)0x0);
     }
   }

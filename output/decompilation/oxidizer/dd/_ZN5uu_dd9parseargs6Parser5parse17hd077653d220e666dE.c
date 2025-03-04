@@ -1,7 +1,7 @@
 fn uu_dd::parseargs::Parser::parse(a0: &Result<struct164, struct32>, a1: u32, a2: u32, a3: u32) -> u64 {
-    let v0: i128;  // [sp-0x1e8]
-    let v1: i128;  // [sp-0x1d8]
-    let v2: i1728;  // [sp-0x1c0], Other Possible Types: Result<struct216, struct32>
+    let v0: iNone;  // [sp-0x1e8]
+    let v1: iNone;  // [sp-0x1d8]
+    let v2: Result<struct216, struct32>;  // [sp-0x1c0]
     let v3: struct40;  // [bp-0xe8]
     let v4: i8;  // [bp-0xc0]
 
@@ -10,9 +10,8 @@ fn uu_dd::parseargs::Parser::parse(a0: &Result<struct164, struct32>, a1: u32, a2
     v1 = *((&v2 as &char + 24) as &i128);
     match v2 {
         Err(_) => {
-            return Err(struct32 {
-                field_0: v0
-                field_16: v1
+            return Err(struct16 {
+                field_8: <UNKNOWN>
             });
         },
         Ok(_) => {

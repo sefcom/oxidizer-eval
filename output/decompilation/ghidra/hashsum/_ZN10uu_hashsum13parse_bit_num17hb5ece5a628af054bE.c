@@ -1,4 +1,5 @@
-undefined * __rustcall uu_hashsum::parse_bit_num(undefined *param_1,char *param_2,ulong param_3)
+undefined *
+_ZN10uu_hashsum13parse_bit_num17hb5ece5a628af054bE(undefined *param_1,char *param_2,ulong param_3)
 
 {
   undefined auVar1 [16];

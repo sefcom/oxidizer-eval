@@ -5,7 +5,7 @@ fn uu_dd::parseargs::Parser::validate(a0: &struct164, a1: &struct40) -> int {
     let v3: i8;  // [sp-0x5b]
     let v4: i8;  // [sp-0x5a]
     let v5: i8;  // [sp-0x59]
-    let v6: i128;  // [sp-0x58]
+    let v6: iNone;  // [sp-0x58]
     let v7: struct18;  // [sp-0x48]
     let v9: i64;  // r13
     let v10: i8;  // dil
@@ -15,7 +15,7 @@ fn uu_dd::parseargs::Parser::validate(a0: &struct164, a1: &struct40) -> int {
     let v14: i8;  // r15b
     let v15: i8;  // r10b
     let v16: i8;  // r11b
-    let v17: i128;  // xmm0
+    let v17: iNone;  // xmm0
     let v18: i8;  // r8b
     let v19: i8;  // r9b
     let v20: i64;  // r12
@@ -30,12 +30,12 @@ fn uu_dd::parseargs::Parser::validate(a0: &struct164, a1: &struct40) -> int {
     let v34: i8;  // sil
     let v35: i8;  // dil
     let v36: i8;  // r8b
-    let v37: i64;  // rdx
-    let v38: i256;  // ymm0
-    let v41: i64;  // rsi
-    let v50: i64;  // cc_dep1
-    let v57: i64;  // cc_dep1
-    let v62: i64;  // r9
+    let v39: i64;  // rdx
+    let v40: iNone;  // ymm0
+    let v42: i64;  // rsi
+    let v48: i64;  // cc_dep1
+    let v51: i64;  // cc_dep1
+    let v54: i64;  // r9
 
     v9 = *((a1 + 160) as &i8);
     v10 = *((a1 + 161) as &i8);
@@ -50,9 +50,9 @@ fn uu_dd::parseargs::Parser::validate(a0: &struct164, a1: &struct40) -> int {
     v17 = *((a1 + 170) as &i32);
     v18 = *((a1 + 174) as &i8);
     v19 = *((a1 + 175) as &i8);
-    if v9 {
+    if v9 as u8 {
         if !(!v11) || !(!v10) {
-            return v38;
+            return v40 as u64;
         }
         if !v12 {
             v3 = v16;
@@ -70,12 +70,12 @@ fn uu_dd::parseargs::Parser::validate(a0: &struct164, a1: &struct40) -> int {
                 v6 = v17;
                 v20 = 0;
             } else {
-                return v38;
+                return v40 as u64;
             }
         }
     } else if v10 {
         if v11 {
-            return v38;
+            return v40 as u64;
         }
         if !v12 {
             v3 = v16;
@@ -92,7 +92,7 @@ fn uu_dd::parseargs::Parser::validate(a0: &struct164, a1: &struct40) -> int {
             v6 = v17;
             v20 = v24 & -0x100 | 1;
         } else {
-            return v38;
+            return v40 as u64;
         }
     } else {
         if v11 {
@@ -112,7 +112,7 @@ fn uu_dd::parseargs::Parser::validate(a0: &struct164, a1: &struct40) -> int {
                 v6 = v17;
                 v20 = v25 & -0x100 | 2;
             } else {
-                return v38;
+                return v40 as u64;
             }
         } else {
             if !v12 {
@@ -131,53 +131,53 @@ fn uu_dd::parseargs::Parser::validate(a0: &struct164, a1: &struct40) -> int {
                 v6 = v17;
                 v20 = v26 & -0x100 | 3;
             } else {
-                return v38;
+                return v40 as u64;
             }
         }
     }
 LABEL_4d2cba:
-    v27 = v20;
+    v27 = v20 as u32;
     v33 = (340282366920938463463374607431768211455 ^ ((BinaryOp CmpEQV >> 64 CONCAT BinaryOp CmpEQV >> 16 CONCAT BinaryOp CmpEQV >> 16 CONCAT BinaryOp CmpEQV >> 16 CONCAT BinaryOp CmpEQV >> 16) | BinaryOp CmpEQV)) >> 32 & 65535;
     v34 = v2;
     v35 = v1;
     v36 = v0;
-    if (v33 & 1) {
-        return v38;
+    if (v33 as u8 & 1) {
+        return v40 as u64;
     }
     if !*((a1 + 48) as &i64) {
-        if !(!v14 && !v4) {
-            return v38;
+        if !(!v14) || !(!v4) {
+            return v40 as u64;
         }
         v0 = v36;
         v1 = v35;
         v2 = v34;
-        v37 = 2;
+        v39 = 2;
 LABEL_4d2dd6:
-        v7 = uu_dd::parseargs::conversion_mode(uu_dd::parseargs::get_ctable(v27, (!v13) * 2), v37, v33, v9 & 4294967295, v5 & 4294967295);
-        v41 = *(a1 as &i64);
-        v50 = *((a1 + 64) as &i64);
-        v57 = *((a1 + 80) as &i64);
-        v62 = *((a1 + 96) as &i64);
+        v7 = uu_dd::parseargs::conversion_mode(uu_dd::parseargs::get_ctable(v27 as u64, (!v13) * 2), v39, v33, v9 & 4294967295, v5 & 4294967295);
+        v42 = *(a1 as &i64);
+        v48 = *((a1 + 64) as &i64);
+        v51 = *((a1 + 80) as &i64);
+        v54 = *((a1 + 96) as &i64);
         return struct164 {
-            field_0: v62
-            field_8: v63
-            field_16: v64
+            field_0: v54
+            field_8: v55
+            field_16: v56
             field_32: *((a1 + 128) as &i64)
-            field_40: v65
+            field_40: v57
             field_56: *((a1 + 152) as &i64)
-            field_64: v66
-            field_80: v67
-            field_96: v7
-            field_104: v40 as i8
+            field_64: v58
+            field_80: v59
+            field_96: *(&v7.field_0 as &i64)
+            field_104: v41 as u8
             field_105: 32
             field_106: v0
-            field_107: v39
+            field_107: v38
             field_112: <UNKNOWN>
             field_120: <UNKNOWN>
             field_128: <UNKNOWN>
             field_136: <UNKNOWN>
             field_144: <UNKNOWN>
-            field_148: v43 as i32
+            field_148: v45 as u32
             field_149: <UNKNOWN>
             field_150: <UNKNOWN>
             field_157: <UNKNOWN>
@@ -186,11 +186,11 @@ LABEL_4d2dd6:
         };
     }
     v33 = *((a1 + 56) as &i64);
-    if !v20 {
+    if !v20 as u8 {
         v0 = v36;
         v1 = v35;
         v2 = v34;
-        v37 = 1;
+        v39 = 1;
         goto LABEL_4d2dd6;
     }
     if v27 == 3 {
@@ -198,15 +198,15 @@ LABEL_4d2dd6:
             v0 = v36;
             v1 = v35;
             v2 = v34;
-            v37 = 1 + (v14 < 1);
+            v39 = 1 + (v14 < 1);
             goto LABEL_4d2dd6;
         } else if v14 {
-            return v38;
+            return v40 as u64;
         }
     }
     v0 = v36;
     v1 = v35;
     v2 = v34;
-    v37 = 0;
+    v39 = 0;
     goto LABEL_4d2dd6;
 }

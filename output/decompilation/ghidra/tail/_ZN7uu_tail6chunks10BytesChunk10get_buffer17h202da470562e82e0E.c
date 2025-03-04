@@ -1,7 +1,7 @@
-void __rustcall uu_tail::chunks::BytesChunk::get_buffer(long param_1)
+void _ZN7uu_tail6chunks10BytesChunk10get_buffer17h202da470562e82e0E(long param_1)
 
 {
-  _<core::ops::range::Range<usize>as_core::slice::index::SliceIndex<[T]>>::index
+  _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17h2badedfce4d11376E
             (0,*(undefined8 *)(param_1 + 0x2000),param_1,0x2000,
              &PTR_s_src_uu_tail_src_chunks_rs_002bc848);
   return;

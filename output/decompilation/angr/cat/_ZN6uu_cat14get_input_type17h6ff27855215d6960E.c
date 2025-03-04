@@ -1,12 +1,12 @@
-long long uu_cat::get_input_type::h6ff27855215d6960(struct_1 *a0, unsigned long long a1, unsigned long long a2)
+long long uu_cat::get_input_type::h6ff27855215d6960(struct_0 *a0, unsigned long long a1, unsigned long long a2)
 {
     unsigned int v0;  // [sp-0xe4]
     char *v1;  // [bp-0xe0], Other Possible Types: char
     unsigned long long v2;  // [sp-0xd8]
     unsigned long long v3;  // [sp-0xd0]
-    char v4;  // [bp-0xc8], Other Possible Types: unsigned long long
+    char v4;  // [bp-0xc8], Other Possible Types: unsigned long
     unsigned long v5;  // [sp-0xc0], Other Possible Types: unsigned long long
-    struct struct_0 **v6;  // [sp-0xb8]
+    struct struct_1 **v6;  // [sp-0xb8]
     unsigned long long v7;  // [sp-0xb0]
     void* v8;  // [sp-0xa8]
     char v9;  // [bp-0x90]
@@ -58,7 +58,7 @@ long long uu_cat::get_input_type::h6ff27855215d6960(struct_1 *a0, unsigned long 
                 v8 = 0;
                 v6 = &v1;
                 v7 = 1;
-                return core::option::Option$LT$T$GT$::map_or_else::h4b4049542ff9b626();
+                return core::option::Option$LT$T$GT$::map_or_else::h4b4049542ff9b626(a0, &v4);
             }
         }
     }

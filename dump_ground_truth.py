@@ -3,6 +3,9 @@ import os
 import subprocess
 import time
 
+from collections import defaultdict
+from eval.config import CACHED_GROUND_TRUTH_PATH
+
 
 def walk_error():
     print("sb")
@@ -11,6 +14,7 @@ def walk_error():
 if __name__ == "__main__":
     src_path = os.path.abspath("dataset-src/coreutils/src/uu/")
     os.chdir("source-analyzer/output")
+    ground_truth = defaultdict(dict)
     for root, _, files in os.walk(src_path, onerror=walk_error):
         if root.endswith("/src"):
             for file in files:
@@ -27,18 +31,16 @@ if __name__ == "__main__":
                     module = os.path.relpath(root, src_path)
                     module = module[: module.index("/src")]
                     for key in obj:
+                        data = obj[key]
                         if key.startswith(module + "::"):
                             key = key[key.index("::") + 2 :]
+                        if key == "uumain":
+                            key = "uumain::uumain"
                         func_name = f"uu_{module}::{key}"
-                        print(func_name)
-    # for root, _, files in os.walk("source-analyzer/output"):
-    #     for file in files:
-    #         module_name = "uu_" + file[: file.index("_")]
-    #         print(module_name)
-    #         if module_name == "uu_fmt":
-    #             with open(os.path.join(root, file), "r") as fd:
-    #                 obj = json.load(fd)
-    #                 for key in obj:
-    #                     func_name = module_name + key[key.index("::") :]
-    #                     print(func_name)
-    #             break
+                        assert func_name not in ground_truth
+                        ground_truth[module][func_name] = data
+    os.chdir("../..")
+    os.makedirs(CACHED_GROUND_TRUTH_PATH)
+    for module in ground_truth:
+        with open(os.path.join(CACHED_GROUND_TRUTH_PATH, f"{module}.json"), "w") as fd:
+            json.dump(ground_truth[module], fd, indent=2)

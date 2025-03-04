@@ -2,14 +2,14 @@ long long uu_cut::cut_fields_implicit_out_delim::h3e4a03ff417ae94a(unsigned int 
 {
     char v0;  // [sp-0xb2]
     char v1;  // [bp-0xb1]
-    unsigned long v2;  // [sp-0xb0], Other Possible Types: unsigned long long
-    unsigned long v3;  // [sp-0xa0], Other Possible Types: unsigned long long
-    int v4;  // [sp-0x98], Other Possible Types: unsigned long, unsigned long long
+    unsigned long v2;  // [sp-0xb0]
+    unsigned long v3;  // [sp-0xa0]
+    int v4;  // [bp-0x98], Other Possible Types: unsigned long
     char *v5;  // [sp-0x90]
     char *v6;  // [sp-0x88], Other Possible Types: unsigned long long
     unsigned int v7;  // [bp-0x80], Other Possible Types: unsigned long
     char *v8;  // [sp-0x78]
-    unsigned long v9;  // [sp-0x68], Other Possible Types: unsigned long long
+    unsigned long v9;  // [sp-0x68]
     unsigned long long v10;  // [sp-0x60]
     char v11;  // [bp-0x58]
     char v12;  // [bp-0x48]
@@ -39,7 +39,7 @@ long long uu_cut::cut_fields_implicit_out_delim::h3e4a03ff417ae94a(unsigned int 
     v7 = 1;
     *((int128_t *)&v4) = *((int128_t *)&v11);
     v6 = *((long long *)&v12);
-    ::0x4b4a70::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::hd987992319436672();
+    ::0x4b4a70::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::hd987992319436672(v3);
     core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$::h87d33fdcef97e0f4(v2, v16);
     core::ptr::drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$::h847359979c596e00(&v13);
     return alloc::boxed::Box$LT$T$GT$::new::hac334f3a9663fcff(&v4);

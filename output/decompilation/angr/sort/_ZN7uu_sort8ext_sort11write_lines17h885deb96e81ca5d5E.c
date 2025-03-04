@@ -1,7 +1,7 @@
 long long uu_sort::ext_sort::write_lines::h885deb96e81ca5d5(unsigned long a0, unsigned long a1, unsigned long long a2, char a3)
 {
     char v0;  // [sp-0x41]
-    unsigned long v1;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0x40]
     unsigned long long v2;  // [sp-0x38]
     unsigned long long v4[2];  // rax
 

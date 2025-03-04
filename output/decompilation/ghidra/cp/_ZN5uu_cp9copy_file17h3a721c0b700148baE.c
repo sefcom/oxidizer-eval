@@ -1,8 +1,8 @@
-undefined8 * __rustcall
-uu_cp::copy_file(undefined8 *param_1,long *param_2,undefined ********param_3,
-                undefined ********param_4,undefined ********param_5,undefined ********param_6,
-                long param_7,undefined8 param_8,undefined8 param_9,undefined8 param_10,byte param_11
-                )
+undefined8 *
+_ZN5uu_cp9copy_file17h3a721c0b700148baE
+          (undefined8 *param_1,long *param_2,undefined ********param_3,undefined ********param_4,
+          undefined ********param_5,undefined ********param_6,long param_7,undefined8 param_8,
+          undefined8 param_9,undefined8 param_10,byte param_11)
 
 {
   undefined *puVar1;
@@ -112,50 +112,59 @@ uu_cp::copy_file(undefined8 *param_1,long *param_2,undefined ********param_3,
   undefined local_b8 [136];
   
   local_2e0 = param_2;
-  bVar6 = std::path::Path::is_symlink(param_3,param_4);
-  bVar7 = std::path::Path::is_symlink(param_5,param_6);
+  bVar6 = _ZN3std4path4Path10is_symlink17h6ab8b58756c51c6bE(param_3,param_4);
+  bVar7 = _ZN3std4path4Path10is_symlink17h6ab8b58756c51c6bE(param_5,param_6);
   if (bVar7 != 0) {
-    uucore::features::fs::FileInformation::from_path(&local_390,param_5,param_6,0);
+    _ZN6uucore8features2fs15FileInformation9from_path17he917b6b2466acd0fE
+              (&local_390,param_5,param_6,0);
     if ((undefined ********)local_390 == (undefined ********)0x0) {
       (*(code *)PTR_memcpy_002bbe30)(&local_218,&local_388,0x90);
-      lVar12 = hashbrown::map::HashMap<K,V,S,A>::get_inner(param_8,&local_218);
+      lVar12 = _ZN9hashbrown3map28HashMap_LT_K_C_V_C_S_C_A_GT_9get_inner17hd8db7bc2a0d0ef09E
+                         (param_8,&local_218);
       if (lVar12 == 0) goto LAB_002072cf;
     }
     else {
       pppppppuStack_2b0 = (undefined *******)local_388;
       local_2b8 = (undefined *******)CONCAT71(local_2b8._1_7_,1);
-      core::ptr::drop_in_place<core::result::Result<bool,std::io::error::Error>>(&local_2b8);
+      _ZN4core3ptr77drop_in_place_LT_core__result__Result_LT_bool_C_std__io__error__Error_GT__GT_17h9c31107a5315a077E
+                (&local_2b8);
 LAB_002072cf:
-      lVar12 = hashbrown::map::HashMap<K,V,S,A>::get_inner(param_9,param_5,param_6);
+      lVar12 = _ZN9hashbrown3map28HashMap_LT_K_C_V_C_S_C_A_GT_9get_inner17hf39b9bbbffc687fcE
+                         (param_9,param_5,param_6);
       if (lVar12 == 0) {
         if (((*(char *)(param_7 + 0x41) == '\0') &&
             ((param_11 & *(char *)(param_7 + 0x40) != '\0') == 0)) && (bVar6 == 1)) {
 LAB_00207539:
-          cVar8 = uucore::features::fs::paths_refer_to_same_file(param_3,param_4,param_5,param_6,1);
+          cVar8 = _ZN6uucore8features2fs24paths_refer_to_same_file17hbd4c553d00ffcef7E
+                            (param_3,param_4,param_5,param_6,1);
           if (((cVar8 != '\0') && (*(char *)(param_7 + 0x3c) == '\0')) &&
              ((*(char *)(param_7 + 0x3d) == '\x01' &&
               ((*(char *)(param_7 + 0x4c) == '\0' &&
-               (lVar12 = std::fs::remove_file(param_5,param_6), lVar12 != 0)))))) {
+               (lVar12 = _ZN3std2fs11remove_file17h38159f05e7b4dc34E(param_5,param_6), lVar12 != 0))
+              )))) {
             *param_1 = 2;
             param_1[1] = lVar12;
             return param_1;
           }
           goto LAB_0020758c;
         }
-        std::fs::metadata(&local_390,param_5,param_6);
+        _ZN3std2fs8metadata17h003d8cdbffde7c56E(&local_390,param_5,param_6);
         iVar2 = (int)local_390;
-        core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>
+        _ZN4core3ptr90drop_in_place_LT_core__result__Result_LT_std__fs__Metadata_C_std__io__error__Error_GT__GT_17h6e54671ee6a51b2aE
                   (&local_390);
         if (((iVar2 != 2) ||
             ((*(char *)(param_7 + 0x3c) == '\0' && (*(char *)(param_7 + 0x3d) == '\x01')))) ||
-           (cVar8 = uucore::features::fs::is_symlink_loop(param_5,param_6), cVar8 != '\0'))
-        goto LAB_00207539;
-        std::env::var_os(&local_390,"POSIXLY_CORRECT",0xf);
+           (cVar8 = _ZN6uucore8features2fs15is_symlink_loop17h6176a52fb38b92f8E(param_5,param_6),
+           cVar8 != '\0')) goto LAB_00207539;
+        _ZN3std3env6var_os17h1986be097247ce4aE(&local_390,"POSIXLY_CORRECT",0xf);
         pppppppuVar3 = local_390;
-        core::ptr::drop_in_place<core::option::Option<std::ffi::os_str::OsString>>(&local_390);
+        _ZN4core3ptr75drop_in_place_LT_core__option__Option_LT_std__ffi__os_str__OsString_GT__GT_17h221d2028a300d640E
+                  (&local_390);
         if ((undefined ********)pppppppuVar3 != (undefined ********)0x8000000000000000)
         goto LAB_00207539;
-        pppppppuStack_2b0 = (undefined *******)_<std::path::Display_as_core::fmt::Display>::fmt;
+        pppppppuStack_2b0 =
+             (undefined *******)
+             _ZN57__LT_std__path__Display_u20_as_u20_core__fmt__Display_GT_3fmt17h5a3c32fa16876e76E;
         local_390 = (undefined *******)&PTR_s_not_writing_through_dangling_sym_002b6018;
         local_218 = (undefined *******)param_5;
         pppppppuStack_210 = (undefined *******)param_6;
@@ -165,8 +174,11 @@ LAB_00207539:
     local_208 = (undefined *******)&local_2b8;
     local_218 = (undefined *******)&local_3b8;
     uStack_380 = &local_218;
-    pcStack_200 = _<std::path::Display_as_core::fmt::Display>::fmt;
-    pppppppuStack_210 = (undefined *******)_<std::path::Display_as_core::fmt::Display>::fmt;
+    pcStack_200 = 
+    _ZN57__LT_std__path__Display_u20_as_u20_core__fmt__Display_GT_3fmt17h5a3c32fa16876e76E;
+    pppppppuStack_210 =
+         (undefined *******)
+         _ZN57__LT_std__path__Display_u20_as_u20_core__fmt__Display_GT_3fmt17h5a3c32fa16876e76E;
     local_388 = (undefined ********)0x3;
     local_390 = (undefined *******)&PTR_s_will_not_copy___002b5fe8;
     local_378 = 2;
@@ -178,35 +190,40 @@ LAB_0020792b:
     uStack_36c = 0;
     uStack_370 = 0;
     uStack_374 = 0;
-    core::option::Option<T>::map_or_else(param_1 + 1,&local_390);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17h805a87bba4bea7c2E(param_1 + 1,&local_390);
     *param_1 = 4;
     return param_1;
   }
 LAB_0020758c:
-  cVar8 = uucore::features::fs::are_hardlinks_to_same_file(param_3,param_4,param_5,param_6);
+  cVar8 = _ZN6uucore8features2fs26are_hardlinks_to_same_file17h58f3d52af664165aE
+                    (param_3,param_4,param_5,param_6);
   if (cVar8 != '\0') {
-    std::path::Path::components(&local_218,param_3,param_4);
-    std::path::Path::components(&local_390,param_5,param_6);
-    cVar8 = _<std::path::Components_as_core::cmp::PartialEq>::eq(&local_218,&local_390);
+    _ZN3std4path4Path10components17h4f3217acf0fc8653E(&local_218,param_3,param_4);
+    _ZN3std4path4Path10components17h4f3217acf0fc8653E(&local_390,param_5,param_6);
+    cVar8 = _ZN62__LT_std__path__Components_u20_as_u20_core__cmp__PartialEq_GT_2eq17h5cac1ec2999e76daE
+                      (&local_218,&local_390);
     if ((((cVar8 == '\0') && (*(char *)(param_7 + 0x3c) == '\0')) &&
         (*(char *)(param_7 + 0x3d) == '\x01')) &&
-       (lVar12 = std::fs::remove_file(param_5,param_6), lVar12 != 0)) goto LAB_00207ac4;
+       (lVar12 = _ZN3std2fs11remove_file17h38159f05e7b4dc34E(param_5,param_6), lVar12 != 0))
+    goto LAB_00207ac4;
   }
-  cVar9 = file_or_link_exists(param_5,param_6);
+  cVar9 = _ZN5uu_cp19file_or_link_exists17h0326283b1ad33442E(param_5,param_6);
   cVar8 = *(char *)(param_7 + 0x3e);
   cVar10 = cVar8;
   if ((cVar9 != '\0') &&
      ((cVar8 == '\0' ||
       ((cVar10 = '\x01', *(char *)(param_7 + 0x3c) == '\0' && (*(char *)(param_7 + 0x3d) == '\x01'))
       )))) {
-    cVar10 = uucore::features::fs::paths_refer_to_same_file(param_3,param_4,param_5,param_6,1);
+    cVar10 = _ZN6uucore8features2fs24paths_refer_to_same_file17hbd4c553d00ffcef7E
+                       (param_3,param_4,param_5,param_6,1);
     cVar9 = *(char *)(param_7 + 0x4e);
     if ((cVar10 != '\0') && (cVar9 == '\0')) {
       if (bVar6 == 0) {
         if (*(char *)(param_7 + 0x4c) != '\0' && bVar7 == 0) {
-          std::path::Path::components(&local_218,param_3,param_4);
-          std::path::Path::components(&local_390,param_5,param_6);
-          cVar10 = _<std::path::Components_as_core::cmp::PartialEq>::eq(&local_218,&local_390);
+          _ZN3std4path4Path10components17h4f3217acf0fc8653E(&local_218,param_3,param_4);
+          _ZN3std4path4Path10components17h4f3217acf0fc8653E(&local_390,param_5,param_6);
+          cVar10 = _ZN62__LT_std__path__Components_u20_as_u20_core__cmp__PartialEq_GT_2eq17h5cac1ec2999e76daE
+                             (&local_218,&local_390);
           if (cVar10 == '\0') goto LAB_00207e4b;
           if (*(char *)(param_7 + 0x3c) != '\0' || *(char *)(param_7 + 0x3d) != '\0')
           goto LAB_00207e3e;
@@ -214,8 +231,9 @@ LAB_0020758c:
       }
       else if ((bVar7 == 0) || (*(char *)(param_7 + 0x41) == '\0')) goto LAB_00207e3e;
     }
-    handle_existing_dest(&local_390,param_3,param_4,param_5,param_6,param_7,param_11,param_10);
-    if (local_390 != (undefined *******)&DAT_0000000d) {
+    _ZN5uu_cp20handle_existing_dest17h1a418223b4b32809E
+              (&local_390,param_3,param_4,param_5,param_6,param_7,param_11,param_10);
+    if ((undefined ********)local_390 != (undefined ********)0xd) {
       param_1[7] = CONCAT44(uStack_354,local_358);
       param_1[5] = CONCAT44(uStack_364,local_368);
       param_1[6] = CONCAT44(uStack_35c,uStack_360);
@@ -226,7 +244,8 @@ LAB_0020758c:
       *param_1 = local_390;
       return param_1;
     }
-    cVar11 = uucore::features::fs::are_hardlinks_to_same_file(param_3,param_4,param_5,param_6);
+    cVar11 = _ZN6uucore8features2fs26are_hardlinks_to_same_file17h58f3d52af664165aE
+                       (param_3,param_4,param_5,param_6);
     cVar10 = cVar8;
     if ((cVar11 != '\0') &&
        (((cVar9 == '\x02' && (*(char *)(param_7 + 0x4c) != '\0')) ||
@@ -240,7 +259,9 @@ LAB_00207e3e:
      ((*(char *)(param_7 + 0x3c) != '\0' || (*(char *)(param_7 + 0x3d) != '\x01')))) {
     local_218 = (undefined *******)&DAT_00000001;
     pcStack_200 = (code *)CONCAT71(pcStack_200._1_7_,1);
-    pppppppuStack_2b0 = (undefined *******)_<os_display::Quoted_as_core::fmt::Display>::fmt;
+    pppppppuStack_2b0 =
+         (undefined *******)
+         _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
     local_390 = (undefined *******)&PTR_s_cannot_change_attribute___Source_002b6038;
     pppppppuStack_210 = (undefined *******)param_5;
     local_208 = (undefined *******)param_6;
@@ -252,7 +273,8 @@ LAB_002078fe:
     goto LAB_0020792b;
   }
   if (*(char *)(param_7 + 0x48) != '\0') {
-    print_verbose_output(*(undefined *)(param_7 + 0x44),local_2e0,param_3,param_4,param_5,param_6);
+    _ZN5uu_cp20print_verbose_output17h1215961a97776bc3E
+              (*(undefined *)(param_7 + 0x44),local_2e0,param_3,param_4,param_5,param_6);
   }
   if (*(char *)(param_7 + 0x38) == '\0') {
     bVar6 = *(byte *)(param_7 + 0x40);
@@ -268,11 +290,13 @@ LAB_002078fe:
     if (bVar14 != 0) {
       bVar13 = bVar14 != 0;
     }
-    uucore::features::fs::FileInformation::from_path(&local_390,param_3,param_4,bVar13);
+    _ZN6uucore8features2fs15FileInformation9from_path17he917b6b2466acd0fE
+              (&local_390,param_3,param_4,bVar13);
     local_3b8 = (undefined *******)&DAT_00000001;
     local_3a0 = 1;
     local_148 = (undefined *******)&local_3b8;
-    local_140 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+    local_140 = 
+    _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
     local_2b8 = (undefined *******)&PTR_s_cannot_stat_002b5f08;
     pppppppuStack_2b0 = (undefined *******)0x1;
     local_298 = 0;
@@ -281,7 +305,7 @@ LAB_002078fe:
                     /* try { // try from 002077bb to 002077cf has its CatchHandler @ 002080bf */
     uStack_3b0 = param_3;
     uStack_3a8 = param_4;
-    core::option::Option<T>::map_or_else(&local_160,&local_2b8);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17h805a87bba4bea7c2E(&local_160,&local_2b8);
     local_2a8 = local_150;
     local_2b8 = local_160;
     pppppppuStack_2b0 = pppppppuStack_158;
@@ -313,8 +337,7 @@ LAB_002078fe:
     uStack_d4 = uStack_304;
     uStack_d0 = uStack_300;
     uStack_cc = uStack_2fc;
-    core::ptr::
-    drop_in_place<<core::result::Result<uucore::features::fs::FileInformation,std::io::error::Error>as_quick_error::ResultExt<uucore::features::fs::FileInformation,std::io::error::Error>>::context<alloc::string::String>::__closure__>
+    _ZN4core3ptr288drop_in_place_LT__LT_core__result__Result_LT_uucore__features__fs__FileInformation_C_std__io__error__Error_GT__u20_as_u20_quick_error__ResultExt_LT_uucore__features__fs__FileInformation_C_std__io__error__Error_GT__GT___context_LT_alloc__string__String_GT____u7b__u7b_closure_u7d__u7d__GT_17h1ef8f78603d21391E
               (&local_2b8);
     local_218 = local_2d8;
     pppppppuStack_210 = pppppppuStack_2d0;
@@ -341,9 +364,10 @@ LAB_002078fe:
     uStack_194 = uStack_d4;
     uStack_190 = uStack_d0;
     uStack_18c = uStack_cc;
-    lVar12 = hashbrown::map::HashMap<K,V,S,A>::get_inner(param_10,&local_218);
+    lVar12 = _ZN9hashbrown3map28HashMap_LT_K_C_V_C_S_C_A_GT_9get_inner17hef26ad6068154428E
+                       (param_10,&local_218);
     if (lVar12 != 0) {
-      lVar12 = std::fs::hard_link(lVar12 + 0x90,param_5,param_6);
+      lVar12 = _ZN3std2fs9hard_link17h6f8316d677157df8E(lVar12 + 0x90,param_5,param_6);
       if (lVar12 != 0) {
 LAB_00207ac4:
         *param_1 = 2;
@@ -355,7 +379,7 @@ LAB_00207e4b:
       return param_1;
     }
   }
-  context_for(&local_2d8,param_3,param_4,param_5,param_6);
+  _ZN5uu_cp11context_for17h98549e35fded8509E(&local_2d8,param_3,param_4,param_5,param_6);
   pppppppuVar3 = pppppppuStack_2d0;
   local_2c0 = local_2c8;
   local_394 = (uint)bVar6;
@@ -367,17 +391,18 @@ LAB_00207e4b:
   }
   if ((char)local_394 == '\0') {
                     /* try { // try from 00207ad6 to 00207b08 has its CatchHandler @ 002080ce */
-    std::fs::symlink_metadata(&local_390,param_3,param_4);
+    _ZN3std2fs16symlink_metadata17h8589e79b0a107deeE(&local_390,param_3,param_4);
   }
   else {
                     /* try { // try from 0020789f to 002078ae has its CatchHandler @ 002080ce */
-    std::fs::metadata(&local_390,param_3,param_4);
+    _ZN3std2fs8metadata17h003d8cdbffde7c56E(&local_390,param_3,param_4);
   }
   ppppppppuVar5 = local_388;
   pppppppuVar4 = local_390;
   puVar1 = PTR_memcpy_002bbe30;
   if ((undefined ********)local_390 == (undefined ********)0x2) {
-    copy_file::___closure__(&local_3b8,param_3,param_4,local_388);
+    _ZN5uu_cp9copy_file28__u7b__u7b_closure_u7d__u7d_17h1d4007727df2d8d4E
+              (&local_3b8,param_3,param_4,local_388);
     *(undefined4 *)(param_1 + 2) = (undefined4)uStack_3b0;
     *(undefined4 *)((long)param_1 + 0x14) = uStack_3b0._4_4_;
     *(undefined4 *)(param_1 + 3) = (undefined4)uStack_3a8;
@@ -394,11 +419,11 @@ LAB_00207b21:
     local_218 = pppppppuVar4;
     pppppppuStack_210 = (undefined *******)ppppppppuVar5;
                     /* try { // try from 00207b95 to 00207c97 has its CatchHandler @ 002080ce */
-    calculate_dest_permissions
+    _ZN5uu_cp26calculate_dest_permissions17he28553ee8e44ce96E
               (&local_390,param_5,param_6,uStack_1e0,*(undefined *)(param_7 + 0x32),
                *(undefined *)(param_7 + 0x33),pppppppuVar3,local_2c0);
     ppppppppuVar5 = local_388;
-    if (local_390 != (undefined *******)&DAT_0000000d) {
+    if ((undefined ********)local_390 != (undefined ********)0xd) {
       *(undefined4 *)((long)param_1 + 0x3c) = uStack_354;
       *(ulong *)((long)param_1 + 0x2c) = CONCAT44(uStack_360,uStack_364);
       *(ulong *)((long)param_1 + 0x34) = CONCAT44(local_358,uStack_35c);
@@ -412,9 +437,10 @@ LAB_00207b21:
       *(undefined4 *)(param_1 + 1) = (undefined4)local_388;
       goto LAB_00207f57;
     }
-    handle_copy_mode(&local_390,param_3,param_4,param_5,param_6,param_7,pppppppuVar3,local_2c0,
-                     &local_218,param_8,param_11);
-    if (local_390 != (undefined *******)&DAT_0000000d) {
+    _ZN5uu_cp16handle_copy_mode17h448f778e1ab38150E
+              (&local_390,param_3,param_4,param_5,param_6,param_7,pppppppuVar3,local_2c0,&local_218,
+               param_8,param_11);
+    if ((undefined ********)local_390 != (undefined ********)0xd) {
 LAB_00207e89:
       param_1[7] = CONCAT44(uStack_354,local_358);
       param_1[5] = CONCAT44(uStack_364,local_368);
@@ -430,24 +456,28 @@ LAB_00207e89:
     }
     if ((bVar7 == 0) &&
        (local_390 = (undefined *******)
-                    std::fs::set_permissions(param_5,param_6,(ulong)ppppppppuVar5 & 0xffffffff),
+                    _ZN3std2fs15set_permissions17hb44ce266ed57ae7bE
+                              (param_5,param_6,(ulong)ppppppppuVar5 & 0xffffffff),
        (undefined ********)local_390 != (undefined ********)0x0)) {
-      core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(&local_390);
+      _ZN4core3ptr81drop_in_place_LT_core__result__Result_LT__LP__RP__C_std__io__error__Error_GT__GT_17hb146834ab15375ccE
+                (&local_390);
     }
     if ((char)local_394 == '\0') {
                     /* try { // try from 00207e5d to 00207e79 has its CatchHandler @ 002080ce */
-      copy_attributes(&local_390,param_3,param_4,param_5,param_6,param_7 + 0x30);
-      if (local_390 != (undefined *******)&DAT_0000000d) goto LAB_00207e89;
+      _ZN5uu_cp15copy_attributes17h0ca124c6c7245f78E
+                (&local_390,param_3,param_4,param_5,param_6,param_7 + 0x30);
+      if ((undefined ********)local_390 != (undefined ********)0xd) goto LAB_00207e89;
     }
     else {
-      uucore::features::fs::canonicalize(&local_3b8,param_3,param_4,0,1);
+      _ZN6uucore8features2fs12canonicalize17hb17a5541a57984e7E(&local_3b8,param_3,param_4,0,1);
       if ((undefined ********)local_3b8 != (undefined ********)0x8000000000000000) {
         local_2a8 = (undefined *******)uStack_3a8;
         local_2b8 = local_3b8;
         pppppppuStack_2b0 = (undefined *******)uStack_3b0;
                     /* try { // try from 00207ee5 to 00207efb has its CatchHandler @ 0020809c */
-        copy_attributes(&local_390,uStack_3b0,uStack_3a8,param_5,param_6,param_7 + 0x30);
-        if (local_390 != (undefined *******)&DAT_0000000d) {
+        _ZN5uu_cp15copy_attributes17h0ca124c6c7245f78E
+                  (&local_390,uStack_3b0,uStack_3a8,param_5,param_6,param_7 + 0x30);
+        if ((undefined ********)local_390 != (undefined ********)0xd) {
           param_1[7] = CONCAT44(uStack_354,local_358);
           *(undefined4 *)(param_1 + 5) = local_368;
           *(undefined4 *)((long)param_1 + 0x2c) = uStack_364;
@@ -463,25 +493,25 @@ LAB_00207e89:
           *(undefined4 *)((long)param_1 + 0x14) = uStack_380._4_4_;
           *param_1 = local_390;
                     /* try { // try from 0020804d to 00208059 has its CatchHandler @ 00208097 */
-          core::ptr::drop_in_place<std::path::PathBuf>(&local_2b8);
+          _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17ha8df8090ff0f5f1eE(&local_2b8);
           if ((undefined ********)local_3b8 == (undefined ********)0x8000000000000000) {
                     /* try { // try from 00208065 to 00208089 has its CatchHandler @ 002080ce */
-            core::ptr::drop_in_place<core::result::Result<std::path::PathBuf,std::io::error::Error>>
+            _ZN4core3ptr91drop_in_place_LT_core__result__Result_LT_std__path__PathBuf_C_std__io__error__Error_GT__GT_17hc3882598e48cbc71E
                       (&local_3b8);
           }
           goto LAB_00207f57;
         }
                     /* try { // try from 00207f0b to 00207f17 has its CatchHandler @ 00208097 */
-        core::ptr::drop_in_place<std::path::PathBuf>(&local_2b8);
+        _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17ha8df8090ff0f5f1eE(&local_2b8);
         if ((undefined ********)local_3b8 != (undefined ********)0x8000000000000000)
         goto LAB_00207f23;
       }
-      core::ptr::drop_in_place<core::result::Result<std::path::PathBuf,std::io::error::Error>>
+      _ZN4core3ptr91drop_in_place_LT_core__result__Result_LT_std__path__PathBuf_C_std__io__error__Error_GT__GT_17hc3882598e48cbc71E
                 (&local_3b8);
     }
 LAB_00207f23:
                     /* try { // try from 00207f2d to 00207f3c has its CatchHandler @ 002080ce */
-    uucore::features::fs::FileInformation::from_path
+    _ZN6uucore8features2fs15FileInformation9from_path17he917b6b2466acd0fE
               (&local_390,param_3,param_4,(char)local_394 != '\0');
     ppppppppuVar5 = local_388;
     if ((undefined ********)local_390 != (undefined ********)0x0) {
@@ -492,20 +522,23 @@ LAB_00207f23:
     (*(code *)PTR_memcpy_002bbe30)(local_b8,&uStack_380,0x88);
     local_c0 = (undefined *******)ppppppppuVar5;
                     /* try { // try from 00207f99 to 00207ffe has its CatchHandler @ 002080ce */
-    std::sys::pal::unix::os::split_paths::bytes_to_path(&local_390,param_5,param_6);
-    hashbrown::map::HashMap<K,V,S,A>::insert(&local_2b8,param_10,&local_c0,&local_390);
-    core::ptr::drop_in_place<core::option::Option<std::path::PathBuf>>(&local_2b8);
+    _ZN3std3sys3pal4unix2os11split_paths13bytes_to_path17h0549813f23b52483E
+              (&local_390,param_5,param_6);
+    _ZN9hashbrown3map28HashMap_LT_K_C_V_C_S_C_A_GT_6insert17h6dd09ea9bc601e27E
+              (&local_2b8,param_10,&local_c0,&local_390);
+    _ZN4core3ptr67drop_in_place_LT_core__option__Option_LT_std__path__PathBuf_GT__GT_17he488659846a394d7E
+              (&local_2b8);
     if (*local_2e0 != 0) {
-      std::fs::metadata(&local_390,param_3,param_4);
+      _ZN3std2fs8metadata17h003d8cdbffde7c56E(&local_390,param_3,param_4);
       if ((int)local_390 == 2) {
         *param_1 = 2;
         goto LAB_00207b21;
       }
-      indicatif::progress_bar::ProgressBar::inc(local_2e0,uStack_340);
+      _ZN9indicatif12progress_bar11ProgressBar3inc17he12f7743cfc9ae04E(local_2e0,uStack_340);
     }
     *param_1 = 0xd;
   }
 LAB_00207f57:
-  core::ptr::drop_in_place<alloc::string::String>(&local_2d8);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h5bdd96f6f34778b9E(&local_2d8);
   return param_1;
 }

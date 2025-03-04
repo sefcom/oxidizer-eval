@@ -1,331 +1,317 @@
 long long uu_csplit::do_csplit::h9017a56c540dfa97(struct_0 *a0, struct_1 *a1, unsigned long long a2, void* a3)
 {
-    unsigned long long v0;  // [sp-0x198]
-    unsigned long long v1;  // [sp-0x190]
-    unsigned int v2;  // [sp-0x188]
-    unsigned int v3;  // [sp-0x184]
-    struct_0 *v4;  // [sp-0x180]
-    char v5;  // [bp-0x170]
-    char v6;  // [bp-0x168]
-    char v7;  // [bp-0x160]
-    unsigned long long v8;  // [sp-0x130]
-    unsigned long long v9;  // [sp-0x128]
-    unsigned long long v10;  // [sp-0x118]
-    unsigned long long v11[4];  // [bp-0x110]
-    char v12;  // [bp-0x100]
-    char v13;  // [bp-0xf0]
-    int v14;  // [sp-0xe8]
-    int v15;  // [sp-0xd8]
-    int v16;  // [sp-0xc8]
-    unsigned long long v17;  // [sp-0xb8]
-    int v18;  // [sp-0xa8]
-    int v19;  // [sp-0x98]
-    char v20;  // [bp-0x88]
-    char v21;  // [bp-0x68]
-    char v22;  // [bp-0x58]
-    char v23;  // [bp-0x48]
-    char v24;  // [bp-0x38]
-    struct_0 *v26;  // r14
-    int v27;  // ymm0
-    int v28;  // ymm1
-    int v29;  // ymm2
-    int v30;  // xmm0
-    int v32;  // xmm1
-    int v34;  // xmm2
-    unsigned long long v35;  // rax
-    unsigned int v36;  // ebp
-    unsigned long long v37;  // r15
-    unsigned long long v38;  // rax
-    unsigned long long v39;  // rbx
-    int v40;  // xmm0
-    int v41;  // ymm0
-    int v42;  // xmm1
-    int v43;  // ymm1
-    unsigned long long v44;  // r13
-    unsigned long long v45;  // r14
-    unsigned long long v46;  // rbx
-    struct_0 *v47;  // r14
-    void* v48;  // r14
-    unsigned long long v49;  // r15
-    unsigned long long v50;  // rax
-    unsigned long v51;  // r13
-    unsigned long long v52;  // rax
+    char v0;  // [bp-0x198]
+    unsigned int v1;  // [sp-0x188]
+    unsigned int v2;  // [sp-0x184]
+    struct_0 *v3;  // [sp-0x180]
+    char v4;  // [bp-0x170]
+    char v5;  // [bp-0x168]
+    char v6;  // [bp-0x160]
+    unsigned long long v7;  // [sp-0x130]
+    unsigned long long v8;  // [sp-0x128]
+    unsigned long long v9;  // [sp-0x118]
+    unsigned long long v10[4];  // [bp-0x110]
+    char v11;  // [bp-0x100]
+    char v12;  // [bp-0xf0]
+    int v13;  // [sp-0xe8]
+    int v14;  // [sp-0xd8]
+    int v15;  // [sp-0xc8]
+    unsigned long long v16;  // [sp-0xb8]
+    int v17;  // [sp-0xa8]
+    int v18;  // [sp-0x98]
+    char v19;  // [bp-0x88]
+    char v20;  // [bp-0x68]
+    char v21;  // [bp-0x58]
+    char v22;  // [bp-0x48]
+    char v23;  // [bp-0x38]
+    struct_0 *v25;  // r14
+    int v26;  // ymm2
+    int v27;  // xmm0
+    int v28;  // xmm1
+    int v29;  // ymm1
+    int v30;  // xmm2
+    unsigned long long v31;  // rax
+    unsigned int v32;  // ebp
+    unsigned long long v33;  // r15
+    unsigned long long v34;  // rax
+    unsigned long long v35;  // rbx
+    int v36;  // xmm0
+    int v37;  // xmm1
+    unsigned long long v38;  // r13
+    unsigned long long v39;  // r14
+    unsigned long long v40;  // rbx
+    unsigned long v41;  // r13
+    void* v42;  // r14, Other Possible Types: unsigned long long
+    unsigned long long v43;  // rax
+    unsigned long long v44;  // rax
+    unsigned long long v45;  // rax
+    int v46;  // xmm0
+    int v47;  // xmm1
+    unsigned long long v48;  // rax
+    void* v49;  // r15, Other Possible Types: unsigned long long
+    unsigned long long v50;  // rbx
+    int v51;  // xmm0
+    int v52;  // xmm1
     unsigned long long v53;  // rax
-    unsigned long long v55;  // rbx
-    int v56;  // xmm0
-    int v57;  // xmm1
-    unsigned long long v58;  // rax
-    unsigned long long v59;  // r15
-    unsigned long long v60;  // rbx
-    int v61;  // xmm0
-    int v62;  // xmm1
-    unsigned long long v63;  // rax
-    struct_0 *v64;  // rcx
-    void* v65;  // r15
-    void* v66;  // r14
-    unsigned long long v67;  // r15
-    unsigned long v68;  // r13
-    struct_0 *v70;  // r12
-    struct_0 *v71;  // rcx
-    unsigned long long v72;  // r14
-    struct_0 *v73;  // rbx
-    int v74;  // [sp-0x158]
-    int v75;  // [sp-0x148]
-    unsigned long long v76;  // [sp-0x138]
+    struct_0 *v54;  // rcx
+    unsigned long v55;  // r13
+    struct_0 *v56;  // r12
+    struct_0 *v57;  // rcx
+    struct_0 *v58;  // rbx
+    int v59;  // [sp-0x158]
+    int v60;  // [sp-0x148]
+    unsigned long long v61;  // [sp-0x138]
+    int v62;  // ymm0
 
-    v26 = a0;
-    _$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$::into_iter::h8cfd37faa97e5c9a(&v20, a2);
-    _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h3521a3a7c64a9732(&v21, &v20);
-    if (*((int *)&v21) == 3)
+    v25 = a0;
+    _$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$::into_iter::h8cfd37faa97e5c9a(&v19, a2);
+    _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h3521a3a7c64a9732(&v20, &v19);
+    if (*((int *)&v20) == 3)
     {
-        v63 = core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_csplit..patterns..Pattern$GT$$GT$::h8e8634bf2625820f(&v20);
-        v26->field_0 = 12;
-        return v63;
+        v53 = core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_csplit..patterns..Pattern$GT$$GT$::h8e8634bf2625820f(&v19);
+        v25->field_0 = 12;
+        return v53;
     }
-    v4 = a0;
+    v3 = a0;
     while (true)
     {
-        v17 = *((long long *)&v24);
-        v30 = *((int128_t *)&v21);
-        v32 = *((int128_t *)&v22);
-        v34 = *((int128_t *)&v23);
-        v29 = v29 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v34;
-        v16 = v34;
-        v15 = v32;
-        v14 = v30;
-        v35 = _$LT$T$u20$as$u20$alloc..string..ToString$GT$::to_string::hf41bf485036a1869(&v5, &v14);
-        v36 = (int)v14;
-        if (v36 == 2)
+        v16 = *((long long *)&v23);
+        v27 = *((int128_t *)&v20);
+        v62 = v62 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v27;
+        v28 = *((int128_t *)&v21);
+        v29 = v29 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v28;
+        v30 = *((int128_t *)&v22);
+        v26 = v26 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v30;
+        v15 = v30;
+        v14 = v28;
+        v13 = v27;
+        v31 = _$LT$T$u20$as$u20$alloc..string..ToString$GT$::to_string::hf41bf485036a1869(&v4, &v13);
+        v32 = (int)v13;
+        if (v32 == 2)
         {
-            v3 = v35 & 0xffffffffffffff00 | 1;
-            v2 = 0;
+            v2 = v31 & 0xffffffffffffff00 | 1;
+            v1 = 0;
             goto LABEL_56189d;
         }
-        if (v36 != 1)
+        if (v32 != 1)
         {
-            v37 = (long long)(&v14)[8];
-            v38 = (long long)v15;
-            v39 = (long long)(&v15)[8];
-            if (v38 && !v39)
+            v33 = (long long)(&v13)[8];
+            v34 = (long long)v14;
+            v35 = (long long)(&v14)[8];
+            if (v34 && !v35)
                 goto LABEL_561ab9;
-            if (!v38)
+            if (!v34)
             {
-                v66 = 0;
+                v42 = 0;
+                v55 = v33;
                 while (true)
                 {
-                    v68 = v67;
-                    v52 = uu_csplit::SplitWriter::new_writer::hf8bcfdadfd914b2e(a1);
-                    if (v52)
+                    v44 = uu_csplit::SplitWriter::new_writer::hf8bcfdadfd914b2e(a1);
+                    if (v44)
                     {
-                        v71 = v4;
-                        v71->field_0 = 0;
-                        *((unsigned long long *)&v71->padding_8[0]) = v52;
-                        ::0x55c940::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h43f353fdb3e00327(&v5);
-                        core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_csplit..patterns..Pattern$GT$$GT$::h8e8634bf2625820f(&v20);
-                        return v63;
+                        v57 = v3;
+                        v57->field_0 = 0;
+                        *((unsigned long long *)&v57->padding_8[0]) = v44;
+                        ::0x55c940::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h43f353fdb3e00327(&v4);
+                        vvar_953{reg 16} = core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_csplit..patterns..Pattern$GT$$GT$::h8e8634bf2625820f(&v19);
+                        return v53;
                     }
-                    uu_csplit::SplitWriter::do_to_line::h321143eb79b39c5d(&v74, a1, *((long long *)&v6), *((long long *)&v7), v68, a3);
-                    v53 = (long long)v74;
-                    if (v53 != 12)
+                    uu_csplit::SplitWriter::do_to_line::h321143eb79b39c5d(&v59, a1, *((long long *)&v5), *((long long *)&v6), v55, a3);
+                    v45 = (long long)v59;
+                    if (v45 != 12)
                         break;
-                    v66 += 1;
-                    v67 = v68 + v37;
+                    v55 += v33;
+                    v42 += 1;
                 }
                 goto LABEL_561c92;
             }
             else
             {
-                v48 = 0;
-                v51 = v49;
-                v52 = uu_csplit::SplitWriter::new_writer::hf8bcfdadfd914b2e(a1);
-                if (v52)
+                v41 = v33;
+                v42 = 0;
+                v44 = uu_csplit::SplitWriter::new_writer::hf8bcfdadfd914b2e(a1);
+                if (v44)
                 {
-                    vvar_972{reg 24} = v4;
-                    v71->field_0 = 0;
-                    *((unsigned long long *)&v71->padding_8[0]) = v52;
-                    ::0x55c940::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h43f353fdb3e00327(&v5);
-                    core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_csplit..patterns..Pattern$GT$$GT$::h8e8634bf2625820f(&v20);
-                    return v63;
+                    vvar_958{reg 24} = v3;
+                    v57->field_0 = 0;
+                    *((unsigned long long *)&v57->padding_8[0]) = v44;
+                    ::0x55c940::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h43f353fdb3e00327(&v4);
+                    vvar_962{reg 16} = core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_csplit..patterns..Pattern$GT$$GT$::h8e8634bf2625820f(&v19);
+                    return v53;
                 }
-                uu_csplit::SplitWriter::do_to_line::h321143eb79b39c5d(&v74, a1, *((long long *)&v6), *((long long *)&v7), v51, a3);
-                v53 = (long long)v74;
-                if (v53 != 12)
+                uu_csplit::SplitWriter::do_to_line::h321143eb79b39c5d(&v59, a1, *((long long *)&v5), *((long long *)&v6), v41, a3);
+                v45 = (long long)v59;
+                if (v45 != 12)
                 {
 LABEL_561c92:
-                    v73 = v4;
-                    if (!v72 || (unsigned int)v53 != 1)
+                    v58 = v3;
+                    if (!v42 || (unsigned int)v45 != 1)
                     {
-                        v73->field_20 = v76;
-                        *((void*)&v73->field_10) = v75;
-                        *((void*)&v73->field_0) = v74;
+                        v58->field_20 = v61;
+                        *((void*)&v58->field_10) = v60;
+                        *((void*)&v58->field_0) = v59;
                     }
                     else
                     {
-                        _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h8f45b0d02f4dafda(v11, &v5);
-                        v73->field_20 = *((long long *)&v12);
-                        v73->field_10 = *((int128_t *)&v11[0]);
-                        v73->field_0 = 2;
-                        *((unsigned long long *)&v73->padding_8[0]) = v72;
-                        core::ptr::drop_in_place$LT$uu_csplit..csplit_error..CsplitError$GT$::hc5d4aca3759c7b16(&v74);
+                        _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h8f45b0d02f4dafda(v10, &v4);
+                        v58->field_20 = *((long long *)&v11);
+                        v58->field_10 = *((int128_t *)&v10[0]);
+                        v58->field_0 = 2;
+                        *((unsigned long long *)&v58->padding_8[0]) = v42;
+                        core::ptr::drop_in_place$LT$uu_csplit..csplit_error..CsplitError$GT$::hc5d4aca3759c7b16(&v59);
                     }
-                    ::0x55c940::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h43f353fdb3e00327(&v5);
-                    core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_csplit..patterns..Pattern$GT$$GT$::h8e8634bf2625820f(&v20);
-                    return v63;
+                    ::0x55c940::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h43f353fdb3e00327(&v4);
+                    vvar_947{reg 16} = core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_csplit..patterns..Pattern$GT$$GT$::h8e8634bf2625820f(&v19);
+                    return v53;
                 }
-                v48 += 1;
-                v67 = v51 + v37;
-                if (!(v39 == v48))
+                v42 += 1;
+                v41 += v33;
+                if (!(v35 == v42))
                     continue;
-                v47 = v4;
+                v25 = v3;
                 goto LABEL_561ab9;
             }
         }
-        v2 = v35 & 0xffffffffffffff00 | 1;
-        v3 = 0;
+        v1 = v31 & 0xffffffffffffff00 | 1;
+        v2 = 0;
 LABEL_56189d:
-        v40 = (int128_t)(&v14)[8];
-        v41 = (v27 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v30) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v40;
-        v42 = (int128_t)(&v15)[8];
-        v43 = (v28 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v32) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v42;
-        v19 = v42;
-        v18 = v40;
-        v10 = (int)(&v14)[4];
-        v44 = (long long)(&v16)[8];
-        v45 = v17;
-        if (!v44)
+        v36 = (int128_t)(&v13)[8];
+        v62 = v62 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v36;
+        v37 = (int128_t)(&v14)[8];
+        v29 = v29 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v37;
+        v18 = v37;
+        v17 = v36;
+        v9 = (int)(&v13)[4];
+        v38 = (long long)(&v15)[8];
+        v39 = v16;
+        if (!v38)
         {
-            v46 = 0;
-            if (v36 == 2)
+            v40 = 0;
+            if (v32 == 2)
                 goto LABEL_5618f0;
-LABEL_561947:
-            v50 = uu_csplit::SplitWriter::new_writer::hf8bcfdadfd914b2e(a1);
-            if (!v50)
-                goto LABEL_561959;
-            goto LABEL_561b67;
-        }
-        v46 = 1;
-        if (!v45)
-            goto LABEL_561aa0;
-        if (!(v39 == v48))
             goto LABEL_561947;
+        }
+        v40 = 1;
+        if (!v39)
+            goto LABEL_561aa0;
+        if (v32 == 2)
+        {
 LABEL_5618f0:
-        a1->field_38 = 1;
-LABEL_561959:
-        v1 = a3;
-        v0 = v10;
-        uu_csplit::SplitWriter::do_to_match::h5baae8016ea78834(v11, a1, *((long long *)&v6), *((long long *)&v7), (long long)v18, (long long)(&v18)[8]);
-        v76 = *((long long *)&v13);
-        v56 = *((int128_t *)&v11[0]);
-        v41 = v41 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v56;
-        v57 = *((int128_t *)&v12);
-        v43 = v43 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v57;
-        v75 = v57;
-        v74 = v56;
-        v8 = v55;
-        v9 = v45;
-        v58 = (long long)v74;
-        if (v58 != 12)
-        {
-            v65 = 0;
-            goto LABEL_561b86;
+            a1->field_38 = 1;
+            goto LABEL_561959;
         }
-        v59 = 1;
-        if (!v44)
+LABEL_561947:
+        v43 = uu_csplit::SplitWriter::new_writer::hf8bcfdadfd914b2e(a1);
+        if (v43)
         {
-LABEL_561a00:
-            v60 = 0;
-            if (v36 == 2)
-                continue;
-        }
-        v60 = 1;
-        if (v45 != v59)
-            break;
-LABEL_561aa0:
-        ::0x55ca10::core::ptr::drop_in_place$LT$regex..regex..string..Regex$GT$::h5dc1738b513e4aba(&v18);
-        v47 = v4;
-LABEL_561ab9:
-        v26 = v47;
-        ::0x55c940::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h43f353fdb3e00327(&v5);
-        _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h3521a3a7c64a9732(&v21, &v20);
-        if (*((int *)&v21) == 3)
-        {
-            core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_csplit..patterns..Pattern$GT$$GT$::h8e8634bf2625820f(&v20);
-            v26->field_0 = 12;
-            return v63;
-        }
-    }
-    if (v36 == 2)
-    {
-        a1->field_38 = 1;
-        continue;
-    }
-    v50 = uu_csplit::SplitWriter::new_writer::hf8bcfdadfd914b2e(a1);
-    if (v50)
-    {
 LABEL_561b67:
-        v64 = v4;
-        v64->field_0 = 0;
-        *((unsigned long long *)&v64->padding_8[0]) = v50;
-        goto LABEL_561c25;
-    }
-    v1 = a3;
-    v0 = v10;
-    uu_csplit::SplitWriter::do_to_match::h5baae8016ea78834(v11, a1, *((long long *)&v6), *((long long *)&v7), (long long)v18, (long long)(&v18)[8]);
-    v76 = *((long long *)&v13);
-    v61 = *((int128_t *)&v11[0]);
-    v41 = v41 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v61;
-    v62 = *((int128_t *)&v12);
-    v43 = v43 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v62;
-    v75 = v62;
-    v74 = v61;
-    v8 = v60;
-    v9 = v45;
-    v58 = (long long)v74;
-    if (v58 == 12)
-    {
-        v59 += 1;
-        if (!(v39 == v48))
-            continue;
-        goto LABEL_561a00;
-    }
-LABEL_561b86:
-    if (!v44)
-    {
-        v70 = v4;
-        if (!(v39 == v48))
-            goto LABEL_561c06;
-        v70->field_0 = 12;
-    }
-    else
-    {
-        v70 = v4;
-        if (!((unsigned int)v58 == 3) || !(v45 != 1) || !(v65))
-        {
-LABEL_561c06:
-            v70->field_20 = v76;
-            *((void*)&v70->field_10) = v75;
-            *((void*)&v70->field_0) = v74;
+            v54 = v3;
+            v54->field_0 = 0;
+            *((unsigned long long *)&v54->padding_8[0]) = v43;
             goto LABEL_561c25;
+        }
+LABEL_561959:
+        uu_csplit::SplitWriter::do_to_match::h5baae8016ea78834(v10, a1, *((long long *)&v5), *((long long *)&v6), (long long)v17, (long long)(&v17)[8], *((int *)&v0), a3);
+        v61 = *((long long *)&v12);
+        v46 = *((int128_t *)&v10[0]);
+        v62 = v62 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v46;
+        v47 = *((int128_t *)&v11);
+        v29 = v29 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v47;
+        v60 = v47;
+        v59 = v46;
+        v7 = v40;
+        v8 = v39;
+        v48 = (long long)v59;
+        if (v48 != 12)
+        {
+            v49 = 0;
+            break;
+        }
+        v49 = 1;
+        if (!(!v38))
+            continue;
+        v50 = 0;
+        if (v32 == 2)
+        {
+LABEL_5619f3:
+            a1->field_38 = 1;
+            continue;
+        }
+        v43 = uu_csplit::SplitWriter::new_writer::hf8bcfdadfd914b2e(a1);
+        if (!(!v43))
+            goto LABEL_561b67;
+        uu_csplit::SplitWriter::do_to_match::h5baae8016ea78834(v10, a1, *((long long *)&v5), *((long long *)&v6), (long long)v17, (long long)(&v17)[8], *((int *)&v0), a3);
+        v61 = *((long long *)&v12);
+        v51 = *((int128_t *)&v10[0]);
+        v62 = v62 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v51;
+        v52 = *((int128_t *)&v11);
+        v29 = v29 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v52;
+        v60 = v52;
+        v59 = v51;
+        v7 = v50;
+        v8 = v39;
+        v48 = (long long)v59;
+        if (v48 != 12)
+            break;
+        v49 += 1;
+        if (!v38)
+            continue;
+        v50 = 1;
+        if (v39 == v49)
+        {
+LABEL_561aa0:
+            ::0x55ca10::core::ptr::drop_in_place$LT$regex..regex..string..Regex$GT$::h5dc1738b513e4aba(&v17);
+            v25 = v3;
+LABEL_561ab9:
+            ::0x55c940::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h43f353fdb3e00327(&v4);
+            _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h3521a3a7c64a9732(&v20, &v19);
+            if (*((int *)&v20) == 3)
+            {
+                vvar_941{reg 16} = core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_csplit..patterns..Pattern$GT$$GT$::h8e8634bf2625820f(&v19);
+                v25->field_0 = 12;
+                return v53;
+            }
         }
         else
         {
-            _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h8f45b0d02f4dafda(v11, &v5);
-            v70->field_20 = *((long long *)&v12);
-            v70->field_10 = *((int128_t *)&v11[0]);
-            v70->field_0 = 4;
-            *((void* *)&v70->padding_8[0]) = v65;
-            if ((int)v74 == 12)
-            {
-LABEL_561c25:
-                ::0x55ca10::core::ptr::drop_in_place$LT$regex..regex..string..Regex$GT$::h5dc1738b513e4aba(&v18);
-                goto LABEL_561d01;
-            }
+            if (!(v32 == 2))
+                continue;
+            goto LABEL_5619f3;
         }
     }
-    core::ptr::drop_in_place$LT$uu_csplit..csplit_error..CsplitError$GT$::hc5d4aca3759c7b16(&v74);
-    goto LABEL_561c25;
-LABEL_561d01:
-    ::0x55c940::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h43f353fdb3e00327(&v5);
-    v63 = core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_csplit..patterns..Pattern$GT$$GT$::h8e8634bf2625820f(&v20);
-    return v63;
+    if (!v38)
+    {
+        v56 = v3;
+        if (!((unsigned int)v48 == 3))
+            goto LABEL_561c06;
+        v56->field_0 = 12;
+LABEL_561bfa:
+        core::ptr::drop_in_place$LT$uu_csplit..csplit_error..CsplitError$GT$::hc5d4aca3759c7b16(&v59);
+    }
+    else
+    {
+        v56 = v3;
+        if (!((unsigned int)v48 == 3) || !(v39 != 1) || !(v49))
+        {
+LABEL_561c06:
+            v56->field_20 = v61;
+            *((void*)&v56->field_10) = v60;
+            *((void*)&v56->field_0) = v59;
+        }
+        else
+        {
+            _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h8f45b0d02f4dafda(v10, &v4);
+            v56->field_20 = *((long long *)&v11);
+            v56->field_10 = *((int128_t *)&v10[0]);
+            v56->field_0 = 4;
+            *((void* *)&v56->padding_8[0]) = v49;
+            if (!((int)v59 == 12))
+                goto LABEL_561bfa;
+        }
+    }
+LABEL_561c25:
+    ::0x55ca10::core::ptr::drop_in_place$LT$regex..regex..string..Regex$GT$::h5dc1738b513e4aba(&v17);
+    ::0x55c940::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h43f353fdb3e00327(&v4);
+    v53 = core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_csplit..patterns..Pattern$GT$$GT$::h8e8634bf2625820f(&v19);
+    return v53;
 }

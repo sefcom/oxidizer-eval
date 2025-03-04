@@ -62,22 +62,22 @@ long long uu_test::path::h72a91cd3b6f0d02c(unsigned long long a0, unsigned long 
         std::fs::symlink_metadata::h8270b7803eb466ec(&v0, a0, a1);
         if (*((int *)&v0) != 2)
         {
-            vvar_124{stack -216} = *((int128_t *)&v0);
-            vvar_125{stack -200} = *((int128_t *)&v1);
-            vvar_126{stack -184} = *((int128_t *)&v2);
-            vvar_127{stack -168} = *((long long *)&v3);
-            vvar_128{stack -160} = *((int *)&v4);
-            vvar_129{stack -156} = *((int *)&v5);
-            vvar_130{stack -152} = *((int *)&v6);
-            vvar_131{stack -148} = *((long long *)&v7);
-            vvar_132{stack -140} = *((int *)&v8);
-            vvar_133{stack -136} = *((long long *)&v9);
-            vvar_134{stack -48} = *((long long *)&v15);
-            vvar_135{stack -64} = *((int128_t *)&v14);
-            vvar_136{stack -80} = *((int128_t *)&v13);
-            vvar_137{stack -96} = *((int128_t *)&v12);
-            vvar_138{stack -112} = *((int128_t *)&v11);
-            vvar_139{stack -128} = *((int128_t *)&v10);
+            vvar_121{stack -216} = *((int128_t *)&v0);
+            vvar_122{stack -200} = *((int128_t *)&v1);
+            vvar_123{stack -184} = *((int128_t *)&v2);
+            vvar_124{stack -168} = *((long long *)&v3);
+            vvar_125{stack -160} = *((int *)&v4);
+            vvar_126{stack -156} = *((int *)&v5);
+            vvar_127{stack -152} = *((int *)&v6);
+            vvar_128{stack -148} = *((long long *)&v7);
+            vvar_129{stack -140} = *((int *)&v8);
+            vvar_130{stack -136} = *((long long *)&v9);
+            vvar_131{stack -48} = *((long long *)&v15);
+            vvar_132{stack -64} = *((int128_t *)&v14);
+            vvar_133{stack -80} = *((int128_t *)&v13);
+            vvar_134{stack -96} = *((int128_t *)&v12);
+            vvar_135{stack -112} = *((int128_t *)&v11);
+            vvar_136{stack -128} = *((int128_t *)&v10);
             goto *((int *)(4309848 + a2 * 4)) + 4309848;
         }
     }

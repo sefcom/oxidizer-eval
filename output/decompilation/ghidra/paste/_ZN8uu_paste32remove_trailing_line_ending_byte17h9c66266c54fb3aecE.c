@@ -1,4 +1,4 @@
-void __rustcall uu_paste::remove_trailing_line_ending_byte(char param_1,long param_2)
+void _ZN8uu_paste32remove_trailing_line_ending_byte17h9c66266c54fb3aecE(char param_1,long param_2)
 
 {
   long lVar1;

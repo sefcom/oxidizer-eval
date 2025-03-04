@@ -1,4 +1,5 @@
-void __rustcall uu_split::SettingsError::Strategy(undefined8 *param_1,undefined8 *param_2)
+void _ZN8uu_split13SettingsError8Strategy17h93160ea37382a0e2E
+               (undefined8 *param_1,undefined8 *param_2)
 
 {
   undefined8 uVar1;

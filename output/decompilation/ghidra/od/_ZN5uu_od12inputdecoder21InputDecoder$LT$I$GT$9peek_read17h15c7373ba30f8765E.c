@@ -1,4 +1,5 @@
-long * __rustcall uu_od::inputdecoder::InputDecoder<I>::peek_read(long *param_1,long param_2)
+long * _ZN5uu_od12inputdecoder21InputDecoder_LT_I_GT_9peek_read17h15c7373ba30f8765E
+                 (long *param_1,long param_2)
 
 {
   undefined uVar1;
@@ -6,7 +7,7 @@ long * __rustcall uu_od::inputdecoder::InputDecoder<I>::peek_read(long *param_1,
   long local_20;
   long local_18;
   
-  _<uu_od::peekreader::PeekReader<R>as_uu_od::peekreader::PeekRead>::peek_read
+  _ZN86__LT_uu_od__peekreader__PeekReader_LT_R_GT__u20_as_u20_uu_od__peekreader__PeekRead_GT_9peek_read17h4ebaa1be718ea78eE
             (&local_28,*(undefined8 *)(param_2 + 0x18),*(undefined8 *)(param_2 + 8),
              *(undefined8 *)(param_2 + 0x10),*(undefined8 *)(param_2 + 0x20));
   if (local_28 == 0) {

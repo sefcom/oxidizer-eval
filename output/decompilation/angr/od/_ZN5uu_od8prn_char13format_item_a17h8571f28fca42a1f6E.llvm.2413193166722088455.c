@@ -1,9 +1,9 @@
-long long _ZN5uu_od8prn_char13format_item_a17h8571f28fca42a1f6E.llvm.2413193166722088455(unsigned long a0, unsigned int a1)
+long long _ZN5uu_od8prn_char13format_item_a17h8571f28fca42a1f6E.llvm.2413193166722088455(unsigned long long a0, unsigned int a1)
 {
-    unsigned long v0;  // [sp-0x88], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x88]
     char *v1;  // [sp-0x80]
     unsigned long long v2;  // [sp-0x78]
-    unsigned long long v3;  // [sp-0x70]
+    unsigned long v3;  // [sp-0x70]
     unsigned long long v4;  // [sp-0x68]
     struct struct_0 **v5;  // [sp-0x60]
     unsigned long long v6;  // [sp-0x58]
@@ -31,6 +31,6 @@ long long _ZN5uu_od8prn_char13format_item_a17h8571f28fca42a1f6E.llvm.24131931667
     v8 = 1;
     v5 = &v1;
     v6 = 1;
-    ::0x4d5560::core::option::Option$LT$T$GT$::map_or_else::hc22922308bfda6bf();
+    ::0x4d5560::core::option::Option$LT$T$GT$::map_or_else::hc22922308bfda6bf(a0, &v3);
     return a0;
 }

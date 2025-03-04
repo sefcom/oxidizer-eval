@@ -8,14 +8,17 @@ fn uu_fmt::linebreak::compute_demerits(a0: u64, a1: u64, a2: u64) -> int {
     let v7: u64;  // rdi
     let v8: u64;  // rcx
     let v9: u64;  // cc_ndep
-    let v10: void*;  // cc_ndep
-    let v11: u64;  // rcx
-    let v12: u256;  // ymm2
-    let v13: u128;  // xmm2
-    let v15: u256;  // ymm2
-    let v16: u256;  // ymm0
-    let v17: u256;  // ymm0
-    let v18: u64;  // rdx
+    let v10: u64;  // rdi
+    let v11: void*;  // rcx
+    let v12: u64;  // cc_ndep, Other Possible Types: void*
+    let v13: u256;  // ymm2
+    let v14: u128;  // xmm2
+    let v16: u256;  // ymm2
+    let v17: u64;  // rdx
+    let v18: u256;  // ymm0
+    let v19: u256;  // ymm0
+    let v20: u64;  // rdx
+    let v21: u64;  // rax
 
     if a1 < 0 {
         v3 = v2 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp AddV;
@@ -38,48 +41,42 @@ LABEL_4bc27f:
         if !((BinaryOp CmpF & 69 | (BinaryOp CmpF & 69) >> 6) & 1) {
             v8 = 9223372036854775807;
         }
-        if !(amd64g_calculate_condition(11, 0, (BinaryOp CmpF & 69) as u32 as u64, 0, v9) as char) {
-            v8 = 0;
-        }
-        v10 = amd64g_calculate_rflags_c(0, (BinaryOp CmpF & 69) as u32 as u64, 0, v9);
-        v7 = v8 + 1;
+        v10 = (amd64g_calculate_condition(11, 0, (BinaryOp CmpF & 69) as u32 as u64, 0, v9) as char ? v8 : 0);
+        v12 = amd64g_calculate_rflags_c(0, (BinaryOp CmpF & 69) as u32 as u64, 0, v9);
+        v7 = v10 + 1;
     }
     if a1 <= a2 {
         v11 = 0;
     } else {
-        if amd64g_calculate_condition(8, 8, a1, a2, v10) as char {
+        if amd64g_calculate_condition(8, 8, a1, a2, v12) as char {
             v6 = v2 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp AddV;
-            v10 = 0;
-            if !(!a0) {
+            v12 = 0;
+            if !(amd64g_calculate_condition(8, 28, a1 - 1, 0, 0) as char) {
                 goto LABEL_4bc350;
             }
 LABEL_4bc318:
-            v13 = BinaryOp AddV;
+            v14 = BinaryOp AddV;
         } else {
-            v10 = a1 < a2;
-            if amd64g_calculate_condition(8, 28, a1 - 1, 0, amd64g_calculate_rflags_c(8, a1, a2, v10)) as char {
+            v12 = a1 < a2;
+            if amd64g_calculate_condition(8, 28, a1 - 1, 0, amd64g_calculate_rflags_c(8, a1, a2, v12)) as char {
                 goto LABEL_4bc318;
             }
 LABEL_4bc350:
         }
-        v15 = ((((v12 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v13) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp DivV) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV;
-        v11 = v15;
+        v16 = ((((v13 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v14) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp DivV) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV;
+        v17 = v16;
         if !((BinaryOp CmpF & 69 | (BinaryOp CmpF & 69) >> 6) & 1) {
-            v11 = 9223372036854775807;
+            v17 = 9223372036854775807;
         }
-        if !(amd64g_calculate_condition(11, 0, (BinaryOp CmpF & 69) as u32 as u64, 0, v10) as char) {
-            v11 = 0;
-        }
+        v11 = (amd64g_calculate_condition(11, 0, (BinaryOp CmpF & 69) as u32 as u64, 0, v12) as char ? v17 : 0);
     }
-    v17 = ((((v16 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV & 170141183420855150465331762880109871103) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV;
-    v18 = v17;
+    v19 = ((((v18 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV & 170141183420855150465331762880109871103) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV;
+    v20 = v19;
     if !((BinaryOp CmpF & 69 | (BinaryOp CmpF & 69) >> 6) & 1) {
-        v18 = 9223372036854775807;
+        v20 = 9223372036854775807;
     }
-    if !(amd64g_calculate_condition(11, 0, (BinaryOp CmpF & 69) as u32 as u64, 0, v10) as char) {
-        v18 = 0;
-    }
+    v21 = (amd64g_calculate_condition(11, 0, (BinaryOp CmpF & 69) as u32 as u64, 0, v12) as char ? v20 : 0);
     v0 = v5;
-    core::num::<impl i64>::pow(v7 + v11 + v18);
-    return v17 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v0;
+    core::num::<impl i64>::pow(v7 + v11 + v21);
+    return v19 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v0;
 }

@@ -1,5 +1,6 @@
-undefined  [16] __rustcall
-uu_numfmt::format_and_handle_validation(undefined8 param_1,undefined8 param_2,long param_3)
+undefined  [16]
+_ZN9uu_numfmt28format_and_handle_validation17he0ebc98d5f24d5daE
+          (undefined8 param_1,undefined8 param_2,long param_3)
 
 {
   undefined auVar1 [16];
@@ -18,7 +19,7 @@ uu_numfmt::format_and_handle_validation(undefined8 param_1,undefined8 param_2,lo
   
   local_30 = param_1;
   local_28 = param_2;
-  format::format_and_print(&local_80,param_1,param_2,param_3);
+  _ZN9uu_numfmt6format16format_and_print17he481f9ff3837b01fE(&local_80,param_1,param_2,param_3);
   if (CONCAT44(uStack_7c,local_80) != -0x8000000000000000) {
     local_38 = local_70;
     local_48 = local_80;

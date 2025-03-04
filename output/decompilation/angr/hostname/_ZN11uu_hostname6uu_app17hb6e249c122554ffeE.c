@@ -1,19 +1,19 @@
 long long uu_hostname::uu_app::hb6e249c122554ffe(unsigned long long a0)
 {
-    unsigned long v0;  // [sp-0x878], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x878]
     unsigned long long v1;  // [sp-0x870]
-    unsigned long v2;  // [sp-0x868], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x868]
     unsigned long long v3;  // [sp-0x860]
-    unsigned long v4;  // [sp-0x858], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0x858]
     unsigned long long v5;  // [sp-0x850]
-    unsigned long v6;  // [sp-0x848], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x848]
     unsigned long long v7;  // [sp-0x840]
     int v8;  // [bp-0x838], Other Possible Types: unsigned long long
-    int v9;  // [sp-0x828], Other Possible Types: unsigned long long
+    int v9;  // [sp-0x828], Other Possible Types: unsigned long
     unsigned long long v10;  // [sp-0x820]
-    int v11;  // [sp-0x818], Other Possible Types: unsigned long long
+    int v11;  // [sp-0x818], Other Possible Types: unsigned long
     unsigned long long v12;  // [sp-0x810]
-    int v13;  // [sp-0x808], Other Possible Types: unsigned long long
+    int v13;  // [sp-0x808], Other Possible Types: unsigned long
     unsigned long long v14;  // [sp-0x800]
     char v15;  // [bp-0x7f8]
     unsigned long long v16;  // [sp-0x53c]

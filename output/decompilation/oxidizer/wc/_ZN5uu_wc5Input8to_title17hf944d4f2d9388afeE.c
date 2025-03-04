@@ -1,5 +1,5 @@
 fn uu_wc::Input::to_title(a0: &Option<struct24>, a1: void*) -> u64 {
-    let v0: Result<struct16, struct10>;  // [sp-0x48], Other Possible Types: i192
+    let v0: Result<struct16, struct10>;  // [sp-0x48]
     let v4: i64;  // r15
     let v5: i64;  // r14
 
@@ -7,7 +7,7 @@ fn uu_wc::Input::to_title(a0: &Option<struct24>, a1: void*) -> u64 {
         v4 = *((a1 + 8) as &i64);
         v5 = *((a1 + 16) as &i64);
         v0 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(v4, v5);
-        if !(v0 || <char as core::str::pattern::Pattern>::is_contained_in(*((&v0 as &char + 8) as &i64), *((&v0 as &char + 16) as &i64))) {
+        if !(v0 as i64 || <char as core::str::pattern::Pattern>::is_contained_in(*((&v0 as &char + 8) as &i64), *((&v0 as &char + 16) as &i64))) {
             return Some(struct24 {
                 field_0: v2
                 field_8: v6

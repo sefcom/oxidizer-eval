@@ -1,7 +1,7 @@
 fn uu_nl::nl(a0: u32, a1: &u64, a2: void*) -> u64 {
     let v0: i8;  // [sp-0x161]
     let v1: i64;  // [sp-0x160]
-    let v2: i192;  // [sp-0x158], Other Possible Types: struct24
+    let v2: struct24;  // [sp-0x158]
     let v3: i64;  // [sp-0x128]
     let v4: i64;  // [sp-0x120]
     let v5: i64;  // [sp-0x118]
@@ -19,7 +19,7 @@ fn uu_nl::nl(a0: u32, a1: &u64, a2: void*) -> u64 {
     let v17: i64;  // [sp-0x88]
     let v18: i64;  // [sp-0x80]
     let v19: Option<Result<struct24, struct8>>;  // [sp-0x78]
-    let v20: i192;  // [sp-0x48]
+    let v20: iNone;  // [sp-0x48]
     let v22: i64;  // r15
     let v26: i64;  // rbp
 
@@ -49,17 +49,17 @@ fn uu_nl::nl(a0: u32, a1: &u64, a2: void*) -> u64 {
         },
     }
     v2 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v20);
-    v22 = *((&v2 as &char + 8) as &i64);
+    v22 = *((&v2.field_0 as &char + 8) as &i64);
     if v3 == v18 {
         return v22;
     }
-    v3 = v2;
+    v3 = v2.field_0 as i64;
     v4 = v22;
-    v5 = *((&v2 as &char + 16) as &i64);
+    v5 = v2.field_16;
     v26 = *((a1 + 16) as &i64) + 1;
     if v5 {
         v26 = 0;
     }
-    *((a1 + 16) as &i64) = v26;
-    goto *((0x461900 + uu_nl::SectionDelimiter::parse(vvar_175{stack -288}, vvar_176{stack -280}, vvar_157{stack -136}, vvar_158{stack -144}) as i32 * 4) as &i32) + 0x461900;
+    *((a1 + 16) as &unsigned long) = v26;
+    goto *((0x461900 + uu_nl::SectionDelimiter::parse(vvar_172{stack -288}, vvar_173{stack -280}, vvar_154{stack -136}, vvar_155{stack -144}) as i32 * 4) as &i32) + 0x461900;
 }

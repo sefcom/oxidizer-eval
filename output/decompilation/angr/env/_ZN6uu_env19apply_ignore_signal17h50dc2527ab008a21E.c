@@ -1,6 +1,6 @@
 long long uu_env::apply_ignore_signal::h50dc2527ab008a21(unsigned long long a0[15])
 {
-    unsigned long v0;  // [sp-0x20], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x20]
     unsigned long long v1;  // [sp-0x18]
     unsigned int *v3;  // rax
     unsigned int v4;  // edx

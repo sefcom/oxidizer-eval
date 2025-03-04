@@ -1,27 +1,13 @@
 fn uu_od::prn_float::format_item_flo64(a0: &struct24) -> int {
-    let v0: u64;  // [sp-0x80]
-    let v1: u64;  // [sp-0x78]
-    let v2: i8;  // [bp-0x70]
-    let v4: u64;  // [sp-0x58]
-    let v5: u64;  // [sp-0x50]
-    let v6: &u8;  // [sp-0x48]
-    let v7: u64;  // [sp-0x40]
-    let v8: void*;  // [sp-0x38]
-    let v9: u8;  // [bp-0x28]
-    let v11: u128;  // xmm0
+    let v0: String;  // [sp-0x70]
+    let v1: u8;  // [bp-0x28]
+    let v3: u128;  // xmm0
 
-    uu_od::prn_float::format_flo64();
-    v0 = &v9;
-    v1 = <alloc::string::String as core::fmt::Display>::fmt;
-    v4 = " ";
-    v5 = 1;
-    v8 = 0;
-    v6 = &v0;
-    v7 = 1;
-    core::option::Option<T>::map_or_else();
-    v11 = v2;
+    uu_od::prn_float::format_flo64(&v1);
+    v0 = format!(" {}", &v1);
+    v3 = *(&v0.ptr as &i128);
     return struct24 {
-        field_0: v11
-        field_16: v3
+        field_0: v3
+        field_16: v0.len
     };
 }

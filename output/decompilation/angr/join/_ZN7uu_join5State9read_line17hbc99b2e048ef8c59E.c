@@ -3,7 +3,7 @@ long long uu_join::State::read_line::hbc99b2e048ef8c59(struct_0 *a0, unsigned lo
     char v0;  // [bp-0x80]
     char v1;  // [bp-0x78]
     char v2;  // [bp-0x70]
-    unsigned long v3;  // [sp-0x68], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x68]
     unsigned long long v4;  // [sp-0x60]
     unsigned long long v5;  // [sp-0x58]
     char v6;  // [bp-0x50]

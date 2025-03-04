@@ -5,7 +5,7 @@ fn uu_more::Pager::page_down(a0: &struct8) -> u64 {
     let v4: u64;  // rsi
     let v5: u64;  // rcx
     let v6: u64;  // rdx
-    let v8: u64;  // rdx
+    let v7: u64;  // r8
 
     v1 = a0->field_40;
     v2 = v1 * 2;
@@ -19,11 +19,10 @@ fn uu_more::Pager::page_down(a0: &struct8) -> u64 {
     if __CFADD__(v3, v1) as char {
         v6 = -1;
     }
+    v7 = v4 - v1;
     if v5 < v4 {
-        v8 = v6;
-    } else {
-        v8 = v4 - v1;
+        v7 = v6;
     }
-    a0->field_18 = v8;
+    a0->field_18 = v7;
     return v1;
 }

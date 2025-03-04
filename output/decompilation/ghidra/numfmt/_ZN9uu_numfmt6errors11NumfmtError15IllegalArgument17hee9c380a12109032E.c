@@ -1,5 +1,5 @@
-void __rustcall
-uu_numfmt::errors::NumfmtError::IllegalArgument(undefined8 *param_1,undefined8 *param_2)
+void _ZN9uu_numfmt6errors11NumfmtError15IllegalArgument17hee9c380a12109032E
+               (undefined8 *param_1,undefined8 *param_2)
 
 {
   undefined8 uVar1;

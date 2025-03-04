@@ -1,7 +1,6 @@
-void __rustcall
-uu_csplit::SplitWriter::do_to_match
-          (undefined8 *param_1,ulong param_2,undefined8 param_3,undefined8 param_4,
-          undefined8 param_5,undefined8 param_6,int param_7,long param_8)
+void _ZN9uu_csplit11SplitWriter11do_to_match17h5baae8016ea78834E
+               (undefined8 *param_1,ulong param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5,undefined8 param_6,int param_7,long param_8)
 
 {
   code *pcVar1;
@@ -70,9 +69,9 @@ uu_csplit::SplitWriter::do_to_match
   if (param_7 < 0) {
     local_140 = (ulong)-param_7;
     *(ulong *)(param_8 + 0x30) = local_140;
-    _<uu_csplit::InputSplitter<I>as_core::iter::traits::iterator::Iterator>::next
+    _ZN92__LT_uu_csplit__InputSplitter_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h92638e6c16058415E
               (&local_108,param_8);
-    puVar3 = PTR_writeln_0041f8b0;
+    puVar3 = PTR__ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE_0041f8b0;
     if (uStack_100 != (undefined **)0x8000000000000001) {
       do {
         ppuVar4 = local_108;
@@ -82,23 +81,25 @@ uu_csplit::SplitWriter::do_to_match
         ppuStack_a8 = uStack_f8;
         local_a0 = local_f0;
                     /* try { // try from 0025ff15 to 0025ff29 has its CatchHandler @ 00260521 */
-        cVar6 = regex::regex::string::Regex::is_match_at(local_c0,local_b8);
+        cVar6 = _ZN5regex5regex6string5Regex11is_match_at17ha92ef8a3ebc0bbf1E(local_c0,local_b8);
         if (cVar6 != '\0') {
                     /* try { // try from 0026007b to 0026008d has its CatchHandler @ 002604c9 */
-          InputSplitter<I>::shrink_buffer_to_size(&local_58,param_8);
+          _ZN9uu_csplit22InputSplitter_LT_I_GT_21shrink_buffer_to_size17h0c5a68fe88e0f0c5E
+                    (&local_58,param_8);
           local_118 = local_38;
           local_128 = (undefined **)CONCAT44(uStack_44,local_48);
           local_138 = (undefined **)CONCAT44(uStack_54,local_58);
           uStack_130 = (undefined **)CONCAT44(uStack_4c,uStack_50);
-          plVar7 = (long *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::
-                           next(&local_138);
+          plVar7 = (long *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he2f19bf5df3e367fE
+                                     (&local_138);
           if (plVar7 == (long *)0x0) goto LAB_00260183;
           goto LAB_002600e0;
         }
         local_128 = local_a0;
         local_138 = local_b0;
         uStack_130 = ppuStack_a8;
-        InputSplitter<I>::add_line_to_buffer(&local_160,param_8,ppuVar4,&local_138);
+        _ZN9uu_csplit22InputSplitter_LT_I_GT_18add_line_to_buffer17hf666c82950bc0262E
+                  (&local_160,param_8,ppuVar4,&local_138);
         if (local_160 != (undefined **)0x8000000000000000) {
           local_138 = local_160;
           uStack_130 = ppuStack_158;
@@ -111,19 +112,18 @@ uu_csplit::SplitWriter::do_to_match
             pppuVar11 = (undefined ***)&local_138;
             goto LAB_0026040e;
           }
-          core::ptr::drop_in_place<alloc::string::String>(&local_138);
+          _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(&local_138);
         }
-        _<uu_csplit::InputSplitter<I>as_core::iter::traits::iterator::Iterator>::next
+        _ZN92__LT_uu_csplit__InputSplitter_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h92638e6c16058415E
                   (&local_108,param_8);
       } while (uStack_100 != (undefined **)0x8000000000000001);
     }
-    core::ptr::
-    drop_in_place<core::option::Option<(usize,core::result::Result<alloc::string::String,std::io::error::Error>)>>
+    _ZN4core3ptr138drop_in_place_LT_core__option__Option_LT__LP_usize_C_core__result__Result_LT_alloc__string__String_C_std__io__error__Error_GT__RP__GT__GT_17h55df8f1ce1418121E
               (&local_108);
-    ::alloc::vec::Vec<T,A>::drain(&local_138,param_8);
-    plVar7 = (long *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_5drain17hf59e40ec0b90ed17E(&local_138,param_8);
+    plVar7 = (long *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he2f19bf5df3e367fE
                                (&local_138);
-    puVar3 = PTR_writeln_0041f8b0;
+    puVar3 = PTR__ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE_0041f8b0;
     if (plVar7 != (long *)0x0) {
       do {
         if ((undefined **)plVar7[1] == (undefined **)0x8000000000000001) break;
@@ -134,7 +134,7 @@ uu_csplit::SplitWriter::do_to_match
         uStack_144 = *(undefined4 *)((long)plVar7 + 0x1c);
         ppuStack_158 = (undefined **)plVar7[1];
                     /* try { // try from 0025fd52 to 0025fd5c has its CatchHandler @ 00260533 */
-        core::ops::function::impls::_<impl_core::ops::function::FnOnce<A>for&mut_F>::call_once
+        _ZN4core3ops8function5impls80__LT_impl_u20_core__ops__function__FnOnce_LT_A_GT__u20_for_u20__RF_mut_u20_F_GT_9call_once17h4a2bc384fee84094E
                   (&local_108,&local_160);
         local_e8 = uStack_100;
         uStack_e0 = uStack_f8;
@@ -149,30 +149,29 @@ uu_csplit::SplitWriter::do_to_match
           *param_1 = 0;
           param_1[1] = lVar8;
                     /* try { // try from 00260276 to 0026027f has its CatchHandler @ 002604a7 */
-          core::ptr::drop_in_place<alloc::string::String>(&local_160);
+          _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(&local_160);
           goto LAB_00260280;
         }
                     /* try { // try from 0025fdac to 0025fdb3 has its CatchHandler @ 00260533 */
-        core::ptr::drop_in_place<alloc::string::String>(&local_160);
-        plVar7 = (long *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::
-                         next(&local_138);
+        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(&local_160);
+        plVar7 = (long *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he2f19bf5df3e367fE
+                                   (&local_138);
       } while (plVar7 != (long *)0x0);
     }
-    core::ptr::
-    drop_in_place<core::iter::adapters::map::Map<alloc::vec::drain::Drain<(usize,core::result::Result<alloc::string::String,std::io::error::Error>)>,uu_csplit::InputSplitter<core::iter::adapters::enumerate::Enumerate<std::io::Lines<std::io::stdio::StdinLock>>>::drain_buffer::__closure__>>
+    _ZN4core3ptr355drop_in_place_LT_core__iter__adapters__map__Map_LT_alloc__vec__drain__Drain_LT__LP_usize_C_core__result__Result_LT_alloc__string__String_C_std__io__error__Error_GT__RP__GT__C_uu_csplit__InputSplitter_LT_core__iter__adapters__enumerate__Enumerate_LT_std__io__Lines_LT_std__io__stdio__StdinLock_GT__GT__GT___drain_buffer___u7b__u7b_closure_u7d__u7d__GT__GT_17h99f18624c89a3c7eE
               (&local_138);
   }
   else {
     local_140 = param_2;
-    ::alloc::vec::Vec<T,A>::drain(&local_80,param_8);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_5drain17hf59e40ec0b90ed17E(&local_80,param_8);
     local_118 = local_60;
     local_128 = (undefined **)CONCAT44(uStack_6c,local_70);
     uStack_120 = (undefined **)CONCAT44(uStack_64,uStack_68);
     local_138 = (undefined **)CONCAT44(uStack_7c,local_80);
     uStack_130 = (undefined **)CONCAT44(uStack_74,uStack_78);
-    plVar7 = (long *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+    plVar7 = (long *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he2f19bf5df3e367fE
                                (&local_138);
-    puVar3 = PTR_writeln_0041f8b0;
+    puVar3 = PTR__ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE_0041f8b0;
     if (plVar7 != (long *)0x0) {
       do {
         if ((undefined **)plVar7[1] == (undefined **)0x8000000000000001) break;
@@ -183,7 +182,7 @@ uu_csplit::SplitWriter::do_to_match
         uStack_144 = *(undefined4 *)((long)plVar7 + 0x1c);
         ppuStack_158 = (undefined **)plVar7[1];
                     /* try { // try from 0025fbf2 to 0025fbfc has its CatchHandler @ 00260563 */
-        core::ops::function::impls::_<impl_core::ops::function::FnOnce<A>for&mut_F>::call_once
+        _ZN4core3ops8function5impls80__LT_impl_u20_core__ops__function__FnOnce_LT_A_GT__u20_for_u20__RF_mut_u20_F_GT_9call_once17h4a2bc384fee84094E
                   (&local_108,&local_160);
         local_e8 = uStack_100;
         uStack_e0 = uStack_f8;
@@ -198,26 +197,25 @@ uu_csplit::SplitWriter::do_to_match
           *param_1 = 0;
           param_1[1] = lVar8;
                     /* try { // try from 0025ffcc to 0025ffd5 has its CatchHandler @ 002604b9 */
-          core::ptr::drop_in_place<alloc::string::String>(&local_160);
+          _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(&local_160);
 LAB_00260280:
-          core::ptr::
-          drop_in_place<core::iter::adapters::map::Map<alloc::vec::drain::Drain<(usize,core::result::Result<alloc::string::String,std::io::error::Error>)>,uu_csplit::InputSplitter<core::iter::adapters::enumerate::Enumerate<std::io::Lines<std::io::stdio::StdinLock>>>::drain_buffer::__closure__>>
+          _ZN4core3ptr355drop_in_place_LT_core__iter__adapters__map__Map_LT_alloc__vec__drain__Drain_LT__LP_usize_C_core__result__Result_LT_alloc__string__String_C_std__io__error__Error_GT__RP__GT__C_uu_csplit__InputSplitter_LT_core__iter__adapters__enumerate__Enumerate_LT_std__io__Lines_LT_std__io__stdio__StdinLock_GT__GT__GT___drain_buffer___u7b__u7b_closure_u7d__u7d__GT__GT_17h99f18624c89a3c7eE
                     (&local_138);
           return;
         }
                     /* try { // try from 0025fc4d to 0025fc54 has its CatchHandler @ 00260563 */
-        core::ptr::drop_in_place<alloc::string::String>(&local_160);
-        plVar7 = (long *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::
-                         next(&local_138);
+        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(&local_160);
+        plVar7 = (long *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he2f19bf5df3e367fE
+                                   (&local_138);
       } while (plVar7 != (long *)0x0);
     }
-    core::ptr::
-    drop_in_place<core::iter::adapters::map::Map<alloc::vec::drain::Drain<(usize,core::result::Result<alloc::string::String,std::io::error::Error>)>,uu_csplit::InputSplitter<core::iter::adapters::enumerate::Enumerate<std::io::Lines<std::io::stdio::StdinLock>>>::drain_buffer::__closure__>>
+    _ZN4core3ptr355drop_in_place_LT_core__iter__adapters__map__Map_LT_alloc__vec__drain__Drain_LT__LP_usize_C_core__result__Result_LT_alloc__string__String_C_std__io__error__Error_GT__RP__GT__C_uu_csplit__InputSplitter_LT_core__iter__adapters__enumerate__Enumerate_LT_std__io__Lines_LT_std__io__stdio__StdinLock_GT__GT__GT___drain_buffer___u7b__u7b_closure_u7d__u7d__GT__GT_17h99f18624c89a3c7eE
               (&local_138);
     *(undefined8 *)(param_8 + 0x30) = 1;
-    _<uu_csplit::InputSplitter<I>as_core::iter::traits::iterator::Iterator>::next(&local_160);
+    _ZN92__LT_uu_csplit__InputSplitter_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h92638e6c16058415E
+              (&local_160);
     param_2 = local_140;
-    puVar3 = PTR_writeln_0041f8b0;
+    puVar3 = PTR__ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE_0041f8b0;
     if (ppuStack_158 != (undefined **)0x8000000000000001) {
       do {
         ppuVar4 = local_160;
@@ -232,21 +230,24 @@ LAB_0025ffa9:
         local_d8 = (undefined **)CONCAT44(uStack_144,uStack_148);
         local_e8 = ppuStack_158;
                     /* try { // try from 0025fe40 to 0025fe72 has its CatchHandler @ 00260551 */
-        cVar6 = regex::regex::string::Regex::is_match_at(local_c0,local_b8);
+        cVar6 = _ZN5regex5regex6string5Regex11is_match_at17ha92ef8a3ebc0bbf1E(local_c0,local_b8);
         if (cVar6 != '\0') {
           if (*(char *)(*(long *)(param_2 + 0x20) + 99) == '\0') {
             if (param_7 == 0) {
               local_128 = local_d8;
               local_138 = local_e8;
               uStack_130 = uStack_e0;
-              InputSplitter<I>::add_line_to_buffer(&local_108,param_8,ppuVar4,&local_138);
+              _ZN9uu_csplit22InputSplitter_LT_I_GT_18add_line_to_buffer17hf666c82950bc0262E
+                        (&local_108,param_8,ppuVar4,&local_138);
               if (local_108 != (undefined **)0x8000000000000000) goto LAB_0026045d;
-              core::ptr::drop_in_place<core::option::Option<alloc::string::String>>(&local_108);
+              _ZN4core3ptr70drop_in_place_LT_core__option__Option_LT_alloc__string__String_GT__GT_17h0ea097dc4fc5bc24E
+                        (&local_108);
               bVar2 = true;
               goto LAB_00260342;
             }
                     /* try { // try from 002602c5 to 0026034c has its CatchHandler @ 002604be */
-            lVar8 = (*(code *)PTR_writeln_0041f8b0)(local_140,uStack_e0,local_d8);
+            lVar8 = (*(code *)PTR__ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE_0041f8b0)
+                              (local_140,uStack_e0,local_d8);
             if (lVar8 != 0) goto LAB_002602d9;
           }
           if (1 < param_7) {
@@ -263,17 +264,17 @@ LAB_002602d9:
           param_1[1] = lVar8;
           goto LAB_00260406;
         }
-        core::ptr::drop_in_place<alloc::string::String>(&local_e8);
-        _<uu_csplit::InputSplitter<I>as_core::iter::traits::iterator::Iterator>::next
+        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(&local_e8);
+        _ZN92__LT_uu_csplit__InputSplitter_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h92638e6c16058415E
                   (&local_160,param_8);
       } while (ppuStack_158 != (undefined **)0x8000000000000001);
     }
-    core::ptr::
-    drop_in_place<core::option::Option<(usize,core::result::Result<alloc::string::String,std::io::error::Error>)>>
+    _ZN4core3ptr138drop_in_place_LT_core__option__Option_LT__LP_usize_C_core__result__Result_LT_alloc__string__String_C_std__io__error__Error_GT__RP__GT__GT_17h55df8f1ce1418121E
               (&local_160);
   }
-  (*(code *)PTR_finish_split_0041f8b8)(param_2);
-  _<T_as_alloc::slice::hack::ConvertVec>::to_vec(param_1 + 1,local_d0,local_c8);
+  (*(code *)PTR__ZN9uu_csplit11SplitWriter12finish_split17h2b71f2c0808d1b8bE_0041f8b8)(param_2);
+  _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h86097ab9bff6af61E
+            (param_1 + 1,local_d0,local_c8);
   *param_1 = 3;
   return;
   while( true ) {
@@ -284,7 +285,7 @@ LAB_002602d9:
     uStack_144 = *(undefined4 *)((long)plVar7 + 0x1c);
                     /* try { // try from 00260103 to 00260112 has its CatchHandler @ 002604f4 */
     ppuStack_158 = (undefined **)plVar7[1];
-    core::ops::function::impls::_<impl_core::ops::function::FnOnce<A>for&mut_F>::call_once
+    _ZN4core3ops8function5impls80__LT_impl_u20_core__ops__function__FnOnce_LT_A_GT__u20_for_u20__RF_mut_u20_F_GT_9call_once17h255b9cb46bd12424E
               (&local_e8,&local_160);
     local_98 = (undefined4)uStack_e0;
     uStack_94 = uStack_e0._4_4_;
@@ -301,16 +302,15 @@ LAB_002602d9:
       *param_1 = 0;
       param_1[1] = lVar8;
                     /* try { // try from 00260374 to 0026037d has its CatchHandler @ 002604a5 */
-      core::ptr::drop_in_place<alloc::string::String>(&local_160);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(&local_160);
                     /* try { // try from 0026037e to 00260387 has its CatchHandler @ 002604c9 */
-      core::ptr::
-      drop_in_place<core::iter::adapters::map::Map<alloc::vec::drain::Drain<(usize,core::result::Result<alloc::string::String,std::io::error::Error>)>,uu_csplit::InputSplitter<core::iter::adapters::enumerate::Enumerate<std::io::Lines<std::io::stdio::StdinLock>>>::drain_buffer::__closure__>>
+      _ZN4core3ptr355drop_in_place_LT_core__iter__adapters__map__Map_LT_alloc__vec__drain__Drain_LT__LP_usize_C_core__result__Result_LT_alloc__string__String_C_std__io__error__Error_GT__RP__GT__C_uu_csplit__InputSplitter_LT_core__iter__adapters__enumerate__Enumerate_LT_std__io__Lines_LT_std__io__stdio__StdinLock_GT__GT__GT___drain_buffer___u7b__u7b_closure_u7d__u7d__GT__GT_17h99f18624c89a3c7eE
                 (&local_138);
       goto LAB_00260388;
     }
                     /* try { // try from 00260168 to 0026016f has its CatchHandler @ 002604f4 */
-    core::ptr::drop_in_place<alloc::string::String>(&local_160);
-    plVar7 = (long *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(&local_160);
+    plVar7 = (long *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he2f19bf5df3e367fE
                                (&local_138);
     if (plVar7 == (long *)0x0) break;
 LAB_002600e0:
@@ -318,8 +318,7 @@ LAB_002600e0:
   }
 LAB_00260183:
                     /* try { // try from 00260183 to 0026018c has its CatchHandler @ 002604c9 */
-  core::ptr::
-  drop_in_place<core::iter::adapters::map::Map<alloc::vec::drain::Drain<(usize,core::result::Result<alloc::string::String,std::io::error::Error>)>,uu_csplit::InputSplitter<core::iter::adapters::enumerate::Enumerate<std::io::Lines<std::io::stdio::StdinLock>>>::drain_buffer::__closure__>>
+  _ZN4core3ptr355drop_in_place_LT_core__iter__adapters__map__Map_LT_alloc__vec__drain__Drain_LT__LP_usize_C_core__result__Result_LT_alloc__string__String_C_std__io__error__Error_GT__RP__GT__C_uu_csplit__InputSplitter_LT_core__iter__adapters__enumerate__Enumerate_LT_std__io__Lines_LT_std__io__stdio__StdinLock_GT__GT__GT___drain_buffer___u7b__u7b_closure_u7d__u7d__GT__GT_17h99f18624c89a3c7eE
             (&local_138);
   uVar5 = local_140;
   cVar6 = *(char *)(*(long *)(param_2 + 0x20) + 99);
@@ -328,37 +327,41 @@ LAB_00260183:
     local_128 = local_a0;
     local_138 = local_b0;
     uStack_130 = ppuStack_a8;
-    InputSplitter<I>::add_line_to_buffer(&local_160,param_8,ppuVar4,&local_138);
+    _ZN9uu_csplit22InputSplitter_LT_I_GT_18add_line_to_buffer17hf666c82950bc0262E
+              (&local_160,param_8,ppuVar4,&local_138);
     ppuVar4 = local_160;
-    core::ptr::drop_in_place<core::option::Option<alloc::string::String>>(&local_160);
+    _ZN4core3ptr70drop_in_place_LT_core__option__Option_LT_alloc__string__String_GT__GT_17h0ea097dc4fc5bc24E
+              (&local_160);
     if (ppuVar4 != (undefined **)0x8000000000000000) {
       local_138 = &PTR_s_should_be_big_enough_to_hold_eve_003deb90;
       uStack_130 = (undefined **)0x1;
       local_128 = (undefined **)0x8;
       uStack_120 = (undefined **)0x0;
       local_118 = 0;
-      (*(code *)PTR_panic_fmt_0041f810)(&local_138,&PTR_s__home_34r7hm4n_dev_oxidizer_oxid_003deba0)
-      ;
+      (*(code *)PTR__ZN4core9panicking9panic_fmt17he12d0d7468628bb4E_0041f810)
+                (&local_138,&PTR_s__home_34r7hm4n_dev_oxidizer_oxid_003deba0);
 LAB_0026045d:
                     /* try { // try from 0026045f to 002604a2 has its CatchHandler @ 002604be */
-      core::ptr::drop_in_place<core::option::Option<alloc::string::String>>(&local_108);
+      _ZN4core3ptr70drop_in_place_LT_core__option__Option_LT_alloc__string__String_GT__GT_17h0ea097dc4fc5bc24E
+                (&local_108);
       local_138 = &PTR_s_the_buffer_is_big_enough_to_cont_003deb50;
       uStack_130 = (undefined **)0x1;
       local_128 = (undefined **)0x8;
       uStack_120 = (undefined **)0x0;
       local_118 = 0;
-      (*(code *)PTR_panic_fmt_0041f810)(&local_138,&PTR_s__home_34r7hm4n_dev_oxidizer_oxid_003debb8)
-      ;
+      (*(code *)PTR__ZN4core9panicking9panic_fmt17he12d0d7468628bb4E_0041f810)
+                (&local_138,&PTR_s__home_34r7hm4n_dev_oxidizer_oxid_003debb8);
                     /* WARNING: Does not return */
       pcVar1 = (code *)invalidInstructionException();
       (*pcVar1)();
     }
   }
                     /* try { // try from 00260201 to 00260236 has its CatchHandler @ 002604ac */
-  (*(code *)PTR_finish_split_0041f8b8)(param_2);
+  (*(code *)PTR__ZN9uu_csplit11SplitWriter12finish_split17h2b71f2c0808d1b8bE_0041f8b8)(param_2);
   uVar9 = 0xc;
   if (*(ulong *)(param_8 + 0x10) < uVar5) {
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_138,local_d0,local_c8);
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h86097ab9bff6af61E
+              (&local_138,local_d0,local_c8);
     param_1[3] = local_128;
     *(undefined4 *)(param_1 + 1) = (undefined4)local_138;
     *(undefined4 *)((long)param_1 + 0xc) = local_138._4_4_;
@@ -382,21 +385,23 @@ LAB_00260388:
     if (lVar8 != 0) {
       *param_1 = 0;
       param_1[1] = lVar8;
-      core::ptr::drop_in_place<alloc::string::String>(&local_108);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(&local_108);
       goto LAB_00260406;
     }
                     /* try { // try from 00260060 to 00260067 has its CatchHandler @ 002604e9 */
-    core::ptr::drop_in_place<alloc::string::String>(&local_108);
+    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(&local_108);
     uVar12 = uVar12 - 1;
     if (uVar12 < 3) break;
 LAB_00260010:
                     /* try { // try from 00260010 to 0026001f has its CatchHandler @ 002604e9 */
-    _<uu_csplit::InputSplitter<I>as_core::iter::traits::iterator::Iterator>::next
+    _ZN92__LT_uu_csplit__InputSplitter_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h92638e6c16058415E
               (&local_138,param_8);
     if (uStack_130 == (undefined **)0x8000000000000001) {
                     /* try { // try from 00260395 to 00260405 has its CatchHandler @ 002604be */
-      (*(code *)PTR_finish_split_0041f8b8)(local_140);
-      _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_108,local_d0,local_c8);
+      (*(code *)PTR__ZN9uu_csplit11SplitWriter12finish_split17h2b71f2c0808d1b8bE_0041f8b8)
+                (local_140);
+      _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h86097ab9bff6af61E
+                (&local_108,local_d0,local_c8);
       param_1[3] = uStack_f8;
       *(undefined4 *)(param_1 + 1) = (undefined4)local_108;
       *(undefined4 *)((long)param_1 + 0xc) = local_108._4_4_;
@@ -413,7 +418,7 @@ LAB_00260010:
   }
   bVar2 = false;
 LAB_00260342:
-  (*(code *)PTR_finish_split_0041f8b8)(local_140);
+  (*(code *)PTR__ZN9uu_csplit11SplitWriter12finish_split17h2b71f2c0808d1b8bE_0041f8b8)(local_140);
   *param_1 = 0xc;
   if (bVar2) {
     return;
@@ -421,6 +426,6 @@ LAB_00260342:
 LAB_00260406:
   pppuVar11 = &local_e8;
 LAB_0026040e:
-  core::ptr::drop_in_place<alloc::string::String>(pppuVar11);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(pppuVar11);
   return;
 }

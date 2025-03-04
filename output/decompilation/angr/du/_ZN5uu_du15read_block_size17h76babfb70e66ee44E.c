@@ -3,9 +3,9 @@ long long uu_du::read_block_size::h76babfb70e66ee44(unsigned long long a0[2], un
     char v0;  // [bp-0xc8]
     char v1;  // [bp-0xc0]
     char v2;  // [bp-0xb8]
-    int v3;  // [sp-0xa8], Other Possible Types: unsigned long long
+    int v3;  // [sp-0xa8], Other Possible Types: unsigned long
     unsigned long long v4;  // [sp-0xa0]
-    int v5;  // [sp-0x98], Other Possible Types: unsigned long long
+    int v5;  // [bp-0x98], Other Possible Types: unsigned long long
     unsigned long long v6;  // [sp-0x90]
     unsigned long long v7;  // [sp-0x88]
     unsigned long long v8;  // [sp-0x80]
@@ -18,30 +18,29 @@ long long uu_du::read_block_size::h76babfb70e66ee44(unsigned long long a0[2], un
     char v15;  // [bp-0x38]
     int v17;  // ymm0
     unsigned long long v18;  // rax
-    unsigned long long v19;  // rdx
-    int v20;  // xmm0
-    unsigned long long v21;  // rcx
-    void* v22;  // rax
-    int v23;  // xmm0
+    int v19;  // xmm0
+    unsigned long long v20;  // rcx
+    void* v21;  // rax
+    int v22;  // xmm0
 
     if (a1)
     {
         uucore::parser::parse_size::parse_size_u64::h6825c2c9656edafa(&v0, a1, a2);
         if (*((int *)&v0) == 3)
         {
-            v21 = *((long long *)&v1);
-            v22 = 0;
+            v20 = *((long long *)&v1);
+            v21 = 0;
         }
         else
         {
-            v23 = *((int128_t *)&v0);
+            v22 = *((int128_t *)&v0);
             *((int128_t *)&v5) = *((int128_t *)&v2);
-            v3 = v23;
-            v22 = uu_du::read_block_size::_$u7b$$u7b$closure$u7d$$u7d$::hbe6839e34197ed94(a1, a2, &v3);
-            v21 = &g_584310;
+            v3 = v22;
+            v21 = uu_du::read_block_size::_$u7b$$u7b$closure$u7d$$u7d$::hbe6839e34197ed94(a1, a2, &v3);
+            v20 = &g_584310;
         }
-        a0[1] = v21;
-        a0[0] = v22;
+        a0[1] = v20;
+        a0[0] = v21;
         return a0;
     }
     else
@@ -72,13 +71,13 @@ long long uu_du::read_block_size::h76babfb70e66ee44(unsigned long long a0[2], un
                 a0[0] = 0;
                 return a0;
             }
-            std::env::var::h8742b1567e161603(&v13, v18, v19);
+            std::env::var::h8742b1567e161603(&v13, v18, a2);
             if (!*((long long *)&v13))
             {
                 v12 = *((long long *)&v15);
-                v20 = *((int128_t *)&v14);
-                v17 = v17 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v20;
-                v11 = v20;
+                v19 = *((int128_t *)&v14);
+                v17 = v17 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v19;
+                v11 = v19;
                 uucore::parser::parse_size::parse_size_u64::h6825c2c9656edafa(&v0, (long long)(&v11)[8], *((long long *)&v15));
                 if (*((int *)&v0) == 3)
                 {

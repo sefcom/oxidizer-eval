@@ -1,5 +1,5 @@
 fn uu_df::mount_info_lt(a0: void*, a1: void*) -> u64 {
-    let v0: struct1;  // [bp-0x38], Other Possible Types: u64
+    let v0: u64;  // [bp-0x38], Other Possible Types: struct1
     let v1: struct1;  // [bp-0x34]
     let v3: u64;  // rax
     let v4: u64;  // r15

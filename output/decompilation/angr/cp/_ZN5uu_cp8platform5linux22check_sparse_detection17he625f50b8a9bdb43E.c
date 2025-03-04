@@ -32,6 +32,6 @@ long long uu_cp::platform::linux::check_sparse_detection::he625f50b8a9bdb43(stru
         a0->padding_1[0] = 1;
         a0->field_0 = 0;
     }
-    v7 = ::0x5128c0::core::ptr::drop_in_place$LT$std..fs..File$GT$::h4b422317f52b3bf0();
+    v7 = ::0x5128c0::core::ptr::drop_in_place$LT$std..fs..File$GT$::h4b422317f52b3bf0(v0);
     return v7;
 }

@@ -1,4 +1,4 @@
-void __rustcall uu_truncate::TruncateMode::to_size(long param_1)
+void _ZN11uu_truncate12TruncateMode7to_size17h56da67cab21ebb4eE(long param_1)
 
 {
                     /* WARNING: Could not recover jumptable at 0x001ad2ff. Too many branches */

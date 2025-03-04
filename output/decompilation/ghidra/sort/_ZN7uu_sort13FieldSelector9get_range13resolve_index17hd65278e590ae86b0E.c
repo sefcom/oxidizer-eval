@@ -1,6 +1,5 @@
-char __rustcall
-uu_sort::FieldSelector::get_range::resolve_index
-          (undefined8 param_1,ulong param_2,long param_3,ulong param_4,ulong *param_5)
+char _ZN7uu_sort13FieldSelector9get_range13resolve_index17hd65278e590ae86b0E
+               (undefined8 param_1,ulong param_2,long param_3,ulong param_4,ulong *param_5)
 
 {
   ulong uVar1;
@@ -32,16 +31,16 @@ uu_sort::FieldSelector::get_range::resolve_index
       lVar5 = 0;
       if (*(char *)(param_5 + 2) == '\0') goto LAB_00221f06;
 LAB_00221eb9:
-      auVar6 = core::str::traits::
-               _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::RangeFrom<usize>>::
-               get(lVar5,param_1,param_2);
+      auVar6 = _ZN4core3str6traits112__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeFrom_LT_usize_GT__GT_3get17hccefea64a1916a27E
+                         (lVar5,param_1,param_2);
       lVar3 = auVar6._0_8_;
       if (lVar3 != 0) {
         local_38 = lVar3 + auVar6._8_8_;
         local_30 = 0;
         local_40 = lVar3;
-        auVar7 = core::iter::traits::iterator::Iterator::try_fold(&local_40);
-        lVar3 = core::option::Option<T>::map_or(auVar7._0_8_,auVar7._8_4_,auVar6._8_8_);
+        auVar7 = _ZN4core4iter6traits8iterator8Iterator8try_fold17hebbd1e5cdfe1aaa4E(&local_40);
+        lVar3 = _ZN4core6option15Option_LT_T_GT_6map_or17h7394a4af2de8fef7E
+                          (auVar7._0_8_,auVar7._8_4_,auVar6._8_8_);
         lVar5 = lVar5 + lVar3;
         goto LAB_00221f06;
       }
@@ -49,37 +48,37 @@ LAB_00221eb9:
     }
     else {
       if (param_3 == 0) {
-        core::option::unwrap_failed(&PTR_s_src_uu_sort_src_sort_rs_002ffb98);
+        _ZN4core6option13unwrap_failed17h0e11329e76906eaaE(&PTR_s_src_uu_sort_src_sort_rs_002ffb98);
 LAB_00221fd4:
                     /* WARNING: Subroutine does not return */
-        core::panicking::panic_bounds_check();
+        _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E();
       }
       if (param_4 <= uVar1 - 1) goto LAB_00221fd4;
       lVar5 = *(long *)(param_3 + (uVar1 - 1) * 0x10);
       if (*(char *)(param_5 + 2) != '\0') goto LAB_00221eb9;
 LAB_00221f06:
-      auVar6 = core::str::traits::
-               _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::RangeFrom<usize>>::
-               get(lVar5,param_1,param_2);
+      auVar6 = _ZN4core3str6traits112__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeFrom_LT_usize_GT__GT_3get17hccefea64a1916a27E
+                         (lVar5,param_1,param_2);
       lVar3 = auVar6._0_8_;
       if (lVar3 != 0) {
         local_38 = lVar3 + auVar6._8_8_;
         local_30 = 0;
         local_40 = lVar3;
-        lVar3 = core::iter::traits::iterator::Iterator::advance_by(&local_40,uVar2 - 1);
+        lVar3 = _ZN4core4iter6traits8iterator8Iterator10advance_by17hf1b9bd9a791e7d45E
+                          (&local_40,uVar2 - 1);
         if (lVar3 == 0) {
-          _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next(&local_40)
-          ;
+          _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
+                    (&local_40);
         }
-        lVar3 = core::option::Option<T>::map_or();
+        lVar3 = _ZN4core6option15Option_LT_T_GT_6map_or17h0a742836e118e24eE();
         return (param_2 <= (ulong)(lVar3 + lVar5)) * '\x03';
       }
       ppuVar4 = &PTR_s_src_uu_sort_src_sort_rs_002ffbe0;
     }
-    core::str::slice_error_fail(param_1,param_2,lVar5,param_2,ppuVar4);
+    _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE(param_1,param_2,lVar5,param_2,ppuVar4);
   }
-  core::option::unwrap_failed(&PTR_s_src_uu_sort_src_sort_rs_002ffb68);
+  _ZN4core6option13unwrap_failed17h0e11329e76906eaaE(&PTR_s_src_uu_sort_src_sort_rs_002ffb68);
 LAB_00221fb7:
                     /* WARNING: Subroutine does not return */
-  core::panicking::panic_bounds_check();
+  _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E();
 }

@@ -9,6 +9,7 @@ long long uu_tac::try_mmap_path::h01ee297263e394e5(struct_0 *a0, unsigned long l
     char v6;  // [bp-0x28]
     char v7;  // [bp-0x20]
     unsigned long long v9;  // rax
+    unsigned long long v10;  // rdi
 
     std::fs::File::open::h0ae14c8dddef61f7(&v1, a1, a2);
     if (*((int *)&v1))
@@ -27,12 +28,14 @@ long long uu_tac::try_mmap_path::h01ee297263e394e5(struct_0 *a0, unsigned long l
     {
         *((int128_t *)&(&a0->field_0)[1]) = *((int128_t *)&v7);
         a0->field_0 = 1;
+        v10 = v0;
     }
     else
     {
         core::ptr::drop_in_place$LT$core..result..Result$LT$memmap2..Mmap$C$std..io..error..Error$GT$$GT$::h33f78c51d3eed1e5(&v6);
         a0->field_0 = 0;
+        v10 = v0;
     }
-    v9 = core::ptr::drop_in_place$LT$std..fs..File$GT$::h8bacf0b914d62b8a();
+    v9 = core::ptr::drop_in_place$LT$std..fs..File$GT$::h8bacf0b914d62b8a(v10);
     return v9;
 }

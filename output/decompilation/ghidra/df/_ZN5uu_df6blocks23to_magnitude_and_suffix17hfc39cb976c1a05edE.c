@@ -1,5 +1,6 @@
-undefined8 __rustcall
-uu_df::blocks::to_magnitude_and_suffix(undefined8 param_1,ulong param_2,ulong param_3,byte param_4)
+undefined8
+_ZN5uu_df6blocks23to_magnitude_and_suffix17hfc39cb976c1a05edE
+          (undefined8 param_1,ulong param_2,ulong param_3,byte param_4)
 
 {
   code *pcVar1;
@@ -239,7 +240,8 @@ uu_df::blocks::to_magnitude_and_suffix(undefined8 param_1,ulong param_2,ulong pa
                    uVar13 = local_1d0, uVar9 = local_148,
                    uVar8 < param_3 || uVar8 - param_3 < (ulong)(uVar17 - local_1d0 < param_2))) {
                     /* WARNING: Subroutine does not return */
-                  core::panicking::panic_bounds_check(10,10,&PTR_DAT_00241ea8,uVar12 - uVar7);
+                  _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E
+                            (10,10,&PTR_DAT_00241ea8,uVar12 - uVar7);
                 }
               }
             }
@@ -269,9 +271,10 @@ uu_df::blocks::to_magnitude_and_suffix(undefined8 param_1,ulong param_2,ulong pa
   if (uVar12 == 0 && lVar15 == 0) {
     local_138 = (undefined8 **)local_f8;
 LAB_001d489a:
-    local_130 = core::fmt::num::_<impl_core::fmt::Display_for_u128>::fmt;
+    local_130 = 
+    _ZN4core3fmt3num53__LT_impl_u20_core__fmt__Display_u20_for_u20_u128_GT_3fmt17h261e2a7b3123826cE;
     local_128 = (undefined8 **)&local_e8;
-    local_120 = _<&T_as_core::fmt::Display>::fmt;
+    local_120 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h34828d13b93644f8E;
     local_188 = (long *)&DAT_00110568;
     local_180 = (code *)0x2;
     local_168 = (undefined4 *)0x0;
@@ -281,7 +284,8 @@ LAB_001d489a:
   }
   else {
     if (uVar9 < (uVar13 < 10)) {
-      core::panicking::panic_const::panic_const_div_by_zero(&PTR_DAT_00241ec0);
+      _ZN4core9panicking11panic_const23panic_const_div_by_zero17haded503194f0bf6eE
+                (&PTR_DAT_00241ec0);
       pcVar1 = (code *)swi(3);
       uVar6 = (*pcVar1)();
       return uVar6;
@@ -316,10 +320,12 @@ LAB_001d489a:
       local_178 = &local_108;
     }
     local_188 = (long *)local_f8;
-    local_180 = core::fmt::num::_<impl_core::fmt::Display_for_u128>::fmt;
-    local_170 = core::fmt::num::_<impl_core::fmt::Display_for_u128>::fmt;
+    local_180 = 
+    _ZN4core3fmt3num53__LT_impl_u20_core__fmt__Display_u20_for_u20_u128_GT_3fmt17h261e2a7b3123826cE;
+    local_170 = 
+    _ZN4core3fmt3num53__LT_impl_u20_core__fmt__Display_u20_for_u20_u128_GT_3fmt17h261e2a7b3123826cE;
     local_168 = (undefined4 *)&local_e8;
-    local_160 = _<&T_as_core::fmt::Display>::fmt;
+    local_160 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h34828d13b93644f8E;
     local_138 = (undefined8 **)&DAT_00241e78;
     local_130 = (code *)0x3;
     local_118 = 0;
@@ -327,6 +333,6 @@ LAB_001d489a:
     local_120 = (code *)0x3;
     pppuVar11 = &local_138;
   }
-  core::option::Option<T>::map_or_else(param_1,pppuVar11);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17h87f8290896e212c8E(param_1,pppuVar11);
   return param_1;
 }

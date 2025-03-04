@@ -1,12 +1,11 @@
 fn uu_od::inputdecoder::MemoryDecoder::zero_out_buffer(a0: &&struct_0, a1: &u8, a2: u32) -> u64 {
-    let v2: &u8;  // rbx
-    let v3: &u8;  // rax
+    let v1: &u8;  // rbx
 
     if a1 >= a2 {
-        return v3;
+        return v1;
     }
+    v1 = a1;
     do {
-        v2 = a1;
-    } while ((v3 = <usize as core::iter::range::Step>::forward_unchecked(v2), v2[*(a0)->field_8] = 0 as u8, a1 = v3, v3 < a2));
-    return v3;
+    } while ((v1[*(a0)->field_8] = 0 as u8, v1 = <usize as core::iter::range::Step>::forward_unchecked(v1), v1 < a2));
+    return v1;
 }

@@ -4,7 +4,7 @@ long long uu_join::State::reset_read_line::h7f39e4bbc8d84e75(unsigned long long 
     char v1;  // [bp-0x60]
     char v2;  // [bp-0x58]
     char v3;  // [bp-0x48]
-    unsigned long v4;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0x38]
     unsigned long long v5;  // [sp-0x30]
     int v6;  // [sp-0x28]
     int v7;  // [sp-0x18]

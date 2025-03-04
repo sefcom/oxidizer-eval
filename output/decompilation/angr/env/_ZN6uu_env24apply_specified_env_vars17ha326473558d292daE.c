@@ -2,9 +2,9 @@ long long uu_env::apply_specified_env_vars::ha326473558d292da(unsigned long long
 {
     char *v0;  // [sp-0xa0]
     unsigned long long v1;  // [sp-0x98]
-    unsigned long v2;  // [sp-0x90], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x90]
     unsigned long long v3;  // [sp-0x88]
-    unsigned long v4;  // [sp-0x80], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0x80]
     unsigned long long v5;  // [sp-0x78]
     struct struct_0 **v6;  // [sp-0x70]
     unsigned long long v7;  // [sp-0x68]

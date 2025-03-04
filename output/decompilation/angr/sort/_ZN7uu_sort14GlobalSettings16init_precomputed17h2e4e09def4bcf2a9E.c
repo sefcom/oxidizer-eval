@@ -1,6 +1,6 @@
 long long uu_sort::GlobalSettings::init_precomputed::h2e4e09def4bcf2a9(struct_0 *a0)
 {
-    unsigned long v0;  // [sp-0x28], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x28]
     unsigned long long v1;  // [sp-0x20]
     unsigned long long v2;  // [sp-0x10]
     unsigned long long v3;  // [sp-0x8]

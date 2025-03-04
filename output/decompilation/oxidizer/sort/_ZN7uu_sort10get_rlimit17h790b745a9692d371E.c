@@ -1,6 +1,6 @@
 fn uu_sort::get_rlimit(a0: &struct16) -> u64 {
-    let v0: i128;  // [sp-0x48]
-    let v1: i192;  // [sp-0x30], Other Possible Types: struct24
+    let v0: iNone;  // [sp-0x48]
+    let v1: struct24;  // [sp-0x30]
     let v2: i32;  // [sp-0x18]
 
     v0 = 0;

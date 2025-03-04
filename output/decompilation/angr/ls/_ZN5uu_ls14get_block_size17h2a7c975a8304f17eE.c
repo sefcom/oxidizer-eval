@@ -20,12 +20,12 @@ long long uu_ls::get_block_size::h2a7c975a8304f17e(unsigned int a0, unsigned lon
         v0 = v2;
         core::panicking::panic_const::panic_const_div_by_zero::haded503194f0bf6e(&g_612670); /* do not return */
     }
-    else if (!(v0 | a2) >> 32)
+    else if (!(v2 | a2) >> 32)
     {
-        return ((unsigned int)((0 CONCAT (unsigned int)v0) % (a2 & 4294967295)) CONCAT (unsigned int)((0 CONCAT (unsigned int)v0) / (a2 & 4294967295))) & 4294967295;
+        return ((unsigned int)((0 CONCAT (unsigned int)v2) % (a2 & 4294967295)) CONCAT (unsigned int)((0 CONCAT (unsigned int)v2) / (a2 & 4294967295))) & 4294967295;
     }
     else
     {
-        return (unsigned long long)((0 CONCAT v0) % a2) CONCAT (unsigned long long)((0 CONCAT v0) / a2);
+        return (unsigned long long)((0 CONCAT v2) % a2) CONCAT (unsigned long long)((0 CONCAT v2) / a2);
     }
 }

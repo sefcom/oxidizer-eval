@@ -1,4 +1,5 @@
-undefined8 * __rustcall uu_sort::Output::new(undefined8 *param_1,long param_2,undefined8 param_3)
+undefined8 *
+_ZN7uu_sort6Output3new17h0f0ba6416cebc253E(undefined8 *param_1,long param_2,undefined8 param_3)
 
 {
   undefined4 unaff_EBP;
@@ -43,9 +44,10 @@ undefined8 * __rustcall uu_sort::Output::new(undefined8 *param_1,long param_2,un
     local_d8 = 0x1b600000000;
     local_d0 = 0x100;
     local_cc = 1;
-    std::fs::OpenOptions::open(&local_c8,&local_d8,param_2,param_3);
+    _ZN3std2fs11OpenOptions4open17h2cdbe8cd70abf308E(&local_c8,&local_d8,param_2,param_3);
     if (local_c8 != 0) {
-      new::___closure__(&local_78,param_2,param_3,local_c0);
+      _ZN7uu_sort6Output3new28__u7b__u7b_closure_u7d__u7d_17hb3d002288addb3b9E
+                (&local_78,param_2,param_3,local_c0);
       uStack_b5 = local_75;
       uStack_b7 = local_77;
       local_b0 = local_70;
@@ -59,14 +61,17 @@ undefined8 * __rustcall uu_sort::Output::new(undefined8 *param_1,long param_2,un
       local_80 = local_40;
       local_b8 = local_78;
       uStack_b4 = local_74;
-      uVar1 = ::alloc::boxed::Box<T>::new(&local_b8);
+      uVar1 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hebf92c849c48588dE(&local_b8);
       param_1[1] = uVar1;
-      param_1[2] = &PTR_drop_in_place<uu_sort_SortError>_002ff678;
+      param_1[2] = &
+                   PTR__ZN4core3ptr39drop_in_place_LT_uu_sort__SortError_GT_17he8a54a56651c7a8bE_002ff678
+      ;
       *param_1 = 0x8000000000000001;
       return param_1;
     }
                     /* try { // try from 0021e4b8 to 0021e4c7 has its CatchHandler @ 0021e4ff */
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_b8,param_2,param_3);
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h1d4334c76f34ab0eE
+              (&local_b8,param_2,param_3);
     uVar1 = CONCAT44(uStack_b4,CONCAT13(uStack_b5,CONCAT21(uStack_b7,local_b8)));
     local_38 = local_b0;
     uStack_30 = uStack_a8;

@@ -1,4 +1,5 @@
-void __rustcall uu_wc::WcError::zero_len(undefined8 *param_1,long *param_2,undefined8 param_3)
+void _ZN5uu_wc7WcError8zero_len17h6c38c36eb5b26b9aE
+               (undefined8 *param_1,long *param_2,undefined8 param_3)
 
 {
   undefined8 local_28;
@@ -12,7 +13,7 @@ void __rustcall uu_wc::WcError::zero_len(undefined8 *param_1,long *param_2,undef
       local_28 = 0x8000000000000000;
     }
     else {
-      uucore::features::quoting_style::escape_name
+      _ZN6uucore8features13quoting_style11escape_name17ha9b5831150e16363E
                 (&local_28,param_2[1],param_2[2],
                  &anon_7c7385208ddd1e4e4d864dc74576bdf1_19_llvm_3329604763963259673);
     }

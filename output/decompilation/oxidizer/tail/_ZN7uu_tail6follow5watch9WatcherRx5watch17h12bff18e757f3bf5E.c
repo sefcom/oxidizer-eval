@@ -9,11 +9,11 @@ fn uu_tail::follow::watch::WatcherRx::watch(a0: u32, a1: void*) -> u64 {
     let v7: u64;  // [sp-0x8]
 
     a1->field_18();
-    if v0 != 6 {
-        v7 = v3;
-        v6 = v2;
-        v5 = v1;
-        v4 = v0;
+    if *(&v0 as &i32) != 6 {
+        v7 = *(&v3 as &i64);
+        v6 = *(&v2 as &i128);
+        v5 = *(&v1 as &i128);
+        v4 = *(&v0 as &i128);
         return uu_tail::follow::watch::WatcherRx::watch::{{closure}}(&v4);
     }
     return 0;

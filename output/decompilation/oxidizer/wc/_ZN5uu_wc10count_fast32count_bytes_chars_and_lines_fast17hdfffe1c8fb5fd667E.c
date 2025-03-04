@@ -15,24 +15,24 @@ fn uu_wc::count_fast::count_bytes_chars_and_lines_fast(a0: &struct48, a1: u32) -
     v0 = v6;
     v7 = 0;
     memset(&v1, 0, 0x4000);
-    for (; !<std::fs::File as std::io::Read>::read(a1, &v1, 0x4000); v7 += bytecount::count(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v8, &v1, "src/uu/wc/src/count_fast.rs"), v8, 10)) {
-LABEL_4bf640:
-        if !v8 {
+    loop {
+        if !<std::fs::File as std::io::Read>::read(a1, &v1, 0x4000) {
+            if !v8 {
+                return struct48 {
+                    field_0: 0
+                    field_16: v7
+                    field_24: 0
+                    field_40: 0
+                };
+            }
+            v7 += bytecount::count(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v8, &v1, "src/uu/wc/src/count_fast.rs"), v8, 10);
+        } else if std::io::error::Error::kind(v8) as i8 != 35 {
             return struct48 {
                 field_0: 0
                 field_16: v7
                 field_24: 0
-                field_40: 0
+                field_40: v8
             };
         }
     }
-    if std::io::error::Error::kind(v8) as i8 != 35 {
-        return struct48 {
-            field_0: 0
-            field_16: v7
-            field_24: 0
-            field_40: v8
-        };
-    }
-    goto LABEL_4bf640;
 }

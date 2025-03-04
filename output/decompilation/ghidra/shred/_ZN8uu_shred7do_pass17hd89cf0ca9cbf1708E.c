@@ -1,4 +1,5 @@
-long __rustcall uu_shred::do_pass(undefined8 param_1,undefined8 param_2,char param_3,ulong param_4)
+long _ZN8uu_shred7do_pass17hd89cf0ca9cbf1708E
+               (undefined8 param_1,undefined8 param_2,char param_3,ulong param_4)
 
 {
   undefined *puVar1;
@@ -15,10 +16,10 @@ long __rustcall uu_shred::do_pass(undefined8 param_1,undefined8 param_2,char par
     puVar1 = puVar5 + -0x1000;
   } while (puVar5 + -0x1000 != auStack_10030);
   *(undefined8 *)(puVar5 + -0x1160) = 0x1bd92f;
-  lVar2 = std::io::Seek::rewind();
+  lVar2 = _ZN3std2io4Seek6rewind17h87bbf0dfa3c74672E();
   if (lVar2 == 0) {
     *(undefined8 *)(puVar5 + -0x1160) = 0x1bd946;
-    BytesWriter::from_pass_type(puVar5 + -0x1158,param_2);
+    _ZN8uu_shred11BytesWriter14from_pass_type17h9b8f49adafc10293E(puVar5 + -0x1158,param_2);
     uVar3 = 0;
     do {
       if (param_4 >> 0x10 <= uVar3) {
@@ -28,26 +29,29 @@ long __rustcall uu_shred::do_pass(undefined8 param_1,undefined8 param_2,char par
             uVar3 = param_4 & 0xffff;
           }
           *(undefined8 *)(puVar5 + -0x1160) = 0x1bd99c;
-          uVar4 = BytesWriter::bytes_for_pass(puVar5 + -0x1158,uVar3);
+          uVar4 = _ZN8uu_shred11BytesWriter14bytes_for_pass17h0df75ebf5bedda4aE
+                            (puVar5 + -0x1158,uVar3);
           *(undefined8 *)(puVar5 + -0x1160) = 0x1bd9a7;
-          lVar2 = std::io::Write::write_all(param_1,uVar4);
+          lVar2 = _ZN3std2io5Write9write_all17hdb2ef0a1157baf82E(param_1,uVar4);
           if (lVar2 != 0) {
             return lVar2;
           }
         }
         *(undefined8 *)(puVar5 + -0x1160) = 0x1bd9b5;
-        lVar2 = std::fs::File::sync_data(param_1);
+        lVar2 = _ZN3std2fs4File9sync_data17hf784af99032c3e35E(param_1);
         if (lVar2 != 0) {
           return lVar2;
         }
         return 0;
       }
       *(undefined8 *)(puVar5 + -0x1160) = 0x1bd95d;
-      uVar3 = _<u64_as_core::iter::range::Step>::forward_unchecked(uVar3);
+      uVar3 = _ZN47__LT_u64_u20_as_u20_core__iter__range__Step_GT_17forward_unchecked17h30cfd590689ce002E
+                        (uVar3);
       *(undefined8 *)(puVar5 + -0x1160) = 0x1bd96d;
-      uVar4 = BytesWriter::bytes_for_pass(puVar5 + -0x1158,0x10000);
+      uVar4 = _ZN8uu_shred11BytesWriter14bytes_for_pass17h0df75ebf5bedda4aE
+                        (puVar5 + -0x1158,0x10000);
       *(undefined8 *)(puVar5 + -0x1160) = 0x1bd978;
-      lVar2 = std::io::Write::write_all(param_1,uVar4);
+      lVar2 = _ZN3std2io5Write9write_all17hdb2ef0a1157baf82E(param_1,uVar4);
     } while (lVar2 == 0);
   }
   return lVar2;

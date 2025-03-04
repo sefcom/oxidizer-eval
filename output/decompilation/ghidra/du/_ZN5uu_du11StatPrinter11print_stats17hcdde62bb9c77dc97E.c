@@ -1,4 +1,5 @@
-undefined  [16] __rustcall uu_du::StatPrinter::print_stats(undefined8 *param_1,undefined8 param_2)
+undefined  [16]
+_ZN5uu_du11StatPrinter11print_stats17hcdde62bb9c77dc97E(undefined8 *param_1,undefined8 param_2)
 
 {
   char cVar1;
@@ -80,7 +81,7 @@ undefined  [16] __rustcall uu_du::StatPrinter::print_stats(undefined8 *param_1,u
   long local_48;
   undefined8 uStack_40;
   
-  std::sync::mpmc::Receiver<T>::recv(&local_d8);
+  _ZN3std4sync4mpmc17Receiver_LT_T_GT_4recv17h7eaaff2dc637e02cE(&local_d8);
   auVar13[0] = -((char)local_d8 == DAT_0010f110);
   auVar13[1] = -(local_d8._1_1_ == UNK_0010f111);
   auVar13[2] = -(local_d8._2_1_ == UNK_0010f112);
@@ -132,20 +133,22 @@ undefined  [16] __rustcall uu_du::StatPrinter::print_stats(undefined8 *param_1,u
         local_1e0 = local_c0;
                     /* try { // try from 001f3363 to 001f33f7 has its CatchHandler @ 001f3563 */
         uVar6 = (**(code **)(local_c0 + 0x60))();
-        uucore::mods::error::set_exit_code(uVar6);
-        auVar13 = uucore::util_name();
+        _ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E(uVar6);
+        auVar13 = _ZN6uucore9util_name17h60d842bf27b05e82E();
         local_1a8 = (undefined8 *)local_e8;
-        local_1a0 = _<&T_as_core::fmt::Display>::fmt;
+        local_1a0 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h6327d06d698acdd2E;
         local_198 = &local_1e8;
-        local_190 = _<alloc::boxed::Box<T,A>as_core::fmt::Display>::fmt;
+        local_190 = 
+        _ZN69__LT_alloc__boxed__Box_LT_T_C_A_GT__u20_as_u20_core__fmt__Display_GT_3fmt17hc201e0bc34ac3284E
+        ;
         local_188 = &DAT_002845c8;
         local_180 = 3;
         local_168 = 0;
         local_178 = &local_1a8;
         local_170 = 2;
         local_e8 = auVar13;
-        std::io::stdio::_eprint(&local_188);
-        core::ptr::drop_in_place<alloc::boxed::Box<dyn_uucore::mods::error::UError>>
+        _ZN3std2io5stdio7_eprint17hcdfeec148c7134f7E(&local_188);
+        _ZN4core3ptr81drop_in_place_LT_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_17h29011716f9a6ef88E
                   (local_1e8,local_1e0);
       }
       else {
@@ -188,23 +191,27 @@ undefined  [16] __rustcall uu_du::StatPrinter::print_stats(undefined8 *param_1,u
         if (local_48 == 0) {
           lVar10 = lVar8;
         }
-        cVar5 = core::option::Option<T>::map_or(local_1b0,local_1b8,lVar8);
+        cVar5 = _ZN4core6option15Option_LT_T_GT_6map_or17hcdde7c32e5996b93E
+                          (local_1b0,local_1b8,lVar8);
         if (cVar5 == '\0') {
-          cVar5 = core::option::Option<T>::map_or(local_1c8,local_1d0,lVar7);
+          cVar5 = _ZN4core6option15Option_LT_T_GT_6map_or17h49b7c3a1ba7c3f0dE
+                            (local_1c8,local_1d0,lVar7);
           if ((cVar5 != '\0') && (cVar3 == '\0' || lVar7 == 0)) {
                     /* try { // try from 001f3512 to 001f3523 has its CatchHandler @ 001f3554 */
-            lVar7 = print_stat(local_1d8,&local_188,lVar8);
+            lVar7 = _ZN5uu_du11StatPrinter10print_stat17hc47c0332c6a0985fE
+                              (local_1d8,&local_188,lVar8);
             if (lVar7 != 0) {
-              core::ptr::drop_in_place<uu_du::StatPrintInfo>(&local_188);
+              _ZN4core3ptr41drop_in_place_LT_uu_du__StatPrintInfo_GT_17h4b6987c0043f7e99E
+                        (&local_188);
               goto LAB_001f3265;
             }
           }
         }
         lVar9 = lVar9 + lVar10;
-        core::ptr::drop_in_place<uu_du::StatPrintInfo>(&local_188);
+        _ZN4core3ptr41drop_in_place_LT_uu_du__StatPrintInfo_GT_17h4b6987c0043f7e99E(&local_188);
         param_2 = local_1c0;
       }
-      std::sync::mpmc::Receiver<T>::recv(&local_d8,param_2);
+      _ZN3std4sync4mpmc17Receiver_LT_T_GT_4recv17h7eaaff2dc637e02cE(&local_d8,param_2);
       auVar11[0] = -((char)local_d8 == DAT_0010f110);
       auVar11[1] = -(local_d8._1_1_ == UNK_0010f111);
       auVar11[2] = -(local_d8._2_1_ == UNK_0010f112);
@@ -240,8 +247,9 @@ undefined  [16] __rustcall uu_du::StatPrinter::print_stats(undefined8 *param_1,u
   }
   puVar4 = local_1d8;
   if (*(char *)(local_1d8 + 9) != '\0') {
-    convert_size(&local_d8,local_1d8,lVar9);
-    local_1a0 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+    _ZN5uu_du11StatPrinter12convert_size17he529e362fc7c1e00E(&local_d8,local_1d8,lVar9);
+    local_1a0 = 
+    _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
     local_188 = &DAT_002845f8;
     local_180 = 2;
     local_168 = 0;
@@ -249,20 +257,23 @@ undefined  [16] __rustcall uu_du::StatPrinter::print_stats(undefined8 *param_1,u
     local_170 = 1;
                     /* try { // try from 001f31ed to 001f31f7 has its CatchHandler @ 001f3542 */
     local_1a8 = &local_d8;
-    std::io::stdio::_print(&local_188);
-    core::ptr::drop_in_place<alloc::string::String>(&local_d8);
+    _ZN3std2io5stdio6_print17he918bceb0c89db46E(&local_188);
+    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h5d86c71ca1632ad3E(&local_d8);
     local_d8 = (undefined *)((long)puVar4 + 0x4d);
-    uStack_d0 = _<uucore::mods::line_ending::LineEnding_as_core::fmt::Display>::fmt;
+    uStack_d0 = 
+    _ZN76__LT_uucore__mods__line_ending__LineEnding_u20_as_u20_core__fmt__Display_GT_3fmt17h6643b2132dca5a5bE
+    ;
     local_188 = &DAT_0010f000;
     local_180 = 1;
     local_168 = 0;
     local_170 = 1;
     local_178 = (undefined8 **)&local_d8;
-    std::io::stdio::_print(&local_188);
+    _ZN3std2io5stdio6_print17he918bceb0c89db46E(&local_188);
   }
   lVar7 = 0;
 LAB_001f3265:
-  auVar12._8_8_ = &PTR_drop_in_place<uu_du_DuError>_00284558;
+  auVar12._8_8_ =
+       &PTR__ZN4core3ptr35drop_in_place_LT_uu_du__DuError_GT_17h55943e498f41d83eE_00284558;
   auVar12._0_8_ = lVar7;
   return auVar12;
 }

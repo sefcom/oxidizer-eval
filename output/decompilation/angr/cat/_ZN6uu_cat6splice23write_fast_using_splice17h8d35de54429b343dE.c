@@ -31,8 +31,8 @@ long long uu_cat::splice::write_fast_using_splice::h8d35de54429b343d(struct_0 *a
             v10 = a0;
             v10->field_8 = 1;
             v10->field_0 = 9223372036854775814;
-            core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f();
-            vvar_183{reg 16} = core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f();
+            core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f(v2);
+            vvar_180{reg 16} = core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f(v1);
             return v7;
         }
         v8 = *((long long *)&v4);
@@ -41,8 +41,8 @@ long long uu_cat::splice::write_fast_using_splice::h8d35de54429b343d(struct_0 *a
             v10 = a0;
             v10->field_8 = 0;
             v10->field_0 = 9223372036854775814;
-            core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f();
-            vvar_176{reg 16} = core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f();
+            core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f(v2);
+            vvar_173{reg 16} = core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f(v1);
             return v7;
         }
     } while ((int)uucore::features::pipes::splice_exact::hf182302f6fbd70e2(&v1, a2, v8) == 134);
@@ -59,7 +59,7 @@ long long uu_cat::splice::write_fast_using_splice::h8d35de54429b343d(struct_0 *a
         v12->field_0 = 9223372036854775809;
         *((unsigned int *)&v12->field_8) = v9;
     }
-    core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f();
-    v7 = core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f();
+    core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f(v2);
+    v7 = core::ptr::drop_in_place$LT$std..fs..File$GT$::h59c27c7970f16c5f(v1);
     return v7;
 }

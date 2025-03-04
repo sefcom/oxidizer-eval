@@ -1,4 +1,4 @@
-undefined8 * __rustcall uu_dd::BlockWriter::flush(undefined8 *param_1,long *param_2)
+undefined8 * _ZN5uu_dd11BlockWriter5flush17h48e8ffbb5b89f6d9E(undefined8 *param_1,long *param_2)
 
 {
   code *pcVar1;
@@ -25,22 +25,23 @@ undefined8 * __rustcall uu_dd::BlockWriter::flush(undefined8 *param_1,long *para
     param_1[5] = 0;
     return (undefined8 *)0x8000000000000000;
   }
-  Output::write_blocks(&lStack_78,param_2 + 3,param_2[1],param_2[2]);
+  _ZN5uu_dd6Output12write_blocks17h78b56ae9a3f355f3E(&lStack_78,param_2 + 3,param_2[1],param_2[2]);
   if (lStack_78 == 0) {
     uStack_48 = uStack_58;
     uStack_44 = uStack_54;
     uStack_40 = uStack_50;
     uStack_3c = uStack_4c;
     if (lStack_60 != 0) {
-      core::result::Result<T,E>::unwrap(1);
+      _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h92e74c7f2e34bccfE(1);
       pcVar1 = (code *)swi(3);
       puVar2 = (undefined8 *)(*pcVar1)();
       return puVar2;
     }
     uVar3 = 0;
-    core::result::Result<T,E>::unwrap(0);
-    ::alloc::vec::Vec<T,A>::drain(&lStack_78,param_2,0,uStack_68);
-    core::ptr::drop_in_place<alloc::vec::drain::Drain<u8>>(&lStack_78);
+    _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h92e74c7f2e34bccfE(0);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_5drain17hb073313df60fa3f3E(&lStack_78,param_2,0,uStack_68);
+    _ZN4core3ptr55drop_in_place_LT_alloc__vec__drain__Drain_LT_u8_GT__GT_17h9f8a61b78eca9047E
+              (&lStack_78);
     param_1[3] = 0;
     param_1[2] = uStack_68;
     param_1[4] = CONCAT44(uStack_44,uStack_48);

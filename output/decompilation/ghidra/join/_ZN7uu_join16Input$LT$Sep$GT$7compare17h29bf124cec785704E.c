@@ -1,5 +1,5 @@
-ulong __rustcall
-uu_join::Input<Sep>::compare(char param_1,long param_2,ulong param_3,long param_4,ulong param_5)
+ulong _ZN7uu_join16Input_LT_Sep_GT_7compare17h29bf124cec785704E
+                (char param_1,long param_2,ulong param_3,long param_4,ulong param_5)
 
 {
   int iVar1;
@@ -16,7 +16,9 @@ uu_join::Input<Sep>::compare(char param_1,long param_2,ulong param_3,long param_
       local_20 = param_3;
       local_18 = param_4;
       local_10 = param_5;
-      uVar2 = (*(code *)PTR_cmp_00239330)(&local_28,&local_18);
+      uVar2 = (*(code *)
+                PTR__ZN64__LT_uu_join__CaseInsensitiveSlice_u20_as_u20_core__cmp__Ord_GT_3cmp17h5b1b26860e9af836E_00239330
+              )(&local_28,&local_18);
       return uVar2;
     }
     uVar2 = param_5;

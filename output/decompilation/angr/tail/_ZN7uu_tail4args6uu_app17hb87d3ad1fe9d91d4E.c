@@ -1,17 +1,17 @@
 long long uu_tail::args::uu_app::hb87d3ad1fe9d91d4(unsigned long long a0)
 {
-    unsigned long v0;  // [sp-0xa88], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xa88]
     unsigned long long v1;  // [sp-0xa80]
     unsigned long long v2;  // [sp-0xa78]
     unsigned long long v3;  // [sp-0xa70]
-    unsigned long v4;  // [sp-0xa68], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0xa68]
     unsigned long long v5;  // [sp-0xa60]
     unsigned long long v6;  // [sp-0xa58]
     unsigned long long v7;  // [sp-0xa50]
     char v8;  // [bp-0xa48]
     unsigned int v9;  // [sp-0x800]
     unsigned int v10;  // [sp-0x7fc]
-    char v11;  // [bp-0x7f8], Other Possible Types: unsigned long long
+    char v11;  // [bp-0x7f8], Other Possible Types: unsigned long
     unsigned long long v12;  // [sp-0x7f0]
     unsigned long long v13;  // [sp-0x7e8]
     unsigned long long v14;  // [sp-0x7e0]
@@ -24,7 +24,7 @@ long long uu_tail::args::uu_app::hb87d3ad1fe9d91d4(unsigned long long a0)
     char v21;  // [bp-0x2e4]
     char v22;  // [bp-0x274]
     char v23;  // [bp-0x26c]
-    void* v24;  // [sp-0x268], Other Possible Types: unsigned long, unsigned long long
+    void* v24;  // [sp-0x268], Other Possible Types: unsigned long long, unsigned long
     unsigned long long v25;  // [sp-0x260]
     char v26;  // [bp-0x258], Other Possible Types: unsigned long
     unsigned long long v27;  // [sp-0x250]

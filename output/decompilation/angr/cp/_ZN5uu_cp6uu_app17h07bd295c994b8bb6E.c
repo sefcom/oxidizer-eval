@@ -1,6 +1,6 @@
 long long uu_cp::uu_app::h07bd295c994b8bb6(unsigned long long a0)
 {
-    char v0;  // [bp-0xa70], Other Possible Types: unsigned long long
+    char v0;  // [bp-0xa70], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0xa68]
     unsigned long long v2;  // [sp-0xa60]
     unsigned long long v3;  // [sp-0xa58]
@@ -8,7 +8,7 @@ long long uu_cp::uu_app::h07bd295c994b8bb6(unsigned long long a0)
     unsigned long long v5;  // [sp-0xa48]
     unsigned int v6;  // [sp-0x828]
     unsigned int v7;  // [sp-0x824]
-    char v8;  // [bp-0x820], Other Possible Types: unsigned long long
+    char v8;  // [bp-0x820], Other Possible Types: unsigned long
     unsigned long long v9;  // [sp-0x818]
     unsigned long long v10;  // [sp-0x810]
     unsigned long long v11;  // [sp-0x808]
@@ -18,7 +18,7 @@ long long uu_cp::uu_app::h07bd295c994b8bb6(unsigned long long a0)
     unsigned int v15;  // [sp-0x5d4]
     unsigned long long v16;  // [sp-0x564]
     unsigned int v17;  // [sp-0x55c]
-    char v18;  // [bp-0x558], Other Possible Types: unsigned long long
+    char v18;  // [bp-0x558], Other Possible Types: unsigned long
     unsigned long long v19;  // [sp-0x550]
     char *v20;  // [sp-0x548]
     unsigned long long v21;  // [sp-0x540]
@@ -45,7 +45,7 @@ long long uu_cp::uu_app::h07bd295c994b8bb6(unsigned long long a0)
     v22 = 0;
     v20 = &v0;
     v21 = 2;
-    ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2();
+    ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2(&v25, &v18);
     clap_builder::builder::command::Command::after_help::h24742e0eb86c1def(&v18, &v8, &v25);
     memcpy(&v8, &v18, 700);
     v16 = 584115552392 | *((long long *)&v23);

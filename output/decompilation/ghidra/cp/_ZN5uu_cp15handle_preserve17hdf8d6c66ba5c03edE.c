@@ -1,6 +1,5 @@
-void __rustcall
-uu_cp::handle_preserve
-          (long *param_1,char param_2,char param_3,undefined8 param_4,undefined8 param_5)
+void _ZN5uu_cp15handle_preserve17hdf8d6c66ba5c03edE
+               (long *param_1,char param_2,char param_3,undefined8 param_4,undefined8 param_5)
 
 {
   long lVar1;
@@ -38,7 +37,8 @@ uu_cp::handle_preserve
   undefined4 uStack_1c;
   
   if (param_2 != '\0') {
-    copy_attributes::___closure__(&local_98,param_4,param_5);
+    _ZN5uu_cp15copy_attributes28__u7b__u7b_closure_u7d__u7d_17h6173858c63ecfb53E
+              (&local_98,param_4,param_5);
     lVar1 = CONCAT44(uStack_94,local_98);
     if (param_3 == '\0') {
       if (lVar1 != 0xd) {
@@ -59,8 +59,8 @@ uu_cp::handle_preserve
         uStack_50 = uStack_90;
         uStack_4c = uStack_8c;
                     /* try { // try from 00204f4a to 00204f53 has its CatchHandler @ 00204f6f */
-        show_error_if_needed(&local_58);
-        core::ptr::drop_in_place<uu_cp::Error>(&local_58);
+        _ZN5uu_cp20show_error_if_needed17h934143ac50374c6eE(&local_58);
+        _ZN4core3ptr33drop_in_place_LT_uu_cp__Error_GT_17h771e7f9a0f8a7901E(&local_58);
       }
     }
     else if (lVar1 != 0xd) {

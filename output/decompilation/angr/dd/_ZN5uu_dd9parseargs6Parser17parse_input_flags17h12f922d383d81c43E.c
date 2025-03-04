@@ -11,10 +11,11 @@ long long uu_dd::parseargs::Parser::parse_input_flags::h12f922d383d81c43(struct_
     char v8;  // [bp-0x60]
     char v9;  // [bp-0x48]
     unsigned long long v11;  // rax
-    unsigned long long v13;  // r13
-    unsigned long long v15;  // r13
-    struct_0 *v16;  // rax
-    struct_0 *v18;  // rcx
+    unsigned long long v12;  // rbx
+    unsigned long v13;  // rdx
+    unsigned long long v14;  // r13
+    struct_0 *v15;  // rax
+    struct_0 *v17;  // rcx
 
     ::0x4d2600::_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$::into_searcher::h77b0cfb9226a3587(&v3, 44, a2, a3);
     v1 = 0;
@@ -23,109 +24,111 @@ long long uu_dd::parseargs::Parser::parse_input_flags::h12f922d383d81c43(struct_
     v11 = ::0x4d24a0::core::str::iter::SplitInternal$LT$P$GT$::next::h47b118536c82edfa(&v1);
     if (v11)
     {
+        v12 = v11;
+        v14 = v13;
         v0 = 11;
         do
         {
-            v13 = v15;
-            if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "cio", 3))
+            if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "cio", 3))
             {
-                ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v6, v11, v13);
-                vvar_358{reg 24} = a0;
-                v18->field_0 = v0;
-                *((int128_t *)&(&v18->field_0)[1]) = *((int128_t *)&v6);
-                *((long long *)((char *)&v18->field_8 + 8)) = *((long long *)&(&v9)[16]);
-                return v16;
+                ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v6, v12, v14);
+                vvar_352{reg 24} = a0;
+                v17->field_0 = v0;
+                *((int128_t *)&(&v17->field_0)[1]) = *((int128_t *)&v6);
+                *((long long *)((char *)&v17->field_8 + 8)) = *((long long *)&(&v9)[16]);
+                return v15;
             }
-            if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "direct", 6))
+            if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "direct", 6))
             {
                 a1[177] = 1;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "directory", 9))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "directory", 9))
             {
                 a1[178] = 1;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "dsync", 5))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "dsync", 5))
             {
                 a1[179] = 1;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "syncCyan", 4))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "syncCyan", 4))
             {
                 a1[180] = 1;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "nocache", 7))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "nocache", 7))
             {
                 a1[181] = 1;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "nonblock", 8))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "nonblock", 8))
             {
                 a1[182] = 1;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "noatime", 7))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "noatime", 7))
             {
                 a1[183] = 1;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "noctty", 6))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "noctty", 6))
             {
                 a1[184] = 1;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "nofollow", 8))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "nofollow", 8))
             {
                 a1[185] = 1;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "nolinks", 7))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "nolinks", 7))
             {
-                ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v7, v11, v13);
-                vvar_366{reg 24} = a0;
-                v18->field_0 = v0;
-                *((int128_t *)&(&v18->field_0)[1]) = *((int128_t *)&v7);
-                *((long long *)((char *)&v18->field_8 + 8)) = *((long long *)&(&v9)[16]);
-                return v16;
+                ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v7, v12, v14);
+                vvar_360{reg 24} = a0;
+                v17->field_0 = v0;
+                *((int128_t *)&(&v17->field_0)[1]) = *((int128_t *)&v7);
+                *((long long *)((char *)&v17->field_8 + 8)) = *((long long *)&(&v9)[16]);
+                return v15;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "binary", 6))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "binary", 6))
             {
-                ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v8, v11, v13);
-                vvar_374{reg 24} = a0;
-                v18->field_0 = v0;
-                *((int128_t *)&(&v18->field_0)[1]) = *((int128_t *)&v8);
-                *((long long *)((char *)&v18->field_8 + 8)) = *((long long *)&(&v9)[16]);
-                return v16;
+                ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v8, v12, v14);
+                vvar_368{reg 24} = a0;
+                v17->field_0 = v0;
+                *((int128_t *)&(&v17->field_0)[1]) = *((int128_t *)&v8);
+                *((long long *)((char *)&v17->field_8 + 8)) = *((long long *)&(&v9)[16]);
+                return v15;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "text", 4))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "text", 4))
             {
-                ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v9, v11, v13);
-                v18 = a0;
-                v18->field_0 = v0;
-                *((int128_t *)&(&v18->field_0)[1]) = *((int128_t *)&v9);
-                v16 = *((long long *)&(&v9)[16]);
-                *((struct_0 **)((char *)&v18->field_8 + 8)) = v16;
-                return v16;
+                ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v9, v12, v14);
+                v17 = a0;
+                v17->field_0 = v0;
+                *((int128_t *)&(&v17->field_0)[1]) = *((int128_t *)&v9);
+                v15 = *((long long *)&(&v9)[16]);
+                *((struct_0 **)((char *)&v17->field_8 + 8)) = v15;
+                return v15;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "fullblock", 9))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "fullblock", 9))
             {
                 a1[189] = 1;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "count_bytes", 11))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "count_bytes", 11))
             {
                 a1[190] = 1;
             }
-            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "skip_bytes", 10))
+            else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "skip_bytes", 10))
             {
                 a1[191] = 1;
             }
-            else if (!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "append", 6) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v11, v13, "seek_bytes", 10))
+            else if (!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "append", 6) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v12, v14, "seek_bytes", 10))
             {
                 v0 = 5;
-                ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v5, v11, v13);
-                vvar_382{reg 24} = a0;
-                v18->field_0 = v0;
-                *((int128_t *)&(&v18->field_0)[1]) = *((int128_t *)&v5);
-                *((long long *)((char *)&v18->field_8 + 8)) = *((long long *)&(&v9)[16]);
-                return v16;
+                ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v5, v12, v14);
+                vvar_376{reg 24} = a0;
+                v17->field_0 = v0;
+                *((int128_t *)&(&v17->field_0)[1]) = *((int128_t *)&v5);
+                *((long long *)((char *)&v17->field_8 + 8)) = *((long long *)&(&v9)[16]);
+                return v15;
             }
-            v11 = ::0x4d24a0::core::str::iter::SplitInternal$LT$P$GT$::next::h47b118536c82edfa(&v1);
-        } while (v11);
+            v12 = ::0x4d24a0::core::str::iter::SplitInternal$LT$P$GT$::next::h47b118536c82edfa(&v1);
+            v14 = v13;
+        } while (v12);
     }
-    v16 = a0;
-    v16->field_0 = 14;
-    return v16;
+    v15 = a0;
+    v15->field_0 = 14;
+    return v15;
 }

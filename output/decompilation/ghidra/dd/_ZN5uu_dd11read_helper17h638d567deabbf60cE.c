@@ -1,5 +1,5 @@
-void __rustcall
-uu_dd::read_helper(undefined8 *param_1,long param_2,undefined8 *param_3,undefined8 param_4)
+void _ZN5uu_dd11read_helper17h638d567deabbf60cE
+               (undefined8 *param_1,long param_2,undefined8 *param_3,undefined8 param_4)
 
 {
   long lVar1;
@@ -20,12 +20,13 @@ uu_dd::read_helper(undefined8 *param_1,long param_2,undefined8 *param_3,undefine
   undefined8 uStack_30;
   undefined8 local_28;
   
-  ::alloc::vec::Vec<T,A>::resize(param_3,param_4,0xdd);
+  _ZN5alloc3vec16Vec_LT_T_C_A_GT_6resize17h7ed7dd5e8601bb1eE(param_3,param_4,0xdd);
   if (*(char *)(*(long *)(param_2 + 8) + 0x68) == '\0') {
-    Input::fill_consecutive(&local_60,param_2,param_3);
+    _ZN5uu_dd5Input16fill_consecutive17h7d4bc8ab92dd656eE(&local_60,param_2,param_3);
   }
   else {
-    Input::fill_blocks(&local_60,param_2,param_3,*(undefined *)(*(long *)(param_2 + 8) + 0x69));
+    _ZN5uu_dd5Input11fill_blocks17h45cc08a13ee607a5E
+              (&local_60,param_2,param_3,*(undefined *)(*(long *)(param_2 + 8) + 0x69));
   }
   if (local_60 == 0) {
     uStack_68 = local_40;
@@ -44,14 +45,16 @@ uu_dd::read_helper(undefined8 *param_1,long param_2,undefined8 *param_3,undefine
     else {
       lVar1 = *(long *)(param_2 + 8);
       if (*(char *)(lVar1 + 0x6a) != '\0') {
-        read_helper::perform_swab(param_3[1],param_3[2]);
+        _ZN5uu_dd11read_helper12perform_swab17h674fb7c29172040eE(param_3[1],param_3[2]);
         lVar1 = *(long *)(param_2 + 8);
       }
       if (*(char *)(lVar1 + 0x50) != '\a') {
-        _<alloc::vec::Vec<T,A>as_core::clone::Clone>::clone(&local_60,param_3);
-        blocks::conv_block_unblock_helper(&local_38,&local_60,lVar1 + 0x50,&local_80);
+        _ZN67__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__clone__Clone_GT_5clone17h0fe0d79b2ed079ccE
+                  (&local_60,param_3);
+        _ZN5uu_dd6blocks25conv_block_unblock_helper17he5e21bd733c5515fE
+                  (&local_38,&local_60,lVar1 + 0x50,&local_80);
                     /* try { // try from 001d8c32 to 001d8c39 has its CatchHandler @ 001d8c71 */
-        core::ptr::drop_in_place<alloc::vec::Vec<u8>>(param_3);
+        _ZN4core3ptr46drop_in_place_LT_alloc__vec__Vec_LT_u8_GT__GT_17hcaeb013c8c4216feE(param_3);
         param_3[2] = local_28;
         *param_3 = local_38;
         param_3[1] = uStack_30;

@@ -1,6 +1,5 @@
-void __rustcall
-uu_csplit::csplit(long *param_1,long param_2,undefined8 param_3,undefined8 param_4,
-                 undefined8 param_5)
+void _ZN9uu_csplit6csplit17hbd1c068a297fe5d8E
+               (long *param_1,long param_2,undefined8 param_3,undefined8 param_4,undefined8 param_5)
 
 {
   bool bVar1;
@@ -67,7 +66,7 @@ uu_csplit::csplit(long *param_1,long param_2,undefined8 param_3,undefined8 param
   undefined4 uStack_3c;
   undefined8 local_38;
   
-  std::io::BufRead::lines(&lStack_d0,param_5);
+  _ZN3std2io7BufRead5lines17hb5077b34f6593e01E(&lStack_d0,param_5);
   uStack_a0 = 0;
   local_e8 = 0;
   lStack_e0 = 8;
@@ -80,7 +79,8 @@ uu_csplit::csplit(long *param_1,long param_2,undefined8 param_3,undefined8 param
   local_f0 = 0;
                     /* try { // try from 00260d11 to 00260d7c has its CatchHandler @ 002610a1 */
   local_108 = param_2;
-  (*(code *)PTR_get_patterns_0041f8c0)(&local_188,param_3,param_4);
+  (*(code *)PTR__ZN9uu_csplit8patterns12get_patterns17h1caf3c5952747e62E_0041f8c0)
+            (&local_188,param_3,param_4);
   local_1e8 = lStack_180;
   lVar3 = local_1e8;
   uStack_1e0 = uStack_178;
@@ -98,13 +98,15 @@ uu_csplit::csplit(long *param_1,long param_2,undefined8 param_3,undefined8 param
     uStack_80 = (undefined4)uStack_1e0;
     uStack_7c = uStack_1e0._4_4_;
     local_78 = local_170;
-    do_csplit(&local_1e8,local_128,&local_88,&local_e8);
+    _ZN9uu_csplit9do_csplit17hcf79d66f02e2a63dE(&local_1e8,local_128,&local_88,&local_e8);
     bVar4 = true;
     bVar1 = true;
     if ((int)local_1e8 != 0xc) {
 LAB_00260dc5:
       if ((bVar4) && (*(char *)(param_2 + 0x60) == '\0')) {
-        lVar3 = (*(code *)PTR_delete_all_splits_0041f8c8)(local_128);
+        lVar3 = (*(code *)
+                  PTR__ZN9uu_csplit11SplitWriter17delete_all_splits17h651b08e5afba42d7E_0041f8c8)
+                          (local_128);
         if (lVar3 != 0) {
           *param_1 = 0;
           param_1[1] = lVar3;
@@ -121,12 +123,12 @@ LAB_00260dc5:
       *(undefined4 *)(param_1 + 1) = (undefined4)uStack_1e0;
       *(undefined4 *)((long)param_1 + 0xc) = uStack_1e0._4_4_;
                     /* try { // try from 00260e34 to 00260e40 has its CatchHandler @ 0026109c */
-      core::ptr::drop_in_place<uu_csplit::SplitWriter>(local_128);
+      _ZN4core3ptr43drop_in_place_LT_uu_csplit__SplitWriter_GT_17hbd6d8c3456abefcfE(local_128);
       goto LAB_00260eff;
     }
     uStack_90 = 1;
                     /* try { // try from 00260d93 to 00260ddd has its CatchHandler @ 0026108f */
-    _<uu_csplit::InputSplitter<I>as_core::iter::traits::iterator::Iterator>::next
+    _ZN92__LT_uu_csplit__InputSplitter_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h8dbaf25fcfb0cb29E
               (local_50,&local_e8);
     bVar1 = true;
     if (CONCAT44(uStack_44,local_48) == -0x7fffffffffffffff) {
@@ -140,7 +142,8 @@ LAB_00260dbd:
     uStack_1b0 = uStack_40;
     uStack_1ac = uStack_3c;
                     /* try { // try from 00260e5f to 00260e6c has its CatchHandler @ 0026106c */
-    lVar3 = (*(code *)PTR_new_writer_0041f8d0)(local_128);
+    lVar3 = (*(code *)PTR__ZN9uu_csplit11SplitWriter10new_writer17hf8bcfdadfd914b2eE_0041f8d0)
+                      (local_128);
     if (lVar3 == 0) {
       if (CONCAT44(uStack_1b4,local_1b8) == -0x8000000000000000) {
         *param_1 = 0;
@@ -151,10 +154,11 @@ LAB_00260dbd:
                     /* try { // try from 00260ebc to 00260ec9 has its CatchHandler @ 0026104c */
         local_188 = CONCAT44(uStack_1b4,local_1b8);
         lStack_180 = CONCAT44(uStack_1ac,uStack_1b0);
-        lVar3 = (*(code *)PTR_writeln_0041f8b0)(local_128);
+        lVar3 = (*(code *)PTR__ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE_0041f8b0)
+                          (local_128);
         if (lVar3 == 0) {
                     /* try { // try from 00260f26 to 00260f2f has its CatchHandler @ 0026105b */
-          core::ptr::drop_in_place<alloc::string::String>(&local_188);
+          _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(&local_188);
           uStack_130 = CONCAT71(uStack_8f,uStack_90);
           local_138 = local_98;
           local_148 = local_a8;
@@ -169,7 +173,7 @@ LAB_00260dbd:
           lStack_180 = lStack_e0;
           while( true ) {
                     /* try { // try from 00260f97 to 00260fa1 has its CatchHandler @ 0026107e */
-            _<uu_csplit::InputSplitter<I>as_core::iter::traits::iterator::Iterator>::next
+            _ZN92__LT_uu_csplit__InputSplitter_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h8dbaf25fcfb0cb29E
                       (local_70,&local_188);
             if (local_68 == -0x7fffffffffffffff) break;
             if (local_68 == -0x8000000000000000) {
@@ -177,8 +181,7 @@ LAB_00260dbd:
               param_1[1] = local_60;
 LAB_00261037:
                     /* try { // try from 00261039 to 00261042 has its CatchHandler @ 0026105b */
-              core::ptr::
-              drop_in_place<uu_csplit::InputSplitter<core::iter::adapters::enumerate::Enumerate<std::io::Lines<std::io::buffered::bufreader::BufReader<std::fs::File>>>>>
+              _ZN4core3ptr185drop_in_place_LT_uu_csplit__InputSplitter_LT_core__iter__adapters__enumerate__Enumerate_LT_std__io__Lines_LT_std__io__buffered__bufreader__BufReader_LT_std__fs__File_GT__GT__GT__GT__GT_17h5f6cb91f3f018d07E
                         (&local_188);
               bVar1 = false;
               goto LAB_00260eea;
@@ -187,29 +190,32 @@ LAB_00261037:
             local_198 = local_60;
             local_190 = local_58;
                     /* try { // try from 00260fd3 to 00260fe0 has its CatchHandler @ 0026105d */
-            lVar3 = (*(code *)PTR_writeln_0041f8b0)(local_128);
+            lVar3 = (*(code *)PTR__ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE_0041f8b0)
+                              (local_128);
             if (lVar3 != 0) {
               *param_1 = 0;
               param_1[1] = lVar3;
                     /* try { // try from 0026102d to 00261036 has its CatchHandler @ 0026104a */
-              core::ptr::drop_in_place<alloc::string::String>(&local_1a0);
+              _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E
+                        (&local_1a0);
               goto LAB_00261037;
             }
                     /* try { // try from 00260fe6 to 00260fef has its CatchHandler @ 0026107e */
-            core::ptr::drop_in_place<alloc::string::String>(&local_1a0);
+            _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(&local_1a0)
+            ;
           }
                     /* try { // try from 00260ff4 to 0026100d has its CatchHandler @ 0026105b */
-          core::ptr::
-          drop_in_place<uu_csplit::InputSplitter<core::iter::adapters::enumerate::Enumerate<std::io::Lines<std::io::buffered::bufreader::BufReader<std::fs::File>>>>>
+          _ZN4core3ptr185drop_in_place_LT_uu_csplit__InputSplitter_LT_core__iter__adapters__enumerate__Enumerate_LT_std__io__Lines_LT_std__io__buffered__bufreader__BufReader_LT_std__fs__File_GT__GT__GT__GT__GT_17h5f6cb91f3f018d07E
                     (&local_188);
-          (*(code *)PTR_finish_split_0041f8b8)(local_128);
+          (*(code *)PTR__ZN9uu_csplit11SplitWriter12finish_split17h2b71f2c0808d1b8bE_0041f8b8)
+                    (local_128);
           bVar1 = false;
           goto LAB_00260dbd;
         }
         *param_1 = 0;
         param_1[1] = lVar3;
                     /* try { // try from 00260edd to 00260ee6 has its CatchHandler @ 0026105b */
-        core::ptr::drop_in_place<alloc::string::String>(&local_188);
+        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h43f353fdb3e00327E(&local_188);
       }
       bVar1 = true;
     }
@@ -218,12 +224,12 @@ LAB_00261037:
       param_1[1] = lVar3;
       bVar1 = true;
                     /* try { // try from 00260e80 to 00260e89 has its CatchHandler @ 0026108f */
-      core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::io::error::Error>>
+      _ZN4core3ptr94drop_in_place_LT_core__result__Result_LT_alloc__string__String_C_std__io__error__Error_GT__GT_17hee3cf79169426f18E
                 (&local_1b8);
     }
 LAB_00260eea:
                     /* try { // try from 00260eea to 00260ef1 has its CatchHandler @ 002610a1 */
-    core::ptr::drop_in_place<core::result::Result<(),uu_csplit::csplit_error::CsplitError>>
+    _ZN4core3ptr96drop_in_place_LT_core__result__Result_LT__LP__RP__C_uu_csplit__csplit_error__CsplitError_GT__GT_17h99db2ffc8dffbdb1E
               (&local_1e8);
   }
   else {
@@ -237,11 +243,10 @@ LAB_00260eea:
     bVar1 = true;
   }
                     /* try { // try from 00260ef2 to 00260efe has its CatchHandler @ 0026109c */
-  core::ptr::drop_in_place<uu_csplit::SplitWriter>(local_128);
+  _ZN4core3ptr43drop_in_place_LT_uu_csplit__SplitWriter_GT_17hbd6d8c3456abefcfE(local_128);
 LAB_00260eff:
   if (bVar1) {
-    core::ptr::
-    drop_in_place<uu_csplit::InputSplitter<core::iter::adapters::enumerate::Enumerate<std::io::Lines<std::io::buffered::bufreader::BufReader<std::fs::File>>>>>
+    _ZN4core3ptr185drop_in_place_LT_uu_csplit__InputSplitter_LT_core__iter__adapters__enumerate__Enumerate_LT_std__io__Lines_LT_std__io__buffered__bufreader__BufReader_LT_std__fs__File_GT__GT__GT__GT__GT_17h5f6cb91f3f018d07E
               (&local_e8);
   }
   return;

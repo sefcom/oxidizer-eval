@@ -1,9 +1,9 @@
 long long uu_df::table::RowFormatter::percentage::hd76ce7d818616919(unsigned long long a0, unsigned long a1)
 {
     unsigned long v0;  // [sp-0x90]
-    unsigned long v1;  // [sp-0x88], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0x88]
     unsigned long long v2;  // [sp-0x80]
-    unsigned long long v3;  // [sp-0x78]
+    unsigned long v3;  // [sp-0x78]
     unsigned long long v4;  // [sp-0x70]
     char *v5;  // [sp-0x68]
     unsigned long long v6;  // [sp-0x60]
@@ -37,7 +37,7 @@ long long uu_df::table::RowFormatter::percentage::hd76ce7d818616919(unsigned lon
         v8 = 1;
         v5 = &v1;
         v6 = 1;
-        return ::0x4ca0b0::core::option::Option$LT$T$GT$::map_or_else::h87f8290896e212c8();
+        return ::0x4ca0b0::core::option::Option$LT$T$GT$::map_or_else::h87f8290896e212c8(a0, &v3);
     }
     return ::0x4ca150::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::hed7ddb801416678d(a0, "-", 1);
 }

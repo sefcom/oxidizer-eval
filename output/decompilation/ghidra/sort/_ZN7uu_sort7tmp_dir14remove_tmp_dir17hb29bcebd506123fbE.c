@@ -1,4 +1,4 @@
-void __rustcall uu_sort::tmp_dir::remove_tmp_dir(undefined8 param_1,undefined8 param_2)
+void _ZN7uu_sort7tmp_dir14remove_tmp_dir17hb29bcebd506123fbE(undefined8 param_1,undefined8 param_2)
 
 {
   undefined8 local_130;
@@ -30,7 +30,7 @@ void __rustcall uu_sort::tmp_dir::remove_tmp_dir(undefined8 param_1,undefined8 p
   char local_50;
   undefined local_48 [24];
   
-  std::fs::read_dir(&local_130,param_1,param_2);
+  _ZN3std2fs8read_dir17h88d360110f1c898cE(&local_130,param_1,param_2);
   if (local_128 != '\x02') {
     local_b8[0] = 0;
     local_88 = 0;
@@ -40,8 +40,8 @@ void __rustcall uu_sort::tmp_dir::remove_tmp_dir(undefined8 param_1,undefined8 p
     local_118 = param_2;
     while( true ) {
                     /* try { // try from 00248d00 to 00248d0a has its CatchHandler @ 00248da3 */
-      _<core::iter::adapters::flatten::FlattenCompat<I,U>as_core::iter::traits::iterator::Iterator>
-      ::next(&local_e0,local_b8);
+      _ZN116__LT_core__iter__adapters__flatten__FlattenCompat_LT_I_C_U_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h30eeda6b5a39150fE
+                (&local_e0,local_b8);
       if (CONCAT44(uStack_dc,local_e0) == 0) break;
       local_e8 = local_c0;
       local_f8 = local_d0;
@@ -53,21 +53,23 @@ void __rustcall uu_sort::tmp_dir::remove_tmp_dir(undefined8 param_1,undefined8 p
       uStack_100 = uStack_d8;
       uStack_fc = uStack_d4;
                     /* try { // try from 00248d31 to 00248d4e has its CatchHandler @ 00248da8 */
-      std::fs::DirEntry::path(local_48,&local_108);
-      local_110 = std::fs::remove_file(local_48);
-      core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(&local_110);
+      _ZN3std2fs8DirEntry4path17h5b1bdb0f1090af27E(local_48,&local_108);
+      local_110 = _ZN3std2fs11remove_file17he37f30a9858e45d8E(local_48);
+      _ZN4core3ptr81drop_in_place_LT_core__result__Result_LT__LP__RP__C_std__io__error__Error_GT__GT_17hf659f53abfc6eaaaE
+                (&local_110);
                     /* try { // try from 00248d4f to 00248d56 has its CatchHandler @ 00248da3 */
-      core::ptr::drop_in_place<std::fs::DirEntry>(&local_108);
+      _ZN4core3ptr38drop_in_place_LT_std__fs__DirEntry_GT_17h89d34a4c50312286E(&local_108);
     }
                     /* try { // try from 00248d59 to 00248d65 has its CatchHandler @ 00248d9e */
-    core::ptr::drop_in_place<core::iter::adapters::flatten::Flatten<std::fs::ReadDir>>(local_b8);
+    _ZN4core3ptr83drop_in_place_LT_core__iter__adapters__flatten__Flatten_LT_std__fs__ReadDir_GT__GT_17hd0b6e5634b978dd8E
+              (local_b8);
     param_2 = local_118;
     param_1 = local_120;
     if (local_128 != '\x02') goto LAB_00248d81;
   }
-  core::ptr::drop_in_place<core::result::Result<std::fs::ReadDir,std::io::error::Error>>(&local_130)
-  ;
+  _ZN4core3ptr89drop_in_place_LT_core__result__Result_LT_std__fs__ReadDir_C_std__io__error__Error_GT__GT_17h754fa70ba625a57eE
+            (&local_130);
 LAB_00248d81:
-  std::fs::remove_dir(param_1,param_2);
+  _ZN3std2fs10remove_dir17h42b234ef27cdf199E(param_1,param_2);
   return;
 }

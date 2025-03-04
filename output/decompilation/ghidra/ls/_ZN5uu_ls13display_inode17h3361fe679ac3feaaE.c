@@ -1,4 +1,4 @@
-void __rustcall uu_ls::display_inode(undefined8 param_1,undefined8 param_2)
+void _ZN5uu_ls13display_inode17h3361fe679ac3feaaE(undefined8 param_1,undefined8 param_2)
 
 {
   undefined8 uStack_48;
@@ -11,13 +11,15 @@ void __rustcall uu_ls::display_inode(undefined8 param_1,undefined8 param_2)
   undefined8 uStack_10;
   
   puStack_40 = (undefined *)&uStack_48;
-  pcStack_38 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+  pcStack_38 = 
+  _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+  ;
   puStack_30 = &DAT_00123c10;
   uStack_28 = 1;
   uStack_10 = 0;
   ppuStack_20 = &puStack_40;
   uStack_18 = 1;
   uStack_48 = param_2;
-  core::option::Option<T>::map_or_else(param_1,&puStack_30);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17h7fca96e7ce97ddb7E(param_1,&puStack_30);
   return;
 }

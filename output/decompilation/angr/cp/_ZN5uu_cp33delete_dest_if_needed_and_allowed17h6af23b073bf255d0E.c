@@ -1,8 +1,8 @@
-long long uu_cp::delete_dest_if_needed_and_allowed::h6af23b073bf255d0(unsigned long long a0[5], unsigned long long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4, char a5[66])
+long long uu_cp::delete_dest_if_needed_and_allowed::h6af23b073bf255d0(unsigned long long a0[5], unsigned long long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4, char a5[66], char a6)
 {
     char v0;  // [bp-0x270]
     char v1;  // [bp-0x260]
-    int v2;  // [sp-0x258], Other Possible Types: unsigned long long
+    int v2;  // [sp-0x258], Other Possible Types: unsigned long
     unsigned long long v3;  // [sp-0x250]
     struct struct_0 **v4;  // [sp-0x248], Other Possible Types: unsigned long long
     unsigned long long v5;  // [sp-0x240]
@@ -43,22 +43,54 @@ long long uu_cp::delete_dest_if_needed_and_allowed::h6af23b073bf255d0(unsigned l
     int v40;  // [sp-0x58]
     int v41;  // [sp-0x48]
     int v42;  // [sp-0x38]
-    char v44;  // [bp+0x10]
-    unsigned long long v45;  // rax
+    char v43;  // [bp+0x10]
+    unsigned long long v44;  // rax
+    unsigned long long v45;  // 4096
+    unsigned long long v46;  // 4096
+    unsigned long long v48;  // rcx
+    unsigned long long v49;  // r8
 
     if (a5[60] >= 2)
     {
         a0[0] = 13;
-        return v45;
+        return v44;
     }
-    v45 = a5[61];
-    if ((unsigned int)v45 == 2)
+    v44 = a5[61];
+    if ((unsigned int)v44 != 2)
     {
-        if (!a5[56])
+        v45 = a3;
+        v46 = a4;
+        if ((unsigned int)v44 != 1)
         {
-            a0[0] = 13;
-            return v45;
+            v48 = a3;
+            v49 = a4;
+            if (!(char)uucore::features::fs::is_symlink_loop::h6176a52fb38b92f8(a3, a4))
+            {
+                v44 = std::fs::metadata::h003d8cdbffde7c56(&v22, v48, v49);
+                if (*((int *)&v22) == 2)
+                {
+                    v44 = *((long long *)&v23);
+                    a0[0] = 2;
+                    a0[1] = v44;
+                    return v44;
+                }
+                v46 = a4;
+                v45 = a3;
+                if ((v27 & 146))
+                {
+                    a0[0] = 13;
+                    return v44;
+                }
+            }
         }
+    }
+    else if (!a5[56])
+    {
+        a0[0] = 13;
+        return v44;
+    }
+    else
+    {
         uucore::features::fs::FileInformation::from_path::he917b6b2466acd0f(&v22, a1, a2, a5[65]);
         v11 = 1;
         v12 = a1;
@@ -71,17 +103,17 @@ long long uu_cp::delete_dest_if_needed_and_allowed::h6af23b073bf255d0(unsigned l
         v6 = 0;
         v4 = &v7;
         v5 = 1;
-        ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2();
+        ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2(&v0, &v2);
         v4 = *((long long *)&v1);
         *((int128_t *)&v2) = *((int128_t *)&v0);
         if (*((long long *)&v22))
         {
-            v45 = *((long long *)&v23);
+            v44 = *((long long *)&v23);
             a0[3] = *((long long *)&v1);
             *((int128_t *)&a0[1]) = *((int128_t *)&v0);
             a0[0] = 3;
-            a0[4] = v45;
-            return v45;
+            a0[4] = v44;
+            return v44;
         }
         v10 = *((long long *)&v24);
         *((int128_t *)&v9) = *((int128_t *)&v23);
@@ -92,7 +124,7 @@ long long uu_cp::delete_dest_if_needed_and_allowed::h6af23b073bf255d0(unsigned l
         *((int128_t *)&v19) = *((int128_t *)&v30);
         *((int128_t *)&v20) = *((int128_t *)&v31);
         *((int128_t *)&v21) = *((int128_t *)&v32);
-        core::ptr::drop_in_place$LT$$LT$core..result..Result$LT$uucore..features..fs..FileInformation$C$std..io..error..Error$GT$$u20$as$u20$quick_error..ResultExt$LT$uucore..features..fs..FileInformation$C$std..io..error..Error$GT$$GT$..context$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$::h1ef8f78603d21391();
+        core::ptr::drop_in_place$LT$$LT$core..result..Result$LT$uucore..features..fs..FileInformation$C$std..io..error..Error$GT$$u20$as$u20$quick_error..ResultExt$LT$uucore..features..fs..FileInformation$C$std..io..error..Error$GT$$GT$..context$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$::h1ef8f78603d21391(&v2);
         v33 = v9;
         v34 = v10;
         v35 = *((long long *)&v25);
@@ -103,39 +135,22 @@ long long uu_cp::delete_dest_if_needed_and_allowed::h6af23b073bf255d0(unsigned l
         v40 = v19;
         v41 = v20;
         v42 = v21;
-        v45 = hashbrown::map::HashMap$LT$K$C$V$C$S$C$A$GT$::get_inner::hef26ad6068154428(*((long long *)&v44), &v33);
-        if (!v45)
+        v44 = hashbrown::map::HashMap$LT$K$C$V$C$S$C$A$GT$::get_inner::hef26ad6068154428(*((long long *)&v43), &v33);
+        v46 = a4;
+        v45 = a3;
+        if (!v44)
         {
             a0[0] = 13;
-            return v45;
+            return v44;
         }
     }
-    else
-    {
-        if ((unsigned int)v45 != 1 && !(char)uucore::features::fs::is_symlink_loop::h6176a52fb38b92f8(a3, a4))
-        {
-            v45 = std::fs::metadata::h003d8cdbffde7c56(&v22, a3, a4);
-            if (*((int *)&v22) == 2)
-            {
-                v45 = *((long long *)&v23);
-                a0[0] = 2;
-                a0[1] = v45;
-                return v45;
-            }
-            else if ((v27 & 146))
-            {
-                a0[0] = 13;
-                return v45;
-            }
-        }
-    }
-    v45 = std::fs::remove_file::h38159f05e7b4dc34(a3, a4);
-    if (v45)
+    v44 = std::fs::remove_file::h38159f05e7b4dc34(v45, v46);
+    if (v44)
     {
         a0[0] = 2;
-        a0[1] = v45;
-        return v45;
+        a0[1] = v44;
+        return v44;
     }
     a0[0] = 13;
-    return v45;
+    return v44;
 }

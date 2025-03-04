@@ -1,4 +1,4 @@
-undefined8 __rustcall uu_hostname::uu_app(undefined8 param_1)
+undefined8 _ZN11uu_hostname6uu_app17hb6e249c122554ffeE(undefined8 param_1)
 
 {
   undefined8 uVar1;
@@ -27,21 +27,23 @@ undefined8 __rustcall uu_hostname::uu_app(undefined8 param_1)
   undefined4 local_26c;
   undefined local_268 [592];
   
-  uVar1 = uucore::util_name();
-  clap_builder::builder::command::Command::new(local_7f8,uVar1);
-  clap_builder::builder::command::Command::version(local_530,local_7f8,"0.0.28",6);
-  clap_builder::builder::command::Command::about
+  uVar1 = _ZN6uucore9util_name17h60d842bf27b05e82E();
+  _ZN12clap_builder7builder7command7Command3new17hb139fd9343407bd7E(local_7f8,uVar1);
+  _ZN12clap_builder7builder7command7Command7version17hff495f94e3e0025aE
+            (local_530,local_7f8,"0.0.28",6);
+  _ZN12clap_builder7builder7command7Command5about17h43dcb4d052bb4fe4E
             (local_7f8,local_530,"Display or set the system\'s host name.",0x26);
                     /* try { // try from 001af793 to 001af7ac has its CatchHandler @ 001afc5d */
-  uucore::format_usage(local_268,"{} [OPTION]... [HOSTNAME]",0x19);
-  clap_builder::builder::command::Command::override_usage(local_530,local_7f8,local_268);
+  _ZN6uucore12format_usage17h76fcb2d15fbabc58E(local_268,"{} [OPTION]... [HOSTNAME]",0x19);
+  _ZN12clap_builder7builder7command7Command14override_usage17h53f06f4b08c7f7b6E
+            (local_530,local_7f8,local_268);
   (*(code *)PTR_memcpy_0021bb28)(local_7f8,local_530,700);
   local_53c = local_274 | 0x8000000080;
   local_534 = local_26c;
                     /* try { // try from 001af80b to 001af92b has its CatchHandler @ 001afcb7 */
-  clap_builder::builder::arg::Arg::new(local_530,"domain",6);
-  clap_builder::builder::arg::Arg::short(local_268,local_530,100);
-  clap_builder::builder::arg::Arg::long(local_530,local_268,"domain",6);
+  _ZN12clap_builder7builder3arg3Arg3new17h8a0253a43e6cd8dfE(local_530,"domain",6);
+  _ZN12clap_builder7builder3arg3Arg5short17hf93463845ba76758E(local_268,local_530,100);
+  _ZN12clap_builder7builder3arg3Arg4long17h7bd2c59b08dee21fE(local_530,local_268,"domain",6);
   local_878 = "domain";
   uStack_870 = 6;
   local_868 = "ip-address";
@@ -59,15 +61,16 @@ undefined8 __rustcall uu_hostname::uu_app(undefined8 param_1)
   local_838 = "domain";
   uStack_830 = 6;
   uStack_82c = 0;
-  clap_builder::builder::arg::Arg::overrides_with_all(local_268,local_530,&local_838);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg18overrides_with_all17hce02e38c968d4dfeE
+            (local_268,local_530,&local_838);
+  _ZN12clap_builder7builder3arg3Arg4help17hb1a759973735fbf5E
             (local_530,local_268,"Display the name of the DNS domain if possible",0x2e);
-  clap_builder::builder::arg::Arg::action(local_268,local_530);
-  clap_builder::builder::command::Command::arg(local_530,local_7f8,local_268);
+  _ZN12clap_builder7builder3arg3Arg6action17he4f9f129db73dc7eE(local_268,local_530);
+  _ZN12clap_builder7builder7command7Command3arg17had519225845c2ee5E(local_530,local_7f8,local_268);
                     /* try { // try from 001af95c to 001afa0f has its CatchHandler @ 001afca5 */
-  clap_builder::builder::arg::Arg::new(local_7f8,"ip-address",10);
-  clap_builder::builder::arg::Arg::short(local_268,local_7f8,0x69);
-  clap_builder::builder::arg::Arg::long(local_7f8,local_268,"ip-address",10);
+  _ZN12clap_builder7builder3arg3Arg3new17h8a0253a43e6cd8dfE(local_7f8,"ip-address",10);
+  _ZN12clap_builder7builder3arg3Arg5short17hf93463845ba76758E(local_268,local_7f8,0x69);
+  _ZN12clap_builder7builder3arg3Arg4long17h7bd2c59b08dee21fE(local_7f8,local_268,"ip-address",10);
   local_808 = local_848;
   uStack_800 = uStack_840;
   local_818 = local_858;
@@ -77,15 +80,16 @@ undefined8 __rustcall uu_hostname::uu_app(undefined8 param_1)
   local_838 = local_878;
   uStack_830 = (undefined4)uStack_870;
   uStack_82c = uStack_870._4_4_;
-  clap_builder::builder::arg::Arg::overrides_with_all(local_268,local_7f8,&local_838);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg18overrides_with_all17hce02e38c968d4dfeE
+            (local_268,local_7f8,&local_838);
+  _ZN12clap_builder7builder3arg3Arg4help17hb1a759973735fbf5E
             (local_7f8,local_268,"Display the network address(es) of the host",0x2b);
-  clap_builder::builder::arg::Arg::action(local_268,local_7f8);
-  clap_builder::builder::command::Command::arg(local_7f8,local_530,local_268);
+  _ZN12clap_builder7builder3arg3Arg6action17he4f9f129db73dc7eE(local_268,local_7f8);
+  _ZN12clap_builder7builder7command7Command3arg17had519225845c2ee5E(local_7f8,local_530,local_268);
                     /* try { // try from 001afa40 to 001afaf3 has its CatchHandler @ 001afc93 */
-  clap_builder::builder::arg::Arg::new(local_530,&DAT_001143e8,4);
-  clap_builder::builder::arg::Arg::short(local_268,local_530,0x66);
-  clap_builder::builder::arg::Arg::long(local_530,local_268,&DAT_001143e8,4);
+  _ZN12clap_builder7builder3arg3Arg3new17h8a0253a43e6cd8dfE(local_530,&DAT_001143e8,4);
+  _ZN12clap_builder7builder3arg3Arg5short17hf93463845ba76758E(local_268,local_530,0x66);
+  _ZN12clap_builder7builder3arg3Arg4long17h7bd2c59b08dee21fE(local_530,local_268,&DAT_001143e8,4);
   local_808 = local_848;
   uStack_800 = uStack_840;
   local_818 = local_858;
@@ -95,26 +99,29 @@ undefined8 __rustcall uu_hostname::uu_app(undefined8 param_1)
   local_838 = local_878;
   uStack_830 = (undefined4)uStack_870;
   uStack_82c = uStack_870._4_4_;
-  clap_builder::builder::arg::Arg::overrides_with_all(local_268,local_530,&local_838);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg18overrides_with_all17hce02e38c968d4dfeE
+            (local_268,local_530,&local_838);
+  _ZN12clap_builder7builder3arg3Arg4help17hb1a759973735fbf5E
             (local_530,local_268,"Display the FQDN (Fully Qualified Domain Name) (default)",0x38);
-  clap_builder::builder::arg::Arg::action(local_268,local_530);
-  clap_builder::builder::command::Command::arg(local_530,local_7f8,local_268);
+  _ZN12clap_builder7builder3arg3Arg6action17he4f9f129db73dc7eE(local_268,local_530);
+  _ZN12clap_builder7builder7command7Command3arg17had519225845c2ee5E(local_530,local_7f8,local_268);
                     /* try { // try from 001afb24 to 001afbae has its CatchHandler @ 001afc81 */
-  clap_builder::builder::arg::Arg::new(local_7f8,"short",5);
-  clap_builder::builder::arg::Arg::short(local_268,local_7f8,0x73);
-  clap_builder::builder::arg::Arg::long(local_7f8,local_268,"short",5);
-  clap_builder::builder::arg::Arg::overrides_with_all(local_268,local_7f8,&local_878);
-  clap_builder::builder::arg::Arg::help
+  _ZN12clap_builder7builder3arg3Arg3new17h8a0253a43e6cd8dfE(local_7f8,"short",5);
+  _ZN12clap_builder7builder3arg3Arg5short17hf93463845ba76758E(local_268,local_7f8,0x73);
+  _ZN12clap_builder7builder3arg3Arg4long17h7bd2c59b08dee21fE(local_7f8,local_268,"short",5);
+  _ZN12clap_builder7builder3arg3Arg18overrides_with_all17hce02e38c968d4dfeE
+            (local_268,local_7f8,&local_878);
+  _ZN12clap_builder7builder3arg3Arg4help17hb1a759973735fbf5E
             (local_7f8,local_268,
              "Display the short hostname (the portion before the first dot) if possible",0x49);
-  clap_builder::builder::arg::Arg::action(local_268,local_7f8);
-  clap_builder::builder::command::Command::arg(local_7f8,local_530,local_268);
+  _ZN12clap_builder7builder3arg3Arg6action17he4f9f129db73dc7eE(local_268,local_7f8);
+  _ZN12clap_builder7builder7command7Command3arg17had519225845c2ee5E(local_7f8,local_530,local_268);
                     /* try { // try from 001afbdf to 001afc34 has its CatchHandler @ 001afc6f */
-  clap_builder::builder::arg::Arg::new(local_530,&DAT_0011440c,4);
+  _ZN12clap_builder7builder3arg3Arg3new17h8a0253a43e6cd8dfE(local_530,&DAT_0011440c,4);
   local_838 = (char *)0x2;
-  clap_builder::builder::arg::Arg::value_parser(local_268,local_530,&local_838);
-  clap_builder::builder::arg::Arg::value_hint(local_530,local_268,10);
-  clap_builder::builder::command::Command::arg(param_1,local_7f8,local_530);
+  _ZN12clap_builder7builder3arg3Arg12value_parser17h416a268b4c9bffcbE
+            (local_268,local_530,&local_838);
+  _ZN12clap_builder7builder3arg3Arg10value_hint17h058a03a9ff0f6c99E(local_530,local_268,10);
+  _ZN12clap_builder7builder7command7Command3arg17had519225845c2ee5E(param_1,local_7f8,local_530);
   return param_1;
 }

@@ -1,4 +1,4 @@
-ulong __rustcall uu_df::mount_info_lt(long param_1,long param_2)
+ulong _ZN5uu_df13mount_info_lt17he7799b73577b1743E(long param_1,long param_2)
 
 {
   undefined8 uVar1;
@@ -15,14 +15,16 @@ ulong __rustcall uu_df::mount_info_lt(long param_1,long param_2)
   uVar1 = *(undefined8 *)(param_1 + 0x20);
   uVar2 = *(undefined8 *)(param_1 + 0x28);
   local_38 = in_RAX & 0xffffffff00000000;
-  uVar6 = core::char::methods::encode_utf8_raw(&local_38);
-  cVar5 = core::slice::_<impl[T]>::starts_with(uVar1,uVar2,uVar6,1);
+  uVar6 = _ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E(&local_38);
+  cVar5 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_11starts_with17hfcb4c23ecb597bc5E
+                    (uVar1,uVar2,uVar6,1);
   if (cVar5 != '\0') {
     uVar6 = *(undefined8 *)(param_2 + 0x20);
     uVar3 = *(undefined8 *)(param_2 + 0x28);
     local_38 = local_38 & 0xffffffff;
-    uVar7 = core::char::methods::encode_utf8_raw((long)&local_38 + 4);
-    cVar5 = core::slice::_<impl[T]>::starts_with(uVar6,uVar3,uVar7,1);
+    uVar7 = _ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E((long)&local_38 + 4);
+    cVar5 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_11starts_with17hfcb4c23ecb597bc5E
+                      (uVar6,uVar3,uVar7,1);
     if (cVar5 == '\0') {
       return 0;
     }
@@ -34,12 +36,10 @@ ulong __rustcall uu_df::mount_info_lt(long param_1,long param_2)
   }
   else if ((uVar4 <= uVar8) || (*(ulong *)(param_2 + 0x58) < *(ulong *)(param_1 + 0x58))) {
 LAB_001c689d:
-    cVar5 = ::alloc::vec::partial_eq::
-            _<impl_core::cmp::PartialEq<alloc::vec::Vec<U,A2>>for_alloc::vec::Vec<T,A1>>::eq
+    cVar5 = _ZN5alloc3vec10partial_eq117__LT_impl_u20_core__cmp__PartialEq_LT_alloc__vec__Vec_LT_U_C_A2_GT__GT__u20_for_u20_alloc__vec__Vec_LT_T_C_A1_GT__GT_2eq17h26cf2969793785fbE
                       (uVar1,uVar2,*(undefined8 *)(param_2 + 0x20),*(undefined8 *)(param_2 + 0x28));
     if (cVar5 == '\0') {
-      uVar8 = ::alloc::vec::partial_eq::
-              _<impl_core::cmp::PartialEq<alloc::vec::Vec<U,A2>>for_alloc::vec::Vec<T,A1>>::eq
+      uVar8 = _ZN5alloc3vec10partial_eq117__LT_impl_u20_core__cmp__PartialEq_LT_alloc__vec__Vec_LT_U_C_A2_GT__GT__u20_for_u20_alloc__vec__Vec_LT_T_C_A1_GT__GT_2eq17h26cf2969793785fbE
                         (*(undefined8 *)(param_1 + 0x68),uVar8,*(undefined8 *)(param_2 + 0x68),uVar4
                         );
       return uVar8 ^ 1;

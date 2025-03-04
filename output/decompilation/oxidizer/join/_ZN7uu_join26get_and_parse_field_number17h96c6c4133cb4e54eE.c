@@ -1,5 +1,5 @@
 fn uu_join::get_and_parse_field_number(a0: &struct24, a1: u32, a2: u32) -> u64 {
-    let v0: Result<struct40, struct8>;  // [sp-0x40], Other Possible Types: i320
+    let v0: Result<struct40, struct8>;  // [sp-0x40]
     let v2: i64;  // rax
     let v3: i64;  // rsi
 

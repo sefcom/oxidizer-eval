@@ -1,13 +1,13 @@
 long long uu_env::EnvAppData::run_env::ha7719131c2b1bb9b(char a0[3], unsigned long a1, unsigned long a2)
 {
-    unsigned long v0;  // [sp-0x1c0], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x1c0]
     unsigned long long v1;  // [sp-0x1b8]
     unsigned long long v2;  // [sp-0x1b0]
     int v3;  // [sp-0x1a8]
     int v4;  // [sp-0x198]
     int v5;  // [sp-0x188]
     unsigned long long v6;  // [sp-0x178]
-    unsigned long v7;  // [sp-0x170], Other Possible Types: unsigned long long
+    unsigned long v7;  // [sp-0x170]
     unsigned long long v8;  // [sp-0x168]
     unsigned long long v9;  // [sp-0x160]
     char v10;  // [bp-0x158]

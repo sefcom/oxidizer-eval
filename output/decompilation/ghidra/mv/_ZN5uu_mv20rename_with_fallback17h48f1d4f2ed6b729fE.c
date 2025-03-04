@@ -1,6 +1,6 @@
-long __rustcall
-uu_mv::rename_with_fallback
-          (undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,long param_5)
+long _ZN5uu_mv20rename_with_fallback17h48f1d4f2ed6b729fE
+               (undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+               long param_5)
 
 {
   int iVar1;
@@ -69,77 +69,85 @@ uu_mv::rename_with_fallback
   local_210 = param_2;
   local_208 = param_3;
   local_200 = param_4;
-  lVar3 = std::fs::rename();
+  lVar3 = _ZN3std2fs6rename17hd948dfb1db41879eE();
   local_1e8 = (undefined *)lVar3;
-  core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(&local_1e8);
+  _ZN4core3ptr81drop_in_place_LT_core__result__Result_LT__LP__RP__C_std__io__error__Error_GT__GT_17h5e1e22b88b1aa83aE
+            (&local_1e8);
   if (lVar3 == 0) {
     return 0;
   }
-  std::fs::symlink_metadata(&local_1e8,param_1,param_2);
+  _ZN3std2fs16symlink_metadata17h7febb2c461a7cc90E(&local_1e8,param_1,param_2);
   if ((int)local_1e8 == 2) {
     return uStack_1e0;
   }
   if ((local_1b0 & 0xf000) != 0x4000) {
     if ((local_1b0 & 0xf000) == 0xa000) {
-      lVar3 = rename_symlink_fallback(param_1,param_2,param_3,param_4);
+      lVar3 = _ZN5uu_mv23rename_symlink_fallback17h50f184778666e82cE
+                        (param_1,param_2,param_3,param_4);
     }
     else {
-      cVar2 = std::path::Path::is_symlink(param_3,param_4);
+      cVar2 = _ZN3std4path4Path10is_symlink17h6ab8b58756c51c6bE(param_3,param_4);
       if ((cVar2 != '\0') &&
-         (lVar3 = std::fs::remove_file(param_3,param_4), local_108 = param_3, local_100 = param_4,
-         local_f8 = param_1, local_f0 = param_2, lVar3 != 0)) {
-        lVar3 = rename_with_fallback::___closure__(&local_108,lVar3);
+         (lVar3 = _ZN3std2fs11remove_file17hac48d4e29d9c97eaE(param_3,param_4), local_108 = param_3,
+         local_100 = param_4, local_f8 = param_1, local_f0 = param_2, lVar3 != 0)) {
+        lVar3 = _ZN5uu_mv20rename_with_fallback28__u7b__u7b_closure_u7d__u7d_17hc604898f20a204e8E
+                          (&local_108,lVar3);
         return lVar3;
       }
-      auVar5 = std::fs::copy(param_1,param_2,param_3,param_4);
+      auVar5 = _ZN3std2fs4copy17h1bd7b955a3942b36E(param_1,param_2,param_3,param_4);
       lVar3 = auVar5._8_8_;
       if (auVar5._0_8_ == 0) {
-        lVar3 = uucore::features::fsxattr::copy_xattrs(&local_218,&local_208);
+        lVar3 = _ZN6uucore8features7fsxattr11copy_xattrs17hdfb623434415deafE(&local_218,&local_208);
       }
       if (lVar3 != 0) {
         return lVar3;
       }
-      lVar3 = std::fs::remove_file(param_1,param_2);
+      lVar3 = _ZN3std2fs11remove_file17hac48d4e29d9c97eaE(param_1,param_2);
     }
     if (lVar3 == 0) {
       return 0;
     }
     return lVar3;
   }
-  std::fs::metadata(&local_1e8,param_3,param_4);
+  _ZN3std2fs8metadata17h1d9ddf5324749f9aE(&local_1e8,param_3,param_4);
   iVar1 = (int)local_1e8;
-  core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>
+  _ZN4core3ptr90drop_in_place_LT_core__result__Result_LT_std__fs__Metadata_C_std__io__error__Error_GT__GT_17h1a38c79198e9333eE
             (&local_1e8);
-  if ((iVar1 != 2) && (lVar3 = std::fs::remove_dir_all(param_3,param_4), lVar3 != 0)) {
+  if ((iVar1 != 2) &&
+     (lVar3 = _ZN3std2fs14remove_dir_all17heb08d5b595e80c8aE(param_3,param_4), lVar3 != 0)) {
     return lVar3;
   }
   local_220 = 0x10000;
   local_230 = 64000;
   local_228 = 0;
-  fs_extra::dir::get_size(&local_1e8,param_1,param_2);
+  _ZN8fs_extra3dir8get_size17hbbe91904dfa02d0cE(&local_1e8,param_1,param_2);
   if (local_1e8 == (undefined *)0x8000000000000000) {
     if (param_5 != 0) {
-      indicatif::progress_bar::ProgressBar::new(&local_260,uStack_1e0);
+      _ZN9indicatif12progress_bar11ProgressBar3new17h3f65a405722ce42aE(&local_260,uStack_1e0);
                     /* try { // try from 001eb962 to 001eb997 has its CatchHandler @ 001ebcc3 */
-      indicatif::style::ProgressStyle::with_template
+      _ZN9indicatif5style13ProgressStyle13with_template17hadd9cefcdac397a1E
                 (&local_1e8,"{msg}: [{elapsed_precise}] {wide_bar} {bytes:>7}/{total_bytes:7}",0x40)
       ;
-      core::result::Result<T,E>::unwrap(&local_b8,&local_1e8,&PTR_s_src_uu_mv_src_mv_rs_00288250);
-      indicatif::progress_bar::ProgressBar::with_style(local_e8,&local_260,&local_b8);
-      indicatif::multi::MultiProgress::add(local_278,param_5,local_e8);
+      _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h7d26c333f6a83544E
+                (&local_b8,&local_1e8,&PTR_s_src_uu_mv_src_mv_rs_00288250);
+      _ZN9indicatif12progress_bar11ProgressBar10with_style17hfb345490eb32754bE
+                (local_e8,&local_260,&local_b8);
+      _ZN9indicatif5multi13MultiProgress3add17h9f882db003b558aeE(local_278,param_5,local_e8);
       goto LAB_001eba63;
     }
   }
   else {
-    core::ptr::drop_in_place<core::result::Result<u64,fs_extra::error::Error>>(&local_1e8);
+    _ZN4core3ptr77drop_in_place_LT_core__result__Result_LT_u64_C_fs_extra__error__Error_GT__GT_17hff1e9b61bee0c0a4E
+              (&local_1e8);
   }
   local_278[0] = 0;
 LAB_001eba63:
                     /* try { // try from 001eba63 to 001eba75 has its CatchHandler @ 001ebcf6 */
-  uucore::features::fsxattr::retrieve_xattrs(&local_1e8,param_1,param_2);
+  _ZN6uucore8features7fsxattr15retrieve_xattrs17h93bd4c6665c83aa3E(&local_1e8,param_1,param_2);
   if (local_1e8 == (undefined *)0x0) {
                     /* try { // try from 001ebaf5 to 001ebb01 has its CatchHandler @ 001ebcf6 */
-    rename_with_fallback::___closure__(&local_138,uStack_1e0);
+    _ZN5uu_mv20rename_with_fallback28__u7b__u7b_closure_u7d__u7d_17h82d99eba55661758E
+              (&local_138,uStack_1e0);
   }
   else {
     uStack_110 = CONCAT44(uStack_1bc,uStack_1c0);
@@ -152,11 +160,12 @@ LAB_001eba63:
     uStack_12c = uStack_1e0._4_4_;
   }
   if (local_278[0] == 0) {
-    fs_extra::dir::move_dir(&local_260,param_1,param_2,param_3,param_4,&local_230);
+    _ZN8fs_extra3dir8move_dir17h895849f132645a29E
+              (&local_260,param_1,param_2,param_3,param_4,&local_230);
   }
   else {
                     /* try { // try from 001ebb0a to 001ebb4a has its CatchHandler @ 001ebce4 */
-    fs_extra::dir::move_dir_with_progress
+    _ZN8fs_extra3dir22move_dir_with_progress17hc90f1a00a6c1a6faE
               (&local_260,param_1,param_2,param_3,param_4,&local_230,local_278);
   }
   local_1c8 = local_118;
@@ -167,12 +176,14 @@ LAB_001eba63:
   local_1e8 = (undefined *)CONCAT44(uStack_134,local_138);
   uStack_1e0 = CONCAT44(uStack_12c,uStack_130);
                     /* try { // try from 001ebb7b to 001ebb95 has its CatchHandler @ 001ebcfb */
-  uVar4 = uucore::features::fsxattr::apply_xattrs(param_3,param_4,&local_1e8);
-  core::result::Result<T,E>::unwrap(uVar4);
+  uVar4 = _ZN6uucore8features7fsxattr12apply_xattrs17h5a1614cc87ee2729E(param_3,param_4,&local_1e8);
+  _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h925beb8dbedc658cE(uVar4);
   if (CONCAT44(uStack_25c,local_260) == -0x8000000000000000) {
                     /* try { // try from 001ebb9d to 001ebba6 has its CatchHandler @ 001ebcc1 */
-    core::ptr::drop_in_place<core::result::Result<u64,fs_extra::error::Error>>(&local_260);
-    core::ptr::drop_in_place<core::option::Option<indicatif::progress_bar::ProgressBar>>(local_278);
+    _ZN4core3ptr77drop_in_place_LT_core__result__Result_LT_u64_C_fs_extra__error__Error_GT__GT_17hff1e9b61bee0c0a4E
+              (&local_260);
+    _ZN4core3ptr85drop_in_place_LT_core__option__Option_LT_indicatif__progress_bar__ProgressBar_GT__GT_17h4962931619fca08bE
+              (local_278);
     return 0;
   }
   local_a8 = local_250;
@@ -189,24 +200,26 @@ LAB_001eba63:
   uStack_ac = uStack_254;
   if (CONCAT44(uStack_244,uStack_248) == -0x7fffffffffffffff) {
                     /* try { // try from 001ebbfc to 001ebc9f has its CatchHandler @ 001ebcd2 */
-    lVar3 = std::io::error::Error::new
+    lVar3 = _ZN3std2io5error5Error3new17h0657970bda442b78E
                       (1,
                        "Permission deniedinter-device move failed: \'\' to \'\'; unable to remove target: NoSuchFileCannotStatNotADirectorySelfTargetSubdirectoryDirectoryToNonDirectoryNonDirectoryToDirectoryNotADirectoryTargetNotADirectoryFailedToAccessNotADirectory"
                        ,0x11);
   }
   else {
     local_1f8 = &local_b8;
-    local_1f0 = _<fs_extra::error::Error_as_core::fmt::Debug>::fmt;
+    local_1f0 = 
+    _ZN59__LT_fs_extra__error__Error_u20_as_u20_core__fmt__Debug_GT_3fmt17hd11c1069b969729bE;
     local_1e8 = &DAT_0011c350;
     uStack_1e0 = 1;
     local_1c8 = 0;
     local_1d8 = &local_1f8;
     uStack_1d0 = 1;
-    core::option::Option<T>::map_or_else(local_d0,&local_1e8);
-    lVar3 = std::io::error::Error::new(0x27,local_d0);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17h70402eff178ea70dE(local_d0,&local_1e8);
+    lVar3 = _ZN3std2io5error5Error3new17h3b474d96466fa494E(0x27,local_d0);
   }
                     /* try { // try from 001ebca3 to 001ebcaf has its CatchHandler @ 001ebcbf */
-  core::ptr::drop_in_place<fs_extra::error::Error>(&local_b8);
-  core::ptr::drop_in_place<core::option::Option<indicatif::progress_bar::ProgressBar>>(local_278);
+  _ZN4core3ptr43drop_in_place_LT_fs_extra__error__Error_GT_17hd05771686690bc86E(&local_b8);
+  _ZN4core3ptr85drop_in_place_LT_core__option__Option_LT_indicatif__progress_bar__ProgressBar_GT__GT_17h4962931619fca08bE
+            (local_278);
   return lVar3;
 }

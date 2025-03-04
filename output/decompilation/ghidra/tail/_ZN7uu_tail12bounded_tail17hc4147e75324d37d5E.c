@@ -1,4 +1,4 @@
-void __rustcall uu_tail::bounded_tail(undefined8 param_1,long *param_2)
+void _ZN7uu_tail12bounded_tail17hc4147e75324d37d5E(undefined8 param_1,long *param_2)
 
 {
                     /* WARNING: Could not recover jumptable at 0x00200dcd. Too many branches */

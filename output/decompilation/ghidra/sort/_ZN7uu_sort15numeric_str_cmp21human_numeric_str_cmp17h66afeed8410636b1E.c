@@ -1,4 +1,5 @@
-ulong __rustcall uu_sort::numeric_str_cmp::human_numeric_str_cmp(long *param_1,long *param_2)
+ulong _ZN7uu_sort15numeric_str_cmp21human_numeric_str_cmp17h66afeed8410636b1E
+                (long *param_1,long *param_2)
 
 {
   byte bVar1;
@@ -33,7 +34,7 @@ ulong __rustcall uu_sort::numeric_str_cmp::human_numeric_str_cmp(long *param_1,l
     local_58 = param_2[1];
     local_68 = lVar4 + local_50;
     local_70 = lVar4;
-    iVar8 = core::str::validations::next_code_point_reverse(&local_70);
+    iVar8 = _ZN4core3str11validations23next_code_point_reverse17h1e42bd12980e3ea9E(&local_70);
     bVar10 = 0;
     if (iVar8 != 0) {
       bVar10 = 0;
@@ -66,7 +67,7 @@ ulong __rustcall uu_sort::numeric_str_cmp::human_numeric_str_cmp(long *param_1,l
     }
     local_68 = local_58 + lVar5;
     local_70 = lVar5;
-    iVar8 = core::str::validations::next_code_point_reverse(&local_70);
+    iVar8 = _ZN4core3str11validations23next_code_point_reverse17h1e42bd12980e3ea9E(&local_70);
     if (iVar8 == 0) {
       bVar6 = 0;
     }
@@ -110,7 +111,8 @@ ulong __rustcall uu_sort::numeric_str_cmp::human_numeric_str_cmp(long *param_1,l
       local_60 = lVar3;
       local_48 = lVar4;
       local_38 = lVar2;
-      uVar9 = numeric_str_cmp(&local_48,&local_70);
+      uVar9 = _ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h462d5662bf6f9278E(&local_48,&local_70)
+      ;
     }
     else {
       bVar10 = -bVar7;

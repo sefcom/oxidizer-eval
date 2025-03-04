@@ -1,6 +1,6 @@
 long long uu_truncate::truncate_reference_file_only::h8a3d13789e4c1f75(unsigned long long a0, unsigned long long a1, unsigned long a2, unsigned long a3, unsigned int a4)
 {
-    char v0;  // [bp-0xd8], Other Possible Types: unsigned long long
+    char v0;  // [bp-0xd8], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0xd0]
     char v2;  // [bp-0x88]
     void* v4;  // rax

@@ -1,20 +1,20 @@
-long long uu_mktemp::make_temp_dir::h59267eff7d377883(unsigned long long a0[3], unsigned long long a1, unsigned long long a2, unsigned long a3, unsigned long a4, unsigned long long a5)
+long long uu_mktemp::make_temp_dir::h59267eff7d377883(unsigned long long a0[3], unsigned long long a1, unsigned long long a2, unsigned long a3, unsigned long a4, unsigned long long a5, unsigned long a6, unsigned long a7)
 {
     char *v0;  // [bp-0x148]
     unsigned long long v1;  // [sp-0x140]
     char *v2;  // [sp-0x138], Other Possible Types: struct struct_0 **, unsigned long
-    char *v3;  // [sp-0x130], Other Possible Types: unsigned long long
+    char *v3;  // [sp-0x130], Other Possible Types: unsigned long
     char *v4;  // [sp-0x128]
     unsigned long long v5;  // [sp-0x120]
     char v6;  // [bp-0x118]
     char v7;  // [bp-0x108]
     char v8;  // [bp-0x100]
     char v9;  // [bp-0xf0]
-    unsigned long v10;  // [sp-0xe8], Other Possible Types: unsigned long long
+    unsigned long v10;  // [sp-0xe8]
     unsigned long long v11;  // [sp-0xe0]
-    unsigned long v12;  // [sp-0xd8], Other Possible Types: unsigned long long
+    unsigned long v12;  // [sp-0xd8]
     unsigned long long v13;  // [sp-0xd0]
-    unsigned long v14;  // [sp-0xc8], Other Possible Types: unsigned long long
+    unsigned long v14;  // [sp-0xc8]
     unsigned long long v15;  // [sp-0xc0]
     struct struct_0 **v16;  // [sp-0xb8]
     unsigned long long v17;  // [sp-0xb0]
@@ -30,50 +30,48 @@ long long uu_mktemp::make_temp_dir::h59267eff7d377883(unsigned long long a0[3], 
     unsigned short v27;  // [sp-0x50]
     char *v28;  // [sp-0x48]
     unsigned long long v29;  // [sp-0x38]
-    unsigned long v30;  // [bp+0x8]
-    char v31;  // [bp+0x10]
-    unsigned long long v32;  // rbx
+    unsigned long long v30;  // rbx
+    unsigned long long v31;  // rax
+    unsigned long v32;  // rdx
     unsigned long long v33;  // rax
     unsigned long v34;  // rdx
-    unsigned long long v35;  // rax
-    unsigned long v36;  // rdx
 
     v10 = a3;
     v11 = a4;
-    v12 = v30;
-    v13 = *((long long *)&v31);
+    v12 = a6;
+    v13 = a7;
     v27 = 0;
     v21 = 0;
     v22 = a3;
     v23 = a4;
     v26 = a5;
-    v24 = v12;
-    v25 = v13;
+    v24 = a6;
+    v25 = a7;
     tempfile::Builder::tempdir_in::haca47c72416a75c9(&v19, &v21, a1, a2);
     if (v20 != 2)
     {
         tempfile::dir::TempDir::into_path::h9cc8484f4c823eac(&v0, &v19);
-        v33 = std::fs::set_permissions::h663416e852a125c9(&v0, 448);
-        if (!v33)
+        v31 = std::fs::set_permissions::h663416e852a125c9(&v0, 448);
+        if (!v31)
         {
-            v35 = v2;
-            a0[2] = v35;
+            v33 = v2;
+            a0[2] = v33;
             *((int128_t *)&a0[0]) = *((int128_t *)&v0);
-            return v35;
+            return v33;
         }
-        a0[1] = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v33);
-        a0[2] = v36;
+        a0[1] = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v31);
+        a0[2] = v34;
         a0[0] = 0x8000000000000000;
-        v35 = ::0x4bcbd0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hef8b921f38343bf4();
-        return v35;
+        v33 = ::0x4bcbd0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hef8b921f38343bf4(&v0);
+        return v33;
     }
     else
     {
-        v32 = *((long long *)&v19);
-        if ((char)::0x4bc760::std::io::error::Error::kind::hb2ff5fa058639b3d(v32))
+        v30 = *((long long *)&v19);
+        if ((char)::0x4bc760::std::io::error::Error::kind::hb2ff5fa058639b3d(v30))
         {
-            a0[1] = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v32);
-            a0[2] = v34;
+            a0[1] = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v30);
+            a0[2] = v32;
             a0[0] = 0x8000000000000000;
             return 0x8000000000000000;
         }
@@ -89,7 +87,7 @@ long long uu_mktemp::make_temp_dir::h59267eff7d377883(unsigned long long a0[3], 
         v18 = 0;
         v16 = &v0;
         v17 = 3;
-        core::option::Option$LT$T$GT$::map_or_else::hcc2932731f604033();
+        core::option::Option$LT$T$GT$::map_or_else::hcc2932731f604033(&v6, &v14);
         ::0x4bcbe0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h068543f44d037b0a(&v8);
         *((int128_t *)&v28) = *((int128_t *)&v6);
         v29 = *((long long *)&v7);
@@ -104,8 +102,8 @@ long long uu_mktemp::make_temp_dir::h59267eff7d377883(unsigned long long a0[3], 
         *((double *)&a0[1]) = alloc::boxed::Box$LT$T$GT$::new::hcdef1c0b923e2ad4(&v0);
         a0[2] = &g_536af0;
         a0[0] = 0x8000000000000000;
-        ::0x4bcbd0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hef8b921f38343bf4();
-        v35 = ::0x4bcbf0::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h023254833d2f52f9();
-        return v35;
+        ::0x4bcbd0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hef8b921f38343bf4(&v6);
+        v33 = ::0x4bcbf0::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h023254833d2f52f9(v30);
+        return v33;
     }
 }

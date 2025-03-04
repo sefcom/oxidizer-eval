@@ -1,5 +1,5 @@
-undefined8 * __rustcall
-uu_sort::merge::merge_with_file_limit
+undefined8 *
+_ZN7uu_sort5merge21merge_with_file_limit17hee8bdf8579433eeeE
           (undefined8 *param_1,undefined4 *param_2,long param_3,undefined8 param_4)
 
 {
@@ -90,12 +90,12 @@ uu_sort::merge::merge_with_file_limit
   undefined4 uStack_cc;
   
                     /* try { // try from 0022bf9f to 0022bfbb has its CatchHandler @ 0022c49d */
-  uVar4 = _<core::iter::adapters::map::Map<I,F>as_core::iter::traits::exact_size::ExactSizeIterator>
-          ::len(param_2);
+  uVar4 = _ZN113__LT_core__iter__adapters__map__Map_LT_I_C_F_GT__u20_as_u20_core__iter__traits__exact_size__ExactSizeIterator_GT_3len17hacb85b199b0cad2aE
+                    (param_2);
   uVar1 = *(ulong *)(param_3 + 0x70);
   if (uVar1 < uVar4) {
-    uVar4 = _<core::iter::adapters::map::Map<I,F>as_core::iter::traits::exact_size::ExactSizeIterator>
-            ::len(param_2);
+    uVar4 = _ZN113__LT_core__iter__adapters__map__Map_LT_I_C_F_GT__u20_as_u20_core__iter__traits__exact_size__ExactSizeIterator_GT_3len17hacb85b199b0cad2aE
+                      (param_2);
     local_268 = *param_2;
     uStack_264 = param_2[1];
     uStack_260 = param_2[2];
@@ -104,7 +104,7 @@ uu_sort::merge::merge_with_file_limit
     uStack_254 = param_2[5];
     uStack_250 = param_2[6];
     uStack_24c = param_2[7];
-    itertools::Itertools::chunks(&local_e8,&local_268,uVar1);
+    _ZN9itertools9Itertools6chunks17hc1d2676d26c759d9E(&local_e8,&local_268,uVar1);
     local_208 = 0;
     local_200 = 8;
     local_1f8 = 0;
@@ -116,16 +116,16 @@ uu_sort::merge::merge_with_file_limit
           uVar7 = 0;
         }
                     /* try { // try from 0022c05c to 0022c0cd has its CatchHandler @ 0022c4d2 */
-        _<itertools::groupbylazy::Chunks<I>as_core::iter::traits::iterator::Iterator>::next
+        _ZN98__LT_itertools__groupbylazy__Chunks_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hebe185d9380178adE
                   (&local_1f0,&local_e8);
         if (local_1f0 == local_188) {
                     /* try { // try from 0022c440 to 0022c471 has its CatchHandler @ 0022c4bc */
-          uVar5 = core::option::unwrap_failed(&PTR_DAT_003002e0);
+          uVar5 = _ZN4core6option13unwrap_failed17h0e11329e76906eaaE(&PTR_DAT_003002e0);
                     /* catch() { ... } // from try @ 0022c404 with catch @ 0022c472 */
                     /* catch() { ... } // from try @ 0022c05c with catch @ 0022c4d2 */
-          core::ptr::drop_in_place<alloc::vec::Vec<uu_sort::merge::ClosedPlainTmpFile>>(&local_208);
-          core::ptr::
-          drop_in_place<itertools::groupbylazy::IntoChunks<core::iter::adapters::map::Map<alloc::vec::into_iter::IntoIter<uu_sort::merge::ClosedPlainTmpFile>,uu_sort::ext_sort::reader_writer<&mut_core::iter::adapters::map::Map<core::slice::iter::Iter<std::ffi::os_str::OsString>,uu_sort::open<&std::ffi::os_str::OsString>>,uu_sort::merge::WriteablePlainTmpFile>::__closure__>>>
+          _ZN4core3ptr78drop_in_place_LT_alloc__vec__Vec_LT_uu_sort__merge__ClosedPlainTmpFile_GT__GT_17h67b23147265995e1E
+                    (&local_208);
+          _ZN4core3ptr447drop_in_place_LT_itertools__groupbylazy__IntoChunks_LT_core__iter__adapters__map__Map_LT_alloc__vec__into_iter__IntoIter_LT_uu_sort__merge__ClosedPlainTmpFile_GT__C_uu_sort__ext_sort__reader_writer_LT__RF_mut_u20_core__iter__adapters__map__Map_LT_core__slice__iter__Iter_LT_std__ffi__os_str__OsString_GT__C_uu_sort__open_LT__RF_std__ffi__os_str__OsString_GT__GT__C_uu_sort__merge__WriteablePlainTmpFile_GT____u7b__u7b_closure_u7d__u7d__GT__GT__GT_17h6522b167a9a220a1E
                     (&local_e8);
                     /* WARNING: Subroutine does not return */
           _Unwind_Resume(uVar5);
@@ -142,7 +142,7 @@ uu_sort::merge::merge_with_file_limit
         uStack_1b4 = local_1f0._4_4_;
         uStack_1b0 = (undefined4)uStack_1e8;
         uStack_1ac = uStack_1e8._4_4_;
-        merge_without_limit(&local_268,&local_1b8,param_3);
+        _ZN7uu_sort5merge19merge_without_limit17h2875c70cfc96a2e1E(&local_268,&local_1b8,param_3);
         uVar5 = CONCAT44(uStack_25c,uStack_260);
         uVar6 = CONCAT44(uStack_254,local_258);
         if (CONCAT44(uStack_264,local_268) == 3) {
@@ -152,7 +152,8 @@ LAB_0022c3a4:
           *param_1 = 3;
 LAB_0022c411:
                     /* try { // try from 0022c411 to 0022c41d has its CatchHandler @ 0022c498 */
-          core::ptr::drop_in_place<alloc::vec::Vec<uu_sort::merge::ClosedPlainTmpFile>>(&local_208);
+          _ZN4core3ptr78drop_in_place_LT_alloc__vec__Vec_LT_uu_sort__merge__ClosedPlainTmpFile_GT__GT_17h67b23147265995e1E
+                    (&local_208);
           goto LAB_0022c41e;
         }
         local_128 = local_210;
@@ -176,7 +177,7 @@ LAB_0022c411:
         local_180 = CONCAT44(uStack_264,local_268);
         uStack_178 = uVar5;
         local_170 = uVar6;
-        tmp_dir::TmpDirWrapper::next_file(&local_1b8,param_4);
+        _ZN7uu_sort7tmp_dir13TmpDirWrapper9next_file17h05b3ad075068705fE(&local_1b8,param_4);
         if (CONCAT44(uStack_1ac,uStack_1b0) == -0x8000000000000000) {
           *(undefined4 *)(param_1 + 1) = local_1a8;
           *(undefined4 *)((long)param_1 + 0xc) = uStack_1a4;
@@ -185,7 +186,8 @@ LAB_0022c411:
 LAB_0022c3da:
           *param_1 = 3;
                     /* try { // try from 0022c3e1 to 0022c3ed has its CatchHandler @ 0022c4bc */
-          core::ptr::drop_in_place<uu_sort::merge::FileMerger>(&local_180);
+          _ZN4core3ptr47drop_in_place_LT_uu_sort__merge__FileMerger_GT_17hc0f545c2cd5ee31cE
+                    (&local_180);
           goto LAB_0022c411;
         }
         local_108 = CONCAT44(uStack_1b4,local_1b8);
@@ -194,7 +196,7 @@ LAB_0022c3da:
         uStack_f0 = uStack_1a0;
         uStack_ec = uStack_19c;
         local_100 = CONCAT44(uStack_1ac,uStack_1b0);
-        _<uu_sort::merge::WriteablePlainTmpFile_as_uu_sort::merge::WriteableTmpFile>::create
+        _ZN90__LT_uu_sort__merge__WriteablePlainTmpFile_u20_as_u20_uu_sort__merge__WriteableTmpFile_GT_6create17hf387bcea2432cd24E
                   (&local_268,&local_108);
         lVar3 = CONCAT44(uStack_264,local_268);
         uVar5 = CONCAT44(uStack_25c,uStack_260);
@@ -228,15 +230,17 @@ LAB_0022c3da:
         local_1f0 = lVar3;
         uStack_1e8 = uVar5;
         local_1e0 = uVar6;
-        uVar5 = _<uu_sort::merge::WriteablePlainTmpFile_as_uu_sort::merge::WriteableTmpFile>::
-                as_write(&local_1f0);
+        uVar5 = _ZN90__LT_uu_sort__merge__WriteablePlainTmpFile_u20_as_u20_uu_sort__merge__WriteableTmpFile_GT_8as_write17hd7022d2bef20dad2E
+                          (&local_1f0);
                     /* try { // try from 0022c225 to 0022c236 has its CatchHandler @ 0022c4aa */
-        auVar8 = FileMerger::write_all_to(&local_268,param_3,uVar5);
+        auVar8 = _ZN7uu_sort5merge10FileMerger12write_all_to17h1c9339354b7849ecE
+                           (&local_268,param_3,uVar5);
         if (auVar8._0_8_ != 0) {
           *(undefined (*) [16])(param_1 + 1) = auVar8;
           *param_1 = 3;
                     /* try { // try from 0022c404 to 0022c410 has its CatchHandler @ 0022c472 */
-          core::ptr::drop_in_place<uu_sort::merge::WriteablePlainTmpFile>(&local_1f0);
+          _ZN4core3ptr58drop_in_place_LT_uu_sort__merge__WriteablePlainTmpFile_GT_17h96330bd0f939a872E
+                    (&local_1f0);
           goto LAB_0022c411;
         }
         uStack_238 = local_1c0;
@@ -251,36 +255,34 @@ LAB_0022c3da:
         uStack_260 = (undefined4)uStack_1e8;
         uStack_25c = uStack_1e8._4_4_;
                     /* try { // try from 0022c274 to 0022c2d3 has its CatchHandler @ 0022c4be */
-        _<uu_sort::merge::WriteablePlainTmpFile_as_uu_sort::merge::WriteableTmpFile>::
-        finished_writing(&local_1b8,&local_268);
+        _ZN90__LT_uu_sort__merge__WriteablePlainTmpFile_u20_as_u20_uu_sort__merge__WriteableTmpFile_GT_16finished_writing17h5f1c720516718632E
+                  (&local_1b8,&local_268);
         uVar5 = CONCAT44(uStack_1ac,uStack_1b0);
         uVar6 = CONCAT44(uStack_1a4,local_1a8);
         if (CONCAT44(uStack_1b4,local_1b8) == -0x8000000000000000) goto LAB_0022c3a4;
         local_120 = CONCAT44(uStack_1b4,local_1b8);
         local_118 = uVar5;
         local_110 = uVar6;
-        ::alloc::vec::Vec<T,A>::push(&local_208,&local_120);
+        _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h3f59369679f0d1cbE(&local_208,&local_120);
         bVar2 = uVar1 < uVar4;
         uVar4 = uVar7;
       } while (bVar2);
     }
                     /* try { // try from 0022c2e0 to 0022c314 has its CatchHandler @ 0022c4bc */
-    _<itertools::groupbylazy::Chunks<I>as_core::iter::traits::iterator::Iterator>::next
+    _ZN98__LT_itertools__groupbylazy__Chunks_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hebe185d9380178adE
               (&local_268,&local_e8);
     if (CONCAT44(uStack_264,local_268) != -0x7ffffffffffffffe) {
-      core::ptr::
-      drop_in_place<core::option::Option<itertools::groupbylazy::Chunk<core::iter::adapters::map::Map<alloc::vec::into_iter::IntoIter<uu_sort::merge::ClosedPlainTmpFile>,uu_sort::ext_sort::reader_writer<&mut_core::iter::adapters::map::Map<core::slice::iter::Iter<std::ffi::os_str::OsString>,uu_sort::open<&std::ffi::os_str::OsString>>,uu_sort::merge::WriteablePlainTmpFile>::__closure__>>>>
+      _ZN4core3ptr470drop_in_place_LT_core__option__Option_LT_itertools__groupbylazy__Chunk_LT_core__iter__adapters__map__Map_LT_alloc__vec__into_iter__IntoIter_LT_uu_sort__merge__ClosedPlainTmpFile_GT__C_uu_sort__ext_sort__reader_writer_LT__RF_mut_u20_core__iter__adapters__map__Map_LT_core__slice__iter__Iter_LT_std__ffi__os_str__OsString_GT__C_uu_sort__open_LT__RF_std__ffi__os_str__OsString_GT__GT__C_uu_sort__merge__WriteablePlainTmpFile_GT____u7b__u7b_closure_u7d__u7d__GT__GT__GT__GT_17h0b384b4f21d54495E
                 (&local_268);
                     /* WARNING: Subroutine does not return */
-      core::panicking::panic(&DAT_0012fbf6,0x2a,&PTR_DAT_003002a0);
+      _ZN4core9panicking5panic17h8c3a660c3523e4a4E(&DAT_0012fbf6,0x2a,&PTR_DAT_003002a0);
     }
-    core::ptr::
-    drop_in_place<core::option::Option<itertools::groupbylazy::Chunk<core::iter::adapters::map::Map<alloc::vec::into_iter::IntoIter<uu_sort::merge::ClosedPlainTmpFile>,uu_sort::ext_sort::reader_writer<&mut_core::iter::adapters::map::Map<core::slice::iter::Iter<std::ffi::os_str::OsString>,uu_sort::open<&std::ffi::os_str::OsString>>,uu_sort::merge::WriteablePlainTmpFile>::__closure__>>>>
+    _ZN4core3ptr470drop_in_place_LT_core__option__Option_LT_itertools__groupbylazy__Chunk_LT_core__iter__adapters__map__Map_LT_alloc__vec__into_iter__IntoIter_LT_uu_sort__merge__ClosedPlainTmpFile_GT__C_uu_sort__ext_sort__reader_writer_LT__RF_mut_u20_core__iter__adapters__map__Map_LT_core__slice__iter__Iter_LT_std__ffi__os_str__OsString_GT__C_uu_sort__open_LT__RF_std__ffi__os_str__OsString_GT__GT__C_uu_sort__merge__WriteablePlainTmpFile_GT____u7b__u7b_closure_u7d__u7d__GT__GT__GT__GT_17h0b384b4f21d54495E
               (&local_268);
-    _<alloc::vec::Vec<T,A>as_core::iter::traits::collect::IntoIterator>::into_iter
+    _ZN90__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__iter__traits__collect__IntoIterator_GT_9into_iter17hfe0833828f6f3053E
               (&local_180,&local_208);
                     /* try { // try from 0022c32a to 0022c32e has its CatchHandler @ 0022c486 */
-    local_248 = ::alloc::boxed::Box<T>::new();
+    local_248 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h8cfa0d4394d8defcE();
     local_258 = (undefined4)local_170;
     uStack_254 = local_170._4_4_;
     uStack_250 = uStack_168;
@@ -291,10 +293,10 @@ LAB_0022c3da:
     uStack_25c = uStack_178._4_4_;
     local_240 = &DAT_00300398;
                     /* try { // try from 0022c35a to 0022c36e has its CatchHandler @ 0022c474 */
-    merge_with_file_limit(param_1,&local_268,param_3,param_4);
+    _ZN7uu_sort5merge21merge_with_file_limit17hc0e6e7450cc5dee9E(param_1,&local_268,param_3,param_4)
+    ;
 LAB_0022c41e:
-    core::ptr::
-    drop_in_place<itertools::groupbylazy::IntoChunks<core::iter::adapters::map::Map<alloc::vec::into_iter::IntoIter<uu_sort::merge::ClosedPlainTmpFile>,uu_sort::ext_sort::reader_writer<&mut_core::iter::adapters::map::Map<core::slice::iter::Iter<std::ffi::os_str::OsString>,uu_sort::open<&std::ffi::os_str::OsString>>,uu_sort::merge::WriteablePlainTmpFile>::__closure__>>>
+    _ZN4core3ptr447drop_in_place_LT_itertools__groupbylazy__IntoChunks_LT_core__iter__adapters__map__Map_LT_alloc__vec__into_iter__IntoIter_LT_uu_sort__merge__ClosedPlainTmpFile_GT__C_uu_sort__ext_sort__reader_writer_LT__RF_mut_u20_core__iter__adapters__map__Map_LT_core__slice__iter__Iter_LT_std__ffi__os_str__OsString_GT__C_uu_sort__open_LT__RF_std__ffi__os_str__OsString_GT__GT__C_uu_sort__merge__WriteablePlainTmpFile_GT____u7b__u7b_closure_u7d__u7d__GT__GT__GT_17h6522b167a9a220a1E
               (&local_e8);
   }
   else {
@@ -306,7 +308,7 @@ LAB_0022c41e:
     uStack_d4 = param_2[5];
     uStack_d0 = param_2[6];
     uStack_cc = param_2[7];
-    merge_without_limit(param_1,&local_e8,param_3);
+    _ZN7uu_sort5merge19merge_without_limit17h9b5b2c5845db30dfE(param_1,&local_e8,param_3);
   }
   return param_1;
 }

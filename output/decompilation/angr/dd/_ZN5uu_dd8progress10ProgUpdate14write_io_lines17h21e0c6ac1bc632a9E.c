@@ -4,7 +4,7 @@ long long uu_dd::progress::ProgUpdate::write_io_lines::h21e0c6ac1bc632a9(struct_
     unsigned long v1;  // [sp-0x50], Other Possible Types: unsigned long long
     unsigned long long v2;  // [sp-0x48]
     struct struct_0 **v3;  // [sp-0x40], Other Possible Types: unsigned long long
-    int v4;  // [bp-0x38], Other Possible Types: unsigned long long
+    int v4;  // [sp-0x38], Other Possible Types: unsigned long long
     void* v5;  // [sp-0x30]
     char *v6;  // [sp-0x20]
     unsigned long long v7;  // [sp-0x18]

@@ -1,5 +1,5 @@
-void __rustcall
-uu_env::split_iterator::SplitIterator::state_double_quoted_backslash(int *param_1,long param_2)
+void _ZN6uu_env14split_iterator13SplitIterator29state_double_quoted_backslash17h3f45bcdaf5eb467dE
+               (int *param_1,long param_2)
 
 {
   int iVar1;
@@ -15,10 +15,10 @@ uu_env::split_iterator::SplitIterator::state_double_quoted_backslash(int *param_
   undefined4 uStack_20;
   int iStack_1c;
   
-  iVar1 = get_current_char(param_2);
+  iVar1 = _ZN6uu_env14split_iterator13SplitIterator16get_current_char17h5ca55267f11846dcE(param_2);
   if (iVar1 < 0x5c) {
     if (iVar1 == 10) {
-      skip_one(&local_40,param_2);
+      _ZN6uu_env14split_iterator13SplitIterator8skip_one17hcd63dec953ae1fd1E(&local_40,param_2);
 joined_r0x001da24c:
       if (local_40 != 8) {
         *(ulong *)(param_1 + 8) = CONCAT44(iStack_1c,uStack_20);
@@ -35,7 +35,7 @@ joined_r0x001da24c:
   else {
     if (iVar1 == 0x5c) {
 LAB_001da224:
-      take_one(&local_40,param_2);
+      _ZN6uu_env14split_iterator13SplitIterator8take_one17h79c5ef4ea4fbd4eeE(&local_40,param_2);
       goto joined_r0x001da24c;
     }
     if (iVar1 == 99) {
@@ -50,7 +50,8 @@ LAB_001da224:
       goto LAB_001da29f;
     }
   }
-  check_and_replace_ascii_escape_code(&local_40,param_2,iVar1);
+  _ZN6uu_env14split_iterator13SplitIterator35check_and_replace_ascii_escape_code17h4d5fe0b4c9b39b36E
+            (&local_40,param_2,iVar1);
   if (local_40 != 8) {
     param_1[9] = iStack_1c;
     *(ulong *)((long)param_1 + 0x15) = CONCAT53(uStack_28,uStack_2b);

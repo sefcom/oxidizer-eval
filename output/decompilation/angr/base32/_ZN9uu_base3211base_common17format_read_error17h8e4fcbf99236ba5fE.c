@@ -1,10 +1,10 @@
 long long uu_base32::base_common::format_read_error::h8e4fcbf99236ba5f()
 {
     char v0;  // [sp-0xd9]
-    unsigned long v1;  // [sp-0xd8], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0xd8]
     unsigned long long v2;  // [sp-0xd0]
     void* v3;  // [sp-0xc8]
-    char v4;  // [bp-0xc0], Other Possible Types: unsigned long, unsigned long long
+    char v4;  // [sp-0xc0], Other Possible Types: unsigned long
     unsigned long v5;  // [sp-0xb8], Other Possible Types: unsigned long long
     struct struct_0 **v6;  // [sp-0xb0], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v7;  // [sp-0xa8]
@@ -29,7 +29,7 @@ long long uu_base32::base_common::format_read_error::h8e4fcbf99236ba5f()
     char *v27;  // xmm0
     char *v28;  // xmm1
     unsigned int v29;  // eax
-    unsigned long v30;  // rdi
+    unsigned long long v30;  // rdi
 
     v0 = v19;
     _$LT$T$u20$as$u20$alloc..string..ToString$GT$::to_string::h7bd6b561c7dd34ea(&v12, &v0);
@@ -53,7 +53,7 @@ long long uu_base32::base_common::format_read_error::h8e4fcbf99236ba5f()
         v8 = 0;
         v6 = &v9;
         v7 = 1;
-        core::option::Option$LT$T$GT$::map_or_else::hb37e8cc30801e00b();
+        core::option::Option$LT$T$GT$::map_or_else::hb37e8cc30801e00b(v30, &v4);
         ::0x4bfc10::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb8d56522d3c47933(&v1);
         ::0x4bfc10::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb8d56522d3c47933(&v12);
         return v30;

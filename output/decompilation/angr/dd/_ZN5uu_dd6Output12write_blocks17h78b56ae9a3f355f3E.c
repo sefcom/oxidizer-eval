@@ -1,6 +1,6 @@
 long long uu_dd::Output::write_blocks::h78b56ae9a3f355f3(unsigned long long a0[6], struct_1 *a1, unsigned long a2, unsigned long a3)
 {
-    unsigned long v0;  // [sp-0x60], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x60]
     unsigned long long v1;  // [sp-0x58]
     unsigned long long v2;  // [sp-0x50]
     int v3;  // [sp-0x48]

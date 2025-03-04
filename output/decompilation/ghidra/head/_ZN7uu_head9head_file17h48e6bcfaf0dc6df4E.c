@@ -1,4 +1,4 @@
-void __rustcall uu_head::head_file(undefined8 param_1,long *param_2)
+void _ZN7uu_head9head_file17h48e6bcfaf0dc6df4E(undefined8 param_1,long *param_2)
 
 {
                     /* WARNING: Could not recover jumptable at 0x001ba18d. Too many branches */

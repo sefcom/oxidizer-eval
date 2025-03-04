@@ -1,4 +1,4 @@
-void __rustcall uu_df::table::Row::new(undefined8 *param_1)
+void _ZN5uu_df5table3Row3new17h8c73bfba9893cde9E(undefined8 *param_1)
 
 {
   undefined4 local_70;
@@ -22,21 +22,24 @@ void __rustcall uu_df::table::Row::new(undefined8 *param_1)
   
   local_20 = 0x8000000000000000;
                     /* try { // try from 001ca4c7 to 001ca4dc has its CatchHandler @ 001ca5d9 */
-  _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_70,"total%",5);
+  _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17hed7ddb801416678dE
+            (&local_70,"total%",5);
   local_48 = local_60;
   local_58 = local_70;
   uStack_54 = uStack_6c;
   uStack_50 = uStack_68;
   uStack_4c = uStack_64;
                     /* try { // try from 001ca4f1 to 001ca506 has its CatchHandler @ 001ca5ca */
-  _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_70,"-",1);
+  _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17hed7ddb801416678dE
+            (&local_70,"-",1);
   local_28 = local_60;
   local_38 = local_70;
   uStack_34 = uStack_6c;
   uStack_30 = uStack_68;
   uStack_2c = uStack_64;
                     /* try { // try from 001ca51b to 001ca530 has its CatchHandler @ 001ca5bb */
-  _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_70,"-",1);
+  _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17hed7ddb801416678dE
+            (&local_70,"-",1);
   param_1[0x12] = local_60;
   param_1[0x10] = CONCAT44(uStack_6c,local_70);
   param_1[0x11] = CONCAT44(uStack_64,uStack_68);

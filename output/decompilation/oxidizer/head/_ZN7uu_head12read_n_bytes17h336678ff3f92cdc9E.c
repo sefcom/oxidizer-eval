@@ -1,6 +1,6 @@
 fn uu_head::read_n_bytes(a0: u32) -> u64 {
     let v0: u64;  // [sp-0x28]
-    let v1: &struct_0;  // [sp-0x20], Other Possible Types: u64
+    let v1: &struct_0;  // [sp-0x20]
     let v2: u64;  // [sp-0x18]
     let v3: u64;  // [sp-0x10]
     let v5: void*;  // rbx

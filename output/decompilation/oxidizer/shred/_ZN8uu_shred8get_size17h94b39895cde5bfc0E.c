@@ -1,4 +1,4 @@
-fn uu_shred::get_size(a0: u32, a1: u32) -> u64 {
+fn uu_shred::get_size(a0: &u64, a1: u32) -> u64 {
     let v0: u128;  // [sp-0x28]
     let v1: u64;  // [sp-0x18]
     let v3: void*;  // rdi

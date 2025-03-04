@@ -1,14 +1,83 @@
 fn uu_test::uu_app(a0: &struct712) -> u64 {
-    let v0: struct24;  // [sp-0x5c0], Other Possible Types: i192
-    let v1: i3504;  // [sp-0x5a8], Other Possible Types: struct712, struct437
-    let v2: i5696;  // [sp-0x2e0], Other Possible Types: struct712
+    let v0: struct24;  // [sp-0x5c0]
+    let v1: struct712;  // [sp-0x5a8], Other Possible Types: struct437
+    let v2: struct712;  // [sp-0x2e0]
     let v4: i64;  // rdx
 
     v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v4);
     v2 = clap_builder::builder::command::Command::version(&v1, "0.0.28");
     v1 = clap_builder::builder::command::Command::about(&v2, "Check file types and compare values.");
-    v0 = uucore::format_usage("test EXPRESSION\n[\n[ EXPRESSION ]\n[ ]\n[ OPTION\n]");
+    v0 = uucore::format_usage("test EXPRESSION
+[
+[ EXPRESSION ]
+[ ]
+[ OPTION
+]");
     v2 = clap_builder::builder::command::Command::override_usage(&v1, &v0);
-    clap_builder::builder::command::Command::after_help(a0, &v2, "Exit with the status determined by EXPRESSION.\n\nAn omitted EXPRESSION defaults to false.\nOtherwise, EXPRESSION is true or false and sets exit status. \n\nIt is one of:\n\n* ( EXPRESSION )               EXPRESSION is true\n* ! EXPRESSION                 EXPRESSION is false\n* EXPRESSION1 -a EXPRESSION2   both EXPRESSION1 and EXPRESSION2 are true\n* EXPRESSION1 -o EXPRESSION2   either EXPRESSION1 or EXPRESSION2 is true\n\nString operations:\n* -n STRING            the length of STRING is nonzero\n* STRING               equivalent to -n STRING\n* -z STRING            the length of STRING is zero\n* STRING1 = STRING2    the strings are equal\n* STRING1 != STRING2   the strings are not equal\n\nInteger comparisons:\n* INTEGER1 -eq INTEGER2   INTEGER1 is equal to INTEGER2\n* INTEGER1 -ge INTEGER2   INTEGER1 is greater than or equal to INTEGER2\n* INTEGER1 -gt INTEGER2   INTEGER1 is greater than INTEGER2\n* INTEGER1 -le INTEGER2   INTEGER1 is less than or equal to INTEGER2\n* INTEGER1 -lt INTEGER2   INTEGER1 is less than INTEGER2\n* INTEGER1 -ne INTEGER2   INTEGER1 is not equal to INTEGER2\n\nFile operations:\n* FILE1 -ef FILE2   FILE1 and FILE2 have the same device and inode numbers\n* FILE1 -nt FILE2   FILE1 is newer (modification date) than FILE2\n* FILE1 -ot FILE2   FILE1 is older than FILE2\n\n* -b FILE     FILE exists and is block special\n* -c FILE     FILE exists and is character special\n* -d FILE     FILE exists and is a directory\n* -e FILE     FILE exists\n* -f FILE     FILE exists and is a regular file\n* -g FILE     FILE exists and is set-group-ID\n* -G FILE     FILE exists and is owned by the effective group ID\n* -h FILE     FILE exists and is a symbolic link (same as -L)\n* -k FILE     FILE exists and has its sticky bit set\n* -L FILE     FILE exists and is a symbolic link (same as -h)\n* -N FILE     FILE exists and has been modified since it was last read\n* -O FILE     FILE exists and is owned by the effective user ID\n* -p FILE     FILE exists and is a named pipe\n* -r FILE     FILE exists and read permission is granted\n* -s FILE     FILE exists and has a size greater than zero\n* -S FILE     FILE exists and is a socket\n* -t FD       file descriptor FD is opened on a terminal\n* -u FILE     FILE exists and its set-user-ID bit is set\n* -w FILE     FILE exists and write permission is granted\n* -x FILE     FILE exists and execute (or search) permission is granted\n\nExcept for -h and -L, all FILE-related tests dereference (follow) symbolic links.\nBeware that parentheses need to be escaped (e.g., by backslashes) for shells.\nINTEGER may also be -l STRING, which evaluates to the length of STRING.\n\nNOTE: Binary -a and -o are inherently ambiguous.\nUse test EXPR1 && test EXPR2 or test EXPR1 || test EXPR2 instead.\n\nNOTE: [ honors the --help and --version options, but test does not.\ntest treats each of those as it treats any other nonempty STRING.\n\nNOTE: your shell may have its own version of test and/or [, which usually supersedes the version described here.\nPlease refer to your shell's documentation for details about the options it supports.");
+    clap_builder::builder::command::Command::after_help(a0, &v2, "Exit with the status determined by EXPRESSION.
+
+An omitted EXPRESSION defaults to false.
+Otherwise, EXPRESSION is true or false and sets exit status. 
+
+It is one of:
+
+* ( EXPRESSION )               EXPRESSION is true
+* ! EXPRESSION                 EXPRESSION is false
+* EXPRESSION1 -a EXPRESSION2   both EXPRESSION1 and EXPRESSION2 are true
+* EXPRESSION1 -o EXPRESSION2   either EXPRESSION1 or EXPRESSION2 is true
+
+String operations:
+* -n STRING            the length of STRING is nonzero
+* STRING               equivalent to -n STRING
+* -z STRING            the length of STRING is zero
+* STRING1 = STRING2    the strings are equal
+* STRING1 != STRING2   the strings are not equal
+
+Integer comparisons:
+* INTEGER1 -eq INTEGER2   INTEGER1 is equal to INTEGER2
+* INTEGER1 -ge INTEGER2   INTEGER1 is greater than or equal to INTEGER2
+* INTEGER1 -gt INTEGER2   INTEGER1 is greater than INTEGER2
+* INTEGER1 -le INTEGER2   INTEGER1 is less than or equal to INTEGER2
+* INTEGER1 -lt INTEGER2   INTEGER1 is less than INTEGER2
+* INTEGER1 -ne INTEGER2   INTEGER1 is not equal to INTEGER2
+
+File operations:
+* FILE1 -ef FILE2   FILE1 and FILE2 have the same device and inode numbers
+* FILE1 -nt FILE2   FILE1 is newer (modification date) than FILE2
+* FILE1 -ot FILE2   FILE1 is older than FILE2
+
+* -b FILE     FILE exists and is block special
+* -c FILE     FILE exists and is character special
+* -d FILE     FILE exists and is a directory
+* -e FILE     FILE exists
+* -f FILE     FILE exists and is a regular file
+* -g FILE     FILE exists and is set-group-ID
+* -G FILE     FILE exists and is owned by the effective group ID
+* -h FILE     FILE exists and is a symbolic link (same as -L)
+* -k FILE     FILE exists and has its sticky bit set
+* -L FILE     FILE exists and is a symbolic link (same as -h)
+* -N FILE     FILE exists and has been modified since it was last read
+* -O FILE     FILE exists and is owned by the effective user ID
+* -p FILE     FILE exists and is a named pipe
+* -r FILE     FILE exists and read permission is granted
+* -s FILE     FILE exists and has a size greater than zero
+* -S FILE     FILE exists and is a socket
+* -t FD       file descriptor FD is opened on a terminal
+* -u FILE     FILE exists and its set-user-ID bit is set
+* -w FILE     FILE exists and write permission is granted
+* -x FILE     FILE exists and execute (or search) permission is granted
+
+Except for -h and -L, all FILE-related tests dereference (follow) symbolic links.
+Beware that parentheses need to be escaped (e.g., by backslashes) for shells.
+INTEGER may also be -l STRING, which evaluates to the length of STRING.
+
+NOTE: Binary -a and -o are inherently ambiguous.
+Use test EXPR1 && test EXPR2 or test EXPR1 || test EXPR2 instead.
+
+NOTE: [ honors the --help and --version options, but test does not.
+test treats each of those as it treats any other nonempty STRING.
+
+NOTE: your shell may have its own version of test and/or [, which usually supersedes the version described here.
+Please refer to your shell's documentation for details about the options it supports.");
     return a0;
 }

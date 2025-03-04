@@ -7,8 +7,6 @@ fn uu_od::inputdecoder::MemoryDecoder::read_float(a0: u32, a1: u32, a2: u32) -> 
     let v9: u32;  // rdx
     let v10: u32;  // eax
     let v11: u32;  // rdx
-    let v12: u64;  // rdx
-    let v13: u64;  // rdx
 
     v0 = a2;
     match (a2) {
@@ -28,11 +26,11 @@ fn uu_od::inputdecoder::MemoryDecoder::read_float(a0: u32, a1: u32, a2: u32) -> 
         }
         4 => {
             v5 = a0->field_0;
-            return uu_od::byteorder_io::ByteOrder::read_f32(*(&a0->field_18 as &i32), <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1, a1 + 4, v5[1], v5[2], "src/uu/od/src/inputdecoder.rs"), v13);
+            return uu_od::byteorder_io::ByteOrder::read_f32(*(&a0->field_18 as &i32), <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1, a1 + 4, v5[1], v5[2], "src/uu/od/src/inputdecoder.rs"), a2);
         }
         8 => {
             v7 = a0->field_0;
-            return uu_od::byteorder_io::ByteOrder::read_f64(*(&a0->field_18 as &i32), <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1, a1 + 8, v7[1], v7[2], "src/uu/od/src/inputdecoder.rs"), v12);
+            return uu_od::byteorder_io::ByteOrder::read_f64(*(&a0->field_18 as &i32), <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1, a1 + 8, v7[1], v7[2], "src/uu/od/src/inputdecoder.rs"), a2);
         }
         _ => {
             panic!("Invalid byte_size: {}", &v0);

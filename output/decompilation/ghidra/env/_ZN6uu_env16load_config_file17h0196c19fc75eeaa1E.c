@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_env::load_config_file(long param_1)
+undefined  [16] _ZN6uu_env16load_config_file17h0196c19fc75eeaa1E(long param_1)
 
 {
   undefined8 uVar1;
@@ -96,23 +96,25 @@ undefined  [16] __rustcall uu_env::load_config_file(long param_1)
   local_298 = *(long *)(param_1 + 8);
   local_290 = *(long *)(param_1 + 0x10) * 0x10 + local_298;
   puVar5 = (undefined8 *)
-           _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next(&local_298);
+           _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h4336037a61c6f015E
+                     (&local_298);
   if (puVar5 != (undefined8 *)0x0) {
     do {
       uVar6 = *puVar5;
       uVar1 = puVar5[1];
-      cVar4 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(uVar6,uVar1,&DAT_001244c2,1);
+      cVar4 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h93758be011b95af6E
+                        (uVar6,uVar1,&DAT_001244c2,1);
       if (cVar4 == '\0') {
-        ini::Ini::load_from_file_opt(&local_e0,uVar6,uVar1,1,1);
+        _ZN3ini3Ini18load_from_file_opt17hd6c09423a76f6016E(&local_e0,uVar6,uVar1,1,1);
       }
       else {
-        local_178 = std::io::stdio::stdin();
-        local_228 = std::io::stdio::Stdin::lock(&local_178);
+        local_178 = _ZN3std2io5stdio5stdin17h7215cc131abb55d8E();
+        local_228 = _ZN3std2io5stdio5Stdin4lock17h161a36d857331d7fE(&local_178);
         local_220 = (undefined8 *)(CONCAT71(local_220._1_7_,extraout_DL) & 0xffffffffffffff01);
                     /* try { // try from 001cc74f to 001cc76d has its CatchHandler @ 001cc984 */
-        ini::Ini::read_from_opt(&local_e0,&local_228,1,1);
-        core::ptr::drop_in_place<std::io::stdio::StdinLock>(local_228,(ulong)local_220 & 0xffffffff)
-        ;
+        _ZN3ini3Ini13read_from_opt17h195aa31934f88d20E(&local_e0,&local_228,1,1);
+        _ZN4core3ptr46drop_in_place_LT_std__io__stdio__StdinLock_GT_17h1864f028de0891baE
+                  (local_228,(ulong)local_220 & 0xffffffff);
       }
       uVar3 = local_d0;
       puVar5 = local_d8;
@@ -125,7 +127,8 @@ undefined  [16] __rustcall uu_env::load_config_file(long param_1)
         uStack_26c = uStack_bc;
         local_288 = local_d8;
         local_280 = (undefined *)local_d0;
-        uVar6 = load_config_file::___closure__(uVar6,uVar1,&local_288);
+        uVar6 = _ZN6uu_env16load_config_file28__u7b__u7b_closure_u7d__u7d_17h3c9173ecfcad8e32E
+                          (uVar6,uVar1,&local_288);
         goto LAB_001cc96b;
       }
       local_168 = local_b8;
@@ -167,7 +170,8 @@ undefined  [16] __rustcall uu_env::load_config_file(long param_1)
       local_288 = &local_228;
       while( true ) {
                     /* try { // try from 001cc8c0 to 001cc8cb has its CatchHandler @ 001cc99d */
-        _<ini::SectionIter_as_core::iter::traits::iterator::Iterator>::next(local_240,&local_288);
+        _ZN75__LT_ini__SectionIter_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h8b11506b46190202E
+                  (local_240,&local_288);
         if (local_230 == 0) break;
         lStack_170 = local_230 + 0x40;
         uStack_158 = *(undefined8 *)(local_230 + 0x70);
@@ -177,21 +181,23 @@ undefined  [16] __rustcall uu_env::load_config_file(long param_1)
         uStack_15c = *(undefined4 *)(local_230 + 0x6c);
         while( true ) {
                     /* try { // try from 001cc910 to 001cc936 has its CatchHandler @ 001cc99f */
-          _<ini::PropertyIter_as_core::iter::traits::iterator::Iterator>::next
+          _ZN76__LT_ini__PropertyIter_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hcf3320d67a61f47fE
                     (&local_260,&local_178);
           if (local_260 == 0) break;
-          std::env::set_var(local_260,local_258,local_250,local_248);
+          _ZN3std3env7set_var17h7c2f382f05be9345E(local_260,local_258,local_250,local_248);
         }
       }
-      core::ptr::drop_in_place<ini::Ini>(&local_228);
+      _ZN4core3ptr29drop_in_place_LT_ini__Ini_GT_17h02eafa7b2766ffacE(&local_228);
       puVar5 = (undefined8 *)
-               _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+               _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h4336037a61c6f015E
                          (&local_298);
     } while (puVar5 != (undefined8 *)0x0);
   }
   uVar6 = 0;
 LAB_001cc96b:
-  auVar7._8_8_ = &PTR_drop_in_place<uucore_mods_error_USimpleError>_00248908;
+  auVar7._8_8_ = &
+                 PTR__ZN4core3ptr54drop_in_place_LT_uucore__mods__error__USimpleError_GT_17h03ce124f780b058aE_00248908
+  ;
   auVar7._0_8_ = uVar6;
   return auVar7;
 }

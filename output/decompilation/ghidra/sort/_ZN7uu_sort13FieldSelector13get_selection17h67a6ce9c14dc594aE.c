@@ -1,9 +1,8 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void __rustcall
-uu_sort::FieldSelector::get_selection
-          (undefined (*param_1) [16],long param_2,undefined8 param_3,undefined8 param_4,
-          undefined8 param_5,undefined8 param_6)
+void _ZN7uu_sort13FieldSelector13get_selection17h67a6ce9c14dc594aE
+               (undefined (*param_1) [16],long param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5,undefined8 param_6)
 
 {
   byte bVar1;
@@ -33,9 +32,9 @@ uu_sort::FieldSelector::get_selection
   if (*(char *)(param_2 + 0x36) != '\0') {
     uVar4 = param_5;
   }
-  auVar7 = get_range(param_2,param_3,param_4,uVar4,param_6);
-  auVar8 = core::str::traits::
-           _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::Range<usize>>::get
+  auVar7 = _ZN7uu_sort13FieldSelector9get_range17h94d5816cf09723a2E
+                     (param_2,param_3,param_4,uVar4,param_6);
+  auVar8 = _ZN4core3str6traits108__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__Range_LT_usize_GT__GT_3get17h3d479bbd9c610d76E
                      (auVar7._0_8_,auVar7._8_8_,param_3,param_4);
   uVar4 = auVar8._8_8_;
   lVar3 = auVar8._0_8_;
@@ -44,13 +43,13 @@ uu_sort::FieldSelector::get_selection
     if (bVar1 < 2) {
       local_34 = bVar1 == 1;
       local_3c = 0x2e00110000;
-      numeric_str_cmp::NumInfo::parse(&local_60,lVar3,uVar4,&local_3c);
+      _ZN7uu_sort15numeric_str_cmp7NumInfo5parse17h2d1625adef450396E
+                (&local_60,lVar3,uVar4,&local_3c);
       auVar7._8_8_ = local_48;
       auVar7._0_8_ = local_50;
       auVar2._8_8_ = CONCAT71(uStack_5f,local_60);
       auVar2._0_8_ = lVar3;
-      auVar9 = core::str::traits::
-               _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::Range<usize>>::get
+      auVar9 = _ZN4core3str6traits108__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__Range_LT_usize_GT__GT_3get17h3d479bbd9c610d76E
                          (local_50,local_48,lVar3,uVar4);
       if (auVar9._0_8_ == 0) {
         ppuVar5 = &PTR_s_src_uu_sort_src_sort_rs_002ffaf8;
@@ -61,9 +60,8 @@ uu_sort::FieldSelector::get_selection
       *(ulong *)param_1[1] = CONCAT71(uStack_5f,local_60);
     }
     else if (bVar1 == 2) {
-      auVar7 = get_leading_gen(lVar3,uVar4);
-      lVar3 = core::str::traits::
-              _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::Range<usize>>::get
+      auVar7 = _ZN7uu_sort15get_leading_gen17h381fabafeef8de83E(lVar3,uVar4);
+      lVar3 = _ZN4core3str6traits108__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__Range_LT_usize_GT__GT_3get17h3d479bbd9c610d76E
                         (auVar7._0_8_,auVar7._8_8_,lVar3,uVar4);
       auVar9 = auVar8;
       if (lVar3 == 0) {
@@ -71,11 +69,12 @@ uu_sort::FieldSelector::get_selection
           ppuVar5 = &PTR_s_src_uu_sort_src_sort_rs_002ffb10;
           auVar2 = auVar9;
 LAB_00221cbc:
-          core::str::slice_error_fail(auVar9._0_8_,auVar9._8_8_,auVar7._0_8_,auVar7._8_8_,ppuVar5);
+          _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE
+                    (auVar9._0_8_,auVar9._8_8_,auVar7._0_8_,auVar7._8_8_,ppuVar5);
           auVar9 = auVar2;
         } while( true );
       }
-      dVar6 = (double)core::num::dec2flt::_<impl_core::str::traits::FromStr_for_f64>::from_str
+      dVar6 = (double)_ZN4core3num7dec2flt60__LT_impl_u20_core__str__traits__FromStr_u20_for_u20_f64_GT_8from_str17hfde7dd7a3aaead31E
                                 (&local_60,lVar3);
       if (local_60 == '\0') {
         dVar6 = (double)CONCAT71(uStack_57,local_58);

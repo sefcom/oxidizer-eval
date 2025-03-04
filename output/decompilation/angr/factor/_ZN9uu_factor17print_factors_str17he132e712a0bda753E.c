@@ -3,7 +3,7 @@ long long uu_factor::print_factors_str::he132e712a0bda753(unsigned long long a0,
     struct struct_0 **v0;  // [bp-0x148]
     unsigned long long v1;  // [sp-0x140]
     unsigned long long v2;  // [sp-0x138]
-    struct struct_0 **v3;  // [sp-0x128], Other Possible Types: unsigned long long
+    struct struct_0 **v3;  // [sp-0x128]
     unsigned long long v4;  // [sp-0x120]
     struct struct_0 **v5;  // [sp-0x118], Other Possible Types: unsigned long long
     unsigned int v6;  // [bp-0x110], Other Possible Types: unsigned long long
@@ -12,7 +12,7 @@ long long uu_factor::print_factors_str::he132e712a0bda753(unsigned long long a0,
     unsigned long long v9;  // [sp-0xe0]
     struct struct_0 **v10;  // [sp-0xd8], Other Possible Types: unsigned long long
     unsigned long long v11;  // [sp-0xd0]
-    void* v12;  // [sp-0xc8], Other Possible Types: struct struct_0 **
+    struct struct_0 **v12;  // [sp-0xc8]
     unsigned long v13;  // [sp-0xc0], Other Possible Types: unsigned long long
     void* v14;  // [sp-0xb8], Other Possible Types: unsigned long long
     struct struct_0 **v15;  // [bp-0xb0], Other Possible Types: char
@@ -27,10 +27,10 @@ long long uu_factor::print_factors_str::he132e712a0bda753(unsigned long long a0,
     char v24;  // [bp-0x50]
     char v25;  // [bp-0x48]
     char v26;  // [bp-0x38]
-    unsigned long long v28;  // rdx
+    unsigned long v28;  // rdx
     void* v29;  // rax
 
-    num_bigint::biguint::convert::_$LT$impl$u20$num_traits..Num$u20$for$u20$num_bigint..biguint..BigUint$GT$::from_str_radix::hdbc74ae67ae58087(&v23, core::str::_$LT$impl$u20$str$GT$::trim_matches::hf5a6ebf145b1a03b(a0, a1), v28, 10);
+    num_bigint::biguint::convert::_$LT$impl$u20$num_traits..Num$u20$for$u20$num_bigint..biguint..BigUint$GT$::from_str_radix::hdbc74ae67ae58087(&v23, core::str::_$LT$impl$u20$str$GT$::trim_matches::hf5a6ebf145b1a03b(a0, a1), a2, 10);
     if (*((long long *)&v23) == 0x8000000000000000)
     {
         v12 = uucore::util_name::h60d842bf27b05e82();

@@ -1,8 +1,8 @@
 long long uu_head::read_but_last_n_lines::h3962164e084296b5(unsigned long long a0, unsigned long long a1, unsigned int a2)
 {
-    unsigned long v0;  // [sp-0xe8], Other Possible Types: unsigned long long
-    unsigned long v1;  // [sp-0xe0], Other Possible Types: unsigned long long
-    unsigned long v2;  // [sp-0xd8], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xe8]
+    unsigned long v1;  // [sp-0xe0]
+    unsigned long v2;  // [sp-0xd8]
     unsigned long long v3;  // [sp-0xd0]
     unsigned long long v4;  // [sp-0xc8]
     char v5;  // [bp-0xc0]
@@ -32,8 +32,8 @@ long long uu_head::read_but_last_n_lines::h3962164e084296b5(unsigned long long a
         v17 = *((long long *)&v5);
         if (v17 == 9223372036854775809)
         {
-            core::ptr::drop_in_place$LT$uu_head..take..TakeAllBut$LT$uucore..features..lines..Lines$LT$$RF$mut$u20$std..io..stdio..StdinLock$GT$$GT$$GT$::h8a4d0aaac5e7db1f();
-            ::0x4b7670::core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::h2105b16ee338ea42();
+            core::ptr::drop_in_place$LT$uu_head..take..TakeAllBut$LT$uucore..features..lines..Lines$LT$$RF$mut$u20$std..io..stdio..StdinLock$GT$$GT$$GT$::h8a4d0aaac5e7db1f(&v8);
+            ::0x4b7670::core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::h2105b16ee338ea42(v0);
             return 0;
         }
         v18 = *((long long *)&v6);
@@ -53,7 +53,7 @@ long long uu_head::read_but_last_n_lines::h3962164e084296b5(unsigned long long a
             break;
         }
     }
-    core::ptr::drop_in_place$LT$uu_head..take..TakeAllBut$LT$uucore..features..lines..Lines$LT$$RF$mut$u20$std..io..stdio..StdinLock$GT$$GT$$GT$::h8a4d0aaac5e7db1f();
-    ::0x4b7670::core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::h2105b16ee338ea42();
+    core::ptr::drop_in_place$LT$uu_head..take..TakeAllBut$LT$uucore..features..lines..Lines$LT$$RF$mut$u20$std..io..stdio..StdinLock$GT$$GT$$GT$::h8a4d0aaac5e7db1f(&v8);
+    ::0x4b7670::core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::h2105b16ee338ea42(v0);
     return v18;
 }

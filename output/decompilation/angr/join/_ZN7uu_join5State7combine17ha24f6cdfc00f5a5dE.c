@@ -4,9 +4,9 @@ long long uu_join::State::combine::ha24f6cdfc00f5a5d(unsigned long long a0[9], u
     unsigned long long v1;  // [sp-0xa8]
     unsigned long long v2;  // [sp-0xa0]
     unsigned long long v3;  // [sp-0x98]
-    unsigned long v4;  // [sp-0x90], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0x90]
     unsigned long long v5;  // [sp-0x88]
-    unsigned long v6;  // [sp-0x80], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x80]
     unsigned long long v7;  // [sp-0x78]
     unsigned long v8;  // [sp-0x70]
     char *v9;  // [bp-0x68]
@@ -14,7 +14,7 @@ long long uu_join::State::combine::ha24f6cdfc00f5a5d(unsigned long long a0[9], u
     unsigned long long v11;  // [sp-0x58]
     unsigned long long v12[9];  // [sp-0x50]
     unsigned long long v13;  // [sp-0x48]
-    unsigned long v14;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v14;  // [sp-0x40]
     unsigned long long v15;  // [sp-0x38]
     unsigned long long v17;  // r12
     unsigned long v18;  // rdx
@@ -24,13 +24,9 @@ long long uu_join::State::combine::ha24f6cdfc00f5a5d(unsigned long long a0[9], u
     unsigned long long v22;  // rax
     struct_0 *v23;  // rcx
     unsigned long long v24;  // 4111
-    unsigned long long v25;  // rcx
-    unsigned long long v26;  // rax
-    unsigned long long v27;  // rax
+    unsigned long long v25;  // rax
+    void* v26;  // rax
     void* v28;  // rax
-    unsigned long long v30;  // rcx
-    unsigned long long v31;  // rax
-    void* v32;  // rax
 
     v17 = uu_join::State::get_current_key::h6b22667ac5a703a7(a0);
     v14 = v17;
@@ -56,65 +52,61 @@ long long uu_join::State::combine::ha24f6cdfc00f5a5d(unsigned long long a0[9], u
             v3 = v23->field_20;
         }
         v8 = a2[8];
-        v30 = v21;
-        v31 = v22;
         do
         {
-            v4 = v30;
-            v5 = v31;
+            v4 = v21;
+            v5 = v22;
             while (true)
             {
-                v32 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hbc4165e2b45ae32b(&v4);
-                if (!v32)
+                v28 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hbc4165e2b45ae32b(&v4);
+                if (!v28)
                     break;
-                v28 = _$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$::write_all::hccae4f1a94cdd6f8(a1, v17, v3);
-                if (v28)
-                    return v28;
-                v28 = uu_join::Repr$LT$Sep$GT$::print_fields::hb1432fea054a9535(v23, a1, v20, a0[8]);
-                if (v28)
-                    return v28;
-                v28 = uu_join::Repr$LT$Sep$GT$::print_fields::hb1432fea054a9535(v23, a1, v32, v8);
-                if (v28)
-                    return v28;
+                v26 = _$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$::write_all::hccae4f1a94cdd6f8(a1, v17, v3);
+                if (v26)
+                    return v26;
+                v26 = uu_join::Repr$LT$Sep$GT$::print_fields::hb1432fea054a9535(v23, a1, v20, a0[8]);
+                if (v26)
+                    return v26;
+                v26 = uu_join::Repr$LT$Sep$GT$::print_fields::hb1432fea054a9535(v23, a1, v28, v8);
+                if (v26)
+                    return v26;
                 v9 = v0;
-                v28 = _$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$::write_all::hccae4f1a94cdd6f8(a1, &v9, 1);
-                if (v28)
-                    return v28;
+                v26 = _$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$::write_all::hccae4f1a94cdd6f8(a1, &v9, 1);
+                if (v26)
+                    return v26;
             }
             v20 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hbc4165e2b45ae32b(&v6);
-            v30 = v2;
-            v31 = v1;
+            v21 = v2;
+            v22 = v1;
         } while (v20);
     }
     else
     {
-        v25 = v21;
-        v26 = v22;
         do
         {
-            v4 = v25;
-            v5 = v26;
+            v4 = v21;
+            v5 = v22;
             while (true)
             {
-                v27 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hbc4165e2b45ae32b(&v4);
-                if (!v27)
+                v25 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hbc4165e2b45ae32b(&v4);
+                if (!v25)
                     break;
                 v9 = &v14;
                 v10[0] = a0;
                 v11 = v20;
                 v12[0] = a2;
-                v13 = v27;
-                v28 = uu_join::Repr$LT$Sep$GT$::print_format::ha0fea88deb104ec8(v23, a1, &v9);
-                if (v28)
-                    return v28;
+                v13 = v25;
+                v26 = uu_join::Repr$LT$Sep$GT$::print_format::ha0fea88deb104ec8(v23, a1, &v9);
+                if (v26)
+                    return v26;
                 v9 = v0;
-                v28 = _$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$::write_all::hccae4f1a94cdd6f8(a1, &v9, 1);
-                if (v28)
-                    return v28;
+                v26 = _$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$::write_all::hccae4f1a94cdd6f8(a1, &v9, 1);
+                if (v26)
+                    return v26;
             }
             v20 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hbc4165e2b45ae32b(&v6);
-            v25 = v2;
-            v26 = v1;
+            v21 = v2;
+            v22 = v1;
         } while (v20);
     }
 }

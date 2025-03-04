@@ -1,5 +1,5 @@
-undefined  [16] __rustcall
-uu_sort::ext_sort::reader_writer
+undefined  [16]
+_ZN7uu_sort8ext_sort13reader_writer17hea8d60344d72eabcE
           (undefined8 param_1,undefined *param_2,undefined8 param_3,undefined8 param_4,
           undefined8 param_5,long *param_6,undefined8 param_7)
 
@@ -69,15 +69,16 @@ uu_sort::ext_sort::reader_writer
   undefined8 local_38;
   
                     /* try { // try from 00267948 to 00267965 has its CatchHandler @ 00267d29 */
-  read_write_loop(&local_178,param_1,param_7,param_2[0x99],*(ulong *)(param_2 + 0x68) / 10,param_2,
-                  param_3,param_4,param_5);
+  _ZN7uu_sort8ext_sort15read_write_loop17hb7505e9f57c3babeE
+            (&local_178,param_1,param_7,param_2[0x99],*(ulong *)(param_2 + 0x68) / 10,param_2,
+             param_3,param_4,param_5);
   puVar4 = local_168;
   ppuVar5 = &local_1a8;
   if (local_178 == (undefined *)0x8000000000000003) {
 LAB_00267988:
     auVar6._8_8_ = local_168;
     auVar6._0_8_ = puStack_170;
-    core::ptr::drop_in_place<uu_sort::Output>(param_6);
+    _ZN4core3ptr36drop_in_place_LT_uu_sort__Output_GT_17hc73b799533ae265aE(param_6);
     return auVar6;
   }
   local_100 = local_178;
@@ -85,7 +86,7 @@ LAB_00267988:
   local_f0 = local_168;
   switch((ulong)local_178 ^ 0x8000000000000000) {
   case 0:
-    core::ptr::drop_in_place<uu_sort::Output>(param_6);
+    _ZN4core3ptr36drop_in_place_LT_uu_sort__Output_GT_17hc73b799533ae265aE(param_6);
     goto LAB_00267cd9;
   case 1:
     local_1a8 = puStack_170;
@@ -96,7 +97,8 @@ LAB_00267988:
       puStack_170 = (undefined *)param_6[1];
       local_168 = (undefined *)param_6[2];
       puStack_160 = (undefined *)param_6[3];
-      print_sorted(*plVar1,*plVar1 + *plVar2 * 0x18,param_2,&local_178);
+      _ZN7uu_sort12print_sorted17h399956c01eacbd36E
+                (*plVar1,*plVar1 + *plVar2 * 0x18,param_2,&local_178);
     }
     else {
       local_168 = *(undefined **)(puStack_170 + 0x20);
@@ -110,7 +112,7 @@ LAB_00267988:
                     /* try { // try from 00267c07 to 00267c48 has its CatchHandler @ 00267cfb */
       uStack_158 = param_2;
       uStack_150 = &local_1a8;
-      print_sorted(&local_178,param_2,&local_198);
+      _ZN7uu_sort12print_sorted17h980a3d1e0d6f1cf0E(&local_178,param_2,&local_198);
       ppuVar5 = &local_1a8;
     }
     break;
@@ -124,7 +126,8 @@ LAB_00267988:
     puStack_170 = local_178 + *(long *)(local_168 + 0x28) * 0x18;
                     /* try { // try from 00267a2e to 00267adf has its CatchHandler @ 00267d0d */
     local_168 = (undefined *)&local_1a8;
-    itertools::merge_join::merge_by_new(&local_e8,&local_198,&local_178,param_2);
+    _ZN9itertools10merge_join12merge_by_new17hc384172735f1fb36E
+              (&local_e8,&local_198,&local_178,param_2);
     if (param_2[0x84] == '\0') {
       uStack_128 = local_98;
       uStack_138 = local_a8;
@@ -144,7 +147,7 @@ LAB_00267988:
       uStack_180 = *(undefined4 *)(param_6 + 3);
       uStack_17c = *(undefined4 *)((long)param_6 + 0x1c);
                     /* try { // try from 00267cb5 to 00267cc6 has its CatchHandler @ 00267d0d */
-      print_sorted(&local_178,param_2,&local_198);
+      _ZN7uu_sort12print_sorted17h73b47b9188ebe0a1E(&local_178,param_2,&local_198);
     }
     else {
       local_110 = local_98;
@@ -166,17 +169,18 @@ LAB_00267988:
       uStack_180 = *(undefined4 *)(param_6 + 3);
       uStack_17c = *(undefined4 *)((long)param_6 + 0x1c);
       local_108 = param_2;
-      print_sorted(&local_178,param_2,&local_198);
+      _ZN7uu_sort12print_sorted17h24cdc7fa9246c817E(&local_178,param_2,&local_198);
     }
                     /* try { // try from 00267cc7 to 00267cce has its CatchHandler @ 00267cf4 */
-    core::ptr::drop_in_place<uu_sort::chunks::Chunk>(&local_1a8);
+    _ZN4core3ptr43drop_in_place_LT_uu_sort__chunks__Chunk_GT_17h110e2935f03a115dE(&local_1a8);
     ppuVar5 = &local_1a0;
     break;
   default:
-    _<alloc::vec::Vec<T,A>as_core::iter::traits::collect::IntoIterator>::into_iter
+    _ZN90__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__iter__traits__collect__IntoIterator_GT_9into_iter17hfe0833828f6f3053E
               (&local_198,&local_100);
                     /* try { // try from 00267afd to 00267bac has its CatchHandler @ 00267d08 */
-    merge::merge_with_file_limit(&local_178,&local_198,param_2,param_7);
+    _ZN7uu_sort5merge21merge_with_file_limit17hee8bdf8579433eeeE
+              (&local_178,&local_198,param_2,param_7);
     if (local_178 != (undefined *)0x3) {
       local_38 = local_120;
       local_48 = (undefined4)local_130;
@@ -198,12 +202,13 @@ LAB_00267988:
       puStack_170 = (undefined *)param_6[1];
       local_168 = (undefined *)param_6[2];
       puStack_160 = (undefined *)param_6[3];
-      auVar6 = merge::FileMerger::write_all(&local_90,param_2,&local_178);
+      auVar6 = _ZN7uu_sort5merge10FileMerger9write_all17h8ffbbdd0c487cde8E
+                         (&local_90,param_2,&local_178);
       return auVar6;
     }
     goto LAB_00267988;
   }
-  core::ptr::drop_in_place<uu_sort::chunks::Chunk>(ppuVar5);
+  _ZN4core3ptr43drop_in_place_LT_uu_sort__chunks__Chunk_GT_17h110e2935f03a115dE(ppuVar5);
 LAB_00267cd9:
   auVar3._8_8_ = 0;
   auVar3._0_8_ = puVar4;

@@ -11,18 +11,15 @@ fn uu_shred::BytesWriter::from_pass_type(a0: &Option<struct9>, a1: &u64) -> u64 
     do {
         v4 = 0;
     } while (&v4 != &v2);
-    v6 = *(a1 as &i8);
     match (v6) {
         0 => {
             memset(&v1, *((a1 + 1) as &i8), 65538);
-            break;
+            goto LABEL_4bc1eb;
         }
         2 => {
             rand_core::SeedableRng::from_entropy(a0 + 16);
             memset(a0 + 336, 0, 0x10000);
-            return struct1 {
-                field_0: v7
-            };
+            break;
         }
         _ => {
             memset(&v3, 0, 65538);
@@ -35,8 +32,13 @@ fn uu_shred::BytesWriter::from_pass_type(a0: &Option<struct9>, a1: &u64) -> u64 
                 } while (v9);
             }
             memcpy(&v1, &v3, 65538);
+LABEL_4bc1eb:
+            *((a0 + 65544) as &i64) = 0;
+            memcpy(a0 + 1, &v1, 65538);
+            break;
         }
     }
-    *((a0 + 65544) as &i64) = 0;
-    memcpy(a0 + 1, &v1, 65538);
+    return struct1 {
+        field_0: v7
+    };
 }

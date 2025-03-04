@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_truncate::TruncateMode::RoundUp(undefined8 param_1)
+undefined  [16] _ZN11uu_truncate12TruncateMode7RoundUp17h3f2c9049b3c57539E(undefined8 param_1)
 
 {
   undefined auVar1 [16];

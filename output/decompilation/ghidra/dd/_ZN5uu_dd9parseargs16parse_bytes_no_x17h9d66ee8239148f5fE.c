@@ -1,7 +1,6 @@
-void __rustcall
-uu_dd::parseargs::parse_bytes_no_x
-          (ulong *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
-          undefined8 param_5)
+void _ZN5uu_dd9parseargs16parse_bytes_no_x17h9d66ee8239148f5fE
+               (ulong *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5)
 
 {
   undefined auVar1 [16];
@@ -32,25 +31,26 @@ uu_dd::parseargs::parse_bytes_no_x
   local_60 = 0;
   local_80 = param_2;
   local_78 = param_3;
-  auVar4 = core::str::_<impl_str>::find(param_4,param_5);
-  auVar5 = core::str::_<impl_str>::rfind(param_4,param_5,0x77);
-  auVar6 = core::str::_<impl_str>::rfind(param_4,param_5,0x62);
+  auVar4 = _ZN4core3str21__LT_impl_u20_str_GT_4find17he16eb61bb7887aecE(param_4,param_5);
+  auVar5 = _ZN4core3str21__LT_impl_u20_str_GT_5rfind17h94ded9ee8a390a12E(param_4,param_5,0x77);
+  auVar6 = _ZN4core3str21__LT_impl_u20_str_GT_5rfind17h94ded9ee8a390a12E(param_4,param_5,0x62);
   lVar2 = auVar6._0_8_;
   if (auVar4._0_8_ == 0) {
     if (auVar5._0_8_ == 0) {
       if (lVar2 == 0) {
-        uucore::parser::parse_size::Parser::parse_u64(&local_a0,local_70,param_4,param_5);
+        _ZN6uucore6parser10parse_size6Parser9parse_u6417ha54ade59619f41e4E
+                  (&local_a0,local_70,param_4,param_5);
         if (local_a0 < 2) {
                     /* try { // try from 001d4782 to 001d4795 has its CatchHandler @ 001d4819 */
-          _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_48,local_80,local_78);
+          _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h778f954dace7b409E
+                    (&local_48,local_80,local_78);
           param_1[3] = local_38;
           *(undefined4 *)(param_1 + 1) = local_48;
           *(undefined4 *)((long)param_1 + 0xc) = uStack_44;
           *(undefined4 *)(param_1 + 2) = uStack_40;
           *(undefined4 *)((long)param_1 + 0x14) = uStack_3c;
           *param_1 = 0xd;
-          core::ptr::
-          drop_in_place<core::result::Result<u64,uucore::parser::parse_size::ParseSizeError>>
+          _ZN4core3ptr97drop_in_place_LT_core__result__Result_LT_u64_C_uucore__parser__parse_size__ParseSizeError_GT__GT_17hdd273fc407a2ace4E
                     (&local_a0);
           return;
         }
@@ -58,15 +58,15 @@ uu_dd::parseargs::parse_bytes_no_x
         if ((int)local_a0 != 2) {
           uVar3 = local_98;
         }
-        core::ptr::
-        drop_in_place<core::result::Result<u64,uucore::parser::parse_size::ParseSizeError>>
+        _ZN4core3ptr97drop_in_place_LT_core__result__Result_LT_u64_C_uucore__parser__parse_size__ParseSizeError_GT__GT_17hdd273fc407a2ace4E
                   (&local_a0);
         auVar6._8_8_ = 0;
         auVar6._0_8_ = uVar3;
         auVar5 = auVar6 * ZEXT816(1);
       }
       else {
-        parse_bytes_only(&local_a0,param_4,param_5,auVar6._8_8_);
+        _ZN5uu_dd9parseargs16parse_bytes_only17h08378519bfb033ceE
+                  (&local_a0,param_4,param_5,auVar6._8_8_);
         if (local_a0 != 0xe) {
           param_1[2] = local_90;
           param_1[3] = uStack_88;
@@ -81,18 +81,21 @@ uu_dd::parseargs::parse_bytes_no_x
       goto joined_r0x001d46eb;
     }
     if (lVar2 != 0) goto LAB_001d468c;
-    parse_bytes_only(&local_a0,param_4,param_5,auVar5._8_8_);
+    _ZN5uu_dd9parseargs16parse_bytes_only17h08378519bfb033ceE
+              (&local_a0,param_4,param_5,auVar5._8_8_);
     if (local_a0 != 0xe) goto LAB_001d4744;
     uVar3 = 2;
   }
   else {
     if (auVar5._0_8_ != 0 || lVar2 != 0) {
 LAB_001d468c:
-      _<T_as_alloc::slice::hack::ConvertVec>::to_vec(param_1 + 1,local_80,local_78);
+      _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h778f954dace7b409E
+                (param_1 + 1,local_80,local_78);
       *param_1 = 7;
       return;
     }
-    parse_bytes_only(&local_a0,param_4,param_5,auVar4._8_8_);
+    _ZN5uu_dd9parseargs16parse_bytes_only17h08378519bfb033ceE
+              (&local_a0,param_4,param_5,auVar4._8_8_);
     if (local_a0 != 0xe) {
 LAB_001d4744:
       param_1[2] = local_90;
@@ -114,7 +117,8 @@ joined_r0x001d46eb:
     uVar3 = 0xe;
   }
   else {
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(param_1 + 1,local_80,local_78);
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h778f954dace7b409E
+              (param_1 + 1,local_80,local_78);
     uVar3 = 8;
   }
   *param_1 = uVar3;

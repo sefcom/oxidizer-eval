@@ -1,134 +1,113 @@
 fn uu_cp::copydir::copy_direntry(a0: void*, a1: u32, a2: void*, a3: void*, a4: u32, a5: u8) -> u64 {
-    let v0: &struct_0;  // [sp-0x228]
-    let v1: u64;  // [sp-0x220]
-    let v2: u64;  // [sp-0x218]
-    let v3: u64;  // [sp-0x210]
-    let v4: void*;  // [sp-0x208]
-    let v5: u128;  // [sp-0x1f8]
-    let v6: u64;  // [sp-0x1e8]
-    let v7: u128;  // [sp-0x1d8]
-    let v8: u64;  // [sp-0x1c8]
-    let v9: u64;  // [sp-0x1b8]
-    let v10: u64;  // [bp-0x1a8]
-    let v11: u128;  // [bp-0x1a0]
-    let v12: u128;  // [bp-0x198]
-    let v13: u8;  // [bp-0x190]
-    let v14: u128;  // [sp-0x188]
-    let v15: u64;  // [sp-0x178]
-    let v16: u128;  // [sp-0x168]
-    let v17: u64;  // [sp-0x158]
-    let v18: u8;  // [bp-0x148]
-    let v19: u64;  // [sp-0x140]
-    let v20: &&struct_3;  // [bp-0x138], Other Possible Types: u8
-    let v21: u64;  // [sp-0x130]
-    let v22: void*;  // [bp-0x128], Other Possible Types: u8
-    let v23: i8;  // [bp-0x118]
-    let v24: &u8;  // [sp-0x108]
-    let v25: u64;  // [sp-0x100], Other Possible Types: &struct_2
-    let v26: u64;  // [sp-0xf8], Other Possible Types: struct8, Option<struct8>, struct16
-    let v27: u128;  // [bp-0xe8]
-    let v28: u8;  // [bp-0xe0]
-    let v29: u128;  // [bp-0xd8]
-    let v30: u8;  // [bp-0xd0]
-    let v31: u128;  // [sp-0xc8]
-    let v32: u8;  // [bp-0xc0]
-    let v33: u8;  // [bp-0x48]
-    let v35: u8;  // r13b
-    let v36: u64;  // rsi
-    let v37: u64;  // rdx
-    let v38: u64;  // rax
-    let v39: u128;  // xmm0
-    let v40: u128;  // xmm1
-    let v41: u128;  // xmm2
-    let v42: u64;  // rax
-    let v43: u128;  // xmm0
-    let v44: u128;  // xmm1
-    let v46: u32;  // eax
-    let v47: u128;  // xmm0
-    let v48: u128;  // xmm1
-    let v49: u128;  // xmm2
-    let v50: &struct_2;  // rdx
-    let v51: u64;  // rax
+    let v0: i64;  // [sp-0x220]
+    let v1: i64;  // [sp-0x218]
+    let v2: i64;  // [sp-0x210]
+    let v3: i64;  // [sp-0x208]
+    let v4: iNone;  // [sp-0x1f8]
+    let v5: i64;  // [sp-0x1e8]
+    let v6: iNone;  // [sp-0x1d8]
+    let v7: i64;  // [sp-0x1c8]
+    let v9: i64;  // [bp-0x1a8], Other Possible Types: int
+    let v10: iNone;  // [bp-0x1a0]
+    let v11: iNone;  // [bp-0x198]
+    let v12: i8;  // [bp-0x190]
+    let v13: iNone;  // [sp-0x188]
+    let v14: i64;  // [sp-0x178]
+    let v15: iNone;  // [sp-0x168]
+    let v16: i64;  // [sp-0x158]
+    let v17: struct24;  // [sp-0x148], Other Possible Types: struct16
+    let v18: i8;  // [bp-0x138]
+    let v19: i8;  // [bp-0x128]
+    let v20: i8;  // [bp-0x118]
+    let v21: i64;  // [sp-0x100]
+    let v22: i64;  // [sp-0xf8], Other Possible Types: int, Option<struct8>
+    let v23: Result<struct176, struct8>;  // [sp-0xf8], Other Possible Types: struct16, struct8, int
+    let v24: iNone;  // [bp-0xe8]
+    let v25: iNone;  // [bp-0xd8]
+    let v26: iNone;  // [sp-0xc8]
+    let v27: String;  // [sp-0x48]
+    let v29: i8;  // r13b
+    let v30: i64;  // rsi
+    let v31: i64;  // rdx
+    let v32: i64;  // rax
+    let v33: iNone;  // xmm0
+    let v34: iNone;  // xmm1
+    let v35: iNone;  // xmm2
+    let v36: i64;  // rax
+    let v37: iNone;  // xmm0
+    let v38: iNone;  // xmm1
+    let v40: iNone;  // xmm0
+    let v41: iNone;  // xmm1
+    let v42: iNone;  // xmm2
+    let v43: i64;  // rdx
+    let v44: i64;  // rax
 
-    v6 = *(&a2->field_10 as &i64);
-    v5 = a2->field_0;
-    v17 = *((&a2->field_18 as &char + 8) as &i64);
-    v16 = *(&(&a2->padding_14)[1] as &i128);
-    v8 = a2->field_30;
-    v7 = *(&a2->field_28 as &i128);
-    v35 = *((&a2->field_30 as &char + 8) as &i8);
-    v36 = *((&v5 as &char + 8) as &i64);
-    v37 = v6;
-    if (!a3->field_41 & std::path::Path::is_symlink(*((&v5 as &char + 8) as &i64), *(&a2->field_10 as &i64)) as i8) {
-        uu_cp::copy_link(a0, v36, v37, *((&v7 as &char + 8) as &i64), v8, a4);
+    v5 = *((a2 + 16) as &i64);
+    v4 = *(a2 as &i128);
+    v16 = *((a2 + 40) as &i64);
+    v15 = *((a2 + 24) as &i128);
+    v7 = *((a2 + 64) as &i64);
+    v6 = *((a2 + 48) as &i128);
+    v29 = *((a2 + 72) as &i8);
+    v30 = (&v4)[8] as i64;
+    v31 = v5;
+    if (!*((a3 + 65) as &i8) & std::path::Path::is_symlink((&v4)[8] as i64, *((a2 + 16) as &i64)) as i8) {
+        uu_cp::copy_link(a0, v30, v31, (&v6)[8] as i64, v7, a4);
         return;
-    } else if !(std::path::Path::is_dir(v36, v37) as i8) || !(!uu_cp::copydir::ends_with_slash_dot(&v5) as i8) || !((v26 = std::fs::metadata(*((&v7 as &char + 8) as &i64), v8), v26 == 2)) {
-        if std::path::Path::is_dir(*((&v5 as &char + 8) as &i64), v6) as i8 {
+    } else if !(std::path::Path::is_dir(v30, v31) as i8) || !(!uu_cp::copydir::ends_with_slash_dot(&v4) as i8) || !((v23 = std::fs::metadata((&v6)[8] as i64, v7), v22 == 2)) {
+        if std::path::Path::is_dir((&v4)[8] as i64, v5) as i8 {
             return;
         }
         if a5 {
-            v4 = 0;
-            v3 = v3;
+            v3 = 0;
             v2 = v2;
-            v1 = a4;
-            v0 = a3;
-            uu_cp::copy_file();
-            if *(&v18 as &i32) == 13 {
+            v1 = v1;
+            v0 = a4;
+            v17 = uu_cp::copy_file(a1, (&v4)[8] as i64, v5, (&v6)[8] as i64, v7, a3);
+            if v17.field_0 as i32 == 13 {
                 return;
             }
-            v43 = *(&v18 as &i128);
-            v44 = *(&v20 as &i128);
-            v31 = v23;
-            v29 = *(&v22 as &i128);
-            v27 = v44;
-            v26 = v43;
-            if std::path::Path::is_symlink(*((&v5 as &char + 8) as &i64), v6) as i8 {
+            v37 = *(&v17.field_0 as &i128);
+            v38 = *(&v18 as &i128);
+            v26 = *(&v20 as &i128);
+            *(&v25 as &i128) = *(&v19 as &i128);
+            v24 = v38;
+            v22 = v37;
+            if std::path::Path::is_symlink((&v4)[8] as i64, v5) as i8 {
                 return;
             }
-            v38 = v26;
-            v10 = *((&v26 as &char + 8) as &i128);
-            v12 = *((&v27 as &char + 8) as &i128);
-            v14 = *((&v29 as &char + 8) as &i128);
-            v15 = *((&v31 as &char + 8) as &i64);
-            if v38 != 13 {
-                *((&a0->field_18 as &char + 8) as &u64) = v15;
-                *((&a0->field_10 as &char + 8) as &u128) = v41;
-                *((&a0->field_8 as &char + 8) as &u128) = v40;
-                (&a0->field_0)[1] = v39;
-                a0->field_0 = v38;
+            v32 = v22;
+            *(&v9 as &i128) = (&v22)[8] as i128;
+            *(&v11 as &i128) = (&v24)[8] as i128;
+            v13 = (&v25)[8] as i128;
+            v14 = (&v26)[8] as i64;
+            if v32 != 13 {
+                *((a0 + 56) as &unsigned long) = v14;
+                *((a0 + 40) as void*) = v35;
+                *((a0 + 24) as void*) = v34;
+                *((a0 + 8) as void*) = v33;
+                *(a0 as &unsigned long) = v32;
                 return;
             }
             return;
         }
-        v4 = 0;
-        v3 = v3;
+        v3 = 0;
         v2 = v2;
-        v1 = a4;
-        v0 = a3;
-        uu_cp::copy_file();
-        v42 = v26;
-        if v42 == 3 {
-            if !(v42 == 13) {
+        v1 = v1;
+        v0 = a4;
+        v23 = uu_cp::copy_file(a1, (&v4)[8] as i64, v5, (&v6)[8] as i64, v7, a3);
+        v36 = v22;
+        if v36 == 3 {
+            if !(std::io::error::Error::kind(*((&v23 as &char + 32) as &i64)) as i8 == 1) {
                 goto LABEL_50e459;
             }
-            v46 = std::io::error::Error::kind(v29 as i64) as i32;
-            v10 = 1;
-            v11 = *((&v16 as &char + 8) as &i128);
-            v13 = 1;
-            v24 = &v10;
-            v25 = <os_display::Quoted as core::fmt::Display>::fmt;
-            v18 = "cannot open ";
-            v19 = 2;
-            v22 = 0;
-            v20 = &v24;
-            v21 = 1;
-            core::option::Option<T>::map_or_else();
-            v9 = uucore::mods::error::UIoError::new(v46, &v33);
-            uucore::mods::error::set_exit_code(v50->field_60());
-            v24 = uucore::util_name();
-            v25 = v50;
-            eprintln!("{}: {}", &v24, &v9);
-            match (v51) {
+            v9 = 1;
+            *(&v10 as &i128) = (&v15)[8] as i128;
+            *(&v12 as &i8) = 1;
+            v27 = format!("cannot open {} for reading", &v9);
+            v21 = v43;
+            show!(&v8);
+            match (v44) {
                 3 => {
                     break;
                 }
@@ -139,40 +118,40 @@ fn uu_cp::copydir::copy_direntry(a0: void*, a1: u32, a2: void*, a3: void*, a4: u
                     break;
                 }
             }
-        } else if !(v42 == 13) {
+        } else if !(v36 as u32 == 13) {
             goto LABEL_50e459;
         }
         return;
     } else {
-        if !v35 {
-            v26 = uu_cp::copydir::build_dir(a3->field_30, *((&a3->field_30 as &char + 2) as &i8), &v7, 0);
-            v38 = v26;
-            if v38 != 13 {
-                *((&a0->field_18 as &char + 8) as &i64) = *(&v32 as &i64);
-                v39 = v26;
-                v40 = *(&v28 as &i128);
-                v41 = *(&v30 as &i128);
-                *((&a0->field_10 as &char + 8) as &u128) = v41;
-                *((&a0->field_8 as &char + 8) as &u128) = v40;
-                (&a0->field_0)[1] = v39;
-                a0->field_0 = v38;
+        if !v29 {
+            v22 = uu_cp::copydir::build_dir(*((a3 + 48) as &i32), *((a3 + 50) as &i8), &v6, 0);
+            v32 = v22;
+            if v32 != 13 {
+                *((a0 + 56) as &i64) = *((&v23 as &char + 56) as &i64);
+                v33 = *((&v23 as &char + 8) as &i128);
+                v34 = *((&v23 as &char + 24) as &i128);
+                v35 = *((&v23 as &char + 40) as &i128);
+                *((a0 + 40) as void*) = v35;
+                *((a0 + 24) as void*) = v34;
+                *((a0 + 8) as void*) = v33;
+                *(a0 as &unsigned long) = v32;
                 return;
             }
-            if a3->field_48 {
-                uu_cp::context_for(&v18, *((&v16 as &char + 8) as &i64), v17, *((&v7 as &char + 8) as &i64), v8);
-                println!("{}", &v18);
+            if *((a3 + 72) as &i8) {
+                v17 = uu_cp::context_for((&v15)[8] as i64, v16, (&v6)[8] as i64, v7);
+                println!("{}", &v17);
             }
-            a0->field_0 = 13;
+            *(a0 as &i64) = 13;
         } else {
-            v26 = <uu_cp::Error as core::convert::From<&str>>::from("cannot overwrite non-directory with directory");
+            v23 = <uu_cp::Error as core::convert::From<&str>>::from("cannot overwrite non-directory with directory");
 LABEL_50e459:
-            v47 = v26;
-            v48 = v27;
-            v49 = v29;
-            a0->field_18 = v31;
-            a0->field_10 = v49;
-            a0->field_8 = v48;
-            a0->field_0 = v47;
+            v40 = v23 as i128;
+            v41 = *((&v23 as &char + 16) as &i128);
+            v42 = *((&v23 as &char + 32) as &i128);
+            *((a0 + 48) as void*) = v26;
+            *((a0 + 32) as void*) = v42;
+            *((a0 + 16) as void*) = v41;
+            *(a0 as void*) = v40;
         }
         return;
     }

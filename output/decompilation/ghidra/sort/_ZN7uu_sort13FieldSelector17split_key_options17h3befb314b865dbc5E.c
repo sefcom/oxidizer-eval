@@ -1,4 +1,5 @@
-void __rustcall uu_sort::FieldSelector::split_key_options(long *param_1,long param_2,long param_3)
+void _ZN7uu_sort13FieldSelector17split_key_options17h3befb314b865dbc5E
+               (long *param_1,long param_2,long param_3)
 
 {
   code *pcVar1;
@@ -14,7 +15,7 @@ void __rustcall uu_sort::FieldSelector::split_key_options(long *param_1,long par
   local_50 = param_2 + param_3;
   local_48 = 0;
   local_58 = param_2;
-  auVar2 = core::iter::traits::iterator::Iterator::try_fold(&local_58);
+  auVar2 = _ZN4core4iter6traits8iterator8Iterator8try_fold17h11c5615e8005357fE(&local_58);
   if (auVar2._8_4_ == 0x110000) {
     *param_1 = param_2;
     param_1[1] = param_3;
@@ -22,9 +23,10 @@ void __rustcall uu_sort::FieldSelector::split_key_options(long *param_1,long par
     param_1[3] = 0;
   }
   else {
-    core::str::_<impl_str>::split_at_checked(&local_40,param_2,param_3,auVar2._0_8_);
+    _ZN4core3str21__LT_impl_u20_str_GT_16split_at_checked17h90efbd1904036d35E
+              (&local_40,param_2,param_3,auVar2._0_8_);
     if (local_40 == 0) {
-      core::str::slice_error_fail
+      _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE
                 (param_2,param_3,0,auVar2._0_8_,&PTR_s__rustc_8bfcae730a5db2438bbda7279_002ffa90);
       pcVar1 = (code *)swi(3);
       (*pcVar1)();

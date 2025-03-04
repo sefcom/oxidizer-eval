@@ -1,4 +1,4 @@
-int * __rustcall uu_env::split_iterator::split(int *param_1)
+int * _ZN6uu_env14split_iterator5split17h2ad0ba729ee8da1cE(int *param_1)
 
 {
   int local_90;
@@ -11,8 +11,8 @@ int * __rustcall uu_env::split_iterator::split(int *param_1)
   undefined8 local_70;
   undefined local_68 [88];
   
-  SplitIterator::new(local_68);
-  SplitIterator::split(&local_90,local_68);
+  _ZN6uu_env14split_iterator13SplitIterator3new17hd02f70765700e24eE(local_68);
+  _ZN6uu_env14split_iterator13SplitIterator5split17hbd91db14676a9a59E(&local_90,local_68);
   if (local_90 == 8) {
     *(undefined8 *)(param_1 + 6) = local_78;
     *(ulong *)(param_1 + 2) = CONCAT44(uStack_84,local_88);

@@ -16,7 +16,7 @@ long long uu_cut::uu_app::h2a5a44b0da1a04d9(unsigned long long a0)
     unsigned int v13;  // [sp-0x2e4]
     unsigned long long v14;  // [sp-0x274]
     unsigned int v15;  // [sp-0x26c]
-    char v16;  // [bp-0x268], Other Possible Types: unsigned long long
+    char v16;  // [bp-0x268], Other Possible Types: unsigned long
     unsigned long long v17;  // [sp-0x260]
     unsigned long long v18;  // [sp-0x258]
     unsigned long long v20;  // rdx

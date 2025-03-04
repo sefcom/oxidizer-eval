@@ -1,7 +1,7 @@
 double uu_od::multifilereader::MultifileReader::new::h9647a60ecaa9b78d(long long a0, long long a1)
 {
     char v0;  // [bp-0x38]
-    unsigned long v1;  // [sp-0x28], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0x28]
     void* v2;  // [sp-0x20]
     char v3;  // [bp-0x18]
     char v4;  // [sp-0x10]

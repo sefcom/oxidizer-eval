@@ -8,16 +8,15 @@ fn uu_truncate::parse_mode_and_size(a0: &Result<struct32, struct24>, a1: u64, a2
     let v8: i64;  // r15
     let v9: i64;  // rdx
     let v11: i64;  // r14
-    let v13: i64;  // rdi
+    let v12: i64;  // rdi
 
     v8 = core::str::<impl str>::trim_matches(a1, a2);
     v1 = v8;
     v2 = v9 + v8;
     if !core::str::validations::next_code_point(&v1) as i32 {
         v6 = <T as alloc::slice::hack::ConvertVec>::to_vec(v8, v9);
-        return Err(struct24 {
-            field_0: v6
-            field_16: v10
+        return Err(struct8 {
+            field_8: <UNKNOWN>
         });
     }
     if v9 as u32 <= 62 {
@@ -27,68 +26,68 @@ fn uu_truncate::parse_mode_and_size(a0: &Result<struct32, struct24>, a1: u64, a2
         }
     }
     uucore::parser::parse_size::parse_size_u64(v8, v11);
-    v13 = uu_truncate::TruncateMode::Absolute;
+    v12 = uu_truncate::TruncateMode::Absolute;
     match (v9 as u32) {
         37 => {
-            v13 = uu_truncate::TruncateMode::RoundUp;
-            if v3 != 3 {
+            v12 = uu_truncate::TruncateMode::RoundUp;
+            if *(&v3 as &i32) != 3 {
                 return Ok(struct32 {
-                    field_0: v14
-                    field_16: v5
+                    field_0: v13
+                    field_16: *(&v5 as &i128)
                 });
             }
         }
         43 => {
-            v13 = uu_truncate::TruncateMode::Extend;
-            if v3 != 3 {
+            v12 = uu_truncate::TruncateMode::Extend;
+            if *(&v3 as &i32) != 3 {
                 return Ok(struct32 {
-                    field_0: v14
-                    field_16: v5
+                    field_0: v13
+                    field_16: *(&v5 as &i128)
                 });
             }
         }
         45 => {
-            v13 = uu_truncate::TruncateMode::Reduce;
-            if v3 != 3 {
+            v12 = uu_truncate::TruncateMode::Reduce;
+            if *(&v3 as &i32) != 3 {
                 return Ok(struct32 {
-                    field_0: v14
-                    field_16: v5
+                    field_0: v13
+                    field_16: *(&v5 as &i128)
                 });
             }
         }
         47 => {
-            v13 = uu_truncate::TruncateMode::RoundDown;
+            v12 = uu_truncate::TruncateMode::RoundDown;
             goto LABEL_4ae4aa;
         }
         60 => {
-            v13 = uu_truncate::TruncateMode::AtMost;
-            if v3 != 3 {
+            v12 = uu_truncate::TruncateMode::AtMost;
+            if *(&v3 as &i32) != 3 {
                 return Ok(struct32 {
-                    field_0: v14
-                    field_16: v5
+                    field_0: v13
+                    field_16: *(&v5 as &i128)
                 });
             }
         }
         62 => {
-            v13 = uu_truncate::TruncateMode::AtLeast;
-            if v3 != 3 {
+            v12 = uu_truncate::TruncateMode::AtLeast;
+            if *(&v3 as &i32) != 3 {
                 return Ok(struct32 {
-                    field_0: v14
-                    field_16: v5
+                    field_0: v13
+                    field_16: *(&v5 as &i128)
                 });
             }
         }
         _ => {
 LABEL_4ae4aa:
-            if v3 != 3 {
+            if *(&v3 as &i32) != 3 {
                 return Ok(struct32 {
-                    field_0: v14
-                    field_16: v5
+                    field_0: v13
+                    field_16: *(&v5 as &i128)
                 });
             }
         }
     }
-    core::ops::function::FnOnce::call_once(v13, v4);
+    core::ops::function::FnOnce::call_once(v12, *(&v4 as &i64));
     return struct24 {
         field_0: 3
         field_8: v10

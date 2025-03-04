@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_wc::count_fast::count_bytes_fast(int *param_1)
+undefined  [16] _ZN5uu_wc10count_fast16count_bytes_fast17habd5ed9c294fb84eE(int *param_1)
 
 {
   int iVar1;
@@ -21,15 +21,17 @@ undefined  [16] __rustcall uu_wc::count_fast::count_bytes_fast(int *param_1)
   local_3030 = 0;
   local_4030[0] = 0;
   iVar1 = *param_1;
-  nix::sys::stat::fstat(local_4030,iVar1);
+  _ZN3nix3sys4stat5fstat17h5414de4d70a08ddbE(local_4030,iVar1);
   if ((int)local_4030[0] == 0) {
     uVar5 = 0;
     if (((0 < iVar1) && ((short)local_4010 < 0)) && (0 < (long)local_3ff8)) {
       uVar4 = (*(code *)PTR_sysconf_002351b8)(0x1e);
       if (uVar4 == 0) {
-        core::panicking::panic_const::panic_const_rem_by_zero(&PTR_DAT_00230f10);
+        _ZN4core9panicking11panic_const23panic_const_rem_by_zero17h9246b1d1945ea5ddE
+                  (&PTR_DAT_00230f10);
 LAB_001b8880:
-        core::panicking::panic_const::panic_const_rem_by_zero(&PTR_DAT_00230f28);
+        _ZN4core9panicking11panic_const23panic_const_rem_by_zero17h9246b1d1945ea5ddE
+                  (&PTR_DAT_00230f28);
         pcVar2 = (code *)swi(3);
         auVar7 = (*pcVar2)();
         return auVar7;
@@ -50,16 +52,17 @@ LAB_001b8880:
       else {
         uVar5 = (long)local_3ff8 % (long)uVar5;
       }
-      auVar7 = _<std::fs::File_as_std::io::Seek>::seek(param_1,0,local_3ff8 - uVar5);
+      auVar7 = _ZN47__LT_std__fs__File_u20_as_u20_std__io__Seek_GT_4seek17hf141ef1001f771f9E
+                         (param_1,0,local_3ff8 - uVar5);
       uVar5 = 0;
       if (auVar7._0_8_ == 0) {
         uVar5 = auVar7._8_8_;
       }
-      core::ptr::drop_in_place<core::result::Result<u64,std::io::error::Error>>
+      _ZN4core3ptr76drop_in_place_LT_core__result__Result_LT_u64_C_std__io__error__Error_GT__GT_17ha0f27aa6f0fdbae0E
                 (auVar7._0_8_,auVar7._8_8_);
     }
     if ((local_4010 & 0x1000) != 0) {
-      auVar7 = count_bytes_using_splice(param_1);
+      auVar7 = _ZN5uu_wc10count_fast24count_bytes_using_splice17h128e743cacc3bf6eE(param_1);
       uVar5 = auVar7._8_8_;
       if (auVar7._0_8_ == 0) goto LAB_001b8858;
     }
@@ -72,12 +75,14 @@ LAB_001b8880:
   do {
     while( true ) {
       uVar5 = uVar4;
-      auVar7 = _<std::fs::File_as_std::io::Read>::read(param_1,local_4030,0x4000);
+      auVar7 = _ZN47__LT_std__fs__File_u20_as_u20_std__io__Read_GT_4read17h24fce4ed669fe556E
+                         (param_1,local_4030,0x4000);
       lVar6 = auVar7._8_8_;
       if (auVar7._0_8_ == 0) break;
-      cVar3 = std::io::error::Error::kind(lVar6);
+      cVar3 = _ZN3std2io5error5Error4kind17hb2ff5fa058639b3dE(lVar6);
       if (cVar3 != '#') goto LAB_001b885b;
-      core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(lVar6);
+      _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17hd9e364499d096c21E
+                (lVar6);
       uVar4 = uVar5;
     }
     uVar4 = uVar5 + lVar6;

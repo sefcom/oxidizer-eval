@@ -8,7 +8,7 @@ long long uu_wc::Inputs::try_iter::he58c0dff5beb00a3(unsigned long long a0[6], u
     char v5;  // [bp-0xa8]
     char v6;  // [bp-0x98]
     int v7;  // [sp-0x88]
-    unsigned long v8;  // [sp-0x78], Other Possible Types: unsigned long long
+    unsigned long v8;  // [sp-0x78]
     unsigned long long v9;  // [sp-0x70]
     unsigned long long v10;  // [sp-0x68]
     int v11;  // [sp-0x60]
@@ -17,10 +17,10 @@ long long uu_wc::Inputs::try_iter::he58c0dff5beb00a3(unsigned long long a0[6], u
     unsigned long long v14;  // [sp-0x30]
     unsigned long long v16;  // rax
     unsigned long long v17;  // rax
-    unsigned long long v18;  // r13
-    unsigned long long v19;  // rax
-    unsigned long long v23;  // r12
-    unsigned long long *v24;  // rdx
+    unsigned long long v18;  // r15
+    unsigned long long v19;  // r13
+    unsigned long long v21;  // r12
+    unsigned long long *v22;  // rdx
 
     v16 = a1[0];
     if (!v16)
@@ -28,21 +28,21 @@ long long uu_wc::Inputs::try_iter::he58c0dff5beb00a3(unsigned long long a0[6], u
         v0 = 9223372036854775809;
         v1 = 1;
         v17 = alloc::boxed::Box$LT$T$GT$::new::hb1b1f7e97a75751a(&v0);
-        v18 = &g_531000;
-        v19 = v17;
+        v18 = v17;
+        v19 = &g_531000;
     }
     else if ((unsigned int)v16 == 1)
     {
         v17 = alloc::boxed::Box$LT$T$GT$::new::hca89ae0b97a778fb(a1[2], a1[2] + a1[3] * 24);
-        v18 = &g_531038;
-        v19 = v17;
+        v18 = v17;
+        v19 = &g_531038;
     }
     else if (a1[1] == 9223372036854775809)
     {
         uu_wc::files0_iter_stdin::h027d8be6f7e7f770(&v0);
         v17 = alloc::boxed::Box$LT$T$GT$::new::hf248821590b359db(&v0);
-        v18 = &g_5310a8;
-        v19 = v17;
+        v18 = v17;
+        v19 = &g_5310a8;
     }
     else
     {
@@ -63,20 +63,20 @@ long long uu_wc::Inputs::try_iter::he58c0dff5beb00a3(unsigned long long a0[6], u
         v9 = v17;
         v10 = *((long long *)&v2);
         v17 = alloc::boxed::Box$LT$T$GT$::new::h8a205305a0670f0b(&v8);
-        v18 = &g_531070;
-        v19 = v17;
+        v18 = v17;
+        v19 = &g_531070;
     }
-    v23 = 9223372036854775810;
-    if (*(v24) != 9223372036854775810)
+    v21 = 9223372036854775810;
+    if (*(v22) != 9223372036854775810)
     {
-        v17 = core::ops::function::FnOnce::call_once::h817deecf557940d0(&v0, v24);
+        v17 = core::ops::function::FnOnce::call_once::h817deecf557940d0(&v0, v22);
+        v21 = v0;
         *((int128_t *)&v7) = *((int128_t *)&v1);
-        v23 = v0;
     }
-    a0[0] = v23;
+    a0[0] = v21;
     *((void*)&a0[1]) = v7;
-    a0[3] = v19;
-    a0[4] = v18;
+    a0[3] = v18;
+    a0[4] = v19;
     a0[5] = 0;
     return v17;
 }

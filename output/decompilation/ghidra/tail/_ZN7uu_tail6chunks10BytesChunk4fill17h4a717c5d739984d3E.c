@@ -1,11 +1,12 @@
-undefined8 * __rustcall
-uu_tail::chunks::BytesChunk::fill(undefined8 *param_1,long param_2,undefined8 param_3)
+undefined8 *
+_ZN7uu_tail6chunks10BytesChunk4fill17h4a717c5d739984d3E
+          (undefined8 *param_1,long param_2,undefined8 param_3)
 
 {
   long lVar1;
   undefined auVar2 [16];
   
-  auVar2 = _<std::io::buffered::bufreader::BufReader<R>as_std::io::Read>::read
+  auVar2 = _ZN82__LT_std__io__buffered__bufreader__BufReader_LT_R_GT__u20_as_u20_std__io__Read_GT_4read17h06966d2507d1fcfaE
                      (param_3,param_2,0x2000);
   lVar1 = auVar2._8_8_;
   if (auVar2._0_8_ == 0) {
@@ -21,9 +22,8 @@ uu_tail::chunks::BytesChunk::fill(undefined8 *param_1,long param_2,undefined8 pa
     }
   }
   else {
-    auVar2 = uucore::mods::error::
-             _<impl_core::convert::From<std::io::error::Error>for_alloc::boxed::Box<dyn_uucore::mods::error::UError>>
-             ::from(lVar1);
+    auVar2 = _ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17hcd961c31063bf4faE
+                       (lVar1);
     *(undefined (*) [16])(param_1 + 1) = auVar2;
     *param_1 = 1;
   }

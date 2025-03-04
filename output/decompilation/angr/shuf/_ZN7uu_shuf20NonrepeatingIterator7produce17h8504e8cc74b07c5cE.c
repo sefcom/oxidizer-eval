@@ -10,9 +10,6 @@ long long uu_shuf::NonrepeatingIterator::produce::h8504e8cc74b07c5c(struct_0 *a0
     unsigned long long v8;  // r12
     unsigned long long v9;  // rax
     unsigned long long v11;  // rax
-    unsigned long long v12;  // rax
-    unsigned long long v13;  // rax
-    unsigned long long v14;  // rax
 
     if (a0->field_0)
     {
@@ -22,12 +19,7 @@ long long uu_shuf::NonrepeatingIterator::produce::h8504e8cc74b07c5c(struct_0 *a0
             ::0x4c0cf0::_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$::clone::h9f1d5fa88ae4bf9d(&v3, v8);
             v11 = rand::rng::Rng::gen_range::h870d3f4f62006495(a0->field_30, &v3);
         } while (hashbrown::map::HashMap$LT$K$C$V$C$S$C$A$GT$::insert::h02d9e5528042f514(a0, v11));
-        v12 = a0->field_40;
-        v13 = v12 - a0->field_38;
-        v14 = v13 + 1;
-        if (!((char)amd64g_calculate_condition(5, 24, v13 + 1, 0, (unsigned long long)(char)(v12 < a0->field_38))))
-            v14 = 18446744073709551615;
-        if (*((long long *)((char *)&a0->field_8 + 8)) < v14 >> 2)
+        if (*((long long *)((char *)&a0->field_8 + 8)) < ((char)amd64g_calculate_condition(5, 24, a0->field_40 - a0->field_38 + 1, 0, (unsigned long long)(char)(a0->field_40 < a0->field_38)) ? a0->field_40 - a0->field_38 + 1 : 18446744073709551615) >> 2)
             return v11;
         ::0x4c0cf0::_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..clone..Clone$GT$::clone::h9f1d5fa88ae4bf9d(&v6, v8);
         v5 = a0;

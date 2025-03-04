@@ -1,4 +1,4 @@
-void __rustcall uu_wc::Inputs::try_iter(long *param_1,long *param_2,long *param_3)
+void _ZN5uu_wc6Inputs8try_iter17he58c0dff5beb00a3E(long *param_1,long *param_2,long *param_3)
 
 {
   long lVar1;
@@ -42,24 +42,25 @@ void __rustcall uu_wc::Inputs::try_iter(long *param_1,long *param_2,long *param_
   if (*param_2 == 0) {
     local_e0 = -0x7fffffffffffffff;
     local_d8 = 1;
-    lVar1 = ::alloc::boxed::Box<T>::new(&local_e0);
+    lVar1 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hb1b1f7e97a75751aE(&local_e0);
     ppuVar3 = &
-              PTR_drop_in_place<core_iter_sources_once_Once<core_result_Result<uu_wc_Input,alloc_boxed_Box<dyn_uucore_mods_error_UError>>>>_00231000
+              PTR__ZN4core3ptr163drop_in_place_LT_core__iter__sources__once__Once_LT_core__result__Result_LT_uu_wc__Input_C_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT__GT__GT_17h389fa6ecd96db3e8E_00231000
     ;
   }
   else if ((int)*param_2 == 1) {
-    lVar1 = ::alloc::boxed::Box<T>::new(param_2[2],param_2[2] + param_2[3] * 0x18);
+    lVar1 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hca89ae0b97a778fbE
+                      (param_2[2],param_2[2] + param_2[3] * 0x18);
     ppuVar3 = (undefined **)&DAT_00231038;
   }
   else if (param_2[1] == -0x7fffffffffffffff) {
-    files0_iter_stdin(&local_e0);
-    lVar1 = ::alloc::boxed::Box<T>::new(&local_e0);
+    _ZN5uu_wc17files0_iter_stdin17h027d8be6f7e7f770E(&local_e0);
+    lVar1 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hf248821590b359dbE(&local_e0);
     ppuVar3 = &
-              PTR_drop_in_place<core_iter_adapters_map_Map<core_iter_sources_from_fn_FromFn<uu_wc_files0_iter<std_io_stdio_StdinLock>___closure__>,uu_wc_files0_iter_stdin___closure__>>_002310a8
+              PTR__ZN4core3ptr239drop_in_place_LT_core__iter__adapters__map__Map_LT_core__iter__sources__from_fn__FromFn_LT_uu_wc__files0_iter_LT_std__io__stdio__StdinLock_GT____u7b__u7b_closure_u7d__u7d__GT__C_uu_wc__files0_iter_stdin___u7b__u7b_closure_u7d__u7d__GT__GT_17h119c41dc4d7d12a9E_002310a8
     ;
   }
   else {
-    files0_iter_file(&local_e0,param_2[2],param_2[3]);
+    _ZN5uu_wc16files0_iter_file17h4e3b8ab8e030dfcaE(&local_e0,param_2[2],param_2[3]);
     if (local_e0 == -0x7fffffffffffffff) {
       param_1[1] = CONCAT71(uStack_d7,local_d8);
       param_1[2] = lStack_d0;
@@ -81,14 +82,14 @@ void __rustcall uu_wc::Inputs::try_iter(long *param_1,long *param_2,long *param_
     uStack_54 = uStack_bc;
     local_78[0] = local_e0;
     local_68 = lStack_d0;
-    lVar1 = ::alloc::boxed::Box<T>::new(local_78);
+    lVar1 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h8a205305a0670f0bE(local_78);
     ppuVar3 = &
-              PTR_drop_in_place<core_iter_sources_from_fn_FromFn<uu_wc_files0_iter<std_fs_File>___closure__>>_00231070
+              PTR__ZN4core3ptr133drop_in_place_LT_core__iter__sources__from_fn__FromFn_LT_uu_wc__files0_iter_LT_std__fs__File_GT____u7b__u7b_closure_u7d__u7d__GT__GT_17h904aa35cd2bb8e82E_00231070
     ;
   }
   lVar2 = -0x7ffffffffffffffe;
   if (*param_3 != -0x7ffffffffffffffe) {
-    core::ops::function::FnOnce::call_once(&local_e0,param_3);
+    _ZN4core3ops8function6FnOnce9call_once17h817deecf557940d0E(&local_e0,param_3);
     local_88 = CONCAT71(uStack_d7,local_d8);
     lStack_80 = lStack_d0;
     lVar2 = local_e0;

@@ -29,10 +29,10 @@ long long uu_realpath::canonicalize_relative_option::h9b30ea9e43056c36(unsigned 
             a0[1] = v8;
             a0[2] = v9;
             a0[0] = 9223372036854775809;
-            v10 = ::0x4b4d60::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h9cc26ee4129f6434();
+            v10 = ::0x4b4d60::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h9cc26ee4129f6434(&v0);
             return v10;
         }
-        v10 = ::0x4b4d60::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h9cc26ee4129f6434();
+        v10 = ::0x4b4d60::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h9cc26ee4129f6434(&v0);
     }
     a0[0] = v7;
     a0[1] = v8;

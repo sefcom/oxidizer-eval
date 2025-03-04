@@ -1,6 +1,6 @@
 long long uu_df::table::RowFormatter::scaled_inodes::h71e8cb062ae7b2e0(unsigned long long a0, struct_0 *a1, unsigned long long a2, unsigned long long a3)
 {
-    unsigned long v0;  // [sp-0x18], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x18]
     unsigned long long v1;  // [sp-0x10]
     unsigned long long v3;  // rax
 

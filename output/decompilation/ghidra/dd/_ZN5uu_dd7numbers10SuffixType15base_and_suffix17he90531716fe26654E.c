@@ -1,5 +1,6 @@
-undefined  [16] __rustcall
-uu_dd::numbers::SuffixType::base_and_suffix(ulong *param_1,char param_2,ulong param_3,ulong param_4)
+undefined  [16]
+_ZN5uu_dd7numbers10SuffixType15base_and_suffix17he90531716fe26654E
+          (ulong *param_1,char param_2,ulong param_3,ulong param_4)
 
 {
   ulong uVar1;
@@ -108,7 +109,7 @@ uu_dd::numbers::SuffixType::base_and_suffix(ulong *param_1,char param_2,ulong pa
                   uVar13 = uVar9;
                   if (uVar10 < param_4 || uVar6 < uVar5) {
                     /* WARNING: Subroutine does not return */
-                    core::panicking::panic_bounds_check
+                    _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E
                               (10,10,&PTR_s_src_uu_dd_src_numbers_rs_00261a70);
                   }
                 }

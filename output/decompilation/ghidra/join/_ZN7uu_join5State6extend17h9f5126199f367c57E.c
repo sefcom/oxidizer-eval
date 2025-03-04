@@ -1,4 +1,4 @@
-void __rustcall uu_join::State::extend(long *param_1,long param_2,long param_3)
+void _ZN7uu_join5State6extend17h9f5126199f367c57E(long *param_1,long param_2,long param_3)
 
 {
   undefined uVar1;
@@ -40,7 +40,7 @@ void __rustcall uu_join::State::extend(long *param_1,long param_2,long param_3)
   undefined8 local_40;
   undefined8 uStack_38;
   
-  next_line(&local_e8);
+  _ZN7uu_join5State9next_line17hadb8004dc320d34bE(&local_e8);
   lVar4 = CONCAT44(uStack_e4,local_e8);
   if (lVar4 != -0x7fffffffffffffff) {
     uVar1 = *(undefined *)(param_3 + 0x120);
@@ -61,7 +61,8 @@ void __rustcall uu_join::State::extend(long *param_1,long param_2,long param_3)
       local_60 = lVar4;
       local_48 = local_a8;
       if (lVar4 == -0x8000000000000000) {
-        core::ptr::drop_in_place<core::option::Option<uu_join::Line>>(&local_60);
+        _ZN4core3ptr62drop_in_place_LT_core__option__Option_LT_uu_join__Line_GT__GT_17h8c0a51ffd9df4838E
+                  (&local_60);
         *param_1 = -0x8000000000000000;
         return;
       }
@@ -76,9 +77,12 @@ void __rustcall uu_join::State::extend(long *param_1,long param_2,long param_3)
       uStack_7c = uStack_cc;
       local_98 = lVar4;
                     /* try { // try from 0017284b to 0017287d has its CatchHandler @ 0017297e */
-      auVar5 = (*(code *)PTR_get_current_key_00239388)(param_2);
-      auVar6 = (*(code *)PTR_get_field_00239320)(&local_98,*(undefined8 *)(param_2 + 0x40));
-      cVar3 = Input<Sep>::compare(uVar1,auVar5._0_8_,auVar5._8_8_,auVar6._0_8_,auVar6._8_8_);
+      auVar5 = (*(code *)PTR__ZN7uu_join5State15get_current_key17h6b22667ac5a703a7E_00239388)
+                         (param_2);
+      auVar6 = (*(code *)PTR__ZN7uu_join4Line9get_field17h7dd14bed39768627E_00239320)
+                         (&local_98,*(undefined8 *)(param_2 + 0x40));
+      cVar3 = _ZN7uu_join16Input_LT_Sep_GT_7compare17h29bf124cec785704E
+                        (uVar1,auVar5._0_8_,auVar5._8_8_,auVar6._0_8_,auVar6._8_8_);
       if (cVar3 != '\0') {
         param_1[4] = CONCAT44(uStack_74,local_78);
         param_1[5] = CONCAT44(uStack_6c,uStack_70);
@@ -99,8 +103,8 @@ void __rustcall uu_join::State::extend(long *param_1,long param_2,long param_3)
       uStack_e4 = local_98._4_4_;
       uStack_e0 = (undefined4)uStack_90;
       uStack_dc = uStack_90._4_4_;
-      ::alloc::vec::Vec<T,A>::push(param_2,&local_e8);
-      next_line(&local_e8,param_2,param_3);
+      _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17hb39c05ee85860ab5E(param_2,&local_e8);
+      _ZN7uu_join5State9next_line17hadb8004dc320d34bE(&local_e8,param_2,param_3);
       lVar4 = CONCAT44(uStack_e4,local_e8);
     } while (lVar4 != -0x7fffffffffffffff);
   }
@@ -112,9 +116,11 @@ void __rustcall uu_join::State::extend(long *param_1,long param_2,long param_3)
   uStack_e0 = (undefined4)uStack_d8;
   uStack_dc = uStack_d8._4_4_;
   uStack_d8 = local_a8;
-  lVar4 = ::alloc::boxed::Box<T>::new(&local_e8);
+  lVar4 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h06a7bb4fb867f987E(&local_e8);
   param_1[1] = lVar4;
-  param_1[2] = (long)&PTR_drop_in_place<uu_join_JoinError>_002326b8;
+  param_1[2] = (long)&
+                     PTR__ZN4core3ptr39drop_in_place_LT_uu_join__JoinError_GT_17h57eb7d1ac779654bE_002326b8
+  ;
   *param_1 = -0x7fffffffffffffff;
   return;
 }

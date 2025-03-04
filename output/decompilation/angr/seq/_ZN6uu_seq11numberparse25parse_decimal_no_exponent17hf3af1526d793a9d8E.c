@@ -1,6 +1,6 @@
 long long uu_seq::numberparse::parse_decimal_no_exponent::hf3af1526d793a9d8(struct_0 *a0, unsigned long long a1, unsigned long long a2, unsigned long a3)
 {
-    unsigned long v0;  // [sp-0x98], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x98]
     char v1;  // [sp-0x90]
     int v2;  // [bp-0x8f]
     int v3;  // [sp-0x80]
@@ -47,6 +47,6 @@ long long uu_seq::numberparse::parse_decimal_no_exponent::hf3af1526d793a9d8(stru
     a0->field_0 = 9223372036854775810;
     a0->field_28 = v13;
     a0->field_30 = v14;
-    ::0x4ccea0::core::ptr::drop_in_place$LT$bigdecimal..BigDecimal$GT$::h9ea64fcf6ce46304();
+    ::0x4ccea0::core::ptr::drop_in_place$LT$bigdecimal..BigDecimal$GT$::h9ea64fcf6ce46304(&v0);
     return a0;
 }

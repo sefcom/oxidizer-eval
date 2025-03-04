@@ -1,6 +1,6 @@
-undefined8 __rustcall uu_sync::fdatasync(void)
+undefined8 _ZN7uu_sync9fdatasync17h4c99a721be5a0cf3E(void)
 
 {
-  platform::do_fdatasync();
+  _ZN7uu_sync8platform12do_fdatasync17h96a8ab862809c875E();
   return 0;
 }

@@ -1,4 +1,5 @@
-void __rustcall uu_join::State::read_line(undefined8 *param_1,long param_2,undefined8 param_3)
+void _ZN7uu_join5State9read_line17hf3213b00009777a5E
+               (undefined8 *param_1,long param_2,undefined8 param_3)
 
 {
   long local_80;
@@ -14,7 +15,8 @@ void __rustcall uu_join::State::read_line(undefined8 *param_1,long param_2,undef
   undefined8 local_30;
   undefined8 uStack_28;
   
-  _<std::io::Split<B>as_core::iter::traits::iterator::Iterator>::next(&local_80,param_2 + 0x28);
+  _ZN82__LT_std__io__Split_LT_B_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h0d9dc488658bb76cE
+            (&local_80,param_2 + 0x28);
   if (local_80 == -0x7fffffffffffffff) {
     *param_1 = 0x8000000000000000;
   }
@@ -28,7 +30,8 @@ void __rustcall uu_join::State::read_line(undefined8 *param_1,long param_2,undef
       local_68 = local_80;
       local_60 = local_78;
       local_58 = local_70;
-      Line::new(&local_50,&local_68,param_3,*(undefined8 *)(param_2 + 0x48));
+      _ZN7uu_join4Line3new17hf82a54a2b0e9a927E
+                (&local_50,&local_68,param_3,*(undefined8 *)(param_2 + 0x48));
       if (*(ulong *)(param_2 + 0x48) < local_40) {
         *(ulong *)(param_2 + 0x48) = local_40;
       }

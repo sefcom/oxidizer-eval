@@ -1,9 +1,8 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void __rustcall
-uu_numfmt::format::transform_to
-          (undefined8 *param_1,undefined8 param_2,undefined4 param_3,undefined4 param_4,
-          double **param_5)
+void _ZN9uu_numfmt6format12transform_to17hb7e422fe87e2abd5E
+               (undefined8 *param_1,undefined8 param_2,undefined4 param_3,undefined4 param_4,
+               double **param_5)
 
 {
   double **ppdVar1;
@@ -37,7 +36,7 @@ uu_numfmt::format::transform_to
   undefined8 uStack_38;
   undefined8 local_30;
   
-  consider_suffix(&local_b8,param_3,param_4,param_5);
+  _ZN9uu_numfmt6format15consider_suffix17h00abba19284ba538E(&local_b8,param_3,param_4,param_5);
   if (local_b8 != (double *)0x8000000000000000) {
     *(undefined2 *)((long)param_1 + 0x1e) = local_a8._6_2_;
     *(undefined4 *)((long)param_1 + 0x1a) = local_a8._2_4_;
@@ -55,7 +54,9 @@ uu_numfmt::format::transform_to
              ((auVar2._8_8_ - _UNK_00115dd8) +
              ((double)CONCAT44(_DAT_00115e90,(int)param_2) - _DAT_00115dd0));
   if (local_a8._1_1_ == '\x02') {
-    local_128 = (double *)round_with_precision((char)param_4,param_5);
+    local_128 = (double *)
+                _ZN9uu_numfmt6format20round_with_precision17h7f1d296807047857E
+                          ((char)param_4,param_5);
     local_d0 = (code *)0x0;
     local_b8 = (double *)0x1;
     dStack_b0 = 4.94065645841247e-324;
@@ -69,8 +70,12 @@ uu_numfmt::format::transform_to
     if (param_5 != (double **)0x0) {
       local_128 = (double *)(CONCAT62(local_128._2_6_,(short)local_a8) & 0xffffffffffff01ff);
       local_120 = &local_f0;
-      local_118 = core::fmt::float::_<impl_core::fmt::Display_for_f64>::fmt;
-      local_108 = _<uu_numfmt::units::DisplayableSuffix_as_core::fmt::Display>::fmt;
+      local_118 = 
+      _ZN4core3fmt5float52__LT_impl_u20_core__fmt__Display_u20_for_u20_f64_GT_3fmt17hdf81dcc7e03fc666E
+      ;
+      local_108 = 
+      _ZN74__LT_uu_numfmt__units__DisplayableSuffix_u20_as_u20_core__fmt__Display_GT_3fmt17h8c9f187f28d813a1E
+      ;
       local_f8 = 0;
       local_b8 = (double *)0x1;
       dStack_b0 = 9.88131291682493e-324;
@@ -94,7 +99,9 @@ uu_numfmt::format::transform_to
     local_e8 = &local_f0;
     dStack_b0 = (double)(ulong)((double)((ulong)local_f0 & _DAT_00115de0) < _s__00115a18);
     local_b8 = (double *)0x0;
-    local_d0 = _<uu_numfmt::units::DisplayableSuffix_as_core::fmt::Display>::fmt;
+    local_d0 = 
+    _ZN74__LT_uu_numfmt__units__DisplayableSuffix_u20_as_u20_core__fmt__Display_GT_3fmt17h8c9f187f28d813a1E
+    ;
     local_128 = (double *)(CONCAT62(local_128._2_6_,(short)local_a8) & 0xffffffffffff01ff);
     local_80 = 2;
     local_70 = 2;
@@ -105,7 +112,8 @@ uu_numfmt::format::transform_to
     local_118 = (code *)0x2;
     local_f8 = 2;
   }
-  local_e0 = core::fmt::float::_<impl_core::fmt::Display_for_f64>::fmt;
+  local_e0 = 
+  _ZN4core3fmt5float52__LT_impl_u20_core__fmt__Display_u20_for_u20_f64_GT_3fmt17hdf81dcc7e03fc666E;
   local_108 = (code *)0x2;
   ppdVar1 = &local_120;
   local_110 = &local_e8;
@@ -115,7 +123,7 @@ LAB_001c4110:
   local_90 = 0x20;
   local_98 = 0;
   local_a8 = 2;
-  core::option::Option<T>::map_or_else(&local_40,ppdVar1);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17hab58af973b71ab82E(&local_40,ppdVar1);
   param_1[3] = local_30;
   param_1[1] = local_40;
   param_1[2] = uStack_38;

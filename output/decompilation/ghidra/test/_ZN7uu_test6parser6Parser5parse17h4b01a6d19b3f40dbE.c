@@ -1,4 +1,4 @@
-void __rustcall uu_test::parser::Parser::parse(undefined8 *param_1,long param_2)
+void _ZN7uu_test6parser6Parser5parse17h4b01a6d19b3f40dbE(undefined8 *param_1,long param_2)
 
 {
   long lVar1;
@@ -21,12 +21,12 @@ void __rustcall uu_test::parser::Parser::parse(undefined8 *param_1,long param_2)
   undefined4 uStack_24;
   undefined8 local_20;
   
-  expr(&local_88);
+  _ZN7uu_test6parser6Parser4expr17h14b244d6254724abE(&local_88);
   if ((int)local_88 == 7) {
     lVar1 = *(long *)(param_2 + 0x18);
     *(undefined8 *)(param_2 + 0x18) = 0x8000000000000001;
     if (lVar1 == -0x7fffffffffffffff) {
-      _<alloc::vec::into_iter::IntoIter<T,A>as_core::iter::traits::iterator::Iterator>::next
+      _ZN103__LT_alloc__vec__into_iter__IntoIter_LT_T_C_A_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h64663e472b050a2bE
                 (&local_48,param_2 + 0x30);
     }
     else {
@@ -48,14 +48,15 @@ void __rustcall uu_test::parser::Parser::parse(undefined8 *param_1,long param_2)
       local_78 = local_38;
       uStack_70 = 1;
                     /* try { // try from 001afce6 to 001afcf2 has its CatchHandler @ 001afd20 */
-      _<T_as_alloc::string::ToString>::to_string(&local_30,&local_88);
+      _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17h0530b763d48a6791E
+                (&local_30,&local_88);
       param_1[3] = local_20;
       *(undefined4 *)(param_1 + 1) = local_30;
       *(undefined4 *)((long)param_1 + 0xc) = uStack_2c;
       *(undefined4 *)(param_1 + 2) = uStack_28;
       *(undefined4 *)((long)param_1 + 0x14) = uStack_24;
       *param_1 = 2;
-      core::ptr::drop_in_place<std::ffi::os_str::OsString>(&local_68);
+      _ZN4core3ptr47drop_in_place_LT_std__ffi__os_str__OsString_GT_17h6d998f4ce1bf2fbfE(&local_68);
     }
   }
   else {

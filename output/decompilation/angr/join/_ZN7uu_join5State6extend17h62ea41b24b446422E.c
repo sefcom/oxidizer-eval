@@ -3,17 +3,15 @@ long long uu_join::State::extend::h62ea41b24b446422(struct_0 *a0, struct_1 *a1, 
     unsigned int v0;  // [sp-0xf4]
     unsigned long long v1;  // [sp-0xf0]
     int v2;  // [bp-0xe8], Other Possible Types: char
-    char v3;  // [bp-0xe0]
     int v4;  // [bp-0xd8], Other Possible Types: unsigned long
-    char v5;  // [bp-0xd0]
     int v6;  // [sp-0xc8]
     int v7;  // [sp-0xb8]
     unsigned long long v8;  // [sp-0xa8]
-    unsigned long v9;  // [sp-0x98], Other Possible Types: unsigned long long
+    unsigned long v9;  // [sp-0x98]
     unsigned long long v10;  // [sp-0x90]
     int v11;  // [sp-0x88]
     int v12;  // [sp-0x78]
-    unsigned long v13;  // [sp-0x60], Other Possible Types: unsigned long long
+    unsigned long v13;  // [sp-0x60]
     int v14;  // [sp-0x58]
     unsigned long long v15;  // [sp-0x48]
     int v16;  // [sp-0x40]
@@ -42,8 +40,8 @@ long long uu_join::State::extend::h62ea41b24b446422(struct_0 *a0, struct_1 *a1, 
         v0 = *(a2);
         do
         {
-            v8 = *((long long *)&v5);
-            v22 = *((int128_t *)&v3);
+            v8 = (long long)(&v4)[8];
+            v22 = (int128_t)(&v2)[8];
             v7 = v22;
             v23 = v6;
             v16 = v23;
@@ -51,7 +49,7 @@ long long uu_join::State::extend::h62ea41b24b446422(struct_0 *a0, struct_1 *a1, 
             v24 = v7;
             v14 = v24;
             v13 = v18;
-            if (v13 == v1)
+            if (v18 == v1)
             {
                 core::ptr::drop_in_place$LT$core..option..Option$LT$uu_join..Line$GT$$GT$::h8c0a51ffd9df4838(&v13);
                 v32 = a0;

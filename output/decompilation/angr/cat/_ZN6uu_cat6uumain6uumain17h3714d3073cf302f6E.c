@@ -16,7 +16,7 @@ long long uu_cat::uumain::uumain::h3714d3073cf302f6(unsigned long long a0, unsig
     char v13;  // [bp-0x3c8]
     char v14;  // [bp-0x3b8]
     unsigned long long v15;  // [sp-0x3a8]
-    unsigned long v16;  // [sp-0x3a0], Other Possible Types: unsigned long long
+    unsigned long v16;  // [sp-0x3a0]
     unsigned long long v17;  // [sp-0x398]
     int v18;  // [sp-0x390]
     int v19;  // [sp-0x380]

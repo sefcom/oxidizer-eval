@@ -1,6 +1,5 @@
-void __rustcall
-uu_ls::calculate_padding_collection
-          (undefined8 *param_1,long param_2,long param_3,long param_4,undefined8 param_5)
+void _ZN5uu_ls28calculate_padding_collection17h885b95310ac7cc45E
+               (undefined8 *param_1,long param_2,long param_3,long param_4,undefined8 param_5)
 
 {
   char cVar1;
@@ -57,7 +56,7 @@ uu_ls::calculate_padding_collection
     uVar17 = uVar13;
     uVar18 = uVar14;
     if (cVar1 == '\0') {
-      lVar11 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+      lVar11 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hb7b65ed0162d4d31E
                          (&local_40);
       if (lVar11 == 0) {
 LAB_0022d2f2:
@@ -75,49 +74,52 @@ LAB_0022d2f2:
     }
     else {
       do {
-        lVar11 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+        lVar11 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hb7b65ed0162d4d31E
                            (&local_40);
         if (lVar11 == 0) goto LAB_0022d2f2;
-        lVar12 = PathData::get_metadata(lVar11,param_5);
+        lVar12 = _ZN5uu_ls8PathData12get_metadata17hc7a96a0547653f90E(lVar11,param_5);
       } while (lVar12 == 0);
-      display_inode(&local_70,*(undefined8 *)(lVar12 + 0x28));
+      _ZN5uu_ls13display_inode17h3361fe679ac3feaaE(&local_70,*(undefined8 *)(lVar12 + 0x28));
       uVar14 = local_60;
-      core::ptr::drop_in_place<alloc::string::String>(&local_70);
-      uVar16 = core::cmp::max_by(uVar14,uVar16);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&local_70);
+      uVar16 = _ZN4core3cmp6max_by17h7ee1a79e2ed707c0E(uVar14,uVar16);
     }
-    if ((cVar2 != '\0') && (lVar12 = PathData::get_metadata(lVar11,param_5), lVar12 != 0)) {
-      uVar14 = get_block_size(*(undefined4 *)(lVar12 + 0x38),*(undefined8 *)(lVar12 + 0x60),uVar6,
-                              uVar3);
-      display_size(&local_70,uVar14,uVar3);
+    if ((cVar2 != '\0') &&
+       (lVar12 = _ZN5uu_ls8PathData12get_metadata17hc7a96a0547653f90E(lVar11,param_5), lVar12 != 0))
+    {
+      uVar14 = _ZN5uu_ls14get_block_size17h2a7c975a8304f17eE
+                         (*(undefined4 *)(lVar12 + 0x38),*(undefined8 *)(lVar12 + 0x60),uVar6,uVar3)
+      ;
+      _ZN5uu_ls12display_size17hba9b1cbdd7c6b199E(&local_70,uVar14,uVar3);
       uVar14 = local_60;
-      core::ptr::drop_in_place<alloc::string::String>(&local_70);
-      uVar19 = core::cmp::max_by(uVar14,uVar19);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&local_70);
+      uVar19 = _ZN4core3cmp6max_by17h7ee1a79e2ed707c0E(uVar14,uVar19);
     }
     uVar14 = uVar18;
     uVar13 = uVar17;
     uVar15 = uVar10;
     if (cVar4 == '\x01') {
       uVar14 = *(undefined8 *)(lVar11 + 0x40);
-      display_dir_entry_size(&local_70,lVar11,param_4,param_5);
+      _ZN5uu_ls22display_dir_entry_size17hb89143fe2890521fE(&local_70,lVar11,param_4,param_5);
       uVar9 = local_48;
       uVar8 = local_50;
       uVar7 = local_58;
       uVar15 = local_60;
       uVar13 = local_68;
-      local_d8 = core::cmp::max_by(local_70,local_d8);
-      local_d0 = core::cmp::max_by(uVar13,local_d0);
-      local_c8 = core::cmp::max_by(uVar15,local_c8);
+      local_d8 = _ZN4core3cmp6max_by17h7ee1a79e2ed707c0E(local_70,local_d8);
+      local_d0 = _ZN4core3cmp6max_by17h7ee1a79e2ed707c0E(uVar13,local_d0);
+      local_c8 = _ZN4core3cmp6max_by17h7ee1a79e2ed707c0E(uVar15,local_c8);
       if (cVar5 != '\0') {
-        local_e0 = core::cmp::max_by(uVar14,local_e0);
+        local_e0 = _ZN4core3cmp6max_by17h7ee1a79e2ed707c0E(uVar14,local_e0);
       }
       uVar14 = 0;
       uVar13 = 0;
       uVar15 = 0;
       if (param_3 != 1) {
-        uVar13 = core::cmp::max_by(uVar8,uVar17);
-        uVar14 = core::cmp::max_by(uVar9,uVar18);
-        uVar15 = core::cmp::max_by(uVar7,uVar10);
-        uVar15 = core::cmp::max_by(uVar15,uVar13);
+        uVar13 = _ZN4core3cmp6max_by17h7ee1a79e2ed707c0E(uVar8,uVar17);
+        uVar14 = _ZN4core3cmp6max_by17h7ee1a79e2ed707c0E(uVar9,uVar18);
+        uVar15 = _ZN4core3cmp6max_by17h7ee1a79e2ed707c0E(uVar7,uVar10);
+        uVar15 = _ZN4core3cmp6max_by17h7ee1a79e2ed707c0E(uVar15,uVar13);
       }
     }
   } while( true );

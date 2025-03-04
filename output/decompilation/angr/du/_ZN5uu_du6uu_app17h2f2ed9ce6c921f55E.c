@@ -1,11 +1,11 @@
 long long uu_du::uu_app::h2f2ed9ce6c921f55(unsigned long long a0)
 {
-    int v0;  // [bp-0xae8], Other Possible Types: void*, char
+    int v0;  // [sp-0xae8], Other Possible Types: void*, char
     unsigned long long v1;  // [sp-0xae0]
     int v2;  // [sp-0xad8], Other Possible Types: void*
     unsigned long long v3;  // [sp-0xad0]
     int v4;  // [sp-0xac8]
-    int v5;  // [sp-0xab8], Other Possible Types: unsigned long long
+    int v5;  // [sp-0xab8], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v6;  // [sp-0xab0]
     unsigned long long v7;  // [bp-0xaa8], Other Possible Types: char
     int v8;  // [sp-0xaa0]

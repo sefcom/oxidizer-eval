@@ -1,6 +1,6 @@
-void __rustcall uu_uniq::Uniq::cmp_keys(void)
+void _ZN7uu_uniq4Uniq8cmp_keys17h242b77250fdb6028E(void)
 
 {
-  cmp_key();
+  _ZN7uu_uniq4Uniq7cmp_key17h221e6e281cb7d070E();
   return;
 }

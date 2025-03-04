@@ -1,4 +1,5 @@
-void __rustcall uu_env::split_iterator::SplitIterator::push_word_to_words(undefined8 *param_1)
+void _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h2e43e9c5d0186d6cE
+               (undefined8 *param_1)
 
 {
   undefined4 local_18;
@@ -15,6 +16,6 @@ void __rustcall uu_env::split_iterator::SplitIterator::push_word_to_words(undefi
   *param_1 = 0;
   param_1[1] = 1;
   param_1[2] = 0;
-  ::alloc::vec::Vec<T,A>::push(param_1 + 8,&local_18);
+  _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17hb06191b2410fa606E(param_1 + 8,&local_18);
   return;
 }

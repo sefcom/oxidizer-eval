@@ -5,10 +5,12 @@ long long uu_sort::numeric_str_cmp::NumInfo::is_invalid_char::hbc2ad2d78102039c(
 
     if (a2 != 0x110000 && a2 == a0)
     {
-        if (*(a1))
-            return v2 & 0xffffffffffffff00 | 1;
-        *(a1) = 1;
-        return 0;
+        if (!*(a1))
+        {
+            *(a1) = 1;
+            return 0;
+        }
+        return v2 & 0xffffffffffffff00 | 1;
     }
     return v1 & 0xffffffffffffff00 | a0 - 58 < -10;
 }

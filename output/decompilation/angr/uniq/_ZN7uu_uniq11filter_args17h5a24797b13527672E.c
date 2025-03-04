@@ -52,6 +52,6 @@ LABEL_4bd4d9:
     uu_uniq::handle_preceding_options::h9f64aa70978a6427(v0, v7, a4, a5);
     a0->field_10 = v5;
     *((void*)&a0->field_0) = v4;
-    ::0x4bb4f0::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::he3d1ba919720a117();
+    ::0x4bb4f0::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::he3d1ba919720a117(a1);
     return a0;
 }

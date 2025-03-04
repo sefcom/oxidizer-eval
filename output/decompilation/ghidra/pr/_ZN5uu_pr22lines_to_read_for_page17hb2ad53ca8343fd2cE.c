@@ -1,4 +1,4 @@
-long __rustcall uu_pr::lines_to_read_for_page(long param_1)
+long _ZN5uu_pr22lines_to_read_for_page17hb2ad53ca8343fd2cE(long param_1)
 
 {
   long lVar1;

@@ -1,7 +1,7 @@
 long long uu_dd::is_stdout_redirected_to_seekable_file::he86a24b914264a0a()
 {
     unsigned int v0;  // [sp-0x4c]
-    unsigned long v1;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0x48]
     unsigned long long v2;  // [sp-0x40]
     char v3;  // [bp-0x38]
     char v4;  // [bp-0x34]
@@ -48,9 +48,9 @@ LABEL_4d8eba:
                 v10 = 0;
             }
         }
-        ::0x4d5190::core::ptr::drop_in_place$LT$std..fs..File$GT$::h9d905c7759330312();
+        ::0x4d5190::core::ptr::drop_in_place$LT$std..fs..File$GT$::h9d905c7759330312(v0);
     }
-    ::0x4d5280::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h4302a5a7bca89692();
+    ::0x4d5280::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h4302a5a7bca89692(&v5);
     if (v9)
     {
         core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$::hc4afd8b230b2ba09(&v3);

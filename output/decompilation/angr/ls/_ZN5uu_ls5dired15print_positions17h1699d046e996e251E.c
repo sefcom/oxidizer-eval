@@ -2,15 +2,15 @@ long long uu_ls::dired::print_positions::h1699d046e996e251(unsigned long a0, uns
 {
     char *v0;  // [sp-0x98]
     unsigned long long v1;  // [sp-0x90]
-    unsigned long v2;  // [sp-0x88], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x88]
     unsigned long long v3;  // [sp-0x80]
     struct struct_0 **v4;  // [sp-0x78], Other Possible Types: unsigned long long
     int v5;  // [sp-0x70], Other Possible Types: unsigned long long
     void* v6;  // [sp-0x68]
-    unsigned long v7;  // [sp-0x58], Other Possible Types: unsigned long long
+    unsigned long v7;  // [sp-0x58]
     unsigned long long v8;  // [sp-0x50]
-    unsigned long v9;  // [sp-0x48], Other Possible Types: unsigned long long
-    unsigned long v10;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v9;  // [sp-0x48]
+    unsigned long v10;  // [sp-0x40]
     unsigned long long v11;  // [sp-0x38]
     unsigned long long v13;  // rax
 

@@ -11,7 +11,7 @@ long long uu_realpath::uu_app::hb0ffbeae13444ba5(unsigned long long a0)
     char v8;  // [bp-0x538]
     char v9;  // [bp-0x27c]
     char v10;  // [bp-0x274]
-    char v11;  // [bp-0x270], Other Possible Types: unsigned long long
+    char v11;  // [bp-0x270], Other Possible Types: unsigned long
     unsigned long long v12;  // [sp-0x268]
     unsigned long long v13;  // [sp-0x260]
     unsigned long long v14;  // [sp-0x258]

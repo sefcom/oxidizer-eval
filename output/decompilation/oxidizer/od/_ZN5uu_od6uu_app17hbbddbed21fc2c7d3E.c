@@ -1,23 +1,61 @@
 fn uu_od::uu_app(a0: &struct712) -> u64 {
-    let v0: i5696;  // [sp-0xa48], Other Possible Types: struct592, struct712
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct712
     let v1: i64;  // [sp-0x78c]
     let v2: i32;  // [sp-0x784]
-    let v3: i5696;  // [sp-0x780], Other Possible Types: struct592, struct712, struct437
-    let v4: i4736;  // [sp-0x4b8], Other Possible Types: struct592, struct24, struct32
+    let v3: struct592;  // [sp-0x780], Other Possible Types: struct712, struct437
+    let v4: struct592;  // [sp-0x4b8], Other Possible Types: struct24, struct32
     let v5: i32;  // [sp-0x270]
     let v6: i32;  // [sp-0x26c]
-    let v7: i192;  // [sp-0x268], Other Possible Types: struct592, struct24
+    let v7: struct592;  // [sp-0x268], Other Possible Types: struct24
     let v9: i64;  // rdx
 
     v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
     v0 = clap_builder::builder::command::Command::version(&v3, "0.0.28");
     v3 = clap_builder::builder::command::Command::about(&v0, "Dump files in octal and other formats");
-    v4 = uucore::format_usage("{} [OPTION]... [--] [FILENAME]...\n{} [-abcdDefFhHiIlLoOsxX] [FILENAME] [[+][0x]OFFSET[.][b]]\n{} --traditional [OPTION]... [FILENAME] [[+][0x]OFFSET[.][b] [[+][0x]LABEL[.][b]]]");
+    v4 = uucore::format_usage("{} [OPTION]... [--] [FILENAME]...
+{} [-abcdDefFhHiIlLoOsxX] [FILENAME] [[+][0x]OFFSET[.][b]]
+{} --traditional [OPTION]... [FILENAME] [[+][0x]OFFSET[.][b] [[+][0x]LABEL[.][b]]]");
     v0 = clap_builder::builder::command::Command::override_usage(&v3, &v4);
-    v3 = clap_builder::builder::command::Command::after_help(&v0, "Displays data in various human-readable formats. If multiple formats are\nspecified, the output will contain all formats in the order they appear on the\ncommand line. Each format will be printed on a new line. Only the line\ncontaining the first format will be prefixed with the offset.\n\nIf no filename is specified, or it is \"-\", stdin will be used. After a \"--\", no\nmore options will be recognized. This allows for filenames starting with a \"-\".\n\nIf a filename is a valid number which can be used as an offset in the second\nform, you can force it to be recognized as a filename if you include an option\nlike \"-j0\", which is only valid in the first form.\n\nRADIX is one of o,d,x,n for octal, decimal, hexadecimal or none.\n\nBYTES is decimal by default, octal if prefixed with a \"0\", or hexadecimal if\nprefixed with \"0x\". The suffixes b, KB, K, MB, M, GB, G, will multiply the\nnumber with 512, 1000, 1024, 1000^2, 1024^2, 1000^3, 1024^3, 1000^2, 1024^2.\n\nOFFSET and LABEL are octal by default, hexadecimal if prefixed with \"0x\" or\ndecimal if a \".\" suffix is added. The \"b\" suffix will multiply with 512.\n\nTYPE contains one or more format specifications consisting of:\n    a       for printable 7-bits ASCII\n    c       for utf-8 characters or octal for undefined characters\n    d[SIZE] for signed decimal\n    f[SIZE] for floating point\n    o[SIZE] for octal\n    u[SIZE] for unsigned decimal\n    x[SIZE] for hexadecimal\nSIZE is the number of bytes which can be the number 1, 2, 4, 8 or 16,\n    or C, I, S, L for 1, 2, 4, 8 bytes for integer types,\n    or F, D, L for 4, 8, 16 bytes for floating point.\nAny type specification can have a \"z\" suffix, which will add a ASCII dump at\n    the end of the line.\n\nIf an error occurred, a diagnostic message will be printed to stderr, and the\nexit code will be non-zero.");
+    v3 = clap_builder::builder::command::Command::after_help(&v0, "Displays data in various human-readable formats. If multiple formats are
+specified, the output will contain all formats in the order they appear on the
+command line. Each format will be printed on a new line. Only the line
+containing the first format will be prefixed with the offset.
+
+If no filename is specified, or it is "-", stdin will be used. After a "--", no
+more options will be recognized. This allows for filenames starting with a "-".
+
+If a filename is a valid number which can be used as an offset in the second
+form, you can force it to be recognized as a filename if you include an option
+like "-j0", which is only valid in the first form.
+
+RADIX is one of o,d,x,n for octal, decimal, hexadecimal or none.
+
+BYTES is decimal by default, octal if prefixed with a "0", or hexadecimal if
+prefixed with "0x". The suffixes b, KB, K, MB, M, GB, G, will multiply the
+number with 512, 1000, 1024, 1000^2, 1024^2, 1000^3, 1024^3, 1000^2, 1024^2.
+
+OFFSET and LABEL are octal by default, hexadecimal if prefixed with "0x" or
+decimal if a "." suffix is added. The "b" suffix will multiply with 512.
+
+TYPE contains one or more format specifications consisting of:
+    a       for printable 7-bits ASCII
+    c       for utf-8 characters or octal for undefined characters
+    d[SIZE] for signed decimal
+    f[SIZE] for floating point
+    o[SIZE] for octal
+    u[SIZE] for unsigned decimal
+    x[SIZE] for hexadecimal
+SIZE is the number of bytes which can be the number 1, 2, 4, 8 or 16,
+    or C, I, S, L for 1, 2, 4, 8 bytes for integer types,
+    or F, D, L for 4, 8, 16 bytes for floating point.
+Any type specification can have a "z" suffix, which will add a ASCII dump at
+    the end of the line.
+
+If an error occurred, a diagnostic message will be printed to stderr, and the
+exit code will be non-zero.");
     memcpy(&v0, &v3, 700);
-    v1 = 1126758900564200 | *((&v3 as &char + 700) as &i64);
-    v2 = *((&v3 as &char + 708) as &i32);
+    v1 = 1126758900564200 | *((&v3.field_0 as &char + 700) as &i64);
+    v2 = *((&v3.field_0 as &char + 708) as &i32);
     v3 = clap_builder::builder::arg::Arg::new("help");
     v4 = clap_builder::builder::arg::Arg::long(&v3, "help");
     v3 = clap_builder::builder::arg::Arg::help(&v4, "Print help information.");
@@ -185,8 +223,8 @@ fn uu_od::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::command::Command::arg(&v0, &v4);
     v0 = clap_builder::builder::arg::Arg::new("FILENAME");
     memcpy(&v4, &v0, 584);
-    v5 = *((&v0 as &char + 584) as &i32) | 4;
-    v6 = *((&v0 as &char + 588) as &i32);
+    v5 = *((&v0.field_0 as &char + 584) as &i32) | 4;
+    v6 = *((&v0.field_0 as &char + 588) as &i32);
     v0 = clap_builder::builder::arg::Arg::action(&v4, 0x1);
     v4 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);
     clap_builder::builder::command::Command::arg(a0, &v3, &v4);

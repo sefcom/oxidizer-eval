@@ -2,26 +2,26 @@ long long uu_numfmt::uumain::uumain::h8ab67a4216dca9fb(unsigned long long a0, un
 {
     int v0;  // [bp-0x478], Other Possible Types: char, unsigned long
     int v1;  // [sp-0x468]
-    unsigned long v2;  // [sp-0x450], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x450]
     unsigned long long v3;  // [sp-0x448]
     int v4;  // [sp-0x440]
     int v5;  // [sp-0x430]
     unsigned long long v6;  // [sp-0x420]
     int v7;  // [sp-0x418]
     int v8;  // [sp-0x408]
-    char v9;  // [bp-0x3f8], Other Possible Types: unsigned long, unsigned long long
-    int v10;  // [bp-0x3f0], Other Possible Types: char
+    char v9;  // [sp-0x3f8], Other Possible Types: unsigned long
+    int v10;  // [sp-0x3f0], Other Possible Types: char
     char v11;  // [bp-0x3e8]
     int v12;  // [sp-0x3e0]
     char v13;  // [bp-0x3d8]
     char v14;  // [bp-0x3c8]
     int v15[4];  // [bp-0x328]
-    int v16;  // [bp-0x2e8], Other Possible Types: char, unsigned long, unsigned long long
+    int v16;  // [bp-0x2e8], Other Possible Types: char, unsigned long
     char v17;  // [bp-0x2e0]
     int v18;  // [sp-0x2d8]
     char v19;  // [bp-0x2d0]
     char v20;  // [bp-0x2c0]
-    void* v23;  // rax
+    void* v23;  // rbx
     unsigned long long v24;  // rbx
     char v25;  // dl
 
@@ -65,7 +65,7 @@ long long uu_numfmt::uumain::uumain::h8ab67a4216dca9fb(unsigned long long a0, un
         v16 = std::io::stdio::Stdin::lock::h161a36d857331d7f(&v0);
         v17 = v25 & 1;
         v23 = uu_numfmt::handle_buffer::h9ad60b7403393a62(&v16, &v9);
-        core::ptr::drop_in_place$LT$std..io..stdio..StdinLock$GT$::hd8f521f94a788c9e();
+        core::ptr::drop_in_place$LT$std..io..stdio..StdinLock$GT$::hd8f521f94a788c9e(v16, *((int *)&v17));
         if (!(!v23))
             goto LABEL_471a7e;
 LABEL_471aa4:

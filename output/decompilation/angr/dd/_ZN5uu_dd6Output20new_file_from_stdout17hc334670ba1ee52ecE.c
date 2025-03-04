@@ -27,7 +27,7 @@ long long uu_dd::Output::new_file_from_stdout::hc334670ba1ee52ec(struct_0 *a0, v
             a0->field_8 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$nix..errno..consts..Errno$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::h7e1e2edf10393c3c(v6);
             a0->field_10 = v7;
             a0->field_0 = 4;
-            core::ptr::drop_in_place$LT$uucore..mods..io..OwnedFileDescriptorOrHandle$GT$::ha6ff79398227ae27();
+            core::ptr::drop_in_place$LT$uucore..mods..io..OwnedFileDescriptorOrHandle$GT$::ha6ff79398227ae27(v4);
             return a0;
         }
     }

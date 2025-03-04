@@ -1,7 +1,7 @@
 fn uu_wc::process_chunk(a0: &struct16, a1: u32, a2: u32, a3: &struct8) -> u64 {
     let v0: u64;  // [sp-0x40]
     let v1: u64;  // [sp-0x38]
-    let v3: void*;  // r12
+    let v3: void*;  // r12, Other Possible Types: u64
     let v4: u64;  // r13
     let v5: u64;  // rdx
     let v7: u64;  // rax

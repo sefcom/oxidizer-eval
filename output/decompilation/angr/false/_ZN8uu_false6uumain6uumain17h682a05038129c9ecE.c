@@ -1,10 +1,10 @@
 long long uu_false::uumain::uumain::h682a05038129c9ec(unsigned long long a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0x3a8], Other Possible Types: unsigned long long
-    unsigned long v1;  // [sp-0x3a0], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x3a8]
+    unsigned long v1;  // [sp-0x3a0]
     struct struct_0 **v2;  // [sp-0x398]
     unsigned long long v3;  // [sp-0x390]
-    int v4;  // [bp-0x388], Other Possible Types: unsigned long long
+    int v4;  // [sp-0x388], Other Possible Types: unsigned long
     unsigned long long v5;  // [sp-0x380]
     struct struct_0 **v6;  // [sp-0x378], Other Possible Types: unsigned long long
     unsigned long long v7;  // [sp-0x370]
@@ -77,14 +77,14 @@ LABEL_459243:
                     v6 = &v9;
                     v7 = 2;
                     core::ptr::drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$::h83941425b2f571b0(_$LT$std..io..stdio..Stderr$u20$as$u20$std..io..Write$GT$::write_fmt::h82787f8382d2102c(&v1, &v4));
-                    ::0x457b80::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::hba36a569e01be34c();
+                    ::0x457b80::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::hba36a569e01be34c(v0);
                 }
             default:
                 goto LABEL_4592df;
             }
 LABEL_4592df:
             core::ptr::drop_in_place$LT$clap_builder..error..Error$GT$::hd4fa2428a646d037(*((long long *)&v16));
-            if (!(!v21))
+            if (!(*((long long *)&v15) == 0x8000000000000000))
                 goto LABEL_4592f1;
         }
     }

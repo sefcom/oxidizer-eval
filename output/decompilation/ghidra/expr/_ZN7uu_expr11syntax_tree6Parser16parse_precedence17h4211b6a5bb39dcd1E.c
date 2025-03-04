@@ -1,5 +1,5 @@
-void __rustcall
-uu_expr::syntax_tree::Parser::parse_precedence(undefined8 *param_1,undefined8 param_2,ulong param_3)
+void _ZN7uu_expr11syntax_tree6Parser16parse_precedence17h4211b6a5bb39dcd1E
+               (undefined8 *param_1,undefined8 param_2,ulong param_3)
 
 {
   undefined8 uVar1;
@@ -35,10 +35,11 @@ uu_expr::syntax_tree::Parser::parse_precedence(undefined8 *param_1,undefined8 pa
   undefined8 uStack_40;
   
   if (5 < param_3) {
-    parse_simple_expression(param_1,param_2);
+    _ZN7uu_expr11syntax_tree6Parser23parse_simple_expression17he4185487d50c2ec9E(param_1,param_2);
     return;
   }
-  parse_precedence(&local_98,param_2,param_3 + 1);
+  _ZN7uu_expr11syntax_tree6Parser16parse_precedence17h4211b6a5bb39dcd1E
+            (&local_98,param_2,param_3 + 1);
   local_a8 = CONCAT44(uStack_7c,uStack_80);
   if (CONCAT44(uStack_94,local_98) == 0) {
     uStack_a0 = uStack_78;
@@ -51,9 +52,10 @@ uu_expr::syntax_tree::Parser::parse_precedence(undefined8 *param_1,undefined8 pa
     local_68 = param_3 + 1;
     local_60 = param_2;
                     /* try { // try from 00230390 to 002303b6 has its CatchHandler @ 002304f8 */
-    while (uVar5 = local_60, lVar3 = local_68, cVar4 = parse_op(local_60,param_3), cVar4 != '\x03')
-    {
-      parse_precedence(&local_98,uVar5,lVar3);
+    while (uVar5 = local_60, lVar3 = local_68,
+          cVar4 = _ZN7uu_expr11syntax_tree6Parser8parse_op17hcd25fd2e93ef8ca6E(local_60,param_3),
+          cVar4 != '\x03') {
+      _ZN7uu_expr11syntax_tree6Parser16parse_precedence17h4211b6a5bb39dcd1E(&local_98,uVar5,lVar3);
       uVar5 = CONCAT44(uStack_8c,uStack_90);
       uVar1 = CONCAT44(uStack_84,uStack_88);
       uVar2 = CONCAT44(uStack_7c,uStack_80);
@@ -69,7 +71,8 @@ uu_expr::syntax_tree::Parser::parse_precedence(undefined8 *param_1,undefined8 pa
         *(undefined4 *)(param_1 + 2) = uStack_88;
         *(undefined4 *)((long)param_1 + 0x14) = uStack_84;
         *param_1 = 1;
-        core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>(&local_b8);
+        _ZN4core3ptr50drop_in_place_LT_uu_expr__syntax_tree__AstNode_GT_17h0f29fe394da86370E
+                  (&local_b8);
         return;
       }
       uStack_40 = uStack_78;
@@ -85,7 +88,7 @@ uu_expr::syntax_tree::Parser::parse_precedence(undefined8 *param_1,undefined8 pa
       uStack_50 = uVar1;
       local_48 = uVar2;
                     /* try { // try from 00230413 to 0023041a has its CatchHandler @ 002304e6 */
-      uVar5 = ::alloc::boxed::Box<T>::new(&local_98);
+      uVar5 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h8d53b81a55fa9d0dE(&local_98);
       uStack_88 = (undefined4)local_48;
       uStack_84 = local_48._4_4_;
       uStack_80 = (undefined4)uStack_40;
@@ -95,7 +98,7 @@ uu_expr::syntax_tree::Parser::parse_precedence(undefined8 *param_1,undefined8 pa
       uStack_90 = (undefined4)uStack_50;
       uStack_8c = uStack_50._4_4_;
                     /* try { // try from 0023043d to 00230447 has its CatchHandler @ 002304d7 */
-      local_a8 = ::alloc::boxed::Box<T>::new(&local_98);
+      local_a8 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h8d53b81a55fa9d0dE(&local_98);
       local_b8 = 1;
       cStack_b7 = cVar4;
       uStack_b6 = extraout_DL;

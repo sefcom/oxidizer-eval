@@ -1,7 +1,7 @@
-long long uu_fmt::linebreak::accum_words_simple::h022aba843f8dc50f(struct_0 *a0, struct_3 *a1, unsigned int a2, char a3, struct_1 *a4)
+long long uu_fmt::linebreak::accum_words_simple::h022aba843f8dc50f(struct_3 *a0, struct_1 *a1, unsigned int a2, char a3, struct_2 *a4)
 {
     unsigned long long v0;  // [sp-0x38]
-    struct_2 *v2;  // rbp
+    struct_0 *v2;  // rbp
     void* v3;  // rbx
     char v5;  // cl
     unsigned long long v6;  // r12
@@ -12,7 +12,7 @@ long long uu_fmt::linebreak::accum_words_simple::h022aba843f8dc50f(struct_0 *a0,
     unsigned long long v11;  // rbp
     unsigned long long v12;  // rax
     unsigned long long v13;  // rax
-    struct_0 *v14;  // rcx
+    struct_3 *v14;  // rcx
     unsigned long long v15;  // rdx
 
     v0 = a4->field_28;

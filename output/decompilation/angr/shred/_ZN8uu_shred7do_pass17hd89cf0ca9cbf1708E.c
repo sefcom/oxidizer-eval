@@ -8,7 +8,6 @@ int uu_shred::do_pass::hd89cf0ca9cbf1708()
     void* v6;  // r12
     unsigned long v7;  // rcx
     unsigned long long v8;  // rdx
-    unsigned long long v9;  // r14
 
     do
     {
@@ -22,14 +21,8 @@ int uu_shred::do_pass::hd89cf0ca9cbf1708()
         {
             if (v6 >= v7 >> 16)
             {
-                v9 = v7 & 65535;
-                if ((unsigned short)v7)
-                {
-                    if (!(char)v8)
-                        v9 = 0x10000;
-                    if (std::io::Write::write_all::hdb2ef0a1157baf82(v4, uu_shred::BytesWriter::bytes_for_pass::h0df75ebf5bedda4a(&v0, v9), v8))
-                        break;
-                }
+                if ((unsigned short)v7 && std::io::Write::write_all::hdb2ef0a1157baf82(v4, uu_shred::BytesWriter::bytes_for_pass::h0df75ebf5bedda4a(&v0, ((char)v8 ? v7 & 65535 : 0x10000)), v8))
+                    break;
                 if (!std::fs::File::sync_data::hf784af99032c3e35(v4))
                     break;
             }

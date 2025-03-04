@@ -4,7 +4,7 @@ long long uu_csplit::uumain::uumain::h6eadb50264c4f8c1(unsigned long long a0, un
     char v1;  // [bp-0x498]
     char v2;  // [bp-0x490]
     char v3;  // [bp-0x488]
-    unsigned long v4;  // [sp-0x480], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0x480]
     unsigned long long v5;  // [sp-0x478]
     int v6;  // [sp-0x470]
     int v7;  // [sp-0x460]
@@ -19,18 +19,19 @@ long long uu_csplit::uumain::uumain::h6eadb50264c4f8c1(unsigned long long a0, un
     int v16;  // [sp-0x378]
     int v17;  // [sp-0x368]
     char v18;  // [bp-0x350]
-    int v19;  // [bp-0x2e8], Other Possible Types: char, unsigned long long
+    int v19;  // [bp-0x2e8], Other Possible Types: char, unsigned long, unsigned long long
     int v20;  // [bp-0x2e0]
     int v21;  // [bp-0x2d8]
     int v22;  // [sp-0x2d0], Other Possible Types: unsigned long long
     unsigned long long v23;  // [sp-0x2c8]
-    unsigned long long v27;  // rax
+    unsigned long long v27;  // r14
     unsigned long long v28[3];  // rbx
     unsigned long long v29;  // rdi
     unsigned int v32;  // edx
     int v33;  // xmm0
-    unsigned long long v36;  // rax
-    int v37;  // xmm0
+    unsigned long long v34;  // rax
+    unsigned long long v37;  // rax
+    int v38;  // xmm0
 
     uu_csplit::uu_app::h86eb726b6073e125(&v19);
     clap_builder::builder::command::Command::try_get_matches_from::hcae3b529826e6a0d(&v9, &v19, a0, a1);
@@ -76,7 +77,7 @@ long long uu_csplit::uumain::uumain::h6eadb50264c4f8c1(unsigned long long a0, un
                 v33 = *((int128_t *)&v9);
                 *((int128_t *)&v21) = *((int128_t *)&v11);
                 v19 = v33;
-                v27 = alloc::boxed::Box$LT$T$GT$::new::h6b837569a0db69e2(&v19);
+                v34 = alloc::boxed::Box$LT$T$GT$::new::h6b837569a0db69e2(&v19);
             }
             else
             {
@@ -97,7 +98,7 @@ long long uu_csplit::uumain::uumain::h6eadb50264c4f8c1(unsigned long long a0, un
                 {
                     std::io::buffered::bufreader::BufReader$LT$R$GT$::with_capacity::hc0bfa7f749c36949(&v19, 0x2000, v0);
                     uu_csplit::csplit::hbd1c068a297fe5d8(&v9, &v18, *((long long *)&v2), *((long long *)&v3), &v19);
-                    v36 = *((long long *)&v9);
+                    v37 = *((long long *)&v9);
                     if (v19 == 12)
                     {
 LABEL_56150f:
@@ -106,11 +107,11 @@ LABEL_56150f:
                         core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h21e213836082c314(&v4);
                         return 0;
                     }
-                    v37 = *((int128_t *)&v10);
+                    v38 = *((int128_t *)&v10);
                     *((int128_t *)&v22) = *((int128_t *)&(&v11)[8]);
-                    v20 = v37;
-                    v19 = v36;
-                    v27 = alloc::boxed::Box$LT$T$GT$::new::h6b837569a0db69e2(&v19);
+                    v20 = v38;
+                    v19 = v37;
+                    v34 = alloc::boxed::Box$LT$T$GT$::new::h6b837569a0db69e2(&v19);
                 }
                 else
                 {
@@ -120,7 +121,7 @@ LABEL_56150f:
                     v19 = 11;
                     v27 = alloc::boxed::Box$LT$T$GT$::new::h6b837569a0db69e2(&v19);
 LABEL_5616e2:
-                    ::0x55c830::core::ptr::drop_in_place$LT$std..fs..File$GT$::h14d311f58d6bf7d5();
+                    ::0x55c830::core::ptr::drop_in_place$LT$std..fs..File$GT$::h14d311f58d6bf7d5(v0);
 LABEL_5616eb:
                     core::ptr::drop_in_place$LT$uu_csplit..CsplitOptions$GT$::h17e4cab8b6953a0e(&v18);
                     ::0x55ce90::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::h1581f7c1aae30641(&v1);
@@ -128,6 +129,7 @@ LABEL_5616eb:
                     return v27;
                 }
             }
+            v27 = v34;
             goto LABEL_5616eb;
         }
     }

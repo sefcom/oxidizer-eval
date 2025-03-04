@@ -1,10 +1,10 @@
 long long uu_dd::blocks::unblock::h328a1d7e73c47058(unsigned long long a0, unsigned long a1, unsigned long a2, unsigned long a3)
 {
-    void* v0;  // [sp-0x48], Other Possible Types: unsigned long long
+    void* v0;  // [sp-0x48], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0x40]
     void* v2;  // [sp-0x38], Other Possible Types: unsigned long long
     int v3;  // [sp-0x30]
-    unsigned long v4;  // [sp-0x18], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0x18]
     unsigned long long v5;  // [sp-0x10]
     unsigned long long v6;  // [sp-0x8]
 

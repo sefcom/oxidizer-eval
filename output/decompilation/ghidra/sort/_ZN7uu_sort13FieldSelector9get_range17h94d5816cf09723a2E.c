@@ -1,5 +1,5 @@
-undefined  [16] __rustcall
-uu_sort::FieldSelector::get_range
+undefined  [16]
+_ZN7uu_sort13FieldSelector9get_range17h94d5816cf09723a2E
           (long param_1,undefined8 param_2,ulong param_3,undefined8 param_4,undefined8 param_5)
 
 {
@@ -13,11 +13,13 @@ uu_sort::FieldSelector::get_range
   undefined8 local_48;
   undefined8 uStack_40;
   
-  auVar3 = get_range::resolve_index(param_2,param_3,param_4,param_5,param_1 + 0x18);
+  auVar3 = _ZN7uu_sort13FieldSelector9get_range13resolve_index17hd65278e590ae86b0E
+                     (param_2,param_3,param_4,param_5,param_1 + 0x18);
   uVar2 = auVar3._8_8_;
   if (auVar3._0_8_ == 0) {
     if (*(char *)(param_1 + 0x10) != '\x02') {
-      lVar1 = get_range::resolve_index(param_2,param_3,param_4,param_5,param_1);
+      lVar1 = _ZN7uu_sort13FieldSelector9get_range13resolve_index17hd65278e590ae86b0E
+                        (param_2,param_3,param_4,param_5,param_1);
                     /* WARNING: Could not recover jumptable at 0x00221d8f. Too many branches */
                     /* WARNING: Treating indirect jump as call */
       auVar3 = (*(code *)(&DAT_0012eb30 + *(int *)(&DAT_0012eb30 + lVar1 * 4)))();
@@ -36,7 +38,8 @@ uu_sort::FieldSelector::get_range
       uStack_40 = 0;
       local_50 = auStack_68;
                     /* WARNING: Subroutine does not return */
-      core::panicking::panic_fmt(&local_60,&PTR_s_src_uu_sort_src_sort_rs_002ffb50);
+      _ZN4core9panicking9panic_fmt17he12d0d7468628bb4E
+                (&local_60,&PTR_s_src_uu_sort_src_sort_rs_002ffb50);
     }
   }
   auVar3._8_8_ = param_3;

@@ -1,11 +1,11 @@
-long long uu_env::variable_parser::VariableParser::check_variable_name_start::hb2ef1afab325da6e(struct_0 *a0, struct_2 *a1)
+long long uu_env::variable_parser::VariableParser::check_variable_name_start::hb2ef1afab325da6e(struct_1 *a0, struct_2 *a1)
 {
     unsigned int v0;  // [sp-0x54]
     char *v1;  // [sp-0x50]
     unsigned long long v2;  // [sp-0x48]
-    unsigned long long v3;  // [sp-0x40]
+    unsigned long v3;  // [sp-0x40]
     unsigned long long v4;  // [sp-0x38]
-    struct struct_1 **v5;  // [sp-0x30]
+    struct struct_0 **v5;  // [sp-0x30]
     unsigned long long v6;  // [sp-0x28]
     void* v7;  // [sp-0x20]
     unsigned long long v9;  // rax
@@ -26,7 +26,7 @@ long long uu_env::variable_parser::VariableParser::check_variable_name_start::hb
             v7 = 0;
             v5 = &v1;
             v6 = 1;
-            v9 = ::0x4d4ea0::core::option::Option$LT$T$GT$::map_or_else::ha7b9eb55e1cbc84d();
+            v9 = ::0x4d4ea0::core::option::Option$LT$T$GT$::map_or_else::ha7b9eb55e1cbc84d(a0 + 1, &v3);
             a0->field_0 = 4;
             a0->field_8 = v10;
             return v9;

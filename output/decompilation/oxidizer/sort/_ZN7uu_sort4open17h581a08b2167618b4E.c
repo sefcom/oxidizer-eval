@@ -1,5 +1,5 @@
 fn uu_sort::open(a0: &struct24, a1: u64) -> u64 {
-    let v0: i96;  // [sp-0x90], Other Possible Types: Result<struct4, struct8>
+    let v0: Result<struct4, struct8>;  // [sp-0x90]
     let v1: i64;  // [sp-0x80]
     let v2: struct24;  // [sp-0x78]
     let v3: i8;  // [sp-0x60]

@@ -1,22 +1,22 @@
 fn uu_cp::disk_usage_directory(a0: u32, a1: u32) -> u64 {
     let v0: i64;  // [sp-0x148]
     let v1: i8;  // [sp-0x140]
-    let v2: struct40;  // [sp-0x138], Other Possible Types: i64
-    let v3: Option<struct40>;  // [sp-0x110], Other Possible Types: i384
-    let v4: i96;  // [sp-0xe0], Other Possible Types: Result<struct176, struct8>, struct9, struct24
+    let v2: i64;  // [sp-0x138], Other Possible Types: struct40
+    let v3: Option<struct40>;  // [sp-0x110]
+    let v4: Result<struct176, struct8>;  // [sp-0xe0], Other Possible Types: struct24, struct9
     let v8: i64;  // rbx
-    let v9: i256;  // ymm0
+    let v9: iNone;  // ymm0
 
     v4 = std::fs::read_dir(a0, a1);
     if v1 == 2 {
         return 1;
     }
-    v0 = v4;
-    v1 = *((&v4 as &char + 8) as &i8);
+    v0 = v4.field_0;
+    v1 = v4.field_8;
     v8 = 0;
     loop {
         v3 = <std::fs::ReadDir as core::iter::traits::iterator::Iterator>::next(&v0);
-        if !v3 {
+        if !v3 as i64 {
             return 0;
         }
         if !v2 {
@@ -38,16 +38,16 @@ LABEL_508bab:
             Ok(_) => {
                 if (*((&v4 as &char + 4) as &i32) as i16 & 0xf000) == 0x4000 {
                     v4 = std::fs::DirEntry::path(&v2);
-                    if uu_cp::disk_usage_directory(*((&v4 as &char + 8) as &i64), *((&v4 as &char + 16) as &i64)) {
+                    if uu_cp::disk_usage_directory(*((&v4.field_0 as &char + 8) as &i64), v4.field_16) {
                         break;
                     }
                 } else {
                     v4 = std::fs::DirEntry::metadata(&v2);
-                    if v4 == 2 {
+                    if v4 as i32 == 2 {
                         goto LABEL_508bab;
                     }
                 }
-                v8 += vvar_64{reg 56};
+                v8 += vvar_62{reg 56};
             },
         }
     }

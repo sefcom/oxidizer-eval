@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_nl::nl(undefined8 param_1,long param_2,long param_3)
+undefined  [16] _ZN5uu_nl2nl17hef3517d7e99c9fcfE(undefined8 param_1,long param_2,long param_3)
 
 {
   byte bVar1;
@@ -37,7 +37,8 @@ undefined  [16] __rustcall uu_nl::nl(undefined8 param_1,long param_2,long param_
   
   puVar3 = local_110;
   local_110[0] = param_1;
-  _<std::io::Lines<B>as_core::iter::traits::iterator::Iterator>::next(&local_78,puVar3);
+  _ZN82__LT_std__io__Lines_LT_B_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h6416b20a6783b54bE
+            (&local_78,puVar3);
   if (CONCAT44(uStack_74,local_78) == -0x7fffffffffffffff) {
     local_150 = 0;
     local_148 = puVar3;
@@ -61,8 +62,8 @@ undefined  [16] __rustcall uu_nl::nl(undefined8 param_1,long param_2,long param_
     uStack_44 = uStack_74;
     uStack_40 = uStack_70;
     uStack_3c = uStack_6c;
-    _<core::result::Result<T,std::io::error::Error>as_uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn_uucore::mods::error::UError>>>>
-    ::map_err_context(&local_158,&local_48);
+    _ZN201__LT_core__result__Result_LT_T_C_std__io__error__Error_GT__u20_as_u20_uucore__mods__error__FromIo_LT_core__result__Result_LT_T_C_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT__GT__GT_15map_err_context17hb23217556102fb78E
+              (&local_158,&local_48);
     if (local_158 != local_80) {
       local_128 = local_158;
       local_120 = local_150;
@@ -73,7 +74,8 @@ undefined  [16] __rustcall uu_nl::nl(undefined8 param_1,long param_2,long param_
       }
       *(long *)(param_2 + 0x10) = lVar2;
                     /* try { // try from 00259ce9 to 00259df7 has its CatchHandler @ 00259ff8 */
-      bVar1 = (*(code *)PTR_parse_004175a8)(local_150,local_148,local_88,local_90);
+      bVar1 = (*(code *)PTR__ZN5uu_nl16SectionDelimiter5parse17h6872879c6cc1e509E_004175a8)
+                        (local_150,local_148,local_88,local_90);
                     /* WARNING: Could not recover jumptable at 0x00259d16. Too many branches */
                     /* WARNING: Treating indirect jump as call */
       auVar4 = (*(code *)(&DAT_00161900 + *(int *)(&DAT_00161900 + (ulong)bVar1 * 4)))();

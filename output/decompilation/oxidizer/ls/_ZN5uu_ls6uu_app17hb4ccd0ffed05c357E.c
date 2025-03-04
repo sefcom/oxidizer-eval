@@ -1,65 +1,65 @@
 fn uu_ls::uu_app(a0: &struct712) -> u64 {
     let v0: i8;  // [bp-0xdc8]
-    let v1: i4736;  // [sp-0xdb8], Other Possible Types: struct592, struct8, struct64, struct24, struct216, struct128
+    let v1: struct592;  // [sp-0xdb8], Other Possible Types: struct8, int, struct128, struct24, struct64
     let v2: i64;  // [sp-0xdb0]
-    let v3: i64;  // [sp-0xda8]
+    let v3: i64;  // [sp-0xda8], Other Possible Types: int
     let v4: i64;  // [sp-0xda0]
-    let v5: i128;  // [bp-0xd98]
-    let v6: i128;  // [sp-0xd88]
+    let v5: iNone;  // [bp-0xd98]
+    let v6: i64;  // [sp-0xd88], Other Possible Types: int
     let v7: i64;  // [sp-0xd80]
-    let v8: i8;  // [bp-0xd78]
-    let v9: struct72;  // [sp-0xd70], Other Possible Types: i128
-    let v10: i128;  // [bp-0xd60]
-    let v11: i128;  // [bp-0xd50]
-    let v12: i128;  // [bp-0xd40]
+    let v8: i8;  // [bp-0xd78], Other Possible Types: unsigned long
+    let v9: struct72;  // [sp-0xd70], Other Possible Types: int
+    let v10: iNone;  // [bp-0xd60]
+    let v11: iNone;  // [bp-0xd50]
+    let v12: iNone;  // [bp-0xd40]
     let v13: i64;  // [sp-0xd30]
-    let v14: struct72;  // [sp-0xd28], Other Possible Types: i128
-    let v15: i128;  // [sp-0xd18]
-    let v16: i128;  // [sp-0xd08]
-    let v17: i128;  // [sp-0xcf8]
+    let v14: struct72;  // [sp-0xd28], Other Possible Types: int
+    let v15: iNone;  // [sp-0xd18]
+    let v16: iNone;  // [sp-0xd08]
+    let v17: iNone;  // [sp-0xcf8]
     let v18: i64;  // [sp-0xce8]
-    let v19: i128;  // [sp-0xce0]
-    let v20: i128;  // [sp-0xcd0]
-    let v21: i128;  // [sp-0xcc0]
-    let v22: i128;  // [sp-0xcb0]
+    let v19: iNone;  // [sp-0xce0]
+    let v20: iNone;  // [sp-0xcd0]
+    let v21: iNone;  // [sp-0xcc0]
+    let v22: iNone;  // [sp-0xcb0]
     let v23: i64;  // [sp-0xca0]
-    let v24: i128;  // [sp-0xc98]
-    let v25: i128;  // [sp-0xc88]
-    let v26: i128;  // [sp-0xc78]
-    let v27: i128;  // [sp-0xc68]
+    let v24: iNone;  // [sp-0xc98]
+    let v25: iNone;  // [sp-0xc88]
+    let v26: iNone;  // [sp-0xc78]
+    let v27: iNone;  // [sp-0xc68]
     let v28: i64;  // [sp-0xc58]
     let v29: struct72;  // [sp-0xc50]
     let v30: i64;  // [sp-0xc08]
     let v31: i64;  // [sp-0xc00]
     let v32: i64;  // [sp-0xbf8]
     let v33: i64;  // [sp-0xbf0]
-    let v34: i128;  // [sp-0xbe8]
+    let v34: iNone;  // [sp-0xbe8]
     let v35: i64;  // [sp-0xbd8]
     let v36: i64;  // [sp-0xbd0]
     let v37: i8;  // [sp-0xbc8]
     let v38: i32;  // [sp-0xb70]
     let v39: i32;  // [sp-0xb6c]
-    let v40: i576;  // [sp-0xb60], Other Possible Types: struct72
+    let v40: struct72;  // [sp-0xb60], Other Possible Types: unsigned long
     let v41: i64;  // [sp-0xb58]
     let v42: i64;  // [sp-0xb50]
     let v43: i64;  // [sp-0xb48]
-    let v44: i128;  // [sp-0xb40]
+    let v44: iNone;  // [sp-0xb40]
     let v45: i64;  // [sp-0xb30]
     let v46: i64;  // [sp-0xb28]
     let v47: i8;  // [sp-0xb20]
-    let v48: struct72;  // [sp-0xb18], Other Possible Types: i64
+    let v48: struct72;  // [sp-0xb18], Other Possible Types: unsigned long
     let v49: i64;  // [sp-0xb10]
     let v50: i64;  // [sp-0xb08]
     let v51: i64;  // [sp-0xb00]
-    let v52: i128;  // [sp-0xaf8]
+    let v52: iNone;  // [sp-0xaf8]
     let v53: i64;  // [sp-0xae8]
     let v54: i64;  // [sp-0xae0]
     let v55: i8;  // [sp-0xad8]
-    let v56: i576;  // [sp-0xad0], Other Possible Types: struct72
+    let v56: struct72;  // [sp-0xad0], Other Possible Types: unsigned long
     let v57: i64;  // [sp-0xac8]
     let v58: i64;  // [sp-0xac0]
     let v59: i64;  // [sp-0xab8]
-    let v60: i128;  // [sp-0xab0]
+    let v60: iNone;  // [sp-0xab0]
     let v61: i64;  // [sp-0xaa0]
     let v62: i64;  // [sp-0xa98]
     let v63: i8;  // [sp-0xa90]
@@ -75,15 +75,15 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     let v73: i64;  // [sp-0xa40]
     let v74: i64;  // [sp-0xa38]
     let v75: i64;  // [sp-0xa30]
-    let v76: i4736;  // [sp-0xa28], Other Possible Types: struct592, struct712, struct8, struct16, struct216, struct112
+    let v76: struct592;  // [sp-0xa28], Other Possible Types: struct712, int, struct8, struct112, unsigned long, struct16
     let v77: i64;  // [sp-0xa20]
-    let v78: i64;  // [sp-0xa18]
+    let v78: i64;  // [sp-0xa18], Other Possible Types: int
     let v79: i64;  // [sp-0xa10]
-    let v80: i64;  // [sp-0xa08]
+    let v80: iNone;  // [sp-0xa08], Other Possible Types: unsigned long
     let v81: i64;  // [sp-0xa00]
-    let v82: i64;  // [sp-0x9f8]
+    let v82: i64;  // [sp-0x9f8], Other Possible Types: int
     let v83: i64;  // [sp-0x9f0]
-    let v84: i64;  // [bp-0x9e8]
+    let v84: i8;  // [bp-0x9e8], Other Possible Types: unsigned long
     let v85: i64;  // [sp-0x9e0], Other Possible Types: struct72
     let v86: i64;  // [sp-0x9d8]
     let v87: i64;  // [sp-0x9d0]
@@ -107,17 +107,17 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     let v105: i64;  // [sp-0x6e0]
     let v106: i64;  // [sp-0x6d8]
     let v107: i64;  // [sp-0x6d0]
-    let v108: i4736;  // [sp-0x6c8], Other Possible Types: struct592, struct72, struct24, struct8
+    let v108: struct592;  // [sp-0x6c8], Other Possible Types: int, struct72, struct24, unsigned long, struct8
     let v109: i64;  // [sp-0x6c0]
-    let v110: i128;  // [sp-0x6b8]
+    let v110: iNone;  // [sp-0x6b8], Other Possible Types: unsigned long
     let v111: i64;  // [sp-0x6b0]
-    let v112: i128;  // [sp-0x6a8]
+    let v112: iNone;  // [sp-0x6a8], Other Possible Types: unsigned long
     let v113: i64;  // [sp-0x6a0]
-    let v114: i128;  // [sp-0x698]
+    let v114: iNone;  // [sp-0x698], Other Possible Types: unsigned long
     let v115: i64;  // [sp-0x690]
-    let v116: i128;  // [sp-0x688]
+    let v116: iNone;  // [sp-0x688], Other Possible Types: unsigned long
     let v117: i64;  // [sp-0x680]
-    let v118: i128;  // [sp-0x678]
+    let v118: iNone;  // [sp-0x678], Other Possible Types: unsigned long
     let v119: i64;  // [sp-0x670]
     let v120: i64;  // [sp-0x478]
     let v121: i64;  // [sp-0x470]
@@ -129,7 +129,7 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     let v127: i64;  // [sp-0x440]
     let v128: i64;  // [sp-0x438]
     let v129: i64;  // [sp-0x430]
-    let v130: i4736;  // [sp-0x428], Other Possible Types: struct592, struct712, struct437
+    let v130: struct592;  // [sp-0x428], Other Possible Types: struct712, struct437
     let v131: i32;  // [sp-0x1e0]
     let v132: i32;  // [sp-0x1dc]
     let v133: i64;  // [sp-0x16c]
@@ -158,7 +158,7 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     let v156: i64;  // [sp-0xb8]
     let v157: i64;  // [sp-0xb0]
     let v158: i64;  // [sp-0xa8]
-    let v159: i128;  // [sp-0xa0]
+    let v159: iNone;  // [sp-0xa0]
     let v160: i64;  // [sp-0x90]
     let v161: i64;  // [sp-0x88]
     let v162: i8;  // [sp-0x80]
@@ -166,74 +166,75 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     let v164: i64;  // [sp-0x70]
     let v165: i64;  // [sp-0x68]
     let v166: i64;  // [sp-0x60]
-    let v167: i128;  // [sp-0x58]
+    let v167: iNone;  // [sp-0x58]
     let v168: i64;  // [sp-0x48]
     let v169: i64;  // [sp-0x40]
     let v170: i8;  // [sp-0x38]
     let v172: i64;  // rdx
-    let v173: i128;  // xmm0
-    let v174: i128;  // xmm1
-    let v175: i128;  // xmm2
-    let v176: i128;  // xmm0
-    let v177: i128;  // xmm1
-    let v178: i128;  // xmm2
-    let v179: i128;  // xmm1
-    let v180: i128;  // xmm3
-    let v181: i128;  // xmm1
-    let v182: i128;  // xmm3
-    let v184: i128;  // xmm1
-    let v185: i128;  // xmm3
-    let v186: i128;  // xmm1
-    let v187: i128;  // xmm3
-    let v188: i128;  // xmm0
-    let v189: i128;  // xmm1
-    let v190: i128;  // xmm2
-    let v191: i128;  // xmm0
-    let v192: i128;  // xmm1
-    let v193: i128;  // xmm2
-    let v194: i128;  // xmm1
-    let v195: i128;  // xmm3
-    let v196: i128;  // xmm1
-    let v197: i128;  // xmm3
-    let v198: i128;  // xmm0
-    let v199: i128;  // xmm1
-    let v200: i128;  // xmm0
-    let v201: i128;  // xmm1
-    let v202: i128;  // xmm2
-    let v203: i128;  // xmm0
-    let v204: i128;  // xmm1
-    let v205: i128;  // xmm2
-    let v206: i128;  // xmm0
-    let v207: i128;  // xmm1
-    let v208: i128;  // xmm2
-    let v209: i128;  // xmm0
-    let v210: i128;  // xmm1
-    let v211: i128;  // xmm2
-    let v212: i128;  // xmm0
-    let v213: i128;  // xmm1
-    let v214: i128;  // xmm1
-    let v215: i128;  // xmm3
-    let v216: i128;  // xmm1
-    let v217: i128;  // xmm3
-    let v218: i128;  // xmm1
-    let v219: i128;  // xmm3
-    let v220: i128;  // xmm1
-    let v221: i128;  // xmm3
-    let v222: i128;  // xmm0
-    let v223: i128;  // xmm1
-    let v224: i128;  // xmm2
-    let v225: i128;  // xmm0
-    let v226: i128;  // xmm1
-    let v227: i128;  // xmm2
+    let v173: iNone;  // xmm0
+    let v174: iNone;  // xmm1
+    let v175: iNone;  // xmm2
+    let v176: iNone;  // xmm0
+    let v177: iNone;  // xmm1
+    let v178: iNone;  // xmm2
+    let v179: iNone;  // xmm1
+    let v180: iNone;  // xmm3
+    let v181: iNone;  // xmm1
+    let v182: iNone;  // xmm3
+    let v184: iNone;  // xmm1
+    let v185: iNone;  // xmm3
+    let v186: iNone;  // xmm1
+    let v187: iNone;  // xmm3
+    let v188: iNone;  // xmm0
+    let v189: iNone;  // xmm1
+    let v190: iNone;  // xmm2
+    let v191: iNone;  // xmm0
+    let v192: iNone;  // xmm1
+    let v193: iNone;  // xmm2
+    let v194: iNone;  // xmm1
+    let v195: iNone;  // xmm3
+    let v196: iNone;  // xmm1
+    let v197: iNone;  // xmm3
+    let v198: iNone;  // xmm0
+    let v199: iNone;  // xmm1
+    let v200: iNone;  // xmm0
+    let v201: iNone;  // xmm1
+    let v202: iNone;  // xmm2
+    let v203: iNone;  // xmm0
+    let v204: iNone;  // xmm1
+    let v205: iNone;  // xmm2
+    let v206: iNone;  // xmm0
+    let v207: iNone;  // xmm1
+    let v208: iNone;  // xmm2
+    let v209: iNone;  // xmm0
+    let v210: iNone;  // xmm1
+    let v211: iNone;  // xmm2
+    let v212: iNone;  // xmm0
+    let v213: iNone;  // xmm1
+    let v214: iNone;  // xmm1
+    let v215: iNone;  // xmm3
+    let v216: iNone;  // xmm1
+    let v217: iNone;  // xmm3
+    let v218: iNone;  // xmm1
+    let v219: iNone;  // xmm3
+    let v220: iNone;  // xmm1
+    let v221: iNone;  // xmm3
+    let v222: iNone;  // xmm0
+    let v223: iNone;  // xmm1
+    let v224: iNone;  // xmm2
+    let v225: iNone;  // xmm0
+    let v226: iNone;  // xmm1
+    let v227: iNone;  // xmm2
 
     v130 = clap_builder::builder::command::Command::new(uucore::util_name(), v172);
     v76 = clap_builder::builder::command::Command::version(&v130, "0.0.28");
     v1 = uucore::format_usage("{} [OPTION]... [FILE]...");
     v130 = clap_builder::builder::command::Command::override_usage(&v76, &v1);
-    v76 = clap_builder::builder::command::Command::about(&v130, "List directory contents.\nIgnore files and directories starting with a '.' by default");
+    v76 = clap_builder::builder::command::Command::about(&v130, "List directory contents.
+Ignore files and directories starting with a '.' by default");
     memcpy(&v130, &v76, 700);
-    v133 = 1126484022657160 | *((&v76 as &char + 700) as &i64);
-    v134 = *((&v76 as &char + 708) as &i32);
+    v133 = 1126484022657160 | *((&v76.field_0 as &char + 700) as &i64);
+    v134 = *((&v76.field_0 as &char + 708) as &i32);
     v76 = clap_builder::builder::arg::Arg::new("help");
     v1 = clap_builder::builder::arg::Arg::long(&v76, "help");
     v76 = clap_builder::builder::arg::Arg::help(&v1, "Print help information.");
@@ -298,8 +299,8 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v115 = v127;
     v112 = v124;
     v113 = v125;
-    v110 = v122;
-    v108 = v120;
+    *(&v110 as &i128) = *(&v122 as &i128);
+    *(&v108 as &i128) = *(&v120 as &i128);
     v1 = clap_builder::builder::arg::Arg::overrides_with_all(&v76, &v108);
     v108 = clap_builder::builder::arg::Arg::action(&v1, 0x2);
     v76 = clap_builder::builder::command::Command::arg(&v130, &v108);
@@ -307,11 +308,11 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v1 = clap_builder::builder::arg::Arg::short(&v130, 0x6c);
     v130 = clap_builder::builder::arg::Arg::long(&v1, "long");
     v1 = clap_builder::builder::arg::Arg::help(&v130, "Display detailed information.");
-    v116 = v128;
-    v173 = v120;
-    v174 = v122;
-    v175 = v124;
-    v114 = v126;
+    *(&v116 as &i128) = *(&v128 as &i128);
+    v173 = *(&v120 as &i128);
+    v174 = *(&v122 as &i128);
+    v175 = *(&v124 as &i128);
+    *(&v114 as &i128) = *(&v126 as &i128);
     v112 = v175;
     v110 = v174;
     v108 = v173;
@@ -321,11 +322,11 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v76 = clap_builder::builder::arg::Arg::new("x");
     v1 = clap_builder::builder::arg::Arg::short(&v76, 0x78);
     v76 = clap_builder::builder::arg::Arg::help(&v1, "List entries in rows instead of in columns.");
-    v116 = v128;
-    v176 = v120;
-    v177 = v122;
-    v178 = v124;
-    v114 = v126;
+    *(&v116 as &i128) = *(&v128 as &i128);
+    v176 = *(&v120 as &i128);
+    v177 = *(&v122 as &i128);
+    v178 = *(&v124 as &i128);
+    *(&v114 as &i128) = *(&v126 as &i128);
     v112 = v178;
     v110 = v177;
     v108 = v176;
@@ -364,60 +365,48 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v6 = &g_434cef;
     v7 = 6;
     v4 = 0x8000000000000000;
-    v5 = v0;
+    *(&v5 as &i128) = *(&v0 as &i128);
     v1 = struct8 {
         field_16: 0
     };
     v2 = 8;
     v3 = 0;
-    v8 = 0;
+    *(&v8 as &i8) = 0;
     v108 = clap_builder::builder::possible_value::PossibleValue::alias(&v1, "yes");
     v56 = clap_builder::builder::possible_value::PossibleValue::alias(&v108, "force");
     v6 = &g_423f34;
     v7 = 4;
     v4 = 0x8000000000000000;
-    v5 = v0;
+    *(&v5 as &i128) = *(&v0 as &i128);
     v1 = struct8 {
         field_16: 0
     };
     v2 = 8;
     v3 = 0;
-    v8 = 0;
+    *(&v8 as &i8) = 0;
     v108 = clap_builder::builder::possible_value::PossibleValue::alias(&v1, "tty");
     v40 = clap_builder::builder::possible_value::PossibleValue::alias(&v108, "if-tty");
     v6 = &g_434d06;
     v7 = 5;
     v4 = 0x8000000000000000;
-    v5 = v0;
+    *(&v5 as &i128) = *(&v0 as &i128);
     v1 = struct8 {
         field_16: 0
     };
     v2 = 8;
     v3 = 0;
-    v8 = 0;
+    *(&v8 as &i8) = 0;
     v108 = clap_builder::builder::possible_value::PossibleValue::alias(&v1, "no");
     v48 = clap_builder::builder::possible_value::PossibleValue::alias(&v108, "none");
-    v179 = *((&v56 as &char + 16) as &i128);
-    v180 = *((&v56 as &char + 48) as &i128);
-    v1 = struct216 {
-        field_0: v56
-        field_16: v179
-        field_32: v60
-        field_48: v180
-        field_64: *((&v56 as &char + 64) as &i64)
-        field_72: 8
-        field_88: 6
-        field_104: 10
-        field_120: <UNKNOWN>
-        field_136: <UNKNOWN>
-        field_144: <UNKNOWN>
-        field_160: <UNKNOWN>
-        field_176: <UNKNOWN>
-        field_192: <UNKNOWN>
-        field_208: <UNKNOWN>
-    };
-    v181 = *((&v40 as &char + 16) as &i128);
-    v182 = *((&v40 as &char + 48) as &i128);
+    v179 = *(&v56.field_16 as &i128);
+    v180 = v56.field_48;
+    *(&v1 as &u128) = v56.field_0;
+    v3 = v179;
+    v5 = v60;
+    v6 = v180;
+    *(&v8 as &u64) = v56.field_64;
+    v181 = *(&v40.field_16 as &i128);
+    v182 = v40.field_48;
     v9 = v40;
     v14 = v48;
     v108 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v1);
@@ -428,7 +417,7 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v89 = 0;
     v90 = 1;
     v91 = 0;
-    v110 = v91;
+    v110 = *(&v91 as &i64);
     v108 = v89;
     v109 = v90;
     v1 = clap_builder::builder::arg::Arg::num_args(&v130, &v108);
@@ -464,7 +453,7 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v160 = &g_434d50;
     v161 = 7;
     v158 = 0x8000000000000000;
-    v159 = v0;
+    v159 = *(&v0 as &i128);
     v155 = 0;
     v156 = 8;
     v157 = 0;
@@ -480,7 +469,7 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v61 = &g_434d68;
     v62 = 12;
     v59 = 0x8000000000000000;
-    v60 = v0;
+    v60 = *(&v0 as &i128);
     v56 = 0;
     v57 = 8;
     v58 = 0;
@@ -488,7 +477,7 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v45 = &g_434d5c;
     v46 = 12;
     v43 = 0x8000000000000000;
-    v44 = v0;
+    v44 = *(&v0 as &i128);
     v40 = 0;
     v41 = 8;
     v42 = 0;
@@ -496,7 +485,7 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v53 = &g_434d74;
     v54 = 19;
     v51 = 0x8000000000000000;
-    v52 = v0;
+    v52 = *(&v0 as &i128);
     v48 = 0;
     v49 = 8;
     v50 = 0;
@@ -504,44 +493,44 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v6 = &g_434d87;
     v7 = 1;
     v4 = 0x8000000000000000;
-    v5 = v0;
+    *(&v5 as &i128) = *(&v0 as &i128);
     v1 = struct8 {
         field_16: 0
     };
     v2 = 8;
     v3 = 0;
-    v8 = 0;
+    *(&v8 as &i8) = 0;
     v108 = clap_builder::builder::possible_value::PossibleValue::alias(&v1, "c-maybe");
-    v34 = v0;
-    v184 = v157;
-    v185 = v160;
-    v1 = v155;
+    v34 = *(&v0 as &i128);
+    v184 = *(&v157 as &i128);
+    v185 = *(&v160 as &i128);
+    *(&v1 as &i128) = *(&v155 as &i128);
     v3 = v184;
     v5 = v159;
     v6 = v185;
-    v8 = v162;
-    v186 = v165;
-    v187 = v168;
-    v9 = v163;
+    *(&v8 as &i64) = *(&v162 as &i64);
+    v186 = *(&v165 as &i128);
+    v187 = *(&v168 as &i128);
+    *(&v9 as &i128) = *(&v163 as &i128);
     v10 = v186;
     v11 = v167;
     v12 = v187;
-    v13 = v170;
-    v18 = *((&v56 as &char + 64) as &i64);
-    v17 = v61;
+    v13 = *(&v170 as &i64);
+    v18 = v56.field_64;
+    v17 = *(&v61 as &i128);
     v16 = v60;
-    v15 = v58;
-    v14 = v56;
-    v23 = *((&v40 as &char + 64) as &i64);
-    v22 = v45;
+    v15 = *(&v58 as &i128);
+    v14 = *(&v56 as &i128);
+    v23 = v40.field_64;
+    v22 = *(&v45 as &i128);
     v21 = v44;
-    v20 = v42;
-    v19 = v40;
-    v28 = *((&v48 as &char + 64) as &i64);
-    v27 = v53;
+    v20 = *(&v42 as &i128);
+    v19 = *(&v40 as &i128);
+    v28 = v48.field_64;
+    v27 = *(&v53 as &i128);
     v26 = v52;
-    v25 = v50;
-    v24 = v48;
+    v25 = *(&v50 as &i128);
+    v24 = *(&v48 as &i128);
     v29 = v108;
     v30 = 0;
     v31 = 8;
@@ -566,7 +555,7 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v81 = v97;
     v78 = v94;
     v79 = v95;
-    v76 = v92;
+    *(&v76 as &i128) = *(&v92 as &i128);
     v108 = clap_builder::builder::arg::Arg::overrides_with_all(&v1, &v76);
     v76 = clap_builder::builder::command::Command::arg(&v130, &v108);
     v130 = clap_builder::builder::arg::Arg::new("literal");
@@ -574,10 +563,10 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v130 = clap_builder::builder::arg::Arg::long(&v1, "literal");
     v1 = clap_builder::builder::arg::Arg::alias(&v130, "l");
     v130 = clap_builder::builder::arg::Arg::help(&v1, "Use literal quoting style. Equivalent to `--quoting-style=literal`");
-    v188 = v92;
-    v189 = v94;
-    v190 = v96;
-    v114 = v98;
+    v188 = *(&v92 as &i128);
+    v189 = *(&v94 as &i128);
+    v190 = *(&v96 as &i128);
+    *(&v114 as &i128) = *(&v98 as &i128);
     v112 = v190;
     v110 = v189;
     v108 = v188;
@@ -588,10 +577,10 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v1 = clap_builder::builder::arg::Arg::short(&v76, 0x62);
     v76 = clap_builder::builder::arg::Arg::long(&v1, "escape");
     v1 = clap_builder::builder::arg::Arg::help(&v76, "Use escape quoting style. Equivalent to `--quoting-style=escape`");
-    v191 = v92;
-    v192 = v94;
-    v193 = v96;
-    v114 = v98;
+    v191 = *(&v92 as &i128);
+    v192 = *(&v94 as &i128);
+    v193 = *(&v96 as &i128);
+    *(&v114 as &i128) = *(&v98 as &i128);
     v112 = v193;
     v110 = v192;
     v108 = v191;
@@ -628,70 +617,61 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v130 = clap_builder::builder::command::Command::arg(&v76, &v108);
     v76 = clap_builder::builder::arg::Arg::new("time");
     v1 = clap_builder::builder::arg::Arg::long(&v76, "time");
-    v76 = clap_builder::builder::arg::Arg::help(&v1, "Show time in <field>:\n\taccess time (-u): atime, access, use;\n\tchange time (-t): ctime, status.\n\tbirth time: birth, creation;");
+    v76 = clap_builder::builder::arg::Arg::help(&v1, "Show time in <field>:
+	access time (-u): atime, access, use;
+	change time (-t): ctime, status.
+	birth time: birth, creation;");
     v1 = clap_builder::builder::arg::Arg::value_name(&v76, "field");
     v82 = &g_434c97;
     v83 = 5;
     v79 = 0x8000000000000000;
-    v80 = v0;
+    *(&v80 as &i128) = *(&v0 as &i128);
     v76 = struct8 {
         field_16: 0
     };
     v77 = 8;
     v78 = 0;
-    v84 = 0;
+    *(&v84 as &i8) = 0;
     v108 = clap_builder::builder::possible_value::PossibleValue::alias(&v76, "access");
     v40 = clap_builder::builder::possible_value::PossibleValue::alias(&v108, "use");
     v82 = &g_434c86;
     v83 = 5;
     v79 = 0x8000000000000000;
-    v80 = v0;
+    *(&v80 as &i128) = *(&v0 as &i128);
     v76 = struct8 {
         field_16: 0
     };
     v77 = 8;
     v78 = 0;
-    v84 = 0;
+    *(&v84 as &i8) = 0;
     v48 = clap_builder::builder::possible_value::PossibleValue::alias(&v76, "status");
     v82 = &g_434c9f;
     v83 = 5;
     v79 = 0x8000000000000000;
-    v80 = v0;
+    *(&v80 as &i128) = *(&v0 as &i128);
     v76 = struct8 {
         field_16: 0
     };
     v77 = 8;
     v78 = 0;
-    v84 = 0;
+    *(&v84 as &i8) = 0;
     v108 = clap_builder::builder::possible_value::PossibleValue::alias(&v76, "creation");
-    v194 = *((&v40 as &char + 16) as &i128);
-    v195 = *((&v40 as &char + 48) as &i128);
-    v76 = struct216 {
-        field_0: v40
-        field_16: v194
-        field_32: v44
-        field_48: v195
-        field_64: *((&v40 as &char + 64) as &i64)
-        field_72: <UNKNOWN>
-        field_88: <UNKNOWN>
-        field_104: <UNKNOWN>
-        field_120: <UNKNOWN>
-        field_136: <UNKNOWN>
-        field_144: <UNKNOWN>
-        field_160: <UNKNOWN>
-        field_176: <UNKNOWN>
-        field_192: <UNKNOWN>
-        field_208: <UNKNOWN>
-    };
-    v196 = *((&v48 as &char + 16) as &i128);
-    v197 = *((&v48 as &char + 48) as &i128);
+    v194 = *(&v40.field_16 as &i128);
+    v195 = v40.field_48;
+    *(&v76 as &u128) = v40.field_0;
+    v78 = v194;
+    v80 = v44;
+    v82 = v195;
+    *(&v84 as &u64) = v40.field_64;
+    v196 = *(&v48.field_16 as &i128);
+    v197 = v48.field_48;
     v85 = v48;
     v88 = v108;
     v108 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v76);
     v76 = clap_builder::builder::arg::Arg::value_parser(&v1, &v108);
     memcpy(&v1, &v76, 584);
-    v38 = 144 | *((&v76 as &char + 584) as &i32);
-    v39 = *((&v76 as &char + 588) as &i32);
+    v38 = 144 | *((&v76.field_0 as &char + 584) as &i32);
+    v39 = *((&v76.field_0 as &char + 588) as &i32);
     v135 = &anon.3f7e092f2ea554bdd060175bd8ea63d9.22.llvm.16502254941234113161;
     v136 = 4;
     v137 = &anon.8bf1419b86641518549345aedc57e906.9.llvm.11260003342554782039;
@@ -709,9 +689,9 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v130 = clap_builder::builder::arg::Arg::new("c");
     v1 = clap_builder::builder::arg::Arg::short(&v130, 0x63);
     v130 = clap_builder::builder::arg::Arg::help(&v1, "If the long listing format (e.g., -l, -o) is being used, print the status change time (the 'ctime' in the inode) instead of the modification time. When explicitly sorting by time (--sort=time or -t) or when not using a long listing format, sort according to the status change time.");
-    v198 = v135;
-    v199 = v137;
-    v112 = v139;
+    v198 = *(&v135 as &i128);
+    v199 = *(&v137 as &i128);
+    *(&v112 as &i128) = *(&v139 as &i128);
     v110 = v199;
     v108 = v198;
     v1 = clap_builder::builder::arg::Arg::overrides_with_all(&v130, &v108);
@@ -765,8 +745,8 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v108 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v76);
     v76 = clap_builder::builder::arg::Arg::value_parser(&v1, &v108);
     memcpy(&v1, &v76, 584);
-    v38 = 128 | *((&v76 as &char + 584) as &i32);
-    v39 = *((&v76 as &char + 588) as &i32);
+    v38 = 128 | *((&v76.field_0 as &char + 584) as &i32);
+    v39 = *((&v76.field_0 as &char + 588) as &i32);
     v64 = &anon.3f7e092f2ea554bdd060175bd8ea63d9.21.llvm.16502254941234113161;
     v65 = 4;
     v66 = &anon.f45a42eab3604eaa40558bbeffd2bfb7.11.llvm.10979288589332586409;
@@ -785,20 +765,20 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v85 = v73;
     v82 = v70;
     v83 = v71;
-    v80 = v68;
-    v78 = v66;
-    v76 = v64;
+    *(&v80 as &i128) = *(&v68 as &i128);
+    *(&v78 as &i128) = *(&v66 as &i128);
+    *(&v76 as &i128) = *(&v64 as &i128);
     v108 = clap_builder::builder::arg::Arg::overrides_with_all(&v1, &v76);
     v76 = clap_builder::builder::command::Command::arg(&v130, &v108);
     v130 = clap_builder::builder::arg::Arg::new("S");
     v1 = clap_builder::builder::arg::Arg::short(&v130, 0x53);
     v130 = clap_builder::builder::arg::Arg::help(&v1, "Sort by file size, largest first.");
-    v118 = v74;
-    v116 = v72;
-    v200 = v64;
-    v201 = v66;
-    v202 = v68;
-    v114 = v70;
+    *(&v118 as &i128) = *(&v74 as &i128);
+    *(&v116 as &i128) = *(&v72 as &i128);
+    v200 = *(&v64 as &i128);
+    v201 = *(&v66 as &i128);
+    v202 = *(&v68 as &i128);
+    *(&v114 as &i128) = *(&v70 as &i128);
     v112 = v202;
     v110 = v201;
     v108 = v200;
@@ -808,12 +788,12 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v76 = clap_builder::builder::arg::Arg::new("t");
     v1 = clap_builder::builder::arg::Arg::short(&v76, 0x74);
     v76 = clap_builder::builder::arg::Arg::help(&v1, "Sort by modification time (the 'mtime' in the inode), newest first.");
-    v118 = v74;
-    v116 = v72;
-    v203 = v64;
-    v204 = v66;
-    v205 = v68;
-    v114 = v70;
+    *(&v118 as &i128) = *(&v74 as &i128);
+    *(&v116 as &i128) = *(&v72 as &i128);
+    v203 = *(&v64 as &i128);
+    v204 = *(&v66 as &i128);
+    v205 = *(&v68 as &i128);
+    *(&v114 as &i128) = *(&v70 as &i128);
     v112 = v205;
     v110 = v204;
     v108 = v203;
@@ -823,12 +803,12 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v130 = clap_builder::builder::arg::Arg::new("v");
     v1 = clap_builder::builder::arg::Arg::short(&v130, 0x76);
     v130 = clap_builder::builder::arg::Arg::help(&v1, "Natural sort of (version) numbers in the filenames.");
-    v118 = v74;
-    v116 = v72;
-    v206 = v64;
-    v207 = v66;
-    v208 = v68;
-    v114 = v70;
+    *(&v118 as &i128) = *(&v74 as &i128);
+    *(&v116 as &i128) = *(&v72 as &i128);
+    v206 = *(&v64 as &i128);
+    v207 = *(&v66 as &i128);
+    v208 = *(&v68 as &i128);
+    *(&v114 as &i128) = *(&v70 as &i128);
     v112 = v208;
     v110 = v207;
     v108 = v206;
@@ -838,12 +818,12 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v76 = clap_builder::builder::arg::Arg::new("X");
     v1 = clap_builder::builder::arg::Arg::short(&v76, 0x58);
     v76 = clap_builder::builder::arg::Arg::help(&v1, "Sort alphabetically by entry extension.");
-    v118 = v74;
-    v116 = v72;
-    v209 = v64;
-    v210 = v66;
-    v211 = v68;
-    v114 = v70;
+    *(&v118 as &i128) = *(&v74 as &i128);
+    *(&v116 as &i128) = *(&v72 as &i128);
+    v209 = *(&v64 as &i128);
+    v210 = *(&v66 as &i128);
+    v211 = *(&v68 as &i128);
+    *(&v114 as &i128) = *(&v70 as &i128);
     v112 = v211;
     v110 = v210;
     v108 = v209;
@@ -878,9 +858,9 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v130 = clap_builder::builder::arg::Arg::new("dereference-command-line-symlink-to-dir");
     v1 = clap_builder::builder::arg::Arg::long(&v130, "dereference-command-line-symlink-to-dir");
     v130 = clap_builder::builder::arg::Arg::help(&v1, "Do not follow symlinks except when they link to directories and are given as command line arguments.");
-    v212 = v141;
-    v213 = v143;
-    v112 = v145;
+    v212 = *(&v141 as &i128);
+    v213 = *(&v143 as &i128);
+    *(&v112 as &i128) = *(&v145 as &i128);
     v110 = v213;
     v108 = v212;
     v1 = clap_builder::builder::arg::Arg::overrides_with_all(&v130, &v108);
@@ -1008,48 +988,48 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v6 = &g_434cef;
     v7 = 6;
     v4 = 0x8000000000000000;
-    v5 = v0;
+    *(&v5 as &i128) = *(&v0 as &i128);
     v1 = struct8 {
         field_16: 0
     };
     v2 = 8;
     v3 = 0;
-    v8 = 0;
+    *(&v8 as &i8) = 0;
     v108 = clap_builder::builder::possible_value::PossibleValue::alias(&v1, "yes");
     v56 = clap_builder::builder::possible_value::PossibleValue::alias(&v108, "force");
     v6 = &g_423f34;
     v7 = 4;
     v4 = 0x8000000000000000;
-    v5 = v0;
+    *(&v5 as &i128) = *(&v0 as &i128);
     v1 = struct8 {
         field_16: 0
     };
     v2 = 8;
     v3 = 0;
-    v8 = 0;
+    *(&v8 as &i8) = 0;
     v108 = clap_builder::builder::possible_value::PossibleValue::alias(&v1, "tty");
     v40 = clap_builder::builder::possible_value::PossibleValue::alias(&v108, "if-tty");
     v6 = &g_434d06;
     v7 = 5;
     v4 = 0x8000000000000000;
-    v5 = v0;
+    *(&v5 as &i128) = *(&v0 as &i128);
     v1 = struct8 {
         field_16: 0
     };
     v2 = 8;
     v3 = 0;
-    v8 = 0;
+    *(&v8 as &i8) = 0;
     v108 = clap_builder::builder::possible_value::PossibleValue::alias(&v1, "no");
     v48 = clap_builder::builder::possible_value::PossibleValue::alias(&v108, "none");
-    v214 = *((&v56 as &char + 16) as &i128);
-    v215 = *((&v56 as &char + 48) as &i128);
-    v1 = v56;
+    v214 = *(&v56.field_16 as &i128);
+    v215 = v56.field_48;
+    *(&v1 as &u128) = v56.field_0;
     v3 = v214;
     v5 = v60;
     v6 = v215;
-    v8 = *((&v56 as &char + 64) as &i64);
-    v216 = *((&v40 as &char + 16) as &i128);
-    v217 = *((&v40 as &char + 48) as &i128);
+    *(&v8 as &u64) = v56.field_64;
+    v216 = *(&v40.field_16 as &i128);
+    v217 = v40.field_48;
     v9 = v40;
     v14 = v48;
     v108 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v1);
@@ -1057,8 +1037,8 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     memcpy(&v130, &v1, 584);
     v131 = 128 | v38;
     v132 = v39;
-    v110 = v91;
-    v108 = v89;
+    v110 = *(&v91 as &i64);
+    *(&v108 as &i128) = *(&v89 as &i128);
     v1 = clap_builder::builder::arg::Arg::num_args(&v130, &v108);
     v130 = clap_builder::builder::command::Command::arg(&v76, &v1);
     v76 = clap_builder::builder::arg::Arg::new("indicator-style");
@@ -1090,59 +1070,63 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v81 = v105;
     v78 = v102;
     v79 = v103;
-    v76 = v100;
+    *(&v76 as &i128) = *(&v100 as &i128);
     v108 = clap_builder::builder::arg::Arg::overrides_with_all(&v1, &v76);
     v76 = clap_builder::builder::command::Command::arg(&v130, &v108);
     v130 = clap_builder::builder::arg::Arg::new("classify");
     v1 = clap_builder::builder::arg::Arg::short(&v130, 0x46);
     v130 = clap_builder::builder::arg::Arg::long(&v1, "classify");
-    v1 = clap_builder::builder::arg::Arg::help(&v130, "Append a character to each file name indicating the file type. Also, for regular files that are executable, append '*'. The file type indicators are '/' for directories, '@' for symbolic links, '|' for FIFOs, '=' for sockets, '>' for doors, and nothing for regular files. when may be omitted, or one of:\n\tnone - Do not classify. This is the default.\n\tauto - Only classify if standard output is a terminal.\n\talways - Always classify.\nSpecifying --classify and no when is equivalent to --classify=always. This will not follow symbolic links listed on the command line unless the --dereference-command-line (-H), --dereference (-L), or --dereference-command-line-symlink-to-dir options are specified.");
+    v1 = clap_builder::builder::arg::Arg::help(&v130, "Append a character to each file name indicating the file type. Also, for regular files that are executable, append '*'. The file type indicators are '/' for directories, '@' for symbolic links, '|' for FIFOs, '=' for sockets, '>' for doors, and nothing for regular files. when may be omitted, or one of:
+	none - Do not classify. This is the default.
+	auto - Only classify if standard output is a terminal.
+	always - Always classify.
+Specifying --classify and no when is equivalent to --classify=always. This will not follow symbolic links listed on the command line unless the --dereference-command-line (-H), --dereference (-L), or --dereference-command-line-symlink-to-dir options are specified.");
     v130 = clap_builder::builder::arg::Arg::value_name(&v1, "when");
     v6 = &g_434cef;
     v7 = 6;
     v4 = 0x8000000000000000;
-    v5 = v0;
+    *(&v5 as &i128) = *(&v0 as &i128);
     v1 = struct8 {
         field_16: 0
     };
     v2 = 8;
     v3 = 0;
-    v8 = 0;
+    *(&v8 as &i8) = 0;
     v108 = clap_builder::builder::possible_value::PossibleValue::alias(&v1, "yes");
     v56 = clap_builder::builder::possible_value::PossibleValue::alias(&v108, "force");
     v6 = &g_423f34;
     v7 = 4;
     v4 = 0x8000000000000000;
-    v5 = v0;
+    *(&v5 as &i128) = *(&v0 as &i128);
     v1 = struct8 {
         field_16: 0
     };
     v2 = 8;
     v3 = 0;
-    v8 = 0;
+    *(&v8 as &i8) = 0;
     v108 = clap_builder::builder::possible_value::PossibleValue::alias(&v1, "tty");
     v40 = clap_builder::builder::possible_value::PossibleValue::alias(&v108, "if-tty");
     v6 = &g_434d06;
     v7 = 5;
     v4 = 0x8000000000000000;
-    v5 = v0;
+    *(&v5 as &i128) = *(&v0 as &i128);
     v1 = struct8 {
         field_16: 0
     };
     v2 = 8;
     v3 = 0;
-    v8 = 0;
+    *(&v8 as &i8) = 0;
     v108 = clap_builder::builder::possible_value::PossibleValue::alias(&v1, "no");
     v48 = clap_builder::builder::possible_value::PossibleValue::alias(&v108, "none");
-    v218 = *((&v56 as &char + 16) as &i128);
-    v219 = *((&v56 as &char + 48) as &i128);
-    v1 = v56;
+    v218 = *(&v56.field_16 as &i128);
+    v219 = v56.field_48;
+    *(&v1 as &u128) = v56.field_0;
     v3 = v218;
     v5 = v60;
     v6 = v219;
-    v8 = *((&v56 as &char + 64) as &i64);
-    v220 = *((&v40 as &char + 16) as &i128);
-    v221 = *((&v40 as &char + 48) as &i128);
+    *(&v8 as &u64) = v56.field_64;
+    v220 = *(&v40.field_16 as &i128);
+    v221 = v40.field_48;
     v9 = v40;
     v14 = v48;
     v108 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v1);
@@ -1152,10 +1136,10 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v38 = 128 | v131;
     v39 = v132;
     v130 = clap_builder::builder::arg::Arg::num_args(&v1, &v89);
-    v222 = v100;
-    v223 = v102;
-    v224 = v104;
-    v114 = v106;
+    v222 = *(&v100 as &i128);
+    v223 = *(&v102 as &i128);
+    v224 = *(&v104 as &i128);
+    *(&v114 as &i128) = *(&v106 as &i128);
     v112 = v224;
     v110 = v223;
     v108 = v222;
@@ -1164,10 +1148,10 @@ fn uu_ls::uu_app(a0: &struct712) -> u64 {
     v76 = clap_builder::builder::arg::Arg::new("file-type");
     v1 = clap_builder::builder::arg::Arg::long(&v76, "file-type");
     v76 = clap_builder::builder::arg::Arg::help(&v1, "Same as --classify, but do not append '*'");
-    v225 = v100;
-    v226 = v102;
-    v227 = v104;
-    v114 = v106;
+    v225 = *(&v100 as &i128);
+    v226 = *(&v102 as &i128);
+    v227 = *(&v104 as &i128);
+    *(&v114 as &i128) = *(&v106 as &i128);
     v112 = v227;
     v110 = v226;
     v108 = v225;

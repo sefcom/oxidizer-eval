@@ -13,15 +13,16 @@ long long uu_dd::parseargs::parse_bytes_with_opt_multiplier::h61a7f82d67afab9c(s
     unsigned short v10;  // [sp-0x38]
     struct_1 *v12;  // rax
     struct_0 *v13;  // rax
-    char *v14;  // rax
-    unsigned long long v15;  // r12
+    unsigned long long v14;  // rax
+    char *v15;  // rbx
+    unsigned long v16;  // rdx
     unsigned long long v17;  // r13
-    unsigned long long v19;  // r13
-    unsigned long long v20;  // cc_ndep
-    unsigned long long v21;  // rax
-    unsigned long long v22;  // rcx
-    unsigned long long v23;  // rax
-    struct_0 *v24;  // rdx
+    unsigned long long v18;  // r12
+    unsigned long long v19;  // cc_ndep
+    unsigned long long v20;  // rax
+    unsigned long long v21;  // rcx
+    unsigned long long v22;  // rax
+    struct_0 *v23;  // rdx
 
     ::0x4d2600::_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$::into_searcher::h77b0cfb9226a3587(&v9, 120, a1, a2);
     v7 = 0;
@@ -39,48 +40,50 @@ long long uu_dd::parseargs::parse_bytes_with_opt_multiplier::h61a7f82d67afab9c(s
     v14 = _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h1fb4a3ee92f93d48(&v6);
     if (!v14)
     {
-        v15 = 1;
+        v18 = 1;
     }
     else
     {
-        v15 = 1;
+        v15 = v14;
+        v17 = v16;
+        v18 = 1;
         do
         {
-            v17 = v19;
-            if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v14, v17, "0", 1))
+            if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v15, v17, "0", 1))
                 uu_dd::parseargs::show_zero_multiplier_warning::hbe4ec55817d90dd4();
-            uu_dd::parseargs::parse_bytes_no_x::h9d66ee8239148f5f(&v3, a1, a2, v14, v17);
-            v21 = *((long long *)&v3);
-            v22 = *((long long *)&v4);
-            if (v21 != 14)
+            uu_dd::parseargs::parse_bytes_no_x::h9d66ee8239148f5f(&v3, a1, a2, v15, v17);
+            v20 = *((long long *)&v3);
+            v21 = *((long long *)&v4);
+            if (v20 != 14)
             {
-                v24 = a0;
-                v24->field_10 = *((int128_t *)&v5);
-                v24->field_0 = v21;
-                v24->field_8 = v22;
-                core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$::h09ad4d2f7ce83910(&v6);
+                v23 = a0;
+                v23->field_10 = *((int128_t *)&v5);
+                v23->field_0 = v20;
+                v23->field_8 = v21;
+                vvar_235{reg 16} = core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$::h09ad4d2f7ce83910(&v6);
                 return v13;
             }
-            v23 = v15;
-            if ((char)amd64g_calculate_condition(0, 48, v23, v22, v20))
+            v22 = v18;
+            if ((char)amd64g_calculate_condition(0, 48, v22, v21, v19))
             {
                 ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v3, a1, a2);
-                v22 = *((long long *)&v3);
-                v24 = a0;
-                v24->field_10 = *((int128_t *)&v4);
-                v21 = 13;
-                v24->field_0 = v21;
-                v24->field_8 = v22;
+                v21 = *((long long *)&v3);
+                v23 = a0;
+                v23->field_10 = *((int128_t *)&v4);
+                v20 = 13;
+                v23->field_0 = v20;
+                v23->field_8 = v21;
                 v13 = core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$::h09ad4d2f7ce83910(&v6);
                 return v13;
             }
-            v15 = v23 * v22;
-            v14 = _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h1fb4a3ee92f93d48(&v6);
-        } while (v14);
+            v18 = v22 * v21;
+            v15 = _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h1fb4a3ee92f93d48(&v6);
+            v17 = v16;
+        } while (v15);
     }
     core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$::h09ad4d2f7ce83910(&v6);
     v13 = a0;
-    v13->field_8 = v15;
+    v13->field_8 = v18;
     v13->field_0 = 14;
     return v13;
 }

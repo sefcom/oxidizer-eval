@@ -2,15 +2,15 @@ long long uu_numfmt::handle_buffer::h9ad60b7403393a62(unsigned long a0, struct_1
 {
     char *v0;  // [sp-0xc0]
     unsigned long long v1;  // [sp-0xb8]
-    unsigned long v2;  // [sp-0xb0], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0xb0]
     char *v3;  // [sp-0xa8]
     unsigned long long v4;  // [sp-0xa0]
-    void* v5;  // [sp-0x98], Other Possible Types: unsigned long long
+    void* v5;  // [sp-0x98], Other Possible Types: unsigned long
     int v6;  // [sp-0x90], Other Possible Types: char *, unsigned long long
     struct struct_0 **v7;  // [sp-0x88], Other Possible Types: unsigned long long
     unsigned long long v8;  // [sp-0x80]
     void* v9;  // [sp-0x78]
-    unsigned long v10;  // [sp-0x68], Other Possible Types: unsigned long long
+    unsigned long v10;  // [sp-0x68]
     char *v11;  // [sp-0x60]
     void* v12;  // [sp-0x58]
     char v13;  // [bp-0x50]

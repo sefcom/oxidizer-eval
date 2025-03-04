@@ -1,7 +1,7 @@
-long long uu_env::split_iterator::SplitIterator::split_single_quoted_backslash::h9a57405ea848f4db(struct_1 *a0, struct_0 *a1)
+long long uu_env::split_iterator::SplitIterator::split_single_quoted_backslash::h9a57405ea848f4db(struct_0 *a0, struct_1 *a1)
 {
     unsigned int v0;  // [sp-0x44]
-    char v1;  // [bp-0x40], Other Possible Types: unsigned long long, unsigned long
+    char v1;  // [bp-0x40], Other Possible Types: unsigned long
     unsigned long long v2;  // [sp-0x38]
     char v3;  // [bp-0x30]
     char v4;  // [bp-0x20]
@@ -48,7 +48,7 @@ LABEL_4da077:
                 return v6;
             }
             a0->field_20 = *((long long *)&v4);
-            vvar_172{reg 224} = *((int128_t *)&v1);
+            vvar_170{reg 224} = *((int128_t *)&v1);
             a0->field_10 = *((int128_t *)&v3);
             *((void*)&a0->field_0) = v7;
             return v6;

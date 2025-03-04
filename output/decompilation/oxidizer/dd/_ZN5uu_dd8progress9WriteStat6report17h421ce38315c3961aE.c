@@ -1,4 +1,4 @@
-fn uu_dd::progress::WriteStat::report(a0: u32, a1: u32) -> u64 {
+fn uu_dd::progress::WriteStat::report(a0: u32, a1: u64) -> u64 {
     let v0: u64;  // [sp-0x50]
     let v1: u64;  // [sp-0x48]
     let v2: u64;  // [sp-0x40]

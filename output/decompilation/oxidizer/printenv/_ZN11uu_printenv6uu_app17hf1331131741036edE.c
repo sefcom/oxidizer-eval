@@ -1,10 +1,10 @@
 fn uu_printenv::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa50], Other Possible Types: struct592, struct712, struct437
+    let v0: struct592;  // [sp-0xa50], Other Possible Types: struct712, struct437
     let v1: i64;  // [sp-0x794]
     let v2: i32;  // [sp-0x78c]
-    let v3: i4736;  // [sp-0x788], Other Possible Types: struct592, struct24
-    let v4: i5696;  // [sp-0x538], Other Possible Types: struct712, struct592
-    let v5: i4736;  // [sp-0x270], Other Possible Types: struct592
+    let v3: struct592;  // [sp-0x788], Other Possible Types: struct24
+    let v4: struct712;  // [sp-0x538], Other Possible Types: struct592
+    let v5: struct592;  // [sp-0x270]
     let v7: i64;  // rdx
 
     v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v7);
@@ -13,8 +13,8 @@ fn uu_printenv::uu_app(a0: &struct712) -> u64 {
     v3 = uucore::format_usage("{} [OPTION]... [VARIABLE]...");
     v4 = clap_builder::builder::command::Command::override_usage(&v0, &v3);
     memcpy(&v0, &v4, 700);
-    v1 = 549755814016 | *((&v4 as &char + 700) as &i64);
-    v2 = *((&v4 as &char + 708) as &i32);
+    v1 = 549755814016 | *((&v4.field_0 as &char + 700) as &i64);
+    v2 = *((&v4.field_0 as &char + 708) as &i32);
     v4 = clap_builder::builder::arg::Arg::new("null");
     v3 = clap_builder::builder::arg::Arg::short(&v4);
     v4 = clap_builder::builder::arg::Arg::long(&v3);

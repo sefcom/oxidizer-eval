@@ -1,81 +1,75 @@
-fn uu_shuf::find_seps(a0: &struct8, a1: u32) -> u64 {
-    let v0: u8;  // [bp-0x68]
+fn uu_shuf::find_seps(a0: &struct8, a1: u8) -> u64 {
+    let v0: u32;  // [sp-0x68]
     let v1: u32;  // [sp-0x64]
-    let v2: u64;  // [sp-0x58]
-    let v3: u64;  // [sp-0x50]
-    let v4: u64;  // [sp-0x48]
-    let v5: u64;  // [sp-0x40]
-    let v6: u8;  // [bp-0x38]
-    let v8: u64;  // r14
-    let v9: struct8;  // rax
-    let v10: u64;  // r13
-    let v11: &struct_0;  // 4096
-    let v12: &struct_0;  // rbx
+    let v2: &struct_1;  // [sp-0x60]
+    let v3: u64;  // [sp-0x58]
+    let v4: u64;  // [sp-0x50]
+    let v5: u64;  // [sp-0x48]
+    let v6: u64;  // [sp-0x40]
+    let v7: u8;  // [bp-0x38]
+    let v9: u64;  // r14
+    let v10: &struct_1;  // rbx
+    let v11: struct8;  // rax
+    let v12: u64;  // r13
     let v13: u64;  // r14
     let v14: &&u8;  // rax
-    let v15: u64;  // r14
-    let v16: u64;  // r13
-    let v17: u64;  // rbp
-    let v18: u64;  // rdx
-    let v19: u64;  // r14
-    let v20: void*;  // r15
-    let v21: u64;  // rdx
-    let v22: &struct_0;  // 4096
-    let v23: u64;  // r13
+    let v15: u64;  // rbp
+    let v16: u64;  // rdx
+    let v17: u64;  // r14
+    let v18: u64;  // r13
+    let v19: void*;  // r15
 
-    v8 = a0[2];
-    if !v8 {
-        return v9;
+    v0 = a1;
+    v9 = a0->field_10;
+    if !v9 {
+        return v11;
     }
-    if v8 == 1 {
-        v9 = a0[1];
-        if !*((v9 + 8) as &i64) {
-            a0[2] = 0;
-            return v9;
+    v10 = a0;
+    if v9 == 1 {
+        v11 = a0->field_8;
+        if !*((v11 + 8) as &i64) {
+            a0->field_10 = 0;
+            return v11;
         }
     }
-    v10 = &v6;
+    v12 = &v7;
     v1 = v0;
-    v11 = a0;
+    v2 = a0;
     do {
-        v12 = v11;
-        v13 = <usize as core::iter::range::Step>::backward_unchecked(v8);
-        v14 = v12->field_8;
-        v9 = core::slice::memchr::memchr(v1, v14[2 * v13], v14[1 + 2 * v13]);
-        v15 = v13;
-        v16 = v10;
-        if v9 == 1 {
-            v2 = v13;
-            v17 = alloc::vec::Vec<T,A>::swap_remove(v12, v13);
-            v3 = v17;
-            v4 = v17;
-            v5 = v17 + v18;
-            v6 = a1;
-            v19 = v10;
-            v9 = memchr::arch::generic::memchr::Iter::next(v10);
-            if !v9 {
-                v20 = 0;
-                v22 = a0;
+        v13 = <usize as core::iter::range::Step>::backward_unchecked(v9);
+        v14 = v10->field_8;
+        v11 = core::slice::memchr::memchr(v1, v14[2 * v13], v14[1 + 2 * v13]);
+        v9 = v13;
+        if v11 == 1 {
+            v3 = v13;
+            v15 = alloc::vec::Vec<T,A>::swap_remove(v10, v13);
+            v4 = v15;
+            v5 = v15;
+            v6 = v15 + v16;
+            v7 = v0;
+            v17 = v12;
+            v11 = memchr::arch::generic::memchr::Iter::next(v12);
+            if !v11 {
+                v19 = 0;
+                v10 = v2;
             } else {
-                v20 = 0;
-                v21 = v18;
+                v18 = v16;
+                v19 = 0;
+                v10 = v2;
                 do {
-                    v23 = v21;
-                    alloc::vec::Vec<T,A>::push(a0, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v20, v23, v17, v18, "src/uu/shuf/src/shuf.rs"), v18);
-                    v20 = v23 + 1;
-                    v9 = memchr::arch::generic::memchr::Iter::next(v19);
-                    v21 = v18;
-                } while (v9);
+                    alloc::vec::Vec<T,A>::push(v10, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v19, v18, v15, v16, "src/uu/shuf/src/shuf.rs"), v16);
+                    v19 = v18 + 1;
+                    v11 = memchr::arch::generic::memchr::Iter::next(v17);
+                    v18 = v16;
+                } while (v11);
             }
-            v12 = v22;
-            v15 = v2;
-            v16 = v19;
-            if v18 > v20 {
-                v9 = alloc::vec::Vec<T,A>::push(v12, v17 + v20, v18 - v20);
-                v2 = v2;
+            v9 = v3;
+            v12 = v17;
+            if v16 > v19 {
+                v11 = alloc::vec::Vec<T,A>::push(v10, v15 + v19, v16 - v19);
+                v3 = v3;
             }
         }
-        v11 = v12;
-    } while (v15);
-    return v9;
+    } while (v9);
+    return v11;
 }

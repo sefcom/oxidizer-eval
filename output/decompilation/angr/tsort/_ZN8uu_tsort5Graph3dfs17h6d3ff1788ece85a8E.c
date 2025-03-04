@@ -1,14 +1,14 @@
 long long uu_tsort::Graph::dfs::h6d3ff1788ece85a8(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4[3])
 {
     char v0;  // [bp-0x48]
-    unsigned long v1;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0x38]
     unsigned long long v2;  // [sp-0x30]
     unsigned int v4;  // ebp
     unsigned long long v5[5];  // rax
     unsigned long long v6[2];  // rax
     unsigned long long v7;  // rax
 
-    v4 = vvar_57{reg 56} & 0xffffffffffffff00 | 1;
+    v4 = vvar_52{reg 56} & 0xffffffffffffff00 | 1;
     if ((char)_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$::slice_contains::h42d257bc62dd9328(&v0, a4[1], a4[2]))
         return v4;
     if (hashbrown::map::HashMap$LT$K$C$V$C$S$C$A$GT$::get_inner::h9808ee5d91771ad7(a3, &v0))

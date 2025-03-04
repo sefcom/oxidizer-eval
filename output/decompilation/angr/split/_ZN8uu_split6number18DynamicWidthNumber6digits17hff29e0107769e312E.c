@@ -8,10 +8,10 @@ double uu_split::number::DynamicWidthNumber::digits::hff29e0107769e312(long long
     unsigned long long v6;  // rax
     unsigned long long v7;  // r15
     unsigned long long v8;  // r14
-    unsigned long long v10;  // rax
-    unsigned long long v11;  // rax
-    unsigned int v12;  // edx
-    unsigned int v13;  // eax
+    unsigned long long v9;  // rax
+    unsigned int v10;  // edx
+    unsigned long long v11;  // r13
+    unsigned int v12;  // eax
     int v14;  // xmm0
     int v15;  // ymm0
 
@@ -37,19 +37,20 @@ double uu_split::number::DynamicWidthNumber::digits::hff29e0107769e312(long long
             core::panicking::panic_const::panic_const_rem_by_zero::h9246b1d1945ea5dd(&g_5494b0); /* do not return */
         do
         {
-            if (v10 >> 32)
+            v8 = v4;
+            if (!v8 >> 32)
             {
-                v10 = v8;
-                v11 = (unsigned long long)((0 CONCAT v10) % v5) CONCAT (unsigned long long)((0 CONCAT v10) / v5);
-                v12 = ((unsigned long long)((0 CONCAT v10) % v5) CONCAT (unsigned long long)((0 CONCAT v10) / v5)) >> 64;
+                v12 = v8;
+                v10 = ((unsigned int)((0 CONCAT v12) % (v5 & 4294967295)) CONCAT (unsigned int)((0 CONCAT v12) / (v5 & 4294967295))) >> 32;
+                v11 = ((unsigned int)((0 CONCAT v12) % (v5 & 4294967295)) CONCAT (unsigned int)((0 CONCAT v12) / (v5 & 4294967295))) & 4294967295 & 4294967295;
             }
             else
             {
-                v13 = v10;
-                v12 = ((unsigned int)((0 CONCAT v13) % (v5 & 4294967295)) CONCAT (unsigned int)((0 CONCAT v13) / (v5 & 4294967295))) >> 32;
-                v11 = ((unsigned int)((0 CONCAT v13) % (v5 & 4294967295)) CONCAT (unsigned int)((0 CONCAT v13) / (v5 & 4294967295))) & 4294967295 & 4294967295;
+                v9 = v8;
+                v10 = ((unsigned long long)((0 CONCAT v9) % v5) CONCAT (unsigned long long)((0 CONCAT v9) / v5)) >> 64;
+                v11 = (unsigned long long)((0 CONCAT v9) % v5) CONCAT (unsigned long long)((0 CONCAT v9) / v5);
             }
-        } while ((::0x4db560::alloc::vec::Vec$LT$T$C$A$GT$::push::hf1e1eb1ae4f6230e(&v0, (unsigned long long)v12), v10 >= v5));
+        } while ((::0x4db560::alloc::vec::Vec$LT$T$C$A$GT$::push::hf1e1eb1ae4f6230e(&v0, (unsigned long long)v10), v4 = v11, v8 >= v5));
     }
     alloc::vec::Vec$LT$T$C$A$GT$::resize::h073d932e12575a02(&v0, v7, 0);
     core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::reverse::h611a04afb35bad30(v1, v2);

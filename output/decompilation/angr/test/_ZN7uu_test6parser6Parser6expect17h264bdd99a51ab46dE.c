@@ -25,7 +25,7 @@ long long uu_test::parser::Parser::expect::h264bdd99a51ab46d(struct_0 *a0, void*
         a0->field_0 = 1;
         if (*((int *)&v0) == 3)
         {
-            v11 = ::0x4adf00::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h6d998f4ce1bf2fbf();
+            v11 = ::0x4adf00::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h6d998f4ce1bf2fbf(&v1);
             return v11;
         }
     }
@@ -34,7 +34,7 @@ long long uu_test::parser::Parser::expect::h264bdd99a51ab46d(struct_0 *a0, void*
         v6 = *((long long *)&v3);
         *((int128_t *)&v4) = *((int128_t *)&v1);
         a0->field_0 = 7;
-        v11 = ::0x4adf00::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h6d998f4ce1bf2fbf();
+        v11 = ::0x4adf00::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h6d998f4ce1bf2fbf(&v4);
         if (*((int *)&v0) == 3)
             return v11;
     }

@@ -1,11 +1,11 @@
 long long uu_sort::KeySettings::check_compatibility::hd03ca512104bcd48(unsigned long long *a0, unsigned long a1, char a2, char a3)
 {
     unsigned int v0;  // [sp-0x54]
-    unsigned long v1;  // [sp-0x50], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0x50]
     unsigned long long v2;  // [sp-0x48]
     char *v3;  // [sp-0x40]
     unsigned long long v4;  // [sp-0x38]
-    unsigned long long v5;  // [sp-0x30]
+    unsigned long v5;  // [sp-0x30]
     unsigned long long v6;  // [sp-0x28]
     char *v7;  // [sp-0x20]
     unsigned long long v8;  // [sp-0x18]
@@ -41,5 +41,5 @@ long long uu_sort::KeySettings::check_compatibility::hd03ca512104bcd48(unsigned 
     v9 = 0;
     v7 = &v1;
     v8 = 2;
-    return ::0x51c910::core::option::Option$LT$T$GT$::map_or_else::h391d7c162d69f44b();
+    return ::0x51c910::core::option::Option$LT$T$GT$::map_or_else::h391d7c162d69f44b(a0, &v5);
 }

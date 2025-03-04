@@ -1,23 +1,57 @@
 fn uu_shred::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct24, struct48
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct48, struct24
     let v1: i32;  // [sp-0x800]
     let v2: i32;  // [sp-0x7fc]
-    let v3: i5696;  // [sp-0x7f8], Other Possible Types: struct592, struct712, struct437
-    let v4: i4736;  // [sp-0x530], Other Possible Types: struct592, struct712
+    let v3: struct592;  // [sp-0x7f8], Other Possible Types: struct712, struct437
+    let v4: struct592;  // [sp-0x530], Other Possible Types: struct712
     let v5: i64;  // [sp-0x274]
     let v6: i32;  // [sp-0x26c]
-    let v7: i4736;  // [sp-0x268], Other Possible Types: struct592, struct24, struct17
+    let v7: struct592;  // [sp-0x268], Other Possible Types: struct24, struct17
     let v9: i64;  // rdx
 
     v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
     v4 = clap_builder::builder::command::Command::version(&v3, "0.0.28");
-    v3 = clap_builder::builder::command::Command::about(&v4, "Overwrite the specified FILE(s) repeatedly, in order to make it harder for even\nvery expensive hardware probing to recover the data.");
-    v4 = clap_builder::builder::command::Command::after_help(&v3, "Delete FILE(s) if --remove (-u) is specified.  The default is not to remove\nthe files because it is common to operate on device files like /dev/hda, and\nthose files usually should not be removed.\n\nCAUTION: Note that shred relies on a very important assumption: that the file\nsystem overwrites data in place.  This is the traditional way to do things, but\nmany modern file system designs do not satisfy this assumption.  The following\nare examples of file systems on which shred is not effective, or is not\nguaranteed to be effective in all file system modes:\n\n * log-structured or journal file systems, such as those supplied with\n   AIX and Solaris (and JFS, ReiserFS, XFS, Ext3, etc.)\n\n * file systems that write redundant data and carry on even if some writes\n   fail, such as RAID-based file systems\n\n * file systems that make snapshots, such as Network Appliance's NFS server\n\n * file systems that cache in temporary locations, such as NFS\n   version 3 clients\n\n * compressed file systems\n\nIn the case of ext3 file systems, the above disclaimer applies (and shred is\nthus of limited effectiveness) only in data=journal mode, which journals file\ndata in addition to just metadata.  In both the data=ordered (default) and\ndata=writeback modes, shred works as usual. Ext3 journal modes can be changed\nby adding the data=something option to the mount options for a particular\nfile system in the /etc/fstab file, as documented in the mount man page (man\nmount).\n\nIn addition, file system backups and remote mirrors may contain copies of\nthe file that cannot be removed, and that will allow a shredded file to be\nrecovered later.");
+    v3 = clap_builder::builder::command::Command::about(&v4, "Overwrite the specified FILE(s) repeatedly, in order to make it harder for even
+very expensive hardware probing to recover the data.");
+    v4 = clap_builder::builder::command::Command::after_help(&v3, "Delete FILE(s) if --remove (-u) is specified.  The default is not to remove
+the files because it is common to operate on device files like /dev/hda, and
+those files usually should not be removed.
+
+CAUTION: Note that shred relies on a very important assumption: that the file
+system overwrites data in place.  This is the traditional way to do things, but
+many modern file system designs do not satisfy this assumption.  The following
+are examples of file systems on which shred is not effective, or is not
+guaranteed to be effective in all file system modes:
+
+ * log-structured or journal file systems, such as those supplied with
+   AIX and Solaris (and JFS, ReiserFS, XFS, Ext3, etc.)
+
+ * file systems that write redundant data and carry on even if some writes
+   fail, such as RAID-based file systems
+
+ * file systems that make snapshots, such as Network Appliance's NFS server
+
+ * file systems that cache in temporary locations, such as NFS
+   version 3 clients
+
+ * compressed file systems
+
+In the case of ext3 file systems, the above disclaimer applies (and shred is
+thus of limited effectiveness) only in data=journal mode, which journals file
+data in addition to just metadata.  In both the data=ordered (default) and
+data=writeback modes, shred works as usual. Ext3 journal modes can be changed
+by adding the data=something option to the mount options for a particular
+file system in the /etc/fstab file, as documented in the mount man page (man
+mount).
+
+In addition, file system backups and remote mirrors may contain copies of
+the file that cannot be removed, and that will allow a shredded file to be
+recovered later.");
     v0 = uucore::format_usage("{} [OPTION]... FILE...");
     v3 = clap_builder::builder::command::Command::override_usage(&v4, &v0);
     memcpy(&v4, &v3, 700);
-    v5 = 549755814016 | *((&v3 as &char + 700) as &i64);
-    v6 = *((&v3 as &char + 708) as &i32);
+    v5 = 549755814016 | *((&v3.field_0 as &char + 700) as &i64);
+    v6 = *((&v3.field_0 as &char + 708) as &i32);
     v3 = clap_builder::builder::arg::Arg::new("force");
     v0 = clap_builder::builder::arg::Arg::long(&v3, "force");
     v3 = clap_builder::builder::arg::Arg::short(&v0, 0x66);
@@ -62,8 +96,8 @@ fn uu_shred::uu_app(a0: &struct712) -> u64 {
     };
     v3 = clap_builder::builder::arg::Arg::num_args(&v0, &v7);
     memcpy(&v0, &v3, 584);
-    v1 = 128 | *((&v3 as &char + 584) as &i32);
-    v2 = *((&v3 as &char + 588) as &i32);
+    v1 = 128 | *((&v3.field_0 as &char + 584) as &i32);
+    v2 = *((&v3.field_0 as &char + 588) as &i32);
     v3 = clap_builder::builder::arg::Arg::default_missing_value(&v0);
     v0 = clap_builder::builder::arg::Arg::help(&v3, "like -u but give control on HOW to delete;  See below");
     v7 = clap_builder::builder::arg::Arg::action(&v0, None);
@@ -77,7 +111,8 @@ fn uu_shred::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::arg::Arg::new("exact");
     v0 = clap_builder::builder::arg::Arg::long(&v3, "exact");
     v3 = clap_builder::builder::arg::Arg::short(&v0, 0x78);
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "do not round file sizes up to the next full block;\nthis is the default for non-regular files");
+    v0 = clap_builder::builder::arg::Arg::help(&v3, "do not round file sizes up to the next full block;
+this is the default for non-regular files");
     v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
     v3 = clap_builder::builder::command::Command::arg(&v4, &v7);
     v4 = clap_builder::builder::arg::Arg::new("zero");

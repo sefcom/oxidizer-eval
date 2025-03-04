@@ -1,4 +1,4 @@
-long long uu_pr::read_stream_and_create_pages::h80b16bcd0c28d18c(struct_0 *a0, struct_1 *a1, unsigned long a2)
+long long uu_pr::read_stream_and_create_pages::h80b16bcd0c28d18c(struct_1 *a0, struct_0 *a1, unsigned long a2)
 {
     unsigned long long v0;  // [sp-0x140]
     void* v1;  // [sp-0x138]

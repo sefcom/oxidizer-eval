@@ -5,8 +5,5 @@ fn uu_ls::PathData::file_type(a0: u32, a1: u32) -> u64 {
 
     v0 = v2;
     v3 = core::cell::once::OnceCell<T>::get_or_try_init(a0 + 248, a0, a1);
-    if *(v3) {
-        return v3 + 1;
-    }
-    return 0;
+    return (*(v3) ? v3 + 1 : 0);
 }

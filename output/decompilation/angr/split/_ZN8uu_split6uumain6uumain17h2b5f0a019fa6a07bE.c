@@ -9,7 +9,7 @@ long long uu_split::uumain::uumain::h2b5f0a019fa6a07b(unsigned long long a0, uns
     unsigned long long v6;  // [sp-0x428]
     int v7;  // [sp-0x418]
     unsigned long long v8;  // [sp-0x408]
-    unsigned long v9;  // [sp-0x3f8], Other Possible Types: unsigned long long
+    unsigned long v9;  // [sp-0x3f8]
     unsigned long long v10;  // [sp-0x3f0]
     int v11;  // [sp-0x3e8]
     int v12;  // [sp-0x3d8]
@@ -23,15 +23,15 @@ long long uu_split::uumain::uumain::h2b5f0a019fa6a07b(unsigned long long a0, uns
     char v20;  // [bp-0x380]
     char v21;  // [bp-0x370]
     char v22;  // [bp-0x360]
-    int v23;  // [bp-0x2e8], Other Possible Types: char, unsigned long long
+    int v23;  // [bp-0x2e8], Other Possible Types: char, unsigned long
     unsigned long long v24;  // [sp-0x2e0]
     struct struct_0 **v25;  // [sp-0x2d8], Other Possible Types: unsigned long, unsigned long long
     char v26;  // [bp-0x2d0], Other Possible Types: unsigned int, unsigned long long
     void* v27;  // [sp-0x2c8]
     char v28;  // [bp-0x2c0]
-    unsigned long long v32;  // rax
+    unsigned long long v32;  // rbx
     unsigned long long v33;  // rcx
-    void* v34;  // rdi
+    unsigned long long v34;  // rdx
     int v35;  // xmm0
     int v36;  // xmm0
 
@@ -65,9 +65,7 @@ long long uu_split::uumain::uumain::h2b5f0a019fa6a07b(unsigned long long a0, uns
     else
     {
         v33 = *((long long *)&v19);
-        v34 = v33 - 3;
-        if (v33 - 4 >= 5)
-            v34 = 0;
+        v34 = (v33 - 4 < 5 ? v33 - 3 : 0);
         if (!v34)
         {
             if ((unsigned int)v33 == 3)
@@ -84,7 +82,7 @@ LABEL_4761e2:
             v27 = 0;
             v25 = &v0;
             v26 = 1;
-            core::option::Option$LT$T$GT$::map_or_else::h11882c33e7a1a822();
+            core::option::Option$LT$T$GT$::map_or_else::h11882c33e7a1a822(&v16, &v23);
             v26 = 1;
             *((int128_t *)&v23) = *((int128_t *)&v16);
             v25 = *((long long *)&v17);
@@ -93,7 +91,7 @@ LABEL_4761e2:
         }
         else
         {
-            if (!(v34 == 1) || !(*((int *)&v20) == 1))
+            if (!(v34 == 1 && *((int *)&v20) == 1))
                 goto LABEL_4761e2;
 LABEL_4760c4:
             v4 = *((long long *)&(&v21)[8]);
@@ -107,7 +105,7 @@ LABEL_4760c4:
             v27 = 0;
             v25 = &v0;
             v26 = 1;
-            core::option::Option$LT$T$GT$::map_or_else::h11882c33e7a1a822();
+            core::option::Option$LT$T$GT$::map_or_else::h11882c33e7a1a822(&v14, &v23);
             v26 = 1;
             *((int128_t *)&v23) = *((int128_t *)&v14);
             v25 = *((long long *)&v15);

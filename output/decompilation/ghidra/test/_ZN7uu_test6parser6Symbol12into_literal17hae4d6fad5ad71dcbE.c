@@ -1,4 +1,4 @@
-void __rustcall uu_test::parser::Symbol::into_literal(undefined8 param_1,long *param_2)
+void _ZN7uu_test6parser6Symbol12into_literal17hae4d6fad5ad71dcbE(undefined8 param_1,long *param_2)
 
 {
                     /* WARNING: Could not recover jumptable at 0x001aeb16. Too many branches */

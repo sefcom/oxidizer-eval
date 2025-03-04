@@ -9,9 +9,9 @@ long long uu_sum::open::hc6d78e625deb9f03(unsigned long long a0[3], unsigned lon
     char v6;  // [bp-0xf8]
     char v7;  // [bp-0xf0]
     unsigned int v8;  // [sp-0xe0]
-    unsigned long v9;  // [sp-0xd8], Other Possible Types: unsigned long long
+    unsigned long v9;  // [sp-0xd8]
     unsigned long long v10;  // [sp-0xd0]
-    char v11;  // [bp-0xc8], Other Possible Types: unsigned long, unsigned long long
+    char v11;  // [sp-0xc8], Other Possible Types: unsigned long long, unsigned long
     unsigned long v12;  // [sp-0xc0], Other Possible Types: unsigned long long
     char *v13;  // [sp-0xb8]
     unsigned long long v14;  // [sp-0xb0]
@@ -76,7 +76,7 @@ LABEL_4ad17b:
             v15 = 0;
             v13 = &v0;
             v14 = 1;
-            core::option::Option$LT$T$GT$::map_or_else::h820392659395b4d8();
+            core::option::Option$LT$T$GT$::map_or_else::h820392659395b4d8(&v6, &v11);
             v8 = 2;
             v20 = alloc::boxed::Box$LT$T$GT$::new::hbb7787c82d15b868(&v6);
             v21 = &g_5124d8;

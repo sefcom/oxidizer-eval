@@ -1,10 +1,10 @@
 long long uu_dd::Alarm::with_interval::he7e19ce09b7e3abf(struct_0 *a0)
 {
-    unsigned long v0;  // [sp-0x68], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x68]
     void* v1;  // [sp-0x60], Other Possible Types: unsigned long long
     unsigned long long v2;  // [sp-0x58]
     char v3;  // [bp-0x50], Other Possible Types: unsigned long long
-    unsigned long v4;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0x38]
     unsigned long long v5;  // [sp-0x30]
     unsigned int v6;  // [sp-0x28]
     char v7;  // [bp-0x20]

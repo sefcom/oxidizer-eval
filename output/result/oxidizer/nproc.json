@@ -1,17 +1,15 @@
 {
   "decompilation": {
-    "_ZN8uu_nproc6uumain17h73677a343b357d88E": "fn uu_nproc::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0xa8]\n    let v1: u64;  // [sp-0x98]\n    let v2: u64;  // [sp-0x90]\n    let v3: &&struct_1;  // [sp-0x88]\n    let v4: u64;  // [sp-0x80]\n    let v5: void*;  // [sp-0x78]\n    let v6: u64;  // [sp-0x68]\n    let v7: &u64;  // [sp-0x60]\n    let v8: &u8;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: u64;  // [sp-0x38]\n    let v11: i8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v14: u64;  // rax\n    let v15: &u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v14 = uu_nproc::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_4139b0;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    core::option::Option<T>::map_or_else();\n    *(&v8 as &i8) = v11;\n    v10 = v12;\n    if v8 == \"\" {\n        v6 = uucore::util_name();\n        v7 = v15;\n        eprint!(\"{}: \", &v6);\n        eprintln!(\"{}\", &v8);\n    }\n    if !v15[13]() {\n        return v15[12]();\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v15;\n    eprintln!(\"Try '{} --help' for more information.\", &v6);\n}\n",
-    "_ZN8uu_nproc6uumain6uumain17ha3523f563ab9033aE": "fn uu_nproc::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0x410]\n    let v1: i64;  // [bp-0x408], Other Possible Types: Result<struct24, struct8>\n    let v2: i64;  // [sp-0x400]\n    let v3: i64;  // [sp-0x3f8]\n    let v4: i8;  // [sp-0x3f0]\n    let v5: Result<struct8, struct1>;  // [sp-0x3c8], Other Possible Types: i72\n    let v6: i64;  // [sp-0x3b8], Other Possible Types: Result<struct8, struct1>\n    let v7: i64;  // [sp-0x3b0]\n    let v8: i64;  // [sp-0x3a8]\n    let v9: i64;  // [sp-0x3a0]\n    let v10: i448;  // [sp-0x390]\n    let v11: i64;  // [sp-0x388]\n    let v12: i8;  // [bp-0x358]\n    let v13: struct66;  // [bp-0x340]\n    let v14: i64;  // [sp-0x338]\n    let v15: i5696;  // [sp-0x2f8], Other Possible Types: Result<struct24, struct8>, struct24, struct28, struct712, struct41\n    let v16: i64;  // [sp-0x2f0]\n    let v17: i64;  // [sp-0x2e8]\n    let v18: i64;  // [bp-0x2e0]\n    let v19: i64;  // [sp-0x2d8]\n    let v21: i64;  // rax\n    let v22: i64;  // rax\n    let v23: i64;  // r14\n    let v24: i64;  // r15\n    let v25: i64;  // r12\n    let v26: i64;  // rdx\n    let v27: i64;  // rdx\n    let v29: i64;  // rax\n    let v30: i64;  // rax\n    let v31: i64;  // rax\n\n    v15 = uu_nproc::uu_app();\n    clap_builder::builder::command::Command::try_get_matches_from(&v1, &v15, a0, a1);\n    if v10 == 0x8000000000000000 {\n        v21 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v11);\n        return v21;\n    }\n    v10 = v1;\n    v15 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v10, _ZN8uu_nproc10OPT_IGNORE17h5eebb41ffec4ffcbE, g_510d08);\n    v22 = clap_builder::parser::error::MatchesError::unwrap(_ZN8uu_nproc10OPT_IGNORE17h5eebb41ffec4ffcbE, g_510d08, &v15);\n    if !v22 {\n        v25 = 0;\n    } else {\n        v23 = *((v22 + 8) as &i64);\n        v24 = *((v22 + 16) as &i64);\n        v5 = core::num::<impl core::str::traits::FromStr for usize>::from_str(core::str::<impl str>::trim_matches(v23, v24), v26);\n        match v5 {\n            Err(v0) => {\n                v1 = 0;\n                v2 = v23;\n                v3 = v24;\n                v4 = 1;\n                v6 = &v1;\n                v7 = <os_display::Quoted as core::fmt::Display>::fmt;\n                v8 = &v0;\n                v9 = <core::num::error::ParseIntError as core::fmt::Display>::fmt;\n                v15 = struct28 {\n                    field_0: &g_50e4b8\n                    field_16: &v6\n                    field_24: <UNKNOWN>\n                };\n                v19 = 0;\n                v18 = 2;\n                core::option::Option<T>::map_or_else();\n                v0 as u224 = v12;\n                v21 = alloc::boxed::Box<T>::new(&v15);\n                return v21;\n            },\n            Ok(v25) => {\n            },\n        }\n    }\n    v15 = std::env::var(\"OMP_THREAD_LIMIT\");\n    if !(!v15) {\n        goto LABEL_0x462d15;\n    }\n    v27 = *((&v15 as &char + 24) as &i64);\n    v3 = *((&v15 as &char + 24) as &i64);\n    v1 = *((&v15 as &char + 8) as &i128);\n    v6 = core::num::<impl core::str::traits::FromStr for usize>::from_str(v2, v27);\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v10, _ZN8uu_nproc7OPT_ALL17hda6848154e8c5b80E, g_510cf8) as i8 {\n        v29 = uu_nproc::num_cpus_all();\n    } else {\n        v1 = std::env::var(\"OMP_NUM_THREADS\");\n        if v1 {\n            v29 = uu_nproc::available_parallelism();\n            v0 = v29;\n        } else {\n            v8 = v14;\n            v6 = *((&v1 as &char + 8) as &i128);\n            v15 = <char as core::str::pattern::Pattern>::into_searcher(v7, v8);\n            v13 = struct66 {\n                field_0: 0\n                field_8: v8\n                field_16: v15\n                field_32: *((&v15 as &char + 16) as &i128)\n                field_48: *((&v15 as &char + 32) as &i128)\n                field_64: 0\n            };\n            v15 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v13);\n            if !v17 {\n                uu_nproc::available_parallelism();\n                goto LABEL_462e51;\n            } else {\n                v5 = core::num::<impl core::str::traits::FromStr for usize>::from_str(*(v16 as &i64), *((v16 + 8) as &i64));\n                if v5 || !*((&v5 as &char + 8) as &i64) {\n                    uu_nproc::available_parallelism();\nLABEL_462e51:\n                }\n            }\n        }\n    }\n    v30 = core::cmp::min_by(-(0 < vvar_223{reg 56}) | -(v7 < 1) | v7, v29);\n    v31 = v30 - v25;\n    if v30 <= v25 {\n        v31 = 1;\n    }\n    v0 = v31;\n    println!(\"{}\", &v0);\n    return 0;\n}\n",
-    "_ZN8uu_nproc6uu_app17h3da9a545ae06046aE": "fn uu_nproc::uu_app(a0: &struct712) -> u64 {\n    let v0: i4736;  // [sp-0x800], Other Possible Types: struct592, struct437, struct712\n    let v1: i64;  // [sp-0x544]\n    let v2: i32;  // [sp-0x53c]\n    let v3: i4736;  // [sp-0x538], Other Possible Types: struct712, struct592\n    let v4: i4736;  // [sp-0x270], Other Possible Types: struct592, struct24\n    let v6: i64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v6);\n    v3 = clap_builder::builder::command::Command::version(&v0);\n    v0 = clap_builder::builder::command::Command::about(&v3);\n    v4 = uucore::format_usage(\"{} [OPTIONS]...\");\n    v3 = clap_builder::builder::command::Command::override_usage(&v0, &v4);\n    memcpy(&v0, &v3, 700);\n    v1 = 549755814016 | *((&v3 as &char + 700) as &i64);\n    v2 = *((&v3 as &char + 708) as &i32);\n    v3 = clap_builder::builder::arg::Arg::new(\"all\");\n    v4 = clap_builder::builder::arg::Arg::long(&v3, \"all\");\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"print the number of cores available to the system\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"ignore\");\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"ignore\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v4);\n    v4 = clap_builder::builder::arg::Arg::help(&v0, \"ignore up to N cores\");\n    clap_builder::builder::command::Command::arg(a0, &v3, &v4);\n    return a0;\n}\n",
-    "_ZN8uu_nproc12num_cpus_all17h7340e3b3a8ccdb85E": "fn uu_nproc::num_cpus_all() -> u64 {\n    let v0: u64;  // [sp-0x8]\n    let v2: u64;  // rax\n    let v3: u64;  // rax\n\n    v0 = v2;\n    v3 = sysconf(83);\n    if v3 == 1 {\n        return uu_nproc::available_parallelism();\n    } else if v3 <= 1 {\n        return 1;\n    } else {\n        return v3;\n    }\n}\n",
-    "_ZN8uu_nproc21available_parallelism17h0a12aac02eb8d812E": "fn uu_nproc::available_parallelism() -> u64 {\n    let v1: u64;  // rbx\n\n    if !std::thread::available_parallelism() {\n        return v1;\n    }\n    return v1;\n}\n"
+    "_ZN8uu_nproc6uumain17h73677a343b357d88E": "fn uu_nproc::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: String;  // [sp-0x48]\n    let v4: String;  // [sp-0x28]\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v6 = uu_nproc::uumain::uumain(a0, a1);\n    if !v6 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v6;\n    v4 = format!(\"{}\", &v0);\n    v3 = v4;\n    if v3 == \"\" {\n        v2 = v7;\n        show_error!(\"{}\", &v3);\n    }\n    if !*((v7 + 104) as &i64)() {\n        return *((v7 + 96) as &i64)();\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v7;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n}\n",
+    "_ZN8uu_nproc6uumain6uumain17ha3523f563ab9033aE": "fn uu_nproc::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [bp-0x410], Other Possible Types: char\n    let v1: i64;  // [bp-0x408], Other Possible Types: char, Result<struct24, struct8>, int\n    let v2: i64;  // [sp-0x400]\n    let v3: i64;  // [sp-0x3f8]\n    let v4: i8;  // [sp-0x3f0]\n    let v5: Result<struct8, struct1>;  // [sp-0x3c8]\n    let v6: Result<struct8, struct1>;  // [sp-0x3b8], Other Possible Types: int\n    let v7: i64;  // [sp-0x3b0]\n    let v8: i64;  // [sp-0x3a8]\n    let v9: i64;  // [sp-0x390], Other Possible Types: int\n    let v10: i64;  // [sp-0x388]\n    let v11: String;  // [sp-0x358]\n    let v12: struct66;  // [bp-0x340]\n    let v13: i64;  // [sp-0x338]\n    let v14: Result<struct24, struct8>;  // [sp-0x2f8], Other Possible Types: struct24, struct41, struct712, unsigned long\n    let v15: i64;  // [sp-0x2f0]\n    let v16: i64;  // [sp-0x2e8]\n    let v18: i64;  // rax\n    let v19: i64;  // rax\n    let v20: i64;  // r14\n    let v21: i64;  // r15\n    let v22: i64;  // r12\n    let v23: i64;  // rdx\n    let v24: i64;  // r14\n    let v25: i64;  // rdx\n    let v26: i64;  // r15\n    let v29: i64;  // rax\n    let v30: i64;  // rcx\n\n    v14 = uu_nproc::uu_app();\n    clap_builder::builder::command::Command::try_get_matches_from(&v1, &v14, a0, a1);\n    if v9 == 0x8000000000000000 {\n        v18 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v10);\n        return v18;\n    }\n    v9 = *(&v1 as &i448);\n    v14 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v9, _ZN8uu_nproc10OPT_IGNORE17h5eebb41ffec4ffcbE, g_510d08);\n    v19 = clap_builder::parser::error::MatchesError::unwrap(_ZN8uu_nproc10OPT_IGNORE17h5eebb41ffec4ffcbE, g_510d08, &v14);\n    if !v19 {\n        v22 = 0;\n    } else {\n        v20 = *((v19 + 8) as &i64);\n        v21 = *((v19 + 16) as &i64);\n        v5 = core::num::<impl core::str::traits::FromStr for usize>::from_str(core::str::<impl str>::trim_matches(v20, v21), v23);\n        match v5 {\n            Err(v0) => {\n                v1 = 0;\n                v2 = v20;\n                v3 = v21;\n                v4 = 1;\n                v11 = format!(\"{} is not a valid number: {}\", &v1, &v0);\n                v0 as u224 = *(&v11 as &i224);\n                v18 = alloc::boxed::Box<T>::new(&v0);\n                return v18;\n            },\n            Ok(v22) => {\n            },\n        }\n    }\n    v14 = std::env::var(\"OMP_THREAD_LIMIT\");\n    v24 = -1;\n    if !v14 {\n        v25 = *((&v14 as &char + 24) as &i64);\n        v3 = *((&v14 as &char + 24) as &i64);\n        *(&v1 as &i128) = *((&v14 as &char + 8) as &i128);\n        v6 = core::num::<impl core::str::traits::FromStr for usize>::from_str(v2, v25);\n        v24 = -(0 < vvar_221{reg 56}) | -(v7 < 1) | v7;\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, _ZN8uu_nproc7OPT_ALL17hda6848154e8c5b80E, g_510cf8) as i8 {\n        v26 = uu_nproc::num_cpus_all();\n    } else {\n        v1 = std::env::var(\"OMP_NUM_THREADS\");\n        if v1 {\n            v26 = uu_nproc::available_parallelism();\n            v0 = v26;\n        } else {\n            v8 = v13;\n            *(&v6 as &i128) = *((&v1 as &char + 8) as &i128);\n            v14 = <char as core::str::pattern::Pattern>::into_searcher(v7, v8);\n            v12 = struct66 {\n                field_0: 0\n                field_8: v8\n                field_16: *(&v14.field_0 as &i128)\n                field_32: *(&v14.field_16 as &i128)\n                field_48: *((&v14.field_0 as &char + 32) as &i128)\n                field_64: 0\n            };\n            v14 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v12);\n            if !v16 {\n                uu_nproc::available_parallelism();\n                goto LABEL_462e51;\n            } else {\n                v5 = core::num::<impl core::str::traits::FromStr for usize>::from_str(*(v15 as &i64), *((v15 + 8) as &i64));\n                if v5 as i8 || !*((&v5 as &char + 8) as &i64) {\n                    uu_nproc::available_parallelism();\nLABEL_462e51:\n                }\n            }\n        }\n    }\n    v29 = core::cmp::min_by(v24, v26);\n    v30 = (!(v29 <= v22) ? v29 - v22 : 1);\n    v0 = v30;\n    println!(\"{}\", &v0);\n    return 0;\n}\n",
+    "_ZN8uu_nproc6uu_app17h3da9a545ae06046aE": "fn uu_nproc::uu_app(a0: &struct712) -> u64 {\n    let v0: struct592;  // [sp-0x800], Other Possible Types: struct437, struct712\n    let v1: i64;  // [sp-0x544]\n    let v2: i32;  // [sp-0x53c]\n    let v3: struct712;  // [sp-0x538], Other Possible Types: struct592\n    let v4: struct592;  // [sp-0x270], Other Possible Types: struct24\n    let v6: i64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v6);\n    v3 = clap_builder::builder::command::Command::version(&v0);\n    v0 = clap_builder::builder::command::Command::about(&v3);\n    v4 = uucore::format_usage(\"{} [OPTIONS]...\");\n    v3 = clap_builder::builder::command::Command::override_usage(&v0, &v4);\n    memcpy(&v0, &v3, 700);\n    v1 = 549755814016 | *((&v3.field_0 as &char + 700) as &i64);\n    v2 = *((&v3.field_0 as &char + 708) as &i32);\n    v3 = clap_builder::builder::arg::Arg::new(\"all\");\n    v4 = clap_builder::builder::arg::Arg::long(&v3, \"all\");\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"print the number of cores available to the system\");\n    v4 = clap_builder::builder::arg::Arg::action(&v3);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);\n    v0 = clap_builder::builder::arg::Arg::new(\"ignore\");\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"ignore\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v4);\n    v4 = clap_builder::builder::arg::Arg::help(&v0, \"ignore up to N cores\");\n    clap_builder::builder::command::Command::arg(a0, &v3, &v4);\n    return a0;\n}\n",
+    "_ZN8uu_nproc12num_cpus_all17h7340e3b3a8ccdb85E": "fn uu_nproc::num_cpus_all() -> u64 {\n    let v0: u64;  // [sp-0x8]\n    let v2: u64;  // rax\n    let v3: u64;  // rax\n\n    v0 = v2;\n    v3 = sysconf(83);\n    if v3 != 1 {\n        return (v3 > 1 ? v3 : 1);\n    }\n    return uu_nproc::available_parallelism();\n}\n",
+    "_ZN8uu_nproc21available_parallelism17h0a12aac02eb8d812E": "fn uu_nproc::available_parallelism() -> u64 {\n    let v1: u64;  // rax\n    let v2: u64;  // rbx\n\n    v1 = std::thread::available_parallelism();\n    return v2;\n}\n"
   },
   "function_call_counts": {
     "_ZN8uu_nproc6uumain17h73677a343b357d88E": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
-      "uucore::util_name": 1,
-      "core::option::Option<T>::map_or_else": 1,
       "uu_nproc::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
@@ -26,7 +24,6 @@
       "<char as core::str::pattern::Pattern>::into_searcher": 1,
       "std::env::var": 2,
       "alloc::boxed::Box<T>::new": 1,
-      "core::option::Option<T>::map_or_else": 1,
       "core::str::<impl str>::trim_matches": 1,
       "clap_builder::parser::error::MatchesError::unwrap": 1,
       "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 1,
@@ -52,15 +49,19 @@
       "uu_nproc::available_parallelism": 1,
       "sysconf": 1
     },
-    "_ZN8uu_nproc21available_parallelism17h0a12aac02eb8d812E": {}
+    "_ZN8uu_nproc21available_parallelism17h0a12aac02eb8d812E": {
+      "std::thread::available_parallelism": 1
+    }
   },
   "macro_call_counts": {
     "_ZN8uu_nproc6uumain17h73677a343b357d88E": {
-      "eprintln": 2,
-      "eprint": 1
+      "eprintln": 1,
+      "show_error": 1,
+      "format": 1
     },
     "_ZN8uu_nproc6uumain6uumain17ha3523f563ab9033aE": {
-      "println": 1
+      "println": 1,
+      "format": 1
     },
     "_ZN8uu_nproc6uu_app17h3da9a545ae06046aE": {},
     "_ZN8uu_nproc12num_cpus_all17h7340e3b3a8ccdb85E": {},
@@ -68,9 +69,9 @@
   },
   "node_counts": {
     "_ZN8uu_nproc6uumain17h73677a343b357d88E": 9,
-    "_ZN8uu_nproc6uumain6uumain17ha3523f563ab9033aE": 34,
+    "_ZN8uu_nproc6uumain6uumain17ha3523f563ab9033aE": 33,
     "_ZN8uu_nproc6uu_app17h3da9a545ae06046aE": 17,
-    "_ZN8uu_nproc12num_cpus_all17h7340e3b3a8ccdb85E": 4,
+    "_ZN8uu_nproc12num_cpus_all17h7340e3b3a8ccdb85E": 3,
     "_ZN8uu_nproc21available_parallelism17h0a12aac02eb8d812E": 2
   },
   "prototypes": {
@@ -149,10 +150,15 @@
     "_ZN4core6option15Option$LT$T$GT$11map_or_else17h3b8854d416b71613E": {
       "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h3b8854d416b71613E",
       "return_type": [
-        "primitive",
-        8
+        "struct",
+        24
       ],
-      "parameters": []
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
     },
     "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9945f65202c21b8eE": {
       "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9945f65202c21b8eE",
@@ -289,6 +295,14 @@
           8
         ]
       ]
+    },
+    "_ZN3std6thread21available_parallelism17he1b307f401d49c64E": {
+      "name": "_ZN3std6thread21available_parallelism17he1b307f401d49c64E",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": []
     },
     "_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h35e67cae0c0452a5E": {
       "name": "_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h35e67cae0c0452a5E",

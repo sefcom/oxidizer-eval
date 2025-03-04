@@ -16,7 +16,7 @@ fn uu_tail::forwards_thru_file(a0: u32, a1: u32, a2: u32) -> u64 {
     v6 = 0;
     loop {
         v6 = <u64 as core::iter::range::Step>::forward_unchecked(v6);
-        v7 = std::io::read_until(a2, &v0);
+        v7 = std::io::read_until(a2 as u64, &v0);
         if v7 {
             return v7;
         } else if !v8 {

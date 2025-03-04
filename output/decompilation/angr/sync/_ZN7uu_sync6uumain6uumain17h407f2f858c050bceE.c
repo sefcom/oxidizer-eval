@@ -9,24 +9,27 @@ long long uu_sync::uumain::uumain::h407f2f858c050bce(unsigned long long a0, unsi
     char v6;  // [bp-0x378]
     char v7;  // [bp-0x368]
     char v8;  // [bp-0x358]
-    unsigned long v9;  // [sp-0x348], Other Possible Types: unsigned long long
+    unsigned long v9;  // [sp-0x348]
     unsigned long long v10;  // [sp-0x340]
     int v11;  // [sp-0x338]
     int v12;  // [sp-0x328]
     unsigned long long v13;  // [sp-0x318]
     char v14;  // [bp-0x310]
     char v15;  // [bp-0x308]
-    int v16;  // [bp-0x2f8], Other Possible Types: char, unsigned long long
+    int v16;  // [bp-0x2f8], Other Possible Types: char, unsigned long
     unsigned long long v17;  // [sp-0x2f0]
     int v18;  // [bp-0x2e8], Other Possible Types: unsigned long long
     unsigned int v19;  // [sp-0x2e0]
     int v20;  // [sp-0x2d8]
     int v21;  // [sp-0x2c8]
-    void* v25;  // rax
+    void* v25;  // r15
     unsigned long long v28;  // rcx
     unsigned long long v29[3];  // rax
-    unsigned long long v30;  // r12
-    unsigned long long v31;  // rbx
+    unsigned long long v30[3];  // r15
+    unsigned long long v31;  // r12
+    unsigned long long v32;  // rbx
+    unsigned int v33;  // edx
+    unsigned long long v34;  // rax
 
     uu_sync::uu_app::hbd9026fe07cb3ff7(&v16);
     clap_builder::builder::command::Command::try_get_matches_from::hc23ef9eb20649cbc(&v4, &v16, a0, a1);
@@ -69,19 +72,20 @@ long long uu_sync::uumain::uumain::h407f2f858c050bce(unsigned long long a0, unsi
     v29 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h1aca6a860bec0f51(&v16);
     if (v29)
     {
+        v30 = v29;
         do
         {
-            v30 = v29[1];
-            v31 = v29[2];
-            if ((v29 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h1aca6a860bec0f51(&v16), v29))
+            v31 = v30[1];
+            v32 = v30[2];
+            if ((int)nix::fcntl::open::h0c6e2bb6a369b838(v31, v32, 0x800, 0) == 1 && (v33 != 13 || (char)std::path::Path::is_dir::h9ac0db933706da51(v31, v32)) && (v25 = _$LT$nix..errno..consts..Errno$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$::map_err_context::h7dddc6fc9afca155((unsigned long long)v33, v30), v25))
                 goto LABEL_46068c;
-        } while ((v29 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h1aca6a860bec0f51(&v16), v29));
+        } while ((v30 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h1aca6a860bec0f51(&v16), v30));
     }
     if ((char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v9, _ZN7uu_sync7options11FILE_SYSTEM17hd312cdc539073d0fE, g_50f038))
     {
         v18 = v2;
         *((int128_t *)&v16) = *((int128_t *)&v0);
-        v25 = uu_sync::syncfs::he57a0533702037d5(&v16);
+        v34 = uu_sync::syncfs::he57a0533702037d5(&v16);
         goto LABEL_460671;
     }
     else
@@ -103,9 +107,10 @@ LABEL_46068f:
         {
             v18 = v2;
             *((int128_t *)&v16) = *((int128_t *)&v0);
-            v25 = uu_sync::fdatasync::h4c99a721be5a0cf3(&v16);
+            v34 = uu_sync::fdatasync::h4c99a721be5a0cf3(&v16);
 LABEL_460671:
-            if (!v25)
+            v25 = v34;
+            if (!v34)
             {
                 core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h7f65eda5a4ca9139(&v9);
                 return 0;

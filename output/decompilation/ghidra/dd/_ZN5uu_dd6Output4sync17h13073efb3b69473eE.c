@@ -1,4 +1,4 @@
-undefined8 __rustcall uu_dd::Output::sync(byte *param_1)
+undefined8 _ZN5uu_dd6Output4sync17h13073efb3b69473eE(byte *param_1)
 
 {
   undefined8 uVar1;

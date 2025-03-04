@@ -1,11 +1,12 @@
 long long uu_more::search_pattern_in_file::hc37280eeed50663d(unsigned long a0, unsigned long a1, unsigned long long *a2)
 {
-    unsigned long v0;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x40]
     int v1;  // [sp-0x38], Other Possible Types: unsigned long long
     void* v2;  // [sp-0x30]
-    char v3;  // [bp-0x28], Other Possible Types: unsigned long long
-    char v4;  // [bp-0x20], Other Possible Types: unsigned long long
+    char v3;  // [sp-0x28], Other Possible Types: unsigned long
+    char v4;  // [sp-0x20], Other Possible Types: unsigned long long
     void* v5;  // [sp-0x18]
+    void* v7;  // rax
     unsigned long long v8;  // r14
     unsigned long long v9[3];  // rdx
 
@@ -13,13 +14,15 @@ long long uu_more::search_pattern_in_file::hc37280eeed50663d(unsigned long a0, u
     {
         v1 = 1;
         v2 = 0;
+        v7 = 0;
     }
     else
     {
         _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h8f45b0d02f4dafda(&v3, a2);
+        v7 = v3;
         *((int128_t *)&v1) = *((int128_t *)&v4);
     }
-    v0 = 0;
+    v0 = v7;
     if (!a1 || !v2)
     {
         v8 = 0;

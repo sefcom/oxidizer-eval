@@ -1,14 +1,15 @@
 {
   "decompilation": {
-    "_ZN11uu_truncate6uumain17h20efbd28f2ad5597E": "fn uu_truncate::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0xa8]\n    let v1: u64;  // [sp-0x98]\n    let v2: u64;  // [sp-0x90]\n    let v3: &&struct_1;  // [sp-0x88]\n    let v4: u64;  // [sp-0x80]\n    let v5: void*;  // [sp-0x78]\n    let v6: u64;  // [sp-0x68]\n    let v7: &u64;  // [sp-0x60]\n    let v8: &u8;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: u64;  // [sp-0x38]\n    let v11: i8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v14: u64;  // rax\n    let v15: &u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v14 = uu_truncate::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_413a40;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    core::option::Option<T>::map_or_else();\n    *(&v8 as &i8) = v11;\n    v10 = v12;\n    if v8 == \"\" {\n        v6 = uucore::util_name();\n        v7 = v15;\n        eprint!(\"{}: \", &v6);\n        eprintln!(\"{}\", &v8);\n    }\n    if !v15[13]() {\n        return v15[12]();\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v15;\n    eprintln!(\"Try '{} --help' for more information.\", &v6);\n}\n",
-    "_ZN11uu_truncate6uumain6uumain17h0c8e68cadfde9536E": "fn uu_truncate::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0x660]\n    let v1: i64;  // [sp-0x658]\n    let v2: i64;  // [sp-0x650]\n    let v3: i128;  // [bp-0x648], Other Possible Types: struct24\n    let v4: i8;  // [bp-0x640]\n    let v6: i64;  // [sp-0x638]\n    let v8: i8;  // [bp-0x620]\n    let v9: i64;  // [sp-0x610], Other Possible Types: struct44\n    let v10: i128;  // [sp-0x5e8]\n    let v11: i128;  // [sp-0x5d8]\n    let v12: i512;  // [sp-0x5c8], Other Possible Types: Result<struct40, struct8>, struct56, struct712, struct24, struct64\n    let v13: i64;  // [sp-0x5b8]\n    let v14: i5696;  // [sp-0x2f8], Other Possible Types: struct24, struct712, struct64\n    let v19: i64;  // rax\n    let v20: i64;  // rax\n    let v21: i32;  // eax\n    let v22: i32;  // eax\n    let v24: i64;  // r13\n\n    v12 = uu_truncate::uu_app();\n    v14 = clap_builder::builder::command::Command::after_help(&v12, \"SIZE is an integer with an optional prefix and optional unit.\\nThe available units (K, M, G, T, P, E, Z, and Y) use the following format:\\n    'KB' =>           1000 (kilobytes)\\n    'K'  =>           1024 (kibibytes)\\n    'MB' =>      1000*1000 (megabytes)\\n    'M'  =>      1024*1024 (mebibytes)\\n    'GB' => 1000*1000*1000 (gigabytes)\\n    'G'  => 1024*1024*1024 (gibibytes)\\nSIZE may also be prefixed by one of the following to adjust the size of each\\nfile based on its current size:\\n    '+'  => extend by\\n    '-'  => reduce by\\n    '<'  => at most\\n    '>'  => at least\\n    '/'  => round down to multiple of\\n    '%'  => round up to multiple of\");\n    clap_builder::builder::command::Command::try_get_matches_from(&v3, &v14, a0, a1);\n    if v9 == 0x8000000000000000 {\n        uu_truncate::uumain::uumain::{{closure}}(v4);\n        v19 = uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from();\n        return v19;\n    }\n    v10 = v8;\n    v9 = struct44 {\n        field_0: v17\n        field_8: v18\n        field_12: v5\n        field_28: v7\n    };\n    v12 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v9, _ZN11uu_truncate7options9ARG_FILES17hc74d5664c242eaf0E, g_516900);\n    v14 = clap_builder::parser::error::MatchesError::unwrap(_ZN11uu_truncate7options9ARG_FILES17hc74d5664c242eaf0E, g_516900, &v12);\n    if !v14 {\n        v0 = 0;\n        v1 = 8;\n        v2 = 0;\n    } else {\n        v12 = v14;\n        v3 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter_nested::SpecFromIterNested<T,I>>::from_iter(&v12);\n        v20 = v3;\n        v1 = *((&v3 as &char + 8) as &i128);\n        v0 = v20;\n        if v2 {\n            v21 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, _ZN11uu_truncate7options9IO_BLOCKS17ha2b1febcfcfbcee0E, g_5168c0) as i32;\n            v22 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, _ZN11uu_truncate7options9NO_CREATE17hb6d5a1980fdf49e5E, g_5168d0) as i32;\n            v12 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v9, _ZN11uu_truncate7options9REFERENCE17h6c70a849f5a595beE, g_5168e0);\n            if !clap_builder::parser::error::MatchesError::unwrap(_ZN11uu_truncate7options9REFERENCE17h6c70a849f5a595beE, g_5168e0, &v12) {\n                v3 = 0x8000000000000000;\n            } else {\n                core::ops::function::FnOnce::call_once();\n                v6 = v13;\n                v3 = v12;\n            }\n            v12 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v9, _ZN11uu_truncate7options4SIZE17h8592621bba85a515E, g_5168f0);\n            v24 = 0x8000000000000000;\n            if clap_builder::parser::error::MatchesError::unwrap(_ZN11uu_truncate7options4SIZE17h8592621bba85a515E, g_5168f0, &v12) {\n                core::ops::function::FnOnce::call_once();\n                v11 = *((&v12 as &char + 8) as &i128);\n                *(&v12.field_0 as &struct24) = struct24 {\n                    field_0: v12\n                    field_8: v11\n                };\n            }\n            v14 = v3;\n            v12 = v24;\n            uu_truncate::truncate(v22, v21, &v14, &v12, v1, v2);\n            return v19;\n        }\n    }\n    v14 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n    v12 = v14;\n    alloc::boxed::Box<T>::new(&v12);\n    return v19;\n}\n",
+    "_ZN11uu_truncate6uumain17h20efbd28f2ad5597E": "fn uu_truncate::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: String;  // [sp-0x48]\n    let v4: String;  // [sp-0x28]\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v6 = uu_truncate::uumain::uumain(a0, a1);\n    if !v6 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v6;\n    v4 = format!(\"{}\", &v0);\n    v3 = v4;\n    if v3 == \"\" {\n        v2 = v7;\n        show_error!(\"{}\", &v3);\n    }\n    if !*((v7 + 104) as &i64)() {\n        return *((v7 + 96) as &i64)();\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v7;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n}\n",
+    "_ZN11uu_truncate6uumain6uumain17h0c8e68cadfde9536E": "fn uu_truncate::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0x660]\n    let v1: i64;  // [sp-0x658], Other Possible Types: int\n    let v2: i64;  // [sp-0x650]\n    let v3: struct24;  // [sp-0x648], Other Possible Types: unsigned long, char\n    let v4: i8;  // [bp-0x640]\n    let v7: i8;  // [bp-0x620]\n    let v8: i64;  // [bp-0x610], Other Possible Types: struct44\n    let v9: iNone;  // [sp-0x5e8]\n    let v10: iNone;  // [sp-0x5d8]\n    let v11: struct24;  // [sp-0x5c8], Other Possible Types: unsigned long, Result<struct40, struct8>, struct56, struct64, struct712\n    let v12: iNone;  // [bp-0x5c0]\n    let v13: i32;  // [sp-0x5b0]\n    let v14: struct24;  // [sp-0x2f8], Other Possible Types: struct64, struct712\n    let v16: i64;  // r13\n    let v19: i64;  // rbx\n    let v20: i64;  // rax\n    let v21: i32;  // eax\n    let v22: i32;  // eax\n    let v23: i64;  // rax\n    let v24: i64;  // rax\n\n    v16 = 0x8000000000000000;\n    v11 = uu_truncate::uu_app();\n    v14 = clap_builder::builder::command::Command::after_help(&v11, \"SIZE is an integer with an optional prefix and optional unit.\nThe available units (K, M, G, T, P, E, Z, and Y) use the following format:\n    'KB' =>           1000 (kilobytes)\n    'K'  =>           1024 (kibibytes)\n    'MB' =>      1000*1000 (megabytes)\n    'M'  =>      1024*1024 (mebibytes)\n    'GB' => 1000*1000*1000 (gigabytes)\n    'G'  => 1024*1024*1024 (gibibytes)\nSIZE may also be prefixed by one of the following to adjust the size of each\nfile based on its current size:\n    '+'  => extend by\n    '-'  => reduce by\n    '<'  => at most\n    '>'  => at least\n    '/'  => round down to multiple of\n    '%'  => round up to multiple of\");\n    clap_builder::builder::command::Command::try_get_matches_from(&v3, &v14, a0, a1);\n    if v8 == 0x8000000000000000 {\n        v19 = uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(uu_truncate::uumain::uumain::{{closure}}(*(&v4 as &i64)) as i32);\n        return v19;\n    }\n    v9 = *(&v7 as &i128);\n    v8 = struct44 {\n        field_0: v17\n        field_8: v18\n        field_12: *(&v5 as &i128)\n        field_28: *(&v6 as &i128)\n    };\n    v11 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v8, _ZN11uu_truncate7options9ARG_FILES17hc74d5664c242eaf0E, g_516900);\n    v14 = clap_builder::parser::error::MatchesError::unwrap(_ZN11uu_truncate7options9ARG_FILES17hc74d5664c242eaf0E, g_516900, &v11);\n    if !v14.field_0 as i64 {\n        v0 = 0;\n        v1 = 8;\n        v2 = 0;\n    } else {\n        v11 = v14;\n        v3 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter_nested::SpecFromIterNested<T,I>>::from_iter(&v11);\n        v20 = v3.field_0;\n        *(&v1 as &i128) = *(&v3.field_8 as &i128);\n        v0 = v20;\n        if v2 {\n            v21 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v8, _ZN11uu_truncate7options9IO_BLOCKS17ha2b1febcfcfbcee0E, g_5168c0) as i32;\n            v22 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v8, _ZN11uu_truncate7options9NO_CREATE17hb6d5a1980fdf49e5E, g_5168d0) as i32;\n            v11 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v8, _ZN11uu_truncate7options9REFERENCE17h6c70a849f5a595beE, g_5168e0);\n            v23 = clap_builder::parser::error::MatchesError::unwrap(_ZN11uu_truncate7options9REFERENCE17h6c70a849f5a595beE, g_5168e0, &v11);\n            if !v23 {\n                *(&v3 as &i64) = 0x8000000000000000;\n            } else {\n                v11 = core::ops::function::FnOnce::call_once(v23);\n                v3 = v11;\n            }\n            v11 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v8, _ZN11uu_truncate7options4SIZE17h8592621bba85a515E, g_5168f0);\n            v24 = clap_builder::parser::error::MatchesError::unwrap(_ZN11uu_truncate7options4SIZE17h8592621bba85a515E, g_5168f0, &v11);\n            if v24 {\n                v11 = core::ops::function::FnOnce::call_once(v24);\n                v16 = v11;\n                v10 = *(&v11.field_8 as &i128);\n            }\n            v14 = v3;\n            v11 = v16;\n            v12 = v10;\n            v19 = uu_truncate::truncate(v22 as u64, v21 as u64, &v14, &v11, v1, v2);\n            return v19;\n        }\n    }\n    v14 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n    v11 = v14;\n    v13 = 1;\n    v19 = alloc::boxed::Box<T>::new(&v11);\n    return v19;\n}\n",
     "_ZN11uu_truncate12TruncateMode7to_size17h56da67cab21ebb4eE": "fn uu_truncate::TruncateMode::to_size(a0: u32) -> u64 {\n    let v0: u64;  // [sp-0x8]\n    let v2: u64;  // rax\n\n    v0 = v2;\n    goto *((4311524 + vvar_0 * 4) as &i32) + 4311524;\n}\n",
-    "_ZN11uu_truncate6uu_app17h12570e18f36d91c3E": "fn uu_truncate::uu_app(a0: &struct712) -> u64 {\n    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct24\n    let v1: i32;  // [sp-0x800]\n    let v2: i32;  // [sp-0x7fc]\n    let v3: i5696;  // [sp-0x7f8], Other Possible Types: struct592, struct712\n    let v4: i4736;  // [sp-0x530], Other Possible Types: struct592, struct712, struct437\n    let v5: i64;  // [sp-0x274]\n    let v6: i32;  // [sp-0x26c]\n    let v7: i4736;  // [sp-0x268], Other Possible Types: struct592\n    let v9: i64;  // rdx\n\n    v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);\n    v3 = clap_builder::builder::command::Command::version(&v4, \"0.0.28\");\n    v4 = clap_builder::builder::command::Command::about(&v3, \"Shrink or extend the size of each file to the specified size.\");\n    v0 = uucore::format_usage(\"{} [OPTION]... [FILE]...\");\n    v3 = clap_builder::builder::command::Command::override_usage(&v4, &v0);\n    memcpy(&v4, &v3, 700);\n    v5 = 549755814016 | *((&v3 as &char + 700) as &i64);\n    v6 = *((&v3 as &char + 708) as &i32);\n    v3 = clap_builder::builder::arg::Arg::new(\"io-blocks\");\n    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x6f);\n    v3 = clap_builder::builder::arg::Arg::long(&v0, \"io-blocks\");\n    v0 = clap_builder::builder::arg::Arg::help(&v3, \"treat SIZE as the number of I/O blocks of the file rather than bytes (NOT IMPLEMENTED)\");\n    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v4, &v7);\n    v4 = clap_builder::builder::arg::Arg::new(\"no-create\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x63);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"no-create\");\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"do not create files that do not exist\");\n    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v3, &v7);\n    v3 = clap_builder::builder::arg::Arg::new(\"reference\");\n    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x72);\n    v3 = clap_builder::builder::arg::Arg::long(&v0, \"reference\");\n    v0 = clap_builder::builder::arg::Arg::required_unless_present(&v3, \"size\");\n    v3 = clap_builder::builder::arg::Arg::help(&v0, \"base the size of each file on the size of RFILE\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v3, \"RFILE\");\n    v7 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    v3 = clap_builder::builder::command::Command::arg(&v4, &v7);\n    v4 = clap_builder::builder::arg::Arg::new(\"size\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x73);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"size\");\n    v0 = clap_builder::builder::arg::Arg::required_unless_present(&v4, \"reference\");\n    v4 = clap_builder::builder::arg::Arg::help(&v0, \"set or adjust the size of each file according to SIZE, which is in bytes unless --io-blocks is specified\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v4, \"SIZE\");\n    v4 = clap_builder::builder::command::Command::arg(&v3, &v0);\n    v3 = clap_builder::builder::arg::Arg::new(\"files\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v3, \"FILE\");\n    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x1);\n    memcpy(&v0, &v3, 584);\n    v1 = *((&v3 as &char + 584) as &i32) | 1;\n    v2 = *((&v3 as &char + 588) as &i32);\n    v3 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    clap_builder::builder::command::Command::arg(a0, &v4, &v3);\n    return a0;\n}\n",
-    "_ZN11uu_truncate27truncate_reference_and_size17h4e3270fcd25f5342E": "fn uu_truncate::truncate_reference_and_size(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32, a5: u32) -> u64 {\n    let v0: i256;  // [sp-0x158], Other Possible Types: Result<struct32, struct24>\n    let v1: i64;  // [sp-0x138]\n    let v2: i64;  // [sp-0x130]\n    let v3: Result<struct32, struct24>;  // [sp-0x128], Other Possible Types: i256\n    let v4: i8;  // [bp-0x100]\n    let v5: i192;  // [bp-0xe8], Other Possible Types: struct16, struct24, struct28\n    let v6: i64;  // [sp-0xe0]\n    let v7: i64;  // [bp-0xd0]\n    let v8: i64;  // [sp-0xc8]\n    let v9: i64;  // [bp+0x8]\n    let v10: i64;  // r13\n    let v12: i64;  // rsi\n    let v13: i64;  // rdx\n    let v14: i64;  // rax\n    let v17: struct8;  // rax\n\n    v0 = uu_truncate::parse_mode_and_size(a2, a3);\n    if v0 != 3 {\n        v3 = v0;\n        v1 = &v3;\n        v2 = <uucore::parser::parse_size::ParseSizeError as core::fmt::Display>::fmt;\n        v5 = struct28 {\n            field_0: \"Invalid number: \"\n            field_16: &v1\n            field_24: <UNKNOWN>\n        };\n        v8 = 0;\n        v7 = 1;\n        core::option::Option<T>::map_or_else();\n        v5 = v4;\n        v14 = alloc::boxed::Box<T>::new(&v5);\n        return v14;\n    }\n    v10 = *((&v0 as &char + 8) as &i64);\n    if !v10 {\n        v12 = &g_41cc9b;\n        v13 = 55;\n    } else if !(v10 == 5) && !(v10 == 6) || !(!*((&v0 as &char + 16) as &i64)) {\n        v5 = std::fs::metadata(a0, a1);\n        if v5 == 2 {\n            v14 = uu_truncate::truncate_reference_and_size::{{closure}}(a0, a1, v6);\n            return v14;\n        }\n        v5 = a4;\n        v6 = a4 + a5 * 24;\n        loop {\n            v17 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();\n            if !v17 {\n                return 0;\n            }\n            v14 = uu_truncate::file_truncate(*((v17 + 8) as &i64), *((v17 + 16) as &i64), v9, uu_truncate::TruncateMode::to_size(v10));\n            if v14 {\n                return v14;\n            }\n        }\n    } else {\n        v12 = &g_413bb0;\n        v13 = 16;\n    }\n    v5 = <T as alloc::slice::hack::ConvertVec>::to_vec(v12, v13);\n    v7 = 1;\n    v14 = alloc::boxed::Box<T>::new(&v5);\n    return v14;\n}\n",
-    "_ZN11uu_truncate28truncate_reference_file_only17h8a3d13789e4c1f75E": "fn uu_truncate::truncate_reference_file_only(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {\n    let v0: u64;  // [sp-0xd8], Other Possible Types: struct16\n    let v1: u32;  // [sp-0xd0]\n    let v2: i8;  // [bp-0x88]\n    let v4: void*;  // rax\n    let v6: struct8;  // rax\n\n    v0 = std::fs::metadata(a0, a1);\n    if v0 as i32 == 2 {\n        v4 = uu_truncate::truncate_reference_file_only::{{closure}}(a0, a1, v1);\n        return v4;\n    }\n    v0 = a2;\n    v1 = a2 + a3 * 24;\n    loop {\n        v6 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();\n        if !v6 {\n            return 0;\n        }\n        v4 = uu_truncate::file_truncate(*((v6 + 8) as &i64), *((v6 + 16) as &i64), a4, v2);\n        if v4 {\n            return v4;\n        }\n    }\n}\n",
-    "_ZN11uu_truncate18truncate_size_only17hdbbffa5e97261080E": "fn uu_truncate::truncate_size_only(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {\n    let v0: i224;  // [sp-0x178], Other Possible Types: struct28, Result<struct32, struct24>\n    let v1: i64;  // [sp-0x170]\n    let v2: i64;  // [sp-0x168]\n    let v3: i64;  // [bp-0x160]\n    let v4: i64;  // [sp-0x158]\n    let v5: i64;  // [sp-0x140]\n    let v6: i64;  // [sp-0x138]\n    let v7: i64;  // [sp-0x130]\n    let v8: i64;  // [sp-0x128]\n    let v10: i64;  // [sp-0x108]\n    let v11: i128;  // [sp-0x100]\n    let v12: i8;  // [sp-0xf0]\n    let v13: i128;  // [bp-0xe8], Other Possible Types: struct32, struct24, struct16\n    let v14: i32;  // [sp-0xd0]\n    let v15: i8;  // [bp-0xb0]\n    let v17: i64;  // rbx\n    let v19: i64;  // rax\n    let v20: struct8;  // rax\n    let v21: struct8;  // r12\n\n    v0 = uu_truncate::parse_mode_and_size(a0, a1);\n    if v0 != 3 {\n        v13 = struct32 {\n            field_0: v18\n            field_16: *((&v0 as &char + 16) as &i128)\n        };\n        v19 = uu_truncate::truncate_size_only::{{closure}}(&v13);\n        goto LABEL_4ae057;\n    } else {\n        v17 = v1;\n        if v17 != 5 && v17 != 6 || v2 {\n            v5 = a2;\n            v6 = a2 + a3 * 24;\n            loop {\n                v20 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();\n                if !v20 {\n                    return 0;\n                }\n                v21 = v20;\n                v13 = std::fs::metadata(v20);\n                if v13 != 2 && (v15 & 0xf000) == 0x1000 {\n                    v10 = 0;\n                    v11 = *((v21 + 8) as &i128);\n                    v12 = 1;\n                    v7 = &v10;\n                    v8 = <os_display::Quoted as core::fmt::Display>::fmt;\n                    v0 = struct28 {\n                        field_0: \"cannot open \"\n                        field_16: &v7\n                        field_24: <UNKNOWN>\n                    };\n                    v4 = 0;\n                    v3 = 1;\n                    core::option::Option<T>::map_or_else();\n                    v19 = alloc::boxed::Box<T>::new(&v0);\n                    break;\n                }\n                v19 = uu_truncate::file_truncate(*((v21 + 8) as &i64), *((v21 + 16) as &i64), a4, uu_truncate::TruncateMode::to_size(v17));\n                if v19 {\n                    return v19;\n                }\n            }\n        } else {\n            v13 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"division by zero\");\n            v14 = 1;\n            v19 = alloc::boxed::Box<T>::new(&v13);\nLABEL_4ae057:\n        }\n    }\n    return v19;\n}\n",
-    "_ZN11uu_truncate8truncate17hee69817ccf70944aE": "fn uu_truncate::truncate(a0: u8, a1: u32, a2: &struct24, a3: &struct24, a4: u32, a5: u32) -> u64 {\n    let v0: u32;  // [sp-0x58]\n    let v1: u128;  // [sp-0x48]\n    let v2: u64;  // [sp-0x38]\n    let v3: u128;  // [sp-0x28]\n    let v4: u64;  // [sp-0x18]\n    let v6: u8;  // dil\n    let v7: u64;  // rsi\n    let v8: u64;  // rax\n    let v9: u64;  // rax\n    let v10: u64;  // rbx\n\n    v6 = a0 ^ 1;\n    v7 = a3->field_0;\n    if a2->field_0 == 0x8000000000000000 {\n        if v7 == 0x8000000000000000 {\n            core::panicking::panic(\"internal error: entered unreachable code\", \"src/uu/truncate/src/truncate.rs\"); /* do not return */\n        }\n        v1 = *(&a3->field_0 as &i128);\n        v2 = a3->field_10;\n        v8 = uu_truncate::truncate_size_only(*((&v1 as &char + 8) as &i64), a3->field_10, a4, a5, v6);\n    } else if v7 == 0x8000000000000000 {\n        v1 = *(&a2->field_0 as &i128);\n        v2 = a2->field_10;\n        v9 = uu_truncate::truncate_reference_file_only(*((&v1 as &char + 8) as &i64), a2->field_10, a4, a5, v6);\n    } else {\n        v4 = a2->field_10;\n        v3 = *(&a2->field_0 as &i128);\n        v1 = *(&a3->field_0 as &i128);\n        v2 = a3->field_10;\n        v0 = v6;\n        uu_truncate::truncate_reference_and_size(*((&v3 as &char + 8) as &i64), a2->field_10, *((&v1 as &char + 8) as &i64), a3->field_10, a4, a5);\n        return v10;\n    }\n    return v10;\n}\n",
-    "_ZN11uu_truncate19parse_mode_and_size17hbf18cbb89603c372E": "fn uu_truncate::parse_mode_and_size(a0: &Result<struct32, struct24>, a1: u64, a2: u64) -> u64 {\n    let v0: i64;  // [sp-0x188]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: i8;  // [bp-0x58]\n    let v4: i8;  // [bp-0x50]\n    let v6: struct24;  // [sp-0x38]\n    let v8: i64;  // r15\n    let v9: i64;  // rdx\n    let v11: i64;  // r14\n    let v13: i64;  // rdi\n\n    v8 = core::str::<impl str>::trim_matches(a1, a2);\n    v1 = v8;\n    v2 = v9 + v8;\n    if !core::str::validations::next_code_point(&v1) as i32 {\n        v6 = <T as alloc::slice::hack::ConvertVec>::to_vec(v8, v9);\n        return Err(struct24 {\n            field_0: v6\n            field_16: v10\n        });\n    }\n    if v9 as u32 <= 62 {\n        v0 = 0x5000a82000000000;\n        if (*((&v0 as &u8 + ((v9 as u32 & 63) >> 3)) as &i8) >> (v9 as u32 & 63 & 7) & 1) {\n            v8 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v8, v9);\n        }\n    }\n    uucore::parser::parse_size::parse_size_u64(v8, v11);\n    v13 = uu_truncate::TruncateMode::Absolute;\n    match (v9 as u32) {\n        37 => {\n            v13 = uu_truncate::TruncateMode::RoundUp;\n            if v3 != 3 {\n                return Ok(struct32 {\n                    field_0: v14\n                    field_16: v5\n                });\n            }\n        }\n        43 => {\n            v13 = uu_truncate::TruncateMode::Extend;\n            if v3 != 3 {\n                return Ok(struct32 {\n                    field_0: v14\n                    field_16: v5\n                });\n            }\n        }\n        45 => {\n            v13 = uu_truncate::TruncateMode::Reduce;\n            if v3 != 3 {\n                return Ok(struct32 {\n                    field_0: v14\n                    field_16: v5\n                });\n            }\n        }\n        47 => {\n            v13 = uu_truncate::TruncateMode::RoundDown;\n            goto LABEL_4ae4aa;\n        }\n        60 => {\n            v13 = uu_truncate::TruncateMode::AtMost;\n            if v3 != 3 {\n                return Ok(struct32 {\n                    field_0: v14\n                    field_16: v5\n                });\n            }\n        }\n        62 => {\n            v13 = uu_truncate::TruncateMode::AtLeast;\n            if v3 != 3 {\n                return Ok(struct32 {\n                    field_0: v14\n                    field_16: v5\n                });\n            }\n        }\n        _ => {\nLABEL_4ae4aa:\n            if v3 != 3 {\n                return Ok(struct32 {\n                    field_0: v14\n                    field_16: v5\n                });\n            }\n        }\n    }\n    core::ops::function::FnOnce::call_once(v13, v4);\n    return struct24 {\n        field_0: 3\n        field_8: v10\n        field_16: v9\n    };\n}\n",
+    "_ZN11uu_truncate6uu_app17h12570e18f36d91c3E": "fn uu_truncate::uu_app(a0: &struct712) -> u64 {\n    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct24\n    let v1: i32;  // [sp-0x800]\n    let v2: i32;  // [sp-0x7fc]\n    let v3: struct592;  // [sp-0x7f8], Other Possible Types: struct712\n    let v4: struct592;  // [sp-0x530], Other Possible Types: struct712, struct437\n    let v5: i64;  // [sp-0x274]\n    let v6: i32;  // [sp-0x26c]\n    let v7: struct592;  // [sp-0x268]\n    let v9: i64;  // rdx\n\n    v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);\n    v3 = clap_builder::builder::command::Command::version(&v4, \"0.0.28\");\n    v4 = clap_builder::builder::command::Command::about(&v3, \"Shrink or extend the size of each file to the specified size.\");\n    v0 = uucore::format_usage(\"{} [OPTION]... [FILE]...\");\n    v3 = clap_builder::builder::command::Command::override_usage(&v4, &v0);\n    memcpy(&v4, &v3, 700);\n    v5 = 549755814016 | *((&v3.field_0 as &char + 700) as &i64);\n    v6 = *((&v3.field_0 as &char + 708) as &i32);\n    v3 = clap_builder::builder::arg::Arg::new(\"io-blocks\");\n    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x6f);\n    v3 = clap_builder::builder::arg::Arg::long(&v0, \"io-blocks\");\n    v0 = clap_builder::builder::arg::Arg::help(&v3, \"treat SIZE as the number of I/O blocks of the file rather than bytes (NOT IMPLEMENTED)\");\n    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v4, &v7);\n    v4 = clap_builder::builder::arg::Arg::new(\"no-create\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x63);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"no-create\");\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"do not create files that do not exist\");\n    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v3, &v7);\n    v3 = clap_builder::builder::arg::Arg::new(\"reference\");\n    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x72);\n    v3 = clap_builder::builder::arg::Arg::long(&v0, \"reference\");\n    v0 = clap_builder::builder::arg::Arg::required_unless_present(&v3, \"size\");\n    v3 = clap_builder::builder::arg::Arg::help(&v0, \"base the size of each file on the size of RFILE\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v3, \"RFILE\");\n    v7 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    v3 = clap_builder::builder::command::Command::arg(&v4, &v7);\n    v4 = clap_builder::builder::arg::Arg::new(\"size\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x73);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"size\");\n    v0 = clap_builder::builder::arg::Arg::required_unless_present(&v4, \"reference\");\n    v4 = clap_builder::builder::arg::Arg::help(&v0, \"set or adjust the size of each file according to SIZE, which is in bytes unless --io-blocks is specified\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v4, \"SIZE\");\n    v4 = clap_builder::builder::command::Command::arg(&v3, &v0);\n    v3 = clap_builder::builder::arg::Arg::new(\"files\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v3, \"FILE\");\n    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x1);\n    memcpy(&v0, &v3, 584);\n    v1 = *((&v3.field_0 as &char + 584) as &i32) | 1;\n    v2 = *((&v3.field_0 as &char + 588) as &i32);\n    v3 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    clap_builder::builder::command::Command::arg(a0, &v4, &v3);\n    return a0;\n}\n",
+    "_ZN11uu_truncate13file_truncate17h8689dfa8e5b80143E": "fn uu_truncate::file_truncate(a0: u32, a1: u32, a2: u8, a3: u32) -> u64 {\n    let v0: Result<struct4, struct8>;  // [sp-0x148], Other Possible Types: int\n    let v1: i64;  // [sp-0x140]\n    let v2: i64;  // [bp-0x118]\n    let v3: i64;  // [sp-0x110]\n    let v4: i64;  // [sp-0x108]\n    let v5: i8;  // [sp-0x100]\n    let v6: String;  // [sp-0xe8]\n    let v7: i64;  // [sp-0xd0], Other Possible Types: struct13, Result<struct176, struct8>\n    let v8: i8;  // [sp-0xc7]\n    let v9: i16;  // [bp-0xc4]\n    let v11: i64;  // rax\n    let v12: i64;  // r15\n\n    v7 = std::fs::metadata(a0, a1);\n    if v7 != 2 && (0xf000 & *((&v7 as &char + 56) as &i32)) == 0x1000 {\n        *(&v2 as &i64) = 0;\n        v3 = a0;\n        v4 = a1;\n        v5 = 1;\n        v6 = format!(\"cannot open {} for writing: No such device or address\", &v2);\n        v0 = *(&v6 as &i224);\n        v11 = alloc::boxed::Box<T>::new(&v0);\n        return v11;\n    }\n    v7 = struct13 {\n        field_0: 0x1b600000000\n        field_8: 0\n        field_12: a2\n    };\n    *(&v9 as &i16) = 0;\n    v8 = 1;\n    v0 = std::fs::OpenOptions::open(&v7, a0, a1);\n    match v0 {\n        Ok(v0) => {\n        },\n        Err(v12) => {\n            if !std::io::error::Error::kind(v12) as i8 && !a2 {\n                v12 = 0;\n            }\n        },\n    }\n    v11 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v12, a0, a1);\n    return v11;\n}\n",
+    "_ZN11uu_truncate27truncate_reference_and_size17h4e3270fcd25f5342E": "fn uu_truncate::truncate_reference_and_size(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32, a5: u32) -> u64 {\n    let v0: Result<struct32, struct24>;  // [sp-0x158]\n    let v1: Result<struct32, struct24>;  // [sp-0x128]\n    let v2: String;  // [sp-0x100]\n    let v3: i64;  // [sp-0xe8], Other Possible Types: Result<struct176, struct8>, int, struct24\n    let v4: i64;  // [sp-0xe0]\n    let v5: i32;  // [bp-0xd0]\n    let v6: i64;  // [bp+0x8]\n    let v7: i64;  // r13\n    let v9: i64;  // rsi\n    let v10: i64;  // rdx\n    let v11: i64;  // rax\n    let v14: struct8;  // rax\n\n    v0 = uu_truncate::parse_mode_and_size(a2, a3);\n    if v0 as i32 != 3 {\n        v1 = v0;\n        v2 = format!(\"Invalid number: {}\", &v1);\n        v3 = *(&v2 as &i224);\n        v11 = alloc::boxed::Box<T>::new(&v3);\n        return v11;\n    }\n    v7 = *((&v0 as &char + 8) as &i64);\n    if !v7 {\n        v9 = &g_41cc9b;\n        v10 = 55;\n    } else if !(v7 as u32 == 5) && !(v7 as u32 == 6) || !(!*((&v0 as &char + 16) as &i64)) {\n        v3 = std::fs::metadata(a0, a1);\n        match v3 {\n            Err(_) => {\n                v11 = uu_truncate::truncate_reference_and_size::{{closure}}(a0, a1, v4);\n                return v11;\n            },\n            Ok(_) => {\n                v3 = a4;\n                v4 = a4 + a5 * 24;\n                loop {\n                    v14 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();\n                    if !v14 {\n                        return 0;\n                    }\n                    v11 = uu_truncate::file_truncate(*((v14 + 8) as &i64), *((v14 + 16) as &i64), v6 as i8 as u8 as u32 as u64, uu_truncate::TruncateMode::to_size(v7));\n                    if v11 {\n                        return v11;\n                    }\n                }\n            },\n        }\n    } else {\n        v9 = &g_413bb0;\n        v10 = 16;\n    }\n    v3 = <T as alloc::slice::hack::ConvertVec>::to_vec(v9, v10);\n    *(&v5 as &i32) = 1;\n    v11 = alloc::boxed::Box<T>::new(&v3);\n    return v11;\n}\n",
+    "_ZN11uu_truncate28truncate_reference_file_only17h8a3d13789e4c1f75E": "fn uu_truncate::truncate_reference_file_only(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {\n    let v0: i64;  // [sp-0xd8], Other Possible Types: Result<struct176, struct8>\n    let v1: i64;  // [sp-0xd0]\n    let v3: i64;  // rax\n    let v5: struct8;  // rax\n\n    v0 = std::fs::metadata(a0, a1);\n    match v0 {\n        Err(_) => {\n            v3 = uu_truncate::truncate_reference_file_only::{{closure}}(a0, a1, v1);\n            return v3;\n        },\n        Ok(_) => {\n            v0 = a2;\n            v1 = a2 + a3 * 24;\n            loop {\n                v5 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();\n                if !v5 {\n                    return 0;\n                }\n                v3 = uu_truncate::file_truncate(*((v5 + 8) as &i64), *((v5 + 16) as &i64), a4 as u64, *((&v0 as &char + 80) as &i64));\n                if v3 {\n                    return v3;\n                }\n            }\n        },\n    }\n}\n",
+    "_ZN11uu_truncate18truncate_size_only17hdbbffa5e97261080E": "fn uu_truncate::truncate_size_only(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {\n    let v0: String;  // [sp-0x178], Other Possible Types: Result<struct32, struct24>\n    let v1: i64;  // [sp-0x170]\n    let v2: i64;  // [sp-0x168]\n    let v3: i32;  // [bp-0x160]\n    let v4: i64;  // [sp-0x140]\n    let v5: i64;  // [sp-0x138]\n    let v6: String;  // [sp-0x120]\n    let v7: i64;  // [sp-0x108]\n    let v8: iNone;  // [sp-0x100]\n    let v9: i8;  // [sp-0xf0]\n    let v10: struct24;  // [bp-0xe8], Other Possible Types: Result<struct176, struct8>, struct32\n    let v11: i32;  // [sp-0xd0]\n    let v13: i64;  // rbx\n    let v15: i64;  // rax\n    let v16: struct8;  // rax\n    let v17: struct8;  // r12\n    let v18: i64;  // rax\n    let v19: i64;  // r12\n\n    v0 = uu_truncate::parse_mode_and_size(a0, a1);\n    if v0 as i32 != 3 {\n        v10 = struct32 {\n            field_0: v14\n            field_16: *((&v0 as &char + 16) as &i128)\n        };\n        v15 = uu_truncate::truncate_size_only::{{closure}}(&v10);\n        goto LABEL_4ae057;\n    } else {\n        v13 = v1;\n        if v13 != 5 && v13 as u32 != 6 || v2 {\n            v4 = a2;\n            v5 = a2 + a3 * 24;\n            loop {\n                v16 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();\n                if !v16 {\n                    return 0;\n                }\n                v17 = v16;\n                v10 = std::fs::metadata(v16);\n                if v10 as i64 != 2 && (*((&v10 as &char + 56) as &i32) & 0xf000) == 0x1000 {\n                    v7 = 0;\n                    v8 = *((v17 + 8) as &i128);\n                    v9 = 1;\n                    v6 = format!(\"cannot open {} for writing: No such device or address\", &v7);\n                    *(&v3 as &i32) = 1;\n                    v0 = v6;\n                    break;\n                }\n                v18 = uu_truncate::file_truncate(*((v17 + 8) as &i64), *((v17 + 16) as &i64), a4 as u64, uu_truncate::TruncateMode::to_size(v13));\n                if v18 {\n                    v19 = v18;\n                    return v19;\n                }\n            }\n        } else {\n            v10 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"division by zero\");\n            v11 = 1;\n            v15 = alloc::boxed::Box<T>::new(&v10);\nLABEL_4ae057:\n            v19 = v15;\n        }\n    }\n    return v19;\n}\n",
+    "_ZN11uu_truncate8truncate17hee69817ccf70944aE": "fn uu_truncate::truncate(a0: u8, a1: u32, a2: void*, a3: void*, a4: u32, a5: u32) -> u64 {\n    let v0: u32;  // [sp-0x58]\n    let v1: u128;  // [sp-0x48]\n    let v2: u64;  // [sp-0x38]\n    let v3: u128;  // [sp-0x28]\n    let v4: u64;  // [sp-0x18]\n    let v6: u8;  // dil\n    let v7: u64;  // rsi\n    let v8: u64;  // rax\n    let v9: u64;  // rax\n    let v10: u64;  // rbx\n\n    v6 = a0 ^ 1;\n    v7 = a3->field_0;\n    if a2->field_0 == 0x8000000000000000 {\n        if v7 == 0x8000000000000000 {\n            core::panicking::panic(\"internal error: entered unreachable code\", \"src/uu/truncate/src/truncate.rs\"); /* do not return */\n        }\n        v1 = *(&a3->field_0 as &i128);\n        v2 = *(&a3->field_10 as &i64);\n        v8 = uu_truncate::truncate_size_only(*((&v1 as &char + 8) as &i64), *(&a3->field_10 as &i64), a4, a5, v6);\n    } else if v7 == 0x8000000000000000 {\n        v1 = *(&a2->field_0 as &i128);\n        v2 = *(&a2->field_10 as &i64);\n        v9 = uu_truncate::truncate_reference_file_only(*((&v1 as &char + 8) as &i64), *(&a2->field_10 as &i64), a4, a5, v6);\n    } else {\n        v4 = *(&a2->field_10 as &i64);\n        v3 = *(&a2->field_0 as &i128);\n        v1 = *(&a3->field_0 as &i128);\n        v2 = *(&a3->field_10 as &i64);\n        v0 = v6;\n        return v10;\n    }\n    return v10;\n}\n",
+    "_ZN11uu_truncate19parse_mode_and_size17hbf18cbb89603c372E": "fn uu_truncate::parse_mode_and_size(a0: &Result<struct32, struct24>, a1: u64, a2: u64) -> u64 {\n    let v0: i64;  // [sp-0x188]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: i8;  // [bp-0x58]\n    let v4: i8;  // [bp-0x50]\n    let v6: struct24;  // [sp-0x38]\n    let v8: i64;  // r15\n    let v9: i64;  // rdx\n    let v11: i64;  // r14\n    let v12: i64;  // rdi\n\n    v8 = core::str::<impl str>::trim_matches(a1, a2);\n    v1 = v8;\n    v2 = v9 + v8;\n    if !core::str::validations::next_code_point(&v1) as i32 {\n        v6 = <T as alloc::slice::hack::ConvertVec>::to_vec(v8, v9);\n        return Err(struct8 {\n            field_8: <UNKNOWN>\n        });\n    }\n    if v9 as u32 <= 62 {\n        v0 = 0x5000a82000000000;\n        if (*((&v0 as &u8 + ((v9 as u32 & 63) >> 3)) as &i8) >> (v9 as u32 & 63 & 7) & 1) {\n            v8 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v8, v9);\n        }\n    }\n    uucore::parser::parse_size::parse_size_u64(v8, v11);\n    v12 = uu_truncate::TruncateMode::Absolute;\n    match (v9 as u32) {\n        37 => {\n            v12 = uu_truncate::TruncateMode::RoundUp;\n            if *(&v3 as &i32) != 3 {\n                return Ok(struct32 {\n                    field_0: v13\n                    field_16: *(&v5 as &i128)\n                });\n            }\n        }\n        43 => {\n            v12 = uu_truncate::TruncateMode::Extend;\n            if *(&v3 as &i32) != 3 {\n                return Ok(struct32 {\n                    field_0: v13\n                    field_16: *(&v5 as &i128)\n                });\n            }\n        }\n        45 => {\n            v12 = uu_truncate::TruncateMode::Reduce;\n            if *(&v3 as &i32) != 3 {\n                return Ok(struct32 {\n                    field_0: v13\n                    field_16: *(&v5 as &i128)\n                });\n            }\n        }\n        47 => {\n            v12 = uu_truncate::TruncateMode::RoundDown;\n            goto LABEL_4ae4aa;\n        }\n        60 => {\n            v12 = uu_truncate::TruncateMode::AtMost;\n            if *(&v3 as &i32) != 3 {\n                return Ok(struct32 {\n                    field_0: v13\n                    field_16: *(&v5 as &i128)\n                });\n            }\n        }\n        62 => {\n            v12 = uu_truncate::TruncateMode::AtLeast;\n            if *(&v3 as &i32) != 3 {\n                return Ok(struct32 {\n                    field_0: v13\n                    field_16: *(&v5 as &i128)\n                });\n            }\n        }\n        _ => {\nLABEL_4ae4aa:\n            if *(&v3 as &i32) != 3 {\n                return Ok(struct32 {\n                    field_0: v13\n                    field_16: *(&v5 as &i128)\n                });\n            }\n        }\n    }\n    core::ops::function::FnOnce::call_once(v12, *(&v4 as &i64));\n    return struct24 {\n        field_0: 3\n        field_8: v10\n        field_16: v9\n    };\n}\n",
     "_ZN11uu_truncate12TruncateMode8Absolute17h347de2dbbee0cf00E": "fn uu_truncate::TruncateMode::Absolute(a0: u32) -> u64 {\n    return 0;\n}\n",
     "_ZN11uu_truncate12TruncateMode6Extend17h27ea7d0ae1c2c8a5E": "fn uu_truncate::TruncateMode::Extend(a0: u32) -> u64 {\n    return 1;\n}\n",
     "_ZN11uu_truncate12TruncateMode6Reduce17h771393dc84ef47d0E": "fn uu_truncate::TruncateMode::Reduce(a0: u32) -> u64 {\n    return 2;\n}\n",
@@ -21,8 +22,6 @@
     "_ZN11uu_truncate6uumain17h20efbd28f2ad5597E": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
-      "uucore::util_name": 1,
-      "core::option::Option<T>::map_or_else": 1,
       "uu_truncate::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
@@ -34,10 +33,10 @@
       "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
       "uu_truncate::truncate": 1,
       "core::ops::function::FnOnce::call_once": 2,
+      "clap_builder::parser::error::MatchesError::unwrap": 3,
       "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 2,
       "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 2,
       "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter_nested::SpecFromIterNested<T,I>>::from_iter": 1,
-      "clap_builder::parser::error::MatchesError::unwrap": 1,
       "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
       "clap_builder::builder::command::Command::try_get_matches_from": 1,
       "clap_builder::builder::command::Command::after_help": 1,
@@ -62,9 +61,14 @@
       "clap_builder::builder::command::Command::new": 1,
       "uucore::util_name": 1
     },
+    "_ZN11uu_truncate13file_truncate17h8689dfa8e5b80143E": {
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "std::fs::OpenOptions::open": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "std::fs::metadata": 1
+    },
     "_ZN11uu_truncate27truncate_reference_and_size17h4e3270fcd25f5342E": {
       "alloc::boxed::Box<T>::new": 2,
-      "core::option::Option<T>::map_or_else": 1,
       "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
       "uu_truncate::truncate_reference_and_size::{{closure}}": 1,
       "uu_truncate::file_truncate": 1,
@@ -83,18 +87,16 @@
       "uu_truncate::truncate_size_only::{{closure}}": 1,
       "uu_truncate::file_truncate": 1,
       "uu_truncate::TruncateMode::to_size": 1,
-      "alloc::boxed::Box<T>::new": 2,
-      "core::option::Option<T>::map_or_else": 1,
       "std::fs::metadata": 1,
       "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 1,
+      "alloc::boxed::Box<T>::new": 1,
       "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
       "uu_truncate::parse_mode_and_size": 1
     },
     "_ZN11uu_truncate8truncate17hee69817ccf70944aE": {
       "uu_truncate::truncate_size_only": 1,
       "core::panicking::panic": 1,
-      "uu_truncate::truncate_reference_file_only": 1,
-      "uu_truncate::truncate_reference_and_size": 1
+      "uu_truncate::truncate_reference_file_only": 1
     },
     "_ZN11uu_truncate19parse_mode_and_size17hbf18cbb89603c372E": {
       "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
@@ -113,15 +115,23 @@
   },
   "macro_call_counts": {
     "_ZN11uu_truncate6uumain17h20efbd28f2ad5597E": {
-      "eprintln": 2,
-      "eprint": 1
+      "eprintln": 1,
+      "show_error": 1,
+      "format": 1
     },
     "_ZN11uu_truncate6uumain6uumain17h0c8e68cadfde9536E": {},
     "_ZN11uu_truncate12TruncateMode7to_size17h56da67cab21ebb4eE": {},
     "_ZN11uu_truncate6uu_app17h12570e18f36d91c3E": {},
-    "_ZN11uu_truncate27truncate_reference_and_size17h4e3270fcd25f5342E": {},
+    "_ZN11uu_truncate13file_truncate17h8689dfa8e5b80143E": {
+      "format": 1
+    },
+    "_ZN11uu_truncate27truncate_reference_and_size17h4e3270fcd25f5342E": {
+      "format": 1
+    },
     "_ZN11uu_truncate28truncate_reference_file_only17h8a3d13789e4c1f75E": {},
-    "_ZN11uu_truncate18truncate_size_only17hdbbffa5e97261080E": {},
+    "_ZN11uu_truncate18truncate_size_only17hdbbffa5e97261080E": {
+      "format": 1
+    },
     "_ZN11uu_truncate8truncate17hee69817ccf70944aE": {},
     "_ZN11uu_truncate19parse_mode_and_size17hbf18cbb89603c372E": {},
     "_ZN11uu_truncate12TruncateMode8Absolute17h347de2dbbee0cf00E": {},
@@ -134,12 +144,13 @@
   },
   "node_counts": {
     "_ZN11uu_truncate6uumain17h20efbd28f2ad5597E": 9,
-    "_ZN11uu_truncate6uumain6uumain17h0c8e68cadfde9536E": 26,
+    "_ZN11uu_truncate6uumain6uumain17h0c8e68cadfde9536E": 28,
     "_ZN11uu_truncate12TruncateMode7to_size17h56da67cab21ebb4eE": 1,
     "_ZN11uu_truncate6uu_app17h12570e18f36d91c3E": 40,
+    "_ZN11uu_truncate13file_truncate17h8689dfa8e5b80143E": 10,
     "_ZN11uu_truncate27truncate_reference_and_size17h4e3270fcd25f5342E": 18,
     "_ZN11uu_truncate28truncate_reference_file_only17h8a3d13789e4c1f75E": 8,
-    "_ZN11uu_truncate18truncate_size_only17hdbbffa5e97261080E": 17,
+    "_ZN11uu_truncate18truncate_size_only17hdbbffa5e97261080E": 18,
     "_ZN11uu_truncate8truncate17hee69817ccf70944aE": 7,
     "_ZN11uu_truncate19parse_mode_and_size17hbf18cbb89603c372E": 22,
     "_ZN11uu_truncate12TruncateMode8Absolute17h347de2dbbee0cf00E": 1,
@@ -286,11 +297,11 @@
         ]
       ]
     },
-    "_ZN11uu_truncate6uumain6uumain28_$u7b$$u7b$closure$u7d$$u7d$17hd9fe050d90548bacE": {
-      "name": "_ZN11uu_truncate6uumain6uumain28_$u7b$$u7b$closure$u7d$$u7d$17hd9fe050d90548bacE",
+    "_ZN4core3ops8function6FnOnce9call_once17h4b133a0e04674206E": {
+      "name": "_ZN4core3ops8function6FnOnce9call_once17h4b133a0e04674206E",
       "return_type": [
-        "primitive",
-        8
+        "struct",
+        24
       ],
       "parameters": [
         [
@@ -299,21 +310,18 @@
         ]
       ]
     },
-    "_ZN4core3ops8function6FnOnce9call_once17h4b133a0e04674206E": {
-      "name": "_ZN4core3ops8function6FnOnce9call_once17h4b133a0e04674206E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": []
-    },
     "_ZN4core6option15Option$LT$T$GT$11map_or_else17h9cf13d8bb1d9738cE": {
       "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h9cf13d8bb1d9738cE",
       "return_type": [
-        "primitive",
-        8
+        "struct",
+        24
       ],
-      "parameters": []
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
     },
     "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h82ab8fc3c2f32b58E": {
       "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h82ab8fc3c2f32b58E",
@@ -335,19 +343,6 @@
         24
       ],
       "parameters": []
-    },
-    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h85a8fb1d47923e38E": {
-      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h85a8fb1d47923e38E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
     },
     "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
       "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
@@ -400,23 +395,6 @@
         ],
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std2fs4File7set_len17hd21acd2eeb028efbE": {
-      "name": "_ZN3std2fs4File7set_len17hd21acd2eeb028efbE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "struct*",
           8
         ],
         [
@@ -606,10 +584,15 @@
     "_ZN4core6option15Option$LT$T$GT$11map_or_else17ha526a84f6413e2dcE": {
       "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17ha526a84f6413e2dcE",
       "return_type": [
-        "primitive",
-        8
+        "struct",
+        24
       ],
-      "parameters": []
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
     },
     "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h40f585cb9c895814E": {
       "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h40f585cb9c895814E",
@@ -857,11 +840,11 @@
           8
         ],
         [
-          "struct*",
+          "primitive",
           8
         ],
         [
-          "struct*",
+          "primitive",
           8
         ],
         [
@@ -1175,8 +1158,8 @@
     "_ZN3std2fs8metadata17h1cc9ec6f7ac4b82eE": {
       "name": "_ZN3std2fs8metadata17h1cc9ec6f7ac4b82eE",
       "return_type": [
-        "struct",
-        16
+        "Result",
+        176
       ],
       "parameters": [
         [
@@ -1188,8 +1171,8 @@
     "_ZN3std2fs8metadata17h6368ec5e748c38e4E": {
       "name": "_ZN3std2fs8metadata17h6368ec5e748c38e4E",
       "return_type": [
-        "struct",
-        16
+        "Result",
+        176
       ],
       "parameters": [
         [
@@ -1201,14 +1184,6 @@
           8
         ]
       ]
-    },
-    "_ZN6uucore4mods5error121_$LT$impl$u20$core..convert..From$LT$i32$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h0b17f6d5d891df77E": {
-      "name": "_ZN6uucore4mods5error121_$LT$impl$u20$core..convert..From$LT$i32$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h0b17f6d5d891df77E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": []
     },
     "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
       "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",

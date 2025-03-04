@@ -1,5 +1,5 @@
-void __rustcall
-uu_dd::blocks::conv_block_unblock_helper(undefined8 param_1,undefined8 param_2,byte *param_3)
+void _ZN5uu_dd6blocks25conv_block_unblock_helper17he5e21bd733c5515fE
+               (undefined8 param_1,undefined8 param_2,byte *param_3)
 
 {
                     /* WARNING: Could not recover jumptable at 0x001e3d1d. Too many branches */

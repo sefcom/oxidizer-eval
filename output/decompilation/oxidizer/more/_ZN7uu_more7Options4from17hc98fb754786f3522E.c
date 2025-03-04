@@ -4,9 +4,9 @@ fn uu_more::Options::from(a0: &struct40, a1: &struct56) -> int {
     let v2: i32;  // [sp-0x8c]
     let v3: i64;  // [sp-0x88]
     let v4: i64;  // [sp-0x80]
-    let v5: i320;  // [sp-0x78], Other Possible Types: Result<struct40, struct8>
+    let v5: Result<struct40, struct8>;  // [sp-0x78], Other Possible Types: int
     let v6: i64;  // [sp-0x68]
-    let v7: i192;  // [sp-0x48], Other Possible Types: struct24
+    let v7: struct24;  // [sp-0x48], Other Possible Types: int, unsigned long
     let v8: i64;  // [sp-0x30]
     let v9: i64;  // [sp-0x28]
     let v10: i64;  // [sp-0x20]
@@ -34,14 +34,14 @@ fn uu_more::Options::from(a0: &struct40, a1: &struct56) -> int {
     if v19 {
         v19 = *(v19 as &i16);
     }
-    v2 = v19;
+    v2 = v19 as u32;
     v5 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "number");
     v20 = clap_builder::parser::error::MatchesError::unwrap("number", &v5);
     v21 = v20;
     if v21 {
         v20 = *(v21 as &i16);
     }
-    v1 = v20;
+    v1 = v20 as u32;
     v5 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "from-line");
     v22 = clap_builder::parser::error::MatchesError::unwrap("from-line", &v5);
     if v22 {
@@ -55,17 +55,17 @@ fn uu_more::Options::from(a0: &struct40, a1: &struct56) -> int {
         v7 = <alloc::string::String as core::clone::Clone>::clone(v23);
     }
     v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "clean-print") as i8;
-    v6 = *((&v7 as &char + 16) as &i64);
-    v5 = v7;
+    v6 = v7.field_16;
+    v5 = v7 as i128;
     clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "print-over");
     clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "silent");
     clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "squeeze");
     return struct40 {
         field_0: v5
         field_16: v6
-        field_24: v34
+        field_24: v31
         field_32: v30
-        field_34: v31 + 1
+        field_34: v29 + 1
         field_36: v0
         field_37: v25
         field_38: v26

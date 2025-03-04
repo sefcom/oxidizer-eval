@@ -13,7 +13,6 @@ fn uu_dd::numbers::SuffixType::base_and_suffix(a0: &struct32, a1: u64, a2: u64, 
     let v12: u64;  // rbp
     let v13: u64;  // rax
     let v14: u64;  // r12
-    let v17: void*;  // rdi
 
     if !a1 {
         memcpy(&v4, "B", 144);
@@ -46,13 +45,10 @@ fn uu_dd::numbers::SuffixType::base_and_suffix(a0: &struct32, a1: u64, a2: u64, 
     }
     if amd64g_calculate_condition(2, 16, -1 + ((v14 + -1 <= v14 ? 1 : 0) & 1), a3 ^ (v14 - 1 < a2) as u8 as u64, (v14 - 1 < a2) as u8 as u64) as char {
         v3 = v6;
-        if amd64g_calculate_condition(2, 16, -((v13 < v14) as u8 as u64), a3 ^ (v13 - v14 < a2) as u8 as u64, (v13 - v14 < a2) as u8 as u64) as char && amd64g_calculate_condition(2, 16, -((v12 < v13) as u8 as u64), a3 ^ (v12 - v13 < a2) as u8 as u64, (v12 - v13 < a2) as u8 as u64) as char && amd64g_calculate_condition(2, 16, -((v11 < v12) as u8 as u64), a3 ^ (v11 - v12 < a2) as u8 as u64, (v11 - v12 < a2) as u8 as u64) as char && amd64g_calculate_condition(2, 16, -((v10 < v11) as u8 as u64), a3 ^ (v10 - v11 < a2) as u8 as u64, (v10 - v11 < a2) as u8 as u64) as char && amd64g_calculate_condition(2, 16, -((v9 < v10) as u8 as u64), a3 ^ (v9 - v10 < a2) as u8 as u64, (v9 - v10 < a2) as u8 as u64) as char && amd64g_calculate_condition(2, 16, v1 - 0 - (v8 < v9) as u8 as u64, a3 ^ (v8 - v9 < a2) as u8 as u64, (v8 - v9 < a2) as u8 as u64) as char && amd64g_calculate_condition(2, 16, v0 - v1 - (v7 < v8) as u8 as u64, a3 ^ (v7 - v8 < a2) as u8 as u64, (v7 - v8 < a2) as u8 as u64) as char {
-            v17 = v0;
-        }
     }
     return struct32 {
-        field_0: v18
-        field_8: v17
-        field_16: v20
+        field_0: v14
+        field_8: v15
+        field_16: v17
     };
 }

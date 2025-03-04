@@ -1,4 +1,4 @@
-uint __rustcall uu_cp::handle_no_preserve_mode(char param_1,char param_2,uint param_3)
+uint _ZN5uu_cp23handle_no_preserve_mode17h5c03b58fbdc698a0E(char param_1,char param_2,uint param_3)
 
 {
   uint uVar1;

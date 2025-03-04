@@ -1,5 +1,5 @@
-void __rustcall
-uu_tr::operation::Sequence::parse_class(undefined8 param_1,undefined8 param_2,undefined8 param_3)
+void _ZN5uu_tr9operation8Sequence11parse_class17h76140b80c4ad3848E
+               (undefined8 param_1,undefined8 param_2,undefined8 param_3)
 
 {
   char *local_1d0;
@@ -90,7 +90,8 @@ uu_tr::operation::Sequence::parse_class(undefined8 param_1,undefined8 param_2,un
   local_1c0 = ":]";
   local_1b8 = 2;
                     /* try { // try from 001be576 to 001be57f has its CatchHandler @ 001be593 */
-  nom::sequence::delimited::___closure__(param_1,&local_1d0,param_2,param_3);
+  _ZN3nom8sequence9delimited28__u7b__u7b_closure_u7d__u7d_17h4cc74e732dcd20cbE
+            (param_1,&local_1d0,param_2,param_3);
   FUN_001baf30(&local_1d0);
   return;
 }

@@ -1,4 +1,5 @@
-undefined  [16] __rustcall uu_env::native_int_str::get_char_from_native_int(undefined4 param_1)
+undefined  [16]
+_ZN6uu_env14native_int_str24get_char_from_native_int17hd9478fe3e880cfe1E(undefined4 param_1)
 
 {
   undefined8 uVar1;
@@ -9,9 +10,10 @@ undefined  [16] __rustcall uu_env::native_int_str::get_char_from_native_int(unde
   undefined8 local_10;
   
   local_21 = (undefined)param_1;
-  core::str::converts::from_utf8(&local_20,&local_21,1);
+  _ZN4core3str8converts9from_utf817ha1effb4cca6d9901E(&local_20,&local_21,1);
   if (local_20 == 0) {
-    uVar1 = get_char_from_native_int::___closure__(local_18,local_10);
+    uVar1 = _ZN6uu_env14native_int_str24get_char_from_native_int28__u7b__u7b_closure_u7d__u7d_17h4c012466286f86dcE
+                      (local_18,local_10);
   }
   else {
     uVar1 = 0x110000;

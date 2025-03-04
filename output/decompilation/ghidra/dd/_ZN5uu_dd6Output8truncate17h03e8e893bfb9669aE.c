@@ -1,4 +1,4 @@
-undefined8 __rustcall uu_dd::Output::truncate(char *param_1)
+undefined8 _ZN5uu_dd6Output8truncate17h03e8e893bfb9669aE(char *param_1)
 
 {
   undefined8 uVar1;
@@ -7,10 +7,11 @@ undefined8 __rustcall uu_dd::Output::truncate(char *param_1)
   if (*param_1 != '\x01') {
     return 0;
   }
-  auVar2 = _<std::fs::File_as_std::io::Seek>::seek(param_1 + 4,2,0);
+  auVar2 = _ZN47__LT_std__fs__File_u20_as_u20_std__io__Seek_GT_4seek17hf141ef1001f771f9E
+                     (param_1 + 4,2,0);
   if (auVar2._0_8_ != 0) {
     return auVar2._8_8_;
   }
-  uVar1 = std::fs::File::set_len(param_1 + 4,auVar2._8_8_);
+  uVar1 = _ZN3std2fs4File7set_len17hd21acd2eeb028efbE(param_1 + 4,auVar2._8_8_);
   return uVar1;
 }

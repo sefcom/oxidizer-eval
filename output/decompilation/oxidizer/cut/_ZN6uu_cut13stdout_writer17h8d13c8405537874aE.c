@@ -1,5 +1,5 @@
 fn uu_cut::stdout_writer() -> u64 {
-    let v0: i264;  // [sp-0x30], Other Possible Types: struct33
+    let v0: i64;  // [sp-0x30], Other Possible Types: struct33
     let v2: i64;  // rax
 
     v0 = std::io::stdio::stdout();

@@ -1,12 +1,12 @@
 fn uu_rm::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa58], Other Possible Types: struct592, struct712, struct437
+    let v0: struct592;  // [sp-0xa58], Other Possible Types: struct712, struct437
     let v1: i64;  // [sp-0x79c]
     let v2: i32;  // [sp-0x794]
-    let v3: i4736;  // [sp-0x790], Other Possible Types: struct592, struct24
+    let v3: struct592;  // [sp-0x790], Other Possible Types: struct24
     let v4: i32;  // [sp-0x548]
     let v5: i32;  // [sp-0x544]
-    let v6: i4736;  // [sp-0x540], Other Possible Types: struct592, struct712
-    let v7: struct592;  // [sp-0x278], Other Possible Types: i4736, struct32, struct17, struct8
+    let v6: struct592;  // [sp-0x540], Other Possible Types: struct712
+    let v7: struct592;  // [sp-0x278], Other Possible Types: struct32, struct17, struct8
     let v9: i64;  // rdx
 
     v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
@@ -15,8 +15,8 @@ fn uu_rm::uu_app(a0: &struct712) -> u64 {
     v3 = uucore::format_usage("{} [OPTION]... FILE...");
     v6 = clap_builder::builder::command::Command::override_usage(&v0, &v3);
     memcpy(&v0, &v6, 700);
-    v1 = 584115552392 | *((&v6 as &char + 700) as &i64);
-    v2 = *((&v6 as &char + 708) as &i32);
+    v1 = 584115552392 | *((&v6.field_0 as &char + 700) as &i64);
+    v2 = *((&v6.field_0 as &char + 708) as &i32);
     v6 = clap_builder::builder::arg::Arg::new("force");
     v3 = clap_builder::builder::arg::Arg::short(&v6, 0x66);
     v6 = clap_builder::builder::arg::Arg::long(&v3, "force");
@@ -58,8 +58,8 @@ fn uu_rm::uu_app(a0: &struct712) -> u64 {
     };
     v0 = clap_builder::builder::arg::Arg::num_args(&v3, &v7);
     memcpy(&v3, &v0, 584);
-    v4 = 128 | *((&v0 as &char + 584) as &i32);
-    v5 = *((&v0 as &char + 588) as &i32);
+    v4 = 128 | *((&v0.field_0 as &char + 584) as &i32);
+    v5 = *((&v0.field_0 as &char + 588) as &i32);
     v0 = clap_builder::builder::arg::Arg::default_missing_value(&v3);
     v7 = struct32 {
         field_0: &g_41e22e
@@ -107,8 +107,8 @@ fn uu_rm::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::arg::Arg::long(&v6, "presume-input-tty");
     v6 = clap_builder::builder::arg::Arg::alias(&v3, "-presume-input-tty");
     memcpy(&v3, &v6, 584);
-    v4 = *((&v6 as &char + 584) as &i32) | 4;
-    v5 = *((&v6 as &char + 588) as &i32);
+    v4 = *((&v6.field_0 as &char + 584) as &i32) | 4;
+    v5 = *((&v6.field_0 as &char + 588) as &i32);
     v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
     v6 = clap_builder::builder::command::Command::arg(&v0, &v7);
     v0 = clap_builder::builder::arg::Arg::new("files");

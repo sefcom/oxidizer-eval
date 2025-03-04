@@ -1,10 +1,10 @@
 long long uu_du::build_exclude_patterns::h0244be58956798cb(unsigned long long a0[3], unsigned long long a1)
 {
-    char v0;  // [bp-0x2e8], Other Possible Types: unsigned long long, unsigned long
-    unsigned long long v1;  // [sp-0x2e0]
-    struct struct_1 **v2;  // [bp-0x2d8], Other Possible Types: char, unsigned long
+    char v0;  // [sp-0x2e8], Other Possible Types: unsigned long
+    unsigned long long v1;  // [sp-0x2e0], Other Possible Types: unsigned long
+    struct struct_1 **v2;  // [sp-0x2d8], Other Possible Types: char, unsigned long
     unsigned long long v3;  // [sp-0x2d0]
-    void* v4;  // [bp-0x2c8], Other Possible Types: char, unsigned long
+    void* v4;  // [sp-0x2c8], Other Possible Types: char, unsigned long
     char v5;  // [bp-0x2b8]
     char v6;  // [bp-0x2b0]
     void* v7;  // [sp-0x2a0]
@@ -12,7 +12,7 @@ long long uu_du::build_exclude_patterns::h0244be58956798cb(unsigned long long a0
     void* v9;  // [sp-0x290]
     int v10;  // [sp-0x288]
     unsigned long long v11;  // [sp-0x278]
-    struct struct_0 **v12;  // [sp-0x268], Other Possible Types: unsigned long long
+    struct struct_0 **v12;  // [sp-0x268]
     int v13;  // [bp-0x260], Other Possible Types: unsigned long
     unsigned long long v14;  // [sp-0x250]
     char *v15;  // [sp-0x248]
@@ -21,7 +21,7 @@ long long uu_du::build_exclude_patterns::h0244be58956798cb(unsigned long long a0
     char v18;  // [bp-0x220]
     int v19;  // [sp-0x218]
     unsigned long long v20;  // [sp-0x208]
-    unsigned long v21;  // [sp-0x1f8], Other Possible Types: unsigned long long
+    unsigned long v21;  // [sp-0x1f8]
     unsigned long long v22;  // [sp-0x1f0]
     int v23;  // [sp-0x1e8]
     int v24;  // [sp-0x1d8]
@@ -31,7 +31,7 @@ long long uu_du::build_exclude_patterns::h0244be58956798cb(unsigned long long a0
     int v28;  // [sp-0x1a8]
     int v29;  // [sp-0x198]
     unsigned long long v30;  // [sp-0x188]
-    unsigned long v31;  // [sp-0x178], Other Possible Types: unsigned long long
+    unsigned long v31;  // [sp-0x178]
     unsigned long long v32;  // [sp-0x170]
     int v33;  // [sp-0x168]
     int v34;  // [sp-0x158]
@@ -42,21 +42,23 @@ long long uu_du::build_exclude_patterns::h0244be58956798cb(unsigned long long a0
     char v39;  // [bp-0xf8]
     char v40;  // [bp-0x70]
     unsigned long long v42;  // rax
-    int v43;  // xmm1
-    int v44;  // ymm1
+    unsigned long long v43;  // rcx
+    int v44;  // xmm1
     int v45;  // ymm1
-    int v46;  // xmm0
-    int v47;  // ymm0
+    int v46;  // ymm1
+    int v47;  // xmm0
     int v48;  // ymm0
-    unsigned long long v50;  // rdx
-    int v51;  // ymm0
-    int v52;  // ymm1
+    int v49;  // ymm0
+    unsigned long long v51;  // rdx
+    int v52;  // ymm0
+    int v53;  // ymm1
     unsigned long long v54;  // rax
-    int v55;  // xmm1
-    int v56;  // ymm1
-    int v57;  // xmm0
-    int v58;  // ymm0
-    unsigned long long v60;  // rdx
+    unsigned long long v55;  // rcx
+    int v56;  // xmm1
+    int v57;  // ymm1
+    int v58;  // xmm0
+    int v59;  // ymm0
+    unsigned long long v61;  // rdx
     int v62;  // ymm2
     int v63;  // xmm0
     int v64;  // xmm0
@@ -67,53 +69,57 @@ long long uu_du::build_exclude_patterns::h0244be58956798cb(unsigned long long a0
     clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many::h953ea969162f50f8(&v39, a1, "exclude-from", 12);
     clap_builder::parser::error::MatchesError::unwrap::hb780f1080a7373fe(&v0, "exclude-from", 12, &v39);
     v42 = v0;
-    if (!v42)
+    if (v42)
     {
-        v48 = v51 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000;
-        v45 = v52 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 & 0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000 | &_ZN105_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default5EMPTY17h09c5f4cd0790faa8E;
-        v42 = core::ops::function::FnOnce::call_once::h72c1b05cc1f9fa6c;
-        v50 = 0;
+        v43 = v1;
+        v44 = *((int128_t *)&v2);
+        v46 = v45 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v44;
+        v47 = *((int128_t *)&v4);
+        v49 = v48 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v47;
+        v51 = *((long long *)&v6);
     }
     else
     {
-        v43 = *((int128_t *)&v2);
-        v45 = v44 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v43;
-        v46 = *((int128_t *)&v4);
-        v48 = v47 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v46;
-        v50 = *((long long *)&v6);
+        v49 = v52 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000;
+        v46 = v53 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 & 0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000 | &_ZN105_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default5EMPTY17h09c5f4cd0790faa8E;
+        v43 = "a Display implementation returned an error unexpectedly/rustc/8bfcae730a5db2438bbda72796175bba21427be1/library/alloc/src/string.rs";
+        v42 = core::ops::function::FnOnce::call_once::h72c1b05cc1f9fa6c;
+        v51 = 0;
     }
     v31 = v42;
-    v32 = "a Display implementation returned an error unexpectedly/rustc/8bfcae730a5db2438bbda72796175bba21427be1/library/alloc/src/string.rs";
-    v33 = v43;
-    v34 = v46;
+    v32 = v43;
+    v33 = v44;
+    v34 = v47;
     v35 = *((long long *)&v5);
-    v36 = v50;
+    v36 = v51;
     v37 = 0;
     v38 = 0;
     clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many::h953ea969162f50f8(&v39, a1, "excludeadding  to the exclude list \n", 7);
     clap_builder::parser::error::MatchesError::unwrap::hb780f1080a7373fe(&v0, "excludeadding  to the exclude list \n", 7, &v39);
     v54 = v0;
-    if (!v54)
+    if (v54)
     {
-        v58 = v48 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000;
-        v56 = v45 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 & 0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000 | &_ZN105_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default5EMPTY17h09c5f4cd0790faa8E;
-        v54 = core::ops::function::FnOnce::call_once::h72c1b05cc1f9fa6c;
-        v60 = 0;
+        v55 = v1;
+        v56 = *((int128_t *)&v2);
+        v57 = v46 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v56;
+        v58 = *((int128_t *)&v4);
+        v59 = v49 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v58;
+        v61 = *((long long *)&v6);
     }
     else
     {
-        v55 = *((int128_t *)&v2);
-        v56 = v45 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v55;
-        v57 = *((int128_t *)&v4);
-        v58 = v48 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v57;
-        v60 = *((long long *)&v6);
+        v59 = v49 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000;
+        v57 = v46 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 & 0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000 | &_ZN105_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default5EMPTY17h09c5f4cd0790faa8E;
+        v55 = "a Display implementation returned an error unexpectedly/rustc/8bfcae730a5db2438bbda72796175bba21427be1/library/alloc/src/string.rs";
+        v54 = core::ops::function::FnOnce::call_once::h72c1b05cc1f9fa6c;
+        v61 = 0;
     }
     v21 = v54;
-    v22 = "a Display implementation returned an error unexpectedly/rustc/8bfcae730a5db2438bbda72796175bba21427be1/library/alloc/src/string.rs";
-    v23 = v55;
-    v24 = v57;
+    v22 = v55;
+    v23 = v56;
+    v24 = v58;
     v25 = *((long long *)&v5);
-    v26 = v60;
+    v26 = v61;
     v7 = 0;
     v8 = 8;
     v9 = 0;
@@ -165,9 +171,9 @@ long long uu_du::build_exclude_patterns::h0244be58956798cb(unsigned long long a0
         }
         v30 = *((long long *)&v5);
         v64 = *((int128_t *)&v0);
-        v58 = (v58 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v63) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v64;
+        v59 = (v59 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v63) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v64;
         v65 = *((int128_t *)&v2);
-        v56 = v56 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v65;
+        v57 = v57 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v65;
         v66 = *((int128_t *)&v4);
         v62 = v62 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v66;
         v29 = v66;

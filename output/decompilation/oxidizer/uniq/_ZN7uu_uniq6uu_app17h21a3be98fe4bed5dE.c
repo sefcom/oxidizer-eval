@@ -2,18 +2,18 @@ fn uu_uniq::uu_app(a0: &struct712) -> u64 {
     let v0: i64;  // [sp-0xa70]
     let v1: i64;  // [sp-0xa68]
     let v2: i8;  // [sp-0xa60]
-    let v3: i4736;  // [sp-0xa58], Other Possible Types: struct592, struct24, struct48
+    let v3: struct592;  // [sp-0xa58], Other Possible Types: struct48, struct24
     let v4: i32;  // [sp-0x810]
     let v5: i32;  // [sp-0x80c]
-    let v6: i5696;  // [sp-0x808], Other Possible Types: struct592, struct712, struct64
-    let v7: i4736;  // [sp-0x540], Other Possible Types: struct592, struct712, struct437
+    let v6: struct592;  // [sp-0x808], Other Possible Types: struct712, struct64
+    let v7: struct592;  // [sp-0x540], Other Possible Types: struct712, struct437
     let v8: i32;  // [sp-0x2f8]
     let v9: i32;  // [sp-0x2f4]
     let v10: i64;  // [sp-0x284]
     let v11: i32;  // [sp-0x27c]
-    let v12: i4736;  // [sp-0x278], Other Possible Types: struct592, struct24, struct8
+    let v12: struct592;  // [sp-0x278], Other Possible Types: unsigned long, struct24, struct8
     let v13: i64;  // [sp-0x270]
-    let v14: i64;  // [bp-0x268]
+    let v14: i8;  // [bp-0x268], Other Possible Types: unsigned long
     let v15: i32;  // [sp-0x30]
     let v16: i32;  // [sp-0x2c]
     let v18: i64;  // rdx
@@ -24,9 +24,13 @@ fn uu_uniq::uu_app(a0: &struct712) -> u64 {
     v3 = uucore::format_usage("{} [OPTION]... [INPUT [OUTPUT]]");
     v6 = clap_builder::builder::command::Command::override_usage(&v7, &v3);
     memcpy(&v7, &v6, 700);
-    v10 = 549755814016 | *((&v6 as &char + 700) as &i64);
-    v11 = *((&v6 as &char + 708) as &i32);
-    v6 = clap_builder::builder::command::Command::after_help(&v7, "Filter adjacent matching lines from INPUT (or standard input),\nwriting to OUTPUT (or standard output).\n\nNote: uniq does not detect repeated lines unless they are adjacent.\nYou may want to sort the input first, or use sort -u without uniq.");
+    v10 = 549755814016 | *((&v6.field_0 as &char + 700) as &i64);
+    v11 = *((&v6.field_0 as &char + 708) as &i32);
+    v6 = clap_builder::builder::command::Command::after_help(&v7, "Filter adjacent matching lines from INPUT (or standard input),
+writing to OUTPUT (or standard output).
+
+Note: uniq does not detect repeated lines unless they are adjacent.
+You may want to sort the input first, or use sort -u without uniq.");
     v7 = clap_builder::builder::arg::Arg::new("all-repeated");
     v3 = clap_builder::builder::arg::Arg::short(&v7, 0x44);
     v7 = clap_builder::builder::arg::Arg::long(&v3, "all-repeated");
@@ -45,7 +49,7 @@ fn uu_uniq::uu_app(a0: &struct712) -> u64 {
     v0 = 0;
     v1 = 1;
     v2 = 0;
-    v14 = v2;
+    *(&v14 as &i64) = *(&v2 as &i64);
     v12 = v0;
     v13 = v1;
     v7 = clap_builder::builder::arg::Arg::num_args(&v3, &v12);
@@ -73,8 +77,8 @@ fn uu_uniq::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::arg::Arg::num_args(&v6, &v0);
     v6 = clap_builder::builder::arg::Arg::default_missing_value(&v3, "separate");
     memcpy(&v3, &v6, 584);
-    v4 = 128 | *((&v6 as &char + 584) as &i32);
-    v5 = *((&v6 as &char + 588) as &i32);
+    v4 = 128 | *((&v6.field_0 as &char + 584) as &i32);
+    v5 = *((&v6.field_0 as &char + 588) as &i32);
     v6 = struct64 {
         field_0: &anon.1708af35b9ec7e9011d0766e7edd8c0d.14.llvm.2960996753993589651
         field_8: 8
@@ -143,7 +147,7 @@ fn uu_uniq::uu_app(a0: &struct712) -> u64 {
     v7 = clap_builder::builder::arg::Arg::value_parser(&v3, &v12);
     v12 = 0;
     v13 = 2;
-    v14 = 0;
+    *(&v14 as &i8) = 0;
     v3 = clap_builder::builder::arg::Arg::num_args(&v7, &v12);
     memcpy(&v7, &v3, 584);
     v8 = v4 | 4;

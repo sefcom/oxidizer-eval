@@ -1,5 +1,5 @@
-void __rustcall
-uu_test::parser::Parser::literal(undefined8 *param_1,undefined8 param_2,undefined8 param_3)
+void _ZN7uu_test6parser6Parser7literal17h487831028acf0989E
+               (undefined8 *param_1,undefined8 param_2,undefined8 param_3)
 
 {
   undefined *local_118;
@@ -36,16 +36,17 @@ uu_test::parser::Parser::literal(undefined8 *param_1,undefined8 param_2,undefine
   undefined4 uStack_2c;
   undefined8 local_28;
   
-  Symbol::into_literal(&local_118,param_3);
-  ::alloc::vec::Vec<T,A>::push(param_2,&local_118);
-  peek(local_88,param_2);
+  _ZN7uu_test6parser6Symbol12into_literal17hae4d6fad5ad71dcbE(&local_118,param_3);
+  _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h254fc79c897546acE(param_2,&local_118);
+  _ZN7uu_test6parser6Parser4peek17hd4e8be8df06376c2E(local_88,param_2);
   if (local_88[0] == 4) {
                     /* try { // try from 001afa99 to 001afaa8 has its CatchHandler @ 001afc07 */
-    next_token(local_b0,param_2);
+    _ZN7uu_test6parser6Parser10next_token17hec2da245067de41fE(local_b0,param_2);
                     /* try { // try from 001afaa9 to 001afab5 has its CatchHandler @ 001afbf8 */
-    next_token(&local_d8,param_2);
+    _ZN7uu_test6parser6Parser10next_token17hec2da245067de41fE(&local_d8,param_2);
     if (local_d8 == 6) {
-      local_e0 = _<uu_test::parser::Symbol_as_core::fmt::Display>::fmt;
+      local_e0 = 
+      _ZN62__LT_uu_test__parser__Symbol_u20_as_u20_core__fmt__Display_GT_3fmt17h7b584763136c349cE;
       local_118 = &DAT_00113dc0;
       uStack_110 = 1;
       local_f8 = 0;
@@ -53,7 +54,7 @@ uu_test::parser::Parser::literal(undefined8 *param_1,undefined8 param_2,undefine
       uStack_100 = 1;
                     /* try { // try from 001afb02 to 001afb11 has its CatchHandler @ 001afbe7 */
       local_e8 = local_b0;
-      core::option::Option<T>::map_or_else(&local_60,&local_118);
+      _ZN4core6option15Option_LT_T_GT_11map_or_else17ha47e44f34eb359bdE(&local_60,&local_118);
       param_1[3] = local_50;
       *(undefined4 *)(param_1 + 1) = local_60;
       *(undefined4 *)((long)param_1 + 0xc) = uStack_5c;
@@ -61,10 +62,10 @@ uu_test::parser::Parser::literal(undefined8 *param_1,undefined8 param_2,undefine
       *(undefined4 *)((long)param_1 + 0x14) = uStack_54;
       *param_1 = 3;
                     /* try { // try from 001afb31 to 001afb3a has its CatchHandler @ 001afbf8 */
-      core::ptr::drop_in_place<uu_test::parser::Symbol>(&local_d8);
+      _ZN4core3ptr44drop_in_place_LT_uu_test__parser__Symbol_GT_17h2e64046051177754E(&local_d8);
                     /* try { // try from 001afb3b to 001afb44 has its CatchHandler @ 001afc07 */
-      core::ptr::drop_in_place<uu_test::parser::Symbol>(local_b0);
-      core::ptr::drop_in_place<uu_test::parser::Symbol>(local_88);
+      _ZN4core3ptr44drop_in_place_LT_uu_test__parser__Symbol_GT_17h2e64046051177754E(local_b0);
+      _ZN4core3ptr44drop_in_place_LT_uu_test__parser__Symbol_GT_17h2e64046051177754E(local_88);
       return;
     }
     local_28 = local_b8;
@@ -77,13 +78,13 @@ uu_test::parser::Parser::literal(undefined8 *param_1,undefined8 param_2,undefine
     uStack_40 = uStack_d0;
     uStack_3c = uStack_cc;
                     /* try { // try from 001afb7e to 001afb98 has its CatchHandler @ 001afbf6 */
-    Symbol::into_literal(&local_118,&local_48);
-    ::alloc::vec::Vec<T,A>::push(param_2,&local_118);
+    _ZN7uu_test6parser6Symbol12into_literal17hae4d6fad5ad71dcbE(&local_118,&local_48);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h254fc79c897546acE(param_2,&local_118);
     local_f8 = local_90;
                     /* try { // try from 001afbb9 to 001afbc3 has its CatchHandler @ 001afbe5 */
-    ::alloc::vec::Vec<T,A>::push(param_2,&local_118);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h254fc79c897546acE(param_2,&local_118);
   }
-  core::ptr::drop_in_place<uu_test::parser::Symbol>(local_88);
+  _ZN4core3ptr44drop_in_place_LT_uu_test__parser__Symbol_GT_17h2e64046051177754E(local_88);
   *param_1 = 7;
   return;
 }

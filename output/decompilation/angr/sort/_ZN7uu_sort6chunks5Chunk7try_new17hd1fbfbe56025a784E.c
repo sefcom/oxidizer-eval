@@ -15,7 +15,7 @@ double uu_sort::chunks::Chunk::try_new::hd1fbfbe56025a784(long long a0, long lon
     int v12;  // [sp-0x48]
     int v13;  // [sp-0x38]
     unsigned long long v14;  // [sp-0x28]
-    struct_0 *v16;  // rax
+    struct_1 *v16;  // rax
     unsigned long long v17[3];  // r14
     int v18;  // xmm0
     int v19;  // xmm0

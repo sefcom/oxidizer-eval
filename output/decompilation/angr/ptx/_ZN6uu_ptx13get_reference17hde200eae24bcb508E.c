@@ -1,11 +1,11 @@
-long long uu_ptx::get_reference::hde200eae24bcb508(unsigned long long a0[3], char a1, char a2, struct_0 *a3, unsigned long long a4, unsigned long long a5)
+long long uu_ptx::get_reference::hde200eae24bcb508(unsigned long long a0[3], char a1, char a2, struct_1 *a3, unsigned long long a4, unsigned long long a5, unsigned long long a6, unsigned long long a7)
 {
-    char v0;  // [sp-0xa0], Other Possible Types: unsigned long, unsigned long long
+    unsigned long v0;  // [bp-0xa0]
     unsigned long long v1;  // [sp-0x98]
-    struct struct_1 **v2;  // [sp-0x90], Other Possible Types: unsigned long
+    struct struct_0 **v2;  // [sp-0x90], Other Possible Types: unsigned long
     unsigned long v3;  // [sp-0x88], Other Possible Types: unsigned long long
     void* v4;  // [sp-0x80]
-    unsigned long v5;  // [sp-0x70], Other Possible Types: unsigned long long
+    unsigned long v5;  // [sp-0x70]
     char *v6;  // [sp-0x68]
     unsigned long long v7;  // [sp-0x60]
     char *v8;  // [sp-0x58]
@@ -13,14 +13,10 @@ long long uu_ptx::get_reference::hde200eae24bcb508(unsigned long long a0[3], cha
     void* v10;  // [sp-0x48]
     int v11;  // [sp-0x40]
     char v12;  // [sp-0x30]
-    unsigned long long v13;  // [bp+0x8]
-    char v14;  // [bp+0x10]
-    unsigned long long v15;  // rax
-    unsigned long long v16;  // r15
-    unsigned long long v17;  // r15
-    unsigned long long v18;  // r15
-    unsigned long long v19;  // rax
-    unsigned long long v20;  // rdx
+    unsigned long long v13;  // rax
+    unsigned long long v14;  // r15
+    unsigned long long v15;  // r12
+    unsigned long long v16;  // rax
 
     if (a1)
     {
@@ -37,36 +33,35 @@ long long uu_ptx::get_reference::hde200eae24bcb508(unsigned long long a0[3], cha
         v4 = 0;
         v2 = &v6;
         v3 = 2;
-        v15 = ::0x5b4110::core::option::Option$LT$T$GT$::map_or_else::hb716a3158a91a555();
-        return v15;
+        v13 = ::0x5b4110::core::option::Option$LT$T$GT$::map_or_else::hb716a3158a91a555(a0, &v0);
+        return v13;
     }
     else if (a2)
     {
-        regex::regex::string::Regex::find_at::hf05a7654ffba1dbb(&v0, v13, *((long long *)&v14), a4, a5);
-        v16 = v0;
-        v17 = v16;
+        regex::regex::string::Regex::find_at::hf05a7654ffba1dbb(&v0, a6, a7, a4, a5);
+        v14 = v0;
+        v15 = v14;
+        if (v15)
+        {
+            v14 = v2;
+            v15 = v3;
+        }
+        v16 = ::0x5b37d0::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$::get::h3d479bbd9c610d76(v14, v15, a4, a5);
         if (v16)
         {
-            v17 = v2;
-            v16 = v3;
-        }
-        v18 = v17;
-        v19 = ::0x5b37d0::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$::get::h3d479bbd9c610d76(v18, v16, a4, a5);
-        if (v19)
-        {
-            ::0x5b44a0::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h881c0d1e76b3a749(&v0, v19, v20);
-            v15 = v2;
-            a0[2] = v15;
+            ::0x5b44a0::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h881c0d1e76b3a749(&v0, v16, a2);
+            v13 = v2;
+            a0[2] = v13;
             *((int128_t *)&a0[0]) = *((int128_t *)&v0);
-            return v15;
+            return v13;
         }
-        core::str::slice_error_fail::h5dbb61534404fe7e(a4, a5, v18, v16, &g_6eddf0); /* do not return */
+        core::str::slice_error_fail::h5dbb61534404fe7e(a4, a5, v14, v15, &g_6eddf0); /* do not return */
     }
     else
     {
         a0[0] = 0;
         a0[1] = 1;
         a0[2] = 0;
-        return v15;
+        return v13;
     }
 }

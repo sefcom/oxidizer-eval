@@ -1,4 +1,5 @@
-byte * __rustcall uu_cp::Attributes::union(byte *param_1,undefined *param_2)
+byte * _ZN5uu_cp10Attributes5union17h2578ff077a39174bE_specialized_2
+                 (byte *param_1,undefined *param_2)
 
 {
   byte bVar1;
@@ -14,12 +15,12 @@ byte * __rustcall uu_cp::Attributes::union(byte *param_1,undefined *param_2)
   byte extraout_DL_03;
   byte extraout_DL_04;
   
-  bVar1 = core::cmp::max_by(*param_2,param_2[1],1,1);
-  bVar2 = core::cmp::max_by(param_2[6],param_2[7],0,0);
-  bVar3 = core::cmp::max_by(param_2[4],param_2[5],1,1);
-  bVar4 = core::cmp::max_by(param_2[2],param_2[3],1,1);
-  bVar5 = core::cmp::max_by(param_2[8],param_2[9],0,0);
-  bVar6 = core::cmp::max_by(param_2[10],param_2[0xb],1,1);
+  bVar1 = _ZN4core3cmp6max_by17ha65c10ec7dc7bcb0E(*param_2,param_2[1],1,1);
+  bVar2 = _ZN4core3cmp6max_by17ha65c10ec7dc7bcb0E(param_2[6],param_2[7],0,0);
+  bVar3 = _ZN4core3cmp6max_by17ha65c10ec7dc7bcb0E(param_2[4],param_2[5],1,1);
+  bVar4 = _ZN4core3cmp6max_by17ha65c10ec7dc7bcb0E(param_2[2],param_2[3],1,1);
+  bVar5 = _ZN4core3cmp6max_by17ha65c10ec7dc7bcb0E(param_2[8],param_2[9],0,0);
+  bVar6 = _ZN4core3cmp6max_by17ha65c10ec7dc7bcb0E(param_2[10],param_2[0xb],1,1);
   *param_1 = bVar1 & 1;
   param_1[1] = extraout_DL;
   param_1[2] = bVar4 & 1;

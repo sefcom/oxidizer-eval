@@ -1,4 +1,5 @@
-undefined  [16] __rustcall uu_dd::Output::write_block(long param_1,long param_2,ulong param_3)
+undefined  [16]
+_ZN5uu_dd6Output11write_block17h75bb814762c2a847E(long param_1,long param_2,ulong param_3)
 
 {
   char cVar1;
@@ -10,13 +11,14 @@ undefined  [16] __rustcall uu_dd::Output::write_block(long param_1,long param_2,
   uVar2 = 0;
   do {
     while( true ) {
-      auVar4 = _<uu_dd::Dest_as_std::io::Write>::write(param_1,param_2 + uVar2,param_3 - uVar2);
+      auVar4 = _ZN46__LT_uu_dd__Dest_u20_as_u20_std__io__Write_GT_5write17h3271a02f9286a322E
+                         (param_1,param_2 + uVar2,param_3 - uVar2);
       uVar3 = auVar4._8_8_;
       if (auVar4._0_8_ == 0) break;
-      cVar1 = std::io::error::Error::kind(uVar3);
+      cVar1 = _ZN3std2io5error5Error4kind17hb2ff5fa058639b3dE(uVar3);
       if (cVar1 != '#') goto LAB_001d7cc9;
       local_38 = uVar3;
-      core::ptr::drop_in_place<std::io::error::Error>(&local_38);
+      _ZN4core3ptr42drop_in_place_LT_std__io__error__Error_GT_17h9ee6c79b3338b78bE(&local_38);
     }
     uVar3 = uVar2 + uVar3;
   } while ((uVar3 < param_3) && (uVar2 = uVar3, *(char *)(*(long *)(param_1 + 0x10) + 0x4d) != '\0')

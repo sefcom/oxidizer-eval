@@ -19,7 +19,23 @@ long long uu_wc::count_fast::count_bytes_chars_and_lines_fast::he40ae303cc0bd17f
     v7 = 0;
     while (true)
     {
-        if (!_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$::read::h24fce4ed669fe556(a1, &v1, 0x4000))
+        if (_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$::read::h24fce4ed669fe556(a1, &v1, 0x4000))
+        {
+            if ((char)::0x4be3e0::std::io::error::Error::kind::hb2ff5fa058639b3d(v8) == 35)
+            {
+                ::0x4be580::core::ptr::drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$::hd9e364499d096c21(v8);
+            }
+            else
+            {
+                a0->field_0 = v0;
+                a0->field_8 = 0;
+                a0->field_10 = v7;
+                *((uint128_t *)&(&a0->field_10)[1]) = 0;
+                *((unsigned long long *)((char *)&a0->field_18 + 8)) = v8;
+                return a0;
+            }
+        }
+        else
         {
             if (v8)
             {
@@ -33,22 +49,6 @@ long long uu_wc::count_fast::count_bytes_chars_and_lines_fast::he40ae303cc0bd17f
                 a0->field_10 = v7;
                 *((uint128_t *)&(&a0->field_10)[1]) = 0;
                 *((unsigned long long *)((char *)&a0->field_18 + 8)) = 0;
-                return a0;
-            }
-        }
-        else
-        {
-            if ((char)::0x4be3e0::std::io::error::Error::kind::hb2ff5fa058639b3d(v8) == 35)
-            {
-                ::0x4be580::core::ptr::drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$::hd9e364499d096c21();
-            }
-            else
-            {
-                a0->field_0 = v0;
-                a0->field_8 = 0;
-                a0->field_10 = v7;
-                *((uint128_t *)&(&a0->field_10)[1]) = 0;
-                *((unsigned long long *)((char *)&a0->field_18 + 8)) = v8;
                 return a0;
             }
         }

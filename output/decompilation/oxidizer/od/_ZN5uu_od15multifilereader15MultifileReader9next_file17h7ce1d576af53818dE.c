@@ -1,8 +1,8 @@
 fn uu_od::multifilereader::MultifileReader::next_file(a0: &struct16) -> u64 {
     let v0: i64;  // [sp-0xd0]
-    let v1: i352;  // [sp-0xc8], Other Possible Types: struct44, struct48
-    let v2: i192;  // [sp-0x98], Other Possible Types: struct24
-    let v3: i96;  // [sp-0x80], Other Possible Types: Result<struct4, struct8>
+    let v1: struct44;  // [sp-0xc8], Other Possible Types: struct48
+    let v2: struct24;  // [sp-0x98]
+    let v3: Result<struct4, struct8>;  // [sp-0x80]
     let v4: i64;  // [sp-0x70]
     let v5: i64;  // [sp-0x68]
     let v6: i64;  // [sp-0x60]
@@ -18,38 +18,36 @@ fn uu_od::multifilereader::MultifileReader::next_file(a0: &struct16) -> u64 {
     if *((a0 + 16) as &i64) {
         do {
             v2 = alloc::vec::Vec<T,A>::remove(a0, None, "src/uu/od/src/multifilereader.rs");
-            v9 = v2;
+            v9 = v2.field_0 as i64;
             if v9 {
-                if v9 == 1 {
+                if v9 as u32 == 1 {
                     v1 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, std::io::stdio::stdin());
                     *((a0 + 24) as &double) = alloc::boxed::Box<T>::new(&v1);
                     *((a0 + 32) as &&i64) = &g_543218;
                     return v15;
                 }
-                *((a0 + 24) as &i64) = v13;
-                *((a0 + 32) as &i64) = v14;
+                *((a0 + 24) as &unsigned long) = v13;
+                *((a0 + 32) as &unsigned long) = v14;
                 return v15;
             }
-            v10 = *((&v2 as &char + 8) as &i64);
-            v11 = *((&v2 as &char + 16) as &i64);
+            v10 = *((&v2.field_0 as &char + 8) as &i64);
+            v11 = v2.field_16;
             v3 = std::fs::File::open(v10, v11);
             match v3 {
                 Ok(_) => {
                     v1 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, *((&v3 as &char + 4) as &i32) as u32 as u64);
                     *((a0 + 24) as &double) = alloc::boxed::Box<T>::new(&v1);
                     v15 = &g_5431c0;
-                    *((a0 + 32) as &i64) = v15;
+                    *((a0 + 32) as &unsigned long) = v15;
                     return v15;
                 },
                 Err(v0) => {
-                    v4 = uucore::util_name();
                     v5 = v12;
-                    eprint!("{}: ", &v4);
                     v4 = 0;
                     v5 = v10;
                     v6 = v11;
                     v7 = 0;
-                    eprintln!("{}: {}", &v4, &v0);
+                    show_error!("{}: {}", &v4, &v0);
                 },
             }
         } while (*((a0 + 16) as &i64));

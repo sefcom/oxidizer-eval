@@ -23,15 +23,16 @@ long long uu_dd::parseargs::Parser::parse_output_flags::h73e155582080adb4(struct
     char v20;  // [bp-0x68]
     unsigned short v21;  // [sp-0x38]
     unsigned long long v23;  // rax
-    unsigned long long v27;  // r13
-    unsigned long long v29;  // r13
-    char *v30;  // r12
-    struct_0 *v31;  // rbx
-    struct_0 *v32;  // rax
+    unsigned long long v24;  // rbp
+    unsigned long v25;  // rdx
+    unsigned long long v26;  // r13
+    char *v27;  // rcx
+    struct_0 *v28;  // rbx
+    struct_0 *v29;  // rax
+    struct_0 *v30;  // rcx
+    struct_0 *v31;  // rcx
+    struct_0 *v32;  // rcx
     struct_0 *v33;  // rcx
-    struct_0 *v34;  // rcx
-    struct_0 *v35;  // rcx
-    struct_0 *v36;  // rcx
 
     ::0x4d2600::_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$::into_searcher::h77b0cfb9226a3587(&v20, 44, a2, a3);
     v18 = 0;
@@ -41,6 +42,8 @@ long long uu_dd::parseargs::Parser::parse_output_flags::h73e155582080adb4(struct
     v23 = ::0x4d24a0::core::str::iter::SplitInternal$LT$P$GT$::next::h47b118536c82edfa(&v18);
     if (v23)
     {
+        v24 = v23;
+        v26 = v25;
         v0 = a1 + 207;
         v1 = a1 + 193;
         v2 = a1 + 203;
@@ -52,81 +55,80 @@ long long uu_dd::parseargs::Parser::parse_output_flags::h73e155582080adb4(struct
         v9 = a1 + 197;
         do
         {
-            v27 = v29;
-            if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v23, v27, "cio", 3))
+            if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "cio", 3))
             {
-                v31 = a0;
-                v32 = ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&(&v31->field_0)[1], a2, v7);
-                v31->field_0 = 11;
-                return v32;
+                v28 = a0;
+                v29 = ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&(&v28->field_0)[1], a2, v7);
+                v28->field_0 = 11;
+                return v29;
             }
-            v30 = a1 + 195;
-            if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v23, v27, "direct", 6))
+            v27 = a1 + 195;
+            if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "direct", 6))
             {
 LABEL_4d3ce0:
-                *(v30) = 1;
+                *(v27) = 1;
             }
             else
             {
-                v30 = a1 + 196;
-                if ((v23 = ::0x4d24a0::core::str::iter::SplitInternal$LT$P$GT$::next::h47b118536c82edfa(&v18), v23))
+                v27 = a1 + 196;
+                if (!(!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "directory", 9) && (v27 = v9, !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "dsync", 5))))
                     goto LABEL_4d3ce0;
-                v30 = v8;
-                if ((v23 = ::0x4d24a0::core::str::iter::SplitInternal$LT$P$GT$::next::h47b118536c82edfa(&v18), v23))
+                v27 = v8;
+                if (!(!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "syncCyan", 4) && (v27 = v6, !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "nocache", 7))))
                     goto LABEL_4d3ce0;
-                v30 = v5;
-                if ((v23 = ::0x4d24a0::core::str::iter::SplitInternal$LT$P$GT$::next::h47b118536c82edfa(&v18), v23))
+                v27 = v5;
+                if (!(!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "nonblock", 8) && (v27 = v4, !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "noatime", 7))))
                     goto LABEL_4d3ce0;
-                v30 = v3;
-                if ((v23 = ::0x4d24a0::core::str::iter::SplitInternal$LT$P$GT$::next::h47b118536c82edfa(&v18), v23))
+                v27 = v3;
+                if (!(!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "noctty", 6) && (v27 = v2, !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "nofollow", 8))))
                     goto LABEL_4d3ce0;
-                if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v23, v27, "nolinks", 7))
+                if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "nolinks", 7))
                 {
-                    ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v12, v23, v27);
+                    ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v12, v24, v26);
+                    v30 = a0;
+                    v30->field_0 = 11;
+                    *((int128_t *)&(&v30->field_0)[1]) = *((int128_t *)&v12);
+                    v29 = *((long long *)&v13);
+                    *((struct_0 **)((char *)&v30->field_8 + 8)) = v29;
+                    return v29;
+                }
+                if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "binary", 6))
+                {
+                    ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v14, v24, v26);
+                    v31 = a0;
+                    v31->field_0 = 11;
+                    *((int128_t *)&(&v31->field_0)[1]) = *((int128_t *)&v14);
+                    v29 = *((long long *)&v15);
+                    *((struct_0 **)((char *)&v31->field_8 + 8)) = v29;
+                    return v29;
+                }
+                if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "text", 4))
+                {
+                    ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v16, v24, v26);
                     v33 = a0;
                     v33->field_0 = 11;
-                    *((int128_t *)&(&v33->field_0)[1]) = *((int128_t *)&v12);
-                    v32 = *((long long *)&v13);
-                    *((struct_0 **)((char *)&v33->field_8 + 8)) = v32;
-                    return v32;
+                    *((int128_t *)&(&v33->field_0)[1]) = *((int128_t *)&v16);
+                    v29 = *((long long *)&v17);
+                    *((struct_0 **)((char *)&v33->field_8 + 8)) = v29;
+                    return v29;
                 }
-                if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v23, v27, "binary", 6))
-                {
-                    ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v14, v23, v27);
-                    v34 = a0;
-                    v34->field_0 = 11;
-                    *((int128_t *)&(&v34->field_0)[1]) = *((int128_t *)&v14);
-                    v32 = *((long long *)&v15);
-                    *((struct_0 **)((char *)&v34->field_8 + 8)) = v32;
-                    return v32;
-                }
-                if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v23, v27, "text", 4))
-                {
-                    ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v16, v23, v27);
-                    v36 = a0;
-                    v36->field_0 = 11;
-                    *((int128_t *)&(&v36->field_0)[1]) = *((int128_t *)&v16);
-                    v32 = *((long long *)&v17);
-                    *((struct_0 **)((char *)&v36->field_8 + 8)) = v32;
-                    return v32;
-                }
-                v30 = v1;
-                if ((v23 = ::0x4d24a0::core::str::iter::SplitInternal$LT$P$GT$::next::h47b118536c82edfa(&v18), v23))
+                v27 = v1;
+                if (!(!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "append", 6) && (v27 = v0, !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "seek_bytes", 10))))
                     goto LABEL_4d3ce0;
-                if (!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v23, v27, "fullblock", 9) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v23, v27, "count_bytes", 11) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v23, v27, "skip_bytes", 10))
+                if (!(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "fullblock", 9) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "count_bytes", 11) && !(char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h27cd8ef99e7e17de(v24, v26, "skip_bytes", 10))
                 {
-                    ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v10, v23, v27);
-                    v35 = a0;
-                    v35->field_0 = 5;
-                    *((int128_t *)&(&v35->field_0)[1]) = *((int128_t *)&v10);
-                    v32 = *((long long *)&v11);
-                    *((struct_0 **)((char *)&v35->field_8 + 8)) = v32;
-                    return v32;
+                    ::0x4d2590::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h778f954dace7b409(&v10, v24, v26);
+                    v32 = a0;
+                    v32->field_0 = 5;
+                    *((int128_t *)&(&v32->field_0)[1]) = *((int128_t *)&v10);
+                    v29 = *((long long *)&v11);
+                    *((struct_0 **)((char *)&v32->field_8 + 8)) = v29;
+                    return v29;
                 }
             }
-        } while ((v23 = ::0x4d24a0::core::str::iter::SplitInternal$LT$P$GT$::next::h47b118536c82edfa(&v18), v23));
+        } while ((v24 = ::0x4d24a0::core::str::iter::SplitInternal$LT$P$GT$::next::h47b118536c82edfa(&v18), v26 = v25, v24));
     }
-    v32 = a0;
-    v32->field_0 = 14;
-    return v32;
+    v29 = a0;
+    v29->field_0 = 14;
+    return v29;
 }

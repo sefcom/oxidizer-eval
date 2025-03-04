@@ -3,7 +3,8 @@ long long uu_od::uumain::uumain::hd9531e2380c970fc(unsigned long long a0, unsign
     char v0;  // [bp-0x498]
     char v1;  // [bp-0x490]
     char v2;  // [bp-0x488]
-    unsigned long v3;  // [sp-0x480], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x480]
+    unsigned long long v4;  // [sp-0x478]
     unsigned long long v5;  // [sp-0x470]
     int v6;  // [sp-0x468]
     int v7;  // [sp-0x458]
@@ -18,12 +19,12 @@ long long uu_od::uumain::uumain::hd9531e2380c970fc(unsigned long long a0, unsign
     char v16;  // [bp-0x3e0]
     char v17;  // [bp-0x3d0]
     char v18;  // [bp-0x3c0]
-    unsigned long v19;  // [sp-0x3b0], Other Possible Types: unsigned long long
+    unsigned long v19;  // [sp-0x3b0]
     unsigned long long v20;  // [sp-0x3a8]
     int v21;  // [sp-0x3a0]
     int v22;  // [sp-0x390]
     unsigned long long v23;  // [sp-0x380]
-    unsigned long long v24[3];  // [sp-0x378], Other Possible Types: unsigned long long
+    unsigned long long v24[3];  // [sp-0x378]
     unsigned long long v25;  // [sp-0x370]
     unsigned long long v26;  // [sp-0x368]
     char v27;  // [sp-0x360]
@@ -36,7 +37,7 @@ long long uu_od::uumain::uumain::hd9531e2380c970fc(unsigned long long a0, unsign
     char v34;  // [bp-0x310]
     char v35;  // [bp-0x300]
     char v36;  // [bp-0x2d8]
-    unsigned long long v40;  // rax
+    unsigned long long v40;  // rbx
 
     uucore::Args::collect_ignore::h6c749d9347c7e8d2(&v0, a0, a1);
     uu_od::uu_app::hbbddbed21fc2c7d3(&v36);
@@ -53,6 +54,7 @@ long long uu_od::uumain::uumain::hd9531e2380c970fc(unsigned long long a0, unsign
         v19 = *((long long *)&v11);
         v20 = *((long long *)&v12);
         uu_od::OdOptions::new::h0c238bf8480e2d7e(&v11, &v19, *((long long *)&v1), *((long long *)&v2));
+        v40 = *((long long *)&v12);
         if (v3 == 2)
         {
             core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::hbff2e96ca9f96176(&v19);
@@ -65,13 +67,13 @@ long long uu_od::uumain::uumain::hd9531e2380c970fc(unsigned long long a0, unsign
             *((int128_t *)&v7) = *((int128_t *)&(&v14)[8]);
             *((int128_t *)&v6) = *((int128_t *)&(&v13)[8]);
             v3 = *((long long *)&v11);
-            v40 = *((long long *)&v12);
+            v4 = v40;
             v5 = *((long long *)&v13);
             v27 = (char)(&v10)[10];
             v26 = (long long)(&v9)[8];
-            v24 = v5;
+            *((unsigned long long *)v24) = v5;
             v25 = (long long)v6;
-            uu_od::open_input_peek_reader::h114ec616b3c82f88(&v11, (long long)v7, (long long)(&v7)[8], v26, v3, v40);
+            uu_od::open_input_peek_reader::h114ec616b3c82f88(&v11, (long long)v7, (long long)(&v7)[8], v26, v3, v4);
             _$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$::from_elem::h1c962bd1b88deb3c(&v34, (long long)v10 + 4);
             v30 = &v11;
             *((int128_t *)&v28) = *((int128_t *)&v34);

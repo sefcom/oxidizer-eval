@@ -1,12 +1,12 @@
 long long uu_pr::recreate_arguments::hbe43c308ac861d0c(unsigned long long a0, unsigned long long a1, unsigned long long a2)
 {
-    int v0;  // [bp-0x188], Other Possible Types: char, unsigned long long
+    int v0;  // [bp-0x188], Other Possible Types: char, unsigned long
     unsigned long long v1;  // [sp-0x180]
     char *v2;  // [sp-0x178], Other Possible Types: unsigned long long
     unsigned long long v3;  // [sp-0x170]
     void* v4;  // [sp-0x168]
     char v5;  // [bp-0x150]
-    unsigned long v6;  // [sp-0x138], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x138]
     unsigned long long v7;  // [sp-0x130]
     char v8;  // [bp-0x128]
     char v9;  // [bp-0x118]
@@ -58,8 +58,8 @@ long long uu_pr::recreate_arguments::hbe43c308ac861d0c(unsigned long long a0, un
         v4 = 0;
         v2 = &v6;
         v3 = 1;
-        core::option::Option$LT$T$GT$::map_or_else::h4ea8d69383c77fdd();
-        core::ptr::drop_in_place$LT$uu_pr..NumberingMode$GT$::h7b44dbe916af3d67();
+        core::option::Option$LT$T$GT$::map_or_else::h4ea8d69383c77fdd(&v10, &v0);
+        core::ptr::drop_in_place$LT$uu_pr..NumberingMode$GT$::h7b44dbe916af3d67(&v17);
         *((int128_t *)&v14) = *((int128_t *)&v10);
         v15 = *((long long *)&v11);
         alloc::vec::Vec$LT$T$C$A$GT$::insert::h9498b545ee6f0c26(&v5, v25, &v14);

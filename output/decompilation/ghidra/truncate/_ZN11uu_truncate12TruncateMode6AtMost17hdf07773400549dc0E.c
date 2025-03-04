@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_truncate::TruncateMode::AtMost(undefined8 param_1)
+undefined  [16] _ZN11uu_truncate12TruncateMode6AtMost17hdf07773400549dc0E(undefined8 param_1)
 
 {
   undefined auVar1 [16];

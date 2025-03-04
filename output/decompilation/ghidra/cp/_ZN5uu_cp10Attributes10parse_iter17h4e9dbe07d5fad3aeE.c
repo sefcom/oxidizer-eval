@@ -1,4 +1,4 @@
-void __rustcall uu_cp::Attributes::parse_iter(long *param_1,undefined4 *param_2)
+void _ZN5uu_cp10Attributes10parse_iter17h4e9dbe07d5fad3aeE(long *param_1,undefined4 *param_2)
 
 {
   long lVar1;
@@ -44,13 +44,14 @@ void __rustcall uu_cp::Attributes::parse_iter(long *param_1,undefined4 *param_2)
   uStack_80 = param_2[6];
   uStack_7c = param_2[7];
   local_b0 = param_1;
-  lVar1 = _<alloc::vec::into_iter::IntoIter<T,A>as_core::iter::traits::iterator::Iterator>::next
+  lVar1 = _ZN103__LT_alloc__vec__into_iter__IntoIter_LT_T_C_A_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h994b0ddc6629aff1E
                     (&local_98);
   if (lVar1 != 0) {
     do {
-      uVar2 = _<&T_as_core::convert::AsRef<U>>::as_ref(lVar1);
+      uVar2 = _ZN55__LT__RF_T_u20_as_u20_core__convert__AsRef_LT_U_GT__GT_6as_ref17h889a363637bfddd1E
+                        (lVar1);
                     /* try { // try from 002017b8 to 002017c2 has its CatchHandler @ 00201887 */
-      parse_single_string(&local_70,uVar2);
+      _ZN5uu_cp10Attributes19parse_single_string17hf0de3a52359f0529E(&local_70,uVar2);
       local_c0 = local_68;
       local_b8 = local_60;
       if (local_70 != 0xd) {
@@ -69,18 +70,19 @@ void __rustcall uu_cp::Attributes::parse_iter(long *param_1,undefined4 *param_2)
         *(undefined4 *)(local_b0 + 2) = local_60;
         local_b0[1] = local_68;
         *local_b0 = local_70;
-        core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<&alloc::string::String>>(&local_98)
-        ;
+        _ZN4core3ptr85drop_in_place_LT_alloc__vec__into_iter__IntoIter_LT__RF_alloc__string__String_GT__GT_17hffdb868510db594fE
+                  (&local_98);
         return;
       }
-      union(&local_a4,&local_d0,&local_c0);
+      _ZN5uu_cp10Attributes5union17h2578ff077a39174bE(&local_a4,&local_d0,&local_c0);
       local_c8 = local_9c;
       local_d0 = local_a4;
-      lVar1 = _<alloc::vec::into_iter::IntoIter<T,A>as_core::iter::traits::iterator::Iterator>::next
+      lVar1 = _ZN103__LT_alloc__vec__into_iter__IntoIter_LT_T_C_A_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h994b0ddc6629aff1E
                         (&local_98);
     } while (lVar1 != 0);
   }
-  core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<&alloc::string::String>>(&local_98);
+  _ZN4core3ptr85drop_in_place_LT_alloc__vec__into_iter__IntoIter_LT__RF_alloc__string__String_GT__GT_17hffdb868510db594fE
+            (&local_98);
   *(undefined4 *)(local_b0 + 2) = local_c8;
   local_b0[1] = local_d0;
   *local_b0 = 0xd;

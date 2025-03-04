@@ -1,10 +1,10 @@
 fn uu_readlink::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa50], Other Possible Types: struct592, struct24
-    let v1: i4736;  // [sp-0x800], Other Possible Types: struct592, struct712, struct437
+    let v0: struct592;  // [sp-0xa50], Other Possible Types: struct24
+    let v1: struct592;  // [sp-0x800], Other Possible Types: struct712, struct437
     let v2: i64;  // [sp-0x544]
     let v3: i32;  // [sp-0x53c]
-    let v4: i4736;  // [sp-0x538], Other Possible Types: struct592, struct712
-    let v5: i4736;  // [sp-0x270], Other Possible Types: struct592
+    let v4: struct592;  // [sp-0x538], Other Possible Types: struct712
+    let v5: struct592;  // [sp-0x270]
     let v7: i64;  // rdx
 
     v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v7);
@@ -13,8 +13,8 @@ fn uu_readlink::uu_app(a0: &struct712) -> u64 {
     v0 = uucore::format_usage("{} [OPTION]... [FILE]...");
     v4 = clap_builder::builder::command::Command::override_usage(&v1, &v0);
     memcpy(&v1, &v4, 700);
-    v2 = 549755814016 | *((&v4 as &char + 700) as &i64);
-    v3 = *((&v4 as &char + 708) as &i32);
+    v2 = 549755814016 | *((&v4.field_0 as &char + 700) as &i64);
+    v3 = *((&v4.field_0 as &char + 708) as &i32);
     v4 = clap_builder::builder::arg::Arg::new("canonicalize");
     v0 = clap_builder::builder::arg::Arg::short(&v4, 0x66);
     v4 = clap_builder::builder::arg::Arg::long(&v0, "canonicalize");

@@ -1,5 +1,5 @@
-undefined8 * __rustcall
-uu_dd::progress::SignalHandler::install_signal_handler
+undefined8 *
+_ZN5uu_dd8progress13SignalHandler22install_signal_handler17he2c75cf1b31a635fE
           (undefined8 *param_1,undefined8 param_2,undefined8 param_3)
 
 {
@@ -40,12 +40,11 @@ uu_dd::progress::SignalHandler::install_signal_handler
   undefined8 local_30;
   
                     /* try { // try from 001f04f5 to 001f0501 has its CatchHandler @ 001f065d */
-  signal_hook::iterator::SignalsInfo<E>::new(&local_118,10);
+  _ZN11signal_hook8iterator20SignalsInfo_LT_E_GT_3new17hff46f358f252daddE(&local_118,10);
   if (local_118 == 0) {
     param_1[1] = uStack_110;
     *param_1 = 0;
-    core::ptr::
-    drop_in_place<alloc::boxed::Box<dyn_core::ops::function::Fn<()>_Output_()_core::marker::Sync_core::marker::Send>>
+    _ZN4core3ptr173drop_in_place_LT_alloc__boxed__Box_LT_dyn_u20_core__ops__function__Fn_LT__LP__RP__GT__u2b_Output_u20__u3d__u20__LP__RP__u2b_core__marker__Sync_u2b_core__marker__Send_GT__GT_17hbd64289d0f49cc7cE
               (param_2,param_3);
   }
   else {
@@ -60,7 +59,8 @@ uu_dd::progress::SignalHandler::install_signal_handler
     uStack_b4 = uStack_fc;
     local_d0 = local_118;
     uStack_c8 = uStack_110;
-    _<signal_hook::iterator::backend::Handle_as_core::clone::Clone>::clone(&local_98,&local_d0);
+    _ZN77__LT_signal_hook__iterator__backend__Handle_u20_as_u20_core__clone__Clone_GT_5clone17h4933321813e84478E
+              (&local_98,&local_d0);
     local_e8 = local_a0;
     _local_f8 = CONCAT44(uStack_ac,local_b0);
     _uStack_f0 = CONCAT44(uStack_a4,uStack_a8);
@@ -73,8 +73,8 @@ uu_dd::progress::SignalHandler::install_signal_handler
                     /* try { // try from 001f059d to 001f05c9 has its CatchHandler @ 001f066d */
     local_e0 = param_2;
     local_d8 = param_3;
-    std::thread::Builder::spawn_unchecked(local_58,local_40,&local_118);
-    core::result::Result<T,E>::expect(&local_70,local_58);
+    _ZN3std6thread7Builder15spawn_unchecked17hf6e5fc31be6cfac7E(local_58,local_40,&local_118);
+    _ZN4core6result19Result_LT_T_C_E_GT_6expect17hae1648ffdc1cd49bE(&local_70,local_58);
     param_1[2] = local_88;
     param_1[3] = uStack_80;
     *param_1 = local_98;

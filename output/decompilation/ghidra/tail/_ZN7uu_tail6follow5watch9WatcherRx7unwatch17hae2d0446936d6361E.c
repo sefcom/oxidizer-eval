@@ -1,4 +1,5 @@
-undefined8 __rustcall uu_tail::follow::watch::WatcherRx::unwatch(undefined8 param_1,long param_2)
+undefined8
+_ZN7uu_tail6follow5watch9WatcherRx7unwatch17hae2d0446936d6361E(undefined8 param_1,long param_2)
 
 {
   undefined8 uVar1;
@@ -46,6 +47,7 @@ undefined8 __rustcall uu_tail::follow::watch::WatcherRx::unwatch(undefined8 para
   uStack_34 = uStack_6c;
   uStack_30 = uStack_68;
   uStack_2c = uStack_64;
-  uVar1 = unwatch::___closure__(&local_38);
+  uVar1 = _ZN7uu_tail6follow5watch9WatcherRx7unwatch28__u7b__u7b_closure_u7d__u7d_17hbde8fb7affd493d2E
+                    (&local_38);
   return uVar1;
 }

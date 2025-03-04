@@ -1,7 +1,6 @@
-void __rustcall
-uu_realpath::process_relative
-          (undefined8 *param_1,undefined8 *param_2,long param_3,undefined8 param_4,long param_5,
-          undefined8 param_6)
+void _ZN11uu_realpath16process_relative17h8c6e307666422bfaE
+               (undefined8 *param_1,undefined8 *param_2,long param_3,undefined8 param_4,long param_5
+               ,undefined8 param_6)
 
 {
   undefined8 uVar1;
@@ -22,7 +21,7 @@ uu_realpath::process_relative
   }
   else {
                     /* try { // try from 001b6a0c to 001b6a13 has its CatchHandler @ 001b6a8d */
-    cVar2 = std::path::Path::starts_with(param_2[1],param_2[2]);
+    cVar2 = _ZN3std4path4Path11starts_with17heff55995860ce76cE(param_2[1],param_2[2]);
     if (cVar2 == '\0') {
 LAB_001b6a6c:
       param_1[2] = param_2[2];
@@ -41,6 +40,7 @@ LAB_001b6a6c:
       param_6 = param_4;
     }
   }
-  uucore::features::fs::make_path_relative_to(param_1,&local_48,param_5,param_6);
+  _ZN6uucore8features2fs21make_path_relative_to17h09a4623272c797bdE
+            (param_1,&local_48,param_5,param_6);
   return;
 }

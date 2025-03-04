@@ -1,6 +1,6 @@
 long long uu_env::split_iterator::SplitIterator::skip_one::hcd63dec953ae1fd1(struct_0 *a0, unsigned long a1)
 {
-    unsigned long v0;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x38]
     unsigned long long v1;  // [sp-0x30]
     char v2;  // [sp-0x28]
     unsigned int v3;  // [bp-0x27]

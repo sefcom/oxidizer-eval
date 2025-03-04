@@ -1,5 +1,5 @@
-void __rustcall
-uu_env::split_iterator::SplitIterator::state_root(undefined8 *param_1,undefined8 param_2)
+void _ZN6uu_env14split_iterator13SplitIterator10state_root17ha7ad7ed6584dc219E
+               (undefined8 *param_1,undefined8 param_2)
 
 {
   int local_40;
@@ -10,13 +10,16 @@ uu_env::split_iterator::SplitIterator::state_root(undefined8 *param_1,undefined8
   undefined8 local_20;
   
   while( true ) {
-    state_delimiter(&local_40,param_2);
+    _ZN6uu_env14split_iterator13SplitIterator15state_delimiter17hcb2808b02d57ed1bE
+              (&local_40,param_2);
     if (local_40 != 7) break;
-    core::ptr::drop_in_place<core::result::Result<(),uu_env::parse_error::ParseError>>(&local_40);
+    _ZN4core3ptr91drop_in_place_LT_core__result__Result_LT__LP__RP__C_uu_env__parse_error__ParseError_GT__GT_17ha3cb64f13c33686fE
+              (&local_40);
   }
   if (local_40 == 6) {
     *(undefined4 *)param_1 = 8;
-    core::ptr::drop_in_place<core::result::Result<(),uu_env::parse_error::ParseError>>(&local_40);
+    _ZN4core3ptr91drop_in_place_LT_core__result__Result_LT__LP__RP__C_uu_env__parse_error__ParseError_GT__GT_17ha3cb64f13c33686fE
+              (&local_40);
   }
   else {
     param_1[4] = local_20;

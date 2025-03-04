@@ -9,54 +9,52 @@ long long uu_uniq::Uniq::cmp_key::h221e6e281cb7d070(struct_0 *a0, unsigned long 
     char v6;  // [bp-0x18]
     unsigned long long v8;  // rax
     unsigned long long v9;  // rdx
-    unsigned long long v10;  // rax
-    unsigned long long v12;  // rcx
-    void* v13;  // rdx
-    unsigned int v14;  // eax
-    unsigned long long v16;  // rcx
+    unsigned long long v10;  // rcx
+    void* v11;  // rdx
+    unsigned int v12;  // eax
 
     uu_uniq::Uniq::skip_fields::hde61277d301acf25(v4, *((long long *)&a0->field_0), *((long long *)&a0->field_8), a1, a2);
     v8 = *((long long *)&v6);
     v9 = a0->field_20;
     if (a0->field_10)
     {
+        v10 = v8;
         if (v9)
             v10 = a0->field_28;
-        v12 = v10;
         if (!v8)
         {
             v0 = *((long long *)&v5);
             v1 = v8 + v0;
-            v14 = uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_530318);
+            v12 = uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_530318);
             ::0x4bb490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0ecdab8b58963e2c(v4);
-            return v14;
+            return v12;
         }
-        v13 = a0->field_18;
+        v11 = a0->field_18;
         if (!a0->field_34)
         {
-            if (v13)
+            if (v11)
             {
                 v0 = *((long long *)&v5);
                 v1 = v8 + v0;
-                v2 = v13;
-                v3 = v16;
-                v14 = uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_530350);
+                v2 = v11;
+                v3 = v10;
+                v12 = uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_530350);
                 ::0x4bb490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0ecdab8b58963e2c(v4);
-                return v14;
+                return v12;
             }
         }
         else
         {
 LABEL_4bcf51:
-            if (v13)
+            if (v11)
             {
-                vvar_262{stack -72} = *((long long *)&v5);
-                vvar_263{stack -64} = v8 + v0;
-                vvar_264{stack -56} = 0;
-                vvar_265{stack -48} = v12;
+                vvar_255{stack -72} = *((long long *)&v5);
+                vvar_256{stack -64} = v8 + v0;
+                vvar_257{stack -56} = 0;
+                vvar_258{stack -48} = v10;
                 uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_5303c0);
                 ::0x4bb490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0ecdab8b58963e2c(v4);
-                return v14;
+                return v12;
             }
             goto LABEL_4bcf56;
         }
@@ -65,16 +63,16 @@ LABEL_4bcf51:
     {
         if (!v8)
         {
-            vvar_244{stack -72} = *((long long *)&v5);
-            vvar_245{stack -64} = v8 + v0;
+            vvar_237{stack -72} = *((long long *)&v5);
+            vvar_238{stack -64} = v8 + v0;
             uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_530318);
             ::0x4bb490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0ecdab8b58963e2c(v4);
-            return v14;
+            return v12;
         }
-        v12 = a0->field_28;
+        v10 = a0->field_28;
         if (a0->field_34)
         {
-            v13 = 0;
+            v11 = 0;
             goto LABEL_4bcf51;
         }
     }
@@ -82,64 +80,64 @@ LABEL_4bcf51:
     {
         if (!v8)
         {
-            vvar_236{stack -72} = *((long long *)&v5);
-            vvar_237{stack -64} = v8 + v0;
+            vvar_229{stack -72} = *((long long *)&v5);
+            vvar_230{stack -64} = v8 + v0;
             uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_530318);
             ::0x4bb490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0ecdab8b58963e2c(v4);
-            return v14;
+            return v12;
         }
         else if (!a0->field_34)
         {
             v0 = *((long long *)&v5);
             v1 = v8 + v0;
-            v14 = uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_530318);
+            v12 = uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_530318);
             ::0x4bb490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0ecdab8b58963e2c(v4);
-            return v14;
+            return v12;
         }
         else
         {
-            v12 = v8;
+            v10 = v8;
             if (false)
             {
                 v0 = *((long long *)&v5);
                 v1 = v8 + v0;
                 v2 = 0;
-                v3 = v12;
-                v14 = uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_5303c0);
+                v3 = v10;
+                v12 = uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_5303c0);
                 ::0x4bb490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0ecdab8b58963e2c(v4);
-                return v14;
+                return v12;
             }
         }
 LABEL_4bcf56:
-        if (v12 != v8)
+        if (v10 != v8)
         {
-            vvar_274{stack -72} = *((long long *)&v5);
-            vvar_275{stack -64} = v8 + v0;
-            vvar_276{stack -56} = 0;
-            vvar_277{stack -48} = v12;
+            vvar_267{stack -72} = *((long long *)&v5);
+            vvar_268{stack -64} = v8 + v0;
+            vvar_269{stack -56} = 0;
+            vvar_270{stack -48} = v10;
             uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_5303c0);
             ::0x4bb490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0ecdab8b58963e2c(v4);
-            return v14;
+            return v12;
         }
         v0 = *((long long *)&v5);
         v1 = v8 + v0;
-        v14 = uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_530388);
+        v12 = uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_530388);
         ::0x4bb490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0ecdab8b58963e2c(v4);
-        return v14;
+        return v12;
     }
-    if (v12 == v8)
+    if (v10 == v8)
     {
-        vvar_252{stack -72} = *((long long *)&v5);
-        vvar_253{stack -64} = v8 + v0;
+        vvar_245{stack -72} = *((long long *)&v5);
+        vvar_246{stack -64} = v8 + v0;
         uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_530318);
         ::0x4bb490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0ecdab8b58963e2c(v4);
-        return v14;
+        return v12;
     }
-    vvar_286{stack -72} = *((long long *)&v5);
-    vvar_287{stack -64} = v8 + v0;
-    vvar_288{stack -56} = v13;
-    vvar_289{stack -48} = v16;
+    vvar_279{stack -72} = *((long long *)&v5);
+    vvar_280{stack -64} = v8 + v0;
+    vvar_281{stack -56} = v11;
+    vvar_282{stack -48} = v10;
     uu_uniq::Uniq::cmp_keys::_$u7b$$u7b$closure$u7d$$u7d$::h300cb8706f3cca4b(a3, &v0, &g_530350);
     ::0x4bb490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0ecdab8b58963e2c(v4);
-    return v14;
+    return v12;
 }

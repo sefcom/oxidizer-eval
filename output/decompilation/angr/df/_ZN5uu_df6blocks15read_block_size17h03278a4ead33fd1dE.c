@@ -1,8 +1,8 @@
-long long uu_df::blocks::read_block_size::h03278a4ead33fd1d(struct_0 *a0, unsigned long long a1)
+long long uu_df::blocks::read_block_size::h03278a4ead33fd1d(struct_1 *a0, unsigned long long a1)
 {
-    char v0;  // [bp-0x80], Other Possible Types: unsigned long, unsigned long long
+    char v0;  // [bp-0x80], Other Possible Types: unsigned long
     unsigned long v1;  // [sp-0x78], Other Possible Types: unsigned long long
-    struct struct_1 **v2;  // [bp-0x70], Other Possible Types: char
+    struct struct_0 **v2;  // [sp-0x70], Other Possible Types: char
     unsigned long long v3;  // [sp-0x68]
     void* v4;  // [sp-0x60]
     char *v5;  // [sp-0x50]
@@ -48,7 +48,7 @@ long long uu_df::blocks::read_block_size::h03278a4ead33fd1d(struct_0 *a0, unsign
             v4 = 0;
             v2 = &v5;
             v3 = 1;
-            ::0x4d3ea0::core::option::Option$LT$T$GT$::map_or_else::h87f8290896e212c8();
+            ::0x4d3ea0::core::option::Option$LT$T$GT$::map_or_else::h87f8290896e212c8(&a0->field_8, &v0);
             a0->field_0 = 1;
             return a0;
         }

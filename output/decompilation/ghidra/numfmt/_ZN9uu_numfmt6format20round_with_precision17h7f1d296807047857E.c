@@ -1,7 +1,7 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-double __rustcall
-uu_numfmt::format::round_with_precision(double param_1,undefined param_2,undefined8 param_3)
+double _ZN9uu_numfmt6format20round_with_precision17h7f1d296807047857E
+                 (double param_1,undefined param_2,undefined8 param_3)
 
 {
   double dVar1;
@@ -19,6 +19,7 @@ uu_numfmt::format::round_with_precision(double param_1,undefined param_2,undefin
                                (_s__00115a18,
                                 (auVar2._8_8_ - _UNK_00115dd8) +
                                 ((double)CONCAT44(_DAT_00115e90,(int)param_3) - _DAT_00115dd0));
-  dVar1 = (double)options::RoundMethod::round(local_8 * local_10,&local_11);
+  dVar1 = (double)_ZN9uu_numfmt7options11RoundMethod5round17hb878c776bde79bdeE
+                            (local_8 * local_10,&local_11);
   return dVar1 / local_10;
 }

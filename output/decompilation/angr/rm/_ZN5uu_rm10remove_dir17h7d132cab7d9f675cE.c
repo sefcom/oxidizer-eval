@@ -1,6 +1,6 @@
 long long uu_rm::remove_dir::h7d132cab7d9f675c(unsigned long long a0, unsigned long long a1, char a2[7])
 {
-    unsigned long v0;  // [sp-0xc8], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xc8]
     unsigned long long v1;  // [sp-0xc0]
     struct struct_0 **v2;  // [sp-0xb8]
     unsigned long long v3;  // [sp-0xb0]
@@ -10,7 +10,7 @@ long long uu_rm::remove_dir::h7d132cab7d9f675c(unsigned long long a0, unsigned l
     unsigned long long v7;  // [sp-0x88]
     char v8;  // [sp-0x80]
     char *v9;  // [sp-0x78]
-    unsigned long v10;  // [sp-0x70], Other Possible Types: unsigned long long
+    unsigned long long v10;  // [sp-0x70]
     struct struct_0 **v11;  // [sp-0x68]
     unsigned long long v12;  // [sp-0x60]
     char v13;  // [bp-0x58]
@@ -60,7 +60,7 @@ LABEL_4b8230:
         std::io::stdio::_eprint::hcdfeec148c7134f7(&v0);
         if (v14 == 2)
             goto LABEL_4b832d;
-        v23 = ::0x4b5400::core::ptr::drop_in_place$LT$std..fs..ReadDir$GT$::h5145ffa430dccd8e();
+        v23 = ::0x4b5400::core::ptr::drop_in_place$LT$std..fs..ReadDir$GT$::h5145ffa430dccd8e(&v13);
     }
     else
     {
@@ -179,7 +179,7 @@ LABEL_4b8230:
             }
             ::0x4b54d0::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h333f14ee3ed91a78(&v15);
 LABEL_4b8319:
-            v23 = ::0x4b5400::core::ptr::drop_in_place$LT$std..fs..ReadDir$GT$::h5145ffa430dccd8e();
+            v23 = ::0x4b5400::core::ptr::drop_in_place$LT$std..fs..ReadDir$GT$::h5145ffa430dccd8e(&v17);
             if (v14 == 2)
             {
 LABEL_4b832d:
@@ -190,7 +190,7 @@ LABEL_4b832d:
         {
             if (a2[5])
             {
-                uu_rm::normalize::hc5c72b2dd9f7b482(&v9);
+                uu_rm::normalize::hc5c72b2dd9f7b482(&v9, a0, a1);
                 v5 = 1;
                 *((int128_t *)&v6) = *((int128_t *)&v10);
                 v8 = 1;
@@ -202,9 +202,9 @@ LABEL_4b832d:
                 v2 = &v15;
                 v3 = 1;
                 std::io::stdio::_print::he918bceb0c89db46(&v0);
-                ::0x4b54b0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h7c5c2bfda3b8aa48();
+                ::0x4b54b0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h7c5c2bfda3b8aa48(&v9);
             }
-            ::0x4b5400::core::ptr::drop_in_place$LT$std..fs..ReadDir$GT$::h5145ffa430dccd8e();
+            ::0x4b5400::core::ptr::drop_in_place$LT$std..fs..ReadDir$GT$::h5145ffa430dccd8e(&v17);
             if (v14 != 2)
                 return 0;
             core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..ReadDir$C$std..io..error..Error$GT$$GT$::hfd9476c8e1bbd8eb(&v13);

@@ -1,6 +1,6 @@
 long long uu_cut::stdout_writer::h8d13c8405537874a()
 {
-    unsigned long v0;  // [sp-0x30], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x30]
     unsigned long long v2;  // rax
 
     v0 = std::io::stdio::stdout::h077da66234850927();

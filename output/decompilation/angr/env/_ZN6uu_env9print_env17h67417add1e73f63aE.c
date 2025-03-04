@@ -1,8 +1,8 @@
 long long uu_env::print_env::h67417add1e73f63a(char a0)
 {
     char v0;  // [sp-0x159]
-    unsigned long v1;  // [sp-0x158], Other Possible Types: unsigned long long
-    unsigned long v2;  // [sp-0x150], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0x158]
+    unsigned long v2;  // [sp-0x150]
     int v3;  // [sp-0x148]
     unsigned long long v4;  // [sp-0x138]
     int v5;  // [sp-0x128]
@@ -15,7 +15,7 @@ long long uu_env::print_env::h67417add1e73f63a(char a0)
     unsigned long long v12;  // [sp-0xc8]
     char *v13;  // [sp-0xc0]
     unsigned long long v14;  // [sp-0xb8]
-    unsigned long v15;  // [sp-0xb0], Other Possible Types: unsigned long long
+    unsigned long v15;  // [sp-0xb0]
     unsigned long long v16;  // [sp-0xa8]
     struct struct_0 **v17;  // [sp-0xa0]
     unsigned long long v18;  // [sp-0x98]
@@ -67,6 +67,6 @@ long long uu_env::print_env::h67417add1e73f63a(char a0)
         ::0x4ca240::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hc60ce05406126818(&v5);
         ::0x4ca240::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hc60ce05406126818(&v3);
     }
-    core::ptr::drop_in_place$LT$std..env..Vars$GT$::hec98998f7d042e09();
-    return core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::h80708a336f9a43e5();
+    core::ptr::drop_in_place$LT$std..env..Vars$GT$::hec98998f7d042e09(&v7);
+    return core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::h80708a336f9a43e5(v1);
 }

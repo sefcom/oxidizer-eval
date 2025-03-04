@@ -9,10 +9,9 @@ fn uu_expand::next_tabstop(a0: &u64, a1: u64, a2: u32, a3: u32) -> u64 {
     let v8: u64;  // rdx
     let v9: u64;  // rdx
     let v10: u64;  // rcx
+    let v11: u64;  // rcx
     let v12: u64;  // rsi
-    let v13: u64;  // rcx
 
-    v4 = a2;
     v2 = a2;
     if a3 {
         v5 = a1 - 1;
@@ -22,9 +21,9 @@ fn uu_expand::next_tabstop(a0: &u64, a1: u64, a2: u32, a3: u32) -> u64 {
             v7 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::find(&v0, &v2);
             if !v7 && a1 {
                 v12 = a0[1 + a1];
-                v4 -= a0[2 + a1];
-                v13 = (!(v4 | v12) >> 32 ? (0 CONCAT v4) % v12 CONCAT (0 CONCAT v4) / v12 : ((0 CONCAT v4) % (v12 & 4294967295) CONCAT (0 CONCAT v4) / (v12 & 4294967295)) & 4294967295 & 4294967295);
-                v10 = v12 * (v13 + 1) - v4;
+                v4 = a2 - a0[2 + a1];
+                v11 = v12 * ((!(v4 | v12) >> 32 ? (0 CONCAT v4) % v12 CONCAT (0 CONCAT v4) / v12 : ((0 CONCAT v4) % (v12 & 4294967295) CONCAT (0 CONCAT v4) / (v12 & 4294967295)) & 4294967295 & 4294967295) + 1);
+                v10 = v11 - v4;
                 return v10;
             }
         } else {
@@ -33,7 +32,7 @@ fn uu_expand::next_tabstop(a0: &u64, a1: u64, a2: u32, a3: u32) -> u64 {
             v7 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::find(&v0, &v2);
             if !v7 && a1 {
                 v6 = a0[1 + a1];
-                v10 = (!(v4 | v6) >> 32 ? v6 - (((0 CONCAT v4) % (v6 & 4294967295) CONCAT (0 CONCAT v4) / (v6 & 4294967295)) >> 32 & 4294967295) : v6 - (((0 CONCAT v4) % v6 CONCAT (0 CONCAT v4) / v6) >> 64));
+                v10 = (!(a2 | v6) >> 32 ? v6 - (((0 CONCAT a2) % (v6 & 4294967295) CONCAT (0 CONCAT a2) / (v6 & 4294967295)) >> 32 & 4294967295) : v6 - (((0 CONCAT a2) % v6 CONCAT (0 CONCAT a2) / v6) >> 64));
                 return v10;
             }
         }

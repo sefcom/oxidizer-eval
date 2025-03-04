@@ -31,11 +31,11 @@ LABEL_520c1f:
                 }
                 1114112 => {
                     v11 = a2[2];
-                    if !v11 {
-                        core::option::unwrap_failed("src/uu/sort/src/sort.rs"); /* do not return */
+                    if v11 {
+                        *((v11 * 16 + a2[1] - 8) as &u64) = a1;
+                        return v11 * 16;
                     }
-                    *((v11 * 16 + a2[1] - 8) as &u64) = a1;
-                    return v11 * 16;
+                    core::option::unwrap_failed("src/uu/sort/src/sort.rs"); /* do not return */
                 }
                 _ => {
                     v9 = v8 - 9 & 4294967295;

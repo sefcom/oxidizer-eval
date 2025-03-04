@@ -14,7 +14,7 @@ long long uu_mktemp::uu_app::h678f679507a186e9(unsigned long long a0)
     char v11;  // [bp-0x530]
     char v12;  // [bp-0x274]
     char v13;  // [bp-0x26c]
-    void* v14;  // [bp-0x268], Other Possible Types: char, unsigned long long
+    void* v14;  // [sp-0x268], Other Possible Types: char, unsigned long
     unsigned long long v15;  // [sp-0x260]
     char v16;  // [bp-0x258], Other Possible Types: unsigned long long
     unsigned long long v18;  // rdx

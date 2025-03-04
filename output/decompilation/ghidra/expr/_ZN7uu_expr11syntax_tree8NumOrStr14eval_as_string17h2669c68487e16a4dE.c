@@ -1,4 +1,5 @@
-long * __rustcall uu_expr::syntax_tree::NumOrStr::eval_as_string(long *param_1,long *param_2)
+long * _ZN7uu_expr11syntax_tree8NumOrStr14eval_as_string17h2669c68487e16a4dE
+                 (long *param_1,long *param_2)
 
 {
   long lVar1;
@@ -27,8 +28,9 @@ long * __rustcall uu_expr::syntax_tree::NumOrStr::eval_as_string(long *param_1,l
     uStack_10 = *(undefined4 *)(param_2 + 3);
     uStack_c = *(undefined4 *)((long)param_2 + 0x1c);
                     /* try { // try from 0022fb48 to 0022fb52 has its CatchHandler @ 0022fb64 */
-    _<T_as_alloc::string::ToString>::to_string(param_1,&local_28);
-    core::ptr::drop_in_place<num_bigint::bigint::BigInt>(&local_28);
+    _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17h4c9da07ea4794d0bE
+              (param_1,&local_28);
+    _ZN4core3ptr47drop_in_place_LT_num_bigint__bigint__BigInt_GT_17h4ffd1c0c3ebf756bE(&local_28);
   }
   return param_1;
 }

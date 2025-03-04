@@ -1,4 +1,4 @@
-undefined8 * __rustcall uu_df::Options::from(undefined8 *param_1,undefined8 param_2)
+undefined8 * _ZN5uu_df7Options4from17h9a68833b14202507E(undefined8 *param_1,undefined8 param_2)
 
 {
   undefined8 uVar1;
@@ -58,28 +58,32 @@ undefined8 * __rustcall uu_df::Options::from(undefined8 *param_1,undefined8 para
   undefined4 uStack_3c;
   undefined8 local_38;
   
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h27ab3648ae7e279eE
             (&local_138,param_2,&DAT_0010bea4,4);
-  clap_builder::parser::error::MatchesError::unwrap(&local_c8,&DAT_0010bea4,4,&local_138);
+  _ZN12clap_builder6parser5error12MatchesError6unwrap17h54548e49bef11fabE
+            (&local_c8,&DAT_0010bea4,4,&local_138);
   if (CONCAT44(uStack_c4,local_c8) == 0) {
     local_170 = -0x8000000000000000;
   }
   else {
-    _<alloc::vec::Vec<T>as_alloc::vec::spec_from_iter_nested::SpecFromIterNested<T,I>>::from_iter
+    _ZN111__LT_alloc__vec__Vec_LT_T_GT__u20_as_u20_alloc__vec__spec_from_iter_nested__SpecFromIterNested_LT_T_C_I_GT__GT_9from_iter17h7ac0ca4ae1fc3b40E
               (&local_170,&local_138);
   }
                     /* try { // try from 001c5f70 to 001c6001 has its CatchHandler @ 001c6472 */
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h27ab3648ae7e279eE
             (&local_138,param_2,"exclude-type",0xc);
-  clap_builder::parser::error::MatchesError::unwrap(&local_c8,"exclude-type",0xc,&local_138);
+  _ZN12clap_builder6parser5error12MatchesError6unwrap17h54548e49bef11fabE
+            (&local_c8,"exclude-type",0xc,&local_138);
   if (CONCAT44(uStack_c4,local_c8) == 0) {
     local_188 = -0x8000000000000000;
 LAB_001c6064:
-    uVar2 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"local",5);
-    uVar3 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"all",3);
-    uVar4 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+    uVar2 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                      (param_2,"local",5);
+    uVar3 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                      (param_2,"all",3);
+    uVar4 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                       (param_2,&DAT_0010bea0,4);
-    blocks::read_block_size(&local_158,param_2);
+    _ZN5uu_df6blocks15read_block_size17h03278a4ead33fd1dE(&local_158,param_2);
     if ((int)local_158 == 3) {
       local_f0 = uStack_150;
       uVar1 = local_f0;
@@ -93,7 +97,8 @@ LAB_001c6064:
       uStack_c4 = local_158._4_4_;
       uStack_c0 = (undefined4)uStack_150;
       uStack_bc = uStack_150._4_4_;
-      from::___closure__(&local_e8,param_2,&local_c8);
+      _ZN5uu_df7Options4from28__u7b__u7b_closure_u7d__u7d_17h9de0386ab5ed2208E
+                (&local_e8,param_2,&local_c8);
       _local_48 = CONCAT44(uStack_d4,local_d8);
       _uStack_40 = CONCAT44(uStack_cc,uStack_d0);
       uVar1 = CONCAT44(uStack_dc,uStack_e0);
@@ -106,33 +111,33 @@ LAB_001c6064:
         param_1[2] = CONCAT44(uStack_dc,uStack_e0);
         *param_1 = 0x8000000000000000;
                     /* try { // try from 001c63d1 to 001c63da has its CatchHandler @ 001c6435 */
-        core::ptr::drop_in_place<core::option::Option<alloc::vec::Vec<alloc::string::String>>>
+        _ZN4core3ptr93drop_in_place_LT_core__option__Option_LT_alloc__vec__Vec_LT_alloc__string__String_GT__GT__GT_17hf865592599343d61E
                   (&local_188);
         goto LAB_001c6404;
       }
     }
                     /* try { // try from 001c6132 to 001c61dc has its CatchHandler @ 001c6459 */
     local_f0 = uVar1;
-    cVar5 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+    cVar5 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                       (param_2,"human-readable-binary",0x15);
     cVar6 = '\x01';
     if ((cVar5 == '\0') &&
-       (cVar5 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+       (cVar5 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                           (param_2,"human-readable-decimal",0x16), cVar5 == '\0')) {
-      cVar5 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+      cVar5 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                         (param_2,"portability",0xb);
       cVar6 = '\x02';
       if (cVar5 == '\0') {
-        cVar6 = clap_builder::parser::matches::arg_matches::ArgMatches::value_source
+        cVar6 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12value_source17h1b5412f9501eb404E
                           (param_2,"output",6);
         cVar6 = (cVar6 == '\x02') * '\x03';
       }
     }
-    cVar7 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+    cVar7 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                       (param_2,"human-readable-binary",0x15);
     cVar5 = '\x01';
     if (cVar7 == '\0') {
-      bVar8 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+      bVar8 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                         (param_2,"human-readable-decimal",0x16);
       cVar5 = (bVar8 ^ 1) * '\x02';
     }
@@ -145,15 +150,16 @@ LAB_001c6064:
     uStack_60 = uStack_180;
     uStack_5c = uStack_17c;
                     /* try { // try from 001c6226 to 001c624c has its CatchHandler @ 001c643a */
-    uVar9 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"total",5);
-    columns::Column::from_matches(&local_e8,param_2);
+    uVar9 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                      (param_2,"total",5);
+    _ZN5uu_df7columns6Column12from_matches17h15f1a0d2790b5397E(&local_e8,param_2);
     if (CONCAT44(uStack_e4,local_e8) == 0) {
       local_148 = CONCAT44(uStack_cc,uStack_d0);
       local_158 = CONCAT44(uStack_dc,uStack_e0);
       uStack_150 = CONCAT44(uStack_d4,local_d8);
     }
     else {
-      core::ops::function::FnOnce::call_once(&local_c8);
+      _ZN4core3ops8function6FnOnce9call_once17hd7cb1b151e127991E(&local_c8);
       local_158 = CONCAT44(uStack_bc,uStack_c0);
       uStack_150 = CONCAT44(uStack_b4,local_b8);
       local_148 = CONCAT44(uStack_ac,uStack_b0);
@@ -169,7 +175,7 @@ LAB_001c6064:
         *param_1 = 0x8000000000000000;
                     /* try { // try from 001c62cc to 001c62d8 has its CatchHandler @ 001c6423 */
         local_38 = local_148;
-        core::ptr::drop_in_place<core::option::Option<alloc::vec::Vec<alloc::string::String>>>
+        _ZN4core3ptr93drop_in_place_LT_core__option__Option_LT_alloc__vec__Vec_LT_alloc__string__String_GT__GT__GT_17hf865592599343d61E
                   (&local_68);
         plVar10 = &local_88;
         goto LAB_001c6409;
@@ -197,7 +203,7 @@ LAB_001c6064:
     local_138 = CONCAT44(uStack_c4,local_c8);
     uStack_130 = uStack_c0;
     uStack_12c = uStack_bc;
-    _<alloc::vec::Vec<T>as_alloc::vec::spec_from_iter_nested::SpecFromIterNested<T,I>>::from_iter
+    _ZN111__LT_alloc__vec__Vec_LT_T_GT__u20_as_u20_alloc__vec__spec_from_iter_nested__SpecFromIterNested_LT_T_C_I_GT__GT_9from_iter17h88abd33993a73e4cE
               (&local_e8,&local_138);
     local_188 = CONCAT44(uStack_e4,local_e8);
     uStack_180 = uStack_e0;
@@ -205,9 +211,10 @@ LAB_001c6064:
     local_178 = CONCAT44(uStack_d4,local_d8);
     if ((local_170 == -0x8000000000000000) || (local_188 == -0x8000000000000000)) goto LAB_001c6064;
                     /* try { // try from 001c603e to 001c60ff has its CatchHandler @ 001c6477 */
-    get_intersected_types(&local_138,uStack_168,local_160,CONCAT44(uStack_dc,uStack_e0),local_178);
+    _ZN5uu_df7Options21get_intersected_types17haafdf2c96660658eE
+              (&local_138,uStack_168,local_160,CONCAT44(uStack_dc,uStack_e0),local_178);
     if (local_138 == -0x8000000000000000) {
-      core::ptr::drop_in_place<core::option::Option<alloc::vec::Vec<alloc::string::String>>>
+      _ZN4core3ptr93drop_in_place_LT_core__option__Option_LT_alloc__vec__Vec_LT_alloc__string__String_GT__GT__GT_17hf865592599343d61E
                 (&local_138);
       goto LAB_001c6064;
     }
@@ -219,12 +226,13 @@ LAB_001c6064:
     param_1[1] = 4;
     *param_1 = 0x8000000000000000;
                     /* try { // try from 001c63fa to 001c6403 has its CatchHandler @ 001c6472 */
-    core::ptr::drop_in_place<core::option::Option<alloc::vec::Vec<alloc::string::String>>>
+    _ZN4core3ptr93drop_in_place_LT_core__option__Option_LT_alloc__vec__Vec_LT_alloc__string__String_GT__GT__GT_17hf865592599343d61E
               (&local_188);
 LAB_001c6404:
     plVar10 = &local_170;
 LAB_001c6409:
-    core::ptr::drop_in_place<core::option::Option<alloc::vec::Vec<alloc::string::String>>>(plVar10);
+    _ZN4core3ptr93drop_in_place_LT_core__option__Option_LT_alloc__vec__Vec_LT_alloc__string__String_GT__GT__GT_17hf865592599343d61E
+              (plVar10);
   }
   return param_1;
 }

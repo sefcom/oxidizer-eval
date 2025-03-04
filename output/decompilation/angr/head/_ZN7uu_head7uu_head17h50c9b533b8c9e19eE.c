@@ -5,27 +5,27 @@ long long uu_head::uu_head::h50c9b533b8c9e19e(struct_1 *a0)
     char v2;  // [sp-0x10e]
     char v3;  // [sp-0x10d]
     unsigned int v4;  // [sp-0x10c]
-    int v5;  // [sp-0x108], Other Possible Types: unsigned long, unsigned long long
-    char v6;  // [bp-0x100], Other Possible Types: unsigned long long
+    int v5;  // [sp-0x108], Other Possible Types: unsigned long long, unsigned long
+    char v6;  // [sp-0x100], Other Possible Types: unsigned long long
     struct struct_0 **v7;  // [sp-0xf8], Other Possible Types: unsigned long long
-    int v8;  // [bp-0xf0], Other Possible Types: unsigned int, unsigned long long
+    int v8;  // [sp-0xf0], Other Possible Types: unsigned int, unsigned long long
     void* v9;  // [sp-0xe8]
-    unsigned long v10;  // [sp-0xd8], Other Possible Types: unsigned long long
-    char v11;  // [bp-0xd0], Other Possible Types: unsigned long long
+    unsigned long v10;  // [sp-0xd8]
+    char v11;  // [bp-0xd0], Other Possible Types: unsigned long
     char v12;  // [bp-0xcc]
     unsigned long long v13;  // [sp-0xc8]
     unsigned long long v14;  // [sp-0xc0]
-    unsigned long v15;  // [sp-0xb8], Other Possible Types: unsigned long long
-    unsigned long v16;  // [sp-0xb0], Other Possible Types: unsigned long long
+    unsigned long v15;  // [sp-0xb8]
+    unsigned long v16;  // [sp-0xb0]
     unsigned long long v17;  // [sp-0xa8]
     char *v18;  // [sp-0xa0]
     unsigned long long v19;  // [sp-0x98]
     char *v20;  // [sp-0x90]
     unsigned long long v21;  // [sp-0x88]
     unsigned long long v22;  // [sp-0x78]
-    unsigned long v23;  // [sp-0x70], Other Possible Types: unsigned long long
+    unsigned long v23;  // [sp-0x70]
     unsigned long long v24;  // [sp-0x68]
-    unsigned long v25;  // [sp-0x60], Other Possible Types: unsigned long long
+    unsigned long v25;  // [sp-0x60]
     unsigned long long v26;  // [sp-0x58]
     unsigned long long v27;  // [sp-0x50]
     char v28;  // [bp-0x48]
@@ -117,7 +117,7 @@ LABEL_4ba303:
                 std::io::stdio::_print::he918bceb0c89db46(&v5);
 LABEL_4ba769:
                 v10 = uu_head::head_file::h48e6bcfaf0dc6df4(&v4, a0);
-                core::ptr::drop_in_place$LT$std..fs..File$GT$::hcd6f8a6171cb1cbe();
+                core::ptr::drop_in_place$LT$std..fs..File$GT$::hcd6f8a6171cb1cbe(v4);
                 if (v10)
                 {
                     v37 = _$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::he651f17c72d2bfc1(v34, v35, "-: \nsrc/uu/head/src/head.rs==> standard input <==\n <==\nerror reading : Input/output error", 1);
@@ -134,7 +134,7 @@ LABEL_4ba769:
                     v9 = 0;
                     v7 = &v18;
                     v8 = 1;
-                    ::0x4b8250::core::option::Option$LT$T$GT$::map_or_else::hb3355800140cccf2();
+                    ::0x4b8250::core::option::Option$LT$T$GT$::map_or_else::hb3355800140cccf2(&v28, &v5);
                     v8 = 1;
                     v38 = *((int128_t *)&v28);
                     v33 = v33 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v38;
@@ -170,8 +170,8 @@ LABEL_4ba769:
     {
         if (!v2)
         {
-            vvar_553{stack -160} = std::io::stdio::stdin::h7215cc131abb55d8();
-            vvar_555{stack -264} = std::io::stdio::Stdin::lock::h161a36d857331d7f(&v18);
+            vvar_552{stack -160} = std::io::stdio::stdin::h7215cc131abb55d8();
+            vvar_554{stack -264} = std::io::stdio::Stdin::lock::h161a36d857331d7f(&v18);
             v6 = (char)v36 & 1;
             goto *((int *)(4316068 + (long long)(stack_base)[80] * 4)) + 4316068;
         }
@@ -180,8 +180,8 @@ LABEL_4ba769:
     {
         if (v1)
         {
-            vvar_558{stack -160} = std::io::stdio::stdin::h7215cc131abb55d8();
-            vvar_560{stack -264} = std::io::stdio::Stdin::lock::h161a36d857331d7f(&v18);
+            vvar_557{stack -160} = std::io::stdio::stdin::h7215cc131abb55d8();
+            vvar_559{stack -264} = std::io::stdio::Stdin::lock::h161a36d857331d7f(&v18);
             v6 = (char)v36 & 1;
             goto *((int *)(4316068 + (long long)(stack_base)[80] * 4)) + 4316068;
         }

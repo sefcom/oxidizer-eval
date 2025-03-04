@@ -2,8 +2,8 @@ long long uu_cp::copydir::Entry::new::heaaef3e8d8dce243(struct_1 *a0, unsigned l
 {
     int v0;  // [sp-0xe8]
     unsigned long long v1;  // [sp-0xd8]
-    unsigned long v2;  // [sp-0xd0], Other Possible Types: unsigned long long
-    int v3;  // [bp-0xc8], Other Possible Types: unsigned long, unsigned long long
+    unsigned long v2;  // [sp-0xd0]
+    int v3;  // [sp-0xc8], Other Possible Types: unsigned long long
     unsigned long long v4;  // [sp-0xc0]
     struct struct_0 **v5;  // [sp-0xb8], Other Possible Types: unsigned long, unsigned long long
     int v6;  // [sp-0xb0], Other Possible Types: unsigned long long
@@ -23,9 +23,8 @@ long long uu_cp::copydir::Entry::new::heaaef3e8d8dce243(struct_1 *a0, unsigned l
     unsigned long long v25;  // r15
     unsigned long long v26;  // rax
     unsigned long long v27;  // rax
-    unsigned long long v28;  // rdx
-    unsigned long long v29;  // rax
-    int v30;  // xmm0
+    unsigned long long v28;  // rax
+    int v29;  // xmm0
 
     std::sys::pal::unix::os::split_paths::bytes_to_path::h0549813f23b52483(&v17, a2, a3);
     std::path::Path::join::h92bb591ebe182d97(&v11, a1[1], a1[2], &v17);
@@ -33,9 +32,9 @@ long long uu_cp::copydir::Entry::new::heaaef3e8d8dce243(struct_1 *a0, unsigned l
     if (v3 == 0x8000000000000000)
     {
         a0->field_0 = 0x8000000000000000;
-        ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
-        vvar_291{reg 16} = ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
-        return v29;
+        ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v11);
+        vvar_286{reg 16} = ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v17);
+        return v28;
     }
     v1 = v5;
     *((int128_t *)&v0) = *((int128_t *)&v3);
@@ -62,7 +61,7 @@ long long uu_cp::copydir::Entry::new::heaaef3e8d8dce243(struct_1 *a0, unsigned l
                 v5 = &v14;
                 v6 = 1;
                 std::io::stdio::_eprint::hcdfeec148c7134f7(&v3);
-                ::0x50d410::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h414e413090760199();
+                ::0x50d410::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h414e413090760199(v2);
             }
         }
         else
@@ -71,13 +70,13 @@ long long uu_cp::copydir::Entry::new::heaaef3e8d8dce243(struct_1 *a0, unsigned l
             if (!v27)
             {
                 a0->field_0 = 0x8000000000000000;
-                ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
-                ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
-                v29 = ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
-                return v29;
+                ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v0);
+                ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v11);
+                v28 = ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v17);
+                return v28;
             }
-            std::sys::pal::unix::os::split_paths::bytes_to_path::h0549813f23b52483(&v3, v27, v28);
-            ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e();
+            std::sys::pal::unix::os::split_paths::bytes_to_path::h0549813f23b52483(&v3, v27, a2);
+            ::0x50d3f0::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::ha8df8090ff0f5f1e(&v0);
             v1 = v5;
             *((int128_t *)&v0) = *((int128_t *)&v3);
         }
@@ -85,20 +84,20 @@ long long uu_cp::copydir::Entry::new::heaaef3e8d8dce243(struct_1 *a0, unsigned l
     v5 = v1;
     *((void*)&v3) = v0;
     std::path::Path::join::hb4c158bd60fe0cf5(&v14, v24, v25, &v3);
-    v29 = std::path::Path::is_file::h82f08f46fb8d8099(v24, v25);
+    v28 = std::path::Path::is_file::h82f08f46fb8d8099(v24, v25);
     v5 = *((long long *)&v13);
-    v30 = *((int128_t *)&v11);
-    v3 = v30;
+    v29 = *((int128_t *)&v11);
+    v3 = v29;
     v8 = *((long long *)&v18);
     *((int128_t *)&v6) = *((int128_t *)&v17);
     v10 = *((long long *)&v16);
     *((int128_t *)&v9) = *((int128_t *)&v14);
     a0->field_40 = v10;
     *((void*)&a0->field_30) = v9;
-    *((void*)&a0->field_0) = v30;
+    *((void*)&a0->field_0) = v29;
     a0->field_20 = v7;
     a0->field_28 = v8;
     a0->field_10 = *((int128_t *)&v5);
-    a0->field_48 = v29;
-    return v29;
+    a0->field_48 = v28;
+    return v28;
 }

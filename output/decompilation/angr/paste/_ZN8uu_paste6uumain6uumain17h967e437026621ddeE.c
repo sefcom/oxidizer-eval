@@ -5,7 +5,7 @@ long long uu_paste::uumain::uumain::h967e437026621dde(unsigned long long a0, uns
     char v2;  // [bp-0x390]
     char v3;  // [bp-0x380]
     char v4;  // [bp-0x370]
-    unsigned long v5;  // [sp-0x360], Other Possible Types: unsigned long long
+    unsigned long v5;  // [sp-0x360]
     unsigned long long v6;  // [sp-0x358]
     int v7;  // [sp-0x350]
     int v8;  // [sp-0x340]

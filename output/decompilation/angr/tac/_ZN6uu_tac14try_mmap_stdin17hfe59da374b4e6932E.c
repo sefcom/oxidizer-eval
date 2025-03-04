@@ -1,6 +1,6 @@
 long long uu_tac::try_mmap_stdin::hfe59da374b4e6932(struct_0 *a0)
 {
-    unsigned long v0;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x48]
     char v1;  // [bp-0x40]
     char v2;  // [bp-0x38]
     void* v3;  // [sp-0x28]

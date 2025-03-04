@@ -1,9 +1,9 @@
 fn uu_cp::platform::linux::copy_fifo_contents(a0: u32, a1: u32, a2: u32, a3: u32) -> u64 {
     let v0: struct4;  // [bp-0xf8]
     let v1: i32;  // [sp-0xf4]
-    let v2: i96;  // [sp-0xf0], Other Possible Types: Result<struct4, struct8>
+    let v2: Result<struct4, struct8>;  // [sp-0xf0]
     let v3: struct32;  // [bp-0xe0]
-    let v4: i32;  // [sp-0xc0], Other Possible Types: struct13, Result<struct4, struct8>, struct16
+    let v4: i32;  // [sp-0xc0], Other Possible Types: struct16, Result<struct4, struct8>, struct13
     let v6: i8;  // [sp-0xb7]
     let v7: i16;  // [bp-0xb4]
     let v8: i8;  // [bp-0x88]
@@ -27,14 +27,14 @@ fn uu_cp::platform::linux::copy_fifo_contents(a0: u32, a1: u32, a2: u32, a3: u32
         field_8: 0
         field_12: 1
     };
-    v7 = 0;
+    *(&v7 as &i16) = 0;
     v6 = 1;
     v2 = std::fs::OpenOptions::open(&v4, &v3);
-    if !(!v2 && !<std::sys::pal::unix::kernel_copy::Copier<R,W> as std::sys::pal::unix::kernel_copy::SpecCopy>::copy(&v0, &v1)) {
+    if !(!v2 as i32 && !<std::sys::pal::unix::kernel_copy::Copier<R,W> as std::sys::pal::unix::kernel_copy::SpecCopy>::copy(&v0, &v1)) {
         return 1;
     }
     v4 = std::fs::File::metadata(&v0);
-    if v4 != 2 && !std::fs::File::set_permissions(&v1, v8) {
+    if v4 != 2 && !std::fs::File::set_permissions(&v1, *(&v8 as &i32)) {
         return 0;
     }
 }

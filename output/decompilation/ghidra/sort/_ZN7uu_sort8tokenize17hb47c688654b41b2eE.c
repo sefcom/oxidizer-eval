@@ -1,4 +1,4 @@
-void __rustcall uu_sort::tokenize(long param_1,ulong param_2,int param_3,long param_4)
+void _ZN7uu_sort8tokenize17hb47c688654b41b2eE(long param_1,ulong param_2,int param_3,long param_4)
 
 {
   long lVar1;
@@ -12,7 +12,7 @@ void __rustcall uu_sort::tokenize(long param_1,ulong param_2,int param_3,long pa
   
   if (*(long *)(param_4 + 0x10) != 0) {
                     /* WARNING: Subroutine does not return */
-    core::panicking::panic
+    _ZN4core9panicking5panic17h8c3a660c3523e4a4E
               ("assertion failed: token_buffer.is_empty()",0x29,
                &PTR_s_src_uu_sort_src_sort_rs_002ff9f8);
   }
@@ -22,7 +22,8 @@ void __rustcall uu_sort::tokenize(long param_1,ulong param_2,int param_3,long pa
     piStack_38 = &iStack_54;
     iStack_54 = param_3;
     lStack_50 = param_1;
-    auVar3 = core::iter::traits::iterator::Iterator::try_fold(&lStack_50,&piStack_38);
+    auVar3 = _ZN4core4iter6traits8iterator8Iterator8try_fold17hafeb71a2c09695d3E
+                       (&lStack_50,&piStack_38);
     lVar1 = auVar3._8_8_;
     if (auVar3._0_8_ == 0) {
       uVar2 = 0;
@@ -33,18 +34,19 @@ void __rustcall uu_sort::tokenize(long param_1,ulong param_2,int param_3,long pa
     else {
       uVar2 = 0;
       do {
-        ::alloc::vec::Vec<T,A>::push(param_4,uVar2,lVar1);
+        _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h0ef512be9be90a46E(param_4,uVar2,lVar1);
         uVar2 = lVar1 + 1;
-        auVar3 = core::iter::traits::iterator::Iterator::try_fold(&lStack_50,&piStack_38);
+        auVar3 = _ZN4core4iter6traits8iterator8Iterator8try_fold17hafeb71a2c09695d3E
+                           (&lStack_50,&piStack_38);
         lVar1 = auVar3._8_8_;
       } while (auVar3._0_8_ != 0);
       if (param_2 <= uVar2) {
         return;
       }
     }
-    ::alloc::vec::Vec<T,A>::push(param_4,uVar2,param_2);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h0ef512be9be90a46E(param_4,uVar2,param_2);
     return;
   }
-  tokenize_default(param_1,param_2,param_4);
+  _ZN7uu_sort16tokenize_default17hbd8e160b62a3efd1E(param_1,param_2,param_4);
   return;
 }

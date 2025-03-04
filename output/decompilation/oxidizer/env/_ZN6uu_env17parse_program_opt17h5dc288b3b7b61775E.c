@@ -1,5 +1,5 @@
 fn uu_env::parse_program_opt(a0: void*, a1: u32, a2: u32) -> u64 {
-    let v0: i192;  // [sp-0x28], Other Possible Types: struct24
+    let v0: struct24;  // [sp-0x28]
     let v1: i32;  // [sp-0x10]
 
     if !*((a0 + 153) as &i8) {

@@ -1,7 +1,7 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void __rustcall
-uu_more::Pager::draw_prompt(long param_1,undefined8 param_2,long param_3,int param_4)
+void _ZN7uu_more5Pager11draw_prompt17hbe0a765e7105d705E
+               (long param_1,undefined8 param_2,long param_3,int param_4)
 
 {
   long lVar1;
@@ -54,7 +54,7 @@ uu_more::Pager::draw_prompt(long param_1,undefined8 param_2,long param_3,int par
       local_100 = ppppuVar2;
     }
     local_118 = (undefined ***)&local_100;
-    pcStack_110 = _<&T_as_core::fmt::Display>::fmt;
+    pcStack_110 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h482629c9d5db64e0E;
     local_148 = &PTR_DAT_00262a88;
     local_140 = (code *)0x1;
     local_138 = (undefined ***)&local_118;
@@ -82,23 +82,27 @@ uu_more::Pager::draw_prompt(long param_1,undefined8 param_2,long param_3,int par
     }
     local_118 = (undefined ***)CONCAT62(local_118._2_6_,(short)(int)dVar5);
     local_100 = &local_118;
-    local_f8 = (undefined8 **)core::fmt::num::imp::_<impl_core::fmt::Display_for_u16>::fmt;
+    local_f8 = (undefined8 **)
+               _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u16_GT_3fmt17hc16e9a303f8fca40E
+    ;
     local_148 = (undefined **)&DAT_00262a98;
     local_140 = (code *)0x2;
     local_138 = (undefined ***)&local_100;
   }
   local_128 = (char *)0x0;
   local_130 = (code *)0x1;
-  core::option::Option<T>::map_or_else(local_a8,&local_148);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17h94c131af24f37af4E(local_a8,&local_148);
   local_100 = (undefined8 **)local_a8;
-  local_f8 = (undefined8 **)_<alloc::string::String_as_core::fmt::Display>::fmt;
+  local_f8 = (undefined8 **)
+             _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E
+  ;
   local_148 = &PTR_DAT_00262ab8;
   local_140 = (code *)0x2;
   local_128 = (char *)0x0;
   local_130 = (code *)0x1;
                     /* try { // try from 001dd8ae to 001dd8c0 has its CatchHandler @ 001ddb5c */
   local_138 = (undefined ***)&local_100;
-  core::option::Option<T>::map_or_else(&local_90,&local_148);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17h94c131af24f37af4E(&local_90,&local_148);
   local_c8 = local_90;
   uStack_c0 = uStack_88;
   local_b8 = local_80;
@@ -111,44 +115,50 @@ uu_more::Pager::draw_prompt(long param_1,undefined8 param_2,long param_3,int par
       goto LAB_001ddaa1;
     }
     local_100 = &local_c8;
-    local_f8 = (undefined8 **)_<alloc::string::String_as_core::fmt::Display>::fmt;
+    local_f8 = (undefined8 **)
+               _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E
+    ;
     local_f0 = &PTR_DAT_00262b58;
-    local_e8 = _<&T_as_core::fmt::Display>::fmt;
+    local_e8 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h482629c9d5db64e0E;
     local_148 = (undefined **)&DAT_00113510;
     local_140 = (code *)0x2;
     local_128 = (char *)0x0;
     local_130 = (code *)0x2;
     local_138 = (undefined ***)&local_100;
-    core::option::Option<T>::map_or_else(&local_48,&local_148);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17h94c131af24f37af4E(&local_48,&local_148);
     local_118 = (undefined ***)local_48;
     pcStack_110 = (code *)uStack_40;
     local_50 = local_38;
   }
   else if (param_4 == 0x110000) {
     local_100 = &local_c8;
-    local_f8 = (undefined8 **)_<alloc::string::String_as_core::fmt::Display>::fmt;
+    local_f8 = (undefined8 **)
+               _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E
+    ;
     local_148 = (undefined **)&DAT_00262b08;
     local_140 = (code *)0x2;
     local_128 = (char *)0x0;
     local_130 = (code *)0x1;
                     /* try { // try from 001dd936 to 001dda7e has its CatchHandler @ 001ddb61 */
     local_138 = (undefined ***)&local_100;
-    core::option::Option<T>::map_or_else(&local_60,&local_148);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17h94c131af24f37af4E(&local_60,&local_148);
     local_118 = (undefined ***)local_60;
     pcStack_110 = (code *)uStack_58;
   }
   else {
     local_100 = &local_c8;
-    local_f8 = (undefined8 **)_<alloc::string::String_as_core::fmt::Display>::fmt;
+    local_f8 = (undefined8 **)
+               _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E
+    ;
     local_f0 = (undefined **)&local_cc;
-    local_e8 = _<char_as_core::fmt::Display>::fmt;
+    local_e8 = _ZN43__LT_char_u20_as_u20_core__fmt__Display_GT_3fmt17hfe75cd72bcd9c522E;
     local_148 = (undefined **)&DAT_00262ad8;
     local_140 = (code *)0x3;
     local_128 = (char *)0x0;
     local_130 = (code *)0x2;
     local_138 = (undefined ***)&local_100;
     local_cc = param_4;
-    core::option::Option<T>::map_or_else(&local_78,&local_148);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17h94c131af24f37af4E(&local_78,&local_148);
     local_118 = (undefined ***)local_78;
     pcStack_110 = (code *)uStack_70;
     local_50 = local_68;
@@ -157,25 +167,31 @@ uu_more::Pager::draw_prompt(long param_1,undefined8 param_2,long param_3,int par
   local_108 = local_50;
 LAB_001ddaa1:
   local_148 = (undefined **)&DAT_00118aac;
-  local_140 = _<crossterm::style::types::attribute::Attribute_as_core::fmt::Display>::fmt;
+  local_140 = 
+  _ZN84__LT_crossterm__style__types__attribute__Attribute_u20_as_u20_core__fmt__Display_GT_3fmt17h8e43bbdd8f4ff5a1E
+  ;
   local_138 = (undefined ***)&local_118;
-  local_130 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+  local_130 = 
+  _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
   local_128 = "";
-  local_120 = _<crossterm::style::types::attribute::Attribute_as_core::fmt::Display>::fmt;
+  local_120 = 
+  _ZN84__LT_crossterm__style__types__attribute__Attribute_u20_as_u20_core__fmt__Display_GT_3fmt17h8e43bbdd8f4ff5a1E
+  ;
   local_100 = (undefined8 **)&PTR_DAT_00262b28;
   local_f8 = (undefined8 **)0x3;
   local_e0 = 0;
   local_e8 = (code *)0x3;
                     /* try { // try from 001ddb04 to 001ddb20 has its CatchHandler @ 001ddb66 */
   local_f0 = (undefined **)&local_148;
-  uVar4 = _<std::io::stdio::Stdout_as_std::io::Write>::write_fmt(param_2,&local_100);
-  core::result::Result<T,E>::unwrap(uVar4,&PTR_DAT_00262b68);
+  uVar4 = _ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_9write_fmt17h0f6acf0ef7a6b873E
+                    (param_2,&local_100);
+  _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h830102b0065460c6E(uVar4,&PTR_DAT_00262b68);
                     /* try { // try from 001ddb21 to 001ddb2a has its CatchHandler @ 001ddb61 */
-  core::ptr::drop_in_place<alloc::string::String>(&local_118);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h1f03875085d5f083E(&local_118);
   if (!bVar3) {
                     /* try { // try from 001ddb30 to 001ddb3c has its CatchHandler @ 001ddb5c */
-    core::ptr::drop_in_place<alloc::string::String>(&local_c8);
+    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h1f03875085d5f083E(&local_c8);
   }
-  core::ptr::drop_in_place<alloc::string::String>(local_a8);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h1f03875085d5f083E(local_a8);
   return;
 }

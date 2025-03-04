@@ -1,6 +1,6 @@
-long __rustcall
-uu_seq::print_seq(long *param_1,long param_2,undefined8 param_3,undefined8 param_4,
-                 undefined8 param_5,undefined8 param_6,char param_7,long param_8,long *param_9)
+long _ZN6uu_seq9print_seq17h76b7cc0ba327356fE
+               (long *param_1,long param_2,undefined8 param_3,undefined8 param_4,undefined8 param_5,
+               undefined8 param_6,char param_7,long param_8,long *param_9)
 
 {
   char cVar1;
@@ -48,8 +48,8 @@ uu_seq::print_seq(long *param_1,long param_2,undefined8 param_3,undefined8 param
   local_98 = param_5;
   local_90 = param_6;
                     /* try { // try from 001c7be7 to 001c7c02 has its CatchHandler @ 001c8227 */
-  local_118[0] = std::io::stdio::stdout();
-  local_200 = std::io::stdio::Stderr::lock(local_118);
+  local_118[0] = _ZN3std2io5stdio6stdout17h077da66234850927E();
+  local_200 = _ZN3std2io5stdio6Stderr4lock17h890f7962a170fc90E(local_118);
   local_1d8 = param_1[4];
   local_1f8 = *param_1;
   uStack_1f0 = param_1[1];
@@ -79,7 +79,7 @@ uu_seq::print_seq(long *param_1,long param_2,undefined8 param_3,undefined8 param
   }
   local_130 = *param_9;
                     /* try { // try from 001c7caa to 001c7cc3 has its CatchHandler @ 001c8220 */
-  cVar1 = done_printing(&local_1f8,&local_188,&local_f8);
+  cVar1 = _ZN6uu_seq13done_printing17h3afd308e88daff24E(&local_1f8,&local_188,&local_f8);
   if (cVar1 == '\0') {
     local_190 = 0x8000000000000000;
     if (local_130 != -0x8000000000000000) {
@@ -93,7 +93,7 @@ uu_seq::print_seq(long *param_1,long param_2,undefined8 param_3,undefined8 param
       return lVar2;
     }
                     /* try { // try from 001c7d32 to 001c7d79 has its CatchHandler @ 001c8220 */
-    lVar2 = write_value_float(&local_200,&local_1f8,lVar3,param_2);
+    lVar2 = _ZN6uu_seq17write_value_float17h583f3c53a243a2bfE(&local_200,&local_1f8,lVar3,param_2);
     if (lVar2 == 0) {
       local_138 = local_1d8;
       local_148 = (undefined4)local_1e8;
@@ -116,24 +116,31 @@ uu_seq::print_seq(long *param_1,long param_2,undefined8 param_3,undefined8 param
   }
   else {
                     /* try { // try from 001c7cc8 to 001c7cd2 has its CatchHandler @ 001c8212 */
-    lVar2 = _<std::io::stdio::StdoutLock_as_std::io::Write>::flush(&local_200);
+    lVar2 = _ZN61__LT_std__io__stdio__StdoutLock_u20_as_u20_std__io__Write_GT_5flush17hf4899ae455fb37b6E
+                      (&local_200);
     if (lVar2 == 0) {
                     /* try { // try from 001c7cdf to 001c7ce8 has its CatchHandler @ 001c821e */
-      core::ptr::drop_in_place<uu_seq::extendedbigdecimal::ExtendedBigDecimal>(&local_1f8);
+      _ZN4core3ptr67drop_in_place_LT_uu_seq__extendedbigdecimal__ExtendedBigDecimal_GT_17h34bd9961a5e5dc1cE
+                (&local_1f8);
                     /* try { // try from 001c7ce9 to 001c7cf5 has its CatchHandler @ 001c8219 */
-      core::ptr::drop_in_place<uu_seq::extendedbigdecimal::ExtendedBigDecimal>(&local_f8);
+      _ZN4core3ptr67drop_in_place_LT_uu_seq__extendedbigdecimal__ExtendedBigDecimal_GT_17h34bd9961a5e5dc1cE
+                (&local_f8);
                     /* try { // try from 001c7cf6 to 001c7d02 has its CatchHandler @ 001c8214 */
-      core::ptr::drop_in_place<uu_seq::extendedbigdecimal::ExtendedBigDecimal>(&local_188);
-      core::ptr::drop_in_place<std::io::stdio::StdoutLock>(local_200);
+      _ZN4core3ptr67drop_in_place_LT_uu_seq__extendedbigdecimal__ExtendedBigDecimal_GT_17h34bd9961a5e5dc1cE
+                (&local_188);
+      _ZN4core3ptr47drop_in_place_LT_std__io__stdio__StdoutLock_GT_17h1972256e3ce050a6E(local_200);
       return 0;
     }
   }
                     /* try { // try from 001c7dcc to 001c7dd5 has its CatchHandler @ 001c821e */
-  core::ptr::drop_in_place<uu_seq::extendedbigdecimal::ExtendedBigDecimal>(&local_1f8);
+  _ZN4core3ptr67drop_in_place_LT_uu_seq__extendedbigdecimal__ExtendedBigDecimal_GT_17h34bd9961a5e5dc1cE
+            (&local_1f8);
                     /* try { // try from 001c7dd6 to 001c7de2 has its CatchHandler @ 001c8219 */
-  core::ptr::drop_in_place<uu_seq::extendedbigdecimal::ExtendedBigDecimal>(&local_f8);
+  _ZN4core3ptr67drop_in_place_LT_uu_seq__extendedbigdecimal__ExtendedBigDecimal_GT_17h34bd9961a5e5dc1cE
+            (&local_f8);
                     /* try { // try from 001c7de3 to 001c7def has its CatchHandler @ 001c8214 */
-  core::ptr::drop_in_place<uu_seq::extendedbigdecimal::ExtendedBigDecimal>(&local_188);
-  core::ptr::drop_in_place<std::io::stdio::StdoutLock>(local_200);
+  _ZN4core3ptr67drop_in_place_LT_uu_seq__extendedbigdecimal__ExtendedBigDecimal_GT_17h34bd9961a5e5dc1cE
+            (&local_188);
+  _ZN4core3ptr47drop_in_place_LT_std__io__stdio__StdoutLock_GT_17h1972256e3ce050a6E(local_200);
   return lVar2;
 }

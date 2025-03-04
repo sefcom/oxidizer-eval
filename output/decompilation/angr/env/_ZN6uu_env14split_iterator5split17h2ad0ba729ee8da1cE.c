@@ -27,7 +27,7 @@ long long uu_env::split_iterator::split::h2ad0ba729ee8da1c(struct_0 *a0, unsigne
         v15 = *((long long *)&v9);
         a0->field_4 = (int128_t)(&v0)[12];
         *((int128_t *)&(&a0->field_0)[1]) = (int128_t)v0;
-        *((unsigned long long *)&a0->field_10) = v15;
+        *((unsigned long long *)&a0->field_8) = v15;
     }
     else
     {

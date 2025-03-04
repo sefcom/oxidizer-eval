@@ -1,15 +1,15 @@
 long long uu_dd::parseargs::show_zero_multiplier_warning::hbe4ec55817d90dd4()
 {
-    unsigned long v0;  // [sp-0xa8], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xa8]
     unsigned long long v1;  // [sp-0xa0]
     struct struct_0 **v2;  // [sp-0x98], Other Possible Types: struct struct_1 **
     unsigned long long v3;  // [sp-0x90]
     void* v4;  // [sp-0x88]
-    void* v5;  // [sp-0x78], Other Possible Types: char *
+    char *v5;  // [sp-0x78]
     unsigned long long v6;  // [sp-0x70]
     unsigned long long v7;  // [sp-0x68]
     char v8;  // [sp-0x60]
-    void* v9;  // [sp-0x58], Other Possible Types: unsigned long long
+    void* v9;  // [sp-0x58], Other Possible Types: unsigned long
     unsigned long long v10;  // [sp-0x50]
     unsigned long long v11;  // [sp-0x48]
     char v12;  // [sp-0x40]

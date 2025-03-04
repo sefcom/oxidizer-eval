@@ -2,7 +2,7 @@ long long uu_base32::base_common::get_input::h0f77b7573e033d64(unsigned long lon
 {
     char v0;  // [bp-0x38]
     char v1;  // [bp-0x30]
-    unsigned long v2;  // [bp-0x28], Other Possible Types: unsigned long long
+    unsigned long v2;  // [bp-0x28]
     unsigned int v4;  // edx
     unsigned long long v5;  // rax
     unsigned long long v6;  // rcx

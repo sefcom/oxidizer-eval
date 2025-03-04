@@ -103,7 +103,7 @@ long long uu_dd::parseargs::parse_bytes_no_x::h9d66ee8239148f5f(struct_0 *a0, un
         v14 = *((long long *)&v1);
         if (v13 != 14)
         {
-            vvar_322{reg 32} = a0;
+            vvar_317{reg 32} = a0;
             v22->field_10 = *((int128_t *)&v2);
             v22->field_0 = v13;
             v22->field_8 = v14;

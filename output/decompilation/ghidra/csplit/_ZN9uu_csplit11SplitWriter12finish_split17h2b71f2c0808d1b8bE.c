@@ -1,4 +1,4 @@
-void __rustcall uu_csplit::SplitWriter::finish_split(long param_1)
+void _ZN9uu_csplit11SplitWriter12finish_split17h2b71f2c0808d1b8bE(long param_1)
 
 {
   long local_40;
@@ -16,13 +16,15 @@ void __rustcall uu_csplit::SplitWriter::finish_split(long param_1)
     }
     if (*(char *)(*(long *)(param_1 + 0x20) + 0x61) == '\0') {
       local_40 = param_1 + 0x30;
-      local_38 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+      local_38 = 
+      _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+      ;
       local_30 = &DAT_003e1d98;
       local_28 = 2;
       local_10 = 0;
       local_20 = &local_40;
       local_18 = 1;
-      std::io::stdio::_print(&local_30);
+      _ZN3std2io5stdio6_print17he918bceb0c89db46E(&local_30);
       return;
     }
   }

@@ -6,12 +6,12 @@ long long uu_link::uumain::uumain::h45262a3ada58109a(unsigned long long a0, unsi
     char v3;  // [bp-0x340]
     char v4;  // [bp-0x330]
     char v5;  // [bp-0x328]
-    unsigned long v6;  // [sp-0x320], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x320]
     unsigned long long v7;  // [sp-0x318]
     int v8;  // [sp-0x310]
     int v9;  // [sp-0x300]
     unsigned long long v10;  // [sp-0x2f0]
-    char v11;  // [bp-0x2e8], Other Possible Types: unsigned long long
+    char v11;  // [bp-0x2e8], Other Possible Types: unsigned long
     unsigned long long v12;  // [sp-0x2e0]
     int v13;  // [bp-0x2d8], Other Possible Types: unsigned long long
     unsigned long long v14;  // [sp-0x2d0]

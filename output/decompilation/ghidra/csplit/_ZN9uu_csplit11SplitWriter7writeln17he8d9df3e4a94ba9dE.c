@@ -1,4 +1,5 @@
-long __rustcall uu_csplit::SplitWriter::writeln(long *param_1,undefined8 param_2,ulong param_3)
+long _ZN9uu_csplit11SplitWriter7writeln17he8d9df3e4a94ba9dE
+               (long *param_1,undefined8 param_2,ulong param_3)
 
 {
   long lVar1;
@@ -16,7 +17,8 @@ long __rustcall uu_csplit::SplitWriter::writeln(long *param_1,undefined8 param_2
       local_30 = 0;
       uStack_28 = 0;
                     /* WARNING: Subroutine does not return */
-      core::panicking::panic_fmt(&local_48,&PTR_s_src_uu_csplit_src_csplit_rs_003e1de0);
+      _ZN4core9panicking9panic_fmt17he12d0d7468628bb4E
+                (&local_48,&PTR_s_src_uu_csplit_src_csplit_rs_003e1de0);
     }
     lVar1 = param_1[2];
     if (param_3 < (ulong)(*param_1 - lVar1)) {
@@ -25,14 +27,16 @@ long __rustcall uu_csplit::SplitWriter::writeln(long *param_1,undefined8 param_2
       param_1[2] = lVar1;
     }
     else {
-      lVar1 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(param_1,param_2,param_3);
+      lVar1 = _ZN3std2io8buffered9bufwriter18BufWriter_LT_W_GT_14write_all_cold17h97889b217ec5f319E
+                        (param_1,param_2,param_3);
       if (lVar1 != 0) {
         return lVar1;
       }
       lVar1 = param_1[2];
     }
     if ((ulong)(*param_1 - lVar1) < 2) {
-      lVar1 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(param_1,"\n",1);
+      lVar1 = _ZN3std2io8buffered9bufwriter18BufWriter_LT_W_GT_14write_all_cold17h97889b217ec5f319E
+                        (param_1,"\n",1);
       if (lVar1 != 0) {
         return lVar1;
       }

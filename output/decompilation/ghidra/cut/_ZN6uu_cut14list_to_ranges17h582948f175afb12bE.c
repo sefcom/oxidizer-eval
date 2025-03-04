@@ -1,5 +1,5 @@
-ulong * __rustcall
-uu_cut::list_to_ranges(ulong *param_1,undefined8 param_2,undefined8 param_3,int param_4)
+ulong * _ZN6uu_cut14list_to_ranges17h582948f175afb12bE
+                  (ulong *param_1,undefined8 param_2,undefined8 param_3,int param_4)
 
 {
   undefined4 local_48;
@@ -15,17 +15,18 @@ uu_cut::list_to_ranges(ulong *param_1,undefined8 param_2,undefined8 param_3,int 
   ulong local_18;
   
   if (param_4 == 0) {
-    uucore::features::ranges::Range::from_list(param_1);
+    _ZN6uucore8features6ranges5Range9from_list17hf67be8a5ce4e6c04E(param_1);
   }
   else {
-    uucore::features::ranges::Range::from_list(&local_30);
+    _ZN6uucore8features6ranges5Range9from_list17hf67be8a5ce4e6c04E(&local_30);
     if (local_30 == 0) {
       local_38 = local_18;
       local_48 = local_28;
       uStack_44 = uStack_24;
       uStack_40 = uStack_20;
       uStack_3c = uStack_1c;
-      list_to_ranges::___closure__(param_1 + 1,&local_48);
+      _ZN6uu_cut14list_to_ranges28__u7b__u7b_closure_u7d__u7d_17h500d2b69098a6b6eE
+                (param_1 + 1,&local_48);
     }
     else {
       param_1[3] = local_18;

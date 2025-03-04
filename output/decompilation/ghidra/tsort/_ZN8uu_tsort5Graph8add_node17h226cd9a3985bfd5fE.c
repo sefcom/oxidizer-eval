@@ -1,4 +1,5 @@
-void __rustcall uu_tsort::Graph::add_node(undefined8 param_1,undefined8 param_2,undefined8 param_3)
+void _ZN8uu_tsort5Graph8add_node17h226cd9a3985bfd5fE
+               (undefined8 param_1,undefined8 param_2,undefined8 param_3)
 
 {
   undefined8 local_50;
@@ -16,7 +17,7 @@ void __rustcall uu_tsort::Graph::add_node(undefined8 param_1,undefined8 param_2,
   undefined4 uStack_8;
   undefined4 uStack_4;
   
-  hashbrown::rustc_entry::_<impl_hashbrown::map::HashMap<K,V,S,A>>::rustc_entry
+  _ZN9hashbrown11rustc_entry62__LT_impl_u20_hashbrown__map__HashMap_LT_K_C_V_C_S_C_A_GT__GT_11rustc_entry17hc19611d798ae6787E
             (&local_28,param_1,param_2,param_3);
   local_48 = local_20;
   uStack_40 = uStack_18;
@@ -25,6 +26,6 @@ void __rustcall uu_tsort::Graph::add_node(undefined8 param_1,undefined8 param_2,
   uStack_30 = uStack_8;
   uStack_2c = uStack_4;
   local_50 = local_28;
-  std::collections::hash::map::Entry<K,V>::or_insert_with(&local_50);
+  _ZN3std11collections4hash3map18Entry_LT_K_C_V_GT_14or_insert_with17h5f04f7c58cf28248E(&local_50);
   return;
 }

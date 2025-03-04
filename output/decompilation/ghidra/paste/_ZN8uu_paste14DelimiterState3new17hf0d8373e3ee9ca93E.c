@@ -1,4 +1,4 @@
-void __rustcall uu_paste::DelimiterState::new(long *param_1,long *param_2,long param_3)
+void _ZN8uu_paste14DelimiterState3new17hf0d8373e3ee9ca93E(long *param_1,long *param_2,long param_3)
 
 {
   long lVar1;
@@ -21,7 +21,8 @@ void __rustcall uu_paste::DelimiterState::new(long *param_1,long *param_2,long p
     else {
       lVar1 = *param_2;
       lVar2 = param_2[1];
-      core::iter::adapters::cycle::Cycle<I>::new(param_1 + 5,param_2,param_2 + param_3 * 2);
+      _ZN4core4iter8adapters5cycle14Cycle_LT_I_GT_3new17hf1aa6bae6724cda9E
+                (param_1 + 5,param_2,param_2 + param_3 * 2);
       param_1[1] = lVar1;
       param_1[2] = lVar2;
       lVar1 = 2;

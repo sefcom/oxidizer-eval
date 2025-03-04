@@ -1,6 +1,6 @@
 long long uu_rmdir::remove_single::h7d254dd4570d65d7(unsigned long long a0[3], unsigned long long a1, unsigned long long a2, unsigned int a3)
 {
-    unsigned long v0;  // [sp-0x98], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x98]
     unsigned long long v1;  // [sp-0x90]
     char *v2;  // [sp-0x88]
     unsigned long long v3;  // [sp-0x80]
@@ -10,7 +10,7 @@ long long uu_rmdir::remove_single::h7d254dd4570d65d7(unsigned long long a0[3], u
     unsigned long long v7;  // [sp-0x60]
     unsigned long long v8;  // [sp-0x58]
     char v9;  // [sp-0x50]
-    unsigned long v10;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v10;  // [sp-0x48]
     unsigned long long v11;  // [sp-0x40]
     struct struct_0 **v12;  // [sp-0x38]
     unsigned long long v13;  // [sp-0x30]

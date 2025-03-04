@@ -26,10 +26,8 @@ fn uu_rm::handle_writable_directory(a0: u32, a1: u32, a2: u8, a3: u8) -> u8 {
         v9 = <std::io::stdio::Stderr as std::io::Write>::flush(&v5);
         if v9 {
             v0 = v9;
-            v1 = uucore::util_name();
             v2 = v7;
-            eprint!("{}: ", &v1);
-            eprintln!("{}", &v0);
+            show_error!("{}", &v0);
             std::process::exit(1); /* do not return */
         }
     } else if a2 != 2 {
@@ -50,10 +48,8 @@ fn uu_rm::handle_writable_directory(a0: u32, a1: u32, a2: u8, a3: u8) -> u8 {
         v10 = <std::io::stdio::Stderr as std::io::Write>::flush(&v5);
         if v10 {
             v0 = v10;
-            v1 = uucore::util_name();
             v2 = v8;
-            eprint!("{}: ", &v1);
-            eprintln!("{}", &v0);
+            show_error!("{}", &v0);
             std::process::exit(1); /* do not return */
         }
     }

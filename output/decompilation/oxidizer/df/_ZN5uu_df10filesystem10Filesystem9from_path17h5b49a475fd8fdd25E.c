@@ -1,8 +1,8 @@
 fn uu_df::filesystem::Filesystem::from_path(a0: &struct232, a1: u32, a2: u32, a3: u32) -> u64 {
-    let v0: i64;  // [sp-0xe8], Other Possible Types: struct24
+    let v0: struct24;  // [sp-0xe8], Other Possible Types: unsigned long
     let v1: i64;  // [sp-0xe0]
     let v2: struct24;  // [sp-0xd0]
-    let v3: i1168;  // [sp-0xb8], Other Possible Types: struct146
+    let v3: struct146;  // [sp-0xb8]
     let v5: i64;  // rdx
     let v6: i64;  // rax
 

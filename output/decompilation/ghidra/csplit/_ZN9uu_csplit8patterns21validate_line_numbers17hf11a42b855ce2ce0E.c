@@ -1,4 +1,5 @@
-void __rustcall uu_csplit::patterns::validate_line_numbers(long *param_1,long param_2,long param_3)
+void _ZN9uu_csplit8patterns21validate_line_numbers17hf11a42b855ce2ce0E
+               (long *param_1,long param_2,long param_3)
 
 {
   long local_40;
@@ -11,7 +12,7 @@ void __rustcall uu_csplit::patterns::validate_line_numbers(long *param_1,long pa
   
   local_38 = param_3 * 0x38 + param_2;
   local_40 = param_2;
-  core::iter::traits::iterator::Iterator::try_fold(&local_30,&local_40);
+  _ZN4core4iter6traits8iterator8Iterator8try_fold17he4ea7283460072b7E(&local_30,&local_40);
   if (local_30 != 0xc) {
     param_1[4] = local_10;
     param_1[2] = local_20;

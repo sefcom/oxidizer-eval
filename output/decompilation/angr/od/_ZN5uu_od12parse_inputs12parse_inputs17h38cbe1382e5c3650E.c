@@ -67,8 +67,11 @@ LABEL_4d2d88:
     }
 LABEL_4d2cca:
     if (!v9)
+    {
         alloc::vec::Vec$LT$T$C$A$GT$::push::hef5220248dbc45bb(&v0);
-    _$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$::from_iter::hff0e80f7eaa39b66(&v3, *((long long *)&v1), *((long long *)&v2) * 16 + *((long long *)&v1));
+        v9 = *((long long *)&v2);
+    }
+    _$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$::from_iter::hff0e80f7eaa39b66(&v3, *((long long *)&v1), v9 * 16 + *((long long *)&v1));
     a0->field_10 = *((long long *)&v4);
     a0->field_0 = *((int128_t *)&v3);
     a0->field_20 = 2;

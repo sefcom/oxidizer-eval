@@ -1,12 +1,12 @@
-long long uu_realpath::canonicalize_relative::h9315a0e677658306(unsigned long long a0[3], unsigned long long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4)
+long long uu_realpath::canonicalize_relative::h9315a0e677658306(unsigned long long a0[3], unsigned long long a1, unsigned long long a2, unsigned int a3, unsigned long long a4)
 {
-    unsigned long long v0;  // [sp-0x68]
+    unsigned long v0;  // [sp-0x68]
     unsigned long long v1;  // [sp-0x60]
     unsigned long long v2;  // [sp-0x58]
     char v3;  // [bp-0x50]
     char v4;  // [bp-0x48]
     char v5;  // [bp-0x40]
-    unsigned long long v6;  // [sp-0x38]
+    unsigned long v6;  // [sp-0x38]
     char v7;  // [sp-0x30]
     unsigned long long v9;  // rax
 
@@ -28,12 +28,12 @@ long long uu_realpath::canonicalize_relative::h9315a0e677658306(unsigned long lo
         {
             a0[1] = v6;
             a0[0] = 0x8000000000000000;
-            v9 = ::0x4b4d60::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h9cc26ee4129f6434();
+            v9 = ::0x4b4d60::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h9cc26ee4129f6434(&v0);
             return v9;
         }
         v6 = *((long long *)&v3);
         v7 = v4;
-        ::0x4b4d50::core::ptr::drop_in_place$LT$std..fs..ReadDir$GT$::h8145669f43335f0d();
+        ::0x4b4d50::core::ptr::drop_in_place$LT$std..fs..ReadDir$GT$::h8145669f43335f0d(&v6);
     }
     a0[2] = v2;
     a0[0] = v0;

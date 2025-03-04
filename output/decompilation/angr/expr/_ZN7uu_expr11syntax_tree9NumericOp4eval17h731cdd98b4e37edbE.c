@@ -56,7 +56,7 @@ long long uu_expr::syntax_tree::NumericOp::eval::h731cdd98b4e37edb(struct_0 *a0,
             *((void*)((char *)&a0->field_8 + 8)) = v15;
             *((void*)&(&a0->field_0)[1]) = v14;
             a0->field_0 = 1;
-            v17 = core::ptr::drop_in_place$LT$num_bigint..bigint..BigInt$GT$::h4ffd1c0c3ebf756b();
+            v17 = core::ptr::drop_in_place$LT$num_bigint..bigint..BigInt$GT$::h4ffd1c0c3ebf756b(&v10);
             return v17;
         }
     }

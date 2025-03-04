@@ -5,31 +5,31 @@ long long uu_sort::merge::merge_with_file_limit::h68734aa550059387(unsigned long
     int v2;  // [sp-0x238]
     unsigned long long v3;  // [sp-0x228]
     int v4;  // [bp-0x218], Other Possible Types: char
+    char v5;  // [bp-0x210]
     int v6;  // [bp-0x208]
     int v8;  // [bp-0x1f8], Other Possible Types: unsigned long long
     char v9;  // [bp-0x1f0], Other Possible Types: unsigned long long
     int v10;  // [bp-0x1e8], Other Possible Types: unsigned long long
-    char v11;  // [bp-0x1e0]
     int v12;  // [sp-0x1d8]
     char v13;  // [bp-0x1d0]
     int v14;  // [sp-0x1c8]
     void* v16;  // [sp-0x1b8]
     unsigned long long v17;  // [sp-0x1b0]
     void* v18;  // [sp-0x1a8]
-    char v19;  // [bp-0x1a0], Other Possible Types: unsigned long, unsigned long long
+    char v19;  // [sp-0x1a0], Other Possible Types: unsigned long
     unsigned long long v20;  // [sp-0x198]
-    char v21;  // [bp-0x190], Other Possible Types: unsigned long, unsigned long long
+    unsigned long v21;  // [sp-0x190]
     int v22;  // [sp-0x188]
     int v24;  // [sp-0x178]
-    unsigned long v25;  // [sp-0x168], Other Possible Types: unsigned long long
+    unsigned long v25;  // [sp-0x168]
     unsigned long long v26;  // [sp-0x160]
-    unsigned long v27;  // [sp-0x158], Other Possible Types: unsigned long long
+    unsigned long v27;  // [sp-0x158]
     int v28;  // [sp-0x150]
     int v29;  // [sp-0x140]
     int v30;  // [sp-0x130]
     int v31;  // [sp-0x120]
     unsigned long long v32;  // [sp-0x110]
-    unsigned long v33;  // [sp-0x108], Other Possible Types: unsigned long long
+    unsigned long v33;  // [sp-0x108]
     unsigned long long v34;  // [sp-0x100]
     unsigned long long v35;  // [sp-0xf8]
     unsigned long long v36;  // [sp-0xf0]
@@ -38,8 +38,8 @@ long long uu_sort::merge::merge_with_file_limit::h68734aa550059387(unsigned long
     char v39;  // [bp-0xd0]
     unsigned long long v41;  // r12
     unsigned long long v42;  // rax
-    void* v43;  // rbx
-    unsigned long long v44;  // rbx
+    unsigned long long v43;  // rbx
+    void* v44;  // r13
     int v46;  // ymm0
     int v47;  // ymm1
     int v48;  // ymm2
@@ -71,11 +71,11 @@ long long uu_sort::merge::merge_with_file_limit::h68734aa550059387(unsigned long
     int v74;  // xmm1
     int v75;  // xmm2
     unsigned long long v76;  // rdx
-    unsigned long long v77[2];  // rdx
-    unsigned long long v78[2];  // rax
-    unsigned long long v79[2];  // rdx
-    unsigned long long v80[2];  // rcx
-    unsigned long v81;  // rdx
+    unsigned long long v78[2];  // rdx
+    unsigned long long v79[2];  // rax
+    unsigned long long v80[2];  // rdx
+    unsigned long long v81[2];  // rcx
+    unsigned long v82;  // rdx
 
     v41 = a3->field_70;
     if (_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$::len::hbd1c0dc342c9868d(&v0) <= v41)
@@ -90,13 +90,14 @@ long long uu_sort::merge::merge_with_file_limit::h68734aa550059387(unsigned long
     v18 = 0;
     if (v43)
     {
+        v44 = v43;
         do
         {
-            v43 = v44 - v41;
+            v44 -= v41;
             if (v44 < v41)
-                v43 = 0;
+                v44 = 0;
             _$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hc65e742b2db28af5(&v19, &v39);
-            if (*((int *)&v19) == 3)
+            if ((int)v19 == 3)
                 core::option::unwrap_failed::h0e11329e76906eaa(&g_6002e0); /* do not return */
             v3 = (long long)(&v22)[8];
             v50 = *((int128_t *)&v19);
@@ -104,23 +105,23 @@ long long uu_sort::merge::merge_with_file_limit::h68734aa550059387(unsigned long
             v2 = v51;
             v1 = v50;
             uu_sort::merge::merge_without_limit::h957af4587d2d4d7a(&v4, &v1, a3);
-            v52 = (long long)v4;
-            v53 = (long long)(&v4)[8];
+            v52 = *((long long *)&v4);
+            v53 = *((long long *)&v5);
             v54 = (long long)v6;
             if (v25 == 3)
             {
-                v77 = a0;
-                v77[1] = v53;
-                v77[1] = v54;
-                v77[0] = 3;
+                v78 = a0;
+                v78[1] = v53;
+                v78[1] = v54;
+                v78[0] = 3;
                 ::0x5276c0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$GT$::h67b23147265995e1(&v16);
-                core::ptr::drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$::h18550a823b66643e(&v39);
+                vvar_616{reg 16} = core::ptr::drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$::h18550a823b66643e(&v39);
                 return v42;
             }
             v32 = (long long)(&v14)[8];
             v55 = (int128_t)(&v6)[8];
             v56 = *((int128_t *)&v9);
-            v57 = *((int128_t *)&v11);
+            v57 = (int128_t)(&v10)[8];
             v58 = *((int128_t *)&v13);
             v31 = v58;
             v30 = v57;
@@ -133,9 +134,9 @@ long long uu_sort::merge::merge_with_file_limit::h68734aa550059387(unsigned long
             v59 = (long long)(&v1)[8];
             if (v37 == 0x8000000000000000)
             {
-                v78 = a0;
-                *((void*)&v78[1]) = v2;
-                v78[0] = 3;
+                v79 = a0;
+                *((void*)&v79[1]) = v2;
+                v79[0] = 3;
                 goto LABEL_52a601;
             }
             else
@@ -145,19 +146,19 @@ long long uu_sort::merge::merge_with_file_limit::h68734aa550059387(unsigned long
                 v37 = v59;
                 v38 = v60;
                 _$LT$uu_sort..merge..WriteablePlainTmpFile$u20$as$u20$uu_sort..merge..WriteableTmpFile$GT$::create::hf387bcea2432cd24(&v4, &v36);
-                v61 = (long long)v4;
-                v62 = (long long)(&v4)[8];
+                v61 = *((long long *)&v4);
+                v62 = *((long long *)&v5);
                 v63 = (long long)v6;
                 if (v19 == 0x8000000000000000)
                 {
-                    v79 = a0;
-                    v79[1] = v20;
-                    v79[1] = v21;
-                    v79[0] = 3;
+                    v80 = a0;
+                    v80[1] = v20;
+                    v80[1] = v21;
+                    v80[0] = 3;
 LABEL_52a601:
                     core::ptr::drop_in_place$LT$uu_sort..merge..FileMerger$GT$::hc0f545c2cd5ee31c(&v25);
                     ::0x5276c0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$GT$::h67b23147265995e1(&v16);
-                    core::ptr::drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$::h18550a823b66643e(&v39);
+                    vvar_611{reg 16} = core::ptr::drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$::h18550a823b66643e(&v39);
                     return v42;
                 }
             }
@@ -184,13 +185,13 @@ LABEL_52a601:
             v72 = uu_sort::merge::FileMerger::write_all_to::h1c9339354b7849ec(&v4, a3, ::0x533c70::_$LT$uu_sort..merge..WriteablePlainTmpFile$u20$as$u20$uu_sort..merge..WriteableTmpFile$GT$::as_write::hd7022d2bef20dad2(&v19));
             if (v72)
             {
-                v80 = a0;
-                v80[1] = v72;
-                v80[1] = v81;
-                v80[0] = 3;
+                v81 = a0;
+                v81[1] = v72;
+                v81[1] = v82;
+                v81[0] = 3;
                 ::0x5270e0::core::ptr::drop_in_place$LT$uu_sort..merge..WriteablePlainTmpFile$GT$::h96330bd0f939a872(&v19);
                 ::0x5276c0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$GT$::h67b23147265995e1(&v16);
-                core::ptr::drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$::h18550a823b66643e(&v39);
+                vvar_606{reg 16} = core::ptr::drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$::h18550a823b66643e(&v39);
                 return v42;
             }
             v10 = (long long)(&v24)[8];
@@ -209,18 +210,19 @@ LABEL_52a601:
             v54 = (long long)v2;
             if (v33 == 0x8000000000000000)
             {
-                vvar_628{reg 32} = a0;
-                v77[1] = v53;
-                v77[1] = v54;
-                v77[0] = 3;
+                vvar_622{reg 32} = a0;
+                v78[1] = v53;
+                v78[1] = v54;
+                v78[0] = 3;
                 ::0x5276c0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$GT$::h67b23147265995e1(&v16);
-                core::ptr::drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$::h18550a823b66643e(&v39);
+                vvar_625{reg 16} = core::ptr::drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$::h18550a823b66643e(&v39);
                 return v42;
             }
             v33 = v76;
             v34 = v53;
             v35 = v54;
             ::0x5280f0::alloc::vec::Vec$LT$T$C$A$GT$::push::h3f59369679f0d1cb(&v16, &v33);
+            v43 = v44;
         } while (v43 > v41);
     }
     _$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hc65e742b2db28af5(&v4, &v39);
@@ -233,7 +235,7 @@ LABEL_52a601:
         v8 = alloc::boxed::Box$LT$T$GT$::new::h609552d0dc279bd4();
         v9 = &g_6002b8;
         uu_sort::merge::merge_with_file_limit::hc0e6e7450cc5dee9(a0, &v4, a3, a4);
-        core::ptr::drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$::h18550a823b66643e(&v39);
+        vvar_602{reg 16} = core::ptr::drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$::h18550a823b66643e(&v39);
         return v42;
     }
     core::ptr::drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$::h9933d114d7b58fde(&v4);

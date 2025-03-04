@@ -1,7 +1,6 @@
-void __rustcall
-uu_fmt::linebreak::slice_if_fresh
-          (long *param_1,int param_2,undefined8 param_3,undefined8 param_4,undefined8 param_5,
-          char param_6,byte param_7,byte param_8,byte param_9)
+void _ZN6uu_fmt9linebreak14slice_if_fresh17h6f9344101bcdf0b0E
+               (long *param_1,int param_2,undefined8 param_3,undefined8 param_4,undefined8 param_5,
+               char param_6,byte param_7,byte param_8,byte param_9)
 
 {
   code *pcVar1;
@@ -26,11 +25,10 @@ uu_fmt::linebreak::slice_if_fresh
     }
   }
   else {
-    auVar5 = core::str::traits::
-             _<impl_core::slice::index::SliceIndex<str>for_core::ops::range::RangeFrom<usize>>::get
+    auVar5 = _ZN4core3str6traits112__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeFrom_LT_usize_GT__GT_3get17hccefea64a1916a27E
                        (param_5,param_3,param_4);
     if (auVar5._0_8_ == 0) {
-      core::str::slice_error_fail
+      _ZN4core3str16slice_error_fail17h5dbb61534404fe7eE
                 (param_3,param_4,param_5,param_4,&PTR_s_src_uu_fmt_src_linebreak_rs_002268a0);
       pcVar1 = (code *)swi(3);
       (*pcVar1)();

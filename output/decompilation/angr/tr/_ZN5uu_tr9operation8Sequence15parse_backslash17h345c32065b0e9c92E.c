@@ -4,7 +4,7 @@ long long uu_tr::operation::Sequence::parse_backslash::h345c32065b0e9c92(unsigne
     char v1;  // [bp-0x30]
     char v2;  // [bp-0x28]
     char v3;  // [bp-0x20]
-    unsigned long v4;  // [sp-0x18], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0x18]
     unsigned long long v5;  // [sp-0x10]
     unsigned long long v7;  // rax
     unsigned long long v8;  // rcx

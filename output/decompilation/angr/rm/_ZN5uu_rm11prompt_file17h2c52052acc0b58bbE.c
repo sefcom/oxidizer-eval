@@ -1,21 +1,21 @@
 long long uu_rm::prompt_file::h2c52052acc0b58bb(unsigned long long a0, unsigned long long a1, char a2)
 {
     unsigned int v0;  // [sp-0x164]
-    char *v1;  // [sp-0x160], Other Possible Types: unsigned long long
+    char *v1;  // [sp-0x160]
     unsigned long long v2;  // [sp-0x158]
     struct struct_1 **v3;  // [sp-0x150], Other Possible Types: struct struct_2 **, unsigned long long
     int v4;  // [bp-0x148], Other Possible Types: char, unsigned long long
     void* v5;  // [sp-0x140]
-    unsigned long v6;  // [sp-0x130], Other Possible Types: unsigned long long
-    struct struct_0 **v7;  // [sp-0x128], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x130]
+    struct struct_0 **v7;  // [sp-0x128]
     unsigned long long v8;  // [sp-0x120]
     unsigned long long v9;  // [sp-0x118]
     char v10;  // [sp-0x110]
-    struct struct_1 **v11;  // [sp-0x108], Other Possible Types: unsigned long long
+    struct struct_1 **v11;  // [sp-0x108]
     unsigned int v12;  // [bp-0x100], Other Possible Types: unsigned short, unsigned long
     unsigned short v13;  // [sp-0xfc]
-    unsigned long v14;  // [sp-0xf8], Other Possible Types: unsigned long long
-    char v15;  // [bp-0xf0], Other Possible Types: unsigned long, unsigned long long
+    unsigned long v14;  // [sp-0xf8]
+    char v15;  // [bp-0xf0], Other Possible Types: unsigned long
     char v16;  // [bp-0xec]
     char v17;  // [bp-0xe8]
     char *v18;  // [bp-0xe0]
@@ -29,7 +29,7 @@ long long uu_rm::prompt_file::h2c52052acc0b58bb(unsigned long long a0, unsigned 
     unsigned long long v27;  // rax
     unsigned long v28;  // rdx
     unsigned long long v29;  // rax
-    unsigned int v32;  // eax
+    unsigned int v32;  // ebx
     unsigned long v33;  // rdx
     unsigned long v34;  // rdx
     unsigned long long v35;  // rax
@@ -133,7 +133,7 @@ long long uu_rm::prompt_file::h2c52052acc0b58bb(unsigned long long a0, unsigned 
                 core::ptr::drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$::h539b7fb1f87034ca(&v18);
                 if (!(a2 == 2) || !(((char)*((int *)&v23) & 146)))
                 {
-                    core::ptr::drop_in_place$LT$std..fs..File$GT$::hfa666ae70153c401();
+                    core::ptr::drop_in_place$LT$std..fs..File$GT$::hfa666ae70153c401(v0);
                     uu_rm::prompt_file_permission_readonly::h2197b873951768fc(a0, a1);
                     return v27;
                 }
@@ -250,7 +250,7 @@ long long uu_rm::prompt_file::h2c52052acc0b58bb(unsigned long long a0, unsigned 
                 v32 = uucore::read_yes::hc350e858ab85cf03();
                 break;
             }
-            core::ptr::drop_in_place$LT$std..fs..File$GT$::hfa666ae70153c401();
+            core::ptr::drop_in_place$LT$std..fs..File$GT$::hfa666ae70153c401(v0);
             v27 = v32;
             return v27;
         }

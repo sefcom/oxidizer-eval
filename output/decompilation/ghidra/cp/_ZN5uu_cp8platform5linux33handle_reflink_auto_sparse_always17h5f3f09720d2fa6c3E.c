@@ -1,7 +1,6 @@
-void __rustcall
-uu_cp::platform::linux::handle_reflink_auto_sparse_always
-          (undefined *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
-          undefined8 param_5)
+void _ZN5uu_cp8platform5linux33handle_reflink_auto_sparse_always17h5f3f09720d2fa6c3E
+               (undefined *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5)
 
 {
   undefined2 uVar1;
@@ -22,7 +21,7 @@ uu_cp::platform::linux::handle_reflink_auto_sparse_always
   undefined8 local_40;
   undefined8 local_38;
   
-  check_for_data(&local_58);
+  _ZN5uu_cp8platform5linux14check_for_data17h21b9fcb33088a74cE(&local_58);
   cVar8 = local_50;
   if (local_50 == '\x02') {
     uVar6 = CONCAT62(uStack_56,CONCAT11(cStack_57,local_58));
@@ -31,7 +30,7 @@ uu_cp::platform::linux::handle_reflink_auto_sparse_always
     uVar1 = CONCAT11(cStack_57,local_58);
     local_40 = param_4;
     local_38 = param_5;
-    check_sparse_detection(&local_58,param_2,param_3);
+    _ZN5uu_cp8platform5linux22check_sparse_detection17he625f50b8a9bdb43E(&local_58,param_2,param_3);
     if (local_58 == '\0') {
       cVar3 = '\x02' - (local_48 == 0);
       bVar9 = cVar8 == '\0';
@@ -46,7 +45,7 @@ uu_cp::platform::linux::handle_reflink_auto_sparse_always
       if (cStack_57 == '\0') {
         cVar7 = '\x02';
       }
-      cVar4 = check_dest_is_fifo(local_40,local_38);
+      cVar4 = _ZN5uu_cp8platform5linux18check_dest_is_fifo17h1ec55e7a10ac562cE(local_40,local_38);
       cVar5 = '\x01';
       if (cVar4 == '\0') {
         cVar5 = cVar3;

@@ -1,8 +1,8 @@
 fn uu_tr::operation::Sequence::parse_char_star(a0: &Result<struct26, struct32>, a1: u32, a2: u32) -> u64 {
-    let v0: i264;  // [sp-0x48], Other Possible Types: struct33
+    let v0: struct33;  // [sp-0x48]
     let v1: struct32;  // [bp-0x28]
     let v3: i8;  // al
-    let v5: i128;  // xmm0
+    let v5: iNone;  // xmm0
 
     v1 = struct32 {
         field_0: &g_41e611
@@ -11,16 +11,16 @@ fn uu_tr::operation::Sequence::parse_char_star(a0: &Result<struct26, struct32>, 
         field_24: 2
     };
     v0 = nom::sequence::delimited::{{closure}}(&v1, a1, a2);
-    if v0 != 3 {
-        v5 = v0;
-        *((a0 + 24) as &i128) = *((&v0 as &char + 16) as &i128);
-        *((a0 + 8) as &i128) = v5;
+    if v0.field_0 as i32 != 3 {
+        v5 = *(&v0.field_0 as &i128);
+        *((a0 + 24) as &i128) = *(&v0.field_16 as &i128);
+        *((a0 + 8) as void*) = v5;
     } else {
-        v3 = *((&v0 as &char + 24) as &i8);
-        *((a0 + 8) as &i128) = *((&v0 as &char + 8) as &i128);
+        v3 = v0.field_24;
+        *((a0 + 8) as &i128) = *(&v0.field_8 as &i128);
         *((a0 + 24) as &i64) = 9223372036854775819;
         *((a0 + 32) as &i8) = 2;
-        *((a0 + 33) as &i8) = v3;
+        *((a0 + 33) as &char) = v3;
     }
     return struct8 {
         field_0: v4

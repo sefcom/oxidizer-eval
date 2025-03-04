@@ -1,6 +1,6 @@
 long long uu_date::set_system_datetime::h9c24751b07cec72e(unsigned int a0[3])
 {
-    unsigned long v0;  // [sp-0x18], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x18]
     unsigned long long v1;  // [sp-0x10]
     unsigned long long v4;  // r8
 

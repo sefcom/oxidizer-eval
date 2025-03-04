@@ -1,5 +1,6 @@
-undefined  [16] __rustcall
-uu_unexpand::next_tabstop(ulong *param_1,long param_2,ulong param_3,long param_4)
+undefined  [16]
+_ZN11uu_unexpand12next_tabstop17h948056bd8ee01f21E
+          (ulong *param_1,long param_2,ulong param_3,long param_4)
 
 {
   ulong uVar1;
@@ -15,7 +16,7 @@ uu_unexpand::next_tabstop(ulong *param_1,long param_2,ulong param_3,long param_4
   if (param_2 == 1) {
     uVar1 = *param_1;
     if (uVar1 == 0) {
-      core::panicking::panic_const::panic_const_rem_by_zero
+      _ZN4core9panicking11panic_const23panic_const_rem_by_zero17h9246b1d1945ea5ddE
                 (&PTR_s_src_uu_unexpand_src_unexpand_rs_0021d0e8);
       pcVar2 = (code *)swi(3);
       auVar5 = (*pcVar2)();
@@ -32,7 +33,7 @@ uu_unexpand::next_tabstop(ulong *param_1,long param_2,ulong param_3,long param_4
   else {
     local_10 = param_1 + param_2;
     local_18 = param_1;
-    plVar3 = (long *)_<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::find
+    plVar3 = (long *)_ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4find17h222f1f9381491abfE
                                (&local_18,&local_20);
     if (plVar3 == (long *)0x0) {
       uVar4 = 0;

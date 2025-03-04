@@ -1,5 +1,5 @@
-long * __rustcall
-uu_wc::count_fast::count_bytes_chars_and_lines_fast(long *param_1,undefined8 param_2)
+long * _ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17he40ae303cc0bd17fE
+                 (long *param_1,undefined8 param_2)
 
 {
   char cVar1;
@@ -21,10 +21,11 @@ uu_wc::count_fast::count_bytes_chars_and_lines_fast(long *param_1,undefined8 par
   lVar3 = 0;
   while( true ) {
     while( true ) {
-      auVar4 = _<std::fs::File_as_std::io::Read>::read(param_2,local_4030,0x4000);
+      auVar4 = _ZN47__LT_std__fs__File_u20_as_u20_std__io__Read_GT_4read17h24fce4ed669fe556E
+                         (param_2,local_4030,0x4000);
       lVar2 = auVar4._8_8_;
       if (auVar4._0_8_ == 0) break;
-      cVar1 = std::io::error::Error::kind(lVar2);
+      cVar1 = _ZN3std2io5error5Error4kind17hb2ff5fa058639b3dE(lVar2);
       if (cVar1 != '#') {
         *param_1 = local_4038;
         param_1[1] = 0;
@@ -34,13 +35,14 @@ uu_wc::count_fast::count_bytes_chars_and_lines_fast(long *param_1,undefined8 par
         param_1[5] = lVar2;
         return param_1;
       }
-      core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(lVar2);
+      _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17hd9e364499d096c21E
+                (lVar2);
     }
     if (lVar2 == 0) break;
     local_4038 = local_4038 + lVar2;
-    auVar4 = _<core::ops::range::Range<usize>as_core::slice::index::SliceIndex<[T]>>::index
+    auVar4 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17hcc9c09d4ae31832dE
                        (lVar2,local_4030,&PTR_s_src_uu_wc_src_count_fast_rs_002312e8);
-    lVar2 = bytecount::count(auVar4._0_8_,auVar4._8_8_,10);
+    lVar2 = _ZN9bytecount5count17h11a8399421fb62feE(auVar4._0_8_,auVar4._8_8_,10);
     lVar3 = lVar3 + lVar2;
   }
   *param_1 = local_4038;

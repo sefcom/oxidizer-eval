@@ -1,7 +1,6 @@
-void __rustcall
-uu_od::format_error_message
-          (undefined8 param_1,long param_2,undefined8 param_3,undefined8 param_4,undefined8 param_5,
-          undefined8 param_6)
+void _ZN5uu_od20format_error_message17h954b3c00e83b3e7fE
+               (undefined8 param_1,long param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5,undefined8 param_6)
 
 {
   undefined8 *local_80;
@@ -37,8 +36,8 @@ LAB_001c8584:
   local_80 = &local_10;
   local_48 = 1;
   local_60 = 0;
-  local_68 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
-  local_78 = _<&T_as_core::fmt::Display>::fmt;
+  local_68 = _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
+  local_78 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h49e5a621c8f1f534E;
   local_20 = 0;
   local_30 = &local_80;
   local_28 = 2;
@@ -46,6 +45,6 @@ LAB_001c8584:
   local_50 = param_4;
   local_10 = param_5;
   local_8 = param_6;
-  core::option::Option<T>::map_or_else(param_1,&local_40);
+  _ZN4core6option15Option_LT_T_GT_11map_or_else17hc22922308bfda6bfE(param_1,&local_40);
   return;
 }

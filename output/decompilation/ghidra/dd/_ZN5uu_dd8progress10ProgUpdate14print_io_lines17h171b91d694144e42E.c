@@ -1,11 +1,11 @@
-undefined1 * __rustcall uu_dd::progress::ProgUpdate::print_io_lines(undefined8 param_1)
+undefined1 * _ZN5uu_dd8progress10ProgUpdate14print_io_lines17h171b91d694144e42E(undefined8 param_1)
 
 {
   undefined8 uVar1;
   undefined1 *local_8;
   
-  local_8 = std::io::stdio::stderr::INSTANCE;
-  uVar1 = write_io_lines(param_1,&local_8);
-  core::result::Result<T,E>::unwrap(uVar1);
+  local_8 = _ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E;
+  uVar1 = _ZN5uu_dd8progress10ProgUpdate14write_io_lines17h21e0c6ac1bc632a9E(param_1,&local_8);
+  _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hc71a0300cb397bcbE(uVar1);
   return local_8;
 }

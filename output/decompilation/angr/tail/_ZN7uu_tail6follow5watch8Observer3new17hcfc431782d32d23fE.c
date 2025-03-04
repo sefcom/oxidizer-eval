@@ -12,11 +12,11 @@ double uu_tail::follow::watch::Observer::new::hcfc431782d32d23f(long long a0, lo
     unsigned long v10;  // r12
     unsigned long v11;  // rbx
     unsigned long v12;  // rax
-    int v13;  // xmm0
     int v14;  // xmm0
-    int v15;  // xmm1
-    int v16;  // xmm2
-    int v17;  // ymm0
+    int v15;  // xmm0
+    int v16;  // xmm1
+    int v17;  // xmm2
+    int v18;  // ymm0
 
     v5 = v7;
     v4 = v8;
@@ -24,15 +24,15 @@ double uu_tail::follow::watch::Observer::new::hcfc431782d32d23f(long long a0, lo
     v2 = v10;
     v1 = v11;
     v0 = v12;
-    v13 = a4[4];
-    *((void*)((char *)&a0->field_68 + 8)) = v13;
-    v14 = a4[0];
-    v15 = a4[1];
-    v16 = a4[2];
+    v14 = a4[4];
+    *((void*)((char *)&a0->field_68 + 8)) = v14;
+    v15 = a4[0];
+    v16 = a4[1];
+    v17 = a4[2];
     *((uint128_t *)((char *)&a0->field_58 + 8)) = a4[3];
-    *((void*)((char *)&a0->field_48 + 8)) = v16;
-    *((void*)((char *)&a0->field_38 + 8)) = v15;
-    *((void*)&(&a0->field_30)[1]) = v14;
+    *((void*)((char *)&a0->field_48 + 8)) = v17;
+    *((void*)((char *)&a0->field_38 + 8)) = v16;
+    *((void*)&(&a0->field_30)[1]) = v15;
     *((char *)&a0->field_78 + 12) = a1;
     *((char *)&a0->field_78 + 14) = a2;
     *((char *)&a0->field_78 + 13) = a3;
@@ -40,6 +40,6 @@ double uu_tail::follow::watch::Observer::new::hcfc431782d32d23f(long long a0, lo
     a0->field_20 = 0;
     a0->field_28 = 8;
     a0->field_30 = 0;
-    *((unsigned int *)((char *)&a0->field_78 + 8)) = 0;
-    return (unsigned long long)((v17 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v13) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v14);
+    *((int *)((char *)&a0->field_78 + 8)) = (uu_tail::platform::unix::supports_pid_checks::h8a33793bec8fc4a9(a5) ? a5 : 0);
+    return (unsigned long long)((v18 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v14) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v15);
 }

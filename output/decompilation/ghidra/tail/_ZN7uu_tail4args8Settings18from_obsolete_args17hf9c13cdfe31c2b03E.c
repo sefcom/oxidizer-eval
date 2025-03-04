@@ -1,5 +1,5 @@
-ulong * __rustcall
-uu_tail::args::Settings::from_obsolete_args(ulong *param_1,ulong *param_2,long param_3)
+ulong * _ZN7uu_tail4args8Settings18from_obsolete_args17hf9c13cdfe31c2b03E
+                  (ulong *param_1,ulong *param_2,long param_3)
 
 {
   bool bVar1;
@@ -39,7 +39,8 @@ uu_tail::args::Settings::from_obsolete_args(ulong *param_1,ulong *param_2,long p
   undefined4 uStack_20;
   undefined4 uStack_1c;
   
-  _<uu_tail::args::Settings_as_core::default::Default>::default(&local_c8);
+  _ZN66__LT_uu_tail__args__Settings_u20_as_u20_core__default__Default_GT_7default17hfebeb1c4deedc4afE
+            (&local_c8);
   if (*(char *)((long)param_2 + 10) != '\0') {
     uStack_7c = CONCAT31(uStack_7c._1_3_,param_3 != 0);
   }
@@ -55,11 +56,12 @@ uu_tail::args::Settings::from_obsolete_args(ulong *param_1,ulong *param_2,long p
     local_c8 = (ulong)*(byte *)(param_2 + 1);
   }
   if (param_3 == 0) {
-    _<uu_tail::paths::Input_as_core::default::Default>::default(&local_78);
+    _ZN64__LT_uu_tail__paths__Input_u20_as_u20_core__default__Default_GT_7default17hd997c7035054d831E
+              (&local_78);
   }
   else {
                     /* try { // try from 001f8de2 to 001f8e34 has its CatchHandler @ 001f8e70 */
-    paths::Input::from(&local_78,param_3);
+    _ZN7uu_tail5paths5Input4from17h6db62654b008023aE(&local_78,param_3);
   }
   local_28 = local_58;
   uStack_24 = uStack_54;
@@ -73,7 +75,7 @@ uu_tail::args::Settings::from_obsolete_args(ulong *param_1,ulong *param_2,long p
   uStack_44 = uStack_74;
   uStack_40 = uStack_70;
   uStack_3c = uStack_6c;
-  ::alloc::vec::Vec<T,A>::push(&uStack_b0,&local_48);
+  _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h8fc9b727b1446556E(&uStack_b0,&local_48);
   param_1[8] = local_88;
   param_1[9] = CONCAT44(uStack_7c,uStack_80);
   param_1[6] = local_98;

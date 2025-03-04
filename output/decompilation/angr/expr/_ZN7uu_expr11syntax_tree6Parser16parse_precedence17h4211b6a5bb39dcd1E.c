@@ -3,122 +3,117 @@ long long uu_expr::syntax_tree::Parser::parse_precedence::h4211b6a5bb39dcd1(stru
     int v0;  // [bp-0xd8], Other Possible Types: unsigned long
     int v1;  // [sp-0xc8]
     char v2;  // [bp-0xb8]
-    char v3;  // [sp-0xb7]
-    char v4;  // [sp-0xb6]
-    unsigned long long v5;  // [sp-0xb0]
-    int v6;  // [bp-0xa8], Other Possible Types: unsigned long
-    int v7;  // [bp-0x98], Other Possible Types: char
-    char v8;  // [bp-0x90]
-    int v9;  // [sp-0x88]
-    char v10;  // [bp-0x80]
-    unsigned long long v11;  // [sp-0x68]
-    int v12;  // [sp-0x58]
-    int v13;  // [sp-0x48]
-    unsigned long long v15;  // r13
-    unsigned long long v16;  // rax
-    unsigned long long v17;  // 4098
-    int v18;  // xmm0
-    int v19;  // xmm1
+    int v4;  // [bp-0xa8], Other Possible Types: unsigned long
+    int v5;  // [bp-0x98], Other Possible Types: char
+    int v6;  // [sp-0x98]
+    int v7;  // [sp-0x88]
+    unsigned long long v8;  // [sp-0x68]
+    unsigned long long v9;  // [sp-0x60]
+    int v10;  // [sp-0x58]
+    int v11;  // [sp-0x48]
+    void* v13;  // r12
+    unsigned long long v14;  // r13
+    unsigned long long v15;  // rax
+    unsigned long long v16;  // 4098
+    int v17;  // xmm0
+    int v18;  // xmm1
+    int v19;  // xmm0
     int v20;  // xmm0
-    int v21;  // xmm0
+    int v21;  // ymm0
     int v22;  // ymm0
-    int v23;  // ymm0
-    int v24;  // xmm1
+    int v23;  // xmm1
+    int v24;  // ymm1
     int v25;  // ymm1
-    int v26;  // ymm1
-    char *v27;  // rbx
-    unsigned long long v28;  // r13
-    unsigned long long v29;  // 4096
-    void* v30;  // r12
-    unsigned long long v32;  // 4098
-    int v33;  // xmm0
-    int v34;  // xmm1
+    char *v26;  // rbx
+    unsigned long long v27;  // 4098
+    int v28;  // xmm0
+    int v29;  // xmm1
+    int v30;  // xmm0
+    int v31;  // xmm1
+    int v32;  // xmm0
+    int v33;  // xmm1
+    unsigned long long v34;  // rax
     int v35;  // xmm0
     int v36;  // xmm1
-    int v37;  // xmm0
-    int v38;  // xmm1
-    unsigned long long v39;  // rax
-    int v40;  // xmm0
-    int v41;  // xmm1
-    char v42;  // dl
-    int v44;  // xmm0
-    int v45;  // xmm0
+    char v37;  // dl
+    int v38;  // xmm0
+    int v39;  // xmm0
 
+    v13 = a1;
     if (a2 > 5)
         return uu_expr::syntax_tree::Parser::parse_simple_expression::he4185487d50c2ec9(a0, a1);
-    v15 = a2 + 1;
-    v16 = uu_expr::syntax_tree::Parser::parse_precedence::h4211b6a5bb39dcd1(&v7, a1, v15);
-    v17 = *((long long *)&v7);
-    v18 = *((int128_t *)&v8);
-    v19 = *((int128_t *)&v10);
-    v0 = v18;
-    v1 = v19;
-    if (v17)
+    v14 = a2 + 1;
+    v15 = uu_expr::syntax_tree::Parser::parse_precedence::h4211b6a5bb39dcd1(&v5, a1, v14);
+    v16 = *((long long *)&v5);
+    v17 = *((int128_t *)&v5);
+    v18 = *((int128_t *)&v5);
+    v0 = v17;
+    v1 = v18;
+    if (v16)
     {
-        v20 = (int128_t)v0;
+        v19 = (int128_t)v0;
         *((void*)((char *)&a0->field_8 + 8)) = v1;
-        *((void*)&(&a0->field_0)[1]) = v20;
+        *((void*)&(&a0->field_0)[1]) = v19;
         a0->field_0 = 1;
-        return v16;
+        return v15;
     }
-    v21 = (int128_t)v0;
-    v23 = (v22 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v18) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v21;
-    v24 = v1;
-    v26 = (v25 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v19) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v24;
-    v6 = v24;
-    *((void*)&v2) = v21;
-    v27 = &v7;
-    v11 = v15;
-    v28 = v15;
-    v29 = a1;
+    v20 = (int128_t)v0;
+    v22 = (v21 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v17) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v20;
+    v23 = v1;
+    v25 = (v24 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v18) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v23;
+    v4 = v23;
+    *((void*)&v2) = v20;
+    v26 = &v5;
+    v9 = a1;
+    v8 = v14;
     while (true)
     {
-        v30 = v29;
-        v16 = uu_expr::syntax_tree::Parser::parse_op::hcd25fd2e93ef8ca6(v30, a2);
-        if ((char)v16 == 3)
+        v15 = uu_expr::syntax_tree::Parser::parse_op::hcd25fd2e93ef8ca6(v13, a2);
+        if ((char)v15 == 3)
         {
-            v44 = *((int128_t *)&v2);
-            *((int128_t *)((char *)&a0->field_8 + 8)) = (int128_t)v6;
-            *((void*)&(&a0->field_0)[1]) = v44;
+            v38 = *((int128_t *)&v2);
+            *((int128_t *)((char *)&a0->field_8 + 8)) = (int128_t)v4;
+            *((void*)&(&a0->field_0)[1]) = v38;
             a0->field_0 = 0;
-            return v16;
+            return v15;
         }
-        uu_expr::syntax_tree::Parser::parse_precedence::h4211b6a5bb39dcd1(v27, v30, v28);
-        v32 = (long long)v7;
-        v33 = (int128_t)(&v7)[8];
-        v34 = *((int128_t *)&v10);
-        v0 = v33;
-        v1 = v34;
-        if (v32)
+        uu_expr::syntax_tree::Parser::parse_precedence::h4211b6a5bb39dcd1(v26, v13, v14);
+        v27 = *((long long *)&v5);
+        v28 = *((int128_t *)&v5);
+        v29 = *((int128_t *)&v5);
+        v0 = v28;
+        v1 = v29;
+        if (v27)
         {
-            v45 = (int128_t)v0;
+            v39 = (int128_t)v0;
             *((void*)((char *)&a0->field_8 + 8)) = v1;
-            *((void*)&(&a0->field_0)[1]) = v45;
+            *((void*)&(&a0->field_0)[1]) = v39;
             a0->field_0 = 1;
-            v16 = core::ptr::drop_in_place$LT$uu_expr..syntax_tree..AstNode$GT$::h0f29fe394da86370(&v2);
-            return v16;
+            v15 = core::ptr::drop_in_place$LT$uu_expr..syntax_tree..AstNode$GT$::h0f29fe394da86370(&v2);
+            return v15;
         }
-        v35 = (int128_t)v0;
-        v36 = v1;
-        v13 = v36;
-        v12 = v35;
-        v37 = *((int128_t *)&v2);
-        v38 = (int128_t)v6;
-        v9 = v38;
-        v7 = v37;
-        v39 = alloc::boxed::Box$LT$T$GT$::new::h8d53b81a55fa9d0d(v27);
-        v0 = v39;
-        v40 = v12;
-        v23 = (((v23 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v33) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v35) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v37) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v40;
-        v41 = v13;
-        v26 = (((v26 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v34) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v36) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v38) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v41;
-        v9 = v41;
-        v7 = v40;
+        v30 = (int128_t)v0;
+        v31 = v1;
+        v11 = v31;
+        v10 = v30;
+        v32 = *((int128_t *)&v2);
+        v33 = (int128_t)v4;
+        v7 = v33;
+        v6 = v32;
+        v34 = alloc::boxed::Box$LT$T$GT$::new::h8d53b81a55fa9d0d(v26);
+        v0 = v34;
+        v35 = v10;
+        v22 = (((v22 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v28) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v30) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v32) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v35;
+        v36 = v11;
+        v25 = (((v25 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v29) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v31) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v33) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v36;
+        v5 = v36;
+        v5 = v35;
         v2 = 1;
-        v3 = v16 & 4294967295 & 4294967295;
-        v4 = v42;
-        v5 = v39;
-        *((double *)&v6) = alloc::boxed::Box$LT$T$GT$::new::h8d53b81a55fa9d0d(v27);
-        v28 = v11;
+        v2 = v15 & 4294967295 & 4294967295;
+        v2 = v37;
+        *((unsigned long long *)&v2) = v34;
+        *((double *)&v4) = alloc::boxed::Box$LT$T$GT$::new::h8d53b81a55fa9d0d(v26);
+        v14 = v8;
+        v13 = v9;
     }
 }

@@ -1,6 +1,6 @@
 long long uu_wc::word_count_from_input::h9c6b7f02841e6225(struct_0 *a0, unsigned long long *a1, char a2[29])
 {
-    unsigned long v0;  // [bp-0x50], Other Possible Types: unsigned long long
+    unsigned long v0;  // [bp-0x50]
     char v1;  // [bp-0x4c]
     char v2;  // [bp-0x48]
     char v3;  // [bp-0x40]

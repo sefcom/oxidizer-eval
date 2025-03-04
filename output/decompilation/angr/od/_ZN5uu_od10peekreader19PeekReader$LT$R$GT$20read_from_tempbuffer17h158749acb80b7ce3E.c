@@ -1,6 +1,6 @@
 long long uu_od::peekreader::PeekReader$LT$R$GT$::read_from_tempbuffer::h158749acb80b7ce3(unsigned long long a0[12], unsigned long a1, unsigned long a2)
 {
-    unsigned long v0;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x48]
     unsigned long long v1;  // [sp-0x40]
     char v2;  // [bp-0x38]
     unsigned long long v4;  // rax

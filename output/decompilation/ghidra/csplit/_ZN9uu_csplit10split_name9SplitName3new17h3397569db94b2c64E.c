@@ -1,5 +1,6 @@
-undefined8 * __rustcall
-uu_csplit::split_name::SplitName::new(undefined8 *param_1,long *param_2,long *param_3,long *param_4)
+undefined8 *
+_ZN9uu_csplit10split_name9SplitName3new17h3397569db94b2c64E
+          (undefined8 *param_1,long *param_2,long *param_3,long *param_4)
 
 {
   undefined ***pppuVar1;
@@ -46,7 +47,8 @@ uu_csplit::split_name::SplitName::new(undefined8 *param_1,long *param_2,long *pa
   
   if (*param_2 == -0x8000000000000000) {
                     /* try { // try from 002ba787 to 002ba79c has its CatchHandler @ 002baa6b */
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_128,&DAT_00170453,2);
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h9e14181950c07716E
+              (&local_128,&DAT_00170453,2);
     local_138 = local_118;
     local_148 = local_128;
     puStack_140 = puStack_120;
@@ -64,7 +66,8 @@ uu_csplit::split_name::SplitName::new(undefined8 *param_1,long *param_2,long *pa
     local_b0 = (undefined ***)param_4[2];
                     /* try { // try from 002ba7ea to 002ba8f9 has its CatchHandler @ 002baa80 */
     local_c0 = (undefined **)*param_4;
-    new::___closure__(&local_128,&local_c0);
+    _ZN9uu_csplit10split_name9SplitName3new28__u7b__u7b_closure_u7d__u7d_17ha06daa8d9c661eb9E
+              (&local_128,&local_c0);
     local_78 = ppuStack_110;
     uStack_70 = local_108;
     puVar2 = puStack_120;
@@ -84,19 +87,21 @@ uu_csplit::split_name::SplitName::new(undefined8 *param_1,long *param_2,long *pa
   local_c8 = puVar2;
   if (bVar4) {
     local_c0 = &local_c8;
-    pcStack_b8 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+    pcStack_b8 = 
+    _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+    ;
     local_128 = &PTR_DAT_003e1d08;
     puStack_120 = (undefined *)0x2;
     local_108 = (undefined *)0x0;
     local_118 = &local_c0;
     ppuStack_110 = (undefined **)0x1;
-    core::option::Option<T>::map_or_else(local_40,&local_128);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17h81a1a3b547a1f055E(local_40,&local_128);
     plVar3 = local_40;
   }
   local_48 = plVar3[2];
   local_58 = *plVar3;
   lStack_50 = plVar3[1];
-  uucore::features::format::Format<F>::parse(&local_128,&local_58);
+  _ZN6uucore8features6format15Format_LT_F_GT_5parse17h75087b964e14f528E(&local_128,&local_58);
   if (local_128 != (undefined **)0x8000000000000000) {
     uStack_88 = uStack_f0;
     uStack_84 = uStack_ec;
@@ -109,7 +114,8 @@ uu_csplit::split_name::SplitName::new(undefined8 *param_1,long *param_2,long *pa
     local_c0 = local_128;
     pcStack_b8 = (code *)puStack_120;
                     /* try { // try from 002ba954 to 002ba960 has its CatchHandler @ 002baa59 */
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_78,puStack_140,local_138);
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h9e14181950c07716E
+              (&local_78,puStack_140,local_138);
     local_d0 = local_80;
     uStack_e0 = (undefined4)local_90;
     uStack_dc = local_90._4_4_;
@@ -149,18 +155,17 @@ uu_csplit::split_name::SplitName::new(undefined8 *param_1,long *param_2,long *pa
     local_108 = puVar2;
     uStack_100 = pppuVar1;
                     /* try { // try from 002baa05 to 002baa33 has its CatchHandler @ 002baa7b */
-    core::ptr::drop_in_place<alloc::string::String>(&local_148);
+    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h2471fa5080cb6618E(&local_148);
     return param_1;
   }
   param_1[1] = (ulong)((int)puStack_120 == 10) + 9;
   *param_1 = 0x8000000000000000;
-  core::ptr::
-  drop_in_place<core::result::Result<uucore::features::format::Format<uucore::features::format::num_format::UnsignedInt>,uucore::features::format::FormatError>>
+  _ZN4core3ptr178drop_in_place_LT_core__result__Result_LT_uucore__features__format__Format_LT_uucore__features__format__num_format__UnsignedInt_GT__C_uucore__features__format__FormatError_GT__GT_17hb5740be8a44ce43eE
             (&local_128);
 LAB_002baa2c:
-  core::ptr::drop_in_place<alloc::string::String>(&local_148);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h2471fa5080cb6618E(&local_148);
   if ((bVar4) && (*param_3 != -0x8000000000000000)) {
-    core::ptr::drop_in_place<alloc::string::String>(param_3);
+    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h2471fa5080cb6618E(param_3);
   }
   return param_1;
 }

@@ -1,11 +1,11 @@
 long long uu_head::read_n_lines::hae3a156ed2e97641(unsigned long a0, unsigned long a1, char a2)
 {
-    unsigned long v0;  // [sp-0x50], Other Possible Types: unsigned long long
-    unsigned long v1;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x50]
+    unsigned long v1;  // [sp-0x48]
     unsigned long long v2;  // [sp-0x40]
     char v3;  // [sp-0x38]
     char v4;  // [bp-0x30]
-    void* v6;  // rbx
+    unsigned long v6;  // rdx
 
     v1 = a0;
     v2 = a1;

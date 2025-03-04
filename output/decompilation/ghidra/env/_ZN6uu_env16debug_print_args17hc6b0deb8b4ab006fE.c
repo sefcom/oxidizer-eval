@@ -1,4 +1,4 @@
-void __rustcall uu_env::debug_print_args(long param_1,long param_2)
+void _ZN6uu_env16debug_print_args17hc6b0deb8b4ab006fE(long param_1,long param_2)
 
 {
   long lVar1;
@@ -28,12 +28,12 @@ void __rustcall uu_env::debug_print_args(long param_1,long param_2)
   local_a8 = (undefined8 **)0x8;
   local_a0 = 0;
   uStack_98 = 0;
-  std::io::stdio::_eprint(&local_b8);
+  _ZN3std2io5stdio7_eprint17hcdfeec148c7134f7E(&local_b8);
   local_80 = param_1 + param_2 * 0x18;
   local_78 = 0;
   local_88 = param_1;
-  auVar2 = _<core::iter::adapters::enumerate::Enumerate<I>as_core::iter::traits::iterator::Iterator>
-           ::next(&local_88);
+  auVar2 = _ZN110__LT_core__iter__adapters__enumerate__Enumerate_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hb9a3611afc387125E
+                     (&local_88);
   if (auVar2._8_8_ != 0) {
     do {
       lVar1 = auVar2._8_8_;
@@ -45,17 +45,20 @@ void __rustcall uu_env::debug_print_args(long param_1,long param_2)
       local_50 = 1;
       local_38 = 1;
       local_70 = &local_c0;
-      local_68 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+      local_68 = 
+      _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+      ;
       local_60 = &local_50;
-      local_58 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+      local_58 = 
+      _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
       local_b8 = &PTR_DAT_002489f8;
       local_b0 = 3;
       uStack_98 = 0;
       local_a0 = 2;
       local_a8 = &local_70;
-      std::io::stdio::_eprint(&local_b8);
-      auVar2 = _<core::iter::adapters::enumerate::Enumerate<I>as_core::iter::traits::iterator::Iterator>
-               ::next(&local_88);
+      _ZN3std2io5stdio7_eprint17hcdfeec148c7134f7E(&local_b8);
+      auVar2 = _ZN110__LT_core__iter__adapters__enumerate__Enumerate_LT_I_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hb9a3611afc387125E
+                         (&local_88);
     } while (auVar2._8_8_ != 0);
   }
   return;

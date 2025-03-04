@@ -1,6 +1,6 @@
 fn uu_split::filter_args(a0: &struct24, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {
-    let v0: Option<struct24>;  // [sp-0x68], Other Possible Types: Result<struct16, struct10>, i192, struct24
-    let v1: struct24;  // [sp-0x48]
+    let v0: Result<struct16, struct10>;  // [sp-0x68], Other Possible Types: struct24, Option<struct24>
+    let v1: Option<struct24>;  // [sp-0x48]
     let v3: i64;  // r13
     let v4: i64;  // rbp
 

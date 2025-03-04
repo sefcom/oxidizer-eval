@@ -2,14 +2,14 @@ long long uu_sort::ext_sort::write::h468c6beb400873d3(unsigned long long a0[3], 
 {
     int v0;  // [bp-0x98], Other Possible Types: char
     char v1;  // [bp-0x90]
-    int v2;  // [bp-0x88], Other Possible Types: char
+    int v2;  // [sp-0x88], Other Possible Types: char
     char v3;  // [bp-0x80]
     int v4;  // [sp-0x78]
     char v5;  // [bp-0x70]
     unsigned long long v6;  // [sp-0x68]
-    unsigned long v7;  // [sp-0x58], Other Possible Types: unsigned long long
+    unsigned long v7;  // [sp-0x58]
     unsigned long long v8;  // [sp-0x50]
-    unsigned long v9;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v9;  // [sp-0x48]
     int v10;  // [sp-0x40]
     int v11;  // [sp-0x30]
     unsigned long long v14;  // rax

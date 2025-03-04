@@ -7,7 +7,7 @@ long long uu_tee::open::h0365940af90c88f0(unsigned long long a0[5], unsigned lon
     char v4;  // [sp-0xce]
     char v5;  // [sp-0xcd]
     char v6;  // [bp-0xcc], Other Possible Types: unsigned short
-    char v7;  // [sp-0xc8], Other Possible Types: unsigned long, unsigned long long
+    char v7;  // [sp-0xc8], Other Possible Types: unsigned long
     unsigned long long v8;  // [sp-0xc0]
     struct struct_0 **v9;  // [sp-0xb8], Other Possible Types: unsigned long
     unsigned long long v10;  // [sp-0xb0]
@@ -22,7 +22,7 @@ long long uu_tee::open::h0365940af90c88f0(unsigned long long a0[5], unsigned lon
     unsigned long long v19;  // [sp-0x68]
     char *v20;  // [sp-0x60]
     unsigned long long v21;  // [sp-0x58]
-    void* v22;  // [sp-0x50], Other Possible Types: unsigned long, unsigned long long
+    void* v22;  // [sp-0x50], Other Possible Types: unsigned long
     unsigned long long v23;  // [sp-0x48]
     unsigned long long v24;  // [sp-0x40]
     char v25;  // [sp-0x38]
@@ -79,7 +79,7 @@ long long uu_tee::open::h0365940af90c88f0(unsigned long long a0[5], unsigned lon
         if (!a4 || *(a4) <= 1)
         {
             a0[0] = 9223372036854775809;
-            ::0x4b1ad0::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::hb33ceb02c1cf9a1d();
+            ::0x4b1ad0::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::hb33ceb02c1cf9a1d(v0);
         }
         else
         {
@@ -87,6 +87,6 @@ long long uu_tee::open::h0365940af90c88f0(unsigned long long a0[5], unsigned lon
             a0[1] = v0;
         }
     }
-    core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hc65b4027f210db7e();
+    core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::hc65b4027f210db7e(&v12);
     return a0;
 }

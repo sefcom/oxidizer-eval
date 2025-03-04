@@ -1,4 +1,4 @@
-void __rustcall uu_dd::Dest::fdatasync(byte *param_1)
+void _ZN5uu_dd4Dest9fdatasync17hb1784b836bce6fabE(byte *param_1)
 
 {
                     /* WARNING: Could not recover jumptable at 0x001d7361. Too many branches */

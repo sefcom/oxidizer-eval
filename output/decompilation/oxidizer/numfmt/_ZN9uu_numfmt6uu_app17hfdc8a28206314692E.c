@@ -1,14 +1,14 @@
 fn uu_numfmt::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct24, struct80
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct80, struct24
     let v1: i32;  // [sp-0x800]
     let v2: i32;  // [sp-0x7fc]
-    let v3: i4736;  // [sp-0x7f8], Other Possible Types: struct592, struct712
+    let v3: struct592;  // [sp-0x7f8], Other Possible Types: struct712
     let v4: i32;  // [sp-0x5b0]
     let v5: i32;  // [sp-0x5ac]
     let v6: i64;  // [sp-0x53c]
     let v7: i32;  // [sp-0x534]
-    let v8: i4736;  // [sp-0x530], Other Possible Types: struct592, struct712, struct437
-    let v9: i4736;  // [sp-0x268], Other Possible Types: struct592, struct24, struct64
+    let v8: struct592;  // [sp-0x530], Other Possible Types: struct712, struct437
+    let v9: struct592;  // [sp-0x268], Other Possible Types: struct24, struct64
     let v10: i32;  // [sp-0x20]
     let v11: i32;  // [sp-0x1c]
     let v13: i64;  // rdx
@@ -16,12 +16,45 @@ fn uu_numfmt::uu_app(a0: &struct712) -> u64 {
     v8 = clap_builder::builder::command::Command::new(uucore::util_name(), v13);
     v3 = clap_builder::builder::command::Command::version(&v8, "0.0.28");
     v8 = clap_builder::builder::command::Command::about(&v3, "Convert numbers from/to human-readable strings");
-    v3 = clap_builder::builder::command::Command::after_help(&v8, "UNIT options:\n\n- none: no auto-scaling is done; suffixes will trigger an error\n- auto: accept optional single/two letter suffix:\n\n    1K = 1000, 1Ki = 1024, 1M = 1000000, 1Mi = 1048576,\n\n- si: accept optional single letter suffix:\n\n    1K = 1000, 1M = 1000000, ...\n\n- iec: accept optional single letter suffix:\n\n    1K = 1024, 1M = 1048576, ...\n\n- iec-i: accept optional two-letter suffix:\n\n    1Ki = 1024, 1Mi = 1048576, ...\n\n- FIELDS supports cut(1) style field ranges:\n\n    N    N'th field, counted from 1\n    N-   from N'th field, to end of line\n    N-M  from N'th to M'th field (inclusive)\n    -M   from first to M'th field (inclusive)\n    -    all fields\n\nMultiple fields/ranges can be separated with commas\n\nFORMAT must be suitable for printing one floating-point argument %f.\nOptional quote (%'f) will enable --grouping (if supported by current locale).\nOptional width value (%10f) will pad output. Optional zero (%010f) width\nwill zero pad the number. Optional negative values (%-10f) will left align.\nOptional precision (%.1f) will override the input determined precision.");
+    v3 = clap_builder::builder::command::Command::after_help(&v8, "UNIT options:
+
+- none: no auto-scaling is done; suffixes will trigger an error
+- auto: accept optional single/two letter suffix:
+
+    1K = 1000, 1Ki = 1024, 1M = 1000000, 1Mi = 1048576,
+
+- si: accept optional single letter suffix:
+
+    1K = 1000, 1M = 1000000, ...
+
+- iec: accept optional single letter suffix:
+
+    1K = 1024, 1M = 1048576, ...
+
+- iec-i: accept optional two-letter suffix:
+
+    1Ki = 1024, 1Mi = 1048576, ...
+
+- FIELDS supports cut(1) style field ranges:
+
+    N    N'th field, counted from 1
+    N-   from N'th field, to end of line
+    N-M  from N'th to M'th field (inclusive)
+    -M   from first to M'th field (inclusive)
+    -    all fields
+
+Multiple fields/ranges can be separated with commas
+
+FORMAT must be suitable for printing one floating-point argument %f.
+Optional quote (%'f) will enable --grouping (if supported by current locale).
+Optional width value (%10f) will pad output. Optional zero (%010f) width
+will zero pad the number. Optional negative values (%-10f) will left align.
+Optional precision (%.1f) will override the input determined precision.");
     v0 = uucore::format_usage("{} [OPTION]... [NUMBER]...");
     v8 = clap_builder::builder::command::Command::override_usage(&v3, &v0);
     memcpy(&v3, &v8, 700);
-    v6 = 549755814020 | *((&v8 as &char + 700) as &i64);
-    v7 = *((&v8 as &char + 708) as &i32);
+    v6 = 549755814020 | *((&v8.field_0 as &char + 700) as &i64);
+    v7 = *((&v8.field_0 as &char + 708) as &i32);
     v8 = clap_builder::builder::arg::Arg::new("delimiter");
     v0 = clap_builder::builder::arg::Arg::short(&v8);
     v8 = clap_builder::builder::arg::Arg::long(&v0, "delimiter");
@@ -128,8 +161,8 @@ fn uu_numfmt::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::command::Command::arg(&v8, &v0);
     v8 = clap_builder::builder::arg::Arg::new("NUMBER");
     memcpy(&v0, &v8, 584);
-    v1 = *((&v8 as &char + 584) as &i32) | 4;
-    v2 = *((&v8 as &char + 588) as &i32);
+    v1 = *((&v8.field_0 as &char + 584) as &i32) | 4;
+    v2 = *((&v8.field_0 as &char + 588) as &i32);
     v8 = clap_builder::builder::arg::Arg::action(&v0);
     clap_builder::builder::command::Command::arg(a0, &v3, &v8);
     return a0;

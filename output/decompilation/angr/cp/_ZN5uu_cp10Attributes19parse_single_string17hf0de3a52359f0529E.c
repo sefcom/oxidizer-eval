@@ -9,7 +9,7 @@ long long uu_cp::Attributes::parse_single_string::hf0de3a52359f0529(unsigned lon
     unsigned long long v6;  // [sp-0x88]
     char v7;  // [bp-0x80]
     char v8;  // [bp-0x70]
-    unsigned long long v9;  // [sp-0x68]
+    unsigned long v9;  // [sp-0x68]
     unsigned long long v10;  // [sp-0x60]
     struct struct_0 **v11;  // [sp-0x58]
     unsigned long long v12;  // [sp-0x50]
@@ -69,7 +69,7 @@ long long uu_cp::Attributes::parse_single_string::hf0de3a52359f0529(unsigned lon
         v13 = 0;
         v11 = &v5;
         v12 = 1;
-        ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2();
+        ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2(&v7, &v9);
         a0[3] = *((long long *)&v8);
         *((int128_t *)&a0[1]) = *((int128_t *)&v7);
         a0[0] = 9;

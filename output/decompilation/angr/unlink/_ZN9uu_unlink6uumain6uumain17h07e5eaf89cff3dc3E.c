@@ -5,7 +5,7 @@ long long uu_unlink::uumain::uumain::h07e5eaf89cff3dc3(unsigned long long a0, un
     char v2;  // [bp-0x308]
     char v3;  // [bp-0x2f8]
     char v4;  // [bp-0x2e8]
-    char v5;  // [bp-0x2e0], Other Possible Types: unsigned long long
+    char v5;  // [bp-0x2e0], Other Possible Types: unsigned long
     unsigned long long v6;  // [sp-0x2d8]
     int v7;  // [sp-0x2d0]
     int v8;  // [sp-0x2c0]

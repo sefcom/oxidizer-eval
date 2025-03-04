@@ -8,7 +8,7 @@ long long uu_dd::progress::SignalHandler::install_signal_handler::he2c75cf1b31a6
     unsigned long v5;  // [sp-0xe8], Other Possible Types: unsigned long long
     unsigned long long v6;  // [sp-0xe0]
     unsigned long long v7;  // [sp-0xd8]
-    unsigned long v8;  // [sp-0xd0], Other Possible Types: unsigned long long
+    unsigned long v8;  // [sp-0xd0]
     unsigned long long v9;  // [sp-0xc8]
     int v10;  // [sp-0xc0]
     int v11;  // [sp-0xb0]

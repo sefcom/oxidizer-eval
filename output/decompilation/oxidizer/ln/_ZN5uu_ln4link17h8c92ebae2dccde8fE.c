@@ -2,10 +2,10 @@ fn uu_ln::link(a0: u32, a1: u32, a2: u32, a3: u32, a4: &u64) -> u64 {
     let v0: i8;  // [sp-0x18d]
     let v1: i32;  // [sp-0x18c]
     let v2: i64;  // [sp-0x188], Other Possible Types: struct24
-    let v3: i64;  // [bp-0x180]
+    let v3: i64;  // [sp-0x180], Other Possible Types: int
     let v4: i64;  // [sp-0x178]
     let v5: i8;  // [sp-0x170]
-    let v6: i64;  // [sp-0x168], Other Possible Types: struct24
+    let v6: i64;  // [sp-0x168], Other Possible Types: int, struct24
     let v7: i64;  // [sp-0x160]
     let v8: i64;  // [sp-0x158]
     let v9: i8;  // [sp-0x150]
@@ -15,7 +15,7 @@ fn uu_ln::link(a0: u32, a1: u32, a2: u32, a3: u32, a4: &u64) -> u64 {
     let v13: i64;  // [sp-0x120]
     let v14: i64;  // [sp-0x118]
     let v15: i64;  // [sp-0x110]
-    let v16: i64;  // [sp-0x108], Other Possible Types: struct16, Result<struct24, struct8>, Arguments
+    let v16: i64;  // [sp-0x108], Other Possible Types: Result<struct176, struct8>, Arguments
     let v17: i64;  // [sp-0x100]
     let v18: i64;  // [sp-0xf8]
     let v20: struct24;  // rax
@@ -27,7 +27,7 @@ fn uu_ln::link(a0: u32, a1: u32, a2: u32, a3: u32, a4: &u64) -> u64 {
     v10 = 0x8000000000000000;
     v21 = *((a4 + 49) as &i8);
     v15 = a0;
-    if !v21 {
+    if !v21 as u8 {
         v13 = a0;
         v14 = a1;
         v12 = 0x8000000000000000;
@@ -49,6 +49,7 @@ fn uu_ln::link(a0: u32, a1: u32, a2: u32, a3: u32, a4: &u64) -> u64 {
                 } else {
                     v16 = std::fs::canonicalize(&v12);
                     v2 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v16, &v12);
+                    v23 = v3;
                     if v6 == 0x8000000000000000 {
                         return v23;
                     }
@@ -59,7 +60,8 @@ fn uu_ln::link(a0: u32, a1: u32, a2: u32, a3: u32, a4: &u64) -> u64 {
                 v16 = &v12;
                 v17 = a2;
                 v18 = a3;
-                if !<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(std::fs::hard_link(&v16, a2, a3), &v16) {
+                v23 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(std::fs::hard_link(&v16, a2, a3), &v16);
+                if !v23 {
 LABEL_4baa44:
                     if !*((a4 + 53) as &i8) {
 LABEL_4bab5c:
@@ -69,13 +71,13 @@ LABEL_4bab5c:
                         v8 = a3;
                         v9 = 1;
                         v2 = 1;
-                        v3 = v13;
+                        *(&v3 as &i128) = *(&v13 as &i128);
                         v5 = 1;
                         v1 = &g_52d001;
                         print!("{} -> {}", &v6, &v2);
                         if v10 != 0x8000000000000000 {
-                            v8 = v11;
-                            v6 = v10;
+                            v8 = *(&v11 as &i64);
+                            *(&v6 as &i128) = *(&v10 as &i128);
                             v2 = 1;
                             v3 = v7;
                             v4 = v8;
@@ -98,7 +100,7 @@ LABEL_4bab5c:
                 if !v22 {
                     goto LABEL_4baa44;
                 }
-                uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v22);
+                v23 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v22);
             }
             return v23;
         }

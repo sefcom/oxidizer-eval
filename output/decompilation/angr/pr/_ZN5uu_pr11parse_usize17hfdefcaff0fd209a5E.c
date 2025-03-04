@@ -1,8 +1,8 @@
 long long uu_pr::parse_usize::hfdefcaff0fd209a5(unsigned long long *a0, unsigned long long a1, unsigned long long a2, unsigned long long a3)
 {
-    unsigned long v0;  // [sp-0x90], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x90]
     unsigned long long v1;  // [sp-0x88]
-    char v2;  // [bp-0x80], Other Possible Types: unsigned long long
+    char v2;  // [sp-0x80], Other Possible Types: unsigned long long
     int v3;  // [sp-0x78]
     int v4;  // [sp-0x68]
     unsigned long long v5;  // [sp-0x58]

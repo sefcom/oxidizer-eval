@@ -1,4 +1,4 @@
-undefined __rustcall uu_dd::Alarm::get_trigger(long *param_1)
+undefined _ZN5uu_dd5Alarm11get_trigger17h51a33321f8d9afe9E(long *param_1)
 
 {
   undefined uVar1;

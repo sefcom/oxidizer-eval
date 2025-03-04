@@ -15,7 +15,7 @@ double uu_df::table::RowFormatter::get_values::h6dce5b584cdc4209(long long a0, l
     unsigned long long v12;  // [sp-0x58]
     unsigned long long v13;  // [sp-0x50]
     unsigned long long v14;  // [sp-0x48]
-    unsigned long v15;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v15;  // [sp-0x40]
     unsigned long long v16;  // [sp-0x38]
     unsigned long long v18[3];  // r14
     unsigned long long v19;  // rcx
@@ -50,5 +50,5 @@ double uu_df::table::RowFormatter::get_values::h6dce5b584cdc4209(long long a0, l
     v8 = v21 + 192;
     v7 = v21 + 184;
     v6 = v21 + 80;
-    goto *((int *)(4283040 + *((char *)vvar_29{reg 16}) * 4)) + 4283040;
+    goto *((int *)(4283040 + *((char *)vvar_27{reg 16}) * 4)) + 4283040;
 }

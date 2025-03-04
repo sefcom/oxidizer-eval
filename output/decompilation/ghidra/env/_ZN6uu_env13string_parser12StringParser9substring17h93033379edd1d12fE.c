@@ -1,5 +1,6 @@
-undefined  [16] __rustcall
-uu_env::string_parser::StringParser::substring(undefined8 *param_1,ulong *param_2)
+undefined  [16]
+_ZN6uu_env13string_parser12StringParser9substring17h93033379edd1d12fE
+          (undefined8 *param_1,ulong *param_2)
 
 {
   ulong uVar1;
@@ -21,11 +22,14 @@ uu_env::string_parser::StringParser::substring(undefined8 *param_1,ulong *param_
     local_68 = 0;
     uStack_60 = 0;
                     /* WARNING: Subroutine does not return */
-    core::panicking::panic_fmt(&local_80,&PTR_s_src_uu_env_src_string_parser_rs_00248ef0);
+    _ZN4core9panicking9panic_fmt17he12d0d7468628bb4E
+              (&local_80,&PTR_s_src_uu_env_src_string_parser_rs_00248ef0);
   }
-  core::slice::_<impl[T]>::split_at_unchecked(local_50,*param_1,param_1[1],uVar1);
+  _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_18split_at_unchecked17ha4016ee41c394a20E
+            (local_50,*param_1,param_1[1],uVar1);
   if (param_2[1] - uVar1 <= local_38) {
-    core::slice::_<impl[T]>::split_at_unchecked(local_30,local_40);
+    _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_18split_at_unchecked17ha4016ee41c394a20E
+              (local_30,local_40);
     return local_30[0];
   }
   local_80 = &PTR_s_mid_>_len_00248e80;
@@ -34,5 +38,6 @@ uu_env::string_parser::StringParser::substring(undefined8 *param_1,ulong *param_
   local_68 = 0;
   uStack_60 = 0;
                     /* WARNING: Subroutine does not return */
-  core::panicking::panic_fmt(&local_80,&PTR_s_src_uu_env_src_string_parser_rs_00248f08);
+  _ZN4core9panicking9panic_fmt17he12d0d7468628bb4E
+            (&local_80,&PTR_s_src_uu_env_src_string_parser_rs_00248f08);
 }

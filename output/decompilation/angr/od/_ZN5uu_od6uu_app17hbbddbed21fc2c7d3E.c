@@ -8,7 +8,7 @@ long long uu_od::uu_app::hbbddbed21fc2c7d3(unsigned long long a0)
     char v5;  // [bp-0x780]
     char v6;  // [bp-0x4c4]
     char v7;  // [bp-0x4bc]
-    char v8;  // [bp-0x4b8], Other Possible Types: unsigned long long
+    char v8;  // [bp-0x4b8], Other Possible Types: unsigned long
     unsigned long long v9;  // [sp-0x4b0]
     unsigned long long v10;  // [sp-0x4a8]
     unsigned long long v11;  // [sp-0x4a0]

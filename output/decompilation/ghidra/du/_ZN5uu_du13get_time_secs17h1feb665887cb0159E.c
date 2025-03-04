@@ -1,4 +1,4 @@
-void __rustcall uu_du::get_time_secs(undefined8 *param_1,char param_2,long param_3)
+void _ZN5uu_du13get_time_secs17h1feb665887cb0159E(undefined8 *param_1,char param_2,long param_3)
 
 {
   undefined8 uVar1;
@@ -16,7 +16,7 @@ void __rustcall uu_du::get_time_secs(undefined8 *param_1,char param_2,long param
       if (*(long *)(param_3 + 0x30) != 0) {
         param_1[1] = *(undefined8 *)(param_3 + 0x38);
         *param_1 = 5;
-        core::ptr::drop_in_place<uu_du::DuError>(&local_20);
+        _ZN4core3ptr35drop_in_place_LT_uu_du__DuError_GT_17h55943e498f41d83eE(&local_20);
         return;
       }
       param_1[2] = local_10;

@@ -1,4 +1,4 @@
-long long uu_env::variable_parser::VariableParser::parse_variable::h1713cd6810b8ef74(struct_1 *a0, struct struct_0 **a1)
+long long uu_env::variable_parser::VariableParser::parse_variable::h1713cd6810b8ef74(struct_0 *a0, struct struct_1 **a1)
 {
     char v0;  // [bp-0x38]
     char v1;  // [bp-0x34]
@@ -6,7 +6,7 @@ long long uu_env::variable_parser::VariableParser::parse_variable::h1713cd6810b8
     char v3;  // [bp-0x28]
     char v4;  // [bp-0x20]
     char v5;  // [bp-0x18]
-    struct_0 *v7;  // r14
+    struct_1 *v7;  // r14
     unsigned long long v9;  // r14
     unsigned int v10;  // eax
     int v11;  // xmm0
@@ -38,7 +38,7 @@ long long uu_env::variable_parser::VariableParser::parse_variable::h1713cd6810b8
         if (*((int *)&v0) != 8)
         {
             *((long long *)&a0[1].field_0) = *((long long *)&v5);
-            vvar_146{reg 224} = *((int128_t *)&v0);
+            vvar_144{reg 224} = *((int128_t *)&v0);
             *((int128_t *)&a0->field_10) = *((int128_t *)&v3);
             *((void*)&a0->field_0) = v11;
             return a0;

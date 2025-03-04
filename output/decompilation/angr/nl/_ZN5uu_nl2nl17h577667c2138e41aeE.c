@@ -8,7 +8,7 @@ long long uu_nl::nl::h577667c2138e41ae(unsigned long a0, unsigned long long a1[3
     unsigned long long v5;  // [sp-0x128]
     unsigned long long v6;  // [sp-0x120]
     unsigned long long v7;  // [sp-0x118]
-    unsigned long v8;  // [sp-0x110], Other Possible Types: unsigned long long
+    unsigned long v8;  // [sp-0x110]
     unsigned long long v9;  // [sp-0xd8]
     unsigned long long v10;  // [sp-0xd0]
     unsigned long long v11;  // [sp-0xc8]
@@ -59,5 +59,5 @@ long long uu_nl::nl::h577667c2138e41ae(unsigned long a0, unsigned long long a1[3
     if (v7)
         v30 = 0;
     a1[2] = v30;
-    goto *((int *)(4593888 + (unsigned int)uu_nl::SectionDelimiter::parse::h6872879c6cc1e509(vvar_175{stack -288}, v7, vvar_157{stack -136}, vvar_158{stack -144}) * 4)) + 4593888;
+    goto *((int *)(4593888 + (unsigned int)uu_nl::SectionDelimiter::parse::h6872879c6cc1e509(vvar_172{stack -288}, v7, vvar_154{stack -136}, vvar_155{stack -144}) * 4)) + 4593888;
 }

@@ -2,42 +2,42 @@ fn uu_join::Repr<Sep>::print_format(a0: &u64, a1: &u64, a2: u32, a3: u32) -> u64
     let v0: u64;  // [sp-0x50]
     let v1: u64;  // [sp-0x48]
     let v6: void*;  // rbp
-    let v7: u64;  // rbp
-    let v9: void*;  // rax
-    let v10: u64;  // rax
-    let v11: u64;  // r15
-    let v13: u64;  // r13
+    let v7: u64;  // rax
+    let v8: void*;  // rax
+    let v9: u64;  // rax
+    let v11: u64;  // rax
     let v14: u64;  // rdx
+    let v15: u64;  // rdx
 
     v1 = a0[1];
     v0 = &a0[5] as &char + 1;
     v6 = 0;
     loop {
-        v7 = v6;
-        if v7 >= a0[2] {
+        if v6 >= a0[2] {
             return 0;
         }
-        if v7 {
-            v9 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, <uu_join::OneByteSep as uu_join::Separator>::output_separator(v0), 1);
-            if v9 {
-                return v9;
+        v7 = <usize as core::iter::range::Step>::forward_unchecked(v6);
+        if v6 {
+            v8 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, <uu_join::OneByteSep as uu_join::Separator>::output_separator(v0), 1);
+            if v8 {
+                return v8;
             }
         }
-        v10 = uu_join::State::print_line::{{closure}}(a2, a3, v7 * 16 + v1);
-        if !v10 {
+        v9 = uu_join::State::print_line::{{closure}}(a2, a3, v6 * 16 + v1);
+        if !v9 {
             v11 = a0[3];
         } else {
-            v11 = v10;
+            v11 = v9;
         }
-        if !v10 {
-            v13 = a0[4];
-        } else {
-            v13 = v14;
-        }
-        v9 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, v11, v13);
-        v6 = <usize as core::iter::range::Step>::forward_unchecked(v7);
         if v9 {
-            return v9;
+            v14 = v15;
+        } else {
+            v14 = a0[4];
+        }
+        v8 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, v11, v14);
+        v6 = v7;
+        if v8 {
+            return v8;
         }
     }
 }

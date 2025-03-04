@@ -7,7 +7,7 @@ long long uu_join::State::finalize::h1f104bbdc1de7bfc(struct_0 *a0, unsigned lon
     int v4;  // [bp-0x98], Other Possible Types: unsigned long
     char v5;  // [bp-0x90]
     int v6;  // [sp-0x88]
-    unsigned long v7;  // [sp-0x70], Other Possible Types: unsigned long long
+    unsigned long long v7;  // [sp-0x70], Other Possible Types: unsigned long
     int v8;  // [sp-0x68]
     unsigned long long v9;  // [sp-0x58]
     int v10;  // [sp-0x50]

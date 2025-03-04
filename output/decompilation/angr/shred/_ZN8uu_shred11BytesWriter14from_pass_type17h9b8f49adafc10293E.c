@@ -41,7 +41,7 @@ long long uu_shred::BytesWriter::from_pass_type::h9b8f49adafc10293(struct_0 *a0,
 LABEL_4bc1eb:
         a0->field_10008 = 0;
         v8 = memcpy(&a0->padding_1, &v1, 65538);
-        v7 = vvar_62{reg 56} & 0xffffffffffffff00 | 1;
+        v7 = vvar_60{reg 56} & 0xffffffffffffff00 | 1;
         break;
     }
     a0->field_0 = v7;

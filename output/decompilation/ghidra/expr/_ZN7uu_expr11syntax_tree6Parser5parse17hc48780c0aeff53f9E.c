@@ -1,4 +1,4 @@
-void __rustcall uu_expr::syntax_tree::Parser::parse(undefined8 *param_1,long *param_2)
+void _ZN7uu_expr11syntax_tree6Parser5parse17hc48780c0aeff53f9E(undefined8 *param_1,long *param_2)
 
 {
   undefined8 uVar1;
@@ -27,7 +27,7 @@ void __rustcall uu_expr::syntax_tree::Parser::parse(undefined8 *param_1,long *pa
     param_1[1] = 3;
   }
   else {
-    parse_expression(&local_38);
+    _ZN7uu_expr11syntax_tree6Parser16parse_expression17h377c49be8e7a7acdE(&local_38);
     uStack_50 = uStack_28;
     uVar1 = uStack_50;
     local_48 = local_20;
@@ -54,7 +54,8 @@ void __rustcall uu_expr::syntax_tree::Parser::parse(undefined8 *param_1,long *pa
         uStack_50 = uVar1;
         local_48 = uVar2;
         uStack_40 = uVar3;
-        _<T_as_alloc::string::ToString>::to_string(&local_38,param_2[2] * 0x10 + *param_2);
+        _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17h5cc4b1a8508f979eE
+                  (&local_38,param_2[2] * 0x10 + *param_2);
         param_1[4] = uStack_28;
         *(undefined4 *)(param_1 + 2) = local_38;
         *(undefined4 *)((long)param_1 + 0x14) = uStack_34;
@@ -62,7 +63,8 @@ void __rustcall uu_expr::syntax_tree::Parser::parse(undefined8 *param_1,long *pa
         *(undefined4 *)((long)param_1 + 0x1c) = uStack_2c;
         param_1[1] = 0;
         *param_1 = 1;
-        core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>(&local_78);
+        _ZN4core3ptr50drop_in_place_LT_uu_expr__syntax_tree__AstNode_GT_17h0f29fe394da86370E
+                  (&local_78);
         return;
       }
       param_1[3] = local_20;

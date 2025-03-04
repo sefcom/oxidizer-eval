@@ -10,42 +10,55 @@ fn uu_split::uu_app(a0: &struct712) -> u64 {
     let v8: i64;  // [sp-0xa70]
     let v9: i64;  // [sp-0xa68]
     let v10: i8;  // [sp-0xa60]
-    let v11: i4736;  // [sp-0xa58], Other Possible Types: struct592, struct24
+    let v11: struct592;  // [sp-0xa58], Other Possible Types: struct24
     let v12: i32;  // [sp-0x810]
     let v13: i32;  // [sp-0x80c]
-    let v14: i4736;  // [sp-0x808], Other Possible Types: struct592, struct712, struct437
+    let v14: struct592;  // [sp-0x808], Other Possible Types: struct712, struct437
     let v15: i32;  // [sp-0x5c0]
     let v16: i32;  // [sp-0x5bc]
-    let v17: i4736;  // [sp-0x540], Other Possible Types: struct592, struct712
+    let v17: struct592;  // [sp-0x540], Other Possible Types: struct712
     let v18: i32;  // [sp-0x2f8]
     let v19: i32;  // [sp-0x2f4]
     let v20: i64;  // [sp-0x284]
     let v21: i32;  // [sp-0x27c]
-    let v22: i4736;  // [sp-0x278], Other Possible Types: struct592
+    let v22: struct592;  // [sp-0x278], Other Possible Types: int, unsigned long
     let v23: i64;  // [sp-0x270]
-    let v24: i64;  // [sp-0x268]
+    let v24: i64;  // [sp-0x268], Other Possible Types: int
     let v25: i64;  // [sp-0x260]
-    let v26: i128;  // [sp-0x258]
+    let v26: iNone;  // [bp-0x258], Other Possible Types: unsigned long
     let v27: i64;  // [sp-0x250]
-    let v28: i128;  // [sp-0x248]
+    let v28: iNone;  // [bp-0x248], Other Possible Types: unsigned long
     let v29: i64;  // [sp-0x240]
     let v31: i64;  // rdx
-    let v32: i128;  // xmm0
-    let v33: i128;  // xmm1
-    let v34: i128;  // xmm2
-    let v35: i128;  // xmm0
-    let v36: i128;  // xmm1
-    let v37: i128;  // xmm2
+    let v32: iNone;  // xmm0
+    let v33: iNone;  // xmm1
+    let v34: iNone;  // xmm2
+    let v35: iNone;  // xmm0
+    let v36: iNone;  // xmm1
+    let v37: iNone;  // xmm2
 
     v14 = clap_builder::builder::command::Command::new(uucore::util_name(), v31);
     v17 = clap_builder::builder::command::Command::version(&v14, "0.0.28");
     v14 = clap_builder::builder::command::Command::about(&v17, "Create output files containing consecutive or interleaved sections of input");
-    v17 = clap_builder::builder::command::Command::after_help(&v14, "Output fixed-size pieces of INPUT to PREFIXaa, PREFIXab, ...; default size is 1000, and default PREFIX is 'x'. With no INPUT, or when INPUT is -, read standard input.\n\nThe SIZE argument is an integer and optional unit (example: 10K is 10*1024).\nUnits are K,M,G,T,P,E,Z,Y,R,Q (powers of 1024) or KB,MB,... (powers of 1000).\nBinary prefixes can be used, too: KiB=K, MiB=M, and so on.\n\nCHUNKS may be:\n\n- N       split into N files based on size of input\n- K/N     output Kth of N to stdout\n- l/N     split into N files without splitting lines/records\n- l/K/N   output Kth of N to stdout without splitting lines/records\n- r/N     like 'l' but use round robin distribution\n- r/K/N   likewise but only output Kth of N to stdout");
+    v17 = clap_builder::builder::command::Command::after_help(&v14, "Output fixed-size pieces of INPUT to PREFIXaa, PREFIXab, ...; default size is 1000, and default PREFIX is 'x'. With no INPUT, or when INPUT is -, read standard input.
+
+The SIZE argument is an integer and optional unit (example: 10K is 10*1024).
+Units are K,M,G,T,P,E,Z,Y,R,Q (powers of 1024) or KB,MB,... (powers of 1000).
+Binary prefixes can be used, too: KiB=K, MiB=M, and so on.
+
+CHUNKS may be:
+
+- N       split into N files based on size of input
+- K/N     output Kth of N to stdout
+- l/N     split into N files without splitting lines/records
+- l/K/N   output Kth of N to stdout without splitting lines/records
+- r/N     like 'l' but use round robin distribution
+- r/K/N   likewise but only output Kth of N to stdout");
     v11 = uucore::format_usage("{} [OPTION]... [INPUT [PREFIX]]");
     v14 = clap_builder::builder::command::Command::override_usage(&v17, &v11);
     memcpy(&v17, &v14, 700);
-    v20 = 549755814016 | *((&v14 as &char + 700) as &i64);
-    v21 = *((&v14 as &char + 708) as &i32);
+    v20 = 549755814016 | *((&v14.field_0 as &char + 700) as &i64);
+    v21 = *((&v14.field_0 as &char + 708) as &i32);
     v14 = clap_builder::builder::arg::Arg::new("bytes");
     v11 = clap_builder::builder::arg::Arg::short(&v14, 0x62);
     v14 = clap_builder::builder::arg::Arg::long(&v11, "bytes");
@@ -124,7 +137,7 @@ fn uu_split::uu_app(a0: &struct712) -> u64 {
     v27 = v5;
     v24 = v2;
     v25 = v3;
-    v22 = v0;
+    *(&v22 as &i128) = *(&v0 as &i128);
     v11 = clap_builder::builder::arg::Arg::overrides_with_all(&v17, &v22);
     v22 = clap_builder::builder::arg::Arg::help(&v11, "use numeric suffixes starting at 0, not alphabetic");
     v17 = clap_builder::builder::command::Command::arg(&v14, &v22);
@@ -136,14 +149,14 @@ fn uu_split::uu_app(a0: &struct712) -> u64 {
     v8 = 0;
     v9 = 1;
     v10 = 0;
-    v24 = v10;
+    v24 = *(&v10 as &i64);
     v22 = v8;
     v23 = v9;
     v11 = clap_builder::builder::arg::Arg::num_args(&v14, &v22);
-    v32 = v0;
-    v33 = v2;
-    v34 = v4;
-    v28 = v6;
+    v32 = *(&v0 as &i128);
+    v33 = *(&v2 as &i128);
+    v34 = *(&v4 as &i128);
+    *(&v28 as &i128) = *(&v6 as &i128);
     v26 = v34;
     v24 = v33;
     v22 = v32;
@@ -154,10 +167,10 @@ fn uu_split::uu_app(a0: &struct712) -> u64 {
     v17 = clap_builder::builder::arg::Arg::new("-x");
     v11 = clap_builder::builder::arg::Arg::short(&v17, 0x78);
     v17 = clap_builder::builder::arg::Arg::action(&v11, 0x2);
-    v35 = v0;
-    v36 = v2;
-    v37 = v4;
-    v28 = v6;
+    v35 = *(&v0 as &i128);
+    v36 = *(&v2 as &i128);
+    v37 = *(&v4 as &i128);
+    *(&v28 as &i128) = *(&v6 as &i128);
     v26 = v37;
     v24 = v36;
     v22 = v35;
@@ -196,7 +209,7 @@ fn uu_split::uu_app(a0: &struct712) -> u64 {
     v13 = v19;
     v17 = clap_builder::builder::arg::Arg::value_name(&v11, "SEP");
     v11 = clap_builder::builder::arg::Arg::action(&v17, 0x1);
-    v22 = clap_builder::builder::arg::Arg::help(&v11, "use SEP instead of newline as the record separator; '\\0' (zero) specifies the NUL character");
+    v22 = clap_builder::builder::arg::Arg::help(&v11, "use SEP instead of newline as the record separator; '\0' (zero) specifies the NUL character");
     v17 = clap_builder::builder::command::Command::arg(&v14, &v22);
     v14 = clap_builder::builder::arg::Arg::new("-io-blksize");
     v11 = clap_builder::builder::arg::Arg::long(&v14, "io-blksize");

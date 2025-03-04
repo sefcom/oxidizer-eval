@@ -1,15 +1,16 @@
 long long uu_mktemp::uumain::uumain::hbe5555b039ad0e2e(unsigned long long a0, unsigned long long a1)
 {
     unsigned long long v0;  // [sp-0x498]
-    unsigned long long v1;  // [sp-0x488]
+    unsigned long v1;  // [sp-0x488]
     char v2;  // [bp-0x478]
     char v3;  // [bp-0x470]
     char v4;  // [bp-0x468]
-    unsigned long long v5;  // [sp-0x460]
+    unsigned long v5;  // [sp-0x460]
     int v6;  // [sp-0x458]
     int v7;  // [sp-0x448]
     unsigned long long v8;  // [sp-0x438]
     int v9;  // [bp-0x428], Other Possible Types: char
+    char v10;  // [bp-0x420]
     int v11;  // [sp-0x418]
     char v12;  // [bp-0x408]
     char v13;  // [bp-0x3f8]
@@ -31,9 +32,9 @@ long long uu_mktemp::uumain::uumain::hbe5555b039ad0e2e(unsigned long long a0, un
     int v29;  // [sp-0x338]
     int v30;  // [sp-0x328]
     int v31;  // [sp-0x318]
-    unsigned long v32;  // [sp-0x300], Other Possible Types: unsigned long long
+    unsigned long v32;  // [sp-0x300]
     int v33;  // [sp-0x2f8]
-    int v34;  // [bp-0x2e8], Other Possible Types: char
+    int v34;  // [sp-0x2e8], Other Possible Types: char
     int v35;  // [bp-0x2d8], Other Possible Types: char, unsigned long long
     unsigned int v36;  // [bp-0x2d0], Other Possible Types: unsigned long long
     int v37;  // [sp-0x2c8]
@@ -41,7 +42,8 @@ long long uu_mktemp::uumain::uumain::hbe5555b039ad0e2e(unsigned long long a0, un
     int v39;  // [sp-0x2a8]
     struct_0 *v41;  // r14
     int v42;  // xmm0
-    unsigned long long v43;  // rax
+    unsigned long long v43;  // rbx
+    unsigned long long v44;  // rax
     unsigned long long v45;  // rsi
     char v46;  // r15b
     char v47;  // bpl
@@ -143,7 +145,7 @@ LABEL_472b78:
 LABEL_472d7f:
                     ::0x4710c0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::heaa044c2009f3939(&v17);
                     ::0x4710c0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::heaa044c2009f3939(&v7);
-                    ::0x471060::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h7ae21e0dc128195b();
+                    ::0x471060::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h7ae21e0dc128195b(&v5);
                     core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h83a686a69d3d6469(&v24);
                 }
                 else if (v58 == 0x8000000000000000)
@@ -159,17 +161,18 @@ LABEL_472daf:
                     v43 = _$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$::map_err_context::hc85311bdbf48fb6a(uucore::mods::display::println_verbatim::h5bcfcd3708f9694a(&v32));
                     ::0x4710c0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::heaa044c2009f3939(&v17);
                     ::0x4710c0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::heaa044c2009f3939(&v7);
-                    ::0x471060::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h7ae21e0dc128195b();
+                    ::0x471060::core::ptr::drop_in_place$LT$std..path..PathBuf$GT$::h7ae21e0dc128195b(&v5);
                     core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h83a686a69d3d6469(&v24);
                 }
             }
         }
         else
         {
-            if (!*((long long *)&v4))
+            v44 = *((long long *)&v4);
+            if (!v44)
                 core::option::unwrap_failed::h0e11329e76906eaa(&g_533db8); /* do not return */
             v45 = *((long long *)&v3);
-            if (!(v58 == 0x8000000000000000))
+            if (!(!(char)_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$std..ffi..os_str..OsStr$GT$$GT$::eq::ha5f536083d339933(*((long long *)(v45 + v44 * 24 - 16)), *((long long *)(v45 + v44 * 24 - 8)), *((long long *)&v10), (long long)v11)))
                 goto LABEL_472b78;
             v36 = 9223372036854775814;
             v43 = alloc::boxed::Box$LT$T$GT$::new::h81fafefccffeca47(&v34);

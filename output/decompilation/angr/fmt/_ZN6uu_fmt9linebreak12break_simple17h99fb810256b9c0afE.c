@@ -1,6 +1,6 @@
 long long uu_fmt::linebreak::break_simple::h99fb810256b9c0af(unsigned long a0, unsigned long a1, struct_2 *a2)
 {
-    unsigned long v0;  // [sp-0x28], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x28]
     unsigned long long v1;  // [sp-0x20]
     char v2;  // [bp-0x18]
     char v3;  // [bp-0x10]

@@ -1,4 +1,4 @@
-void __rustcall uu_wc::word_count_from_reader_specialized(undefined4 *param_1)
+void _ZN5uu_wc34word_count_from_reader_specialized17hf67f53152ea8a52bE(undefined4 *param_1)
 
 {
   undefined local_a9;
@@ -20,7 +20,8 @@ void __rustcall uu_wc::word_count_from_reader_specialized(undefined4 *param_1)
   local_a8 = 0;
   uStack_a0 = 0;
   local_88 = 0;
-  _<std::fs::File_as_uu_wc::countable::WordCountable>::buffered(local_68);
+  _ZN65__LT_std__fs__File_u20_as_u20_uu_wc__countable__WordCountable_GT_8buffered17h59317c57c6f57ac1E
+            (local_68);
   local_38 = 0;
   local_30 = 0;
   local_2c = 0;
@@ -29,11 +30,11 @@ void __rustcall uu_wc::word_count_from_reader_specialized(undefined4 *param_1)
     while( true ) {
       while( true ) {
                     /* try { // try from 001bccdb to 001bcce5 has its CatchHandler @ 001bcd7e */
-        utf8::read::BufReadDecoder<B>::next_strict(&local_80,local_68);
+        _ZN5uu_wc4utf84read23BufReadDecoder_LT_B_GT_11next_strict17h89bdfec0735647a2E
+                  (&local_80,local_68);
         if (local_80 == 2) {
                     /* try { // try from 001bcd35 to 001bcd3e has its CatchHandler @ 001bcd7c */
-          core::ptr::
-          drop_in_place<core::option::Option<core::result::Result<&str,uu_wc::utf8::read::BufReadDecoderError>>>
+          _ZN4core3ptr125drop_in_place_LT_core__option__Option_LT_core__result__Result_LT__RF_str_C_uu_wc__utf8__read__BufReadDecoderError_GT__GT__GT_17h5c5930e1896f3564E
                     (&local_80);
           *(undefined8 *)(param_1 + 8) = local_88;
           param_1[4] = (undefined4)local_98;
@@ -48,7 +49,7 @@ void __rustcall uu_wc::word_count_from_reader_specialized(undefined4 *param_1)
           goto LAB_001bcd61;
         }
         if (local_80 != 0) break;
-        process_chunk(&local_a8,local_78,local_70,&local_a9);
+        _ZN5uu_wc13process_chunk17heb617a55811ee3f2E(&local_a8,local_78,local_70,&local_a9);
       }
       if (local_78 == 0) break;
       local_a8 = local_a8 + local_70;
@@ -65,8 +66,7 @@ void __rustcall uu_wc::word_count_from_reader_specialized(undefined4 *param_1)
   param_1[3] = uStack_a0._4_4_;
   *(long *)(param_1 + 10) = local_70;
 LAB_001bcd61:
-  core::ptr::
-  drop_in_place<uu_wc::utf8::read::BufReadDecoder<std::io::buffered::bufreader::BufReader<std::fs::File>>>
+  _ZN4core3ptr122drop_in_place_LT_uu_wc__utf8__read__BufReadDecoder_LT_std__io__buffered__bufreader__BufReader_LT_std__fs__File_GT__GT__GT_17hcb0d0ffcfcbb6cb6E
             (local_68);
   return;
 }

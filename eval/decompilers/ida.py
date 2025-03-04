@@ -57,7 +57,7 @@ def ida_dec(binary_path, function_list, cache_only=False):
                 output = _extract_function_body(output)
                 if output:
                     result["decompilation"][func_name] = output
-                    result["macro_call_counts"][func_name] = 0
+                    result["macro_call_counts"][func_name] = {}
                     result["node_counts"][func_name] = 0
 
             cmd = f"{IDA_PATH} -A -Ohexrays:ida_main:main -S{os.path.abspath(os.path.join(IDA_SCRIPTS_PATH, 'call_counts.py'))} {os.path.abspath(binary_path)}"

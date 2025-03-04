@@ -1,4 +1,5 @@
-void __rustcall uu_split::LineChunkWriter::new(undefined8 *param_1,undefined8 param_2,long param_3)
+void _ZN8uu_split15LineChunkWriter3new17hd30d9397c46ea980E
+               (undefined8 *param_1,undefined8 param_2,long param_3)
 
 {
   undefined8 uVar1;
@@ -42,7 +43,7 @@ void __rustcall uu_split::LineChunkWriter::new(undefined8 *param_1,undefined8 pa
   undefined4 uStack_30;
   undefined4 uStack_2c;
   
-  filenames::FilenameIterator::new
+  _ZN8uu_split9filenames16FilenameIterator3new17hd5c894c6ceac3496E
             (&local_f8,*(undefined8 *)(param_3 + 0x30),*(undefined8 *)(param_3 + 0x38),
              param_3 + 0x40);
   if (local_f8 == (undefined **)0x8000000000000001) {
@@ -67,18 +68,20 @@ void __rustcall uu_split::LineChunkWriter::new(undefined8 *param_1,undefined8 pa
     uStack_68 = pcStack_f0;
     local_60 = local_e8;
                     /* try { // try from 001cc4b0 to 001cc514 has its CatchHandler @ 001cc6b8 */
-    _<uu_split::filenames::FilenameIterator_as_core::iter::traits::iterator::Iterator>::next
+    _ZN96__LT_uu_split__filenames__FilenameIterator_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h5ad8a6a4076a29c8E
               (&local_a8,&local_70);
     if ((undefined ***)local_a8 == (undefined ***)0x8000000000000000) {
-      _<T_as_alloc::slice::hack::ConvertVec>::to_vec
+      _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17ha461c13160c52a35E
                 (&local_90,"output file suffixes exhausted",0x1e);
       local_e8 = local_80;
       local_f8 = local_90;
       pcStack_f0 = pcStack_88;
       uStack_e0 = CONCAT44(uStack_e0._4_4_,1);
-      uVar1 = ::alloc::boxed::Box<T>::new(&local_f8);
+      uVar1 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hb3c54f980883cdc1E(&local_f8);
       param_1[1] = uVar1;
-      param_1[2] = &PTR_drop_in_place<uucore_mods_error_USimpleError>_00248438;
+      param_1[2] = &
+                   PTR__ZN4core3ptr54drop_in_place_LT_uucore__mods__error__USimpleError_GT_17h957db0c9a72d5de1E_00248438
+      ;
       *param_1 = 0x8000000000000000;
     }
     else {
@@ -91,16 +94,18 @@ void __rustcall uu_split::LineChunkWriter::new(undefined8 *param_1,undefined8 pa
         local_80 = local_98;
         local_78 = 1;
         local_a8 = (long *)&local_90;
-        local_a0 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+        local_a0 = 
+        _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
         local_f8 = &PTR_s_creating_file___cannot_read_from_002483e0;
         pcStack_f0 = (code *)0x2;
         uStack_d8 = 0;
         uStack_e0 = 1;
                     /* try { // try from 001cc5bb to 001cc5f7 has its CatchHandler @ 001cc6a9 */
         local_e8 = &local_a8;
-        std::io::stdio::_print(&local_f8);
+        _ZN3std2io5stdio6_print17he918bceb0c89db46E(&local_f8);
       }
-      Settings::instantiate_current_writer(&local_f8,param_3,local_108,local_100,1);
+      _ZN8uu_split8Settings26instantiate_current_writer17h325c265ed321d02dE
+                (&local_f8,param_3,local_108,local_100,1);
       if (local_f8 != (undefined **)0x8000000000000000) {
         param_1[4] = uStack_d8;
         param_1[5] = CONCAT44(uStack_cc,uStack_d0);
@@ -129,18 +134,18 @@ void __rustcall uu_split::LineChunkWriter::new(undefined8 *param_1,undefined8 pa
         param_1[0x10] = param_2;
         param_1[0x11] = 0;
         param_1[0x12] = param_2;
-        core::ptr::drop_in_place<alloc::string::String>(&local_110);
+        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17ha786b13c7b7ee26dE(&local_110);
         return;
       }
-      auVar2 = uucore::mods::error::
-               _<impl_core::convert::From<std::io::error::Error>for_alloc::boxed::Box<dyn_uucore::mods::error::UError>>
-               ::from();
+      auVar2 = _ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17hcd961c31063bf4faE
+                         ();
       *(undefined (*) [16])(param_1 + 1) = auVar2;
       *param_1 = 0x8000000000000000;
                     /* try { // try from 001cc603 to 001cc60c has its CatchHandler @ 001cc6b8 */
-      core::ptr::drop_in_place<alloc::string::String>(&local_110);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17ha786b13c7b7ee26dE(&local_110);
     }
-    core::ptr::drop_in_place<uu_split::filenames::FilenameIterator>(&local_70);
+    _ZN4core3ptr58drop_in_place_LT_uu_split__filenames__FilenameIterator_GT_17h4a1cc4a00f07c721E
+              (&local_70);
   }
   return;
 }

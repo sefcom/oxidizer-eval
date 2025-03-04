@@ -1,7 +1,8 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined8 * __rustcall
-uu_ptx::read_input(undefined8 *param_1,long param_2,long param_3,long param_4)
+undefined8 *
+_ZN6uu_ptx10read_input17h3799c9cd7e5fae81E
+          (undefined8 *param_1,long param_2,long param_3,long param_4)
 
 {
   long lVar1;
@@ -72,8 +73,8 @@ uu_ptx::read_input(undefined8 *param_1,long param_2,long param_3,long param_4)
   undefined8 local_70;
   undefined local_68 [56];
   
-  std::thread::local::LocalKey<T>::try_with(&local_1d8);
-  local_148 = core::result::Result<T,E>::expect(&local_1d8);
+  _ZN3std6thread5local17LocalKey_LT_T_GT_8try_with17h56169180d99f5faaE(&local_1d8);
+  local_148 = _ZN4core6result19Result_LT_T_C_E_GT_6expect17h52231f17148c3285E(&local_1d8);
   local_168 = PTR_DAT_003ed8f8;
   uStack_160 = _UNK_003ed900;
   local_158 = _DAT_003ed908;
@@ -92,11 +93,11 @@ uu_ptx::read_input(undefined8 *param_1,long param_2,long param_3,long param_4)
       lStack_1d0 = param_2 + param_3 * 0x18;
       local_1d8 = param_2;
       while( true ) {
-        lVar3 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+        lVar3 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he2542eee79d3070cE
                           (&local_1d8);
         if (lVar3 == 0) break;
                     /* try { // try from 002b6795 to 002b679c has its CatchHandler @ 002b6a5a */
-        ::alloc::vec::Vec<T,A>::push
+        _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h21f7190cf2fce050E
                   (&local_198,*(undefined8 *)(lVar3 + 8),*(undefined8 *)(lVar3 + 0x10));
       }
       goto LAB_002b67c4;
@@ -105,11 +106,11 @@ uu_ptx::read_input(undefined8 *param_1,long param_2,long param_3,long param_4)
     uVar6 = *(undefined8 *)(param_2 + 0x10);
   }
                     /* try { // try from 002b67ba to 002b67c3 has its CatchHandler @ 002b6a32 */
-  ::alloc::vec::Vec<T,A>::push(&local_198,puVar7,uVar6);
+  _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h21f7190cf2fce050E(&local_198,puVar7,uVar6);
 LAB_002b67c4:
-  _<alloc::vec::Vec<T,A>as_core::iter::traits::collect::IntoIterator>::into_iter
+  _ZN90__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__iter__traits__collect__IntoIterator_GT_9into_iter17hdb3cfba9de7d7f84E
             (local_118,&local_198);
-  auVar9 = _<alloc::vec::into_iter::IntoIter<T,A>as_core::iter::traits::iterator::Iterator>::next
+  auVar9 = _ZN103__LT_alloc__vec__into_iter__IntoIter_LT_T_C_A_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hf55ab871a8e5779fE
                      (local_118);
   if (auVar9._0_8_ != 0) {
     lVar3 = 0;
@@ -117,22 +118,25 @@ LAB_002b67c4:
       uVar8 = auVar9._8_8_;
                     /* try { // try from 002b6800 to 002b68cd has its CatchHandler @ 002b6a6b */
       uVar6 = auVar9._0_8_;
-      cVar2 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(uVar6,uVar8,&DAT_0015ec5a,1);
+      cVar2 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17he450917857c3e673E
+                        (uVar6,uVar8,&DAT_0015ec5a,1);
       if (cVar2 == '\0') {
-        std::fs::File::open(&local_1d8,uVar6,uVar8);
+        _ZN3std2fs4File4open17h478ac8dba32f1ae3E(&local_1d8,uVar6,uVar8);
         if ((int)local_1d8 != 0) {
           param_1[1] = lStack_1d0;
           goto LAB_002b69fc;
         }
-        uVar4 = ::alloc::boxed::Box<T>::new(local_1d8._4_4_);
-        ppuVar5 = &PTR_drop_in_place<std_fs_File>_003edcd8;
+        uVar4 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h9f305fe194b67db1E(local_1d8._4_4_);
+        ppuVar5 = &PTR__ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17hd08ffe348cbe9063E_003edcd8
+        ;
       }
       else {
-        uVar4 = std::io::stdio::stdin();
-        uVar4 = ::alloc::boxed::Box<T>::new(uVar4);
+        uVar4 = _ZN3std2io5stdio5stdin17h7215cc131abb55d8E();
+        uVar4 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h0dfaa371efd7c18cE(uVar4);
         ppuVar5 = (undefined **)&DAT_003edd30;
       }
-      std::io::buffered::bufreader::BufReader<R>::with_capacity(&local_a0,0x2000,uVar4,ppuVar5);
+      _ZN3std2io8buffered9bufreader18BufReader_LT_R_GT_13with_capacity17hd17c935e00db073bE
+                (&local_a0,0x2000,uVar4,ppuVar5);
       local_d8 = local_a0;
       uStack_d4 = uStack_9c;
       uStack_d0 = uStack_98;
@@ -146,15 +150,15 @@ LAB_002b67c4:
       uStack_b0 = uStack_78;
       uStack_ac = uStack_74;
       local_a8 = local_70;
-      core::iter::adapters::try_process(&local_1d8,&local_d8);
+      _ZN4core4iter8adapters11try_process17he3ba2ce09273ab77E(&local_1d8,&local_d8);
       lVar1 = local_1c8;
       if (local_1d8 == -0x8000000000000000) {
         param_1[1] = lStack_1d0;
 LAB_002b69fc:
         *param_1 = 0;
-        core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<&str>>(local_118);
-        core::ptr::
-        drop_in_place<std::collections::hash::map::HashMap<alloc::string::String,uu_ptx::FileContent>>
+        _ZN4core3ptr67drop_in_place_LT_alloc__vec__into_iter__IntoIter_LT__RF_str_GT__GT_17h736feeb61ffeaf15E
+                  (local_118);
+        _ZN4core3ptr108drop_in_place_LT_std__collections__hash__map__HashMap_LT_alloc__string__String_C_uu_ptx__FileContent_GT__GT_17h021de779c702ee73E
                   (&local_168);
         return param_1;
       }
@@ -162,10 +166,11 @@ LAB_002b69fc:
       lStack_178 = lStack_1d0;
       local_170 = local_1c8;
                     /* try { // try from 002b6907 to 002b6913 has its CatchHandler @ 002b6a39 */
-      _<alloc::vec::Vec<T>as_alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+      _ZN98__LT_alloc__vec__Vec_LT_T_GT__u20_as_u20_alloc__vec__spec_from_iter__SpecFromIter_LT_T_C_I_GT__GT_9from_iter17h8574ea4db7118a44E
                 (&local_130,lStack_1d0,lStack_1d0 + local_1c8 * 0x18);
                     /* try { // try from 002b6914 to 002b6921 has its CatchHandler @ 002b6a3e */
-      _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_1d8,uVar6,uVar8);
+      _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h881c0d1e76b3a749E
+                (&local_1d8,uVar6,uVar8);
       local_e8 = local_1c8;
       local_f8 = local_1d8;
       lStack_f0 = lStack_1d0;
@@ -179,15 +184,18 @@ LAB_002b69fc:
       uStack_1b4 = uStack_124;
                     /* try { // try from 002b6971 to 002b6993 has its CatchHandler @ 002b6a69 */
       local_1a8 = lVar3;
-      hashbrown::map::HashMap<K,V,S,A>::insert(local_68,&local_168,&local_f8,&local_1d8);
-      core::ptr::drop_in_place<core::option::Option<uu_ptx::FileContent>>(local_68);
+      _ZN9hashbrown3map28HashMap_LT_K_C_V_C_S_C_A_GT_6insert17hc03c4a862eb36838E
+                (local_68,&local_168,&local_f8,&local_1d8);
+      _ZN4core3ptr68drop_in_place_LT_core__option__Option_LT_uu_ptx__FileContent_GT__GT_17h581f5f8adb3a9895E
+                (local_68);
       lVar3 = lVar3 + lVar1;
-      auVar9 = _<alloc::vec::into_iter::IntoIter<T,A>as_core::iter::traits::iterator::Iterator>::
-               next(local_118);
+      auVar9 = _ZN103__LT_alloc__vec__into_iter__IntoIter_LT_T_C_A_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hf55ab871a8e5779fE
+                         (local_118);
     } while (auVar9._0_8_ != 0);
   }
                     /* try { // try from 002b69b8 to 002b6a0f has its CatchHandler @ 002b6a34 */
-  core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<&str>>(local_118);
+  _ZN4core3ptr67drop_in_place_LT_alloc__vec__into_iter__IntoIter_LT__RF_str_GT__GT_17h736feeb61ffeaf15E
+            (local_118);
   *(undefined (*) [16])(param_1 + 4) = local_148;
   param_1[2] = CONCAT44(uStack_154,local_158);
   param_1[3] = CONCAT44(uStack_14c,uStack_150);

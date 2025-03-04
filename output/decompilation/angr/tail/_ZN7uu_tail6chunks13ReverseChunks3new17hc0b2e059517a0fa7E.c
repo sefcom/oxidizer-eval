@@ -24,6 +24,7 @@ long long uu_tail::chunks::ReverseChunks::new::hc0b2e059517a0fa7(unsigned long l
     int v22;  // ymm1
     int v23;  // ymm1
     unsigned long long v24;  // rdx
+    unsigned long long v25;  // rax
 
     v4 = v6;
     v3 = v7;
@@ -44,11 +45,10 @@ long long uu_tail::chunks::ReverseChunks::new::hc0b2e059517a0fa7(unsigned long l
     v24 = (unsigned long long)v23 & (unsigned long long)v21 >> 63 | (unsigned long long)v21;
     if ((CmpF((unsigned long long)v21, (unsigned long long)(v23 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000)) & 1))
         v24 = 0;
-    if ((((char)(CmpF((unsigned long long)v21, 4895412794951729151) & 69) | (char)((CmpF((unsigned long long)v21, 4895412794951729151) & 69) >> 6)) & 1) != 1)
-        v24 = 18446744073709551615;
+    v25 = (((CmpF((unsigned long long)v21, 4895412794951729151) & 69 | (CmpF((unsigned long long)v21, 4895412794951729151) & 69) >> 6) & 1) == 1 ? v24 : 18446744073709551615);
     a0[0] = a1;
     a0[1] = v12;
-    a0[2] = v24;
+    a0[2] = v25;
     a0[3] = 0;
     return a0;
 }

@@ -4,18 +4,17 @@ long long uu_du::StatPrinter::print_stat::hc47c0332c6a0985f(struct_1 *a0, unsign
     unsigned long v1;  // [sp-0xd8], Other Possible Types: unsigned long long
     struct struct_0 **v2;  // [bp-0xd0], Other Possible Types: char, unsigned long long
     void* v3;  // [sp-0xc8], Other Possible Types: unsigned long long
-    unsigned long v4;  // [sp-0xc0], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0xc0]
     unsigned long long v5;  // [sp-0xb8]
-    int v6;  // [sp-0xb0], Other Possible Types: struct struct_0 **
+    int v6;  // [bp-0xb0], Other Possible Types: struct struct_0 **
     unsigned long long v7;  // [sp-0xa8]
     void* v8;  // [sp-0xa0]
-    struct struct_0 **v9;  // [sp-0x70]
+    struct struct_0 **v9;  // [bp-0x70]
     unsigned long long v10;  // [sp-0x68]
     char v11;  // [bp-0x58]
     char v12;  // [bp-0x40]
     unsigned long long v14;  // rax
     struct struct_0 **v15;  // rdi
-    unsigned long long v17;  // rdx
 
     v14 = a0->field_4c;
     if ((char)v14 == 3)
@@ -41,7 +40,7 @@ long long uu_du::StatPrinter::print_stat::hc47c0332c6a0985f(struct_1 *a0, unsign
             v5 = v1;
             return alloc::boxed::Box$LT$T$GT$::new::h19aedf1648b3dc3b(&v4);
         }
-        _$LT$chrono..datetime..DateTime$LT$chrono..offset..local..Local$GT$$u20$as$u20$core..convert..From$LT$std..time..SystemTime$GT$$GT$::from::h8f61e1a3c0275b73(&v12, _$LT$std..time..SystemTime$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$::add::hf5ff61e43d92dd3e(0, 0, v5, 0), v17);
+        _$LT$chrono..datetime..DateTime$LT$chrono..offset..local..Local$GT$$u20$as$u20$core..convert..From$LT$std..time..SystemTime$GT$$GT$::from::h8f61e1a3c0275b73(&v12, _$LT$std..time..SystemTime$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$::add::hf5ff61e43d92dd3e(0, 0, v5, 0), a2);
         *((int128_t *)&v0) = *((int128_t *)&a0->field_38);
         v2 = 8;
         v3 = 0;

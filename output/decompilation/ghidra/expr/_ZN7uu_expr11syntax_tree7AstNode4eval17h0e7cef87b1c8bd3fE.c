@@ -1,4 +1,4 @@
-void __rustcall uu_expr::syntax_tree::AstNode::eval(undefined8 param_1,byte *param_2)
+void _ZN7uu_expr11syntax_tree7AstNode4eval17h0e7cef87b1c8bd3fE(undefined8 param_1,byte *param_2)
 
 {
                     /* WARNING: Could not recover jumptable at 0x0022fbd3. Too many branches */

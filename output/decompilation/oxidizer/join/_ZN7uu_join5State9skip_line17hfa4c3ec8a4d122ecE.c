@@ -1,6 +1,6 @@
 fn uu_join::State::skip_line(a0: void*, a1: u32, a2: u32, a3: u32) -> u64 {
     let v0: Option<struct24>;  // [sp-0x40]
-    let v1: Option<struct24>;  // [sp-0x28], Other Possible Types: i192
+    let v1: Option<struct24>;  // [sp-0x28]
     let v3: i64;  // rax
 
     if *((a0 + 89) as &i8) {

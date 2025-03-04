@@ -2,7 +2,7 @@ long long uu_mkdir::uumain::uumain::h752809fe6d844d81(unsigned long long a0, uns
 {
     unsigned long long v0;  // [sp-0x680]
     unsigned long long v1;  // [sp-0x678]
-    unsigned long v2;  // [sp-0x670], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x670]
     unsigned long long v3;  // [sp-0x668]
     int v4;  // [sp-0x660]
     int v5;  // [sp-0x650]
@@ -16,9 +16,9 @@ long long uu_mkdir::uumain::uumain::h752809fe6d844d81(unsigned long long a0, uns
     char v13;  // [bp-0x5f0]
     char v14;  // [bp-0x5e0]
     char v15;  // [bp-0x5d0]
-    int v16;  // [bp-0x5c8], Other Possible Types: char, unsigned long long
+    int v16;  // [bp-0x5c8], Other Possible Types: char, unsigned long
     unsigned long long v17;  // [sp-0x5c0]
-    int v18;  // [sp-0x5b8], Other Possible Types: unsigned long long
+    int v18;  // [bp-0x5b8], Other Possible Types: unsigned long long
     unsigned int v19;  // [sp-0x5b0]
     int v20;  // [sp-0x5a8]
     unsigned long long v21;  // [sp-0x598]
@@ -36,6 +36,7 @@ long long uu_mkdir::uumain::uumain::h752809fe6d844d81(unsigned long long a0, uns
     unsigned long long v37;  // r13
     int v38;  // ymm0
     unsigned long long v41;  // rdx
+    unsigned long long v42;  // rbx
 
     uucore::Args::collect_lossy::h59e9a190abdbe1bb(&v9, a0, a1);
     uu_mkdir::uu_app::h2281d15957ce8683(&v16);
@@ -74,13 +75,13 @@ long long uu_mkdir::uumain::uumain::h752809fe6d844d81(unsigned long long a0, uns
         v1 = *((long long *)&v27);
         v37 = *((long long *)&v28);
     }
-    uu_mkdir::get_mode::hcf7d630052cc85d4(&v23, &v2, (unsigned int)uu_mkdir::strip_minus_from_mode::h24f9592b17407d7a());
+    uu_mkdir::get_mode::hcf7d630052cc85d4(&v23, &v2, (unsigned int)uu_mkdir::strip_minus_from_mode::h24f9592b17407d7a(&v9));
     if (*((long long *)&v23) != 0x8000000000000000)
     {
         v18 = *((long long *)&v25);
         *((int128_t *)&v16) = *((int128_t *)&v23);
         v19 = 1;
-        v34 = alloc::boxed::Box$LT$T$GT$::new::h6d97907b3bba40e6(&v16);
+        v42 = alloc::boxed::Box$LT$T$GT$::new::h6d97907b3bba40e6(&v16);
     }
     else
     {
@@ -91,8 +92,9 @@ long long uu_mkdir::uumain::uumain::h752809fe6d844d81(unsigned long long a0, uns
         v20 = v8;
         v21 = v1;
         v22 = v37;
-        v34 = uu_mkdir::exec::h97ad3c032066465d(&v16, (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v2, "parents", 7), v41, (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v2, "verboseparents", 7));
+        v42 = uu_mkdir::exec::h97ad3c032066465d(&v16, (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v2, "parents", 7), v41, (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v2, "verboseparents", 7));
     }
     core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::hec88a58d850bf936(&v2);
+    v34 = v42;
     return v34;
 }

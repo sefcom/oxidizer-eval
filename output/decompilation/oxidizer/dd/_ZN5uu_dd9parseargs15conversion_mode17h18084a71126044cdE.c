@@ -6,11 +6,9 @@ fn uu_dd::parseargs::conversion_mode(a0: &struct18, a1: u32, a2: u32, a3: u32, a
                     field_0: 4
                 };
             }
-            return struct18 {
+            return struct2 {
                 field_0: 3
                 field_1: a5
-                field_8: <UNKNOWN>
-                field_16: <UNKNOWN>
             };
         } else {
             if a2 != 1 {
@@ -19,8 +17,10 @@ fn uu_dd::parseargs::conversion_mode(a0: &struct18, a1: u32, a2: u32, a3: u32, a
                     field_8: <UNKNOWN>
                 };
             } else if !a4 {
-                return struct1 {
+                return struct17 {
                     field_0: 5
+                    field_8: <UNKNOWN>
+                    field_16: <UNKNOWN>
                 };
             } else {
                 return struct1 {

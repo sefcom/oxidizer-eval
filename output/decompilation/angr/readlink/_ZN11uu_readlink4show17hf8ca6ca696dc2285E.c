@@ -1,8 +1,8 @@
 long long uu_readlink::show::hf8ca6ca696dc2285(unsigned long long a0, unsigned long long a1, char a2)
 {
     char v0;  // [sp-0x69]
-    char v1;  // [bp-0x68], Other Possible Types: unsigned long, unsigned long long
-    char v2;  // [bp-0x60], Other Possible Types: unsigned long long
+    char v1;  // [bp-0x68], Other Possible Types: unsigned long
+    char v2;  // [sp-0x60], Other Possible Types: unsigned long long
     struct struct_0 **v3;  // [sp-0x58]
     unsigned long long v4;  // [sp-0x50]
     void* v5;  // [sp-0x48]

@@ -1,19 +1,18 @@
 {
   "decompilation": {
-    "_ZN8uu_tsort6uumain17hdd05e82f40c09bb3E": "fn uu_tsort::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: u64;  // [sp-0xa8]\n    let v1: u64;  // [sp-0x98]\n    let v2: u64;  // [sp-0x90]\n    let v3: &&struct_1;  // [sp-0x88]\n    let v4: u64;  // [sp-0x80]\n    let v5: void*;  // [sp-0x78]\n    let v6: u64;  // [sp-0x68]\n    let v7: &u64;  // [sp-0x60]\n    let v8: &u8;  // [sp-0x48]\n    let v9: u64;  // [sp-0x40]\n    let v10: u64;  // [sp-0x38]\n    let v11: i8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v14: u64;  // rax\n    let v15: &u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v14 = uu_tsort::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_414af0;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    core::option::Option<T>::map_or_else();\n    *(&v8 as &i8) = v11;\n    v10 = v12;\n    if v8 == \"\" {\n        v6 = uucore::util_name();\n        v7 = v15;\n        eprint!(\"{}: \", &v6);\n        eprintln!(\"{}\", &v8);\n    }\n    if !v15[13]() {\n        return v15[12]();\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v15;\n    eprintln!(\"Try '{} --help' for more information.\", &v6);\n}\n",
-    "_ZN8uu_tsort6uu_app17he13fe654e24171ebE": "fn uu_tsort::uu_app(a0: &struct712) -> u64 {\n    let v0: i4736;  // [sp-0x7f8], Other Possible Types: struct712, struct592\n    let v1: i32;  // [sp-0x5b0]\n    let v2: i32;  // [sp-0x5ac]\n    let v3: i4736;  // [sp-0x530], Other Possible Types: struct592, struct24\n    let v4: i3504;  // [sp-0x2e0], Other Possible Types: struct712, struct437\n    let v5: i64;  // [sp-0x24]\n    let v6: i32;  // [sp-0x1c]\n    let v8: i64;  // rdx\n\n    v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v8);\n    v0 = clap_builder::builder::command::Command::version(&v4, \"0.0.28\");\n    v3 = uucore::format_usage(\"{} [OPTIONS] FILE\");\n    v4 = clap_builder::builder::command::Command::override_usage(&v0, &v3);\n    v0 = clap_builder::builder::command::Command::about(&v4, \"Topological sort the strings in FILE.\\nStrings are defined as any sequence of tokens separated by whitespace (tab, space, or newline), ordering them based on dependencies in a directed acyclic graph (DAG). \\nUseful for scheduling and determining execution order.\\nIf FILE is not passed in, stdin is used instead.\");\n    memcpy(&v4, &v0, 700);\n    v5 = 549755814016 | *((&v0 as &char + 700) as &i64);\n    v6 = *((&v0 as &char + 708) as &i32);\n    v0 = clap_builder::builder::arg::Arg::new(\"file\");\n    v3 = clap_builder::builder::arg::Arg::default_value(&v0);\n    memcpy(&v0, &v3, 584);\n    v1 = *((&v3 as &char + 584) as &i32) | 4;\n    v2 = *((&v3 as &char + 588) as &i32);\n    v3 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    clap_builder::builder::command::Command::arg(a0, &v4, &v3);\n    return a0;\n}\n",
+    "_ZN8uu_tsort6uumain17hdd05e82f40c09bb3E": "fn uu_tsort::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: String;  // [sp-0x48]\n    let v4: String;  // [sp-0x28]\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v6 = uu_tsort::uumain::uumain(a0, a1);\n    if !v6 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v6;\n    v4 = format!(\"{}\", &v0);\n    v3 = v4;\n    if v3 == \"\" {\n        v2 = v7;\n        show_error!(\"{}\", &v3);\n    }\n    if !*((v7 + 104) as &i64)() {\n        return *((v7 + 96) as &i64)();\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v7;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n}\n",
+    "_ZN8uu_tsort6uu_app17he13fe654e24171ebE": "fn uu_tsort::uu_app(a0: &struct712) -> u64 {\n    let v0: struct712;  // [sp-0x7f8], Other Possible Types: struct592\n    let v1: i32;  // [sp-0x5b0]\n    let v2: i32;  // [sp-0x5ac]\n    let v3: struct592;  // [sp-0x530], Other Possible Types: struct24\n    let v4: struct437;  // [sp-0x2e0], Other Possible Types: struct712\n    let v5: i64;  // [sp-0x24]\n    let v6: i32;  // [sp-0x1c]\n    let v8: i64;  // rdx\n\n    v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v8);\n    v0 = clap_builder::builder::command::Command::version(&v4, \"0.0.28\");\n    v3 = uucore::format_usage(\"{} [OPTIONS] FILE\");\n    v4 = clap_builder::builder::command::Command::override_usage(&v0, &v3);\n    v0 = clap_builder::builder::command::Command::about(&v4, \"Topological sort the strings in FILE.\nStrings are defined as any sequence of tokens separated by whitespace (tab, space, or newline), ordering them based on dependencies in a directed acyclic graph (DAG). \nUseful for scheduling and determining execution order.\nIf FILE is not passed in, stdin is used instead.\");\n    memcpy(&v4, &v0, 700);\n    v5 = 549755814016 | *((&v0.field_0 as &char + 700) as &i64);\n    v6 = *((&v0.field_0 as &char + 708) as &i32);\n    v0 = clap_builder::builder::arg::Arg::new(\"file\");\n    v3 = clap_builder::builder::arg::Arg::default_value(&v0);\n    memcpy(&v0, &v3, 584);\n    v1 = *((&v3.field_0 as &char + 584) as &i32) | 4;\n    v2 = *((&v3.field_0 as &char + 588) as &i32);\n    v3 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    clap_builder::builder::command::Command::arg(a0, &v4, &v3);\n    return a0;\n}\n",
     "_ZN8uu_tsort4Node3new17h9ea61aed4f112825E": "fn uu_tsort::Node::new(a0: &struct32) -> u64 {\n    return struct32 {\n        field_0: 0\n        field_8: 8\n        field_16: 0\n    };\n}\n",
     "_ZN8uu_tsort4Node13add_successor17hc806fe8fc5e165c9E": "fn uu_tsort::Node::add_successor(a0: &struct8, a1: u64, a2: u64) -> u64 {\n    return alloc::vec::Vec<T,A>::push(a0, a1, a2);\n}\n",
-    "_ZN8uu_tsort5Graph8add_node17h226cd9a3985bfd5fE": "fn uu_tsort::Graph::add_node(a0: u32, a1: u32, a2: u32) -> u64 {\n    let v0: i320;  // [sp-0x50], Other Possible Types: struct40\n    let v1: struct40;  // [sp-0x28]\n\n    v1 = hashbrown::rustc_entry::<impl hashbrown::map::HashMap<K,V,S,A>>::rustc_entry(a0, a1);\n    v0 = v1;\n    return std::collections::hash::map::Entry<K,V>::or_insert_with(&v0);\n}\n",
+    "_ZN8uu_tsort5Graph8add_node17h226cd9a3985bfd5fE": "fn uu_tsort::Graph::add_node(a0: u32, a1: u32, a2: u32) -> u64 {\n    let v0: struct40;  // [sp-0x50]\n    let v1: struct40;  // [sp-0x28]\n\n    v1 = hashbrown::rustc_entry::<impl hashbrown::map::HashMap<K,V,S,A>>::rustc_entry(a0, a1);\n    v0 = v1;\n    return std::collections::hash::map::Entry<K,V>::or_insert_with(&v0);\n}\n",
     "_ZN8uu_tsort5Graph8add_edge17h8f24cab5b427ccb3E": "fn uu_tsort::Graph::add_edge(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {\n    let v1: &struct_0;  // rax\n    let v2: u64;  // rax\n\n    uu_tsort::Graph::add_node(a0, a1, a2);\n    v1 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, a3, a4);\n    if v1 as u8 {\n        return v1;\n    }\n    uu_tsort::Graph::add_node(a0, a3, a4);\n    v2 = hashbrown::map::HashMap<K,V,S,A>::get_inner_mut(a0, a1, a2);\n    if !v2 {\n        core::option::unwrap_failed(\"src/uu/tsort/src/tsort.rs\"); /* do not return */\n    }\n    uu_tsort::Node::add_successor(v2 + 16, a3, a4);\n    v1 = hashbrown::map::HashMap<K,V,S,A>::get_inner_mut(a0, a3, a4);\n    if v1 {\n        v1->field_28 = v1->field_28 + 1;\n        return v1;\n    }\n    core::option::unwrap_failed(\"src/uu/tsort/src/tsort.rs\"); /* do not return */\n}\n",
-    "_ZN8uu_tsort5Graph3dfs17h6d3ff1788ece85a8E": "fn uu_tsort::Graph::dfs(a0: u32, a1: u32, a2: u32, a3: u32, a4: &struct8) -> u64 {\n    let v0: u8;  // [bp-0x48]\n    let v1: u64;  // [sp-0x38]\n    let v2: u64;  // [sp-0x30]\n    let v4: u32;  // ebp\n    let v5: &u64;  // rax\n    let v6: struct8;  // rax\n    let v7: u64;  // rax\n\n    v4 = vvar_57{reg 56} & -0x100 | 1;\n    if <T as core::slice::cmp::SliceContains>::slice_contains(&v0, a4[1], a4[2]) as i8 {\n        return v4;\n    }\n    if hashbrown::map::HashMap<K,V,S,A>::get_inner(a3, &v0) {\n        return 0;\n    }\n    hashbrown::map::HashMap<K,V,S,A>::insert(a3, a1, a2);\n    alloc::vec::Vec<T,A>::push(a4, a1, a2);\n    v5 = hashbrown::map::HashMap<K,V,S,A>::get_inner(a0, a1, a2);\n    if v5 {\n        v1 = v5[3];\n        v2 = v5[4] * 16 + v1;\n        loop {\n            v6 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();\n            if !v6 {\n                break;\n            }\n            if uu_tsort::Graph::dfs(a0, *(v6 as &i64), *((v6 + 8) as &i64), a3, a4) as i8 {\n                return v4;\n            }\n        }\n    }\n    v7 = a4[2];\n    if v7 {\n        a4[2] = v7 - 1;\n    }\n}\n"
+    "_ZN8uu_tsort5Graph9run_tsort17h2621dd5cdb4faf5aE": "fn uu_tsort::Graph::run_tsort(a0: u32, a1: void*) -> u64 {\n    let v0: i8;  // [bp-0xe1]\n    let v1: struct24;  // [sp-0xd8], Other Possible Types: struct32, Result<struct16, struct8>, struct26\n    let v2: struct16;  // [sp-0xb0], Other Possible Types: unsigned long\n    let v3: i64;  // [sp-0xa8]\n    let v4: i64;  // [sp-0xa0]\n    let v5: struct16;  // [sp-0x98], Other Possible Types: struct32\n    let v6: iNone;  // [sp-0x78]\n    let v7: Option<struct32>;  // [sp-0x50]\n    let v10: struct8;  // rax\n    let v11: i64;  // rdx\n    let v12: i64;  // rbx\n    let v13: struct8;  // rax\n    let v14: struct8;  // rbx\n    let v15: i64;  // r12\n    let v16: i64;  // rax\n    let v17: i64;  // 4096\n    let v18: i64;  // rbx\n\n    v1 = alloc::raw_vec::RawVec<T,A>::try_allocate_in(*((a1 + 24) as &i64), 0);\n    v2 = *((&v1 as &char + 8) as &i64);\n    v3 = *((&v1 as &char + 16) as &i64);\n    v4 = 0;\n    v1 = hashbrown::map::HashMap<K,V,S,A>::iter(a1);\n    v6 = *(&v1 as &i320);\n    v5 = <alloc::collections::vec_deque::VecDeque<T> as alloc::collections::vec_deque::spec_from_iter::SpecFromIter<T,I>>::spec_from_iter(&v6);\n    v10 = alloc::collections::vec_deque::VecDeque<T,A>::make_contiguous();\n    if v11 >= 2 {\n        if v11 >= 21 {\n            core::slice::sort::unstable::ipnsort(v10, v11, &v0);\n        } else {\n            core::slice::sort::shared::smallsort::insertion_sort_shift_left(v10, v11, 1);\n        }\n    }\n    loop {\n        v12 = alloc::collections::vec_deque::VecDeque<T,A>::pop_front(&v5);\n        if !v12 {\n            break;\n        }\n        v2 = alloc::vec::Vec<T,A>::push(v12, v11);\n        v7 = hashbrown::map::HashMap<K,V,S,A>::remove(a1, v12, v11);\n        if v7 as i64 != 0x8000000000000000 {\n            v1 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v7);\n            v13 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next();\n            if v13 {\n                v14 = v13;\n                v15 = v11;\n                do {\n                    v16 = hashbrown::map::HashMap<K,V,S,A>::get_inner_mut(a1, v14, v15);\n                    if !v16 {\n                        core::option::unwrap_failed(\"src/uu/tsort/src/tsort.rs\"); /* do not return */\n                    }\n                    v17 = *((v16 + 40) as &i64);\n                    *((v16 + 40) as &i64) = *((v16 + 40) as &i64) - 1;\n                    if v17 == 1 {\n                        v5 = alloc::collections::vec_deque::VecDeque<T,A>::push_back(v14, v15);\n                    }\n                    v14 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v1);\n                    v15 = v11;\n                } while (v14);\n            }\n        }\n    }\n    if !*((a1 + 24) as &i64) {\n        return v18;\n    }\n    v1 = uu_tsort::Graph::detect_cycle(a1);\n    v18 = a0;\n    return v18;\n}\n",
+    "_ZN8uu_tsort5Graph3dfs17h6d3ff1788ece85a8E": "fn uu_tsort::Graph::dfs(a0: u32, a1: u32, a2: u32, a3: u32, a4: &struct8) -> u64 {\n    let v0: u8;  // [bp-0x48]\n    let v1: u64;  // [sp-0x38]\n    let v2: u64;  // [sp-0x30]\n    let v4: u32;  // ebp\n    let v5: &u64;  // rax\n    let v6: struct8;  // rax\n    let v7: u64;  // rax\n\n    v4 = vvar_52{reg 56} & -0x100 | 1;\n    if <T as core::slice::cmp::SliceContains>::slice_contains(&v0, a4[1], a4[2]) as i8 {\n        return v4;\n    }\n    if hashbrown::map::HashMap<K,V,S,A>::get_inner(a3, &v0) {\n        return 0;\n    }\n    hashbrown::map::HashMap<K,V,S,A>::insert(a3, a1, a2);\n    alloc::vec::Vec<T,A>::push(a4, a1, a2);\n    v5 = hashbrown::map::HashMap<K,V,S,A>::get_inner(a0, a1, a2);\n    if v5 {\n        v1 = v5[3];\n        v2 = v5[4] * 16 + v1;\n        loop {\n            v6 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();\n            if !v6 {\n                break;\n            }\n            if uu_tsort::Graph::dfs(a0, *(v6 as &i64), *((v6 + 8) as &i64), a3, a4) as i8 {\n                return v4;\n            }\n        }\n    }\n    v7 = a4[2];\n    if v7 {\n        a4[2] = v7 - 1;\n    }\n}\n"
   },
   "function_call_counts": {
     "_ZN8uu_tsort6uumain17hdd05e82f40c09bb3E": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
-      "uucore::util_name": 1,
-      "core::option::Option<T>::map_or_else": 1,
       "uu_tsort::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
@@ -46,6 +45,23 @@
       "uu_tsort::Graph::add_node": 2,
       "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1
     },
+    "_ZN8uu_tsort5Graph9run_tsort17h2621dd5cdb4faf5aE": {
+      "uu_tsort::Graph::detect_cycle": 1,
+      "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next": 2,
+      "alloc::collections::vec_deque::VecDeque<T,A>::push_back": 1,
+      "core::option::unwrap_failed": 1,
+      "hashbrown::map::HashMap<K,V,S,A>::get_inner_mut": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "hashbrown::map::HashMap<K,V,S,A>::remove": 1,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "alloc::collections::vec_deque::VecDeque<T,A>::pop_front": 1,
+      "core::slice::sort::unstable::ipnsort": 1,
+      "core::slice::sort::shared::smallsort::insertion_sort_shift_left": 1,
+      "alloc::collections::vec_deque::VecDeque<T,A>::make_contiguous": 1,
+      "<alloc::collections::vec_deque::VecDeque<T> as alloc::collections::vec_deque::spec_from_iter::SpecFromIter<T,I>>::spec_from_iter": 1,
+      "hashbrown::map::HashMap<K,V,S,A>::iter": 1,
+      "alloc::raw_vec::RawVec<T,A>::try_allocate_in": 1
+    },
     "_ZN8uu_tsort5Graph3dfs17h6d3ff1788ece85a8E": {
       "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 1,
       "hashbrown::map::HashMap<K,V,S,A>::get_inner": 1,
@@ -55,14 +71,16 @@
   },
   "macro_call_counts": {
     "_ZN8uu_tsort6uumain17hdd05e82f40c09bb3E": {
-      "eprintln": 2,
-      "eprint": 1
+      "eprintln": 1,
+      "show_error": 1,
+      "format": 1
     },
     "_ZN8uu_tsort6uu_app17he13fe654e24171ebE": {},
     "_ZN8uu_tsort4Node3new17h9ea61aed4f112825E": {},
     "_ZN8uu_tsort4Node13add_successor17hc806fe8fc5e165c9E": {},
     "_ZN8uu_tsort5Graph8add_node17h226cd9a3985bfd5fE": {},
     "_ZN8uu_tsort5Graph8add_edge17h8f24cab5b427ccb3E": {},
+    "_ZN8uu_tsort5Graph9run_tsort17h2621dd5cdb4faf5aE": {},
     "_ZN8uu_tsort5Graph3dfs17h6d3ff1788ece85a8E": {}
   },
   "node_counts": {
@@ -72,6 +90,7 @@
     "_ZN8uu_tsort4Node13add_successor17hc806fe8fc5e165c9E": 1,
     "_ZN8uu_tsort5Graph8add_node17h226cd9a3985bfd5fE": 3,
     "_ZN8uu_tsort5Graph8add_edge17h8f24cab5b427ccb3E": 11,
+    "_ZN8uu_tsort5Graph9run_tsort17h2621dd5cdb4faf5aE": 21,
     "_ZN8uu_tsort5Graph3dfs17h6d3ff1788ece85a8E": 11
   },
   "prototypes": {
@@ -94,10 +113,15 @@
     "_ZN4core6option15Option$LT$T$GT$11map_or_else17h61e9aa31ff763042E": {
       "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h61e9aa31ff763042E",
       "return_type": [
-        "primitive",
-        8
+        "struct",
+        24
       ],
-      "parameters": []
+      "parameters": [
+        [
+          "struct*",
+          8
+        ]
+      ]
     },
     "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfcf59f14360ccc96E": {
       "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfcf59f14360ccc96E",
@@ -146,19 +170,6 @@
         ],
         [
           "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h0a6e41ca1ff4979aE": {
-      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h0a6e41ca1ff4979aE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "struct*",
           8
         ]
       ]
@@ -765,6 +776,23 @@
         ]
       ]
     },
+    "_ZN8uu_tsort5Graph9run_tsort17h2621dd5cdb4faf5aE": {
+      "name": "_ZN8uu_tsort5Graph9run_tsort17h2621dd5cdb4faf5aE",
+      "return_type": [
+        "primitive",
+        8
+      ],
+      "parameters": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
     "_ZN8uu_tsort5Graph12detect_cycle17h0c5291f558dc399aE": {
       "name": "_ZN8uu_tsort5Graph12detect_cycle17h0c5291f558dc399aE",
       "return_type": [
@@ -1155,32 +1183,6 @@
           "primitive",
           8
         ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17hcd961c31063bf4faE": {
-      "name": "_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17hcd961c31063bf4faE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE": {
-      "name": "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
         [
           "primitive",
           8

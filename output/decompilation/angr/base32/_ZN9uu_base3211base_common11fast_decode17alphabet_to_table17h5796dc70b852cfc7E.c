@@ -1,6 +1,6 @@
 long long uu_base32::base_common::fast_decode::alphabet_to_table::h5796dc70b852cfc7(void* a0, unsigned long a1, unsigned long a2, unsigned int a3)
 {
-    void* v0;  // [sp-0x130], Other Possible Types: unsigned long, unsigned long long
+    void* v0;  // [sp-0x130], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0x128]
     unsigned short v2;  // [sp-0x120]
     int v3;  // [sp-0x118]

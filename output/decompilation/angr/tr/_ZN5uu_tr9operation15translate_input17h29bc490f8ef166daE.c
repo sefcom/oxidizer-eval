@@ -6,9 +6,9 @@ long long uu_tr::operation::translate_input::h29bc490f8ef166da(unsigned long lon
     void* v3;  // [sp-0x70]
     unsigned long long v4;  // [sp-0x68]
     void* v5;  // [sp-0x60]
-    unsigned long v6;  // [sp-0x58], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x58]
     unsigned long long v7;  // [sp-0x50]
-    unsigned long v8;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v8;  // [sp-0x48]
     unsigned long long v9;  // [sp-0x40]
     unsigned long long v10;  // [sp-0x38]
     unsigned long v12;  // rdx
@@ -21,7 +21,7 @@ long long uu_tr::operation::translate_input::h29bc490f8ef166da(unsigned long lon
     v5 = 0;
     while (true)
     {
-        v6 = _$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..BufRead$GT$::read_until::h22767f011618eb41(a0, 10, &v0);
+        v6 = _$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..BufRead$GT$::read_until::h22767f011618eb41(a0, 10);
         v7 = v12;
         if (!(!v6) || !(v12))
             break;

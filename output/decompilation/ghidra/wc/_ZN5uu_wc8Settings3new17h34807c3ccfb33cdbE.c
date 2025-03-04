@@ -1,4 +1,4 @@
-undefined8 * __rustcall uu_wc::Settings::new(undefined8 *param_1,undefined8 param_2)
+undefined8 * _ZN5uu_wc8Settings3new17h34807c3ccfb33cdbE(undefined8 *param_1,undefined8 param_2)
 
 {
   undefined uVar1;
@@ -31,36 +31,42 @@ undefined8 * __rustcall uu_wc::Settings::new(undefined8 *param_1,undefined8 para
   undefined4 local_40;
   undefined2 local_3c;
   
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17haeae6a80429df494E
             (&local_58,param_2,"files0-from",0xb);
-  lVar6 = clap_builder::parser::error::MatchesError::unwrap("files0-from",0xb,&local_58);
+  lVar6 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h2e8e84f85343b8e4E
+                    ("files0-from",0xb,&local_58);
   if (lVar6 == 0) {
     local_78 = 0x8000000000000002;
   }
   else {
-    core::ops::function::FnOnce::call_once(&local_58,lVar6);
+    _ZN4core3ops8function6FnOnce9call_once17hd72670be98e9ca09E(&local_58,lVar6);
     local_68 = local_48;
     local_78 = local_58;
     uStack_70 = uStack_50;
     uStack_6c = uStack_4c;
   }
                     /* try { // try from 001b8917 to 001b89d4 has its CatchHandler @ 001b8a94 */
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&local_58,param_2,"total",5);
-  lVar6 = clap_builder::parser::error::MatchesError::unwrap("total",5,&local_58);
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17he5d9c5ec371f7c77E
+            (&local_58,param_2,"total",5);
+  lVar6 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h3533af4150754c61E
+                    ("total",5,&local_58);
   if (lVar6 == 0) {
     local_9c = 0;
   }
   else {
-    local_9c = core::ops::function::FnOnce::call_once(lVar6);
+    local_9c = _ZN4core3ops8function6FnOnce9call_once17h04c9fe66688ddd3eE(lVar6);
   }
-  uVar1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"bytes",5);
-  uVar2 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"chars",5);
-  uVar3 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"lines",5);
-  uVar4 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+  uVar1 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                    (param_2,"bytes",5);
+  uVar2 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                    (param_2,"chars",5);
+  uVar3 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                    (param_2,"lines",5);
+  uVar4 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                     (param_2,
                      "wordscapacity overflow/rustc/8bfcae730a5db2438bbda72796175bba21427be1/library/alloc/src/vec/spec_from_iter_nested.rs/rustc/8bfcae730a5db2438bbda72796175bba21427be1/library/alloc/src/slice.rs/rustc/8bfcae730a5db2438bbda72796175bba21427be1/library/alloc/src/vec/mod.rs"
                      ,5);
-  uStack_7c = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+  uStack_7c = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                         (param_2,"max-line-length",0xf);
   local_88 = local_68;
   local_98 = (undefined4)local_78;
@@ -73,7 +79,7 @@ undefined8 * __rustcall uu_wc::Settings::new(undefined8 *param_1,undefined8 para
   uStack_7f = uVar2;
   uStack_7e = uVar3;
   uStack_7d = uVar4;
-  iVar5 = number_enabled(&local_98);
+  iVar5 = _ZN5uu_wc8Settings14number_enabled17he133dd856851d2dcE(&local_98);
   if (iVar5 == 0) {
     param_1[2] = local_88;
     *(undefined4 *)param_1 = local_98;
@@ -86,7 +92,7 @@ undefined8 * __rustcall uu_wc::Settings::new(undefined8 *param_1,undefined8 para
     *(undefined4 *)(param_1 + 3) = 0x1010001;
     *(undefined *)((long)param_1 + 0x1c) = 0;
     *(undefined *)((long)param_1 + 0x1d) = local_9c;
-    core::ptr::drop_in_place<uu_wc::Settings>(&local_58);
+    _ZN4core3ptr36drop_in_place_LT_uu_wc__Settings_GT_17hcafeb69c0c0d0c8cE(&local_58);
   }
   else {
     param_1[2] = local_88;

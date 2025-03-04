@@ -23,10 +23,8 @@ fn uu_rm::prompt_descend(a0: u32, a1: u32) -> u64 {
     v8 = <std::io::stdio::Stderr as std::io::Write>::flush(&v5);
     if v8 {
         v0 = v8;
-        v1 = uucore::util_name();
         v2 = v7;
-        eprint!("{}: ", &v1);
-        eprintln!("{}", &v0);
+        show_error!("{}", &v0);
         std::process::exit(1); /* do not return */
     }
     return uucore::read_yes();

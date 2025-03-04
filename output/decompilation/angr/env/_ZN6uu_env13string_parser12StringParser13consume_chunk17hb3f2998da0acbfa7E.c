@@ -1,4 +1,4 @@
-long long uu_env::string_parser::StringParser::consume_chunk::hb3f2998da0acbfa7(struct_0 *a0, struct_1 *a1)
+long long uu_env::string_parser::StringParser::consume_chunk::hb3f2998da0acbfa7(struct_1 *a0, struct_0 *a1)
 {
     char v0;  // [bp-0x48]
     char v1;  // [bp-0x40]

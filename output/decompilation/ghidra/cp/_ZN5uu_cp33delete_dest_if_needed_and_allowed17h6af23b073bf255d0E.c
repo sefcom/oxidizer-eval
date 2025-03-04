@@ -1,7 +1,6 @@
-void __rustcall
-uu_cp::delete_dest_if_needed_and_allowed
-          (undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
-          undefined8 param_5,long param_6,char param_7,undefined8 param_8)
+void _ZN5uu_cp33delete_dest_if_needed_and_allowed17h6af23b073bf255d0E
+               (undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5,long param_6,char param_7,undefined8 param_8)
 
 {
   char cVar1;
@@ -97,11 +96,13 @@ uu_cp::delete_dest_if_needed_and_allowed
     if ((!bVar3) && (param_7 != '\0')) {
       bVar3 = *(char *)(param_6 + 0x40) != '\0';
     }
-    uucore::features::fs::FileInformation::from_path(&local_168,param_2,param_3,bVar3);
+    _ZN6uucore8features2fs15FileInformation9from_path17he917b6b2466acd0fE
+              (&local_168,param_2,param_3,bVar3);
     local_1f8 = 1;
     local_1e0 = 1;
     local_228 = &local_1f8;
-    local_220 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+    local_220 = 
+    _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
     local_258 = &PTR_s_cannot_stat_002b5f08;
     uStack_250 = 1;
     local_238 = 0;
@@ -110,7 +111,7 @@ uu_cp::delete_dest_if_needed_and_allowed
                     /* try { // try from 00206090 to 0020609e has its CatchHandler @ 00206286 */
     local_1f0 = param_2;
     local_1e8 = param_3;
-    core::option::Option<T>::map_or_else(&local_270,&local_258);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17h805a87bba4bea7c2E(&local_270,&local_258);
     local_248 = (undefined8 **)local_260;
     local_258 = local_270;
     uStack_250 = uStack_268;
@@ -141,8 +142,7 @@ uu_cp::delete_dest_if_needed_and_allowed
     uStack_174 = uStack_dc;
     uStack_170 = uStack_d8;
     uStack_16c = uStack_d4;
-    core::ptr::
-    drop_in_place<<core::result::Result<uucore::features::fs::FileInformation,std::io::error::Error>as_quick_error::ResultExt<uucore::features::fs::FileInformation,std::io::error::Error>>::context<alloc::string::String>::__closure__>
+    _ZN4core3ptr288drop_in_place_LT__LT_core__result__Result_LT_uucore__features__fs__FileInformation_C_std__io__error__Error_GT__u20_as_u20_quick_error__ResultExt_LT_uucore__features__fs__FileInformation_C_std__io__error__Error_GT__GT___context_LT_alloc__string__String_GT____u7b__u7b_closure_u7d__u7d__GT_17h1ef8f78603d21391E
               (&local_258);
     local_b8 = local_218;
     uStack_b0 = uStack_210;
@@ -170,16 +170,18 @@ uu_cp::delete_dest_if_needed_and_allowed
     uStack_34 = uStack_174;
     uStack_30 = uStack_170;
     uStack_2c = uStack_16c;
-    lVar2 = hashbrown::map::HashMap<K,V,S,A>::get_inner(param_8,&local_b8);
+    lVar2 = _ZN9hashbrown3map28HashMap_LT_K_C_V_C_S_C_A_GT_9get_inner17hef26ad6068154428E
+                      (param_8,&local_b8);
     if (lVar2 == 0) goto LAB_0020626e;
   }
   else if ((*(char *)(param_6 + 0x3d) != '\x01') &&
-          (cVar1 = uucore::features::fs::is_symlink_loop(param_4,param_5), cVar1 == '\0')) {
-    std::fs::metadata(&local_168,param_4,param_5);
+          (cVar1 = _ZN6uucore8features2fs15is_symlink_loop17h6176a52fb38b92f8E(param_4,param_5),
+          cVar1 == '\0')) {
+    _ZN3std2fs8metadata17h003d8cdbffde7c56E(&local_168,param_4,param_5);
     if (local_168 == 2) goto LAB_00206261;
     if ((local_130 & 0x92) != 0) goto LAB_0020626e;
   }
-  local_160 = std::fs::remove_file(param_4,param_5);
+  local_160 = _ZN3std2fs11remove_file17h38159f05e7b4dc34E(param_4,param_5);
   if (local_160 != 0) {
 LAB_00206261:
     *param_1 = 2;

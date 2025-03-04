@@ -1,4 +1,4 @@
-void __rustcall uu_pr::print_error(undefined8 param_1,undefined8 param_2)
+void _ZN5uu_pr11print_error17hae74ddad01a055bbE(undefined8 param_1,undefined8 param_2)
 
 {
   char cVar1;
@@ -12,17 +12,17 @@ void __rustcall uu_pr::print_error(undefined8 param_1,undefined8 param_2)
   undefined8 local_10;
   
   local_48 = param_2;
-  cVar1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+  cVar1 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                     (param_1,&DAT_00166ae0,0x10);
   if (cVar1 == '\0') {
-    local_38 = _<&T_as_core::fmt::Display>::fmt;
+    local_38 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h0e2d6c98197517ebE;
     local_30 = &DAT_00409200;
     local_28 = 2;
     local_10 = 0;
     local_20 = &local_40;
     local_18 = 1;
     local_40 = (undefined *)&local_48;
-    std::io::stdio::_eprint(&local_30);
+    _ZN3std2io5stdio7_eprint17hcdfeec148c7134f7E(&local_30);
   }
   return;
 }

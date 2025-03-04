@@ -1,6 +1,6 @@
 fn uu_split::split(a0: &u64) -> u64 {
-    let v0: i96;  // [sp-0x218], Other Possible Types: Result<struct4, struct8>
-    let v1: i128;  // [sp-0x180], Other Possible Types: Result<struct16, struct4>
+    let v0: Result<struct4, struct8>;  // [sp-0x218]
+    let v1: Result<struct16, struct4>;  // [sp-0x180]
     let v2: struct56;  // [sp-0xe8]
     let v4: i64;  // rbx
     let v5: i64;  // r15
@@ -8,7 +8,8 @@ fn uu_split::split(a0: &u64) -> u64 {
     let v7: i64;  // rcx
     let v8: i64;  // rbx
     let v9: i64;  // rsi
-    let v10: i64;  // rcx
+    let v10: i64;  // rdx
+    let v11: i64;  // rdx
 
     v4 = *((a0 + 120) as &i64);
     v5 = *((a0 + 128) as &i64);
@@ -18,7 +19,7 @@ fn uu_split::split(a0: &u64) -> u64 {
     } else {
         v0 = std::fs::File::open(v4, v5);
         v1 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v0, a0);
-        v8 = v1;
+        v8 = v1 as i64;
         match v1 {
             Ok(_) => {
                 return v8;
@@ -34,9 +35,6 @@ fn uu_split::split(a0: &u64) -> u64 {
         v9 = *((a0 + 8) as &i64);
     }
     v2 = std::io::buffered::bufreader::BufReader<R>::with_capacity(v9, v6, v7);
-    v10 = *((a0 + 16) as &i64) - 6;
-    if v10 >= 3 {
-        v10 = 3;
-    }
+    v11 = (v10 < 3 ? *((a0 + 16) as &i64) - 6 : 3);
     goto *((4329468 + vvar_14{reg 32} * 4) as &i32) + 4329468;
 }

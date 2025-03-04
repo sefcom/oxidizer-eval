@@ -1,35 +1,36 @@
-long long uu_split::get_input_size::hff72b499bd50ee30(unsigned long long a0[3], unsigned long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4)
+long long uu_split::get_input_size::hff72b499bd50ee30(unsigned long long a0[3], unsigned long a1, unsigned long long a2, unsigned long long a3, unsigned long a4)
 {
     unsigned int v0;  // [sp-0x11c]
-    unsigned long long v1[3];  // [sp-0x118]
-    struct struct_0 **v2;  // [sp-0x110]
+    char v1;  // [bp-0x118]
+    unsigned long v2;  // [sp-0x110]
     unsigned long long v3;  // [sp-0x108]
-    unsigned long v4;  // [sp-0x100], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0x100]
     unsigned long long v5;  // [sp-0xf8]
-    struct struct_1 **v6;  // [sp-0xf0]
+    char *v6;  // [sp-0xf0]
     unsigned long long v7;  // [sp-0xe8]
     void* v8;  // [sp-0xe0]
     char v9;  // [bp-0xb0]
     char v10;  // [bp-0x50]
     char v11;  // [bp-0x38]
-    unsigned long long v13[3];  // rbx
+    unsigned long long v13;  // r14
     unsigned long v14;  // rdx
 
-    v13 = a0;
-    v1[0] = a0;
+    v13 = a4;
+    if (!a3)
+        v13 = uucore::features::fs::sane_blksize::sane_blksize_from_path::haa29efd65464ae5d(a0[1], a0[2]);
     v4 = a1;
-    v5 = uucore::features::fs::sane_blksize::sane_blksize_from_path::haa29efd65464ae5d(v13[1], v13[2]);
+    v5 = v13;
     if (std::io::default_read_to_end::h83389f9d77e2b24f(&v4, a2, 0, a3))
     {
         return 1;
     }
-    else if (v5 > v14)
+    else if (v13 > v14)
     {
         return 0;
     }
-    else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::hfe60e619d7fc1608(v13[1], v13[2], "-", 1))
+    else if ((char)_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::hfe60e619d7fc1608(a0[1], a0[2], "-", 1))
     {
-        v2 = &v1[0];
+        v2 = &v1;
         v3 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::haeb779686b12abb9;
         v4 = &g_5483a0;
         v5 = 2;
@@ -42,12 +43,12 @@ long long uu_split::get_input_size::hff72b499bd50ee30(unsigned long long a0[3], 
     }
     else
     {
-        std::fs::metadata::h341dbab23461c7c8(&v4, v13);
+        std::fs::metadata::h341dbab23461c7c8(&v4, a0);
         if ((int)v4 == 2)
             return 1;
         if (*((long long *)&v9) >= v14)
             return 0;
-        std::fs::File::open::hf05dc8e7da5fafe3(&v4, v1[1], v1[2]);
+        std::fs::File::open::hf05dc8e7da5fafe3(&v4, a0[1], a0[2]);
         if (!(int)v4)
         {
             v0 = *((int *)((char *)&v4 + 4));
@@ -55,7 +56,7 @@ long long uu_split::get_input_size::hff72b499bd50ee30(unsigned long long a0[3], 
             {
                 if (!v14)
                 {
-                    v2 = &v1[0];
+                    v2 = &v1;
                     v3 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::haeb779686b12abb9;
                     v4 = &g_5483c0;
                     v5 = 2;

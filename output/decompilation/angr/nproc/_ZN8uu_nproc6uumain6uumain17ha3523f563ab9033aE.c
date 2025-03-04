@@ -1,9 +1,9 @@
 long long uu_nproc::uumain::uumain::ha3523f563ab9033a(unsigned long long a0, unsigned long long a1)
 {
     char v0;  // [bp-0x410], Other Possible Types: unsigned long
-    void* v1;  // [bp-0x408], Other Possible Types: struct struct_0 **, unsigned long
+    struct struct_0 **v1;  // [sp-0x408], Other Possible Types: unsigned long
     unsigned long v2;  // [sp-0x400], Other Possible Types: unsigned long long
-    char v3;  // [bp-0x3f8], Other Possible Types: unsigned long long
+    char v3;  // [sp-0x3f8], Other Possible Types: unsigned long long
     char v4;  // [sp-0x3f0]
     char v5;  // [bp-0x3e8]
     char v6;  // [bp-0x3d8]
@@ -14,7 +14,7 @@ long long uu_nproc::uumain::uumain::ha3523f563ab9033a(unsigned long long a0, uns
     unsigned long v11;  // [sp-0x3b0], Other Possible Types: unsigned long long
     struct struct_0 **v12;  // [sp-0x3a8], Other Possible Types: unsigned long long
     unsigned long long v13;  // [sp-0x3a0]
-    unsigned long v14;  // [sp-0x390], Other Possible Types: unsigned long long
+    unsigned long v14;  // [sp-0x390]
     unsigned long long v15;  // [sp-0x388]
     struct struct_0 **v16;  // [sp-0x380]
     struct struct_0 **v17;  // [sp-0x370]
@@ -28,7 +28,7 @@ long long uu_nproc::uumain::uumain::ha3523f563ab9033a(unsigned long long a0, uns
     struct struct_0 **v25;  // [sp-0x310]
     unsigned short v26;  // [sp-0x300]
     struct struct_0 **v27;  // [bp-0x2f8], Other Possible Types: unsigned long
-    unsigned long long v28[2];  // [sp-0x2f0], Other Possible Types: unsigned long long
+    unsigned long long v28[2];  // [sp-0x2f0], Other Possible Types: char, unsigned long long
     struct struct_0 **v29;  // [sp-0x2e8], Other Possible Types: unsigned long, unsigned long long
     unsigned int v30;  // [bp-0x2e0], Other Possible Types: unsigned long long
     void* v31;  // [sp-0x2d8]
@@ -40,10 +40,10 @@ long long uu_nproc::uumain::uumain::ha3523f563ab9033a(unsigned long long a0, uns
     unsigned long long v38;  // rdx
     unsigned long long v39;  // r14
     unsigned long long v40;  // rdx
-    unsigned long long v42;  // r14
+    unsigned long long v42;  // r15
     unsigned long long v43;  // rax
     unsigned long long v44;  // rax
-    unsigned long long v45;  // rax
+    unsigned long long v45;  // rcx
 
     uu_nproc::uu_app::h3da9a545ae06046a(&v27);
     clap_builder::builder::command::Command::try_get_matches_from::h4a07ba778773b710(&v1, &v27, a0, a1);
@@ -84,7 +84,7 @@ long long uu_nproc::uumain::uumain::ha3523f563ab9033a(unsigned long long a0, uns
             v31 = 0;
             v29 = &v10;
             v30 = 2;
-            core::option::Option$LT$T$GT$::map_or_else::h3b8854d416b71613();
+            core::option::Option$LT$T$GT$::map_or_else::h3b8854d416b71613(&v19, &v27);
             v30 = 1;
             *((int128_t *)&v27) = *((int128_t *)&v19);
             v29 = *((long long *)&v20);
@@ -114,15 +114,15 @@ LABEL_462d15:
     }
     if ((char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v14, _ZN8uu_nproc7OPT_ALL17hda6848154e8c5b80E, g_510cf8))
     {
-        v43 = uu_nproc::num_cpus_all::h7340e3b3a8ccdb85();
+        v42 = uu_nproc::num_cpus_all::h7340e3b3a8ccdb85();
     }
     else
     {
         std::env::var::h2318c396540c8104(&v1, "OMP_NUM_THREADS", 15);
         if (v1)
         {
-            v43 = uu_nproc::available_parallelism::h0a12aac02eb8d812();
-            v0 = v43;
+            v42 = uu_nproc::available_parallelism::h0a12aac02eb8d812();
+            v0 = v42;
         }
         else
         {
@@ -130,7 +130,7 @@ LABEL_462d15:
             *((int128_t *)&v10) = *((int128_t *)&(&v1)[1]);
             ::0x461b30::_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$::into_searcher::h77b0cfb9226a3587(&v27, v11, v12);
             *((int128_t *)&v25) = *((int128_t *)&v31);
-            *((int128_t *)&v24) = *((int128_t *)&(&v28)[1]);
+            *((int128_t *)&v24) = *((int128_t *)&(&v28)[8]);
             *((int128_t *)&v23) = *((int128_t *)&v27);
             v21 = 0;
             v22 = v12;
@@ -144,23 +144,22 @@ LABEL_462d15:
             else
             {
                 core::num::_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$::from_str::h35e67cae0c0452a5(&v7, v28[0], v28[1]);
-                if (v7 || (v43 = *((long long *)&v9), !v43))
+                if (v7 || (v42 = *((long long *)&v9), !v42))
                 {
                     v43 = uu_nproc::available_parallelism::h0a12aac02eb8d812();
 LABEL_462e51:
+                    v42 = v43;
                 }
             }
-            v0 = v43;
+            v0 = v42;
             ::0x461880::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$::hd7cebb54887ea04d(&v27);
             ::0x461820::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb6387026a6809cd4(&v10);
         }
         if (v1)
             core::ptr::drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$::h02690b1027f9de22(&v1);
     }
-    v44 = core::cmp::min_by::hf28b4cdfe3eabc55(v42, v43);
-    v45 = v44 - v37;
-    if (v44 <= v37)
-        v45 = 1;
+    v44 = core::cmp::min_by::hf28b4cdfe3eabc55(v39, v42);
+    v45 = (!(v44 <= v37) ? v44 - v37 : 1);
     v0 = v45;
     v1 = &v0;
     v2 = core::fmt::num::imp::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$::fmt::he829b250bc010c8b;

@@ -8,26 +8,26 @@ long long uu_comm::uumain::uumain::hd07bb5cb783534dd(unsigned long long a0, unsi
     char v5;  // [bp-0x3f8]
     char v6;  // [bp-0x3f0]
     char v7;  // [bp-0x3e8]
-    unsigned long v8;  // [sp-0x3e0], Other Possible Types: unsigned long long
+    unsigned long v8;  // [sp-0x3e0]
     unsigned long long v9;  // [sp-0x3d8]
     int v10;  // [sp-0x3d0]
     int v11;  // [sp-0x3c0]
     unsigned long long v12;  // [sp-0x3b0]
-    unsigned long v13;  // [sp-0x3a8], Other Possible Types: unsigned long long
+    unsigned long v13;  // [sp-0x3a8]
     unsigned long long v14;  // [sp-0x3a0]
     int v15;  // [sp-0x398]
     int v16;  // [sp-0x388]
     char v17;  // [sp-0x378]
     unsigned int v18;  // [bp-0x377]
     unsigned int v19;  // [sp-0x374]
-    unsigned long v20;  // [bp-0x370]
+    unsigned long v20;  // [sp-0x370]
     unsigned long long v21;  // [sp-0x368]
     int v22;  // [sp-0x360]
     int v23;  // [sp-0x350]
     char v24;  // [sp-0x340]
     unsigned int v25;  // [bp-0x33f]
     unsigned int v26;  // [sp-0x33c]
-    unsigned long v27;  // [sp-0x338], Other Possible Types: unsigned long long
+    unsigned long v27;  // [sp-0x338]
     unsigned long long v28;  // [sp-0x330]
     int v29;  // [sp-0x328]
     int v30;  // [sp-0x318]
@@ -36,7 +36,7 @@ long long uu_comm::uumain::uumain::hd07bb5cb783534dd(unsigned long long a0, unsi
     int v33;  // [bp-0x2e8], Other Possible Types: char
     unsigned long long v34;  // [sp-0x2d8]
     unsigned int v35;  // [sp-0x2d0]
-    unsigned long long v39;  // rax
+    unsigned long long v39;  // rbx
     unsigned long long v41[3];  // rbx
     unsigned long long v42;  // rdi
     unsigned long long v43[3];  // r14
@@ -44,16 +44,15 @@ long long uu_comm::uumain::uumain::hd07bb5cb783534dd(unsigned long long a0, unsi
     char v45;  // al
     unsigned long long v46;  // rcx
     char v47;  // al
-    unsigned long long v48;  // rbx
-    unsigned long long v49;  // r14
-    unsigned long long v50;  // rax
-    unsigned long long v51;  // rcx
-    unsigned long long v53[3];  // rax
-    unsigned long long v54[3];  // rcx
-    unsigned long long v55[3];  // rax
-    unsigned long long v56;  // rbx
-    unsigned long long v57;  // r14
-    char v58;  // al
+    unsigned long long v48;  // r14
+    unsigned long long v49;  // rax
+    unsigned long long v50;  // rcx
+    unsigned long long v52[3];  // rax
+    unsigned long long v53[3];  // rcx
+    unsigned long long v54[3];  // rax
+    unsigned long long v55;  // rbx
+    unsigned long long v56;  // r14
+    char v57;  // al
 
     uu_comm::uu_app::ha6c652ac8df11865(&v33);
     clap_builder::builder::command::Command::try_get_matches_from::h53526b6703d0467b(&v0, &v33, a0, a1);
@@ -101,16 +100,16 @@ long long uu_comm::uumain::uumain::hd07bb5cb783534dd(unsigned long long a0, unsi
                 uu_comm::open_file::he2f4406dcd44f5f5(&v33, v43[1], v43[2], v44);
                 _$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$::map_err_context::h333d9779081ba83e(&v0, &v33, v43);
                 v47 = v4;
-                v48 = *((long long *)&v0);
-                v49 = *((long long *)&v1);
+                v39 = *((long long *)&v0);
+                v48 = *((long long *)&v1);
                 if (v24 != 11)
                 {
                     *((int128_t *)&v23) = *((int128_t *)&v3);
                     *((int128_t *)&v22) = *((int128_t *)&v2);
                     v25 = *((int *)&(&v4)[1]);
                     v26 = *((int *)&(&v4)[4]);
-                    v39 = v48;
-                    v21 = v49;
+                    v20 = v39;
+                    v21 = v48;
                     v24 = v47;
                     clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many::h24fd000ef11150c2(&v33, &v8, "output-delimiterPermissionDenied", 16);
                     clap_builder::parser::error::MatchesError::unwrap::h04dd569e38f606c4(&v0, "output-delimiterPermissionDenied", 16, &v33);
@@ -121,38 +120,43 @@ long long uu_comm::uumain::uumain::hd07bb5cb783534dd(unsigned long long a0, unsi
                     *((int128_t *)&v30) = *((int128_t *)&v2);
                     *((int128_t *)&v29) = *((int128_t *)&v0);
                     _$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$::from_iter::h349f0ef49bcba905(&v5, &v29);
-                    v50 = *((long long *)&v7);
-                    if (!v50)
+                    v49 = *((long long *)&v7);
+                    if (!v49)
                         core::slice::index::slice_start_index_len_fail::hff2ebd3969f5a2ec(1, 0, &g_50ed00); /* do not return */
-                    v51 = *((long long *)&v6);
-                    v27 = v51 + 24;
-                    v28 = v51 + v50 * 24;
+                    v50 = *((long long *)&v6);
+                    v27 = v50 + 24;
+                    v28 = v50 + v49 * 24;
                     do
                     {
-                        v53 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h95a69d36af4a9080(&v27);
-                        if (!v53)
+                        v52 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h95a69d36af4a9080(&v27);
+                        if (!v52)
                         {
-                            if (!*((long long *)&v7))
+                            if (*((long long *)&v7))
+                            {
+                                v54 = *((long long *)&v6);
+                                v55 = v54[1];
+                                v56 = v54[2];
+                                v57 = _$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::ha1a7951143d015a8(v55, v56, 1, 0);
+                                if (v57)
+                                    v55 = &g_41429c;
+                                if (v57)
+                                    v56 = 1;
+                                uu_comm::comm::hb602e027eef2e655(&v13, &v20, v55, v56, &v8);
+                                ::0x463480::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::h3132c80679b5f6ab(&v5);
+                                core::ptr::drop_in_place$LT$uu_comm..LineReader$GT$::h53489cac618c2b5d(&v20);
+                                core::ptr::drop_in_place$LT$uu_comm..LineReader$GT$::h53489cac618c2b5d(&v13);
+                                core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h2fd4c7b1b897f9b8(&v8);
+                                return 0;
+                            }
+                            else
+                            {
                                 core::panicking::panic_bounds_check::h25a5330941572dd1(0, 0, &g_50ec28); /* do not return */
-                            v55 = *((long long *)&v6);
-                            v56 = v55[1];
-                            v57 = v55[2];
-                            v58 = _$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::ha1a7951143d015a8(v56, v57, 1, 0);
-                            if (v58)
-                                v56 = &g_41429c;
-                            if (v58)
-                                v57 = 1;
-                            uu_comm::comm::hb602e027eef2e655(&v13, &v20, v56, v57, &v8);
-                            ::0x463480::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::h3132c80679b5f6ab(&v5);
-                            core::ptr::drop_in_place$LT$uu_comm..LineReader$GT$::h53489cac618c2b5d(&v20);
-                            core::ptr::drop_in_place$LT$uu_comm..LineReader$GT$::h53489cac618c2b5d(&v13);
-                            core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h2fd4c7b1b897f9b8(&v8);
-                            return 0;
+                            }
                         }
                         if (!*((long long *)&v7))
                             core::panicking::panic_bounds_check::h25a5330941572dd1(0, 0, &g_50ec40); /* do not return */
-                        v54 = *((long long *)&v6);
-                    } while ((char)alloc::vec::partial_eq::_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$::eq::hb77978741638b557(v53[1], v53[2], v54[1], v54[2]));
+                        v53 = *((long long *)&v6);
+                    } while ((char)alloc::vec::partial_eq::_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$::eq::hb77978741638b557(v52[1], v52[2], v53[1], v53[2]));
                     ::0x4636d0::_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$::to_vec::h7a897266881acf00(&v0);
                     v34 = *((long long *)&v2);
                     *((int128_t *)&v33) = *((int128_t *)&v0);

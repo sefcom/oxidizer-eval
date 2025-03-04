@@ -1,4 +1,5 @@
-void __rustcall uu_expr::syntax_tree::NumOrStr::eval_as_bigint(ulong *param_1,ulong *param_2)
+void _ZN7uu_expr11syntax_tree8NumOrStr14eval_as_bigint17hba12e6d71c8187fcE
+               (ulong *param_1,ulong *param_2)
 
 {
   ulong uVar1;
@@ -24,8 +25,8 @@ void __rustcall uu_expr::syntax_tree::NumOrStr::eval_as_bigint(ulong *param_1,ul
     uStack_40 = *(undefined4 *)(param_2 + 2);
     uStack_3c = *(undefined4 *)((long)param_2 + 0x14);
                     /* try { // try from 0022fa8f to 0022fa98 has its CatchHandler @ 0022faf0 */
-    num_bigint::bigint::convert::_<impl_num_traits::Num_for_num_bigint::bigint::BigInt>::
-    from_str_radix(&local_30,param_2[2]);
+    _ZN10num_bigint6bigint7convert72__LT_impl_u20_num_traits__Num_u20_for_u20_num_bigint__bigint__BigInt_GT_14from_str_radix17hb9365f03b0604201E
+              (&local_30,param_2[2]);
     bVar4 = CONCAT44(uStack_2c,local_30) != -0x8000000000000000;
     if (bVar4) {
       param_1[3] = local_20;
@@ -39,7 +40,7 @@ void __rustcall uu_expr::syntax_tree::NumOrStr::eval_as_bigint(ulong *param_1,ul
       param_1[1] = 2;
     }
     *param_1 = (ulong)!bVar4;
-    core::ptr::drop_in_place<alloc::string::String>(&local_48);
+    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h2134d78e0f3082f1E(&local_48);
   }
   else {
     uVar1 = *param_2;

@@ -6,7 +6,7 @@ long long uu_cp::verify_target_type::h7b1c78bb10dff0f5(unsigned long long *a0, u
     unsigned long long v3;  // [sp-0x68]
     unsigned long long v4;  // [sp-0x60]
     char v5;  // [sp-0x58]
-    unsigned long long v6;  // [sp-0x50]
+    unsigned long v6;  // [sp-0x50]
     unsigned long long v7;  // [sp-0x48]
     char *v8;  // [sp-0x40]
     unsigned long long v9;  // [sp-0x38]
@@ -56,7 +56,7 @@ long long uu_cp::verify_target_type::h7b1c78bb10dff0f5(unsigned long long *a0, u
     v10 = 0;
     v8 = &v0;
     v9 = 1;
-    ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2();
+    ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2(a0 + 1, &v6);
     *(a0) = 4;
     return a0;
 }

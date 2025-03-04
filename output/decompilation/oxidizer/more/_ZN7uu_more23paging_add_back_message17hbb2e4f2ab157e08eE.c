@@ -1,4 +1,4 @@
-fn uu_more::paging_add_back_message(, a1: u32) -> u64 {
+fn uu_more::paging_add_back_message(a0: iNone, a1: u32) -> u64 {
     let v0: u64;  // [sp-0x8]
     let v2: u64;  // rbx
     let v3: u64;  // rax
@@ -13,7 +13,9 @@ fn uu_more::paging_add_back_message(, a1: u32) -> u64 {
     }
     v3 = <std::io::stdio::Stdout as std::io::Write>::flush(a1);
     if !v3 {
-        v3 = <std::io::stdio::Stdout as std::io::Write>::write_all(a1, "\n\r...back 1 page\n");
+        v3 = <std::io::stdio::Stdout as std::io::Write>::write_all(a1, "
+...back 1 page
+");
         if !v3 {
             return 0;
         }

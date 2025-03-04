@@ -1,6 +1,6 @@
 long long uu_numfmt::uu_app::hfdc8a28206314692(unsigned long long a0)
 {
-    char v0;  // [bp-0xa48], Other Possible Types: unsigned long long
+    char v0;  // [sp-0xa48], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0xa40]
     unsigned long long v2;  // [sp-0xa38]
     unsigned long long v3;  // [sp-0xa30]
@@ -22,7 +22,7 @@ long long uu_numfmt::uu_app::hfdc8a28206314692(unsigned long long a0)
     char v19;  // [bp-0x2e4]
     char v20;  // [bp-0x274]
     char v21;  // [bp-0x26c]
-    char v22;  // [bp-0x268], Other Possible Types: unsigned long long
+    char v22;  // [sp-0x268], Other Possible Types: unsigned long
     unsigned long long v23;  // [sp-0x260]
     unsigned long long v24;  // [sp-0x258]
     unsigned long long v25;  // [sp-0x250]

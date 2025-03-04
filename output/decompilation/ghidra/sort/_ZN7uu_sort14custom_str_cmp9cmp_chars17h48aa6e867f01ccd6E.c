@@ -1,4 +1,5 @@
-undefined __rustcall uu_sort::custom_str_cmp::cmp_chars(uint param_1,uint param_2,int param_3)
+undefined _ZN7uu_sort14custom_str_cmp9cmp_chars17h48aa6e867f01ccd6E
+                    (uint param_1,uint param_2,int param_3)
 
 {
   undefined uVar1;

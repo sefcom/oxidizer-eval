@@ -1,20 +1,17 @@
-fn uu_join::State::reset_read_line(a0: u32, a1: u32) -> u64 {
-    let v0: Option<Result<struct48, struct8>>;  // [sp-0x68], Other Possible Types: i384
-    let v1: i64;  // [sp-0x38]
-    let v2: i64;  // [sp-0x30]
-    let v3: i128;  // [sp-0x28]
-    let v4: i128;  // [sp-0x18]
-    let v7: i64;  // rax
+fn uu_join::State::reset_read_line(a0: &struct8, a1: u32) -> u64 {
+    let v0: Option<Result<struct48, struct8>>;  // [sp-0x68]
+    let v1: struct48;  // [sp-0x38], Other Possible Types: unsigned long
 
     v0 = uu_join::State::read_line(a0);
-    v7 = *((&v0 as &char + 8) as &i64);
     if v1 != 9223372036854775809 {
-        v4 = *((&v0 as &char + 32) as &i128);
-        v3 = *((&v0 as &char + 16) as &i128);
-        v1 = v0;
-        v2 = v7;
-        uu_join::State::reset();
+        v1 = struct48 {
+            field_0: v3
+            field_8: v4
+            field_16: *((&v0 as &char + 16) as &i128)
+            field_32: *((&v0 as &char + 32) as &i128)
+        };
+        uu_join::State::reset(a0, &v1);
         return 0;
     }
-    return v7;
+    return *((&v0 as &char + 8) as &i64);
 }

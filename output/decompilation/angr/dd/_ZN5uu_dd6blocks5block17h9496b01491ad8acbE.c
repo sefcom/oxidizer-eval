@@ -1,20 +1,20 @@
 double uu_dd::blocks::block::h9496b01491ad8acb(long long a0, long long a1, long long a2, long long a3, long long a4, long long a5)
 {
-    int v0;  // [sp-0x78], Other Possible Types: void*, unsigned long long
+    int v0;  // [sp-0x78], Other Possible Types: void*, unsigned long
     unsigned long long v1;  // [sp-0x70]
     void* v2;  // [sp-0x68], Other Possible Types: unsigned long long
     char v3;  // [bp-0x60]
     char v4;  // [bp-0x58]
     unsigned long v5;  // [sp-0x50], Other Possible Types: unsigned long long
-    unsigned long v6;  // [sp-0x48], Other Possible Types: unsigned long long
-    unsigned long v7;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x48]
+    unsigned long v7;  // [sp-0x40]
     unsigned long long v8;  // [sp-0x38]
     char v9;  // [sp-0x30]
     unsigned long long v11;  // r15
     unsigned long long v12;  // r14
     unsigned long long v13;  // r15
     unsigned long long v14;  // r12
-    struct_0 *v15;  // rax
+    struct_1 *v15;  // rax
     int v16;  // xmm0
     int v17;  // ymm0
     int v19;  // xmm0

@@ -1,8 +1,8 @@
 fn uu_yes::uu_app(a0: &struct712) -> u64 {
-    let v0: i3504;  // [sp-0xa48], Other Possible Types: struct712, struct437, struct592
-    let v1: i4736;  // [sp-0x780], Other Possible Types: struct592, struct24
-    let v2: i5696;  // [sp-0x530], Other Possible Types: struct712
-    let v3: struct8;  // [bp-0x268], Other Possible Types: i4736, struct592
+    let v0: struct712;  // [sp-0xa48], Other Possible Types: struct437, struct592
+    let v1: struct592;  // [sp-0x780], Other Possible Types: struct24
+    let v2: struct712;  // [sp-0x530]
+    let v3: struct8;  // [sp-0x268], Other Possible Types: struct592
     let v5: i64;  // rdx
     let v6: i32;  // ecx
 
@@ -19,8 +19,8 @@ fn uu_yes::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::arg::Arg::action(&v1);
     v0 = clap_builder::builder::command::Command::arg(&v2, &v3);
     memcpy(a0, &v0, 700);
-    v6 = *((&v0 as &char + 708) as &i32);
-    *((a0 + 700) as &i64) = 549755814016 | *((&v0 as &char + 700) as &i64);
-    *((a0 + 708) as &i32) = v6;
+    v6 = *((&v0.field_0 as &char + 708) as &i32);
+    *((a0 + 700) as &i64) = 549755814016 | *((&v0.field_0 as &char + 700) as &i64);
+    *((a0 + 708) as &unsigned int) = v6;
     return a0;
 }

@@ -1,5 +1,5 @@
-undefined8 * __rustcall
-uu_head::take::TakeAllBut<I>::new
+undefined8 *
+_ZN7uu_head4take19TakeAllBut_LT_I_GT_3new17hc0845bc7cedacb1cE
           (undefined8 *param_1,undefined8 param_2,undefined param_3,ulong param_4)
 
 {
@@ -32,9 +32,10 @@ uu_head::take::TakeAllBut<I>::new
   if (param_4 != 0) {
     uVar1 = 0;
     do {
-      uVar1 = _<usize_as_core::iter::range::Step>::forward_unchecked(uVar1);
+      uVar1 = _ZN49__LT_usize_u20_as_u20_core__iter__range__Step_GT_17forward_unchecked17he44ce7238773bbb8E
+                        (uVar1);
                     /* try { // try from 001c452b to 001c4568 has its CatchHandler @ 001c45b3 */
-      _<uucore::features::lines::Lines<B>as_core::iter::traits::iterator::Iterator>::next
+      _ZN98__LT_uucore__features__lines__Lines_LT_B_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he245392b5a345364E
                 (&local_60,&local_98);
       if (CONCAT44(uStack_5c,local_60) == -0x7fffffffffffffff) break;
       local_38 = local_50;
@@ -42,9 +43,9 @@ uu_head::take::TakeAllBut<I>::new
       uStack_44 = uStack_5c;
       uStack_40 = uStack_58;
       uStack_3c = uStack_54;
-      uucore::features::ringbuffer::RingBuffer<T>::push_back(&local_60,&local_88,&local_48);
-      core::ptr::
-      drop_in_place<core::option::Option<core::result::Result<alloc::vec::Vec<u8>,std::io::error::Error>>>
+      _ZN6uucore8features10ringbuffer19RingBuffer_LT_T_GT_9push_back17hae07e5fa5289e66aE
+                (&local_60,&local_88,&local_48);
+      _ZN4core3ptr126drop_in_place_LT_core__option__Option_LT_core__result__Result_LT_alloc__vec__Vec_LT_u8_GT__C_std__io__error__Error_GT__GT__GT_17h665ed2cb8fd55cebE
                 (&local_60);
     } while (uVar1 < param_4);
   }

@@ -1,7 +1,7 @@
 long long uu_ln::uumain::uumain::h5475cb4c432c7eac(unsigned long long a0, unsigned long long a1)
 {
     char v0;  // [sp-0x6c1]
-    unsigned long v1;  // [sp-0x6c0], Other Possible Types: unsigned long long
+    unsigned long v1;  // [sp-0x6c0]
     unsigned long long v2;  // [sp-0x6b8]
     int v3;  // [sp-0x6b0]
     int v4;  // [sp-0x6a0]
@@ -22,10 +22,10 @@ long long uu_ln::uumain::uumain::h5475cb4c432c7eac(unsigned long long a0, unsign
     int v19;  // [sp-0x5f8]
     int v20;  // [sp-0x5e8]
     int v21;  // [sp-0x5d8]
-    int v22;  // [sp-0x5c8], Other Possible Types: unsigned long, unsigned long long
+    int v22;  // [bp-0x5c8], Other Possible Types: unsigned long
     unsigned long long v23;  // [sp-0x5c0]
     char *v24;  // [sp-0x5b8], Other Possible Types: unsigned long long
-    int v25;  // [sp-0x5b0], Other Possible Types: unsigned long long
+    int v25;  // [bp-0x5b0], Other Possible Types: unsigned long long
     void* v26;  // [sp-0x5a8]
     char *v27;  // [sp-0x5a0]
     char v28;  // [sp-0x598]
@@ -36,14 +36,16 @@ long long uu_ln::uumain::uumain::h5475cb4c432c7eac(unsigned long long a0, unsign
     char v33;  // [sp-0x593]
     char v34;  // [sp-0x592]
     char v35;  // [sp-0x591]
-    unsigned long v36;  // [sp-0x2f8], Other Possible Types: unsigned long long
+    unsigned long v36;  // [sp-0x2f8]
     unsigned long long v37;  // [sp-0x2f0]
     char *v38;  // [sp-0x2e8]
     unsigned long long v39;  // [sp-0x2e0]
     char v40;  // [bp-0x2d8]
     char v41;  // [bp-0x2c8]
-    unsigned long long v45;  // rax
+    unsigned long long v45;  // r14
     char v47;  // r13b
+    unsigned long long v50;  // rax
+    char v51;  // r14b
 
     v36 = &g_52a4a0;
     v37 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h5944f03a93206169;
@@ -54,7 +56,7 @@ long long uu_ln::uumain::uumain::h5475cb4c432c7eac(unsigned long long a0, unsign
     v26 = 0;
     v24 = &v36;
     v25 = 2;
-    core::option::Option$LT$T$GT$::map_or_else::hc2e95a3f0c285d88();
+    core::option::Option$LT$T$GT$::map_or_else::hc2e95a3f0c285d88(&v16, &v22);
     uu_ln::uu_app::hee3aeb3cff9e1650(&v22);
     v7 = *((long long *)&v17);
     *((int128_t *)&v6) = *((int128_t *)&v16);
@@ -94,25 +96,28 @@ long long uu_ln::uumain::uumain::h5475cb4c432c7eac(unsigned long long a0, unsign
         v13 = v7;
         v11 = v6;
         clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::hccd1d72a460aa9fd(&v22, &v1);
+        v50 = clap_builder::parser::error::MatchesError::unwrap::hc7b004a6e617f976("target-directory", 16, &v22);
         v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v1, "logical", 7);
-        if (!clap_builder::parser::error::MatchesError::unwrap::hc7b004a6e617f976("target-directory", 16, &v22))
+        if (!v50)
         {
-            v36 = 0x8000000000000000;
+            v51 = v47;
+            v37 = 0x8000000000000000;
         }
         else
         {
-            core::ops::function::FnOnce::call_once::h4fd7f80f9ff1a73b();
+            core::ops::function::FnOnce::call_once::h4fd7f80f9ff1a73b(&v22, v50);
+            v51 = v47;
             v38 = v24;
-            *((int128_t *)&v36) = *((int128_t *)&v22);
+            *((int128_t *)&v37) = *((int128_t *)&v22);
         }
         v34 = 2;
-        v35 = v47;
+        v35 = v51;
         v22 = v11;
         v24 = v13;
         v28 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v1, "symbolic", 8);
         v29 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v1, "relative\n       ", 8);
         v30 = v0;
-        *((int128_t *)&v25) = *((int128_t *)&v36);
+        *((int128_t *)&v25) = *((int128_t *)&v37);
         v27 = v38;
         v31 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v1, "no-target-directory", 19);
         v32 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v1, "no-dereference", 14);

@@ -11,7 +11,7 @@ long long uu_shuf::parse_head_count::h8e9cdbfd7a5f28a8(unsigned long long a0[3],
     char v8;  // [bp-0xb8]
     char v9;  // [bp-0x98]
     char v10;  // [bp-0x88]
-    unsigned long long v11;  // [sp-0x80]
+    unsigned long v11;  // [sp-0x80]
     unsigned long long v12;  // [sp-0x78]
     struct struct_0 **v13;  // [sp-0x70]
     unsigned long long v14;  // [sp-0x68]
@@ -23,6 +23,7 @@ long long uu_shuf::parse_head_count::h8e9cdbfd7a5f28a8(unsigned long long a0[3],
     int v21;  // ymm0
     int v22;  // xmm0
     unsigned long long v24[3];  // rcx
+    unsigned long long v25[3];  // rax
 
     _$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$::into_iter::hce8092579b78d193(&v8, a1);
     _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h500d15644f3f8d52(&v2, &v8);
@@ -48,13 +49,14 @@ long long uu_shuf::parse_head_count::h8e9cdbfd7a5f28a8(unsigned long long a0[3],
                 v15 = 0;
                 v13 = &v6;
                 v14 = 1;
-                ::0x4c0370::core::option::Option$LT$T$GT$::map_or_else::h7c94a57f03ee0317();
+                ::0x4c0370::core::option::Option$LT$T$GT$::map_or_else::h7c94a57f03ee0317(&v9, &v11);
                 v24 = a0;
                 v24[2] = *((long long *)&v10);
                 *((int128_t *)&v24[0]) = *((int128_t *)&v9);
                 ::0x4bf7d0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::heff478339c936245(&v0);
                 core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$::hd4042d487b460da7(&v8);
-                return v24;
+                v25 = v24;
+                return v25;
             }
             ::0x4bf7d0::core::ptr::drop_in_place$LT$alloc..string..String$GT$::heff478339c936245(&v0);
             v20 = ::0x4bf570::core::cmp::min_by::h9901c89ba00e38af(v20, *((long long *)&v5));
@@ -62,8 +64,8 @@ long long uu_shuf::parse_head_count::h8e9cdbfd7a5f28a8(unsigned long long a0[3],
         } while (*((long long *)&v2) != 0x8000000000000000);
     }
     core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$::hd4042d487b460da7(&v8);
-    v24 = a0;
-    v24[1] = v20;
-    v24[0] = 0x8000000000000000;
-    return v24;
+    v25 = a0;
+    v25[1] = v20;
+    v25[0] = 0x8000000000000000;
+    return v25;
 }

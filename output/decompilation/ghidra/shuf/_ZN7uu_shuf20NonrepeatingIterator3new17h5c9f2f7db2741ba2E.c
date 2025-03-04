@@ -1,6 +1,5 @@
-long __rustcall
-uu_shuf::NonrepeatingIterator::new
-          (long param_1,ulong *param_2,undefined8 param_3,undefined8 param_4)
+long _ZN7uu_shuf20NonrepeatingIterator3new17h5c9f2f7db2741ba2E
+               (long param_1,ulong *param_2,undefined8 param_3,undefined8 param_4)
 
 {
   ulong uVar1;
@@ -12,9 +11,10 @@ uu_shuf::NonrepeatingIterator::new
     param_4 = 0;
   }
   else if ((uVar1 != 0) || (uVar2 != 0xffffffffffffffff)) {
-    param_4 = core::cmp::min_by(param_4,(uVar2 - uVar1) + 1);
+    param_4 = _ZN4core3cmp6min_by17h9901c89ba00e38afE(param_4,(uVar2 - uVar1) + 1);
   }
-  _<hashbrown::map::HashMap<K,V,S,A>as_core::default::Default>::default(param_1);
+  _ZN87__LT_hashbrown__map__HashMap_LT_K_C_V_C_S_C_A_GT__u20_as_u20_core__default__Default_GT_7default17hf7b2857436e5a11eE
+            (param_1);
   *(ulong *)(param_1 + 0x50) = param_2[2];
   uVar1 = param_2[1];
   *(ulong *)(param_1 + 0x40) = *param_2;

@@ -1,4 +1,5 @@
-void __rustcall uu_split::handle_obsolete(undefined8 *param_1,undefined8 param_2,undefined8 param_3)
+void _ZN8uu_split15handle_obsolete17he1565c7d7191f1a3E
+               (undefined8 *param_1,undefined8 param_2,undefined8 param_3)
 
 {
   undefined local_82;
@@ -20,9 +21,10 @@ void __rustcall uu_split::handle_obsolete(undefined8 *param_1,undefined8 param_2
   local_68 = &local_80;
   local_60 = &local_82;
   local_58 = &local_81;
-  core::iter::traits::iterator::Iterator::filter_map(local_38,param_2,param_3,&local_68);
+  _ZN4core4iter6traits8iterator8Iterator10filter_map17h713c6b1ad2f070aaE
+            (local_38,param_2,param_3,&local_68);
                     /* try { // try from 00175c73 to 00175c7f has its CatchHandler @ 00175cab */
-  _<alloc::vec::Vec<T>as_alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+  _ZN98__LT_alloc__vec__Vec_LT_T_GT__u20_as_u20_alloc__vec__spec_from_iter__SpecFromIter_LT_T_C_I_GT__GT_9from_iter17h4cb8c89f733ed375E
             (&local_50,local_38);
   param_1[5] = local_70;
   param_1[3] = local_80;

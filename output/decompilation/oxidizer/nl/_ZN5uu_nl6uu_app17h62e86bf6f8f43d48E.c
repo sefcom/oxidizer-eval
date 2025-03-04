@@ -1,12 +1,12 @@
 fn uu_nl::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct24
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct24
     let v1: i32;  // [sp-0x800]
     let v2: i32;  // [sp-0x7fc]
-    let v3: i4736;  // [sp-0x7f8], Other Possible Types: struct592, struct712, struct437
-    let v4: i4736;  // [sp-0x530], Other Possible Types: struct592, struct712
+    let v3: struct592;  // [sp-0x7f8], Other Possible Types: struct712, struct437
+    let v4: struct592;  // [sp-0x530], Other Possible Types: struct712
     let v5: i64;  // [sp-0x274]
     let v6: i32;  // [sp-0x26c]
-    let v7: i4736;  // [sp-0x268], Other Possible Types: struct592, struct32, struct48, struct24, struct16
+    let v7: struct592;  // [sp-0x268], Other Possible Types: struct32, struct16, struct48, struct24
     let v8: i64;  // [sp-0x260]
     let v10: i64;  // rdx
     let v11: i64;  // rsi
@@ -16,10 +16,22 @@ fn uu_nl::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::command::Command::version(&v4, "0.0.28");
     v0 = uucore::format_usage("{} [OPTION]... [FILE]...");
     v4 = clap_builder::builder::command::Command::override_usage(&v3, &v0);
-    v3 = clap_builder::builder::command::Command::after_help(&v4, "STYLE is one of:\n\n* a     number all lines\n* t     number only nonempty lines\n* n     number no lines\n* pBRE  number only lines that contain a match for the basic regular\n        expression, BRE\n\nFORMAT is one of:\n\n* ln    left justified, no leading zeros\n* rn    right justified, no leading zeros\n* rz    right justified, leading zeros");
+    v3 = clap_builder::builder::command::Command::after_help(&v4, "STYLE is one of:
+
+* a     number all lines
+* t     number only nonempty lines
+* n     number no lines
+* pBRE  number only lines that contain a match for the basic regular
+        expression, BRE
+
+FORMAT is one of:
+
+* ln    left justified, no leading zeros
+* rn    right justified, no leading zeros
+* rz    right justified, leading zeros");
     memcpy(&v4, &v3, 700);
-    v5 = 1126449662918784 | *((&v3 as &char + 700) as &i64);
-    v6 = *((&v3 as &char + 708) as &i32);
+    v5 = 1126449662918784 | *((&v3.field_0 as &char + 700) as &i64);
+    v6 = *((&v3.field_0 as &char + 708) as &i32);
     v3 = clap_builder::builder::arg::Arg::new("help");
     v0 = clap_builder::builder::arg::Arg::long(&v3, "help");
     v3 = clap_builder::builder::arg::Arg::help(&v0, "Print help information.");
@@ -27,8 +39,8 @@ fn uu_nl::uu_app(a0: &struct712) -> u64 {
     v3 = clap_builder::builder::command::Command::arg(&v4, &v0);
     v4 = clap_builder::builder::arg::Arg::new("file");
     memcpy(&v0, &v4, 584);
-    v1 = *((&v4 as &char + 584) as &i32) | 4;
-    v2 = *((&v4 as &char + 588) as &i32);
+    v1 = *((&v4.field_0 as &char + 584) as &i32) | 4;
+    v2 = *((&v4.field_0 as &char + 588) as &i32);
     v4 = clap_builder::builder::arg::Arg::action(&v0, 0x1);
     v0 = clap_builder::builder::arg::Arg::value_hint(&v4, 0x3);
     v4 = clap_builder::builder::command::Command::arg(&v3, &v0);

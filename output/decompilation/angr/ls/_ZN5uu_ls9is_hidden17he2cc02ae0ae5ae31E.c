@@ -20,6 +20,6 @@ long long uu_ls::is_hidden::he2cc02ae0ae5ae31(unsigned long long a0)
         v0 = 0;
         v7 = core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::starts_with::h032fb0d9cebdd48e(*((long long *)&v1), *((long long *)&v2), ::0x51c230::core::char::methods::encode_utf8_raw::h4a752b0d300141c4(46, &v0), v10);
     }
-    ::0x51a7c0::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h51f173604a280fb6();
+    ::0x51a7c0::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h51f173604a280fb6(&v3);
     return v7;
 }

@@ -4,7 +4,8 @@ long long uu_ls::display_date::h5db6390c2e0df8d3(unsigned long long a0, unsigned
     int v1;  // [sp-0x88]
     unsigned int v2;  // [bp-0x78]
     char v3;  // [bp-0x68]
-    unsigned long long v5;  // rcx
+    unsigned long v5;  // rdx
+    unsigned long long v6;  // rdx
 
     uu_ls::get_time::h8b131fbbcfeb99cc(&v2, a1, a2);
     if (!v2)
@@ -16,8 +17,6 @@ long long uu_ls::display_date::h5db6390c2e0df8d3(unsigned long long a0, unsigned
     *((int128_t *)&v0) = *((int128_t *)&v3);
     chrono::offset::local::Local::now::ha82adb6e05d16f38(&v3);
     _$LT$chrono..naive..datetime..NaiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$::partial_cmp::hd709d884e1631950(&v0, &v3);
-    v5 = 0x8000000000000000 ^ a2->field_b8;
-    if (v5 >= 4)
-        v5 = 4;
+    v6 = (v5 < 4 ? 0x8000000000000000 ^ a2->field_b8 : 4);
     goto *((int *)(4409104 + vvar_4{reg 32} * 4)) + 4409104;
 }

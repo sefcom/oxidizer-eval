@@ -11,7 +11,7 @@ long long uu_nl::uu_app::h62e86bf6f8f43d48(unsigned long long a0)
     char v8;  // [bp-0x2e4]
     unsigned long long v9;  // [sp-0x274]
     unsigned int v10;  // [sp-0x26c]
-    char v11;  // [bp-0x268], Other Possible Types: unsigned long long
+    char v11;  // [bp-0x268], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v12;  // [sp-0x260]
     unsigned long long v13;  // [sp-0x258]
     unsigned long long v14;  // [sp-0x250]

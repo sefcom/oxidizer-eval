@@ -1,26 +1,27 @@
 fn uu_cat::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa48], Other Possible Types: struct592, struct712
-    let v1: i3504;  // [sp-0x780], Other Possible Types: struct592, struct712, struct437
+    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct712
+    let v1: struct592;  // [sp-0x780], Other Possible Types: struct712, struct437
     let v2: i64;  // [sp-0x4c4]
     let v3: i32;  // [sp-0x4bc]
-    let v4: i4736;  // [sp-0x4b8], Other Possible Types: struct592, struct24
+    let v4: struct592;  // [sp-0x4b8], Other Possible Types: struct24
     let v5: i32;  // [sp-0x270]
     let v6: i32;  // [sp-0x26c]
-    let v7: struct592;  // [sp-0x268], Other Possible Types: i4736
+    let v7: struct592;  // [sp-0x268]
     let v9: i64;  // rdx
 
     v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
     v0 = clap_builder::builder::command::Command::version(&v1, "0.0.28");
     v4 = uucore::format_usage("{} [OPTION]... [FILE]...");
     v1 = clap_builder::builder::command::Command::override_usage(&v0, &v4);
-    v0 = clap_builder::builder::command::Command::about(&v1, "Concatenate FILE(s), or standard input, to standard output\nWith no FILE, or when FILE is -, read standard input.");
+    v0 = clap_builder::builder::command::Command::about(&v1, "Concatenate FILE(s), or standard input, to standard output
+With no FILE, or when FILE is -, read standard input.");
     memcpy(&v1, &v0, 700);
-    v2 = 584115552392 | *((&v0 as &char + 700) as &i64);
-    v3 = *((&v0 as &char + 708) as &i32);
+    v2 = 584115552392 | *((&v0.field_0 as &char + 700) as &i64);
+    v3 = *((&v0.field_0 as &char + 708) as &i32);
     v0 = clap_builder::builder::arg::Arg::new("file");
     memcpy(&v4, &v0, 584);
-    v5 = *((&v0 as &char + 584) as &i32) | 4;
-    v6 = *((&v0 as &char + 588) as &i32);
+    v5 = *((&v0.field_0 as &char + 584) as &i32) | 4;
+    v6 = *((&v0.field_0 as &char + 588) as &i32);
     v0 = clap_builder::builder::arg::Arg::action(&v4, 0x1);
     v4 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);
     v0 = clap_builder::builder::command::Command::arg(&v1, &v4);
@@ -73,7 +74,7 @@ fn uu_cat::uu_app(a0: &struct712) -> u64 {
     v1 = clap_builder::builder::arg::Arg::new("show-nonprinting");
     v4 = clap_builder::builder::arg::Arg::short(&v1, 0x76);
     v1 = clap_builder::builder::arg::Arg::long(&v4, "show-nonprinting");
-    v4 = clap_builder::builder::arg::Arg::help(&v1, "use ^ and M- notation, except for LF (\\n) and TAB (\\t)");
+    v4 = clap_builder::builder::arg::Arg::help(&v1, "use ^ and M- notation, except for LF (\n) and TAB (\t)");
     v7 = clap_builder::builder::arg::Arg::action(&v4, 0x2);
     v1 = clap_builder::builder::command::Command::arg(&v0, &v7);
     v0 = clap_builder::builder::arg::Arg::new("ignored-u");

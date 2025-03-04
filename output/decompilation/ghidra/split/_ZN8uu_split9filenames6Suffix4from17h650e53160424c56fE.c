@@ -1,7 +1,8 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined8 * __rustcall
-uu_split::filenames::Suffix::from(undefined8 *param_1,undefined8 param_2,ulong *param_3)
+undefined8 *
+_ZN8uu_split9filenames6Suffix4from17h650e53160424c56fE
+          (undefined8 *param_1,undefined8 param_2,ulong *param_3)
 
 {
   code *pcVar1;
@@ -37,23 +38,26 @@ uu_split::filenames::Suffix::from(undefined8 *param_1,undefined8 param_2,ulong *
   undefined8 local_38;
   
   local_78 = param_3;
-  cVar3 = clap_builder::parser::matches::arg_matches::ArgMatches::contains_id
+  cVar3 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E
                     (param_2,"numeric-suffixes",0x10);
-  cVar4 = clap_builder::parser::matches::arg_matches::ArgMatches::contains_id
+  cVar4 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E
                     (param_2,"hex-suffixes",0xc);
-  cVar5 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"-d",2);
-  cVar6 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"-x",2);
+  cVar5 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                    (param_2,"-d",2);
+  cVar6 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                    (param_2,"-x",2);
   if (cVar3 != '\0') {
-    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+    _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h6b47e11c99165f29E
               (&local_68,param_2,"numeric-suffixes",0x10);
-    lVar8 = clap_builder::parser::error::MatchesError::unwrap("numeric-suffixes",0x10,&local_68);
+    lVar8 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h5fb9f4927eec1abaE
+                      ("numeric-suffixes",0x10,&local_68);
     bVar17 = 1;
     if (lVar8 == 0) {
       local_a0 = (ulong *)0x0;
       bVar13 = 1;
       goto LAB_001d9722;
     }
-    core::num::_<impl_core::str::traits::FromStr_for_usize>::from_str
+    _ZN4core3num62__LT_impl_u20_core__str__traits__FromStr_u20_for_u20_usize_GT_8from_str17h35e67cae0c0452a5E
               (&local_90,*(undefined8 *)(lVar8 + 8),*(undefined8 *)(lVar8 + 0x10));
     local_a0 = puStack_88;
     bVar17 = 1;
@@ -65,7 +69,8 @@ joined_r0x001d96e6:
       goto LAB_001d9722;
     }
 LAB_001d9775:
-    _<alloc::string::String_as_core::clone::Clone>::clone(&local_68,lVar8);
+    _ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h8f45b0d02f4dafdaE
+              (&local_68,lVar8);
     param_1[3] = local_60;
     param_1[4] = uStack_58;
     param_1[1] = 0;
@@ -79,12 +84,13 @@ LAB_001d9775:
     }
   }
   else {
-    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+    _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h6b47e11c99165f29E
               (&local_68,param_2,"hex-suffixes",0xc);
-    lVar8 = clap_builder::parser::error::MatchesError::unwrap("hex-suffixes",0xc,&local_68);
+    lVar8 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h5fb9f4927eec1abaE
+                      ("hex-suffixes",0xc,&local_68);
     bVar17 = 2;
     if (lVar8 != 0) {
-      core::num::_<impl_usize>::from_str_radix
+      _ZN4core3num23__LT_impl_u20_usize_GT_14from_str_radix17h79418e6c334030c0E
                 (&local_90,*(undefined8 *)(lVar8 + 8),*(undefined8 *)(lVar8 + 0x10),0x10);
       local_a0 = puStack_88;
       goto joined_r0x001d96e6;
@@ -93,14 +99,15 @@ LAB_001d9775:
   bVar13 = 1;
   local_a0 = (ulong *)0x0;
 LAB_001d9722:
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h6b47e11c99165f29E
             (&local_68,param_2,"suffix-length");
-  lVar8 = clap_builder::parser::error::MatchesError::unwrap("suffix-length",0xd,&local_68);
+  lVar8 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h5fb9f4927eec1abaE
+                    ("suffix-length",0xd,&local_68);
   if (lVar8 == 0) {
     puVar16 = (ulong *)0x2;
   }
   else {
-    core::num::_<impl_core::str::traits::FromStr_for_usize>::from_str
+    _ZN4core3num62__LT_impl_u20_core__str__traits__FromStr_u20_for_u20_usize_GT_8from_str17h35e67cae0c0452a5E
               (&local_90,*(undefined8 *)(lVar8 + 8),*(undefined8 *)(lVar8 + 0x10));
     puVar16 = puStack_88;
     if (local_90 != '\0') goto LAB_001d9775;
@@ -162,20 +169,24 @@ LAB_001d98ea:
       puVar16 = puVar11;
     }
   }
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h6b47e11c99165f29E
             (&local_68,param_2,"additional-suffix",0x11);
-  lVar8 = clap_builder::parser::error::MatchesError::unwrap("additional-suffix",0x11,&local_68);
+  lVar8 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h5fb9f4927eec1abaE
+                    ("additional-suffix",0x11,&local_68);
   if (lVar8 == 0) {
-    core::option::unwrap_failed(&PTR_s_src_uu_split_src_filenames_rs_00249110);
+    _ZN4core6option13unwrap_failed17h0e11329e76906eaaE
+              (&PTR_s_src_uu_split_src_filenames_rs_00249110);
     pcVar1 = (code *)swi(3);
     puVar12 = (undefined8 *)(*pcVar1)();
     return puVar12;
   }
-  _<alloc::string::String_as_core::clone::Clone>::clone(&local_90,lVar8);
+  _ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h8f45b0d02f4dafdaE
+            (&local_90,lVar8);
   local_60 = local_80 + (long)puStack_88;
   local_68 = puStack_88;
-  uVar7 = core::iter::traits::iterator::Iterator::try_fold(&local_68);
-  cVar3 = _<core::ops::control_flow::ControlFlow<B,C>as_core::cmp::PartialEq>::eq(uVar7);
+  uVar7 = _ZN4core4iter6traits8iterator8Iterator8try_fold17heae82aa079024b40E(&local_68);
+  cVar3 = _ZN90__LT_core__ops__control_flow__ControlFlow_LT_B_C_C_GT__u20_as_u20_core__cmp__PartialEq_GT_2eq17ha5fb3b5979973e2aE
+                    (uVar7);
   if (cVar3 == '\0') {
     param_1[2] = local_80;
     *param_1 = CONCAT71(uStack_8f,local_90);

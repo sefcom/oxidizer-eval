@@ -13,7 +13,7 @@ long long uu_rm::uu_app::h97a746416a9c921d(unsigned long long a0)
     char v10;  // [bp-0x2f4]
     char v11;  // [bp-0x284]
     char v12;  // [bp-0x27c]
-    void* v13;  // [bp-0x278], Other Possible Types: char, unsigned long long
+    void* v13;  // [sp-0x278], Other Possible Types: char, unsigned long long, unsigned long
     unsigned long long v14;  // [sp-0x270]
     char v15;  // [bp-0x268], Other Possible Types: unsigned long
     unsigned long long v16;  // [sp-0x260]

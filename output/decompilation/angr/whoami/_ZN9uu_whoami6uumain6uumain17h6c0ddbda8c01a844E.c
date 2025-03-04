@@ -1,9 +1,9 @@
 long long uu_whoami::uumain::uumain::h6c0ddbda8c01a844(unsigned long long a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0x370], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x370]
     unsigned long long v1;  // [sp-0x368]
     unsigned long long v2;  // [sp-0x360]
-    unsigned long v3;  // [sp-0x358], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x358]
     unsigned long long v4;  // [sp-0x350]
     int v5;  // [sp-0x348]
     int v6;  // [sp-0x338]

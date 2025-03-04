@@ -9,7 +9,7 @@ long long uu_cp::CopyMode::from_matches::h05c5459bbc8a33dc(unsigned long long a0
     }
     else
     {
-        v2 = vvar_15{reg 56} & 0xffffffffffffff00 | 1;
+        v2 = vvar_14{reg 56} & 0xffffffffffffff00 | 1;
         if (!(char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a0, "symbolic-link", 13))
         {
             clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::h83269f7c9d3ca029(&v0, a0, "update", 6);

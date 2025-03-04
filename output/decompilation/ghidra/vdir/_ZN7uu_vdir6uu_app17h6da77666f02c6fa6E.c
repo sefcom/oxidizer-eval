@@ -1,6 +1,6 @@
-undefined8 __rustcall uu_vdir::uu_app(undefined8 param_1)
+undefined8 _ZN7uu_vdir6uu_app17h6da77666f02c6fa6E(undefined8 param_1)
 
 {
-  uu_ls::uu_app();
+  _ZN5uu_ls6uu_app17hb4ccd0ffed05c357E();
   return param_1;
 }

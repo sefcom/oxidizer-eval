@@ -1,5 +1,5 @@
-void __rustcall
-uu_fmt::parasplit::WordSplit::analyze_tabs(long *param_1,long param_2,long param_3,long param_4)
+void _ZN6uu_fmt9parasplit9WordSplit12analyze_tabs17hc55c52ed9a76e808E
+               (long *param_1,long param_2,long param_3,long param_4)
 
 {
   ulong uVar1;
@@ -24,7 +24,7 @@ LAB_001ba659:
   uVar6 = 0;
 LAB_001ba668:
   do {
-    auVar8 = _<core::str::iter::CharIndices_as_core::iter::traits::iterator::Iterator>::next
+    auVar8 = _ZN87__LT_core__str__iter__CharIndices_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17he645eee637d411aeE
                        (&local_48);
     uVar4 = auVar8._8_4_;
     if (uVar4 == 0x20) goto LAB_001ba665;
@@ -40,8 +40,8 @@ LAB_001ba6f7:
     }
     if (4 < uVar4 - 9) {
       if ((uVar4 < 0x80) ||
-         (cVar3 = core::unicode::unicode_data::white_space::lookup(auVar8._8_8_ & 0xffffffff),
-         cVar3 == '\0')) goto LAB_001ba6f7;
+         (cVar3 = _ZN4core7unicode12unicode_data11white_space6lookup17hc2937f3d40e148abE
+                            (auVar8._8_8_ & 0xffffffff), cVar3 == '\0')) goto LAB_001ba6f7;
 LAB_001ba665:
       uVar6 = uVar6 + 1;
       goto LAB_001ba668;
@@ -50,7 +50,7 @@ LAB_001ba665:
     if (lVar5 == 0) break;
     uVar1 = *(ulong *)(param_2 + 0x40);
     if (uVar1 == 0) {
-      core::panicking::panic_const::panic_const_div_by_zero
+      _ZN4core9panicking11panic_const23panic_const_div_by_zero17haded503194f0bf6eE
                 (&PTR_s_src_uu_fmt_src_parasplit_rs_00226758);
       pcVar2 = (code *)swi(3);
       (*pcVar2)();

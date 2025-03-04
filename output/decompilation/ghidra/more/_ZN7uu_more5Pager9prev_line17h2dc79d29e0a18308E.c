@@ -1,4 +1,4 @@
-void __rustcall uu_more::Pager::prev_line(long param_1)
+void _ZN7uu_more5Pager9prev_line17h2dc79d29e0a18308E(long param_1)
 
 {
   long lVar1;

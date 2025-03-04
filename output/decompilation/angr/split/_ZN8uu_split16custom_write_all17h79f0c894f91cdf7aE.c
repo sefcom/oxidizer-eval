@@ -20,5 +20,5 @@ long long uu_split::custom_write_all::h79f0c894f91cdf7a(struct_0 *a0, unsigned l
         return v3;
     }
     *((unsigned short *)&a0->field_0) = 0;
-    return ::0x4c87b0::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h5f2d172bb60d7e56();
+    return ::0x4c87b0::core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h5f2d172bb60d7e56(v1);
 }

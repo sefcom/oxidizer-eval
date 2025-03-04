@@ -1,5 +1,5 @@
-void __rustcall
-uu_ls::display_len_or_rdev(undefined8 *param_1,long param_2,ulong param_3,undefined param_4)
+void _ZN5uu_ls19display_len_or_rdev17habe6b45626a6ff16E
+               (undefined8 *param_1,long param_2,ulong param_3,undefined param_4)
 
 {
   ulong uVar1;
@@ -18,9 +18,11 @@ uu_ls::display_len_or_rdev(undefined8 *param_1,long param_2,ulong param_3,undefi
     uVar3 = *(ulong *)(param_2 + 0x48);
     local_40 = (uint)(uVar3 >> 0x20) & 0xfffff000 | (uint)(uVar3 >> 8) & 0xfff;
     local_3c = (uint)(uVar3 >> 0xc) & 0xffffff00 | (uint)uVar3 & 0xff;
-    _<T_as_alloc::string::ToString>::to_string(&local_38,&local_40);
+    _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17h7a7a803d5c9f4a1cE
+              (&local_38,&local_40);
                     /* try { // try from 0022bf9f to 0022bfad has its CatchHandler @ 0022c02d */
-    _<T_as_alloc::string::ToString>::to_string(&local_20,&local_3c);
+    _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17h7a7a803d5c9f4a1cE
+              (&local_20,&local_3c);
     param_1[2] = local_28;
     *param_1 = local_38;
     param_1[1] = uStack_30;
@@ -30,10 +32,11 @@ uu_ls::display_len_or_rdev(undefined8 *param_1,long param_2,ulong param_3,undefi
   }
   else {
     if (param_3 == 0) {
-      uVar2 = core::panicking::panic_const::panic_const_div_by_zero(&PTR_DAT_003129a0);
+      uVar2 = _ZN4core9panicking11panic_const23panic_const_div_by_zero17haded503194f0bf6eE
+                        (&PTR_DAT_003129a0);
                     /* catch() { ... } // from try @ 0022bf9f with catch @ 0022c02d */
                     /* try { // try from 0022c030 to 0022c039 has its CatchHandler @ 0022c042 */
-      core::ptr::drop_in_place<alloc::string::String>(&local_38);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hb27a9c8978a01f77E(&local_38);
       _Unwind_Resume(uVar2);
       return;
     }
@@ -46,7 +49,7 @@ uu_ls::display_len_or_rdev(undefined8 *param_1,long param_2,ulong param_3,undefi
       uVar1 = uVar3 / param_3;
       uVar3 = uVar3 % param_3;
     }
-    display_size(param_1,(uVar1 + 1) - (ulong)(uVar3 == 0),param_4);
+    _ZN5uu_ls12display_size17hba9b1cbdd7c6b199E(param_1,(uVar1 + 1) - (ulong)(uVar3 == 0),param_4);
     param_1[3] = 0x8000000000000000;
   }
   return;

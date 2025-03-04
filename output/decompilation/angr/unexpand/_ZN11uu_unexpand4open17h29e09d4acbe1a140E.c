@@ -5,9 +5,9 @@ long long uu_unexpand::open::h29e09d4acbe1a140(unsigned long long a0[3], unsigne
     unsigned int v2;  // [sp-0x78]
     char *v3;  // [sp-0x70]
     unsigned long long v4;  // [sp-0x68]
-    unsigned long v5;  // [sp-0x60], Other Possible Types: unsigned long long
+    unsigned long v5;  // [sp-0x60]
     unsigned long long v6;  // [sp-0x58]
-    char v7;  // [sp-0x50], Other Possible Types: unsigned long long
+    unsigned long v7;  // [bp-0x50]
     unsigned long long v8;  // [sp-0x48]
     struct struct_0 **v9;  // [sp-0x40]
     unsigned long long v10;  // [sp-0x38]
@@ -28,7 +28,7 @@ long long uu_unexpand::open::h29e09d4acbe1a140(unsigned long long a0[3], unsigne
         v11 = 0;
         v9 = &v3;
         v10 = 1;
-        core::option::Option$LT$T$GT$::map_or_else::h76d79f35edc71809();
+        core::option::Option$LT$T$GT$::map_or_else::h76d79f35edc71809(&v0, &v7);
         v2 = 1;
         *((double *)&a0[1]) = alloc::boxed::Box$LT$T$GT$::new::h94e9d4f87d516a2c(&v0);
         a0[2] = &g_51d078;

@@ -9,8 +9,8 @@ fn uu_paste::DelimiterState::reset_to_first_delimiter(a0: &struct32) -> u64 {
     if a0->field_0 == 2 {
         v2 = v4;
         v5 = core::iter::adapters::cycle::Cycle<I>::new(a0->field_18, a0->field_20 * 16 + a0->field_18);
-        v6 = v0;
-        *((&a0->field_28 as &char + 8) as &i8) = v1;
+        v6 = *(&v0 as &i128);
+        *((&a0->field_28 as &char + 8) as &i128) = *(&v1 as &i128);
         (&a0->field_20)[1] = v6;
         return v5;
     }

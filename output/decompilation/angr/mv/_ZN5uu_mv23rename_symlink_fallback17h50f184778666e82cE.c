@@ -3,7 +3,7 @@ long long uu_mv::rename_symlink_fallback::h50f184778666e82c(unsigned long long a
     char v0;  // [bp-0x50]
     char v1;  // [bp-0x48]
     char v2;  // [bp-0x40]
-    unsigned long v3;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x38]
     unsigned long long v4;  // [sp-0x30]
     unsigned long long v5;  // [sp-0x28]
     unsigned long long v8;  // rax

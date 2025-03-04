@@ -1,29 +1,35 @@
 fn uu_head::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0xa50], Other Possible Types: struct592, struct24
+    let v0: struct592;  // [sp-0xa50], Other Possible Types: struct24
     let v1: i32;  // [sp-0x808]
     let v2: i32;  // [sp-0x804]
-    let v3: i4736;  // [sp-0x800], Other Possible Types: struct592, struct712, struct437
+    let v3: struct592;  // [sp-0x800], Other Possible Types: struct712, struct437
     let v4: i64;  // [sp-0x544]
     let v5: i32;  // [sp-0x53c]
-    let v6: i5696;  // [sp-0x538], Other Possible Types: struct592, struct712
-    let v7: struct32;  // [bp-0x270], Other Possible Types: i4736, struct592
+    let v6: struct592;  // [sp-0x538], Other Possible Types: struct712
+    let v7: struct32;  // [bp-0x270], Other Possible Types: struct592
     let v8: i32;  // [sp-0x28]
     let v9: i32;  // [sp-0x24]
     let v11: i64;  // rdx
 
     v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v11);
     v6 = clap_builder::builder::command::Command::version(&v3, "0.0.28");
-    v3 = clap_builder::builder::command::Command::about(&v6, "Print the first 10 lines of each `FILE` to standard output.\nWith more than one `FILE`, precede each with a header giving the file name.\nWith no `FILE`, or when `FILE` is `-`, read standard input.\n\nMandatory arguments to long flags are mandatory for short flags too.");
+    v3 = clap_builder::builder::command::Command::about(&v6, "Print the first 10 lines of each `FILE` to standard output.
+With more than one `FILE`, precede each with a header giving the file name.
+With no `FILE`, or when `FILE` is `-`, read standard input.
+
+Mandatory arguments to long flags are mandatory for short flags too.");
     v0 = uucore::format_usage("{} [FLAG]... [FILE]...");
     v6 = clap_builder::builder::command::Command::override_usage(&v3, &v0);
     memcpy(&v3, &v6, 700);
-    v4 = 549755814016 | *((&v6 as &char + 700) as &i64);
-    v5 = *((&v6 as &char + 708) as &i32);
+    v4 = 549755814016 | *((&v6.field_0 as &char + 700) as &i64);
+    v5 = *((&v6.field_0 as &char + 708) as &i32);
     v6 = clap_builder::builder::arg::Arg::new("BYTES");
     v0 = clap_builder::builder::arg::Arg::short(&v6, 0x63);
     v6 = clap_builder::builder::arg::Arg::long(&v0, "bytes");
     v0 = clap_builder::builder::arg::Arg::value_name(&v6);
-    v6 = clap_builder::builder::arg::Arg::help(&v0, "print the first NUM bytes of each file;\nwith the leading '-', print all but the last\nNUM bytes of each file");
+    v6 = clap_builder::builder::arg::Arg::help(&v0, "print the first NUM bytes of each file;
+with the leading '-', print all but the last
+NUM bytes of each file");
     v7 = struct32 {
         field_0: &g_41dd3c
         field_8: 5
@@ -39,7 +45,9 @@ fn uu_head::uu_app(a0: &struct712) -> u64 {
     v0 = clap_builder::builder::arg::Arg::short(&v3, 0x6e);
     v3 = clap_builder::builder::arg::Arg::long(&v0, "lines");
     v0 = clap_builder::builder::arg::Arg::value_name(&v3);
-    v3 = clap_builder::builder::arg::Arg::help(&v0, "print the first NUM lines instead of the first 10;\nwith the leading '-', print all but the last\nNUM lines of each file");
+    v3 = clap_builder::builder::arg::Arg::help(&v0, "print the first NUM lines instead of the first 10;
+with the leading '-', print all but the last
+NUM lines of each file");
     v7 = struct32 {
         field_0: &g_41ddb7
         field_8: 5
@@ -82,8 +90,8 @@ fn uu_head::uu_app(a0: &struct712) -> u64 {
     v0 = clap_builder::builder::arg::Arg::long(&v6, "presume-input-pipe");
     v6 = clap_builder::builder::arg::Arg::alias(&v0, "-presume-input-pipe");
     memcpy(&v0, &v6, 584);
-    v1 = *((&v6 as &char + 584) as &i32) | 4;
-    v2 = *((&v6 as &char + 588) as &i32);
+    v1 = *((&v6.field_0 as &char + 584) as &i32) | 4;
+    v2 = *((&v6.field_0 as &char + 588) as &i32);
     v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
     v6 = clap_builder::builder::command::Command::arg(&v3, &v7);
     v3 = clap_builder::builder::arg::Arg::new("ZERO");

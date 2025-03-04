@@ -1,9 +1,9 @@
-long long uu_od::inputdecoder::MemoryDecoder::read_float::hb631d528abcb6236(struct_1 *a0, unsigned long long a1, unsigned long a2)
+long long uu_od::inputdecoder::MemoryDecoder::read_float::hb631d528abcb6236(struct_1 *a0, unsigned long long a1, unsigned long long a2)
 {
-    unsigned long v0;  // [sp-0x50], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x50]
     char *v1;  // [sp-0x48]
     unsigned long long v2;  // [sp-0x40]
-    unsigned long v3;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x38]
     unsigned long long v4;  // [sp-0x30]
     struct struct_0 **v5;  // [sp-0x28]
     unsigned long long v6;  // [sp-0x20]
@@ -15,8 +15,6 @@ long long uu_od::inputdecoder::MemoryDecoder::read_float::hb631d528abcb6236(stru
     unsigned long long v16;  // rdx
     unsigned int v17;  // eax
     unsigned long long v18;  // rdx
-    unsigned long long v19;  // rdx
-    unsigned long long v20;  // rdx
 
     v0 = a2;
     switch (a2)
@@ -38,10 +36,10 @@ long long uu_od::inputdecoder::MemoryDecoder::read_float::hb631d528abcb6236(stru
         ::0x4d7fc0::half::binary16::arch::x86::f16_to_f32_x86_f16c::hae4e4afa5bc8fbe3(v17); /* do not return */
     case 4:
         v12 = a0->field_0;
-        return uu_od::byteorder_io::ByteOrder::read_f32::hdad6667c13a77c60(*((int *)&a0->field_18), ::0x4d7c60::_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$::index::h805a03118b26e41e(a1, a1 + 4, v12[1], v12[2], &g_5435f0), v20);
+        return uu_od::byteorder_io::ByteOrder::read_f32::hdad6667c13a77c60(*((int *)&a0->field_18), ::0x4d7c60::_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$::index::h805a03118b26e41e(a1, a1 + 4, v12[1], v12[2], &g_5435f0), a2);
     case 8:
         v14 = a0->field_0;
-        return uu_od::byteorder_io::ByteOrder::read_f64::hf4139851335640ab(*((int *)&a0->field_18), ::0x4d7c60::_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$::index::h805a03118b26e41e(a1, a1 + 8, v14[1], v14[2], &g_543608), v19);
+        return uu_od::byteorder_io::ByteOrder::read_f64::hf4139851335640ab(*((int *)&a0->field_18), ::0x4d7c60::_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$::index::h805a03118b26e41e(a1, a1 + 8, v14[1], v14[2], &g_543608), a2);
     default:
         v1 = &v0;
         v2 = core::fmt::num::imp::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$::fmt::he829b250bc010c8b;

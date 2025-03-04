@@ -3,7 +3,7 @@ long long uu_df::get_all_filesystems::ha419c9a63b8c437a(unsigned long long a0[3]
     char v0;  // [bp-0x90]
     char v1;  // [bp-0x88]
     char v2;  // [bp-0x80]
-    unsigned long v3;  // [sp-0x78], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x78]
     unsigned long long v4;  // [sp-0x70]
     unsigned long long v5;  // [sp-0x68]
     char v6;  // [bp-0x60]

@@ -1,6 +1,6 @@
-void __rustcall
-uu_test::files(undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
-              undefined8 param_5,undefined8 param_6,undefined8 param_7)
+void _ZN7uu_test5files17h2d66ad67db33f3bcE
+               (undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5,undefined8 param_6,undefined8 param_7)
 
 {
   long lVar1;
@@ -92,7 +92,7 @@ uu_test::files(undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefin
   undefined4 uStack_40;
   undefined4 uStack_3c;
   
-  std::fs::metadata(&local_258);
+  _ZN3std2fs8metadata17h59562c409af00ed3E(&local_258);
   lVar2 = local_230;
   lVar1 = local_238;
   if ((int)local_258 != 2) {
@@ -122,9 +122,9 @@ uu_test::files(undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefin
     uStack_ec = uStack_1ac;
     local_178 = local_238;
     local_170 = local_230;
-    core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>
+    _ZN4core3ptr90drop_in_place_LT_core__result__Result_LT_std__fs__Metadata_C_std__io__error__Error_GT__GT_17h7bbe7bfe3f1c8d8fE
               (&local_258);
-    std::fs::metadata(&local_258,param_4,param_5);
+    _ZN3std2fs8metadata17h59562c409af00ed3E(&local_258,param_4,param_5);
     if ((int)local_258 != 2) {
       local_d8 = (undefined4)local_248;
       uStack_d4 = local_248._4_4_;
@@ -152,9 +152,9 @@ uu_test::files(undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefin
       uStack_3c = uStack_1ac;
       local_c8 = local_238;
       local_c0 = local_230;
-      core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>
+      _ZN4core3ptr90drop_in_place_LT_core__result__Result_LT_std__fs__Metadata_C_std__io__error__Error_GT__GT_17h7bbe7bfe3f1c8d8fE
                 (&local_258);
-      std::ffi::os_str::_<impl_core::convert::TryFrom<&std::ffi::os_str::OsStr>for&str>::try_from
+      _ZN3std3ffi6os_str95__LT_impl_u20_core__convert__TryFrom_LT__RF_std__ffi__os_str__OsStr_GT__u20_for_u20__RF_str_GT_8try_from17h660bab9c45707695E
                 (&local_258,param_6,param_7);
       if (local_258 != 0) {
 LAB_001ad29b:
@@ -162,36 +162,42 @@ LAB_001ad29b:
         local_248 = param_7;
         uStack_240 = CONCAT31(uStack_240._1_3_,1);
         uStack_250 = param_6;
-        _<T_as_alloc::string::ToString>::to_string(param_1 + 1,&local_258);
+        _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17h0530b763d48a6791E
+                  (param_1 + 1,&local_258);
         *param_1 = 4;
         return;
       }
       local_1a0 = uStack_250;
       local_1a8 = local_248;
-      cVar5 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+      cVar5 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h63b5f1612d3f588eE
                         (uStack_250,local_248,&DAT_0011d103,3);
       uVar4 = local_1a0;
       uVar3 = local_1a8;
       if (cVar5 == '\0') {
-        cVar5 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal
+        cVar5 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h63b5f1612d3f588eE
                           (local_1a0,local_1a8,&DAT_0011d106,3);
         if (cVar5 == '\0') {
-          cVar5 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(uVar4,uVar3,&DAT_0011d109,3);
+          cVar5 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h63b5f1612d3f588eE
+                            (uVar4,uVar3,&DAT_0011d109,3);
           if (cVar5 == '\0') goto LAB_001ad29b;
-          std::fs::Metadata::modified(&local_258,&local_198);
-          auVar8 = core::result::Result<T,E>::unwrap(&local_258,&PTR_DAT_00214c68);
-          std::fs::Metadata::modified(&local_258,&local_e8);
-          auVar9 = core::result::Result<T,E>::unwrap(&local_258,&PTR_DAT_00214c80);
+          _ZN3std2fs8Metadata8modified17h6f16921acf618ae6E(&local_258,&local_198);
+          auVar8 = _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17ha257e6c7d5c79a00E
+                             (&local_258,&PTR_DAT_00214c68);
+          _ZN3std2fs8Metadata8modified17h6f16921acf618ae6E(&local_258,&local_e8);
+          auVar9 = _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17ha257e6c7d5c79a00E
+                             (&local_258,&PTR_DAT_00214c80);
           bVar6 = auVar8._0_8_ < auVar9._0_8_;
           if (auVar8._0_8_ == auVar9._0_8_) {
             bVar6 = auVar8._8_4_ < auVar9._8_4_;
           }
         }
         else {
-          std::fs::Metadata::modified(&local_258,&local_198);
-          auVar8 = core::result::Result<T,E>::unwrap(&local_258,&PTR_DAT_00214c98);
-          std::fs::Metadata::modified(&local_258,&local_e8);
-          auVar9 = core::result::Result<T,E>::unwrap(&local_258,&PTR_DAT_00214cb0);
+          _ZN3std2fs8Metadata8modified17h6f16921acf618ae6E(&local_258,&local_198);
+          auVar8 = _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17ha257e6c7d5c79a00E
+                             (&local_258,&PTR_DAT_00214c98);
+          _ZN3std2fs8Metadata8modified17h6f16921acf618ae6E(&local_258,&local_e8);
+          auVar9 = _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17ha257e6c7d5c79a00E
+                             (&local_258,&PTR_DAT_00214cb0);
           cVar5 = auVar8._0_8_ != auVar9._0_8_;
           if (auVar8._0_8_ < auVar9._0_8_) {
             cVar5 = -1;
@@ -216,7 +222,7 @@ LAB_001ad29b:
   }
   *(undefined *)(param_1 + 1) = 0;
   *param_1 = 7;
-  core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>
+  _ZN4core3ptr90drop_in_place_LT_core__result__Result_LT_std__fs__Metadata_C_std__io__error__Error_GT__GT_17h7bbe7bfe3f1c8d8fE
             (&local_258);
   return;
 }

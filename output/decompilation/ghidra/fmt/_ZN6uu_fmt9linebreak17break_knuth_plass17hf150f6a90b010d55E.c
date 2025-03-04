@@ -1,4 +1,5 @@
-long __rustcall uu_fmt::linebreak::break_knuth_plass(long param_1,long param_2,long param_3)
+long _ZN6uu_fmt9linebreak17break_knuth_plass17hf150f6a90b010d55E
+               (long param_1,long param_2,long param_3)
 
 {
   char *pcVar1;
@@ -28,8 +29,10 @@ long __rustcall uu_fmt::linebreak::break_knuth_plass(long param_1,long param_2,l
   
   local_58 = param_1;
   lStack_50 = param_2;
-  auVar6 = _<core::slice::iter::Iter<T>as_core::clone::Clone>::clone();
-  find_kp_breakpoints(local_48,auVar6._0_8_,auVar6._8_8_,param_3);
+  auVar6 = _ZN71__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__clone__Clone_GT_5clone17h0c34312a4b925c00E
+                     ();
+  _ZN6uu_fmt9linebreak19find_kp_breakpoints17h79846ee711f881cbE
+            (local_48,auVar6._0_8_,auVar6._8_8_,param_3);
   lStack_a0 = local_38 * 0x10 + local_40;
   local_a8 = local_40;
   local_90 = *(undefined4 *)(param_3 + 8);
@@ -41,19 +44,22 @@ long __rustcall uu_fmt::linebreak::break_knuth_plass(long param_1,long param_2,l
   local_70 = &local_58;
                     /* try { // try from 001bb68f to 001bb6a0 has its CatchHandler @ 001bb85e */
   local_80 = pcVar1;
-  core::iter::traits::double_ended::DoubleEndedIterator::try_rfold(&local_68,&local_a8,&local_90);
+  _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17haf3d46e0f2661060E
+            (&local_68,&local_a8,&local_90);
   lVar4 = local_60;
   if (local_68 == '\0') {
     local_a8 = local_58;
     lStack_a0 = lStack_50;
-    lVar3 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next(&local_a8);
+    lVar3 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17ha7b82053f9b8098cE
+                      (&local_a8);
     if (lVar3 == 0) {
 LAB_001bb804:
       plVar2 = *(long **)(param_3 + 0x18);
       lVar4 = plVar2[2];
       if ((ulong)(*plVar2 - lVar4) < 2) {
                     /* try { // try from 001bb82c to 001bb83c has its CatchHandler @ 001bb85e */
-        lVar4 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(plVar2,"\n",1);
+        lVar4 = _ZN3std2io8buffered9bufwriter18BufWriter_LT_W_GT_14write_all_cold17ha7722a1d537a2c8aE
+                          (plVar2,"\n",1);
       }
       else {
         *(undefined *)(plVar2[1] + lVar4) = 10;
@@ -64,32 +70,37 @@ LAB_001bb804:
     else {
                     /* try { // try from 001bb6eb to 001bb752 has its CatchHandler @ 001bb85c */
       if ((local_66 == '\0') ||
-         (lVar4 = write_newline(*(undefined8 *)(param_3 + 8),*(undefined8 *)(param_3 + 0x10),
-                                *(undefined8 *)(param_3 + 0x18)), lVar4 == 0)) {
-        slice_if_fresh(&local_90,local_66,*(undefined8 *)(lVar3 + 0x10),
-                       *(undefined8 *)(lVar3 + 0x18),*(undefined8 *)(lVar3 + 0x20),*pcVar1,
-                       *(undefined *)(lVar3 + 0x3a),*(undefined *)(lVar3 + 0x38),local_67);
+         (lVar4 = _ZN6uu_fmt9linebreak13write_newline17hc3973027aaf0dbf6E
+                            (*(undefined8 *)(param_3 + 8),*(undefined8 *)(param_3 + 0x10),
+                             *(undefined8 *)(param_3 + 0x18)), lVar4 == 0)) {
+        _ZN6uu_fmt9linebreak14slice_if_fresh17h6f9344101bcdf0b0E
+                  (&local_90,local_66,*(undefined8 *)(lVar3 + 0x10),*(undefined8 *)(lVar3 + 0x18),
+                   *(undefined8 *)(lVar3 + 0x20),*pcVar1,*(undefined *)(lVar3 + 0x3a),
+                   *(undefined *)(lVar3 + 0x38),local_67);
         cVar5 = *(char *)(lVar3 + 0x39);
-        lVar4 = write_with_spaces(CONCAT44(uStack_84,uStack_88),local_80,
-                                  CONCAT44(uStack_8c,local_90),*(undefined8 *)(param_3 + 0x18));
+        lVar4 = _ZN6uu_fmt9linebreak17write_with_spaces17hd5de12a13c23bcddE
+                          (CONCAT44(uStack_84,uStack_88),local_80,CONCAT44(uStack_8c,local_90),
+                           *(undefined8 *)(param_3 + 0x18));
         if (lVar4 == 0) {
           do {
-            lVar4 = _<core::slice::iter::Iter<T>as_core::iter::traits::iterator::Iterator>::next
+            lVar4 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17ha7b82053f9b8098cE
                               (&local_a8);
             if (lVar4 == 0) goto LAB_001bb804;
                     /* try { // try from 001bb7be to 001bb7f5 has its CatchHandler @ 001bb860 */
-            slice_if_fresh(&local_90,0,*(undefined8 *)(lVar4 + 0x10),*(undefined8 *)(lVar4 + 0x18),
-                           *(undefined8 *)(lVar4 + 0x20),*pcVar1 != '\0',
-                           *(char *)(lVar4 + 0x3a) != '\0',*(char *)(lVar4 + 0x38) != '\0',
-                           cVar5 != '\0');
+            _ZN6uu_fmt9linebreak14slice_if_fresh17h6f9344101bcdf0b0E
+                      (&local_90,0,*(undefined8 *)(lVar4 + 0x10),*(undefined8 *)(lVar4 + 0x18),
+                       *(undefined8 *)(lVar4 + 0x20),*pcVar1 != '\0',*(char *)(lVar4 + 0x3a) != '\0'
+                       ,*(char *)(lVar4 + 0x38) != '\0',cVar5 != '\0');
             cVar5 = *(char *)(lVar4 + 0x39);
-            lVar4 = write_with_spaces(CONCAT44(uStack_84,uStack_88),local_80,
-                                      CONCAT44(uStack_8c,local_90),*(undefined8 *)(param_3 + 0x18));
+            lVar4 = _ZN6uu_fmt9linebreak17write_with_spaces17hd5de12a13c23bcddE
+                              (CONCAT44(uStack_84,uStack_88),local_80,CONCAT44(uStack_8c,local_90),
+                               *(undefined8 *)(param_3 + 0x18));
           } while (lVar4 == 0);
         }
       }
     }
   }
-  core::ptr::drop_in_place<alloc::vec::Vec<(&uu_fmt::parasplit::WordInfo,bool)>>(local_48);
+  _ZN4core3ptr90drop_in_place_LT_alloc__vec__Vec_LT__LP__RF_uu_fmt__parasplit__WordInfo_C_bool_RP__GT__GT_17hf54e8bc578902a10E
+            (local_48);
   return lVar4;
 }

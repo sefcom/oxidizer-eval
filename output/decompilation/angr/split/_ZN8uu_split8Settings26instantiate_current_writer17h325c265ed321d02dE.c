@@ -1,10 +1,10 @@
 long long uu_split::Settings::instantiate_current_writer::h325c265ed321d02d(unsigned long long a0[2], unsigned long long a1[17], unsigned long long a2, unsigned long long a3, unsigned int a4)
 {
-    unsigned long v0;  // [sp-0x90], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x90]
     unsigned long long v1;  // [sp-0x88]
     char *v2;  // [sp-0x80]
     unsigned long long v3;  // [sp-0x78]
-    unsigned long v4;  // [sp-0x70], Other Possible Types: unsigned long long
+    unsigned long v4;  // [sp-0x70]
     unsigned long long v5;  // [sp-0x68]
     struct struct_0 **v6;  // [sp-0x60]
     unsigned long long v7;  // [sp-0x58]

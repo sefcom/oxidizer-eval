@@ -1,5 +1,5 @@
-void __rustcall
-uu_tail::paths::HeaderPrinter::print(char *param_1,undefined8 param_2,undefined8 param_3)
+void _ZN7uu_tail5paths13HeaderPrinter5print17h45f27ae0b4b499e5E
+               (char *param_1,undefined8 param_2,undefined8 param_3)
 
 {
   undefined8 local_78;
@@ -24,8 +24,8 @@ uu_tail::paths::HeaderPrinter::print(char *param_1,undefined8 param_2,undefined8
     }
     local_60 = (ulong)(byte)param_1[1] ^ 1;
     local_58 = &local_68;
-    local_50 = _<&T_as_core::fmt::Display>::fmt;
-    local_40 = _<&T_as_core::fmt::Display>::fmt;
+    local_50 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h1fe54d61ef828b4bE;
+    local_40 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h1fe54d61ef828b4bE;
     local_38 = &DAT_002bc6e8;
     local_30 = 3;
     local_18 = 0;
@@ -33,7 +33,7 @@ uu_tail::paths::HeaderPrinter::print(char *param_1,undefined8 param_2,undefined8
     local_20 = 2;
     local_78 = param_2;
     local_70 = param_3;
-    std::io::stdio::_print(&local_38);
+    _ZN3std2io5stdio6_print17he918bceb0c89db46E(&local_38);
     param_1[1] = '\0';
   }
   return;

@@ -1,7 +1,6 @@
-void __rustcall
-uu_tail::follow::watch::Observer::new
-          (undefined8 *param_1,undefined param_2,undefined param_3,undefined param_4,
-          undefined8 *param_5,undefined4 param_6)
+void _ZN7uu_tail6follow5watch8Observer3new17hcfc431782d32d23fE
+               (undefined8 *param_1,undefined param_2,undefined param_3,undefined param_4,
+               undefined8 *param_5,undefined4 param_6)
 
 {
   undefined8 uVar1;
@@ -15,7 +14,7 @@ uu_tail::follow::watch::Observer::new
   undefined4 uVar9;
   
                     /* try { // try from 0020503c to 00205043 has its CatchHandler @ 002050c1 */
-  cVar8 = platform::unix::supports_pid_checks(param_6);
+  cVar8 = _ZN7uu_tail8platform4unix19supports_pid_checks17h8a33793bec8fc4a9E(param_6);
   uVar9 = 0;
   if (cVar8 != '\0') {
     uVar9 = param_6;

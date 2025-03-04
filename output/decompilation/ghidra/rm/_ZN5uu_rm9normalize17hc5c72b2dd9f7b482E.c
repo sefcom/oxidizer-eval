@@ -1,4 +1,4 @@
-void __rustcall uu_rm::normalize(undefined8 *param_1)
+void _ZN5uu_rm9normalize17hc5c72b2dd9f7b482E(undefined8 *param_1)
 
 {
   byte bVar1;
@@ -96,9 +96,9 @@ void __rustcall uu_rm::normalize(undefined8 *param_1)
   undefined8 uStack_38;
   
   puStack_1d0 = param_1;
-  std::path::Path::components(&uStack_120);
+  _ZN3std4path4Path10components17h4f3217acf0fc8653E(&uStack_120);
   bStack_158 = 0xb;
-  core::option::Option<T>::get_or_insert_with(&bStack_158,&uStack_120);
+  _ZN4core6option15Option_LT_T_GT_18get_or_insert_with17h4be4eb487f493c60E(&bStack_158,&uStack_120);
   if (bStack_158 < 6) {
     bStack_e0 = bStack_158;
     uStack_df = CONCAT13((undefined)uStack_154,uStack_157);
@@ -113,8 +113,8 @@ void __rustcall uu_rm::normalize(undefined8 *param_1)
     uStack_bb = uStack_133;
     uStack_b7 = uStack_12f;
     bStack_158 = 0xb;
-    uVar2 = std::path::Component::as_os_str(&bStack_e0);
-    std::sys::os_str::bytes::Slice::to_owned(&uStack_1e8,uVar2);
+    uVar2 = _ZN3std4path9Component9as_os_str17hd2d726e30ab45bf9E(&bStack_e0);
+    _ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E(&uStack_1e8,uVar2);
   }
   else {
     uStack_1e8 = 0;
@@ -150,8 +150,8 @@ switchD_001c1b04_caseD_7:
   bVar1 = bStack_a8;
   bStack_a8 = 0xb;
   if (bVar1 == 0xb) {
-    _<std::path::Components_as_core::iter::traits::iterator::Iterator>::next(&uStack_190,&uStack_70)
-    ;
+    _ZN80__LT_std__path__Components_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h327ae97aa5bd0b06E
+              (&uStack_190,&uStack_70);
     uStack_1c4 = uStack_18c;
     uStack_1bc = uStack_184;
     uStack_1b4 = uStack_17c;
@@ -212,12 +212,12 @@ switchD_001c1b04_caseD_7:
   uStack_164 = uStack_19c;
   switch((undefined)uStack_1c8) {
   case 6:
-    auVar3 = std::path::Component::as_os_str(&uStack_1c8);
+    auVar3 = _ZN3std4path9Component9as_os_str17hd2d726e30ab45bf9E(&uStack_1c8);
     break;
   case 7:
     goto switchD_001c1b04_caseD_7;
   case 8:
-    std::path::PathBuf::pop(&uStack_1e8);
+    _ZN3std4path7PathBuf3pop17hf487a369b6bfac6cE(&uStack_1e8);
     goto switchD_001c1b04_caseD_7;
   case 9:
     auVar3._4_4_ = uStack_1bc;
@@ -228,9 +228,10 @@ switchD_001c1b04_caseD_7:
   default:
     goto switchD_001c1b04_caseD_4;
   }
-  std::path::PathBuf::push(&uStack_1e8,auVar3._0_8_,auVar3._8_8_);
+  _ZN3std4path7PathBuf4push17h1445d9e01e6b0effE(&uStack_1e8,auVar3._0_8_,auVar3._8_8_);
   goto switchD_001c1b04_caseD_7;
 switchD_001c1b04_caseD_4:
                     /* WARNING: Subroutine does not return */
-  core::panicking::panic("internal error: entered unreachable code",0x28,&DAT_00228240);
+  _ZN4core9panicking5panic17h8c3a660c3523e4a4E
+            ("internal error: entered unreachable code",0x28,&DAT_00228240);
 }

@@ -7,7 +7,7 @@ fn uu_expr::syntax_tree::NumOrStr::to_bigint(a0: &struct25, a1: &u64) -> u64 {
     if a1->field_0 == 0x8000000000000000 {
         return num_bigint::bigint::convert::<impl num_traits::Num for num_bigint::bigint::BigInt>::from_str_radix(a0, *(&a1->field_10 as &i64), *(&a1->field_18 as &i64));
     }
-    v2 = vvar_13{reg 56};
+    v2 = vvar_11{reg 56};
     v1 = v5;
     v0 = 0x8000000000000000;
     a0->field_18 = a1->field_18;

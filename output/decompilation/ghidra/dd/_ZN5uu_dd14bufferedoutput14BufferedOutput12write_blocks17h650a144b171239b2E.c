@@ -1,6 +1,5 @@
-ulong * __rustcall
-uu_dd::bufferedoutput::BufferedOutput::write_blocks
-          (ulong *param_1,long param_2,undefined8 param_3,ulong param_4)
+ulong * _ZN5uu_dd14bufferedoutput14BufferedOutput12write_blocks17h650a144b171239b2E
+                  (ulong *param_1,long param_2,undefined8 param_3,ulong param_4)
 
 {
   ulong uVar1;
@@ -45,10 +44,12 @@ uu_dd::bufferedoutput::BufferedOutput::write_blocks
     if (uVar3 <= param_4) {
       lVar4 = param_4 - uVar3;
     }
-    core::slice::_<impl[T]>::split_at_unchecked(&local_98,param_3,param_4,lVar4);
-    uVar5 = core::slice::iter::Iter<T>::make_slice(local_98,local_90 + local_98);
-    ::alloc::vec::Vec<T,A>::append_elements(param_2,uVar5);
-    Output::write_blocks
+    _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_18split_at_unchecked17h4762251c5e3d149bE
+              (&local_98,param_3,param_4,lVar4);
+    uVar5 = _ZN4core5slice4iter13Iter_LT_T_GT_10make_slice17hfbdbc0a6d6290581E
+                      (local_98,local_90 + local_98);
+    _ZN5alloc3vec16Vec_LT_T_C_A_GT_15append_elements17h65897d0b259dad50E(param_2,uVar5);
+    _ZN5uu_dd6Output12write_blocks17h78b56ae9a3f355f3E
               (&local_58,param_2 + 0x18,*(undefined8 *)(param_2 + 8),*(undefined8 *)(param_2 + 0x10)
               );
     if (local_58 == 0) {
@@ -61,8 +62,9 @@ uu_dd::bufferedoutput::BufferedOutput::write_blocks
       uStack_70 = uStack_40;
       uStack_6c = uStack_3c;
       *(undefined8 *)(param_2 + 0x10) = 0;
-      uVar5 = core::slice::iter::Iter<T>::make_slice(local_88,local_80 + local_88);
-      ::alloc::vec::Vec<T,A>::append_elements(param_2,uVar5);
+      uVar5 = _ZN4core5slice4iter13Iter_LT_T_GT_10make_slice17hfbdbc0a6d6290581E
+                        (local_88,local_80 + local_88);
+      _ZN5alloc3vec16Vec_LT_T_C_A_GT_15append_elements17h65897d0b259dad50E(param_2,uVar5);
       param_1[4] = CONCAT44(uStack_64,local_68);
       param_1[5] = CONCAT44(uStack_5c,uStack_60);
       param_1[2] = CONCAT44(uStack_74,local_78);
@@ -74,7 +76,7 @@ uu_dd::bufferedoutput::BufferedOutput::write_blocks
     *param_1 = (ulong)(local_58 != 0);
     return param_1;
   }
-  core::panicking::panic_const::panic_const_rem_by_zero
+  _ZN4core9panicking11panic_const23panic_const_rem_by_zero17h9246b1d1945ea5ddE
             (&PTR_s_src_uu_dd_src_bufferedoutput_rs_00262200);
   pcVar2 = (code *)swi(3);
   puVar6 = (ulong *)(*pcVar2)();

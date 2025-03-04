@@ -10,7 +10,8 @@ long long uu_split::split::h3b6295d78012e56b(unsigned long long a0[17])
     unsigned long long v8;  // rcx
     unsigned long long v9;  // rbx
     unsigned long long v10;  // rsi
-    unsigned long long v11;  // rcx
+    unsigned long v11;  // rdx
+    unsigned long long v12;  // rdx
 
     v5 = a0[15];
     v6 = a0[16];
@@ -33,8 +34,6 @@ long long uu_split::split::h3b6295d78012e56b(unsigned long long a0[17])
     if (a0[0])
         v10 = a0[1];
     std::io::buffered::bufreader::BufReader$LT$R$GT$::with_capacity::h03cd61f44017daf8(&v3, v10, v7, v8);
-    v11 = a0[2] - 6;
-    if (v11 >= 3)
-        v11 = 3;
+    v12 = (v11 < 3 ? a0[2] - 6 : 3);
     goto *((int *)(4329468 + vvar_14{reg 32} * 4)) + 4329468;
 }

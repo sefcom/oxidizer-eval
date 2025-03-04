@@ -1,6 +1,6 @@
 long long uu_csplit::SplitWriter::writeln::he8d9df3e4a94ba9d(struct_0 *a0, void* a1, unsigned long a2)
 {
-    unsigned long v0;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x48]
     unsigned long long v1;  // [sp-0x40]
     unsigned long long v2;  // [sp-0x38]
     int v3;  // [sp-0x30]

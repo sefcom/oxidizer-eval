@@ -1,9 +1,9 @@
 fn uu_nproc::uu_app(a0: &struct712) -> u64 {
-    let v0: i4736;  // [sp-0x800], Other Possible Types: struct592, struct437, struct712
+    let v0: struct592;  // [sp-0x800], Other Possible Types: struct437, struct712
     let v1: i64;  // [sp-0x544]
     let v2: i32;  // [sp-0x53c]
-    let v3: i4736;  // [sp-0x538], Other Possible Types: struct712, struct592
-    let v4: i4736;  // [sp-0x270], Other Possible Types: struct592, struct24
+    let v3: struct712;  // [sp-0x538], Other Possible Types: struct592
+    let v4: struct592;  // [sp-0x270], Other Possible Types: struct24
     let v6: i64;  // rdx
 
     v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v6);
@@ -12,8 +12,8 @@ fn uu_nproc::uu_app(a0: &struct712) -> u64 {
     v4 = uucore::format_usage("{} [OPTIONS]...");
     v3 = clap_builder::builder::command::Command::override_usage(&v0, &v4);
     memcpy(&v0, &v3, 700);
-    v1 = 549755814016 | *((&v3 as &char + 700) as &i64);
-    v2 = *((&v3 as &char + 708) as &i32);
+    v1 = 549755814016 | *((&v3.field_0 as &char + 700) as &i64);
+    v2 = *((&v3.field_0 as &char + 708) as &i32);
     v3 = clap_builder::builder::arg::Arg::new("all");
     v4 = clap_builder::builder::arg::Arg::long(&v3, "all");
     v3 = clap_builder::builder::arg::Arg::help(&v4, "print the number of cores available to the system");

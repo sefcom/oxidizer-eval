@@ -1,10 +1,10 @@
-long long uu_od::inputoffset::InputOffset::print_final_offset::hf1e2d1b178ccd553(struct_0 *a0)
+long long uu_od::inputoffset::InputOffset::print_final_offset::hf1e2d1b178ccd553(struct_1 *a0)
 {
     char *v0;  // [sp-0x60]
     unsigned long long v1;  // [sp-0x58]
-    unsigned long v2;  // [sp-0x50], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x50]
     unsigned long long v3;  // [sp-0x48]
-    struct struct_1 **v4;  // [sp-0x40]
+    struct struct_0 **v4;  // [sp-0x40]
     unsigned long long v5;  // [sp-0x38]
     void* v6;  // [sp-0x30]
     char v7;  // [bp-0x20]

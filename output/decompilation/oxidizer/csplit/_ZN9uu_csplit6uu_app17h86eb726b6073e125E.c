@@ -1,12 +1,12 @@
 fn uu_csplit::uu_app(a0: &struct712) -> u64 {
-    let v0: i5696;  // [sp-0xa50], Other Possible Types: struct592, struct712
-    let v1: i4736;  // [sp-0x788], Other Possible Types: struct592, struct24
+    let v0: struct592;  // [sp-0xa50], Other Possible Types: struct712
+    let v1: struct592;  // [sp-0x788], Other Possible Types: struct24
     let v2: i32;  // [sp-0x540]
     let v3: i32;  // [sp-0x53c]
-    let v4: i5696;  // [sp-0x538], Other Possible Types: struct592, struct712, struct437
+    let v4: struct592;  // [sp-0x538], Other Possible Types: struct712, struct437
     let v5: i64;  // [sp-0x27c]
     let v6: i32;  // [sp-0x274]
-    let v7: i4736;  // [sp-0x270], Other Possible Types: struct592
+    let v7: struct592;  // [sp-0x270]
     let v9: i64;  // rdx
 
     v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
@@ -15,8 +15,8 @@ fn uu_csplit::uu_app(a0: &struct712) -> u64 {
     v1 = uucore::format_usage("{} [OPTION]... FILE PATTERN...");
     v0 = clap_builder::builder::command::Command::override_usage(&v4, &v1);
     memcpy(&v4, &v0, 700);
-    v5 = 584115552392 | *((&v0 as &char + 700) as &i64);
-    v6 = *((&v0 as &char + 708) as &i32);
+    v5 = 584115552392 | *((&v0.field_0 as &char + 700) as &i64);
+    v6 = *((&v0.field_0 as &char + 708) as &i32);
     v0 = clap_builder::builder::arg::Arg::new("suffix-format");
     v1 = clap_builder::builder::arg::Arg::short(&v0, 0x62);
     v0 = clap_builder::builder::arg::Arg::long(&v1, "suffix-format");
@@ -61,18 +61,18 @@ fn uu_csplit::uu_app(a0: &struct712) -> u64 {
     v0 = clap_builder::builder::command::Command::arg(&v4, &v7);
     v4 = clap_builder::builder::arg::Arg::new("file");
     memcpy(&v1, &v4, 584);
-    v2 = *((&v4 as &char + 584) as &i32) | 5;
-    v3 = *((&v4 as &char + 588) as &i32);
+    v2 = *((&v4.field_0 as &char + 584) as &i32) | 5;
+    v3 = *((&v4.field_0 as &char + 588) as &i32);
     v7 = clap_builder::builder::arg::Arg::value_hint(&v1, 0x3);
     v4 = clap_builder::builder::command::Command::arg(&v0, &v7);
     v0 = clap_builder::builder::arg::Arg::new("pattern");
     memcpy(&v1, &v0, 584);
-    v2 = *((&v0 as &char + 584) as &i32) | 4;
-    v3 = *((&v0 as &char + 588) as &i32);
+    v2 = *((&v0.field_0 as &char + 584) as &i32) | 4;
+    v3 = *((&v0.field_0 as &char + 588) as &i32);
     v0 = clap_builder::builder::arg::Arg::action(&v1, 0x1);
     memcpy(&v1, &v0, 584);
-    v2 = *((&v0 as &char + 584) as &i32) | 1;
-    v3 = *((&v0 as &char + 588) as &i32);
+    v2 = *((&v0.field_0 as &char + 584) as &i32) | 1;
+    v3 = *((&v0.field_0 as &char + 588) as &i32);
     v0 = clap_builder::builder::command::Command::arg(&v4, &v1);
     clap_builder::builder::command::Command::after_help(a0, &v0, "Output pieces of FILE separated by PATTERN(s) to files 'xx00', 'xx01', ..., and output byte counts of each piece to standard output.");
     return a0;

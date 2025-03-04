@@ -1,4 +1,4 @@
-long long uu_cp::copy_fifo::h6a16af34214a700e(struct_1 *a0, unsigned long long a1, unsigned long long a2, unsigned int a3, unsigned int a4)
+long long uu_cp::copy_fifo::h6a16af34214a700e(struct_0 *a0, unsigned long long a1, unsigned long long a2, unsigned int a3, unsigned int a4)
 {
     char *v0;  // [sp-0x128]
     unsigned long long v1;  // [sp-0x120]
@@ -8,19 +8,19 @@ long long uu_cp::copy_fifo::h6a16af34214a700e(struct_1 *a0, unsigned long long a
     char v5;  // [sp-0x100]
     char v6;  // [bp-0xf8]
     char v7;  // [bp-0xe8]
-    char v8;  // [bp-0xe0], Other Possible Types: unsigned long long
+    char v8;  // [bp-0xe0], Other Possible Types: unsigned long
     unsigned long long v9;  // [sp-0xd8]
-    struct struct_0 **v10;  // [bp-0xd0], Other Possible Types: char
+    struct struct_1 **v10;  // [sp-0xd0], Other Possible Types: char
     unsigned long long v11;  // [sp-0xc8]
-    void* v12;  // [bp-0xc0], Other Possible Types: char
+    void* v12;  // [sp-0xc0], Other Possible Types: char
     char v13;  // [bp-0xb0]
-    struct_1 *v16;  // rax
+    struct_0 *v16;  // rax
     int v17;  // xmm0
     int v18;  // xmm1
     int v19;  // xmm2
-    struct_1 *v20;  // rcx
+    struct_0 *v20;  // rcx
     char *v21;  // r13
-    struct_1 *v23;  // rcx
+    struct_0 *v23;  // rcx
     unsigned long long v24;  // rdx
 
     std::fs::metadata::h003d8cdbffde7c56(&v8, a1, a2);
@@ -64,7 +64,7 @@ long long uu_cp::copy_fifo::h6a16af34214a700e(struct_1 *a0, unsigned long long a
         v12 = 0;
         v10 = &v0;
         v11 = 1;
-        ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2();
+        ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2(&v6, &v8);
         v23 = a0;
         *((long long *)((char *)&v23->field_10 + 8)) = *((long long *)&v7);
         *((int128_t *)&v23->field_8) = *((int128_t *)&v6);

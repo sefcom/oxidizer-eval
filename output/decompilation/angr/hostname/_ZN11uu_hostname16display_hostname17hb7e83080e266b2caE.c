@@ -5,12 +5,12 @@ long long uu_hostname::display_hostname::hb7e83080e266b2ca(unsigned long long a0
     struct struct_0 **v2;  // [sp-0x158]
     unsigned long long v3;  // [sp-0x150]
     void* v4;  // [bp-0x148], Other Possible Types: char
-    unsigned long v5;  // [sp-0x138], Other Possible Types: unsigned long long
+    unsigned long v5;  // [sp-0x138]
     unsigned long long v6;  // [sp-0x130]
-    unsigned long v7;  // [sp-0x128], Other Possible Types: unsigned long long
+    unsigned long v7;  // [sp-0x128]
     struct struct_0 **v8;  // [sp-0x118]
     struct struct_0 **v9;  // [sp-0x108]
-    struct struct_0 **v10;  // [bp-0xf8], Other Possible Types: unsigned long
+    struct struct_0 **v10;  // [sp-0xf8], Other Possible Types: unsigned long
     unsigned long long v11;  // [sp-0xf0]
     struct struct_0 **v12;  // [bp-0xe8], Other Possible Types: char
     struct struct_0 **v13;  // [bp-0xd8], Other Possible Types: unsigned long
@@ -24,9 +24,9 @@ long long uu_hostname::display_hostname::hb7e83080e266b2ca(unsigned long long a0
     char v21;  // [bp-0x90]
     char v22;  // [bp-0x88]
     char v23;  // [bp-0x80]
-    unsigned long v24;  // [sp-0x78], Other Possible Types: unsigned long long
+    unsigned long v24;  // [sp-0x78]
     unsigned long long v25;  // [sp-0x70]
-    unsigned long v26;  // [sp-0x68], Other Possible Types: unsigned long long
+    unsigned long v26;  // [sp-0x68]
     unsigned long long v27;  // [sp-0x60]
     struct struct_0 **v28;  // [sp-0x58]
     struct struct_0 **v29;  // [sp-0x48]
@@ -48,7 +48,7 @@ long long uu_hostname::display_hostname::hb7e83080e266b2ca(unsigned long long a0
     unsigned long long v49;  // r14
     struct struct_0 **v50;  // r15
     unsigned long long v51;  // rax
-    void* v52;  // r13
+    unsigned long long v52;  // r13
     unsigned long long v53;  // rax
     struct struct_0 **v54;  // xmm0
     struct struct_0 **v55;  // xmm1
@@ -56,11 +56,11 @@ long long uu_hostname::display_hostname::hb7e83080e266b2ca(unsigned long long a0
     struct struct_0 **v57;  // xmm0
     struct struct_0 **v58;  // xmm1
     unsigned long v59;  // rdx
-    unsigned long v61;  // rdx
-    unsigned long long v62;  // r14
-    unsigned long long v63;  // r15
-    unsigned long long v64;  // r12
-    unsigned long long v65;  // rax
+    unsigned long v62;  // rdx
+    unsigned long long v63;  // r14
+    unsigned long long v64;  // r15
+    unsigned long long v65;  // r12
+    unsigned long long v66;  // rax
 
     hostname::get::h61ff34d453bc4655(&v0);
     _$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$::map_err_context::h31343d2c1a16f84a(&v13, &v0);
@@ -84,7 +84,7 @@ long long uu_hostname::display_hostname::hb7e83080e266b2ca(unsigned long long a0
         v35 = v36 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((int128_t *)&v0);
     }
     v8 = v33;
-    ::0x4ae470::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h2b6be5ae4ecb0b10();
+    ::0x4ae470::core::ptr::drop_in_place$LT$std..ffi..os_str..OsString$GT$::h2b6be5ae4ecb0b10(&v5);
     if (!(char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a0, "ip-address", 10))
     {
         if (!(char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a0, "short", 5) && !(char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a0, "domain", 6) || (v13 = (&v8)[1], v14 = (unsigned long long)(v9 + v13), v15 = (void*)0, v40 == 0x110000))
@@ -105,12 +105,15 @@ long long uu_hostname::display_hostname::hb7e83080e266b2ca(unsigned long long a0
             {
                 v52 = (char *)v48 + 1;
                 v49 = (&v8)[1];
-                v48 = v9;
-                v53 = ::0x4aee90::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::hccefea64a1916a27(v52, v49, v48);
+                v50 = v9;
+                v53 = ::0x4aee90::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::hccefea64a1916a27(v52, v49, v50);
                 if (!v53)
+                {
+                    v48 = v50;
                     core::str::slice_error_fail::h5dbb61534404fe7e(v49, v50, v52, v48, &g_518218); /* do not return */
+                }
                 v5 = v53;
-                v6 = v61;
+                v6 = v62;
                 v10 = &v5;
                 v11 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h5d67e1dd5db2d0a3;
                 v0 = &g_5181f8;
@@ -205,15 +208,15 @@ long long uu_hostname::display_hostname::hb7e83080e266b2ca(unsigned long long a0
             } while ((_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h430276f2adbaa693(&v5, &v10), (short)v5 != 2));
         }
         core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$core..net..socket_addr..SocketAddr$GT$$GT$::h63d022b3ffacee7e(&v10);
-        v62 = v20;
-        if (v62)
+        v63 = v20;
+        if (v63)
         {
-            v63 = v62 - 1;
-            v64 = v19;
-            v65 = ::0x4aee70::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$::get::h3d479bbd9c610d76(v63, v64, v62);
-            if (!v65)
-                core::str::slice_error_fail::h5dbb61534404fe7e(v64, v62, 0, v63, &g_518248); /* do not return */
-            v5 = v65;
+            v64 = v63 - 1;
+            v65 = v19;
+            v66 = ::0x4aee70::core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$::get::h3d479bbd9c610d76(v64, v65, v63);
+            if (!v66)
+                core::str::slice_error_fail::h5dbb61534404fe7e(v65, v63, 0, v64, &g_518248); /* do not return */
+            v5 = v66;
             v6 = v56;
             v10 = &v5;
             v11 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h5d67e1dd5db2d0a3;
@@ -225,7 +228,7 @@ long long uu_hostname::display_hostname::hb7e83080e266b2ca(unsigned long long a0
             std::io::stdio::_print::he918bceb0c89db46(&v0);
         }
         ::0x4ae420::core::ptr::drop_in_place$LT$alloc..string..String$GT$::h2518ea1da04bd9ad(&v18);
-        core::ptr::drop_in_place$LT$std..collections..hash..set..HashSet$LT$core..net..socket_addr..SocketAddr$GT$$GT$::hfac6686e50cf3d19();
+        core::ptr::drop_in_place$LT$std..collections..hash..set..HashSet$LT$core..net..socket_addr..SocketAddr$GT$$GT$::hfac6686e50cf3d19(&v13);
     }
     return 0;
 }

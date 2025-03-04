@@ -1,4 +1,4 @@
-undefined8 * __rustcall uu_env::make_options(undefined8 *param_1,undefined8 param_2)
+undefined8 * _ZN6uu_env12make_options17h1d1233ee0c3e2eceE(undefined8 *param_1,undefined8 param_2)
 
 {
   undefined uVar1;
@@ -102,28 +102,31 @@ undefined8 * __rustcall uu_env::make_options(undefined8 *param_1,undefined8 para
   undefined4 uStack_3c;
   
   local_140 = param_1;
-  uVar1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+  uVar1 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                     (param_2,&DAT_00124583,0x12);
-  cVar2 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"nullXCPU",4);
+  cVar2 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                    (param_2,"nullXCPU",4);
   uVar4 = 0;
   uVar6 = 10;
   if (cVar2 != '\0') {
     uVar6 = 0;
   }
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17haf87a3f80c6c6497E
             (&local_1e8,param_2,&DAT_001245b4,5);
-  lVar3 = clap_builder::parser::error::MatchesError::unwrap(&DAT_001245b4,5,&local_1e8);
+  lVar3 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h86a6ee1c01117d6cE
+                    (&DAT_001245b4,5,&local_1e8);
   if (lVar3 != 0) {
     uVar4 = *(undefined8 *)(lVar3 + 8);
     unaff_RBP = *(undefined8 *)(lVar3 + 0x10);
   }
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hfa98c77e26d8adfdE
             (&local_1e8,param_2,&DAT_00117680,4);
-  clap_builder::parser::error::MatchesError::unwrap(&local_268,&DAT_00117680,4,&local_1e8);
+  _ZN12clap_builder6parser5error12MatchesError6unwrap17h53fc80eeac36efb0E
+            (&local_268,&DAT_00117680,4,&local_1e8);
   if (CONCAT44(uStack_264,local_268) == 0) {
-    ::alloc::raw_vec::RawVec<T,A>::try_allocate_in(&local_1e8,0,0);
+    _ZN5alloc7raw_vec19RawVec_LT_T_C_A_GT_15try_allocate_in17h38052905bffb397aE(&local_1e8,0,0);
     if (local_1e8 != 0) {
-      ::alloc::raw_vec::handle_error(lStack_1e0,local_1d8);
+      _ZN5alloc7raw_vec12handle_error17h2372476369f9b8acE(lStack_1e0,local_1d8);
       goto LAB_001cec16;
     }
     local_218 = lStack_1e0;
@@ -147,23 +150,26 @@ undefined8 * __rustcall uu_env::make_options(undefined8 *param_1,undefined8 para
     uStack_b4 = uStack_264;
     uStack_b0 = uStack_260;
     uStack_ac = uStack_25c;
-    _<alloc::vec::Vec<T>as_alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+    _ZN98__LT_alloc__vec__Vec_LT_T_GT__u20_as_u20_alloc__vec__spec_from_iter__SpecFromIter_LT_T_C_I_GT__GT_9from_iter17h94f0aac4391d9fccE
               (&local_218,&local_b8);
   }
                     /* try { // try from 001ce7a2 to 001ce83c has its CatchHandler @ 001cec33 */
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hfa98c77e26d8adfdE
             (&local_1e8,param_2,&DAT_0012469b,5);
-  clap_builder::parser::error::MatchesError::unwrap(&local_268,&DAT_0012469b,5,&local_1e8);
+  _ZN12clap_builder6parser5error12MatchesError6unwrap17h53fc80eeac36efb0E
+            (&local_268,&DAT_0012469b,5,&local_1e8);
   if (CONCAT44(uStack_264,local_268) == 0) {
-    ::alloc::raw_vec::RawVec<T,A>::try_allocate_in(&local_1e8,0,0);
+    _ZN5alloc7raw_vec19RawVec_LT_T_C_A_GT_15try_allocate_in17h38052905bffb397aE(&local_1e8,0,0);
     if (local_1e8 != 0) {
 LAB_001cec16:
                     /* try { // try from 001cec1e to 001cec23 has its CatchHandler @ 001cec33 */
-      uVar4 = ::alloc::raw_vec::handle_error();
+      uVar4 = _ZN5alloc7raw_vec12handle_error17h2372476369f9b8acE();
                     /* catch() { ... } // from try @ 001ce875 with catch @ 001cec24 */
                     /* try { // try from 001cec27 to 001cec57 has its CatchHandler @ 001cec60 */
-      core::ptr::drop_in_place<alloc::vec::Vec<&std::ffi::os_str::OsStr>>(&local_200);
-      core::ptr::drop_in_place<alloc::vec::Vec<&std::ffi::os_str::OsStr>>(&local_218);
+      _ZN4core3ptr71drop_in_place_LT_alloc__vec__Vec_LT__RF_std__ffi__os_str__OsStr_GT__GT_17ha08a342b7aac8f8fE
+                (&local_200);
+      _ZN4core3ptr71drop_in_place_LT_alloc__vec__Vec_LT__RF_std__ffi__os_str__OsStr_GT__GT_17ha08a342b7aac8f8fE
+                (&local_218);
       puVar5 = (undefined8 *)_Unwind_Resume(uVar4);
       return puVar5;
     }
@@ -188,13 +194,14 @@ LAB_001cec16:
     uStack_74 = uStack_264;
     uStack_70 = uStack_260;
     uStack_6c = uStack_25c;
-    _<alloc::vec::Vec<T>as_alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+    _ZN98__LT_alloc__vec__Vec_LT_T_GT__u20_as_u20_alloc__vec__spec_from_iter__SpecFromIter_LT_T_C_I_GT__GT_9from_iter17ha4c9e82de2224bccE
               (&local_200,&local_78);
   }
                     /* try { // try from 001ce875 to 001ce8a9 has its CatchHandler @ 001cec24 */
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17haf87a3f80c6c6497E
             (&local_1e8,param_2,&DAT_00124765);
-  lVar3 = clap_builder::parser::error::MatchesError::unwrap(&DAT_00124765,5,&local_1e8);
+  lVar3 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h86a6ee1c01117d6cE
+                    (&DAT_00124765,5,&local_1e8);
   if (lVar3 == 0) {
     local_160 = 0;
     local_158 = 0;
@@ -223,16 +230,18 @@ LAB_001cec16:
   local_168 = unaff_RBP;
   local_150 = uVar1;
   local_14f = uVar6;
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hfa98c77e26d8adfdE
             (&local_268,param_2,&DAT_001247e7,0xd);
   puVar5 = local_140;
-  clap_builder::parser::error::MatchesError::unwrap(&local_138,&DAT_001247e7,0xd,&local_268);
+  _ZN12clap_builder6parser5error12MatchesError6unwrap17h53fc80eeac36efb0E
+            (&local_138,&DAT_001247e7,0xd,&local_268);
   if (CONCAT44(uStack_134,local_138) == 0) {
 LAB_001cea3f:
                     /* try { // try from 001cea3f to 001cea75 has its CatchHandler @ 001cec42 */
-    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many
+    _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hfa98c77e26d8adfdE
               (&local_268,param_2,&DAT_00117600,4);
-    clap_builder::parser::error::MatchesError::unwrap(&local_f8,&DAT_00117600,4,&local_268);
+    _ZN12clap_builder6parser5error12MatchesError6unwrap17h53fc80eeac36efb0E
+              (&local_f8,&DAT_00117600,4,&local_268);
     if (CONCAT44(uStack_f4,local_f8) == 0) {
 LAB_001cebb3:
       (*(code *)PTR_memcpy_0024d1c8)(puVar5,&local_1e8,0xa0);
@@ -252,13 +261,13 @@ LAB_001cebb3:
     do {
       while( true ) {
                     /* try { // try from 001ceaed to 001ceb20 has its CatchHandler @ 001cec46 */
-        lVar3 = _<clap_builder::parser::matches::arg_matches::ValuesRef<T>as_core::iter::traits::iterator::Iterator>
-                ::next(&local_138);
+        lVar3 = _ZN121__LT_clap_builder__parser__matches__arg_matches__ValuesRef_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h96be86b15d365bbeE
+                          (&local_138);
         if (lVar3 == 0) goto LAB_001ceb39;
-        cVar2 = _<std::ffi::os_str::OsString_as_core::cmp::PartialEq<str>>::eq
+        cVar2 = _ZN78__LT_std__ffi__os_str__OsString_u20_as_u20_core__cmp__PartialEq_LT_str_GT__GT_2eq17hcddac707bfdce135E
                           (*(undefined8 *)(lVar3 + 8),*(undefined8 *)(lVar3 + 0x10));
         if (cVar2 != '\0') break;
-        parse_name_value_opt
+        _ZN6uu_env20parse_name_value_opt17h8375689543212933E
                   (&local_268,&local_1e8,*(undefined8 *)(lVar3 + 8),*(undefined8 *)(lVar3 + 0x10));
         if (CONCAT44(uStack_264,local_268) != 0) {
           puVar5[1] = CONCAT44(uStack_264,local_268);
@@ -283,14 +292,16 @@ LAB_001ceb39:
     uStack_25c = uStack_12c;
     do {
                     /* try { // try from 001ceb80 to 001ceb9c has its CatchHandler @ 001cec44 */
-      lVar3 = _<clap_builder::parser::matches::arg_matches::ValuesRef<T>as_core::iter::traits::iterator::Iterator>
-              ::next(&local_268);
+      lVar3 = _ZN121__LT_clap_builder__parser__matches__arg_matches__ValuesRef_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h96be86b15d365bbeE
+                        (&local_268);
       if (lVar3 == 0) goto LAB_001cebb3;
-      lVar3 = parse_program_opt(&local_1e8,*(undefined8 *)(lVar3 + 8),*(undefined8 *)(lVar3 + 0x10))
-      ;
+      lVar3 = _ZN6uu_env17parse_program_opt17h5dc288b3b7b61775E
+                        (&local_1e8,*(undefined8 *)(lVar3 + 8),*(undefined8 *)(lVar3 + 0x10));
     } while (lVar3 == 0);
     puVar5[1] = lVar3;
-    puVar5[2] = &PTR_drop_in_place<uucore_mods_error_UUsageError>_00248840;
+    puVar5[2] = &
+                PTR__ZN4core3ptr53drop_in_place_LT_uucore__mods__error__UUsageError_GT_17h3b457176c01c1195E_00248840
+    ;
   }
   else {
     local_238 = local_108;
@@ -305,16 +316,16 @@ LAB_001ceb39:
     uStack_25c = uStack_12c;
     do {
                     /* try { // try from 001cea10 to 001cea2c has its CatchHandler @ 001cec48 */
-      lVar3 = _<clap_builder::parser::matches::arg_matches::ValuesRef<T>as_core::iter::traits::iterator::Iterator>
-              ::next(&local_268);
+      lVar3 = _ZN121__LT_clap_builder__parser__matches__arg_matches__ValuesRef_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h96be86b15d365bbeE
+                        (&local_268);
       if (lVar3 == 0) goto LAB_001cea3f;
-      auVar8 = parse_signal_opt(&local_1e8,*(undefined8 *)(lVar3 + 8),*(undefined8 *)(lVar3 + 0x10))
-      ;
+      auVar8 = _ZN6uu_env16parse_signal_opt17h51ec0e44148ee3e7E
+                         (&local_1e8,*(undefined8 *)(lVar3 + 8),*(undefined8 *)(lVar3 + 0x10));
     } while (auVar8._0_8_ == 0);
     *(undefined (*) [16])(puVar5 + 1) = auVar8;
   }
 LAB_001cebd8:
   *puVar5 = 0x8000000000000000;
-  core::ptr::drop_in_place<uu_env::Options>(&local_1e8);
+  _ZN4core3ptr36drop_in_place_LT_uu_env__Options_GT_17h82df1bb8fb18e06cE(&local_1e8);
   return puVar5;
 }

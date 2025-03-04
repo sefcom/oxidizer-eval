@@ -1,6 +1,6 @@
 long long uu_env::parse_signal_value::hd39e24cc594f23d4(unsigned long long a0[2], unsigned long long a1, unsigned long long a2)
 {
-    int v0;  // [sp-0xb8], Other Possible Types: unsigned long long
+    int v0;  // [sp-0xb8], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0xb0]
     struct struct_0 **v2;  // [sp-0xa8], Other Possible Types: unsigned long long
     unsigned int v3;  // [bp-0xa0], Other Possible Types: unsigned long long
@@ -33,7 +33,7 @@ long long uu_env::parse_signal_value::hd39e24cc594f23d4(unsigned long long a0[2]
     v4 = 0;
     v2 = &v8;
     v3 = 1;
-    ::0x4cb1b0::core::option::Option$LT$T$GT$::map_or_else::ha7b9eb55e1cbc84d();
+    ::0x4cb1b0::core::option::Option$LT$T$GT$::map_or_else::ha7b9eb55e1cbc84d(&v14, &v0);
     v3 = 125;
     *((int128_t *)&v0) = *((int128_t *)&v14);
     v2 = *((long long *)&v15);

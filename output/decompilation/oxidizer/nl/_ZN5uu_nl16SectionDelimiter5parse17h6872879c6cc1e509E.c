@@ -1,5 +1,5 @@
 fn uu_nl::SectionDelimiter::parse(a0: u32, a1: u32, a2: u32, a3: u32) -> u64 {
-    let v0: i832;  // [sp-0x88], Other Possible Types: struct104
+    let v0: Result<struct104, struct43>;  // [sp-0x88]
     let v2: i64;  // rbx
     let v3: i64;  // rbx
     let v4: i64;  // rax

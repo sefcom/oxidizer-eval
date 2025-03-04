@@ -1,4 +1,4 @@
-void __rustcall uu_dd::Dest::seek(byte *param_1)
+void _ZN5uu_dd4Dest4seek17hf206f28f02b500d6E(byte *param_1)
 
 {
                     /* WARNING: Could not recover jumptable at 0x001d739d. Too many branches */

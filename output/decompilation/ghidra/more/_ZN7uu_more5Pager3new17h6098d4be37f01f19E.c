@@ -1,6 +1,6 @@
-void __rustcall
-uu_more::Pager::new(undefined8 *param_1,short param_2,undefined8 *param_3,undefined8 param_4,
-                   undefined8 param_5,long param_6)
+void _ZN7uu_more5Pager3new17h6098d4be37f01f19E
+               (undefined8 *param_1,short param_2,undefined8 *param_3,undefined8 param_4,
+               undefined8 param_5,long param_6)
 
 {
   undefined2 uVar1;

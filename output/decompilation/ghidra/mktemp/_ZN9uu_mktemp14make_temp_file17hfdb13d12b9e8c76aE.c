@@ -1,7 +1,6 @@
-void __rustcall
-uu_mktemp::make_temp_file
-          (undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
-          undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8)
+void _ZN9uu_mktemp14make_temp_file17hfdb13d12b9e8c76aE
+               (undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8)
 
 {
   char cVar1;
@@ -24,7 +23,7 @@ uu_mktemp::make_temp_file
   undefined8 uStack_130;
   undefined8 uStack_128;
   undefined8 local_120;
-  undefined4 local_118;
+  int local_118;
   undefined4 uStack_114;
   undefined4 uStack_110;
   undefined4 uStack_10c;
@@ -76,18 +75,19 @@ uu_mktemp::make_temp_file
   local_a8 = param_4;
   local_a0 = param_5;
   local_88 = param_6;
-  tempfile::Builder::tempfile_in(&local_d0,local_b0,param_2,param_3);
+  _ZN8tempfile7Builder11tempfile_in17h727c1a87e0ab7b89E(&local_d0,local_b0,param_2,param_3);
   if ((char)local_c0 == '\x02') {
     uVar2 = CONCAT44(uStack_cc,local_d0);
-    cVar1 = std::io::error::Error::kind(uVar2);
+    cVar1 = _ZN3std2io5error5Error4kind17hb2ff5fa058639b3dE(uVar2);
     if (cVar1 == '\0') {
                     /* try { // try from 001c06db to 001c06fa has its CatchHandler @ 001c08c0 */
-      ::alloc::str::_<impl_str>::repeat(&local_118,"X",1,param_6);
+      _ZN5alloc3str21__LT_impl_u20_str_GT_6repeat17h44a69ba09e43960aE(&local_118,"X",1,param_6);
       local_178 = &local_f0;
-      pcStack_170 = _<&T_as_core::fmt::Display>::fmt;
-      local_160 = _<alloc::string::String_as_core::fmt::Display>::fmt;
+      pcStack_170 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h9054f5fd3dba116aE;
+      local_160 = 
+      _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17hf84d46339d179f53E;
       puStack_158 = &local_e0;
-      local_150 = _<&T_as_core::fmt::Display>::fmt;
+      local_150 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h9054f5fd3dba116aE;
       local_148 = (undefined8 *)&DAT_0011f4d8;
       uStack_140 = 3;
       uStack_128 = 0;
@@ -95,35 +95,38 @@ uu_mktemp::make_temp_file
       uStack_130 = 3;
                     /* try { // try from 001c0768 to 001c0776 has its CatchHandler @ 001c08ae */
       local_168 = (undefined8 **)&local_118;
-      core::option::Option<T>::map_or_else(&local_190,&local_148);
+      _ZN4core6option15Option_LT_T_GT_11map_or_else17hcc2932731f604033E(&local_190,&local_148);
                     /* try { // try from 001c0777 to 001c0783 has its CatchHandler @ 001c089f */
-      core::ptr::drop_in_place<alloc::string::String>(&local_118);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h068543f44d037b0aE(&local_118);
       local_78 = local_190;
       uStack_74 = uStack_18c;
       uStack_70 = uStack_188;
       uStack_6c = uStack_184;
                     /* try { // try from 001c079e to 001c07b5 has its CatchHandler @ 001c08c0 */
-      std::path::Path::join(&local_190,param_2,param_3,&local_78);
+      _ZN3std4path4Path4join17h5103fbfd94f4eefaE(&local_190,param_2,param_3,&local_78);
                     /* try { // try from 001c07c0 to 001c07d1 has its CatchHandler @ 001c0890 */
-      _<T_as_alloc::string::ToString>::to_string(&local_118,&local_178);
+      _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17hb2b1bff17e4619f7E
+                (&local_118,&local_178);
                     /* try { // try from 001c07d2 to 001c07e7 has its CatchHandler @ 001c087e */
-      _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_148,"file",4);
+      _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17hf2364d4dece97e39E
+                (&local_148,"file",4);
       local_168 = local_138;
       local_178 = local_148;
       pcStack_170 = (code *)uStack_140;
                     /* try { // try from 001c0816 to 001c081f has its CatchHandler @ 001c087c */
-      uVar3 = ::alloc::boxed::Box<T>::new(&local_178);
+      uVar3 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hcdef1c0b923e2ad4E(&local_178);
       param_1[1] = uVar3;
-      param_1[2] = &PTR_drop_in_place<uu_mktemp_MkTempError>_00236af0;
+      param_1[2] = &
+                   PTR__ZN4core3ptr43drop_in_place_LT_uu_mktemp__MkTempError_GT_17h45732e4c75632193E_00236af0
+      ;
       *param_1 = 0x8000000000000000;
                     /* try { // try from 001c083c to 001c0845 has its CatchHandler @ 001c08c0 */
-      core::ptr::drop_in_place<std::path::PathBuf>(&local_190);
-      core::ptr::drop_in_place<std::io::error::Error>(uVar2);
+      _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17hef8b921f38343bf4E(&local_190);
+      _ZN4core3ptr42drop_in_place_LT_std__io__error__Error_GT_17h023254833d2f52f9E(uVar2);
     }
     else {
-      auVar4 = uucore::mods::error::
-               _<impl_core::convert::From<std::io::error::Error>for_alloc::boxed::Box<dyn_uucore::mods::error::UError>>
-               ::from(uVar2);
+      auVar4 = _ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17hcd961c31063bf4faE
+                         (uVar2);
       *(undefined (*) [16])(param_1 + 1) = auVar4;
       *param_1 = 0x8000000000000000;
     }
@@ -137,14 +140,12 @@ uu_mktemp::make_temp_file
     uStack_54 = uStack_cc;
     uStack_50 = uStack_c8;
     uStack_4c = uStack_c4;
-    tempfile::file::NamedTempFile<F>::keep(&local_148,&local_58);
+    _ZN8tempfile4file22NamedTempFile_LT_F_GT_4keep17hb038e82cc04b888aE(&local_148,&local_58);
     if (local_148 == (undefined8 *)0x0) {
       param_1[2] = uStack_128;
-      *(undefined4 *)param_1 = (undefined4)local_138;
-      *(undefined4 *)((long)param_1 + 4) = local_138._4_4_;
-      *(undefined4 *)(param_1 + 1) = (undefined4)uStack_130;
-      *(undefined4 *)((long)param_1 + 0xc) = uStack_130._4_4_;
-      core::ptr::drop_in_place<std::fs::File>(uStack_140 & 0xffffffff);
+      *param_1 = local_138;
+      param_1[1] = uStack_130;
+      _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17h1cba195ba56b276eE((int)uStack_140);
     }
     else {
       local_f8 = local_120;
@@ -152,18 +153,22 @@ uu_mktemp::make_temp_file
       uStack_104 = uStack_130._4_4_;
       uStack_100 = (undefined4)uStack_128;
       uStack_fc = uStack_128._4_4_;
-      local_118 = (undefined4)uStack_140;
+      local_118 = (int)uStack_140;
       uStack_114 = uStack_140._4_4_;
       uStack_110 = (undefined4)local_138;
       uStack_10c = local_138._4_4_;
                     /* try { // try from 001c067f to 001c06b6 has its CatchHandler @ 001c08cd */
-      std::sys::pal::unix::os::split_paths::bytes_to_path(&local_190,local_138,uStack_130);
+      _ZN3std3sys3pal4unix2os11split_paths13bytes_to_path17h0549813f23b52483E
+                (&local_190,local_138,uStack_130);
       local_160 = (code *)0x8000000000000000;
-      uVar2 = ::alloc::boxed::Box<T>::new(&local_178);
+      uVar2 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hcdef1c0b923e2ad4E(&local_178);
       param_1[1] = uVar2;
-      param_1[2] = &PTR_drop_in_place<uu_mktemp_MkTempError>_00236af0;
+      param_1[2] = &
+                   PTR__ZN4core3ptr43drop_in_place_LT_uu_mktemp__MkTempError_GT_17h45732e4c75632193E_00236af0
+      ;
       *param_1 = 0x8000000000000000;
-      core::ptr::drop_in_place<tempfile::file::PersistError>(&local_118);
+      _ZN4core3ptr49drop_in_place_LT_tempfile__file__PersistError_GT_17h5034deea9c047d89E
+                (&local_118);
     }
   }
   return;

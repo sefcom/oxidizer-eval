@@ -22,12 +22,13 @@ long long uu_fmt::linebreak::break_lines::h90fda31618924b44(struct_2 *a0, char a
     unsigned long v20;  // r13
     char *v21;  // rbp
     void* v22;  // r13
-    void* v23;  // rsi
-    unsigned long v24;  // r13
-    char *v25;  // rbp
-    void* v26;  // rsi
-    unsigned long v27;  // r12
-    char *v28;  // r13
+    unsigned long long v23;  // rax
+    void* v24;  // rsi
+    unsigned long v25;  // r13
+    char *v26;  // rbp
+    void* v27;  // rsi
+    unsigned long v28;  // r12
+    char *v29;  // r13
 
     v14 = a0->field_58;
     uu_fmt::parasplit::ParaWords::new::h0f4d6dca046f9bf2(&v10, a1, a0);
@@ -44,7 +45,7 @@ long long uu_fmt::linebreak::break_lines::h90fda31618924b44(struct_2 *a0, char a
             ::0x4bac60::core::ptr::drop_in_place$LT$uu_fmt..parasplit..ParaWords$GT$::h46a5d7008fa17c00(&v10);
             return 0;
         }
-        v22 = std::io::buffered::bufwriter::BufWriter$LT$W$GT$::write_all_cold::ha7722a1d537a2c8a(a2, "\n", 1);
+        v23 = std::io::buffered::bufwriter::BufWriter$LT$W$GT$::write_all_cold::ha7722a1d537a2c8a(a2, "\n", 1);
     }
     else
     {
@@ -74,17 +75,17 @@ long long uu_fmt::linebreak::break_lines::h90fda31618924b44(struct_2 *a0, char a
         }
         else if (!a0->field_68)
         {
-            v23 = a0->field_38;
-            v24 = *((long long *)&a0->padding_40[0]);
-            v25 = a2->field_10;
-            if (v24 < a2->field_0 - v25)
+            v24 = a0->field_38;
+            v25 = *((long long *)&a0->padding_40[0]);
+            v26 = a2->field_10;
+            if (v25 < a2->field_0 - v26)
             {
-                memcpy(&v25[a2->field_8], v23, v24);
-                a2->field_10 = &v25[v24];
+                memcpy(&v26[a2->field_8], v24, v25);
+                a2->field_10 = &v26[v25];
             }
             else
             {
-                v22 = std::io::buffered::bufwriter::BufWriter$LT$W$GT$::write_all_cold::ha7722a1d537a2c8a(a2, v23, v24);
+                v22 = std::io::buffered::bufwriter::BufWriter$LT$W$GT$::write_all_cold::ha7722a1d537a2c8a(a2, v24, v25);
                 if (v22)
                 {
                     ::0x4bac60::core::ptr::drop_in_place$LT$uu_fmt..parasplit..ParaWords$GT$::h46a5d7008fa17c00(&v10);
@@ -92,17 +93,17 @@ long long uu_fmt::linebreak::break_lines::h90fda31618924b44(struct_2 *a0, char a
                 }
             }
         }
-        v26 = v16[2];
-        v27 = v16[3];
-        v28 = a2->field_10;
-        if (v27 < a2->field_0 - v28)
+        v27 = v16[2];
+        v28 = v16[3];
+        v29 = a2->field_10;
+        if (v28 < a2->field_0 - v29)
         {
-            memcpy(&v28[a2->field_8], v26, v27);
-            a2->field_10 = &v28[v27];
+            memcpy(&v29[a2->field_8], v27, v28);
+            a2->field_10 = &v29[v28];
         }
         else
         {
-            v22 = std::io::buffered::bufwriter::BufWriter$LT$W$GT$::write_all_cold::ha7722a1d537a2c8a(a2, v26, v27);
+            v22 = std::io::buffered::bufwriter::BufWriter$LT$W$GT$::write_all_cold::ha7722a1d537a2c8a(a2, v27, v28);
             if (v22)
             {
                 ::0x4bac60::core::ptr::drop_in_place$LT$uu_fmt..parasplit..ParaWords$GT$::h46a5d7008fa17c00(&v10);
@@ -119,7 +120,7 @@ long long uu_fmt::linebreak::break_lines::h90fda31618924b44(struct_2 *a0, char a
             v6 = a2;
             if (!(!a1[79]))
                 goto LABEL_4bb3e3;
-            v22 = uu_fmt::linebreak::break_knuth_plass::hf150f6a90b010d55(v1, v2, v4);
+            v23 = uu_fmt::linebreak::break_knuth_plass::hf150f6a90b010d55(v1, v2, v4);
         }
         else
         {
@@ -130,9 +131,10 @@ long long uu_fmt::linebreak::break_lines::h90fda31618924b44(struct_2 *a0, char a
             v9 = 1;
             v6 = a2;
 LABEL_4bb3e3:
-            v22 = uu_fmt::linebreak::break_simple::h99fb810256b9c0af(v1, v2, v4);
+            v23 = uu_fmt::linebreak::break_simple::h99fb810256b9c0af(v1, v2, v4);
         }
     }
+    v22 = v23;
     ::0x4bac60::core::ptr::drop_in_place$LT$uu_fmt..parasplit..ParaWords$GT$::h46a5d7008fa17c00(&v10);
     return v22;
 }

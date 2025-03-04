@@ -1,6 +1,5 @@
-long * __rustcall
-uu_realpath::prepare_relative_options
-          (long *param_1,undefined8 param_2,undefined param_3,undefined param_4)
+long * _ZN11uu_realpath24prepare_relative_options17hce8b705a83476ef9E
+                 (long *param_1,undefined8 param_2,undefined param_3,undefined param_4)
 
 {
   long lVar1;
@@ -32,25 +31,27 @@ uu_realpath::prepare_relative_options
   undefined8 local_38;
   
   local_b0 = param_1;
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hbfeb7723ee7ca69fE
             (&local_e8,param_2,"relative-to",0xb);
-  lVar4 = clap_builder::parser::error::MatchesError::unwrap("relative-to",0xb,&local_e8);
+  lVar4 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h29e62fffa74ba231E
+                    ("relative-to",0xb,&local_e8);
   if (lVar4 == 0) {
     local_48 = -0x8000000000000000;
   }
   else {
-    core::ops::function::FnOnce::call_once
+    _ZN4core3ops8function6FnOnce9call_once17h1ca8403b9347f80fE
               (&local_48,*(undefined8 *)(lVar4 + 8),*(undefined8 *)(lVar4 + 0x10));
   }
                     /* try { // try from 001b64d6 to 001b6515 has its CatchHandler @ 001b670c */
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hbfeb7723ee7ca69fE
             (&local_e8,param_2,"relative-base",0xd);
-  lVar4 = clap_builder::parser::error::MatchesError::unwrap("relative-base",0xd,&local_e8);
+  lVar4 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h29e62fffa74ba231E
+                    ("relative-base",0xd,&local_e8);
   if (lVar4 == 0) {
     local_78 = -0x8000000000000000;
   }
   else {
-    core::ops::function::FnOnce::call_once
+    _ZN4core3ops8function6FnOnce9call_once17h1ca8403b9347f80fE
               (&local_e8,*(undefined8 *)(lVar4 + 8),*(undefined8 *)(lVar4 + 0x10));
     local_68 = local_d8;
     local_78 = local_e8;
@@ -60,7 +61,8 @@ uu_realpath::prepare_relative_options
   local_e8 = local_48;
   uStack_e0 = CONCAT44(uStack_3c,uStack_40);
                     /* try { // try from 001b654c to 001b6565 has its CatchHandler @ 001b66fd */
-  canonicalize_relative_option(&local_90,&local_e8,param_3,param_4);
+  _ZN11uu_realpath28canonicalize_relative_option17h9b30ea9e43056c36E
+            (&local_90,&local_e8,param_3,param_4);
   lVar2 = local_80;
   lVar1 = local_88;
   lVar4 = local_90;
@@ -79,7 +81,8 @@ uu_realpath::prepare_relative_options
     local_e8 = local_78;
     uStack_e0 = uStack_70;
                     /* try { // try from 001b65c5 to 001b65d6 has its CatchHandler @ 001b66eb */
-    canonicalize_relative_option(&local_90,&local_e8,param_3,param_4);
+    _ZN11uu_realpath28canonicalize_relative_option17h9b30ea9e43056c36E
+              (&local_90,&local_e8,param_3,param_4);
     plVar7 = local_b0;
     if (local_90 == -0x7fffffffffffffff) {
       local_b0[1] = local_88;
@@ -96,7 +99,7 @@ uu_realpath::prepare_relative_options
       }
                     /* try { // try from 001b664c to 001b6656 has its CatchHandler @ 001b66dc */
       if (((lVar4 == -0x8000000000000000) || (lVar5 == 0)) ||
-         (cVar3 = std::path::Path::starts_with(lVar1,lVar2), cVar3 != '\0')) {
+         (cVar3 = _ZN3std4path4Path11starts_with17heff55995860ce76cE(lVar1,lVar2), cVar3 != '\0')) {
         *plVar7 = local_60;
         plVar7[1] = lStack_58;
         plVar7[4] = local_a0;
@@ -108,10 +111,12 @@ uu_realpath::prepare_relative_options
       *plVar7 = -0x8000000000000000;
       plVar7[3] = -0x8000000000000000;
                     /* try { // try from 001b66cd to 001b66d6 has its CatchHandler @ 001b66eb */
-      core::ptr::drop_in_place<core::option::Option<std::path::PathBuf>>(&local_a8);
+      _ZN4core3ptr67drop_in_place_LT_core__option__Option_LT_std__path__PathBuf_GT__GT_17hdd217be1dc1b5c70E
+                (&local_a8);
     }
     plVar6 = &local_60;
   }
-  core::ptr::drop_in_place<core::option::Option<std::path::PathBuf>>(plVar6);
+  _ZN4core3ptr67drop_in_place_LT_core__option__Option_LT_std__path__PathBuf_GT__GT_17hdd217be1dc1b5c70E
+            (plVar6);
   return plVar7;
 }

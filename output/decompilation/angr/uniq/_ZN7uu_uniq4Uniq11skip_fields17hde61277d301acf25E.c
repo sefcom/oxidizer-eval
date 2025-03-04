@@ -1,6 +1,6 @@
 long long uu_uniq::Uniq::skip_fields::hde61277d301acf25(unsigned long long a0[3], unsigned long a1, unsigned long a2, unsigned long long a3, unsigned long long a4)
 {
-    unsigned long v0;  // [sp-0x78], Other Possible Types: unsigned long long
+    unsigned long long v0;  // [sp-0x78], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0x70]
     int v2;  // [sp-0x68]
     unsigned long long v3;  // [sp-0x58]
@@ -25,7 +25,7 @@ LABEL_4bcddb:
         v9 = _$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$::from_iter::hd1aa47cd5a9c156d(a0, a3, v7);
         if (a2)
         {
-            vvar_274{reg 16} = ::0x4bb490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0ecdab8b58963e2c(&v2);
+            vvar_269{reg 16} = ::0x4bb490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0ecdab8b58963e2c(&v2);
             return v9;
         }
         return v9;

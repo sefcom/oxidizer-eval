@@ -27,7 +27,8 @@ fn uu_csplit::SplitWriter::writeln(a0: &struct16, a1: u32, a2: u32) -> u64 {
         v4[a0->field_8] = 10;
         a0->field_10 = &v4[1];
     } else {
-        v3 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a0, "\n");
+        v3 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a0, "
+");
         if v3 {
             return v3;
         }

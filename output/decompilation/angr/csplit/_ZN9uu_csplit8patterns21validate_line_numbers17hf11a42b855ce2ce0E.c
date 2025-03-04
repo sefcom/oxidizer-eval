@@ -1,6 +1,6 @@
 long long uu_csplit::patterns::validate_line_numbers::hf11a42b855ce2ce0(struct_0 *a0, unsigned long a1, unsigned long a2)
 {
-    unsigned long v0;  // [sp-0x40], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x40]
     unsigned long long v1;  // [sp-0x38]
     char v2;  // [bp-0x30]
     char v3;  // [bp-0x28]

@@ -1,7 +1,8 @@
 /* WARNING: Type propagation algorithm not settling */
 
-undefined8 * __rustcall
-uu_uname::UNameOutput::new(undefined8 *param_1,char *param_2,undefined8 param_3,undefined4 param_4)
+undefined8 *
+_ZN8uu_uname11UNameOutput3new17h351ea691cfe1026cE
+          (undefined8 *param_1,char *param_2,undefined8 param_3,undefined4 param_4)
 
 {
   char cVar1;
@@ -68,15 +69,18 @@ uu_uname::UNameOutput::new(undefined8 *param_1,char *param_2,undefined8 param_3,
   undefined8 local_1c0;
   
   lVar7 = -0x8000000000000000;
-  _<platform_info::lib_impl::target::PlatformInfo_as_platform_info::PlatformInfoAPI>::new
+  _ZN96__LT_platform_info__lib_impl__target__PlatformInfo_u20_as_u20_platform_info__PlatformInfoAPI_GT_3new17ha4b962048a517d48E
             (&local_468);
   uVar4 = local_458;
   uVar5 = uStack_460;
   lVar3 = local_468;
   if (local_468 == -0x8000000000000000) {
-    uVar5 = new::___closure__(uStack_460,local_458);
+    uVar5 = _ZN8uu_uname11UNameOutput3new28__u7b__u7b_closure_u7d__u7d_17h60c72fb2e39c2b3fE
+                      (uStack_460,local_458);
     param_1[1] = uVar5;
-    param_1[2] = &PTR_drop_in_place<uucore_mods_error_USimpleError>_0020b170;
+    param_1[2] = &
+                 PTR__ZN4core3ptr54drop_in_place_LT_uucore__mods__error__USimpleError_GT_17hd5cb2df8db3884edE_0020b170
+    ;
     *param_1 = 0x8000000000000001;
     return param_1;
   }
@@ -114,7 +118,8 @@ uu_uname::UNameOutput::new(undefined8 *param_1,char *param_2,undefined8 param_3,
     if (param_2[7] != '\0') goto LAB_001a8666;
 LAB_001a85e7:
                     /* try { // try from 001a85e7 to 001a85f9 has its CatchHandler @ 001a89a1 */
-    new::___closure__(&local_468,uVar5,uVar4);
+    _ZN8uu_uname11UNameOutput3new28__u7b__u7b_closure_u7d__u7d_17h5f1544a0fffce066E
+              (&local_468,uVar5,uVar4);
     local_548 = local_458;
     local_558 = local_468;
     uStack_550 = uStack_460;
@@ -130,7 +135,8 @@ LAB_001a8666:
   }
   else {
                     /* try { // try from 001a8684 to 001a8690 has its CatchHandler @ 001a8a09 */
-    new::___closure__(&local_468,local_228,local_220);
+    _ZN8uu_uname11UNameOutput3new28__u7b__u7b_closure_u7d__u7d_17h3687ac6272136274E
+              (&local_468,local_228,local_220);
     local_528 = local_458;
     local_538 = local_468;
     uStack_530 = uStack_460;
@@ -140,7 +146,8 @@ LAB_001a8666:
   }
   else {
                     /* try { // try from 001a86ce to 001a86da has its CatchHandler @ 001a89fa */
-    new::___closure__(&local_468,local_210,local_208);
+    _ZN8uu_uname11UNameOutput3new28__u7b__u7b_closure_u7d__u7d_17hb194b474012d03c3E
+              (&local_468,local_210,local_208);
     local_508 = local_458;
     local_518 = local_468;
     uStack_510 = uStack_460;
@@ -150,7 +157,8 @@ LAB_001a8666:
   }
   else {
                     /* try { // try from 001a8718 to 001a8724 has its CatchHandler @ 001a89eb */
-    new::___closure__(&local_468,local_1f8,local_1f0);
+    _ZN8uu_uname11UNameOutput3new28__u7b__u7b_closure_u7d__u7d_17hd8014734772d6d9eE
+              (&local_468,local_1f8,local_1f0);
     local_4e8 = local_458;
     local_4f8 = local_468;
     uStack_4f0 = uStack_460;
@@ -161,7 +169,8 @@ LAB_001a8666:
   }
   else {
                     /* try { // try from 001a8766 to 001a8772 has its CatchHandler @ 001a89dc */
-    new::___closure__(&local_468,local_1e0,local_1d8);
+    _ZN8uu_uname11UNameOutput3new28__u7b__u7b_closure_u7d__u7d_17h7b3a0060148809c8E
+              (&local_468,local_1e0,local_1d8);
     local_4c8 = local_458;
     local_4d8 = local_468;
     uStack_4d0 = uStack_460;
@@ -173,7 +182,8 @@ LAB_001a883b:
     }
   }
                     /* try { // try from 001a87af to 001a87bb has its CatchHandler @ 001a89ca */
-  new::___closure__(&local_468,local_1c8,local_1c0);
+  _ZN8uu_uname11UNameOutput3new28__u7b__u7b_closure_u7d__u7d_17hab4e1388d167a7daE
+            (&local_468,local_1c8,local_1c0);
   cVar1 = param_2[6];
   local_4b8 = local_468;
 joined_r0x001a87e3:
@@ -183,13 +193,15 @@ joined_r0x001a87e3:
   }
   else {
                     /* try { // try from 001a87e5 to 001a87fd has its CatchHandler @ 001a89b8 */
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_468,"unknown",7);
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h427e8d00d5b06fd3E
+              (&local_468,"unknown",7);
     cVar1 = param_2[7];
     local_498 = local_468;
   }
   if (cVar1 != '\0') {
                     /* try { // try from 001a8859 to 001a8871 has its CatchHandler @ 001a89a6 */
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_468,"unknown",7);
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h427e8d00d5b06fd3E
+              (&local_468,"unknown",7);
     local_478 = uStack_460;
     uStack_470 = local_458;
     lVar7 = local_468;
@@ -215,6 +227,7 @@ joined_r0x001a87e3:
   param_1[0x15] = lVar7;
   param_1[0x16] = local_478;
   param_1[0x17] = uStack_470;
-  core::ptr::drop_in_place<platform_info::lib_impl::target::PlatformInfo>(&local_248);
+  _ZN4core3ptr66drop_in_place_LT_platform_info__lib_impl__target__PlatformInfo_GT_17h4c5e76bb01c8ee30E
+            (&local_248);
   return param_1;
 }

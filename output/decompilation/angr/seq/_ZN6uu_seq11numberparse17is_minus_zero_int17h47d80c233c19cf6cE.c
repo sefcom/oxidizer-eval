@@ -10,6 +10,6 @@ long long uu_seq::numberparse::is_minus_zero_int::h47d80c233c19cf6c(unsigned lon
     *((uint128_t *)&v1) = 0x10000000000000000;
     *((uint128_t *)&v0) = 0x80000000000000000;
     v2 = 0;
-    ::0x4ccea0::core::ptr::drop_in_place$LT$bigdecimal..BigDecimal$GT$::h9ea64fcf6ce46304();
+    ::0x4ccea0::core::ptr::drop_in_place$LT$bigdecimal..BigDecimal$GT$::h9ea64fcf6ce46304(&v0);
     return (unsigned int)bigdecimal::impl_cmp::_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$bigdecimal..BigDecimal$GT$::eq::h0c7161c8c911041f(a2, &v0);
 }

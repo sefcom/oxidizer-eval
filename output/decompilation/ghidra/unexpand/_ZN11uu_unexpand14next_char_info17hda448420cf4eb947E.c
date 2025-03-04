@@ -1,5 +1,5 @@
-void __rustcall
-uu_unexpand::next_char_info(ulong *param_1,int param_2,long param_3,ulong param_4,ulong param_5)
+void _ZN11uu_unexpand14next_char_info17hda448420cf4eb947E
+               (ulong *param_1,int param_2,long param_3,ulong param_4,ulong param_5)
 
 {
   char cVar1;
@@ -41,17 +41,17 @@ uu_unexpand::next_char_info(ulong *param_1,int param_2,long param_3,ulong param_
       ppuVar7 = &PTR_s_src_uu_unexpand_src_unexpand_rs_0021d158;
 LAB_001b2b60:
                     /* WARNING: Subroutine does not return */
-      core::panicking::panic_bounds_check(param_5,param_4,ppuVar7);
+      _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E(param_5,param_4,ppuVar7);
     }
     uVar4 = (ulong)(*(char *)(param_3 + param_5) < '\0');
     if (uVar4 + param_5 + 1 <= param_4) {
-      uVar3 = _<core::ops::range::Range<usize>as_core::slice::index::SliceIndex<[T]>>::index
+      uVar3 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17h794715884ecee730E
                         (param_5);
-      core::str::converts::from_utf8(&local_30,uVar3);
+      _ZN4core3str8converts9from_utf817ha1effb4cca6d9901E(&local_30,uVar3);
       if (local_30 == 0) {
         local_38 = local_20 + local_28;
         local_40 = local_28;
-        iVar2 = core::str::validations::next_code_point(&local_40);
+        iVar2 = _ZN4core3str11validations15next_code_point17h56f7f2fe969e6a13E(&local_40);
         uVar5 = 1;
         uVar8 = 3;
         if (iVar2 == 0) {
@@ -80,7 +80,8 @@ LAB_001b2b60:
               uVar4 = 0;
             }
             else {
-              uVar4 = unicode_width::tables::charwidth::lookup_width(extraout_RDX & 0xffffffff);
+              uVar4 = _ZN13unicode_width6tables9charwidth12lookup_width17hfd0b3b0958e151ecE
+                                (extraout_RDX & 0xffffffff);
             }
           }
         }

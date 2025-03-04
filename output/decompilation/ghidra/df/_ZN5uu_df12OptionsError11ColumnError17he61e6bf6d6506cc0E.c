@@ -1,4 +1,5 @@
-void __rustcall uu_df::OptionsError::ColumnError(undefined8 *param_1,undefined8 *param_2)
+void _ZN5uu_df12OptionsError11ColumnError17he61e6bf6d6506cc0E
+               (undefined8 *param_1,undefined8 *param_2)
 
 {
   undefined8 uVar1;

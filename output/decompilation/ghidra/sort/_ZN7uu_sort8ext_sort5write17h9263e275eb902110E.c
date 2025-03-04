@@ -1,7 +1,6 @@
-void __rustcall
-uu_sort::ext_sort::write
-          (undefined8 *param_1,long param_2,undefined8 param_3,undefined8 param_4,undefined8 param_5
-          ,undefined param_6)
+void _ZN7uu_sort8ext_sort5write17h9263e275eb902110E
+               (undefined8 *param_1,long param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5,undefined param_6)
 
 {
   undefined8 uVar1;
@@ -52,7 +51,7 @@ uu_sort::ext_sort::write
   undefined8 uStack_30;
   undefined8 local_28;
   
-  _<uu_sort::merge::WriteableCompressedTmpFile_as_uu_sort::merge::WriteableTmpFile>::create
+  _ZN95__LT_uu_sort__merge__WriteableCompressedTmpFile_u20_as_u20_uu_sort__merge__WriteableTmpFile_GT_6create17heb853a4412795411E
             (&local_108,param_3,param_4,param_5);
   local_90 = CONCAT44(uStack_104,local_108);
   uStack_88 = CONCAT44(uStack_fc,uStack_100);
@@ -84,10 +83,10 @@ uu_sort::ext_sort::write
     uStack_6c = uStack_e4;
     uVar1 = *(undefined8 *)(param_2 + 0x20);
     uVar2 = *(undefined8 *)(param_2 + 0x28);
-    uVar3 = _<uu_sort::merge::WriteableCompressedTmpFile_as_uu_sort::merge::WriteableTmpFile>::
-            as_write(&local_90);
+    uVar3 = _ZN95__LT_uu_sort__merge__WriteableCompressedTmpFile_u20_as_u20_uu_sort__merge__WriteableTmpFile_GT_8as_write17hf7ea0c81126ae9cfE
+                      (&local_90);
                     /* try { // try from 00268d3a to 00268d4b has its CatchHandler @ 00268dbd */
-    write_lines(uVar1,uVar2,uVar3,param_6);
+    _ZN7uu_sort8ext_sort11write_lines17he98d063bf4fa553bE(uVar1,uVar2,uVar3,param_6);
     uStack_a8 = uStack_30;
     local_a0 = local_28;
     uStack_b8 = CONCAT44(uStack_3c,uStack_40);
@@ -110,8 +109,8 @@ uu_sort::ext_sort::write
     uStack_104 = local_90._4_4_;
     uStack_100 = (undefined4)uStack_88;
     uStack_fc = uStack_88._4_4_;
-    _<uu_sort::merge::WriteableCompressedTmpFile_as_uu_sort::merge::WriteableTmpFile>::
-    finished_writing(param_1,&local_108);
+    _ZN95__LT_uu_sort__merge__WriteableCompressedTmpFile_u20_as_u20_uu_sort__merge__WriteableTmpFile_GT_16finished_writing17hb0f248599453c45aE
+              (param_1,&local_108);
   }
   return;
 }

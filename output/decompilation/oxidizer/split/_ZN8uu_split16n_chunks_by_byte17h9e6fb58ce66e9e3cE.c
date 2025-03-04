@@ -6,64 +6,72 @@ fn uu_split::n_chunks_by_byte(a0: void*, a1: u32, a2: &u64, a3: u32, a4: u32) ->
     let v4: i64;  // [sp-0x140]
     let v5: i64;  // [sp-0x138]
     let v6: i64;  // [sp-0x130]
-    let v7: i224;  // [sp-0x128], Other Possible Types: struct24, struct16, struct28
+    let v7: i64;  // [sp-0x128], Other Possible Types: struct24, struct16
     let v8: i64;  // [sp-0x120]
     let v9: i64;  // [sp-0x118]
-    let v10: i64;  // [sp-0xf0]
-    let v11: i64;  // [sp-0xe8]
-    let v12: i64;  // [sp-0xe0]
-    let v13: i64;  // [sp-0xd8]
-    let v14: i64;  // [sp-0xd0]
-    let v15: i64;  // [sp-0xc8]
-    let v16: i64;  // [sp-0xc0]
-    let v17: i64;  // [sp-0xb8]
-    let v18: i64;  // [sp-0xb0]
-    let v19: i64;  // [sp-0xa0]
-    let v20: i64;  // [sp-0x98]
-    let v21: i8;  // [sp-0x90]
-    let v22: i128;  // [sp-0x88]
-    let v23: i64;  // [sp-0x78]
-    let v24: i8;  // [sp-0x70]
-    let v25: Argument;  // [bp-0x68]
-    let v26: Argument;  // [bp-0x58]
-    let v27: struct24;  // [sp-0x48]
+    let v10: i32;  // [bp-0x110]
+    let v11: i64;  // [sp-0xf0]
+    let v12: i64;  // [sp-0xe8]
+    let v13: i64;  // [sp-0xe0]
+    let v14: i64;  // [sp-0xd8]
+    let v15: i64;  // [sp-0xd0]
+    let v16: i64;  // [sp-0xc8]
+    let v17: i64;  // [sp-0xc0]
+    let v18: i64;  // [sp-0xb8]
+    let v19: i64;  // [sp-0xb0]
+    let v20: i64;  // [sp-0xa0]
+    let v21: i64;  // [sp-0x98]
+    let v22: i8;  // [sp-0x90]
+    let v23: iNone;  // [sp-0x88]
+    let v24: i64;  // [sp-0x78]
+    let v25: i8;  // [sp-0x70]
+    let v26: String;  // [sp-0x48]
+    let v28: i64;  // r13
     let v29: i64;  // r14
     let v30: i64;  // rdx
     let v31: i64;  // r15
+    let v32: i64;  // r13
+    let v33: i64;  // rax
     let v34: i64;  // rax
     let v35: i64;  // rax
-    let v36: i64;  // rax
-    let v37: i32;  // eax
-    let v38: i64;  // r13
-    let v41: i64;  // rbx
-    let v42: i64;  // rbx
-    let v44: i64;  // r15
+    let v36: i32;  // eax
+    let v37: i64;  // r13
+    let v38: i64;  // rbx
+    let v40: i64;  // rax
+    let v41: i64;  // rbp
+    let v42: i64;  // r13
+    let v43: i64;  // rax
+    let v44: i64;  // r13
     let v45: i64;  // rbx
-    let v46: i64;  // r13
-    let v48: i64;  // r15
-    let v49: i64;  // rbx
-    let v50: i64;  // rsi
-    let v51: i64;  // r13
-    let v52: i64;  // r14
-    let v53: i64;  // rax
-    let v55: i64;  // rax
-    let v56: i64;  // rbp
-    let v57: i64;  // r13
+    let v46: i64;  // rsi
+    let v47: i64;  // r13
+    let v48: i64;  // r14
+    let v49: i64;  // rax
+    let v51: i64;  // rax
+    let v53: i64;  // r13
 
-    v16 = 0;
-    v17 = 1;
-    v18 = 0;
+    v28 = a2;
+    v17 = 0;
+    v18 = 1;
+    v19 = 0;
     v29 = a0 + 112;
     v31 = v30;
-    if uu_split::get_input_size(v29, a1, &v16, *(a0 as &i64), *((a0 + 8) as &i64)) {
-        uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v30);
-        return v57;
+    if uu_split::get_input_size(v29, a1, &v17, *(a0 as &i64), *((a0 + 8) as &i64)) {
+        v32 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v30);
+        return v32;
     }
-    v22 = v17;
-    v23 = a1;
-    v24 = 0;
+    v23 = *(&v18 as &i128);
+    v24 = a1;
+    v25 = 0;
     if a3 != 1 {
-        if !(!v34) {
+        v33 = a2;
+        if v30 < a2 {
+            v33 = v30;
+        }
+        if *((a0 + 161) as &i8) {
+            v28 = v33;
+        }
+        if !(!v28) {
             goto LABEL_4cd1f0;
         }
     } else if v30 && a2 {
@@ -73,140 +81,121 @@ LABEL_4cd1f0:
         v4 = 0;
         v5 = 8;
         v6 = 0;
-        if (v30 | a2) >> 32 {
-            v35 = v30;
-            v36 = (0 CONCAT v35) % a2 CONCAT (0 CONCAT v35) / a2;
-            v11 = ((0 CONCAT v35) % a2 CONCAT (0 CONCAT v35) / a2) >> 64;
+        if (v30 | v28) >> 32 {
+            v34 = v30;
+            v35 = (0 CONCAT v34) % v28 as u128 CONCAT (0 CONCAT v34) / v28 as u128;
+            v12 = ((0 CONCAT v34) % v28 as u128 CONCAT (0 CONCAT v34) / v28 as u128) >> 64;
         } else {
-            v37 = v30;
-            v36 = ((0 CONCAT v37) % (a2 & 4294967295) CONCAT (0 CONCAT v37) / (a2 & 4294967295)) & 4294967295;
-            v11 = ((0 CONCAT v37) % (a2 & 4294967295) CONCAT (0 CONCAT v37) / (a2 & 4294967295)) >> 32 & 4294967295;
+            v36 = v30 as u32;
+            v35 = (((0 CONCAT v36) % (v28 & 4294967295)) as u32 CONCAT ((0 CONCAT v36) / (v28 & 4294967295)) as u32) & 4294967295;
+            v12 = (((0 CONCAT v36) % (v28 & 4294967295)) as u32 CONCAT ((0 CONCAT v36) / (v28 & 4294967295)) as u32) >> 32 & 4294967295;
         }
-        v10 = v36;
-        v12 = a2;
+        v11 = v35;
+        v13 = v28;
         if a3 != 1 {
-            v7 = <alloc::vec::Vec<uu_split::OutFile> as uu_split::ManageOutFiles>::init(a2, a0, 0);
-            v14 = v7;
-            if v14 == 0x8000000000000000 {
-                return v57;
+            v7 = <alloc::vec::Vec<uu_split::OutFile> as uu_split::ManageOutFiles>::init(v28, a0, 0);
+            v37 = v8;
+            v15 = v7;
+            if v15 == 0x8000000000000000 {
+                return v32;
             }
-            v4 = v14;
-            v5 = v8;
+            v4 = v15;
+            v5 = v37;
             v6 = v9;
-            v38 = v12;
+            v28 = v13;
         }
-        v19 = 1;
-        v20 = v38;
-        v21 = 0;
+        v20 = 1;
+        v21 = v28;
+        v22 = 0;
         if !<core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next() {
             return 0;
         }
+        v38 = v30;
         if !a3 {
-            v15 = v29;
+            v16 = v29;
             loop {
-                v45 = v42;
                 v0 = 0;
                 v1 = 1;
                 v2 = 0;
                 if !v31 {
                     break;
                 }
-                v46 = v45 - 1;
-                if v45 != v12 {
-                    v48 = v10 + (v46 < v11);
+                v42 = v38 - 1;
+                v43 = v11 + (v42 < v12);
+                if v38 == v13 {
+                    v43 = v31;
                 }
-                v7 = &v22;
-                v8 = v48;
-                if std::io::default_read_to_end(&v7, &v0, 0, &v22) {
-                    v13 = v56;
-                    v25 = Argument {
-                        value: v29
-                        formatter: <alloc::string::String as core::fmt::Display>::fmt
-                    };
-                    v26 = Argument {
-                        value: &v13
-                        formatter: <std::io::error::Error as core::fmt::Display>::fmt
-                    };
-                    v7 = struct28 {
-                        field_0: &g_548580
-                        field_16: &v25
-                        field_24: <UNKNOWN>
-                    };
-                    v27 = core::option::Option<T>::map_or_else(None, &v7);
-                    alloc::boxed::Box<T>::new(&v7);
-                    return v57;
+                v7 = &v23;
+                v8 = v43;
+                v41 = v30;
+                if std::io::default_read_to_end(&v7, &v0, 0, &v23) {
+                    v14 = v41;
+                    v26 = format!("{}: cannot read from input : {}", v29, &v14);
+                    *(&v10 as &i32) = 1;
+                    v32 = v53;
+                    return v32;
                 }
-                v7 = <alloc::vec::Vec<uu_split::OutFile> as uu_split::ManageOutFiles>::get_writer(&v4, v46);
-                v49 = v8;
-                if v7 {
-                    return v57;
+                v7 = <alloc::vec::Vec<uu_split::OutFile> as uu_split::ManageOutFiles>::get_writer(&v4, v42);
+                v44 = v7;
+                v45 = v8;
+                if v44 {
+                    return v32;
                 }
-                v50 = v1;
-                v51 = v2;
-                v52 = *((v49 + 16) as &i64);
-                if v51 < *(v49 as &i64) - v52 {
-                    memcpy(*((v49 + 8) as &i64) + v52, v50, v51);
-                    *((v49 + 16) as &i64) = v52 + v51;
+                v46 = v1;
+                v47 = v2;
+                v48 = *((v45 + 16) as &i64);
+                if v47 < *(v45 as &i64) - v48 {
+                    memcpy(*((v45 + 8) as &i64) + v48, v46, v47);
+                    *((v45 + 16) as &unsigned long) = v48 + v47;
                 } else {
-                    v53 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(v49, v50, v51);
-                    if v53 {
-                        uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v53);
-                        return v57;
+                    v49 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(v45, v46, v47);
+                    if v49 {
+                        v32 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v49);
+                        return v32;
                     }
                 }
                 v31 -= v30;
+                v38 = v30;
                 if !<core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next() {
                     break;
                 }
             }
         } else {
             loop {
-                v41 = v42;
                 v0 = 0;
                 v1 = 1;
                 v2 = 0;
                 if !v31 {
                     return 0;
                 }
-                if v41 != v12 {
-                    v44 = v10 + (v41 - 1 < v11);
+                v40 = v11 + (v38 - 1 < v12);
+                if v38 == v13 {
+                    v40 = v31;
                 }
-                v7 = &v22;
-                v8 = v44;
-                if std::io::default_read_to_end(&v7, &v0, 0, &v22) {
-                    vvar_847{stack -216} = v56;
-                    v25 = Argument {
-                        value: v29
-                        formatter: <alloc::string::String as core::fmt::Display>::fmt
-                    };
-                    v26 = Argument {
-                        value: &v13
-                        formatter: <std::io::error::Error as core::fmt::Display>::fmt
-                    };
-                    v7 = struct28 {
-                        field_0: &g_548580
-                        field_16: &v25
-                        field_24: <UNKNOWN>
-                    };
-                    vvar_848{stack -72} = core::option::Option<T>::map_or_else(None, &v7);
-                    alloc::boxed::Box<T>::new(&v7);
-                    return v57;
+                v7 = &v23;
+                v8 = v40;
+                if std::io::default_read_to_end(&v7, &v0, 0, &v23) {
+                    vvar_830{stack -216} = v41;
+                    vvar_831{stack -72} = format!("{}: cannot read from input : {}", v29, &v14);
+                    *(&v10 as &i32) = 1;
+                    return v32;
                 }
-                if v41 == a4 {
+                if v38 == a4 {
                     break;
                 }
                 v31 -= v30;
+                v38 = v30;
                 if !<core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next() {
                     return 0;
                 }
             }
-            v55 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v3, v1, v2);
-            if !v55 {
+            v51 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v3, v1, v2);
+            if !v51 {
                 return 0;
             }
-            uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v55);
-            return v57;
+            uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v51);
+            return v32;
         }
     }
-    return v57;
+    return 0;
 }

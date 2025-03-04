@@ -1,7 +1,6 @@
-void __rustcall
-uu_cp::handle_existing_dest
-          (long *param_1,undefined8 **param_2,long param_3,undefined8 param_4,long param_5,
-          long param_6,byte param_7,undefined8 param_8)
+void _ZN5uu_cp20handle_existing_dest17h1a418223b4b32809E
+               (long *param_1,undefined8 **param_2,long param_3,undefined8 param_4,long param_5,
+               long param_6,byte param_7,undefined8 param_8)
 
 {
   long lVar1;
@@ -45,16 +44,19 @@ uu_cp::handle_existing_dest
   long local_38;
   
   local_68 = (ulong)param_7;
-  cVar3 = is_forbidden_to_copy_to_same_file(param_2,param_3,param_4,param_5,param_6);
+  cVar3 = _ZN5uu_cp33is_forbidden_to_copy_to_same_file17h3bc6a23799758404E
+                    (param_2,param_3,param_4,param_5,param_6);
   if (cVar3 != '\0') {
     local_c8 = 1;
     local_b0 = 1;
     local_128 = 1;
     local_110 = 1;
     local_88 = &local_c8;
-    local_80 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+    local_80 = 
+    _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
     local_78 = &local_128;
-    local_70 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+    local_70 = 
+    _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
     local_108 = (undefined **)&DAT_002b5ea8;
     local_100 = 3;
     lStack_e8 = 0;
@@ -64,15 +66,15 @@ uu_cp::handle_existing_dest
     local_118 = param_5;
     ppuStack_c0 = param_2;
     local_b8 = param_3;
-    core::option::Option<T>::map_or_else(param_1 + 1,&local_108);
+    _ZN4core6option15Option_LT_T_GT_11map_or_else17h805a87bba4bea7c2E(param_1 + 1,&local_108);
     *param_1 = 4;
     return;
   }
   if ((*(char *)(param_6 + 0x4d) == '\x02') ||
-     (OverwriteMode::verify
+     (_ZN5uu_cp13OverwriteMode6verify17h15b46a9de23bd96aE
                 (&local_108,*(undefined4 *)(param_6 + 0x3c),param_4,param_5,
                  *(undefined *)(param_6 + 0x47)), local_108 == (undefined **)0xd)) {
-    uucore::features::backup_control::get_backup_path
+    _ZN6uucore8features14backup_control15get_backup_path17hb28e229807111f9dE
               (&local_60,*(undefined4 *)(param_6 + 0x4c),param_4,param_5,
                *(undefined8 *)(param_6 + 8),*(undefined8 *)(param_6 + 0x10));
     if (CONCAT44(uStack_5c,local_60) != -0x8000000000000000) {
@@ -82,7 +84,7 @@ uu_cp::handle_existing_dest
       uStack_9c = uStack_54;
       local_98 = local_50;
                     /* try { // try from 00205d77 to 00205ed4 has its CatchHandler @ 00205f38 */
-      cVar3 = uucore::features::fs::paths_refer_to_same_file
+      cVar3 = _ZN6uucore8features2fs24paths_refer_to_same_file17hbd4c553d00ffcef7E
                         (param_2,param_3,CONCAT44(uStack_54,uStack_58),local_50,1);
       if (cVar3 != '\0') {
         local_c8 = 1;
@@ -90,9 +92,11 @@ uu_cp::handle_existing_dest
         local_128 = 1;
         local_110 = 1;
         local_88 = &local_c8;
-        local_80 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+        local_80 = 
+        _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
         local_78 = &local_128;
-        local_70 = _<os_display::Quoted_as_core::fmt::Display>::fmt;
+        local_70 = 
+        _ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17h75932a24bee941d9E;
         local_108 = &PTR_s_backing_up_might_destroy_source__002b5ed8;
         local_100 = 3;
         lStack_e8 = 0;
@@ -102,7 +106,7 @@ uu_cp::handle_existing_dest
         local_118 = param_3;
         ppuStack_c0 = (undefined8 **)param_4;
         local_b8 = param_5;
-        core::option::Option<T>::map_or_else(&local_48,&local_108);
+        _ZN4core6option15Option_LT_T_GT_11map_or_else17h805a87bba4bea7c2E(&local_48,&local_108);
         param_1[3] = local_38;
         *(undefined4 *)(param_1 + 1) = local_48;
         *(undefined4 *)((long)param_1 + 0xc) = uStack_44;
@@ -110,11 +114,12 @@ uu_cp::handle_existing_dest
         *(undefined4 *)((long)param_1 + 0x14) = uStack_3c;
         *param_1 = 4;
 LAB_00205f19:
-        core::ptr::drop_in_place<std::path::PathBuf>(&local_a8);
+        _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17ha8df8090ff0f5f1eE(&local_a8);
         return;
       }
-      cVar3 = std::path::Path::is_symlink(param_4,param_5);
-      backup_dest(&local_108,param_4,param_5,CONCAT44(uStack_9c,uStack_a0),local_98,cVar3);
+      cVar3 = _ZN3std4path4Path10is_symlink17h6ab8b58756c51c6bE(param_4,param_5);
+      _ZN5uu_cp11backup_dest17hb9d2dd191dda7572E
+                (&local_108,param_4,param_5,CONCAT44(uStack_9c,uStack_a0),local_98,cVar3);
       local_128 = local_100;
       lVar1 = local_128;
       uStack_120 = ppuStack_f8;
@@ -140,11 +145,11 @@ LAB_00205f19:
         goto LAB_00205f19;
       }
       local_b8 = local_f0;
-      core::ptr::drop_in_place<std::path::PathBuf>(&local_c8);
-      core::ptr::drop_in_place<std::path::PathBuf>(&local_a8);
+      _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17ha8df8090ff0f5f1eE(&local_c8);
+      _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17ha8df8090ff0f5f1eE(&local_a8);
       if (cVar3 != '\0') goto LAB_00205d17;
     }
-    delete_dest_if_needed_and_allowed
+    _ZN5uu_cp33delete_dest_if_needed_and_allowed17h6af23b073bf255d0E
               (&local_108,param_2,param_3,param_4,param_5,param_6,local_68,param_8);
     if (local_108 == (undefined **)0xd) {
 LAB_00205d17:

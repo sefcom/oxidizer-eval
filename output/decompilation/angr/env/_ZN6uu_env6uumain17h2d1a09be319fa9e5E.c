@@ -1,6 +1,6 @@
 long long uu_env::uumain::h2d1a09be319fa9e5(unsigned int a0, unsigned int a1)
 {
-    unsigned long v0;  // [sp-0xa8], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0xa8]
     char v1[3];  // [sp-0x98], Other Possible Types: unsigned short
     char v2;  // [sp-0x96]
     unsigned long long v3;  // [sp-0x90]
@@ -11,13 +11,13 @@ long long uu_env::uumain::h2d1a09be319fa9e5(unsigned int a0, unsigned int a1)
     struct struct_3 *v8[14];  // [sp-0x60], Other Possible Types: unsigned long long
     struct struct_1 **v9;  // [sp-0x58]
     unsigned long long v10;  // [sp-0x50]
-    char *v11;  // [sp-0x48]
+    char *v11;  // [bp-0x48]
     unsigned long long v12;  // [sp-0x40]
     unsigned long long v13;  // [sp-0x38]
     char v14;  // [bp-0x28]
     char v15;  // [bp-0x18]
     unsigned long long v17;  // rax
-    unsigned int v18;  // eax
+    unsigned int v18;  // ebx
     struct struct_3 *v19[14];  // rdx
 
     core::result::Result$LT$T$C$E$GT$::expect::h16af578bf76ac2e6((unsigned int)uucore::disable_rust_signal_handlers::hc16ff077e3f1e2f6());
@@ -37,7 +37,7 @@ long long uu_env::uumain::h2d1a09be319fa9e5(unsigned int a0, unsigned int a1)
     v6 = 0;
     v4 = &v11;
     v5 = 1;
-    core::option::Option$LT$T$GT$::map_or_else::h60f4303fb8255fc3();
+    core::option::Option$LT$T$GT$::map_or_else::h60f4303fb8255fc3(&v14, &v1);
     *((int128_t *)&v11) = *((int128_t *)&v14);
     v13 = *((long long *)&v15);
     if (_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$::ne::hb4f2d17f007cd88a(v12, *((long long *)&v15)))

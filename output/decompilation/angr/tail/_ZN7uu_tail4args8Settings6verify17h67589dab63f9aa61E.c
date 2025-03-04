@@ -1,6 +1,6 @@
 long long uu_tail::args::Settings::verify::h67589dab63f9aa61(struct_0 *a0)
 {
-    unsigned long v0;  // [sp-0x18], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x18]
     unsigned long long v1;  // [sp-0x10]
     unsigned long long v3;  // rax
     char v4;  // cl

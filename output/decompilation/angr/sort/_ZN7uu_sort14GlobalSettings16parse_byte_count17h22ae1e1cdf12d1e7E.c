@@ -1,12 +1,12 @@
 long long uu_sort::GlobalSettings::parse_byte_count::h22ae1e1cdf12d1e7(unsigned long long a0[4], unsigned long long a1, unsigned long long a2)
 {
-    unsigned long v0;  // [sp-0x78], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x78]
     unsigned long long v1;  // [sp-0x70]
     struct struct_0 **v2;  // [sp-0x68], Other Possible Types: unsigned long long
     unsigned long long v3;  // [sp-0x60]
     void* v4;  // [sp-0x58], Other Possible Types: unsigned short
     char v5;  // [sp-0x56]
-    char *v6;  // [bp-0x48], Other Possible Types: unsigned long
+    char *v6;  // [sp-0x48], Other Possible Types: unsigned long
     char v7;  // [bp-0x40], Other Possible Types: unsigned long long
     char v8;  // [bp-0x38]
     char v9;  // [bp-0x30]
@@ -51,7 +51,7 @@ long long uu_sort::GlobalSettings::parse_byte_count::h22ae1e1cdf12d1e7(unsigned 
         v4 = 0;
         v2 = &v6;
         v3 = 1;
-        ::0x51c910::core::option::Option$LT$T$GT$::map_or_else::h391d7c162d69f44b();
+        ::0x51c910::core::option::Option$LT$T$GT$::map_or_else::h391d7c162d69f44b(&a0[1], &v0);
         v17 = 2;
     }
     a0[0] = v17;

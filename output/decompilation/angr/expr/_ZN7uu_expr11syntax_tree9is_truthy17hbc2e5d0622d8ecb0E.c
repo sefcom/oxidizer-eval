@@ -1,6 +1,6 @@
 long long uu_expr::syntax_tree::is_truthy::hbc2e5d0622d8ecb0(struct_0 *a0)
 {
-    char v0;  // [bp-0x38], Other Possible Types: unsigned long long
+    char v0;  // [bp-0x38], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0x30]
     char v2;  // [bp-0x28]
     char v3;  // [bp-0x20]
@@ -25,7 +25,7 @@ long long uu_expr::syntax_tree::is_truthy::hbc2e5d0622d8ecb0(struct_0 *a0)
             else
                 v8 = (int)alloc::vec::partial_eq::_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$::eq::hc86a8171fbe67109(a0->field_8, a0->field_10, v1, *((long long *)&v2)) & 0xffffffffffffff00 | (char)alloc::vec::partial_eq::_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$::eq::hc86a8171fbe67109(a0->field_8, a0->field_10, v1, *((long long *)&v2)) ^ 1;
         }
-        core::ptr::drop_in_place$LT$num_bigint..bigint..BigInt$GT$::h4ffd1c0c3ebf756b();
+        core::ptr::drop_in_place$LT$num_bigint..bigint..BigInt$GT$::h4ffd1c0c3ebf756b(&v0);
     }
     else
     {

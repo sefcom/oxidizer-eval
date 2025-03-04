@@ -1,6 +1,5 @@
-void __rustcall
-uu_split::handle_extract_obs_lines
-          (undefined8 *param_1,long param_2,long param_3,undefined4 *param_4)
+void _ZN8uu_split24handle_extract_obs_lines17hd759134314187d0aE
+               (undefined8 *param_1,long param_2,long param_3,undefined4 *param_4)
 
 {
   undefined local_b9;
@@ -39,11 +38,11 @@ uu_split::handle_extract_obs_lines
   local_58 = &local_b8;
                     /* try { // try from 001c9dcc to 001c9dda has its CatchHandler @ 001c9ec6 */
   local_70 = param_2;
-  _<alloc::vec::Vec<T>as_alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter
+  _ZN98__LT_alloc__vec__Vec_LT_T_GT__u20_as_u20_alloc__vec__spec_from_iter__SpecFromIter_LT_T_C_I_GT__GT_9from_iter17hcbe47f8a54903219E
             (local_a0,&local_70);
   if (local_a8 == 0) {
                     /* try { // try from 001c9e2c to 001c9e68 has its CatchHandler @ 001c9eb7 */
-    std::sys::os_str::bytes::Slice::to_owned(&local_38,param_2,param_3);
+    _ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E(&local_38,param_2,param_3);
     param_1[2] = local_28;
     local_50 = local_38;
     uStack_4c = uStack_34;
@@ -52,10 +51,11 @@ uu_split::handle_extract_obs_lines
   }
   else {
                     /* try { // try from 001c9dee to 001c9df7 has its CatchHandler @ 001c9eb7 */
-    _<alloc::string::String_as_core::iter::traits::collect::FromIterator<&char>>::from_iter
+    _ZN99__LT_alloc__string__String_u20_as_u20_core__iter__traits__collect__FromIterator_LT__RF_char_GT__GT_9from_iter17hcf3bda9dc0bd03f6E
               (&local_88,local_b0,local_b0 + local_a8 * 4);
                     /* try { // try from 001c9df8 to 001c9dff has its CatchHandler @ 001c9ea0 */
-    core::ptr::drop_in_place<core::option::Option<alloc::string::String>>(param_4);
+    _ZN4core3ptr70drop_in_place_LT_core__option__Option_LT_alloc__string__String_GT__GT_17h9a0a0458ef52dcc0E
+              (param_4);
     *(undefined8 *)(param_4 + 4) = local_78;
     *param_4 = local_88;
     param_4[1] = uStack_84;
@@ -65,7 +65,7 @@ uu_split::handle_extract_obs_lines
       *param_1 = 0x8000000000000000;
       goto LAB_001c9e7d;
     }
-    _<alloc::string::String_as_core::iter::traits::collect::FromIterator<&char>>::from_iter
+    _ZN99__LT_alloc__string__String_u20_as_u20_core__iter__traits__collect__FromIterator_LT__RF_char_GT__GT_9from_iter17hcf3bda9dc0bd03f6E
               (&local_50,local_98,local_98 + local_90 * 4);
     param_1[2] = local_40;
   }
@@ -75,7 +75,7 @@ uu_split::handle_extract_obs_lines
   *(undefined4 *)((long)param_1 + 0xc) = uStack_44;
 LAB_001c9e7d:
                     /* try { // try from 001c9e7d to 001c9e86 has its CatchHandler @ 001c9ec6 */
-  core::ptr::drop_in_place<alloc::vec::Vec<char>>(local_a0);
-  core::ptr::drop_in_place<alloc::vec::Vec<char>>(&local_b8);
+  _ZN4core3ptr48drop_in_place_LT_alloc__vec__Vec_LT_char_GT__GT_17hd7f863a59b4c66daE(local_a0);
+  _ZN4core3ptr48drop_in_place_LT_alloc__vec__Vec_LT_char_GT__GT_17hd7f863a59b4c66daE(&local_b8);
   return;
 }

@@ -1,17 +1,17 @@
 long long uu_uniq::Uniq::print_uniq::h818dd57e8b925a7a(char a0[55], unsigned long long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4)
 {
-    unsigned int v0;  // [sp-0x108]
+    char v0;  // [bp-0x108]
     char v1;  // [sp-0xfb]
     char v2;  // [sp-0xfa]
     char v3;  // [sp-0xf9]
-    int v4;  // [sp-0xf8], Other Possible Types: unsigned long, unsigned long long
+    int v4;  // [bp-0xf8], Other Possible Types: unsigned long
     unsigned long long v5;  // [sp-0xf0]
     unsigned long long v6;  // [sp-0xe8]
     int v7;  // [bp-0xc8], Other Possible Types: char
     char v8;  // [bp-0xc0]
     unsigned long v9;  // [sp-0xb8], Other Possible Types: unsigned long long
     unsigned int v10;  // [sp-0xa4]
-    unsigned long v11;  // [sp-0xa0], Other Possible Types: unsigned long long
+    unsigned long v11;  // [sp-0xa0]
     unsigned long long v12;  // [sp-0x98]
     unsigned long long v13;  // [sp-0x90]
     int v14;  // [sp-0x88]
@@ -24,15 +24,16 @@ long long uu_uniq::Uniq::print_uniq::h818dd57e8b925a7a(char a0[55], unsigned lon
     char v21;  // [bp-0x40]
     char v22;  // [bp-0x38]
     unsigned int v24;  // ebp
+    unsigned long long v25;  // r14
     unsigned long long v26;  // rax
-    void* v27;  // r14
-    int v29;  // xmm0
+    int v28;  // xmm0
+    int v29;  // ymm0
     int v30;  // ymm0
-    int v31;  // ymm0
-    unsigned long long v32;  // r12
-    unsigned long long v33;  // rbx
-    unsigned long long v34;  // rax
-    unsigned long long v36;  // rax
+    unsigned long long v31;  // r12
+    unsigned long long v32;  // rbx
+    unsigned long long v33;  // rax
+    unsigned long long v35;  // rbp
+    void* v36;  // r14, Other Possible Types: unsigned long long
     int v37;  // xmm0
     int v38;  // xmm0
     int v39;  // xmm0
@@ -42,10 +43,11 @@ long long uu_uniq::Uniq::print_uniq::h818dd57e8b925a7a(char a0[55], unsigned lon
     v24 = (a0[53] ? 0 : 10);
     std::io::BufRead::split::h55d0a47e7c3c4bc4(&v16, a1, a2, v24);
     _$LT$std..io..Split$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h98b1df7ad774e08e(&v7, &v16);
+    v25 = 0x8000000000000000;
     v26 = *((long long *)&v7);
     if (v26 == 9223372036854775809)
     {
-        v27 = 0;
+        v36 = 0;
         goto LABEL_47068e;
     }
     else if (v26 != 0x8000000000000000)
@@ -55,27 +57,28 @@ long long uu_uniq::Uniq::print_uniq::h818dd57e8b925a7a(char a0[55], unsigned lon
         v5 = *((long long *)&v8);
         v6 = v9;
         v15 = *((long long *)&v18);
-        v29 = *((int128_t *)&v16);
-        v31 = v30 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v29;
-        v14 = v29;
+        v28 = *((int128_t *)&v16);
+        v30 = v29 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v28;
+        v14 = v28;
         v3 = a0[50];
         v2 = a0[48];
         v1 = a0[49];
-        v32 = 1;
-        v33 = 0;
+        v31 = 1;
+        v32 = 0;
         v19 = 9223372036854775809;
         while (true)
         {
             _$LT$std..io..Split$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h98b1df7ad774e08e(&v20, &v14);
-            v34 = *((long long *)&v20);
-            if (v34 == v19)
+            v33 = *((long long *)&v20);
+            if (v33 == v19)
                 break;
-            if (v34 == 0x8000000000000000)
+            if (v33 == v25)
             {
                 v36 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v12);
                 goto LABEL_470922;
             }
-            v11 = v34;
+            v35 = v25;
+            v11 = v33;
             v12 = *((long long *)&v21);
             v13 = *((long long *)&v22);
             if (!(char)uu_uniq::Uniq::cmp_keys::h242b77250fdb6028(a0, v5, v6, v12, v13))
@@ -83,11 +86,11 @@ long long uu_uniq::Uniq::print_uniq::h818dd57e8b925a7a(char a0[55], unsigned lon
                 if (!v3)
                 {
                     ::0x46f220::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0b327608f4b568de(&v11);
-                    v32 += 1;
+                    v25 = v35;
+                    v31 += 1;
                     continue;
                 }
-                v0 = (char)v33 & 1;
-                v36 = uu_uniq::Uniq::print_line::h32e5970fdc1721c7(a0, a3, a4, v5, v6, v32);
+                v36 = uu_uniq::Uniq::print_line::h32e5970fdc1721c7(a0, a3, a4, v5, v6, v31, v0);
                 if (!(!v36))
                     goto LABEL_470915;
                 v9 = v13;
@@ -96,14 +99,15 @@ long long uu_uniq::Uniq::print_uniq::h818dd57e8b925a7a(char a0[55], unsigned lon
                 ::0x46f220::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0b327608f4b568de(&v4);
                 v6 = v9;
                 v39 = (int128_t)v7;
-                v31 = (v31 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v37) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v39;
+                v30 = (v30 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v37) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v39;
                 v4 = v39;
-                v32 += 1;
-                v33 = (v33 & 0xffffffffffffff00 | (char)v33 & 1) & 0xffffffffffffff00 | 1;
+                v31 += 1;
+                v32 = (v32 & 0xffffffffffffff00 | (char)v32 & 1) & 0xffffffffffffff00 | 1;
+                v25 = v35;
             }
             else
             {
-                if (!(!v2 & v32 == 1) && !(!(v32 <= 1) & !v1) || (v0 = (unsigned int)((char)v33 & 1), v36 = uu_uniq::Uniq::print_line::h32e5970fdc1721c7(a0, a3, a4, v5, v6, v32), v33 = (v33 & 0xffffffffffffff00 | (unsigned long long)((char)v33 & 1)) & 0xffffffffffffff00 | 1, !v36))
+                if (!(!v2 & v31 == 1) && !(!(v31 <= 1) & !v1) || (v36 = uu_uniq::Uniq::print_line::h32e5970fdc1721c7(a0, a3, a4, v5, v6, v31, v0), v32 = (v32 & 0xffffffffffffff00 | (unsigned long long)((char)v32 & 1)) & 0xffffffffffffff00 | 1, !v36))
                 {
                     v9 = v13;
                     v38 = *((int128_t *)&v11);
@@ -111,9 +115,10 @@ long long uu_uniq::Uniq::print_uniq::h818dd57e8b925a7a(char a0[55], unsigned lon
                     ::0x46f220::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0b327608f4b568de(&v4);
                     v6 = v9;
                     v40 = (int128_t)v7;
-                    v31 = (v31 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v38) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v40;
+                    v30 = (v30 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v38) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (uint256_t)v40;
                     v4 = v40;
-                    v32 = 1;
+                    v31 = 1;
+                    v25 = v35;
                     continue;
                 }
 LABEL_470915:
@@ -124,16 +129,15 @@ LABEL_470922:
             }
         }
         core::ptr::drop_in_place$LT$std..io..Split$LT$alloc..boxed..Box$LT$dyn$u20$std..io..BufRead$GT$$GT$$GT$::hab86488a13dfdbdc((long long)v14, (long long)(&v14)[8]);
-        if (!(!v2 & v32 == 1) && !(!(v32 <= 1) & !v1))
+        if (!(!v2 & v31 == 1) && !(!(v31 <= 1) & !v1))
         {
             v41 = a0[54];
-            if (!(!v36))
+            if (!((!v41 || v41 == 3) && ((char)v32 & 1)))
                 goto LABEL_4709b7;
         }
         else
         {
-            v0 = (char)v33 & 1;
-            v36 = uu_uniq::Uniq::print_line::h32e5970fdc1721c7(a0, a3, a4, v5, v6, v32);
+            v36 = uu_uniq::Uniq::print_line::h32e5970fdc1721c7(a0, a3, a4, v5, v6, v31, v0);
             if (!(!v36))
                 goto LABEL_4709a8;
             if (a0[54] && a0[54] != 3)
@@ -146,22 +150,19 @@ LABEL_4709b7:
         }
         v7 = v10;
         v36 = _$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$::map_err_context::h1a47c8c078c37691(std::io::impls::_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$::write_all::ha26dee22509071d6(a3, a4, &v7, 1));
-        if (!v36)
+        if (v36)
         {
-            ::0x46f220::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0b327608f4b568de(&v4);
-            core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$::h2ae1655ce00f55b1(a3, a4);
-            return 0;
-        }
 LABEL_4709a8:
 LABEL_4709ab:
-        ::0x46f220::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0b327608f4b568de(&v4);
+            ::0x46f220::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h0b327608f4b568de(&v4);
+        }
     }
     else
     {
-        v27 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v5);
+        v36 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v5);
 LABEL_47068e:
         core::ptr::drop_in_place$LT$std..io..Split$LT$alloc..boxed..Box$LT$dyn$u20$std..io..BufRead$GT$$GT$$GT$::hab86488a13dfdbdc(*((long long *)&v16), *((long long *)&v17));
     }
     core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$::h2ae1655ce00f55b1(a3, a4);
-    return v27;
+    return v36;
 }

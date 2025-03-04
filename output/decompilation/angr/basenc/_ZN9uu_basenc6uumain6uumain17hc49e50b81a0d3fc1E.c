@@ -1,17 +1,17 @@
 long long uu_basenc::uumain::uumain::hc49e50b81a0d3fc1(unsigned long long a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0x98], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x98]
     unsigned long long v1;  // [sp-0x90]
     int v2;  // [bp-0x88], Other Possible Types: char
     char v3;  // [bp-0x80]
-    int v4;  // [bp-0x78], Other Possible Types: char
+    int v4;  // [sp-0x78], Other Possible Types: char
     char v5;  // [bp-0x70]
     int v6;  // [sp-0x68]
     char v7;  // [bp-0x60]
     char v8;  // [bp-0x58]
-    unsigned long v9;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v9;  // [sp-0x48]
     unsigned long long v10;  // [sp-0x40]
-    unsigned long v11;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v11;  // [sp-0x38]
     int v12;  // [sp-0x30]
     unsigned long long v13;  // [sp-0x20]
     unsigned long long v16;  // rbx

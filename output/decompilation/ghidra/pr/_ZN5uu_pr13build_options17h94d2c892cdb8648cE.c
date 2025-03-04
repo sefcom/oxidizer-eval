@@ -1,7 +1,7 @@
 /* WARNING: Type propagation algorithm not settling */
 
-undefined8 * __rustcall
-uu_pr::build_options
+undefined8 *
+_ZN5uu_pr13build_options17h94d2c892cdb8648cE
           (undefined8 *param_1,undefined8 param_2,long *param_3,undefined8 *******param_4,
           undefined8 param_5,undefined8 param_6)
 
@@ -153,15 +153,19 @@ uu_pr::build_options
   local_238 = param_4;
   local_230 = param_5;
   local_228 = param_6;
-  bVar7 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"form-feed",9);
-  cVar8 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"merge",5);
+  bVar7 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                    (param_2,"form-feed",9);
+  cVar8 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                    (param_2,"merge",5);
   if (cVar8 != '\0') {
-    cVar9 = clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(param_2,"column",6);
+    cVar9 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E
+                      (param_2,"column",6);
     if (cVar9 != '\0') {
       pcVar18 = "cannot specify number of columns when printing in parallel";
       uVar16 = 0x3a;
 LAB_002c4592:
-      _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_328,pcVar18,uVar16);
+      _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h52af2e019a03ed2dE
+                (&local_328,pcVar18,uVar16);
       local_338[1] = 0x8000000000000001;
       local_338[2] = local_328;
       local_338[3] = uStack_320;
@@ -169,30 +173,35 @@ LAB_002c4592:
       *local_338 = 2;
       return local_338;
     }
-    cVar9 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"across",6);
+    cVar9 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                      (param_2,"across",6);
     if (cVar9 != '\0') {
       pcVar18 = "cannot specify both printing across and printing in parallel";
       uVar16 = 0x3c;
       goto LAB_002c4592;
     }
   }
-  local_329 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(param_2,"merge",5);
+  local_329 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                        (param_2,"merge",5);
   pcVar18 = "header";
   local_2c8 = param_2;
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&local_328,param_2,"header",6)
-  ;
-  lVar10 = clap_builder::parser::error::MatchesError::unwrap("header",6,&local_328);
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf528812c919d4af6E
+            (&local_328,param_2,"header",6);
+  lVar10 = _ZN12clap_builder6parser5error12MatchesError6unwrap17hf38d98c9afef2728E
+                     ("header",6,&local_328);
   if (lVar10 == 0) {
     lVar21 = 0;
     if (cVar8 != '\0') goto LAB_002c462e;
 LAB_002c4640:
     if (local_238 == (undefined8 *******)0x0) {
                     /* WARNING: Subroutine does not return */
-      core::panicking::panic_bounds_check(0,0,&PTR_s_src_uu_pr_src_pr_rs_00409280);
+      _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E
+                (0,0,&PTR_s_src_uu_pr_src_pr_rs_00409280);
     }
     lVar1 = *param_3;
     pcVar2 = (char *)param_3[1];
-    cVar9 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(lVar1,pcVar2,"-",1);
+    cVar9 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hbb47e2b296de4d69E
+                      (lVar1,pcVar2,"-",1);
     pcVar14 = (char *)0x0;
     lVar10 = 1;
     if (cVar9 == '\0') {
@@ -212,17 +221,19 @@ LAB_002c462e:
     lVar10 = lVar21;
     pcVar14 = pcVar18;
   }
-  _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_328,lVar10,pcVar14);
+  _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h52af2e019a03ed2dE
+            (&local_328,lVar10,pcVar14);
   local_198 = local_318;
   local_1a8 = (undefined4)local_328;
   uStack_1a4 = local_328._4_4_;
   uStack_1a0 = (undefined4)uStack_320;
   uStack_19c = uStack_320._4_4_;
                     /* try { // try from 002c46c6 to 002c47ef has its CatchHandler @ 002c5997 */
-  _<uu_pr::NumberingMode_as_core::default::Default>::default(&local_328);
+  _ZN63__LT_uu_pr__NumberingMode_u20_as_u20_core__default__Default_GT_7default17h62d70fa0066756c7E
+            (&local_328);
   pppppppuVar19 = local_308;
-  core::ptr::drop_in_place<uu_pr::NumberingMode>(&local_328);
-  parse_usize(&local_2b8,local_2c8,"first-line-number",0x11);
+  _ZN4core3ptr41drop_in_place_LT_uu_pr__NumberingMode_GT_17h7b44dbe916af3d67E(&local_328);
+  _ZN5uu_pr11parse_usize17hfdefcaff0fd209a5E(&local_2b8,local_2c8,"first-line-number",0x11);
   pppppppuVar13 = (undefined8 *******)uStack_2b0;
   pppppppuVar17 = (undefined8 *******)local_2b8;
   uStack_320 = pppppppuVar19;
@@ -232,7 +243,8 @@ LAB_002c462e:
     uStack_144 = local_2a8._4_4_;
     uStack_140 = (undefined4)uStack_2a0;
     uStack_13c = uStack_2a0._4_4_;
-    core::ptr::drop_in_place<core::result::Result<usize,uu_pr::PrError>>(&local_328);
+    _ZN4core3ptr71drop_in_place_LT_core__result__Result_LT_usize_C_uu_pr__PrError_GT__GT_17ha4194cf31cf0eea9E
+              (&local_328);
     pppppppuVar19 = pppppppuVar13;
     if (pppppppuVar17 != (undefined8 *******)0x8000000000000005) {
       *(undefined4 *)(local_338 + 3) = local_148;
@@ -245,14 +257,15 @@ LAB_002c462e:
       goto LAB_002c5675;
     }
   }
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf528812c919d4af6E
             (&local_328,local_2c8,"number-lines",0xc);
-  lVar10 = clap_builder::parser::error::MatchesError::unwrap("number-lines",0xc,&local_328);
+  lVar10 = _ZN12clap_builder6parser5error12MatchesError6unwrap17hf38d98c9afef2728E
+                     ("number-lines",0xc,&local_328);
   if (lVar10 == 0) {
     local_2b8 = (char *)0x8000000000000000;
   }
   else {
-    build_options::___closure__
+    _ZN5uu_pr13build_options28__u7b__u7b_closure_u7d__u7d_17h8ef498fb2ad05c80E
               (&local_328,pppppppuVar19,*(undefined8 *)(lVar10 + 8),*(undefined8 *)(lVar10 + 0x10));
     local_298 = local_308;
     local_2a8 = local_318;
@@ -260,13 +273,14 @@ LAB_002c462e:
     local_2b8 = (char *)local_328;
     uStack_2b0 = (code *)uStack_320;
   }
-  core::option::Option<T>::or_else(&local_148,&local_2b8,local_2c8);
+  _ZN4core6option15Option_LT_T_GT_7or_else17ha3e2a98868988ec3E(&local_148,&local_2b8,local_2c8);
   uVar16 = local_2c8;
                     /* try { // try from 002c47f0 to 002c484e has its CatchHandler @ 002c5988 */
-  cVar9 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+  cVar9 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                     (local_2c8,"double-space",0xc);
   if (cVar9 == '\0') {
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_328,"\n argument ",1);
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h52af2e019a03ed2dE
+              (&local_328,"\n argument ",1);
     local_1d8 = local_318;
     local_1e8 = (undefined4)local_328;
     uStack_1e4 = local_328._4_4_;
@@ -274,10 +288,11 @@ LAB_002c462e:
     uStack_1dc = uStack_320._4_4_;
   }
   else {
-    ::alloc::str::_<impl_str>::repeat(&local_1e8,"\n argument ",1,2);
+    _ZN5alloc3str21__LT_impl_u20_str_GT_6repeat17h44a69ba09e43960aE(&local_1e8,"\n argument ",1,2);
   }
                     /* try { // try from 002c4869 to 002c487e has its CatchHandler @ 002c5983 */
-  _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_328,"\n argument ",1);
+  _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h52af2e019a03ed2dE
+            (&local_328,"\n argument ",1);
   local_178 = local_318;
   local_188 = (undefined4)local_328;
   uStack_184 = local_328._4_4_;
@@ -287,40 +302,46 @@ LAB_002c462e:
     if (local_238 == (undefined8 *******)0x0) {
                     /* try { // try from 002c58d0 to 002c58e0 has its CatchHandler @ 002c5992 */
                     /* WARNING: Subroutine does not return */
-      core::panicking::panic_bounds_check(0,0,&PTR_s_src_uu_pr_src_pr_rs_00409298);
+      _ZN4core9panicking18panic_bounds_check17h25a5330941572dd1E
+                (0,0,&PTR_s_src_uu_pr_src_pr_rs_00409298);
     }
     lVar10 = *param_3;
     lVar21 = param_3[1];
                     /* try { // try from 002c48b5 to 002c492e has its CatchHandler @ 002c5992 */
-    cVar8 = _<[A]as_core::slice::cmp::SlicePartialEq<B>>::equal(lVar10,lVar21,"-",1);
+    cVar8 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hbb47e2b296de4d69E
+                      (lVar10,lVar21,"-",1);
     if (cVar8 != '\0') goto LAB_002c48d4;
-    uVar11 = file_last_modified_time(&local_168,lVar10,lVar21);
+    uVar11 = _ZN5uu_pr23file_last_modified_time17ha75c4cf04aa4487bE(&local_168,lVar10,lVar21);
   }
   else {
 LAB_002c48d4:
-    chrono::offset::local::Local::now(&local_268);
+    _ZN6chrono6offset5local5Local3now17ha82adb6e05d16f38E(&local_268);
     local_2b8 = "%b %d %H:%M %Y";
     uStack_2b0 = (code *)0xe;
     local_2a8 = (undefined8 *******)&DAT_00000008;
     uStack_2a0 = (code *)0x0;
-    chrono::datetime::DateTime<Tz>::format_with_items(&local_328,&local_268,&local_2b8);
+    _ZN6chrono8datetime18DateTime_LT_Tz_GT_17format_with_items17h8783bdf86431a8e2E
+              (&local_328,&local_268,&local_2b8);
                     /* try { // try from 002c492f to 002c4940 has its CatchHandler @ 002c5931 */
-    _<T_as_alloc::string::ToString>::to_string(&local_168,&local_328);
+    _ZN45__LT_T_u20_as_u20_alloc__string__ToString_GT_9to_string17hac2fd916285297b4E
+              (&local_168,&local_328);
                     /* try { // try from 002c4941 to 002c4984 has its CatchHandler @ 002c5992 */
-    uVar11 = core::ptr::
-             drop_in_place<chrono::format::formatting::DelayedFormat<chrono::format::strftime::StrftimeItems>>
+    uVar11 = _ZN4core3ptr109drop_in_place_LT_chrono__format__formatting__DelayedFormat_LT_chrono__format__strftime__StrftimeItems_GT__GT_17hc5f165bf2c68bf1eE
                        (&local_328);
   }
   local_2cc = (undefined4)CONCAT71((int7)((ulong)uVar11 >> 8),1);
                     /* try { // try from 002c498b to 002c49ba has its CatchHandler @ 002c598d */
-  regex::regex::string::Regex::new(&local_328,"\\s*\\+(\\d+:*\\d*)\\s*",0x12);
-  core::result::Result<T,E>::unwrap(local_120,&local_328,&PTR_s_src_uu_pr_src_pr_rs_004092b0);
+  _ZN5regex5regex6string5Regex3new17h2b022f3b326b0361E(&local_328,"\\s*\\+(\\d+:*\\d*)\\s*",0x12);
+  _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h8fa19f49ce20910dE
+            (local_120,&local_328,&PTR_s_src_uu_pr_src_pr_rs_004092b0);
                     /* try { // try from 002c49bb to 002c4f8b has its CatchHandler @ 002c599c */
-  regex::regex::string::Regex::captures_at(&local_2b8,local_120,local_230,local_228);
+  _ZN5regex5regex6string5Regex11captures_at17h3dfa64f8a9d1e89bE
+            (&local_2b8,local_120,local_230,local_228);
   if ((int)local_2b8 == 2) {
     local_248 = (undefined8 *******)&DAT_00000001;
 LAB_002c4a9d:
-    regex::regex::string::Regex::captures_at(&local_2b8,local_120,local_230,local_228);
+    _ZN5regex5regex6string5Regex11captures_at17h3dfa64f8a9d1e89bE
+              (&local_2b8,local_120,local_230,local_228);
     if ((int)local_2b8 == 2) {
       uVar11 = 0;
     }
@@ -337,17 +358,19 @@ LAB_002c4a9d:
       uStack_310 = (undefined8 *******)uStack_2a0;
       local_328 = (undefined **)local_2b8;
       uStack_320 = (undefined8 *******)uStack_2b0;
-      uVar11 = build_options::___closure__(&local_328);
+      uVar11 = _ZN5uu_pr13build_options28__u7b__u7b_closure_u7d__u7d_17h20f6ec5ab6200f34E
+                         (&local_328);
     }
-    lVar10 = core::option::Option<T>::filter(uVar11);
+    lVar10 = _ZN4core6option15Option_LT_T_GT_6filter17hb95f08937d3c1d4eE(uVar11);
     if (lVar10 == 0) {
       bVar3 = false;
 LAB_002c4b7d:
-      clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+      _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf528812c919d4af6E
                 (&local_328,uVar16,"pages",5);
-      lVar10 = clap_builder::parser::error::MatchesError::unwrap("pages",5,&local_328);
+      lVar10 = _ZN12clap_builder6parser5error12MatchesError6unwrap17hf38d98c9afef2728E
+                         ("pages",5,&local_328);
       if (lVar10 != 0) {
-        build_options::___closure__
+        _ZN5uu_pr13build_options28__u7b__u7b_closure_u7d__u7d_17h2ddd4089cb1ade00E
                   (&local_328,*(undefined8 *)(lVar10 + 8),*(undefined8 *)(lVar10 + 0x10));
         local_268 = uStack_320;
         uStack_260 = (undefined4)local_318;
@@ -356,7 +379,7 @@ LAB_002c4b7d:
           uStack_2b0 = (code *)uStack_320;
           local_2a8 = local_318;
           local_2b8 = (char *)local_328;
-          core::ops::function::FnOnce::call_once(&local_328,uVar16,&local_2b8);
+          _ZN4core3ops8function6FnOnce9call_once17ha1b2362239e97776E(&local_328,uVar16,&local_2b8);
           local_a8 = (undefined4)local_318;
           uStack_a4 = local_318._4_4_;
           uStack_a0 = (undefined4)uStack_310;
@@ -377,17 +400,18 @@ LAB_002c4b7d:
         }
       }
       local_150 = local_248;
-      clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+      _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf528812c919d4af6E
                 (&local_328,uVar16,"pages",5);
-      uVar11 = clap_builder::parser::error::MatchesError::unwrap("pages",5,&local_328);
-      lVar10 = core::option::Option<T>::filter(uVar11);
+      uVar11 = _ZN12clap_builder6parser5error12MatchesError6unwrap17hf38d98c9afef2728E
+                         ("pages",5,&local_328);
+      lVar10 = _ZN4core6option15Option_LT_T_GT_6filter17h140b96ae474dbf5eE(uVar11);
       if (lVar10 == 0) {
 LAB_002c4d59:
         if (bVar3) goto LAB_002c4d6d;
         local_1f0 = 0;
       }
       else {
-        build_options::___closure__
+        _ZN5uu_pr13build_options28__u7b__u7b_closure_u7d__u7d_17h38790067a811e053E
                   (&local_328,*(undefined8 *)(lVar10 + 8),*(undefined8 *)(lVar10 + 0x10));
         local_268 = uStack_320;
         uStack_260 = (undefined4)local_318;
@@ -397,7 +421,7 @@ LAB_002c4d59:
         uStack_2b0 = (code *)uStack_320;
         local_2a8 = local_318;
         local_2b8 = (char *)local_328;
-        core::ops::function::FnOnce::call_once(&local_328,uVar16,&local_2b8);
+        _ZN4core3ops8function6FnOnce9call_once17ha1b2362239e97776E(&local_328,uVar16,&local_2b8);
         local_98 = (undefined4)local_318;
         uStack_94 = local_318._4_4_;
         uStack_90 = (undefined4)uStack_310;
@@ -418,15 +442,19 @@ LAB_002c4d6d:
         local_268 = local_240;
         if (local_240 < local_248) {
           local_2b8 = (char *)&local_150;
-          uStack_2b0 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+          uStack_2b0 = 
+          _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+          ;
           local_2a8 = (undefined8 *******)&local_268;
-          uStack_2a0 = core::fmt::num::imp::_<impl_core::fmt::Display_for_u64>::fmt;
+          uStack_2a0 = 
+          _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17he829b250bc010c8bE
+          ;
           local_328 = &PTR_s_invalid___pages_argument_____00409250;
           uStack_320 = (undefined8 *******)0x3;
           local_308 = (undefined8 *******)0x0;
           uStack_310 = (undefined8 *******)0x2;
           local_318 = (undefined8 *******)&local_2b8;
-          core::option::Option<T>::map_or_else(&local_60,&local_328);
+          _ZN4core6option15Option_LT_T_GT_11map_or_else17h4ea8d69383c77fddE(&local_60,&local_328);
           local_338[4] = local_50;
           *(undefined4 *)(local_338 + 2) = local_60;
           *(undefined4 *)((long)local_338 + 0x14) = uStack_5c;
@@ -438,7 +466,7 @@ LAB_002c4d6d:
         }
         local_1f0 = 1;
       }
-      parse_usize(&local_2b8,uVar16,"length",6);
+      _ZN5uu_pr11parse_usize17hfdefcaff0fd209a5E(&local_2b8,uVar16,"length",6);
       pppppppuVar17 = (undefined8 *******)uStack_2b0;
       pppppppuVar19 = (undefined8 *******)local_2b8;
       uStack_320 = (undefined8 *******)((ulong)(bVar7 ^ 1) * 3 + 0x3f);
@@ -446,7 +474,7 @@ LAB_002c4d6d:
       pppppppuVar13 = uStack_320;
       if ((undefined8 *******)local_2b8 == (undefined8 *******)0x8000000000000006) {
 LAB_002c4e87:
-        local_2bc = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+        local_2bc = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                               (uVar16,"omit-header",0xb);
         local_2bc = local_2bc ^ 1;
         pppppppuVar17 = (undefined8 *******)((long)pppppppuVar13 + -10);
@@ -455,7 +483,8 @@ LAB_002c4e87:
         local_268 = local_2a8;
         uStack_260 = (undefined4)uStack_2a0;
         uStack_25c = uStack_2a0._4_4_;
-        core::ptr::drop_in_place<core::result::Result<usize,uu_pr::PrError>>(&local_328);
+        _ZN4core3ptr71drop_in_place_LT_core__result__Result_LT_usize_C_uu_pr__PrError_GT__GT_17ha4194cf31cf0eea9E
+                  (&local_328);
         if (pppppppuVar19 != (undefined8 *******)0x8000000000000005) {
           *(undefined4 *)(local_338 + 3) = (undefined4)local_268;
           *(undefined4 *)((long)local_338 + 0x1c) = local_268._4_4_;
@@ -470,10 +499,11 @@ LAB_002c4e87:
         if (&DAT_00000009 < pppppppuVar17) goto LAB_002c4e87;
         local_2bc = 0;
       }
-      cVar8 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(uVar16,"form-feed",9)
-      ;
+      cVar8 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
+                        (uVar16,"form-feed",9);
       if (cVar8 == '\0') {
-        _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_328,"\n argument ",1);
+        _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h52af2e019a03ed2dE
+                  (&local_328,"\n argument ",1);
         local_1b8 = local_318;
         local_1c8 = (undefined4)local_328;
         uStack_1c4 = local_328._4_4_;
@@ -481,40 +511,43 @@ LAB_002c4e87:
         uStack_1bc = uStack_320._4_4_;
       }
       else {
-        puVar12 = (undefined *)::alloc::alloc::Global::alloc_impl(1,1);
+        puVar12 = (undefined *)_ZN5alloc5alloc6Global10alloc_impl17hf61749d460433fffE(1,1);
         if (puVar12 == (undefined *)0x0) {
                     /* try { // try from 002c58e3 to 002c58f2 has its CatchHandler @ 002c599c */
                     /* WARNING: Subroutine does not return */
-          ::alloc::alloc::handle_alloc_error(1,1);
+          _ZN5alloc5alloc18handle_alloc_error17h3816d26e7f8ae8a1E(1,1);
         }
         *puVar12 = 0xc;
-        ::alloc::slice::hack::into_vec(local_48,puVar12,1);
-        ::alloc::string::String::from_utf8(&local_328,local_48);
-        core::result::Result<T,E>::unwrap(&local_1c8,&local_328,&PTR_s_src_uu_pr_src_pr_rs_004092c8)
-        ;
+        _ZN5alloc5slice4hack8into_vec17h170b8d01c23dd35dE(local_48,puVar12,1);
+        _ZN5alloc6string6String9from_utf817hacb364918987915aE(&local_328,local_48);
+        _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hff028afbac41c813E
+                  (&local_1c8,&local_328,&PTR_s_src_uu_pr_src_pr_rs_004092c8);
       }
                     /* try { // try from 002c4fa6 to 002c5078 has its CatchHandler @ 002c5943 */
-      local_33d = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+      local_33d = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                             (uVar16,"across",6);
-      clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+      _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf528812c919d4af6E
                 (&local_328,uVar16,"sep-string",10);
-      lVar10 = clap_builder::parser::error::MatchesError::unwrap("sep-string",10,&local_328);
+      lVar10 = _ZN12clap_builder6parser5error12MatchesError6unwrap17hf38d98c9afef2728E
+                         ("sep-string",10,&local_328);
       if (lVar10 == 0) {
-        clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one
+        _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf528812c919d4af6E
                   (&local_328,uVar16,"separator",9);
-        lVar10 = clap_builder::parser::error::MatchesError::unwrap("separator",9,&local_328);
+        lVar10 = _ZN12clap_builder6parser5error12MatchesError6unwrap17hf38d98c9afef2728E
+                           ("separator",9,&local_328);
         if (lVar10 != 0) goto LAB_002c5027;
 LAB_002c504f:
         local_268 = (undefined8 *******)((ulong)local_268 & 0xffffffff00000000);
-        uVar11 = core::char::methods::encode_utf8_raw(9,&local_268);
-        _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_328,uVar11);
+        uVar11 = _ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E(9,&local_268);
+        _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h52af2e019a03ed2dE
+                  (&local_328,uVar11);
         uStack_210 = (undefined4)uStack_320;
         uStack_20c = uStack_320._4_4_;
         pppppppuVar19 = local_318;
       }
       else {
 LAB_002c5027:
-        core::ops::function::FnOnce::call_once(&local_328,lVar10);
+        _ZN4core3ops8function6FnOnce9call_once17hb52d6c73ae74d5cfE(&local_328,lVar10);
         uStack_210 = SUB84(uStack_320,0);
         local_2b8 = (char *)uStack_320;
         uStack_2b0 = (code *)local_318;
@@ -527,17 +560,18 @@ LAB_002c5027:
       local_218 = (undefined8 *******)local_328;
       local_208 = local_318;
                     /* try { // try from 002c50b6 to 002c529d has its CatchHandler @ 002c5948 */
-      cVar8 = clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(uVar16,"width",5);
+      cVar8 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E
+                        (uVar16,"width",5);
       pppppppuVar19 = (undefined8 *******)&DAT_00000048;
       if (cVar8 != '\0') {
-        cVar8 = clap_builder::parser::matches::arg_matches::ArgMatches::contains_id
+        cVar8 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h8ab577f2647f3b72E
                           (local_2c8,"separator",9);
         pppppppuVar19 = (undefined8 *******)&DAT_00000048;
         if (cVar8 != '\0') {
           pppppppuVar19 = (undefined8 *******)0x200;
         }
       }
-      parse_usize(&local_2b8,local_2c8,"width",5);
+      _ZN5uu_pr11parse_usize17hfdefcaff0fd209a5E(&local_2b8,local_2c8,"width",5);
       pppppppuVar4 = (undefined8 *******)uStack_2b0;
       pppppppuVar13 = (undefined8 *******)local_2b8;
       local_328 = (undefined **)0x8000000000000005;
@@ -545,10 +579,10 @@ LAB_002c5027:
       if ((undefined8 *******)local_2b8 == (undefined8 *******)0x8000000000000006) {
 LAB_002c516c:
         local_220 = pppppppuVar19;
-        cVar8 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+        cVar8 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                           (local_2c8,"join-lines",10);
         if (cVar8 == '\0') {
-          parse_usize(&local_328,local_2c8,"page-width");
+          _ZN5uu_pr11parse_usize17hfdefcaff0fd209a5E(&local_328,local_2c8,"page-width");
           if ((undefined8 *******)local_328 == (undefined8 *******)0x8000000000000006) {
             local_1f8 = 0;
           }
@@ -570,18 +604,19 @@ LAB_002c516c:
         else {
           local_1f8 = 0;
         }
-        regex::regex::string::Regex::new(&local_328,"\\s*-(\\d+)\\s*",0xc);
+        _ZN5regex5regex6string5Regex3new17h2b022f3b326b0361E(&local_328,"\\s*-(\\d+)\\s*",0xc);
         pppppppuVar19 = (undefined8 *******)0x0;
-        uVar16 = core::result::Result<T,E>::unwrap
+        uVar16 = _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h8fa19f49ce20910dE
                            (local_e8,&local_328,&PTR_s_src_uu_pr_src_pr_rs_004092e0);
         local_33c = (undefined4)CONCAT71((int7)((ulong)uVar16 >> 8),1);
                     /* try { // try from 002c52a4 to 002c53ff has its CatchHandler @ 002c591c */
-        regex::regex::string::Regex::captures_at(&local_2b8,local_e8,local_230,local_228);
+        _ZN5regex5regex6string5Regex11captures_at17h3dfa64f8a9d1e89bE
+                  (&local_2b8,local_e8,local_230,local_228);
         uVar16 = local_2c8;
         if ((int)local_2b8 == 2) {
           bVar3 = true;
 LAB_002c537d:
-          parse_usize(&local_328,uVar16,"column",6);
+          _ZN5uu_pr11parse_usize17hfdefcaff0fd209a5E(&local_328,uVar16,"column",6);
           if ((undefined8 *******)local_328 != (undefined8 *******)0x8000000000000006) {
             pppppppuVar19 = uStack_320;
             if ((undefined8 *******)local_328 == (undefined8 *******)0x8000000000000005)
@@ -602,7 +637,8 @@ LAB_002c537d:
           if (bVar3) {
             local_328 = (undefined **)0x8000000000000000;
             local_33c = 0;
-            core::ptr::drop_in_place<uu_pr::build_options::__closure__>(&local_2b8);
+            _ZN4core3ptr70drop_in_place_LT_uu_pr__build_options___u7b__u7b_closure_u7d__u7d__GT_17h2fa688b4a75204f5E
+                      (&local_2b8);
           }
           else {
 LAB_002c5440:
@@ -619,22 +655,23 @@ LAB_002c5440:
             local_308 = pppppppuVar19;
           }
                     /* try { // try from 002c5475 to 002c5501 has its CatchHandler @ 002c5905 */
-          parse_usize(&local_268,uVar16,"indent",6);
+          _ZN5uu_pr11parse_usize17hfdefcaff0fd209a5E(&local_268,uVar16,"indent",6);
           pppppppuVar19 = local_268;
           uStack_2b0 = (code *)0x0;
           local_2b8 = (char *)0x8000000000000005;
           if (local_268 == (undefined8 *******)0x8000000000000006) {
 LAB_002c54e5:
-            ::alloc::str::_<impl_str>::repeat
+            _ZN5alloc3str21__LT_impl_u20_str_GT_6repeat17h44a69ba09e43960aE
                       (&local_100,
                        " /home/34r7hm4n/.cargo/registry/src/index.crates.io-6f17d22bba15001f/regex-1.11.1/src/regex/string.rsinvalid + argument invalid --pages argument invalid - argument "
                        ,1);
                     /* try { // try from 002c5502 to 002c5573 has its CatchHandler @ 002c58f3 */
-            cVar8 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag
+            cVar8 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE
                               (local_2c8,"join-lines",10);
             uVar20 = (ulong)local_329;
             if ((undefined8 *******)local_328 != (undefined8 *******)0x8000000000000000) {
-              _<alloc::string::String_as_core::clone::Clone>::clone(&local_2b8,&local_328);
+              _ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h8f45b0d02f4dafdaE
+                        (&local_2b8,&local_328);
               local_268 = (undefined8 *******)uStack_2b0;
               uStack_260 = (undefined4)local_2a8;
               uStack_25c = local_2a8._4_4_;
@@ -646,7 +683,8 @@ LAB_002c54e5:
               if ((undefined8 *******)local_2b8 != (undefined8 *******)0x8000000000000000)
               goto joined_r0x002c5577;
             }
-            build_options::___closure__(&local_2b8,uVar20);
+            _ZN5uu_pr13build_options28__u7b__u7b_closure_u7d__u7d_17h2f6e5f2b8a2f8c99E
+                      (&local_2b8,uVar20);
             pppppppuVar19 = local_318;
             pppppppuVar13 = uStack_310;
             pppppppuVar4 = local_308;
@@ -740,10 +778,12 @@ joined_r0x002c5577:
             local_308 = pppppppuVar4;
             local_2b8 = (char *)pppppppuVar5;
             uStack_2b0 = (code *)pppppppuVar6;
-            core::ptr::drop_in_place<regex::regex::string::Regex>(local_e8);
+            _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17had11a4c52115c130E
+                      (local_e8);
             local_2cc = 0;
                     /* try { // try from 002c58ad to 002c58b9 has its CatchHandler @ 002c598d */
-            core::ptr::drop_in_place<regex::regex::string::Regex>(local_120);
+            _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17had11a4c52115c130E
+                      (local_120);
             return local_338;
           }
           uVar16 = CONCAT44(uStack_25c,uStack_260);
@@ -751,7 +791,8 @@ joined_r0x002c5577:
           uStack_74 = uStack_254;
           uStack_70 = uStack_250;
           uStack_6c = uStack_24c;
-          core::ptr::drop_in_place<core::result::Result<usize,uu_pr::PrError>>(&local_2b8);
+          _ZN4core3ptr71drop_in_place_LT_core__result__Result_LT_usize_C_uu_pr__PrError_GT__GT_17ha4194cf31cf0eea9E
+                    (&local_2b8);
           if (pppppppuVar19 == (undefined8 *******)0x8000000000000005) goto LAB_002c54e5;
           *(undefined4 *)(local_338 + 3) = local_78;
           *(undefined4 *)((long)local_338 + 0x1c) = uStack_74;
@@ -762,7 +803,8 @@ joined_r0x002c5577:
           *local_338 = 2;
           local_33c = 0;
                     /* try { // try from 002c55d3 to 002c55dc has its CatchHandler @ 002c591c */
-          core::ptr::drop_in_place<core::option::Option<uu_pr::ColumnModeOptions>>(&local_328);
+          _ZN4core3ptr73drop_in_place_LT_core__option__Option_LT_uu_pr__ColumnModeOptions_GT__GT_17h09df0facecc11534E
+                    (&local_328);
           bVar3 = true;
           local_33c = 0;
         }
@@ -779,7 +821,8 @@ joined_r0x002c5577:
           uStack_310 = (undefined8 *******)uStack_2a0;
           local_328 = (undefined **)local_2b8;
           uStack_320 = (undefined8 *******)uStack_2b0;
-          build_options::___closure__(&local_268,&local_328);
+          _ZN5uu_pr13build_options28__u7b__u7b_closure_u7d__u7d_17h56f47d86be9314d3E
+                    (&local_268,&local_328);
           pppppppuVar19 = (undefined8 *******)CONCAT44(uStack_25c,uStack_260);
           local_88 = local_258;
           uStack_84 = uStack_254;
@@ -804,14 +847,16 @@ LAB_002c5589:
           bVar3 = false;
         }
                     /* try { // try from 002c55ea to 002c55f6 has its CatchHandler @ 002c5948 */
-        core::ptr::drop_in_place<regex::regex::string::Regex>(local_e8);
+        _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17had11a4c52115c130E(local_e8)
+        ;
         if (!bVar3) goto LAB_002c561a;
       }
       else {
         local_268 = local_2a8;
         uStack_260 = (undefined4)uStack_2a0;
         uStack_25c = uStack_2a0._4_4_;
-        core::ptr::drop_in_place<core::result::Result<usize,uu_pr::PrError>>(&local_328);
+        _ZN4core3ptr71drop_in_place_LT_core__result__Result_LT_usize_C_uu_pr__PrError_GT__GT_17ha4194cf31cf0eea9E
+                  (&local_328);
         pppppppuVar19 = pppppppuVar4;
         if (pppppppuVar13 == (undefined8 *******)0x8000000000000005) goto LAB_002c516c;
         *(undefined4 *)(local_338 + 3) = (undefined4)local_268;
@@ -823,13 +868,13 @@ LAB_002c5589:
         *local_338 = 2;
 LAB_002c561a:
                     /* try { // try from 002c561a to 002c5626 has its CatchHandler @ 002c5943 */
-        core::ptr::drop_in_place<alloc::string::String>(&local_218);
+        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h93d342cc5e2da10eE(&local_218);
       }
                     /* try { // try from 002c5627 to 002c5633 has its CatchHandler @ 002c599c */
-      core::ptr::drop_in_place<alloc::string::String>(&local_1c8);
+      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h93d342cc5e2da10eE(&local_1c8);
     }
     else {
-      build_options::___closure__(&local_328,lVar10);
+      _ZN5uu_pr13build_options28__u7b__u7b_closure_u7d__u7d_17h7437547c2616abd3E(&local_328,lVar10);
       local_240 = uStack_320;
       local_b8 = (undefined4)local_318;
       uStack_b4 = local_318._4_4_;
@@ -865,7 +910,8 @@ LAB_002c561a:
     uStack_310 = (undefined8 *******)uStack_2a0;
     local_328 = (undefined **)local_2b8;
     uStack_320 = (undefined8 *******)uStack_2b0;
-    build_options::___closure__(&local_268,&local_328);
+    _ZN5uu_pr13build_options28__u7b__u7b_closure_u7d__u7d_17hb4b836d6dfb59964E
+              (&local_268,&local_328);
     local_c8 = local_258;
     uStack_c4 = uStack_254;
     uStack_c0 = uStack_250;
@@ -887,16 +933,17 @@ LAB_002c5228:
   }
 LAB_002c5634:
                     /* try { // try from 002c5634 to 002c5640 has its CatchHandler @ 002c598d */
-  core::ptr::drop_in_place<regex::regex::string::Regex>(local_120);
+  _ZN4core3ptr48drop_in_place_LT_regex__regex__string__Regex_GT_17had11a4c52115c130E(local_120);
                     /* try { // try from 002c5641 to 002c564d has its CatchHandler @ 002c5992 */
-  core::ptr::drop_in_place<alloc::string::String>(&local_168);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h93d342cc5e2da10eE(&local_168);
                     /* try { // try from 002c564e to 002c565a has its CatchHandler @ 002c5983 */
-  core::ptr::drop_in_place<alloc::string::String>(&local_188);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h93d342cc5e2da10eE(&local_188);
                     /* try { // try from 002c565b to 002c5667 has its CatchHandler @ 002c5988 */
-  core::ptr::drop_in_place<alloc::string::String>(&local_1e8);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h93d342cc5e2da10eE(&local_1e8);
                     /* try { // try from 002c5668 to 002c5674 has its CatchHandler @ 002c5997 */
-  core::ptr::drop_in_place<core::option::Option<uu_pr::NumberingMode>>(&local_148);
+  _ZN4core3ptr69drop_in_place_LT_core__option__Option_LT_uu_pr__NumberingMode_GT__GT_17hf3dc7f07a38e8ff6E
+            (&local_148);
 LAB_002c5675:
-  core::ptr::drop_in_place<alloc::string::String>(&local_1a8);
+  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h93d342cc5e2da10eE(&local_1a8);
   return local_338;
 }

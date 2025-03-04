@@ -1,7 +1,6 @@
-void __rustcall
-uu_split::platform::unix::FilterWriter::new
-          (undefined4 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
-          undefined8 param_5)
+void _ZN8uu_split8platform4unix12FilterWriter3new17h45813eca9ccac0a5E
+               (undefined4 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5)
 
 {
   undefined8 uVar1;
@@ -33,9 +32,9 @@ uu_split::platform::unix::FilterWriter::new
   undefined local_130 [56];
   undefined local_f8 [224];
   
-  WithEnvVarSet::new(local_130,param_4,param_5);
+  _ZN8uu_split8platform4unix13WithEnvVarSet3new17h0ec58cf89e23bdc9E(local_130,param_4,param_5);
                     /* try { // try from 001d5b28 to 001d5b92 has its CatchHandler @ 001d5c64 */
-  std::env::var(&local_150,&DAT_00121f80,5);
+  _ZN3std3env3var17h9ad1bceb8fc4ff71E(&local_150,&DAT_00121f80,5);
   if (local_150 == 0) {
     local_178 = local_138;
     local_188 = local_148;
@@ -49,17 +48,18 @@ uu_split::platform::unix::FilterWriter::new
     uStack_164 = uStack_144;
     uStack_160 = uStack_140;
     uStack_15c = uStack_13c;
-    new::___closure__(&local_188,&local_168);
+    _ZN8uu_split8platform4unix12FilterWriter3new28__u7b__u7b_closure_u7d__u7d_17he2bcca465f325ad8E
+              (&local_188,&local_168);
   }
-  std::process::Command::new(local_f8,&local_188);
+  _ZN3std7process7Command3new17h0377d9f8406faa73E(local_f8,&local_188);
                     /* try { // try from 001d5b93 to 001d5bd4 has its CatchHandler @ 001d5c69 */
-  uVar1 = std::process::Command::arg(local_f8,&DAT_00121f85,2);
-  uVar1 = std::process::Command::arg(uVar1,param_2,param_3);
-  uVar1 = std::process::Command::stdin(uVar1,2);
-  std::process::Command::spawn(&local_1a8,uVar1);
+  uVar1 = _ZN3std7process7Command3arg17h5f291569404c895bE(local_f8,&DAT_00121f85,2);
+  uVar1 = _ZN3std7process7Command3arg17h5f291569404c895bE(uVar1,param_2,param_3);
+  uVar1 = _ZN3std7process7Command5stdin17hd49f7a7c2d0c6c7fE(uVar1,2);
+  _ZN3std7process7Command5spawn17h512586d0d6bfbf9cE(&local_1a8,uVar1);
   if (local_1a8 == 0) {
                     /* try { // try from 001d5c16 to 001d5c22 has its CatchHandler @ 001d5c55 */
-    core::ptr::drop_in_place<std::process::Command>(local_f8);
+    _ZN4core3ptr42drop_in_place_LT_std__process__Command_GT_17hdf90771df9651af5E(local_f8);
     uStack_1c0 = (undefined4)local_1a0;
     uStack_1bc = (undefined4)((ulong)local_1a0 >> 0x20);
     *(ulong *)(param_1 + 4) = CONCAT44(uStack_194,local_198);
@@ -74,8 +74,9 @@ uu_split::platform::unix::FilterWriter::new
     *(undefined8 *)(param_1 + 2) = local_1a0;
     *param_1 = 1;
                     /* try { // try from 001d5beb to 001d5bf7 has its CatchHandler @ 001d5c64 */
-    core::ptr::drop_in_place<std::process::Command>(local_f8);
+    _ZN4core3ptr42drop_in_place_LT_std__process__Command_GT_17hdf90771df9651af5E(local_f8);
   }
-  core::ptr::drop_in_place<uu_split::platform::unix::WithEnvVarSet>(local_130);
+  _ZN4core3ptr60drop_in_place_LT_uu_split__platform__unix__WithEnvVarSet_GT_17he2b819455e73a701E
+            (local_130);
   return;
 }

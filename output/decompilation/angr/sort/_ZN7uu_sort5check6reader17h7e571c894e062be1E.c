@@ -7,12 +7,11 @@ long long uu_sort::check::reader::h7e571c894e062be1(unsigned long long a0, unsig
     void* v4;  // [sp-0xd8]
     unsigned long long v5;  // [sp-0xd0]
     void* v6;  // [sp-0xc8]
-    unsigned long v7;  // [sp-0xc0], Other Possible Types: unsigned long long
+    unsigned long v7;  // [sp-0xc0]
     char v8;  // [bp-0xb8]
     char v9;  // [bp-0xb0]
     char v10;  // [bp-0xa8]
-    unsigned long long v13;  // r8
-    unsigned long long v14;  // r12
+    unsigned long long v13;  // r12
 
     v4 = 0;
     v5 = 1;
@@ -25,16 +24,16 @@ long long uu_sort::check::reader::h7e571c894e062be1(unsigned long long a0, unsig
         {
 LABEL_548637:
             ::0x5462a0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h026152d332835070(&v4);
-            v14 = 0;
+            v13 = 0;
             break;
         }
         else
         {
             v2 = a4;
             v1 = a4->field_99;
-            uu_sort::chunks::read::h4da7a75b34a6d647(&v8, a3, &v10, 0, v13, &v4, &v3, *((int *)&v0));
-            v14 = *((long long *)&v8);
-            if (v14)
+            uu_sort::chunks::read::h4da7a75b34a6d647(&v8, a3, &v10, 0, a4, &v4, &v3, *((int *)&v0));
+            v13 = *((long long *)&v8);
+            if (v13)
             {
                 ::0x5462a0::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h026152d332835070(&v4);
                 break;
@@ -44,5 +43,5 @@ LABEL_548637:
         }
     }
     ::0x546a40::core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$::hda4324549e97968a(a0, a1);
-    return v14;
+    return v13;
 }

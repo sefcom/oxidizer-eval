@@ -1,6 +1,6 @@
 long long uu_tac::uumain::uumain::h2485790ee37c4198(unsigned long long a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0x3b0], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x3b0]
     unsigned long long v1;  // [sp-0x3a8]
     int v2;  // [sp-0x3a0]
     int v3;  // [sp-0x390]

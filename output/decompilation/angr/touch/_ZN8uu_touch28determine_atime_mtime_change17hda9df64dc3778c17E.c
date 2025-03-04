@@ -4,7 +4,7 @@ long long uu_touch::determine_atime_mtime_change::hda9df64dc3778c17(unsigned lon
     unsigned long long v3[3];  // rax
     unsigned long long v4;  // rbp
     unsigned long long v8;  // rax
-    unsigned long long v12;  // rax
+    unsigned long long v11;  // rax
 
     if (!(char)clap_builder::parser::matches::arg_matches::ArgMatches::contains_id::h8ab577f2647f3b72(a0, "timeHashj", 4))
     {
@@ -27,19 +27,19 @@ LABEL_5c300e:
             v4 = v4 & 0xffffffffffffff00 | 1;
             if (!(char)v8)
                 return 0;
-            v12 = (v8 & 0xffffffffffffff00 | 1) & 0xffffffffffffff00 | 2 - (!(v4 & 255 & 255));
-            return v12;
+            v11 = (v8 & 0xffffffffffffff00 | 1) & 0xffffffffffffff00 | 2 - (!(v4 & 255 & 255));
+            return v11;
         }
         else if ((char)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(a0, "modificationno-createno-dereferencereferencetimestamp", 12))
         {
-            return v12;
+            return v11;
         }
         else if ((char)v4)
         {
             if ((char)(v4 & 4294967295) != 1)
-                return v12;
+                return v11;
             return 0;
         }
     }
-    return v12;
+    return v11;
 }

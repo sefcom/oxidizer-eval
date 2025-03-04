@@ -1,4 +1,4 @@
-undefined  [16] __rustcall uu_truncate::TruncateMode::Reduce(undefined8 param_1)
+undefined  [16] _ZN11uu_truncate12TruncateMode6Reduce17h771393dc84ef47d0E(undefined8 param_1)
 
 {
   undefined auVar1 [16];

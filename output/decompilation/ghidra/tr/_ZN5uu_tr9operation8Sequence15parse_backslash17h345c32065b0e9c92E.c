@@ -1,6 +1,5 @@
-void __rustcall
-uu_tr::operation::Sequence::parse_backslash
-          (undefined8 *param_1,undefined8 param_2,undefined8 param_3)
+void _ZN5uu_tr9operation8Sequence15parse_backslash17h345c32065b0e9c92E
+               (undefined8 *param_1,undefined8 param_2,undefined8 param_3)
 
 {
   int local_38;
@@ -14,7 +13,8 @@ uu_tr::operation::Sequence::parse_backslash
   
   local_18 = "\\";
   local_10 = 1;
-  nom::sequence::preceded::___closure__(&local_38,&local_18,param_2,param_3);
+  _ZN3nom8sequence8preceded28__u7b__u7b_closure_u7d__u7d_17h15123993b9b8fd57E
+            (&local_38,&local_18,param_2,param_3);
   if (local_38 == 3) {
     switch(uStack_20) {
     case 0x61:

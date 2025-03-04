@@ -1,6 +1,6 @@
 long long uu_date::uu_app::h46591bba8e5410ce(unsigned long long a0)
 {
-    char v0;  // [bp-0xa58], Other Possible Types: unsigned long long
+    char v0;  // [bp-0xa58], Other Possible Types: unsigned long
     unsigned long long v1;  // [sp-0xa50]
     unsigned long long v2;  // [sp-0xa48]
     unsigned long long v3;  // [sp-0xa40]
@@ -12,7 +12,7 @@ long long uu_date::uu_app::h46591bba8e5410ce(unsigned long long a0)
     unsigned long long v9;  // [sp-0xa10]
     char v10;  // [bp-0x79c]
     char v11;  // [bp-0x794]
-    char v12;  // [bp-0x790], Other Possible Types: unsigned long long
+    char v12;  // [sp-0x790], Other Possible Types: unsigned long
     unsigned long long v13;  // [sp-0x788]
     unsigned long long v14;  // [sp-0x780]
     unsigned long long v15;  // [sp-0x778]
@@ -21,7 +21,7 @@ long long uu_date::uu_app::h46591bba8e5410ce(unsigned long long a0)
     char v18;  // [bp-0x540]
     unsigned long long v19;  // [sp-0x284]
     unsigned int v20;  // [sp-0x27c]
-    void* v21;  // [bp-0x278], Other Possible Types: char
+    void* v21;  // [sp-0x278], Other Possible Types: char
     unsigned long long v22;  // [sp-0x270]
     char v23;  // [sp-0x268]
     unsigned long long v25;  // rdx

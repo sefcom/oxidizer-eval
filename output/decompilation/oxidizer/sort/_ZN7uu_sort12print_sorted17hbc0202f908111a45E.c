@@ -8,7 +8,7 @@ fn uu_sort::print_sorted(a0: void*, a1: u32, a2: u32) -> u64 {
     let v6: u128;  // [sp-0x68]
     let v7: u64;  // [sp-0x58]
     let v8: u8;  // [bp-0x48]
-    let v10: u64;  // rax
+    let v10: Option<struct16>;  // rax
 
     uu_sort::Output::into_write(&v8, a2);
     v7 = a0->field_70;
@@ -20,7 +20,7 @@ fn uu_sort::print_sorted(a0: void*, a1: u32, a2: u32) -> u64 {
     v1 = a0->field_10;
     v0 = a0->field_0;
     loop {
-        v10 = <core::iter::adapters::map::Map<I,F> as core::iter::traits::iterator::Iterator>::next(&v0);
+        v10 = <core::iter::adapters::map::Map<I,F> as core::iter::traits::iterator::Iterator>::next();
         if !v10 {
             break;
         }

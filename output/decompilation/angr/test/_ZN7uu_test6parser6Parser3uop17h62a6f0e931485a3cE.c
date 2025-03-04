@@ -1,6 +1,6 @@
 long long uu_test::parser::Parser::uop::h62a6f0e931485a3c(void* a0, struct_0 *a1)
 {
-    int v0;  // [sp-0xb8]
+    int v0;  // [bp-0xb8]
     int v1;  // [sp-0xa8]
     unsigned long long v2;  // [sp-0x98]
     char v3;  // [bp-0x90]

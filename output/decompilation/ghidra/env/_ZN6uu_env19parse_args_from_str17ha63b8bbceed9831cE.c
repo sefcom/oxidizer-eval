@@ -1,4 +1,4 @@
-undefined8 * __rustcall uu_env::parse_args_from_str(undefined8 *param_1)
+undefined8 * _ZN6uu_env19parse_args_from_str17ha63b8bbceed9831cE(undefined8 *param_1)
 
 {
   undefined8 uVar1;
@@ -21,7 +21,7 @@ undefined8 * __rustcall uu_env::parse_args_from_str(undefined8 *param_1)
   undefined4 uStack_1c;
   undefined8 local_18;
   
-  split_iterator::split(&local_60);
+  _ZN6uu_env14split_iterator5split17h2ad0ba729ee8da1cE(&local_60);
   if (local_60 == 8) {
     param_1[2] = CONCAT44(uStack_44,uStack_48);
     *param_1 = CONCAT44(uStack_54,uStack_58);
@@ -37,9 +37,12 @@ undefined8 * __rustcall uu_env::parse_args_from_str(undefined8 *param_1)
     uStack_34 = uStack_5c;
     uStack_30 = uStack_58;
     uStack_2c = uStack_54;
-    uVar1 = parse_args_from_str::___closure__(&local_38);
+    uVar1 = _ZN6uu_env19parse_args_from_str28__u7b__u7b_closure_u7d__u7d_17h3c361bada9b8fd30E
+                      (&local_38);
     param_1[1] = uVar1;
-    param_1[2] = &PTR_drop_in_place<uucore_mods_error_USimpleError>_00248908;
+    param_1[2] = &
+                 PTR__ZN4core3ptr54drop_in_place_LT_uucore__mods__error__USimpleError_GT_17h03ce124f780b058aE_00248908
+    ;
     *param_1 = 0x8000000000000000;
   }
   return param_1;

@@ -1,14 +1,14 @@
 long long uu_tail::paths::HeaderPrinter::print::h45f27ae0b4b499e5(char a0[2], unsigned long a1, unsigned long a2)
 {
-    unsigned long v0;  // [sp-0x78], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x78]
     unsigned long long v1;  // [sp-0x70]
-    unsigned long v2;  // [sp-0x68], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x68]
     unsigned long long v3;  // [sp-0x60]
     char *v4;  // [sp-0x58]
     unsigned long long v5;  // [sp-0x50]
     char *v6;  // [sp-0x48]
     unsigned long long v7;  // [sp-0x40]
-    unsigned long v8;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v8;  // [sp-0x38]
     unsigned long long v9;  // [sp-0x30]
     struct struct_0 **v10;  // [sp-0x28]
     unsigned long long v11;  // [sp-0x20]

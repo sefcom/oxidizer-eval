@@ -9,7 +9,7 @@ long long uu_touch::uu_app::h6cafa39b57a66b7b(unsigned long long a0)
     unsigned long long v6;  // [sp-0xaa0]
     int v7;  // [bp-0xa98], Other Possible Types: unsigned long long
     int v8;  // [bp-0xa90]
-    int v9;  // [sp-0xa88], Other Possible Types: unsigned long long
+    int v9;  // [sp-0xa88], Other Possible Types: unsigned long, unsigned long long
     unsigned long long v10;  // [sp-0xa80]
     void* v11;  // [bp-0xa78], Other Possible Types: unsigned long long, char
     int v12;  // [bp-0xa70], Other Possible Types: unsigned long long
@@ -44,7 +44,7 @@ long long uu_touch::uu_app::h6cafa39b57a66b7b(unsigned long long a0)
     char v41;  // [bp-0x2f4]
     unsigned long long v42;  // [sp-0x284]
     unsigned int v43;  // [sp-0x27c]
-    char v44;  // [bp-0x278], Other Possible Types: unsigned long, unsigned long long
+    char v44;  // [bp-0x278], Other Possible Types: unsigned long
     unsigned long long v45;  // [sp-0x270]
     unsigned long long v46;  // [sp-0x268]
     unsigned long long v47;  // [sp-0x260]

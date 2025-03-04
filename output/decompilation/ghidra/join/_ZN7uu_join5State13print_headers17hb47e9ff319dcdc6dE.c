@@ -1,5 +1,5 @@
-long __rustcall
-uu_join::State::print_headers(long param_1,undefined8 param_2,long param_3,undefined8 param_4)
+long _ZN7uu_join5State13print_headers17hb47e9ff319dcdc6dE
+               (long param_1,undefined8 param_2,long param_3,undefined8 param_4)
 
 {
   long *plVar1;
@@ -14,11 +14,11 @@ uu_join::State::print_headers(long param_1,undefined8 param_2,long param_3,undef
   else {
     param_3 = param_1;
     if (*plVar1 != 0) {
-      lVar2 = combine();
+      lVar2 = _ZN7uu_join5State7combine17h87fbb4174e657c14E();
       goto joined_r0x00171b90;
     }
   }
-  lVar2 = print_first_line(param_3,param_2,param_4);
+  lVar2 = _ZN7uu_join5State16print_first_line17h7613f1add6e5ed81E(param_3,param_2,param_4);
 joined_r0x00171b90:
   if (lVar2 == 0) {
     return 0;

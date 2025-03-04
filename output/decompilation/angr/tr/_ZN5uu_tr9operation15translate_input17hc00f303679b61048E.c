@@ -1,4 +1,4 @@
-long long uu_tr::operation::translate_input::hc00f303679b61048(unsigned long long a0, unsigned long long a1, unsigned long a2)
+long long uu_tr::operation::translate_input::hc00f303679b61048(unsigned long long a0, unsigned long long a1, unsigned long long a2)
 {
     void* v0;  // [sp-0x88]
     unsigned long long v1;  // [sp-0x80]
@@ -6,9 +6,9 @@ long long uu_tr::operation::translate_input::hc00f303679b61048(unsigned long lon
     void* v3;  // [sp-0x70]
     unsigned long long v4;  // [sp-0x68]
     void* v5;  // [sp-0x60]
-    unsigned long v6;  // [sp-0x58], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0x58]
     unsigned long long v7;  // [sp-0x50]
-    unsigned long v8;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v8;  // [sp-0x48]
     unsigned long long v9;  // [sp-0x40]
     unsigned long long v10;  // [sp-0x38]
     unsigned long v12;  // rdx
@@ -21,7 +21,7 @@ long long uu_tr::operation::translate_input::hc00f303679b61048(unsigned long lon
     v5 = 0;
     while (true)
     {
-        v6 = _$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..BufRead$GT$::read_until::h22767f011618eb41(a0, 10, &v0);
+        v6 = _$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..BufRead$GT$::read_until::h22767f011618eb41(a0, 10);
         v7 = v12;
         if (!(!v6) || !(v12))
             break;
@@ -37,5 +37,5 @@ long long uu_tr::operation::translate_input::hc00f303679b61048(unsigned long lon
     core::ptr::drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$::h3721ff3632bfcddf(&v6);
     ::0x471490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::hefea7399e2ac3a44(&v3);
     ::0x471490::core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::hefea7399e2ac3a44(&v0);
-    return ::0x471540::core::ptr::drop_in_place$LT$uu_tr..operation..TranslateOperation$GT$::h3a3c4cba3033495c();
+    return ::0x471540::core::ptr::drop_in_place$LT$uu_tr..operation..TranslateOperation$GT$::h3a3c4cba3033495c(a2);
 }

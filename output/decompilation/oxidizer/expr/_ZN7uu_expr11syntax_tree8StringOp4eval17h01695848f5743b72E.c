@@ -15,5 +15,5 @@ fn uu_expr::syntax_tree::StringOp::eval(a0: u32, a1: u32, a2: u32, a3: u32) -> u
     v2 = v8;
     v1 = v9;
     v0 = v10;
-    goto *((4583552 + vvar_1 * 4) as &i32) + 4583552;
+    goto *((4583552 + (vvar_1 & 255) * 4) as &i32) + 4583552;
 }

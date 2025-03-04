@@ -1,10 +1,10 @@
-long long uu_mv::handle_multiple_paths::h86c7b11f84ad2502(struct_2 *a0, unsigned long long a1, struct_1 *a2)
+long long uu_mv::handle_multiple_paths::h86c7b11f84ad2502(struct_0 *a0, unsigned long long a1, struct_1 *a2)
 {
     char *v0;  // [sp-0x98]
     unsigned long long v1;  // [sp-0x90]
-    unsigned long long v2;  // [sp-0x88]
+    unsigned long v2;  // [sp-0x88]
     unsigned long long v3;  // [sp-0x80]
-    struct struct_0 **v4;  // [sp-0x78]
+    struct struct_2 **v4;  // [sp-0x78]
     unsigned long long v5;  // [sp-0x70]
     void* v6;  // [sp-0x68]
     unsigned long long v7;  // [sp-0x58]
@@ -29,7 +29,7 @@ long long uu_mv::handle_multiple_paths::h86c7b11f84ad2502(struct_2 *a0, unsigned
         v6 = 0;
         v4 = &v0;
         v5 = 1;
-        ::0x4e7680::core::option::Option$LT$T$GT$::map_or_else::h70402eff178ea70d();
+        ::0x4e7680::core::option::Option$LT$T$GT$::map_or_else::h70402eff178ea70d(&v10, &v2);
         v11 = 1;
         v13 = alloc::boxed::Box$LT$T$GT$::new::hbe638d0f99162453(&v10);
         return v13;

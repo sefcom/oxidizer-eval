@@ -1,6 +1,5 @@
-void __rustcall
-uu_env::native_int_str::from_native_int_representation_owned
-          (undefined8 *param_1,undefined8 *param_2)
+void _ZN6uu_env14native_int_str36from_native_int_representation_owned17h29586c7b10729c62E
+               (undefined8 *param_1,undefined8 *param_2)
 
 {
   undefined8 uVar1;

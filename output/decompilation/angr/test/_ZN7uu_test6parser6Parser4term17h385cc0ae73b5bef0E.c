@@ -1,6 +1,6 @@
 long long uu_test::parser::Parser::term::h385cc0ae73b5bef0(struct_0 *a0, void* a1)
 {
-    int v0;  // [bp-0x88], Other Possible Types: char
+    int v0;  // [sp-0x88], Other Possible Types: char
     int v1;  // [sp-0x78]
     unsigned long long v2;  // [sp-0x68]
     char v3;  // [bp-0x60]

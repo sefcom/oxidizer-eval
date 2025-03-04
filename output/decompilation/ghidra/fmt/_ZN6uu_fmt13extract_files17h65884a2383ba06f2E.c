@@ -1,4 +1,4 @@
-long * __rustcall uu_fmt::extract_files(long *param_1,undefined8 param_2)
+long * _ZN6uu_fmt13extract_files17h65884a2383ba06f2E(long *param_1,undefined8 param_2)
 
 {
   char cVar1;
@@ -25,19 +25,21 @@ long * __rustcall uu_fmt::extract_files(long *param_1,undefined8 param_2)
   undefined *local_30;
   undefined *local_28;
   
-  auVar3 = clap_builder::parser::matches::arg_matches::ArgMatches::index_of(param_2,"files",5);
+  auVar3 = _ZN12clap_builder6parser7matches11arg_matches10ArgMatches8index_of17hc3c8b487726d2353E
+                     (param_2,"files",5);
   local_17a = auVar3._8_8_ == 1 && auVar3._0_8_ != 0;
-  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&local_160,param_2,"files",5)
-  ;
-  clap_builder::parser::error::MatchesError::unwrap(local_f8,"files",5,&local_160);
+  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h09abd7b1f5ddbadeE
+            (&local_160,param_2,"files",5);
+  _ZN12clap_builder6parser5error12MatchesError6unwrap17h7cc34044724f6ef1E
+            (local_f8,"files",5,&local_160);
   local_100 = 1;
   local_b8 = 0;
   local_78 = 0;
   local_38 = 0;
   local_30 = &local_179;
   local_28 = &local_17a;
-  core::iter::adapters::try_process(local_178,&local_100);
-  cVar1 = core::result::Result<T,E>::is_ok_and
+  _ZN4core4iter8adapters11try_process17h0378d5530d4cfb57E(local_178,&local_100);
+  cVar1 = _ZN4core6result19Result_LT_T_C_E_GT_9is_ok_and17h29c70ed0bca145e8E
                     ((ulong)(local_178[0] == -0x8000000000000000),
                      local_178 + (local_178[0] == -0x8000000000000000));
   if (cVar1 == '\0') {
@@ -46,14 +48,15 @@ long * __rustcall uu_fmt::extract_files(long *param_1,undefined8 param_2)
     param_1[1] = local_178[1];
   }
   else {
-    puVar2 = (undefined4 *)::alloc::alloc::Global::alloc_impl(8,0x18);
+    puVar2 = (undefined4 *)_ZN5alloc5alloc6Global10alloc_impl17hf61749d460433fffE(8,0x18);
     if (puVar2 == (undefined4 *)0x0) {
                     /* try { // try from 001b5913 to 001b5922 has its CatchHandler @ 001b5930 */
                     /* WARNING: Subroutine does not return */
-      ::alloc::alloc::handle_alloc_error(8,0x18);
+      _ZN5alloc5alloc18handle_alloc_error17h3816d26e7f8ae8a1E(8,0x18);
     }
                     /* try { // try from 001b5889 to 001b58a1 has its CatchHandler @ 001b5923 */
-    _<T_as_alloc::slice::hack::ConvertVec>::to_vec(&local_160,"-",1);
+    _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17h5bbd8c4ce611c1c9E
+              (&local_160,"-",1);
     local_108 = local_150;
     local_118 = local_160;
     uStack_114 = uStack_15c;
@@ -65,14 +68,13 @@ long * __rustcall uu_fmt::extract_files(long *param_1,undefined8 param_2)
     puVar2[2] = uStack_158;
     puVar2[3] = uStack_154;
                     /* try { // try from 001b58c1 to 001b58d2 has its CatchHandler @ 001b5930 */
-    ::alloc::slice::hack::into_vec(&local_160,puVar2,1);
+    _ZN5alloc5slice4hack8into_vec17hec8791858ac76d0cE(&local_160,puVar2,1);
     param_1[2] = local_150;
     *(undefined4 *)param_1 = local_160;
     *(undefined4 *)((long)param_1 + 4) = uStack_15c;
     *(undefined4 *)(param_1 + 1) = uStack_158;
     *(undefined4 *)((long)param_1 + 0xc) = uStack_154;
-    core::ptr::
-    drop_in_place<core::result::Result<alloc::vec::Vec<alloc::string::String>,alloc::boxed::Box<dyn_uucore::mods::error::UError>>>
+    _ZN4core3ptr156drop_in_place_LT_core__result__Result_LT_alloc__vec__Vec_LT_alloc__string__String_GT__C_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT__GT_17h73b975fc798ab75aE
               (local_178);
   }
   return param_1;

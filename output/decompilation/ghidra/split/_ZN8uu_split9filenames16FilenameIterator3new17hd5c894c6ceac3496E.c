@@ -1,5 +1,5 @@
-long * __rustcall
-uu_split::filenames::FilenameIterator::new(long *param_1,long param_2,long param_3,long param_4)
+long * _ZN8uu_split9filenames16FilenameIterator3new17hd5c894c6ceac3496E
+                 (long *param_1,long param_2,long param_3,long param_4)
 
 {
   long lVar1;
@@ -17,15 +17,18 @@ uu_split::filenames::FilenameIterator::new(long *param_1,long param_2,long param
   bVar4 = *(char *)(param_4 + 0x29) << 3;
   uVar2 = 0x100a1a >> (bVar4 & 0x1f);
   if (*(char *)(param_4 + 0x28) == '\0') {
-    number::FixedWidthNumber::new
+    _ZN8uu_split6number16FixedWidthNumber3new17he6f7e0494f2522baE
               (&local_68,(char)uVar2,*(undefined8 *)(param_4 + 0x18),*(undefined8 *)(param_4 + 0x20)
               );
     if (local_68 == -0x8000000000000000) {
-      _<T_as_alloc::slice::hack::ConvertVec>::to_vec(local_48);
+      _ZN52__LT_T_u20_as_u20_alloc__slice__hack__ConvertVec_GT_6to_vec17ha461c13160c52a35E(local_48)
+      ;
       local_30 = 1;
-      lVar3 = ::alloc::boxed::Box<T>::new(local_48);
+      lVar3 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hb3c54f980883cdc1E(local_48);
       param_1[1] = lVar3;
-      param_1[2] = (long)&PTR_drop_in_place<uucore_mods_error_USimpleError>_00249160;
+      param_1[2] = (long)&
+                         PTR__ZN4core3ptr54drop_in_place_LT_uucore__mods__error__USimpleError_GT_17h957db0c9a72d5de1E_00249160
+      ;
       *param_1 = -0x7fffffffffffffff;
       return param_1;
     }

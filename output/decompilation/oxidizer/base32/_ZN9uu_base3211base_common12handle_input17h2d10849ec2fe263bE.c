@@ -1,8 +1,8 @@
-fn uu_base32::base_common::handle_input(a0: &struct16, a1: u32, a2: &struct48) -> u64 {
+fn uu_base32::base_common::handle_input(a0: u32, a1: u32, a2: void*) -> u64 {
     let v0: u64;  // [sp-0x38]
     let v1: u64;  // [sp-0x30]
     let v3: u64;  // r15
-    let v4: void*;  // rdx
+    let v4: &u64;  // rdx
     let v5: i64;  // rax
     let v6: u64;  // rax
 

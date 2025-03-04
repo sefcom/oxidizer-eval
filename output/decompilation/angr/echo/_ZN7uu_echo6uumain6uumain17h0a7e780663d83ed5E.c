@@ -1,9 +1,9 @@
 long long uu_echo::uumain::uumain::h0a7e780663d83ed5(unsigned long long a0, unsigned long long a1)
 {
-    unsigned long v0;  // [sp-0x370], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x370]
     char v1;  // [bp-0x368]
     char v2;  // [bp-0x330]
-    char v3;  // [bp-0x2f0], Other Possible Types: unsigned long long
+    char v3;  // [bp-0x2f0], Other Possible Types: unsigned long
     char v5;  // bl
     void* v7;  // rax
     unsigned long long v8;  // rax
@@ -19,7 +19,7 @@ long long uu_echo::uumain::uumain::h0a7e780663d83ed5(unsigned long long a0, unsi
     {
         if (!(!v5) || !((v8 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(&v0, "\nTry ' --help' for more information.\n", 1), v8)))
         {
-            core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::ha220d356cfc00f60();
+            core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::ha220d356cfc00f60(v0);
             core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::hb403a57a7b833e43(&v1);
             return 0;
         }
@@ -30,12 +30,12 @@ long long uu_echo::uumain::uumain::h0a7e780663d83ed5(unsigned long long a0, unsi
         v7 = uu_echo::execute::h70a095d897960844(&v0, v5 ^ 1, (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v1, "enable_backslash_escape", 23), &v2);
         if (!v7)
         {
-            core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::ha220d356cfc00f60();
+            core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::ha220d356cfc00f60(v0);
             core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::hb403a57a7b833e43(&v1);
             return 0;
         }
     }
-    core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::ha220d356cfc00f60();
+    core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::ha220d356cfc00f60(v0);
     core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::hb403a57a7b833e43(&v1);
     return v7;
 }

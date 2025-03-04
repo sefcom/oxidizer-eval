@@ -1,8 +1,8 @@
 long long uu_yes::exec::h637ae1cf8fadb89a(unsigned long a0, unsigned long a1)
 {
-    unsigned long v0;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x38]
     unsigned int v1;  // [sp-0x2c]
-    unsigned long v2;  // [sp-0x28], Other Possible Types: unsigned long long
+    unsigned long v2;  // [sp-0x28]
     unsigned long long v4;  // rax
     unsigned long long v5;  // rax
 
@@ -25,6 +25,6 @@ long long uu_yes::exec::h637ae1cf8fadb89a(unsigned long a0, unsigned long a1)
             } while (!v5);
         }
     }
-    core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::h4e60d91f978d58ff();
+    core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::h4e60d91f978d58ff(v0);
     return v5;
 }

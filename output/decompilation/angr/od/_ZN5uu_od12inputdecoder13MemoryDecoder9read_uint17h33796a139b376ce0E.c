@@ -1,11 +1,11 @@
-long long uu_od::inputdecoder::MemoryDecoder::read_uint::h33796a139b376ce0(struct_1 *a0, char *a1, unsigned long a2)
+long long uu_od::inputdecoder::MemoryDecoder::read_uint::h33796a139b376ce0(struct_0 *a0, char *a1, unsigned long a2)
 {
-    unsigned long v0;  // [sp-0x50], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x50]
     char *v1;  // [sp-0x48]
     unsigned long long v2;  // [sp-0x40]
-    unsigned long v3;  // [sp-0x38], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x38]
     unsigned long long v4;  // [sp-0x30]
-    struct struct_0 **v5;  // [sp-0x28]
+    struct struct_2 **v5;  // [sp-0x28]
     unsigned long long v6;  // [sp-0x20]
     void* v7;  // [sp-0x18]
     unsigned long long v9[3];  // rcx

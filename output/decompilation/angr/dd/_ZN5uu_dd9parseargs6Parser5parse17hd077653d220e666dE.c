@@ -6,7 +6,7 @@ long long uu_dd::parseargs::Parser::parse::hd077653d220e666d(struct_0 *a0, unsig
     char v3;  // [bp-0x1b8]
     char v4;  // [bp-0x1a8]
     char v5;  // [bp-0x198]
-    unsigned long v6;  // [sp-0xe8], Other Possible Types: unsigned long long
+    unsigned long v6;  // [sp-0xe8]
     int v7;  // [sp-0xe0]
     int v8;  // [sp-0xd0]
     char v9;  // [bp-0xc0]

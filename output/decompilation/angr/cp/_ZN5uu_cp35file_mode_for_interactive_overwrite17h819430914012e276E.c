@@ -1,16 +1,16 @@
 long long uu_cp::file_mode_for_interactive_overwrite::h819430914012e276(unsigned long long a0[6], unsigned long long a1, unsigned long long a2)
 {
     unsigned int v0;  // [sp-0x16c]
-    char *v1;  // [sp-0x168]
+    char *v1;  // [bp-0x168]
     unsigned long long v2;  // [sp-0x160]
     unsigned long long v3;  // [sp-0x158]
     char *v4;  // [bp-0x148], Other Possible Types: unsigned long long
     void* v5;  // [sp-0x138], Other Possible Types: unsigned long long
-    char *v6;  // [sp-0x130], Other Possible Types: unsigned long long
+    char *v6;  // [bp-0x130], Other Possible Types: unsigned long long
     void* v7;  // [sp-0x128]
     struct struct_0 **v8;  // [sp-0x120], Other Possible Types: unsigned long long
     char v9;  // [sp-0x118]
-    unsigned long v10;  // [sp-0x108], Other Possible Types: unsigned long long
+    unsigned long v10;  // [sp-0x108]
     unsigned long long v11;  // [sp-0x100]
     struct struct_0 **v12;  // [sp-0xf8]
     unsigned long long v13;  // [sp-0xf0]
@@ -52,7 +52,7 @@ long long uu_cp::file_mode_for_interactive_overwrite::h819430914012e276(unsigned
     v15 = 1;
     v12 = &v1;
     v13 = 1;
-    ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2();
+    ::0x4fe000::core::option::Option$LT$T$GT$::map_or_else::h805a87bba4bea7c2(&v16, &v10);
     *((int128_t *)&v1) = *((int128_t *)&v16);
     v3 = *((long long *)&v17);
     uucore::features::fs::display_permissions_unix::ha124e9a87900f11e(&v10, v22 & 4294967295, 0);

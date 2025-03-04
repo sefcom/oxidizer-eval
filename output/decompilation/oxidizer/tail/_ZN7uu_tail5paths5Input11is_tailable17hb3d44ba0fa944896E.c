@@ -1,5 +1,5 @@
 fn uu_tail::paths::Input::is_tailable(a0: &u64) -> u64 {
-    let v0: i192;  // [sp-0x20], Other Possible Types: Option<struct24>
+    let v0: Option<struct24>;  // [sp-0x20]
     let v1: i64;  // [sp-0x8]
     let v3: i64;  // rbx
 

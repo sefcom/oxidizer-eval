@@ -1,9 +1,9 @@
 long long uu_pr::print_error::hae74ddad01a055bb(unsigned long long a0, unsigned long a1)
 {
-    unsigned long v0;  // [sp-0x48], Other Possible Types: unsigned long long
+    unsigned long v0;  // [sp-0x48]
     char *v1;  // [sp-0x40]
     unsigned long long v2;  // [sp-0x38]
-    unsigned long v3;  // [sp-0x30], Other Possible Types: unsigned long long
+    unsigned long v3;  // [sp-0x30]
     unsigned long long v4;  // [sp-0x28]
     struct struct_0 **v5;  // [sp-0x20]
     unsigned long long v6;  // [sp-0x18]

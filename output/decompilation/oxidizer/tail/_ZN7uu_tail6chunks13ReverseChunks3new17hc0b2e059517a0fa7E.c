@@ -32,12 +32,10 @@ fn uu_tail::chunks::ReverseChunks::new(a0: &struct32, a1: &u32) -> u64 {
     v18 = BinaryOp AddV;
     v21 = (((v20 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v16) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v17) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v18) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV;
     ceil(v21);
-    if ((BinaryOp CmpF & 69 | (BinaryOp CmpF & 69) >> 6) & 1) == 1 {
-        return struct32 {
-            field_0: a1
-            field_8: v12
-            field_16: v24
-            field_24: 0
-        };
-    }
+    return struct32 {
+        field_0: a1
+        field_8: v12
+        field_16: v25
+        field_24: 0
+    };
 }

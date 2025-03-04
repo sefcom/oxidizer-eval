@@ -1,5 +1,5 @@
-void __rustcall
-uu_cut::cut_fields(undefined8 param_1,undefined8 param_2,undefined8 param_3,long *param_4)
+void _ZN6uu_cut10cut_fields17h5b603ad8eeef3f36E
+               (undefined8 param_1,undefined8 param_2,undefined8 param_3,long *param_4)
 
 {
   char cVar1;
@@ -24,22 +24,23 @@ uu_cut::cut_fields(undefined8 param_1,undefined8 param_2,undefined8 param_3,long
       if (pcVar3 != (char *)0x0) {
         pcVar6 = pcVar3;
       }
-      cut_fields_explicit_out_delim
+      _ZN6uu_cut29cut_fields_explicit_out_delim17h0a90ca972983d44eE
                 (param_1,&local_41,param_2,param_3,cVar1 != '\0',uVar2,pcVar6,lVar5);
     }
     else {
-      local_40 = matcher::ExactMatcher::new(param_4[2],param_4[3]);
+      local_40 = _ZN6uu_cut7matcher12ExactMatcher3new17h393e805b97031375E(param_4[2],param_4[3]);
       if (*param_4 == 0) {
-        cut_fields_implicit_out_delim(param_1,local_40,param_2,param_3,cVar1 != '\0',uVar2);
+        _ZN6uu_cut29cut_fields_implicit_out_delim17hc1fc3b9aa7195642E
+                  (param_1,local_40,param_2,param_3,cVar1 != '\0',uVar2);
       }
       else {
-        cut_fields_explicit_out_delim
+        _ZN6uu_cut29cut_fields_explicit_out_delim17hf1ac07e2d7452ebcE
                   (param_1,local_40,param_2,param_3,cVar1 != '\0',uVar2,*param_4,param_4[1]);
       }
     }
     return;
   }
-  core::option::unwrap_failed(&PTR_s_src_uu_cut_src_cut_rs_00228e10);
+  _ZN4core6option13unwrap_failed17h0e11329e76906eaaE(&PTR_s_src_uu_cut_src_cut_rs_00228e10);
   pcVar4 = (code *)swi(3);
   (*pcVar4)();
   return;
