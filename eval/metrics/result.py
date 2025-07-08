@@ -5,7 +5,7 @@ from typing import Dict, List, Tuple
 from eval.type_recovery.function_prototype import FunctionPrototype
 from eval.metrics import *
 
-DECOMPILERS = ("Oxidizer", "angr", "IDA", "Ghidra")
+DECOMPILERS = ("Oxidizer", "angr", "IDA", "Ghidra", "Binary Ninja", "Binary Ninja (Pseudo Rust)")
 
 
 class FunctionEvalResult:

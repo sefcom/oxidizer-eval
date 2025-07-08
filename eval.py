@@ -3,6 +3,7 @@ from multiprocessing import Pool
 
 from angr.rust.utils.library import demangle
 
+from eval.decompilers.binja import binja_c_dec, binja_rust_dec
 from eval.decompilers.ida import ida_dec
 from eval.decompilers.oxidizer import oxidizer_dec
 from eval.decompilers.angr import angr_dec
@@ -20,6 +21,8 @@ DEC_OPTIONS = {
     "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True},
     "IDA": {"dec_func": ida_dec, "cache_only": True},
     "Ghidra": {"dec_func": ghidra_dec, "cache_only": True},
+    "Binary Ninja": {"dec_func": binja_c_dec, "cache_only": True},
+    "Binary Ninja (Pseudo Rust)": {"dec_func": binja_rust_dec, "cache_only": True},
 }
 
 MALWARE_MODE = False
@@ -99,7 +102,11 @@ def eval_binary(binary_path, is_malware):
 
                 func_eval_result.add_result(LOC, decompiler, LoC(decompilation))
                 func_eval_result.add_result(NUM_GOTOS, decompiler, num_gotos(decompilation))
-                func_eval_result.add_result(NUM_VARIABLES, decompiler, num_variables(decompilation))
+                if decompiler.startswith("Binary Ninja"):
+                    assert "num_variables" in result and func_name in result["num_variables"]
+                    func_eval_result.add_result(NUM_VARIABLES, decompiler, result["num_variables"][func_name])
+                else:
+                    func_eval_result.add_result(NUM_VARIABLES, decompiler, num_variables(decompilation))
                 func_eval_result.add_result(NUM_OPERATORS, decompiler, num_operators(decompilation))
                 func_eval_result.add_result(
                     NUM_FUNCTION_CALL_COUNTS, decompiler, num_call_counts(result["function_call_counts"][func_name])
@@ -165,5 +172,5 @@ def eval(dir_path):
 
 if __name__ == "__main__":
     eval("dataset/o3")
-    print("-------------- Malware Evaluation Results --------------")
-    eval("dataset/malware")
+    # print("-------------- Malware Evaluation Results --------------")
+    # eval("dataset/malware")
