@@ -362,15 +362,16 @@ class DwarfParser:
     def parse_json(self, path):
         with open(path, "r") as fd:
             json_object = json.load(fd)
-            d = json_object["structs"]
-            for name in d:
-                self.structs[name] = self._from_dict(d[name])
-            d = json_object["prototypes"]
-            for name in d:
-                self.prototypes[name] = set(self._from_dict(prototype) for prototype in d[name])
-            d = json_object["variables"]
-            for name in d:
-                self.local_variables[name] = [self._from_dict(var) for var in d[name]]
+            if "structs" in json_object and "prototypes" in json_object and "variables" in json_object:
+                d = json_object["structs"]
+                for name in d:
+                    self.structs[name] = self._from_dict(d[name])
+                d = json_object["prototypes"]
+                for name in d:
+                    self.prototypes[name] = set(self._from_dict(prototype) for prototype in d[name])
+                d = json_object["variables"]
+                for name in d:
+                    self.local_variables[name] = [self._from_dict(var) for var in d[name]]
 
     def dump_json(self, path):
         with open(path, "w") as fd:
