@@ -7,7 +7,7 @@ from eval.utils.dwarf_parser import *
 
 
 if __name__ == "__main__":
-    major_version = "<major version>"
+    major_version = sys.argv[1]
     std_dir = f"dataset-debug/std-{major_version}"
     parser = DwarfParser()
     for file in os.listdir(std_dir):
