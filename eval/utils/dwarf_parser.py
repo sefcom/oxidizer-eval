@@ -159,9 +159,9 @@ class DwarfParser:
             ele_ty = self._parse_type(ele_ty_die)
             length = None
             subrange_die = self._get_child(die, "DW_TAG_subrange_type")
-            length = self._get_value(subrange_die, "DW_AT_count")
-            assert length is not None
-            return Array(ele_ty, length)
+            length = self._get_value(subrange_die, "DW_AT_count", ensure_existence=False)
+            if length is not None:
+                return Array(ele_ty, length)
         return None
 
     def _parse_member(self, die):
@@ -382,7 +382,7 @@ class DwarfParser:
                 d["prototypes"][name] = [asdict(prototype) for prototype in self.prototypes[name]]
             for name in self.local_variables:
                 d["variables"][name] = [asdict(var) for var in self.local_variables[name]]
-            json.dump(d, fd, indent=2)
+            json.dump(d, fd, sort_keys=True, indent=2)
 
 
 if __name__ == "__main__":
