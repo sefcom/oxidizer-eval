@@ -1,26 +1,26 @@
-fn uu_dd::Alarm::with_interval(a0: &struct20) -> u64 {
-    let v0: i64;  // [sp-0x68]
-    let v1: struct8;  // [sp-0x60], Other Possible Types: unsigned long, struct24
-    let v2: i64;  // [sp-0x58]
-    let v3: i64;  // [bp-0x50], Other Possible Types: char
-    let v4: i64;  // [sp-0x38]
-    let v5: i64;  // [sp-0x30]
-    let v6: i32;  // [sp-0x28]
-    let v7: struct24;  // [sp-0x20]
+fn uu_dd::Alarm::with_interval() -> : struct20 {
+    let a0: i64;  // rdi
+    let v0: u64;  // [bp-0x68]
+    let v1: struct24;  // [bp-0x60], Other Possible Types: u136, void*
+    let v2: u64;  // [bp-0x50]
+    let v3: u160;  // [bp-0x38]
+    let v4: struct24;  // [bp-0x20]
 
-    v1 = 1;
-    v2 = 1;
-    *(&v3 as &i8) = 0;
-    v0 = alloc::boxed::Box<T>::new(&v1);
-    v4 = alloc::sync::Arc<T,A>::downgrade(&v0);
-    v5 = 1;
-    v6 = 0;
-    *(&v3 as &i64) = 0x8000000000000000;
-    v1 = struct8 {
-        field_0: 0
+    v1 = struct17 {
+        field_0: 1
+        field_8: 1
+        field_16: 0
     };
-    v7 = std::thread::Builder::spawn_unchecked(&v1, &v4);
-    v1 = core::result::Result<T,E>::expect(&v7);
+    v0 = alloc::boxed::Box<T>::new(&v1);
+    v3 = struct20 {
+        field_0: alloc::sync::Arc<T,A>::downgrade(&v0)
+        field_8: 1
+        field_16: 0
+    };
+    v2 = 0x8000000000000000;
+    v1 = 0;
+    v4 = std::thread::Builder::spawn_unchecked(&v1, &v3);
+    v1 = core::result::Result<T,E>::expect(&v4);
     return struct20 {
         field_0: v0
         field_8: 1

@@ -1,113 +1,114 @@
-fn uu_dd::parseargs::Parser::parse_output_flags(a0: &Option<struct24>, a1: u32, a2: u32, a3: u32) -> u64 {
-    let v0: i64;  // [sp-0x130]
-    let v1: i64;  // [sp-0x128]
-    let v2: i64;  // [sp-0x120]
-    let v3: i64;  // [sp-0x118]
-    let v4: i64;  // [sp-0x110]
-    let v5: i64;  // [sp-0x108]
-    let v6: i64;  // [sp-0x100]
-    let v7: i64;  // [sp-0xf0]
-    let v8: i64;  // [sp-0xe8]
-    let v9: i64;  // [sp-0xe0]
-    let v10: struct24;  // [sp-0xd8]
-    let v11: struct24;  // [sp-0xc0]
-    let v12: struct24;  // [sp-0xa8]
-    let v13: struct24;  // [sp-0x90]
-    let v14: struct16;  // [bp-0x78]
-    let v15: struct41;  // [sp-0x68]
-    let v16: i16;  // [sp-0x38]
-    let v18: i64;  // rax
-    let v19: i64;  // rbp
-    let v20: i64;  // rdx
-    let v21: i64;  // r13
-    let v22: i64;  // rcx
+fn uu_dd::parseargs::Parser::parse_output_flags(a1: i64, a2: i64, a3: i32) -> : struct8 {
+    let a0: i64;  // rsi
+    let v0: i64;  // [bp-0x138]
+    let v1: u64;  // [bp-0x130]
+    let v2: u64;  // [bp-0x128]
+    let v3: u64;  // [bp-0x120]
+    let v4: u64;  // [bp-0x118]
+    let v5: u64;  // [bp-0x110]
+    let v6: u64;  // [bp-0x108]
+    let v7: u64;  // [bp-0x100]
+    let v8: void*;  // [bp-0xf0]
+    let v9: u64;  // [bp-0xe8]
+    let v10: u64;  // [bp-0xe0]
+    let v11: u128;  // [bp-0xd8]
+    let v12: u64;  // [bp-0xc8]
+    let v13: u128;  // [bp-0xc0]
+    let v14: u64;  // [bp-0xb0]
+    let v15: u128;  // [bp-0xa8]
+    let v16: u64;  // [bp-0x98]
+    let v17: u128;  // [bp-0x90]
+    let v18: u64;  // [bp-0x80]
+    let v19: u440;  // [bp-0x78]
+    let v20: core::str::pattern::CharSearcher;  // [bp-0x68]
+    let v21: u16;  // [bp-0x38]
+    let v23: core::option::Option<&str>;  // rax
+    let v24: core::option::Option<&str>;  // rbp
+    let v25: u64;  // rdx
+    let v26: u64;  // r13
+    let v27: void*;  // r13
+    let v29: u64;  // rcx
+    let v34: i64;  // rdi
+    let v35: i64;  // rdi
 
-    v15 = <char as core::str::pattern::Pattern>::into_searcher(0x2c, a2, a3);
-    v14 = struct16 {
-        field_0: 0
-        field_8: a3
+    v20 = <char as core::str::pattern::Pattern>::into_searcher(0x2c, a1, a2);
+    v8 = a2;
+    v19 = core::str::iter::SplitInternal<char> {
+        start: 0
+        end: a2
+        matcher: core::str::pattern::CharSearcher {
+            haystack: &str {
+                data_ptr: <UNKNOWN>
+                length: <UNKNOWN>
+            }
+            finger: <UNKNOWN>
+            finger_back: <UNKNOWN>
+            needle: <UNKNOWN>
+            utf8_size: <UNKNOWN>
+            utf8_encoded: <UNKNOWN>
+        }
+        finished: <UNKNOWN>
     };
-    v7 = a3;
-    v16 = 1;
-    v18 = core::str::iter::SplitInternal<P>::next(&v14);
-    if !v18 {
-        return struct8 {
-            field_0: 14
-        };
-    }
-    v19 = v18;
-    v21 = v20;
-    v0 = a1 + 207;
-    v1 = a1 + 193;
-    v2 = a1 + 203;
-    v3 = a1 + 202;
-    v4 = a1 + 201;
-    v5 = a1 + 200;
-    v6 = a1 + 199;
-    v8 = a1 + 198;
-    v9 = a1 + 197;
-    do {
-        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "cio") as i8 {
-            <T as alloc::slice::hack::ConvertVec>::to_vec(a0 + 8, a2, v7);
-            return struct8 {
-                field_0: 11
-            };
-        }
-        v22 = a1 + 195;
-        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "direct") as i8 {
+    v21 = 1;
+    v23 = core::str::iter::SplitInternal<P>::next(&v19) as u64;
+    if let Some(_) = v23 {
+        v24 = v23;
+        v1 = a0 + 207;
+        v2 = a0 + 193;
+        v3 = a0 + 203;
+        v4 = a0 + 202;
+        v5 = a0 + 201;
+        v6 = a0 + 200;
+        v7 = a0 + 199;
+        v9 = a0 + 198;
+        v10 = a0 + 197;
+        do {
+            v27 = v26;
+            if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v24, v27 as u32, "cio") as i8 {
+                <T as alloc::slice::hack::ConvertVec>::to_vec(a1, v8, a2);
+                *(v35 as &i64) = 11;
+                return;
+            }
+            v29 = a0 + 195;
+            if ... {
+                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v24, v27 as u32, "nolinks") as i8 {
+                    <T as alloc::slice::hack::ConvertVec>::to_vec(v24, v27, a2);
+                    *(v0 as &i64) = 11;
+                    *((v0 + 8) as &u128) = v13;
+                    *((v0 + 24) as &u64) = v14;
+                    return;
+                }
+                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v24, v27 as u32, "binary") as i8 {
+                    <T as alloc::slice::hack::ConvertVec>::to_vec(v24, v27, a2);
+                    *(v0 as &i64) = 11;
+                    *((v0 + 8) as &u128) = v15;
+                    *((v0 + 24) as &u64) = v16;
+                    return;
+                }
+                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v24, v27 as u32, "text") as i8 {
+                    <T as alloc::slice::hack::ConvertVec>::to_vec(v24, v27, a2);
+                    *(v0 as &i64) = 11;
+                    *((v0 + 8) as &u128) = v17;
+                    *((v0 + 24) as &u64) = v18;
+                    return;
+                }
+                v29 = v2;
+                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v24, v27 as u32, "append") as i8 || (v29 = v1, <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v24, v27 as u32, "seek_bytes") as i8) {
+                    goto LABEL_4d3ce0;
+                }
+                if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v24, v27 as u32, "fullblock") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v24, v27 as u32, "count_bytes") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v24, v27 as u32, "skip_bytes") as i8 {
+                    <T as alloc::slice::hack::ConvertVec>::to_vec(v24, v27, a2);
+                    *(v0 as &i64) = 5;
+                    *((v0 + 8) as &u128) = v11;
+                    *((v0 + 24) as &u64) = v12;
+                    return;
+                }
+            } else {
 LABEL_4d3ce0:
-            *(v22 as &i8) = 1;
-        } else {
-            v22 = a1 + 196;
-            if !(!<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "directory") as i8 && (v22 = v9, !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "dsync") as i8)) {
-                goto LABEL_4d3ce0;
+                *(v29 as &i8) = 1;
             }
-            v22 = v8;
-            if !(!<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "sync") as i8 && (v22 = v6, !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "nocache") as i8)) {
-                goto LABEL_4d3ce0;
-            }
-            v22 = v5;
-            if !(!<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "nonblock") as i8 && (v22 = v4, !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "noatime") as i8)) {
-                goto LABEL_4d3ce0;
-            }
-            v22 = v3;
-            if !(!<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "noctty") as i8 && (v22 = v2, !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "nofollow") as i8)) {
-                goto LABEL_4d3ce0;
-            }
-            if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "nolinks") as i8 {
-                v11 = <T as alloc::slice::hack::ConvertVec>::to_vec(v19, v21);
-                return struct32 {
-                    field_0: 11
-                    field_8: *(&v11.field_0 as &i128)
-                    field_24: v24
-                };
-            }
-            if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "binary") as i8 {
-                v12 = <T as alloc::slice::hack::ConvertVec>::to_vec(v19, v21);
-                return struct32 {
-                    field_0: 11
-                    field_8: *(&v12.field_0 as &i128)
-                    field_24: v24
-                };
-            }
-            if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "text") as i8 {
-                v13 = <T as alloc::slice::hack::ConvertVec>::to_vec(v19, v21);
-                return struct32 {
-                    field_0: 11
-                    field_8: *(&v13.field_0 as &i128)
-                    field_24: v24
-                };
-            }
-            v22 = v1;
-            if !(!<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "append") as i8 && (v22 = v0, !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "seek_bytes") as i8)) {
-                goto LABEL_4d3ce0;
-            }
-            if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "fullblock") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "count_bytes") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v19, v21, "skip_bytes") as i8 {
-                v10 = <T as alloc::slice::hack::ConvertVec>::to_vec(v19, v21);
-                return Some(struct8 {
-                    field_8: <UNKNOWN>
-                });
-            }
-        }
-    } while ((v19 = core::str::iter::SplitInternal<P>::next(&v14), v21 = v20, v19));
+        } while ((v24 = core::str::iter::SplitInternal<P>::next(&v19) as u64, v25 = v25, v24));
+    }
+    *(v34 as &i64) = 14;
+    return;
 }

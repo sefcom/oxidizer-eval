@@ -1,38 +1,44 @@
-fn uu_sort::numeric_str_cmp::numeric_str_cmp(a0: &struct24, a1: &struct24) -> u64 {
-    let v0: u64;  // [sp-0x40]
-    let v1: u64;  // [sp-0x38]
-    let v2: u64;  // [sp-0x30]
-    let v3: u64;  // [sp-0x28]
-    let v7: u8;  // r15b
-    let v8: u8;  // cl
-    let v14: u32;  // ebp
-    let v15: u32;  // eax
+fn uu_sort::numeric_str_cmp::numeric_str_cmp(a0: i64, a1: i64) -> long long {
+    let v0: core::result::Result<usize, std::io::error::Error>;  // [bp-0x40]
+    let v1: u64;  // [bp-0x38]
+    let v2: u64;  // [bp-0x30]
+    let v3: u64;  // [bp-0x28]
+    let v5: i64;  // rax
+    let v6: u64;  // r15
+    let v7: u64;  // rcx
+    let v8: u64;  // rax
+    let v10: u32;  // ebp
+    let v11: u32;  // eax
+    let v12: u8;  // al
 
-    v7 = a0->field_10->field_8;
-    v8 = a1->field_10->field_8;
-    if v7 != v8 {
-        return -(v7 < v8) & 0xffffffffffffff00 | -(v7 < v8) | 1;
+    v5 = *((a0 + 16) as &i64);
+    v6 = *((v5 + 8) as &i8);
+    v7 = *((*((a1 + 16) as &i64) + 8) as &i8);
+    if v6 != v7 {
+        v8 = -((v6 & 255) < (v7 & 255));
+        return v8 & 0xffffff00 | v8 | 1;
     }
-    v0 = a0->field_0;
-    v1 = a0->field_8 + v0;
-    v2 = a1->field_0;
-    v3 = a1->field_8 + v2;
-    do {
-        v14 = core::iter::traits::iterator::Iterator::try_fold(&v0) as i32;
-        v15 = core::iter::traits::iterator::Iterator::try_fold(&v2);
-        if v14 == 0x110000 {
-            if v15 != 48 {
-                if !(v15 == 0x110000) {
-                    goto LABEL_570ebb;
+    if !*((a1 + 8) as &i64) || !*((a0 + 8) as &i64) || *(v5 as &i64) == *(*((a1 + 16) as &i64) as &i64) {
+        v0 = *(a0 as &i64);
+        v1 = *((a0 + 8) as &i64) + *(a0 as &i64);
+        v2 = *(a1 as &i64);
+        v3 = *((a1 + 8) as &i64) + *(a1 as &i64);
+        loop {
+            v10 = core::iter::traits::iterator::Iterator::try_fold(&v0) as i32;
+            v11 = core::iter::traits::iterator::Iterator::try_fold(&v2) as i32;
+            if v10 == 0x110000 {
+                break;
+            }
+            if v11 == 0x110000 {
+                v12 = 1;
+                if v10 == 48 {
+                    v12 = <core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq(core::iter::traits::iterator::Iterator::try_fold(&v0), a1) ^ 1;
+                    break;
                 }
-            } else {
-                if !<core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq(core::iter::traits::iterator::Iterator::try_fold(&v2)) {
-LABEL_570ebb:
-                }
+            } else if v10 != v11 {
+                break;
             }
         }
-        if v15 == 0x110000 && v14 == 48 {
-            <core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq(core::iter::traits::iterator::Iterator::try_fold(&v0));
-        }
-    } while (v14 == v15);
+    }
+    return ((v6 & 255) ? v12 : -(v12));
 }

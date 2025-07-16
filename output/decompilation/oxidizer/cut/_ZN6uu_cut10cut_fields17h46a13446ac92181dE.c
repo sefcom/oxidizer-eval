@@ -1,37 +1,34 @@
-fn uu_cut::cut_fields(a0: u32, a1: u32, a2: u32, a3: void*) -> u64 {
-    let v0: u64;  // [sp-0x58]
-    let v1: u8;  // [bp-0x41]
-    let v2: u64;  // [sp-0x40]
-    let v3: u64;  // [sp-0x38]
-    let v5: u8;  // r13b
-    let v6: u32;  // ebp
-    let v8: u64;  // rax
-    let v9: u64;  // rdx
-    let v11: u64;  // r10
-    let v12: u64;  // rax
+fn uu_cut::cut_fields(a0: i32, a1: i32, a2: i64, a3: i64) -> long long {
+    let v0: u8;  // [bp-0x41]
+    let v1: u64;  // [bp-0x40]
+    let v2: u64;  // [bp-0x38]
+    let v4: u8;  // r13b
+    let v5: u8;  // bpl
+    let v6: u64;  // rax
+    let v7: u64;  // rdx
+    let v8: struct24;  // rax
+    let v9: u64;  // rax
 
-    v5 = a3->field_20;
-    if v5 == 2 {
-        core::option::unwrap_failed("src/uu/cut/src/cut.rs"); /* do not return */
+    v4 = *((a3 + 32) as &i8);
+    if v4 == 2 {
+        core::option::unwrap_failed(); /* do not return */
     }
-    v6 = a3->field_28;
-    if !a3->field_10 {
-        v8 = a3->field_0;
-        if !v8 {
-            v11 = 1;
-        } else {
-            v11 = *(&a3->field_8 as &i64);
+    v5 = *((a3 + 40) as &i8);
+    if *((a3 + 16) as &i64) {
+        v1 = uu_cut::matcher::ExactMatcher::new(*((a3 + 16) as &i64), *((a3 + 24) as &i64));
+        v2 = v7;
+        if !*(a3 as &i64) {
+            return uu_cut::cut_fields_implicit_out_delim(a0, &v1, a1, a2, v4, v5);
         }
-        v12 = uu_cut::cut_fields_explicit_out_delim(a0, &v1, a1, a2, v5, v6, (v8 ? v8 : &g_41dc19), v11);
+        v8 = uu_cut::cut_fields_explicit_out_delim(a0, &v1, a1, a2, v4, v5, *(a3 as &i64), *((a3 + 8) as &i64));
     } else {
-        v2 = uu_cut::matcher::ExactMatcher::new(a3->field_10, a3->field_18);
-        v3 = v9;
-        if !v0 {
-            v12 = uu_cut::cut_fields_implicit_out_delim(a0, &v2, a1, a2, v5, v6);
-            return v12;
+        v6 = *(a3 as &i64);
+        if v6 {
+            v9 = v6;
+        } else {
+            v9 = &g_41dc19;
         }
-        v0 = a3->field_0;
-        v12 = uu_cut::cut_fields_explicit_out_delim(a0, &v2, a1, a2, v5, v6, v0, *(&a3->field_8 as &i64));
+        v8 = uu_cut::cut_fields_explicit_out_delim(a0, &v0, a1, a2, v4, v5, v9, (v6 ? *((a3 + 8) as &i64) : 1));
     }
-    return v12;
+    return v8;
 }

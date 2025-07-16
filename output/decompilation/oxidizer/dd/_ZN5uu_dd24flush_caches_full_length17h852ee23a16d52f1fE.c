@@ -1,22 +1,20 @@
-fn uu_dd::flush_caches_full_length(a0: void*, a1: u32) -> u64 {
-    let v1: &u64;  // r15
+fn uu_dd::flush_caches_full_length(a0: i64, a1: i64) -> long long {
+    let v1: u64;  // rdx
     let v2: u64;  // rdx
-    let v3: void*;  // rcx
 
-    v1 = a0->field_8;
-    if *((&v1[8] as &char + 5) as &i8) {
-        v3 = v2;
-        if uu_dd::Source::len(a0) {
-            return v3;
+    if *((*((a0 + 8) as &i64) + 69) as &i8) {
+        if !uu_dd::Source::len(a0) {
+            uu_dd::Input::discard_cache(*(a0 as &i32), *((a0 + 4) as &i32), 0, v1);
+        } else {
+            return v2;
         }
-        uu_dd::Input::discard_cache(a0->field_0, a0->field_4, 0, v2);
     }
-    if *((&v1[19] as &char + 4) as &i8) {
-        v3 = v2;
-        if uu_dd::Dest::len(a1) {
-            return v3;
+    if *((*((a0 + 8) as &i64) + 156) as &i8) {
+        if !uu_dd::Dest::len(a1) {
+            uu_dd::Output::discard_cache(a1, 0, v1);
+        } else {
+            return v1;
         }
-        uu_dd::Output::discard_cache(a1, 0, v2);
     }
     return 0;
 }

@@ -1,26 +1,18 @@
-fn uu_shuf::NonrepeatingIterator::new(a0: &struct48, a1: u64, a2: u64, a3: u64) -> int {
-    let v0: u64;  // [sp-0x28]
+fn uu_shuf::NonrepeatingIterator::new(a1: i64, a2: i64, a3: i64) -> : struct48 {
+    let a0: i64;  // rdi
+    let v0: u64;  // [bp-0x28]
     let v2: u64;  // rax
-    let v3: void*;  // r12
-    let v4: u64;  // rcx
-    let v5: u64;  // rsi
-    let v6: u128;  // xmm0
-    let v7: u256;  // ymm0
+    let v3: u64;  // rcx
 
     v0 = v2;
-    v3 = a3;
-    v4 = *(a1);
-    v5 = a1[1];
-    if v5 < v4 {
-        v3 = 0;
-    } else if v4 || v5 != -1 {
-        v3 = core::cmp::min_by(a3, v5 - v4 + 1);
+    v3 = *(a1 as &i64);
+    if *((a1 + 8) as &i64) >= v3 && (v3 || *((a1 + 8) as &i64) != -1) {
+        a3 = core::cmp::min_by(a3, *((a1 + 8) as &i64) - v3 + 1);
     }
     <hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default(a0);
-    a0[2].field_32 = a1[2];
-    v6 = *(&a1 as &i128);
-    *(&a0[2].field_0 as &u128) = v6;
-    a0[1].field_40 = a2;
-    a0[1].field_32 = v3;
-    return v7 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v6;
+    *((a0 + 80) as &i64) = *((a1 + 16) as &i64);
+    *((a0 + 64) as &i128) = *(a1 as &i128);
+    *((a0 + 56) as &u64) = a2;
+    *((a0 + 48) as &void*) = a3;
+    return a0;
 }

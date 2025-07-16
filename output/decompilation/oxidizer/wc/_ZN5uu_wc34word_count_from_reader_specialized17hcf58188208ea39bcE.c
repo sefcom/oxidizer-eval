@@ -1,61 +1,51 @@
-fn uu_wc::word_count_from_reader_specialized(a0: &struct48, a1: u32) -> u64 {
-    let v0: i8;  // [sp-0xb9]
-    let v1: iNone;  // [sp-0xb8], Other Possible Types: struct16, unsigned long
-    let v2: iNone;  // [sp-0xa8]
-    let v3: i64;  // [sp-0x98]
-    let v4: struct8;  // [bp-0x90]
-    let v5: Option<struct16>;  // [sp-0x88]
-    let v6: struct44;  // [sp-0x70]
-    let v7: i64;  // [sp-0x40]
-    let v8: i32;  // [sp-0x38]
-    let v9: i8;  // [sp-0x34]
-    let v11: i64;  // rax
-    let v12: i64;  // rsi
-    let v13: i64;  // rdx
-    let v14: iNone;  // xmm0
-    let v15: iNone;  // xmm0
+fn uu_wc::word_count_from_reader_specialized(a1: i64) -> : struct48 {
+    let a0: u64;  // rsi
+    let v0: void*;  // [bp-0xb9]
+    let v3: u128;  // [bp-0xb8]
+    let v4: u128;  // [bp-0xa8]
+    let v5: void*;  // [bp-0x98]
+    let v6: void*;  // [bp-0x90]
+    let v7: u192;  // [bp-0x88]
+    let v8: u64;  // [bp-0x80]
+    let v9: u64;  // [bp-0x78]
+    let v10: u8;  // [bp-0x70]
+    let v11: void*;  // [bp-0x40]
+    let v12: u32;  // [bp-0x38]
+    let v13: u8;  // [bp-0x34]
+    let v15: &u8;  // r9
+    let v16: i64;  // rdi
+    let v17: i64;  // rdi
 
-    v2 = 0;
-    *(&v1 as &i128) = 0;
+    v4 = 0;
     v3 = 0;
-    v6 = <std::fs::File as uu_wc::countable::WordCountable>::buffered(a1);
-    v7 = 0;
-    v8 = 0;
-    v9 = 0;
+    v5 = 0;
+    <std::fs::File as uu_wc::countable::WordCountable>::buffered(a0, a1);
+    v11 = 0;
+    v12 = 0;
+    v13 = 0;
     v0 = 0;
-    v4 = struct8 {
-        field_0: 0
-    };
-    loop {
-        v5 = uu_wc::utf8::read::BufReadDecoder<B>::next_strict(&v6);
-        v11 = v5 as i64;
-        match v5 {
-            None => {
-                v15 = v1 as i128;
-                return struct48 {
-                    field_0: v15
-                    field_16: v2
-                    field_32: v3
-                    field_40: 0
-                };
-            },
-            Some(_) => {
-                v12 = *((&v5 as &char + 8) as &i64);
-                v13 = *((&v5 as &char + 16) as &i64);
-                if !v11 {
-                    v1 = uu_wc::process_chunk(v12, v13, &v4, &v0);
-                } else if v12 {
-                    v1 = v1 as i64 + v13;
-                } else if v13 {
-                    v14 = v1 as i128;
-                    return struct48 {
-                        field_0: v14
-                        field_16: v2
-                        field_32: v3
-                        field_40: v13
-                    };
-                }
-            },
+    v6 = 0;
+    do {
+        loop {
+            vvar_145{stack -136} = struct24 OrderedDict({0: 𝜙@64b [((4967056, None), vvar_124{stack -136}), ((4967048, None), vvar_124{stack -136}), ((4966992, None), vvar_124{stack -136}), ((4966920, None), None)], 8: 𝜙@64b [((4967056, None), vvar_125{stack -128}), ((4967048, None), vvar_125{stack -128}), ((4966992, None), vvar_125{stack -128}), ((4966920, None), None)], 16: 𝜙@64b [((4967056, None), vvar_126{stack -120}), ((4967048, None), vvar_126{stack -120}), ((4966992, None), vvar_126{stack -120}), ((4966920, None), None)]})
+            uu_wc::utf8::read::BufReadDecoder<B>::next_strict(&v7, &v10);
+            if v7 as i64 == 2 {
+                *((v17 + 32) as &void*) = v5;
+                *((v17 + 16) as &u128) = v4;
+                *(v17 as &u128) = v3;
+                *((v17 + 40) as &i64) = 0;
+                return;
+            }
+            if !v7 as i64 {
+                uu_wc::process_chunk(v8, v9, &v6, &v0, v15);
+            } else if !v8 {
+                break;
+            }
         }
-    }
+    } while (!v9);
+    *((v16 + 32) as &void*) = v5;
+    *((v16 + 16) as &u128) = v4;
+    *(v16 as &u128) = v3;
+    *((v16 + 40) as &u64) = v9;
+    return;
 }

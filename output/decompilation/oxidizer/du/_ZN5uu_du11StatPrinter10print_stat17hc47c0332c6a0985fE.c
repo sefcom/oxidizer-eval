@@ -1,33 +1,41 @@
-fn uu_du::StatPrinter::print_stat(a0: void*, a1: u32, a2: u32) -> u64 {
-    let v0: struct32;  // [sp-0xe0], Other Possible Types: Result<struct24, struct8>, struct24
-    let v1: struct52;  // [sp-0xc0], Other Possible Types: int, unsigned long
-    let v2: i64;  // [sp-0xb8]
-    let v3: struct24;  // [sp-0x70]
-    let v4: struct24;  // [sp-0x58]
-    let v5: struct16;  // [sp-0x40]
-    let v7: i64;  // rax
+fn uu_du::StatPrinter::print_stat(a0: i64, a1: i64, a2: i64) -> long long {
+    let v0: Result<struct24, struct8>;  // [bp-0xe0], Other Possible Types: u256
+    let v1: u64;  // [bp-0xd8]
+    let v2: struct52;  // [bp-0xc0], Other Possible Types: u64
+    let v3: u64;  // [bp-0xb8]
+    let v4: u8;  // [bp-0xb0]
+    let v6: struct24;  // [bp-0x58]
+    let v7: struct16;  // [bp-0x40]
+    let v9: u64;  // rcx
+    let v11: u64;  // rcx
 
-    v7 = *((a0 + 76) as &i8);
-    if v7 as u8 == 3 {
-        v0 = uu_du::StatPrinter::convert_size(a0, a2);
-        print!("{}	", &v0);
+    if *((a0 + 76) as &i8) == 3 {
+        uu_du::StatPrinter::convert_size(a0, a2, v9);
+        print!("{}\t", &v0 as u8);
     } else {
-        v0 = uu_du::get_time_secs(v7 & 4294967295, a1);
-        if v1 != 5 {
-            return alloc::boxed::Box<T>::new(&v1);
+        v0 = uu_du::get_time_secs(*((a0 + 76) as &i8), a1);
+        match v0 {
+            Ok(_) => {
+                memcpy(&v4, &v0 as u8, 16);
+                v2 = v0 as i64;
+                v3 = v1;
+                return alloc::boxed::Box<T>::new(&v2);
+            },
+            Err(_) => {
+                v7 = <chrono::datetime::DateTime<chrono::offset::local::Local> as core::convert::From<std::time::SystemTime>>::from(<std::time::SystemTime as core::ops::arith::Add<core::time::Duration>>::add(None, None, v3, 0) as u64, a2);
+                v0 = struct32 {
+                    field_0: *((a0 + 56) as &i128)
+                    field_16: 8
+                    field_24: 0
+                };
+                v2 = chrono::datetime::DateTime<Tz>::format_with_items(&v7, &v0);
+                v6 = <T as alloc::string::ToString>::to_string(&v2);
+                uu_du::StatPrinter::convert_size(a0, a2, v11);
+                print!("{}\t{}\t", &v5, &v6);
+            },
         }
-        v5 = <chrono::datetime::DateTime<chrono::offset::local::Local> as core::convert::From<std::time::SystemTime>>::from(<std::time::SystemTime as core::ops::arith::Add<core::time::Duration>>::add(0, 0, v2, 0), a2);
-        v0 = struct32 {
-            field_0: *((a0 + 56) as &i128)
-            field_16: 8
-            field_24: 0
-        };
-        v1 = chrono::datetime::DateTime<Tz>::format_with_items(&v5, &v0);
-        v4 = <T as alloc::string::ToString>::to_string(&v1);
-        v3 = uu_du::StatPrinter::convert_size(a0, a2);
-        print!("{}	{}	", &v3, &v4);
     }
-    core::result::Result<T,E>::unwrap(uucore::mods::display::print_verbatim(a1 + 64));
+    core::result::Result<T,E>::unwrap(uucore::mods::display::print_verbatim(a1 + 8));
     print!("{}", a0 + 77);
     return 0;
 }

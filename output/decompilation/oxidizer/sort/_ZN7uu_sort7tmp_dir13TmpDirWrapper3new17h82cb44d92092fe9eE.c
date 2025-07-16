@@ -1,20 +1,21 @@
-fn uu_sort::tmp_dir::TmpDirWrapper::new(a0: &struct64, a1: &struct24) -> int {
-    let v0: u128;  // [sp-0x38]
-    let v1: u64;  // [sp-0x28]
-    let v2: i8;  // [bp-0x20]
-    let v3: u8;  // [sp-0x10]
-    let v6: u128;  // xmm0
+fn uu_sort::tmp_dir::TmpDirWrapper::new(a1: &struct24) -> : struct64 {
+    let a0: i64;  // rsi
+    let v0: u128;  // [bp-0x38]
+    let v1: &str;  // [bp-0x28]
+    let v2: u128;  // [bp-0x20]
+    let v3: u8;  // [bp-0x10]
+    let v5: u64;  // rax
+    let v6: i64;  // rdi
 
-    v1 = a1->field_10;
-    v0 = a1->field_0;
+    v1 = *((a0 + 16) as &i64);
+    v0 = *(a0 as &i128);
     v3 = 2;
-    v6 = *(&v2 as &i128);
-    return struct64 {
-        field_0: v0
-        field_16: v1
-        field_24: v6
-        field_40: *(&v3 as &i64)
-        field_48:         <alloc::sync::Arc<T> as core::default::Default>::default()
-        field_56: 0
-    };
+    v5 = <alloc::sync::Arc<T> as core::default::Default>::default();
+    *((v6 + 40) as &i64) = *(&v3 as &i64);
+    *((v6 + 24) as &u128) = v2;
+    *(v6 as &u128) = v0;
+    *((v6 + 16) as &&str) = v1;
+    *((v6 + 56) as &i64) = 0;
+    *((v6 + 48) as &u64) = v5;
+    return;
 }

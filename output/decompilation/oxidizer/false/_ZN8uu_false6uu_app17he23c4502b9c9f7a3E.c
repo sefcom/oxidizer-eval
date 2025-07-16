@@ -1,26 +1,28 @@
-fn uu_false::uu_app(a0: &struct712) -> u64 {
-    let v0: struct592;  // [sp-0x800], Other Possible Types: struct712, struct437
-    let v1: struct592;  // [sp-0x538], Other Possible Types: struct712
-    let v2: i64;  // [sp-0x27c]
-    let v3: i32;  // [sp-0x274]
-    let v4: struct592;  // [sp-0x270]
-    let v6: i64;  // rdx
+fn uu_false::uu_app(a0: &struct712) -> long long {
+    let v0: struct437;  // [bp-0x800]
+    let v1: u64;  // [bp-0x544]
+    let v2: u32;  // [bp-0x53c]
+    let v3: u8;  // [bp-0x538]
+    let v4: u64;  // [bp-0x27c]
+    let v5: u32;  // [bp-0x274]
+    let v6: u8;  // [bp-0x270]
+    let v9: u64;  // rdx
 
-    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v6);
-    v1 = clap_builder::builder::command::Command::version(&v0);
-    v0 = clap_builder::builder::command::Command::about(&v1);
-    memcpy(&v1, &v0, 700);
-    v2 = 0x14000000140000 | *((&v0.field_0 as &char + 700) as &i64);
-    v3 = *((&v0.field_0 as &char + 708) as &i32);
-    v0 = clap_builder::builder::arg::Arg::new("help");
-    v4 = clap_builder::builder::arg::Arg::long(&v0, "help");
-    v0 = clap_builder::builder::arg::Arg::help(&v4, "Print help information");
-    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x5);
-    v0 = clap_builder::builder::command::Command::arg(&v1, &v4);
-    v1 = clap_builder::builder::arg::Arg::new("version");
-    v4 = clap_builder::builder::arg::Arg::long(&v1, "version");
-    v1 = clap_builder::builder::arg::Arg::help(&v4, "Print version information");
-    v4 = clap_builder::builder::arg::Arg::action(&v1, 0x8);
-    clap_builder::builder::command::Command::arg(a0, &v0, &v4);
+    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
+    clap_builder::builder::command::Command::version(&v3, &v0);
+    clap_builder::builder::command::Command::about(&v0, &v3);
+    memcpy(&v3, &v0, 700);
+    v4 = 0x14000000140000 | v1;
+    v5 = v2;
+    clap_builder::builder::arg::Arg::new(&v0, "help");
+    clap_builder::builder::arg::Arg::long(&v6, &v0, "help");
+    clap_builder::builder::arg::Arg::help(&v0, &v6, "Print help information");
+    clap_builder::builder::arg::Arg::action(&v6, &v0, 5);
+    clap_builder::builder::command::Command::arg(&v0, &v3, &v6);
+    clap_builder::builder::arg::Arg::new(&v3, "version");
+    clap_builder::builder::arg::Arg::long(&v6, &v3, "version");
+    clap_builder::builder::arg::Arg::help(&v3, &v6, "Print version information");
+    clap_builder::builder::arg::Arg::action(&v6, &v3, 8);
+    clap_builder::builder::command::Command::arg(a0, &v0, &v6);
     return a0;
 }

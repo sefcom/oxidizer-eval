@@ -1,7 +1,7 @@
-fn uu_od::inputoffset::InputOffset::format_byte_offset(a0: u32, a1: u32) -> u64 {
-    let v0: u64;  // [sp-0x8]
+fn uu_od::inputoffset::InputOffset::format_byte_offset(a0: i64, a1: i64) -> void {
+    let v0: u64;  // [bp-0x8]
     let v2: u64;  // rbx
 
     v0 = v2;
-    goto *((4293576 + *((vvar_1 + 24) as &i8) * 4) as &i32) + 4293576;
+    goto ((&g_4183c8.field_0)[*((a1 + 24) as &i8)] + &g_4183c8.field_0) as i64;
 }

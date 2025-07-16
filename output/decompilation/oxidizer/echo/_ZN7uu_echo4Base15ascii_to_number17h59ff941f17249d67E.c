@@ -1,10 +1,8 @@
-fn uu_echo::Base::ascii_to_number(a0: u8, a1: u32) -> u8 {
-    let v0: u64;  // [sp-0x8]
-    let v2: u64;  // rax
+fn uu_echo::Base::ascii_to_number(a0: i8, a1: i8) -> long long {
+    let v3: u64;  // rax
 
-    if a0 {
-        v0 = v2;
-        return uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number(a1) as i8;
+    if !a0 {
+        return v3 & -0x100 | a1 - 48 < 8;
     }
-    return a1 - 48 < 8;
+    return uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number(a1);
 }

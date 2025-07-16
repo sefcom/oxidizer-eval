@@ -1,38 +1,31 @@
-fn uu_head::head_backwards_on_seekable_file(a0: u32, a1: void*) -> u64 {
-    let v0: struct48;  // [sp-0xc8], Other Possible Types: struct16
-    let v1: i8;  // [bp-0x78]
-    let v3: i64;  // rax
-    let v4: i64;  // r15
-    let v5: i64;  // rdx
-    let v7: i64;  // rbx
-    let v8: i64;  // rbx
-    let v11: i64;  // rbx
+fn uu_head::head_backwards_on_seekable_file(a0: i64, a1: i64) -> long long {
+    let v0: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xc8], Other Possible Types: struct48
+    let v1: struct48;  // [bp-0xc8]
+    let v3: u64;  // rdx
+    let v4: u64;  // rdx
+    let v5: core::result::Result<u64, std::io::error::Error>;  // rax
 
-    v3 = *(a1 as &i64);
-    if v3 == 1 {
-        v7 = v5;
-        if uu_head::find_nth_line_from_end() as i64 {
-            return v7;
+    if *(a1 as &i64) != 1 {
+        if *(a1 as &i64) == 3 {
+            v0 = std::fs::File::metadata(a0);
+            if v0 as i32 == 2 {
+                return *((&v0 as &char + 8) as &i64);
+            } else if *((&v0 as &char + 80) as &i64) > *((a1 + 8) as &i64) {
+                v1 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x10000, a0);
+                v5 = uu_head::read_n_bytes(&v1, *((&v0 as &char + 80) as &i64) - *((a1 + 8) as &i64));
+            } else {
+                return 0;
+            }
+        } else {
+            core::panicking::panic("internal error: entered unreachable code"); /* do not return */
         }
-        v0 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x10000, a0);
-        uu_head::read_n_bytes(&v0, v5);
     } else {
-        if v3 as u32 != 3 {
-            core::panicking::panic("internal error: entered unreachable code", "src/uu/head/src/head.rs"); /* do not return */
+        if !uu_head::find_nth_line_from_end(a0, *((a1 + 8) as &i64), *((a1 + 43) as &i8)) as i64 {
+            v0 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x10000, a0);
+            v5 = uu_head::read_n_bytes(&v0, v4);
+        } else {
+            return v3;
         }
-        v4 = *((a1 + 8) as &i64);
-        v0 = std::fs::File::metadata(a0);
-        if v0.field_0 as i32 == 2 {
-            v7 = v0.field_8;
-            return v7;
-        }
-        v8 = *(&v1 as &i64);
-        if v8 <= v4 {
-            return 0;
-        }
-        v0 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x10000, a0);
-        uu_head::read_n_bytes(&v0, v8 - v4);
     }
-    v7 = v11;
-    return v7;
+    return v5;
 }

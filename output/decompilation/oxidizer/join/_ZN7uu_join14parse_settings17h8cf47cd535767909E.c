@@ -1,198 +1,201 @@
-fn uu_join::parse_settings(a0: &struct96, a1: &struct56) -> u64 {
-    let v0: struct24;  // [sp-0x178]
-    let v1: i64;  // [sp-0x178], Other Possible Types: struct16, struct24
-    let v2: i64;  // [sp-0x178], Other Possible Types: int
-    let v3: i64;  // [sp-0x170]
-    let v4: i64;  // [sp-0x168]
-    let v5: i64;  // [bp-0x168], Other Possible Types: int, struct24
-    let v6: i64;  // [sp-0x148], Other Possible Types: Option<Result<struct1, struct16>>
-    let v7: i64;  // [sp-0x140]
-    let v8: i64;  // [sp-0x138]
-    let v9: iNone;  // [bp-0x130], Other Possible Types: unsigned long
-    let v10: i64;  // [sp-0x128]
-    let v11: i8;  // [sp-0x120]
-    let v12: i8;  // [sp-0x11f]
-    let v13: i8;  // [sp-0x11e]
-    let v14: i8;  // [bp-0x11d]
-    let v15: i8;  // [bp-0x11d], Other Possible Types: unsigned int
-    let v16: i8;  // [sp-0x11b]
-    let v17: i8;  // [sp-0x11a]
-    let v18: i8;  // [sp-0x119]
-    let v19: i64;  // [sp-0x118], Other Possible Types: Result<struct40, struct8>, struct16, struct12, Option<Result<struct1, struct16>>, struct24
-    let v20: i64;  // [bp-0x110]
-    let v21: iNone;  // [bp-0x108]
-    let v22: iNone;  // [sp-0xf8]
-    let v23: iNone;  // [sp-0xe8]
-    let v24: i64;  // [sp-0xd8]
-    let v25: i16;  // [sp-0xd0]
-    let v26: struct16;  // [sp-0xc8], Other Possible Types: unsigned long
-    let v27: i64;  // [sp-0xc0]
-    let v28: i64;  // [sp-0xb8]
-    let v29: i64;  // [sp-0xb0]
-    let v30: i64;  // [sp-0xa8]
-    let v31: i64;  // [sp-0xa0]
-    let v32: i64;  // [sp-0x98]
-    let v33: struct16;  // [bp-0x90]
-    let v34: struct24;  // [sp-0x80]
-    let v35: struct52;  // [sp-0x68]
-    let v37: i64;  // r15
-    let v38: i64;  // r12
-    let v39: i64;  // rax
-    let v40: i32;  // ecx
-    let v41: i64;  // rcx
-    let v42: i64;  // rax
-    let v43: i64;  // rax
-    let v46: i64;  // rax
-    let v47: i64;  // r15
-    let v48: i64;  // r12
-    let v49: iNone;  // xmm1
-    let v50: iNone;  // xmm2
-    let v51: struct8;  // rax
-    let v52: i64;  // rdx
+fn uu_join::parse_settings(a1: &struct56) -> Result<struct96, struct24> {
+    let a0: u64;  // rsi
+    let v0: u64;  // [bp-0x178], Other Possible Types: void*
+    let v1: u64;  // [bp-0x170]
+    let v2: u128;  // [bp-0x168]
+    let v3: u64;  // [bp-0x168]
+    let v4: u128;  // [bp-0x160]
+    let v5: u64;  // [bp-0x158]
+    let v6: void*;  // [bp-0x150], Other Possible Types: u64
+    let v7: u64;  // [bp-0x148]
+    let v8: u64;  // [bp-0x140]
+    let v9: u64;  // [bp-0x138]
+    let v10: u64;  // [bp-0x130]
+    let v11: u64;  // [bp-0x128]
+    let v12: u8;  // [bp-0x120]
+    let v13: u8;  // [bp-0x11f]
+    let v14: u8;  // [bp-0x11e]
+    let v15: u8;  // [bp-0x11d]
+    let v16: u8;  // [bp-0x11c]
+    let v18: u8;  // [bp-0x11a]
+    let v19: u8;  // [bp-0x119]
+    let v20: Result<struct16, struct16>;  // [bp-0x118]
+    let v21: u96;  // [bp-0x118]
+    let v22: core::result::Result<(), std::io::error::Error>;  // [bp-0x118]
+    let v23: u64;  // [bp-0x110]
+    let v24: u64;  // [bp-0x108], Other Possible Types: void*
+    let v26: u64;  // [bp-0x108]
+    let v27: u128;  // [bp-0xf8]
+    let v28: u128;  // [bp-0xe8]
+    let v29: u64;  // [bp-0xd8]
+    let v30: u16;  // [bp-0xd0]
+    let v31: void*;  // [bp-0xc8]
+    let v32: struct16;  // [bp-0xc8]
+    let v33: u64;  // [bp-0xc0]
+    let v34: void*;  // [bp-0xb8]
+    let v35: u64;  // [bp-0xb0]
+    let v36: u64;  // [bp-0xa8]
+    let v37: u64;  // [bp-0xa0]
+    let v38: u64;  // [bp-0x98]
+    let v39: u128;  // [bp-0x90]
+    let v40: u64;  // [bp-0x80]
+    let v41: u64;  // [bp-0x78]
+    let v42: u128;  // [bp-0x78]
+    let v43: u64;  // [bp-0x70]
+    let v44: struct52;  // [bp-0x68]
+    let v45: u128;  // [bp-0x58]
+    let v46: u128;  // [bp-0x48]
+    let v48: u64;  // rcx
+    let v49: u64;  // r15
+    let v50: i64;  // rdi
+    let v51: i64;  // rdi
+    let v52: struct8;  // rcx
+    let v53: u32;  // ecx
+    let v54: u64;  // rax
     let v55: i64;  // rax
+    let v56: i64;  // rdi
+    let v57: u64;  // r8
+    let v58: i64;  // rax
+    let v59: u64;  // r12
+    let v60: core::option::Option<&str>;  // rax
+    let v61: i64;  // rdi
+    let v63: i64;  // rax
+    let v65: i64;  // rdi
+    let v66: u128;  // xmm0
+    let v67: u128;  // xmm1
+    let v68: u128;  // xmm2
 
-    v0 = uu_join::get_and_parse_field_number(a1, &g_4149f6);
-    if v1 {
-        return struct24 {
-            field_0: 0x8000000000000000
-            field_8: (&v0)[8] as i128
-        };
-    }
-    v37 = v3;
-    v38 = v4;
-    v0 = uu_join::get_and_parse_field_number(a1, &g_4149f7);
-    if !v1 {
-        v1 = uu_join::get_and_parse_field_number(a1, &g_4149f8);
-        if v1 {
-            return struct24 {
-                field_0: 0x8000000000000000
-                field_8: *(&v1.field_8 as &i128)
-            };
-        }
-        v31 = v4;
-        v32 = v3;
-        v1 = uu_join::parse_print_settings(a1);
-        v39 = v1;
-        if v39 {
-            *((a0 + 8) as &unsigned long) = v39;
-            *((a0 + 16) as &unsigned long) = v3;
-        }
-        v30 = v4;
-        v29 = v3;
-        v40 = v1.field_8 | *((&v1.field_8 as &char + 2) as &i8) * 0x10000;
-        *(&v9 as &i128) = 0;
-        *(&v15 as &i32) = 0;
-        v18 = 10;
-        v6 = 9223372036854775811;
-        v2 = 0;
-        v2 = 8;
-        *(&v5 as &i128) = 0;
-        v5 = 1;
-        v5 = 0;
-        v13 = v40 as u8 & 1;
-        v11 = (v40 >> 8) as u8 & 1;
-        v12 = (v40 >> 16) as u8 & 1;
-        v14 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "i") as i8;
-        v19 = uu_join::get_field_number(v37, v38, v32, v31);
-        v41 = v19;
-        v42 = v19.field_8;
-        if !v41 {
-            v9 = v42;
-            v19 = uu_join::get_field_number(v37, v38, v29, v30);
-            v41 = v19;
-            v42 = v19.field_8;
-            if !v41 {
-                v10 = v42;
-                v19 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "t");
-                v43 = clap_builder::parser::error::MatchesError::unwrap("t", &v19);
-                if v43 {
-                    v19 = uu_join::parse_separator(*((v43 + 8) as &i64), *((v43 + 16) as &i64));
-                    if v6 == 9223372036854775812 {
-                        *((a0 + 8) as &unsigned long) = v7;
-                        *((a0 + 16) as &unsigned long) = v8;
-                        return struct8 {
-                            field_0: 0x8000000000000000
-                        };
-                    }
-                    v6 = v19;
-                }
-                v19 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "o");
-                v46 = clap_builder::parser::error::MatchesError::unwrap("o", &v19);
-                if v46 {
-                    v47 = *((v46 + 8) as &i64);
-                    v48 = *((v46 + 16) as &i64);
-                    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v47, v48, "auto") as i8 {
-                        v15 = 1;
+    uu_join::get_and_parse_field_number(a0, &g_4149f6, v48);
+    if !v0 {
+        v49 = *(&v1 as &i64);
+        uu_join::get_and_parse_field_number(a0, &g_4149f7, v48);
+        if !v0 {
+            uu_join::get_and_parse_field_number(a0, &g_4149f8, v48);
+            if v0 {
+                *((v51 + 8) as &i128) = *(&v1 as &i128);
+            } else {
+                v37 = v3;
+                v38 = *(&v1 as &i64);
+                uu_join::parse_print_settings(a0, a1);
+                if v0 {
+                    v52 = *(&v1 as &i64);
+                    *((v51 + 8) as &u64) = v0;
+                    *((v51 + 16) as &struct8) = v52;
+                } else {
+                    v36 = v3;
+                    v35 = *(&v1 as &i64);
+                    v53 = *(&v1 as &i16) | (&v1)[2] * 0x10000;
+                    v10 = 0;
+                    v15 = 0;
+                    v19 = 10;
+                    v7 = 9223372036854775811;
+                    v0 = 0;
+                    v1 = 8;
+                    v2 = 0;
+                    v5 = 1;
+                    v6 = 0;
+                    v14 = v53 & 1;
+                    v12 = v53 >> 8 & 1;
+                    v13 = v53 >> 16 & 1;
+                    v15 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "i") as i8;
+                    v20 = uu_join::get_field_number(v49, v3, v38, v37);
+                    v54 = v23;
+                    if v20 as i64 || (v10 = v54, v20 = uu_join::get_field_number(v49, v3, v35, v36), v54 = v23, v20 as i64) {
+                        *((v56 + 8) as &u64) = v21;
+                        *((v56 + 16) as &u64) = v54;
                     } else {
-                        v26 = 0;
-                        v27 = 8;
-                        v28 = 0;
-                        v19 = struct12 {
-                            field_0: 188978561056
-                            field_8: 9
-                        };
-                        v35 = <core::str::pattern::MultiCharEqPattern<C> as core::str::pattern::Pattern>::into_searcher(&v19, v47, v48);
-                        v19 = 0;
-                        v20 = v48;
-                        v49 = *(&v35.field_16 as &i128);
-                        v50 = *(&v35.field_32 as &i128);
-                        *(&v21 as &i128) = *(&v35.field_0 as &i128);
-                        v22 = v49;
-                        v23 = v50;
-                        v24 = v35.field_0;
-                        v25 = 1;
-                        loop {
-                            v51 = core::str::iter::SplitInternal<P>::next();
-                            if !v51 {
-                                break;
+                        v11 = v54;
+                        v20 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, "t");
+                        v55 = clap_builder::parser::error::MatchesError::unwrap("t", &v20);
+                        if v55 {
+                            uu_join::parse_separator(*((v55 + 8) as &i64), *((v55 + 16) as &i64), v48);
+                            if v20 as i64 == 9223372036854775812 {
+                                *((v56 + 8) as &u64) = v23;
+                                *((v56 + 16) as &u64) = v24;
+                            } else {
+                                v7 = v20 as i64;
+                                v8 = v23;
+                                v9 = v24;
+                                goto LABEL_4c429c;
                             }
-                            v34 = uu_join::Spec::parse(v51, v52);
-                            if !v34.field_0 {
-                                v33 = struct16 {
-                                    field_0: v53
-                                    field_8: v54
-                                };
-                                v26 = alloc::vec::Vec<T,A>::push(&v33);
+                        } else {
+LABEL_4c429c:
+                            clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, "o", v57);
+                            v58 = clap_builder::parser::error::MatchesError::unwrap("o", &v20);
+                            if v58 {
+                                v59 = *((v58 + 16) as &i64);
+                                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v58 + 8) as &i64), v59, "auto") as i8 {
+                                    v16 = 1;
+                                } else {
+                                    v31 = 0;
+                                    v33 = 8;
+                                    v34 = 0;
+                                    v21 = struct12 {
+                                        field_0: 188978561056
+                                        field_8: 9
+                                    };
+                                    v44 = <core::str::pattern::MultiCharEqPattern<C> as core::str::pattern::Pattern>::into_searcher(&v21, *((v58 + 8) as &i64), v59);
+                                    v22 = 0;
+                                    v23 = v59;
+                                    memcpy(stack_base + -264, stack_base + -104, 16);
+                                    v27 = v45;
+                                    v28 = v46;
+                                    v29 = v46;
+                                    v30 = 1;
+                                    loop {
+                                        v60 = core::str::iter::SplitInternal<P>::next(&v22) as u64;
+                                        if let None = v60 {
+                                            break;
+                                        }
+                                        uu_join::Spec::parse(v60, a1, v48);
+                                        if v40 {
+                                            *((v61 + 8) as &u64) = v41;
+                                            *((v61 + 16) as &u64) = v43;
+                                            *(v61 as &i64) = 0x8000000000000000;
+                                            return;
+                                        }
+                                        v39 = v42;
+                                        v32 = alloc::vec::Vec<T,A>::push(&v39);
+                                    }
+                                    v24 = 0;
+                                    memcpy(&v22, &v32, 16);
+                                    v3 = v26;
+                                    v0 = *(&v22 as &i128);
+                                }
                             }
+                            clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, "e", v57);
+                            v63 = clap_builder::parser::error::MatchesError::unwrap("e", &v20);
+                            if v63 {
+                                <T as alloc::slice::hack::ConvertVec>::to_vec(*((v63 + 8) as &i64), *((v63 + 16) as &i64), v48);
+                                v6 = v26;
+                                v4 = v20 as i128;
+                            }
+                            v19 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "z") as i8 ? 0 : 10);
+                            *((v65 + 64) as &i128) = *(&v9 as &i128);
+                            v66 = v0;
+                            v67 = v2;
+                            v68 = *(&v5 as &i128);
+                            *((v65 + 48) as &i128) = *(&v7 as &i128);
+                            *((v65 + 32) as &u128) = v68;
+                            *((v65 + 16) as &u128) = v67;
+                            *(v65 as &u128) = v66;
+                            *((v65 + 80) as &u64) = v11;
+                            *((v65 + 88) as &i32) = *(&v12 as &i32);
+                            *((v65 + 92) as &i16) = *((&v15 as &char + 1) as &i16);
+                            *((v65 + 94) as &u8) = v18;
+                            *((v65 + 95) as &u8) = v19;
+                            return;
                         }
-                        v4 = v21 as i64;
-                        *(&v2 as &i128) = *(&v19 as &i128);
                     }
+                    *(v56 as &i64) = 0x8000000000000000;
+                    return;
                 }
-                v19 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "e");
-                v55 = clap_builder::parser::error::MatchesError::unwrap("e", &v19);
-                if v55 {
-                    v19 = <T as alloc::slice::hack::ConvertVec>::to_vec(*((v55 + 8) as &i64), *((v55 + 16) as &i64));
-                    v5 = v19;
-                }
-                if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "nocheck-order") as i8 {
-                    v17 = 1;
-                }
-                if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "check-order") as i8 {
-                    v17 = 2;
-                }
-                if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "header") as i8 {
-                    v18 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "z") as i8 ? 0 : 10);
-                    return struct96 {
-                        field_0: v57
-                        field_16: v58
-                        field_32: v59
-                        field_48: v6 as i128
-                        field_64: *((&v6 as &char + 16) as &i128)
-                        field_80: v10
-                        field_88: *(&v11 as &i32)
-                        field_92: v15 as i16
-                        field_94: v17
-                        field_95: v18
-                    };
-                }
-                v16 = 1;
             }
+            *(v51 as &i64) = 0x8000000000000000;
+            return;
         }
-        *((a0 + 8) as &unsigned long) = v41;
-        *((a0 + 16) as &unsigned long) = v42;
-        return struct8 {
-            field_0: 0x8000000000000000
-        };
     }
+    *((v50 + 8) as &i128) = *(&v1 as &i128);
+    *(v50 as &i64) = 0x8000000000000000;
+    return;
 }

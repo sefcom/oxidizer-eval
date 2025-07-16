@@ -1,4 +1,6 @@
-fn uu_test::parser::Parser::new(a0: &struct32, a1: u32) -> u64 {
+fn uu_test::parser::Parser::new(a1: i64) -> : struct32 {
+    let a0: u64;  // rdi
+
     <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a0 + 48, a1);
     return struct32 {
         field_0: 0

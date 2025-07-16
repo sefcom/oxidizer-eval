@@ -1,50 +1,34 @@
-fn uu_cp::verify_target_type(a0: &struct8, a1: u32, a2: u32, a3: &struct1) -> u64 {
-    let v0: &u8;  // [sp-0x80]
-    let v1: u64;  // [sp-0x78]
-    let v2: u64;  // [sp-0x70]
-    let v3: u64;  // [sp-0x68]
-    let v4: u64;  // [sp-0x60]
-    let v5: u8;  // [sp-0x58]
-    let v6: struct40;  // [bp-0x50]
-    let v8: u8;  // al
+fn uu_cp::verify_target_type(a1: i64, a2: i64, a3: i64) -> : struct8 {
+    let a0: u64;  // rsi
+    let v0: core::result::Result<(), std::io::error::Error>;  // [bp-0x80]
+    let v6: u64;  // [bp-0x50], Other Possible Types: struct24
+    let v7: u64;  // [bp-0x48]
+    let v8: i64;  // [bp-0x40]
+    let v9: u64;  // [bp-0x38]
+    let v10: void*;  // [bp-0x30]
+    let v12: u8;  // al
+    let v13: u64;  // rcx
+    let v14: u64;  // rax
+    let v15: i64;  // rdi
 
-    v8 = std::path::Path::is_dir(a1, a2) as i8;
-    if !*(a3) {
-        if !v8 {
-            v2 = 1;
-            v3 = a1;
-            v4 = a2;
-            v5 = 1;
-            v0 = &v2;
-            v1 = <os_display::Quoted as core::fmt::Display>::fmt;
-        } else {
-            return struct8 {
-                field_0: v9
-            };
+    v12 = std::path::Path::is_dir(a0, a1);
+    if *(a2 as &i8) {
+        v13 = 13;
+        if !(!v12) {
+            goto LABEL_5088ac;
         }
     } else {
-        if v8 {
-            v2 = 1;
-            v3 = a1;
-            v4 = a2;
-            v5 = 1;
-            v0 = &v2;
-            v1 = <os_display::Quoted as core::fmt::Display>::fmt;
-        } else {
-            return struct8 {
-                field_0: v9
-            };
+        v13 = 13;
+        if !v12 {
+LABEL_5088ac:
+            v6 = v14;
+            v7 = 2;
+            v10 = 0;
+            v8 = &v0;
+            v9 = 1;
+            v6 = core::option::Option<T>::map_or_else(a1);
         }
     }
-    v6 = struct40 {
-        field_0: v10
-        field_8: 2
-        field_16: &v0
-        field_24: 1
-        field_32: 0
-    };
-    core::option::Option<T>::map_or_else(a0 + 8, &v6);
-    return struct8 {
-        field_0: v9
-    };
+    *(v15 as &u64) = v13;
+    return;
 }

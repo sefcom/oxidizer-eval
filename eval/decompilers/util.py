@@ -6,10 +6,9 @@ import re
 
 import angr
 from angr.rust.utils.library import demangle
-from angr.rust.ailment.statement import FunctionLikeMacro
+from angr.ailment.statement import FunctionLikeMacro, Call
 from angr.analyses.decompiler.sequence_walker import SequenceWalker
-from ailment import AILBlockWalker, Block, Const
-from ailment.statement import Call
+from angr.ailment import AILBlockWalker, Block, Const
 
 from eval.type_recovery.function_prototype import FunctionPrototype
 
@@ -24,11 +23,11 @@ def save_result(decompiler, bin_name, result):
     for func_name, decompilation in result["decompilation"].items():
         path = os.path.join(CACHE_DIR, "decompilation", decompiler, bin_name, func_name + ".c")
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, "w") as fd:
+        with open(path, "w", encoding="utf-8") as fd:
             fd.write(decompilation)
     path = os.path.join(CACHE_DIR, "result", decompiler, bin_name + ".json")
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as fd:
+    with open(path, "w", encoding="utf-8") as fd:
         json.dump(result, fd, indent=2)
 
 
@@ -36,7 +35,7 @@ def load_cached_result(decompiler, bin_name):
     result = None
     path = os.path.join(CACHE_DIR, "result", decompiler, bin_name + ".json")
     if os.path.exists(path):
-        with open(path, "r") as fd:
+        with open(path, "r", encoding="utf-8") as fd:
             result = json.load(fd)
     return result
 

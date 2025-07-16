@@ -27,6 +27,8 @@ if __name__ == "__main__":
         try:
             if "." in file or "expr" in file:
                 continue
+            if "fmt" not in file:
+                continue
             parser = DwarfParser()
             parser.parse_json(f"output/dwarf/{file}.json")
             proj = angr.Project(os.path.join("dataset/o3", file), auto_load_libs=False)

@@ -1,46 +1,50 @@
-fn uu_tac::uu_app(a0: &struct712) -> u64 {
-    let v0: struct712;  // [sp-0xa48], Other Possible Types: struct592
-    let v1: struct592;  // [sp-0x780], Other Possible Types: struct24
-    let v2: i32;  // [sp-0x538]
-    let v3: i32;  // [sp-0x534]
-    let v4: struct592;  // [sp-0x530], Other Possible Types: struct712, struct437
-    let v5: i64;  // [sp-0x274]
-    let v6: i32;  // [sp-0x26c]
-    let v7: struct592;  // [sp-0x268]
-    let v9: i64;  // rdx
+fn uu_tac::uu_app(a0: &struct712) -> long long {
+    let v0: u8;  // [bp-0xa48]
+    let v1: u64;  // [bp-0x78c]
+    let v2: u32;  // [bp-0x784]
+    let v3: u8;  // [bp-0x780]
+    let v4: u32;  // [bp-0x538]
+    let v5: u32;  // [bp-0x534]
+    let v6: struct437;  // [bp-0x530]
+    let v7: u32;  // [bp-0x2e8]
+    let v8: i8;  // [bp-0x2e4]
+    let v9: u64;  // [bp-0x274]
+    let v10: u32;  // [bp-0x26c]
+    let v11: u8;  // [bp-0x268]
+    let v14: u64;  // rdx
 
-    v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
-    v0 = clap_builder::builder::command::Command::version(&v4, "0.0.28");
-    v1 = uucore::format_usage("{} [OPTION]... [FILE]...");
-    v4 = clap_builder::builder::command::Command::override_usage(&v0, &v1);
-    v0 = clap_builder::builder::command::Command::about(&v4, "Write each file to standard output, last line first.");
-    memcpy(&v4, &v0, 700);
-    v5 = 549755814016 | *((&v0.field_0 as &char + 700) as &i64);
-    v6 = *((&v0.field_0 as &char + 708) as &i32);
-    v0 = clap_builder::builder::arg::Arg::new("before");
-    v1 = clap_builder::builder::arg::Arg::short(&v0, 0x62);
-    v0 = clap_builder::builder::arg::Arg::long(&v1, "before");
-    v1 = clap_builder::builder::arg::Arg::help(&v0, "attach the separator before instead of after");
-    v7 = clap_builder::builder::arg::Arg::action(&v1, 0x2);
-    v0 = clap_builder::builder::command::Command::arg(&v4, &v7);
-    v4 = clap_builder::builder::arg::Arg::new("regex");
-    v1 = clap_builder::builder::arg::Arg::short(&v4, 0x72);
-    v4 = clap_builder::builder::arg::Arg::long(&v1, "regex");
-    v1 = clap_builder::builder::arg::Arg::help(&v4, "interpret the sequence as a regular expression");
-    v7 = clap_builder::builder::arg::Arg::action(&v1, 0x2);
-    v4 = clap_builder::builder::command::Command::arg(&v0, &v7);
-    v0 = clap_builder::builder::arg::Arg::new("separator");
-    v1 = clap_builder::builder::arg::Arg::short(&v0, 0x73);
-    v0 = clap_builder::builder::arg::Arg::long(&v1, "separator");
-    v1 = clap_builder::builder::arg::Arg::help(&v0, "use STRING as the separator instead of newline");
-    v7 = clap_builder::builder::arg::Arg::value_name(&v1);
-    v0 = clap_builder::builder::command::Command::arg(&v4, &v7);
-    v4 = clap_builder::builder::arg::Arg::new("file");
-    memcpy(&v1, &v4, 584);
-    v2 = *((&v4.field_0 as &char + 584) as &i32) | 4;
-    v3 = *((&v4.field_0 as &char + 588) as &i32);
-    v4 = clap_builder::builder::arg::Arg::action(&v1, 0x1);
-    v1 = clap_builder::builder::arg::Arg::value_hint(&v4, 0x3);
-    clap_builder::builder::command::Command::arg(a0, &v0, &v1);
+    v6 = clap_builder::builder::command::Command::new(uucore::util_name(), v14);
+    clap_builder::builder::command::Command::version(&v0, &v6, "0.0.28");
+    uucore::format_usage(&v3, "{} [OPTION]... [FILE]...");
+    clap_builder::builder::command::Command::override_usage(&v6, &v0, &v3);
+    clap_builder::builder::command::Command::about(&v0, &v6, "Write each file to standard output, last line first.");
+    memcpy(&v6, &v0, 700);
+    v9 = 549755814016 | v1;
+    v10 = v2;
+    clap_builder::builder::arg::Arg::new(&v0, "before");
+    clap_builder::builder::arg::Arg::short(&v3, &v0, 98);
+    clap_builder::builder::arg::Arg::long(&v0, &v3, "before");
+    clap_builder::builder::arg::Arg::help(&v3, &v0, "attach the separator before instead of after");
+    clap_builder::builder::arg::Arg::action(&v11, &v3, 2);
+    clap_builder::builder::command::Command::arg(&v0, &v6, &v11);
+    clap_builder::builder::arg::Arg::new(&v6, "regex");
+    clap_builder::builder::arg::Arg::short(&v3, &v6, 114);
+    clap_builder::builder::arg::Arg::long(&v6, &v3, "regex");
+    clap_builder::builder::arg::Arg::help(&v3, &v6, "interpret the sequence as a regular expression");
+    clap_builder::builder::arg::Arg::action(&v11, &v3, 2);
+    clap_builder::builder::command::Command::arg(&v6, &v0, &v11);
+    clap_builder::builder::arg::Arg::new(&v0, "separator");
+    clap_builder::builder::arg::Arg::short(&v3, &v0, 115);
+    clap_builder::builder::arg::Arg::long(&v0, &v3, "separator");
+    clap_builder::builder::arg::Arg::help(&v3, &v0, "use STRING as the separator instead of newline");
+    clap_builder::builder::arg::Arg::value_name(&v11, &v3);
+    clap_builder::builder::command::Command::arg(&v0, &v6, &v11);
+    clap_builder::builder::arg::Arg::new(&v6, "file");
+    memcpy(&v3, &v6, 584);
+    v4 = v7 | 4;
+    v5 = *(&v8 as &i32);
+    clap_builder::builder::arg::Arg::action(&v6, &v3, 1);
+    clap_builder::builder::arg::Arg::value_hint(&v3, &v6, 3);
+    clap_builder::builder::command::Command::arg(a0, &v0, &v3);
     return a0;
 }

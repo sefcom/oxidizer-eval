@@ -1,18 +1,17 @@
-fn uu_dd::parseargs::Parser::parse_status_level(a0: &Option<struct1>, a1: u32, a2: u32) -> u64 {
-    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, "none") as i8 {
-        a0->field_8 = 2;
-        goto LABEL_4d35f2;
-    }
-    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, "noxfer") as i8 {
-        a0->field_8 = 1;
-        goto LABEL_4d35f2;
-    } else if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, "progress") as i8 {
-        <T as alloc::slice::hack::ConvertVec>::to_vec(&a0->field_8, a1, a2);
+fn uu_dd::parseargs::Parser::parse_status_level(a1: i64, a2: i64) -> : struct9 {
+    let a0: u64;  // rsi
+    let v1: i64;  // rdi
+    let v2: u64;  // rax
+
+    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1 as u32, "none") as i8 {
+        *((v1 + 8) as &i8) = 2;
+    } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1 as u32, "noxfer") as i8 {
+        *((v1 + 8) as &i8) = 1;
+    } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1 as u32, "progress") as i8 {
+        *((v1 + 8) as &i8) = 0;
     } else {
-        a0->field_8 = 0;
-LABEL_4d35f2:
+        <T as alloc::slice::hack::ConvertVec>::to_vec(a0, a1, a2);
     }
-    return struct8 {
-        field_0: v1
-    };
+    *(v1 as &u64) = v2;
+    return;
 }

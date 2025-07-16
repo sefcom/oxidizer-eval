@@ -1,45 +1,34 @@
-fn uu_sort::tokenize_default(a0: u32, a1: u32, a2: &u64) -> u64 {
-    let v0: u64;  // [sp-0x40]
-    let v1: u64;  // [sp-0x38]
-    let v2: void*;  // [sp-0x30]
-    let v4: u64;  // rcx
-    let v5: u8;  // cl
-    let v6: u8;  // bpl
-    let v7: struct8;  // rax
-    let v8: u64;  // rdx
-    let v9: u64;  // rcx
-    let v10: u64;  // rcx
-    let v11: u64;  // rax
+fn uu_sort::tokenize_default(a0: i64, a1: i64, a2: i64) -> long long {
+    let v4: u8;  // cl
+    let v5: u8;  // bpl
+    let v6: struct8;  // rax
+    let v7: u32;  // edx
+    let v8: u64;  // rax
 
     alloc::vec::Vec<T,A>::push(a2, 0, 0);
-    v0 = a0;
-    v1 = a0 + a1;
-    v2 = 0;
-    v5 = v4 & -0x100 | 1;
     loop {
         loop {
-            v6 = v5;
-            v7 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next();
-            match (v8) {
+            v5 = v4;
+            v6 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next();
+            match (v7) {
                 32 => {
 LABEL_520c1f:
-                    v5 = v9 & -0x100 | 1;
-                    if !(v6 & 1) {
+                    v4 = 1;
+                    if !(v5 & 1) {
                         break;
                     }
                     continue;
                 }
                 1114112 => {
-                    v11 = a2[2];
-                    if v11 {
-                        *((v11 * 16 + a2[1] - 8) as &u64) = a1;
-                        return v11 * 16;
+                    v8 = *((a2 + 16) as &i64);
+                    if !*((a2 + 16) as &i64) {
+                        core::option::unwrap_failed(); /* do not return */
                     }
-                    core::option::unwrap_failed("src/uu/sort/src/sort.rs"); /* do not return */
+                    *((v8 * 16 + *((a2 + 8) as &i64) - 8) as &u64) = a1;
+                    return v8 * 16;
                 }
                 _ => {
-                    v9 = v8 - 9 & 4294967295;
-                    if v9 < 5 {
+                    if v7 - 9 < 5 {
                         goto LABEL_520c1f;
                     } else {
                         goto LABEL_520c50;
@@ -47,18 +36,16 @@ LABEL_520c1f:
                 }
             }
 LABEL_520c50:
-            v5 = 0;
-            if v8 >= 128 && (v5 = core::unicode::unicode_data::white_space::lookup(v8 & 4294967295) as i32 as i8, !((v6 | ~(v5)) & 1)) {
+            v4 = 0;
+            if v7 >= 128 && (v4 = core::unicode::unicode_data::white_space::lookup(v7 as u8) as u32 as u8, !((v5 | ~(v4)) & 1)) {
                 break;
             }
         }
-        v10 = a2[2];
-        if !v10 {
+        if !*((a2 + 16) as &i64) {
             break;
         }
-        *((v10 * 16 + a2[1] - 8) as &struct8) = v7;
-        alloc::vec::Vec<T,A>::push(a2, v7, 0);
-        v5 = v4 & -0x100 | 1;
+        *((*((a2 + 16) as &i64) * 16 + *((a2 + 8) as &i64) - 8) as &struct8) = v6;
+        alloc::vec::Vec<T,A>::push(a2, v6, 0);
     }
-    core::option::unwrap_failed("src/uu/sort/src/sort.rs"); /* do not return */
+    core::option::unwrap_failed(); /* do not return */
 }

@@ -1,28 +1,24 @@
-fn uu_more::Pager::page_down(a0: &struct8) -> u64 {
-    let v1: u64;  // rax
-    let v2: u64;  // rcx
-    let v3: u64;  // rdx
-    let v4: u64;  // rsi
+fn uu_more::Pager::page_down() -> : struct8 {
+    let a0: i64;  // rsi
+    let v1: i64;  // rdi
+    let v2: std::io::stdio::Stdout;  // rax
+    let v3: u64;  // rcx
+    let v4: u64;  // rdx
     let v5: u64;  // rcx
     let v6: u64;  // rdx
     let v7: u64;  // r8
+    let v8: u64;  // rdx
 
-    v1 = a0->field_40;
-    v2 = v1 * 2;
-    v3 = a0->field_18;
-    v4 = a0->field_30;
-    v5 = v2 + v3;
-    if __CFADD__(v2, v3) as char {
-        v5 = -1;
+    v2 = *((v1 + 64) as &i16);
+    v3 = (v2 as u32 & 65535) * 2;
+    v4 = *((v1 + 24) as &i64);
+    v5 = v3 + v4;
+    v7 = *((v1 + 48) as &i64) - v2;
+    if v5 < *((v1 + 48) as &i64) {
+        v8 = v6;
+    } else {
+        v8 = v7;
     }
-    v6 = v3 + v1;
-    if __CFADD__(v3, v1) as char {
-        v6 = -1;
-    }
-    v7 = v4 - v1;
-    if v5 < v4 {
-        v7 = v6;
-    }
-    a0->field_18 = v7;
-    return v1;
+    *((v1 + 24) as &u64) = v8;
+    return;
 }

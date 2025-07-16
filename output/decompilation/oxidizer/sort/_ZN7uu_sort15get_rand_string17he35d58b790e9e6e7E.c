@@ -1,7 +1,9 @@
-fn uu_sort::get_rand_string(a0: &struct16) -> u64 {
-    let v0: u64;  // [sp-0x10]
+fn uu_sort::get_rand_string() -> : struct16 {
+    let a0: i64;  // rsi
+    let v0: u64;  // [bp-0x10]
+    let v2: u64;  // rdi
 
     v0 = rand::rngs::thread::thread_rng();
-    rand::rng::Rng::sample(a0, &v0);
-    return a0;
+    rand::rng::Rng::sample(v2, &v0);
+    return;
 }

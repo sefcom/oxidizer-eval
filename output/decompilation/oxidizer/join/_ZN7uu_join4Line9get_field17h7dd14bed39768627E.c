@@ -1,14 +1,12 @@
-fn uu_join::Line::get_field(a0: void*, a1: u32) -> u64 {
-    let v0: u64;  // [sp-0x8]
+fn uu_join::Line::get_field(a0: i64, a1: i64) -> long long {
+    let v0: u64;  // [bp-0x8]
     let v2: u64;  // rax
-    let v3: &u32;  // rsi
-    let v4: &u32;  // rcx
+    let v3: u64;  // rsi
 
-    if a0->field_10 > a1 {
-        v0 = v2;
-        v3 = a1 * 16;
-        v4 = a0->field_8;
-        return <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(*((v4 + v3) as &i64), *((v4 + v3 + 8) as &i64), *(&a0->field_20 as &i64), *(&a0->field_28 as &i64));
+    if *((a0 + 16) as &i64) <= a1 {
+        return 0;
     }
-    return 0;
+    v0 = v2;
+    v3 = a1 * 16;
+    return <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(*((*((a0 + 8) as &i64) + v3) as &i64), *((*((a0 + 8) as &i64) + v3 + 8) as &i64), *((a0 + 32) as &i64), *((a0 + 40) as &i64));
 }

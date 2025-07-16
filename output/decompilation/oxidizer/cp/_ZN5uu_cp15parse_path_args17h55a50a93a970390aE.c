@@ -1,129 +1,134 @@
-fn uu_cp::parse_path_args(a0: &struct64, a1: &struct24, a2: u32) -> u64 {
-    let v0: iNone;  // [sp-0xf8], Other Possible Types: struct24, struct8, struct20
-    let v1: i64;  // [sp-0xe8]
-    let v2: iNone;  // [bp-0xe0]
-    let v4: i64;  // [sp-0xd0]
-    let v6: struct24;  // [sp-0xb0]
-    let v7: iNone;  // [bp-0x90], Other Possible Types: unsigned long
-    let v8: i64;  // [sp-0x88]
-    let v9: i64;  // [sp-0x78]
-    let v10: i64;  // [sp-0x70]
-    let v11: i64;  // [sp-0x68]
-    let v12: String;  // [sp-0x60]
-    let v13: String;  // [sp-0x48]
-    let v16: i64;  // rax
-    let v17: i64;  // rsi
-    let v22: i64;  // rax
-    let v23: i64;  // rsi
-    let v24: i64;  // rdi
-    let v25: i64;  // rax
-    let v26: iNone;  // xmm0
-    let v27: iNone;  // xmm0
-    let v28: iNone;  // ymm0
-    let v29: iNone;  // ymm0
-    let v30: iNone;  // xmm0
-    let v31: iNone;  // ymm0
-    let v32: i64;  // rdx
-    let v33: i64;  // rax
-    let v34: i64;  // r15
-    let v35: iNone;  // xmm0
+fn uu_cp::parse_path_args(a1: &struct24, a2: i64) -> : struct64 {
+    let a0: i64;  // rsi
+    let v0: i64;  // [bp-0x100]
+    let v1: u128;  // [bp-0xf8], Other Possible Types: struct24, struct8
+    let v2: std::path::Components;  // [bp-0xf8]
+    let v3: u64;  // [bp-0xf0]
+    let v4: i64;  // [bp-0xe8], Other Possible Types: u64
+    let v5: u64;  // [bp-0xe0]
+    let v6: void*;  // [bp-0xd8], Other Possible Types: u64
+    let v7: u64;  // [bp-0xd0]
+    let v8: i8;  // [bp-0xc8]
+    let v9: u64;  // [bp-0xb0], Other Possible Types: std::path::PathBuf
+    let v10: u64;  // [bp-0xa8]
+    let v11: u64;  // [bp-0xa0]
+    let v12: u64;  // [bp-0x98]
+    let v13: u128;  // [bp-0x90]
+    let v14: u64;  // [bp-0x88]
+    let v15: i64;  // [bp-0x78]
+    let v16: u128;  // [bp-0x70]
+    let v18: u64;  // [bp-0x50]
+    let v19: u128;  // [bp-0x48]
+    let v20: i8;  // [bp-0x38]
+    let v22: u64;  // rax
+    let v23: u128;  // xmm0
+    let v24: u128;  // xmm1
+    let v25: u128;  // xmm2
+    let v26: i64;  // rdi
+    let v28: u64;  // rax
+    let v29: u64;  // rdi
+    let v30: u64;  // rax
+    let v31: i64;  // rdi
+    let v32: i64;  // 4096
+    let v34: u64;  // rdx
+    let v35: i64;  // rax
+    let v36: i64;  // r15
+    let v38: u128;  // xmm0
+    let v39: &std::path::Path;  // rax:rdx
 
-    v16 = *((a1 + 16) as &i64);
-    if v16 != 1 {
-        if !v16 {
-            v0 = <uu_cp::Error as core::convert::From<&str>>::from("missing file operand");
-            return struct64 {
-                field_0: v18
-                field_16: v19
-                field_32: v20
-                field_48: *(&v5 as &i128)
-            };
+    v22 = *((a0 + 16) as &i64);
+    if v22 != 1 {
+        if !v22 {
+            v1 = <uu_cp::Error as core::convert::From<&str>>::from("missing file operand");
+            v23 = v1.field_0;
+            v24 = *(&v4 as &i128);
+            v25 = *(&v6 as &i128);
+            *((v26 + 48) as &i128) = *(&v8 as &i128);
+            *((v26 + 32) as &u128) = v25;
+            *((v26 + 16) as &u128) = v24;
+            *(v26 as &u128) = v23;
+            return;
         }
-        v17 = *((a2 + 24) as &i64);
-        if v16 >= 3 && *((a2 + 66) as &i8) && v17 == 0x8000000000000000 {
-            v13 = format!("extra operand {:?}", *((a1 + 8) as &i64) + 48);
-            return struct32 {
-                field_0: 4
-                field_8: v21
-                field_24: v13.len
-            };
+        if v22 >= 3 && *((a1 + 66) as &i8) && *((a1 + 24) as &i64) == 0x8000000000000000 {
+            v9 = *((a0 + 8) as &i64) + 48;
+            v10 = <std::sys::os_str::bytes::Buf as core::fmt::Debug>::fmt;
+            v1 = "extra operand ";
+            v3 = 1;
+            v6 = 0;
+            v4 = &v9;
+            v5 = 1;
+            v1 = core::option::Option<T>::map_or_else(a1);
+            *((v31 + 24) as &i64) = *(&v20 as &i64);
+        } else {
+            if *((a1 + 24) as &i64) == 0x8000000000000000 {
+                v28 = v22 - 1;
+                *((a0 + 16) as &u64) = v28;
+                v29 = v28 * 3;
+                v30 = *((*((a0 + 8) as &i64) + v29 * 8) as &i64);
+                v1 = *((*((a0 + 8) as &i64) + v29 * 8 + 8) as &i128);
+                if v30 == 0x8000000000000000 {
+                    core::option::unwrap_failed(); /* do not return */
+                }
+                v12 = v30;
+                v13 = v1;
+                v32 = a0;
+                if !(!*((a1 + 69) as &i8)) {
+                    goto LABEL_502fc4;
+                }
+            } else {
+LABEL_502f7a:
+                <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(a1 + 24, a1);
+                v14 = v4;
+                v12 = v1;
+                v32 = a0;
+                if *((a1 + 69) as &i8) {
+LABEL_502fc4:
+                    v16 = struct16 {
+                        field_0: <&mut alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a0)
+                        field_8: v34
+                    };
+                    v35 = <core::slice::iter::IterMut<T> as core::iter::traits::iterator::Iterator>::next(&v16);
+                    if v35 {
+                        do {
+                            v2 = std::path::Path::components(*((v36 + 8) as &i64), *((v36 + 16) as &i64));
+                            v39 = std::path::Components::as_path(&v2);
+                            v9 = std::sys::pal::unix::os::split_paths::bytes_to_path(v39.data_ptr, a1);
+                            *((v36 + 16) as &u64) = v11;
+                            *(v36 as &i128) = *(&v9.inner.inner.inner.buf.cap as &i128);
+                            <core::slice::iter::IterMut<T> as core::iter::traits::iterator::Iterator>::next(&v16);
+                        } while (v35);
+                    }
+                    v32 = v0;
+                }
+            }
+            v4 = *((v32 + 16) as &i64);
+            v38 = *(v32 as &i128);
+            v1 = v38;
+            v7 = v14;
+            memcpy(&v2 as u8, &v12, 16);
+            *((v15 + 8) as &u128) = v38;
+            *((v15 + 24) as &u64) = v4;
+            *((v15 + 32) as &u64) = v5;
+            *((v15 + 40) as &u64) = v6;
+            *((v15 + 48) as &u64) = v7;
+            *(v15 as &i64) = 13;
+            return;
         }
-        if v17 == 0x8000000000000000 {
-            v22 = v16 - 1;
-            *((a1 + 16) as &unsigned long) = v22;
-            v23 = *((a1 + 8) as &i64);
-            v24 = v22 * 3;
-            v25 = *((v23 + v24 * 8) as &i64);
-            v26 = *((v23 + v24 * 8 + 8) as &i128);
-            v0 = v26;
-            if v7 == 0x8000000000000000 {
-                core::option::unwrap_failed("src/uu/cp/src/cp.rs"); /* do not return */
-            }
-            v7 = v25;
-            v27 = v0 as i128;
-            v29 = (v28 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v26 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v27 as u256;
-            v7 = v27;
-            if !*((a2 + 69) as &i8) {
-                v1 = *((a1 + 16) as &i64);
-                *(&v0 as &i128) = *(a1 as &i128);
-                v4 = v8;
-                *(&v2 as &i128) = v7 as i128;
-                return struct56 {
-                    field_0: 13
-                    field_8: v36
-                    field_24: v1
-                    field_32: v2
-                    field_40: v3
-                    field_48: v4
-                };
-            }
-LABEL_502faf:
-            v9 = a0;
-            v10 = <&mut alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a1);
-            v11 = v32;
-            v33 = <core::slice::iter::IterMut<T> as core::iter::traits::iterator::Iterator>::next(&v10);
-            if !v33 {
-                vvar_406{stack -232} = *((a1 + 16) as &i64);
-                *(&v0 as &i128) = *(a1 as &i128);
-                vvar_407{stack -208} = v8;
-                *(&v2 as &i128) = v7 as i128;
-                return struct56 {
-                    field_0: 13
-                    field_8: v36
-                    field_24: v1
-                    field_32: v2
-                    field_40: v3
-                    field_48: v4
-                };
-            }
-            v34 = v33;
-            do {
-                v0 = std::path::Path::components(*((v34 + 8) as &i64), *((v34 + 16) as &i64));
-                v6 = std::sys::pal::unix::os::split_paths::bytes_to_path(std::path::Components::as_path(&v0), a2);
-            } while ((*((v34 + 16) as &u64) = v6.field_16, v35 = *(&v6.field_0 as &i128), v29 = v29 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v35 as u256, *(v34 as void*) = v35, v34 = <core::slice::iter::IterMut<T> as core::iter::traits::iterator::Iterator>::next(&v10), v34));
+    } else {
+        if !(*((a1 + 24) as &i64) == 0x8000000000000000) {
+            goto LABEL_502f7a;
         }
-    } else if *((a2 + 24) as &i64) == 0x8000000000000000 {
-        v12 = format!("missing destination file operand after {:?}", *((a1 + 8) as &i64));
-        *((a0 + 24) as &u64) = v12.len;
+        v9 = *((a0 + 8) as &i64);
+        v10 = <std::sys::os_str::bytes::Buf as core::fmt::Debug>::fmt;
+        v1 = "missing destination file operand after ";
+        v3 = 1;
+        v6 = 0;
+        v4 = &v9;
+        v5 = 1;
+        v1 = core::option::Option<T>::map_or_else(a1);
+        *((v31 + 24) as &u64) = v18;
     }
-    v0 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(a2 + 24);
-    v8 = v1;
-    v30 = *(&v0.field_0 as &i128);
-    v29 = v31 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v30 as u256;
-    v7 = v30;
-    if !*((a2 + 69) as &i8) {
-        vvar_401{stack -232} = *((a1 + 16) as &i64);
-        *(&v0 as &i128) = *(a1 as &i128);
-        vvar_402{stack -208} = v8;
-        *(&v2 as &i128) = v7 as i128;
-        return struct56 {
-            field_0: 13
-            field_8: v36
-            field_24: v1
-            field_32: v2
-            field_40: v3
-            field_48: v4
-        };
-    }
-    goto LABEL_502faf;
+    *((v31 + 8) as &u128) = v19;
+    *(v31 as &i64) = 4;
+    return;
 }

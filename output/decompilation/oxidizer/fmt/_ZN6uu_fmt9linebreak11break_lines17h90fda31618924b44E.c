@@ -1,102 +1,105 @@
-fn uu_fmt::linebreak::break_lines(a0: void*, a1: &u64, a2: &struct8) -> u64 {
-    let v0: i64;  // [sp-0xb0]
-    let v1: iNone;  // [sp-0xa8], Other Possible Types: unsigned long
-    let v2: i64;  // [sp-0xa0]
-    let v3: i64;  // [sp-0x98]
-    let v4: i64;  // [sp-0x90]
-    let v5: iNone;  // [sp-0x88]
-    let v6: i64;  // [sp-0x78]
-    let v7: i64;  // [sp-0x70]
-    let v8: i64;  // [sp-0x68]
-    let v9: i8;  // [sp-0x60]
-    let v10: struct40;  // [sp-0x58]
-    let v12: i64;  // r13
+fn uu_fmt::linebreak::break_lines(a0: i64, a1: i64, a2: i64) -> long long {
+    let v0: u64;  // [bp-0xb0]
+    let v1: u128;  // [bp-0xa8]
+    let v2: u64;  // [bp-0xa0]
+    let v3: u64;  // [bp-0x98]
+    let v4: i64;  // [bp-0x90]
+    let v5: u128;  // [bp-0x88]
+    let v6: i64;  // [bp-0x78]
+    let v7: u64;  // [bp-0x68]
+    let v8: u8;  // [bp-0x60]
+    let v9: u64;  // [bp-0x50]
+    let v10: i8;  // [bp-0x48]
+    let v12: u32;  // rcx
     let v13: i64;  // rax
     let v14: i64;  // r12
-    let v15: i8;  // 4100
-    let v16: i64;  // rax
-    let v17: i64;  // rsi
-    let v18: i64;  // r13
-    let v19: i64;  // rbp
-    let v20: i64;  // rsi
-    let v21: i64;  // r13
-    let v22: i64;  // rbp
-    let v23: i64;  // rsi
-    let v24: i64;  // r12
-    let v25: i64;  // r13
-    let v26: i64;  // r13
+    let v15: u64;  // rax
+    let v16: u64;  // r13
+    let v17: u64;  // rbp
+    let v18: core::result::Result<usize, core::num::error::ParseIntError>;  // r13
+    let v19: core::result::Result<(), std::io::error::Error>;  // rax
+    let v20: u64;  // r13
+    let v21: u64;  // rbp
+    let v22: u64;  // r12
+    let v23: u64;  // r13
 
-    v12 = *((a0 + 88) as &i64);
-    v10 = uu_fmt::parasplit::ParaWords::new(a1, a0);
-    v1 = *((&v10.field_0 as &char + 8) as &i128);
+    uu_fmt::parasplit::ParaWords::new(a1, a0, v12);
+    v1 = struct16 {
+        field_0: v9
+        field_8: *(&v10 as &i64) * 64 + v9
+    };
     v13 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v1);
-    if !v13 {
-        v16 = *((a2 + 16) as &i64);
-        if *(a2 as &i64) - v16 > 1 {
-            *((*((a2 + 8) as &i64) + v16) as &i8) = 10;
-            *((a2 + 16) as &unsigned long) = v16 + 1;
-            return v26;
-        }
-        std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, "
-");
-    } else {
+    if v13 {
         v14 = v13;
         v3 = *((v13 + 40) as &i64);
-        v15 = *((a1 + 73) as &i8);
-        v0 = v12;
-        if !(!*((a1 + 72) as &i8)) || !(!v15) {
-            v17 = *((a0 + 32) as &i64);
-            v18 = *((a0 + 40) as &i64);
-            v19 = *((a2 + 16) as &i64);
-            if v18 < *(a2 as &i64) - v19 {
-                memcpy(*((a2 + 8) as &i64) + v19, v17, v18);
-                *((a2 + 16) as &unsigned long) = v19 + v18;
+        v0 = *((a0 + 88) as &i64);
+        if !(!*((a1 + 72) as &i8) && !*((a1 + 73) as &i8)) {
+            v16 = *((a0 + 40) as &i64);
+            v17 = *((a2 + 16) as &i64);
+            if v16 < *(a2 as &i64) - v17 {
+                memcpy(*((a2 + 8) as &i64) + v17, *((a0 + 32) as &i64), v16);
+                *((a2 + 16) as &u64) = v17 + v16;
             } else {
-                if std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, v17, v18) {
-                    return v26;
+                std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, *((a0 + 32) as &i64), v16);
+                if let Err(_) = v18 {
+                    return v18;
                 }
             }
         } else if !*((a0 + 104) as &i8) {
-            v20 = *((a0 + 56) as &i64);
-            v21 = *((a0 + 64) as &i64);
-            v22 = *((a2 + 16) as &i64);
-            if v21 < *(a2 as &i64) - v22 {
-                memcpy(*((a2 + 8) as &i64) + v22, v20, v21);
-                *((a2 + 16) as &unsigned long) = v22 + v21;
-            } else if std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, v20, v21) {
-                return v26;
+            v20 = *((a0 + 64) as &i64);
+            v21 = *((a2 + 16) as &i64);
+            if v20 < *(a2 as &i64) - v21 {
+                memcpy(*((a2 + 8) as &i64) + v21, *((a0 + 56) as &i64), v20);
+                *((a2 + 16) as &u64) = v21 + v20;
+            } else {
+                std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, *((a0 + 56) as &i64), v20);
+                if let Err(_) = v18 {
+                    return v18;
+                }
             }
         }
-        v23 = *((v14 + 16) as &i64);
-        v24 = *((v14 + 24) as &i64);
-        v25 = *((a2 + 16) as &i64);
-        if v24 < *(a2 as &i64) - v25 {
-            memcpy(*((a2 + 8) as &i64) + v25, v23, v24);
-            *((a2 + 16) as &unsigned long) = v25 + v24;
-        } else if std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, v23, v24) {
-            return v26;
-        }
-        if !*((a0 + 104) as &i8) {
-            v4 = a1;
-            v7 = v7;
-            v5 = *((a0 + 56) as &i128);
-            v8 = v0;
-            v9 = *((a1 + 78) as &i8);
-            v6 = a2;
-            if !(!*((a1 + 79) as &i8)) {
-                goto LABEL_4bb3e3;
-            }
-            uu_fmt::linebreak::break_knuth_plass(v1, v2, &v4);
-        } else {
-            v4 = a1;
-            v7 = v7;
-            v5 = *((a0 + 56) as &i128);
-            v8 = v0;
-            v9 = 1;
-            v6 = a2;
+        v22 = *((v14 + 24) as &i64);
+        v23 = *((a2 + 16) as &i64);
+        if v22 < *(a2 as &i64) - v23 {
+            memcpy(*((a2 + 8) as &i64) + v23, *((v14 + 16) as &i64), v22);
+            *((a2 + 16) as &u64) = v23 + v22;
+LABEL_4bb37a:
+            if *((a0 + 104) as &i8) {
+                v4 = a1;
+                v5 = *((a0 + 56) as &i128);
+                v7 = v0;
+                v8 = 1;
+                v6 = a2;
 LABEL_4bb3e3:
-            uu_fmt::linebreak::break_simple(v1, v2, &v4);
+                uu_fmt::linebreak::break_simple(v1 as i64, v2, &v4);
+            } else {
+                v4 = a1;
+                v5 = *((a0 + 56) as &i128);
+                v7 = v0;
+                v8 = *((a1 + 78) as &i8);
+                v6 = a2;
+                if !(!*((a1 + 79) as &i8)) {
+                    goto LABEL_4bb3e3;
+                }
+                uu_fmt::linebreak::break_knuth_plass(v1 as i64, v2, &v4);
+            }
+LABEL_4bb3f7:
+            v18 = v19;
+        } else {
+            std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, *((v14 + 16) as &i64), v22);
+            if let Ok(_) = v18 {
+                goto LABEL_4bb37a;
+            }
+        }
+    } else {
+        v15 = *((a2 + 16) as &i64);
+        if *(a2 as &i64) - v15 > 1 {
+            *((*((a2 + 8) as &i64) + v15) as &i8) = 10;
+            *((a2 + 16) as &u64) = v15 + 1;
+        } else {
+            std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(a2, "\n");
+            goto LABEL_4bb3f7;
         }
     }
-    return v26;
+    return v18;
 }

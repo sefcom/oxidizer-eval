@@ -1,67 +1,68 @@
-fn uu_wc::uu_app(a0: &struct712) -> u64 {
-    let v0: i64;  // [sp-0xa60]
-    let v1: i8;  // [bp-0xa58]
-    let v2: i8;  // [bp-0xa50]
-    let v3: struct592;  // [sp-0xa48], Other Possible Types: struct712, struct437, struct64
-    let v4: i32;  // [sp-0x800]
-    let v5: i32;  // [sp-0x7fc]
-    let v6: i64;  // [sp-0x78c]
-    let v7: i32;  // [sp-0x784]
-    let v8: struct592;  // [sp-0x780], Other Possible Types: struct24
-    let v9: struct592;  // [sp-0x530], Other Possible Types: struct712
-    let v10: struct592;  // [sp-0x268], Other Possible Types: unsigned long, struct24
-    let v11: i64;  // [sp-0x260]
-    let v12: i64;  // [sp-0x258]
-    let v14: i64;  // rdx
+fn uu_wc::uu_app(a0: &struct712) -> long long {
+    let v0: u64;  // [bp-0xa60]
+    let v1: u64;  // [bp-0xa58]
+    let v2: u64;  // [bp-0xa50]
+    let v3: struct437;  // [bp-0xa48], Other Possible Types: u512
+    let v4: u32;  // [bp-0x800]
+    let v5: u32;  // [bp-0x7fc]
+    let v6: u64;  // [bp-0x78c]
+    let v7: u32;  // [bp-0x784]
+    let v8: u8;  // [bp-0x780]
+    let v9: u32;  // [bp-0x538]
+    let v10: u32;  // [bp-0x534]
+    let v11: u8;  // [bp-0x530]
+    let v12: u64;  // [bp-0x274]
+    let v13: u32;  // [bp-0x26c]
+    let v14: u8;  // [bp-0x268], Other Possible Types: struct24
+    let v15: u64;  // [bp-0x260]
+    let v16: u64;  // [bp-0x258]
+    let v19: u64;  // rdx
 
-    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v14);
-    v9 = clap_builder::builder::command::Command::version(&v3, "0.0.28");
-    v3 = clap_builder::builder::command::Command::about(&v9, "Display newline, word, and byte counts for each FILE, and a total line if
-more than one FILE is specified. With no FILE, or when FILE is -, read standard input.");
-    v8 = uucore::format_usage("{} [OPTION]... [FILE]...");
-    v9 = clap_builder::builder::command::Command::override_usage(&v3, &v8);
-    memcpy(&v3, &v9, 700);
-    v6 = 584115552392 | *((&v9.field_0 as &char + 700) as &i64);
-    v7 = *((&v9.field_0 as &char + 708) as &i32);
-    v9 = clap_builder::builder::arg::Arg::new("bytes");
-    v8 = clap_builder::builder::arg::Arg::short(&v9, 0x63);
-    v9 = clap_builder::builder::arg::Arg::long(&v8, "bytes");
-    v8 = clap_builder::builder::arg::Arg::help(&v9, "print the byte counts");
-    v10 = clap_builder::builder::arg::Arg::action(&v8, 0x2);
-    v9 = clap_builder::builder::command::Command::arg(&v3, &v10);
-    v3 = clap_builder::builder::arg::Arg::new("chars");
-    v8 = clap_builder::builder::arg::Arg::short(&v3, 0x6d);
-    v3 = clap_builder::builder::arg::Arg::long(&v8, "chars");
-    v8 = clap_builder::builder::arg::Arg::help(&v3, "print the character counts");
-    v10 = clap_builder::builder::arg::Arg::action(&v8, 0x2);
-    v3 = clap_builder::builder::command::Command::arg(&v9, &v10);
-    v9 = clap_builder::builder::arg::Arg::new("files0-from");
-    v8 = clap_builder::builder::arg::Arg::long(&v9, "files0-from");
-    v9 = clap_builder::builder::arg::Arg::value_name(&v8, "F");
-    v8 = clap_builder::builder::arg::Arg::help(&v9, "read input from the files specified by
-  NUL-terminated names in file F;
-  If F is - then read names from standard input");
+    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v19);
+    clap_builder::builder::command::Command::version(&v11, &v3, "0.0.28");
+    clap_builder::builder::command::Command::about(&v3, &v11, "Display newline, word, and byte counts for each FILE, and a total line if\nmore than one FILE is specified. With no FILE, or when FILE is -, read standard input.");
+    uucore::format_usage(&v8, "{} [OPTION]... [FILE]...");
+    clap_builder::builder::command::Command::override_usage(&v11, &v3, &v8);
+    memcpy(&v3, &v11, 700);
+    v6 = 584115552392 | v12;
+    v7 = v13;
+    clap_builder::builder::arg::Arg::new(&v11, "bytes");
+    clap_builder::builder::arg::Arg::short(&v8, &v11, 99);
+    clap_builder::builder::arg::Arg::long(&v11, &v8, "bytes");
+    clap_builder::builder::arg::Arg::help(&v8, &v11, "print the byte counts");
+    clap_builder::builder::arg::Arg::action(&v14, &v8, 2);
+    clap_builder::builder::command::Command::arg(&v11, &v3, &v14);
+    clap_builder::builder::arg::Arg::new(&v3, "chars");
+    clap_builder::builder::arg::Arg::short(&v8, &v3, 109);
+    clap_builder::builder::arg::Arg::long(&v3, &v8, "chars");
+    clap_builder::builder::arg::Arg::help(&v8, &v3, "print the character counts");
+    clap_builder::builder::arg::Arg::action(&v14, &v8, 2);
+    clap_builder::builder::command::Command::arg(&v3, &v11, &v14);
+    clap_builder::builder::arg::Arg::new(&v11, "files0-from");
+    clap_builder::builder::arg::Arg::long(&v8, &v11, "files0-from");
+    clap_builder::builder::arg::Arg::value_name(&v11, &v8, "F");
+    clap_builder::builder::arg::Arg::help(&v8, &v11, "read input from the files specified by\n  NUL-terminated names in file F;\n  If F is - then read names from standard input");
     v0 = 2;
-    v12 = *(&v2 as &i64);
-    v10 = v0;
-    v11 = *(&v1 as &i64);
-    v9 = clap_builder::builder::arg::Arg::value_parser(&v8, &v10);
-    v8 = clap_builder::builder::arg::Arg::value_hint(&v9, 0x3);
-    v9 = clap_builder::builder::command::Command::arg(&v3, &v8);
-    v3 = clap_builder::builder::arg::Arg::new("lines");
-    v8 = clap_builder::builder::arg::Arg::short(&v3, 0x6c);
-    v3 = clap_builder::builder::arg::Arg::long(&v8, "lines");
-    v8 = clap_builder::builder::arg::Arg::help(&v3, "print the newline counts");
-    v10 = clap_builder::builder::arg::Arg::action(&v8, 0x2);
-    v3 = clap_builder::builder::command::Command::arg(&v9, &v10);
-    v9 = clap_builder::builder::arg::Arg::new("max-line-length");
-    v8 = clap_builder::builder::arg::Arg::short(&v9, 0x4c);
-    v9 = clap_builder::builder::arg::Arg::long(&v8, "max-line-length");
-    v8 = clap_builder::builder::arg::Arg::help(&v9, "print the length of the longest line");
-    v10 = clap_builder::builder::arg::Arg::action(&v8, 0x2);
-    v9 = clap_builder::builder::command::Command::arg(&v3, &v10);
-    v3 = clap_builder::builder::arg::Arg::new("total");
-    v8 = clap_builder::builder::arg::Arg::long(&v3, "total");
+    v16 = v2;
+    v14 = v0;
+    v15 = v1;
+    clap_builder::builder::arg::Arg::value_parser(&v11, &v8, &v14);
+    clap_builder::builder::arg::Arg::value_hint(&v8, &v11, 3);
+    clap_builder::builder::command::Command::arg(&v11, &v3, &v8);
+    clap_builder::builder::arg::Arg::new(&v3, "lines");
+    clap_builder::builder::arg::Arg::short(&v8, &v3, 108);
+    clap_builder::builder::arg::Arg::long(&v3, &v8, "lines");
+    clap_builder::builder::arg::Arg::help(&v8, &v3, "print the newline counts");
+    clap_builder::builder::arg::Arg::action(&v14, &v8, 2);
+    clap_builder::builder::command::Command::arg(&v3, &v11, &v14);
+    clap_builder::builder::arg::Arg::new(&v11, "max-line-length");
+    clap_builder::builder::arg::Arg::short(&v8, &v11, 76);
+    clap_builder::builder::arg::Arg::long(&v11, &v8, "max-line-length");
+    clap_builder::builder::arg::Arg::help(&v8, &v11, "print the length of the longest line");
+    clap_builder::builder::arg::Arg::action(&v14, &v8, 2);
+    clap_builder::builder::command::Command::arg(&v11, &v3, &v14);
+    clap_builder::builder::arg::Arg::new(&v3, "total");
+    clap_builder::builder::arg::Arg::long(&v8, &v3, "total");
     v3 = struct64 {
         field_0: &g_415794
         field_8: 4
@@ -72,25 +73,24 @@ more than one FILE is specified. With no FILE, or when FILE is -, read standard 
         field_48: &g_41e315
         field_56: 5
     };
-    v10 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v3);
-    v3 = clap_builder::builder::arg::Arg::value_parser(&v8, &v10);
-    v8 = clap_builder::builder::arg::Arg::value_name(&v3, "WHEN");
+    v14 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v3);
+    clap_builder::builder::arg::Arg::value_parser(&v3, &v8, &v14);
+    clap_builder::builder::arg::Arg::value_name(&v8, &v3, "WHEN");
     memcpy(&v3, &v8, 584);
-    v4 = *((&v8.field_0 as &char + 584) as &i32) | 16;
-    v5 = *((&v8.field_0 as &char + 588) as &i32);
-    v8 = clap_builder::builder::arg::Arg::help(&v3, "when to print a line with total counts;
-  WHEN can be: auto, always, only, never");
-    v3 = clap_builder::builder::command::Command::arg(&v9, &v8);
-    v9 = clap_builder::builder::arg::Arg::new("words");
-    v8 = clap_builder::builder::arg::Arg::short(&v9, 0x77);
-    v9 = clap_builder::builder::arg::Arg::long(&v8, "words");
-    v8 = clap_builder::builder::arg::Arg::help(&v9, "print the word counts");
-    v10 = clap_builder::builder::arg::Arg::action(&v8, 0x2);
-    v9 = clap_builder::builder::command::Command::arg(&v3, &v10);
-    v3 = clap_builder::builder::arg::Arg::new("files");
-    v8 = clap_builder::builder::arg::Arg::action(&v3, 0x1);
-    v3 = clap_builder::builder::arg::Arg::value_parser(&v8, &v0);
-    v8 = clap_builder::builder::arg::Arg::value_hint(&v3, 0x3);
-    clap_builder::builder::command::Command::arg(a0, &v9, &v8);
+    v4 = v9 | 16;
+    v5 = v10;
+    clap_builder::builder::arg::Arg::help(&v8, &v3, "when to print a line with total counts;\n  WHEN can be: auto, always, only, never");
+    clap_builder::builder::command::Command::arg(&v3, &v11, &v8);
+    clap_builder::builder::arg::Arg::new(&v11, "words");
+    clap_builder::builder::arg::Arg::short(&v8, &v11, 119);
+    clap_builder::builder::arg::Arg::long(&v11, &v8, "words");
+    clap_builder::builder::arg::Arg::help(&v8, &v11, "print the word counts");
+    clap_builder::builder::arg::Arg::action(&v14, &v8, 2);
+    clap_builder::builder::command::Command::arg(&v11, &v3, &v14);
+    clap_builder::builder::arg::Arg::new(&v3, "files");
+    clap_builder::builder::arg::Arg::action(&v8, &v3, 1);
+    clap_builder::builder::arg::Arg::value_parser(&v3, &v8, &v0);
+    clap_builder::builder::arg::Arg::value_hint(&v8, &v3, 3);
+    clap_builder::builder::command::Command::arg(a0, &v11, &v8);
     return a0;
 }

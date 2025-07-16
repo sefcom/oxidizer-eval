@@ -1,48 +1,56 @@
-fn uu_dd::read_helper(a0: &Result<struct32, struct8>, a1: u32, a2: &struct24, a3: u32) -> u64 {
-    let v0: i64;  // [sp-0x80]
-    let v1: iNone;  // [sp-0x78]
-    let v2: i64;  // [sp-0x68]
-    let v3: Result<struct28, struct8>;  // [sp-0x60], Other Possible Types: struct36, int
-    let v4: struct24;  // [sp-0x60]
-    let v5: i8;  // [bp-0x38]
-    let v6: i8;  // [bp-0x28]
-    let v8: i64;  // rax
-    let v9: i64;  // rax
-    let v11: i64;  // r12
+fn uu_dd::read_helper(a1: i64, a2: i64, a3: i64) -> Result<struct32, struct8> {
+    let a0: i64;  // rsi
+    let v0: u64;  // [bp-0x80]
+    let v1: u64;  // [bp-0x78]
+    let v2: i8;  // [bp-0x70]
+    let v3: u64;  // [bp-0x68]
+    let v4: u64;  // [bp-0x60], Other Possible Types: struct24
+    let v5: u64;  // [bp-0x58]
+    let v6: u8;  // [bp-0x50]
+    let v7: u64;  // [bp-0x40]
+    let v8: u8;  // [bp-0x38]
+    let v9: i8;  // [bp-0x28]
+    let v11: i64;  // rdi
+    let v12: u128;  // xmm0
+    let v13: i64;  // rdi
+    let v14: i64;  // r12
+    let v15: Result<struct16, struct12>;  // xmm0
+    let v16: i64;  // rdi
 
-    alloc::vec::Vec<T,A>::resize(a2, a3, 221);
-    v8 = *((a1 + 8) as &i64);
-    if !*((v8 + 104) as &i8) {
-        v3 = uu_dd::Input::fill_consecutive(a1, a2);
+    alloc::vec::Vec<T,A>::resize(a1, a2, 221);
+    if *((*((a0 + 8) as &i64) + 104) as &i8) {
+        uu_dd::Input::fill_blocks(a0, a1, *((*((a0 + 8) as &i64) + 105) as &i8), a3);
     } else {
-        v3 = uu_dd::Input::fill_blocks(a1, a2, *((v8 + 105) as &i8));
+        uu_dd::Input::fill_consecutive(a0, a1, a2);
     }
-    v9 = (&v3)[8] as i64;
-    if v3 as i64 {
-        return Err(struct8 {
-            field_0: v0
-        });
+    if v4 {
+        *((v11 + 8) as &u64) = v5;
+        *(v11 as &i64) = 1;
+        return;
     }
-    v2 = v3 as i64;
-    v1 = (&v3)[16] as i128;
-    v0 = v9;
-    if !v0 && !v1 as i64 {
-        return Ok(struct16 {
-            field_8: <UNKNOWN>
-        });
+    v3 = v7;
+    memcpy(&v1, &v6, 16);
+    v0 = v5;
+    if !v5 && !v1 {
+        v12 = *(&v0 as &i128);
+        *((v13 + 24) as &i128) = *(&v2 as &i128);
+        *((v13 + 8) as &u128) = v12;
+        *(v13 as &i64) = 0;
+        return;
     }
-    v11 = *((a1 + 8) as &i64);
-    if *((v11 + 106) as &i8) {
-        v9 = uu_dd::read_helper::perform_swab(*((a2 + 8) as &i64), *((a2 + 16) as &i64));
-        v11 = *((a1 + 8) as &i64);
+    v14 = *((a0 + 8) as &i64);
+    if *((*((a0 + 8) as &i64) + 106) as &i8) {
+        uu_dd::read_helper::perform_swab(*((a1 + 8) as &i64), *((a1 + 16) as &i64));
     }
-    if *((v11 + 80) as &i8) == 7 {
-        return Ok(struct16 {
-            field_8: <UNKNOWN>
-        });
+    if *((v14 + 80) as &i8) != 7 {
+        v4 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(a1);
+        uu_dd::blocks::conv_block_unblock_helper(&v8, &v4, v14 + 80, &v0);
+        *((a1 + 16) as &i64) = *(&v9 as &i64);
+        *(a1 as &u128) = v8;
     }
-    v4 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(a2);
-    uu_dd::blocks::conv_block_unblock_helper(&v5, &v4, v11 + 80, &v0);
-    *((a2 + 16) as &i64) = *(&v6 as &i64);
-    *(a2 as &i128) = *(&v5 as &i128);
+    v15 = *(&v0 as &i128);
+    *((v16 + 24) as &i128) = *(&v2 as &i128);
+    *((v16 + 8) as &Result<struct16, struct12>) = v15;
+    *(v16 as &i64) = 0;
+    return;
 }

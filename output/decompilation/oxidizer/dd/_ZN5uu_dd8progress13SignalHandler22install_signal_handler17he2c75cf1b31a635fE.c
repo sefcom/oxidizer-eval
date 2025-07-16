@@ -1,50 +1,66 @@
-fn uu_dd::progress::SignalHandler::install_signal_handler(a0: &struct64, a1: u32, a2: u32) -> u64 {
-    let v0: struct72;  // [sp-0x118], Other Possible Types: Result<struct56, struct8>, struct40
-    let v3: struct24;  // [sp-0xf0]
-    let v6: struct56;  // [bp-0xd0]
-    let v10: struct40;  // [sp-0x98]
-    let v11: struct24;  // [sp-0x70]
-    let v12: struct24;  // [sp-0x58]
-    let v13: struct8;  // [bp-0x40]
-    let v14: i64;  // [sp-0x30]
-    let v16: i64;  // rcx
-    let v17: i64;  // rax
-    let v18: iNone;  // xmm0
+fn uu_dd::progress::SignalHandler::install_signal_handler(a1: i64, a2: i64) -> Result<struct64, struct16> {
+    let a0: u64;  // rsi
+    let v0: u128;  // [bp-0x118], Other Possible Types: Result<struct56, struct16>
+    let v1: struct24;  // [bp-0x118]
+    let v2: u64;  // [bp-0x110]
+    let v3: u128;  // [bp-0x108]
+    let v4: u64;  // [bp-0xf8]
+    let v5: u64;  // [bp-0xf0]
+    let v6: u64;  // [bp-0xe8], Other Possible Types: core::result::Result<std::fs::File, std::io::error::Error>
+    let v7: u64;  // [bp-0xe0]
+    let v8: u64;  // [bp-0xd8]
+    let v9: struct24;  // [bp-0xd0]
+    let v10: u64;  // [bp-0xd0]
+    let v11: u64;  // [bp-0xc8]
+    let v12: u128;  // [bp-0xc0]
+    let v13: u8;  // [bp-0xb0]
+    let v14: Result<struct16, struct12>;  // [bp-0xa0]
+    let v15: u128;  // [bp-0x98]
+    let v16: u128;  // [bp-0x88]
+    let v17: u64;  // [bp-0x78]
+    let v18: struct24;  // [bp-0x70]
+    let v19: u64;  // [bp-0x60]
+    let v20: struct24;  // [bp-0x58]
+    let v21: void*;  // [bp-0x40]
+    let v22: u64;  // [bp-0x30]
+    let v24: i64;  // rdi
+    let v25: i64;  // rdi
 
     v0 = signal_hook::iterator::SignalsInfo<E>::new(0xa);
-    v16 = v0 as i64;
-    v17 = *((&v0 as &char + 8) as &i64);
-    v6 = struct56 {
-        field_0: v16
-        field_8: v17
-        field_16: v1
-        field_32: *((&v0 as &char + 32) as &i128)
-        field_48: v4
-    };
-    v10 = <signal_hook::iterator::backend::Handle as core::clone::Clone>::clone(&v6);
-    v18 = *(&v6.field_0 as &i128);
-    v0 = struct72 {
-        field_0: v18
-        field_16: v7
-        field_32: v8
-        field_48: v9
-        field_56: a1
-        field_64: a2
-    };
-    v14 = 0x8000000000000000;
-    v13 = struct8 {
-        field_0: 0
-    };
-    v12 = std::thread::Builder::spawn_unchecked(&v13, &v0);
-    v11 = core::result::Result<T,E>::expect(&v12);
-    v0 = v10;
-    v3 = v11;
-    return struct64 {
-        field_0: v0
-        field_16: v1
-        field_32: v2
-        field_40: v3.field_0
-        field_48: v4
-        field_56: v5
-    };
+    match v0 {
+        Err(_) => {
+            *((v24 + 8) as &u64) = v2;
+            *(v24 as &i64) = 0;
+            return;
+        },
+        Ok(_) => {
+            v14 = v6;
+            memcpy(&v13, &v0, 16);
+            v12 = v3;
+            v10 = v0 as i64;
+            v11 = v2;
+            <signal_hook::iterator::backend::Handle as core::clone::Clone>::clone(&v15, &v10);
+            v6 = v14;
+            memcpy(&v0 as u8, &v13 as u128, 16);
+            v1 = v9;
+            v7 = a0;
+            v8 = a1;
+            v22 = 0x8000000000000000;
+            v21 = 0;
+            v20 = std::thread::Builder::spawn_unchecked(&v21, &v1);
+            v18 = core::result::Result<T,E>::expect(&v20);
+            v4 = v17;
+            v3 = v16;
+            v0 = v15;
+            v7 = v19;
+            memcpy(&v0 as u8, &v18, 16);
+            *((v25 + 16) as &u128) = v16;
+            *(v25 as &u128) = v15;
+            *((v25 + 48) as &core::result::Result<std::fs::File, std::io::error::Error>) = v6;
+            *((v25 + 56) as &u64) = v7;
+            *((v25 + 32) as &u64) = v4;
+            *((v25 + 40) as &u64) = v5;
+            return;
+        },
+    }
 }

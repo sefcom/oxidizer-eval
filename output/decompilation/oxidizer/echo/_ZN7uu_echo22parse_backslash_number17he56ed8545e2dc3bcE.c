@@ -1,57 +1,43 @@
-fn uu_echo::parse_backslash_number(a0: &struct16, a1: u8, a2: u32) -> u64 {
+fn uu_echo::parse_backslash_number(a1: i8, a2: i8) -> Option<struct8> {
+    let a0: i64;  // rdi
     let v0: u64;  // [bp-0x38]
-    let v1: u8;  // [sp-0x35]
-    let v2: u32;  // [sp-0x34]
+    let v1: u8;  // [bp-0x35]
+    let v2: u32;  // [bp-0x34]
     let v4: u64;  // rax
-    let v5: u64;  // r14
-    let v6: &u8;  // rax
-    let v7: u64;  // r14
-    let v8: u64;  // rbp
-    let v9: u64;  // 4098
-    let v10: u64;  // rax
-    let v11: u64;  // r12
-    let v13: &u8;  // rax
-    let v14: u64;  // 4098
-    let v15: u64;  // rdx
+    let v5: u8;  // r14b
+    let v6: void*;  // 4098
+    let v7: u64;  // r12
+    let v8: u64;  // rsi
+    let v9: u32;  // eax
+    let v10: i64;  // rax
+    let v11: u64;  // rax
+    let v12: void*;  // 4098
 
     v0 = v4;
-    if !a1 {
-        v5 = 0;
-        goto LABEL_4a45cd;
-    } else {
-        v6 = *(core::option::Option<T>::get_or_insert_with(a0, a0 + 2) as &i64);
-        if !v6 {
-            return 0;
-        }
-        v5 = v7 & -0x100 | a1 != 1;
-LABEL_4a45cd:
+    if !a1 || *(core::option::Option<T>::get_or_insert_with(a0, a0 + 16) as u64 as &i64) {
         v2 = v5;
-        if (uu_echo::Base::ascii_to_number(v5, *(v6)) & 1) {
-            v8 = v15;
-            v9 = *(a0);
-            *(a0) = 0;
-            if !v9 {
-                <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(a0 + 2);
+        if (uu_echo::Base::ascii_to_number(v5, a2) as i8 & 1) {
+            v6 = *(a0 as &i64);
+            *(a0 as &i64) = 0;
+            if !v6 {
+                <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(a0 + 16);
             }
-            v11 = a0 + 2;
+            v7 = a0 + 16;
             v1 = 4 - (!v5);
             loop {
-                v13 = *(core::option::Option<T>::get_or_insert_with(a0, v11) as &i64);
-                if !(v13) || !((v13 = uu_echo::Base::ascii_to_number(v2 as u64, *(v13) as u64) as i64, (v13 as u8 & 1))) {
+                loop {
+                    v9 = <u8 as core::iter::range::Step>::forward_unchecked(1, v8);
+                    v10 = *(core::option::Option<T>::get_or_insert_with(a0, v7) as u64 as &i64);
+                    v11 = uu_echo::Base::ascii_to_number(v2, *(v10 as &i8));
+                    v12 = *(a0 as &i64);
+                    return struct8 {
+                        field_0: 0
+                    };
                     break;
                 }
-                v14 = *(a0);
-                *(a0) = 0;
-                if !v14 {
-                    v13 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(v11);
-                }
-                v8 = v8 & -0x100 | ((v8 & 255) << (v1 & 31)) + (v15 & 4294967295) & 255;
-                if <u8 as core::iter::range::Step>::forward_unchecked(1) >= (!v5 | 2) {
-                    break;
-                }
+                v11 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(v7);
             }
-            v10 = v13 & -0x100 | 1;
-            return v10;
         }
     }
+    return 0;
 }

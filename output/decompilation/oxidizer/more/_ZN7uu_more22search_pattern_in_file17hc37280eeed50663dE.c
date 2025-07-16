@@ -1,35 +1,25 @@
-fn uu_more::search_pattern_in_file(a0: u32, a1: u32, a2: u32) -> u64 {
-    let v0: i64;  // [sp-0x40]
-    let v1: i64;  // [sp-0x38], Other Possible Types: int
-    let v2: i64;  // [sp-0x30]
-    let v3: i64;  // [sp-0x28], Other Possible Types: struct8, struct24
-    let v4: i64;  // [sp-0x20]
-    let v5: i64;  // [sp-0x18]
-    let v7: i64;  // rax
+fn uu_more::search_pattern_in_file(a0: i64, a1: i64, a2: i64) -> long long {
+    let v0: u64;  // [bp-0x40]
+    let v1: u128;  // [bp-0x38]
+    let v2: core::option::Option<&u8>;  // [bp-0x30]
+    let v3: alloc::string::String;  // [sp-0x28], Other Possible Types: struct8
+    let v7: u64;  // rax
+    let v8: u64;  // r14
     let v9: i64;  // rdx
 
-    if *(a2 as &i64) == 0x8000000000000000 {
-        v1 = 1;
-        v2 = 0;
-        v7 = 0;
-    } else {
+    if *(a2 as &i64) != 0x8000000000000000 {
         v3 = <alloc::string::String as core::clone::Clone>::clone(a2);
-        v7 = v3;
-        *(&v1 as &i128) = *(&v3.field_8 as &i128);
+        v7 = v3.vec.buf.ptr.pointer.pointer;
+        v1 = *(&v3.vec.buf.cap as &i128);
     }
     v0 = v7;
     if a1 && v2 {
-        v3 = a0;
-        v4 = a0 + a1 * 24;
-        v5 = 0;
-        loop {
+        do {
             v3 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next();
             if !v9 {
                 return 0;
-            } else if <&str as core::str::pattern::Pattern>::is_contained_in(v1, v2, *((v9 + 8) as &i64), *((v9 + 16) as &i64)) {
-                return 1;
             }
-        }
+        } while (!<&str as core::str::pattern::Pattern>::is_contained_in(v1, v2, *((v9 + 8) as &i64), *((v9 + 16) as &i64)));
     }
-    return 0;
+    return v8;
 }

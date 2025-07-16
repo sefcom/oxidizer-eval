@@ -1,128 +1,122 @@
-fn uu_ls::calculate_padding_collection(a0: &struct72, a1: u32, a2: u32, a3: void*, a4: u32) -> u64 {
-    let v0: i8;  // [sp-0xed]
-    let v1: i8;  // [sp-0xec]
-    let v2: i8;  // [sp-0xeb]
-    let v3: i8;  // [sp-0xea]
-    let v4: i8;  // [sp-0xe9]
-    let v5: i64;  // [sp-0xe8]
-    let v6: i64;  // [sp-0xe0]
-    let v7: i64;  // [sp-0xd8]
-    let v8: i64;  // [sp-0xd0]
-    let v9: i64;  // [sp-0xc8]
-    let v10: i64;  // [sp-0xc0]
-    let v11: i64;  // [sp-0xb8]
-    let v12: i64;  // [sp-0xb0]
-    let v13: i64;  // [sp-0xa8]
-    let v14: i64;  // [sp-0xa0]
-    let v15: i64;  // [sp-0x98]
-    let v16: i64;  // [sp-0x80]
-    let v17: struct24;  // [sp-0x70], Other Possible Types: struct48
-    let v18: i64;  // [sp-0x40]
-    let v19: i64;  // [sp-0x38]
-    let v21: i64;  // r12
-    let v22: i64;  // rax
-    let v23: i64;  // rbx
-    let v24: i64;  // r13
-    let v25: i64;  // r15
-    let v26: struct8;  // rax
-    let v27: struct8;  // r12
-    let v28: i64;  // rax
-    let v29: struct8;  // rax
-    let v30: i64;  // r15
-    let v31: i64;  // r15
-    let v32: i64;  // r13
-    let v33: i64;  // r15
-    let v34: i64;  // r15
-    let v35: i64;  // rax
+fn uu_ls::calculate_padding_collection(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> long long {
+    let v0: u8;  // [bp-0xed]
+    let v1: u8;  // [bp-0xec]
+    let v2: u8;  // [bp-0xeb]
+    let v3: u8;  // [bp-0xea]
+    let v4: u8;  // [bp-0xe9]
+    let v5: &mut [u8];  // [bp-0xe8], Other Possible Types: u64
+    let v6: u64;  // [bp-0xe0]
+    let v7: u64;  // [bp-0xd8]
+    let v8: u64;  // [bp-0xd0]
+    let v9: u64;  // [bp-0xc8]
+    let v10: u64;  // [bp-0xc0]
+    let v11: u64;  // [bp-0xb8]
+    let v12: u64;  // [bp-0xb0]
+    let v13: u64;  // [bp-0xa8]
+    let v14: u64;  // [bp-0xa0]
+    let v15: u64;  // [bp-0x98]
+    let v16: u64;  // [bp-0x80]
+    let v17: i64;  // [bp-0x78]
+    let v18: u64;  // [bp-0x70]
+    let v19: u64;  // [bp-0x68]
+    let v20: u64;  // [bp-0x60]
+    let v21: u64;  // [bp-0x58]
+    let v22: u64;  // [bp-0x50]
+    let v23: u64;  // [bp-0x48]
+    let v24: u64;  // [bp-0x40]
+    let v25: u64;  // [bp-0x38]
+    let v27: u64;  // r12
+    let v28: u64;  // rax
+    let v29: &mut [u8];  // rbx
+    let v30: u64;  // r13
+    let v31: u64;  // r15
+    let v32: struct8;  // rax
+    let v33: i64;  // r12
+    let v34: i64;  // rax
+    let v35: struct8;  // rax
+    let v36: i64;  // rax
 
-    v18 = a1;
-    v19 = a2 * 304 + a1;
+    v24 = a1;
+    v25 = a2 * 304 + a1;
     v4 = *((a3 + 233) as &i8);
     v3 = *((a3 + 234) as &i8);
     v16 = *((a3 + 216) as &i64);
     v1 = *((a3 + 241) as &i8);
     v2 = *((a3 + 248) as &i8);
     v0 = *((a3 + 235) as &i8);
-    v21 = 1;
-    v22 = 1;
     v6 = 1;
     v9 = 1;
     v8 = 1;
     v7 = 1;
-    v23 = 1;
-    v24 = 1;
-    v25 = 1;
     loop {
         do {
-            v12 = v24;
-            v11 = v22;
-            v10 = v21;
+            v12 = v30;
+            v11 = v28;
+            v10 = v27;
             do {
-                if !v4 {
-                    v29 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-                    if !v29 {
-                        goto LABEL_52d2f2;
-                    }
-                    v27 = v29;
-                    v30 = v25;
-                    v31 = v25;
-                    if !v3 {
-                        continue;
+                if v4 {
+                    do {
+                        v32 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(a1);
+                        if !v32 {
+                            *(v17 as &&mut [u8]) = v29;
+                            *((v17 + 8) as &u64) = v7;
+                            *((v17 + 16) as &u64) = v8;
+                            *((v17 + 24) as &u64) = v9;
+                            *((v17 + 32) as &u64) = v6;
+                            *((v17 + 40) as &u64) = v11;
+                            *((v17 + 48) as &u64) = v10;
+                            *((v17 + 56) as &u64) = v12;
+                            *((v17 + 64) as &u64) = v31;
+                            return v12;
+                        }
+                        v33 = v32;
+                        v34 = uu_ls::PathData::get_metadata(v32, a4);
+                    } while (!v34);
+                    v5 = v29;
+                    uu_ls::display_inode(&v18, *((v34 + 40) as &i64));
+                    core::cmp::max_by(v20, v5);
+                    if !(!v3) {
+                        goto LABEL_52d16f;
                     }
                 } else {
-                    do {
-                        v26 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-                        if !v26 {
-LABEL_52d2f2:
-                            return struct72 {
-                                field_0: v23
-                                field_8: v7
-                                field_16: v8
-                                field_24: v9
-                                field_32: v6
-                                field_40: v11
-                                field_48: v10
-                                field_56: v12
-                                field_64: v25
-                            };
+                    v35 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(a1);
+                    if !v35 {
+                        *(v17 as &&mut [u8]) = v29;
+                        *((v17 + 8) as &u64) = v7;
+                        *((v17 + 16) as &u64) = v8;
+                        *((v17 + 24) as &u64) = v9;
+                        *((v17 + 32) as &u64) = v6;
+                        *((v17 + 40) as &u64) = v11;
+                        *((v17 + 48) as &u64) = v10;
+                        *((v17 + 56) as &u64) = v12;
+                        *((v17 + 64) as &u64) = v31;
+                        return v12;
+                    }
+                    v33 = v35;
+                    if v3 {
+LABEL_52d16f:
+                        v36 = uu_ls::PathData::get_metadata(v33, a4);
+                        if v36 {
+                            uu_ls::display_size(&v18, uu_ls::get_block_size(*((v36 + 56) as &i32), *((v36 + 96) as &i64), v16, v1), v1);
+                            core::cmp::max_by(v20, v31);
                         }
-                    } while ((v27 = v26, v28 = uu_ls::PathData::get_metadata(v26, a4), !v28));
-                    v5 = v23;
-                    v17 = uu_ls::display_inode(*((v28 + 40) as &i64));
-                    v23 = core::cmp::max_by(v32, v5);
-                    v30 = v33;
-                    v31 = v33;
-                    if !v3 {
-                        continue;
                     }
                 }
-                v34 = v30;
-                v35 = uu_ls::PathData::get_metadata(v27, a4);
-                v31 = v34;
-                if v35 {
-                    v5 = v23;
-                    v17 = uu_ls::display_size(uu_ls::get_block_size(*((v35 + 56) as &i32), *((v35 + 96) as &i64), v16, v1), v1);
-                    v23 = v5;
-                    v31 = core::cmp::max_by(v32, v34);
-                }
-            } while ((v25 = v31, v2 != 1));
-            v5 = *((v27 + 64) as &i64);
-            v17 = uu_ls::display_dir_entry_size(v27, a3, a4);
-            v15 = *((&v17.field_16 as &char + 8) as &i64);
-            v13 = v17.field_32 as i64;
-            v14 = *((&v17.field_32 as &char + 8) as &i64);
-            v7 = core::cmp::max_by(v17.field_0 as i64, v7);
-            v8 = core::cmp::max_by(*((&v17.field_0 as &char + 8) as &i64), v8);
-            v9 = core::cmp::max_by(v17.field_16 as i64, v9);
+            } while (v2 != 1);
+            v5 = *((v33 + 64) as &i64);
+            uu_ls::display_dir_entry_size(v33, a3 as u32, a4, a4);
+            v15 = v21;
+            v13 = v22;
+            v14 = v23;
+            v7 = core::cmp::max_by(v18, v7);
+            v8 = core::cmp::max_by(v19, v8);
+            v9 = core::cmp::max_by(v20, v9);
             if v0 {
                 v6 = core::cmp::max_by(v5, v6);
             }
-            v21 = 0;
-            v22 = 0;
-            v24 = 0;
         } while (a2 == 1);
-        v21 = core::cmp::max_by(v13, v10);
-        v24 = core::cmp::max_by(v14, v12);
-        v22 = core::cmp::max_by(core::cmp::max_by(v15, v11), v21);
+        v27 = core::cmp::max_by(v13, v10);
+        core::cmp::max_by(v14, v12);
+        core::cmp::max_by(core::cmp::max_by(v15, v11), v27);
     }
 }

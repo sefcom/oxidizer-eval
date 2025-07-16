@@ -1,66 +1,74 @@
-fn uu_od::parse_inputs::parse_inputs(a0: &struct40, a1: u32, a2: u32) -> u64 {
-    let v0: iNone;  // [bp-0x58], Other Possible Types: char, struct16
-    let v1: i8;  // [bp-0x58]
-    let v2: i8;  // [bp-0x50]
-    let v3: struct24;  // [sp-0x48]
-    let v4: struct24;  // [sp-0x48], Other Possible Types: struct1
-    let v5: struct16;  // [sp-0x30]
-    let v7: i64;  // r15
-    let v8: i64;  // rdx
-    let v9: i64;  // rax
-    let v11: i64;  // rax
-    let v12: i64;  // r14
-    let v13: i64;  // r15
-    let v14: i64;  // rax
+fn uu_od::parse_inputs::parse_inputs(a1: i64, a2: i64) -> : struct40 {
+    let a0: u64;  // rsi
+    let v0: struct16;  // [bp-0x60], Other Possible Types: u8
+    let v1: &u64;  // [bp-0x58], Other Possible Types: struct_4 *
+    let v2: u64;  // [bp-0x50]
+    let v3: core::option::Option<u32>;  // [bp-0x50]
+    let v4: u32;  // [bp-0x48]
+    let v5: struct24;  // [bp-0x48]
+    let v6: struct24;  // [bp-0x48]
+    let v7: u64;  // [bp-0x38]
+    let v8: u8;  // [bp-0x30]
+    let v9: i8;  // [bp-0x28]
+    let v11: u64;  // rdi
+    let v12: u64;  // rdx
+    let v14: u64;  // rdx
+    let v15: u64;  // r12
+    let v16: u64;  // rdx
+    let v22: u64;  // rdx
+    let v24: i64;  // rdi
+    let v26: i64;  // rdi
+    let v29: &mut [u8];  // rax:rdx
 
-    *((a2 + 24) as &i64)();
-    v7 = *((a2 + 32) as &i64);
-    if v7() {
-        uu_od::parse_inputs::parse_inputs_traditional(a0, *(&v0 as &i64), *(&v2 as &i64));
-    } else {
-        v8 = *(&v2 as &i64);
-        if v8 - 1 < 2 {
-            v8 = *(&v2 as &i64);
-            if !v7() && (v9 = *(&v1 as &i64), v5 = uu_od::parse_inputs::parse_offset_operand(*((v9 + (v8 - 1) * 16) as &i64), *((v9 + (v8 - 1) * 16 + 8) as &i64)), v8 = *(&v2 as &i64), !v5.field_0) {
-                if v8 != 1 {
-LABEL_4d2d88:
-                    if !(v8 == 2) {
-                        goto LABEL_4d2cca;
+    *((a1 + 24) as &i64)(&v0);
+    if *((a1 + 32) as &i64)(a0, "traditional", 1) as i8 {
+        uu_od::parse_inputs::parse_inputs_traditional(v11, v1, v2);
+        return;
+    }
+    v3 = v2;
+    if v3 - 1 < 2 {
+        v12 = v2;
+        v3 = v12;
+        if !*((a1 + 32) as &i64)(a0, "address-radix", 6) as i8 {
+            uu_od::parse_inputs::parse_offset_operand(&v8, *((v1 + (v12 - 1) * 16) as &i64), *((v1 + (v12 - 1) * 16 + 8) as &i64));
+            v14 = v2;
+            v3 = v14;
+            if !v8 {
+                v15 = *(&v9 as &i64);
+                v16 = v14;
+                if v16 == 1 {
+                    v4 = 0;
+                    v29 = core::char::methods::encode_utf8_raw(43, &v4, v14);
+                    if core::slice::<impl [T]>::starts_with(*(v1 as &i64), *((v1 + 8) as &i64), v29.data_ptr, 1) {
+                        v5 = <T as alloc::slice::hack::ConvertVec>::to_vec("-");
+                        *((v24 + 16) as &u64) = v7;
+                        *(v24 as &i128) = *(&v4 as &i128);
+                        *((v24 + 24) as &u64) = v15;
+                        *((v24 + 32) as &i64) = 0;
+                        return;
                     }
-                    v14 = *(&v0 as &i64);
-                    v3 = <T as alloc::slice::hack::ConvertVec>::to_vec(*(v14 as &i64), *((v14 + 8) as &i64));
-                } else {
-                    v11 = *(&v0 as &i64);
-                    v12 = *(v11 as &i64);
-                    v13 = *((v11 + 8) as &i64);
-                    v4 = struct1 {
-                        field_0: 0
-                    };
-                    if !core::slice::<impl [T]>::starts_with(v12, v13, core::char::methods::encode_utf8_raw(43, &v4), 1) as i8 {
-                        v8 = *(&v2 as &i64);
-                        goto LABEL_4d2d88;
-                    } else {
-                        v3 = <T as alloc::slice::hack::ConvertVec>::to_vec("-");
-                    }
+                    v16 = v2;
                 }
-                return struct40 {
-                    field_0: v3 as i128
-                    field_16: (&v3)[16] as i64
-                    field_24: v10
-                    field_32: 0
-                };
+                v3 = v16;
+                if v3 == 2 {
+                    v5 = <T as alloc::slice::hack::ConvertVec>::to_vec(*(v1 as &i64), *((v1 + 8) as &i64));
+                    *((v24 + 16) as &u64) = v7;
+                    *(v24 as &i128) = *(&v4 as &i128);
+                    *((v24 + 24) as &u64) = v15;
+                    *((v24 + 32) as &i64) = 0;
+                    return;
+                }
             }
         }
-LABEL_4d2cca:
-        if v8 {
-            v4 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter((&v0)[8] as i64, v8 * 16 + (&v0)[8] as i64);
-            return struct32 {
-                field_0: *(&v4.field_0 as &i128)
-                field_16: v4.field_16
-                field_32: <UNKNOWN>
-            };
-        }
-        v0 = alloc::vec::Vec<T,A>::push();
-        v8 = *(&v2 as &i64);
     }
+    v22 = v3;
+    if !v22 {
+        v0 = alloc::vec::Vec<T,A>::push();
+        v22 = v2;
+    }
+    v6 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(v1, v22 * 16 + v1);
+    *((v26 + 16) as &u64) = v7;
+    *(v26 as &i128) = *(&v6.field_0 as &i128);
+    *((v26 + 32) as &i64) = 2;
+    return;
 }

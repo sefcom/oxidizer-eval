@@ -1,66 +1,100 @@
-fn uu_mktemp::make_temp_dir(a0: &struct24, a1: u32, a2: u32, a3: u32, a4: u32, a5: u32, a6: u32, a7: u32) -> u64 {
-    let v0: struct24;  // [sp-0x148], Other Possible Types: int
-    let v1: i64;  // [sp-0x138]
-    let v2: struct24;  // [sp-0x130]
-    let v3: struct24;  // [sp-0x118], Other Possible Types: String
-    let v4: struct24;  // [sp-0x100]
-    let v5: i64;  // [sp-0xe8]
-    let v6: i64;  // [sp-0xe0]
-    let v7: i64;  // [sp-0xd8]
-    let v8: i64;  // [sp-0xd0]
-    let v9: struct24;  // [sp-0xc8]
-    let v10: struct24;  // [sp-0x98]
-    let v11: struct4;  // [bp-0x80]
-    let v12: i64;  // [sp-0x78]
-    let v13: i64;  // [sp-0x70]
-    let v14: i64;  // [sp-0x68]
-    let v15: i64;  // [sp-0x60]
-    let v16: i64;  // [sp-0x58]
-    let v17: i16;  // [sp-0x50]
-    let v18: iNone;  // [sp-0x48]
-    let v19: i64;  // rbx
-    let v20: i64;  // rdx
-    let v21: i64;  // rax
+fn uu_mktemp::make_temp_dir(a1: i64, a2: i64, a3: i32, a4: i64, a5: i64, a6: i64, a7: i64) -> : struct24 {
+    let a0: i64;  // rdi
+    let v0: struct24;  // [bp-0x148], Other Possible Types: struct_0 *
+    let v1: u128;  // [bp-0x148]
+    let v2: u64;  // [bp-0x140]
+    let v3: i64;  // [bp-0x138], Other Possible Types: u64
+    let v4: u64;  // [bp-0x130]
+    let v5: i64;  // [bp-0x128]
+    let v6: u64;  // [bp-0x120]
+    let v7: u8;  // [bp-0x118]
+    let v8: u8;  // [bp-0x110]
+    let v9: u64;  // [bp-0x108]
+    let v10: alloc::string::String;  // [bp-0x100]
+    let v11: u64;  // [bp-0xf0]
+    let v12: u64;  // [bp-0xe8]
+    let v13: u64;  // [bp-0xe0]
+    let v14: u64;  // [bp-0xd8]
+    let v15: u64;  // [bp-0xd0]
+    let v16: u64;  // [bp-0xc8], Other Possible Types: struct24
+    let v17: u64;  // [bp-0xc0]
+    let v18: i64;  // [bp-0xb8]
+    let v19: u64;  // [bp-0xb0]
+    let v20: void*;  // [bp-0xa8]
+    let v21: struct24;  // [bp-0x98]
+    let v22: u32;  // [bp-0x80]
+    let v23: u64;  // [bp-0x78]
+    let v24: u64;  // [bp-0x70]
+    let v25: u64;  // [bp-0x68]
+    let v26: u64;  // [bp-0x60]
+    let v27: u64;  // [bp-0x58]
+    let v28: alloc::string::String;  // [bp-0x50]
+    let v29: u8;  // [bp-0x48]
+    let v30: u64;  // [bp-0x38]
+    let v31: u64;  // rax
+    let v32: u64;  // rdx
+    let v33: u64;  // rdx
 
-    v5 = a3;
-    v6 = a4;
-    v7 = a6;
-    v8 = a7;
-    v17 = 0;
-    v11 = struct4 {
-        field_0: 0
-    };
     v12 = a3;
     v13 = a4;
-    v16 = a5;
     v14 = a6;
     v15 = a7;
-    v10 = tempfile::Builder::tempdir_in(&v11, a1, a2);
-    if v10.field_16 as i8 != 2 {
-        v0 = tempfile::dir::TempDir::into_path(&v10);
-        if !std::fs::set_permissions(&v0, 448) {
-            v21 = v1;
+    v28 = 0;
+    v22 = 0;
+    v23 = a3;
+    v24 = a4;
+    v27 = a5;
+    v25 = a6;
+    v26 = a7;
+    v21 = tempfile::Builder::tempdir_in(&v22, a1, a2);
+    if v21.field_16 as i8 != 2 {
+        v0 = tempfile::dir::TempDir::into_path(&v21);
+        v31 = std::fs::set_permissions(&v0, 448);
+        if !v31 {
             return struct24 {
                 field_0: v0.field_0
-                field_16: v21
+                field_16: v3
             };
         }
+        return struct24 {
+            field_0: 0x8000000000000000
+            field_8: uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v31)
+            field_16: v33
+        };
+    } else if std::io::error::Error::kind(v21.field_0 as i64) {
+        return struct24 {
+            field_0: 0x8000000000000000
+            field_8: uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v21.field_0 as i64)
+            field_16: v32
+        };
     } else {
-        v19 = v10.field_0 as i64;
-        if std::io::error::Error::kind(v19) as i8 {
-            *((a0 + 8) as &long long) = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v19);
-            *((a0 + 16) as &unsigned long) = v20;
-            v21 = 0x8000000000000000;
-            *(a0 as &i64) = 0x8000000000000000;
-        }
-        v4 = alloc::str::<impl str>::repeat("X", a5);
-        v3 = format!("{}{}{}", &v5, &v4, &v7);
-        v18 = v3;
-        v3 = std::path::Path::join(a1, a2, &v18);
-        v0 = *((&v3.field_0 as &char + 8) as &i128);
-        v4 = <T as alloc::string::ToString>::to_string(&v0);
-        v9 = <T as alloc::slice::hack::ConvertVec>::to_vec("directory");
-        v0 = v9;
-        v2 = v4;
+        v10 = alloc::str::<impl str>::repeat("X", a5);
+        v0 = &v12;
+        v2 = <&T as core::fmt::Display>::fmt;
+        v3 = &v10;
+        v4 = <alloc::string::String as core::fmt::Display>::fmt;
+        v5 = &v14;
+        v6 = <&T as core::fmt::Display>::fmt;
+        v16 = &g_41f4d8;
+        v17 = 3;
+        v20 = 0;
+        v18 = &v0;
+        v19 = 3;
+        v16 = core::option::Option<T>::map_or_else(a2);
+        memcpy(&v29, &v7, 16);
+        v30 = v9;
+        std::path::Path::join(a1);
+        memcpy(&v0, &v8, 16);
+        v1 = <T as alloc::string::ToString>::to_string(a2);
+        <T as alloc::slice::hack::ConvertVec>::to_vec("directory", a3);
+        v3 = v18;
+        v1 = v16.field_0;
+        memcpy(&v4, &v10, 16);
+        v6 = v11;
+        return struct24 {
+            field_0: 0x8000000000000000
+            field_8: alloc::boxed::Box<T>::new(&v1 as u192)
+            field_16: &g_536af0
+        };
     }
 }

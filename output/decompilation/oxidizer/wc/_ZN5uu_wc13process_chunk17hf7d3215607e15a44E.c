@@ -1,39 +1,47 @@
-fn uu_wc::process_chunk(a0: &struct24, a1: u32, a2: u32, a3: &struct1) -> u64 {
-    let v0: u64;  // [sp-0x50]
-    let v1: u64;  // [sp-0x40]
-    let v2: u64;  // [sp-0x38]
-    let v4: u64;  // rbp
+fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64) -> : struct16 {
+    let a0: i64;  // rdi
+    let v0: struct32;  // [bp-0x50]
+    let v1: u128;  // [bp-0x40]
+    let v4: u64;  // r14
     let v5: u32;  // edx
-    let v6: u32;  // r13d
-    let v7: u64;  // r14
-    let v8: u64;  // rax
+    let v7: u8;  // bpl
+    let v8: u32;  // r13d
+    let v9: u64;  // rax
+    let v10: core::option::Option<u32>;  // rax:rax
+    let v11: core::option::Option<u32>;  // rax:rax
 
-    v1 = a1;
-    v2 = a1 + a2;
-    v4 = *(a3);
-    if !core::str::validations::next_code_point(&v1) as i32 {
-        a0->field_0 = a0->field_0 + a2;
-        v8 = core::cmp::max_by(0, *(&a0->field_20 as &i64));
-        a0->field_20 = v8;
-        return v8;
+    v1 = core::slice::iter::Iter<u8> {
+        ptr: core::ptr::non_null::NonNull<u8> {
+            pointer: a1
+        }
+        end_or_len: a1 + a2
+        _marker: core::marker::PhantomData<&u8> { }
+    };
+    v10 = core::str::validations::next_code_point(&v1) as u128;
+    if let None = v10 {
+        return struct16 {
+            field_0: *(a0 as &i64) + a2
+            field_32: <UNKNOWN>
+        };
     }
-    v6 = v5;
-    v7 = a0->field_10;
-    v0 = a0->field_18;
     do {
-        if v6 - 9 < 5 || v6 == 32 || v6 >= 128 && core::unicode::unicode_data::white_space::lookup(v6) as i8 {
-            *(a3) = 0;
-            v4 = 0;
-        } else if !v4 {
-            *(a3) = 1;
+        v8 = v5;
+        if v8 - 9 < 5 || v8 == 32 || v8 >= 128 && core::unicode::unicode_data::white_space::lookup(v8) {
+            *(a3 as &i8) = 0;
+        } else if !v7 {
+            *(a3 as &i8) = 1;
             v0 += 1;
-            a0->field_18 = v0;
-            v4 = v4 & -0x100 | 1;
+            *((a0 + 24) as &struct32) = v0;
+            v7 = 1;
         }
-        if v6 == 10 {
-            v7 += 1;
-            a0->field_10 = v7;
+        if v8 == 10 {
+            v4 += 1;
+            *((a0 + 16) as &u64) = v4;
         }
-        v6 = v5;
-    } while (core::str::validations::next_code_point(&v1) as i32);
+        v11 = core::str::validations::next_code_point(&v1) as u128;
+    } while (v11 as i32);
+    return struct16 {
+        field_0: *(a0 as &i64) + a2
+        field_32: <UNKNOWN>
+    };
 }

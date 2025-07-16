@@ -1,19 +1,20 @@
-fn uu_cp::show_error_if_needed(a0: &u64) -> u64 {
-    let v0: u64;  // [sp-0x60]
-    let v1: &u64;  // [sp-0x58]
-    let v3: u64;  // rax
-    let v4: u64;  // rax
+fn uu_cp::show_error_if_needed(a0: &struct32) -> long long {
+    let v0: u64;  // [bp-0x68]
+    let v1: u64;  // [bp-0x60]
+    let v2: i64;  // [bp-0x58]
+    let v4: u64;  // rcx
     let v5: u64;  // rdx
 
-    v1 = a0;
-    v4 = (v3 < 11 ? *(a0) - 2 : 4);
+    v2 = a0;
+    v4 = *(a0 as &i64) - 2;
     if v4 == 3 {
         return v4;
-    } else if v4 == 6 {
-        return v4;
+    } else if v4 != 6 {
+        v0 = uucore::util_name();
+        v1 = v5;
+        eprint!("{}: ", &v0);
+        return eprintln!("{}", &v2);
     } else {
-        v0 = v5;
-        v4 = show_error!("{}", &v1);
         return v4;
     }
 }

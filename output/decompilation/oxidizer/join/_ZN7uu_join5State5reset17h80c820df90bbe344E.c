@@ -1,21 +1,17 @@
-fn uu_join::State::reset(a0: &struct8, a1: &struct48) -> u64 {
-    let v0: struct48;  // [bp-0x48]
-    let v2: u64;  // rdi
-    let v3: u64;  // rsi
-    let v4: u64;  // rax
+fn uu_join::State::reset(a1: &struct32) -> : struct8 {
+    let a0: i64;  // rsi
+    let v0: u384;  // [bp-0x48]
+    let v2: i64;  // rdi
 
-    v2 = a0[1];
-    v3 = a0[2];
-    a0[2] = 0;
-    v4 = core::ptr::drop_in_place<[uu_join::Line]>(v2, v3);
-    if a1->field_0 != 0x8000000000000000 {
-        v0 = struct48 {
-            field_0: *(&a1->field_0 as &i128)
-            field_16: a1->field_10
-            field_32: a1->field_20
-        };
-        v4 = alloc::vec::Vec<T,A>::push(a0, &v0);
-        return v4;
+    *((v2 + 16) as &i64) = 0;
+    if *(a0 as &i64) == 0x8000000000000000 {
+        return;
     }
-    return v4;
+    v0 = struct48 {
+        field_0: *(a0 as &i128)
+        field_16: *((a0 + 16) as &i128)
+        field_32: *((a0 + 32) as &i128)
+    };
+    alloc::vec::Vec<T,A>::push(v2, &v0);
+    return;
 }

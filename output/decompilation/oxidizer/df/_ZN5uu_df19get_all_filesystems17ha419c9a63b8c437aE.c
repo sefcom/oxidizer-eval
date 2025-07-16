@@ -1,34 +1,29 @@
-fn uu_df::get_all_filesystems(a0: &struct24, a1: void*) -> u64 {
-    let v0: struct24;  // [sp-0x90]
-    let v1: struct24;  // [sp-0x78], Other Possible Types: unsigned long
-    let v4: struct32;  // [sp-0x60]
-    let v5: i64;  // [sp-0x40]
-    let v6: struct24;  // [sp-0x38]
-    let v8: i64;  // rdx
-    let v9: i64;  // rax
-    let v10: i64;  // rcx
+fn uu_df::get_all_filesystems(a1: i64) -> : struct24 {
+    let a0: i64;  // rsi
+    let v0: &mut [u8];  // [bp-0x90], Other Possible Types: u192
+    let v1: u64;  // [bp-0x88]
+    let v2: u64;  // [bp-0x80]
+    let v3: u192;  // [bp-0x78]
+    let v4: u8;  // [bp-0x60]
+    let v5: i64;  // [bp-0x40]
+    let v6: u8;  // [bp-0x38], Other Possible Types: struct32
+    let v8: i64;  // rdi
+    let v9: u64;  // rdi
 
-    if *((a1 + 82) as &i8) {
+    if *((a0 + 82) as &i8) {
         sync();
     }
-    v0 = uucore::features::fsext::read_fs_list();
-    v8 = v0.field_0 as i64;
-    v9 = *((&v0.field_0 as &char + 8) as &i64);
-    v10 = v0.field_16;
-    if v1 == 0x8000000000000000 {
-        return struct24 {
-            field_0: 0x8000000000000000
-            field_8: v2
-            field_16: v3
-        };
+    uucore::features::fsext::read_fs_list(a0);
+    if v0 != 0x8000000000000000 {
+        v3 = v0;
+        uu_df::filter_mount_list(&v6, &v3, a0);
+        v6 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a1);
+        v5 = a0;
+        alloc::vec::in_place_collect::<impl alloc::vec::spec_from_iter::SpecFromIter<T,I> for alloc::vec::Vec<T>>::from_iter(v9, &v4);
+        return;
     }
-    *(&v1.field_0 as &struct24) = struct24 {
-        field_0: v8
-        field_8: v9
-        field_16: v10
-    };
-    v6 = uu_df::filter_mount_list(&v1, a1);
-    v4 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v6);
-    v5 = a1;
-    alloc::vec::in_place_collect::<impl alloc::vec::spec_from_iter::SpecFromIter<T,I> for alloc::vec::Vec<T>>::from_iter(a0, &v4);
+    *((v8 + 8) as &u64) = v1;
+    *((v8 + 16) as &u64) = v2;
+    *(v8 as &i64) = 0x8000000000000000;
+    return;
 }

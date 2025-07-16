@@ -1,31 +1,28 @@
-fn uu_ls::dired::print_positions(a0: u32, a1: u32, a2: u32, a3: u32) -> u64 {
-    let v0: Arguments;  // [bp-0x88]
-    let v1: u128;  // [bp-0x70]
-    let v2: u64;  // [sp-0x58]
-    let v3: u64;  // [sp-0x50]
-    let v4: struct8;  // [sp-0x48]
-    let v5: u64;  // [sp-0x40]
-    let v6: u64;  // [sp-0x38]
-    let v8: struct8;  // rax
+fn uu_ls::dired::print_positions(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {
+    let v0: u384;  // [bp-0x88]
+    let v1: u64;  // [bp-0x58]
+    let v2: struct24;  // [bp-0x50]
+    let v3: struct24;  // [bp-0x48]
+    let v4: u64;  // [bp-0x40]
+    let v5: u64;  // [bp-0x38]
+    let v7: struct24;  // rax
 
-    v5 = a0;
-    v6 = a1;
-    print!("{}", &v5);
-    v2 = a2;
-    v3 = a3 * 16 + a2;
-    v8 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-    if v8 {
+    v4 = a0;
+    v5 = a1;
+    print!("{}", &v4);
+    v1 = a2;
+    v2 = a3 * 16 + a2;
+    v7 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v1);
+    if v7 {
         do {
-            v4 = v8;
-            print!(" {}", &v4);
-            v8 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-        } while (v8);
+            v3 = v7;
+            print!(" {}", &v3);
+        } while ((v7 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v1), v7));
     }
-    v0 = Arguments {
+    v0 = core::fmt::Arguments {
         pieces: ["\n"]
-        args: [8]
+        args: []
         fmt: 0
     };
-    v1 = 0;
     return std::io::stdio::_print(&v0);
 }

@@ -1,5 +1,8 @@
-fn uu_env::string_expander::StringExpander::new(a0: &struct24, a1: u32, a2: u32) -> u64 {
-    uu_env::string_parser::StringParser::new(a0 + 24, a1, a2);
+fn uu_env::string_expander::StringExpander::new(a1: i64, a2: i64) -> : struct24 {
+    let a0: i64;  // rdi
+    let v1: u64;  // rcx
+
+    uu_env::string_parser::StringParser::new(a1, a2, v1);
     return struct24 {
         field_0: 0
         field_8: 1

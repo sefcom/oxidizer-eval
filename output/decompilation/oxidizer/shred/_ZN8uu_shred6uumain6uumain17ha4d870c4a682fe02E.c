@@ -1,155 +1,148 @@
-fn uu_shred::uumain::uumain(a0: u32, a1: u32) -> u64 {
-    let v0: i64;  // [sp-0x428]
-    let v1: i64;  // [sp-0x420]
-    let v2: i64;  // [sp-0x418]
-    let v3: i64;  // [sp-0x410]
-    let v4: i8;  // [sp-0x3f9]
-    let v5: i64;  // [sp-0x3f0]
-    let v6: i64;  // [sp-0x3e0], Other Possible Types: char, struct24, struct64
-    let v7: i64;  // [sp-0x3d8]
-    let v8: i8;  // [sp-0x3d0], Other Possible Types: unsigned long
-    let v9: i8;  // [bp-0x3c8]
-    let v10: i8;  // [bp-0x3c0]
-    let v11: i8;  // [bp-0x3b0]
-    let v12: Result<struct8, struct1>;  // [sp-0x3a0], Other Possible Types: unsigned long
-    let v13: i64;  // [sp-0x398]
-    let v14: i64;  // [sp-0x390]
-    let v15: i64;  // [sp-0x388]
-    let v16: iNone;  // [sp-0x380]
-    let v17: iNone;  // [sp-0x370]
-    let v18: i64;  // [sp-0x360]
-    let v19: i64;  // [sp-0x350]
-    let v20: iNone;  // [sp-0x328]
-    let v21: String;  // [sp-0x310]
-    let v22: Result<struct40, struct8>;  // [sp-0x2f8], Other Possible Types: struct24, unsigned long, struct712, struct56, int, String
-    let v23: iNone;  // [bp-0x2f0]
-    let v24: iNone;  // [bp-0x2e8]
-    let v25: i32;  // [bp-0x2e0]
-    let v26: iNone;  // [bp-0x2d8]
-    let v27: iNone;  // [sp-0x2c8]
-    let v29: i64;  // r13
-    let v30: i64;  // rax
-    let v31: i64;  // rax
-    let v33: i64;  // r14
-    let v34: i64;  // r15
-    let v35: i64;  // r12
-    let v37: i64;  // rbx
-    let v38: i64;  // rax
-    let v39: i64;  // rax
-    let v40: i64;  // rbx
-    let v41: i64;  // rdx
-    let v42: i64;  // rax
-    let v43: i64;  // rsi
-    let v44: i64;  // r15
-    let v48: iNone;  // xmm0
-    let v49: iNone;  // xmm1
-    let v50: struct8;  // rax
-    let v51: i64;  // rax
+fn uu_shred::uumain::uumain(a0: i64, a1: i64) -> long long {
+    let v0: u8;  // [bp-0x3f9]
+    let v1: u64;  // [bp-0x3f0]
+    let v2: Result<struct56, struct16>;  // [bp-0x3e0], Other Possible Types: void*, struct24
+    let v3: struct64;  // [bp-0x3e0]
+    let v4: u64;  // [bp-0x3d8]
+    let v5: u64;  // [bp-0x3d0]
+    let v6: u8;  // [bp-0x3c8]
+    let v7: u64;  // [bp-0x3a0], Other Possible Types: core::result::Result<usize, core::num::error::ParseIntError>
+    let v8: u64;  // [bp-0x398], Other Possible Types: struct_4 *
+    let v9: u64;  // [bp-0x390]
+    let v10: u64;  // [bp-0x388]
+    let v11: u8;  // [bp-0x380]
+    let v12: u8;  // [bp-0x370]
+    let v13: u64;  // [bp-0x360]
+    let v14: u64;  // [bp-0x350]
+    let v15: i64;  // [bp-0x348]
+    let v16: u64;  // [bp-0x340]
+    let v17: u8;  // [bp-0x328]
+    let v18: u128;  // [bp-0x310]
+    let v19: u64;  // [bp-0x300]
+    let v20: u128;  // [bp-0x2f8], Other Possible Types: Result<struct40, struct16>
+    let v21: alloc::string::String;  // [bp-0x2f8], Other Possible Types: u128
+    let v22: struct56;  // [bp-0x2f8], Other Possible Types: u64
+    let v23: u128;  // [bp-0x2f0]
+    let v24: u64;  // [bp-0x2e8], Other Possible Types: core::num::error::ParseIntError *
+    let v25: u32;  // [bp-0x2e0]
+    let v26: void*;  // [bp-0x2d8]
+    let v28: u64;  // r13
+    let v29: i64;  // rax
+    let v30: u64;  // rbx
+    let v31: u64;  // rdx
+    let v32: u64;  // r12
+    let v33: i64;  // rax
+    let v34: void*;  // rax
+    let v35: void*;  // rbx
+    let v36: i64;  // rdx
+    let v37: u64;  // rax
+    let v38: u64;  // r13
+    let v39: u64;  // rsi
+    let v40: u64;  // r15
+    let v41: u8;  // al
+    let v42: u8;  // al
+    let v43: u8;  // al
+    let v44: u128;  // xmm0
+    let v45: i64;  // rax
+    let v46: u64;  // rax
 
-    v29 = 0x8000000000000000;
-    v22 = uu_shred::uu_app();
-    clap_builder::builder::command::Command::try_get_matches_from(&v6, &v22, a0, a1);
-    if v14 == 0x8000000000000000 {
-        v30 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v15);
-        return v30;
-    }
-    v18 = *(&v11 as &i64);
-    v17 = *(&v10 as &i128);
-    v16 = *(&v8 as &i128);
-    v14 = v6;
-    v15 = v7;
-    if !clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v14, "file") as i8 {
-        v6 = <T as alloc::slice::hack::ConvertVec>::to_vec();
-        v22 = v6;
-        *(&v25 as &i32) = 1;
-        alloc::boxed::Box<T>::new(&v22);
-    } else {
-        v22 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v14, "iterations");
-        v31 = clap_builder::parser::error::MatchesError::unwrap("iterations", &v22);
-        if !v31 {
-            core::panicking::panic("internal error: entered unreachable code", "/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/shred/src/shred.rs"); /* do not return */
-        }
-        v33 = *((v31 + 8) as &i64);
-        v34 = *((v31 + 16) as &i64);
-        v12 = core::num::<impl core::str::traits::FromStr for usize>::from_str(v33, v34);
-        match v12 {
-            Err(_) => {
-                v6 = 0;
-                v7 = v33;
-                v8 = v34;
-                *(&v9 as &i8) = 1;
-                v21 = format!("invalid number of passes: {}", &v6);
-                *(&v25 as &i32) = 1;
-                v22 = v21;
-                alloc::boxed::Box<T>::new(&v22);
-            },
-            Ok(v22) => {
-                v35 = &v22 & -0x100 | 3;
-                if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, "u") as i8 {
-LABEL_474d3c:
-                    v4 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, "force") as i8;
-                    v22 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v14, "size");
-                    v42 = clap_builder::parser::error::MatchesError::unwrap("size", &v22);
-                    if v42 {
-                        v22 = <alloc::string::String as core::clone::Clone>::clone(v42);
-                        v29 = v22;
-                        v20 = *(&v22.field_8 as &i128);
-                    }
-                    v22 = v29;
-                    v23 = v20;
-                    v44 = uu_shred::get_size(&v22, v43);
-                    v22 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v14, "file");
-                    v6 = clap_builder::parser::error::MatchesError::unwrap("file", &v22);
-                    if !v6 {
-                        core::option::unwrap_failed("/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/shred/src/shred.rs"); /* do not return */
-                    }
-                    v48 = v6.field_0;
-                    v49 = v6.field_16;
-                    v27 = v6.field_48;
-                    *(&v26 as &u128) = v6.field_32;
-                    v24 = v49;
-                    v22 = v48;
-                    loop {
-                        v50 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next();
-                        if !v50 {
-                            return 0;
-                        }
-                        v3 = v4 as u64;
-                        v2 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, "verbose") as i32 as u32 as u64;
-                        v1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, "zero") as i32 as u32 as u64;
-                        v0 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, "exact") as i32 as i8 | (v44 == 1) as u8 as u8) as u64;
-                        v51 = uu_shred::wipe_file(*((v50 + 8) as &i64), *((v50 + 16) as &i64), v19, v35 & 4294967295 & 4294967295, v44, v41);
-                        if v51 {
-                            v5 = v51;
-                            uucore::mods::error::set_exit_code(*((v41 + 96) as &i64)() as u64);
-                            v12 = uucore::util_name();
-                            v13 = v41;
-                            eprintln!("{}: {}", &v12, &v5);
-                        }
-                    }
-                } else {
-                    if !clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v14, "remove") as i8 {
-                        v35 = 0;
-                        goto LABEL_474d3c;
-                    }
-                    v22 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v14, "remove");
-                    v38 = clap_builder::parser::error::MatchesError::unwrap("remove", &v22);
-                    if !(v38 && (v39 = core::ops::function::FnOnce::call_once(*((v38 + 8) as &i64), *((v38 + 16) as &i64)), v39)) {
-                        panic!("internal error: entered unreachable code: should be caught by clap");
-                    }
-                    v40 = v39;
-                    v35 = v35 & -0x100 | 1;
-                    if !(!<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v39, v41, "unlink") as i8) {
-                        goto LABEL_474d3c;
-                    }
-                    v35 = v35 & -0x100 | 2;
-                    if !(!<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v40, v41, "wipe") as i8 && (v35 = v35 & -0x100 | 3, !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v40, v41, "wipesync") as i8)) {
-                        goto LABEL_474d3c;
-                    }
+    v28 = 0x8000000000000000;
+    uu_shred::uu_app(&v20);
+    v2 = clap_builder::builder::command::Command::try_get_matches_from(&v20, a0, a1);
+    match v2 {
+        Err(_) => {
+            return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v10);
+        },
+        Ok(_) => {
+            v13 = *((&v2 as &char + 48) as &i64);
+            memcpy(&v12, &v2 as u8, 16);
+            memcpy(&v11, &v2, 16);
+            v9 = v2 as i64;
+            v10 = v4;
+            if clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v9, "file") as i8 {
+                v20 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v9, "iterations");
+                v29 = clap_builder::parser::error::MatchesError::unwrap("iterations", &v20);
+                if !v29 {
+                    core::panicking::panic("internal error: entered unreachable code"); /* do not return */
                 }
-            },
-        }
+                v7 = core::num::<impl core::str::traits::FromStr for usize>::from_str(*((v29 + 8) as &i64), *((v29 + 16) as &i64));
+                match v7 {
+                    Err(_) => {
+                        v2 = 0;
+                        v4 = *((v29 + 8) as &i64);
+                        v5 = *((v29 + 16) as &i64);
+                        v6 = 1;
+                        v15 = &v2;
+                        v16 = <os_display::Quoted as core::fmt::Display>::fmt;
+                        v20 = "invalid number of passes: ";
+                        v23 = 1;
+                        v26 = 0;
+                        v24 = &v15;
+                        v25 = 1;
+                        v21 as u192 = core::option::Option<T>::map_or_else(v31);
+                        v25 = 1;
+                        v21 = v18;
+                        v24 = v19;
+                        v30 = alloc::boxed::Box<T>::new(&v21 as u192);
+                    },
+                    Ok(v14) => {
+                        v32 = &v20 & -0x100 | 3;
+                        if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, "u") as i8 && clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v9, "remove") as i8 {
+                            v20 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v9, "remove");
+                            v33 = clap_builder::parser::error::MatchesError::unwrap("remove", &v20);
+                            if !v33 || !((v34 = core::ops::function::FnOnce::call_once(*((v33 + 8) as &i64), *((v33 + 16) as &i64)), v34 && (v35 = v34, v32 = v32 & -0x100 | 1, <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v34, v36, "unlink") as i8 || !((v32 = v32 & -0x100 | 2, !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v35, v36, "wipe") as i8 && (v32 = v32 & -0x100 | 3, !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v35, v36, "wipesync") as i8)))))) {
+                                panic!("internal error: entered unreachable code: should be caught by clap");
+                            }
+                        }
+                        v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, "force") as i8;
+                        v20 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v9, "size");
+                        v37 = clap_builder::parser::error::MatchesError::unwrap("size", &v20);
+                        v38 = v28;
+                        if v37 {
+                            v21 = <alloc::string::String as core::clone::Clone>::clone(v37);
+                            memcpy(&v17, &v21 as u8, 16);
+                            v38 = v22;
+                        }
+                        v20 = v38;
+                        v23 = *(&v17 as &i128) as u128;
+                        v40 = uu_shred::get_size(&v20, v39);
+                        v41 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, "exact") as i32 as i8;
+                        v42 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, "zero") as i32 as i8;
+                        v43 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v9, "verbose") as i32 as i8;
+                        v22 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v9, "file");
+                        v3 = clap_builder::parser::error::MatchesError::unwrap("file", &v22);
+                        if !v3.field_0 as i64 {
+                            core::option::unwrap_failed(); /* do not return */
+                        }
+                        v44 = v3.field_0;
+                        memcpy(&v22 as u8, &v3 as u8, 16);
+                        memcpy(&v22, &v3, 16);
+                        v24 = v3.field_16;
+                        v20 = v44;
+                        loop {
+                            v45 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next(&v22);
+                            if !v45 {
+                                return 0;
+                            }
+                            v46 = uu_shred::wipe_file(*((v45 + 8) as &i64), *((v45 + 16) as &i64), v14, v32 & 4294967295, v40, v36, v41 | (v40 == 1) as u8 as u8, v42, v43, v0);
+                            if v46 {
+                                v1 = v46;
+                                uucore::mods::error::set_exit_code(*((v36 + 96) as &i64)(v46) as u32 as u64);
+                                v7 = uucore::util_name();
+                                v8 = v36;
+                                eprintln!("{}: {}", &v7, &v1);
+                            }
+                        }
+                    },
+                }
+            } else {
+                v2 = <T as alloc::slice::hack::ConvertVec>::to_vec();
+                v24 = v5;
+                v20 = *(&v2.field_0 as &i128) as u128;
+                v25 = 1;
+                v30 = alloc::boxed::Box<T>::new(&v20 as u8);
+            }
+            return v30;
+        },
     }
-    v30 = v37;
-    return v30;
 }

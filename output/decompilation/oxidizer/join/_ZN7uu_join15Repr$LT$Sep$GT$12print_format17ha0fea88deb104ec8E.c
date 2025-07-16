@@ -1,43 +1,33 @@
-fn uu_join::Repr<Sep>::print_format(a0: &u64, a1: &u64, a2: u32) -> u64 {
-    let v0: u64;  // [sp-0x48]
-    let v1: u64;  // [sp-0x40]
-    let v6: void*;  // rbp
-    let v7: u64;  // rax
-    let v8: void*;  // rax
-    let v9: u64;  // rax
-    let v11: u64;  // rax
-    let v14: u64;  // rdx
-    let v15: u64;  // rdx
+fn uu_join::Repr<Sep>::print_format(a0: i64, a1: i64, a2: i64) -> long long {
+    let v0: u64;  // [bp-0x48]
+    let v1: u64;  // [bp-0x40]
+    let v3: void*;  // rbp
+    let v4: u64;  // rbp
+    let v5: u64;  // rax
+    let v6: struct8;  // rax
+    let v7: struct8;  // rax
+    let v9: struct8;  // rax
 
-    v1 = a0[1];
-    v0 = &a0[5] as &char + 1;
-    v6 = 0;
+    v1 = *((a0 + 8) as &i64);
+    v0 = a0 + 41;
+    v3 = 0;
     loop {
-        if v6 >= a0[2] {
+        v4 = v3;
+        if v4 >= *((a0 + 16) as &i64) {
             return 0;
         }
-        v7 = <usize as core::iter::range::Step>::forward_unchecked(v6);
-        if v6 {
-            v8 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, <uu_join::OneByteSep as uu_join::Separator>::output_separator(v0), 1);
-            if v8 {
-                return v8;
+        v5 = <usize as core::iter::range::Step>::forward_unchecked(v4, a1);
+        if v4 {
+            v6 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(<uu_join::OneByteSep as uu_join::Separator>::output_separator(v0));
+            if v6 {
+                return v6;
             }
         }
-        v9 = uu_join::State::combine::{{closure}}(a2, v6 * 16 + v1);
-        if !v9 {
-            v11 = a0[3];
-        } else {
-            v11 = v9;
-        }
+        v7 = uu_join::State::combine::{{closure}}(a2, v4 * 16 + v1);
+        v9 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(v7);
+        v3 = v5;
         if v9 {
-            v14 = v15;
-        } else {
-            v14 = a0[4];
-        }
-        v8 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, v11, v14);
-        v6 = v7;
-        if v8 {
-            return v8;
+            return v9;
         }
     }
 }

@@ -1,6 +1,6 @@
-fn uu_ls::colors::StyleManager::is_current_style(a0: void*, a1: u64) -> u64 {
-    if a0->field_8 != 2 {
-        return <lscolors::style::Style as core::cmp::PartialEq>::eq(&a0->field_8 as &struct_0, a1);
+fn uu_ls::colors::StyleManager::is_current_style(a0: i64, a1: i64) -> long long {
+    if *((a0 + 8) as &i8) != 2 {
+        return <lscolors::style::Style as core::cmp::PartialEq>::eq(a0 + 8, a1);
     }
     return 0;
 }

@@ -1,94 +1,109 @@
-fn uu_env::split_iterator::SplitIterator::state_unquoted(a0: &struct40, a1: u32) -> u64 {
-    let v0: struct21;  // [sp-0x58], Other Possible Types: struct40, int, struct41, Option<struct17>
-    let v1: i32;  // [sp-0x2c]
+fn uu_env::split_iterator::SplitIterator::state_unquoted(a1: i64) -> : struct40 {
+    let a0: u64;  // rsi
+    let v0: struct8;  // [bp-0x58]
+    let v1: struct40;  // [bp-0x58]
+    let v2: struct40;  // [bp-0x58]
+    let v3: struct41;  // [bp-0x58]
+    let v4: u32;  // [bp-0x2c]
+    let v6: i64;  // rdi
+    let v7: u128;  // xmm0
+    let v8: i64;  // rdi
+    let v9: i64;  // rdi
+    let v10: i64;  // rdi
+    let v11: struct40;  // xmm0
 
-LABEL_4d9c73:
-    v1 = uu_env::split_iterator::SplitIterator::get_current_char(a1) as i32;
-    if v1 <= 38 {
-        match (v1) {
-            34 => {
-                v0 = uu_env::split_iterator::SplitIterator::skip_one(a1);
-                if v0.field_0 != 8 {
-                    return struct40 {
-                        field_0: v5
-                        field_16: (&v0)[16] as i128
-                        field_32: v3
-                    };
-                }
-                v0 = uu_env::split_iterator::SplitIterator::state_double_quoted(a1);
-                break;
-                break;
-            }
-            36 => {
-                v0 = uu_env::split_iterator::SplitIterator::substitute_variable(a1);
-                break;
-            }
-            _ => {
-LABEL_4d9cfe:
-            }
-        }
-        goto LABEL_4d9cfe;
-    }
-    match (v1) {
-        39 => {
-            v0 = uu_env::split_iterator::SplitIterator::skip_one(a1);
-            if v0.field_0 != 8 {
-                break;
-            }
-            v0 = uu_env::split_iterator::SplitIterator::state_single_quoted(a1);
-            goto LABEL_4d9c69;
-        }
-        92 => {
-            v0 = uu_env::split_iterator::SplitIterator::skip_one(a1);
-            if v0.field_0 != 8 {
-                break;
-            }
-            v0 = uu_env::split_iterator::SplitIterator::state_unquoted_backslash(a1);
-            goto LABEL_4d9c69;
-        }
-        1114112 => {
-            uu_env::split_iterator::SplitIterator::push_word_to_words(a1);
-            return struct4 {
-                field_0: 6
-            };
-        }
-        _ => {
-LABEL_4d9cfe:
-            if <T as core::slice::cmp::SliceContains>::slice_contains(&v1, &g_425318, 6) as i8 {
-                uu_env::split_iterator::SplitIterator::push_word_to_words(a1);
-                uu_env::split_iterator::SplitIterator::skip_one(a1);
-                if v0 as i32 == 8 {
-                    return struct4 {
-                        field_0: 8
-                    };
-                }
-                break;
-            } else {
-                v0 = uu_env::split_iterator::SplitIterator::take_one(a1);
-                if v0 as i32 != 8 {
-                    return struct40 {
-                        field_0: v3 as u32
-                        field_4: v4
-                        field_20: (&v0)[20] as i128
-                        field_36: (&v0)[36] as i32
-                    };
-                }
-                goto LABEL_4d9c73;
-            }
-        }
-    }
+    loop {
+        v4 = uu_env::split_iterator::SplitIterator::get_current_char(a0) as i32;
+        if v4 <= 38 {
+            match (v4) {
+                34 => {
+                    uu_env::split_iterator::SplitIterator::skip_one(a0, a1);
+                    if v0 != 8 {
+                        *((v10 + 32) as &i64) = v3.field_21;
+                        v11 = *(&v3.field_0 as &i128);
+                        *((v10 + 16) as &u128) = v3.field_5;
+                        *(v10 as &struct40) = v11;
+                        return;
+                    }
+                    v1 = uu_env::split_iterator::SplitIterator::state_double_quoted(a0);
 LABEL_4d9c69:
-    if v0 as i32 != 8 {
-        return struct40 {
-            field_0: v5
-            field_16: (&v0)[16] as i128
-            field_32: v3
-        };
+                    if v0 != 8 {
+                        *((v10 + 32) as &i64) = v3.field_21;
+                        v11 = *(&v3.field_0 as &i128);
+                        *((v10 + 16) as &u128) = v3.field_5;
+                        *(v10 as &struct40) = v11;
+                        return;
+                    }
+                    continue;
+                }
+                36 => {
+                    uu_env::split_iterator::SplitIterator::substitute_variable(a0, a1);
+                    goto LABEL_4d9c69;
+                }
+                _ => {
+                    if <T as core::slice::cmp::SliceContains>::slice_contains(&v4, &g_425318, 6) {
+                        goto LABEL_4d9d56;
+                    }
+                    uu_env::split_iterator::SplitIterator::take_one(a0, a1);
+                    if v0 != 8 {
+                        *((v6 + 36) as &i32) = *((&v3.field_21 as &char + 4) as &i32);
+                        v7 = *(&v3.field_4 as &i128);
+                        *((v6 + 20) as &i128) = *((&v3.field_5 as &char + 4) as &i128);
+                        *((v6 + 4) as &u128) = v7;
+                        *(v6 as &struct8) = v0;
+                        return;
+                    }
+                    break;
+                }
+            }
+        } else {
+            match (v4) {
+                39 => {
+                    uu_env::split_iterator::SplitIterator::skip_one(a0, a1);
+                    if v0 != 8 {
+                        *((v10 + 32) as &i64) = v3.field_21;
+                        v11 = *(&v3.field_0 as &i128);
+                        *((v10 + 16) as &u128) = v3.field_5;
+                        *(v10 as &struct40) = v11;
+                        return;
+                    }
+                    v2 = uu_env::split_iterator::SplitIterator::state_single_quoted(a0);
+                }
+                92 => {
+                    uu_env::split_iterator::SplitIterator::skip_one(a0, a1);
+                    if v0 != 8 {
+                        *((v10 + 32) as &i64) = v3.field_21;
+                        v11 = *(&v3.field_0 as &i128);
+                        *((v10 + 16) as &u128) = v3.field_5;
+                        *(v10 as &struct40) = v11;
+                        return;
+                    }
+                    v3 = uu_env::split_iterator::SplitIterator::state_unquoted_backslash(a0);
+                }
+                1114112 => {
+                    uu_env::split_iterator::SplitIterator::push_word_to_words(a0);
+                    *(v8 as &i32) = 6;
+                    return;
+                }
+                _ => {
+                    if <T as core::slice::cmp::SliceContains>::slice_contains(&v4, &g_425318, 6) {
+                        break;
+                    }
+                }
+            }
+            goto LABEL_4d9c69;
+        }
     }
-    continue;
-    return struct40 {
-        field_0: v5
-        field_16: (&v0)[16] as i128
-        field_32: v3
-    };
+LABEL_4d9d56:
+    uu_env::split_iterator::SplitIterator::push_word_to_words(a0);
+    uu_env::split_iterator::SplitIterator::skip_one(a0, a1);
+    if v0 != 8 {
+        *((v10 + 32) as &i64) = v3.field_21;
+        v11 = *(&v3.field_0 as &i128);
+        *((v10 + 16) as &u128) = v3.field_5;
+        *(v10 as &struct40) = v11;
+        return;
+    }
+    *(v9 as &i32) = 8;
+    return;
 }

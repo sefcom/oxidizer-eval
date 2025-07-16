@@ -1,3 +1,3 @@
-fn uu_ls::file_is_executable(a0: u8) -> u8 {
+fn uu_ls::file_is_executable(a0: i8) -> char {
     return (a0 & 73);
 }

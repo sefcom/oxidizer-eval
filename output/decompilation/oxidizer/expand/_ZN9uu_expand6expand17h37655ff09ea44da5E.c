@@ -1,80 +1,97 @@
-fn uu_expand::expand(a0: u32) -> u64 {
-    let v0: iNone;  // [bp-0x138]
-    let v1: iNone;  // [bp-0x128]
-    let v2: iNone;  // [bp-0x118]
-    let v3: i64;  // [sp-0x108]
-    let v4: i64;  // [sp-0xf0]
-    let v5: iNone;  // [sp-0xe8]
-    let v6: struct8;  // [sp-0xd0]
-    let v7: i64;  // [sp-0xc8]
-    let v8: i64;  // [sp-0xc0]
-    let v9: i64;  // [sp-0xb8]
-    let v10: i64;  // [sp-0xb0]
-    let v11: i64;  // [sp-0xa8]
-    let v12: Result<struct56, struct16>;  // [sp-0xa0], Other Possible Types: unsigned long
-    let v13: i64;  // [sp-0x98]
-    let v14: struct33;  // [sp-0x58]
-    let v16: i64;  // r14
-    let v17: i64;  // r15
-    let v18: struct8;  // rax
-    let v19: iNone;  // ymm0
-    let v20: iNone;  // ymm1
-    let v21: iNone;  // ymm2
-    let v22: iNone;  // xmm0
-    let v23: iNone;  // xmm1
-    let v24: iNone;  // xmm2
-    let v25: iNone;  // xmm0
-    let v26: i64;  // rdx
-    let v28: i64;  // r12
+fn uu_expand::expand(a0: i64) -> long long {
+    let v0: u64;  // [bp-0x138]
+    let v1: u64;  // [bp-0x138]
+    let v2: u64;  // [bp-0x138]
+    let v3: u64;  // [bp-0x128]
+    let v4: u64;  // [bp-0x128]
+    let v5: u64;  // [bp-0x128]
+    let v6: u128;  // [bp-0x118]
+    let v7: u64;  // [bp-0x108]
+    let v8: u64;  // [bp-0xf8]
+    let v9: u64;  // [bp-0xf0]
+    let v10: u128;  // [bp-0xe8]
+    let v11: i64;  // [bp-0xd0]
+    let v12: void*;  // [bp-0xc8]
+    let v13: u64;  // [bp-0xc0]
+    let v14: void*;  // [bp-0xb8]
+    let v15: u128;  // [bp-0xb0]
+    let v16: u64;  // [bp-0xa0]
+    let v17: u64;  // [bp-0xa0]
+    let v18: u64;  // [bp-0x98]
+    let v19: u64;  // [bp-0x98]
+    let v20: u128;  // [bp-0x90]
+    let v21: u128;  // [bp-0x80]
+    let v22: u64;  // [bp-0x70]
+    let v23: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>;  // [bp-0x58]
+    let v25: &u64;  // r14
+    let v26: &u64;  // r15
+    let v27: i64;  // rax
+    let v28: u64;  // rcx
+    let v29: u128;  // xmm0
+    let v31: void*;  // r9
+    let v32: u64;  // r12
+    let v33: u64;  // rdx
 
-    v14 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x2000, std::io::stdio::stdout());
-    v16 = *((a0 + 32) as &i64);
-    v17 = *((a0 + 40) as &i64);
-    v7 = 0;
-    v8 = 1;
-    v9 = 0;
-    v10 = *((a0 + 8) as &i64);
-    v11 = v10 + *((a0 + 16) as &i64) * 24;
-    v18 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-    if !v18 {
+    std::io::stdio::stdout();
+    v23 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x2000);
+    v25 = *((a0 + 32) as &i64);
+    v26 = *((a0 + 40) as &i64);
+    v12 = 0;
+    v13 = 1;
+    v14 = 0;
+    v15 = struct16 {
+        field_0: *((a0 + 8) as &i64)
+        field_8: *((a0 + 8) as &i64) + *((a0 + 16) as &i64) * 24
+    };
+    v27 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v15);
+    if !v27 {
         return 0;
     }
     do {
-        v6 = v18;
-        if std::path::Path::is_dir(*((v18 + 8) as &i64), *((v18 + 16) as &i64)) as i8 {
-            v13 = v26;
-            show_error!("{}: Is a directory", &v6);
+        v11 = v27;
+        if std::path::Path::is_dir(*((v27 + 8) as &i64), *((v27 + 16) as &i64)) {
+            v16 = uucore::util_name();
+            v18 = v33;
+            eprint!("{}: ", &v16);
+            eprintln!("{}: Is a directory", &v11);
             uucore::mods::error::set_exit_code(1);
+            v16 = v17;
+            v18 = v19;
+            v0 = v1;
+            v3 = v4;
         } else {
-            v12 = uu_expand::open(*((v6 + 8) as &i64), *((v6 + 16) as &i64));
-            if !v12 {
-                v25 = *((&v12 as &char + 8) as &i128);
-                v19 = v19 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v25 as u256;
-                v5 = v25;
-                v4 = v26;
-                show_error!("{}", &v5);
-                uucore::mods::error::set_exit_code(1);
-            } else {
-                v3 = *((&v12 as &char + 48) as &i64);
-                v22 = v12 as i128;
-                v19 = v19 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v22 as u256;
-                v23 = *((&v12 as &char + 16) as &i128);
-                v20 = v20 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v23 as u256;
-                v24 = *((&v12 as &char + 32) as &i128);
-                v21 = v21 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v24 as u256;
-                v2 = v24;
-                v1 = v23;
-                v0 = v22;
+            uu_expand::open(*((v11 + 8) as &i64), *((v11 + 16) as &i64), v28);
+            if v16 {
+                v7 = v22;
+                v29 = *(&v16 as &i128);
+                v6 = v21;
+                v3 = v20;
+                v0 = v29;
                 loop {
-                    if !(std::io::read_until(0xa, &v7) ? !v9 : v26) {
+                    if !(std::io::read_until(&v2, 10, &v12) ? 1 : v33) {
                         break;
                     }
-                    v28 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_expand::expand_line(&v7, &v14, v16, v17, a0));
-                    if v28 {
-                        return v28;
+                    v32 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_expand::expand_line(&v23, v25, v26, a0, v31));
+                    if v32 {
+                        return v32;
                     }
                 }
+                v0 = v2;
+                v3 = v5;
+            } else {
+                v10 = *(&v18 as &i128);
+                v8 = uucore::util_name();
+                v9 = v33;
+                eprint!("{}: ", &v8);
+                eprintln!("{}", &v10 as u8);
+                uucore::mods::error::set_exit_code(1);
+                v0 = v1;
+                v3 = v4;
             }
         }
-    } while ((v18 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(), v18));
+        v5 = v3;
+        v2 = v0;
+        v27 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v15);
+    } while (v27);
+    return 0;
 }

@@ -1,79 +1,89 @@
-fn uu_od::odfunc(a0: &Option<struct16>, a1: &u64, a2: void*) -> u64 {
-    let v0: i8;  // [sp-0xe1]
-    let v1: i64;  // [sp-0xe0]
-    let v2: i8;  // [bp-0xd8]
-    let v3: i64;  // [sp-0xd0]
-    let v4: i64;  // [sp-0xc8]
-    let v5: iNone;  // [bp-0xa8]
-    let v6: i64;  // [sp-0xa0]
-    let v7: iNone;  // [sp-0x98]
-    let v8: i64;  // [sp-0x80]
-    let v9: i64;  // [sp-0x78]
-    let v10: i64;  // [sp-0x70]
-    let v11: i64;  // [sp-0x68]
-    let v12: struct25;  // [sp-0x50]
-    let v14: i64;  // r14
-    let v15: i64;  // rbp
-    let v16: iNone;  // ymm1
-    let v17: iNone;  // xmm0
-    let v18: iNone;  // xmm1
-    let v19: i64;  // r13
-    let v20: i64;  // rdx
-    let v21: i64;  // rdx
-    let v22: i64;  // rbx
-    let v23: i64;  // rbx
-    let v24: iNone;  // ymm0
+fn uu_od::odfunc(a0: i64, a1: i64, a2: i64) -> long long {
+    let v0: u8;  // [bp-0xe1]
+    let v2: u64;  // [bp-0xd8]
+    let v3: u64;  // [bp-0xd8]
+    let v4: u64;  // [bp-0xd0]
+    let v5: u64;  // [bp-0xd0]
+    let v6: u64;  // [bp-0xc8]
+    let v7: u64;  // [bp-0xc8]
+    let v8: u128;  // [bp-0xa8]
+    let v9: u64;  // [bp-0xa0], Other Possible Types: &u8
+    let v10: u128;  // [bp-0x98]
+    let v11: void*;  // [bp-0x80]
+    let v12: u64;  // [bp-0x78]
+    let v13: void*;  // [bp-0x70]
+    let v14: u64;  // [bp-0x68]
+    let v15: u128;  // [bp-0x50]
+    let v16: u64;  // [bp-0x40]
+    let v17: u8;  // [bp-0x38]
+    let v19: u64;  // r14
+    let v20: i64;  // 4096
+    let v21: u8;  // bpl
+    let v22: u128;  // xmm1
+    let v23: u64;  // rdx
+    let v24: u32;  // rdx
+    let v25: i64;  // rdx
+    let v26: u64;  // rbx
 
-    v8 = 0;
-    v9 = 1;
-    v10 = 0;
-    v14 = *((a2 + 24) as &i64);
-    v11 = *((a2 + 40) as &i64);
+    v11 = 0;
+    v12 = 1;
+    v13 = 0;
+    v19 = *((a2 + 24) as &i64);
+    v14 = *((a2 + 40) as &i64);
     v0 = *((a2 + 48) as &i8);
-    v15 = 0;
+    v20 = a2;
     loop {
-        v12 = uu_od::inputdecoder::InputDecoder<I>::peek_read(a1);
-        if v12.field_24 == 3 {
-            v1 = v12.field_0;
-            v6 = v21;
-            show_error!("{}", &v1);
+        uu_od::inputdecoder::InputDecoder<I>::peek_read(a1, v20);
+        if v17 == 3 {
+            v8 = uucore::util_name();
+            v9 = v24;
+            eprint!("{}: ", &v8);
+            eprintln!("{}", &v1);
             uu_od::inputoffset::InputOffset::print_final_offset(a0);
-            return v23;
+            v26 = uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(1);
         }
-        v17 = *(&v12.field_0 as &i128);
-        v24 = v24 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v17 as u256;
-        v18 = *(&v12.field_16 as &i128);
-        v16 = v16 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v18 as u256;
-        v5 = v17;
-        v7 = v18;
-        v19 = v6;
-        if !v19 {
+        v22 = *(&v16 as &i128);
+        v8 = v15;
+        v10 = v22;
+        if !v9 {
             uu_od::inputoffset::InputOffset::print_final_offset(a0);
-            v22 = (!<uu_od::peekreader::PeekReader<R> as uu_od::multifilereader::HasError>::has_error(*((a1 + 24) as &i64)) as i8 ? 0 : uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(1));
-            return v23;
+            v26 = (!<uu_od::peekreader::PeekReader<R> as uu_od::multifilereader::HasError>::has_error(*((a1 + 24) as &i64)) ? 0 : uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(1));
+            break;
         }
-        if v19 != v14 {
-            v20 = v11 + v19;
-            if v14 <= v20 {
-                v20 = v14;
+        if v9 != v19 {
+            v23 = &v9[v14];
+            if v19 <= v23 {
+                v23 = v19;
             }
-            uu_od::inputdecoder::MemoryDecoder::zero_out_buffer(&v5, v19, v20);
-        } else if v0 || !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(uu_od::inputdecoder::MemoryDecoder::get_buffer(&v5, 0), v21, v9, v10) as i8 {
-            uu_od::inputdecoder::MemoryDecoder::clone_buffer(&v5, &v8);
-        } else if !(v15 as u8 & 1) {
-            v24 &= 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000;
-            println!("*");
-            v15 = v15 & -0x100 | 1;
-            goto LABEL_476ec2;
+            uu_od::inputdecoder::MemoryDecoder::zero_out_buffer(&v8, v9, v23);
+        } else if !v0 && <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(uu_od::inputdecoder::MemoryDecoder::get_buffer(&v8, 0), v24, 1, 0) as i8 {
+            v2 = v2;
+            v4 = v4;
+            v6 = v6;
+            if !(v21 & 1) {
+                println!("*");
+                v21 = 1;
+                v2 = v3;
+                v4 = v5;
+                v6 = v7;
+                goto LABEL_476ec2;
+            }
+        } else {
+            uu_od::inputdecoder::MemoryDecoder::clone_buffer(&v8, &v11);
         }
         uu_od::inputoffset::InputOffset::format_byte_offset(&v2, a0);
-        uu_od::print_bytes(v3, v4, &v5, a2);
-        v15 = 0;
+        uu_od::print_bytes(v4, v6, &v8, a2);
+        v2 = v2;
+        v4 = v4;
+        v6 = v6;
 LABEL_476ec2:
-        *((a0 + 16) as &unsigned long) = *((a0 + 16) as &i64) + v19;
+        *((a0 + 16) as &&u8) = &v9[*((a0 + 16) as &i64)];
+        v20 = v25;
         if *(a0 as &i64) {
             *(a0 as &i64) = 1;
-            *((a0 + 8) as &unsigned long) = *((a0 + 8) as &i64) + v19;
+            *((a0 + 8) as &&u8) = &v9[*((a0 + 8) as &i64)];
+            v20 = v25;
         }
     }
+    return v26;
 }

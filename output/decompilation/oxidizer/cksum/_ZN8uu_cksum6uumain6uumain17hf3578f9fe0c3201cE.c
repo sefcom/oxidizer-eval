@@ -1,167 +1,197 @@
-fn uu_cksum::uumain::uumain(a0: u32, a1: u32) -> u64 {
-    let v0: i8;  // [sp-0x3da]
-    let v1: i8;  // [sp-0x3d9]
-    let v2: struct16;  // [bp-0x3d8], Other Possible Types: unsigned long, int
-    let v3: i64;  // [sp-0x3d0]
-    let v4: i64;  // [sp-0x3c8]
-    let v5: i64;  // [sp-0x3c0]
-    let v6: i64;  // [sp-0x3b0]
-    let v7: i64;  // [sp-0x3a8]
-    let v8: iNone;  // [sp-0x3a0]
-    let v9: iNone;  // [sp-0x390]
-    let v10: i64;  // [sp-0x380]
-    let v11: i64;  // [sp-0x378], Other Possible Types: char, struct64
-    let v12: i64;  // [sp-0x370]
-    let v13: i8;  // [sp-0x368], Other Possible Types: unsigned long
-    let v14: iNone;  // [sp-0x360]
-    let v15: i8;  // [bp-0x358]
-    let v16: i8;  // [bp-0x348]
-    let v17: i64;  // [sp-0x338], Other Possible Types: Result<struct40, struct8>, struct56, struct712
-    let v18: struct24;  // [sp-0x338], Other Possible Types: int, Result<struct40, struct8>
-    let v19: i64;  // [sp-0x330]
-    let v20: i64;  // [sp-0x328]
-    let v21: i64;  // [sp-0x320]
-    let v22: i64;  // [sp-0x318]
-    let v23: i64;  // [sp-0x310]
-    let v24: i64;  // [sp-0x308]
-    let v25: i8;  // [sp-0x300]
-    let v26: i8;  // [sp-0x2ff]
-    let v27: i8;  // [sp-0x2fe]
-    let v28: i8;  // [sp-0x2fd]
-    let v29: struct64;  // [sp-0x70]
-    let v31: i64;  // r15
-    let v32: i8;  // bpl
-    let v33: i64;  // rax
-    let v34: i64;  // rax
-    let v35: i64;  // rbx
-    let v37: i64;  // r13
-    let v38: i8;  // r14b
-    let v39: i64;  // r12
-    let v40: i64;  // rdx
-    let v41: i64;  // rax
-    let v42: i64;  // rdx
+fn uu_cksum::uumain::uumain(a0: i64, a1: i64) -> long long {
+    let v0: u8;  // [bp-0x3da]
+    let v1: core::result::Result<u16, core::num::error::ParseIntError>;  // [bp-0x3d9], Other Possible Types: u8
+    let v2: u64;  // [bp-0x3d8]
+    let v3: u64;  // [bp-0x3d0]
+    let v4: u64;  // [bp-0x3c8]
+    let v5: u64;  // [bp-0x3c0]
+    let v6: u64;  // [bp-0x3b0]
+    let v7: u64;  // [bp-0x3a8]
+    let v8: u8;  // [bp-0x3a0]
+    let v9: u8;  // [bp-0x390]
+    let v10: u64;  // [bp-0x380]
+    let v11: Result<struct56, struct16>;  // [bp-0x378], Other Possible Types: struct64
+    let v12: u64;  // [bp-0x378]
+    let v13: u64;  // [bp-0x370]
+    let v14: u64;  // [bp-0x368]
+    let v15: u128;  // [bp-0x360]
+    let v16: u8;  // [bp-0x338], Other Possible Types: struct40, struct56
+    let v17: Result<struct40, struct16>;  // [bp-0x338]
+    let v18: struct24;  // [bp-0x338]
+    let v19: u64;  // [bp-0x338]
+    let v20: struct56;  // [bp-0x338]
+    let v21: Result<struct40, struct16>;  // [bp-0x338]
+    let v22: u64;  // [bp-0x330]
+    let v23: u56;  // [bp-0x32f]
+    let v24: u64;  // [bp-0x328]
+    let v25: u64;  // [bp-0x320]
+    let v26: u64;  // [bp-0x318]
+    let v27: u64;  // [bp-0x310]
+    let v28: u64;  // [bp-0x308]
+    let v29: u8;  // [bp-0x300]
+    let v30: u8;  // [bp-0x2ff]
+    let v31: u8;  // [bp-0x2fe]
+    let v32: u8;  // [bp-0x2fd]
+    let v33: struct64;  // [bp-0x70]
+    let v35: u8;  // bpl
+    let v36: i64;  // rax
+    let v37: u8;  // cl
+    let v38: i64;  // rax
+    let v39: u64;  // rbx
+    let v40: u64;  // r12
+    let v41: u64;  // r15
+    let v42: u8;  // al
+    let v43: u8;  // al
+    let v44: u64;  // r13
+    let v45: u32;  // eax
+    let v46: u32;  // eax
+    let v48: u32;  // eax
+    let v49: u8;  // r14b
+    let v50: u8;  // bpl
+    let v51: u64;  // r13
+    let v52: u64;  // r13
+    let v54: u64;  // r14
+    let v55: u64;  // rsi
+    let v56: u64;  // r12
+    let v57: u64;  // rdx
+    let v58: u64;  // rax
+    let v59: u64;  // rdx
 
-    v17 = uu_cksum::uu_app();
-    clap_builder::builder::command::Command::try_get_matches_from(&v11, &v17, a0, a1);
-    if v6 == 0x8000000000000000 {
-        v31 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v7);
-        return v31;
-    }
-    v10 = *(&v16 as &i64);
-    v9 = *(&v15 as &i128);
-    v8 = *(&v13 as &i128);
-    v6 = v11;
-    v7 = v12;
-    v32 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "check") as i32;
-    v17 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v6, "algorithm");
-    v33 = clap_builder::parser::error::MatchesError::unwrap("algorithm", &v17);
-    if v33 {
-        *(&v2 as &i128) = *((v33 + 8) as &i128);
-        if !(<T as core::slice::cmp::SliceContains>::slice_contains(&v2, "bsd", 3) as i8 & v32) {
-            goto LABEL_580869;
-        }
-    } else if !v32 {
-        v2 = struct16 {
-            field_0: &g_455663
-            field_8: 3
-        };
-        <T as core::slice::cmp::SliceContains>::slice_contains(&v2, "bsd", 3);
-        goto LABEL_580869;
-    } else {
-        v2 = struct16 {
-            field_0: 1
-            field_8: 0
-        };
-        if !<T as core::slice::cmp::SliceContains>::slice_contains(&v2, "bsd", 3) as i8 {
-LABEL_580869:
-            v18 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v6, "length");
-            v34 = clap_builder::parser::error::MatchesError::unwrap("length", &v18);
-            if !v34 {
-                v35 = 0;
-                goto LABEL_580903;
-            } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v2, v3, "blake2b") as i8 {
-                v18 = uucore::features::checksum::calculate_blake2b_length(*(v34 as &i64));
-                v35 = v19;
-                if v17 {
-                    v31 = v35;
-                    return v31;
+    uu_cksum::uu_app(&v16);
+    v11 = clap_builder::builder::command::Command::try_get_matches_from(&v16, a0, a1);
+    match v11 {
+        Err(_) => {
+            return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v7);
+        },
+        Ok(_) => {
+            v10 = *((&v11 as &char + 48) as &i64);
+            memcpy(&v9, &v11 as u128, 16);
+            memcpy(&v8, &v11, 16);
+            v6 = v11 as i64;
+            v7 = v13;
+            v35 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "check") as i32 as i8;
+            v21 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v6, "algorithm");
+            v36 = clap_builder::parser::error::MatchesError::unwrap("algorithm", &v21);
+            if v36 {
+                v2 = *((v36 + 8) as &i128) as u128;
+                v37 = 12;
+                if !(<T as core::slice::cmp::SliceContains>::slice_contains(&v2 as u8, "bsd", 3) as u8 & v35) {
+                    goto LABEL_580869;
                 }
-LABEL_580903:
-                v4 = v20;
-                if !v32 {
-                    uu_cksum::handle_tag_text_binary_flags(&v18, &v6);
-                    v31 = v17;
-                    if v31 {
-                        return v31;
+                goto LABEL_5809d4;
+            } else {
+                if v35 {
+                    v2 = 1;
+                    v3 = 0;
+                    v37 = 12;
+                    if !<T as core::slice::cmp::SliceContains>::slice_contains(&v2, "bsd", 3) as u8 {
+                        goto LABEL_580869;
                     }
-                    v0 = (&v18)[8] as i8;
-                    v1 = (&v18)[9] as i8;
-                    v17 = uucore::features::checksum::detect_algo(v2, v3, v35, v4);
-                    v37 = v17;
-                    v31 = v19;
-                    if !v37 {
-                        return v31;
-                    }
-                    v14 = *((&v17 as &char + 24) as &i128);
-                    v11 = v37;
-                    v12 = v31;
-                    v13 = v20;
-                    v38 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "zero") as i8 ? 0 : 10);
-                    if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "raw") as i8 {
-                        clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "base64");
-                    }
-                    v5 = <alloc::boxed::Box<F,A> as core::ops::function::Fn<Args>>::call(&v13);
-                    v39 = (&v14)[8] as i64;
-                    v17 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v6, "file");
-                    v29 = clap_builder::parser::error::MatchesError::unwrap("file", &v17);
-                    if !v29.field_0 as i64 {
-                        v17 = v35;
-                        v19 = v4;
-                        v20 = v37;
-                        v21 = v31;
-                        v22 = v5;
-                        v23 = v42;
-                        v24 = v39;
-                        v25 = v0;
-                        v26 = v1;
-                        v27 = 1;
-                        v28 = v38;
-                        v41 = uu_cksum::cksum();
-                    } else {
-                        v17 = v35;
-                        v19 = v4;
-                        v20 = v37;
-                        v21 = v31;
-                        v22 = v5;
-                        v23 = v40;
-                        v24 = v39;
-                        v25 = v0;
-                        v26 = v1;
-                        v27 = 1;
-                        v28 = v38;
-                        v41 = uu_cksum::cksum(&v17, &v29);
-                    }
-                    v31 = v41;
-                    if v41 {
-                        return v31;
-                    }
-                    return 0;
+LABEL_5809d4:
+                    v41 = alloc::boxed::Box<T>::new(v37);
                 } else {
-                    v1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "strict") as i8;
-                    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "status") as i8;
-                    clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "warn");
-                    clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "ignore-missing");
-                    clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "quiet");
-                    if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "text") as i32 && !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "binary") as i32 {
-                        v17 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v6, "file");
-                        v11 = clap_builder::parser::error::MatchesError::unwrap("file", &v17);
-                        core::option::Option<T>::map_or_else(&v17, &v11);
-                        return v31;
+                    v2 = &g_455663;
+                    v3 = 3;
+                    <T as core::slice::cmp::SliceContains>::slice_contains(&v2, "bsd", 3);
+LABEL_580869:
+                    v17 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v6, "length");
+                    v38 = clap_builder::parser::error::MatchesError::unwrap("length", &v17);
+                    if v38 {
+                        v37 = 10;
+                        if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v2, v3 as u32, "blake2b") as i8 {
+                            goto LABEL_5809d4;
+                        }
+                        v18 = uucore::features::checksum::calculate_blake2b_length(*(v38 as &i64));
+                        v39 = v18.field_8;
+                        v40 = v24;
+                        if !v18.field_0 {
+                            goto LABEL_580903;
+                        }
+                        v41 = v39;
+                    } else {
+LABEL_580903:
+                        v4 = v40;
+                        if v35 {
+                            v42 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "text") as i32 as i8;
+                            v43 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "binary") as i32 as i8;
+                            v1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "strict") as i8;
+                            v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "status") as i8;
+                            v45 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "warn") as i32;
+                            v46 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "ignore-missing") as i32;
+                            v48 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "quiet") as i32;
+                            v37 = 11;
+                            if !(!v42 && !v43) {
+                                goto LABEL_5809d4;
+                            }
+                            v51 = v3;
+                            v52 = v51;
+                            if v52 {
+                                v52 = v2;
+                            }
+                            v54 = v52;
+                            v16 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v6, "file");
+                            v11 = clap_builder::parser::error::MatchesError::unwrap("file", &v16);
+                            core::option::Option<T>::map_or_else(&v16, &v11);
+                            v41 = uucore::features::checksum::perform_checksum_validation(v16.field_8, v24 * 16 + v16.field_8, v54, v51, v39, v4, v45 as u64 * 0x10000000000 | v1 as u64 * 0x100000000 | (v0 as u32 * 0x1000000) as u64 | (v46 * 0x100) as u64 | (v48 * 0x10000) as u64);
+                        } else {
+                            uu_cksum::handle_tag_text_binary_flags(&v16, &v6);
+                            v41 = v19;
+                            if !v19 {
+                                v0 = *((&v17 as &char + 8) as &i8);
+                                v1 = v23 as i8;
+                                v16 = uucore::features::checksum::detect_algo(v2, v3, v39, v4);
+                                v44 = v16.field_0;
+                                v41 = v16.field_8;
+                                if v44 {
+                                    v15 = *(&v16.field_24 as &i128) as u128;
+                                    v12 = v44;
+                                    v13 = v41;
+                                    v14 = v24;
+                                    v49 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "zero") as i8 ? 0 : 10);
+                                    v50 = 1;
+                                    if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "raw") as i8 {
+                                        v50 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "base64") as i8 * 2;
+                                    }
+                                    v5 = <alloc::boxed::Box<F,A> as core::ops::function::Fn<Args>>::call(&v14, v55) as u64;
+                                    v56 = *((&v15 as &char + 8) as &i64);
+                                    v20 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v6, "file");
+                                    v33 = clap_builder::parser::error::MatchesError::unwrap("file", &v20);
+                                    if v33.field_0 as i64 {
+                                        v19 = v39;
+                                        v22 = v4;
+                                        v24 = v44;
+                                        v25 = v41;
+                                        v26 = v5;
+                                        v27 = v57;
+                                        v28 = v56;
+                                        v29 = v0;
+                                        v30 = v1;
+                                        v31 = v50;
+                                        v32 = v49;
+                                        v58 = uu_cksum::cksum(&v19, &v33);
+                                    } else {
+                                        v19 = v39;
+                                        v22 = v4;
+                                        v24 = v44;
+                                        v25 = v41;
+                                        v26 = v5;
+                                        v27 = v59;
+                                        v28 = v56;
+                                        v29 = v0;
+                                        v30 = v1;
+                                        v31 = v50;
+                                        v32 = v49;
+                                        v58 = uu_cksum::cksum();
+                                    }
+                                    v41 = v58;
+                                    return 0;
+                                }
+                            }
+                        }
                     }
                 }
+                return v41;
             }
-        }
+        },
     }
-    v31 = alloc::boxed::Box<T>::new(12);
-    return v31;
 }

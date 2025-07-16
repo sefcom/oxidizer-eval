@@ -1,4 +1,6 @@
-fn uu_tsort::Node::new(a0: &struct32) -> u64 {
+fn uu_tsort::Node::new() -> : struct32 {
+    let a0: i64;  // rdi
+
     return struct32 {
         field_0: 0
         field_8: 8

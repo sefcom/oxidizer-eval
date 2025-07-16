@@ -1,27 +1,17 @@
-fn uu_csplit::SplitWriter::finish_split(a0: &struct8) -> u64 {
-    let v0: Argument;  // [bp-0x40]
-    let v1: Arguments;  // [bp-0x30]
-    let v3: &u64;  // rax
+fn uu_csplit::SplitWriter::finish_split() -> : struct8 {
+    let a0: i64;  // rsi
+    let v1: i64;  // rdi
 
-    if a0->field_38 {
-        return v3;
+    if *((v1 + 56) as &i8) {
+        return;
     }
-    v3 = a0->field_20;
-    if *((&v3[12] as &char + 2) as &i8) && !a0->field_30 {
-        a0->field_28 = a0->field_28 - 1;
-        return v3;
+    if *((*((v1 + 32) as &i64) + 98) as &i8) && !*((v1 + 48) as &i64) {
+        *((v1 + 40) as &i64) = *((v1 + 40) as &i64) - 1;
+        return;
     }
-    if !*((&v3[12] as &char + 1) as &i8) {
-        v0 = Argument {
-            value: a0 + 48
-            formatter: core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt
-        };
-        v1 = Arguments {
-            pieces: ["", "\n"]
-            args: [&v0]
-            fmt: 0
-        };
-        return std::io::stdio::_print(&v1);
+    if *((*((v1 + 32) as &i64) + 97) as &i8) {
+        return;
     }
-    return v3;
+    println!("{}", v1 + 48);
+    return;
 }

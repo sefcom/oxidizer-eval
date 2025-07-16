@@ -1,49 +1,50 @@
-fn uu_dd::parseargs::conversion_mode(a0: &struct18, a1: u32, a2: u32, a3: u32, a4: u8, a5: u8) -> u64 {
-    if a1 {
-        if !a2 {
-            if a4 {
-                return struct1 {
-                    field_0: 4
-                };
-            }
-            return struct2 {
-                field_0: 3
-                field_1: a5
-            };
-        } else {
-            if a2 != 1 {
-                return struct9 {
-                    field_0: 0
-                    field_8: <UNKNOWN>
-                };
-            } else if !a4 {
-                return struct17 {
-                    field_0: 5
-                    field_8: <UNKNOWN>
-                    field_16: <UNKNOWN>
-                };
+fn uu_dd::parseargs::conversion_mode(a1: i64, a2: i64, a3: i64, a4: i8, a5: i8) -> : struct18 {
+    let a0: u64;  // rsi
+    let v1: i64;  // rdi
+    let v2: i64;  // rdi
+    let v3: i64;  // rdi
+    let v4: i64;  // rdi
+    let v5: i64;  // rdi
+    let v6: i64;  // rdi
+    let v7: i64;  // rdi
+    let v8: i64;  // rdi
+
+    if a0 {
+        if a1 {
+            if a1 == 1 {
+                if a3 {
+                    *(v6 as &i8) = 6;
+                } else {
+                    *(v7 as &i8) = 5;
+                }
             } else {
-                return struct1 {
-                    field_0: 6
-                };
+                *(v2 as &i8) = 0;
+                *((v2 + 8) as &u64) = a0;
+                return;
             }
-        }
-    } else {
-        if !a2 {
-            return struct10 {
-                field_0: 1
-                field_1: a5
-                field_8: <UNKNOWN>
-            };
-        } else if a2 == 1 {
-            return struct9 {
-                field_0: 2
-                field_8: <UNKNOWN>
-            };
         } else {
-            return struct1 {
-                field_0: 7
-            };
+            if a3 {
+                *(v3 as &i8) = 4;
+            } else {
+                *(v3 as &i8) = 3;
+            }
+            *((v8 + 1) as &u8) = a4;
         }
+        *((v8 + 8) as &u64) = a2;
+        *((v8 + 16) as &u64) = a0;
+        return;
+    } else if a1 {
+        if a1 == 1 {
+            *(v4 as &i8) = 2;
+            *((v4 + 8) as &u64) = a2;
+        } else {
+            *(v5 as &i8) = 7;
+        }
+        return;
+    } else {
+        *(v1 as &i8) = 1;
+        *((v1 + 1) as &u8) = a4;
+        *((v1 + 8) as &u64) = a2;
+        return;
     }
 }

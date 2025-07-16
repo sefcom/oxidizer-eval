@@ -1,25 +1,22 @@
-fn uu_dd::Output::prepare_file(a0: &struct24, a1: u32, a2: void*) -> u64 {
-    let v0: u8;  // [sp-0x30]
-    let v1: u8;  // [sp-0x2f]
-    let v2: struct16;  // [sp-0x20]
-    let v5: u64;  // rax
-    let v6: &struct_0;  // rbx
-    let v7: &struct_0;  // rbx
-    let v8: u64;  // rax
-    let v9: u64;  // rax
+fn uu_dd::Output::prepare_file(a1: i32, a2: i64) -> Result<struct24, struct17> {
+    let a0: i32;  // esi
+    let v0: u64;  // [bp-0x30]
+    let v1: u8;  // [bp-0x2f]
+    let v2: struct16;  // [bp-0x20]
+    let v4: u64;  // rbx
+    let v6: i64;  // rdi
 
-    v1 = a2->field_90 ^ 1;
+    v4 = a1;
+    v1 = *((a1 + 144) as &i8) ^ 1;
     v0 = 1;
-    v2 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_dd::Dest::seek(&v0), a2);
-    v5 = v2.field_0;
-    if v5 {
-        v7 = v6;
-        v9 = v8;
+    v2 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_dd::Dest::seek(&v0) as u64, a1);
+    if v2.field_0 {
+        v4 = v2.field_8;
+        *((v6 + 8) as &u64) = v2.field_0;
+        *(v6 as &i8) = 4;
     } else {
-        a0->field_0 = *(&v0 as &i128);
-        v7 = a2;
-        v9 = v5;
+        *(v6 as &i128) = *(&v0 as &i128);
     }
-    a0->field_10 = v7;
-    return v9;
+    *((v6 + 16) as &u64) = v4;
+    return;
 }

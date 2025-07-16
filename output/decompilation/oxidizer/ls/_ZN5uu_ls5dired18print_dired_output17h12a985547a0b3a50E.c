@@ -1,18 +1,20 @@
-fn uu_ls::dired::print_dired_output(a0: void*, a1: void*, a2: &u8) -> u64 {
-    let v1: u64;  // rax
-    let v3: u64;  // rcx
+fn uu_ls::dired::print_dired_output(a0: i64, a1: i64, a2: i64) -> long long {
+    let v1: core::result::Result<(), std::io::error::Error>;  // rax
 
     v1 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::flush(a2);
-    if v1 {
-        return uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v1);
+    match v1 {
+        Err(_) => {
+            return uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v1);
+        },
+        Ok(_) => {
+            if *((a1 + 16) as &i64) {
+                uu_ls::dired::print_positions("//DIRED//", *((a1 + 8) as &i64), *((a1 + 16) as &i64));
+            }
+            if *((a0 + 230) as &i8) {
+                uu_ls::dired::print_positions("//SUBDIRED//", *((a1 + 32) as &i64), *((a1 + 40) as &i64));
+            }
+            println!("//DIRED-OPTIONS// --quoting-style={}", a0 + 245);
+            return 0;
+        },
     }
-    v3 = a1->field_10;
-    if v3 {
-        uu_ls::dired::print_positions("//DIRED//", a1->field_8, v3);
-    }
-    if a0->field_e6 {
-        uu_ls::dired::print_positions("//SUBDIRED//", a1->field_20, a1->field_28);
-    }
-    println!("//DIRED-OPTIONS// --quoting-style={}", a0 + 245);
-    return 0;
 }

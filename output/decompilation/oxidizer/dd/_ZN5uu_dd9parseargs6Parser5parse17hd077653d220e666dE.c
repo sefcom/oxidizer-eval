@@ -1,27 +1,33 @@
-fn uu_dd::parseargs::Parser::parse(a0: &Result<struct164, struct32>, a1: u32, a2: u32, a3: u32) -> u64 {
-    let v0: iNone;  // [sp-0x1e8]
-    let v1: iNone;  // [sp-0x1d8]
-    let v2: Result<struct216, struct32>;  // [sp-0x1c0]
-    let v3: struct40;  // [bp-0xe8]
-    let v4: i8;  // [bp-0xc0]
+fn uu_dd::parseargs::Parser::parse(a1: i64, a2: i64, a3: i64) -> : struct164 {
+    let a0: void*;  // rsi
+    let v0: u128;  // [bp-0x1e8]
+    let v1: u8;  // [bp-0x1d8]
+    let v2: Result<struct216, struct40>;  // [bp-0x1c0]
+    let v3: u128;  // [bp-0x1b8]
+    let v4: u64;  // [bp-0xe8]
+    let v5: u8;  // [bp-0xe0]
+    let v6: u8;  // [bp-0xd0]
+    let v7: u8;  // [bp-0xc0]
+    let v9: i64;  // rdi
+    let v10: u64;  // rdi
 
-    v2 = uu_dd::parseargs::Parser::read(a1, a2, a3);
-    v0 = *((&v2 as &char + 8) as &i128);
-    v1 = *((&v2 as &char + 24) as &i128);
+    v2 = uu_dd::parseargs::Parser::read(a0, a1, a2);
+    v0 = v3;
+    memcpy(&v1, &v2 as u128, 16);
     match v2 {
-        Err(_) => {
-            return Err(struct16 {
-                field_8: <UNKNOWN>
-            });
-        },
         Ok(_) => {
-            memcpy(&v4, &v2, 176);
-            v3 = struct40 {
-                field_0: v6
-                field_8: v0
-                field_24: v1
-            };
-            uu_dd::parseargs::Parser::validate(a0, &v3);
+            memcpy(&v7, &v2 as u8, 176);
+            v4 = v2 as i64;
+            memcpy(&v5, &v0, 16);
+            memcpy(&v6, &v1, 16);
+            uu_dd::parseargs::Parser::validate(v10, &v4);
+            return;
+        },
+        Err(_) => {
+            *((v9 + 24) as &i128) = *(&v1 as &i128);
+            *((v9 + 8) as &u128) = v0;
+            *(v9 as &i64) = 3;
+            return;
         },
     }
 }

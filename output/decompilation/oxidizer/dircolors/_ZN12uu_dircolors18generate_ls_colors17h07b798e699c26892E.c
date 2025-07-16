@@ -1,197 +1,218 @@
-fn uu_dircolors::generate_ls_colors(a0: &struct24, a1: &u8, a2: u32, a3: u32) -> u64 {
-    let v0: i64;  // [sp-0x278], Other Possible Types: struct16, String
-    let v1: i64;  // [sp-0x270]
-    let v2: i64;  // [sp-0x268]
-    let v3: i8;  // [bp-0x25f]
-    let v4: i8;  // [bp-0x25c]
-    let v5: i64;  // [sp-0x258], Other Possible Types: int
-    let v6: i64;  // [sp-0x250]
-    let v7: i64;  // [sp-0x248]
-    let v8: i64;  // [sp-0x240], Other Possible Types: struct16
-    let v9: i64;  // [sp-0x238]
-    let v10: i64;  // [sp-0x230]
-    let v11: i64;  // [bp-0x228]
-    let v12: i64;  // [sp-0x220]
-    let v13: i64;  // [sp-0x218]
-    let v14: i64;  // [sp-0x210]
-    let v15: i64;  // [sp-0x208]
-    let v16: i64;  // [sp-0x200]
-    let v17: iNone;  // [sp-0x1f8], Other Possible Types: unsigned long
-    let v18: i64;  // [sp-0x1f0]
-    let v19: i64;  // [sp-0x1e8]
-    let v20: struct24;  // [sp-0x1d8], Other Possible Types: int, unsigned long
-    let v21: i64;  // [sp-0x1d0]
-    let v22: struct40;  // [bp-0x1b8], Other Possible Types: char, int
-    let v23: i64;  // [sp-0x1a8]
-    let v24: i64;  // [sp-0x190]
-    let v25: i32;  // [bp-0x170], Other Possible Types: struct24, Arguments, unsigned long
-    let v26: i64;  // [sp-0x160]
-    let v27: i64;  // [sp-0x150]
-    let v28: i64;  // [sp-0x148]
-    let v29: i8;  // [sp-0x140]
-    let v30: i32;  // [bp-0x13f]
-    let v31: i32;  // [sp-0x13c]
-    let v32: i64;  // [sp-0x138]
-    let v33: i64;  // [sp-0x128]
-    let v34: i64;  // [sp-0x118]
-    let v35: i64;  // [sp-0x110]
-    let v36: i8;  // [sp-0x108]
-    let v37: i64;  // [sp-0x100]
-    let v38: i64;  // [sp-0xf0]
-    let v39: i64;  // [sp-0xe0]
-    let v40: i64;  // [sp-0xd8]
-    let v41: i8;  // [sp-0xd0]
-    let v42: i64;  // [sp-0xc8]
-    let v43: i64;  // [sp-0xb8]
-    let v44: i64;  // [sp-0xa8]
-    let v45: i64;  // [sp-0xa0]
-    let v46: i8;  // [sp-0x98]
-    let v47: i32;  // [bp-0x97]
-    let v48: i32;  // [sp-0x94]
-    let v49: struct24;  // [sp-0x90]
-    let v50: i8;  // [bp-0x78]
-    let v51: struct24;  // [sp-0x60]
-    let v52: struct24;  // [sp-0x48]
-    let v54: i64;  // 4140
-    let v55: struct8;  // rax
-    let v56: struct8;  // rax
-    let v58: i64;  // r15
-    let v59: iNone;  // ymm0
-    let v60: iNone;  // xmm0
-    let v61: i64;  // rdx
-    let v62: i8;  // al
-    let v64: iNone;  // xmm0
-    let v65: iNone;  // ymm0
-    let v66: iNone;  // xmm0
-    let v67: i64;  // rdx
-    let v68: i8;  // al
+fn uu_dircolors::generate_ls_colors(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {
+    let v0: struct16;  // [bp-0x278], Other Possible Types: struct24, void*, u64
+    let v1: i64;  // [bp-0x270], Other Possible Types: u64
+    let v2: void*;  // [bp-0x268], Other Possible Types: u64
+    let v3: u24;  // [bp-0x25f]
+    let v4: u32;  // [bp-0x25c]
+    let v5: u64;  // [bp-0x258]
+    let v6: u128;  // [bp-0x258]
+    let v7: u64;  // [bp-0x250]
+    let v8: i64;  // [bp-0x248]
+    let v9: void*;  // [bp-0x240], Other Possible Types: struct16, u128
+    let v10: u64;  // [bp-0x238]
+    let v11: void*;  // [bp-0x230]
+    let v12: i64;  // [bp-0x228], Other Possible Types: u64
+    let v13: u64;  // [bp-0x220]
+    let v14: i64;  // [bp-0x218]
+    let v15: u64;  // [bp-0x210]
+    let v16: i64;  // [bp-0x208], Other Possible Types: void*
+    let v17: u64;  // [bp-0x200]
+    let v18: u64;  // [bp-0x1f8]
+    let v19: u64;  // [bp-0x1f8]
+    let v20: u64;  // [bp-0x1f0]
+    let v21: u64;  // [bp-0x1e8]
+    let v22: u64;  // [bp-0x1d8]
+    let v23: i64;  // [bp-0x1d0]
+    let v24: i64;  // [bp-0x1c8]
+    let v25: i64;  // [bp-0x1c0]
+    let v26: u64;  // [bp-0x1b8]
+    let v27: u64;  // [bp-0x1b8]
+    let v28: u64;  // [bp-0x1b0]
+    let v29: i64;  // [sp-0x1a8], Other Possible Types: u64
+    let v30: u64;  // [bp-0x1a0]
+    let v31: i64;  // [bp-0x198]
+    let v32: u64;  // [bp-0x190]
+    let v33: u64;  // [bp-0x178]
+    let v34: u32;  // [bp-0x170], Other Possible Types: alloc::vec::Vec<u8, alloc::alloc::Global>, struct_0 *
+    let v35: u64;  // [bp-0x170]
+    let v36: u64;  // [bp-0x168]
+    let v37: i64;  // [bp-0x160], Other Possible Types: u64
+    let v38: u64;  // [bp-0x158]
+    let v39: void*;  // [bp-0x150], Other Possible Types: struct_0 *
+    let v40: u64;  // [bp-0x148]
+    let v41: i64;  // [bp-0x140], Other Possible Types: u8
+    let v42: u32;  // [bp-0x13f]
+    let v43: u32;  // [bp-0x13c]
+    let v44: u64;  // [bp-0x138]
+    let v45: u64;  // [bp-0x128]
+    let v46: u64;  // [bp-0x118]
+    let v47: u64;  // [bp-0x110]
+    let v48: u8;  // [bp-0x108]
+    let v49: u64;  // [bp-0x100]
+    let v50: u64;  // [bp-0xf0]
+    let v51: u64;  // [bp-0xe0]
+    let v52: u64;  // [bp-0xd8]
+    let v53: u8;  // [bp-0xd0]
+    let v54: u64;  // [bp-0xc8]
+    let v55: u64;  // [bp-0xb8]
+    let v56: void*;  // [bp-0xa8]
+    let v57: u64;  // [bp-0xa0]
+    let v58: u8;  // [bp-0x98]
+    let v59: u32;  // [bp-0x97]
+    let v60: u32;  // [bp-0x94]
+    let v61: u64;  // [bp-0x80]
+    let v62: u8;  // [bp-0x78]
+    let v63: struct24;  // [bp-0x48]
+    let v65: i64;  // rax
+    let v66: i64;  // rax
+    let v67: i64;  // rbx
+    let v68: i64;  // r15
+    let v69: u64;  // rdx
+    let v73: u64;  // rdx
+    let v77: alloc::vec::Vec<u8, alloc::alloc::Global>;  // r15
+    let v80: &mut [u8];  // rax:rdx
+    let v81: &mut [u8];  // rax:rdx
+    let v82: u64;  // [bp-0x1d8]
+    let v83: struct24;  // [bp-0x90]
+    let v84: struct24;  // [bp-0x60]
 
-    v54 = *(a1 as &i8);
-    if v54 as u8 == 2 {
+    if *(a1 as &i8) == 2 {
         v0 = 0;
         v1 = 8;
         v2 = 0;
-        uu_dircolors::generate_type_output(&v50, a1);
-        v0 = alloc::vec::Vec<T,A>::push(&v50);
-        v8 = ".tar";
-        v9 = "normal";
-        v56 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-        if !v56 {
-            v25 = alloc::str::join_generic_copy(v1, v2, "
-");
-            return v25;
+        uu_dircolors::generate_type_output(a1, a2);
+        v0 = alloc::vec::Vec<T,A>::push(&v62);
+        v9 = struct16 {
+            field_0: ".tar"
+            field_8: "normal"
+        };
+        v66 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v9);
+        if v66 {
+            do {
+                v5 = *(v66 as &i64);
+                v7 = *((v66 + 8) as &i64);
+                *(&v19 as &i128) = *((v66 + 16) as &i128);
+                v34 = 0;
+                v34 = v35 & -0x100000000;
+                v80 = core::char::methods::encode_utf8_raw(42, &v34, v73);
+                v22 = (core::slice::<impl [T]>::starts_with(v5, v7, v80.data_ptr, v80.length) ? 1 : &g_42333e);
+                v23 = core::slice::<impl [T]>::starts_with(v5, v7, v80.data_ptr, v80.length) ^ 1;
+                v12 = &v18;
+                v13 = <&T as core::fmt::Display>::fmt;
+                v14 = &v22;
+                v15 = <&T as core::fmt::Display>::fmt;
+                v16 = &v5;
+                v17 = <&T as core::fmt::Display>::fmt;
+                v34 = 2;
+                v37 = 2;
+                v39 = 0;
+                v40 = 32;
+                v41 = 3;
+                v43 = v4;
+                v42 = *(&v3 as &i32);
+                v44 = 2;
+                v45 = 2;
+                v46 = 1;
+                v47 = 32;
+                v48 = 3;
+                v49 = 2;
+                v50 = 2;
+                v51 = 2;
+                v52 = 32;
+                v53 = 3;
+                v54 = 2;
+                v55 = 2;
+                v56 = 0;
+                v57 = 32;
+                v58 = 3;
+                v60 = v4;
+                v59 = *(&v3 as &i32);
+                v26 = "\x1b[";
+                v28 = 5;
+                v31 = &v34;
+                v32 = 4;
+                v29 = &v12;
+                v30 = 3;
+                v84 = core::option::Option<T>::map_or_else(&v26);
+                v0 = alloc::vec::Vec<T,A>::push(&v84);
+                v66 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v9);
+            } while (v66);
         }
-        do {
-            v5 = *(v56 as &i64);
-            v6 = *((v56 + 8) as &i64);
-            v66 = *((v56 + 16) as &i128);
-            v65 = v65 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v66 as u256;
-            v17 = v66;
-            *(&v25 as &i32) = 0;
-            v68 = core::slice::<impl [T]>::starts_with(v5, v6, core::char::methods::encode_utf8_raw(42, &v25), v67) as i8;
-            v20 = (v68 ? 1 : &g_42333e);
-            v21 = v68 ^ 1;
-            v11 = &v17;
-            v12 = <&T as core::fmt::Display>::fmt;
-            v13 = &v20;
-            v14 = <&T as core::fmt::Display>::fmt;
-            v15 = &v5;
-            v16 = <&T as core::fmt::Display>::fmt;
-            *(&v25 as &i64) = 2;
-            v26 = 2;
-            v27 = 0;
-            v28 = 32;
-            v29 = 3;
-            v31 = *(&v4 as &i32);
-            *(&v30 as &i32) = *(&v3 as &i32);
-            v32 = 2;
-            v33 = 2;
-            v34 = 1;
-            v35 = 32;
-            v36 = 3;
-            v37 = 2;
-            v38 = 2;
-            v39 = 2;
-            v40 = 32;
-            v41 = 3;
-            v42 = 2;
-            v43 = 2;
-            v44 = 0;
-            v45 = 32;
-            v46 = 3;
-            v48 = *(&v4 as &i32);
-            *(&v47 as &i32) = *(&v3 as &i32);
-            v22 = struct40 {
-                field_0: "\x1b["
-                field_8: 5
-                field_16: &v11
-                field_24: 3
-                field_32: &v25
-            };
-            v24 = 4;
-            v51 = core::option::Option<T>::map_or_else(&v22);
-            v0 = alloc::vec::Vec<T,A>::push(&v51);
-            v56 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-        } while (v56);
+        v34 = alloc::str::join_generic_copy(0x8, None, "\n");
+        v77 = a0;
+        *((v25 + 16) as &u64) = v37;
+        *(v25 as &i128) = *(&v34.buf.cap as &i128);
+    } else {
+        v9 = 0;
+        v10 = 8;
+        v11 = 0;
+        v6 = struct16 {
+            field_0: ".tar"
+            field_8: "normal"
+        };
+        v65 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v6);
+        if v65 {
+            do {
+                v19 = *(v65 as &i64);
+                v20 = *((v65 + 8) as &i64);
+                *(&v22 as &i128) = *((v65 + 16) as &i128);
+                v34 = 0;
+                v34 = v35 & -0x100000000;
+                v81 = core::char::methods::encode_utf8_raw(42, &v34, v69);
+                v0 = (core::slice::<impl [T]>::starts_with(v19, v20, v81.data_ptr, v81.length) ? 1 : &g_42333e);
+                v1 = core::slice::<impl [T]>::starts_with(v19, v20, v81.data_ptr, v81.length) ^ 1;
+                v12 = &v0;
+                v13 = <&T as core::fmt::Display>::fmt;
+                v14 = &v19;
+                v15 = <&T as core::fmt::Display>::fmt;
+                v34 = &g_41bbd8;
+                v36 = 2;
+                v39 = 0;
+                v37 = v67;
+                v38 = 2;
+                v83 = core::option::Option<T>::map_or_else(&v34);
+                v26 = v83.field_0;
+                v29 = v61;
+                v12 = v68;
+                v13 = <alloc::string::String as core::fmt::Display>::fmt;
+                v14 = &v82;
+                v15 = <&T as core::fmt::Display>::fmt;
+                v34 = &g_5270f8;
+                v36 = 2;
+                v39 = 0;
+                v37 = v67;
+                v38 = 2;
+                v63 = core::option::Option<T>::map_or_else(&v34);
+                v9 = alloc::vec::Vec<T,A>::push(&v63);
+                v65 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v6);
+            } while (v65);
+        }
+        uu_dircolors::get_colors_format_strings(&v34, v33);
+        v77 = a0;
+        v8 = v37;
+        v5 = *(&v34 as &i128);
+        v21 = v40;
+        *(&v18 as &i128) = *(&v38 as &i128);
+        v34 = alloc::str::join_generic_copy(0x8, None, a2, a3);
+        v24 = v37;
+        *(&v22 as &i128) = *(&v34.buf.cap as &i128);
+        uu_dircolors::generate_type_output(v33, a2);
+        v34 = &v6;
+        v36 = <alloc::string::String as core::fmt::Display>::fmt;
+        v37 = &v27;
+        v38 = <alloc::string::String as core::fmt::Display>::fmt;
+        v39 = &v82;
+        v40 = <alloc::string::String as core::fmt::Display>::fmt;
+        *(&v41 as &&u64) = &v19;
+        v44 = <alloc::string::String as core::fmt::Display>::fmt;
+        v12 = &g_527118;
+        v13 = 4;
+        v16 = 0;
+        v14 = &v34;
+        v15 = 4;
+        v0 = core::option::Option<T>::map_or_else(&v12);
+        *((v25 + 16) as &u64) = v2;
+        *(v25 as &u128) = v0.field_0;
     }
-    v8 = 0;
-    v9 = 8;
-    v10 = 0;
-    v5 = ".tar";
-    v6 = "normal";
-    v55 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-    if v55 {
-        v58 = &v22;
-        do {
-            v17 = *(v55 as &i64);
-            v18 = *((v55 + 8) as &i64);
-            v60 = *((v55 + 16) as &i128);
-            v20 = v60;
-            *(&v25 as &i32) = 0;
-            v62 = core::slice::<impl [T]>::starts_with(v17, v18, core::char::methods::encode_utf8_raw(42, &v25), v61) as i8;
-            v0 = (v62 ? 1 : &g_42333e);
-            v1 = v62 ^ 1;
-            v11 = &v0;
-            v12 = <&T as core::fmt::Display>::fmt;
-            v13 = &v17;
-            v14 = <&T as core::fmt::Display>::fmt;
-            v25 = Arguments {
-                pieces: ["", ""]
-                args: &[Argument] {
-                    ptr: v57
-                    len: 2
-                }
-                fmt: 0
-            };
-            v49 = core::option::Option<T>::map_or_else(&v25);
-            v64 = v49.field_0;
-            v59 = (v59 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v60 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v64 as u256;
-            v22 = v64;
-            v23 = v49.field_16;
-            v11 = v58;
-            v12 = <alloc::string::String as core::fmt::Display>::fmt;
-            v13 = &v20;
-            v14 = <&T as core::fmt::Display>::fmt;
-            v25 = Arguments {
-                pieces: ["", "="]
-                args: &[Argument] {
-                    ptr: v57
-                    len: 2
-                }
-                fmt: 0
-            };
-            v52 = core::option::Option<T>::map_or_else(&v25);
-            v8 = alloc::vec::Vec<T,A>::push(&v52);
-            v55 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-        } while (v55);
-    }
-    uu_dircolors::get_colors_format_strings(&v25, a1);
-    v7 = v26;
-    *(&v5 as &i128) = *(&v25.pieces.ptr as &i128);
-    v19 = v28;
-    *(&v17 as &i128) = *(&v25.args.len as &i128);
-    v25 = alloc::str::join_generic_copy(v9, v10, a2, a3);
-    v20 = v25;
-    uu_dircolors::generate_type_output(&v22, a1);
-    v0 = format!("{}{}:{}:{}", &v5, &v22, &v20, &v17);
+    return v77;
 }

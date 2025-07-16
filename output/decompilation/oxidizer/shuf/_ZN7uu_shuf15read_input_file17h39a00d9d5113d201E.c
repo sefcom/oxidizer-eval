@@ -1,43 +1,58 @@
-fn uu_shuf::read_input_file(a0: &struct24, a1: u32, a2: u32) -> u64 {
-    let v0: struct16;  // [sp-0x80], Other Possible Types: Result<struct16, struct4>
-    let v1: i64;  // [sp-0x70], Other Possible Types: Result<struct4, struct8>
-    let v2: i64;  // [sp-0x68]
-    let v3: i64;  // [sp-0x60]
-    let v4: struct56;  // [sp-0x58]
-    let v6: i64;  // rax
-    let v7: i64;  // rcx
-    let v9: i64;  // rcx
+fn uu_shuf::read_input_file(a1: i64, a2: i64) -> Result<struct24, struct24> {
+    let a0: void*;  // rsi
+    let v0: struct16;  // [bp-0x80], Other Possible Types: Result<struct16, struct12>
+    let v1: u64;  // [bp-0x78]
+    let v2: u192;  // [bp-0x70], Other Possible Types: Result<struct4, struct8>
+    let v3: struct56;  // [bp-0x58]
+    let v5: u64;  // rax
+    let v6: u64;  // rcx
+    let v7: i64;  // rdi
+    let v9: i64;  // rdi
+    let v10: i64;  // rdi
+    let v12: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
 
-    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, "-") as i8 {
-        v6 = alloc::boxed::Box<T>::new(std::io::stdio::stdin());
-        v7 = &g_537c80;
+    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, "-") as i8 {
+        v5 = alloc::boxed::Box<T>::new(std::io::stdio::stdin());
     } else {
-        v1 = std::fs::File::open(a1, a2);
-        v0 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v1, a1, a2);
+        v2 = std::fs::File::open(a0, a1);
+        v0 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v2, a0, a1);
         match v0 {
             Ok(_) => {
-                v9 = *((&v0 as &char + 8) as &i64);
-                return struct24 {
-                    field_0: 0x8000000000000000
-                    field_8: v8
-                    field_16: v9
-                };
+                *((v7 + 8) as &i64) = v0 as i64;
+                *((v7 + 16) as &u64) = v1;
+                *(v7 as &i64) = 0x8000000000000000;
+                return;
             },
             Err(_) => {
-                v6 = alloc::boxed::Box<T>::new(*((&v0 as &char + 8) as &i32) as u32 as u64);
-                v7 = &g_537c28;
+                v5 = alloc::boxed::Box<T>::new(*((&v0 as &char + 8) as &i32) as u32 as u64);
             },
         }
     }
-    v4 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, v6, v7);
-    v1 = 0;
-    v2 = 1;
-    v3 = 0;
-    v0 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(<std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read_to_end(&v4, &v1), a2, a1, a2);
-    if !v0.field_0 {
-        return struct24 {
-            field_0: *(&v1 as &i128)
-            field_16: v3
-        };
+    v3 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, v5, v6);
+    v2 = alloc::vec::Vec<u8, alloc::alloc::Global> {
+        buf: alloc::raw_vec::RawVec<u8, alloc::alloc::Global> {
+            cap: alloc::raw_vec::Cap {
+                __0: 0
+            }
+            ptr: core::ptr::unique::Unique<u8> {
+                pointer: core::ptr::non_null::NonNull<u8> {
+                    pointer: 1
+                }
+                _marker: core::marker::PhantomData<u8> { }
+            }
+            alloc: alloc::alloc::Global { }
+        }
+        len: 0
+    };
+    v12 = <std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read_to_end(&v3, &v2);
+    v0 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v12 as i64, a1, a0, a1);
+    if v0.field_0 {
+        *((v9 + 8) as &u64) = v0.field_0;
+        *((v9 + 16) as &u64) = v1;
+        *(v9 as &i64) = 0x8000000000000000;
+    } else {
+        *((v10 + 16) as &i64) = 0;
+        *(v10 as &i128) = v2;
     }
+    return;
 }

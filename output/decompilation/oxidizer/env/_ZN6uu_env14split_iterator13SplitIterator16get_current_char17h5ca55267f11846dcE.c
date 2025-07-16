@@ -1,9 +1,6 @@
-fn uu_env::split_iterator::SplitIterator::get_current_char(a0: u32) -> u64 {
-    let v0: struct9;  // [sp-0x10]
+fn uu_env::split_iterator::SplitIterator::get_current_char(a0: i32) -> long long {
+    let v0: u8;  // [bp-0x10]
 
-    v0 = uu_env::string_expander::StringExpander::peek(a0);
-    if v0.field_8 == 2 {
-        return v0.field_0;
-    }
+    uu_env::string_expander::StringExpander::peek(&v0, a0);
     return 0x110000;
 }

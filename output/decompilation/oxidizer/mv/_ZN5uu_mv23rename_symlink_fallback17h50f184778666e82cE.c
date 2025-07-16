@@ -1,26 +1,22 @@
-fn uu_mv::rename_symlink_fallback(a0: u32, a1: u32, a2: u32) -> u64 {
-    let v0: Result<struct24, struct8>;  // [sp-0x50]
-    let v1: struct24;  // [sp-0x38]
-    let v4: i64;  // rax
-    let v5: i64;  // rcx
+fn uu_mv::rename_symlink_fallback(a0: i64, a1: i64, a2: i64) -> long long {
+    let v0: core::result::Result<std::path::PathBuf, std::io::error::Error>;  // [bp-0x50]
+    let v1: std::path::PathBuf;  // [bp-0x50]
+    let v2: u64;  // [bp-0x48]
+    let v3: std::path::PathBuf;  // [bp-0x38]
+    let v5: u32;  // rcx
+    let v6: u64;  // rax
 
     v0 = std::fs::read_link(a0, a1);
-    v4 = *((&v0 as &char + 8) as &i64);
     match v0 {
         Err(_) => {
-            return v4;
+            return v2;
         },
-        Ok(_) => {
-            v1 = struct24 {
-                field_0: v3
-                field_8: v4
-                field_16: *((&v0 as &char + 16) as &i64)
-            };
-            v4 = std::os::unix::fs::symlink(&v1, a2, v5);
-            if !v4 {
-                return std::fs::remove_file(a0, a1);
+        Ok(v3) => {
+            v6 = std::os::unix::fs::symlink(&v3, a2, v5);
+            if !v6 {
+                return std::fs::remove_file();
             }
-            return v4;
+            return v6;
         },
     }
 }

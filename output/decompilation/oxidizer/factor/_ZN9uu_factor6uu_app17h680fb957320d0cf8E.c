@@ -1,33 +1,35 @@
-fn uu_factor::uu_app(a0: &struct712) -> u64 {
-    let v0: struct592;  // [sp-0xa50], Other Possible Types: struct712, struct437
-    let v1: i64;  // [sp-0x794]
-    let v2: i32;  // [sp-0x78c]
-    let v3: struct712;  // [sp-0x788], Other Possible Types: struct592
-    let v4: struct592;  // [sp-0x4c0], Other Possible Types: struct24
-    let v5: struct592;  // [sp-0x270]
-    let v7: i64;  // rdx
+fn uu_factor::uu_app(a0: &struct712) -> long long {
+    let v0: struct437;  // [bp-0xa50]
+    let v1: u64;  // [bp-0x794]
+    let v2: u32;  // [bp-0x78c]
+    let v3: u8;  // [bp-0x788]
+    let v4: u64;  // [bp-0x4cc]
+    let v5: u32;  // [bp-0x4c4]
+    let v6: u8;  // [bp-0x4c0]
+    let v7: u8;  // [bp-0x270]
+    let v10: u64;  // rdx
 
-    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v7);
-    v3 = clap_builder::builder::command::Command::version(&v0);
-    v0 = clap_builder::builder::command::Command::about(&v3);
-    v4 = uucore::format_usage("{} [OPTION]... [NUMBER]...");
-    v3 = clap_builder::builder::command::Command::override_usage(&v0, &v4);
+    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);
+    clap_builder::builder::command::Command::version(&v3, &v0);
+    clap_builder::builder::command::Command::about(&v0, &v3);
+    uucore::format_usage(&v6, "{} [OPTION]... [NUMBER]...");
+    clap_builder::builder::command::Command::override_usage(&v3, &v0, &v6);
     memcpy(&v0, &v3, 700);
-    v1 = 1126484022657160 | *((&v3.field_0 as &char + 700) as &i64);
-    v2 = *((&v3.field_0 as &char + 708) as &i32);
-    v3 = clap_builder::builder::arg::Arg::new("NUMBER");
-    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x1);
-    v3 = clap_builder::builder::command::Command::arg(&v0, &v4);
-    v0 = clap_builder::builder::arg::Arg::new("exponents");
-    v4 = clap_builder::builder::arg::Arg::short(&v0);
-    v0 = clap_builder::builder::arg::Arg::long(&v4, "exponents");
-    v4 = clap_builder::builder::arg::Arg::help(&v0, "Print factors in the form p^e");
-    v5 = clap_builder::builder::arg::Arg::action(&v4, 0x2);
-    v0 = clap_builder::builder::command::Command::arg(&v3, &v5);
-    v3 = clap_builder::builder::arg::Arg::new("help");
-    v4 = clap_builder::builder::arg::Arg::long(&v3, "help");
-    v3 = clap_builder::builder::arg::Arg::help(&v4, "Print help information.");
-    v4 = clap_builder::builder::arg::Arg::action(&v3, 0x5);
-    clap_builder::builder::command::Command::arg(a0, &v0, &v4);
+    v1 = 1126484022657160 | v4;
+    v2 = v5;
+    clap_builder::builder::arg::Arg::new(&v3, "NUMBER");
+    clap_builder::builder::arg::Arg::action(&v6, &v3, 1);
+    clap_builder::builder::command::Command::arg(&v3, &v0, &v6);
+    clap_builder::builder::arg::Arg::new(&v0, "exponents");
+    clap_builder::builder::arg::Arg::short(&v6, &v0);
+    clap_builder::builder::arg::Arg::long(&v0, &v6, "exponents");
+    clap_builder::builder::arg::Arg::help(&v6, &v0, "Print factors in the form p^e");
+    clap_builder::builder::arg::Arg::action(&v7, &v6, 2);
+    clap_builder::builder::command::Command::arg(&v0, &v3, &v7);
+    clap_builder::builder::arg::Arg::new(&v3, "help");
+    clap_builder::builder::arg::Arg::long(&v6, &v3, "help");
+    clap_builder::builder::arg::Arg::help(&v3, &v6, "Print help information.");
+    clap_builder::builder::arg::Arg::action(&v6, &v3, 5);
+    clap_builder::builder::command::Command::arg(a0, &v0, &v6);
     return a0;
 }

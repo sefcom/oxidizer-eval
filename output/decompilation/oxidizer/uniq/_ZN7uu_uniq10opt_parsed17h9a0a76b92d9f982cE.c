@@ -1,57 +1,45 @@
-fn uu_uniq::opt_parsed(a0: &struct24, a1: u32, a2: u32, a3: u32) -> u64 {
-    let v0: Result<struct8, struct1>;  // [sp-0xd0]
-    let v1: i64;  // [sp-0xc0]
-    let v2: i64;  // [sp-0xb8]
-    let v3: i64;  // [sp-0x90]
-    let v4: i64;  // [sp-0x88]
-    let v5: i64;  // [sp-0x80]
-    let v6: i8;  // [sp-0x78]
-    let v7: Result<struct40, struct8>;  // [sp-0x70]
-    let v8: String;  // [sp-0x40]
-    let v9: i32;  // [sp-0x28]
-    let v11: i64;  // rax
-    let v12: i64;  // r14
-    let v13: i64;  // r15
-    let v14: i64;  // rax
+fn uu_uniq::opt_parsed(a1: i64, a2: i64, a3: i64) -> : struct24 {
+    let a0: u64;  // rsi
+    let v0: core::result::Result<usize, core::num::error::ParseIntError>;  // [bp-0xd0]
+    let v1: struct48;  // [bp-0xc8]
+    let v2: u64;  // [bp-0xc0]
+    let v3: u64;  // [bp-0xb8]
+    let v4: void*;  // [bp-0x90]
+    let v5: u64;  // [bp-0x88]
+    let v6: u64;  // [bp-0x80]
+    let v7: u8;  // [bp-0x78]
+    let v8: Result<struct40, struct16>;  // [bp-0x70]
+    let v9: alloc::string::String;  // [bp-0x40]
+    let v12: i64;  // rax
+    let v13: i64;  // rdi
+    let v14: i64;  // rdi, Other Possible Types: struct_2 *
+    let v15: u64;  // rax
 
-    v1 = a1;
-    v2 = a2;
-    v7 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a3, a1, a2);
-    v11 = clap_builder::parser::error::MatchesError::unwrap(a1, a2, &v7);
-    if !v11 {
-        return struct16 {
-            field_0: 0
-        };
+    v2 = a0;
+    v3 = a1;
+    v8 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a2, a0, a1);
+    v12 = clap_builder::parser::error::MatchesError::unwrap(a0, a1, &v8);
+    if !v12 {
+        *(v13 as &i128) = 0;
+        return;
     }
-    v12 = *((v11 + 8) as &i64);
-    v13 = *((v11 + 16) as &i64);
-    v0 = core::num::<impl core::str::traits::FromStr for usize>::from_str(v12, v13);
-    match (v0 as i8) {
-        0 => {
-            v14 = v0 as i64;
-            *((a0 + 8) as &i64) = 1;
-            *((a0 + 16) as &unsigned long) = v14;
-            goto LABEL_4bd32f;
-        }
-        2 => {
-            *((a0 + 8) as &i64) = 1;
-            *((a0 + 16) as &i64) = -1;
-LABEL_4bd32f:
-            break;
-        }
-        _ => {
-            v3 = 0;
-            v4 = v12;
-            v5 = v13;
-            v6 = 0;
-            v8 = format!("Invalid argument for {}: {}", &v1, &v3);
-            v9 = 1;
-            *((a0 + 8) as &double) = alloc::boxed::Box<T>::new(&v8);
-            *((a0 + 16) as &&i64) = &g_5304c0;
-            break;
-        }
+    v0 = core::num::<impl core::str::traits::FromStr for usize>::from_str(*((v12 + 8) as &i64), *((v12 + 16) as &i64));
+    if !v0 as i8 {
+        *((v14 + 8) as &i64) = 1;
+        *((v14 + 16) as &struct48) = v1;
+    } else if *((&v0 as &char + 1) as &i8) == 2 {
+        *((v14 + 8) as &i64) = 1;
+        *((v14 + 16) as &i64) = -1;
+    } else {
+        v4 = 0;
+        v5 = *((v12 + 8) as &i64);
+        v6 = *((v12 + 16) as &i64);
+        v7 = 0;
+        v9 = format!("Invalid argument for {}: {}", &v2, &v4);
+        *((v14 + 8) as &double) = alloc::boxed::Box<T>::new(&v9);
+        *((v14 + 16) as &&u8) = &g_5304c0;
+        v15 = 1;
     }
-    return struct8 {
-        field_0: v15
-    };
+    *(v14 as &u64) = v15;
+    return;
 }

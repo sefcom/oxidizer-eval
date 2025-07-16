@@ -1,21 +1,18 @@
-fn uu_ls::PathData::new::get_file_type(a0: u32, a1: u32, a2: u32, a3: u32) -> u64 {
-    let v0: Result<struct4, struct8>;  // [sp-0xe0]
-    let v1: Result<struct176, struct8>;  // [sp-0xd0]
-    let v3: i32;  // ebp
+fn uu_ls::PathData::new::get_file_type(a0: i64, a1: i64, a2: i64, a3: i32) -> long long {
+    let v0: u8;  // [bp-0xe0]
+    let v1: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xd0]
+    let v3: u32;  // ebp
+    let v4: core::result::Result<std::fs::FileType, std::io::error::Error>;  // rax:rdx
 
     if a3 {
         v1 = std::fs::metadata(a1, a2);
-        if v1 as i32 != 2 {
+        if let Ok(_) = v1 {
             return 1;
         }
     }
-    v0 = std::fs::DirEntry::file_type(a0);
-    match v0 {
-        Err(_) => {
-            v1 = std::fs::symlink_metadata(a1, a2);
-        },
-        Ok(_) => {
-            return v3 as u64;
-        },
+    v4 = std::fs::DirEntry::file_type(&v0);
+    if *(&v0 as &i32) {
+        v1 = std::fs::symlink_metadata(a1, a2);
     }
+    return v3;
 }

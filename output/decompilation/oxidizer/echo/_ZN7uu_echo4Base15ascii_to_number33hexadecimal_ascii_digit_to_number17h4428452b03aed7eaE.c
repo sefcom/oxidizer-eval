@@ -1,4 +1,4 @@
-fn uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number(a0: u32) -> u64 {
+fn uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number(a0: i8) -> long long {
     let v1: u64;  // rax
 
     v1 = 0;
@@ -33,6 +33,12 @@ fn uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number(a0: u32) ->
         57 => {
             return 1;
         }
+        58 | 59 | 60 | 61 | 62 | 63 | 64 | 71 | 72 | 73 | 74 | 75 | 76 | 77 | 78 | 79 | 80 | 81 | 82 | 83 | 84 | 85 | 86 | 87 | 88 | 89 | 90 | 91 | 92 | 93 | 94 | 95 | 96 => {
+            return v1;
+        }
+        65 | 97 => {
+            break;
+        }
         66 | 98 => {
             return 1;
         }
@@ -47,12 +53,6 @@ fn uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number(a0: u32) ->
         }
         70 | 102 => {
             return 1;
-        }
-        65 | 97 => {
-            v1 = 1;
-        }
-        58 | 59 | 60 | 61 | 62 | 63 | 64 | 71 | 72 | 73 | 74 | 75 | 76 | 77 | 78 | 79 | 80 | 81 | 82 | 83 | 84 | 85 | 86 | 87 | 88 | 89 | 90 | 91 | 92 | 93 | 94 | 95 | 96 => {
-            return v1;
         }
         _ => {
             return 0;

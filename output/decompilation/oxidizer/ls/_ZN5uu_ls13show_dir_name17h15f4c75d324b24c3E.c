@@ -1,35 +1,37 @@
-fn uu_ls::show_dir_name(a0: u32, a1: u32, a2: u32) -> u64 {
-    let v0: i64;  // [sp-0x98]
-    let v1: i64;  // [sp-0x90]
-    let v2: struct24;  // [sp-0x88]
-    let v3: struct24;  // [sp-0x68]
-    let v4: i64;  // [sp-0x50]
-    let v5: i64;  // [sp-0x48]
-    let v6: i64;  // [sp-0x40]
-    let v7: i64;  // [sp-0x38]
-    let v8: i64;  // [sp-0x30]
+fn uu_ls::show_dir_name(a0: i64, a1: i64, a2: i64) -> int {
+    let v0: u128;  // [bp-0x98]
+    let v1: u128;  // [bp-0x98]
+    let v2: u8;  // [bp-0x88]
+    let v3: u64;  // [bp-0x78]
+    let v4: struct24;  // [bp-0x68]
+    let v5: u64;  // [bp-0x60]
+    let v6: u64;  // [bp-0x58]
+    let v7: u384;  // [bp-0x50]
 
-    v3 = uucore::features::quoting_style::escape_dir_name(*((a0 + 32) as &i64), *((a0 + 40) as &i64), a2 + 245);
-    if !(!*((a2 + 238) as &i8) & *((a2 + 239) as &i8)) {
-        v2 = v3;
-        v0 = &v2;
-        v1 = <alloc::string::String as core::fmt::Display>::fmt;
-        v4 = &g_612550;
-        v5 = 2;
-        v8 = 0;
-        v6 = &v0;
-        v7 = 1;
-        core::result::Result<T,E>::unwrap(std::io::Write::write_fmt(a1, &v4));
+    v4 = uucore::features::quoting_style::escape_dir_name(*((a0 + 32) as &i64), *((a0 + 40) as &i64), a2 + 245);
+    if (!*((a2 + 238) as &i8) & *((a2 + 239) as &i8)) {
+        uu_ls::create_hyperlink(&v2, v5, v6, a0);
+        v0 = core::fmt::rt::Argument {
+            ty: &v2
+        };
+        v7 = core::fmt::Arguments {
+            pieces: [&g_612550, ":"]
+            args: [v1]
+            fmt: 0
+        };
+        core::result::Result<T,E>::unwrap(std::io::Write::write_fmt(a1, &v7));
     } else {
-        v2 = uu_ls::create_hyperlink(*((&v3.field_0 as &char + 8) as &i64), v3.field_16, a0);
-        v0 = &v2;
-        v1 = <alloc::string::String as core::fmt::Display>::fmt;
-        v4 = &g_612550;
-        v5 = 2;
-        v8 = 0;
-        v6 = &v0;
-        v7 = 1;
-        core::result::Result<T,E>::unwrap(std::io::Write::write_fmt(a1, &v4));
+        v3 = v6;
+        memcpy(&v2, &v4, 16);
+        v0 = core::fmt::rt::Argument {
+            ty: &v2 as u128
+        };
+        v7 = core::fmt::Arguments {
+            pieces: [&g_612550, ":"]
+            args: [v1]
+            fmt: 0
+        };
+        core::result::Result<T,E>::unwrap(std::io::Write::write_fmt(a1, &v7));
     }
     return;
 }

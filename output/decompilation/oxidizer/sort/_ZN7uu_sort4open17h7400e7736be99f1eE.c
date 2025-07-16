@@ -1,36 +1,43 @@
-fn uu_sort::open(a0: &struct24, a1: u64, a2: u64) -> u64 {
-    let v0: Result<struct4, struct8>;  // [sp-0x90]
-    let v1: i64;  // [sp-0x80]
-    let v2: struct24;  // [sp-0x78]
-    let v3: i8;  // [sp-0x60]
-    let v4: i64;  // [sp-0x58]
-    let v5: struct24;  // [sp-0x50]
-    let v7: i64;  // r14
-    let v8: i64;  // rdx
+fn uu_sort::open(a1: i64, a2: i64) -> Result<struct16, struct16> {
+    let a0: i64;  // rdi
+    let v0: struct8;  // [bp-0x90]
+    let v1: u32;  // [bp-0x8c]
+    let v2: struct8;  // [bp-0x88]
+    let v3: struct8;  // [bp-0x80]
+    let v4: std::path::PathBuf;  // [bp-0x78]
+    let v5: u64;  // [bp-0x68]
+    let v6: u8;  // [bp-0x60]
+    let v7: struct8;  // [bp-0x58]
+    let v8: u8;  // [bp-0x50]
+    let v9: u64;  // [bp-0x40]
+    let v11: u64;  // r14
+    let v12: u64;  // rdx
+    let v13: u64;  // rcx
+    let v14: u64;  // rax
+    let v15: u64;  // rax
+    let v16: u64;  // rax
 
-    v7 = <&T as core::convert::AsRef<U>>::as_ref(a1, a2);
-    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v7, v8, "-") as i8 {
+    v11 = <&T as core::convert::AsRef<U>>::as_ref(a1, a2);
+    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v11, v12, "-") as i8 {
         *((a0 + 8) as &long long) = alloc::boxed::Box<T>::new(std::io::stdio::stdin());
-    } else {
-        v0 = std::fs::File::open(v7, v8);
-        match v0 {
-            Err(_) => {
-                v1 = v4;
-                v2 = std::sys::pal::unix::os::split_paths::bytes_to_path(v7, v8);
-                v5 = v2;
-                v4 = v1;
-                v3 = 2;
-                *((a0 + 8) as &double) = alloc::boxed::Box<T>::new(&v3);
-                *((a0 + 16) as &&i64) = &g_5ff678;
-                *(a0 as &i64) = 1;
-            },
-            Ok(_) => {
-                *((a0 + 8) as &long long) = alloc::boxed::Box<T>::new(*((&v0 as &char + 4) as &i32) as u32 as u64);
-            },
-        }
+        v14 = &g_5fff98;
     }
-    return struct16 {
-        field_0: 0
-        field_16: <UNKNOWN>
-    };
+    std::fs::File::open(v11, v12, v13);
+    if !v0 {
+        v15 = &g_5fff40;
+        return Ok(struct16 {
+            field_0: alloc::boxed::Box<T>::new(v1)
+            field_8: v16
+        });
+    }
+    v3 = v2;
+    v4 = std::sys::pal::unix::os::split_paths::bytes_to_path(v11, v12);
+    v9 = v5;
+    memcpy(&v8, &v4, 16);
+    v7 = v3;
+    v6 = 2;
+    return Err(struct16 {
+        field_0: alloc::boxed::Box<T>::new(&v6)
+        field_8: &g_5ff678
+    });
 }

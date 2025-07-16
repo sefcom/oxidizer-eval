@@ -1,105 +1,114 @@
-fn uu_mktemp::Options::from(a0: &struct76, a1: &struct56) -> u64 {
-    let v0: Result<struct40, struct8>;  // [sp-0xf8], Other Possible Types: struct24, unsigned long
-    let v1: struct24;  // [sp-0xf8], Other Possible Types: int, Option<struct24>
-    let v2: iNone;  // [bp-0xf0], Other Possible Types: unsigned long, struct24
-    let v3: i64;  // [sp-0xe8]
-    let v4: iNone;  // [sp-0xc8], Other Possible Types: struct24
-    let v5: i64;  // [bp-0xc8], Other Possible Types: struct24, int
-    let v6: i64;  // [sp-0xb8]
-    let v7: i64;  // [sp-0xa8], Other Possible Types: struct24, int
-    let v8: i64;  // [sp-0xa0]
-    let v9: i64;  // [sp-0x98]
-    let v10: Option<struct24>;  // [sp-0x88], Other Possible Types: unsigned long
-    let v11: iNone;  // [bp-0x80]
-    let v12: i64;  // [sp-0x78]
-    let v13: iNone;  // [sp-0x68], Other Possible Types: struct24
-    let v14: i64;  // [sp-0x58]
-    let v15: i64;  // [sp-0x48], Other Possible Types: struct24
-    let v17: i64;  // rax
-    let v18: i64;  // rax
-    let v19: i64;  // rcx
-    let v23: i64;  // rax
+fn uu_mktemp::Options::from(a1: i64) -> : struct76 {
+    let a0: u64;  // rsi
+    let v0: Result<struct40, struct16>;  // [bp-0xf8], Other Possible Types: std::path::PathBuf, struct24, u128
+    let v1: struct24;  // [bp-0xf8]
+    let v2: u64;  // [bp-0xf8]
+    let v3: u192;  // [sp-0xf8]
+    let v4: Result<struct40, struct16>;  // [bp-0xf8]
+    let v5: core::result::Result<alloc::string::String, std::env::VarError>;  // [bp-0xf8]
+    let v6: u128;  // [bp-0xf0]
+    let v7: u64;  // [bp-0xe8]
+    let v8: struct24;  // [bp-0xc8]
+    let v9: u128;  // [bp-0xc8]
+    let v10: u128;  // [bp-0xc8]
+    let v11: u64;  // [bp-0xb8]
+    let v12: std::sys::os_str::bytes::Buf;  // [bp-0xa8], Other Possible Types: u64
+    let v13: u128;  // [bp-0xa8]
+    let v14: u64;  // [bp-0xa0]
+    let v15: u64;  // [bp-0x98]
+    let v16: u64;  // [bp-0x88]
+    let v17: u128;  // [bp-0x88]
+    let v18: u128;  // [bp-0x88]
+    let v19: u64;  // [bp-0x78]
+    let v20: u128;  // [bp-0x68]
+    let v21: u64;  // [bp-0x58]
+    let v22: struct24;  // [bp-0x48]
+    let v23: u64;  // [bp-0x48]
+    let v25: &u64;  // rax
+    let v26: u64;  // rax
+    let v27: u64;  // rcx
+    let v28: u8;  // al
+    let v29: u8;  // al
+    let v30: u8;  // al
+    let v31: u64;  // rax
+    let v32: u8;  // al
+    let v33: i64;  // rdi
 
-    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "tmpdir");
-    v17 = core::option::Option<T>::or_else(clap_builder::parser::error::MatchesError::unwrap(&g_41f0d1, 6, &v0), a1);
-    if !v17 {
-        v15 = 0x8000000000000000;
-    } else {
-        v15 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(v17);
+    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, "tmpdir");
+    v25 = core::option::Option<T>::or_else(clap_builder::parser::error::MatchesError::unwrap(&g_41f0d1, 6, &v0), a0);
+    if v25 {
+        v22 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(v25);
     }
-    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "template");
-    v18 = clap_builder::parser::error::MatchesError::unwrap("template", &v0);
-    if v18 {
-        v0 = std::env::var("TMPDIR");
-        if v0 {
-            goto LABEL_4bec40;
-        }
-        if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "t") as i8 {
+    v4 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, "template");
+    v26 = clap_builder::parser::error::MatchesError::unwrap("template", &v4);
+    if v26 {
+        v5 = std::env::var("TMPDIR");
+        if !v5 as i64 && clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "t") as i8 {
             v1 = std::env::var_os("TMPDIR");
-            v19 = v0;
-            if v19 == 0x8000000000000000 {
-                goto LABEL_4beca6;
+            v23 = v1.field_0;
+            v27 = v23;
+            if !(v27 == 0x8000000000000000) {
+                goto LABEL_4bec99;
             }
+        } else if v23 != 0x8000000000000000 {
+            memcpy(&v20, &v22 as u8, 16);
+        } else if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "t") as i8 || (v23 = 0x8000000000000000, clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(a0, "tmpdir") as i8) {
+            v0 = std::env::temp_dir();
+            v27 = v2;
 LABEL_4bec99:
-            v13 = (&v1)[8] as i128;
-LABEL_4beca6:
-        } else {
-LABEL_4bec40:
-            v19 = v15;
-            if v19 != 0x8000000000000000 {
-                v13 = *(&v15.field_8 as &i128);
-                goto LABEL_4becbe;
-            }
-            if !(clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "t") as i8 || (v19 = 0x8000000000000000, clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(a1, "tmpdir") as i8)) {
-                goto LABEL_4becbe;
-            }
-            v1 = std::env::temp_dir();
-            v19 = v0;
-            goto LABEL_4bec99;
+            v23 = v27;
+            memcpy(&v20, &v3, 16);
         }
-LABEL_4becbe:
-        v10 = v19;
-        v11 = v13;
-        v7 = <alloc::string::String as core::clone::Clone>::clone(v18);
-        v6 = v12;
-        *(&v4 as &i128) = *(&v10 as &i128);
-        v0 = v7;
+        v16 = v23;
+        v17 = v17 & 0xffffffffffffffff0000000000000000 | v16;
+        memcpy(&v17, &v20, 16);
+        v12 = <alloc::string::String as core::clone::Clone>::clone(v26);
+        v11 = v19;
+        v9 = v17;
+        memcpy(&v1, &v12, 16);
+        v7 = v15;
     } else {
-        if v2 != 0x8000000000000000 {
-            *(&v2 as &i128) = *(&v15.field_8 as &i128);
-            v2 = v15;
+        if v23 == 0x8000000000000000 {
+            v1 = core::ops::function::FnOnce::call_once();
         } else {
-            v2 = core::ops::function::FnOnce::call_once();
+            v6 = *(&v22.field_8 as &i128);
+            v2 = v23;
         }
-        v9 = v3;
-        v7 = v2;
-        v8 = (&v2)[8] as i64;
-        v4 = <T as alloc::slice::hack::ConvertVec>::to_vec("tmp.XXXXXXXXXX");
-        v0 = v4;
-        *(&v4 as &i128) = *(&v7 as &i128);
-        v6 = v9;
+        v15 = v7;
+        v12 = v2;
+        v14 = v1.field_8;
+        v8 = <T as alloc::slice::hack::ConvertVec>::to_vec("tmp.XXXXXXXXXX");
+        v7 = v11;
+        v0 = *(&v8.field_0 as &i128);
+        memcpy(&v8, &v12, 16);
+        v11 = v15;
     }
-    v13 = v4;
-    v10 = v1;
-    v9 = v14;
-    v7 = v13;
-    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "suffix");
-    v23 = clap_builder::parser::error::MatchesError::unwrap("suffix", &v0);
-    if !v23 {
-        *(&v5 as &i64) = 0x8000000000000000;
-    } else {
-        v0 = core::ops::function::FnOnce::call_once(v23);
-        v5 = v0;
+    v21 = v11;
+    v20 = v9;
+    v19 = v7;
+    memcpy(&v17, &v2, 16);
+    v28 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "directory") as i32;
+    v29 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "dry-run") as i32;
+    v30 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "quiet") as i32;
+    v15 = v21;
+    v13 = v20;
+    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, "suffix");
+    v31 = clap_builder::parser::error::MatchesError::unwrap("suffix", &v0);
+    if v31 {
+        v0 = core::ops::function::FnOnce::call_once(v31);
+        v11 = v7;
+        memcpy(&v0, &v0, 16);
     }
-    *((a0 + 16) as &unsigned long) = v12;
-    *(a0 as &i128) = v10 as i128;
-    *((a0 + 72) as &i8) = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "directory") as i32;
-    *((a0 + 73) as &i8) = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "dry-run") as i32;
-    *((a0 + 74) as &i8) = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "quiet") as i32;
-    *((a0 + 24) as &i128) = v7 as i128;
-    *((a0 + 40) as &unsigned long) = v9;
-    *((a0 + 48) as &i128) = v5 as i128;
-    *((a0 + 64) as &unsigned long) = v6;
-    *((a0 + 75) as &i8) = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "t") as i8;
-    return a0;
+    v32 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "t") as i8;
+    *((v33 + 16) as &u64) = v19;
+    *(v33 as &u128) = v18;
+    *((v33 + 72) as &u8) = v28;
+    *((v33 + 73) as &u8) = v29;
+    *((v33 + 74) as &u8) = v30;
+    *((v33 + 24) as &u128) = v13;
+    *((v33 + 40) as &u64) = v15;
+    *((v33 + 48) as &u128) = v10;
+    *((v33 + 64) as &u64) = v11;
+    *((v33 + 75) as &u8) = v32;
+    return;
 }

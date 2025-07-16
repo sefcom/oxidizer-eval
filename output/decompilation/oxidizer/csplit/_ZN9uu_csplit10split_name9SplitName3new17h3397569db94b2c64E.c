@@ -1,82 +1,112 @@
-fn uu_csplit::split_name::SplitName::new(a0: &struct48, a1: void*, a2: void*, a3: void*) -> u64 {
-    let v0: iNone;  // [sp-0x148]
-    let v1: i64;  // [sp-0x138]
-    let v2: iNone;  // [sp-0x128], Other Possible Types: struct32, struct24
-    let v3: i64;  // [sp-0x128]
-    let v4: i64;  // [sp-0x120]
-    let v5: i64;  // [sp-0x118]
-    let v6: iNone;  // [bp-0x110]
-    let v7: i8;  // [bp-0xf8]
-    let v8: i8;  // [bp-0xe8]
-    let v9: i64;  // [sp-0xc8]
-    let v10: i64;  // [sp-0xc0], Other Possible Types: struct24
-    let v11: i64;  // [sp-0xb8]
-    let v12: iNone;  // [sp-0xb0]
-    let v13: iNone;  // [sp-0xa0]
-    let v14: iNone;  // [sp-0x90]
-    let v15: i64;  // [sp-0x80]
-    let v16: struct24;  // [sp-0x78], Other Possible Types: int
-    let v17: struct24;  // [bp-0x58]
-    let v18: i8;  // [bp-0x40], Other Possible Types: String
-    let v20: iNone;  // xmm0
-    let v21: iNone;  // ymm0
-    let v22: iNone;  // ymm0
-    let v23: iNone;  // ymm0
-    let v24: i64;  // rax
-    let v25: i64;  // rax
-    let v26: iNone;  // xmm0
-    let v29: i64;  // r15
+fn uu_csplit::split_name::SplitName::new(a1: i64, a2: i64, a3: i64) -> : struct96 {
+    let a0: u64;  // rdi
+    let v0: struct40;  // [bp-0x148]
+    let v1: void*;  // [bp-0x140]
+    let v2: u64;  // [bp-0x138]
+    let v3: struct24;  // [bp-0x128], Other Possible Types: u128
+    let v4: u576;  // [bp-0x128]
+    let v5: Result<struct24, struct8>;  // [bp-0x128]
+    let v6: u64;  // [bp-0x120]
+    let v7: u64;  // [bp-0x118]
+    let v8: u64;  // [bp-0x110]
+    let v10: u128;  // [bp-0x100]
+    let v11: u128;  // [bp-0xf0]
+    let v12: u128;  // [bp-0xe8]
+    let v13: u8;  // [bp-0xe0]
+    let v14: u64;  // [bp-0xd8]
+    let v15: u64;  // [bp-0xd0]
+    let v16: u64;  // [bp-0xc8]
+    let v17: u192;  // [bp-0xc0]
+    let v18: u64;  // [bp-0xb8]
+    let v19: u128;  // [bp-0xb0]
+    let v20: u128;  // [bp-0xa0]
+    let v21: u8;  // [bp-0x90]
+    let v22: u64;  // [bp-0x80]
+    let v23: u128;  // [bp-0x78]
+    let v24: struct24;  // [bp-0x78]
+    let v25: u192;  // [bp-0x58]
+    let v26: alloc::string::String;  // [bp-0x40], Other Possible Types: u8
+    let v28: struct40;  // xmm0
+    let v29: u64;  // rax
+    let v30: u64;  // rax
+    let v31: u8;  // bpl
+    let v32: u128;  // xmm0
+    let v33: u8;  // bpl
+    let v34: i64;  // r15
+    let v35: u128;  // xmm0
 
-    if *(a1 as &i64) != 0x8000000000000000 {
-        v1 = *((a1 + 16) as &i64);
-        v20 = *(a1 as &i128);
-        v22 = v21 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v20 as u256;
-    } else {
-        v2 = <T as alloc::slice::hack::ConvertVec>::to_vec("xx");
-        v1 = v5;
-        v22 = v23 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v2.field_0 as &i128);
+    if *(a1 as &i64) == 0x8000000000000000 {
+        v3 = <T as alloc::slice::hack::ConvertVec>::to_vec("xx");
+        v2 = v7;
+        v28 = *(&v3.field_0 as &i128);
     }
-    v0 = v20;
-    v24 = *(a3 as &i64);
-    if v10 == 0x8000000000000000 {
-        v25 = 2;
-    } else {
-        v26 = *((a3 + 8) as &i128);
-        *(&v10.field_0 as &struct24) = struct24 {
-            field_0: v24
-            field_8: v26
+    v0 = v28;
+    v29 = *(a3 as &i64);
+    if v29 != 0x8000000000000000 {
+        v17 = struct24 {
+            field_0: v29
+            field_8: *((a3 + 8) as &i128)
         };
-        v2 = uu_csplit::split_name::SplitName::new::{{closure}}(&v10);
-        v16 = v6 as i128;
-        if v3 != 12 {
-            return struct48 {
-                field_0: 0x8000000000000000
-                field_8: v27
-                field_16: v28
-                field_32: v16
+        v31 = 1;
+        v5 = uu_csplit::split_name::SplitName::new::{{closure}}(&v17);
+        v32 = *((&v5 as &char + 8) as &i128);
+        memcpy(&v23, &v5, 16);
+        if let Err(_) = v5 {
+            goto LABEL_5ba823;
+        }
+        v33 = 1;
+        return struct48 {
+            field_0: 0x8000000000000000
+            field_8: v5 as i64
+            field_16: v32
+            field_32: v23
+        };
+    } else {
+LABEL_5ba823:
+        v16 = v30;
+        if *(a2 as &i64) == 0x8000000000000000 {
+            v34 = &v26;
+            v26 = format!("%0{}u", &v16);
+        } else {
+            v34 = a2;
+        }
+        vvar_359{stack -296} = struct72 OrderedDict({0: 𝜙@64b [((6006939, None), vvar_314{stack -296}), ((6006944, None), vvar_247{stack -296})], 32: 𝜙@64b [((6006939, None), vvar_316{stack -264}), ((6006944, None), vvar_255{stack -264})]})
+        v25 = struct24 {
+            field_0: *(v34 as &i128)
+            field_16: *((v34 + 16) as &i64)
+        };
+        uucore::features::format::Format<F>::parse(&v4, &v25);
+        if v4 as i64 != 0x8000000000000000 {
+            memcpy(&v21, &v4, 16);
+            v22 = *((&v4 as &char + 64) as &i64);
+            memcpy(&v17, &v4, 16);
+            memcpy(&v20, &v4, 16);
+            v17 = v4;
+            v18 = v6;
+            v24 = <T as alloc::slice::hack::ConvertVec>::to_vec(v1, v2);
+            v15 = v22;
+            v35 = *(&v17 as &i128);
+            memcpy(&v13, &v21, 16);
+            v11 = v20;
+            v10 = v19;
+            v8 = v35;
+            v7 = v24.field_16;
+            v3 = *(&v24.field_0 as &i128);
+            return struct96 {
+                field_0: *(&v24.field_0 as &i128)
+                field_16: v7
+                field_24: v8
+                field_32: *((&v8 as &char + 8) as &i128)
+                field_48: *((&v10 as &char + 8) as &i128)
+                field_64: v12
+                field_80: v14
+                field_88: v15
             };
         }
-        v25 = ((v22 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v26 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v2.field_8) as u64;
+        return struct16 {
+            field_0: 0x8000000000000000
+            field_8: ((*((&v4 as &char + 8) as &i32) == 10) + 9) as u8 as u64
+        };
     }
-    v9 = v25;
-    if *(a2 as &i64) != 0x8000000000000000 {
-        v29 = a2;
-    } else {
-        v29 = &v18;
-        v18 = format!("%0{}u", &v9);
-    }
-    *(&v17.field_0 as &struct24) = struct24 {
-        field_0: *(v29 as &i128)
-        field_16: *((v29 + 16) as &i64)
-    };
-    uucore::features::format::Format<F>::parse(&v3, &v17);
-    if v10 != 0x8000000000000000 {
-        v14 = *(&v7 as &i128);
-        v15 = *(&v8 as &i64);
-        v12 = (&v2)[16] as i128;
-        v13 = v6 as i128;
-        v10 = v3;
-        v11 = v4;
-        v16 = <T as alloc::slice::hack::ConvertVec>::to_vec((&v0)[8] as i64, v1);
-    }
+    return a0;
 }

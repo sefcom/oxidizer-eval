@@ -1,177 +1,159 @@
-fn uu_od::parse_formats::parse_type_string(a0: &Result<struct24, struct25>, a1: u32, a2: u32) -> u64 {
-    let v0: i8;  // [bp-0x135], Other Possible Types: struct1
-    let v1: i32;  // [sp-0x134]
-    let v2: i64;  // [bp-0x118], Other Possible Types: struct24
-    let v3: i64;  // [bp-0x111]
-    let v4: i64;  // [sp-0x110]
-    let v5: i64;  // [sp-0x108]
-    let v6: struct24;  // [sp-0x100], Other Possible Types: unsigned long, int
-    let v7: i64;  // [sp-0x100], Other Possible Types: struct33
-    let v8: iNone;  // [sp-0xf8]
-    let v9: i64;  // [sp-0xe8]
-    let v10: i64;  // [sp-0xd8], Other Possible Types: struct16
-    let v11: i64;  // [sp-0xc8]
-    let v12: struct24;  // [bp-0xc0], Other Possible Types: unsigned long
-    let v13: i64;  // [sp-0xb8]
-    let v14: i64;  // [sp-0xb0]
-    let v15: i64;  // [sp-0xa8]
-    let v16: i64;  // [sp-0xa0]
-    let v17: struct24;  // [sp-0x98], Other Possible Types: int
-    let v18: i64;  // [sp-0x88]
-    let v19: i64;  // [bp-0x78]
-    let v20: i64;  // [sp-0x71]
-    let v21: i64;  // [sp-0x60]
-    let v22: i64;  // [sp-0x58]
-    let v23: i64;  // [sp-0x50]
-    let v24: struct24;  // [bp-0x48]
-    let v26: i32;  // edx
-    let v27: i32;  // ebp
-    let v28: iNone;  // ymm0
-    let v29: i64;  // rbp
-    let v30: i64;  // rax
-    let v31: i64;  // rax
-    let v33: i64;  // rsi
-    let v34: i64;  // r12
-    let v35: i64;  // r14
-    let v37: i64;  // rsi
-    let v38: i8;  // dl
-    let v39: i64;  // rsi
-    let v40: iNone;  // xmm0
+fn uu_od::parse_formats::parse_type_string(a0: i64, a1: i64, a2: i64) -> int {
+    let v0: u8;  // [bp-0x135]
+    let v2: u8;  // [bp-0x134]
+    let v3: i64;  // [bp-0x130]
+    let v4: void*;  // [bp-0x118], Other Possible Types: u64
+    let v5: u64;  // [bp-0x111]
+    let v6: u64;  // [bp-0x110]
+    let v7: void*;  // [bp-0x108]
+    let v8: u64;  // [bp-0x100]
+    let v9: u64;  // [bp-0x100]
+    let v10: u8;  // [bp-0xf8]
+    let v11: u56;  // [bp-0xf7]
+    let v12: u64;  // [bp-0xf0]
+    let v13: u64;  // [bp-0xe8]
+    let v14: u64;  // [bp-0xe8]
+    let v15: void*;  // [bp-0xd8]
+    let v16: struct16;  // [bp-0xd8]
+    let v17: u64;  // [bp-0xd0]
+    let v18: void*;  // [bp-0xc8]
+    let v19: u192;  // [bp-0xc0]
+    let v22: u128;  // [bp-0xa8]
+    let v23: u128;  // [bp-0x98]
+    let v24: u64;  // [bp-0x88]
+    let v25: u64;  // [bp-0x78]
+    let v26: u64;  // [bp-0x71]
+    let v27: i64;  // [bp-0x60]
+    let v28: u64;  // [bp-0x58]
+    let v29: u64;  // [bp-0x50]
+    let v30: u192;  // [bp-0x48]
+    let v33: u32;  // edx
+    let v34: u32;  // ebp
+    let v35: u8;  // al
+    let v36: u8;  // al
+    let v37: u8;  // r12b
+    let v38: u8;  // r14b
+    let v39: u8;  // dl
+    let v40: u8;  // r14b
+    let v41: u64;  // rdx
+    let v42: u64;  // rcx
+    let v43: core::option::Option<u32>;  // rax:rax
+    let v44: core::option::Option<u32>;  // rax:rax
+    let v45: core::option::Option<u32>;  // rax:rax
+    let v46: core::option::Option<u32>;  // rax:rax
+    let v47: core::result::Result<u8, core::num::error::ParseIntError>;  // rax:rax
+    let v48: core::option::Option<u32>;  // rax:rax
 
-    v10 = 0;
-    v10 = 8;
-    v11 = 0;
-    v15 = a1;
-    v16 = a1 + a2;
-    if !core::str::validations::next_code_point(&v15) as i32 {
-        return struct32 {
-            field_0: 0
-            field_8: v10 as i128
-            field_24: v43
-        };
-    }
-    v27 = v26;
-    if v26 != 0x110000 {
-        do {
-            v7 = v6;
-            v1 = v27;
-            v29 = (v27 - 97) as u64;
-            match (v29 as u32) {
-                0 => {
-                    v31 = 0;
-                    break;
+    v15 = 0;
+    v17 = 8;
+    v18 = 0;
+    v22 = core::slice::iter::Iter<u8> {
+        ptr: core::ptr::non_null::NonNull<u8> {
+            pointer: a1
+        }
+        end_or_len: a1 + a2
+        _marker: core::marker::PhantomData<&u8> { }
+    };
+    v46 = core::str::validations::next_code_point(&v22) as u128;
+    if let Some(_) = v46 {
+        v34 = v33;
+        if v33 != 0x110000 {
+            do {
+                v8 = v8;
+                match (v34) {
+                    97 => {
+                        break;
+                    }
+                    _ => {
+                        v19 = struct24 {
+                            field_0: &v2 as u32
+                            field_8: a1
+                            field_16: a2
+                        };
+                        uu_od::parse_formats::parse_type_string::{{closure}}(&v8, &v19);
+                        v36 = v10;
+                        v4 = *(&v11 as &i64) as u64;
+                        v5 = v12;
+                        if v8 != 0x8000000000000000 {
+                            v41 = v4;
+                            *((v3 + 24) as &u64) = v5;
+                            *((v3 + 17) as &u64) = v41;
+                            *((v3 + 8) as &u64) = v8;
+                            *((v3 + 16) as &u8) = v36;
+                            *(v3 as &i64) = 1;
+                            return;
+                        }
+                    }
                 }
-                2 => {
-                    v31 = v30 & -0x100 | 1;
-                    break;
+                v37 = v35;
+                v38 = ((v37 * 8 & 63) ? (0x2010101010000 >> (v37 * 8 & 63)) as i32 : (0x2010101010000 >> (v37 * 8 & 63)) as i32) as i8;
+                v45 = core::str::validations::next_code_point(&v22) as u128;
+                v0 = 0;
+                if uu_od::parse_formats::is_format_size_char((!v45 as i32 ? 0x110000 : v33) as u32 as u64, v38, &v0) as i8 {
+                    v44 = core::str::validations::next_code_point(&v22) as u128;
+                    if let None = v44 {
+                        continue;
+                    }
+                    v34 = v33;
+                } else {
+                    v4 = 0 as void*;
+                    v6 = 1;
+                    for (v7 = 0; uu_od::parse_formats::is_format_size_decimal(v34 as u64, v38, &v4 as u8) as i8; v48 = core::str::validations::next_code_point(&v22) as u128);
+                    if v7 {
+                        v47 = core::num::<impl core::str::traits::FromStr for u8>::from_str(1, 0) as u128;
+                        v27 = &v4 as u8;
+                        v28 = a1;
+                        v29 = a2;
+                        if (v47 as i8 & 1) {
+                            uu_od::parse_formats::parse_type_string::{{closure}}(&v8, &v27);
+                            v25 = *(&v11 as &i64) as u64;
+                            v26 = v12;
+                            if v8 != 0x8000000000000000 {
+                                v42 = v25;
+                                *((v3 + 24) as &u64) = v26;
+                                *((v3 + 17) as &u64) = v42;
+                                *((v3 + 8) as &u64) = v8;
+                                *((v3 + 16) as &u8) = v39;
+                                *(v3 as &i64) = 1;
+                                return;
+                            }
+                        }
+                    }
                 }
-                3 => {
-                    v31 = v30 & -0x100 | 2;
-                    break;
+                if v34 == 122 {
+                    v43 = core::str::validations::next_code_point(&v22) as u128;
                 }
-                5 => {
-                    v31 = v30 & -0x100 | 6;
-                    break;
-                }
-                14 => {
-                    v31 = v30 & -0x100 | 3;
-                    break;
-                }
-                20 => {
-                    v31 = v30 & -0x100 | 4;
-                    break;
-                }
-                23 => {
-                    v31 = v30 & -0x100 | 5;
-                    break;
-                }
-                _ => {
-                    v12 = struct24 {
-                        field_0: &v1
+                uu_od::parse_formats::od_format_type(&v8, v37);
+                if v8 == 3 {
+                    v30 = struct24 {
+                        field_0: &v0
                         field_8: a1
                         field_16: a2
                     };
-                    v6 = uu_od::parse_formats::parse_type_string::{{closure}}(&v12);
-                    v31 = v6.field_8;
-                    v33 = v6.field_16;
-                    *(&v2 as &i64) = *((&v6.field_8 as &char + 1) as &i64);
-                    v3 = v33;
-                    if v7 != 0x8000000000000000 {
-                        return struct33 {
-                            field_0: 1
-                            field_8: v32
-                            field_16: v31 as u8
-                            field_17: v41
-                            field_24: <UNKNOWN>
-                        };
-                    }
-                    goto LABEL_4cb614;
+                    uu_od::parse_formats::parse_type_string::{{closure}}(&v4 as u8, &v30);
+                    memcpy(&v23, &v4, 16);
+                    v24 = v7;
+                    *((v3 + 24) as &void*) = v7;
+                    *((v3 + 8) as &u128) = v23;
+                    *(v3 as &i64) = 1;
+                    return;
                 }
-            }
-            v12 = &v1;
-            v13 = a1;
-            v14 = a2;
-LABEL_4cb614:
-            v34 = v31 & 4294967295;
-            v35 = (((v34 * 8 & 4294967295) as u8 & 63) ? 0x2010101010000 >> ((v34 * 8 & 4294967295) as u8 & 63) : 0x2010101010000 >> ((v34 * 8 & 4294967295) as u8 & 63));
-            v27 = (!core::str::validations::next_code_point(&v15) as i32 ? 0x110000 : v26);
-            v0 = struct1 {
-                field_0: 0
-            };
-            if !uu_od::parse_formats::is_format_size_char(v27 as u64, v35 & 4294967295, &v0) as i8 {
-                *(&v2 as &i64) = 0;
-                v4 = 1;
-                v5 = 0;
-                while (uu_od::parse_formats::is_format_size_decimal(v27 as u64, v35 & 4294967295 & 4294967295, &v2) as i8) {
-                    v27 = (!core::str::validations::next_code_point(&v15) as i32 ? 0x110000 : v26);
-                }
-                v37 = v5;
-                if v37 {
-                    v21 = &v2;
-                    v22 = a1;
-                    v23 = a2;
-                    if (core::num::<impl core::str::traits::FromStr for u8>::from_str(v4, v37) as i8 & 1) {
-                        v6 = uu_od::parse_formats::parse_type_string::{{closure}}(&v21);
-                        v38 = v6.field_8;
-                        v39 = v6.field_16;
-                        *(&v19 as &i64) = *((&v6.field_8 as &char + 1) as &i64);
-                        v20 = v39;
-                    }
-                    v0 = v38;
-                }
-            } else if core::str::validations::next_code_point(&v15) as i32 {
-                v27 = v26;
-            } else {
-                v27 = 0x110000;
-                continue;
-            }
-            if v27 == 122 {
-                v27 = (!core::str::validations::next_code_point(&v15) as i32 ? 0x110000 : v26);
-            }
-            uu_od::parse_formats::od_format_type(&v6, v34 & 4294967295);
-            if v7 == 3 {
-                v24 = struct24 {
-                    field_0: &v0
-                    field_8: a1
-                    field_16: a2
+                memcpy(&v23, &v10, 16);
+                v24 = v13;
+                v8 = struct33 {
+                    field_0: v8
+                    field_8: *(&v10 as &i128)
+                    field_24: v24
+                    field_32: v40
                 };
-                v2 = uu_od::parse_formats::parse_type_string::{{closure}}(&v24);
-                v17 = v2;
-                return Ok(struct8 {
-                    field_8: <UNKNOWN>
-                });
-            }
-            v40 = v8;
-            v28 = v28 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v40 as u256;
-            v17 = v40;
-            v18 = v9;
-            v7 = struct33 {
-                field_0: v7
-                field_16: <UNKNOWN>
-                field_32: v36
-            };
-            v10 = alloc::vec::Vec<T,A>::push(&v7);
-            v6 = v7;
-        } while (v27 != 0x110000);
+                v16 = alloc::vec::Vec<T,A>::push(&v8);
+                v8 = v9;
+                v13 = v14;
+            } while (v34 != 0x110000);
+        }
     }
+    *((v3 + 24) as &i64) = 0;
+    *((v3 + 8) as &i128) = *(&v16.field_0 as &i128);
+    *(v3 as &i64) = 0;
+    return;
 }

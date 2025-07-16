@@ -1,118 +1,125 @@
-fn uu_join::State::combine(a0: &u64, a1: u32, a2: &u64) -> u64 {
-    let v0: &u8;  // [sp-0xb1]
-    let v1: u64;  // [sp-0xb0]
-    let v2: u64;  // [sp-0xa8]
-    let v3: u64;  // [sp-0xa0]
-    let v4: u64;  // [sp-0x98]
-    let v5: u64;  // [sp-0x90]
-    let v6: u64;  // [sp-0x88]
-    let v7: u64;  // [sp-0x80]
-    let v8: u64;  // [sp-0x78]
-    let v9: u64;  // [sp-0x70]
-    let v10: &u8;  // [bp-0x68]
-    let v11: &u64;  // [sp-0x60]
-    let v12: struct8;  // [sp-0x58]
-    let v13: &u64;  // [sp-0x50]
-    let v14: struct8;  // [sp-0x48]
-    let v15: u64;  // [sp-0x40]
-    let v16: u64;  // [sp-0x38]
-    let v18: u64;  // r15
-    let v19: u64;  // rdx
-    let v20: struct8;  // rax
-    let v21: struct8;  // r14
-    let v22: u64;  // rcx
-    let v23: u64;  // rax
-    let v24: &struct_0;  // rcx
-    let v25: u64;  // 4111
-    let v26: struct8;  // rax
-    let v27: void*;  // rax
-    let v28: u64;  // r12
-    let v29: u64;  // rbp
-    let v30: struct8;  // rax
+fn uu_join::State::combine(a0: i64, a1: i32, a2: i64) -> long long {
+    let v0: u8;  // [bp-0xb1]
+    let v1: u64;  // [bp-0xb0]
+    let v2: u64;  // [bp-0xa8]
+    let v3: u64;  // [bp-0xa0]
+    let v4: u64;  // [bp-0x98]
+    let v5: u64;  // [bp-0x90]
+    let v6: u64;  // [bp-0x88]
+    let v7: u64;  // [bp-0x80]
+    let v8: u64;  // [bp-0x78]
+    let v9: u64;  // [bp-0x70]
+    let v10: u64;  // [bp-0x68], Other Possible Types: struct_1 *
+    let v11: u64;  // [bp-0x68]
+    let v12: i64;  // [bp-0x60]
+    let v13: u64;  // [bp-0x58]
+    let v14: i64;  // [bp-0x50]
+    let v15: u64;  // [bp-0x48]
+    let v16: u64;  // [bp-0x40]
+    let v17: u64;  // [bp-0x38]
+    let v19: u64;  // rbx
+    let v20: core::result::Result<(), std::io::error::Error>;  // r15
+    let v21: u64;  // rdx
+    let v22: struct8;  // rax
+    let v23: struct8;  // r14
+    let v24: u64;  // rcx
+    let v25: u64;  // rax
+    let v26: i64;  // rcx
+    let v27: u64;  // rcx
+    let v28: u64;  // rax
+    let v29: u64;  // rax
+    let v30: u64;  // rax
+    let v31: struct8;  // rax
+    let v34: void*;  // rax
+    let v35: struct8;  // rax
+    let v36: u64;  // rax
+    let v37: u64;  // rax
+    let v38: struct8;  // rax
 
-    v18 = uu_join::State::get_current_key(a0);
-    v15 = v18;
-    v3 = v19;
-    v16 = v19;
-    v6 = a0[1];
-    v7 = a0[2] * 48 + v6;
-    v20 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-    if !v20 {
+    v19 = a1;
+    v20 = uu_join::State::get_current_key(a0);
+    v16 = v20;
+    v3 = v21;
+    v17 = v21;
+    v6 = *((a0 + 8) as &i64);
+    v7 = *((a0 + 16) as &i64) * 48 + *((a0 + 8) as &i64);
+    v22 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v6);
+    if !v22 {
         return 0;
     }
-    v21 = v20;
-    v22 = a2[1];
-    v23 = a2[2] * 48 + v22;
-    v25 = v24->field_140;
-    v0 = v24->field_148 as i8;
-    v2 = v22;
-    v1 = v23;
-    if !v25 {
-        if !v15 {
-            v18 = v24->field_120;
-            v3 = v24->field_128;
-        }
-        v9 = a0[8];
-        v28 = v24->field_108;
-        v29 = v24->field_110;
-        v8 = a2[8];
+    v23 = v22;
+    v24 = *((a2 + 8) as &i64);
+    v25 = *((a2 + 16) as &i64) * 48 + v24;
+    v0 = *((v26 + 328) as &i8);
+    v2 = v24;
+    v1 = v25;
+    if *((v26 + 320) as &i64) {
+        v27 = v24;
+        v28 = v25;
         do {
-            v4 = v22;
-            v5 = v23;
+            v4 = v27;
+            v5 = v28;
             loop {
-                v30 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-                if !v30 {
+                v29 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v4);
+                if !v29 {
                     break;
                 }
-                v27 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, v18, v3);
-                if v27 {
-                    return v27;
-                }
-                v27 = uu_join::Repr<Sep>::print_fields(v28, v29, a1, v21, v9);
-                if v27 {
-                    return v27;
-                }
-                v27 = uu_join::Repr<Sep>::print_fields(v28, v29, a1, v30, v8);
-                if v27 {
-                    return v27;
+                v10 = &v16;
+                v12 = a0;
+                v13 = v23;
+                v14 = a2;
+                v15 = v29;
+                v30 = uu_join::Repr<Sep>::print_format(v26, v19, &v10);
+                if v30 {
+                    return v30;
                 }
                 v10 = v0;
-                v27 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, &v10, 1);
-                if v27 {
-                    return v27;
+                v10 = v11 & -0x100 | v10;
+                v31 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all();
+                if v31 {
+                    return v31;
                 }
             }
-            v21 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-            v22 = v2;
-            v23 = v1;
-        } while (v21);
+            v23 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v6);
+            v27 = v2;
+            v28 = v1;
+        } while (v23);
     } else {
+        v9 = *((a0 + 64) as &i64);
+        v8 = *((a2 + 64) as &i64);
+        v27 = v24;
+        v28 = v25;
         do {
-            v4 = v22;
-            v5 = v23;
+            v4 = v27;
+            v5 = v28;
             loop {
-                v26 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-                if !v26 {
+                v34 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v4);
+                if !v34 {
                     break;
                 }
-                v10 = &v15;
-                v11 = a0;
-                v12 = v21;
-                v13 = a2;
-                v14 = v26;
-                v27 = uu_join::Repr<Sep>::print_format(v24, a1, &v10);
-                if v27 {
-                    return v27;
+                v35 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(v20);
+                if v35 {
+                    return v35;
+                }
+                v36 = uu_join::Repr<Sep>::print_fields(*((v26 + 264) as &i64), *((v26 + 272) as &i64), v19, v23, v9);
+                if v36 {
+                    return v36;
+                }
+                v37 = uu_join::Repr<Sep>::print_fields(*((v26 + 264) as &i64), *((v26 + 272) as &i64), v19, v34, v8);
+                if v37 {
+                    return v37;
                 }
                 v10 = v0;
-                v27 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, &v10, 1);
-                if v27 {
-                    return v27;
+                v10 = v11 & -0x100 | v10;
+                v38 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all();
+                if v38 {
+                    return v38;
                 }
             }
-            v21 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-            v22 = v2;
-            v23 = v1;
-        } while (v21);
+            v23 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v6);
+            v27 = v2;
+            v28 = v1;
+        } while (v23);
     }
+    return 0;
 }

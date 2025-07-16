@@ -1,31 +1,30 @@
-fn uu_sort::merge::check_child_success(a0: u32, a1: u32, a2: u32) -> u64 {
-    let v0: i32;  // [sp-0x70], Other Possible Types: struct24
-    let v1: i32;  // [sp-0x6c]
-    let v2: struct24;  // [sp-0x68], Other Possible Types: unsigned int
-    let v3: i8;  // [sp-0x58], Other Possible Types: Result<struct4, struct8>
-    let v5: i64;  // rax
-    let v6: i32;  // eax
-    let v7: i64;  // r14
+fn uu_sort::merge::check_child_success(a0: i64, a1: i64, a2: i64) -> long long {
+    let v0: u32;  // [sp-0x70]
+    let v1: i32;  // [bp-0x6c]
+    let v2: struct8;  // [bp-0x68]
+    let v3: u64;  // [bp-0x60]
+    let v4: u8;  // [bp-0x58]
+    let v5: struct8;  // [bp-0x54]
+    let v6: u8;  // [bp-0x50]
+    let v7: u64;  // [bp-0x40]
+    let v9: core::result::Result<(), std::io::error::Error>;  // rax
+    let v10: void*;  // r14
+    let v11: core::result::Result<std::process::ExitStatus, std::io::error::Error>;  // rax:rdx
 
-    v3 = std::process::Child::wait(a0);
-    match v3 {
-        Err(v2) => {
-            v0 = 1;
-        },
-        Ok(_) => {
-            v5 = *((&v3 as &char + 4) as &i32) as u32 as u64;
-            v6 = (v5 >> 8) as u32;
-            v1 = (!(v5 as u8 & 127)) as u8 as u32;
-            v2 = v6;
-            v0 = 0;
-            if !(v5 as u8 & 127) && v6 {
-                v0 = <T as alloc::slice::hack::ConvertVec>::to_vec(a1, a2);
-                v2 as u192 = v0;
-                v3 = 6;
-                alloc::boxed::Box<T>::new(&v3);
-                return v7;
-            }
-        },
+    v11 = std::process::Child::wait(&v4);
+    if *(&v4 as &i32) {
+        return v10;
     }
-    return v7;
+    v9 = v5 as u64;
+    v1 = !(v9 as u8 & 127);
+    v2 = (v9 >> 8) as u32;
+    v0 = 0;
+    if !(v9 as u8 & 127) && v2 {
+        <T as alloc::slice::hack::ConvertVec>::to_vec(&v0, a1, a2);
+        v7 = v3;
+        memcpy(&v6, &v0, 16);
+        v4 = 6;
+        v10 = alloc::boxed::Box<T>::new(&v4);
+    }
+    return v10;
 }

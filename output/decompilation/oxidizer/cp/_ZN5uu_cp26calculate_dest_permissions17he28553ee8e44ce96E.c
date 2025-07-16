@@ -1,24 +1,34 @@
-fn uu_cp::calculate_dest_permissions(a0: &Result<struct32, struct4>, a1: u32, a2: u32, a3: u32, a4: u32, a5: u32, a6: u32, a7: u32) -> u64 {
-    let v0: i32;  // [sp-0xe8]
-    let v1: Result<struct176, struct8>;  // [sp-0xe0], Other Possible Types: struct24
-    let v2: i32;  // r14d
-    let v3: i64;  // rax
+fn uu_cp::calculate_dest_permissions(a1: i64, a2: i64, a3: i32, a4: i8, a5: i32, a6: i64, a7: i64) -> Result<struct32, struct4> {
+    let a0: u64;  // rdi
+    let v0: u32;  // [bp-0xe8]
+    let v1: u192;  // [bp-0xe0], Other Possible Types: core::result::Result<std::fs::Metadata, std::io::error::Error>
+    let v2: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xe0]
+    let v3: u64;  // [bp-0xd8]
+    let v4: u32;  // eax
+    let v5: u64;  // rax
 
     v0 = a5;
     v1 = std::fs::metadata(a1, a2);
-    if v2 == 2 {
-        v3 = ~(uucore::features::mode::get_umask() as i32) & uu_cp::handle_no_preserve_mode(a4 as u64, v0 as i8, a3 as u64) as i32;
-    } else {
-        v1 = std::fs::symlink_metadata(a1, a2);
-        if v1 as i32 == 2 {
-            v1 = struct24 {
-                field_0: a6
-                field_16: *((&v1 as &char + 8) as &i64)
-            };
-            <uu_cp::Error as core::convert::From<quick_error::Context<&str,std::io::error::Error>>>::from(a0, &v1);
-        }
+    match v1 {
+        Err(_) => {
+            v4 = uu_cp::handle_no_preserve_mode(a4, v0 as i8, a3 as u64) as i32;
+            v5 = (~(uucore::features::mode::get_umask() as i32) & v4) as u64;
+            return Err(v5 as u32);
+        },
+        Ok(_) => {
+            v2 = std::fs::symlink_metadata(a1, a2);
+            match v2 {
+                Ok(_) => {
+                    return Err(*((&v2 as &char + 56) as &i32));
+                },
+                Err(_) => {
+                    v1 = struct24 {
+                        field_0: a6
+                        field_16: v3
+                    };
+                    return <uu_cp::Error as core::convert::From<quick_error::Context<&str,std::io::error::Error>>>::from(a0, &v1) as u64;
+                },
+            }
+        },
     }
-    return Err(struct4 {
-        field_0: v3 as u32
-    });
 }

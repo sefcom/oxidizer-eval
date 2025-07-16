@@ -1,34 +1,35 @@
-fn uu_wc::uumain::uumain(a0: u32, a1: u32) -> u64 {
-    let v0: i8;  // [bp-0x370], Other Possible Types: unsigned long
-    let v1: i64;  // [sp-0x368]
-    let v2: i64;  // [sp-0x360]
-    let v3: i64;  // [sp-0x358]
-    let v4: iNone;  // [sp-0x338], Other Possible Types: unsigned long
-    let v5: i64;  // [sp-0x330]
-    let v6: struct32;  // [sp-0x300]
-    let v7: struct32;  // [sp-0x2e0], Other Possible Types: struct712
-    let v9: i64;  // rbx
-    let v11: i64;  // rbx
-    let v13: i64;  // rbx
+fn uu_wc::uumain::uumain(a0: i64, a1: i64) -> long long {
+    let v0: u256;  // [bp-0x370], Other Possible Types: Result<struct56, struct16>
+    let v1: u128;  // [bp-0x370]
+    let v2: u64;  // [bp-0x340]
+    let v3: u128;  // [bp-0x338]
+    let v4: u64;  // [bp-0x330]
+    let v5: u8;  // [bp-0x318]
+    let v6: u64;  // [bp-0x308]
+    let v7: struct32;  // [bp-0x300]
+    let v8: u256;  // [bp-0x2e0]
+    let v9: struct32;  // [bp-0x2e0]
+    let v11: u64;  // rax
 
-    v7 = uu_wc::uu_app();
-    clap_builder::builder::command::Command::try_get_matches_from(&v0, &v7, a0, a1);
-    if v4 == 0x8000000000000000 {
-        v9 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v5);
-        return v9;
+    uu_wc::uu_app(&v8);
+    v0 = clap_builder::builder::command::Command::try_get_matches_from(&v8, a0, a1);
+    match v0 {
+        Err(_) => {
+            return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v4);
+        },
+        Ok(_) => {
+            v6 = v2;
+            memcpy(&v5, &v0 as u128, 16);
+            memcpy(&v0, &v0, 16);
+            v3 = v1;
+            v7 = uu_wc::Settings::new(&v3);
+            v9 = uu_wc::Inputs::new(&v3);
+            if v9.field_0 as i64 == 3 {
+                return v11;
+            }
+            v0 = v8;
+            v11 = uu_wc::wc(&v0, &v7);
+            return v11;
+        },
     }
-    v4 = *(&v0 as &i448);
-    v6 = uu_wc::Settings::new(&v4);
-    v7 = uu_wc::Inputs::new(&v4);
-    v11 = *((&v7.field_0 as &char + 8) as &i64);
-    if v0 != 3 {
-        v0 = v7.field_0 as i64;
-        v1 = v11;
-        v2 = v7.field_16 as i64;
-        v3 = *((&v7.field_16 as &char + 8) as &i64);
-        v9 = v13;
-        return v9;
-    }
-    v9 = v11;
-    return v9;
 }

@@ -1,33 +1,17 @@
 {
   "decompilation": {
-    "_ZN11uu_readlink6uumain17h3356d70105c5f17bE": "fn uu_readlink::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: String;  // [sp-0x48]\n    let v4: String;  // [sp-0x28]\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v6 = uu_readlink::uumain::uumain(a0, a1);\n    if !v6 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v6;\n    v4 = format!(\"{}\", &v0);\n    v3 = v4;\n    if v3 == \"\" {\n        v2 = v7;\n        show_error!(\"{}\", &v3);\n    }\n    if !*((v7 + 104) as &i64)() {\n        return *((v7 + 96) as &i64)();\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v7;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n}\n",
-    "_ZN11uu_readlink6uumain6uumain17h1232513d75c26214E": "fn uu_readlink::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i8;  // [sp-0x3de]\n    let v1: i8;  // [sp-0x3dd]\n    let v2: i32;  // [sp-0x3dc]\n    let v3: struct24;  // [sp-0x3d8]\n    let v4: i64;  // [sp-0x3b8]\n    let v5: i64;  // [sp-0x3b0]\n    let v6: i64;  // [sp-0x3a8]\n    let v7: i64;  // [sp-0x3a0]\n    let v8: iNone;  // [bp-0x398], Other Possible Types: struct32\n    let v9: i64;  // [sp-0x388], Other Possible Types: Result<struct24, struct8>, struct64, struct16, char, struct24\n    let v10: i64;  // [sp-0x380]\n    let v11: i8;  // [bp-0x378]\n    let v12: i8;  // [bp-0x368]\n    let v13: i8;  // [bp-0x358]\n    let v14: i64;  // [sp-0x348]\n    let v15: i64;  // [sp-0x340]\n    let v16: iNone;  // [sp-0x338]\n    let v17: iNone;  // [sp-0x328]\n    let v18: i64;  // [sp-0x318]\n    let v19: struct24;  // [sp-0x310]\n    let v20: struct24;  // [sp-0x2f8], Other Possible Types: int, struct712, struct56, struct64\n    let v21: i64;  // [sp-0x2f0]\n    let v22: i64;  // [sp-0x2e8]\n    let v23: i32;  // [bp-0x2e0]\n    let v25: iNone;  // xmm0\n    let v27: i64;  // r14\n    let v28: i64;  // rax\n    let v29: i8;  // bpl\n    let v32: iNone;  // xmm0\n    let v34: iNone;  // ymm0\n    let v35: iNone;  // ymm0\n    let v38: i64;  // rax\n    let v39: i64;  // r14\n    let v40: i32;  // r12d\n    let v41: iNone;  // xmm0\n    let v42: iNone;  // xmm0\n    let v43: iNone;  // xmm0\n    let v44: iNone;  // xmm0\n\n    v20 = uu_readlink::uu_app();\n    clap_builder::builder::command::Command::try_get_matches_from(&v9, &v20, a0, a1);\n    if v14 == 0x8000000000000000 {\n        v27 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v15);\n        return v27;\n    }\n    v18 = *(&v13 as &i64);\n    v25 = *(&v11 as &i128);\n    v17 = *(&v12 as &i128);\n    v16 = v25;\n    v14 = v9;\n    v15 = v10;\n    v1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, \"zero\") as i8;\n    if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, \"silent\") as i8 {\n        clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, \"quiet\");\n    }\n    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, \"verbose\") as i8;\n    v28 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, \"canonicalize\");\n    if v28 as u8 {\nLABEL_468ed7:\n        v2 = (v28 & -0x100 | 2) as u32;\n        v29 = 0;\n    } else {\n        v28 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, \"canonicalize-existing\");\n        if !(!v28 as u8 && (v28 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, \"canonicalize-missing\"), !v28 as u8)) {\n            goto LABEL_468ed7;\n        }\n        v29 = vvar_205{reg 56} & -0x100 | 1;\n        v2 = 0;\n    }\n    if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, \"canonicalize-existing\") as i8 {\n        clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, \"canonicalize-missing\");\n    }\n    v20 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v14, \"files\");\n    v9 = clap_builder::parser::error::MatchesError::unwrap(\"files\", &v20);\n    if !v9 || (v20 = struct64 {\n    field_0: v30\n    field_16: v31\n    field_32: v9.field_32\n    field_48: v9.field_48\n}, v3 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter_nested::SpecFromIterNested<T,I>>::from_iter(&v20), v32 = *(&v3.field_8 as &i128), v8 = v32, v5 == 0x8000000000000000) {\n        v5 = 0;\n        v6 = 8;\n        v7 = 0;\n    } else {\n        v35 = (((v34 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v25 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v9.field_0) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v32 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v8 as i128;\n        if v7 {\n            if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v14, \"no-newline\") as i32 {\n            }\n            v8 = struct32 {\n                field_0: v6\n                field_8: v8 + v7 * 24\n                field_16: v9\n                field_24: v10\n            };\n            v38 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v8);\n            if v38 {\n                v39 = v38;\n                if !v29 {\n                    v40 = v2 as i8;\n                } else {\n                    do {\n                        v20 = std::sys::os_str::bytes::Slice::to_owned(*((v39 + 8) as &i64), *((v39 + 16) as &i64));\n                        v41 = *(&v20.field_0 as &i128);\n                        *(&v3.field_0 as &struct24) = struct24 {\n                            field_0: v41\n                            field_16: v22\n                        };\n                        v9 = std::fs::read_link(&v3);\n                        if v9 == 0x8000000000000000 {\n                            goto LABEL_469370;\n                        }\n                        v42 = v9 as i128;\n                        v35 = (v35 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v41 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v42 as u256;\n                        v20 = v42;\n                        v22 = *((&v9 as &char + 16) as &i64);\n                        if !(!<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_readlink::show(v21, *((&v9 as &char + 16) as &i64), 11))) {\n                            goto LABEL_469400;\n                        }\n                    } while ((v39 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v8), v39));\n                    goto LABEL_469368;\n                }\n                do {\n                    v20 = std::sys::os_str::bytes::Slice::to_owned(*((v39 + 8) as &i64), *((v39 + 16) as &i64));\n                    v43 = *(&v20.field_0 as &i128);\n                    *(&v3.field_0 as &struct24) = struct24 {\n                        field_0: v43\n                        field_16: v22\n                    };\n                    v9 = uucore::features::fs::canonicalize(&v3, 0x1, v40 as u64);\n                    if v9 == 0x8000000000000000 {\nLABEL_469370:\n                        if v0 {\n                            v4 = <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(v10, v39);\n                            v19 = <T as alloc::string::ToString>::to_string(&v4);\n                            *(&v23 as &i32) = 1;\n                            v20 = v19;\n                            goto LABEL_469400;\n                        }\n                        goto LABEL_469400;\n                    }\n                    v44 = *(&v9.field_0 as &i128);\n                    v35 = (v35 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v43 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v44 as u256;\n                    v20 = v44;\n                    v22 = v9.field_16 as i64;\n                    if <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_readlink::show(v21, v9.field_16 as i64, 11)) {\nLABEL_469400:\n                        return v27;\n                    }\n                    v39 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v8);\n                } while (v39);\n            }\nLABEL_469368:\n            return 0;\n        }\n    }\n    v9 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n    v20 = v9;\n    *(&v23 as &i32) = 1;\n    v27 = alloc::boxed::Box<T>::new(&v20);\n    return v27;\n}\n",
-    "_ZN11uu_readlink6uu_app17h387e9546761b38a6E": "fn uu_readlink::uu_app(a0: &struct712) -> u64 {\n    let v0: struct592;  // [sp-0xa50], Other Possible Types: struct24\n    let v1: struct592;  // [sp-0x800], Other Possible Types: struct712, struct437\n    let v2: i64;  // [sp-0x544]\n    let v3: i32;  // [sp-0x53c]\n    let v4: struct592;  // [sp-0x538], Other Possible Types: struct712\n    let v5: struct592;  // [sp-0x270]\n    let v7: i64;  // rdx\n\n    v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v7);\n    v4 = clap_builder::builder::command::Command::version(&v1);\n    v1 = clap_builder::builder::command::Command::about(&v4);\n    v0 = uucore::format_usage(\"{} [OPTION]... [FILE]...\");\n    v4 = clap_builder::builder::command::Command::override_usage(&v1, &v0);\n    memcpy(&v1, &v4, 700);\n    v2 = 549755814016 | *((&v4.field_0 as &char + 700) as &i64);\n    v3 = *((&v4.field_0 as &char + 708) as &i32);\n    v4 = clap_builder::builder::arg::Arg::new(\"canonicalize\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x66);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"canonicalize\");\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"canonicalize by following every symlink in every component of the given name recursively; all but the last component must exist\");\n    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v1, &v5);\n    v1 = clap_builder::builder::arg::Arg::new(\"canonicalize-existing\");\n    v0 = clap_builder::builder::arg::Arg::short(&v1, 0x65);\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"canonicalize-existing\");\n    v0 = clap_builder::builder::arg::Arg::help(&v1, \"canonicalize by following every symlink in every component of the given name recursively, all components must exist\");\n    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v1 = clap_builder::builder::command::Command::arg(&v4, &v5);\n    v4 = clap_builder::builder::arg::Arg::new(\"canonicalize-missing\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x6d);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"canonicalize-missing\");\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"canonicalize by following every symlink in every component of the given name recursively, without requirements on components existence\");\n    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v1, &v5);\n    v1 = clap_builder::builder::arg::Arg::new(\"no-newline\");\n    v0 = clap_builder::builder::arg::Arg::short(&v1, 0x6e);\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"no-newline\");\n    v0 = clap_builder::builder::arg::Arg::help(&v1, \"do not output the trailing delimiter\");\n    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v1 = clap_builder::builder::command::Command::arg(&v4, &v5);\n    v4 = clap_builder::builder::arg::Arg::new(\"quiet\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x71);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"quiet\");\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"suppress most error messages\");\n    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v1, &v5);\n    v1 = clap_builder::builder::arg::Arg::new(\"silent\");\n    v0 = clap_builder::builder::arg::Arg::short(&v1, 0x73);\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"silent\");\n    v0 = clap_builder::builder::arg::Arg::help(&v1, \"suppress most error messages\");\n    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v1 = clap_builder::builder::command::Command::arg(&v4, &v5);\n    v4 = clap_builder::builder::arg::Arg::new(\"verbose\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x76);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"verbose\");\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"report error message\");\n    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v1, &v5);\n    v1 = clap_builder::builder::arg::Arg::new(\"zero\");\n    v0 = clap_builder::builder::arg::Arg::short(&v1, 0x7a);\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"zero\");\n    v0 = clap_builder::builder::arg::Arg::help(&v1, \"separate output with NUL rather than newline\");\n    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v1 = clap_builder::builder::command::Command::arg(&v4, &v5);\n    v4 = clap_builder::builder::arg::Arg::new(\"files\");\n    v0 = clap_builder::builder::arg::Arg::action(&v4, 0x1);\n    v4 = clap_builder::builder::arg::Arg::value_hint(&v0);\n    clap_builder::builder::command::Command::arg(a0, &v1, &v4);\n    return a0;\n}\n",
-    "_ZN11uu_readlink4show17hf8ca6ca696dc2285E": "fn uu_readlink::show(a0: u32, a1: u32, a2: u8) -> u64 {\n    let v0: i8;  // [sp-0x69]\n    let v1: i64;  // [sp-0x68], Other Possible Types: Result<struct16, struct10>\n    let v2: iNone;  // [sp-0x28]\n\n    v1 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(a0, a1);\n    if v1 {\n        core::option::unwrap_failed(\"src/uu/readlink/src/readlink.rs\"); /* do not return */\n    }\n    v2 = *((&v1 as &char + 8) as &i128);\n    print!(\"{}\", &v2);\n    if a2 == 11 {\n        v1 = std::io::stdio::stdout();\n        return <std::io::stdio::Stdout as std::io::Write>::flush(&v1);\n    }\n    v0 = a2;\n    print!(\"{}\", &v0);\n}\n"
+    "_ZN11uu_readlink6uumain17h3356d70105c5f17bE": "fn uu_readlink::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_readlink::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN11uu_readlink6uu_app17h387e9546761b38a6E": "fn uu_readlink::uu_app(a0: &struct712) -> long long {\n    let v0: u8;  // [bp-0xa50]\n    let v1: struct437;  // [bp-0x800]\n    let v2: u64;  // [bp-0x544]\n    let v3: u32;  // [bp-0x53c]\n    let v4: u8;  // [bp-0x538]\n    let v5: u64;  // [bp-0x27c]\n    let v6: u32;  // [bp-0x274]\n    let v7: u8;  // [bp-0x270]\n    let v10: u64;  // rdx\n\n    v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);\n    clap_builder::builder::command::Command::version(&v4, &v1);\n    clap_builder::builder::command::Command::about(&v1, &v4);\n    uucore::format_usage(&v0, \"{} [OPTION]... [FILE]...\");\n    clap_builder::builder::command::Command::override_usage(&v4, &v1, &v0);\n    memcpy(&v1, &v4, 700);\n    v2 = 549755814016 | v5;\n    v3 = v6;\n    clap_builder::builder::arg::Arg::new(&v4, \"canonicalize\");\n    clap_builder::builder::arg::Arg::short(&v0, &v4, 102);\n    clap_builder::builder::arg::Arg::long(&v4, &v0, \"canonicalize\");\n    clap_builder::builder::arg::Arg::help(&v0, &v4, \"canonicalize by following every symlink in every component of the given name recursively; all but the last component must exist\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v1, &v7);\n    clap_builder::builder::arg::Arg::new(&v1, \"canonicalize-existing\");\n    clap_builder::builder::arg::Arg::short(&v0, &v1, 101);\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"canonicalize-existing\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"canonicalize by following every symlink in every component of the given name recursively, all components must exist\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v1, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"canonicalize-missing\");\n    clap_builder::builder::arg::Arg::short(&v0, &v4, 109);\n    clap_builder::builder::arg::Arg::long(&v4, &v0, \"canonicalize-missing\");\n    clap_builder::builder::arg::Arg::help(&v0, &v4, \"canonicalize by following every symlink in every component of the given name recursively, without requirements on components existence\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v1, &v7);\n    clap_builder::builder::arg::Arg::new(&v1, \"no-newline\");\n    clap_builder::builder::arg::Arg::short(&v0, &v1, 110);\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"no-newline\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"do not output the trailing delimiter\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v1, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"quiet\");\n    clap_builder::builder::arg::Arg::short(&v0, &v4, 113);\n    clap_builder::builder::arg::Arg::long(&v4, &v0, \"quiet\");\n    clap_builder::builder::arg::Arg::help(&v0, &v4, \"suppress most error messages\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v1, &v7);\n    clap_builder::builder::arg::Arg::new(&v1, \"silent\");\n    clap_builder::builder::arg::Arg::short(&v0, &v1, 115);\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"silent\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"suppress most error messages\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v1, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"verbose\");\n    clap_builder::builder::arg::Arg::short(&v0, &v4, 118);\n    clap_builder::builder::arg::Arg::long(&v4, &v0, \"verbose\");\n    clap_builder::builder::arg::Arg::help(&v0, &v4, \"report error message\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v1, &v7);\n    clap_builder::builder::arg::Arg::new(&v1, \"zero\");\n    clap_builder::builder::arg::Arg::short(&v0, &v1, 122);\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"zero\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"separate output with NUL rather than newline\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v1, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"files\");\n    clap_builder::builder::arg::Arg::action(&v0, &v4, 1);\n    clap_builder::builder::arg::Arg::value_hint(&v4, &v0);\n    clap_builder::builder::command::Command::arg(a0, &v1, &v4);\n    return a0;\n}\n",
+    "_ZN11uu_readlink4show17hf8ca6ca696dc2285E": "fn uu_readlink::show(a0: i64, a1: i64, a2: i8) -> long long {\n    let v0: u8;  // [bp-0x69]\n    let v1: std::io::stdio::Stdout;  // [bp-0x68], Other Possible Types: core::result::Result<&str, core::str::error::Utf8Error>\n    let v2: u8;  // [bp-0x28]\n\n    v1 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(a0, a1);\n    match v1 {\n        Err(_) => {\n            core::option::unwrap_failed(); /* do not return */\n        },\n        Ok(_) => {\n            memcpy(&v2, &v1 as u8, 16);\n            print!(\"{}\", &v2);\n            if a2 != 11 {\n                v0 = a2;\n                print!(\"{}\", &v0);\n            }\n            v1 = std::io::stdio::stdout();\n            return <std::io::stdio::Stdout as std::io::Write>::flush(&v1);\n        },\n    }\n}\n"
   },
   "function_call_counts": {
     "_ZN11uu_readlink6uumain17h3356d70105c5f17bE": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
       "uu_readlink::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
-    },
-    "_ZN11uu_readlink6uumain6uumain17h1232513d75c26214E": {
-      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
-      "alloc::boxed::Box<T>::new": 1,
-      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
-      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 2,
-      "<std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context": 1,
-      "<T as alloc::string::ToString>::to_string": 1,
-      "uucore::features::fs::canonicalize": 1,
-      "std::sys::os_str::bytes::Slice::to_owned": 2,
-      "std::fs::read_link": 1,
-      "clap_builder::parser::error::MatchesError::unwrap": 1,
-      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
-      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 6,
-      "clap_builder::builder::command::Command::try_get_matches_from": 1,
-      "uu_readlink::uu_app": 1
     },
     "_ZN11uu_readlink6uu_app17h387e9546761b38a6E": {
       "clap_builder::builder::command::Command::arg": 9,
@@ -54,446 +38,53 @@
   },
   "macro_call_counts": {
     "_ZN11uu_readlink6uumain17h3356d70105c5f17bE": {
-      "eprintln": 1,
-      "show_error": 1,
+      "eprintln": 2,
+      "eprint": 1,
       "format": 1
     },
-    "_ZN11uu_readlink6uumain6uumain17h1232513d75c26214E": {},
     "_ZN11uu_readlink6uu_app17h387e9546761b38a6E": {},
     "_ZN11uu_readlink4show17hf8ca6ca696dc2285E": {
       "print": 2
     }
   },
   "node_counts": {
-    "_ZN11uu_readlink6uumain17h3356d70105c5f17bE": 9,
-    "_ZN11uu_readlink6uumain6uumain17h1232513d75c26214E": 45,
+    "_ZN11uu_readlink6uumain17h3356d70105c5f17bE": 10,
     "_ZN11uu_readlink6uu_app17h387e9546761b38a6E": 59,
     "_ZN11uu_readlink4show17hf8ca6ca696dc2285E": 6
   },
-  "prototypes": {
-    "_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h18ad71db7dde33d8E": {
-      "name": "_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h18ad71db7dde33d8E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN6uucore8features2fs12canonicalize17hdcf8813f1915eb73E": {
-      "name": "_ZN6uucore8features2fs12canonicalize17hdcf8813f1915eb73E",
-      "return_type": [
-        "struct",
-        16
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          4
-        ],
-        [
-          "primitive",
-          1
-        ]
-      ]
-    },
+  "variable_types": {
     "_ZN11uu_readlink6uumain17h3356d70105c5f17bE": {
-      "name": "_ZN11uu_readlink6uumain17h3356d70105c5f17bE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "reg_16": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN11uu_readlink6uumain6uumain17h1232513d75c26214E": {
-      "name": "_ZN11uu_readlink6uumain6uumain17h1232513d75c26214E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "stack_0": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hc17df59e5abcc7e2E": {
-      "name": "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hc17df59e5abcc7e2E",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": [
+      "stack_128": [
         [
-          "struct*",
-          8
+          "struct",
+          24
         ]
-      ]
-    },
-    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h773837c4d72c1899E": {
-      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h773837c4d72c1899E",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0c18bbc81735a5d7E": {
-      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0c18bbc81735a5d7E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hd2f55730b4265e1dE": {
-      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hd2f55730b4265e1dE",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": []
-    },
-    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
-      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
-      "return_type": [
-        "primitive",
-        1
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf4c889e5f4ccc249E": {
-      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf4c889e5f4ccc249E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h1d4f4734d0c0ae5aE": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h1d4f4734d0c0ae5aE",
-      "return_type": [
-        "struct",
-        56
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser5error12MatchesError6unwrap17heee1dc496edd81bcE": {
-      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17heee1dc496edd81bcE",
-      "return_type": [
-        "struct",
-        64
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h1e41c31790ef42a3E": {
-      "name": "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h1e41c31790ef42a3E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std2fs9read_link17he43356407758612bE": {
-      "name": "_ZN3std2fs9read_link17he43356407758612bE",
-      "return_type": [
-        "Result",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN3std3ffi6os_str95_$LT$impl$u20$core..convert..TryFrom$LT$$RF$std..ffi..os_str..OsStr$GT$$u20$for$u20$$RF$str$GT$8try_from17h660bab9c45707695E": {
-      "name": "_ZN3std3ffi6os_str95_$LT$impl$u20$core..convert..TryFrom$LT$$RF$std..ffi..os_str..OsStr$GT$$u20$for$u20$$RF$str$GT$8try_from17h660bab9c45707695E",
-      "return_type": [
-        "Result",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std2io5stdio6stdout17h077da66234850927E": {
-      "name": "_ZN3std2io5stdio6stdout17h077da66234850927E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": []
-    },
-    "_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$5flush17h392d0be644ab70e9E": {
-      "name": "_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$5flush17h392d0be644ab70e9E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E": {
-      "name": "_ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6option13unwrap_failed17h0e11329e76906eaaE": {
-      "name": "_ZN4core6option13unwrap_failed17h0e11329e76906eaaE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg10value_hint17h8d3b916d6ea2c8c1E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg10value_hint17h8d3b916d6ea2c8c1E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg3new17h465ca0a72bbbad2eE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg3new17h465ca0a72bbbad2eE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4help17h2cb296bdd2950d14E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4help17h2cb296bdd2950d14E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4long17hff5d49378248701bE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4long17hff5d49378248701bE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg5short17h90ac967af5f5b923E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg5short17h90ac967af5f5b923E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg6action17h53fbdacfe1f99565E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg6action17h53fbdacfe1f99565E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "stack_96": [
         [
           "primitive",
           1
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command14override_usage17h4b8d0145a5fc5c19E": {
-      "name": "_ZN12clap_builder7builder7command7Command14override_usage17h4b8d0145a5fc5c19E",
-      "return_type": [
-        "struct",
-        712
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "stack_112": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3arg17h802601a73353d1b7E": {
-      "name": "_ZN12clap_builder7builder7command7Command3arg17h802601a73353d1b7E",
-      "return_type": [
-        "struct",
-        712
       ],
-      "parameters": [
+      "stack_64": [
         [
           "primitive",
           8
@@ -502,15 +93,8 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3new17hd3cf78caaacb3353E": {
-      "name": "_ZN12clap_builder7builder7command7Command3new17hd3cf78caaacb3353E",
-      "return_type": [
-        "struct",
-        438
       ],
-      "parameters": [
+      "stack_72": [
         [
           "primitive",
           8
@@ -519,106 +103,91 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command5about17hc4b6e58c034683c5E": {
-      "name": "_ZN12clap_builder7builder7command7Command5about17hc4b6e58c034683c5E",
-      "return_type": [
-        "struct",
-        712
       ],
-      "parameters": [
+      "reg_32": [
         [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command7version17h5769eb7fe5d5d686E": {
-      "name": "_ZN12clap_builder7builder7command7Command7version17h5769eb7fe5d5d686E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
+          "primitive",
           8
         ]
       ]
     },
     "_ZN11uu_readlink6uu_app17h387e9546761b38a6E": {
-      "name": "_ZN11uu_readlink6uu_app17h387e9546761b38a6E",
-      "return_type": [
-        "struct",
-        712
+      "stack_600": [
+        [
+          "struct",
+          466
+        ]
       ],
-      "parameters": []
-    },
-    "_ZN11uu_readlink4show17hf8ca6ca696dc2285E": {
-      "name": "_ZN11uu_readlink4show17hf8ca6ca696dc2285E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
+      "reg_32": [
         [
           "primitive",
           8
-        ],
+        ]
+      ],
+      "stack_1312": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_1300": [
         [
           "primitive",
           8
-        ],
+        ]
+      ],
+      "stack_2012": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1308": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2020": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2024": [
         [
           "primitive",
           1
         ]
       ]
     },
-    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
-      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
+    "_ZN11uu_readlink4show17hf8ca6ca696dc2285E": {
+      "stack_16": [
         [
-          "primitive",
+          "struct",
           8
         ],
         [
-          "primitive",
-          8
+          "Result",
+          24
         ]
-      ]
-    },
-    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
-      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": []
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE",
-      "return_type": [
-        "primitive",
-        8
+      "stack_80": [
+        [
+          "primitive",
+          1
+        ]
       ],
-      "parameters": [
+      "stack_15": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          1
         ]
       ]
     }

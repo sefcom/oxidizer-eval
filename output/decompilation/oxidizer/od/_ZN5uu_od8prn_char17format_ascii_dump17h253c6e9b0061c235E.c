@@ -1,32 +1,31 @@
-fn uu_od::prn_char::format_ascii_dump(a0: &struct24, a1: u64, a2: u64) -> int {
-    let v0: struct16;  // [sp-0x48], Other Possible Types: void*
-    let v1: u64;  // [sp-0x40]
-    let v2: void*;  // [sp-0x38]
-    let v3: u64;  // [sp-0x30]
-    let v4: u64;  // [sp-0x28]
-    let v6: struct8;  // rax
-    let v7: u64;  // rax
+fn uu_od::prn_char::format_ascii_dump(a1: i64, a2: i64) -> : struct24 {
+    let a0: u64;  // rsi
+    let v0: alloc::string::String;  // [bp-0x48]
+    let v1: u64;  // [bp-0x30]
+    let v2: u64;  // [bp-0x28]
+    let v4: struct24;  // rax
+    let v5: u32;  // eax
+    let v7: i64;  // rdi
+    let v8: &[u8];  // rax:rdx
 
-    v0 = 0;
-    v1 = 1;
-    v2 = 0;
-    v0 = alloc::string::String::push(0x3e);
-    v3 = a1;
-    v4 = a2 + a1;
-    v6 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-    if v6 {
+    v0 = String::new();
+    alloc::string::String::push(&v0, 62);
+    v1 = a0;
+    v2 = a1 + a0;
+    v4 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v1);
+    if v4 {
         do {
-            v7 = *(v6 as &i8);
-            if (v7 - 32 & 255) >= 95 {
-                v0 = alloc::string::String::push(0x2e);
+            v5 = *(v4 as &i8);
+            if (v5 - 32 & 255) >= 95 {
+                alloc::string::String::push(&v0, 46);
             } else {
-                v0 = alloc::vec::Vec<T,A>::append_elements(core::slice::iter::Iter<T>::make_slice(*((((v7 & 4294967295) * 16 & 4294967295) + "\\0") as &i64), *(&(&g_5428a0)[(v7 & 4294967295) * 16 & 4294967295] as &i64) + *((((v7 & 4294967295) * 16 & 4294967295) + "\\0") as &i64)), a2);
+                v8 = core::slice::iter::Iter<T>::make_slice(*((v5 * 16 + "\\0") as u64 as &i64));
+                alloc::vec::Vec<T,A>::append_elements(&v0, v8.ptr, a1);
             }
-        } while ((v6 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(), v6));
+        } while ((v4 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v1), v4));
     }
-    v0 = alloc::string::String::push(0x3c);
-    return struct24 {
-        field_0: v8
-        field_16: v2
-    };
+    alloc::string::String::push(&v0, 60);
+    *((v7 + 16) as &i64) = 0;
+    *(v7 as &i128) = *(&v0.vec.buf.cap as &i128);
+    return;
 }

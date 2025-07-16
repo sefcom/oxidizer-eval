@@ -1,92 +1,107 @@
-fn uu_tac::buffer_tac_regex(a0: u32, a1: u32, a2: u32, a3: u32, a4: u8) -> u64 {
-    let v0: struct33;  // [sp-0x90]
-    let v1: i64;  // [sp-0x80]
-    let v2: i64;  // [sp-0x58]
-    let v3: Option<struct32>;  // [sp-0x50]
-    let v5: i64;  // r13
-    let v6: i64;  // r15
-    let v7: i64;  // rbp
-    let v8: i64;  // rbp
-    let v9: i64;  // r15
-    let v10: i64;  // rbx
-    let v11: i64;  // rax
-    let v12: i64;  // r15
-    let v13: i64;  // r14
-    let v14: i64;  // rdx
-    let v15: i64;  // rax
-    let v16: i64;  // r15
-    let v17: i64;  // rax
-    let v18: i64;  // r14
+fn uu_tac::buffer_tac_regex(a0: i64, a1: i64, a2: i64, a3: i64, a4: i8) -> long long {
+    let v0: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>;  // [bp-0x90]
+    let v1: u64;  // [bp-0x90]
+    let v2: u64;  // [bp-0x88]
+    let v3: u64;  // [bp-0x80]
+    let v4: u64;  // [bp-0x58]
+    let v5: struct32;  // [bp-0x50]
+    let v6: u64;  // [bp-0x40]
+    let v8: u64;  // r13, Other Possible Types: void*
+    let v9: u64;  // 4096
+    let v10: u64;  // 4096
+    let v11: u64;  // 4096
+    let v12: u64;  // 4096
+    let v13: u64;  // 4096
+    let v14: u64;  // 4096
+    let v15: u64;  // rsi
+    let v16: u64;  // r13
+    let v17: u64;  // r15
+    let v19: u64;  // rbp
+    let v21: u64;  // rdx
+    let v22: u64;  // r15
+    let v23: u64;  // r13
+    let v24: u64;  // rax
+    let v25: core::result::Result<(), std::io::error::Error>;  // rax
+    let v27: u64;  // rsi
+    let v29: u64;  // r15
+    let v30: u64;  // rbp
+    let v31: u64;  // rbx
+    let v33: u64;  // rbp
+    let v34: u64;  // r13
+    let v35: u64;  // rax
+    let v38: u64;  // rax
 
-    v2 = std::io::stdio::stdout();
-    v0 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x2000, std::io::stdio::Stderr::lock(&v2));
-    if !a1 {
-        v5 = 0;
-    } else if a4 {
-        v6 = a1;
-        v5 = a1;
-        v7 = a1;
-        do {
-            v7 = <usize as core::iter::range::Step>::backward_unchecked(v7);
-            v3 = regex::regex::bytes::Regex::find_at(a2, a3, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(0, v6, a0, a1, "src/uu/tac/src/tac.rs"), v14, v7);
-            if v3 as i64 {
-                v11 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v7, v5, a0, a1, "src/uu/tac/src/tac.rs");
-                v12 = v1;
-                if v14 < v0.field_0 - v12 {
-                    memcpy(v0.field_8 + v12, v11, a2);
-                    v1 = v14 + v12;
-                    v5 = v7;
-                    v6 = v7;
-                } else {
-                    v13 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(&v0, v11, a2);
-                    v5 = v7;
-                    v6 = v7;
-                    if v13 {
-                        return v13;
-                    }
-                }
-            }
-        } while (v7);
-    } else {
-        v8 = a1;
-        v9 = a1;
-        v10 = a1;
-        do {
-            v10 = <usize as core::iter::range::Step>::backward_unchecked(v10);
-            v3 = regex::regex::bytes::Regex::find_at(a2, a3, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(0, v8, a0, a1, "src/uu/tac/src/tac.rs"), v14, v10);
-            match v3 {
-                None => {
-                    v5 = v9;
-                },
-                Some(_) => {
-                    v5 = *((&v3 as &char + 24) as &i64) - *((&v3 as &char + 16) as &i64) + v10;
-                    v15 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v5, v9, a0, a1, "src/uu/tac/src/tac.rs");
-                    v16 = v1;
-                    if v14 < v0.field_0 - v16 {
-                        memcpy(v0.field_8 + v16, v15, a2);
-                        v1 = v14 + v16;
-                        v8 = v10;
+    v4 = std::io::stdio::Stderr {
+        inner: std::io::stdio::stdout()
+    };
+    std::io::stdio::Stderr::lock(&v4);
+    v0 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x2000);
+    if a1 {
+        if a4 {
+            v9 = a1;
+            v10 = a1;
+            v11 = a1;
+            do {
+                v16 = v11;
+                v17 = v10;
+                v19 = <usize as core::iter::range::Step>::backward_unchecked(v9, v15);
+                v5 = regex::regex::bytes::Regex::find_at(a2, a3, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(0, v17, a0, a1, "src/uu/tac/src/tac.rs"), v21, v19);
+                v22 = v17;
+                v23 = v16;
+                if v5.field_0 {
+                    v24 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v19, v16, a0, a1, "src/uu/tac/src/tac.rs");
+                    if v21 < v1 - v3 {
+                        memcpy(v2 + v3, v24, a2);
+                        v3 = v21 + v3;
+                        v22 = v19;
+                        v23 = v19;
                     } else {
-                        v13 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(&v0, v15, a2);
-                        v8 = v10;
-                        if v13 {
-                            return v13;
+                        v25 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(&v1, v24, a2);
+                        v22 = v19;
+                        v23 = v19;
+                        if let Err(_) = v25 {
+                            goto LABEL_0x59fc06;
                         }
                     }
-                },
-            }
-        } while ((v9 = v5, v10));
-    }
-    v17 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(0, v5, a0, a1, "src/uu/tac/src/tac.rs");
-    v18 = v1;
-    if v14 < v0.field_0 - v18 {
-        memcpy(v0.field_8 + v18, v17, a2);
-        v1 = v14 + v18;
-    } else {
-        v13 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(&v0, v17, a2);
-        if v13 {
-            return v13;
+                }
+            } while ((v8 = v23, v9 = v19, v10 = v22, v11 = v8, v9));
+        } else {
+            v12 = a1;
+            v13 = a1;
+            v14 = a1;
+            do {
+                v29 = v13;
+                v30 = v12;
+                v31 = <usize as core::iter::range::Step>::backward_unchecked(v14, v27);
+                v5 = regex::regex::bytes::Regex::find_at(a2, a3, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(0, v30, a0, a1, "src/uu/tac/src/tac.rs"), v21, v31);
+                if !v5.field_0 {
+                    v33 = v30;
+                    v8 = v29;
+                } else {
+                    v34 = *((&v5.field_16 as &char + 8) as &i64) - v6 + v31;
+                    v35 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v34, v29, a0, a1, "src/uu/tac/src/tac.rs");
+                    if v21 < v1 - v3 {
+                        memcpy(v2 + v3, v35, a2);
+                        v3 = v21 + v3;
+                        v33 = v31;
+                        v8 = v34;
+                    } else {
+                        v25 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(&v1, v35, a2);
+                        v33 = v31;
+                        v8 = v34;
+                        if let Err(_) = v25 {
+                            goto LABEL_0x59fc06;
+                        }
+                    }
+                }
+            } while ((v12 = v33, v13 = v8, v14 = v31, v14));
         }
+    }
+    v38 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(0, v8, a0, a1, "src/uu/tac/src/tac.rs");
+    if v21 < v1 - v3 {
+        memcpy(v2 + v3, v38, a2);
+    } else {
+        v25 = std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(&v1, v38, a2);
     }
     return 0;
 }

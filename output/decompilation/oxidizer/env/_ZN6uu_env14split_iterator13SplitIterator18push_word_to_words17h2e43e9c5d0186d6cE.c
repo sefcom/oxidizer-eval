@@ -1,12 +1,13 @@
-fn uu_env::split_iterator::SplitIterator::push_word_to_words(a0: &struct24) -> u64 {
-    let v0: u128;  // [sp-0x18]
-    let v1: u64;  // [sp-0x8]
+fn uu_env::split_iterator::SplitIterator::push_word_to_words() -> : struct24 {
+    let a0: i64;  // rdi
+    let v0: u192;  // [bp-0x18]
 
-    v1 = a0->field_10;
-    v0 = a0->field_0;
-    return struct24 {
-        field_0: 0
-        field_8: 1
-        field_16: 0
+    v0 = struct24 {
+        field_0: *(a0 as &i128)
+        field_16: *((a0 + 16) as &i64)
     };
+    *(a0 as &i64) = 0;
+    *((a0 + 8) as &i64) = 1;
+    *((a0 + 16) as &i64) = 0;
+    return alloc::vec::Vec<T,A>::push(a0 + 64, &v0);
 }

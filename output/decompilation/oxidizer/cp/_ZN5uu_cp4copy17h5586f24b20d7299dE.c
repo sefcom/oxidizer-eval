@@ -1,289 +1,281 @@
-fn uu_cp::copy(a0: &struct64, a1: u32, a2: u32, a3: u32, a4: u32, a5: &u64) -> u64 {
-    let v0: i8;  // [bp-0x358]
-    let v1: i8;  // [bp-0x338]
-    let v2: i8;  // [bp-0x330]
-    let v3: i8;  // [sp-0x31b]
-    let v4: i8;  // [sp-0x31a]
-    let v5: struct1;  // [bp-0x319]
-    let v6: struct24;  // [sp-0x318], Other Possible Types: unsigned long
-    let v7: i64;  // [sp-0x310]
-    let v8: iNone;  // [sp-0x308], Other Possible Types: unsigned long, struct24
-    let v9: i64;  // [sp-0x2f8]
-    let v10: i8;  // [bp-0x2f0], Other Possible Types: unsigned long
-    let v11: struct24;  // [sp-0x2e8], Other Possible Types: unsigned long
-    let v12: i64;  // [sp-0x2e0]
-    let v13: struct24;  // [sp-0x2b0]
-    let v14: Result<struct136, struct5>;  // [bp-0x298], Other Possible Types: struct32, Option<struct16>, struct24, int, struct8, struct48, struct64
-    let v15: i64;  // [sp-0x290], Other Possible Types: char
-    let v16: i8;  // [bp-0x280]
-    let v17: iNone;  // [bp-0x278], Other Possible Types: char
-    let v18: i8;  // [bp-0x270]
-    let v19: iNone;  // [sp-0x268]
-    let v20: i8;  // [bp-0x260]
-    let v22: iNone;  // [bp-0x1e8], Other Possible Types: unsigned long
-    let v23: i64;  // [sp-0x1d8]
-    let v24: i64;  // [sp-0x1c8]
-    let v25: i64;  // [sp-0x1c0]
-    let v26: i64;  // [sp-0x1b8]
-    let v27: struct16;  // [bp-0x1b0]
-    let v28: Option<Result<struct64, struct24>>;  // [sp-0x1a0], Other Possible Types: unsigned long, struct136, struct64
-    let v29: i64;  // [sp-0x198]
-    let v30: i64;  // [sp-0x190]
-    let v31: i8;  // [bp-0x188]
-    let v32: struct16;  // [sp-0x118], Other Possible Types: int
-    let v33: iNone;  // [sp-0x108]
-    let v34: iNone;  // [sp-0xf8]
-    let v35: struct16;  // [sp-0xe8], Other Possible Types: int
-    let v36: iNone;  // [sp-0xd8]
-    let v37: iNone;  // [sp-0xc8]
-    let v38: iNone;  // [sp-0xb8]
-    let v39: iNone;  // [sp-0xa8]
-    let v40: iNone;  // [sp-0x98]
-    let v41: iNone;  // [sp-0x88]
-    let v42: iNone;  // [sp-0x78]
-    let v43: iNone;  // [sp-0x68]
-    let v44: String;  // [sp-0x58]
-    let v45: iNone;  // [sp-0x40]
-    let v47: i64;  // r12
-    let v50: struct8;  // rax
-    let v51: iNone;  // xmm0
-    let v52: iNone;  // xmm1
-    let v53: i64;  // r15
-    let v54: i64;  // rdx
-    let v55: iNone;  // xmm0
-    let v56: iNone;  // xmm0
-    let v57: iNone;  // xmm0
-    let v58: iNone;  // xmm0
-    let v59: iNone;  // ymm0
-    let v60: iNone;  // ymm0
-    let v61: i64;  // r15
-    let v63: iNone;  // xmm0
-    let v64: i64;  // rax
-    let v65: i64;  // r14
-    let v66: i64;  // rbx
-    let v67: i64;  // r13
-    let v70: i32;  // eax
-    let v72: i64;  // r12
-    let v73: iNone;  // ymm0
-    let v75: i64;  // rbx
-    let v76: iNone;  // xmm0
-    let v77: iNone;  // xmm1
-    let v80: i64;  // r15
-    let v83: i64;  // r15
-    let v85: i64;  // r15
-    let v89: iNone;  // [sp-0x288]
+fn uu_cp::copy(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64) -> : struct64 {
+    let a0: u64;  // rsi
+    let v0: u8;  // [bp-0x31b]
+    let v1: u8;  // [bp-0x31a]
+    let v2: u64;  // [bp-0x319]
+    let v3: struct24;  // [bp-0x318], Other Possible Types: u64
+    let v4: struct24;  // [bp-0x318], Other Possible Types: u64
+    let v5: struct24;  // [bp-0x318]
+    let v6: u64;  // [bp-0x310]
+    let v7: u64;  // [bp-0x308]
+    let v8: i64;  // [bp-0x2f8]
+    let v9: u64;  // [bp-0x2f0]
+    let v10: u8;  // [bp-0x2f0]
+    let v11: u64;  // [bp-0x2e8], Other Possible Types: struct24
+    let v12: u64;  // [bp-0x2e8]
+    let v13: u64;  // [bp-0x2e8]
+    let v14: u64;  // [bp-0x2e0]
+    let v15: u64;  // [bp-0x2d8]
+    let v16: struct24;  // [bp-0x2b0]
+    let v17: u64;  // [bp-0x2b0]
+    let v18: u64;  // [bp-0x2a0]
+    let v19: struct24;  // [bp-0x298], Other Possible Types: u128, struct32, Result<struct136, struct13>, struct48, struct8
+    let v20: u64;  // [bp-0x298]
+    let v21: u512;  // [bp-0x298]
+    let v23: u64;  // [bp-0x298]
+    let v25: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x298]
+    let v26: u64;  // [bp-0x290], Other Possible Types: char
+    let v27: u64;  // [bp-0x290]
+    let v28: u64;  // [bp-0x290]
+    let v29: i64;  // [bp-0x288], Other Possible Types: u64
+    let v30: u64;  // [bp-0x280], Other Possible Types: char
+    let v31: u8;  // [bp-0x278], Other Possible Types: void*
+    let v32: i8;  // [bp-0x270]
+    let v33: u128;  // [bp-0x268]
+    let v34: i8;  // [bp-0x260], Other Possible Types: u960
+    let v35: u192;  // [bp-0x1e8]
+    let v37: u128;  // [bp-0x1e8]
+    let v38: u64;  // [bp-0x1e8]
+    let v40: i64;  // [bp-0x1c8]
+    let v41: u64;  // [bp-0x1c0]
+    let v42: u64;  // [bp-0x1b8]
+    let v43: u64;  // [bp-0x1b0]
+    let v44: u64;  // [bp-0x1a8]
+    let v45: u64;  // [bp-0x1a0], Other Possible Types: struct_3 *
+    let v46: struct64;  // [bp-0x1a0]
+    let v47: struct64;  // [bp-0x1a0]
+    let v48: u64;  // [sp-0x198]
+    let v49: i64;  // [sp-0x190], Other Possible Types: u64
+    let v50: u8;  // [sp-0x188]
+    let v51: u64;  // [bp-0x188]
+    let v52: u128;  // [bp-0x180]
+    let v53: u8;  // [bp-0x118]
+    let v54: u8;  // [bp-0x108]
+    let v55: u8;  // [bp-0xf8]
+    let v56: u8;  // [bp-0xe8]
+    let v57: u8;  // [bp-0xd8]
+    let v58: u8;  // [bp-0xc8]
+    let v59: u8;  // [bp-0xb8]
+    let v60: u8;  // [bp-0xa8]
+    let v61: u8;  // [bp-0x98]
+    let v62: u8;  // [bp-0x88]
+    let v63: u8;  // [bp-0x78]
+    let v64: u8;  // [bp-0x68]
+    let v65: u128;  // [bp-0x58]
+    let v66: u64;  // [bp-0x48]
+    let v67: u8;  // [bp-0x40]
+    let v68: i64;  // r12
+    let v69: i64;  // rdi
+    let v72: u128;  // xmm0
+    let v73: u128;  // xmm1
+    let v75: u64;  // rdx
+    let v79: i64;  // rax
+    let v80: i64;  // r14
+    let v82: u64;  // rbx
+    let v83: u64;  // rbx
+    let v84: u64;  // r13
+    let v88: u64;  // rdx
+    let v89: i64;  // r12
+    let v90: core::option::Option<&(&str, proc_macro::bridge::symbol::Symbol)>;  // rax
+    let v91: u128;  // xmm0
+    let v94: u64;  // rdx
+    let v95: u8;  // cl
+    let v106: u704;  // [bp-0x170]
 
-    v47 = a5;
-    *(&v10 as &i8) = uu_cp::TargetType::determine(a2, a3, a4) as i8;
-    v5 = struct1 {
-        field_0: v49
-    };
-    v14 = uu_cp::verify_target_type(a3, a4, &v5);
-    v50 = v14;
-    if v50 != 13 {
-        *((a0 + 56) as &i64) = *(&v20 as &i64);
-        v51 = *(&v15 as &i128);
-        v52 = *(&v16 as &i128);
-        *((a0 + 40) as &i128) = *(&v18 as &i128);
-        *((a0 + 24) as void*) = v52;
-        *((a0 + 8) as void*) = v51;
-        *(a0 as &struct8) = v50;
-        v53 = a0;
-        return v53;
+    v68 = a4;
+    v9 = uu_cp::TargetType::determine(a1, a2, a3) as i8;
+    v2 = uu_cp::TargetType::determine(a1, a2, a3) as i8;
+    v19 = uu_cp::verify_target_type(a2, a3, &v2);
+    if v19 != 13 {
+        *((v69 + 56) as &i64) = *(&v34 as &i64);
+        v72 = *(&v26 as &i128);
+        v73 = *(&v30 as &i128);
+        *((v69 + 40) as &i128) = *(&v32 as &i128);
+        *((v69 + 24) as &u128) = v73;
+        *((v69 + 8) as &u128) = v72;
+        *(v69 as &struct8) = v19;
+        return;
     }
-    v14 = std::thread::local::LocalKey<T>::try_with();
-    v14 = hashbrown::map::HashMap<K,V,S>::with_capacity_and_hasher(a2, core::result::Result<T,E>::expect(&v14), v54);
-    v55 = v14.field_0;
-    v37 = *(&v17 as &i128);
-    v36 = v14.field_16;
-    v35 = v55;
-    v14 = <hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default();
-    v56 = v14.field_0;
-    v40 = *(&v14.field_32 as &i128);
-    v39 = v14.field_16;
-    v38 = v56;
-    v14 = std::thread::local::LocalKey<T>::try_with();
-    v14 = hashbrown::map::HashMap<K,V,S>::with_capacity_and_hasher(a2, core::result::Result<T,E>::expect(&v14), v54);
-    v57 = v14.field_0;
-    v43 = *(&v14.field_32 as &i128);
-    v42 = v14.field_16;
-    v41 = v57;
-    v14 = std::thread::local::LocalKey<T>::try_with();
-    v14 = hashbrown::map::HashMap<K,V,S>::with_capacity_and_hasher(a2, core::result::Result<T,E>::expect(&v14), v54);
-    v58 = v14.field_0;
-    v60 = (((v59 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v55 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v56 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v57 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v58 as u256;
-    v34 = *(&v14.field_32 as &i128);
-    v33 = v14.field_16;
-    v32 = v58;
-    if !*((a5 + 73) as &i8) {
-        *(&v22 as &i64) = 0;
-    } else if !uu_cp::disk_usage(a1, a2, *((a5 + 70) as &i8)) {
-        v11 = indicatif::progress_bar::ProgressBar::new(v54);
-        v14 = indicatif::style::ProgressStyle::with_template(&g_42d0a4);
-        v28 = core::result::Result<T,E>::unwrap(&v14);
-        v6 = indicatif::progress_bar::ProgressBar::with_style(&v11, &v28);
-        v13 = indicatif::progress_bar::ProgressBar::with_message(&v6, uucore::util_name(), v54);
-        indicatif::progress_bar::ProgressBar::tick(&v13);
-        v23 = v13.field_16;
-        v63 = *(&v13.field_0 as &i128);
-        v60 = v60 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v63 as u256;
-        v22 = v63;
-    } else {
-        *(a0 as &i64) = 2;
-        *((a0 + 8) as &unsigned long) = v54;
-        return v53;
+    v19 = std::thread::local::LocalKey<T>::try_with();
+    v19 = hashbrown::map::HashMap<K,V,S>::with_capacity_and_hasher(a1, core::result::Result<T,E>::expect(&v19), v75);
+    memcpy(&v58, &v31, 16);
+    memcpy(&v57, &v19, 16);
+    memcpy(&v56, &v19, 16);
+    v19 = <hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default();
+    memcpy(&v61, &v19, 16);
+    memcpy(&v60, &v19, 16);
+    memcpy(&v59, &v19, 16);
+    v19 = std::thread::local::LocalKey<T>::try_with();
+    v19 = hashbrown::map::HashMap<K,V,S>::with_capacity_and_hasher(a1, core::result::Result<T,E>::expect(&v19), v75);
+    memcpy(&v64, &v19, 16);
+    memcpy(&v63, &v19, 16);
+    memcpy(&v62, &v19, 16);
+    v19 = std::thread::local::LocalKey<T>::try_with();
+    v19 = hashbrown::map::HashMap<K,V,S>::with_capacity_and_hasher(a1, core::result::Result<T,E>::expect(&v19), v75);
+    memcpy(&v55, &v19, 16);
+    memcpy(&v54, &v19, 16);
+    memcpy(&v53, &v19, 16);
+    if *((a4 + 73) as &i8) {
+        if uu_cp::disk_usage(a0, a1, *((a4 + 70) as &i8)) {
+            *(v69 as &i64) = 2;
+            *((v69 + 8) as &u64) = v75;
+            return;
+        }
+        v11 = indicatif::progress_bar::ProgressBar::new(v75);
+        v19 = indicatif::style::ProgressStyle::with_template("{msg}: [{elapsed_precise}] {wide_bar} {bytes:>7}/{total_bytes:7}");
+        core::result::Result<T,E>::unwrap(&v45, &v19);
+        v3 = indicatif::progress_bar::ProgressBar::with_style(&v11, &v45);
+        v16 = indicatif::progress_bar::ProgressBar::with_message(&v3, uucore::util_name(), v75);
+        indicatif::progress_bar::ProgressBar::tick(&v16);
     }
-    v27 = struct16 {
-        field_0: a1
-        field_8: a1 + a2 * 24
-    };
-    v64 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v27);
-    if v64 {
-        v65 = v64;
-        v9 = a0;
-        v4 = *((a5 + 76) as &i8);
-        v3 = *((a5 + 78) as &i8);
-        *(&v10 as &u64) = v10;
-        v26 = *((a5 + 68) as &i8);
-        v25 = *((a5 + 66) as &i8);
-        v24 = a5;
+    v43 = a0;
+    v44 = a0 + a1 * 24;
+    v79 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v43);
+    if v79 {
+        v80 = v79;
+        v8 = v69;
+        v1 = *((a4 + 76) as &i8);
+        v0 = *((a4 + 78) as &i8);
+        v9 = v10;
+        v42 = *((a4 + 68) as &i8);
+        v41 = *((a4 + 66) as &i8);
+        v40 = a4;
         do {
-            v66 = *((v65 + 8) as &i64);
-            v67 = *((v65 + 16) as &i64);
-            v13 = uucore::features::fs::normalize_path(v66, v67);
-            if !v4 && hashbrown::map::HashMap<K,V,S,A>::get_inner(&v35, &v13) {
-                v14 = std::fs::symlink_metadata(v66, v67);
-                match v14 {
+            v83 = *((v80 + 8) as &i64);
+            v84 = *((v80 + 16) as &i64);
+            uucore::features::fs::normalize_path(&v17, v83, v84);
+            if !v1 && hashbrown::map::HashMap<K,V,S,A>::get_inner(&v56, &v17, a1) {
+                v37 = std::fs::symlink_metadata(v83, v84);
+                match v37 as u1536 {
                     Err(_) => {
-                        v83 = v9;
-                        *(v83 as &i64) = 2;
-                        *((v83 + 8) as &unsigned long) = v15;
-                        v53 = v61;
-                        return v53;
+                        *(v8 as &i64) = 2;
+                        *((v8 + 8) as &u64) = v27;
+                        return;
                     },
                     Ok(_) => {
-                        v70 = *((&v14 as &char + 56) as &i32) & 0xf000;
-                        v6 = (v70 == 0x4000 ? &g_42d0e4 : &g_41e2c8);
-                        v7 = (v70 == 0x4000) as u8 as u64 * 5 + 4;
-                        v29 = v54;
-                        v28 = 1;
-                        v29 = v66;
-                        v30 = v67;
-                        *(&v31 as &i8) = 1;
-                        show_warning!("source {} {} specified more than once", &v6, &v28);
-                        v15 = v15;
+                        v45 = uucore::util_name();
+                        v48 = v75;
+                        eprint!("{}: warning: ", &v45);
+                        v45 = 1;
+                        v48 = v83;
+                        v49 = v84;
+                        v50 = 1;
+                        v50 = v51 & -0x100 | 1;
+                        eprintln!("source {} {} specified more than once", &v3, &v45);
+                        v21 = v23;
+                        v28 = v26;
+                        v13 = v12;
+                        v89 = v68;
                     },
                 }
                 continue;
             }
-            v28 = uu_cp::construct_dest_path(v66, v67, a3, a4, v10, v1, v2);
-            if v28 as i32 != 13 {
-                v14 = struct64 {
-                    field_0: v68
-                    field_16: v69
-                    field_32: *((&v28 as &char + 32) as &i128)
-                    field_48: *((&v28 as &char + 48) as &i128)
-                };
-                v8 = uu_cp::copy::{{closure}}(a3, a4, &v14);
+            v46 = uu_cp::construct_dest_path(v83, v84, a2, a3, v9, v41, v42);
+            if v46.field_0 as i32 == 13 {
+                v7 = v50;
+                *(&v4 as &i128) = *(&v48 as &i128);
             } else {
-                v8 = *((&v28 as &char + 24) as &i64);
-                *(&v8 as &i128) = *((&v28 as &char + 8) as &i128);
+                v21 = struct64 {
+                    field_0: *(&v46.field_0 as &i128)
+                    field_16: v46.field_8
+                    field_32: v52
+                    field_48: v46.field_32
+                };
+                v5 = uu_cp::copy::{{closure}}(a2, a3, &v21);
             }
-            v14 = std::fs::metadata(&v8);
-            match v14 {
-                Ok(_) => {
-                    v14 = std::fs::symlink_metadata(&v8);
-                    match v14 {
-                        Err(_) => {
-                            vvar_1278{reg 136} = v9;
-                            *(v80 as &i64) = 2;
-                            *((v80 + 8) as &unsigned long) = v15;
-                            return v53;
-                        },
-                        Ok(_) => {
-                            if !((*((&v14 as &char + 56) as &i32) & 0xf000) == 0xa000) {
-                                goto LABEL_5038bb;
-                            }
-                        },
-                    }
-                },
-                Err(_) => {
-                    v14 = std::fs::metadata(v65);
-                },
+            v37 = std::fs::metadata(&v3, v88);
+            if let Ok(_) = v37 as u1536 {
+                v37 as u1536 = std::fs::symlink_metadata(&v3, a1);
+                if let Err(_) = v37 as u1536 {
+                    *(v8 as &i64) = 2;
+                    *((v8 + 8) as &u64) = v27;
+                    return;
+                }
+                if !((v34 as i32 & 0xf000) == 0xa000) {
+                    goto LABEL_5038bb;
+                }
             }
-            match v14 {
-                Ok(_) => {
-                    v14 = std::fs::symlink_metadata(v65);
-                    match v14 {
-                        Err(_) => {
-                            v80 = v9;
-                            *(v80 as &i64) = 2;
-                            *((v80 + 8) as &unsigned long) = v15;
-                            return v53;
-                        },
-                        Ok(_) => {
-                            if (*((&v14 as &char + 56) as &i32) & 0xf000) == 0xa000 {
-                                goto LABEL_5038bb;
-                            }
-                        },
-                    }
-                },
-                Err(_) => {
-                    if !(v3 == 1) {
-                        goto LABEL_5038dd;
-                    }
-                },
+            v37 = std::fs::metadata(v80, a1);
+            if let Ok(_) = v37 as u1536 {
+                v37 as u1536 = std::fs::symlink_metadata(v80, a1);
+                if let Err(_) = v37 as u1536 {
+                    *(v8 as &i64) = 2;
+                    *((v8 + 8) as &u64) = v27;
+                    return;
+                }
+                if (v34 as i32 & 0xf000) == 0xa000 {
+                    goto LABEL_5038bb;
+                }
+            }
+            if !(v0 == 1) {
+                goto LABEL_5038dd;
             }
 LABEL_5038bb:
-            if v4 != 2 && hashbrown::map::HashMap<K,V,S,A>::get_inner(&v32, &v8) {
-                v45 = (&v8)[8] as i128;
-                v11 = v66;
-                v12 = v67;
-                v44 = format!("will not overwrite just-created '{}' with '{}'", &v45, &v11);
-                v85 = v9;
-                *((v85 + 24) as &u64) = v44.len;
-                *((v85 + 8) as &i128) = *(&v44.ptr as &i128);
-                *(v85 as &i64) = 4;
-                return v53;
+            v90 = hashbrown::map::HashMap<K,V,S,A>::get_inner(&v53, &v3, a1);
+            if v1 != 2 && v90 {
+                memcpy(&v67, &v6, 16);
+                v11 = v83;
+                v14 = v84;
+                v45 = &v67;
+                v48 = <std::path::Display as core::fmt::Display>::fmt;
+                v49 = &v11;
+                v50 = <std::path::Display as core::fmt::Display>::fmt;
+                v19 = "will not overwrite just-created '";
+                v26 = 3;
+                v31 = 0;
+                v29 = &v45;
+                v30 = 2;
+                v19 = core::option::Option<T>::map_or_else(a1);
+                *((v8 + 24) as &u64) = v66;
+                *((v8 + 8) as &u128) = v65;
+                *(v8 as &i64) = 4;
+                return;
             }
 LABEL_5038dd:
-            v28 = uu_cp::copy_source(&v22, v66, v67, a3, a4, v0, v47, &v38, &v32, &v41);
-            v75 = v28;
-            if v75 == 13 {
-                v14 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(&v8);
-                v11 = v14;
-                v32 = hashbrown::map::HashMap<K,V,S,A>::insert(&v11);
+            v47 = uu_cp::copy_source(&v38, v83, v84, a2, a3, v9, v68, &v59, &v53, &v62);
+            if v47.field_0 != 13 {
+                v91 = *(&v47.field_0 as &i128);
+                v33 = v106;
+                v31 = v52;
+                v21 = struct32 {
+                    field_0: v91
+                    field_8: <UNKNOWN>
+                    field_24: <UNKNOWN>
+                };
+                uu_cp::show_error_if_needed(&v21);
             } else {
-                v76 = v28.field_0;
-                v77 = v28.field_16;
-                v19 = v28.field_48;
-                *(&v17 as &u128) = v28.field_32;
-                v89 = v77;
-                v14 = v76;
-                uu_cp::show_error_if_needed(&v14);
+                v4 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(a1);
+                v15 = v29;
+                v13 = v25 as i128;
+                hashbrown::map::HashMap<K,V,S,A>::insert(&v53, &v11, a1, a2);
             }
-            v15 = v15;
-            v72 = v24;
-            if v75 as u32 == 13 {
-                v15 = v15;
-                v24 = v24;
+            v21 = v20;
+            v28 = v27;
+            v13 = v11;
+            v89 = v40;
+            if v47.field_0 == 13 {
+                v21 = v20;
+                v28 = v27;
+                v13 = v11;
+                v89 = v40;
             }
-            v15 = v15;
-            v60 = v73 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v13.field_0 as &i128);
-            *(&v14.field_0 as &struct24) = struct24 {
-                field_0: v79
-                field_16: v13.field_16
-            };
-            v35 = hashbrown::map::HashMap<K,V,S,A>::insert(&v14);
-            v65 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v27);
-        } while (v65);
-        if v22 as i64 {
-LABEL_503aa9:
-            v14 = v22 as i192;
-            indicatif::progress_bar::ProgressBar::finish(&v14);
+            v68 = v89;
+            v11 = v13;
+            v27 = v28;
+            v19 = v21;
+            v29 = v18;
+            v19 = v17;
+            hashbrown::map::HashMap<K,V,S,A>::insert(&v56, &v19, v94, v95);
+            <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v43);
+        } while (v80);
+        if !(!v38) {
+            goto LABEL_503aa9;
         }
-    } else if !(!v22 as i64) {
-        goto LABEL_503aa9;
+    } else if v38 {
+LABEL_503aa9:
+        v19 = v35;
+        indicatif::progress_bar::ProgressBar::finish(&v19);
     }
-    return v53;
+    *(v69 as &u64) = v82;
+    return;
 }

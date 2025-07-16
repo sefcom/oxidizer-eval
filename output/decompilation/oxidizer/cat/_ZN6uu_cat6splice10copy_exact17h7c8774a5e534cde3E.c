@@ -1,41 +1,52 @@
-fn uu_cat::splice::copy_exact(a0: u32, a1: u32, a2: u32) -> u64 {
-    let v0: i32;  // [sp-0x406c]
-    let v1: i64;  // [sp-0x4068]
-    let v2: Result<struct8, struct4>;  // [sp-0x4060]
-    let v3: Arguments;  // [bp-0x4060]
-    let v4: i64;  // [sp-0x4058]
-    let v5: i64;  // [sp-0x4030]
-    let v10: i64;  // rbx
-    let v12: i64;  // rbx
-    let v13: i64;  // rbp
-    let v14: i64;  // rdx
-    let v15: i64;  // rax
+fn uu_cat::splice::copy_exact(a0: i32, a1: i64, a2: i64) -> long long {
+    let v0: u64;  // [bp-0x4068]
+    let v1: u320;  // [bp-0x4060], Other Possible Types: struct12, Result<struct8, struct4>
+    let v2: u32;  // [bp-0x405c]
+    let v3: u64;  // [bp-0x4058]
+    let v4: void*;  // [bp-0x4030]
+    let v5: void*;  // [bp-0x3030]
+    let v6: void*;  // [bp-0x2030]
+    let v7: void*;  // [bp-0x1030]
+    let v10: u64;  // rbx
+    let v11: u64;  // r13
+    let v12: core::result::Result<(), std::io::error::Error>;  // rbp
+    let v14: u32;  // rdx
 
+    v7 = 0;
+    v6 = 0;
+    v5 = 0;
+    v4 = 0;
+    memset(&v4, 0, 0x4000);
+    if !a2 {
+        return 134;
+    }
     do {
-        v12 = v10;
-        v2 = nix::unistd::read(v0 as u64, &v5, 0x4000);
-        if !v1 {
-            v3 = Arguments {
-                pieces: ["unexpected end of pipe"]
-                args: []
-                fmt: 0
+        v10 = a2;
+        v1 = nix::unistd::read(a0, &v4, 0x4000);
+        if let Err(_) = v1 {
+            return v2 as u64;
+        }
+        v11 = v3;
+        v0 = v11;
+        if !v11 {
+            v1 = struct40 {
+                field_0: "unexpected end of pipe"
+                field_8: 1
+                field_16: 8
+                field_24: 0
             };
-            core::panicking::assert_failed(&v1, &v3, "src/uu/cat/src/splice.rs"); /* do not return */
+            core::panicking::assert_failed(&v0, &v1, "src/uu/cat/src/splice.rs"); /* do not return */
         }
-        v13 = 0;
-        v2 = nix::unistd::write(a1, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v13, v1, &v5), v14);
-        if !(!v2 as i32) {
-            goto LABEL_0x4b4b9f;
-        }
-        v15 = v4;
-        if !v15 {
-            uu_cat::splice::copy_exact::panic_cold_explicit(); /* do not return */
-        }
-        v13 += v15;
-        if v13 < v1 {
-            continue;
-        }
-        v10 = v12 - v1;
-    } while (v12 != v1);
+        do {
+            v1 = nix::unistd::write(a1, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v12, v11, &v4), v14);
+            if v1.field_0 {
+                return v2;
+            }
+            if !v3 {
+                uu_cat::splice::copy_exact::panic_cold_explicit(); /* do not return */
+            }
+        } while (v12 < v11);
+        a2 = v10 - v11;
+    } while (v10 != v11);
     return 134;
 }

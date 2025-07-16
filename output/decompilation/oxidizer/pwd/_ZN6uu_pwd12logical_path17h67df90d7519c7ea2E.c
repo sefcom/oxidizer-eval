@@ -1,18 +1,21 @@
-fn uu_pwd::logical_path(a0: &struct24) -> u64 {
-    let v0: i64;  // [sp-0x40], Other Possible Types: struct24
-    let v1: Option<struct24>;  // [sp-0x28]
+fn uu_pwd::logical_path() -> Result<struct24, struct16> {
+    let a0: i64;  // rsi
+    let v0: struct24;  // [bp-0x40]
+    let v1: u32;  // [bp-0x38]
+    let v2: u32;  // [bp-0x30]
+    let v3: struct24;  // [bp-0x28]
+    let v5: i64;  // rdi
+    let v6: u64;  // rsi
 
-    v1 = std::env::var_os("PWD");
-    match v1 {
-        None => {
-            v0 = 0x8000000000000000;
-        },
-        Some(_) => {
-            v0 = core::ops::function::FnOnce::call_once(&v1);
-            if v0 != 0x8000000000000000 && uu_pwd::logical_path::looks_reasonable(*((&v0.field_0 as &char + 8) as &i64), v0.field_16) as i8 {
-                return v0;
-            }
-        },
+    v3 = std::env::var_os("PWD");
+    if v3.field_0 != 0x8000000000000000 {
+        v0 = core::ops::function::FnOnce::call_once(&v3);
+        if v0.field_0 != 0x8000000000000000 && uu_pwd::logical_path::looks_reasonable(v1, v2) as i8 {
+            *((v5 + 16) as &u32) = v2;
+            *(v5 as &i128) = *(&v0.field_0 as &i128);
+            return;
+        }
     }
-    std::env::current_dir(a0);
+    std::env::current_dir(v6);
+    return;
 }

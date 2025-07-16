@@ -1,12 +1,8 @@
-fn uu_ls::dired::add_total(a0: &struct8, a1: u32) -> u64 {
+fn uu_ls::dired::add_total(a1: i64) -> : struct8 {
+    let a0: i64;  // rdi
     let v1: u64;  // rax
-    let v2: u64;  // rax
 
-    v1 = a0[6];
-    if !v1 {
-        v2 = a0[2];
-        v1 = (!v2 ? 0 : *((v2 * 16 + a0[1] - 8) as &i64) + 1);
-    }
-    a0[6] = v1 + a1 + 2;
+    v1 = *((a0 + 48) as &i64);
+    *((a0 + 48) as &u64) = v1 + a1 + 2;
     return v1 + a1 + 2;
 }

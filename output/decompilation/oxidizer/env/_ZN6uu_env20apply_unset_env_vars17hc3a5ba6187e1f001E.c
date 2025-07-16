@@ -1,69 +1,66 @@
-fn uu_env::apply_unset_env_vars(a0: &u64) -> u64 {
-    let v0: i64;  // [sp-0xd8]
-    let v1: i64;  // [sp-0xd0]
-    let v2: i64;  // [sp-0xc8]
-    let v3: i64;  // [sp-0xc0]
-    let v4: i64;  // [sp-0xb8]
-    let v5: i64;  // [sp-0xb0]
-    let v6: iNone;  // [sp-0xa8]
-    let v7: i64;  // [sp-0x68]
-    let v8: i64;  // [sp-0x60]
-    let v9: i64;  // [sp-0x58]
-    let v10: i8;  // [sp-0x50]
-    let v11: String;  // [sp-0x48]
-    let v13: struct8;  // rax
-    let v14: struct8;  // rbp
-    let v15: i64;  // rax
-    let v16: i64;  // rax
-    let v17: i32;  // eax
-    let v18: i64;  // rax
+fn uu_env::apply_unset_env_vars(a0: i64) -> long long {
+    let v1: u64;  // [bp-0xd0]
+    let v2: u64;  // [bp-0xc8]
+    let v3: u64;  // [bp-0xc0]
+    let v4: alloc::string::String;  // [bp-0xb8]
+    let v5: u64;  // [bp-0xb0]
+    let v6: struct24;  // [bp-0xa8], Other Possible Types: u64
+    let v7: u64;  // [bp-0xa0]
+    let v8: i64;  // [bp-0x98], Other Possible Types: u64
+    let v9: u64;  // [bp-0x90]
+    let v10: void*;  // [bp-0x88]
+    let v11: i64;  // [bp-0x78]
+    let v12: u64;  // [bp-0x70]
+    let v13: u64;  // [bp-0x68]
+    let v14: alloc::string::String;  // [bp-0x60]
+    let v15: u64;  // [bp-0x58]
+    let v16: u8;  // [bp-0x50]
+    let v17: u8;  // [bp-0x48]
+    let v18: i8;  // [bp-0x38]
+    let v20: alloc::raw_vec::Cap;  // rax
+    let v21: u64;  // rax
+    let v22: u64;  // rax
+    let v23: u32;  // eax
+    let v24: u64;  // rdx
 
     v1 = *((a0 + 32) as &i64);
-    v2 = *((a0 + 40) as &i64) * 16 + v1;
-    v13 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-    if !v13 {
+    v2 = *((a0 + 40) as &i64) * 16 + *((a0 + 32) as &i64);
+    v20 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
+    if !v20 {
         return 0;
     }
-    v14 = v13;
-    v0 = "src/uu/env/src/env.rs";
     do {
         v3 = 0x8000000000000000;
-        v4 = v8;
-        v5 = v9;
+        v4 = *(v20 as &i64);
+        v5 = *((v20 + 8) as &i64);
         if !v5 {
-            v7 = 1;
-            v8 = v4;
-            v9 = v5;
-            v10 = 1;
-            v11 = format!("cannot unset {}: Invalid argument", &v7);
-            v6 = *(&v11 as &i224);
-            v18 = alloc::boxed::Box<T>::new(&v6);
-            return v18;
+LABEL_4ced79:
+            v13 = 1;
+            v14 = *(v20 as &i64);
+            v15 = v5;
+            v16 = 1;
+            v11 = &v13;
+            v12 = <os_display::Quoted as core::fmt::Display>::fmt;
+            v6 = "cannot unset ";
+            v7 = 2;
+            v10 = 0;
+            v8 = &v11;
+            v9 = 1;
+            v6 = core::option::Option<T>::map_or_else(v24);
+            v9 = 125;
+            memcpy(&v6, &v17, 16);
+            v8 = *(&v18 as &i64);
+            return alloc::boxed::Box<T>::new(&v6);
         }
-        v15 = uu_env::native_int_str::NativeStr::contains(&v3, &g_417568);
-        if v15 as u8 {
-            v17 = v15 as u32;
-            goto LABEL_4ced70;
-        } else {
-            v16 = uu_env::native_int_str::NativeStr::contains(&v3, &g_417620);
-            if v16 as u8 {
-                v17 = v16 as u32;
-                v0 = "src/uu/env/src/env.rs";
-LABEL_4ced70:
-                if v17 != 2 {
-                    vvar_235{stack -104} = 1;
-                    vvar_236{stack -96} = v4;
-                    vvar_237{stack -88} = v5;
-                    vvar_238{stack -80} = 1;
-                    vvar_239{stack -72} = format!("cannot unset {}: Invalid argument", &v7);
-                    vvar_241{stack -168} = *(&v11 as &i224);
-                    vvar_242{reg 16} = alloc::boxed::Box<T>::new(&v6);
-                    return v18;
-                }
-                core::option::unwrap_failed(v0); /* do not return */
+        v21 = uu_env::native_int_str::NativeStr::contains(&v3, &g_417568);
+        if v21 || (v22 = uu_env::native_int_str::NativeStr::contains(&v3, &g_417620) as i64, uu_env::native_int_str::NativeStr::contains(&v3, &g_417620) as i64 as i8) {
+            if v23 == 2 {
+                core::option::unwrap_failed(); /* do not return */
             }
+            goto LABEL_4ced79;
         }
-        std::env::remove_var(v14);
-        v14 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-    } while (v14);
+        std::env::remove_var(v20);
+        v20 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
+    } while (v20);
+    return 0;
 }

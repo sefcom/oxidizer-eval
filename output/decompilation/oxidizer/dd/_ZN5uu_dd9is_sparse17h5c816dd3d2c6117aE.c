@@ -1,8 +1,9 @@
-fn uu_dd::is_sparse(a0: u32, a1: u32) -> u64 {
-    let v0: u64;  // [sp-0x10]
-    let v1: u64;  // [sp-0x8]
+fn uu_dd::is_sparse(a0: i64, a1: i64) -> char {
+    let v0: u128;  // [bp-0x10]
 
-    v0 = a0;
-    v1 = a1 + a0;
-    return <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::all();
+    v0 = struct16 {
+        field_0: a0
+        field_8: a1 + a0
+    };
+    return <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::all(&v0);
 }

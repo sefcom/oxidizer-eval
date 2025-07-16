@@ -1,52 +1,59 @@
-fn uu_cp::platform::linux::sparse_copy(a0: u32, a1: u32, a2: u32, a3: u32) -> u64 {
-    let v0: struct4;  // [bp-0xf8]
-    let v1: i32;  // [bp-0xf4], Other Possible Types: struct4
-    let v2: i64;  // [sp-0xf0]
-    let v3: i64;  // [sp-0xe8]
-    let v4: struct16;  // [sp-0xe0], Other Possible Types: struct24
-    let v5: i8;  // [bp-0x90]
-    let v6: i8;  // [bp-0x88]
-    let v8: i64;  // r14
-    let v9: i64;  // rbx
-    let v10: i64;  // r14
-    let v11: i64;  // r15
-    let v12: i64;  // rdx
+fn uu_cp::platform::linux::sparse_copy(a1: i32, a2: i64, a3: i64) -> Result<struct4, struct8> {
+    let a0: u64;  // rdi
+    let v0: u32;  // [bp-0xf8]
+    let v1: std::fs::File;  // [bp-0xf4]
+    let v2: u64;  // [bp-0xf0]
+    let v3: u128;  // [bp-0xf0]
+    let v4: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xe0], Other Possible Types: alloc::vec::Vec<u8, alloc::alloc::Global>, u32
+    let v5: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xe0]
+    let v6: std::fs::File;  // [bp-0xdc]
+    let v7: u64;  // [bp-0xd8]
+    let v8: struct24;  // [bp-0xd0]
+    let v9: u64;  // [bp-0x90]
+    let v11: u64;  // r14
+    let v12: struct32;  // r15
+    let v13: u64;  // rdx
+    let v15: u64;  // rax
+    let v16: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
 
-    vvar_332{stack -248} = std::fs::File::open(a0, a1)?;
-    v0 = struct4 {
-        field_0: *((&v4 as &char + 4) as &i32)
-    };
-    vvar_333{stack -244} = std::fs::File::create(a2, a3)?;
-    v1 = struct4 {
-        field_0: *((&v4 as &char + 4) as &i32)
-    };
-    v4 = std::fs::File::metadata(&v0);
-    if v4.field_0 as i32 == 2 {
-        return v8;
+    std::fs::File::open(a0, a1, a3);
+    if v4 {
+        return v7;
     }
-    v9 = *(&v5 as &i64);
+    v0 = v6;
+    v4 = std::fs::File::create(a2, a3);
+    if !(!v4 as i32 && (v1 = v6, v4 = std::fs::File::metadata(&v0), v4 as i32 != 2)) {
+        return v11;
+    }
     core::result::Result<T,E>::unwrap(v9 >> 63, "src/uu/cp/src/platform/linux.rs");
-    if ftruncate(v1 as u64, v9) < 0 {
-        v10 = std::sys::pal::unix::os::errno() as i32 * 0x100000000 | 2;
-        return v8;
-    }
-    v4 = std::fs::File::metadata(&v1);
-    if v4.field_0 as i32 != 2 {
-        v4 = <u8 as alloc::vec::spec_from_elem::SpecFromElem>::from_elem(*(&v6 as &i64));
-        if !v9 {
-            return 0;
+    if ftruncate(v1, v9) >= 0 {
+        v5 = std::fs::File::metadata(&v1);
+        if let Ok(_) = v5 {
+            v4 = <u8 as alloc::vec::spec_from_elem::SpecFromElem>::from_elem(*((&v5 as &char + 88) as &i64) as i8, a2);
+            if !v9 {
+                return 0;
+            }
+            loop {
+                v16 = <std::fs::File as std::io::Read>::read(&v0, v7, v8.field_0);
+                v11 = *((&v16 as &char + 8) as &i64);
+                if let Err(_) = v16 {
+                    break;
+                }
+                v3 = struct16 {
+                    field_0: <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(*((&v16 as &char + 8) as &i64), v7, v8.field_0)
+                    field_8: v2 + v13
+                };
+                if <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::any(&v3) && (v15 = std::os::unix::fs::FileExt::write_all_at(&v1, v3 as i64, v13, v12), v15) {
+                    v11 = v15;
+                    break;
+                }
+                v12 += *((&v16 as &char + 8) as &i64);
+                if (v12 >= v9)
+                    break;
+            }
         }
-        v11 = 0;
-        do {
-            if <std::fs::File as std::io::Read>::read(&v0, v4.field_8, v4.field_16) {
-                return v8;
-            }
-            v2 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v12, v4.field_8, v4.field_16);
-            v3 = v2 + v12;
-            if <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::any() as u8 && std::os::unix::fs::FileExt::write_all_at(&v1, v2, v12, v11) {
-                return v8;
-            }
-            v11 += v12;
-        } while (v11 < v9);
+    } else {
+        v11 = std::sys::pal::unix::os::errno() * 0x100000000 | 2;
     }
+    return v11;
 }

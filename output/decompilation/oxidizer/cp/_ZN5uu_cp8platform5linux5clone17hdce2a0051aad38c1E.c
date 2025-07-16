@@ -1,8 +1,8 @@
-fn uu_cp::platform::linux::clone(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {
-    let v0: struct32;  // [bp-0x48]
-    let v1: Result<struct4, struct8>;  // [sp-0x28]
-    let v3: i64;  // rax
-    let v5: i64;  // r14
+fn uu_cp::platform::linux::clone(a0: i64, a1: i64, a2: i64, a3: i64, a4: i32) -> long long {
+    let v0: u256;  // [bp-0x48]
+    let v1: Result<struct4, struct8>;  // [bp-0x28]
+    let v2: core::result::Result<std::fs::File, std::io::error::Error>;  // [bp-0x28]
+    let v5: core::result::Result<(), std::io::error::Error>;  // r14
 
     v0 = struct32 {
         field_0: a0
@@ -12,16 +12,12 @@ fn uu_cp::platform::linux::clone(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32) ->
     };
     v1 = std::fs::File::open(&v0);
     match v1 {
-        Err(v3) => {
-            return v3;
+        Err(_) => {
+            return *((&v1 as &char + 8) as &i64);
         },
         Ok(_) => {
-            v1 = std::fs::File::create(&v0);
-            if !v1 as i32 && ioctl(*((&v1 as &char + 4) as &i32) as u32 as u64, 1074041865) {
-                goto (*((4380876 + vvar_4 as u32 as u64 * 4) as &i32) + 4380876) as i64;
-            }
-            v3 = v5;
-            return v3;
+            v2 = std::fs::File::create(&v0 as u64, a2);
+            return v5;
         },
     }
 }

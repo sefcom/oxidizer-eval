@@ -1,18 +1,19 @@
-fn uu_dd::blocks::block(a0: &struct24, a1: u64, a2: u64, a3: u64, a4: u64, a5: u64) -> int {
-    let v0: i64;  // [bp-0x78], Other Possible Types: struct24
-    let v1: i64;  // [sp-0x70]
-    let v2: struct24;  // [sp-0x60]
-    let v3: i64;  // [sp-0x50]
-    let v4: struct8;  // [bp-0x48]
-    let v5: struct17;  // [bp-0x40]
-    let v7: i64;  // r15
-    let v8: i64;  // r14
-    let v9: i64;  // r12
+fn uu_dd::blocks::block(a1: i64, a2: i64, a3: i64, a4: i8, a5: i64) -> : struct24 {
+    let a0: i64;  // rdi
+    let v0: u192;  // [bp-0x78]
+    let v1: Result<struct4, struct8>;  // [bp-0x68]
+    let v2: struct24;  // [bp-0x60]
+    let v3: u64;  // [bp-0x58]
+    let v4: Result<struct16, struct12>;  // [bp-0x50]
+    let v5: struct437;  // [bp-0x48]
+    let v6: u136;  // [bp-0x40]
+    let v8: u64;  // r14
+    let v9: core::result::Result<u64, std::io::error::Error>;  // r15
+    let v10: u64;  // r12
+    let v11: i64;  // rax
 
-    v4 = struct8 {
-        field_0: a3
-    };
-    v5 = struct17 {
+    v5 = a3;
+    v6 = struct17 {
         field_0: a1
         field_8: a2
         field_16: 0
@@ -22,16 +23,26 @@ fn uu_dd::blocks::block(a0: &struct24, a1: u64, a2: u64, a3: u64, a4: u64, a5: u
         field_8: 8
         field_16: 0
     };
-    v2 = core::iter::traits::iterator::Iterator::fold(&v5, &v0, &v4, a5 + 24);
-    v7 = v3;
-    if v7 && (!a4 || !*((a5 + 8) as &i64)) {
-        v8 = v2.field_8;
-        v9 = (v7 - 1) * 3;
-        v0 = *((v8 + v9 * 8 + 8) as &i64);
-        v1 = *((v8 + v9 * 8 + 16) as &i64) + v0;
+    v2 = core::iter::traits::iterator::Iterator::fold(&v6, &v0, &v5, a5 + 24);
+    if let Ok(_) = v4 {
+        if !a4 || !*((a5 + 8) as &i64) {
+            v8 = v3;
+            v9 = v4 - 1;
+            v10 = v9 * 3;
+            v0 = struct16 {
+                field_0: *((v8 + v10 * 8 + 8) as &i64)
+                field_8: *((v8 + v10 * 8 + 16) as &i64) + *((v8 + v10 * 8 + 8) as &i64)
+            };
+            if <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::all(&v0) {
+                v11 = v8 + v10 * 8;
+                v4 = v9;
+                v1 = *((v11 + 16) as &i64);
+                v0 = *(v11 as &i128) as u128;
+            }
+        }
     }
     return struct24 {
-        field_0: v10
-        field_16: v3
+        field_0: v2.field_0
+        field_16: v4
     };
 }

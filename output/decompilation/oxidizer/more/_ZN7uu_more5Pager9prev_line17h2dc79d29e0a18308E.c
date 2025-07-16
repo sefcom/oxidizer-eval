@@ -1,7 +1,9 @@
-fn uu_more::Pager::prev_line(a0: &struct8) -> u64 {
-    let v1: u64;  // rax
+fn uu_more::Pager::prev_line() -> : struct8 {
+    let a0: i64;  // rsi
+    let v1: i64;  // rdi
+    let v2: u64;  // rax
 
-    v1 = a0->field_18;
-    *(&a0->field_18 as &i32) = (1 <= v1 ? v1 - 1 : 0);
-    return v1 - 1;
+    v2 = *((v1 + 24) as &i64) - 1;
+    *((v1 + 24) as &u64) = v2;
+    return;
 }

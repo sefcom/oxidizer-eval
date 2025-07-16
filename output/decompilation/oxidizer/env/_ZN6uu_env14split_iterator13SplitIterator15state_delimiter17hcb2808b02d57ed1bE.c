@@ -1,33 +1,36 @@
-fn uu_env::split_iterator::SplitIterator::state_delimiter(a0: &Option<struct40>, a1: u32) -> u64 {
-    let v0: struct21;  // [sp-0x58], Other Possible Types: int, struct41, Option<struct40>, struct40
-    let v1: i32;  // [sp-0x2c]
+fn uu_env::split_iterator::SplitIterator::state_delimiter(a0: &struct40, a1: i64) -> long long {
+    let v0: u128;  // [bp-0x58]
+    let v1: struct40;  // [bp-0x58]
+    let v2: struct41;  // [bp-0x58]
+    let v3: struct40;  // [bp-0x58]
+    let v4: u128;  // [bp-0x48]
+    let v5: u32;  // [bp-0x2c]
+    let v7: u32;  // rdx
 
     loop {
-        v1 = uu_env::split_iterator::SplitIterator::get_current_char(a1) as i32;
-        match (v1) {
+        v5 = uu_env::split_iterator::SplitIterator::get_current_char(a1) as i32;
+        match (v5) {
             35 => {
-                v0 = uu_env::split_iterator::SplitIterator::skip_one(a1);
-                if v0.field_0 != 8 {
-                    return Some(struct40 {
-                        field_0: v4
-                        field_16: (&v0)[16] as i128
-                        field_32: v3
-                    });
+                uu_env::split_iterator::SplitIterator::skip_one(a1, v7);
+                if v0 as i32 != 8 {
+                    return struct40 {
+                        field_0: v0
+                        field_16: v4
+                        field_32: v2.field_21 as i64
+                    };
                 }
-                v0 = uu_env::split_iterator::SplitIterator::state_comment(a1);
-                break;
+                v1 = uu_env::split_iterator::SplitIterator::state_comment(a1);
             }
             92 => {
-                v0 = uu_env::split_iterator::SplitIterator::skip_one(a1);
-                if v0.field_0 != 8 {
-                    return Some(struct40 {
-                        field_0: v4
-                        field_16: (&v0)[16] as i128
-                        field_32: v3
-                    });
+                uu_env::split_iterator::SplitIterator::skip_one(a1, v7);
+                if v0 as i32 != 8 {
+                    return struct40 {
+                        field_0: v0
+                        field_16: v4
+                        field_32: v2.field_21 as i64
+                    };
                 }
-                v0 = uu_env::split_iterator::SplitIterator::state_delimiter_backslash(a1);
-                break;
+                v2 = uu_env::split_iterator::SplitIterator::state_delimiter_backslash(a1);
             }
             1114112 => {
                 return struct4 {
@@ -35,21 +38,19 @@ fn uu_env::split_iterator::SplitIterator::state_delimiter(a0: &Option<struct40>,
                 };
             }
             _ => {
-                if !<T as core::slice::cmp::SliceContains>::slice_contains(&v1, &g_425318, 6) as i8 {
-                    v0 = uu_env::split_iterator::SplitIterator::state_unquoted(a1);
-                    break;
+                if !<T as core::slice::cmp::SliceContains>::slice_contains(&v5, &g_425318, 6) {
+                    v3 = uu_env::split_iterator::SplitIterator::state_unquoted(a1);
                 } else {
-                    v0 = uu_env::split_iterator::SplitIterator::skip_one(a1);
-                    break;
+                    uu_env::split_iterator::SplitIterator::skip_one(a1, v7);
                 }
             }
         }
         if v0 as i32 != 8 {
-            return Some(struct40 {
-                field_0: v4
-                field_16: (&v0)[16] as i128
-                field_32: v3
-            });
+            return struct40 {
+                field_0: v0
+                field_16: v4
+                field_32: v2.field_21 as i64
+            };
         }
     }
 }

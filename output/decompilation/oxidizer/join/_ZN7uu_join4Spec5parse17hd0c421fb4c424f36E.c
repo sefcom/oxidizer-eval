@@ -1,88 +1,74 @@
-fn uu_join::Spec::parse(a0: &struct24, a1: u64, a2: u32) -> u64 {
-    let v0: i64;  // [sp-0xb0]
-    let v1: i64;  // [sp-0xa8]
-    let v2: i64;  // [sp-0xa0]
-    let v3: i64;  // [sp-0x98]
-    let v4: i64;  // [sp-0x90]
-    let v5: i8;  // [sp-0x88]
-    let v6: i8;  // [bp-0x80]
-    let v7: i64;  // [sp-0x78]
-    let v8: i64;  // [bp-0x70], Other Possible Types: struct16, struct40
-    let v9: i64;  // [sp-0x68]
-    let v10: String;  // [sp-0x40], Other Possible Types: struct24
-    let v11: i32;  // [sp-0x28]
-    let v13: i32;  // edx
-    let v14: i32;  // eax
-    let v15: i8;  // bpl
-    let v18: i64;  // rax
-    let v19: i64;  // rcx
+fn uu_join::Spec::parse(a1: i64, a2: i64) -> : struct24 {
+    let a0: i64;  // rdi
+    let v0: i64;  // [bp-0xb0]
+    let v1: u64;  // [bp-0xa8]
+    let v2: void*;  // [sp-0xa0]
+    let v3: u64;  // [sp-0x98]
+    let v4: u64;  // [bp-0x90]
+    let v5: u8;  // [bp-0x88]
+    let v6: u128;  // [bp-0x80]
+    let v7: Result<struct16, struct16>;  // [bp-0x70], Other Possible Types: u320
+    let v8: u64;  // [bp-0x68]
+    let v9: struct24;  // [bp-0x40]
+    let v13: core::result::Result<(), std::io::error::Error>;  // eax
+    let v14: struct8;  // bpl
+    let v18: u32;  // edx
+    let v19: u64;  // rax
+    let v21: struct8;  // rax
+    let v22: struct8;  // rax
+    let v23: core::option::Option<u32>;  // rax:rax
+    let v25: &[u8];  // rax:rdx
+    let v26: core::option::Option<u32>;  // rax:rax
 
-    v7 = a1 + a2;
-    v14 = (core::str::validations::next_code_point(&v6) as i32 ? v13 : 0x110000);
-    if v14 != 48 {
-        if v14 == 49 {
-            v15 = 0;
-            goto LABEL_4c3736;
+    v6 = core::slice::iter::Iter<u8> {
+        ptr: core::ptr::non_null::NonNull<u8> {
+            pointer: a1
         }
-        if v14 != 50 {
+        end_or_len: a1 + a2
+        _marker: core::marker::PhantomData<&u8> { }
+    };
+    v23 = core::str::validations::next_code_point(&v6) as u128;
+    if let Ok(_) = v13 {
+        if !(v13 == 49 || v13 == 50) {
+            goto LABEL_0x4c389e;
+        }
+        v26 = core::str::validations::next_code_point(&v6) as u128;
+        if !(v26 as i32 && v18 == 46) {
             v2 = 0;
             v3 = a1;
             v4 = a2;
             v5 = 1;
             v0 = &v2;
             v1 = <os_display::Quoted as core::fmt::Display>::fmt;
-LABEL_4c389e:
-            v8 = struct40 {
-                field_0: v16
+            v7 = struct40 {
+                field_0: "invalid field specifier: "
                 field_8: 1
                 field_16: &v0
                 field_24: 1
                 field_32: 0
             };
-            v10 = core::option::Option<T>::map_or_else(&v8);
-            v11 = 1;
-            *((a0 + 8) as &double) = alloc::boxed::Box<T>::new(&v10);
-            v18 = &g_5352b8;
-LABEL_4c38f8:
-            *((a0 + 16) as &unsigned long) = v18;
-        } else {
-            v15 = vvar_53{reg 56} & -0x100 | 1;
-LABEL_4c3736:
-            if !(core::str::validations::next_code_point(&v6) as i32) || !(v13 == 46) {
-                v2 = 0;
-                v3 = a1;
-                v4 = a2;
-                v5 = 1;
-                v10 = format!("invalid field specifier: {}", &v2);
-                v11 = 1;
-                *((a0 + 8) as &double) = alloc::boxed::Box<T>::new(&v10);
-                *((a0 + 16) as &&i64) = &g_5352b8;
-                *(a0 as &i64) = 1;
-            }
-            v8 = uu_join::parse_field_number(core::slice::iter::Iter<T>::make_slice(a1, v7), a2);
-            v19 = v8;
-            v18 = v9;
-            if v19 {
-                *((a0 + 8) as &unsigned long) = v19;
-                goto LABEL_4c38f8;
-            } else {
-                *((a0 + 8) as &i8) = 1;
-                *((a0 + 9) as &char) = v15;
-                *((a0 + 16) as &unsigned long) = v18;
-            }
+            v9 = core::option::Option<T>::map_or_else(&v7);
+            return struct24 {
+                field_0: 1
+                field_8: alloc::boxed::Box<T>::new(&v9)
+                field_16: &g_5352b8
+            };
         }
-    } else if core::str::validations::next_code_point(&v6) as i32 {
-        v2 = 0;
-        v3 = a1;
-        v4 = a2;
-        v5 = 1;
-        v0 = &v2;
-        v1 = <os_display::Quoted as core::fmt::Display>::fmt;
-        goto LABEL_4c389e;
-    } else {
-        *((a0 + 8) as &i8) = 0;
+        v25 = core::slice::iter::Iter<T>::make_slice(v6 as i64);
+        v7 = uu_join::parse_field_number(v25.ptr, a2);
+        v19 = v8;
+        match v7 {
+            Err(_) => {
+                *((a0 + 8) as &i8) = 1;
+                *((a0 + 9) as &struct8) = v14;
+                *((a0 + 16) as &u64) = v8;
+                v21 = 0;
+            },
+            Ok(_) => {
+                *((a0 + 8) as &i64) = v7 as i64;
+            },
+        }
     }
-    return struct8 {
-        field_0: v17
-    };
+    *((a0 + 16) as &u64) = v19;
+    v22 = 1;
 }

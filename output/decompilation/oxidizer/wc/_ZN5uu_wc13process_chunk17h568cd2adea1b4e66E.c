@@ -1,54 +1,75 @@
-fn uu_wc::process_chunk(a0: &struct32, a1: u32, a2: u32, a3: &struct8) -> u64 {
-    let v0: u64;  // [sp-0x40]
-    let v1: u64;  // [sp-0x38]
-    let v3: void*;  // r12, Other Possible Types: u64
-    let v4: u32;  // edx
-    let v5: u32;  // r14d
-    let v6: u64;  // r13
-    let v7: u64;  // r15
-    let v8: u64;  // rbp
-    let v9: u64;  // rax
-    let v10: u64;  // rax
+fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64) -> : struct32 {
+    let a0: i64;  // rdi
+    let v0: u128;  // [bp-0x40]
+    let v2: u64;  // r12
+    let v4: u64;  // r13
+    let v5: Result<struct73, struct24>;  // r15
+    let v6: struct32;  // rbp
+    let v7: Result<struct73, struct24>;  // r15
+    let v8: u64;  // r13
+    let v9: u64;  // r12
+    let v11: u32;  // edx
+    let v13: u64;  // r12
+    let v14: u64;  // r13
+    let v15: u32;  // r14d
+    let v16: Result<struct73, struct24>;  // r15
+    let v18: u64;  // rax
+    let v19: void*;  // r12
+    let v20: u64;  // r15
+    let v21: u64;  // rax
+    let v22: u64;  // r15
+    let v23: u64;  // r13
+    let v24: u64;  // r12
+    let v25: core::option::Option<u32>;  // rax:rax
 
-    v0 = a1;
-    v1 = a1 + a2;
-    v3 = *(a3);
-    if !core::str::validations::next_code_point(&v0) as i32 {
-        v6 = a0[4];
-    } else {
-        v5 = v4;
-        v6 = a0[4];
-        v7 = a0[2];
-        v8 = a0[1] + 1;
-        do {
-            if v5 - 12 < 2 {
-LABEL_4ba68d:
-                v6 = core::cmp::max_by(v3, v6);
-                a0[4] = v6;
-                v3 = 0;
-                goto LABEL_4ba6cd;
-            } else {
-                if v5 == 9 {
-                    v3 = (v3 & -8) + 8;
-                    *(a3) = v3;
-                    continue;
-                }
-                if v5 == 10 {
-                    goto LABEL_4ba68d;
-                }
-                v9 = (v5 < 127 ? 32 <= v5 : (v5 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v5)));
-                v3 += v9;
-LABEL_4ba6cd:
-                *(a3) = v3;
-                if v5 == 10 {
-                    v7 += 1;
-                    a0[2] = v7;
-                }
+    v0 = core::slice::iter::Iter<u8> {
+        ptr: core::ptr::non_null::NonNull<u8> {
+            pointer: a1
+        }
+        end_or_len: a1 + a2
+        _marker: core::marker::PhantomData<&u8> { }
+    };
+    v2 = *(a3 as &i64);
+    v25 = core::str::validations::next_code_point(&v0) as u128;
+    v4 = *((a0 + 32) as &i64);
+    v5 = *((a0 + 16) as &i64);
+    v6 = *((a0 + 8) as &i64) + 1;
+    v7 = v5;
+    v8 = v4;
+    v9 = v2;
+    loop {
+        v13 = v24;
+        v14 = v23;
+        v15 = v11;
+        v16 = v22;
+        if v15 - 12 >= 2 {
+            if v15 == 9 {
+                *(a3 as &u64) = (v13 & -8) + 8;
+                goto LABEL_4ba66e;
             }
-        } while ((a0[1] = v8, v5 = v4, v8 += 1, core::str::validations::next_code_point(&v0) as i32));
+            if v15 == 10 {
+                goto LABEL_4ba698;
+            }
+            v18 = (v15 < 127 ? 32 <= v15 : (v15 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v15)));
+LABEL_4ba6cd:
+            *(a3 as &void*) = v19;
+            if v15 == 10 {
+                v20 = v16 + 1;
+                return struct32 {
+                    field_0: *(a0 as &i64) + a2
+                    field_8: v6
+                    field_16: v20
+                    field_32: <UNKNOWN>
+                };
+            }
+LABEL_4ba66e:
+            v6 += 1;
+        } else {
+LABEL_4ba698:
+            v14 = core::cmp::max_by(v13, v14);
+            *((a0 + 32) as &u64) = v14;
+            v19 = 0;
+            goto LABEL_4ba6cd;
+        }
     }
-    *(a0) = *(a0) + a2;
-    v10 = core::cmp::max_by(v3, v6);
-    a0[4] = v10;
-    return v10;
 }

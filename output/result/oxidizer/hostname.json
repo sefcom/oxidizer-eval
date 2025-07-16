@@ -1,25 +1,25 @@
 {
   "decompilation": {
-    "_ZN11uu_hostname6uumain17h8c04941627001c4fE": "fn uu_hostname::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: String;  // [sp-0x48]\n    let v4: String;  // [sp-0x28]\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v6 = uu_hostname::uumain::uumain(a0, a1);\n    if !v6 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v6;\n    v4 = format!(\"{}\", &v0);\n    v3 = v4;\n    if v3 == \"\" {\n        v2 = v7;\n        show_error!(\"{}\", &v3);\n    }\n    if !*((v7 + 104) as &i64)() {\n        return *((v7 + 96) as &i64)();\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v7;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n}\n",
-    "_ZN11uu_hostname6uumain6uumain17hd29ed1ca8d950a5eE": "fn uu_hostname::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: Result<struct40, struct8>;  // [bp-0x318], Other Possible Types: char\n    let v1: i8;  // [bp-0x310]\n    let v5: struct56;  // [sp-0x2e0], Other Possible Types: unsigned long, struct712\n    let v6: i64;  // [sp-0x2d8]\n    let v8: i64;  // rax\n    let v9: i64;  // rdi\n    let v10: i64;  // rax\n    let v11: i64;  // rax\n    let v12: i64;  // rax\n\n    v5 = uu_hostname::uu_app();\n    clap_builder::builder::command::Command::try_get_matches_from(&v0, &v5, a0, a1);\n    v8 = *(&v0 as &i64);\n    v9 = *(&v1 as &i64);\n    if v5 != 0x8000000000000000 {\n        v5 = struct56 {\n            field_0: v8\n            field_8: v9\n            field_16: *(&v2 as &i128)\n            field_32: *(&v3 as &i128)\n            field_48: *(&v4 as &i64)\n        };\n        v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v5, _ZN11uu_hostname8OPT_HOST17hfa1a143c3d8b3f66E, g_5181f0);\n        v10 = clap_builder::parser::error::MatchesError::unwrap(_ZN11uu_hostname8OPT_HOST17hfa1a143c3d8b3f66E, g_5181f0, &v0);\n        v11 = (!v10 ? uu_hostname::display_hostname(&v5) : <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(hostname::set(v10)));\n        return v12;\n    }\n    return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v6);\n}\n",
-    "_ZN11uu_hostname6uu_app17hb6e249c122554ffeE": "fn uu_hostname::uu_app(a0: &struct712) -> u64 {\n    let v0: i64;  // [sp-0x878]\n    let v1: i64;  // [sp-0x870]\n    let v2: i64;  // [sp-0x868]\n    let v3: i64;  // [sp-0x860]\n    let v4: i64;  // [sp-0x858]\n    let v5: i64;  // [sp-0x850]\n    let v6: i64;  // [sp-0x848]\n    let v7: i64;  // [sp-0x840]\n    let v8: iNone;  // [bp-0x838], Other Possible Types: struct8\n    let v9: iNone;  // [sp-0x828], Other Possible Types: unsigned long\n    let v10: i64;  // [sp-0x820]\n    let v11: iNone;  // [sp-0x818], Other Possible Types: unsigned long\n    let v12: i64;  // [sp-0x810]\n    let v13: iNone;  // [sp-0x808], Other Possible Types: unsigned long\n    let v14: i64;  // [sp-0x800]\n    let v15: struct592;  // [sp-0x7f8], Other Possible Types: struct712, struct437\n    let v16: i64;  // [sp-0x53c]\n    let v17: i32;  // [sp-0x534]\n    let v18: struct592;  // [sp-0x530], Other Possible Types: struct712\n    let v19: struct592;  // [sp-0x268], Other Possible Types: struct24\n    let v21: i64;  // rdx\n    let v22: iNone;  // xmm0\n    let v23: iNone;  // xmm1\n    let v24: iNone;  // xmm2\n    let v25: iNone;  // xmm0\n    let v26: iNone;  // xmm1\n    let v27: iNone;  // xmm2\n\n    v15 = clap_builder::builder::command::Command::new(uucore::util_name(), v21);\n    v18 = clap_builder::builder::command::Command::version(&v15, \"0.0.28\");\n    v15 = clap_builder::builder::command::Command::about(&v18, \"Display or set the system's host name.\");\n    v19 = uucore::format_usage(\"{} [OPTION]... [HOSTNAME]\");\n    v18 = clap_builder::builder::command::Command::override_usage(&v15, &v19);\n    memcpy(&v15, &v18, 700);\n    v16 = 549755814016 | *((&v18.field_0 as &char + 700) as &i64);\n    v17 = *((&v18.field_0 as &char + 708) as &i32);\n    v18 = clap_builder::builder::arg::Arg::new(\"domain\");\n    v19 = clap_builder::builder::arg::Arg::short(&v18, 0x64);\n    v18 = clap_builder::builder::arg::Arg::long(&v19, \"domain\");\n    v0 = &g_41d153;\n    v1 = 6;\n    v2 = &g_41d159;\n    v3 = 10;\n    v4 = &g_4143e8;\n    v5 = 4;\n    v6 = &g_41d163;\n    v7 = 5;\n    v13 = v6;\n    v14 = v7;\n    v11 = v4;\n    v12 = v5;\n    v9 = v2;\n    v10 = v3;\n    *(&v8 as &i128) = *(&v0 as &i128);\n    v19 = clap_builder::builder::arg::Arg::overrides_with_all(&v18, &v8);\n    v18 = clap_builder::builder::arg::Arg::help(&v19, \"Display the name of the DNS domain if possible\");\n    v19 = clap_builder::builder::arg::Arg::action(&v18);\n    v18 = clap_builder::builder::command::Command::arg(&v15, &v19);\n    v15 = clap_builder::builder::arg::Arg::new(\"ip-address\");\n    v19 = clap_builder::builder::arg::Arg::short(&v15, 0x69);\n    v15 = clap_builder::builder::arg::Arg::long(&v19, \"ip-address\");\n    v22 = *(&v0 as &i128);\n    v23 = *(&v2 as &i128);\n    v24 = *(&v4 as &i128);\n    *(&v13 as &i128) = *(&v6 as &i128);\n    v11 = v24;\n    v9 = v23;\n    v8 = v22;\n    v19 = clap_builder::builder::arg::Arg::overrides_with_all(&v15, &v8);\n    v15 = clap_builder::builder::arg::Arg::help(&v19, \"Display the network address(es) of the host\");\n    v19 = clap_builder::builder::arg::Arg::action(&v15);\n    v15 = clap_builder::builder::command::Command::arg(&v18, &v19);\n    v18 = clap_builder::builder::arg::Arg::new(\"fqdn\");\n    v19 = clap_builder::builder::arg::Arg::short(&v18, 0x66);\n    v18 = clap_builder::builder::arg::Arg::long(&v19, \"fqdn\");\n    v25 = *(&v0 as &i128);\n    v26 = *(&v2 as &i128);\n    v27 = *(&v4 as &i128);\n    *(&v13 as &i128) = *(&v6 as &i128);\n    v11 = v27;\n    v9 = v26;\n    v8 = v25;\n    v19 = clap_builder::builder::arg::Arg::overrides_with_all(&v18, &v8);\n    v18 = clap_builder::builder::arg::Arg::help(&v19, \"Display the FQDN (Fully Qualified Domain Name) (default)\");\n    v19 = clap_builder::builder::arg::Arg::action(&v18);\n    v18 = clap_builder::builder::command::Command::arg(&v15, &v19);\n    v15 = clap_builder::builder::arg::Arg::new(\"short\");\n    v19 = clap_builder::builder::arg::Arg::short(&v15, 0x73);\n    v15 = clap_builder::builder::arg::Arg::long(&v19, \"short\");\n    v19 = clap_builder::builder::arg::Arg::overrides_with_all(&v15, &v0);\n    v15 = clap_builder::builder::arg::Arg::help(&v19, \"Display the short hostname (the portion before the first dot) if possible\");\n    v19 = clap_builder::builder::arg::Arg::action(&v15);\n    v15 = clap_builder::builder::command::Command::arg(&v18, &v19);\n    v18 = clap_builder::builder::arg::Arg::new(\"host\");\n    v8 = struct8 {\n        field_0: 2\n    };\n    v19 = clap_builder::builder::arg::Arg::value_parser(&v18, &v8);\n    v18 = clap_builder::builder::arg::Arg::value_hint(&v19, 0xa);\n    clap_builder::builder::command::Command::arg(a0, &v15, &v18);\n    return a0;\n}\n",
-    "_ZN11uu_hostname16display_hostname17hb7e83080e266b2caE": "fn uu_hostname::display_hostname(a0: u32) -> u64 {\n    let v0: struct24;  // [sp-0x168], Other Possible Types: struct48, struct32, Result<struct32, struct8>\n    let v1: i64;  // [sp-0x158]\n    let v2: i64;  // [sp-0x138], Other Possible Types: struct24\n    let v3: Option<struct32>;  // [sp-0x138], Other Possible Types: int\n    let v4: i64;  // [sp-0x130]\n    let v5: i64;  // [sp-0x128]\n    let v6: iNone;  // [sp-0x118]\n    let v7: i8;  // [bp-0x110]\n    let v8: i64;  // [sp-0x108]\n    let v9: struct16;  // [bp-0xf8], Other Possible Types: struct104, struct8\n    let v10: i64;  // [sp-0xf8], Other Possible Types: struct24\n    let v11: i64;  // [sp-0xf0]\n    let v12: Result<struct32, struct16>;  // [sp-0xd8], Other Possible Types: struct24, int\n    let v13: i64;  // [sp-0xd0]\n    let v14: i64;  // [sp-0xa0]\n    let v15: i64;  // [sp-0x98]\n    let v16: struct24;  // [sp-0x90]\n    let v17: i64;  // [sp-0x78]\n    let v18: i8;  // [bp-0x68]\n    let v19: iNone;  // [sp-0x58]\n    let v20: iNone;  // [sp-0x48]\n    let v22: i64;  // rax\n    let v29: iNone;  // ymm0\n    let v30: iNone;  // ymm0\n    let v32: iNone;  // ymm1\n    let v33: iNone;  // ymm1\n    let v34: i32;  // edx\n    let v35: i64;  // r13\n    let v36: iNone;  // xmm0\n    let v37: iNone;  // xmm1\n    let v38: i64;  // rdx\n    let v41: i64;  // rax\n    let v42: i64;  // rax\n    let v43: i64;  // r14\n    let v44: i64;  // rdx\n    let v45: i64;  // rdx\n\n    v0 = hostname::get();\n    v12 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v0);\n    v22 = v13;\n    if v2 == 0x8000000000000000 {\n        return v22;\n    }\n    v2 = v12;\n    v10 = std::sys::os_str::bytes::Slice::to_string_lossy(v4, v5);\n    if v10 != 0x8000000000000000 {\n        v8 = v10.field_16;\n    } else {\n        v0 = <T as alloc::slice::hack::ConvertVec>::to_vec(v11, v10.field_16);\n        v8 = v1;\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"ip-address\") as i8 {\n        v0 = struct24 {\n            field_0: v24\n            field_16: v8\n        };\n        v2 = <alloc::string::String as core::ops::arith::Add<&str>>::add(&v0);\n        v0 = <alloc::string::String as std::net::socket_addr::ToSocketAddrs>::to_socket_addrs(&v2);\n        v12 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v0);\n        v22 = v13;\n        if !v17 {\n            return v22;\n        }\n        v0 = <hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default();\n        v30 = ((v29 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v6 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v0.field_0) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v17 as &i128);\n        v33 = (v32 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v0.field_16) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v18 as &i128);\n        v9 = struct104 {\n            field_0: v28\n            field_16: v31\n            field_32: v26\n            field_48: v27\n            field_64: *(&v0.field_32 as &i128)\n            field_80: 0\n            field_88: 1\n            field_96: 0\n        };\n        v3 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v9);\n        match v3 {\n            Some(_) => {\n                do {\n                    v36 = v3 as i128;\n                    v30 = v30 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v36 as u256;\n                    v37 = (&v3)[16] as i128;\n                    v33 = v33 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v37 as u256;\n                    v20 = v37;\n                    v19 = v36;\n                    if !hashbrown::map::HashMap<K,V,S,A>::get_inner(&v9, &v19) {\n                        v16 = <T as alloc::string::ToString>::to_string(&v19);\n                        if core::slice::<impl [T]>::ends_with(*((&v16.field_0 as &char + 8) as &i64), v16.field_16, \":1\") as i8 {\n                            alloc::string::String::truncate(&v16, v16.field_16 - 2);\n                        }\n                        v9 = alloc::vec::Vec<T,A>::append_elements(core::slice::iter::Iter<T>::make_slice(*((&v16.field_0 as &char + 8) as &i64), v16.field_16 + *((&v16.field_0 as &char + 8) as &i64)), v38);\n                        v9 = alloc::string::String::push(0x20);\n                        v30 = v30 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v19 as u256;\n                        v33 = v33 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v20 as u256;\n                        v0 = struct32 {\n                            field_0: v39\n                            field_16: v40\n                        };\n                        v9 = hashbrown::map::HashMap<K,V,S,A>::insert(&v0);\n                    }\n                } while ((v3 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v9), v3 as i16 != 2));\n            },\n            None => {\n                v43 = v15;\n            },\n        }\n        if v43 {\n            v2 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v43 - 1, v14, v43);\n            v4 = v38;\n            println!(\"{}\", &v2);\n        }\n    } else if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"short\") as i8 && !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"domain\") as i8 || (v12 = *(&v7 as &i192), v34 == 0x110000) {\n        println!(\"{}\", &<0x4afce0[is_34]|Stack bp-0x118, 1 B>);\n    } else {\n        v35 = core::iter::traits::iterator::Iterator::try_fold(&v12);\n        if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"short\") as i8 {\n            v42 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v35 + 1, *(&v7 as &i64), v8);\n            if v42 {\n                v2 = v42;\n                v4 = v45;\n                println!(\"{}\", &v2);\n            }\n        } else {\n            v41 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v35, *(&v7 as &i64), v8);\n            if v41 {\n                v2 = v41;\n                v4 = v44;\n                println!(\"{}\", &v2);\n            }\n        }\n    }\n    return 0;\n}\n"
+    "_ZN11uu_hostname6uumain17h8c04941627001c4fE": "fn uu_hostname::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_hostname::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN11uu_hostname6uumain6uumain17hd29ed1ca8d950a5eE": "fn uu_hostname::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: Result<struct56, struct16>;  // [bp-0x318]\n    let v1: u256;  // [bp-0x318], Other Possible Types: Result<struct40, struct16>\n    let v2: u64;  // [bp-0x310]\n    let v3: u64;  // [bp-0x2e8]\n    let v4: u8;  // [bp-0x2e0]\n    let v5: u64;  // [bp-0x2d8]\n    let v6: u8;  // [bp-0x2c0]\n    let v7: u64;  // [bp-0x2b0]\n    let v9: u64;  // rdi\n    let v10: u64;  // rax\n\n    uu_hostname::uu_app(&v4);\n    v0 = clap_builder::builder::command::Command::try_get_matches_from(&v4, a0, a1);\n    v9 = v2;\n    match v0 {\n        Err(_) => {\n            return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v5);\n        },\n        Ok(_) => {\n            v7 = v3;\n            memcpy(&v6, &v0 as u128, 16);\n            v4 = v1;\n            v1 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v4, _ZN11uu_hostname8OPT_HOST17hfa1a143c3d8b3f66E.field_0, g_5181f0.field_0);\n            v10 = clap_builder::parser::error::MatchesError::unwrap(_ZN11uu_hostname8OPT_HOST17hfa1a143c3d8b3f66E.field_0, g_5181f0.field_0, &v1);\n            return (!v10 ? uu_hostname::display_hostname(&v1 as u64) : <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(hostname::set(v10)));\n        },\n    }\n}\n",
+    "_ZN11uu_hostname6uu_app17hb6e249c122554ffeE": "fn uu_hostname::uu_app(a0: &struct712) -> long long {\n    let v0: u64;  // [bp-0x878]\n    let v1: u64;  // [bp-0x870]\n    let v2: u64;  // [bp-0x868]\n    let v3: u64;  // [bp-0x860]\n    let v4: u64;  // [bp-0x858]\n    let v5: u64;  // [bp-0x850]\n    let v6: u64;  // [bp-0x848]\n    let v7: u64;  // [bp-0x840]\n    let v8: u128;  // [bp-0x838]\n    let v9: u128;  // [bp-0x838]\n    let v10: u64;  // [bp-0x828]\n    let v11: u128;  // [bp-0x828]\n    let v12: u64;  // [bp-0x820]\n    let v13: u64;  // [bp-0x818]\n    let v14: u128;  // [bp-0x818]\n    let v15: u64;  // [bp-0x810]\n    let v16: u64;  // [bp-0x808]\n    let v17: u128;  // [bp-0x808]\n    let v18: u64;  // [bp-0x800]\n    let v19: struct437;  // [bp-0x7f8]\n    let v20: u64;  // [bp-0x53c]\n    let v21: u32;  // [bp-0x534]\n    let v22: u8;  // [bp-0x530]\n    let v23: u64;  // [bp-0x274]\n    let v24: u32;  // [bp-0x26c]\n    let v25: u8;  // [bp-0x268]\n    let v28: u64;  // rdx\n    let v29: u128;  // xmm0\n    let v30: u128;  // xmm1\n    let v31: u128;  // xmm2\n    let v32: u128;  // xmm0\n    let v33: u128;  // xmm1\n\n    v19 = clap_builder::builder::command::Command::new(uucore::util_name(), v28);\n    clap_builder::builder::command::Command::version(&v22, &v19, \"0.0.28\");\n    clap_builder::builder::command::Command::about(&v19, &v22, \"Display or set the system's host name.\");\n    uucore::format_usage(&v25, \"{} [OPTION]... [HOSTNAME]\");\n    clap_builder::builder::command::Command::override_usage(&v22, &v19, &v25);\n    memcpy(&v19, &v22, 700);\n    v20 = 549755814016 | v23;\n    v21 = v24;\n    clap_builder::builder::arg::Arg::new(&v22, \"domain\");\n    clap_builder::builder::arg::Arg::short(&v25, &v22, 100);\n    clap_builder::builder::arg::Arg::long(&v22, &v25, \"domain\");\n    v0 = &g_41d153;\n    v1 = 6;\n    v2 = &g_41d159;\n    v3 = 10;\n    v4 = &g_4143e8;\n    v5 = 4;\n    v6 = &g_41d163;\n    v7 = 5;\n    v16 = v6;\n    v18 = 5;\n    v13 = v4;\n    v15 = 4;\n    v10 = v2;\n    v12 = 10;\n    memcpy(&v8, &v0, 16);\n    clap_builder::builder::arg::Arg::overrides_with_all(&v25, &v22, &v8);\n    clap_builder::builder::arg::Arg::help(&v22, &v25, \"Display the name of the DNS domain if possible\");\n    clap_builder::builder::arg::Arg::action(&v25, &v22);\n    clap_builder::builder::command::Command::arg(&v22, &v19, &v25);\n    clap_builder::builder::arg::Arg::new(&v19, \"ip-address\");\n    clap_builder::builder::arg::Arg::short(&v25, &v19, 105);\n    clap_builder::builder::arg::Arg::long(&v19, &v25, \"ip-address\");\n    v29 = *(&v0 as &i128);\n    v30 = *(&v2 as &i128);\n    v31 = *(&v4 as &i128);\n    v17 = *(&v6 as &i128);\n    v14 = v31;\n    v11 = v30;\n    v8 = v29;\n    clap_builder::builder::arg::Arg::overrides_with_all(&v25, &v19, &v8);\n    clap_builder::builder::arg::Arg::help(&v19, &v25, \"Display the network address(es) of the host\");\n    clap_builder::builder::arg::Arg::action(&v25, &v19);\n    clap_builder::builder::command::Command::arg(&v19, &v22, &v25);\n    clap_builder::builder::arg::Arg::new(&v22, \"fqdn\");\n    clap_builder::builder::arg::Arg::short(&v25, &v22, 102);\n    clap_builder::builder::arg::Arg::long(&v22, &v25, \"fqdn\");\n    v32 = *(&v0 as &i128);\n    v33 = *(&v2 as &i128);\n    memcpy(&v16, &v6, 16);\n    v13 = *(&v4 as &i128);\n    v10 = v33;\n    v8 = v32;\n    clap_builder::builder::arg::Arg::overrides_with_all(&v25, &v22, &v8);\n    clap_builder::builder::arg::Arg::help(&v22, &v25, \"Display the FQDN (Fully Qualified Domain Name) (default)\");\n    clap_builder::builder::arg::Arg::action(&v25, &v22);\n    clap_builder::builder::command::Command::arg(&v22, &v19, &v25);\n    clap_builder::builder::arg::Arg::new(&v19, \"short\");\n    clap_builder::builder::arg::Arg::short(&v25, &v19, 115);\n    clap_builder::builder::arg::Arg::long(&v19, &v25, \"short\");\n    clap_builder::builder::arg::Arg::overrides_with_all(&v25, &v19, &v0);\n    clap_builder::builder::arg::Arg::help(&v19, &v25, \"Display the short hostname (the portion before the first dot) if possible\");\n    clap_builder::builder::arg::Arg::action(&v25, &v19);\n    clap_builder::builder::command::Command::arg(&v19, &v22, &v25);\n    clap_builder::builder::arg::Arg::new(&v22, \"host\");\n    v8 = 2;\n    v8 = struct16 {\n        field_0: v9 & 0xffffffffffffffff0000000000000000 | 2\n    };\n    clap_builder::builder::arg::Arg::value_parser(&v25, &v22, &v8);\n    clap_builder::builder::arg::Arg::value_hint(&v22, &v25, 10);\n    clap_builder::builder::command::Command::arg(a0, &v19, &v22);\n    return a0;\n}\n"
   },
   "function_call_counts": {
     "_ZN11uu_hostname6uumain17h8c04941627001c4fE": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
       "uu_hostname::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
     },
     "_ZN11uu_hostname6uumain6uumain17hd29ed1ca8d950a5eE": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
       "uu_hostname::display_hostname": 1,
       "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
       "hostname::set": 1,
       "clap_builder::parser::error::MatchesError::unwrap": 1,
       "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 1,
-      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
       "clap_builder::builder::command::Command::try_get_matches_from": 1,
       "uu_hostname::uu_app": 1
     },
@@ -40,57 +40,75 @@
       "clap_builder::builder::command::Command::version": 1,
       "clap_builder::builder::command::Command::new": 1,
       "uucore::util_name": 1
-    },
-    "_ZN11uu_hostname16display_hostname17hb7e83080e266b2caE": {
-      "core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get": 2,
-      "hashbrown::map::HashMap<K,V,S,A>::insert": 1,
-      "alloc::string::String::push": 1,
-      "alloc::vec::Vec<T,A>::append_elements": 1,
-      "core::slice::iter::Iter<T>::make_slice": 1,
-      "alloc::string::String::truncate": 1,
-      "<T as alloc::string::ToString>::to_string": 1,
-      "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next": 1,
-      "<hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default": 1,
-      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 2,
-      "<alloc::string::String as std::net::socket_addr::ToSocketAddrs>::to_socket_addrs": 1,
-      "<alloc::string::String as core::ops::arith::Add<&str>>::add": 1,
-      "core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get": 1,
-      "core::iter::traits::iterator::Iterator::try_fold": 1,
-      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
-      "std::sys::os_str::bytes::Slice::to_string_lossy": 1,
-      "hostname::get": 1
     }
   },
   "macro_call_counts": {
     "_ZN11uu_hostname6uumain17h8c04941627001c4fE": {
-      "eprintln": 1,
-      "show_error": 1,
+      "eprintln": 2,
+      "eprint": 1,
       "format": 1
     },
     "_ZN11uu_hostname6uumain6uumain17hd29ed1ca8d950a5eE": {},
-    "_ZN11uu_hostname6uu_app17hb6e249c122554ffeE": {},
-    "_ZN11uu_hostname16display_hostname17hb7e83080e266b2caE": {
-      "println": 4
-    }
+    "_ZN11uu_hostname6uu_app17hb6e249c122554ffeE": {}
   },
   "node_counts": {
-    "_ZN11uu_hostname6uumain17h8c04941627001c4fE": 9,
-    "_ZN11uu_hostname6uumain6uumain17hd29ed1ca8d950a5eE": 8,
-    "_ZN11uu_hostname6uu_app17hb6e249c122554ffeE": 39,
-    "_ZN11uu_hostname16display_hostname17hb7e83080e266b2caE": 30
+    "_ZN11uu_hostname6uumain17h8c04941627001c4fE": 10,
+    "_ZN11uu_hostname6uumain6uumain17hd29ed1ca8d950a5eE": 7,
+    "_ZN11uu_hostname6uu_app17hb6e249c122554ffeE": 39
   },
-  "prototypes": {
+  "variable_types": {
     "_ZN11uu_hostname6uumain17h8c04941627001c4fE": {
-      "name": "_ZN11uu_hostname6uumain17h8c04941627001c4fE",
-      "return_type": [
-        "primitive",
-        8
+      "reg_16": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
         [
           "primitive",
           8
         ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_32": [
         [
           "primitive",
           8
@@ -98,403 +116,67 @@
       ]
     },
     "_ZN11uu_hostname6uumain6uumain17hd29ed1ca8d950a5eE": {
-      "name": "_ZN11uu_hostname6uumain6uumain17hd29ed1ca8d950a5eE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
+      "stack_56": [
         [
           "primitive",
-          8
+          1
         ],
+        [
+          "primitive",
+          32
+        ]
+      ],
+      "stack_0": [
+        [
+          "Result",
+          80
+        ],
+        [
+          "primitive",
+          32
+        ],
+        [
+          "Result",
+          80
+        ]
+      ],
+      "reg_72": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h87cf345e6a930018E": {
-      "name": "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h87cf345e6a930018E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
+      "stack_8": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h89ec3e78a9b9ce4fE": {
-      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h89ec3e78a9b9ce4fE",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h57b8084152c50147E": {
-      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h57b8084152c50147E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
-      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
-      "return_type": [
-        "primitive",
-        1
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "stack_64": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder6parser5error12MatchesError6unwrap17hcb60a1c181f5a1cbE": {
-      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17hcb60a1c181f5a1cbE",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
+      "stack_104": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hfe4358f699f5b9c3E": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hfe4358f699f5b9c3E",
-      "return_type": [
-        "Result",
-        40
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
+      "stack_48": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN78_$LT$alloc..string..String$u20$as$u20$std..net..socket_addr..ToSocketAddrs$GT$15to_socket_addrs17h05be57e59cc2cc3bE": {
-      "name": "_ZN78_$LT$alloc..string..String$u20$as$u20$std..net..socket_addr..ToSocketAddrs$GT$15to_socket_addrs17h05be57e59cc2cc3bE",
-      "return_type": [
-        "Result",
-        32
       ],
-      "parameters": [
+      "stack_88": [
         [
           "primitive",
-          8
+          1
         ]
-      ]
-    },
-    "_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h816275565265bd85E": {
-      "name": "_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h816275565265bd85E",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h430276f2adbaa693E": {
-      "name": "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h430276f2adbaa693E",
-      "return_type": [
-        "Option",
-        32
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4help17hb1a759973735fbf5E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4help17hb1a759973735fbf5E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4long17h7bd2c59b08dee21fE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4long17h7bd2c59b08dee21fE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg5short17hf93463845ba76758E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg5short17hf93463845ba76758E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg6action17he4f9f129db73dc7eE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg6action17he4f9f129db73dc7eE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h6eb467b2be988407E": {
-      "name": "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h6eb467b2be988407E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h3d479bbd9c610d76E": {
-      "name": "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h3d479bbd9c610d76E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hccefea64a1916a27E": {
-      "name": "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hccefea64a1916a27E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core4iter6traits8iterator8Iterator8try_fold17hee6e80971634247bE": {
-      "name": "_ZN4core4iter6traits8iterator8Iterator8try_fold17hee6e80971634247bE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h055d5e87f2acdc55E": {
-      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h055d5e87f2acdc55E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hfb321296f5c74ae6E": {
-      "name": "_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17hfb321296f5c74ae6E",
-      "return_type": [
-        "struct",
-        16
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN5alloc6string6String4push17h859ae11851fd8b8eE": {
-      "name": "_ZN5alloc6string6String4push17h859ae11851fd8b8eE",
-      "return_type": [
-        "struct",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN5alloc6string6String8truncate17hafe089c60c3201e9E": {
-      "name": "_ZN5alloc6string6String8truncate17hafe089c60c3201e9E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN78_$LT$alloc..string..String$u20$as$u20$core..ops..arith..Add$LT$$RF$str$GT$$GT$3add17h177306e76d9aa6a7E": {
-      "name": "_ZN78_$LT$alloc..string..String$u20$as$u20$core..ops..arith..Add$LT$$RF$str$GT$$GT$3add17h177306e76d9aa6a7E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h8480289187164d9eE": {
-      "name": "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h8480289187164d9eE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "reg_16": [
         [
           "primitive",
           8
@@ -502,197 +184,174 @@
       ]
     },
     "_ZN11uu_hostname6uu_app17hb6e249c122554ffeE": {
-      "name": "_ZN11uu_hostname6uu_app17hb6e249c122554ffeE",
-      "return_type": [
-        "struct",
-        712
+      "stack_128": [
+        [
+          "struct",
+          466
+        ]
       ],
-      "parameters": []
-    },
-    "_ZN11uu_hostname16display_hostname17hb7e83080e266b2caE": {
-      "name": "_ZN11uu_hostname16display_hostname17hb7e83080e266b2caE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
+      "reg_32": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg10value_hint17h058a03a9ff0f6c99E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg10value_hint17h058a03a9ff0f6c99E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "stack_840": [
         [
           "primitive",
           1
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg12value_parser17h416a268b4c9bffcbE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg12value_parser17h416a268b4c9bffcbE",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg18overrides_with_all17hce02e38c968d4dfeE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg18overrides_with_all17hce02e38c968d4dfeE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
+      "stack_1552": [
         [
           "primitive",
-          8
-        ],
+          1
+        ]
+      ],
+      "stack_828": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg3new17h8a0253a43e6cd8dfE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg3new17h8a0253a43e6cd8dfE",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "stack_1540": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command14override_usage17h53f06f4b08c7f7b6E": {
-      "name": "_ZN12clap_builder7builder7command7Command14override_usage17h53f06f4b08c7f7b6E",
-      "return_type": [
-        "struct",
-        712
       ],
-      "parameters": [
+      "stack_836": [
         [
-          "struct*",
-          8
-        ],
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1548": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3arg17had519225845c2ee5E": {
-      "name": "_ZN12clap_builder7builder7command7Command3arg17had519225845c2ee5E",
-      "return_type": [
-        "struct",
-        712
       ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "stack_8": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3new17hb139fd9343407bd7E": {
-      "name": "_ZN12clap_builder7builder7command7Command3new17hb139fd9343407bd7E",
-      "return_type": [
-        "struct",
-        438
       ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "stack_16": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command5about17h43dcb4d052bb4fe4E": {
-      "name": "_ZN12clap_builder7builder7command7Command5about17h43dcb4d052bb4fe4E",
-      "return_type": [
-        "struct",
-        712
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
+      "stack_24": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command7version17hff495f94e3e0025aE": {
-      "name": "_ZN12clap_builder7builder7command7Command7version17hff495f94e3e0025aE",
-      "return_type": [
-        "struct",
-        712
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
+      "stack_32": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hc6ddc21bcea4abf2E": {
-      "name": "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hc6ddc21bcea4abf2E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
+      "stack_40": [
         [
           "primitive",
           8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          16
         ],
         [
           "primitive",
@@ -700,125 +359,33 @@
         ],
         [
           "primitive",
-          8
+          16
+        ]
+      ],
+      "reg_224": [
+        [
+          "primitive",
+          16
         ],
         [
           "primitive",
-          8
+          16
         ]
-      ]
-    },
-    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h31343d2c1a16f84aE": {
-      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h31343d2c1a16f84aE",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": [
+      "reg_256": [
         [
           "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h8a6ebe87743f1a37E": {
-      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h8a6ebe87743f1a37E",
-      "return_type": [
-        "Result",
-        32
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17h339483a9a5339a88E": {
-      "name": "_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17h339483a9a5339a88E",
-      "return_type": [
-        "struct",
-        48
-      ],
-      "parameters": []
-    },
-    "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h06ac9bed48b1a8c9E": {
-      "name": "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h06ac9bed48b1a8c9E",
-      "return_type": [
-        "struct",
-        16
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN8hostname3get17h61ff34d453bc4655E": {
-      "name": "_ZN8hostname3get17h61ff34d453bc4655E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": []
-    },
-    "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE": {
-      "name": "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h7fb9d0425989847aE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
-      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
+          16
         ],
         [
           "primitive",
-          8
+          16
         ]
-      ]
-    },
-    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
-      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": []
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
+      "reg_288": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          16
         ]
       ]
     }

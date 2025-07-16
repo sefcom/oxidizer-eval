@@ -1,13 +1,14 @@
-fn uu_fmt::parasplit::Line::get_noformatline(a0: &struct25, a1: u64) -> int {
-    let v1: u128;  // xmm0
+fn uu_fmt::parasplit::Line::get_noformatline(a1: i64) -> : struct25 {
+    let a0: i64;  // rdi
+    let v1: u64;  // rax
 
-    if a1->field_0 == 0x8000000000000000 {
-        v1 = *(&(&a1->field_0)[1] as &i128);
-        return struct25 {
-            field_0: v1
-            field_16: *((&a1->field_8 as &char + 8) as &i64)
-            field_24: a1->field_18 as i8
-        };
+    if *(a1 as &i64) != 0x8000000000000000 {
+        panic!("Found FormatLine when expecting NoFormatLine");
     }
-    panic!("Found FormatLine when expecting NoFormatLine");
+    v1 = *((a1 + 32) as &i8);
+    return struct26 {
+        field_0: *((a1 + 8) as &i128)
+        field_16: *((a1 + 24) as &i64)
+        field_24: v1 as u8
+    };
 }

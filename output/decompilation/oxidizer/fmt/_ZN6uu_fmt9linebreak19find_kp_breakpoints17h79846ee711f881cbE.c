@@ -1,239 +1,225 @@
-fn uu_fmt::linebreak::find_kp_breakpoints(a0: &struct24, a1: u32, a2: u32, a3: void*) -> u64 {
-    let v0: i8;  // [sp-0x1b2]
-    let v1: i8;  // [sp-0x1b1]
-    let v2: i64;  // [sp-0x1b0]
-    let v3: iNone;  // [sp-0x1a8], Other Possible Types: struct16, struct24
-    let v4: i64;  // [sp-0x190]
-    let v5: i64;  // [sp-0x188]
-    let v6: struct16;  // [sp-0x180], Other Possible Types: unsigned long, int
-    let v7: i64;  // [sp-0x170]
-    let v8: i64;  // [sp-0x168], Other Possible Types: struct16
-    let v9: i64;  // [sp-0x160]
-    let v10: i64;  // [sp-0x158]
-    let v11: i64;  // [sp-0x150]
-    let v12: i64;  // [sp-0x148]
-    let v13: i64;  // [sp-0x140]
-    let v14: i64;  // [sp-0x138]
-    let v15: i64;  // [sp-0x130]
-    let v16: i64;  // [sp-0x128]
-    let v17: struct24;  // [sp-0x120], Other Possible Types: int
-    let v18: i64;  // [sp-0x100]
-    let v19: i64;  // [sp-0xf8]
-    let v20: i64;  // [sp-0xf0]
-    let v21: i64;  // [sp-0xe8]
-    let v22: i64;  // [sp-0xe0]
-    let v23: i64;  // [sp-0xd8]
-    let v24: i64;  // [sp-0xd0], Other Possible Types: struct24
-    let v25: i64;  // [sp-0xb0]
-    let v26: i64;  // [sp-0xa8]
-    let v27: i64;  // [sp-0xa0]
-    let v28: i64;  // [sp-0x98]
-    let v29: i32;  // [sp-0x90]
-    let v30: i16;  // [sp-0x8c]
-    let v31: iNone;  // [sp-0x88]
-    let v32: iNone;  // [bp-0x78]
-    let v33: i64;  // [sp-0x6b]
-    let v34: i8;  // [sp-0x63]
-    let v35: i16;  // [sp-0x62]
-    let v36: struct38;  // [sp-0x58]
-    let v38: i64;  // rax
-    let v39: i64;  // rcx
-    let v40: iNone;  // ymm0
-    let v41: iNone;  // ymm0
-    let v42: i64;  // rax
-    let v43: i64;  // rax
-    let v44: i64;  // rdi
-    let v45: i32;  // ebx
-    let v47: iNone;  // ymm1
-    let v48: i64;  // r14
-    let v49: i64;  // 4099
-    let v51: i64;  // rcx
-    let v52: struct8;  // rax
-    let v53: i64;  // r13
-    let v54: i64;  // rbx
-    let v55: i64;  // r15
-    let v56: i64;  // rbp
-    let v57: i64;  // r13
-    let v58: i64;  // rdx
-    let v59: i64;  // r13
-    let v60: i64;  // r13
-    let v61: i64;  // r13
-    let v62: i64;  // rax
-    let v63: i64;  // r14
-    let v64: i64;  // r15
-    let v65: i64;  // r12
-    let v66: i64;  // rax
-    let v67: i64;  // rcx
-    let v68: i64;  // r14
-    let v69: i64;  // rax
-    let v70: i64;  // rcx
-    let v71: i64;  // rdx
-    let v72: i8;  // al
-    let v73: i64;  // rcx
-    let v74: i16;  // dx
-    let v75: iNone;  // xmm0
-    let v76: iNone;  // xmm1
-    let v77: i64;  // rax
-    let v78: i64;  // rbx
-    let v79: i64;  // rax
-    let v80: i64;  // rbx
+fn uu_fmt::linebreak::find_kp_breakpoints(a1: i64, a2: i64, a3: i64) -> Result<struct24, struct24> {
+    let a0: u64;  // rsi
+    let v0: u8;  // [bp-0x1b2]
+    let v1: u8;  // [bp-0x1b1]
+    let v2: struct16;  // [bp-0x1a8], Other Possible Types: struct24
+    let v3: alloc::string::String;  // [bp-0x1a0]
+    let v4: alloc::string::String;  // [bp-0x198]
+    let v5: void*;  // [bp-0x190]
+    let v6: i64;  // [bp-0x188]
+    let v7: struct16;  // [bp-0x180]
+    let v9: struct16;  // [bp-0x180]
+    let v10: struct16;  // [bp-0x180]
+    let v11: u64;  // [bp-0x178]
+    let v12: void*;  // [bp-0x170]
+    let v13: void*;  // [bp-0x168], Other Possible Types: struct16
+    let v14: u64;  // [bp-0x160]
+    let v15: void*;  // [bp-0x158], Other Possible Types: u64
+    let v16: u64;  // [bp-0x150]
+    let v17: u64;  // [bp-0x148]
+    let v18: u64;  // [bp-0x140]
+    let v19: u64;  // [bp-0x138]
+    let v20: i64;  // [bp-0x130]
+    let v21: u32;  // [bp-0x128]
+    let v22: struct24;  // [bp-0x120]
+    let v23: u64;  // [bp-0x118]
+    let v24: u64;  // [bp-0x110]
+    let v25: u64;  // [bp-0x100]
+    let v26: u64;  // [bp-0xf8]
+    let v27: i64;  // [bp-0xf0]
+    let v28: u64;  // [bp-0xe8]
+    let v29: u64;  // [bp-0xe0]
+    let v30: u64;  // [bp-0xd8]
+    let v31: core::iter::adapters::peekable::Peekable<core::str::iter::Bytes>;  // [bp-0xd0], Other Possible Types: u64
+    let v32: void*;  // [bp-0xd0]
+    let v33: i64;  // [bp-0xc8]
+    let v34: u128;  // [bp-0xc0]
+    let v35: struct41;  // [bp-0xb0]
+    let v36: i64;  // [bp-0xa8]
+    let v37: u64;  // [bp-0xa0]
+    let v38: u64;  // [bp-0x98]
+    let v39: i64;  // [bp-0x90]
+    let v40: u16;  // [bp-0x8c]
+    let v41: u128;  // [bp-0x88]
+    let v42: u128;  // [bp-0x78]
+    let v43: u64;  // [bp-0x6b]
+    let v44: u8;  // [bp-0x63]
+    let v45: u16;  // [bp-0x62]
+    let v46: struct38;  // [bp-0x58]
+    let v48: core::result::Result<core::ptr::non_null::NonNull<[u8]>, core::alloc::AllocError>;  // rax
+    let v49: u64;  // rcx
+    let v50: core::result::Result<core::ptr::non_null::NonNull<[u8]>, core::alloc::AllocError>;  // rax
+    let v51: i64;  // rax
+    let v52: u64;  // rdi
+    let v53: u32;  // ebx
+    let v54: i64;  // r15
+    let v55: Result<struct2, struct8>;  // rax
+    let v56: u64;  // r13
+    let v57: struct41;  // rbx
+    let v58: u64;  // rcx
+    let v59: alloc::string::String;  // r15
+    let v60: u64;  // rbp
+    let v61: u64;  // r13
+    let v62: u64;  // rdx
+    let v64: u64;  // r13
+    let v65: u64;  // rax
+    let v66: u64;  // r14
+    let v67: u64;  // rax
+    let v68: i64;  // r15
+    let v69: u64;  // r12
+    let v70: void*;  // rax
+    let v71: u64;  // rcx
+    let v72: u64;  // r14
+    let v73: u64;  // rdx
+    let v74: u8;  // al
+    let v75: i64;  // rcx
+    let v76: u16;  // dx
+    let v77: u128;  // xmm0
+    let v78: void*;  // rax
+    let v79: u64;  // rdi
+    let v81: i64;  // ymm0
 
-    v24 = core::iter::traits::iterator::Iterator::peekable(a1, a2);
-    v38 = alloc::alloc::Global::alloc_impl(40);
-    v39 = *((a3 + 32) as &i64);
-    v41 = v40 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000;
-    *(v38 as &i128) = 0;
-    *((v38 + 16) as &i64) = 0;
-    *((v38 + 24) as &unsigned long) = v39;
-    *((v38 + 32) as &i32) = 0;
-    *((v38 + 36) as &i16) = 0;
-    v3 = alloc::slice::hack::into_vec(v38, 1);
-    v42 = alloc::alloc::Global::alloc_impl(8);
-    *(v42 as &i64) = 0;
-    v17 = alloc::slice::hack::into_vec(v42, 1);
-    v6 = 0;
-    v6 = 8;
-    v7 = 0;
-    v43 = *(a3 as &i64);
-    v15 = v43;
-    v44 = *((v43 + 56) as &i64);
-    v21 = *((v43 + 48) as &i64);
-    v19 = v44;
-    v18 = v21 - v44;
-    v14 = core::cmp::max_by(v44, v18 + 1) - v18;
-    v8 = 0;
-    v9 = 8;
-    v10 = 0;
-    v0 = *((a3 + 48) as &i8);
-    v12 = *((a3 + 40) as &i64);
-    v45 = 0;
-    v11 = "src/uu/fmt/src/linebreak.rs";
-    v4 = 0;
+    v31 = core::iter::traits::iterator::Iterator::peekable(a0, a1);
+    v48 = alloc::alloc::Global::alloc_impl(0x28, a0, a1) as u64;
+    v49 = *((a2 + 32) as &i64);
+    *(v48 as &i128) = 0;
+    *((v48 + 16) as &i64) = 0;
+    *((v48 + 24) as &u64) = v49;
+    *((v48 + 32) as &i32) = 0;
+    *((v48 + 36) as &i16) = 0;
+    v2 = alloc::slice::hack::into_vec(v48, 1);
+    v50 = alloc::alloc::Global::alloc_impl(0x8, a0, a1) as u64;
+    *(v50 as &i64) = 0;
+    v22 = alloc::slice::hack::into_vec(v50, 1);
+    v7 as u64 = 0;
+    v11 = 8;
+    v12 = 0;
+    v51 = *(a2 as &i64);
+    v20 = v51;
+    v52 = *((v51 + 56) as &i64);
+    v28 = *((v51 + 48) as &i64);
+    v26 = v52;
+    v25 = *((v51 + 48) as &i64) - v52;
+    v19 = core::cmp::max_by(v52, v25 + 1) - v25;
+    v13 = 0;
+    v14 = 8;
+    v15 = 0;
+    v0 = *((a2 + 48) as &i8);
+    v17 = *((a2 + 40) as &i64);
+    v53 = 0;
+    v16 = "src/uu/fmt/src/linebreak.rs";
+    v5 = 0;
     loop {
-        v48 = v24.field_16;
-        v49 = v24;
-        v24 = 0;
-        if !v49 {
-            v48 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v24);
+        v32 = 0;
+        if !v31 {
+            v33 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v34);
         }
-        if !v48 {
-            uu_fmt::linebreak::build_best_path(a0, (&v3)[8] as i64, v3.field_24, (&v17)[8] as i64, (&v17)[16] as i64);
-            return;
+        if !v33 {
+            break;
         }
+        v54 = *(core::option::Option<T>::get_or_insert_with(&v32, &v34) as &i64);
         v1 = 1;
-        v5 = v48;
-        v51 = (*((v48 + 58) as &i8) || v0 ? ((v45 & 1) + 1) as u64 : 0);
-        v16 = v51;
-        v10 = 0;
-        v7 = 0;
-        v22 = v17.field_16;
-        v23 = v22 + (&v17)[16] as i64 * 8;
-        v52 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-        if v52 {
-            v20 = *(core::option::Option<T>::get_or_insert_with(&v24, &v24) as &i64);
-            v2 = 0;
-            v53 = 9223372036854775807;
-            v13 = 9223372036854775807;
-            do {
-                v54 = *(v52 as &i64);
-                v55 = v3.field_16;
-                v56 = v54 * 5;
-                v57 = *((v55 + v56 * 8 + 16) as &i64) - v4;
-                v58 = *((v55 + v56 * 8 + 24) as &i64);
-                *((v55 + v56 * 8 + 16) as &unsigned long) = v57;
-                if v59 <= v57 {
-                    v60 = v53;
-                    v61 = v60;
-                } else {
-                    v61 = v57;
-                }
-                v53 = v61;
-                v62 = v2;
-                if v57 < v60 {
-                    v62 = v54;
-                }
-                v2 = v62;
-                v63 = *((v5 + 40) as &i64);
-                v64 = v55 + v56 * 8;
-                v65 = uu_fmt::linebreak::BreakArgs::compute_width(v15, v5, v58, *((v55 + v56 * 8 + 37) as &i8)) + v16 + v63 + *((v64 + 24) as &i64);
-                if v65 <= v21 {
-                    v6 = alloc::vec::Vec<T,A>::push(v54);
-                    *((v64 + 37) as &i8) = 0;
-                    *((v64 + 24) as &unsigned long) = v65;
-                    if v65 >= v14 {
-                        if v20 {
-                            v66 = uu_fmt::linebreak::compute_demerits(v19 - v65, v18, v63);
-                        } else {
-                            v41 &= 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000;
-                            v66 = 0;
-                        }
-                        if v66 <= 99999999999999 {
-                            v67 = *((v64 + 16) as &i64);
-                            v68 = v67 + v66;
-                            if v68 < v13 && (v67 < 0 || !v66 < 0 && !(!v66 & v67)) {
-                                v25 = v54;
-                                v26 = v5;
-                                v30 = 0x100;
-                                v27 = v68;
-                                v29 = *((v64 + 32) as &i32);
-                                v28 = v12;
-                                v8 = alloc::vec::Vec<T,A>::push(&v25);
-                                v13 = v68;
+        v6 = v33;
+        v21 = ((*((v33 + 58) as &i8) || v0) == 1 ? (v53 & 1) + 1 : 0);
+        v15 = 0;
+        v12 = 0;
+        v29 = v23;
+        v30 = v23 + v24 * 8;
+        v55 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v29);
+        match v55 {
+            Err(_) => {
+                v27 = v54;
+                v65 = 0;
+                v56 = 9223372036854775807;
+                v18 = 9223372036854775807;
+                do {
+                    v57 = *(v55 as &i64);
+                    v58 = v56;
+                    v59 = v3;
+                    v60 = v57 * 5;
+                    v61 = *((v59 + v60 * 8 + 16) as &i64) - v5;
+                    v62 = *((v59 + v60 * 8 + 24) as &i64);
+                    *((v59 + v60 * 8 + 16) as &u64) = v61;
+                    if v58 <= v61 {
+                        v64 = v58;
+                    } else {
+                        v64 = v61;
+                    }
+                    v56 = v64;
+                    v66 = *((v6 + 40) as &i64);
+                    v67 = uu_fmt::linebreak::BreakArgs::compute_width(v20, v6, v62, *((v59 + v60 * 8 + 37) as &i8) as u8 as u32);
+                    v68 = v59 + v60 * 8;
+                    v69 = v67 + v21 + v66 + *((v68 + 24) as &i64);
+                    if v69 <= v28 {
+                        v7 = alloc::vec::Vec<T,A>::push(v57);
+                        *((v68 + 37) as &i8) = 0;
+                        *((v68 + 24) as &u64) = v69;
+                        if v69 >= v19 {
+                            if v27 {
+                                v81 = *((v68 + 32) as &i32);
+                                v70 = uu_fmt::linebreak::compute_demerits(v26 - v69, v25, v66);
+                            }
+                            if v70 <= 99999999999999 {
+                                v71 = *((v68 + 16) as &i64);
+                                v72 = v71 + v70;
+                                if v72 < v18 && (v71 < 0 || !v70 < 0 && !((!v70) as u8 as u8 & (v71) as u8 as u8)) {
+                                    v35 = v57;
+                                    v36 = v6;
+                                    v40 = 0x100;
+                                    v37 = v72;
+                                    v39 = v81;
+                                    v38 = v17;
+                                    v13 = alloc::vec::Vec<T,A>::push(&v35);
+                                    v18 = v72;
+                                }
                             }
                         }
                     }
+                    v55 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v29);
+                } while (v55);
+                if v15 {
+                    v15 -= 1;
+                    v73 = v15 * 5;
+                    v74 = *((8 + v73 * 8 + 37) as &i8);
+                    if v74 != 2 {
+                        v75 = 8 + v73 * 8;
+                        v76 = *((v75 + 38) as &i16);
+                        v43 = *((v75 + 29) as &i64);
+                        v77 = *(v75 as &i128);
+                        v42 = *((v75 + 16) as &i128) as u128;
+                        v41 = v77;
+                        v44 = v74;
+                        v45 = v76;
+                        v9 = alloc::vec::Vec<T,A>::push(v4);
+                        v2 = alloc::vec::Vec<T,A>::push(&v41);
+                    }
                 }
-                v52 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-            } while (v52);
-            v69 = v10;
-            if v69 {
-                v10 = v69 - 1;
-                v70 = v9;
-                v71 = v10 * 5;
-                v72 = *((v70 + v71 * 8 + 37) as &i8);
-                if v34 != 2 {
-                    v73 = v70 + v71 * 8;
-                    v74 = *((v73 + 38) as &i16);
-                    v33 = *((v73 + 29) as &i64);
-                    v75 = *(v73 as &i128);
-                    v41 = v41 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v75 as u256;
-                    v76 = *((v73 + 16) as &i128);
-                    v47 = v47 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v76 as u256;
-                    v32 = v76;
-                    v31 = v75;
-                    v34 = v72;
-                    v35 = v74;
-                    v6 = alloc::vec::Vec<T,A>::push(v3.field_24);
-                    v3 = alloc::vec::Vec<T,A>::push(&v31);
+                if !v12 {
+                    goto LABEL_4bbfd0;
                 }
-            }
-            if !v7 {
-                goto LABEL_4bbfbd;
-            }
-            goto LABEL_4bbc20;
-        } else {
-            v2 = 0;
-            v53 = 9223372036854775807;
-            if v7 {
+                goto LABEL_4bbc20;
+            },
+            Ok(_) => {
+                v65 = 0;
+                v56 = 9223372036854775807;
+                if v12 {
 LABEL_4bbc20:
-                v77 = core::cmp::max_by(v53);
-                goto LABEL_4bbc28;
-            } else {
-LABEL_4bbfbd:
-                if v78 >= v3.field_24 {
-                    v80 = v2;
-                    v11 = "src/uu/fmt/src/linebreak.rs";
-                }
-                v79 = (&v3)[8] as i64;
-                v36 = uu_fmt::linebreak::restart_active_breaks(v15, v12, *((v79 + v78 * 40 + 24) as &i64), *((v79 + v78 * 40 + 37) as &i8), v78, v5, v16, v14);
-                v6 = alloc::vec::Vec<T,A>::push(v3.field_24);
-                v3 = alloc::vec::Vec<T,A>::push(&v36);
-                v77 = 0;
+                    v78 = core::cmp::max_by(v56);
+                    goto LABEL_4bbc28;
+                } else {
+LABEL_4bbfd0:
+                    v46 = uu_fmt::linebreak::restart_active_breaks(v20, v17, *((v3 + v65 * 40 + 24) as &i64), *((v3 + v65 * 40 + 37) as &i8), v65, v6, v21, v19);
+                    v10 = alloc::vec::Vec<T,A>::push(v4);
+                    v2 = alloc::vec::Vec<T,A>::push(&v46);
 LABEL_4bbc28:
-                v4 = v77;
-                v17 = core::intrinsics::typed_swap(&v6);
-                v45 = v1;
-            }
+                    v5 = v78;
+                    v22 = core::intrinsics::typed_swap(&v7 as u64);
+                    v53 = 1;
+                    v31 = v32;
+                }
+            },
         }
     }
+    uu_fmt::linebreak::build_best_path(v79, v3, v4, v23, v24);
+    return;
 }

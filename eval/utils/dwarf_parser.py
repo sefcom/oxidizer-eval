@@ -269,6 +269,10 @@ class DwarfParser:
         if die.attributes.get("DW_AT_inline", None):
             return
         func_name = die.attributes.get("DW_AT_linkage_name", None)
+        if func_name is None:
+            spec_die = self._get_referred_die(die, "DW_AT_specification", ensure_existence=False)
+            if spec_die:
+                func_name = spec_die.attributes.get("DW_AT_linkage_name", None)
         if func_name:
             func_name = demangle(func_name.value.decode())
             returnty_die = self._get_referred_die(die, "DW_AT_type", ensure_existence=False)

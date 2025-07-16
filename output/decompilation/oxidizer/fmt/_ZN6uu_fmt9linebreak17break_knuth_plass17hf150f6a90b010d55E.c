@@ -1,69 +1,77 @@
-fn uu_fmt::linebreak::break_knuth_plass(a0: u32, a1: u32, a2: u32) -> u64 {
-    let v0: i8;  // [bp-0xc8]
-    let v1: i8;  // [bp-0xc0]
-    let v2: i8;  // [bp-0xb8]
-    let v3: iNone;  // [sp-0xa8]
-    let v4: struct24;  // [sp-0x90], Other Possible Types: struct40
-    let v5: i64;  // [sp-0x80]
-    let v6: Result<struct2, struct8>;  // [sp-0x68]
-    let v7: i64;  // [sp-0x58]
-    let v8: i64;  // [sp-0x50]
-    let v9: struct24;  // [sp-0x48]
-    let v11: i64;  // r15
-    let v12: i64;  // rax
-    let v13: i64;  // rax
-    let v14: i64;  // rdi
-    let v15: i64;  // rax
-    let v16: i64;  // r12
+fn uu_fmt::linebreak::break_knuth_plass(a0: i64, a1: i64, a2: &struct32) -> long long {
+    let v0: u128;  // [bp-0xa8]
+    let v1: struct24;  // [bp-0x90], Other Possible Types: u320
+    let v2: u32;  // [bp-0x88]
+    let v3: i64;  // [bp-0x80]
+    let v4: Result<struct2, struct8>;  // [bp-0x68]
+    let v5: u8;  // [bp-0x67]
+    let v6: u64;  // [bp-0x60]
+    let v7: u64;  // [bp-0x58]
+    let v8: u128;  // [bp-0x58]
+    let v9: u64;  // [bp-0x50]
+    let v10: Result<struct24, struct24>;  // [bp-0x48]
+    let v11: u64;  // [bp-0x40]
+    let v15: core::result::Result<(), std::io::error::Error>;  // r12
+    let v17: u64;  // rax
+    let v19: u8;  // bpl
+    let v20: i64;  // rax
+    let v22: i64;  // rdi
+    let v23: u64;  // rax
 
     v7 = a0;
-    v8 = a1;
-    v9 = uu_fmt::linebreak::find_kp_breakpoints(<core::slice::iter::Iter<T> as core::clone::Clone>::clone(a0, a1), a2, a2);
-    v3 = *(&v9.field_8 as &i128);
-    v4 = struct40 {
+    v9 = a1;
+    v10 = uu_fmt::linebreak::find_kp_breakpoints(<core::slice::iter::Iter<T> as core::clone::Clone>::clone(a0, a1), a2, a2);
+    v0 = struct16 {
+        field_0: v11
+        field_8: *((&v10 as &char + 16) as &i64) * 16 + v11
+    };
+    v1 = struct40 {
         field_0: *((a2 + 8) as &i128)
         field_16: a2 + 48
         field_24: *((a2 + 24) as &i64)
         field_32: &v7
     };
-    v6 = core::iter::traits::double_ended::DoubleEndedIterator::try_rfold(&v3, &v4);
-    match v6 {
-        Err(_) => {
-            return v16;
+    v4 = core::iter::traits::double_ended::DoubleEndedIterator::try_rfold(&v0, &v1);
+    match v4 {
+        Err(v15) => {
         },
         Ok(_) => {
-            v11 = *((&v6 as &char + 2) as &i8) as u8 as u64;
-            v3 = *(&v7 as &i128);
-            v12 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v3);
-            if v12 {
-                if v11 as u8 && uu_fmt::linebreak::write_newline(*((a2 + 8) as &i64), *((a2 + 16) as &i64), *((a2 + 24) as &i64)) {
-                    return v16;
+            v0 = v8;
+            v17 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v0);
+            if !v17 {
+LABEL_4bb804:
+                v22 = *((a2 + 24) as &i64);
+                v23 = *((v22 + 16) as &i64);
+                if *(v22 as &i64) - v23 > 1 {
+                    *((*((v22 + 8) as &i64) + v23) as &i8) = 10;
+                    *((v22 + 16) as &u64) = v23 + 1;
+                } else {
+                    std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(v22, "\n");
                 }
-                v4 = uu_fmt::linebreak::slice_if_fresh(v11 & 4294967295, *((v12 + 16) as &i64), *((v12 + 24) as &i64), *((v12 + 32) as &i64), *(v5 as &i8) as u8 as u64, v0, v1, v2);
-                if uu_fmt::linebreak::write_with_spaces(v4.field_8, v5, v4.field_0, *((a2 + 24) as &i64)) {
-                    return v16;
+            } else if !*((&v4 as &char + 2) as &i8) || (uu_fmt::linebreak::write_newline(*((a2 + 8) as &i64), *((a2 + 16) as &i64) as i32, *((a2 + 24) as &i64)), !v15) {
+                v1 = uu_fmt::linebreak::slice_if_fresh(*((&v4 as &char + 2) as &i8) as u8 as u64, *((v17 + 16) as &i64), *((v17 + 24) as &i64), *((v17 + 32) as &i64), *(v3 as &i8), *((v17 + 58) as &i8), *((v17 + 56) as &i8), v5);
+                uu_fmt::linebreak::write_with_spaces(v2, v3 as u32, v1.field_0, *((a2 + 24) as &i64));
+                match v15 {
+                    Err(_) => {
+                        return v15;
+                    },
+                    Ok(_) => {
+                        loop {
+                            v20 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v0);
+                            if !v20 {
+                                break;
+                            }
+                            v1 = uu_fmt::linebreak::slice_if_fresh(None, *((v20 + 16) as &i64), *((v20 + 24) as &i64), *((v20 + 32) as &i64), (*(v3 as &i8)) as u8 as u8, (*((v20 + 58) as &i8)) as u8 as u8, (*((v20 + 56) as &i8)) as u8 as u8, (v19) as u8 as u8);
+                            uu_fmt::linebreak::write_with_spaces(v2, v3 as u32, v1.field_0, *((a2 + 24) as &i64));
+                            if let Err(_) = v15 {
+                                return v15;
+                            }
+                        }
+                    },
                 }
-                loop {
-                    v13 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v3);
-                    if !v13 {
-                        break;
-                    }
-                    v4 = uu_fmt::linebreak::slice_if_fresh(None, *((v13 + 16) as &i64), *((v13 + 24) as &i64), *((v13 + 32) as &i64), (*(v5 as &i8)) as u8 as u64, v0, v1, v2);
-                    if uu_fmt::linebreak::write_with_spaces(v4.field_8, v5, v4.field_0, *((a2 + 24) as &i64)) {
-                        return v16;
-                    }
-                }
+                goto LABEL_4bb804;
             }
-            v14 = *((a2 + 24) as &i64);
-            v15 = *((v14 + 16) as &i64);
-            if *(v14 as &i64) - v15 > 1 {
-                *((*((v14 + 8) as &i64) + v15) as &i8) = 10;
-                *((v14 + 16) as &unsigned long) = v15 + 1;
-                return v16;
-            }
-            std::io::buffered::bufwriter::BufWriter<W>::write_all_cold(v14, "
-");
-            return v16;
         },
     }
+    return v15;
 }

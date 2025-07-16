@@ -1,73 +1,75 @@
-fn uu_false::uumain::uumain(a0: u32, a1: u32) -> u64 {
-    let v0: i64;  // [sp-0x3a8]
-    let v1: i64;  // [sp-0x3a0]
-    let v2: i64;  // [sp-0x398]
-    let v3: i64;  // [sp-0x390]
-    let v4: i64;  // [sp-0x388], Other Possible Types: int
-    let v5: i64;  // [sp-0x380]
-    let v6: i64;  // [sp-0x378]
-    let v7: i64;  // [sp-0x370]
-    let v8: i64;  // [sp-0x368]
-    let v9: i64;  // [sp-0x350], Other Possible Types: char
-    let v10: i64;  // [sp-0x348]
-    let v11: i64;  // [sp-0x340]
-    let v12: i64;  // [sp-0x338]
-    let v13: i8;  // [bp-0x330]
-    let v14: i8;  // [bp-0x320]
-    let v15: i8;  // [bp-0x318]
-    let v17: struct712;  // [sp-0x2e0]
-    let v19: i32;  // eax
-    let v20: i64;  // r14
-    let v21: i64;  // rdx
+fn uu_false::uumain::uumain(a0: i64, a1: i64) {
+    let v0: u64;  // [bp-0x3a8]
+    let v1: std::io::stdio::Stdout;  // [bp-0x3a0], Other Possible Types: u64
+    let v2: u64;  // [bp-0x398]
+    let v3: iNone;  // [bp-0x398]
+    let v4: u64;  // [bp-0x390]
+    let v5: u384;  // [bp-0x388]
+    let v6: u8;  // [bp-0x350], Other Possible Types: int
+    let v7: u128;  // [bp-0x350]
+    let v8: iNone;  // [bp-0x340]
+    let v9: u128;  // [bp-0x340]
+    let v10: u8;  // [bp-0x330]
+    let v11: u64;  // [bp-0x320]
+    let v12: Result<struct56, struct16>;  // [bp-0x318]
+    let v16: core::result::Result<(), std::io::error::Error>;  // r14
+    let v17: u64;  // rdx
+    let v18: core::result::Result<(), std::io::error::Error>;  // rax
 
-    v17 = uu_false::uu_app();
+    uu_false::uu_app(&v12 as u8);
     uucore::mods::error::set_exit_code(1);
-    core::iter::traits::iterator::Iterator::collect(&v13, a0, a1);
-    if *(&v14 as &i64) > 2 {
-        return;
-    }
-    v4 = *(&v13 as &i192);
-    clap_builder::builder::command::Command::try_get_matches_from_mut(&v15, &v17, &v4);
-    if *(&v15 as &i64) == 0x8000000000000000 {
-        match (v19) {
-            12 => {
-                v20 = clap_builder::builder::command::Command::print_help(&v17);
-                if !(!v20) {
-                    goto LABEL_459243;
-                }
-                break;
-            }
-            14 => {
-                v1 = std::io::stdio::stdout();
-                clap_builder::builder::command::Command::render_version(&v9, &v17);
-                v2 = &v9;
-                v3 = <alloc::string::String as core::fmt::Display>::fmt;
-                v4 = &g_4f6838;
-                v5 = 2;
-                v8 = 0;
-                v6 = &v2;
-                v7 = 1;
-                if v20 {
+    core::iter::traits::iterator::Iterator::collect(&v10, a0, a1);
+    if v11 <= 2 {
+        v5 = v10;
+        v12 = clap_builder::builder::command::Command::try_get_matches_from_mut(&v12 as u8, &v5);
+        if let Err(_) = v12 {
+            match (*((*((&v12 as &char + 8) as &i64) + 213) as &i8) as u8 as u32) {
+                12 => {
+                    v16 = clap_builder::builder::command::Command::print_help(&v12 as u8);
+                    if let Err(_) = v16 {
 LABEL_459243:
-                    v0 = v20;
-                    v1 = &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E;
-                    v2 = uucore::util_name();
-                    v3 = v21;
-                    v9 = &v2;
-                    v10 = <&T as core::fmt::Display>::fmt;
-                    v11 = &v0;
-                    v12 = <std::io::error::Error as core::fmt::Display>::fmt;
-                    v4 = &g_4f6870;
-                    v5 = 3;
-                    v8 = 0;
-                    v6 = &v9;
-                    v7 = 2;
+                        v0 = v16;
+                        v1 = &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E;
+                        v2 = uucore::util_name();
+                        v4 = v17;
+                        v6 = core::fmt::rt::Argument {
+                            ty: &v2
+                        };
+                        v8 = core::fmt::rt::Argument {
+                            ty: &v0
+                        };
+                        v5 = core::fmt::Arguments {
+                            pieces: [&g_4f6870, ": ", "\n"]
+                            args: [v7, v9]
+                            fmt: 0
+                        };
+                        v18 = <std::io::stdio::Stderr as std::io::Write>::write_fmt(&v1, &v5);
+                    }
+                    break;
                 }
-            }
-            _ => {
-                goto LABEL_4592e7;
+                14 => {
+                    v1 = std::io::stdio::stdout();
+                    clap_builder::builder::command::Command::render_version(&v6, &v12 as u8);
+                    v3 = core::fmt::rt::Argument {
+                        ty: &v6
+                    };
+                    v5 = core::fmt::Arguments {
+                        pieces: [&g_4f6838, "\n"]
+                        args: [v2]
+                        fmt: 0
+                    };
+                    v16 = <std::io::stdio::Stdout as std::io::Write>::write_fmt(&v1, &v5);
+                    if !(!v16) {
+                        goto LABEL_459243;
+                    }
+                    break;
+                }
+                _ => {
+                    goto LABEL_45930b;
+                }
             }
         }
-LABEL_4592e7:
     }
+LABEL_45930b:
+    return;
 }

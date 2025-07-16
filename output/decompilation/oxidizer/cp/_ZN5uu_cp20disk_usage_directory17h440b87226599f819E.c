@@ -1,54 +1,54 @@
-fn uu_cp::disk_usage_directory(a0: u32, a1: u32) -> u64 {
-    let v0: i64;  // [sp-0x148]
-    let v1: i8;  // [sp-0x140]
-    let v2: i64;  // [sp-0x138], Other Possible Types: struct40
-    let v3: Option<struct40>;  // [sp-0x110]
-    let v4: Result<struct176, struct8>;  // [sp-0xe0], Other Possible Types: struct24, struct9
-    let v8: i64;  // rbx
-    let v9: iNone;  // ymm0
+fn uu_cp::disk_usage_directory(a0: i64, a1: i64) -> long long {
+    let v0: u64;  // [bp-0x148]
+    let v1: u8;  // [bp-0x140]
+    let v2: u64;  // [bp-0x138]
+    let v3: u64;  // [bp-0x130]
+    let v4: u128;  // [bp-0x128]
+    let v5: u64;  // [bp-0x118]
+    let v6: core::option::Option<core::result::Result<std::fs::DirEntry, std::io::error::Error>>;  // [bp-0x110]
+    let v7: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x108]
+    let v8: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x100]
+    let v9: u128;  // [bp-0xf8]
+    let v10: u64;  // [bp-0xe8]
+    let v11: struct9;  // [bp-0xe0], Other Possible Types: u32, core::result::Result<std::fs::Metadata, std::io::error::Error>
+    let v12: std::path::PathBuf;  // [bp-0xe0]
+    let v13: u32;  // [bp-0xdc]
+    let v14: u64;  // [bp-0xd8]
+    let v16: core::result::Result<std::fs::FileType, std::io::error::Error>;  // rax:rdx
 
-    v4 = std::fs::read_dir(a0, a1);
-    if v1 == 2 {
+    v11 = std::fs::read_dir(a0, a1);
+    if v11.field_8 == 2 {
         return 1;
     }
-    v0 = v4.field_0;
-    v1 = v4.field_8;
-    v8 = 0;
+    v0 = v11.field_0;
+    v1 = v11.field_8;
     loop {
-        v3 = <std::fs::ReadDir as core::iter::traits::iterator::Iterator>::next(&v0);
-        if !v3 as i64 {
+        v6 = <std::fs::ReadDir as core::iter::traits::iterator::Iterator>::next(&v0);
+        if let None = v6 {
             return 0;
         }
-        if !v2 {
+        if !v7 {
             break;
         }
-        v9 = v9 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((&v3 as &char + 24) as &i128);
-        v2 = struct40 {
-            field_0: v10
-            field_8: v11
-            field_16: v12
-            field_32: *((&v3 as &char + 40) as &i64)
-        };
-        v4 = std::fs::DirEntry::file_type(&v2);
-        match v4 {
-            Err(_) => {
-LABEL_508bab:
+        v5 = v10;
+        v4 = v9;
+        v2 = v7;
+        v3 = v8;
+        v16 = std::fs::DirEntry::file_type(&v6 as u8);
+        if v11 {
+            break;
+        }
+        if (v13 & 0xf000) == 0x4000 {
+            v12 = std::fs::DirEntry::path(&v2);
+            if uu_cp::disk_usage_directory(v14, v12.inner.inner.inner.len) {
                 break;
-            },
-            Ok(_) => {
-                if (*((&v4 as &char + 4) as &i32) as i16 & 0xf000) == 0x4000 {
-                    v4 = std::fs::DirEntry::path(&v2);
-                    if uu_cp::disk_usage_directory(*((&v4.field_0 as &char + 8) as &i64), v4.field_16) {
-                        break;
-                    }
-                } else {
-                    v4 = std::fs::DirEntry::metadata(&v2);
-                    if v4 as i32 == 2 {
-                        goto LABEL_508bab;
-                    }
-                }
-                v8 += vvar_62{reg 56};
-            },
+            }
+        } else {
+            v11 = std::fs::DirEntry::metadata(&v2);
+            if let Err(_) = v11 {
+                break;
+            }
         }
     }
+    return 1;
 }

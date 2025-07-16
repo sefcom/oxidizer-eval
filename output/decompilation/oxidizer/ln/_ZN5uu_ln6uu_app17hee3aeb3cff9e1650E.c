@@ -1,103 +1,104 @@
-fn uu_ln::uu_app(a0: &struct712) -> u64 {
-    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct712, struct437
-    let v1: i64;  // [sp-0x78c]
-    let v2: i32;  // [sp-0x784]
-    let v3: struct592;  // [sp-0x780], Other Possible Types: struct24
-    let v4: i32;  // [sp-0x538]
-    let v5: i32;  // [sp-0x534]
-    let v6: struct592;  // [sp-0x530], Other Possible Types: struct712
-    let v7: struct592;  // [sp-0x268]
-    let v9: i64;  // rdx
+fn uu_ln::uu_app(a0: &struct712) -> long long {
+    let v0: struct437;  // [bp-0xa48]
+    let v1: u32;  // [bp-0x800]
+    let v2: i8;  // [bp-0x7fc]
+    let v3: u64;  // [bp-0x78c]
+    let v4: u32;  // [bp-0x784]
+    let v5: u8;  // [bp-0x780], Other Possible Types: struct584
+    let v6: u32;  // [bp-0x538]
+    let v7: u32;  // [bp-0x534]
+    let v8: u8;  // [bp-0x530]
+    let v9: u64;  // [bp-0x274]
+    let v10: u32;  // [bp-0x26c]
+    let v11: u8;  // [bp-0x268]
+    let v14: u64;  // rdx
 
-    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
-    v6 = clap_builder::builder::command::Command::version(&v0, "0.0.28");
-    v0 = clap_builder::builder::command::Command::about(&v6, "Make links between files.");
-    v3 = uucore::format_usage("{} [OPTION]... [-T] TARGET LINK_NAME
-{} [OPTION]... TARGET
-{} [OPTION]... TARGET... DIRECTORY
-{} [OPTION]... -t DIRECTORY TARGET...");
-    v6 = clap_builder::builder::command::Command::override_usage(&v0, &v3);
-    memcpy(&v0, &v6, 700);
-    v1 = 549755814016 | *((&v6.field_0 as &char + 700) as &i64);
-    v2 = *((&v6.field_0 as &char + 708) as &i32);
-    v3 = uucore::features::backup_control::arguments::backup();
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v3);
-    v3 = uucore::features::backup_control::arguments::backup_no_args();
-    v0 = clap_builder::builder::command::Command::arg(&v6, &v3);
-    v6 = clap_builder::builder::arg::Arg::new("force");
-    v3 = clap_builder::builder::arg::Arg::short(&v6, 0x66);
-    v6 = clap_builder::builder::arg::Arg::long(&v3, "force");
-    v3 = clap_builder::builder::arg::Arg::help(&v6, "remove existing destination files");
-    v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v7);
-    v0 = clap_builder::builder::arg::Arg::new("interactive");
-    v3 = clap_builder::builder::arg::Arg::short(&v0, 0x69);
-    v0 = clap_builder::builder::arg::Arg::long(&v3, "interactive");
-    v3 = clap_builder::builder::arg::Arg::help(&v0, "prompt whether to remove existing destination files");
-    v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
-    v0 = clap_builder::builder::command::Command::arg(&v6, &v7);
-    v6 = clap_builder::builder::arg::Arg::new("no-dereference");
-    v3 = clap_builder::builder::arg::Arg::short(&v6, 0x6e);
-    v6 = clap_builder::builder::arg::Arg::long(&v3, "no-dereference");
-    v3 = clap_builder::builder::arg::Arg::help(&v6, "treat LINK_NAME as a normal file if it is a symbolic link to a directory");
-    v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v7);
-    v0 = clap_builder::builder::arg::Arg::new("logical");
-    v3 = clap_builder::builder::arg::Arg::short(&v0, 0x4c);
-    v0 = clap_builder::builder::arg::Arg::long(&v3, "logical");
-    v3 = clap_builder::builder::arg::Arg::help(&v0, "follow TARGETs that are symbolic links");
-    v0 = clap_builder::builder::arg::Arg::overrides_with(&v3, "physical");
-    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    v0 = clap_builder::builder::command::Command::arg(&v6, &v3);
-    v6 = clap_builder::builder::arg::Arg::new("physical");
-    v3 = clap_builder::builder::arg::Arg::short(&v6, 0x50);
-    v6 = clap_builder::builder::arg::Arg::long(&v3, "physical");
-    v3 = clap_builder::builder::arg::Arg::help(&v6, "make hard links directly to symbolic links");
-    v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v7);
-    v0 = clap_builder::builder::arg::Arg::new("symbolic");
-    v3 = clap_builder::builder::arg::Arg::short(&v0, 0x73);
-    v0 = clap_builder::builder::arg::Arg::long(&v3, "symbolic");
-    v3 = clap_builder::builder::arg::Arg::help(&v0, "make symbolic links instead of hard links");
-    v0 = clap_builder::builder::arg::Arg::overrides_with(&v3, "symbolic");
-    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    v0 = clap_builder::builder::command::Command::arg(&v6, &v3);
-    v3 = uucore::features::backup_control::arguments::suffix();
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v3);
-    v0 = clap_builder::builder::arg::Arg::new("target-directory");
-    v3 = clap_builder::builder::arg::Arg::short(&v0, 0x74);
-    v0 = clap_builder::builder::arg::Arg::long(&v3, "target-directory");
-    v3 = clap_builder::builder::arg::Arg::help(&v0, "specify the DIRECTORY in which to create the links");
-    v0 = clap_builder::builder::arg::Arg::value_name(&v3);
-    v3 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x4);
-    v7 = clap_builder::builder::arg::Arg::conflicts_with(&v3, "no-target-directory");
-    v0 = clap_builder::builder::command::Command::arg(&v6, &v7);
-    v6 = clap_builder::builder::arg::Arg::new("no-target-directory");
-    v3 = clap_builder::builder::arg::Arg::short(&v6, 0x54);
-    v6 = clap_builder::builder::arg::Arg::long(&v3, "no-target-directory");
-    v3 = clap_builder::builder::arg::Arg::help(&v6, "treat LINK_NAME as a normal file always");
-    v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v7);
-    v0 = clap_builder::builder::arg::Arg::new("relative");
-    v3 = clap_builder::builder::arg::Arg::short(&v0, 0x72);
-    v0 = clap_builder::builder::arg::Arg::long(&v3, "relative");
-    v3 = clap_builder::builder::arg::Arg::help(&v0, "create symbolic links relative to link location");
-    v0 = clap_builder::builder::arg::Arg::requires(&v3, "symbolic");
-    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    v0 = clap_builder::builder::command::Command::arg(&v6, &v3);
-    v6 = clap_builder::builder::arg::Arg::new("verbose");
-    v3 = clap_builder::builder::arg::Arg::short(&v6, 0x76);
-    v6 = clap_builder::builder::arg::Arg::long(&v3, "verbose");
-    v3 = clap_builder::builder::arg::Arg::help(&v6, "print name of each linked file");
-    v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v7);
-    v0 = clap_builder::builder::arg::Arg::new("files");
-    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x1);
-    v0 = clap_builder::builder::arg::Arg::value_hint(&v3, 0x2);
-    memcpy(&v3, &v0, 584);
-    v4 = *((&v0.field_0 as &char + 584) as &i32) | 1;
-    v5 = *((&v0.field_0 as &char + 588) as &i32);
-    v0 = clap_builder::builder::arg::Arg::num_args(&v3);
-    clap_builder::builder::command::Command::arg(a0, &v6, &v0);
+    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v14);
+    clap_builder::builder::command::Command::version(&v8, &v0, "0.0.28");
+    clap_builder::builder::command::Command::about(&v0, &v8, "Make links between files.");
+    uucore::format_usage(&v5, "{} [OPTION]... [-T] TARGET LINK_NAME\n{} [OPTION]... TARGET\n{} [OPTION]... TARGET... DIRECTORY\n{} [OPTION]... -t DIRECTORY TARGET...");
+    clap_builder::builder::command::Command::override_usage(&v8, &v0, &v5);
+    memcpy(&v0, &v8, 700);
+    v3 = 549755814016 | v9;
+    v4 = v10;
+    uucore::features::backup_control::arguments::backup(&v5);
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v5);
+    uucore::features::backup_control::arguments::backup_no_args(&v5);
+    clap_builder::builder::command::Command::arg(&v0, &v8, &v5);
+    clap_builder::builder::arg::Arg::new(&v8, "force");
+    clap_builder::builder::arg::Arg::short(&v5, &v8, 102);
+    clap_builder::builder::arg::Arg::long(&v8, &v5, "force");
+    clap_builder::builder::arg::Arg::help(&v5, &v8, "remove existing destination files");
+    clap_builder::builder::arg::Arg::action(&v11, &v5, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v11);
+    clap_builder::builder::arg::Arg::new(&v0, "interactive");
+    clap_builder::builder::arg::Arg::short(&v5, &v0, 105);
+    clap_builder::builder::arg::Arg::long(&v0, &v5, "interactive");
+    clap_builder::builder::arg::Arg::help(&v5, &v0, "prompt whether to remove existing destination files");
+    clap_builder::builder::arg::Arg::action(&v11, &v5, 2);
+    clap_builder::builder::command::Command::arg(&v0, &v8, &v11);
+    clap_builder::builder::arg::Arg::new(&v8, "no-dereference");
+    clap_builder::builder::arg::Arg::short(&v5, &v8, 110);
+    clap_builder::builder::arg::Arg::long(&v8, &v5, "no-dereference");
+    clap_builder::builder::arg::Arg::help(&v5, &v8, "treat LINK_NAME as a normal file if it is a symbolic link to a directory");
+    clap_builder::builder::arg::Arg::action(&v11, &v5, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v11);
+    clap_builder::builder::arg::Arg::new(&v0, "logical");
+    clap_builder::builder::arg::Arg::short(&v5, &v0, 76);
+    clap_builder::builder::arg::Arg::long(&v0, &v5, "logical");
+    clap_builder::builder::arg::Arg::help(&v5, &v0, "follow TARGETs that are symbolic links");
+    clap_builder::builder::arg::Arg::overrides_with(&v0, &v5, "physical");
+    clap_builder::builder::arg::Arg::action(&v5, &v0, 2);
+    clap_builder::builder::command::Command::arg(&v0, &v8, &v5);
+    clap_builder::builder::arg::Arg::new(&v8, "physical");
+    clap_builder::builder::arg::Arg::short(&v5, &v8, 80);
+    clap_builder::builder::arg::Arg::long(&v8, &v5, "physical");
+    clap_builder::builder::arg::Arg::help(&v5, &v8, "make hard links directly to symbolic links");
+    clap_builder::builder::arg::Arg::action(&v11, &v5, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v11);
+    clap_builder::builder::arg::Arg::new(&v0, "symbolic");
+    clap_builder::builder::arg::Arg::short(&v5, &v0, 115);
+    clap_builder::builder::arg::Arg::long(&v0, &v5, "symbolic");
+    clap_builder::builder::arg::Arg::help(&v5, &v0, "make symbolic links instead of hard links");
+    clap_builder::builder::arg::Arg::overrides_with(&v0, &v5, "symbolic");
+    clap_builder::builder::arg::Arg::action(&v5, &v0, 2);
+    clap_builder::builder::command::Command::arg(&v0, &v8, &v5);
+    v5 = uucore::features::backup_control::arguments::suffix();
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v5);
+    clap_builder::builder::arg::Arg::new(&v0, "target-directory");
+    clap_builder::builder::arg::Arg::short(&v5, &v0, 116);
+    clap_builder::builder::arg::Arg::long(&v0, &v5, "target-directory");
+    clap_builder::builder::arg::Arg::help(&v5, &v0, "specify the DIRECTORY in which to create the links");
+    clap_builder::builder::arg::Arg::value_name(&v0, &v5);
+    clap_builder::builder::arg::Arg::value_hint(&v5, &v0, 4);
+    clap_builder::builder::arg::Arg::conflicts_with(&v11, &v5, "no-target-directory");
+    clap_builder::builder::command::Command::arg(&v0, &v8, &v11);
+    clap_builder::builder::arg::Arg::new(&v8, "no-target-directory");
+    clap_builder::builder::arg::Arg::short(&v5, &v8, 84);
+    clap_builder::builder::arg::Arg::long(&v8, &v5, "no-target-directory");
+    clap_builder::builder::arg::Arg::help(&v5, &v8, "treat LINK_NAME as a normal file always");
+    clap_builder::builder::arg::Arg::action(&v11, &v5, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v11);
+    clap_builder::builder::arg::Arg::new(&v0, "relative");
+    clap_builder::builder::arg::Arg::short(&v5, &v0, 114);
+    clap_builder::builder::arg::Arg::long(&v0, &v5, "relative");
+    clap_builder::builder::arg::Arg::help(&v5, &v0, "create symbolic links relative to link location");
+    clap_builder::builder::arg::Arg::requires(&v0, &v5, "symbolic");
+    clap_builder::builder::arg::Arg::action(&v5, &v0, 2);
+    clap_builder::builder::command::Command::arg(&v0, &v8, &v5);
+    clap_builder::builder::arg::Arg::new(&v8, "verbose");
+    clap_builder::builder::arg::Arg::short(&v5, &v8, 118);
+    clap_builder::builder::arg::Arg::long(&v8, &v5, "verbose");
+    clap_builder::builder::arg::Arg::help(&v5, &v8, "print name of each linked file");
+    clap_builder::builder::arg::Arg::action(&v11, &v5, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v11);
+    clap_builder::builder::arg::Arg::new(&v0, "files");
+    clap_builder::builder::arg::Arg::action(&v5, &v0, 1);
+    clap_builder::builder::arg::Arg::value_hint(&v0, &v5, 2);
+    memcpy(&v5, &v0, 584);
+    v6 = v1 | 1;
+    v7 = *(&v2 as &i32);
+    clap_builder::builder::arg::Arg::num_args(&v0, &v5);
+    clap_builder::builder::command::Command::arg(a0, &v8, &v0);
     return a0;
 }

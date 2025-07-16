@@ -1,3 +1,3 @@
-fn uu_dd::progress::ProgUpdate::print_final_stats(a0: u32, a1: u32) -> u64 {
-    goto *((4352448 + vvar_1 * 4) as &i32) + 4352448;
+fn uu_dd::progress::ProgUpdate::print_final_stats(a0: i64, a1: i8) -> void {
+    goto ((&g_4269c0.field_0)[a1] + &g_4269c0.field_0) as i64;
 }

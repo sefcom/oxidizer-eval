@@ -1,42 +1,44 @@
 {
   "decompilation": {
-    "_ZN6uu_seq6uumain17h8e2c18419805cd3fE": "fn uu_seq::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: String;  // [sp-0x48]\n    let v4: String;  // [sp-0x28]\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v6 = uu_seq::uumain::uumain(a0, a1);\n    if !v6 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v6;\n    v4 = format!(\"{}\", &v0);\n    v3 = v4;\n    if v3 == \"\" {\n        v2 = v7;\n        show_error!(\"{}\", &v3);\n    }\n    if !*((v7 + 104) as &i64)() {\n        return *((v7 + 96) as &i64)();\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v7;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n}\n",
-    "_ZN6uu_seq6uumain6uumain17h34e3a354243be336E": "fn uu_seq::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i8;  // [bp-0x578]\n    let v1: struct24;  // [sp-0x550]\n    let v2: struct24;  // [sp-0x538], Other Possible Types: int, unsigned long, char\n    let v3: iNone;  // [bp-0x530]\n    let v4: i64;  // [sp-0x528]\n    let v5: i8;  // [bp-0x520], Other Possible Types: int\n    let v6: iNone;  // [sp-0x510]\n    let v7: iNone;  // [sp-0x500]\n    let v8: struct24;  // [sp-0x4e8], Other Possible Types: int\n    let v9: iNone;  // [bp-0x4d8]\n    let v10: iNone;  // [sp-0x4c8]\n    let v11: i64;  // [sp-0x4b8]\n    let v12: iNone;  // [sp-0x4a8], Other Possible Types: struct24\n    let v13: iNone;  // [sp-0x498]\n    let v14: iNone;  // [sp-0x488], Other Possible Types: struct16, Result<struct56, struct1>\n    let v15: iNone;  // [sp-0x478]\n    let v16: i64;  // [sp-0x458]\n    let v17: iNone;  // [sp-0x448]\n    let v18: i64;  // [sp-0x438]\n    let v19: iNone;  // [sp-0x430]\n    let v20: i64;  // [sp-0x420]\n    let v21: i64;  // [sp-0x418]\n    let v22: i64;  // [sp-0x410]\n    let v23: i8;  // [sp-0x408]\n    let v24: i64;  // [sp-0x400], Other Possible Types: int\n    let v25: i64;  // [sp-0x3f8]\n    let v26: struct16;  // [sp-0x3c8], Other Possible Types: Result<struct56, struct1>\n    let v27: struct64;  // [sp-0x388]\n    let v28: i64;  // [sp-0x348], Other Possible Types: Result<struct56, struct1>, struct24, int, struct712, struct72, struct56\n    let v29: struct24;  // [sp-0x340]\n    let v30: iNone;  // [bp-0x338]\n    let v31: i64;  // [sp-0x328]\n    let v32: iNone;  // [sp-0x320]\n    let v33: iNone;  // [sp-0x310]\n    let v34: i64;  // [sp-0x300]\n    let v35: iNone;  // [sp-0x2f8]\n    let v36: iNone;  // [sp-0x2e8]\n    let v37: i64;  // [sp-0x2d8]\n    let v38: struct64;  // [sp-0x78]\n    let v41: i64;  // rbx\n    let v42: i64;  // rax\n    let v43: i64;  // rsi\n    let v45: i64;  // rsi\n    let v47: i64;  // rdx\n    let v48: i64;  // rax\n    let v49: i64;  // rcx\n    let v50: i64;  // r14\n    let v51: i64;  // rdx\n    let v53: i64;  // rax\n    let v54: i64;  // rcx\n    let v55: i64;  // rax\n    let v57: i64;  // rax\n    let v60: i64;  // rax\n    let v61: i64;  // r14\n    let v62: i64;  // r14\n    let v63: i64;  // rax\n    let v65: iNone;  // xmm0\n    let v66: i8;  // bl\n    let v67: i64;  // rax\n    let v69: i64;  // rax\n    let v70: i64;  // rbx\n    let v71: iNone;  // [sp-0x3c8]\n    let v72: iNone;  // [sp-0x3b8]\n    let v73: i64;  // [sp-0x398]\n\n    v28 = uu_seq::uu_app();\n    clap_builder::builder::command::Command::try_get_matches_from(&v2, &v28, a0, a1);\n    if v24 == 0x8000000000000000 {\n        v41 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v25);\n        return v41;\n    }\n    v24 = *(&v2 as &i448);\n    v28 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v24, \"numbers\");\n    v27 = clap_builder::parser::error::MatchesError::unwrap(\"numbers\", &v28);\n    if !v27.field_0 as i64 {\n        v28 = 9223372036854775809;\n        v41 = alloc::boxed::Box<T>::new(&v28);\n        return v41;\n    }\n    v38 = v27;\n    v1 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v38);\n    v28 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v24, \"separator\");\n    v42 = clap_builder::parser::error::MatchesError::unwrap(\"separator\", &v28);\n    if v42 {\n        v43 = *((v42 + 8) as &i64);\n        v42 = *((v42 + 16) as &i64);\n    } else {\n        v43 = 0;\n    }\n    if !v43 {\n        v45 = &g_4178e2;\n    }\n    v47 = (v43 ? 1 : v42);\n    v28 = <T as alloc::slice::hack::ConvertVec>::to_vec(v45, v47);\n    v8 = v28;\n    v28 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v24, \"terminator\");\n    v48 = clap_builder::parser::error::MatchesError::unwrap(\"terminator\", &v28);\n    if v48 {\n        v49 = *((v48 + 8) as &i64);\n        v48 = *((v48 + 16) as &i64);\n    } else {\n        v49 = 0;\n    }\n    if v49 {\n        v50 = v49;\n    } else {\n        v50 = &g_4178e2;\n    }\n    v51 = (v49 ? v48 : 1);\n    v28 = <T as alloc::slice::hack::ConvertVec>::to_vec(v50, v51);\n    v2 = v28;\n    v28 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v24, \"format\");\n    v53 = clap_builder::parser::error::MatchesError::unwrap(\"format\", &v28);\n    if v53 {\n        v54 = *((v53 + 8) as &i64);\n        v53 = *((v53 + 16) as &i64);\n    } else {\n        v54 = 0;\n    }\n    v18 = v8.field_16;\n    v17 = v8;\n    v19 = *(&v2.field_0 as &i128);\n    v20 = v4;\n    v23 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v24, \"equal-width\");\n    v21 = v54;\n    v22 = v53;\n    if v1.field_16 <= 1 {\n        v26 = uu_seq::number::PreciseNumber::one();\n        if v1.field_16 <= 2 {\n            goto LABEL_479a6d;\n        }\n    } else {\n        v55 = *(v1.field_8 as &i64);\n        v28 = uu_seq::numberparse::<impl core::str::traits::FromStr for uu_seq::number::PreciseNumber>::from_str(*((v55 + 8) as &i64), *((v55 + 16) as &i64));\n        if v28 == 9223372036854775812 {\n            v8 = <alloc::string::String as core::clone::Clone>::clone(*(v1.field_8 as &i64));\n            v2 = v8;\n            *(&v5 as &i8) = *((&v28 as &char + 8) as &i8);\n            v41 = alloc::boxed::Box<T>::new(&v2);\n            return v41;\n        }\n        v26 = v28;\n        if v1.field_16 <= 2 {\nLABEL_479a6d:\n            v14 = uu_seq::number::PreciseNumber::one();\n            goto LABEL_479abd;\n        }\n    }\n    v57 = *((v1.field_8 + 8) as &i64);\n    v28 = uu_seq::numberparse::<impl core::str::traits::FromStr for uu_seq::number::PreciseNumber>::from_str(*((v57 + 8) as &i64), *((v57 + 16) as &i64));\n    if v28 == 9223372036854775812 {\n        v8 = <alloc::string::String as core::clone::Clone>::clone(*((v1.field_8 + 8) as &i64));\n        v2 = v8;\n        *(&v5 as &i8) = *((&v28 as &char + 8) as &i8);\n        v41 = alloc::boxed::Box<T>::new(&v2);\n        return v41;\n    }\n    v14 = v28;\nLABEL_479abd:\n    match (v60) {\n        0 => {\n            if (&v15)[8] as i8 == 1 {\n                goto LABEL_479ae2;\n            } else {\n                goto LABEL_479b43;\n            }\n        }\n        3 => {\nLABEL_479ae2:\n            if v1.field_16 >= 2 {\n                v2 = <alloc::string::String as core::clone::Clone>::clone(*((v1.field_8 + 8) as &i64));\n                v29 = v2;\n                v28 = 0x8000000000000000;\n                alloc::boxed::Box<T>::new(&v28);\n                return v41;\n            }\n        }\n        _ => {\nLABEL_479b43:\n            v61 = v1.field_16;\n            v62 = v61 - 1;\n            if v61 >= 1 {\n                v63 = *((v1.field_8 + v62 * 8) as &i64);\n                v28 = uu_seq::numberparse::<impl core::str::traits::FromStr for uu_seq::number::PreciseNumber>::from_str(*((v63 + 8) as &i64), *((v63 + 16) as &i64));\n                if v28 != 9223372036854775812 {\n                    v11 = *((&v28 as &char + 48) as &i64);\n                    v65 = v28 as i128;\n                    v10 = *((&v28 as &char + 32) as &i128);\n                    *(&v9 as &i128) = *((&v28 as &char + 16) as &i128);\n                    v8 = v65;\n                    v67 = core::cmp::max_by(core::cmp::max_by(*((&v26 as &char + 40) as &i64), *((&v14 as &char + 40) as &i64)), (&v10)[8] as i64);\n                    if !v21 {\n                        v69 = 0x8000000000000000;\n                    } else {\n                        v28 = uucore::features::format::Format<F>::parse(v21, v22);\n                        v69 = v28;\n                        v12 = *((&v28.field_0 as &char + 8) as &i128);\n                        v13 = *((&v28.field_16 as &char + 8) as &i128);\n                        if v69 == 0x8000000000000000 {\n                            v30 = v13;\n                            v28 = v12;\n                            return v41;\n                        }\n                        v7 = v33;\n                        v6 = v32;\n                        v3 = v12;\n                        v5 = v13;\n                    }\n                    v2 = v69;\n                    v31 = *((&v26 as &char + 32) as &i64);\n                    v30 = v72;\n                    v28 = v71;\n                    v32 = v14;\n                    v33 = v15;\n                    v34 = *((&v14 as &char + 32) as &i64);\n                    v35 = v8;\n                    v36 = v9 as i128;\n                    v37 = v10 as i64;\n                    v70 = uu_seq::print_seq(&v28, core::cmp::max_by(v73, v16), (&v17)[8] as i64, v18, (&v19)[8] as i64, v20, v0, v67, &v2);\n                    if !v70 || std::io::error::Error::kind(v70) as i8 == 11 {\n                        break;\n                    } else {\n                        <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(v70);\n                        break;\n                    }\n                    return v41;\n                } else if v62 < v1.field_16 {\n                    v66 = *((&v28 as &char + 8) as &i8);\n                    v12 = <alloc::string::String as core::clone::Clone>::clone(*((v1.field_8 + v62 * 8) as &i64));\n                    v4 = v12.field_16;\n                    v2 = v12;\n                    v5 = v66;\n                    v41 = alloc::boxed::Box<T>::new(&v2);\n                    return v41;\n                }\n            }\n        }\n    }\n}\n",
-    "_ZN6uu_seq6uu_app17h5bc20a713053c9e7E": "fn uu_seq::uu_app(a0: &struct712) -> u64 {\n    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct712, char\n    let v1: i64;  // [sp-0x78c]\n    let v2: i32;  // [sp-0x784]\n    let v3: struct712;  // [sp-0x780], Other Possible Types: struct592, struct437\n    let v4: i8;  // [bp-0x4c4]\n    let v5: i8;  // [bp-0x4bc]\n    let v6: struct592;  // [sp-0x4b8], Other Possible Types: struct24\n    let v7: struct592;  // [sp-0x268]\n    let v9: i64;  // rdx\n\n    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);\n    memcpy(&v0, &v3, 700);\n    v1 = 549755814052 | *(&v4 as &i64);\n    v2 = *(&v5 as &i32);\n    v3 = clap_builder::builder::command::Command::version(&v0, \"0.0.28\");\n    v0 = clap_builder::builder::command::Command::about(&v3, \"Display numbers from FIRST to LAST, in steps of INCREMENT.\");\n    v6 = uucore::format_usage(\"{} [OPTION]... LAST\n{} [OPTION]... FIRST LAST\n{} [OPTION]... FIRST INCREMENT LAST\");\n    v3 = clap_builder::builder::command::Command::override_usage(&v0, &v6);\n    v0 = clap_builder::builder::arg::Arg::new(\"separator\");\n    v6 = clap_builder::builder::arg::Arg::short(&v0, 0x73);\n    v0 = clap_builder::builder::arg::Arg::long(&v6, \"separator\");\n    v6 = clap_builder::builder::arg::Arg::help(&v0, \"Separator character (defaults to \\n)\");\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v6);\n    v3 = clap_builder::builder::arg::Arg::new(\"terminator\");\n    v6 = clap_builder::builder::arg::Arg::short(&v3, 0x74);\n    v3 = clap_builder::builder::arg::Arg::long(&v6, \"terminator\");\n    v6 = clap_builder::builder::arg::Arg::help(&v3, \"Terminator character (defaults to \\n)\");\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v6);\n    v0 = clap_builder::builder::arg::Arg::new(\"equal-width\");\n    v6 = clap_builder::builder::arg::Arg::short(&v0, 0x77);\n    v0 = clap_builder::builder::arg::Arg::long(&v6, \"equal-width\");\n    v6 = clap_builder::builder::arg::Arg::help(&v0, \"Equalize widths of all numbers by padding with zeros\");\n    v7 = clap_builder::builder::arg::Arg::action(&v6, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v7);\n    v3 = clap_builder::builder::arg::Arg::new(\"format\");\n    v6 = clap_builder::builder::arg::Arg::short(&v3, 0x66);\n    v3 = clap_builder::builder::arg::Arg::long(&v6, \"format\");\n    v6 = clap_builder::builder::arg::Arg::help(&v3, \"use printf style floating-point FORMAT\");\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v6);\n    v0 = clap_builder::builder::arg::Arg::new(\"numbers\");\n    v6 = clap_builder::builder::arg::Arg::action(&v0, 0x1);\n    v0 = clap_builder::builder::arg::Arg::num_args(&v6);\n    clap_builder::builder::command::Command::arg(a0, &v3, &v0);\n    return a0;\n}\n",
-    "_ZN6uu_seq13done_printing17h3afd308e88daff24E": "fn uu_seq::done_printing(a0: u32, a1: u32, a2: u32) -> u64 {\n    let v0: struct40;  // [sp-0x50]\n\n    v0 = <uu_seq::extendedbigdecimal::ExtendedBigDecimal as num_traits::identities::Zero>::zero();\n    return (!core::cmp::PartialOrd::ge(a1) ? core::cmp::PartialOrd::lt(a0) : core::cmp::PartialOrd::gt(a0));\n}\n",
-    "_ZN6uu_seq17write_value_float17h583f3c53a243a2bfE": "fn uu_seq::write_value_float(a0: u64, a1: u32, a2: u32, a3: u32) -> u64 {\n    let v0: i64;  // [sp-0xd8]\n    let v1: i64;  // [sp-0xd0]\n    let v2: i64;  // [sp-0xc8]\n    let v3: i64;  // [sp-0xc0]\n    let v4: i64;  // [sp-0xb8]\n    let v5: i64;  // [sp-0xb0]\n    let v6: i8;  // [sp-0xa8]\n    let v7: i64;  // [sp-0xa0]\n    let v8: i64;  // [sp-0x98]\n    let v9: i64;  // [sp-0x90]\n    let v10: i64;  // [sp-0x88]\n    let v11: i64;  // [sp-0x80]\n    let v12: i64;  // [sp-0x78]\n    let v13: i64;  // [sp-0x70]\n    let v14: struct48;  // [bp-0x68]\n    let v15: struct24;  // [sp-0x38]\n\n    v7 = a1;\n    if <uu_seq::extendedbigdecimal::ExtendedBigDecimal as core::cmp::PartialEq>::eq(a1) as i8 || <uu_seq::extendedbigdecimal::ExtendedBigDecimal as core::cmp::PartialEq>::eq(a1) as i8 {\n        v8 = &v7;\n        v9 = <&T as core::fmt::Display>::fmt;\n        v10 = a3;\n        v11 = 0;\n        v12 = a2;\n        v13 = 0;\n        v0 = 1;\n        v1 = 1;\n        v2 = 1;\n        v3 = 2;\n        v4 = 0;\n        v5 = 32;\n    } else {\n        v8 = &v7;\n        v9 = <&T as core::fmt::Display>::fmt;\n        v10 = a3;\n        v11 = 0;\n        v12 = a2;\n        v13 = 0;\n        v0 = 1;\n        v1 = 1;\n        v2 = 1;\n        v3 = 2;\n        v4 = 0;\n        v5 = 34359738400;\n    }\n    v6 = 1;\n    v14 = struct48 {\n        field_0: &g_4176c0\n        field_8: 1\n        field_16: &v8\n        field_24: 3\n        field_32: &v0\n        field_40: 1\n    };\n    v15 = core::option::Option<T>::map_or_else(&v14);\n    v8 = &v15;\n    v9 = <alloc::string::String as core::fmt::Display>::fmt;\n    v0 = &g_4176c0;\n    v1 = 1;\n    v4 = 0;\n    v2 = &v8;\n    v3 = 1;\n    return std::io::Write::write_fmt(a0, &v0);\n}\n",
-    "_ZN6uu_seq9print_seq17h76b7cc0ba327356fE": "fn uu_seq::print_seq(a0: void*, a1: u32, a2: u32, a3: u32, a4: u32, a5: u32, a6: u8, a7: u32, a8: &u64) -> u64 {\n    let v0: u64;  // [sp-0x200]\n    let v1: u128;  // [sp-0x1f8]\n    let v2: u128;  // [sp-0x1e8]\n    let v3: u64;  // [sp-0x1d8]\n    let v4: u64;  // [sp-0x190]\n    let v5: u128;  // [sp-0x188]\n    let v6: u128;  // [sp-0x178]\n    let v7: u64;  // [sp-0x168]\n    let v8: u128;  // [sp-0x158]\n    let v9: u128;  // [sp-0x148]\n    let v10: u64;  // [sp-0x138]\n    let v11: u64;  // [sp-0x130]\n    let v12: u64;  // [sp-0x118]\n    let v13: u128;  // [sp-0xf8]\n    let v14: u128;  // [sp-0xe8]\n    let v15: u64;  // [sp-0xd8]\n    let v16: u64;  // [sp-0xa8]\n    let v17: u64;  // [sp-0xa0]\n    let v18: u64;  // [sp-0x98]\n    let v19: u64;  // [sp-0x90]\n    let v20: u64;  // rax\n    let v21: u64;  // r15\n    let v22: void*;  // r13\n    let v23: u64;  // rax\n    let v24: u64;  // rax\n    let v25: u64;  // rsi\n    let v26: u64;  // rax\n    let v27: u64;  // rdx\n\n    v16 = a2;\n    v17 = a3;\n    v18 = a4;\n    v19 = a5;\n    v12 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v12);\n    v3 = a0->field_20;\n    v2 = a0->field_10;\n    v1 = a0->field_0;\n    v7 = *((&a0->field_38 as &char + 8) as &i64);\n    v6 = *((&a0->field_28 as &char + 8) as &i128);\n    v5 = *(&(&a0->field_20)[1] as &i128);\n    v15 = a0->field_60;\n    v14 = a0->field_50;\n    v13 = *(&a0->field_48 as &i128);\n    v20 = a1 + 1;\n    if !a1 {\n        v20 = a1;\n    }\n    v21 = (a6 ? v20 + a7 : 0);\n    v11 = *(a8);\n    if uu_seq::done_printing(&v1, &v5, &v13) as i8 {\n        v22 = <std::io::stdio::StdoutLock as std::io::Write>::flush(&v0);\n        if !v22 {\n            return 0;\n        }\n        return v22;\n    }\n    v4 = 0x8000000000000000;\n    if v11 == 0x8000000000000000 {\n        v23 = uu_seq::write_value_float(&v0, &v1, v21, a1);\n        v22 = v23;\n        if v23 {\n            return v22;\n        }\n        v10 = v3;\n        v9 = v2;\n        v26 = v5;\n        v27 = (v26 < 9223372036854775812 ? v26 + 9223372036854775809 : 0);\n        v8 = v1;\n        goto *((4339864 + vvar_25{reg 32} * 4) as &i32) + 4339864;\n    } else {\n        v24 = v1;\n        v25 = (v24 < 9223372036854775812 ? v24 + 9223372036854775809 : 0);\n        goto *((4339844 + vvar_24{reg 64} * 4) as &i32) + 4339844;\n    }\n}\n",
-    "_ZN6uu_seq18extendedbigdecimal18ExtendedBigDecimal3one17h6aa804070085aabbE": "fn uu_seq::extendedbigdecimal::ExtendedBigDecimal::one(a0: &struct32) -> u64 {\n    bigdecimal::impl_convert::<impl core::convert::From<i32> for bigdecimal::BigDecimal>::from(a0, 1);\n    return a0;\n}\n",
-    "_ZN6uu_seq6number13PreciseNumber3one17hfa3db95e12ecba95E": "fn uu_seq::number::PreciseNumber::one(a0: &struct16) -> u64 {\n    uu_seq::extendedbigdecimal::ExtendedBigDecimal::one(a0);\n    *((a0 + 40) as &i64) = 1;\n    *((a0 + 48) as &i64) = 0;\n    return a0;\n}\n",
-    "_ZN6uu_seq11numberparse86_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$uu_seq..number..PreciseNumber$GT$8from_str17h57ed696611a385bdE": "fn uu_seq::numberparse::<impl core::str::traits::FromStr for uu_seq::number::PreciseNumber>::from_str(a0: &Result<struct56, struct1>, a1: u64, a2: u64) -> u64 {\n    let v0: struct24;  // [bp-0x40], Other Possible Types: struct1\n    let v2: i64;  // r15\n    let v3: i64;  // rdx\n    let v4: i64;  // r14\n    let v5: i64;  // rax\n    let v6: i64;  // rsi\n    let v7: i64;  // rdx\n\n    v2 = core::str::<impl str>::trim_start_matches(a1, a2);\n    v4 = v3;\n    v0 = struct1 {\n        field_0: 0\n    };\n    if core::slice::<impl [T]>::starts_with(v2, v3, core::char::methods::encode_utf8_raw(43, &v0), 1) as i8 {\n        v2 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(1, v2, v3);\n        v4 = v3;\n    }\n    v0 = alloc::str::<impl str>::to_lowercase(v2, v4);\n    if core::str::<impl str>::find(v0.field_8, v0.field_16) == 1 && v3 < 2 {\n        uu_seq::numberparse::parse_hexadecimal(a0, v2, v4);\n    }\n    v5 = core::str::<impl str>::find(v2, v4, 101);\n    if !core::str::<impl str>::find(v2, v4, 46) {\n        v6 = v2;\n        v7 = v4;\n        if !v5 {\n            uu_seq::numberparse::parse_no_decimal_no_exponent(a0, v6, v7);\n        } else {\n            uu_seq::numberparse::parse_exponent_no_decimal(a0, v6, v7, v3);\n        }\n    } else if !v5 {\n        uu_seq::numberparse::parse_decimal_no_exponent(a0, v2, v4, v3);\n    } else {\n        if v3 >= v3 {\n            return Err(struct1 {\n                field_0: 0\n            });\n        }\n        uu_seq::numberparse::parse_decimal_and_exponent(a0, v2, v4, v3, v3);\n    }\n}\n",
-    "_ZN6uu_seq11numberparse17is_minus_zero_int17h47d80c233c19cf6cE": "fn uu_seq::numberparse::is_minus_zero_int(a0: u32, a1: u32, a2: u32) -> u64 {\n    let v0: u128;  // [bp-0x48]\n    let v1: u128;  // [sp-0x38]\n    let v2: void*;  // [sp-0x28]\n    let v4: u32;  // ebx\n\n    v0 = 0;\n    if core::slice::<impl [T]>::starts_with(a0, a1, core::char::methods::encode_utf8_raw(45, &v0), 1) as i8 {\n        v1 = 0x10000000000000000;\n        v0 = 0x80000000000000000;\n        v2 = 0;\n        return v4;\n    }\n    return 0;\n}\n",
-    "_ZN6uu_seq11numberparse19is_minus_zero_float17hd0ffcc4c912113deE": "fn uu_seq::numberparse::is_minus_zero_float(a0: u32, a1: u32, a2: u32) -> u64 {\n    let v0: u128;  // [bp-0x48]\n    let v1: u128;  // [sp-0x38]\n    let v2: void*;  // [sp-0x28]\n    let v4: u32;  // ebx\n\n    v0 = 0;\n    if core::slice::<impl [T]>::starts_with(a0, a1, core::char::methods::encode_utf8_raw(45, &v0), 1) as i8 {\n        v1 = 0x10000000000000000;\n        v0 = 0x80000000000000000;\n        v2 = 0;\n        return v4;\n    }\n    return 0;\n}\n",
-    "_ZN6uu_seq11numberparse25parse_exponent_no_decimal17hd2950fa793267dc0E": "fn uu_seq::numberparse::parse_exponent_no_decimal(a0: &struct56, a1: u32, a2: u32, a3: u32) -> u64 {\n    let v0: i64;  // [sp-0x98]\n    let v1: i8;  // [sp-0x90]\n    let v2: iNone;  // [bp-0x8f]\n    let v3: iNone;  // [sp-0x80]\n    let v4: struct41;  // [sp-0x70], Other Possible Types: Result<struct2, struct8>\n    let v6: i64;  // rbp\n    let v7: i64;  // rax\n    let v8: i8;  // cl\n    let v10: i64;  // cc_ndep\n\n    v4 = core::num::<impl core::str::traits::FromStr for i64>::from_str(core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(a3 + 1, a1, a2), a2);\n    match v4 {\n        Ok(_) => {\n            return struct9 {\n                field_0: 9223372036854775812\n                field_8: 0\n            };\n        },\n        Err(v6) => {\n            v4 = bigdecimal::impl_num::<impl num_traits::Num for bigdecimal::BigDecimal>::from_str_radix(a1, a2);\n            v7 = v4.field_0;\n            if v0 != 0x8000000000000000 {\n                v8 = v4.field_8;\n                *(&v2 as &u128) = v4.field_9;\n                v3 = *((&v4.field_9 as &char + 15) as &i128);\n                v0 = v7;\n                v1 = v8;\n                if !uu_seq::numberparse::is_minus_zero_float(a1, a2, &v0) as i8 && amd64g_calculate_condition(0, 4, a3, v6, v10) as char {\n                    return struct9 {\n                        field_0: 9223372036854775812\n                        field_8: 0\n                    };\n                }\n                if !uu_seq::numberparse::is_minus_zero_float(a1, a2, &v0) as i8 {\n                    return struct56 {\n                        field_0: v13\n                        field_16: (&v2)[7] as i128\n                        field_32: (&v3)[8] as i64\n                        field_40: v9\n                        field_48: v12\n                    };\n                }\n                return struct24 {\n                    field_0: 9223372036854775810\n                    field_40: <UNKNOWN>\n                    field_48: <UNKNOWN>\n                };\n            }\n        },\n    }\n}\n",
-    "_ZN6uu_seq11numberparse25parse_decimal_no_exponent17hf3af1526d793a9d8E": "fn uu_seq::numberparse::parse_decimal_no_exponent(a0: &Result<struct56, struct1>, a1: u32, a2: u32, a3: u32) -> u64 {\n    let v0: i64;  // [sp-0x98]\n    let v1: i8;  // [sp-0x90]\n    let v2: iNone;  // [bp-0x8f]\n    let v3: iNone;  // [sp-0x80]\n    let v4: struct41;  // [sp-0x70]\n    let v6: i64;  // rax\n    let v7: i8;  // cl\n    let v8: i64;  // rcx\n    let v9: iNone;  // xmm0\n\n    v4 = bigdecimal::impl_num::<impl num_traits::Num for bigdecimal::BigDecimal>::from_str_radix(a1, a2);\n    v6 = v4.field_0;\n    if v0 == 0x8000000000000000 {\n        return Err(struct1 {\n            field_0: 0\n        });\n    }\n    v7 = v4.field_8;\n    *(&v2 as &u128) = v4.field_9;\n    v3 = *((&v4.field_9 as &char + 15) as &i128);\n    v0 = v6;\n    v1 = v7;\n    v8 = core::slice::<impl [T]>::starts_with(a1, a2, \"-.\") as i32 + a3;\n    if !uu_seq::numberparse::is_minus_zero_float(a1, a2, &v0) as i8 {\n        v9 = *(&v0 as &i128);\n        return Ok(struct56 {\n            field_0: v9\n            field_16: (&v2)[7] as i128\n            field_32: (&v3)[8] as i64\n            field_40: v8\n            field_48: ~(a3) + a2\n        });\n    }\n}\n",
-    "_ZN6uu_seq11numberparse26parse_decimal_and_exponent17hfdc1c6342c162095E": "fn uu_seq::numberparse::parse_decimal_and_exponent(a0: &struct56, a1: &u8, a2: u32, a3: u32, a4: &u8) -> u64 {\n    let v0: i64;  // [sp-0xb0]\n    let v1: i64;  // [sp-0xa8]\n    let v2: i64;  // [sp-0xa0]\n    let v3: Result<struct2, struct8>;  // [sp-0x98], Other Possible Types: struct41, struct9\n    let v4: i64;  // [sp-0x70]\n    let v5: i8;  // [sp-0x68]\n    let v6: iNone;  // [bp-0x67]\n    let v7: iNone;  // [sp-0x58]\n    let v9: i64;  // rax\n    let v10: i8;  // cl\n    let v11: i64;  // cc_ndep\n    let v12: i64;  // rdx\n    let v13: i64;  // rcx\n    let v14: i64;  // rax\n    let v15: i8;  // al\n    let v16: i64;  // rax\n    let v17: i64;  // rax\n    let v18: i64;  // r14\n\n    v3 = core::num::<impl core::str::traits::FromStr for i64>::from_str(core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(a4 + 1, a1, a2), a2);\n    match v3 {\n        Ok(_) => {\n            return struct9 {\n                field_0: 9223372036854775812\n                field_8: 0\n            };\n        },\n        Err(v2) => {\n            v3 = bigdecimal::impl_num::<impl num_traits::Num for bigdecimal::BigDecimal>::from_str_radix(a1, a2);\n            v9 = v3.field_0;\n            if v4 != 0x8000000000000000 {\n                v10 = v3.field_8;\n                *(&v6 as &u128) = v3.field_9;\n                v7 = *((&v3.field_9 as &char + 15) as &i128);\n                v4 = v9;\n                v5 = v10;\n                v3 = core::num::dec2flt::<impl core::str::traits::FromStr for f64>::from_str(a1, a4);\n                if v3.field_0 {\n                    return struct9 {\n                        field_0: 9223372036854775812\n                        field_8: 0\n                    };\n                }\n                v12 = v2;\n                if v12 <= 0 {\n                    v13 = 2;\n                } else {\n                    v13 = v12 + 2;\n                }\n                v14 = (*(&v3.field_8 as &i64) - 0 == 1 ? v13 : 1);\n                v0 = v14;\n                if !(amd64g_calculate_condition(0, 4, a3, v12, v11) as char) {\n                    v1 = a3 + v12;\n                    v15 = core::slice::<impl [T]>::starts_with(a1, a2, \"-.\") as i8;\n                    if !v15 {\n                        v17 = v1;\n                        goto LABEL_4ce158;\n                    } else {\n                        v16 = v1;\n                        v17 = v16 + 1;\n                        if !(amd64g_calculate_condition(0, 24, v16 + 1, 0, amd64g_calculate_rflags_c(17, v15 as u64, 0, v11)) as char) {\nLABEL_4ce158:\n                            if !(v17 >= v0) || !((v0 = v17, v17 < 0)) {\n                                v18 = ~(a3) + a4;\n                                if v18 >= v2 {\n                                    core::result::Result<T,E>::unwrap(v18 - v2 >> 63);\n                                }\n                                if !uu_seq::numberparse::is_minus_zero_float(a1, a2, &v4) as i8 {\n                                    return struct56 {\n                                        field_0: v20\n                                        field_16: (&v6)[7] as i128\n                                        field_32: (&v7)[8] as i64\n                                        field_40: v0\n                                        field_48: v19\n                                    };\n                                }\n                                return struct24 {\n                                    field_0: 9223372036854775810\n                                    field_40: <UNKNOWN>\n                                    field_48: <UNKNOWN>\n                                };\n                            }\n                        }\n                    }\n                }\n            }\n        },\n    }\n}\n",
-    "_ZN6uu_seq11numberparse17parse_hexadecimal17ha820262dcdf3b692E": "fn uu_seq::numberparse::parse_hexadecimal(a0: &Result<struct56, struct1>, a1: u32, a2: u32) -> u64 {\n    let v0: i32;  // [bp-0x88], Other Possible Types: struct40, Result<struct25, struct1>\n    let v1: i64;  // [bp-0x70]\n    let v2: struct25;  // [bp-0x58]\n    let v3: i64;  // [sp-0x40]\n    let v4: i64;  // [sp-0x38]\n    let v6: i64;  // rax\n    let v7: i64;  // rax\n    let v8: i64;  // rdx\n    let v9: i64;  // r14\n    let v10: i64;  // r15\n    let v15: i32;  // esi\n    let v16: i64;  // rcx\n    let v17: i64;  // rax\n    let v18: i32;  // esi\n\n    *(&v0 as &i32) = 0;\n    v6 = core::slice::<impl [T]>::starts_with(a1, a2, core::char::methods::encode_utf8_raw(45, &v0), 1);\n    if !v6 as u8 {\n        v7 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(2, a1, a2);\n    } else {\n        v7 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(3, a1, a2);\n    }\n    v9 = v7;\n    v10 = v8;\n    *(&v0 as &i32) = 0;\n    if core::slice::<impl [T]>::starts_with(v9, v10, core::char::methods::encode_utf8_raw(45, &v0), 1) as i8 {\n        *((a0 + 8) as &i8) = 0;\n    }\n    *(&v0 as &i32) = 0;\n    if !core::slice::<impl [T]>::starts_with(v9, v10, core::char::methods::encode_utf8_raw(43, &v0), 1) as i8 {\n        v0 = num_bigint::bigint::convert::<impl num_traits::Num for num_bigint::bigint::BigInt>::from_str_radix(v9, v10, 16);\n        match v0 {\n            Err(_) => {\n                return Err(struct1 {\n                    field_0: 2\n                });\n            },\n            Ok(_) => {\n                v3 = v1;\n                v2 = struct25 {\n                    field_0: v11\n                    field_8: v12\n                    field_9: *((&v0 as &char + 9) as &i128)\n                };\n                v4 = 0;\n                v0 = struct40 {\n                    field_0: 0x80000000000000000\n                    field_16: 0x10000000000000000\n                    field_32: 0\n                };\n                if !v6 as u8 {\n                    return Ok(struct56 {\n                        field_0: v14\n                        field_16: *((&v2.field_9 as &char + 7) as &i128)\n                        field_32: v4\n                        field_40: 0\n                    });\n                } else if !bigdecimal::impl_cmp::<impl core::cmp::PartialEq for bigdecimal::BigDecimal>::eq(&v2, &v0) as i8 {\n                    v15 = *((&v2.field_9 as &char + 15) as &i8) as u8 as u32;\n                    v16 = a0 + 25;\n                    v17 = a0 + 32;\n                    *((a0 + 16) as &i64) = *((&v2.field_9 as &char + 7) as &i64);\n                    *(a0 as &i128) = *(&v2.field_0 as &i128);\n                    if !v15 {\n                        *((a0 + 24) as &i8) = 2;\n                    } else if v15 == 1 {\n                        *((a0 + 24) as &i8) = 1;\n                    } else {\n                        *((a0 + 24) as &i8) = 0;\n                    }\n                    v18 = (&v2.field_9)[1] as i32;\n                    *((v16 + 3) as &i32) = *((&v3 as &char + 4) as &i32);\n                    *(v16 as &unsigned int) = v18;\n                    *(v17 as &i128) = 0;\n                    *((v17 + 16) as &i64) = 0;\n                }\n            },\n        }\n    }\n}\n"
+    "_ZN6uu_seq6uumain17h8e2c18419805cd3fE": "fn uu_seq::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_seq::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN6uu_seq6uumain6uumain17h34e3a354243be336E": "fn uu_seq::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: struct24;  // [bp-0x550]\n    let v2: i64;  // [bp-0x548]\n    let v3: u64;  // [bp-0x540]\n    let v4: u256;  // [bp-0x538], Other Possible Types: alloc::string::String, Result<struct56, struct16>\n    let v5: u128;  // [bp-0x538]\n    let v6: u128;  // [bp-0x538]\n    let v7: u64;  // [bp-0x530]\n    let v8: u64;  // [bp-0x528]\n    let v9: u8;  // [bp-0x520]\n    let v10: u128;  // [bp-0x510]\n    let v11: u64;  // [bp-0x508]\n    let v12: u128;  // [bp-0x500]\n    let v13: u128;  // [bp-0x4e8], Other Possible Types: alloc::string::String\n    let v14: u128;  // [bp-0x4d8]\n    let v15: u64;  // [bp-0x4d8]\n    let v16: u128;  // [bp-0x4c8]\n    let v17: u64;  // [bp-0x4c0]\n    let v18: u64;  // [bp-0x4b8]\n    let v19: u256;  // [bp-0x4a8], Other Possible Types: alloc::string::String\n    let v20: u128;  // [bp-0x498]\n    let v21: struct16;  // [bp-0x488]\n    let v22: u128;  // [bp-0x488]\n    let v23: u128;  // [bp-0x478]\n    let v24: u64;  // [bp-0x470]\n    let v25: u128;  // [bp-0x468]\n    let v26: u64;  // [bp-0x460]\n    let v27: u64;  // [bp-0x458]\n    let v28: u128;  // [bp-0x448]\n    let v29: u64;  // [bp-0x440]\n    let v30: u64;  // [bp-0x438]\n    let v31: u128;  // [bp-0x430]\n    let v32: u64;  // [bp-0x428]\n    let v33: u64;  // [bp-0x420]\n    let v34: void*;  // [bp-0x418]\n    let v35: i64;  // [bp-0x410]\n    let v36: u8;  // [bp-0x408]\n    let v37: u64;  // [bp-0x400]\n    let v38: u64;  // [bp-0x3f8]\n    let v39: u8;  // [bp-0x3f0]\n    let v40: u8;  // [bp-0x3e0]\n    let v41: u64;  // [bp-0x3d0]\n    let v42: struct16;  // [sp-0x3c8]\n    let v43: u128;  // [bp-0x3c8]\n    let v44: u128;  // [bp-0x3c8]\n    let v46: u128;  // [bp-0x3b8]\n    let v47: u128;  // [bp-0x3a8]\n    let v48: u64;  // [bp-0x3a0]\n    let v50: u64;  // [bp-0x398]\n    let v51: struct64;  // [bp-0x388]\n    let v52: u512;  // [bp-0x388]\n    let v53: u256;  // [bp-0x348], Other Possible Types: Result<struct40, struct16>, struct56\n    let v54: struct24;  // [bp-0x348]\n    let v55: struct24;  // [bp-0x348]\n    let v56: struct56;  // [bp-0x348]\n    let v57: struct56;  // [bp-0x348]\n    let v58: struct56;  // [bp-0x348]\n    let v59: struct72;  // [bp-0x348]\n    let v60: u128;  // [bp-0x320]\n    let v61: u64;  // [bp-0x318]\n    let v62: u128;  // [bp-0x310]\n    let v63: u64;  // [bp-0x300]\n    let v64: u8;  // [bp-0x2f8]\n    let v65: u128;  // [bp-0x2e8]\n    let v66: u64;  // [bp-0x2d8]\n    let v67: u512;  // [bp-0x78]\n    let v69: u64;  // rbx\n    let v70: u64;  // rax\n    let v71: u64;  // rsi\n    let v73: u64;  // rsi\n    let v74: void*;  // rsi\n    let v75: u64;  // rax\n    let v76: u64;  // rcx\n    let v77: u64;  // rcx\n    let v79: u64;  // r14\n    let v80: u8;  // al\n    let v81: i64;  // rax\n    let v82: void*;  // rcx\n    let v83: u128;  // xmm0\n    let v84: u128;  // xmm1\n    let v85: u8;  // bl\n    let v86: u128;  // xmm0\n    let v87: u128;  // xmm1\n    let v88: u8;  // bl\n    let v89: u64;  // rax\n    let v91: u64;  // r14\n    let v94: u64;  // rax\n    let v96: u128;  // xmm0\n    let v97: u128;  // xmm1\n    let v98: u8;  // bl\n    let v99: u64;  // rax\n    let v100: u64;  // rax\n    let v101: u64;  // rax\n    let v102: u128;  // xmm1\n    let v103: u64;  // rbx\n    let v104: void*;  // rbx\n    let v106: u64;  // [bp-0x330]\n    let v107: u64;  // [bp-0x328]\n\n    uu_seq::uu_app(&v53);\n    v6 = clap_builder::builder::command::Command::try_get_matches_from(&v53, a0, a1);\n    match v6 as u640 {\n        Err(_) => {\n            return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v38);\n        },\n        Ok(_) => {\n            v41 = v11;\n            memcpy(&v40, &v4, 16);\n            memcpy(&v39, &v4, 16);\n            v37 = v4 as i64;\n            v38 = v7;\n            v53 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v37, \"numbers\");\n            v51 = clap_builder::parser::error::MatchesError::unwrap(\"numbers\", &v53);\n            if v51.field_0 as i64 {\n                v67 = v52;\n                v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v67);\n                v53 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v37, \"separator\");\n                v70 = clap_builder::parser::error::MatchesError::unwrap(\"separator\", &v53);\n                if !v71 {\n                    v73 = &g_4178e2;\n                } else {\n                    v73 = v71;\n                }\n                v74 = v73;\n                v54 = <T as alloc::slice::hack::ConvertVec>::to_vec(v74, v70);\n                v14 = v54.field_16;\n                memcpy(&v13, &v54, 16);\n                v53 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v37, \"terminator\");\n                v75 = clap_builder::parser::error::MatchesError::unwrap(\"terminator\", &v53);\n                if v76 {\n                    v77 = v76;\n                } else {\n                    v77 = &g_4178e2;\n                }\n                v79 = v77;\n                v55 = <T as alloc::slice::hack::ConvertVec>::to_vec(v79, v75);\n                v8 = v55.field_16;\n                memcpy(&v6 as u640, &v55, 16);\n                v80 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v37, \"equal-width\") as i32 as i8;\n                v53 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v37, \"format\");\n                v81 = clap_builder::parser::error::MatchesError::unwrap(\"format\", &v53);\n                v30 = v15;\n                v28 = v13;\n                v31 = v4 as i128 as u128;\n                v33 = v8;\n                v36 = v80;\n                v34 = v82;\n                v35 = v81;\n                if v3 > 1 {\n                    v56 = uu_seq::numberparse::<impl core::str::traits::FromStr for uu_seq::number::PreciseNumber>::from_str(*((*(v2 as &i64) + 8) as &i64), *((*(v2 as &i64) + 16) as &i64));\n                    if v56.field_0 == 9223372036854775812 {\n                        v85 = v56.field_8 as i8;\n                        v13 = <alloc::string::String as core::clone::Clone>::clone(*(v2 as &i64));\n                        v8 = v15;\n                        v5 = *(&v13.vec.buf.ptr as &i128) as u128;\n                        v9 = v85;\n                        v69 = alloc::boxed::Box<T>::new(&v6 as u640);\n                    } else {\n                        v50 = v61;\n                        v83 = *(&v56.field_0 as &i128);\n                        v84 = *(&v56.field_16 as &i128);\n                        v47 = *(&v56.field_32 as &i128) as u128;\n                        v46 = v84;\n                        v43 = v83;\n                        if !(v3 <= 2) {\n                            goto LABEL_479991;\n                        }\nLABEL_479a6d:\n                        v21 = uu_seq::number::PreciseNumber::one();\n                        goto LABEL_479ad7;\n                    }\n                } else {\n                    v42 = uu_seq::number::PreciseNumber::one();\n                    if v3 <= 2 {\n                        goto LABEL_479a6d;\n                    }\nLABEL_479991:\n                    v57 = uu_seq::numberparse::<impl core::str::traits::FromStr for uu_seq::number::PreciseNumber>::from_str(*((*((v2 + 8) as &i64) + 8) as &i64), *((*((v2 + 8) as &i64) + 16) as &i64));\n                    if v57.field_0 == 9223372036854775812 {\n                        v88 = v57.field_8 as i8;\n                        v13 = <alloc::string::String as core::clone::Clone>::clone(*((v2 + 8) as &i64));\n                        v8 = v15;\n                        v6 = *(&v13.vec.buf.ptr as &i128) as u128;\n                        v9 = v88;\n                        v69 = alloc::boxed::Box<T>::new(&v6 as u640);\n                    } else {\n                        v27 = v61;\n                        v86 = *(&v57.field_0 as &i128);\n                        v87 = *(&v57.field_16 as &i128);\n                        v25 = *(&v107 as &i128) as u128;\n                        v23 = v87;\n                        v22 = v86;\nLABEL_479ad7:\n                        v89 = (v22 as i64 < 9223372036854775812 ? 0x8000000000000000 + v22 as i64 + 1 : 0);\n                        match (v89) {\n                            0 => {\n                                if v24 as i8 == 1 {\n                                    goto LABEL_479af1;\n                                } else {\n                                    goto LABEL_479b43;\n                                }\n                            }\n                            3 => {\nLABEL_479af1:\n                                v4 = <alloc::string::String as core::clone::Clone>::clone(*((v2 + 8) as &i64));\n                                v53 = struct32 {\n                                    field_0: 0x8000000000000000\n                                    field_8: *(&v4.vec.buf.ptr as &i128)\n                                    field_24: v8\n                                };\n                                v94 = alloc::boxed::Box<T>::new(&v53);\n                                goto LABEL_479bd4;\n                            }\n                            _ => {\nLABEL_479b43:\n                                v91 = v3 - 1;\n                                v58 = uu_seq::numberparse::<impl core::str::traits::FromStr for uu_seq::number::PreciseNumber>::from_str(*((*((v2 + v91 * 8) as &i64) + 8) as &i64), *((*((v2 + v91 * 8) as &i64) + 16) as &i64));\n                                if v58.field_0 == 9223372036854775812 {\n                                    v98 = v58.field_8 as i8;\n                                    v19 = <alloc::string::String as core::clone::Clone>::clone(*((v2 + v91 * 8) as &i64));\n                                    v4 = struct32 {\n                                        field_0: *(&v19.vec.buf.ptr as &i128)\n                                        field_8: <UNKNOWN>\n                                        field_24: v98\n                                    };\n                                    v94 = alloc::boxed::Box<T>::new(&v4);\nLABEL_479bd4:\n                                    v69 = v94;\n                                    break;\n                                } else {\n                                    v18 = v61;\n                                    v96 = *(&v58.field_0 as &i128);\n                                    v97 = *(&v58.field_16 as &i128);\n                                    v16 = *(&v58.field_32 as &i128) as u128;\n                                    v14 = v97;\n                                    v13 = v96;\n                                    v99 = core::cmp::max_by(core::cmp::max_by(v48, v26), v17);\n                                    v100 = core::cmp::max_by(v50, v27);\n                                    if v34 {\n                                        v59 = uucore::features::format::Format<F>::parse(v34, v35);\n                                        v101 = v59.field_0 as i64;\n                                        memcpy(&v19, &v59, 16);\n                                        memcpy(&v19 as u8, &v106, 16);\n                                        if v59.field_0 as i64 == 0x8000000000000000 {\n                                            v53 = v19;\n                                            v69 = alloc::boxed::Box<T>::new(&v53);\n                                        } else {\n                                            v12 = v62;\n                                            v10 = *(&v59.field_40 as &i128) as u128;\n                                            memcpy(&v4 as u64, &v19 as u128, 16);\n                                            v9 = v20;\n                                            goto LABEL_479d83;\n                                        }\n                                    } else {\nLABEL_479d83:\n                                        v4 = v101;\n                                        v107 = v47 as i64;\n                                        memcpy(&v58 as u8, &v46, 16);\n                                        v53 = v44;\n                                        v102 = v23;\n                                        v60 = v22;\n                                        v62 = v102;\n                                        v63 = v25 as i64;\n                                        memcpy(&v64, &v13, 16);\n                                        v65 = v14;\n                                        v66 = v16 as i64;\n                                        v103 = uu_seq::print_seq(&v53, v100, v29, v30, v32, v33, v36, v99, &v4);\n                                        if !(v103 && std::io::error::Error::kind(v103) != 11) {\n                                            return v104;\n                                        }\n                                        v104 = <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(v103);\n                                        break;\n                                        return v104;\n                                    }\n                                }\n                            }\n                        }\n                    }\n                }\n            } else {\n                v53 = 9223372036854775809;\n                v69 = alloc::boxed::Box<T>::new(&v53);\n            }\n            return v69;\n        },\n    }\n}\n",
+    "_ZN6uu_seq6uu_app17h5bc20a713053c9e7E": "fn uu_seq::uu_app(a0: &struct712) -> long long {\n    let v0: u8;  // [bp-0xa48]\n    let v1: u64;  // [bp-0x78c]\n    let v2: u32;  // [bp-0x784]\n    let v3: struct437;  // [bp-0x780]\n    let v4: u64;  // [bp-0x4c4]\n    let v5: u32;  // [bp-0x4bc]\n    let v6: u8;  // [bp-0x4b8]\n    let v7: u8;  // [bp-0x268]\n    let v10: u64;  // rdx\n\n    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);\n    memcpy(&v0, &v3, 700);\n    v1 = 549755814052 | v4;\n    v2 = v5;\n    clap_builder::builder::command::Command::version(&v3, &v0, \"0.0.28\");\n    clap_builder::builder::command::Command::about(&v0, &v3, \"Display numbers from FIRST to LAST, in steps of INCREMENT.\");\n    uucore::format_usage(&v6, \"{} [OPTION]... LAST\\n{} [OPTION]... FIRST LAST\\n{} [OPTION]... FIRST INCREMENT LAST\");\n    clap_builder::builder::command::Command::override_usage(&v3, &v0, &v6);\n    clap_builder::builder::arg::Arg::new(&v0, \"separator\");\n    clap_builder::builder::arg::Arg::short(&v6, &v0, 115);\n    clap_builder::builder::arg::Arg::long(&v0, &v6, \"separator\");\n    clap_builder::builder::arg::Arg::help(&v6, &v0, \"Separator character (defaults to \\\\n)\");\n    clap_builder::builder::command::Command::arg(&v0, &v3, &v6);\n    clap_builder::builder::arg::Arg::new(&v3, \"terminator\");\n    clap_builder::builder::arg::Arg::short(&v6, &v3, 116);\n    clap_builder::builder::arg::Arg::long(&v3, &v6, \"terminator\");\n    clap_builder::builder::arg::Arg::help(&v6, &v3, \"Terminator character (defaults to \\\\n)\");\n    clap_builder::builder::command::Command::arg(&v3, &v0, &v6);\n    clap_builder::builder::arg::Arg::new(&v0, \"equal-width\");\n    clap_builder::builder::arg::Arg::short(&v6, &v0, 119);\n    clap_builder::builder::arg::Arg::long(&v0, &v6, \"equal-width\");\n    clap_builder::builder::arg::Arg::help(&v6, &v0, \"Equalize widths of all numbers by padding with zeros\");\n    clap_builder::builder::arg::Arg::action(&v7, &v6, 2);\n    clap_builder::builder::command::Command::arg(&v0, &v3, &v7);\n    clap_builder::builder::arg::Arg::new(&v3, \"format\");\n    clap_builder::builder::arg::Arg::short(&v6, &v3, 102);\n    clap_builder::builder::arg::Arg::long(&v3, &v6, \"format\");\n    clap_builder::builder::arg::Arg::help(&v6, &v3, \"use printf style floating-point FORMAT\");\n    clap_builder::builder::command::Command::arg(&v3, &v0, &v6);\n    clap_builder::builder::arg::Arg::new(&v0, \"numbers\");\n    clap_builder::builder::arg::Arg::action(&v6, &v0, 1);\n    clap_builder::builder::arg::Arg::num_args(&v0, &v6);\n    clap_builder::builder::command::Command::arg(a0, &v3, &v0);\n    return a0;\n}\n",
+    "_ZN6uu_seq13done_printing17h3afd308e88daff24E": "fn uu_seq::done_printing(a0: i64, a1: i64, a2: i64) -> char {\n    let v0: struct40;  // [bp-0x50]\n    let v2: u8;  // al\n    let v3: u8;  // al\n\n    v0 = <uu_seq::extendedbigdecimal::ExtendedBigDecimal as num_traits::identities::Zero>::zero();\n    v2 = core::cmp::PartialOrd::ge(a1);\n    v3 = (!v2 ? core::cmp::PartialOrd::lt(a0) : core::cmp::PartialOrd::gt(a0));\n    return v3;\n}\n",
+    "_ZN6uu_seq17write_value_float17h583f3c53a243a2bfE": "fn uu_seq::write_value_float(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {\n    let v0: u64;  // [bp-0xd8]\n    let v6: u8;  // [bp-0xa8]\n    let v7: u64;  // [bp-0xa0]\n    let v8: iNone;  // [bp-0x98], Other Possible Types: struct_0 *\n    let v9: u128;  // [bp-0x98]\n    let v15: u384;  // [bp-0x68]\n    let v16: struct24;  // [bp-0x38]\n\n    v7 = a1;\n    v6 = 1;\n    v15 = struct48 {\n        field_0: &g_4176c0\n        field_8: 1\n        field_16: &v8\n        field_24: 3\n        field_32: &v0\n        field_40: 1\n    };\n    v16 = core::option::Option<T>::map_or_else(&v15);\n    v8 = core::fmt::rt::Argument {\n        ty: &v16\n    };\n    v0 = core::fmt::Arguments {\n        pieces: [&g_4176c0]\n        args: [v9]\n        fmt: 0\n    };\n    return std::io::Write::write_fmt(a0, &v0);\n}\n",
+    "_ZN6uu_seq9print_seq17h76b7cc0ba327356fE": "fn uu_seq::print_seq(a0: &struct16, a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i8, a7: i64, a8: i64) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x200]\n    let v1: u128;  // [bp-0x1f8]\n    let v2: u128;  // [bp-0x1e8]\n    let v3: u64;  // [bp-0x1d8]\n    let v5: u128;  // [bp-0x188]\n    let v6: u128;  // [bp-0x178]\n    let v7: u64;  // [bp-0x168]\n    let v9: u8;  // [bp-0x148]\n    let v10: u64;  // [bp-0x138]\n    let v12: std::io::stdio::Stdout;  // [bp-0x118]\n    let v13: u128;  // [bp-0xf8]\n    let v14: u128;  // [bp-0xe8]\n    let v15: u64;  // [bp-0xd8]\n    let v16: u64;  // [bp-0xa8]\n    let v17: u64;  // [bp-0xa0]\n    let v18: u64;  // [bp-0x98]\n    let v19: u64;  // [bp-0x90]\n    let v20: u64;  // rax\n    let v21: core::result::Result<(), std::io::error::Error>;  // rax\n\n    v16 = a2;\n    v17 = a3;\n    v18 = a4;\n    v19 = a5;\n    v12 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v12);\n    v3 = *((a0 + 32) as &i64);\n    v2 = *((a0 + 16) as &i128);\n    v1 = *(a0 as &i128);\n    v7 = *((a0 + 72) as &i64);\n    v6 = *((a0 + 56) as &i128);\n    v5 = *((a0 + 40) as &i128);\n    v15 = *((a0 + 112) as &i64);\n    v14 = *((a0 + 96) as &i128);\n    v13 = *((a0 + 80) as &i128);\n    v20 = a1 + 1;\n    if uu_seq::done_printing(&v1, &v5, &v13) {\n        v21 = <std::io::stdio::StdoutLock as std::io::Write>::flush(&v0);\n        return 0;\n    }\n    v21 = uu_seq::write_value_float(&v0, &v1, (a6 ? v20 + a7 : 0), a1);\n    match v21 {\n        Ok(_) => {\n            v10 = v3;\n            memcpy(&v9, &v2, 16);\n        },\n        Err(_) => {\n            return v21;\n        },\n    }\n}\n",
+    "_ZN6uu_seq18extendedbigdecimal18ExtendedBigDecimal3one17h6aa804070085aabbE": "fn uu_seq::extendedbigdecimal::ExtendedBigDecimal::one() -> : struct8 {\n    let a0: u64;  // rdi\n\n    bigdecimal::impl_convert::<impl core::convert::From<i32> for bigdecimal::BigDecimal>::from(a0, 1);\n    return a0;\n}\n",
+    "_ZN6uu_seq6number13PreciseNumber3one17hfa3db95e12ecba95E": "fn uu_seq::number::PreciseNumber::one() -> : struct16 {\n    let a0: u64;  // rsi\n    let v1: i64;  // rdi\n\n    uu_seq::extendedbigdecimal::ExtendedBigDecimal::one(a0);\n    *((v1 + 40) as &i64) = 1;\n    *((v1 + 48) as &i64) = 0;\n    return;\n}\n",
+    "_ZN6uu_seq11numberparse86_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$uu_seq..number..PreciseNumber$GT$8from_str17h57ed696611a385bdE": "fn uu_seq::numberparse::<impl core::str::traits::FromStr for uu_seq::number::PreciseNumber>::from_str(a1: i64, a2: i64) -> : struct56 {\n    let a0: u64;  // rsi\n    let v0: u32;  // [bp-0x40]\n    let v1: alloc::string::String;  // [bp-0x40]\n    let v2: u32;  // [bp-0x38]\n    let v4: core::option::Option<&str>;  // r15\n    let v5: u64;  // rdx\n    let v7: u64;  // r14\n    let v8: u64;  // rdi\n    let v9: u64;  // rax\n    let v10: u64;  // rax\n    let v11: u64;  // rsi\n    let v12: u64;  // rdx\n    let v13: u64;  // rdi\n    let v14: u64;  // rdi\n    let v15: u64;  // rdi\n    let v16: u64;  // rdi\n    let v17: i64;  // rdi\n    let v18: &mut [u8];  // rax:rdx\n\n    v4 = core::str::<impl str>::trim_start_matches(a0, a1);\n    v0 = 0;\n    v18 = core::char::methods::encode_utf8_raw(43, &v0, a1);\n    if core::slice::<impl [T]>::starts_with(v4, v5, v18.data_ptr, 1) {\n        v4 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(1, v4, v5) as u64;\n    }\n    v1 = alloc::str::<impl str>::to_lowercase(v4, v7);\n    if core::str::<impl str>::find(v2, v1.vec.len) == 1 && v5 < 2 {\n        uu_seq::numberparse::parse_hexadecimal(v8, v4, v7);\n        return;\n    }\n    v9 = core::str::<impl str>::find(v4, v7, 46);\n    v10 = core::str::<impl str>::find(v4, v7, 101);\n    if !v9 {\n        v11 = v4;\n        v12 = v7;\n        if !v10 {\n            uu_seq::numberparse::parse_no_decimal_no_exponent(v15, v11, v12);\n            return;\n        }\n        uu_seq::numberparse::parse_exponent_no_decimal(v14, v11, v12, v5);\n        return;\n    } else if !v10 {\n        uu_seq::numberparse::parse_decimal_no_exponent(v13, v4, v7, v5);\n        return;\n    } else if v5 < v5 {\n        uu_seq::numberparse::parse_decimal_and_exponent(v16, v4, v7, v5, v5);\n        return;\n    } else {\n        *((v17 + 8) as &i8) = 0;\n        *(v17 as &i64) = 9223372036854775812;\n        return;\n    }\n}\n",
+    "_ZN6uu_seq11numberparse17is_minus_zero_int17h47d80c233c19cf6cE": "fn uu_seq::numberparse::is_minus_zero_int(a0: i64, a1: i64, a2: i64) -> long long {\n    let v0: u320;  // [bp-0x48]\n    let v1: u128;  // [bp-0x48]\n    let v5: &mut [u8];  // rax:rdx\n\n    v0 = 0;\n    v0 = v1 & 0xffffffffffffffffffffffff00000000;\n    v5 = core::char::methods::encode_utf8_raw(45, &v0, a2);\n    if !core::slice::<impl [T]>::starts_with(a0, a1, v5.data_ptr, 1) {\n        return 0;\n    }\n    v0 = struct40 {\n        field_0: 0x80000000000000000\n        field_16: 0x10000000000000000\n        field_32: 0\n    };\n    return bigdecimal::impl_cmp::<impl core::cmp::PartialEq for bigdecimal::BigDecimal>::eq(a2, &v0) as i32;\n}\n",
+    "_ZN6uu_seq11numberparse19is_minus_zero_float17hd0ffcc4c912113deE": "fn uu_seq::numberparse::is_minus_zero_float(a0: i64, a1: i64, a2: i64) -> long long {\n    let v0: u128;  // [bp-0x48]\n    let v1: u128;  // [bp-0x48]\n    let v4: &mut [u8];  // rax:rdx\n\n    v0 = 0;\n    v0 = v1 & 0xffffffffffffffffffffffff00000000;\n    v4 = core::char::methods::encode_utf8_raw(45, &v0, a2);\n    if !core::slice::<impl [T]>::starts_with() {\n        return 0;\n    }\n    v0 = struct40 {\n        field_0: 0x80000000000000000\n        field_16: 0x10000000000000000\n        field_32: 0\n    };\n    return bigdecimal::impl_cmp::<impl core::cmp::PartialEq for bigdecimal::BigDecimal>::eq(a2, &v0) as i32;\n}\n",
+    "_ZN6uu_seq11numberparse28parse_no_decimal_no_exponent17h94839c74700e929cE": "fn uu_seq::numberparse::parse_no_decimal_no_exponent(a1: i64, a2: i64) -> : struct56 {\n    let a0: u64;  // rsi\n    let v0: u128;  // [bp-0x98]\n    let v1: u64;  // [bp-0x98]\n    let v2: u128;  // [bp-0x88]\n    let v3: u64;  // [bp-0x78]\n    let v4: struct41;  // [bp-0x68]\n    let v5: u128;  // [bp-0x58]\n    let v6: u64;  // [bp-0x48]\n    let v7: struct24;  // [bp-0x40]\n    let v8: u64;  // [bp-0x38]\n    let v10: u64;  // r15\n    let v11: u64;  // r13\n    let v12: i64;  // rdi\n    let v13: i64;  // rdi\n    let v14: i64;  // rdi\n    let v15: i64;  // rdi\n\n    v4 = bigdecimal::impl_num::<impl num_traits::Num for bigdecimal::BigDecimal>::from_str_radix(a0, a1);\n    if v4.field_0 == 0x8000000000000000 {\n        v7 = alloc::str::<impl str>::to_ascii_lowercase(a0, a1);\n        v10 = v7.field_16;\n        v11 = 0x8000000000000000;\n        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v8, v10, \"inf\") as i8 || !((v11 = 0x8000000000000000, !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v8, v10, \"infinity\") as i8 && (v11 = 9223372036854775809, !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v8, v10, \"-inf\") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v8, v10, \"-infinity\") as i8))) {\n            v1 = v11;\n            v0 = v0 & 0xffffffffffffffff0000000000000000 | v1;\n            *((v14 + 32) as &u64) = v3;\n            *((v14 + 16) as &u128) = v2;\n            *(v14 as &u128) = v0;\n            *((v14 + 40) as &i128) = 0;\n            return;\n        }\n        if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v8, v10, \"nan\") as i32 {\n            <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v8, v10, \"-nan\");\n        }\n        *((v15 + 8) as &i8) = 1;\n        *(v15 as &i64) = 9223372036854775812;\n    } else {\n        v3 = v6;\n        v2 = v5;\n        v0 = *(&v4.field_0 as &i128);\n        if !uu_seq::numberparse::is_minus_zero_int(a0, a1, &v0) as i8 {\n            *((v13 + 32) as &u64) = v3;\n            *((v13 + 16) as &u128) = v2;\n            *(v13 as &u128) = v0;\n            *((v13 + 40) as &u64) = a1;\n            *((v13 + 48) as &i64) = 0;\n            return;\n        }\n        *(v12 as &i64) = 9223372036854775810;\n        *((v12 + 40) as &u64) = a1;\n        *((v12 + 48) as &i64) = 0;\n    }\n    return;\n}\n",
+    "_ZN6uu_seq11numberparse25parse_exponent_no_decimal17hd2950fa793267dc0E": "fn uu_seq::numberparse::parse_exponent_no_decimal(a1: i64, a2: i64, a3: i64) -> : struct56 {\n    let a0: u64;  // rsi\n    let v0: u64;  // [bp-0x98]\n    let v1: u8;  // [bp-0x90]\n    let v2: u128;  // [bp-0x8f]\n    let v3: u128;  // [bp-0x88]\n    let v4: u64;  // [bp-0x78]\n    let v5: u8;  // [bp-0x70]\n    let v6: u8;  // [bp-0x68]\n    let v7: u128;  // [bp-0x67]\n    let v8: i8;  // [bp-0x58]\n    let v9: u8;  // [bp-0x48]\n    let v10: u64;  // [bp-0x38]\n    let v13: core::option::Option<&str>;  // rax\n    let v14: u64;  // rbp\n    let v15: i64;  // rdi\n    let v16: u64;  // r12\n    let v17: u64;  // r12\n    let v18: u64;  // cc_ndep\n    let v19: i64;  // rdi\n    let v20: u64;  // rbp\n    let v21: i64;  // rdi\n    let v22: i64;  // rdi\n    let v23: u128;  // xmm0\n    let v25: core::result::Result<i64, core::num::error::ParseIntError>;  // rax:rdx\n\n    v13 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get((a2 as &char + 1) as &u64, a0, a1) as u64;\n    v25 = core::num::<impl core::str::traits::FromStr for i64>::from_str(&v5, v13);\n    if !v5 {\n        v14 = *(&v6 as &i64);\n        bigdecimal::impl_num::<impl num_traits::Num for bigdecimal::BigDecimal>::from_str_radix(a0, a1, a2);\n        if v5 == 0x8000000000000000 {\n            v10 = *(&v8 as &i64);\n            memcpy(&v9, &v6, 16);\n        } else {\n            v2 = v7;\n            memcpy(&v2, &v7, 16);\n            v0 = v5;\n            v1 = v6;\n            if !uu_seq::numberparse::is_minus_zero_float(a0, a1, &v0) as i8 && !((v17 = a2 + v14, !(amd64g_calculate_condition(0, 4, a2, v14, v18) as char))) {\n                *((v19 + 8) as &i8) = 0;\n                *(v19 as &i64) = 9223372036854775812;\n            } else {\n                v20 = v14 >> 63 & -(v14);\n                if !uu_seq::numberparse::is_minus_zero_float(a0, a1, &v0) as i8 {\n                    *((v22 + 32) as &u64) = v4;\n                    v23 = *(&v0 as &i128);\n                    *((v22 + 16) as &u128) = v3;\n                    *(v22 as &u128) = v23;\n                    *((v22 + 40) as &u64) = v16;\n                    *((v22 + 48) as &u64) = v20;\n                    return;\n                }\n                *(v21 as &i64) = 9223372036854775810;\n                *((v21 + 40) as &u64) = v16;\n                *((v21 + 48) as &u64) = v20;\n            }\n            return;\n        }\n    }\n    *((v15 + 8) as &i8) = 0;\n    *(v15 as &i64) = 9223372036854775812;\n    return;\n}\n",
+    "_ZN6uu_seq11numberparse25parse_decimal_no_exponent17hf3af1526d793a9d8E": "fn uu_seq::numberparse::parse_decimal_no_exponent(a1: i64, a2: i64, a3: i64) -> : struct56 {\n    let a0: u64;  // rsi\n    let v0: u64;  // [bp-0x98]\n    let v1: u8;  // [bp-0x90]\n    let v2: u128;  // [bp-0x8f]\n    let v3: u128;  // [bp-0x88]\n    let v4: struct24;  // [bp-0x78]\n    let v5: u64;  // [bp-0x70]\n    let v6: u8;  // [bp-0x68]\n    let v7: i8;  // [bp-0x67]\n    let v8: i8;  // [bp-0x58]\n    let v9: u8;  // [bp-0x48]\n    let v10: u64;  // [bp-0x38]\n    let v12: i64;  // rdi\n    let v13: u64;  // rcx\n    let v14: u64;  // r14\n    let v15: i64;  // rdi\n    let v16: i64;  // rdi\n    let v17: u128;  // xmm0\n\n    bigdecimal::impl_num::<impl num_traits::Num for bigdecimal::BigDecimal>::from_str_radix(a0, a1, a2);\n    if v5 == 0x8000000000000000 {\n        v10 = *(&v8 as &i64);\n        memcpy(&v9, &v6, 16);\n        *((v12 + 8) as &i8) = 0;\n        *(v12 as &i64) = 9223372036854775812;\n        return;\n    }\n    v2 = *(&v7 as &i128);\n    memcpy(&v2, &v7, 16);\n    v0 = v5;\n    v1 = v6;\n    v13 = core::slice::<impl [T]>::starts_with() + a2;\n    v14 = ~(a2) + a1;\n    if !uu_seq::numberparse::is_minus_zero_float(a0, a1, &v0) as i8 {\n        *((v16 + 32) as &struct24) = v4;\n        v17 = *(&v0 as &i128);\n        *((v16 + 16) as &u128) = v3;\n        *(v16 as &u128) = v17;\n        *((v16 + 40) as &u64) = v13;\n        *((v16 + 48) as &u64) = v14;\n        return;\n    }\n    *(v15 as &i64) = 9223372036854775810;\n    *((v15 + 40) as &u64) = v13;\n    *((v15 + 48) as &u64) = v14;\n    return;\n}\n",
+    "_ZN6uu_seq11numberparse26parse_decimal_and_exponent17hfdc1c6342c162095E": "fn uu_seq::numberparse::parse_decimal_and_exponent(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct56 {\n    let a0: u64;  // rsi\n    let v0: u64;  // [bp-0xb0]\n    let v1: u64;  // [bp-0xa8]\n    let v2: u64;  // [bp-0xa0]\n    let v3: u8;  // [bp-0x98]\n    let v4: u8;  // [bp-0x90]\n    let v5: u128;  // [bp-0x8f]\n    let v6: i8;  // [bp-0x80]\n    let v7: u64;  // [bp-0x70]\n    let v8: u8;  // [bp-0x68]\n    let v9: u128;  // [bp-0x67]\n    let v10: u128;  // [bp-0x60]\n    let v11: u64;  // [bp-0x50]\n    let v12: u8;  // [bp-0x48]\n    let v13: u64;  // [bp-0x38]\n    let v17: i64;  // rdi\n    let v18: u64;  // cc_ndep\n    let v19: u64;  // rdx\n    let v20: u8;  // al\n    let v21: u64;  // rax\n    let v22: i64;  // rdi\n    let v23: u64;  // r14\n    let v24: &mut [u8];  // r14\n    let v25: i64;  // rdi\n    let v26: i64;  // rdi\n    let v27: u128;  // xmm0\n    let v29: core::result::Result<i64, core::num::error::ParseIntError>;  // rax:rdx\n    let v30: core::result::Result<f64, core::num::dec2flt::ParseFloatError>;  // rax:rdx\n\n    v29 = core::num::<impl core::str::traits::FromStr for i64>::from_str(&v3, core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(a3 + 1, a0, a1) as u64);\n    if !v3 {\n        v2 = *(&v4 as &i64);\n        bigdecimal::impl_num::<impl num_traits::Num for bigdecimal::BigDecimal>::from_str_radix(a0, a1, a2);\n        if v3 == 0x8000000000000000 {\n            v13 = *(&v6 as &i64);\n            memcpy(&v12, &v4, 16);\n        } else {\n            v9 = v5;\n            memcpy(&v9, &v5, 16);\n            v7 = v3;\n            v8 = v4;\n            v30 = core::num::dec2flt::<impl core::str::traits::FromStr for f64>::from_str(&v3, a0);\n            if !v3 && (v19 = v2, v0 = (*(&v4 as &i64) - 0 >> 63 == 1 ? (v19 > 0 ? v19 + 2 : 2) : 1), !(amd64g_calculate_condition(0, 4, a2, v19, v18) as char)) {\n                v1 = a2 + v19;\n                v20 = core::slice::<impl [T]>::starts_with();\n                if !v20 {\n                    v21 = v1;\nLABEL_4ce158:\n                    if v21 < v0 || !((v0 = v21, v21 < 0)) {\n                        v23 = ~(a2) + a3;\n                        if v23 >= v2 {\n                            core::result::Result<T,E>::unwrap(v23 - v2 >> 63);\n                        }\n                        if !uu_seq::numberparse::is_minus_zero_float(a0, a1, &v7) as i8 {\n                            *((v26 + 32) as &u64) = v11;\n                            v27 = *(&v7 as &i128);\n                            *((v26 + 16) as &u128) = v10;\n                            *(v26 as &u128) = v27;\n                            *((v26 + 40) as &u64) = v0;\n                            *((v26 + 48) as &&mut [u8]) = v24;\n                            return;\n                        }\n                        *(v25 as &i64) = 9223372036854775810;\n                        *((v25 + 40) as &u64) = v0;\n                        *((v25 + 48) as &&mut [u8]) = v24;\n                        return;\n                    }\n                } else if !(amd64g_calculate_condition(0, 24, v1 + 1, 0, amd64g_calculate_rflags_c(17, v20 as u64, 0, v18)) as char) {\n                    goto LABEL_4ce158;\n                }\n            }\n            *((v22 + 8) as &i8) = 0;\n            *(v22 as &i64) = 9223372036854775812;\n            return;\n        }\n    }\n    *((v17 + 8) as &i8) = 0;\n    *(v17 as &i64) = 9223372036854775812;\n    return;\n}\n",
+    "_ZN6uu_seq11numberparse17parse_hexadecimal17ha820262dcdf3b692E": "fn uu_seq::numberparse::parse_hexadecimal(a1: i64, a2: i64) -> : struct56 {\n    let a0: u64;  // rsi\n    let v0: u32;  // [bp-0x88]\n    let v1: Result<struct25, struct9>;  // [bp-0x88]\n    let v2: u8;  // [bp-0x80]\n    let v3: u64;  // [bp-0x70]\n    let v4: u64;  // [bp-0x58]\n    let v5: u8;  // [bp-0x50]\n    let v6: u64;  // [bp-0x48]\n    let v7: u64;  // [bp-0x40]\n    let v8: u32;  // [bp-0x3c]\n    let v9: struct24;  // [bp-0x38]\n    let v11: u8;  // al\n    let v12: core::option::Option<&str>;  // rax\n    let v14: u64;  // rdx\n    let v16: u64;  // rax\n    let v17: i64;  // rdi\n    let v18: u8;  // al\n    let v19: i64;  // rdi\n    let v20: u128;  // xmm0\n    let v21: i64;  // rdi\n    let v22: u32;  // esi\n    let v23: i64;  // rdi\n    let v24: u64;  // rcx\n    let v25: u64;  // rax\n    let v26: u32;  // esi\n    let v28: &mut [u8];  // rax:rdx\n    let v29: &mut [u8];  // rax:rdx\n    let v30: &mut [u8];  // rax:rdx\n\n    v0 = 0;\n    v28 = core::char::methods::encode_utf8_raw(45, &v0, a1);\n    v11 = core::slice::<impl [T]>::starts_with();\n    if v11 {\n        v12 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(3, a0, a1) as u64;\n    } else {\n        v12 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(2, a0, a1) as u64;\n    }\n    v0 = 0;\n    v29 = core::char::methods::encode_utf8_raw(45, &v0, v14);\n    if core::slice::<impl [T]>::starts_with() || (v0 = 0, v30 = core::char::methods::encode_utf8_raw(43, &v0, a1), core::slice::<impl [T]>::starts_with() as u8) {\n        *((v17 + 8) as &i8) = 0;\n    } else {\n        v1 = num_bigint::bigint::convert::<impl num_traits::Num for num_bigint::bigint::BigInt>::from_str_radix(v12, v14);\n        v16 = v1 as i64;\n        if v16 == 0x8000000000000000 {\n            *((v17 + 8) as &i8) = 2;\n        } else {\n            v7 = v3;\n            memcpy(&v1 as u8, &v1 as u8, 16);\n            v4 = v16;\n            v5 = v2;\n            v9 = 0;\n            v0 = struct40 {\n                field_0: 0x80000000000000000\n                field_16: 0x10000000000000000\n                field_32: 0\n            };\n            v18 = bigdecimal::impl_cmp::<impl core::cmp::PartialEq for bigdecimal::BigDecimal>::eq(&v4, &v0) as i8;\n            if !v11 {\n                *((v19 + 32) as &i64) = 0;\n                v20 = *((&v1 as &char + 48) as &i128);\n                *((v19 + 16) as &i128) = *((&v1 as &char + 64) as &i128);\n                *(v19 as &u128) = v20;\n                *((v19 + 40) as &i128) = 0;\n            } else if v18 {\n                *(v21 as &i64) = 9223372036854775810;\n                *((v21 + 40) as &i64) = 2;\n                *((v21 + 48) as &i64) = 0;\n            } else {\n                v22 = v7;\n                v24 = v23 + 25;\n                v25 = v23 + 32;\n                *((v23 + 16) as &u64) = v6;\n                *(v23 as &i128) = *((&v1 as &char + 48) as &i128);\n                if !v22 {\n                    *((v23 + 24) as &i8) = 2;\n                } else if v22 == 1 {\n                    *((v23 + 24) as &i8) = 1;\n                } else {\n                    *((v23 + 24) as &i8) = 0;\n                }\n                v26 = *((&v7 as &char + 1) as &i32);\n                *((v24 + 3) as &u32) = v8;\n                *(v24 as &u32) = v26;\n                *(v25 as &i128) = 0;\n                *((v25 + 16) as &i64) = 0;\n            }\n            return;\n        }\n    }\n    *(v17 as &i64) = 9223372036854775812;\n    return;\n}\n"
   },
   "function_call_counts": {
     "_ZN6uu_seq6uumain17h8e2c18419805cd3fE": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
       "uu_seq::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
     },
     "_ZN6uu_seq6uumain6uumain17h34e3a354243be336E": {
       "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
-      "alloc::boxed::Box<T>::new": 5,
+      "alloc::boxed::Box<T>::new": 6,
       "<alloc::string::String as core::clone::Clone>::clone": 4,
+      "uu_seq::number::PreciseNumber::one": 2,
+      "uu_seq::numberparse::<impl core::str::traits::FromStr for uu_seq::number::PreciseNumber>::from_str": 3,
+      "uucore::features::format::Format<F>::parse": 1,
       "<std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context": 1,
       "uu_seq::print_seq": 1,
       "core::cmp::max_by": 3,
-      "uucore::features::format::Format<F>::parse": 1,
-      "uu_seq::numberparse::<impl core::str::traits::FromStr for uu_seq::number::PreciseNumber>::from_str": 3,
-      "uu_seq::number::PreciseNumber::one": 2,
-      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 1,
       "clap_builder::parser::error::MatchesError::unwrap": 4,
       "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 3,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 1,
       "<T as alloc::slice::hack::ConvertVec>::to_vec": 2,
       "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
       "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
@@ -60,9 +62,9 @@
       "uucore::util_name": 1
     },
     "_ZN6uu_seq13done_printing17h3afd308e88daff24E": {
-      "core::cmp::PartialOrd::ge": 1,
       "core::cmp::PartialOrd::lt": 1,
       "core::cmp::PartialOrd::gt": 1,
+      "core::cmp::PartialOrd::ge": 1,
       "<uu_seq::extendedbigdecimal::ExtendedBigDecimal as num_traits::identities::Zero>::zero": 1
     },
     "_ZN6uu_seq17write_value_float17h583f3c53a243a2bfE": {
@@ -70,8 +72,8 @@
       "core::option::Option<T>::map_or_else": 1
     },
     "_ZN6uu_seq9print_seq17h76b7cc0ba327356fE": {
-      "uu_seq::write_value_float": 1,
       "<std::io::stdio::StdoutLock as std::io::Write>::flush": 1,
+      "uu_seq::write_value_float": 1,
       "std::io::stdio::Stderr::lock": 1,
       "std::io::stdio::stdout": 1
     },
@@ -86,14 +88,26 @@
       "uu_seq::numberparse::parse_exponent_no_decimal": 1,
       "uu_seq::numberparse::parse_decimal_no_exponent": 1,
       "uu_seq::numberparse::parse_decimal_and_exponent": 1,
-      "core::str::<impl str>::find": 1,
+      "core::str::<impl str>::find": 2,
       "uu_seq::numberparse::parse_hexadecimal": 1,
       "alloc::str::<impl str>::to_lowercase": 1,
       "core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get": 1,
-      "core::str::<impl str>::trim_start_matches": 1
+      "core::str::<impl str>::trim_start_matches": 1,
+      "core::char::methods::encode_utf8_raw": 1
     },
-    "_ZN6uu_seq11numberparse17is_minus_zero_int17h47d80c233c19cf6cE": {},
-    "_ZN6uu_seq11numberparse19is_minus_zero_float17hd0ffcc4c912113deE": {},
+    "_ZN6uu_seq11numberparse17is_minus_zero_int17h47d80c233c19cf6cE": {
+      "bigdecimal::impl_cmp::<impl core::cmp::PartialEq for bigdecimal::BigDecimal>::eq": 1,
+      "core::char::methods::encode_utf8_raw": 1
+    },
+    "_ZN6uu_seq11numberparse19is_minus_zero_float17hd0ffcc4c912113deE": {
+      "bigdecimal::impl_cmp::<impl core::cmp::PartialEq for bigdecimal::BigDecimal>::eq": 1,
+      "core::char::methods::encode_utf8_raw": 1
+    },
+    "_ZN6uu_seq11numberparse28parse_no_decimal_no_exponent17h94839c74700e929cE": {
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "alloc::str::<impl str>::to_ascii_lowercase": 1,
+      "bigdecimal::impl_num::<impl num_traits::Num for bigdecimal::BigDecimal>::from_str_radix": 1
+    },
     "_ZN6uu_seq11numberparse25parse_exponent_no_decimal17hd2950fa793267dc0E": {
       "bigdecimal::impl_num::<impl num_traits::Num for bigdecimal::BigDecimal>::from_str_radix": 1,
       "core::num::<impl core::str::traits::FromStr for i64>::from_str": 1,
@@ -112,16 +126,17 @@
       "core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get": 1
     },
     "_ZN6uu_seq11numberparse17parse_hexadecimal17ha820262dcdf3b692E": {
+      "bigdecimal::impl_cmp::<impl core::cmp::PartialEq for bigdecimal::BigDecimal>::eq": 1,
       "num_bigint::bigint::convert::<impl num_traits::Num for num_bigint::bigint::BigInt>::from_str_radix": 1,
+      "core::char::methods::encode_utf8_raw": 2,
       "core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get": 2,
-      "core::slice::<impl [T]>::starts_with": 1,
-      "core::char::methods::encode_utf8_raw": 1
+      "core::slice::<impl [T]>::starts_with": 1
     }
   },
   "macro_call_counts": {
     "_ZN6uu_seq6uumain17h8e2c18419805cd3fE": {
-      "eprintln": 1,
-      "show_error": 1,
+      "eprintln": 2,
+      "eprint": 1,
       "format": 1
     },
     "_ZN6uu_seq6uumain6uumain17h34e3a354243be336E": {},
@@ -134,223 +149,83 @@
     "_ZN6uu_seq11numberparse86_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$uu_seq..number..PreciseNumber$GT$8from_str17h57ed696611a385bdE": {},
     "_ZN6uu_seq11numberparse17is_minus_zero_int17h47d80c233c19cf6cE": {},
     "_ZN6uu_seq11numberparse19is_minus_zero_float17hd0ffcc4c912113deE": {},
+    "_ZN6uu_seq11numberparse28parse_no_decimal_no_exponent17h94839c74700e929cE": {},
     "_ZN6uu_seq11numberparse25parse_exponent_no_decimal17hd2950fa793267dc0E": {},
     "_ZN6uu_seq11numberparse25parse_decimal_no_exponent17hf3af1526d793a9d8E": {},
     "_ZN6uu_seq11numberparse26parse_decimal_and_exponent17hfdc1c6342c162095E": {},
     "_ZN6uu_seq11numberparse17parse_hexadecimal17ha820262dcdf3b692E": {}
   },
   "node_counts": {
-    "_ZN6uu_seq6uumain17h8e2c18419805cd3fE": 9,
-    "_ZN6uu_seq6uumain6uumain17h34e3a354243be336E": 73,
+    "_ZN6uu_seq6uumain17h8e2c18419805cd3fE": 10,
+    "_ZN6uu_seq6uumain6uumain17h34e3a354243be336E": 63,
     "_ZN6uu_seq6uu_app17h5bc20a713053c9e7E": 32,
-    "_ZN6uu_seq13done_printing17h3afd308e88daff24E": 2,
-    "_ZN6uu_seq17write_value_float17h583f3c53a243a2bfE": 6,
-    "_ZN6uu_seq9print_seq17h76b7cc0ba327356fE": 17,
+    "_ZN6uu_seq13done_printing17h3afd308e88daff24E": 4,
+    "_ZN6uu_seq17write_value_float17h583f3c53a243a2bfE": 4,
+    "_ZN6uu_seq9print_seq17h76b7cc0ba327356fE": 8,
     "_ZN6uu_seq18extendedbigdecimal18ExtendedBigDecimal3one17h6aa804070085aabbE": 2,
     "_ZN6uu_seq6number13PreciseNumber3one17hfa3db95e12ecba95E": 2,
-    "_ZN6uu_seq11numberparse86_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$uu_seq..number..PreciseNumber$GT$8from_str17h57ed696611a385bdE": 11,
+    "_ZN6uu_seq11numberparse86_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$uu_seq..number..PreciseNumber$GT$8from_str17h57ed696611a385bdE": 18,
     "_ZN6uu_seq11numberparse17is_minus_zero_int17h47d80c233c19cf6cE": 4,
     "_ZN6uu_seq11numberparse19is_minus_zero_float17hd0ffcc4c912113deE": 4,
-    "_ZN6uu_seq11numberparse25parse_exponent_no_decimal17hd2950fa793267dc0E": 8,
-    "_ZN6uu_seq11numberparse25parse_decimal_no_exponent17hf3af1526d793a9d8E": 6,
-    "_ZN6uu_seq11numberparse26parse_decimal_and_exponent17hfdc1c6342c162095E": 20,
-    "_ZN6uu_seq11numberparse17parse_hexadecimal17ha820262dcdf3b692E": 16
+    "_ZN6uu_seq11numberparse28parse_no_decimal_no_exponent17h94839c74700e929cE": 14,
+    "_ZN6uu_seq11numberparse25parse_exponent_no_decimal17hd2950fa793267dc0E": 13,
+    "_ZN6uu_seq11numberparse25parse_decimal_no_exponent17hf3af1526d793a9d8E": 10,
+    "_ZN6uu_seq11numberparse26parse_decimal_and_exponent17hfdc1c6342c162095E": 19,
+    "_ZN6uu_seq11numberparse17parse_hexadecimal17ha820262dcdf3b692E": 20
   },
-  "prototypes": {
-    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h60535e30314ff3d3E": {
-      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h60535e30314ff3d3E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h1b79b33999e434b5E": {
-      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h1b79b33999e434b5E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser5error12MatchesError6unwrap17hfd2b39f1bd657312E": {
-      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17hfd2b39f1bd657312E",
-      "return_type": [
-        "struct",
-        64
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h2a14ff66723af1c4E": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h2a14ff66723af1c4E",
-      "return_type": [
-        "Result",
-        40
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hd3fd7c3ac8a6ae96E": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hd3fd7c3ac8a6ae96E",
-      "return_type": [
-        "struct",
-        56
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std2io5error5Error4kind17hb2ff5fa058639b3dE": {
-      "name": "_ZN3std2io5error5Error4kind17hb2ff5fa058639b3dE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core3cmp6max_by17hebeedc2e52056a05E": {
-      "name": "_ZN4core3cmp6max_by17hebeedc2e52056a05E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6option15Option$LT$T$GT$11map_or_else17he7eeb87d99b9d9cfE": {
-      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17he7eeb87d99b9d9cfE",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h64340156db72d2a0E": {
-      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h64340156db72d2a0E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hcd8fa96ced7a6fc6E": {
-      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hcd8fa96ced7a6fc6E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN5alloc5boxed12Box$LT$T$GT$3new17hf0c0ed198838dcbcE": {
-      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17hf0c0ed198838dcbcE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
+  "variable_types": {
     "_ZN6uu_seq6uumain17h8e2c18419805cd3fE": {
-      "name": "_ZN6uu_seq6uumain17h8e2c18419805cd3fE",
-      "return_type": [
-        "primitive",
-        8
+      "reg_16": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
         [
           "primitive",
           8
         ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_32": [
         [
           "primitive",
           8
@@ -358,12 +233,187 @@
       ]
     },
     "_ZN6uu_seq6uumain6uumain17h34e3a354243be336E": {
-      "name": "_ZN6uu_seq6uumain6uumain17h34e3a354243be336E",
-      "return_type": [
-        "primitive",
-        8
+      "stack_560": [
+        [
+          "primitive",
+          32
+        ],
+        [
+          "primitive",
+          32
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "struct",
+          56
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          56
+        ],
+        [
+          "struct",
+          56
+        ],
+        [
+          "struct",
+          56
+        ],
+        [
+          "struct",
+          72
+        ]
       ],
-      "parameters": [
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          32
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_424": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_392": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_496": [
+        [
+          "struct",
+          64
+        ],
+        [
+          "primitive",
+          64
+        ]
+      ],
+      "stack_1280": [
+        [
+          "primitive",
+          64
+        ]
+      ],
+      "stack_40": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_16": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
         [
           "primitive",
           8
@@ -372,39 +422,25 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
-      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
-      "return_type": [
-        "primitive",
-        1
       ],
-      "parameters": [
+      "reg_64": [
         [
           "primitive",
           8
         ],
         [
           "primitive",
+          8
+        ],
+        [
+          "&primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h904220b4fd394a43E": {
-      "name": "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h904220b4fd394a43E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
+      "stack_160": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          16
         ],
         [
           "primitive",
@@ -414,15 +450,44 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN6uucore8features6format15Format$LT$F$GT$5parse17h467dad2654ce72deE": {
-      "name": "_ZN6uucore8features6format15Format$LT$F$GT$5parse17h467dad2654ce72deE",
-      "return_type": [
-        "struct",
-        72
       ],
-      "parameters": [
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_24": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_128": [
         [
           "primitive",
           8
@@ -431,89 +496,10 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN3std2io5stdio6stdout17h077da66234850927E": {
-      "name": "_ZN3std2io5stdio6stdout17h077da66234850927E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": []
-    },
-    "_ZN5alloc3str21_$LT$impl$u20$str$GT$12to_lowercase17h8673807247540a26E": {
-      "name": "_ZN5alloc3str21_$LT$impl$u20$str$GT$12to_lowercase17h8673807247540a26E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
+      "stack_80": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h8f45b0d02f4dafdaE": {
-      "name": "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h8f45b0d02f4dafdaE",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core3num7dec2flt60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$f64$GT$8from_str17hfde7dd7a3aaead31E": {
-      "name": "_ZN4core3num7dec2flt60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$f64$GT$8from_str17hfde7dd7a3aaead31E",
-      "return_type": [
-        "struct",
-        9
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i64$GT$8from_str17hb0cdd6b069f41ab1E": {
-      "name": "_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$i64$GT$8from_str17hb0cdd6b069f41ab1E",
-      "return_type": [
-        "Result",
-        9
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4help17hc6b390ea58bb10afE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4help17hc6b390ea58bb10afE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
           8
         ],
         [
@@ -524,19 +510,56 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4long17h9872abf788435f05E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4long17h9872abf788435f05E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
+      "stack_320": [
         [
-          "struct*",
+          "primitive",
           8
-        ],
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_352": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
         [
           "primitive",
           8
@@ -545,464 +568,502 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg5short17h30cb111526dd9718E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg5short17h30cb111526dd9718E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
+      "reg_40": [
         [
-          "struct*",
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
           8
         ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_480": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_608": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_224": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_256": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_464": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_448": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_240": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_592": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          32
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_472": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_584": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_616": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_600": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_632": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_640": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_656": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_672": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_seq6uu_app17h5bc20a713053c9e7E": {
+      "stack_712": [
+        [
+          "struct",
+          466
+        ]
+      ],
+      "reg_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_700": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1412": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_708": [
         [
           "primitive",
           4
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg6action17h64d48ec922aa36c9E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg6action17h64d48ec922aa36c9E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
+      "stack_1420": [
         [
-          "struct*",
-          8
-        ],
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1424": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_2016": [
         [
           "primitive",
           1
         ]
       ]
     },
-    "_ZN12clap_builder7builder3arg3Arg8num_args17h2e5e4b9423a09621E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg8num_args17h2e5e4b9423a09621E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h9cb9db4a84f1050bE": {
-      "name": "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h9cb9db4a84f1050bE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h91a2236e2fc5d115E": {
-      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h91a2236e2fc5d115E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb94513a628a0df55E": {
-      "name": "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb94513a628a0df55E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$4zero17h4f643d68bc816ae7E": {
-      "name": "_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$num_traits..identities..Zero$GT$4zero17h4f643d68bc816ae7E",
-      "return_type": [
-        "struct",
-        40
-      ],
-      "parameters": []
-    },
-    "_ZN6uu_seq6uu_app17h5bc20a713053c9e7E": {
-      "name": "_ZN6uu_seq6uu_app17h5bc20a713053c9e7E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": []
-    },
     "_ZN6uu_seq13done_printing17h3afd308e88daff24E": {
-      "name": "_ZN6uu_seq13done_printing17h3afd308e88daff24E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
+      "stack_8": [
         [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          "struct",
+          40
         ]
-      ]
-    },
-    "_ZN6uu_seq17write_value_float17h583f3c53a243a2bfE": {
-      "name": "_ZN6uu_seq17write_value_float17h583f3c53a243a2bfE",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
+      "reg_16": [
         [
           "primitive",
-          8
+          1
         ],
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          1
         ]
       ]
     },
     "_ZN6uu_seq9print_seq17h76b7cc0ba327356fE": {
-      "name": "_ZN6uu_seq9print_seq17h76b7cc0ba327356fE",
-      "return_type": [
-        "primitive",
-        8
+      "stack_352": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "stack_360": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_16": [
         [
           "primitive",
           8
         ],
         [
-          "primitive",
+          "Result",
           8
-        ],
+        ]
+      ],
+      "stack_208": [
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
+        ]
+      ],
+      "stack_192": [
         [
           "primitive",
           1
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command14override_usage17hfb685ff62d43e39dE": {
-      "name": "_ZN12clap_builder7builder7command7Command14override_usage17hfb685ff62d43e39dE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3arg17h2b155dfcc00bacbaE": {
-      "name": "_ZN12clap_builder7builder7command7Command3arg17h2b155dfcc00bacbaE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3new17h70e60addb5ac5618E": {
-      "name": "_ZN12clap_builder7builder7command7Command3new17h70e60addb5ac5618E",
-      "return_type": [
-        "struct",
-        438
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command5about17hb7cd82dead60a251E": {
-      "name": "_ZN12clap_builder7builder7command7Command5about17hb7cd82dead60a251E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command7version17h39cda120b5e96539E": {
-      "name": "_ZN12clap_builder7builder7command7Command7version17h39cda120b5e96539E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg3new17h6fdd348e62deb03dE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg3new17h6fdd348e62deb03dE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std2io5Write9write_fmt17ha89a837e03ebc8dbE": {
-      "name": "_ZN3std2io5Write9write_fmt17ha89a837e03ebc8dbE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
         ]
       ]
     },
     "_ZN6uu_seq18extendedbigdecimal18ExtendedBigDecimal3one17h6aa804070085aabbE": {
-      "name": "_ZN6uu_seq18extendedbigdecimal18ExtendedBigDecimal3one17h6aa804070085aabbE",
-      "return_type": [
-        "struct",
-        32
-      ],
-      "parameters": []
-    },
-    "_ZN87_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h03c6b2bee9905beeE": {
-      "name": "_ZN87_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$core..cmp..PartialEq$GT$2eq17h03c6b2bee9905beeE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
+      "reg_72": [
         [
           "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core3str21_$LT$impl$u20$str$GT$4find17h1e180eda41b3ee27E": {
-      "name": "_ZN4core3str21_$LT$impl$u20$str$GT$4find17h1e180eda41b3ee27E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core3str21_$LT$impl$u20$str$GT$4find17h90335edd368651cbE": {
-      "name": "_ZN4core3str21_$LT$impl$u20$str$GT$4find17h90335edd368651cbE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hccefea64a1916a27E": {
-      "name": "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hccefea64a1916a27E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E": {
-      "name": "_ZN4core4char7methods15encode_utf8_raw17h4a752b0d300141c4E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          1
-        ],
-        [
-          "struct*",
           8
         ]
       ]
     },
     "_ZN6uu_seq6number13PreciseNumber3one17hfa3db95e12ecba95E": {
-      "name": "_ZN6uu_seq6number13PreciseNumber3one17hfa3db95e12ecba95E",
-      "return_type": [
-        "struct",
-        16
+      "reg_64": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": []
+      "reg_72": [
+        [
+          "primitive",
+          8
+        ]
+      ]
     },
     "_ZN6uu_seq11numberparse86_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$uu_seq..number..PreciseNumber$GT$8from_str17h57ed696611a385bdE": {
-      "name": "_ZN6uu_seq11numberparse86_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$uu_seq..number..PreciseNumber$GT$8from_str17h57ed696611a385bdE",
-      "return_type": [
-        "Result",
-        56
-      ],
-      "parameters": [
+      "reg_64": [
         [
           "primitive",
           8
@@ -1011,15 +1072,24 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN10bigdecimal8impl_num68_$LT$impl$u20$num_traits..Num$u20$for$u20$bigdecimal..BigDecimal$GT$14from_str_radix17h190f4d397e37218eE": {
-      "name": "_ZN10bigdecimal8impl_num68_$LT$impl$u20$num_traits..Num$u20$for$u20$bigdecimal..BigDecimal$GT$14from_str_radix17h190f4d397e37218eE",
-      "return_type": [
-        "struct",
-        42
       ],
-      "parameters": [
+      "reg_136": [
+        [
+          "Option",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_32": [
         [
           "primitive",
           8
@@ -1028,49 +1098,46 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN10num_bigint6bigint7convert72_$LT$impl$u20$num_traits..Num$u20$for$u20$num_bigint..bigint..BigInt$GT$14from_str_radix17hb9365f03b0604201E": {
-      "name": "_ZN10num_bigint6bigint7convert72_$LT$impl$u20$num_traits..Num$u20$for$u20$num_bigint..bigint..BigInt$GT$14from_str_radix17hb9365f03b0604201E",
-      "return_type": [
-        "Result",
-        26
       ],
-      "parameters": [
+      "reg_128": [
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
-        ],
+        ]
+      ],
+      "stack_16": [
         [
           "primitive",
           4
         ]
-      ]
-    },
-    "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0ebacd778ae85bc5E": {
-      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0ebacd778ae85bc5E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
+      "reg_72": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17h8cd21fd193cd3011E": {
-      "name": "_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17h8cd21fd193cd3011E",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": [
+      "reg_16": [
         [
           "primitive",
           8
@@ -1082,54 +1149,101 @@
       ]
     },
     "_ZN6uu_seq11numberparse17is_minus_zero_int17h47d80c233c19cf6cE": {
-      "name": "_ZN6uu_seq11numberparse17is_minus_zero_int17h47d80c233c19cf6cE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
+      "stack_0": [
         [
           "primitive",
-          8
+          40
         ],
         [
           "primitive",
-          8
+          16
         ],
         [
           "primitive",
-          8
+          4
+        ],
+        [
+          "primitive",
+          16
         ]
       ]
     },
     "_ZN6uu_seq11numberparse19is_minus_zero_float17hd0ffcc4c912113deE": {
-      "name": "_ZN6uu_seq11numberparse19is_minus_zero_float17hd0ffcc4c912113deE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
+      "stack_0": [
         [
           "primitive",
-          8
+          16
         ],
         [
           "primitive",
-          8
+          4
         ],
         [
           "primitive",
-          8
+          40
+        ],
+        [
+          "primitive",
+          16
         ]
       ]
     },
     "_ZN6uu_seq11numberparse28parse_no_decimal_no_exponent17h94839c74700e929cE": {
-      "name": "_ZN6uu_seq11numberparse28parse_no_decimal_no_exponent17h94839c74700e929cE",
-      "return_type": [
-        "struct",
-        56
+      "reg_64": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "stack_48": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_88": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
         [
           "primitive",
           8
@@ -1137,16 +1251,151 @@
         [
           "primitive",
           8
+        ]
+      ],
+      "reg_72": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
         ]
       ]
     },
     "_ZN6uu_seq11numberparse25parse_exponent_no_decimal17hd2950fa793267dc0E": {
-      "name": "_ZN6uu_seq11numberparse25parse_exponent_no_decimal17hd2950fa793267dc0E",
-      "return_type": [
-        "struct",
-        56
+      "reg_64": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "reg_16": [
+        [
+          "Option",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_56": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_49": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_9": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_112": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_72": [
         [
           "primitive",
           8
@@ -1158,16 +1407,73 @@
         [
           "primitive",
           8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_224": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
         ]
       ]
     },
     "_ZN6uu_seq11numberparse25parse_decimal_no_exponent17hf3af1526d793a9d8E": {
-      "name": "_ZN6uu_seq11numberparse25parse_decimal_no_exponent17hf3af1526d793a9d8E",
-      "return_type": [
-        "Result",
-        56
+      "reg_64": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_72": [
         [
           "primitive",
           8
@@ -1179,16 +1485,189 @@
         [
           "primitive",
           8
+        ]
+      ],
+      "stack_49": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_9": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_224": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
         ]
       ]
     },
     "_ZN6uu_seq11numberparse26parse_decimal_and_exponent17hfdc1c6342c162095E": {
-      "name": "_ZN6uu_seq11numberparse26parse_decimal_and_exponent17hfdc1c6342c162095E",
-      "return_type": [
-        "struct",
-        56
+      "reg_64": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_41": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_81": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_16": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_128": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_72": [
         [
           "primitive",
           8
@@ -1204,16 +1683,103 @@
         [
           "primitive",
           8
+        ]
+      ],
+      "reg_224": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          16
         ]
       ]
     },
     "_ZN6uu_seq11numberparse17parse_hexadecimal17ha820262dcdf3b692E": {
-      "name": "_ZN6uu_seq11numberparse17parse_hexadecimal17ha820262dcdf3b692E",
-      "return_type": [
-        "Result",
-        56
+      "reg_64": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
       ],
-      "parameters": [
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "Result",
+          73
+        ]
+      ],
+      "reg_16": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "Option",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_72": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
         [
           "primitive",
           8
@@ -1222,62 +1788,67 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN10bigdecimal8impl_cmp73_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$bigdecimal..BigDecimal$GT$2eq17h0c7161c8c911041fE": {
-      "name": "_ZN10bigdecimal8impl_cmp73_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$bigdecimal..BigDecimal$GT$2eq17h0c7161c8c911041fE",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
+      "stack_24": [
         [
-          "struct*",
-          8
-        ],
-        [
-          "struct*",
+          "primitive",
           8
         ]
-      ]
-    },
-    "_ZN10bigdecimal12impl_convert83_$LT$impl$u20$core..convert..From$LT$i32$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$4from17h50775aa7d7f4e6d2E": {
-      "name": "_ZN10bigdecimal12impl_convert83_$LT$impl$u20$core..convert..From$LT$i32$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$4from17h50775aa7d7f4e6d2E",
-      "return_type": [
-        "struct",
-        32
       ],
-      "parameters": [
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_224": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_76": [
         [
           "primitive",
           4
         ]
       ]
-    },
-    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
-      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
-      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": []
     }
   }
 }

@@ -1,9 +1,9 @@
 {
   "decompilation": {
-    "_ZN9uu_basenc14parse_cmd_args17haa59f9e932579024E": "fn uu_basenc::parse_cmd_args(a0: &Result<struct49, struct16>, a1: u32, a2: u32) -> u64 {\n    let v0: struct16;  // [bp-0x370], Other Possible Types: struct24\n    let v1: i64;  // [bp-0x358], Other Possible Types: struct56\n    let v2: i64;  // [sp-0x350]\n    let v3: i8;  // [sp-0x320], Other Possible Types: struct24\n    let v4: i8;  // [bp-0x318]\n    let v9: struct712;  // [sp-0x2e8], Other Possible Types: struct24, Result<struct34, struct16>\n    let v10: i64;  // [sp-0x2d8]\n    let v11: i32;  // [sp-0x2d0]\n    let v13: i64;  // rax\n    let v14: i64;  // rdi\n    let v15: i64;  // rax\n    let v16: i64;  // rax\n    let v17: i8;  // bpl\n    let v19: i64;  // rax\n    let v20: i64;  // rcx\n\n    v9 = uu_basenc::uu_app();\n    v0 = uucore::Args::collect_lossy(a1, a2);\n    clap_builder::builder::command::Command::try_get_matches_from(&v3, &v9, &v0);\n    v13 = *(&v3 as &i64);\n    v14 = *(&v4 as &i64);\n    if v1 == 0x8000000000000000 {\n        *((a0 + 8) as &long long) = alloc::boxed::Box<T>::new(v2);\n        v16 = &g_54cd90;\n        *((a0 + 16) as &&i64) = &g_54cd90;\n        *(a0 as &i64) = 2;\n    }\n    v1 = struct56 {\n        field_0: v13\n        field_8: v14\n        field_16: *(&v5 as &i32)\n        field_20: *(&v6 as &i128)\n        field_36: *(&v7 as &i128)\n        field_52: *(&v8 as &i32)\n    };\n    v0 = struct16 {\n        field_0: \"base64\"\n        field_8: &g_54ccb0\n    };\n    v15 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::find(&v0, &v1);\n    if !v15 {\n        v3 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n        v9 = v3;\n        v11 = 1;\n        *((a0 + 8) as &double) = alloc::boxed::Box<T>::new(&v9);\n        *((a0 + 16) as &&i64) = &g_54cce8;\n    }\n    v17 = *((v15 + 16) as &i8);\n    v9 = uu_base32::base_common::Config::from(&v1);\n    v19 = *((&v9 as &char + 8) as &i64);\n    v20 = v10;\n    match v9 {\n        Ok(_) => {\n            return Ok(struct50 {\n                field_0: v18\n                field_8: v19\n                field_16: v20\n                field_24: *((&v9 as &char + 24) as &i128)\n                field_40: *((&v9.field_0 as &char + 40) as &i64)\n                field_48: v17\n            });\n        },\n        Err(_) => {\n            return Err(struct16 {\n                field_0: v19\n                field_8: v20\n            });\n        },\n    }\n}\n",
-    "_ZN9uu_basenc6uumain17hc50a096edd772b5dE": "fn uu_basenc::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: String;  // [sp-0x48]\n    let v4: String;  // [sp-0x28]\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v6 = uu_basenc::uumain::uumain(a0, a1);\n    if !v6 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v6;\n    v4 = format!(\"{}\", &v0);\n    v3 = v4;\n    if v3 == \"\" {\n        v2 = v7;\n        show_error!(\"{}\", &v3);\n    }\n    if !*((v7 + 104) as &i64)() {\n        return *((v7 + 96) as &i64)();\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v7;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n}\n",
-    "_ZN9uu_basenc6uumain6uumain17hc49e50b81a0d3fc1E": "fn uu_basenc::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0x98]\n    let v1: i64;  // [sp-0x90]\n    let v2: struct24;  // [sp-0x88], Other Possible Types: int, Result<struct49, struct16>\n    let v3: iNone;  // [sp-0x78]\n    let v4: iNone;  // [sp-0x68]\n    let v5: struct48;  // [sp-0x48]\n    let v10: i64;  // rbx\n    let v11: i64;  // rbx\n    let v13: i64;  // rbx\n\n    v2 = uu_basenc::parse_cmd_args(a0, a1);\n    v10 = *((&v2 as &char + 8) as &i64);\n    match v2 {\n        Err(_) => {\n            return v10;\n        },\n        Ok(_) => {\n            v5 = struct48 {\n                field_0: v7\n                field_8: v8\n                field_16: v9\n                field_24: *((&v2 as &char + 24) as &i128)\n                field_40: *((&v2 as &char + 40) as &i64)\n            };\n            v2 = uu_base32::base_common::get_input(&v5);\n            v11 = v2.field_8;\n            if !v2.field_0 {\n                v0 = v11;\n                v1 = v2.field_16;\n                v4 = *((&v5.field_24 as &char + 8) as &i128);\n                v3 = *(&v5.field_16 as &i128);\n                v2 = *(&v5.field_0 as &i128);\n                v10 = v13;\n                return v10;\n            }\n            v10 = v11;\n            return v10;\n        },\n    }\n}\n",
-    "_ZN9uu_basenc6uu_app17hfbf1ac7160545103E": "fn uu_basenc::uu_app(a0: &struct712) -> u64 {\n    let v0: struct16;  // [bp-0xcc0]\n    let v1: struct712;  // [sp-0xcb0], Other Possible Types: int\n    let v2: struct592;  // [sp-0x9e8]\n    let v3: struct592;  // [sp-0x798]\n    let v4: struct592;  // [sp-0x548]\n    let v5: struct592;  // [sp-0x2f8]\n    let v7: i64;  // rax\n    let v8: i64;  // rbx\n    let v9: i64;  // r15\n    let v10: i64;  // r12\n\n    v1 = uu_base32::base_common::base_app(\"Encode/decode data and print to standard output\nWith no FILE, or when FILE is -, read standard input.\n\nWhen decoding, the input may contain newlines in addition to the bytes of\nthe formal alphabet. Use --ignore-garbage to attempt to recover\nfrom any other non-alphabet bytes in the encoded stream.\", \"{} [OPTION]... [FILE]\");\n    v0 = struct16 {\n        field_0: \"base64\"\n        field_8: &g_54fbf0\n    };\n    v7 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v0);\n    if !v7 {\n        memcpy(a0, &v1, 712);\n        return a0;\n    }\n    v8 = v7;\n    do {\n        v9 = *(v8 as &i64);\n        v10 = *((v8 + 8) as &i64);\n        v5 = clap_builder::builder::arg::Arg::new(v9, v10);\n        v3 = clap_builder::builder::arg::Arg::long(&v5, v9, v10);\n        v5 = clap_builder::builder::arg::Arg::help(&v3, *((v8 + 24) as &i64), *((v8 + 32) as &i64));\n        v2 = clap_builder::builder::arg::Arg::action(&v5);\n        v4 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(&v2);\n        memcpy(&v5, &v1, 712);\n        v1 = clap_builder::builder::command::Command::arg(&v5, &v4);\n        v8 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v0);\n    } while (v8);\n}\n"
+    "_ZN9uu_basenc14parse_cmd_args17haa59f9e932579024E": "fn uu_basenc::parse_cmd_args(a1: i64, a2: i64) -> Result<struct49, struct24> {\n    let a0: i64;  // rdi\n    let v0: u128;  // [bp-0x370], Other Possible Types: struct24\n    let v1: struct56;  // [bp-0x358]\n    let v2: u32;  // [bp-0x350]\n    let v3: Result<struct56, struct16>;  // [bp-0x320]\n    let v4: struct24;  // [bp-0x320], Other Possible Types: struct56\n    let v5: u8;  // [bp-0x2e8], Other Possible Types: Result<struct42, struct24>\n    let v6: u64;  // [bp-0x2e0]\n    let v7: u64;  // [bp-0x2d8]\n    let v8: u32;  // [bp-0x2d0]\n    let v10: i64;  // rax\n    let v11: u8;  // bpl\n    let v12: u64;  // rdx\n\n    uu_basenc::uu_app(&v5);\n    v0 = uucore::Args::collect_lossy(a1, a2);\n    v3 = clap_builder::builder::command::Command::try_get_matches_from(&v5, &v0);\n    match v3 {\n        Err(_) => {\n            return struct24 {\n                field_0: 2\n                field_8: alloc::boxed::Box<T>::new(v2)\n                field_16: &g_54cd90\n            };\n        },\n        Ok(v1) => {\n            v0 = struct16 {\n                field_0: \"base64\"\n                field_8: &g_54ccb0\n            };\n            v10 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::find(&v0, &v1);\n            if !v10 {\n                v4 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n                v7 = v4.field_16;\n                v5 = v3 as i128 as u128;\n                v8 = 1;\n                *((a0 + 8) as &double) = alloc::boxed::Box<T>::new(&v5);\n                *((a0 + 16) as &&u8) = &g_54cce8;\n            }\n            v11 = *((v10 + 16) as &i8);\n            v5 = uu_base32::base_common::Config::from(&v1);\n            v12 = v5 as i64;\n            if v12 != 2 {\n                return struct58 {\n                    field_0: v12\n                    field_8: v6\n                    field_16: v7\n                    field_24: <UNKNOWN>\n                    field_40: v11\n                    field_48: <UNKNOWN>\n                };\n            }\n            return struct24 {\n                field_0: 2\n                field_8: v6\n                field_16: v7\n            };\n        },\n    }\n}\n",
+    "_ZN9uu_basenc6uumain6uumain17hc49e50b81a0d3fc1E": "fn uu_basenc::uumain::uumain(a1: i64) -> Result<struct49, struct24> {\n    let a0: u64;  // rsi\n    let v0: u128;  // [bp-0x98]\n    let v1: u256;  // [bp-0x88]\n    let v2: u64;  // [bp-0x80]\n    let v3: i8;  // [bp-0x78]\n    let v4: u8;  // [bp-0x70]\n    let v5: u8;  // [bp-0x68]\n    let v6: u64;  // [bp-0x60]\n    let v7: u8;  // [bp-0x58]\n    let v8: u64;  // [bp-0x48]\n    let v9: u64;  // [bp-0x40]\n    let v10: u64;  // [bp-0x38]\n    let v11: u8;  // [bp-0x30]\n    let v12: u8;  // [bp-0x28]\n    let v13: u64;  // [bp-0x20]\n    let v15: u64;  // rdi\n    let v16: u64;  // rcx\n    let v17: u32;  // ebp\n    let v18: u128;  // xmm0\n\n    uu_basenc::parse_cmd_args(v15, a0, v16);\n    if *(&v1 as &i64) == 2 {\n        return;\n    }\n    v13 = v6;\n    memcpy(&v11, &v4, 16);\n    v17 = v7;\n    v8 = *(&v1 as &i64);\n    v9 = v2;\n    v10 = *(&v3 as &i64);\n    uu_base32::base_common::get_input(&v1, &v8);\n    if *(&v1 as &i64) {\n        return;\n    }\n    v0 = v2;\n    v18 = *(&v8 as &i128);\n    memcpy(&v5, &v12, 16);\n    v1 = struct32 {\n        field_0: v18\n        field_16: *(&v10 as &i128)\n    };\n    uu_base32::base_common::handle_input(&v0, v17, &v1);\n    return;\n}\n",
+    "_ZN9uu_basenc6uu_app17hfbf1ac7160545103E": "fn uu_basenc::uu_app(a0: i64) -> long long {\n    let v0: void*;  // [bp-0xcc8]\n    let v1: u128;  // [bp-0xcc0]\n    let v2: u8;  // [bp-0xcb0]\n    let v3: u4736;  // [bp-0x9e8]\n    let v4: u4736;  // [bp-0x798]\n    let v5: u4736;  // [bp-0x548]\n    let v6: u8;  // [bp-0x2f8]\n    let v8: i64;  // rax\n\n    uu_base32::base_common::base_app(&v2, \"Encode/decode data and print to standard output\\nWith no FILE, or when FILE is -, read standard input.\\n\\nWhen decoding, the input may contain newlines in addition to the bytes of\\nthe formal alphabet. Use --ignore-garbage to attempt to recover\\nfrom any other non-alphabet bytes in the encoded stream.\", \"{} [OPTION]... [FILE]\");\n    v1 = struct16 {\n        field_0: \"base64\"\n        field_8: &g_54fbf0\n    };\n    v8 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v1);\n    if v8 {\n        do {\n            clap_builder::builder::arg::Arg::new(&v6, *(v8 as &i64), *((v8 + 8) as &i64));\n            clap_builder::builder::arg::Arg::long(&v4, &v6, *(v8 as &i64), *((v8 + 8) as &i64));\n            clap_builder::builder::arg::Arg::help(&v6, &v4, *((v8 + 24) as &i64), *((v8 + 32) as &i64));\n            clap_builder::builder::arg::Arg::action(&v3, &v6);\n            <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(&v5, &v3);\n            memcpy(&v6, &v2, 712);\n            clap_builder::builder::command::Command::arg(&v2, &v6, &v5);\n            v8 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v1);\n        } while (v8);\n    }\n    memcpy(v0, &v2, 712);\n    return a0;\n}\n",
+    "_ZN9uu_basenc6uumain17hc50a096edd772b5dE": "fn uu_basenc::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_basenc::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n"
   },
   "function_call_counts": {
     "_ZN9uu_basenc14parse_cmd_args17haa59f9e932579024E": {
@@ -15,125 +15,112 @@
       "uucore::Args::collect_lossy": 1,
       "uu_basenc::uu_app": 1
     },
-    "_ZN9uu_basenc6uumain17hc50a096edd772b5dE": {
-      "uucore::mods::error::get_exit_code": 1,
-      "uucore::execution_phrase": 1,
-      "uu_basenc::uumain::uumain": 1,
-      "core::result::Result<T,E>::expect": 1,
-      "uucore::disable_rust_signal_handlers": 1
-    },
     "_ZN9uu_basenc6uumain6uumain17hc49e50b81a0d3fc1E": {
+      "uu_base32::base_common::handle_input": 1,
       "uu_base32::base_common::get_input": 1,
       "uu_basenc::parse_cmd_args": 1
     },
     "_ZN9uu_basenc6uu_app17hfbf1ac7160545103E": {
+      "memcpy": 2,
       "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 2,
       "clap_builder::builder::command::Command::arg": 1,
-      "memcpy": 2,
       "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold": 1,
       "clap_builder::builder::arg::Arg::action": 1,
       "clap_builder::builder::arg::Arg::help": 1,
       "clap_builder::builder::arg::Arg::long": 1,
       "clap_builder::builder::arg::Arg::new": 1,
       "uu_base32::base_common::base_app": 1
+    },
+    "_ZN9uu_basenc6uumain17hc50a096edd772b5dE": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "uu_basenc::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
     }
   },
   "macro_call_counts": {
     "_ZN9uu_basenc14parse_cmd_args17haa59f9e932579024E": {},
-    "_ZN9uu_basenc6uumain17hc50a096edd772b5dE": {
-      "eprintln": 1,
-      "show_error": 1,
-      "format": 1
-    },
     "_ZN9uu_basenc6uumain6uumain17hc49e50b81a0d3fc1E": {},
-    "_ZN9uu_basenc6uu_app17hfbf1ac7160545103E": {}
+    "_ZN9uu_basenc6uu_app17hfbf1ac7160545103E": {},
+    "_ZN9uu_basenc6uumain17hc50a096edd772b5dE": {
+      "eprintln": 2,
+      "eprint": 1,
+      "format": 1
+    }
   },
   "node_counts": {
-    "_ZN9uu_basenc14parse_cmd_args17haa59f9e932579024E": 13,
-    "_ZN9uu_basenc6uumain17hc50a096edd772b5dE": 9,
-    "_ZN9uu_basenc6uumain6uumain17hc49e50b81a0d3fc1E": 9,
-    "_ZN9uu_basenc6uu_app17hfbf1ac7160545103E": 13
+    "_ZN9uu_basenc14parse_cmd_args17haa59f9e932579024E": 12,
+    "_ZN9uu_basenc6uumain6uumain17hc49e50b81a0d3fc1E": 6,
+    "_ZN9uu_basenc6uu_app17hfbf1ac7160545103E": 12,
+    "_ZN9uu_basenc6uumain17hc50a096edd772b5dE": 10
   },
-  "prototypes": {
-    "_ZN12clap_builder7builder7command7Command20try_get_matches_from17hd3fa77ff50e7945cE": {
-      "name": "_ZN12clap_builder7builder7command7Command20try_get_matches_from17hd3fa77ff50e7945cE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
+  "variable_types": {
+    "_ZN9uu_basenc14parse_cmd_args17haa59f9e932579024E": {
+      "reg_72": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN6uucore4Args13collect_lossy17h59613048ab61941cE": {
-      "name": "_ZN6uucore4Args13collect_lossy17h59613048ab61941cE",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": [
+      "stack_144": [
         [
           "primitive",
-          8
+          1
         ],
         [
           "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6option15Option$LT$T$GT$11map_or_else17hf638a06416b6a521E": {
-      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17hf638a06416b6a521E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
+          16
+        ],
         [
-          "struct*",
-          8
+          "Result",
+          88
         ]
-      ]
-    },
-    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h6a79b04b66e51c92E": {
-      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h6a79b04b66e51c92E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_88": [
+        [
+          "Result",
+          80
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          56
+        ]
+      ],
+      "stack_40": [
         [
           "primitive",
           4
         ]
-      ]
-    },
-    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17heaa6d59ecfaf3b76E": {
-      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17heaa6d59ecfaf3b76E",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": []
-    },
-    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
-      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
-      "return_type": [
-        "primitive",
-        1
+      "stack_32": [
+        [
+          "struct",
+          56
+        ]
       ],
-      "parameters": [
+      "reg_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
         [
           "primitive",
           8
@@ -142,53 +129,26 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h0ca1d326b6d409faE": {
-      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h0ca1d326b6d409faE",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN9uu_basenc14parse_cmd_args17haa59f9e932579024E": {
-      "name": "_ZN9uu_basenc14parse_cmd_args17haa59f9e932579024E",
-      "return_type": [
-        "Result",
-        50
-      ],
-      "parameters": [
+      "stack_168": [
         [
           "primitive",
-          8
-        ],
+          4
+        ]
+      ],
+      "reg_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_32": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN9uu_basenc6uumain17hc50a096edd772b5dE": {
-      "name": "_ZN9uu_basenc6uumain17hc50a096edd772b5dE",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "stack_152": [
         [
           "primitive",
           8
@@ -196,165 +156,211 @@
       ]
     },
     "_ZN9uu_basenc6uumain6uumain17hc49e50b81a0d3fc1E": {
-      "name": "_ZN9uu_basenc6uumain6uumain17hc49e50b81a0d3fc1E",
-      "return_type": [
-        "primitive",
-        8
+      "reg_64": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "reg_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          32
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_56": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
         [
           "primitive",
           8
         ],
         [
           "primitive",
-          8
+          16
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg3new17hd3b1b2715557d506E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg3new17hd3b1b2715557d506E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "stack_96": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4help17h3663629a520cf311E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4help17h3663629a520cf311E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "stack_32": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          1
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4long17h1e54b164c00deb30E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4long17h1e54b164c00deb30E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "stack_0": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          16
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg6action17h3a70dcd1ad8d9a87E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg6action17h3a70dcd1ad8d9a87E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3arg17h7e432bbe18d5085dE": {
-      "name": "_ZN12clap_builder7builder7command7Command3arg17h7e432bbe18d5085dE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
+      "reg_224": [
         [
           "primitive",
-          8
-        ],
+          16
+        ]
+      ],
+      "stack_48": [
         [
           "primitive",
-          8
+          1
         ]
-      ]
-    },
-    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd6435d6f64c66af2E": {
-      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd6435d6f64c66af2E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
+      "stack_112": [
         [
           "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86bd5f729982ba3cE": {
-      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86bd5f729982ba3cE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
+          1
         ]
       ]
     },
     "_ZN9uu_basenc6uu_app17hfbf1ac7160545103E": {
-      "name": "_ZN9uu_basenc6uu_app17hfbf1ac7160545103E",
-      "return_type": [
-        "struct",
-        712
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
       ],
-      "parameters": []
-    },
-    "_ZN9uu_base3211base_common6Config4from17h8f03cd9b16c9529cE": {
-      "name": "_ZN9uu_base3211base_common6Config4from17h8f03cd9b16c9529cE",
-      "return_type": [
-        "Result",
-        42
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
       ],
-      "parameters": [
+      "reg_16": [
         [
           "primitive",
           8
         ]
+      ],
+      "stack_2512": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_1328": [
+        [
+          "primitive",
+          592
+        ]
+      ],
+      "stack_736": [
+        [
+          "primitive",
+          592
+        ]
+      ],
+      "stack_1920": [
+        [
+          "primitive",
+          592
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
       ]
     },
-    "_ZN9uu_base3211base_common8base_app17ha21d2a66676032efE": {
-      "name": "_ZN9uu_base3211base_common8base_app17ha21d2a66676032efE",
-      "return_type": [
-        "struct",
-        712
+    "_ZN9uu_basenc6uumain17hc50a096edd772b5dE": {
+      "reg_16": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
         [
           "primitive",
           8
@@ -362,7 +368,9 @@
         [
           "primitive",
           8
-        ],
+        ]
+      ],
+      "stack_72": [
         [
           "primitive",
           8
@@ -371,28 +379,13 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN9uu_base3211base_common9get_input17h0f77b7573e033d64E": {
-      "name": "_ZN9uu_base3211base_common9get_input17h0f77b7573e033d64E",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": [
+      "reg_32": [
         [
-          "struct*",
+          "primitive",
           8
         ]
       ]
-    },
-    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
-      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": []
     }
   }
 }

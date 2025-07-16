@@ -1,235 +1,226 @@
-fn uu_sort::merge::merge_with_file_limit(a0: &struct24, a1: &struct48, a2: u32, a3: u32) -> u64 {
-    let v0: i64;  // [sp-0x360]
-    let v1: i64;  // [sp-0x358]
-    let v2: iNone;  // [sp-0x348], Other Possible Types: Option<struct96>, struct48, struct112
-    let v3: iNone;  // [sp-0x338]
-    let v4: iNone;  // [bp-0x328]
-    let v5: iNone;  // [sp-0x318]
-    let v6: iNone;  // [sp-0x308]
-    let v7: iNone;  // [sp-0x2f8]
-    let v9: i64;  // [sp-0x2d0], Other Possible Types: struct16, int
-    let v10: i64;  // [sp-0x2c0]
-    let v11: i64;  // [sp-0x2b8]
-    let v12: i64;  // [sp-0x2b0]
-    let v13: i64;  // [bp-0x2a8], Other Possible Types: struct96, struct32
-    let v14: i64;  // [sp-0x2a0]
-    let v15: i64;  // [sp-0x298]
-    let v16: iNone;  // [bp-0x290]
-    let v17: iNone;  // [bp-0x280]
-    let v18: iNone;  // [bp-0x270]
-    let v19: iNone;  // [bp-0x260]
-    let v20: iNone;  // [sp-0x250]
-    let v21: i64;  // [sp-0x240]
-    let v22: struct48;  // [sp-0x238], Other Possible Types: struct36, struct80
-    let v23: i8;  // [bp-0x1e0]
-    let v24: i64;  // [sp-0x1d8]
-    let v25: i64;  // [sp-0x1d0]
-    let v26: i64;  // [sp-0x1c8]
-    let v27: iNone;  // [sp-0x1c0]
-    let v28: iNone;  // [sp-0x1b0]
-    let v29: iNone;  // [sp-0x1a0]
-    let v30: iNone;  // [sp-0x190]
-    let v31: i64;  // [sp-0x180]
-    let v32: iNone;  // [sp-0x178]
-    let v33: i64;  // [sp-0x170]
-    let v34: struct48;  // [sp-0x158], Other Possible Types: unsigned long
-    let v35: struct161;  // [bp-0x128], Other Possible Types: struct48
-    let v37: i64;  // r13
-    let v39: i64;  // r12
-    let v41: iNone;  // ymm0
-    let v42: iNone;  // ymm0
-    let v44: iNone;  // ymm1
-    let v45: iNone;  // ymm1
-    let v47: iNone;  // ymm2
-    let v48: iNone;  // ymm2
-    let v50: i64;  // r13
-    let v51: i64;  // rax
-    let v53: iNone;  // ymm3
-    let v58: iNone;  // xmm2
-    let v63: iNone;  // xmm0
-    let v64: iNone;  // xmm1
-    let v65: iNone;  // xmm2
-    let v66: iNone;  // xmm3
-    let v68: iNone;  // xmm0
-    let v69: i64;  // rdx
-    let v70: i64;  // rax
-    let v71: i64;  // rcx
-    let v72: iNone;  // xmm0
-    let v73: iNone;  // xmm0
-    let v74: iNone;  // xmm1
-    let v75: iNone;  // xmm2
-    let v76: iNone;  // xmm3
-    let v77: iNone;  // xmm0
-    let v78: iNone;  // xmm0
-    let v79: iNone;  // xmm0
-    let v80: iNone;  // xmm1
-    let v81: iNone;  // xmm2
-    let v82: iNone;  // xmm3
-    let v83: iNone;  // xmm0
-    let v84: iNone;  // xmm0
-    let v85: iNone;  // xmm0
-    let v86: iNone;  // xmm0
+fn uu_sort::merge::merge_with_file_limit(a1: &struct48, a2: i64, a3: i64) -> : struct24 {
+    let a0: i64;  // rsi
+    let v0: u64;  // [bp-0x360]
+    let v1: u64;  // [bp-0x358]
+    let v2: u128;  // [bp-0x348], Other Possible Types: struct24, Option<struct96>, Result<struct48, struct24>
+    let v3: <anon>;  // [bp-0x348]
+    let v4: u640;  // [bp-0x348]
+    let v5: Option<struct96>;  // [bp-0x348]
+    let v6: u64;  // [bp-0x340]
+    let v7: u128;  // [bp-0x338]
+    let v8: u64;  // [bp-0x328]
+    let v9: u128;  // [bp-0x318]
+    let v10: u128;  // [bp-0x308]
+    let v11: u64;  // [bp-0x2f0]
+    let v12: u128;  // [bp-0x2e8]
+    let v13: u128;  // [bp-0x2e0]
+    let v14: struct32;  // [bp-0x2d0], Other Possible Types: void*
+    let v15: u64;  // [bp-0x2c8]
+    let v16: void*;  // [bp-0x2c0]
+    let v17: u64;  // [bp-0x2b8]
+    let v18: u64;  // [bp-0x2b0]
+    let v19: struct25;  // [bp-0x2a8]
+    let v20: u640;  // [bp-0x2a8]
+    let v21: u64;  // [bp-0x2a0]
+    let v23: core::str::pattern::CharSearcher;  // [bp-0x298]
+    let v24: u128;  // [bp-0x290]
+    let v25: u128;  // [bp-0x280]
+    let v26: u128;  // [bp-0x270]
+    let v27: u128;  // [bp-0x260]
+    let v28: u128;  // [bp-0x258]
+    let v29: u64;  // [bp-0x248]
+    let v30: u64;  // [bp-0x240]
+    let v31: u64;  // [bp-0x238]
+    let v32: u64;  // [bp-0x230]
+    let v33: u64;  // [bp-0x228]
+    let v34: u128;  // [bp-0x220]
+    let v35: u128;  // [bp-0x210]
+    let v36: u128;  // [bp-0x200]
+    let v37: u128;  // [bp-0x1f0]
+    let v38: u64;  // [bp-0x1e0]
+    let v39: u64;  // [bp-0x1d8]
+    let v40: u64;  // [bp-0x1d0]
+    let v41: u64;  // [bp-0x1c8]
+    let v42: u128;  // [bp-0x1c0]
+    let v43: u128;  // [bp-0x1b0]
+    let v44: u128;  // [bp-0x1a0]
+    let v45: u128;  // [bp-0x190]
+    let v46: u64;  // [bp-0x180]
+    let v47: u64;  // [bp-0x178]
+    let v48: Result<struct112, struct24>;  // [bp-0x178]
+    let v49: u64;  // [bp-0x170]
+    let v51: u64;  // [bp-0x158], Other Possible Types: struct16
+    let v52: u64;  // [bp-0x150]
+    let v53: u64;  // [bp-0x148]
+    let v54: u128;  // [bp-0x140]
+    let v55: u64;  // [bp-0x130]
+    let v56: struct161;  // [bp-0x128], Other Possible Types: u64
+    let v58: core::option::Option<u32>;  // rax
+    let v59: u64;  // r13
+    let v60: u32;  // rdi
+    let v61: core::result::Result<std::fs::File, std::io::error::Error>;  // r12
+    let v74: u64;  // rax
+    let v75: u64;  // rcx
+    let v77: struct25;  // rdx
+    let v78: core::str::pattern::CharSearcher;  // rcx
+    let v80: u128;  // xmm0
+    let v81: u128;  // xmm1
+    let v82: u128;  // xmm2
+    let v88: struct56;  // rax
+    let v91: u128;  // xmm0
+    let v92: u128;  // xmm1
+    let v93: u128;  // xmm2
+    let v96: i64;  // rdi
+    let v97: i64;  // rdi
+    let v98: i64;  // rdi
+    let v99: i64;  // rdi
+    let v100: u64;  // rdx
+    let v102: u64;  // rax
+    let v103: u128;  // xmm0
+    let v106: u64;  // [bp-0x320]
+    let v108: u64;  // [bp-0x300]
 
-    v37 = *((a2 + 112) as &i64);
-    if <core::iter::adapters::map::Map<I,F> as core::iter::traits::exact_size::ExactSizeIterator>::len(a1) <= v37 {
-        v35 = struct48 {
-            field_0: *(a1 as &i128)
-            field_16: *((a1 + 16) as &i128)
-            field_32: *((a1 + 32) as &i128)
+    v58 = <core::iter::adapters::map::Map<I,F> as core::iter::traits::exact_size::ExactSizeIterator>::len(a0);
+    v59 = *((a1 + 112) as &i64);
+    if v58 <= v59 {
+        v56 = struct48 {
+            field_0: *(a0 as &i128)
+            field_16: *((a0 + 16) as &i128)
+            field_32: *((a0 + 32) as &i128)
         };
-        uu_sort::merge::merge_without_limit(a0, &v35, a2);
-    } else {
-        v39 = <core::iter::adapters::map::Map<I,F> as core::iter::traits::exact_size::ExactSizeIterator>::len(a1);
-        v42 = v41 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(a1 as &i128);
-        v45 = v44 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((a1 + 16) as &i128);
-        v48 = v47 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((a1 + 32) as &i128);
-        v2 = struct48 {
-            field_0: v40
-            field_16: v43
-            field_32: v46
-        };
-        v35 = itertools::Itertools::chunks(&v2, v37);
-        v9 = 0;
-        v9 = 8;
-        v10 = 0;
-        if v39 {
-            v1 = v37;
-            v0 = (*((a2 + 48) as &i64) == 0x8000000000000000 ? 0 : *((a2 + 56) as &i64));
-            v11 = *((a2 + 64) as &i64);
-            v12 = 9223372036854775810;
-            v50 = v39;
-            v51 = v1;
-            do {
-                v50 -= v51;
-                if v50 < v51 {
-                    v50 = 0;
-                }
-                v2 = <itertools::groupbylazy::Chunks<I> as core::iter::traits::iterator::Iterator>::next(&v35);
-                if v2 as i64 == v12 {
-                    core::option::unwrap_failed("src/uu/sort/src/merge.rs"); /* do not return */
-                }
-                v58 = *((&v2 as &char + 32) as &i128);
-                v13 = struct96 {
-                    field_0: v56
-                    field_16: v57
-                    field_32: v58
-                    field_48: v59
-                    field_64: v55
-                    field_80: v54
-                };
-                v22 = uu_sort::merge::merge_without_limit(&v13, a2);
-                if v24 == 3 {
-                    return struct24 {
-                        field_0: 3
-                        field_8: v61
-                        field_16: v62
-                    };
-                }
-                v31 = *(&v23 as &i64);
-                v63 = *((&v22.field_16 as &char + 8) as &i128);
-                v64 = *((&v22.field_32 as &char + 8) as &i128);
-                v65 = *((&v22.field_48 as &char + 8) as &i128);
-                v66 = *(&v22.field_72 as &i128);
-                v30 = v66;
-                v29 = v65;
-                v28 = v64;
-                v27 = v63;
-                v24 = v22.field_0 as i64;
-                v25 = *((&v22.field_0 as &char + 8) as &i64);
-                v26 = v22.field_16 as i64;
-                v22 = uu_sort::tmp_dir::TmpDirWrapper::next_file(a3);
-                if v33 == 0x8000000000000000 {
-                    return struct24 {
-                        field_0: 3
-                        field_8: *((&v22.field_4 as &char + 12) as &i128)
-                    };
-                }
-                v68 = *((&v22.field_4 as &char + 12) as &i128);
-                v32 = *(&v22.field_0 as &i256);
-                <uu_sort::merge::WriteableCompressedTmpFile as uu_sort::merge::WriteableTmpFile>::create(&v2, &v32, v0, v11);
-                v69 = v2 as i64;
-                v70 = *((&v2 as &char + 8) as &i64);
-                v71 = *((&v2 as &char + 16) as &i64);
-                if v13 == 0x8000000000000000 {
-                    return struct24 {
-                        field_0: 3
-                        field_8: v14
-                        field_16: v15
-                    };
-                }
-                v21 = *((&v2.field_96 as &char + 8) as &i64);
-                v72 = *((&v2 as &char + 88) as &i128);
-                v20 = v72;
-                v73 = *((&v2 as &char + 24) as &i128);
-                v74 = *((&v2 as &char + 40) as &i128);
-                v75 = *((&v2 as &char + 56) as &i128);
-                v76 = *((&v2 as &char + 72) as &i128);
-                v19 = v76;
-                v18 = v75;
-                v17 = v74;
-                v16 = v73;
-                v13 = v69;
-                v14 = v70;
-                v15 = v71;
-                v77 = (&v30)[8] as i128;
-                v7 = v77;
-                v78 = (&v29)[8] as i128;
-                v6 = v78;
-                v79 = *(&v24 as &i128);
-                v80 = *(&v26 as &i128);
-                v81 = (&v27)[8] as i128;
-                v82 = (&v28)[8] as i128;
-                v5 = v82;
-                v4 = v81;
-                v3 = v80;
-                v2 = v79;
-                v83 = (&v20)[8] as i128;
-                v84 = (&v19)[8] as i128;
-                v85 = (&v18)[8] as i128;
-                v86 = *(&v13 as &i128);
-                v45 = ((((v45 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v3 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v64 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v74 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v80 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v15 as &i128);
-                v48 = ((((v48 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v58 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v65 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v75 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v81 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (&v16)[8] as i128;
-                v53 = ((((v53 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v5 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v66 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v76 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v82 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | (&v17)[8] as i128;
-                v2 = struct112 {
-                    field_0: v86
-                    field_16: v87
-                    field_32: v88
-                    field_48: v89
-                    field_64: v85
-                    field_80: v84
-                    field_96: v83
-                };
-                v22 = <uu_sort::merge::WriteableCompressedTmpFile as uu_sort::merge::WriteableTmpFile>::finished_writing(&v2);
-                if v34 == 0x8000000000000000 {
-                    return struct24 {
-                        field_0: 3
-                        field_8: v61
-                        field_16: v62
-                    };
-                }
-                v42 = ...;
-                *(&v34.field_0 as &struct48) = struct48 {
-                    field_0: v90
-                    field_8: v61
-                    field_16: v62
-                    field_24: v91
-                    field_40: *((&v22.field_32 as &char + 8) as &i64)
-                };
-                v9 = alloc::vec::Vec<T,A>::push(&v34);
-                v51 = v1;
-                v39 = v50;
-            } while (v39 > v51);
-        }
-        v2 = <itertools::groupbylazy::Chunks<I> as core::iter::traits::iterator::Iterator>::next(&v35);
-        match v2 {
-            Some(_) => {
-                core::panicking::panic("assertion failed: batches.next().is_none()", "src/uu/sort/src/merge.rs"); /* do not return */
-            },
-            None => {
-                v13 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v9);
-                v2 = *(&v13 as &i384);
-                uu_sort::merge::merge_with_file_limit(a0, &v2, a2, a3);
-            },
-        }
+        uu_sort::merge::merge_without_limit(v60, &v56, a1);
+        return;
+    }
+    <core::iter::adapters::map::Map<I,F> as core::iter::traits::exact_size::ExactSizeIterator>::len(a0);
+    v2 = struct48 {
+        field_0: *(a0 as &i128)
+        field_16: *((a0 + 16) as &i128)
+        field_32: *((a0 + 32) as &i128)
+    };
+    v56 = itertools::Itertools::chunks(&v2, v59);
+    v14 = 0;
+    v15 = 8;
+    v16 = 0;
+    if let Err(_) = v61 {
+        v1 = v59;
+        v0 = (*((a1 + 48) as &i64) == 0x8000000000000000 ? 0 : *((a1 + 56) as &i64));
+        v17 = *((a1 + 64) as &i64);
+        v18 = 9223372036854775810;
+        do {
+            v2 = <itertools::groupbylazy::Chunks<I> as core::iter::traits::iterator::Iterator>::next(&v56);
+            v3 = core::option::unwrap(v2);
+            memcpy(&v28, &v3 as u64, 16);
+            v20 = struct80 {
+                field_0: v3.field_0.field_0
+                field_16: v3.field_0.field_16
+                field_32: v3.field_0.field_32
+                field_48: v3.field_0.field_48
+                field_64: v3.field_0.field_64
+            };
+            uu_sort::merge::merge_without_limit(&v31, &v20, a1);
+            v74 = v32;
+            v75 = v33;
+            if v31 == 3 {
+                *((v96 + 8) as &u64) = v74;
+                *((v96 + 16) as &u64) = v75;
+                *(v96 as &i64) = 3;
+                return;
+            }
+            v46 = v38;
+            v45 = v37;
+            v44 = v36;
+            v43 = v35;
+            v42 = v34;
+            v39 = v31;
+            v40 = v74;
+            v41 = v75;
+            uu_sort::tmp_dir::TmpDirWrapper::next_file(a2, v31);
+            if v32 == 0x8000000000000000 {
+                *((v97 + 8) as &i128) = *(&v33 as &i128);
+                *(v97 as &i64) = 3;
+                return;
+            }
+            v47 = v31;
+            v49 = v32;
+            memcpy(stack_base + -360, stack_base + -552, 16);
+            v48 = <uu_sort::merge::WriteableCompressedTmpFile as uu_sort::merge::WriteableTmpFile>::create(v0, v17, a3);
+            v77 = v3.field_0.field_0 as i64;
+            v78 = v3.field_0.field_16 as i64;
+            if v77 == 0x8000000000000000 {
+                *((v98 + 8) as &u64) = v6;
+                *((v98 + 16) as &core::str::pattern::CharSearcher) = v23;
+                *(v98 as &i64) = 3;
+                return;
+            }
+            v30 = v13 as i64;
+            memcpy(&v28 as u8, &v11, 16);
+            v80 = *((&v3.field_0.field_16 as &char + 8) as &i128);
+            v81 = *((&v3.field_0.field_32 as &char + 8) as &i128);
+            v82 = *((&v3.field_0.field_48 as &char + 8) as &i128);
+            v27 = *(&v108 as &i128) as u128;
+            v26 = v82;
+            v25 = v81;
+            v24 = v80;
+            v19 = v77;
+            v21 = v6;
+            v23 = v78;
+            memcpy(&v3 as u64, &v45 as u64, 16);
+            v4 = struct80 {
+                field_0: *(&v39 as &i128)
+                field_16: *(&v41 as &i128)
+                field_32: *((&v42 as &char + 8) as &i128)
+                field_48: *((&v43 as &char + 8) as &i128)
+                field_64: *((&v44 as &char + 8) as &i128)
+            };
+            v88 = uu_sort::merge::FileMerger::write_all_to(&v4, a1, <uu_sort::merge::WriteableCompressedTmpFile as uu_sort::merge::WriteableTmpFile>::as_write(&v19));
+            if v88 {
+                *((v99 + 8) as &struct56) = v88;
+                *((v99 + 16) as &u64) = v100;
+                *(v99 as &i64) = 3;
+                return;
+            }
+            v12 = *(&v29 as &i128) as u128;
+            memcpy(&v3 as u64, &v28, 16);
+            v10 = *((&v26 as &char + 8) as &i128) as u128;
+            v91 = v19.field_0;
+            v92 = *(&v23.haystack.data_ptr as &i128);
+            v93 = *((&v24 as &char + 8) as &i128);
+            v9 = *((&v25 as &char + 8) as &i128) as u128;
+            v8 = v93;
+            v7 = v92;
+            v2 = v91;
+            v2 = <uu_sort::merge::WriteableCompressedTmpFile as uu_sort::merge::WriteableTmpFile>::finished_writing(a1);
+            v74 = v32;
+            v75 = v33;
+            if v31 == 0x8000000000000000 {
+                *((v96 + 8) as &u64) = v74;
+                *((v96 + 16) as &u64) = v75;
+                *(v96 as &i64) = 3;
+                return;
+            }
+            v55 = v35 as i64;
+            v54 = v34;
+            v51 = v31;
+            v52 = v74;
+            v53 = v75;
+            v51 = alloc::vec::Vec<T,A>::push(v31);
+        } while (v61 > v1);
+    }
+    v5 = <itertools::groupbylazy::Chunks<I> as core::iter::traits::iterator::Iterator>::next(&v56);
+    match v5 {
+        Some(_) => {
+            core::panicking::panic("assertion failed: batches.next().is_none()"); /* do not return */
+        },
+        None => {
+            v14 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a1);
+            v102 = alloc::boxed::Box<T>::new();
+            v103 = v19.field_0;
+            v7 = *(&v23.haystack.data_ptr as &i128) as u128;
+            v2 = v103;
+            v8 = v102;
+            v106 = &g_600320;
+            v2 = uu_sort::merge::merge_with_file_limit(a1, a2, a3);
+            return;
+        },
     }
 }

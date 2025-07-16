@@ -1,24 +1,25 @@
-fn uu_env::string_parser::StringParser::peek_char_at_pointer(a0: &struct9, a1: void*, a2: u32) -> u64 {
-    let v0: struct32;  // [sp-0x30]
-    let v3: u64;  // rax
-    let v4: u8;  // al
+fn uu_env::string_parser::StringParser::peek_char_at_pointer(a1: i64, a2: i64) -> : struct9 {
+    let a0: i64;  // rsi
+    let v0: struct32;  // [bp-0x30]
+    let v1: i64;  // [bp-0x20]
+    let v3: u32;  // eax
+    let v4: i64;  // rdi, Other Possible Types: struct_2 *
+    let v5: u8;  // al
 
-    if a1->field_8 < a2 {
+    if *((a0 + 8) as &i64) < a1 {
         panic!("mid > len");
     }
-    v0 = core::slice::<impl [T]>::split_at_unchecked(*(&a1->field_0 as &i64), a1->field_8, a2);
-    if !v0.field_24 {
-        a0->field_0 = a1->field_20;
-        v4 = 0;
-    } else {
-        v3 = uu_env::native_int_str::get_char_from_native_int(*(v0.field_16 as &i8));
+    v0 = core::slice::<impl [T]>::split_at_unchecked(*(a0 as &i64), *((a0 + 8) as &i64), a1);
+    if v0.field_24 {
+        v3 = uu_env::native_int_str::get_char_from_native_int(*(v1 as &i8)) as i32;
         if v3 == 0x110000 {
-            a0->field_0 = 65533;
+            *(v4 as &i32) = 65533;
         } else {
-            a0->field_0 = v3;
+            *(v4 as &u32) = v3;
         }
-        v4 = v3 & -0x100 | 2;
+    } else {
+        *(v4 as &i64) = *((a0 + 32) as &i64);
     }
-    a0->field_8 = v4;
-    return a0;
+    *((v4 + 8) as &u8) = v5;
+    return;
 }

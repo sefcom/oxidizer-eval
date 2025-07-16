@@ -1,21 +1,26 @@
-fn uu_du::get_time_secs(a0: &Result<struct24, struct8>, a1: u64, a2: u64) -> int {
-    let v0: u64;  // [sp-0x20]
-    let v5: u64;  // 4102
-    let v6: u256;  // ymm0
+fn uu_du::get_time_secs(a1: i8, a2: i64) -> Result<struct24, struct8> {
+    let a0: u64;  // rsi
+    let v0: u64;  // [bp-0x20]
+    let v1: u64;  // [bp-0x18]
+    let v2: i8;  // [bp-0x10]
+    let v4: u64;  // rax
+    let v5: i64;  // rdi
+    let v6: i64;  // rdi
+    let v7: i64;  // rdi
 
-    if a1 && a1 != 1 {
-        v5 = a2[6];
+    if a0 && a0 != 1 {
         v0 = 3;
-        if !v5 {
-            return struct32 {
-                field_0: v0
-                field_8: v7
-                field_16: v8
-            };
+        if *((a1 + 48) as &i64) {
+            *((v6 + 8) as &i64) = *((a1 + 56) as &i64);
+            *(v6 as &i64) = 5;
+        } else {
+            *((v7 + 16) as &i128) = *(&v2 as &i128);
+            *(v7 as &i64) = 3;
+            *((v7 + 8) as &u64) = v1;
         }
-        return v6;
+        return;
     }
-    return Err(struct8 {
-        field_0: v4
-    });
+    *((v5 + 8) as &u64) = v4;
+    *(v5 as &i64) = 5;
+    return;
 }

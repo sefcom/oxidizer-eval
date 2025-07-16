@@ -1,12 +1,13 @@
 {
   "decompilation": {
-    "_ZN9uu_base646uumain17he522e6d9edf54d97E": "fn uu_base64::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: String;  // [sp-0x48]\n    let v4: String;  // [sp-0x28]\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v6 = uu_base64::uumain::uumain(a0, a1);\n    if !v6 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v6;\n    v4 = format!(\"{}\", &v0);\n    v3 = v4;\n    if v3 == \"\" {\n        v2 = v7;\n        show_error!(\"{}\", &v3);\n    }\n    if !*((v7 + 104) as &i64)() {\n        return *((v7 + 96) as &i64)();\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v7;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n}\n",
-    "_ZN9uu_base646uumain6uumain17h57e935c2e33c3c1bE": "fn uu_base64::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0x88]\n    let v1: i64;  // [sp-0x80]\n    let v2: iNone;  // [sp-0x78], Other Possible Types: Result<struct34, struct16>, struct24\n    let v3: iNone;  // [sp-0x68]\n    let v4: iNone;  // [sp-0x58]\n    let v5: struct48;  // [sp-0x40]\n    let v10: i64;  // rbx\n    let v11: i64;  // rbx\n    let v13: i64;  // rbx\n\n    v2 = uu_base32::base_common::parse_base_cmd_args(a0, a1, \"encode/decode data and print to standard output\nWith no FILE, or when FILE is -, read standard input.\n\nThe data are encoded as described for the base64 alphabet in RFC 3548.\nWhen decoding, the input may contain newlines in addition\nto the bytes of the formal base64 alphabet. Use --ignore-garbage\nto attempt to recover from any other non-alphabet bytes in the\nencoded stream.\", \"{} [OPTION]... [FILE]\");\n    v10 = *((&v2 as &char + 8) as &i64);\n    match v2 {\n        Err(_) => {\n            return v10;\n        },\n        Ok(_) => {\n            v5 = struct48 {\n                field_0: v7\n                field_8: v8\n                field_16: v9\n                field_24: *((&v2 as &char + 24) as &i128)\n                field_40: v2 as i64\n            };\n            v2 = uu_base32::base_common::get_input(&v5);\n            v11 = v2.field_8;\n            if !v2.field_0 {\n                v0 = v11;\n                v1 = v2.field_16;\n                v4 = *((&v5.field_24 as &char + 8) as &i128);\n                v3 = *(&v5.field_16 as &i128);\n                v2 = *(&v5.field_0 as &i128);\n                v10 = v13;\n                return v10;\n            }\n            v10 = v11;\n            return v10;\n        },\n    }\n}\n"
+    "_ZN9uu_base646uumain17he522e6d9edf54d97E": "fn uu_base64::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_base64::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN9uu_base646uumain6uumain17h57e935c2e33c3c1bE": "fn uu_base64::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v1: Result<struct42, struct24>;  // [bp-0x78]\n    let v2: u64;  // [bp-0x70]\n    let v3: u64;  // [bp-0x40]\n    let v4: u64;  // [bp-0x38]\n    let v5: u64;  // [bp-0x30]\n    let v7: u64;  // [bp-0x18]\n\n    v1 = uu_base32::base_common::parse_base_cmd_args(a0, a1, \"encode/decode data and print to standard output\\nWith no FILE, or when FILE is -, read standard input.\\n\\nThe data are encoded as described for the base64 alphabet in RFC 3548.\\nWhen decoding, the input may contain newlines in addition\\nto the bytes of the formal base64 alphabet. Use --ignore-garbage\\nto attempt to recover from any other non-alphabet bytes in the\\nencoded stream.\", \"{} [OPTION]... [FILE]\");\n    match v1 {\n        Err(_) => {\n            return v2;\n        },\n        Ok(_) => {\n            v7 = *((&v1 as &char + 40) as &i64);\n            memcpy(&v1 as u8, &v1 as u128, 16);\n            v3 = v1 as i64;\n            v4 = v2;\n            v5 = *((&v1 as &char + 16) as &i64);\n            uu_base32::base_common::get_input(&v1, &v3);\n            if let Ok(_) = v1 {\n                return v2;\n            }\n        },\n    }\n}\n"
   },
   "function_call_counts": {
     "_ZN9uu_base646uumain17he522e6d9edf54d97E": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
       "uu_base64::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
@@ -18,71 +19,69 @@
   },
   "macro_call_counts": {
     "_ZN9uu_base646uumain17he522e6d9edf54d97E": {
-      "eprintln": 1,
-      "show_error": 1,
+      "eprintln": 2,
+      "eprint": 1,
       "format": 1
     },
     "_ZN9uu_base646uumain6uumain17h57e935c2e33c3c1bE": {}
   },
   "node_counts": {
-    "_ZN9uu_base646uumain17he522e6d9edf54d97E": 9,
-    "_ZN9uu_base646uumain6uumain17h57e935c2e33c3c1bE": 9
+    "_ZN9uu_base646uumain17he522e6d9edf54d97E": 10,
+    "_ZN9uu_base646uumain6uumain17h57e935c2e33c3c1bE": 4
   },
-  "prototypes": {
-    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h1754c34ea5e20dacE": {
-      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h1754c34ea5e20dacE",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h26422ed35cf82c91E": {
-      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h26422ed35cf82c91E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
-      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
-      "return_type": [
-        "primitive",
-        1
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
+  "variable_types": {
     "_ZN9uu_base646uumain17he522e6d9edf54d97E": {
-      "name": "_ZN9uu_base646uumain17he522e6d9edf54d97E",
-      "return_type": [
-        "primitive",
-        8
+      "reg_16": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
         [
           "primitive",
           8
         ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_32": [
         [
           "primitive",
           8
@@ -90,75 +89,42 @@
       ]
     },
     "_ZN9uu_base646uumain6uumain17h57e935c2e33c3c1bE": {
-      "name": "_ZN9uu_base646uumain6uumain17h57e935c2e33c3c1bE",
-      "return_type": [
-        "primitive",
-        8
+      "stack_32": [
+        [
+          "Result",
+          88
+        ]
       ],
-      "parameters": [
+      "stack_40": [
         [
           "primitive",
           8
-        ],
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
         [
           "primitive",
           8
         ]
       ]
-    },
-    "_ZN9uu_base3211base_common19parse_base_cmd_args17hebf5c3bfe7660b5fE": {
-      "name": "_ZN9uu_base3211base_common19parse_base_cmd_args17hebf5c3bfe7660b5fE",
-      "return_type": [
-        "Result",
-        42
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN9uu_base3211base_common9get_input17h0f77b7573e033d64E": {
-      "name": "_ZN9uu_base3211base_common9get_input17h0f77b7573e033d64E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
-      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": []
     }
   }
 }

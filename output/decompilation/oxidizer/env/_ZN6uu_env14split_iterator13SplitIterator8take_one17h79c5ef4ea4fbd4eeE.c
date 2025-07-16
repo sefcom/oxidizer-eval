@@ -1,14 +1,16 @@
-fn uu_env::split_iterator::SplitIterator::take_one(a0: &Option<struct17>, a1: &u64) -> u64 {
-    let v1: u64;  // rax
-    let v3: u8;  // dl
+fn uu_env::split_iterator::SplitIterator::take_one(a1: i64) -> : struct21 {
+    let a0: i64;  // rdi
+    let v1: struct8;  // rax
+    let v3: u32;  // ecx
+    let v4: u8;  // dl
+    let v5: u32;  // ecx
 
     v1 = uu_env::string_expander::StringExpander::take_one(a1);
-    if v3 != 2 {
-        a0->field_8 = v1;
-        a0->field_10 = v1;
-        a0->field_18 = v3 & 1;
-    }
-    return struct4 {
-        field_0: v2
+    v3 = 5;
+    return struct25 {
+        field_0: v5
+        field_8: v1
+        field_16: v1
+        field_24: v4 & 1
     };
 }

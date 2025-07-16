@@ -1,5 +1,5 @@
-fn uu_od::prn_float::format_flo16(a0: u64, a1: u32) -> u64 {
-    let v0: u64;  // [sp-0x18]
+fn uu_od::prn_float::format_flo16(a0: i64, a1: i32) -> long long {
+    let v0: u64;  // [bp-0x18]
     let v2: u64;  // rax
     let v3: u64;  // rdi
 

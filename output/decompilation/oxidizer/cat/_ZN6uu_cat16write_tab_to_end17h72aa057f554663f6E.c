@@ -1,40 +1,35 @@
-fn uu_cat::write_tab_to_end(a0: &u8, a1: u32, a2: u32) -> u64 {
-    let v0: void*;  // [sp-0x48]
-    let v1: &u8;  // [sp-0x40]
-    let v2: u64;  // [sp-0x38]
-    let v4: u64;  // rbx
-    let v5: &u8;  // r15
-    let v6: &u8;  // rdx
-    let v7: &u8;  // r12
-    let v8: &u8;  // rbp
-    let v9: u64;  // rbx
+fn uu_cat::write_tab_to_end(a0: i64, a1: i64, a2: i64) -> long long {
+    let v0: void*;  // [bp-0x48]
+    let v1: u128;  // [bp-0x40]
+    let v3: u64;  // rbx
+    let v4: u64;  // rdx
+    let v6: u64;  // rbx
+    let v7: u64;  // r12
+    let v8: u64;  // r15
 
-    v4 = a1;
-    v5 = a0;
-    v1 = a0;
-    v2 = &a0[a1];
-    if !<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::position() {
-        v8 = a0;
-    } else {
-        v7 = v6;
-        v0 = 0;
+    v3 = a1;
+    v1 = struct16 {
+        field_0: a0
+        field_8: a0 + a1
+    };
+    if <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::position(&v1) {
         do {
-            v9 = v4;
-            core::result::Result<T,E>::unwrap(<std::io::stdio::StdoutLock as std::io::Write>::write_all(a2, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v7, v5, v9, "src/uu/cat/src/cat.rs"), a2), "src/uu/cat/src/cat.rs");
-            if *((v5 + v7) as &i8) != 9 {
-                v4 = v0 + v7;
-                return v4;
+            v6 = v3;
+            v7 = v4;
+            v8 = a0;
+            core::result::Result<T,E>::unwrap(<std::io::stdio::StdoutLock as std::io::Write>::write_all(a2, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v7, v8, v6, "src/uu/cat/src/cat.rs"), a2), "src/uu/cat/src/cat.rs");
+            if v8 + v7 != "\t" {
+                return v0 + v7;
             }
             core::result::Result<T,E>::unwrap(<std::io::stdio::StdoutLock as std::io::Write>::write_all(a2, "^I"), "src/uu/cat/src/cat.rs");
-            v8 = v5 + v7 + 1;
             v0 = v0 + v7 + 1;
-            v4 = -1 + v9 - v7;
-            v1 = v8;
-            v2 = &v5[v9];
-            v7 = v6;
-            v5 = v8;
-        } while (<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::position());
+            v3 = v6 - (v7 + 1);
+            v1 = struct16 {
+                field_0: v8 + v7 + 1
+                field_8: v8 + v6
+            };
+        } while (<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::position(&v1));
     }
-    core::result::Result<T,E>::unwrap(<std::io::stdio::StdoutLock as std::io::Write>::write_all(a2, v8, v4), "src/uu/cat/src/cat.rs");
-    return v4;
+    core::result::Result<T,E>::unwrap(<std::io::stdio::StdoutLock as std::io::Write>::write_all(a2, a0, v3), "src/uu/cat/src/cat.rs");
+    return v3;
 }

@@ -1,36 +1,39 @@
-fn uu_env::native_int_str::NativeStr::split_once(a0: &Option<struct48>, a1: &struct24, a2: u32) -> u64 {
-    let v0: i8;  // [sp-0x89]
-    let v1: iNone;  // [sp-0x88], Other Possible Types: unsigned long
-    let v2: i64;  // [sp-0x80]
-    let v3: i64;  // [sp-0x78]
-    let v4: struct24;  // [sp-0x70]
-    let v6: struct24;  // [sp-0x50]
-    let v7: struct24;  // [sp-0x38]
-    let v9: i8;  // dl
-    let v10: i64;  // r15
-    let v11: i64;  // rdx
+fn uu_env::native_int_str::NativeStr::split_once(a1: &struct24, a2: i64) -> Option<struct48> {
+    let a0: i64;  // rsi
+    let v0: u128;  // [bp-0x88]
+    let v1: u64;  // [bp-0x78]
+    let v2: u64;  // [bp-0x70]
+    let v3: u64;  // [bp-0x68]
+    let v4: u64;  // [bp-0x60]
+    let v5: u128;  // [bp-0x50]
+    let v6: u64;  // [bp-0x40]
+    let v7: u8;  // [bp-0x38]
+    let v8: i8;  // [bp-0x28]
+    let v10: u64;  // rdx
+    let v11: u64;  // r8
+    let v12: i64;  // rdi
+    let v13: i64;  // rdi
 
-    if !(uu_env::native_int_str::get_single_native_int_value(a2) & 1) {
-        return struct8 {
-            field_0: 9223372036854775809
+    if (uu_env::native_int_str::get_single_native_int_value(a1) & 1) {
+        v0 = struct16 {
+            field_0: *((a0 + 8) as &i64)
+            field_8: *((a0 + 8) as &i64) + *((a0 + 16) as &i64)
         };
+        if <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::position(&v0, &vvar_54{reg 32}) {
+            uu_env::native_int_str::NativeStr::slice(a0, 0, v10, v11);
+            uu_env::native_int_str::NativeStr::slice(a0, v10 + 1, *((a0 + 16) as &i64), v11);
+            v1 = v6;
+            v0 = v5;
+            v4 = *(&v8 as &i64);
+            memcpy(&v2, &v7, 16);
+            *(v13 as &u128) = v5;
+            *((v13 + 32) as &u64) = v3;
+            *((v13 + 40) as &u64) = v4;
+            *((v13 + 16) as &u64) = v1;
+            *((v13 + 24) as &u64) = v2;
+            return;
+        }
     }
-    v0 = v9;
-    v10 = *((a1 + 16) as &i64);
-    v1 = *((a1 + 8) as &i64);
-    v2 = v1 + v10;
-    if <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::position(&v0) {
-        v6 = uu_env::native_int_str::NativeStr::slice(a1, 0, v11);
-        v7 = uu_env::native_int_str::NativeStr::slice(a1, v11 + 1, v10);
-        v3 = v6.field_16;
-        *(&v1 as &u128) = v6.field_0;
-        v4 = v7;
-        return Some(struct48 {
-            field_0: v12
-            field_16: v3
-            field_24: v4.field_0 as i64
-            field_32: *((&v4.field_0 as &char + 8) as &i64)
-            field_40: v5
-        });
-    }
+    *(v12 as &i64) = 9223372036854775809;
+    return;
 }

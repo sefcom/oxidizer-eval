@@ -1,57 +1,80 @@
-fn uu_wc::process_chunk(a0: &struct24, a1: u32, a2: u32, a3: &struct8, a4: &u8) -> u64 {
-    let v0: u64;  // [sp-0x60]
-    let v1: u64;  // [sp-0x40]
-    let v2: u64;  // [sp-0x38]
-    let v4: u64;  // r15
-    let v5: void*;  // r13, Other Possible Types: u64
-    let v6: u32;  // edx
-    let v7: u32;  // r14d
-    let v8: u64;  // rbp
-    let v9: u64;  // r12
-    let v10: u64;  // rax
-    let v11: u64;  // rax
+fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct32 {
+    let a0: i64;  // rdi
+    let v0: u64;  // [bp-0x60]
+    let v1: u128;  // [bp-0x40]
+    let v4: u64;  // r13
+    let v5: u32;  // eax
+    let v6: core::option::Option<u32>;  // rbp
+    let v7: u64;  // r12
+    let v8: core::option::Option<u32>;  // rbp
+    let v9: u64;  // r13
+    let v10: u64;  // r12
+    let v12: u32;  // edx
+    let v13: u32;  // r14d
+    let v14: u8;  // r15b
+    let v15: u64;  // r12
+    let v16: u64;  // r13
+    let v17: u32;  // r14d
+    let v19: u64;  // r13
+    let v20: u64;  // r12
+    let v21: i64;  // r13
+    let v23: u64;  // r13
+    let v24: core::option::Option<u32>;  // rax:rax
 
-    v1 = a1;
-    v2 = a1 + a2;
-    v4 = *(a4);
-    v5 = *(a3);
-    if !core::str::validations::next_code_point(&v1) as i32 {
-        v8 = a0[4];
-    } else {
-        v7 = v6;
-        v0 = a0[3];
-        v8 = a0[4];
-        v9 = a0[1] + 1;
-        do {
-            if v7 - 9 < 5 || v7 == 32 || v7 >= 128 && core::unicode::unicode_data::white_space::lookup(v7) as i8 {
-                *(a4) = 0;
-                v4 = 0;
-            } else if !v4 {
-                *(a4) = 1;
-                v0 += 1;
-                a0[3] = v0;
-                v4 = v4 & -0x100 | 1;
-            }
-            if v7 - 12 < 2 {
-LABEL_4ba8f0:
-                v8 = core::cmp::max_by(v5, v8);
-                a0[4] = v8;
-                v5 = 0;
+    v1 = core::slice::iter::Iter<u8> {
+        ptr: core::ptr::non_null::NonNull<u8> {
+            pointer: a1
+        }
+        end_or_len: a1 + a2
+        _marker: core::marker::PhantomData<&u8> { }
+    };
+    v4 = *(a3 as &i64);
+    v24 = core::str::validations::next_code_point(&v1) as u128;
+    v0 = *((a0 + 24) as &i64);
+    v6 = *((a0 + 32) as &i64);
+    v7 = *((a0 + 8) as &i64) + 1;
+    v8 = v6;
+    v9 = v4;
+    v10 = v7;
+    loop {
+        loop {
+            do {
+                v15 = v10;
+                v16 = v9;
+                v17 = v13;
+                if v17 - 9 < 5 || v17 == 32 || v17 >= 128 && core::unicode::unicode_data::white_space::lookup(v17) {
+                    *(a4 as &i8) = 0;
+                } else if !v14 {
+                    *(a4 as &i8) = 1;
+                    v0 += 1;
+                    v14 = 1;
+                    return struct32 {
+                        field_0: *(a0 as &i64) + a2
+                        field_8: v15
+                        field_24: <UNKNOWN>
+                        field_32: v0
+                    };
+                }
+            } while ((v8 = vvar_62{reg 56}, v13 = v12, v9 = v19, v10 = v20, v17 - 12 < 2));
+            if v17 != 9 {
+                v8 = vvar_62{reg 56};
+                v13 = v12;
+                v9 = v19;
+                v10 = v20;
+                if v17 != 10 {
+                    break;
+                }
             } else {
-                if v7 == 9 {
-                    v5 = (v5 & -8) + 8;
-                    continue;
-                }
-                if v7 == 10 {
-                    goto LABEL_4ba8f0;
-                }
-                v10 = (v7 < 127 ? 32 <= v7 : (v7 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v7)));
-                v5 += v10;
+                v21 = (v16 & -8) + 8;
+                v8 = vvar_62{reg 56};
+                v9 = v19;
+                v10 = v20;
             }
-        } while ((*(a3) = v5 as u64, a0[1] = v9, v7 = v6, v9 += 1, core::str::validations::next_code_point(&v1) as i32));
+        }
+        v23 = v16 + (v17 < 127 ? 32 <= v17 : (v17 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v17)));
+        v8 = vvar_62{reg 56};
+        v13 = v12;
+        v9 = v19;
+        v10 = v20;
     }
-    *(a0) = *(a0) + a2;
-    v11 = core::cmp::max_by(v5, v8);
-    a0[4] = v11;
-    return v11;
 }

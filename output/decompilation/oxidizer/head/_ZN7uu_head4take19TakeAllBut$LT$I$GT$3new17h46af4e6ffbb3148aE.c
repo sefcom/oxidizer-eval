@@ -1,34 +1,35 @@
-fn uu_head::take::TakeAllBut<I>::new(a0: &struct49, a1: u64, a2: u64, a3: u64) -> int {
-    let v0: i8;  // [bp-0x98]
-    let v1: i64;  // [sp-0x88]
-    let v2: i64;  // [sp-0x80]
-    let v3: iNone;  // [sp-0x78]
-    let v4: Option<Result<struct24, struct8>>;  // [sp-0x60], Other Possible Types: struct24
-    let v5: struct24;  // [bp-0x48]
-    let v7: iNone;  // ymm0
-    let v8: iNone;  // ymm0
-    let v9: i64;  // r13
+fn uu_head::take::TakeAllBut<I>::new(a1: i64, a2: i8, a3: i64) -> : struct49 {
+    let a0: u64;  // rsi
+    let v0: u64;  // [bp-0x98]
+    let v1: void*;  // [bp-0x88]
+    let v2: u64;  // [bp-0x80]
+    let v3: core::option::Option<(usize, char)>;  // [bp-0x78]
+    let v4: u64;  // [bp-0x68]
+    let v5: struct24;  // [bp-0x60]
+    let v6: u192;  // [bp-0x60]
+    let v7: u64;  // [bp-0x50]
+    let v8: u128;  // [bp-0x48]
+    let v9: u64;  // [bp-0x38]
+    let v11: void*;  // r13
+    let v12: i64;  // rdi
 
+    v0 = a0;
     v1 = 0;
     v2 = 8;
-    v8 = v7 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000;
     v3 = 0;
-    if a3 {
-        v9 = 0;
+    v4 = a2;
+    if a2 {
         do {
-            v9 = <usize as core::iter::range::Step>::forward_unchecked(v9);
-            v4 = <uucore::features::lines::Lines<B> as core::iter::traits::iterator::Iterator>::next(&v0);
-        } while (v4 as i64 != 9223372036854775809 && (v8 = v8 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v4 as i128 as u128 as u256, v5 = struct24 {
-    field_0: v10
-    field_16: *((&v4 as &char + 16) as &i64)
-}, v4 = uucore::features::ringbuffer::RingBuffer<T>::push_back(&v1, &v5), v9 < a3));
+            vvar_136{stack -96} = struct24 OrderedDict({0: 𝜙@128b [((4998233, None), vvar_114{stack -96}), ((4998125, None), None)], 16: 𝜙@64b [((4998233, None), vvar_116{stack -80}), ((4998125, None), None)]})
+            v11 = <usize as core::iter::range::Step>::forward_unchecked(v11, a0);
+            <uucore::features::lines::Lines<B> as core::iter::traits::iterator::Iterator>::next(&v6, &v0);
+        } while (v6 as i64 != 9223372036854775809 && (v9 = v7, v8 = v6 as i128, v5 = uucore::features::ringbuffer::RingBuffer<T>::push_back(&v1, &v8), v11 < a2 as u64));
     }
-    return struct49 {
-        field_0: v1
-        field_8: v2
-        field_16: v3
-        field_32: a3
-        field_40: a1
-        field_48: a2
-    };
+    *((v12 + 32) as &u64) = v4;
+    *((v12 + 16) as &i128) = 0;
+    *(v12 as &void*) = v1;
+    *((v12 + 8) as &i64) = 8;
+    *((v12 + 40) as &u64) = v0;
+    *((v12 + 48) as &u8) = a1;
+    return;
 }

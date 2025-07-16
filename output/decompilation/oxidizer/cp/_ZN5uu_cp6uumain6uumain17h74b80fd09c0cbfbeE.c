@@ -1,131 +1,76 @@
-fn uu_cp::uumain::uumain(a0: u32, a1: u32) -> u64 {
-    let v0: i64;  // [sp-0x4b8], Other Possible Types: int, struct24, struct64, struct112
-    let v1: i64;  // [bp-0x4a8], Other Possible Types: int
-    let v2: iNone;  // [bp-0x498]
-    let v3: iNone;  // [sp-0x488]
-    let v4: struct24;  // [sp-0x448], Other Possible Types: unsigned long
-    let v7: i64;  // [sp-0x410]
-    let v8: iNone;  // [sp-0x408]
-    let v9: i64;  // [sp-0x3f8]
-    let v10: iNone;  // [sp-0x3e8]
-    let v11: i64;  // [sp-0x3d8]
-    let v12: iNone;  // [sp-0x3c8]
-    let v13: i64;  // [sp-0x390], Other Possible Types: char
-    let v14: iNone;  // [sp-0x388]
-    let v15: iNone;  // [sp-0x378]
-    let v16: iNone;  // [sp-0x368]
-    let v17: iNone;  // [sp-0x358]
-    let v18: i64;  // [sp-0x348]
-    let v19: i8;  // [bp-0x330]
-    let v20: i8;  // [bp-0x328]
-    let v21: struct64;  // [sp-0x2f8], Other Possible Types: struct712, unsigned long, int, struct48, struct24, struct112, struct81
-    let v22: iNone;  // [bp-0x2e8]
-    let v23: i32;  // [sp-0x2e0]
-    let v24: iNone;  // [bp-0x2d8]
-    let v25: iNone;  // [bp-0x2c8]
-    let v28: i32;  // eax
-    let v29: iNone;  // xmm0
-    let v30: iNone;  // xmm1
-    let v31: iNone;  // xmm2
-    let v32: i64;  // rbx
-    let v36: i64;  // rax
-    let v48: i64;  // rdx
+fn uu_cp::uumain::uumain(a0: i64, a1: i64) -> long long {
+    let v0: u128;  // [bp-0x4b8]
+    let v2: u8;  // [bp-0x4a8]
+    let v3: u128;  // [bp-0x498]
+    let v5: u128;  // [bp-0x488]
+    let v20: u256;  // [bp-0x3c8]
+    let v21: u8;  // [bp-0x3a8]
+    let v22: u64;  // [bp-0x398]
+    let v23: u64;  // [bp-0x390]
+    let v29: Result<struct56, struct16>;  // [bp-0x330]
+    let v30: u256;  // [bp-0x330]
+    let v31: i64;  // [bp-0x328]
+    let v32: u64;  // [bp-0x300]
+    let v33: u128;  // [bp-0x2f8]
+    let v34: u128;  // [bp-0x2f8]
+    let v36: Result<struct16, struct24>;  // [bp-0x2f8]
+    let v38: u128;  // [bp-0x2e8]
+    let v40: u128;  // [bp-0x2d8]
+    let v41: i8;  // [bp-0x2d0]
+    let v42: u128;  // [bp-0x2c8]
+    let v43: u8;  // [bp-0x2c0]
+    let v48: i64;  // r14
+    let v49: u32;  // eax
+    let v50: u64;  // rax
+    let v51: u128;  // xmm0
+    let v52: u128;  // xmm1
+    let v53: u128;  // xmm2
+    let v58: u64;  // rbx
 
-    v21 = uu_cp::uu_app();
-    clap_builder::builder::command::Command::try_get_matches_from(&v19, &v21, a0, a1);
-    if *(&v19 as &i64) != 0x8000000000000000 {
-        v12 = *(&v19 as &i448);
-        v21 = uu_cp::Options::from_matches(&v12);
-        *(&v0 as &i128) = *((&v21.field_0 as &char + 8) as &i128);
-        *(&v1 as &i128) = *(&v21.field_24 as &i128);
-        *(&v2 as &i128) = *(&v21.field_40 as &i128);
-        v3 = *(&v21.field_54 as &i128);
-        if v13 == 0x8000000000000000 {
-            v29 = v0 as i128;
-            v30 = v1 as i128;
-            v31 = v2 as i128;
-            v25 = v3;
-            v24 = v31;
-            v22 = v30;
-            v21 = v29;
-            v32 = alloc::boxed::Box<T>::new(&v21);
-            return v32;
-        }
-        v17 = v3;
-        v14 = v0 as i128;
-        v15 = v1 as i128;
-        v16 = v2 as i128;
-        v13 = v21;
-        v18 = *(&v21.field_70 as &i64);
-        if <uu_cp::OverwriteMode as core::cmp::PartialEq>::eq((&v17)[4] as i32) && (v18 as u64 & 0xff00000000) {
-            v0 = <T as alloc::slice::hack::ConvertVec>::to_vec();
-            v21 = v0;
-            v23 = 1;
-            v32 = alloc::boxed::Box<T>::new(&v21);
-            return v32;
-        }
-        v21 = clap_builder::parser::matches::arg_matches::ArgMatches::try_remove_many(&v12, "paths");
-        v0 = clap_builder::parser::error::MatchesError::unwrap("paths", &v21);
-        if !v0 {
-            v36 = 0x8000000000000000;
-        } else {
-            v21 = struct112 {
-                field_0: v33
-                field_16: v34
-                field_32: v35
-                field_48: v3
-                field_64: v0.field_64
-                field_80: v0.field_80
-                field_96: v0.field_96
-            };
-            v4 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter_nested::SpecFromIterNested<T,I>>::from_iter(&v21);
-            v36 = v4;
-        }
-        v4 = struct24 {
-            field_0: v41
-            field_8: v42
-            field_16: v38
-        };
-        v21 = uu_cp::parse_path_args(&v4, &v13);
-        *(&v0 as &i128) = *((&v21.field_0 as &char + 8) as &i128);
-        *(&v1 as &i128) = *((&v21.field_16 as &char + 8) as &i128);
-        *(&v2 as &i128) = *((&v21.field_32 as &char + 8) as &i128);
-        if v21 != 13 {
-            v21 = v21;
-            v32 = alloc::boxed::Box<T>::new(&v21);
-            return v32;
-        }
-        v9 = v1;
-        v8 = v0 as i128;
-        v11 = (&v2)[8] as i64;
-        v10 = (&v1)[8] as i128;
-        v0 = uu_cp::copy((&v8)[8] as i64, v1, (&v10)[8] as i64, (&v2)[8] as i64, &v13);
-        if v0 != 13 {
-            v21 = v0;
-            if v21.field_0 as i32 != 5 {
-                v7 = v48;
-                show_error!("{}", &v21);
-            }
-            uucore::mods::error::set_exit_code(1);
-        }
-    } else {
-        v21 = uu_cp::uu_app();
-        v28 = *((*(&v20 as &i64) + 213) as &i8);
-        match (v28) {
-            12 => {
-                if clap_builder::builder::command::Command::print_help(&v21) {
-                    return v32;
+    uu_cp::uu_app(&v33);
+    v29 = clap_builder::builder::command::Command::try_get_matches_from(&v33, a0, a1);
+    match v29 {
+        Err(_) => {
+            v48 = v31;
+            uu_cp::uu_app(&v33);
+            v49 = *((v48 + 213) as &i8) as u8 as u32;
+            match (v49) {
+                12 => {
+                    v50 = clap_builder::builder::command::Command::print_help(&v33);
+                    if v50 {
+                        return uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v50);
+                    }
+                }
+                14 => {
+                    clap_builder::builder::command::Command::render_version(&v23 as u8, &v33);
+                    print!("{}", &v23 as u8);
+                }
+                _ => {
+                    return alloc::boxed::Box<T>::new(v48);
                 }
             }
-            14 => {
-                clap_builder::builder::command::Command::render_version(&v13, &v21);
-                print!("{}", &v13);
-                break;
+            goto LABEL_0x4a6f2e;
+        },
+        Ok(_) => {
+            v22 = v32;
+            memcpy(&v21, &v29 as u128, 16);
+            v20 = v30;
+            v34 as u320 = uu_cp::Options::from_matches(&v20);
+            v0 = *((&v36 as &char + 8) as &i128) as u128;
+            memcpy(&v2, &v36 as u8, 16);
+            v3 = *(&v41 as &i128) as u128;
+            memcpy(&v5, &v43, 16);
+            if let Ok(_) = v34 as u320 {
+                v51 = v0;
+                v52 = *(&v2 as &i128);
+                v53 = v3;
+                v42 = v5;
+                v40 = v53;
+                v38 = v52;
+                v33 = v51;
+                v58 = alloc::boxed::Box<T>::new(&v34 as u320);
             }
-            _ => {
-                return v32;
-            }
-        }
+            return v58;
+        },
     }
-    return 0;
 }

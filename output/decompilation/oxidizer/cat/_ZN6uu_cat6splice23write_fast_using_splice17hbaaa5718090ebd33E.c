@@ -1,48 +1,37 @@
-fn uu_cat::splice::write_fast_using_splice(a0: &Result<struct4, struct1>, a1: u32, a2: u32) -> u64 {
-    let v0: i32;  // [sp-0x50]
-    let v1: i32;  // [sp-0x4c]
-    let v2: Result<struct8, struct4>;  // [sp-0x40]
-    let v4: i64;  // rax
-    let v5: i64;  // rax
-    let v6: i64;  // rbx
-    let v8: i64;  // rcx
-    let v9: i64;  // rax
-    let v10: i64;  // rdx
+fn uu_cat::splice::write_fast_using_splice(a1: i64, a2: i64) -> Result<struct4, struct1> {
+    let a0: i64;  // rdi
+    let v0: u32;  // [bp-0x50]
+    let v1: u32;  // [bp-0x4c]
+    let v3: u96;  // [bp-0x40]
+    let v4: u64;  // [bp-0x38]
+    let v6: u64;  // rax
+    let v7: u64;  // rbx
+    let v8: u32;  // eax
+    let v9: i64;  // rcx
 
-    v4 = uucore::features::pipes::pipe();
-    if v4 as u32 == -1 {
-        v5 = 9223372036854775809;
-        return Ok(struct4 {
-            field_0: v1
-        });
+    v6 = uucore::features::pipes::pipe();
+    if v6 == -1 {
+        return Ok(v1);
     }
-    v0 = v4 as u32;
-    v1 = (v4 >> 32) as u32;
+    v0 = v6;
+    v1 = v6 >> 32;
     do {
-        v2 = nix::fcntl::splice(a1, 0, &v1, 0, 0x20000, 0);
-        match v2 {
-            Err(_) => {
-                v8 = a0;
-                *((v8 + 8) as &i8) = 1;
-            },
-            Ok(v6) => {
-            },
+        vvar_175{stack -64} = struct12 OrderedDict({0: 𝜙@64b [((4908223, None), vvar_159{stack -64}), ((4908125, None), None)]})
+        nix::fcntl::splice(&v3, a1, 0, &v1, 0, 0x20000, 0);
+        if v3 as i32 {
+            v9 = a0;
+            *((a0 + 8) as &i8) = 1;
+            *(v9 as &i64) = 9223372036854775814;
         }
-        if !v6 {
-            v8 = a0;
-            return Err(struct1 {
-                field_0: 0
-            });
+        if !v4 {
+            v9 = a0;
+            *((a0 + 8) as &i8) = 0;
+            *(v9 as &i64) = 9223372036854775814;
         }
-    } while (uucore::features::pipes::splice_exact(&v0, a2, v6) as i32 == 134);
-    if uu_cat::splice::copy_exact(v0 as u64, a2, v6) as i32 != 134 {
-        v10 = a0;
-        return Ok(struct4 {
-            field_0: v7
-        });
+    } while (uucore::features::pipes::splice_exact(&v0, a2, v7) as i32 == 134);
+    v8 = uu_cat::splice::copy_exact(v0, a2, v7) as i32;
+    if v8 != 134 {
+        return Ok(v8);
     }
-    v9 = a0;
-    return Err(struct1 {
-        field_0: 1
-    });
+    return Err(1);
 }

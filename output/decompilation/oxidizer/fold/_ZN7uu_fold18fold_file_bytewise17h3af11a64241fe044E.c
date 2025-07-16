@@ -1,105 +1,113 @@
-fn uu_fold::fold_file_bytewise(a0: u32, a1: u32, a2: u32) -> u64 {
-    let v0: void*;  // [sp-0xb0]
-    let v1: u64;  // [sp-0xa8]
-    let v2: void*;  // [sp-0xa0]
-    let v3: Arguments;  // [sp-0x98], Other Possible Types: struct16, void*
-    let v4: u64;  // [sp-0x90]
-    let v5: u8;  // [bp-0x88]
-    let v6: u32;  // [sp-0x64]
-    let v7: u64;  // [sp-0x60]
-    let v8: u64;  // [sp-0x58]
-    let v9: u64;  // [sp-0x48]
-    let v11: u64;  // r15
-    let v12: &u64;  // r14
-    let v13: u256;  // ymm0
-    let v14: u64;  // rcx
-    let v15: &u8;  // rbx
-    let v16: u64;  // rax
-    let v17: u64;  // rbp
-    let v18: u64;  // rdx
-    let v19: u64;  // r12
-    let v20: void*;  // r15
-    let v21: u64;  // r14
+fn uu_fold::fold_file_bytewise(a0: i64, a1: i32, a2: i64) -> long long {
+    let v0: void*;  // [bp-0xb0]
+    let v1: u64;  // [bp-0xa8]
+    let v2: void*;  // [bp-0xa0]
+    let v3: u64;  // [bp-0x98], Other Possible Types: struct56
+    let v4: u64;  // [bp-0x98], Other Possible Types: struct56, struct16
+    let v5: u64;  // [bp-0x98]
+    let v6: u64;  // [bp-0x90]
+    let v7: u64;  // [bp-0x90]
+    let v8: u64;  // [bp-0x90]
+    let v9: u8;  // [bp-0x88]
+    let v10: std::io::stdio::Stdin;  // [bp-0x80], Other Possible Types: u64
+    let v11: std::io::stdio::Stdin;  // [bp-0x80], Other Possible Types: u64
+    let v12: u32;  // [bp-0x64]
+    let v13: u64;  // [bp-0x60]
+    let v14: struct8;  // [bp-0x58]
+    let v15: u64;  // [bp-0x48]
+    let v17: u64;  // r15
+    let v18: struct8;  // r14
+    let v19: u64;  // rax
+    let v20: u64;  // rcx
     let v22: u64;  // rbx
     let v23: u64;  // rbx
-    let v25: u64;  // rbx
-    let v26: u64;  // rbx
+    let v25: core::option::Option<&str>;  // rax
+    let v26: void*;  // r15
+    let v27: struct8;  // rdx
+    let v28: u64;  // rdx
+    let v29: struct8;  // r12
+    let v31: u64;  // rbx
+    let v36: &str;  // rax:rdx
 
-    v6 = a1;
-    v11 = a0;
+    v12 = a1;
+    v17 = a0;
     v0 = 0;
     v1 = 1;
     v2 = 0;
-    v12 = &v0;
+    v18 = &v0;
     loop {
-        v3 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(std::io::append_to_string(v12, v11), a2);
-        if v3 {
-            return v3;
+        v19 = std::io::append_to_string(v18, a0);
+        v4 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v19, a2);
+        if v4.field_0 || !v8 {
+            break;
         }
-        if !v4 {
-            return v3;
-        }
-        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v1, v2, "
-") as i8 {
-            *(&v3.pieces as &Arguments) = Arguments {
+        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v1, v2 as u32, "\n") as i8 {
+            v4 = core::fmt::Arguments {
                 pieces: ["\n"]
                 args: []
                 fmt: 0
             };
-            v13 &= 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000;
-            std::io::stdio::_print(&v3);
+            std::io::stdio::_print(&v4);
+            v4 = v3;
+            v7 = v6;
         } else {
-            v14 = v2;
-            if v14 {
-                v15 = a2;
-                if v14 < v15 {
-                    v15 = v14;
+            v20 = v2;
+            v4 = v5;
+            v7 = v8;
+            if v20 {
+                if v20 < a2 {
+                    v22 = v20;
+                } else {
+                    v22 = a2;
                 }
-                v9 = v14;
-                v16 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(0, v15, v1, v14);
-                if v16 {
-                    v17 = v16;
-                    v19 = v18;
-                    v20 = 0;
-                    loop {
-                        v21 = v9;
-                        if v15 < v21 && v6 as i8 && core::str::<impl str>::rfind(v17, v19) {
-                            v3 = 0;
-                            v4 = v18;
-                            v5 = 0;
-                            v17 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeInclusive<usize>>::index(&v3, v17, v19);
-                            v19 = v18;
-                        }
-                        v7 = v17;
-                        v8 = v19;
-                        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v17, v19, "
-") as i8 {
-                            break;
-                        }
-                        v20 += v8;
-                        v22 = v21;
-                        v23 = v22 - v20;
-                        if v22 > v20 {
-                            println!("{}", &v7);
-                            if v25 > v23 {
-                                v26 = v23;
-                            } else {
-                                v25 = a2;
-                                v26 = v25;
-                            }
-                            v15 = v26 + v20;
-                            v17 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v20, v15, v1, v2);
-                            v19 = v18;
-                        } else {
-                            print!("{}", &v7);
-                            break;
-                        }
+                v23 = v22;
+                v15 = v20;
+                v25 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(None, v23, v1, v20) as u64;
+                v26 = 0;
+                v4 = v5;
+                v7 = v8;
+                v28 = v27;
+                loop {
+                    v29 = v27;
+                    if v23 < v15 && v12 as i8 && core::str::<impl str>::rfind(v25, v29) {
+                        v4 = 0;
+                        v7 = v27;
+                        v9 = 0;
+                        v36 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeInclusive<usize>>::index(&v4, v25, v29);
                     }
-                    v11 = a0;
-                    v12 = &v0;
+                    v13 = v25;
+                    v14 = v29;
+                    v4 = v4;
+                    v7 = v7;
+                    v10 = v10;
+                    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v25, v29 as u32, "\n") as i8 {
+                        break;
+                    }
+                    v26 += v14;
+                    v31 = v15 - v26;
+                    if v15 > v26 {
+                        println!("{}", &v13);
+                        if a2 <= v31 {
+                            v31 = a2;
+                        }
+                        v25 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v26, v31 + v26, v1, v2) as u64;
+                        v4 = v3;
+                        v7 = v6;
+                        v10 = v11;
+                    } else {
+                        print!("{}", &v13);
+                        v4 = v3;
+                        v7 = v6;
+                        v10 = v11;
+                        break;
+                    }
                 }
+                v18 = &v0;
             }
         }
-        alloc::string::String::truncate(v12);
+        v8 = v7;
+        v5 = v4;
+        alloc::string::String::truncate(v18);
     }
+    return v4.field_0;
 }

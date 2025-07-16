@@ -1,55 +1,87 @@
-fn uu_basename::basename(a0: &struct24, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {
-    let v0: struct24;  // [sp-0xf0]
-    let v1: struct24;  // [sp-0xd8], Other Possible Types: struct20, Result<struct16, struct10>
-    let v2: struct56;  // [sp-0x98]
-    let v3: struct1;  // [bp-0x60]
-    let v5: i64;  // r13
-    let v7: i64;  // rdx
-    let v9: i64;  // rdx
-    let v11: i64;  // r12
-    let v12: i64;  // r13
-    let v13: i64;  // rax
+fn uu_basename::basename(a0: &struct24, a1: i64, a2: i64, a3: i64, a4: i64) -> long long {
+    let v0: std::sys::os_str::bytes::Buf;  // [bp-0xf0]
+    let v1: u64;  // [bp-0xe8]
+    let v2: u64;  // [bp-0xe0]
+    let v3: struct24;  // [sp-0xd8], Other Possible Types: u192
+    let v4: std::path::Components;  // [bp-0xd8]
+    let v5: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0xd8]
+    let v6: std::sys::os_str::bytes::Buf;  // [bp-0xd0]
+    let v7: u8;  // [bp-0x60]
+    let v9: u64;  // rax
+    let v10: u64;  // rdx
+    let v11: u64;  // rdx
+    let v12: u64;  // rax
+    let v14: void*;  // r12
+    let v15: u64;  // r13
+    let v16: core::option::Option<&str>;  // rax
+    let v17: u64;  // rdx
+    let v18: void*;  // rax
+    let v19: &std::ffi::os_str::OsStr;  // rax:rdx
 
-    v5 = a1;
-    if v7 {
-        v9 = v7;
+    v9 = core::str::<impl str>::trim_end_matches(a1, a2);
+    if !v10 {
+        v11 = a2;
+        if !(v10) {
+            goto LABEL_4ab2c3;
+        }
+LABEL_4ab2c2:
+        v12 = v9;
     } else {
-        v9 = a2;
+        v11 = v10;
+        if v10 {
+            goto LABEL_4ab2c2;
+        }
+LABEL_4ab2c3:
+        v12 = a1;
     }
-    if v7 {
-        v5 = core::str::<impl str>::trim_end_matches(a1, a2);
-    }
-    v0 = std::sys::os_str::bytes::Slice::to_owned(v5, v9);
-    v1 = std::path::Path::components(v0.field_8, v0.field_16);
-    v3 = struct1 {
-        field_0: 10
-    };
-    v2 = core::iter::traits::iterator::Iterator::fold(&v1, &v3);
-    if v2.field_0 as i8 == 10 {
+    v0 = std::sys::os_str::bytes::Slice::to_owned(v12, v11);
+    v4 = std::path::Path::components(v1, v2);
+    v7 = 10;
+    core::iter::traits::iterator::Iterator::fold(&v4 as u8, &v4, &v7);
+    if &v4 as u8 == "\n" {
         return struct24 {
             field_0: 0
             field_8: 1
             field_16: 0
         };
     }
-    v1 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(std::path::Component::as_os_str(&v2), a2);
-    match v1 {
+    v19 = std::path::Component::as_os_str(&v4 as u8);
+    v5 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(v19.data_ptr, a2);
+    match v5 {
         Err(_) => {
-            core::option::unwrap_failed("src/uu/basename/src/basename.rs"); /* do not return */
+            core::option::unwrap_failed(); /* do not return */
         },
         Ok(_) => {
-            v11 = *((&v1 as &char + 8) as &i64);
-            v12 = *((&v1 as &char + 16) as &i64);
-            if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v11, v12, a3, a4) as i8 {
-                v1 = <T as alloc::slice::hack::ConvertVec>::to_vec(v11, v12);
-                return v1;
+            v14 = v6;
+            v15 = *((&v5 as &char + 16) as &i64);
+            if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v14, v15, a3, a4) as i8 {
+                v3 = <T as alloc::slice::hack::ConvertVec>::to_vec(v14, v15);
+            } else {
+                v16 = <&str as core::str::pattern::Pattern>::strip_suffix_of(a3, a4, v14, v15) as u64;
+                match v16 {
+                    None => {
+                        v17 = v15;
+                        if !(v16) {
+                            goto LABEL_4ab399;
+                        }
+LABEL_4ab398:
+                        v18 = v16;
+                    },
+                    Some(_) => {
+                        v17 = v10;
+                        if let Some(_) = v16 {
+                            goto LABEL_4ab398;
+                        }
+LABEL_4ab399:
+                        v18 = v14;
+                    },
+                }
+                v3 = <T as alloc::slice::hack::ConvertVec>::to_vec(v18, v17);
             }
-            v13 = <&str as core::str::pattern::Pattern>::strip_suffix_of(a3, a4, v11, v12);
-            if v13 {
-                v11 = v13;
-            }
-            v1 = <T as alloc::slice::hack::ConvertVec>::to_vec(v11, v12);
-            return v1;
+            return struct24 {
+                field_0: v3 as i128
+                field_16: *((&v3 as &char + 16) as &i64)
+            };
         },
     }
 }

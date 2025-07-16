@@ -1,124 +1,128 @@
-fn uu_rm::uu_app(a0: &struct712) -> u64 {
-    let v0: struct592;  // [sp-0xa58], Other Possible Types: struct712, struct437
-    let v1: i64;  // [sp-0x79c]
-    let v2: i32;  // [sp-0x794]
-    let v3: struct592;  // [sp-0x790], Other Possible Types: struct24
-    let v4: i32;  // [sp-0x548]
-    let v5: i32;  // [sp-0x544]
-    let v6: struct592;  // [sp-0x540], Other Possible Types: struct712
-    let v7: struct592;  // [sp-0x278], Other Possible Types: struct32, struct17, struct8
-    let v9: i64;  // rdx
+fn uu_rm::uu_app(a0: &struct712) -> long long {
+    let v0: struct437;  // [bp-0xa58]
+    let v1: u32;  // [bp-0x810]
+    let v2: i8;  // [bp-0x80c]
+    let v3: u64;  // [bp-0x79c]
+    let v4: u32;  // [bp-0x794]
+    let v5: u8;  // [bp-0x790]
+    let v6: u32;  // [bp-0x548]
+    let v7: u32;  // [bp-0x544]
+    let v8: u8;  // [bp-0x540]
+    let v9: u32;  // [bp-0x2f8]
+    let v10: i8;  // [bp-0x2f4]
+    let v11: u64;  // [bp-0x284]
+    let v12: u32;  // [bp-0x27c]
+    let v13: u256;  // [bp-0x278]
+    let v16: u64;  // rdx
 
-    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
-    v6 = clap_builder::builder::command::Command::version(&v0, "0.0.28");
-    v0 = clap_builder::builder::command::Command::about(&v6, "Remove (unlink) the FILE(s)");
-    v3 = uucore::format_usage("{} [OPTION]... FILE...");
-    v6 = clap_builder::builder::command::Command::override_usage(&v0, &v3);
-    memcpy(&v0, &v6, 700);
-    v1 = 584115552392 | *((&v6.field_0 as &char + 700) as &i64);
-    v2 = *((&v6.field_0 as &char + 708) as &i32);
-    v6 = clap_builder::builder::arg::Arg::new("force");
-    v3 = clap_builder::builder::arg::Arg::short(&v6, 0x66);
-    v6 = clap_builder::builder::arg::Arg::long(&v3, "force");
-    v3 = clap_builder::builder::arg::Arg::help(&v6, "ignore nonexistent files and arguments, never prompt");
-    v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v7);
-    v0 = clap_builder::builder::arg::Arg::new("prompt");
-    v3 = clap_builder::builder::arg::Arg::short(&v0, 0x69);
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "prompt before every removal");
-    v7 = struct32 {
+    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v16);
+    clap_builder::builder::command::Command::version(&v8, &v0, "0.0.28");
+    clap_builder::builder::command::Command::about(&v0, &v8, "Remove (unlink) the FILE(s)");
+    uucore::format_usage(&v5, "{} [OPTION]... FILE...");
+    clap_builder::builder::command::Command::override_usage(&v8, &v0, &v5);
+    memcpy(&v0, &v8, 700);
+    v3 = 584115552392 | v11;
+    v4 = v12;
+    clap_builder::builder::arg::Arg::new(&v8, "force");
+    clap_builder::builder::arg::Arg::short(&v5, &v8, 102);
+    clap_builder::builder::arg::Arg::long(&v8, &v5, "force");
+    clap_builder::builder::arg::Arg::help(&v5, &v8, "ignore nonexistent files and arguments, never prompt");
+    clap_builder::builder::arg::Arg::action(&v13, &v5, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v13);
+    clap_builder::builder::arg::Arg::new(&v0, "prompt");
+    clap_builder::builder::arg::Arg::short(&v5, &v0, 105);
+    clap_builder::builder::arg::Arg::help(&v0, &v5, "prompt before every removal");
+    v13 = struct32 {
         field_0: &g_41e234
         field_8: 11
         field_16: &g_41e202
         field_24: 11
     };
-    v3 = clap_builder::builder::arg::Arg::overrides_with_all(&v0, &v7);
-    v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
-    v0 = clap_builder::builder::command::Command::arg(&v6, &v7);
-    v6 = clap_builder::builder::arg::Arg::new("prompt-more");
-    v3 = clap_builder::builder::arg::Arg::short(&v6, 0x49);
-    v6 = clap_builder::builder::arg::Arg::help(&v3, "prompt once before removing more than three files, or when removing recursively. Less intrusive than -i, while still giving some protection against most mistakes");
-    v7 = struct32 {
+    clap_builder::builder::arg::Arg::overrides_with_all(&v5, &v0, &v13);
+    clap_builder::builder::arg::Arg::action(&v13, &v5, 2);
+    clap_builder::builder::command::Command::arg(&v0, &v8, &v13);
+    clap_builder::builder::arg::Arg::new(&v8, "prompt-more");
+    clap_builder::builder::arg::Arg::short(&v5, &v8, 73);
+    clap_builder::builder::arg::Arg::help(&v8, &v5, "prompt once before removing more than three files, or when removing recursively. Less intrusive than -i, while still giving some protection against most mistakes");
+    v13 = struct32 {
         field_0: &g_41e22e
         field_8: 6
         field_16: &g_41e202
         field_24: 11
     };
-    v3 = clap_builder::builder::arg::Arg::overrides_with_all(&v6, &v7);
-    v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v7);
-    v0 = clap_builder::builder::arg::Arg::new("interactive");
-    v3 = clap_builder::builder::arg::Arg::long(&v0, "interactive");
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "prompt according to WHEN: never, once (-I), or always (-i). Without WHEN, prompts always");
-    v3 = clap_builder::builder::arg::Arg::value_name(&v0);
-    v7 = struct17 {
+    clap_builder::builder::arg::Arg::overrides_with_all(&v5, &v8, &v13);
+    clap_builder::builder::arg::Arg::action(&v13, &v5, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v13);
+    clap_builder::builder::arg::Arg::new(&v0, "interactive");
+    clap_builder::builder::arg::Arg::long(&v5, &v0, "interactive");
+    clap_builder::builder::arg::Arg::help(&v0, &v5, "prompt according to WHEN: never, once (-I), or always (-i). Without WHEN, prompts always");
+    clap_builder::builder::arg::Arg::value_name(&v5, &v0);
+    v13 = struct17 {
         field_0: 0
         field_8: 1
         field_16: 0
     };
-    v0 = clap_builder::builder::arg::Arg::num_args(&v3, &v7);
-    memcpy(&v3, &v0, 584);
-    v4 = 128 | *((&v0.field_0 as &char + 584) as &i32);
-    v5 = *((&v0.field_0 as &char + 588) as &i32);
-    v0 = clap_builder::builder::arg::Arg::default_missing_value(&v3);
-    v7 = struct32 {
+    clap_builder::builder::arg::Arg::num_args(&v0, &v5, &v13);
+    memcpy(&v5, &v0, 584);
+    v6 = 128 | v1;
+    v7 = *(&v2 as &i32);
+    clap_builder::builder::arg::Arg::default_missing_value(&v0, &v5);
+    v13 = struct32 {
         field_0: &g_41e22e
         field_8: 6
         field_16: &g_41e234
         field_24: 11
     };
-    v3 = clap_builder::builder::arg::Arg::overrides_with_all(&v0, &v7);
-    v0 = clap_builder::builder::command::Command::arg(&v6, &v3);
-    v6 = clap_builder::builder::arg::Arg::new("one-file-system");
-    v3 = clap_builder::builder::arg::Arg::long(&v6, "one-file-system");
-    v6 = clap_builder::builder::arg::Arg::help(&v3, "when removing a hierarchy recursively, skip any directory that is on a file system different from that of the corresponding command line argument (NOT IMPLEMENTED)");
-    v3 = clap_builder::builder::arg::Arg::action(&v6, 0x2);
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v3);
-    v0 = clap_builder::builder::arg::Arg::new("no-preserve-root");
-    v3 = clap_builder::builder::arg::Arg::long(&v0, "no-preserve-root");
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "do not treat '/' specially");
-    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    v0 = clap_builder::builder::command::Command::arg(&v6, &v3);
-    v6 = clap_builder::builder::arg::Arg::new("preserve-root");
-    v3 = clap_builder::builder::arg::Arg::long(&v6, "preserve-root");
-    v6 = clap_builder::builder::arg::Arg::help(&v3, "do not remove '/' (default)");
-    v3 = clap_builder::builder::arg::Arg::action(&v6, 0x2);
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v3);
-    v0 = clap_builder::builder::arg::Arg::new("recursive");
-    v3 = clap_builder::builder::arg::Arg::short(&v0, 0x72);
-    v0 = clap_builder::builder::arg::Arg::visible_short_alias(&v3, 0x52);
-    v3 = clap_builder::builder::arg::Arg::long(&v0, "recursive");
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "remove directories and their contents recursively");
-    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    v0 = clap_builder::builder::command::Command::arg(&v6, &v3);
-    v6 = clap_builder::builder::arg::Arg::new("dir");
-    v3 = clap_builder::builder::arg::Arg::short(&v6, 0x64);
-    v6 = clap_builder::builder::arg::Arg::long(&v3, "dir");
-    v3 = clap_builder::builder::arg::Arg::help(&v6, "remove empty directories");
-    v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v7);
-    v0 = clap_builder::builder::arg::Arg::new("verbose");
-    v3 = clap_builder::builder::arg::Arg::short(&v0, 0x76);
-    v0 = clap_builder::builder::arg::Arg::long(&v3, "verbose");
-    v3 = clap_builder::builder::arg::Arg::help(&v0, "explain what is being done");
-    v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
-    v0 = clap_builder::builder::command::Command::arg(&v6, &v7);
-    v6 = clap_builder::builder::arg::Arg::new("-presume-input-tty");
-    v3 = clap_builder::builder::arg::Arg::long(&v6, "presume-input-tty");
-    v6 = clap_builder::builder::arg::Arg::alias(&v3, "-presume-input-tty");
-    memcpy(&v3, &v6, 584);
-    v4 = *((&v6.field_0 as &char + 584) as &i32) | 4;
-    v5 = *((&v6.field_0 as &char + 588) as &i32);
-    v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v7);
-    v0 = clap_builder::builder::arg::Arg::new("files");
-    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x1);
-    v7 = struct8 {
-        field_0: 2
-    };
-    v0 = clap_builder::builder::arg::Arg::value_parser(&v3, &v7);
-    v3 = clap_builder::builder::arg::Arg::num_args(&v0);
-    v0 = clap_builder::builder::arg::Arg::value_hint(&v3, 0x2);
-    clap_builder::builder::command::Command::arg(a0, &v6, &v0);
+    clap_builder::builder::arg::Arg::overrides_with_all(&v5, &v0, &v13);
+    clap_builder::builder::command::Command::arg(&v0, &v8, &v5);
+    clap_builder::builder::arg::Arg::new(&v8, "one-file-system");
+    clap_builder::builder::arg::Arg::long(&v5, &v8, "one-file-system");
+    clap_builder::builder::arg::Arg::help(&v8, &v5, "when removing a hierarchy recursively, skip any directory that is on a file system different from that of the corresponding command line argument (NOT IMPLEMENTED)");
+    clap_builder::builder::arg::Arg::action(&v5, &v8, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v5);
+    clap_builder::builder::arg::Arg::new(&v0, "no-preserve-root");
+    clap_builder::builder::arg::Arg::long(&v5, &v0, "no-preserve-root");
+    clap_builder::builder::arg::Arg::help(&v0, &v5, "do not treat '/' specially");
+    clap_builder::builder::arg::Arg::action(&v5, &v0, 2);
+    clap_builder::builder::command::Command::arg(&v0, &v8, &v5);
+    clap_builder::builder::arg::Arg::new(&v8, "preserve-root");
+    clap_builder::builder::arg::Arg::long(&v5, &v8, "preserve-root");
+    clap_builder::builder::arg::Arg::help(&v8, &v5, "do not remove '/' (default)");
+    clap_builder::builder::arg::Arg::action(&v5, &v8, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v5);
+    clap_builder::builder::arg::Arg::new(&v0, "recursive");
+    clap_builder::builder::arg::Arg::short(&v5, &v0, 114);
+    clap_builder::builder::arg::Arg::visible_short_alias(&v0, &v5, 82);
+    clap_builder::builder::arg::Arg::long(&v5, &v0, "recursive");
+    clap_builder::builder::arg::Arg::help(&v0, &v5, "remove directories and their contents recursively");
+    clap_builder::builder::arg::Arg::action(&v5, &v0, 2);
+    clap_builder::builder::command::Command::arg(&v0, &v8, &v5);
+    clap_builder::builder::arg::Arg::new(&v8, "dir");
+    clap_builder::builder::arg::Arg::short(&v5, &v8, 100);
+    clap_builder::builder::arg::Arg::long(&v8, &v5, "dir");
+    clap_builder::builder::arg::Arg::help(&v5, &v8, "remove empty directories");
+    clap_builder::builder::arg::Arg::action(&v13, &v5, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v13);
+    clap_builder::builder::arg::Arg::new(&v0, "verbose");
+    clap_builder::builder::arg::Arg::short(&v5, &v0, 118);
+    clap_builder::builder::arg::Arg::long(&v0, &v5, "verbose");
+    clap_builder::builder::arg::Arg::help(&v5, &v0, "explain what is being done");
+    clap_builder::builder::arg::Arg::action(&v13, &v5, 2);
+    clap_builder::builder::command::Command::arg(&v0, &v8, &v13);
+    clap_builder::builder::arg::Arg::new(&v8, "-presume-input-tty");
+    clap_builder::builder::arg::Arg::long(&v5, &v8, "presume-input-tty");
+    clap_builder::builder::arg::Arg::alias(&v8, &v5, "-presume-input-tty");
+    memcpy(&v5, &v8, 584);
+    v6 = v9 | 4;
+    v7 = *(&v10 as &i32);
+    clap_builder::builder::arg::Arg::action(&v13, &v5, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v13);
+    clap_builder::builder::arg::Arg::new(&v0, "files");
+    clap_builder::builder::arg::Arg::action(&v5, &v0, 1);
+    v13 = 2;
+    clap_builder::builder::arg::Arg::value_parser(&v0, &v5, &v13);
+    clap_builder::builder::arg::Arg::num_args(&v5, &v0);
+    clap_builder::builder::arg::Arg::value_hint(&v0, &v5, 2);
+    clap_builder::builder::command::Command::arg(a0, &v8, &v0);
     return a0;
 }

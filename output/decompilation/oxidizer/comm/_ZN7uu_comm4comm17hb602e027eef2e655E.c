@@ -1,157 +1,181 @@
-fn uu_comm::comm(a0: u64, a1: u64, a2: u32, a3: u32, a4: u32) -> u64 {
-    let v0: i32;  // [sp-0x2e8]
-    let v1: i8;  // [sp-0x2e0]
+fn uu_comm::comm(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) {
+    let v0: u32;  // [bp-0x2e8]
+    let v1: u8;  // [bp-0x2e0]
     let v2: i8;  // [bp-0x2df]
-    let v3: i8;  // [bp-0x2dc]
-    let v4: i32;  // [sp-0x2d0]
-    let v5: i32;  // [sp-0x2cc]
-    let v6: i32;  // [sp-0x2c8]
-    let v7: i32;  // [sp-0x2c4]
-    let v8: i64;  // [sp-0x2c0]
-    let v9: i64;  // [sp-0x2b8]
-    let v10: i64;  // [sp-0x2b0]
-    let v11: i64;  // [sp-0x2a0]
-    let v12: i64;  // [sp-0x298]
-    let v13: i64;  // [sp-0x290]
-    let v14: i32;  // [sp-0x27c]
-    let v15: struct24;  // [sp-0x278], Other Possible Types: Arguments
-    let v16: i64;  // [sp-0x250]
-    let v17: Argument;  // [sp-0x248], Other Possible Types: struct24
-    let v18: Argument;  // [bp-0x238]
-    let v19: Argument;  // [bp-0x228]
-    let v20: Argument;  // [bp-0x218]
-    let v21: Argument;  // [bp-0x208]
-    let v22: i64;  // [sp-0x1f8]
-    let v23: i64;  // [sp-0x1f0]
-    let v24: struct24;  // [sp-0x1e8]
-    let v25: struct24;  // [sp-0x1d0]
-    let v26: i64;  // [sp-0x1b8]
-    let v27: i64;  // [sp-0x1a8]
-    let v28: i64;  // [sp-0x198]
-    let v29: i64;  // [sp-0x190]
-    let v30: i8;  // [sp-0x188]
-    let v31: i64;  // [sp-0x180]
-    let v32: i64;  // [sp-0x170]
-    let v33: i64;  // [sp-0x160]
-    let v34: i64;  // [sp-0x158]
-    let v35: i8;  // [sp-0x150]
-    let v36: i32;  // [bp-0x14f]
-    let v37: i32;  // [sp-0x14c]
-    let v38: i64;  // [sp-0x148]
-    let v39: i64;  // [sp-0x138]
-    let v40: i64;  // [sp-0x128]
-    let v41: i64;  // [sp-0x120]
-    let v42: i8;  // [sp-0x118]
-    let v43: i64;  // [sp-0x110]
-    let v44: i64;  // [sp-0x100]
-    let v45: i64;  // [sp-0xf0]
-    let v46: i64;  // [sp-0xe8]
-    let v47: i8;  // [sp-0xe0]
-    let v48: i32;  // [bp-0xdf]
-    let v49: i32;  // [sp-0xdc]
-    let v50: i64;  // [sp-0xd8]
-    let v51: i64;  // [sp-0xc8]
-    let v52: i64;  // [sp-0xb8]
-    let v53: i64;  // [sp-0xb0]
-    let v54: i8;  // [sp-0xa8]
-    let v55: i64;  // [sp-0xa0]
-    let v56: i64;  // [sp-0x90]
-    let v57: i64;  // [sp-0x80]
-    let v58: i64;  // [sp-0x78]
-    let v59: i8;  // [sp-0x70]
-    let v60: i32;  // [bp-0x6f]
-    let v61: i32;  // [sp-0x6c]
-    let v62: i64;  // [sp-0x68]
-    let v63: i64;  // [sp-0x58]
-    let v64: i64;  // [sp-0x48]
-    let v65: i64;  // [sp-0x40]
-    let v66: i8;  // [sp-0x38]
-    let v69: i64;  // r15
-    let v70: i64;  // r14
-    let v71: i64;  // rdx
-    let v72: i64;  // rbx
-    let v75: i32;  // eax
-    let v76: i64;  // r13
-    let v77: i64;  // r12
-    let v78: i64;  // r15
-    let v80: i64;  // rbp
-    let v82: i64;  // rax
-    let v87: i32;  // ecx
+    let v3: u32;  // [bp-0x2dc]
+    let v4: u32;  // [bp-0x2d0]
+    let v5: u32;  // [bp-0x2cc]
+    let v6: u32;  // [bp-0x2c8]
+    let v7: u32;  // [bp-0x2c4]
+    let v8: void*;  // [bp-0x2c0]
+    let v9: u64;  // [bp-0x2b8]
+    let v10: void*;  // [bp-0x2b0]
+    let v11: void*;  // [bp-0x2a0]
+    let v12: u64;  // [bp-0x298]
+    let v13: void*;  // [bp-0x290]
+    let v14: u32;  // [bp-0x27c]
+    let v15: u64;  // [bp-0x278]
+    let v16: alloc::borrow::Cow<str>;  // [bp-0x278]
+    let v17: u64;  // [bp-0x278]
+    let v18: u64;  // [bp-0x248]
+    let v19: u64;  // [bp-0x248], Other Possible Types: struct_0 *
+    let v20: alloc::borrow::Cow<str>;  // [bp-0x248]
+    let v21: u64;  // [bp-0x240]
+    let v22: u128;  // [bp-0x238]
+    let v23: i64;  // [bp-0x238]
+    let v24: u64;  // [bp-0x230]
+    let v25: u128;  // [bp-0x228]
+    let v26: i64;  // [bp-0x228]
+    let v27: u64;  // [bp-0x220]
+    let v28: u128;  // [bp-0x218]
+    let v29: i64;  // [bp-0x218]
+    let v30: u64;  // [bp-0x210]
+    let v31: u128;  // [bp-0x208]
+    let v32: i64;  // [bp-0x208]
+    let v33: u64;  // [bp-0x200]
+    let v34: u64;  // [bp-0x1f8]
+    let v35: u64;  // [bp-0x1f0]
+    let v36: alloc::string::String;  // [bp-0x1e8]
+    let v37: alloc::string::String;  // [bp-0x1d0]
+    let v38: u64;  // [bp-0x1b8]
+    let v39: u64;  // [bp-0x1a8]
+    let v40: void*;  // [bp-0x198]
+    let v41: u64;  // [bp-0x190]
+    let v42: u8;  // [bp-0x188]
+    let v43: u64;  // [bp-0x180]
+    let v44: u64;  // [bp-0x170]
+    let v45: u64;  // [bp-0x160]
+    let v46: u64;  // [bp-0x158]
+    let v47: u8;  // [bp-0x150]
+    let v48: u32;  // [bp-0x14f]
+    let v49: u32;  // [bp-0x14c]
+    let v50: u64;  // [bp-0x148]
+    let v51: u64;  // [bp-0x138]
+    let v52: u64;  // [bp-0x128]
+    let v53: u64;  // [bp-0x120]
+    let v54: u8;  // [bp-0x118]
+    let v55: u64;  // [bp-0x110]
+    let v56: u64;  // [bp-0x100]
+    let v57: u64;  // [bp-0xf0]
+    let v58: u64;  // [bp-0xe8]
+    let v59: u8;  // [bp-0xe0]
+    let v60: u32;  // [bp-0xdf]
+    let v61: u32;  // [bp-0xdc]
+    let v62: u64;  // [bp-0xd8]
+    let v63: u64;  // [bp-0xc8]
+    let v64: u64;  // [bp-0xb8]
+    let v65: u64;  // [bp-0xb0]
+    let v66: u8;  // [bp-0xa8]
+    let v67: u64;  // [bp-0xa0]
+    let v68: u64;  // [bp-0x90]
+    let v69: u64;  // [bp-0x80]
+    let v70: u64;  // [bp-0x78]
+    let v71: u8;  // [bp-0x70]
+    let v72: u32;  // [bp-0x6f]
+    let v73: u32;  // [bp-0x6c]
+    let v74: u64;  // [bp-0x68]
+    let v75: u64;  // [bp-0x58]
+    let v76: u64;  // [bp-0x48]
+    let v77: u64;  // [bp-0x40]
+    let v78: u8;  // [bp-0x38]
+    let v80: u64;  // r15
+    let v81: u8;  // al
+    let v82: u64;  // rax
+    let v83: u64;  // rax
+    let v84: u32;  // eax
+    let v85: u64;  // rdx
+    let v86: u64;  // r12
+    let v87: u64;  // rbx
+    let v89: u64;  // r12
+    let v90: u64;  // rbx
+    let v91: u64;  // rax
+    let v92: u64;  // 4096
 
-    v22 = a2;
-    v23 = a3;
-    v69 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "1") as i8 ^ 1;
-    v24 = alloc::str::<impl str>::repeat(a2, a3, v69);
-    v25 = alloc::str::<impl str>::repeat(a2, a3, (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, &g_41c4e5, 1) as i8 ^ 1) + v69);
+    v34 = a2;
+    v35 = a3;
+    v80 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "1") as i8 ^ 1;
+    v81 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "2") as i8;
+    v36 = alloc::str::<impl str>::repeat(a2, a3, v80);
+    v37 = alloc::str::<impl str>::repeat(a2, a3, (v81 ^ 1) + v80);
     v8 = 0;
     v9 = 1;
     v10 = 0;
-    v70 = uu_comm::LineReader::read_line(a0, &v8);
-    v72 = v71;
+    v82 = uu_comm::LineReader::read_line(a0, &v8);
     v11 = 0;
     v12 = 1;
     v13 = 0;
-    v5 = 0;
-    v6 = 0;
-    v7 = 0;
-    v75 = 0;
-    v4 = 0;
-    v0 = 0;
-    v77 = v71;
+    v83 = uu_comm::LineReader::read_line(a1, &v11);
     loop {
-        v14 = v75;
-        v78 = v77;
-        v80 = v76;
+        v14 = v84;
+        v89 = v86;
+        v90 = v87;
         loop {
-            if v70 {
-                if !(!v80) {
-                    goto LABEL_4aaff0;
+            v87 = v90;
+            if !v82 {
+                if !v83 {
+                    if !v87 && !v89 {
+                        goto LABEL_4ab007;
+                    }
+                    if !v87 {
+                        goto LABEL_4aaf00;
+                    }
+                    if v89 {
+                        v91 = <alloc::vec::Vec<T,A> as core::cmp::Ord>::cmp(v9, 0, v12, 0);
+                        if !v91 {
+                            v92 = a0;
+                            if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "3") as i8 {
+                                v16 = alloc::string::String::from_utf8_lossy(v9, None);
+                                print!("{}{}", &v37, &v16);
+                                v92 = a0;
+                                v19 = v18;
+                            }
+                            v10 = 0;
+                            v13 = 0;
+                            v82 = uu_comm::LineReader::read_line(v92, &v8);
+                            v83 = uu_comm::LineReader::read_line(a1, &v11);
+                            v0 += 1;
+                            v7 = v0;
+                            v89 = v85;
+                            v90 = v85;
+                            continue;
+                        }
+                        if v91 == 1 {
+                            goto LABEL_4aaf00;
+                        }
+                    }
                 }
-                goto LABEL_4aaee9;
-            }
-            if !v80 {
-                if !v72 && !v78 {
-LABEL_4aaff0:
+                v92 = a0;
+                if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "1") as i8 {
+                    v20 = alloc::string::String::from_utf8_lossy(v9, None);
+                    print!("{}", &v20);
+                    v15 = v17;
+                    v92 = a0;
+                }
+                v10 = 0;
+                v82 = uu_comm::LineReader::read_line(v92, &v8);
+                v4 += 1;
+                v5 = v4;
+                v90 = v85;
+            } else {
+                if v83 {
+LABEL_4ab007:
                     if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "total") as i8 {
                         return;
                     }
                     v1 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "zero-terminated") as i8 ? 0 : 10);
-                    v17 = Argument {
-                        value: &v5
-                        formatter: core::fmt::num::imp::<impl core::fmt::Display for i32>::fmt
-                    };
-                    v18 = Argument {
-                        value: &v22
-                        formatter: <&T as core::fmt::Display>::fmt
-                    };
-                    v19 = Argument {
-                        value: &v6
-                        formatter: core::fmt::num::imp::<impl core::fmt::Display for i32>::fmt
-                    };
-                    v20 = Argument {
-                        value: &v7
-                        formatter: core::fmt::num::imp::<impl core::fmt::Display for i32>::fmt
-                    };
-                    v21 = Argument {
-                        value: &v1
-                        formatter: <uucore::mods::line_ending::LineEnding as core::fmt::Display>::fmt
-                    };
-                    v26 = 2;
-                    v27 = 2;
-                    v28 = 0;
-                    v29 = 32;
-                    v30 = 3;
-                    v31 = 2;
-                    v32 = 2;
-                    v33 = 1;
-                    v34 = 32;
-                    v35 = 3;
-                    v87 = *(&v3 as &i32);
-                    *(&v36 as &i32) = *(&v2 as &i32);
-                    v37 = v87;
+                    v19 = &v5;
+                    v21 = core::fmt::num::imp::<impl core::fmt::Display for i32>::fmt;
+                    v23 = &v34;
+                    v24 = <&T as core::fmt::Display>::fmt;
+                    v26 = &v6;
+                    v27 = core::fmt::num::imp::<impl core::fmt::Display for i32>::fmt;
+                    v29 = &v7;
+                    v30 = core::fmt::num::imp::<impl core::fmt::Display for i32>::fmt;
+                    v32 = &v1;
+                    v33 = <uucore::mods::line_ending::LineEnding as core::fmt::Display>::fmt;
                     v38 = 2;
                     v39 = 2;
-                    v40 = 2;
+                    v40 = 0;
                     v41 = 32;
                     v42 = 3;
                     v43 = 2;
@@ -159,11 +183,11 @@ LABEL_4aaff0:
                     v45 = 1;
                     v46 = 32;
                     v47 = 3;
-                    v49 = *(&(&v2)[3] as &i32);
-                    *(&v48 as &i32) = *(&v2 as &i32);
+                    v48 = *(&v2 as &i32);
+                    v49 = v3;
                     v50 = 2;
                     v51 = 2;
-                    v52 = 3;
+                    v52 = 2;
                     v53 = 32;
                     v54 = 3;
                     v55 = 2;
@@ -171,63 +195,46 @@ LABEL_4aaff0:
                     v57 = 1;
                     v58 = 32;
                     v59 = 3;
-                    v61 = *(&(&v2)[3] as &i32);
-                    *(&v60 as &i32) = *(&v2 as &i32);
+                    v61 = v3;
+                    v60 = *(&v2 as &i32);
                     v62 = 2;
                     v63 = 2;
-                    v64 = 4;
+                    v64 = 3;
                     v65 = 32;
                     v66 = 3;
-                    v15 = Arguments {
-                        pieces: ["", "", "", "", "", "", "total"]
-                        args: [&v17, &v18, &v19, &v20, &v21]
-                        fmt: &v26
+                    v67 = 2;
+                    v68 = 2;
+                    v69 = 1;
+                    v70 = 32;
+                    v71 = 3;
+                    v73 = v3;
+                    v72 = *(&v2 as &i32);
+                    v74 = 2;
+                    v75 = 2;
+                    v76 = 4;
+                    v77 = 32;
+                    v78 = 3;
+                    v15 = core::fmt::Arguments {
+                        pieces: [&g_511398, &g_5113a8, &g_5113b8, &g_5113c8, &g_5113d8, &g_5113e8, "total"]
+                        args: [v18, v22, v25, v28, v31]
+                        fmt: &v38
                     };
-                    v16 = 7;
                     std::io::stdio::_print(&v15);
+                    return;
                 }
-                if !v72 {
-LABEL_4aaee9:
-                    if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "2") as i8 {
-                        v15 = alloc::string::String::from_utf8_lossy(v12, v13);
-                        print!("{}{}", &v24, &v15);
-                    }
-                    v13 = 0;
-                    v75 = v14 + 1;
-                    v6 = v75;
-                    break;
-                } else {
-                    if !v78 {
-                        goto LABEL_4aadf0;
-                    }
-                    v82 = <alloc::vec::Vec<T,A> as core::cmp::Ord>::cmp(v9, v10, v12, v13);
-                    if !v82 as u8 {
-                        if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "3") as i8 {
-                            v15 = alloc::string::String::from_utf8_lossy(v9, v10);
-                            print!("{}{}", &v25, &v15);
-                        }
-                        v10 = 0;
-                        v13 = 0;
-                        v0 += 1;
-                        v7 = v0;
-                        v78 = v71;
-                        v72 = v71;
-                        continue;
-                    }
-                    if v82 as u32 == 1 {
-                        goto LABEL_4aaee9;
-                    }
+LABEL_4aaf00:
+                if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "2") as i8 {
+                    v16 = alloc::string::String::from_utf8_lossy(v12, None);
+                    print!("{}{}", &v36, &v16);
+                    v19 = v18;
                 }
+                v13 = 0;
+                v83 = uu_comm::LineReader::read_line(a1, &v11);
+                v84 = v14 + 1;
+                v6 = v84;
+                v86 = v85;
+                break;
             }
-LABEL_4aadf0:
-            if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a4, "1") as i8 {
-                v17 = alloc::string::String::from_utf8_lossy(v9, v10);
-                print!("{}", &v17);
-            }
-            v10 = 0;
-            v4 += 1;
-            v5 = v4;
-            v72 = v71;
         }
     }
 }

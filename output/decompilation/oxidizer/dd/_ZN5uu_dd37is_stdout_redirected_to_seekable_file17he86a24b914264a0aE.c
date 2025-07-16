@@ -1,22 +1,31 @@
-fn uu_dd::is_stdout_redirected_to_seekable_file() -> u64 {
-    let v0: i32;  // [sp-0x4c]
-    let v1: i64;  // [sp-0x48]
-    let v2: i64;  // [sp-0x40]
-    let v3: Result<struct4, struct8>;  // [sp-0x38]
-    let v4: struct24;  // [sp-0x28]
-    let v6: i64;  // rdx
-    let v7: i32;  // ebx
+fn uu_dd::is_stdout_redirected_to_seekable_file() -> long long {
+    let v0: u32;  // [bp-0x4c]
+    let v1: u64;  // [sp-0x48]
+    let v2: u64;  // [bp-0x40]
+    let v3: u8;  // [bp-0x38]
+    let v4: i8;  // [bp-0x34]
+    let v5: u64;  // [bp-0x20]
+    let v6: u8;  // [bp-0x18]
+    let v8: u64;  // rsi
+    let v9: Result<struct4, struct8>;  // ebx
+    let v12: core::result::Result<u64, std::io::error::Error>;  // rax:rdx
+    let v13: core::result::Result<u64, std::io::error::Error>;  // rax:rdx
 
-    v4 = uu_dd::stdout_canonicalized();
-    v0 = std::fs::File::open(*((&v4.field_0 as &char + 8) as &i64), v4.field_16)?;
-    v1 = <std::fs::File as std::io::Seek>::seek(&v0, 2, 0);
-    v2 = v6;
-    if v1 {
-        return v7 as u64;
+    uu_dd::stdout_canonicalized(v8);
+    std::fs::File::open(&v3, v5, *(&v6 as &i64));
+    if !v3 {
+        v0 = *(&v4 as &i32);
+        v13 = <std::fs::File as std::io::Seek>::seek(&v0, 2, 0);
+        v1 = v13 as i64;
+        v2 = *((&v13 as &char + 8) as &i64);
+        if let Ok(_) = v13 {
+            v12 = <std::fs::File as std::io::Seek>::seek(&v0, 1, 0);
+            v1 = v12 as i64;
+            v2 = *((&v12 as &char + 8) as &i64);
+            if let Ok(_) = v12 {
+                v1 = std::io::Seek::rewind(&v0);
+            }
+        }
     }
-    v1 = <std::fs::File as std::io::Seek>::seek(&v0, 1, 0);
-    v2 = v6;
-    if !v1 {
-        return v7 as u64;
-    }
+    return v9 as u64;
 }

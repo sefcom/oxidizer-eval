@@ -1,25 +1,27 @@
-fn uu_csplit::SplitWriter::new_writer(a0: &struct49) -> u64 {
-    let v0: struct29;  // [sp-0x48], Other Possible Types: Result<struct4, struct8>
-    let v1: iNone;  // [bp-0x38]
-    let v2: struct24;  // [sp-0x28]
-    let v4: i64;  // rax
-    let v5: iNone;  // xmm0
+fn uu_csplit::SplitWriter::new_writer(a0: &struct49) -> long long {
+    let v0: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>;  // [bp-0x48], Other Possible Types: core::result::Result<std::fs::File, std::io::error::Error>
+    let v1: u64;  // [bp-0x40]
+    let v2: u128;  // [bp-0x38]
+    let v3: u8;  // [bp-0x28]
+    let v5: u64;  // rdx
+    let v6: u128;  // xmm0
 
-    v2 = uu_csplit::split_name::SplitName::get(*((a0 + 32) as &i64), *((a0 + 40) as &i64));
-    v0 = std::fs::File::create(&v2);
+    uu_csplit::split_name::SplitName::get(&v3, *((a0 + 32) as &i64), *((a0 + 40) as &i64));
+    v0 = std::fs::File::create(&v3, v5);
     match v0 {
-        Err(v4) => {
-            return v0 as i64;
+        Err(_) => {
+            return v1;
         },
         Ok(_) => {
-            v0 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x2000, *((&v0 as &char + 4) as &i32) as u32 as u64);
-            v5 = *(&v0.field_0 as &i128);
-            *((a0 + 16) as &i128) = v1 as i128;
-            *(a0 as void*) = v5;
-            *((a0 + 40) as &i64) = *((a0 + 40) as &i64) + 1;
-            *((a0 + 48) as &i64) = 0;
-            *((a0 + 56) as &i8) = 0;
-            return 0;
+            v0 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x2000);
+            v6 = *(&v0.buf.buf.cap as &i128);
+            return struct50 {
+                field_0: v6
+                field_16: v2
+                field_40: <UNKNOWN>
+                field_48: *((a0 + 40) as &i64) + 1
+                field_56: 0
+            };
         },
     }
 }

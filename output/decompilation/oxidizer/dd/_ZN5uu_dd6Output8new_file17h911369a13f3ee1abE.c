@@ -1,28 +1,28 @@
-fn uu_dd::Output::new_file(a0: &struct24, a1: u32, a2: u32, a3: void*) -> u64 {
-    let v0: i32;  // [sp-0x54]
-    let v1: Result<struct16, struct4>;  // [sp-0x50]
-    let v2: i64;  // [sp-0x40], Other Possible Types: Result<struct4, struct8>
-    let v6: i32;  // ebp
+fn uu_dd::Output::new_file(a1: i64, a2: i64, a3: i64) -> Result<struct24, struct17> {
+    let a0: u64;  // rsi
+    let v0: u32;  // [bp-0x54]
+    let v1: Result<struct16, struct12>;  // [bp-0x50]
+    let v2: u64;  // [bp-0x48]
+    let v3: core::result::Result<(), std::io::error::Error>;  // [bp-0x40]
+    let v5: i64;  // rdi
+    let v6: u64;  // rdi
 
-    v2 = uu_dd::Output::new_file::open_dst(a1, a2, *((a3 + 145) as &i8), *((a3 + 146) as &i8), a3 + 150);
-    v1 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v2, a1, a2);
+    v3 = uu_dd::Output::new_file::open_dst(a0, a1, *((a2 + 145) as &i8), *((a2 + 146) as &i8), a2 + 150);
+    v1 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v3, a0, a1);
     match v1 {
         Ok(_) => {
-            return struct17 {
-                field_0: 4
-                field_8: <UNKNOWN>
-                field_16: <UNKNOWN>
-            };
+            *((v5 + 8) as &i64) = v1 as i64;
+            *((v5 + 16) as &u64) = v2;
+            *(v5 as &i8) = 4;
+            return;
         },
-        Err(v6) => {
-            v0 = v6;
+        Err(_) => {
+            v0 = *((&v1 as &char + 8) as &i32);
+            if !*((a2 + 147) as &i8) {
+                v3 = std::fs::File::set_len(&v0, *((a2 + 136) as &i64));
+            }
+            uu_dd::Output::prepare_file(v6, v0, a2);
+            return;
         },
     }
-    if !*((a3 + 147) as &i8) {
-        v2 = std::fs::File::set_len(&v0, *((a3 + 136) as &i64));
-        if v2 {
-            v6 = v0;
-        }
-    }
-    uu_dd::Output::prepare_file(a0, v6 as u64, a3);
 }

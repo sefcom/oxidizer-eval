@@ -1,114 +1,99 @@
-fn uu_more::Pager::draw_lines(a0: &struct8, a1: u32) -> u64 {
-    let v0: struct16;  // [sp-0xe8], Other Possible Types: unsigned long, int
-    let v1: i64;  // [sp-0xd8]
-    let v2: i64;  // [sp-0xd0]
-    let v3: i64;  // [sp-0xc8]
-    let v4: i64;  // [sp-0xc0]
-    let v5: i64;  // [sp-0xc0]
-    let v6: struct8;  // [sp-0xb0]
-    let v7: struct40;  // [bp-0xa8], Other Possible Types: int
-    let v8: i64;  // [sp-0xa0]
-    let v9: i64;  // [sp-0x98]
-    let v10: i64;  // [sp-0x78]
-    let v11: i64;  // [sp-0x70]
-    let v12: struct32;  // [sp-0x68]
-    let v13: struct24;  // [sp-0x48]
-    let v15: i64;  // rax
-    let v16: i64;  // rbp
-    let v17: i64;  // r13
-    let v18: i64;  // r15
-    let v19: i64;  // r12
-    let v20: struct8;  // rax
-    let v21: struct8;  // rax
-    let v22: struct8;  // rax
-    let v23: iNone;  // ymm0
-    let v24: iNone;  // xmm0
+fn uu_more::Pager::draw_lines(a0: i64, a1: i64) {
+    let v0: void*;  // [bp-0xe8]
+    let v1: struct16;  // [bp-0xe8]
+    let v2: struct16;  // [bp-0xe8]
+    let v3: struct16;  // [bp-0xe8]
+    let v4: u64;  // [bp-0xe0]
+    let v5: void*;  // [bp-0xd8]
+    let v6: u64;  // [bp-0xd0]
+    let v7: u64;  // [bp-0xc8]
+    let v8: void*;  // [bp-0xc0]
+    let v9: u64;  // [bp-0xc0]
+    let v10: u64;  // [bp-0xb0]
+    let v11: u128;  // [bp-0xa8]
+    let v12: u64;  // [bp-0x98]
+    let v13: struct32;  // [bp-0x68]
+    let v14: iNone;  // [bp-0x48]
+    let v16: core::result::Result<(), std::io::error::Error>;  // rax
+    let v17: u64;  // rbp
+    let v18: u64;  // r13
+    let v19: void*;  // r12
+    let v20: u8;  // r15b
+    let v21: core::option::Option<&u8>;  // rax
+    let v22: core::option::Option<&u8>;  // rax
+    let v23: Result<struct40, struct16>;  // rax
 
-    v15 = crossterm::command::write_command_ansi(a1, 4);
-    if !v15 {
-        v15 = <std::io::stdio::Stdout as std::io::Write>::flush(a1);
+    v16 = crossterm::command::write_command_ansi(a1, 4);
+    if let Ok(_) = v16 {
+        v16 = <std::io::stdio::Stdout as std::io::Write>::flush(a1);
     }
-    core::result::Result<T,E>::unwrap(v15, "src/uu/more/src/more.rs");
+    core::result::Result<T,E>::unwrap(v16, "src/uu/more/src/more.rs");
     *((a0 + 56) as &i64) = 0;
     v0 = 0;
-    v0 = 8;
-    v1 = 0;
-    v16 = *((a0 + 24) as &i64);
-    v2 = *((a0 + 8) as &i64);
-    v3 = v2 + *((a0 + 16) as &i64) * 24;
-    v5 = v16;
-    v17 = *((a0 + 64) as &i16);
-    if v17 {
-        if !*((a0 + 67) as &i8) {
+    v4 = 8;
+    v5 = 0;
+    v17 = *((a0 + 24) as &i64);
+    v6 = *((a0 + 8) as &i64);
+    v7 = *((a0 + 8) as &i64) + *((a0 + 16) as &i64) * 24;
+    v18 = *((a0 + 64) as &i16);
+    if v18 {
+        if *((a0 + 67) as &i8) {
             do {
-                if !v5 {
-                    v21 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-                    v5 = v5;
-                } else {
-                    v4 = 0;
-                    v21 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::nth(v5);
-                    v5 = v4;
+                if v9 {
+                    v8 = 0;
+                    v21 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::nth(&v6, v9);
+                    v9 = v8;
                     if !(!v21) {
                         continue;
                     }
-                }
-            } while ((v0 = alloc::vec::Vec<T,A>::push(v21), v1 < v17));
-        } else {
-            v18 = 0;
-            v19 = 0;
-            do {
-                if !v5 {
-                    v20 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-                    if !v20 {
+                } else {
+                    v21 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v6);
+                    if !v21 {
                         goto LABEL_0x4dd5c1;
                     } else {
                         goto LABEL_4dd533;
                     }
-                } else {
-                    v4 = 0;
-                    v20 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::nth(v5);
-                    v5 = v4;
-                    if !(!v20) {
-                        continue;
-                    }
                 }
 LABEL_4dd533:
-                if *((v20 + 16) as &i64) {
-                    v18 = ((v18 as u8 & 1) ? v18 & 4294967295 & 4294967295 : 0);
-                    v0 = alloc::vec::Vec<T,A>::push(v20);
-                } else if !(v18 as u8 & 1) {
-                    v18 = v18 & -0x100 | 1;
-                    v0 = alloc::vec::Vec<T,A>::push(v20);
-                } else {
+                if *((v21 + 16) as &i64) {
+                    v3 = alloc::vec::Vec<T,A>::push(v21);
+                } else if (v20 & 1) {
                     v19 += 1;
-                    *((a0 + 56) as &unsigned long) = v19;
-                    v16 += 1;
-                    *((a0 + 24) as &unsigned long) = v16;
+                    *((a0 + 56) as &void*) = v19;
+                    v17 += 1;
+                    *((a0 + 24) as &u64) = v17;
+                } else {
+                    v20 = 1;
+                    v2 = alloc::vec::Vec<T,A>::push(v21);
                 }
-            } while (v1 < v17);
+            } while (v5 < v18);
+        } else {
+            do {
+                if v9 {
+                    v8 = 0;
+                    v22 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::nth(&v6, v9);
+                    v9 = v8;
+                    if !(!v22) {
+                        continue;
+                    }
+                } else {
+                    v22 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v6);
+                }
+            } while ((v1 = alloc::vec::Vec<T,A>::push(v22), v5 < v18));
         }
     }
-    v12 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v0);
-    v22 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next();
-    if !v22 {
-        return;
+    v13 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v0);
+    v23 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v13);
+    if let Ok(_) = v23 {
+        do {
+            vvar_376{stack -72} = struct24 OrderedDict({0: 𝜙@128b [((5101235, None), vvar_327{stack -72}), ((5101037, None), None)]})
+            v10 = v23;
+            format!("\r{}\n", &v10);
+            v11 = v14 as i128 as u128;
+            v12 = (&v14)[16] as i64;
+            core::result::Result<T,E>::unwrap(<std::io::stdio::Stdout as std::io::Write>::write_all(a1, 2, (&v14)[16] as i64), "src/uu/more/src/more.rs");
+            v23 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v13);
+        } while (v23);
     }
-    do {
-        v6 = v22;
-        v10 = &v6;
-        v11 = <&T as core::fmt::Display>::fmt;
-        v7 = struct40 {
-            field_0: "\r"
-            field_8: 2
-            field_16: &v10
-            field_24: 1
-            field_32: 0
-        };
-        v13 = core::option::Option<T>::map_or_else(&v7);
-        v24 = v13.field_0;
-        v23 = v23 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v24 as u256;
-        v7 = v24;
-        v9 = v13.field_16;
-        core::result::Result<T,E>::unwrap(<std::io::stdio::Stdout as std::io::Write>::write_all(a1, v8, v13.field_16), "src/uu/more/src/more.rs");
-    } while ((v22 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(), v22));
+    return;
 }

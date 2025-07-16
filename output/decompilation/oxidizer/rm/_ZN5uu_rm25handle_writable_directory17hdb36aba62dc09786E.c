@@ -1,14 +1,12 @@
-fn uu_rm::handle_writable_directory(a0: u32, a1: u32, a2: u8, a3: u8) -> u8 {
-    let v0: u64;  // [sp-0x60]
-    let v1: u64;  // [sp-0x58]
-    let v2: u64;  // [sp-0x50]
-    let v3: u64;  // [sp-0x48]
-    let v4: u8;  // [sp-0x40]
-    let v5: struct8;  // [bp-0x38]
+fn uu_rm::handle_writable_directory(a0: i64, a1: i64, a2: i8, a3: i8) -> long long {
+    let v1: u64;  // [bp-0x58], Other Possible Types: core::option::Option<&std::path::Path>
+    let v2: u64;  // [bp-0x50]
+    let v3: u64;  // [bp-0x48]
+    let v4: u8;  // [bp-0x40]
+    let v5: u64;  // [bp-0x38]
     let v7: u64;  // rdx
-    let v8: u64;  // rdx
-    let v9: u64;  // rax
-    let v10: u64;  // rax
+    let v8: u64;  // rax
+    let v9: u64;  // rdx
 
     if a3 >= 0 {
         v1 = uucore::util_name();
@@ -20,21 +18,19 @@ fn uu_rm::handle_writable_directory(a0: u32, a1: u32, a2: u8, a3: u8) -> u8 {
         v4 = 1;
         eprint!("remove write-protected directory {}?", &v1);
         eprint!(" ");
-        v5 = struct8 {
-            field_0: &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E
+        v5 = std::io::stdio::Stderr {
+            inner: &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E
         };
-        v9 = <std::io::stdio::Stderr as std::io::Write>::flush(&v5);
-        if v9 {
-            v0 = v9;
+        if <std::io::stdio::Stderr as std::io::Write>::flush(&v5) {
+            v1 = uucore::util_name();
             v2 = v7;
-            show_error!("{}", &v0);
+            eprint!("{}: ", &v1);
+            eprintln!("{}", &v0);
             std::process::exit(1); /* do not return */
         }
-    } else if a2 != 2 {
-        return 1;
-    } else {
+    } else if a2 == 2 {
         v1 = uucore::util_name();
-        v2 = v8;
+        v2 = v9;
         eprint!("{}: ", &v1);
         v1 = 1;
         v2 = a0;
@@ -42,17 +38,18 @@ fn uu_rm::handle_writable_directory(a0: u32, a1: u32, a2: u8, a3: u8) -> u8 {
         v4 = 1;
         eprint!("remove directory {}?", &v1);
         eprint!(" ");
-        v5 = struct8 {
-            field_0: &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E
+        v5 = std::io::stdio::Stderr {
+            inner: &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E
         };
-        v10 = <std::io::stdio::Stderr as std::io::Write>::flush(&v5);
-        if v10 {
-            v0 = v10;
-            v2 = v8;
-            show_error!("{}", &v0);
+        if <std::io::stdio::Stderr as std::io::Write>::flush(&v5) {
+            v1 = uucore::util_name();
+            v2 = v9;
+            eprint!("{}: ", &v1);
+            eprintln!("{}", &v0);
             std::process::exit(1); /* do not return */
         }
+    } else {
+        return v8 & -0x100 | 1;
     }
-    uucore::read_yes();
-    return 1;
+    return uucore::read_yes();
 }

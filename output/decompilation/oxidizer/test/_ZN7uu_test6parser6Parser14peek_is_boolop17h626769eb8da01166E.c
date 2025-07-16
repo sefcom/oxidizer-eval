@@ -1,6 +1,6 @@
-fn uu_test::parser::Parser::peek_is_boolop(a0: u32) -> u64 {
-    let v0: Option<Result<struct24, struct32>>;  // [sp-0x38]
+fn uu_test::parser::Parser::peek_is_boolop(a0: i64) -> long long {
+    let v0: u8;  // [bp-0x38]
 
-    v0 = uu_test::parser::Parser::peek(a0);
-    return vvar_20{reg 56};
+    uu_test::parser::Parser::peek(&v0, a0);
+    return vvar_3{reg 56} & -0x100 | *(&v0 as &i32) == 2;
 }

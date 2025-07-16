@@ -1,36 +1,44 @@
-fn uu_wc::process_chunk(a0: &struct16, a1: u32, a2: u32, a3: &struct8) -> u64 {
-    let v0: u64;  // [sp-0x40]
-    let v1: u64;  // [sp-0x38]
-    let v3: void*;  // r12, Other Possible Types: u64
-    let v4: u64;  // r13
+fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64) -> : struct16 {
+    let a0: i64;  // rdi
+    let v0: u128;  // [bp-0x40]
+    let v2: alloc::borrow::Cow<str>;  // r12
+    let v3: u64;  // r13
     let v5: u64;  // rdx
+    let v6: struct32;  // rax
     let v7: u64;  // rax
+    let v8: core::option::Option<u32>;  // rax:rax
+    let v9: core::option::Option<u32>;  // rax:rax
 
-    v0 = a1;
-    v1 = a1 + a2;
-    v3 = *(a3);
-    v4 = a0[4];
-    if core::str::validations::next_code_point(&v0) as i32 {
+    v0 = core::slice::iter::Iter<u8> {
+        ptr: core::ptr::non_null::NonNull<u8> {
+            pointer: a1
+        }
+        end_or_len: a1 + a2
+        _marker: core::marker::PhantomData<&u8> { }
+    };
+    v2 = *(a3 as &i64);
+    v8 = core::str::validations::next_code_point(&v0) as u128;
+    v3 = *((a0 + 32) as &i64);
+    if let Some(_) = v8 {
         do {
-            if v5 - 12 < 2 {
-LABEL_4bac80:
-                v4 = core::cmp::max_by(v3, v4);
-                a0[4] = v4;
-                v3 = 0;
+            if (v5 - 12) as u32 < 2 {
+LABEL_4bac8b:
+                v3 = core::cmp::max_by(v2, v3);
+                *((a0 + 32) as &u64) = v3;
+                v2 = 0;
             } else {
-                if v5 == 9 {
-                    v3 = (v3 & -8) + 8;
+                if v5 as u32 == 9 {
                     continue;
                 }
-                if v5 == 10 {
-                    goto LABEL_4bac80;
+                if v5 as u32 == 10 {
+                    goto LABEL_4bac8b;
                 }
-                v3 += (v5 < 127 ? 32 <= v5 : (v5 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v5 & 4294967295)));
+                v6 = (v5 as u32 < 127 ? (32 <= v5 as u32) as u8 as u64 : (v5 as u32 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v5 & 4294967295)));
             }
-        } while ((*(a3) = v3 as u64, core::str::validations::next_code_point(&v0) as i32));
+        } while ((*(a3 as &alloc::borrow::Cow<str>) = v2, v9 = core::str::validations::next_code_point(&v0) as u128, v9 as i32));
     }
-    *(a0) = *(a0) + a2;
-    v7 = core::cmp::max_by(v3, v4);
-    a0[4] = v7;
-    return v7;
+    return struct16 {
+        field_0: *(a0 as &i64) + a2
+        field_32: <UNKNOWN>
+    };
 }

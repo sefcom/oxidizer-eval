@@ -1,67 +1,43 @@
-fn uu_ls::extract_time(a0: u32) -> u64 {
-    let v0: Result<struct40, struct8>;  // [sp-0x48]
-    let v2: i64;  // rax
-    let v3: i64;  // rbx
-    let v4: i64;  // r14
-    let v5: i64;  // rax
-    let v6: i64;  // rax
-    let v7: i64;  // rax
-    let v8: i64;  // rax
-    let v9: i64;  // rax
-    let v10: i64;  // rax
-    let v11: i64;  // rax
-    let v12: i64;  // rax
-    let v13: i64;  // rax
-    let v14: i64;  // rax
+fn uu_ls::extract_time() -> Result<struct40, struct16> {
+    let a0: u64;  // rdi
+    let v0: u8;  // [bp-0x48]
+    let v2: u64;  // r8
+    let v3: i64;  // rax
+    let v4: void*;  // rbx
+    let v5: u32;  // r14d
 
-    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, "time");
-    v2 = clap_builder::parser::error::MatchesError::unwrap("time", &v0);
-    if !v2 {
-        v6 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "u");
-        v7 = v6 & -0x100 | 1;
-        if !v6 as u8 {
-            v9 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "c");
-            v7 = v9 & -0x100 | v9 as u8 * 2;
-            return v7;
+    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, "time", v2);
+    v3 = clap_builder::parser::error::MatchesError::unwrap("time", &v0);
+    if v3 {
+        v4 = *((v3 + 8) as &i64);
+        v5 = *((v3 + 16) as &i64);
+        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v5, "ctime") as i32 {
+            return 2;
         }
-        return v7;
+        if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v5, "status") as i32 {
+            if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v5, "access") as i32 {
+                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v5, "atime") as i8 {
+                    return 1;
+                }
+                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v5, "use") as i8 {
+                    return 1;
+                }
+                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v5, "birth") as i32 {
+                    return 3;
+                }
+                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v5, "creation") as i32 {
+                    return 3;
+                }
+                panic!("internal error: entered unreachable code: Invalid field for --time");
+            } else {
+                return 1;
+            }
+        } else {
+            return 2;
+        }
+    } else if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "u") as i32 {
+        return clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "c") as i8 * 2;
+    } else {
+        return 1;
     }
-    v3 = *((v2 + 8) as &i64);
-    v4 = *((v2 + 16) as &i64);
-    v5 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "ctime");
-    v7 = v5 & -0x100 | 2;
-    if v5 as u8 {
-        return v7;
-    }
-    v8 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "status");
-    v7 = v8 & -0x100 | 2;
-    if v8 as u8 {
-        return v7;
-    }
-    v10 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "access");
-    v7 = v10 & -0x100 | 1;
-    if v10 as u8 {
-        return v7;
-    }
-    v11 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "atime");
-    if v11 as u8 {
-        v7 = v11 & -0x100 | 1;
-        return v7;
-    }
-    v12 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "use");
-    v7 = v12 & -0x100 | 1;
-    if v12 as u8 {
-        return v7;
-    }
-    v13 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "birth");
-    v7 = v13 & -0x100 | 3;
-    if v13 as u8 {
-        return v7;
-    }
-    v14 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v3, v4, "creation");
-    v7 = v14 & -0x100 | 3;
-    if v14 as u8 {
-        return v7;
-    }
-    panic!("internal error: entered unreachable code: Invalid field for --time");
 }

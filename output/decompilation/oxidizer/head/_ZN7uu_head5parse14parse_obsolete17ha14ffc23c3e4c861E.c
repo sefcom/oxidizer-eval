@@ -1,58 +1,56 @@
-fn uu_head::parse::parse_obsolete(a0: &struct17, a1: u64, a2: u32) -> u64 {
-    let v0: u64;  // [sp-0x60], Other Possible Types: struct8
-    let v1: u64;  // [sp-0x58]
-    let v2: void*;  // [sp-0x50]
-    let v3: u64;  // [sp-0x48]
-    let v4: struct8;  // [sp-0x40]
-    let v5: u8;  // [sp-0x38]
-    let v7: u32;  // edx
-    let v8: struct8;  // rax
-    let v10: u32;  // r12d
-    let v11: struct8;  // r13
-    let v12: struct8;  // rax
+fn uu_head::parse::parse_obsolete(a1: i64, a2: i64) -> Option<struct17> {
+    let a0: u64;  // rsi
+    let v0: u192;  // [bp-0x60]
+    let v1: u64;  // [bp-0x48]
+    let v2: u64;  // [bp-0x40]
+    let v3: struct49;  // [bp-0x38]
+    let v5: u32;  // edx
+    let v6: core::option::Option<(usize, char)>;  // rax, Other Possible Types: &str
+    let v7: core::option::Option<(usize, char)>;  // rax
+    let v8: i64;  // rdi
+    let v9: u32;  // r12d
+    let v10: core::option::Option<(usize, char)>;  // rax
+    let v11: u32;  // r12d
+    let v12: u64;  // rdi
+    let v14: &str;  // rax:rdx
 
-    v2 = 0;
-    v0 = a1;
-    v1 = a1 + a2;
-    v0 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next();
-    if v7 != 45 {
-        return struct8 {
-            field_0: 0
-        };
-    }
-    v8 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next();
-    if v7 - 48 <= 9 {
-        if v7 == 0x110000 {
-            v10 = 0;
-        } else {
-            v11 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next();
-            v10 = v7;
-            if v7 - 48 <= 9 {
-                v12 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next();
-                if v7 == 0x110000 {
-LABEL_4be355:
-                    v10 = 0;
-                    v8 = v11;
-                } else {
-                    v10 = v7;
-                    loop {
-                        v8 = v11;
-                        v11 = v12;
-                        if v10 - 48 >= 10 {
-                            break;
-                        }
-                        v12 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next();
-                        v10 = v7;
-                        if v7 == 0x110000 {
-                            goto LABEL_4be355;
-                        }
+    v0 = core::str::iter::CharIndices {
+        front_offset: a0
+        iter: core::str::iter::Chars {
+            iter: core::slice::iter::Iter<u8> {
+                ptr: core::ptr::non_null::NonNull<u8> {
+                    pointer: a0 + a1
+                }
+                end_or_len: 0
+                _marker: core::marker::PhantomData<&u8> { }
+            }
+        }
+    };
+    <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0);
+    if v5 == 45 {
+        v6 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64;
+        if v5 - 48 <= 9 {
+            v7 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64;
+            if v5 != 0x110000 {
+                v6 = v7;
+                if v9 - 48 <= 9 {
+                    v10 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64;
+                    if v5 != 0x110000 {
+                        do {
+                            v9 = v11;
+                            v6 = v10;
+                        } while (v9 - 48 < 10 && (v10 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64, v11 = v5, v11 != 0x110000));
                     }
                 }
             }
+            v1 = 1;
+            v2 = v6;
+            v3 = 0;
+            v14 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeInclusive<usize>>::index(&v1, a0, a1);
+            uu_head::parse::process_num_block(v12, v14.data_ptr, a1, v9, &v0);
+            return;
         }
-        v3 = 1;
-        v4 = v8;
-        v5 = 0;
-        uu_head::parse::process_num_block(a0, core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeInclusive<usize>>::index(&v3, a1, a2), a2, v10, &v0);
     }
+    *(v8 as &i64) = 0;
+    return;
 }

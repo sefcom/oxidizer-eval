@@ -1,216 +1,215 @@
-fn uu_sort::merge::merge_without_limit(a0: &struct80, a1: &struct96, a2: u32) -> u64 {
-    let v0: iNone;  // [bp-0x338], Other Possible Types: struct16
-    let v1: iNone;  // [sp-0x318]
-    let v2: i64;  // [sp-0x300], Other Possible Types: struct16, int
-    let v3: i64;  // [sp-0x2f8]
-    let v4: i64;  // [sp-0x2f0], Other Possible Types: int, struct16
-    let v5: i64;  // [sp-0x2e0]
-    let v6: i64;  // [sp-0x2d8]
-    let v7: i64;  // [sp-0x2d0]
-    let v8: iNone;  // [sp-0x2c8]
-    let v9: struct128;  // [sp-0x2b8], Other Possible Types: struct120, struct16, int, struct147, struct8, struct32
-    let v10: i64;  // [sp-0x2a8]
-    let v11: i64;  // [sp-0x298]
-    let v12: struct32;  // [sp-0x210], Other Possible Types: int, struct128, Result<struct16, struct8>, struct40, unsigned long, struct120
-    let v13: i64;  // [sp-0x208]
-    let v14: i64;  // [sp-0x200], Other Possible Types: int
-    let v15: i64;  // [sp-0x1f8]
-    let v16: i64;  // [sp-0x1f0]
-    let v17: iNone;  // [sp-0x148], Other Possible Types: struct24
-    let v18: iNone;  // [sp-0x138]
-    let v19: iNone;  // [sp-0x128]
-    let v20: iNone;  // [sp-0x118]
-    let v21: iNone;  // [sp-0x108]
-    let v22: struct24;  // [sp-0xf0], Other Possible Types: struct104
-    let v23: struct24;  // [sp-0xf0]
-    let v24: struct88;  // [sp-0x88]
-    let v25: i64;  // [sp-0x88], Other Possible Types: struct16, int
-    let v26: i64;  // [sp-0x80]
-    let v27: i64;  // [sp-0x78]
-    let v29: iNone;  // xmm0
-    let v30: iNone;  // ymm0
-    let v31: iNone;  // ymm0
-    let v32: iNone;  // xmm1
-    let v33: iNone;  // ymm1
-    let v34: iNone;  // ymm1
-    let v36: iNone;  // ymm2
-    let v38: iNone;  // ymm3
-    let v39: iNone;  // xmm0
-    let v40: iNone;  // xmm0
-    let v41: iNone;  // xmm1
-    let v42: iNone;  // xmm2
-    let v43: iNone;  // xmm3
-    let v44: i64;  // rcx
-    let v45: iNone;  // xmm0
-    let v47: iNone;  // xmm0
-    let v48: iNone;  // xmm1
-    let v49: iNone;  // xmm2
-    let v50: iNone;  // xmm3
-    let v51: iNone;  // xmm1
-    let v59: i64;  // r14
-    let v60: i64;  // rbp
-    let v61: i64;  // r13
-    let v69: iNone;  // xmm0
-    let v70: iNone;  // xmm0
-    let v71: iNone;  // ymm0
-    let v73: i64;  // rsi
-    let v75: i64;  // rax
+fn uu_sort::merge::merge_without_limit(a0: i64, a1: &struct80, a2: i64) {
+    let v0: u64;  // [bp-0x338]
+    let v1: u128;  // [bp-0x338]
+    let v2: i64;  // [bp-0x328]
+    let v3: u8;  // [bp-0x318]
+    let v4: struct128;  // [bp-0x318]
+    let v5: struct128;  // [bp-0x318]
+    let v6: u64;  // [bp-0x308]
+    let v7: struct128;  // [bp-0x300]
+    let v8: void*;  // [bp-0x2f8]
+    let v9: struct56;  // [bp-0x2f0], Other Possible Types: struct32
+    let v10: struct129;  // [bp-0x2e8]
+    let v11: void*;  // [bp-0x2e0]
+    let v12: u64;  // [bp-0x2d8]
+    let v14: u8;  // [bp-0x2c8]
+    let v15: u192;  // [bp-0x2b8], Other Possible Types: struct24
+    let v16: struct16;  // [sp-0x2b8], Other Possible Types: void*, struct32
+    let v17: u64;  // [bp-0x2a8], Other Possible Types: struct16
+    let v18: u8;  // [bp-0x298], Other Possible Types: struct56
+    let v19: u128;  // [bp-0x288]
+    let v20: u128;  // [bp-0x278]
+    let v21: u128;  // [bp-0x268]
+    let v22: u128;  // [bp-0x258]
+    let v23: u448;  // [bp-0x248]
+    let v24: struct24;  // [bp-0x210], Other Possible Types: struct16
+    let v25: u128;  // [bp-0x210]
+    let v26: u128;  // [bp-0x210], Other Possible Types: struct16
+    let v27: u128;  // [bp-0x210]
+    let v28: struct24;  // [bp-0x210]
+    let v29: struct16;  // [bp-0x210]
+    let v30: struct16;  // [bp-0x208], Other Possible Types: struct32
+    let v31: u128;  // [bp-0x208]
+    let v32: u8;  // [bp-0x200], Other Possible Types: struct128
+    let v33: struct32;  // [bp-0x200]
+    let v34: struct128;  // [bp-0x200]
+    let v35: u128;  // [bp-0x200]
+    let v36: u64;  // [bp-0x1f8], Other Possible Types: struct147
+    let v37: u128;  // [bp-0x1f8]
+    let v38: u128;  // [bp-0x1f8]
+    let v39: struct120;  // [bp-0x1f0], Other Possible Types: struct128
+    let v40: struct16;  // [bp-0x1e8], Other Possible Types: struct128
+    let v41: struct16;  // [bp-0x1e8]
+    let v42: u128;  // [bp-0x1e8]
+    let v43: struct24;  // [bp-0x1d8], Other Possible Types: struct32
+    let v44: u8;  // [bp-0x1c8], Other Possible Types: struct16, struct24
+    let v45: struct24;  // [bp-0x1b8]
+    let v46: struct24;  // [bp-0x1b0]
+    let v47: u64;  // [bp-0x1a8]
+    let v48: u128;  // [bp-0x1a8]
+    let v49: struct24;  // [bp-0x1a0]
+    let v50: struct48;  // [bp-0x198], Other Possible Types: struct145
+    let v51: u128;  // [bp-0x148]
+    let v52: u128;  // [bp-0x138]
+    let v53: u128;  // [bp-0x128]
+    let v54: struct32;  // [bp-0x120]
+    let v55: u8;  // [bp-0x110]
+    let v56: u128;  // [bp-0x108]
+    let v57: struct24;  // [bp-0xf0], Other Possible Types: struct104, u64
+    let v58: struct32;  // [bp-0xe8]
+    let v59: u704;  // [bp-0xe0]
+    let v60: void*;  // [bp-0x88], Other Possible Types: u704
+    let v61: struct24;  // [bp-0x80], Other Possible Types: u64
+    let v62: struct24;  // [bp-0x78]
+    let v63: u128;  // [bp-0x70]
+    let v64: u128;  // [bp-0x60]
+    let v67: u32;  // ecx
+    let v68: u128;  // xmm0
+    let v70: u64;  // r8
+    let v71: u64;  // rax
+    let v72: u128;  // xmm0
+    let v73: struct16;  // xmm0
+    let v74: void*;  // rbp
+    let v75: u64;  // rsi
+    let v76: u64;  // r13
+    let v77: u128;  // xmm0
+    let v78: u64;  // rdx
+    let v79: u64;  // rax
+    let v80: u64;  // rsi
+    let v81: u64;  // rax
+    let v82: u128;  // xmm2
+    let v83: u64;  // [bp-0x208]
 
-    v6 = a1;
-    v12 = std::sync::mpmc::channel();
-    v29 = *(&v12.field_0 as &i128);
-    v31 = v30 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v29 as u256;
-    v32 = *(&v12.field_16 as &i128);
-    v34 = v33 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v32 as u256;
-    v1 = v29;
-    v8 = v32;
-    v9 = core::iter::traits::iterator::Iterator::size_hint();
-    v12 = alloc::raw_vec::RawVec<T,A>::try_allocate_in(v9.field_0 as i64, 0);
-    v2 = v13;
-    v2 = v14;
-    v3 = 0;
-    v9 = core::iter::traits::iterator::Iterator::size_hint();
-    v12 = alloc::raw_vec::RawVec<T,A>::try_allocate_in(v9.field_0 as i64, 0);
-    v4 = v13;
-    v4 = v14;
-    v5 = 0;
-    v22 = core::iter::traits::iterator::Iterator::enumerate(a1);
-    v7 = 9223372036854775809;
+    v12 = a1;
+    std::sync::mpmc::channel(a1);
+    memcpy(&v3, &v27, 16);
+    memcpy(&v14, &v32, 16);
+    v16 = core::iter::traits::iterator::Iterator::size_hint();
+    alloc::raw_vec::RawVec<T,A>::try_allocate_in(v16.field_0 as i64, 0, v67);
+    v6 = v83;
+    v7 = v34;
+    v8 = 0;
+    v5 as u128 = core::iter::traits::iterator::Iterator::size_hint();
+    alloc::raw_vec::RawVec<T,A>::try_allocate_in(v16.field_0 as i64, 0, v67);
+    v9 = v83;
+    v10 = v34;
+    v11 = 0;
+    v57 = core::iter::traits::iterator::Iterator::enumerate(a1);
     loop {
-        v14 = v14;
-        v24 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v22);
-        if v26 == v7 {
+        v41 = v40;
+        vvar_744{stack -136} = struct88 OrderedDict({0: 𝜙@64b [((5435245, None), vvar_489{stack -136}), ((5434729, None), None)], 8: 𝜙@64b [((5435245, None), vvar_490{stack -128}), ((5434729, None), None)], 24: 𝜙@128b [((5435245, None), vvar_493{stack -112}), ((5434729, None), None)], 40: 𝜙@128b [((5435245, None), vvar_494{stack -96}), ((5434729, None), None)], 56: 𝜙@128b [((5435245, None), vvar_495{stack -80}), ((5434729, None), None)]})
+        <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v60, &v57);
+        if v61 == 9223372036854775809 {
             break;
         }
-        v39 = v24.field_72;
-        v21 = v39;
-        v40 = v24.field_8;
-        v41 = v24.field_24;
-        v42 = v24.field_40;
-        v43 = v24.field_56;
-        v20 = v43;
-        v19 = v42;
-        v18 = v41;
-        v17 = v40;
-        v12 = std::sync::mpmc::sync_channel(0x2, a2, v44);
-        v45 = *(&v12.field_0 as &i128);
-        v0 = v45;
-        v4 = alloc::vec::Vec<T,A>::push(v14, v15);
-        v47 = (&v17)[8] as i128;
-        v48 = (&v18)[8] as i128;
-        v49 = (&v19)[8] as i128;
-        v50 = (&v20)[8] as i128;
-        v51 = v0 as i128;
-        v12 = struct120 {
-            field_0: v51
-            field_16: v46
-            field_24: v47
-            field_40: v48
-            field_56: v49
-            field_72: v50
-            field_88: (&v21)[8] as i64
-            field_96: 0
-            field_104: 1
-            field_112: 0
-        };
-        v2 = alloc::vec::Vec<T,A>::push(&v12);
-        v9 = uu_sort::chunks::RecycledChunk::new(0x2000);
-        v12 = struct128 {
-            field_0: v24
-            field_8: v30 as u128
-            field_24: v33 as u128
-            field_40: v35 as u128
-            field_56: v37 as u128
-            field_72: v54
-            field_88: v30 as u128
-            field_104: v52
-            field_120: v9.field_112
-        };
-        v31 = (((((((v31 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v39 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v40 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v45 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v47 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v9.field_96 as &i128)) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((&v9.field_72 as &char + 8) as &i128)) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((&v9.field_56 as &char + 8) as &i128)) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v9.field_0;
-        v34 = (((v34 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v41 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v48 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v51 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v9.field_16 as &i128);
-        v36 = ((v36 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v42 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v49 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((&v9.field_24 as &char + 8) as &i128);
-        v38 = ((v38 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v43 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v50 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((&v9.field_40 as &char + 8) as &i128);
-        v9 = std::sync::mpmc::Sender<T>::send(&v1, &v12, v44);
-        core::result::Result<T,E>::unwrap(&v9, "src/uu/sort/src/merge.rs");
-        v14 = v14;
-    }
-    v59 = v3;
-    if v59 {
-        v60 = 0;
-        do {
-            v61 = <usize as core::iter::range::Step>::forward_unchecked(v60);
-            v9 = uu_sort::chunks::RecycledChunk::new(0x2000);
-            v12 = struct128 {
-                field_0: v60
-                field_8: v65
-                field_24: v66
-                field_40: v35 as u128
-                field_56: v68
-                field_72: v64
-                field_88: v30 as u128
-                field_104: v62
-                field_120: v9.field_112
-            };
-            v31 = (((v31 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v9.field_96 as &i128)) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((&v9.field_72 as &char + 8) as &i128)) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((&v9.field_56 as &char + 8) as &i128)) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v9.field_0;
-            v34 = v34 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v9.field_16 as &i128);
-            v36 = v36 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((&v9.field_24 as &char + 8) as &i128);
-            v38 = v38 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((&v9.field_40 as &char + 8) as &i128);
-            v9 = std::sync::mpmc::Sender<T>::send(&v1, &v12, v44);
-            core::result::Result<T,E>::unwrap(&v9, "src/uu/sort/src/merge.rs");
-            v60 = v61;
-        } while (v61 < v59);
-    }
-    v9 = <uu_sort::GlobalSettings as core::clone::Clone>::clone(a2);
-    v69 = v8;
-    v12 = v69;
-    v70 = v2 as i128;
-    v71 = (v31 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v69 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v70 as u256;
-    v14 = v70;
-    v16 = v3;
-    memcpy(&v12, &v9, 160);
-    v10 = 0x8000000000000000;
-    v9 = struct8 {
-        field_0: 0
-    };
-    v22 = std::thread::Builder::spawn_unchecked(&v9, &v12);
-    v17 = core::result::Result<T,E>::expect(&v22);
-    v25 = 0;
-    v25 = 8;
-    v27 = 0;
-    v9 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v4);
-    v11 = 0;
-    v23 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v9);
-    if v23.field_8 == 3 {
-        v9 = v25 as i192;
-        v12 = binary_heap_plus::binary_heap::BinaryHeap<T,C>::from_vec_cmp_raw(&v9, a2, 1);
-        return struct80 {
-            field_0: v1
-            field_16: *(&v12.field_0 as &i128)
-            field_32: v78
-            field_48: v17
-            field_64: v77
-            field_72: 0
-        };
-    }
-    do {
-        *(&v0.field_0 as &struct16) = struct16 {
-            field_0: v72
-            field_8: v23.field_16
-        };
-        v75 = std::sync::mpmc::Receiver<T>::recv(&v0, v73, a2);
-        if v75 {
-            v12 = 1;
-            v13 = 1;
-            v14 = v75;
-            v71 = v71 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v0.field_0;
-            v14 = alloc::boxed::Box<T>::new(&v12);
-            v12 = struct40 {
-                field_0: v76
-                field_16: v14
-                field_24: 0
-                field_32: v74
-            };
-            v25 = alloc::vec::Vec<T,A>::push(&v12);
+        v56 = *((&v60 as &char + 72) as &i128);
+        v68 = *((&v60 as &char + 8) as &i128);
+        memcpy(&v54 as u8, &v60, 16);
+        v53 = v64;
+        v52 = v63;
+        v51 = v68;
+        std::sync::mpmc::sync_channel(0x2, a2, rcx<8>, v70);
+        v1 = *(&v27 as &i128);
+        alloc::vec::Vec<T,A>::push(v34, v36, rcx<8>);
+        v71 = v51;
+        v72 = *((&v51 as &char + 8) as &i128);
+        if v71 == 0x8000000000000000 {
+            *((v2 + 8) as &u128) = v72;
+            *(v2 as &i64) = 3;
+            return;
         }
-    } while ((v23 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v9), v23.field_8 != 3));
+        v45 = *((&v56 as &char + 8) as &i64);
+        memcpy(&v44, &v55, 16);
+        v43 = v54;
+        memcpy(&v40, &v52, 16);
+        v27 = *(&v0 as &i128);
+        v34 = v71;
+        v37 = v72;
+        v46 = 0;
+        v47 = 1;
+        v49 = 0;
+        v24 = alloc::vec::Vec<T,A>::push(a2);
+        uu_sort::chunks::RecycledChunk::new(0x2000, a2);
+        v28 = v60 as i64;
+        v50 = v23 as i64;
+        v48 = v22;
+        memcpy(&v45, &v21, 16);
+        v44 = v20;
+        v73 = v4.field_96;
+        v43 = v19;
+        memcpy(&v40, &v18, 16);
+        v38 = *(&v17 as &i128);
+        v30 = v73;
+        v4 = std::sync::mpmc::Sender<T>::send(&v28, rcx<8>, v70);
+        core::result::Result<T,E>::unwrap(&v5 as u128, "src/uu/sort/src/merge.rs");
+        v40 = v42;
+    }
+    v40 = v41;
+    if v8 {
+        do {
+            v76 = <usize as core::iter::range::Step>::forward_unchecked(v74, v75);
+            uu_sort::chunks::RecycledChunk::new(0x2000, a2);
+            v29 = v74;
+            v50 = v23 as i64;
+            v48 = v22;
+            memcpy(&v45, &v21, 16);
+            v44 = v20;
+            v77 = v5.field_96;
+            v43 = v19;
+            memcpy(&v40, &v18, 16);
+            v37 = *(&v17 as &i128);
+            v31 = v77;
+            v5 = std::sync::mpmc::Sender<T>::send(&v29, rcx<8>, v70);
+            core::result::Result<T,E>::unwrap(&v5 as u128, "src/uu/sort/src/merge.rs");
+            v74 = v76;
+            v40 = v42;
+        } while (v76 < v8);
+    }
+    <uu_sort::GlobalSettings as core::clone::Clone>::clone(a2, v78);
+    v26 = v14;
+    v35 = v5.field_16;
+    v39 = v8;
+    memcpy(&v40, &v5 as u128, 160);
+    v17 = 0x8000000000000000;
+    v16 = 0;
+    v57 = std::thread::Builder::spawn_unchecked(&v16, &v26);
+    v57 = core::result::Result<T,E>::expect(a2);
+    v60 = 0;
+    v61 = 8;
+    v62 = 0;
+    v9 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a2);
+    v18 = 0;
+    v15 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(a2);
+    v79 = v58;
+    if v58 != 3 {
+        do {
+            v0 = struct16 {
+                field_0: v58
+                field_8: v59 as i64
+            };
+            v81 = std::sync::mpmc::Receiver<T>::recv(&v0, v80, a2);
+            if v81 {
+                v24 = 1;
+                v30 = 1;
+                v32 = v81;
+                v33 = alloc::boxed::Box<T>::new(&v24);
+                v36 = 0;
+                v25 = v0;
+                v39 = v57;
+                v26 = alloc::vec::Vec<T,A>::push(a2);
+            }
+            v15 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(a2);
+        } while (v58 != 3);
+    }
+    v17 = 0;
+    memcpy(&v15, &v60, 16);
+    v16 = binary_heap_plus::binary_heap::BinaryHeap<T,C>::from_vec_cmp_raw(a2, 1, v70);
+    *((v2 + 48) as &u128) = v51;
+    *((v2 + 64) as &i64) = v52;
+    v82 = v35;
+    *((v2 + 16) as &u128) = v26;
+    *((v2 + 32) as &u128) = v82;
+    *(v2 as &u128) = v5.field_0;
+    *((v2 + 72) as &i64) = 0;
+    return;
 }

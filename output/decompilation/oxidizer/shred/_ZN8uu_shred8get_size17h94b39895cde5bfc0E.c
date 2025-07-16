@@ -1,18 +1,19 @@
-fn uu_shred::get_size(a0: &u64, a1: u32) -> u64 {
-    let v0: u128;  // [sp-0x28]
-    let v1: u64;  // [sp-0x18]
-    let v3: void*;  // rdi
-    let v4: u64;  // 4096
-    let v5: u64;  // rdx
+fn uu_shred::get_size(a0: i64, a1: i64) -> long long {
+    let v0: u192;  // [bp-0x28]
+    let v2: void*;  // rdi
+    let v3: struct24;  // 4096
+    let v4: struct24;  // rdx
 
-    if *(a0) == 0x8000000000000000 {
-        v3 = 0;
-        v4 = a1;
+    if *(a0 as &i64) == 0x8000000000000000 {
+        v2 = 0;
+        v3 = a1;
     } else {
-        v3 = uu_shred::get_size::{{closure}}(a0[1], a0[2]);
-        v4 = v5;
+        v2 = uu_shred::get_size::{{closure}}(*((a0 + 8) as &i64), *((a0 + 16) as &i64));
+        v3 = v4;
     }
-    v1 = a0[2];
-    v0 = *(&a0 as &i128);
-    return core::option::Option<T>::or_else(v3, v4, &v0);
+    v0 = struct24 {
+        field_0: *(a0 as &i128)
+        field_16: *((a0 + 16) as &i64)
+    };
+    return core::option::Option<T>::or_else(v2, v3, &v0);
 }

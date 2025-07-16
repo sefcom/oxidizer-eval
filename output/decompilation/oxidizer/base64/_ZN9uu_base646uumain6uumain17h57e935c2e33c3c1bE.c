@@ -1,48 +1,26 @@
-fn uu_base64::uumain::uumain(a0: u32, a1: u32) -> u64 {
-    let v0: i64;  // [sp-0x88]
-    let v1: i64;  // [sp-0x80]
-    let v2: iNone;  // [sp-0x78], Other Possible Types: Result<struct34, struct16>, struct24
-    let v3: iNone;  // [sp-0x68]
-    let v4: iNone;  // [sp-0x58]
-    let v5: struct48;  // [sp-0x40]
-    let v10: i64;  // rbx
-    let v11: i64;  // rbx
-    let v13: i64;  // rbx
+fn uu_base64::uumain::uumain(a0: i64, a1: i64) -> long long {
+    let v1: Result<struct42, struct24>;  // [bp-0x78]
+    let v2: u64;  // [bp-0x70]
+    let v3: u64;  // [bp-0x40]
+    let v4: u64;  // [bp-0x38]
+    let v5: u64;  // [bp-0x30]
+    let v7: u64;  // [bp-0x18]
 
-    v2 = uu_base32::base_common::parse_base_cmd_args(a0, a1, "encode/decode data and print to standard output
-With no FILE, or when FILE is -, read standard input.
-
-The data are encoded as described for the base64 alphabet in RFC 3548.
-When decoding, the input may contain newlines in addition
-to the bytes of the formal base64 alphabet. Use --ignore-garbage
-to attempt to recover from any other non-alphabet bytes in the
-encoded stream.", "{} [OPTION]... [FILE]");
-    v10 = *((&v2 as &char + 8) as &i64);
-    match v2 {
+    v1 = uu_base32::base_common::parse_base_cmd_args(a0, a1, "encode/decode data and print to standard output\nWith no FILE, or when FILE is -, read standard input.\n\nThe data are encoded as described for the base64 alphabet in RFC 3548.\nWhen decoding, the input may contain newlines in addition\nto the bytes of the formal base64 alphabet. Use --ignore-garbage\nto attempt to recover from any other non-alphabet bytes in the\nencoded stream.", "{} [OPTION]... [FILE]");
+    match v1 {
         Err(_) => {
-            return v10;
+            return v2;
         },
         Ok(_) => {
-            v5 = struct48 {
-                field_0: v7
-                field_8: v8
-                field_16: v9
-                field_24: *((&v2 as &char + 24) as &i128)
-                field_40: v2 as i64
-            };
-            v2 = uu_base32::base_common::get_input(&v5);
-            v11 = v2.field_8;
-            if !v2.field_0 {
-                v0 = v11;
-                v1 = v2.field_16;
-                v4 = *((&v5.field_24 as &char + 8) as &i128);
-                v3 = *(&v5.field_16 as &i128);
-                v2 = *(&v5.field_0 as &i128);
-                v10 = v13;
-                return v10;
+            v7 = *((&v1 as &char + 40) as &i64);
+            memcpy(&v1 as u8, &v1 as u128, 16);
+            v3 = v1 as i64;
+            v4 = v2;
+            v5 = *((&v1 as &char + 16) as &i64);
+            uu_base32::base_common::get_input(&v1, &v3);
+            if let Ok(_) = v1 {
+                return v2;
             }
-            v10 = v11;
-            return v10;
         },
     }
 }

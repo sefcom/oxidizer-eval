@@ -1,9 +1,6 @@
-fn uu_base32::base_common::fast_decode::write_to_output(a0: &struct8, a1: u32, a2: u32) -> u64 {
-    let v1: u64;  // rax
-
-    v1 = a2->field_38();
-    if !v1 {
-        a0->field_10 = 0;
+fn uu_base32::base_common::fast_decode::write_to_output(a0: i64, a1: i64, a2: i64) -> void {
+    if !*((a2 + 56) as &i64)(a1, *((a0 + 8) as &i64), *((a0 + 16) as &i64), a1) as i64 {
+        *((a0 + 16) as &i64) = 0;
     }
-    return v1;
+    return;
 }

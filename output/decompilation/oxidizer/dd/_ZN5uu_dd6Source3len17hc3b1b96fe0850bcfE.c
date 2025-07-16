@@ -1,16 +1,16 @@
-fn uu_dd::Source::len(a0: &u32) -> u64 {
-    let v0: struct16;  // [sp-0xb0]
-    let v1: i8;  // [bp-0x60]
+fn uu_dd::Source::len(a0: i64) -> long long {
+    let v0: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xb0]
 
-    if *(a0) {
+    if *(a0 as &i32) {
         return 0;
     }
-    v0 = std::fs::File::metadata(a0 + 1);
-    if v0.field_0 as i32 == 2 {
-        return 1;
-    } else if *(&v1 as &i64) >= 9223372036854775807 {
-        return 0;
-    } else {
-        return 0;
+    v0 = std::fs::File::metadata(a0 + 4);
+    match v0 {
+        Ok(_) => {
+            return 0;
+        },
+        Err(_) => {
+            return 1;
+        },
     }
 }

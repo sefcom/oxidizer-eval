@@ -1,47 +1,56 @@
-fn uu_cat::write_fast(a0: &Option<Result<struct25, struct8>>, a1: u32) -> u64 {
-    let <0x4af550[is_2]|Stack bp-0x10030, 1 B>: i64;  // [bp-0x10030]
-    let v0: i64;  // [sp-0x10058]
-    let v1: i64;  // [sp-0x10048]
-    let v2: i64;  // [sp-0x10040]
-    let v3: i64;  // [sp-0x10038]
-    let v4: Result<struct4, struct1>;  // [sp-0x10030]
-    let v6: i64;  // [sp-0x2030]
-    let v12: i64;  // rdx
+fn uu_cat::write_fast() -> int {
+    let v0: std::io::stdio::StderrLock;  // [bp-0x10058]
+    let v1: i64;  // [bp-0x10050]
+    let v2: u64;  // [bp-0x10040]
+    let v3: std::io::stdio::Stdout;  // [bp-0x10038]
+    let v4: u64;  // [bp-0x10030]
+    let v5: u8;  // [bp-0x10028]
+    let v6: i8;  // [bp-0x10027]
+    let v7: u64;  // [bp-0x10020]
+    let v11: u64;  // rsi
+    let v12: u64;  // rcx
+    let v13: u64;  // rdx
+    let v14: i64;  // rdi
+    let v15: u64;  // rdx
+    let v17: core::result::Result<(), std::io::error::Error>;  // rax
+    let v18: core::result::Result<(), std::io::error::Error>;  // rax
+    let v19: i64;  // rdi
+    let v21: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
 
-    do {
-        v6 = 0;
-    } while (&v6 != &<0x4af550[is_2]|Stack bp-0x10030, 1 B>);
     v3 = std::io::stdio::stdout();
     v0 = std::io::stdio::Stderr::lock(&v3);
-    v4 = uu_cat::splice::write_fast_using_splice(a1, &v0);
-    if v4 as i64 != 9223372036854775814 {
-        return Some(struct25 {
-            field_0: v8
-            field_8: v9
-            field_9: v10
-            field_16: <UNKNOWN>
-        });
-    } else if !*((&v4 as &char + 8) as &i8) {
-        return struct8 {
-            field_0: 9223372036854775814
-        };
-    } else {
+    uu_cat::splice::write_fast_using_splice(v11, &v0, v12);
+    if v4 != 9223372036854775814 {
+        v13 = *(&v6 as &i64);
+        *((v1 + 16) as &u64) = v7;
+        *((v1 + 9) as &u64) = v13;
+        *(v1 as &u64) = v4;
+        *((v1 + 8) as &u8) = v5;
+    } else if v5 {
         memset(&v4, 0, 0x10000);
-        loop {
-            v1 = <std::io::stdio::Stdin as std::io::Read>::read(a1, &v4, 0x10000);
-            v2 = v12;
-            if !(!v1) || !(v12) {
-                break;
+        do {
+            v21 = <std::io::stdio::Stdin as std::io::Read>::read(v11, &v4, 0x10000);
+            v2 = *((&v21 as &char + 8) as &i64);
+            if v21 as i64 || !*((&v21 as &char + 8) as &i64) {
+                v18 = <std::io::stdio::StdoutLock as std::io::Write>::flush(&v0);
+                match v18 {
+                    Ok(_) => {
+                        *(v19 as &i64) = 9223372036854775814;
+                        return;
+                    },
+                    Err(_) => {
+                        *(v1 as &i64) = 0x8000000000000000;
+                        *((v1 + 8) as &core::result::Result<(), std::io::error::Error>) = v18;
+                        return;
+                    },
+                }
             }
-        }
-        if <std::io::stdio::StdoutLock as std::io::Write>::flush(&v0) {
-            return struct16 {
-                field_0: 0x8000000000000000
-                field_8: v13
-            };
-        }
-        return struct8 {
-            field_0: 9223372036854775814
-        };
+            v17 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(*((&v21 as &char + 8) as &i64), &v4, 0x10000, "src/uu/cat/src/cat.rs"), v15);
+        } while (!v17);
+        *(v1 as &i64) = 0x8000000000000000;
+        *((v1 + 8) as &core::result::Result<(), std::io::error::Error>) = v17;
+    } else {
+        *(v14 as &i64) = 9223372036854775814;
     }
+    return;
 }

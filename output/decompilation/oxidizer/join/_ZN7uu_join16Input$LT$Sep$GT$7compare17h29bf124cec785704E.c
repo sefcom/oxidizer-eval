@@ -1,38 +1,40 @@
-fn uu_join::Input<Sep>::compare(a0: u8, a1: void*, a2: u32, a3: void*, a4: u32) -> u64 {
-    let v0: u64;  // [sp-0x28]
-    let v1: u64;  // [sp-0x20]
-    let v2: u64;  // [sp-0x18]
-    let v3: u64;  // [sp-0x10]
-    let v4: u64;  // [sp-0x8]
-    let v6: u64;  // rbx
-    let v9: u64;  // r8
-    let v10: u64;  // cc_ndep
-    let v11: u64;  // rax
-    let v13: u64;  // rbx
-    let v14: u64;  // rax
+fn uu_join::Input<Sep>::compare(a0: i8, a1: i64, a2: i64, a3: i64, a4: i64) -> long long {
+    let v0: u128;  // [bp-0x28]
+    let v1: u128;  // [bp-0x18]
+    let v2: u64;  // [bp-0x8]
+    let v4: u64;  // rbx
+    let v5: u64;  // rbx
+    let v6: struct8;  // 4096
+    let v7: u64;  // rax
+    let v8: u64;  // rax
 
     if !(a1 && a3) {
         return (!a1 ? -(0 < a3) : 1);
     }
-    v4 = v6;
+    v2 = v4;
     if a0 {
-        v0 = a1;
-        v1 = a2;
-        v2 = a3;
-        v3 = a4;
-        return <uu_join::CaseInsensitiveSlice as core::cmp::Ord>::cmp(&v0, &v2);
+        v0 = struct16 {
+            field_0: a1
+            field_8: a2
+        };
+        v1 = struct16 {
+            field_0: a3
+            field_8: a4
+        };
+        return <uu_join::CaseInsensitiveSlice as core::cmp::Ord>::cmp(&v0, &v1);
     }
+    v5 = a2 - a4;
     if a2 < a4 {
-        v9 = a2;
+        v6 = a2;
     } else {
-        v9 = a4;
+        v6 = a4;
     }
-    v11 = memcmp(a1, a3, v9) as u32;
-    if v6 {
-        v13 = v11;
+    v7 = memcmp(a1, a3, v6);
+    if v7 {
+        v8 = v7;
     } else {
-        v13 = a2 - a4;
+        v8 = v5;
     }
-    v14 = (amd64g_calculate_condition(9, 20, v13, 0, v10) as char ? v13 : 255);
-    return v14;
+    return (v8 >= 0 ? v8 : 255);
+    return (!a1 ? -(0 < a3) : 1);
 }

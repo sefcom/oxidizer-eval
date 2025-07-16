@@ -1,172 +1,182 @@
-fn uu_env::make_options(a0: &struct160, a1: u32) -> u64 {
-    let v0: i8;  // [sp-0x269]
-    let v1: struct64;  // [sp-0x268], Other Possible Types: struct56, Result<struct16, struct1>, int
-    let v2: iNone;  // [sp-0x258]
-    let v3: iNone;  // [sp-0x248]
-    let v4: iNone;  // [sp-0x238]
-    let v5: i64;  // [sp-0x210], Other Possible Types: int, struct24
-    let v6: i64;  // [sp-0x200], Other Possible Types: struct24
-    let v7: i64;  // [sp-0x1f8]
-    let v8: i64;  // [sp-0x1f0]
-    let v9: Result<struct16, struct8>;  // [sp-0x1e8], Other Possible Types: struct56, int
-    let v10: i64;  // [sp-0x1d8]
-    let v11: struct24;  // [sp-0x1d0]
-    let v12: i64;  // [sp-0x1b8]
-    let v13: i64;  // [sp-0x1b0]
-    let v14: iNone;  // [sp-0x1a8]
-    let v15: i64;  // [sp-0x198]
-    let v16: i64;  // [sp-0x190]
-    let v17: i64;  // [sp-0x188]
-    let v18: i64;  // [sp-0x180]
-    let v19: i64;  // [sp-0x178]
-    let v20: i64;  // [sp-0x170]
-    let v21: i64;  // [sp-0x168]
-    let v22: i64;  // [sp-0x160]
-    let v23: i64;  // [sp-0x158]
-    let v24: i8;  // [sp-0x150]
-    let v25: i8;  // [sp-0x14f]
-    let v26: struct64;  // [sp-0x138], Other Possible Types: int
-    let v27: iNone;  // [sp-0x128]
-    let v28: iNone;  // [sp-0x118]
-    let v29: iNone;  // [sp-0x108]
-    let v30: struct64;  // [sp-0xf8]
-    let v31: struct64;  // [sp-0xb8]
-    let v32: struct64;  // [sp-0x78]
-    let v34: i64;  // r13
-    let v36: i64;  // rax
-    let v40: i64;  // rax
-    let v41: i64;  // rcx
-    let v42: struct8;  // rax
-    let v43: i64;  // rax
-    let v44: i64;  // rdx
-    let v45: i8;  // bl
-    let v46: i64;  // r13
-    let v47: i64;  // rax
-    let v48: i64;  // rcx
-    let v49: struct8;  // rax
-    let v50: i64;  // rax
+fn uu_env::make_options(a0: i64, a1: i64) -> long long {
+    let v0: u8;  // [bp-0x269]
+    let v1: struct64;  // [bp-0x268]
+    let v2: u128;  // [bp-0x268]
+    let v3: u128;  // [bp-0x268]
+    let v5: u128;  // [bp-0x258]
+    let v6: u128;  // [bp-0x248]
+    let v7: u128;  // [bp-0x238], Other Possible Types: struct437
+    let v9: u64;  // [bp-0x218]
+    let v11: void*;  // [bp-0x208]
+    let v12: struct24;  // [bp-0x200]
+    let v14: void*;  // [bp-0x1f0]
+    let v15: Result<struct40, struct16>;  // [bp-0x1e8], Other Possible Types: u64
+    let v16: Result<struct16, struct9>;  // [bp-0x1e8]
+    let v18: u64;  // [bp-0x1d8]
+    let v19: u64;  // [bp-0x1c0]
+    let v20: void*;  // [bp-0x1b8]
+    let v21: u64;  // [bp-0x1b0]
+    let v22: u128;  // [bp-0x1a8]
+    let v23: u64;  // [bp-0x198]
+    let v24: void*;  // [bp-0x190]
+    let v25: void*;  // [bp-0x188]
+    let v26: u64;  // [bp-0x180]
+    let v27: void*;  // [bp-0x178]
+    let v28: u64;  // [bp-0x170]
+    let v29: u64;  // [bp-0x168]
+    let v30: struct24;  // [bp-0x160]
+    let v31: struct24;  // [bp-0x158]
+    let v32: u8;  // [bp-0x150]
+    let v33: u8;  // [bp-0x14f]
+    let v34: i64;  // [bp-0x140]
+    let v35: struct64;  // [bp-0x138], Other Possible Types: u128
+    let v36: u128;  // [bp-0x128]
+    let v37: u128;  // [bp-0x118]
+    let v38: u128;  // [bp-0x108]
+    let v39: struct64;  // [bp-0xf8]
+    let v40: u128;  // [bp-0xe8]
+    let v41: u128;  // [bp-0xd8]
+    let v42: u128;  // [bp-0xc8]
+    let v43: u8;  // [bp-0xb8]
+    let v44: u128;  // [bp-0xa8]
+    let v45: u128;  // [bp-0x98]
+    let v46: struct437;  // [bp-0x88]
+    let v47: u8;  // [bp-0x78]
+    let v48: u128;  // [bp-0x68]
+    let v49: u128;  // [bp-0x58]
+    let v50: struct437;  // [bp-0x48]
+    let v52: void*;  // r13
+    let v53: u8;  // bl
+    let v55: u64;  // rbp
+    let v56: u32;  // ecx
+    let v57: struct24;  // rax
+    let v58: struct24;  // rcx
+    let v59: i64;  // rax
+    let v60: u64;  // rax
+    let v61: u64;  // rdx
+    let v62: u8;  // bl
+    let v63: i64;  // r13
+    let v64: u64;  // rdx
+    let v65: u64;  // r8
+    let v66: i64;  // rax
+    let v67: u64;  // rax
+    let v69: u64;  // [bp-0x260]
 
     v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "ignore-environment") as i8;
-    v34 = 0;
-    v9 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "chdir");
-    v36 = clap_builder::parser::error::MatchesError::unwrap("chdir", &v9);
-    if v36 {
-        v34 = *((v36 + 8) as &i64);
-    }
-    v9 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(a1, "file");
-    v1 = clap_builder::parser::error::MatchesError::unwrap("file", &v9);
+    v53 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "null") as i8 ? 0 : 10);
+    v16 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "chdir");
+    clap_builder::parser::error::MatchesError::unwrap("chdir", &v16);
+    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v16, a1, "file");
+    v1 = clap_builder::parser::error::MatchesError::unwrap("file", &v16);
     if v1.field_0 as i64 {
-        v31 = v1;
-        v5 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v31);
+        v46 = v7;
+        v45 = v6;
+        v44 = v5;
+        memcpy(&v43, &v1, 16);
+        v9 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v43);
     } else {
-        v9 = alloc::raw_vec::RawVec<T,A>::try_allocate_in(None, 0);
-        v5 = *((&v9 as &char + 8) as &i64);
-        v5 = v10;
-        v5 = 0;
+        alloc::raw_vec::RawVec<T,A>::try_allocate_in(None, 0, v56);
     }
-    v9 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(a1, "unset");
-    v1 = clap_builder::parser::error::MatchesError::unwrap("unset", &v9);
+    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v15, a1, "unset");
+    v1 = clap_builder::parser::error::MatchesError::unwrap("unset", &v15);
     if v1.field_0 as i64 {
-        v32 = v1;
-        v6 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v32);
+        v50 = v7;
+        v49 = v6;
+        v48 = v5;
+        memcpy(&v47, &v1, 16);
+        v12 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v47);
     } else {
-        v9 = alloc::raw_vec::RawVec<T,A>::try_allocate_in(None, 0);
-        v6 = *((&v9 as &char + 8) as &i64);
-        v7 = v10;
-        v8 = 0;
+        alloc::raw_vec::RawVec<T,A>::try_allocate_in(None, 0, v56);
     }
-    v9 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "argv0");
-    v40 = clap_builder::parser::error::MatchesError::unwrap("argv0", &v9);
-    if v40 {
-        v41 = *((v40 + 8) as &i64);
-        v40 = *((v40 + 16) as &i64);
-    } else {
-        v41 = 0;
-    }
-    v10 = v5;
-    v9 = v5 as i128;
-    v11 = v6;
-    v24 = v0;
-    v25 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "null") as i8 ? 0 : 10);
-    v20 = v34;
-    v21 = *((v36 + 16) as &i64);
-    v12 = 0;
-    v13 = 8;
-    v14 = 0;
-    v15 = 8;
-    v16 = 0;
-    v22 = v41;
-    v23 = v40;
-    v17 = 0;
-    v18 = 8;
-    v19 = 0;
-    v1 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(a1, "ignore-signal");
-    v26 = clap_builder::parser::error::MatchesError::unwrap("ignore-signal", &v1);
-    if v26.field_0 as i64 {
-        v1 = v26;
+    v15 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "argv0");
+    clap_builder::parser::error::MatchesError::unwrap("argv0", &v15);
+    v18 = v11;
+    memcpy(&v15, &v9, 16);
+    memcpy(&v15, &v12, 16);
+    v19 = v14;
+    v32 = v0;
+    v33 = v53;
+    v28 = v52;
+    v29 = v55;
+    v20 = 0;
+    v21 = 8;
+    v22 = 0;
+    v23 = 8;
+    v24 = 0;
+    v30 = v58;
+    v31 = v57;
+    v25 = 0;
+    v26 = 8;
+    v27 = 0;
+    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v1, a1, "ignore-signal");
+    v35 = clap_builder::parser::error::MatchesError::unwrap("ignore-signal", &v1);
+    if v35.field_0 as i64 {
+        v7 = v38;
+        v6 = v37;
+        v5 = v36;
+        v2 = v35.field_0;
         loop {
-            v42 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next();
-            if !v42 {
+            v59 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next(&v1);
+            if !v59 {
                 break;
             }
-            v43 = uu_env::parse_signal_opt(&v9, *((v42 + 8) as &i64), *((v42 + 16) as &i64));
-            if v43 {
-                *((a0 + 8) as &unsigned long) = v43;
-                *((a0 + 16) as &unsigned long) = v44;
-                return a0;
+            v60 = uu_env::parse_signal_opt(&v15, *((v59 + 8) as &i64), *((v59 + 16) as &i64));
+            if v60 {
+                *((v34 + 8) as &u64) = v60;
+                *((v34 + 16) as &u64) = v61;
+                *(v34 as &i64) = 0x8000000000000000;
+                return v34;
             }
         }
     }
-    v1 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(a1, "vars");
-    v30 = clap_builder::parser::error::MatchesError::unwrap("vars", &v1);
-    if v30.field_0 as i64 {
-        v26 = v30;
-        v45 = 0;
+    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v1, a1, "vars");
+    v39 = clap_builder::parser::error::MatchesError::unwrap("vars", &v1);
+    if v39.field_0 as i64 {
+        v38 = v42;
+        v37 = v41;
+        v36 = v40;
+        memcpy(stack_base + -312, stack_base + -248, 16);
         loop {
-            v46 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next(&v26);
-            if !v46 {
+            v63 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next(&v35);
+            if !v63 {
                 break;
             }
-            if !<std::ffi::os_str::OsString as core::cmp::PartialEq<str>>::eq(*((v46 + 8) as &i64), *((v46 + 16) as &i64)) as i8 {
-                v1 = uu_env::parse_name_value_opt(&v9, *((v46 + 8) as &i64), *((v46 + 16) as &i64));
-                v47 = v1 as i64;
-                match v1 {
-                    Ok(_) => {
-                        v48 = *((&v1 as &char + 8) as &i64);
-                        *((a0 + 8) as &unsigned long) = v47;
-                        *((a0 + 16) as &unsigned long) = v48;
-                        return a0;
-                    },
-                    Err(v45) => {
-                    },
-                }
-                if (v45 & 1) {
+            if <std::ffi::os_str::OsString as core::cmp::PartialEq<str>>::eq(*((v63 + 8) as &i64), *((v63 + 16) as &i64), v64) {
+                v32 = 1;
+                if (v62 & 1) {
                     break;
                 }
             } else {
-                v24 = 1;
-                if (v45 & 1) {
+                v16 = uu_env::parse_name_value_opt(*((v63 + 8) as &i64), *((v63 + 16) as &i64), v65);
+                if v1.field_0 as i64 {
+                    *((v34 + 8) as &i64) = v1.field_0;
+                    *((v34 + 16) as &u64) = v69;
+                    *(v34 as &i64) = 0x8000000000000000;
+                    return v34;
+                }
+                if (v62 & 1) {
                     break;
                 }
             }
         }
-        v4 = v29;
-        v3 = v28;
-        v2 = v27;
-        v1 = v26;
+        v7 = v38;
+        v6 = v37;
+        v5 = v36;
+        v3 = v35;
         loop {
-            v49 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next();
-            if !v49 {
+            v66 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next(&v1);
+            if !v66 {
                 break;
             }
-            v50 = uu_env::parse_program_opt(&v9, *((v49 + 8) as &i64), *((v49 + 16) as &i64));
-            if v50 {
-                *((a0 + 8) as &unsigned long) = v50;
-                *((a0 + 16) as &&i64) = &g_548840;
-                return a0;
+            v67 = uu_env::parse_program_opt(&v15, *((v66 + 8) as &i64), *((v66 + 16) as &i64));
+            if v67 {
+                *((v34 + 8) as &u64) = v67;
+                *((v34 + 16) as &&u8) = &g_548840;
+                *(v34 as &i64) = 0x8000000000000000;
+                return v34;
             }
         }
     }
-    memcpy(a0, &v9, 160);
-    return a0;
+    memcpy(v34, &v15, 160);
+    return v34;
 }

@@ -1,11 +1,14 @@
-fn uu_env::string_parser::StringParser::peek_chunk(a0: &Option<struct16>, a1: void*) -> u64 {
-    let v0: struct32;  // [sp-0x28]
+fn uu_env::string_parser::StringParser::peek_chunk(a1: i64) -> : struct24 {
+    let a0: i64;  // rdi
+    let v1: i8;  // [bp-0x20]
+    let v3: u32;  // ecx
+    let v5: struct9;  // rax
+    let v6: u64;  // rax
 
-    v0 = uu_env::string_parser::StringParser::get_chunk_with_length_at(a1, *(&a1->field_20 as &i64));
-    if !v0.field_0 {
-        *(&(&a0->padding_0)[1] as &i128) = *(&v0.field_8 as &i128);
-    }
-    return struct8 {
-        field_0: v2
+    uu_env::string_parser::StringParser::get_chunk_with_length_at(a1, *((a1 + 32) as &i64), v3);
+    v5 = 1;
+    return struct32 {
+        field_0: v6
+        field_8: <UNKNOWN>
     };
 }

@@ -1,15 +1,81 @@
 {
   "decompilation": {
-    "_ZN8uu_cksum6uumain17he6c7166d5a8d1f1fE": "fn uu_cksum::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: String;  // [sp-0x48]\n    let v4: String;  // [sp-0x28]\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v6 = uu_cksum::uumain::uumain(a0, a1);\n    if !v6 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v6;\n    v4 = format!(\"{}\", &v0);\n    v3 = v4;\n    if v3 == \"\" {\n        v2 = v7;\n        show_error!(\"{}\", &v3);\n    }\n    if !*((v7 + 104) as &i64)() {\n        return *((v7 + 96) as &i64)();\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v7;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n}\n",
-    "_ZN8uu_cksum6uumain6uumain17hf3578f9fe0c3201cE": "fn uu_cksum::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i8;  // [sp-0x3da]\n    let v1: i8;  // [sp-0x3d9]\n    let v2: struct16;  // [bp-0x3d8], Other Possible Types: unsigned long, int\n    let v3: i64;  // [sp-0x3d0]\n    let v4: i64;  // [sp-0x3c8]\n    let v5: i64;  // [sp-0x3c0]\n    let v6: i64;  // [sp-0x3b0]\n    let v7: i64;  // [sp-0x3a8]\n    let v8: iNone;  // [sp-0x3a0]\n    let v9: iNone;  // [sp-0x390]\n    let v10: i64;  // [sp-0x380]\n    let v11: i64;  // [sp-0x378], Other Possible Types: char, struct64\n    let v12: i64;  // [sp-0x370]\n    let v13: i8;  // [sp-0x368], Other Possible Types: unsigned long\n    let v14: iNone;  // [sp-0x360]\n    let v15: i8;  // [bp-0x358]\n    let v16: i8;  // [bp-0x348]\n    let v17: i64;  // [sp-0x338], Other Possible Types: Result<struct40, struct8>, struct56, struct712\n    let v18: struct24;  // [sp-0x338], Other Possible Types: int, Result<struct40, struct8>\n    let v19: i64;  // [sp-0x330]\n    let v20: i64;  // [sp-0x328]\n    let v21: i64;  // [sp-0x320]\n    let v22: i64;  // [sp-0x318]\n    let v23: i64;  // [sp-0x310]\n    let v24: i64;  // [sp-0x308]\n    let v25: i8;  // [sp-0x300]\n    let v26: i8;  // [sp-0x2ff]\n    let v27: i8;  // [sp-0x2fe]\n    let v28: i8;  // [sp-0x2fd]\n    let v29: struct64;  // [sp-0x70]\n    let v31: i64;  // r15\n    let v32: i8;  // bpl\n    let v33: i64;  // rax\n    let v34: i64;  // rax\n    let v35: i64;  // rbx\n    let v37: i64;  // r13\n    let v38: i8;  // r14b\n    let v39: i64;  // r12\n    let v40: i64;  // rdx\n    let v41: i64;  // rax\n    let v42: i64;  // rdx\n\n    v17 = uu_cksum::uu_app();\n    clap_builder::builder::command::Command::try_get_matches_from(&v11, &v17, a0, a1);\n    if v6 == 0x8000000000000000 {\n        v31 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v7);\n        return v31;\n    }\n    v10 = *(&v16 as &i64);\n    v9 = *(&v15 as &i128);\n    v8 = *(&v13 as &i128);\n    v6 = v11;\n    v7 = v12;\n    v32 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"check\") as i32;\n    v17 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v6, \"algorithm\");\n    v33 = clap_builder::parser::error::MatchesError::unwrap(\"algorithm\", &v17);\n    if v33 {\n        *(&v2 as &i128) = *((v33 + 8) as &i128);\n        if !(<T as core::slice::cmp::SliceContains>::slice_contains(&v2, \"bsd\", 3) as i8 & v32) {\n            goto LABEL_580869;\n        }\n    } else if !v32 {\n        v2 = struct16 {\n            field_0: &g_455663\n            field_8: 3\n        };\n        <T as core::slice::cmp::SliceContains>::slice_contains(&v2, \"bsd\", 3);\n        goto LABEL_580869;\n    } else {\n        v2 = struct16 {\n            field_0: 1\n            field_8: 0\n        };\n        if !<T as core::slice::cmp::SliceContains>::slice_contains(&v2, \"bsd\", 3) as i8 {\nLABEL_580869:\n            v18 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v6, \"length\");\n            v34 = clap_builder::parser::error::MatchesError::unwrap(\"length\", &v18);\n            if !v34 {\n                v35 = 0;\n                goto LABEL_580903;\n            } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v2, v3, \"blake2b\") as i8 {\n                v18 = uucore::features::checksum::calculate_blake2b_length(*(v34 as &i64));\n                v35 = v19;\n                if v17 {\n                    v31 = v35;\n                    return v31;\n                }\nLABEL_580903:\n                v4 = v20;\n                if !v32 {\n                    uu_cksum::handle_tag_text_binary_flags(&v18, &v6);\n                    v31 = v17;\n                    if v31 {\n                        return v31;\n                    }\n                    v0 = (&v18)[8] as i8;\n                    v1 = (&v18)[9] as i8;\n                    v17 = uucore::features::checksum::detect_algo(v2, v3, v35, v4);\n                    v37 = v17;\n                    v31 = v19;\n                    if !v37 {\n                        return v31;\n                    }\n                    v14 = *((&v17 as &char + 24) as &i128);\n                    v11 = v37;\n                    v12 = v31;\n                    v13 = v20;\n                    v38 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"zero\") as i8 ? 0 : 10);\n                    if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"raw\") as i8 {\n                        clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"base64\");\n                    }\n                    v5 = <alloc::boxed::Box<F,A> as core::ops::function::Fn<Args>>::call(&v13);\n                    v39 = (&v14)[8] as i64;\n                    v17 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v6, \"file\");\n                    v29 = clap_builder::parser::error::MatchesError::unwrap(\"file\", &v17);\n                    if !v29.field_0 as i64 {\n                        v17 = v35;\n                        v19 = v4;\n                        v20 = v37;\n                        v21 = v31;\n                        v22 = v5;\n                        v23 = v42;\n                        v24 = v39;\n                        v25 = v0;\n                        v26 = v1;\n                        v27 = 1;\n                        v28 = v38;\n                        v41 = uu_cksum::cksum();\n                    } else {\n                        v17 = v35;\n                        v19 = v4;\n                        v20 = v37;\n                        v21 = v31;\n                        v22 = v5;\n                        v23 = v40;\n                        v24 = v39;\n                        v25 = v0;\n                        v26 = v1;\n                        v27 = 1;\n                        v28 = v38;\n                        v41 = uu_cksum::cksum(&v17, &v29);\n                    }\n                    v31 = v41;\n                    if v41 {\n                        return v31;\n                    }\n                    return 0;\n                } else {\n                    v1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"strict\") as i8;\n                    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"status\") as i8;\n                    clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"warn\");\n                    clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"ignore-missing\");\n                    clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"quiet\");\n                    if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"text\") as i32 && !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"binary\") as i32 {\n                        v17 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v6, \"file\");\n                        v11 = clap_builder::parser::error::MatchesError::unwrap(\"file\", &v17);\n                        core::option::Option<T>::map_or_else(&v17, &v11);\n                        return v31;\n                    }\n                }\n            }\n        }\n    }\n    v31 = alloc::boxed::Box<T>::new(12);\n    return v31;\n}\n",
-    "_ZN8uu_cksum9had_reset17h64707811948cf7faE": "fn uu_cksum::had_reset(a0: u32, a1: u32) -> u64 {\n    let v0: struct16;  // [sp-0x40], Other Possible Types: u64\n    let v1: u64;  // [sp-0x38]\n    let v7: u64;  // rdx\n\n    v0 = a0;\n    v1 = a0 + a1 * 24;\n    v0 = struct16 {\n        field_0: a0\n        field_8: v3\n    };\n    v0 = struct16 {\n        field_0: a0\n        field_8: v3\n    };\n    if <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::position() != 1 {\n        return 0;\n    } else if <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::position(&v0) != 1 {\n        return 0;\n    } else if <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::position(&v0) != 1 {\n        return 0;\n    } else if v7 >= v7 {\n        return 0;\n    } else {\n        return v7 < v7;\n    }\n}\n",
-    "_ZN8uu_cksum28handle_tag_text_binary_flags17h54d38c67ed693625E": "fn uu_cksum::handle_tag_text_binary_flags(a0: u32, a1: u32) -> u64 {\n    let v0: struct24;  // [sp-0x60]\n    let v1: i8;  // [bp-0x48]\n    let v3: i8;  // bpl\n    let v4: i8;  // r14b\n    let v5: i8;  // al\n\n    v3 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"untagged\") as i32;\n    v4 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"tag\") as i32;\n    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"binary\") as i32;\n    std::env::args_os();\n    v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v1);\n    return a0;\n}\n",
-    "_ZN8uu_cksum6uu_app17hbfb998c9a541210bE": "fn uu_cksum::uu_app(a0: &struct712) -> u64 {\n    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct24\n    let v1: i32;  // [sp-0x800]\n    let v2: i32;  // [sp-0x7fc]\n    let v3: struct592;  // [sp-0x7f8], Other Possible Types: struct712, struct437\n    let v4: i64;  // [sp-0x53c]\n    let v5: i32;  // [sp-0x534]\n    let v6: struct592;  // [sp-0x530], Other Possible Types: struct712\n    let v7: struct592;  // [sp-0x268], Other Possible Types: struct24, struct8\n    let v8: i64;  // [sp-0x260]\n    let v10: i64;  // rdx\n\n    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);\n    v6 = clap_builder::builder::command::Command::version(&v3, \"0.0.28\");\n    v3 = clap_builder::builder::command::Command::about(&v6, \"Print CRC and size for each file\");\n    v0 = uucore::format_usage(\"{} [OPTIONS] [FILE]...\");\n    v6 = clap_builder::builder::command::Command::override_usage(&v3, &v0);\n    memcpy(&v3, &v6, 700);\n    v4 = 584115552392 | *((&v6.field_0 as &char + 700) as &i64);\n    v5 = *((&v6.field_0 as &char + 708) as &i32);\n    v6 = clap_builder::builder::arg::Arg::new(\"file\");\n    memcpy(&v0, &v6, 584);\n    v1 = *((&v6.field_0 as &char + 584) as &i32) | 4;\n    v2 = *((&v6.field_0 as &char + 588) as &i32);\n    v6 = clap_builder::builder::arg::Arg::action(&v0, 0x1);\n    v7 = struct8 {\n        field_0: 2\n    };\n    v0 = clap_builder::builder::arg::Arg::value_parser(&v6, &v7);\n    v7 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    v6 = clap_builder::builder::command::Command::arg(&v3, &v7);\n    v3 = clap_builder::builder::arg::Arg::new(\"algorithm\");\n    v0 = clap_builder::builder::arg::Arg::long(&v3, \"algorithm\");\n    v3 = clap_builder::builder::arg::Arg::short(&v0, 0x61);\n    v0 = clap_builder::builder::arg::Arg::help(&v3, \"select the digest type to use. See DIGEST below\");\n    v3 = clap_builder::builder::arg::Arg::value_name(&v0);\n    memcpy(&v7, \"sysv\", 240);\n    v0 = clap_builder::builder::arg::Arg::value_parser(&v3, &v7);\n    v3 = clap_builder::builder::command::Command::arg(&v6, &v0);\n    v6 = clap_builder::builder::arg::Arg::new(\"untagged\");\n    v0 = clap_builder::builder::arg::Arg::long(&v6, \"untagged\");\n    v6 = clap_builder::builder::arg::Arg::help(&v0, \"create a reversed style checksum, without digest type\");\n    v0 = clap_builder::builder::arg::Arg::action(&v6, 0x2);\n    v7 = clap_builder::builder::arg::Arg::overrides_with(&v0, \"tag\");\n    v6 = clap_builder::builder::command::Command::arg(&v3, &v7);\n    v3 = clap_builder::builder::arg::Arg::new(\"tag\");\n    v0 = clap_builder::builder::arg::Arg::long(&v3, \"tag\");\n    v3 = clap_builder::builder::arg::Arg::help(&v0, \"create a BSD style checksum, undo --untagged (default)\");\n    v0 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v7 = clap_builder::builder::arg::Arg::overrides_with(&v0, \"untagged\");\n    v3 = clap_builder::builder::command::Command::arg(&v6, &v7);\n    v6 = clap_builder::builder::arg::Arg::new(\"length\");\n    v0 = clap_builder::builder::arg::Arg::long(&v6, \"length\");\n    *(&v7.field_0 as &struct24) = struct24 {\n        field_0: 4\n        field_8: v8\n        field_16: &g_755768\n    };\n    v8 = alloc::boxed::Box<T>::new();\n    v6 = clap_builder::builder::arg::Arg::value_parser(&v0, &v7);\n    v0 = clap_builder::builder::arg::Arg::short(&v6, 0x6c);\n    v6 = clap_builder::builder::arg::Arg::help(&v0, \"digest length in bits; must not exceed the max for the blake2 algorithm and must be a multiple of 8\");\n    v0 = clap_builder::builder::arg::Arg::action(&v6, None);\n    v6 = clap_builder::builder::command::Command::arg(&v3, &v0);\n    v3 = clap_builder::builder::arg::Arg::new(\"raw\");\n    v0 = clap_builder::builder::arg::Arg::long(&v3, \"raw\");\n    v3 = clap_builder::builder::arg::Arg::help(&v0, \"emit a raw binary digest, not hexadecimal\");\n    v0 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v6, &v0);\n    v6 = clap_builder::builder::arg::Arg::new(\"strict\");\n    v0 = clap_builder::builder::arg::Arg::long(&v6, \"strict\");\n    v6 = clap_builder::builder::arg::Arg::help(&v0, \"exit non-zero for improperly formatted checksum lines\");\n    v0 = clap_builder::builder::arg::Arg::action(&v6, 0x2);\n    v6 = clap_builder::builder::command::Command::arg(&v3, &v0);\n    v3 = clap_builder::builder::arg::Arg::new(\"check\");\n    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x63);\n    v3 = clap_builder::builder::arg::Arg::long(&v0, \"check\");\n    v0 = clap_builder::builder::arg::Arg::help(&v3, \"read hashsums from the FILEs and check them\");\n    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::arg::Arg::conflicts_with(&v3, \"tag\");\n    v3 = clap_builder::builder::command::Command::arg(&v6, &v0);\n    v6 = clap_builder::builder::arg::Arg::new(\"base64\");\n    v0 = clap_builder::builder::arg::Arg::long(&v6, \"base64\");\n    v6 = clap_builder::builder::arg::Arg::help(&v0, \"emit a base64 digest, not hexadecimal\");\n    v0 = clap_builder::builder::arg::Arg::action(&v6, 0x2);\n    v7 = clap_builder::builder::arg::Arg::conflicts_with(&v0, \"raw\");\n    v6 = clap_builder::builder::command::Command::arg(&v3, &v7);\n    v3 = clap_builder::builder::arg::Arg::new(\"text\");\n    v0 = clap_builder::builder::arg::Arg::long(&v3, \"text\");\n    v3 = clap_builder::builder::arg::Arg::short(&v0, 0x74);\n    memcpy(&v0, &v3, 584);\n    v1 = *((&v3.field_0 as &char + 584) as &i32) | 4;\n    v2 = *((&v3.field_0 as &char + 588) as &i32);\n    v3 = clap_builder::builder::arg::Arg::overrides_with(&v0, \"binary\");\n    v0 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v6, &v0);\n    v6 = clap_builder::builder::arg::Arg::new(\"binary\");\n    v0 = clap_builder::builder::arg::Arg::long(&v6, \"binary\");\n    v6 = clap_builder::builder::arg::Arg::short(&v0, 0x62);\n    memcpy(&v0, &v6, 584);\n    v1 = *((&v6.field_0 as &char + 584) as &i32) | 4;\n    v2 = *((&v6.field_0 as &char + 588) as &i32);\n    v6 = clap_builder::builder::arg::Arg::overrides_with(&v0, \"text\");\n    v0 = clap_builder::builder::arg::Arg::action(&v6, 0x2);\n    v6 = clap_builder::builder::command::Command::arg(&v3, &v0);\n    v3 = clap_builder::builder::arg::Arg::new(\"warn\");\n    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x77);\n    v3 = clap_builder::builder::arg::Arg::long(&v0, \"warn\");\n    v0 = clap_builder::builder::arg::Arg::help(&v3, \"warn about improperly formatted checksum lines\");\n    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v6, &v7);\n    v6 = clap_builder::builder::arg::Arg::new(\"status\");\n    v0 = clap_builder::builder::arg::Arg::long(&v6, \"status\");\n    v6 = clap_builder::builder::arg::Arg::help(&v0, \"don't output anything, status code shows success\");\n    v0 = clap_builder::builder::arg::Arg::action(&v6, 0x2);\n    v6 = clap_builder::builder::command::Command::arg(&v3, &v0);\n    v3 = clap_builder::builder::arg::Arg::new(\"quiet\");\n    v0 = clap_builder::builder::arg::Arg::long(&v3, \"quiet\");\n    v3 = clap_builder::builder::arg::Arg::help(&v0, \"don't print OK for each successfully verified file\");\n    v0 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v6, &v0);\n    v6 = clap_builder::builder::arg::Arg::new(\"ignore-missing\");\n    v0 = clap_builder::builder::arg::Arg::long(&v6, \"ignore-missing\");\n    v6 = clap_builder::builder::arg::Arg::help(&v0, \"don't fail or report status for missing files\");\n    v0 = clap_builder::builder::arg::Arg::action(&v6, 0x2);\n    v6 = clap_builder::builder::command::Command::arg(&v3, &v0);\n    v3 = clap_builder::builder::arg::Arg::new(\"zero\");\n    v0 = clap_builder::builder::arg::Arg::long(&v3, \"zero\");\n    v3 = clap_builder::builder::arg::Arg::short(&v0, 0x7a);\n    v0 = clap_builder::builder::arg::Arg::help(&v3, \"end each output line with NUL, not newline,\n and disable file name escaping\");\n    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v3 = clap_builder::builder::command::Command::arg(&v6, &v7);\n    clap_builder::builder::command::Command::after_help(a0, &v3, \"DIGEST determines the digest algorithm and default output format:\n\n- sysv:    (equivalent to sum -s)\n- bsd:     (equivalent to sum -r)\n- crc:     (equivalent to cksum)\n- md5:     (equivalent to md5sum)\n- sha1:    (equivalent to sha1sum)\n- sha224:  (equivalent to sha224sum)\n- sha256:  (equivalent to sha256sum)\n- sha384:  (equivalent to sha384sum)\n- sha512:  (equivalent to sha512sum)\n- blake2b: (equivalent to b2sum)\n- sm3:     (only available through cksum)\");\n    return a0;\n}\n"
+    "_ZN8uu_cksum5cksum17h3bc15d2c96f4f009E": "fn uu_cksum::cksum() -> long long {\n    let v0: i64;  // [bp-0x310]\n    let v1: i64;  // [bp-0x308]\n    let v2: u128;  // [bp-0x308], Other Possible Types: std::sys::os_str::bytes::Slice *, struct24, std::io::stdio::Stdout\n    let v3: u128;  // [bp-0x308]\n    let v4: u64;  // [bp-0x300]\n    let v5: u64;  // [bp-0x300]\n    let v6: i64;  // [bp-0x2f8], Other Possible Types: u64\n    let v7: i64;  // [bp-0x2f8]\n    let v8: u64;  // [bp-0x2f0]\n    let v9: u64;  // [bp-0x2f0]\n    let v10: void*;  // [bp-0x2e8], Other Possible Types: std::sys::os_str::bytes::Slice *\n    let v11: u64;  // [bp-0x2e0]\n    let v12: u64;  // [bp-0x2d8]\n    let v13: void*;  // [bp-0x2d0]\n    let v14: u64;  // [bp-0x2c8]\n    let v15: u64;  // [bp-0x2c8]\n    let v16: u128;  // [bp-0x2c8]\n    let v18: void*;  // [bp-0x2c8]\n    let v19: u32;  // [bp-0x2c4]\n    let v20: u64;  // [bp-0x2c0]\n    let v21: u64;  // [bp-0x2c0]\n    let v22: u64;  // [bp-0x2b8]\n    let v23: u384;  // [bp-0x2a8], Other Possible Types: alloc::string::String\n    let v24: u64;  // [bp-0x2a8]\n    let v25: u64;  // [bp-0x2a0], Other Possible Types: unsigned long\n    let v26: u64;  // [bp-0x298]\n    let v27: i64;  // [bp-0x288]\n    let v28: u64;  // [bp-0x280]\n    let v29: u16;  // [bp-0x26a]\n    let v30: i64;  // [bp-0x268]\n    let v31: u128;  // [bp-0x268]\n    let v32: struct24;  // [bp-0x268]\n    let v33: u64;  // [bp-0x260]\n    let v34: u64;  // [bp-0x260]\n    let v35: i64;  // [bp-0x258]\n    let v36: u64;  // [bp-0x258]\n    let v37: struct24;  // [bp-0x248], Other Possible Types: u64\n    let v38: u384;  // [bp-0x248]\n    let v39: struct24;  // [bp-0x248]\n    let v40: u192;  // [bp-0x248], Other Possible Types: Result<(), Error>, struct24, std::io::stdio::Stdout, std::path::Components, struct40\n    let v41: u64;  // [bp-0x248]\n    let v42: u64;  // [bp-0x248]\n    let v43: u64;  // [bp-0x240]\n    let v44: u64;  // [bp-0x240]\n    let v45: u64;  // [bp-0x238], Other Possible Types: std::sys::os_str::bytes::Slice *\n    let v46: u64;  // [bp-0x238]\n    let v47: u64;  // [bp-0x238]\n    let v48: u64;  // [bp-0x230]\n    let v49: i64;  // [bp-0x228], Other Possible Types: void*\n    let v50: u64;  // [bp-0x220]\n    let v51: u8;  // [bp-0x218]\n    let v52: u64;  // [bp-0x210]\n    let v53: u64;  // [bp-0x200]\n    let v54: u64;  // [bp-0x1f8]\n    let v55: u64;  // [bp-0x1f0]\n    let v56: u64;  // [bp-0x1e8]\n    let v57: u8;  // [bp-0x1e0]\n    let v58: u64;  // [bp-0x1d8]\n    let v59: u64;  // [bp-0x1c8]\n    let v60: u64;  // [bp-0x1b8]\n    let v61: u64;  // [bp-0x1b0]\n    let v62: u8;  // [bp-0x1a8]\n    let v63: u192;  // [bp-0x1a0]\n    let v64: i64;  // [bp-0x1a0]\n    let v65: u64;  // [bp-0x198]\n    let v66: i64;  // [bp-0x190]\n    let v67: u64;  // [bp-0x188]\n    let v68: u64;  // [bp-0x188]\n    let v69: u64;  // [bp-0x180]\n    let v70: i64;  // [bp-0x178]\n    let v71: u64;  // [bp-0x170]\n    let v72: u64;  // [bp-0x168]\n    let v73: u64;  // [bp-0x168]\n    let v74: u64;  // [bp-0x160]\n    let v75: u64;  // [bp-0x150]\n    let v76: alloc::string::String;  // [bp-0x148]\n    let v79: alloc::string::String;  // [bp-0x130]\n    let v80: u64;  // [bp-0x128]\n    let v81: u64;  // [bp-0x120]\n    let v82: struct32;  // [bp-0x118]\n    let v83: alloc::string::String;  // [bp-0xf8]\n    let v84: u64;  // [bp-0xe8]\n    let v85: struct24;  // [bp-0xe0]\n    let v87: struct24;  // [bp-0xc8]\n    let v88: u64;  // [bp-0xb8]\n    let v89: struct24;  // [bp-0xb0]\n    let v91: struct24;  // [bp-0x98]\n    let v92: u64;  // [bp-0x88]\n    let v93: struct24;  // [bp-0x80]\n    let v94: u64;  // [bp-0x70]\n    let v95: struct56;  // [bp-0x68]\n    let v96: u64;  // [bp-0x18]\n    let v98: u64;  // r14\n    let v99: i64;  // rdi\n    let v100: void*;  // rbx\n    let v101: u64;  // rax\n    let v102: u64;  // rbp\n    let v103: i64;  // rax\n    let v104: i64;  // rbx\n    let v105: u64;  // rdx\n    let v106: u64;  // r12\n    let v107: u64;  // r12\n    let v108: u8;  // r14b\n    let v109: u64;  // rax\n    let v110: u64;  // rcx\n    let v111: void*;  // rax\n    let v113: i64;  // rcx\n    let v114: u32;  // eax\n    let v119: u64;  // rax\n    let v120: u64;  // rdx\n    let v123: u8;  // al\n    let v124: u8;  // r14b\n    let v126: u64;  // rax\n    let v127: u64;  // rdx\n    let v131: u64;  // rcx\n    let v137: core::result::Result<(), std::io::error::Error>;  // rax\n    let v138: core::result::Result<u16, core::num::error::ParseIntError>;  // rax:rax\n    let v139: core::result::Result<u16, core::num::error::ParseIntError>;  // rax:rax\n    let v140: core::result::Result<u32, core::num::error::ParseIntError>;  // rax:rax\n    let v141: core::result::Result<u16, core::num::error::ParseIntError>;  // rax:rax\n\n    v96 = v98;\n    v0 = v99;\n    core::iter::traits::iterator::Iterator::collect(&v74);\n    if *((v99 + 58) as &i8) == 1 && v75 >= 2 {\n        alloc::boxed::Box<T>::new(0);\n    } else {\n        v82 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v74);\n        v101 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v82);\n        if v101 {\n            v103 = v0;\n            v71 = v103 + 32;\n            v70 = v103 + 59;\n            v69 = \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/cksum/src/cksum.rs\";\n            do {\n                v107 = v106;\n                std::path::Path::components(v104, v102, v107);\n                v40 = std::path::Path::components(\"-\");\n                v108 = <std::path::Components as core::cmp::PartialEq>::eq(v104, &v40);\n                if v108 {\n                    alloc::boxed::Box<T>::new(std::io::stdio::stdin());\n                } else if std::path::Path::is_dir(v102, v107) {\n                    v40 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000);\n                    alloc::boxed::Box<T>::new(&v40);\n                } else {\n                    v15 = std::fs::File::open(v102, v107);\n                    match v15 as u128 {\n                        Err(_) => {\n                            v30 = <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(v20, v102, v107);\n                            uucore::mods::error::set_exit_code(1);\n                            v24 = uucore::util_name();\n                            v25 = v105;\n                            v1 = &v24;\n                            v5 = <&T as core::fmt::Display>::fmt;\n                            v7 = &v30;\n                            v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n                            v40 = core::fmt::Arguments {\n                                pieces: [&g_7524d8, \": \", \"\\n\"]\n                                args: &[core::fmt::rt::Argument] {\n                                    ptr: v104\n                                    len: 2\n                                }\n                                fmt: 0\n                            };\n                            std::io::stdio::_eprint(&v40);\n                            v40 = v41;\n                            v43 = v44;\n                            v45 = v47;\n                            continue;\n                        },\n                        Ok(_) => {\n                            alloc::boxed::Box<T>::new(v19 as u64);\n                        },\n                    }\n                }\n                v95 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, v109, v110);\n                if std::path::Path::is_dir(v102, v107) {\n                    v2 = v102;\n                    v4 = v107;\n                    v83 = format!(\"{}: Is a directory\", v104);\n                    v40 = struct28 {\n                        field_0: *(&v83.vec.buf.ptr as &i128)\n                        field_16: v84\n                        field_24: 1\n                    };\n                    v111 = alloc::boxed::Box<T>::new(&v40);\n                    v18 = v111;\n                    v20 = &g_752870;\n                    uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v111) as i32);\n                    v24 = uucore::util_name();\n                    v25 = v105;\n                    v1 = &v24;\n                    v5 = <&T as core::fmt::Display>::fmt;\n                    v7 = &v15;\n                    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n                    v40 = core::fmt::Arguments {\n                        pieces: [&g_7524d8, \": \", \"\\n\"]\n                        args: &[core::fmt::rt::Argument] {\n                            ptr: v104\n                            len: 2\n                        }\n                        fmt: 0\n                    };\n                    std::io::stdio::_eprint(&v40);\n                    v40 = v41;\n                    v43 = v44;\n                    v45 = v47;\n                    continue;\n                }\n                v40 = uucore::features::checksum::digest_reader(v71, &v95, 0, *((v0 + 48) as &i64));\n                <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v104, &v40);\n                v113 = v104;\n                if v1 == 0x8000000000000000 {\n                    break;\n                }\n                v64 = v1;\n                v65 = v5;\n                v66 = v7;\n                v73 = v9;\n                match (v114) {\n                    0 => {\n                        v35 = v66;\n                        v30 = v64;\n                        v33 = v65;\n                        v104 = v113;\n                        v73 = v72;\n                        break;\n                    }\n                    2 => {\n                        v104 = v113;\n                        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"crc\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"sysv\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"bsd\") as i8 {\n                            v35 = v66;\n                            v31 = *(&v64 as &i128);\n                        } else {\n                            v26 = g_7527b8.field_0;\n                            v23 = g_7527a8.field_0;\n                            v40 = v63;\n                            <alloc::vec::Vec<u8> as hex::FromHex>::from_hex(v104, &v40);\n                            v40 = core::result::Result<T,E>::unwrap(v104, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/cksum/src/cksum.rs\");\n                            v32 = data_encoding::Encoding::encode(&v24, v43, v47);\n                            v45 = v47;\n                        }\n                        v73 = v72;\n                        break;\n                    }\n                    _ => {\n                        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"crc\") as i8 {\n                            v140 = core::num::<impl core::str::traits::FromStr for u32>::from_str(v65, v66) as u128;\n                            v2 = __buildin_bswap32(core::result::Result<T,E>::unwrap(v140) as i32);\n                            v2 = v3 & -0x100000000 | v2;\n                            v37 = <T as alloc::slice::hack::ConvertVec>::to_vec(&v2, 4);\n                        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"sysv\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"bsd\") as i8 {\n                            v138 = core::num::<impl core::str::traits::FromStr for u16>::from_str(v65, v66) as u128;\n                            v2 = __ROL__(core::result::Result<T,E>::unwrap(v138 as u64, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/cksum/src/cksum.rs\") as i16, 8);\n                            v2 = v3 & -0x10000 | v2;\n                            v37 = <T as alloc::slice::hack::ConvertVec>::to_vec(&v2, 2);\n                        } else {\n                            v37 = v63;\n                            v2 = <alloc::vec::Vec<u8> as hex::FromHex>::from_hex(&v37);\n                            v37 = core::result::Result<T,E>::unwrap(&v2, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/cksum/src/cksum.rs\");\nLABEL_57ef54:\n                            v2 = std::io::stdio::stdout();\n                            v137 = <std::io::stdio::Stdout as std::io::Write>::write_all(&v2, v43, v45);\n                            v100 = (!v137 ? 0 : uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v137));\n                            return v5;\n                        }\n                        goto LABEL_57ef54;\n                    }\n                }\n                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"sysv\") as i8 {\n                    v141 = core::num::<impl core::str::traits::FromStr for u16>::from_str(v34, v36) as u128;\n                    v67 = core::result::Result<T,E>::unwrap(v141 as u64, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/cksum/src/cksum.rs\") as i16;\n                    v67 = v68 & -0x10000 | v67;\n                    v14 = v119 + 1 - (v120 < 1);\n                    v23 = (v108 ? 1 : &g_455670);\n                    v25 = v108 ^ 1;\n                    v40 = &v67;\n                    v43 = core::fmt::num::imp::<impl core::fmt::Display for u16>::fmt;\n                    v45 = &v15;\n                    v48 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n                    v49 = &v23;\n                    v50 = <&T as core::fmt::Display>::fmt;\n                    v2 = &g_752528;\n                    v4 = 3;\n                    v10 = 0;\n                    v6 = &v40;\n                    v8 = 3;\n                    v85 = core::option::Option<T>::map_or_else(v104);\n                    memcpy(&v40, &v85, 16);\n                    goto LABEL_57e83f;\n                }\n                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"bsd\") as i8 {\n                    v139 = core::num::<impl core::str::traits::FromStr for u16>::from_str(v34, v36) as u128;\n                    v29 = core::result::Result<T,E>::unwrap(v139 as u64, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/cksum/src/cksum.rs\") as i16;\n                    v67 = v126 + 1 - (v127 < 1);\n                    *(&v15 as &i32) = (v108 ? 1 : &g_455670);\n                    v20 = v108 ^ 1;\n                    v2 = &v29;\n                    v4 = core::fmt::num::imp::<impl core::fmt::Display for u16>::fmt;\n                    v6 = &v67;\n                    v8 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n                    v10 = &v15;\n                    v11 = <&T as core::fmt::Display>::fmt;\n                    v12 = 5;\n                    v13 = 0;\n                    v40 = 2;\n                    v45 = 1;\n                    v48 = 3;\n                    v49 = 0;\n                    v50 = 34359738400;\n                    v51 = 3;\n                    v52 = 2;\n                    v53 = 1;\n                    v54 = 3;\n                    v55 = 1;\n                    v56 = 32;\n                    v57 = 3;\n                    v58 = 2;\n                    v59 = 2;\n                    v60 = 2;\n                    v61 = 32;\n                    v62 = 3;\n                    v23 = &g_752528;\n                    v25 = 3;\n                    v27 = &v40;\n                    v28 = 3;\n                    v23 = core::fmt::Arguments {\n                        pieces: &[&str] {\n                            ptr: <UNKNOWN>\n                            len: <UNKNOWN>\n                        }\n                        args: &[core::fmt::rt::Argument] {\n                            ptr: <UNKNOWN>\n                            len: 4\n                        }\n                        fmt: <UNKNOWN>\n                    };\n                    v87 = core::option::Option<T>::map_or_else(&v23);\n                    memcpy(&v40, &v87, 16);\n                    goto LABEL_57e83f;\n                } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"crc\") as i8 {\n                    v23 = (v108 ? 1 : &g_455670);\n                    v25 = v108 ^ 1;\n                    v40 = &v30;\n                    v43 = <alloc::string::String as core::fmt::Display>::fmt;\n                    v45 = &v73;\n                    v48 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n                    v49 = &v23;\n                    v50 = <&T as core::fmt::Display>::fmt;\n                    v2 = &g_752528;\n                    v4 = 3;\n                    v10 = 0;\n                    v6 = &v40;\n                    v8 = 3;\n                    v89 = core::option::Option<T>::map_or_else(v104);\n                    memcpy(&v40, &v89, 16);\nLABEL_57e83f:\n                    v46 = v88;\n                    goto LABEL_57e84c;\n                } else {\n                    v123 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"blake2b\") as i8;\n                    if (*((v0 + 56) as &i8) & v123) {\n                        if *(v0 as &i64) {\n                            v23 = *((v0 + 8) as &i64) * 8;\n                            v1 = &v23;\n                            v4 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n                            v38 = core::fmt::Arguments {\n                                pieces: [\"BLAKE2b-\", \" (\"]\n                                args: &[core::fmt::rt::Argument] {\n                                    ptr: v104\n                                    len: 1\n                                }\n                                fmt: 0\n                            };\n                            v91 = core::option::Option<T>::map_or_else(&v38);\n                            v2 = v91.field_0;\n                            v6 = v92;\n                        } else {\n                            v39 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"BLAKE2b (\");\n                            v6 = v45;\n                            v3 = v39.field_0;\n                        }\n                        v76 = format!(\") = {}\", &v30);\n                        memcpy(&v38, &v1, 16);\n                        v46 = v6;\n                        v40 = v41;\n                    } else if *((v0 + 56) as &i8) {\n                        alloc::str::<impl str>::to_ascii_uppercase(v104, *((v0 + 16) as &i64), *((v0 + 24) as &i64));\n                        v23 = format!(\"{} (\", v104);\n                        v3 = *(&v23.vec.buf.ptr as &i128);\n                        v6 = v26;\n                        v79 = format!(\") = {}\", &v30);\n                        memcpy(&v37, &v3, 16);\n                        v46 = v6;\n                        v40 = v41;\n                        v20 = v21;\n                    } else {\n                        v23 = (!*((v0 + 57) as &i8) ? &g_455670 : &g_455eb3);\n                        v25 = 1;\n                        v2 = &v30;\n                        v4 = <alloc::string::String as core::fmt::Display>::fmt;\n                        v6 = &v23;\n                        v8 = <&T as core::fmt::Display>::fmt;\n                        v40 = core::fmt::Arguments {\n                            pieces: [&g_7525a8, \" \"]\n                            args: &[core::fmt::rt::Argument] {\n                                ptr: v104\n                                len: 2\n                            }\n                            fmt: 0\n                        };\n                        v93 = core::option::Option<T>::map_or_else(&v40);\n                        memcpy(&v40, &v93, 16);\n                        v46 = v94;\n                        v40 = v41;\nLABEL_57e84c:\n                        v42 = v40;\n                        goto LABEL_57e850;\n                    }\n                    v42 = v40;\nLABEL_57e850:\n                    v22 = v46;\n                    v16 = v40;\n                    v24 = v131;\n                    v25 = v80;\n                    v26 = v81;\n                    v2 = &v15;\n                    v4 = <alloc::string::String as core::fmt::Display>::fmt;\n                    v40 = core::fmt::Arguments {\n                        pieces: [&g_454f40]\n                        args: &[core::fmt::rt::Argument] {\n                            ptr: v104\n                            len: 1\n                        }\n                        fmt: 0\n                    };\n                    std::io::stdio::_print(&v40);\n                    if v124 {\n                        v40 = std::io::stdio::stdout();\n                        <std::io::stdio::Stdout as std::io::Write>::write_all(&v40, v102, v107);\n                    }\n                    v1 = &v24;\n                    v5 = <alloc::string::String as core::fmt::Display>::fmt;\n                    v7 = v70;\n                    v9 = <uucore::mods::line_ending::LineEnding as core::fmt::Display>::fmt;\n                    v40 = core::fmt::Arguments {\n                        pieces: [&g_455720, &g_455730]\n                        args: &[core::fmt::rt::Argument] {\n                            ptr: v104\n                            len: 2\n                        }\n                        fmt: 0\n                    };\n                    std::io::stdio::_print(&v40);\n                    v40 = v41;\n                    v43 = v44;\n                    v45 = v47;\n                }\n            } while ((v45 = v45, <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v82), v105 = v105, v101));\n        }\n    }\n    return v5;\n}\n",
+    "_ZN8uu_cksum5cksum17h968c8f5c05770fbeE": "fn uu_cksum::cksum(a0: i64, a1: i64) -> long long {\n    let v0: i64;  // [bp-0x310]\n    let v1: u64;  // [bp-0x308], Other Possible Types: core::num::error::ParseIntError *, struct24, std::io::stdio::Stdout\n    let v2: i64;  // [bp-0x308]\n    let v3: u128;  // [bp-0x308]\n    let v4: u64;  // [bp-0x300]\n    let v5: u64;  // [bp-0x300]\n    let v6: i64;  // [bp-0x2f8]\n    let v7: i64;  // [bp-0x2f8]\n    let v8: u64;  // [bp-0x2f0]\n    let v9: u64;  // [bp-0x2f0]\n    let v10: void*;  // [bp-0x2e8], Other Possible Types: core::num::error::ParseIntError *\n    let v11: u64;  // [bp-0x2e0]\n    let v12: u64;  // [bp-0x2d8]\n    let v13: void*;  // [bp-0x2d0]\n    let v14: u64;  // [bp-0x2c8], Other Possible Types: char, void*, core::num::error::ParseIntError *\n    let v15: u32;  // [bp-0x2c4]\n    let v16: u64;  // [bp-0x2c0]\n    let v17: i64;  // [bp-0x2b8]\n    let v18: u128;  // [bp-0x2a8], Other Possible Types: core::num::error::ParseIntError *, struct24\n    let v19: u64;  // [bp-0x2a8]\n    let v20: struct24;  // [bp-0x2a8]\n    let v21: u64;  // [bp-0x2a0], Other Possible Types: unsigned long\n    let v22: i64;  // [bp-0x298]\n    let v23: u64;  // [bp-0x290]\n    let v24: i64;  // [bp-0x288]\n    let v25: u64;  // [bp-0x280]\n    let v26: u16;  // [bp-0x26a]\n    let v27: i64;  // [bp-0x268]\n    let v28: u128;  // [bp-0x268]\n    let v29: u64;  // [bp-0x260]\n    let v30: u64;  // [bp-0x260]\n    let v31: i64;  // [sp-0x258]\n    let v32: u64;  // [bp-0x258]\n    let v33: u384;  // [bp-0x248], Other Possible Types: struct24, std::io::stdio::Stdout\n    let v34: u64;  // [bp-0x248]\n    let v35: struct24;  // [bp-0x248]\n    let v36: u64;  // [bp-0x248]\n    let v37: Result<struct32, struct24>;  // [bp-0x248], Other Possible Types: struct24, std::path::Components\n    let v38: u128;  // [bp-0x248]\n    let v39: u64;  // [bp-0x240]\n    let v40: u64;  // [bp-0x240]\n    let v41: i64;  // [bp-0x238], Other Possible Types: u64\n    let v42: i64;  // [bp-0x238]\n    let v43: i64;  // [bp-0x238]\n    let v44: u64;  // [bp-0x230]\n    let v45: void*;  // [bp-0x228], Other Possible Types: core::num::error::ParseIntError *\n    let v46: u64;  // [bp-0x220]\n    let v47: u8;  // [bp-0x218]\n    let v48: u64;  // [bp-0x210]\n    let v49: u64;  // [bp-0x200]\n    let v50: u64;  // [bp-0x1f8]\n    let v51: u64;  // [bp-0x1f0]\n    let v52: u64;  // [bp-0x1e8]\n    let v53: u8;  // [bp-0x1e0]\n    let v54: u64;  // [bp-0x1d8]\n    let v55: u64;  // [bp-0x1c8]\n    let v56: u64;  // [bp-0x1b8]\n    let v57: u64;  // [bp-0x1b0]\n    let v58: u8;  // [bp-0x1a8]\n    let v59: i64;  // [bp-0x1a0]\n    let v60: u64;  // [bp-0x198]\n    let v61: i64;  // [bp-0x190]\n    let v62: u64;  // [bp-0x188]\n    let v63: u64;  // [bp-0x188]\n    let v64: u64;  // [bp-0x180]\n    let v65: i64;  // [bp-0x178]\n    let v66: u64;  // [bp-0x170]\n    let v67: u64;  // [bp-0x168]\n    let v68: u64;  // [bp-0x168]\n    let v69: u8;  // [bp-0x160], Other Possible Types: struct32\n    let v70: u64;  // [bp-0x150]\n    let v74: u64;  // [bp-0x130]\n    let v75: u64;  // [bp-0x128]\n    let v76: i64;  // [bp-0x120]\n    let v77: u8;  // [bp-0x118]\n    let v78: u128;  // [bp-0xf8]\n    let v79: u64;  // [bp-0xe8]\n    let v80: u128;  // [bp-0xe0]\n    let v82: u128;  // [bp-0xc8]\n    let v83: i64;  // [bp-0xb8]\n    let v84: u128;  // [bp-0xb0]\n    let v86: u128;  // [bp-0x98]\n    let v87: i64;  // [bp-0x88]\n    let v88: u128;  // [bp-0x80]\n    let v89: i64;  // [bp-0x70]\n    let v90: u640;  // [bp-0x68]\n    let v91: u64;  // [bp-0x18]\n    let v93: u64;  // r14\n    let v94: u64;  // rdx\n    let v95: void*;  // rbx\n    let v96: u64;  // rax\n    let v97: u64;  // rbp\n    let v98: i64;  // rax\n    let v99: i64;  // rbx\n    let v100: u64;  // r12\n    let v101: u64;  // r12\n    let v102: u8;  // r14b\n    let v103: u64;  // rax\n    let v104: u64;  // rcx\n    let v105: u64;  // rcx\n    let v106: u64;  // r8\n    let v107: u32;  // r9\n    let v108: void*;  // rax\n    let v110: i64;  // rcx\n    let v111: u32;  // eax\n    let v116: u64;  // rax\n    let v117: u64;  // rdx\n    let v120: u8;  // al\n    let v121: u8;  // r14b\n    let v122: i64;  // rsi\n    let v123: u8;  // cl\n    let v124: u64;  // rdx\n    let v126: u64;  // rax\n    let v127: u64;  // rdx\n    let v130: u64;  // rdx\n    let v138: core::result::Result<(), std::io::error::Error>;  // rax\n    let v139: core::result::Result<u16, core::num::error::ParseIntError>;  // rax:rax\n    let v140: core::result::Result<u16, core::num::error::ParseIntError>;  // rax:rax\n    let v141: core::result::Result<u32, core::num::error::ParseIntError>;  // rax:rax\n    let v142: core::result::Result<u16, core::num::error::ParseIntError>;  // rax:rax\n\n    v91 = v93;\n    v0 = a0;\n    core::iter::traits::iterator::Iterator::collect(&v69, a1);\n    if *((a0 + 58) as &i8) == 1 && v70 >= 2 {\n        alloc::boxed::Box<T>::new(0);\n    } else {\n        v69 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(v94);\n        v96 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v77);\n        if v96 {\n            v98 = v0;\n            v66 = v98 + 32;\n            v65 = v98 + 59;\n            v64 = \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/cksum/src/cksum.rs\";\n            do {\n                v101 = v100;\n                std::path::Path::components(v99, v97, v101);\n                v37 = std::path::Path::components(\"-\");\n                v102 = <std::path::Components as core::cmp::PartialEq>::eq(v99, &v37);\n                if v102 {\n                    alloc::boxed::Box<T>::new(std::io::stdio::stdin());\n                } else if std::path::Path::is_dir(v97, v101) {\n                    std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, v94);\n                    alloc::boxed::Box<T>::new(&v37);\n                } else {\n                    std::fs::File::open(v97, v101, v105);\n                    if *(&v14 as &i32) {\n                        v27 = <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(v16, v97, v101);\n                        uucore::mods::error::set_exit_code(1);\n                        v19 = uucore::util_name();\n                        v21 = v94;\n                        v2 = &v19;\n                        v5 = <&T as core::fmt::Display>::fmt;\n                        v7 = &v27;\n                        v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n                        v33 = core::fmt::Arguments {\n                            pieces: [&g_7524d8, \": \", \"\\n\"]\n                            args: &[core::fmt::rt::Argument] {\n                                ptr: v99\n                                len: 2\n                            }\n                            fmt: 0\n                        };\n                        std::io::stdio::_eprint(&v33);\n                        v33 = v36;\n                        v39 = v40;\n                        v41 = v43;\n                        continue;\n                    } else {\n                        alloc::boxed::Box<T>::new(v15);\n                    }\n                }\n                std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, v103, v104, v106);\n                if std::path::Path::is_dir(v97, v101) {\n                    v1 = v97;\n                    v4 = v101;\n                    v18 = v99;\n                    v21 = <std::path::Display as core::fmt::Display>::fmt;\n                    v33 = &g_752508;\n                    v39 = 2;\n                    v45 = 0;\n                    v41 = &v18;\n                    v44 = 1;\n                    v33 = core::option::Option<T>::map_or_else(v94);\n                    v33 = struct28 {\n                        field_0: v78\n                        field_16: v79\n                        field_24: 1\n                    };\n                    v108 = alloc::boxed::Box<T>::new(&v33);\n                    v14 = v108;\n                    v16 = &g_752870;\n                    uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v108) as i32);\n                    v19 = uucore::util_name();\n                    v21 = v94;\n                    v2 = &v19;\n                    v5 = <&T as core::fmt::Display>::fmt;\n                    v7 = &v14 as u8;\n                    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n                    v33 = core::fmt::Arguments {\n                        pieces: [&g_7524d8, \": \", \"\\n\"]\n                        args: &[core::fmt::rt::Argument] {\n                            ptr: v99\n                            len: 2\n                        }\n                        fmt: 0\n                    };\n                    std::io::stdio::_eprint(&v33);\n                    v33 = v36;\n                    v39 = v40;\n                    v41 = v43;\n                    continue;\n                }\n                uucore::features::checksum::digest_reader(v66, &v90, 0, *((v0 + 48) as &i64), v107);\n                v37 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v94);\n                v110 = v99;\n                if v2 == 0x8000000000000000 {\n                    break;\n                }\n                v59 = v2;\n                v60 = v5;\n                v61 = v7;\n                v68 = v9;\n                match (v111) {\n                    0 => {\n                        v31 = v61;\n                        v27 = v59;\n                        v29 = v60;\n                        v99 = v110;\n                        v68 = v67;\n                        break;\n                    }\n                    2 => {\n                        v99 = v110;\n                        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"crc\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"sysv\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"bsd\") as i8 {\n                            v31 = v61;\n                            v28 = *(&v59 as &i128);\n                            break;\n                        } else {\n                            v22 = g_7527b8.field_0;\n                            v18 = g_7527a8.field_0;\n                            v41 = v61;\n                            v38 = *(&v59 as &i128);\n                            v37 = <alloc::vec::Vec<u8> as hex::FromHex>::from_hex(v94);\n                            core::result::Result<T,E>::unwrap(v99, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/cksum/src/cksum.rs\", v105);\n                            v20 = data_encoding::Encoding::encode(v39, v41, v106);\n                        }\n                    }\n                    _ => {\n                        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"crc\") as i8 {\n                            v141 = core::num::<impl core::str::traits::FromStr for u32>::from_str(v60, v61) as u128;\n                            v1 = __buildin_bswap32(core::result::Result<T,E>::unwrap(v141) as i32);\n                            v1 = v3 & -0x100000000 | v1;\n                            v1 = <T as alloc::slice::hack::ConvertVec>::to_vec(0x4, v105);\n                        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"sysv\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"bsd\") as i8 {\n                            v139 = core::num::<impl core::str::traits::FromStr for u16>::from_str(v60, v61) as u128;\n                            v1 = __ROL__(core::result::Result<T,E>::unwrap(v139, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/cksum/src/cksum.rs\") as i16, 8);\n                            v1 = v3 & -0x10000 | v1;\n                            v1 = <T as alloc::slice::hack::ConvertVec>::to_vec(0x2, v105);\n                        } else {\n                            v41 = v61;\n                            v33 = *(&v59 as &i128);\n                            v33 = <alloc::vec::Vec<u8> as hex::FromHex>::from_hex(v94);\n                            v1 = core::result::Result<T,E>::unwrap(\"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/cksum/src/cksum.rs\", v105);\n                        }\n                        v1 = std::io::stdio::stdout();\n                        v138 = <std::io::stdio::Stdout as std::io::Write>::write_all(&v1, v39, v41);\n                        v95 = (!v138 ? 0 : uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v138));\n                        return v5;\n                    }\n                }\n                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"sysv\") as i8 {\n                    v142 = core::num::<impl core::str::traits::FromStr for u16>::from_str(v30, v32) as u128;\n                    v62 = core::result::Result<T,E>::unwrap(v142, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/cksum/src/cksum.rs\") as i16;\n                    v62 = v63 & -0x10000 | v62;\n                    v14 = v116 + 1 - (v117 < 1);\n                    v18 = (v102 ? 1 : &g_455670);\n                    v21 = v102 ^ 1;\n                    v34 = &v62;\n                    v39 = core::fmt::num::imp::<impl core::fmt::Display for u16>::fmt;\n                    v41 = &v14;\n                    v44 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n                    v45 = &v18;\n                    v46 = <&T as core::fmt::Display>::fmt;\n                    v1 = &g_752528;\n                    v4 = 3;\n                    v10 = 0;\n                    v6 = &v34;\n                    v8 = 3;\n                    core::option::Option<T>::map_or_else(v99, 0x1);\n                    memcpy(&v34, &v80, 16);\n                } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"bsd\") as i8 {\n                    v140 = core::num::<impl core::str::traits::FromStr for u16>::from_str(v30, v32) as u128;\n                    v26 = core::result::Result<T,E>::unwrap(v140, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/cksum/src/cksum.rs\") as i16;\n                    v62 = v126 + 1 - (v127 < 1);\n                    *(&v14 as &i32) = (v102 ? 1 : &g_455670);\n                    v16 = v102 ^ 1;\n                    v1 = &v26;\n                    v4 = core::fmt::num::imp::<impl core::fmt::Display for u16>::fmt;\n                    v6 = &v62;\n                    v8 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n                    v10 = &v14;\n                    v11 = <&T as core::fmt::Display>::fmt;\n                    v12 = 5;\n                    v13 = 0;\n                    v34 = 2;\n                    v41 = 1;\n                    v44 = 3;\n                    v45 = 0;\n                    v46 = 34359738400;\n                    v47 = 3;\n                    v48 = 2;\n                    v49 = 1;\n                    v50 = 3;\n                    v51 = 1;\n                    v52 = 32;\n                    v53 = 3;\n                    v54 = 2;\n                    v55 = 2;\n                    v56 = 2;\n                    v57 = 32;\n                    v58 = 3;\n                    v18 = &g_752528;\n                    v21 = 3;\n                    v24 = &v34;\n                    v25 = 3;\n                    v23 = 4;\n                    v18 = core::option::Option<T>::map_or_else(0x1);\n                    memcpy(&v34, &v82, 16);\n                } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"crc\") as i8 {\n                    v18 = (v102 ? 1 : &g_455670);\n                    v21 = v102 ^ 1;\n                    v34 = &v27;\n                    v39 = <alloc::string::String as core::fmt::Display>::fmt;\n                    v41 = &v68;\n                    v44 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n                    v45 = &v18;\n                    v46 = <&T as core::fmt::Display>::fmt;\n                    v1 = &g_752528;\n                    v4 = 3;\n                    v10 = 0;\n                    v6 = &v34;\n                    v8 = 3;\n                    core::option::Option<T>::map_or_else(v99, v94);\n                    memcpy(&v34, &v84, 16);\n                } else {\n                    v120 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v0 + 16) as &i64), *((v0 + 24) as &i64), \"blake2b\") as i8;\n                    v122 = v0;\n                    v123 = *((v122 + 56) as &i8);\n                    v124 = v94 & -0x100 | v123;\n                    if (v123 & v120) {\n                        if *(v122 as &i64) {\n                            v18 = *((v122 + 8) as &i64) * 8;\n                            v2 = &v18;\n                            v4 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n                            v33 = \"BLAKE2b-\";\n                            v39 = 2;\n                            v45 = 0;\n                            v41 = v99;\n                            v44 = 1;\n                            v33 = core::option::Option<T>::map_or_else(v124);\n                            v1 = v86;\n                            v6 = v87;\n                        } else {\n                            <T as alloc::slice::hack::ConvertVec>::to_vec(\"BLAKE2b (\", v123);\n                            v6 = v41;\n                            v3 = v37 as i128;\n                        }\n                        v18 = &v27;\n                        v21 = <alloc::string::String as core::fmt::Display>::fmt;\n                        v34 = \") = \";\n                        v39 = 1;\n                        v45 = 0;\n                        v41 = &v18;\n                        v44 = 1;\n                        v35 = core::option::Option<T>::map_or_else(v130);\n                        memcpy(&v35, &v2, 16);\n                        v42 = v6;\n                        goto LABEL_57fc10;\n                    } else if v123 {\n                        alloc::str::<impl str>::to_ascii_uppercase(*((v0 + 16) as &i64), *((v0 + 24) as &i64), v123);\n                        v14 = v99;\n                        v16 = <alloc::string::String as core::fmt::Display>::fmt;\n                        v33 = &g_752588;\n                        v39 = 2;\n                        v45 = 0;\n                        v41 = &v14 as u8;\n                        v44 = 1;\n                        v33 = core::option::Option<T>::map_or_else(v94);\n                        v3 = v20.field_0;\n                        v6 = v22;\n                        v18 = &v27;\n                        v21 = <alloc::string::String as core::fmt::Display>::fmt;\n                        v34 = \") = \";\n                        v39 = 1;\n                        v45 = 0;\n                        v41 = &v18;\n                        v44 = 1;\n                        v35 = core::option::Option<T>::map_or_else(v94);\n                        memcpy(&v35, &v3, 16);\n                        v42 = v6;\n                        goto LABEL_57fc10;\n                    } else {\n                        v18 = (!*((v0 + 57) as &i8) ? &g_455670 : &g_455eb3);\n                        v21 = 1;\n                        v1 = &v27;\n                        v4 = <alloc::string::String as core::fmt::Display>::fmt;\n                        v6 = &v18;\n                        v8 = <&T as core::fmt::Display>::fmt;\n                        v34 = &g_7525a8;\n                        v39 = 2;\n                        v45 = 0;\n                        v41 = v99;\n                        v44 = 2;\n                        v33 = core::option::Option<T>::map_or_else(v124);\n                        memcpy(&v33, &v88, 16);\n                        v42 = v89;\n                        goto LABEL_57fc10;\n                    }\n                }\n                v42 = v83;\nLABEL_57fc10:\n                v17 = v42;\n                v14 = *(&v34 as &i128);\n                v19 = v74;\n                v21 = v75;\n                v22 = v76;\n                v1 = &v14;\n                v4 = <alloc::string::String as core::fmt::Display>::fmt;\n                v33 = core::fmt::Arguments {\n                    pieces: [&g_454f40]\n                    args: &[core::fmt::rt::Argument] {\n                        ptr: v99\n                        len: 1\n                    }\n                    fmt: 0\n                };\n                std::io::stdio::_print(&v33);\n                if v121 {\n                    v33 = std::io::stdio::stdout();\n                    <std::io::stdio::Stdout as std::io::Write>::write_all(&v33, v97, v101);\n                }\n                v2 = &v19;\n                v5 = <alloc::string::String as core::fmt::Display>::fmt;\n                v7 = v65;\n                v9 = <uucore::mods::line_ending::LineEnding as core::fmt::Display>::fmt;\n                v33 = core::fmt::Arguments {\n                    pieces: [&g_455720, &g_455730]\n                    args: &[core::fmt::rt::Argument] {\n                        ptr: v99\n                        len: 2\n                    }\n                    fmt: 0\n                };\n                std::io::stdio::_print(&v33);\n                v33 = v36;\n                v39 = v40;\n                v41 = v43;\n            } while ((<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v77), v94 = v94, v96));\n        }\n    }\n    return v5;\n}\n",
+    "_ZN8uu_cksum6uumain17he6c7166d5a8d1f1fE": "fn uu_cksum::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: struct24;  // [bp-0x98], Other Possible Types: u64\n    let v2: u64;  // [bp-0x90]\n    let v3: i64;  // [bp-0x88]\n    let v4: u64;  // [bp-0x80]\n    let v5: void*;  // [bp-0x78]\n    let v6: u64;  // [bp-0x68]\n    let v7: i64;  // [bp-0x60]\n    let v8: i64;  // [bp-0x48]\n    let v9: u64;  // [bp-0x40]\n    let v10: u64;  // [bp-0x38]\n    let v11: u8;  // [bp-0x28]\n    let v12: i8;  // [bp-0x18]\n    let v15: u64;  // rax\n    let v16: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v15 = uu_cksum::uumain::uumain(a0, a1);\n    if !v15 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v15;\n    v8 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_454f40;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    v1 = core::option::Option<T>::map_or_else(v16);\n    memcpy(&v8, &v11, 16);\n    v10 = *(&v12 as &i64);\n    if *(&v12 as &i64) == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v6 = uucore::util_name();\n        v7 = v16;\n        eprint!(\"{}: \", &v6);\n        eprintln!(\"{}\", &v8);\n    }\n    if !*((v16 + 104) as &i64)(v0) as i8 {\n        return *((v16 + 96) as &i64)(v0) as u32;\n    }\n    v6 = uucore::execution_phrase();\n    v7 = v16;\n    eprintln!(\"Try '{} --help' for more information.\", &v6);\n    return *((v16 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN8uu_cksum6uumain6uumain17hf3578f9fe0c3201cE": "fn uu_cksum::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u8;  // [bp-0x3da]\n    let v1: core::result::Result<u16, core::num::error::ParseIntError>;  // [bp-0x3d9], Other Possible Types: u8\n    let v2: u64;  // [bp-0x3d8]\n    let v3: u64;  // [bp-0x3d0]\n    let v4: u64;  // [bp-0x3c8]\n    let v5: u64;  // [bp-0x3c0]\n    let v6: u64;  // [bp-0x3b0]\n    let v7: u64;  // [bp-0x3a8]\n    let v8: u8;  // [bp-0x3a0]\n    let v9: u8;  // [bp-0x390]\n    let v10: u64;  // [bp-0x380]\n    let v11: Result<struct56, struct16>;  // [bp-0x378], Other Possible Types: struct64\n    let v12: u64;  // [bp-0x378]\n    let v13: u64;  // [bp-0x370]\n    let v14: u64;  // [bp-0x368]\n    let v15: u128;  // [bp-0x360]\n    let v16: u8;  // [bp-0x338], Other Possible Types: struct40, struct56\n    let v17: Result<struct40, struct16>;  // [bp-0x338]\n    let v18: struct24;  // [bp-0x338]\n    let v19: u64;  // [bp-0x338]\n    let v20: struct56;  // [bp-0x338]\n    let v21: Result<struct40, struct16>;  // [bp-0x338]\n    let v22: u64;  // [bp-0x330]\n    let v23: u56;  // [bp-0x32f]\n    let v24: u64;  // [bp-0x328]\n    let v25: u64;  // [bp-0x320]\n    let v26: u64;  // [bp-0x318]\n    let v27: u64;  // [bp-0x310]\n    let v28: u64;  // [bp-0x308]\n    let v29: u8;  // [bp-0x300]\n    let v30: u8;  // [bp-0x2ff]\n    let v31: u8;  // [bp-0x2fe]\n    let v32: u8;  // [bp-0x2fd]\n    let v33: struct64;  // [bp-0x70]\n    let v35: u8;  // bpl\n    let v36: i64;  // rax\n    let v37: u8;  // cl\n    let v38: i64;  // rax\n    let v39: u64;  // rbx\n    let v40: u64;  // r12\n    let v41: u64;  // r15\n    let v42: u8;  // al\n    let v43: u8;  // al\n    let v44: u64;  // r13\n    let v45: u32;  // eax\n    let v46: u32;  // eax\n    let v48: u32;  // eax\n    let v49: u8;  // r14b\n    let v50: u8;  // bpl\n    let v51: u64;  // r13\n    let v52: u64;  // r13\n    let v54: u64;  // r14\n    let v55: u64;  // rsi\n    let v56: u64;  // r12\n    let v57: u64;  // rdx\n    let v58: u64;  // rax\n    let v59: u64;  // rdx\n\n    uu_cksum::uu_app(&v16);\n    v11 = clap_builder::builder::command::Command::try_get_matches_from(&v16, a0, a1);\n    match v11 {\n        Err(_) => {\n            return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v7);\n        },\n        Ok(_) => {\n            v10 = *((&v11 as &char + 48) as &i64);\n            memcpy(&v9, &v11 as u128, 16);\n            memcpy(&v8, &v11, 16);\n            v6 = v11 as i64;\n            v7 = v13;\n            v35 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"check\") as i32 as i8;\n            v21 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v6, \"algorithm\");\n            v36 = clap_builder::parser::error::MatchesError::unwrap(\"algorithm\", &v21);\n            if v36 {\n                v2 = *((v36 + 8) as &i128) as u128;\n                v37 = 12;\n                if !(<T as core::slice::cmp::SliceContains>::slice_contains(&v2 as u8, \"bsd\", 3) as u8 & v35) {\n                    goto LABEL_580869;\n                }\n                goto LABEL_5809d4;\n            } else {\n                if v35 {\n                    v2 = 1;\n                    v3 = 0;\n                    v37 = 12;\n                    if !<T as core::slice::cmp::SliceContains>::slice_contains(&v2, \"bsd\", 3) as u8 {\n                        goto LABEL_580869;\n                    }\nLABEL_5809d4:\n                    v41 = alloc::boxed::Box<T>::new(v37);\n                } else {\n                    v2 = &g_455663;\n                    v3 = 3;\n                    <T as core::slice::cmp::SliceContains>::slice_contains(&v2, \"bsd\", 3);\nLABEL_580869:\n                    v17 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v6, \"length\");\n                    v38 = clap_builder::parser::error::MatchesError::unwrap(\"length\", &v17);\n                    if v38 {\n                        v37 = 10;\n                        if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v2, v3 as u32, \"blake2b\") as i8 {\n                            goto LABEL_5809d4;\n                        }\n                        v18 = uucore::features::checksum::calculate_blake2b_length(*(v38 as &i64));\n                        v39 = v18.field_8;\n                        v40 = v24;\n                        if !v18.field_0 {\n                            goto LABEL_580903;\n                        }\n                        v41 = v39;\n                    } else {\nLABEL_580903:\n                        v4 = v40;\n                        if v35 {\n                            v42 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"text\") as i32 as i8;\n                            v43 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"binary\") as i32 as i8;\n                            v1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"strict\") as i8;\n                            v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"status\") as i8;\n                            v45 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"warn\") as i32;\n                            v46 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"ignore-missing\") as i32;\n                            v48 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"quiet\") as i32;\n                            v37 = 11;\n                            if !(!v42 && !v43) {\n                                goto LABEL_5809d4;\n                            }\n                            v51 = v3;\n                            v52 = v51;\n                            if v52 {\n                                v52 = v2;\n                            }\n                            v54 = v52;\n                            v16 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v6, \"file\");\n                            v11 = clap_builder::parser::error::MatchesError::unwrap(\"file\", &v16);\n                            core::option::Option<T>::map_or_else(&v16, &v11);\n                            v41 = uucore::features::checksum::perform_checksum_validation(v16.field_8, v24 * 16 + v16.field_8, v54, v51, v39, v4, v45 as u64 * 0x10000000000 | v1 as u64 * 0x100000000 | (v0 as u32 * 0x1000000) as u64 | (v46 * 0x100) as u64 | (v48 * 0x10000) as u64);\n                        } else {\n                            uu_cksum::handle_tag_text_binary_flags(&v16, &v6);\n                            v41 = v19;\n                            if !v19 {\n                                v0 = *((&v17 as &char + 8) as &i8);\n                                v1 = v23 as i8;\n                                v16 = uucore::features::checksum::detect_algo(v2, v3, v39, v4);\n                                v44 = v16.field_0;\n                                v41 = v16.field_8;\n                                if v44 {\n                                    v15 = *(&v16.field_24 as &i128) as u128;\n                                    v12 = v44;\n                                    v13 = v41;\n                                    v14 = v24;\n                                    v49 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"zero\") as i8 ? 0 : 10);\n                                    v50 = 1;\n                                    if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"raw\") as i8 {\n                                        v50 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, \"base64\") as i8 * 2;\n                                    }\n                                    v5 = <alloc::boxed::Box<F,A> as core::ops::function::Fn<Args>>::call(&v14, v55) as u64;\n                                    v56 = *((&v15 as &char + 8) as &i64);\n                                    v20 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v6, \"file\");\n                                    v33 = clap_builder::parser::error::MatchesError::unwrap(\"file\", &v20);\n                                    if v33.field_0 as i64 {\n                                        v19 = v39;\n                                        v22 = v4;\n                                        v24 = v44;\n                                        v25 = v41;\n                                        v26 = v5;\n                                        v27 = v57;\n                                        v28 = v56;\n                                        v29 = v0;\n                                        v30 = v1;\n                                        v31 = v50;\n                                        v32 = v49;\n                                        v58 = uu_cksum::cksum(&v19, &v33);\n                                    } else {\n                                        v19 = v39;\n                                        v22 = v4;\n                                        v24 = v44;\n                                        v25 = v41;\n                                        v26 = v5;\n                                        v27 = v59;\n                                        v28 = v56;\n                                        v29 = v0;\n                                        v30 = v1;\n                                        v31 = v50;\n                                        v32 = v49;\n                                        v58 = uu_cksum::cksum();\n                                    }\n                                    v41 = v58;\n                                    return 0;\n                                }\n                            }\n                        }\n                    }\n                }\n                return v41;\n            }\n        },\n    }\n}\n",
+    "_ZN8uu_cksum9had_reset17h64707811948cf7faE": "fn uu_cksum::had_reset(a0: i64, a1: i64) -> long long {\n    let v0: u128;  // [bp-0x40]\n    let v2: u64;  // rbp\n    let v3: u64;  // rax\n    let v4: u64;  // rax\n    let v5: u64;  // rax\n\n    v2 = a0 + a1 * 24;\n    v0 = struct16 {\n        field_0: a0\n        field_8: v2\n    };\n    v3 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::position(&v0);\n    v0 = struct16 {\n        field_0: a0\n        field_8: v2\n    };\n    v4 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::position(&v0);\n    v0 = struct16 {\n        field_0: a0\n        field_8: v2\n    };\n    v5 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::position(&v0);\n    return 0;\n}\n",
+    "_ZN8uu_cksum28handle_tag_text_binary_flags17h54d38c67ed693625E": "fn uu_cksum::handle_tag_text_binary_flags(a0: &struct10, a1: i64) -> long long {\n    let v0: Result<struct24, struct24>;  // [bp-0x60]\n    let v1: u64;  // [bp-0x58]\n    let v2: u32;  // [bp-0x50]\n    let v3: std::env::ArgsOs;  // [bp-0x48]\n    let v5: u8;  // bpl\n    let v6: u8;  // r14b\n    let v7: u8;  // al\n\n    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"untagged\") as i32;\n    v6 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"tag\") as i32;\n    v7 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"binary\") as i32;\n    v3 = std::env::args_os();\n    v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v3);\n    return struct10 {\n        field_0: 0\n        field_8: v6 | v5 ^ 1\n        field_9: v7 & ((uu_cksum::had_reset(v1, v2) as i8 | v6 | v5 ^ 1) ^ 1)\n    };\n}\n",
+    "_ZN8uu_cksum6uu_app17hbfb998c9a541210bE": "fn uu_cksum::uu_app(a0: &struct712) -> long long {\n    let v0: u8;  // [bp-0xa48]\n    let v1: u32;  // [bp-0x800]\n    let v2: u32;  // [bp-0x7fc]\n    let v3: struct437;  // [bp-0x7f8]\n    let v4: u32;  // [bp-0x5b0]\n    let v5: i8;  // [bp-0x5ac]\n    let v6: u64;  // [bp-0x53c]\n    let v7: u32;  // [bp-0x534]\n    let v8: u8;  // [bp-0x530]\n    let v9: u32;  // [bp-0x2e8]\n    let v10: i8;  // [bp-0x2e4]\n    let v11: u64;  // [bp-0x274]\n    let v12: u32;  // [bp-0x26c]\n    let v13: u192;  // [bp-0x268]\n    let v16: u64;  // rdx\n\n    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v16);\n    clap_builder::builder::command::Command::version(&v8, &v3, \"0.0.28\");\n    clap_builder::builder::command::Command::about(&v3, &v8, \"Print CRC and size for each file\");\n    uucore::format_usage(&v0, \"{} [OPTIONS] [FILE]...\");\n    clap_builder::builder::command::Command::override_usage(&v8, &v3, &v0);\n    memcpy(&v3, &v8, 700);\n    v6 = 584115552392 | v11;\n    v7 = v12;\n    clap_builder::builder::arg::Arg::new(&v8, \"file\");\n    memcpy(&v0, &v8, 584);\n    v1 = v9 | 4;\n    v2 = *(&v10 as &i32);\n    clap_builder::builder::arg::Arg::action(&v8, &v0, 1);\n    v13 = 2;\n    clap_builder::builder::arg::Arg::value_parser(&v0, &v8, &v13);\n    clap_builder::builder::arg::Arg::value_hint(&v13, &v0, 3);\n    clap_builder::builder::command::Command::arg(&v8, &v3, &v13);\n    clap_builder::builder::arg::Arg::new(&v3, \"algorithm\");\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"algorithm\");\n    clap_builder::builder::arg::Arg::short(&v3, &v0, 97);\n    clap_builder::builder::arg::Arg::help(&v0, &v3, \"select the digest type to use. See DIGEST below\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v0);\n    memcpy(&v13, \"sysv\", 240);\n    clap_builder::builder::arg::Arg::value_parser(&v0, &v3, &v13);\n    clap_builder::builder::command::Command::arg(&v3, &v8, &v0);\n    clap_builder::builder::arg::Arg::new(&v8, \"untagged\");\n    clap_builder::builder::arg::Arg::long(&v0, &v8, \"untagged\");\n    clap_builder::builder::arg::Arg::help(&v8, &v0, \"create a reversed style checksum, without digest type\");\n    clap_builder::builder::arg::Arg::action(&v0, &v8, 2);\n    clap_builder::builder::arg::Arg::overrides_with(&v13, &v0, \"tag\");\n    clap_builder::builder::command::Command::arg(&v8, &v3, &v13);\n    clap_builder::builder::arg::Arg::new(&v3, \"tag\");\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"tag\");\n    clap_builder::builder::arg::Arg::help(&v3, &v0, \"create a BSD style checksum, undo --untagged (default)\");\n    clap_builder::builder::arg::Arg::action(&v0, &v3, 2);\n    clap_builder::builder::arg::Arg::overrides_with(&v13, &v0, \"untagged\");\n    clap_builder::builder::command::Command::arg(&v3, &v8, &v13);\n    clap_builder::builder::arg::Arg::new(&v8, \"length\");\n    clap_builder::builder::arg::Arg::long(&v0, &v8, \"length\");\n    v13 = struct24 {\n        field_0: 4\n        field_8: alloc::boxed::Box<T>::new()\n        field_16: &g_755768\n    };\n    clap_builder::builder::arg::Arg::value_parser(&v8, &v0, &v13);\n    clap_builder::builder::arg::Arg::short(&v0, &v8, 108);\n    clap_builder::builder::arg::Arg::help(&v8, &v0, \"digest length in bits; must not exceed the max for the blake2 algorithm and must be a multiple of 8\");\n    clap_builder::builder::arg::Arg::action(&v0, &v8, 0);\n    clap_builder::builder::command::Command::arg(&v8, &v3, &v0);\n    clap_builder::builder::arg::Arg::new(&v3, \"raw\");\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"raw\");\n    clap_builder::builder::arg::Arg::help(&v3, &v0, \"emit a raw binary digest, not hexadecimal\");\n    clap_builder::builder::arg::Arg::action(&v0, &v3, 2);\n    clap_builder::builder::command::Command::arg(&v3, &v8, &v0);\n    clap_builder::builder::arg::Arg::new(&v8, \"strict\");\n    clap_builder::builder::arg::Arg::long(&v0, &v8, \"strict\");\n    clap_builder::builder::arg::Arg::help(&v8, &v0, \"exit non-zero for improperly formatted checksum lines\");\n    clap_builder::builder::arg::Arg::action(&v0, &v8, 2);\n    clap_builder::builder::command::Command::arg(&v8, &v3, &v0);\n    clap_builder::builder::arg::Arg::new(&v3, \"check\");\n    clap_builder::builder::arg::Arg::short(&v0, &v3, 99);\n    clap_builder::builder::arg::Arg::long(&v3, &v0, \"check\");\n    clap_builder::builder::arg::Arg::help(&v0, &v3, \"read hashsums from the FILEs and check them\");\n    clap_builder::builder::arg::Arg::action(&v3, &v0, 2);\n    clap_builder::builder::arg::Arg::conflicts_with(&v0, &v3, \"tag\");\n    clap_builder::builder::command::Command::arg(&v3, &v8, &v0);\n    clap_builder::builder::arg::Arg::new(&v8, \"base64\");\n    clap_builder::builder::arg::Arg::long(&v0, &v8, \"base64\");\n    clap_builder::builder::arg::Arg::help(&v8, &v0, \"emit a base64 digest, not hexadecimal\");\n    clap_builder::builder::arg::Arg::action(&v0, &v8, 2);\n    clap_builder::builder::arg::Arg::conflicts_with(&v13, &v0, \"raw\");\n    clap_builder::builder::command::Command::arg(&v8, &v3, &v13);\n    clap_builder::builder::arg::Arg::new(&v3, \"text\");\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"text\");\n    clap_builder::builder::arg::Arg::short(&v3, &v0, 116);\n    memcpy(&v0, &v3, 584);\n    v1 = v4 | 4;\n    v2 = *(&v5 as &i32);\n    clap_builder::builder::arg::Arg::overrides_with(&v3, &v0, \"binary\");\n    clap_builder::builder::arg::Arg::action(&v0, &v3, 2);\n    clap_builder::builder::command::Command::arg(&v3, &v8, &v0);\n    clap_builder::builder::arg::Arg::new(&v8, \"binary\");\n    clap_builder::builder::arg::Arg::long(&v0, &v8, \"binary\");\n    clap_builder::builder::arg::Arg::short(&v8, &v0, 98);\n    memcpy(&v0, &v8, 584);\n    v1 = v9 | 4;\n    v2 = *(&v10 as &i32);\n    clap_builder::builder::arg::Arg::overrides_with(&v8, &v0, \"text\");\n    clap_builder::builder::arg::Arg::action(&v0, &v8, 2);\n    clap_builder::builder::command::Command::arg(&v8, &v3, &v0);\n    clap_builder::builder::arg::Arg::new(&v3, \"warn\");\n    clap_builder::builder::arg::Arg::short(&v0, &v3, 119);\n    clap_builder::builder::arg::Arg::long(&v3, &v0, \"warn\");\n    clap_builder::builder::arg::Arg::help(&v0, &v3, \"warn about improperly formatted checksum lines\");\n    clap_builder::builder::arg::Arg::action(&v13, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v3, &v8, &v13);\n    clap_builder::builder::arg::Arg::new(&v8, \"status\");\n    clap_builder::builder::arg::Arg::long(&v0, &v8, \"status\");\n    clap_builder::builder::arg::Arg::help(&v8, &v0, \"don't output anything, status code shows success\");\n    clap_builder::builder::arg::Arg::action(&v0, &v8, 2);\n    clap_builder::builder::command::Command::arg(&v8, &v3, &v0);\n    clap_builder::builder::arg::Arg::new(&v3, \"quiet\");\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"quiet\");\n    clap_builder::builder::arg::Arg::help(&v3, &v0, \"don't print OK for each successfully verified file\");\n    clap_builder::builder::arg::Arg::action(&v0, &v3, 2);\n    clap_builder::builder::command::Command::arg(&v3, &v8, &v0);\n    clap_builder::builder::arg::Arg::new(&v8, \"ignore-missing\");\n    clap_builder::builder::arg::Arg::long(&v0, &v8, \"ignore-missing\");\n    clap_builder::builder::arg::Arg::help(&v8, &v0, \"don't fail or report status for missing files\");\n    clap_builder::builder::arg::Arg::action(&v0, &v8, 2);\n    clap_builder::builder::command::Command::arg(&v8, &v3, &v0);\n    clap_builder::builder::arg::Arg::new(&v3, \"zero\");\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"zero\");\n    clap_builder::builder::arg::Arg::short(&v3, &v0, 122);\n    clap_builder::builder::arg::Arg::help(&v0, &v3, \"end each output line with NUL, not newline,\\n and disable file name escaping\");\n    clap_builder::builder::arg::Arg::action(&v13, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v3, &v8, &v13);\n    clap_builder::builder::command::Command::after_help(a0, &v3, \"DIGEST determines the digest algorithm and default output format:\\n\\n- sysv:    (equivalent to sum -s)\\n- bsd:     (equivalent to sum -r)\\n- crc:     (equivalent to cksum)\\n- md5:     (equivalent to md5sum)\\n- sha1:    (equivalent to sha1sum)\\n- sha224:  (equivalent to sha224sum)\\n- sha256:  (equivalent to sha256sum)\\n- sha384:  (equivalent to sha384sum)\\n- sha512:  (equivalent to sha512sum)\\n- blake2b: (equivalent to b2sum)\\n- sm3:     (only available through cksum)\");\n    return a0;\n}\n"
   },
   "function_call_counts": {
+    "_ZN8uu_cksum5cksum17h3bc15d2c96f4f009E": {
+      "alloc::boxed::Box<T>::new": 5,
+      "core::option::Option<T>::map_or_else": 5,
+      "core::result::Result<T,E>::unwrap": 6,
+      "core::num::<impl core::str::traits::FromStr for u16>::from_str": 3,
+      "std::io::stdio::_print": 2,
+      "std::io::stdio::stdout": 2,
+      "<std::io::stdio::Stdout as std::io::Write>::write_all": 2,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 3,
+      "alloc::str::<impl str>::to_ascii_uppercase": 1,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "data_encoding::Encoding::encode": 1,
+      "<alloc::vec::Vec<u8> as hex::FromHex>::from_hex": 2,
+      "core::num::<impl core::str::traits::FromStr for u32>::from_str": 1,
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "uucore::features::checksum::digest_reader": 1,
+      "uucore::util_name": 2,
+      "std::io::stdio::_eprint": 2,
+      "uucore::mods::error::set_exit_code": 2,
+      "<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code": 1,
+      "std::io::buffered::bufreader::BufReader<R>::with_capacity": 2,
+      "std::io::stdio::stdin": 1,
+      "<std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context": 1,
+      "std::fs::File::open": 1,
+      "<std::path::Components as core::cmp::PartialEq>::eq": 1,
+      "std::path::Path::components": 2,
+      "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1
+    },
+    "_ZN8uu_cksum5cksum17h968c8f5c05770fbeE": {
+      "alloc::boxed::Box<T>::new": 5,
+      "std::io::stdio::_print": 2,
+      "std::io::stdio::stdout": 2,
+      "<std::io::stdio::Stdout as std::io::Write>::write_all": 2,
+      "core::option::Option<T>::map_or_else": 9,
+      "core::result::Result<T,E>::unwrap": 6,
+      "core::num::<impl core::str::traits::FromStr for u16>::from_str": 3,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 3,
+      "alloc::str::<impl str>::to_ascii_uppercase": 1,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "data_encoding::Encoding::encode": 1,
+      "<alloc::vec::Vec<u8> as hex::FromHex>::from_hex": 2,
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "core::num::<impl core::str::traits::FromStr for u32>::from_str": 1,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "uucore::features::checksum::digest_reader": 1,
+      "uucore::util_name": 2,
+      "std::io::stdio::_eprint": 2,
+      "uucore::mods::error::set_exit_code": 2,
+      "<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code": 1,
+      "std::io::buffered::bufreader::BufReader<R>::with_capacity": 2,
+      "std::io::stdio::stdin": 1,
+      "<std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context": 1,
+      "std::fs::File::open": 1,
+      "<std::path::Components as core::cmp::PartialEq>::eq": 1,
+      "std::path::Path::components": 2,
+      "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1
+    },
     "_ZN8uu_cksum6uumain17he6c7166d5a8d1f1fE": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
       "uu_cksum::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
@@ -17,22 +83,26 @@
     "_ZN8uu_cksum6uumain6uumain17hf3578f9fe0c3201cE": {
       "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
       "alloc::boxed::Box<T>::new": 1,
-      "<T as core::slice::cmp::SliceContains>::slice_contains": 1,
-      "uu_cksum::cksum": 2,
+      "uucore::features::checksum::calculate_blake2b_length": 1,
+      "uucore::features::checksum::perform_checksum_validation": 1,
+      "core::option::Option<T>::map_or_else": 1,
       "clap_builder::parser::error::MatchesError::unwrap": 4,
-      "<alloc::boxed::Box<F,A> as core::ops::function::Fn<Args>>::call": 1,
       "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 2,
-      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 8,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 10,
+      "uu_cksum::cksum": 2,
+      "<alloc::boxed::Box<F,A> as core::ops::function::Fn<Args>>::call": 1,
       "uucore::features::checksum::detect_algo": 1,
       "uu_cksum::handle_tag_text_binary_flags": 1,
-      "core::option::Option<T>::map_or_else": 1,
-      "uucore::features::checksum::calculate_blake2b_length": 1,
       "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 2,
+      "<T as core::slice::cmp::SliceContains>::slice_contains": 1,
       "clap_builder::builder::command::Command::try_get_matches_from": 1,
       "uu_cksum::uu_app": 1
     },
-    "_ZN8uu_cksum9had_reset17h64707811948cf7faE": {},
+    "_ZN8uu_cksum9had_reset17h64707811948cf7faE": {
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::position": 3
+    },
     "_ZN8uu_cksum28handle_tag_text_binary_flags17h54d38c67ed693625E": {
+      "uu_cksum::had_reset": 1,
       "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
       "std::env::args_os": 1,
       "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 3
@@ -61,10 +131,13 @@
     }
   },
   "macro_call_counts": {
+    "_ZN8uu_cksum5cksum17h3bc15d2c96f4f009E": {
+      "format": 4
+    },
+    "_ZN8uu_cksum5cksum17h968c8f5c05770fbeE": {},
     "_ZN8uu_cksum6uumain17he6c7166d5a8d1f1fE": {
-      "eprintln": 1,
-      "show_error": 1,
-      "format": 1
+      "eprintln": 2,
+      "eprint": 1
     },
     "_ZN8uu_cksum6uumain6uumain17hf3578f9fe0c3201cE": {},
     "_ZN8uu_cksum9had_reset17h64707811948cf7faE": {},
@@ -72,224 +145,2165 @@
     "_ZN8uu_cksum6uu_app17hbfb998c9a541210bE": {}
   },
   "node_counts": {
-    "_ZN8uu_cksum6uumain17he6c7166d5a8d1f1fE": 9,
-    "_ZN8uu_cksum6uumain6uumain17hf3578f9fe0c3201cE": 47,
-    "_ZN8uu_cksum9had_reset17h64707811948cf7faE": 8,
+    "_ZN8uu_cksum5cksum17h3bc15d2c96f4f009E": 78,
+    "_ZN8uu_cksum5cksum17h968c8f5c05770fbeE": 73,
+    "_ZN8uu_cksum6uumain17he6c7166d5a8d1f1fE": 10,
+    "_ZN8uu_cksum6uumain6uumain17hf3578f9fe0c3201cE": 53,
+    "_ZN8uu_cksum9had_reset17h64707811948cf7faE": 4,
     "_ZN8uu_cksum28handle_tag_text_binary_flags17h54d38c67ed693625E": 5,
     "_ZN8uu_cksum6uu_app17hbfb998c9a541210bE": 105
   },
-  "prototypes": {
-    "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64ffba3b6722510bE": {
-      "name": "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64ffba3b6722510bE",
-      "return_type": [
-        "struct",
-        8
-      ],
-      "parameters": []
-    },
-    "_ZN4core4iter6traits8iterator8Iterator7collect17h93221f71b9989300E": {
-      "name": "_ZN4core4iter6traits8iterator8Iterator7collect17h93221f71b9989300E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core4iter6traits8iterator8Iterator7collect17hd51e304b73a29e2dE": {
-      "name": "_ZN4core4iter6traits8iterator8Iterator7collect17hd51e304b73a29e2dE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h59c346ae679b8aacE": {
-      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h59c346ae679b8aacE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6option15Option$LT$T$GT$11map_or_else17hc5f016e47121d65fE": {
-      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17hc5f016e47121d65fE",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3fe0ac65674ede90E": {
-      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3fe0ac65674ede90E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h72eff9fffdfc2e9eE": {
-      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h72eff9fffdfc2e9eE",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h30fbc9471dcc217cE": {
-      "name": "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h30fbc9471dcc217cE",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_uppercase17h60b631a23b970e6aE": {
-      "name": "_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_uppercase17h60b631a23b970e6aE",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN5alloc5boxed12Box$LT$T$GT$3new17hd4bad29e7eee4d0fE": {
-      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17hd4bad29e7eee4d0fE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN5alloc5boxed12Box$LT$T$GT$3new17hf9ffa0e11f6228ffE": {
-      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17hf9ffa0e11f6228ffE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5cac1ec2999e76daE": {
-      "name": "_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5cac1ec2999e76daE",
-      "return_type": [
-        "primitive",
-        1
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
-      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
-      "return_type": [
-        "primitive",
-        1
-      ],
-      "parameters": [
-        [
-          "primitive",
-          4
-        ],
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
+  "variable_types": {
     "_ZN8uu_cksum5cksum17h3bc15d2c96f4f009E": {
-      "name": "_ZN8uu_cksum5cksum17h3bc15d2c96f4f009E",
-      "return_type": [
-        "primitive",
-        8
+      "stack_768": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": []
+      "reg_128": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_440": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_456": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_512": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "reg_16": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "Result",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_424": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_32": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_112": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_40": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "Result",
+          16
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "primitive",
+          24
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          48
+        ],
+        [
+          "primitive",
+          48
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          85
+        ],
+        [
+          "primitive",
+          48
+        ],
+        [
+          "primitive",
+          28
+        ],
+        [
+          "primitive",
+          48
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          40
+        ],
+        [
+          "primitive",
+          48
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          24
+        ],
+        [
+          "primitive",
+          48
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          48
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_84": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_688": [
+        [
+          "struct",
+          56
+        ]
+      ],
+      "reg_24": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_544": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_560": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          24
+        ],
+        [
+          "primitive",
+          24
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_392": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_568": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_174": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_592": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_616": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_608": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_640": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_656": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_464": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_488": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_664": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_680": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_496": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_504": [
+        [
+          "primitive",
+          8
+        ]
+      ]
     },
     "_ZN8uu_cksum5cksum17h968c8f5c05770fbeE": {
-      "name": "_ZN8uu_cksum5cksum17h968c8f5c05770fbeE",
-      "return_type": [
-        "primitive",
-        8
+      "stack_768": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "reg_128": [
         [
           "primitive",
           8
         ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_440": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_456": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_32": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_16": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "Result",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_512": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_424": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_112": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_40": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "Result",
+          88
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          85
+        ],
+        [
+          "primitive",
+          48
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "primitive",
+          48
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          28
+        ],
+        [
+          "primitive",
+          48
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          48
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_24": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_84": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_544": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_560": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_688": [
+        [
+          "primitive",
+          80
+        ]
+      ],
+      "reg_88": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_392": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_568": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_174": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_592": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_616": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_640": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_656": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_664": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_680": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_608": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_488": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_496": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_504": [
         [
           "primitive",
           8
@@ -297,12 +2311,99 @@
       ]
     },
     "_ZN8uu_cksum6uumain17he6c7166d5a8d1f1fE": {
-      "name": "_ZN8uu_cksum6uumain17he6c7166d5a8d1f1fE",
-      "return_type": [
-        "primitive",
-        8
+      "reg_16": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
         [
           "primitive",
           8
@@ -314,55 +2415,31 @@
       ]
     },
     "_ZN8uu_cksum6uumain6uumain17hf3578f9fe0c3201cE": {
-      "name": "_ZN8uu_cksum6uumain6uumain17hf3578f9fe0c3201cE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
+      "stack_176": [
         [
           "primitive",
-          8
+          1
         ],
         [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h1fb92bba1baf3ed0E": {
-      "name": "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h1fb92bba1baf3ed0E",
-      "return_type": [
-        "struct",
-        32
-      ],
-      "parameters": [
+          "struct",
+          40
+        ],
         [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h4959fc360751633bE": {
-      "name": "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17h4959fc360751633bE",
-      "return_type": [
-        "struct",
-        40
-      ],
-      "parameters": [
+          "struct",
+          56
+        ],
         [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17hc4db813bde19958aE": {
-      "name": "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17hc4db813bde19958aE",
-      "return_type": [
-        "struct",
-        56
-      ],
-      "parameters": [
+          "Result",
+          80
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "struct",
+          24
+        ],
         [
           "primitive",
           8
@@ -374,29 +2451,77 @@
         [
           "primitive",
           8
+        ],
+        [
+          "struct",
+          56
         ]
-      ]
-    },
-    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h6371967b4e91eb46E": {
-      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h6371967b4e91eb46E",
-      "return_type": [
-        "Result",
-        32
       ],
-      "parameters": [
+      "stack_112": [
+        [
+          "Result",
+          80
+        ],
+        [
+          "struct",
+          64
+        ],
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN6uucore8features8checksum13digest_reader17hb3e7cc01e934b03fE": {
-      "name": "_ZN6uucore8features8checksum13digest_reader17hb3e7cc01e934b03fE",
-      "return_type": [
-        "Option",
-        16
       ],
-      "parameters": [
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_56": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_16": [
         [
           "primitive",
           8
@@ -411,398 +2536,263 @@
         ],
         [
           "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN58_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$hex..FromHex$GT$8from_hex17h6fda53b93a1b4a9bE": {
-      "name": "_ZN58_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$hex..FromHex$GT$8from_hex17h6fda53b93a1b4a9bE",
-      "return_type": [
-        "Option",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h0c465a2b7c337f9cE": {
-      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h0c465a2b7c337f9cE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h1d7ac479b1fc21b9E": {
-      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h1d7ac479b1fc21b9E",
-      "return_type": [
-        "struct",
-        64
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h7eb1f01738a0eebaE": {
-      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h7eb1f01738a0eebaE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h2dbf6ab7fc702809E": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h2dbf6ab7fc702809E",
-      "return_type": [
-        "Result",
-        40
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17ha144a8fbf7eefe4dE": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17ha144a8fbf7eefe4dE",
-      "return_type": [
-        "Result",
-        40
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h30811e089b0b91d0E": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h30811e089b0b91d0E",
-      "return_type": [
-        "struct",
-        56
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command20try_get_matches_from17hb83dbc2a0c900676E": {
-      "name": "_ZN12clap_builder7builder7command7Command20try_get_matches_from17hb83dbc2a0c900676E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std2fs4File4open17h7ee72332435a5b84E": {
-      "name": "_ZN3std2fs4File4open17h7ee72332435a5b84E",
-      "return_type": [
-        "Result",
-        12
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hc0d278d84f38de62E": {
-      "name": "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hc0d278d84f38de62E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3c86d19f285204edE": {
-      "name": "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3c86d19f285204edE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std3env7args_os17h433b833009c91492E": {
-      "name": "_ZN3std3env7args_os17h433b833009c91492E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": []
-    },
-    "_ZN3std2io5stdio5stdin17h7215cc131abb55d8E": {
-      "name": "_ZN3std2io5stdio5stdin17h7215cc131abb55d8E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": []
-    },
-    "_ZN3std2io5stdio6stdout17h077da66234850927E": {
-      "name": "_ZN3std2io5stdio6stdout17h077da66234850927E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": []
-    },
-    "_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17he47e3670e90f933eE": {
-      "name": "_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17he47e3670e90f933eE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std4path4Path10components17h4f3217acf0fc8653E": {
-      "name": "_ZN3std4path4Path10components17h4f3217acf0fc8653E",
-      "return_type": [
-        "struct",
-        20
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std4path4Path6is_dir17h9ac0db933706da51E": {
-      "name": "_ZN3std4path4Path6is_dir17h9ac0db933706da51E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg10value_name17hb6cf57d750a55842E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg10value_name17hb6cf57d750a55842E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4help17h44dbe5bb7ba0ac97E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4help17h44dbe5bb7ba0ac97E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4long17hafaa49ca8618007eE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4long17hafaa49ca8618007eE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg5short17h76f2a3ae4a7efd56E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg5short17h76f2a3ae4a7efd56E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
+          1
         ],
         [
           "primitive",
           4
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg6action17h32c9b645fd3f4279E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg6action17h32c9b645fd3f4279E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
+        ],
         [
-          "struct*",
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
           8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_24": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_112": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_15": [
+        [
+          "Result",
+          4
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_14": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_120": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_128": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_185": [
+        [
+          "primitive",
+          7
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_888": [
+        [
+          "struct",
+          64
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_32": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_233": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_234": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_235": [
+        [
+          "primitive",
+          1
         ],
         [
           "primitive",
@@ -810,47 +2800,32 @@
         ]
       ]
     },
-    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h35a4fc5d12fa25d2E": {
-      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h35a4fc5d12fa25d2E",
-      "return_type": [
-        "struct",
-        8
-      ],
-      "parameters": []
-    },
-    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h372c78c7d6c62d75E": {
-      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h372c78c7d6c62d75E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h58b888c41225f503E": {
-      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h58b888c41225f503E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
     "_ZN8uu_cksum9had_reset17h64707811948cf7faE": {
-      "name": "_ZN8uu_cksum9had_reset17h64707811948cf7faE",
-      "return_type": [
-        "primitive",
-        8
+      "reg_56": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_16": [
+        [
+          "primitive",
+          8
+        ],
         [
           "primitive",
           8
@@ -862,399 +2837,158 @@
       ]
     },
     "_ZN8uu_cksum28handle_tag_text_binary_flags17h54d38c67ed693625E": {
-      "name": "_ZN8uu_cksum28handle_tag_text_binary_flags17h54d38c67ed693625E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN8uu_cksum6uu_app17hbfb998c9a541210bE": {
-      "name": "_ZN8uu_cksum6uu_app17hbfb998c9a541210bE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": []
-    },
-    "_ZN12clap_builder7builder7command7Command10after_help17h1bf004b88ccc38aaE": {
-      "name": "_ZN12clap_builder7builder7command7Command10after_help17h1bf004b88ccc38aaE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command14override_usage17h7dcdf9dabc732f96E": {
-      "name": "_ZN12clap_builder7builder7command7Command14override_usage17h7dcdf9dabc732f96E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3arg17h5efeed937d3b5e7dE": {
-      "name": "_ZN12clap_builder7builder7command7Command3arg17h5efeed937d3b5e7dE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3new17hc4791226d997769fE": {
-      "name": "_ZN12clap_builder7builder7command7Command3new17hc4791226d997769fE",
-      "return_type": [
-        "struct",
-        438
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command5about17h465eee02d36c0f6bE": {
-      "name": "_ZN12clap_builder7builder7command7Command5about17h465eee02d36c0f6bE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command7version17h6af4f4fec42e0bfcE": {
-      "name": "_ZN12clap_builder7builder7command7Command7version17h6af4f4fec42e0bfcE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h1b0607e581fae2c2E": {
-      "name": "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h1b0607e581fae2c2E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg10value_hint17h307fea4c41f31510E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg10value_hint17h307fea4c41f31510E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "reg_56": [
         [
           "primitive",
           1
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg12value_parser17h0c2b0b6f80eb2588E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg12value_parser17h0c2b0b6f80eb2588E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
+      "reg_128": [
         [
-          "struct*",
-          8
-        ],
-        [
-          "struct*",
-          8
+          "primitive",
+          1
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg12value_parser17h2cb6f9793451f7a9E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg12value_parser17h2cb6f9793451f7a9E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
+      "reg_16": [
         [
-          "struct*",
-          8
-        ],
-        [
-          "struct*",
-          8
+          "primitive",
+          1
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg12value_parser17h461944c7bd2494a6E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg12value_parser17h461944c7bd2494a6E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
+      "stack_32": [
         [
-          "struct*",
-          8
-        ],
+          "struct",
+          32
+        ]
+      ],
+      "stack_8": [
+        [
+          "Result",
+          88
+        ]
+      ],
+      "stack_16": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg14conflicts_with17h674f2147962b758eE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg14conflicts_with17h674f2147962b758eE",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "stack_24": [
         [
           "primitive",
-          8
-        ],
+          4
+        ]
+      ]
+    },
+    "_ZN8uu_cksum6uu_app17hbfb998c9a541210bE": {
+      "stack_592": [
+        [
+          "struct",
+          466
+        ]
+      ],
+      "reg_32": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg14overrides_with17hed4a0bb1cdf80f12E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg14overrides_with17hed4a0bb1cdf80f12E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "stack_1304": [
         [
           "primitive",
-          8
-        ],
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_1292": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg3new17hbda368a754bfeecaE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg3new17hbda368a754bfeecaE",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "stack_2004": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN6uucore8features8checksum11detect_algo17hbb2f85fa7c8cfc19E": {
-      "name": "_ZN6uucore8features8checksum11detect_algo17hbb2f85fa7c8cfc19E",
-      "return_type": [
-        "Result",
-        40
       ],
-      "parameters": [
+      "stack_1300": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          4
         ]
-      ]
-    },
-    "_ZN6uucore8features8checksum24calculate_blake2b_length17h2a821e36733dba3aE": {
-      "name": "_ZN6uucore8features8checksum24calculate_blake2b_length17h2a821e36733dba3aE",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": [
+      "stack_2012": [
         [
           "primitive",
-          8
+          4
         ]
-      ]
-    },
-    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
-      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": [
+      "stack_584": [
         [
           "primitive",
-          8
+          4
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1888": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_588": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1892": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_2016": [
+        [
+          "primitive",
+          24
         ],
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
-      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": []
-    },
-    "_ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E": {
-      "name": "_ZN6uucore4mods5error13set_exit_code17hf3c39c5b4c05c2c0E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
+      "stack_1176": [
         [
           "primitive",
-          8
+          4
         ]
-      ]
-    },
-    "_ZN13data_encoding8Encoding6encode17h8eff78e31b7db764E": {
-      "name": "_ZN13data_encoding8Encoding6encode17h8eff78e31b7db764E",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": [
+      "stack_1180": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          1
         ]
       ]
     }

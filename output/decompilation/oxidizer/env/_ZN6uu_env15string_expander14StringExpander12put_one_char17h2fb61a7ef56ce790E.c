@@ -1,9 +1,12 @@
-fn uu_env::string_expander::StringExpander::put_one_char(a0: &struct8, a1: u32) -> u64 {
-    let v0: i32;  // [sp-0x2c]
-    let v1: struct24;  // [sp-0x28]
-    let v3: i64;  // rdx
+fn uu_env::string_expander::StringExpander::put_one_char(a1: i32) -> : struct8 {
+    let a0: u64;  // rdi
+    let v0: u32;  // [bp-0x2c]
+    let v1: struct24;  // [bp-0x28]
+    let v3: u32;  // rdx
+    let v5: &mut [u8];  // rax:rdx
 
     v0 = 0;
-    v1 = <T as alloc::slice::hack::ConvertVec>::to_vec(core::char::methods::encode_utf8_raw(a1 as u64, &v0), v3);
+    v5 = core::char::methods::encode_utf8_raw(a1, &v0, v3);
+    v1 = <T as alloc::slice::hack::ConvertVec>::to_vec(v5.data_ptr, v3);
     return uu_env::string_expander::StringExpander::put_string(a0, &v1);
 }

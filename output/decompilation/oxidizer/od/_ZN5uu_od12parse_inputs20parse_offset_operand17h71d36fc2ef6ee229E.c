@@ -1,58 +1,63 @@
-fn uu_od::parse_inputs::parse_offset_operand(a0: &struct16, a1: u32, a2: u32) -> u64 {
-    let v0: i32;  // [sp-0x50], Other Possible Types: struct1, Result<struct2, struct8>
-    let v2: i64;  // [sp-0x30]
-    let v3: i64;  // [sp-0x28]
-    let v4: i64;  // [sp-0x20]
-    let v5: i64;  // [sp-0x18]
-    let v6: i64;  // [sp-0x10]
-    let v8: i64;  // r15
-    let v9: i64;  // r14
-    let v10: i64;  // r13
-    let v11: i64;  // r12
-    let v12: i64;  // rbx
-    let v13: i64;  // r12
-    let v14: i64;  // rax
-    let v15: i64;  // rbp
-    let v16: i64;  // rdx
-    let v18: i32;  // ebp
-    let v19: i64;  // r13
-    let v21: i64;  // r13
-    let v22: i64;  // rax
-    let v23: i64;  // rax
-    let v24: i64;  // rax
+fn uu_od::parse_inputs::parse_offset_operand(a0: i64, a1: i64, a2: i64) -> long long {
+    let v0: u32;  // [bp-0x50], Other Possible Types: core::result::Result<u64, core::num::error::ParseIntError>
+    let v1: u64;  // [bp-0x48]
+    let v2: i64;  // [bp-0x38]
+    let v3: u64;  // [bp-0x30]
+    let v4: u64;  // [bp-0x28]
+    let v5: Result<struct99, struct24>;  // [bp-0x20]
+    let v6: struct48;  // [bp-0x18]
+    let v7: alloc::vec::Vec<u8, alloc::alloc::Global>;  // [bp-0x10]
+    let v9: alloc::vec::Vec<u8, alloc::alloc::Global>;  // r15
+    let v10: struct48;  // r14
+    let v11: u64;  // r13
+    let v12: u64;  // r12
+    let v13: u64;  // rbx
+    let v15: u64;  // r12
+    let v16: core::option::Option<&str>;  // rax
+    let v17: u64;  // rbp
+    let v18: u64;  // rdx
+    let v19: u64;  // rbx
+    let v20: u32;  // ebp
+    let v21: u64;  // 4096
+    let v23: u64;  // r13
+    let v24: core::option::Option<&str>;  // rax
+    let v25: u64;  // rax
+    let v27: core::option::Option<&str>;  // rax
+    let v28: u64;  // rax
+    let v29: &mut [u8];  // rax:rdx
+    let v30: &mut [u8];  // rax:rdx
+    let v31: &mut [u8];  // rax:rdx
 
-    v6 = v8;
-    v5 = v9;
-    v4 = v10;
-    v3 = v11;
-    v2 = v12;
+    v7 = v9;
+    v6 = v10;
+    v5 = v11;
+    v4 = v12;
+    v3 = v13;
     v0 = 0;
-    v13 = core::slice::<impl [T]>::starts_with(a1, a2, core::char::methods::encode_utf8_raw(43, &v0), 1) as i32;
-    v14 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v13, a2, a1, a2);
-    v15 = v14;
-    if core::slice::<impl [T]>::starts_with(v14, v16, "0x") as i8 || core::slice::<impl [T]>::starts_with(v15, v16, "0X") as i8 {
-        v13 |= 2;
-        v18 = 16;
-        v19 = a2;
+    v30 = core::char::methods::encode_utf8_raw(43, &v0, a2);
+    v15 = core::slice::<impl [T]>::starts_with(a1, a2, v30.data_ptr, 1);
+    v16 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v15, a2, a1, a2) as u64;
+    v17 = v16;
+    if core::slice::<impl [T]>::starts_with(v16, v18, "0x") || core::slice::<impl [T]>::starts_with(v17, v18, "0X") {
+        v15 |= 2;
+        v19 = 1;
+        v20 = 16;
+        v21 = a2;
     } else {
-        v0 = struct1 {
-            field_0: 0
-        };
-        v21 = a2 - core::slice::<impl [T]>::ends_with(v15, v16, core::char::methods::encode_utf8_raw(98, &v0), 1) as i32;
-        v22 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v13, v21, a1, a2);
-        if v22 {
-            v0 = 0;
-            v23 = core::slice::<impl [T]>::ends_with(v22, v16, core::char::methods::encode_utf8_raw(46, &v0), 1) as i32;
-            v19 = v21 - v23;
-            v18 = (v23 * 2 + 8) as u32;
-        }
+        v0 = 0;
+        v31 = core::char::methods::encode_utf8_raw(98, &v0, a2);
+        v23 = a2 - core::slice::<impl [T]>::ends_with(v17, v18, v31.data_ptr, 1);
+        v24 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v15, v23, a1, a2) as u64;
+        v0 = 0;
+        v29 = core::char::methods::encode_utf8_raw(46, &v0, a2);
+        v25 = core::slice::<impl [T]>::ends_with(v24, v18, v29.data_ptr, 1);
+        v20 = v25 * 2 + 8;
+        v21 = v23 - v25;
     }
-    v24 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v13, v19, a1, a2);
-    if v24 {
-        v0 = core::num::<impl u64>::from_str_radix(v24, a2, v18 as u64);
-        return struct16 {
-            field_0: v28
-            field_8: v27
-        };
-    }
+    v27 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v15, v21, a1, a2) as u64;
+    v0 = core::num::<impl u64>::from_str_radix(v27, a2, v20);
+    v28 = (v0 as i8 ? &g_41888e : 0);
+    *((v2 + 8) as &i32) = (!v0 as i8 ? v1 * v19 : 12);
+    *(v2 as &u64) = v28;
+    return v28;
 }

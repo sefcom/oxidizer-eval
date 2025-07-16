@@ -1,74 +1,77 @@
-fn uu_more::Options::from(a0: &struct40, a1: &struct56) -> int {
-    let v0: i8;  // [sp-0x91]
-    let v1: i32;  // [sp-0x90]
-    let v2: i32;  // [sp-0x8c]
-    let v3: i64;  // [sp-0x88]
-    let v4: i64;  // [sp-0x80]
-    let v5: Result<struct40, struct8>;  // [sp-0x78], Other Possible Types: int
-    let v6: i64;  // [sp-0x68]
-    let v7: struct24;  // [sp-0x48], Other Possible Types: int, unsigned long
-    let v8: i64;  // [sp-0x30]
-    let v9: i64;  // [sp-0x28]
-    let v10: i64;  // [sp-0x20]
-    let v11: i64;  // [sp-0x18]
-    let v12: i64;  // [sp-0x10]
-    let v14: i64;  // r15
-    let v15: i64;  // r14
-    let v16: i64;  // r13
-    let v17: i64;  // r12
-    let v18: i64;  // rbx
-    let v19: i64;  // rax
+fn uu_more::Options::from(a1: i64) -> : struct40 {
+    let a0: u64;  // rsi
+    let v0: u8;  // [bp-0x91]
+    let v1: u32;  // [bp-0x90]
+    let v2: u32;  // [bp-0x8c]
+    let v4: i64;  // [bp-0x80]
+    let v5: Result<struct40, struct16>;  // [bp-0x78]
+    let v6: u64;  // [bp-0x68]
+    let v7: u64;  // [bp-0x48], Other Possible Types: alloc::string::String
+    let v8: u64;  // [bp-0x38]
+    let v9: u64;  // [bp-0x30]
+    let v10: u64;  // [bp-0x28]
+    let v11: u64;  // [bp-0x20]
+    let v12: u64;  // [bp-0x18]
+    let v13: u64;  // [bp-0x10]
+    let v15: u64;  // r15
+    let v16: u64;  // r14
+    let v17: u64;  // r13
+    let v18: u64;  // r12
+    let v19: u64;  // rbx
     let v20: i64;  // rax
-    let v21: i64;  // r12
-    let v22: i64;  // r13
-    let v23: i64;  // rax
+    let v21: i64;  // rax
+    let v23: i64;  // r13
+    let v24: u64;  // rax
+    let v25: u8;  // al
+    let v26: u8;  // al
+    let v27: u8;  // al
+    let v28: u16;  // si
+    let v29: u16;  // di
+    let v30: u16;  // cx
+    let v31: u16;  // si
+    let v32: void*;  // rsi
+    let v33: i64;  // rdi
 
-    v12 = v14;
-    v11 = v15;
-    v10 = v16;
-    v9 = v17;
-    v8 = v18;
-    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "lines");
-    v19 = clap_builder::parser::error::MatchesError::unwrap("lines", &v5);
-    v4 = v19;
-    if v19 {
-        v19 = *(v19 as &i16);
+    v13 = v15;
+    v12 = v16;
+    v11 = v17;
+    v10 = v18;
+    v9 = v19;
+    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, "lines");
+    v20 = clap_builder::parser::error::MatchesError::unwrap("lines", &v5);
+    v4 = v20;
+    v2 = v20 as u32;
+    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, "number");
+    v21 = clap_builder::parser::error::MatchesError::unwrap("number", &v5);
+    v1 = v21 as u32;
+    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, "from-line");
+    v23 = clap_builder::parser::error::MatchesError::unwrap("from-line", &v5);
+    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, "pattern");
+    v24 = clap_builder::parser::error::MatchesError::unwrap("pattern", &v5);
+    if v24 {
+        v7 = <alloc::string::String as core::clone::Clone>::clone(v24);
     }
-    v2 = v19 as u32;
-    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "number");
-    v20 = clap_builder::parser::error::MatchesError::unwrap("number", &v5);
-    v21 = v20;
-    if v21 {
-        v20 = *(v21 as &i16);
-    }
-    v1 = v20 as u32;
-    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "from-line");
-    v22 = clap_builder::parser::error::MatchesError::unwrap("from-line", &v5);
-    if v22 {
-        v3 = *(v22 as &i64);
-    }
-    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "pattern");
-    v23 = clap_builder::parser::error::MatchesError::unwrap("pattern", &v5);
-    if !v23 {
-        v7 = 0x8000000000000000;
+    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "clean-print") as i8;
+    v6 = v8;
+    memcpy(&v5, &v7, 16);
+    v25 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "print-over") as i32;
+    v26 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "silent") as i32;
+    v27 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "squeeze") as i8;
+    v28 = v1;
+    v29 = v2;
+    if !v4 {
+        v31 = v28;
     } else {
-        v7 = <alloc::string::String as core::clone::Clone>::clone(v23);
+        v31 = v29;
     }
-    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "clean-print") as i8;
-    v6 = v7.field_16;
-    v5 = v7 as i128;
-    clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "print-over");
-    clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "silent");
-    clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, "squeeze");
-    return struct40 {
-        field_0: v5
-        field_16: v6
-        field_24: v31
-        field_32: v30
-        field_34: v29 + 1
-        field_36: v0
-        field_37: v25
-        field_38: v26
-        field_39: v27
-    };
+    *((v33 + 36) as &u8) = v0;
+    *((v33 + 24) as &void*) = v32;
+    *((v33 + 32) as &u16) = v30;
+    *((v33 + 34) as &u16) = v31 + 1;
+    *(v33 as &i128) = v5 as i128;
+    *((v33 + 16) as &u64) = v6;
+    *((v33 + 37) as &u8) = v25;
+    *((v33 + 38) as &u8) = v26;
+    *((v33 + 39) as &u8) = v27;
+    return;
 }

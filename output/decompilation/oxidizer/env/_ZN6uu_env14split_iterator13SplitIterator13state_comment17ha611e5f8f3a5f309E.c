@@ -1,34 +1,33 @@
-fn uu_env::split_iterator::SplitIterator::state_comment(a0: &Option<struct40>, a1: u32) -> u64 {
-    let v0: i8;  // [bp-0x48]
+fn uu_env::split_iterator::SplitIterator::state_comment(a1: i64) -> : struct40 {
+    let a0: u64;  // rsi
+    let v0: i8;  // [bp-0x48], Other Possible Types: u128
+    let v1: u128;  // [bp-0x38]
     let v2: i8;  // [bp-0x28]
-    let v4: struct21;  // rax
-    let v5: u128;  // xmm0
+    let v5: i64;  // rdi
+    let v6: i64;  // rdi
+    let v7: i64;  // rdi
 
-    v4 = uu_env::split_iterator::SplitIterator::get_current_char(a1);
-    match (v4 as u32) {
+    match (uu_env::split_iterator::SplitIterator::get_current_char(a0) as i32) {
         10 => {
-            v4 = uu_env::split_iterator::SplitIterator::skip_one(a1);
-            if *(&v0 as &i32) != 8 {
-                v4 = *(&v2 as &i64);
-                v5 = *(&v0 as &i128);
-                return Some(struct40 {
-                    field_0: v5
-                    field_16: *(&v1 as &i128)
-                    field_32: v4
-                });
-            }
-            return struct4 {
-                field_0: 8
-            };
+            uu_env::split_iterator::SplitIterator::skip_one(a0, a1);
+            goto LABEL_4da334;
         }
         1114112 => {
-            return struct4 {
-                field_0: 6
-            };
+            *(v5 as &i32) = 6;
+            return;
         }
         _ => {
-            uu_env::string_parser::StringParser::skip_until_char_or_end(a1 + 24, 10);
+            uu_env::string_parser::StringParser::skip_until_char_or_end(0xa, a1);
             break;
         }
     }
+LABEL_4da334:
+    if *(&v0 as &i32) != 8 {
+        *((v7 + 32) as &i64) = *(&v2 as &i64);
+        *((v7 + 16) as &u128) = v1;
+        *(v7 as &u128) = v0;
+        return;
+    }
+    *(v6 as &i32) = 8;
+    return;
 }

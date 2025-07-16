@@ -2,6 +2,8 @@ import json
 import traceback
 
 from angr.rust.sim_type import *
+from angr.sim_variable import SimStackVariable, SimRegisterVariable
+from angr.sim_type import TypeRef
 
 from .util import *
 from ..type_recovery.function_prototype import FunctionPrototype, Type
@@ -21,6 +23,8 @@ def _extract_function_body(output):
 def _normalize_type(ty: RustSimType) -> Type:
     if ty is None:
         return Type(None, None)
+    if isinstance(ty, TypeRef):
+        ty = ty.type
     name = None
     size = ty.size // 8
     is_pointer = isinstance(ty, RustSimTypeReference)
@@ -35,7 +39,7 @@ def _normalize_type(ty: RustSimType) -> Type:
     else:
         name = "primitive"
     if is_pointer:
-        name += "*"
+        name = "&" + name
     return Type(name, size)
 
 
@@ -50,6 +54,22 @@ def _normalize_prototype(name, prototype: RustSimTypeFunction) -> FunctionProtot
     return FunctionPrototype(name, return_type, args)
 
 
+def _dump_variable_types(decompiler):
+    stack_depth = decompiler.clinic.calculate_stack_depth()
+    ident_to_types = defaultdict(list)
+    for var, rust_vars_and_types in decompiler.codegen.rust_func.get_unified_local_vars().items():
+        types = [_normalize_type(ty.with_arch(decompiler.project.arch)).to_tuple() for _, ty in rust_vars_and_types]
+        if isinstance(var, SimStackVariable):
+            stack_offset = var.offset - stack_depth
+            ident = f"stack_{stack_offset}"
+            ident_to_types[ident] += types
+        elif isinstance(var, SimRegisterVariable):
+            decompiler.project.arch.register_names.get(var.reg)
+            ident = f"reg_{var.reg}"
+            ident_to_types[ident] += types
+    return ident_to_types
+
+
 def _angr_dec_base(binary_path, function_list, extract_body_func, is_rust_binary, cache_only=False):
     assert os.path.exists(binary_path)
 
@@ -60,7 +80,7 @@ def _angr_dec_base(binary_path, function_list, extract_body_func, is_rust_binary
         "function_call_counts": {},
         "macro_call_counts": {},
         "node_counts": {},
-        "prototypes": {},
+        "variable_types": {},
     }
 
     bin_name = os.path.basename(binary_path)
@@ -77,6 +97,7 @@ def _angr_dec_base(binary_path, function_list, extract_body_func, is_rust_binary
             proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=is_rust_binary)
             cfg = proj.analyses.CFGFast(normalize=True)
             proj.analyses.CompleteCallingConventions(recover_variables=True, cfg=cfg)
+            proj.analyses.StructMemoryLayout(struct_prefixes=("alloc::string::String", "core::fmt::Arguments"))
         except:
             return result
 
@@ -96,16 +117,17 @@ def _angr_dec_base(binary_path, function_list, extract_body_func, is_rust_binary
                         node_counter = NodeCounter()
                         node_counter.walk(decompiler.seq_node)
                         result["node_counts"][func.name] = node_counter.node_counts
+                        result["variable_types"][func.name] = _dump_variable_types(decompiler)
 
             except BaseException as e:
                 traceback.print_exception(e)
                 print(f"Failed to decompile functon: {demangle(func.name)}")
         # Save inferred prototypes
-        if is_rust_binary:
-            for func_addr in proj.kb.functions:
-                func = proj.kb.functions[func_addr]
-                if isinstance(func.prototype, RustSimTypeFunction):
-                    result["prototypes"][func.name] = _normalize_prototype(func.name, func.prototype).to_dict()
+        # if is_rust_binary:
+        #     for func_addr in proj.kb.functions:
+        #         func = proj.kb.functions[func_addr]
+        #         if isinstance(func.prototype, RustSimTypeFunction):
+        #             result["prototypes"][func.name] = _normalize_prototype(func.name, func.prototype).to_dict()
         save_result(decompiler_name, bin_name, result)
     return result
 

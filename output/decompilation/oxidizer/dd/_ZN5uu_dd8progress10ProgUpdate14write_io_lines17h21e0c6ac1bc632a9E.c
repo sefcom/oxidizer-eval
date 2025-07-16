@@ -1,42 +1,51 @@
-fn uu_dd::progress::ProgUpdate::write_io_lines(a0: void*, a1: u32) -> u64 {
-    let v0: u32;  // [sp-0x54]
-    let v1: u64;  // [sp-0x50]
-    let v2: u64;  // [sp-0x48]
-    let v3: u64;  // [sp-0x40], Other Possible Types: &&struct_1
-    let v4: u128;  // [sp-0x38]
-    let v5: void*;  // [sp-0x30]
-    let v6: &u8;  // [sp-0x20]
-    let v7: u64;  // [sp-0x18]
-    let v9: void*;  // rax
-    let v10: u32;  // eax
+fn uu_dd::progress::ProgUpdate::write_io_lines(a0: i64, a1: i64) -> long long {
+    let v0: core::result::Result<u64, std::io::error::Error>;  // [bp-0x54]
+    let v1: core::option::Option<&str>;  // [bp-0x50], Other Possible Types: u384
+    let v2: core::time::Duration;  // [bp-0x50]
+    let v3: &str;  // [bp-0x48], Other Possible Types: core::option::Option<&str>
+    let v4: u64;  // [bp-0x40], Other Possible Types: struct_0 *
+    let v5: u64;  // [bp-0x38]
+    let v6: void*;  // [bp-0x30]
+    let v7: i64;  // [bp-0x20]
+    let v8: u64;  // [bp-0x18]
+    let v10: u64;  // rax
+    let v11: u64;  // rax
+    let v12: core::result::Result<u64, std::io::error::Error>;  // eax
 
-    v9 = uu_dd::progress::ReadStat::report(&a0->padding_0[16] as &struct_0, a1);
-    if v9 {
-        return v9;
+    v10 = uu_dd::progress::ReadStat::report(a0 + 16, a1);
+    if v10 {
+        return v10;
     }
-    v9 = uu_dd::progress::WriteStat::report(&a0[1].padding_0[4] as &struct_0, a1);
-    if v9 {
-        return v9;
+    v11 = uu_dd::progress::WriteStat::report(a0 + 48, a1);
+    if v11 {
+        return v11;
     }
-    v10 = a0->field_28;
-    if !v10 {
-        return 0;
+    v12 = *((a0 + 40) as &i32);
+    match v12 {
+        Ok(_) => {
+            return 0;
+        },
+        Err(_) => {
+            match v12 {
+                Err(_) => {
+                    v1 = "1 truncated record\n";
+                    v3 = 1;
+                    v4 = 8;
+                    v5 = 0 as u128;
+                },
+                Ok(_) => {
+                    v0 = v12;
+                    v7 = &v0;
+                    v8 = core::fmt::num::imp::<impl core::fmt::Display for u32>::fmt;
+                    v2 = &g_5622e8.secs;
+                    v3 = 2;
+                    v6 = 0;
+                    v4 = &v7;
+                    v5 = 1;
+                },
+            }
+            vvar_113{stack -80} = core::fmt::Arguments OrderedDict({0: &[&str] OrderedDict({0: 𝜙@64b [((5176257, None), vvar_92{stack -80}), ((5176301, None), vvar_99{stack -80})]}), 16: &[core::fmt::rt::Argument] OrderedDict()})
+            return <std::io::stdio::Stderr as std::io::Write>::write_fmt(a1, &v1);
+        },
     }
-    if v10 != 1 {
-        v0 = v10;
-        v6 = &v0;
-        v7 = core::fmt::num::imp::<impl core::fmt::Display for u32>::fmt;
-        v1 = &g_5622e8;
-        v2 = 2;
-        v5 = 0;
-        v3 = &v6;
-        v4 = 1;
-    } else {
-        v1 = "1 truncated record\n";
-        v2 = 1;
-        v3 = 8;
-        v4 = 0;
-    }
-    v9 = <std::io::stdio::Stderr as std::io::Write>::write_fmt(a1, &v1);
-    return v9;
 }

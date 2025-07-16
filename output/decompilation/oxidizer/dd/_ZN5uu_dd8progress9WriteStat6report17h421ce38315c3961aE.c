@@ -1,22 +1,20 @@
-fn uu_dd::progress::WriteStat::report(a0: u32, a1: u64) -> u64 {
-    let v0: u64;  // [sp-0x50]
-    let v1: u64;  // [sp-0x48]
-    let v2: u64;  // [sp-0x40]
-    let v3: u64;  // [sp-0x38]
-    let v4: u64;  // [sp-0x30]
-    let v5: u64;  // [sp-0x28]
-    let v6: &u8;  // [sp-0x20]
-    let v7: u64;  // [sp-0x18]
-    let v8: void*;  // [sp-0x10]
+fn uu_dd::progress::WriteStat::report(a0: i64, a1: i64) -> long long {
+    let v0: iNone;  // [bp-0x50]
+    let v1: u128;  // [bp-0x50]
+    let v2: iNone;  // [bp-0x40]
+    let v3: u128;  // [bp-0x40]
+    let v4: u384;  // [bp-0x30]
 
-    v0 = a0 + 16;
-    v1 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;
-    v2 = a0 + 24;
-    v3 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;
-    v4 = &g_562530;
-    v5 = 3;
-    v8 = 0;
-    v6 = &v0;
-    v7 = 2;
+    v0 = core::fmt::rt::Argument {
+        ty: a0 + 16
+    };
+    v2 = core::fmt::rt::Argument {
+        ty: a0 + 24
+    };
+    v4 = core::fmt::Arguments {
+        pieces: [&g_562530, "+", " records out\n"]
+        args: [v1, v3]
+        fmt: 0
+    };
     return <std::io::stdio::Stderr as std::io::Write>::write_fmt(a1, &v4);
 }

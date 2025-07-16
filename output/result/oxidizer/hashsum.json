@@ -1,25 +1,23 @@
 {
   "decompilation": {
-    "_ZN10uu_hashsum6uumain17hf0f20582848037deE": "fn uu_hashsum::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: String;  // [sp-0x48]\n    let v4: String;  // [sp-0x28]\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v6 = uu_hashsum::uumain::uumain(a0, a1);\n    if !v6 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v6;\n    v4 = format!(\"{}\", &v0);\n    v3 = v4;\n    if v3 == \"\" {\n        v2 = v7;\n        show_error!(\"{}\", &v3);\n    }\n    if !*((v7 + 104) as &i64)() {\n        return *((v7 + 96) as &i64)();\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v7;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n}\n",
-    "_ZN10uu_hashsum6uumain6uumain17hb03e775e367c9d85E": "fn uu_hashsum::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i8;  // [sp-0x72b]\n    let v1: i8;  // [sp-0x72a]\n    let v2: i8;  // [sp-0x729]\n    let v3: i64;  // [sp-0x728]\n    let v4: i64;  // [sp-0x720]\n    let v5: i64;  // [sp-0x718]\n    let v6: iNone;  // [sp-0x710]\n    let v7: iNone;  // [sp-0x700]\n    let v8: i64;  // [sp-0x6f0]\n    let v9: Option<struct24>;  // [sp-0x6e8]\n    let v10: i64;  // [sp-0x6d8]\n    let v11: struct24;  // [sp-0x6c8]\n    let v12: i64;  // [sp-0x6b0]\n    let v13: i64;  // [sp-0x6a8]\n    let v14: i64;  // [sp-0x6a0]\n    let v15: iNone;  // [sp-0x698]\n    let v16: i8;  // [bp-0x688]\n    let v17: struct40;  // [bp-0x678], Other Possible Types: struct64, struct24, Option<struct24>\n    let v18: struct40;  // [sp-0x630]\n    let v19: i64;  // [sp-0x608], Other Possible Types: struct24, int, struct56, Result<struct40, struct8>, struct712\n    let v20: iNone;  // [sp-0x608], Other Possible Types: Result<struct16, struct32>, struct40\n    let v21: i64;  // [sp-0x600]\n    let v22: i64;  // [sp-0x5f8]\n    let v23: i8;  // [bp-0x340]\n    let v24: struct64;  // [sp-0x338]\n    let v25: i8;  // [bp-0x2f8]\n    let v27: i64;  // r14\n    let v28: i64;  // rax\n    let v31: i8;  // bpl\n    let v33: i64;  // rax\n    let v34: i64;  // rbx\n    let v37: i8;  // r13b\n    let v38: i8;  // 4098\n    let v39: i64;  // rax\n    let v40: i64;  // rcx\n    let v45: i64;  // rbx\n\n    v27 = 0x8000000000000000;\n    v17 = <core::iter::adapters::cloned::Cloned<I> as core::iter::traits::iterator::Iterator>::next(&v16);\n    match v17 {\n        Some(_) => {\n            v10 = *((&v17 as &char + 16) as &i64);\n        },\n        None => {\n            v19 = std::sys::os_str::bytes::Slice::to_owned(\"hashsum\");\n            v10 = v22;\n        },\n    }\n    v9 = v17;\n    v28 = std::path::Path::file_stem(*((&v9 as &char + 8) as &i64), v10);\n    v11 = std::sys::os_str::bytes::Slice::to_string_lossy((v28 ? v28 : &g_465e49), 7);\n    v19 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(&v9);\n    v17 = v19;\n    v18 = core::iter::traits::iterator::Iterator::chain(&v17, a0, a1);\n    v19 = uu_hashsum::uu_app(v11.field_8, v11.field_16);\n    memcpy(&v25, &v19, 712);\n    v31 = v23;\n    *(&v17.field_0 as &struct40) = struct40 {\n        field_0: v32\n        field_16: *(&v18.field_16 as &i128)\n        field_32: v18.field_32\n    };\n    clap_builder::builder::command::Command::try_get_matches_from(&v19, &v25, &v17);\n    if v4 == 0x8000000000000000 {\n        uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v5);\n        return v45;\n    }\n    v8 = *((&v19.field_0 as &char + 48) as &i64);\n    v7 = *((&v19.field_0 as &char + 32) as &i128);\n    v6 = *((&v19.field_0 as &char + 16) as &i128);\n    v4 = v19;\n    v5 = v21;\n    if !alloc::string::<impl core::cmp::PartialEq<&str> for alloc::borrow::Cow<str>>::eq(v11.field_8, v11.field_16) as i8 {\nLABEL_5774be:\n        v34 = 0;\n        if !v31 {\n            goto LABEL_5774c5;\n        }\n    } else {\n        v19 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v4, \"length\");\n        v33 = clap_builder::parser::error::MatchesError::unwrap(\"length\", &v19);\n        if !v33 {\n            goto LABEL_5774be;\n        }\n        v19 = uucore::features::checksum::calculate_blake2b_length(*(v33 as &i64));\n        v34 = v21;\n        v27 = v22;\n        if v19 {\n            return v45;\n        }\n        if !v31 {\nLABEL_5774c5:\n            v20 = uucore::features::checksum::detect_algo(v11.field_8, v11.field_16, v34, v27);\n            goto LABEL_5774e6;\n        }\n    }\n    v20 = uu_hashsum::create_algorithm_from_flags(&v4);\nLABEL_5774e6:\n    if !v3 {\n        return v45;\n    }\n    v15 = (&v20)[24] as i128;\n    v3 = v19;\n    v12 = v3;\n    v13 = v21;\n    v14 = v22;\n    v1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v4, \"binary\") as i8;\n    if !v1 {\n        clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v4, \"text\");\n    }\n    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v4, \"strict\") as i8;\n    v2 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v4, \"warn\") as i8;\n    v37 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v4, \"quiet\") as i32 | clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v4, \"status\") as i32;\n    if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v4, \"ignore-missing\") as i8 {\n        v38 = v0;\n        v0 = v38 | v37;\n        if !(!(!v38) || !(!v37)) {\n            v19 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v4, \"no-names\");\n            match v19 {\n                Err(v39) => {\n                },\n                Ok(_) => {\n                    v39 = 0;\n                },\n            }\n            v40 = (v39 ? v39 : &g_469030);\n            v0 = *(v40 as &i8);\n            clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v4, \"zero\");\n            <alloc::boxed::Box<F,A> as core::ops::function::Fn<Args>>::call(&v14);\n            clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v4, \"tag\");\n            v19 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v4, \"file\");\n            v24 = clap_builder::parser::error::MatchesError::unwrap(\"file\", &v19);\n            if !v24.field_0 as i64 {\n                v19 = *(&v3 as &i352);\n                uu_hashsum::hashsum(&v19);\n            } else {\n                v19 = *(&v3 as &i352);\n                uu_hashsum::hashsum(&v19, &v24);\n            }\n            return v45;\n        }\n    } else if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v4, \"check\") as i32 && (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v4, \"text\") as i32 | clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v4, \"binary\") as i8) != 1 {\n        v19 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v4, \"file\");\n        v17 = clap_builder::parser::error::MatchesError::unwrap(\"file\", &v19);\n        core::option::Option<T>::map_or_else(&v19, &v17);\nLABEL_577741:\n        return v45;\n    }\n    alloc::boxed::Box<T>::new(1);\n    goto LABEL_577741;\n}\n",
-    "_ZN10uu_hashsum7hashsum17h440870b73b1317faE": "fn uu_hashsum::hashsum(a0: &struct44, a1: &u64) -> u64 {\n    let v0: i8;  // [bp-0x1a8]\n    let v1: i64;  // [sp-0x198]\n    let v2: i8;  // [bp-0x190]\n    let v3: i64;  // [sp-0x160], Other Possible Types: Result<struct16, struct4>, struct20\n    let v4: i64;  // [sp-0x158]\n    let v5: i64;  // [sp-0x150]\n    let v6: i64;  // [sp-0x120]\n    let v7: i64;  // [sp-0x118]\n    let v8: i64;  // [sp-0x110]\n    let v9: iNone;  // [sp-0x108]\n    let v10: i64;  // [sp-0xf8]\n    let v11: i64;  // [sp-0xf0], Other Possible Types: struct24\n    let v12: i64;  // [sp-0xe8]\n    let v13: i64;  // [sp-0xd8]\n    let v14: i64;  // [sp-0xd0]\n    let v15: i64;  // [sp-0xc8]\n    let v16: iNone;  // [sp-0xc0]\n    let v17: struct56;  // [sp-0xb0]\n    let v18: iNone;  // [sp-0x78]\n    let v19: iNone;  // [sp-0x68]\n    let v20: iNone;  // [sp-0x58]\n    let v21: iNone;  // [sp-0x48]\n    let v23: i64;  // rbx\n    let v25: iNone;  // xmm0\n    let v26: iNone;  // ymm0\n    let v27: iNone;  // ymm0\n    let v28: i64;  // r13\n    let v29: i64;  // r15\n    let v30: i64;  // rdx\n    let v31: i64;  // rax\n    let v32: i64;  // rcx\n    let v33: i64;  // rcx\n    let v34: i64;  // r8\n    let v35: i64;  // rdx\n    let v36: iNone;  // xmm0\n    let v37: iNone;  // xmm0\n    let v38: i64;  // rdi\n    let v39: i64;  // rsi\n    let v40: i64;  // r13\n\n    v23 = a0;\n    v14 = (!*((a0 + 40) as &i8) ? &g_469966 : &g_469967);\n    v15 = 1;\n    v25 = *(a1 as &i128);\n    v27 = v26 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v25 as u256;\n    v21 = *((a1 + 48) as &i128);\n    v20 = *((a1 + 32) as &i128);\n    v19 = *((a1 + 16) as &i128);\n    v18 = v25;\n    v13 = a0 + 16;\n    v28 = &v0;\n    loop {\n        v5 = v5;\n        v1 = v1;\n        v4 = v4;\n        v3 = v3;\n        v29 = <core::iter::adapters::map::Map<I,F> as core::iter::traits::iterator::Iterator>::next(&v18);\n        if !v29 {\n            return v40;\n        }\n        v3 = std::path::Path::components(v29, v30);\n        std::path::Path::components(v28, \"-\");\n        if <std::path::Components as core::cmp::PartialEq>::eq(&v3, v28) {\n            v31 = alloc::boxed::Box<T>::new(std::io::stdio::stdin());\n            v32 = &g_73bbe8;\n        } else {\n            std::fs::File::open(v28, v29, v30);\n            v3 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v28);\n            if v3 {\n                return v40;\n            }\n            v31 = alloc::boxed::Box<T>::new(*((&v3 as &char + 8) as &i32));\n            v28 = &v0;\n            v32 = &g_73bb90;\n        }\n        v17 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, v31, v32);\n        v33 = *((v23 + 40) as &i8);\n        v34 = *((v23 + 32) as &i64);\n        uucore::features::checksum::digest_reader(v28, v13, &v17, *((v23 + 40) as &i8), *((v23 + 32) as &i64));\n        v3 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v28);\n        if v6 == 0x8000000000000000 {\n            return v40;\n        }\n        v6 = v3;\n        v7 = v4;\n        v8 = v5;\n        v28 = &v0;\n        v35 = v30;\n        v23 = a0;\n        uucore::features::checksum::escape_filename(&v0, v29, v30);\n        v10 = v1;\n        v36 = *(&v0 as &i128);\n        v9 = v36;\n        v37 = *(&v2 as &i128);\n        v27 = (v27 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v36 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v37 as u256;\n        v16 = v37;\n        if *((a0 + 41) as &i8) {\n            v38 = *(a0 as &i64);\n            v39 = *((a0 + 8) as &i64);\n            if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*(a0 as &i64), *((a0 + 8) as &i64), \"blake2b\") as i8 {\n                if *((*((a0 + 24) as &i64) + 48) as &i64)() != 0x200 {\n                    v11 = *((*((a0 + 24) as &i64) + 48) as &i64)();\n                    println!(\"BLAKE2b-{} ({}) = {}\", &v11, &v9, &v6);\n                } else {\n                    println!(\"BLAKE2b ({}) = {}\", &v9, &v6);\n                }\n            } else {\n                v11 = alloc::str::<impl str>::to_ascii_uppercase(*(a0 as &i64), *((a0 + 8) as &i64));\n                println!(\"{}{} ({}) = {}\", &v16, &v11, &v9, &v6);\n            }\n        } else if *((a0 + 42) as &i8) {\n            println!(\"{}\", &v6);\n        } else if *((a0 + 43) as &i8) {\n            v11 = v29;\n            v12 = v30;\n            print!(\"{} {}{}\u0000\", &v6, &v14, &v11);\n        } else {\n            println!(\"{}{} {}{}\", &v16, &v6, &v14, &v9);\n        }\n        v3 = v3;\n        v4 = v4;\n        v1 = v1;\n        v5 = v5;\n    }\n}\n",
-    "_ZN10uu_hashsum7hashsum17h6a37e88fa19edaddE": "fn uu_hashsum::hashsum(a0: &struct44) -> u64 {\n    let v0: Option<struct16>;  // [sp-0x170], Other Possible Types: Result<struct4, struct8>, struct20\n    let v1: i64;  // [sp-0x160]\n    let v2: i8;  // [bp-0x158]\n    let v3: i64;  // [sp-0x130]\n    let v4: i64;  // [sp-0x128]\n    let v5: iNone;  // [sp-0x128], Other Possible Types: struct20, Result<struct16, struct4>\n    let v6: i64;  // [sp-0x120]\n    let v7: i64;  // [sp-0x118]\n    let v8: i64;  // [sp-0xe8]\n    let v9: i64;  // [sp-0xe0], Other Possible Types: Result<struct16, struct4>\n    let v10: i64;  // [sp-0xd0]\n    let v11: iNone;  // [sp-0xc8]\n    let v12: i64;  // [sp-0xb8]\n    let v13: i64;  // [sp-0xb0]\n    let v14: i64;  // [sp-0xa8]\n    let v15: struct16;  // [bp-0xa0]\n    let v16: i64;  // [sp-0x90], Other Possible Types: struct24\n    let v17: i64;  // [sp-0x88]\n    let v18: iNone;  // [sp-0x78]\n    let v19: struct56;  // [sp-0x68]\n    let v21: i64;  // r13\n    let v23: i64;  // rax\n    let v24: i64;  // r12\n    let v25: i64;  // rdx\n    let v26: i64;  // rbx\n    let v28: i64;  // rbp\n    let v29: iNone;  // ymm0\n    let v30: i64;  // rax\n    let v31: i64;  // rcx\n    let v32: i64;  // rcx\n    let v33: i64;  // r8\n    let v34: i64;  // rdx\n    let v35: iNone;  // xmm0\n    let v36: iNone;  // xmm0\n    let v37: i64;  // rax\n    let v38: i64;  // rdi\n    let v39: i64;  // rsi\n\n    v21 = a0;\n    v13 = (!*((a0 + 40) as &i8) ? &g_469966 : &g_469967);\n    v14 = 1;\n    v15 = struct16 {\n        field_0: &g_469031\n        field_8: 1\n    };\n    v23 = <core::iter::sources::once::Once<T> as core::iter::traits::iterator::Iterator>::next(&v15);\n    if !v23 {\n        return vvar_19{reg 56};\n    }\n    v24 = v23;\n    v26 = v25;\n    v3 = a0 + 24;\n    v28 = &v5;\n    v8 = a0;\n    do {\n        v7 = v7;\n        v1 = v1;\n        v6 = v6;\n        v4 = v4;\n        v5 = std::path::Path::components(v24, v26);\n        v0 = std::path::Path::components(\"-\");\n        if <std::path::Components as core::cmp::PartialEq>::eq(&v5, &v0) {\n            v30 = alloc::boxed::Box<T>::new(std::io::stdio::stdin());\n            v31 = &g_73bbe8;\n        } else {\n            v0 = std::fs::File::open(v24, v26);\n            v5 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v0);\n            if v4 {\nLABEL_5786e9:\n                return vvar_19{reg 56};\n            }\n            v30 = alloc::boxed::Box<T>::new(*((&v5 as &char + 8) as &i32));\n            v28 = &v5;\n            v31 = &g_73bb90;\n        }\n        v19 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, v30, v31);\n        v32 = *((v21 + 40) as &i8);\n        v33 = *((v21 + 32) as &i64);\n        v0 = uucore::features::checksum::digest_reader(a0 + 16, &v19, *((v21 + 40) as &i8), *((v21 + 32) as &i64));\n        <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v28, &v0);\n        if v9 == 0x8000000000000000 {\n            goto LABEL_5786e9;\n        }\n        v9 = v5;\n        v10 = v7;\n        v34 = v26;\n        uucore::features::checksum::escape_filename(&v0, v24, v26);\n        v28 = &v5;\n        v12 = v1;\n        v35 = v0;\n        v11 = v35;\n        v36 = *(&v2 as &i128);\n        v29 = (v29 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v35 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v36 as u256;\n        v18 = v36;\n        v37 = v8;\n        if *((v37 + 41) as &i8) {\n            v38 = *(v37 as &i64);\n            v39 = *((v37 + 8) as &i64);\n            if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*(v37 as &i64), *((v37 + 8) as &i64), \"blake2b\") as i8 {\n                v16 = alloc::str::<impl str>::to_ascii_uppercase(*(v8 as &i64), *((v8 + 8) as &i64));\n                println!(\"{}{} ({}) = {}\", &v18, &v16, &v11, &v9);\n            } else {\n                if *((*(v3 as &i64) + 48) as &i64)() != 0x200 {\n                    v16 = *((*(v3 as &i64) + 48) as &i64)();\n                    println!(\"BLAKE2b-{} ({}) = {}\", &v16, &v11, &v9);\n                } else {\n                    println!(\"BLAKE2b ({}) = {}\", &v11, &v9);\n                }\n            }\n        } else if *((v37 + 42) as &i8) {\n            println!(\"{}\", &v9);\n        } else if !*((v37 + 43) as &i8) {\n            println!(\"{}{} {}{}\", &v18, &v9, &v13, &v11);\n        } else {\n            v16 = v24;\n            v17 = v26;\n            print!(\"{} {}{}\u0000\", &v9, &v13, &v16);\n        }\n        v21 = v8;\n        v24 = <core::iter::sources::once::Once<T> as core::iter::traits::iterator::Iterator>::next(&v15);\n        v26 = v25;\n        v4 = v4;\n        v6 = v6;\n        v1 = v1;\n        v7 = v7;\n    } while (v24);\n}\n",
-    "_ZN10uu_hashsum27create_algorithm_from_flags17h44fb2b955b3a7236E": "fn uu_hashsum::create_algorithm_from_flags(a0: &struct40, a1: u32) -> u64 {\n    let v0: Result<struct16, struct32>;  // [sp-0x90], Other Possible Types: struct40\n    let v1: i64;  // [sp-0x88]\n    let v2: i64;  // [sp-0x80]\n    let v3: Result<struct16, struct32>;  // [sp-0x68], Other Possible Types: unsigned long\n    let v4: i64;  // [sp-0x40]\n    let v8: i64;  // r8\n    let v9: i64;  // rax\n    let v10: i64;  // rcx\n    let v11: struct40;  // rax\n    let v12: i64;  // rax\n    let v14: i64;  // rsi\n\n    v4 = 0;\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"md5\") as i8 {\n        v0 = uucore::features::checksum::detect_algo(\"md5sum\", 0, v8);\n        v9 = v1;\n        v10 = v2;\n        if !v3 {\n            *((a0 + 8) as &unsigned long) = v9;\n            *((a0 + 16) as &unsigned long) = v10;\n        }\n        v3 = v0;\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v3);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"sha1\") as i8 {\n        v0 = uucore::features::checksum::detect_algo(\"sha1sum\", 0, v8);\n        v9 = v1;\n        v10 = v2;\n        if !v3 {\n            *((a0 + 8) as &unsigned long) = v9;\n            *((a0 + 16) as &unsigned long) = v10;\n        }\n        v3 = v0;\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v3);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"sha224\") as i8 {\n        v0 = uucore::features::checksum::detect_algo(\"sha224sum\", 0, v8);\n        v9 = v1;\n        v10 = v2;\n        if !v3 {\n            *((a0 + 8) as &unsigned long) = v9;\n            *((a0 + 16) as &unsigned long) = v10;\n        }\n        v3 = v0;\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v3);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"sha256\") as i8 {\n        v0 = uucore::features::checksum::detect_algo(\"sha256sum\", 0, v8);\n        v9 = v1;\n        v10 = v2;\n        if !v3 {\n            *((a0 + 8) as &unsigned long) = v9;\n            *((a0 + 16) as &unsigned long) = v10;\n        }\n        v3 = v0;\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v3);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"sha384\") as i8 {\n        v0 = uucore::features::checksum::detect_algo(\"sha384sum\", 0, v8);\n        v9 = v1;\n        v10 = v2;\n        if !v3 {\n            *((a0 + 8) as &unsigned long) = v9;\n            *((a0 + 16) as &unsigned long) = v10;\n        }\n        v3 = v0;\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v3);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"sha512\") as i8 {\n        v0 = uucore::features::checksum::detect_algo(\"sha512sum\", 0, v8);\n        v9 = v1;\n        v10 = v2;\n        if !v3 {\n            *((a0 + 8) as &unsigned long) = v9;\n            *((a0 + 16) as &unsigned long) = v10;\n        }\n        v3 = v0;\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v3);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"b2sum\") as i8 {\n        v0 = uucore::features::checksum::detect_algo(\"b2sum\", 0, v8);\n        v9 = v1;\n        v10 = v2;\n        if !v3 {\n            *((a0 + 8) as &unsigned long) = v9;\n            *((a0 + 16) as &unsigned long) = v10;\n        }\n        v3 = v0;\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v3);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"b3sum\") as i8 {\n        v0 = uucore::features::checksum::detect_algo(\"b3sum\", 0, v8);\n        v9 = v1;\n        v10 = v2;\n        if !v3 {\n            *((a0 + 8) as &unsigned long) = v9;\n            *((a0 + 16) as &unsigned long) = v10;\n        }\n        v3 = v0;\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v3);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"sha3\") as i8 {\n        v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, \"bits\");\n        v12 = clap_builder::parser::error::MatchesError::unwrap(\"bits\", &v0);\n        if v12 {\n            v14 = 1;\n        } else {\n            v14 = 0;\n        }\n        v0 = uucore::features::checksum::create_sha3(v14, *(v12 as &i64));\n        v9 = v1;\n        v10 = v2;\n        if !v3 {\n            *((a0 + 8) as &unsigned long) = v9;\n            *((a0 + 16) as &unsigned long) = v10;\n        }\n        v3 = v0;\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v3);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"sha3-224\") as i8 {\n        *(&v0.field_0 as &struct40) = struct40 {\n            field_0: &g_4696d0\n            field_8: 8\n            field_16: v2\n            field_24: &g_73e920\n            field_32: 224\n        };\n        v2 = alloc::boxed::Box<T>::new();\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v0);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"sha3-256\") as i8 {\n        *(&v0.field_0 as &struct40) = struct40 {\n            field_0: &g_4696d8\n            field_8: 8\n            field_16: v2\n            field_24: &g_73e950\n            field_32: 0x100\n        };\n        v2 = alloc::boxed::Box<T>::new();\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v0);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"sha3-384\") as i8 {\n        *(&v0.field_0 as &struct40) = struct40 {\n            field_0: &g_469088\n            field_8: 8\n            field_16: v2\n            field_24: &g_73e980\n            field_32: 384\n        };\n        v2 = alloc::boxed::Box<T>::new();\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v0);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"sha3-512\") as i8 {\n        *(&v0.field_0 as &struct40) = struct40 {\n            field_0: &g_469158\n            field_8: 8\n            field_16: v2\n            field_24: &g_73e9b0\n            field_32: 0x200\n        };\n        v2 = alloc::boxed::Box<T>::new();\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v0);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"shake128\") as i8 {\n        v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, \"bits\");\n        if !clap_builder::parser::error::MatchesError::unwrap(\"bits\", &v0) {\n            v11 = alloc::boxed::Box<T>::new(6);\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n        *(&v0.field_0 as &struct40) = struct40 {\n            field_0: &g_469928\n            field_8: 8\n            field_16: v2\n            field_24: &g_73ea70\n            field_32: *(v15 as &i64)\n        };\n        v2 = alloc::boxed::Box<T>::new();\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v0);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"shake256\") as i8 {\n        v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, \"bits\");\n        if !clap_builder::parser::error::MatchesError::unwrap(\"bits\", &v0) {\n            v11 = alloc::boxed::Box<T>::new(7);\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n        *(&v0.field_0 as &struct40) = struct40 {\n            field_0: &g_4697b8\n            field_8: 8\n            field_16: v2\n            field_24: &g_73eaa0\n            field_32: *(v16 as &i64)\n        };\n        v2 = alloc::boxed::Box<T>::new();\n        v11 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v0);\n        if v11 {\n            *((a0 + 8) as &struct40) = v11;\n            *((a0 + 16) as &&i64) = &g_73ea00;\n        }\n    }\n    if v4 {\n        return struct40 {\n            field_0: v17\n            field_8: v18\n            field_24: *(&v6 as &i128)\n        };\n    }\n    v11 = alloc::boxed::Box<T>::new(14);\n    *((a0 + 8) as &struct40) = v11;\n    *((a0 + 16) as &&i64) = &g_73ea00;\n}\n",
-    "_ZN10uu_hashsum13parse_bit_num17hb5ece5a628af054bE": "fn uu_hashsum::parse_bit_num(a0: &Result<struct8, struct1>, a1: u64, a2: u64) -> u64 {\n    return core::num::<impl core::str::traits::FromStr for usize>::from_str(a0, a1, a2);\n}\n",
-    "_ZN10uu_hashsum13uu_app_common17haf156add4ae409e5E": "fn uu_hashsum::uu_app_common(a0: &struct712) -> u64 {\n    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct24\n    let v1: struct592;  // [sp-0x7f8], Other Possible Types: struct712, struct437\n    let v2: i64;  // [sp-0x53c]\n    let v3: i32;  // [sp-0x534]\n    let v4: struct592;  // [sp-0x530], Other Possible Types: struct712\n    let v5: struct592;  // [sp-0x268], Other Possible Types: struct8\n    let v7: i64;  // rdx\n\n    v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v7);\n    v4 = clap_builder::builder::command::Command::version(&v1, \"0.0.28\");\n    v1 = clap_builder::builder::command::Command::about(&v4, \"Compute and check message digests.\");\n    v0 = uucore::format_usage(\"{} [OPTIONS] [FILE]...\");\n    v4 = clap_builder::builder::command::Command::override_usage(&v1, &v0);\n    memcpy(&v1, &v4, 700);\n    v2 = 584115552392 | *((&v4.field_0 as &char + 700) as &i64);\n    v3 = *((&v4.field_0 as &char + 708) as &i32);\n    v4 = clap_builder::builder::arg::Arg::new(\"binary\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x62);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"binary\");\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"read in binary mode\");\n    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v1, &v5);\n    v1 = clap_builder::builder::arg::Arg::new(\"check\");\n    v0 = clap_builder::builder::arg::Arg::short(&v1, 0x63);\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"check\");\n    v0 = clap_builder::builder::arg::Arg::help(&v1, \"read hashsums from the FILEs and check them\");\n    v1 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::arg::Arg::conflicts_with(&v1, \"tag\");\n    v1 = clap_builder::builder::command::Command::arg(&v4, &v0);\n    v4 = clap_builder::builder::arg::Arg::new(\"tag\");\n    v0 = clap_builder::builder::arg::Arg::long(&v4, \"tag\");\n    v4 = clap_builder::builder::arg::Arg::help(&v0, \"create a BSD-style checksum\");\n    v0 = clap_builder::builder::arg::Arg::action(&v4, 0x2);\n    v5 = clap_builder::builder::arg::Arg::conflicts_with(&v0, \"text\");\n    v4 = clap_builder::builder::command::Command::arg(&v1, &v5);\n    v1 = clap_builder::builder::arg::Arg::new(\"text\");\n    v0 = clap_builder::builder::arg::Arg::short(&v1, 0x74);\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"text\");\n    v0 = clap_builder::builder::arg::Arg::help(&v1, \"read in text mode (default)\");\n    v1 = clap_builder::builder::arg::Arg::conflicts_with(&v0, \"binary\");\n    v0 = clap_builder::builder::arg::Arg::action(&v1, 0x2);\n    v1 = clap_builder::builder::command::Command::arg(&v4, &v0);\n    v4 = clap_builder::builder::arg::Arg::new(\"quiet\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x71);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"quiet\");\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"don't print OK for each successfully verified file\");\n    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v1, &v5);\n    v1 = clap_builder::builder::arg::Arg::new(\"status\");\n    v0 = clap_builder::builder::arg::Arg::short(&v1, 0x73);\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"status\");\n    v0 = clap_builder::builder::arg::Arg::help(&v1, \"don't output anything, status code shows success\");\n    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v1 = clap_builder::builder::command::Command::arg(&v4, &v5);\n    v4 = clap_builder::builder::arg::Arg::new(\"strict\");\n    v0 = clap_builder::builder::arg::Arg::long(&v4, \"strict\");\n    v4 = clap_builder::builder::arg::Arg::help(&v0, \"exit non-zero for improperly formatted checksum lines\");\n    v0 = clap_builder::builder::arg::Arg::action(&v4, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v1, &v0);\n    v1 = clap_builder::builder::arg::Arg::new(\"ignore-missing\");\n    v0 = clap_builder::builder::arg::Arg::long(&v1, \"ignore-missing\");\n    v1 = clap_builder::builder::arg::Arg::help(&v0, \"don't fail or report status for missing files\");\n    v0 = clap_builder::builder::arg::Arg::action(&v1, 0x2);\n    v1 = clap_builder::builder::command::Command::arg(&v4, &v0);\n    v4 = clap_builder::builder::arg::Arg::new(\"warn\");\n    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x77);\n    v4 = clap_builder::builder::arg::Arg::long(&v0, \"warn\");\n    v0 = clap_builder::builder::arg::Arg::help(&v4, \"warn about improperly formatted checksum lines\");\n    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v1, &v5);\n    v1 = clap_builder::builder::arg::Arg::new(\"zero\");\n    v0 = clap_builder::builder::arg::Arg::short(&v1, 0x7a);\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"zero\");\n    v0 = clap_builder::builder::arg::Arg::help(&v1, \"end each output line with NUL, not newline\");\n    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v1 = clap_builder::builder::command::Command::arg(&v4, &v5);\n    v4 = clap_builder::builder::arg::Arg::new(\"file\");\n    v0 = clap_builder::builder::arg::Arg::index(&v4);\n    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x1);\n    v0 = clap_builder::builder::arg::Arg::value_name(&v4, &g_468b9c);\n    v4 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);\n    v5 = struct8 {\n        field_0: 2\n    };\n    v0 = clap_builder::builder::arg::Arg::value_parser(&v4, &v5);\n    clap_builder::builder::command::Command::arg(a0, &v1, &v0);\n    return a0;\n}\n",
-    "_ZN10uu_hashsum13uu_app_length17hb583261ee85cbb7dE": "fn uu_hashsum::uu_app_length(a0: &struct712) -> u64 {\n    let v0: struct712;  // [sp-0x2d8]\n\n    v0 = uu_hashsum::uu_app_common();\n    uu_hashsum::uu_app_opt_length(a0, &v0);\n    return a0;\n}\n",
-    "_ZN10uu_hashsum17uu_app_opt_length17hd534d2f952470bb5E": "fn uu_hashsum::uu_app_opt_length(a0: &struct712, a1: u32) -> u64 {\n    let v0: struct24;  // [bp-0x790]\n    let v1: i64;  // [sp-0x788]\n    let v2: struct592;  // [sp-0x778]\n    let v3: struct592;  // [sp-0x528]\n    let v4: i8;  // [bp-0x2d8]\n\n    memcpy(&v4, a1, 712);\n    v2 = clap_builder::builder::arg::Arg::new(\"length\");\n    v3 = clap_builder::builder::arg::Arg::long(&v2, \"length\");\n    v0 = struct24 {\n        field_0: 4\n        field_8: v1\n        field_16: &g_73ec80\n    };\n    v1 = alloc::boxed::Box<T>::new();\n    v2 = clap_builder::builder::arg::Arg::value_parser(&v3, &v0);\n    v3 = clap_builder::builder::arg::Arg::short(&v2, 0x6c);\n    v2 = clap_builder::builder::arg::Arg::help(&v3, \"digest length in bits; must not exceed the max for the blake2 algorithm and must be a multiple of 8\");\n    v3 = clap_builder::builder::arg::Arg::overrides_with(&v2, \"length\");\n    v2 = clap_builder::builder::arg::Arg::action(&v3, None);\n    return clap_builder::builder::command::Command::arg(a0, &v4, &v2);\n}\n",
-    "_ZN10uu_hashsum12uu_app_b3sum17hcc6efb9f0c7b8147E": "fn uu_hashsum::uu_app_b3sum(a0: &struct712) -> u64 {\n    let v0: struct712;  // [sp-0x2d8]\n\n    v0 = uu_hashsum::uu_app_common();\n    uu_hashsum::uu_app_b3sum_opts(a0, &v0);\n    return a0;\n}\n",
-    "_ZN10uu_hashsum17uu_app_b3sum_opts17h6d29bf312f544a29E": "fn uu_hashsum::uu_app_b3sum_opts(a0: &struct712, a1: u32) -> u64 {\n    let v0: struct592;  // [sp-0x778]\n    let v1: struct592;  // [sp-0x528]\n    let v2: i8;  // [bp-0x2d8]\n\n    memcpy(&v2, a1, 712);\n    v0 = clap_builder::builder::arg::Arg::new(\"no-names\");\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"no-names\");\n    v0 = clap_builder::builder::arg::Arg::help(&v1, \"Omits filenames in the output (option not present in GNU/Coreutils)\");\n    v1 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    return clap_builder::builder::command::Command::arg(a0, &v2, &v1);\n}\n",
-    "_ZN10uu_hashsum11uu_app_bits17h22b67f9230d9f8ccE": "fn uu_hashsum::uu_app_bits(a0: &struct712) -> u64 {\n    let v0: struct712;  // [sp-0x2d8]\n\n    v0 = uu_hashsum::uu_app_common();\n    uu_hashsum::uu_app_opt_bits(a0, &v0);\n    return a0;\n}\n",
-    "_ZN10uu_hashsum15uu_app_opt_bits17h1604bb86d678b504E": "fn uu_hashsum::uu_app_opt_bits(a0: &struct712, a1: u32) -> u64 {\n    let v0: struct592;  // [sp-0x770]\n    let v1: struct592;  // [sp-0x520]\n    let v2: i8;  // [bp-0x2d0]\n\n    memcpy(&v2, a1, 712);\n    v0 = clap_builder::builder::arg::Arg::new(\"bits\");\n    v1 = clap_builder::builder::arg::Arg::long(&v0, \"bits\");\n    v0 = clap_builder::builder::arg::Arg::help(&v1, \"set the size of the output (only for SHAKE)\");\n    v1 = clap_builder::builder::arg::Arg::value_name(&v0, &g_468ec8);\n    v0 = clap_builder::builder::arg::Arg::value_parser(&v1);\n    return clap_builder::builder::command::Command::arg(a0, &v2, &v0);\n}\n",
-    "_ZN10uu_hashsum13uu_app_custom17h877f20130ce52e37E": "fn uu_hashsum::uu_app_custom(a0: &struct712) -> u64 {\n    let v0: struct16;  // [bp-0xae8]\n    let v1: struct712;  // [sp-0xad8], Other Possible Types: int\n    let v2: struct712;  // [sp-0x810]\n    let v3: struct592;  // [sp-0x548], Other Possible Types: struct712\n    let v4: struct592;  // [sp-0x280]\n    let v6: i64;  // rax\n    let v7: i64;  // rbx\n\n    v2 = uu_hashsum::uu_app_common();\n    v3 = uu_hashsum::uu_app_opt_bits(&v2);\n    v1 = uu_hashsum::uu_app_b3sum_opts(&v3);\n    v0 = struct16 {\n        field_0: \"md5\"\n        field_8: &g_73eeb0\n    };\n    v6 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v0);\n    if v6 {\n        v7 = v6;\n        do {\n            memcpy(&v2, &v1, 712);\n            v3 = clap_builder::builder::arg::Arg::new(*(v7 as &i64), *((v7 + 8) as &i64));\n            v4 = clap_builder::builder::arg::Arg::long(&v3, v7);\n            v3 = clap_builder::builder::arg::Arg::help(&v4, *((v7 + 16) as &i64), *((v7 + 24) as &i64));\n            v4 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n            v1 = clap_builder::builder::command::Command::arg(&v2, &v4);\n            v7 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v0);\n        } while (v7);\n    }\n    memcpy(a0, &v1, 712);\n    return a0;\n}\n",
-    "_ZN10uu_hashsum6uu_app17hc311ff14781827c9E": "fn uu_hashsum::uu_app(a0: &struct712, a1: u32, a2: u32) -> u64 {\n    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"md5sum\") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"sha1sum\") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"sha224sum\") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"sha256sum\") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"sha384sum\") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"sha512sum\") as i8 {\n        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"b2sum\") as i8 {\n            uu_hashsum::uu_app_length(a0);\n            *(&a0[712] as &i8) = 0;\n            return a0;\n        } else if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"sha3-224sum\") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"sha3-256sum\") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"sha3-384sum\") as i8 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"sha3-512sum\") as i8 {\n            if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"sha3sum\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"shake128sum\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"shake256sum\") as i8 {\n                uu_hashsum::uu_app_bits(a0);\n            } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"b3sum\") as i8 {\n                uu_hashsum::uu_app_b3sum(a0);\n            } else {\n                uu_hashsum::uu_app_custom(a0);\n                *(&a0[712] as &i8) = 1;\n                return a0;\n            }\n            *(&a0[712] as &i8) = 0;\n            return a0;\n        }\n    }\n    uu_hashsum::uu_app_common(a0);\n    *(&a0[712] as &i8) = 0;\n    return a0;\n}\n"
+    "_ZN10uu_hashsum6uumain17hf0f20582848037deE": "fn uu_hashsum::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_hashsum::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN10uu_hashsum6uumain6uumain17hb03e775e367c9d85E": "fn uu_hashsum::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: i8;  // [bp-0x72b]\n    let v1: i8;  // [bp-0x72b]\n    let v2: i8;  // [bp-0x72a]\n    let v3: i8;  // [bp-0x729]\n    let v4: i64;  // [bp-0x728]\n    let v5: i64;  // [bp-0x720]\n    let v6: i64;  // [bp-0x718]\n    let v7: i8;  // [bp-0x710]\n    let v8: i8;  // [bp-0x700]\n    let v9: i64;  // [bp-0x6f0]\n    let v10: iNone;  // [bp-0x6e8]\n    let v11: i64;  // [bp-0x6e0]\n    let v12: i64;  // [bp-0x6d8]\n    let v13: iNone;  // [bp-0x6c8]\n    let v14: i64;  // [bp-0x6c0]\n    let v15: i64;  // [bp-0x6b8]\n    let v16: i64;  // [bp-0x6b0]\n    let v17: i64;  // [bp-0x6a8]\n    let v18: i64;  // [bp-0x6a0]\n    let v19: iNone;  // [bp-0x698]\n    let v20: i64;  // [bp-0x690]\n    let v21: iNone;  // [bp-0x688]\n    let v22: iNone;  // [bp-0x678], Other Possible Types: unsigned long\n    let v23: i64;  // [bp-0x668]\n    let v24: iNone;  // [bp-0x630]\n    let v25: iNone;  // [bp-0x630]\n    let v26: iNone;  // [bp-0x608]\n    let v27: iNone;  // [bp-0x608]\n    let v28: iNone;  // [bp-0x608]\n    let v29: iNone;  // [bp-0x608]\n    let v30: i64;  // [bp-0x600]\n    let v31: i64;  // [bp-0x5f8]\n    let v32: i8;  // [bp-0x340]\n    let v33: iNone;  // [bp-0x338]\n    let v34: i8;  // [bp-0x2f8]\n    let v37: iNone;  // xmm0\n    let v38: i64;  // rax\n    let v39: i64;  // rdx\n    let v40: i64;  // rax\n    let v41: i8;  // bpl\n    let v42: i64;  // r12\n    let v43: i8;  // al\n    let v44: i64;  // rax\n    let v45: i8;  // r13b\n    let v46: i8;  // al\n    let v47: i8;  // al\n    let v48: i64;  // rax\n    let v49: i8;  // bpl\n    let v50: i64;  // r15\n    let v51: i64;  // r13\n    let v52: i8;  // r12b\n    let v53: i64;  // rdx\n    let v55: i64;  // rdx\n    let v57: i64;  // rbx\n\n    v21 = struct16 {\n        field_0: a0\n        field_8: a1\n    };\n    v22 = <core::iter::adapters::cloned::Cloned<I> as core::iter::traits::iterator::Iterator>::next(&v21);\n    if v22 == 0x8000000000000000 {\n        v26 = std::sys::os_str::bytes::Slice::to_owned(\"hashsum\");\n        v12 = v31;\n    } else {\n        v12 = v23;\n    }\n    v10 = v37;\n    v38 = std::path::Path::file_stem(v11, v12) as u64;\n    v13 = std::sys::os_str::bytes::Slice::to_string_lossy((v38 ? v38 : &g_465e49), v39);\n    v26 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(&v10 as u8);\n    v22 = core::iter::adapters::flatten::Flatten<core::option::IntoIter<core::char::EscapeDebug>> {\n        inner: core::iter::adapters::flatten::FlattenCompat<core::option::IntoIter<core::char::EscapeDebug>, core::char::EscapeDebug> {\n            iter: core::iter::adapters::fuse::Fuse<core::option::IntoIter<core::char::EscapeDebug>> {\n                iter: <UNKNOWN>\n            }\n            frontiter: <UNKNOWN>\n            backiter: <UNKNOWN>\n        }\n    };\n    memcpy(&v22, &v26, 16);\n    v24 = core::iter::traits::iterator::Iterator::chain(&v22, v21 as i64);\n    v26 = uu_hashsum::uu_app(v14, v15);\n    memcpy(&v34, &v26, 712);\n    v22 = v25;\n    v27 = clap_builder::builder::command::Command::try_get_matches_from(&v34, &v22);\n    match v27 {\n        Err(_) => {\n            uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v6);\n        },\n        Ok(_) => {\n            v9 = (&v27)[48] as i64;\n            memcpy(&v8, &v27, 16);\n            memcpy(&v7, &v27, 16);\n            v5 = v27 as i64;\n            v6 = v30;\n            if alloc::string::<impl core::cmp::PartialEq<&str> for alloc::borrow::Cow<str>>::eq(v14, v15) as i8 {\n                v26 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v5, \"length\");\n                v40 = clap_builder::parser::error::MatchesError::unwrap(\"length\", &v26);\n                if !v40 {\n                    goto LABEL_5774be;\n                }\n                v26 = uucore::features::checksum::calculate_blake2b_length(*(v40 as &i64));\n                if v26 as i64 {\n                    return v30;\n                }\n                if !v32 {\n                    goto LABEL_5774c5;\n                }\nLABEL_5774a9:\n                v28 = uu_hashsum::create_algorithm_from_flags(&v5);\n            } else {\nLABEL_5774be:\n                if !(!v32) {\n                    goto LABEL_5774a9;\n                }\nLABEL_5774c5:\n                v29 = uucore::features::checksum::detect_algo(v14, v15, v57, v31);\n            }\n            if let Ok(_) = v28 {\n                *(&v19 as &i128) = (&v28)[24] as i128;\n                v4 = v28 as i64;\n                v16 = v4;\n                v17 = v30;\n                v18 = v31;\n                v2 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, \"binary\") as i8;\n                if !v2 {\n                    clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, \"text\");\n                }\n                v41 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, \"check\") as i32 as i8;\n                v42 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, \"status\") as i32 as u32 as u64;\n                v43 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, \"quiet\") as i32 as i8;\n                v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, \"strict\") as i8;\n                v3 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, \"warn\") as i8;\n                v44 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, \"ignore-missing\");\n                v45 = v43 | v42 as u8;\n                if v44 as u8 {\n                    if !(!v41) {\n                        goto LABEL_577626;\n                    }\nLABEL_577759:\n                    alloc::boxed::Box<T>::new(v46 as u64);\n                } else if v41 {\nLABEL_577626:\n                    v47 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, \"text\") as i32 as i8;\n                    if (v47 | clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, \"binary\") as i8) == 1 {\n                        goto LABEL_577759;\n                    }\n                    v26 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v5, \"file\");\n                    v22 = clap_builder::parser::error::MatchesError::unwrap(\"file\", &v26);\n                    core::option::Option<T>::map_or_else(&v26, &v22);\n                    uucore::features::checksum::perform_checksum_validation(v30, v31 * 16 + v30, v4, v57, 1, v20, (v42 as u32 * 0x1000000 | v45 as u32 * 0x10000) as u64 | v0 as u64 * 0x100000000 | (v3 & (v42 as u8 ^ 1)) as u64 * 0x10000000000 | (v44 as u32 * 0x100) as u64);\n                } else {\n                    v1 = v0 | v45;\n                    if !(!v0 && !v45) {\n                        goto LABEL_577759;\n                    }\n                    v26 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v5, \"no-names\");\n                    v48 = (v26 as i32 == 2 ? v30 : 0);\n                    v0 = *((v48 ? v48 : &g_469030) as &i8);\n                    v49 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, \"zero\") as i32 as i8;\n                    v50 = <alloc::boxed::Box<F,A> as core::ops::function::Fn<Args>>::call(&v18, a1) as u64;\n                    v51 = v20;\n                    v52 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, \"tag\") as i32 as i8;\n                    v26 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v5, \"file\");\n                    v33 = clap_builder::parser::error::MatchesError::unwrap(\"file\", &v26);\n                    if v33 as i64 {\n                        v26 = struct44 {\n                            field_0: v4\n                            field_8: v57\n                            field_16: v50\n                            field_24: v53\n                            field_32: v51\n                            field_40: v2\n                            field_41: v52\n                            field_42: v0\n                            field_43: v49\n                        };\n                        uu_hashsum::hashsum(&v26, &v33);\n                    } else {\n                        v26 = struct44 {\n                            field_0: v4\n                            field_8: v57\n                            field_16: v50\n                            field_24: v55\n                            field_32: v51\n                            field_40: v2\n                            field_41: v52\n                            field_42: v0\n                            field_43: v49\n                        };\n                        uu_hashsum::hashsum(&v26);\n                    }\n                }\n            }\n        },\n    }\n    return v30;\n}\n",
+    "_ZN10uu_hashsum27create_algorithm_from_flags17h44fb2b955b3a7236E": "fn uu_hashsum::create_algorithm_from_flags(a1: i64) -> Result<struct40, struct24> {\n    let a0: u64;  // rsi\n    let v0: u320;  // [bp-0x90], Other Possible Types: Result<struct40, struct16>, struct40\n    let v1: u64;  // [bp-0x90]\n    let v2: u64;  // [bp-0x90]\n    let v3: u64;  // [bp-0x88]\n    let v4: u64;  // [bp-0x80]\n    let v5: u8;  // [bp-0x78]\n    let v6: u320;  // [bp-0x68]\n    let v7: u8;  // [bp-0x50]\n    let v8: struct64;  // [bp-0x40]\n    let v9: u128;  // [bp-0x38]\n    let v10: i8;  // [bp-0x28]\n    let v12: u32;  // r8\n    let v13: u64;  // r9\n    let v14: u64;  // rax\n    let v15: u64;  // rcx\n    let v16: u64;  // rax\n    let v18: u64;  // rdx\n    let v19: u64;  // rsi\n    let v20: i64;  // rax\n    let v21: i64;  // rax\n    let v22: i64;  // rdi\n    let v23: i64;  // rdi\n\n    v8 = 0;\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"md5\") as i8 {\n        uucore::features::checksum::detect_algo(\"md5sum\", 0, v12, v13);\n        v14 = v3;\n        v15 = v4;\n        if !v2 {\n            *((v23 + 8) as &u64) = v14;\n            *((v23 + 16) as &u64) = v15;\n            *(v23 as &i64) = 0;\n            return;\n        }\n        memcpy(&v7, &v5, 16);\n        v6 = struct40 {\n            field_0: v2\n            field_8: v14\n            field_16: v15\n            field_24: <UNKNOWN>\n            field_32: <UNKNOWN>\n        };\n        uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v6);\n        if v16 {\n            *((v23 + 8) as &u64) = v16;\n            *((v23 + 16) as &&u8) = &g_73ea00;\n            *(v23 as &i64) = 0;\n            return;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"sha1\") as i8 {\n        uucore::features::checksum::detect_algo(\"sha1sum\", 0, v12, v13);\n        v14 = v3;\n        v15 = v4;\n        if !v2 {\n            *((v23 + 8) as &u64) = v14;\n            *((v23 + 16) as &u64) = v15;\n            *(v23 as &i64) = 0;\n            return;\n        }\n        memcpy(&v6, &v5, 16);\n        v6 = struct40 {\n            field_0: v2\n            field_8: v14\n            field_16: v15\n            field_24: <UNKNOWN>\n            field_32: <UNKNOWN>\n        };\n        uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v6);\n        if v16 {\n            *((v23 + 8) as &u64) = v16;\n            *((v23 + 16) as &&u8) = &g_73ea00;\n            *(v23 as &i64) = 0;\n            return;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"sha224\") as i8 {\n        uucore::features::checksum::detect_algo(\"sha224sum\", 0, v12, v13);\n        v14 = v3;\n        v15 = v4;\n        if !v2 {\n            *((v23 + 8) as &u64) = v14;\n            *((v23 + 16) as &u64) = v15;\n            *(v23 as &i64) = 0;\n            return;\n        }\n        memcpy(&v6, &v5, 16);\n        v6 = struct40 {\n            field_0: v2\n            field_8: v14\n            field_16: v15\n            field_24: <UNKNOWN>\n            field_32: <UNKNOWN>\n        };\n        uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v6);\n        if !(!v16) {\n            goto LABEL_5da877;\n        }\n    }\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"sha256\") as i8 {\n        uucore::features::checksum::detect_algo(\"sha256sum\", 0, v12, v13);\n        v14 = v3;\n        v15 = v4;\n        if !v2 {\n            *((v23 + 8) as &u64) = v14;\n            *((v23 + 16) as &u64) = v15;\n            *(v23 as &i64) = 0;\n            return;\n        }\n        memcpy(&v6, &v5, 16);\n        v6 = struct40 {\n            field_0: v2\n            field_8: v14\n            field_16: v15\n            field_24: <UNKNOWN>\n            field_32: <UNKNOWN>\n        };\n        uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v6);\n        if !v16 {\n            goto LABEL_5da2cc;\n        }\n    } else {\nLABEL_5da2cc:\n        if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"sha384\") as i8 {\n            uucore::features::checksum::detect_algo(\"sha384sum\", 0, v12, v13);\n            v14 = v3;\n            v15 = v4;\n            if !v2 {\n                *((v23 + 8) as &u64) = v14;\n                *((v23 + 16) as &u64) = v15;\n                *(v23 as &i64) = 0;\n                return;\n            }\n            memcpy(&v6, &v5, 16);\n            v6 = struct40 {\n                field_0: v2\n                field_8: v14\n                field_16: v15\n                field_24: <UNKNOWN>\n                field_32: <UNKNOWN>\n            };\n            uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v6);\n            if !v16 {\n                goto LABEL_5da347;\n            }\n        } else {\nLABEL_5da347:\n            if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"sha512\") as i8 {\n                uucore::features::checksum::detect_algo(\"sha512sum\", 0, v12, v13);\n                v14 = v3;\n                v15 = v4;\n                if !v2 {\n                    *((v23 + 8) as &u64) = v14;\n                    *((v23 + 16) as &u64) = v15;\n                    *(v23 as &i64) = 0;\n                    return;\n                }\n                memcpy(&v6, &v5, 16);\n                v6 = struct40 {\n                    field_0: v2\n                    field_8: v14\n                    field_16: v15\n                    field_24: <UNKNOWN>\n                    field_32: <UNKNOWN>\n                };\n                uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v6);\n                if !v16 {\n                    goto LABEL_5da3c2;\n                }\n            } else {\nLABEL_5da3c2:\n                if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"b2sum\") as i8 {\n                    uucore::features::checksum::detect_algo(\"b2sum\", 0, v12, v13);\n                    v14 = v3;\n                    v15 = v4;\n                    if !v2 {\n                        *((v23 + 8) as &u64) = v14;\n                        *((v23 + 16) as &u64) = v15;\n                        *(v23 as &i64) = 0;\n                        return;\n                    }\n                    memcpy(&v6, &v5, 16);\n                    v6 = struct40 {\n                        field_0: v2\n                        field_8: v14\n                        field_16: v15\n                        field_24: <UNKNOWN>\n                        field_32: <UNKNOWN>\n                    };\n                    uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v6);\n                    if !v16 {\n                        goto LABEL_5da43d;\n                    }\n                } else {\nLABEL_5da43d:\n                    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"b3sum\") as i8 {\n                        uucore::features::checksum::detect_algo(\"b3sum\", 0, v12, v13);\n                        v14 = v3;\n                        v15 = v4;\n                        if !v2 {\n                            *((v23 + 8) as &u64) = v14;\n                            *((v23 + 16) as &u64) = v15;\n                            *(v23 as &i64) = 0;\n                            return;\n                        }\n                        memcpy(&v6, &v5, 16);\n                        v6 = struct40 {\n                            field_0: v2\n                            field_8: v14\n                            field_16: v15\n                            field_24: <UNKNOWN>\n                            field_32: <UNKNOWN>\n                        };\n                        uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v6);\n                        if !v16 {\n                            goto LABEL_5da4b8;\n                        }\n                    } else {\nLABEL_5da4b8:\n                        if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"sha3\") as i8 {\n                            v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, \"bits\");\n                            clap_builder::parser::error::MatchesError::unwrap(\"bits\", &v0);\n                            v0 = uucore::features::checksum::create_sha3(v19, v18);\n                            v14 = v3;\n                            v15 = v4;\n                            if !v0.field_0 {\n                                *((v23 + 8) as &u64) = v14;\n                                *((v23 + 16) as &u64) = v15;\n                                *(v23 as &i64) = 0;\n                                return;\n                            }\n                            memcpy(&v0, &v0, 16);\n                            v6 = struct40 {\n                                field_0: v0.field_0\n                                field_8: v14\n                                field_16: v15\n                                field_24: <UNKNOWN>\n                                field_32: <UNKNOWN>\n                            };\n                            uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v6);\n                            if !v16 {\n                                goto LABEL_5da569;\n                            }\n                        } else {\nLABEL_5da569:\n                            if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"sha3-224\") as i8 {\n                                v0 = struct40 {\n                                    field_0: &g_4696d0\n                                    field_8: 8\n                                    field_16: alloc::boxed::Box<T>::new()\n                                    field_24: &g_73e920\n                                    field_32: 224\n                                };\n                                uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v0);\n                                if !v16 {\n                                    goto LABEL_5da5ce;\n                                }\n                            } else {\nLABEL_5da5ce:\n                                if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"sha3-256\") as i8 {\n                                    v0 = struct40 {\n                                        field_0: &g_4696d8\n                                        field_8: 8\n                                        field_16: alloc::boxed::Box<T>::new()\n                                        field_24: &g_73e950\n                                        field_32: 0x100\n                                    };\n                                    uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v0);\n                                    if !v16 {\n                                        goto LABEL_5da633;\n                                    }\n                                } else {\nLABEL_5da633:\n                                    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"sha3-384\") as i8 {\n                                        v0 = struct40 {\n                                            field_0: &g_469088\n                                            field_8: 8\n                                            field_16: alloc::boxed::Box<T>::new()\n                                            field_24: &g_73e980\n                                            field_32: 384\n                                        };\n                                        uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v0);\n                                        if !v16 {\n                                            goto LABEL_5da698;\n                                        }\n                                    } else {\nLABEL_5da698:\n                                        if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"sha3-512\") as i8 {\n                                            v0 = struct40 {\n                                                field_0: &g_469158\n                                                field_8: 8\n                                                field_16: alloc::boxed::Box<T>::new()\n                                                field_24: &g_73e9b0\n                                                field_32: 0x200\n                                            };\n                                            uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v0);\n                                            if !v16 {\n                                                goto LABEL_5da6fd;\n                                            }\n                                        } else {\nLABEL_5da6fd:\n                                            if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"shake128\") as i8 {\n                                                v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, \"bits\");\n                                                v20 = clap_builder::parser::error::MatchesError::unwrap(\"bits\", &v0);\n                                                if v20 {\n                                                    v0 = struct40 {\n                                                        field_0: &g_469928\n                                                        field_8: 8\n                                                        field_16: alloc::boxed::Box<T>::new()\n                                                        field_24: &g_73ea70\n                                                        field_32: *(v20 as &i64)\n                                                    };\n                                                    uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v0);\n                                                    v0 = v1;\n                                                    if !v16 {\n                                                        goto LABEL_5da7a0;\n                                                    }\n                                                } else {\n                                                    alloc::boxed::Box<T>::new(6);\n                                                }\n                                            } else {\nLABEL_5da7a0:\n                                                if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"shake256\") as i8 {\n                                                    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, \"bits\");\n                                                    v21 = clap_builder::parser::error::MatchesError::unwrap(\"bits\", &v0);\n                                                    if v21 {\n                                                        v0 = struct40 {\n                                                            field_0: &g_4697b8\n                                                            field_8: 8\n                                                            field_16: alloc::boxed::Box<T>::new()\n                                                            field_24: &g_73eaa0\n                                                            field_32: *(v21 as &i64)\n                                                        };\n                                                        uu_hashsum::create_algorithm_from_flags::{{closure}}(&v8, &v0);\n                                                        if !v16 {\n                                                            goto LABEL_5da82a;\n                                                        }\n                                                    } else {\n                                                        alloc::boxed::Box<T>::new(7);\n                                                    }\n                                                } else {\nLABEL_5da82a:\n                                                    if v8 {\n                                                        *((v22 + 24) as &i128) = *(&v10 as &i128);\n                                                        *((v22 + 8) as &u128) = v9;\n                                                        *(v22 as &struct64) = v8;\n                                                        return;\n                                                    }\n                                                    alloc::boxed::Box<T>::new(14);\n                                                }\n                                            }\n                                        }\n                                    }\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\nLABEL_5da877:\n    *((v23 + 8) as &u64) = v16;\n    *((v23 + 16) as &&u8) = &g_73ea00;\n    *(v23 as &i64) = 0;\n    return;\n}\n",
+    "_ZN10uu_hashsum13uu_app_common17haf156add4ae409e5E": "fn uu_hashsum::uu_app_common(a0: &struct712) -> long long {\n    let v0: u8;  // [bp-0xa48]\n    let v1: struct437;  // [bp-0x7f8]\n    let v2: u64;  // [bp-0x53c]\n    let v3: u32;  // [bp-0x534]\n    let v4: u8;  // [bp-0x530]\n    let v5: u64;  // [bp-0x274]\n    let v6: u32;  // [bp-0x26c]\n    let v7: u8;  // [bp-0x268]\n    let v10: u64;  // rdx\n\n    v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);\n    clap_builder::builder::command::Command::version(&v4, &v1, \"0.0.28\");\n    clap_builder::builder::command::Command::about(&v1, &v4, \"Compute and check message digests.\");\n    uucore::format_usage(&v0, \"{} [OPTIONS] [FILE]...\");\n    clap_builder::builder::command::Command::override_usage(&v4, &v1, &v0);\n    memcpy(&v1, &v4, 700);\n    v2 = 584115552392 | v5;\n    v3 = v6;\n    clap_builder::builder::arg::Arg::new(&v4, \"binary\");\n    clap_builder::builder::arg::Arg::short(&v0, &v4, 98);\n    clap_builder::builder::arg::Arg::long(&v4, &v0, \"binary\");\n    clap_builder::builder::arg::Arg::help(&v0, &v4, \"read in binary mode\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v1, &v7);\n    clap_builder::builder::arg::Arg::new(&v1, \"check\");\n    clap_builder::builder::arg::Arg::short(&v0, &v1, 99);\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"check\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"read hashsums from the FILEs and check them\");\n    clap_builder::builder::arg::Arg::action(&v1, &v0, 2);\n    clap_builder::builder::arg::Arg::conflicts_with(&v0, &v1, \"tag\");\n    clap_builder::builder::command::Command::arg(&v1, &v4, &v0);\n    clap_builder::builder::arg::Arg::new(&v4, \"tag\");\n    clap_builder::builder::arg::Arg::long(&v0, &v4, \"tag\");\n    clap_builder::builder::arg::Arg::help(&v4, &v0, \"create a BSD-style checksum\");\n    clap_builder::builder::arg::Arg::action(&v0, &v4, 2);\n    clap_builder::builder::arg::Arg::conflicts_with(&v7, &v0, \"text\");\n    clap_builder::builder::command::Command::arg(&v4, &v1, &v7);\n    clap_builder::builder::arg::Arg::new(&v1, \"text\");\n    clap_builder::builder::arg::Arg::short(&v0, &v1, 116);\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"text\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"read in text mode (default)\");\n    clap_builder::builder::arg::Arg::conflicts_with(&v1, &v0, \"binary\");\n    clap_builder::builder::arg::Arg::action(&v0, &v1, 2);\n    clap_builder::builder::command::Command::arg(&v1, &v4, &v0);\n    clap_builder::builder::arg::Arg::new(&v4, \"quiet\");\n    clap_builder::builder::arg::Arg::short(&v0, &v4, 113);\n    clap_builder::builder::arg::Arg::long(&v4, &v0, \"quiet\");\n    clap_builder::builder::arg::Arg::help(&v0, &v4, \"don't print OK for each successfully verified file\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v1, &v7);\n    clap_builder::builder::arg::Arg::new(&v1, \"status\");\n    clap_builder::builder::arg::Arg::short(&v0, &v1, 115);\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"status\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"don't output anything, status code shows success\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v1, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"strict\");\n    clap_builder::builder::arg::Arg::long(&v0, &v4, \"strict\");\n    clap_builder::builder::arg::Arg::help(&v4, &v0, \"exit non-zero for improperly formatted checksum lines\");\n    clap_builder::builder::arg::Arg::action(&v0, &v4, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v1, &v0);\n    clap_builder::builder::arg::Arg::new(&v1, \"ignore-missing\");\n    clap_builder::builder::arg::Arg::long(&v0, &v1, \"ignore-missing\");\n    clap_builder::builder::arg::Arg::help(&v1, &v0, \"don't fail or report status for missing files\");\n    clap_builder::builder::arg::Arg::action(&v0, &v1, 2);\n    clap_builder::builder::command::Command::arg(&v1, &v4, &v0);\n    clap_builder::builder::arg::Arg::new(&v4, \"warn\");\n    clap_builder::builder::arg::Arg::short(&v0, &v4, 119);\n    clap_builder::builder::arg::Arg::long(&v4, &v0, \"warn\");\n    clap_builder::builder::arg::Arg::help(&v0, &v4, \"warn about improperly formatted checksum lines\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v1, &v7);\n    clap_builder::builder::arg::Arg::new(&v1, \"zero\");\n    clap_builder::builder::arg::Arg::short(&v0, &v1, 122);\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"zero\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"end each output line with NUL, not newline\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v1, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"file\");\n    clap_builder::builder::arg::Arg::index(&v0, &v4);\n    clap_builder::builder::arg::Arg::action(&v4, &v0, 1);\n    clap_builder::builder::arg::Arg::value_name(&v0, &v4, &g_468b9c);\n    clap_builder::builder::arg::Arg::value_hint(&v4, &v0, 3);\n    v7 = 2;\n    clap_builder::builder::arg::Arg::value_parser(&v0, &v4, &v7);\n    clap_builder::builder::command::Command::arg(a0, &v1, &v0);\n    return a0;\n}\n",
+    "_ZN10uu_hashsum13uu_app_length17hb583261ee85cbb7dE": "fn uu_hashsum::uu_app_length(a0: i64) -> long long {\n    let v0: u8;  // [bp-0x2d8]\n\n    uu_hashsum::uu_app_common(&v0);\n    uu_hashsum::uu_app_opt_length(a0, &v0);\n    return a0;\n}\n",
+    "_ZN10uu_hashsum17uu_app_opt_length17hd534d2f952470bb5E": "fn uu_hashsum::uu_app_opt_length(a0: i64, a1: i64) -> long long {\n    let v0: u192;  // [bp-0x790]\n    let v1: u8;  // [bp-0x778]\n    let v2: u8;  // [bp-0x528]\n    let v3: u8;  // [bp-0x2d8]\n\n    memcpy(&v3, a1, 712);\n    clap_builder::builder::arg::Arg::new(&v1, \"length\");\n    clap_builder::builder::arg::Arg::long(&v2, &v1, \"length\");\n    v0 = struct24 {\n        field_0: 4\n        field_8: alloc::boxed::Box<T>::new()\n        field_16: &g_73ec80\n    };\n    clap_builder::builder::arg::Arg::value_parser(&v1, &v2, &v0);\n    clap_builder::builder::arg::Arg::short(&v2, &v1, 108);\n    clap_builder::builder::arg::Arg::help(&v1, &v2, \"digest length in bits; must not exceed the max for the blake2 algorithm and must be a multiple of 8\");\n    clap_builder::builder::arg::Arg::overrides_with(&v2, &v1, \"length\");\n    clap_builder::builder::arg::Arg::action(&v1, &v2, 0);\n    return clap_builder::builder::command::Command::arg(a0, &v3, &v1);\n}\n",
+    "_ZN10uu_hashsum12uu_app_b3sum17hcc6efb9f0c7b8147E": "fn uu_hashsum::uu_app_b3sum(a0: i64) -> long long {\n    let v0: u8;  // [bp-0x2d8]\n\n    uu_hashsum::uu_app_common(&v0);\n    uu_hashsum::uu_app_b3sum_opts(a0, &v0);\n    return a0;\n}\n",
+    "_ZN10uu_hashsum17uu_app_b3sum_opts17h6d29bf312f544a29E": "fn uu_hashsum::uu_app_b3sum_opts(a0: i64, a1: i64) -> long long {\n    let v0: u8;  // [bp-0x778]\n    let v1: u8;  // [bp-0x528]\n    let v2: u8;  // [bp-0x2d8]\n\n    memcpy(&v2, a1, 712);\n    clap_builder::builder::arg::Arg::new(&v0, \"no-names\");\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"no-names\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"Omits filenames in the output (option not present in GNU/Coreutils)\");\n    clap_builder::builder::arg::Arg::action(&v1, &v0, 2);\n    return clap_builder::builder::command::Command::arg(a0, &v2, &v1);\n}\n",
+    "_ZN10uu_hashsum11uu_app_bits17h22b67f9230d9f8ccE": "fn uu_hashsum::uu_app_bits(a0: i64) -> long long {\n    let v0: u8;  // [bp-0x2d8]\n\n    uu_hashsum::uu_app_common(&v0);\n    uu_hashsum::uu_app_opt_bits(a0, &v0);\n    return a0;\n}\n",
+    "_ZN10uu_hashsum15uu_app_opt_bits17h1604bb86d678b504E": "fn uu_hashsum::uu_app_opt_bits(a0: i64, a1: i64) -> long long {\n    let v0: u8;  // [bp-0x770]\n    let v1: u8;  // [bp-0x520]\n    let v2: u8;  // [bp-0x2d0]\n\n    memcpy(&v2, a1, 712);\n    clap_builder::builder::arg::Arg::new(&v0, \"bits\");\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"bits\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"set the size of the output (only for SHAKE)\");\n    clap_builder::builder::arg::Arg::value_name(&v1, &v0, &g_468ec8);\n    clap_builder::builder::arg::Arg::value_parser(&v0, &v1);\n    return clap_builder::builder::command::Command::arg(a0, &v2, &v0);\n}\n",
+    "_ZN10uu_hashsum13uu_app_custom17h877f20130ce52e37E": "fn uu_hashsum::uu_app_custom(a0: i64) -> long long {\n    let v0: u64;  // [bp-0xaf0]\n    let v1: u128;  // [bp-0xae8]\n    let v2: u8;  // [bp-0xad8]\n    let v3: u8;  // [bp-0x810]\n    let v4: u8;  // [bp-0x548]\n    let v5: u8;  // [bp-0x280]\n    let v7: i64;  // rax\n\n    uu_hashsum::uu_app_common(&v3);\n    uu_hashsum::uu_app_opt_bits(&v4, &v3);\n    uu_hashsum::uu_app_b3sum_opts(&v2, &v4);\n    v1 = struct16 {\n        field_0: \"md5\"\n        field_8: &g_73eeb0\n    };\n    v7 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v1);\n    if v7 {\n        do {\n            memcpy(&v3, &v2, 712);\n            clap_builder::builder::arg::Arg::new(&v4, *(v7 as &i64), *((v7 + 8) as &i64));\n            clap_builder::builder::arg::Arg::long(&v5, &v4, v7);\n            clap_builder::builder::arg::Arg::help(&v4, &v5, *((v7 + 16) as &i64), *((v7 + 24) as &i64));\n            clap_builder::builder::arg::Arg::action(&v5, &v4, 2);\n            clap_builder::builder::command::Command::arg(&v2, &v3, &v5);\n            v7 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v1);\n        } while (v7);\n    }\n    memcpy(v0, &v2, 712);\n    return a0;\n}\n",
+    "_ZN10uu_hashsum6uu_app17hc311ff14781827c9E": "fn uu_hashsum::uu_app(a1: i64, a2: i64) -> : struct712 {\n    let a0: void*;  // rsi\n    let v1: i64;  // rdi\n    let v2: i64;  // rdi\n\n    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"md5sum\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"sha1sum\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"sha224sum\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"sha256sum\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"sha384sum\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"sha512sum\") as i8 {\nLABEL_5db8e4:\n        uu_hashsum::uu_app_common(v1);\n    } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"b2sum\") as i8 {\n        uu_hashsum::uu_app_length(v1);\n    } else {\n        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"sha3-224sum\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"sha3-256sum\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"sha3-384sum\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"sha3-512sum\") as i8 {\n            goto LABEL_5db8e4;\n        }\n        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"sha3sum\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"shake128sum\") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"shake256sum\") as i8 {\n            uu_hashsum::uu_app_bits(v1);\n        } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, \"b3sum\") as i8 {\n            uu_hashsum::uu_app_b3sum(v1);\n        } else {\n            uu_hashsum::uu_app_custom(v2);\n            *((v2 + 712) as &i8) = 1;\n            return;\n        }\n    }\n    *((v1 + 712) as &i8) = 0;\n    return;\n}\n"
   },
   "function_call_counts": {
     "_ZN10uu_hashsum6uumain17hf0f20582848037deE": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
       "uu_hashsum::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
@@ -27,16 +25,17 @@
     "_ZN10uu_hashsum6uumain6uumain17hb03e775e367c9d85E": {
       "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
       "alloc::boxed::Box<T>::new": 1,
-      "uu_hashsum::hashsum": 2,
+      "uucore::features::checksum::perform_checksum_validation": 1,
+      "core::option::Option<T>::map_or_else": 1,
       "clap_builder::parser::error::MatchesError::unwrap": 3,
-      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 8,
       "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 11,
+      "uu_hashsum::hashsum": 2,
       "<alloc::boxed::Box<F,A> as core::ops::function::Fn<Args>>::call": 1,
       "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 2,
-      "core::option::Option<T>::map_or_else": 1,
       "uu_hashsum::create_algorithm_from_flags": 1,
-      "uucore::features::checksum::detect_algo": 1,
       "uucore::features::checksum::calculate_blake2b_length": 1,
+      "uucore::features::checksum::detect_algo": 1,
       "clap_builder::builder::command::Command::try_get_matches_from": 1,
       "memcpy": 1,
       "uu_hashsum::uu_app": 1,
@@ -47,40 +46,13 @@
       "std::sys::os_str::bytes::Slice::to_owned": 1,
       "<core::iter::adapters::cloned::Cloned<I> as core::iter::traits::iterator::Iterator>::next": 1
     },
-    "_ZN10uu_hashsum7hashsum17h440870b73b1317faE": {
-      "alloc::str::<impl str>::to_ascii_uppercase": 1,
-      "uucore::features::checksum::escape_filename": 1,
-      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 2,
-      "uucore::features::checksum::digest_reader": 1,
-      "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1,
-      "alloc::boxed::Box<T>::new": 2,
-      "std::io::stdio::stdin": 1,
-      "std::fs::File::open": 1,
-      "std::path::Path::components": 2,
-      "<core::iter::adapters::map::Map<I,F> as core::iter::traits::iterator::Iterator>::next": 1
-    },
-    "_ZN10uu_hashsum7hashsum17h6a37e88fa19edaddE": {
-      "<core::iter::sources::once::Once<T> as core::iter::traits::iterator::Iterator>::next": 2,
-      "alloc::str::<impl str>::to_ascii_uppercase": 1,
-      "uucore::features::checksum::escape_filename": 1,
-      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 2,
-      "uucore::features::checksum::digest_reader": 1,
-      "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1,
-      "alloc::boxed::Box<T>::new": 2,
-      "std::io::stdio::stdin": 1,
-      "std::fs::File::open": 1,
-      "std::path::Path::components": 2
-    },
     "_ZN10uu_hashsum27create_algorithm_from_flags17h44fb2b955b3a7236E": {
-      "alloc::boxed::Box<T>::new": 9,
       "uu_hashsum::create_algorithm_from_flags::{{closure}}": 15,
-      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 3,
+      "uucore::features::checksum::detect_algo": 8,
       "uucore::features::checksum::create_sha3": 1,
-      "clap_builder::parser::error::MatchesError::unwrap": 1,
-      "uucore::features::checksum::detect_algo": 8
-    },
-    "_ZN10uu_hashsum13parse_bit_num17hb5ece5a628af054bE": {
-      "core::num::<impl core::str::traits::FromStr for usize>::from_str": 1
+      "clap_builder::parser::error::MatchesError::unwrap": 3,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 3,
+      "alloc::boxed::Box<T>::new": 9
     },
     "_ZN10uu_hashsum13uu_app_common17haf156add4ae409e5E": {
       "clap_builder::builder::command::Command::arg": 11,
@@ -165,21 +137,12 @@
   },
   "macro_call_counts": {
     "_ZN10uu_hashsum6uumain17hf0f20582848037deE": {
-      "eprintln": 1,
-      "show_error": 1,
+      "eprintln": 2,
+      "eprint": 1,
       "format": 1
     },
     "_ZN10uu_hashsum6uumain6uumain17hb03e775e367c9d85E": {},
-    "_ZN10uu_hashsum7hashsum17h440870b73b1317faE": {
-      "println": 5,
-      "print": 1
-    },
-    "_ZN10uu_hashsum7hashsum17h6a37e88fa19edaddE": {
-      "println": 5,
-      "print": 1
-    },
     "_ZN10uu_hashsum27create_algorithm_from_flags17h44fb2b955b3a7236E": {},
-    "_ZN10uu_hashsum13parse_bit_num17hb5ece5a628af054bE": {},
     "_ZN10uu_hashsum13uu_app_common17haf156add4ae409e5E": {},
     "_ZN10uu_hashsum13uu_app_length17hb583261ee85cbb7dE": {},
     "_ZN10uu_hashsum17uu_app_opt_length17hd534d2f952470bb5E": {},
@@ -191,12 +154,9 @@
     "_ZN10uu_hashsum6uu_app17hc311ff14781827c9E": {}
   },
   "node_counts": {
-    "_ZN10uu_hashsum6uumain17hf0f20582848037deE": 9,
-    "_ZN10uu_hashsum6uumain6uumain17hb03e775e367c9d85E": 52,
-    "_ZN10uu_hashsum7hashsum17h440870b73b1317faE": 29,
-    "_ZN10uu_hashsum7hashsum17h6a37e88fa19edaddE": 30,
-    "_ZN10uu_hashsum27create_algorithm_from_flags17h44fb2b955b3a7236E": 71,
-    "_ZN10uu_hashsum13parse_bit_num17hb5ece5a628af054bE": 1,
+    "_ZN10uu_hashsum6uumain17hf0f20582848037deE": 10,
+    "_ZN10uu_hashsum6uumain6uumain17hb03e775e367c9d85E": 51,
+    "_ZN10uu_hashsum27create_algorithm_from_flags17h44fb2b955b3a7236E": 107,
     "_ZN10uu_hashsum13uu_app_common17haf156add4ae409e5E": 74,
     "_ZN10uu_hashsum13uu_app_length17hb583261ee85cbb7dE": 3,
     "_ZN10uu_hashsum17uu_app_opt_length17hd534d2f952470bb5E": 9,
@@ -204,773 +164,70 @@
     "_ZN10uu_hashsum17uu_app_b3sum_opts17h6d29bf312f544a29E": 6,
     "_ZN10uu_hashsum11uu_app_bits17h22b67f9230d9f8ccE": 3,
     "_ZN10uu_hashsum15uu_app_opt_bits17h1604bb86d678b504E": 7,
-    "_ZN10uu_hashsum13uu_app_custom17h877f20130ce52e37E": 14,
-    "_ZN10uu_hashsum6uu_app17hc311ff14781827c9E": 13
+    "_ZN10uu_hashsum13uu_app_custom17h877f20130ce52e37E": 13,
+    "_ZN10uu_hashsum6uu_app17hc311ff14781827c9E": 10
   },
-  "prototypes": {
+  "variable_types": {
     "_ZN10uu_hashsum6uumain17hf0f20582848037deE": {
-      "name": "_ZN10uu_hashsum6uumain17hf0f20582848037deE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "reg_16": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN10uu_hashsum6uumain6uumain17hb03e775e367c9d85E": {
-      "name": "_ZN10uu_hashsum6uumain6uumain17hb03e775e367c9d85E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "stack_0": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN10uu_hashsum7hashsum17h440870b73b1317faE": {
-      "name": "_ZN10uu_hashsum7hashsum17h440870b73b1317faE",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
+      "stack_128": [
         [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
+          "struct",
+          24
         ]
-      ]
-    },
-    "_ZN10uu_hashsum7hashsum17h6a37e88fa19edaddE": {
-      "name": "_ZN10uu_hashsum7hashsum17h6a37e88fa19edaddE",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN4core4iter6traits8iterator8Iterator5chain17h97a8a1bc38742947E": {
-      "name": "_ZN4core4iter6traits8iterator8Iterator5chain17h97a8a1bc38742947E",
-      "return_type": [
-        "struct",
-        40
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6option15Option$LT$T$GT$11map_or_else17had28eebb0d5e890cE": {
-      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17had28eebb0d5e890cE",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6option15Option$LT$T$GT$11map_or_else17he38e8e5edddfdc58E": {
-      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17he38e8e5edddfdc58E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h79784dc65042db97E": {
-      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h79784dc65042db97E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_uppercase17h60b631a23b970e6aE": {
-      "name": "_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_uppercase17h60b631a23b970e6aE",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN5alloc5boxed12Box$LT$T$GT$3new17hc466181734c65edcE": {
-      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17hc466181734c65edcE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN5alloc6string95_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$str$GT$$u20$for$u20$alloc..borrow..Cow$LT$str$GT$$GT$2eq17hbcba38ba17ba20b8E": {
-      "name": "_ZN5alloc6string95_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$str$GT$$u20$for$u20$alloc..borrow..Cow$LT$str$GT$$GT$2eq17hbcba38ba17ba20b8E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          4
-        ],
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5cac1ec2999e76daE": {
-      "name": "_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5cac1ec2999e76daE",
-      "return_type": [
-        "primitive",
-        1
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
-      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
-      "return_type": [
-        "primitive",
-        1
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN99_$LT$core..iter..sources..once..Once$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0caeee1655188592E": {
-      "name": "_ZN99_$LT$core..iter..sources..once..Once$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0caeee1655188592E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h899c68cae0961182E": {
-      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h899c68cae0961182E",
-      "return_type": [
-        "Result",
-        16
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h864ec134f8e6c354E": {
-      "name": "_ZN201_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$uucore..mods..error..FromIo$LT$core..result..Result$LT$T$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$15map_err_context17h864ec134f8e6c354E",
-      "return_type": [
-        "Result",
-        32
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h137756251426bd57E": {
-      "name": "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h137756251426bd57E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uucore8features8checksum13digest_reader17hc839b2e876c05e33E": {
-      "name": "_ZN6uucore8features8checksum13digest_reader17hc839b2e876c05e33E",
-      "return_type": [
-        "Option",
-        16
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          1
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h096e5dfd273c576cE": {
-      "name": "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h096e5dfd273c576cE",
-      "return_type": [
-        "Option",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h656dce67331d5fa4E": {
-      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h656dce67331d5fa4E",
-      "return_type": [
-        "struct",
-        64
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser5error12MatchesError6unwrap17hf231815055423523E": {
-      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17hf231815055423523E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h6accf9addc69a3f7E": {
-      "name": "_ZN12clap_builder7builder7command7Command20try_get_matches_from17h6accf9addc69a3f7E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN3std2fs4File4open17hf67acec63d9b4762E": {
-      "name": "_ZN3std2fs4File4open17hf67acec63d9b4762E",
-      "return_type": [
-        "Result",
-        12
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hb563847c130c951dE": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hb563847c130c951dE",
-      "return_type": [
-        "Result",
-        40
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf2b443d784377908E": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf2b443d784377908E",
-      "return_type": [
-        "Result",
-        40
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h3c3cf47d3b80e519E": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h3c3cf47d3b80e519E",
-      "return_type": [
-        "struct",
-        56
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bae7f9ea29a26b8E": {
-      "name": "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bae7f9ea29a26b8E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17hb9a751f4ce087bfeE": {
-      "name": "_ZN3std2io8buffered9bufreader18BufReader$LT$R$GT$13with_capacity17hb9a751f4ce087bfeE",
-      "return_type": [
-        "struct",
-        56
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std2io5stdio5stdin17h7215cc131abb55d8E": {
-      "name": "_ZN3std2io5stdio5stdin17h7215cc131abb55d8E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": []
-    },
-    "_ZN3std4path4Path9file_stem17h441d431a81936839E": {
-      "name": "_ZN3std4path4Path9file_stem17h441d431a81936839E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std4path4Path10components17h4f3217acf0fc8653E": {
-      "name": "_ZN3std4path4Path10components17h4f3217acf0fc8653E",
-      "return_type": [
-        "struct",
-        20
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h816275565265bd85E": {
-      "name": "_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h816275565265bd85E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E": {
-      "name": "_ZN3std3sys6os_str5bytes5Slice8to_owned17h2d9ba69626881113E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h35e67cae0c0452a5E": {
-      "name": "_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h35e67cae0c0452a5E",
-      "return_type": [
-        "Result",
-        9
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg10value_name17h91d0b43819df8b7bE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg10value_name17h91d0b43819df8b7bE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4help17h7220c48f981ef5b5E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4help17h7220c48f981ef5b5E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4long17h5908e9ea86bf7a3bE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4long17h5908e9ea86bf7a3bE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4long17hda6187eaf5c6dd54E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4long17hda6187eaf5c6dd54E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg5index17h80fba87efb994c29E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg5index17h80fba87efb994c29E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg5short17hfc41e05dee6976e2E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg5short17hfc41e05dee6976e2E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg6action17he04288933a5d3869E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg6action17he04288933a5d3869E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "stack_96": [
         [
           "primitive",
           1
         ]
-      ]
-    },
-    "_ZN5alloc5boxed12Box$LT$T$GT$3new17h5da6a9570b8b523bE": {
-      "name": "_ZN5alloc5boxed12Box$LT$T$GT$3new17h5da6a9570b8b523bE",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
+      "stack_112": [
         [
           "primitive",
-          1
+          8
         ]
-      ]
-    },
-    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h105803dcb30d73e6E": {
-      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h105803dcb30d73e6E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
+      "stack_64": [
         [
-          "struct*",
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_32": [
+        [
+          "primitive",
           8
         ]
       ]
     },
     "_ZN10uu_hashsum27create_algorithm_from_flags17h44fb2b955b3a7236E": {
-      "name": "_ZN10uu_hashsum27create_algorithm_from_flags17h44fb2b955b3a7236E",
-      "return_type": [
-        "struct",
-        40
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17h1bc583d45d3e50beE": {
-      "name": "_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17h1bc583d45d3e50beE",
-      "return_type": [
-        "struct",
-        40
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN10uu_hashsum13parse_bit_num17hb5ece5a628af054bE": {
-      "name": "_ZN10uu_hashsum13parse_bit_num17hb5ece5a628af054bE",
-      "return_type": [
-        "Result",
-        9
-      ],
-      "parameters": [
+      "reg_64": [
         [
           "primitive",
           8
@@ -978,412 +235,405 @@
         [
           "primitive",
           8
+        ]
+      ],
+      "stack_88": [
+        [
+          "struct",
+          64
+        ]
+      ],
+      "reg_80": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_16": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "struct",
+          40
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_72": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          40
+        ],
+        [
+          "primitive",
+          40
+        ]
+      ],
+      "reg_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
         ]
       ]
     },
     "_ZN10uu_hashsum13uu_app_common17haf156add4ae409e5E": {
-      "name": "_ZN10uu_hashsum13uu_app_common17haf156add4ae409e5E",
-      "return_type": [
-        "struct",
-        712
+      "stack_592": [
+        [
+          "struct",
+          466
+        ]
       ],
-      "parameters": []
+      "reg_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1304": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_1292": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2004": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1300": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2012": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2016": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
     },
     "_ZN10uu_hashsum13uu_app_length17hb583261ee85cbb7dE": {
-      "name": "_ZN10uu_hashsum13uu_app_length17hb583261ee85cbb7dE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": []
-    },
-    "_ZN10uu_hashsum17uu_app_opt_length17hd534d2f952470bb5E": {
-      "name": "_ZN10uu_hashsum17uu_app_opt_length17hd534d2f952470bb5E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN10uu_hashsum12uu_app_b3sum17hcc6efb9f0c7b8147E": {
-      "name": "_ZN10uu_hashsum12uu_app_b3sum17hcc6efb9f0c7b8147E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": []
-    },
-    "_ZN10uu_hashsum17uu_app_b3sum_opts17h6d29bf312f544a29E": {
-      "name": "_ZN10uu_hashsum17uu_app_b3sum_opts17h6d29bf312f544a29E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN10uu_hashsum11uu_app_bits17h22b67f9230d9f8ccE": {
-      "name": "_ZN10uu_hashsum11uu_app_bits17h22b67f9230d9f8ccE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": []
-    },
-    "_ZN10uu_hashsum15uu_app_opt_bits17h1604bb86d678b504E": {
-      "name": "_ZN10uu_hashsum15uu_app_opt_bits17h1604bb86d678b504E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN10uu_hashsum13uu_app_custom17h877f20130ce52e37E": {
-      "name": "_ZN10uu_hashsum13uu_app_custom17h877f20130ce52e37E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": []
-    },
-    "_ZN10uu_hashsum6uu_app17hc311ff14781827c9E": {
-      "name": "_ZN10uu_hashsum6uu_app17hc311ff14781827c9E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command14override_usage17h3074fb1ea9187600E": {
-      "name": "_ZN12clap_builder7builder7command7Command14override_usage17h3074fb1ea9187600E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3arg17h001132be747f46b6E": {
-      "name": "_ZN12clap_builder7builder7command7Command3arg17h001132be747f46b6E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3new17h279cb1764e092cfcE": {
-      "name": "_ZN12clap_builder7builder7command7Command3new17h279cb1764e092cfcE",
-      "return_type": [
-        "struct",
-        438
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command5about17h32eb9af4213b0aa4E": {
-      "name": "_ZN12clap_builder7builder7command7Command5about17h32eb9af4213b0aa4E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command7version17h1915c97be964726eE": {
-      "name": "_ZN12clap_builder7builder7command7Command7version17h1915c97be964726eE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser5error12MatchesError6unwrap17h5d44f088bdacce08E": {
-      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17h5d44f088bdacce08E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h4357859c597eaa3fE": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h4357859c597eaa3fE",
-      "return_type": [
-        "Result",
-        40
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg10value_hint17h03ccd5ef06a1424dE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg10value_hint17h03ccd5ef06a1424dE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "stack_0": [
         [
           "primitive",
           1
         ]
       ]
     },
-    "_ZN12clap_builder7builder3arg3Arg12value_parser17h06bfe84f71006afcE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg12value_parser17h06bfe84f71006afcE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
+    "_ZN10uu_hashsum17uu_app_opt_length17hd534d2f952470bb5E": {
+      "stack_1216": [
         [
-          "struct*",
-          8
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_624": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          24
         ]
       ]
     },
-    "_ZN12clap_builder7builder3arg3Arg12value_parser17hdd3734fe96556585E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg12value_parser17hdd3734fe96556585E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
+    "_ZN10uu_hashsum12uu_app_b3sum17hcc6efb9f0c7b8147E": {
+      "stack_0": [
         [
-          "struct*",
-          8
-        ],
-        [
-          "struct*",
-          8
+          "primitive",
+          1
         ]
       ]
     },
-    "_ZN12clap_builder7builder3arg3Arg12value_parser17he5d3a65a49706accE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg12value_parser17he5d3a65a49706accE",
-      "return_type": [
-        "struct",
-        592
+    "_ZN10uu_hashsum17uu_app_b3sum_opts17h6d29bf312f544a29E": {
+      "stack_1184": [
+        [
+          "primitive",
+          1
+        ]
       ],
-      "parameters": [
+      "stack_0": [
         [
-          "struct*",
-          8
-        ],
+          "primitive",
+          1
+        ]
+      ],
+      "stack_592": [
         [
-          "struct*",
-          8
+          "primitive",
+          1
         ]
       ]
     },
-    "_ZN12clap_builder7builder3arg3Arg14conflicts_with17hd582e73503419645E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg14conflicts_with17hd582e73503419645E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+    "_ZN10uu_hashsum11uu_app_bits17h22b67f9230d9f8ccE": {
+      "stack_0": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          1
         ]
       ]
     },
-    "_ZN12clap_builder7builder3arg3Arg14overrides_with17hcce032071395fcecE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg14overrides_with17hcce032071395fcecE",
-      "return_type": [
-        "struct",
-        592
+    "_ZN10uu_hashsum15uu_app_opt_bits17h1604bb86d678b504E": {
+      "stack_1192": [
+        [
+          "primitive",
+          1
+        ]
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "stack_8": [
         [
           "primitive",
-          8
-        ],
+          1
+        ]
+      ],
+      "stack_600": [
         [
           "primitive",
-          8
+          1
         ]
       ]
     },
-    "_ZN12clap_builder7builder3arg3Arg3new17h3b16b83c680bff0dE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg3new17h3b16b83c680bff0dE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
+    "_ZN10uu_hashsum13uu_app_custom17h877f20130ce52e37E": {
+      "stack_744": [
         [
           "primitive",
-          8
-        ],
+          1
+        ]
+      ],
+      "stack_1456": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_16": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h375640a597df572fE": {
-      "name": "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h375640a597df572fE",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
+      "stack_2168": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
+          1
+        ]
+      ],
+      "stack_8": [
         [
           "primitive",
           8
         ]
       ]
     },
-    "_ZN6uucore8features8checksum11create_sha317hcd73b2e9e9c5f640E": {
-      "name": "_ZN6uucore8features8checksum11create_sha317hcd73b2e9e9c5f640E",
-      "return_type": [
-        "Result",
-        40
-      ],
-      "parameters": [
+    "_ZN10uu_hashsum6uu_app17hc311ff14781827c9E": {
+      "reg_64": [
         [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
+          "&primitive",
           8
         ]
-      ]
-    },
-    "_ZN6uucore8features8checksum11detect_algo17hbb2f85fa7c8cfc19E": {
-      "name": "_ZN6uucore8features8checksum11detect_algo17hbb2f85fa7c8cfc19E",
-      "return_type": [
-        "Result",
-        40
       ],
-      "parameters": [
+      "reg_72": [
         [
           "primitive",
           8
@@ -1396,78 +646,6 @@
           "primitive",
           8
         ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uucore8features8checksum24calculate_blake2b_length17h2a821e36733dba3aE": {
-      "name": "_ZN6uucore8features8checksum24calculate_blake2b_length17h2a821e36733dba3aE",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uucore8features8checksum15escape_filename17hbc3241c83415153bE": {
-      "name": "_ZN6uucore8features8checksum15escape_filename17hbc3241c83415153bE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
-      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
-      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": []
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
         [
           "primitive",
           8

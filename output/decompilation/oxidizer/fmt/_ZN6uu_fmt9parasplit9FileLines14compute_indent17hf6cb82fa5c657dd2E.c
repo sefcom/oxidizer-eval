@@ -1,55 +1,57 @@
-fn uu_fmt::parasplit::FileLines::compute_indent(a0: &struct24, a1: void*, a2: u32, a3: u32, a4: u32) -> u64 {
-    let v0: u64;  // [sp-0x58]
-    let v1: struct24;  // [bp-0x48]
-    let v4: void*;  // rax
-    let v5: u32;  // edx
-    let v6: void*;  // r12
-    let v8: u64;  // rbp
-    let v9: &struct_0;  // r15
-    let v10: u64;  // cc_ndep
-    let v11: u64;  // rcx
-    let v12: u64;  // r12
+fn uu_fmt::parasplit::FileLines::compute_indent(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct24 {
+    let a0: i64;  // rdi
+    let v0: u192;  // [bp-0x48]
+    let v2: core::option::Option<(usize, char)>;  // rax, Other Possible Types: void*
+    let v3: u32;  // edx
+    let v4: void*;  // r12
+    let v5: void*;  // rbx
+    let v6: i64;  // 4096
+    let v7: u32;  // ebp
+    let v8: u64;  // cc_ndep
+    let v9: i64;  // r15
+    let v10: u32;  // ebp
+    let v11: i64;  // r15
 
-    v1 = struct24 {
-        field_0: a2
-        field_8: a3 + a2
-        field_16: 0
-    };
-    v4 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v1);
-    if v5 == 0x110000 {
-        return struct24 {
-            field_0: v4
-            field_8: v7
-            field_16: v6
-        };
-    }
-    v8 = v5;
-    v0 = a0;
-    v6 = 0;
-    v9 = a1;
-    do {
-        if amd64g_calculate_condition(2, 8, v4, a4, v10) as char {
-LABEL_4b9915:
-            if !(v8 == 9) {
-                goto LABEL_4b98f0;
+    v0 = core::str::iter::CharIndices {
+        front_offset: a2
+        iter: core::str::iter::Chars {
+            iter: core::slice::iter::Iter<u8> {
+                ptr: core::ptr::non_null::NonNull<u8> {
+                    pointer: a3 + a2
+                }
+                end_or_len: 0
+                _marker: core::marker::PhantomData<&u8> { }
             }
-            v11 = v9->field_40;
-            v12 = (!(v6 | v11) >> 32 ? ((0 CONCAT v6 as u32) % (v11 & 4294967295) CONCAT (0 CONCAT v6 as u32) / (v11 & 4294967295)) & 4294967295 & 4294967295 : (0 CONCAT v6) % v11 CONCAT (0 CONCAT v6) / v11);
-            v10 = amd64g_calculate_rflags_c(19, 0, 0, v10);
-            v6 = v11 * (v12 + 1);
-        } else {
-            if v8 == 32 {
-                goto LABEL_4b98f0;
-            }
-            if v8 - 9 < 5 {
-                goto LABEL_4b9915;
-            }
-            if !(v8 >= 128) || !((v9 = a1, core::unicode::unicode_data::white_space::lookup(v8 & 4294967295) as i32 as i8)) {
-                goto LABEL_4b9985;
-            }
-LABEL_4b98f0:
-            v6 += uu_fmt::parasplit::char_width(v8 & 4294967295);
         }
-    } while ((v4 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v1), v8 = v5 as u64, v5 != 0x110000));
-LABEL_4b9985:
+    };
+    v2 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64;
+    if v3 != 0x110000 {
+        v5 = 0;
+        v4 = 0;
+        v6 = a1;
+        do {
+            v9 = v6;
+            v10 = v7;
+            if amd64g_calculate_condition(2, 8, v2, a4, v8) as char {
+                v11 = v9;
+                if v10 == 9 {
+                    continue;
+                }
+                goto LABEL_4b98f0;
+            } else {
+                v11 = v9;
+                if v10 == 32 {
+LABEL_4b98f0:
+                    v9 = v11;
+                    v4 += uu_fmt::parasplit::char_width(v10);
+                } else if v10 - 9 >= 5 && (v10 < 128 || !((v11 = a1, core::unicode::unicode_data::white_space::lookup(v10 as u8) as u32 as u8))) {
+                    break;
+                }
+            }
+        } while ((v2 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64, v7 = v3, v6 = v9, v7 != 0x110000));
+    }
+    *(a0 as &void*) = v2;
+    *((a0 + 8) as &void*) = v5;
+    *((a0 + 16) as &void*) = v4;
+    return v2;
 }

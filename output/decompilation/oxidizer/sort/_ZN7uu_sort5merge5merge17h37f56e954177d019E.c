@@ -1,16 +1,24 @@
-fn uu_sort::merge::merge(a0: &struct24, a1: u32, a2: u32, a3: void*, a4: u32, a5: u32, a6: u32) -> u64 {
+fn uu_sort::merge::merge(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i64) -> : struct24 {
+    let a0: u64;  // rsi
+    let v0: u64;  // rax
+    let v1: i64;  // rdi
     let v2: u64;  // rdx
+    let v3: u64;  // rdx
+    let v4: u64;  // rdi
+    let v5: u64;  // rdi
 
-    if uu_sort::merge::replace_output_file_in_input_files(a1, a2, a4, a5, a6) {
-        return struct24 {
-            field_0: 3
-            field_8: v0
-            field_16: v1
-        };
+    v0 = uu_sort::merge::replace_output_file_in_input_files(a0, a1, a3, a4, a5);
+    if v0 {
+        *((v1 + 8) as &u64) = v0;
+        *((v1 + 16) as &u64) = v2;
+        *(v1 as &i64) = 3;
+        return;
     }
-    v2 = a1 + a2 * 24;
-    if a3->field_30 != 0x8000000000000000 {
-        uu_sort::merge::merge_with_file_limit(a0, a1, v2, a3, a6);
+    v3 = a0 + a1 * 24;
+    if *((a2 + 48) as &i64) != 0x8000000000000000 {
+        uu_sort::merge::merge_with_file_limit(v5, a0, v3, a2, a5);
+        return;
     }
-    uu_sort::merge::merge_with_file_limit(a0, a1, v2, a3, a6);
+    uu_sort::merge::merge_with_file_limit(v4, a0, v3, a2, a5);
+    return;
 }

@@ -1,9 +1,8 @@
-fn uu_cat::cat_handle(a0: &Option<Result<struct24, struct8>>, a1: u64, a2: void*, a3: u64) -> u64 {
-    if !(!a2->field_0) {
+fn uu_cat::cat_handle(a1: i64, a2: i64, a3: i64) -> : struct8 {
+    let a0: u64;  // rdi
+
+    if !(!*(a2 as &i32)) {
         goto LABEL_0x4afb50;
-    }
-    if !a2->field_4 {
-        goto LABEL_0x4af950;
     }
     return uu_cat::write_lines(a0, a1, a2, a3);
 }

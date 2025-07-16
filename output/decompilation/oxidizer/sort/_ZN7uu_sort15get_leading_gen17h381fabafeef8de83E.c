@@ -1,23 +1,21 @@
-fn uu_sort::get_leading_gen(a0: u64, a1: u64) -> u64 {
-    let v0: struct16;  // [sp-0x88], Other Possible Types: unsigned long
-    let v1: i64;  // [sp-0x80]
-    let v2: iNone;  // [bp-0x78], Other Possible Types: unsigned long
-    let v3: i64;  // [sp-0x70]
-    let v4: i64;  // [sp-0x68], Other Possible Types: struct24
-    let v5: i64;  // [sp-0x60]
-    let v6: i64;  // [sp-0x58]
-    let v7: i64;  // [sp-0x50]
-    let v8: struct24;  // [bp-0x48]
+fn uu_sort::get_leading_gen(a0: i64, a1: i64) -> long long {
+    let v0: struct16;  // [bp-0x88], Other Possible Types: core::option::Option<&str>, u64
+    let v1: u64;  // [bp-0x80]
+    let v2: u64;  // [bp-0x78]
+    let v3: u64;  // [bp-0x70]
+    let v4: struct24;  // [bp-0x68], Other Possible Types: u64
+    let v5: u64;  // [bp-0x60]
+    let v6: void*;  // [bp-0x58]
+    let v7: u64;  // [bp-0x50]
+    let v8: u192;  // [bp-0x48]
     let v10: i64;  // r12
-    let v11: i64;  // rax
-    let v12: struct8;  // rax
-    let v14: i64;  // r13
-    let v15: i32;  // eax
+    let v11: u64;  // rax
+    let v12: i64;  // rax
+    let v13: void*;  // r13
     let v16: i64;  // rax
-    let v17: struct8;  // rax
-    let v18: i32;  // eax
-    let v19: struct8;  // rax
-    let v20: i64;  // rdx
+    let v17: u32;  // eax
+    let v18: struct25;  // rax
+    let v19: i64;  // rdx
 
     v10 = core::str::<impl str>::trim_start_matches(a0, a1);
     v0 = &g_42f9e3;
@@ -28,69 +26,66 @@ fn uu_sort::get_leading_gen(a0: u64, a1: u64) -> u64 {
     v5 = 3;
     v6 = 0;
     v7 = 3;
-    if !v10 {
-        while (<core::array::iter::IntoIter<T,_> as core::iter::traits::iterator::Iterator>::next(&v0)) ;
-    } else {
+    if v10 {
         loop {
             v11 = <core::array::iter::IntoIter<T,_> as core::iter::traits::iterator::Iterator>::next(&v0);
             if !v11 {
                 break;
             }
-            if v20 {
-                if v20 >= v20 {
-                    if !(v20 == v20) {
+            if v19 {
+                if v19 < v19 {
+                    if *((v10 + v19) as &i8) <= 191 {
                         continue;
                     }
                 } else {
-                    if *((v10 + v20) as &i8) <= 191 {
+                    if !(v19 == v19) {
                         continue;
                     }
                 }
             }
-            if core::slice::ascii::<impl [u8]>::eq_ignore_ascii_case(v10, v20, v11, v20) as i8 {
-                return a1 - v20;
+            if core::slice::ascii::<impl [u8]>::eq_ignore_ascii_case(v10, v19, v11, v19) as i8 {
+                return a1 - v19;
             }
         }
+    } else {
+        do { } while (<core::array::iter::IntoIter<T,_> as core::iter::traits::iterator::Iterator>::next(&v0));
     }
     v8 = struct24 {
         field_0: v10
-        field_8: v10 + v20
+        field_8: v10 + v19
         field_16: 0
     };
     v4 = core::iter::traits::iterator::Iterator::fuse(&v8);
-    v0 = 0;
-    v1 = 8;
-    *(&v2 as &i128) = 0;
-    v12 = itertools::peek_nth::PeekNth<I>::peek_nth(None);
+    v0 = struct32 {
+        field_0: 0
+        field_8: 8
+        field_16: 0
+    };
+    v12 = itertools::peek_nth::PeekNth<I>::peek_nth(&v0, 0);
     if v12 && (*((v12 + 8) as &i32) == 45 || *((v12 + 8) as &i32) == 43) {
         v0 = <itertools::peek_nth::PeekNth<I> as core::iter::traits::iterator::Iterator>::next();
     }
-    v14 = 0;
     loop {
-        v15 = v14 as u32;
-        do {
-            v14 = v15 as u64;
-            do {
-                v0 = <itertools::peek_nth::PeekNth<I> as core::iter::traits::iterator::Iterator>::next();
-                if v20 as u32 == 0x110000 {
-                    return a1 - v20;
-                }
-            } while ((v16 = v20 - 48 & 4294967295, v16 as u32 < 10));
-            v15 = (v16 & -0x100 | 1) as u32;
-        } while ((1 & !(v14 & 255 & 255) & v20 as u32 == 46));
-        if !((1 & (v20 as u32 & -33) == 69)) || !((v17 = itertools::peek_nth::PeekNth<I>::peek_nth(None), v17)) {
+        v0 = <itertools::peek_nth::PeekNth<I> as core::iter::traits::iterator::Iterator>::next();
+        if v19 as u32 == 0x110000 {
             break;
         }
-        v18 = *((v17 + 8) as &i32);
-        if !(v18 != 45 && v18 != 43) {
-            v19 = itertools::peek_nth::PeekNth<I>::peek_nth(0x2);
-            if !(v19) || !(*((v19 + 8) as &i32) - 48 <= 9) {
+        if !(v19 as u32 - 48 >= 10 && !(1 & !(v13 & 255) & v19 as u32 == 46)) {
+            continue;
+        }
+        if !(1 & (v19 as u32 & -33) == 69) || !((v16 = itertools::peek_nth::PeekNth<I>::peek_nth(&v0, 0), v16)) {
+            break;
+        }
+        v17 = *((v16 + 8) as &i32);
+        if v17 == 45 || v17 == 43 {
+            v18 = itertools::peek_nth::PeekNth<I>::peek_nth(&v0, 2);
+            if !v18 || *((v18 + 8) as &i32) - 48 > 9 {
                 break;
             }
             v0 = <itertools::peek_nth::PeekNth<I> as core::iter::traits::iterator::Iterator>::next();
-        } else if v18 - 48 >= 10 {
+        } else if v17 - 48 >= 10 {
             break;
         }
     }
-    return a1 - v20;
+    return a1 - v19;
 }

@@ -1,28 +1,32 @@
 {
   "decompilation": {
-    "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": "fn uu_echo::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: String;  // [sp-0x48]\n    let v4: String;  // [sp-0x28]\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v6 = uu_echo::uumain::uumain(a0, a1);\n    if !v6 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v6;\n    v4 = format!(\"{}\", &v0);\n    v3 = v4;\n    if v3 == \"\" {\n        v2 = v7;\n        show_error!(\"{}\", &v3);\n    }\n    if !*((v7 + 104) as &i64)() {\n        return *((v7 + 96) as &i64)();\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v7;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n}\n",
-    "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": "fn uu_echo::uumain::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0x370]\n    let v1: i8;  // [bp-0x368]\n    let v2: struct64;  // [sp-0x330]\n    let v3: i64;  // [sp-0x2f0], Other Possible Types: struct56, struct712\n    let v5: i8;  // bl\n    let v7: i64;  // rax\n    let v8: i64;  // rax\n\n    v3 = uu_echo::uu_app();\n    clap_builder::builder::command::Command::get_matches_from(&v1, &v3, a0, a1);\n    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v1, \"no_newline\") as i32;\n    v3 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v3);\n    v3 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v1, \"STRING\");\n    v2 = clap_builder::parser::error::MatchesError::unwrap(&v3);\n    if !v2.field_0 as i64 {\n        if !(!v5) || !((v7 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, \"\n\"), v7)) {\n            return 0;\n        }\n        uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v7);\n    } else if !uu_echo::execute(&v0, v5 ^ 1, clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v1, \"enable_backslash_escape\") as i32, &v2) {\n        return 0;\n    }\n    return v8;\n}\n",
-    "_ZN7uu_echo4Base15ascii_to_number17h59ff941f17249d67E": "fn uu_echo::Base::ascii_to_number(a0: u8, a1: u32) -> u8 {\n    let v0: u64;  // [sp-0x8]\n    let v2: u64;  // rax\n\n    if a0 {\n        v0 = v2;\n        return uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number(a1) as i8;\n    }\n    return a1 - 48 < 8;\n}\n",
-    "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE": "fn uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number(a0: u32) -> u64 {\n    let v1: u64;  // rax\n\n    v1 = 0;\n    match (a0) {\n        48 => {\n            return 1;\n        }\n        49 => {\n            return 1;\n        }\n        50 => {\n            return 1;\n        }\n        51 => {\n            return 1;\n        }\n        52 => {\n            return 1;\n        }\n        53 => {\n            return 1;\n        }\n        54 => {\n            return 1;\n        }\n        55 => {\n            return 1;\n        }\n        56 => {\n            return 1;\n        }\n        57 => {\n            return 1;\n        }\n        66 | 98 => {\n            return 1;\n        }\n        67 | 99 => {\n            return 1;\n        }\n        68 | 100 => {\n            return 1;\n        }\n        69 | 101 => {\n            return 1;\n        }\n        70 | 102 => {\n            return 1;\n        }\n        65 | 97 => {\n            v1 = 1;\n        }\n        58 | 59 | 60 | 61 | 62 | 63 | 64 | 71 | 72 | 73 | 74 | 75 | 76 | 77 | 78 | 79 | 80 | 81 | 82 | 83 | 84 | 85 | 86 | 87 | 88 | 89 | 90 | 91 | 92 | 93 | 94 | 95 | 96 => {\n            return v1;\n        }\n        _ => {\n            return 0;\n        }\n    }\n}\n",
-    "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": "fn uu_echo::parse_backslash_number(a0: &struct16, a1: u8, a2: u32) -> u64 {\n    let v0: u64;  // [bp-0x38]\n    let v1: u8;  // [sp-0x35]\n    let v2: u32;  // [sp-0x34]\n    let v4: u64;  // rax\n    let v5: u64;  // r14\n    let v6: &u8;  // rax\n    let v7: u64;  // r14\n    let v8: u64;  // rbp\n    let v9: u64;  // 4098\n    let v10: u64;  // rax\n    let v11: u64;  // r12\n    let v13: &u8;  // rax\n    let v14: u64;  // 4098\n    let v15: u64;  // rdx\n\n    v0 = v4;\n    if !a1 {\n        v5 = 0;\n        goto LABEL_4a45cd;\n    } else {\n        v6 = *(core::option::Option<T>::get_or_insert_with(a0, a0 + 2) as &i64);\n        if !v6 {\n            return 0;\n        }\n        v5 = v7 & -0x100 | a1 != 1;\nLABEL_4a45cd:\n        v2 = v5;\n        if (uu_echo::Base::ascii_to_number(v5, *(v6)) & 1) {\n            v8 = v15;\n            v9 = *(a0);\n            *(a0) = 0;\n            if !v9 {\n                <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(a0 + 2);\n            }\n            v11 = a0 + 2;\n            v1 = 4 - (!v5);\n            loop {\n                v13 = *(core::option::Option<T>::get_or_insert_with(a0, v11) as &i64);\n                if !(v13) || !((v13 = uu_echo::Base::ascii_to_number(v2 as u64, *(v13) as u64) as i64, (v13 as u8 & 1))) {\n                    break;\n                }\n                v14 = *(a0);\n                *(a0) = 0;\n                if !v14 {\n                    v13 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(v11);\n                }\n                v8 = v8 & -0x100 | ((v8 & 255) << (v1 & 31)) + (v15 & 4294967295) & 255;\n                if <u8 as core::iter::range::Step>::forward_unchecked(1) >= (!v5 | 2) {\n                    break;\n                }\n            }\n            v10 = v13 & -0x100 | 1;\n            return v10;\n        }\n    }\n}\n",
-    "_ZN7uu_echo6uu_app17hac082564844c1592E": "fn uu_echo::uu_app(a0: &struct712) -> u64 {\n    let v0: struct712;  // [sp-0xa48], Other Possible Types: struct592, struct437\n    let v1: i8;  // [bp-0x78c]\n    let v2: i8;  // [bp-0x788]\n    let v3: struct592;  // [sp-0x780], Other Possible Types: struct712, char\n    let v4: i32;  // [sp-0x4c4]\n    let v5: i64;  // [sp-0x4c0]\n    let v6: struct592;  // [sp-0x4b8], Other Possible Types: struct24\n    let v7: struct592;  // [sp-0x268], Other Possible Types: struct8\n    let v9: i64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);\n    memcpy(&v3, &v0, 700);\n    v4 = *(&v1 as &i32) | 34;\n    v5 = *(&v2 as &i64);\n    v0 = clap_builder::builder::command::Command::version(&v3);\n    v3 = clap_builder::builder::command::Command::about(&v0);\n    v0 = clap_builder::builder::command::Command::after_help(&v3);\n    v6 = uucore::format_usage(\"{} [OPTIONS]... [STRING]...\");\n    v3 = clap_builder::builder::command::Command::override_usage(&v0, &v6);\n    v0 = clap_builder::builder::arg::Arg::new(\"no_newline\");\n    v6 = clap_builder::builder::arg::Arg::short(&v0, 0x6e);\n    v0 = clap_builder::builder::arg::Arg::help(&v6, \"do not output the trailing newline\");\n    v6 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v6);\n    v3 = clap_builder::builder::arg::Arg::new(\"enable_backslash_escape\");\n    v6 = clap_builder::builder::arg::Arg::short(&v3, 0x65);\n    v3 = clap_builder::builder::arg::Arg::help(&v6, \"enable interpretation of backslash escapes\");\n    v6 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v7 = clap_builder::builder::arg::Arg::overrides_with(&v6, \"disable_backslash_escape\");\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v7);\n    v0 = clap_builder::builder::arg::Arg::new(\"disable_backslash_escape\");\n    v6 = clap_builder::builder::arg::Arg::short(&v0, 0x45);\n    v0 = clap_builder::builder::arg::Arg::help(&v6, \"disable interpretation of backslash escapes (default)\");\n    v6 = clap_builder::builder::arg::Arg::action(&v0, 0x2);\n    v7 = clap_builder::builder::arg::Arg::overrides_with(&v6, \"enable_backslash_escape\");\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v7);\n    v3 = clap_builder::builder::arg::Arg::new(\"STRING\");\n    v6 = clap_builder::builder::arg::Arg::action(&v3, 0x1);\n    v7 = struct8 {\n        field_0: 2\n    };\n    v3 = clap_builder::builder::arg::Arg::value_parser(&v6, &v7);\n    clap_builder::builder::command::Command::arg(a0, &v0, &v3);\n    return a0;\n}\n",
-    "_ZN7uu_echo7execute17h70a095d897960844E": "fn uu_echo::execute(a0: u32, a1: u32, a2: u8, a3: &u64) -> u64 {\n    let v0: i32;  // [sp-0x8c]\n    let v1: struct9;  // [sp-0x88]\n    let v2: iNone;  // [sp-0x78]\n    let v3: iNone;  // [sp-0x68]\n    let v4: iNone;  // [sp-0x58]\n    let v5: iNone;  // [sp-0x48]\n    let v6: i64;  // [sp-0x38]\n    let v8: struct8;  // rax\n    let v9: i64;  // rdx\n    let v10: i64;  // rdx\n    let v13: i64;  // rax\n    let v16: i64;  // rdi\n    let v17: i64;  // rax\n\n    v0 = a1;\n    v5 = *((a3 + 48) as &i128);\n    v4 = *((a3 + 32) as &i128);\n    v3 = *((a3 + 16) as &i128);\n    v2 = *(a3 as &i128);\n    v6 = 0;\n    v8 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next();\n    if !v9 {\nLABEL_4a4d7c:\n        if !(v0 as i8) || !((v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, \"\n\"), v13)) {\n            return 0;\n        }\n    } else if !a2 {\n        loop {\n            if !(!v8) && !((v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, \" \"), !v13)) || !((v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, *((v10 + 8) as &i64), *((v10 + 16) as &i64)), !v13)) {\n                break;\n            }\n            v8 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next();\n            if !v9 {\n                goto LABEL_4a4d7c;\n            }\n        }\n    } else {\n        loop {\n            if v8 && (v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, \" \"), v13) {\n                break;\n            }\n            v1 = uu_echo::print_escaped(*((v10 + 8) as &i64), *((v10 + 16) as &i64), a0);\n            if v1.field_0 {\n                uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v16);\n                return v17;\n            }\n            if v1.field_8 as i8 {\n                return 0;\n            }\n            v8 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next();\n            if !v9 {\n                goto LABEL_4a4d7c;\n            }\n        }\n    }\n    v16 = v13;\n    v17 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v16);\n    return v17;\n}\n"
+    "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": "fn uu_echo::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_echo::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": "fn uu_echo::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x370]\n    let v1: struct56;  // [bp-0x368]\n    let v2: struct64;  // [bp-0x330]\n    let v3: u8;  // [bp-0x2f0], Other Possible Types: std::io::stdio::Stdout, struct56\n    let v5: u8;  // bl\n    let v6: u32;  // eax\n    let v7: u64;  // rax\n    let v8: core::result::Result<(), std::io::error::Error>;  // rax\n\n    uu_echo::uu_app(&v3);\n    v1 = clap_builder::builder::command::Command::get_matches_from(&v3, a0, a1);\n    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v1, \"no_newline\") as i32;\n    v6 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v1, \"enable_backslash_escape\") as i32;\n    v3 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v3);\n    v3 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v1, \"STRING\");\n    v2 = clap_builder::parser::error::MatchesError::unwrap(&v3);\n    if v2.field_0 as i64 {\n        v7 = uu_echo::execute(&v0, v5 ^ 1, v6, &v2);\n    } else if !v5 {\n        v8 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, \"\\n\");\n        if let Err(_) = v8 {\n            v7 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v8);\n            return v7;\n        }\n    }\n    return 0;\n}\n",
+    "_ZN7uu_echo4Base15ascii_to_number17h59ff941f17249d67E": "fn uu_echo::Base::ascii_to_number(a0: i8, a1: i8) -> long long {\n    let v3: u64;  // rax\n\n    if !a0 {\n        return v3 & -0x100 | a1 - 48 < 8;\n    }\n    return uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number(a1);\n}\n",
+    "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE": "fn uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number(a0: i8) -> long long {\n    let v1: u64;  // rax\n\n    v1 = 0;\n    match (a0) {\n        48 => {\n            return 1;\n        }\n        49 => {\n            return 1;\n        }\n        50 => {\n            return 1;\n        }\n        51 => {\n            return 1;\n        }\n        52 => {\n            return 1;\n        }\n        53 => {\n            return 1;\n        }\n        54 => {\n            return 1;\n        }\n        55 => {\n            return 1;\n        }\n        56 => {\n            return 1;\n        }\n        57 => {\n            return 1;\n        }\n        58 | 59 | 60 | 61 | 62 | 63 | 64 | 71 | 72 | 73 | 74 | 75 | 76 | 77 | 78 | 79 | 80 | 81 | 82 | 83 | 84 | 85 | 86 | 87 | 88 | 89 | 90 | 91 | 92 | 93 | 94 | 95 | 96 => {\n            return v1;\n        }\n        65 | 97 => {\n            break;\n        }\n        66 | 98 => {\n            return 1;\n        }\n        67 | 99 => {\n            return 1;\n        }\n        68 | 100 => {\n            return 1;\n        }\n        69 | 101 => {\n            return 1;\n        }\n        70 | 102 => {\n            return 1;\n        }\n        _ => {\n            return 0;\n        }\n    }\n}\n",
+    "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": "fn uu_echo::parse_backslash_number(a1: i8, a2: i8) -> Option<struct8> {\n    let a0: i64;  // rdi\n    let v0: u64;  // [bp-0x38]\n    let v1: u8;  // [bp-0x35]\n    let v2: u32;  // [bp-0x34]\n    let v4: u64;  // rax\n    let v5: u8;  // r14b\n    let v6: void*;  // 4098\n    let v7: u64;  // r12\n    let v8: u64;  // rsi\n    let v9: u32;  // eax\n    let v10: i64;  // rax\n    let v11: u64;  // rax\n    let v12: void*;  // 4098\n\n    v0 = v4;\n    if !a1 || *(core::option::Option<T>::get_or_insert_with(a0, a0 + 16) as u64 as &i64) {\n        v2 = v5;\n        if (uu_echo::Base::ascii_to_number(v5, a2) as i8 & 1) {\n            v6 = *(a0 as &i64);\n            *(a0 as &i64) = 0;\n            if !v6 {\n                <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(a0 + 16);\n            }\n            v7 = a0 + 16;\n            v1 = 4 - (!v5);\n            loop {\n                loop {\n                    v9 = <u8 as core::iter::range::Step>::forward_unchecked(1, v8);\n                    v10 = *(core::option::Option<T>::get_or_insert_with(a0, v7) as u64 as &i64);\n                    v11 = uu_echo::Base::ascii_to_number(v2, *(v10 as &i8));\n                    v12 = *(a0 as &i64);\n                    return struct8 {\n                        field_0: 0\n                    };\n                    break;\n                }\n                v11 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(v7);\n            }\n        }\n    }\n    return 0;\n}\n",
+    "_ZN7uu_echo6uu_app17hac082564844c1592E": "fn uu_echo::uu_app(a0: &struct712) -> long long {\n    let v0: struct437;  // [bp-0xa48]\n    let v1: u32;  // [bp-0x78c]\n    let v2: u64;  // [bp-0x788]\n    let v3: u8;  // [bp-0x780]\n    let v4: u32;  // [bp-0x4c4]\n    let v5: u64;  // [bp-0x4c0]\n    let v6: u8;  // [bp-0x4b8]\n    let v7: u64;  // [bp-0x268]\n    let v10: u64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);\n    memcpy(&v3, &v0, 700);\n    v4 = v1 | 34;\n    v5 = v2;\n    clap_builder::builder::command::Command::version(&v0, &v3);\n    clap_builder::builder::command::Command::about(&v3, &v0);\n    clap_builder::builder::command::Command::after_help(&v0, &v3);\n    uucore::format_usage(&v6, \"{} [OPTIONS]... [STRING]...\");\n    clap_builder::builder::command::Command::override_usage(&v3, &v0, &v6);\n    clap_builder::builder::arg::Arg::new(&v0, \"no_newline\");\n    clap_builder::builder::arg::Arg::short(&v6, &v0, 110);\n    clap_builder::builder::arg::Arg::help(&v0, &v6, \"do not output the trailing newline\");\n    clap_builder::builder::arg::Arg::action(&v6, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v0, &v3, &v6);\n    clap_builder::builder::arg::Arg::new(&v3, \"enable_backslash_escape\");\n    clap_builder::builder::arg::Arg::short(&v6, &v3, 101);\n    clap_builder::builder::arg::Arg::help(&v3, &v6, \"enable interpretation of backslash escapes\");\n    clap_builder::builder::arg::Arg::action(&v6, &v3, 2);\n    clap_builder::builder::arg::Arg::overrides_with(&v7, &v6, \"disable_backslash_escape\");\n    clap_builder::builder::command::Command::arg(&v3, &v0, &v7);\n    clap_builder::builder::arg::Arg::new(&v0, \"disable_backslash_escape\");\n    clap_builder::builder::arg::Arg::short(&v6, &v0, 69);\n    clap_builder::builder::arg::Arg::help(&v0, &v6, \"disable interpretation of backslash escapes (default)\");\n    clap_builder::builder::arg::Arg::action(&v6, &v0, 2);\n    clap_builder::builder::arg::Arg::overrides_with(&v7, &v6, \"enable_backslash_escape\");\n    clap_builder::builder::command::Command::arg(&v0, &v3, &v7);\n    clap_builder::builder::arg::Arg::new(&v3, \"STRING\");\n    clap_builder::builder::arg::Arg::action(&v6, &v3, 1);\n    v7 = 2;\n    clap_builder::builder::arg::Arg::value_parser(&v3, &v6, &v7);\n    clap_builder::builder::command::Command::arg(a0, &v0, &v3);\n    return a0;\n}\n",
+    "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E": "fn uu_echo::print_escaped(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {\n    let v1: u8;  // [bp-0x5a]\n    let v2: u8;  // [bp-0x59]\n    let v3: i64;  // [bp-0x58]\n    let v4: void*;  // [sp-0x50]\n    let v5: i64;  // [sp-0x48]\n    let v6: i64;  // [bp-0x48]\n    let v7: u64;  // [bp-0x40]\n    let v8: u64;  // [bp-0x38]\n    let v10: i64;  // rax\n    let v11: i64;  // rax\n    let v13: i64;  // rsi\n    let v14: u64;  // 4096\n    let v15: u64;  // rax\n    let v16: u64;  // r13\n    let v17: u8;  // dl\n    let v18: core::result::Result<(), std::io::error::Error>;  // rax\n    let v19: i64;  // rsi\n    let v20: u8;  // dl\n    let v21: core::result::Result<(), std::io::error::Error>;  // rax\n\n    v7 = a1;\n    v8 = a2 + a1;\n    loop {\n        v10 = v5;\n        v4 = 0;\n        v10 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v7);\n        if !v10 {\n            *(v3 as &i16) = 0;\n            return a0;\n        }\n        if v10 == \"\\\\\" {\n            v11 = core::option::Option<T>::get_or_insert_with(&v4, &v7);\n            if !(*(v11 as &i64) && *(*(v11 as &i64) as &i8) - 49 < 7) {\n                v6 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v7);\n                if v6 {\n                    v15 = *(v6 as &i8);\n                    match (v15) {\n                        99 => {\n                            *((v3 + 1) as &i8) = 1;\n                            *(v3 as &i8) = 0;\n                            return 0;\n                        }\n                        _ => {\n                            v1 = 92;\n                            v2 = v15;\n                            v16 = 2;\n                            v19 = &v1;\n                            break;\n                        }\n                    }\n                    v21 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a3, v19, v16);\n                    if let Err(_) = v21 {\n                        *((v3 + 8) as &core::result::Result<(), std::io::error::Error>) = v21;\n                        *(v3 as &i8) = 1;\n                        return v21 & -0x100 | 1;\n                    }\nLABEL_4a46f1:\n                    v10 = v5;\n                } else {\n                    v13 = &g_41b41b.field_0;\n                    v14 = a3;\nLABEL_4a476f:\n                    v18 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(v14, v13, v17);\n                    if let Err(_) = v18 {\n                        *((v3 + 8) as &core::result::Result<(), std::io::error::Error>) = v18;\n                        *(v3 as &i8) = 1;\n                        return v18;\n                    }\n                    goto LABEL_4a46f1;\n                }\n            } else if (uu_echo::parse_backslash_number(&v4, 0, *(*(v11 as &i64) as &i8)) as i8 & 1) {\n                v1 = v20;\n                goto LABEL_4a4764;\n            } else {\n                core::option::unwrap_failed(); /* do not return */\n            }\n        } else {\nLABEL_4a4764:\n            v13 = &v1;\n            v14 = a3;\n            goto LABEL_4a476f;\n        }\n    }\n}\n",
+    "_ZN7uu_echo7execute17h70a095d897960844E": "fn uu_echo::execute(a0: i64, a1: i32, a2: i8, a3: i64) -> long long {\n    let v0: u32;  // [bp-0x8c]\n    let v1: u8;  // [bp-0x88]\n    let v2: u56;  // [bp-0x87]\n    let v3: u128;  // [bp-0x78]\n    let v4: u128;  // [bp-0x68]\n    let v5: u128;  // [bp-0x58]\n    let v6: u128;  // [bp-0x48]\n    let v7: void*;  // [bp-0x38]\n    let v9: u64;  // rax\n    let v10: i64;  // rdx\n    let v11: i64;  // rdx\n    let v12: i64;  // rdx\n    let v13: core::result::Result<(), std::io::error::Error>;  // rax\n    let v14: i64;  // rdx\n\n    v0 = a1;\n    v6 = *((a3 + 48) as &i128);\n    v5 = *((a3 + 32) as &i128);\n    v4 = *((a3 + 16) as &i128);\n    v3 = *(a3 as &i128);\n    v7 = 0;\n    v9 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v3);\n    if v10 {\n        if a2 {\n            loop {\n                v12 = v11;\n                if v9 && !((v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, \" \"), !v13)) || !((uu_echo::print_escaped(&v1, *((v12 + 8) as &i64), *((v12 + 16) as &i64), a0), !v1)) {\n                    break;\n                }\n                if v2 as i8 {\n                    return 0;\n                }\n                v9 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v3);\n                v11 = v10;\n                if !v11 {\n                    goto LABEL_4a4d7c;\n                }\n            }\n        } else {\n            loop {\n                v14 = v11;\n                if v9 && !((v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, \" \"), !v13)) || !((v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, *((v14 + 8) as &i64), *((v14 + 16) as &i64)), !v13)) {\n                    break;\n                }\n                v9 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v3);\n                v11 = v10;\n                if !v11 {\n                    goto LABEL_4a4d7c;\n                }\n            }\n            return uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v13);\n        }\n    }\nLABEL_4a4d7c:\n    if v0 as i8 {\n        v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, \"\\n\");\n    }\n    return 0;\n}\n"
   },
   "function_call_counts": {
     "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
       "uu_echo::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
     },
     "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": {
+      "uu_echo::execute": 1,
       "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "<std::io::stdio::StdoutLock as std::io::Write>::write_all": 1,
       "clap_builder::parser::error::MatchesError::unwrap": 1,
       "std::io::stdio::Stderr::lock": 1,
       "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
       "std::io::stdio::stdout": 1,
-      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 2,
       "clap_builder::builder::command::Command::get_matches_from": 1,
       "uu_echo::uu_app": 1
     },
@@ -32,7 +36,9 @@
     "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE": {},
     "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": {
       "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 2,
-      "core::option::Option<T>::get_or_insert_with": 2
+      "uu_echo::Base::ascii_to_number": 1,
+      "core::option::Option<T>::get_or_insert_with": 1,
+      "<u8 as core::iter::range::Step>::forward_unchecked": 1
     },
     "_ZN7uu_echo6uu_app17hac082564844c1592E": {
       "clap_builder::builder::command::Command::arg": 4,
@@ -51,16 +57,22 @@
       "clap_builder::builder::command::Command::new": 1,
       "uucore::util_name": 1
     },
+    "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E": {
+      "<std::io::stdio::StdoutLock as std::io::Write>::write_all": 2,
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 2,
+      "core::option::unwrap_failed": 1,
+      "core::option::Option<T>::get_or_insert_with": 1
+    },
     "_ZN7uu_echo7execute17h70a095d897960844E": {
-      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 2,
+      "<std::io::stdio::StdoutLock as std::io::Write>::write_all": 1,
       "<core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next": 3,
-      "uu_echo::print_escaped": 1
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1
     }
   },
   "macro_call_counts": {
     "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": {
-      "eprintln": 1,
-      "show_error": 1,
+      "eprintln": 2,
+      "eprint": 1,
       "format": 1
     },
     "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": {},
@@ -68,106 +80,72 @@
     "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE": {},
     "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": {},
     "_ZN7uu_echo6uu_app17hac082564844c1592E": {},
+    "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E": {},
     "_ZN7uu_echo7execute17h70a095d897960844E": {}
   },
   "node_counts": {
-    "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": 9,
-    "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": 10,
-    "_ZN7uu_echo4Base15ascii_to_number17h59ff941f17249d67E": 3,
-    "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE": 19,
-    "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": 16,
+    "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": 10,
+    "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": 11,
+    "_ZN7uu_echo4Base15ascii_to_number17h59ff941f17249d67E": 2,
+    "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE": 18,
+    "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": 11,
     "_ZN7uu_echo6uu_app17hac082564844c1592E": 29,
-    "_ZN7uu_echo7execute17h70a095d897960844E": 16
+    "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E": 23,
+    "_ZN7uu_echo7execute17h70a095d897960844E": 14
   },
-  "prototypes": {
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h12533fceda9f49bdE": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h12533fceda9f49bdE",
-      "return_type": [
-        "struct",
-        56
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser5error12MatchesError6unwrap17hb3371b5fc2ddc015E": {
-      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17hb3371b5fc2ddc015E",
-      "return_type": [
-        "struct",
-        64
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h9427dc1ee5c35422E": {
-      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h9427dc1ee5c35422E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17he5d88980ce35e87fE": {
-      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17he5d88980ce35e87fE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
-      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
-      "return_type": [
-        "primitive",
-        1
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
+  "variable_types": {
     "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": {
-      "name": "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E",
-      "return_type": [
-        "primitive",
-        8
+      "reg_16": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
         [
           "primitive",
           8
         ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_32": [
         [
           "primitive",
           8
@@ -175,367 +153,141 @@
       ]
     },
     "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": {
-      "name": "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
+      "stack_136": [
         [
           "primitive",
+          1
+        ],
+        [
+          "struct",
           8
         ],
         [
-          "primitive",
-          8
+          "struct",
+          56
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command16get_matches_from17hc64b423ca8b1bc86E": {
-      "name": "_ZN12clap_builder7builder7command7Command16get_matches_from17hc64b423ca8b1bc86E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
+      "stack_16": [
         [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          "struct",
+          56
         ]
-      ]
-    },
-    "_ZN3std2io5stdio6stdout17h077da66234850927E": {
-      "name": "_ZN3std2io5stdio6stdout17h077da66234850927E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": []
-    },
-    "_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17h10000d12d1c1ff48E": {
-      "name": "_ZN61_$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$9write_all17h10000d12d1c1ff48E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN4core6option13unwrap_failed17h0e11329e76906eaaE": {
-      "name": "_ZN4core6option13unwrap_failed17h0e11329e76906eaaE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcfbc49f81d31fadE": {
-      "name": "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcfbc49f81d31fadE",
-      "return_type": [
-        "struct",
-        8
-      ],
-      "parameters": []
-    },
-    "_ZN12clap_builder7builder3arg3Arg12value_parser17h5c4830a846a90debE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg12value_parser17h5c4830a846a90debE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg14overrides_with17h554d066c90c03c16E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg14overrides_with17h554d066c90c03c16E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg3new17hb5e8990be33da4cdE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg3new17hb5e8990be33da4cdE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4help17h832a6dbb682de13bE": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4help17h832a6dbb682de13bE",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg5short17h0c0faedee966dc35E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg5short17h0c0faedee966dc35E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg6action17hf068255853920169E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg6action17hf068255853920169E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "reg_40": [
         [
           "primitive",
           1
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command10after_help17hcc85c3a742b69a8bE": {
-      "name": "_ZN12clap_builder7builder7command7Command10after_help17hcc85c3a742b69a8bE",
-      "return_type": [
-        "struct",
-        712
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command14override_usage17h92e7942a580e103dE": {
-      "name": "_ZN12clap_builder7builder7command7Command14override_usage17h92e7942a580e103dE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "reg_16": [
         [
           "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3arg17h68fa26210e2f8086E": {
-      "name": "_ZN12clap_builder7builder7command7Command3arg17h68fa26210e2f8086E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
+          4
+        ],
         [
           "primitive",
           8
         ],
         [
-          "primitive",
+          "Result",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3new17hc7ec6dfb1f3b4da7E": {
-      "name": "_ZN12clap_builder7builder7command7Command3new17hc7ec6dfb1f3b4da7E",
-      "return_type": [
-        "struct",
-        438
       ],
-      "parameters": [
+      "stack_8": [
         [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
+          "struct",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command5about17hf2b328b183190985E": {
-      "name": "_ZN12clap_builder7builder7command7Command5about17hf2b328b183190985E",
-      "return_type": [
-        "struct",
-        712
       ],
-      "parameters": [
+      "stack_72": [
         [
-          "struct*",
-          8
+          "struct",
+          64
         ]
       ]
-    },
-    "_ZN12clap_builder7builder7command7Command7version17hafd05bea21e57d41E": {
-      "name": "_ZN12clap_builder7builder7command7Command7version17hafd05bea21e57d41E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67bb1ffa54fe1617E": {
-      "name": "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67bb1ffa54fe1617E",
-      "return_type": [
-        "struct",
-        8
-      ],
-      "parameters": []
     },
     "_ZN7uu_echo4Base15ascii_to_number17h59ff941f17249d67E": {
-      "name": "_ZN7uu_echo4Base15ascii_to_number17h59ff941f17249d67E",
-      "return_type": [
-        "primitive",
-        1
-      ],
-      "parameters": [
+      "reg_16": [
         [
           "primitive",
-          1
-        ],
-        [
-          "primitive",
-          4
+          8
         ]
       ]
     },
     "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE": {
-      "name": "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
+      "reg_16": [
         [
           "primitive",
-          4
+          8
         ]
       ]
     },
     "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": {
-      "name": "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE",
-      "return_type": [
-        "struct",
-        16
-      ],
-      "parameters": [
+      "reg_72": [
         [
           "primitive",
-          1
+          8
+        ]
+      ],
+      "reg_16": [
+        [
+          "primitive",
+          8
         ],
         [
           "primitive",
           4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
         ]
-      ]
-    },
-    "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E": {
-      "name": "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E",
-      "return_type": [
-        "struct",
-        9
       ],
-      "parameters": [
+      "stack_0": [
         [
           "primitive",
           8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_128": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_4098": [
+        [
+          "&primitive",
+          8
         ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_112": [
         [
           "primitive",
           8
-        ],
+        ]
+      ],
+      "stack_3": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_64": [
         [
           "primitive",
           8
@@ -543,58 +295,149 @@
       ]
     },
     "_ZN7uu_echo6uu_app17hac082564844c1592E": {
-      "name": "_ZN7uu_echo6uu_app17hac082564844c1592E",
-      "return_type": [
-        "struct",
-        712
+      "stack_0": [
+        [
+          "struct",
+          466
+        ]
       ],
-      "parameters": []
-    },
-    "_ZN7uu_echo7execute17h70a095d897960844E": {
-      "name": "_ZN7uu_echo7execute17h70a095d897960844E",
-      "return_type": [
-        "primitive",
-        8
+      "reg_32": [
+        [
+          "primitive",
+          8
+        ]
       ],
-      "parameters": [
+      "stack_712": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_1412": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_700": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1416": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_704": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1424": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_2016": [
         [
           "primitive",
           8
         ],
         [
           "primitive",
-          4
+          1
+        ]
+      ]
+    },
+    "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E": {
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_16": [
+        [
+          "primitive",
+          8
         ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "Result",
+          8
+        ],
+        [
+          "Result",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_14": [
         [
           "primitive",
           1
         ],
         [
           "primitive",
-          8
+          1
         ]
-      ]
-    },
-    "_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17hcd961c31063bf4faE": {
-      "name": "_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17hcd961c31063bf4faE",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
+      "stack_15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_120": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
-      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": [
+      "reg_64": [
         [
           "primitive",
           8
@@ -603,23 +446,72 @@
           "primitive",
           8
         ]
+      ],
+      "reg_4096": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_32": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
       ]
     },
-    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
-      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
-      "return_type": [
-        "primitive",
-        8
+    "_ZN7uu_echo7execute17h70a095d897960844E": {
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
       ],
-      "parameters": []
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h5d143567c1b61cafE",
-      "return_type": [
-        "primitive",
-        8
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
       ],
-      "parameters": [
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_16": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "Result",
+          8
+        ]
+      ],
+      "reg_32": [
         [
           "primitive",
           8
@@ -631,6 +523,22 @@
         [
           "primitive",
           8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_17": [
+        [
+          "primitive",
+          7
         ]
       ]
     }

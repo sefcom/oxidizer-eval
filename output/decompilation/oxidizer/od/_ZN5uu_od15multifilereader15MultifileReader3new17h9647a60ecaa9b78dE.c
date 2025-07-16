@@ -1,20 +1,21 @@
-fn uu_od::multifilereader::MultifileReader::new(a0: &struct48, a1: u64) -> int {
-    let v0: struct16;  // [sp-0x38]
-    let v1: u64;  // [sp-0x28]
-    let v2: void*;  // [sp-0x20]
-    let v4: u8;  // [sp-0x10]
-    let v6: u128;  // xmm0
-    let v7: u128;  // xmm1
+fn uu_od::multifilereader::MultifileReader::new(a1: i64) -> : struct48 {
+    let a0: i64;  // rsi
+    let v0: struct16;  // [bp-0x38]
+    let v1: u64;  // [bp-0x28]
+    let v2: &[u8];  // [bp-0x20]
+    let v3: i8;  // [bp-0x18]
+    let v4: u8;  // [bp-0x10]
+    let v6: u128;  // xmm1
+    let v7: i64;  // rdi
+    let v8: u128;  // xmm0
 
-    v1 = a1->field_10;
-    v6 = a1->field_0;
+    v1 = *((a0 + 16) as &i64);
     v2 = 0;
     v4 = 0;
     v0 = uu_od::multifilereader::MultifileReader::next_file();
-    v7 = *(&v1 as &i128);
-    return struct48 {
-        field_0: v8
-        field_16: v7
-        field_32: *(&v3 as &i128)
-    };
+    v6 = *(&v1 as &i128);
+    *((v7 + 32) as &i128) = *(&v3 as &i128);
+    *((v7 + 16) as &u128) = v6;
+    *(v7 as &u128) = v8;
+    return;
 }

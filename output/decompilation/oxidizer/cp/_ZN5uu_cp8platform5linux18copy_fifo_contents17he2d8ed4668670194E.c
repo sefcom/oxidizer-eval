@@ -1,40 +1,42 @@
-fn uu_cp::platform::linux::copy_fifo_contents(a0: u32, a1: u32, a2: u32, a3: u32) -> u64 {
-    let v0: struct4;  // [bp-0xf8]
-    let v1: i32;  // [sp-0xf4]
-    let v2: Result<struct4, struct8>;  // [sp-0xf0]
-    let v3: struct32;  // [bp-0xe0]
-    let v4: i32;  // [sp-0xc0], Other Possible Types: struct16, Result<struct4, struct8>, struct13
-    let v6: i8;  // [sp-0xb7]
-    let v7: i16;  // [bp-0xb4]
-    let v8: i8;  // [bp-0x88]
+fn uu_cp::platform::linux::copy_fifo_contents(a0: i64, a1: i384, a2: i64, a3: i192) -> long long {
+    let v0: struct24;  // [bp-0xf8]
+    let v1: std::fs::File;  // [bp-0xf4]
+    let v2: core::result::Result<std::fs::File, std::io::error::Error>;  // [bp-0xf0]
+    let v3: Result<struct4, struct8>;  // [bp-0xe0], Other Possible Types: u64
+    let v4: u64;  // [bp-0xd8]
+    let v5: u64;  // [bp-0xd0]
+    let v6: u64;  // [bp-0xc8]
+    let v7: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xc0], Other Possible Types: struct40
+    let v8: Option<struct8>;  // [bp-0xc0]
+    let v9: struct24;  // [bp-0xbc], Other Possible Types: core::result::Result<(), std::io::error::Error>
+    let v10: u32;  // [bp-0xb8]
+    let v11: u8;  // [bp-0xb7]
+    let v12: u16;  // [bp-0xb4]
+    let v15: u32;  // eax
 
-    v3 = struct32 {
-        field_0: a0
-        field_8: a1
-        field_16: a2
-        field_24: a3
-    };
-    v4 = std::fs::File::open(&v3);
-    if v4 {
+    v3 = a0;
+    v4 = a1;
+    v5 = a2;
+    v6 = a3;
+    v3 = std::fs::File::open(a2);
+    if v7 {
         return 1;
     }
-    v0 = struct4 {
-        field_0: v5
-    };
-    v4 = struct13 {
-        field_0: 0
-        field_4: ~(uucore::features::mode::get_umask() as i32) & 402
-        field_8: 0
-        field_12: 1
-    };
-    *(&v7 as &i16) = 0;
-    v6 = 1;
-    v2 = std::fs::OpenOptions::open(&v4, &v3);
-    if !(!v2 as i32 && !<std::sys::pal::unix::kernel_copy::Copier<R,W> as std::sys::pal::unix::kernel_copy::SpecCopy>::copy(&v0, &v1)) {
+    v0 = v9;
+    v15 = uucore::features::mode::get_umask() as i32;
+    v8 = 0;
+    v12 = 0;
+    v10 = 0;
+    v12 = 1;
+    v11 = 1;
+    v9 = ~(v15) & 402;
+    v2 = std::fs::OpenOptions::open(&v8, &v5, a3);
+    if let Err(_) = v2 {
         return 1;
     }
-    v4 = std::fs::File::metadata(&v0);
-    if v4 != 2 && !std::fs::File::set_permissions(&v1, *(&v8 as &i32)) {
-        return 0;
+    v1 = *((&v2 as &char + 4) as &i32);
+    if !<std::sys::pal::unix::kernel_copy::Copier<R,W> as std::sys::pal::unix::kernel_copy::SpecCopy>::copy(&v0, &v1) {
+        v7 = std::fs::File::metadata(&v0);
     }
+    return 1;
 }

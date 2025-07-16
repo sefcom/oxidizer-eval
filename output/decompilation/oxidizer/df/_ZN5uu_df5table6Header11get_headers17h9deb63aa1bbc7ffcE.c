@@ -1,23 +1,23 @@
-fn uu_df::table::Header::get_headers(a0: &struct24, a1: u64) -> int {
-    let v0: void*;  // [sp-0x88]
-    let v1: u64;  // [sp-0x80]
-    let v2: void*;  // [sp-0x78]
-    let v3: struct16;  // [sp-0x70]
-    let v6: u128;  // xmm0
+fn uu_df::table::Header::get_headers(a1: i64) -> : struct24 {
+    let a0: i64;  // rdi
+    let v0: void*;  // [bp-0x88]
+    let v1: u64;  // [bp-0x80]
+    let v2: void*;  // [bp-0x78]
+    let v3: u128;  // [bp-0x70]
 
     v0 = 0;
     v1 = 8;
     v2 = 0;
     v3 = struct16 {
-        field_0: a1[1]
-        field_8: a1[2] + v3
+        field_0: *((a1 + 8) as &i64)
+        field_8: *((a1 + 16) as &i64) + *((a1 + 8) as &i64)
     };
+    <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v3);
     if !<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v3) {
-        v6 = *(&v0 as &i128);
         return struct24 {
-            field_0: v6
-            field_16: v2
+            field_0: *(&v0 as &i128)
+            field_16: 0
         };
     }
-    goto *((4283088 + *(vvar_25{reg 16} as &i8) * 4) as &i32) + 4283088;
+    goto ((&g_415ad0.field_0)[*(<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v3) as &i8)] + &g_415ad0.field_0) as i64;
 }

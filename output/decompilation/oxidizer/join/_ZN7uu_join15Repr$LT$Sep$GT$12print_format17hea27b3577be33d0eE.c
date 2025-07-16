@@ -1,39 +1,31 @@
-fn uu_join::Repr<Sep>::print_format(a0: &u64, a1: &u64, a2: u32) -> u64 {
-    let v0: u64;  // [sp-0x40]
-    let v5: void*;  // rbp
-    let v6: u64;  // rax
-    let v7: void*;  // rax
-    let v8: u64;  // rax
-    let v10: u64;  // rax
-    let v13: u64;  // rdx
-    let v14: u64;  // rdx
+fn uu_join::Repr<Sep>::print_format(a0: i64, a1: i64, a2: i64) -> long long {
+    let v0: u64;  // [bp-0x40]
+    let v2: void*;  // rbp
+    let v3: u64;  // rbp
+    let v4: u64;  // rax
+    let v5: struct8;  // rax
+    let v6: struct8;  // rax
+    let v8: struct8;  // rax
 
-    v0 = a0[1];
-    v5 = 0;
-    while (v5 < a0[2]) {
-        v6 = <usize as core::iter::range::Step>::forward_unchecked(v5);
-        if v5 {
-            v7 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, " ");
-            if v7 {
-                return v7;
+    v0 = *((a0 + 8) as &i64);
+    v2 = 0;
+    loop {
+        v3 = v2;
+        if v3 >= *((a0 + 16) as &i64) {
+            return 0;
+        }
+        v4 = <usize as core::iter::range::Step>::forward_unchecked(v3, a1);
+        if v3 {
+            v5 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(&g_40b685);
+            if v5 {
+                return v5;
             }
         }
-        v8 = uu_join::State::combine::{{closure}}(a2, v5 * 16 + v0);
+        v6 = uu_join::State::combine::{{closure}}(a2, v3 * 16 + v0);
+        v8 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(v6);
+        v2 = v4;
         if v8 {
-            v10 = v8;
-        } else {
-            v10 = a0[3];
-        }
-        if !v8 {
-            v13 = a0[4];
-        } else {
-            v13 = v14;
-        }
-        v7 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, v10, v13);
-        v5 = v6;
-        if v7 {
-            return v7;
+            return v8;
         }
     }
-    return 0;
 }

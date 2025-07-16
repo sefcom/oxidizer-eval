@@ -1,16 +1,18 @@
-fn uu_arch::uu_app(a0: &struct712) -> u64 {
-    let v0: struct712;  // [sp-0x5a8]
-    let v1: struct437;  // [sp-0x2e0], Other Possible Types: struct712
-    let v3: i64;  // rdx
-    let v4: i32;  // ecx
+fn uu_arch::uu_app() -> : struct700 {
+    let a0: i64;  // rsi
+    let v0: u8;  // [bp-0x5a8]
+    let v1: u64;  // [bp-0x2ec]
+    let v2: u32;  // [bp-0x2e4]
+    let v3: struct437;  // [bp-0x2e0]
+    let v6: u64;  // rdx
+    let v7: i64;  // rdi
 
-    v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v3);
-    v0 = clap_builder::builder::command::Command::version(&v1);
-    v1 = clap_builder::builder::command::Command::about(&v0);
-    v0 = clap_builder::builder::command::Command::after_help(&v1);
-    memcpy(a0, &v0, 700);
-    v4 = *((&v0.field_0 as &char + 708) as &i32);
-    *((a0 + 700) as &i64) = 549755814016 | *((&v0.field_0 as &char + 700) as &i64);
-    *((a0 + 708) as &unsigned int) = v4;
-    return a0;
+    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v6);
+    clap_builder::builder::command::Command::version(&v0, &v3);
+    clap_builder::builder::command::Command::about(&v3, &v0);
+    clap_builder::builder::command::Command::after_help(&v0, &v3);
+    memcpy(v7, &v0, 700);
+    *((v7 + 700) as &u64) = 549755814016 | v1;
+    *((v7 + 708) as &u32) = v2;
+    return;
 }

@@ -1,24 +1,35 @@
-fn uu_mv::handle_multiple_paths(a0: void*, a1: u32, a2: void*) -> u64 {
-    let v0: u64;  // [sp-0x58]
-    let v1: u128;  // [sp-0x50]
-    let v2: u8;  // [sp-0x40]
-    let v3: String;  // [sp-0x38]
-    let v4: u32;  // [sp-0x20]
-    let v6: u64;  // rax
-    let v7: u32;  // rdx
+fn uu_mv::handle_multiple_paths(a0: i64, a1: i64, a2: i64) -> long long {
+    let v0: i64;  // [bp-0x98]
+    let v1: u64;  // [bp-0x90]
+    let v2: struct24;  // [bp-0x88], Other Possible Types: u64
+    let v3: u64;  // [bp-0x80]
+    let v4: i64;  // [bp-0x78]
+    let v5: u64;  // [bp-0x70]
+    let v6: void*;  // [bp-0x68]
+    let v7: u64;  // [bp-0x58]
+    let v8: u128;  // [bp-0x50]
+    let v9: u8;  // [bp-0x40]
+    let v10: u8;  // [bp-0x38]
+    let v13: u64;  // rax
+    let v14: u64;  // rdx
 
-    if a2->field_30 {
-        v0 = 1;
-        v1 = *(&(&a0->padding_0)[1] as &i128);
-        v2 = 1;
-        v3 = format!("mv: extra operand {}", &v0);
-        v4 = 1;
-        v6 = alloc::boxed::Box<T>::new(&v3);
-        return v6;
-    } else if !a1 {
-        core::option::unwrap_failed("src/uu/mv/src/mv.rs"); /* do not return */
+    if *((a2 + 48) as &i8) {
+        v7 = 1;
+        v8 = *((a0 + 56) as &i128);
+        v9 = 1;
+        v0 = &v7;
+        v1 = <os_display::Quoted as core::fmt::Display>::fmt;
+        v2 = "mv: extra operand ";
+        v3 = 1;
+        v6 = 0;
+        v4 = &v0;
+        v5 = 1;
+        v2 = core::option::Option<T>::map_or_else(a2);
+        return alloc::boxed::Box<T>::new(&v10);
+    } else if a1 {
+        v13 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1 - 1, a0, a1);
+        return uu_mv::move_files_into_dir(v13, v14, *((a0 + (a1 - 1) * 24 + 8) as &i64), *((a0 + (a1 - 1) * 24 + 16) as &i64), a2);
     } else {
-        v6 = uu_mv::move_files_into_dir(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1 - 1, a0, a1), v7, *(&a0->padding_0[16 + 24 * a1] as &i64), *(&a0->padding_0[8 + 24 * a1] as &i64), a2);
-        return v6;
+        core::option::unwrap_failed(); /* do not return */
     }
 }

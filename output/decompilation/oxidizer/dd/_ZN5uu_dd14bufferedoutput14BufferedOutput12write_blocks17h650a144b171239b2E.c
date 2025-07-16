@@ -1,41 +1,38 @@
-fn uu_dd::bufferedoutput::BufferedOutput::write_blocks(a0: &Result<struct32, struct8>, a1: &struct8, a2: u32, a3: u32) -> u64 {
-    let v0: struct32;  // [sp-0x98]
-    let v1: iNone;  // [sp-0x80]
-    let v2: iNone;  // [sp-0x78]
-    let v3: iNone;  // [sp-0x68]
-    let v4: Result<struct32, struct8>;  // [sp-0x58]
-    let v6: i64;  // rsi
-    let v7: i64;  // rax
-    let v8: i64;  // rdx
-    let v9: i64;  // rax
-    let v10: i64;  // r12
-    let v11: i64;  // r13
+fn uu_dd::bufferedoutput::BufferedOutput::write_blocks(a1: i64, a2: i64, a3: i64) -> Result<struct32, struct8> {
+    let a0: i64;  // rsi
+    let v0: struct32;  // [bp-0x98]
+    let v1: u64;  // [bp-0x88]
+    let v2: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x78]
+    let v3: u8;  // [bp-0x68]
+    let v4: u64;  // [bp-0x58]
+    let v5: u64;  // [bp-0x50]
+    let v6: u128;  // [bp-0x48]
+    let v7: u8;  // [bp-0x38]
+    let v9: u64;  // rsi
+    let v12: void*;  // rsi
+    let v14: u64;  // rax
+    let v15: i64;  // rdi
+    let v16: &[u8];  // rax:rdx
+    let v17: &[u8];  // rax:rdx
 
-    v6 = *((*((a1 + 40) as &i64) + 120) as &i64);
-    v7 = *((a1 + 16) as &i64) + a3;
-    if (v7 | v6) >> 32 {
-        v8 = ((0 CONCAT v7) % v6 as u128 CONCAT (0 CONCAT v7) / v6 as u128) >> 64;
+    v9 = *((*((a0 + 40) as &i64) + 120) as &i64);
+    v0 = core::slice::<impl [T]>::split_at_unchecked(a1, a2, v12);
+    v16 = core::slice::iter::Iter<T>::make_slice(v0.field_0);
+    alloc::vec::Vec<T,A>::append_elements(a0, v16.ptr, a1);
+    uu_dd::Output::write_blocks(a0 + 24, *((a0 + 8) as &i64), *((a0 + 16) as &i64), a3);
+    if v4 {
+        *((v15 + 8) as &u64) = v5;
+        v14 = 1;
     } else {
-        v8 = (((0 CONCAT v7 as u32) % (v6 & 4294967295)) as u32 CONCAT ((0 CONCAT v7 as u32) / (v6 & 4294967295)) as u32) >> 32 & 4294967295;
+        memcpy(&v3, &v7, 16);
+        v2 = v6;
+        *((a0 + 16) as &i64) = 0;
+        v17 = core::slice::iter::Iter<T>::make_slice(v1);
+        alloc::vec::Vec<T,A>::append_elements(a0, v17.ptr, a1);
+        *((v15 + 32) as &u128) = v3;
+        *((v15 + 16) as &core::result::Result<std::fs::Metadata, std::io::error::Error>) = v2;
+        v14 = 0;
     }
-    v9 = (v8 <= a3 ? a3 - v8 : 0);
-    v0 = core::slice::<impl [T]>::split_at_unchecked(a2, a3, v9);
-    v10 = v0.field_16;
-    v11 = v0.field_24;
-    alloc::vec::Vec<T,A>::append_elements(a1, core::slice::iter::Iter<T>::make_slice(v0.field_0, v0.field_8 + v0.field_0), a2);
-    v4 = uu_dd::Output::write_blocks(a1 + 24, *((a1 + 8) as &i64), *((a1 + 16) as &i64));
-    match v4 {
-        Err(_) => {
-            *((a0 + 8) as &i64) = *((&v4 as &char + 8) as &i64);
-        },
-        Ok(v1) => {
-            *((a1 + 16) as &i64) = 0;
-            alloc::vec::Vec<T,A>::append_elements(a1, core::slice::iter::Iter<T>::make_slice(v10, v11 + v10), a2);
-            *((a0 + 32) as void*) = v3;
-            *((a0 + 16) as void*) = v2;
-        },
-    }
-    return struct8 {
-        field_0: v12
-    };
+    *(v15 as &u64) = v14;
+    return;
 }

@@ -1,137 +1,91 @@
-fn uu_rm::prompt_file(a0: u32, a1: u32, a2: u8) -> u64 {
-    let v0: struct4;  // [bp-0x164]
-    let v1: i64;  // [sp-0x160]
-    let v2: i64;  // [sp-0x158]
-    let v3: i64;  // [sp-0x150]
-    let v4: i8;  // [bp-0x148]
-    let v5: i64;  // [bp-0x130], Other Possible Types: struct8
-    let v6: i64;  // [sp-0x128]
-    let v7: i64;  // [sp-0x120]
-    let v8: i64;  // [sp-0x118]
-    let v9: i8;  // [sp-0x110]
-    let v10: struct10;  // [bp-0x108]
-    let v11: i32;  // [bp-0x100]
-    let v12: i16;  // [sp-0xfc]
-    let v13: struct8;  // [bp-0xf8]
-    let v14: Result<struct4, struct8>;  // [sp-0xf0], Other Possible Types: unsigned long
-    let v15: Result<struct176, struct8>;  // [sp-0xe0], Other Possible Types: unsigned long, struct16
-    let v17: i64;  // rax
-    let v18: i64;  // rax
-    let v19: i64;  // rdx
-    let v20: i64;  // rax
-    let v21: i32;  // ebx
-    let v22: i32;  // r12d
-    let v23: i64;  // r15
-    let v24: i64;  // rdx
-    let v25: i64;  // rdx
-    let v26: i64;  // rax
-    let v27: i64;  // rax
+fn uu_rm::prompt_file(a0: i64, a1: i64, a2: i8) -> long long {
+    let v0: u32;  // [bp-0x164]
+    let v1: u64;  // [bp-0x160]
+    let v2: u64;  // [bp-0x158]
+    let v3: u64;  // [bp-0x150]
+    let v4: u8;  // [bp-0x148]
+    let v10: u64;  // [bp-0x108]
+    let v11: u32;  // [bp-0x100]
+    let v12: u16;  // [bp-0xfc]
+    let v13: u64;  // [bp-0xf8]
+    let v14: core::result::Result<std::fs::File, std::io::error::Error>;  // [bp-0xf0]
+    let v15: u32;  // [bp-0xec]
+    let v16: u64;  // [bp-0xe8]
+    let v17: std::io::error::Error;  // [bp-0xe0]
+    let v18: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xe0]
+    let v22: u8;  // al
+    let v24: u64;  // rax
+    let v25: u32;  // ebx
+    let v26: u64;  // rdx
+    let v27: u64;  // rdx
 
-    match (a2) {
-        0 => {
-            v18 = v17 & -0x100 | 1;
-            return v18;
-        }
-        2 => {
-            v15 = std::fs::symlink_metadata(a0, a1);
-            if v15 as i32 != 2 && (0xf000 & *((&v15 as &char + 56) as &i32)) == 0xa000 {
-                v6 = uucore::util_name();
-                v7 = v19;
-                eprint!("{}: ", &v6);
-                v6 = 1;
-                v7 = a0;
-                v8 = a1;
-                v9 = 1;
-                eprint!("remove symbolic link {}?", &v6);
-                eprint!(" ");
-                v5 = struct8 {
-                    field_0: &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E
-                };
-                v20 = <std::io::stdio::Stderr as std::io::Write>::flush(&v5);
-                if v20 {
-                    v14 = v20;
-                    v7 = v19;
-                    show_error!("{}", &v14);
-                    std::process::exit(1); /* do not return */
+    v10 = 0x1b600000000;
+    v11 = 0;
+    v12 = 0;
+    v11 = 257;
+    v14 = std::fs::OpenOptions::open(&v10, a0, a1);
+    if let Ok(_) = v14 {
+        v0 = std::fs::File {
+            inner: std::sys::pal::unix::fs::File {
+                __0: std::sys::pal::unix::fd::FileDesc {
+                    __0: std::os::fd::owned::OwnedFd {
+                        fd: v15
+                    }
                 }
-                break;
-                v18 = v21 as u64;
-                return v18;
             }
+        };
+        v18 = std::fs::File::metadata(&v0);
+        if let Err(_) = v18 {
+            return v25 as u64;
         }
-        _ => {
-            v10 = struct10 {
-                field_0: 0x1b600000000
-                field_8: 257
+        if !(a2 == 2 && (*((&v18 as &char + 56) as &i32) as i8 & 146)) {
+            goto LABEL_0x4b8d27;
+        }
+        if *((&v18 as &char + 80) as &i64) {
+            v1 = uucore::util_name();
+            v2 = v26;
+            eprint!("{}: ", &v1);
+            v1 = 1;
+            v2 = a0;
+            v3 = a1;
+            v4 = 1;
+            eprint!("remove file {}?", &v1);
+            eprint!(" ");
+            v13 = std::io::stdio::Stderr {
+                inner: &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E
             };
-            *(&v11 as &i32) = 0;
-            v12 = 0;
-            v14 = std::fs::OpenOptions::open(&v10, a0, a1);
-            match v14 {
-                Err(v15) => {
-                    v18 = core::ptr::drop_in_place<std::io::error::Error>(&v15) & -0x100 | 1;
-                    if std::io::error::Error::kind(*((&v14 as &char + 8) as &i64)) as i32 as i8 != 1 {
-                        return v18;
-                    }
-                },
-                Ok(_) => {
-                    v0 = struct4 {
-                        field_0: *((&v14 as &char + 4) as &i32)
-                    };
-                    v15 = std::fs::File::metadata(&v0);
-                    if v15.field_0 as i32 == 2 {
-                        v21 = (a1 & -0x100 | 1) as u32;
-                        break;
-                    }
-                    if a2 == 2 && (v22 as u8 & 146) {
-                        if !v23 {
-                            v1 = uucore::util_name();
-                            v2 = v25;
-                            eprint!("{}: ", &v1);
-                            v1 = 1;
-                            v2 = a0;
-                            v3 = a1;
-                            *(&v4 as &i8) = 1;
-                            eprint!("remove regular empty file {}?", &v1);
-                            eprint!(" ");
-                            v13 = struct8 {
-                                field_0: &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E
-                            };
-                            v27 = <std::io::stdio::Stderr as std::io::Write>::flush(&v13);
-                            if v27 {
-                                v5 = v27;
-                                v2 = v25;
-                                show_error!("{}", &v5);
-                                std::process::exit(1); /* do not return */
-                            }
-                        } else {
-                            v1 = uucore::util_name();
-                            v2 = v24;
-                            eprint!("{}: ", &v1);
-                            v1 = 1;
-                            v2 = a0;
-                            v3 = a1;
-                            *(&v4 as &i8) = 1;
-                            eprint!("remove file {}?", &v1);
-                            eprint!(" ");
-                            v13 = struct8 {
-                                field_0: &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E
-                            };
-                            v26 = <std::io::stdio::Stderr as std::io::Write>::flush(&v13);
-                            if v26 {
-                                v5 = v26;
-                                v2 = v24;
-                                show_error!("{}", &v5);
-                                std::process::exit(1); /* do not return */
-                            }
-                        }
-                        v21 = uucore::read_yes() as i32;
-                        break;
-                    }
-                },
+            if <std::io::stdio::Stderr as std::io::Write>::flush(&v13) {
+                v1 = uucore::util_name();
+                v2 = v26;
+                eprint!("{}: ", &v1);
+                eprintln!("{}", &v5);
+                std::process::exit(1); /* do not return */
             }
-            v18 = uu_rm::prompt_file_permission_readonly(a0, a1);
-            return v18;
+        } else {
+            v1 = uucore::util_name();
+            v2 = v27;
+            eprint!("{}: ", &v1);
+            v1 = 1;
+            v2 = a0;
+            v3 = a1;
+            v4 = 1;
+            eprint!("remove regular empty file {}?", &v1);
+            eprint!(" ");
+            v13 = std::io::stdio::Stderr {
+                inner: &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E
+            };
+            if <std::io::stdio::Stderr as std::io::Write>::flush(&v13) {
+                v1 = uucore::util_name();
+                v2 = v27;
+                eprint!("{}: ", &v1);
+                eprintln!("{}", &v5);
+                std::process::exit(1); /* do not return */
+            }
         }
+        v25 = uucore::read_yes() as i32;
+        return v25 as u64;
     }
+    v17 = v16;
+    v22 = std::io::error::Error::kind(v16);
+    v24 = core::ptr::drop_in_place<std::io::error::Error>(&v17) & -0x100 | 1;
 }

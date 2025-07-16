@@ -1,3 +1,4 @@
-fn uu_sync::platform::do_sync() -> u64 {
-    return sync();
+fn uu_sync::platform::do_sync() -> void {
+    sync();
+    return;
 }

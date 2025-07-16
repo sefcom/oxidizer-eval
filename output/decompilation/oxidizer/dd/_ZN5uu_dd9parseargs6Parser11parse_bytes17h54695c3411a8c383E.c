@@ -1,12 +1,13 @@
-fn uu_dd::parseargs::Parser::parse_bytes(a0: &struct32, a1: u32, a2: u32) -> u64 {
-    let v0: i8;  // [bp-0x28]
-    let v3: struct32;  // rax
-    let v4: u128;  // xmm0
+fn uu_dd::parseargs::Parser::parse_bytes(a1: i64, a2: i64) -> : struct32 {
+    let a0: u64;  // rsi
+    let v0: u128;  // [bp-0x28], Other Possible Types: char
+    let v1: i8;  // [bp-0x18]
+    let v3: i64;  // rdi
 
-    v3 = uu_dd::parseargs::parse_bytes_with_opt_multiplier(a1, a2);
-    v4 = *(&v0 as &i128);
-    return struct32 {
-        field_0: v4
-        field_16: *(&v1 as &i128)
-    };
+    uu_dd::parseargs::parse_bytes_with_opt_multiplier(a0, a1, a2);
+    if *(&v0 as &i64) != 14 {
+        *((v3 + 16) as &i128) = *(&v1 as &i128);
+    }
+    *(v3 as &u128) = v0;
+    return;
 }

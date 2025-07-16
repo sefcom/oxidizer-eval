@@ -1,4 +1,7 @@
-fn uu_pwd::physical_path(a0: &Result<struct24, struct8>) -> u64 {
-    std::env::current_dir(a0);
-    return a0;
+fn uu_pwd::physical_path() -> Result<struct24, struct16> {
+    let a0: i64;  // rsi
+    let v1: u64;  // rdi
+
+    std::env::current_dir(v1);
+    return;
 }

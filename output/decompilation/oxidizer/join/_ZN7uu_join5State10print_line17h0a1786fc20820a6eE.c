@@ -1,33 +1,19 @@
-fn uu_join::State::print_line(a0: void*, a1: u32, a2: u32, a3: void*) -> u64 {
+fn uu_join::State::print_line(a0: i64, a1: i32, a2: i64, a3: i64) -> long long {
     let v0: u64;  // [bp-0x28]
-    let v1: u8;  // [sp-0x21]
     let v3: u64;  // rax
-    let v4: u64;  // rax
-    let v5: u64;  // r15
+    let v4: u64;  // rbx
     let v6: u64;  // rax
+    let v7: struct8;  // rax
 
     v0 = v3;
-    if !a3->field_140 {
-        v5 = a0->field_40;
-        v6 = uu_join::Line::get_field(a2, v5);
-        if !v6 {
-            v6 = a3->field_120;
-        }
-        v4 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, v6, a3->field_128);
-        if v4 {
-            return v4;
-        }
-        v4 = uu_join::Repr<Sep>::print_fields(a3->field_108, a3->field_110, a1, a2, v5);
-        if v4 {
-            return v4;
-        }
-    } else {
-        v4 = uu_join::Repr<Sep>::print_format(a3, a1, a2, a0);
-        if v4 {
-            return v4;
-        }
+    v4 = a1;
+    if *((a3 + 320) as &i64) {
+        return uu_join::Repr<Sep>::print_format(a3, v4, a2, a0);
     }
-    v1 = a3->field_148;
-    v4 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(a1, &v1, 1);
-    return v4;
+    v6 = uu_join::Line::get_field(a2, *((a0 + 64) as &i64));
+    v7 = <std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all(v6);
+    if v7 {
+        return v7;
+    }
+    return uu_join::Repr<Sep>::print_fields(*((a3 + 264) as &i64), *((a3 + 272) as &i64), v4, a2, *((a0 + 64) as &i64));
 }

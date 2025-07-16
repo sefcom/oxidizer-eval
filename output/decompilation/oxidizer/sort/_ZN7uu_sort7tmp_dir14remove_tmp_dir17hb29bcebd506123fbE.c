@@ -1,45 +1,43 @@
-fn uu_sort::tmp_dir::remove_tmp_dir(a0: u32, a1: u32) -> u64 {
-    let v0: struct9;  // [sp-0x130]
-    let v1: i64;  // [sp-0x120]
-    let v2: i64;  // [sp-0x118]
-    let v3: struct40;  // [bp-0x108]
-    let v4: struct8;  // [sp-0xe0]
-    let v5: i8;  // [bp-0xd0]
-    let v7: i64;  // [sp-0xb8]
-    let v8: i64;  // [sp-0x88]
-    let v9: struct9;  // [sp-0x58]
-    let v10: i8;  // [sp-0x50]
-    let v11: struct24;  // [sp-0x48]
-    let v13: i64;  // rbx
-    let v14: i64;  // r14
-    let v16: iNone;  // ymm0
-    let v17: iNone;  // ymm1
+fn uu_sort::tmp_dir::remove_tmp_dir(a0: i64, a1: i64) -> long long {
+    let v0: struct9;  // [bp-0x130]
+    let v1: core::result::Result<(), std::io::error::Error>;  // [bp-0x110]
+    let v2: u320;  // [bp-0x108]
+    let v4: u384;  // [bp-0xe0]
+    let v5: u128;  // [bp-0xd0]
+    let v6: u64;  // [bp-0xc0]
+    let v11: std::path::PathBuf;  // [bp-0x48]
 
-    v13 = a1;
-    v14 = a0;
     v0 = std::fs::read_dir(a0, a1);
-    if v10 == 2 {
-        return std::fs::remove_dir(v14, v13);
-    }
-    v1 = a0;
-    v2 = a1;
-    v7 = 0;
-    v8 = 0;
-    v9 = v0;
-    loop {
-        v4 = <core::iter::adapters::flatten::FlattenCompat<I,U> as core::iter::traits::iterator::Iterator>::next(&v7);
-        if !v4.field_0 {
-            break;
+    if v0.field_8 != 2 {
+        loop {
+            vvar_207{stack -224} = core::iter::adapters::flatten::FlattenCompat<core::iter::adapters::map::Map<core::str::iter::Chars, std::sys_common::wtf8::{impl#9}::fmt::write_str_escaped::{closure_env#0}>, core::char::EscapeDebug> OrderedDict({0: core::iter::adapters::fuse::Fuse<core::iter::adapters::map::Map<core::str::iter::Chars, std::sys_common::wtf8::{impl#9}::fmt::write_str_escaped::{closure_env#0}>> OrderedDict({0: 𝜙@128b [((5541207, None), vvar_175{stack -224}), ((5541028, None), None)]})})
+            <core::iter::adapters::flatten::FlattenCompat<I,U> as core::iter::traits::iterator::Iterator>::next(&v4);
+            if !v4 as i64 {
+                break;
+            }
+            v2 = std::fs::DirEntry {
+                __0: std::sys::pal::unix::fs::DirEntry {
+                    dir: alloc::sync::Arc<std::sys::pal::unix::fs::InnerReadDir, alloc::alloc::Global> {
+                        ptr: core::ptr::non_null::NonNull<alloc::sync::ArcInner<std::sys::pal::unix::fs::InnerReadDir>> {
+                            pointer: v4 as i128
+                        }
+                        alloc: alloc::alloc::Global { }
+                    }
+                    entry: std::sys::pal::unix::fs::dirent64_min {
+                        d_ino: <UNKNOWN>
+                        d_type: v5
+                    }
+                    name: alloc::ffi::c_str::CString {
+                        inner: alloc::boxed::Box<[u8], alloc::alloc::Global> {
+                            data_ptr: <UNKNOWN>
+                            length: v6
+                        }
+                    }
+                }
+            };
+            v11 = std::fs::DirEntry::path(&v2);
+            v1 = std::fs::remove_file(&v11, a1);
         }
-        v16 = v16 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v4 as &i128);
-        v17 = v17 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v5 as &i128);
-        v3 = struct40 {
-            field_0: v18
-            field_16: v19
-            field_32: *(&v6 as &i64)
-        };
-        v11 = std::fs::DirEntry::path(&v3);
     }
-    v13 = v2;
-    v14 = v1;
+    return std::fs::remove_dir(a0, a1);
 }

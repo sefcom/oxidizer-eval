@@ -1,41 +1,39 @@
-fn uu_mktemp::exec(a0: &struct24, a1: u32, a2: u32, a3: u32, a4: u32, a5: u32, a6: u32, a7: u32, a8: u8) -> u64 {
-    let v0: struct24;  // [sp-0x68], Other Possible Types: int
-    let v1: Result<struct16, struct10>;  // [sp-0x68]
-    let v2: i64;  // [sp-0x50]
-    let v3: i64;  // [sp-0x48]
-    let v4: i64;  // [sp-0x40]
-    let v5: struct24;  // [sp-0x38]
-    let v9: i64;  // rax
-    let v10: i64;  // rdi
+fn uu_mktemp::exec(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i64, a7: i64, a8: i8) -> : struct24 {
+    let a0: u64;  // rsi
+    let v0: u64;  // [bp-0x68], Other Possible Types: core::result::Result<&str, core::str::error::Utf8Error>
+    let v1: u64;  // [bp-0x60]
+    let v2: u64;  // [bp-0x58]
+    let v3: u64;  // [bp-0x50]
+    let v4: u64;  // [bp-0x48]
+    let v5: u64;  // [bp-0x40]
+    let v6: std::path::PathBuf;  // [bp-0x38]
+    let v7: i64;  // rdi
+    let v8: core::option::Option<&std::ffi::os_str::OsStr>;  // rax
+    let v9: i64;  // rdi
 
-    if !a8 {
-        v0 = uu_mktemp::make_temp_file(a1, a2, a3, a4, a5, a6, a7);
+    if vvar_7 {
+        uu_mktemp::make_temp_dir(a0, a1, a2, a3, a4, a5, a6, *(&v0 as &i64));
     } else {
-        v0 = uu_mktemp::make_temp_dir(a1, a2, a3, a4, a5, a6, a7);
+        uu_mktemp::make_temp_file(a0, a1, a2, a3, a4, a5, a6, *(&v0 as &i64));
     }
-    if v2 == 0x8000000000000000 {
-        return struct24 {
-            field_0: 0x8000000000000000
-            field_8: v3
-            field_16: v4
-        };
+    if v0 == 0x8000000000000000 {
+        *((v7 + 8) as &u64) = v4;
+        *((v7 + 16) as &u64) = v5;
+        *(v7 as &i64) = 0x8000000000000000;
+        return;
     }
-    v2 = v0 as i64;
-    v3 = (&v0)[8] as i64;
-    v4 = (&v0)[16] as i64;
-    v9 = std::path::Path::file_name(v3, v4);
-    if !v9 {
-        v10 = "src/uu/mktemp/src/mktemp.rs";
-    } else {
-        v1 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(v9, a2);
-        match v1 {
-            Ok(_) => {
-                v5 = std::path::Path::join(a1, a2, *((&v1 as &char + 8) as &i64), *((&v1 as &char + 16) as &i64));
-            },
-            Err(_) => {
-                v10 = "src/uu/mktemp/src/mktemp.rs";
-            },
+    v3 = v0;
+    v4 = v1;
+    v5 = v2;
+    v8 = std::path::Path::file_name(v4, v5) as u64;
+    if let Some(_) = v8 {
+        v0 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(v8, a1);
+        if let Ok(_) = v0 {
+            v6 = std::path::Path::join(a0, a1, v1, v2);
+            *((v9 + 16) as &u64) = v6.inner.inner.inner.len;
+            *(v9 as &i128) = *(&v6.inner.inner.inner.buf.cap as &i128);
+            return;
         }
     }
-    core::option::unwrap_failed(v10); /* do not return */
+    core::option::unwrap_failed(); /* do not return */
 }

@@ -1,3 +1,7 @@
-fn uu_sort::chunks::Chunk::into_owner(a0: &struct24, a1: u64) -> u64 {
-    return self_cell::unsafe_self_cell::UnsafeSelfCell<ContainedIn,Owner,DependentStatic>::into_owner(a0, a1);
+fn uu_sort::chunks::Chunk::into_owner(a1: i64) -> : struct24 {
+    let a0: void*;  // rsi
+    let v1: u64;  // rdi
+
+    self_cell::unsafe_self_cell::UnsafeSelfCell<ContainedIn,Owner,DependentStatic>::into_owner(v1, a0);
+    return;
 }

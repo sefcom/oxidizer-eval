@@ -1,5 +1,5 @@
-fn uu_false::uumain(a0: u32, a1: u32) -> u64 {
-    let v0: u64;  // [sp-0x18]
+fn uu_false::uumain(a0: i64, a1: i64) -> long long {
+    let v0: u64;  // [bp-0x18]
     let v2: u64;  // rax
 
     v0 = v2;

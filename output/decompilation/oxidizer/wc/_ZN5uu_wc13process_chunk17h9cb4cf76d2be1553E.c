@@ -1,65 +1,70 @@
-fn uu_wc::process_chunk(a0: &struct24, a1: u32, a2: u32, a3: &struct8, a4: &u8) -> u64 {
-    let v0: u64;  // [sp-0x60]
-    let v1: u64;  // [sp-0x40]
-    let v2: u64;  // [sp-0x38]
-    let v4: u64;  // r15
-    let v5: u64;  // r13, Other Possible Types: void*
-    let v6: u32;  // edx
-    let v7: u32;  // r14d
-    let v8: u64;  // r12
-    let v9: u64;  // rbp
-    let v10: u64;  // rax
+fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct16 {
+    let a0: i64;  // rdi
+    let v0: u64;  // [bp-0x60]
+    let v1: u128;  // [bp-0x40]
+    let v3: core::option::Option<u32>;  // r13
+    let v5: struct24;  // r12
+    let v6: u64;  // rbp
+    let v7: u32;  // edx
+    let v8: u32;  // r14d
+    let v9: u8;  // r15b
+    let v10: u32;  // r14d
     let v11: u64;  // rax
+    let v12: u64;  // rax
+    let v13: core::option::Option<u32>;  // rax:rax
+    let v14: core::option::Option<u32>;  // rax:rax
 
-    v1 = a1;
-    v2 = a1 + a2;
-    v4 = *(a4);
-    v5 = *(a3);
-    if !core::str::validations::next_code_point(&v1) as i32 {
-        v9 = a0[4];
-    } else {
-        v7 = v6;
-        v8 = a0[2];
-        v0 = a0[3];
-        v9 = a0[4];
-        do {
-            if v7 - 9 < 5 || v7 == 32 || v7 >= 128 && core::unicode::unicode_data::white_space::lookup(v7) as i8 {
-                *(a4) = 0;
-                v4 = 0;
-            } else if !v4 {
-                *(a4) = 1;
-                v0 += 1;
-                a0[3] = v0;
-                v4 = v4 & -0x100 | 1;
-            }
-            if v7 - 12 < 2 {
-LABEL_4baabe:
-                v9 = core::cmp::max_by(v5, v9);
-                a0[4] = v9;
-                v5 = 0;
-                goto LABEL_4bab47;
-            } else {
-                if v7 == 9 {
-                    v5 = (v5 & -8) + 8;
-                    *(a3) = v5;
-                    continue;
-                }
-                if v7 == 10 {
-                    goto LABEL_4baabe;
-                }
-                v10 = (v7 < 127 ? 32 <= v7 : (v7 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v7)));
-                v5 += v10;
-LABEL_4bab47:
-                *(a3) = v5;
-                if v7 == 10 {
-                    v8 += 1;
-                    a0[2] = v8;
-                }
-            }
-        } while ((v7 = v6, core::str::validations::next_code_point(&v1) as i32));
+    v1 = core::slice::iter::Iter<u8> {
+        ptr: core::ptr::non_null::NonNull<u8> {
+            pointer: a1
+        }
+        end_or_len: a1 + a2
+        _marker: core::marker::PhantomData<&u8> { }
+    };
+    v3 = *(a3 as &i64);
+    v14 = core::str::validations::next_code_point(&v1) as u128;
+    if let None = v14 {
+        return struct16 {
+            field_0: *(a0 as &i64) + a2
+            field_32: <UNKNOWN>
+        };
     }
-    *(a0) = *(a0) + a2;
-    v11 = core::cmp::max_by(v5, v9);
-    a0[4] = v11;
-    return v11;
+    do {
+        v10 = v8;
+        if v10 - 9 < 5 || v10 == 32 || v10 >= 128 && core::unicode::unicode_data::white_space::lookup(v10) {
+            *(a4 as &i8) = 0;
+        } else if !v9 {
+            *(a4 as &i8) = 1;
+            v0 += 1;
+            *((a0 + 24) as &u64) = v0;
+            v9 = 1;
+        }
+        if v10 - 12 >= 2 {
+            if v10 == 9 {
+                v3 = (v3 & -8) + 8;
+                *(a3 as &core::option::Option<u32>) = v3;
+                continue;
+            }
+            if v10 == 10 {
+                goto LABEL_4baac9;
+            }
+            v11 = (v10 < 127 ? 32 <= v10 : (v10 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v10)));
+LABEL_4bab47:
+            *(a3 as &core::option::Option<u32>) = v3;
+            if v10 == 10 {
+                v5 += 1;
+                *((a0 + 16) as &struct24) = v5;
+            }
+        } else {
+LABEL_4baac9:
+            v6 = core::cmp::max_by(v3, v6);
+            *((a0 + 32) as &u64) = v6;
+            v3 = 0;
+            goto LABEL_4bab47;
+        }
+    } while ((v13 = core::str::validations::next_code_point(&v1) as u128, v8 = v7, v13 as i32));
+    return struct16 {
+        field_0: *(a0 as &i64) + a2
+        field_32: <UNKNOWN>
+    };
 }

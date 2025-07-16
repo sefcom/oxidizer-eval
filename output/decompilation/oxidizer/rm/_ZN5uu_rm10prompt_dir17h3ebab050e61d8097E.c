@@ -1,17 +1,17 @@
-fn uu_rm::prompt_dir(a0: u32, a1: u32, a2: u32) -> u64 {
-    let v0: Result<struct176, struct8>;  // [sp-0xd0]
-    let v2: i64;  // rbp
-    let v3: i64;  // rbx
-    let v4: i32;  // ebx
+fn uu_rm::prompt_dir(a0: i64, a1: i64, a2: i8) -> long long {
+    let v0: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xd0]
+    let v2: u32;  // ebx
+    let v3: u32;  // ebx
+    let v4: u32;  // ebx
 
-    v2 = a2 as u64;
-    if !v2 as u8 {
-        v4 = (v3 & -0x100 | 1) as u32;
-        return v4 as u64;
+    if !a2 {
+        return v4 & -0x100 | 1;
     }
     v0 = std::fs::metadata(a0, a1);
-    if v0 as i32 == 2 {
-        return v4 as u64;
+    v3 = v2 & -0x100 | 1;
+    if let Err(_) = v0 {
+        return v3 as u64;
     }
-    uu_rm::handle_writable_directory(a0, a1, v2 & 4294967295, *((&v0 as &char + 56) as &i32));
+    v3 = uu_rm::handle_writable_directory(a0, a1, a2, *((&v0 as &char + 56) as &i32)) as i32;
+    return v3;
 }

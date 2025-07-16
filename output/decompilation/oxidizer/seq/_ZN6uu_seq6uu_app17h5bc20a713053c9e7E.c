@@ -1,48 +1,46 @@
-fn uu_seq::uu_app(a0: &struct712) -> u64 {
-    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct712, char
-    let v1: i64;  // [sp-0x78c]
-    let v2: i32;  // [sp-0x784]
-    let v3: struct712;  // [sp-0x780], Other Possible Types: struct592, struct437
-    let v4: i8;  // [bp-0x4c4]
-    let v5: i8;  // [bp-0x4bc]
-    let v6: struct592;  // [sp-0x4b8], Other Possible Types: struct24
-    let v7: struct592;  // [sp-0x268]
-    let v9: i64;  // rdx
+fn uu_seq::uu_app(a0: &struct712) -> long long {
+    let v0: u8;  // [bp-0xa48]
+    let v1: u64;  // [bp-0x78c]
+    let v2: u32;  // [bp-0x784]
+    let v3: struct437;  // [bp-0x780]
+    let v4: u64;  // [bp-0x4c4]
+    let v5: u32;  // [bp-0x4bc]
+    let v6: u8;  // [bp-0x4b8]
+    let v7: u8;  // [bp-0x268]
+    let v10: u64;  // rdx
 
-    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
+    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);
     memcpy(&v0, &v3, 700);
-    v1 = 549755814052 | *(&v4 as &i64);
-    v2 = *(&v5 as &i32);
-    v3 = clap_builder::builder::command::Command::version(&v0, "0.0.28");
-    v0 = clap_builder::builder::command::Command::about(&v3, "Display numbers from FIRST to LAST, in steps of INCREMENT.");
-    v6 = uucore::format_usage("{} [OPTION]... LAST
-{} [OPTION]... FIRST LAST
-{} [OPTION]... FIRST INCREMENT LAST");
-    v3 = clap_builder::builder::command::Command::override_usage(&v0, &v6);
-    v0 = clap_builder::builder::arg::Arg::new("separator");
-    v6 = clap_builder::builder::arg::Arg::short(&v0, 0x73);
-    v0 = clap_builder::builder::arg::Arg::long(&v6, "separator");
-    v6 = clap_builder::builder::arg::Arg::help(&v0, "Separator character (defaults to \n)");
-    v0 = clap_builder::builder::command::Command::arg(&v3, &v6);
-    v3 = clap_builder::builder::arg::Arg::new("terminator");
-    v6 = clap_builder::builder::arg::Arg::short(&v3, 0x74);
-    v3 = clap_builder::builder::arg::Arg::long(&v6, "terminator");
-    v6 = clap_builder::builder::arg::Arg::help(&v3, "Terminator character (defaults to \n)");
-    v3 = clap_builder::builder::command::Command::arg(&v0, &v6);
-    v0 = clap_builder::builder::arg::Arg::new("equal-width");
-    v6 = clap_builder::builder::arg::Arg::short(&v0, 0x77);
-    v0 = clap_builder::builder::arg::Arg::long(&v6, "equal-width");
-    v6 = clap_builder::builder::arg::Arg::help(&v0, "Equalize widths of all numbers by padding with zeros");
-    v7 = clap_builder::builder::arg::Arg::action(&v6, 0x2);
-    v0 = clap_builder::builder::command::Command::arg(&v3, &v7);
-    v3 = clap_builder::builder::arg::Arg::new("format");
-    v6 = clap_builder::builder::arg::Arg::short(&v3, 0x66);
-    v3 = clap_builder::builder::arg::Arg::long(&v6, "format");
-    v6 = clap_builder::builder::arg::Arg::help(&v3, "use printf style floating-point FORMAT");
-    v3 = clap_builder::builder::command::Command::arg(&v0, &v6);
-    v0 = clap_builder::builder::arg::Arg::new("numbers");
-    v6 = clap_builder::builder::arg::Arg::action(&v0, 0x1);
-    v0 = clap_builder::builder::arg::Arg::num_args(&v6);
+    v1 = 549755814052 | v4;
+    v2 = v5;
+    clap_builder::builder::command::Command::version(&v3, &v0, "0.0.28");
+    clap_builder::builder::command::Command::about(&v0, &v3, "Display numbers from FIRST to LAST, in steps of INCREMENT.");
+    uucore::format_usage(&v6, "{} [OPTION]... LAST\n{} [OPTION]... FIRST LAST\n{} [OPTION]... FIRST INCREMENT LAST");
+    clap_builder::builder::command::Command::override_usage(&v3, &v0, &v6);
+    clap_builder::builder::arg::Arg::new(&v0, "separator");
+    clap_builder::builder::arg::Arg::short(&v6, &v0, 115);
+    clap_builder::builder::arg::Arg::long(&v0, &v6, "separator");
+    clap_builder::builder::arg::Arg::help(&v6, &v0, "Separator character (defaults to \\n)");
+    clap_builder::builder::command::Command::arg(&v0, &v3, &v6);
+    clap_builder::builder::arg::Arg::new(&v3, "terminator");
+    clap_builder::builder::arg::Arg::short(&v6, &v3, 116);
+    clap_builder::builder::arg::Arg::long(&v3, &v6, "terminator");
+    clap_builder::builder::arg::Arg::help(&v6, &v3, "Terminator character (defaults to \\n)");
+    clap_builder::builder::command::Command::arg(&v3, &v0, &v6);
+    clap_builder::builder::arg::Arg::new(&v0, "equal-width");
+    clap_builder::builder::arg::Arg::short(&v6, &v0, 119);
+    clap_builder::builder::arg::Arg::long(&v0, &v6, "equal-width");
+    clap_builder::builder::arg::Arg::help(&v6, &v0, "Equalize widths of all numbers by padding with zeros");
+    clap_builder::builder::arg::Arg::action(&v7, &v6, 2);
+    clap_builder::builder::command::Command::arg(&v0, &v3, &v7);
+    clap_builder::builder::arg::Arg::new(&v3, "format");
+    clap_builder::builder::arg::Arg::short(&v6, &v3, 102);
+    clap_builder::builder::arg::Arg::long(&v3, &v6, "format");
+    clap_builder::builder::arg::Arg::help(&v6, &v3, "use printf style floating-point FORMAT");
+    clap_builder::builder::command::Command::arg(&v3, &v0, &v6);
+    clap_builder::builder::arg::Arg::new(&v0, "numbers");
+    clap_builder::builder::arg::Arg::action(&v6, &v0, 1);
+    clap_builder::builder::arg::Arg::num_args(&v0, &v6);
     clap_builder::builder::command::Command::arg(a0, &v3, &v0);
     return a0;
 }

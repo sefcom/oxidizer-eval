@@ -1,44 +1,56 @@
-fn uu_head::uumain::uumain(a0: u32, a1: u32) -> u64 {
-    let v0: struct24;  // [sp-0x368], Other Possible Types: int
-    let v1: i64;  // [sp-0x358]
-    let v2: i32;  // [sp-0x350]
-    let v3: struct48;  // [sp-0x348], Other Possible Types: char
-    let v8: struct56;  // [bp-0x310], Other Possible Types: unsigned long
-    let v9: i64;  // [sp-0x308]
-    let v10: struct48;  // [sp-0x2d8], Other Possible Types: struct712
-    let v12: i64;  // rbx
-    let v13: i64;  // rbx
-    let v16: i64;  // rbx
-    let v17: i64;  // rbx
+fn uu_head::uumain::uumain(a1: i32) -> Result<struct16, struct16> {
+    let a0: u32;  // rsi
+    let v0: u224;  // [bp-0x368]
+    let v1: u64;  // [bp-0x360]
+    let v2: u64;  // [bp-0x358]
+    let v3: u256;  // [bp-0x348]
+    let v4: u128;  // [bp-0x348]
+    let v5: Result<struct56, struct16>;  // [bp-0x348]
+    let v6: u64;  // [bp-0x340]
+    let v7: u64;  // [bp-0x318]
+    let v8: u256;  // [bp-0x310]
+    let v9: u8;  // [bp-0x2f0]
+    let v10: u64;  // [bp-0x2e0]
+    let v11: u8;  // [bp-0x2d8], Other Possible Types: Result<struct48, struct32>
+    let v12: u64;  // [bp-0x2c0]
+    let v14: u64;  // rdi
+    let v15: u32;  // rcx
 
-    v10 = uu_head::uu_app();
-    v0 = uu_head::arg_iterate(a0, a1);
-    v12 = v0.field_8;
-    if v0.field_0 {
-        v13 = v12;
-        return v13;
+    uu_head::uu_app(&v11);
+    uu_head::arg_iterate(v14, a0, v15);
+    if v0 {
+        return;
     }
-    clap_builder::builder::command::Command::try_get_matches_from(&v3, &v10, v12, v1);
-    if v8 == 0x8000000000000000 {
-        v13 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v9);
-        return v13;
+    v4 = clap_builder::builder::command::Command::try_get_matches_from(&v11, v1, v2);
+    match v4 as u640 {
+        Err(_) => {
+            uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v6);
+            return;
+        },
+        Ok(_) => {
+            v10 = v7;
+            memcpy(&v9, &v5 as u128, 16);
+            v8 = v3;
+            v11 = uu_head::HeadOptions::get_from(&v8);
+            match v11 {
+                Ok(_) => {
+                    memcpy(&v5 as u128, &v11 as u8, 16);
+                    memcpy(&v5, &v11, 16);
+                    v4 = v11 as i128 as u128;
+                    uu_head::uu_head(&v4 as u640);
+                    return;
+                },
+                Err(_) => {
+                    memcpy(&v0 as u8, &v11 as u8, 16);
+                    v0 = struct28 {
+                        field_0: <UNKNOWN>
+                        field_16: v12
+                        field_24: 1
+                    };
+                    alloc::boxed::Box<T>::new(&v0);
+                    return;
+                },
+            }
+        },
     }
-    v8 = struct56 {
-        field_0: v14
-        field_8: v15
-        field_16: v5
-        field_32: v6
-        field_48: *(&v7 as &i64)
-    };
-    v10 = uu_head::HeadOptions::get_from(&v8);
-    if v10.field_0 as i32 == 4 {
-        v1 = *((&v10.field_16 as &char + 8) as &i64);
-        v0 = *((&v10.field_0 as &char + 8) as &i128);
-        v2 = 1;
-        v13 = v17;
-        return v13;
-    }
-    v3 = v10;
-    v13 = v16;
-    return v13;
 }

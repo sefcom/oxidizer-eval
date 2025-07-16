@@ -1,34 +1,43 @@
-fn uu_ls::parse_width(a0: &Result<struct56, struct2>, a1: u32) -> u64 {
-    let v0: Option<struct24>;  // [sp-0x58], Other Possible Types: Result<struct32, struct2>
-    let v3: Option<struct24>;  // [sp-0x20]
-    let v8: i64;  // rax
+fn uu_ls::parse_width(a1: i64) -> Result<struct56, struct3> {
+    let a0: i64;  // rdi
+    let v0: Result<struct32, struct2>;  // [bp-0x58]
+    let v1: u8;  // [bp-0x57]
+    let v2: u16;  // [bp-0x56]
+    let v3: u64;  // [bp-0x48]
+    let v4: u128;  // [bp-0x44]
+    let v5: u128;  // [bp-0x34]
+    let v6: u32;  // [bp-0x24]
+    let v7: struct24;  // [bp-0x20]
+    let v9: u64;  // rax
+    let v10: u64;  // rax
+    let v11: u64;  // rax
 
-    if !a1 {
-        v3 = std::env::var_os("COLUMNS");
-        match v3 {
-            Some(_) => {
-                v0 = v3;
-                uu_ls::parse_width::{{closure}}(&v0);
-            },
-            None => {
-                v8 = terminal_size::unix::terminal_size();
-            },
+    if a1 {
+        v0 = uu_ls::parse_width::{{closure}}(*((a1 + 8) as &i64), *((a1 + 16) as &i64));
+        v9 = v0 as i8;
+        if v9 != 7 {
+            return struct68 {
+                field_0: v9 as u8
+                field_1: v1
+                field_2: v2
+                field_4: <UNKNOWN>
+                field_20: <UNKNOWN>
+                field_36: <UNKNOWN>
+                field_52: <UNKNOWN>
+            };
         }
     } else {
-        v0 = uu_ls::parse_width::{{closure}}(*((a1 + 8) as &i64), *((a1 + 16) as &i64));
-        if v0 as i8 != 7 {
-            return Ok(struct56 {
-                field_0: v5 as u8
-                field_1: v6
-                field_2: v7
-                field_4: *((&v0 as &char + 4) as &i128)
-                field_20: v0 as i128
-                field_36: *(&v1 as &i128)
-                field_52: *(&v2 as &i32)
-            });
+        v7 = std::env::var_os("COLUMNS");
+        if v7.field_0 == 0x8000000000000000 {
+            v11 = terminal_size::unix::terminal_size();
+        } else {
+            v3 = v7.field_8;
+            memcpy(&v0 as u8, &v7, 16);
+            v10 = uu_ls::parse_width::{{closure}}(&v0 as u8);
         }
     }
-    return Err(struct2 {
-        field_0: v5 as u16
-    });
+    return struct4 {
+        field_0: 7
+        field_2: v10 as u16
+    };
 }

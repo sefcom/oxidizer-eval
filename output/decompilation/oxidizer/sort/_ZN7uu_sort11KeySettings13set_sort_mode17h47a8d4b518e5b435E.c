@@ -1,24 +1,25 @@
-fn uu_sort::KeySettings::set_sort_mode(a0: &Option<struct24>, a1: &struct1, a2: u32) -> u64 {
-    let v0: u32;  // [sp-0x78]
-    let v1: u32;  // [sp-0x74]
-    let v2: u64;  // [sp-0x70]
-    let v5: u64;  // rbx
-    let v6: u64;  // rax
+fn uu_sort::KeySettings::set_sort_mode(a1: i64, a2: i32) -> Option<struct24> {
+    let a0: i64;  // rdi
+    let v2: u64;  // [bp-0x70]
+    let v4: u64;  // [bp-0x60]
+    let v12: u64;  // rbx
+    let v13: u64;  // rax
+    let v14: u8;  // r8b
+    let v15: struct8;  // rax
 
-    v5 = a2;
-    v6 = *((a1 as &char + 5) as &i8);
-    if v6 != 6 && v6 != v5 {
-        v0 = *((&g_42fac0 + 4 * v6) as &i32);
-        v1 = *((&g_42fac0 + 4 * (v5 & 255)) as &i32);
+    v12 = a2;
+    v13 = *((a1 + 5) as &i8);
+    if v13 != 6 && v13 != v12 {
+        return core::option::Option<T>::map_or_else(a2);
     }
-    uu_sort::KeySettings::check_compatibility(v5 & 4294967295, *((a1 as &char + 3) as &i8), *((a1 as &char + 2) as &i8));
+    v15 = uu_sort::KeySettings::check_compatibility(v12 & 4294967295, *((a1 + 3) as &i8), *((a1 + 2) as &i8), v14);
     if v2 != 0x8000000000000000 {
         return Some(struct24 {
             field_0: *(&v2 as &i128)
-            field_16: v7
+            field_16: v4
         });
     }
-    *((a1 as &char + 5) as &u8) = v5;
+    *((a1 + 5) as &u8) = v12;
     return struct8 {
         field_0: 0x8000000000000000
     };

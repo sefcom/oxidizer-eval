@@ -1,51 +1,58 @@
-fn uu_sort::chunks::Chunk::try_new(a0: &struct16, a1: &struct24, a2: &struct120) -> int {
-    let v0: struct96;  // [sp-0xf8]
-    let v1: struct120;  // [bp-0x98]
-    let v3: i64;  // rax
-    let v4: i64;  // r14
-    let v5: iNone;  // xmm0
-    let v10: iNone;  // ymm0
-    let v11: iNone;  // ymm0
-    let v12: i64;  // rax
-    let v15: iNone;  // xmm0
-    let v16: iNone;  // xmm1
-    let v17: iNone;  // xmm2
+fn uu_sort::chunks::Chunk::try_new(a1: i64, a2: &struct24) -> : struct16 {
+    let a0: i64;  // rsi
+    let v0: Result<struct96, struct24>;  // [bp-0xf8]
+    let v1: u128;  // [bp-0xe8]
+    let v2: u128;  // [bp-0xd8]
+    let v3: u128;  // [bp-0xc8]
+    let v4: u128;  // [bp-0xb8]
+    let v5: u128;  // [bp-0xa8]
+    let v6: u960;  // [bp-0x98]
+    let v8: core::result::Result<(), std::io::error::Error>;  // rax
+    let v9: i64;  // r14
+    let v10: i64;  // rdi
+    let v11: u64;  // rax
+    let v12: u128;  // xmm0
+    let v13: i64;  // rdi
 
-    v3 = __rust_alloc(120, 8);
-    if !v3 {
-        core::option::unwrap_failed("src/uu/sort/src/chunks.rs"); /* do not return */
+    v8 = __rust_alloc(120, 8);
+    match v8 {
+        Ok(_) => {
+            core::option::unwrap_failed(); /* do not return */
+        },
+        Err(_) => {
+            v9 = v8;
+            *((v9 + 16) as &i64) = *((a0 + 16) as &i64);
+            *(v9 as &i128) = *(a0 as &i128);
+            v6 = struct120 {
+                field_0: *(a1 as &i128)
+                field_16: *((a1 + 16) as &i128)
+                field_32: *((a1 + 32) as &i128)
+                field_48: *((a1 + 48) as &i128)
+                field_64: *((a1 + 64) as &i128)
+                field_80: *((a1 + 80) as &i128)
+                field_96: *((a1 + 96) as &i128)
+                field_112: *((a1 + 112) as &i64)
+            };
+            v0 = uu_sort::chunks::read::{{closure}}(&v6, *((v9 + 8) as &i64), *((v9 + 16) as &i64));
+            match v0 {
+                Ok(_) => {
+                    v11 = v9 + 24;
+                    *((v11 + 80) as &u128) = v5;
+                    *((v11 + 64) as &u128) = v4;
+                    v12 = v0 as i128;
+                    *((v11 + 48) as &u128) = v3;
+                    *((v11 + 32) as &u128) = v2;
+                    *((v11 + 16) as &u128) = v1;
+                    *(v11 as &u128) = v12;
+                    *((v13 + 8) as &struct_1 *) = v9;
+                    *(v13 as &i64) = 0;
+                    return;
+                },
+                Err(_) => {
+                    *(v10 as &i128) = *((&v0 as &char + 8) as &i128);
+                    return;
+                },
+            }
+        },
     }
-    v4 = v3;
-    *((v4 + 16) as &i64) = *((a1 + 16) as &i64);
-    v5 = *(a1 as &i128);
-    *(v4 as void*) = v5;
-    v11 = ((((v10 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v5 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((a2 + 96) as &i128)) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((a2 + 80) as &i128)) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((a2 + 64) as &i128)) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(a2 as &i128);
-    v1 = struct120 {
-        field_0: v9
-        field_16: *((a2 + 16) as &i128)
-        field_32: *((a2 + 32) as &i128)
-        field_48: *((a2 + 48) as &i128)
-        field_64: v8
-        field_80: v7
-        field_96: v6
-        field_112: *((a2 + 112) as &i64)
-    };
-    v0 = uu_sort::chunks::read::{{closure}}(&v1, *((v4 + 8) as &i64), *((v4 + 16) as &i64));
-    if v0.field_0 as i64 == 0x8000000000000000 {
-        return (v11 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v10 as u128) as u64;
-    }
-    v12 = v4 + 24;
-    *((v12 + 80) as &i128) = *(&v0.field_80 as &i128);
-    *((v12 + 64) as &u128) = v0.field_64;
-    v15 = v0.field_0;
-    v16 = v0.field_16;
-    v17 = v0.field_32;
-    *((v12 + 48) as &u128) = v0.field_48;
-    *((v12 + 32) as void*) = v17;
-    *((v12 + 16) as void*) = v16;
-    *(v12 as void*) = v15;
-    return struct16 {
-        field_0: 0
-        field_8: v4
-    };
 }

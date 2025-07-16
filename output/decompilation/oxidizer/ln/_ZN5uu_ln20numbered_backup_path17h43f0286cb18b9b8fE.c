@@ -1,32 +1,26 @@
-fn uu_ln::numbered_backup_path(a0: &struct24, a1: u64, a2: u64) -> int {
-    let v0: i64;  // [sp-0x138]
-    let v1: struct24;  // [sp-0x128]
-    let v2: String;  // [sp-0x100]
-    let v3: iNone;  // [bp-0xe8], Other Possible Types: unsigned long, Result<struct176, struct8>
-    let v4: i64;  // [sp-0xe0]
-    let v5: i64;  // [sp-0xd8]
-    let v9: iNone;  // ymm0
-    let v10: iNone;  // xmm0
-    let v11: iNone;  // ymm0
-    let v12: iNone;  // xmm0
+fn uu_ln::numbered_backup_path(a0: i64, a1: i64, a2: i32) -> long long {
+    let v0: u64;  // [bp-0x138]
+    let v1: i64;  // [bp-0x130]
+    let v2: u64;  // [bp-0x128]
+    let v3: u64;  // [bp-0x120]
+    let v4: u64;  // [bp-0x118]
+    let v5: iNone;  // [bp-0x100]
+    let v6: u32;  // [bp-0xf0]
+    let v7: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xe8]
+    let v8: u128;  // [bp-0xe8]
+    let v9: u64;  // [bp-0xd8]
+    let v11: u32;  // r9
 
     v0 = 1;
-    loop {
-        v2 = format!(".~{}~", &v0);
-        v10 = *(&v2.ptr as &i128);
-        v11 = v9 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v10 as u256;
-        v3 = v10;
-        v5 = v2.len;
-        v1 = uu_ln::simple_backup_path(a1, a2, v4, v2.len);
-        v3 = std::fs::metadata(*((&v1.field_0 as &char + 8) as &i64), v1.field_16);
-        if v3 == 2 {
-            break;
-        }
-        v9 = v11;
-    }
-    v12 = v1.field_0;
-    return struct24 {
-        field_0: v12
-        field_16: v1.field_16
-    };
+    do {
+        vvar_139{stack -256} = struct24 OrderedDict({0: 𝜙@128b [((4960189, None), vvar_112{stack -256}), ((4959952, None), None)], 16: 𝜙@64b [((4960189, None), vvar_114{stack -240}), ((4959952, None), None)]})
+        format!(".~{}~", &v0);
+        v8 = v5 as i128;
+        v9 = v6;
+        uu_ln::simple_backup_path(a1, a2, 2, v6, v11);
+        v7 = std::fs::metadata(v3, v4);
+    } while (v7 as i64 != 2);
+    *((v1 + 16) as &u64) = v4;
+    *(v1 as &i128) = *(&v2 as &i128);
+    return v4;
 }

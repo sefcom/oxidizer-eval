@@ -1,12 +1,13 @@
 {
   "decompilation": {
-    "_ZN11uu_printenv6uumain17hfb94facca028a645E": "fn uu_printenv::uumain(a0: u32, a1: u32) -> u64 {\n    let v0: i64;  // [sp-0xa8]\n    let v1: i64;  // [sp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: String;  // [sp-0x48]\n    let v4: String;  // [sp-0x28]\n    let v6: i64;  // rax\n    let v7: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v6 = uu_printenv::uumain::uumain(a0, a1);\n    if !v6 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v6;\n    v4 = format!(\"{}\", &v0);\n    v3 = v4;\n    if v3 == \"\" {\n        v2 = v7;\n        show_error!(\"{}\", &v3);\n    }\n    if !*((v7 + 104) as &i64)() {\n        return *((v7 + 96) as &i64)();\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v7;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n}\n",
-    "_ZN11uu_printenv6uu_app17hf1331131741036edE": "fn uu_printenv::uu_app(a0: &struct712) -> u64 {\n    let v0: struct592;  // [sp-0xa50], Other Possible Types: struct712, struct437\n    let v1: i64;  // [sp-0x794]\n    let v2: i32;  // [sp-0x78c]\n    let v3: struct592;  // [sp-0x788], Other Possible Types: struct24\n    let v4: struct712;  // [sp-0x538], Other Possible Types: struct592\n    let v5: struct592;  // [sp-0x270]\n    let v7: i64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v7);\n    v4 = clap_builder::builder::command::Command::version(&v0);\n    v0 = clap_builder::builder::command::Command::about(&v4);\n    v3 = uucore::format_usage(\"{} [OPTION]... [VARIABLE]...\");\n    v4 = clap_builder::builder::command::Command::override_usage(&v0, &v3);\n    memcpy(&v0, &v4, 700);\n    v1 = 549755814016 | *((&v4.field_0 as &char + 700) as &i64);\n    v2 = *((&v4.field_0 as &char + 708) as &i32);\n    v4 = clap_builder::builder::arg::Arg::new(\"null\");\n    v3 = clap_builder::builder::arg::Arg::short(&v4);\n    v4 = clap_builder::builder::arg::Arg::long(&v3);\n    v3 = clap_builder::builder::arg::Arg::help(&v4);\n    v5 = clap_builder::builder::arg::Arg::action(&v3, 0x2);\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v5);\n    v0 = clap_builder::builder::arg::Arg::new(\"variables\");\n    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x1);\n    v0 = clap_builder::builder::arg::Arg::num_args(&v3);\n    clap_builder::builder::command::Command::arg(a0, &v4, &v0);\n    return a0;\n}\n"
+    "_ZN11uu_printenv6uumain17hfb94facca028a645E": "fn uu_printenv::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_printenv::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN11uu_printenv6uu_app17hf1331131741036edE": "fn uu_printenv::uu_app(a0: &struct712) -> long long {\n    let v0: struct437;  // [bp-0xa50]\n    let v1: u64;  // [bp-0x794]\n    let v2: u32;  // [bp-0x78c]\n    let v3: u8;  // [bp-0x788]\n    let v4: u8;  // [bp-0x538]\n    let v5: u64;  // [bp-0x27c]\n    let v6: u32;  // [bp-0x274]\n    let v7: u8;  // [bp-0x270]\n    let v10: u64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);\n    clap_builder::builder::command::Command::version(&v4, &v0);\n    clap_builder::builder::command::Command::about(&v0, &v4);\n    uucore::format_usage(&v3, \"{} [OPTION]... [VARIABLE]...\");\n    clap_builder::builder::command::Command::override_usage(&v4, &v0, &v3);\n    memcpy(&v0, &v4, 700);\n    v1 = 549755814016 | v5;\n    v2 = v6;\n    clap_builder::builder::arg::Arg::new(&v4, \"null\");\n    clap_builder::builder::arg::Arg::short(&v3, &v4);\n    clap_builder::builder::arg::Arg::long(&v4, &v3);\n    clap_builder::builder::arg::Arg::help(&v3, &v4);\n    clap_builder::builder::arg::Arg::action(&v7, &v3, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v0, &v7);\n    clap_builder::builder::arg::Arg::new(&v0, \"variables\");\n    clap_builder::builder::arg::Arg::action(&v3, &v0, 1);\n    clap_builder::builder::arg::Arg::num_args(&v0, &v3);\n    clap_builder::builder::command::Command::arg(a0, &v4, &v0);\n    return a0;\n}\n"
   },
   "function_call_counts": {
     "_ZN11uu_printenv6uumain17hfb94facca028a645E": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
       "uu_printenv::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
@@ -30,366 +31,49 @@
   },
   "macro_call_counts": {
     "_ZN11uu_printenv6uumain17hfb94facca028a645E": {
-      "eprintln": 1,
-      "show_error": 1,
+      "eprintln": 2,
+      "eprint": 1,
       "format": 1
     },
     "_ZN11uu_printenv6uu_app17hf1331131741036edE": {}
   },
   "node_counts": {
-    "_ZN11uu_printenv6uumain17hfb94facca028a645E": 9,
+    "_ZN11uu_printenv6uumain17hfb94facca028a645E": 10,
     "_ZN11uu_printenv6uu_app17hf1331131741036edE": 17
   },
-  "prototypes": {
-    "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a888fb598bf45e4E": {
-      "name": "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a888fb598bf45e4E",
-      "return_type": [
-        "Option",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
+  "variable_types": {
     "_ZN11uu_printenv6uumain17hfb94facca028a645E": {
-      "name": "_ZN11uu_printenv6uumain17hfb94facca028a645E",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "reg_16": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN11uu_printenv6uumain6uumain17h9c419dd350239eabE": {
-      "name": "_ZN11uu_printenv6uumain6uumain17h9c419dd350239eabE",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
+      "stack_0": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN4core6option15Option$LT$T$GT$11map_or_else17h8c5183f37b9e9e57E": {
-      "name": "_ZN4core6option15Option$LT$T$GT$11map_or_else17h8c5183f37b9e9e57E",
-      "return_type": [
-        "struct",
-        24
       ],
-      "parameters": [
+      "stack_128": [
         [
-          "struct*",
-          8
+          "struct",
+          24
         ]
-      ]
-    },
-    "_ZN4core6result19Result$LT$T$C$E$GT$6expect17he3e77333ffac4012E": {
-      "name": "_ZN4core6result19Result$LT$T$C$E$GT$6expect17he3e77333ffac4012E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": [
-        [
-          "primitive",
-          4
-        ]
-      ]
-    },
-    "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17hf6fa57beb1c3cfdfE": {
-      "name": "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17hf6fa57beb1c3cfdfE",
-      "return_type": [
-        "primitive",
-        1
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE": {
-      "name": "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hb4f2d17f007cd88aE",
-      "return_type": [
-        "primitive",
-        1
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hde4ad9fc0cae4dbdE": {
-      "name": "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hde4ad9fc0cae4dbdE",
-      "return_type": [
-        "struct",
-        32
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h65e73dfc47f1c957E": {
-      "name": "_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h65e73dfc47f1c957E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command16get_matches_from17h513927fcdb2d9a9aE": {
-      "name": "_ZN12clap_builder7builder7command7Command16get_matches_from17h513927fcdb2d9a9aE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser5error12MatchesError6unwrap17hbf01985c69d4c13eE": {
-      "name": "_ZN12clap_builder6parser5error12MatchesError6unwrap17hbf01985c69d4c13eE",
-      "return_type": [
-        "struct",
-        64
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std3env3var17hd00663f2ee81a0d5E": {
-      "name": "_ZN3std3env3var17hd00663f2ee81a0d5E",
-      "return_type": [
-        "Result",
-        32
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h147f1cf25fd8ae8eE": {
-      "name": "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h147f1cf25fd8ae8eE",
-      "return_type": [
-        "struct",
-        56
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN3std3env4vars17h104f59bf3851ffdbE": {
-      "name": "_ZN3std3env4vars17h104f59bf3851ffdbE",
-      "return_type": [
-        "primitive",
-        8
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN73_$LT$std..env..Vars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b476a668b5d347eE": {
-      "name": "_ZN73_$LT$std..env..Vars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b476a668b5d347eE",
-      "return_type": [
-        "Option",
-        48
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg3new17h232af3154c6234e3E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg3new17h232af3154c6234e3E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4help17h457dd636a188a524E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4help17h457dd636a188a524E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg4long17h26f18b50c67386c2E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg4long17h26f18b50c67386c2E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg5short17h4b8b75b37ac110d0E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg5short17h4b8b75b37ac110d0E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg6action17hfac7705830aeadd1E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg6action17hfac7705830aeadd1E",
-      "return_type": [
-        "struct",
-        592
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "stack_96": [
         [
           "primitive",
           1
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder3arg3Arg8num_args17h355828e295e06717E": {
-      "name": "_ZN12clap_builder7builder3arg3Arg8num_args17h355828e295e06717E",
-      "return_type": [
-        "struct",
-        592
       ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command14override_usage17h89030b7305223480E": {
-      "name": "_ZN12clap_builder7builder7command7Command14override_usage17h89030b7305223480E",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
-          8
-        ],
+      "stack_112": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3arg17h825aeeae1f3493f2E": {
-      "name": "_ZN12clap_builder7builder7command7Command3arg17h825aeeae1f3493f2E",
-      "return_type": [
-        "struct",
-        712
       ],
-      "parameters": [
+      "stack_64": [
         [
           "primitive",
           8
@@ -398,15 +82,8 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command3new17h756124d03d797937E": {
-      "name": "_ZN12clap_builder7builder7command7Command3new17h756124d03d797937E",
-      "return_type": [
-        "struct",
-        438
       ],
-      "parameters": [
+      "stack_72": [
         [
           "primitive",
           8
@@ -415,66 +92,69 @@
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command5about17h6ce0240f9b0c168eE": {
-      "name": "_ZN12clap_builder7builder7command7Command5about17h6ce0240f9b0c168eE",
-      "return_type": [
-        "struct",
-        712
       ],
-      "parameters": [
+      "reg_32": [
         [
-          "struct*",
-          8
-        ]
-      ]
-    },
-    "_ZN12clap_builder7builder7command7Command7version17h2f0c204c3b28853eE": {
-      "name": "_ZN12clap_builder7builder7command7Command7version17h2f0c204c3b28853eE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": [
-        [
-          "struct*",
+          "primitive",
           8
         ]
       ]
     },
     "_ZN11uu_printenv6uu_app17hf1331131741036edE": {
-      "name": "_ZN11uu_printenv6uu_app17hf1331131741036edE",
-      "return_type": [
-        "struct",
-        712
-      ],
-      "parameters": []
-    },
-    "_ZN6uucore12format_usage17h76fcb2d15fbabc58E": {
-      "name": "_ZN6uucore12format_usage17h76fcb2d15fbabc58E",
-      "return_type": [
-        "struct",
-        24
-      ],
-      "parameters": [
+      "stack_8": [
         [
-          "primitive",
-          8
-        ],
+          "struct",
+          466
+        ]
+      ],
+      "reg_32": [
         [
           "primitive",
           8
         ]
-      ]
-    },
-    "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E": {
-      "name": "_ZN6uucore4mods5error13get_exit_code17he41365fe4dc666e7E",
-      "return_type": [
-        "primitive",
-        8
       ],
-      "parameters": []
+      "stack_1312": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_720": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_708": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2012": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_716": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2020": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2024": [
+        [
+          "primitive",
+          1
+        ]
+      ]
     }
   }
 }
