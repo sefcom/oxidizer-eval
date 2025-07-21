@@ -5,10 +5,10 @@ fn uu_join::Line::new(a1: i64, a2: i64, a3: i64) -> : struct48 {
 
     v0 = <uu_join::LineSep as uu_join::Separator>::field_ranges(a2, *((a1 + 8) as &i64), *((a1 + 16) as &i64));
     v2 = v0.field_16;
-    return struct56 {
+    return struct48 {
         field_0: *(&v0.field_0 as &i128)
         field_16: v2
-        field_24: <UNKNOWN>
-        field_40: <UNKNOWN>
+        field_24: *(a1 as &i128)
+        field_40: *((a1 + 16) as &i64)
     };
 }

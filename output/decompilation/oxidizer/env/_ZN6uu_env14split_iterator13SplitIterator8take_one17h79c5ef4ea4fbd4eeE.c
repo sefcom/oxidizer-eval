@@ -7,8 +7,9 @@ fn uu_env::split_iterator::SplitIterator::take_one(a1: i64) -> : struct21 {
 
     v1 = uu_env::string_expander::StringExpander::take_one(a1);
     v3 = 5;
-    return struct25 {
+    return struct32 {
         field_0: v5
+        padding_4: <UNKNOWN>
         field_8: v1
         field_16: v1
         field_24: v4 & 1

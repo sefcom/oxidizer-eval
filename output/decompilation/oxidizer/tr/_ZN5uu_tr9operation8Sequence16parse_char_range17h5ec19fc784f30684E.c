@@ -2,7 +2,7 @@ fn uu_tr::operation::Sequence::parse_char_range(a1: i64, a2: i64) -> Result<stru
     let a0: i64;  // rdi
     let v0: struct33;  // [bp-0x38]
     let v1: u8;  // [bp-0x20]
-    let v2: u128;  // [bp-0x18]
+    let v2: struct16;  // [bp-0x18]
     let v4: u64;  // rax
     let v5: u64;  // rcx
     let v6: u8;  // cc_dep1
@@ -22,10 +22,10 @@ fn uu_tr::operation::Sequence::parse_char_range(a1: i64, a2: i64) -> Result<stru
     if v0.field_0 as i32 != 3 {
         v8 = *(&v0.field_0 as &i128);
         v9 = 1;
-        return struct48 {
+        return struct40 {
             field_0: v10
-            field_8: <UNKNOWN>
-            field_24: <UNKNOWN>
+            field_8: v8
+            field_24: *(&v0.field_16 as &i128)
         };
     }
     v4 = v1;

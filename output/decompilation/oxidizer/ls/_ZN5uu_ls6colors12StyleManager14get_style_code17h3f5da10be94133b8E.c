@@ -1,4 +1,4 @@
-fn uu_ls::colors::StyleManager::get_style_code(a1: &struct24, a2: i64) -> : struct24 {
+fn uu_ls::colors::StyleManager::get_style_code(a1: &struct24, a2: &struct16) -> : struct24 {
     let a0: i64;  // rsi
     let v0: struct17;  // [bp-0x79]
     let v1: core::option::Option<&std::ffi::os_str::OsStr>;  // [bp-0x71]
@@ -8,7 +8,7 @@ fn uu_ls::colors::StyleManager::get_style_code(a1: &struct24, a2: i64) -> : stru
     let v5: u8;  // [bp-0x69]
     let v6: struct24;  // [bp-0x68]
     let v7: u64;  // [bp-0x58]
-    let v8: u256;  // [bp-0x50]
+    let v8: struct32;  // [bp-0x50]
     let v9: u64;  // [bp-0x20]
     let v10: u8;  // [bp-0x18]
     let v11: u32;  // [bp-0x17]

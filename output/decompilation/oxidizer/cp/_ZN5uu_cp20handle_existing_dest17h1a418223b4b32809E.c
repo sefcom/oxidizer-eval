@@ -6,7 +6,7 @@ fn uu_cp::handle_existing_dest(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: 
     let v3: u64;  // [bp-0x120]
     let v4: u64;  // [bp-0x118]
     let v5: u8;  // [bp-0x110]
-    let v6: u64;  // [bp-0x108], Other Possible Types: struct24, struct40
+    let v6: struct24;  // [bp-0x108], Other Possible Types: struct40, u64
     let v7: struct24;  // [bp-0x108]
     let v8: u64;  // [bp-0x100]
     let v9: i64;  // [bp-0xf8]
@@ -14,12 +14,12 @@ fn uu_cp::handle_existing_dest(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: 
     let v11: void*;  // [bp-0xe8]
     let v12: i8;  // [bp-0xe0]
     let v13: i8;  // [bp-0xd8]
-    let v14: struct8;  // [bp-0xd0]
+    let v14: u64;  // [bp-0xd0]
     let v15: u64;  // [bp-0xc8]
     let v16: u64;  // [bp-0xc0]
     let v17: u64;  // [bp-0xb8]
     let v18: u8;  // [bp-0xb0]
-    let v19: u8;  // [bp-0xa8]
+    let v19: u128;  // [bp-0xa8]
     let v20: u64;  // [bp-0xa0]
     let v21: u64;  // [bp-0x98]
     let v22: i64;  // [bp-0x88]
@@ -27,13 +27,13 @@ fn uu_cp::handle_existing_dest(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: 
     let v24: i64;  // [bp-0x78]
     let v25: u64;  // [bp-0x70]
     let v26: u64;  // [bp-0x68]
-    let v27: u8;  // [bp-0x60]
-    let v28: u32;  // [bp-0x50]
+    let v27: u128;  // [bp-0x60]
+    let v28: u64;  // [bp-0x50]
     let v29: u128;  // [bp-0x48]
     let v30: i8;  // [bp-0x38]
 
     v26 = a6;
-    if uu_cp::is_forbidden_to_copy_to_same_file(a2, a3, a4, a5, a6, v0) as u8 {
+    if uu_cp::is_forbidden_to_copy_to_same_file(a1, a2, a3, a4, a5, a6) as i8 {
         v15 = 1;
         v16 = a1;
         v17 = a2;
@@ -59,20 +59,20 @@ fn uu_cp::handle_existing_dest(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: 
     if *((a5 + 77) as &i8) != 2 {
         uu_cp::OverwriteMode::verify(*((a5 + 60) as &i32), a3, a4, *((a5 + 71) as &i8), a5 as u8);
         if v6 != 13 {
-            return struct72 {
+            return struct64 {
                 field_0: v6
-                field_8: <UNKNOWN>
-                field_24: <UNKNOWN>
-                field_40: <UNKNOWN>
-                field_56: <UNKNOWN>
+                field_8: v6.field_8
+                field_24: *(&v6.field_24 as &i128)
+                field_40: *(&v12 as &i128)
+                field_56: v14
             };
         }
     }
     uucore::features::backup_control::get_backup_path(&v27, *((a5 + 76) as &i32));
     if *(&v27 as &i64) != 0x8000000000000000 {
-        memcpy(&v19, &v27, 16);
+        v19 = v27;
         v21 = v28;
-        if uucore::features::fs::paths_refer_to_same_file(a2, v20, v28, 1, a5 as u32) as u8 {
+        if uucore::features::fs::paths_refer_to_same_file(a1, a2, v20, v28, 1) as i8 {
             v15 = 1;
             v16 = a3;
             v17 = a4;
@@ -91,23 +91,23 @@ fn uu_cp::handle_existing_dest(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: 
             v9 = &v22;
             v10 = 2;
             v7 = core::option::Option<T>::map_or_else(a2);
-            return struct40 {
+            return struct32 {
                 field_0: 4
-                field_8: <UNKNOWN>
-                field_24: <UNKNOWN>
+                field_8: v29
+                field_24: *(&v30 as &i64)
             };
         }
         v1 = std::path::Path::is_symlink();
         uu_cp::backup_dest(a3, a4, v20, v21, v1, *(&v0 as &i32));
-        memcpy(&v2, &v7 as u8, 16);
+        v2 = v7.field_0;
         v4 = v10;
         if v6 != 13 {
-            return struct80 {
+            return struct64 {
                 field_0: v6
-                field_8: <UNKNOWN>
-                field_24: *(&v11 as &i128)
-                field_32: *(&v13 as &i128)
-                field_48: <UNKNOWN>
+                field_8: *(&v2 as &i128)
+                field_24: v4
+                field_32: *(&v11 as &i128)
+                field_48: *(&v13 as &i128)
             };
         }
         *(&v15 as &i128) = *(&v2 as &i128);
@@ -120,12 +120,12 @@ fn uu_cp::handle_existing_dest(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: 
     }
     v6 = uu_cp::delete_dest_if_needed_and_allowed(a1, a2, a3, a4, a5, v26, a7);
     if v6 != 13 {
-        return struct72 {
+        return struct64 {
             field_0: v6
-            field_8: <UNKNOWN>
-            field_24: <UNKNOWN>
-            field_40: <UNKNOWN>
-            field_56: <UNKNOWN>
+            field_8: v6.field_8
+            field_24: *(&v6.field_24 as &i128)
+            field_40: *(&v12 as &i128)
+            field_56: v14
         };
     }
     return struct8 {

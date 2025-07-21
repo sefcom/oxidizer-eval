@@ -4,9 +4,9 @@ fn uu_df::Options::get_intersected_types(a1: i64, a2: i64, a3: i64, a4: i64) -> 
     let v1: struct16;  // [bp-0x80]
     let v2: u64;  // [bp-0x78]
     let v3: void*;  // [bp-0x70]
-    let v4: u128;  // [bp-0x68]
+    let v4: struct24;  // [bp-0x68]
     let v5: alloc::string::String;  // [bp-0x68]
-    let v6: u64;  // [bp-0x58]
+    let v6: struct24;  // [bp-0x58]
     let v7: u64;  // [bp-0x40]
     let v8: u64;  // [bp-0x38]
     let v10: u64;  // rax
@@ -27,15 +27,12 @@ fn uu_df::Options::get_intersected_types(a1: i64, a2: i64, a3: i64, a4: i64) -> 
             }
         } while ((v10 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v7), v10));
         v6 = v3;
-        memcpy(&v4, &v1, 16);
+        v4 = *(&v1.field_0 as &i128);
         if v3 {
             *((v11 + 16) as &void*) = v3;
             *(v11 as &i128) = *(&v1.field_0 as &i128);
             return;
         }
-    } else {
-        v6 = v3;
-        memcpy(&v4, &v0, 16);
     }
     *(v12 as &i64) = 0x8000000000000000;
     return;

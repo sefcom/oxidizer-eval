@@ -1,10 +1,10 @@
 fn uu_head::read_but_last_n_bytes() -> int {
     let v0: std::io::stdio::StderrLock;  // [bp-0x10070]
     let v1: struct24;  // [bp-0x10068]
-    let v2: u64;  // [bp-0x10060]
+    let v2: struct64;  // [bp-0x10060]
     let v3: void*;  // [bp-0x10058]
     let v4: u64;  // [bp-0x10050]
-    let v5: void*;  // [bp-0x10048]
+    let v5: struct24;  // [bp-0x10048]
     let v6: std::io::stdio::Stdout;  // [bp-0x10038]
     let v7: u458752;  // [bp-0x10030]
     let v10: u64;  // rsi

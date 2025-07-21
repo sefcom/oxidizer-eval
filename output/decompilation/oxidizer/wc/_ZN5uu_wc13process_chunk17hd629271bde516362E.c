@@ -1,14 +1,18 @@
-fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64) -> : struct16 {
+fn uu_wc::process_chunk(a1: i72, a2: i64, a3: i64) -> : struct16 {
     let a0: i64;  // rdi
-    let v0: u128;  // [bp-0x40]
-    let v2: alloc::borrow::Cow<str>;  // r12
+    let v0: core::slice::iter::Iter<u8>;  // [bp-0x40], Other Possible Types: struct16
+    let v2: core::option::Option<u32>;  // r12
     let v3: u64;  // r13
     let v5: u64;  // rdx
-    let v6: struct32;  // rax
+    let v6: u64;  // rax
     let v7: u64;  // rax
     let v8: core::option::Option<u32>;  // rax:rax
     let v9: core::option::Option<u32>;  // rax:rax
 
+    v0 = struct16 {
+        field_0: a1
+        field_8: a1 + a2
+    };
     v0 = core::slice::iter::Iter<u8> {
         ptr: core::ptr::non_null::NonNull<u8> {
             pointer: a1
@@ -35,10 +39,11 @@ LABEL_4bac8b:
                 }
                 v6 = (v5 as u32 < 127 ? (32 <= v5 as u32) as u8 as u64 : (v5 as u32 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v5 & 4294967295)));
             }
-        } while ((*(a3 as &alloc::borrow::Cow<str>) = v2, v9 = core::str::validations::next_code_point(&v0) as u128, v9 as i32));
+        } while ((*(a3 as &core::option::Option<u32>) = v2, v9 = core::str::validations::next_code_point(&v0) as u128, v9 as i32));
     }
-    return struct16 {
+    return struct24 {
         field_0: *(a0 as &i64) + a2
+        padding_8: <UNKNOWN>
         field_32: <UNKNOWN>
     };
 }

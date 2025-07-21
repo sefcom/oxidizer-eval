@@ -1,10 +1,10 @@
 {
   "decompilation": {
-    "_ZN7uu_sync6uumain17hd2557a8fa7275fe9E": "fn uu_sync::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_sync::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
-    "_ZN7uu_sync6uumain6uumain17h407f2f858c050bceE": "fn uu_sync::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0x3a8]\n    let v1: u192;  // [bp-0x3a8]\n    let v2: u64;  // [bp-0x3a0]\n    let v3: void*;  // [bp-0x398]\n    let v4: u64;  // [bp-0x390]\n    let v5: struct24;  // [bp-0x388], Other Possible Types: struct56\n    let v6: Result<struct56, struct16>;  // [bp-0x388], Other Possible Types: struct64\n    let v7: u128;  // [bp-0x378]\n    let v8: u128;  // [bp-0x368]\n    let v9: u128;  // [bp-0x358]\n    let v10: struct56;  // [bp-0x348]\n    let v11: u64;  // [bp-0x340]\n    let v12: struct24;  // [bp-0x310]\n    let v13: u128;  // [bp-0x308]\n    let v14: u192;  // [bp-0x2f8]\n    let v15: u128;  // [bp-0x2f8]\n    let v16: u128;  // [bp-0x2f8]\n    let v17: struct56;  // [bp-0x2f8]\n    let v18: u64;  // [bp-0x2e8]\n    let v19: u32;  // [bp-0x2e0]\n    let v22: i64;  // rax\n    let v23: u64;  // r15\n    let v24: u32;  // edx\n    let v25: u64;  // rax\n\n    uu_sync::uu_app(&v14);\n    v6 = clap_builder::builder::command::Command::try_get_matches_from(&v14, a0, a1);\n    match v6 {\n        Err(_) => {\n            return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v11);\n        },\n        Ok(v10) => {\n            v17 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v10, _ZN7uu_sync9ARG_FILES17h820dfc7d3384a8c3E.field_0, g_50f058.field_0);\n            v6 = clap_builder::parser::error::MatchesError::unwrap(_ZN7uu_sync9ARG_FILES17h820dfc7d3384a8c3E.field_0, g_50f058.field_0, &v17);\n            if v6.field_0 as i64 {\n                v16 as u512 = struct64 {\n                    field_0: v6.field_0\n                    field_16: v7\n                    field_32: v8\n                    field_48: v9\n                };\n                v12 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter_nested::SpecFromIterNested<T,I>>::from_iter(&v16 as u512);\n                v15 = v13;\n                if v12.field_0 as i64 != 0x8000000000000000 {\n                    v2 = v15;\n                    v0 = v12.field_0 as i64;\n                }\n            }\n            if ((!v3) as u8 as u8 & clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v10, _ZN7uu_sync7options4DATA17hcbeac84d6578fd4cE.field_0, g_50f048.field_0) as i8) {\n                v5 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n                v18 = v5.field_16;\n                v16 = v5.field_0;\n                v19 = 1;\n                v23 = alloc::boxed::Box<T>::new(&v16 as u512);\n                return v23;\n            }\n            v4 = _ZN7uu_sync7options4DATA17hcbeac84d6578fd4cE.field_0;\n            v14 = struct16 {\n                field_0: v2\n                field_8: v2 + v3 * 24\n            };\n            v22 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v14);\n            if v22 {\n                while (nix::fcntl::open(*((v22 + 8) as &i64), *((v22 + 16) as &i64), 0x800, 0) as i32 != 1 || v24 == 13 && !std::path::Path::is_dir(*((v22 + 8) as &i64), *((v22 + 16) as &i64)) as u8 || !((v23 = <nix::errno::consts::Errno as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v24 as u64, v22), v23))) {\n                    v22 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v14);\n                    if !v22 {\n                        goto LABEL_460606;\n                    }\n                }\n            }\nLABEL_460606:\n            if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v10, _ZN7uu_sync7options11FILE_SYSTEM17hd312cdc539073d0fE.field_0, g_50f038.field_0) as i8 {\n                v14 = v1;\n                v25 = uu_sync::syncfs(&v14);\n                goto LABEL_460671;\n            } else if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v10, v4, g_50f048.field_0) as i8 {\n                v14 = v1;\n                v25 = uu_sync::fdatasync(&v14);\nLABEL_460671:\n                v23 = v25;\n            } else {\n                v23 = uu_sync::sync();\n            }\n            return 0;\n        },\n    }\n}\n",
+    "_ZN7uu_sync6uumain17hd2557a8fa7275fe9E": "fn uu_sync::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: u128;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_sync::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    v3 = *(&v5.vec.buf.cap as &i128);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN7uu_sync6uumain6uumain17h407f2f858c050bceE": "fn uu_sync::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0x3a8]\n    let v1: struct24;  // [bp-0x3a8]\n    let v2: u128;  // [bp-0x3a0]\n    let v3: void*;  // [bp-0x398]\n    let v4: u64;  // [bp-0x390]\n    let v5: struct24;  // [bp-0x388], Other Possible Types: struct56\n    let v6: Result<struct56, struct16>;  // [bp-0x388], Other Possible Types: struct64\n    let v7: u128;  // [bp-0x378]\n    let v8: u128;  // [bp-0x368]\n    let v9: u128;  // [bp-0x358]\n    let v10: struct56;  // [bp-0x348]\n    let v11: u64;  // [bp-0x340]\n    let v12: struct24;  // [bp-0x310]\n    let v13: u128;  // [bp-0x308]\n    let v14: struct16;  // [bp-0x2f8], Other Possible Types: struct24, u8\n    let v15: u128;  // [bp-0x2f8]\n    let v16: u128;  // [bp-0x2f8]\n    let v17: struct56;  // [bp-0x2f8]\n    let v18: u64;  // [bp-0x2e8]\n    let v19: u32;  // [bp-0x2e0]\n    let v22: i64;  // rax\n    let v23: u64;  // r15\n    let v24: u32;  // edx\n    let v25: u64;  // rax\n\n    uu_sync::uu_app(&v14);\n    v6 = clap_builder::builder::command::Command::try_get_matches_from(&v14, a0, a1);\n    match v6 {\n        Err(_) => {\n            return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v11);\n        },\n        Ok(v10) => {\n            v17 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v10, _ZN7uu_sync9ARG_FILES17h820dfc7d3384a8c3E.field_0, g_50f058.field_0);\n            v6 = clap_builder::parser::error::MatchesError::unwrap(_ZN7uu_sync9ARG_FILES17h820dfc7d3384a8c3E.field_0, g_50f058.field_0, &v17);\n            if v6.field_0 as i64 {\n                v16 as u512 = struct64 {\n                    field_0: v6.field_0\n                    field_16: v7\n                    field_32: v8\n                    field_48: v9\n                };\n                v12 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter_nested::SpecFromIterNested<T,I>>::from_iter(&v16 as u512);\n                v15 = v13;\n                if v12.field_0 as i64 != 0x8000000000000000 {\n                    v2 = v15;\n                    v0 = v12.field_0 as i64;\n                }\n            }\n            if ((!v3) as u8 as u8 & clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v10, _ZN7uu_sync7options4DATA17hcbeac84d6578fd4cE.field_0, g_50f048.field_0) as i8) {\n                v5 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n                v18 = v5.field_16;\n                v16 = v5.field_0;\n                v19 = 1;\n                v23 = alloc::boxed::Box<T>::new(&v16 as u512);\n                return v23;\n            }\n            v4 = _ZN7uu_sync7options4DATA17hcbeac84d6578fd4cE.field_0;\n            v14 = struct16 {\n                field_0: v2\n                field_8: v2 + v3 * 24\n            };\n            v22 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v14);\n            if v22 {\n                while (nix::fcntl::open(*((v22 + 8) as &i64), *((v22 + 16) as &i64), 0x800, 0) as i32 != 1 || v24 == 13 && !std::path::Path::is_dir(*((v22 + 8) as &i64), *((v22 + 16) as &i64)) as u8 || !((v23 = <nix::errno::consts::Errno as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v24 as u64, v22), v23))) {\n                    v22 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v14);\n                    if !v22 {\n                        goto LABEL_460606;\n                    }\n                }\n            }\nLABEL_460606:\n            if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v10, _ZN7uu_sync7options11FILE_SYSTEM17hd312cdc539073d0fE.field_0, g_50f038.field_0) as i8 {\n                v14 = v1;\n                v25 = uu_sync::syncfs(&v14);\n                goto LABEL_460671;\n            } else if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v10, v4, g_50f048.field_0) as i8 {\n                v14 = v1;\n                v25 = uu_sync::fdatasync(&v14);\nLABEL_460671:\n                v23 = v25;\n            } else {\n                v23 = uu_sync::sync();\n            }\n            return 0;\n        },\n    }\n}\n",
     "_ZN7uu_sync8platform7do_sync17h09501295c146f71cE": "fn uu_sync::platform::do_sync() -> void {\n    sync();\n    return;\n}\n",
     "_ZN7uu_sync8platform9do_syncfs17h830654e47a49af82E": "fn uu_sync::platform::do_syncfs(a0: i64) -> long long {\n    let v0: Option<struct24>;  // [sp-0x90]\n    let v1: struct24;  // [bp-0x90]\n    let v2: struct24;  // [bp-0x78]\n    let v3: struct32;  // [bp-0x60]\n    let v4: Result<struct4, struct8>;  // [bp-0x40]\n    let v6: u32;  // eax\n\n    v3 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a0);\n    v0 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v3);\n    if let Some(v2) = v0 {\n        do {\n            v4 = std::fs::File::open(&v2);\n            v6 = core::result::Result<T,E>::unwrap(&v4, \"src/uu/sync/src/sync.rs\") as i32;\n            syscall(306);\n            v0 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v3);\n        } while (v0 as i64 != 0x8000000000000000);\n    }\n    return;\n}\n",
-    "_ZN7uu_sync8platform12do_fdatasync17h96a8ab862809c875E": "fn uu_sync::platform::do_fdatasync(a0: i64) -> long long {\n    let v0: i8;  // [bp-0x90]\n    let v1: u128;  // [bp-0x90]\n    let v2: u64;  // [bp-0x80]\n    let v3: u128;  // [bp-0x78], Other Possible Types: Result<struct4, struct8>\n    let v4: u64;  // [bp-0x68]\n    let v5: Option<struct24>;  // [bp-0x60]\n    let v6: u8;  // [bp-0x40]\n    let v8: u64;  // rdx\n    let v9: u32;  // eax\n\n    <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a0, v8);\n    v5 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(v8);\n    if *(&v0 as &i64) != 0x8000000000000000 {\n        do {\n            v4 = v2;\n            v3 = v1;\n            v3 = std::fs::File::open(v8);\n            v9 = core::result::Result<T,E>::unwrap(&v6, \"src/uu/sync/src/sync.rs\") as i32;\n            syscall(75);\n            v5 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(v8);\n        } while (v1 as i64 != 0x8000000000000000);\n    }\n    return;\n}\n",
+    "_ZN7uu_sync8platform12do_fdatasync17h96a8ab862809c875E": "fn uu_sync::platform::do_fdatasync(a0: i64) -> long long {\n    let v0: i8;  // [bp-0x90]\n    let v1: u128;  // [bp-0x90]\n    let v2: u64;  // [bp-0x80]\n    let v3: Result<struct4, struct8>;  // [bp-0x78], Other Possible Types: u128\n    let v4: u64;  // [bp-0x68]\n    let v5: Option<struct24>;  // [bp-0x60]\n    let v6: u8;  // [bp-0x40]\n    let v8: u64;  // rdx\n    let v9: u32;  // eax\n\n    <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a0, v8);\n    v5 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(v8);\n    if *(&v0 as &i64) != 0x8000000000000000 {\n        do {\n            v4 = v2;\n            v3 = v1;\n            v3 = std::fs::File::open(v8);\n            v9 = core::result::Result<T,E>::unwrap(&v6, \"src/uu/sync/src/sync.rs\") as i32;\n            syscall(75);\n            v5 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(v8);\n        } while (v1 as i64 != 0x8000000000000000);\n    }\n    return;\n}\n",
     "_ZN7uu_sync6uu_app17hbd9026fe07cb3ff7E": "fn uu_sync::uu_app(a0: &struct712) -> long long {\n    let v0: struct437;  // [bp-0x800]\n    let v1: alloc::string::String;  // [bp-0x544]\n    let v2: u32;  // [bp-0x53c]\n    let v3: u8;  // [bp-0x538]\n    let v4: u8;  // [bp-0x2e8]\n    let v5: u64;  // [bp-0x2c]\n    let v6: i8;  // [bp-0x24]\n    let v9: u64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);\n    clap_builder::builder::command::Command::version(&v4, &v0);\n    clap_builder::builder::command::Command::about(&v0, &v4);\n    uucore::format_usage(&v3, \"{} [OPTION]... FILE...\");\n    clap_builder::builder::command::Command::override_usage(&v4, &v0, &v3);\n    memcpy(&v0, &v4, 700);\n    v1 = 549755814016 | v5;\n    v2 = *(&v6 as &i32);\n    clap_builder::builder::arg::Arg::new(&v4, \"file-system\");\n    clap_builder::builder::arg::Arg::short(&v3, &v4, 102);\n    clap_builder::builder::arg::Arg::long(&v4, &v3, \"file-system\");\n    clap_builder::builder::arg::Arg::conflicts_with(&v3, &v4, \"data\");\n    clap_builder::builder::arg::Arg::help(&v4, &v3, \"sync the file systems that contain the files (Linux and Windows only)\");\n    clap_builder::builder::arg::Arg::action(&v3, &v4, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v0, &v3);\n    clap_builder::builder::arg::Arg::new(&v0, \"data\");\n    clap_builder::builder::arg::Arg::short(&v3, &v0, 100);\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"data\");\n    clap_builder::builder::arg::Arg::conflicts_with(&v3, &v0, \"file-system\");\n    clap_builder::builder::arg::Arg::help(&v0, &v3, \"sync only file data, no unneeded metadata (Linux only)\");\n    clap_builder::builder::arg::Arg::action(&v3, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v0, &v4, &v3);\n    clap_builder::builder::arg::Arg::new(&v4, \"files\");\n    clap_builder::builder::arg::Arg::action(&v3, &v4, 1);\n    clap_builder::builder::arg::Arg::value_hint(&v4, &v3);\n    clap_builder::builder::command::Command::arg(a0, &v0, &v4);\n    return a0;\n}\n",
     "_ZN7uu_sync4sync17h1ff0f9205f7ca55dE": "fn uu_sync::sync() -> long long {\n    let v0: u64;  // [bp-0x8]\n    let v2: u64;  // rax\n\n    v0 = v2;\n    uu_sync::platform::do_sync();\n    return 0;\n}\n",
     "_ZN7uu_sync6syncfs17he57a0533702037d5E": "fn uu_sync::syncfs(a0: &struct24) -> long long {\n    let v0: u64;  // [bp-0x8]\n    let v2: u64;  // rax\n\n    v0 = v2;\n    uu_sync::platform::do_syncfs(a0);\n    return 0;\n}\n",
@@ -105,7 +105,7 @@
   },
   "variable_types": {
     "_ZN7uu_sync6uumain17hd2557a8fa7275fe9E": {
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -126,7 +126,7 @@
       "stack_96": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_112": [
@@ -139,23 +139,15 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_72": [
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -165,19 +157,7 @@
     "_ZN7uu_sync6uumain6uumain17h407f2f858c050bceE": {
       "stack_176": [
         [
-          "primitive",
-          24
-        ],
-        [
-          "primitive",
-          24
-        ],
-        [
-          "primitive",
-          1
-        ],
-        [
-          "primitive",
+          "struct",
           16
         ],
         [
@@ -200,15 +180,7 @@
         ],
         [
           "struct",
-          64
-        ],
-        [
-          "struct",
           24
-        ],
-        [
-          "struct",
-          56
         ]
       ],
       "stack_104": [
@@ -256,10 +228,6 @@
       "stack_8": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
           16
         ]
       ],
@@ -269,18 +237,14 @@
           8
         ],
         [
-          "primitive",
-          24
-        ],
-        [
-          "primitive",
+          "struct",
           24
         ]
       ],
       "stack_16": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_192": [
@@ -295,7 +259,7 @@
           4
         ]
       ],
-      "reg_136": [
+      "reg_r15": [
         [
           "primitive",
           8
@@ -307,7 +271,7 @@
           8
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -317,7 +281,7 @@
           8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           4
@@ -333,10 +297,6 @@
         ]
       ],
       "stack_8": [
-        [
-          "Option",
-          24
-        ],
         [
           "Option",
           24
@@ -358,7 +318,7 @@
           16
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           4
@@ -366,17 +326,13 @@
       ]
     },
     "_ZN7uu_sync8platform12do_fdatasync17h96a8ab862809c875E": {
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
         ]
       ],
       "stack_56": [
-        [
-          "Option",
-          24
-        ],
         [
           "Option",
           24
@@ -406,15 +362,11 @@
       ],
       "stack_32": [
         [
-          "primitive",
-          16
-        ],
-        [
           "Result",
           16
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           4
@@ -431,10 +383,10 @@
       "stack_8": [
         [
           "struct",
-          466
+          448
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -484,7 +436,7 @@
           8
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -498,7 +450,7 @@
           8
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -512,7 +464,7 @@
           8
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8

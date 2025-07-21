@@ -1,9 +1,6 @@
-fn uu_pr::lines_to_read_for_page(a0: void*) -> u64 {
-    let v2: u64;  // rdx
+fn uu_pr::lines_to_read_for_page(a0: i64) -> long long {
+    let v1: u64;  // rdx
 
-    v2 = 1;
-    if a0->field_100 != 0x8000000000000000 {
-        v2 = a0->field_120;
-    }
-    return v2 * (a0->field_138 >> (a0->field_140 & 63));
+    v1 = 1;
+    return v1 * (*((a0 + 312) as &i64) >> (*((a0 + 320) as &i8) & 63));
 }

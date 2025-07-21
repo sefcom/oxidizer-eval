@@ -3,7 +3,7 @@ fn uu_base32::base_common::base_app(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64)
     let v1: u64;  // [bp-0x838]
     let v2: u64;  // [bp-0x830]
     let v3: u8;  // [bp-0x828]
-    let v4: u8;  // [bp-0x810], Other Possible Types: struct24
+    let v4: struct24;  // [bp-0x810], Other Possible Types: u64
     let v5: u64;  // [bp-0x808]
     let v6: i64;  // [bp-0x800]
     let v7: u64;  // [bp-0x7f8]

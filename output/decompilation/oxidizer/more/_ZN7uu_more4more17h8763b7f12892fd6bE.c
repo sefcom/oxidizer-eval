@@ -3,7 +3,7 @@ fn uu_more::more(a0: i64, a1: i64, a2: i64, a3: i8, a4: i64, a5: i64, a6: i64, a
     let v8: u64;  // [bp-0xc0]
     let v9: u8;  // [bp-0xb8]
     let v10: u32;  // [bp-0xac]
-    let v11: Result<struct4, struct8>;  // [bp-0xa8], Other Possible Types: struct68
+    let v11: struct10;  // [bp-0xa8], Other Possible Types: struct68
     let v17: u64;  // [bp-0xa0]
     let v18: u32;  // [bp-0x98]
     let v20: u16;  // [bp-0x68]
@@ -12,7 +12,7 @@ fn uu_more::more(a0: i64, a1: i64, a2: i64, a3: i8, a4: i64, a5: i64, a6: i64, a
     let v24: u8;  // bpl
     let v26: core::result::Result<(), std::io::error::Error>;  // rax
     let v27: struct32;  // r15
-    let v28: core::result::Result<(), std::io::error::Error>;  // rax
+    let v28: Result<struct40, struct16>;  // rax
     let v29: u64;  // 4096
     let v31: u64;  // rsi
     let v32: u64;  // 4096
@@ -52,7 +52,7 @@ LABEL_4dce5e:
             }
 LABEL_4dcd6f:
             v28 = crossterm::command::write_command_ansi(a2, 4);
-            if let Ok(_) = v28 {
+            if !v28 {
                 v28 = <std::io::stdio::Stdout as std::io::Write>::flush(a2);
             }
             core::result::Result<T,E>::unwrap(v28, "src/uu/more/src/more.rs");

@@ -13,10 +13,10 @@ fn uu_wc::count_fast::count_bytes_fast(a0: i64) -> long long {
     let v14: u64;  // r14
     let v17: u64;  // rdx
     let v18: u64;  // r14
-    let v19: u64;  // r12
+    let v19: struct32;  // r12
     let v20: u64;  // rdx
-    let v21: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
-    let v22: core::result::Result<u64, std::io::error::Error>;  // rax:rdx
+    let v21: core::result::Result<u64, std::io::error::Error>;  // rax:rdx
+    let v22: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
 
     v7 = 0;
     v6 = 0;
@@ -30,15 +30,15 @@ LABEL_4b8713:
         do {
             v18 = v20;
             loop {
-                v21 = <std::fs::File as std::io::Read>::read(a0, &v1, 0x4000);
-                if let Ok(_) = v21 {
+                v22 = <std::fs::File as std::io::Read>::read(a0, &v1, 0x4000);
+                if let Ok(_) = v22 {
                     break;
                 }
-                if std::io::error::Error::kind(*((&v21 as &char + 8) as &i64)) != 35 {
+                if std::io::error::Error::kind(*((&v22 as &char + 8) as &i64)) != 35 {
                     return v18;
                 }
             }
-        } while (*((&v21 as &char + 8) as &i64));
+        } while (*((&v22 as &char + 8) as &i64));
     } else {
         v12 = *(&v2 as &i32);
         if !(*(a0 as &i32) > 0 && v12 < 0 && (v14 = v3, v14 > 0)) {
@@ -58,7 +58,7 @@ LABEL_4b8834:
             }
 LABEL_4b87e7:
             v19 = *(&v4 as &i64) + 1;
-            v22 = <std::fs::File as std::io::Seek>::seek(a0, 0, v14 - (!(v14 | v19) >> 32 ? ((0 CONCAT v14) % (v19 & 4294967295) CONCAT (0 CONCAT v14) / (v19 & 4294967295)) >> 32 : ((v14 >> 63 CONCAT v14) % v19 CONCAT (v14 >> 63 CONCAT v14) / v19) >> 64));
+            v21 = <std::fs::File as std::io::Seek>::seek(a0, 0, v14 - (!(v14 | v19) >> 32 ? (((0 CONCAT v14) % (v19 & 4294967295)) as u32 CONCAT ((0 CONCAT v14) / (v19 & 4294967295)) as u32) >> 32 : ((v14 >> 63 CONCAT v14) % v19 as i256 CONCAT (v14 >> 63 CONCAT v14) / v19 as i256) >> 64));
             goto LABEL_4b8834;
         }
     }

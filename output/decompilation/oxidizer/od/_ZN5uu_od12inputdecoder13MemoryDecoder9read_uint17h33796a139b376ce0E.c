@@ -1,11 +1,11 @@
 fn uu_od::inputdecoder::MemoryDecoder::read_uint(a0: i64, a1: i64, a2: i64) -> long long {
     let v0: u64;  // [bp-0x50]
     let v2: i64;  // rcx
-    let v3: struct32;  // ebx
+    let v3: core::fmt::Arguments;  // ebx
     let v4: u64;  // rax
-    let v5: struct32;  // ebx
+    let v5: core::fmt::Arguments;  // ebx
     let v6: struct24;  // rax
-    let v7: struct32;  // ebx
+    let v7: core::fmt::Arguments;  // ebx
     let v8: core::option::Option<&str>;  // rax
     let v9: u64;  // rdx
     let v10: u32;  // eax

@@ -1,7 +1,7 @@
 fn uu_ls::display_len_or_rdev(a1: i64, a2: i64, a3: i8) -> : struct48 {
     let a0: i64;  // rsi
     let v0: struct24;  // [bp-0x40], Other Possible Types: u32
-    let v1: struct8;  // [bp-0x3c], Other Possible Types: struct24
+    let v1: struct24;  // [bp-0x3c], Other Possible Types: struct8
     let v2: u128;  // [bp-0x38]
     let v3: u64;  // [bp-0x28]
     let v4: u128;  // [bp-0x20]
@@ -9,7 +9,7 @@ fn uu_ls::display_len_or_rdev(a1: i64, a2: i64, a3: i8) -> : struct48 {
     let v7: u64;  // rax
     let v9: i64;  // rdi
     let v10: u64;  // rax
-    let v11: u64;  // rdx
+    let v11: struct32;  // rdx
     let v12: i64;  // rdi
 
     if (0xb000 & *((a0 + 56) as &i32) | 0x4000) != 0x6000 {

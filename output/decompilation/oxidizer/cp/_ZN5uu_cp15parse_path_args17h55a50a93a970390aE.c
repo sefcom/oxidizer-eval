@@ -1,7 +1,7 @@
 fn uu_cp::parse_path_args(a1: &struct24, a2: i64) -> : struct64 {
     let a0: i64;  // rsi
     let v0: i64;  // [bp-0x100]
-    let v1: u128;  // [bp-0xf8], Other Possible Types: struct24, struct8
+    let v1: alloc::raw_vec::Cap;  // [bp-0xf8], Other Possible Types: struct24, u64
     let v2: std::path::Components;  // [bp-0xf8]
     let v3: u64;  // [bp-0xf0]
     let v4: i64;  // [bp-0xe8], Other Possible Types: u64
@@ -9,14 +9,14 @@ fn uu_cp::parse_path_args(a1: &struct24, a2: i64) -> : struct64 {
     let v6: void*;  // [bp-0xd8], Other Possible Types: u64
     let v7: u64;  // [bp-0xd0]
     let v8: i8;  // [bp-0xc8]
-    let v9: u64;  // [bp-0xb0], Other Possible Types: std::path::PathBuf
+    let v9: std::path::PathBuf;  // [bp-0xb0], Other Possible Types: u64
     let v10: u64;  // [bp-0xa8]
     let v11: u64;  // [bp-0xa0]
-    let v12: u64;  // [bp-0x98]
+    let v12: u128;  // [bp-0x98]
     let v13: u128;  // [bp-0x90]
     let v14: u64;  // [bp-0x88]
     let v15: i64;  // [bp-0x78]
-    let v16: u128;  // [bp-0x70]
+    let v16: struct16;  // [bp-0x70]
     let v18: u64;  // [bp-0x50]
     let v19: u128;  // [bp-0x48]
     let v20: i8;  // [bp-0x38]
@@ -87,6 +87,10 @@ LABEL_502fc4:
                         field_0: <&mut alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a0)
                         field_8: v34
                     };
+                    v16 = struct16 {
+                        field_0: <&mut alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a0)
+                        field_8: v34
+                    };
                     v35 = <core::slice::iter::IterMut<T> as core::iter::traits::iterator::Iterator>::next(&v16);
                     if v35 {
                         do {
@@ -105,7 +109,7 @@ LABEL_502fc4:
             v38 = *(v32 as &i128);
             v1 = v38;
             v7 = v14;
-            memcpy(&v2 as u8, &v12, 16);
+            v5 = *(&v12 as &i128);
             *((v15 + 8) as &u128) = v38;
             *((v15 + 24) as &u64) = v4;
             *((v15 + 32) as &u64) = v5;

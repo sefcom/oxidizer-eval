@@ -6,11 +6,10 @@ fn uu_head::take::TakeAllBut<I>::new(a1: i64, a2: i8, a3: i64) -> : struct49 {
     let v3: core::option::Option<(usize, char)>;  // [bp-0x78]
     let v4: u64;  // [bp-0x68]
     let v5: struct24;  // [bp-0x60]
-    let v6: u192;  // [bp-0x60]
-    let v7: u64;  // [bp-0x50]
-    let v8: u128;  // [bp-0x48]
-    let v9: u64;  // [bp-0x38]
-    let v11: void*;  // r13
+    let v6: struct24;  // [bp-0x60]
+    let v7: struct24;  // [bp-0x60]
+    let v9: struct24;  // [bp-0x48]
+    let v11: struct16;  // r13
     let v12: i64;  // rdi
 
     v0 = a0;
@@ -20,10 +19,10 @@ fn uu_head::take::TakeAllBut<I>::new(a1: i64, a2: i8, a3: i64) -> : struct49 {
     v4 = a2;
     if a2 {
         do {
-            vvar_136{stack -96} = struct24 OrderedDict({0: 𝜙@128b [((4998233, None), vvar_114{stack -96}), ((4998125, None), None)], 16: 𝜙@64b [((4998233, None), vvar_116{stack -80}), ((4998125, None), None)]})
+            vvar_138{stack -96} = struct24 OrderedDict({0: 𝜙@128b [((4998233, None), vvar_114{stack -96}), ((4998125, None), None)], 16: 𝜙@64b [((4998233, None), vvar_116{stack -80}), ((4998125, None), None)]})
             v11 = <usize as core::iter::range::Step>::forward_unchecked(v11, a0);
             <uucore::features::lines::Lines<B> as core::iter::traits::iterator::Iterator>::next(&v6, &v0);
-        } while (v6 as i64 != 9223372036854775809 && (v9 = v7, v8 = v6 as i128, v5 = uucore::features::ringbuffer::RingBuffer<T>::push_back(&v1, &v8), v11 < a2 as u64));
+        } while (v6.field_0 as i64 != 9223372036854775809 && (v9 = v7, v5 = uucore::features::ringbuffer::RingBuffer<T>::push_back(&v1, &v9), v11 < a2 as u64));
     }
     *((v12 + 32) as &u64) = v4;
     *((v12 + 16) as &i128) = 0;

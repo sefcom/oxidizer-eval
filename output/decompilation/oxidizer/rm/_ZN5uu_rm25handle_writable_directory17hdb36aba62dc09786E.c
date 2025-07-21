@@ -1,12 +1,12 @@
 fn uu_rm::handle_writable_directory(a0: i64, a1: i64, a2: i8, a3: i8) -> long long {
-    let v1: u64;  // [bp-0x58], Other Possible Types: core::option::Option<&std::path::Path>
-    let v2: u64;  // [bp-0x50]
+    let v1: core::option::Option<&std::path::Path>;  // [bp-0x58], Other Possible Types: u64
+    let v2: core::fmt::Arguments;  // [bp-0x50], Other Possible Types: u64
     let v3: u64;  // [bp-0x48]
     let v4: u8;  // [bp-0x40]
-    let v5: u64;  // [bp-0x38]
-    let v7: u64;  // rdx
+    let v5: std::io::stdio::Stderr;  // [bp-0x38]
+    let v7: core::fmt::Arguments;  // rdx
     let v8: u64;  // rax
-    let v9: u64;  // rdx
+    let v9: core::fmt::Arguments;  // rdx
 
     if a3 >= 0 {
         v1 = uucore::util_name();

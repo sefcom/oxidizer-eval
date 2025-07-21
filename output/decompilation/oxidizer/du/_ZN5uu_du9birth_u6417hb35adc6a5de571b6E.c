@@ -1,5 +1,5 @@
 fn uu_du::birth_u64(a0: i64) -> long long {
-    let v0: u64;  // [bp-0x28], Other Possible Types: core::result::Result<core::time::Duration, std::time::SystemTimeError>
+    let v0: core::result::Result<core::time::Duration, std::time::SystemTimeError>;  // [bp-0x28], Other Possible Types: u8
     let v1: i8;  // [bp-0x20]
     let v2: u64;  // [bp-0x10]
     let v3: u32;  // [bp-0x8]

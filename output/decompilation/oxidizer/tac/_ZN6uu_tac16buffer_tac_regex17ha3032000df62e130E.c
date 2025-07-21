@@ -3,10 +3,10 @@ fn uu_tac::buffer_tac_regex(a0: i64, a1: i64, a2: i64, a3: i64, a4: i8) -> long 
     let v1: u64;  // [bp-0x90]
     let v2: u64;  // [bp-0x88]
     let v3: u64;  // [bp-0x80]
-    let v4: u64;  // [bp-0x58]
+    let v4: std::io::stdio::Stderr;  // [bp-0x58]
     let v5: struct32;  // [bp-0x50]
     let v6: u64;  // [bp-0x40]
-    let v8: u64;  // r13, Other Possible Types: void*
+    let v8: void*;  // r13, Other Possible Types: u64
     let v9: u64;  // 4096
     let v10: u64;  // 4096
     let v11: u64;  // 4096
@@ -20,7 +20,7 @@ fn uu_tac::buffer_tac_regex(a0: i64, a1: i64, a2: i64, a3: i64, a4: i8) -> long 
     let v21: u64;  // rdx
     let v22: u64;  // r15
     let v23: u64;  // r13
-    let v24: u64;  // rax
+    let v24: core::fmt::rt::Argument;  // rax
     let v25: core::result::Result<(), std::io::error::Error>;  // rax
     let v27: u64;  // rsi
     let v29: u64;  // r15

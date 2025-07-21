@@ -1,12 +1,12 @@
-fn uu_sort::chunks::Chunk::try_new(a1: i64, a2: &struct24) -> Result<struct16, struct16> {
+fn uu_sort::chunks::Chunk::try_new(a1: &struct24, a2: &struct120) -> : struct16 {
     let a0: i64;  // rsi
     let v0: Result<struct96, struct24>;  // [bp-0xf8]
-    let v1: u128;  // [bp-0xe8]
-    let v2: u128;  // [bp-0xd8]
+    let v1: core::fmt::rt::Argument;  // [bp-0xe8]
+    let v2: struct16;  // [bp-0xd8]
     let v3: u128;  // [bp-0xc8]
-    let v4: u128;  // [bp-0xb8]
+    let v4: core::fmt::Arguments;  // [bp-0xb8]
     let v5: u128;  // [bp-0xa8]
-    let v6: u960;  // [bp-0x98]
+    let v6: struct120;  // [bp-0x98]
     let v8: core::result::Result<(), std::io::error::Error>;  // rax
     let v9: i64;  // r14
     let v10: i64;  // rdi
@@ -38,13 +38,13 @@ fn uu_sort::chunks::Chunk::try_new(a1: i64, a2: &struct24) -> Result<struct16, s
                 Ok(_) => {
                     v11 = v9 + 24;
                     *((v11 + 80) as &u128) = v5;
-                    *((v11 + 64) as &u128) = v4;
+                    *((v11 + 64) as &core::fmt::Arguments) = v4;
                     v12 = v0 as i128;
                     *((v11 + 48) as &u128) = v3;
-                    *((v11 + 32) as &u128) = v2;
-                    *((v11 + 16) as &u128) = v1;
+                    *((v11 + 32) as &struct16) = v2;
+                    *((v11 + 16) as &core::fmt::rt::Argument) = v1;
                     *(v11 as &u128) = v12;
-                    *((v13 + 8) as &struct_0 *) = v9;
+                    *((v13 + 8) as &struct_1 *) = v9;
                     *(v13 as &i64) = 0;
                     return;
                 },

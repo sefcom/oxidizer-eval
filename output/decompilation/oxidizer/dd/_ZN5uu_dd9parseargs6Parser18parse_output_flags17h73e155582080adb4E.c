@@ -19,7 +19,7 @@ fn uu_dd::parseargs::Parser::parse_output_flags(a1: i64, a2: i64, a3: i32) -> : 
     let v16: u64;  // [bp-0x98]
     let v17: u128;  // [bp-0x90]
     let v18: u64;  // [bp-0x80]
-    let v19: u440;  // [bp-0x78]
+    let v19: core::str::iter::SplitInternal<char>;  // [bp-0x78]
     let v20: core::str::pattern::CharSearcher;  // [bp-0x68]
     let v21: u16;  // [bp-0x38]
     let v23: core::option::Option<&str>;  // rax
@@ -43,9 +43,9 @@ fn uu_dd::parseargs::Parser::parse_output_flags(a1: i64, a2: i64, a3: i32) -> : 
             }
             finger: <UNKNOWN>
             finger_back: <UNKNOWN>
+            utf8_encoded: <UNKNOWN>
             needle: <UNKNOWN>
             utf8_size: <UNKNOWN>
-            utf8_encoded: <UNKNOWN>
         }
         finished: <UNKNOWN>
     };

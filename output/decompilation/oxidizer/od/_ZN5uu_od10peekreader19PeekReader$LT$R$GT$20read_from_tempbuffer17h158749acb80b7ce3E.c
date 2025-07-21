@@ -1,8 +1,12 @@
 fn uu_od::peekreader::PeekReader<R>::read_from_tempbuffer(a0: i64, a1: i64, a2: i64) -> long long {
-    let v0: u128;  // [bp-0x48]
+    let v0: struct16;  // [bp-0x48]
     let v1: struct40;  // [bp-0x38]
     let v3: u64;  // rax
 
+    v0 = struct16 {
+        field_0: a1
+        field_8: a2
+    };
     v0 = struct16 {
         field_0: a1
     };

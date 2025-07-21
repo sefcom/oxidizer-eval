@@ -1,5 +1,5 @@
 fn uu_pwd::logical_path::looks_reasonable(a0: i64, a1: i64) -> long long {
-    let v0: std::path::Components;  // [bp-0x2e0], Other Possible Types: void*
+    let v0: void*;  // [bp-0x2e0], Other Possible Types: std::path::Components
     let v1: alloc::string::String;  // [bp-0x2d8]
     let v2: struct40;  // [bp-0x2d0]
     let v4: u16;  // [bp-0x2a8]

@@ -1,7 +1,7 @@
 fn uu_fmt::linebreak::compute_demerits(a0: i64, a1: i64, a2: i64) -> double {
     let v0: u128;  // [bp-0x18]
     let v5: u128;  // xmm3
-    let v6: core::option::Option<(usize, char)>;  // rdi
+    let v6: struct56;  // rdi
     let v14: void*;  // rcx
     let v16: struct41;  // xmm2
     let v17: u128;  // xmm1

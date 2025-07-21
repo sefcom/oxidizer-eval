@@ -6,7 +6,7 @@ fn uu_uniq::handle_preceding_options(a0: i64, a1: i64, a2: i64, a3: i64) -> long
     let v5: void*;  // r13
     let v6: u32;  // edx
     let v7: u64;  // rdx
-    let v8: u64;  // rax
+    let v8: struct40;  // rax
     let v9: &str;  // rax:rdx
 
     v3 = a2;
@@ -27,7 +27,7 @@ fn uu_uniq::handle_preceding_options(a0: i64, a1: i64, a2: i64, a3: i64) -> long
     v0 = 0;
     v9 = core::char::methods::encode_utf8_raw(45, &v0, v7);
     v8 = core::slice::<impl [T]>::starts_with();
-    if v8 {
+    if v8 as u8 {
         return v8;
     }
     *(a3 as &i8) = 0;

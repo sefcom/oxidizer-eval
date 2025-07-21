@@ -1,6 +1,6 @@
 fn uu_cp::copy_attributes(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64) -> : struct64 {
     let a0: i64;  // rdi
-    let v0: u192;  // [bp-0x230]
+    let v0: struct24;  // [bp-0x230], Other Possible Types: u64
     let v1: u64;  // [bp-0x228]
     let v2: u64;  // [bp-0x220]
     let v3: u64;  // [bp-0x220]
@@ -12,7 +12,7 @@ fn uu_cp::copy_attributes(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64) -> : stru
     let v9: u64;  // [bp-0x1f0]
     let v10: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x1e8]
     let v12: Option<struct64>;  // [bp-0x1e8]
-    let v13: u512;  // [bp-0x1e8], Other Possible Types: Option<struct64>
+    let v13: Option<struct64>;  // [bp-0x1e8], Other Possible Types: u512
     let v15: u64;  // [bp-0x138]
     let v16: u64;  // [bp-0x130]
     let v17: u64;  // [bp-0x128]
@@ -20,7 +20,7 @@ fn uu_cp::copy_attributes(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64) -> : stru
     let v19: u128;  // [bp-0xf8]
     let v20: u64;  // [bp-0xe0]
     let v21: u64;  // [bp-0xd8]
-    let v22: u64;  // [bp-0xd0]
+    let v22: u128;  // [bp-0xd0]
     let v23: u8;  // [bp-0xc8]
     let v24: u8;  // [bp-0xc0]
     let v26: u128;  // xmm0
@@ -45,7 +45,7 @@ fn uu_cp::copy_attributes(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64) -> : stru
     v17 = v8;
     v18 = v9;
     v10 = std::fs::symlink_metadata(a1, a2);
-    memcpy(&v19, &v10, 16);
+    v19 = *((&v10 as &char + 16) as &i128);
     memcpy(&v24, &v10 as u64, 144);
     v20 = &g_5b5e68;
     v21 = v2;
@@ -77,12 +77,12 @@ fn uu_cp::copy_attributes(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64) -> : stru
             v13 = uu_cp::handle_preserve(*((a5 + 2) as &i8), *((a5 + 3) as &i8) as u8 as u64, &v0);
             v29 = *((&v13 as &char + 8) as &i128);
             v30 = *((&v13 as &char + 24) as &i128);
-            return struct72 {
+            return struct64 {
                 field_0: &g_5b5e68
-                field_8: <UNKNOWN>
-                field_24: <UNKNOWN>
-                field_40: <UNKNOWN>
-                field_56: <UNKNOWN>
+                field_8: v29
+                field_24: v30
+                field_40: *((&v13 as &char + 40) as &i128)
+                field_56: *((&v13 as &char + 56) as &i64)
             };
         },
     }

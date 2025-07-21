@@ -1,8 +1,8 @@
 {
   "decompilation": {
-    "_ZN11uu_readlink6uumain17h3356d70105c5f17bE": "fn uu_readlink::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_readlink::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN11uu_readlink6uumain17h3356d70105c5f17bE": "fn uu_readlink::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: u128;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_readlink::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    v3 = *(&v5.vec.buf.cap as &i128);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
     "_ZN11uu_readlink6uu_app17h387e9546761b38a6E": "fn uu_readlink::uu_app(a0: &struct712) -> long long {\n    let v0: u8;  // [bp-0xa50]\n    let v1: struct437;  // [bp-0x800]\n    let v2: u64;  // [bp-0x544]\n    let v3: u32;  // [bp-0x53c]\n    let v4: u8;  // [bp-0x538]\n    let v5: u64;  // [bp-0x27c]\n    let v6: u32;  // [bp-0x274]\n    let v7: u8;  // [bp-0x270]\n    let v10: u64;  // rdx\n\n    v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);\n    clap_builder::builder::command::Command::version(&v4, &v1);\n    clap_builder::builder::command::Command::about(&v1, &v4);\n    uucore::format_usage(&v0, \"{} [OPTION]... [FILE]...\");\n    clap_builder::builder::command::Command::override_usage(&v4, &v1, &v0);\n    memcpy(&v1, &v4, 700);\n    v2 = 549755814016 | v5;\n    v3 = v6;\n    clap_builder::builder::arg::Arg::new(&v4, \"canonicalize\");\n    clap_builder::builder::arg::Arg::short(&v0, &v4, 102);\n    clap_builder::builder::arg::Arg::long(&v4, &v0, \"canonicalize\");\n    clap_builder::builder::arg::Arg::help(&v0, &v4, \"canonicalize by following every symlink in every component of the given name recursively; all but the last component must exist\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v1, &v7);\n    clap_builder::builder::arg::Arg::new(&v1, \"canonicalize-existing\");\n    clap_builder::builder::arg::Arg::short(&v0, &v1, 101);\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"canonicalize-existing\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"canonicalize by following every symlink in every component of the given name recursively, all components must exist\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v1, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"canonicalize-missing\");\n    clap_builder::builder::arg::Arg::short(&v0, &v4, 109);\n    clap_builder::builder::arg::Arg::long(&v4, &v0, \"canonicalize-missing\");\n    clap_builder::builder::arg::Arg::help(&v0, &v4, \"canonicalize by following every symlink in every component of the given name recursively, without requirements on components existence\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v1, &v7);\n    clap_builder::builder::arg::Arg::new(&v1, \"no-newline\");\n    clap_builder::builder::arg::Arg::short(&v0, &v1, 110);\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"no-newline\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"do not output the trailing delimiter\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v1, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"quiet\");\n    clap_builder::builder::arg::Arg::short(&v0, &v4, 113);\n    clap_builder::builder::arg::Arg::long(&v4, &v0, \"quiet\");\n    clap_builder::builder::arg::Arg::help(&v0, &v4, \"suppress most error messages\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v1, &v7);\n    clap_builder::builder::arg::Arg::new(&v1, \"silent\");\n    clap_builder::builder::arg::Arg::short(&v0, &v1, 115);\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"silent\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"suppress most error messages\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v1, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"verbose\");\n    clap_builder::builder::arg::Arg::short(&v0, &v4, 118);\n    clap_builder::builder::arg::Arg::long(&v4, &v0, \"verbose\");\n    clap_builder::builder::arg::Arg::help(&v0, &v4, \"report error message\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v1, &v7);\n    clap_builder::builder::arg::Arg::new(&v1, \"zero\");\n    clap_builder::builder::arg::Arg::short(&v0, &v1, 122);\n    clap_builder::builder::arg::Arg::long(&v1, &v0, \"zero\");\n    clap_builder::builder::arg::Arg::help(&v0, &v1, \"separate output with NUL rather than newline\");\n    clap_builder::builder::arg::Arg::action(&v7, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v1, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"files\");\n    clap_builder::builder::arg::Arg::action(&v0, &v4, 1);\n    clap_builder::builder::arg::Arg::value_hint(&v4, &v0);\n    clap_builder::builder::command::Command::arg(a0, &v1, &v4);\n    return a0;\n}\n",
-    "_ZN11uu_readlink4show17hf8ca6ca696dc2285E": "fn uu_readlink::show(a0: i64, a1: i64, a2: i8) -> long long {\n    let v0: u8;  // [bp-0x69]\n    let v1: std::io::stdio::Stdout;  // [bp-0x68], Other Possible Types: core::result::Result<&str, core::str::error::Utf8Error>\n    let v2: u8;  // [bp-0x28]\n\n    v1 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(a0, a1);\n    match v1 {\n        Err(_) => {\n            core::option::unwrap_failed(); /* do not return */\n        },\n        Ok(_) => {\n            memcpy(&v2, &v1 as u8, 16);\n            print!(\"{}\", &v2);\n            if a2 != 11 {\n                v0 = a2;\n                print!(\"{}\", &v0);\n            }\n            v1 = std::io::stdio::stdout();\n            return <std::io::stdio::Stdout as std::io::Write>::flush(&v1);\n        },\n    }\n}\n"
+    "_ZN11uu_readlink4show17hf8ca6ca696dc2285E": "fn uu_readlink::show(a0: i64, a1: i64, a2: i8) -> long long {\n    let v0: u8;  // [bp-0x69]\n    let v1: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x68], Other Possible Types: std::io::stdio::Stdout\n    let v2: &str;  // [bp-0x28]\n\n    v1 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(a0, a1);\n    match v1 {\n        Err(_) => {\n            core::option::unwrap_failed(); /* do not return */\n        },\n        Ok(v2) => {\n            print!(\"{}\", &v2);\n            if a2 != 11 {\n                v0 = a2;\n                print!(\"{}\", &v0);\n            }\n            v1 = std::io::stdio::stdout();\n            return <std::io::stdio::Stdout as std::io::Write>::flush(&v1);\n        },\n    }\n}\n"
   },
   "function_call_counts": {
     "_ZN11uu_readlink6uumain17h3356d70105c5f17bE": {
@@ -54,7 +54,7 @@
   },
   "variable_types": {
     "_ZN11uu_readlink6uumain17h3356d70105c5f17bE": {
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -75,7 +75,7 @@
       "stack_96": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_112": [
@@ -88,23 +88,15 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_72": [
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -115,10 +107,10 @@
       "stack_600": [
         [
           "struct",
-          466
+          448
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -170,18 +162,14 @@
     "_ZN11uu_readlink4show17hf8ca6ca696dc2285E": {
       "stack_16": [
         [
-          "struct",
-          8
-        ],
-        [
           "Result",
           24
         ]
       ],
       "stack_80": [
         [
-          "primitive",
-          1
+          "struct",
+          16
         ]
       ],
       "stack_15": [

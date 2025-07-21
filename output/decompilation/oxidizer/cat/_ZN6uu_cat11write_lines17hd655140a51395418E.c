@@ -7,7 +7,7 @@ fn uu_cat::write_lines(a1: i64, a2: i64, a3: i64) -> : struct8 {
     let v4: u32;  // [bp-0x7ce4]
     let v5: u64;  // [bp-0x7ce0]
     let v6: u64;  // [bp-0x7cd0]
-    let v7: u64;  // [bp-0x7cc8], Other Possible Types: void*
+    let v7: void*;  // [bp-0x7cc8], Other Possible Types: u64
     let v8: i8;  // [bp-0x7cc0]
     let v9: void*;  // [bp-0x7cb8]
     let v10: u64;  // [bp-0x7cb0]
@@ -17,9 +17,9 @@ fn uu_cat::write_lines(a1: i64, a2: i64, a3: i64) -> : struct8 {
     let v14: u32;  // [bp-0x7c90]
     let v15: u64;  // [bp-0x7c88]
     let v16: std::io::stdio::Stdout;  // [bp-0x7c78]
-    let v17: iNone;  // [bp-0x7c70]
+    let v17: core::fmt::rt::Argument;  // [bp-0x7c70]
     let v18: u128;  // [bp-0x7c70]
-    let v19: u384;  // [bp-0x7c60]
+    let v19: core::fmt::Arguments;  // [bp-0x7c60]
     let v20: u8;  // [bp-0x7c30]
     let v21: void*;  // [bp-0x7030]
     let v22: void*;  // [bp-0x6030]
@@ -31,8 +31,8 @@ fn uu_cat::write_lines(a1: i64, a2: i64, a3: i64) -> : struct8 {
     let v31: u32;  // rdx
     let v33: i64;  // r15
     let v34: void*;  // r12
-    let v35: core::cell::UnsafeCell<u64>;  // rax
-    let v36: std::io::error::Error;  // rax
+    let v35: std::io::stdio::StderrLock;  // rax
+    let v36: core::result::Result<(), std::io::error::Error>;  // rax
     let v38: i64;  // rax
     let v39: u32;  // ecx
     let v40: i64;  // rdi
@@ -67,20 +67,24 @@ fn uu_cat::write_lines(a1: i64, a2: i64, a3: i64) -> : struct8 {
                 v35 = v7;
                 if v35 != 9223372036854775814 {
                     *((v2 + 8) as &i128) = *(&v8 as &i128);
-                    *(v2 as &core::cell::UnsafeCell<u64>) = v35;
+                    *(v2 as &std::io::stdio::StderrLock) = v35;
                     return;
                 }
                 *((a2 + 8) as &i8) = 1;
             } else {
                 if *((a2 + 9) as &i8) {
                     <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v1, "\r");
-                    if v36 {
-                        *(v2 as &i64) = 0x8000000000000000;
-                        *((v2 + 8) as &std::io::error::Error) = v36;
-                        return;
+                    match v36 {
+                        Err(_) => {
+                            *(v2 as &i64) = 0x8000000000000000;
+                            *((v2 + 8) as &core::result::Result<(), std::io::error::Error>) = v36;
+                            return;
+                        },
+                        Ok(_) => {
+                            *((a2 + 8) as &i16) = 0;
+                            *((a2 + 10) as &i8) = 0;
+                        },
                     }
-                    *((a2 + 8) as &i16) = 0;
-                    *((a2 + 10) as &i8) = 0;
                 } else {
                     *((a2 + 10) as &i8) = 0;
                     if *((a2 + 8) as &i8) && v0 {
@@ -99,12 +103,16 @@ fn uu_cat::write_lines(a1: i64, a2: i64, a3: i64) -> : struct8 {
                             fmt: &v7
                         };
                         std::io::Write::write_fmt(&v1, &v19);
-                        if v36 {
-                            *(v2 as &i64) = 0x8000000000000000;
-                            *((v2 + 8) as &std::io::error::Error) = v36;
-                            return;
+                        match v36 {
+                            Err(_) => {
+                                *(v2 as &i64) = 0x8000000000000000;
+                                *((v2 + 8) as &core::result::Result<(), std::io::error::Error>) = v36;
+                                return;
+                            },
+                            Ok(_) => {
+                                *(a2 as &i64) = *(a2 as &i64) + 1;
+                            },
                         }
-                        *(a2 as &i64) = *(a2 as &i64) + 1;
                     }
                 }
                 v38 = uu_cat::write_end(&v1, v33 + v34, v31 - v34, v4, v3) + v34;
@@ -115,7 +123,7 @@ fn uu_cat::write_lines(a1: i64, a2: i64, a3: i64) -> : struct8 {
                             v35 = v7;
                             if v7 != 9223372036854775814 {
                                 *((v2 + 8) as &i128) = *(&v8 as &i128);
-                                *(v2 as &core::cell::UnsafeCell<u64>) = v35;
+                                *(v2 as &std::io::stdio::StderrLock) = v35;
                                 return;
                             }
                             *((a2 + 8) as &i8) = 1;

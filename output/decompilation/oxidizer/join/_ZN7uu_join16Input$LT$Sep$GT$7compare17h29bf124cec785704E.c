@@ -1,6 +1,6 @@
 fn uu_join::Input<Sep>::compare(a0: i8, a1: i64, a2: i64, a3: i64, a4: i64) -> long long {
-    let v0: u128;  // [bp-0x28]
-    let v1: u128;  // [bp-0x18]
+    let v0: struct16;  // [bp-0x28]
+    let v1: struct16;  // [bp-0x18]
     let v2: u64;  // [bp-0x8]
     let v4: u64;  // rbx
     let v5: u64;  // rbx

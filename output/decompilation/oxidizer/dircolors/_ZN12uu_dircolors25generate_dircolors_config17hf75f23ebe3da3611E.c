@@ -1,13 +1,13 @@
 fn uu_dircolors::generate_dircolors_config(a0: i64) -> long long {
-    let v0: u128;  // [bp-0x108]
+    let v0: struct16;  // [bp-0x108]
     let v1: u64;  // [bp-0xf8]
-    let v2: u192;  // [bp-0xf0]
-    let v3: u64;  // [bp-0xd8], Other Possible Types: struct24
+    let v2: alloc::vec::Vec<u8, alloc::alloc::Global>;  // [bp-0xf0], Other Possible Types: struct24
+    let v3: struct24;  // [bp-0xd8], Other Possible Types: u64
     let v4: u128;  // [bp-0xd8]
     let v5: u64;  // [bp-0xd0]
     let v6: i64;  // [bp-0xc8], Other Possible Types: u64
     let v7: u64;  // [bp-0xc0]
-    let v8: void*;  // [bp-0xb8], Other Possible Types: std::io::stdio::Stdin
+    let v8: std::io::stdio::Stdin;  // [bp-0xb8], Other Possible Types: void*
     let v9: u64;  // [bp-0xa8]
     let v10: i64;  // [bp-0xa0]
     let v11: u64;  // [bp-0x98]
@@ -21,7 +21,7 @@ fn uu_dircolors::generate_dircolors_config(a0: i64) -> long long {
     let v19: u128;  // [bp-0x48]
     let v20: i8;  // [bp-0x38]
     let v22: u64;  // rax
-    let v23: u64;  // rdx
+    let v23: u32;  // rdx
     let v25: u64;  // rax
     let v26: u64;  // rax
     let v27: &[u8];  // rax:rdx
@@ -32,6 +32,11 @@ fn uu_dircolors::generate_dircolors_config(a0: i64) -> long long {
     let v32: &[u8];  // rax:rdx
     let v33: &[u8];  // rax:rdx
 
+    v2 = struct24 {
+        field_0: 0
+        field_8: 1
+        field_16: 0
+    };
     v2 = alloc::vec::Vec<u8, alloc::alloc::Global> {
         buf: alloc::raw_vec::RawVec<u8, alloc::alloc::Global> {
             cap: alloc::raw_vec::Cap {
@@ -53,6 +58,10 @@ fn uu_dircolors::generate_dircolors_config(a0: i64) -> long long {
         field_0: "Eterm"
         field_8: "RESET"
     };
+    v0 = struct16 {
+        field_0: "Eterm"
+        field_8: "RESET"
+    };
     v22 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v0);
     if v22 {
         do {
@@ -67,13 +76,17 @@ fn uu_dircolors::generate_dircolors_config(a0: i64) -> long long {
             v3 = core::option::Option<T>::map_or_else(v23);
             v4 = v15;
             v6 = v16;
-            v33 = core::slice::iter::Iter<T>::make_slice(0x2);
-            alloc::vec::Vec<T,A>::append_elements(&v2, v33.ptr, v23);
+            v31 = core::slice::iter::Iter<T>::make_slice(0x2);
+            alloc::vec::Vec<T,A>::append_elements(&v2, v31.ptr, v23);
             v22 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v0);
         } while (v22);
     }
-    v31 = core::slice::iter::Iter<T>::make_slice(&g_423720);
-    alloc::vec::Vec<T,A>::append_elements(&v2, v31.ptr, v23);
+    v29 = core::slice::iter::Iter<T>::make_slice(&g_423720);
+    alloc::vec::Vec<T,A>::append_elements(&v2, v29.ptr, v23);
+    v0 = struct16 {
+        field_0: "RESET"
+        field_8: ".tar"
+    };
     v0 = struct16 {
         field_0: "RESET"
         field_8: ".tar"
@@ -95,15 +108,19 @@ fn uu_dircolors::generate_dircolors_config(a0: i64) -> long long {
             v3 = core::option::Option<T>::map_or_else(v23);
             v4 = v17;
             v6 = v18;
-            v32 = core::slice::iter::Iter<T>::make_slice(0x3);
-            alloc::vec::Vec<T,A>::append_elements(&v2, v32.ptr, v23);
+            v30 = core::slice::iter::Iter<T>::make_slice(0x3);
+            alloc::vec::Vec<T,A>::append_elements(&v2, v30.ptr, v23);
             v25 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v0);
         } while (v25);
     }
-    v27 = core::slice::iter::Iter<T>::make_slice(&g_423993);
-    alloc::vec::Vec<T,A>::append_elements(&v2, v27.ptr, v23);
-    v28 = core::slice::iter::Iter<T>::make_slice(&g_4239db);
+    v28 = core::slice::iter::Iter<T>::make_slice(&g_423993);
     alloc::vec::Vec<T,A>::append_elements(&v2, v28.ptr, v23);
+    v33 = core::slice::iter::Iter<T>::make_slice(&g_4239db);
+    alloc::vec::Vec<T,A>::append_elements(&v2, v33.ptr, v23);
+    v0 = struct16 {
+        field_0: ".tar"
+        field_8: "normal"
+    };
     v0 = struct16 {
         field_0: ".tar"
         field_8: "normal"
@@ -125,15 +142,15 @@ fn uu_dircolors::generate_dircolors_config(a0: i64) -> long long {
             v3 = core::option::Option<T>::map_or_else(v23);
             v4 = v19;
             v6 = *(&v20 as &i64);
-            v29 = core::slice::iter::Iter<T>::make_slice(0x3);
-            alloc::vec::Vec<T,A>::append_elements(&v2, v29.ptr, v23);
+            v27 = core::slice::iter::Iter<T>::make_slice(0x3);
+            alloc::vec::Vec<T,A>::append_elements(&v2, v27.ptr, v23);
             v26 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v0);
         } while (v26);
     }
     alloc::vec::Vec<T,A>::append_elements(&v2, "# Subsequent TERM or COLORTERM entries, can be used to add / override\n");
-    v30 = core::slice::iter::Iter<T>::make_slice(&g_423a6a);
-    alloc::vec::Vec<T,A>::append_elements(&v2, v30.ptr, v23);
+    v32 = core::slice::iter::Iter<T>::make_slice(&g_423a6a);
+    alloc::vec::Vec<T,A>::append_elements(&v2, v32.ptr, v23);
     *((v14 + 16) as &i64) = 0;
-    *(v14 as &i128) = v2;
+    *(v14 as &i128) = *(&v2.buf.cap as &i128);
     return v14;
 }

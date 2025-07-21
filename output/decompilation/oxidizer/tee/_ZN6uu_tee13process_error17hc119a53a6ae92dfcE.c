@@ -1,7 +1,7 @@
 fn uu_tee::process_error(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {
     let v0: u64;  // [bp-0x98]
-    let v1: u64;  // [bp-0x40], Other Possible Types: void*
-    let v2: u64;  // [bp-0x38]
+    let v1: void*;  // [bp-0x40], Other Possible Types: u64
+    let v2: u128;  // [bp-0x38]
     let v3: u8;  // [bp-0x28]
     let v5: u64;  // rdx
 

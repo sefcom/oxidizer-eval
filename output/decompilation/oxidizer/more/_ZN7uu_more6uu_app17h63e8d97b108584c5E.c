@@ -10,7 +10,7 @@ fn uu_more::uu_app(a0: &struct712) -> long long {
     let v8: u8;  // [bp-0x530]
     let v9: u64;  // [bp-0x274]
     let v10: u32;  // [bp-0x26c]
-    let v11: u8;  // [bp-0x268], Other Possible Types: struct32
+    let v11: struct24;  // [bp-0x268], Other Possible Types: struct32, u8
     let v12: u32;  // [bp-0x20]
     let v13: u32;  // [bp-0x1c]
     let v16: u64;  // rdx
@@ -70,6 +70,11 @@ fn uu_more::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::arg::Arg::long(&v8, &v0, "from-line");
     clap_builder::builder::arg::Arg::num_args(&v0, &v8);
     clap_builder::builder::arg::Arg::value_name(&v8, &v0, "number");
+    v11 = struct24 {
+        field_0: 4
+        field_8: alloc::boxed::Box<T>::new()
+        field_16: &g_5628d0
+    };
     v11 = struct24 {
         field_0: 4
         field_8: alloc::boxed::Box<T>::new()

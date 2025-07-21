@@ -2,7 +2,7 @@ fn uu_cp::copy_source(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i8, a7: i
     let a0: &u64;  // rsi
     let v0: u64;  // [bp-0x158]
     let v1: u128;  // [bp-0x150]
-    let v2: u192;  // [bp-0x150]
+    let v2: struct24;  // [bp-0x150]
     let v3: u128;  // [bp-0x150]
     let v4: u128;  // [bp-0x150]
     let v5: u64;  // [bp-0x140]
@@ -19,11 +19,11 @@ fn uu_cp::copy_source(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i8, a7: i
     let v16: u64;  // [bp-0xe0]
     let v17: struct24;  // [bp-0xd8], Other Possible Types: u64
     let v18: struct64;  // [bp-0xd8]
-    let v19: u8;  // [bp-0xd0]
+    let v19: i8;  // [bp-0xd0]
     let v20: u64;  // [bp-0xc0]
     let v21: u128;  // [bp-0xb8]
     let v22: u128;  // [bp-0xa8]
-    let v23: u8;  // [bp-0x98], Other Possible Types: Result<struct64, struct16>
+    let v23: Result<struct64, struct16>;  // [bp-0x98]
     let v24: u128;  // [bp-0x98]
     let v25: u64;  // [bp-0x88]
     let v26: u128;  // [bp-0x78]
@@ -44,7 +44,7 @@ fn uu_cp::copy_source(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i8, a7: i
     }
     v29 = *((vvar_6 + 68) as &i32);
     uu_cp::construct_dest_path(a1, a2, a3, a4, vvar_5, *((vvar_6 + 66) as &i8), v29, v0);
-    memcpy(&v23, &v19, 16);
+    v24 = *(&v19 as &i128);
     v25 = v20;
     if v17 == 13 {
         v7 = v24;
@@ -60,7 +60,7 @@ fn uu_cp::copy_source(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i8, a7: i
             if let Some(_) = v13 {
                 v0 += 48;
                 do {
-                    vvar_607{stack -336} = struct24 OrderedDict({0: 𝜙@128b [((5259811, None), vvar_540{stack -336}), ((5259752, None), None)], 16: 𝜙@64b [((5259811, None), vvar_541{stack -320}), ((5259752, None), None)]})
+                    vvar_604{stack -336} = struct24 OrderedDict({0: 𝜙@128b [((5259811, None), vvar_539{stack -336}), ((5259752, None), None)], 16: 𝜙@64b [((5259811, None), vvar_540{stack -320}), ((5259752, None), None)]})
                     uucore::features::fs::canonicalize(&v2, v33, v14, 0, 1);
                     v4 = v3;
                     v5 = v6;
@@ -73,7 +73,7 @@ fn uu_cp::copy_source(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i8, a7: i
                             v5 = v6;
                         } else {
                             v34 = *(&v18.field_0 as &i128);
-                            v35 = v18.field_8;
+                            v35 = *((&v18.field_8 as &char + 8) as &i128);
                             *((v31 + 48) as &u128) = v22;
                             *((v31 + 32) as &u128) = v21;
                             *((v31 + 16) as &u128) = v35;

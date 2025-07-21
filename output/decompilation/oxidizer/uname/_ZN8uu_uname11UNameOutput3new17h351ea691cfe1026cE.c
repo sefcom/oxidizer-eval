@@ -1,156 +1,172 @@
-fn uu_uname::UNameOutput::new(a0: &Result<struct168, struct16>, a1: &struct9) -> u64 {
-    let v0: struct24;  // [sp-0x558], Other Possible Types: unsigned long
-    let v1: i64;  // [sp-0x548]
-    let v2: i64;  // [bp-0x538], Other Possible Types: struct24, int
-    let v3: i64;  // [sp-0x528]
-    let v4: i64;  // [bp-0x518], Other Possible Types: struct24, int
-    let v5: i64;  // [sp-0x508]
-    let v6: i64;  // [bp-0x4f8], Other Possible Types: struct24
-    let v7: i64;  // [sp-0x4e8]
-    let v8: struct24;  // [bp-0x4d8], Other Possible Types: unsigned long
-    let v9: i64;  // [bp-0x4b8], Other Possible Types: struct24, int
-    let v10: iNone;  // [bp-0x498], Other Possible Types: struct24, unsigned long
-    let v11: i64;  // [sp-0x488]
-    let v12: iNone;  // [sp-0x478]
-    let v13: struct24;  // [sp-0x468], Other Possible Types: int, Result<struct536, struct16>
-    let v14: i64;  // [sp-0x458]
-    let v15: iNone;  // [sp-0x450]
-    let v16: i64;  // [sp-0x440]
-    let v17: iNone;  // [sp-0x438]
-    let v18: i64;  // [sp-0x428]
-    let v19: iNone;  // [sp-0x420]
-    let v20: i64;  // [sp-0x410]
-    let v21: iNone;  // [sp-0x408]
-    let v22: i64;  // [sp-0x3f8]
-    let v23: iNone;  // [sp-0x3f0]
-    let v24: i64;  // [sp-0x3e0]
-    let v25: iNone;  // [sp-0x3d8]
-    let v26: i64;  // [sp-0x3c8]
-    let v27: i64;  // [sp-0x248]
-    let v28: i64;  // [sp-0x240]
-    let v29: i64;  // [sp-0x238]
-    let v30: i8;  // [bp-0x230]
-    let v31: i8;  // [bp-0x228]
-    let v32: i8;  // [bp-0x220]
-    let v33: i8;  // [bp-0x210]
-    let v34: i8;  // [bp-0x208]
-    let v35: i8;  // [bp-0x1f8]
-    let v36: i8;  // [bp-0x1f0]
-    let v37: i8;  // [bp-0x1e0]
-    let v38: i8;  // [bp-0x1d8]
-    let v39: i8;  // [bp-0x1c8]
-    let v40: i8;  // [bp-0x1c0]
-    let v42: i64;  // rbp
-    let v43: i64;  // r15
-    let v44: i64;  // r12
-    let v45: i8;  // bpl
-    let v46: i8;  // al
-    let v48: i8;  // cl
-    let v49: i64;  // [sp-0x4c8]
-    let v50: i64;  // [sp-0x4a8]
+fn uu_uname::UNameOutput::new(a1: &struct9) -> : struct168 {
+    let a0: i64;  // rsi
+    let v0: u128;  // [bp-0x558]
+    let v2: u64;  // [bp-0x548]
+    let v3: u128;  // [bp-0x538]
+    let v5: u64;  // [bp-0x528]
+    let v6: u128;  // [bp-0x518]
+    let v8: u64;  // [bp-0x508]
+    let v9: u128;  // [bp-0x4f8]
+    let v11: u64;  // [bp-0x4e8]
+    let v12: u64;  // [bp-0x4d8]
+    let v13: u128;  // [bp-0x4d8]
+    let v14: u128;  // [bp-0x4d8]
+    let v15: u64;  // [bp-0x4c8]
+    let v17: u64;  // [bp-0x4b8]
+    let v18: u128;  // [bp-0x4b8]
+    let v19: u128;  // [bp-0x4b8]
+    let v20: u64;  // [bp-0x4a8]
+    let v21: u64;  // [bp-0x498]
+    let v22: u128;  // [bp-0x498]
+    let v23: u64;  // [bp-0x488]
+    let v24: u128;  // [bp-0x478]
+    let v25: Result<struct536, struct24>;  // [bp-0x468]
+    let v26: struct24;  // [bp-0x468]
+    let v27: struct24;  // [bp-0x468]
+    let v28: struct24;  // [bp-0x468]
+    let v29: struct24;  // [bp-0x468]
+    let v30: struct24;  // [bp-0x468]
+    let v31: struct24;  // [bp-0x468]
+    let v32: struct24;  // [bp-0x468]
+    let v33: u128;  // [bp-0x468]
+    let v34: struct24;  // [bp-0x468]
+    let v35: u64;  // [bp-0x460]
+    let v36: u32;  // [bp-0x458]
+    let v37: u128;  // [bp-0x450]
+    let v38: u64;  // [bp-0x440]
+    let v39: u128;  // [bp-0x438]
+    let v40: u64;  // [bp-0x428]
+    let v41: u128;  // [bp-0x420]
+    let v42: u64;  // [bp-0x410]
+    let v43: u128;  // [bp-0x408]
+    let v44: u64;  // [bp-0x3f8]
+    let v45: u128;  // [bp-0x3f0]
+    let v46: u64;  // [bp-0x3e0]
+    let v47: u128;  // [bp-0x3d8]
+    let v48: u64;  // [bp-0x3c8]
+    let v49: u64;  // [bp-0x248]
+    let v50: u64;  // [bp-0x240]
+    let v51: u64;  // [bp-0x238]
+    let v52: u8;  // [bp-0x230]
+    let v53: u32;  // [bp-0x228]
+    let v54: u8;  // [bp-0x220]
+    let v55: u32;  // [bp-0x210]
+    let v56: u8;  // [bp-0x208]
+    let v57: u32;  // [bp-0x1f8]
+    let v58: u8;  // [bp-0x1f0]
+    let v59: u32;  // [bp-0x1e0]
+    let v60: u8;  // [bp-0x1d8]
+    let v61: u32;  // [bp-0x1c8]
+    let v62: u8;  // [bp-0x1c0]
+    let v64: u64;  // r13
+    let v65: i64;  // rdi
+    let v66: u8;  // bpl
+    let v67: u32;  // 260
+    let v68: u32;  // 264
+    let v69: u32;  // 268
+    let v71: i64;  // rdi
 
-    v13 = <platform_info::lib_impl::target::PlatformInfo as platform_info::PlatformInfoAPI>::new();
-    v42 = v13 as i64;
-    v43 = *((&v13 as &char + 8) as &i64);
-    v44 = v14;
-    match v13 {
+    v64 = 0x8000000000000000;
+    v25 = <platform_info::lib_impl::target::PlatformInfo as platform_info::PlatformInfoAPI>::new();
+    match v25 {
         Err(_) => {
-            *((a0 + 8) as &long long) = uu_uname::UNameOutput::new::{{closure}}(v43, v44);
-            *((a0 + 16) as &&i64) = &g_50b170;
-            *(a0 as &i64) = 9223372036854775809;
-            return a0;
+            *((v65 + 8) as &long long) = uu_uname::UNameOutput::new::{{closure}}(v35, v36);
+            *((v65 + 16) as &&u8) = &g_50b170;
+            *(v65 as &i64) = 9223372036854775809;
+            return;
         },
         Ok(_) => {
-            memcpy(&v30, &v13, 0x200);
-            v27 = v42;
-            v28 = v43;
-            v29 = v44;
-            v45 = *(a1 as &i8);
-            v46 = *((a1 + 1) as &i8);
-            if !(!v45) || !(!v46) || !((v48 & 1)) || !(((v48 & 4) as u64 >> 2) as u8) || !(((v48 & 2) as u64 >> 1) as u8) || !((v48 as u64 >> 3) as u8) || !(!*((a1 + 8) as &i8)) || !(!*((a1 + 6) as &i8)) {
-                if !v46 && !v45 {
-                    goto LABEL_4a8666;
+            memcpy(&v52, &v25 as u8, 0x200);
+            v49 = v25 as i64;
+            v50 = v35;
+            v51 = v36;
+            v66 = *(a0 as &i8);
+            if v66 || *((a0 + 1) as &i8) || !(...) {
+                if !(!*((a0 + 1) as &i8) && !v66) {
+                    goto LABEL_4a85e7;
                 }
             } else {
-                if *((a1 + 7) as &i8) {
-LABEL_4a8666:
-                    *(&v0 as &i64) = 0x8000000000000000;
-                    goto LABEL_4a866a;
+                if !*((a0 + 7) as &i8) {
+LABEL_4a85e7:
+                    v34 = uu_uname::UNameOutput::new::{{closure}}(v35, v36);
+                    v2 = v36;
+                    v0 = *(&v34.field_0 as &i128);
                 }
             }
-            v13 = uu_uname::UNameOutput::new::{{closure}}(v43, v44);
-            v0 = v13;
-LABEL_4a866a:
-            if !*((a1 + 2) as &i8) && !v45 {
-                *(&v2 as &i64) = 0x8000000000000000;
-            } else {
-                v13 = uu_uname::UNameOutput::new::{{closure}}(*(&v31 as &i64), *(&v32 as &i64));
-                v2 = v13;
+            if *((a0 + 2) as &i8) || v66 {
+                v26 = uu_uname::UNameOutput::new::{{closure}}(v53, *(&v54 as &i64));
+                v5 = v36;
+                v3 = *(&v26.field_0 as &i128);
             }
-            if !*((a1 + 4) as &i8) && !v45 {
-                *(&v4 as &i64) = 0x8000000000000000;
-            } else {
-                v13 = uu_uname::UNameOutput::new::{{closure}}(*(&v33 as &i64), *(&v34 as &i64));
-                v4 = v13;
+            if *((a0 + 4) as &i8) || v66 {
+                v27 = uu_uname::UNameOutput::new::{{closure}}(v55, *(&v56 as &i64));
+                v8 = v36;
+                v6 = *(&v27.field_0 as &i128);
             }
-            if !*((a1 + 3) as &i8) && !v45 {
-                *(&v6 as &i64) = 0x8000000000000000;
-            } else {
-                v13 = uu_uname::UNameOutput::new::{{closure}}(*(&v35 as &i64), *(&v36 as &i64));
-                v6 = v13;
+            if *((a0 + 3) as &i8) || v66 {
+                v28 = uu_uname::UNameOutput::new::{{closure}}(v57, *(&v58 as &i64));
+                v11 = v36;
+                v9 = *(&v28.field_0 as &i128);
             }
-            if !*((a1 + 5) as &i8) && !v45 {
-                *(&v8 as &i64) = 0x8000000000000000;
-                if !v45 && !*((a1 + 8) as &i8) {
+            if *((a0 + 5) as &i8) || v66 {
+                v29 = uu_uname::UNameOutput::new::{{closure}}(v59, *(&v60 as &i64));
+                v15 = v36;
+                v14 = *(&v29.field_0 as &i128);
+                if !v66 && !*((a0 + 8) as &i8) {
                     goto LABEL_4a883b;
                 }
 LABEL_4a879f:
-                v13 = uu_uname::UNameOutput::new::{{closure}}(*(&v39 as &i64), *(&v40 as &i64));
-                v9 = v13;
-                if !*((a1 + 6) as &i8) {
+                v30 = uu_uname::UNameOutput::new::{{closure}}(v61, *(&v62 as &i64));
+                v20 = v36;
+                v19 = *(&v30.field_0 as &i128);
+                if !*((a0 + 6) as &i8) {
                     goto LABEL_4a884a;
                 }
 LABEL_4a87e5:
-                v13 = <T as alloc::slice::hack::ConvertVec>::to_vec("unknown");
-                v10 = v13;
-                if *((a1 + 7) as &i8) {
-LABEL_4a8859:
-                    v13 = <T as alloc::slice::hack::ConvertVec>::to_vec("unknown");
-                    v12 = *(&v13.field_8 as &i128);
+                v33 as u192 = <T as alloc::slice::hack::ConvertVec>::to_vec("unknown");
+                v23 = v36;
+                v21 = *(&v31.field_0 as &i128);
+                if !(!*((a0 + 7) as &i8)) {
+                    goto LABEL_4a8859;
                 }
             } else {
-                v13 = uu_uname::UNameOutput::new::{{closure}}(*(&v37 as &i64), *(&v38 as &i64));
-                v8 = v13;
-                if !(!v45 && !*((a1 + 8) as &i8)) {
+                v12 = 0x8000000000000000;
+                v14 = v13 & 0xffffffffffffffff0000000000000000 | 0x8000000000000000;
+                if !(!v66 && !*((a0 + 8) as &i8)) {
                     goto LABEL_4a879f;
                 }
 LABEL_4a883b:
-                *(&v9 as &i64) = 0x8000000000000000;
-                if !(!*((a1 + 6) as &i8)) {
+                v17 = 0x8000000000000000;
+                v19 = v18 & 0xffffffffffffffff0000000000000000 | 0x8000000000000000;
+                if !(!*((a0 + 6) as &i8)) {
                     goto LABEL_4a87e5;
                 }
 LABEL_4a884a:
-                *(&v10 as &i64) = 0x8000000000000000;
-                if !(!*((a1 + 7) as &i8)) {
-                    goto LABEL_4a8859;
+                v21 = 0x8000000000000000;
+                v21 = v22 & 0xffffffffffffffff0000000000000000 | 0x8000000000000000;
+                if *((a0 + 7) as &i8) {
+LABEL_4a8859:
+                    v32 = <T as alloc::slice::hack::ConvertVec>::to_vec("unknown");
                 }
             }
-            v14 = v1;
-            v13 = *(&v0.field_0 as &i128);
-            v15 = v2 as i128;
-            v16 = v3;
-            v17 = v4 as i128;
-            v18 = v5;
-            v19 = *(&v6.field_0 as &i128);
-            v20 = v7;
-            v22 = v49;
-            v21 = *(&v8.field_0 as &i128);
-            v24 = v50;
-            v23 = v9 as i128;
-            v26 = v11;
-            v25 = v10 as i128;
-            memcpy(a0, &v13, 168);
-            return a0;
+            v36 = v2;
+            v33 = v0;
+            v37 = v3;
+            v38 = v5;
+            v39 = v6;
+            v40 = v8;
+            v41 = v9;
+            v42 = v11;
+            v44 = v15;
+            v43 = v14;
+            v46 = v20;
+            v45 = v19;
+            v48 = v23;
+            v47 = v21;
+            memcpy(v71, &v33 as u192, 168);
+            *((v71 + 168) as &u64) = v64;
+            *((v71 + 176) as &u128) = v24;
+            return;
         },
     }
 }

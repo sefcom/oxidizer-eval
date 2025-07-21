@@ -3,8 +3,8 @@ fn uu_fmt::linebreak::slice_if_fresh(a1: i32, a2: i64, a3: i64, a4: i64, a5: i8,
     let v0: u64;  // [bp-0x28]
     let v1: u64;  // rax
     let v2: core::option::Option<&str>;  // rax
-    let v3: void*;  // rdi
-    let v4: u64;  // rdi
+    let v3: u64;  // rdi
+    let v4: struct16;  // rdi
     let v6: void*;  // rsi
     let v7: u64;  // rdx
     let v8: core::option::Option<&str>;  // rdx

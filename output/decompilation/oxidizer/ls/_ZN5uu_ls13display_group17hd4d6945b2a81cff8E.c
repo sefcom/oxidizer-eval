@@ -1,7 +1,7 @@
 fn uu_ls::display_group(a1: i32, a2: i8) -> : struct24 {
     let a0: u32;  // esi
     let v0: u64;  // [bp-0x8]
-    let v1: u32;  // [bp-0x4], Other Possible Types: struct24
+    let v1: struct24;  // [bp-0x4], Other Possible Types: u32
     let v3: u64;  // rax
 
     if !a1 {

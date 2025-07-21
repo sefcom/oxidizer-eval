@@ -1,5 +1,5 @@
 fn uu_fmt::extract_width(a0: &struct24, a1: i64) -> long long {
-    let v0: u64;  // [bp-0xb8], Other Possible Types: core::result::Result<usize, core::num::error::ParseIntError>, struct24
+    let v0: core::result::Result<usize, core::num::error::ParseIntError>;  // [bp-0xb8], Other Possible Types: struct24, u32
     let v1: u64;  // [bp-0xb8]
     let v2: u64;  // [bp-0xb0]
     let v3: i64;  // [bp-0xa8]
@@ -12,7 +12,7 @@ fn uu_fmt::extract_width(a0: &struct24, a1: i64) -> long long {
     let v10: u64;  // [bp-0x60]
     let v11: u64;  // [bp-0x58]
     let v12: u8;  // [bp-0x50]
-    let v13: u224;  // [bp-0x48]
+    let v13: struct28;  // [bp-0x48]
     let v15: u64;  // r8
     let v16: i64;  // rax
     let v17: u64;  // rax

@@ -1,26 +1,26 @@
 fn uu_cksum::uumain::uumain(a0: i64, a1: i64) -> long long {
     let v0: u8;  // [bp-0x3da]
     let v1: core::result::Result<u16, core::num::error::ParseIntError>;  // [bp-0x3d9], Other Possible Types: u8
-    let v2: u64;  // [bp-0x3d8]
+    let v2: u128;  // [bp-0x3d8]
     let v3: u64;  // [bp-0x3d0]
     let v4: u64;  // [bp-0x3c8]
     let v5: u64;  // [bp-0x3c0]
     let v6: u64;  // [bp-0x3b0]
     let v7: u64;  // [bp-0x3a8]
-    let v8: u8;  // [bp-0x3a0]
-    let v9: u8;  // [bp-0x390]
+    let v8: u128;  // [bp-0x3a0]
+    let v9: u128;  // [bp-0x390]
     let v10: u64;  // [bp-0x380]
-    let v11: Result<struct56, struct16>;  // [bp-0x378], Other Possible Types: struct64
-    let v12: u64;  // [bp-0x378]
-    let v13: u64;  // [bp-0x370]
-    let v14: u64;  // [bp-0x368]
-    let v15: u128;  // [bp-0x360]
-    let v16: u8;  // [bp-0x338], Other Possible Types: struct40, struct56
-    let v17: Result<struct40, struct16>;  // [bp-0x338]
-    let v18: struct24;  // [bp-0x338]
-    let v19: u64;  // [bp-0x338]
-    let v20: struct56;  // [bp-0x338]
-    let v21: Result<struct40, struct16>;  // [bp-0x338]
+    let v11: Result<struct56, struct16>;  // [bp-0x378], Other Possible Types: struct64, u64
+    let v12: u64;  // [bp-0x370]
+    let v13: u64;  // [bp-0x368]
+    let v14: u128;  // [bp-0x360]
+    let v15: u128;  // [bp-0x358]
+    let v16: struct40;  // [bp-0x338], Other Possible Types: struct56, u8
+    let v17: Result<struct40, struct16>;  // [bp-0x338], Other Possible Types: u64
+    let v18: Result<struct40, struct16>;  // [bp-0x338]
+    let v19: struct24;  // [bp-0x338]
+    let v20: u64;  // [bp-0x338]
+    let v21: struct56;  // [bp-0x338]
     let v22: u64;  // [bp-0x330]
     let v23: u56;  // [bp-0x32f]
     let v24: u64;  // [bp-0x328]
@@ -65,13 +65,13 @@ fn uu_cksum::uumain::uumain(a0: i64, a1: i64) -> long long {
         },
         Ok(_) => {
             v10 = *((&v11 as &char + 48) as &i64);
-            memcpy(&v9, &v11 as u128, 16);
-            memcpy(&v8, &v11, 16);
+            v9 = v15;
+            v8 = *((&v11 as &char + 16) as &i128);
             v6 = v11 as i64;
-            v7 = v13;
+            v7 = v12;
             v35 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "check") as i32 as i8;
-            v21 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v6, "algorithm");
-            v36 = clap_builder::parser::error::MatchesError::unwrap("algorithm", &v21);
+            v17 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v6, "algorithm");
+            v36 = clap_builder::parser::error::MatchesError::unwrap("algorithm", &v17);
             if v36 {
                 v2 = *((v36 + 8) as &i128) as u128;
                 v37 = 12;
@@ -94,17 +94,17 @@ LABEL_5809d4:
                     v3 = 3;
                     <T as core::slice::cmp::SliceContains>::slice_contains(&v2, "bsd", 3);
 LABEL_580869:
-                    v17 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v6, "length");
-                    v38 = clap_builder::parser::error::MatchesError::unwrap("length", &v17);
+                    v18 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v6, "length");
+                    v38 = clap_builder::parser::error::MatchesError::unwrap("length", &v18);
                     if v38 {
                         v37 = 10;
                         if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v2, v3 as u32, "blake2b") as i8 {
                             goto LABEL_5809d4;
                         }
-                        v18 = uucore::features::checksum::calculate_blake2b_length(*(v38 as &i64));
-                        v39 = v18.field_8;
+                        v19 = uucore::features::checksum::calculate_blake2b_length(*(v38 as &i64));
+                        v39 = v19.field_8;
                         v40 = v24;
-                        if !v18.field_0 {
+                        if !v19.field_0 {
                             goto LABEL_580903;
                         }
                         v41 = v39;
@@ -135,29 +135,29 @@ LABEL_580903:
                             v41 = uucore::features::checksum::perform_checksum_validation(v16.field_8, v24 * 16 + v16.field_8, v54, v51, v39, v4, v45 as u64 * 0x10000000000 | v1 as u64 * 0x100000000 | (v0 as u32 * 0x1000000) as u64 | (v46 * 0x100) as u64 | (v48 * 0x10000) as u64);
                         } else {
                             uu_cksum::handle_tag_text_binary_flags(&v16, &v6);
-                            v41 = v19;
-                            if !v19 {
-                                v0 = *((&v17 as &char + 8) as &i8);
+                            v41 = v20;
+                            if !v20 {
+                                v0 = *((&v18 as &char + 8) as &i8);
                                 v1 = v23 as i8;
                                 v16 = uucore::features::checksum::detect_algo(v2, v3, v39, v4);
                                 v44 = v16.field_0;
                                 v41 = v16.field_8;
                                 if v44 {
-                                    v15 = *(&v16.field_24 as &i128) as u128;
-                                    v12 = v44;
-                                    v13 = v41;
-                                    v14 = v24;
+                                    v14 = *(&v16.field_24 as &i128) as u128;
+                                    v11 = v44;
+                                    v12 = v41;
+                                    v13 = v24;
                                     v49 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "zero") as i8 ? 0 : 10);
                                     v50 = 1;
                                     if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "raw") as i8 {
                                         v50 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v6, "base64") as i8 * 2;
                                     }
-                                    v5 = <alloc::boxed::Box<F,A> as core::ops::function::Fn<Args>>::call(&v14, v55) as u64;
-                                    v56 = *((&v15 as &char + 8) as &i64);
-                                    v20 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v6, "file");
-                                    v33 = clap_builder::parser::error::MatchesError::unwrap("file", &v20);
+                                    v5 = <alloc::boxed::Box<F,A> as core::ops::function::Fn<Args>>::call(&v13, v55) as u64;
+                                    v56 = *((&v14 as &char + 8) as &i64);
+                                    v21 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v6, "file");
+                                    v33 = clap_builder::parser::error::MatchesError::unwrap("file", &v21);
                                     if v33.field_0 as i64 {
-                                        v19 = v39;
+                                        v17 = v39;
                                         v22 = v4;
                                         v24 = v44;
                                         v25 = v41;
@@ -168,9 +168,9 @@ LABEL_580903:
                                         v30 = v1;
                                         v31 = v50;
                                         v32 = v49;
-                                        v58 = uu_cksum::cksum(&v19, &v33);
+                                        v58 = uu_cksum::cksum(&v17, &v33);
                                     } else {
-                                        v19 = v39;
+                                        v17 = v39;
                                         v22 = v4;
                                         v24 = v44;
                                         v25 = v41;

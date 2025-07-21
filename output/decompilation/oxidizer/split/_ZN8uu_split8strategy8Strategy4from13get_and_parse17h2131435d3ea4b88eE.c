@@ -1,32 +1,36 @@
-fn uu_split::strategy::Strategy::from::get_and_parse(a0: &Option<struct40>, a1: u32, a2: u32, a3: u32, a4: u32, a5: u32) -> u64 {
-    let v0: Result<struct40, struct8>;  // [sp-0x78], Other Possible Types: unsigned long
-    let v1: struct24;  // [sp-0x70]
-    let v2: struct32;  // [sp-0x50]
-    let v4: i64;  // rax
-    let v5: i64;  // rax
+fn uu_split::strategy::Strategy::from::get_and_parse(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64) -> Option<struct40> {
+    let a0: u64;  // rsi
+    let v0: u8;  // [bp-0x78]
+    let v1: alloc::string::String;  // [bp-0x70]
+    let v2: u128;  // [bp-0x68]
+    let v3: u64;  // [bp-0x58]
+    let v4: u8;  // [bp-0x50]
+    let v5: i8;  // [bp-0x48]
+    let v6: i64;  // rax
+    let v7: i64;  // rdi
+    let v8: i64;  // rdi
+    let v9: u64;  // rdi
 
-    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, a2, a3);
-    v4 = clap_builder::parser::error::MatchesError::unwrap(a2, a3, &v0);
-    if !v4 {
-        core::option::unwrap_failed("src/uu/split/src/strategy.rs"); /* do not return */
+    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v0, a0, a1, a2);
+    v6 = clap_builder::parser::error::MatchesError::unwrap(a1, a2, &v0);
+    if !v6 {
+        core::option::unwrap_failed(); /* do not return */
     }
-    v2 = uucore::parser::parse_size::parse_size_u64_max(*((v4 + 8) as &i64), *((v4 + 16) as &i64));
-    if v2.field_0 as i32 != 3 {
-        core::ops::function::FnOnce::call_once(&v0, a5, &v2);
-        v5 = *((&v0 as &char + 32) as &i64);
-        return Some(struct40 {
-            field_0: v0 as i128
-            field_16: *((&v0 as &char + 16) as &i128)
-            field_32: v5
-        });
+    uucore::parser::parse_size::parse_size_u64_max(*((v6 + 8) as &i64), *((v6 + 16) as &i64), a2);
+    if *(&v4 as &i32) != 3 {
+        core::ops::function::FnOnce::call_once(&v0, a4, &v4);
+        *((v8 + 32) as &u64) = v3;
+        *((v8 + 16) as &u128) = v2;
+        *(v8 as &i128) = *(&v0 as &i128);
+        return;
+    } else if *(&v5 as &i64) {
+        a3(v7 + 8);
+        *(v7 as &i64) = 4;
+        return;
+    } else {
+        v1 = <alloc::string::String as core::clone::Clone>::clone(v6);
+        v0 = 1;
+        a4(v9, &v0);
+        return;
     }
-    if *((&v2.field_0 as &char + 8) as &i64) {
-        v5 = a4();
-        return struct8 {
-            field_0: 4
-        };
-    }
-    v1 = <alloc::string::String as core::clone::Clone>::clone(v4);
-    v0 = 1;
-    v5 = a5();
 }

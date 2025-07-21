@@ -1,32 +1,33 @@
-fn uu_unlink::uu_app(a0: &struct712) -> u64 {
-    let v0: struct8;  // [bp-0x818]
-    let v1: struct712;  // [sp-0x800], Other Possible Types: struct592
-    let v2: struct712;  // [sp-0x538], Other Possible Types: struct437
-    let v3: i64;  // [sp-0x27c]
-    let v4: i32;  // [sp-0x274]
-    let v5: struct592;  // [sp-0x270], Other Possible Types: struct24
-    let v6: i32;  // [sp-0x28]
-    let v7: i32;  // [sp-0x24]
-    let v9: i64;  // rdx
+fn uu_unlink::uu_app(a0: &struct712) -> long long {
+    let v0: Result<struct56, struct16>;  // [bp-0x818]
+    let v1: u8;  // [bp-0x800]
+    let v2: u32;  // [bp-0x5b8]
+    let v3: i8;  // [bp-0x5b4]
+    let v4: u64;  // [bp-0x544]
+    let v5: u32;  // [bp-0x53c]
+    let v6: struct437;  // [bp-0x538]
+    let v7: u64;  // [bp-0x27c]
+    let v8: u32;  // [bp-0x274]
+    let v9: u8;  // [bp-0x270]
+    let v10: u32;  // [bp-0x28]
+    let v11: u32;  // [bp-0x24]
+    let v14: u64;  // rdx
 
-    v2 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
-    v1 = clap_builder::builder::command::Command::version(&v2);
-    v2 = clap_builder::builder::command::Command::about(&v1);
-    v5 = uucore::format_usage("{} [FILE]
-{} OPTION");
-    v1 = clap_builder::builder::command::Command::override_usage(&v2, &v5);
-    memcpy(&v2, &v1, 700);
-    v3 = 549755814016 | *((&v1.field_0 as &char + 700) as &i64);
-    v4 = *((&v1.field_0 as &char + 708) as &i32);
-    v1 = clap_builder::builder::arg::Arg::new();
-    memcpy(&v5, &v1, 584);
-    v6 = *((&v1.field_0 as &char + 584) as &i32) | 5;
-    v7 = *((&v1.field_0 as &char + 588) as &i32);
-    v0 = struct8 {
-        field_0: 2
-    };
-    v1 = clap_builder::builder::arg::Arg::value_parser(&v5, &v0);
-    v5 = clap_builder::builder::arg::Arg::value_hint(&v1);
-    clap_builder::builder::command::Command::arg(a0, &v2, &v5);
+    v6 = clap_builder::builder::command::Command::new(uucore::util_name(), v14);
+    clap_builder::builder::command::Command::version(&v1, &v6);
+    clap_builder::builder::command::Command::about(&v6, &v1);
+    uucore::format_usage(&v9, "{} [FILE]\n{} OPTION");
+    clap_builder::builder::command::Command::override_usage(&v1, &v6, &v9);
+    memcpy(&v6, &v1, 700);
+    v7 = 549755814016 | v4;
+    v8 = v5;
+    clap_builder::builder::arg::Arg::new(&v1);
+    memcpy(&v9, &v1, 584);
+    v10 = v2 | 5;
+    v11 = *(&v3 as &i32);
+    v0 = 2;
+    clap_builder::builder::arg::Arg::value_parser(&v1, &v9, &v0);
+    clap_builder::builder::arg::Arg::value_hint(&v9, &v1);
+    clap_builder::builder::command::Command::arg(a0, &v6, &v9);
     return a0;
 }

@@ -17,10 +17,10 @@ fn uu_test::parser::Symbol::new(a1: i64) -> : struct40 {
     v2 = *((a1 + 16) as &i64);
     v3 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(v1, *((a1 + 16) as &i64));
     if let Err(_) = v3 {
-        return struct40 {
+        return struct32 {
             field_0: 3
-            field_8: <UNKNOWN>
-            field_24: <UNKNOWN>
+            field_8: v0
+            field_24: v2
         };
     }
     v6 = *((&v3 as &char + 16) as &i64);
@@ -29,10 +29,10 @@ fn uu_test::parser::Symbol::new(a1: i64) -> : struct40 {
             field_0: v7
         };
     } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v6, "-a") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v6, "-o") as i8 {
-        return struct40 {
+        return struct32 {
             field_0: 2
-            field_8: <UNKNOWN>
-            field_24: <UNKNOWN>
+            field_8: v0
+            field_24: v2
         };
     } else if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v6, "=") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v6, "==") as i8 || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v6, "!=") as i8 {
         return struct40 {
@@ -70,9 +70,9 @@ fn uu_test::parser::Symbol::new(a1: i64) -> : struct40 {
             field_32: v2
         };
     }
-    return struct40 {
+    return struct32 {
         field_0: 3
-        field_8: <UNKNOWN>
-        field_24: <UNKNOWN>
+        field_8: v0
+        field_24: v2
     };
 }

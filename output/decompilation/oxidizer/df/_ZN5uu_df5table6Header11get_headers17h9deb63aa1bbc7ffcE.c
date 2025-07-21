@@ -3,7 +3,7 @@ fn uu_df::table::Header::get_headers(a1: i64) -> : struct24 {
     let v0: void*;  // [bp-0x88]
     let v1: u64;  // [bp-0x80]
     let v2: void*;  // [bp-0x78]
-    let v3: u128;  // [bp-0x70]
+    let v3: struct16;  // [bp-0x70]
 
     v0 = 0;
     v1 = 8;

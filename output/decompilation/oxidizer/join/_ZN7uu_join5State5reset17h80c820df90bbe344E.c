@@ -1,6 +1,6 @@
-fn uu_join::State::reset(a1: &struct32) -> : struct8 {
+fn uu_join::State::reset(a1: &struct48) -> : struct8 {
     let a0: i64;  // rsi
-    let v0: u384;  // [bp-0x48]
+    let v0: struct48;  // [bp-0x48]
     let v2: i64;  // rdi
 
     *((v2 + 16) as &i64) = 0;

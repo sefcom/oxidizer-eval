@@ -1,7 +1,7 @@
 fn uu_ls::classify_file(a0: i32, a1: i32) -> long long {
     let v0: u64;  // [bp-0x18]
     let v2: u64;  // rax
-    let v3: i64;  // rcx
+    let v3: struct40;  // rcx
     let v4: i64;  // rax
 
     v0 = v2;
@@ -20,5 +20,5 @@ fn uu_ls::classify_file(a0: i32, a1: i32) -> long long {
             return 0x110000;
         }
     }
-    return 64;
+    return 124;
 }

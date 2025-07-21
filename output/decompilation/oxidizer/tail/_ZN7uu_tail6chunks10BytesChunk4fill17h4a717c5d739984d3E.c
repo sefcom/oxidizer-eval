@@ -1,24 +1,32 @@
-fn uu_tail::chunks::BytesChunk::fill(a0: &struct24, a1: &struct8, a2: u32) -> u64 {
-    let v0: u64;  // [sp-0x18]
-    let v2: u64;  // rax
-    let v3: u64;  // rdx
-    let v4: u32;  // rdx
+fn uu_tail::chunks::BytesChunk::fill(a1: i64, a2: i64) -> : struct24 {
+    let a0: i64;  // rdi
+    let v0: struct56;  // [bp-0x18]
+    let v2: struct56;  // rax
+    let v4: u64;  // rdx
+    let v5: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
 
     v0 = v2;
-    if <std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read(a2, a1, 0x2000) {
-        *(&a0[1] as &long long) = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v4);
-        a0[2] = v4;
-        *(a0) = 1;
+    v5 = <std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read(a2, a1, 0x2000);
+    match v5 {
+        Err(_) => {
+            return struct24 {
+                field_0: 1
+                field_8: uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(*((&v5 as &char + 8) as &i64))
+                field_16: v4
+            };
+        },
+        Ok(_) => {
+            *((a1 + 0x2000) as &i64) = *((&v5 as &char + 8) as &i64);
+            if !*((&v5 as &char + 8) as &i64) {
+                return struct16 {
+                    field_0: 0
+                };
+            }
+            return struct24 {
+                field_0: 0
+                field_8: 1
+                field_16: *((&v5 as &char + 8) as &i64)
+            };
+        },
     }
-    a1->field_2000 = v3;
-    if !v3 {
-        return struct16 {
-            field_0: 0
-        };
-    }
-    return struct24 {
-        field_0: 0
-        field_8: 1
-        field_16: v3
-    };
 }

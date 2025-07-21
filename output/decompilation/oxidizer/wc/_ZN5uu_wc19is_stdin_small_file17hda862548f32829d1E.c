@@ -1,5 +1,5 @@
 fn uu_wc::is_stdin_small_file() -> long long {
-    let v0: u32;  // [bp-0xbc]
+    let v0: std::fs::File;  // [bp-0xbc]
     let v1: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xb8]
     let v3: u32;  // ebx
 

@@ -1,8 +1,8 @@
 fn uu_env::apply_change_directory(a0: &struct24) -> long long {
     let v0: u64;  // [bp-0xa0]
-    let v1: u64;  // [bp-0x98], Other Possible Types: struct24
+    let v1: struct24;  // [bp-0x98], Other Possible Types: struct28, u64
     let v2: u64;  // [bp-0x90]
-    let v3: i64;  // [bp-0x88], Other Possible Types: u64
+    let v3: i64;  // [bp-0x88]
     let v4: u64;  // [bp-0x80]
     let v5: void*;  // [bp-0x78]
     let v6: i64;  // [bp-0x68]
@@ -13,7 +13,7 @@ fn uu_env::apply_change_directory(a0: &struct24) -> long long {
     let v11: u64;  // [bp-0x40]
     let v12: u64;  // [bp-0x38]
     let v13: std::io::stdio::Stdout;  // [bp-0x30]
-    let v14: u8;  // [bp-0x28]
+    let v14: core::fmt::rt::Argument;  // [bp-0x28]
     let v15: i8;  // [bp-0x18]
     let v17: u64;  // rbx
     let v18: void*;  // rcx
@@ -45,9 +45,11 @@ fn uu_env::apply_change_directory(a0: &struct24) -> long long {
         v3 = &v6;
         v4 = 2;
         v1 = core::option::Option<T>::map_or_else(v20);
-        v4 = 125;
-        memcpy(&v1, &v14, 16);
-        v3 = *(&v15 as &i64);
+        v1 = struct28 {
+            field_0: v14
+            field_16: *(&v15 as &i64)
+            field_24: 125
+        };
         return alloc::boxed::Box<T>::new(&v1);
     }
     return 0;

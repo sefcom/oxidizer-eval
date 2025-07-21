@@ -1,29 +1,29 @@
 fn uu_mv::handle_two_paths(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> long long {
     let v0: u64;  // [bp-0x1b8]
-    let v1: u64;  // [bp-0x1a8], Other Possible Types: std::path::Components, struct24
+    let v1: struct16;  // [bp-0x1a8], Other Possible Types: struct24, std::path::Components, struct25, u64
     let v2: u64;  // [bp-0x1a0]
     let v3: u64;  // [bp-0x198]
     let v4: u8;  // [bp-0x190]
-    let v5: u64;  // [bp-0x168], Other Possible Types: struct24
+    let v5: struct24;  // [bp-0x168], Other Possible Types: struct25, u64
     let v6: u64;  // [bp-0x160]
     let v7: u64;  // [bp-0x158]
     let v8: u8;  // [bp-0x150]
     let v9: u64;  // [bp-0x148]
     let v10: u64;  // [bp-0x140]
-    let v11: struct24;  // [bp-0x138], Other Possible Types: u128
+    let v11: struct16;  // [bp-0x138], Other Possible Types: struct24
     let v12: u64;  // [bp-0x128]
-    let v13: struct24;  // [bp-0x120], Other Possible Types: u128, std::sys::os_str::bytes::Slice *
+    let v13: i64;  // [bp-0x120], Other Possible Types: struct16, struct24
     let v14: u64;  // [bp-0x118]
-    let v15: u64;  // [bp-0x110], Other Possible Types: std::sys::os_str::bytes::Slice *
+    let v15: i64;  // [bp-0x110], Other Possible Types: u64
     let v16: u64;  // [bp-0x108]
     let v17: u64;  // [bp-0x100]
-    let v18: u256;  // [bp-0xf8], Other Possible Types: core::result::Result<std::fs::Metadata, std::io::error::Error>, std::path::PathBuf, struct24
+    let v18: std::path::PathBuf;  // [bp-0xf8], Other Possible Types: struct24, struct32, core::result::Result<std::fs::Metadata, std::io::error::Error>, u64
     let v19: std::path::Components;  // [bp-0xf8]
     let v20: std::path::Components;  // [bp-0xf8]
     let v21: struct24;  // [bp-0xf0], Other Possible Types: u64
     let v22: i64;  // [bp-0xe8], Other Possible Types: u64
     let v23: u64;  // [bp-0xe0]
-    let v24: void*;  // [bp-0xd8]
+    let v24: void*;  // [bp-0xd8], Other Possible Types: u128
     let v25: u64;  // [bp-0xc8]
     let v26: u8;  // [bp-0x48]
     let v28: u8;  // r13b
@@ -90,7 +90,16 @@ fn uu_mv::handle_two_paths(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> long 
     v30 = a0;
     v19 = std::path::Path::components(v0, v10);
     v31 = v17;
-    v9 = v30;
+    v1 = std::path::Components {
+        path: &[u8] {
+            ptr: <UNKNOWN>
+            len: <UNKNOWN>
+        }
+        prefix: <UNKNOWN>
+        front: <UNKNOWN>
+        back: <UNKNOWN>
+        has_physical_root: <UNKNOWN>
+    };
     if !<std::path::Components as core::cmp::PartialEq>::eq(&v1, &v19) && !uucore::features::fs::are_hardlinks_to_same_file(v30, v31, v0, v10) as i8 {
         if !(!v28 && uucore::features::fs::are_hardlinks_or_one_way_symlink_to_same_file(v30, v31, v0, v10) as i8) {
             goto LABEL_4e93c2;
@@ -115,8 +124,8 @@ LABEL_4e9549:
             };
             v13 = <T as alloc::string::ToString>::to_string(&v1);
             v23 = v12;
-            memcpy(&v20 as u8, &v11, 16);
-            memcpy(&v20, &v13, 16);
+            v21 = v11.field_0;
+            v24 = v13.field_0;
             v25 = v15;
             v18 = 2;
             goto LABEL_0x4e9a93;
@@ -157,8 +166,8 @@ LABEL_4e94ac:
             };
             v1 = <T as alloc::string::ToString>::to_string(&v13);
             v23 = v7;
-            memcpy(&v19 as u8, &v5, 16);
-            memcpy(&v19, &v1, 16);
+            v21 = v5.field_0;
+            v24 = v1.field_0;
             v25 = v3;
             v18 = 4;
             goto LABEL_0x4e9a93;

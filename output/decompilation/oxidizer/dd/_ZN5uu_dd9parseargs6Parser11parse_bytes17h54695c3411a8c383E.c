@@ -1,6 +1,6 @@
 fn uu_dd::parseargs::Parser::parse_bytes(a1: i64, a2: i64) -> : struct32 {
     let a0: u64;  // rsi
-    let v0: u128;  // [bp-0x28], Other Possible Types: char
+    let v0: i8;  // [bp-0x28], Other Possible Types: u128
     let v1: i8;  // [bp-0x18]
     let v3: i64;  // rdi
 

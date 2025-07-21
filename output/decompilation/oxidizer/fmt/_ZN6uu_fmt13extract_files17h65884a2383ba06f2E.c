@@ -1,4 +1,4 @@
-fn uu_fmt::extract_files(a1: &struct16) -> : struct24 {
+fn uu_fmt::extract_files(a1: &struct56) -> : struct24 {
     let a0: u64;  // rsi
     let v0: u64;  // [bp-0x17a]
     let v1: u64;  // [bp-0x179]

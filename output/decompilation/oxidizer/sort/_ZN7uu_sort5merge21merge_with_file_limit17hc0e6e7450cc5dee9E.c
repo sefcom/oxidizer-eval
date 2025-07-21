@@ -1,63 +1,63 @@
 fn uu_sort::merge::merge_with_file_limit(a1: &struct48, a2: i64, a3: i64) -> : struct24 {
     let a0: i64;  // rsi
-    let v0: u128;  // [bp-0x278], Other Possible Types: struct24
-    let v1: u640;  // [bp-0x278]
-    let v2: u128;  // [bp-0x278]
-    let v3: struct24;  // [bp-0x278]
+    let v0: struct24;  // [bp-0x278], Other Possible Types: struct48, u128
+    let v1: struct96;  // [bp-0x278]
+    let v2: struct24;  // [bp-0x278]
     let v4: Option<struct48>;  // [bp-0x278]
     let v5: u64;  // [bp-0x270]
     let v6: u128;  // [bp-0x268]
-    let v7: u128;  // [bp-0x258], Other Possible Types: struct8
+    let v7: struct8;  // [bp-0x258], Other Possible Types: u128
     let v8: u64;  // [bp-0x250]
-    let v9: u64;  // [bp-0x248]
-    let v11: u128;  // [bp-0x230]
+    let v9: struct24;  // [bp-0x248]
+    let v10: u64;  // [bp-0x240]
+    let v11: u64;  // [bp-0x230]
     let v12: u64;  // [bp-0x220]
     let v13: core::option::Option<&str>;  // [bp-0x218], Other Possible Types: struct32
     let v14: u64;  // [bp-0x210]
     let v15: void*;  // [bp-0x208]
-    let v16: struct16;  // [bp-0x200], Other Possible Types: Option<struct48>
+    let v16: Option<struct48>;  // [bp-0x200], Other Possible Types: struct16
     let v17: <anon>;  // [bp-0x200]
     let v18: Option<struct40>;  // [bp-0x1f8]
-    let v19: Option<struct40>;  // [bp-0x1f0]
-    let v20: u128;  // [bp-0x1e8]
-    let v21: u128;  // [bp-0x1d8]
-    let v22: u64;  // [bp-0x1d0]
-    let v23: u128;  // [bp-0x1c8]
-    let v24: u64;  // [bp-0x1c0]
-    let v25: u128;  // [bp-0x1b8]
-    let v26: u8;  // [bp-0x1a8]
+    let v19: u64;  // [bp-0x1f0]
+    let v20: Option<struct40>;  // [bp-0x1f0]
+    let v21: u128;  // [bp-0x1e8]
+    let v22: u128;  // [bp-0x1d8]
+    let v23: u64;  // [bp-0x1d0]
+    let v24: struct48;  // [bp-0x1c8]
+    let v25: u64;  // [bp-0x1c0]
+    let v26: struct16;  // [bp-0x1b8]
     let v27: u64;  // [bp-0x198]
-    let v28: void*;  // [bp-0x190]
-    let v29: u64;  // [bp-0x188]
+    let v28: struct24;  // [bp-0x190]
+    let v29: struct96;  // [bp-0x188]
     let v30: u64;  // [bp-0x180]
-    let v31: u128;  // [bp-0x178]
+    let v31: struct96;  // [bp-0x178]
     let v32: u128;  // [bp-0x168]
     let v33: u128;  // [bp-0x158]
     let v34: u128;  // [bp-0x148]
     let v35: u64;  // [bp-0x138]
-    let v36: struct16;  // [bp-0x130], Other Possible Types: u64
-    let v37: u64;  // [bp-0x128]
-    let v38: u64;  // [bp-0x120]
+    let v36: struct16;  // [bp-0x130], Other Possible Types: struct40
+    let v37: struct32;  // [bp-0x128]
+    let v38: struct96;  // [bp-0x120]
     let v39: u64;  // [bp-0x118]
     let v40: struct56;  // [bp-0x118]
     let v41: u64;  // [bp-0x110]
-    let v42: u128;  // [bp-0x108]
-    let v43: u64;  // [bp-0xf8], Other Possible Types: struct161
-    let v45: u64;  // rax
-    let v46: u64;  // r12
+    let v42: struct16;  // [bp-0x108]
+    let v43: struct161;  // [bp-0xf8], Other Possible Types: struct48
+    let v45: struct16;  // rax
+    let v46: struct16;  // r12
     let v47: u32;  // rdi
     let v48: u64;  // r14
-    let v56: u64;  // rdx
-    let v57: u64;  // rax
+    let v56: struct24;  // rdx
+    let v57: struct96;  // rax
     let v58: u64;  // rcx
-    let v59: u128;  // xmm0
+    let v59: struct96;  // xmm0
     let v60: u128;  // xmm1
     let v61: u128;  // xmm2
     let v63: u64;  // rdx
     let v64: u64;  // rcx
     let v65: u128;  // xmm0
     let v71: core::str::pattern::CharSearcher;  // rax
-    let v72: u128;  // xmm0
+    let v72: struct24;  // xmm0
     let v73: u128;  // xmm1
     let v75: i64;  // rdi
     let v76: i64;  // rdi
@@ -67,7 +67,6 @@ fn uu_sort::merge::merge_with_file_limit(a1: &struct48, a2: i64, a3: i64) -> : s
     let v81: u64;  // rax
     let v82: u128;  // xmm0
     let v85: u64;  // [bp-0x1e0]
-    let v89: u64;  // [bp-0x140]
 
     v45 = <core::iter::adapters::map::Map<I,F> as core::iter::traits::exact_size::ExactSizeIterator>::len(a0);
     v46 = *((a1 + 112) as &i64);
@@ -93,27 +92,28 @@ fn uu_sort::merge::merge_with_file_limit(a1: &struct48, a2: i64, a3: i64) -> : s
     if v48 {
         v27 = 9223372036854775810;
         do {
+            v19 = v19;
             v16 = <itertools::groupbylazy::Chunks<I> as core::iter::traits::iterator::Iterator>::next(&v43);
             v17 = core::option::unwrap(v16);
-            memcpy(&v26, &v17, 16);
-            memcpy(&v25, &v17, 16);
-            v23 = struct16 {
+            v24 = struct48 {
                 field_0: v17.field_0.field_0
+                field_16: v17.field_0.field_16
+                field_32: *(&v17.field_0.field_32 as &i128)
             };
-            uu_sort::merge::merge_without_limit(&v0, &v23, a1);
-            v56 = v0;
+            uu_sort::merge::merge_without_limit(&v0 as u192, &v24, a1);
+            v56 = v0.field_0 as i64;
             v57 = v5;
             if v56 == 3 {
-                *((v75 + 8) as &u64) = v57;
+                *((v75 + 8) as &struct96) = v57;
                 *((v75 + 16) as &u64) = v58;
                 *(v75 as &i64) = 3;
                 return;
             }
             v35 = v12;
-            v59 = *((&v0 as &char + 24) as &i128);
-            v60 = *(&v8 as &i128);
-            v61 = *((&v1 as &char + 56) as &i128);
-            v34 = v11;
+            v59 = *((&v0.field_16 as &char + 8) as &i128);
+            v60 = *((&v0.field_32 as &char + 8) as &i128);
+            v61 = *(&v10 as &i128);
+            v34 = *(&v11 as &i128);
             v33 = v61;
             v32 = v60;
             v31 = v59;
@@ -121,36 +121,36 @@ fn uu_sort::merge::merge_with_file_limit(a1: &struct48, a2: i64, a3: i64) -> : s
             v29 = v57;
             v30 = v58;
             uu_sort::tmp_dir::TmpDirWrapper::next_file(a2, v28);
-            if v24 == 0x8000000000000000 {
-                *((v76 + 8) as &u128) = v25;
+            if v25 == 0x8000000000000000 {
+                *((v76 + 8) as &struct16) = v26;
                 *(v76 as &i64) = 3;
                 return;
             }
-            v39 = v23;
-            v41 = v24;
-            v42 = v25;
+            v39 = v24.field_0;
+            v41 = v25;
+            v42 = v26;
             v40 = <uu_sort::merge::WriteablePlainTmpFile as uu_sort::merge::WriteableTmpFile>::create(a1);
-            v63 = v0;
-            v64 = *((&v0 as &char + 16) as &i64);
+            v63 = v0.field_0;
+            v64 = v0.field_16;
             if v63 == 0x8000000000000000 {
                 *((v77 + 8) as &u64) = v5;
-                *((v77 + 16) as &Option<struct40>) = v19;
+                *((v77 + 16) as &Option<struct40>) = v20;
                 *(v77 as &i64) = 3;
                 return;
             }
-            v65 = *((&v0 as &char + 24) as &i128);
-            v21 = *(&v8 as &i128);
-            v20 = v65;
+            v65 = *((&v0.field_16 as &char + 8) as &i128);
+            v22 = *(&v8 as &i128);
+            v21 = v65;
             v16 = v63;
             v18 = v5;
-            v19 = v64;
-            memcpy(&v11, &v89, 16);
-            v1 = struct80 {
-                field_0: *(&v28 as &i128)
+            v20 = v64;
+            v1 = struct96 {
+                field_0: *(&v28.field_0 as &i128)
                 field_16: *(&v30 as &i128)
-                field_32: *((&v31 as &char + 8) as &i128)
+                field_32: *(&v31.field_8 as &i128)
                 field_48: *((&v32 as &char + 8) as &i128)
                 field_64: *((&v33 as &char + 8) as &i128)
+                field_80: *((&v34 as &char + 8) as &i128)
             };
             v71 = uu_sort::merge::FileMerger::write_all_to(&v1, a1, <uu_sort::merge::WriteablePlainTmpFile as uu_sort::merge::WriteableTmpFile>::as_write(&v16));
             if v71 {
@@ -159,24 +159,25 @@ fn uu_sort::merge::merge_with_file_limit(a1: &struct48, a2: i64, a3: i64) -> : s
                 *(v78 as &i64) = 3;
                 return;
             }
-            v9 = v22;
+            v9 = v23;
             v72 = *(&v16.field_0 as &i128);
-            v73 = v19 as i128;
+            v73 = v20 as i128;
             v7 = *(&v85 as &i128);
             v6 = v73;
             v2 = v72;
-            v3 = <uu_sort::merge::WriteablePlainTmpFile as uu_sort::merge::WriteableTmpFile>::finished_writing(a1);
-            v57 = v24;
-            if v23 as i64 == 0x8000000000000000 {
-                *((v75 + 8) as &u64) = v57;
+            v0 as u192 = <uu_sort::merge::WriteablePlainTmpFile as uu_sort::merge::WriteableTmpFile>::finished_writing(a1);
+            v57 = v25;
+            if v24.field_0 as i64 == 0x8000000000000000 {
+                *((v75 + 8) as &struct96) = v57;
                 *((v75 + 16) as &u64) = v58;
                 *(v75 as &i64) = 3;
                 return;
             }
-            v36 = v23;
+            v36 = v24.field_0 as i64;
             v37 = v57;
             v38 = v58;
-            v36 = alloc::vec::Vec<T,A>::push(v23 as i64);
+            v36 = alloc::vec::Vec<T,A>::push(v24.field_0 as i64);
+            v19 = v20;
         } while (v48 > v46);
     }
     v4 = <itertools::groupbylazy::Chunks<I> as core::iter::traits::iterator::Iterator>::next(&v43);
@@ -187,7 +188,7 @@ fn uu_sort::merge::merge_with_file_limit(a1: &struct48, a2: i64, a3: i64) -> : s
         None => {
             v13 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a1);
             v81 = alloc::boxed::Box<T>::new();
-            v82 = *(&v28 as &i128);
+            v82 = *(&v28.field_0 as &i128);
             v6 = *(&v30 as &i128) as u128;
             v0 = v82;
             v7 = v81;

@@ -1,12 +1,12 @@
 fn uu_wc::utf8::read::BufReadDecoder<B>::next_strict(a0: &struct24, a1: i64) -> long long {
     let v0: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x48]
-    let v1: u64;  // [bp-0x40]
+    let v1: struct9;  // [bp-0x40]
     let v2: u8;  // [bp-0x38]
     let v4: u64;  // r15
     let v5: core::result::Result<usize, std::io::error::Error>;  // r13
     let v6: u8;  // dl
     let v7: u64;  // rax
-    let v10: u64;  // r13
+    let v10: struct9;  // r13
     let v12: u8;  // bpl
     let v13: u64;  // rax
     let v14: u64;  // rdx

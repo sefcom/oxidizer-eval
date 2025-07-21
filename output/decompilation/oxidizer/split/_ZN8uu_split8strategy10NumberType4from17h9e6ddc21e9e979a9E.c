@@ -1,248 +1,256 @@
-fn uu_split::strategy::NumberType::from(a0: &Option<struct32>, a1: u32, a2: u32) -> u64 {
-    let v0: Option<Result<struct32, struct8>>;  // [sp-0x108], Other Possible Types: unsigned int
-    let v1: struct24;  // [sp-0x108], Other Possible Types: int
-    let v2: struct24;  // [sp-0x108]
-    let v3: Option<Result<struct32, struct8>>;  // [sp-0xe8]
-    let v4: iNone;  // [sp-0xc8]
-    let v5: struct32;  // [sp-0xb0]
-    let v6: struct24;  // [sp-0x90]
-    let v7: struct16;  // [bp-0x78]
-    let v8: struct41;  // [sp-0x68]
-    let v9: i16;  // [sp-0x38]
-    let v11: i64;  // r14
-    let v12: i64;  // rax
-    let v13: i64;  // r13
-    let v14: i64;  // rbp
-    let v15: i64;  // rdx
-    let v16: i64;  // r13
-    let v17: i64;  // rbp
-    let v18: i64;  // r15
-    let v20: i64;  // rax
+fn uu_split::strategy::NumberType::from(a1: i64, a2: i64) -> : struct32 {
+    let a0: i64;  // rdi
+    let v0: struct32;  // [bp-0x108], Other Possible Types: u32
+    let v1: u128;  // [bp-0x108]
+    let v2: struct16;  // [bp-0x108], Other Possible Types: u128
+    let v3: u128;  // [bp-0x108]
+    let v4: struct32;  // [bp-0xf8]
+    let v7: struct32;  // [bp-0xe8], Other Possible Types: char
+    let v8: struct40;  // [bp-0xe0], Other Possible Types: struct24
+    let v9: struct40;  // [bp-0xe0]
+    let v10: u128;  // [bp-0xc8]
+    let v11: struct32;  // [bp-0xb0]
+    let v12: alloc::string::String;  // [bp-0xa8], Other Possible Types: struct24
+    let v13: u128;  // [bp-0xa0]
+    let v14: Result<struct24, struct24>;  // [bp-0x90]
+    let v15: i64;  // [bp-0x88]
+    let v16: u64;  // [bp-0x80]
+    let v17: struct16;  // [bp-0x78]
+    let v18: core::str::pattern::CharSearcher;  // [bp-0x68]
+    let v19: u16;  // [bp-0x38]
+    let v21: u64;  // rcx
     let v22: i64;  // r14
-    let v23: i64;  // r14
+    let v23: alloc::string::String;  // rax, Other Possible Types: struct24
+    let v24: u64;  // r14
+    let v25: u64;  // r14
+    let v26: u64;  // rax
+    let v28: u64;  // rax
+    let v29: u64;  // r15
+    let v30: &mut [u8];  // rax:rdx
+    let v31: &mut [u8];  // rax:rdx
+    let v32: u128;  // [bp-0xf8]
 
-    v8 = <char as core::str::pattern::Pattern>::into_searcher(a1, a2);
-    v7 = struct16 {
+    v18 = <char as core::str::pattern::Pattern>::into_searcher(a1 as u8, a2, v21);
+    v17 = struct16 {
         field_0: 0
         field_8: a2
     };
-    v9 = 1;
-    v6 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v7);
-    v11 = v6.field_8;
-    v12 = v6.field_16;
-    if v12 != 3 {
-        if v12 != 2 {
-            if !(v12 == 1) {
-                goto LABEL_4d6a9c;
-            }
-            v3 = uucore::parser::parse_size::parse_size_u64(*(v11 as &i64), *((v11 + 8) as &i64));
-            if v3 as i32 == 3 {
-                v20 = *((&v3 as &char + 8) as &i64);
-                goto LABEL_4d6a39;
-            } else {
-                v0 = v3;
-                v5 = uu_split::strategy::NumberType::from::{{closure}}(v11, &v0);
-                v20 = v5.field_8 as i64;
-                v4 = *((&v5.field_8 as &char + 8) as &i128);
-                if v5.field_0 == 2 {
-LABEL_4d6a39:
-                    if !v20 {
-                        v1 = <T as alloc::slice::hack::ConvertVec>::to_vec(a1, a2);
-LABEL_4d6aaa:
-                        *((a0 + 24) as &i64) = (&v1)[16] as i64;
-                        *((a0 + 8) as &i128) = v1 as i128;
-                    } else {
-                        *((a0 + 8) as &i64) = 0;
-LABEL_4d6a4a:
-                        *((a0 + 16) as &unsigned long) = v20;
-LABEL_4d6e05:
-                    }
-                    return struct8 {
-                        field_0: v24
-                    };
-                }
-            }
-        } else {
-            v13 = *(v11 as &i64);
-            v14 = *((v11 + 8) as &i64);
-            *(&v0 as &i32) = 0;
-            if core::slice::<impl [T]>::starts_with(v13, v14, core::char::methods::encode_utf8_raw(108, &v0), v15) as i8 {
-LABEL_4d691c:
-                if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*(v11 as &i64), *((v11 + 8) as &i64), "l") as i8 {
-                    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*(v11 as &i64), *((v11 + 8) as &i64), "r") as i8 {
-LABEL_4d6a9c:
-                        v1 = <T as alloc::slice::hack::ConvertVec>::to_vec(a1, a2);
-                        goto LABEL_4d6aaa;
-                    }
-                    v3 = uucore::parser::parse_size::parse_size_u64(*((v11 + 16) as &i64), *((v11 + 24) as &i64));
-                    if v3 as i32 == 3 {
-                        v20 = *((&v3 as &char + 8) as &i64);
-                        *((a0 + 8) as &i64) = 4;
-                        goto LABEL_4d6a4a;
-                    }
-                    v0 = v3;
-                    v5 = uu_split::strategy::NumberType::from::{{closure}}(v11 + 16, &v0);
-                    v20 = v5.field_8 as i64;
-                    v4 = *((&v5.field_8 as &char + 8) as &i128);
-                    if v5.field_0 == 2 {
-                        *((a0 + 8) as &i64) = 4;
-                        goto LABEL_4d6a4a;
-                    }
-                } else {
-                    v3 = uucore::parser::parse_size::parse_size_u64(*((v11 + 16) as &i64), *((v11 + 24) as &i64));
-                    if v3 as i32 == 3 {
-                        v20 = *((&v3 as &char + 8) as &i64);
+    v19 = 1;
+    v14 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v17);
+    v22 = v15;
+    if v16 != 3 {
+        if v16 == 2 {
+            v0 = 0;
+            v0 = v1 & 0xffffffffffffffffffffffff00000000;
+            v31 = core::char::methods::encode_utf8_raw(108, &v0, a2);
+            if core::slice::<impl [T]>::starts_with() || !((v0 = 0, v0 = v1 & 0xffffffffffffffffffffffff00000000, v30 = core::char::methods::encode_utf8_raw(114, &v0, a2), !core::slice::<impl [T]>::starts_with() as u8)) {
+                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*(v22 as &i64), *((v22 + 8) as &i64), "l") as i8 {
+                    uucore::parser::parse_size::parse_size_u64(*((v22 + 16) as &i64), *((v22 + 24) as &i64), v21);
+                    if v7.field_0 as i32 == 3 {
+                        v23 = v8;
                         *((a0 + 8) as &i64) = 2;
-                        goto LABEL_4d6a4a;
+                        *((a0 + 16) as &struct24) = v23;
                     }
-                    v0 = v3;
-                    v5 = uu_split::strategy::NumberType::from::{{closure}}(v11 + 16, &v0);
-                    v20 = v5.field_8 as i64;
-                    v4 = *((&v5.field_8 as &char + 8) as &i128);
-                    if v5.field_0 == 2 {
-                        *((a0 + 8) as &i64) = 2;
-                        goto LABEL_4d6a4a;
-                    }
-                }
-            } else {
-                v16 = *(v11 as &i64);
-                v17 = *((v11 + 8) as &i64);
-                *(&v0 as &i32) = 0;
-                if !(!core::slice::<impl [T]>::starts_with(v16, v17, core::char::methods::encode_utf8_raw(114, &v0), v15) as i8) {
-                    goto LABEL_4d691c;
-                }
-                v3 = uucore::parser::parse_size::parse_size_u64(*((v11 + 16) as &i64), *((v11 + 24) as &i64));
-                if v3 as i32 == 3 {
-                    v18 = *((&v3 as &char + 8) as &i64);
-                } else {
-                    v0 = v3;
-                    v5 = uu_split::strategy::NumberType::from::{{closure}}(v11 + 16, &v0);
-                    v18 = v5.field_8 as i64;
-                    v4 = *((&v5.field_8 as &char + 8) as &i128);
-                    if v5.field_0 != 2 {
+                    v0 = v7;
+                    v11 = uu_split::strategy::NumberType::from::{{closure}}(v22 + 16, &v0);
+                    v23 = v12;
+                    v10 = v13;
+                    if v11.field_0 as i64 != 2 {
                         return struct32 {
-                            field_0: v21
-                            field_8: v18
-                            field_16: v4
+                            field_0: v26
+                            field_8: v23
+                            field_16: v10
                         };
                     }
+                    *((a0 + 8) as &i64) = 2;
+                    *((a0 + 16) as &struct24) = v23;
+                } else {
+                    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*(v22 as &i64), *((v22 + 8) as &i64), "r") as i8 {
+                        uucore::parser::parse_size::parse_size_u64(*((v22 + 16) as &i64), *((v22 + 24) as &i64), v21);
+                        if v7.field_0 as i32 == 3 {
+                            v23 = v8;
+                            *((a0 + 8) as &i64) = 4;
+                            *((a0 + 16) as &struct24) = v23;
+                        }
+                        v0 = v7;
+                        v11 = uu_split::strategy::NumberType::from::{{closure}}(v22 + 16, &v0);
+                        v23 = v12;
+                        v10 = v13;
+                        if v11.field_0 as i64 != 2 {
+                            return struct32 {
+                                field_0: v26
+                                field_8: v23
+                                field_16: v10
+                            };
+                        }
+                        *((a0 + 8) as &i64) = 4;
+                        *((a0 + 16) as &struct24) = v23;
+                    } else {
+                        vvar_1043{stack -264} = struct32 OrderedDict({0: 𝜙@128b [((5073031, None), None), ((5073352, None), None), ((5073515, None), vvar_828{stack -264})]})
+                        <T as alloc::slice::hack::ConvertVec>::to_vec(&v0, a1, a2);
+                        *((a0 + 24) as &i64) = v32;
+                        *((a0 + 8) as &u128) = v1;
+                    }
                 }
-                v3 = uucore::parser::parse_size::parse_size_u64(*(v11 as &i64), *((v11 + 8) as &i64));
-                if v3 as i32 == 3 {
-                    v20 = *((&v3 as &char + 8) as &i64);
+            }
+            uucore::parser::parse_size::parse_size_u64(*((v22 + 16) as &i64), *((v22 + 24) as &i64), v21);
+            if v7.field_0 as i32 == 3 {
+                v9 = v8;
+            } else {
+                v0 = v7;
+                v11 = uu_split::strategy::NumberType::from::{{closure}}(v22 + 16, &v0);
+                v8 = v12;
+                v10 = v13;
+                if v11.field_0 as i64 != 2 {
+                    return struct32 {
+                        field_0: v26
+                        field_8: v8
+                        field_16: v10
+                    };
+                }
+            }
+            v23 = v9;
+            uucore::parser::parse_size::parse_size_u64(*(v22 as &i64), *((v22 + 8) as &i64), v21);
+            if v7.field_0 as i32 == 3 {
+                v2 = v1;
+LABEL_4d6d98:
+                if v23 - 1 >= v8 {
+                    <T as alloc::string::ToString>::to_string(&v2, v22);
+                    return struct32 {
+                        field_0: 1
+                        field_8: v2
+                        field_24: v4.field_0 as i64
+                    };
+                }
+                return struct32 {
+                    field_0: v28
+                    field_8: 1
+                    field_16: v28
+                    field_24: v29
+                };
+            } else {
+                v0 = v7;
+                v11 = uu_split::strategy::NumberType::from::{{closure}}(v22, &v0);
+                v23 = v12;
+                v10 = v13;
+                v2 = v1;
+                if v11.field_0 as i64 == 2 {
                     goto LABEL_4d6d98;
                 }
-                v0 = v3;
-                v5 = uu_split::strategy::NumberType::from::{{closure}}(v11, &v0);
-                v20 = v5.field_8 as i64;
-                v4 = *((&v5.field_8 as &char + 8) as &i128);
-                if v5.field_0 == 2 {
-LABEL_4d6d98:
-                    if v20 - 1 >= v18 {
-                        v2 = <T as alloc::string::ToString>::to_string(v11);
-                        return Some(struct32 {
-                            field_0: 1
-                            field_8: v2 as i128
-                            field_24: (&v2)[16] as i64
-                        });
-                    }
-                    *((a0 + 8) as &i64) = 1;
-                    goto LABEL_4d6dfd;
+            }
+        } else if v16 == 1 {
+            uucore::parser::parse_size::parse_size_u64(*(v22 as &i64), *((v22 + 8) as &i64), v21);
+            if *(&v7 as &i32) == 3 || !((v0 = v7, v11 = uu_split::strategy::NumberType::from::{{closure}}(v22, &v0), v23 = v12, v10 = v13, v11.field_0 as i64 != 2)) {
+                if v23 {
+                    *((a0 + 8) as &i64) = 0;
+                    *((a0 + 16) as &struct24) = v23;
                 }
-            }
-        }
-    } else {
-        if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*(v11 as &i64), *((v11 + 8) as &i64), "l") as i8 {
-            if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*(v11 as &i64), *((v11 + 8) as &i64), "r") as i8 {
-                goto LABEL_4d6a9c;
-            }
-            v3 = uucore::parser::parse_size::parse_size_u64(*((v11 + 32) as &i64), *((v11 + 40) as &i64));
-            if v3 as i32 == 3 {
-                v18 = *((&v3 as &char + 8) as &i64);
-            } else {
-                v0 = v3;
-                v5 = uu_split::strategy::NumberType::from::{{closure}}(v11 + 32, &v0);
-                v18 = v5.field_8 as i64;
-                v4 = *((&v5.field_8 as &char + 8) as &i128);
-                if v5.field_0 != 2 {
-                    return struct32 {
-                        field_0: v21
-                        field_8: v18
-                        field_16: v4
-                    };
-                }
-            }
-            v3 = uucore::parser::parse_size::parse_size_u64(*((v11 + 16) as &i64), *((v11 + 24) as &i64));
-            v23 = v11 + 16;
-            if v3 as i32 == 3 {
-                v20 = *((&v3 as &char + 8) as &i64);
-                goto LABEL_4d6dec;
-            }
-            v0 = v3;
-            v5 = uu_split::strategy::NumberType::from::{{closure}}(v23, &v0);
-            v20 = v5.field_8 as i64;
-            v4 = *((&v5.field_8 as &char + 8) as &i128);
-            if v5.field_0 == 2 {
-LABEL_4d6dec:
-                if v20 - 1 >= v18 {
-                    v2 = <T as alloc::string::ToString>::to_string(v23);
-                    return Some(struct32 {
-                        field_0: 1
-                        field_8: v2 as i128
-                        field_24: (&v2)[16] as i64
-                    });
-                }
-                *((a0 + 8) as &i64) = 5;
-                goto LABEL_4d6dfd;
+                <T as alloc::slice::hack::ConvertVec>::to_vec(&v1, a1, a2);
+                *((a0 + 24) as &i64) = v32;
+                *((a0 + 8) as &u128) = v1;
             }
         } else {
-            v3 = uucore::parser::parse_size::parse_size_u64(*((v11 + 32) as &i64), *((v11 + 40) as &i64));
-            if v3 as i32 == 3 {
-                v18 = *((&v3 as &char + 8) as &i64);
+            vvar_1035{stack -264} = struct32 OrderedDict({0: 𝜙@128b [((5073031, None), None), ((5073352, None), None), ((5073515, None), vvar_828{stack -264})]})
+            <T as alloc::slice::hack::ConvertVec>::to_vec(&v0, a1, a2);
+            *((a0 + 24) as &i64) = v32;
+            *((a0 + 8) as &u128) = v1;
+        }
+    } else {
+        if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*(v22 as &i64), *((v22 + 8) as &i64), "l") as i8 {
+            uucore::parser::parse_size::parse_size_u64(*((v22 + 32) as &i64), *((v22 + 40) as &i64), v21);
+            if *(&v7 as &i32) == 3 {
+                v9 = v8;
             } else {
-                v0 = v3;
-                v5 = uu_split::strategy::NumberType::from::{{closure}}(v11 + 32, &v0);
-                v18 = v5.field_8 as i64;
-                v4 = *((&v5.field_8 as &char + 8) as &i128);
-                if v5.field_0 != 2 {
+                v0 = v7;
+                v11 = uu_split::strategy::NumberType::from::{{closure}}(v22 + 32, &v0);
+                v8 = v12;
+                v10 = v13;
+                if v11.field_0 as i64 != 2 {
                     return struct32 {
-                        field_0: v21
-                        field_8: v18
-                        field_16: v4
+                        field_0: v26
+                        field_8: v8
+                        field_16: v10
                     };
                 }
             }
-            v3 = uucore::parser::parse_size::parse_size_u64(*((v11 + 16) as &i64), *((v11 + 24) as &i64));
-            v22 = v11 + 16;
-            if v3 as i32 == 3 {
-                v20 = *((&v3 as &char + 8) as &i64);
-                goto LABEL_4d6bf7;
-            }
-            v0 = v3;
-            v5 = uu_split::strategy::NumberType::from::{{closure}}(v22, &v0);
-            v20 = v5.field_8 as i64;
-            v4 = *((&v5.field_8 as &char + 8) as &i128);
-            if v5.field_0 == 2 {
+            v23 = v9;
+            uucore::parser::parse_size::parse_size_u64(*((v22 + 16) as &i64), *((v22 + 24) as &i64), v21);
+            v24 = v22 + 16;
+            if *(&v7 as &i32) == 3 {
+                v2 = v1;
 LABEL_4d6bf7:
-                if v20 - 1 >= v18 {
-                    v2 = <T as alloc::string::ToString>::to_string(v22);
-                    return Some(struct32 {
+                if v23 - 1 >= v8 {
+                    <T as alloc::string::ToString>::to_string(&v2, v24);
+                    return struct32 {
                         field_0: 1
-                        field_8: v2 as i128
-                        field_24: (&v2)[16] as i64
-                    });
+                        field_8: v2
+                        field_24: v4.field_0 as i64
+                    };
                 }
                 *((a0 + 8) as &i64) = 3;
-LABEL_4d6dfd:
-                *((a0 + 16) as &unsigned long) = v20;
-                *((a0 + 24) as &unsigned long) = v18;
-                goto LABEL_4d6e05;
+            } else {
+                v0 = v7;
+                v11 = uu_split::strategy::NumberType::from::{{closure}}(v24, &v0);
+                v23 = v12;
+                v10 = v13;
+                v2 = v3;
+                if v11.field_0 as i64 == 2 {
+                    goto LABEL_4d6bf7;
+                }
+            }
+        } else {
+            if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*(v22 as &i64), *((v22 + 8) as &i64), "r") as i8 {
+                vvar_1039{stack -264} = struct32 OrderedDict({0: 𝜙@128b [((5073031, None), None), ((5073352, None), None), ((5073515, None), vvar_828{stack -264})]})
+                <T as alloc::slice::hack::ConvertVec>::to_vec(&v0, a1, a2);
+                *((a0 + 24) as &i64) = v32;
+                *((a0 + 8) as &u128) = v1;
+            }
+            uucore::parser::parse_size::parse_size_u64(*((v22 + 32) as &i64), *((v22 + 40) as &i64), v21);
+            if v7.field_0 as i32 == 3 {
+                v9 = v8;
+            } else {
+                v0 = v7;
+                v11 = uu_split::strategy::NumberType::from::{{closure}}(v22 + 32, &v0);
+                v8 = v12;
+                v10 = v13;
+                if v11.field_0 as i64 != 2 {
+                    return struct32 {
+                        field_0: v26
+                        field_8: v8
+                        field_16: v10
+                    };
+                }
+            }
+            v23 = v9;
+            uucore::parser::parse_size::parse_size_u64(*((v22 + 16) as &i64), *((v22 + 24) as &i64), v21);
+            v25 = v22 + 16;
+            if v7.field_0 as i32 == 3 {
+                v2 = v1;
+LABEL_4d6dec:
+                if v23 - 1 >= v8 {
+                    <T as alloc::string::ToString>::to_string(&v2, v25);
+                    return struct32 {
+                        field_0: 1
+                        field_8: v2
+                        field_24: v4.field_0 as i64
+                    };
+                }
+                *((a0 + 8) as &i64) = 5;
+            } else {
+                v0 = v7;
+                v11 = uu_split::strategy::NumberType::from::{{closure}}(v25, &v0);
+                v23 = v12;
+                v10 = v13;
+                v2 = v3;
+                if v11.field_0 as i64 == 2 {
+                    goto LABEL_4d6dec;
+                }
             }
         }
     }
     return struct32 {
-        field_0: v19
-        field_8: v20
-        field_16: v4
+        field_0: v26
+        field_8: v23
+        field_16: v10
     };
 }

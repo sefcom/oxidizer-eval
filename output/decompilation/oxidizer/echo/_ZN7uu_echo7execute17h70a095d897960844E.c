@@ -32,7 +32,7 @@ fn uu_echo::execute(a0: i64, a1: i32, a2: i8, a3: i64) -> long long {
                     return 0;
                 }
                 v9 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v3);
-                v11 = v10;
+                v10 = v10;
                 if !v11 {
                     goto LABEL_4a4d7c;
                 }

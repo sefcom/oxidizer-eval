@@ -5,9 +5,9 @@ fn uu_env::EnvAppData::run_env(a1: i64, a2: i64) -> : struct80 {
     let v2: u64;  // [bp-0x1b0]
     let v3: u128;  // [bp-0x1a8]
     let v4: u128;  // [bp-0x198]
-    let v5: u8;  // [bp-0x188]
+    let v5: u128;  // [bp-0x188]
     let v6: u64;  // [bp-0x178]
-    let v7: u192;  // [bp-0x170]
+    let v7: struct24;  // [bp-0x170]
     let v8: u8;  // [bp-0x158]
     let v9: i8;  // [bp-0x118]
     let v10: u8;  // [bp-0xd7]
@@ -16,7 +16,7 @@ fn uu_env::EnvAppData::run_env(a1: i64, a2: i64) -> : struct80 {
     let v13: u64;  // [bp-0xc0]
     let v14: u128;  // [bp-0xb8]
     let v15: u128;  // [bp-0xa8]
-    let v16: u8;  // [bp-0x98]
+    let v16: u128;  // [bp-0x98]
     let v17: i8;  // [bp-0x88]
     let v19: u8;  // al
     let v20: u64;  // rax
@@ -28,7 +28,7 @@ fn uu_env::EnvAppData::run_env(a1: i64, a2: i64) -> : struct80 {
         return v12;
     }
     v6 = *(&v17 as &i64);
-    memcpy(&v5, &v16, 16);
+    v5 = v16;
     v4 = v15;
     v3 = v14;
     v0 = v11;
@@ -52,6 +52,11 @@ fn uu_env::EnvAppData::run_env(a1: i64, a2: i64) -> : struct80 {
         return v22;
     }
     memcpy(&v8, &v14, 136);
+    v7 = struct24 {
+        field_0: v11
+        field_8: v22
+        field_16: v13
+    };
     v7 = struct24 {
         field_0: v11
         field_8: v22

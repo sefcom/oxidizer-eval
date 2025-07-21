@@ -1,8 +1,8 @@
-fn uu_ls::get_inode(a0: i64, a1: i64) -> long long {
+fn uu_ls::get_inode(a0: i32, a1: i64) -> long long {
     let v0: u64;  // [bp-0x48]
     let v1: i64;  // [bp-0x40]
     let v2: u64;  // [bp-0x38]
-    let v3: u320;  // [bp-0x30]
+    let v3: struct40;  // [bp-0x30]
 
     v0 = a1;
     v1 = &v0;

@@ -6,13 +6,13 @@ fn uu_cut::get_delimiters(a1: i64, a2: i32) -> Result<struct32, struct16> {
     let v3: u64;  // [bp-0x48]
     let v6: u8;  // r15b
     let v7: i64;  // rax
-    let v8: u64;  // r12
+    let v8: struct40;  // r12
     let v9: u64;  // rsi
     let v10: i64;  // r14
     let v11: u64;  // rdx
-    let v14: struct24;  // r13
+    let v14: i64;  // r13
     let v15: u64;  // rbp
-    let v16: u64;  // rdx
+    let v16: struct28;  // rdx
     let v17: i64;  // rdi
     let v18: u64;  // rax
     let v19: i64;  // rax
@@ -26,7 +26,7 @@ fn uu_cut::get_delimiters(a1: i64, a2: i32) -> Result<struct32, struct16> {
 LABEL_4b73a4:
             <T as alloc::slice::hack::ConvertVec>::to_vec(v9, v11, a2);
             *((v17 + 8) as &double) = alloc::boxed::Box<T>::new(v10);
-            *((v17 + 16) as &&u64) = &g_528da0;
+            *((v17 + 16) as &&u128) = &g_528da0.field_0;
             *(v17 as &u64) = v18;
             return;
         } else if !a1 {
@@ -43,10 +43,10 @@ LABEL_4b73a4:
     v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, "output-delimiter");
     v19 = clap_builder::parser::error::MatchesError::unwrap("output-delimiter", &v0);
     v20 = (!v19 ? 0 : uu_cut::get_delimiters::{{closure}}(*((v19 + 8) as &i64), *((v19 + 16) as &i64)));
-    *((v17 + 8) as &u64) = v8;
+    *((v17 + 8) as &struct40) = v8;
     *((v17 + 16) as &i64) = 1;
     *((v17 + 24) as &u64) = v20;
-    *((v17 + 32) as &u64) = v16;
+    *((v17 + 32) as &struct28) = v16;
     *(v17 as &u64) = v18;
     return;
 }

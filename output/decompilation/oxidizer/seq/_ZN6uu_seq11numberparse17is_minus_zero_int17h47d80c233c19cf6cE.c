@@ -1,5 +1,5 @@
 fn uu_seq::numberparse::is_minus_zero_int(a0: i64, a1: i64, a2: i64) -> long long {
-    let v0: u320;  // [bp-0x48]
+    let v0: struct40;  // [bp-0x48], Other Possible Types: u32
     let v1: u128;  // [bp-0x48]
     let v5: &mut [u8];  // rax:rdx
 
@@ -9,6 +9,11 @@ fn uu_seq::numberparse::is_minus_zero_int(a0: i64, a1: i64, a2: i64) -> long lon
     if !core::slice::<impl [T]>::starts_with(a0, a1, v5.data_ptr, 1) {
         return 0;
     }
+    v0 = struct40 {
+        field_0: 0x80000000000000000
+        field_16: 0x10000000000000000
+        field_32: 0
+    };
     v0 = struct40 {
         field_0: 0x80000000000000000
         field_16: 0x10000000000000000

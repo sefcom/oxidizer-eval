@@ -1,4 +1,4 @@
-fn uu_ls::colors::StyleManager::reset(a1: i64, a2: i8) -> : struct24 {
+fn uu_ls::colors::StyleManager::reset(a1: i64, a2: i8) -> Result<struct24, struct24> {
     let a0: i64;  // rsi
     let v0: u64;  // [bp-0x8]
     let v2: i64;  // rdi

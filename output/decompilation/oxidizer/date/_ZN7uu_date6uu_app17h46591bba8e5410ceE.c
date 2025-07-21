@@ -1,12 +1,12 @@
 fn uu_date::uu_app(a0: &struct712) -> long long {
-    let v0: u640;  // [bp-0xa58]
+    let v0: struct80;  // [bp-0xa58], Other Possible Types: u8
     let v1: u64;  // [bp-0x79c]
     let v2: u32;  // [bp-0x794]
-    let v3: u384;  // [bp-0x790]
+    let v3: struct48;  // [bp-0x790], Other Possible Types: u8
     let v4: struct437;  // [bp-0x540]
     let v5: u64;  // [bp-0x284]
     let v6: u32;  // [bp-0x27c]
-    let v7: u8;  // [bp-0x278], Other Possible Types: struct24
+    let v7: struct17;  // [bp-0x278], Other Possible Types: struct24, u8
     let v10: u64;  // rdx
 
     v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);
@@ -48,6 +48,11 @@ fn uu_date::uu_app(a0: &struct712) -> long long {
     };
     v7 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v0);
     clap_builder::builder::arg::Arg::value_parser(&v0, &v3, &v7);
+    v7 = struct24 {
+        field_0: 0
+        field_8: 1
+        field_16: 0
+    };
     v7 = struct17 {
         field_0: 0
         field_8: 1

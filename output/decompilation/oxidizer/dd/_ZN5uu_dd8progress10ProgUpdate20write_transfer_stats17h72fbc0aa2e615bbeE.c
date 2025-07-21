@@ -1,8 +1,14 @@
 fn uu_dd::progress::ProgUpdate::write_transfer_stats(a0: i64, a1: i64, a2: i32) -> long long {
-    let v0: u384;  // [bp-0x40]
+    let v0: core::fmt::Arguments;  // [bp-0x40], Other Possible Types: struct40
     let v2: core::result::Result<(), std::io::error::Error>;  // rax
 
     if a2 {
+        v0 = struct40 {
+            field_0: "\n"
+            field_8: 1
+            field_16: 8
+            field_24: 0
+        };
         v0 = core::fmt::Arguments {
             pieces: ["\n"]
             args: []

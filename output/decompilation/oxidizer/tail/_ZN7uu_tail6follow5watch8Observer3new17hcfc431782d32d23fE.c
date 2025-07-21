@@ -1,21 +1,19 @@
-fn uu_tail::follow::watch::Observer::new(a0: &struct119, a1: u64, a2: u64, a3: u64, a4: u64, a5: u64) -> int {
-    let v0: u64;  // [sp-0x38]
-    let v1: u64;  // [sp-0x30]
-    let v2: u64;  // [sp-0x28]
-    let v3: u64;  // [sp-0x20]
-    let v4: u64;  // [sp-0x18]
-    let v5: u64;  // [sp-0x10]
+fn uu_tail::follow::watch::Observer::new(a0: i64, a1: u8, a2: u8, a3: u8, a4: i64, a5: u32) -> : struct119 {
+    let v0: u64;  // [bp-0x38]
+    let v1: u64;  // [bp-0x30]
+    let v2: u64;  // [bp-0x28]
+    let v3: u64;  // [bp-0x20]
+    let v4: u64;  // [bp-0x18]
+    let v5: u64;  // [bp-0x10]
     let v7: u64;  // r15
     let v8: u64;  // r14
     let v9: u64;  // r13
     let v10: u64;  // r12
     let v11: u64;  // rbx
     let v12: u64;  // rax
-    let v13: u32;  // ecx
-    let v14: u128;  // xmm0
-    let v15: u128;  // xmm0
-    let v16: u128;  // xmm1
-    let v17: u128;  // xmm2
+    let v13: u128;  // xmm0
+    let v14: u128;  // xmm1
+    let v15: struct56;  // xmm2
 
     v5 = v7;
     v4 = v8;
@@ -23,24 +21,25 @@ fn uu_tail::follow::watch::Observer::new(a0: &struct119, a1: u64, a2: u64, a3: u
     v2 = v10;
     v1 = v11;
     v0 = v12;
-    v13 = (uu_tail::platform::unix::supports_pid_checks(a5) ? a5 : 0);
-    v14 = *(&a4[8] as &i128);
-    v15 = *(&a4 as &i128);
-    v16 = *(&a4[2] as &i128);
-    v17 = *(&a4[4] as &i128);
-    return struct119 {
+    v13 = *(a4 as &i128);
+    v14 = *((a4 + 16) as &i128);
+    v15 = *((a4 + 32) as &i128);
+    return struct144 {
         field_0: 3
+        padding_8: <UNKNOWN>
         field_32: <UNKNOWN>
-        field_40: <UNKNOWN>
-        field_48: <UNKNOWN>
-        field_56: 0
-        field_72: 0
-        field_88: <UNKNOWN>
-        field_104: <UNKNOWN>
-        field_120: <UNKNOWN>
-        field_136: <UNKNOWN>
-        field_140: <UNKNOWN>
-        field_141: <UNKNOWN>
-        field_142: <UNKNOWN>
+        padding_24: <UNKNOWN>
+        field_40: 0
+        padding_40: 8
+        field_48: 0
+        field_56: v13
+        field_72: v14
+        field_88: v15
+        field_104: *((a4 + 48) as &i128)
+        field_120: *((a4 + 64) as &i128)
+        field_136: a5
+        field_140: a1
+        field_141: a3
+        field_142: a2
     };
 }

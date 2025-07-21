@@ -6,7 +6,7 @@ fn uu_tr::operation::translate_input(a0: i64, a1: i64, a2: i64) -> int {
     let v4: u64;  // [bp-0x68]
     let v5: void*;  // [bp-0x60]
     let v6: u64;  // [bp-0x50]
-    let v7: u192;  // [bp-0x48]
+    let v7: struct24;  // [bp-0x48]
     let v12: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
 
     v0 = 0;

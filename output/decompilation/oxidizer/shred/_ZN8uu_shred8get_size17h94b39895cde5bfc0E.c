@@ -1,5 +1,5 @@
 fn uu_shred::get_size(a0: i64, a1: i64) -> long long {
-    let v0: u192;  // [bp-0x28]
+    let v0: struct24;  // [bp-0x28]
     let v2: void*;  // rdi
     let v3: struct24;  // 4096
     let v4: struct24;  // rdx

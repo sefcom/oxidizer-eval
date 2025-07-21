@@ -1,18 +1,15 @@
-fn uu_tail::follow::files::FileHandling::needs_header(a0: void*, a1: u32, a2: u32, a3: u32) -> u64 {
-    let v0: u64;  // [sp-0x8]
-    let v2: u64;  // rax
+fn uu_tail::follow::files::FileHandling::needs_header(a0: i64, a1: i64, a2: i64, a3: i32) -> long long {
+    let v0: struct56;  // [bp-0x8]
     let v3: u64;  // rax
     let v4: u64;  // rax
 
     if !a3 {
         return 0;
+    } else if *(a0 as &i64) != 0x8000000000000000 {
+        v0 = v4 & -0x100 | 1;
+        v3 = <std::path::PathBuf as core::cmp::PartialEq<&std::path::Path>>::eq(*((a0 + 8) as &i64), *((a0 + 16) as &i64), a1, a2);
+        return v3 & -0x100 | v3 ^ 1;
+    } else {
+        return v4 & -0x100 | 1;
     }
-    v3 = v2 & -0x100 | 1;
-    if a0->field_0 != 0x8000000000000000 {
-        v0 = v3;
-        v4 = <std::path::PathBuf as core::cmp::PartialEq<&std::path::Path>>::eq(*(&a0->field_8 as &i64), *(&a0->field_10 as &i64), a1, a2);
-        v3 = v4 & -0x100 | v4 ^ 1;
-        return v3;
-    }
-    return v3;
 }

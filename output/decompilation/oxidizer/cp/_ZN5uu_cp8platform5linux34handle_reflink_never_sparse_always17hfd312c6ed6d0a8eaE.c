@@ -7,7 +7,7 @@ fn uu_cp::platform::linux::handle_reflink_never_sparse_always(a1: i64, a2: i64, 
     let v6: u8;  // al
     let v7: u8;  // al
     let v8: u8;  // r12b
-    let v9: Result<struct4, struct8>;  // bpl
+    let v9: u8;  // bpl
     let v10: u8;  // r13b
     let v11: u8;  // al
 
@@ -19,13 +19,14 @@ fn uu_cp::platform::linux::handle_reflink_never_sparse_always(a1: i64, a2: i64, 
             v11 = uu_cp::platform::linux::check_dest_is_fifo(a3, a4) as i8;
             *((a0 + 1) as &u8) = v10;
             *((a0 + 2) as &i8) = 1;
-            *((a0 + 3) as &Result<struct4, struct8>) = v9;
+            *((a0 + 3) as &u8) = v9;
             *((a0 + 4) as &u8) = v11 | v8;
         }
     }
     v6 = 1;
     return struct16 {
         field_0: v7
+        padding_1: <UNKNOWN>
         field_8: v5
     };
 }

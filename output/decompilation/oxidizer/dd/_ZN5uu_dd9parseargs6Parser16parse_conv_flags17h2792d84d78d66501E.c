@@ -2,7 +2,7 @@ fn uu_dd::parseargs::Parser::parse_conv_flags(a0: i64, a1: i64, a2: i64, a3: i32
     let v0: i64;  // [bp-0x98]
     let v1: u128;  // [bp-0x90]
     let v2: u64;  // [bp-0x80]
-    let v3: u440;  // [bp-0x78]
+    let v3: core::str::iter::SplitInternal<char>;  // [bp-0x78]
     let v4: core::str::pattern::CharSearcher;  // [bp-0x68]
     let v5: u16;  // [bp-0x38]
     let v7: core::option::Option<&str>;  // rax
@@ -21,9 +21,9 @@ fn uu_dd::parseargs::Parser::parse_conv_flags(a0: i64, a1: i64, a2: i64, a3: i32
             }
             finger: <UNKNOWN>
             finger_back: <UNKNOWN>
+            utf8_encoded: <UNKNOWN>
             needle: <UNKNOWN>
             utf8_size: <UNKNOWN>
-            utf8_encoded: <UNKNOWN>
         }
         finished: <UNKNOWN>
     };

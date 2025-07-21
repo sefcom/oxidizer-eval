@@ -3,7 +3,7 @@ fn uu_realpath::canonicalize_relative(a1: i64, a2: i64, a3: i32, a4: i64) -> Res
     let v0: u64;  // [bp-0x68]
     let v1: u64;  // [bp-0x60]
     let v2: u64;  // [bp-0x58]
-    let v3: u8;  // [bp-0x50], Other Possible Types: struct9
+    let v3: struct9;  // [bp-0x50], Other Possible Types: u8
     let v4: u64;  // [bp-0x48]
     let v5: u64;  // [bp-0x40]
     let v9: i64;  // rdi

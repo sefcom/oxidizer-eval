@@ -15,7 +15,7 @@ fn uu_head::read_but_last_n_bytes() -> int {
     let v17: u64;  // r12
     let v18: u64;  // r12
     let v19: u64;  // rdx
-    let v21: *const [u8];  // rax:rdx
+    let v21: &[u8];  // rax:rdx
     let v22: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
 
     if !v10 {
@@ -47,7 +47,7 @@ fn uu_head::read_but_last_n_bytes() -> int {
             }
             v18 = v17;
             v21 = core::slice::iter::Iter<T>::make_slice(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v15, v18, &v7, v16));
-            alloc::vec::Vec<T,A>::append_elements(&v1, v21.data_ptr, v19);
+            alloc::vec::Vec<T,A>::append_elements(&v1, v21.ptr, v19);
         } else if std::io::error::Error::kind(*((&v22 as &char + 8) as &i64)) != 35 {
             break;
         }

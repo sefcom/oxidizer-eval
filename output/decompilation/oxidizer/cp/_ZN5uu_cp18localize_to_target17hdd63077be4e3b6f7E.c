@@ -3,7 +3,7 @@ fn uu_cp::localize_to_target(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64, a5: i6
     let v1: u64;  // rax
     let v2: u64;  // rax
     let v3: u64;  // rdx
-    let v4: u64;  // rax
+    let v4: struct40;  // rax
 
     v0 = v1;
     v2 = std::path::Path::strip_prefix(a3, a4, a1, a2);

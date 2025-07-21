@@ -6,7 +6,7 @@ fn uu_tr::uu_app(a0: &struct712) -> long long {
     let v4: struct437;  // [bp-0x530]
     let v5: u32;  // [bp-0x274]
     let v6: u64;  // [bp-0x270]
-    let v7: u8;  // [bp-0x268]
+    let v7: u64;  // [bp-0x268]
     let v10: u64;  // rdx
 
     v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);

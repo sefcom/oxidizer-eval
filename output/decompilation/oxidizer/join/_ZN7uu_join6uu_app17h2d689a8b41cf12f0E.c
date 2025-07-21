@@ -12,7 +12,7 @@ fn uu_join::uu_app(a0: &struct712) -> long long {
     let v10: i8;  // [bp-0x2f4]
     let v11: u64;  // [bp-0x284]
     let v12: u32;  // [bp-0x27c]
-    let v13: u64;  // [bp-0x278]
+    let v13: struct32;  // [bp-0x278], Other Possible Types: u64
     let v14: u32;  // [bp-0x30]
     let v15: u32;  // [bp-0x2c]
     let v18: u64;  // rdx
@@ -35,6 +35,12 @@ fn uu_join::uu_app(a0: &struct712) -> long long {
         field_16: &g_4149f8
         field_24: 1
     };
+    v13 = struct32 {
+        field_0: &g_4149f7
+        field_8: 1
+        field_16: &g_4149f8
+        field_24: 1
+    };
     clap_builder::builder::arg::Arg::value_parser(&v3, &v0, &v13);
     clap_builder::builder::arg::Arg::value_name(&v0, &v3, "FILENUM");
     clap_builder::builder::arg::Arg::help(&v13, &v0, "also print unpairable lines from file FILENUM, where\nFILENUM is 1 or 2, corresponding to FILE1 or FILE2");
@@ -43,6 +49,12 @@ fn uu_join::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::arg::Arg::short(&v0, &v8, 118);
     clap_builder::builder::arg::Arg::action(&v8, &v0, 1);
     clap_builder::builder::arg::Arg::num_args(&v0, &v8);
+    v13 = struct32 {
+        field_0: &g_4149f7
+        field_8: 1
+        field_16: &g_4149f8
+        field_24: 1
+    };
     v13 = struct32 {
         field_0: &g_4149f7
         field_8: 1

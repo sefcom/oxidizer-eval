@@ -1,9 +1,10 @@
 import json
 import traceback
+from collections import Counter
 
 from angr.rust.sim_type import *
 from angr.sim_variable import SimStackVariable, SimRegisterVariable
-from angr.sim_type import TypeRef
+from angr.sim_type import TypeRef, SimTypeChar, SimTypeInt, SimTypeFloat
 
 from .util import *
 from ..type_recovery.function_prototype import FunctionPrototype, Type
@@ -26,10 +27,10 @@ def _normalize_type(ty: RustSimType) -> Type:
     if isinstance(ty, TypeRef):
         ty = ty.type
     name = None
-    size = ty.size // 8
     is_pointer = isinstance(ty, RustSimTypeReference)
     if is_pointer:
         ty = ty.pts_to
+    size = ty.size // 8 if ty.size else None
     if isinstance(ty, RustSimTypeResult):
         name = "Result"
     elif isinstance(ty, RustSimTypeOption):
@@ -57,15 +58,20 @@ def _normalize_prototype(name, prototype: RustSimTypeFunction) -> FunctionProtot
 def _dump_variable_types(decompiler):
     stack_depth = decompiler.clinic.calculate_stack_depth()
     ident_to_types = defaultdict(list)
-    for var, rust_vars_and_types in decompiler.codegen.rust_func.get_unified_local_vars().items():
-        types = [_normalize_type(ty.with_arch(decompiler.project.arch)).to_tuple() for _, ty in rust_vars_and_types]
+    for var, rust_var_and_vartypes in decompiler.codegen.rust_func.get_unified_local_vars().items():
+        vartypes = [x[1] for x in rust_var_and_vartypes]
+        count = Counter(vartypes)
+        vartypes = sorted(
+            count.copy(),
+            key=lambda x, ct=count: (isinstance(x, (SimTypeChar, SimTypeInt, SimTypeFloat)), ct[x], repr(x)),
+        )
+        types = [_normalize_type(ty.with_arch(decompiler.project.arch)).to_tuple() for ty in vartypes][:1]
         if isinstance(var, SimStackVariable):
             stack_offset = var.offset - stack_depth
             ident = f"stack_{stack_offset}"
             ident_to_types[ident] += types
         elif isinstance(var, SimRegisterVariable):
-            decompiler.project.arch.register_names.get(var.reg)
-            ident = f"reg_{var.reg}"
+            ident = f"reg_{decompiler.project.arch.register_names.get(var.reg)}"
             ident_to_types[ident] += types
     return ident_to_types
 
@@ -97,9 +103,11 @@ def _angr_dec_base(binary_path, function_list, extract_body_func, is_rust_binary
             proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=is_rust_binary)
             cfg = proj.analyses.CFGFast(normalize=True)
             proj.analyses.CompleteCallingConventions(recover_variables=True, cfg=cfg)
-            proj.analyses.StructMemoryLayout(struct_prefixes=("alloc::string::String", "core::fmt::Arguments"))
         except:
             return result
+
+        if proj.is_rust_binary:
+            proj.analyses.KnownTypeLoader()
 
         for func_addr in proj.kb.functions:
             func = proj.kb.functions[func_addr]

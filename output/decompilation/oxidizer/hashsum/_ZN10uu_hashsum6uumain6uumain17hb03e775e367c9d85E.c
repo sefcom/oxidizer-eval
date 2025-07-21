@@ -1,65 +1,65 @@
 fn uu_hashsum::uumain::uumain(a0: i64, a1: i64) -> long long {
-    let v0: i8;  // [bp-0x72b]
-    let v1: i8;  // [bp-0x72b]
-    let v2: i8;  // [bp-0x72a]
-    let v3: i8;  // [bp-0x729]
-    let v4: i64;  // [bp-0x728]
-    let v5: i64;  // [bp-0x720]
-    let v6: i64;  // [bp-0x718]
-    let v7: i8;  // [bp-0x710]
-    let v8: i8;  // [bp-0x700]
-    let v9: i64;  // [bp-0x6f0]
-    let v10: iNone;  // [bp-0x6e8]
-    let v11: i64;  // [bp-0x6e0]
-    let v12: i64;  // [bp-0x6d8]
-    let v13: iNone;  // [bp-0x6c8]
-    let v14: i64;  // [bp-0x6c0]
-    let v15: i64;  // [bp-0x6b8]
-    let v16: i64;  // [bp-0x6b0]
-    let v17: i64;  // [bp-0x6a8]
-    let v18: i64;  // [bp-0x6a0]
-    let v19: iNone;  // [bp-0x698]
-    let v20: i64;  // [bp-0x690]
-    let v21: iNone;  // [bp-0x688]
-    let v22: iNone;  // [bp-0x678], Other Possible Types: unsigned long
-    let v23: i64;  // [bp-0x668]
-    let v24: iNone;  // [bp-0x630]
-    let v25: iNone;  // [bp-0x630]
-    let v26: iNone;  // [bp-0x608]
-    let v27: iNone;  // [bp-0x608]
-    let v28: iNone;  // [bp-0x608]
-    let v29: iNone;  // [bp-0x608]
-    let v30: i64;  // [bp-0x600]
-    let v31: i64;  // [bp-0x5f8]
-    let v32: i8;  // [bp-0x340]
-    let v33: iNone;  // [bp-0x338]
-    let v34: i8;  // [bp-0x2f8]
-    let v37: iNone;  // xmm0
-    let v38: i64;  // rax
-    let v39: i64;  // rdx
+    let v0: u8;  // [bp-0x72b]
+    let v1: u8;  // [bp-0x72b]
+    let v2: u8;  // [bp-0x72a]
+    let v3: u8;  // [bp-0x729]
+    let v4: u64;  // [bp-0x728]
+    let v5: u64;  // [bp-0x720]
+    let v6: u64;  // [bp-0x718]
+    let v7: u128;  // [bp-0x710]
+    let v8: u128;  // [bp-0x700]
+    let v9: u64;  // [bp-0x6f0]
+    let v10: u128;  // [bp-0x6e8]
+    let v11: u64;  // [bp-0x6e0]
+    let v12: u64;  // [bp-0x6d8]
+    let v13: alloc::borrow::Cow<str>;  // [bp-0x6c8]
+    let v14: u64;  // [bp-0x6c0]
+    let v15: u64;  // [bp-0x6b8]
+    let v16: u64;  // [bp-0x6b0]
+    let v17: u64;  // [bp-0x6a8]
+    let v18: u64;  // [bp-0x6a0]
+    let v19: u128;  // [bp-0x698]
+    let v20: u64;  // [bp-0x690]
+    let v21: struct16;  // [bp-0x688]
+    let v22: alloc::raw_vec::Cap;  // [bp-0x678], Other Possible Types: core::iter::adapters::flatten::Flatten<core::option::IntoIter<core::char::EscapeDebug>>, struct40, struct64
+    let v23: u64;  // [bp-0x668]
+    let v24: core::iter::adapters::chain::Chain<core::iter::adapters::flatten::Flatten<core::option::IntoIter<core::char::EscapeDebug>>, core::iter::adapters::flatten::FlatMap<core::str::iter::Chars, core::char::EscapeDebug, core::str::CharEscapeDebugContinue>>;  // [bp-0x630]
+    let v25: struct40;  // [bp-0x630]
+    let v26: std::sys::os_str::bytes::Buf;  // [bp-0x608], Other Possible Types: struct712, Result<struct40, struct16>, struct24, struct56, struct48
+    let v27: Result<struct56, struct16>;  // [bp-0x608]
+    let v28: Result<struct40, struct24>;  // [bp-0x608]
+    let v29: struct40;  // [bp-0x608]
+    let v30: u64;  // [bp-0x600]
+    let v31: u64;  // [bp-0x5f8]
+    let v32: u8;  // [bp-0x340]
+    let v33: struct64;  // [bp-0x338]
+    let v34: u8;  // [bp-0x2f8]
+    let v37: u128;  // xmm0
+    let v38: core::option::Option<&std::ffi::os_str::OsStr>;  // rax
+    let v39: u64;  // rdx
     let v40: i64;  // rax
-    let v41: i8;  // bpl
-    let v42: i64;  // r12
-    let v43: i8;  // al
-    let v44: i64;  // rax
-    let v45: i8;  // r13b
-    let v46: i8;  // al
-    let v47: i8;  // al
-    let v48: i64;  // rax
-    let v49: i8;  // bpl
-    let v50: i64;  // r15
-    let v51: i64;  // r13
-    let v52: i8;  // r12b
-    let v53: i64;  // rdx
-    let v55: i64;  // rdx
-    let v57: i64;  // rbx
+    let v41: u8;  // bpl
+    let v42: u64;  // r12
+    let v43: u8;  // al
+    let v44: u64;  // rax
+    let v45: u8;  // r13b
+    let v46: u8;  // al
+    let v47: u8;  // al
+    let v48: u64;  // rax
+    let v49: u8;  // bpl
+    let v50: u64;  // r15
+    let v51: u64;  // r13
+    let v52: u8;  // r12b
+    let v53: u64;  // rdx
+    let v55: u64;  // rdx
+    let v57: void*;  // rbx
 
     v21 = struct16 {
         field_0: a0
         field_8: a1
     };
     v22 = <core::iter::adapters::cloned::Cloned<I> as core::iter::traits::iterator::Iterator>::next(&v21);
-    if v22 == 0x8000000000000000 {
+    if v22.__0 == 0x8000000000000000 {
         v26 = std::sys::os_str::bytes::Slice::to_owned("hashsum");
         v12 = v31;
     } else {
@@ -68,18 +68,17 @@ fn uu_hashsum::uumain::uumain(a0: i64, a1: i64) -> long long {
     v10 = v37;
     v38 = std::path::Path::file_stem(v11, v12) as u64;
     v13 = std::sys::os_str::bytes::Slice::to_string_lossy((v38 ? v38 : &g_465e49), v39);
-    v26 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(&v10 as u8);
+    v26 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(&v10);
     v22 = core::iter::adapters::flatten::Flatten<core::option::IntoIter<core::char::EscapeDebug>> {
         inner: core::iter::adapters::flatten::FlattenCompat<core::option::IntoIter<core::char::EscapeDebug>, core::char::EscapeDebug> {
+            frontiter: *(&v26.field_0 as &i128)
+            backiter: <UNKNOWN>
             iter: core::iter::adapters::fuse::Fuse<core::option::IntoIter<core::char::EscapeDebug>> {
                 iter: <UNKNOWN>
             }
-            frontiter: <UNKNOWN>
-            backiter: <UNKNOWN>
         }
     };
-    memcpy(&v22, &v26, 16);
-    v24 = core::iter::traits::iterator::Iterator::chain(&v22, v21 as i64);
+    v24 = core::iter::traits::iterator::Iterator::chain(&v22, v21.field_0);
     v26 = uu_hashsum::uu_app(v14, v15);
     memcpy(&v34, &v26, 712);
     v22 = v25;
@@ -89,9 +88,9 @@ fn uu_hashsum::uumain::uumain(a0: i64, a1: i64) -> long long {
             uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v6);
         },
         Ok(_) => {
-            v9 = (&v27)[48] as i64;
-            memcpy(&v8, &v27, 16);
-            memcpy(&v7, &v27, 16);
+            v9 = *((&v27 as &char + 48) as &i64);
+            v8 = *((&v27 as &char + 32) as &i128);
+            v7 = *((&v27 as &char + 16) as &i128);
             v5 = v27 as i64;
             v6 = v30;
             if alloc::string::<impl core::cmp::PartialEq<&str> for alloc::borrow::Cow<str>>::eq(v14, v15) as i8 {
@@ -101,7 +100,7 @@ fn uu_hashsum::uumain::uumain(a0: i64, a1: i64) -> long long {
                     goto LABEL_5774be;
                 }
                 v26 = uucore::features::checksum::calculate_blake2b_length(*(v40 as &i64));
-                if v26 as i64 {
+                if v26.field_0 {
                     return v30;
                 }
                 if !v32 {
@@ -118,7 +117,7 @@ LABEL_5774c5:
                 v29 = uucore::features::checksum::detect_algo(v14, v15, v57, v31);
             }
             if let Ok(_) = v28 {
-                *(&v19 as &i128) = (&v28)[24] as i128;
+                v19 = *((&v28 as &char + 24) as &i128) as u128;
                 v4 = v28 as i64;
                 v16 = v4;
                 v17 = v30;
@@ -164,7 +163,18 @@ LABEL_577626:
                     v52 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v5, "tag") as i32 as i8;
                     v26 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v5, "file");
                     v33 = clap_builder::parser::error::MatchesError::unwrap("file", &v26);
-                    if v33 as i64 {
+                    if v33.field_0 as i64 {
+                        v26 = struct48 {
+                            field_0: v4
+                            field_8: v57
+                            field_16: v50
+                            field_24: v53
+                            field_32: v51
+                            field_40: v2
+                            field_41: v52
+                            field_42: v0
+                            field_43: v49
+                        };
                         v26 = struct44 {
                             field_0: v4
                             field_8: v57
@@ -178,6 +188,17 @@ LABEL_577626:
                         };
                         uu_hashsum::hashsum(&v26, &v33);
                     } else {
+                        v26 = struct48 {
+                            field_0: v4
+                            field_8: v57
+                            field_16: v50
+                            field_24: v55
+                            field_32: v51
+                            field_40: v2
+                            field_41: v52
+                            field_42: v0
+                            field_43: v49
+                        };
                         v26 = struct44 {
                             field_0: v4
                             field_8: v57

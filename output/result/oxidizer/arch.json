@@ -1,7 +1,7 @@
 {
   "decompilation": {
-    "_ZN7uu_arch6uumain17h42f2aff830acf805E": "fn uu_arch::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_arch::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
-    "_ZN7uu_arch6uumain6uumain17hd4daa4f9866d4582E": "fn uu_arch::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: alloc::borrow::Cow<str>;  // [bp-0x558]\n    let v1: u64;  // [bp-0x558]\n    let v2: u64;  // [bp-0x550]\n    let v3: u8;  // [bp-0x548]\n    let v4: u8;  // [bp-0x538]\n    let v5: u64;  // [bp-0x528]\n    let v6: u64;  // [bp-0x508]\n    let v7: Result<struct56, struct16>;  // [bp-0x500], Other Possible Types: u64\n    let v8: u64;  // [bp-0x4f8]\n    let v9: u64;  // [bp-0x4f0]\n    let v10: u64;  // [bp-0x498]\n    let v11: u8;  // [bp-0x490]\n    let v12: struct536;  // [bp-0x2e8]\n    let v13: Result<struct536, struct24>;  // [bp-0x2e8]\n    let v14: u32;  // [bp-0x2e0]\n    let v15: u32;  // [bp-0x2d8]\n    let v18: &str;  // rax:rdx\n\n    v12 = uu_arch::uu_app();\n    v7 = clap_builder::builder::command::Command::try_get_matches_from(&v12, a0, a1);\n    match v7 {\n        Err(_) => {\n            return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v2);\n        },\n        Ok(_) => {\n            v5 = *((&v7 as &char + 48) as &i64);\n            memcpy(&v4, &v7 as u128, 16);\n            memcpy(&v3, &v7, 16);\n            v1 = v7 as i64;\n            v2 = v8;\n            v13 = <platform_info::lib_impl::target::PlatformInfo as platform_info::PlatformInfoAPI>::new();\n            match v13 {\n                Err(_) => {\n                    return uu_arch::uumain::uumain::{{closure}}(v14, v15);\n                },\n                Ok(_) => {\n                    memcpy(&v7 as u8, &v13 as u8, 0x200);\n                    v7 = v13 as i64;\n                    v8 = v14;\n                    v9 = v15;\n                    v0 = std::sys::os_str::bytes::Slice::to_string_lossy(v10, *(&v11 as &i64));\n                    v18 = core::str::<impl str>::trim_matches(v2, *((&v0 as &char + 16) as &i64));\n                    v6 = v18.length;\n                    println!(\"{}\", &vvar_91{reg 16});\n                    return 0;\n                },\n            }\n        },\n    }\n}\n",
+    "_ZN7uu_arch6uumain17h42f2aff830acf805E": "fn uu_arch::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: u128;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_arch::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    v3 = *(&v5.vec.buf.cap as &i128);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN7uu_arch6uumain6uumain17hd4daa4f9866d4582E": "fn uu_arch::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: alloc::borrow::Cow<str>;  // [bp-0x558]\n    let v1: u64;  // [bp-0x558]\n    let v2: u64;  // [bp-0x550]\n    let v3: u128;  // [bp-0x548]\n    let v4: u128;  // [bp-0x538]\n    let v5: u64;  // [bp-0x528]\n    let v6: u64;  // [bp-0x508]\n    let v7: Result<struct56, struct16>;  // [bp-0x500], Other Possible Types: u64\n    let v8: u64;  // [bp-0x4f8]\n    let v9: u64;  // [bp-0x4f0]\n    let v10: u128;  // [bp-0x4e0]\n    let v11: u64;  // [bp-0x498]\n    let v12: u8;  // [bp-0x490]\n    let v13: struct700;  // [bp-0x2e8]\n    let v14: Result<struct536, struct24>;  // [bp-0x2e8]\n    let v15: u32;  // [bp-0x2e0]\n    let v16: u32;  // [bp-0x2d8]\n    let v19: &str;  // rax:rdx\n\n    v13 = uu_arch::uu_app();\n    v7 = clap_builder::builder::command::Command::try_get_matches_from(&v13, a0, a1);\n    match v7 {\n        Err(_) => {\n            return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v2);\n        },\n        Ok(_) => {\n            v5 = *((&v7 as &char + 48) as &i64);\n            v4 = v10;\n            v3 = *((&v7 as &char + 16) as &i128);\n            v1 = v7 as i64;\n            v2 = v8;\n            v14 = <platform_info::lib_impl::target::PlatformInfo as platform_info::PlatformInfoAPI>::new();\n            match v14 {\n                Err(_) => {\n                    return uu_arch::uumain::uumain::{{closure}}(v15, v16);\n                },\n                Ok(_) => {\n                    memcpy(&v7 as u8, &v14 as u8, 0x200);\n                    v7 = v14 as i64;\n                    v8 = v15;\n                    v9 = v16;\n                    v0 = std::sys::os_str::bytes::Slice::to_string_lossy(v11, *(&v12 as &i64));\n                    v19 = core::str::<impl str>::trim_matches(v2, *((&v0 as &char + 16) as &i64));\n                    v6 = v19.length;\n                    println!(\"{}\", &vvar_91{reg 16});\n                    return 0;\n                },\n            }\n        },\n    }\n}\n",
     "_ZN7uu_arch6uu_app17h8f2567686988086aE": "fn uu_arch::uu_app() -> : struct700 {\n    let a0: i64;  // rsi\n    let v0: u8;  // [bp-0x5a8]\n    let v1: u64;  // [bp-0x2ec]\n    let v2: u32;  // [bp-0x2e4]\n    let v3: struct437;  // [bp-0x2e0]\n    let v6: u64;  // rdx\n    let v7: i64;  // rdi\n\n    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v6);\n    clap_builder::builder::command::Command::version(&v0, &v3);\n    clap_builder::builder::command::Command::about(&v3, &v0);\n    clap_builder::builder::command::Command::after_help(&v0, &v3);\n    memcpy(v7, &v0, 700);\n    *((v7 + 700) as &u64) = 549755814016 | v1;\n    *((v7 + 708) as &u32) = v2;\n    return;\n}\n"
   },
   "function_call_counts": {
@@ -50,7 +50,7 @@
   },
   "variable_types": {
     "_ZN7uu_arch6uumain17h42f2aff830acf805E": {
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -71,7 +71,7 @@
       "stack_96": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_112": [
@@ -84,23 +84,15 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_72": [
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -122,10 +114,6 @@
         [
           "Result",
           80
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_8": [
@@ -143,13 +131,19 @@
       "stack_32": [
         [
           "primitive",
-          1
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
         ]
       ],
       "stack_16": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_0": [
@@ -163,10 +157,6 @@
         ]
       ],
       "stack_96": [
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           8
@@ -210,7 +200,7 @@
       ]
     },
     "_ZN7uu_arch6uu_app17h8f2567686988086aE": {
-      "reg_64": [
+      "reg_rsi": [
         [
           "primitive",
           8
@@ -219,10 +209,10 @@
       "stack_712": [
         [
           "struct",
-          466
+          448
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -234,7 +224,7 @@
           1
         ]
       ],
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8

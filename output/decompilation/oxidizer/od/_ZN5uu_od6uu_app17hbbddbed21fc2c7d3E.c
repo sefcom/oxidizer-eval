@@ -7,7 +7,7 @@ fn uu_od::uu_app(a0: &struct712) -> long long {
     let v5: struct437;  // [bp-0x780]
     let v6: u64;  // [bp-0x4c4]
     let v7: u32;  // [bp-0x4bc]
-    let v8: u256;  // [bp-0x4b8]
+    let v8: struct32;  // [bp-0x4b8], Other Possible Types: u8
     let v9: u32;  // [bp-0x270]
     let v10: u32;  // [bp-0x26c]
     let v11: struct24;  // [bp-0x268], Other Possible Types: u8

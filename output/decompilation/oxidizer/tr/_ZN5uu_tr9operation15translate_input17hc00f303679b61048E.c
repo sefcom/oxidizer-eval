@@ -2,11 +2,11 @@ fn uu_tr::operation::translate_input(a0: i64, a1: i64, a2: i64) -> void {
     let v0: void*;  // [bp-0x88]
     let v1: u64;  // [bp-0x80]
     let v2: void*;  // [bp-0x78]
-    let v3: struct8;  // [sp-0x70], Other Possible Types: void*
+    let v3: void*;  // [sp-0x70], Other Possible Types: struct8
     let v4: u64;  // [bp-0x68]
     let v5: void*;  // [bp-0x60]
     let v6: u64;  // [bp-0x50]
-    let v7: u192;  // [bp-0x48]
+    let v7: struct24;  // [bp-0x48]
     let v12: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
 
     v0 = 0;

@@ -1,7 +1,9 @@
-fn uu_tail::follow::watch::Observer::from(a0: &struct119, a1: void*) -> u64 {
-    let v0: struct10;  // [sp-0x80]
+fn uu_tail::follow::watch::Observer::from(a1: i64) -> : struct119 {
+    let a0: i64;  // rsi
+    let v0: u8;  // [bp-0x88]
+    let v1: struct10;  // [bp-0x80]
 
-    v0 = uu_tail::follow::files::FileHandling::from(a1);
-    uu_tail::follow::watch::Observer::new(a0, *((a1 + 72) as &i8), *((a1 + 76) as &i32), *((a1 + 73) as &i8), &v0, *((a1 + 68) as &i32));
-    return a0;
+    v1 = uu_tail::follow::files::FileHandling::from(a0);
+    uu_tail::follow::watch::Observer::new(*((a0 + 72) as &i8), *((a0 + 76) as &i32), *((a0 + 73) as &i8), &v1 as u8, *((a0 + 68) as &i32), *(&v0 as &i32));
+    return;
 }

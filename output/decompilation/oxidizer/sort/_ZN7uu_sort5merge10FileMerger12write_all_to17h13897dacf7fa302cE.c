@@ -1,4 +1,4 @@
-fn uu_sort::merge::FileMerger::write_all_to(a0: &struct80, a1: i64, a2: i64) -> long long {
+fn uu_sort::merge::FileMerger::write_all_to(a0: &struct96, a1: i64, a2: i64) -> long long {
     let v0: struct24;  // [bp-0x58], Other Possible Types: u128
     let v1: u64;  // [bp-0x48]
     let v2: u8;  // [bp-0x38]

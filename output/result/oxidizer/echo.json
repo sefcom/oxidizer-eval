@@ -1,13 +1,13 @@
 {
   "decompilation": {
-    "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": "fn uu_echo::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_echo::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
-    "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": "fn uu_echo::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x370]\n    let v1: struct56;  // [bp-0x368]\n    let v2: struct64;  // [bp-0x330]\n    let v3: u8;  // [bp-0x2f0], Other Possible Types: std::io::stdio::Stdout, struct56\n    let v5: u8;  // bl\n    let v6: u32;  // eax\n    let v7: u64;  // rax\n    let v8: core::result::Result<(), std::io::error::Error>;  // rax\n\n    uu_echo::uu_app(&v3);\n    v1 = clap_builder::builder::command::Command::get_matches_from(&v3, a0, a1);\n    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v1, \"no_newline\") as i32;\n    v6 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v1, \"enable_backslash_escape\") as i32;\n    v3 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v3);\n    v3 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v1, \"STRING\");\n    v2 = clap_builder::parser::error::MatchesError::unwrap(&v3);\n    if v2.field_0 as i64 {\n        v7 = uu_echo::execute(&v0, v5 ^ 1, v6, &v2);\n    } else if !v5 {\n        v8 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, \"\\n\");\n        if let Err(_) = v8 {\n            v7 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v8);\n            return v7;\n        }\n    }\n    return 0;\n}\n",
+    "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": "fn uu_echo::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: u128;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_echo::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    v3 = *(&v5.vec.buf.cap as &i128);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": "fn uu_echo::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x370]\n    let v1: struct56;  // [bp-0x368]\n    let v2: struct64;  // [bp-0x330]\n    let v3: std::io::stdio::Stdout;  // [bp-0x2f0], Other Possible Types: struct56, u8\n    let v5: u8;  // bl\n    let v6: u32;  // eax\n    let v7: u64;  // rax\n    let v8: core::result::Result<(), std::io::error::Error>;  // rax\n\n    uu_echo::uu_app(&v3);\n    v1 = clap_builder::builder::command::Command::get_matches_from(&v3, a0, a1);\n    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v1, \"no_newline\") as i32;\n    v6 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v1, \"enable_backslash_escape\") as i32;\n    v3 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v3);\n    v3 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v1, \"STRING\");\n    v2 = clap_builder::parser::error::MatchesError::unwrap(&v3);\n    if v2.field_0 as i64 {\n        v7 = uu_echo::execute(&v0, v5 ^ 1, v6, &v2);\n    } else if !v5 {\n        v8 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, \"\\n\");\n        if let Err(_) = v8 {\n            v7 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v8);\n            return v7;\n        }\n    }\n    return 0;\n}\n",
     "_ZN7uu_echo4Base15ascii_to_number17h59ff941f17249d67E": "fn uu_echo::Base::ascii_to_number(a0: i8, a1: i8) -> long long {\n    let v3: u64;  // rax\n\n    if !a0 {\n        return v3 & -0x100 | a1 - 48 < 8;\n    }\n    return uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number(a1);\n}\n",
     "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE": "fn uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number(a0: i8) -> long long {\n    let v1: u64;  // rax\n\n    v1 = 0;\n    match (a0) {\n        48 => {\n            return 1;\n        }\n        49 => {\n            return 1;\n        }\n        50 => {\n            return 1;\n        }\n        51 => {\n            return 1;\n        }\n        52 => {\n            return 1;\n        }\n        53 => {\n            return 1;\n        }\n        54 => {\n            return 1;\n        }\n        55 => {\n            return 1;\n        }\n        56 => {\n            return 1;\n        }\n        57 => {\n            return 1;\n        }\n        58 | 59 | 60 | 61 | 62 | 63 | 64 | 71 | 72 | 73 | 74 | 75 | 76 | 77 | 78 | 79 | 80 | 81 | 82 | 83 | 84 | 85 | 86 | 87 | 88 | 89 | 90 | 91 | 92 | 93 | 94 | 95 | 96 => {\n            return v1;\n        }\n        65 | 97 => {\n            break;\n        }\n        66 | 98 => {\n            return 1;\n        }\n        67 | 99 => {\n            return 1;\n        }\n        68 | 100 => {\n            return 1;\n        }\n        69 | 101 => {\n            return 1;\n        }\n        70 | 102 => {\n            return 1;\n        }\n        _ => {\n            return 0;\n        }\n    }\n}\n",
-    "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": "fn uu_echo::parse_backslash_number(a1: i8, a2: i8) -> Option<struct8> {\n    let a0: i64;  // rdi\n    let v0: u64;  // [bp-0x38]\n    let v1: u8;  // [bp-0x35]\n    let v2: u32;  // [bp-0x34]\n    let v4: u64;  // rax\n    let v5: u8;  // r14b\n    let v6: void*;  // 4098\n    let v7: u64;  // r12\n    let v8: u64;  // rsi\n    let v9: u32;  // eax\n    let v10: i64;  // rax\n    let v11: u64;  // rax\n    let v12: void*;  // 4098\n\n    v0 = v4;\n    if !a1 || *(core::option::Option<T>::get_or_insert_with(a0, a0 + 16) as u64 as &i64) {\n        v2 = v5;\n        if (uu_echo::Base::ascii_to_number(v5, a2) as i8 & 1) {\n            v6 = *(a0 as &i64);\n            *(a0 as &i64) = 0;\n            if !v6 {\n                <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(a0 + 16);\n            }\n            v7 = a0 + 16;\n            v1 = 4 - (!v5);\n            loop {\n                loop {\n                    v9 = <u8 as core::iter::range::Step>::forward_unchecked(1, v8);\n                    v10 = *(core::option::Option<T>::get_or_insert_with(a0, v7) as u64 as &i64);\n                    v11 = uu_echo::Base::ascii_to_number(v2, *(v10 as &i8));\n                    v12 = *(a0 as &i64);\n                    return struct8 {\n                        field_0: 0\n                    };\n                    break;\n                }\n                v11 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(v7);\n            }\n        }\n    }\n    return 0;\n}\n",
-    "_ZN7uu_echo6uu_app17hac082564844c1592E": "fn uu_echo::uu_app(a0: &struct712) -> long long {\n    let v0: struct437;  // [bp-0xa48]\n    let v1: u32;  // [bp-0x78c]\n    let v2: u64;  // [bp-0x788]\n    let v3: u8;  // [bp-0x780]\n    let v4: u32;  // [bp-0x4c4]\n    let v5: u64;  // [bp-0x4c0]\n    let v6: u8;  // [bp-0x4b8]\n    let v7: u64;  // [bp-0x268]\n    let v10: u64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);\n    memcpy(&v3, &v0, 700);\n    v4 = v1 | 34;\n    v5 = v2;\n    clap_builder::builder::command::Command::version(&v0, &v3);\n    clap_builder::builder::command::Command::about(&v3, &v0);\n    clap_builder::builder::command::Command::after_help(&v0, &v3);\n    uucore::format_usage(&v6, \"{} [OPTIONS]... [STRING]...\");\n    clap_builder::builder::command::Command::override_usage(&v3, &v0, &v6);\n    clap_builder::builder::arg::Arg::new(&v0, \"no_newline\");\n    clap_builder::builder::arg::Arg::short(&v6, &v0, 110);\n    clap_builder::builder::arg::Arg::help(&v0, &v6, \"do not output the trailing newline\");\n    clap_builder::builder::arg::Arg::action(&v6, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v0, &v3, &v6);\n    clap_builder::builder::arg::Arg::new(&v3, \"enable_backslash_escape\");\n    clap_builder::builder::arg::Arg::short(&v6, &v3, 101);\n    clap_builder::builder::arg::Arg::help(&v3, &v6, \"enable interpretation of backslash escapes\");\n    clap_builder::builder::arg::Arg::action(&v6, &v3, 2);\n    clap_builder::builder::arg::Arg::overrides_with(&v7, &v6, \"disable_backslash_escape\");\n    clap_builder::builder::command::Command::arg(&v3, &v0, &v7);\n    clap_builder::builder::arg::Arg::new(&v0, \"disable_backslash_escape\");\n    clap_builder::builder::arg::Arg::short(&v6, &v0, 69);\n    clap_builder::builder::arg::Arg::help(&v0, &v6, \"disable interpretation of backslash escapes (default)\");\n    clap_builder::builder::arg::Arg::action(&v6, &v0, 2);\n    clap_builder::builder::arg::Arg::overrides_with(&v7, &v6, \"enable_backslash_escape\");\n    clap_builder::builder::command::Command::arg(&v0, &v3, &v7);\n    clap_builder::builder::arg::Arg::new(&v3, \"STRING\");\n    clap_builder::builder::arg::Arg::action(&v6, &v3, 1);\n    v7 = 2;\n    clap_builder::builder::arg::Arg::value_parser(&v3, &v6, &v7);\n    clap_builder::builder::command::Command::arg(a0, &v0, &v3);\n    return a0;\n}\n",
-    "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E": "fn uu_echo::print_escaped(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {\n    let v1: u8;  // [bp-0x5a]\n    let v2: u8;  // [bp-0x59]\n    let v3: i64;  // [bp-0x58]\n    let v4: void*;  // [sp-0x50]\n    let v5: i64;  // [sp-0x48]\n    let v6: i64;  // [bp-0x48]\n    let v7: u64;  // [bp-0x40]\n    let v8: u64;  // [bp-0x38]\n    let v10: i64;  // rax\n    let v11: i64;  // rax\n    let v13: i64;  // rsi\n    let v14: u64;  // 4096\n    let v15: u64;  // rax\n    let v16: u64;  // r13\n    let v17: u8;  // dl\n    let v18: core::result::Result<(), std::io::error::Error>;  // rax\n    let v19: i64;  // rsi\n    let v20: u8;  // dl\n    let v21: core::result::Result<(), std::io::error::Error>;  // rax\n\n    v7 = a1;\n    v8 = a2 + a1;\n    loop {\n        v10 = v5;\n        v4 = 0;\n        v10 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v7);\n        if !v10 {\n            *(v3 as &i16) = 0;\n            return a0;\n        }\n        if v10 == \"\\\\\" {\n            v11 = core::option::Option<T>::get_or_insert_with(&v4, &v7);\n            if !(*(v11 as &i64) && *(*(v11 as &i64) as &i8) - 49 < 7) {\n                v6 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v7);\n                if v6 {\n                    v15 = *(v6 as &i8);\n                    match (v15) {\n                        99 => {\n                            *((v3 + 1) as &i8) = 1;\n                            *(v3 as &i8) = 0;\n                            return 0;\n                        }\n                        _ => {\n                            v1 = 92;\n                            v2 = v15;\n                            v16 = 2;\n                            v19 = &v1;\n                            break;\n                        }\n                    }\n                    v21 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a3, v19, v16);\n                    if let Err(_) = v21 {\n                        *((v3 + 8) as &core::result::Result<(), std::io::error::Error>) = v21;\n                        *(v3 as &i8) = 1;\n                        return v21 & -0x100 | 1;\n                    }\nLABEL_4a46f1:\n                    v10 = v5;\n                } else {\n                    v13 = &g_41b41b.field_0;\n                    v14 = a3;\nLABEL_4a476f:\n                    v18 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(v14, v13, v17);\n                    if let Err(_) = v18 {\n                        *((v3 + 8) as &core::result::Result<(), std::io::error::Error>) = v18;\n                        *(v3 as &i8) = 1;\n                        return v18;\n                    }\n                    goto LABEL_4a46f1;\n                }\n            } else if (uu_echo::parse_backslash_number(&v4, 0, *(*(v11 as &i64) as &i8)) as i8 & 1) {\n                v1 = v20;\n                goto LABEL_4a4764;\n            } else {\n                core::option::unwrap_failed(); /* do not return */\n            }\n        } else {\nLABEL_4a4764:\n            v13 = &v1;\n            v14 = a3;\n            goto LABEL_4a476f;\n        }\n    }\n}\n",
-    "_ZN7uu_echo7execute17h70a095d897960844E": "fn uu_echo::execute(a0: i64, a1: i32, a2: i8, a3: i64) -> long long {\n    let v0: u32;  // [bp-0x8c]\n    let v1: u8;  // [bp-0x88]\n    let v2: u56;  // [bp-0x87]\n    let v3: u128;  // [bp-0x78]\n    let v4: u128;  // [bp-0x68]\n    let v5: u128;  // [bp-0x58]\n    let v6: u128;  // [bp-0x48]\n    let v7: void*;  // [bp-0x38]\n    let v9: u64;  // rax\n    let v10: i64;  // rdx\n    let v11: i64;  // rdx\n    let v12: i64;  // rdx\n    let v13: core::result::Result<(), std::io::error::Error>;  // rax\n    let v14: i64;  // rdx\n\n    v0 = a1;\n    v6 = *((a3 + 48) as &i128);\n    v5 = *((a3 + 32) as &i128);\n    v4 = *((a3 + 16) as &i128);\n    v3 = *(a3 as &i128);\n    v7 = 0;\n    v9 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v3);\n    if v10 {\n        if a2 {\n            loop {\n                v12 = v11;\n                if v9 && !((v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, \" \"), !v13)) || !((uu_echo::print_escaped(&v1, *((v12 + 8) as &i64), *((v12 + 16) as &i64), a0), !v1)) {\n                    break;\n                }\n                if v2 as i8 {\n                    return 0;\n                }\n                v9 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v3);\n                v11 = v10;\n                if !v11 {\n                    goto LABEL_4a4d7c;\n                }\n            }\n        } else {\n            loop {\n                v14 = v11;\n                if v9 && !((v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, \" \"), !v13)) || !((v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, *((v14 + 8) as &i64), *((v14 + 16) as &i64)), !v13)) {\n                    break;\n                }\n                v9 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v3);\n                v11 = v10;\n                if !v11 {\n                    goto LABEL_4a4d7c;\n                }\n            }\n            return uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v13);\n        }\n    }\nLABEL_4a4d7c:\n    if v0 as i8 {\n        v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, \"\\n\");\n    }\n    return 0;\n}\n"
+    "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": "fn uu_echo::parse_backslash_number(a1: i8, a2: i8) -> Option<struct8> {\n    let a0: i64;  // rdi\n    let v0: u64;  // [bp-0x38]\n    let v1: u8;  // [bp-0x35]\n    let v2: u32;  // [bp-0x34]\n    let v4: u64;  // rax\n    let v5: u8;  // r14b\n    let v6: void*;  // 4098\n    let v7: u64;  // r12\n    let v8: u64;  // rsi\n    let v9: u32;  // eax\n    let v10: i64;  // rax\n    let v11: u64;  // rax\n    let v12: void*;  // 4098\n    let v13: u64;  // rax\n\n    v0 = v4;\n    if !a1 || *(core::option::Option<T>::get_or_insert_with(a0, a0 + 16) as u64 as &i64) {\n        v2 = v5;\n        if (uu_echo::Base::ascii_to_number(v5, a2) as i8 & 1) {\n            v6 = *(a0 as &i64);\n            *(a0 as &i64) = 0;\n            if !v6 {\n                <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(a0 + 16);\n            }\n            v7 = a0 + 16;\n            v1 = 4 - (!v5);\n            loop {\n                loop {\n                    v9 = <u8 as core::iter::range::Step>::forward_unchecked(1, v8);\n                    v10 = *(core::option::Option<T>::get_or_insert_with(a0, v7) as u64 as &i64);\n                    v11 = uu_echo::Base::ascii_to_number(v2, *(v10 as &i8));\n                    v12 = *(a0 as &i64);\n                    return struct8 {\n                        field_0: 0\n                    };\n                    break;\n                }\n                v13 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(v7);\n            }\n        }\n    }\n    return 0;\n}\n",
+    "_ZN7uu_echo6uu_app17hac082564844c1592E": "fn uu_echo::uu_app(a0: &struct712) -> long long {\n    let v0: struct437;  // [bp-0xa48]\n    let v1: u32;  // [bp-0x78c]\n    let v2: core::fmt::rt::Argument;  // [bp-0x788]\n    let v3: u8;  // [bp-0x780]\n    let v4: core::fmt::Arguments;  // [bp-0x4c4]\n    let v5: core::fmt::rt::Argument;  // [bp-0x4c0]\n    let v6: u8;  // [bp-0x4b8]\n    let v7: u8;  // [bp-0x268]\n    let v10: u64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);\n    memcpy(&v3, &v0, 700);\n    v4 = v1 | 34;\n    v5 = v2;\n    clap_builder::builder::command::Command::version(&v0, &v3);\n    clap_builder::builder::command::Command::about(&v3, &v0);\n    clap_builder::builder::command::Command::after_help(&v0, &v3);\n    uucore::format_usage(&v6, \"{} [OPTIONS]... [STRING]...\");\n    clap_builder::builder::command::Command::override_usage(&v3, &v0, &v6);\n    clap_builder::builder::arg::Arg::new(&v0, \"no_newline\");\n    clap_builder::builder::arg::Arg::short(&v6, &v0, 110);\n    clap_builder::builder::arg::Arg::help(&v0, &v6, \"do not output the trailing newline\");\n    clap_builder::builder::arg::Arg::action(&v6, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v0, &v3, &v6);\n    clap_builder::builder::arg::Arg::new(&v3, \"enable_backslash_escape\");\n    clap_builder::builder::arg::Arg::short(&v6, &v3, 101);\n    clap_builder::builder::arg::Arg::help(&v3, &v6, \"enable interpretation of backslash escapes\");\n    clap_builder::builder::arg::Arg::action(&v6, &v3, 2);\n    clap_builder::builder::arg::Arg::overrides_with(&v7, &v6, \"disable_backslash_escape\");\n    clap_builder::builder::command::Command::arg(&v3, &v0, &v7);\n    clap_builder::builder::arg::Arg::new(&v0, \"disable_backslash_escape\");\n    clap_builder::builder::arg::Arg::short(&v6, &v0, 69);\n    clap_builder::builder::arg::Arg::help(&v0, &v6, \"disable interpretation of backslash escapes (default)\");\n    clap_builder::builder::arg::Arg::action(&v6, &v0, 2);\n    clap_builder::builder::arg::Arg::overrides_with(&v7, &v6, \"enable_backslash_escape\");\n    clap_builder::builder::command::Command::arg(&v0, &v3, &v7);\n    clap_builder::builder::arg::Arg::new(&v3, \"STRING\");\n    clap_builder::builder::arg::Arg::action(&v6, &v3, 1);\n    v7 = 2;\n    clap_builder::builder::arg::Arg::value_parser(&v3, &v6, &v7);\n    clap_builder::builder::command::Command::arg(a0, &v0, &v3);\n    return a0;\n}\n",
+    "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E": "fn uu_echo::print_escaped(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {\n    let v1: u8;  // [bp-0x5a]\n    let v2: u8;  // [bp-0x59]\n    let v3: i64;  // [bp-0x58]\n    let v4: void*;  // [sp-0x50]\n    let v5: i64;  // [sp-0x48]\n    let v6: i64;  // [bp-0x48]\n    let v7: struct16;  // [bp-0x40]\n    let v9: i64;  // rax\n    let v10: i64;  // rax\n    let v12: i64;  // rsi\n    let v13: u64;  // 4096\n    let v14: u64;  // rax\n    let v15: u64;  // r13\n    let v16: u8;  // dl\n    let v17: core::result::Result<(), std::io::error::Error>;  // rax\n    let v18: i64;  // rsi\n    let v19: u8;  // dl\n    let v20: core::result::Result<(), std::io::error::Error>;  // rax\n\n    v7 = struct16 {\n        field_0: a1\n        field_8: a2 + a1\n    };\n    loop {\n        v9 = v5;\n        v4 = 0;\n        v9 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v7);\n        if !v9 {\n            *(v3 as &i16) = 0;\n            return a0;\n        }\n        if v9 == \"\\\\\" {\n            v10 = core::option::Option<T>::get_or_insert_with(&v4, &v7);\n            if !(*(v10 as &i64) && *(*(v10 as &i64) as &i8) - 49 < 7) {\n                v6 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v7);\n                if v6 {\n                    v14 = *(v6 as &i8);\n                    match (v14) {\n                        99 => {\n                            *((v3 + 1) as &i8) = 1;\n                            *(v3 as &i8) = 0;\n                            return 0;\n                        }\n                        _ => {\n                            v1 = 92;\n                            v2 = v14;\n                            v15 = 2;\n                            v18 = &v1;\n                            break;\n                        }\n                    }\n                    v20 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a3, v18, v15);\n                    if let Err(_) = v20 {\n                        *((v3 + 8) as &core::result::Result<(), std::io::error::Error>) = v20;\n                        *(v3 as &i8) = 1;\n                        return v20 & -0x100 | 1;\n                    }\nLABEL_4a46f1:\n                    v9 = v5;\n                } else {\n                    v12 = &g_41b41b.field_0;\n                    v13 = a3;\nLABEL_4a476f:\n                    v17 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(v13, v12, v16);\n                    if let Err(_) = v17 {\n                        *((v3 + 8) as &core::result::Result<(), std::io::error::Error>) = v17;\n                        *(v3 as &i8) = 1;\n                        return v17;\n                    }\n                    goto LABEL_4a46f1;\n                }\n            } else if (uu_echo::parse_backslash_number(&v4, 0, *(*(v10 as &i64) as &i8)) as i8 & 1) {\n                v1 = v19;\n                goto LABEL_4a4764;\n            } else {\n                core::option::unwrap_failed(); /* do not return */\n            }\n        } else {\nLABEL_4a4764:\n            v12 = &v1;\n            v13 = a3;\n            goto LABEL_4a476f;\n        }\n    }\n}\n",
+    "_ZN7uu_echo7execute17h70a095d897960844E": "fn uu_echo::execute(a0: i64, a1: i32, a2: i8, a3: i64) -> long long {\n    let v0: u32;  // [bp-0x8c]\n    let v1: u8;  // [bp-0x88]\n    let v2: u56;  // [bp-0x87]\n    let v3: u128;  // [bp-0x78]\n    let v4: u128;  // [bp-0x68]\n    let v5: u128;  // [bp-0x58]\n    let v6: u128;  // [bp-0x48]\n    let v7: void*;  // [bp-0x38]\n    let v9: u64;  // rax\n    let v10: i64;  // rdx\n    let v11: i64;  // rdx\n    let v12: i64;  // rdx\n    let v13: core::result::Result<(), std::io::error::Error>;  // rax\n    let v14: i64;  // rdx\n\n    v0 = a1;\n    v6 = *((a3 + 48) as &i128);\n    v5 = *((a3 + 32) as &i128);\n    v4 = *((a3 + 16) as &i128);\n    v3 = *(a3 as &i128);\n    v7 = 0;\n    v9 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v3);\n    if v10 {\n        if a2 {\n            loop {\n                v12 = v11;\n                if v9 && !((v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, \" \"), !v13)) || !((uu_echo::print_escaped(&v1, *((v12 + 8) as &i64), *((v12 + 16) as &i64), a0), !v1)) {\n                    break;\n                }\n                if v2 as i8 {\n                    return 0;\n                }\n                v9 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v3);\n                v10 = v10;\n                if !v11 {\n                    goto LABEL_4a4d7c;\n                }\n            }\n        } else {\n            loop {\n                v14 = v11;\n                if v9 && !((v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, \" \"), !v13)) || !((v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, *((v14 + 8) as &i64), *((v14 + 16) as &i64)), !v13)) {\n                    break;\n                }\n                v9 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v3);\n                v11 = v10;\n                if !v11 {\n                    goto LABEL_4a4d7c;\n                }\n            }\n            return uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v13);\n        }\n    }\nLABEL_4a4d7c:\n    if v0 as i8 {\n        v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(a0, \"\\n\");\n    }\n    return 0;\n}\n"
   },
   "function_call_counts": {
     "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": {
@@ -95,7 +95,7 @@
   },
   "variable_types": {
     "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": {
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -116,7 +116,7 @@
       "stack_96": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_112": [
@@ -129,23 +129,15 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_72": [
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -155,16 +147,8 @@
     "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": {
       "stack_136": [
         [
-          "primitive",
-          1
-        ],
-        [
           "struct",
           8
-        ],
-        [
-          "struct",
-          56
         ]
       ],
       "stack_16": [
@@ -173,13 +157,13 @@
           56
         ]
       ],
-      "reg_40": [
+      "reg_rbx": [
         [
           "primitive",
           1
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           4
@@ -207,7 +191,7 @@
       ]
     },
     "_ZN7uu_echo4Base15ascii_to_number17h59ff941f17249d67E": {
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -215,7 +199,7 @@
       ]
     },
     "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE": {
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -223,13 +207,13 @@
       ]
     },
     "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": {
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -237,6 +221,10 @@
         [
           "primitive",
           4
+        ],
+        [
+          "primitive",
+          8
         ],
         [
           "primitive",
@@ -259,23 +247,23 @@
           4
         ]
       ],
-      "reg_128": [
+      "reg_r14": [
         [
           "primitive",
           1
         ]
       ],
-      "reg_4098": [
+      "reg_None": [
         [
           "&primitive",
-          8
+          null
         ],
         [
           "&primitive",
-          8
+          null
         ]
       ],
-      "reg_112": [
+      "reg_r12": [
         [
           "primitive",
           8
@@ -287,7 +275,7 @@
           1
         ]
       ],
-      "reg_64": [
+      "reg_rsi": [
         [
           "primitive",
           8
@@ -298,10 +286,10 @@
       "stack_0": [
         [
           "struct",
-          466
+          448
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -315,8 +303,8 @@
       ],
       "stack_1412": [
         [
-          "primitive",
-          4
+          "struct",
+          48
         ]
       ],
       "stack_700": [
@@ -327,14 +315,14 @@
       ],
       "stack_1416": [
         [
-          "primitive",
-          8
+          "struct",
+          16
         ]
       ],
       "stack_704": [
         [
-          "primitive",
-          8
+          "struct",
+          16
         ]
       ],
       "stack_1424": [
@@ -346,10 +334,6 @@
       "stack_2016": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
           1
         ]
       ]
@@ -357,21 +341,11 @@
     "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E": {
       "stack_40": [
         [
-          "primitive",
-          8
+          "struct",
+          16
         ]
       ],
-      "stack_48": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_16": [
-        [
-          "primitive",
-          8
-        ],
+      "reg_rax": [
         [
           "primitive",
           8
@@ -406,7 +380,7 @@
       "stack_24": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_16": [
@@ -419,10 +393,6 @@
         [
           "primitive",
           1
-        ],
-        [
-          "primitive",
-          1
         ]
       ],
       "stack_15": [
@@ -431,13 +401,13 @@
           1
         ]
       ],
-      "reg_120": [
+      "reg_r13": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_64": [
+      "reg_rsi": [
         [
           "primitive",
           8
@@ -447,13 +417,13 @@
           8
         ]
       ],
-      "reg_4096": [
+      "reg_None": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           1
@@ -498,10 +468,10 @@
       "stack_96": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -511,7 +481,7 @@
           8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8

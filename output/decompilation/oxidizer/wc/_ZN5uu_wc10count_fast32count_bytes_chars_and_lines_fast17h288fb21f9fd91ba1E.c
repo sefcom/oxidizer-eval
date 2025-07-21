@@ -1,12 +1,12 @@
 fn uu_wc::count_fast::count_bytes_chars_and_lines_fast(a1: &struct9) -> : struct48 {
     let a0: &u64;  // rsi
-    let v0: u64;  // [bp-0x4038], Other Possible Types: core::option::Option<u32>
+    let v0: core::option::Option<u32>;  // [bp-0x4038], Other Possible Types: u64
     let v1: void*;  // [bp-0x4030]
     let v2: core::option::Option<u32>;  // [bp-0x3030]
     let v3: void*;  // [bp-0x2030]
     let v4: core::option::Option<u32>;  // [bp-0x1030]
     let v6: u64;  // rax
-    let v7: void*;  // r12
+    let v7: struct24;  // r12
     let v8: u64;  // rdx
     let v9: u64;  // rax
     let v10: i64;  // rdi
@@ -26,7 +26,7 @@ fn uu_wc::count_fast::count_bytes_chars_and_lines_fast(a1: &struct9) -> : struct
             Err(_) => {
                 if std::io::error::Error::kind(*((&v12 as &char + 8) as &i64)) != 35 {
                     *(v10 as &core::option::Option<u32>) = v0;
-                    *((v10 + 8) as &void*) = v7;
+                    *((v10 + 8) as &struct24) = v7;
                     *((v10 + 16) as &i128) = 0;
                     *((v10 + 32) as &i64) = 0;
                     *((v10 + 40) as &i64) = *((&v12 as &char + 8) as &i64);
@@ -40,7 +40,7 @@ fn uu_wc::count_fast::count_bytes_chars_and_lines_fast(a1: &struct9) -> : struct
                     v7 += <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(v9, v8 + v9);
                 } else {
                     *(v11 as &core::option::Option<u32>) = v0;
-                    *((v11 + 8) as &void*) = v7;
+                    *((v11 + 8) as &struct24) = v7;
                     *((v11 + 16) as &i128) = 0;
                     *((v11 + 32) as &i128) = 0;
                     return;

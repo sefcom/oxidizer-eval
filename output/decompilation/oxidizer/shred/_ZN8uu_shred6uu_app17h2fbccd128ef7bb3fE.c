@@ -1,5 +1,5 @@
 fn uu_shred::uu_app(a0: &struct712) -> long long {
-    let v0: u8;  // [bp-0xa48]
+    let v0: struct48;  // [bp-0xa48], Other Possible Types: u8
     let v1: u32;  // [bp-0x800]
     let v2: u32;  // [bp-0x7fc]
     let v3: struct437;  // [bp-0x7f8]
@@ -10,7 +10,7 @@ fn uu_shred::uu_app(a0: &struct712) -> long long {
     let v8: u8;  // [bp-0x530]
     let v9: u64;  // [bp-0x274]
     let v10: u32;  // [bp-0x26c]
-    let v11: u136;  // [bp-0x268], Other Possible Types: struct24
+    let v11: struct24;  // [bp-0x268], Other Possible Types: u8
     let v14: u64;  // rdx
 
     v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v14);
@@ -59,6 +59,11 @@ fn uu_shred::uu_app(a0: &struct712) -> long long {
     };
     v11 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v0);
     clap_builder::builder::arg::Arg::value_parser(&v0, &v3, &v11);
+    v11 = struct24 {
+        field_0: 0
+        field_8: 1
+        field_16: 0
+    };
     v11 = struct17 {
         field_0: 0
         field_8: 1

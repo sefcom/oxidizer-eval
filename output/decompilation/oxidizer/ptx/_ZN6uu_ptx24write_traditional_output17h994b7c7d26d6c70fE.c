@@ -1,131 +1,119 @@
-fn uu_ptx::write_traditional_output(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {
-    let v0: i8;  // [bp-0x178]
-    let v1: i8;  // [bp-0x170]
-    let v2: i8;  // [bp-0x168]
-    let v3: i8;  // [bp-0x160]
-    let v4: i32;  // [sp-0x150]
-    let v5: i32;  // [sp-0x14c]
-    let v6: i64;  // [sp-0x148]
-    let v7: struct24;  // [sp-0x138]
-    let v8: i8;  // [sp-0x120], Other Possible Types: Result<struct16, struct4>, unsigned long
-    let v9: i64;  // [sp-0x118]
-    let v10: i64;  // [sp-0x110]
-    let v11: i64;  // [sp-0x108]
-    let v12: i64;  // [sp-0x100]
-    let v13: i64;  // [sp-0xf0]
-    let v14: i64;  // [sp-0xe8]
-    let v15: Result<struct4, struct8>;  // [sp-0xe0], Other Possible Types: struct32, unsigned long
-    let v16: i64;  // [sp-0xd8]
-    let v17: i64;  // [sp-0xd0]
-    let v18: i64;  // [sp-0xc8]
-    let v19: i64;  // [sp-0xc0]
-    let v20: i64;  // [sp-0xb8]
-    let v21: i64;  // [sp-0xb0]
-    let v22: i64;  // [sp-0xa8]
-    let v23: i64;  // [sp-0xa0]
-    let v24: i8;  // [bp-0x98]
-    let v25: struct32;  // [sp-0x80]
-    let v26: struct41;  // [sp-0x60]
-    let v28: i64;  // rax
-    let v29: i64;  // rcx
-    let v30: i64;  // rbx
-    let v31: i64;  // rbx
-    let v32: i64;  // rax
-    let v34: i64;  // rsi
-    let v35: i32;  // ebp
-    let v36: iNone;  // ymm0
-    let v37: iNone;  // ymm1
-    let v38: i64;  // rbx
-    let v39: i64;  // r15
-    let v40: i64;  // r14
-    let v41: i64;  // r12
-    let v42: i64;  // r13
-    let v43: iNone;  // ymm0
-    let v44: i64;  // rax
-    let v46: i64;  // rbx
+fn uu_ptx::write_traditional_output(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> long long {
+    let v0: u128;  // [bp-0x168]
+    let v2: u32;  // [bp-0x150]
+    let v3: u32;  // [bp-0x14c]
+    let v4: u64;  // [bp-0x148]
+    let v5: u128;  // [bp-0x130]
+    let v6: core::result::Result<alloc::string::String, core::char::decode::DecodeUtf16Error>;  // [bp-0x120], Other Possible Types: u64
+    let v7: struct56;  // [bp-0x120]
+    let v8: u64;  // [bp-0x118]
+    let v9: i64;  // [bp-0x110]
+    let v10: u64;  // [bp-0x108]
+    let v11: void*;  // [bp-0x100]
+    let v12: i64;  // [bp-0xf0]
+    let v13: u64;  // [bp-0xe8]
+    let v14: core::result::Result<std::fs::File, std::io::error::Error>;  // [bp-0xe0], Other Possible Types: struct32, struct72
+    let v15: alloc::collections::btree::map::Iter<std::ffi::os_str::OsString, core::option::Option<std::ffi::os_str::OsString>>;  // [bp-0xe0], Other Possible Types: u64
+    let v16: u192;  // [bp-0x98]
+    let v17: u192;  // [bp-0x98]
+    let v18: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>;  // [bp-0x60]
+    let v21: u64;  // rax
+    let v22: u64;  // rax
+    let v24: u32;  // ebp
+    let v25: core::option::Option<(&std::ffi::os_str::OsString, &core::option::Option<std::ffi::os_str::OsString>)>;  // rbx
+    let v26: core::option::Option<&(&str, proc_macro::bridge::symbol::Symbol)>;  // r15
+    let v27: u64;  // r14
+    let v28: u64;  // r12
+    let v29: u64;  // r13
+    let v30: u256;  // ymm0
+    let v31: i64;  // rax
+    let v34: &[u8];  // ymm0, Other Possible Types: u256
+    let v35: core::option::Option<&str>;  // r15
+    let v36: u64;  // rax
 
     if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a3, a4, "-") as i8 {
-        v28 = alloc::boxed::Box<T>::new(std::io::stdio::stdout());
-        v29 = &g_6ee2c0;
+        alloc::boxed::Box<T>::new(std::io::stdio::stdout());
     } else {
-        v15 = std::fs::File::create(a3, a4);
-        v8 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v15);
-        v30 = v8 as i64;
-        match v8 {
+        v14 = std::fs::File::create(a3, a4);
+        v6 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v14);
+        match v6 {
             Ok(_) => {
-                v31 = v30;
-                return v31;
+                return v6 as i64;
             },
             Err(_) => {
-                v28 = alloc::boxed::Box<T>::new(*((&v8 as &char + 8) as &i32) as u32 as u64);
-                v29 = &g_6ee270;
+                alloc::boxed::Box<T>::new(*((&v6 as &char + 8) as &i32));
             },
         }
     }
-    v26 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x2000, v28, v29);
-    v15 = regex::regex::string::Regex::new(*((a0 + 56) as &i64), *((a0 + 64) as &i64));
-    v25 = core::result::Result<T,E>::unwrap(&v15, "src/uu/ptx/src/ptx.rs");
-    v32 = *(a2 as &i64);
-    v34 = v32;
-    if v32 {
-        v34 = *((a2 + 16) as &i64);
+    v18 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x2000);
+    regex::regex::string::Regex::new(*((a0 + 56) as &i64), *((a0 + 64) as &i64), a3);
+    v14 = core::result::Result<T,E>::unwrap("src/uu/ptx/src/ptx.rs", a3);
+    v21 = *(a2 as &i64);
+    v22 = v21;
+    if v22 {
+        v22 = *((a2 + 16) as &i64);
     }
-    v15 = v32;
-    v16 = 0;
-    v17 = v32;
-    v18 = *((a2 + 8) as &i64);
-    v19 = v15;
-    v20 = 0;
-    v21 = v32;
-    v22 = v18;
-    v23 = v34;
-    v35 = *((a0 + 93) as &i8);
-    v5 = *((a0 + 89) as &i8);
-    v4 = *((a0 + 90) as &i8);
-    v6 = "src/uu/ptx/src/ptx.rs";
-    loop {
-        v38 = <alloc::collections::btree::map::Iter<K,V> as core::iter::traits::iterator::Iterator>::next(&v15);
-        if !v38 {
+    v14 = struct72 {
+        field_0: (v21) as u8 as u64
+        field_8: 0
+        field_16: v21
+        field_24: *((a2 + 8) as &i64)
+        field_32: v15
+        field_40: 0
+        field_48: v21
+        field_56: *((a2 + 8) as &i64)
+        field_64: v22
+    };
+    v24 = *((a0 + 93) as &i8);
+    v3 = *((a0 + 89) as &i8);
+    v2 = *((a0 + 90) as &i8);
+    v4 = "src/uu/ptx/src/ptx.rs";
+    do {
+        v15 = alloc::collections::btree::map::Iter<std::ffi::os_str::OsString, core::option::Option<std::ffi::os_str::OsString>> {
+            range: alloc::collections::btree::navigate::LazyLeafRange<alloc::collections::btree::node::marker::Immut, std::ffi::os_str::OsString, core::option::Option<std::ffi::os_str::OsString>> {
+                front: <UNKNOWN>
+                back: <UNKNOWN>
+            }
+            length: <UNKNOWN>
+        };
+        v25 = <alloc::collections::btree::map::Iter<K,V> as core::iter::traits::iterator::Iterator>::next(&v15) as u64;
+        if let None = v25 {
             return 0;
         }
-        v39 = hashbrown::map::HashMap<K,V,S,A>::get_inner(a1, v38 + 24);
-        if !v39 {
-            core::option::expect_failed("Missing file in file map", "src/uu/ptx/src/ptx.rs"); /* do not return */
+        v26 = hashbrown::map::HashMap<K,V,S,A>::get_inner(a1, v25 + 24, a2);
+        if let None = v26 {
+            core::option::expect_failed("Missing file in file map"); /* do not return */
         }
-        v40 = *((v38 + 56) as &i64);
-        v41 = *((v39 + 32) as &i64);
-        v42 = v40 * 3;
-        v43 = v36 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v25.field_0 as &i128);
-        v7 = uu_ptx::get_reference(v5 as u64, v4 as u64, v38, *((v41 + v42 * 8 + 8) as &i64), *((v41 + v42 * 8 + 16) as &i64), *(&v0 as &i64), *(&v1 as &i64));
-        v44 = v41 + v42 * 8;
-        if v35 == 1 {
-            if v40 >= *((v39 + 64) as &i64) {
-                v6 = "src/uu/ptx/src/ptx.rs";
-            }
-            v36 = v43 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((*((v39 + 56) as &i64) + v42 * 8 + 8) as &i128);
-            v37 = v37 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((&v7.field_0 as &char + 8) as &i128);
-            uu_ptx::format_roff_line(&v24, a0, *((v38 + 64) as &i64), *((v38 + 72) as &i64), *((v44 + 8) as &i64), *((v44 + 16) as &i64), *(&v0 as &i64), *(&v1 as &i64), *(&v2 as &i64), *(&v3 as &i64));
+        v27 = *((v25 + 56) as &i64);
+        v28 = *((v26 + 32) as &i64);
+        v29 = v27 * 3;
+        v30 = v34 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v15.length as &i128);
+        uu_ptx::get_reference(v3, v2, v25 as u8, *((v28 + v29 * 8 + 8) as &i64), *((v28 + v29 * 8 + 16) as &i64), *(&v15.length as &i128), *(&v15.length as &i128), v0);
+        v31 = v28 + v29 * 8;
+        if v24 == 1 {
+            v34 = v30 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((*((v26 + 56) as &i64) + v29 * 8 + 8) as &i128);
+            v0 = v5;
+            v35 = &v15 as u192;
+            uu_ptx::format_roff_line(&v15 as u192, a0, *((v25 + 64) as &i64), *((v25 + 72) as &i64), *((v31 + 8) as &i64), *((v31 + 16) as &i64), *((*((v26 + 56) as &i64) + v29 * 8 + 8) as &i128), *((*((v26 + 56) as &i64) + v29 * 8 + 8) as &i128), v5, v5);
+            v17 = v16;
+        } else if v24 == 2 {
+            v34 = v30 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((*((v26 + 56) as &i64) + v29 * 8 + 8) as &i128);
+            v0 = v5;
+            v35 = &v15 as u192;
+            uu_ptx::format_tex_line(&v15 as u192, a0, *((v25 + 64) as &i64), *((v25 + 72) as &i64), *((v31 + 8) as &i64), *((v31 + 16) as &i64), *((*((v26 + 56) as &i64) + v29 * 8 + 8) as &i128), *((*((v26 + 56) as &i64) + v29 * 8 + 8) as &i128), v5, v5);
         } else {
-            if v35 == 2 {
-                v36 = v43 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((*((v39 + 56) as &i64) + v42 * 8 + 8) as &i128);
-                v37 = v37 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *((&v7.field_0 as &char + 8) as &i128);
-                uu_ptx::format_tex_line(&v24, a0, *((v38 + 64) as &i64), *((v38 + 72) as &i64), *((v44 + 8) as &i64), *((v44 + 16) as &i64), *(&v0 as &i64), *(&v1 as &i64), *(&v2 as &i64), *(&v3 as &i64));
-            } else {
-                *(&v8 as &i8) = 0;
-                alloc::boxed::Box<T>::new(&v8);
-                return v31;
-            }
+            v6 = 0;
+            v6 = v7 & -0x100;
+            v36 = alloc::boxed::Box<T>::new(&v6);
         }
-        v13 = &v24;
-        v14 = <alloc::string::String as core::fmt::Display>::fmt;
-        *(&v8 as &&i64) = &g_6ee250;
-        v9 = 2;
-        v12 = 0;
-        v10 = &v13;
-        v11 = 1;
-        if <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(std::io::Write::write_fmt(&v26, &v8)) {
-            v31 = v46;
-            return v31;
-        }
-    }
+        v12 = v35;
+        v13 = <alloc::string::String as core::fmt::Display>::fmt;
+        v6 = &g_6ee250;
+        v8 = 2;
+        v11 = 0;
+        v9 = &v12;
+        v10 = 1;
+        v36 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(std::io::Write::write_fmt(&v18, &v6));
+    } while (!v36);
+    return v36;
 }

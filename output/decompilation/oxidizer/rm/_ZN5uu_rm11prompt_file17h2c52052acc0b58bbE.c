@@ -1,22 +1,22 @@
 fn uu_rm::prompt_file(a0: i64, a1: i64, a2: i8) -> long long {
-    let v0: u32;  // [bp-0x164]
-    let v1: u64;  // [bp-0x160]
-    let v2: u64;  // [bp-0x158]
+    let v0: std::fs::File;  // [bp-0x164]
+    let v1: core::fmt::rt::Argument;  // [bp-0x160], Other Possible Types: u64
+    let v2: core::fmt::rt::Argument;  // [bp-0x158], Other Possible Types: u64
     let v3: u64;  // [bp-0x150]
     let v4: u8;  // [bp-0x148]
     let v10: u64;  // [bp-0x108]
-    let v11: u32;  // [bp-0x100]
+    let v11: u16;  // [bp-0x100]
     let v12: u16;  // [bp-0xfc]
-    let v13: u64;  // [bp-0xf8]
+    let v13: std::io::stdio::Stderr;  // [bp-0xf8]
     let v14: core::result::Result<std::fs::File, std::io::error::Error>;  // [bp-0xf0]
     let v15: u32;  // [bp-0xec]
     let v16: u64;  // [bp-0xe8]
     let v17: std::io::error::Error;  // [bp-0xe0]
     let v18: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xe0]
     let v22: u8;  // al
-    let v24: u64;  // rax
+    let v24: core::fmt::Arguments;  // rax
     let v25: u32;  // ebx
-    let v26: u64;  // rdx
+    let v26: core::fmt::rt::Argument;  // rdx
     let v27: u64;  // rdx
 
     v10 = 0x1b600000000;

@@ -40,7 +40,7 @@ class BinaryEvalResult:
     def add_type_eval_result(self, category, result):
         self.type_eval_result[category].append(result)
 
-    def _normalize_dwarf_type(self, dwarf_type: Type):
+    def _normalize_dwarf_type(self, dwarf_type: Type, recursive=True):
         match dwarf_type:
             case Struct():
                 return "struct", dwarf_type.size
@@ -53,6 +53,13 @@ class BinaryEvalResult:
                     return "struct", dwarf_type.size
             case Primitive():
                 return "primitive", dwarf_type.size
+            case Pointer(pts_to):
+                if recursive:
+                    pts_category, pts_size = self._normalize_dwarf_type(pts_to, recursive=False)
+                else:
+                    pts_category, pts_size = "primitive", pts_to.size
+                if pts_category and pts_size is not None:
+                    return f"&{pts_category}", pts_size
         return None, None
 
     def generate_type_eval_result(self, variable_types, ground_truth):
@@ -66,21 +73,46 @@ class BinaryEvalResult:
                 continue
             ident_to_dwarf_vars[ident].append(var)
 
+        ident_to_matched_pred = defaultdict(set)
+
         for ident, dwarf_vars in ident_to_dwarf_vars.items():
+            dwarf_vars = set(dwarf_vars)
             predicted_types = variable_types.get(ident, [])  # List of normalized (kind, size) tuples
 
-            for dwarf_var in dwarf_vars:
-                true_type = self._normalize_dwarf_type(dwarf_var.type)
-                category = true_type[0]
+            matched_gt = set()
+            matched_pred = set()
 
-                if not predicted_types:
-                    # No prediction → FN
+            # First pass: match predictions to GTs
+            for i, pred_type in enumerate(predicted_types):
+                for j, dwarf_var in enumerate(dwarf_vars):
+                    true_type = self._normalize_dwarf_type(dwarf_var.type)
+                    category = true_type[0]
+
+                    if j in matched_gt:
+                        continue  # This GT is already matched
+
+                    if tuple(pred_type) == true_type:
+                        matched_gt.add(j)
+                        matched_pred.add(i)
+                        self.add_type_eval_result(category, "TP")
+                        break  # Move to next prediction
+
+            ident_to_matched_pred[ident] = matched_pred
+
+            # Second pass: unmatched GTs → FN
+            for j, dwarf_var in enumerate(dwarf_vars):
+                print(f"{dwarf_var}: {predicted_types}")
+                if j not in matched_gt:
+                    true_type = self._normalize_dwarf_type(dwarf_var.type)
+                    category = true_type[0]
                     self.add_type_eval_result(category, "FN")
-                elif any(true_type == tuple(pred_type) for pred_type in predicted_types):
-                    # Correct prediction → TP
-                    self.add_type_eval_result(category, "TP")
-                else:
-                    # Incorrect prediction → FP
+
+        for ident, predicted_types in variable_types.items():
+            # Third pass: unmatched predictions → FP
+            matched_pred = ident_to_matched_pred[ident]
+            for i, pred_type in enumerate(predicted_types):
+                if i not in matched_pred:
+                    category = pred_type[0]
                     self.add_type_eval_result(category, "FP")
 
     def _average(self, decompiler, metric):

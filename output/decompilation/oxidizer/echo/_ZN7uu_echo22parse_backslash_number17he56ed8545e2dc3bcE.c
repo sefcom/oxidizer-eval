@@ -12,6 +12,7 @@ fn uu_echo::parse_backslash_number(a1: i8, a2: i8) -> Option<struct8> {
     let v10: i64;  // rax
     let v11: u64;  // rax
     let v12: void*;  // 4098
+    let v13: u64;  // rax
 
     v0 = v4;
     if !a1 || *(core::option::Option<T>::get_or_insert_with(a0, a0 + 16) as u64 as &i64) {
@@ -35,7 +36,7 @@ fn uu_echo::parse_backslash_number(a1: i8, a2: i8) -> Option<struct8> {
                     };
                     break;
                 }
-                v11 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(v7);
+                v13 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(v7);
             }
         }
     }

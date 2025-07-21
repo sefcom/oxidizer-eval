@@ -1,9 +1,9 @@
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 from dataclasses import dataclass, asdict
 from pprint import pprint
 import json
 import traceback
-from collections import OrderedDict
+import os
 
 from elftools.dwarf.dwarf_expr import DWARFExprParser
 from elftools.elf.elffile import ELFFile
@@ -94,6 +94,7 @@ class DwarfParser:
         self.structs = {}
         self.prototypes = defaultdict(set)
         self.local_variables = defaultdict(list)
+        self.decl_path_to_func_name = {}
         self._variant_structs = set()
 
     @staticmethod
@@ -265,6 +266,26 @@ class DwarfParser:
                     if var_info not in self.local_variables[func_name]:
                         self.local_variables[func_name].append(var_info)
 
+    def _get_decl_path(self, die, decl_file_idx, decl_line):
+        file_path = None
+        comp_dir = self._get_value(die.cu.get_top_DIE(), "DW_AT_comp_dir").decode() + "/"
+        if decl_file_idx is not None and decl_line is not None:
+            lineprog = die.cu.dwarfinfo.line_program_for_CU(die.cu)
+            if lineprog and decl_file_idx > 0 and decl_file_idx <= len(lineprog["file_entry"]):
+                file_entry = lineprog["file_entry"][decl_file_idx - 1]
+                dir_index = file_entry.dir_index
+                dir_path = ""
+                if dir_index != 0:
+                    include_dirs = lineprog["include_directory"]
+                    if dir_index - 1 < len(include_dirs):
+                        dir_path = include_dirs[dir_index - 1].decode()
+                file_name = file_entry.name.decode()
+                if dir_path and dir_path.startswith("/"):
+                    comp_dir = ""
+                file_path = f"{comp_dir}{dir_path}/{file_name}" if dir_path else f"{comp_dir}{file_name}"
+                return f"{file_path}:{decl_line}"
+        return None
+
     def _handle_subprogram(self, die):
         if die.attributes.get("DW_AT_inline", None):
             return
@@ -275,6 +296,14 @@ class DwarfParser:
                 func_name = spec_die.attributes.get("DW_AT_linkage_name", None)
         if func_name:
             func_name = demangle(func_name.value.decode())
+
+            decl_file_idx = self._get_value(die, "DW_AT_decl_file", ensure_existence=False)
+            decl_line = self._get_value(die, "DW_AT_decl_line", ensure_existence=False)
+            decl_path = self._get_decl_path(die, decl_file_idx, decl_line)
+
+            if decl_path:
+                self.decl_path_to_func_name[decl_path] = func_name
+
             returnty_die = self._get_referred_die(die, "DW_AT_type", ensure_existence=False)
             returnty = self._parse_type(returnty_die) if returnty_die else None
             args = []
@@ -376,6 +405,9 @@ class DwarfParser:
                 d = json_object["variables"]
                 for name in d:
                     self.local_variables[name] = [self._from_dict(var) for var in d[name]]
+                d = json_object["decl_path_to_func_name"]
+                for key in d:
+                    self.decl_path_to_func_name[key] = [self._from_dict(name) for name in d[key]]
 
     def dump_json(self, path):
         with open(path, "w") as fd:
@@ -386,6 +418,8 @@ class DwarfParser:
                 d["prototypes"][name] = [asdict(prototype) for prototype in self.prototypes[name]]
             for name in self.local_variables:
                 d["variables"][name] = [asdict(var) for var in self.local_variables[name]]
+            for key in self.decl_path_to_func_name:
+                d["decl_path_to_func_name"][key] = self.decl_path_to_func_name[key]
             json.dump(d, fd, sort_keys=True, indent=2)
 
 

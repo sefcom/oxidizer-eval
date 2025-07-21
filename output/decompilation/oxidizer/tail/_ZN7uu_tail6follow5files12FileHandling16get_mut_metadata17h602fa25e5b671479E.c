@@ -1,12 +1,7 @@
-fn uu_tail::follow::files::FileHandling::get_mut_metadata(a0: u32, a1: u32, a2: u32) -> u64 {
-    let v0: u64;  // [sp-0x8]
+fn uu_tail::follow::files::FileHandling::get_mut_metadata(a0: i64, a1: i64, a2: i64) -> long long {
+    let v0: u64;  // [bp-0x8]
     let v2: u64;  // rax
-    let v3: &u32;  // rax
 
     v0 = v2;
-    v3 = uu_tail::follow::files::FileHandling::get_mut(a0, a1, a2);
-    if *(v3) != 2 {
-        return v3;
-    }
-    return 0;
+    return uu_tail::follow::files::FileHandling::get_mut(a0, a1, a2);
 }

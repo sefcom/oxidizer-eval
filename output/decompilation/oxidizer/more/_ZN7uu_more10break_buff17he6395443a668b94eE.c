@@ -3,7 +3,7 @@ fn uu_more::break_buff(a1: i8, a2: i64, a3: i64) -> : struct24 {
     let v0: u64;  // [bp-0xa8]
     let v1: u64;  // [bp-0xa0]
     let v2: void*;  // [bp-0x98]
-    let v3: void*;  // [bp-0x90], Other Possible Types: u128
+    let v3: void*;  // [bp-0x90], Other Possible Types: struct16
     let v4: struct24;  // [bp-0x90]
     let v5: u64;  // [bp-0x88]
     let v6: core::str::pattern::CharSearcher;  // [bp-0x80]

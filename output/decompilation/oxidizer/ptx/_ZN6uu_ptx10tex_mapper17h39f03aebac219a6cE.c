@@ -1,45 +1,32 @@
-fn uu_ptx::tex_mapper(a0: &struct24, a1: u32) -> u64 {
-    let v0: i32;  // [sp-0x4c]
-    let v1: i64;  // [bp-0x48], Other Possible Types: unsigned int
-    let v2: i64;  // [sp-0x40]
-    let v3: i64;  // [sp-0x38], Other Possible Types: int, Arguments
-    let v4: struct24;  // [sp-0x38]
-    let v8: i64;  // rdx
+fn uu_ptx::tex_mapper(a1: i32) -> : struct24 {
+    let a0: i64;  // rdi
+    let v0: u64;  // [bp-0x4c]
+    let v1: u64;  // [bp-0x48]
+    let v2: struct56;  // [bp-0x48], Other Possible Types: u64
+    let v7: u64;  // [bp-0x28]
+    let v9: void*;  // rdx
+    let v11: u32;  // rcx
+    let v12: u64;  // rdx
+    let v13: &mut [u8];  // rax:rdx
 
-    v0 = a1 as u32;
-    if (a1 - 35) as u32 < 4 {
-        goto LABEL_5b7d6a;
+    v0 = a1;
+    if a1 - 35 < 4 {
+        return core::option::Option<T>::map_or_else(v12);
     }
-    match (a1 as u32) {
+    match (a1) {
         92 => {
-            return <T as alloc::slice::hack::ConvertVec>::to_vec(a0, "\backslash{}");
-        }
-        95 => {
-LABEL_5b7d6a:
-            *(&v1 as &&unsigned int) = &v0;
-            v2 = <char as core::fmt::Display>::fmt;
-            v3 = "\\";
-            v3 = 1;
-            break;
-        }
-        123 | 125 => {
-            *(&v1 as &&unsigned int) = &v0;
-            v2 = <char as core::fmt::Display>::fmt;
-            v3 = Arguments {
-                pieces: ["$\\", "$"]
-                args: [&v1]
-                fmt: 0
-            };
             break;
         }
         _ => {
-            *(&v1 as &i32) = 0;
-            v4 = <T as alloc::slice::hack::ConvertVec>::to_vec(core::char::methods::encode_utf8_raw(a1 & 4294967295, &v1), v8);
+            v1 = 0;
+            v1 = v2 & -0x100000000;
+            v13 = core::char::methods::encode_utf8_raw(a1, &v1, v9);
+            <T as alloc::slice::hack::ConvertVec>::to_vec(v13.data_ptr, v9, v11);
             return struct24 {
-                field_0: *(&v4.field_0 as &i128)
+                field_0: *(&v2.field_0 as &i128)
                 field_16: v7
             };
         }
     }
-    core::option::Option<T>::map_or_else(a0, &v3);
+    return <T as alloc::slice::hack::ConvertVec>::to_vec("\\backslash{}", &g_45e6fc.field_0) as u64;
 }

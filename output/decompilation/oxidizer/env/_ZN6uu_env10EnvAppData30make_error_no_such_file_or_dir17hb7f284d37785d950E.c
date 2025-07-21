@@ -1,9 +1,9 @@
 fn uu_env::EnvAppData::make_error_no_such_file_or_dir(a0: i8, a1: i64, a2: i64) -> long long {
     let v0: u64;  // [bp-0x50]
-    let v1: u64;  // [sp-0x48]
+    let v1: core::fmt::Arguments;  // [sp-0x48], Other Possible Types: u64
     let v2: u64;  // [bp-0x40]
     let v3: u8;  // [bp-0x38]
-    let v5: u64;  // rdx
+    let v5: core::fmt::Arguments;  // rdx
 
     v0 = uucore::util_name();
     v1 = v5;

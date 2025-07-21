@@ -9,7 +9,7 @@ fn uu_cp::copy_fifo(a1: i64, a2: i64, a3: i32, a4: i32) -> : struct8 {
     let v6: u8;  // [bp-0x100]
     let v7: u128;  // [bp-0xf8]
     let v8: u64;  // [bp-0xe8]
-    let v9: core::result::Result<alloc::ffi::c_str::CString, alloc::ffi::c_str::NulError>;  // [bp-0xe0], Other Possible Types: struct24, u64
+    let v9: struct24;  // [bp-0xe0], Other Possible Types: core::result::Result<alloc::ffi::c_str::CString, alloc::ffi::c_str::NulError>, u64
     let v10: u64;  // [bp-0xd8]
     let v11: i64;  // [bp-0xd0]
     let v12: u64;  // [bp-0xc8]

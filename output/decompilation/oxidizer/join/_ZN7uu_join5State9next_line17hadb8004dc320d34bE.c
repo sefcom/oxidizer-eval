@@ -3,23 +3,23 @@ fn uu_join::State::next_line(a1: i64, a2: i64) -> : struct48 {
     let v0: u8;  // [bp-0x159]
     let v1: u64;  // [bp-0x158]
     let v2: u64;  // [bp-0x150]
-    let v3: u8;  // [bp-0x148]
-    let v4: u8;  // [bp-0x138]
+    let v3: i8;  // [bp-0x148]
+    let v4: i8;  // [bp-0x138]
     let v5: u64;  // [bp-0x128]
     let v6: u64;  // [bp-0x120]
     let v7: u128;  // [bp-0x118]
-    let v8: u8;  // [bp-0x108]
+    let v8: struct8;  // [bp-0x108]
     let v9: u64;  // [bp-0x100]
     let v10: u128;  // [bp-0xf8]
     let v11: u64;  // [bp-0xe8]
     let v12: void*;  // [bp-0xd8]
-    let v13: u64;  // [bp-0xa0], Other Possible Types: void*
+    let v13: void*;  // [bp-0xa0], Other Possible Types: u64
     let v14: u64;  // [bp-0x98]
     let v15: u8;  // [bp-0x88]
     let v16: alloc::string::String;  // [bp-0x80]
     let v17: u64;  // [bp-0x70]
     let v18: u128;  // [bp-0x68]
-    let v19: u8;  // [bp-0x58]
+    let v19: struct8;  // [bp-0x58]
     let v20: alloc::borrow::Cow<str>;  // [bp-0x48]
     let v22: u64;  // r13
     let v23: i64;  // rdi
@@ -37,12 +37,12 @@ fn uu_join::State::next_line(a1: i64, a2: i64) -> : struct48 {
         *((v23 + 16) as &u64) = v2;
         v22 = 9223372036854775809;
     } else {
-        memcpy(&v19, &v4, 16);
-        memcpy(&v18, &v3, 16);
+        v19 = *(&v4 as &i128);
+        v18 = *(&v3 as &i128);
         if v1 != 0x8000000000000000 {
             v5 = v1;
             v6 = v2;
-            memcpy(&v8, &v19, 16);
+            v8 = v19;
             v7 = v18;
             v0 = *((a1 + 289) as &i8);
             if *((a1 + 289) as &i8) == 1 {
@@ -58,9 +58,9 @@ fn uu_join::State::next_line(a1: i64, a2: i64) -> : struct48 {
                 v13 = 0;
                 v14 = *((a0 + 24) as &i128);
                 v15 = 0;
-                v20 = alloc::string::String::from_utf8_lossy(v8, v9);
+                v20 = alloc::string::String::from_utf8_lossy(v8.field_16, v9);
                 v16 = format!("{}:{}: is not sorted: {}", &v13, a0 + 80, &v20);
-                memcpy(&v10, &v16, 16);
+                v10 = *(&v16.vec.buf.cap as &i128);
                 v11 = v17;
                 if v0 == 2 {
                     *((v27 + 24) as &u64) = v11;

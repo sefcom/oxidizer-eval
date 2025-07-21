@@ -3,15 +3,15 @@ fn uu_expand::expand_line(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct8 {
     let v0: u8;  // [bp-0x9e]
     let v1: u8;  // [bp-0x9d]
     let v2: u32;  // [bp-0x9c]
-    let v4: u64;  // [bp-0x98], Other Possible Types: void*
+    let v4: void*;  // [bp-0x98], Other Possible Types: u64
     let v5: u64;  // [bp-0x90]
     let v6: u64;  // [bp-0x88]
     let v7: u64;  // [bp-0x80]
     let v8: u32;  // [bp-0x74]
-    let v9: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x70], Other Possible Types: alloc::string::String
+    let v9: alloc::string::String;  // [bp-0x70], Other Possible Types: core::result::Result<&str, core::str::error::Utf8Error>
     let v10: u64;  // [bp-0x68]
     let v11: u64;  // [bp-0x60]
-    let v12: u128;  // [bp-0x40]
+    let v12: core::slice::iter::Iter<u8>;  // [bp-0x40], Other Possible Types: struct16
     let v14: u64;  // r14
     let v15: i64;  // rbp
     let v16: u8;  // cl
@@ -36,7 +36,7 @@ fn uu_expand::expand_line(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct8 {
     let v39: u64;  // r12
     let v40: u64;  // rdi
     let v41: u64;  // rsi
-    let v42: alloc::string::String;  // rdi
+    let v42: i64;  // rdi
     let v43: u64;  // rsi
     let v44: core::result::Result<(), std::io::error::Error>;  // rax
     let v45: core::result::Result<(), std::io::error::Error>;  // rax
@@ -66,6 +66,10 @@ fn uu_expand::expand_line(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct8 {
                 if !(!v9 as i64) {
                     goto LABEL_4b2d03;
                 }
+                v12 = struct16 {
+                    field_0: v10
+                    field_8: v11 + v10
+                };
                 v12 = core::slice::iter::Iter<u8> {
                     ptr: core::ptr::non_null::NonNull<u8> {
                         pointer: v10

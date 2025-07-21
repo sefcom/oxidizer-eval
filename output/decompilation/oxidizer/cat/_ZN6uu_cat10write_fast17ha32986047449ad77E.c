@@ -1,9 +1,9 @@
 fn uu_cat::write_fast() -> int {
-    let v0: std::io::stdio::StderrLock;  // [bp-0x10058]
+    let v0: core::fmt::Arguments;  // [bp-0x10058]
     let v1: i64;  // [bp-0x10050]
     let v2: u64;  // [bp-0x10040]
     let v3: std::io::stdio::Stdout;  // [bp-0x10038]
-    let v4: u64;  // [bp-0x10030]
+    let v4: core::fmt::Arguments;  // [bp-0x10030]
     let v5: u8;  // [bp-0x10028]
     let v6: i8;  // [bp-0x10027]
     let v7: u64;  // [bp-0x10020]
@@ -24,7 +24,7 @@ fn uu_cat::write_fast() -> int {
         v13 = *(&v6 as &i64);
         *((v1 + 16) as &u64) = v7;
         *((v1 + 9) as &u64) = v13;
-        *(v1 as &u64) = v4;
+        *(v1 as &core::fmt::Arguments) = v4;
         *((v1 + 8) as &u8) = v5;
     } else if v5 {
         memset(&v4, 0, 0x10000);

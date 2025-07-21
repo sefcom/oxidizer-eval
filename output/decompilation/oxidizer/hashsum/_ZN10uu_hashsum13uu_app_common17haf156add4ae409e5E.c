@@ -6,7 +6,7 @@ fn uu_hashsum::uu_app_common(a0: &struct712) -> long long {
     let v4: u8;  // [bp-0x530]
     let v5: u64;  // [bp-0x274]
     let v6: u32;  // [bp-0x26c]
-    let v7: u8;  // [bp-0x268]
+    let v7: core::fmt::rt::Argument;  // [bp-0x268], Other Possible Types: u8
     let v10: u64;  // rdx
 
     v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);

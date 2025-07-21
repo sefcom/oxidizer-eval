@@ -1,10 +1,10 @@
 fn uu_env::string_expander::StringExpander::take_one() -> : struct8 {
     let a0: u64;  // rdi
-    let v0: u64;  // [bp-0x70], Other Possible Types: struct32
-    let v1: u64;  // [bp-0x68]
-    let v2: u168;  // [bp-0x50]
-    let v3: Result<(), Error>;  // [sp-0x38], Other Possible Types: u256
-    let v5: u64;  // [bp-0x30]
+    let v0: core::fmt::Arguments;  // [bp-0x70], Other Possible Types: struct21, struct32, u8
+    let v1: core::fmt::rt::Argument;  // [bp-0x68]
+    let v2: struct21;  // [bp-0x50]
+    let v3: Result<(), Error>;  // [sp-0x38], Other Possible Types: u192
+    let v5: core::fmt::Arguments;  // [bp-0x30]
 
     uu_env::string_parser::StringParser::consume_one_ascii_or_all_non_ascii(&v0, a0 + 24);
     if v0 == 0x8000000000000000 {

@@ -3,7 +3,7 @@ fn uu_dd::parseargs::show_zero_multiplier_warning() -> long long {
     let v1: u64;  // [bp-0x70]
     let v2: u64;  // [bp-0x68]
     let v3: u8;  // [bp-0x60]
-    let v4: u64;  // [bp-0x58], Other Possible Types: void*
+    let v4: void*;  // [bp-0x58], Other Possible Types: u64
     let v5: u64;  // [bp-0x50]
     let v6: u64;  // [bp-0x48]
     let v7: u8;  // [bp-0x40]

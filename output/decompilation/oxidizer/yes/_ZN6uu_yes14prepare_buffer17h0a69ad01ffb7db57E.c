@@ -1,32 +1,27 @@
-fn uu_yes::prepare_buffer(a0: &struct8) -> u64 {
-    let v0: u64;  // [sp-0x18]
+fn uu_yes::prepare_buffer() -> : struct8 {
+    let a0: i64;  // rsi
+    let v0: u64;  // [bp-0x18]
     let v2: u64;  // rax
-    let v3: u64;  // rsi
-    let v4: u64;  // rax
+    let v3: i64;  // rdi
+    let v4: u64;  // rsi
     let v5: u64;  // rdx
     let v6: u64;  // r14
+    let v7: u64;  // rax
 
     v0 = v2;
-    v3 = a0->field_10;
-    v4 = v3 * 2;
-    if v4 > 0x4000 {
-        return v4;
-    } else if !v3 {
-        core::panicking::panic("assertion failed: !buf.is_empty()", "src/uu/yes/src/yes.rs"); /* do not return */
-    } else {
-        v5 = 0x4000;
-        if v3 <= 0x4000 {
-            v4 = ((0 CONCAT 0x4000) % (v3 & 4294967295) CONCAT (0 CONCAT 0x4000) / (v3 & 4294967295)) & 4294967295;
-            v5 = ((0 CONCAT 0x4000) % (v3 & 4294967295) CONCAT (0 CONCAT 0x4000) / (v3 & 4294967295)) >> 32 & 4294967295;
-        }
+    v4 = *((v3 + 16) as &i64);
+    if v4 * 2 > 0x4000 {
+        return;
+    } else if v4 {
         v6 = 0x4000 - v5;
-        if v3 >= v6 {
-            return v4;
+        if v4 >= v6 {
+            return;
         }
         do {
-            v4 = alloc::vec::Vec<T,A>::extend_from_within(a0, core::cmp::min_by(v6 - v3, v3));
-            v3 = a0->field_10;
-        } while (v3 < v6);
-        return v4;
+            v7 = core::cmp::min_by(v6 - v4, v4);
+        } while ((alloc::vec::Vec<T,A>::extend_from_within(v3, v7), v4 = *((v3 + 16) as &i64), *((v3 + 16) as &i64) < v6));
+        return;
+    } else {
+        core::panicking::panic("assertion failed: !buf.is_empty()"); /* do not return */
     }
 }

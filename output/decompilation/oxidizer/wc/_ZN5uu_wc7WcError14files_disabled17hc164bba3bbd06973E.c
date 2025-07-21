@@ -12,7 +12,7 @@ fn uu_wc::WcError::files_disabled(a1: i64, a2: i64) -> : struct32 {
         <T as alloc::slice::hack::ConvertVec>::to_vec(v1, v2, a2);
     } else {
         v4 = v2;
-        memcpy(&v3, &v0, 16);
+        v3 = v0 as i128;
     }
     *((v6 + 24) as &u64) = v4;
     *((v6 + 8) as &u128) = v3;

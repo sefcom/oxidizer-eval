@@ -1,5 +1,5 @@
-fn uu_yes::splice::maybe_unsupported(a0: u32) -> u64 {
-    let v0: u64;  // [sp-0x120]
+fn uu_yes::splice::maybe_unsupported(a0: i32) -> long long {
+    let v0: u64;  // [bp-0x120]
 
     if a0 <= 38 {
         v0 = 0x4000400200;

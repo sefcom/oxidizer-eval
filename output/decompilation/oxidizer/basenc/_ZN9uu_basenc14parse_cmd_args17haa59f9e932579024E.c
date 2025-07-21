@@ -1,11 +1,11 @@
 fn uu_basenc::parse_cmd_args(a1: i64, a2: i64) -> Result<struct49, struct24> {
     let a0: i64;  // rdi
-    let v0: u128;  // [bp-0x370], Other Possible Types: struct24
+    let v0: struct16;  // [bp-0x370], Other Possible Types: struct24
     let v1: struct56;  // [bp-0x358]
     let v2: u32;  // [bp-0x350]
     let v3: Result<struct56, struct16>;  // [bp-0x320]
     let v4: struct24;  // [bp-0x320], Other Possible Types: struct56
-    let v5: u8;  // [bp-0x2e8], Other Possible Types: Result<struct42, struct24>
+    let v5: Result<struct42, struct24>;  // [bp-0x2e8], Other Possible Types: u8
     let v6: u64;  // [bp-0x2e0]
     let v7: u64;  // [bp-0x2d8]
     let v8: u32;  // [bp-0x2d0]
@@ -42,14 +42,14 @@ fn uu_basenc::parse_cmd_args(a1: i64, a2: i64) -> Result<struct49, struct24> {
             v5 = uu_base32::base_common::Config::from(&v1);
             v12 = v5 as i64;
             if v12 != 2 {
-                return struct58 {
+                return Ok(struct56 {
                     field_0: v12
                     field_8: v6
                     field_16: v7
-                    field_24: <UNKNOWN>
-                    field_40: v11
-                    field_48: <UNKNOWN>
-                };
+                    field_24: *((&v5 as &char + 24) as &i128)
+                    field_40: *((&v5 as &char + 40) as &i64)
+                    field_48: v11
+                });
             }
             return struct24 {
                 field_0: 2

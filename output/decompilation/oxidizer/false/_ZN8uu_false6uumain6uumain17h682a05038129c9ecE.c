@@ -1,15 +1,15 @@
 fn uu_false::uumain::uumain(a0: i64, a1: i64) {
     let v0: u64;  // [bp-0x3a8]
     let v1: std::io::stdio::Stdout;  // [bp-0x3a0], Other Possible Types: u64
-    let v2: u64;  // [bp-0x398]
-    let v3: iNone;  // [bp-0x398]
+    let v2: u128;  // [bp-0x398]
+    let v3: core::fmt::rt::Argument;  // [bp-0x398]
     let v4: u64;  // [bp-0x390]
-    let v5: u384;  // [bp-0x388]
-    let v6: u8;  // [bp-0x350], Other Possible Types: int
+    let v5: struct24;  // [bp-0x388], Other Possible Types: core::fmt::Arguments
+    let v6: core::fmt::rt::Argument;  // [bp-0x350], Other Possible Types: u8
     let v7: u128;  // [bp-0x350]
-    let v8: iNone;  // [bp-0x340]
+    let v8: core::fmt::rt::Argument;  // [bp-0x340]
     let v9: u128;  // [bp-0x340]
-    let v10: u8;  // [bp-0x330]
+    let v10: struct24;  // [bp-0x330], Other Possible Types: u8
     let v11: u64;  // [bp-0x320]
     let v12: Result<struct56, struct16>;  // [bp-0x318]
     let v16: core::result::Result<(), std::io::error::Error>;  // r14

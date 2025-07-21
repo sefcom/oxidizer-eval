@@ -1,20 +1,20 @@
 fn uu_cp::copy_helper(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i64, a7: i64, a8: i8, a9: i8, a10: i64) -> : struct67 {
     let a0: i64;  // rdi
-    let v0: u8;  // [bp-0xb8], Other Possible Types: struct11, struct8
+    let v0: alloc::raw_vec::Cap;  // [bp-0xb8], Other Possible Types: struct11, u128
     let v1: struct16;  // [bp-0xb8]
-    let v2: i8;  // [bp-0xb0], Other Possible Types: u16
+    let v2: u16;  // [bp-0xb0]
     let v3: u8;  // [bp-0xae]
-    let v4: i8;  // [bp-0xac]
+    let v4: u128;  // [bp-0xad]
     let v5: u64;  // [bp-0xa8]
     let v6: i8;  // [bp-0x9d]
     let v7: i8;  // [bp-0x98]
     let v8: i8;  // [bp-0x8d]
     let v9: i8;  // [bp-0x88]
     let v10: u64;  // [bp-0x80]
-    let v11: u16;  // [bp-0x78], Other Possible Types: struct24
+    let v11: struct24;  // [bp-0x78], Other Possible Types: u16
     let v12: u8;  // [bp-0x76]
     let v13: u64;  // [bp-0x68]
-    let v14: u128;  // [bp-0x60]
+    let v14: struct16;  // [bp-0x60], Other Possible Types: u16
     let v15: u8;  // [bp-0x5e]
     let v16: u64;  // [bp-0x50]
     let v17: u32;  // [bp-0x48]
@@ -60,15 +60,15 @@ LABEL_50826f:
         };
         v11 = <T as alloc::string::ToString>::to_string(&v14);
         v5 = v13;
-        memcpy(&v0, &v11, 16);
+        v0 = v11.field_0;
         if let Err(_) = v18 {
-            v16 = *(&v4 as &i64);
+            v16 = *((&v0 as &char + 12) as &i64);
             v17 = *((&v5 as &char + 4) as &i32);
-            if v0 != 0x8000000000000000 {
+            if v0 as i64 != 0x8000000000000000 {
                 return struct48 {
                     field_0: 3
-                    field_8: v0
-                    field_16: *(&v2 as &i32)
+                    field_8: v0 as i64
+                    field_16: *((&v0 as &char + 8) as &i32)
                     field_20: <UNKNOWN>
                     field_28: *((&v18 as &char + 8) as &i64)
                     field_32: <UNKNOWN>
@@ -77,7 +77,7 @@ LABEL_50826f:
         }
     } else if a9 && *((a5 + 70) as &i8) && !*((a5 + 63) as &i8) {
         v0 = uu_cp::copy_fifo(a3, a4, *((a5 + 60) as &i32), *((a5 + 71) as &i8));
-        if v0.field_0 as i32 != 13 {
+        if v0.__0 as i32 != 13 {
             return struct64 {
                 field_0: *(&v1.field_0 as &i128)
                 field_16: *(&v5 as &i128)

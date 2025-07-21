@@ -1,96 +1,104 @@
-fn uu_truncate::parse_mode_and_size(a0: &Result<struct32, struct24>, a1: u64, a2: u64) -> u64 {
-    let v0: i64;  // [sp-0x188]
-    let v1: i64;  // [sp-0x68]
-    let v2: i64;  // [sp-0x60]
-    let v3: i8;  // [bp-0x58]
-    let v4: i8;  // [bp-0x50]
-    let v6: struct24;  // [sp-0x38]
-    let v8: i64;  // r15
-    let v9: i64;  // rdx
-    let v11: i64;  // r14
-    let v12: i64;  // rdi
+fn uu_truncate::parse_mode_and_size(a1: i64, a2: i64) -> : struct32 {
+    let a0: u64;  // rsi
+    let v0: u64;  // [bp-0x188]
+    let v1: core::fmt::Arguments;  // [bp-0x60]
+    let v2: struct32;  // [bp-0x58]
+    let v3: u32;  // [bp-0x50]
+    let v4: u128;  // [bp-0x48]
+    let v5: u128;  // [bp-0x38]
+    let v6: i8;  // [bp-0x28]
+    let v8: u64;  // rdx
+    let v10: i64;  // rdi
+    let v11: core::option::Option<&str>;  // rax
+    let v12: u64;  // r14
+    let v13: u64;  // rdi
+    let v14: u128;  // xmm0
+    let v15: i64;  // rdi
+    let v16: i64;  // rdi
+    let v17: core::option::Option<u32>;  // rax:rax
+    let v18: &str;  // rax:rdx
 
-    v8 = core::str::<impl str>::trim_matches(a1, a2);
-    v1 = v8;
-    v2 = v9 + v8;
-    if !core::str::validations::next_code_point(&v1) as i32 {
-        v6 = <T as alloc::slice::hack::ConvertVec>::to_vec(v8, v9);
-        return Err(struct8 {
-            field_8: <UNKNOWN>
-        });
+    v18 = core::str::<impl str>::trim_matches(a0, a1);
+    v1 = &v18.data_ptr[v18.length];
+    v17 = core::str::validations::next_code_point(&v18.data_ptr) as u128;
+    match v17 {
+        None => {
+            <T as alloc::slice::hack::ConvertVec>::to_vec(v18.data_ptr, v18.length, a2);
+            *(v10 as &i64) = 1;
+            *((v10 + 8) as &u128) = v5;
+            *((v10 + 24) as &i64) = *(&v6 as &i64);
+            return;
+        },
+        Some(_) => {
+            if v8 as u32 <= 62 {
+                v0 = 0x5000a82000000000;
+                if ((*((&v0 as &u8 + ((v8 as u32 & 63) as u64 >> 3)) as &i8) as u8 as u64 >> (v8 as u32 as u8 & 63 & 7) as u64) as u8 & 1) {
+                    core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v18.data_ptr, v18.length, a1);
+                }
+            }
+            v2 = uucore::parser::parse_size::parse_size_u64(v11, v12);
+            match (v8 as u32) {
+                37 => {
+                    if v2.field_0 as i32 != 3 {
+                        v14 = v2.field_0;
+                        *((v15 + 16) as &u128) = v4;
+                        *(v15 as &u128) = v14;
+                        return;
+                    }
+                    break;
+                }
+                43 => {
+                    if v2.field_0 as i32 != 3 {
+                        v14 = v2.field_0;
+                        *((v15 + 16) as &u128) = v4;
+                        *(v15 as &u128) = v14;
+                        return;
+                    }
+                    break;
+                }
+                45 => {
+                    if v2.field_0 as i32 != 3 {
+                        v14 = v2.field_0;
+                        *((v15 + 16) as &u128) = v4;
+                        *(v15 as &u128) = v14;
+                        return;
+                    }
+                    break;
+                }
+                47 => {
+                    break;
+                }
+                60 => {
+                    if v2.field_0 as i32 != 3 {
+                        v14 = v2.field_0;
+                        *((v15 + 16) as &u128) = v4;
+                        *(v15 as &u128) = v14;
+                        return;
+                    }
+                    break;
+                }
+                62 => {
+                    if v2.field_0 as i32 != 3 {
+                        v14 = v2.field_0;
+                        *((v15 + 16) as &u128) = v4;
+                        *(v15 as &u128) = v14;
+                        return;
+                    }
+                    break;
+                }
+                _ => {
+                    if v2.field_0 as i32 != 3 {
+                        v14 = v2.field_0;
+                        *((v15 + 16) as &u128) = v4;
+                        *(v15 as &u128) = v14;
+                        return;
+                    }
+                }
+            }
+            *((v16 + 8) as &u64) = core::ops::function::FnOnce::call_once(v13, v3) as u64;
+            *((v16 + 16) as &u64) = v8;
+            *(v16 as &i64) = 3;
+            return;
+        },
     }
-    if v9 as u32 <= 62 {
-        v0 = 0x5000a82000000000;
-        if (*((&v0 as &u8 + ((v9 as u32 & 63) >> 3)) as &i8) >> (v9 as u32 & 63 & 7) & 1) {
-            v8 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v8, v9);
-        }
-    }
-    uucore::parser::parse_size::parse_size_u64(v8, v11);
-    v12 = uu_truncate::TruncateMode::Absolute;
-    match (v9 as u32) {
-        37 => {
-            v12 = uu_truncate::TruncateMode::RoundUp;
-            if *(&v3 as &i32) != 3 {
-                return Ok(struct32 {
-                    field_0: v13
-                    field_16: *(&v5 as &i128)
-                });
-            }
-        }
-        43 => {
-            v12 = uu_truncate::TruncateMode::Extend;
-            if *(&v3 as &i32) != 3 {
-                return Ok(struct32 {
-                    field_0: v13
-                    field_16: *(&v5 as &i128)
-                });
-            }
-        }
-        45 => {
-            v12 = uu_truncate::TruncateMode::Reduce;
-            if *(&v3 as &i32) != 3 {
-                return Ok(struct32 {
-                    field_0: v13
-                    field_16: *(&v5 as &i128)
-                });
-            }
-        }
-        47 => {
-            v12 = uu_truncate::TruncateMode::RoundDown;
-            goto LABEL_4ae4aa;
-        }
-        60 => {
-            v12 = uu_truncate::TruncateMode::AtMost;
-            if *(&v3 as &i32) != 3 {
-                return Ok(struct32 {
-                    field_0: v13
-                    field_16: *(&v5 as &i128)
-                });
-            }
-        }
-        62 => {
-            v12 = uu_truncate::TruncateMode::AtLeast;
-            if *(&v3 as &i32) != 3 {
-                return Ok(struct32 {
-                    field_0: v13
-                    field_16: *(&v5 as &i128)
-                });
-            }
-        }
-        _ => {
-LABEL_4ae4aa:
-            if *(&v3 as &i32) != 3 {
-                return Ok(struct32 {
-                    field_0: v13
-                    field_16: *(&v5 as &i128)
-                });
-            }
-        }
-    }
-    core::ops::function::FnOnce::call_once(v12, *(&v4 as &i64));
-    return struct24 {
-        field_0: 3
-        field_8: v10
-        field_16: v9
-    };
 }

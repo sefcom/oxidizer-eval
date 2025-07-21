@@ -8,15 +8,15 @@ fn uu_cat::write_new_line(a0: &struct24, a1: i64, a2: i64, a3: i64, a4: i8) -> l
     let v6: u64;  // [bp-0x80]
     let v7: u8;  // [bp-0x78]
     let v8: u128;  // [bp-0x70]
-    let v9: iNone;  // [bp-0x70]
-    let v10: u384;  // [bp-0x60]
-    let v12: alloc::string::String;  // rax
+    let v9: core::fmt::rt::Argument;  // [bp-0x70]
+    let v10: core::fmt::Arguments;  // [bp-0x60]
+    let v12: struct24;  // rax
     let v13: u64;  // r15
     let v14: core::result::Result<(), std::io::error::Error>;  // rax
     let v15: u8;  // r8b
     let v16: u64;  // rdx
     let v17: i64;  // rdi
-    let v18: core::result::Result<(), std::io::error::Error>;  // rcx
+    let v18: u64;  // rcx
     let v19: u8;  // r8b
     let v20: u64;  // rdx
     let v21: i64;  // rdi
@@ -64,9 +64,9 @@ LABEL_4b0aa1:
             uu_cat::write_end_of_line(v21, a1, v20, v22, v19);
             v12 = v0;
             if v0 != 9223372036854775814 {
-                return struct32 {
+                return struct24 {
                     field_0: v0
-                    field_8: <UNKNOWN>
+                    field_8: *(&v2 as &i128)
                 };
             }
             goto LABEL_4b0b42;

@@ -1,6 +1,6 @@
 fn uu_test::isatty(a1: i64, a2: i64) -> Result<struct24, struct1> {
     let a0: u64;  // rsi
-    let v0: struct24;  // [bp-0x50], Other Possible Types: u64, core::result::Result<&str, core::str::error::Utf8Error>
+    let v0: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x50], Other Possible Types: struct24, u64
     let v1: u64;  // [bp-0x48]
     let v2: u64;  // [bp-0x40]
     let v3: u8;  // [bp-0x38]

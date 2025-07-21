@@ -1,49 +1,40 @@
-fn uu_tail::follow::watch::Observer::add_path(a0: void*, a1: u32, a2: u32, a3: u32, a4: u32, a5: u32, a6: u32) -> u64 {
-    let v0: struct24;  // [sp-0x280], Other Possible Types: int
-    let v1: Result<struct24, struct8>;  // [sp-0x260], Other Possible Types: struct216
-    let v2: i64;  // [sp-0x188]
-    let v3: i64;  // [sp-0x180]
-    let v4: i64;  // [sp-0x178]
-    let v5: i8;  // [bp-0xd8]
-    let v6: i8;  // [bp+0x10]
-    let v10: i64;  // rbp
-    let v11: i64;  // r14
-    let v12: i64;  // r12
+fn uu_tail::follow::watch::Observer::add_path(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i64, a7: i8) -> long long {
+    let v0: std::path::PathBuf;  // [bp-0x280]
+    let v1: u64;  // [bp-0x278]
+    let v2: u64;  // [bp-0x270]
+    let v3: struct216;  // [bp-0x260], Other Possible Types: core::result::Result<std::path::PathBuf, std::io::error::Error>
+    let v4: u64;  // [bp-0x258]
+    let v5: u64;  // [bp-0x188]
+    let v6: struct32;  // [bp-0x180]
+    let v7: u64;  // [bp-0x178]
+    let v8: u8;  // [bp-0xd8]
 
     if *((a0 + 142) as &i8) == 2 {
         return 0;
     }
-    if std::path::Path::is_absolute(a1, a2) as i8 {
+    if std::path::Path::is_absolute(a1, a2) {
         v0 = std::sys::pal::unix::os::split_paths::bytes_to_path(a1, a2);
     } else {
-        v1 = std::env::current_dir();
-        match v1 {
+        v3 = std::env::current_dir();
+        match v3 {
             Err(_) => {
-                return uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v3);
+                return uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v6);
             },
             Ok(_) => {
-                v2 = v1 as i64;
-                v3 = *((&v1 as &char + 8) as &i64);
-                v4 = *((&v1 as &char + 16) as &i64);
-                v0 = std::path::Path::join(v3, v4, a1, a2);
+                v5 = v3 as i64;
+                v6 = v4;
+                v7 = *((&v3 as &char + 16) as &i64);
+                v0 = std::path::Path::join(v6, *((&v3 as &char + 16) as &i64), a1, a2);
             },
         }
     }
-    v10 = (&v0)[8] as i64;
-    v11 = (&v0)[16] as i64;
-    v1 = std::fs::metadata(v10, v11);
-    v12 = v1 as i64;
-    match v1 {
-        Ok(_) => {
-            memcpy(&v5, &v1, 168);
-        },
-        Err(_) => {
-            v10 = (&v0)[8] as i64;
-            v11 = (&v0)[16] as i64;
-        },
+    v3 = std::fs::metadata(v1, v2);
+    if let Ok(_) = v3 {
+        memcpy(&v8, &v4, 168);
     }
-    v2 = v12;
-    memcpy(&v3, &v5, 168);
-    v1 = uu_tail::follow::files::PathData::new(a5, a6, &v2, a3, a4);
-    uu_tail::follow::files::FileHandling::insert(a0 + 56, v10, v11, &v1, v6);
+    v5 = v3 as i64;
+    memcpy(&v6, &v8, 168);
+    v3 = uu_tail::follow::files::PathData::new(a5, a6, &v5, a3, a4);
+    uu_tail::follow::files::FileHandling::insert(a0 + 56, v1, v2, &v3, a7);
+    return 0;
 }

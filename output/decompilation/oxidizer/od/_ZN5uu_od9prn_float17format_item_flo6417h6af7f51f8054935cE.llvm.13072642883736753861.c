@@ -5,11 +5,11 @@ fn uu_od::prn_float::format_item_flo64() -> : struct24 {
     let v2: u128;  // [bp-0x70]
     let v3: u64;  // [bp-0x60]
     let v4: struct24;  // [bp-0x58], Other Possible Types: u64
-    let v5: u64;  // [bp-0x50]
+    let v5: struct56;  // [bp-0x50]
     let v6: i64;  // [bp-0x48]
     let v7: u64;  // [bp-0x40]
-    let v8: void*;  // [bp-0x38]
-    let v9: u8;  // [bp-0x28]
+    let v8: struct56;  // [bp-0x38]
+    let v9: u64;  // [bp-0x28]
     let v11: u64;  // rdx
 
     uu_od::prn_float::format_flo64(&v9);

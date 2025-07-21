@@ -1,6 +1,6 @@
 fn uu_basenc::uu_app(a0: i64) -> long long {
     let v0: void*;  // [bp-0xcc8]
-    let v1: u128;  // [bp-0xcc0]
+    let v1: struct16;  // [bp-0xcc0]
     let v2: u8;  // [bp-0xcb0]
     let v3: u4736;  // [bp-0x9e8]
     let v4: u4736;  // [bp-0x798]
@@ -9,6 +9,10 @@ fn uu_basenc::uu_app(a0: i64) -> long long {
     let v8: i64;  // rax
 
     uu_base32::base_common::base_app(&v2, "Encode/decode data and print to standard output\nWith no FILE, or when FILE is -, read standard input.\n\nWhen decoding, the input may contain newlines in addition to the bytes of\nthe formal alphabet. Use --ignore-garbage to attempt to recover\nfrom any other non-alphabet bytes in the encoded stream.", "{} [OPTION]... [FILE]");
+    v1 = struct16 {
+        field_0: "base64"
+        field_8: &g_54fbf0
+    };
     v1 = struct16 {
         field_0: "base64"
         field_8: &g_54fbf0

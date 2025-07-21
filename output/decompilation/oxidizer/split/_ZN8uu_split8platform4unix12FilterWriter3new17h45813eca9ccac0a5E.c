@@ -1,30 +1,34 @@
-fn uu_split::platform::unix::FilterWriter::new(a0: &struct36, a1: u64, a2: u64, a3: u32, a4: u32) -> u64 {
-    let v0: i8;  // [bp-0x1c4]
-    let v2: Result<struct28, struct8>;  // [sp-0x1a8]
-    let v3: iNone;  // [sp-0x168], Other Possible Types: struct24
-    let v4: Result<struct24, struct8>;  // [sp-0x150]
-    let v5: struct56;  // [sp-0x130]
-    let v6: struct208;  // [sp-0xf8]
-    let v8: iNone;  // xmm0
+fn uu_split::platform::unix::FilterWriter::new(a1: i64, a2: i64, a3: i64, a4: i64) -> Result<struct32, struct8> {
+    let a0: i64;  // rdi
+    let v0: u32;  // [bp-0x1c4]
+    let v1: u64;  // [bp-0x1c0]
+    let v2: u128;  // [bp-0x1b8]
+    let v3: core::result::Result<std::process::Child, std::io::error::Error>;  // [bp-0x1a8]
+    let v4: u32;  // [bp-0x1a4]
+    let v5: u64;  // [bp-0x1a0]
+    let v6: u128;  // [bp-0x198]
+    let v7: struct16;  // [bp-0x188], Other Possible Types: struct24
+    let v9: struct24;  // [bp-0x168]
+    let v10: core::result::Result<alloc::string::String, std::env::VarError>;  // [bp-0x150]
+    let v11: struct24;  // [bp-0x148]
+    let v12: u8;  // [bp-0xf8]
+    let v15: u128;  // xmm0
 
-    v5 = uu_split::platform::unix::WithEnvVarSet::new(a3, a4);
-    v4 = std::env::var("SHELL");
-    match v4 {
-        Ok(v3) => {
-        },
-        Err(_) => {
-            v3 = *((&v4 as &char + 8) as &i192);
-            v3 = uu_split::platform::unix::FilterWriter::new::{{closure}}(&v3);
-        },
+    uu_split::platform::unix::WithEnvVarSet::new(a3, a4, a3);
+    v10 = std::env::var("SHELL");
+    if let Err(_) = v10 {
+        v9 = v11;
+        v7 = uu_split::platform::unix::FilterWriter::new::{{closure}}(&v9);
     }
-    v6 = std::process::Command::new(&v3);
-    v2 = std::process::Command::spawn(std::process::Command::stdin(std::process::Command::arg(std::process::Command::arg(&v6, &g_421f85, 2), a1, a2), 2, a2));
-    if !v2 as i32 {
-        v8 = *(&v0 as &i128);
-        return struct36 {
-            field_0: 0
-            field_4: v8
-            field_16: <UNKNOWN>
-        };
-    }
+    vvar_170{stack -392} = struct16 OrderedDict({0: 𝜙@128b [((5069678, None), None), ((5069680, None), vvar_146{stack -392})]})
+    std::process::Command::new(&v12, &v7);
+    v3 = std::process::Command::spawn(std::process::Command::stdin(std::process::Command::arg(std::process::Command::arg(&v12, &g_421f85, 2), a1, a2), 2, a2))?;
+    v0 = v4;
+    v1 = v5;
+    v2 = v6;
+    v15 = *(&v0 as &i128);
+    return Ok(struct24 {
+        padding_0: <UNKNOWN>
+        field_8: v2
+    });
 }

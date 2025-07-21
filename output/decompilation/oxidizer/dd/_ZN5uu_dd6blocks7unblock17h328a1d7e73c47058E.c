@@ -1,9 +1,15 @@
 fn uu_dd::blocks::unblock(a1: i64, a2: i64, a3: i64) -> : struct24 {
     let a0: u64;  // rdi
-    let v0: u192;  // [bp-0x48]
-    let v1: u192;  // [bp-0x18]
+    let v0: struct24;  // [bp-0x48], Other Possible Types: struct40
+    let v1: struct24;  // [bp-0x18]
 
     if !a3 {
+        v0 = struct40 {
+            field_0: "chunk size must be non-zero"
+            field_8: 1
+            field_16: 8
+            field_24: 0
+        };
         panic!("chunk size must be non-zero");
     }
     v1 = struct24 {

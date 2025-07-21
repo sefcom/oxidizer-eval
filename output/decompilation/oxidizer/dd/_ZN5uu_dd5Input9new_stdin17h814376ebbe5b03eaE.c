@@ -1,4 +1,4 @@
-fn uu_dd::Input::new_stdin(a1: &struct104) -> Result<struct16, struct16> {
+fn uu_dd::Input::new_stdin(a1: &struct168) -> Result<struct16, struct16> {
     let a0: i64;  // rsi
     let v0: u64;  // [bp-0xe8]
     let v1: u64;  // [bp-0xd0]
@@ -31,7 +31,7 @@ fn uu_dd::Input::new_stdin(a1: &struct104) -> Result<struct16, struct16> {
             } else {
                 if !(*((a0 + 128) as &i64) && uu_dd::Source::skip(&v0 as u8, *((a0 + 128) as &i64))) {
                     *((v11 + 8) as &u64) = v10;
-                    *((v11 + 16) as &struct_1 *) = a0;
+                    *((v11 + 16) as &struct_0 *) = a0;
                     *(v11 as &i64) = 0;
                     return;
                 }

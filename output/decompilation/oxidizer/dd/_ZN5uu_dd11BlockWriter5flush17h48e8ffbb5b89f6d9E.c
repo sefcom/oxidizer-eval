@@ -6,6 +6,7 @@ fn uu_dd::BlockWriter::flush(a1: i64) -> : struct40 {
     }
     return struct48 {
         field_0: 0
+        padding_8: <UNKNOWN>
         field_16: 0
         field_32: 0
     };

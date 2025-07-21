@@ -1,37 +1,37 @@
 fn uu_du::read_files_from(a1: i64, a2: i64) -> Result<struct24, struct16> {
     let a0: u64;  // rsi
-    let v0: struct48;  // [bp-0x168], Other Possible Types: alloc::borrow::Cow<str>, u192, alloc::string::String
+    let v0: alloc::borrow::Cow<str>;  // [bp-0x168], Other Possible Types: alloc::string::String, struct24, struct48
     let v1: u64;  // [bp-0x160]
     let v2: u64;  // [bp-0x160]
     let v3: u64;  // [bp-0x160]
-    let v4: u64;  // [bp-0x158], Other Possible Types: struct24
-    let v5: struct24;  // [bp-0x158]
-    let v6: struct24;  // [bp-0x158]
-    let v7: u128;  // [bp-0x138]
+    let v4: struct32;  // [bp-0x158], Other Possible Types: u64
+    let v5: u64;  // [bp-0x158]
+    let v6: u64;  // [bp-0x158]
+    let v7: u64;  // [bp-0x138]
     let v8: struct24;  // [bp-0x138], Other Possible Types: u64
     let v9: u64;  // [bp-0x138]
     let v10: u64;  // [bp-0x130]
-    let v11: u64;  // [bp-0x128], Other Possible Types: struct16
-    let v12: struct16;  // [bp-0x128]
-    let v13: struct16;  // [bp-0x128]
-    let v14: i64;  // [bp-0x110]
+    let v11: core::iter::adapters::flatten::Flatten<core::option::IntoIter<core::char::EscapeDebug>>;  // [bp-0x128], Other Possible Types: u64
+    let v12: u64;  // [bp-0x128]
+    let v13: u64;  // [bp-0x128]
+    let v14: core::fmt::Arguments;  // [bp-0x110]
     let v15: Result<struct4, struct8>;  // [bp-0x108]
     let v16: u64;  // [bp-0x108]
     let v17: u32;  // [bp-0x104]
     let v18: u64;  // [bp-0x100]
     let v19: u8;  // [bp-0xf8]
     let v20: void*;  // [bp-0xf0]
-    let v21: u64;  // [bp-0xe8]
+    let v21: struct16;  // [bp-0xe8], Other Possible Types: u64
     let v22: u128;  // [bp-0xe8]
-    let v23: u64;  // [bp-0xe8]
-    let v24: u64;  // [bp-0xe8]
-    let v25: struct16;  // [bp-0xd8]
+    let v23: struct16;  // [bp-0xe8]
+    let v24: struct16;  // [bp-0xe8], Other Possible Types: struct24
+    let v25: u64;  // [bp-0xd8]
     let v26: u64;  // [bp-0xc8]
     let v27: void*;  // [bp-0xb8]
     let v28: struct16;  // [bp-0xb8]
     let v29: u64;  // [bp-0xb0]
     let v30: void*;  // [bp-0xa8]
-    let v32: u256;  // [bp-0xa0]
+    let v32: struct32;  // [bp-0xa0]
     let v33: u64;  // [bp-0x98]
     let v34: u64;  // [bp-0x90]
     let v35: u64;  // [bp-0x88]
@@ -40,11 +40,11 @@ fn uu_du::read_files_from(a1: i64, a2: i64) -> Result<struct24, struct16> {
     let v39: u64;  // [bp-0x68]
     let v40: alloc::string::String;  // [bp-0x60]
     let v41: alloc::string::String;  // [bp-0x48]
-    let v43: i64;  // rdi
+    let v43: core::fmt::Arguments;  // rdi
     let v45: u64;  // rax
     let v46: u64;  // rcx
     let v47: i64;  // rdi
-    let v48: i64;  // rdi
+    let v48: core::fmt::Arguments;  // rdi
     let v49: i64;  // rdi
     let v51: u64;  // rdx
 
@@ -91,7 +91,7 @@ LABEL_4f3966:
                         v0 = alloc::string::String::from_utf8_lossy(v34, v35);
                         v8 = <alloc::borrow::Cow<str> as alloc::string::ToString>::to_string(v1, v4);
                         v25 = v11;
-                        v22 = v8.field_0;
+                        v22 = *(&v8.field_0 as &i128) as u128;
                         v5 = v4;
                         v12 = v11;
                         v2 = v1;

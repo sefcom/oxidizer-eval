@@ -1,71 +1,82 @@
-fn uu_unexpand::expand_shortcuts(a0: &struct24, a1: u64, a2: u64) -> int {
-    let v0: i32;  // [sp-0xd0]
-    let v1: i32;  // [sp-0xcc]
-    let v2: struct24;  // [sp-0xc8], Other Possible Types: unsigned long, Result<struct16, struct8>, unsigned int
-    let v3: i64;  // [sp-0xc0]
-    let v4: struct16;  // [sp-0xb0], Other Possible Types: int
-    let v5: i64;  // [sp-0xa0]
-    let v6: iNone;  // [bp-0x98], Other Possible Types: struct16
-    let v7: i64;  // [sp-0x88]
-    let v8: struct16;  // [bp-0x78]
-    let v9: i16;  // [sp-0x38]
-    let v11: i64;  // rax
-    let v12: i64;  // r14
-    let v13: i64;  // rbx
-    let v14: i64;  // r12
-    let v15: i64;  // rax
-    let v16: i64;  // rbp
-    let v17: i64;  // rdx
-    let v18: i64;  // rax
+fn uu_unexpand::expand_shortcuts(a1: i64, a2: i64) -> : struct24 {
+    let a0: u64;  // rsi
+    let v0: u32;  // [bp-0xd0]
+    let v1: u32;  // [bp-0xcc]
+    let v2: struct24;  // [bp-0xc8]
+    let v3: u32;  // [bp-0xc8]
+    let v4: u64;  // [bp-0xc8]
+    let v5: u64;  // [bp-0xc8]
+    let v6: alloc::string::String;  // [bp-0xc8], Other Possible Types: u64
+    let v7: u64;  // [bp-0xc8]
+    let v8: u64;  // [bp-0xc0]
+    let v9: u64;  // [bp-0xb8]
+    let v11: struct16;  // [bp-0xb0]
+    let v12: u64;  // [bp-0xb0]
+    let v13: u64;  // [bp-0xa8]
+    let v14: void*;  // [bp-0xa0]
+    let v15: u128;  // [bp-0x98]
+    let v16: u64;  // [bp-0x98]
+    let v17: u64;  // [bp-0x90]
+    let v18: u64;  // [bp-0x88]
+    let v19: struct16;  // [bp-0x78]
+    let v20: u16;  // [bp-0x38]
+    let v22: core::fmt::rt::Argument;  // rax
+    let v23: u64;  // rdx
+    let v24: u64;  // rbx
+    let v25: u64;  // r12
+    let v27: core::option::Option<&str>;  // rax
+    let v28: u64;  // rdx
+    let v29: u64;  // rax
+    let v30: i64;  // r15
+    let v31: &str;  // rax:rdx
 
-    v2 = alloc::raw_vec::RawVec<T,A>::try_allocate_in(a2, 0);
-    v4 = *((&v2 as &char + 8) as &i128);
-    v5 = 0;
-    v6 = struct16 {
-        field_0: a1
-        field_8: a1 + a2 * 24
-    };
-    v11 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v6);
-    if !v11 {
-        return struct24 {
-            field_0: v22
-            field_16: v5
-        };
-    }
-    v12 = v11;
-    v0 = 0;
-    v1 = 0;
-    do {
-        v13 = *((v12 + 8) as &i64);
-        v14 = *((v12 + 16) as &i64);
-        *(&v2 as &i32) = 0;
-        if core::slice::<impl [T]>::starts_with(v13, v14, core::char::methods::encode_utf8_raw(45, &v2), 1) as i8 {
-            v15 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v13, v14);
-            v16 = v15;
-            v2 = v16;
-            v3 = v15 + v17;
-            if <core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq(core::iter::traits::iterator::Iterator::try_fold(&v2)) {
-                v8 = struct16 {
+    v2 = alloc::raw_vec::RawVec<T,A>::try_allocate_in(a1, 0);
+    v12 = v8;
+    v13 = v9;
+    v14 = 0;
+    v16 = a0;
+    v17 = a0 + a1 * 24;
+    v22 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v16);
+    if v22 {
+        do {
+            v24 = *((v22 + 8) as &i64);
+            v25 = *((v22 + 16) as &i64);
+            v3 = 0;
+            v4 = v2.field_0 & -0x100000000;
+            v31 = core::char::methods::encode_utf8_raw(45, &v4, v23);
+            v5 = v4;
+            if core::slice::<impl [T]>::starts_with(v24, v25, v31.data_ptr, 1) && !((v27 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v24, v25, a1) as u64, v5 as u128 = struct16 {
+    field_0: v27
+    field_8: v27 + v28
+}, v5 = v7, !<core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq(core::iter::traits::iterator::Iterator::try_fold(&v5 as u128) as i32 as u32 as u64, a0) as u8)) {
+                v19 = struct16 {
                     field_0: 0
-                    field_8: v17
+                    field_8: v28
                 };
-                v9 = 1;
-                v0 = (<char as core::str::pattern::Pattern>::into_searcher(v16, v17) & -0x100 | 1) as u32;
-                core::iter::traits::iterator::Iterator::fold(&v8, &v4);
-                continue;
+                v20 = 1;
+                v0 = <char as core::str::pattern::Pattern>::into_searcher(v5, v28, a2) & -0x100 | 1;
+                core::iter::traits::iterator::Iterator::fold(&v19, &v12);
+                v6 = v7;
+            } else {
+                v6 = <alloc::string::String as core::clone::Clone>::clone(v22);
+                v12 = alloc::vec::Vec<T,A>::push(&v6);
+                v29 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v24, v25, "--all");
+                if v29 || (v29 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v24, v25, "-a"), v6 = v5, v29 as u8) {
+                    v1 = v29 & -0x100 | 1;
+                    v6 = v5;
+                }
             }
+            v5 = v6;
+            v22 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v16);
+        } while (v22);
+        if (v0 as i8 & 1) && !(v1 & 1) {
+            <T as alloc::slice::hack::ConvertVec>::to_vec("--first-only", a2);
+            v18 = v9;
+            v15 = *(&v6.vec.buf.cap as &i128);
+            v11 = alloc::vec::Vec<T,A>::push(&v16);
         }
-        v2 = <alloc::string::String as core::clone::Clone>::clone(v12);
-        v4 = alloc::vec::Vec<T,A>::push(&v2);
-        v18 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v13, v14, "--all");
-        if v18 as u8 || (v18 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v13, v14, "-a"), v18 as u8) {
-            v1 = (v18 & -0x100 | 1) as u32;
-        }
-    } while ((v12 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v6), v12));
-    if (v0 as i8 & 1) && !(v1 as u8 & 1) {
-        v2 = <T as alloc::slice::hack::ConvertVec>::to_vec("--first-only");
-        v7 = v2.field_16;
-        *(&v6 as &i128) = *(&v2.field_0 as &i128);
-        v4 = alloc::vec::Vec<T,A>::push(&v6);
     }
+    *((v30 + 16) as &i64) = 0;
+    *(v30 as &i128) = *(&v11.field_0 as &i128);
+    return;
 }

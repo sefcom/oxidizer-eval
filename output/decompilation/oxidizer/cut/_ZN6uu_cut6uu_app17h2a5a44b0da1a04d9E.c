@@ -15,7 +15,7 @@ fn uu_cut::uu_app(a0: &struct712) -> long long {
     let v13: u32;  // [bp-0x2e4]
     let v14: u64;  // [bp-0x274]
     let v15: u32;  // [bp-0x26c]
-    let v16: u64;  // [bp-0x268]
+    let v16: u8;  // [bp-0x268]
     let v17: u64;  // [bp-0x260]
     let v18: u64;  // [bp-0x258]
     let v21: u64;  // rdx

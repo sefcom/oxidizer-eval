@@ -2,7 +2,7 @@ fn uu_df::table::RowFormatter::percentage(a0: i64, a1: i64) -> long long {
     let v0: u64;  // [bp-0x90]
     let v1: i64;  // [bp-0x88]
     let v2: u64;  // [bp-0x80]
-    let v3: u576;  // [bp-0x78]
+    let v3: struct72;  // [bp-0x78]
     let v4: i8;  // [bp-0x48]
     let v5: void*;  // [bp-0x28]
     let v6: u64;  // [bp-0x20]

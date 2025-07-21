@@ -1,48 +1,49 @@
-fn uu_mkdir::exec(a0: u32, a1: u32, a2: u32, a3: u32) -> u64 {
-    let v0: i64;  // [sp-0x108]
-    let v1: iNone;  // [sp-0xf8]
-    let v2: i64;  // [sp-0xe8]
-    let v3: i64;  // [sp-0xd8]
-    let v4: i64;  // [sp-0xd0]
-    let v5: struct24;  // [sp-0xc8]
-    let v6: i64;  // [sp-0xb8]
-    let v7: iNone;  // [sp-0x78]
-    let v8: iNone;  // [sp-0x68]
-    let v9: iNone;  // [sp-0x58]
-    let v10: iNone;  // [sp-0x48]
-    let v12: iNone;  // xmm0
-    let v13: iNone;  // ymm0
-    let v14: iNone;  // ymm0
-    let v15: struct8;  // rax
-    let v16: iNone;  // xmm0
-    let v17: i64;  // rax
-    let v18: i64;  // rdx
+fn uu_mkdir::exec(a0: i64, a1: i32, a2: i32, a3: i32) -> long long {
+    let v0: u64;  // [bp-0x108]
+    let v1: u128;  // [bp-0xf8]
+    let v2: u64;  // [bp-0xf0]
+    let v3: core::fmt::rt::Argument;  // [bp-0xe8]
+    let v4: u64;  // [bp-0xd8]
+    let v5: i64;  // [bp-0xd0]
+    let v6: u64;  // [bp-0xc8]
+    let v7: u64;  // [bp-0xc8]
+    let v8: std::sys::os_str::bytes::Buf;  // [bp-0xc8]
+    let v9: u64;  // [bp-0xb8]
+    let v10: u64;  // [bp-0xb8]
+    let v11: struct64;  // [bp-0x78]
+    let v13: i64;  // rax
+    let v14: u64;  // rax
+    let v15: i64;  // rdx
 
-    v12 = *(a0 as &i128);
-    v14 = v13 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v12 as u256;
-    v10 = *((a0 + 48) as &i128);
-    v9 = *((a0 + 32) as &i128);
-    v8 = *((a0 + 16) as &i128);
-    v7 = v12;
-    v15 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next();
-    if !v15 {
+    v11 = struct64 {
+        field_0: *(a0 as &i128)
+        field_16: *((a0 + 16) as &i128)
+        field_32: *((a0 + 32) as &i128)
+        field_48: *((a0 + 48) as &i128)
+    };
+    v13 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next(&v11);
+    if !v13 {
         return 0;
     }
     do {
-        v6 = v6;
-        v5 = std::sys::os_str::bytes::Slice::to_owned(*((v15 + 8) as &i64), *((v15 + 16) as &i64));
-        v2 = v6;
-        v16 = *(&v5.field_0 as &i128);
-        v14 = v14 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v16 as u256;
-        v1 = v16;
-        v17 = uu_mkdir::mkdir((&v1)[8] as i64, v6, a1 as u64, a2 as u64, a3 as u64);
-        if v17 {
-            v0 = v17;
-            uucore::mods::error::set_exit_code(*((v18 + 96) as &i64)());
-            v3 = uucore::util_name();
-            v4 = v18;
-            eprintln!("{}: {}", &v3, &v0);
+        v8 = std::sys::os_str::bytes::Slice::to_owned(*((v13 + 8) as &i64), *((v13 + 16) as &i64));
+        v3 = v9;
+        v1 = *(&v8.inner.buf.cap as &i128);
+        v14 = uu_mkdir::mkdir(v2, v9, a1, a2, a3);
+        v7 = v7;
+        v9 = v9;
+        if v14 {
+            v0 = v14;
+            uucore::mods::error::set_exit_code(*((v15 + 96) as &i64)(v14) as u32);
+            v4 = uucore::util_name();
+            v5 = v15;
+            eprintln!("{}: {}", &v4, &v0);
+            v7 = v6;
+            v9 = v10;
         }
-    } while ((v15 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next(), v6 = v6, v15));
+        v9 = v9;
+        v7 = v7;
+        v13 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next(&v11);
+    } while (v13);
     return 0;
 }

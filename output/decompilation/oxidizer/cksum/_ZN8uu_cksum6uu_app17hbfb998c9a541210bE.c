@@ -12,7 +12,7 @@ fn uu_cksum::uu_app(a0: &struct712) -> long long {
     let v10: i8;  // [bp-0x2e4]
     let v11: u64;  // [bp-0x274]
     let v12: u32;  // [bp-0x26c]
-    let v13: u192;  // [bp-0x268]
+    let v13: struct24;  // [bp-0x268], Other Possible Types: u64
     let v16: u64;  // rdx
 
     v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v16);
@@ -54,6 +54,11 @@ fn uu_cksum::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::command::Command::arg(&v3, &v8, &v13);
     clap_builder::builder::arg::Arg::new(&v8, "length");
     clap_builder::builder::arg::Arg::long(&v0, &v8, "length");
+    v13 = struct24 {
+        field_0: 4
+        field_8: alloc::boxed::Box<T>::new()
+        field_16: &g_755768
+    };
     v13 = struct24 {
         field_0: 4
         field_8: alloc::boxed::Box<T>::new()

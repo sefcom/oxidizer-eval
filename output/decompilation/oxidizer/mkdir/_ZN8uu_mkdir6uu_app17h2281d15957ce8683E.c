@@ -1,51 +1,53 @@
-fn uu_mkdir::uu_app(a0: &struct712) -> u64 {
-    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct712, struct437
-    let v1: i64;  // [sp-0x78c]
-    let v2: i32;  // [sp-0x784]
-    let v3: struct592;  // [sp-0x780], Other Possible Types: struct24
-    let v4: i32;  // [sp-0x538]
-    let v5: i32;  // [sp-0x534]
-    let v6: struct592;  // [sp-0x530], Other Possible Types: struct712
-    let v7: struct592;  // [sp-0x268], Other Possible Types: struct8
-    let v9: i64;  // rdx
+fn uu_mkdir::uu_app(a0: &struct712) -> long long {
+    let v0: struct437;  // [bp-0xa48]
+    let v1: u32;  // [bp-0x800]
+    let v2: i8;  // [bp-0x7fc]
+    let v3: u64;  // [bp-0x78c]
+    let v4: u32;  // [bp-0x784]
+    let v5: u8;  // [bp-0x780]
+    let v6: u32;  // [bp-0x538]
+    let v7: u32;  // [bp-0x534]
+    let v8: u8;  // [bp-0x530]
+    let v9: u64;  // [bp-0x274]
+    let v10: u32;  // [bp-0x26c]
+    let v11: u8;  // [bp-0x268]
+    let v14: u64;  // rdx
 
-    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
-    v6 = clap_builder::builder::command::Command::version(&v0, "0.0.28");
-    v0 = clap_builder::builder::command::Command::about(&v6, "Create the given DIRECTORY(ies) if they do not exist");
-    v3 = uucore::format_usage("{} [OPTION]... DIRECTORY...");
-    v6 = clap_builder::builder::command::Command::override_usage(&v0, &v3);
-    memcpy(&v0, &v6, 700);
-    v1 = 549755814016 | *((&v6.field_0 as &char + 700) as &i64);
-    v2 = *((&v6.field_0 as &char + 708) as &i32);
-    v6 = clap_builder::builder::arg::Arg::new("mode");
-    v3 = clap_builder::builder::arg::Arg::short(&v6, 0x6d);
-    v6 = clap_builder::builder::arg::Arg::long(&v3, "mode");
-    v3 = clap_builder::builder::arg::Arg::help(&v6, "set file mode (not implemented on windows)");
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v3);
-    v0 = clap_builder::builder::arg::Arg::new("parents");
-    v3 = clap_builder::builder::arg::Arg::short(&v0, 0x70);
-    v0 = clap_builder::builder::arg::Arg::long(&v3, "parents");
-    v3 = clap_builder::builder::arg::Arg::help(&v0, "make parent directories as needed");
-    v0 = clap_builder::builder::arg::Arg::overrides_with(&v3, "parents");
-    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    v0 = clap_builder::builder::command::Command::arg(&v6, &v3);
-    v6 = clap_builder::builder::arg::Arg::new("verbose");
-    v3 = clap_builder::builder::arg::Arg::short(&v6, 0x76);
-    v6 = clap_builder::builder::arg::Arg::long(&v3, "verbose");
-    v3 = clap_builder::builder::arg::Arg::help(&v6, "print a message for each printed directory");
-    v7 = clap_builder::builder::arg::Arg::action(&v3, 0x2);
-    v6 = clap_builder::builder::command::Command::arg(&v0, &v7);
-    v0 = clap_builder::builder::arg::Arg::new("dirs");
-    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x1);
-    v0 = clap_builder::builder::arg::Arg::num_args(&v3);
-    memcpy(&v3, &v0, 584);
-    v4 = *((&v0.field_0 as &char + 584) as &i32) | 1;
-    v5 = *((&v0.field_0 as &char + 588) as &i32);
-    v7 = struct8 {
-        field_0: 2
-    };
-    v0 = clap_builder::builder::arg::Arg::value_parser(&v3, &v7);
-    v3 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x4);
-    clap_builder::builder::command::Command::arg(a0, &v6, &v3);
+    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v14);
+    clap_builder::builder::command::Command::version(&v8, &v0, "0.0.28");
+    clap_builder::builder::command::Command::about(&v0, &v8, "Create the given DIRECTORY(ies) if they do not exist");
+    uucore::format_usage(&v5, "{} [OPTION]... DIRECTORY...");
+    clap_builder::builder::command::Command::override_usage(&v8, &v0, &v5);
+    memcpy(&v0, &v8, 700);
+    v3 = 549755814016 | v9;
+    v4 = v10;
+    clap_builder::builder::arg::Arg::new(&v8, "mode");
+    clap_builder::builder::arg::Arg::short(&v5, &v8, 109);
+    clap_builder::builder::arg::Arg::long(&v8, &v5, "mode");
+    clap_builder::builder::arg::Arg::help(&v5, &v8, "set file mode (not implemented on windows)");
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v5);
+    clap_builder::builder::arg::Arg::new(&v0, "parents");
+    clap_builder::builder::arg::Arg::short(&v5, &v0, 112);
+    clap_builder::builder::arg::Arg::long(&v0, &v5, "parents");
+    clap_builder::builder::arg::Arg::help(&v5, &v0, "make parent directories as needed");
+    clap_builder::builder::arg::Arg::overrides_with(&v0, &v5, "parents");
+    clap_builder::builder::arg::Arg::action(&v5, &v0, 2);
+    clap_builder::builder::command::Command::arg(&v0, &v8, &v5);
+    clap_builder::builder::arg::Arg::new(&v8, "verbose");
+    clap_builder::builder::arg::Arg::short(&v5, &v8, 118);
+    clap_builder::builder::arg::Arg::long(&v8, &v5, "verbose");
+    clap_builder::builder::arg::Arg::help(&v5, &v8, "print a message for each printed directory");
+    clap_builder::builder::arg::Arg::action(&v11, &v5, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v0, &v11);
+    clap_builder::builder::arg::Arg::new(&v0, "dirs");
+    clap_builder::builder::arg::Arg::action(&v5, &v0, 1);
+    clap_builder::builder::arg::Arg::num_args(&v0, &v5);
+    memcpy(&v5, &v0, 584);
+    v6 = v1 | 1;
+    v7 = *(&v2 as &i32);
+    v11 = 2;
+    clap_builder::builder::arg::Arg::value_parser(&v0, &v5, &v11);
+    clap_builder::builder::arg::Arg::value_hint(&v5, &v0, 4);
+    clap_builder::builder::command::Command::arg(a0, &v8, &v5);
     return a0;
 }

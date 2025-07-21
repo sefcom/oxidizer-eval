@@ -1,4 +1,4 @@
-fn uu_dd::parseargs::Parser::validate(a1: i64) -> Result<struct164, struct16> {
+fn uu_dd::parseargs::Parser::validate(a1: &struct40) -> Result<struct164, struct16> {
     let a0: i64;  // rsi
     let v0: u8;  // [bp-0x5e]
     let v1: u8;  // [bp-0x5d]
@@ -17,8 +17,8 @@ fn uu_dd::parseargs::Parser::validate(a1: i64) -> Result<struct164, struct16> {
     let v16: u8;  // r9b
     let v17: u64;  // rdx
     let v18: u8;  // al
-    let v19: u8;  // r12b
-    let v20: u32;  // ebp
+    let v19: core::fmt::rt::Argument;  // r12b
+    let v20: core::fmt::rt::Argument;  // ebp
     let v21: u64;  // rax
     let v22: u64;  // rcx
     let v23: u8;  // sil
@@ -32,7 +32,6 @@ fn uu_dd::parseargs::Parser::validate(a1: i64) -> Result<struct164, struct16> {
     let v31: u32;  // ymm1
     let v33: u64;  // rcx
     let v34: u8;  // dl
-    let v36: u64;  // rsi
     let v38: u64;  // rax
     let v40: u64;  // rsi
     let v42: u64;  // rdi
@@ -138,8 +137,8 @@ fn uu_dd::parseargs::Parser::validate(a1: i64) -> Result<struct164, struct16> {
             }
         }
     }
-    v20 = v19;
-    v21 = uu_dd::parseargs::get_ctable(v20, v18);
+    v20 = v19 as u32;
+    v21 = uu_dd::parseargs::get_ctable(v20 as u8, v18);
     v23 = v2;
     v24 = v1;
     v25 = v0;
@@ -182,12 +181,7 @@ LABEL_4d2d57:
     }
     v6 = uu_dd::parseargs::conversion_mode(v21, v27, v22, *((a0 + 160) as &i8), v4);
     v33 = v30;
-    if *((a0 + 191) as &i8) {
-        v36 = 1;
-    } else {
-        v36 = v30;
-    }
-    v38 = v36;
+    v38 = v30;
     v40 = *((a0 + 72) as &i64) * v38;
     if *((a0 + 207) as &i8) {
         v42 = 1;
@@ -205,7 +199,7 @@ LABEL_4d2d57:
     *((v50 + 64) as &i128) = *((a0 + 176) as &i128);
     *((v50 + 150) as &i64) = *(v47 as &i64);
     *((v50 + 157) as &i64) = *((v47 + 7) as &i64);
-    *((v50 + 96) as &i64) = *(&v6.field_0 as &i64);
+    *((v50 + 96) as &u64) = v6.field_16;
     *((v50 + 80) as &i128) = *(&v6.field_0 as &i128);
     *(v50 as &u64) = v48;
     *((v50 + 8) as &u64) = v49;

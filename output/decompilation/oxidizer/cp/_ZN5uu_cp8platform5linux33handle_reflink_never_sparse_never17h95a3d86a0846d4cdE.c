@@ -26,6 +26,7 @@ fn uu_cp::platform::linux::handle_reflink_never_sparse_never(a1: i64, a2: i64) -
     v8 = v5 & -0x100 | 1;
     return struct16 {
         field_0: v9
+        padding_1: <UNKNOWN>
         field_8: v5
     };
 }

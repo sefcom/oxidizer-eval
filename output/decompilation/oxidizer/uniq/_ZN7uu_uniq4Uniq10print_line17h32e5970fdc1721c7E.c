@@ -1,30 +1,30 @@
 fn uu_uniq::Uniq::print_line(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i8) -> long long {
-    let v0: i64;  // [bp-0xe8], Other Possible Types: char, int
+    let v0: struct24;  // [bp-0xe8], Other Possible Types: u64
     let v1: i8;  // [bp-0xe8]
-    let v2: i64;  // [bp-0xe8]
-    let v3: i64;  // [bp-0xe0]
-    let v4: i64;  // [bp-0xd8]
-    let v5: i64;  // [bp-0xd0]
-    let v6: i64;  // [bp-0xc8]
-    let v7: i64;  // [bp-0xc0]
-    let v8: i8;  // [bp-0xb8]
-    let v9: i64;  // [bp-0xb0]
-    let v10: iNone;  // [bp-0xa8]
-    let v11: i64;  // [bp-0xa0]
-    let v12: i64;  // [bp-0x98]
-    let v13: iNone;  // [bp-0x50]
+    let v2: u64;  // [bp-0xe8]
+    let v3: u32;  // [bp-0xe0]
+    let v4: void*;  // [bp-0xd8]
+    let v5: u64;  // [bp-0xd0]
+    let v6: void*;  // [bp-0xc8]
+    let v7: u64;  // [bp-0xc0]
+    let v8: u8;  // [bp-0xb8]
+    let v9: u64;  // [bp-0xb0]
+    let v10: alloc::string::String;  // [bp-0xa8]
+    let v11: u64;  // [bp-0xa0]
+    let v12: u64;  // [bp-0x98]
+    let v13: core::iter::adapters::chain::Chain<core::iter::adapters::flatten::Flatten<core::option::IntoIter<core::char::EscapeDebug>>, core::iter::adapters::flatten::FlatMap<core::str::iter::Chars, core::char::EscapeDebug, core::str::CharEscapeDebugContinue>>;  // [bp-0x50]
     let v14: i64;  // 4096
-    let v15: i64;  // rax
-    let v16: i64;  // rax
-    let v17: i64;  // rax
-    let v19: i64;  // rax
+    let v15: u64;  // rax
+    let v16: u64;  // rax
+    let v17: u64;  // rax
+    let v19: u64;  // rax
 
     v9 = a5;
     v14 = a0;
     if a5 == 1 {
         v15 = *((a0 + 54) as &i8);
         v14 = a0;
-        if v15 as u8 != 4 && (a6 || (v14 = a0, (v15 as u32 & 255 | 2) == 3)) {
+        if v15 != 4 && (a6 || (v14 = a0, (v15 as u32 & 255 | 2) == 3)) {
             v2 = v0 & -0x100 | v0;
             v16 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all(a1, a2, &v2, 1) as u64);
             if v16 {
@@ -54,6 +54,6 @@ fn uu_uniq::Uniq::print_line(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64, a5: i6
         }
     }
     v1 = (*((a0 + 53) as &i8) ? 0 : 10);
-    v0 = v0 as i64 & -0x100 | v0 as i8;
+    v0 = v0.field_0 as i64 & -0x100 | v0.field_0;
     return <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all(a1, a2, &v0, 1) as u64);
 }

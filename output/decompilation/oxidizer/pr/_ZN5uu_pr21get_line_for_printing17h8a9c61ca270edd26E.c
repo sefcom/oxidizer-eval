@@ -1,66 +1,100 @@
-fn uu_pr::get_line_for_printing(a0: u32, a1: void*, a2: void*, a3: u32, a4: u32, a5: u32, a6: u32, a7: u32) -> u64 {
-    let v0: i8;  // [bp-0x168]
-    let v1: iNone;  // [sp-0x168], Other Possible Types: String, unsigned long
-    let v2: i8;  // [bp-0x160]
-    let v3: i64;  // [sp-0x138], Other Possible Types: int
-    let v4: i64;  // [sp-0x128]
-    let v5: iNone;  // [sp-0x118]
-    let v6: i64;  // [sp-0x108]
-    let v7: iNone;  // [bp-0xf8]
-    let v8: i64;  // [sp-0xc8]
-    let v9: i64;  // [sp-0xc0]
-    let v10: i64;  // [sp-0xb8]
-    let v11: i64;  // [sp-0xb0]
-    let v12: i64;  // [sp-0xa8]
-    let v13: i64;  // [sp-0xa0]
-    let v14: i64;  // [sp-0x98]
-    let v15: String;  // [sp-0x90]
-    let v16: String;  // [sp-0x78]
-    let v17: i64;  // [sp-0x60]
-    let v18: i64;  // [sp-0x58]
-    let v19: i64;  // [sp-0x50]
-    let v20: struct24;  // [sp-0x48]
-    let v22: i64;  // rbp
-    let v24: i64;  // rax
+fn uu_pr::get_line_for_printing(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i64, a7: i64) -> : struct24 {
+    let a0: i64;  // rsi
+    let v0: struct40;  // [bp-0x168], Other Possible Types: u64
+    let v1: struct24;  // [bp-0x168]
+    let v2: u128;  // [bp-0x168]
+    let v3: alloc::string::String;  // [bp-0x160], Other Possible Types: u64
+    let v4: Result<struct32, struct32>;  // [bp-0x158], Other Possible Types: gimli::constants::DwAccess *, u64
+    let v5: struct32;  // [bp-0x150], Other Possible Types: u64
+    let v6: void*;  // [bp-0x148], Other Possible Types: Result<struct32, struct32>
+    let v7: struct32;  // [bp-0x140]
+    let v8: core::fmt::Arguments;  // [bp-0x138], Other Possible Types: u64
+    let v9: u128;  // [bp-0x130]
+    let v10: u64;  // [bp-0x128]
+    let v11: u64;  // [bp-0x118]
+    let v12: u64;  // [bp-0x110]
+    let v13: u64;  // [bp-0x108]
+    let v14: (usize, std::backtrace_rs::symbolize::gimli::Mapping);  // [bp-0xf8], Other Possible Types: struct24, u64
+    let v15: i64;  // [bp-0xf8]
+    let v16: struct32;  // [bp-0xf0], Other Possible Types: u64
+    let v17: Result<struct32, struct32>;  // [bp-0xe8], Other Possible Types: gimli::constants::DwAccess *
+    let v18: u64;  // [bp-0xe0]
+    let v19: struct32;  // [bp-0xd8]
+    let v20: u64;  // [bp-0xc8]
+    let v21: void*;  // [bp-0xc0]
+    let v22: u64;  // [bp-0xb8]
+    let v23: void*;  // [bp-0xb0]
+    let v24: u64;  // [bp-0xa8]
+    let v25: u64;  // [bp-0xa0]
+    let v26: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x98]
+    let v27: u128;  // [bp-0x90]
+    let v28: u64;  // [bp-0x80]
+    let v29: u128;  // [bp-0x78]
+    let v30: struct24;  // [bp-0x68]
+    let v31: i64;  // [bp-0x60]
+    let v32: i64;  // [bp-0x58]
+    let v33: i64;  // [bp-0x50]
+    let v34: Result<struct24, struct24>;  // [bp-0x48]
+    let v35: u64;  // rbp
+    let v37: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // rax
+    let v38: i64;  // rdx
+    let v39: i64;  // rdi
 
-    v8 = a3;
-    v9 = 0;
-    v10 = 1;
-    v11 = 0;
-    v20 = uu_pr::get_formatted_line_number(a1, *((a2 + 32) as &i64), a4);
-    core::result::Result<T,E>::unwrap(*(a2 as &i64) == 0x8000000000000000, v3);
-    v3 = a2 + (*(a2 as &i64) == 0x8000000000000000) * 8;
-    v15 = format!("{}{}", &v20, &v3);
-    v5 = *(&v15.ptr as &i128);
-    v22 = v15.len;
-    v6 = v22;
-    v12 = a1 + 168;
-    v24 = a1 + 192;
-    if *((a1 + 323) as &i8) {
-        v24 = &v9;
-    }
-    v13 = core::iter::traits::iterator::Iterator::fold((&v5)[8] as i64, (&v5)[8] as i64 + v22) * 7 + v22;
-    if a4 + 1 == a7 {
-        v24 = &v9;
-    }
-    v14 = v24;
+    v20 = a2;
+    v21 = 0;
+    v22 = 1;
+    v23 = 0;
+    v34 = uu_pr::get_formatted_line_number(a0, *((a1 + 32) as &i64), a3);
+    core::result::Result<T,E>::unwrap(*(a1 as &i64) == 0x8000000000000000, a1 + (*(a1 as &i64) == 0x8000000000000000) * 8);
+    v15 = &v34;
+    v16 = <alloc::string::String as core::fmt::Display>::fmt;
     v17 = &v8;
-    v18 = &v13;
-    v19 = &v5;
-    if !a5 {
-        v1 = v15;
-        goto LABEL_5c8434;
-    } else {
-        uu_pr::get_line_for_printing::{{closure}}(&v0, &v17, a6);
-        *(&v7 as &i128) = *(&v2 as &i128);
-        v1 = v6;
-        v1 = v5;
-        if v3 == 0x8000000000000000 {
-LABEL_5c8434:
-            v4 = v1;
-            *(&v3 as &i128) = v1 as i128;
+    v18 = <&T as core::fmt::Display>::fmt;
+    v0 = &g_46bf10.pieces.ptr;
+    v3 = 2;
+    v6 = 0;
+    v4 = &v15;
+    v5 = 2;
+    v1 = core::option::Option<T>::map_or_else(a1);
+    v11 = v27;
+    v35 = v28;
+    v13 = v35;
+    v24 = a0 + 168;
+    v25 = core::iter::traits::iterator::Iterator::fold(v12, v12 + v35) * 7 + v35;
+    v26 = v37;
+    v31 = &v20;
+    v32 = &v25;
+    v33 = &v11;
+    if a4 {
+        uu_pr::get_line_for_printing::{{closure}}(&v1, &v31, a5);
+        *(&v14 as &i128) = *((&v1.field_0 as &char + 8) as &i128);
+        v4 = v13;
+        v2 = *(&v11 as &i128);
+        if 0 {
+            goto LABEL_5c8434;
         }
+        v9 = *(&v14 as &i128);
+        v8 = &g_46bf10.pieces.ptr;
+    } else {
+        v4 = v28;
+        v2 = v27;
+LABEL_5c8434:
+        v10 = v4;
+        v8 = v2;
     }
-    v16 = format!("{}{}{}", &v12, &v3, &v14);
+    v0 = &v24;
+    v3 = <&T as core::fmt::Display>::fmt;
+    v4 = &v8;
+    v5 = <alloc::string::String as core::fmt::Display>::fmt;
+    v6 = &v26;
+    v7 = <&T as core::fmt::Display>::fmt;
+    v14 = &g_475660.__0;
+    v16 = 3;
+    v19 = 0;
+    v17 = &v0;
+    v18 = 3;
+    v14 = core::option::Option<T>::map_or_else(v38);
+    *((v39 + 16) as &struct24) = v30;
+    *(v39 as &u128) = v29;
     return;
 }

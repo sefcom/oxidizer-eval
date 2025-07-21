@@ -2,7 +2,7 @@ fn uu_dd::Output::new_file::open_dst(a1: i64, a2: i64, a3: i64, a4: i8, a5: i64)
     let a0: i64;  // rsi
     let v0: u64;  // [bp-0x28]
     let v2: u32;  // [bp-0x20]
-    let v3: u8;  // [bp-0x1e]
+    let v3: struct20;  // [bp-0x1e]
     let v4: i8;  // [bp-0x1c]
     let v5: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x1b]
     let v7: u64;  // rdi

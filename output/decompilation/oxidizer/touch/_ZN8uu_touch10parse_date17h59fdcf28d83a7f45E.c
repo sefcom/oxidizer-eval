@@ -1,77 +1,102 @@
-fn uu_touch::parse_date(a0: &Option<struct12>, a1: &struct16, a2: u32, a3: u32) -> u64 {
-    let v0: i64;  // [bp-0xc0], Other Possible Types: struct24, Option<Result<struct16, struct32>>, Result<struct2, struct8>, struct16
-    let v1: i64;  // [sp-0xb8]
-    let v2: i64;  // [sp-0xb0]
-    let v3: i64;  // [sp-0xa8]
-    let v4: i64;  // [sp-0xa0]
-    let v5: i64;  // [sp-0x98]
-    let v6: i64;  // [sp-0x90]
-    let v7: i64;  // [sp-0x88]
-    let v8: i64;  // [sp-0x80]
-    let v9: i64;  // [sp-0x78]
-    let v10: struct12;  // [sp-0x64]
-    let v11: struct12;  // [sp-0x58]
-    let v12: struct12;  // [bp-0x4c]
-    let v13: i8;  // [bp-0x40], Other Possible Types: struct16
-    let v15: i64;  // rax
-    let v16: i64;  // rax
-    let v17: i64;  // rdx
-    let v19: i64;  // rax
+fn uu_touch::parse_date(a1: &struct16, a2: i64, a3: i64) -> Result<(), Error> {
+    let a0: void*;  // rsi
+    let v0: Option<struct8>;  // [bp-0xc0], Other Possible Types: struct36, struct80
+    let v1: struct16;  // [bp-0xc0]
+    let v2: u64;  // [bp-0xb8]
+    let v3: struct12;  // [bp-0x64]
+    let v4: struct16;  // [bp-0x4c]
+    let v5: struct12;  // [bp-0x4c]
+    let v6: struct16;  // [bp-0x40]
+    let v8: u64;  // rax
+    let v9: u64;  // rax
+    let v10: u64;  // rdx
+    let v11: u64;  // rax
+    let v12: i64;  // rdi
+    let v15: u64;  // rdx
+    let v16: i64;  // rdi
+    let v17: i64;  // rdi
+    let v18: i64;  // rdi
+    let v19: core::result::Result<i64, core::num::error::ParseIntError>;  // rax:rdx
+    let v20: struct12;  // [bp-0x58]
 
-    v10 = chrono::naive::datetime::NaiveDateTime::parse_from_str(a2, a3, "%a %b %e %H:%M:%S %Y");
-    if v10.field_0 {
-        v15 = uu_touch::datetime_to_filetime(&v10);
+    v3 = chrono::naive::datetime::NaiveDateTime::parse_from_str(a1, a2, "%a %b %e %H:%M:%S %Y");
+    if v3.field_0 {
+        v8 = uu_touch::datetime_to_filetime(&v3);
+        goto LABEL_5c33bc;
     } else {
-        v0 = &g_4752dc;
-        v1 = 17;
-        v2 = &g_4752ed;
-        v3 = 20;
-        v4 = &g_475301;
-        v5 = 14;
-        v6 = &g_47530f;
-        v7 = 17;
-        v8 = 0;
-        v9 = 4;
+        v0 = struct80 {
+            field_0: &g_4752dc
+            field_8: 17
+            field_16: &g_4752ed
+            field_24: 20
+            field_32: &g_475301
+            field_40: 14
+            field_48: &g_47530f
+            field_56: 17
+            field_64: 0
+            field_72: 4
+        };
         loop {
-            v16 = <core::array::iter::IntoIter<T,_> as core::iter::traits::iterator::Iterator>::next(&v0);
-            if !v16 {
+            v9 = <core::array::iter::IntoIter<T,_> as core::iter::traits::iterator::Iterator>::next(&v0);
+            if !v9 {
                 break;
             }
-            v11 = chrono::naive::datetime::NaiveDateTime::parse_from_str(a2, a3, v16, v17);
+            v20 = chrono::naive::datetime::NaiveDateTime::parse_from_str(a1, a2, v9, v10);
+            if v20.field_0 {
+                *((v12 + 8) as &long long) = uu_touch::datetime_to_filetime(&v20);
+                *((v12 + 16) as &u32) = v10;
+                *(v12 as &i64) = 9223372036854775812;
+                return;
+            }
         }
-        if !(chrono::naive::date::NaiveDate::parse_from_str(a2, a3, "%Y-%m-%d") as i8 & 1) {
-            v12 = struct12 {
-                field_0: (v18 >> 32) as u32
+        v11 = chrono::naive::date::NaiveDate::parse_from_str(a1, a2, "%Y-%m-%d");
+        if !(v11 & 1) {
+            v4 = struct16 {
+                field_0: (v11 >> 32) as u32
+                field_4: <UNKNOWN>
+            };
+            v5 = struct12 {
+                field_0: (v11 >> 32) as u32
                 field_4: 0
             };
-            <chrono::offset::local::Local as chrono::offset::TimeZone>::offset_from_local_datetime(&v13, 1, &v12);
-            v0 = chrono::offset::LocalResult<T>::and_then(&v13, &v12);
-            v13 = chrono::offset::LocalResult<T>::unwrap(&v0, "src/uu/touch/src/touch.rs");
-            v15 = uu_touch::datetime_to_filetime(&v13);
+            <chrono::offset::local::Local as chrono::offset::TimeZone>::offset_from_local_datetime(&v5 as u8, 1, &v5);
+            v0 = chrono::offset::LocalResult<T>::and_then(&v5 as u8, &v5);
+            v6 = chrono::offset::LocalResult<T>::unwrap(&v0, "src/uu/touch/src/touch.rs");
+            v8 = uu_touch::datetime_to_filetime(&v6);
+LABEL_5c33bc:
+            *((v16 + 8) as &u64) = v8;
+            *((v16 + 16) as &u32) = v15;
         } else {
-            v0 = struct16 {
-                field_0: a2
-                field_8: a2 + a3
+            v1 = struct16 {
+                field_0: a1
+                field_8: a1 + a2
             };
-            v19 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v0);
-            if v19 && *(v19 as &i8) == 64 {
-                v0 = core::num::<impl core::str::traits::FromStr for i64>::from_str(core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(1, a2, a3), a2);
-                if !v0 as i8 {
-                    *((a0 + 8) as &unsigned long) = v1;
-                    *((a0 + 16) as &i32) = 0;
+            if <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v1) && <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v1) == "@" {
+                v19 = core::num::<impl core::str::traits::FromStr for i64>::from_str(&v1, core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(1, a1, a2) as u64);
+                if !(!v1.field_0 as i8) {
+                    goto LABEL_5c35a2;
+                }
+                *((v16 + 8) as &u64) = v2;
+                *((v16 + 16) as &i32) = 0;
+            } else {
+LABEL_5c35a2:
+                v0 = parse_datetime::parse_datetime_at_date(a0, a1, a2);
+                match v0 {
+                    Some(_) => {
+                        <T as alloc::slice::hack::ConvertVec>::to_vec(a1, a2, a2);
+                        *(v18 as &i64) = 0x8000000000000000;
+                        return;
+                    },
+                    None => {
+                        *((v17 + 8) as &long long) = uu_touch::datetime_to_filetime(&v1 as u64);
+                        *((v17 + 16) as &u32) = v10 as u32;
+                        *(v17 as &i64) = 9223372036854775812;
+                        return;
+                    },
                 }
             }
-            v0 = parse_datetime::parse_datetime_at_date(a1, a2, a3);
-            if v0 != 9223372036854775810 {
-                <T as alloc::slice::hack::ConvertVec>::to_vec(a0 + 8, a2, a3);
-                return struct8 {
-                    field_0: 0x8000000000000000
-                };
-            }
         }
+        *(v16 as &i64) = 9223372036854775812;
+        return;
     }
-    return Some(struct12 {
-        field_0: v15
-        field_8: v20 as u32
-    });
 }

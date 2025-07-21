@@ -2,7 +2,7 @@ fn uu_echo::uumain::uumain(a0: i64, a1: i64) -> long long {
     let v0: std::io::stdio::StderrLock;  // [bp-0x370]
     let v1: struct56;  // [bp-0x368]
     let v2: struct64;  // [bp-0x330]
-    let v3: u8;  // [bp-0x2f0], Other Possible Types: std::io::stdio::Stdout, struct56
+    let v3: std::io::stdio::Stdout;  // [bp-0x2f0], Other Possible Types: struct56, u8
     let v5: u8;  // bl
     let v6: u32;  // eax
     let v7: u64;  // rax

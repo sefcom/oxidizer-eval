@@ -30,11 +30,11 @@ fn uu_uniq::filter_args(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64) -> : struct
                 v2 = uu_uniq::handle_extract_obs_skip_chars(v0, v4, a3);
 LABEL_4bd4d9:
                 v6 = v4;
-                memcpy(&v5, &v2, 16);
+                v5 = v2 as i128;
             } else {
                 v1 = std::sys::os_str::bytes::Slice::to_owned(v0, v4);
                 v6 = v4;
-                memcpy(&v5, &v1, 16);
+                v5 = *(&v1.inner.buf.cap as &i128);
                 if core::slice::<impl [T]>::starts_with(v0, v4, "-f") as u8 {
                     *(a2 as &i64) = 0x8000000000000000;
                 }

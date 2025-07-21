@@ -2,7 +2,7 @@ fn uu_sync::platform::do_fdatasync(a0: i64) -> long long {
     let v0: i8;  // [bp-0x90]
     let v1: u128;  // [bp-0x90]
     let v2: u64;  // [bp-0x80]
-    let v3: u128;  // [bp-0x78], Other Possible Types: Result<struct4, struct8>
+    let v3: Result<struct4, struct8>;  // [bp-0x78], Other Possible Types: u128
     let v4: u64;  // [bp-0x68]
     let v5: Option<struct24>;  // [bp-0x60]
     let v6: u8;  // [bp-0x40]

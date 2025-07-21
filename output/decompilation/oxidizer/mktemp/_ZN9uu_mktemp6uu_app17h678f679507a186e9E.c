@@ -13,7 +13,7 @@ fn uu_mktemp::uu_app(a0: &struct712) -> long long {
     let v11: u8;  // [bp-0x530]
     let v12: u64;  // [bp-0x274]
     let v13: u32;  // [bp-0x26c]
-    let v14: u8;  // [bp-0x268]
+    let v14: struct24;  // [bp-0x268], Other Possible Types: u64
     let v15: u64;  // [bp-0x260]
     let v16: u64;  // [bp-0x258]
     let v19: u64;  // rdx
@@ -65,6 +65,11 @@ fn uu_mktemp::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::arg::Arg::long(&v3, &v6, "tmpdir");
     clap_builder::builder::arg::Arg::help(&v6, &v3, "interpret TEMPLATE relative to DIR; if DIR is not specified, use $TMPDIR ($TMP on windows) if set, else /tmp. With this option, TEMPLATE must not be an absolute name; unlike with -t, TEMPLATE may contain slashes, but mktemp creates only the final component");
     clap_builder::builder::arg::Arg::value_name(&v3, &v6, "DIR");
+    v14 = struct24 {
+        field_0: 0
+        field_8: 1
+        field_16: 0
+    };
     v14 = struct17 {
         field_0: 0
         field_8: 1

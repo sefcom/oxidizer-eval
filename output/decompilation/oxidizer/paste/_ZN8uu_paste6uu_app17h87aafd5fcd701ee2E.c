@@ -1,50 +1,53 @@
-fn uu_paste::uu_app(a0: &struct712) -> u64 {
-    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct24
-    let v1: struct592;  // [sp-0x7f8], Other Possible Types: struct712, struct437
-    let v2: i64;  // [sp-0x53c]
-    let v3: i32;  // [sp-0x534]
-    let v4: struct712;  // [sp-0x530], Other Possible Types: struct592
-    let v5: struct592;  // [sp-0x268]
-    let v6: i32;  // [sp-0x20]
-    let v7: i32;  // [sp-0x1c]
-    let v9: i64;  // rdx
+fn uu_paste::uu_app(a0: &struct712) -> long long {
+    let v0: u8;  // [bp-0xa48]
+    let v1: u32;  // [bp-0x800]
+    let v2: u32;  // [bp-0x7fc]
+    let v3: struct437;  // [bp-0x7f8]
+    let v4: u64;  // [bp-0x53c]
+    let v5: u32;  // [bp-0x534]
+    let v6: u8;  // [bp-0x530]
+    let v7: u64;  // [bp-0x274]
+    let v8: u32;  // [bp-0x26c]
+    let v9: u8;  // [bp-0x268]
+    let v10: u32;  // [bp-0x20]
+    let v11: u32;  // [bp-0x1c]
+    let v14: u64;  // rdx
 
-    v1 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
-    v4 = clap_builder::builder::command::Command::version(&v1, "0.0.28");
-    v1 = clap_builder::builder::command::Command::about(&v4, "Write lines consisting of the sequentially corresponding lines from each
-`FILE`, separated by `TAB`s, to standard output.");
-    v0 = uucore::format_usage("{} [OPTIONS] [FILE]...");
-    v4 = clap_builder::builder::command::Command::override_usage(&v1, &v0);
-    memcpy(&v1, &v4, 700);
-    v2 = 549755814016 | *((&v4.field_0 as &char + 700) as &i64);
-    v3 = *((&v4.field_0 as &char + 708) as &i32);
-    v4 = clap_builder::builder::arg::Arg::new("serial");
-    v0 = clap_builder::builder::arg::Arg::long(&v4, "serial");
-    v4 = clap_builder::builder::arg::Arg::short(&v0, 0x73);
-    v0 = clap_builder::builder::arg::Arg::help(&v4, "paste one file at a time instead of in parallel");
-    v5 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    v4 = clap_builder::builder::command::Command::arg(&v1, &v5);
-    v1 = clap_builder::builder::arg::Arg::new("delimiters");
-    v0 = clap_builder::builder::arg::Arg::long(&v1, "delimiters");
-    v1 = clap_builder::builder::arg::Arg::short(&v0, 0x64);
-    v0 = clap_builder::builder::arg::Arg::help(&v1, "reuse characters from LIST instead of TABs");
-    v1 = clap_builder::builder::arg::Arg::value_name(&v0, &g_40a4dc);
-    v0 = clap_builder::builder::arg::Arg::default_value(&v1, &g_41325d);
-    memcpy(&v5, &v0, 584);
-    v6 = 0x400 | *((&v0.field_0 as &char + 584) as &i32);
-    v7 = *((&v0.field_0 as &char + 588) as &i32);
-    v1 = clap_builder::builder::command::Command::arg(&v4, &v5);
-    v4 = clap_builder::builder::arg::Arg::new("file");
-    v0 = clap_builder::builder::arg::Arg::value_name(&v4, &g_40a510);
-    v4 = clap_builder::builder::arg::Arg::action(&v0, 0x1);
-    v0 = clap_builder::builder::arg::Arg::default_value(&v4, &g_41325e);
-    v5 = clap_builder::builder::arg::Arg::value_hint(&v0, 0x3);
-    v4 = clap_builder::builder::command::Command::arg(&v1, &v5);
-    v1 = clap_builder::builder::arg::Arg::new("zero-terminated");
-    v0 = clap_builder::builder::arg::Arg::long(&v1, "zero-terminated");
-    v1 = clap_builder::builder::arg::Arg::short(&v0, 0x7a);
-    v0 = clap_builder::builder::arg::Arg::help(&v1, "line delimiter is NUL, not newline");
-    v1 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    clap_builder::builder::command::Command::arg(a0, &v4, &v1);
+    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v14);
+    clap_builder::builder::command::Command::version(&v6, &v3, "0.0.28");
+    clap_builder::builder::command::Command::about(&v3, &v6, "Write lines consisting of the sequentially corresponding lines from each\n`FILE`, separated by `TAB`s, to standard output.");
+    uucore::format_usage(&v0, "{} [OPTIONS] [FILE]...");
+    clap_builder::builder::command::Command::override_usage(&v6, &v3, &v0);
+    memcpy(&v3, &v6, 700);
+    v4 = 549755814016 | v7;
+    v5 = v8;
+    clap_builder::builder::arg::Arg::new(&v6, "serial");
+    clap_builder::builder::arg::Arg::long(&v0, &v6, "serial");
+    clap_builder::builder::arg::Arg::short(&v6, &v0, 115);
+    clap_builder::builder::arg::Arg::help(&v0, &v6, "paste one file at a time instead of in parallel");
+    clap_builder::builder::arg::Arg::action(&v9, &v0, 2);
+    clap_builder::builder::command::Command::arg(&v6, &v3, &v9);
+    clap_builder::builder::arg::Arg::new(&v3, "delimiters");
+    clap_builder::builder::arg::Arg::long(&v0, &v3, "delimiters");
+    clap_builder::builder::arg::Arg::short(&v3, &v0, 100);
+    clap_builder::builder::arg::Arg::help(&v0, &v3, "reuse characters from LIST instead of TABs");
+    clap_builder::builder::arg::Arg::value_name(&v3, &v0, &g_40a4dc);
+    clap_builder::builder::arg::Arg::default_value(&v0, &v3, &g_41325d);
+    memcpy(&v9, &v0, 584);
+    v10 = 0x400 | v1;
+    v11 = v2;
+    clap_builder::builder::command::Command::arg(&v3, &v6, &v9);
+    clap_builder::builder::arg::Arg::new(&v6, "file");
+    clap_builder::builder::arg::Arg::value_name(&v0, &v6, &g_40a510);
+    clap_builder::builder::arg::Arg::action(&v6, &v0, 1);
+    clap_builder::builder::arg::Arg::default_value(&v0, &v6, &g_41325e);
+    clap_builder::builder::arg::Arg::value_hint(&v9, &v0, 3);
+    clap_builder::builder::command::Command::arg(&v6, &v3, &v9);
+    clap_builder::builder::arg::Arg::new(&v3, "zero-terminated");
+    clap_builder::builder::arg::Arg::long(&v0, &v3, "zero-terminated");
+    clap_builder::builder::arg::Arg::short(&v3, &v0, 122);
+    clap_builder::builder::arg::Arg::help(&v0, &v3, "line delimiter is NUL, not newline");
+    clap_builder::builder::arg::Arg::action(&v3, &v0, 2);
+    clap_builder::builder::command::Command::arg(a0, &v6, &v3);
     return a0;
 }

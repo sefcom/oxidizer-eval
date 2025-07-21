@@ -1,54 +1,43 @@
-fn uu_touch::update_times(a0: u32, a1: u32, a2: u64, a3: u8, a4: u32, a5: u64, a6: u32, a7: u32, a8: u32) -> u64 {
-    let v0: i32;  // [sp-0x8c]
-    let v1: Result<struct32, struct16>;  // [sp-0x88]
-    let v2: Result<struct24, struct8>;  // [sp-0x58]
-    let v3: i32;  // r15d
-    let v4: i32;  // r13d
-    let v5: i64;  // rbp
-    let v6: i64;  // rax
-    let v7: i64;  // rax
+fn uu_touch::update_times(a1: i64, a2: i8, a3: i8, a4: i32, a5: i64, a6: i32, a7: i64, a8: i32) -> Result<struct24, struct8> {
+    let a0: u64;  // rsi
+    let v0: u32;  // [bp-0x8c]
+    let v1: Result<struct32, struct16>;  // [bp-0x88]
+    let v2: u64;  // [bp-0x78]
+    let v3: u8;  // [bp-0x58]
+    let v4: u32;  // r15d
+    let v5: u32;  // r13d
+    let v6: u64;  // rbp
+    let v7: u64;  // rdi
+    let v8: u64;  // r9
+    let v9: u64;  // rax
 
-    v3 = a6;
-    if !a4 as u8 {
-        v0 = a2 as u32;
-        v2 = uu_touch::stat(a0, a1, !a3);
-        v1 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v2, a0, a1);
-        match v1 {
-            Err(_) => {
-                v6 = *((&v1 as &char + 8) as &i64);
-                return v6;
-            },
-            Ok(_) => {
-                v5 = *((&v1 as &char + 24) as &i64);
-                v4 = *((&v1 as &char + 32) as &i32);
-            },
+    v4 = vvar_5;
+    if a3 {
+        v5 = vvar_7;
+        v6 = vvar_6;
+        if a3 == 1 {
+            v0 = a1;
+            uu_touch::stat(v7, a0, !a2, a3);
+            v1 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v3, v7, a0);
+            v4 = v2;
+            if let Err(_) = v1 {
+                return;
+            }
         }
     } else {
-        v4 = a8;
-        v5 = a7;
-        if !(a4 as u32 == 1) {
-            goto LABEL_5c320f;
-        }
-        v0 = a2 as u32;
-        v2 = uu_touch::stat(a0, a1, !a3);
-        v1 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v2, a0, a1);
-        v3 = *((&v1 as &char + 16) as &i64);
-        match v1 {
-            Err(_) => {
-                v6 = *((&v1 as &char + 8) as &i64);
-                return v6;
-            },
-            Ok(_) => {
-                a5 = *((&v1 as &char + 8) as &i64);
-            },
+        v0 = a1;
+        v8 = a4;
+        uu_touch::stat(v7, a0, !a2, a3);
+        v1 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v3, v7, a0);
+        if let Err(_) = v1 {
+            return;
         }
     }
-LABEL_5c320f:
-    if !a3 || v0 as u64 {
-        v7 = filetime::set_file_times(a0, a1, a5, v3 as u64, v5, v4 as u64);
+    if a2 && !a1 {
+        v9 = filetime::set_symlink_file_times(v7, a0, v8, v4, v6, v5);
     } else {
-        v7 = filetime::set_symlink_file_times(a0, a1, a5, v3 as u64, v5, v4 as u64);
+        v9 = filetime::set_file_times(v7, a0, v8, v4, v6, v5);
     }
-    v6 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v7, a0, a1);
-    return v6;
+    <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v9, v7, a0);
+    return;
 }

@@ -1,10 +1,10 @@
 fn uu_base32::base_common::format_read_error() -> long long {
     let v0: u64;  // [bp-0xd8]
-    let v1: u64;  // [bp-0xd0]
+    let v1: core::fmt::Arguments;  // [bp-0xd0]
     let v2: void*;  // [bp-0xc8]
     let v3: struct24;  // [bp-0xc0], Other Possible Types: u64
     let v4: u64;  // [bp-0xb8]
-    let v5: u64;  // [bp-0xb0], Other Possible Types: struct_0 *
+    let v5: core::fmt::Arguments;  // [bp-0xb0], Other Possible Types: struct_0 *
     let v6: u64;  // [bp-0xa8]
     let v7: void*;  // [bp-0xa0]
     let v8: i64;  // [bp-0x88]
@@ -12,7 +12,7 @@ fn uu_base32::base_common::format_read_error() -> long long {
     let v12: struct24;  // [bp-0x60]
     let v13: u64;  // [bp-0x58]
     let v14: u32;  // [bp-0x50]
-    let v15: u192;  // [bp-0x48]
+    let v15: core::str::iter::CharIndices;  // [bp-0x48]
     let v17: core::option::Option<(usize, char)>;  // rax
     let v18: u64;  // rdx
     let v19: u64;  // rdx
@@ -25,16 +25,16 @@ fn uu_base32::base_common::format_read_error() -> long long {
     v1 = v5;
     v2 = 0;
     v15 = core::str::iter::CharIndices {
-        front_offset: v13
         iter: core::str::iter::Chars {
             iter: core::slice::iter::Iter<u8> {
                 ptr: core::ptr::non_null::NonNull<u8> {
-                    pointer: v14 + v13
+                    pointer: v13
                 }
-                end_or_len: 0
+                end_or_len: v14 + v13
                 _marker: core::marker::PhantomData<&u8> { }
             }
         }
+        front_offset: 0
     };
     v17 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v15) as u64;
     if v18 != 0x110000 {

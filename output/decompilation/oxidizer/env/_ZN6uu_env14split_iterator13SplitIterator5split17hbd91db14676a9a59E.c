@@ -1,6 +1,6 @@
 fn uu_env::split_iterator::SplitIterator::split(a1: i64) -> Result<struct40, struct28> {
     let a0: i64;  // rdi
-    let v0: u128;  // [bp-0x38], Other Possible Types: char
+    let v0: i8;  // [bp-0x38], Other Possible Types: u128
     let v1: u128;  // [bp-0x28]
     let v2: i8;  // [bp-0x18]
     let v4: u64;  // rdx
@@ -13,9 +13,10 @@ fn uu_env::split_iterator::SplitIterator::split(a1: i64) -> Result<struct40, str
             field_32: *(&v2 as &i64)
         });
     }
-    return struct40 {
+    return struct32 {
         field_0: 8
-        field_8: <UNKNOWN>
-        field_24: <UNKNOWN>
+        padding_4: <UNKNOWN>
+        field_8: *((a1 + 64) as &i128)
+        field_24: *((a1 + 80) as &i64)
     };
 }

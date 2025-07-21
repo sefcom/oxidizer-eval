@@ -7,13 +7,13 @@ fn uu_cp::Attributes::parse_single_string(a1: i64, a2: i64) -> Result<struct24, 
     let v4: u64;  // [bp-0x88]
     let v5: u128;  // [bp-0x80]
     let v6: u64;  // [bp-0x70]
-    let v7: u64;  // [bp-0x68], Other Possible Types: struct24
+    let v7: struct24;  // [bp-0x68], Other Possible Types: u64
     let v8: u64;  // [bp-0x60]
     let v9: i64;  // [bp-0x58]
     let v10: u64;  // [bp-0x50]
     let v11: void*;  // [bp-0x48]
     let v12: void*;  // [bp-0x38]
-    let v13: u8;  // [bp-0x30]
+    let v13: u128;  // [bp-0x30]
     let v14: u8;  // [bp-0x20]
     let v16: i64;  // rdi
     let v17: i64;  // rax
@@ -35,7 +35,7 @@ LABEL_5019f1:
             *(v16 as &i64) = 13;
         } else {
             v12 = 0;
-            memcpy(&v13, &v2, 16);
+            v13 = *(&v2.vec.buf.ptr as &i128);
             v14 = 1;
             v3 = &v12;
             v4 = <os_display::Quoted as core::fmt::Display>::fmt;

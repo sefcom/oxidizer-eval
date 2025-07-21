@@ -6,10 +6,10 @@ fn uu_env::check_and_handle_string_args(a1: i64, a2: i64, a3: i64, a4: i64, a5: 
     let v3: std::env::Vars;  // [bp-0x98]
     let v4: u64;  // [bp-0x90]
     let v5: core::option::Option<(alloc::string::String, alloc::string::String)>;  // [bp-0x88]
-    let v6: u64;  // [bp-0x80]
-    let v7: u64;  // [bp-0x78]
-    let v8: u64;  // [bp-0x70]
-    let v9: u192;  // [bp-0x68]
+    let v6: struct24;  // [bp-0x80]
+    let v7: core::fmt::Arguments;  // [bp-0x78]
+    let v8: core::fmt::rt::Argument;  // [bp-0x70]
+    let v9: struct24;  // [bp-0x68]
     let v10: struct32;  // [bp-0x50]
     let v11: u64;  // rax
     let v12: u64;  // rdx
@@ -38,7 +38,7 @@ fn uu_env::check_and_handle_string_args(a1: i64, a2: i64, a3: i64, a4: i64, a5: 
         v13 = 1;
         <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,I>>::spec_extend(a5, &v10);
     }
-    return struct9 {
+    return struct16 {
         field_0: 0
         field_8: v13
     };

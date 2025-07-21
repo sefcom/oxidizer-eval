@@ -1,10 +1,10 @@
 {
   "decompilation": {
-    "_ZN7uu_date10parse_date17h3e04b396edc04cd0E": "fn uu_date::parse_date(a1: i64) -> Result<struct48, struct24> {\n    let a0: i64;  // rdi\n    let v0: struct8;  // [bp-0x80]\n    let v1: i8;  // [bp-0x78]\n    let v2: u64;  // [bp-0x70]\n    let v3: u8;  // [bp-0x68]\n    let v4: u64;  // [bp-0x58]\n    let v5: struct48;  // [bp-0x50]\n    let v6: u128;  // [bp-0x40]\n    let v9: u64;  // rdx\n\n    v0 = parse_datetime::parse_datetime(<alloc::string::String as core::convert::AsRef<str>>::as_ref(*((a1 + 8) as &i64), *((a1 + 16) as &i64)), v9);\n    if v0 != 9223372036854775810 {\n        v4 = v2;\n        memcpy(&v3, &v0, 16);\n        v5 = uu_date::parse_date::{{closure}}(*((a1 + 8) as &i64), *((a1 + 16) as &i64), &v3);\n        return Ok(struct48 {\n            field_0: v5.field_0\n            field_16: v6\n            field_32: v5.field_24\n        });\n    }\n    return struct32 {\n        field_0: 0x8000000000000000\n        field_8: <UNKNOWN>\n    };\n}\n",
+    "_ZN7uu_date10parse_date17h3e04b396edc04cd0E": "fn uu_date::parse_date(a1: i64) -> Result<struct48, struct24> {\n    let a0: i64;  // rdi\n    let v0: struct8;  // [bp-0x80]\n    let v1: struct24;  // [bp-0x80]\n    let v2: i8;  // [bp-0x78]\n    let v3: struct24;  // [bp-0x68]\n    let v4: struct48;  // [bp-0x50]\n    let v5: u128;  // [bp-0x40]\n    let v8: u64;  // rdx\n\n    v0 = parse_datetime::parse_datetime(<alloc::string::String as core::convert::AsRef<str>>::as_ref(*((a1 + 8) as &i64), *((a1 + 16) as &i64)), v8);\n    if v0 != 9223372036854775810 {\n        v3 = v1;\n        v4 = uu_date::parse_date::{{closure}}(*((a1 + 8) as &i64), *((a1 + 16) as &i64), &v3);\n        return Ok(struct48 {\n            field_0: v4.field_0\n            field_16: v5\n            field_32: *((&v4.field_24 as &char + 8) as &i128)\n        });\n    }\n    return struct24 {\n        field_0: 0x8000000000000000\n        field_8: *(&v2 as &i128)\n    };\n}\n",
     "_ZN7uu_date18make_format_string17h93ce19862c203cfbE": "fn uu_date::make_format_string(a0: i64) -> void {\n    let v1: u64;  // rax\n\n    v1 = 0x8000000000000000 ^ *((a0 + 32) as &i64);\n}\n",
-    "_ZN7uu_date6uumain17hd1a21767835350eaE": "fn uu_date::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_date::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
-    "_ZN7uu_date6uumain6uumain17hc61b24979fe22468E": "fn uu_date::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0x698]\n    let v1: u32;  // [bp-0x690]\n    let v2: u64;  // [bp-0x68c]\n    let v3: u32;  // [bp-0x684]\n    let v4: u64;  // [bp-0x678]\n    let v5: u32;  // [bp-0x670]\n    let v6: u8;  // [bp-0x668]\n    let v7: u64;  // [bp-0x658]\n    let v8: i64;  // [bp-0x648]\n    let v9: u64;  // [bp-0x640]\n    let v12: u64;  // [sp-0x618], Other Possible Types: struct64\n    let v13: void*;  // [bp-0x618]\n    let v14: Result<struct56, struct16>;  // [bp-0x618]\n    let v15: Option<struct8>;  // [bp-0x618]\n    let v17: u32;  // [bp-0x610]\n    let v18: u64;  // [bp-0x60c]\n    let v19: u64;  // [bp-0x608]\n    let v20: u32;  // [bp-0x604]\n    let v21: u8;  // [sp-0x600]\n    let v22: u128;  // [bp-0x5f8]\n    let v23: u64;  // [bp-0x5e8]\n    let v24: u32;  // [bp-0x5e0]\n    let v25: u64;  // [bp-0x5dc]\n    let v26: u32;  // [bp-0x5d8]\n    let v27: u32;  // [bp-0x5d4]\n    let v28: u8;  // [bp-0x5d0]\n    let v29: u64;  // [bp-0x5a8]\n    let v30: u128;  // [bp-0x5a0]\n    let v31: u32;  // [bp-0x598]\n    let v32: u64;  // [bp-0x590]\n    let v33: u128;  // [bp-0x588]\n    let v34: u8;  // [bp-0x580]\n    let v35: u64;  // [bp-0x578]\n    let v36: i64;  // [bp-0x568], Other Possible Types: u128\n    let v37: u64;  // [bp-0x560]\n    let v38: u64;  // [bp-0x558]\n    let v39: u64;  // [bp-0x538]\n    let v40: u32;  // [bp-0x530]\n    let v41: u64;  // [bp-0x528]\n    let v42: u64;  // [bp-0x520]\n    let v43: u8;  // [bp-0x518]\n    let v44: u128;  // [bp-0x508]\n    let v45: u64;  // [bp-0x4f8]\n    let v46: u64;  // [bp-0x4d8]\n    let v47: u32;  // [bp-0x4d0]\n    let v48: u128;  // [bp-0x4c8], Other Possible Types: Result<struct40, struct16>\n    let v49: u32;  // [bp-0x4c8]\n    let v50: struct24;  // [bp-0x4c8], Other Possible Types: struct16, struct12\n    let v51: struct56;  // [bp-0x4c8]\n    let v52: struct24;  // [bp-0x4c8]\n    let v53: std::sys::os_str::bytes::Buf;  // [bp-0x4c8]\n    let v54: std::sys::os_str::bytes::Buf;  // [bp-0x4c8]\n    let v55: Result<struct40, struct16>;  // [bp-0x4c8]\n    let v56: u64;  // [bp-0x4c0]\n    let v57: u64;  // [sp-0x4b8], Other Possible Types: struct_4 *\n    let v58: u32;  // [bp-0x4b4]\n    let v59: u64;  // [sp-0x4b0]\n    let v60: void*;  // [sp-0x4a8], Other Possible Types: u128\n    let v61: u64;  // [bp-0x4a0]\n    let v62: struct16;  // [bp-0x1f8]\n    let v63: u8;  // [bp-0x1e8]\n    let v64: u128;  // [bp-0x1d0]\n    let v65: u64;  // [bp-0x1c0]\n    let v66: u128;  // [bp-0x1b8]\n    let v67: i8;  // [bp-0x1a8]\n    let v69: i64;  // rax\n    let v70: u64;  // r15\n    let v71: u64;  // r14\n    let v72: u64;  // rdx\n    let v75: u128;  // xmm0\n    let v76: u128;  // xmm1\n    let v77: u64;  // rbx\n    let v78: u64;  // rax\n    let v79: i64;  // rax\n    let v80: i64;  // r14\n    let v81: i64;  // rax\n    let v82: u64;  // rax\n    let v83: u32;  // ebp\n    let v84: u8;  // al\n    let v85: u128;  // xmm1\n    let v86: &str;  // rax:rdx\n\n    uu_date::uu_app(&v48);\n    v14 = clap_builder::builder::command::Command::try_get_matches_from(&v48, a0, a1);\n    match v14 {\n        Err(_) => {\n            return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(*((&v14 as &char + 8) as &i64));\n        },\n        Ok(_) => {\n            v45 = v23;\n            v44 = v22;\n            memcpy(&v43, &v14, 16);\n            v41 = v14 as i64;\n            v42 = *((&v14 as &char + 8) as &i64);\n            v48 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v41, \"format\");\n            v69 = clap_builder::parser::error::MatchesError::unwrap(\"format\", &v48);\n            if !v69 {\n                v48 as u448 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v41, \"iso-8601\");\n                v12 = clap_builder::parser::error::MatchesError::unwrap(\"iso-8601\", &v48 as u448);\n                if v12.field_0 as i64 {\n                    v75 = v12.field_0;\n                    v76 = v12.field_16;\n                    memcpy(&v51, &v12, 16);\n                    v60 = v22;\n                    v57 = v76;\n                    v48 = v75;\n                    v34 = uu_date::uumain::uumain::{{closure}}(&v48 as u448) as i8;\n                    v33 = 0x8000000000000000;\n                    goto LABEL_5715df;\n                } else if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v41, \"rfc-email\") as i8 {\n                    v48 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v41, \"rfc-3339\");\n                    v79 = clap_builder::parser::error::MatchesError::unwrap(\"rfc-3339\", &v48);\n                    if v79 {\n                        v34 = <uu_date::Rfc3339Format as core::convert::From<&str>>::from(*((v79 + 8) as &i64), *((v79 + 16) as &i64)) as i8;\n                        v78 = 9223372036854775810;\n                        goto LABEL_5715df;\n                    }\n                }\n            }\n            v70 = *((v69 + 8) as &i64);\n            v71 = *((v69 + 16) as &i64);\n            v49 = 0;\n            v49 = v48 as i64 & -0x100000000;\n            v86 = core::char::methods::encode_utf8_raw(43, &v49, v72);\n            if core::slice::<impl [T]>::starts_with(v70, v71, v86.data_ptr, v86.length) as u8 {\n                v52 = <T as alloc::slice::hack::ConvertVec>::to_vec(core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(1, v70, v71) as u64, v72);\n                v35 = v52.field_16;\n                v33 = v52.field_0;\nLABEL_5715df:\n                v48 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v41, \"date\");\n                v80 = clap_builder::parser::error::MatchesError::unwrap(\"date\", &v48);\n                if v80 {\n                    v62 = chrono::offset::local::Local::now();\n                    v15 = parse_datetime::parse_datetime_at_date(&v62, *((v80 + 8) as &i64), *((v80 + 16) as &i64));\n                    match v15 {\n                        Some(_) => {\n                            memcpy(&v63, &v14, 16);\n                            v30 = chrono::datetime::DateTime<Tz>::signed_duration_since(&v63 as u128, &v62);\n                            v31 = v72 as u32;\n                            v29 = 4;\n                        },\n                        None => {\n                            v53 = <alloc::string::String as core::clone::Clone>::clone(v80);\n                            v32 = v53.inner.len;\n                            v30 = *(&v53.inner.buf.ptr as &i128) as u128;\n                            v29 = 1;\n                        },\n                    }\n                } else {\n                    v48 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v41, \"file\");\n                    v81 = clap_builder::parser::error::MatchesError::unwrap(\"file\", &v48);\n                    if v81 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v81 + 8) as &i64), *((v81 + 16) as &i64), \"-\") as i8 {\n                        v54 = std::sys::os_str::bytes::Slice::to_owned(*((v81 + 8) as &i64), *((v81 + 16) as &i64));\n                        v32 = v54.inner.len;\n                        v30 = *(&v54.inner.buf.ptr as &i128) as u128;\n                        v29 = 2;\n                    }\n                }\n                v55 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v41, \"set\");\n                v82 = clap_builder::parser::error::MatchesError::unwrap(\"set\", &v55);\n                v83 = 0;\n                if v82 {\n                    core::ops::function::FnOnce::call_once(&v55, v82);\n                    v4 = *((&v55 as &char + 12) as &i64);\n                    v5 = v58;\n                    memcpy(&v6, &v55, 16);\n                    v7 = v61;\n                    if v55 as i64 == 9223372036854775809 {\n                        goto LABEL_571831;\n                    }\n                    if v55 as i64 == 0x8000000000000000 {\n                        v40 = v5;\n                        v39 = v4;\n                        v83 = *((&v55 as &char + 8) as &i32);\n                        goto LABEL_571831;\n                    } else {\n                        v0 = v55 as i64;\n                        v1 = *((&v55 as &char + 8) as &i32);\n                        v3 = v5;\n                        v2 = v4;\n                        v38 = v7;\n                        v36 = v6;\n                        v13 = 0;\n                        v17 = v1;\n                        v18 = v2;\n                        v20 = v3;\n                        v21 = 1;\n                        v8 = &v13;\n                        v9 = <os_display::Quoted as core::fmt::Display>::fmt;\n                        v48 = \"invalid date \";\n                        v56 = 1 as u64;\n                        v60 = 0;\n                        *(&v57 as &&struct_4 *) = &v8;\n                        v59 = 1;\n                        v50 = core::option::Option<T>::map_or_else(v3);\n                        v59 = 1;\n                        v48 = v66;\n                        v57 = *(&v67 as &i64) as u64;\n                        v77 = alloc::boxed::Box<T>::new(&v50);\n                    }\n                } else {\nLABEL_571831:\n                    v84 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v41, \"universal\") as i8;\n                    v23 = v35;\n                    memcpy(&v14, &v33, 16);\n                    v85 = *((&v30 as &char + 8) as &i128);\n                    *(&v12 as &i128) = *(&v29 as &i128);\n                    v19 = v85;\n                    v25 = v39;\n                    v27 = v40;\n                    v28 = v84;\n                    v24 = v83;\n                    if v83 {\n                        v47 = v26;\n                        v46 = *(&v24 as &i64);\n                        v77 = uu_date::set_system_datetime(&v46);\n                    } else if v28 {\n                        v50 = chrono::offset::utc::Utc::now();\n                    } else {\n                        v50 = chrono::offset::local::Local::now();\n                    }\n                }\n            } else {\n                v13 = 0;\n                v17 = v70;\n                v19 = v71;\n                v21 = 1;\n                v36 = &v13;\n                v37 = <os_display::Quoted as core::fmt::Display>::fmt;\n                v49 = \"invalid date \";\n                v56 = 1 as u64;\n                v60 = 0;\n                *(&v57 as &&struct_4 *) = &v36;\n                v59 = 1;\n                v49 as u192 = core::option::Option<T>::map_or_else(v72);\n                v59 = 1;\n                v49 = v64;\n                v57 = v65;\n                v77 = alloc::boxed::Box<T>::new(&v49 as u192);\n            }\n            return v77;\n        },\n    }\n}\n",
-    "_ZN7uu_date6uu_app17h46591bba8e5410ceE": "fn uu_date::uu_app(a0: &struct712) -> long long {\n    let v0: u640;  // [bp-0xa58]\n    let v1: u64;  // [bp-0x79c]\n    let v2: u32;  // [bp-0x794]\n    let v3: u384;  // [bp-0x790]\n    let v4: struct437;  // [bp-0x540]\n    let v5: u64;  // [bp-0x284]\n    let v6: u32;  // [bp-0x27c]\n    let v7: u8;  // [bp-0x278], Other Possible Types: struct24\n    let v10: u64;  // rdx\n\n    v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);\n    clap_builder::builder::command::Command::version(&v0, &v4, \"0.0.28\");\n    clap_builder::builder::command::Command::about(&v4, &v0, \"Print or set the system date and time\");\n    uucore::format_usage(&v3, \"{} [OPTION]... [+FORMAT]...\\n{} [OPTION]... [MMDDhhmm[[CC]YY][.ss]]\");\n    clap_builder::builder::command::Command::override_usage(&v0, &v4, &v3);\n    memcpy(&v4, &v0, 700);\n    v5 = 549755814016 | v1;\n    v6 = v2;\n    clap_builder::builder::arg::Arg::new(&v0, \"date\");\n    clap_builder::builder::arg::Arg::short(&v3, &v0, 100);\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"date\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v0, \"STRING\");\n    clap_builder::builder::arg::Arg::help(&v7, &v3, \"display time described by STRING, not 'now'\");\n    clap_builder::builder::command::Command::arg(&v0, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"file\");\n    clap_builder::builder::arg::Arg::short(&v3, &v4, 102);\n    clap_builder::builder::arg::Arg::long(&v4, &v3, \"file\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v4, \"DATEFILE\");\n    clap_builder::builder::arg::Arg::value_hint(&v4, &v3, 3);\n    clap_builder::builder::arg::Arg::help(&v3, &v4, \"like --date; once for each line of DATEFILE\");\n    clap_builder::builder::command::Command::arg(&v4, &v0, &v3);\n    clap_builder::builder::arg::Arg::new(&v0, \"iso-8601\");\n    clap_builder::builder::arg::Arg::short(&v3, &v0, 73);\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"iso-8601\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v0, \"FMT\");\n    v0 = struct80 {\n        field_0: &g_44fd30\n        field_8: 4\n        field_16: &g_460b1d\n        field_24: 5\n        field_32: &g_460b22\n        field_40: 7\n        field_48: &g_460b29\n        field_56: 7\n        field_64: &g_460b30\n        field_72: 2\n    };\n    v7 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v0);\n    clap_builder::builder::arg::Arg::value_parser(&v0, &v3, &v7);\n    v7 = struct17 {\n        field_0: 0\n        field_8: 1\n        field_16: 0\n    };\n    clap_builder::builder::arg::Arg::num_args(&v3, &v0, &v7);\n    clap_builder::builder::arg::Arg::default_missing_value(&v0, &v3);\n    clap_builder::builder::arg::Arg::help(&v3, &v0, \"output date/time in ISO 8601 format.\\n FMT='date' for date only (the default),\\n 'hours', 'minutes', 'seconds', or 'ns'\\n for date and time to the indicated precision.\\n Example: 2006-08-14T02:34:56-06:00\");\n    clap_builder::builder::command::Command::arg(&v0, &v4, &v3);\n    clap_builder::builder::arg::Arg::new(&v4, \"rfc-email\");\n    clap_builder::builder::arg::Arg::short(&v3, &v4, 82);\n    clap_builder::builder::arg::Arg::long(&v4, &v3, \"rfc-email\");\n    clap_builder::builder::arg::Arg::help(&v3, &v4, \"output date and time in RFC 5322 format.\\n Example: Mon, 14 Aug 2006 02:34:56 -0600\");\n    clap_builder::builder::arg::Arg::action(&v7, &v3);\n    clap_builder::builder::command::Command::arg(&v4, &v0, &v7);\n    clap_builder::builder::arg::Arg::new(&v0, \"rfc-3339\");\n    clap_builder::builder::arg::Arg::long(&v3, &v0, \"rfc-3339\");\n    clap_builder::builder::arg::Arg::value_name(&v0, &v3, \"FMT\");\n    v3 = struct48 {\n        field_0: &g_44fd30\n        field_8: 4\n        field_16: &g_460b29\n        field_24: 7\n        field_32: &g_460b30\n        field_40: 2\n    };\n    v7 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v3);\n    clap_builder::builder::arg::Arg::value_parser(&v3, &v0, &v7);\n    clap_builder::builder::arg::Arg::help(&v7, &v3, \"output date/time in RFC 3339 format.\\n FMT='date', 'seconds', or 'ns'\\n for date and time to the indicated precision.\\n Example: 2006-08-14 02:34:56-06:00\");\n    clap_builder::builder::command::Command::arg(&v0, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"debug\");\n    clap_builder::builder::arg::Arg::long(&v3, &v4, \"debug\");\n    clap_builder::builder::arg::Arg::help(&v4, &v3, \"annotate the parsed date, and warn about questionable usage to stderr\");\n    clap_builder::builder::arg::Arg::action(&v3, &v4);\n    clap_builder::builder::command::Command::arg(&v4, &v0, &v3);\n    clap_builder::builder::arg::Arg::new(&v0, \"reference\");\n    clap_builder::builder::arg::Arg::short(&v3, &v0, 114);\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"reference\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v0, \"FILE\");\n    clap_builder::builder::arg::Arg::value_hint(&v0, &v3, 2);\n    clap_builder::builder::arg::Arg::help(&v3, &v0, \"display the last modification time of FILE\");\n    clap_builder::builder::command::Command::arg(&v0, &v4, &v3);\n    clap_builder::builder::arg::Arg::new(&v4, \"set\");\n    clap_builder::builder::arg::Arg::short(&v3, &v4, 115);\n    clap_builder::builder::arg::Arg::long(&v4, &v3, \"set\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v4, \"STRING\");\n    clap_builder::builder::arg::Arg::help(&v7, &v3, \"set time described by STRING\");\n    clap_builder::builder::command::Command::arg(&v4, &v0, &v7);\n    clap_builder::builder::arg::Arg::new(&v0, \"universal\");\n    clap_builder::builder::arg::Arg::short(&v3, &v0, 117);\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"universal\");\n    clap_builder::builder::arg::Arg::alias(&v3, &v0, \"utc\");\n    clap_builder::builder::arg::Arg::help(&v0, &v3, \"print or set Coordinated Universal Time (UTC)\");\n    clap_builder::builder::arg::Arg::action(&v3, &v0);\n    clap_builder::builder::command::Command::arg(&v0, &v4, &v3);\n    clap_builder::builder::arg::Arg::new(&v4, \"format\");\n    clap_builder::builder::command::Command::arg(a0, &v0, &v4);\n    return a0;\n}\n",
+    "_ZN7uu_date6uumain17hd1a21767835350eaE": "fn uu_date::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: u128;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_date::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    v3 = *(&v5.vec.buf.cap as &i128);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN7uu_date6uumain6uumain17hc61b24979fe22468E": "fn uu_date::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0x698]\n    let v1: u32;  // [bp-0x690]\n    let v2: u64;  // [bp-0x68c]\n    let v3: u32;  // [bp-0x684]\n    let v4: u64;  // [bp-0x678]\n    let v5: u32;  // [bp-0x670]\n    let v6: u128;  // [bp-0x668]\n    let v7: u64;  // [bp-0x658]\n    let v8: i64;  // [bp-0x648]\n    let v9: u64;  // [bp-0x640]\n    let v12: struct64;  // [bp-0x618], Other Possible Types: u64\n    let v13: void*;  // [bp-0x618]\n    let v14: Result<struct56, struct16>;  // [bp-0x618]\n    let v15: Option<struct8>;  // [bp-0x618]\n    let v17: u32;  // [bp-0x610]\n    let v18: u64;  // [bp-0x60c]\n    let v19: u64;  // [bp-0x608]\n    let v20: u32;  // [bp-0x604]\n    let v21: u8;  // [sp-0x600]\n    let v22: u128;  // [bp-0x5f8]\n    let v23: u64;  // [bp-0x5e8]\n    let v24: u32;  // [bp-0x5e0]\n    let v25: struct16;  // [bp-0x5e0]\n    let v26: u64;  // [bp-0x5dc]\n    let v27: u32;  // [bp-0x5d4]\n    let v28: u8;  // [bp-0x5d0]\n    let v29: u64;  // [bp-0x5a8]\n    let v30: u64;  // [bp-0x5a0]\n    let v31: u32;  // [bp-0x598]\n    let v32: u64;  // [bp-0x590]\n    let v33: struct16;  // [bp-0x588], Other Possible Types: u128\n    let v34: u64;  // [bp-0x588]\n    let v35: u8;  // [bp-0x580]\n    let v36: u64;  // [bp-0x578]\n    let v37: i64;  // [bp-0x568], Other Possible Types: u128\n    let v38: u64;  // [bp-0x560]\n    let v39: u64;  // [bp-0x558]\n    let v40: u64;  // [bp-0x538]\n    let v41: u32;  // [bp-0x530]\n    let v42: u64;  // [bp-0x528]\n    let v43: u64;  // [bp-0x520]\n    let v44: u128;  // [bp-0x518]\n    let v45: u128;  // [bp-0x508]\n    let v46: u64;  // [bp-0x4f8]\n    let v47: struct16;  // [bp-0x4d8]\n    let v48: Result<struct40, struct16>;  // [bp-0x4c8], Other Possible Types: u128\n    let v49: u128;  // [bp-0x4c8]\n    let v50: struct24;  // [bp-0x4c8], Other Possible Types: struct12\n    let v51: u64;  // [bp-0x4c8]\n    let v53: struct24;  // [bp-0x4c8]\n    let v54: alloc::string::String;  // [bp-0x4c8]\n    let v55: alloc::string::String;  // [bp-0x4c8]\n    let v56: Result<struct40, struct16>;  // [bp-0x4c8]\n    let v57: u64;  // [bp-0x4c0]\n    let v58: i64;  // [sp-0x4b8], Other Possible Types: u64\n    let v59: u32;  // [bp-0x4b4]\n    let v60: u32;  // [sp-0x4b0]\n    let v61: void*;  // [sp-0x4a8], Other Possible Types: u128\n    let v62: u64;  // [bp-0x4a0]\n    let v63: u128;  // [bp-0x498]\n    let v64: struct12;  // [bp-0x1f8]\n    let v65: u128;  // [bp-0x1e8]\n    let v66: u128;  // [bp-0x1d0]\n    let v67: u64;  // [bp-0x1c0]\n    let v68: u128;  // [bp-0x1b8]\n    let v69: i8;  // [bp-0x1a8]\n    let v71: i64;  // rax\n    let v72: u64;  // r15\n    let v73: u64;  // r14\n    let v74: u64;  // rdx\n    let v77: u128;  // xmm0\n    let v78: u128;  // xmm1\n    let v79: u64;  // rbx\n    let v80: u64;  // rax\n    let v81: i64;  // rax\n    let v82: i64;  // r14\n    let v83: i64;  // rax\n    let v84: u64;  // rax\n    let v85: u32;  // ebp\n    let v86: u8;  // al\n    let v87: u128;  // xmm1\n    let v88: &str;  // rax:rdx\n\n    uu_date::uu_app(&v48);\n    v14 = clap_builder::builder::command::Command::try_get_matches_from(&v48, a0, a1);\n    match v14 {\n        Err(_) => {\n            return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(*((&v14 as &char + 8) as &i64));\n        },\n        Ok(_) => {\n            v46 = v23;\n            v45 = v22;\n            v44 = *((&v14 as &char + 16) as &i128);\n            v42 = v14 as i64;\n            v43 = *((&v14 as &char + 8) as &i64);\n            v48 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v42, \"format\");\n            v71 = clap_builder::parser::error::MatchesError::unwrap(\"format\", &v48);\n            if !v71 {\n                v48 as u448 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v42, \"iso-8601\");\n                v12 = clap_builder::parser::error::MatchesError::unwrap(\"iso-8601\", &v48 as u448);\n                if v12.field_0 as i64 {\n                    v77 = v12.field_0;\n                    v78 = v12.field_16;\n                    v63 = v12.field_48;\n                    v61 = v22;\n                    v58 = v78;\n                    v48 = v77;\n                    v33 = struct16 {\n                        field_0: 0x8000000000000000\n                        field_8: uu_date::uumain::uumain::{{closure}}(&v48 as u448) as i8\n                    };\n                    goto LABEL_5715df;\n                } else {\n                    if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v42, \"rfc-email\") as i8 {\n                        v48 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v42, \"rfc-3339\");\n                        v81 = clap_builder::parser::error::MatchesError::unwrap(\"rfc-3339\", &v48);\n                        if v81 {\n                            v35 = <uu_date::Rfc3339Format as core::convert::From<&str>>::from(*((v81 + 8) as &i64), *((v81 + 16) as &i64)) as i8;\n                            v80 = 9223372036854775810;\n                        }\n                    }\n                    v34 = v80;\n                    goto LABEL_5715df;\n                }\n            }\n            v72 = *((v71 + 8) as &i64);\n            v73 = *((v71 + 16) as &i64);\n            v49 = 0;\n            v51 = v48 as i64 & -0x100000000;\n            v88 = core::char::methods::encode_utf8_raw(43, &v51, v74);\n            if core::slice::<impl [T]>::starts_with(v72, v73, v88.data_ptr, v88.length) as u8 {\n                v53 = <T as alloc::slice::hack::ConvertVec>::to_vec(core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(1, v72, v73) as u64, v74);\n                v36 = v53.field_16;\n                v33 = v53.field_0;\nLABEL_5715df:\n                v48 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v42, \"date\");\n                v82 = clap_builder::parser::error::MatchesError::unwrap(\"date\", &v48);\n                if v82 {\n                    v64 = chrono::offset::local::Local::now();\n                    v15 = parse_datetime::parse_datetime_at_date(&v64, *((v82 + 8) as &i64), *((v82 + 16) as &i64));\n                    match v15 {\n                        Some(_) => {\n                            v65 = *((&v14 as &char + 8) as &i128);\n                            v30 = chrono::datetime::DateTime<Tz>::signed_duration_since(&v65, &v64);\n                            v31 = v74 as u32;\n                            v29 = 4;\n                        },\n                        None => {\n                            v54 = <alloc::string::String as core::clone::Clone>::clone(v82);\n                            v32 = v54.vec.len;\n                            v30 = *(&v54.vec.buf.cap as &i128) as u128;\n                            v29 = 1;\n                        },\n                    }\n                } else {\n                    v48 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v42, \"file\");\n                    v83 = clap_builder::parser::error::MatchesError::unwrap(\"file\", &v48);\n                    if v83 && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v83 + 8) as &i64), *((v83 + 16) as &i64), \"-\") as i8 {\n                        v55 = std::sys::os_str::bytes::Slice::to_owned(*((v83 + 8) as &i64), *((v83 + 16) as &i64));\n                        v32 = v55.vec.len;\n                        v30 = *(&v55.vec.buf.cap as &i128) as u128;\n                        v29 = 2;\n                    }\n                }\n                v56 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v42, \"set\");\n                v84 = clap_builder::parser::error::MatchesError::unwrap(\"set\", &v56);\n                v85 = 0;\n                if v84 {\n                    core::ops::function::FnOnce::call_once(&v56, v84);\n                    v4 = *((&v56 as &char + 12) as &i64);\n                    v5 = v59;\n                    v6 = *((&v56 as &char + 24) as &i128);\n                    v7 = v62;\n                    if v56 as i64 == 9223372036854775809 {\n                        goto LABEL_571831;\n                    }\n                    if v56 as i64 == 0x8000000000000000 {\n                        v41 = v5;\n                        v40 = v4;\n                        v85 = *((&v56 as &char + 8) as &i32);\n                        goto LABEL_571831;\n                    } else {\n                        v0 = v56 as i64;\n                        v1 = *((&v56 as &char + 8) as &i32);\n                        v3 = v5;\n                        v2 = v4;\n                        v39 = v7;\n                        v37 = v6;\n                        v13 = 0;\n                        v17 = v1;\n                        v18 = v2;\n                        v20 = v3;\n                        v21 = 1;\n                        v8 = &v13;\n                        v9 = <os_display::Quoted as core::fmt::Display>::fmt;\n                        v48 = \"invalid date \";\n                        v57 = 1 as u64;\n                        v61 = 0;\n                        *(&v58 as &&struct_0 *) = &v8;\n                        v60 = 1;\n                        v50 = core::option::Option<T>::map_or_else(v3);\n                        v60 = 1;\n                        v48 = v68;\n                        v58 = *(&v69 as &i64) as u64;\n                        v79 = alloc::boxed::Box<T>::new(&v50);\n                    }\n                } else {\nLABEL_571831:\n                    v86 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v42, \"universal\") as i8;\n                    v23 = v36;\n                    v22 = v33;\n                    v87 = *((&v30 as &char + 8) as &i128);\n                    *(&v12 as &i128) = *(&v29 as &i128);\n                    v19 = v87;\n                    v26 = v40;\n                    v27 = v41;\n                    v28 = v86;\n                    v24 = v85;\n                    if v85 {\n                        v47 = v25;\n                        v79 = uu_date::set_system_datetime(&v47);\n                    } else if v28 {\n                        v50 = chrono::offset::utc::Utc::now();\n                    } else {\n                        v50 = chrono::offset::local::Local::now();\n                    }\n                }\n            } else {\n                v13 = 0;\n                v17 = v72;\n                v19 = v73;\n                v21 = 1;\n                v37 = &v13;\n                v38 = <os_display::Quoted as core::fmt::Display>::fmt;\n                v49 = \"invalid date \";\n                v57 = 1 as u64;\n                v61 = 0;\n                *(&v58 as &&struct_0 *) = &v37;\n                v60 = 1;\n                v49 as u192 = core::option::Option<T>::map_or_else(v74);\n                v60 = 1;\n                v49 = v66;\n                v58 = v67;\n                v79 = alloc::boxed::Box<T>::new(&v49 as u192);\n            }\n            return v79;\n        },\n    }\n}\n",
+    "_ZN7uu_date6uu_app17h46591bba8e5410ceE": "fn uu_date::uu_app(a0: &struct712) -> long long {\n    let v0: struct80;  // [bp-0xa58], Other Possible Types: u8\n    let v1: u64;  // [bp-0x79c]\n    let v2: u32;  // [bp-0x794]\n    let v3: struct48;  // [bp-0x790], Other Possible Types: u8\n    let v4: struct437;  // [bp-0x540]\n    let v5: u64;  // [bp-0x284]\n    let v6: u32;  // [bp-0x27c]\n    let v7: struct17;  // [bp-0x278], Other Possible Types: struct24, u8\n    let v10: u64;  // rdx\n\n    v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);\n    clap_builder::builder::command::Command::version(&v0, &v4, \"0.0.28\");\n    clap_builder::builder::command::Command::about(&v4, &v0, \"Print or set the system date and time\");\n    uucore::format_usage(&v3, \"{} [OPTION]... [+FORMAT]...\\n{} [OPTION]... [MMDDhhmm[[CC]YY][.ss]]\");\n    clap_builder::builder::command::Command::override_usage(&v0, &v4, &v3);\n    memcpy(&v4, &v0, 700);\n    v5 = 549755814016 | v1;\n    v6 = v2;\n    clap_builder::builder::arg::Arg::new(&v0, \"date\");\n    clap_builder::builder::arg::Arg::short(&v3, &v0, 100);\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"date\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v0, \"STRING\");\n    clap_builder::builder::arg::Arg::help(&v7, &v3, \"display time described by STRING, not 'now'\");\n    clap_builder::builder::command::Command::arg(&v0, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"file\");\n    clap_builder::builder::arg::Arg::short(&v3, &v4, 102);\n    clap_builder::builder::arg::Arg::long(&v4, &v3, \"file\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v4, \"DATEFILE\");\n    clap_builder::builder::arg::Arg::value_hint(&v4, &v3, 3);\n    clap_builder::builder::arg::Arg::help(&v3, &v4, \"like --date; once for each line of DATEFILE\");\n    clap_builder::builder::command::Command::arg(&v4, &v0, &v3);\n    clap_builder::builder::arg::Arg::new(&v0, \"iso-8601\");\n    clap_builder::builder::arg::Arg::short(&v3, &v0, 73);\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"iso-8601\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v0, \"FMT\");\n    v0 = struct80 {\n        field_0: &g_44fd30\n        field_8: 4\n        field_16: &g_460b1d\n        field_24: 5\n        field_32: &g_460b22\n        field_40: 7\n        field_48: &g_460b29\n        field_56: 7\n        field_64: &g_460b30\n        field_72: 2\n    };\n    v7 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v0);\n    clap_builder::builder::arg::Arg::value_parser(&v0, &v3, &v7);\n    v7 = struct24 {\n        field_0: 0\n        field_8: 1\n        field_16: 0\n    };\n    v7 = struct17 {\n        field_0: 0\n        field_8: 1\n        field_16: 0\n    };\n    clap_builder::builder::arg::Arg::num_args(&v3, &v0, &v7);\n    clap_builder::builder::arg::Arg::default_missing_value(&v0, &v3);\n    clap_builder::builder::arg::Arg::help(&v3, &v0, \"output date/time in ISO 8601 format.\\n FMT='date' for date only (the default),\\n 'hours', 'minutes', 'seconds', or 'ns'\\n for date and time to the indicated precision.\\n Example: 2006-08-14T02:34:56-06:00\");\n    clap_builder::builder::command::Command::arg(&v0, &v4, &v3);\n    clap_builder::builder::arg::Arg::new(&v4, \"rfc-email\");\n    clap_builder::builder::arg::Arg::short(&v3, &v4, 82);\n    clap_builder::builder::arg::Arg::long(&v4, &v3, \"rfc-email\");\n    clap_builder::builder::arg::Arg::help(&v3, &v4, \"output date and time in RFC 5322 format.\\n Example: Mon, 14 Aug 2006 02:34:56 -0600\");\n    clap_builder::builder::arg::Arg::action(&v7, &v3);\n    clap_builder::builder::command::Command::arg(&v4, &v0, &v7);\n    clap_builder::builder::arg::Arg::new(&v0, \"rfc-3339\");\n    clap_builder::builder::arg::Arg::long(&v3, &v0, \"rfc-3339\");\n    clap_builder::builder::arg::Arg::value_name(&v0, &v3, \"FMT\");\n    v3 = struct48 {\n        field_0: &g_44fd30\n        field_8: 4\n        field_16: &g_460b29\n        field_24: 7\n        field_32: &g_460b30\n        field_40: 2\n    };\n    v7 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v3);\n    clap_builder::builder::arg::Arg::value_parser(&v3, &v0, &v7);\n    clap_builder::builder::arg::Arg::help(&v7, &v3, \"output date/time in RFC 3339 format.\\n FMT='date', 'seconds', or 'ns'\\n for date and time to the indicated precision.\\n Example: 2006-08-14 02:34:56-06:00\");\n    clap_builder::builder::command::Command::arg(&v0, &v4, &v7);\n    clap_builder::builder::arg::Arg::new(&v4, \"debug\");\n    clap_builder::builder::arg::Arg::long(&v3, &v4, \"debug\");\n    clap_builder::builder::arg::Arg::help(&v4, &v3, \"annotate the parsed date, and warn about questionable usage to stderr\");\n    clap_builder::builder::arg::Arg::action(&v3, &v4);\n    clap_builder::builder::command::Command::arg(&v4, &v0, &v3);\n    clap_builder::builder::arg::Arg::new(&v0, \"reference\");\n    clap_builder::builder::arg::Arg::short(&v3, &v0, 114);\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"reference\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v0, \"FILE\");\n    clap_builder::builder::arg::Arg::value_hint(&v0, &v3, 2);\n    clap_builder::builder::arg::Arg::help(&v3, &v0, \"display the last modification time of FILE\");\n    clap_builder::builder::command::Command::arg(&v0, &v4, &v3);\n    clap_builder::builder::arg::Arg::new(&v4, \"set\");\n    clap_builder::builder::arg::Arg::short(&v3, &v4, 115);\n    clap_builder::builder::arg::Arg::long(&v4, &v3, \"set\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v4, \"STRING\");\n    clap_builder::builder::arg::Arg::help(&v7, &v3, \"set time described by STRING\");\n    clap_builder::builder::command::Command::arg(&v4, &v0, &v7);\n    clap_builder::builder::arg::Arg::new(&v0, \"universal\");\n    clap_builder::builder::arg::Arg::short(&v3, &v0, 117);\n    clap_builder::builder::arg::Arg::long(&v0, &v3, \"universal\");\n    clap_builder::builder::arg::Arg::alias(&v3, &v0, \"utc\");\n    clap_builder::builder::arg::Arg::help(&v0, &v3, \"print or set Coordinated Universal Time (UTC)\");\n    clap_builder::builder::arg::Arg::action(&v3, &v0);\n    clap_builder::builder::command::Command::arg(&v0, &v4, &v3);\n    clap_builder::builder::arg::Arg::new(&v4, \"format\");\n    clap_builder::builder::command::Command::arg(a0, &v0, &v4);\n    return a0;\n}\n",
     "_ZN7uu_date19set_system_datetime17h9c24751b07cec72eE": "fn uu_date::set_system_datetime(a0: i64) -> long long {\n    let v3: u32;  // eax\n\n    v3 = chrono::naive::date::NaiveDate::num_days_from_ce(*(a0 as &i32)) as i32;\n    return 0;\n}\n"
   },
   "function_call_counts": {
@@ -88,13 +88,13 @@
     "_ZN7uu_date10parse_date17h3e04b396edc04cd0E": 4,
     "_ZN7uu_date18make_format_string17h93ce19862c203cfbE": 1,
     "_ZN7uu_date6uumain17hd1a21767835350eaE": 10,
-    "_ZN7uu_date6uumain6uumain17hc61b24979fe22468E": 47,
+    "_ZN7uu_date6uumain6uumain17hc61b24979fe22468E": 48,
     "_ZN7uu_date6uu_app17h46591bba8e5410ceE": 70,
     "_ZN7uu_date19set_system_datetime17h9c24751b07cec72eE": 2
   },
   "variable_types": {
     "_ZN7uu_date10parse_date17h3e04b396edc04cd0E": {
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8
@@ -104,21 +104,13 @@
         [
           "struct",
           8
-        ]
-      ],
-      "reg_32": [
+        ],
         [
-          "primitive",
-          8
+          "struct",
+          24
         ]
       ],
-      "stack_48": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_24": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -126,14 +118,14 @@
       ],
       "stack_32": [
         [
-          "primitive",
-          1
+          "struct",
+          24
         ]
       ],
       "stack_56": [
         [
           "struct",
-          56
+          48
         ]
       ],
       "stack_72": [
@@ -150,7 +142,7 @@
       ]
     },
     "_ZN7uu_date18make_format_string17h93ce19862c203cfbE": {
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -158,7 +150,7 @@
       ]
     },
     "_ZN7uu_date6uumain17hd1a21767835350eaE": {
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -179,7 +171,7 @@
       "stack_96": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_112": [
@@ -192,23 +184,15 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_72": [
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -218,32 +202,12 @@
     "_ZN7uu_date6uumain6uumain17hc61b24979fe22468E": {
       "stack_464": [
         [
-          "primitive",
-          16
-        ],
-        [
-          "Result",
-          80
-        ],
-        [
-          "primitive",
-          1
-        ],
-        [
           "Result",
           80
         ],
         [
           "primitive",
           16
-        ],
-        [
-          "Result",
-          80
-        ],
-        [
-          "Result",
-          80
         ],
         [
           "primitive",
@@ -251,26 +215,6 @@
         ],
         [
           "struct",
-          56
-        ],
-        [
-          "primitive",
-          4
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          16
-        ],
-        [
-          "struct",
           24
         ],
         [
@@ -288,24 +232,12 @@
         [
           "struct",
           24
-        ],
-        [
-          "struct",
-          16
-        ],
-        [
-          "struct",
-          12
         ]
       ],
       "stack_128": [
         [
           "Result",
           80
-        ],
-        [
-          "primitive",
-          8
         ],
         [
           "struct",
@@ -317,11 +249,7 @@
         ],
         [
           "&primitive",
-          8
-        ],
-        [
-          "&primitive",
-          8
+          null
         ]
       ],
       "stack_416": [
@@ -331,10 +259,6 @@
         ]
       ],
       "stack_176": [
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           8
@@ -355,7 +279,7 @@
       "stack_384": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_368": [
@@ -370,7 +294,7 @@
           8
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -396,17 +320,23 @@
           1
         ]
       ],
-      "reg_224": [
+      "reg_ymm0": [
         [
           "primitive",
           16
         ]
       ],
-      "reg_256": [
+      "reg_ymm1": [
         [
           "primitive",
           16
         ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_512": [
         [
           "primitive",
           16
@@ -415,32 +345,18 @@
       "stack_496": [
         [
           "&primitive",
-          8
-        ],
-        [
-          "&primitive",
-          8
-        ],
-        [
-          "primitive",
-          16
+          null
         ]
       ],
       "stack_480": [
         [
           "primitive",
           8
-        ],
+        ]
+      ],
+      "stack_272": [
         [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
+          "struct",
           16
         ],
         [
@@ -452,29 +368,15 @@
         [
           "primitive",
           1
-        ],
-        [
-          "primitive",
-          1
         ]
       ],
-      "stack_272": [
-        [
-          "primitive",
-          16
-        ],
+      "reg_r15": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_136": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_128": [
+      "reg_r14": [
         [
           "primitive",
           8
@@ -484,7 +386,7 @@
           8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -505,18 +407,10 @@
       "stack_1200": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_248": [
-        [
-          "primitive",
-          16
-        ],
-        [
-          "primitive",
-          16
-        ],
         [
           "primitive",
           8
@@ -538,13 +432,9 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
-      "reg_56": [
+      "reg_rbp": [
         [
           "primitive",
           4
@@ -569,10 +459,6 @@
         ]
       ],
       "stack_48": [
-        [
-          "primitive",
-          1
-        ],
         [
           "primitive",
           16
@@ -636,20 +522,12 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          16
         ]
       ],
       "stack_136": [
         [
           "primitive",
           4
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_140": [
@@ -665,10 +543,6 @@
         ]
       ],
       "stack_152": [
-        [
-          "primitive",
-          1
-        ],
         [
           "primitive",
           1
@@ -690,25 +564,9 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_488": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          4
-        ],
         [
           "primitive",
           4
@@ -726,7 +584,7 @@
           1
         ]
       ],
-      "reg_40": [
+      "reg_rbx": [
         [
           "primitive",
           8
@@ -736,10 +594,6 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          16
         ]
       ],
       "stack_188": [
@@ -764,24 +618,16 @@
         [
           "primitive",
           4
-        ]
-      ],
-      "stack_456": [
+        ],
         [
-          "primitive",
-          4
-        ]
-      ],
-      "stack_192": [
-        [
-          "primitive",
-          4
+          "struct",
+          16
         ]
       ],
       "stack_448": [
         [
-          "primitive",
-          8
+          "struct",
+          16
         ]
       ],
       "stack_312": [
@@ -807,10 +653,10 @@
       "stack_1304": [
         [
           "struct",
-          466
+          448
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -818,22 +664,14 @@
       ],
       "stack_0": [
         [
-          "primitive",
+          "struct",
           80
-        ],
-        [
-          "primitive",
-          1
         ]
       ],
       "stack_712": [
         [
-          "primitive",
+          "struct",
           48
-        ],
-        [
-          "primitive",
-          1
         ]
       ],
       "stack_2004": [
@@ -862,25 +700,13 @@
       ],
       "stack_2016": [
         [
-          "primitive",
-          1
-        ],
-        [
-          "struct",
-          24
-        ],
-        [
-          "primitive",
-          17
-        ],
-        [
           "struct",
           24
         ]
       ]
     },
     "_ZN7uu_date19set_system_datetime17h9c24751b07cec72eE": {
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           4

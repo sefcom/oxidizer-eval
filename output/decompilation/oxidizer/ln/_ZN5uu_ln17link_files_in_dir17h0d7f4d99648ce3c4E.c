@@ -1,21 +1,21 @@
 fn uu_ln::link_files_in_dir(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> long long {
     let v0: u8;  // [bp-0x129]
-    let v1: u64;  // [bp-0x128], Other Possible Types: struct24, core::result::Result<&str, core::str::error::Utf8Error>, struct32, std::path::PathBuf
+    let v1: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x128], Other Possible Types: std::path::PathBuf, struct24, u64
     let v2: u64;  // [bp-0x128]
     let v3: u64;  // [bp-0x128]
-    let v4: u64;  // [bp-0x128]
+    let v4: struct32;  // [bp-0x128], Other Possible Types: u64
     let v5: u64;  // [bp-0x120]
     let v6: u64;  // [bp-0x120]
     let v7: u64;  // [bp-0x120]
-    let v8: u64;  // [bp-0x118], Other Possible Types: struct584
+    let v8: struct584;  // [bp-0x118], Other Possible Types: u64
     let v9: struct584;  // [bp-0x118], Other Possible Types: u64
-    let v10: u64;  // [bp-0x118], Other Possible Types: struct584
-    let v12: u8;  // [bp-0x108]
+    let v10: struct584;  // [bp-0x118], Other Possible Types: u64
+    let v12: i8;  // [bp-0x108]
     let v13: u64;  // [bp-0xf8]
     let v14: u64;  // [bp-0xf8]
     let v15: u128;  // [bp-0xf8]
     let v16: u64;  // [bp-0xf0]
-    let v17: u64;  // [bp-0xe8], Other Possible Types: struct584
+    let v17: struct584;  // [bp-0xe8], Other Possible Types: u64
     let v18: u8;  // [bp-0xe0]
     let v19: u32;  // [bp-0xcc]
     let v20: u64;  // [bp-0xc8]
@@ -28,9 +28,9 @@ fn uu_ln::link_files_in_dir(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> long
     let v27: u64;  // [bp-0x88]
     let v28: u64;  // [bp-0x78]
     let v29: u64;  // [bp-0x70]
-    let v30: u8;  // [bp-0x68]
-    let v31: u8;  // [bp-0x58]
-    let v32: u8;  // [bp-0x48]
+    let v30: u128;  // [bp-0x68]
+    let v31: u128;  // [bp-0x58]
+    let v32: u128;  // [bp-0x48]
     let v35: u32;  // rdx
     let v36: i64;  // rax
     let v37: i64;  // r15
@@ -47,10 +47,10 @@ fn uu_ln::link_files_in_dir(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> long
         return alloc::boxed::Box<T>::new(&v1);
     }
     v1 = std::thread::local::LocalKey<T>::try_with();
-    v1 = hashbrown::map::HashMap<K,V,S>::with_capacity_and_hasher(a1, core::result::Result<T,E>::expect(&v1), v35);
-    memcpy(&v32, &v12, 16);
-    memcpy(&v31, &v1, 16);
-    memcpy(&v30, &v1, 16);
+    v4 = hashbrown::map::HashMap<K,V,S>::with_capacity_and_hasher(a1, core::result::Result<T,E>::expect(&v1), v35);
+    v32 = *(&v12 as &i128);
+    v31 = v4.field_16;
+    v30 = v4.field_0;
     v28 = a0;
     v29 = a0 + a1 * 24;
     v36 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v28);

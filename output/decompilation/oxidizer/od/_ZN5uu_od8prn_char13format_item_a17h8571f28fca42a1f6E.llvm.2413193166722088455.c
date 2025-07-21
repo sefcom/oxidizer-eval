@@ -2,7 +2,7 @@ fn uu_od::prn_char::format_item_a(a0: i64, a1: i32) -> long long {
     let v0: u64;  // [bp-0x88]
     let v1: i64;  // [bp-0x80]
     let v2: u64;  // [bp-0x78]
-    let v3: u448;  // [bp-0x70]
+    let v3: struct56;  // [bp-0x70]
     let v4: i8;  // [bp-0x40]
     let v5: void*;  // [bp-0x30]
     let v6: &[u8];  // [bp-0x28]

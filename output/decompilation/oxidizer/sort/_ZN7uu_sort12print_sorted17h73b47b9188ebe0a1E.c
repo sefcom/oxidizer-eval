@@ -1,26 +1,23 @@
 fn uu_sort::print_sorted(a0: i64, a1: i64, a2: i64) -> void {
-    let v0: u128;  // [bp-0xa8]
-    let v1: u128;  // [bp-0x98]
-    let v2: u128;  // [bp-0x88]
-    let v3: u128;  // [bp-0x78]
-    let v4: u128;  // [bp-0x68]
-    let v5: struct8;  // [bp-0x58]
-    let v6: u8;  // [bp-0x48]
-    let v8: void*;  // rax
+    let v0: struct88;  // [bp-0xa8]
+    let v1: u8;  // [bp-0x48]
+    let v3: void*;  // rax
 
-    uu_sort::Output::into_write(&v6, a2);
-    v5 = *((a0 + 80) as &i64);
-    v4 = *((a0 + 64) as &i128);
-    v3 = *((a0 + 48) as &i128);
-    v2 = *((a0 + 32) as &i128);
-    v1 = *((a0 + 16) as &i128);
-    v0 = *(a0 as &i128);
+    uu_sort::Output::into_write(&v1, a2);
+    v0 = struct88 {
+        field_0: *(a0 as &i128)
+        field_16: *((a0 + 16) as &i128)
+        field_32: *((a0 + 32) as &i128)
+        field_48: *((a0 + 48) as &i128)
+        field_64: *((a0 + 64) as &i128)
+        field_80: *((a0 + 80) as &i64)
+    };
     loop {
-        v8 = <core::iter::adapters::map::Map<I,F> as core::iter::traits::iterator::Iterator>::next(&v0);
-        if !v8 {
+        v3 = <core::iter::adapters::map::Map<I,F> as core::iter::traits::iterator::Iterator>::next(&v0);
+        if !v3 {
             break;
         }
-        uu_sort::Line::print(v8, &v6, a1);
+        uu_sort::Line::print(v3, &v1, a1);
     }
     return;
 }

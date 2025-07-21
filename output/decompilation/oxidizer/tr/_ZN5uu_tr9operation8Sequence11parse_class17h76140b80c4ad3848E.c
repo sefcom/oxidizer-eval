@@ -30,9 +30,9 @@ fn uu_tr::operation::Sequence::parse_class(a1: i64, a2: i64) -> Result<struct40,
     let v27: u64;  // [bp-0xb8]
     let v28: u16;  // [bp-0xb0]
     let v29: struct33;  // [bp-0xa0]
-    let v30: u64;  // [bp-0x98]
+    let v30: struct32;  // [bp-0x98]
     let v31: Result<struct40, struct40>;  // [bp-0x90]
-    let v32: u64;  // [bp-0x80]
+    let v32: core::fmt::Arguments;  // [bp-0x80]
     let v33: u64;  // [bp-0x78]
     let v34: u16;  // [bp-0x70]
     let v35: u64;  // [bp-0x60]
@@ -74,7 +74,7 @@ fn uu_tr::operation::Sequence::parse_class(a1: i64, a2: i64) -> Result<struct40,
     v29 = &g_41e641.field_0;
     v30 = 5;
     v31 = 2308;
-    v32 = &g_41e646;
+    v32 = &g_41e646.pieces.ptr;
     v33 = 5;
     v34 = 2564;
     v35 = &g_41e64b;

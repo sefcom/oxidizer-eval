@@ -1,7 +1,7 @@
 fn uu_dd::Output::write_block(a0: i64, a1: i64, a2: i64) -> long long {
     let v0: u64;  // [bp-0x40]
-    let v2: void*;  // r12
-    let v3: u64;  // rax
+    let v2: struct24;  // r12
+    let v3: struct2;  // rax
     let v4: u64;  // rdx
 
     v0 = a1;

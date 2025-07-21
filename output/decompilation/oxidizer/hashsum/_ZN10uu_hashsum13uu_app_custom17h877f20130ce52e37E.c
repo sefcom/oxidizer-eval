@@ -1,6 +1,6 @@
 fn uu_hashsum::uu_app_custom(a0: i64) -> long long {
     let v0: u64;  // [bp-0xaf0]
-    let v1: u128;  // [bp-0xae8]
+    let v1: struct16;  // [bp-0xae8]
     let v2: u8;  // [bp-0xad8]
     let v3: u8;  // [bp-0x810]
     let v4: u8;  // [bp-0x548]
@@ -10,6 +10,10 @@ fn uu_hashsum::uu_app_custom(a0: i64) -> long long {
     uu_hashsum::uu_app_common(&v3);
     uu_hashsum::uu_app_opt_bits(&v4, &v3);
     uu_hashsum::uu_app_b3sum_opts(&v2, &v4);
+    v1 = struct16 {
+        field_0: "md5"
+        field_8: &g_73eeb0
+    };
     v1 = struct16 {
         field_0: "md5"
         field_8: &g_73eeb0

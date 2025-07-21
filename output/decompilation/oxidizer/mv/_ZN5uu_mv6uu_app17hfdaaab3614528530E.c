@@ -1,6 +1,6 @@
 fn uu_mv::uu_app(a0: &struct712) -> long long {
     let v0: u64;  // [bp-0xa88]
-    let v1: u192;  // [bp-0xa88]
+    let v1: struct24;  // [bp-0xa88]
     let v2: struct584;  // [bp-0xa70], Other Possible Types: u8
     let v3: u32;  // [bp-0x828]
     let v4: u32;  // [bp-0x824]
@@ -13,7 +13,7 @@ fn uu_mv::uu_app(a0: &struct712) -> long long {
     let v11: struct437;  // [bp-0x540]
     let v12: u64;  // [bp-0x284]
     let v13: u32;  // [bp-0x27c]
-    let v14: u256;  // [bp-0x278]
+    let v14: struct24;  // [bp-0x278], Other Possible Types: struct32
     let v17: u64;  // rdx
 
     v11 = clap_builder::builder::command::Command::new(uucore::util_name(), v17);
@@ -36,6 +36,12 @@ fn uu_mv::uu_app(a0: &struct712) -> long long {
         field_16: &g_42623c
         field_24: 10
     };
+    v14 = struct32 {
+        field_0: &g_426231
+        field_8: 11
+        field_16: &g_42623c
+        field_24: 10
+    };
     clap_builder::builder::arg::Arg::overrides_with_all(&v11 as u384, &v2, &v14);
     clap_builder::builder::arg::Arg::action(&v2, &v11 as u384, 2);
     clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v2);
@@ -49,6 +55,12 @@ fn uu_mv::uu_app(a0: &struct712) -> long long {
         field_16: &g_42623c
         field_24: 10
     };
+    v14 = struct32 {
+        field_0: &g_42622c
+        field_8: 5
+        field_16: &g_42623c
+        field_24: 10
+    };
     clap_builder::builder::arg::Arg::overrides_with_all(&v5, &v2, &v14);
     clap_builder::builder::arg::Arg::action(&v2, &v5, 2);
     clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v2);
@@ -56,6 +68,12 @@ fn uu_mv::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::arg::Arg::short(&v2, &v11 as u384, 110);
     clap_builder::builder::arg::Arg::long(&v11 as u384, &v2, "no-clobber");
     clap_builder::builder::arg::Arg::help(&v2, &v11 as u384, "do not overwrite an existing file");
+    v14 = struct32 {
+        field_0: &g_42622c
+        field_8: 5
+        field_16: &g_426231
+        field_24: 11
+    };
     v14 = struct32 {
         field_0: &g_42622c
         field_8: 5

@@ -1,9 +1,9 @@
 fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct16 {
     let a0: i64;  // rdi
     let v0: u64;  // [bp-0x60]
-    let v1: u128;  // [bp-0x40]
-    let v3: core::option::Option<u32>;  // r13
-    let v5: struct24;  // r12
+    let v1: core::slice::iter::Iter<u8>;  // [bp-0x40], Other Possible Types: struct16
+    let v3: Result<struct24, struct9>;  // r13
+    let v5: u64;  // r12
     let v6: u64;  // rbp
     let v7: u32;  // edx
     let v8: u32;  // r14d
@@ -14,6 +14,10 @@ fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct16 {
     let v13: core::option::Option<u32>;  // rax:rax
     let v14: core::option::Option<u32>;  // rax:rax
 
+    v1 = struct16 {
+        field_0: a1
+        field_8: a1 + a2
+    };
     v1 = core::slice::iter::Iter<u8> {
         ptr: core::ptr::non_null::NonNull<u8> {
             pointer: a1
@@ -24,8 +28,9 @@ fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct16 {
     v3 = *(a3 as &i64);
     v14 = core::str::validations::next_code_point(&v1) as u128;
     if let None = v14 {
-        return struct16 {
+        return struct24 {
             field_0: *(a0 as &i64) + a2
+            padding_8: <UNKNOWN>
             field_32: <UNKNOWN>
         };
     }
@@ -42,7 +47,7 @@ fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct16 {
         if v10 - 12 >= 2 {
             if v10 == 9 {
                 v3 = (v3 & -8) + 8;
-                *(a3 as &core::option::Option<u32>) = v3;
+                *(a3 as &Result<struct24, struct9>) = v3;
                 continue;
             }
             if v10 == 10 {
@@ -50,10 +55,10 @@ fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct16 {
             }
             v11 = (v10 < 127 ? 32 <= v10 : (v10 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v10)));
 LABEL_4bab47:
-            *(a3 as &core::option::Option<u32>) = v3;
+            *(a3 as &Result<struct24, struct9>) = v3;
             if v10 == 10 {
                 v5 += 1;
-                *((a0 + 16) as &struct24) = v5;
+                *((a0 + 16) as &u64) = v5;
             }
         } else {
 LABEL_4baac9:
@@ -63,8 +68,9 @@ LABEL_4baac9:
             goto LABEL_4bab47;
         }
     } while ((v13 = core::str::validations::next_code_point(&v1) as u128, v8 = v7, v13 as i32));
-    return struct16 {
+    return struct24 {
         field_0: *(a0 as &i64) + a2
+        padding_8: <UNKNOWN>
         field_32: <UNKNOWN>
     };
 }

@@ -1,14 +1,18 @@
 fn uu_sort::make_sort_mode_arg(a0: &struct592, a1: i64, a2: i64, a3: i32, a4: i64, a5: i64) -> long long {
-    let v0: u128;  // [bp-0x720]
+    let v0: struct16;  // [bp-0x720], Other Possible Types: u8
     let v1: u8;  // [bp-0x4d0]
     let v2: u8;  // [bp-0x280]
-    let v4: struct8;  // rax
+    let v4: i64;  // rax
 
     clap_builder::builder::arg::Arg::new(&v2, a1, a2);
     clap_builder::builder::arg::Arg::short(&v0, &v2, a3);
     clap_builder::builder::arg::Arg::long(&v2, &v0, a1, a2);
     clap_builder::builder::arg::Arg::help(&v0, &v2, a4, a5);
     clap_builder::builder::arg::Arg::action(&v1, &v0, 2);
+    v0 = struct16 {
+        field_0: "general-numeric-sort"
+        field_8: &g_5ffc58
+    };
     v0 = struct16 {
         field_0: "general-numeric-sort"
         field_8: &g_5ffc58

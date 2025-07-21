@@ -10,7 +10,7 @@ fn uu_nl::uu_app(a0: &struct712) -> long long {
     let v8: i8;  // [bp-0x2e4]
     let v9: u64;  // [bp-0x274]
     let v10: u32;  // [bp-0x26c]
-    let v11: u384;  // [bp-0x268], Other Possible Types: struct32, struct16
+    let v11: core::fmt::Arguments;  // [bp-0x268], Other Possible Types: struct16, struct48, struct24, struct32, u8
     let v14: u64;  // rdx
     let v15: u64;  // rsi
 
@@ -80,6 +80,14 @@ fn uu_nl::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::arg::Arg::long(&v3, &v0, "number-format");
     clap_builder::builder::arg::Arg::help(&v0, &v3, "insert line numbers according to FORMAT");
     clap_builder::builder::arg::Arg::value_name(&v3, &v0, "FORMAT");
+    v11 = struct48 {
+        field_0: &g_46f369
+        field_8: 2
+        field_16: &g_46f36b
+        field_24: 2
+        field_32: &g_46f36d
+        field_40: 2
+    };
     v11 = core::fmt::Arguments {
         pieces: [&g_46f369, &g_46f379]
         args: [&g_46f36b, &g_46f37b]
@@ -112,6 +120,11 @@ fn uu_nl::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::arg::Arg::long(&v3, &v0, "number-width");
     clap_builder::builder::arg::Arg::help(&v0, &v3, "use NUMBER columns for line numbers");
     clap_builder::builder::arg::Arg::value_name(&v3, &v0, "NUMBER");
+    v11 = struct24 {
+        field_0: 4
+        field_8: alloc::boxed::Box<T>::new()
+        field_16: &g_6d9aa8
+    };
     v11 = struct24 {
         field_0: 4
         field_8: alloc::boxed::Box<T>::new()

@@ -1,9 +1,9 @@
 fn uu_rm::prompt_descend(a0: i64, a1: i64) -> long long {
-    let v1: u64;  // [bp-0x58], Other Possible Types: core::result::Result<std::fs::Metadata, std::io::error::Error>
-    let v2: u64;  // [bp-0x50], Other Possible Types: core::result::Result<(), std::io::error::Error>
+    let v1: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x58], Other Possible Types: u64
+    let v2: core::result::Result<(), std::io::error::Error>;  // [bp-0x50], Other Possible Types: u64
     let v3: u64;  // [bp-0x48]
     let v4: u8;  // [bp-0x40]
-    let v5: u64;  // [bp-0x38]
+    let v5: std::io::stdio::Stderr;  // [bp-0x38]
     let v7: u64;  // rdx
 
     v1 = uucore::util_name();

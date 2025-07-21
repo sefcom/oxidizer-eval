@@ -1,65 +1,87 @@
-fn uu_truncate::truncate_size_only(a0: u32, a1: u32, a2: u32, a3: u32, a4: u32) -> u64 {
-    let v0: String;  // [sp-0x178], Other Possible Types: Result<struct32, struct24>
-    let v1: i64;  // [sp-0x170]
-    let v2: i64;  // [sp-0x168]
-    let v3: i32;  // [bp-0x160]
-    let v4: i64;  // [sp-0x140]
-    let v5: i64;  // [sp-0x138]
-    let v6: String;  // [sp-0x120]
-    let v7: i64;  // [sp-0x108]
-    let v8: iNone;  // [sp-0x100]
-    let v9: i8;  // [sp-0xf0]
-    let v10: struct24;  // [bp-0xe8], Other Possible Types: Result<struct176, struct8>, struct32
-    let v11: i32;  // [sp-0xd0]
-    let v13: i64;  // rbx
-    let v15: i64;  // rax
-    let v16: struct8;  // rax
-    let v17: struct8;  // r12
-    let v18: i64;  // rax
-    let v19: i64;  // r12
+fn uu_truncate::truncate_size_only(a1: i32, a2: i64, a3: i32, a4: i8) -> : struct32 {
+    let a0: u64;  // rdi
+    let v0: struct24;  // [bp-0x178], Other Possible Types: struct28, struct437, char
+    let v1: u64;  // [bp-0x170]
+    let v2: i64;  // [bp-0x168], Other Possible Types: char, u64
+    let v3: u64;  // [bp-0x160]
+    let v4: void*;  // [bp-0x158]
+    let v5: struct16;  // [bp-0x140]
+    let v6: i64;  // [bp-0x130]
+    let v7: u64;  // [bp-0x128]
+    let v8: u128;  // [bp-0x120]
+    let v9: u64;  // [bp-0x110]
+    let v10: void*;  // [bp-0x108]
+    let v11: u128;  // [bp-0x100]
+    let v12: u8;  // [bp-0xf0]
+    let v13: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [sp-0xe8], Other Possible Types: struct28, struct32
+    let v15: u128;  // xmm0
+    let v16: u64;  // rax
+    let v17: i64;  // rax
+    let v18: i64;  // r12
+    let v19: u64;  // rax
+    let v20: u64;  // rax
+    let v21: u64;  // r12
+    let v22: struct16;  // [bp-0xb0]
 
-    v0 = uu_truncate::parse_mode_and_size(a0, a1);
-    if v0 as i32 != 3 {
-        v10 = struct32 {
-            field_0: v14
-            field_16: *((&v0 as &char + 16) as &i128)
+    uu_truncate::parse_mode_and_size(a0, a1, a3);
+    if *(&v0 as &i32) != 3 {
+        v15 = *(&v0 as &i128);
+        v13 = struct32 {
+            field_0: v15
+            field_16: *(&v2 as &i128)
         };
-        v15 = uu_truncate::truncate_size_only::{{closure}}(&v10);
+        v16 = uu_truncate::truncate_size_only::{{closure}}(&v13);
         goto LABEL_4ae057;
-    } else {
-        v13 = v1;
-        if v13 != 5 && v13 as u32 != 6 || v2 {
-            v4 = a2;
-            v5 = a2 + a3 * 24;
-            loop {
-                v16 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-                if !v16 {
-                    return 0;
-                }
-                v17 = v16;
-                v10 = std::fs::metadata(v16);
-                if v10 as i64 != 2 && (*((&v10 as &char + 56) as &i32) & 0xf000) == 0x1000 {
-                    v7 = 0;
-                    v8 = *((v17 + 8) as &i128);
-                    v9 = 1;
-                    v6 = format!("cannot open {} for writing: No such device or address", &v7);
-                    *(&v3 as &i32) = 1;
-                    v0 = v6;
+    } else if v1 != 5 && v1 != 6 || v2 {
+        v5 = struct16 {
+            field_0: a2
+            field_8: a2 + a3 * 24
+        };
+        loop {
+            v17 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v5);
+            if !v17 {
+                return 0;
+            }
+            v18 = v17;
+            v13 = std::fs::metadata(v17, a2);
+            if let Ok(_) = v13 {
+                if (v22.field_0 as i32 as i16 & 0xf000) == 0x1000 {
                     break;
                 }
-                v18 = uu_truncate::file_truncate(*((v17 + 8) as &i64), *((v17 + 16) as &i64), a4 as u64, uu_truncate::TruncateMode::to_size(v13));
-                if v18 {
-                    v19 = v18;
-                    return v19;
-                }
             }
-        } else {
-            v10 = <T as alloc::slice::hack::ConvertVec>::to_vec("division by zero");
-            v11 = 1;
-            v15 = alloc::boxed::Box<T>::new(&v10);
-LABEL_4ae057:
-            v19 = v15;
+            v19 = uu_truncate::TruncateMode::to_size(v1) as u64;
+            v20 = uu_truncate::file_truncate(*((v18 + 8) as &i64), *((v18 + 16) as &i64), a4, v19);
+            if v20 {
+                return v20;
+            }
         }
+        v10 = 0;
+        v11 = *((v18 + 8) as &i128);
+        v12 = 1;
+        v6 = &v10;
+        v7 = <os_display::Quoted as core::fmt::Display>::fmt;
+        v0 = "cannot open ";
+        v1 = 2;
+        v4 = 0;
+        v2 = &v6;
+        v3 = 1;
+        v0 = core::option::Option<T>::map_or_else(a2);
+        v0 = struct28 {
+            field_0: v8
+            field_16: v9
+            field_24: 1
+        };
+        v21 = alloc::boxed::Box<T>::new(&v0);
+    } else {
+        <T as alloc::slice::hack::ConvertVec>::to_vec("division by zero", a3);
+        v13 = struct28 {
+            field_0: <UNKNOWN>
+            field_16: <UNKNOWN>
+            field_24: 1
+        };
+        v16 = alloc::boxed::Box<T>::new(&v13);
+LABEL_4ae057:
+        v21 = v16;
     }
-    return v19;
+    return v21;
 }

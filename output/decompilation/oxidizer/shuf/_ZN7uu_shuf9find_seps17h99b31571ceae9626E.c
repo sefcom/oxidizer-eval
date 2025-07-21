@@ -3,7 +3,7 @@ fn uu_shuf::find_seps(a1: i64) -> : struct8 {
     let v0: u32;  // [bp-0x68]
     let v1: u32;  // [bp-0x64]
     let v2: u64;  // [bp-0x58]
-    let v3: u200;  // [bp-0x50]
+    let v3: struct32;  // [bp-0x50]
     let v4: u8;  // [bp-0x38]
     let v6: i64;  // rdi
     let v7: u64;  // r14
@@ -17,7 +17,7 @@ fn uu_shuf::find_seps(a1: i64) -> : struct8 {
     let v16: void*;  // r15
     let v17: u64;  // rdx
     let v18: i64;  // rdi
-    let v20: u64;  // rax
+    let v20: alloc::vec::Vec<u8, alloc::alloc::Global>;  // rax
     let v21: core::option::Option<usize>;  // rax:rdx
 
     v0 = a0;
@@ -39,6 +39,12 @@ fn uu_shuf::find_seps(a1: i64) -> : struct8 {
         if let Some(_) = v21 {
             v2 = v10;
             v13 = alloc::vec::Vec<T,A>::swap_remove(v9, v10);
+            v3 = struct32 {
+                field_0: v13
+                field_8: v13
+                field_16: v13 + v14
+                field_24: v0 as u8
+            };
             v3 = struct25 {
                 field_0: v13
                 field_8: v13

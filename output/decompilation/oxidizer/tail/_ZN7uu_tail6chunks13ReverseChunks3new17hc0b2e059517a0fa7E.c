@@ -1,41 +1,37 @@
-fn uu_tail::chunks::ReverseChunks::new(a0: &struct32, a1: &u32) -> u64 {
-    let v0: u64;  // [sp-0x28]
-    let v1: u64;  // [sp-0x20]
-    let v2: u64;  // [sp-0x18]
-    let v3: u64;  // [sp-0x10]
-    let v4: u64;  // [sp-0x8]
-    let v6: u64;  // r15
-    let v7: u64;  // r14
-    let v8: u64;  // r13
+fn uu_tail::chunks::ReverseChunks::new(a1: i64) -> : struct32 {
+    let a0: &u32;  // rsi
+    let v0: core::result::Result<u64, std::io::error::Error>;  // [bp-0x28]
+    let v1: u64;  // [bp-0x20]
+    let v2: std::sys::os_str::bytes::Buf;  // [bp-0x18]
+    let v3: struct66;  // [bp-0x10]
+    let v4: struct48;  // [bp-0x8]
+    let v6: struct48;  // r15
+    let v7: struct66;  // r14
+    let v8: std::sys::os_str::bytes::Buf;  // r13
     let v9: u64;  // r12
     let v10: u64;  // rbx
-    let v11: u64;  // rdx
-    let v13: u128;  // xmm1
-    let v14: u128;  // xmm1
-    let v15: u128;  // xmm1
-    let v16: u128;  // xmm0
-    let v17: u128;  // xmm0
-    let v18: u128;  // xmm0
-    let v20: u256;  // ymm0
-    let v21: u256;  // ymm0
+    let v13: u64;  // rax
+    let v14: struct24;  // r15
+    let v16: u64;  // xmm0lq
+    let v17: struct24;  // rdx
+    let v18: i64;  // rdi
+    let v19: core::result::Result<u64, std::io::error::Error>;  // rax:rdx
+    let v20: core::result::Result<u64, std::io::error::Error>;  // rax:rdx
 
     v4 = v6;
     v3 = v7;
     v2 = v8;
     v1 = v9;
     v0 = v10;
-    v13 = (core::result::Result<T,E>::unwrap(<std::fs::File as std::io::Seek>::seek(a1, 1, 0), v11, "src/uu/tail/src/chunks.rs") - core::result::Result<T,E>::unwrap(<std::fs::File as std::io::Seek>::seek(a1, 2, 0), v11, "src/uu/tail/src/chunks.rs")) as u64;
-    v14 = BinaryOp InterleaveLOV;
-    v15 = v14 - 0x45300000000000004330000000000000;
-    v16 = v15;
-    v17 = v15 >> 64 CONCAT v16 >> 64;
-    v18 = BinaryOp AddV;
-    v21 = (((v20 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v16) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v17) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v18) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | BinaryOp MulV;
-    ceil(v21);
-    return struct32 {
-        field_0: a1
-        field_8: v12
-        field_16: v25
-        field_24: 0
-    };
+    v20 = <std::fs::File as std::io::Seek>::seek(a0);
+    v13 = core::result::Result<T,E>::unwrap(v20 as i64, *((&v20 as &char + 8) as &i64), "src/uu/tail/src/chunks.rs");
+    v19 = <std::fs::File as std::io::Seek>::seek(a0);
+    v14 = core::result::Result<T,E>::unwrap(v19 as i64, *((&v19 as &char + 8) as &i64), "src/uu/tail/src/chunks.rs") - v13;
+    v16 = BinaryOp MulV;
+    ceil(v16);
+    *(v18 as &&u32) = a0;
+    *((v18 + 8) as &struct24) = v14;
+    *((v18 + 16) as &struct24) = v17;
+    *((v18 + 24) as &i64) = 0;
+    return;
 }

@@ -1,8 +1,8 @@
 fn uu_cp::uu_app(a0: &struct712) -> long long {
-    let v0: u8;  // [bp-0xa70], Other Possible Types: struct584
+    let v0: struct48;  // [bp-0xa70], Other Possible Types: struct584, u8
     let v1: u32;  // [bp-0x828]
     let v2: u32;  // [bp-0x824]
-    let v3: u8;  // [bp-0x820]
+    let v3: struct48;  // [bp-0x820], Other Possible Types: u8
     let v4: u32;  // [bp-0x5d8]
     let v5: u32;  // [bp-0x5d4]
     let v6: u64;  // [bp-0x564]
@@ -11,7 +11,7 @@ fn uu_cp::uu_app(a0: &struct712) -> long long {
     let v9: u64;  // [bp-0x29c]
     let v10: u32;  // [bp-0x294]
     let v11: alloc::string::String;  // [bp-0x290]
-    let v12: struct24;  // [bp-0x278], Other Possible Types: u136
+    let v12: struct24;  // [bp-0x278], Other Possible Types: u64
     let v15: u64;  // rdx
 
     v8 = clap_builder::builder::command::Command::new(uucore::util_name(), v15);
@@ -132,6 +132,11 @@ fn uu_cp::uu_app(a0: &struct712) -> long long {
     };
     v12 = <uucore::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v3);
     clap_builder::builder::arg::Arg::value_parser(&v3, &v0, &v12);
+    v12 = struct24 {
+        field_0: 0
+        field_8: 1
+        field_16: 0
+    };
     v12 = struct17 {
         field_0: 0
         field_8: 1

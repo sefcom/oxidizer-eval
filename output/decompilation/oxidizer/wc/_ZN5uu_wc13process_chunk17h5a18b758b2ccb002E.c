@@ -1,9 +1,9 @@
 fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct16 {
     let a0: i64;  // rdi
     let v0: u64;  // [bp-0x50]
-    let v1: u128;  // [bp-0x40]
-    let v3: void*;  // r13
-    let v5: u64;  // rbp
+    let v1: core::slice::iter::Iter<u8>;  // [bp-0x40], Other Possible Types: struct16
+    let v3: struct32;  // r13
+    let v5: std::fs::File;  // rbp
     let v6: u32;  // edx
     let v7: u32;  // r14d
     let v8: u8;  // bl
@@ -13,6 +13,10 @@ fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct16 {
     let v12: core::option::Option<u32>;  // rax:rax
     let v13: core::option::Option<u32>;  // rax:rax
 
+    v1 = struct16 {
+        field_0: a1
+        field_8: a1 + a2
+    };
     v1 = core::slice::iter::Iter<u8> {
         ptr: core::ptr::non_null::NonNull<u8> {
             pointer: a1
@@ -23,8 +27,9 @@ fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct16 {
     v3 = *(a3 as &i64);
     v12 = core::str::validations::next_code_point(&v1) as u128;
     if let None = v12 {
-        return struct16 {
+        return struct24 {
             field_0: *(a0 as &i64) + a2
+            padding_8: <UNKNOWN>
             field_32: <UNKNOWN>
         };
     }
@@ -41,7 +46,7 @@ fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct16 {
         if v9 - 12 < 2 {
 LABEL_4ba78b:
             v5 = core::cmp::max_by(v3, v5);
-            *((a0 + 32) as &u64) = v5;
+            *((a0 + 32) as &std::fs::File) = v5;
             v3 = 0;
         } else {
             if v9 == 9 {
@@ -52,9 +57,10 @@ LABEL_4ba78b:
             }
             v10 = (v9 < 127 ? 32 <= v9 : (v9 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v9)));
         }
-    } while ((*(a3 as &void*) = v3, v13 = core::str::validations::next_code_point(&v1) as u128, v7 = v6, v13 as i32));
-    return struct16 {
+    } while ((*(a3 as &struct32) = v3, v13 = core::str::validations::next_code_point(&v1) as u128, v7 = v6, v13 as i32));
+    return struct24 {
         field_0: *(a0 as &i64) + a2
+        padding_8: <UNKNOWN>
         field_32: <UNKNOWN>
     };
 }

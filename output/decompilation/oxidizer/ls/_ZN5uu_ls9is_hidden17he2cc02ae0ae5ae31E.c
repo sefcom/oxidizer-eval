@@ -1,5 +1,5 @@
 fn uu_ls::is_hidden(a0: i64) -> long long {
-    let v0: u32;  // [bp-0x40], Other Possible Types: core::result::Result<&str, core::str::error::Utf8Error>
+    let v0: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x40], Other Possible Types: u32
     let v1: u64;  // [bp-0x38]
     let v2: u64;  // [bp-0x30]
     let v3: std::ffi::os_str::OsString;  // [bp-0x28]

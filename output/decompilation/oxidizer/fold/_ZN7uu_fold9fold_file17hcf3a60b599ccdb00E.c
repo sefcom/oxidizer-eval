@@ -7,41 +7,40 @@ fn uu_fold::fold_file(a0: i64, a1: i32, a2: i64) -> long long {
     let v5: i64;  // [bp-0xc8]
     let v6: i64;  // [bp-0xc0]
     let v7: u64;  // [bp-0xa8]
-    let v8: u64;  // [bp-0xa8], Other Possible Types: struct16
+    let v8: struct16;  // [bp-0xa8], Other Possible Types: u64
     let v9: u64;  // [bp-0xa8]
-    let v10: u64;  // [bp-0xa0]
-    let v11: u64;  // [bp-0xa0]
-    let v12: u64;  // [bp-0xa0]
+    let v10: alloc::string::String;  // [bp-0xa0]
+    let v11: alloc::string::String;  // [bp-0xa0]
+    let v12: alloc::string::String;  // [bp-0xa0]
     let v13: u64;  // [bp-0x78]
     let v14: u32;  // [bp-0x64]
     let v15: void*;  // [bp-0x60]
     let v16: u64;  // [bp-0x58]
     let v17: void*;  // [bp-0x50]
     let v18: u64;  // [bp-0x48]
-    let v19: u64;  // [bp-0x40]
-    let v20: i64;  // [bp-0x38]
-    let v22: void*;  // rbx, Other Possible Types: u64
-    let v23: i64;  // r15
-    let v24: i64;  // r13
-    let v27: u32;  // edx
-    let v28: u32;  // ebp
-    let v29: i64;  // r15
-    let v30: i64;  // r12
-    let v31: u64;  // rdi
+    let v19: struct16;  // [bp-0x40]
+    let v21: void*;  // rbx, Other Possible Types: u64
+    let v22: i64;  // r15
+    let v23: i64;  // r13
+    let v26: u32;  // edx
+    let v27: u32;  // ebp
+    let v28: i64;  // r15
+    let v29: i64;  // r12
+    let v30: u64;  // rdi
+    let v31: i64;  // rsi
     let v32: i64;  // rsi
-    let v33: i64;  // rsi
-    let v34: i64;  // r12
-    let v36: i64;  // r15
-    let v37: i64;  // r13
-    let v38: u64;  // rbx
+    let v33: i64;  // r12
+    let v35: i64;  // r15
+    let v36: i64;  // r13
+    let v37: u64;  // rbx
+    let v38: i64;  // rsi
     let v39: i64;  // rsi
-    let v40: i64;  // rsi
-    let v41: i64;  // r13
-    let v43: i64;  // rsi
-    let v44: i64;  // r13
-    let v48: i64;  // rsi
-    let v64: u64;  // rsi
-    let v70: core::option::Option<u32>;  // rax:rax
+    let v40: i64;  // r13
+    let v42: i64;  // rsi
+    let v43: i64;  // r13
+    let v47: i64;  // rsi
+    let v63: u64;  // rsi
+    let v69: core::option::Option<u32>;  // rax:rax
 
     v15 = 0;
     v16 = 1;
@@ -51,26 +50,28 @@ fn uu_fold::fold_file(a0: i64, a1: i32, a2: i64) -> long long {
     v3 = 0;
     v14 = a1;
     v18 = a1;
-    v22 = 0;
+    v21 = 0;
     v13 = "src/uu/fold/src/fold.rs";
-    v23 = 0;
+    v22 = 0;
     loop {
         v8 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(std::io::append_to_string(&v15, a0), a2);
         if v8.field_0 || !v10 {
             break;
         }
-        v19 = v16;
-        v20 = 0 + v16;
-        v70 = core::str::validations::next_code_point(&v19) as u128;
-        v28 = (!v70 as i32 ? 0x110000 : v27);
-        match (v28) {
+        v19 = struct16 {
+            field_0: v16
+            field_8: 0 + v16
+        };
+        v69 = core::str::validations::next_code_point(&v19) as u128;
+        v27 = (!v69 as i32 ? 0x110000 : v26);
+        match (v27) {
             10 => {
                 v4 = v2;
                 v6 = v3;
                 println!("{}", &v4);
                 alloc::string::String::replace_range(&v1, v3, 1, 0);
-                v22 = 0;
-                v23 = v3;
+                v21 = 0;
+                v22 = v3;
                 v7 = v9;
                 v10 = v11;
                 if !v3 {
@@ -86,99 +87,99 @@ fn uu_fold::fold_file(a0: i64, a1: i32, a2: i64) -> long long {
                 break;
             }
             _ => {
-                v29 = v23;
-                if v29 >= a2 {
-                    v30 = v24 + 1;
-                    v31 = v2;
-                    v32 = v3;
-                    if !v22 {
-                        v33 = v32;
+                v28 = v22;
+                if v28 >= a2 {
+                    v29 = v23 + 1;
+                    v30 = v2;
+                    v31 = v3;
+                    if !v21 {
+                        v32 = v31;
                     } else {
-                        v33 = v30;
+                        v32 = v29;
                     }
-                    v34 = v33;
-                    v4 = v31;
-                    v6 = v34;
+                    v33 = v32;
+                    v4 = v30;
+                    v6 = v33;
                     println!("{}", &v4);
-                    alloc::string::String::replace_range(&v1, v34, 1, 0);
-                    v22 = 0;
+                    alloc::string::String::replace_range(&v1, v33, 1, 0);
+                    v21 = 0;
                     v7 = v9;
                     v10 = v11;
-                    v29 = v3;
+                    v28 = v3;
                 }
-                v36 = v29;
-                match (v28) {
+                v35 = v28;
+                match (v27) {
                     8 => {
-                        v23 = v36 - 1;
-                        if v36 < 1 {
-                            v23 = 0;
-                            v37 = v24;
-                            v38 = v22;
+                        v22 = v35 - 1;
+                        if v35 < 1 {
+                            v22 = 0;
+                            v36 = v23;
+                            v37 = v21;
                             break;
                         } else {
-                            v37 = v24;
-                            v38 = v22;
+                            v36 = v23;
+                            v37 = v21;
                             break;
                         }
                     }
                     9 => {
-                        v23 = (v36 & -8) + 8;
-                        v39 = v3;
+                        v22 = (v35 & -8) + 8;
+                        v38 = v3;
                         v8 = v7;
                         v12 = v10;
-                        v40 = v39;
-                        if v23 > a2 {
-                            if v39 {
-                                v41 = v24 + 1;
-                                if !v22 {
-                                    v43 = v39;
+                        v39 = v38;
+                        if v22 > a2 {
+                            if v38 {
+                                v40 = v23 + 1;
+                                if !v21 {
+                                    v42 = v38;
                                 } else {
-                                    v43 = v41;
+                                    v42 = v40;
                                 }
-                                v44 = v43;
+                                v43 = v42;
                                 v5 = v2;
-                                v6 = v44;
+                                v6 = v43;
                                 println!("{}", &v5);
-                                alloc::string::String::replace_range(&v1, v44, 1, 0);
+                                alloc::string::String::replace_range(&v1, v43, 1, 0);
                                 v8 = v9;
                                 v12 = v11;
-                                v40 = v3;
+                                v39 = v3;
                             } else {
                                 v8 = v7;
                                 v12 = v10;
-                                v40 = 0;
+                                v39 = 0;
                             }
                         }
-                        v48 = v40;
+                        v47 = v39;
                         v10 = v12;
                         v7 = v8;
-                        v37 = v48;
-                        v38 = v18;
+                        v36 = v47;
+                        v37 = v18;
                         break;
                     }
                     13 => {
-                        v23 = 0;
-                        v37 = v24;
-                        v38 = v22;
+                        v22 = 0;
+                        v36 = v23;
+                        v37 = v21;
                         break;
                     }
                     _ => {
-                        if v14 as i8 && (v28 <= 32 && !((v0 = 0x100003800, !((*((&v0 as &u8 + ((v28 & 63) as u64 >> 3)) as &i8) as u8 as u64 >> (v28 as u8 & 63 & 7) as u64) as u8 & 1))) || v28 >= 128 && core::unicode::unicode_data::white_space::lookup(v28)) {
-                            v23 = v36 + 1;
-                            v37 = v3;
-                            v38 = 1;
+                        if v14 as i8 && (v27 <= 32 && !((v0 = 0x100003800, !((*((&v0 as &u8 + ((v27 & 63) as u64 >> 3)) as &i8) as u8 as u64 >> (v27 as u8 & 63 & 7) as u64) as u8 & 1))) || v27 >= 128 && core::unicode::unicode_data::white_space::lookup(v27)) {
+                            v22 = v35 + 1;
+                            v36 = v3;
+                            v37 = 1;
                             break;
                         } else {
-                            v23 = v36 + 1;
-                            v37 = v24;
-                            v38 = v22;
+                            v22 = v35 + 1;
+                            v36 = v23;
+                            v37 = v21;
                             break;
                         }
                     }
                 }
-                v22 = v38;
-                v24 = v37;
-                alloc::string::String::push(&v1, v28);
+                v21 = v37;
+                v23 = v36;
+                alloc::string::String::push(&v1, v27);
                 break;
             }
         }
@@ -187,7 +188,7 @@ fn uu_fold::fold_file(a0: i64, a1: i32, a2: i64) -> long long {
         v7 = v9;
         v10 = v11;
 LABEL_4b1df0:
-        alloc::string::String::truncate(v64);
+        alloc::string::String::truncate(v63);
     }
     return v8.field_0;
 }

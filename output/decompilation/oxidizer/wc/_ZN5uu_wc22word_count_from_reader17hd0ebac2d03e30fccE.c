@@ -1,9 +1,9 @@
-fn uu_wc::word_count_from_reader(a1: i32, a2: i64) -> Result<struct48, struct48> {
+fn uu_wc::word_count_from_reader(a1: i32, a2: i64) -> : struct48 {
     let a0: u64;  // rdi
-    let v0: u64;  // [bp-0xc]
+    let v0: core::fmt::rt::Argument;  // [bp-0xc]
     let v2: u8;  // cl
     let v3: u8;  // al
-    let v4: u8;  // dil
+    let v4: struct21;  // dil
     let v5: u8;  // dl
     let v6: u64;  // rdi
     let v7: u64;  // rdi
@@ -20,11 +20,11 @@ fn uu_wc::word_count_from_reader(a1: i32, a2: i64) -> Result<struct48, struct48>
         if !*((a2 + 25) as &i8) {
             if !v5 {
                 if !v4 {
-                    return struct56 {
+                    return struct48 {
                         field_0: uu_wc::count_fast::count_bytes_fast(&v0)
-                        field_8: <UNKNOWN>
-                        field_24: <UNKNOWN>
-                        field_40: <UNKNOWN>
+                        field_8: 0
+                        field_24: 0
+                        field_40: v10
                     };
                 }
                 goto LABEL_4ba0f0;
@@ -50,13 +50,13 @@ fn uu_wc::word_count_from_reader(a1: i32, a2: i64) -> Result<struct48, struct48>
 LABEL_4ba0f0:
                 v9 = a0;
                 if !v2 {
-                    uu_wc::word_count_from_reader_specialized(v9, a1);
+                    uu_wc::word_count_from_reader_specialized(v9, a1 as u64);
                     return;
                 }
                 if !v3 {
-                    uu_wc::word_count_from_reader_specialized(v9, a1);
+                    uu_wc::word_count_from_reader_specialized(v9, a1 as u64);
                 } else {
-                    uu_wc::word_count_from_reader_specialized(v9, a1);
+                    uu_wc::word_count_from_reader_specialized(v9, a1 as u64);
                 }
                 return;
             } else if !v4 {
@@ -65,13 +65,13 @@ LABEL_4ba0f0:
 LABEL_4ba06a:
             v8 = a0;
             if !v2 {
-                uu_wc::word_count_from_reader_specialized(v8, a1);
+                uu_wc::word_count_from_reader_specialized(v8, a1 as u64);
                 return;
             }
             if !v3 {
-                uu_wc::word_count_from_reader_specialized(v8, a1);
+                uu_wc::word_count_from_reader_specialized(v8, a1 as u64);
             } else {
-                uu_wc::word_count_from_reader_specialized(v8, a1);
+                uu_wc::word_count_from_reader_specialized(v8, a1 as u64);
             }
             return;
         }
@@ -82,13 +82,13 @@ LABEL_4ba06a:
 LABEL_4ba092:
             v7 = a0;
             if !v2 {
-                uu_wc::word_count_from_reader_specialized(v7, a1);
+                uu_wc::word_count_from_reader_specialized(v7, a1 as u64);
                 return;
             }
             if !v3 {
-                uu_wc::word_count_from_reader_specialized(v7, a1);
+                uu_wc::word_count_from_reader_specialized(v7, a1 as u64);
             } else {
-                uu_wc::word_count_from_reader_specialized(v7, a1);
+                uu_wc::word_count_from_reader_specialized(v7, a1 as u64);
             }
             return;
         } else if !v4 {
@@ -97,13 +97,13 @@ LABEL_4ba092:
     }
     v6 = a0;
     if !v2 {
-        uu_wc::word_count_from_reader_specialized(v6, a1);
+        uu_wc::word_count_from_reader_specialized(v6, a1 as u64);
         return;
     }
     if !v3 {
-        uu_wc::word_count_from_reader_specialized(v6, a1);
+        uu_wc::word_count_from_reader_specialized(v6, a1 as u64);
     } else {
-        uu_wc::word_count_from_reader_specialized(v6, a1);
+        uu_wc::word_count_from_reader_specialized(v6, a1 as u64);
     }
     return;
 }

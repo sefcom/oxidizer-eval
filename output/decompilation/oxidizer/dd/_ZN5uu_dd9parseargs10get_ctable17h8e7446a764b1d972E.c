@@ -12,7 +12,7 @@ fn uu_dd::parseargs::get_ctable(a0: i8, a1: i8) -> long long {
         } else if a0 == 1 {
             return &g_423725;
         } else {
-            return &g_423625;
+            return &g_423525;
         }
     }
 }

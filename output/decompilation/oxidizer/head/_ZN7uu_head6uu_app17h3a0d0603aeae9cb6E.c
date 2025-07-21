@@ -10,7 +10,7 @@ fn uu_head::uu_app(a0: &struct712) -> long long {
     let v8: i8;  // [bp-0x2ec]
     let v9: u64;  // [bp-0x27c]
     let v10: u32;  // [bp-0x274]
-    let v11: u256;  // [bp-0x270]
+    let v11: struct32;  // [bp-0x270]
     let v12: u32;  // [bp-0x28]
     let v13: u32;  // [bp-0x24]
     let v16: u64;  // rdx
@@ -34,6 +34,12 @@ fn uu_head::uu_app(a0: &struct712) -> long long {
         field_16: &g_41ddb7
         field_24: 5
     };
+    v11 = struct32 {
+        field_0: &g_41dd3c
+        field_8: 5
+        field_16: &g_41ddb7
+        field_24: 5
+    };
     clap_builder::builder::arg::Arg::overrides_with_all(&v0, &v6, &v11);
     memcpy(&v11, &v0, 584);
     v12 = v1 | 32;
@@ -44,6 +50,12 @@ fn uu_head::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::arg::Arg::long(&v3, &v0, "lines");
     clap_builder::builder::arg::Arg::value_name(&v0, &v3);
     clap_builder::builder::arg::Arg::help(&v3, &v0, "print the first NUM lines instead of the first 10;\nwith the leading '-', print all but the last\nNUM lines of each file");
+    v11 = struct32 {
+        field_0: &g_41ddb7
+        field_8: 5
+        field_16: &g_41dd3c
+        field_24: 5
+    };
     v11 = struct32 {
         field_0: &g_41ddb7
         field_8: 5
@@ -66,6 +78,12 @@ fn uu_head::uu_app(a0: &struct712) -> long long {
         field_16: &g_41de37
         field_24: 5
     };
+    v11 = struct32 {
+        field_0: &g_41de6c
+        field_8: 7
+        field_16: &g_41de37
+        field_24: 5
+    };
     clap_builder::builder::arg::Arg::overrides_with_all(&v0, &v6, &v11);
     clap_builder::builder::arg::Arg::action(&v11, &v0, 2);
     clap_builder::builder::command::Command::arg(&v6, &v3, &v11);
@@ -73,6 +91,12 @@ fn uu_head::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::arg::Arg::short(&v0, &v3, 118);
     clap_builder::builder::arg::Arg::long(&v3, &v0, "verbose");
     clap_builder::builder::arg::Arg::help(&v0, &v3, "always print headers giving file names");
+    v11 = struct32 {
+        field_0: &g_41de37
+        field_8: 5
+        field_16: &g_41de6c
+        field_24: 7
+    };
     v11 = struct32 {
         field_0: &g_41de37
         field_8: 5

@@ -1,21 +1,14 @@
 fn uu_od::prn_char::format_item_c(a1: i64, a2: i64) -> : struct24 {
     let a0: u64;  // rdi
     let v0: u8;  // [bp-0xa9]
-    let v1: struct24;  // [bp-0xa8]
-    let v2: struct24;  // [bp-0xa0]
-    let v3: u448;  // [bp-0x98]
+    let v1: Result<struct56, struct16>;  // [bp-0xa8]
+    let v3: struct56;  // [bp-0x98], Other Possible Types: u64
     let v4: u64;  // [bp-0x98]
     let v5: u64;  // [bp-0x90]
     let v6: i64;  // [bp-0x78]
     let v7: u64;  // [bp-0x70]
-    let v8: u64;  // [bp-0x68], Other Possible Types: struct25
-    let v9: alloc::vec::Vec<u8, alloc::alloc::Global>;  // [bp-0x58]
-    let v10: struct48;  // [bp-0x50]
-    let v11: Result<struct99, struct24>;  // [bp-0x48]
-    let v12: u64;  // [bp-0x40]
-    let v13: u8;  // [bp-0x38]
+    let v8: core::fmt::Arguments;  // [bp-0x68], Other Possible Types: u64
     let v14: &[u8];  // [bp-0x30], Other Possible Types: core::result::Result<&str, core::str::error::Utf8Error>
-    let v16: u8;  // [bp-0x18]
     let v18: u64;  // rax
     let v19: u64;  // rax
     let v20: u8;  // cl
@@ -44,18 +37,6 @@ LABEL_4d57dd:
             goto LABEL_4d57dd;
         }
         v14 = core::str::converts::from_utf8(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v23, a1, a2, v21), a2);
-        if let Ok(_) = v14 {
-            memcpy(&v16, &v14, 16);
-            v1 = &v16 as u128;
-            v2 = <&T as core::fmt::Display>::fmt;
-            v8 = 2;
-            v9 = 0;
-            v10 = 4;
-            v11 = 0;
-            v12 = 32;
-            v13 = 1;
-            v27 = &g_40dad0;
-        }
         v4 = v27;
         v5 = 1;
         v6 = &v8;

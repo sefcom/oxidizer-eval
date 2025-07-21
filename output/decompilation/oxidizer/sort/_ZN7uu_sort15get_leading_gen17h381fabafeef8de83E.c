@@ -1,5 +1,5 @@
 fn uu_sort::get_leading_gen(a0: i64, a1: i64) -> long long {
-    let v0: struct16;  // [bp-0x88], Other Possible Types: core::option::Option<&str>, u64
+    let v0: core::option::Option<&str>;  // [bp-0x88], Other Possible Types: struct32, struct16
     let v1: u64;  // [bp-0x80]
     let v2: u64;  // [bp-0x78]
     let v3: u64;  // [bp-0x70]
@@ -7,7 +7,7 @@ fn uu_sort::get_leading_gen(a0: i64, a1: i64) -> long long {
     let v5: u64;  // [bp-0x60]
     let v6: void*;  // [bp-0x58]
     let v7: u64;  // [bp-0x50]
-    let v8: u192;  // [bp-0x48]
+    let v8: struct24;  // [bp-0x48]
     let v10: i64;  // r12
     let v11: u64;  // rax
     let v12: i64;  // rax

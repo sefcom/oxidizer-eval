@@ -1,17 +1,17 @@
 fn uu_ls::return_total(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> long long {
     let v0: i64;  // [bp-0xc0]
-    let v1: u64;  // [bp-0xb0], Other Possible Types: struct_2 *
+    let v1: core::fmt::Arguments;  // [bp-0xb0], Other Possible Types: struct_2 *
     let v2: u64;  // [bp-0xa8]
     let v3: u64;  // [bp-0xa0]
     let v4: u64;  // [bp-0x98]
-    let v5: core::result::Result<alloc::string::String, std::env::VarError>;  // [bp-0x90], Other Possible Types: u320
+    let v5: core::result::Result<alloc::string::String, std::env::VarError>;  // [bp-0x90], Other Possible Types: struct40
     let v6: core::result::Result<alloc::string::String, std::env::VarError>;  // [bp-0x88]
     let v7: u8;  // [bp-0x60]
     let v8: u64;  // [bp-0x50]
     let v9: u8;  // [bp-0x48]
     let v11: alloc::raw_vec::Cap;  // rax
     let v12: std::ffi::os_str::OsString;  // r12
-    let v13: alloc::string::String;  // rax
+    let v13: core::result::Result<core::ptr::non_null::NonNull<[u8]>, core::alloc::AllocError>;  // rax
     let v14: u64;  // rdx
 
     v5 = a1;
@@ -26,8 +26,8 @@ fn uu_ls::return_total(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> long long
     }
     if *((a3 + 238) as &i8) {
         v13 = uu_ls::dired::indent(a4);
-        if v13 {
-            *((v0 + 8) as &alloc::string::String) = v13;
+        if let Ok(_) = v13 {
+            *((v0 + 8) as &core::result::Result<core::ptr::non_null::NonNull<[u8]>, core::alloc::AllocError>) = v13;
             *((v0 + 16) as &u64) = v14;
             *(v0 as &i64) = 0x8000000000000000;
             return 0x8000000000000000;

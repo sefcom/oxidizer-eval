@@ -1,4 +1,4 @@
-fn uu_base32::base_common::handle_input(a0: &struct16, a1: i8, a2: &struct32) -> long long {
+fn uu_base32::base_common::handle_input(a0: &struct16, a1: i8, a2: &struct48) -> long long {
     let v0: std::io::stdio::StderrLock;  // [bp-0x38]
     let v1: std::io::stdio::Stdout;  // [bp-0x30]
     let v3: u64;  // r15

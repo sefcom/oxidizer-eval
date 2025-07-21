@@ -5,7 +5,7 @@ fn uu_rm::remove_file(a0: i64, a1: i64, a2: i8, a3: i8) -> long long {
     let v3: u8;  // [bp-0x60]
     let v4: u8;  // [bp-0x58]
     let v5: i8;  // [bp-0x50]
-    let v6: u64;  // [bp-0x38]
+    let v6: core::fmt::rt::Argument;  // [bp-0x38]
     let v8: core::result::Result<(), std::io::error::Error>;  // rax
     let v9: u64;  // rdx
     let v10: u64;  // rdx

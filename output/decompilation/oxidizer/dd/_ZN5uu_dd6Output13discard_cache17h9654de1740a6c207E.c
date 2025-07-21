@@ -1,5 +1,5 @@
 fn uu_dd::Output::discard_cache(a0: i64, a1: i32, a2: i32) -> int {
-    let v0: u64;  // [bp-0x78]
+    let v0: core::fmt::rt::Argument;  // [bp-0x78]
     let v1: u64;  // [bp-0x68]
     let v2: i64;  // [bp-0x60]
     let v4: u64;  // rax

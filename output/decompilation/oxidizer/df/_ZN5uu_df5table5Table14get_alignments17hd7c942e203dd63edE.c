@@ -1,6 +1,6 @@
 fn uu_df::table::Table::get_alignments(a0: &struct24, a1: i64, a2: i64) -> long long {
     let v0: u32;  // [bp-0x168]
-    let v1: struct24;  // [bp-0x48]
+    let v1: void*;  // [bp-0x48]
     let v2: struct16;  // [bp-0x48]
     let v3: u64;  // [bp-0x40]
     let v4: void*;  // [bp-0x38]

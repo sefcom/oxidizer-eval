@@ -1,11 +1,11 @@
 fn uu_env::variable_parser::VariableParser::parse_unbraced_variable_name(a1: i64) -> : struct40 {
     let a0: u64;  // rdi
-    let v0: i8;  // [bp-0x48], Other Possible Types: u128
+    let v0: struct16;  // [bp-0x48], Other Possible Types: char
     let v1: u128;  // [bp-0x38]
     let v2: i8;  // [bp-0x28]
     let v4: u64;  // r12
     let v5: void*;  // rdx
-    let v6: u32;  // eax
+    let v6: struct40;  // eax
 
     v4 = *((a1 + 32) as &i64);
     uu_env::variable_parser::VariableParser::check_variable_name_start(a1, v5);
@@ -38,8 +38,13 @@ fn uu_env::variable_parser::VariableParser::parse_unbraced_variable_name(a1: i64
             field_0: v4
             field_8: *((a1 + 32) as &i64)
         };
+        v0 = struct16 {
+            field_0: v4
+            field_8: *((a1 + 32) as &i64)
+        };
         return struct24 {
             field_0: 8
+            padding_4: <UNKNOWN>
             field_8: uu_env::string_parser::StringParser::substring(a1, &v0)
             field_16: v5
         };
@@ -47,6 +52,7 @@ fn uu_env::variable_parser::VariableParser::parse_unbraced_variable_name(a1: i64
     <T as alloc::slice::hack::ConvertVec>::to_vec(a0 + 16, "Missing variable name");
     return struct16 {
         field_0: 4
+        padding_4: <UNKNOWN>
         field_8: v4
     };
 }

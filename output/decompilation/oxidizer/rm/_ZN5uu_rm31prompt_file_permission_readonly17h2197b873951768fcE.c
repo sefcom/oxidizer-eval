@@ -1,12 +1,12 @@
 fn uu_rm::prompt_file_permission_readonly(a0: i64, a1: i64) -> long long {
     let v1: u64;  // [bp-0x108]
-    let v2: u64;  // [bp-0x100], Other Possible Types: core::result::Result<(), std::io::error::Error>
+    let v2: core::fmt::Arguments;  // [bp-0x100], Other Possible Types: core::result::Result<(), std::io::error::Error>, u64
     let v3: u64;  // [bp-0xf8]
     let v4: u8;  // [bp-0xf0]
-    let v5: u64;  // [bp-0xe8]
+    let v5: std::io::stdio::Stderr;  // [bp-0xe8]
     let v6: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xe0]
     let v8: u32;  // ebp
-    let v9: u64;  // rdx
+    let v9: core::fmt::Arguments;  // rdx
     let v10: u64;  // rdx
 
     v6 = std::fs::metadata(a0, a1);

@@ -1,18 +1,18 @@
-fn uu_split::platform::unix::WithEnvVarSet::new(a0: &struct56, a1: u64, a2: u64) -> int {
-    let v0: Result<struct24, struct8>;  // [sp-0x58]
-    let v1: struct24;  // [sp-0x38]
-    let v3: iNone;  // xmm0
-    let v4: iNone;  // xmm0
+fn uu_split::platform::unix::WithEnvVarSet::new(a1: i64, a2: i64) -> : struct56 {
+    let a0: i64;  // rdi
+    let v0: core::result::Result<alloc::string::String, std::env::VarError>;  // [bp-0x58]
+    let v1: u128;  // [bp-0x48]
+    let v2: struct24;  // [bp-0x38]
+    let v4: u64;  // rax
 
     v0 = std::env::var("FILE");
     std::env::set_var("FILE", a1, a2);
-    v1 = <T as alloc::slice::hack::ConvertVec>::to_vec("FILE");
-    v3 = *(&v1.field_0 as &i128);
-    v4 = v0 as i128;
+    v2 = <T as alloc::slice::hack::ConvertVec>::to_vec("FILE");
+    v4 = v2.field_16;
     return struct56 {
-        field_0: v4
-        field_16: *((&v0 as &char + 16) as &i128)
-        field_32: v3
-        field_48: v1.field_16
+        field_0: v0 as i128
+        field_16: v1
+        field_32: *(&v2.field_0 as &i128)
+        field_48: v4
     };
 }

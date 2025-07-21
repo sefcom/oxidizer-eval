@@ -1,4 +1,4 @@
-fn uu_realpath::canonicalize_relative_option(a1: i64, a2: i8, a3: i8) -> Result<struct24, struct24> {
+fn uu_realpath::canonicalize_relative_option(a1: &struct24, a2: i8, a3: i8) -> : struct24 {
     let a0: i64;  // rsi
     let v0: u128;  // [bp-0x78]
     let v1: u64;  // [bp-0x70]

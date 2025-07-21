@@ -1,59 +1,66 @@
-fn uu_pr::get_formatted_line_number(a0: &struct24, a1: &u64, a2: u32, a3: u32) -> u64 {
-    let v0: i64;  // [sp-0x160]
-    let v1: i64;  // [bp-0x158], Other Possible Types: struct40
-    let v2: i64;  // [sp-0x150]
-    let v3: i64;  // [sp-0x148]
-    let v4: i64;  // [sp-0x140]
-    let v5: i64;  // [sp-0x138]
-    let v6: i64;  // [sp-0x130]
-    let v7: i64;  // [sp-0x128]
-    let v8: i64;  // [sp-0x120]
-    let v9: i64;  // [sp-0x118]
-    let v10: i64;  // [sp-0x110]
-    let v11: i64;  // [sp-0x108]
-    let v12: i64;  // [sp-0x100]
-    let v13: i64;  // [sp-0xf8]
-    let v14: i64;  // [sp-0xf0]
-    let v15: i64;  // [sp-0xe0]
-    let v16: i64;  // [sp-0xd8]
-    let v17: i64;  // [sp-0xd0]
-    let v18: i64;  // [sp-0xc8]
-    let v19: i8;  // [sp-0xc0]
-    let v20: i64;  // [sp-0xb8]
-    let v21: i64;  // [sp-0xa8]
-    let v22: i64;  // [sp-0x98]
-    let v23: i64;  // [sp-0x90]
-    let v24: i8;  // [sp-0x88]
-    let v25: struct24;  // [sp-0x80]
-    let v26: i64;  // [sp-0x68]
-    let v27: i64;  // [sp-0x60]
-    let v28: struct24;  // [sp-0x58]
-    let v29: struct24;  // [sp-0x40]
-    let v32: i64;  // rax
-    let v33: i64;  // r13
-    let v34: i64;  // r14
-    let v36: i64;  // rdx
-    let v37: i64;  // rax
+fn uu_pr::get_formatted_line_number(a1: i64, a2: i64, a3: i64) -> Result<struct24, struct24> {
+    let a0: i64;  // rsi
+    let v0: u64;  // [bp-0x160]
+    let v1: alloc::string::String;  // [bp-0x158], Other Possible Types: struct24, u64
+    let v2: Result<struct32, struct32>;  // [bp-0x150], Other Possible Types: u64
+    let v3: i64;  // [bp-0x148], Other Possible Types: struct32
+    let v4: (usize, std::backtrace_rs::symbolize::gimli::Mapping);  // [bp-0x140], Other Possible Types: u64
+    let v5: i64;  // [bp-0x138], Other Possible Types: struct32
+    let v6: Result<struct32, struct32>;  // [bp-0x130], Other Possible Types: u64
+    let v7: i64;  // [bp-0x128]
+    let v8: u64;  // [bp-0x120]
+    let v9: i64;  // [bp-0x118]
+    let v10: u64;  // [bp-0x110]
+    let v11: u64;  // [bp-0x108]
+    let v12: void*;  // [bp-0x100]
+    let v13: u64;  // [bp-0xf8]
+    let v14: u64;  // [bp-0xf0]
+    let v15: u64;  // [bp-0xe0]
+    let v16: u64;  // [bp-0xd8]
+    let v17: void*;  // [bp-0xd0]
+    let v18: u64;  // [bp-0xc8]
+    let v19: u8;  // [bp-0xc0]
+    let v20: u64;  // [bp-0xb8]
+    let v21: u64;  // [bp-0xa8]
+    let v22: u64;  // [bp-0x98]
+    let v23: u64;  // [bp-0x90]
+    let v24: struct40;  // [bp-0x88], Other Possible Types: u8
+    let v25: struct24;  // [bp-0x80]
+    let v26: u64;  // [bp-0x78]
+    let v27: u64;  // [bp-0x70]
+    let v28: u64;  // [bp-0x68]
+    let v29: u64;  // [bp-0x60]
+    let v30: u8;  // [bp-0x58]
+    let v31: u8;  // [bp-0x40]
+    let v33: i64;  // rdi
+    let v34: u64;  // r13
+    let v35: u64;  // r14
+    let v36: u64;  // r14
+    let v37: i64;  // rbx
+    let v38: core::option::Option<&str>;  // rax
+    let v39: u64;  // rdx
+    let v40: i64;  // rdi
 
-    v13 = a2;
-    if *((a1 + 216) as &i64) != 0x8000000000000000 {
-        if !*((a1 + 16) as &i64) {
-            if !(!a2) {
+    v13 = a1;
+    if *((a0 + 216) as &i64) != 0x8000000000000000 {
+        if *((a0 + 16) as &i64) {
+            if a1 && !a2 {
                 goto LABEL_5c85ec;
             }
         } else {
-            if a2 && !a3 {
+            if a1 {
 LABEL_5c85ec:
                 v25 = <T as alloc::string::ToString>::to_string(&v13);
-                v33 = *((a1 + 240) as &i64);
-                v0 = a1 + 216;
-                v34 = v25.field_16;
-                if v34 < v33 {
+                v34 = *((a0 + 240) as &i64);
+                v0 = a0 + 216;
+                v35 = v27;
+                v36 = v35 - v34;
+                if v35 < v34 {
                     v7 = &v25;
                     v8 = <alloc::string::String as core::fmt::Display>::fmt;
                     v9 = &v0;
                     v10 = <&T as core::fmt::Display>::fmt;
-                    v11 = v33;
+                    v11 = v34;
                     v12 = 0;
                     v14 = 2;
                     v15 = 1;
@@ -66,51 +73,52 @@ LABEL_5c85ec:
                     v22 = 1;
                     v23 = 32;
                     v24 = 3;
-                    v1 = struct40 {
-                        field_0: &g_46bf10
-                        field_8: 2
-                        field_16: &v7
-                        field_24: 3
-                        field_32: &v14
-                    };
+                    v1 = &g_46bf10.vec.buf.cap.__0;
+                    v2 = 2;
+                    v5 = &v14;
                     v6 = 2;
-                    v29 = core::option::Option<T>::map_or_else(&v1);
-                    v32 = v37;
-                    return v32;
+                    v3 = &v7;
+                    v4 = 3;
+                    v37 = &v31;
+                    v1 = core::option::Option<T>::map_or_else(a1);
+                } else {
+                    v38 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v36, v26, v35) as u64;
+                    v28 = v38;
+                    v29 = v39;
+                    v7 = &v28;
+                    v8 = <&T as core::fmt::Display>::fmt;
+                    v9 = &v0;
+                    v10 = <&T as core::fmt::Display>::fmt;
+                    v11 = v34;
+                    v12 = 0;
+                    v14 = 2;
+                    v15 = 1;
+                    v16 = 2;
+                    v17 = 0;
+                    v18 = 32;
+                    v19 = 1;
+                    v20 = 2;
+                    v21 = 2;
+                    v22 = 1;
+                    v23 = 32;
+                    v24 = 3;
+                    v1 = &g_46bf10.vec.buf.cap.__0;
+                    v2 = 2;
+                    v5 = &v14;
+                    v6 = 2;
+                    v3 = &v7;
+                    v4 = 3;
+                    v37 = &v30;
+                    v1 = core::option::Option<T>::map_or_else(a1);
                 }
-                v26 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v34 - v33, *((&v25.field_0 as &char + 8) as &i64), v34);
-                v27 = v36;
-                v7 = &v26;
-                v8 = <&T as core::fmt::Display>::fmt;
-                v9 = &v0;
-                v10 = <&T as core::fmt::Display>::fmt;
-                v11 = v33;
-                v12 = 0;
-                v14 = 2;
-                v15 = 1;
-                v16 = 2;
-                v17 = 0;
-                v18 = 32;
-                v19 = 1;
-                v20 = 2;
-                v21 = 2;
-                v22 = 1;
-                v23 = 32;
-                v24 = 3;
-                v1 = &g_46bf10;
-                v2 = 2;
-                v5 = &v14;
-                v6 = 2;
-                v3 = &v7;
-                v4 = 3;
-                v28 = core::option::Option<T>::map_or_else(&v1);
-                return v32;
+                *((v40 + 16) as &i64) = *((v37 + 16) as &i64);
+                *(v40 as &i128) = *(v37 as &i128);
+                return;
             }
         }
     }
-    *(a0 as &i64) = 0;
-    *((a0 + 8) as &i64) = 1;
-    *((a0 + 16) as &i64) = 0;
-    v32 = 0x8000000000000000;
-    return v32;
+    *(v33 as &i64) = 0;
+    *((v33 + 8) as &i64) = 1;
+    *((v33 + 16) as &i64) = 0;
+    return;
 }

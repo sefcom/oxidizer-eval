@@ -1,16 +1,16 @@
 fn uu_join::get_field_number(a1: i64, a2: i64, a3: i64, a4: i64) -> Result<struct16, struct16> {
     let a0: u64;  // rsi
     let v0: core::option::Option<u32>;  // [bp-0x90]
-    let v1: u64;  // [bp-0x88]
+    let v1: struct8;  // [bp-0x88]
     let v2: i64;  // [bp-0x80]
     let v3: u64;  // [bp-0x78]
     let v4: i64;  // [bp-0x70]
     let v5: u64;  // [bp-0x68]
-    let v6: struct8;  // [bp-0x60], Other Possible Types: struct24
+    let v6: struct24;  // [bp-0x60], Other Possible Types: struct48
     let v7: struct8;  // [bp-0x58]
     let v8: struct8;  // [bp-0x50]
     let v9: struct8;  // [bp-0x48]
-    let v10: struct48;  // [bp-0x40]
+    let v10: void*;  // [bp-0x40]
     let v11: u8;  // [bp-0x30]
     let v13: u64;  // [bp-0x10]
     let v14: u64;  // [bp-0x8]

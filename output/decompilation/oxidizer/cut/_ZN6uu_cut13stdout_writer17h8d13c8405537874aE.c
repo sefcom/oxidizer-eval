@@ -1,5 +1,5 @@
 fn uu_cut::stdout_writer() -> long long {
-    let v0: std::io::stdio::Stdout;  // [bp-0x30], Other Possible Types: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>
+    let v0: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>;  // [bp-0x30], Other Possible Types: std::io::stdio::Stdout
 
     v0 = std::io::stdio::stdout();
     if std::sys::pal::unix::io::is_terminal() {

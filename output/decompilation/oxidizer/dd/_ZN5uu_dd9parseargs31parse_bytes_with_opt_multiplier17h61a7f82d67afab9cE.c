@@ -8,7 +8,7 @@ fn uu_dd::parseargs::parse_bytes_with_opt_multiplier(a1: i64, a2: i64) -> : stru
     let v5: u64;  // [bp-0xb0]
     let v6: u128;  // [bp-0xa8]
     let v7: struct32;  // [bp-0x98]
-    let v8: u128;  // [bp-0x78]
+    let v8: struct16;  // [bp-0x78]
     let v9: core::str::pattern::CharSearcher;  // [bp-0x68]
     let v10: u16;  // [bp-0x38]
     let v12: u64;  // r9

@@ -1,18 +1,18 @@
 fn uu_env::string_parser::StringParser::consume_one_ascii_or_all_non_ascii(a0: i64, a1: i64) -> long long {
     let v0: i64;  // [bp-0x78]
     let v1: void*;  // [bp-0x70]
-    let v2: u128;  // [bp-0x70], Other Possible Types: struct16
-    let v3: u64;  // [bp-0x68]
-    let v4: void*;  // [bp-0x60]
+    let v2: struct16;  // [bp-0x70], Other Possible Types: u128
+    let v3: core::fmt::Arguments;  // [bp-0x68]
+    let v4: core::fmt::rt::Argument;  // [bp-0x60]
     let v5: u64;  // [bp-0x58]
     let v6: u64;  // [bp-0x50]
     let v7: u8;  // [bp-0x48]
     let v8: u24;  // [bp-0x47]
-    let v9: u32;  // [bp-0x44]
-    let v10: u64;  // [bp-0x40]
-    let v11: u8;  // [bp-0x38]
+    let v9: core::fmt::Arguments;  // [bp-0x44]
+    let v10: core::fmt::rt::Argument;  // [bp-0x40]
+    let v11: struct32;  // [bp-0x38]
     let v12: u32;  // [bp-0x37]
-    let v13: u32;  // [bp-0x34]
+    let v13: struct16;  // [bp-0x34]
     let v15: void*;  // rdx
     let v16: void*;  // rdx
 
@@ -35,7 +35,7 @@ fn uu_env::string_parser::StringParser::consume_one_ascii_or_all_non_ascii(a0: i
             v2 = alloc::vec::Vec<T,A>::push(&v10);
         } else {
             v2 = alloc::vec::Vec<T,A>::push(&v10);
-            if *(&v11 as &i32) < 128 {
+            if v11.field_0 as i32 < 128 {
                 break;
             }
         }

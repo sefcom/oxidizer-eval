@@ -1,61 +1,56 @@
-fn uu_tail::uu_tail(a0: &u64) -> u64 {
-    let v0: i64;  // [sp-0x1a8]
-    let v1: i8;  // [sp-0x19a]
-    let v2: i8;  // [sp-0x199]
-    let v3: iNone;  // [sp-0x198]
-    let v4: i64;  // [sp-0x188]
-    let v5: struct24;  // [sp-0x178]
-    let v6: iNone;  // [sp-0x160]
-    let v7: struct119;  // [sp-0x150]
-    let v8: struct24;  // [sp-0xc0]
-    let v10: i64;  // rax
-    let v11: i64;  // rbp
-    let v12: iNone;  // ymm0
-    let v13: iNone;  // xmm0
-    let v14: i64;  // rax
-    let v15: i64;  // rax
-    let v16: i64;  // rbp
+fn uu_tail::uu_tail(a0: i64) -> long long {
+    let v0: u8;  // [bp-0x19a]
+    let v1: u8;  // [bp-0x199]
+    let v2: u128;  // [bp-0x198]
+    let v3: u64;  // [bp-0x188]
+    let v4: u8;  // [bp-0x178]
+    let v5: u64;  // [bp-0x170]
+    let v6: u64;  // [bp-0x168]
+    let v7: struct16;  // [bp-0x160]
+    let v8: struct119;  // [bp-0x150]
+    let v9: u128;  // [bp-0xc0]
+    let v10: std::sys::os_str::bytes::Buf;  // [bp-0xc0]
+    let v12: core::fmt::Arguments;  // rbp
+    let v13: i64;  // rax
+    let v14: i64;  // rbp
+    let v15: u64;  // rax
 
-    v1 = *((a0 + 74) as &i8);
-    v2 = 1;
-    v7 = uu_tail::follow::watch::Observer::from(a0);
-    if uu_tail::follow::watch::Observer::start(&v7, a0) {
-        return v16;
+    v0 = *((a0 + 74) as &i8);
+    v1 = 1;
+    v8 = uu_tail::follow::watch::Observer::from(a0);
+    v12 = uu_tail::follow::watch::Observer::start(&v8, a0);
+    if v12 {
+        return v12;
     }
-    v5 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(a0 + 24);
-    v6 = *(&v5.field_8 as &i128);
-    v10 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v6);
-    if v10 {
-        v11 = v10;
-        do {
-            if *((v11 + 24) as &i64) == 0x8000000000000000 {
-LABEL_4ffff4:
-                v14 = uu_tail::tail_stdin(a0, &v1, v11, &v7);
-                continue;
+    <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(&v4, a0 + 24);
+    v7 = struct16 {
+        field_0: v5
+        field_8: v6 * 48 + v5
+    };
+    v13 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v7);
+    if v13 {
+        v14 = v13;
+        loop {
+            if *((v14 + 24) as &i64) == 0x8000000000000000 || (v10 = std::sys::os_str::bytes::Slice::to_owned("/dev/stdin"), v3 = v10.inner.len, v2 = *(&v10.inner.buf.cap as &i128) as u128, <std::path::PathBuf as core::cmp::PartialEq>::eq(*((v14 + 32) as &i64), *((v14 + 40) as &i64)) as u8) {
+                v12 = uu_tail::tail_stdin(a0, &v0, v14, &v8);
             } else {
-                v8 = std::sys::os_str::bytes::Slice::to_owned("/dev/stdin");
-                v4 = v8.field_16;
-                v13 = *(&v8.field_0 as &i128);
-                v12 = v12 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v13 as u256;
-                v3 = v13;
-                if !(!<std::path::PathBuf as core::cmp::PartialEq>::eq(*((v11 + 32) as &i64), *((v11 + 40) as &i64), (&v3)[8] as i64, v8.field_16) as i8) {
-                    goto LABEL_4ffff4;
-                }
-                v0 = 0;
-                v14 = uu_tail::tail_file(a0, &v1, v11, *((v11 + 32) as &i64), *((v11 + 40) as &i64), &v7);
+                v12 = uu_tail::tail_file(a0, &v0, v14, *((v14 + 32) as &i64), *((v14 + 40) as &i64), &v8, 0);
             }
-            if v14 {
-                return v16;
+            if v12 {
+                break;
             }
-            v11 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v6);
-        } while (v11);
+            v14 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v7);
+            if !v14 {
+                goto LABEL_500061;
+            }
+        }
     }
-    if !(*((a0 + 76) as &i8) == 2 || uu_tail::args::Settings::has_only_stdin(a0) as i8) {
-        memcpy(&v8, &v7, 144);
-        v15 = uu_tail::follow::watch::follow(&v8, a0);
+LABEL_500061:
+    if *((a0 + 76) as &i8) != 2 && !uu_tail::args::Settings::has_only_stdin(a0) {
+        memcpy(&v9, &v8, 144);
+        v15 = uu_tail::follow::watch::follow(&v9, a0);
         if v15 {
-            v16 = v15;
-            return v16;
+            return v15;
         }
     }
     uucore::mods::error::get_exit_code();

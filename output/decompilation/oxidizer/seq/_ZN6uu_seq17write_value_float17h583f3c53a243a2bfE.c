@@ -1,10 +1,10 @@
 fn uu_seq::write_value_float(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {
-    let v0: u64;  // [bp-0xd8]
+    let v0: core::fmt::Arguments;  // [bp-0xd8], Other Possible Types: u64
     let v6: u8;  // [bp-0xa8]
     let v7: u64;  // [bp-0xa0]
-    let v8: iNone;  // [bp-0x98], Other Possible Types: struct_0 *
+    let v8: core::fmt::rt::Argument;  // [bp-0x98], Other Possible Types: struct_0 *
     let v9: u128;  // [bp-0x98]
-    let v15: u384;  // [bp-0x68]
+    let v15: struct48;  // [bp-0x68]
     let v16: struct24;  // [bp-0x38]
 
     v7 = a1;

@@ -1,7 +1,11 @@
 fn uu_cat::write_to_end(a0: i64, a1: i64, a2: i64) -> long long {
-    let v0: u128;  // [bp-0x28]
+    let v0: struct16;  // [bp-0x28]
     let v3: u32;  // rdx
 
+    v0 = struct16 {
+        field_0: a0
+        field_8: a0 + a1
+    };
     v0 = struct16 {
         field_0: a0
         field_8: a0 + a1

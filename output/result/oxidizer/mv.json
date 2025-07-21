@@ -1,17 +1,17 @@
 {
   "decompilation": {
-    "_ZN5uu_mv6uumain17h93a74df50da19c72E": "fn uu_mv::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_mv::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
-    "_ZN5uu_mv6uumain6uumain17h01b12df543510b6cE": "fn uu_mv::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u8;  // [bp-0x479]\n    let v1: u64;  // [bp-0x478], Other Possible Types: Result<struct56, struct16>, struct56, struct24\n    let v2: u128;  // [bp-0x478], Other Possible Types: Result<struct16, struct9>\n    let v3: Result<struct40, struct16>;  // [bp-0x478]\n    let v4: struct24;  // [bp-0x478]\n    let v5: u64;  // [bp-0x470]\n    let v6: u64;  // [bp-0x468], Other Possible Types: struct_1 *\n    let v7: u32;  // [bp-0x460]\n    let v8: void*;  // [bp-0x458]\n    let v9: u64;  // [bp-0x428]\n    let v10: u64;  // [bp-0x420]\n    let v11: u64;  // [bp-0x418]\n    let v12: u128;  // [bp-0x410]\n    let v13: u64;  // [bp-0x408]\n    let v14: u8;  // [bp-0x400]\n    let v15: u8;  // [bp-0x3f0]\n    let v16: u64;  // [bp-0x3e0]\n    let v17: u208;  // [bp-0x3d8], Other Possible Types: struct24, struct64, struct_0 *\n    let v18: u64;  // [bp-0x3d0]\n    let v20: u64;  // [bp-0x3c8]\n    let v21: u64;  // [bp-0x3a8]\n    let v22: u128;  // [bp-0x398], Other Possible Types: struct24\n    let v23: u64;  // [bp-0x388]\n    let v24: struct24;  // [bp-0x380]\n    let v25: u64;  // [bp-0x378]\n    let v26: u64;  // [bp-0x370]\n    let v27: struct24;  // [bp-0x368]\n    let v28: u64;  // [bp-0x358]\n    let v29: u512;  // [bp-0x350]\n    let v30: u8;  // [bp-0x310]\n    let v31: u8;  // [bp-0x2f8]\n    let v33: u128;  // xmm1\n    let v34: u64;  // r14\n    let v35: u128;  // xmm0\n    let v36: u64;  // rax\n    let v37: void*;  // rdx\n    let v38: u64;  // rdx\n    let v39: u8;  // bl\n    let v40: u8;  // r13b\n    let v41: u64;  // rax\n    let v42: u8;  // al\n    let v43: u8;  // al\n    let v44: u8;  // al\n    let v45: u8;  // al\n\n    uu_mv::uu_app(&v31);\n    v1 = clap_builder::builder::command::Command::try_get_matches_from_mut(&v31, a0, a1);\n    match v1 {\n        Err(_) => {\n            v34 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v13);\n        },\n        Ok(_) => {\n            v16 = *((&v1 as &char + 48) as &i64);\n            v33 = *((&v1 as &char + 32) as &i128);\n            memcpy(&v15, &v1, 16);\n            memcpy(&v14, &v1, 16);\n            v12 = v2;\n            v1 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v12, _ZN5uu_mv9ARG_FILES17h6d8adaf7ec2b89d6E.field_0, g_587d88.field_0);\n            v17 = clap_builder::parser::error::MatchesError::unwrap(_ZN5uu_mv9ARG_FILES17h6d8adaf7ec2b89d6E.field_0, g_587d88.field_0, &v1);\n            v29 = struct64 {\n                field_0: v36\n                field_8: v18\n                field_16: v33\n                field_32: v35\n                field_48: v21\n                field_56: v37\n            };\n            v24 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v29);\n            if v26 == 1 && !clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v12, _ZN5uu_mv20OPT_TARGET_DIRECTORY17h9ab0542800d4ad00E.field_0, g_587d48.field_0) as i8 {\n                v17 = \"files\";\n                v18 = <&T as core::fmt::Display>::fmt;\n                v1 = \"The argument '<\";\n                v5 = 2;\n                v8 = 0;\n                v6 = &v17;\n                v7 = 1;\n                v1 = core::option::Option<T>::map_or_else(v38);\n                v1 = clap_builder::error::Error<F>::format(clap_builder::error::Error<F>::raw(6, &v30), &v31);\n                clap_builder::error::Error<F>::exit(&v1); /* do not return */\n            }\n            v39 = uu_mv::determine_overwrite_mode(&v12) as i32 as i8;\n            v2 = uucore::features::backup_control::determine_backup_mode(&v12);\n            v34 = v2 as i64;\n            if let Err(_) = v2 {\n                v40 = uucore::features::update_control::determine_update_mode(&v12) as i32 as i8;\n                if !*((&v2 as &char + 8) as &i8) || v39 && !(v40 & 1) {\n                    v27 = uucore::features::backup_control::determine_backup_suffix(&v12);\n                    v3 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v12, _ZN5uu_mv20OPT_TARGET_DIRECTORY17h9ab0542800d4ad00E.field_0, g_587d48.field_0);\n                    v41 = clap_builder::parser::error::MatchesError::unwrap(_ZN5uu_mv20OPT_TARGET_DIRECTORY17h9ab0542800d4ad00E.field_0, g_587d48.field_0, &v3);\n                    if v41 {\n                        v4 = core::ops::function::FnOnce::call_once(v41);\n                        v11 = v6;\n                        memcpy(&v9 as u8, &v4, 16);\n                        if v9 == 0x8000000000000000 || std::path::Path::is_dir(v10, v11) as u8 {\n                            goto LABEL_492f77;\n                        }\n                        v17 = struct25 {\n                            field_0: 1\n                            field_8: *(&v10 as &i128)\n                            field_24: 1\n                        };\n                        v22 = <T as alloc::string::ToString>::to_string(&v17);\n                        v1 = struct32 {\n                            field_0: 8\n                            field_8: v22.field_0\n                            field_24: v23\n                        };\n                        v34 = alloc::boxed::Box<T>::new(&v1);\n                    } else {\nLABEL_492f77:\n                        v0 = v40;\n                        v23 = v28;\n                        memcpy(&v22 as u8, &v27, 16);\n                        v20 = v11;\n                        v17 = v9;\n                        v18 = v10;\n                        v42 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v12, _ZN5uu_mv23OPT_NO_TARGET_DIRECTORY17hcc24806db1a5c249E.field_0, g_587d58.field_0) as i32 as i8;\n                        if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v12, _ZN5uu_mv11OPT_VERBOSE17h564b3b5f0c97021dE.field_0, g_587d68.field_0) as i8 {\n                            clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v12, _ZN5uu_mv9OPT_DEBUG17h6ab2aef4c0c3b5ccE.field_0, g_587d98.field_0);\n                        }\n                        v43 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v12, _ZN5uu_mv26OPT_STRIP_TRAILING_SLASHES17h51274aa3e0aeb94eE.field_0, g_587d38.field_0) as i32 as i8;\n                        v44 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v12, _ZN5uu_mv12OPT_PROGRESS17h1c7c0a4244182235E.field_0, g_587d78.field_0) as i32 as i8;\n                        v45 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v12, _ZN5uu_mv9OPT_DEBUG17h6ab2aef4c0c3b5ccE.field_0, g_587d98.field_0) as i8;\n                        v1 = struct56 {\n                            field_0: v22\n                            field_16: v23\n                            field_24: *(&v17 as &i128)\n                            field_40: v20\n                            field_48: v42\n                            field_49: 1\n                            field_50: v43\n                            field_51: v44\n                            field_52: v45\n                            field_53: v39\n                            field_54: *((&v3 as &char + 8) as &i8)\n                            field_55: v0\n                        };\n                        v34 = uu_mv::mv(v25, v26, &v1);\n                    }\n                } else {\n                    v17 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n                    v6 = v20;\n                    v1 = v17.field_0;\n                    v7 = 1;\n                    v34 = alloc::boxed::Box<T>::new(&v2);\n                }\n            }\n        },\n    }\n    return v34;\n}\n",
-    "_ZN5uu_mv6uu_app17hfdaaab3614528530E": "fn uu_mv::uu_app(a0: &struct712) -> long long {\n    let v0: u64;  // [bp-0xa88]\n    let v1: u192;  // [bp-0xa88]\n    let v2: struct584;  // [bp-0xa70], Other Possible Types: u8\n    let v3: u32;  // [bp-0x828]\n    let v4: u32;  // [bp-0x824]\n    let v5: u8;  // [bp-0x820]\n    let v6: u32;  // [bp-0x5d8]\n    let v7: i8;  // [bp-0x5d4]\n    let v8: u64;  // [bp-0x564]\n    let v9: u32;  // [bp-0x55c]\n    let v10: alloc::string::String;  // [bp-0x558]\n    let v11: struct437;  // [bp-0x540]\n    let v12: u64;  // [bp-0x284]\n    let v13: u32;  // [bp-0x27c]\n    let v14: u256;  // [bp-0x278]\n    let v17: u64;  // rdx\n\n    v11 = clap_builder::builder::command::Command::new(uucore::util_name(), v17);\n    clap_builder::builder::command::Command::version(&v5, &v11, \"0.0.28\");\n    clap_builder::builder::command::Command::about(&v11, &v5, \"Move `SOURCE` to `DEST`, or multiple `SOURCE`(s) to `DIRECTORY`.\");\n    uucore::format_usage(&v2, \"{} [OPTION]... [-T] SOURCE DEST\\n{} [OPTION]... SOURCE... DIRECTORY\\n{} [OPTION]... -t DIRECTORY SOURCE...\");\n    clap_builder::builder::command::Command::override_usage(&v5, &v11, &v2);\n    v10 = format!(\"{}\\n\\n{}\", \"When specifying more than one of -i, -f, -n, only the final one will take effect.\\n\\nDo not move a non-directory that has an existing destination with the same or newer modification timestamp;\\ninstead, silently skip the file without failing. If the move is across file system boundaries, the comparison is\\nto the source timestamp truncated to the resolutions of the destination file system and of the system calls used\\nto update timestamps; this avoids duplicate work if several mv -u commands are executed with the same source\\nand destination. This option is ignored if the -n or --no-clobber option is also specified. which gives more control\\nover which existing files in the destination are replaced, and its value can be one of the following:\\n\\n* all    This is the default operation when an --update option is not specified, and results in all existing files in the destination being replaced.\\n* none   This is similar to the --no-clobber option, in that no files in the destination are replaced, but also skipping a file does not induce a failure.\\n* older  This is the default operation when --update is specified, and results in files being replaced if they\u2019re older than the corresponding source file.\", \"The backup suffix is '~', unless set with --suffix or SIMPLE_BACKUP_SUFFIX.\\nThe version control method may be selected via the --backup option or through\\nthe VERSION_CONTROL environment variable.  Here are the values:\\n\\n  none, off       never make backups (even if --backup is given)\\n  numbered, t     make numbered backups\\n  existing, nil   numbered if numbered backups exist, simple otherwise\\n  simple, never   always make simple backups\");\n    clap_builder::builder::command::Command::after_help(&v11 as u384, &v5, &v10);\n    memcpy(&v5, &v11 as u384, 700);\n    v8 = 549755814016 | v12;\n    v9 = v13;\n    clap_builder::builder::arg::Arg::new(&v11 as u384, \"force\");\n    clap_builder::builder::arg::Arg::short(&v2, &v11 as u384, 102);\n    clap_builder::builder::arg::Arg::long(&v11 as u384, &v2, \"force\");\n    clap_builder::builder::arg::Arg::help(&v2, &v11 as u384, \"do not prompt before overwriting\");\n    v14 = struct32 {\n        field_0: &g_426231\n        field_8: 11\n        field_16: &g_42623c\n        field_24: 10\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v11 as u384, &v2, &v14);\n    clap_builder::builder::arg::Arg::action(&v2, &v11 as u384, 2);\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v2);\n    clap_builder::builder::arg::Arg::new(&v5, \"interactive\");\n    clap_builder::builder::arg::Arg::short(&v2, &v5, 105);\n    clap_builder::builder::arg::Arg::long(&v5, &v2, \"interactive\");\n    clap_builder::builder::arg::Arg::help(&v2, &v5, \"prompt before override\");\n    v14 = struct32 {\n        field_0: &g_42622c\n        field_8: 5\n        field_16: &g_42623c\n        field_24: 10\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v5, &v2, &v14);\n    clap_builder::builder::arg::Arg::action(&v2, &v5, 2);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v2);\n    clap_builder::builder::arg::Arg::new(&v11 as u384, \"no-clobber\");\n    clap_builder::builder::arg::Arg::short(&v2, &v11 as u384, 110);\n    clap_builder::builder::arg::Arg::long(&v11 as u384, &v2, \"no-clobber\");\n    clap_builder::builder::arg::Arg::help(&v2, &v11 as u384, \"do not overwrite an existing file\");\n    v14 = struct32 {\n        field_0: &g_42622c\n        field_8: 5\n        field_16: &g_426231\n        field_24: 11\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v11 as u384, &v2, &v14);\n    clap_builder::builder::arg::Arg::action(&v2, &v11 as u384, 2);\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v2);\n    clap_builder::builder::arg::Arg::new(&v5, \"strip-trailing-slashes\");\n    clap_builder::builder::arg::Arg::long(&v2, &v5, \"strip-trailing-slashes\");\n    clap_builder::builder::arg::Arg::help(&v5, &v2, \"remove any trailing slashes from each SOURCE argument\");\n    clap_builder::builder::arg::Arg::action(&v2, &v5, 2);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v2);\n    uucore::features::backup_control::arguments::backup(&v2);\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v2);\n    uucore::features::backup_control::arguments::backup_no_args(&v2);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v2);\n    v2 = uucore::features::backup_control::arguments::suffix();\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v2);\n    uucore::features::update_control::arguments::update(&v2);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v2);\n    uucore::features::update_control::arguments::update_no_args(&v2);\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v2);\n    clap_builder::builder::arg::Arg::new(&v5, \"target-directory\");\n    clap_builder::builder::arg::Arg::short(&v2, &v5, 116);\n    clap_builder::builder::arg::Arg::long(&v5, &v2, \"target-directory\");\n    clap_builder::builder::arg::Arg::help(&v2, &v5, \"move all SOURCE arguments into DIRECTORY\");\n    clap_builder::builder::arg::Arg::value_name(&v5, &v2);\n    clap_builder::builder::arg::Arg::value_hint(&v2, &v5, 4);\n    clap_builder::builder::arg::Arg::conflicts_with(&v5, &v2, \"no-target-directory\");\n    v0 = 2;\n    v14 = v1;\n    clap_builder::builder::arg::Arg::value_parser(&v2, &v5, &v14);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v2);\n    clap_builder::builder::arg::Arg::new(&v11 as u384, \"no-target-directory\");\n    clap_builder::builder::arg::Arg::short(&v2, &v11 as u384, 84);\n    clap_builder::builder::arg::Arg::long(&v11 as u384, &v2, \"no-target-directory\");\n    clap_builder::builder::arg::Arg::help(&v2, &v11 as u384, \"treat DEST as a normal file\");\n    clap_builder::builder::arg::Arg::action(&v14, &v2, 2);\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v14);\n    clap_builder::builder::arg::Arg::new(&v5, \"verbose\");\n    clap_builder::builder::arg::Arg::short(&v2, &v5, 118);\n    clap_builder::builder::arg::Arg::long(&v5, &v2, \"verbose\");\n    clap_builder::builder::arg::Arg::help(&v2, &v5, \"explain what is being done\");\n    clap_builder::builder::arg::Arg::action(&v14, &v2, 2);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v14);\n    clap_builder::builder::arg::Arg::new(&v11 as u384, \"progress\");\n    clap_builder::builder::arg::Arg::short(&v2, &v11 as u384, 103);\n    clap_builder::builder::arg::Arg::long(&v11 as u384, &v2, \"progress\");\n    clap_builder::builder::arg::Arg::help(&v2, &v11 as u384, \"Display a progress bar. \\nNote: this feature is not supported by GNU coreutils.\");\n    clap_builder::builder::arg::Arg::action(&v14, &v2, 2);\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v14);\n    clap_builder::builder::arg::Arg::new(&v5, \"files\");\n    clap_builder::builder::arg::Arg::action(&v2, &v5, 1);\n    clap_builder::builder::arg::Arg::num_args(&v5, &v2);\n    memcpy(&v2, &v5, 584);\n    v3 = v6 | 1;\n    v4 = *(&v7 as &i32);\n    clap_builder::builder::arg::Arg::value_parser(&v5, &v2, &v0);\n    clap_builder::builder::arg::Arg::value_hint(&v2, &v5, 2);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v2);\n    clap_builder::builder::arg::Arg::new(&v11 as u384, \"debug\");\n    clap_builder::builder::arg::Arg::long(&v2, &v11 as u384, \"debug\");\n    clap_builder::builder::arg::Arg::help(&v11 as u384, &v2, \"explain how a file is copied. Implies -v\");\n    clap_builder::builder::arg::Arg::action(&v2, &v11 as u384, 2);\n    clap_builder::builder::command::Command::arg(a0, &v5, &v2);\n    return a0;\n}\n",
+    "_ZN5uu_mv6uumain17h93a74df50da19c72E": "fn uu_mv::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: u128;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_mv::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    v3 = *(&v5.vec.buf.cap as &i128);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN5uu_mv6uumain6uumain17h01b12df543510b6cE": "fn uu_mv::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u8;  // [bp-0x479]\n    let v1: struct32;  // [bp-0x478], Other Possible Types: Result<struct56, struct16>, struct24, struct56, u64\n    let v2: struct16;  // [bp-0x478], Other Possible Types: struct56\n    let v3: u64;  // [bp-0x470]\n    let v4: i64;  // [bp-0x468], Other Possible Types: u64\n    let v5: u32;  // [bp-0x460]\n    let v6: void*;  // [bp-0x458]\n    let v7: u64;  // [bp-0x428]\n    let v8: u128;  // [bp-0x428]\n    let v9: u64;  // [bp-0x420]\n    let v10: u64;  // [bp-0x418]\n    let v11: struct56;  // [bp-0x410]\n    let v12: u64;  // [bp-0x408]\n    let v13: struct24;  // [bp-0x3d8], Other Possible Types: struct25, struct64, struct_0 *, u64\n    let v14: u64;  // [bp-0x3d0]\n    let v16: u64;  // [bp-0x3c8]\n    let v17: u64;  // [bp-0x3a8]\n    let v18: struct24;  // [bp-0x398], Other Possible Types: u128\n    let v19: u64;  // [bp-0x388]\n    let v20: Result<struct24, struct24>;  // [bp-0x380]\n    let v21: u64;  // [bp-0x378]\n    let v22: u64;  // [bp-0x370]\n    let v23: struct24;  // [bp-0x368]\n    let v24: u64;  // [bp-0x358]\n    let v25: struct64;  // [bp-0x350]\n    let v26: u8;  // [bp-0x310]\n    let v27: u8;  // [bp-0x2f8]\n    let v29: u128;  // xmm1\n    let v30: u64;  // r14\n    let v31: u128;  // xmm0\n    let v32: u64;  // rax\n    let v33: void*;  // rdx\n    let v34: u64;  // rdx\n    let v35: core::fmt::Arguments;  // bl\n    let v36: u8;  // bpl\n    let v37: u8;  // r13b\n    let v38: u64;  // rax\n    let v39: u8;  // al\n    let v40: u8;  // al\n    let v41: u8;  // al\n    let v42: u8;  // al\n\n    uu_mv::uu_app(&v27);\n    v1 = clap_builder::builder::command::Command::try_get_matches_from_mut(&v27, a0, a1);\n    match v1 {\n        Err(_) => {\n            v30 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v12);\n        },\n        Ok(v11) => {\n            v29 = *((&v1 as &char + 32) as &i128);\n            v1 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v11, _ZN5uu_mv9ARG_FILES17h6d8adaf7ec2b89d6E.field_0, g_587d88.field_0);\n            v13 = clap_builder::parser::error::MatchesError::unwrap(_ZN5uu_mv9ARG_FILES17h6d8adaf7ec2b89d6E.field_0, g_587d88.field_0, &v1);\n            v25 = struct64 {\n                field_0: v32\n                field_8: v14\n                field_16: v29\n                field_32: v31\n                field_48: v17\n                field_56: v33\n            };\n            v20 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v25);\n            if v22 == 1 && !clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v11, _ZN5uu_mv20OPT_TARGET_DIRECTORY17h9ab0542800d4ad00E.field_0, g_587d48.field_0) as i8 {\n                v13 = \"files\";\n                v14 = <&T as core::fmt::Display>::fmt;\n                v1 = \"The argument '<\";\n                v3 = 2;\n                v6 = 0;\n                v4 = &v13;\n                v5 = 1;\n                v1 = core::option::Option<T>::map_or_else(v34);\n                v1 = clap_builder::error::Error<F>::format(clap_builder::error::Error<F>::raw(6, &v26), &v27);\n                clap_builder::error::Error<F>::exit(&v1); /* do not return */\n            }\n            v35 = uu_mv::determine_overwrite_mode(&v11) as i32 as i8;\n            v2 = uucore::features::backup_control::determine_backup_mode(&v11);\n            v30 = v2.field_0;\n            if !v2.field_0 {\n                v36 = v2.field_8 as i8;\n                v37 = uucore::features::update_control::determine_update_mode(&v11) as i32 as i8;\n                if !v36 || v35 && !(v37 & 1) {\n                    v23 = uucore::features::backup_control::determine_backup_suffix(&v11);\n                    v1 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v11, _ZN5uu_mv20OPT_TARGET_DIRECTORY17h9ab0542800d4ad00E.field_0, g_587d48.field_0);\n                    v38 = clap_builder::parser::error::MatchesError::unwrap(_ZN5uu_mv20OPT_TARGET_DIRECTORY17h9ab0542800d4ad00E.field_0, g_587d48.field_0, &v1);\n                    if v38 && !((v1 = core::ops::function::FnOnce::call_once(v38), v10 = v4, v8 = v1.field_0, v7 == 0x8000000000000000 || std::path::Path::is_dir(v9, v10) as u8)) {\n                        v13 = struct25 {\n                            field_0: 1\n                            field_8: *((&v8 as &char + 8) as &i128)\n                            field_24: 1\n                        };\n                        v18 = <T as alloc::string::ToString>::to_string(&v13);\n                        v1 = struct32 {\n                            field_0: 8\n                            field_8: v18.field_0\n                            field_24: v19\n                        };\n                        v30 = alloc::boxed::Box<T>::new(&v1);\n                    } else {\n                        v0 = v37;\n                        v19 = v24;\n                        v18 = v23.field_0;\n                        v16 = v10;\n                        v13 = v7;\n                        v14 = v9;\n                        v39 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v11, _ZN5uu_mv23OPT_NO_TARGET_DIRECTORY17hcc24806db1a5c249E.field_0, g_587d58.field_0) as i32 as i8;\n                        if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v11, _ZN5uu_mv11OPT_VERBOSE17h564b3b5f0c97021dE.field_0, g_587d68.field_0) as i8 {\n                            clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v11, _ZN5uu_mv9OPT_DEBUG17h6ab2aef4c0c3b5ccE.field_0, g_587d98.field_0);\n                        }\n                        v40 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v11, _ZN5uu_mv26OPT_STRIP_TRAILING_SLASHES17h51274aa3e0aeb94eE.field_0, g_587d38.field_0) as i32 as i8;\n                        v41 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v11, _ZN5uu_mv12OPT_PROGRESS17h1c7c0a4244182235E.field_0, g_587d78.field_0) as i32 as i8;\n                        v42 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v11, _ZN5uu_mv9OPT_DEBUG17h6ab2aef4c0c3b5ccE.field_0, g_587d98.field_0) as i8;\n                        v1 = struct56 {\n                            field_0: v18\n                            field_16: v19\n                            field_24: *(&v13 as &i128)\n                            field_40: v16\n                            field_48: v39\n                            field_49: 1\n                            field_50: v40\n                            field_51: v41\n                            field_52: v42\n                            field_53: v35\n                            field_54: v36\n                            field_55: v0\n                        };\n                        v30 = uu_mv::mv(v21, v22, &v1);\n                    }\n                } else {\n                    v13 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n                    v4 = v16;\n                    v1 = v13.field_0;\n                    v5 = 1;\n                    v30 = alloc::boxed::Box<T>::new(&v2);\n                }\n            }\n        },\n    }\n    return v30;\n}\n",
+    "_ZN5uu_mv6uu_app17hfdaaab3614528530E": "fn uu_mv::uu_app(a0: &struct712) -> long long {\n    let v0: u64;  // [bp-0xa88]\n    let v1: struct24;  // [bp-0xa88]\n    let v2: struct584;  // [bp-0xa70], Other Possible Types: u8\n    let v3: u32;  // [bp-0x828]\n    let v4: u32;  // [bp-0x824]\n    let v5: u8;  // [bp-0x820]\n    let v6: u32;  // [bp-0x5d8]\n    let v7: i8;  // [bp-0x5d4]\n    let v8: u64;  // [bp-0x564]\n    let v9: u32;  // [bp-0x55c]\n    let v10: alloc::string::String;  // [bp-0x558]\n    let v11: struct437;  // [bp-0x540]\n    let v12: u64;  // [bp-0x284]\n    let v13: u32;  // [bp-0x27c]\n    let v14: struct24;  // [bp-0x278], Other Possible Types: struct32\n    let v17: u64;  // rdx\n\n    v11 = clap_builder::builder::command::Command::new(uucore::util_name(), v17);\n    clap_builder::builder::command::Command::version(&v5, &v11, \"0.0.28\");\n    clap_builder::builder::command::Command::about(&v11, &v5, \"Move `SOURCE` to `DEST`, or multiple `SOURCE`(s) to `DIRECTORY`.\");\n    uucore::format_usage(&v2, \"{} [OPTION]... [-T] SOURCE DEST\\n{} [OPTION]... SOURCE... DIRECTORY\\n{} [OPTION]... -t DIRECTORY SOURCE...\");\n    clap_builder::builder::command::Command::override_usage(&v5, &v11, &v2);\n    v10 = format!(\"{}\\n\\n{}\", \"When specifying more than one of -i, -f, -n, only the final one will take effect.\\n\\nDo not move a non-directory that has an existing destination with the same or newer modification timestamp;\\ninstead, silently skip the file without failing. If the move is across file system boundaries, the comparison is\\nto the source timestamp truncated to the resolutions of the destination file system and of the system calls used\\nto update timestamps; this avoids duplicate work if several mv -u commands are executed with the same source\\nand destination. This option is ignored if the -n or --no-clobber option is also specified. which gives more control\\nover which existing files in the destination are replaced, and its value can be one of the following:\\n\\n* all    This is the default operation when an --update option is not specified, and results in all existing files in the destination being replaced.\\n* none   This is similar to the --no-clobber option, in that no files in the destination are replaced, but also skipping a file does not induce a failure.\\n* older  This is the default operation when --update is specified, and results in files being replaced if they\u2019re older than the corresponding source file.\", \"The backup suffix is '~', unless set with --suffix or SIMPLE_BACKUP_SUFFIX.\\nThe version control method may be selected via the --backup option or through\\nthe VERSION_CONTROL environment variable.  Here are the values:\\n\\n  none, off       never make backups (even if --backup is given)\\n  numbered, t     make numbered backups\\n  existing, nil   numbered if numbered backups exist, simple otherwise\\n  simple, never   always make simple backups\");\n    clap_builder::builder::command::Command::after_help(&v11 as u384, &v5, &v10);\n    memcpy(&v5, &v11 as u384, 700);\n    v8 = 549755814016 | v12;\n    v9 = v13;\n    clap_builder::builder::arg::Arg::new(&v11 as u384, \"force\");\n    clap_builder::builder::arg::Arg::short(&v2, &v11 as u384, 102);\n    clap_builder::builder::arg::Arg::long(&v11 as u384, &v2, \"force\");\n    clap_builder::builder::arg::Arg::help(&v2, &v11 as u384, \"do not prompt before overwriting\");\n    v14 = struct32 {\n        field_0: &g_426231\n        field_8: 11\n        field_16: &g_42623c\n        field_24: 10\n    };\n    v14 = struct32 {\n        field_0: &g_426231\n        field_8: 11\n        field_16: &g_42623c\n        field_24: 10\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v11 as u384, &v2, &v14);\n    clap_builder::builder::arg::Arg::action(&v2, &v11 as u384, 2);\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v2);\n    clap_builder::builder::arg::Arg::new(&v5, \"interactive\");\n    clap_builder::builder::arg::Arg::short(&v2, &v5, 105);\n    clap_builder::builder::arg::Arg::long(&v5, &v2, \"interactive\");\n    clap_builder::builder::arg::Arg::help(&v2, &v5, \"prompt before override\");\n    v14 = struct32 {\n        field_0: &g_42622c\n        field_8: 5\n        field_16: &g_42623c\n        field_24: 10\n    };\n    v14 = struct32 {\n        field_0: &g_42622c\n        field_8: 5\n        field_16: &g_42623c\n        field_24: 10\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v5, &v2, &v14);\n    clap_builder::builder::arg::Arg::action(&v2, &v5, 2);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v2);\n    clap_builder::builder::arg::Arg::new(&v11 as u384, \"no-clobber\");\n    clap_builder::builder::arg::Arg::short(&v2, &v11 as u384, 110);\n    clap_builder::builder::arg::Arg::long(&v11 as u384, &v2, \"no-clobber\");\n    clap_builder::builder::arg::Arg::help(&v2, &v11 as u384, \"do not overwrite an existing file\");\n    v14 = struct32 {\n        field_0: &g_42622c\n        field_8: 5\n        field_16: &g_426231\n        field_24: 11\n    };\n    v14 = struct32 {\n        field_0: &g_42622c\n        field_8: 5\n        field_16: &g_426231\n        field_24: 11\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v11 as u384, &v2, &v14);\n    clap_builder::builder::arg::Arg::action(&v2, &v11 as u384, 2);\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v2);\n    clap_builder::builder::arg::Arg::new(&v5, \"strip-trailing-slashes\");\n    clap_builder::builder::arg::Arg::long(&v2, &v5, \"strip-trailing-slashes\");\n    clap_builder::builder::arg::Arg::help(&v5, &v2, \"remove any trailing slashes from each SOURCE argument\");\n    clap_builder::builder::arg::Arg::action(&v2, &v5, 2);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v2);\n    uucore::features::backup_control::arguments::backup(&v2);\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v2);\n    uucore::features::backup_control::arguments::backup_no_args(&v2);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v2);\n    v2 = uucore::features::backup_control::arguments::suffix();\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v2);\n    uucore::features::update_control::arguments::update(&v2);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v2);\n    uucore::features::update_control::arguments::update_no_args(&v2);\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v2);\n    clap_builder::builder::arg::Arg::new(&v5, \"target-directory\");\n    clap_builder::builder::arg::Arg::short(&v2, &v5, 116);\n    clap_builder::builder::arg::Arg::long(&v5, &v2, \"target-directory\");\n    clap_builder::builder::arg::Arg::help(&v2, &v5, \"move all SOURCE arguments into DIRECTORY\");\n    clap_builder::builder::arg::Arg::value_name(&v5, &v2);\n    clap_builder::builder::arg::Arg::value_hint(&v2, &v5, 4);\n    clap_builder::builder::arg::Arg::conflicts_with(&v5, &v2, \"no-target-directory\");\n    v0 = 2;\n    v14 = v1;\n    clap_builder::builder::arg::Arg::value_parser(&v2, &v5, &v14);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v2);\n    clap_builder::builder::arg::Arg::new(&v11 as u384, \"no-target-directory\");\n    clap_builder::builder::arg::Arg::short(&v2, &v11 as u384, 84);\n    clap_builder::builder::arg::Arg::long(&v11 as u384, &v2, \"no-target-directory\");\n    clap_builder::builder::arg::Arg::help(&v2, &v11 as u384, \"treat DEST as a normal file\");\n    clap_builder::builder::arg::Arg::action(&v14, &v2, 2);\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v14);\n    clap_builder::builder::arg::Arg::new(&v5, \"verbose\");\n    clap_builder::builder::arg::Arg::short(&v2, &v5, 118);\n    clap_builder::builder::arg::Arg::long(&v5, &v2, \"verbose\");\n    clap_builder::builder::arg::Arg::help(&v2, &v5, \"explain what is being done\");\n    clap_builder::builder::arg::Arg::action(&v14, &v2, 2);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v14);\n    clap_builder::builder::arg::Arg::new(&v11 as u384, \"progress\");\n    clap_builder::builder::arg::Arg::short(&v2, &v11 as u384, 103);\n    clap_builder::builder::arg::Arg::long(&v11 as u384, &v2, \"progress\");\n    clap_builder::builder::arg::Arg::help(&v2, &v11 as u384, \"Display a progress bar. \\nNote: this feature is not supported by GNU coreutils.\");\n    clap_builder::builder::arg::Arg::action(&v14, &v2, 2);\n    clap_builder::builder::command::Command::arg(&v11 as u384, &v5, &v14);\n    clap_builder::builder::arg::Arg::new(&v5, \"files\");\n    clap_builder::builder::arg::Arg::action(&v2, &v5, 1);\n    clap_builder::builder::arg::Arg::num_args(&v5, &v2);\n    memcpy(&v2, &v5, 584);\n    v3 = v6 | 1;\n    v4 = *(&v7 as &i32);\n    clap_builder::builder::arg::Arg::value_parser(&v5, &v2, &v0);\n    clap_builder::builder::arg::Arg::value_hint(&v2, &v5, 2);\n    clap_builder::builder::command::Command::arg(&v5, &v11 as u384, &v2);\n    clap_builder::builder::arg::Arg::new(&v11 as u384, \"debug\");\n    clap_builder::builder::arg::Arg::long(&v2, &v11 as u384, \"debug\");\n    clap_builder::builder::arg::Arg::help(&v11 as u384, &v2, \"explain how a file is copied. Implies -v\");\n    clap_builder::builder::arg::Arg::action(&v2, &v11 as u384, 2);\n    clap_builder::builder::command::Command::arg(a0, &v5, &v2);\n    return a0;\n}\n",
     "_ZN5uu_mv24determine_overwrite_mode17h2a7c21ee43665632E": "fn uu_mv::determine_overwrite_mode(a0: i64) -> long long {\n    let v1: u64;  // rax\n\n    if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"no-clobber\") as i8 {\n        v1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"interactive\");\n        return v1 & -0x100 | 2 - v1;\n    }\n    return 0;\n}\n",
     "_ZN5uu_mv11parse_paths17hd84bd62365a1b7ccE": "fn uu_mv::parse_paths(a1: i64, a2: i64, a3: i8) -> : struct24 {\n    let a0: u64;  // rdi\n\n    if !(!a3) {\n        goto LABEL_0x4f6700;\n    }\n    return <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(a0, a1, a1 + a2 * 24) as u64;\n}\n",
-    "_ZN5uu_mv16handle_two_paths17hbd0a81168087f696E": "fn uu_mv::handle_two_paths(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> long long {\n    let v0: u64;  // [bp-0x1b8]\n    let v1: u64;  // [bp-0x1a8], Other Possible Types: std::path::Components, struct24\n    let v2: u64;  // [bp-0x1a0]\n    let v3: u64;  // [bp-0x198]\n    let v4: u8;  // [bp-0x190]\n    let v5: u64;  // [bp-0x168], Other Possible Types: struct24\n    let v6: u64;  // [bp-0x160]\n    let v7: u64;  // [bp-0x158]\n    let v8: u8;  // [bp-0x150]\n    let v9: u64;  // [bp-0x148]\n    let v10: u64;  // [bp-0x140]\n    let v11: struct24;  // [bp-0x138], Other Possible Types: u128\n    let v12: u64;  // [bp-0x128]\n    let v13: struct24;  // [bp-0x120], Other Possible Types: u128, std::sys::os_str::bytes::Slice *\n    let v14: u64;  // [bp-0x118]\n    let v15: u64;  // [bp-0x110], Other Possible Types: std::sys::os_str::bytes::Slice *\n    let v16: u64;  // [bp-0x108]\n    let v17: u64;  // [bp-0x100]\n    let v18: u256;  // [bp-0xf8], Other Possible Types: core::result::Result<std::fs::Metadata, std::io::error::Error>, std::path::PathBuf, struct24\n    let v19: std::path::Components;  // [bp-0xf8]\n    let v20: std::path::Components;  // [bp-0xf8]\n    let v21: struct24;  // [bp-0xf0], Other Possible Types: u64\n    let v22: i64;  // [bp-0xe8], Other Possible Types: u64\n    let v23: u64;  // [bp-0xe0]\n    let v24: void*;  // [bp-0xd8]\n    let v25: u64;  // [bp-0xc8]\n    let v26: u8;  // [bp-0x48]\n    let v28: u8;  // r13b\n    let v29: u64;  // rax\n    let v30: u64;  // r15\n    let v31: u64;  // rbp\n    let v33: u64;  // r12\n    let v34: u64;  // r15\n    let v35: u8;  // r13b\n    let v36: u8;  // al\n    let v37: u64;  // r13\n    let v38: u64;  // r12\n    let v40: u32;  // eax\n    let v41: u64;  // rax\n\n    v28 = *((a4 + 54) as &i8);\n    if v28 == 1 && uucore::features::backup_control::source_is_target_backup(a0, a1, a2, a3, *((a4 + 8) as &i64), *((a4 + 16) as &i64)) as i8 {\n        v5 = 1;\n        v6 = a2;\n        v7 = a3;\n        v8 = 1;\n        v1 = 1;\n        v2 = a0;\n        v3 = a1;\n        v4 = 1;\n        v13 = &v5;\n        v14 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v15 = &v1;\n        v16 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v18 = \"backing up \";\n        v21 = 3;\n        v24 = 0;\n        v22 = &v13;\n        v23 = 2;\n        v18 = core::option::Option<T>::map_or_else(a2);\n        v29 = std::io::error::Error::new(0, &v26);\n        goto LABEL_0x4e9a93;\n    }\n    v0 = a2;\n    v10 = a3;\n    v18 = std::fs::symlink_metadata(a0, a1);\n    if let Err(_) = v18 {\n        if uucore::features::fs::path_ends_with_terminator(a0, a1) as i8 {\n            v1 = struct25 {\n                field_0: 1\n                field_8: a0\n                field_16: a1\n                field_24: 1\n            };\n            v21 = <T as alloc::string::ToString>::to_string(&v1);\n        } else {\n            v1 = struct25 {\n                field_0: 1\n                field_8: a0\n                field_16: a1\n                field_24: 1\n            };\n            v21 = <T as alloc::string::ToString>::to_string(&v1);\n        }\n        goto LABEL_0x4e9a93;\n    }\n    v17 = a1;\n    v1 = std::path::Path::components(a0, v17);\n    v30 = a0;\n    v19 = std::path::Path::components(v0, v10);\n    v31 = v17;\n    v9 = v30;\n    if !<std::path::Components as core::cmp::PartialEq>::eq(&v1, &v19) && !uucore::features::fs::are_hardlinks_to_same_file(v30, v31, v0, v10) as i8 {\n        if !(!v28 && uucore::features::fs::are_hardlinks_or_one_way_symlink_to_same_file(v30, v31, v0, v10) as i8) {\n            goto LABEL_4e93c2;\n        }\nLABEL_4e9549:\n        v34 = v9;\n        v1 = std::path::Path::components(v34, v31);\n        v20 = std::path::Path::components(\".\");\n        if <std::path::Components as core::cmp::PartialEq>::eq(&v1, &v20) || std::path::Path::ends_with(v34, v31, \"/.\") || std::path::Path::is_file(v34, v31) {\n            v5 = struct25 {\n                field_0: 1\n                field_8: v34\n                field_16: v31\n                field_24: 1\n            };\n            v11 = <T as alloc::string::ToString>::to_string(&v5);\n            v1 = struct25 {\n                field_0: 1\n                field_8: v0\n                field_16: v10\n                field_24: 1\n            };\n            v13 = <T as alloc::string::ToString>::to_string(&v1);\n            v23 = v12;\n            memcpy(&v20 as u8, &v11, 16);\n            memcpy(&v20, &v13, 16);\n            v25 = v15;\n            v18 = 2;\n            goto LABEL_0x4e9a93;\n        } else {\n            v1 = struct16 {\n                field_0: v34\n                field_8: v31\n            };\n            v21 = <T as alloc::string::ToString>::to_string(&v1);\n        }\n    }\n    if !v28 {\n        goto LABEL_4e9549;\n    }\nLABEL_4e93c2:\n    v33 = v10;\n    v35 = std::path::Path::is_dir(v0, v33);\n    v36 = std::path::Path::is_dir(v9, v31);\n    if !uucore::features::fs::path_ends_with_terminator(v0, v33) as i8 {\n        if !v35 {\n            goto LABEL_4e966c;\n        }\nLABEL_4e94ac:\n        if !*((a4 + 48) as &i8) {\n            v37 = v0;\n            if !std::path::Path::starts_with(v37, v33, v9, v31) {\n                v18 = std::sys::pal::unix::os::split_paths::bytes_to_path(v9, v31);\n                return uu_mv::move_files_into_dir(&v18, 1, v37, v33, a4);\n            }\n            v11 = struct16 {\n                field_0: v9\n                field_8: v31\n            };\n            v5 = <T as alloc::string::ToString>::to_string(&v11);\n            v13 = struct16 {\n                field_0: v37\n                field_8: v33\n            };\n            v1 = <T as alloc::string::ToString>::to_string(&v13);\n            v23 = v7;\n            memcpy(&v19 as u8, &v5, 16);\n            memcpy(&v19, &v1, 16);\n            v25 = v3;\n            v18 = 4;\n            goto LABEL_0x4e9a93;\n        } else if std::path::Path::is_dir(v9, v31) {\n            v18 = struct32 {\n                field_0: v9\n                field_8: v31\n                field_16: v0\n                field_24: v33\n            };\n            return <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_mv::rename(v9, v31, v22, v33, a4, 0), &v18);\n        } else {\n            v1 = struct25 {\n                field_0: 1\n                field_8: v0\n                field_16: v33\n                field_24: 1\n            };\n            v21 = <T as alloc::string::ToString>::to_string(&v1);\n        }\n        goto LABEL_0x4e9a93;\n    }\n    if !(!v35) {\n        goto LABEL_4e94ac;\n    }\n    if !v36 && !*((a4 + 48) as &i8) && *((a4 + 55) as &i8) != 2 {\n        v1 = struct25 {\n            field_0: 1\n            field_8: v0\n            field_16: v33\n            field_24: 1\n        };\n        v21 = <T as alloc::string::ToString>::to_string(&v1);\n        goto LABEL_0x4e9a93;\n    }\nLABEL_4e966c:\n    v18 = std::fs::metadata(v0, v33);\n    v38 = v9;\n    if v18 as i32 == 2 || !std::path::Path::is_dir(v38, v31) {\n        v41 = uu_mv::rename(v38, v31, v0, v10, a4, 0);\n        return (!v41 ? 0 : uu_mv::handle_two_paths::{{closure}}(v41));\n    }\n    v40 = *((a4 + 53) as &i8);\n}\n",
+    "_ZN5uu_mv16handle_two_paths17hbd0a81168087f696E": "fn uu_mv::handle_two_paths(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> long long {\n    let v0: u64;  // [bp-0x1b8]\n    let v1: struct16;  // [bp-0x1a8], Other Possible Types: struct24, std::path::Components, struct25, u64\n    let v2: u64;  // [bp-0x1a0]\n    let v3: u64;  // [bp-0x198]\n    let v4: u8;  // [bp-0x190]\n    let v5: struct24;  // [bp-0x168], Other Possible Types: struct25, u64\n    let v6: u64;  // [bp-0x160]\n    let v7: u64;  // [bp-0x158]\n    let v8: u8;  // [bp-0x150]\n    let v9: u64;  // [bp-0x148]\n    let v10: u64;  // [bp-0x140]\n    let v11: struct16;  // [bp-0x138], Other Possible Types: struct24\n    let v12: u64;  // [bp-0x128]\n    let v13: i64;  // [bp-0x120], Other Possible Types: struct16, struct24\n    let v14: u64;  // [bp-0x118]\n    let v15: i64;  // [bp-0x110], Other Possible Types: u64\n    let v16: u64;  // [bp-0x108]\n    let v17: u64;  // [bp-0x100]\n    let v18: std::path::PathBuf;  // [bp-0xf8], Other Possible Types: struct24, struct32, core::result::Result<std::fs::Metadata, std::io::error::Error>, u64\n    let v19: std::path::Components;  // [bp-0xf8]\n    let v20: std::path::Components;  // [bp-0xf8]\n    let v21: struct24;  // [bp-0xf0], Other Possible Types: u64\n    let v22: i64;  // [bp-0xe8], Other Possible Types: u64\n    let v23: u64;  // [bp-0xe0]\n    let v24: void*;  // [bp-0xd8], Other Possible Types: u128\n    let v25: u64;  // [bp-0xc8]\n    let v26: u8;  // [bp-0x48]\n    let v28: u8;  // r13b\n    let v29: u64;  // rax\n    let v30: u64;  // r15\n    let v31: u64;  // rbp\n    let v33: u64;  // r12\n    let v34: u64;  // r15\n    let v35: u8;  // r13b\n    let v36: u8;  // al\n    let v37: u64;  // r13\n    let v38: u64;  // r12\n    let v40: u32;  // eax\n    let v41: u64;  // rax\n\n    v28 = *((a4 + 54) as &i8);\n    if v28 == 1 && uucore::features::backup_control::source_is_target_backup(a0, a1, a2, a3, *((a4 + 8) as &i64), *((a4 + 16) as &i64)) as i8 {\n        v5 = 1;\n        v6 = a2;\n        v7 = a3;\n        v8 = 1;\n        v1 = 1;\n        v2 = a0;\n        v3 = a1;\n        v4 = 1;\n        v13 = &v5;\n        v14 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v15 = &v1;\n        v16 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v18 = \"backing up \";\n        v21 = 3;\n        v24 = 0;\n        v22 = &v13;\n        v23 = 2;\n        v18 = core::option::Option<T>::map_or_else(a2);\n        v29 = std::io::error::Error::new(0, &v26);\n        goto LABEL_0x4e9a93;\n    }\n    v0 = a2;\n    v10 = a3;\n    v18 = std::fs::symlink_metadata(a0, a1);\n    if let Err(_) = v18 {\n        if uucore::features::fs::path_ends_with_terminator(a0, a1) as i8 {\n            v1 = struct25 {\n                field_0: 1\n                field_8: a0\n                field_16: a1\n                field_24: 1\n            };\n            v21 = <T as alloc::string::ToString>::to_string(&v1);\n        } else {\n            v1 = struct25 {\n                field_0: 1\n                field_8: a0\n                field_16: a1\n                field_24: 1\n            };\n            v21 = <T as alloc::string::ToString>::to_string(&v1);\n        }\n        goto LABEL_0x4e9a93;\n    }\n    v17 = a1;\n    v1 = std::path::Path::components(a0, v17);\n    v30 = a0;\n    v19 = std::path::Path::components(v0, v10);\n    v31 = v17;\n    v1 = std::path::Components {\n        path: &[u8] {\n            ptr: <UNKNOWN>\n            len: <UNKNOWN>\n        }\n        prefix: <UNKNOWN>\n        front: <UNKNOWN>\n        back: <UNKNOWN>\n        has_physical_root: <UNKNOWN>\n    };\n    if !<std::path::Components as core::cmp::PartialEq>::eq(&v1, &v19) && !uucore::features::fs::are_hardlinks_to_same_file(v30, v31, v0, v10) as i8 {\n        if !(!v28 && uucore::features::fs::are_hardlinks_or_one_way_symlink_to_same_file(v30, v31, v0, v10) as i8) {\n            goto LABEL_4e93c2;\n        }\nLABEL_4e9549:\n        v34 = v9;\n        v1 = std::path::Path::components(v34, v31);\n        v20 = std::path::Path::components(\".\");\n        if <std::path::Components as core::cmp::PartialEq>::eq(&v1, &v20) || std::path::Path::ends_with(v34, v31, \"/.\") || std::path::Path::is_file(v34, v31) {\n            v5 = struct25 {\n                field_0: 1\n                field_8: v34\n                field_16: v31\n                field_24: 1\n            };\n            v11 = <T as alloc::string::ToString>::to_string(&v5);\n            v1 = struct25 {\n                field_0: 1\n                field_8: v0\n                field_16: v10\n                field_24: 1\n            };\n            v13 = <T as alloc::string::ToString>::to_string(&v1);\n            v23 = v12;\n            v21 = v11.field_0;\n            v24 = v13.field_0;\n            v25 = v15;\n            v18 = 2;\n            goto LABEL_0x4e9a93;\n        } else {\n            v1 = struct16 {\n                field_0: v34\n                field_8: v31\n            };\n            v21 = <T as alloc::string::ToString>::to_string(&v1);\n        }\n    }\n    if !v28 {\n        goto LABEL_4e9549;\n    }\nLABEL_4e93c2:\n    v33 = v10;\n    v35 = std::path::Path::is_dir(v0, v33);\n    v36 = std::path::Path::is_dir(v9, v31);\n    if !uucore::features::fs::path_ends_with_terminator(v0, v33) as i8 {\n        if !v35 {\n            goto LABEL_4e966c;\n        }\nLABEL_4e94ac:\n        if !*((a4 + 48) as &i8) {\n            v37 = v0;\n            if !std::path::Path::starts_with(v37, v33, v9, v31) {\n                v18 = std::sys::pal::unix::os::split_paths::bytes_to_path(v9, v31);\n                return uu_mv::move_files_into_dir(&v18, 1, v37, v33, a4);\n            }\n            v11 = struct16 {\n                field_0: v9\n                field_8: v31\n            };\n            v5 = <T as alloc::string::ToString>::to_string(&v11);\n            v13 = struct16 {\n                field_0: v37\n                field_8: v33\n            };\n            v1 = <T as alloc::string::ToString>::to_string(&v13);\n            v23 = v7;\n            v21 = v5.field_0;\n            v24 = v1.field_0;\n            v25 = v3;\n            v18 = 4;\n            goto LABEL_0x4e9a93;\n        } else if std::path::Path::is_dir(v9, v31) {\n            v18 = struct32 {\n                field_0: v9\n                field_8: v31\n                field_16: v0\n                field_24: v33\n            };\n            return <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_mv::rename(v9, v31, v22, v33, a4, 0), &v18);\n        } else {\n            v1 = struct25 {\n                field_0: 1\n                field_8: v0\n                field_16: v33\n                field_24: 1\n            };\n            v21 = <T as alloc::string::ToString>::to_string(&v1);\n        }\n        goto LABEL_0x4e9a93;\n    }\n    if !(!v35) {\n        goto LABEL_4e94ac;\n    }\n    if !v36 && !*((a4 + 48) as &i8) && *((a4 + 55) as &i8) != 2 {\n        v1 = struct25 {\n            field_0: 1\n            field_8: v0\n            field_16: v33\n            field_24: 1\n        };\n        v21 = <T as alloc::string::ToString>::to_string(&v1);\n        goto LABEL_0x4e9a93;\n    }\nLABEL_4e966c:\n    v18 = std::fs::metadata(v0, v33);\n    v38 = v9;\n    if v18 as i32 == 2 || !std::path::Path::is_dir(v38, v31) {\n        v41 = uu_mv::rename(v38, v31, v0, v10, a4, 0);\n        return (!v41 ? 0 : uu_mv::handle_two_paths::{{closure}}(v41));\n    }\n    v40 = *((a4 + 53) as &i8);\n}\n",
     "_ZN5uu_mv21handle_multiple_paths17h86c7b11f84ad2502E": "fn uu_mv::handle_multiple_paths(a0: i64, a1: i64, a2: i64) -> long long {\n    let v0: i64;  // [bp-0x98]\n    let v1: u64;  // [bp-0x90]\n    let v2: struct24;  // [bp-0x88], Other Possible Types: u64\n    let v3: u64;  // [bp-0x80]\n    let v4: i64;  // [bp-0x78]\n    let v5: u64;  // [bp-0x70]\n    let v6: void*;  // [bp-0x68]\n    let v7: u64;  // [bp-0x58]\n    let v8: u128;  // [bp-0x50]\n    let v9: u8;  // [bp-0x40]\n    let v10: u8;  // [bp-0x38]\n    let v13: u64;  // rax\n    let v14: u64;  // rdx\n\n    if *((a2 + 48) as &i8) {\n        v7 = 1;\n        v8 = *((a0 + 56) as &i128);\n        v9 = 1;\n        v0 = &v7;\n        v1 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v2 = \"mv: extra operand \";\n        v3 = 1;\n        v6 = 0;\n        v4 = &v0;\n        v5 = 1;\n        v2 = core::option::Option<T>::map_or_else(a2);\n        return alloc::boxed::Box<T>::new(&v10);\n    } else if a1 {\n        v13 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a1 - 1, a0, a1);\n        return uu_mv::move_files_into_dir(v13, v14, *((a0 + (a1 - 1) * 24 + 8) as &i64), *((a0 + (a1 - 1) * 24 + 16) as &i64), a2);\n    } else {\n        core::option::unwrap_failed(); /* do not return */\n    }\n}\n",
-    "_ZN5uu_mv2mv17h15eff797ddd7e01aE": "fn uu_mv::mv(a0: i64, a1: i64, a2: &struct56) -> long long {\n    let v0: u64;  // [bp-0x58], Other Possible Types: struct_1 *\n    let v1: u32;  // [bp-0x50]\n    let v2: u8;  // [bp-0x48]\n    let v3: u32;  // [bp-0x40]\n    let v4: u64;  // [bp-0x38]\n    let v5: struct24;  // [bp-0x30]\n    let v7: u8;  // r8b\n    let v9: u32;  // rcx\n\n    uu_mv::parse_paths(a0, a1, *((a2 + 50) as &i8), v7);\n    if *((a2 + 24) as &i64) != 0x8000000000000000 {\n        v5 = std::sys::os_str::bytes::Slice::to_owned();\n        v4 = v5.field_16;\n        memcpy(&v2, &v5, 16);\n        return uu_mv::move_files_into_dir(v0, v1, v3, v9, a2);\n    }\n    return (v1 == 2 ? uu_mv::handle_two_paths(*((v0 + 8) as &i64), *((v0 + 16) as &i64), *((v0 + 32) as &i64), *((v0 + 40) as &i64), a2) : uu_mv::handle_multiple_paths(v0, v1, a2));\n}\n",
-    "_ZN5uu_mv6rename17hfc95a4bd2fcddeecE": "fn uu_mv::rename(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64, a5: i64) -> long long {\n    let v0: u32;  // [bp-0x32c]\n    let v1: u64;  // [bp-0x318]\n    let v3: u64;  // [bp-0x308]\n    let v4: u64;  // [bp-0x2f0], Other Possible Types: std::sys::os_str::bytes::Slice *\n    let v5: u64;  // [bp-0x2e8], Other Possible Types: char\n    let v6: i64;  // [bp-0x2e0]\n    let v7: u64;  // [bp-0x2d8]\n    let v8: std::path::Components;  // [bp-0x2cc]\n    let v9: struct24;  // [bp-0x2c8], Other Possible Types: core::result::Result<std::fs::Metadata, std::io::error::Error>, u64\n    let v10: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x2c8]\n    let v11: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x2c8]\n    let v12: void*;  // [bp-0x2c0], Other Possible Types: u64, core::result::Result<std::fs::Metadata, std::io::error::Error>\n    let v13: u64;  // [bp-0x2b8], Other Possible Types: std::sys::os_str::bytes::Slice *, struct24\n    let v14: u64;  // [bp-0x2b8]\n    let v15: u64;  // [bp-0x2b0], Other Possible Types: struct24\n    let v16: struct24;  // [bp-0x2a8], Other Possible Types: void*\n    let v18: u64;  // [bp-0x218], Other Possible Types: std::path::Components\n    let v20: u64;  // [bp-0x210]\n    let v21: u64;  // [bp-0x208]\n    let v22: u8;  // [bp-0x200]\n    let v27: u64;  // [bp-0x150]\n    let v28: u64;  // [bp-0x148]\n    let v32: struct24;  // [sp-0x128], Other Possible Types: std::sys::os_str::bytes::Slice *, u64\n    let v33: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [sp-0x120], Other Possible Types: struct24, u64\n    let v34: u8;  // [sp-0x118]\n    let v35: u8;  // [sp-0x110]\n    let v38: u128;  // [bp-0x60]\n    let v39: u64;  // [bp-0x50]\n    let v40: u8;  // [bp-0x48]\n    let v42: u32;  // eax\n    let v43: u64;  // r12\n    let v44: u8;  // al\n    let v45: void*;  // rbx\n    let v46: u64;  // rax\n    let v47: u64;  // rdx\n    let v48: u8;  // cl\n    let v49: u8;  // sil\n    let v50: u32;  // eax\n    let v51: u64;  // rdx\n    let v53: u64;  // rdx\n    let v55: core::result::Result<std::time::SystemTime, std::io::error::Error>;  // rax:rdx\n    let v56: core::result::Result<std::time::SystemTime, std::io::error::Error>;  // rax:rdx\n\n    v1 = 0x8000000000000000;\n    v0 = v42 & -0x100 | 1;\n    v10 = std::fs::metadata(a2, a3);\n    match v10 {\n        Err(_) => {\nLABEL_4ead3f:\n            v9 = std::fs::metadata(a2, a3);\n            if !(v9 as i32 != 2 && std::path::Path::is_dir() as u8 && std::path::Path::is_dir() as u8) {\nLABEL_4eae9c:\n                v45 = uu_mv::rename_with_fallback(a0, a1, a2, a3, a5);\n                if !v45 {\n                    if !*((a4 + 49) as &i8) {\n                        return 0;\n                    }\n                    v32 = 1;\n                    v33 = a0;\n                    v34 = a1;\n                    v35 = 1;\n                    v18 = 1;\n                    v20 = a2;\n                    v21 = a3;\n                    v22 = 1;\n                    v4 = &v32;\n                    v5 = <os_display::Quoted as core::fmt::Display>::fmt;\n                    v6 = &v18;\n                    v7 = <os_display::Quoted as core::fmt::Display>::fmt;\n                    v9 = \"renamed \";\n                    v12 = 2;\n                    v16 = 0;\n                    v13 = &v4;\n                    v15 = 2;\n                    v9 = core::option::Option<T>::map_or_else(a2);\n                    v18 = v38;\n                    v21 = v39;\n                    v0 = v21 as u32 & -0x100 | 1;\n                    if a5 {\n                        indicatif::multi::MultiProgress::suspend(a5, &v18);\n                    } else {\n                        println!(\"{}\", &v18);\n                    }\n                    return 0;\n                }\n            } else if uu_mv::is_empty_dir(a2, a3) as i8 {\n                v45 = std::fs::remove_dir(a2, a3);\n                if !v45 {\n                    goto LABEL_4eae9c;\n                }\n            } else {\nLABEL_4eb3d0:\n                v46 = std::io::error::Error::new(39, v49, v53);\nLABEL_4eb3da:\n                v45 = v46;\n            }\n        },\n        Ok(_) => {\n            v43 = *((a4 + 53) as &i8) as u8 as u64;\n            v44 = *((a4 + 55) as &i8);\n            if v44 != 2 || v43 as u8 != 1 {\n                if v44 != 1 {\n                    if v44 != 2 && v44 == 3 {\n                        v18 = 1;\n                        v20 = a2;\n                        v21 = a3;\n                        v22 = 1;\n                        v32 = &v18;\n                        v33 = <os_display::Quoted as core::fmt::Display>::fmt;\n                        v9 = \"not replacing \";\n                        v12 = 1;\n                        v16 = 0;\n                        v13 = &v32;\n                        v15 = 1;\n                        v9 = core::option::Option<T>::map_or_else(a2);\n                        v46 = std::io::error::Error::new(39, &v40);\n                        goto LABEL_4eb3da;\n                    }\n                    v11 = std::fs::metadata(a0, a1);\n                    v45 = v12;\n                    if let Ok(_) = v11 {\n                        memcpy(&v34, &v9 as u8, 160);\n                        v32 = v11 as i64;\n                        v33 = v45;\n                        v56 = std::fs::Metadata::modified(&v18 as u8);\n                        v45 = v18;\n                        v8 = v20 as i32;\n                        if v20 as i32 != 0x3b9aca00 {\n                            v9 = std::fs::metadata(a2, a3);\n                            v47 = v12;\n                            match v9 {\n                                Ok(_) => {\n                                    v27 = v47;\n                                    memcpy(&v21 as u8, &v9 as u8, 160);\n                                    v18 = v9 as i64;\n                                    v20 = v27;\n                                    v55 = std::fs::Metadata::modified(&v4);\n                                    v47 = v4;\n                                    if *(&v5 as &i32) == 0x3b9aca00 {\n                                        goto LABEL_4eb16c;\n                                    }\n                                    v48 = (v45 < v47 ? 255 : (v45 != v47) as u8 as u8);\n                                    if (v48 ? v48 : (v8 < *(&v5 as &i32) ? 255 : (v8 != *(&v5 as &i32)) as u8 as u8)) == 1 {\n                                        v50 = v43 as u32 & 255;\n                                        if v50 {\n                                            v13 = v13;\n                                            if v50 == 1 {\n                                                v18 = uucore::util_name();\n                                                v20 = v51;\n                                                eprint!(\"{}: \", &v18);\n                                                v18 = 1;\n                                                v20 = a2;\n                                                v21 = a3;\n                                                v22 = 1;\n                                                eprint!(\"overwrite {}?\", &v18);\n                                                eprint!(\" \");\n                                                v28 = std::io::stdio::Stderr {\n                                                    inner: &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E\n                                                };\n                                                if <std::io::stdio::Stderr as std::io::Write>::flush(&v28) {\n                                                    v18 = uucore::util_name();\n                                                    v20 = v51;\n                                                    eprint!(\"{}: \", &v18);\n                                                    eprintln!(\"{}\", &v4);\n                                                    std::process::exit(1); /* do not return */\n                                                }\n                                                v13 = v14;\n                                                if !uucore::read_yes() as i8 {\n                                                    goto LABEL_4eb3d0;\n                                                }\n                                            }\n                                            uucore::features::backup_control::get_backup_path(&v9, *((a4 + 54) as &i8));\n                                            v3 = v13;\n                                            v1 = v10 as i128 as u128;\n                                            goto LABEL_4ead3f;\n                                        } else {\n                                            if *((a4 + 52) as &i8) {\n                                                v18 = 1;\n                                                v20 = a2;\n                                                v21 = a3;\n                                                v22 = 1;\n                                                println!(\"skipped {}\", &v18);\n                                            }\n                                        }\n                                    }\n                                },\n                                Err(_) => {\nLABEL_4eb16c:\n                                    v45 = v47;\n                                },\n                            }\n                        }\n                    }\n                } else if *((a4 + 52) as &i8) {\n                    v18 = 1;\n                    v20 = a2;\n                    v21 = a3;\n                    v22 = 1;\n                    println!(\"skipped {}\", &v18);\n                }\n            }\n        },\n    }\n    return v45;\n}\n",
-    "_ZN5uu_mv20rename_with_fallback17h48f1d4f2ed6b729fE": "fn uu_mv::rename_with_fallback(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> long long {\n    let v0: i64;  // [bp-0x288]\n    let v1: void*;  // [bp-0x278]\n    let v2: struct24;  // [bp-0x260]\n    let v3: u128;  // [bp-0x260]\n    let v4: Result<struct48, struct16>;  // [bp-0x260]\n    let v5: u128;  // [bp-0x240]\n    let v6: u64;  // [bp-0x230]\n    let v7: void*;  // [bp-0x228]\n    let v8: u32;  // [bp-0x220]\n    let v9: u64;  // [bp-0x218]\n    let v10: u64;  // [bp-0x210]\n    let v11: u64;  // [bp-0x208]\n    let v12: u64;  // [bp-0x200]\n    let v13: i64;  // [bp-0x1f8]\n    let v14: u64;  // [bp-0x1f0]\n    let v15: Result<struct48, struct16>;  // [bp-0x1e8], Other Possible Types: u256, struct24\n    let v16: Result<struct48, struct16>;  // [bp-0x1e8]\n    let v17: u64;  // [bp-0x1e8]\n    let v18: u64;  // [bp-0x1e0]\n    let v19: i64;  // [bp-0x1d8]\n    let v20: u64;  // [bp-0x1d0]\n    let v21: void*;  // [bp-0x1c8]\n    let v22: u8;  // [bp-0x138], Other Possible Types: struct48\n    let v23: u256;  // [bp-0x138]\n    let v24: u8;  // [bp-0x128]\n    let v25: u128;  // [bp-0x118]\n    let v26: u64;  // [bp-0x108]\n    let v27: u64;  // [bp-0x100]\n    let v28: u64;  // [bp-0xf8]\n    let v29: u64;  // [bp-0xf0]\n    let v30: u8;  // [bp-0xe8]\n    let v31: u8;  // [bp-0xd0]\n    let v32: u8;  // [bp-0xb8]\n    let v33: u8;  // [bp-0xa8]\n    let v34: u64;  // [bp-0xa0]\n    let v35: u128;  // [bp-0x98]\n    let v38: core::result::Result<(), std::io::error::Error>;  // rax\n    let v39: core::result::Result<(), std::io::error::Error>;  // rax\n    let v40: u64;  // rbp\n    let v41: u64;  // rdx\n    let v42: u64;  // rbp\n    let v44: u64;  // rax\n\n    v9 = a0;\n    v10 = a1;\n    v11 = a2;\n    v12 = a3;\n    v17 = std::fs::rename(a0, a1, a2, a3);\n    if !v17 {\n        return 0;\n    }\n    v15 = std::fs::symlink_metadata(a0, a1);\n    if let Err(_) = v15 {\n        return v18;\n    }\n    match (*((&v15 as &char + 56) as &i32) & 0xf000) {\n        16384 => {\n            v15 = std::fs::metadata(a2, a3);\n            if let Ok(_) = v15 {\n                v40 = std::fs::remove_dir_all(a2, a3);\n                if v40 {\n                    return v40;\n                }\n            }\n            v8 = 0x10000;\n            v6 = 0xfa00;\n            v7 = 0;\n            v15 = fs_extra::dir::get_size(a0, a1);\n            if let Err(_) = v15 {\n                if a4 {\n                    indicatif::progress_bar::ProgressBar::new(v18, a2);\n                    indicatif::style::ProgressStyle::with_template(\"{msg}: [{elapsed_precise}] {wide_bar} {bytes:>7}/{total_bytes:7}\", a3);\n                    core::result::Result<T,E>::unwrap(&v32, &v15, \"src/uu/mv/src/mv.rs\");\n                    v2 = indicatif::progress_bar::ProgressBar::with_style(&v32, a3);\n                    indicatif::multi::MultiProgress::add(a4, &v30, a3);\n                }\n            }\n            v16 = uucore::features::fsxattr::retrieve_xattrs(a0, a1);\n            match v16 {\n                Ok(_) => {\n                    memcpy(&v25, &v16, 16);\n                    memcpy(&v24, &v16, 16);\n                    memcpy(&v22, &v16, 16);\n                },\n                Err(_) => {\n                    v22 = uu_mv::rename_with_fallback::{{closure}}(v18);\n                },\n            }\n            if v1 {\n                v0 = &v1;\n                fs_extra::dir::move_dir_with_progress(&v3, a0, a1, a2, a3, &v6);\n            } else {\n                v4 = fs_extra::dir::move_dir(a0, a1, a2, a3, &v6);\n            }\n            memcpy(&v16 as u8, &v25, 16);\n            v15 = v23;\n            core::result::Result<T,E>::unwrap(uucore::features::fsxattr::apply_xattrs(a2, a3, &v15));\n            if let Ok(_) = v4 {\n                memcpy(&v33, &v4 as u128, 16);\n                v35 = v5;\n                v32 = v4 as i128;\n                if v34 == 9223372036854775809 {\n                    v44 = std::io::error::Error::new(1, \"Permission denied\");\n                } else {\n                    v13 = &v32;\n                    v14 = <fs_extra::error::Error as core::fmt::Debug>::fmt;\n                    v15 = &g_41c350;\n                    v18 = 1;\n                    v21 = 0;\n                    v19 = &v13;\n                    v20 = 1;\n                    v15 = core::option::Option<T>::map_or_else(a2);\n                    v44 = std::io::error::Error::new(39, &v31);\n                }\n                return v44;\n            }\n            break;\n        }\n        40960 => {\n            v38 = uu_mv::rename_symlink_fallback(a0, a1, a2);\n        }\n        _ => {\n            if std::path::Path::is_symlink(a2, a3) {\n                v39 = std::fs::remove_file(a2, a3);\n                v26 = a2;\n                v27 = a3;\n                v28 = a0;\n                v29 = a1;\n                if let Err(_) = v39 {\n                    return uu_mv::rename_with_fallback::{{closure}}(&v26, v39);\n                }\n            }\n            if !std::fs::copy(a0, a1, a2, a3) {\n                v42 = uucore::features::fsxattr::copy_xattrs(&v9, &v11);\n                if v42 {\n                    return v42;\n                }\n            } else if v41 {\n                return v41;\n            }\n            v38 = std::fs::remove_file(a0, a1);\n        }\n    }\n    return v38;\n}\n",
-    "_ZN5uu_mv23rename_symlink_fallback17h50f184778666e82cE": "fn uu_mv::rename_symlink_fallback(a0: i64, a1: i64, a2: i64) -> long long {\n    let v0: core::result::Result<std::path::PathBuf, std::io::error::Error>;  // [bp-0x50]\n    let v1: std::path::PathBuf;  // [bp-0x50]\n    let v2: u64;  // [bp-0x48]\n    let v3: std::path::PathBuf;  // [bp-0x38]\n    let v5: u32;  // rcx\n    let v6: u64;  // rax\n\n    v0 = std::fs::read_link(a0, a1);\n    match v0 {\n        Err(_) => {\n            return v2;\n        },\n        Ok(v3) => {\n            v6 = std::os::unix::fs::symlink(&v3, a2, v5);\n            if !v6 {\n                return std::fs::remove_file();\n            }\n            return v6;\n        },\n    }\n}\n",
-    "_ZN5uu_mv12is_empty_dir17he3f2d58304cc65e8E": "fn uu_mv::is_empty_dir(a0: i64, a1: i64) -> long long {\n    let v0: struct9;  // [bp-0x58]\n    let v1: u72;  // [bp-0x58]\n    let v2: u384;  // [bp-0x48]\n    let v3: u72;  // [bp-0x18]\n    let v5: u32;  // ebx\n\n    v0 = std::fs::read_dir(a0, a1);\n    if v0.field_8 == 2 {\n        return 0;\n    }\n    v3 = v1;\n    v2 = struct48 {\n        field_0: 2\n        field_16: <UNKNOWN>\n        field_32: <UNKNOWN>\n    };\n    core::option::Option<T>::get_or_insert_with(&v2, &v3);\n    return v5 & -0x100;\n}\n"
+    "_ZN5uu_mv2mv17h15eff797ddd7e01aE": "fn uu_mv::mv(a0: i64, a1: i64, a2: &struct56) -> long long {\n    let v0: i64;  // [bp-0x58], Other Possible Types: u64\n    let v1: u32;  // [bp-0x50]\n    let v2: u128;  // [bp-0x48]\n    let v3: u32;  // [bp-0x40]\n    let v4: u64;  // [bp-0x38]\n    let v5: struct24;  // [bp-0x30]\n    let v7: u8;  // r8b\n    let v9: u64;  // rcx\n    let v10: u64;  // rax\n\n    uu_mv::parse_paths(a0, a1, *((a2 + 50) as &i8), v7);\n    if *((a2 + 24) as &i64) != 0x8000000000000000 {\n        v5 = std::sys::os_str::bytes::Slice::to_owned();\n        v9 = v5.field_16;\n        v4 = v5.field_16;\n        v2 = *(&v5.field_0 as &i128);\n        v10 = uu_mv::move_files_into_dir(v0, v1, v3, v9, a2);\n        return v10;\n    }\n    return (v1 == 2 ? uu_mv::handle_two_paths(*((v0 + 8) as &i64), *((v0 + 16) as &i64), *((v0 + 32) as &i64), *((v0 + 40) as &i64), a2) : uu_mv::handle_multiple_paths(v0, v1, a2));\n}\n",
+    "_ZN5uu_mv6rename17hfc95a4bd2fcddeecE": "fn uu_mv::rename(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64, a5: i64) -> long long {\n    let v0: u32;  // [bp-0x32c]\n    let v1: u128;  // [bp-0x318]\n    let v3: u64;  // [bp-0x308]\n    let v4: i64;  // [bp-0x2f0], Other Possible Types: struct32, u8\n    let v5: i8;  // [bp-0x2e8], Other Possible Types: u64\n    let v6: i64;  // [bp-0x2e0]\n    let v7: u64;  // [bp-0x2d8]\n    let v8: std::path::Components;  // [bp-0x2cc]\n    let v9: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x2c8], Other Possible Types: struct24, u64\n    let v10: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x2c8]\n    let v11: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x2c8]\n    let v12: void*;  // [bp-0x2c0], Other Possible Types: core::result::Result<std::fs::Metadata, std::io::error::Error>, u64\n    let v13: i64;  // [bp-0x2b8], Other Possible Types: struct24, u64\n    let v14: u64;  // [bp-0x2b8]\n    let v15: struct24;  // [bp-0x2b0], Other Possible Types: u64\n    let v16: void*;  // [bp-0x2a8], Other Possible Types: struct24\n    let v18: core::fmt::Arguments;  // [bp-0x218], Other Possible Types: std::path::Components, struct16, struct25, u64\n    let v20: core::fmt::rt::Argument;  // [bp-0x210], Other Possible Types: struct25, struct32, u64\n    let v21: u64;  // [bp-0x208]\n    let v22: core::fmt::Arguments;  // [bp-0x200], Other Possible Types: u8\n    let v27: std::io::stdio::Stderr;  // [bp-0x150]\n    let v28: std::io::stdio::Stderr;  // [bp-0x148]\n    let v32: i64;  // [sp-0x128], Other Possible Types: struct24, u64\n    let v33: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [sp-0x120], Other Possible Types: struct24, u64\n    let v34: u8;  // [sp-0x118]\n    let v35: u8;  // [sp-0x110]\n    let v38: u128;  // [bp-0x60]\n    let v39: u64;  // [bp-0x50]\n    let v40: u8;  // [bp-0x48]\n    let v42: u32;  // eax\n    let v43: u64;  // r12\n    let v44: u8;  // al\n    let v45: void*;  // rbx\n    let v46: u64;  // rax\n    let v47: u64;  // rdx\n    let v48: u8;  // cl\n    let v49: u8;  // sil\n    let v50: u32;  // eax\n    let v51: struct32;  // rdx\n    let v53: u64;  // rdx\n    let v55: core::result::Result<std::time::SystemTime, std::io::error::Error>;  // rax:rdx\n    let v56: core::result::Result<std::time::SystemTime, std::io::error::Error>;  // rax:rdx\n\n    v1 = 0x8000000000000000;\n    v0 = v42 & -0x100 | 1;\n    v10 = std::fs::metadata(a2, a3);\n    match v10 {\n        Err(_) => {\nLABEL_4ead3f:\n            v9 = std::fs::metadata(a2, a3);\n            if !(v9 as i32 != 2 && std::path::Path::is_dir() as u8 && std::path::Path::is_dir() as u8) {\nLABEL_4eae9c:\n                v45 = uu_mv::rename_with_fallback(a0, a1, a2, a3, a5);\n                if !v45 {\n                    if !*((a4 + 49) as &i8) {\n                        return 0;\n                    }\n                    v32 = 1;\n                    v33 = a0;\n                    v34 = a1;\n                    v35 = 1;\n                    v18 = 1;\n                    v20 = a2;\n                    v21 = a3;\n                    v22 = 1;\n                    v4 = &v32;\n                    v5 = <os_display::Quoted as core::fmt::Display>::fmt;\n                    v6 = &v18;\n                    v7 = <os_display::Quoted as core::fmt::Display>::fmt;\n                    v9 = \"renamed \";\n                    v12 = 2;\n                    v16 = 0;\n                    v13 = &v4;\n                    v15 = 2;\n                    v9 = core::option::Option<T>::map_or_else(a2);\n                    v18 = v38;\n                    v21 = v39;\n                    v0 = v21 as u32 & -0x100 | 1;\n                    if a5 {\n                        indicatif::multi::MultiProgress::suspend(a5, &v18);\n                    } else {\n                        println!(\"{}\", &v18);\n                    }\n                    return 0;\n                }\n            } else if uu_mv::is_empty_dir(a2, a3) as i8 {\n                v45 = std::fs::remove_dir(a2, a3);\n                if !v45 {\n                    goto LABEL_4eae9c;\n                }\n            } else {\nLABEL_4eb3d0:\n                v46 = std::io::error::Error::new(39, v49, v53);\nLABEL_4eb3da:\n                v45 = v46;\n            }\n        },\n        Ok(_) => {\n            v43 = *((a4 + 53) as &i8) as u8 as u64;\n            v44 = *((a4 + 55) as &i8);\n            if v44 != 2 || v43 as u8 != 1 {\n                if v44 != 1 {\n                    if v44 != 2 && v44 == 3 {\n                        v18 = 1;\n                        v20 = a2;\n                        v21 = a3;\n                        v22 = 1;\n                        v32 = &v18;\n                        v33 = <os_display::Quoted as core::fmt::Display>::fmt;\n                        v9 = \"not replacing \";\n                        v12 = 1;\n                        v16 = 0;\n                        v13 = &v32;\n                        v15 = 1;\n                        v9 = core::option::Option<T>::map_or_else(a2);\n                        v46 = std::io::error::Error::new(39, &v40);\n                        goto LABEL_4eb3da;\n                    }\n                    v11 = std::fs::metadata(a0, a1);\n                    v45 = v12;\n                    if let Ok(_) = v11 {\n                        memcpy(&v34, &v9 as u8, 160);\n                        v32 = v11 as i64;\n                        v33 = v45;\n                        v55 = std::fs::Metadata::modified(&v11 as u8);\n                        v45 = v18;\n                        v8 = v20 as i32;\n                        if v20 as i32 != 0x3b9aca00 {\n                            v10 = std::fs::metadata(a2, a3);\n                            v47 = v12;\n                            match v10 {\n                                Ok(_) => {\n                                    v27 = v47;\n                                    memcpy(&v21 as u8, &v9 as u8, 160);\n                                    v18 = v9 as i64;\n                                    v20 = v27;\n                                    v56 = std::fs::Metadata::modified(&v4);\n                                    v47 = v4;\n                                    if *(&v5 as &i32) == 0x3b9aca00 {\n                                        goto LABEL_4eb16c;\n                                    }\n                                    v48 = (v45 < v47 ? 255 : (v45 != v47) as u8 as u8);\n                                    if (v48 ? v48 : (v8 < *(&v5 as &i32) ? 255 : (v8 != *(&v5 as &i32)) as u8 as u8)) == 1 {\n                                        v50 = v43 as u32 & 255;\n                                        if v50 {\n                                            v13 = v13;\n                                            if v50 == 1 {\n                                                v18 = uucore::util_name();\n                                                v20 = v51;\n                                                eprint!(\"{}: \", &v18);\n                                                v18 = 1;\n                                                v20 = a2;\n                                                v21 = a3;\n                                                v22 = 1;\n                                                eprint!(\"overwrite {}?\", &v18);\n                                                eprint!(\" \");\n                                                v28 = std::io::stdio::Stderr {\n                                                    inner: &_ZN3std2io5stdio6stderr8INSTANCE17ha28648ccba9ff424E\n                                                };\n                                                if <std::io::stdio::Stderr as std::io::Write>::flush(&v28) {\n                                                    v18 = uucore::util_name();\n                                                    v20 = v51;\n                                                    eprint!(\"{}: \", &v18);\n                                                    eprintln!(\"{}\", &v4);\n                                                    std::process::exit(1); /* do not return */\n                                                }\n                                                v13 = v14;\n                                                if !uucore::read_yes() as i8 {\n                                                    goto LABEL_4eb3d0;\n                                                }\n                                            }\n                                            uucore::features::backup_control::get_backup_path(&v10, *((a4 + 54) as &i8));\n                                            v3 = v13;\n                                            v1 = v10 as i128 as u128;\n                                            goto LABEL_4ead3f;\n                                        } else {\n                                            if *((a4 + 52) as &i8) {\n                                                v18 = 1;\n                                                v20 = a2;\n                                                v21 = a3;\n                                                v22 = 1;\n                                                println!(\"skipped {}\", &v18);\n                                            }\n                                        }\n                                    }\n                                },\n                                Err(_) => {\nLABEL_4eb16c:\n                                    v45 = v47;\n                                },\n                            }\n                        }\n                    }\n                } else if *((a4 + 52) as &i8) {\n                    v18 = 1;\n                    v20 = a2;\n                    v21 = a3;\n                    v22 = 1;\n                    println!(\"skipped {}\", &v18);\n                }\n            }\n        },\n    }\n    return v45;\n}\n",
+    "_ZN5uu_mv20rename_with_fallback17h48f1d4f2ed6b729fE": "fn uu_mv::rename_with_fallback(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> long long {\n    let v0: i64;  // [bp-0x288]\n    let <0x4eb800[is_37]|Stack bp-0x1f8, 1 B>: i64;  // [bp-0x1f8]\n    let v1: void*;  // [bp-0x278]\n    let v2: struct24;  // [bp-0x260], Other Possible Types: u128\n    let v3: Result<struct48, struct16>;  // [bp-0x260]\n    let v4: u128;  // [bp-0x250]\n    let v5: u128;  // [bp-0x240]\n    let v6: u64;  // [bp-0x230]\n    let v7: void*;  // [bp-0x228]\n    let v8: u32;  // [bp-0x220]\n    let v9: u64;  // [bp-0x218]\n    let v10: u64;  // [bp-0x210]\n    let v11: u64;  // [bp-0x208]\n    let v12: u64;  // [bp-0x200]\n    let v13: struct56;  // [bp-0x1f8]\n    let v14: struct24;  // [bp-0x1e8], Other Possible Types: struct48, core::result::Result<std::fs::Metadata, std::io::error::Error>\n    let v15: Result<struct48, struct16>;  // [bp-0x1e8]\n    let v16: u64;  // [bp-0x1e8]\n    let v17: u64;  // [bp-0x1e0]\n    let v19: struct48;  // [bp-0x138]\n    let v20: struct48;  // [bp-0x138]\n    let v23: struct32;  // [bp-0x108]\n    let v24: u8;  // [bp-0xe8]\n    let v25: u8;  // [bp-0xd0]\n    let v26: u8;  // [bp-0xb8]\n    let v27: u128;  // [bp-0xa8]\n    let v28: u64;  // [bp-0xa0]\n    let v29: u128;  // [bp-0x98]\n    let v31: u32;  // eax\n    let v32: core::result::Result<(), std::io::error::Error>;  // rax\n    let v33: core::result::Result<(), std::io::error::Error>;  // rax\n    let v34: core::fmt::Arguments;  // rbp\n    let v35: u64;  // rdx\n    let v36: u64;  // rbp\n    let v38: u64;  // rax\n\n    v9 = a0;\n    v10 = a1;\n    v11 = a2;\n    v12 = a3;\n    v16 = std::fs::rename(a0, a1, a2, a3);\n    if !v16 {\n        return 0;\n    }\n    v14 = std::fs::symlink_metadata(a0, a1);\n    if let Err(_) = v14 {\n        return v17;\n    }\n    v31 = *((&v14 as &char + 56) as &i32) & 0xf000;\n    match (v31) {\n        16384 => {\n            v14 = std::fs::metadata(a2, a3);\n            if let Ok(_) = v14 {\n                v34 = std::fs::remove_dir_all(a2, a3);\n                if v34 {\n                    return v34;\n                }\n            }\n            v8 = 0x10000;\n            v6 = 0xfa00;\n            v7 = 0;\n            v14 = fs_extra::dir::get_size(a0, a1);\n            if let Err(_) = v14 {\n                if a4 {\n                    indicatif::progress_bar::ProgressBar::new(v17, a2);\n                    indicatif::style::ProgressStyle::with_template(\"{msg}: [{elapsed_precise}] {wide_bar} {bytes:>7}/{total_bytes:7}\", a3);\n                    core::result::Result<T,E>::unwrap(&v26, &v14, \"src/uu/mv/src/mv.rs\");\n                    v2 = indicatif::progress_bar::ProgressBar::with_style(&v26, a3);\n                    indicatif::multi::MultiProgress::add(a4, &v24, a3);\n                }\n            }\n            v15 = uucore::features::fsxattr::retrieve_xattrs(a0, a1);\n            if let Err(_) = v15 {\n                v19 = uu_mv::rename_with_fallback::{{closure}}(v17);\n            }\n            if v1 {\n                v0 = &v1;\n                fs_extra::dir::move_dir_with_progress(&v2, a0, a1, a2, a3, &v6);\n            } else {\n                v3 = fs_extra::dir::move_dir(a0, a1, a2, a3, &v6);\n            }\n            v14 = v20;\n            core::result::Result<T,E>::unwrap(uucore::features::fsxattr::apply_xattrs(a2, a3, &v14));\n            if v3 as i64 != 0x8000000000000000 {\n                v27 = v4;\n                v29 = v5;\n                v26 = v2;\n                if v28 == 9223372036854775809 {\n                    v38 = std::io::error::Error::new(1, \"Permission denied\");\n                } else {\n                    v13 = struct56 {\n                        field_0: &v26\n                        field_8: <fs_extra::error::Error as core::fmt::Debug>::fmt\n                        field_16: &g_41c350\n                        field_24: 1\n                        field_32: &<0x4eb800[is_37]|Stack bp-0x1f8, 1 B> as u64\n                        field_40: 1\n                        field_48: 0\n                    };\n                    v14 = core::option::Option<T>::map_or_else(a2);\n                    v38 = std::io::error::Error::new(39, &v25);\n                }\n                return v38;\n            }\n            break;\n        }\n        40960 => {\n            v32 = uu_mv::rename_symlink_fallback(a0, a1, a2);\n        }\n        _ => {\n            if std::path::Path::is_symlink(a2, a3) {\n                v33 = std::fs::remove_file(a2, a3);\n                v23 = struct32 {\n                    field_0: a2\n                    field_8: a3\n                    field_16: a0\n                    field_24: a1\n                };\n                if let Err(_) = v33 {\n                    return uu_mv::rename_with_fallback::{{closure}}(&v23, v33);\n                }\n            }\n            if !std::fs::copy(a0, a1, a2, a3) {\n                v36 = uucore::features::fsxattr::copy_xattrs(&v9, &v11);\n                if v36 {\n                    return v36;\n                }\n            } else if v35 {\n                return v35;\n            }\n            v32 = std::fs::remove_file(a0, a1);\n        }\n    }\n    return v32;\n}\n",
+    "_ZN5uu_mv23rename_symlink_fallback17h50f184778666e82cE": "fn uu_mv::rename_symlink_fallback(a0: i64, a1: i64, a2: i64) -> long long {\n    let v0: core::result::Result<std::path::PathBuf, std::io::error::Error>;  // [bp-0x50]\n    let v1: std::path::PathBuf;  // [bp-0x50], Other Possible Types: struct24\n    let v2: u64;  // [bp-0x48]\n    let v3: std::path::PathBuf;  // [bp-0x38], Other Possible Types: struct24\n    let v5: u32;  // rcx\n    let v6: u64;  // rax\n\n    v0 = std::fs::read_link(a0, a1);\n    match v0 {\n        Err(_) => {\n            return v2;\n        },\n        Ok(v3) => {\n            v3 = v1;\n            v6 = std::os::unix::fs::symlink(&v3, a2, v5);\n            if !v6 {\n                return std::fs::remove_file();\n            }\n            return v6;\n        },\n    }\n}\n",
+    "_ZN5uu_mv12is_empty_dir17he3f2d58304cc65e8E": "fn uu_mv::is_empty_dir(a0: i64, a1: i64) -> long long {\n    let v0: struct9;  // [bp-0x58]\n    let v1: struct9;  // [bp-0x58]\n    let v2: struct48;  // [bp-0x48]\n    let v3: struct9;  // [bp-0x18]\n    let v5: u32;  // ebx\n\n    v0 = std::fs::read_dir(a0, a1);\n    if v0.field_8 == 2 {\n        return 0;\n    }\n    v3 = v1;\n    v2 = struct48 {\n        field_0: 2\n        field_16: <UNKNOWN>\n        field_32: <UNKNOWN>\n    };\n    core::option::Option<T>::get_or_insert_with(&v2, &v3);\n    return v5 & -0x100;\n}\n"
   },
   "function_call_counts": {
     "_ZN5uu_mv6uumain17h93a74df50da19c72E": {
@@ -26,7 +26,6 @@
       "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
       "alloc::boxed::Box<T>::new": 2,
       "<T as alloc::string::ToString>::to_string": 1,
-      "core::ops::function::FnOnce::call_once": 1,
       "uu_mv::mv": 1,
       "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 5,
       "clap_builder::parser::error::MatchesError::unwrap": 2,
@@ -177,7 +176,7 @@
   },
   "node_counts": {
     "_ZN5uu_mv6uumain17h93a74df50da19c72E": 10,
-    "_ZN5uu_mv6uumain6uumain17h01b12df543510b6cE": 31,
+    "_ZN5uu_mv6uumain6uumain17h01b12df543510b6cE": 29,
     "_ZN5uu_mv6uu_app17hfdaaab3614528530E": 84,
     "_ZN5uu_mv24determine_overwrite_mode17h2a7c21ee43665632E": 3,
     "_ZN5uu_mv11parse_paths17hd84bd62365a1b7ccE": 2,
@@ -191,7 +190,7 @@
   },
   "variable_types": {
     "_ZN5uu_mv6uumain17h93a74df50da19c72E": {
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -212,7 +211,7 @@
       "stack_96": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_112": [
@@ -225,23 +224,15 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_72": [
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -257,55 +248,15 @@
       ],
       "stack_16": [
         [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          16
-        ],
-        [
-          "Result",
-          80
-        ],
-        [
-          "primitive",
-          56
-        ],
-        [
-          "primitive",
+          "struct",
           32
         ],
         [
           "struct",
-          56
-        ],
-        [
-          "struct",
-          24
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
           16
-        ],
-        [
-          "Result",
-          73
-        ],
-        [
-          "Result",
-          80
-        ],
-        [
-          "struct",
-          24
         ]
       ],
-      "reg_128": [
+      "reg_r14": [
         [
           "primitive",
           8
@@ -317,31 +268,13 @@
           8
         ]
       ],
-      "stack_168": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_256": [
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "stack_152": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_136": [
-        [
-          "primitive",
-          1
-        ]
-      ],
       "stack_120": [
+        [
+          "struct",
+          56
+        ]
+      ],
+      "reg_ymm1": [
         [
           "primitive",
           16
@@ -351,31 +284,15 @@
         [
           "struct",
           24
-        ],
-        [
-          "struct",
-          64
-        ],
-        [
-          "primitive",
-          26
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_312": [
         [
-          "primitive",
+          "struct",
           64
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -405,17 +322,9 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
-      "reg_224": [
+      "reg_ymm0": [
         [
           "primitive",
           16
@@ -427,10 +336,10 @@
           8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "&primitive",
-          8
+          null
         ],
         [
           "primitive",
@@ -439,8 +348,8 @@
       ],
       "stack_264": [
         [
-          "struct",
-          24
+          "Result",
+          88
         ]
       ],
       "stack_280": [
@@ -458,18 +367,10 @@
       "stack_48": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_32": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           8
@@ -479,10 +380,6 @@
         [
           "primitive",
           4
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_376": [
@@ -491,13 +388,19 @@
           1
         ]
       ],
-      "reg_40": [
+      "reg_rbx": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "reg_rbp": [
         [
           "primitive",
           1
         ]
       ],
-      "reg_120": [
+      "reg_r13": [
         [
           "primitive",
           1
@@ -518,6 +421,10 @@
       "stack_96": [
         [
           "primitive",
+          16
+        ],
+        [
+          "primitive",
           8
         ]
       ],
@@ -529,19 +436,11 @@
       ],
       "stack_240": [
         [
-          "primitive",
-          16
-        ],
-        [
           "struct",
           24
         ]
       ],
       "stack_256": [
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           8
@@ -563,10 +462,6 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_272": [
@@ -580,10 +475,10 @@
       "stack_1352": [
         [
           "struct",
-          466
+          448
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -599,10 +494,6 @@
         [
           "struct",
           8
-        ],
-        [
-          "primitive",
-          1
         ]
       ],
       "stack_1328": [
@@ -637,20 +528,8 @@
       ],
       "stack_2064": [
         [
-          "primitive",
-          32
-        ],
-        [
-          "primitive",
+          "struct",
           24
-        ],
-        [
-          "primitive",
-          32
-        ],
-        [
-          "primitive",
-          32
         ]
       ],
       "stack_0": [
@@ -659,7 +538,7 @@
           8
         ],
         [
-          "primitive",
+          "struct",
           24
         ]
       ],
@@ -689,7 +568,7 @@
       ]
     },
     "_ZN5uu_mv24determine_overwrite_mode17h2a7c21ee43665632E": {
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -697,7 +576,7 @@
       ]
     },
     "_ZN5uu_mv11parse_paths17hd84bd62365a1b7ccE": {
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8
@@ -705,7 +584,7 @@
       ]
     },
     "_ZN5uu_mv16handle_two_paths17hbd0a81168087f696E": {
-      "reg_120": [
+      "reg_r13": [
         [
           "primitive",
           1
@@ -721,14 +600,6 @@
       ],
       "stack_80": [
         [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          25
-        ],
-        [
           "struct",
           24
         ]
@@ -743,10 +614,6 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_104": [
@@ -757,44 +624,8 @@
       ],
       "stack_16": [
         [
-          "primitive",
-          8
-        ],
-        [
           "struct",
-          24
-        ],
-        [
-          "primitive",
-          25
-        ],
-        [
-          "struct",
-          85
-        ],
-        [
-          "primitive",
           16
-        ],
-        [
-          "primitive",
-          25
-        ],
-        [
-          "primitive",
-          25
-        ],
-        [
-          "struct",
-          85
-        ],
-        [
-          "primitive",
-          25
-        ],
-        [
-          "primitive",
-          25
         ]
       ],
       "stack_24": [
@@ -804,10 +635,6 @@
         ]
       ],
       "stack_32": [
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           8
@@ -821,14 +648,6 @@
       ],
       "stack_152": [
         [
-          "struct",
-          24
-        ],
-        [
-          "primitive",
-          16
-        ],
-        [
           "primitive",
           8
         ]
@@ -840,10 +659,6 @@
         ]
       ],
       "stack_168": [
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           8
@@ -861,75 +676,27 @@
           24
         ],
         [
-          "primitive",
-          32
+          "struct",
+          120
         ],
         [
           "struct",
-          24
-        ],
-        [
-          "Result",
-          200
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "Result",
-          200
-        ],
-        [
-          "struct",
-          85
-        ],
-        [
-          "struct",
-          85
+          120
         ]
       ],
       "stack_200": [
         [
           "struct",
           24
-        ],
-        [
-          "struct",
-          24
-        ],
-        [
-          "struct",
-          24
-        ],
-        [
-          "struct",
-          24
-        ],
-        [
-          "struct",
-          24
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_224": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_208": [
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           8
@@ -939,17 +706,9 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -991,7 +750,7 @@
           8
         ]
       ],
-      "reg_136": [
+      "reg_r15": [
         [
           "primitive",
           8
@@ -1001,7 +760,7 @@
           8
         ]
       ],
-      "reg_56": [
+      "reg_rbp": [
         [
           "primitive",
           8
@@ -1016,10 +775,6 @@
       "stack_128": [
         [
           "struct",
-          24
-        ],
-        [
-          "primitive",
           16
         ]
       ],
@@ -1033,13 +788,9 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
-      "reg_112": [
+      "reg_r12": [
         [
           "primitive",
           8
@@ -1085,10 +836,6 @@
         [
           "struct",
           24
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_24": [
@@ -1100,7 +847,7 @@
       "stack_48": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_32": [
@@ -1121,13 +868,13 @@
           1
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -1135,7 +882,7 @@
       ]
     },
     "_ZN5uu_mv2mv17h15eff797ddd7e01aE": {
-      "reg_80": [
+      "reg_r8": [
         [
           "primitive",
           1
@@ -1147,6 +894,12 @@
           24
         ]
       ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
       "stack_48": [
         [
           "primitive",
@@ -1156,14 +909,16 @@
       "stack_32": [
         [
           "primitive",
-          1
+          16
         ]
       ],
-      "stack_16": [
+      "reg_rax": [
         [
           "primitive",
           8
-        ],
+        ]
+      ],
+      "stack_16": [
         [
           "primitive",
           8
@@ -1173,19 +928,9 @@
         [
           "primitive",
           4
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_40": [
-        [
-          "primitive",
-          4
-        ]
-      ],
-      "reg_24": [
         [
           "primitive",
           4
@@ -1196,10 +941,6 @@
       "stack_32": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
           16
         ]
       ],
@@ -1207,13 +948,9 @@
         [
           "primitive",
           4
-        ],
-        [
-          "primitive",
-          4
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           4
@@ -1237,49 +974,21 @@
           200
         ],
         [
-          "primitive",
-          8
-        ],
-        [
           "Result",
           200
-        ],
-        [
-          "struct",
-          24
-        ],
-        [
-          "Result",
-          200
-        ],
-        [
-          "struct",
-          24
-        ],
-        [
-          "struct",
-          24
         ],
         [
           "Result",
           200
         ]
       ],
-      "reg_40": [
+      "reg_rbx": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_528": [
-        [
-          "struct",
-          24
-        ],
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           8
@@ -1289,24 +998,12 @@
         [
           "Result",
           200
-        ],
-        [
-          "struct",
-          24
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_544": [
         [
           "primitive",
           1
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_552": [
@@ -1317,101 +1014,17 @@
       ],
       "stack_288": [
         [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          16
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
           "struct",
-          85
+          48
         ]
       ],
       "stack_296": [
         [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          "struct",
+          16
         ]
       ],
       "stack_304": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           8
@@ -1419,49 +1032,17 @@
       ],
       "stack_312": [
         [
-          "primitive",
-          1
-        ],
-        [
-          "primitive",
-          1
-        ],
-        [
-          "primitive",
-          1
-        ],
-        [
-          "primitive",
-          1
-        ],
-        [
-          "primitive",
-          1
+          "struct",
+          48
         ]
       ],
       "stack_72": [
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          1
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_80": [
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           1
@@ -1482,25 +1063,13 @@
       "stack_120": [
         [
           "&primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "Result",
-          200
+          null
         ]
       ],
       "stack_144": [
         [
-          "struct",
-          24
-        ],
-        [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_128": [
@@ -1511,25 +1080,9 @@
         [
           "primitive",
           8
-        ],
-        [
-          "struct",
-          24
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_136": [
-        [
-          "primitive",
-          8
-        ],
         [
           "struct",
           24
@@ -1547,13 +1100,13 @@
           8
         ]
       ],
-      "reg_64": [
+      "reg_rsi": [
         [
           "primitive",
           1
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -1563,11 +1116,11 @@
           8
         ],
         [
-          "primitive",
-          8
+          "struct",
+          32
         ]
       ],
-      "reg_112": [
+      "reg_r12": [
         [
           "primitive",
           8
@@ -1582,16 +1135,16 @@
       "stack_108": [
         [
           "struct",
-          85
+          120
         ]
       ],
       "stack_488": [
         [
-          "primitive",
+          "struct",
           8
         ]
       ],
-      "reg_24": [
+      "reg_rcx": [
         [
           "primitive",
           1
@@ -1599,7 +1152,7 @@
       ],
       "stack_496": [
         [
-          "primitive",
+          "struct",
           8
         ]
       ],
@@ -1647,46 +1200,36 @@
         [
           "Result",
           80
-        ],
-        [
-          "Result",
-          200
-        ],
-        [
-          "Result",
-          200
-        ],
-        [
-          "primitive",
-          32
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "Result",
-          80
         ]
       ],
       "stack_168": [
         [
           "primitive",
           8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
         ],
         [
           "primitive",
           8
         ],
         [
-          "primitive",
+          "Result",
+          8
+        ],
+        [
+          "Result",
           8
         ]
       ],
-      "reg_56": [
+      "reg_rbp": [
         [
-          "primitive",
-          8
+          "struct",
+          48
         ],
         [
           "primitive",
@@ -1708,27 +1251,19 @@
       "stack_96": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_464": [
         [
           "primitive",
           1
-        ],
-        [
-          "primitive",
-          16
         ]
       ],
       "stack_40": [
         [
           "struct",
           24
-        ],
-        [
-          "primitive",
-          16
         ],
         [
           "Result",
@@ -1741,40 +1276,20 @@
           1
         ]
       ],
-      "stack_368": [
-        [
-          "primitive",
-          16
-        ],
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_352": [
-        [
-          "primitive",
-          1
-        ]
-      ],
       "stack_336": [
-        [
-          "primitive",
-          1
-        ],
         [
           "struct",
           48
         ],
         [
-          "primitive",
-          32
+          "struct",
+          48
         ]
       ],
       "stack_16": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_0": [
@@ -1783,10 +1298,16 @@
           8
         ]
       ],
+      "stack_56": [
+        [
+          "primitive",
+          16
+        ]
+      ],
       "stack_480": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_496": [
@@ -1807,45 +1328,11 @@
           8
         ]
       ],
-      "reg_16": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "Result",
-          8
-        ],
-        [
-          "Result",
-          8
-        ]
-      ],
       "stack_144": [
         [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_152": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_192": [
-        [
-          "&primitive",
-          8
-        ]
-      ],
-      "stack_176": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_184": [
+          "struct",
+          56
+        ],
         [
           "primitive",
           8
@@ -1859,29 +1346,11 @@
       ],
       "stack_384": [
         [
-          "primitive",
-          8
+          "struct",
+          32
         ]
       ],
-      "stack_392": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_400": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_408": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -1911,13 +1380,13 @@
           24
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_24": [
+      "reg_rcx": [
         [
           "primitive",
           4
@@ -1928,26 +1397,26 @@
       "stack_0": [
         [
           "struct",
-          9
+          16
         ],
         [
-          "primitive",
-          9
+          "struct",
+          16
         ]
       ],
       "stack_64": [
         [
-          "primitive",
-          9
+          "struct",
+          16
         ]
       ],
       "stack_16": [
         [
-          "primitive",
+          "struct",
           48
         ]
       ],
-      "reg_40": [
+      "reg_rbx": [
         [
           "primitive",
           4

@@ -10,7 +10,7 @@ fn uu_realpath::uu_app(a0: &struct712) -> long long {
     let v8: u8;  // [bp-0x538]
     let v9: u64;  // [bp-0x27c]
     let v10: u32;  // [bp-0x274]
-    let v11: u8;  // [bp-0x270]
+    let v11: struct32;  // [bp-0x270], Other Possible Types: u8
     let v14: u64;  // rdx
 
     v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v14);
@@ -49,6 +49,12 @@ fn uu_realpath::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::arg::Arg::new(&v8, "physical");
     clap_builder::builder::arg::Arg::short(&v5, &v8, 80);
     clap_builder::builder::arg::Arg::long(&v8, &v5, "physical");
+    v11 = struct32 {
+        field_0: &g_41e0af
+        field_8: 5
+        field_16: &g_41e0b4
+        field_24: 7
+    };
     v11 = struct32 {
         field_0: &g_41e0af
         field_8: 5

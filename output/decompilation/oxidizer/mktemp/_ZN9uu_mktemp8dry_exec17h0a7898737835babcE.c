@@ -3,11 +3,11 @@ fn uu_mktemp::dry_exec(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i64, a7:
     let v0: u64;  // [bp-0xb8]
     let v1: u64;  // [bp-0xb0]
     let v2: void*;  // [bp-0xa8]
-    let v3: u128;  // [bp-0xa0], Other Possible Types: core::result::Result<alloc::string::String, alloc::string::FromUtf8Error>, struct24
+    let v3: core::result::Result<alloc::string::String, alloc::string::FromUtf8Error>;  // [bp-0xa0], Other Possible Types: struct24, struct16, u64
     let v4: u64;  // [bp-0x98]
     let v5: u64;  // [bp-0x78]
     let v6: u64;  // [bp-0x70]
-    let v7: u192;  // [bp-0x68]
+    let v7: alloc::vec::Vec<u8, alloc::alloc::Global>;  // [bp-0x68]
     let v8: struct24;  // [bp-0x48]
     let v9: u64;  // r13
     let v10: u64;  // r12
@@ -36,6 +36,10 @@ fn uu_mktemp::dry_exec(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i64, a7:
         field_0: v10
         field_8: v10 + v11
     };
+    v3 = struct16 {
+        field_0: v10
+        field_8: v10 + v11
+    };
     v12 = <core::slice::iter::IterMut<T> as core::iter::traits::iterator::Iterator>::next(&v3);
     if v12 {
         do {
@@ -47,7 +51,7 @@ fn uu_mktemp::dry_exec(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i64, a7:
     v7 = alloc::vec::Vec<u8, alloc::alloc::Global> {
         buf: alloc::raw_vec::RawVec<u8, alloc::alloc::Global> {
             cap: alloc::raw_vec::Cap {
-                __0: <UNKNOWN>
+                __0: *(&v0 as &i128)
             }
             ptr: core::ptr::unique::Unique<u8> {
                 pointer: core::ptr::non_null::NonNull<u8> {
@@ -59,7 +63,6 @@ fn uu_mktemp::dry_exec(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i64, a7:
         }
         len: v2
     };
-    memcpy(&v7, &v0, 16);
     v3 = alloc::string::String::from_utf8(&v7);
     v8 = core::result::Result<T,E>::unwrap(&v3);
     std::path::Path::join(v17);

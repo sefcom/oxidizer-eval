@@ -1,22 +1,22 @@
 fn uu_dd::numbers::SuffixType::base_and_suffix(a0: i64, a1: u8, a2: u64, a3: u64) -> : struct32 {
-    let v0: u64;  // [bp-0xe0]
-    let v1: u64;  // [bp-0xd8]
+    let v0: std::fs::File;  // [bp-0xe0]
+    let v1: std::fs::File;  // [bp-0xd8]
     let v3: u64;  // [bp-0xc8]
     let v4: u8;  // [bp-0xc0]
-    let v6: u64;  // rdx
-    let v7: Result<struct216, struct40>;  // r8
-    let v8: u64;  // r10
-    let v9: std::sys::os_str::bytes::Buf;  // r9
+    let v6: core::result::Result<u64, std::io::error::Error>;  // rdx
+    let v7: u64;  // r8
+    let v8: core::result::Result<u64, std::io::error::Error>;  // r10
+    let v9: u64;  // r9
     let v10: u64;  // r11
     let v11: struct16;  // r13
     let v12: u64;  // rbp
-    let v13: core::result::Result<u64, std::io::error::Error>;  // rax
+    let v13: struct32;  // rax
     let v14: core::option::Option<&[usize]>;  // r12
-    let v15: void*;  // rdi
+    let v15: core::fmt::rt::Argument;  // rdi
     let v16: u64;  // cc_ndep
     let v17: Result<struct4, struct8>;  // ecx
-    let v18: Result<struct24, struct24>;  // r12
-    let v19: u64;  // rdi
+    let v18: alloc::vec::Vec<u8, alloc::alloc::Global>;  // r12
+    let v19: struct16;  // rdi
 
     if a1 {
         memcpy(&v4, "B", 144);

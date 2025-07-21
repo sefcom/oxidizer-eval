@@ -1,11 +1,11 @@
 fn uu_du::StatPrinter::print_stat(a0: i64, a1: i64, a2: i64) -> long long {
-    let v0: Result<struct24, struct8>;  // [bp-0xe0], Other Possible Types: u256
+    let v0: Result<struct24, struct8>;  // [bp-0xe0], Other Possible Types: struct32
     let v1: u64;  // [bp-0xd8]
     let v2: struct52;  // [bp-0xc0], Other Possible Types: u64
     let v3: u64;  // [bp-0xb8]
-    let v4: u8;  // [bp-0xb0]
+    let v4: u128;  // [bp-0xb0]
     let v6: struct24;  // [bp-0x58]
-    let v7: struct16;  // [bp-0x40]
+    let v7: struct12;  // [bp-0x40]
     let v9: u64;  // rcx
     let v11: u64;  // rcx
 
@@ -16,7 +16,7 @@ fn uu_du::StatPrinter::print_stat(a0: i64, a1: i64, a2: i64) -> long long {
         v0 = uu_du::get_time_secs(*((a0 + 76) as &i8), a1);
         match v0 {
             Ok(_) => {
-                memcpy(&v4, &v0 as u8, 16);
+                v4 = *((&v0 as &char + 16) as &i128) as u128;
                 v2 = v0 as i64;
                 v3 = v1;
                 return alloc::boxed::Box<T>::new(&v2);

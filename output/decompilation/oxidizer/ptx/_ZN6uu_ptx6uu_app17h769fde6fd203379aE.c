@@ -1,132 +1,132 @@
-fn uu_ptx::uu_app(a0: &struct712) -> u64 {
-    let v0: struct592;  // [sp-0xa48], Other Possible Types: struct24
-    let v1: i32;  // [sp-0x800]
-    let v2: i32;  // [sp-0x7fc]
-    let v3: struct592;  // [sp-0x7f8], Other Possible Types: struct712
-    let v4: struct592;  // [sp-0x530], Other Possible Types: struct712, struct437
-    let v5: i64;  // [sp-0x274]
-    let v6: i32;  // [sp-0x26c]
-    let v7: struct592;  // [sp-0x268]
-    let v9: i64;  // rdx
+fn uu_ptx::uu_app(a0: &struct712) -> long long {
+    let v0: u8;  // [bp-0xa48]
+    let v1: struct24;  // [bp-0x800]
+    let v2: struct24;  // [bp-0x7fc]
+    let v3: u8;  // [bp-0x7f8]
+    let v4: u32;  // [bp-0x5b0]
+    let v5: i8;  // [bp-0x5ac]
+    let v6: u64;  // [bp-0x53c]
+    let v7: u32;  // [bp-0x534]
+    let v8: struct437;  // [bp-0x530]
+    let v9: u64;  // [bp-0x274]
+    let v10: u32;  // [bp-0x26c]
+    let v11: u8;  // [bp-0x268]
+    let v14: u64;  // rdx
 
-    v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
-    v3 = clap_builder::builder::command::Command::about(&v4, "Produce a permuted index of file contents
-Output a permuted index, including context, of the words in the input files.
-Mandatory arguments to long options are mandatory for short options too.
-With no FILE, or when FILE is -, read standard input. Default is '-F /'.");
-    v4 = clap_builder::builder::command::Command::version(&v3, "0.0.28");
-    v0 = uucore::format_usage("{} [OPTION]... [INPUT]...
-{} -G [OPTION]... [INPUT [OUTPUT]]");
-    v3 = clap_builder::builder::command::Command::override_usage(&v4, &v0);
-    memcpy(&v4, &v3, 700);
-    v5 = 549755814016 | *((&v3.field_0 as &char + 700) as &i64);
-    v6 = *((&v3.field_0 as &char + 708) as &i32);
-    v3 = clap_builder::builder::arg::Arg::new("file");
+    v8 = clap_builder::builder::command::Command::new(uucore::util_name(), v14);
+    clap_builder::builder::command::Command::about(&v3, &v8, "Produce a permuted index of file contents\nOutput a permuted index, including context, of the words in the input files.\nMandatory arguments to long options are mandatory for short options too.\nWith no FILE, or when FILE is -, read standard input. Default is '-F /'.");
+    clap_builder::builder::command::Command::version(&v8, &v3, "0.0.28");
+    uucore::format_usage(&v0, "{} [OPTION]... [INPUT]...\n{} -G [OPTION]... [INPUT [OUTPUT]]");
+    clap_builder::builder::command::Command::override_usage(&v3, &v8, &v0);
+    memcpy(&v8, &v3, 700);
+    v9 = 549755814016 | v6;
+    v10 = v7;
+    clap_builder::builder::arg::Arg::new(&v3, "file");
     memcpy(&v0, &v3, 584);
-    v1 = *((&v3.field_0 as &char + 584) as &i32) | 4;
-    v2 = *((&v3.field_0 as &char + 588) as &i32);
-    v3 = clap_builder::builder::arg::Arg::action(&v0, 0x1);
-    v0 = clap_builder::builder::arg::Arg::value_hint(&v3, 0x3);
-    v3 = clap_builder::builder::command::Command::arg(&v4, &v0);
-    v4 = clap_builder::builder::arg::Arg::new("auto-reference");
-    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x41);
-    v4 = clap_builder::builder::arg::Arg::long(&v0, "auto-reference");
-    v0 = clap_builder::builder::arg::Arg::help(&v4, "output automatically generated references");
-    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    v4 = clap_builder::builder::command::Command::arg(&v3, &v7);
-    v3 = clap_builder::builder::arg::Arg::new("traditional");
-    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x47);
-    v3 = clap_builder::builder::arg::Arg::long(&v0, "traditional");
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "behave more like System V 'ptx'");
-    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    v3 = clap_builder::builder::command::Command::arg(&v4, &v7);
-    v4 = clap_builder::builder::arg::Arg::new("flag-truncation");
-    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x46);
-    v4 = clap_builder::builder::arg::Arg::long(&v0, "flag-truncation");
-    v0 = clap_builder::builder::arg::Arg::help(&v4, "use STRING for flagging line truncations");
-    v7 = clap_builder::builder::arg::Arg::value_name(&v0, "STRING");
-    v4 = clap_builder::builder::command::Command::arg(&v3, &v7);
-    v3 = clap_builder::builder::arg::Arg::new("macro-name");
-    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x4d);
-    v3 = clap_builder::builder::arg::Arg::long(&v0, "macro-name");
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "macro name to use instead of 'xx'");
-    v7 = clap_builder::builder::arg::Arg::value_name(&v0, "STRING");
-    v3 = clap_builder::builder::command::Command::arg(&v4, &v7);
-    v4 = clap_builder::builder::arg::Arg::new("format=roff");
-    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x4f);
-    v4 = clap_builder::builder::arg::Arg::long(&v0, "format=roff");
-    v0 = clap_builder::builder::arg::Arg::help(&v4, "generate output as roff directives");
-    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    v4 = clap_builder::builder::command::Command::arg(&v3, &v7);
-    v3 = clap_builder::builder::arg::Arg::new("right-side-refs");
-    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x52);
-    v3 = clap_builder::builder::arg::Arg::long(&v0, "right-side-refs");
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "put references at right, not counted in -w");
-    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    v3 = clap_builder::builder::command::Command::arg(&v4, &v7);
-    v4 = clap_builder::builder::arg::Arg::new("sentence-regexp");
-    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x53);
-    v4 = clap_builder::builder::arg::Arg::long(&v0, "sentence-regexp");
-    v0 = clap_builder::builder::arg::Arg::help(&v4, "for end of lines or end of sentences");
-    v7 = clap_builder::builder::arg::Arg::value_name(&v0, "REGEXP");
-    v4 = clap_builder::builder::command::Command::arg(&v3, &v7);
-    v3 = clap_builder::builder::arg::Arg::new("format=tex");
-    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x54);
-    v3 = clap_builder::builder::arg::Arg::long(&v0, "format=tex");
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "generate output as TeX directives");
-    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    v3 = clap_builder::builder::command::Command::arg(&v4, &v7);
-    v4 = clap_builder::builder::arg::Arg::new("word-regexp");
-    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x57);
-    v4 = clap_builder::builder::arg::Arg::long(&v0, "word-regexp");
-    v0 = clap_builder::builder::arg::Arg::help(&v4, "use REGEXP to match each keyword");
-    v7 = clap_builder::builder::arg::Arg::value_name(&v0, "REGEXP");
-    v4 = clap_builder::builder::command::Command::arg(&v3, &v7);
-    v3 = clap_builder::builder::arg::Arg::new("break-file");
-    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x62);
-    v3 = clap_builder::builder::arg::Arg::long(&v0, "break-file");
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "word break characters in this FILE");
-    v3 = clap_builder::builder::arg::Arg::value_name(&v0, "FILE");
-    v0 = clap_builder::builder::arg::Arg::value_hint(&v3, 0x3);
-    v3 = clap_builder::builder::command::Command::arg(&v4, &v0);
-    v4 = clap_builder::builder::arg::Arg::new("ignore-case");
-    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x66);
-    v4 = clap_builder::builder::arg::Arg::long(&v0, "ignore-case");
-    v0 = clap_builder::builder::arg::Arg::help(&v4, "fold lower case to upper case for sorting");
-    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x2);
-    v4 = clap_builder::builder::command::Command::arg(&v3, &v7);
-    v3 = clap_builder::builder::arg::Arg::new("gap-size");
-    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x67);
-    v3 = clap_builder::builder::arg::Arg::long(&v0, "gap-size");
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "gap size in columns between output fields");
-    v7 = clap_builder::builder::arg::Arg::value_name(&v0, "NUMBER");
-    v3 = clap_builder::builder::command::Command::arg(&v4, &v7);
-    v4 = clap_builder::builder::arg::Arg::new("ignore-file");
-    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x69);
-    v4 = clap_builder::builder::arg::Arg::long(&v0, "ignore-file");
-    v0 = clap_builder::builder::arg::Arg::help(&v4, "read ignore word list from FILE");
-    v4 = clap_builder::builder::arg::Arg::value_name(&v0, "FILE");
-    v0 = clap_builder::builder::arg::Arg::value_hint(&v4, 0x3);
-    v4 = clap_builder::builder::command::Command::arg(&v3, &v0);
-    v3 = clap_builder::builder::arg::Arg::new("only-file");
-    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x6f);
-    v3 = clap_builder::builder::arg::Arg::long(&v0, "only-file");
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "read only word list from this FILE");
-    v3 = clap_builder::builder::arg::Arg::value_name(&v0, "FILE");
-    v0 = clap_builder::builder::arg::Arg::value_hint(&v3, 0x3);
-    v3 = clap_builder::builder::command::Command::arg(&v4, &v0);
-    v4 = clap_builder::builder::arg::Arg::new("references");
-    v0 = clap_builder::builder::arg::Arg::short(&v4, 0x72);
-    v4 = clap_builder::builder::arg::Arg::long(&v0, "references");
-    v0 = clap_builder::builder::arg::Arg::help(&v4, "first field of each line is a reference");
-    v4 = clap_builder::builder::arg::Arg::value_name(&v0, "FILE");
-    v0 = clap_builder::builder::arg::Arg::action(&v4, 0x2);
-    v4 = clap_builder::builder::command::Command::arg(&v3, &v0);
-    v3 = clap_builder::builder::arg::Arg::new("width");
-    v0 = clap_builder::builder::arg::Arg::short(&v3, 0x77);
-    v3 = clap_builder::builder::arg::Arg::long(&v0, "width");
-    v0 = clap_builder::builder::arg::Arg::help(&v3, "output width in columns, reference excluded");
-    v3 = clap_builder::builder::arg::Arg::value_name(&v0, "NUMBER");
-    clap_builder::builder::command::Command::arg(a0, &v4, &v3);
+    v1 = v4 | 4;
+    v2 = *(&v5 as &i32);
+    clap_builder::builder::arg::Arg::action(&v3, &v0, 1);
+    clap_builder::builder::arg::Arg::value_hint(&v0, &v3, 3);
+    clap_builder::builder::command::Command::arg(&v3, &v8, &v0);
+    clap_builder::builder::arg::Arg::new(&v8, "auto-reference");
+    clap_builder::builder::arg::Arg::short(&v0, &v8, 65);
+    clap_builder::builder::arg::Arg::long(&v8, &v0, "auto-reference");
+    clap_builder::builder::arg::Arg::help(&v0, &v8, "output automatically generated references");
+    clap_builder::builder::arg::Arg::action(&v11, &v0, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v3, &v11);
+    clap_builder::builder::arg::Arg::new(&v3, "traditional");
+    clap_builder::builder::arg::Arg::short(&v0, &v3, 71);
+    clap_builder::builder::arg::Arg::long(&v3, &v0, "traditional");
+    clap_builder::builder::arg::Arg::help(&v0, &v3, "behave more like System V 'ptx'");
+    clap_builder::builder::arg::Arg::action(&v11, &v0, 2);
+    clap_builder::builder::command::Command::arg(&v3, &v8, &v11);
+    clap_builder::builder::arg::Arg::new(&v8, "flag-truncation");
+    clap_builder::builder::arg::Arg::short(&v0, &v8, 70);
+    clap_builder::builder::arg::Arg::long(&v8, &v0, "flag-truncation");
+    clap_builder::builder::arg::Arg::help(&v0, &v8, "use STRING for flagging line truncations");
+    clap_builder::builder::arg::Arg::value_name(&v11, &v0, "STRING");
+    clap_builder::builder::command::Command::arg(&v8, &v3, &v11);
+    clap_builder::builder::arg::Arg::new(&v3, "macro-name");
+    clap_builder::builder::arg::Arg::short(&v0, &v3, 77);
+    clap_builder::builder::arg::Arg::long(&v3, &v0, "macro-name");
+    clap_builder::builder::arg::Arg::help(&v0, &v3, "macro name to use instead of 'xx'");
+    clap_builder::builder::arg::Arg::value_name(&v11, &v0, "STRING");
+    clap_builder::builder::command::Command::arg(&v3, &v8, &v11);
+    clap_builder::builder::arg::Arg::new(&v8, "format=roff");
+    clap_builder::builder::arg::Arg::short(&v0, &v8, 79);
+    clap_builder::builder::arg::Arg::long(&v8, &v0, "format=roff");
+    clap_builder::builder::arg::Arg::help(&v0, &v8, "generate output as roff directives");
+    clap_builder::builder::arg::Arg::action(&v11, &v0, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v3, &v11);
+    clap_builder::builder::arg::Arg::new(&v3, "right-side-refs");
+    clap_builder::builder::arg::Arg::short(&v0, &v3, 82);
+    clap_builder::builder::arg::Arg::long(&v3, &v0, "right-side-refs");
+    clap_builder::builder::arg::Arg::help(&v0, &v3, "put references at right, not counted in -w");
+    clap_builder::builder::arg::Arg::action(&v11, &v0, 2);
+    clap_builder::builder::command::Command::arg(&v3, &v8, &v11);
+    clap_builder::builder::arg::Arg::new(&v8, "sentence-regexp");
+    clap_builder::builder::arg::Arg::short(&v0, &v8, 83);
+    clap_builder::builder::arg::Arg::long(&v8, &v0, "sentence-regexp");
+    clap_builder::builder::arg::Arg::help(&v0, &v8, "for end of lines or end of sentences");
+    clap_builder::builder::arg::Arg::value_name(&v11, &v0, "REGEXP");
+    clap_builder::builder::command::Command::arg(&v8, &v3, &v11);
+    clap_builder::builder::arg::Arg::new(&v3, "format=tex");
+    clap_builder::builder::arg::Arg::short(&v0, &v3, 84);
+    clap_builder::builder::arg::Arg::long(&v3, &v0, "format=tex");
+    clap_builder::builder::arg::Arg::help(&v0, &v3, "generate output as TeX directives");
+    clap_builder::builder::arg::Arg::action(&v11, &v0, 2);
+    clap_builder::builder::command::Command::arg(&v3, &v8, &v11);
+    clap_builder::builder::arg::Arg::new(&v8, "word-regexp");
+    clap_builder::builder::arg::Arg::short(&v0, &v8, 87);
+    clap_builder::builder::arg::Arg::long(&v8, &v0, "word-regexp");
+    clap_builder::builder::arg::Arg::help(&v0, &v8, "use REGEXP to match each keyword");
+    clap_builder::builder::arg::Arg::value_name(&v11, &v0, "REGEXP");
+    clap_builder::builder::command::Command::arg(&v8, &v3, &v11);
+    clap_builder::builder::arg::Arg::new(&v3, "break-file");
+    clap_builder::builder::arg::Arg::short(&v0, &v3, 98);
+    clap_builder::builder::arg::Arg::long(&v3, &v0, "break-file");
+    clap_builder::builder::arg::Arg::help(&v0, &v3, "word break characters in this FILE");
+    clap_builder::builder::arg::Arg::value_name(&v3, &v0, "FILE");
+    clap_builder::builder::arg::Arg::value_hint(&v0, &v3, 3);
+    clap_builder::builder::command::Command::arg(&v3, &v8, &v0);
+    clap_builder::builder::arg::Arg::new(&v8, "ignore-case");
+    clap_builder::builder::arg::Arg::short(&v0, &v8, 102);
+    clap_builder::builder::arg::Arg::long(&v8, &v0, "ignore-case");
+    clap_builder::builder::arg::Arg::help(&v0, &v8, "fold lower case to upper case for sorting");
+    clap_builder::builder::arg::Arg::action(&v11, &v0, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v3, &v11);
+    clap_builder::builder::arg::Arg::new(&v3, "gap-size");
+    clap_builder::builder::arg::Arg::short(&v0, &v3, 103);
+    clap_builder::builder::arg::Arg::long(&v3, &v0, "gap-size");
+    clap_builder::builder::arg::Arg::help(&v0, &v3, "gap size in columns between output fields");
+    clap_builder::builder::arg::Arg::value_name(&v11, &v0, "NUMBER");
+    clap_builder::builder::command::Command::arg(&v3, &v8, &v11);
+    clap_builder::builder::arg::Arg::new(&v8, "ignore-file");
+    clap_builder::builder::arg::Arg::short(&v0, &v8, 105);
+    clap_builder::builder::arg::Arg::long(&v8, &v0, "ignore-file");
+    clap_builder::builder::arg::Arg::help(&v0, &v8, "read ignore word list from FILE");
+    clap_builder::builder::arg::Arg::value_name(&v8, &v0, "FILE");
+    clap_builder::builder::arg::Arg::value_hint(&v0, &v8, 3);
+    clap_builder::builder::command::Command::arg(&v8, &v3, &v0);
+    clap_builder::builder::arg::Arg::new(&v3, "only-file");
+    clap_builder::builder::arg::Arg::short(&v0, &v3, 111);
+    clap_builder::builder::arg::Arg::long(&v3, &v0, "only-file");
+    clap_builder::builder::arg::Arg::help(&v0, &v3, "read only word list from this FILE");
+    clap_builder::builder::arg::Arg::value_name(&v3, &v0, "FILE");
+    clap_builder::builder::arg::Arg::value_hint(&v0, &v3, 3);
+    clap_builder::builder::command::Command::arg(&v3, &v8, &v0);
+    clap_builder::builder::arg::Arg::new(&v8, "references");
+    clap_builder::builder::arg::Arg::short(&v0, &v8, 114);
+    clap_builder::builder::arg::Arg::long(&v8, &v0, "references");
+    clap_builder::builder::arg::Arg::help(&v0, &v8, "first field of each line is a reference");
+    clap_builder::builder::arg::Arg::value_name(&v8, &v0, "FILE");
+    clap_builder::builder::arg::Arg::action(&v0, &v8, 2);
+    clap_builder::builder::command::Command::arg(&v8, &v3, &v0);
+    clap_builder::builder::arg::Arg::new(&v3, "width");
+    clap_builder::builder::arg::Arg::short(&v0, &v3, 119);
+    clap_builder::builder::arg::Arg::long(&v3, &v0, "width");
+    clap_builder::builder::arg::Arg::help(&v0, &v3, "output width in columns, reference excluded");
+    clap_builder::builder::arg::Arg::value_name(&v3, &v0, "NUMBER");
+    clap_builder::builder::command::Command::arg(a0, &v8, &v3);
     return a0;
 }

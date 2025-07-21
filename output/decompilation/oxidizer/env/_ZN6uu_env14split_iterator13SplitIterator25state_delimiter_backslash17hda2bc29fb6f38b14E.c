@@ -1,33 +1,17 @@
 fn uu_env::split_iterator::SplitIterator::state_delimiter_backslash(a1: i64) -> : struct41 {
-    let a0: i64;  // rsi
-    let v0: u32;  // [bp-0x40]
-    let v1: struct16;  // [bp-0x3c]
-    let v2: i8;  // [bp-0x3b]
-    let v3: i8;  // [bp-0x30]
-    let v4: i8;  // [bp-0x2b]
-    let v5: i8;  // [bp-0x20]
-    let v6: i8;  // [bp-0x1c]
-    let v8: u32;  // r15d
-    let v9: i64;  // ecx
-    let v10: i64;  // rdi
-    let v11: u64;  // r14
-    let v12: i64;  // rdi
-    let v13: i64;  // rdi
-    let v14: i64;  // rdi
-    let v15: u128;  // xmm0
-    let v16: i64;  // rdi
-    let v17: u128;  // xmm0
-    let v18: u64;  // rdx
-    let v19: u64;  // rax
-    let v20: i64;  // rdi
+    let a0: u64;  // rdi
+    let v0: Result<struct40, struct5>;  // [bp-0x40], Other Possible Types: struct21, u32
+    let v1: u8;  // [bp-0x3c]
+    let v2: i8;  // [bp-0x20]
+    let v4: u32;  // r15d
+    let v10: u32;  // ecx
 
-    v8 = uu_env::split_iterator::SplitIterator::get_current_char(a0 as u32) as i32;
-    match (v8) {
+    v4 = uu_env::split_iterator::SplitIterator::get_current_char(a1) as i32;
+    match (v4) {
         34 | 35 | 36 | 39 | 92 => {
-            uu_env::split_iterator::SplitIterator::take_one(a0, a1);
-            if v0 == 8 {
-                uu_env::split_iterator::SplitIterator::state_unquoted(a0, v18);
-                return;
+            v0 = uu_env::split_iterator::SplitIterator::take_one(a1);
+            if v0.field_0 == 8 {
+                return uu_env::split_iterator::SplitIterator::state_unquoted(a0, a1) as u64;
             }
             break;
         }
@@ -38,53 +22,56 @@ fn uu_env::split_iterator::SplitIterator::state_delimiter_backslash(a1: i64) -> 
             goto LABEL_4d9b72;
         }
         99 => {
-            *(v10 as &i32) = 6;
-            return;
+            return struct4 {
+                field_0: 6
+            };
         }
         _ => {
-            match (v8) {
+            match (v4) {
                 10 => {
 LABEL_4d9b72:
-                    uu_env::split_iterator::SplitIterator::skip_one(a0, a1);
+                    uu_env::split_iterator::SplitIterator::skip_one(&v0 as u8, a1);
                     if v0 == 8 {
-                        *(v13 as &i32) = 8;
-                        return;
+                        return struct4 {
+                            field_0: 8
+                        };
                     }
                 }
                 1114112 => {
-                    v11 = *((a0 + 56) as &i64);
-                    <T as alloc::slice::hack::ConvertVec>::to_vec(v12 + 16, "Delimiter");
-                    *(v12 as &i32) = 1;
-                    *((v12 + 8) as &u64) = v11;
-                    return;
+                    <T as alloc::slice::hack::ConvertVec>::to_vec(a0 + 16, "Delimiter");
+                    return struct16 {
+                        field_0: 1
+                        padding_4: <UNKNOWN>
+                        field_8: *((a1 + 56) as &i64)
+                    };
                 }
                 _ => {
-                    uu_env::split_iterator::SplitIterator::check_and_replace_ascii_escape_code(a0, v8, v9);
-                    if v0 != 8 {
-                        *((v16 + 36) as &i32) = *(&v6 as &i32);
-                        v17 = *(&v2 as &i128);
-                        *((v16 + 21) as &i128) = *(&v4 as &i128);
-                        *((v16 + 5) as &u128) = v17;
-                        *(v16 as &u32) = v0;
-                        *((v16 + 4) as &struct16) = v1;
-                        return;
-                    } else if v1 {
-                        uu_env::split_iterator::SplitIterator::state_unquoted(a0, v18);
-                        return;
+                    v0 = uu_env::split_iterator::SplitIterator::check_and_replace_ascii_escape_code(a1, v4);
+                    v10 = v0 as i32;
+                    if v0 as i32 != 8 {
+                        return struct48 {
+                            field_0: v0 as i32
+                            field_4: v1
+                            field_5: <UNKNOWN>
+                            field_21: <UNKNOWN>
+                            field_36: <UNKNOWN>
+                        };
+                    } else if !v1 {
+                        return struct16 {
+                            field_0: 3
+                            field_4: v4
+                            field_8: *((a1 + 56) as &i64)
+                        };
                     } else {
-                        v19 = *((a0 + 56) as &i64);
-                        *(v20 as &i32) = 3;
-                        *((v20 + 4) as &u32) = v8;
-                        *((v20 + 8) as &u64) = v19;
-                        return;
+                        return uu_env::split_iterator::SplitIterator::state_unquoted(a0, a1) as u64;
                     }
                 }
             }
         }
     }
-    *((v14 + 32) as &i64) = *(&v5 as &i64);
-    v15 = *(&v0 as &i128);
-    *((v14 + 16) as &i128) = *(&v3 as &i128);
-    *(v14 as &u128) = v15;
-    return;
+    return struct40 {
+        field_0: *(&v0.field_0 as &i128)
+        field_16: v0 as i128
+        field_32: *(&v2 as &i64)
+    };
 }

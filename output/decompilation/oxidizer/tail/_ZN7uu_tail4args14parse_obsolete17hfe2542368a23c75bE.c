@@ -1,21 +1,19 @@
-fn uu_tail::args::parse_obsolete(a0: &Option<struct80>, a1: u32, a2: u32) -> u64 {
-    let v0: struct24;  // [sp-0xa8]
-    let v1: struct11;  // [sp-0x90]
-    let v3: i32;  // eax
-    let v4: i64;  // r12
+fn uu_tail::args::parse_obsolete(a0: &struct80, a1: i64, a2: i64) -> long long {
+    let v0: alloc::borrow::Cow<str>;  // [bp-0xa8]
+    let v1: struct11;  // [bp-0x90], Other Possible Types: struct80
+    let v3: u32;  // eax
+    let v4: u64;  // rcx
 
     v1 = uu_tail::parse::parse_obsolete(a1);
     v3 = v1.field_10;
     if v3 == 2 {
-        v4 = v1.field_0;
         v0 = std::sys::os_str::bytes::Slice::to_string_lossy(*((a1 + 8) as &i64), *((a1 + 16) as &i64));
-        goto *((4358892 + vvar_35{reg 112} * 4) as &i32) + 4358892;
+    } else if v3 == 3 {
+        return struct8 {
+            field_0: 5
+        };
     } else {
-        if v3 == 3 {
-            return struct8 {
-                field_0: 5
-            };
-        }
-        uu_tail::args::Settings::from_obsolete_args(a0, &v1, a2);
+        v1 = uu_tail::args::Settings::from_obsolete_args(a2, v4);
+        return a0;
     }
 }

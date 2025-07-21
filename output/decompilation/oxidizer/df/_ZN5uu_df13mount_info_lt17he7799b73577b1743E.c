@@ -1,5 +1,5 @@
 fn uu_df::mount_info_lt(a0: i64, a1: i64) -> long long {
-    let v0: u64;  // [bp-0x38]
+    let v0: u32;  // [bp-0x38]
     let v1: struct32;  // [bp-0x34]
     let v3: u64;  // rax
     let v4: u64;  // rdx

@@ -10,7 +10,7 @@ fn uu_sort::Line::create(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a
     let v8: u64;  // [bp-0x68]
     let v9: i64;  // [bp-0x60]
     let v10: i64;  // [bp-0x58]
-    let v11: u768;  // [bp-0x58]
+    let v11: struct96;  // [bp-0x58]
     let v12: i64;  // [bp-0x58]
     let v13: i64;  // [bp-0x58]
     let v14: u32;  // [bp-0x50]
@@ -39,7 +39,7 @@ fn uu_sort::Line::create(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a
         do {
             vvar_248{stack -88} = struct96 OrderedDict({0: 𝜙@64b [((5368842, None), vvar_218{stack -88}), ((5368771, None), None)], 8: 𝜙@64b [((5368842, None), vvar_213{stack -80}), ((5368771, None), None)], 16: 𝜙@64b [((5368842, None), vvar_214{stack -72}), ((5368771, None), None)], 24: 𝜙@64b [((5368842, None), vvar_219{stack -64}), ((5368771, None), None)], 32: 𝜙@512b [((5368842, None), vvar_215{stack -56}), ((5368771, None), None)]})
             core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &mut F>::call_once(&v11, &v7, v19);
-            v20 = *((&v11 as &char + 32) as &i8);
+            v20 = v11.field_32;
             v21 = (3 <= (v20 - 2 & 4294967295 & 255) ? 1 : v20 - 2 & 4294967295);
             if v21 == 2 {
                 v13 = v12;

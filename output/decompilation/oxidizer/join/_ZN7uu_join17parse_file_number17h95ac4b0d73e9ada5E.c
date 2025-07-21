@@ -1,4 +1,4 @@
-fn uu_join::parse_file_number(a1: i64, a2: i64) -> Result<struct16, struct9> {
+fn uu_join::parse_file_number(a1: i64, a2: i64) -> : struct16 {
     let a0: u64;  // rsi
     let v0: core::result::Result<(), std::io::error::Error>;  // [bp-0x98]
     let v1: u64;  // [bp-0x90]
@@ -6,7 +6,7 @@ fn uu_join::parse_file_number(a1: i64, a2: i64) -> Result<struct16, struct9> {
     let v3: struct8;  // [bp-0x80]
     let v4: u64;  // [bp-0x78]
     let v5: u8;  // [bp-0x70]
-    let v6: struct8;  // [bp-0x68], Other Possible Types: struct24
+    let v6: struct24;  // [bp-0x68], Other Possible Types: struct8
     let v7: u64;  // [bp-0x60]
     let v8: i64;  // [bp-0x58]
     let v9: u64;  // [bp-0x50]

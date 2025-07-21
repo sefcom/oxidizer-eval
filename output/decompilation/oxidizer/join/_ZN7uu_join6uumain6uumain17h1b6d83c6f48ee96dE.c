@@ -9,7 +9,7 @@ fn uu_join::uumain::uumain(a0: i64, a1: i64) -> long long {
     let v8: u64;  // [bp-0x518]
     let v9: struct56;  // [bp-0x4e8]
     let v10: u64;  // [bp-0x4e0]
-    let v11: Result<struct96, struct24>;  // [bp-0x450], Other Possible Types: u224
+    let v11: struct28;  // [bp-0x450], Other Possible Types: Result<struct96, struct24>, u8
     let v12: u64;  // [bp-0x448]
     let v13: u64;  // [bp-0x440]
     let v14: u128;  // [bp-0x428]

@@ -1,7 +1,7 @@
 fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64) -> : struct16 {
     let a0: i64;  // rdi
-    let v0: struct32;  // [bp-0x50]
-    let v1: u128;  // [bp-0x40]
+    let v0: struct16;  // [bp-0x50]
+    let v1: core::slice::iter::Iter<u8>;  // [bp-0x40], Other Possible Types: struct16
     let v4: u64;  // r14
     let v5: u32;  // edx
     let v7: u8;  // bpl
@@ -10,6 +10,10 @@ fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64) -> : struct16 {
     let v10: core::option::Option<u32>;  // rax:rax
     let v11: core::option::Option<u32>;  // rax:rax
 
+    v1 = struct16 {
+        field_0: a1
+        field_8: a1 + a2
+    };
     v1 = core::slice::iter::Iter<u8> {
         ptr: core::ptr::non_null::NonNull<u8> {
             pointer: a1
@@ -19,8 +23,9 @@ fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64) -> : struct16 {
     };
     v10 = core::str::validations::next_code_point(&v1) as u128;
     if let None = v10 {
-        return struct16 {
+        return struct24 {
             field_0: *(a0 as &i64) + a2
+            padding_8: <UNKNOWN>
             field_32: <UNKNOWN>
         };
     }
@@ -31,7 +36,7 @@ fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64) -> : struct16 {
         } else if !v7 {
             *(a3 as &i8) = 1;
             v0 += 1;
-            *((a0 + 24) as &struct32) = v0;
+            *((a0 + 24) as &struct16) = v0;
             v7 = 1;
         }
         if v8 == 10 {
@@ -40,8 +45,9 @@ fn uu_wc::process_chunk(a1: i64, a2: i64, a3: i64) -> : struct16 {
         }
         v11 = core::str::validations::next_code_point(&v1) as u128;
     } while (v11 as i32);
-    return struct16 {
+    return struct24 {
         field_0: *(a0 as &i64) + a2
+        padding_8: <UNKNOWN>
         field_32: <UNKNOWN>
     };
 }

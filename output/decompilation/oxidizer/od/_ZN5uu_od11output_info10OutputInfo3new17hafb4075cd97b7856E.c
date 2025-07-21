@@ -1,6 +1,6 @@
 fn uu_od::output_info::OutputInfo::new(a1: i64, a2: i64, a3: i64, a4: i8) -> : struct25 {
     let a0: u64;  // rsi
-    let v0: u8;  // [bp-0x38]
+    let v0: u64;  // [bp-0x38]
     let v2: u64;  // rbx
     let v3: u64;  // rbp
     let v4: u64;  // rax

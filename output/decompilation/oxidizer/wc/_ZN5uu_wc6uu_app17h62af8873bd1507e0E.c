@@ -2,7 +2,7 @@ fn uu_wc::uu_app(a0: &struct712) -> long long {
     let v0: u64;  // [bp-0xa60]
     let v1: u64;  // [bp-0xa58]
     let v2: u64;  // [bp-0xa50]
-    let v3: struct437;  // [bp-0xa48], Other Possible Types: u512
+    let v3: struct437;  // [bp-0xa48], Other Possible Types: struct64
     let v4: u32;  // [bp-0x800]
     let v5: u32;  // [bp-0x7fc]
     let v6: u64;  // [bp-0x78c]
@@ -13,7 +13,7 @@ fn uu_wc::uu_app(a0: &struct712) -> long long {
     let v11: u8;  // [bp-0x530]
     let v12: u64;  // [bp-0x274]
     let v13: u32;  // [bp-0x26c]
-    let v14: u8;  // [bp-0x268], Other Possible Types: struct24
+    let v14: struct24;  // [bp-0x268], Other Possible Types: u8
     let v15: u64;  // [bp-0x260]
     let v16: u64;  // [bp-0x258]
     let v19: u64;  // rdx

@@ -42,8 +42,10 @@ PRIMITIVE_MAPPINGS = {
     "u64": "RustSimTypeInt(64, signed=False)",
     "u128": "RustSimTypeInt(128, signed=False)",
     "usize": "RustSimTypeSize(signed=False)",
+    "f16": "RustSimTypeInt(32, signed=False)",
     "f32": "RustSimTypeInt(32, signed=False)",
     "f64": "RustSimTypeInt(64, signed=False)",
+    "f128": "RustSimTypeInt(64, signed=False)",
     "char": "RustSimTypeInt(8, signed=False)",
     "bool": "RustSimTypeInt(1, signed=False)",
     "()": "RustSimTypeUnit()",
@@ -137,7 +139,7 @@ class StructsPyGenerator:
         return ty
 
     def _translate_primitive(self, ty: Primitive, visited):
-        return PRIMITIVE_MAPPINGS[ty.name]
+        return PRIMITIVE_MAPPINGS.get(ty.name, None)
 
     def _translate_pointer(self, ty: Pointer, visited):
         pts_to = self._translate(ty.pts_to, visited)
@@ -326,10 +328,6 @@ class PrototypesPyGenerator:
             for prototype in prototypes:
                 # Calibrate return type
                 is_arg0_retbuf = False
-                if funcname == "std::fs::metadata":
-                    import ipdb
-
-                    ipdb.set_trace()
                 if isinstance(prototype.returnty, (Struct, Enumeration)):
                     if prototype.returnty.size > 16:
                         is_arg0_retbuf = True
@@ -361,10 +359,14 @@ def generate_py_files(prototype_info, struct_info):
 
 
 if __name__ == "__main__":
-    parser = DwarfParser()
-    parser.parse_json("output/dwarf/std.json")
-    prototypes_py, structs_py = generate_py_files(parser.prototypes, parser.structs)
-    with open("output/prototypes.py", "w", encoding="utf-8") as fd:
-        fd.write(prototypes_py)
-    with open("output/structs.py", "w", encoding="utf-8") as fd:
-        fd.write(structs_py)
+    for file in os.listdir("output/dwarf/"):
+        if file.startswith("std-") and file.endswith(".json"):
+            version = file[4:-5]
+            path = os.path.join("output/dwarf/", file)
+            parser = DwarfParser()
+            parser.parse_json(path)
+            prototypes_py, structs_py = generate_py_files(parser.prototypes, parser.structs)
+            with open(f"output/known_types/prototypes_{version}.py", "w", encoding="utf-8") as fd:
+                fd.write(prototypes_py)
+            with open(f"output/known_types/structs_{version}.py", "w", encoding="utf-8") as fd:
+                fd.write(structs_py)

@@ -2,18 +2,18 @@ fn uu_sort::tmp_dir::TmpDirWrapper::next_file(a1: i64) -> : struct36 {
     let a0: i64;  // rsi
     let v0: std::path::PathBuf;  // [bp-0xb0]
     let v1: i8;  // [bp-0x94]
-    let v2: u8;  // [bp-0x90]
+    let v2: u128;  // [bp-0x90]
     let v3: u64;  // [bp-0x88]
     let v4: u64;  // [bp-0x80]
-    let v5: core::option::Option<u32>;  // [bp-0x78], Other Possible Types: core::result::Result<std::fs::File, std::io::error::Error>, u128
+    let v5: core::result::Result<std::fs::File, std::io::error::Error>;  // [bp-0x78], Other Possible Types: u8
     let v6: u32;  // [bp-0x74]
-    let v7: u64;  // [bp-0x68]
+    let v7: struct16;  // [bp-0x68]
     let v8: struct24;  // [bp-0x38]
     let v10: u64;  // rax
     let v11: i64;  // rdi
     let v12: u64;  // rdx
     let v13: u64;  // rax
-    let v14: u64;  // rsi
+    let v14: struct88;  // rsi
     let v15: core::result::Result<(), std::io::error::Error>;  // rdx
     let v16: u64;  // r8
     let v17: i64;  // rdi
@@ -49,7 +49,7 @@ fn uu_sort::tmp_dir::TmpDirWrapper::next_file(a1: i64) -> : struct36 {
             *((v18 + 8) as &i64) = 0x8000000000000000;
         },
         Ok(_) => {
-            memcpy(&v2, &v0, 16);
+            v2 = *(&v0.inner.inner.inner.buf.cap as &i128) as u128;
             v4 = v0.inner.inner.inner.len;
             *(v17 as &u32) = v6;
             *((v17 + 4) as &i128) = *(&v1 as &i128);

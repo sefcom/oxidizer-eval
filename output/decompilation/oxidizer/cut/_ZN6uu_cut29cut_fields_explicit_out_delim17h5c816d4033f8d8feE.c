@@ -2,41 +2,40 @@ fn uu_cut::cut_fields_explicit_out_delim(a0: i32, a1: i64, a2: i32, a3: i64, a4:
     let v0: u8;  // [bp-0xc2]
     let v1: u8;  // [bp-0xc1]
     let v2: u64;  // [bp-0xc0]
-    let v3: u64;  // [bp-0xb0]
-    let v4: struct24;  // [bp-0xb0]
-    let v5: u448;  // [bp-0xa8]
-    let v6: u64;  // [bp-0x98]
-    let v7: u32;  // [bp-0x90]
-    let v8: u64;  // [bp-0x68]
-    let v9: u64;  // [bp-0x60]
-    let v10: u8;  // [bp-0x58]
-    let v11: u64;  // [bp-0x48]
-    let v12: u64;  // [bp-0x40]
-    let v13: u64;  // rax
+    let v3: struct24;  // [bp-0xb0], Other Possible Types: u64
+    let v4: struct28;  // [bp-0xa8], Other Possible Types: struct56
+    let v5: u64;  // [bp-0x68]
+    let v6: u64;  // [bp-0x60]
+    let v7: u128;  // [bp-0x58]
+    let v8: u64;  // [bp-0x48]
+    let v9: u64;  // [bp-0x40]
+    let v10: u64;  // rax
 
-    v8 = a2;
-    v9 = a3;
+    v5 = a2;
+    v6 = a3;
     v0 = a4;
     v1 = a5;
     std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, a0, a3);
     v2 = uu_cut::stdout_writer();
-    v5 = struct56 {
+    v4 = struct56 {
         field_0: a1
         field_8: &v0
         field_16: &v2
         field_24: &v1
-        field_32: &v8
+        field_32: &v5
         field_40: a6
         field_48: a7
     };
-    v13 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v12, v1, &v5);
-    if !v13 {
+    v10 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v9, v1, &v4);
+    if !v10 {
         return 0;
     }
-    v3 = v13;
-    v4 = <T as alloc::string::ToString>::to_string(a2);
-    v7 = 1;
-    memcpy(&v5, &v10, 16);
-    v6 = v11;
-    return alloc::boxed::Box<T>::new(&v5);
+    v3 = v10;
+    v3 = <T as alloc::string::ToString>::to_string(a2);
+    v4 = struct28 {
+        field_0: v7
+        field_16: v8
+        field_24: 1
+    };
+    return alloc::boxed::Box<T>::new(&v4);
 }

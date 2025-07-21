@@ -5,7 +5,7 @@ fn uu_env::split_iterator::SplitIterator::skip_one(a1: i64) -> : struct21 {
     let v2: u8;  // [bp-0x28]
     let v3: u32;  // [bp-0x27]
     let v4: u32;  // [bp-0x24]
-    let v5: u64;  // [bp-0x20]
+    let v5: u8;  // [bp-0x20]
     let v6: u64;  // [bp-0x18]
     let v7: u8;  // [bp-0x10]
     let v8: i8;  // [bp-0xf]
@@ -22,8 +22,9 @@ fn uu_env::split_iterator::SplitIterator::skip_one(a1: i64) -> : struct21 {
         v2 = v7;
     }
     v11 = 5;
-    return struct25 {
+    return struct32 {
         field_0: v12 as u32
+        padding_4: <UNKNOWN>
         field_8: v6
         field_16: v6
         field_24: v7

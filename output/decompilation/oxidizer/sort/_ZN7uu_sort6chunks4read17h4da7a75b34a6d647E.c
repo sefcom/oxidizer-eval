@@ -1,100 +1,91 @@
-fn uu_sort::chunks::read(a0: &struct16, a1: i64, a2: &struct112, a3: i64, a4: i64, a5: i64, a6: i64, a7: i64, a8: i32, a9: i64) -> long long {
-    let v0: u128;  // [bp-0x178]
+fn uu_sort::chunks::read(a0: &struct9, a1: i64, a2: &struct112, a3: i64, a4: i64, a5: i64, a6: i64, a7: i64, a8: i32, a9: i64) -> long long {
+    let v0: struct24;  // [bp-0x178], Other Possible Types: u64
     let v1: u32;  // [bp-0x170]
     let v2: u64;  // [bp-0x168]
     let v3: u128;  // [bp-0x158]
     let v4: u64;  // [bp-0x148]
-    let v5: u192;  // [bp-0x138]
-    let v6: u128;  // [bp-0x138]
-    let v7: u64;  // [bp-0x128]
-    let v8: u128;  // [bp-0x118]
-    let v9: u64;  // [bp-0x108]
-    let v10: u128;  // [bp-0xf8]
-    let v11: u64;  // [bp-0xe8]
-    let v12: u64;  // [bp-0xe0]
-    let v13: Result<struct16, struct16>;  // [bp-0xd8]
-    let v14: u64;  // [bp-0xd0]
-    let v15: u192;  // [bp-0xc8], Other Possible Types: struct8
-    let v16: i8;  // [bp-0xc0], Other Possible Types: u64
-    let v17: u8;  // [bp-0xb8]
-    let v18: u8;  // [bp-0xb0]
-    let v19: u64;  // [bp-0xa0]
-    let v20: u128;  // [bp-0x98]
-    let v21: u64;  // [bp-0x88]
-    let v22: u8;  // [bp-0x80]
-    let v23: u64;  // [bp-0x70]
-    let v24: i64;  // [bp-0x68]
-    let v25: i64;  // [bp-0x60]
-    let v26: u64;  // [bp-0x58]
-    let v27: u8;  // [bp-0x48]
-    let v28: u64;  // [bp-0x38]
-    let v29: u64;  // rdx
-    let v30: void*;  // rbp
-    let v31: core::option::Option<u32>;  // rax
-    let v32: u32;  // rdx
-    let v33: u8;  // bpl
-    let v36: &[u8];  // rax:rdx
+    let v5: u128;  // [bp-0x138]
+    let v6: u64;  // [bp-0x128]
+    let v7: u128;  // [bp-0x118]
+    let v8: u64;  // [bp-0x108]
+    let v9: u128;  // [bp-0xf8]
+    let v10: u64;  // [bp-0xe8]
+    let v11: u64;  // [bp-0xe0]
+    let v12: Result<struct16, struct16>;  // [bp-0xd8]
+    let v13: u64;  // [bp-0xd0]
+    let v14: struct120;  // [bp-0xc8], Other Possible Types: struct8
+    let v15: i8;  // [bp-0xc0], Other Possible Types: u64
+    let v16: struct16;  // [bp-0xb8]
+    let v17: struct24;  // [bp-0x48]
+    let v18: u64;  // rdx
+    let v19: void*;  // rbp
+    let v20: core::option::Option<u32>;  // rax
+    let v21: u32;  // rdx
+    let v22: struct16;  // bpl
+    let v25: &[u8];  // rax:rdx
 
     v4 = *((a2 + 16) as &i64);
     v3 = *(a2 as &i128);
-    v7 = *((a2 + 40) as &i64);
-    v6 = *((a2 + 24) as &i128);
-    v9 = *((a2 + 64) as &i64);
-    v8 = *((a2 + 48) as &i128);
-    v11 = *((a2 + 88) as &i64);
-    v10 = *((a2 + 72) as &i128);
-    v29 = *((a2 + 112) as &i64);
-    v2 = v29;
-    v0 = *((a2 + 96) as &i128);
-    v30 = *((a5 + 16) as &i64);
-    if v2 < v30 {
-        alloc::vec::Vec<T,A>::resize(&v0, v30 + 0x2800, 0);
-        v29 = v2;
+    v6 = *((a2 + 40) as &i64);
+    v5 = *((a2 + 24) as &i128);
+    v8 = *((a2 + 64) as &i64);
+    v7 = *((a2 + 48) as &i128);
+    v10 = *((a2 + 88) as &i64);
+    v9 = *((a2 + 72) as &i128);
+    v18 = *((a2 + 112) as &i64);
+    v2 = v18;
+    *(&v0 as &i128) = *((a2 + 96) as &i128);
+    v19 = *((a5 + 16) as &i64);
+    if v2 < v19 {
+        alloc::vec::Vec<T,A>::resize(&v0, v19 + 0x2800, 0);
+        v18 = v2;
     }
-    v31 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index_mut(v30, v1, v29, "src/uu/sort/src/chunks.rs");
-    core::slice::<impl [T]>::copy_from_slice(v31, v32, *((a5 + 8) as &i64), v30, "src/uu/sort/src/chunks.rs");
-    v15 = uu_sort::chunks::read_to_buffer(a6, &v0, a3, a4, *((a5 + 16) as &i64), a8);
-    if v15.field_0 {
+    v20 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index_mut(v19, v1, v18, "src/uu/sort/src/chunks.rs");
+    core::slice::<impl [T]>::copy_from_slice(v20, v21, *((a5 + 8) as &i64), v19, "src/uu/sort/src/chunks.rs");
+    v14 = uu_sort::chunks::read_to_buffer(a6, &v0, a3, a4, *((a5 + 16) as &i64), a8);
+    if v14.field_0 {
         return struct16 {
-            field_0: *(&v16 as &i128)
+            field_0: *(&v15 as &i128)
         };
     }
-    v33 = v17;
-    v12 = v16;
+    v22 = v16.field_0 as i8;
+    v11 = v15;
     *((a5 + 16) as &i64) = 0;
-    v36 = core::slice::iter::Iter<T>::make_slice(v1 + v12);
-    alloc::vec::Vec<T,A>::append_elements(a5, v36.ptr, a2);
-    if !v12 {
-        return struct9 {
+    v25 = core::slice::iter::Iter<T>::make_slice(v1 + v11);
+    alloc::vec::Vec<T,A>::append_elements(a5, v25.ptr, a2);
+    if !v11 {
+        return struct16 {
             field_0: 0
-            field_8: v33
+            field_8: v22
         };
     }
-    v28 = v2;
-    memcpy(&v27, &v0, 16);
-    v15 = v5;
-    memcpy(&v18, &v3, 16);
-    v19 = v4;
-    v24 = &v12;
-    v20 = v8;
-    v21 = v9;
-    memcpy(&v22, &v10, 16);
-    v23 = v11;
-    v25 = &vvar_8;
-    v26 = a9;
-    v13 = uu_sort::chunks::Chunk::try_new(&v27, &v15);
-    match v13 {
+    v17 = v0;
+    v14 = struct120 {
+        field_0: v5
+        field_16: v6
+        field_24: v3
+        field_40: v4
+        field_48: v7
+        field_64: v8
+        field_72: v9
+        field_88: v10
+        field_96: &v11
+        field_104: &vvar_8
+        field_112: a9
+    };
+    v12 = uu_sort::chunks::Chunk::try_new(&v17, &v14);
+    match v12 {
         Err(_) => {
-            core::result::Result<T,E>::unwrap(std::sync::mpmc::Sender<T>::send(a1, v14, a2));
-            return struct9 {
+            core::result::Result<T,E>::unwrap(std::sync::mpmc::Sender<T>::send(a1, v13, a2));
+            return struct16 {
                 field_0: 0
-                field_8: v33
+                field_8: v22
             };
         },
         Ok(_) => {
             return struct16 {
-                field_0: v13 as i64
-                field_8: v14
+                field_0: v12 as i64
+                field_8: v13
             };
         },
     }

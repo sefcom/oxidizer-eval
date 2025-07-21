@@ -10,5 +10,5 @@ fn uu_head::head_backwards_without_seek_file(a0: i64, a1: i64) -> long long {
     } else {
         core::panicking::panic("internal error: entered unreachable code"); /* do not return */
     }
-    return v2;
+    return 0;
 }

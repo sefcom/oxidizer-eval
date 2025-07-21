@@ -1,41 +1,41 @@
-fn uu_printf::uu_app(a0: &struct712) -> u64 {
-    let v0: struct592;  // [sp-0x800], Other Possible Types: struct712, struct437
-    let v1: i64;  // [sp-0x544], Other Possible Types: char
+fn uu_printf::uu_app(a0: &struct712) -> long long {
+    let v0: struct437;  // [bp-0x800]
+    let v1: i8;  // [bp-0x544], Other Possible Types: u64
     let v2: i8;  // [bp-0x540]
-    let v3: i32;  // [sp-0x53c]
-    let v4: struct712;  // [sp-0x538], Other Possible Types: struct592, char
-    let v5: i32;  // [sp-0x27c]
-    let v6: i64;  // [sp-0x278]
-    let v7: struct592;  // [sp-0x270], Other Possible Types: struct24
-    let v9: i64;  // rdx
+    let v3: core::fmt::Arguments;  // [bp-0x53c]
+    let v4: u8;  // [bp-0x538]
+    let v5: u32;  // [bp-0x27c]
+    let v6: u64;  // [bp-0x278]
+    let v7: core::fmt::Arguments;  // [bp-0x274]
+    let v8: u8;  // [bp-0x270]
+    let v11: u64;  // rdx
 
-    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v9);
+    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v11);
     memcpy(&v4, &v0, 700);
     v5 = *(&v1 as &i32) | 2;
     v6 = *(&v2 as &i64);
-    v0 = clap_builder::builder::command::Command::version(&v4);
-    v4 = clap_builder::builder::command::Command::about(&v0);
-    v0 = clap_builder::builder::command::Command::after_help(&v4);
-    v7 = uucore::format_usage("{} FORMAT [ARGUMENT]...
-{} OPTION");
-    v4 = clap_builder::builder::command::Command::override_usage(&v0, &v7);
+    clap_builder::builder::command::Command::version(&v0, &v4);
+    clap_builder::builder::command::Command::about(&v4, &v0);
+    clap_builder::builder::command::Command::after_help(&v0, &v4);
+    uucore::format_usage(&v8, "{} FORMAT [ARGUMENT]...\n{} OPTION");
+    clap_builder::builder::command::Command::override_usage(&v4, &v0, &v8);
     memcpy(&v0, &v4, 700);
-    v1 = 0x14000000140000 | *((&v4.field_0 as &char + 700) as &i64);
-    v3 = *((&v4.field_0 as &char + 708) as &i32);
-    v4 = clap_builder::builder::arg::Arg::new("help");
-    v7 = clap_builder::builder::arg::Arg::long(&v4, "help");
-    v4 = clap_builder::builder::arg::Arg::help(&v7, "Print help information");
-    v7 = clap_builder::builder::arg::Arg::action(&v4, 0x5);
-    v4 = clap_builder::builder::command::Command::arg(&v0, &v7);
-    v0 = clap_builder::builder::arg::Arg::new("version");
-    v7 = clap_builder::builder::arg::Arg::long(&v0, "version");
-    v0 = clap_builder::builder::arg::Arg::help(&v7, "Print version information");
-    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x8);
-    v0 = clap_builder::builder::command::Command::arg(&v4, &v7);
-    v7 = clap_builder::builder::arg::Arg::new("FORMAT");
-    v4 = clap_builder::builder::command::Command::arg(&v0, &v7);
-    v0 = clap_builder::builder::arg::Arg::new("ARGUMENT");
-    v7 = clap_builder::builder::arg::Arg::action(&v0, 0x1);
-    clap_builder::builder::command::Command::arg(a0, &v4, &v7);
+    v1 = 0x14000000140000 | *(&v5 as &i64);
+    v3 = v7;
+    clap_builder::builder::arg::Arg::new(&v4, "help");
+    clap_builder::builder::arg::Arg::long(&v8, &v4, "help");
+    clap_builder::builder::arg::Arg::help(&v4, &v8, "Print help information");
+    clap_builder::builder::arg::Arg::action(&v8, &v4, 5);
+    clap_builder::builder::command::Command::arg(&v4, &v0, &v8);
+    clap_builder::builder::arg::Arg::new(&v0, "version");
+    clap_builder::builder::arg::Arg::long(&v8, &v0, "version");
+    clap_builder::builder::arg::Arg::help(&v0, &v8, "Print version information");
+    clap_builder::builder::arg::Arg::action(&v8, &v0, 8);
+    clap_builder::builder::command::Command::arg(&v0, &v4, &v8);
+    clap_builder::builder::arg::Arg::new(&v8, "FORMAT");
+    clap_builder::builder::command::Command::arg(&v4, &v0, &v8);
+    clap_builder::builder::arg::Arg::new(&v0, "ARGUMENT");
+    clap_builder::builder::arg::Arg::action(&v8, &v0, 1);
+    clap_builder::builder::command::Command::arg(a0, &v4, &v8);
     return a0;
 }

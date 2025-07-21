@@ -1,7 +1,7 @@
 fn uu_tr::operation::Sequence::parse_char_star(a1: i64, a2: i64) -> Result<struct26, struct32> {
     let a0: i64;  // rdi
     let v0: struct33;  // [bp-0x48]
-    let v1: u256;  // [bp-0x28]
+    let v1: struct32;  // [bp-0x28]
     let v3: u8;  // al
     let v4: void*;  // rax
     let v5: u128;  // xmm0
@@ -18,10 +18,10 @@ fn uu_tr::operation::Sequence::parse_char_star(a1: i64, a2: i64) -> Result<struc
     if v0.field_0 as i32 != 3 {
         v5 = *(&v0.field_0 as &i128);
         v6 = 1;
-        return struct48 {
+        return struct40 {
             field_0: v7
-            field_8: <UNKNOWN>
-            field_24: <UNKNOWN>
+            field_8: v5
+            field_24: *(&v0.field_16 as &i128)
         };
     }
     v3 = v0.field_24;

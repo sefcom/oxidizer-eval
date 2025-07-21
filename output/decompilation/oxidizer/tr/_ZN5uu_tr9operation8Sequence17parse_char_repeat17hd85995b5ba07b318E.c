@@ -1,6 +1,6 @@
 fn uu_tr::operation::Sequence::parse_char_repeat(a1: i64, a2: i64) -> : struct8 {
     let a0: i64;  // rdi
-    let v0: u384;  // [bp-0x60]
+    let v0: core::fmt::Arguments;  // [bp-0x60]
     let v1: Result<struct40, struct40>;  // [bp-0x30]
     let v2: struct33;  // [bp-0x28]
     let v4: u64;  // rdi

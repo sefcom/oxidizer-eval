@@ -2,11 +2,11 @@ fn uu_uniq::uu_app(a0: &struct712) -> long long {
     let v0: void*;  // [bp-0xa70]
     let v1: u64;  // [bp-0xa68]
     let v2: u8;  // [bp-0xa60]
-    let v3: u8;  // [bp-0xa58]
+    let v3: struct48;  // [bp-0xa58], Other Possible Types: u8
     let v4: u32;  // [bp-0x810]
     let v5: u32;  // [bp-0x80c]
-    let v6: u512;  // [bp-0x808]
-    let v7: u32;  // [bp-0x5c0]
+    let v6: struct64;  // [bp-0x808], Other Possible Types: u8
+    let v7: struct56;  // [bp-0x5c0]
     let v8: i8;  // [bp-0x5bc]
     let v9: u64;  // [bp-0x54c]
     let v10: u32;  // [bp-0x544]
@@ -15,9 +15,9 @@ fn uu_uniq::uu_app(a0: &struct712) -> long long {
     let v13: u32;  // [bp-0x2f4]
     let v14: u64;  // [bp-0x284]
     let v15: u32;  // [bp-0x27c]
-    let v16: struct24;  // [bp-0x278], Other Possible Types: u64, void*
+    let v16: struct24;  // [bp-0x278], Other Possible Types: u64
     let v17: u64;  // [bp-0x270]
-    let v18: u8;  // [bp-0x268]
+    let v18: u64;  // [bp-0x268]
     let v19: u32;  // [bp-0x30]
     let v20: u32;  // [bp-0x2c]
     let v23: u64;  // rdx
@@ -143,9 +143,11 @@ fn uu_uniq::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::arg::Arg::action(&v3, &v11, 1);
     v16 = 2;
     clap_builder::builder::arg::Arg::value_parser(&v11, &v3, &v16);
-    v16 = 0;
-    v17 = 2;
-    v18 = 0;
+    v16 = struct24 {
+        field_0: 0
+        field_8: 2
+        field_16: 0
+    };
     clap_builder::builder::arg::Arg::num_args(&v3, &v11, &v16);
     memcpy(&v11, &v3, 584);
     v12 = v4 | 4;

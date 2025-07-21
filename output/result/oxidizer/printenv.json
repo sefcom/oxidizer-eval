@@ -1,6 +1,6 @@
 {
   "decompilation": {
-    "_ZN11uu_printenv6uumain17hfb94facca028a645E": "fn uu_printenv::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_printenv::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN11uu_printenv6uumain17hfb94facca028a645E": "fn uu_printenv::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: u128;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_printenv::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    v3 = *(&v5.vec.buf.cap as &i128);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
     "_ZN11uu_printenv6uu_app17hf1331131741036edE": "fn uu_printenv::uu_app(a0: &struct712) -> long long {\n    let v0: struct437;  // [bp-0xa50]\n    let v1: u64;  // [bp-0x794]\n    let v2: u32;  // [bp-0x78c]\n    let v3: u8;  // [bp-0x788]\n    let v4: u8;  // [bp-0x538]\n    let v5: u64;  // [bp-0x27c]\n    let v6: u32;  // [bp-0x274]\n    let v7: u8;  // [bp-0x270]\n    let v10: u64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);\n    clap_builder::builder::command::Command::version(&v4, &v0);\n    clap_builder::builder::command::Command::about(&v0, &v4);\n    uucore::format_usage(&v3, \"{} [OPTION]... [VARIABLE]...\");\n    clap_builder::builder::command::Command::override_usage(&v4, &v0, &v3);\n    memcpy(&v0, &v4, 700);\n    v1 = 549755814016 | v5;\n    v2 = v6;\n    clap_builder::builder::arg::Arg::new(&v4, \"null\");\n    clap_builder::builder::arg::Arg::short(&v3, &v4);\n    clap_builder::builder::arg::Arg::long(&v4, &v3);\n    clap_builder::builder::arg::Arg::help(&v3, &v4);\n    clap_builder::builder::arg::Arg::action(&v7, &v3, 2);\n    clap_builder::builder::command::Command::arg(&v4, &v0, &v7);\n    clap_builder::builder::arg::Arg::new(&v0, \"variables\");\n    clap_builder::builder::arg::Arg::action(&v3, &v0, 1);\n    clap_builder::builder::arg::Arg::num_args(&v0, &v3);\n    clap_builder::builder::command::Command::arg(a0, &v4, &v0);\n    return a0;\n}\n"
   },
   "function_call_counts": {
@@ -43,7 +43,7 @@
   },
   "variable_types": {
     "_ZN11uu_printenv6uumain17hfb94facca028a645E": {
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -64,7 +64,7 @@
       "stack_96": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_112": [
@@ -77,23 +77,15 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_72": [
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -104,10 +96,10 @@
       "stack_8": [
         [
           "struct",
-          466
+          448
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8

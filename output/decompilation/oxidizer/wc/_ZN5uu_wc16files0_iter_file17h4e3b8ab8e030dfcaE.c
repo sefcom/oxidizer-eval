@@ -3,9 +3,9 @@ fn uu_wc::files0_iter_file(a1: i64, a2: i64) -> Result<struct73, struct24> {
     let v0: Result<struct4, struct8>;  // [bp-0x68]
     let v1: u32;  // [bp-0x64]
     let v2: u64;  // [bp-0x60]
-    let v3: u8;  // [bp-0x58]
-    let v4: u64;  // [bp-0x48]
-    let v5: std::sys::os_str::bytes::Buf;  // [bp-0x38]
+    let v3: struct24;  // [bp-0x58]
+    let v4: std::sys::os_str::bytes::Buf;  // [bp-0x38]
+    let v5: struct24;  // [bp-0x38]
     let v7: u64;  // rax
     let v8: i64;  // rdi
     let v9: u64;  // rdi
@@ -13,9 +13,8 @@ fn uu_wc::files0_iter_file(a1: i64, a2: i64) -> Result<struct73, struct24> {
     v0 = std::fs::File::open(a0, a1);
     match v0 {
         Ok(_) => {
-            v5 = std::sys::os_str::bytes::Slice::to_owned(a0, a1);
-            v4 = v5.inner.len;
-            memcpy(&v3, &v5, 16);
+            v4 = std::sys::os_str::bytes::Slice::to_owned(a0, a1);
+            v3 = v5;
             uu_wc::files0_iter(v9, v1, &v3);
             return;
         },

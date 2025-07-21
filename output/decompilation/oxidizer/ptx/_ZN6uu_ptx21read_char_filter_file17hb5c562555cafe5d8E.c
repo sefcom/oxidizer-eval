@@ -1,21 +1,59 @@
-fn uu_ptx::read_char_filter_file(a0: &struct16, a1: u32) -> u64 {
-    let v0: i32;  // [sp-0x64]
-    let v1: i64;  // [sp-0x60]
-    let v2: i64;  // [sp-0x58]
-    let v3: i64;  // [sp-0x50]
-    let v4: Result<struct4, struct8>;  // [sp-0x48], Other Possible Types: struct48
-    let v6: i64;  // rax
+fn uu_ptx::read_char_filter_file(a1: i64) -> Result<struct48, struct16> {
+    let a0: i64;  // rdi
+    let v0: std::fs::File;  // [bp-0x64]
+    let v1: alloc::string::String;  // [bp-0x60]
+    let v2: Result<struct4, struct8>;  // [bp-0x48], Other Possible Types: u8
+    let v3: struct48;  // [bp-0x48]
+    let v4: u32;  // [bp-0x44]
+    let v5: u64;  // [bp-0x40]
+    let v6: u128;  // [bp-0x38]
+    let v8: u64;  // r8
+    let v9: u64;  // rax
+    let v12: u128;  // xmm0
+    let v13: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
 
-    v4 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "break-file");
-    v6 = clap_builder::parser::error::MatchesError::unwrap("break-file", &v4);
-    if !v6 {
-        core::option::expect_failed("parsing options failed!", "src/uu/ptx/src/ptx.rs"); /* do not return */
+    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, "break-file", v8);
+    v9 = clap_builder::parser::error::MatchesError::unwrap("break-file", &v2);
+    if !v9 {
+        core::option::expect_failed("parsing options failed!"); /* do not return */
     }
-    v0 = std::fs::File::open(v6)?;
-    v1 = 0;
-    v2 = 1;
-    v3 = 0;
-    if !<std::fs::File as std::io::Read>::read_to_string(&v0, &v1) {
-        v4 = <std::collections::hash::set::HashSet<T,S> as core::iter::traits::collect::FromIterator<T>>::from_iter(v2, v3 + v2);
+    v2 = std::fs::File::open(v9);
+    match v2 {
+        Err(_) => {
+            return struct16 {
+                field_0: 0
+                field_8: v5
+            };
+        },
+        Ok(_) => {
+            v0 = std::fs::File {
+                inner: std::sys::pal::unix::fs::File {
+                    __0: std::sys::pal::unix::fd::FileDesc {
+                        __0: std::os::fd::owned::OwnedFd {
+                            fd: v4
+                        }
+                    }
+                }
+            };
+            v1 = String::new();
+            v13 = <std::fs::File as std::io::Read>::read_to_string(&v0, &v1);
+            match v13 {
+                Ok(_) => {
+                    v3 = <std::collections::hash::set::HashSet<T,S> as core::iter::traits::collect::FromIterator<T>>::from_iter(0x1, 1);
+                    v12 = v3.field_0;
+                    return Ok(struct48 {
+                        field_0: v12
+                        field_16: v6
+                        field_32: v3.field_32
+                    });
+                },
+                Err(_) => {
+                    return struct16 {
+                        field_0: 0
+                        field_8: *((&v13 as &char + 8) as &i64)
+                    };
+                },
+            }
+        },
     }
 }

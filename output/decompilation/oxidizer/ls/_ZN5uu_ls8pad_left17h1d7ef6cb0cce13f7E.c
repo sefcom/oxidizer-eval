@@ -1,11 +1,11 @@
-fn uu_ls::pad_left(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {
+fn uu_ls::pad_left(a0: i32, a1: i64, a2: i64, a3: i64) -> long long {
     let v0: u64;  // [bp-0x98]
     let v1: u64;  // [bp-0x90]
     let v2: i64;  // [bp-0x88]
     let v3: u64;  // [bp-0x80]
     let v4: u64;  // [bp-0x78]
     let v5: void*;  // [bp-0x70]
-    let v6: u320;  // [bp-0x68]
+    let v6: struct40;  // [bp-0x68]
     let v7: u64;  // [bp-0x40]
     let v8: u64;  // [bp-0x38]
     let v9: u64;  // [bp-0x28]

@@ -7,8 +7,9 @@ fn uu_env::variable_parser::VariableParser::skip_one(a1: i64) -> : struct21 {
 
     v0 = uu_env::string_parser::StringParser::consume_chunk(a1);
     v4 = 5;
-    return struct25 {
+    return struct32 {
         field_0: v5 as u32
+        padding_4: <UNKNOWN>
         field_8: v1
         field_16: v1
         field_24: *((&v0 as &char + 16) as &i8)

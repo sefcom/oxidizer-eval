@@ -5,7 +5,7 @@ fn uu_cp::Attributes::diff(a1: i64, a2: i64) -> : struct12 {
 
     v1 = *((a2 + 8) as &i8);
     v3 = ...;
-    return struct12 {
+    return struct16 {
         field_0: ...
         field_8: ~(v3) as u32 & 0x1000100 | *((a1 + 8) as &i32) & v3 as u32
     };

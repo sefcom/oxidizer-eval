@@ -7,7 +7,7 @@ fn uu_hostname::uu_app(a0: &struct712) -> long long {
     let v5: u64;  // [bp-0x850]
     let v6: u64;  // [bp-0x848]
     let v7: u64;  // [bp-0x840]
-    let v8: u128;  // [bp-0x838]
+    let v8: struct16;  // [bp-0x838], Other Possible Types: u128
     let v9: u128;  // [bp-0x838]
     let v10: u64;  // [bp-0x828]
     let v11: u128;  // [bp-0x828]
@@ -15,7 +15,7 @@ fn uu_hostname::uu_app(a0: &struct712) -> long long {
     let v13: u64;  // [bp-0x818]
     let v14: u128;  // [bp-0x818]
     let v15: u64;  // [bp-0x810]
-    let v16: u64;  // [bp-0x808]
+    let v16: u128;  // [bp-0x808]
     let v17: u128;  // [bp-0x808]
     let v18: u64;  // [bp-0x800]
     let v19: struct437;  // [bp-0x7f8]
@@ -31,6 +31,7 @@ fn uu_hostname::uu_app(a0: &struct712) -> long long {
     let v31: u128;  // xmm2
     let v32: u128;  // xmm0
     let v33: u128;  // xmm1
+    let v34: u128;  // xmm2
 
     v19 = clap_builder::builder::command::Command::new(uucore::util_name(), v28);
     clap_builder::builder::command::Command::version(&v22, &v19, "0.0.28");
@@ -57,7 +58,7 @@ fn uu_hostname::uu_app(a0: &struct712) -> long long {
     v15 = 4;
     v10 = v2;
     v12 = 10;
-    memcpy(&v8, &v0, 16);
+    v8 = *(&v0 as &i128);
     clap_builder::builder::arg::Arg::overrides_with_all(&v25, &v22, &v8);
     clap_builder::builder::arg::Arg::help(&v22, &v25, "Display the name of the DNS domain if possible");
     clap_builder::builder::arg::Arg::action(&v25, &v22);
@@ -81,8 +82,9 @@ fn uu_hostname::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::arg::Arg::long(&v22, &v25, "fqdn");
     v32 = *(&v0 as &i128);
     v33 = *(&v2 as &i128);
-    memcpy(&v16, &v6, 16);
-    v13 = *(&v4 as &i128);
+    v34 = *(&v4 as &i128);
+    v16 = *(&v6 as &i128);
+    v13 = v34;
     v10 = v33;
     v8 = v32;
     clap_builder::builder::arg::Arg::overrides_with_all(&v25, &v22, &v8);

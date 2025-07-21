@@ -1,6 +1,6 @@
 fn uu_sort::GlobalSettings::init_precomputed() -> : struct25 {
     let a0: i64;  // rsi
-    let v0: u128;  // [bp-0x28]
+    let v0: struct16;  // [bp-0x28]
     let v1: u32;  // [bp-0x20]
     let v2: u64;  // [bp-0x10]
     let v3: u64;  // [bp-0x8]
@@ -15,8 +15,8 @@ fn uu_sort::GlobalSettings::init_precomputed() -> : struct25 {
         field_8: *((v7 + 16) as &i64) * 56 + *((v7 + 8) as &i64)
     };
     *((v7 + 96) as &char) = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::any(&v0);
-    *((v7 + 88) as &long long) = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(v0 as i64, v1);
-    *((v7 + 72) as &long long) = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(v0 as i64, v1);
-    *((v7 + 80) as &long long) = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(v0 as i64, v1);
+    *((v7 + 88) as &long long) = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(v0.field_0, v1);
+    *((v7 + 72) as &long long) = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(v0.field_0, v1);
+    *((v7 + 80) as &long long) = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(v0.field_0, v1);
     return;
 }

@@ -13,7 +13,7 @@ fn uu_dd::parseargs::Parser::parse_n(a1: i64, a2: i64) -> : struct32 {
         *((v5 + 16) as &u64) = v1;
         v3 = v4;
     } else {
-        *((v5 + 16) as &u128) = v0.field_8;
+        *((v5 + 16) as &u128) = v0.field_16;
     }
     *((v5 + 8) as &u64) = v3;
     *(v5 as &u64) = v0.field_0;

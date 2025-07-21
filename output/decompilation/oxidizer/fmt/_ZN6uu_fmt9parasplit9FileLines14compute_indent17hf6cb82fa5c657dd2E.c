@@ -1,10 +1,10 @@
 fn uu_fmt::parasplit::FileLines::compute_indent(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct24 {
     let a0: i64;  // rdi
-    let v0: u192;  // [bp-0x48]
-    let v2: core::option::Option<(usize, char)>;  // rax, Other Possible Types: void*
+    let v0: core::str::iter::CharIndices;  // [bp-0x48], Other Possible Types: struct24
+    let v2: void*;  // rax, Other Possible Types: core::option::Option<(usize, char)>
     let v3: u32;  // edx
-    let v4: void*;  // r12
-    let v5: void*;  // rbx
+    let v4: void*;  // r12, Other Possible Types: core::str::iter::CharIndices
+    let v5: void*;  // rbx, Other Possible Types: u64
     let v6: i64;  // 4096
     let v7: u32;  // ebp
     let v8: u64;  // cc_ndep
@@ -12,17 +12,22 @@ fn uu_fmt::parasplit::FileLines::compute_indent(a1: i64, a2: i64, a3: i64, a4: i
     let v10: u32;  // ebp
     let v11: i64;  // r15
 
+    v0 = struct24 {
+        field_0: a2
+        field_8: a3 + a2
+        field_16: 0
+    };
     v0 = core::str::iter::CharIndices {
-        front_offset: a2
         iter: core::str::iter::Chars {
             iter: core::slice::iter::Iter<u8> {
                 ptr: core::ptr::non_null::NonNull<u8> {
-                    pointer: a3 + a2
+                    pointer: a2
                 }
-                end_or_len: 0
+                end_or_len: a3 + a2
                 _marker: core::marker::PhantomData<&u8> { }
             }
         }
+        front_offset: 0
     };
     v2 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64;
     if v3 != 0x110000 {

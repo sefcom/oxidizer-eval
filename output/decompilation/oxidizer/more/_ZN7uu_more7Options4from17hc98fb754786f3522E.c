@@ -1,12 +1,12 @@
-fn uu_more::Options::from(a1: i64) -> : struct40 {
+fn uu_more::Options::from(a1: &struct56) -> : struct40 {
     let a0: u64;  // rsi
     let v0: u8;  // [bp-0x91]
     let v1: u32;  // [bp-0x90]
     let v2: u32;  // [bp-0x8c]
     let v4: i64;  // [bp-0x80]
-    let v5: Result<struct40, struct16>;  // [bp-0x78]
+    let v5: Result<struct40, struct16>;  // [bp-0x78], Other Possible Types: u128
     let v6: u64;  // [bp-0x68]
-    let v7: u64;  // [bp-0x48], Other Possible Types: alloc::string::String
+    let v7: alloc::string::String;  // [bp-0x48]
     let v8: u64;  // [bp-0x38]
     let v9: u64;  // [bp-0x30]
     let v10: u64;  // [bp-0x28]
@@ -53,7 +53,7 @@ fn uu_more::Options::from(a1: i64) -> : struct40 {
     }
     v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "clean-print") as i8;
     v6 = v8;
-    memcpy(&v5, &v7, 16);
+    v5 = *((&v5 as &char + 48) as &i128);
     v25 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "print-over") as i32;
     v26 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "silent") as i32;
     v27 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "squeeze") as i8;
@@ -68,7 +68,7 @@ fn uu_more::Options::from(a1: i64) -> : struct40 {
     *((v33 + 24) as &void*) = v32;
     *((v33 + 32) as &u16) = v30;
     *((v33 + 34) as &u16) = v31 + 1;
-    *(v33 as &i128) = v5 as i128;
+    *(v33 as &u128) = v5;
     *((v33 + 16) as &u64) = v6;
     *((v33 + 37) as &u8) = v25;
     *((v33 + 38) as &u8) = v26;

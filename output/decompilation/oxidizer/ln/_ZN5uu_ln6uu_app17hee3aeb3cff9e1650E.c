@@ -4,7 +4,7 @@ fn uu_ln::uu_app(a0: &struct712) -> long long {
     let v2: i8;  // [bp-0x7fc]
     let v3: u64;  // [bp-0x78c]
     let v4: u32;  // [bp-0x784]
-    let v5: u8;  // [bp-0x780], Other Possible Types: struct584
+    let v5: struct584;  // [bp-0x780], Other Possible Types: u8
     let v6: u32;  // [bp-0x538]
     let v7: u32;  // [bp-0x534]
     let v8: u8;  // [bp-0x530]

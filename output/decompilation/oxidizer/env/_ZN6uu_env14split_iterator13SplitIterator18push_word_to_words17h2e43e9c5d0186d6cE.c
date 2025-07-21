@@ -1,6 +1,6 @@
 fn uu_env::split_iterator::SplitIterator::push_word_to_words() -> : struct24 {
     let a0: i64;  // rdi
-    let v0: u192;  // [bp-0x18]
+    let v0: struct24;  // [bp-0x18]
 
     v0 = struct24 {
         field_0: *(a0 as &i128)

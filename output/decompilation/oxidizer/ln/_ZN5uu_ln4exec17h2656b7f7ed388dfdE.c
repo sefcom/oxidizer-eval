@@ -1,6 +1,6 @@
 fn uu_ln::exec(a0: i64, a1: i64, a2: &struct56) -> long long {
     let v0: std::sys::os_str::bytes::Buf;  // [bp-0x50]
-    let v1: u192;  // [sp-0x50], Other Possible Types: struct24
+    let v1: struct24;  // [sp-0x50], Other Possible Types: u192
     let v2: u32;  // [bp-0x48]
     let v3: u32;  // [bp-0x40]
     let v6: u64;  // r12

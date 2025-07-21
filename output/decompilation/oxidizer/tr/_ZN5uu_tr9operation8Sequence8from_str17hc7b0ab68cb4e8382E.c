@@ -6,7 +6,7 @@ fn uu_tr::operation::Sequence::from_str(a1: i64, a2: i64) -> Option<struct24> {
     let v3: u128;  // [bp-0x80]
     let v4: u128;  // [bp-0x78]
     let v5: u64;  // [bp-0x70]
-    let v6: struct48;  // [bp-0x68], Other Possible Types: struct24
+    let v6: struct24;  // [bp-0x68], Other Possible Types: struct48
     let v7: u128;  // [bp-0x60]
     let v8: u128;  // [bp-0x50]
     let v9: u64;  // [bp-0x40]

@@ -1,9 +1,9 @@
 fn uu_wc::utf8::Incomplete::try_complete_offsets(a0: i64, a1: i64, a2: i64) -> long long {
     let v0: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x48]
     let v1: u64;  // [bp-0x40]
-    let v2: u8;  // [bp-0x38]
+    let v2: core::slice::iter::Iter<u8>;  // [bp-0x38]
     let v4: u64;  // r15
-    let v5: u64;  // r13
+    let v5: struct24;  // r13
     let v6: u64;  // r14
     let v7: void*;  // rax
     let v9: u32;  // rdx

@@ -1,6 +1,6 @@
 fn uu_df::blocks::read_block_size(a1: i64) -> : struct32 {
     let a0: u64;  // rsi
-    let v0: struct24;  // [bp-0x80], Other Possible Types: Result<struct40, struct16>, u64
+    let v0: Result<struct40, struct16>;  // [bp-0x80], Other Possible Types: struct24, u64
     let v1: struct32;  // [bp-0x80]
     let v2: u64;  // [bp-0x78]
     let v3: i64;  // [bp-0x70]

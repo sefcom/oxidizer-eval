@@ -1,17 +1,17 @@
 fn uu_sort::numeric_str_cmp::human_numeric_str_cmp(a0: i64, a1: i64) -> long long {
-    let v0: u128;  // [bp-0x70]
+    let v0: core::slice::iter::Iter<u8>;  // [sp-0x70]
     let v2: u64;  // [bp-0x58]
     let v3: u64;  // [bp-0x50]
     let v6: u64;  // rbp
-    let v7: u64;  // rcx
-    let v8: u64;  // r13
+    let v7: struct72;  // rcx
+    let v8: struct128;  // r13
     let v9: u64;  // r15
     let v10: u64;  // rax
     let v18: core::option::Option<u32>;  // rax:rax
 
     v6 = *((*((a0 + 16) as &i64) + 8) as &i8);
     v7 = *((*((a1 + 16) as &i64) + 8) as &i8);
-    if v6 != v7 {
+    if v6 != v7 as u8 {
         v10 = -((v6 & 255) < (v7 & 255));
         return v10 & 0xffffff00 | v10 | 1;
     }

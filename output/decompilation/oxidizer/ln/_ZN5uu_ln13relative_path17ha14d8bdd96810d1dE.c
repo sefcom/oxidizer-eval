@@ -1,13 +1,13 @@
 fn uu_ln::relative_path(a1: i64, a2: i64, a3: i64, a4: i64) -> : struct24 {
     let a0: i64;  // rdi
-    let v0: u8;  // [bp-0xd8]
+    let v0: u128;  // [bp-0xd8]
     let v1: u64;  // [bp-0xc8]
-    let v2: u192;  // [bp-0xc0]
+    let v2: struct24;  // [bp-0xc0], Other Possible Types: u8
     let v3: u128;  // [bp-0xa8]
-    let v4: u192;  // [bp-0xa8]
+    let v4: struct24;  // [bp-0xa8]
     let v5: u64;  // [bp-0x98]
-    let v6: u192;  // [bp-0x88]
-    let v7: u192;  // [bp-0x68]
+    let v6: struct24;  // [bp-0x88]
+    let v7: struct24;  // [bp-0x68]
     let v8: struct24;  // [bp-0x48]
     let v10: core::option::Option<&std::path::Path>;  // rax
     let v11: u64;  // rax

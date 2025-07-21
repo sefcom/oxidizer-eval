@@ -30,8 +30,8 @@ fn uu_join::State::read_line(a1: i64, a2: i64) -> : struct48 {
     v5 = v1;
     v6 = v2;
     v4 = uu_join::Line::new(a1, *((a0 + 72) as &i64), v13);
-    if *((&v4.field_24 as &char + 8) as &i64) > *((a0 + 72) as &i64) {
-        *((a0 + 72) as &i64) = *((&v4.field_24 as &char + 8) as &i64);
+    if v4.field_40 > *((a0 + 72) as &i64) {
+        *((a0 + 72) as &u64) = v4.field_40;
     }
     *((v14 + 32) as &i128) = *(&v9 as &i128);
     *((v14 + 16) as &struct8) = v8;

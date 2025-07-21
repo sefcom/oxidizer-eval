@@ -2,35 +2,34 @@ fn uu_shred::wipe_file(a0: i64, a1: i64, a2: i64, a3: i32, a4: i64, a5: i64, a6:
     let v0: u32;  // [bp-0x2c4]
     let v1: u64;  // [bp-0x2c0]
     let v2: u32;  // [bp-0x2b4]
-    let v3: struct24;  // [bp-0x2b4]
     let v5: struct16;  // [bp-0x2b0]
     let v6: struct16;  // [bp-0x2b0]
     let v7: struct16;  // [bp-0x2b0]
     let v8: struct16;  // [bp-0x2b0]
     let v9: u64;  // [bp-0x2a8]
     let v10: void*;  // [bp-0x2a0]
-    let v11: u384;  // [bp-0x298], Other Possible Types: Result<struct16, struct12>
+    let v11: Result<struct16, struct12>;  // [bp-0x298], Other Possible Types: core::fmt::Arguments, struct48, u64
     let v12: i64;  // [bp-0x290]
     let v15: u64;  // [bp-0x268]
     let v16: u64;  // [bp-0x258]
     let v17: struct12;  // [bp-0x250]
     let v18: u64;  // [sp-0x250]
-    let v19: u64;  // [bp-0x240]
-    let v20: u64;  // [bp-0x238], Other Possible Types: struct_1 *
+    let v19: struct16;  // [bp-0x240], Other Possible Types: u64
+    let v20: u64;  // [bp-0x238]
     let v21: u64;  // [bp-0x230]
     let v22: u8;  // [bp-0x228]
-    let v23: u64;  // [sp-0x220], Other Possible Types: void*, core::result::Result<std::fs::Metadata, std::io::error::Error>
-    let v24: u64;  // [bp-0x220], Other Possible Types: core::result::Result<std::fs::Metadata, std::io::error::Error>
+    let v23: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [sp-0x220], Other Possible Types: void*, u64
+    let v24: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x220], Other Possible Types: u64
     let v25: u64;  // [bp-0x218]
     let v26: u8;  // [bp-0x217]
     let v27: u16;  // [bp-0x214]
-    let v28: u128;  // [bp-0x210], Other Possible Types: struct_2 *
+    let v28: i64;  // [bp-0x210], Other Possible Types: u128
     let v29: u128;  // [bp-0x210]
     let v30: u64;  // [bp-0x208]
     let v31: void*;  // [bp-0x200], Other Possible Types: u128
     let v32: u128;  // [bp-0x200]
     let v33: u64;  // [bp-0x1f8]
-    let v34: u128;  // [bp-0x1f0]
+    let v34: u8;  // [bp-0x1f0]
     let v35: u128;  // [bp-0x1f0]
     let v36: u64;  // [bp-0x1e8]
     let v37: u128;  // [bp-0x1e0]
@@ -50,15 +49,15 @@ fn uu_shred::wipe_file(a0: i64, a1: i64, a2: i64, a3: i32, a4: i64, a5: i64, a6:
     let v51: u64;  // [bp-0x158]
     let v52: u64;  // [bp-0x150]
     let v53: u8;  // [bp-0x148]
-    let v54: struct32;  // [bp-0x140], Other Possible Types: struct_2 *
+    let v54: struct32;  // [bp-0x140], Other Possible Types: struct_0 *
     let v56: void*;  // [bp-0x120]
     let v57: u64;  // [bp-0x118]
     let v58: u64;  // [bp-0x108]
     let v59: u64;  // [bp-0x100]
     let v60: u192;  // [bp-0xf8]
     let v61: u128;  // [bp-0xe0]
-    let v62: core::result::Result<std::fs::File, std::io::error::Error>;  // [bp-0xe0], Other Possible Types: u64, struct_2 *
-    let v63: u64;  // [bp-0xd8], Other Possible Types: struct_1 *
+    let v62: i64;  // [bp-0xe0], Other Possible Types: Result<struct176, struct24>, u64
+    let v63: i64;  // [bp-0xd8], Other Possible Types: u64
     let v64: u128;  // [bp-0xd0]
     let v65: i64;  // [bp-0xd0]
     let v66: u64;  // [bp-0xc8]
@@ -109,7 +108,7 @@ fn uu_shred::wipe_file(a0: i64, a1: i64, a2: i64, a3: i32, a4: i64, a5: i64, a6:
                             return v75;
                         }
                     }
-                    v6 as u64 = 0;
+                    v7 as u64 = 0;
                     v9 = &g_1.field_0;
                     v10 = 0;
                     v57 = *((&v62 as &char + 80) as &i64);
@@ -196,14 +195,14 @@ fn uu_shred::wipe_file(a0: i64, a1: i64, a2: i64, a3: i32, a4: i64, a5: i64, a6:
                                 v57 = v15;
                             }
                             v15 = v57;
-                            v54 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v6 as u64);
+                            v54 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v7 as u64);
                             v56 = 0;
                             v17 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v54);
                             if v17.field_8 as i8 != 3 {
                                 do {
                                     v2 = v17.field_8;
                                     if a8 {
-                                        v3 = uu_shred::pass_name(v92);
+                                        v2 as u192 = uu_shred::pass_name(v92);
                                         v62 = uucore::util_name();
                                         v63 = v93;
                                         eprint!("{}: ", &v62);
@@ -241,6 +240,14 @@ fn uu_shred::wipe_file(a0: i64, a1: i64, a2: i64, a3: i32, a4: i64, a5: i64, a6:
                                         v51 = 3;
                                         v52 = 32;
                                         v53 = 3;
+                                        v11 = struct48 {
+                                            field_0: &g_538808
+                                            field_8: 5
+                                            field_16: &v62
+                                            field_24: 4
+                                            field_32: &v23
+                                            field_40: 4
+                                        };
                                         v11 = core::fmt::Arguments {
                                             pieces: [&g_538808, ": pass ", "/", " (", ")...\n"]
                                             args: [v61, v64, v67, v70]
@@ -248,10 +255,12 @@ fn uu_shred::wipe_file(a0: i64, a1: i64, a2: i64, a3: i32, a4: i64, a5: i64, a6:
                                         };
                                         std::io::stdio::_eprint(&v11);
                                     }
-                                    v94 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_shred::do_pass(&v0, &v3, a6 as u64, v15) as i64, a0, v1);
+                                    v94 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_shred::do_pass(&v0, &v2 as u192, a6 as u64, v15) as i64, a0, v1);
                                     if v94 {
-                                        v19 = v94;
-                                        v20 = v93;
+                                        v19 = struct16 {
+                                            field_0: v94
+                                            field_8: v93
+                                        };
                                         uucore::mods::error::set_exit_code(*((v93 + 96) as &i64)(v94) as u32 as u64);
                                         v11 = uucore::util_name();
                                         v12 = v93;

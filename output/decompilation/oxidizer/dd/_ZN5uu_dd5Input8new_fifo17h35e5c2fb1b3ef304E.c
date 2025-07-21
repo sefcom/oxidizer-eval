@@ -5,7 +5,7 @@ fn uu_dd::Input::new_fifo(a1: i64, a2: i64, a3: i64) -> Result<struct16, struct1
     let v2: u32;  // [bp-0x40]
     let v3: u64;  // [bp-0x3c]
     let v4: u8;  // [bp-0x38]
-    let v5: u16;  // [bp-0x34]
+    let v5: struct16;  // [bp-0x34]
     let v6: core::result::Result<std::fs::File, std::io::error::Error>;  // [bp-0x30]
     let v7: u32;  // [bp-0x2c]
     let v9: u32;  // eax
@@ -43,7 +43,7 @@ fn uu_dd::Input::new_fifo(a1: i64, a2: i64, a3: i64) -> Result<struct16, struct1
             }
             *((v17 + 8) as &u32) = v0;
             *((v17 + 12) as &u32) = v11;
-            *((v17 + 16) as &struct_0 *) = a2;
+            *((v17 + 16) as &struct_2 *) = a2;
             *(v17 as &i64) = 0;
             return;
         },

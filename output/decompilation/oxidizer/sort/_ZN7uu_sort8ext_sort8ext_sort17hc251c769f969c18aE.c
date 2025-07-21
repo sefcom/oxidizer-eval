@@ -1,19 +1,19 @@
 fn uu_sort::ext_sort::ext_sort(a0: &struct16, a1: i64, a2: &struct32, a3: i64) -> long long {
     let v0: u64;  // [bp-0x208]
-    let v1: u8;  // [bp-0x1e8]
+    let v1: u128;  // [bp-0x1e8]
     let v2: u64;  // [bp-0x1d8]
     let v3: u64;  // [bp-0x1d0]
     let v4: u64;  // [bp-0x1c0]
     let v5: u64;  // [bp-0x1b8]
     let v6: u64;  // [bp-0x1b0]
-    let v7: u64;  // [bp-0x1a8]
-    let v8: u64;  // [bp-0x1a0], Other Possible Types: &str
-    let v9: u64;  // [bp-0x198], Other Possible Types: core::str::pattern::CharSearcher
-    let v10: u64;  // [bp-0x190]
+    let v7: struct32;  // [bp-0x1a8], Other Possible Types: u64
+    let v8: &str;  // [bp-0x1a0], Other Possible Types: u64
+    let v9: core::str::pattern::CharSearcher;  // [bp-0x198], Other Possible Types: char, u64
+    let v10: struct98;  // [bp-0x190], Other Possible Types: u64
     let v11: u8;  // [bp-0x188]
     let v12: struct24;  // [bp-0xe8]
-    let v13: struct147;  // [bp-0xd0], Other Possible Types: struct24, void*
-    let v14: u64;  // [bp-0xc0]
+    let v13: struct147;  // [bp-0xd0], Other Possible Types: struct16, struct24
+    let v14: struct16;  // [bp-0xc0]
     let v16: u64;  // r8
     let v17: u32;  // ebp
     let v18: u128;  // xmm0
@@ -23,7 +23,7 @@ fn uu_sort::ext_sort::ext_sort(a0: &struct16, a1: i64, a2: &struct32, a3: i64) -
     std::sync::mpmc::sync_channel(0x1, a2, a3, v16);
     v2 = v7;
     v3 = v8;
-    memcpy(&v1, &v9, 16);
+    v1 = *(&v9 as &i128);
     std::sync::mpmc::sync_channel(0x1, a2, a3, v16);
     v17 = v7;
     v0 = v8;

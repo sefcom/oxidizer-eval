@@ -4,7 +4,7 @@ fn uu_test::parser::Parser::expect(a1: i64) -> Option<struct24> {
     let v1: i8;  // [bp-0x68]
     let v2: void*;  // [bp-0x60]
     let v3: u8;  // [bp-0x58]
-    let v4: u200;  // [bp-0x48]
+    let v4: struct25;  // [bp-0x48], Other Possible Types: u128
     let v5: u64;  // [bp-0x38]
     let v6: struct24;  // [bp-0x28]
 
@@ -24,7 +24,8 @@ fn uu_test::parser::Parser::expect(a1: i64) -> Option<struct24> {
         field_24: 1
     };
     v6 = <T as alloc::string::ToString>::to_string(&v4);
-    return Some(struct8 {
-        field_8: <UNKNOWN>
+    return Some(struct24 {
+        field_0: v6.field_0
+        field_16: v6.field_16
     });
 }

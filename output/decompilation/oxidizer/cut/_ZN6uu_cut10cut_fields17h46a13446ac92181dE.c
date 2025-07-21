@@ -1,34 +1,35 @@
 fn uu_cut::cut_fields(a0: i32, a1: i32, a2: i64, a3: i64) -> long long {
     let v0: u8;  // [bp-0x41]
-    let v1: u64;  // [bp-0x40]
-    let v2: u64;  // [bp-0x38]
-    let v4: u8;  // r13b
-    let v5: u8;  // bpl
-    let v6: u64;  // rax
-    let v7: u64;  // rdx
-    let v8: struct24;  // rax
-    let v9: u64;  // rax
+    let v1: struct16;  // [bp-0x40]
+    let v3: u8;  // r13b
+    let v4: u8;  // bpl
+    let v5: core::fmt::rt::Argument;  // rax
+    let v6: u64;  // rdx
+    let v7: u64;  // rax
+    let v8: core::fmt::rt::Argument;  // rax
 
-    v4 = *((a3 + 32) as &i8);
-    if v4 == 2 {
+    v3 = *((a3 + 32) as &i8);
+    if v3 == 2 {
         core::option::unwrap_failed(); /* do not return */
     }
-    v5 = *((a3 + 40) as &i8);
+    v4 = *((a3 + 40) as &i8);
     if *((a3 + 16) as &i64) {
-        v1 = uu_cut::matcher::ExactMatcher::new(*((a3 + 16) as &i64), *((a3 + 24) as &i64));
-        v2 = v7;
+        v1 = struct16 {
+            field_0: uu_cut::matcher::ExactMatcher::new(*((a3 + 16) as &i64), *((a3 + 24) as &i64))
+            field_8: v6
+        };
         if !*(a3 as &i64) {
-            return uu_cut::cut_fields_implicit_out_delim(a0, &v1, a1, a2, v4, v5);
+            return uu_cut::cut_fields_implicit_out_delim(a0, &v1, a1, a2, v3, v4);
         }
-        v8 = uu_cut::cut_fields_explicit_out_delim(a0, &v1, a1, a2, v4, v5, *(a3 as &i64), *((a3 + 8) as &i64));
+        v7 = uu_cut::cut_fields_explicit_out_delim(a0, &v1, a1, a2, v3, v4, *(a3 as &i64), *((a3 + 8) as &i64));
     } else {
-        v6 = *(a3 as &i64);
-        if v6 {
-            v9 = v6;
+        v5 = *(a3 as &i64);
+        if v5 {
+            v8 = v5;
         } else {
-            v9 = &g_41dc19;
+            v8 = &g_41dc19.ty;
         }
-        v8 = uu_cut::cut_fields_explicit_out_delim(a0, &v0, a1, a2, v4, v5, v9, (v6 ? *((a3 + 8) as &i64) : 1));
+        v7 = uu_cut::cut_fields_explicit_out_delim(a0, &v0, a1, a2, v3, v4, v8, (v5 ? *((a3 + 8) as &i64) : 1));
     }
-    return v8;
+    return v7;
 }

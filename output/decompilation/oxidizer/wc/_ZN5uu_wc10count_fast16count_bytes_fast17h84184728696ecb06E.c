@@ -6,7 +6,7 @@ fn uu_wc::count_fast::count_bytes_fast(a0: i64) -> long long {
     let v4: void*;  // [bp-0x1028]
     let v6: void*;  // rbx
     let v7: u32;  // edx
-    let v8: u64;  // rdx
+    let v8: void*;  // rdx
     let v10: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
 
     v4 = 0;

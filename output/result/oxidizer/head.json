@@ -1,30 +1,28 @@
 {
   "decompilation": {
-    "_ZN7uu_head11arg_iterate17h2f4030183cfe2e94E": "fn uu_head::arg_iterate(a1: i64, a2: i64) -> Result<struct16, struct16> {\n    let a0: i64;  // rdi\n    let v0: i64;  // [bp-0x1a8]\n    let v1: i64;  // [bp-0x1a0]\n    let v2: iNone;  // [bp-0x198], Other Possible Types: unsigned long\n    let v3: i64;  // [bp-0x190]\n    let v4: i64;  // [bp-0x188]\n    let v5: iNone;  // [bp-0x138], Other Possible Types: char\n    let v6: i64;  // [bp-0x128]\n    let v7: i64;  // [bp-0x120]\n    let v8: i64;  // [bp-0x110]\n    let v9: iNone;  // [bp-0x108]\n    let v10: iNone;  // [bp-0xf8]\n    let v11: iNone;  // [bp-0xe8], Other Possible Types: unsigned long\n    let v12: i64;  // [bp-0xe0]\n    let v13: i64;  // [bp-0xd8]\n    let v14: i8;  // [bp-0xd0]\n    let v15: i8;  // [bp-0xa8]\n    let v16: i64;  // [bp-0xa0]\n    let v17: i64;  // [bp-0x98]\n    let v18: iNone;  // [bp-0x88]\n    let v19: i64;  // [bp-0x80]\n    let v20: iNone;  // [bp-0x70]\n    let v21: iNone;  // [bp-0x60]\n    let v22: i64;  // [bp-0x50]\n    let v23: iNone;  // [bp-0x48]\n    let v25: i64;  // rax\n    let v26: i64;  // r15\n    let v27: i64;  // r14\n    let v28: i64;  // rax\n    let v29: i64;  // rax\n    let v30: i64;  // rax\n    let v31: i8;  // bpl\n\n    v0 = a1;\n    v1 = a2;\n    v2 = <core::iter::adapters::cloned::Cloned<I> as core::iter::traits::iterator::Iterator>::next(&v0);\n    if v2 == 0x8000000000000000 {\n        core::option::unwrap_failed(); /* do not return */\n    }\n    v6 = v4;\n    memcpy(&v5, &v2, 16);\n    v7 = <core::iter::adapters::cloned::Cloned<I> as core::iter::traits::iterator::Iterator>::next(&v0);\n    if v7 == 0x8000000000000000 {\n        v25 = alloc::alloc::Global::alloc_impl(0x18, a1, a2) as u64;\n        *((v25 + 16) as &unsigned long) = v6;\n        *(v25 as void*) = v5;\n        v11 = alloc::slice::hack::into_vec(v25, 1);\n        v2 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v11);\n        return Ok(struct16 {\n            field_0: alloc::boxed::Box<T>::new(&v2)\n            field_8: &g_52a500\n        });\n        return;\n    }\n    memcpy(&v15, &v7, 16);\n    v17 = v8;\n    v2 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(v16, v8);\n    match v2 {\n        Err(_) => {\n            v11 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n            v2 = struct28 {\n                field_0: v11 as i128\n                field_16: v13\n                field_24: 1\n            };\n            v28 = alloc::boxed::Box<T>::new(&v2);\n            goto LABEL_46c23f;\n        },\n        Ok(_) => {\n            v26 = v3;\n            v27 = v4;\n            v18 = uu_head::parse::parse_obsolete(v26, v27);\n            if let None = v18 {\n                v29 = alloc::alloc::Global::alloc_impl(0x30, a1, a2) as u64;\n                v4 = v17;\n                memcpy(&v2, &v15, 16);\n                *((v29 + 16) as &unsigned long) = v6;\n                *(v29 as void*) = v5;\n                *((v29 + 24) as &i128) = v2 as i128;\n                *((v29 + 40) as &unsigned long) = v4;\n                v2 = alloc::slice::hack::into_vec(v29, 2);\n                v11 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v2);\n                v2 = core::iter::traits::iterator::Iterator::chain(&v11, v0);\n                return Ok(struct16 {\n                    field_0: alloc::boxed::Box<T>::new(&v2)\n                    field_8: &g_52a3e8\n                });\n            }\n            if v19 {\n                v10 = v20;\n                *(&v9 as &i128) = *(&v19 as &i128);\n                v30 = alloc::alloc::Global::alloc_impl(0x18, a1, a2) as u64;\n                *((v30 + 16) as &unsigned long) = v6;\n                *(v30 as void*) = v5;\n                v11 = alloc::slice::hack::into_vec(v30, 1);\n                v2 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v11);\n                v11 = core::iter::traits::iterator::Iterator::chain(&v2, &v9 as u8);\n                v2 = core::iter::traits::iterator::Iterator::chain(&v11, v0);\n                return Ok(struct16 {\n                    field_0: alloc::boxed::Box<T>::new(&v2)\n                    field_8: &g_52a420\n                });\n            } else {\n                if (&v18)[16] as i8 {\n                    v11 = 0;\n                    v12 = v26;\n                    v13 = v27;\n                    v14 = 1;\n                    v23 = format!(\"invalid argument: {} Value too large for defined datatype\", &v11);\n                    v2 = struct28 {\n                        field_0: v23 as i128\n                        field_16: (&v23)[16] as i64\n                        field_24: 1\n                    };\n                    v28 = alloc::boxed::Box<T>::new(&v2);\n                } else {\n                    v11 = 0;\n                    v12 = v26;\n                    v13 = v27;\n                    v14 = 1;\n                    v21 = format!(\"bad argument format: {}\", &v11);\n                    v2 = struct28 {\n                        field_0: v21 as i128\n                        field_16: v22\n                        field_24: 1\n                    };\n                    v28 = alloc::boxed::Box<T>::new(&v2);\n                }\nLABEL_46c23f:\n                v31 = 1;\n                return Err(struct16 {\n                    field_0: v28\n                    field_8: &g_52a490\n                });\n            }\n            return;\n        },\n    }\n}\n",
-    "_ZN7uu_head6uumain6uumain17h5ea3dd696b7d584eE": "fn uu_head::uumain::uumain(a1: i32) -> Result<struct16, struct16> {\n    let a0: u32;  // rsi\n    let v0: u224;  // [bp-0x368]\n    let v1: u64;  // [bp-0x360]\n    let v2: u64;  // [bp-0x358]\n    let v3: u256;  // [bp-0x348]\n    let v4: u128;  // [bp-0x348]\n    let v5: Result<struct56, struct16>;  // [bp-0x348]\n    let v6: u64;  // [bp-0x340]\n    let v7: u64;  // [bp-0x318]\n    let v8: u256;  // [bp-0x310]\n    let v9: u8;  // [bp-0x2f0]\n    let v10: u64;  // [bp-0x2e0]\n    let v11: u8;  // [bp-0x2d8], Other Possible Types: Result<struct48, struct32>\n    let v12: u64;  // [bp-0x2c0]\n    let v14: u64;  // rdi\n    let v15: u32;  // rcx\n\n    uu_head::uu_app(&v11);\n    uu_head::arg_iterate(v14, a0, v15);\n    if v0 {\n        return;\n    }\n    v4 = clap_builder::builder::command::Command::try_get_matches_from(&v11, v1, v2);\n    match v4 as u640 {\n        Err(_) => {\n            uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v6);\n            return;\n        },\n        Ok(_) => {\n            v10 = v7;\n            memcpy(&v9, &v5 as u128, 16);\n            v8 = v3;\n            v11 = uu_head::HeadOptions::get_from(&v8);\n            match v11 {\n                Ok(_) => {\n                    memcpy(&v5 as u128, &v11 as u8, 16);\n                    memcpy(&v5, &v11, 16);\n                    v4 = v11 as i128 as u128;\n                    uu_head::uu_head(&v4 as u640);\n                    return;\n                },\n                Err(_) => {\n                    memcpy(&v0 as u8, &v11 as u8, 16);\n                    v0 = struct28 {\n                        field_0: <UNKNOWN>\n                        field_16: v12\n                        field_24: 1\n                    };\n                    alloc::boxed::Box<T>::new(&v0);\n                    return;\n                },\n            }\n        },\n    }\n}\n",
-    "_ZN7uu_head6uu_app17h3a0d0603aeae9cb6E": "fn uu_head::uu_app(a0: &struct712) -> long long {\n    let v0: u8;  // [bp-0xa50]\n    let v1: u32;  // [bp-0x808]\n    let v2: u32;  // [bp-0x804]\n    let v3: struct437;  // [bp-0x800]\n    let v4: u64;  // [bp-0x544]\n    let v5: u32;  // [bp-0x53c]\n    let v6: u8;  // [bp-0x538]\n    let v7: u32;  // [bp-0x2f0]\n    let v8: i8;  // [bp-0x2ec]\n    let v9: u64;  // [bp-0x27c]\n    let v10: u32;  // [bp-0x274]\n    let v11: u256;  // [bp-0x270]\n    let v12: u32;  // [bp-0x28]\n    let v13: u32;  // [bp-0x24]\n    let v16: u64;  // rdx\n\n    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v16);\n    clap_builder::builder::command::Command::version(&v6, &v3, \"0.0.28\");\n    clap_builder::builder::command::Command::about(&v3, &v6, \"Print the first 10 lines of each `FILE` to standard output.\\nWith more than one `FILE`, precede each with a header giving the file name.\\nWith no `FILE`, or when `FILE` is `-`, read standard input.\\n\\nMandatory arguments to long flags are mandatory for short flags too.\");\n    uucore::format_usage(&v0, \"{} [FLAG]... [FILE]...\");\n    clap_builder::builder::command::Command::override_usage(&v6, &v3, &v0);\n    memcpy(&v3, &v6, 700);\n    v4 = 549755814016 | v9;\n    v5 = v10;\n    clap_builder::builder::arg::Arg::new(&v6, \"BYTES\");\n    clap_builder::builder::arg::Arg::short(&v0, &v6, 99);\n    clap_builder::builder::arg::Arg::long(&v6, &v0, \"bytes\");\n    clap_builder::builder::arg::Arg::value_name(&v0, &v6);\n    clap_builder::builder::arg::Arg::help(&v6, &v0, \"print the first NUM bytes of each file;\\nwith the leading '-', print all but the last\\nNUM bytes of each file\");\n    v11 = struct32 {\n        field_0: &g_41dd3c\n        field_8: 5\n        field_16: &g_41ddb7\n        field_24: 5\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v0, &v6, &v11);\n    memcpy(&v11, &v0, 584);\n    v12 = v1 | 32;\n    v13 = v2;\n    clap_builder::builder::command::Command::arg(&v6, &v3, &v11);\n    clap_builder::builder::arg::Arg::new(&v3, \"LINES\");\n    clap_builder::builder::arg::Arg::short(&v0, &v3, 110);\n    clap_builder::builder::arg::Arg::long(&v3, &v0, \"lines\");\n    clap_builder::builder::arg::Arg::value_name(&v0, &v3);\n    clap_builder::builder::arg::Arg::help(&v3, &v0, \"print the first NUM lines instead of the first 10;\\nwith the leading '-', print all but the last\\nNUM lines of each file\");\n    v11 = struct32 {\n        field_0: &g_41ddb7\n        field_8: 5\n        field_16: &g_41dd3c\n        field_24: 5\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v0, &v3, &v11);\n    memcpy(&v11, &v0, 584);\n    v12 = v1 | 32;\n    v13 = v2;\n    clap_builder::builder::command::Command::arg(&v3, &v6, &v11);\n    clap_builder::builder::arg::Arg::new(&v6, \"QUIET\");\n    clap_builder::builder::arg::Arg::short(&v0, &v6, 113);\n    clap_builder::builder::arg::Arg::long(&v6, &v0, \"quiet\");\n    clap_builder::builder::arg::Arg::visible_alias(&v0, &v6, \"silent\");\n    clap_builder::builder::arg::Arg::help(&v6, &v0, \"never print headers giving file names\");\n    v11 = struct32 {\n        field_0: &g_41de6c\n        field_8: 7\n        field_16: &g_41de37\n        field_24: 5\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v0, &v6, &v11);\n    clap_builder::builder::arg::Arg::action(&v11, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v6, &v3, &v11);\n    clap_builder::builder::arg::Arg::new(&v3, \"VERBOSE\");\n    clap_builder::builder::arg::Arg::short(&v0, &v3, 118);\n    clap_builder::builder::arg::Arg::long(&v3, &v0, \"verbose\");\n    clap_builder::builder::arg::Arg::help(&v0, &v3, \"always print headers giving file names\");\n    v11 = struct32 {\n        field_0: &g_41de37\n        field_8: 5\n        field_16: &g_41de6c\n        field_24: 7\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v3, &v0, &v11);\n    clap_builder::builder::arg::Arg::action(&v0, &v3, 2);\n    clap_builder::builder::command::Command::arg(&v3, &v6, &v0);\n    clap_builder::builder::arg::Arg::new(&v6, \"-PRESUME-INPUT-PIPE\");\n    clap_builder::builder::arg::Arg::long(&v0, &v6, \"presume-input-pipe\");\n    clap_builder::builder::arg::Arg::alias(&v6, &v0, \"-presume-input-pipe\");\n    memcpy(&v0, &v6, 584);\n    v1 = v7 | 4;\n    v2 = *(&v8 as &i32);\n    clap_builder::builder::arg::Arg::action(&v11, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v6, &v3, &v11);\n    clap_builder::builder::arg::Arg::new(&v3, \"ZERO\");\n    clap_builder::builder::arg::Arg::short(&v0, &v3, 122);\n    clap_builder::builder::arg::Arg::long(&v3, &v0, \"zero-terminated\");\n    clap_builder::builder::arg::Arg::help(&v0, &v3, \"line delimiter is NUL, not newline\");\n    clap_builder::builder::arg::Arg::overrides_with(&v3, &v0, \"ZERO\");\n    clap_builder::builder::arg::Arg::action(&v0, &v3, 2);\n    clap_builder::builder::command::Command::arg(&v3, &v6, &v0);\n    clap_builder::builder::arg::Arg::new(&v6, \"FILE\");\n    clap_builder::builder::arg::Arg::action(&v0, &v6, 1);\n    clap_builder::builder::arg::Arg::value_hint(&v6, &v0, 3);\n    clap_builder::builder::command::Command::arg(a0, &v3, &v6);\n    return a0;\n}\n",
-    "_ZN7uu_head4Mode4from17h53e4fee035ad00eeE": "fn uu_head::Mode::from(a1: i64) -> : struct25 {\n    let a0: i64;  // rdi\n    let v0: u128;  // [bp-0x88]\n    let v1: u8;  // [bp-0x78]\n    let v2: i8;  // [bp-0x77]\n    let v3: i8;  // [bp-0x74]\n    let v4: struct32;  // [sp-0x68]\n    let v5: u64;  // [bp-0x60]\n    let v6: Result<struct40, struct16>;  // [bp-0x48]\n    let v7: Result<struct40, struct16>;  // [bp-0x48]\n    let v9: i64;  // rax\n    let v10: i64;  // rax\n\n    v6 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, \"BYTES\");\n    v9 = clap_builder::parser::error::MatchesError::unwrap(\"BYTES\", &v6);\n    if v9 {\n        v4 = uu_head::parse::parse_num(*((v9 + 8) as &i64), *((v9 + 16) as &i64));\n        if v4.field_0 as i32 != 3 {\n            memcpy(&v6 as u8, &v4 as u128, 16);\n            memcpy(&v6, &v4, 16);\n            uu_head::Mode::from::{{closure}}(&v0, &v6);\n            return struct28 {\n                field_0: v0\n                field_16: v1\n                field_17: *(&v3 as &i32)\n                field_20: <UNKNOWN>\n            };\n        } else if v4.field_16 as i8 {\n            *((a0 + 8) as &i64) = 3;\n        } else {\n            *((a0 + 8) as &i64) = 2;\n        }\n    } else {\n        v7 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, \"LINES\");\n        v10 = clap_builder::parser::error::MatchesError::unwrap(\"LINES\", &v7);\n        if !v10 {\n            return struct24 {\n                field_0: 0x8000000000000000\n                field_8: 0\n                field_16: 10\n            };\n        }\n        v4 = uu_head::parse::parse_num(*((v10 + 8) as &i64), *((v10 + 16) as &i64));\n        if v4.field_0 as i32 != 3 {\n            memcpy(&v7 as u8, &v4 as u128, 16);\n            memcpy(&v7, &v4, 16);\n            uu_head::Mode::from::{{closure}}(&v0, &v7);\n            return struct28 {\n                field_0: v0\n                field_16: v1\n                field_17: *(&v3 as &i32)\n                field_20: <UNKNOWN>\n            };\n        } else if v4.field_16 as i8 {\n            *((a0 + 8) as &i64) = 1;\n        } else {\n            *((a0 + 8) as &i64) = 0;\n        }\n    }\n    *((a0 + 16) as &u64) = v5;\n}\n",
-    "_ZN7uu_head11HeadOptions8get_from17h1adb6e5857002fb6E": "fn uu_head::HeadOptions::get_from(a1: &struct32) -> Result<struct48, struct32> {\n    let a0: u64;  // rsi\n    let v0: u64;  // [bp-0x130], Other Possible Types: void*\n    let v1: u64;  // [bp-0x128]\n    let v2: u64;  // [bp-0x128]\n    let v3: void*;  // [bp-0x120]\n    let v4: u64;  // [bp-0x118]\n    let v5: u64;  // [bp-0x110], Other Possible Types: struct32\n    let v6: u32;  // [bp-0x108], Other Possible Types: Result<struct40, struct16>\n    let v7: u8;  // [bp-0x107]\n    let v8: u8;  // [bp-0x106]\n    let v10: struct56;  // [bp-0x100], Other Possible Types: u64\n    let v11: Result<struct24, struct24>;  // [bp-0x100]\n    let v12: struct24;  // [bp-0x100]\n    let v13: struct24;  // [bp-0x100]\n    let v14: u64;  // [bp-0xf8]\n    let v15: i8;  // [bp-0xf0]\n    let v16: struct64;  // [bp-0xb8]\n    let v17: u512;  // [bp-0xb8]\n    let v18: u8;  // [bp-0x78]\n    let v19: u64;  // [bp-0x68]\n    let v20: u512;  // [bp-0x58]\n    let v22: u8;  // al\n    let v23: i64;  // rdi\n    let v25: i64;  // r14\n    let v26: u128;  // xmm0\n    let v27: u128;  // xmm1\n    let v28: i64;  // rdi\n\n    v6 = 0xa000000;\n    v0 = 0;\n    v2 = 10;\n    v3 = 0;\n    v4 = 8;\n    v5 = 0;\n    v6 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"QUIET\") as i8;\n    v7 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"VERBOSE\") as i8;\n    v22 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"ZERO\") as i8 ? 0 : 10);\n    v8 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"-PRESUME-INPUT-PIPE\") as i8;\n    uu_head::Mode::from(a0, a1);\n    if v10 != 0x8000000000000000 {\n        *((v23 + 8) as &u64) = v10;\n        *((v23 + 16) as &u64) = v14;\n        *((v23 + 24) as &u64) = v1;\n        *(v23 as &i64) = 4;\n        return;\n    }\n    v0 = v14;\n    v1 = *(&v15 as &i64);\n    v10 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(a0, \"FILE\");\n    v16 = clap_builder::parser::error::MatchesError::unwrap(\"FILE\", &v10);\n    if v16.field_0 as i64 {\n        v20 = v17;\n        v11 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v20);\n    } else {\n        v25 = alloc::alloc::Global::alloc_impl(0x18, a0, a1) as u64;\n        v12 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n        v19 = v12.field_16;\n        memcpy(&v18, &v12, 16);\n        *((v25 + 16) as &u64) = v12.field_16;\n        *(v25 as &u128) = v18;\n        v13 = alloc::slice::hack::into_vec(v25, 1);\n    }\n    v5 = *((&v11 as &char + 16) as &i64);\n    memcpy(&v3, &v13, 16);\n    v26 = *(&v0 as &i128);\n    v27 = *(&v3 as &i128);\n    *((v28 + 32) as &u128) = v5.field_0;\n    *((v28 + 16) as &u128) = v27;\n    *(v28 as &u128) = v26;\n    return;\n}\n",
-    "_ZN7uu_head12read_n_bytes17h336678ff3f92cdc9E": "fn uu_head::read_n_bytes(a0: i64) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x28]\n    let v1: std::io::stdio::Stdout;  // [bp-0x20]\n    let v2: u64;  // [bp-0x18]\n    let v3: u64;  // [bp-0x10]\n    let v5: u64;  // rdx\n\n    v2 = a0;\n    v3 = -1;\n    v1 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v1);\n    return v5;\n}\n",
-    "_ZN7uu_head12read_n_bytes17h6fceecc1df8e2d16E": "fn uu_head::read_n_bytes(a0: i64, a1: i64) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x28]\n    let v1: std::io::stdio::Stdout;  // [bp-0x20]\n    let v2: std::io::stdio::StderrLock;  // [bp-0x18]\n    let v3: u64;  // [bp-0x10]\n    let v5: u64;  // rdx\n\n    v2 = std::io::Read::take(a0, a1);\n    v3 = v5;\n    v1 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v1);\n    return 0;\n}\n",
-    "_ZN7uu_head12read_n_bytes17hf3a515e6e6370f94E": "fn uu_head::read_n_bytes(a0: i64, a1: i64) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x28]\n    let v1: std::io::stdio::Stdout;  // [bp-0x20]\n    let v2: std::io::stdio::StderrLock;  // [bp-0x18]\n    let v3: u64;  // [bp-0x10]\n    let v5: u64;  // rdx\n\n    v2 = std::io::Read::take(a0, a1);\n    v3 = v5;\n    v1 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v1);\n    return 0;\n}\n",
-    "_ZN7uu_head12read_n_lines17h872c4c7830fcbe92E": "fn uu_head::read_n_lines(a0: i64, a1: i64, a2: i8) -> long long {\n    let v0: u64;  // [bp-0x50]\n    let v1: std::io::stdio::Stdout;  // [bp-0x48]\n    let v2: u64;  // [bp-0x40]\n    let v3: std::io::stdio::StderrLock;  // [bp-0x38]\n    let v4: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>;  // [bp-0x30]\n    let v6: u64;  // rdx\n\n    v1 = a0;\n    v2 = a1;\n    v3 = a2;\n    v0 = std::io::stdio::Stderr {\n        inner: std::io::stdio::stdout()\n    };\n    std::io::stdio::Stderr::lock(&v0);\n    v4 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x4000);\n    return v6;\n}\n",
-    "_ZN7uu_head12read_n_lines17hae3a156ed2e97641E": "fn uu_head::read_n_lines(a0: i64, a1: i64, a2: i8) -> long long {\n    let v0: u64;  // [bp-0x50]\n    let v1: std::io::stdio::Stdout;  // [bp-0x48]\n    let v2: u64;  // [bp-0x40]\n    let v3: std::io::stdio::StderrLock;  // [bp-0x38]\n    let v4: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>;  // [bp-0x30]\n    let v6: u64;  // rdx\n\n    v1 = a0;\n    v2 = a1;\n    v3 = a2;\n    v0 = std::io::stdio::Stderr {\n        inner: std::io::stdio::stdout()\n    };\n    std::io::stdio::Stderr::lock(&v0);\n    v4 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x4000);\n    return v6;\n}\n",
-    "_ZN7uu_head21read_but_last_n_bytes17hc5f1d0ad028c7bdeE": "fn uu_head::read_but_last_n_bytes() -> int {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x10070]\n    let v1: struct24;  // [bp-0x10068]\n    let v2: u64;  // [bp-0x10060]\n    let v3: void*;  // [bp-0x10058]\n    let v4: u64;  // [bp-0x10050]\n    let v5: void*;  // [bp-0x10048]\n    let v6: std::io::stdio::Stdout;  // [bp-0x10038]\n    let v7: u458752;  // [bp-0x10030]\n    let v10: u64;  // rsi\n    let v11: u64;  // rdi\n    let v12: u64;  // rdi\n    let v15: void*;  // rbp\n    let v16: u64;  // rcx\n    let v17: u64;  // r12\n    let v18: u64;  // r12\n    let v19: u64;  // rdx\n    let v22: &[u8];  // rax:rdx\n    let v23: core::result::Result<usize, std::io::error::Error>;  // rax:rdx\n\n    if !v10 {\n        uu_head::read_n_bytes(v11, -1);\n        return;\n    }\n    v6 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v6);\n    v1 = 0;\n    v2 = 1;\n    v3 = 0;\n    v5 = 0;\n    memset(&v7, 0, 0x10000);\n    loop {\n        v23 = <std::io::stdio::StdinLock as std::io::Read>::read(v12, &v7, 0x10000);\n        if !v23 as i64 {\n            if !*((&v23 as &char + 8) as &i64) {\n                return;\n            }\n            v5 += *((&v23 as &char + 8) as &i64);\n            if v5 > v4 {\n                if <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, 1, 0) || !(!<std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(0, 0 + *((&v23 as &char + 8) as &i64) - v10, &v7, \"src/uu/head/src/head.rs\"), v19)) {\n                    break;\n                }\n            } else {\n                v15 = 0;\n                v16 = \"src/uu/head/src/head.rs\";\n                v17 = *((&v23 as &char + 8) as &i64) + v4 - v5;\n            }\n            v18 = v17;\n            v22 = core::slice::iter::Iter<T>::make_slice(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v15, v18, &v7, v16));\n            alloc::vec::Vec<T,A>::append_elements(&v1, v22.ptr, v19);\n        } else if std::io::error::Error::kind(*((&v23 as &char + 8) as &i64)) != 35 {\n            break;\n        }\n    }\n    return;\n}\n",
-    "_ZN7uu_head21read_but_last_n_bytes17hcec7d62dae3b0b23E": "fn uu_head::read_but_last_n_bytes() -> int {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x10070]\n    let v1: void*;  // [bp-0x10068]\n    let v2: u64;  // [bp-0x10060]\n    let v3: void*;  // [bp-0x10058]\n    let v4: u64;  // [bp-0x10050]\n    let v5: struct24;  // [bp-0x10048]\n    let v6: std::io::stdio::Stdout;  // [bp-0x10038]\n    let v7: u458752;  // [bp-0x10030]\n    let v10: u64;  // rsi\n    let v11: u64;  // rdi\n    let v12: u64;  // rdi\n    let v15: void*;  // rbp\n    let v16: core::result::Result<core::ptr::non_null::NonNull<[u8]>, core::alloc::AllocError>;  // rcx\n    let v17: u64;  // r12\n    let v18: u64;  // r12\n    let v19: u64;  // rdx\n    let v21: *const [u8];  // rax:rdx\n    let v22: core::result::Result<usize, std::io::error::Error>;  // rax:rdx\n\n    if !v10 {\n        uu_head::read_n_bytes(v11);\n        return;\n    }\n    v6 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v6);\n    v1 = 0;\n    v2 = 1;\n    v3 = 0;\n    v5 = 0;\n    memset(&v7, 0, 0x10000);\n    loop {\n        v22 = <std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read(v12, &v7, 0x10000);\n        if !v22 as i64 {\n            if !*((&v22 as &char + 8) as &i64) {\n                return;\n            }\n            v5 += *((&v22 as &char + 8) as &i64);\n            if v5 > v4 {\n                if <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, 1, 0) || !(!<std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(0, 0 + *((&v22 as &char + 8) as &i64) - v10, &v7, \"src/uu/head/src/head.rs\"), v19)) {\n                    break;\n                }\n            } else {\n                v15 = 0;\n                v16 = \"src/uu/head/src/head.rs\";\n                v17 = *((&v22 as &char + 8) as &i64) + v4 - v5;\n            }\n            v18 = v17;\n            v21 = core::slice::iter::Iter<T>::make_slice(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v15, v18, &v7, v16));\n            alloc::vec::Vec<T,A>::append_elements(&v1, v21.data_ptr, v19);\n        } else if std::io::error::Error::kind(*((&v22 as &char + 8) as &i64)) != 35 {\n            break;\n        }\n    }\n    return;\n}\n",
-    "_ZN7uu_head21read_but_last_n_lines17h3962164e084296b5E": "fn uu_head::read_but_last_n_lines(a0: i64, a1: i64, a2: i8) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0xe8]\n    let v1: std::io::stdio::Stdout;  // [bp-0xe0]\n    let v2: u64;  // [bp-0xd8]\n    let v3: Result<struct56, struct16>;  // [bp-0xd0]\n    let v4: Result<struct48, struct32>;  // [bp-0xc8]\n    let v5: u192;  // [bp-0xc0]\n    let v7: u64;  // [bp-0xb8]\n    let v8: u64;  // [bp-0xb0]\n    let v9: u128;  // [bp-0xa8]\n    let v10: core::result::Result<core::ptr::non_null::NonNull<[u8]>, core::alloc::AllocError>;  // [bp-0x98]\n    let v11: u8;  // [bp-0x88]\n    let v12: u64;  // [bp-0x78]\n    let v13: struct49;  // [bp-0x68]\n    let v14: u128;  // [bp-0x58]\n    let v16: core::result::Result<(), std::io::error::Error>;  // rbx\n\n    v1 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v1);\n    v13 = uu_head::take::TakeAllBut<I>::new(a0, a2, a1);\n    v12 = v13.field_0;\n    memcpy(&v11, &v13 as u128, 16);\n    v10 = v14;\n    v9 = *(&v13.field_0 as &i128);\n    do {\n        vvar_189{stack -192} = struct24 OrderedDict({0: \ud835\udf19@64b [((4954750, None), vvar_147{stack -192}), ((4954584, None), None)], 16: \ud835\udf19@64b [((4954750, None), vvar_149{stack -176}), ((4954584, None), None)]})\n        <uu_head::take::TakeAllBut<I> as core::iter::traits::iterator::Iterator>::next(&v5, &v9);\n        if v5 as i64 == 9223372036854775809 {\n            return 0;\n        }\n        v16 = v7;\n    } while (v5 as i64 != 0x8000000000000000 && (v2 = v5 as i64, v3 = v16, v4 = v8, v16 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, v16, v4), !v16));\n    return v16;\n}\n",
-    "_ZN7uu_head21read_but_last_n_lines17h8782837729f811d6E": "fn uu_head::read_but_last_n_lines(a0: i64, a1: i64, a2: i8) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0xe8]\n    let v1: std::io::stdio::Stdout;  // [bp-0xe0]\n    let v2: u64;  // [bp-0xd8]\n    let v3: Result<struct56, struct16>;  // [bp-0xd0]\n    let v4: Result<struct48, struct32>;  // [bp-0xc8]\n    let v5: u192;  // [bp-0xc0]\n    let v7: u64;  // [bp-0xb8]\n    let v8: u64;  // [bp-0xb0]\n    let v9: u64;  // [bp-0xa8]\n    let v10: core::result::Result<core::ptr::non_null::NonNull<[u8]>, core::alloc::AllocError>;  // [bp-0x98]\n    let v11: u8;  // [bp-0x88]\n    let v12: u64;  // [bp-0x78]\n    let v13: struct49;  // [bp-0x68]\n    let v14: u128;  // [bp-0x58]\n    let v16: core::result::Result<(), std::io::error::Error>;  // rbx\n\n    v1 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v1);\n    v13 = uu_head::take::TakeAllBut<I>::new(a0, a2, a1);\n    v12 = v13.field_0;\n    memcpy(&v11, &v13 as u128, 16);\n    v10 = v14;\n    v9 = *(&v13.field_0 as &i128);\n    do {\n        vvar_189{stack -192} = struct24 OrderedDict({0: \ud835\udf19@64b [((4955134, None), vvar_147{stack -192}), ((4954968, None), None)], 16: \ud835\udf19@64b [((4955134, None), vvar_149{stack -176}), ((4954968, None), None)]})\n        <uu_head::take::TakeAllBut<I> as core::iter::traits::iterator::Iterator>::next(&v5, &v9);\n        if v5 as i64 == 9223372036854775809 {\n            return 0;\n        }\n        v16 = v7;\n    } while (v5 as i64 != 0x8000000000000000 && (v2 = v5 as i64, v3 = v16, v4 = v8, v16 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, v16, v4), !v16));\n    return v16;\n}\n",
-    "_ZN7uu_head22find_nth_line_from_end17h5c4d4ddf46229ebfE": "fn uu_head::find_nth_line_from_end() -> int {\n    let v0: u64;  // [bp-0x10058]\n    let v1: u64;  // [bp-0x10048]\n    let v2: u64;  // [bp-0x10040]\n    let v3: u64;  // [bp-0x10038]\n    let v4: u458752;  // [bp-0x10030]\n    let v7: u64;  // rdi\n    let v9: u64;  // rdx\n    let v10: u64;  // rdx\n    let v11: u64;  // rdx\n    let v12: u64;  // rbx\n    let v13: u64;  // r12\n    let v14: struct49;  // rax\n    let v15: u64;  // r14, Other Possible Types: void*\n    let v16: u64;  // r13, Other Possible Types: std::io::stdio::Stdout\n    let v17: u64;  // rsi\n    let v18: core::result::Result<u64, std::io::error::Error>;  // rax:rdx\n    let v19: core::result::Result<u64, std::io::error::Error>;  // rax:rdx\n\n    v18 = <std::fs::File as std::io::Seek>::seek(v7, 1, 0);\n    match v18 {\n        Err(_) => {\n            return;\n        },\n        Ok(_) => {\n            v16 = 0;\n            memset(&v4, 0, 0x10000);\n            v1 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index_mut(core::cmp::min_by(*((&v18 as &char + 8) as &i64)), &v4);\n            v0 = v1 + v9;\n            v15 = 0;\n            v10 = v9;\n            v11 = *((&v18 as &char + 8) as &i64);\n            do {\n                v12 = v11;\n                v13 = v9;\n                v19 = <std::fs::File as std::io::Seek>::seek(v7, 2, -(core::cmp::min_by(v13, v12 - v16)));\n                if v19 as i64 || std::io::Read::read_exact(v7, v1, v13) {\n                    return;\n                }\n                v2 = v1;\n                v3 = v0;\n                v14 = <core::slice::iter::Iter<T> as core::iter::traits::double_ended::DoubleEndedIterator>::next_back(&v2);\n                if v14 {\n                    loop {\n                        v15 = (*(v14 as &i8) == v9 as u8) as u8 as u64 + v15;\n                        if v15 == v17 + 1 {\n                            break;\n                        }\n                        v16 += 1;\n                        v14 = <core::slice::iter::Iter<T> as core::iter::traits::double_ended::DoubleEndedIterator>::next_back(&v2);\n                        if !v14 {\n                            goto LABEL_4b9d40;\n                        }\n                    }\n                }\nLABEL_4b9d40:\n                v11 = *((&v18 as &char + 8) as &i64);\n            } while (v16 != v11);\n            std::io::Seek::rewind(v7);\n        },\n    }\n}\n",
+    "_ZN7uu_head11arg_iterate17h2f4030183cfe2e94E": "fn uu_head::arg_iterate(a1: i64, a2: i64) -> Result<struct16, struct16> {\n    let a0: i64;  // rdi\n    let v0: u64;  // [bp-0x1a8]\n    let <0x46c150[is_8]|Stack bp-0xa8, 1 B>: i64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x1a0]\n    let v2: alloc::raw_vec::Cap;  // [bp-0x198], Other Possible Types: core::result::Result<&str, core::str::error::Utf8Error>, struct24, core::iter::adapters::chain::Chain<core::iter::adapters::flatten::Flatten<core::option::IntoIter<core::char::EscapeDebug>>, core::iter::adapters::flatten::FlatMap<core::str::iter::Chars, core::char::EscapeDebug, core::str::CharEscapeDebugContinue>>, struct32, struct28\n    let v3: alloc::raw_vec::Cap;  // [bp-0x198]\n    let v4: u64;  // [bp-0x190]\n    let v5: u64;  // [bp-0x188]\n    let v6: u128;  // [bp-0x138]\n    let v7: u64;  // [bp-0x128]\n    let v8: alloc::raw_vec::Cap;  // [bp-0x120]\n    let v9: u64;  // [bp-0x110]\n    let v10: u128;  // [bp-0x108]\n    let v11: u128;  // [bp-0xf8]\n    let v12: core::iter::adapters::chain::Chain<core::iter::adapters::flatten::Flatten<core::option::IntoIter<core::char::EscapeDebug>>, core::iter::adapters::flatten::FlatMap<core::str::iter::Chars, core::char::EscapeDebug, core::str::CharEscapeDebugContinue>>;  // [bp-0xe8], Other Possible Types: struct32, void*, struct24\n    let v13: u64;  // [bp-0xe0]\n    let v14: u64;  // [bp-0xd8]\n    let v15: u8;  // [bp-0xd0]\n    let v16: alloc::raw_vec::Cap;  // [bp-0xa8]\n    let v17: u64;  // [bp-0xa0]\n    let v18: u64;  // [bp-0x98]\n    let v19: Option<struct17>;  // [bp-0x88]\n    let v20: u64;  // [bp-0x80]\n    let v21: u128;  // [bp-0x70]\n    let v22: alloc::string::String;  // [bp-0x60]\n    let v23: u64;  // [bp-0x50]\n    let v24: alloc::string::String;  // [bp-0x48]\n    let v26: core::result::Result<core::ptr::non_null::NonNull<[u8]>, core::alloc::AllocError>;  // rax\n    let v27: u64;  // r15\n    let v28: u64;  // r14\n    let v30: core::result::Result<core::ptr::non_null::NonNull<[u8]>, core::alloc::AllocError>;  // rax\n    let v31: core::result::Result<core::ptr::non_null::NonNull<[u8]>, core::alloc::AllocError>;  // rax\n\n    v0 = a1;\n    v1 = a2;\n    v2 = <core::iter::adapters::cloned::Cloned<I> as core::iter::traits::iterator::Iterator>::next(&v0);\n    if v2 == 0x8000000000000000 {\n        core::option::unwrap_failed(); /* do not return */\n    }\n    v7 = v5;\n    v6 = *(&v2 as &i128);\n    v8 = <core::iter::adapters::cloned::Cloned<I> as core::iter::traits::iterator::Iterator>::next(&v0);\n    if v8.__0 == 0x8000000000000000 {\n        v26 = alloc::alloc::Global::alloc_impl(0x18, a1, a2) as u64;\n        *((v26 + 16) as &u64) = v7;\n        *(v26 as &u128) = v6;\n        v12 = alloc::slice::hack::into_vec(v26, 1);\n        v2 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v12);\n        return Ok(struct16 {\n            field_0: alloc::boxed::Box<T>::new(&v2)\n            field_8: &g_52a500\n        });\n        return;\n    }\n    *(&<0x46c150[is_8]|Stack bp-0xa8, 1 B> as &alloc::raw_vec::Cap) = v8;\n    v18 = v9;\n    v2 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(v17, v9);\n    match v2 {\n        Err(_) => {\n            v12 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n            v2 = struct28 {\n                field_0: *(&v12.field_0 as &i128)\n                field_16: v14\n                field_24: 1\n            };\n            return Err(struct16 {\n                field_0: alloc::boxed::Box<T>::new(&v2)\n                field_8: &g_52a490\n            });\n        },\n        Ok(_) => {\n            v27 = v4;\n            v28 = v5;\n            v19 = uu_head::parse::parse_obsolete(v27, v28);\n            if !v19 as i64 {\n                v30 = alloc::alloc::Global::alloc_impl(0x30, a1, a2) as u64;\n                v5 = v18;\n                *(&v3 as &i128) = *(&v16 as &i128);\n                *((v30 + 16) as &u64) = v7;\n                *(v30 as &u128) = v6;\n                *((v30 + 24) as &i128) = *(&v3 as &i128);\n                *((v30 + 40) as &u64) = v5;\n                v2 = alloc::slice::hack::into_vec(v30, 2);\n                v12 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v2);\n                v2 = core::iter::traits::iterator::Iterator::chain(&v12, v0);\n                return Ok(struct16 {\n                    field_0: alloc::boxed::Box<T>::new(&v2)\n                    field_8: &g_52a3e8\n                });\n            } else if v20 {\n                v11 = v21;\n                v10 = *((&v19 as &char + 8) as &i128) as u128;\n                v31 = alloc::alloc::Global::alloc_impl(0x18, a1, a2) as u64;\n                *((v31 + 16) as &u64) = v7;\n                *(v31 as &u128) = v6;\n                v12 = alloc::slice::hack::into_vec(v31, 1);\n                v2 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v12);\n                v12 = core::iter::traits::iterator::Iterator::chain(&v2, &v10 as u8);\n                v2 = core::iter::traits::iterator::Iterator::chain(&v12, v0);\n                return Ok(struct16 {\n                    field_0: alloc::boxed::Box<T>::new(&v2)\n                    field_8: &g_52a420\n                });\n            } else if *((&v19 as &char + 16) as &i8) {\n                v12 = 0;\n                v13 = v27;\n                v14 = v28;\n                v15 = 1;\n                v24 = format!(\"invalid argument: {} Value too large for defined datatype\", &v12);\n                v2 = struct28 {\n                    field_0: *(&v24.vec.buf.cap as &i128)\n                    field_16: v24.vec.len\n                    field_24: 1\n                };\n                return Err(struct16 {\n                    field_0: alloc::boxed::Box<T>::new(&v2)\n                    field_8: &g_52a490\n                });\n            } else {\n                v12 = 0;\n                v13 = v27;\n                v14 = v28;\n                v15 = 1;\n                v22 = format!(\"bad argument format: {}\", &v12);\n                v2 = struct28 {\n                    field_0: *(&v22.vec.buf.cap as &i128)\n                    field_16: v23\n                    field_24: 1\n                };\n                return Err(struct16 {\n                    field_0: alloc::boxed::Box<T>::new(&v2)\n                    field_8: &g_52a490\n                });\n            }\n        },\n    }\n}\n",
+    "_ZN7uu_head6uu_app17h3a0d0603aeae9cb6E": "fn uu_head::uu_app(a0: &struct712) -> long long {\n    let v0: u8;  // [bp-0xa50]\n    let v1: u32;  // [bp-0x808]\n    let v2: u32;  // [bp-0x804]\n    let v3: struct437;  // [bp-0x800]\n    let v4: u64;  // [bp-0x544]\n    let v5: u32;  // [bp-0x53c]\n    let v6: u8;  // [bp-0x538]\n    let v7: u32;  // [bp-0x2f0]\n    let v8: i8;  // [bp-0x2ec]\n    let v9: u64;  // [bp-0x27c]\n    let v10: u32;  // [bp-0x274]\n    let v11: struct32;  // [bp-0x270]\n    let v12: u32;  // [bp-0x28]\n    let v13: u32;  // [bp-0x24]\n    let v16: u64;  // rdx\n\n    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v16);\n    clap_builder::builder::command::Command::version(&v6, &v3, \"0.0.28\");\n    clap_builder::builder::command::Command::about(&v3, &v6, \"Print the first 10 lines of each `FILE` to standard output.\\nWith more than one `FILE`, precede each with a header giving the file name.\\nWith no `FILE`, or when `FILE` is `-`, read standard input.\\n\\nMandatory arguments to long flags are mandatory for short flags too.\");\n    uucore::format_usage(&v0, \"{} [FLAG]... [FILE]...\");\n    clap_builder::builder::command::Command::override_usage(&v6, &v3, &v0);\n    memcpy(&v3, &v6, 700);\n    v4 = 549755814016 | v9;\n    v5 = v10;\n    clap_builder::builder::arg::Arg::new(&v6, \"BYTES\");\n    clap_builder::builder::arg::Arg::short(&v0, &v6, 99);\n    clap_builder::builder::arg::Arg::long(&v6, &v0, \"bytes\");\n    clap_builder::builder::arg::Arg::value_name(&v0, &v6);\n    clap_builder::builder::arg::Arg::help(&v6, &v0, \"print the first NUM bytes of each file;\\nwith the leading '-', print all but the last\\nNUM bytes of each file\");\n    v11 = struct32 {\n        field_0: &g_41dd3c\n        field_8: 5\n        field_16: &g_41ddb7\n        field_24: 5\n    };\n    v11 = struct32 {\n        field_0: &g_41dd3c\n        field_8: 5\n        field_16: &g_41ddb7\n        field_24: 5\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v0, &v6, &v11);\n    memcpy(&v11, &v0, 584);\n    v12 = v1 | 32;\n    v13 = v2;\n    clap_builder::builder::command::Command::arg(&v6, &v3, &v11);\n    clap_builder::builder::arg::Arg::new(&v3, \"LINES\");\n    clap_builder::builder::arg::Arg::short(&v0, &v3, 110);\n    clap_builder::builder::arg::Arg::long(&v3, &v0, \"lines\");\n    clap_builder::builder::arg::Arg::value_name(&v0, &v3);\n    clap_builder::builder::arg::Arg::help(&v3, &v0, \"print the first NUM lines instead of the first 10;\\nwith the leading '-', print all but the last\\nNUM lines of each file\");\n    v11 = struct32 {\n        field_0: &g_41ddb7\n        field_8: 5\n        field_16: &g_41dd3c\n        field_24: 5\n    };\n    v11 = struct32 {\n        field_0: &g_41ddb7\n        field_8: 5\n        field_16: &g_41dd3c\n        field_24: 5\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v0, &v3, &v11);\n    memcpy(&v11, &v0, 584);\n    v12 = v1 | 32;\n    v13 = v2;\n    clap_builder::builder::command::Command::arg(&v3, &v6, &v11);\n    clap_builder::builder::arg::Arg::new(&v6, \"QUIET\");\n    clap_builder::builder::arg::Arg::short(&v0, &v6, 113);\n    clap_builder::builder::arg::Arg::long(&v6, &v0, \"quiet\");\n    clap_builder::builder::arg::Arg::visible_alias(&v0, &v6, \"silent\");\n    clap_builder::builder::arg::Arg::help(&v6, &v0, \"never print headers giving file names\");\n    v11 = struct32 {\n        field_0: &g_41de6c\n        field_8: 7\n        field_16: &g_41de37\n        field_24: 5\n    };\n    v11 = struct32 {\n        field_0: &g_41de6c\n        field_8: 7\n        field_16: &g_41de37\n        field_24: 5\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v0, &v6, &v11);\n    clap_builder::builder::arg::Arg::action(&v11, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v6, &v3, &v11);\n    clap_builder::builder::arg::Arg::new(&v3, \"VERBOSE\");\n    clap_builder::builder::arg::Arg::short(&v0, &v3, 118);\n    clap_builder::builder::arg::Arg::long(&v3, &v0, \"verbose\");\n    clap_builder::builder::arg::Arg::help(&v0, &v3, \"always print headers giving file names\");\n    v11 = struct32 {\n        field_0: &g_41de37\n        field_8: 5\n        field_16: &g_41de6c\n        field_24: 7\n    };\n    v11 = struct32 {\n        field_0: &g_41de37\n        field_8: 5\n        field_16: &g_41de6c\n        field_24: 7\n    };\n    clap_builder::builder::arg::Arg::overrides_with_all(&v3, &v0, &v11);\n    clap_builder::builder::arg::Arg::action(&v0, &v3, 2);\n    clap_builder::builder::command::Command::arg(&v3, &v6, &v0);\n    clap_builder::builder::arg::Arg::new(&v6, \"-PRESUME-INPUT-PIPE\");\n    clap_builder::builder::arg::Arg::long(&v0, &v6, \"presume-input-pipe\");\n    clap_builder::builder::arg::Arg::alias(&v6, &v0, \"-presume-input-pipe\");\n    memcpy(&v0, &v6, 584);\n    v1 = v7 | 4;\n    v2 = *(&v8 as &i32);\n    clap_builder::builder::arg::Arg::action(&v11, &v0, 2);\n    clap_builder::builder::command::Command::arg(&v6, &v3, &v11);\n    clap_builder::builder::arg::Arg::new(&v3, \"ZERO\");\n    clap_builder::builder::arg::Arg::short(&v0, &v3, 122);\n    clap_builder::builder::arg::Arg::long(&v3, &v0, \"zero-terminated\");\n    clap_builder::builder::arg::Arg::help(&v0, &v3, \"line delimiter is NUL, not newline\");\n    clap_builder::builder::arg::Arg::overrides_with(&v3, &v0, \"ZERO\");\n    clap_builder::builder::arg::Arg::action(&v0, &v3, 2);\n    clap_builder::builder::command::Command::arg(&v3, &v6, &v0);\n    clap_builder::builder::arg::Arg::new(&v6, \"FILE\");\n    clap_builder::builder::arg::Arg::action(&v0, &v6, 1);\n    clap_builder::builder::arg::Arg::value_hint(&v6, &v0, 3);\n    clap_builder::builder::command::Command::arg(a0, &v3, &v6);\n    return a0;\n}\n",
+    "_ZN7uu_head4Mode4from17h53e4fee035ad00eeE": "fn uu_head::Mode::from(a1: i64) -> : struct25 {\n    let a0: i64;  // rdi\n    let v0: u128;  // [bp-0x88]\n    let v1: u8;  // [bp-0x78]\n    let v2: i8;  // [bp-0x77]\n    let v3: i8;  // [bp-0x74]\n    let v4: struct32;  // [sp-0x68]\n    let v5: struct32;  // [bp-0x68]\n    let v6: Result<struct40, struct16>;  // [bp-0x48], Other Possible Types: struct32\n    let v8: i64;  // rax\n    let v9: i64;  // rax\n    let v10: u64;  // rcx\n\n    v6 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, \"BYTES\");\n    v8 = clap_builder::parser::error::MatchesError::unwrap(\"BYTES\", &v6);\n    if v8 {\n        v4 = uu_head::parse::parse_num(*((v8 + 8) as &i64), *((v8 + 16) as &i64));\n        if v4.field_0 as i32 != 3 {\n            v6 = v5;\n            uu_head::Mode::from::{{closure}}(&v0, &v6);\n        } else if v4.field_16 as i8 {\n            *((a0 + 8) as &i64) = 3;\n        } else {\n            *((a0 + 8) as &i64) = 2;\n        }\n    } else {\n        v6 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, \"LINES\");\n        v9 = clap_builder::parser::error::MatchesError::unwrap(\"LINES\", &v6);\n        if !v9 {\n            *((a0 + 8) as &i64) = 0;\n            *((a0 + 16) as &i64) = 10;\n        }\n        v4 = uu_head::parse::parse_num(*((v9 + 8) as &i64), *((v9 + 16) as &i64));\n        if v4.field_0 as i32 != 3 {\n            v6 = v5;\n            uu_head::Mode::from::{{closure}}(&v0, &v6);\n        } else if v4.field_16 as i8 {\n            return struct24 {\n                field_0: 0x8000000000000000\n                field_8: 1\n                field_16: v10\n            };\n        } else {\n            *((a0 + 8) as &i64) = 0;\n        }\n    }\n    return struct32 {\n        field_0: v0\n        field_16: v1\n        field_17: *(&v3 as &i32)\n        field_20: <UNKNOWN>\n    };\n}\n",
+    "_ZN7uu_head11HeadOptions8get_from17h1adb6e5857002fb6E": "fn uu_head::HeadOptions::get_from(a1: &struct56) -> Result<struct48, struct32> {\n    let a0: u64;  // rsi\n    let v0: void*;  // [bp-0x130], Other Possible Types: u64\n    let v1: u64;  // [bp-0x128]\n    let v2: u64;  // [bp-0x128]\n    let v3: u128;  // [bp-0x120]\n    let v4: void*;  // [bp-0x120]\n    let v5: u64;  // [bp-0x118]\n    let v6: void*;  // [bp-0x110], Other Possible Types: u64\n    let v7: struct32;  // [bp-0x108], Other Possible Types: u32\n    let v8: Result<struct40, struct16>;  // [bp-0x107]\n    let v9: struct32;  // [bp-0x106]\n    let v11: struct56;  // [bp-0x100], Other Possible Types: u64\n    let v12: struct24;  // [bp-0x100], Other Possible Types: u192\n    let v13: struct24;  // [bp-0x100]\n    let v14: struct24;  // [bp-0x100]\n    let v15: struct32;  // [bp-0xf8]\n    let v16: i8;  // [bp-0xf0]\n    let v17: struct64;  // [bp-0xb8]\n    let v18: struct64;  // [bp-0xb8]\n    let v19: struct24;  // [bp-0x78]\n    let v20: struct64;  // [bp-0x58]\n    let v22: struct32;  // al\n    let v23: i64;  // rdi\n    let v25: i64;  // r14\n    let v26: u128;  // xmm0\n    let v27: u128;  // xmm1\n    let v28: i64;  // rdi\n\n    v7 = 0xa000000;\n    v0 = 0;\n    v2 = 10;\n    v4 = 0;\n    v5 = 8;\n    v6 = 0;\n    v7 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"QUIET\") as i8;\n    v8 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"VERBOSE\") as i8;\n    v22 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"ZERO\") as i8 ? 0 : 10);\n    v9 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"-PRESUME-INPUT-PIPE\") as i8;\n    uu_head::Mode::from(a0, a1);\n    if v11 != 0x8000000000000000 {\n        *((v23 + 8) as &u64) = v11;\n        *((v23 + 16) as &struct32) = v15;\n        *((v23 + 24) as &u64) = v1;\n        *(v23 as &i64) = 4;\n        return;\n    }\n    v0 = v15;\n    v1 = *(&v16 as &i64);\n    v11 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(a0, \"FILE\");\n    v17 = clap_builder::parser::error::MatchesError::unwrap(\"FILE\", &v11);\n    if v17.field_0 as i64 {\n        v20 = v18;\n        v12 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v20);\n    } else {\n        v25 = alloc::alloc::Global::alloc_impl(0x18, a0, a1) as u64;\n        v13 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n        v19 = v14;\n        *((v25 + 16) as &u64) = v13.field_16;\n        *(v25 as &u128) = v19.field_0;\n        v12 = alloc::slice::hack::into_vec(v25, 1);\n    }\n    v6 = *((&v12 as &char + 16) as &i64);\n    v3 = v12;\n    v26 = *(&v0 as &i128);\n    v27 = v3;\n    *((v28 + 32) as &i128) = *(&v6 as &i128);\n    *((v28 + 16) as &u128) = v27;\n    *(v28 as &u128) = v26;\n    return;\n}\n",
+    "_ZN7uu_head12read_n_bytes17h336678ff3f92cdc9E": "fn uu_head::read_n_bytes(a0: i64) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x28]\n    let v1: std::io::stdio::Stdout;  // [bp-0x20]\n    let v2: struct16;  // [bp-0x18]\n    let v4: u64;  // rdx\n\n    v2 = struct16 {\n        field_0: a0\n        field_8: -1\n    };\n    v1 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v1);\n    return v4;\n}\n",
+    "_ZN7uu_head12read_n_bytes17h6fceecc1df8e2d16E": "fn uu_head::read_n_bytes(a0: i64, a1: i64) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x28]\n    let v1: std::io::stdio::Stdout;  // [bp-0x20]\n    let v2: struct16;  // [bp-0x18]\n    let v4: u64;  // rdx\n\n    v2 = struct16 {\n        field_0: std::io::Read::take(a0, a1)\n        field_8: v4\n    };\n    v1 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v1);\n    return 0;\n}\n",
+    "_ZN7uu_head12read_n_bytes17hf3a515e6e6370f94E": "fn uu_head::read_n_bytes(a0: i64, a1: i64) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x28]\n    let v1: std::io::stdio::Stdout;  // [bp-0x20]\n    let v2: struct16;  // [bp-0x18]\n    let v4: u64;  // rdx\n\n    v2 = struct16 {\n        field_0: std::io::Read::take(a0, a1)\n        field_8: v4\n    };\n    v1 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v1);\n    return v4;\n}\n",
+    "_ZN7uu_head12read_n_lines17h872c4c7830fcbe92E": "fn uu_head::read_n_lines(a0: i64, a1: i64, a2: i8) -> long long {\n    let v0: std::io::stdio::Stderr;  // [bp-0x50]\n    let v1: struct24;  // [bp-0x48]\n    let v2: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>;  // [bp-0x30]\n    let v4: u64;  // rdx\n\n    v1 = struct24 {\n        field_0: a0\n        field_8: a1\n        field_16: a2\n    };\n    v0 = std::io::stdio::Stderr {\n        inner: std::io::stdio::stdout()\n    };\n    std::io::stdio::Stderr::lock(&v0);\n    v2 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x4000);\n    return v4;\n}\n",
+    "_ZN7uu_head12read_n_lines17hae3a156ed2e97641E": "fn uu_head::read_n_lines(a0: i64, a1: i64, a2: i8) -> long long {\n    let v0: std::io::stdio::Stderr;  // [bp-0x50]\n    let v1: struct24;  // [bp-0x48]\n    let v2: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>;  // [bp-0x30]\n    let v4: u64;  // rdx\n\n    v1 = struct24 {\n        field_0: a0\n        field_8: a1\n        field_16: a2\n    };\n    v0 = std::io::stdio::Stderr {\n        inner: std::io::stdio::stdout()\n    };\n    std::io::stdio::Stderr::lock(&v0);\n    v2 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x4000);\n    return v4;\n}\n",
+    "_ZN7uu_head21read_but_last_n_bytes17hc5f1d0ad028c7bdeE": "fn uu_head::read_but_last_n_bytes() -> int {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x10070]\n    let v1: struct24;  // [bp-0x10068]\n    let v2: struct64;  // [bp-0x10060]\n    let v3: void*;  // [bp-0x10058]\n    let v4: u64;  // [bp-0x10050]\n    let v5: struct24;  // [bp-0x10048]\n    let v6: std::io::stdio::Stdout;  // [bp-0x10038]\n    let v7: u458752;  // [bp-0x10030]\n    let v10: u64;  // rsi\n    let v11: u64;  // rdi\n    let v12: u64;  // rdi\n    let v15: void*;  // rbp\n    let v16: u64;  // rcx\n    let v17: u64;  // r12\n    let v18: u64;  // r12\n    let v19: u64;  // rdx\n    let v22: &[u8];  // rax:rdx\n    let v23: core::result::Result<usize, std::io::error::Error>;  // rax:rdx\n\n    if !v10 {\n        uu_head::read_n_bytes(v11, -1);\n        return;\n    }\n    v6 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v6);\n    v1 = 0;\n    v2 = 1;\n    v3 = 0;\n    v5 = 0;\n    memset(&v7, 0, 0x10000);\n    loop {\n        v23 = <std::io::stdio::StdinLock as std::io::Read>::read(v12, &v7, 0x10000);\n        if !v23 as i64 {\n            if !*((&v23 as &char + 8) as &i64) {\n                return;\n            }\n            v5 += *((&v23 as &char + 8) as &i64);\n            if v5 > v4 {\n                if <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, 1, 0) || !(!<std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(0, 0 + *((&v23 as &char + 8) as &i64) - v10, &v7, \"src/uu/head/src/head.rs\"), v19)) {\n                    break;\n                }\n            } else {\n                v15 = 0;\n                v16 = \"src/uu/head/src/head.rs\";\n                v17 = *((&v23 as &char + 8) as &i64) + v4 - v5;\n            }\n            v18 = v17;\n            v22 = core::slice::iter::Iter<T>::make_slice(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v15, v18, &v7, v16));\n            alloc::vec::Vec<T,A>::append_elements(&v1, v22.ptr, v19);\n        } else if std::io::error::Error::kind(*((&v23 as &char + 8) as &i64)) != 35 {\n            break;\n        }\n    }\n    return;\n}\n",
+    "_ZN7uu_head21read_but_last_n_bytes17hcec7d62dae3b0b23E": "fn uu_head::read_but_last_n_bytes() -> int {\n    let v0: std::io::stdio::StderrLock;  // [bp-0x10070]\n    let v1: void*;  // [bp-0x10068]\n    let v2: u64;  // [bp-0x10060]\n    let v3: void*;  // [bp-0x10058]\n    let v4: u64;  // [bp-0x10050]\n    let v5: struct24;  // [bp-0x10048]\n    let v6: std::io::stdio::Stdout;  // [bp-0x10038]\n    let v7: u458752;  // [bp-0x10030]\n    let v10: u64;  // rsi\n    let v11: u64;  // rdi\n    let v12: u64;  // rdi\n    let v15: void*;  // rbp\n    let v16: core::result::Result<core::ptr::non_null::NonNull<[u8]>, core::alloc::AllocError>;  // rcx\n    let v17: u64;  // r12\n    let v18: u64;  // r12\n    let v19: u64;  // rdx\n    let v21: &[u8];  // rax:rdx\n    let v22: core::result::Result<usize, std::io::error::Error>;  // rax:rdx\n\n    if !v10 {\n        uu_head::read_n_bytes(v11);\n        return;\n    }\n    v6 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v6);\n    v1 = 0;\n    v2 = 1;\n    v3 = 0;\n    v5 = 0;\n    memset(&v7, 0, 0x10000);\n    loop {\n        v22 = <std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read(v12, &v7, 0x10000);\n        if !v22 as i64 {\n            if !*((&v22 as &char + 8) as &i64) {\n                return;\n            }\n            v5 += *((&v22 as &char + 8) as &i64);\n            if v5 > v4 {\n                if <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, 1, 0) || !(!<std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(0, 0 + *((&v22 as &char + 8) as &i64) - v10, &v7, \"src/uu/head/src/head.rs\"), v19)) {\n                    break;\n                }\n            } else {\n                v15 = 0;\n                v16 = \"src/uu/head/src/head.rs\";\n                v17 = *((&v22 as &char + 8) as &i64) + v4 - v5;\n            }\n            v18 = v17;\n            v21 = core::slice::iter::Iter<T>::make_slice(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v15, v18, &v7, v16));\n            alloc::vec::Vec<T,A>::append_elements(&v1, v21.ptr, v19);\n        } else if std::io::error::Error::kind(*((&v22 as &char + 8) as &i64)) != 35 {\n            break;\n        }\n    }\n    return;\n}\n",
+    "_ZN7uu_head21read_but_last_n_lines17h3962164e084296b5E": "fn uu_head::read_but_last_n_lines(a0: i64, a1: i64, a2: i8) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0xe8]\n    let v1: std::io::stdio::Stdout;  // [bp-0xe0]\n    let v2: u64;  // [bp-0xd8]\n    let v3: u64;  // [bp-0xd0]\n    let v4: u64;  // [bp-0xc8]\n    let v6: struct24;  // [bp-0xc0]\n    let v7: u64;  // [bp-0xb8]\n    let v8: u64;  // [bp-0xb0]\n    let v9: struct56;  // [bp-0xa8]\n    let v10: struct49;  // [bp-0x68]\n    let v11: struct56;  // [bp-0x68]\n    let v13: core::result::Result<(), std::io::error::Error>;  // rbx\n\n    v1 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v1);\n    v10 = uu_head::take::TakeAllBut<I>::new(a0, a2, a1);\n    v9 = v11;\n    do {\n        vvar_191{stack -192} = struct24 OrderedDict({0: \ud835\udf19@64b [((4954750, None), vvar_147{stack -192}), ((4954584, None), None)], 16: \ud835\udf19@64b [((4954750, None), vvar_149{stack -176}), ((4954584, None), None)]})\n        <uu_head::take::TakeAllBut<I> as core::iter::traits::iterator::Iterator>::next(&v6, &v9);\n        if v6.field_0 as i64 == 9223372036854775809 {\n            return 0;\n        }\n        v13 = v7;\n    } while (v6.field_0 as i64 != 0x8000000000000000 && (v2 = v6.field_0 as i64, v3 = v13, v4 = v8, v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, v13, v4), !v13));\n    return v13;\n}\n",
+    "_ZN7uu_head21read_but_last_n_lines17h8782837729f811d6E": "fn uu_head::read_but_last_n_lines(a0: i64, a1: i64, a2: i8) -> long long {\n    let v0: std::io::stdio::StderrLock;  // [bp-0xe8]\n    let v1: std::io::stdio::Stdout;  // [bp-0xe0]\n    let v2: u64;  // [bp-0xd8]\n    let v3: u64;  // [bp-0xd0]\n    let v4: u64;  // [bp-0xc8]\n    let v6: struct24;  // [bp-0xc0]\n    let v7: u64;  // [bp-0xb8]\n    let v8: u64;  // [bp-0xb0]\n    let v9: struct56;  // [bp-0xa8]\n    let v10: struct49;  // [bp-0x68]\n    let v11: struct56;  // [bp-0x68]\n    let v13: core::result::Result<(), std::io::error::Error>;  // rbx\n\n    v1 = std::io::stdio::stdout();\n    v0 = std::io::stdio::Stderr::lock(&v1);\n    v10 = uu_head::take::TakeAllBut<I>::new(a0, a2, a1);\n    v9 = v11;\n    do {\n        vvar_191{stack -192} = struct24 OrderedDict({0: \ud835\udf19@64b [((4955134, None), vvar_147{stack -192}), ((4954968, None), None)], 16: \ud835\udf19@64b [((4955134, None), vvar_149{stack -176}), ((4954968, None), None)]})\n        <uu_head::take::TakeAllBut<I> as core::iter::traits::iterator::Iterator>::next(&v6, &v9);\n        if v6.field_0 as i64 == 9223372036854775809 {\n            return 0;\n        }\n        v13 = v7;\n    } while (v6.field_0 as i64 != 0x8000000000000000 && (v2 = v6.field_0 as i64, v3 = v13, v4 = v8, v13 = <std::io::stdio::StdoutLock as std::io::Write>::write_all(&v0, v13, v4), !v13));\n    return v13;\n}\n",
+    "_ZN7uu_head22find_nth_line_from_end17h5c4d4ddf46229ebfE": "fn uu_head::find_nth_line_from_end() -> int {\n    let v0: u64;  // [bp-0x10058]\n    let v1: u64;  // [bp-0x10048]\n    let v2: struct16;  // [bp-0x10040]\n    let v3: u458752;  // [bp-0x10030]\n    let v6: u64;  // rdi\n    let v8: u64;  // rdx\n    let v9: u64;  // rdx\n    let v10: u64;  // rdx\n    let v11: u64;  // rbx\n    let v12: u64;  // r12\n    let v13: std::io::stdio::Stderr;  // rax\n    let v14: void*;  // r14, Other Possible Types: struct16\n    let v15: std::io::stdio::Stdout;  // r13, Other Possible Types: u64\n    let v16: u64;  // rsi\n    let v17: core::result::Result<u64, std::io::error::Error>;  // rax:rdx\n    let v18: core::result::Result<u64, std::io::error::Error>;  // rax:rdx\n\n    v17 = <std::fs::File as std::io::Seek>::seek(v6, 1, 0);\n    match v17 {\n        Err(_) => {\n            return;\n        },\n        Ok(_) => {\n            v15 = 0;\n            memset(&v3, 0, 0x10000);\n            v1 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index_mut(core::cmp::min_by(*((&v17 as &char + 8) as &i64)), &v3);\n            v0 = v1 + v8;\n            v14 = 0;\n            v9 = v8;\n            v10 = *((&v17 as &char + 8) as &i64);\n            do {\n                v11 = v10;\n                v12 = v8;\n                v18 = <std::fs::File as std::io::Seek>::seek(v6, 2, -(core::cmp::min_by(v12, v11 - v15)));\n                if v18 as i64 || std::io::Read::read_exact(v6, v1, v12) {\n                    return;\n                }\n                v2 = struct16 {\n                    field_0: v1\n                    field_8: v0\n                };\n                v13 = <core::slice::iter::Iter<T> as core::iter::traits::double_ended::DoubleEndedIterator>::next_back(&v2);\n                if v13 {\n                    loop {\n                        v14 = (*(v13 as &i8) == v8 as u8) as u8 as u64 + v14;\n                        if v14 == v16 + 1 {\n                            break;\n                        }\n                        v15 += 1;\n                        v13 = <core::slice::iter::Iter<T> as core::iter::traits::double_ended::DoubleEndedIterator>::next_back(&v2);\n                        if !v13 {\n                            goto LABEL_4b9d40;\n                        }\n                    }\n                }\nLABEL_4b9d40:\n                v10 = *((&v17 as &char + 8) as &i64);\n            } while (v15 != v10);\n            std::io::Seek::rewind(v6);\n        },\n    }\n}\n",
     "_ZN7uu_head11is_seekable17h10276630579ab154E": "fn uu_head::is_seekable(a0: i64) -> long long {\n    let v0: u64;  // [bp-0x30]\n    let v1: u64;  // [bp-0x28]\n    let v2: u64;  // [bp-0x18]\n    let v6: core::result::Result<u64, std::io::error::Error>;  // rax:rdx\n    let v7: core::result::Result<u64, std::io::error::Error>;  // rax:rdx\n    let v8: core::result::Result<u64, std::io::error::Error>;  // rax:rdx\n\n    v8 = <std::fs::File as std::io::Seek>::seek(a0);\n    v2 = *((&v8 as &char + 8) as &i64);\n    if let Ok(_) = v8 {\n        v7 = <std::fs::File as std::io::Seek>::seek(a0);\n        v0 = v7 as i64;\n        v1 = *((&v7 as &char + 8) as &i64);\n        if let Ok(_) = v7 {\n            core::result::Result<T,E>::unwrap(*((&v8 as &char + 8) as &i64));\n            v6 = <std::fs::File as std::io::Seek>::seek(a0);\n            return (a0 as u32 & -0x100 | (!v6 as i64) as u8 as u32) as u64;\n        }\n    }\n    return 0;\n}\n",
     "_ZN7uu_head19head_backwards_file17h247adaae7248d021E": "fn uu_head::head_backwards_file(a0: i64, a1: i64) -> long long {\n    let v0: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xd0]\n    let v1: u64;  // [bp-0x80]\n    let v3: u64;  // r12\n    let v4: core::result::Result<u64, std::io::error::Error>;  // al\n    let v5: std::io::stdio::StderrLock;  // r12\n    let v7: u64;  // rcx\n\n    v0 = std::fs::File::metadata(a0);\n    match v0 {\n        Err(_) => {\n            return *((&v0 as &char + 8) as &i64);\n        },\n        Ok(_) => {\n            v3 = *((&v0 as &char + 88) as &i64);\n            v4 = uu_head::is_seekable(a0) as i8;\n            if v3 < 536870913 {\n                v5 = v3;\n            } else {\n                v5 = 0x200;\n            }\n            v7 = v5;\n            if !(v4 && v1 > v7) {\n                return uu_head::head_backwards_without_seek_file(a0, a1);\n            }\n            return uu_head::head_backwards_on_seekable_file(a0, a1);\n            return uu_head::head_backwards_without_seek_file(a0, a1);\n        },\n    }\n}\n",
-    "_ZN7uu_head32head_backwards_without_seek_file17h3a18ae91fc5190c0E": "fn uu_head::head_backwards_without_seek_file(a0: i64, a1: i64) -> long long {\n    let v0: struct48;  // [bp-0x38]\n    let v2: u64;  // rax\n\n    v0 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x10000, a0);\n    if *(a1 as &i64) == 1 {\n        v2 = uu_head::read_but_last_n_lines(&v0, *((a1 + 8) as &i64), *((a1 + 43) as &i8));\n    } else if *(a1 as &i64) == 3 {\n        v2 = uu_head::read_but_last_n_bytes(&v0, *((a1 + 8) as &i64)) as i64;\n    } else {\n        core::panicking::panic(\"internal error: entered unreachable code\"); /* do not return */\n    }\n    return v2;\n}\n",
+    "_ZN7uu_head32head_backwards_without_seek_file17h3a18ae91fc5190c0E": "fn uu_head::head_backwards_without_seek_file(a0: i64, a1: i64) -> long long {\n    let v0: struct48;  // [bp-0x38]\n    let v2: u64;  // rax\n\n    v0 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x10000, a0);\n    if *(a1 as &i64) == 1 {\n        v2 = uu_head::read_but_last_n_lines(&v0, *((a1 + 8) as &i64), *((a1 + 43) as &i8));\n    } else if *(a1 as &i64) == 3 {\n        v2 = uu_head::read_but_last_n_bytes(&v0, *((a1 + 8) as &i64)) as i64;\n    } else {\n        core::panicking::panic(\"internal error: entered unreachable code\"); /* do not return */\n    }\n    return 0;\n}\n",
     "_ZN7uu_head31head_backwards_on_seekable_file17h9ab8f833488ebf97E": "fn uu_head::head_backwards_on_seekable_file(a0: i64, a1: i64) -> long long {\n    let v0: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xc8], Other Possible Types: struct48\n    let v1: struct48;  // [bp-0xc8]\n    let v3: u64;  // rdx\n    let v4: u64;  // rdx\n    let v5: core::result::Result<u64, std::io::error::Error>;  // rax\n\n    if *(a1 as &i64) != 1 {\n        if *(a1 as &i64) == 3 {\n            v0 = std::fs::File::metadata(a0);\n            if v0 as i32 == 2 {\n                return *((&v0 as &char + 8) as &i64);\n            } else if *((&v0 as &char + 80) as &i64) > *((a1 + 8) as &i64) {\n                v1 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x10000, a0);\n                v5 = uu_head::read_n_bytes(&v1, *((&v0 as &char + 80) as &i64) - *((a1 + 8) as &i64));\n            } else {\n                return 0;\n            }\n        } else {\n            core::panicking::panic(\"internal error: entered unreachable code\"); /* do not return */\n        }\n    } else {\n        if !uu_head::find_nth_line_from_end(a0, *((a1 + 8) as &i64), *((a1 + 43) as &i8)) as i64 {\n            v0 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x10000, a0);\n            v5 = uu_head::read_n_bytes(&v0, v4);\n        } else {\n            return v3;\n        }\n    }\n    return v5;\n}\n",
     "_ZN7uu_head9head_file17h48e6bcfaf0dc6df4E": "fn uu_head::head_file(a0: i64, a1: i64) -> void {\n    let v0: u64;  // [bp-0x18]\n    let v1: u64;  // [bp-0x10]\n    let v2: u64;  // [bp-0x8]\n    let v4: u64;  // r15\n    let v5: u64;  // r14\n    let v6: u64;  // rbx\n\n    v2 = v4;\n    v1 = v5;\n    v0 = v6;\n    goto ((&g_41db94.field_0)[*(a1 as &i64)] + &g_41db94.field_0) as i64;\n}\n",
-    "_ZN7uu_head5parse14parse_obsolete17ha14ffc23c3e4c861E": "fn uu_head::parse::parse_obsolete(a1: i64, a2: i64) -> Option<struct17> {\n    let a0: u64;  // rsi\n    let v0: u192;  // [bp-0x60]\n    let v1: u64;  // [bp-0x48]\n    let v2: u64;  // [bp-0x40]\n    let v3: struct49;  // [bp-0x38]\n    let v5: u32;  // edx\n    let v6: core::option::Option<(usize, char)>;  // rax, Other Possible Types: &str\n    let v7: core::option::Option<(usize, char)>;  // rax\n    let v8: i64;  // rdi\n    let v9: u32;  // r12d\n    let v10: core::option::Option<(usize, char)>;  // rax\n    let v11: u32;  // r12d\n    let v12: u64;  // rdi\n    let v14: &str;  // rax:rdx\n\n    v0 = core::str::iter::CharIndices {\n        front_offset: a0\n        iter: core::str::iter::Chars {\n            iter: core::slice::iter::Iter<u8> {\n                ptr: core::ptr::non_null::NonNull<u8> {\n                    pointer: a0 + a1\n                }\n                end_or_len: 0\n                _marker: core::marker::PhantomData<&u8> { }\n            }\n        }\n    };\n    <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0);\n    if v5 == 45 {\n        v6 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64;\n        if v5 - 48 <= 9 {\n            v7 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64;\n            if v5 != 0x110000 {\n                v6 = v7;\n                if v9 - 48 <= 9 {\n                    v10 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64;\n                    if v5 != 0x110000 {\n                        do {\n                            v9 = v11;\n                            v6 = v10;\n                        } while (v9 - 48 < 10 && (v10 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64, v11 = v5, v11 != 0x110000));\n                    }\n                }\n            }\n            v1 = 1;\n            v2 = v6;\n            v3 = 0;\n            v14 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeInclusive<usize>>::index(&v1, a0, a1);\n            uu_head::parse::process_num_block(v12, v14.data_ptr, a1, v9, &v0);\n            return;\n        }\n    }\n    *(v8 as &i64) = 0;\n    return;\n}\n",
-    "_ZN7uu_head5parse17process_num_block17h8e5bdc2257d4c6b6E": "fn uu_head::parse::process_num_block(a1: i64, a2: i64, a3: i32, a4: i64) -> : struct17 {\n    let a0: i64;  // rsi\n    let v0: i32;  // [bp-0xfc]\n    let v1: iNone;  // [bp-0xf8]\n    let v2: iNone;  // [bp-0xe0]\n    let v8: iNone;  // [bp-0xc8]\n    let v9: iNone;  // [bp-0xc8]\n    let v11: i64;  // [bp-0x98]\n    let v12: i64;  // [bp-0x90]\n    let v13: i64;  // [bp-0x88]\n    let v14: i64;  // [bp-0x80]\n    let v16: iNone;  // [bp-0x70]\n    let v17: i64;  // [bp-0x68]\n    let v23: i64;  // r15\n    let v24: i64;  // rdi\n    let v25: i64;  // rbx\n    let v26: i64;  // rbp\n    let v27: i32;  // 4096\n    let v30: i32;  // r12d\n    let v31: i64;  // rax\n    let v32: i32;  // edx\n    let v33: i32;  // edx\n\n    v23 = a3 as u64;\n    v25 = v24;\n    v16 = core::num::<impl core::str::traits::FromStr for usize>::from_str(a0, a1);\n    match v16 {\n        Err(_) => {\n            *((v24 + 8) as &i64) = 0;\n            *((v24 + 16) as &i8) = 1;\n        },\n        Ok(v12) => {\n            v11 = v24;\n            v14 = v12;\n            v0 = 0;\n            v26 = 0;\n            v13 = 0;\n            v27 = a2;\n            loop {\n                v30 = v27;\n                match (v30) {\n                    100 | 101 | 102 | 103 | 104 | 105 | 106 | 108 | 110 | 111 | 112 | 114 | 115 | 116 | 117 | 119 | 120 | 121 => {\nLABEL_4be7ac:\n                        *((v11 + 8) as &i64) = 0;\n                        *((v11 + 16) as &i8) = 0;\n                        *(v11 as &i64) = 1;\n                        return;\n                    }\n                    _ => {\n                        if !(!v30) {\n                            goto LABEL_4be7ac;\n                        }\n                        break;\n                    }\n                }\n                v0 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(v23) as u64 as u32 & -0x100 | 1;\n                v31 = 0;\n                v32 = v33;\n                if v32 == 0x110000 {\n                    v8 = std::sys::os_str::bytes::Slice::to_owned(\"-v\");\n                    v1 = v9;\n                    v2 = alloc::vec::Vec<T,A>::push(&v1);\n                    break;\n                }\n                v13 = v31;\n                v27 = v32;\n            }\n        },\n    }\n    *(v25 as &i64) = 1;\n    return;\n}\n",
-    "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17h46af4e6ffbb3148aE": "fn uu_head::take::TakeAllBut<I>::new(a1: i64, a2: i8, a3: i64) -> : struct49 {\n    let a0: u64;  // rsi\n    let v0: u64;  // [bp-0x98]\n    let v1: void*;  // [bp-0x88]\n    let v2: u64;  // [bp-0x80]\n    let v3: core::option::Option<(usize, char)>;  // [bp-0x78]\n    let v4: u64;  // [bp-0x68]\n    let v5: struct24;  // [bp-0x60]\n    let v6: u192;  // [bp-0x60]\n    let v7: u64;  // [bp-0x50]\n    let v8: u128;  // [bp-0x48]\n    let v9: u64;  // [bp-0x38]\n    let v11: void*;  // r13\n    let v12: i64;  // rdi\n\n    v0 = a0;\n    v1 = 0;\n    v2 = 8;\n    v3 = 0;\n    v4 = a2;\n    if a2 {\n        do {\n            vvar_136{stack -96} = struct24 OrderedDict({0: \ud835\udf19@128b [((4998233, None), vvar_114{stack -96}), ((4998125, None), None)], 16: \ud835\udf19@64b [((4998233, None), vvar_116{stack -80}), ((4998125, None), None)]})\n            v11 = <usize as core::iter::range::Step>::forward_unchecked(v11, a0);\n            <uucore::features::lines::Lines<B> as core::iter::traits::iterator::Iterator>::next(&v6, &v0);\n        } while (v6 as i64 != 9223372036854775809 && (v9 = v7, v8 = v6 as i128, v5 = uucore::features::ringbuffer::RingBuffer<T>::push_back(&v1, &v8), v11 < a2 as u64));\n    }\n    *((v12 + 32) as &u64) = v4;\n    *((v12 + 16) as &i128) = 0;\n    *(v12 as &void*) = v1;\n    *((v12 + 8) as &i64) = 8;\n    *((v12 + 40) as &u64) = v0;\n    *((v12 + 48) as &u8) = a1;\n    return;\n}\n",
-    "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17hc0845bc7cedacb1cE": "fn uu_head::take::TakeAllBut<I>::new(a1: i64, a2: i8, a3: i64) -> : struct49 {\n    let a0: u64;  // rsi\n    let v0: u64;  // [bp-0x98]\n    let v1: struct24;  // [bp-0x88]\n    let v2: void*;  // [bp-0x88]\n    let v3: u64;  // [bp-0x80]\n    let v4: core::option::Option<(usize, char)>;  // [bp-0x78]\n    let v5: u64;  // [bp-0x68]\n    let v6: u192;  // [bp-0x60]\n    let v7: u64;  // [bp-0x50]\n    let v8: u64;  // [bp-0x48]\n    let v9: u64;  // [bp-0x38]\n    let v11: void*;  // r13\n    let v12: i64;  // rdi\n\n    v0 = a0;\n    v2 = 0;\n    v3 = 8;\n    v4 = 0;\n    v5 = a2;\n    if a2 {\n        do {\n            vvar_136{stack -96} = struct24 OrderedDict({0: \ud835\udf19@128b [((4998505, None), vvar_114{stack -96}), ((4998397, None), None)], 16: \ud835\udf19@64b [((4998505, None), vvar_116{stack -80}), ((4998397, None), None)]})\n            v11 = <usize as core::iter::range::Step>::forward_unchecked(v11, a0);\n            <uucore::features::lines::Lines<B> as core::iter::traits::iterator::Iterator>::next(&v6, &v0);\n        } while (v6 as i64 != 9223372036854775809 && (v9 = v7, v8 = v6 as i128, v1 = uucore::features::ringbuffer::RingBuffer<T>::push_back(&v8, a2), v11 < a2 as u64));\n    }\n    *((v12 + 32) as &u64) = v5;\n    *((v12 + 16) as &i128) = 0;\n    *(v12 as &void*) = v2;\n    *((v12 + 8) as &i64) = 8;\n    *((v12 + 40) as &u64) = v0;\n    *((v12 + 48) as &u8) = a1;\n    return;\n}\n",
-    "_ZN7uu_head6uumain17h7a1c29ec4f491e78E": "fn uu_head::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_head::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n"
+    "_ZN7uu_head5parse14parse_obsolete17ha14ffc23c3e4c861E": "fn uu_head::parse::parse_obsolete(a1: i64, a2: i64) -> Option<struct17> {\n    let a0: u64;  // rsi\n    let v0: core::str::iter::CharIndices;  // [bp-0x60], Other Possible Types: struct24\n    let v1: struct24;  // [bp-0x48]\n    let v3: core::fmt::Arguments;  // edx\n    let v4: core::fmt::Arguments;  // rax, Other Possible Types: core::option::Option<(usize, char)>\n    let v5: core::option::Option<(usize, char)>;  // rax\n    let v6: i64;  // rdi\n    let v7: u32;  // r12d\n    let v8: core::option::Option<(usize, char)>;  // rax\n    let v9: core::fmt::Arguments;  // r12d\n    let v10: u64;  // rdi\n    let v12: &str;  // rax:rdx\n\n    v0 = struct24 {\n        field_0: a0\n        field_8: a0 + a1\n        field_16: 0\n    };\n    v0 = core::str::iter::CharIndices {\n        iter: core::str::iter::Chars {\n            iter: core::slice::iter::Iter<u8> {\n                ptr: core::ptr::non_null::NonNull<u8> {\n                    pointer: a0\n                }\n                end_or_len: a0 + a1\n                _marker: core::marker::PhantomData<&u8> { }\n            }\n        }\n        front_offset: 0\n    };\n    <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0);\n    if v3 == 45 {\n        v4 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64;\n        if v3 - 48 <= 9 {\n            v5 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64;\n            if v3 != 0x110000 {\n                v4 = v5;\n                if v7 - 48 <= 9 {\n                    v8 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64;\n                    if v3 != 0x110000 {\n                        do {\n                            v7 = v9;\n                            v4 = v8;\n                        } while (v7 - 48 < 10 && (v8 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(&v0) as u64, v9 = v3, v9 != 0x110000));\n                    }\n                }\n            }\n            v1 = struct24 {\n                field_0: 1\n                field_8: v4\n                field_16: 0\n            };\n            v12 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeInclusive<usize>>::index(&v1, a0, a1);\n            uu_head::parse::process_num_block(v10, v12.data_ptr, a1, v7, &v0);\n            return;\n        }\n    }\n    *(v6 as &i64) = 0;\n    return;\n}\n",
+    "_ZN7uu_head5parse17process_num_block17h8e5bdc2257d4c6b6E": "fn uu_head::parse::process_num_block(a1: i64, a2: i64, a3: i32, a4: i64) -> : struct17 {\n    let a0: u64;  // rsi\n    let v0: struct24;  // [bp-0xfc]\n    let v1: struct24;  // [bp-0xf8]\n    let v2: struct16;  // [bp-0xe0]\n    let v4: std::sys::os_str::bytes::Buf;  // [bp-0xc8]\n    let v5: std::sys::os_str::bytes::Buf;  // [bp-0xc8], Other Possible Types: struct24\n    let v6: struct24;  // [bp-0xc8]\n    let v7: i64;  // [bp-0x98]\n    let v8: u64;  // [bp-0x90]\n    let v9: struct32;  // [bp-0x88]\n    let v10: std::sys::os_str::bytes::Buf;  // [bp-0x80]\n    let v12: core::result::Result<usize, core::num::error::ParseIntError>;  // [bp-0x70]\n    let v13: u64;  // [bp-0x68]\n    let v19: u64;  // r15\n    let v20: i64;  // rdi\n    let v21: i64;  // rbx\n    let v22: u64;  // rbp\n    let v23: u32;  // 4096\n    let v26: u32;  // r12d\n    let v27: u64;  // rax\n    let v28: u32;  // edx\n    let v29: u32;  // edx\n\n    v19 = a3;\n    v21 = v20;\n    v12 = core::num::<impl core::str::traits::FromStr for usize>::from_str(a0, a1);\n    match v12 {\n        Err(_) => {\n            *((v20 + 8) as &i64) = 0;\n            *((v20 + 16) as &i8) = 1;\n        },\n        Ok(v8) => {\n            v7 = v20;\n            v10 = v8;\n            v0 = 0;\n            v22 = 0;\n            v9 = 0;\n            v23 = a2;\n            loop {\n                v26 = v23;\n                match (v26) {\n                    100 | 101 | 102 | 103 | 104 | 105 | 106 | 108 | 110 | 111 | 112 | 114 | 115 | 116 | 117 | 119 | 120 | 121 => {\nLABEL_4be7ac:\n                        *((v7 + 8) as &i64) = 0;\n                        *((v7 + 16) as &i8) = 0;\n                        *(v7 as &i64) = 1;\n                        return;\n                    }\n                    _ => {\n                        if !(!v26) {\n                            goto LABEL_4be7ac;\n                        }\n                        break;\n                    }\n                }\n                v27 = <core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next(v19) as u64 & -0x100 | 1;\n                v0 = 0;\n                v28 = v29;\n                if v28 == 0x110000 {\n                    break;\n                }\n                v9 = v27;\n                v23 = v28;\n            }\n            v4 = std::sys::os_str::bytes::Slice::to_owned(\"-q\");\n            v1 = v5;\n            v2 = alloc::vec::Vec<T,A>::push(&v1);\n            v5 = std::sys::os_str::bytes::Slice::to_owned(\"-v\");\n            v1 = v6;\n            v2 = alloc::vec::Vec<T,A>::push(&v1);\n        },\n    }\n    *(v21 as &i64) = 1;\n    return;\n}\n",
+    "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17h46af4e6ffbb3148aE": "fn uu_head::take::TakeAllBut<I>::new(a1: i64, a2: i8, a3: i64) -> : struct49 {\n    let a0: u64;  // rsi\n    let v0: u64;  // [bp-0x98]\n    let v1: void*;  // [bp-0x88]\n    let v2: u64;  // [bp-0x80]\n    let v3: core::option::Option<(usize, char)>;  // [bp-0x78]\n    let v4: u64;  // [bp-0x68]\n    let v5: struct24;  // [bp-0x60]\n    let v6: struct24;  // [bp-0x60]\n    let v7: struct24;  // [bp-0x60]\n    let v9: struct24;  // [bp-0x48]\n    let v11: struct16;  // r13\n    let v12: i64;  // rdi\n\n    v0 = a0;\n    v1 = 0;\n    v2 = 8;\n    v3 = 0;\n    v4 = a2;\n    if a2 {\n        do {\n            vvar_138{stack -96} = struct24 OrderedDict({0: \ud835\udf19@128b [((4998233, None), vvar_114{stack -96}), ((4998125, None), None)], 16: \ud835\udf19@64b [((4998233, None), vvar_116{stack -80}), ((4998125, None), None)]})\n            v11 = <usize as core::iter::range::Step>::forward_unchecked(v11, a0);\n            <uucore::features::lines::Lines<B> as core::iter::traits::iterator::Iterator>::next(&v6, &v0);\n        } while (v6.field_0 as i64 != 9223372036854775809 && (v9 = v7, v5 = uucore::features::ringbuffer::RingBuffer<T>::push_back(&v1, &v9), v11 < a2 as u64));\n    }\n    *((v12 + 32) as &u64) = v4;\n    *((v12 + 16) as &i128) = 0;\n    *(v12 as &void*) = v1;\n    *((v12 + 8) as &i64) = 8;\n    *((v12 + 40) as &u64) = v0;\n    *((v12 + 48) as &u8) = a1;\n    return;\n}\n",
+    "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17hc0845bc7cedacb1cE": "fn uu_head::take::TakeAllBut<I>::new(a1: i64, a2: i8, a3: i64) -> : struct49 {\n    let a0: u64;  // rsi\n    let v0: u64;  // [bp-0x98]\n    let v1: struct24;  // [bp-0x88]\n    let v2: void*;  // [bp-0x88]\n    let v3: u64;  // [bp-0x80]\n    let v4: core::option::Option<(usize, char)>;  // [bp-0x78]\n    let v5: u64;  // [bp-0x68]\n    let v6: struct24;  // [bp-0x60]\n    let v7: u64;  // [bp-0x50]\n    let v8: u64;  // [bp-0x48]\n    let v9: u64;  // [bp-0x38]\n    let v11: struct16;  // r13\n    let v12: i64;  // rdi\n\n    v0 = a0;\n    v2 = 0;\n    v3 = 8;\n    v4 = 0;\n    v5 = a2;\n    if a2 {\n        do {\n            vvar_136{stack -96} = struct24 OrderedDict({0: \ud835\udf19@128b [((4998505, None), vvar_114{stack -96}), ((4998397, None), None)], 16: \ud835\udf19@64b [((4998505, None), vvar_116{stack -80}), ((4998397, None), None)]})\n            v11 = <usize as core::iter::range::Step>::forward_unchecked(v11, a0);\n            <uucore::features::lines::Lines<B> as core::iter::traits::iterator::Iterator>::next(&v6, &v0);\n        } while (v6.field_0 as i64 != 9223372036854775809 && (v9 = v7, v8 = v6.field_0, v1 = uucore::features::ringbuffer::RingBuffer<T>::push_back(&v8, a2), v11 < a2 as u64));\n    }\n    *((v12 + 32) as &u64) = v5;\n    *((v12 + 16) as &i128) = 0;\n    *(v12 as &void*) = v2;\n    *((v12 + 8) as &i64) = 8;\n    *((v12 + 40) as &u64) = v0;\n    *((v12 + 48) as &u8) = a1;\n    return;\n}\n"
   },
   "function_call_counts": {
     "_ZN7uu_head11arg_iterate17h2f4030183cfe2e94E": {
@@ -38,15 +36,6 @@
       "uu_head::parse::parse_obsolete": 1,
       "std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from": 1,
       "<core::iter::adapters::cloned::Cloned<I> as core::iter::traits::iterator::Iterator>::next": 2
-    },
-    "_ZN7uu_head6uumain6uumain17h5ea3dd696b7d584eE": {
-      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
-      "uu_head::uu_head": 1,
-      "alloc::boxed::Box<T>::new": 1,
-      "uu_head::HeadOptions::get_from": 1,
-      "clap_builder::builder::command::Command::try_get_matches_from": 1,
-      "uu_head::arg_iterate": 1,
-      "uu_head::uu_app": 1
     },
     "_ZN7uu_head6uu_app17h3a0d0603aeae9cb6E": {
       "clap_builder::builder::command::Command::arg": 7,
@@ -178,8 +167,8 @@
       "<core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next": 4
     },
     "_ZN7uu_head5parse17process_num_block17h8e5bdc2257d4c6b6E": {
-      "alloc::vec::Vec<T,A>::push": 1,
-      "std::sys::os_str::bytes::Slice::to_owned": 1,
+      "alloc::vec::Vec<T,A>::push": 2,
+      "std::sys::os_str::bytes::Slice::to_owned": 2,
       "<core::str::iter::CharIndices as core::iter::traits::iterator::Iterator>::next": 1,
       "core::num::<impl core::str::traits::FromStr for usize>::from_str": 1
     },
@@ -190,21 +179,12 @@
     "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17hc0845bc7cedacb1cE": {
       "<usize as core::iter::range::Step>::forward_unchecked": 1,
       "<uucore::features::lines::Lines<B> as core::iter::traits::iterator::Iterator>::next": 1
-    },
-    "_ZN7uu_head6uumain17h7a1c29ec4f491e78E": {
-      "uucore::mods::error::get_exit_code": 1,
-      "uucore::execution_phrase": 1,
-      "uucore::util_name": 1,
-      "uu_head::uumain::uumain": 1,
-      "core::result::Result<T,E>::expect": 1,
-      "uucore::disable_rust_signal_handlers": 1
     }
   },
   "macro_call_counts": {
     "_ZN7uu_head11arg_iterate17h2f4030183cfe2e94E": {
       "format": 2
     },
-    "_ZN7uu_head6uumain6uumain17h5ea3dd696b7d584eE": {},
     "_ZN7uu_head6uu_app17h3a0d0603aeae9cb6E": {},
     "_ZN7uu_head4Mode4from17h53e4fee035ad00eeE": {},
     "_ZN7uu_head11HeadOptions8get_from17h1adb6e5857002fb6E": {},
@@ -226,18 +206,12 @@
     "_ZN7uu_head5parse14parse_obsolete17ha14ffc23c3e4c861E": {},
     "_ZN7uu_head5parse17process_num_block17h8e5bdc2257d4c6b6E": {},
     "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17h46af4e6ffbb3148aE": {},
-    "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17hc0845bc7cedacb1cE": {},
-    "_ZN7uu_head6uumain17h7a1c29ec4f491e78E": {
-      "eprintln": 2,
-      "eprint": 1,
-      "format": 1
-    }
+    "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17hc0845bc7cedacb1cE": {}
   },
   "node_counts": {
     "_ZN7uu_head11arg_iterate17h2f4030183cfe2e94E": 30,
-    "_ZN7uu_head6uumain6uumain17h5ea3dd696b7d584eE": 11,
     "_ZN7uu_head6uu_app17h3a0d0603aeae9cb6E": 55,
-    "_ZN7uu_head4Mode4from17h53e4fee035ad00eeE": 16,
+    "_ZN7uu_head4Mode4from17h53e4fee035ad00eeE": 14,
     "_ZN7uu_head11HeadOptions8get_from17h1adb6e5857002fb6E": 14,
     "_ZN7uu_head12read_n_bytes17h336678ff3f92cdc9E": 4,
     "_ZN7uu_head12read_n_bytes17h6fceecc1df8e2d16E": 4,
@@ -255,63 +229,22 @@
     "_ZN7uu_head31head_backwards_on_seekable_file17h9ab8f833488ebf97E": 10,
     "_ZN7uu_head9head_file17h48e6bcfaf0dc6df4E": 1,
     "_ZN7uu_head5parse14parse_obsolete17ha14ffc23c3e4c861E": 11,
-    "_ZN7uu_head5parse17process_num_block17h8e5bdc2257d4c6b6E": 13,
+    "_ZN7uu_head5parse17process_num_block17h8e5bdc2257d4c6b6E": 15,
     "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17h46af4e6ffbb3148aE": 4,
-    "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17hc0845bc7cedacb1cE": 4,
-    "_ZN7uu_head6uumain17h7a1c29ec4f491e78E": 10
+    "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17hc0845bc7cedacb1cE": 4
   },
   "variable_types": {
-    "_ZN7uu_head6uumain6uumain17h5ea3dd696b7d584eE": {
-      "reg_64": [
-        [
-          "primitive",
-          4
-        ]
-      ],
-      "stack_144": [
-        [
-          "primitive",
-          1
-        ],
-        [
-          "Result",
-          96
-        ]
-      ],
-      "reg_72": [
+    "_ZN7uu_head11arg_iterate17h2f4030183cfe2e94E": {
+      "reg_rdi": [
         [
           "primitive",
           8
-        ]
-      ],
-      "reg_24": [
-        [
-          "primitive",
-          4
         ]
       ],
       "stack_0": [
         [
           "primitive",
-          28
-        ],
-        [
-          "primitive",
           8
-        ]
-      ],
-      "stack_32": [
-        [
-          "primitive",
-          16
-        ],
-        [
-          "Result",
-          80
-        ],
-        [
-          "primitive",
-          32
         ]
       ],
       "stack_8": [
@@ -322,41 +255,165 @@
       ],
       "stack_16": [
         [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
           "primitive",
           8
         ]
       ],
-      "stack_40": [
+      "stack_32": [
         [
           "primitive",
           8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
         ]
       ],
       "stack_136": [
         [
-          "primitive",
+          "struct",
           8
         ]
       ],
-      "stack_80": [
+      "reg_rax": [
+        [
+          "Result",
+          16
+        ],
+        [
+          "Result",
+          16
+        ],
+        [
+          "Result",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "struct",
+          96
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_272": [
         [
           "primitive",
           8
         ]
       ],
-      "stack_120": [
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "Option",
+          24
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
         [
           "primitive",
           1
         ]
       ],
-      "stack_88": [
+      "stack_352": [
         [
-          "primitive",
-          32
+          "struct",
+          24
         ]
       ],
-      "stack_168": [
+      "stack_328": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_344": [
         [
           "primitive",
           8
@@ -367,10 +424,10 @@
       "stack_600": [
         [
           "struct",
-          466
+          448
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -414,27 +471,11 @@
       ],
       "stack_2024": [
         [
-          "primitive",
-          32
-        ],
-        [
-          "primitive",
-          32
-        ],
-        [
-          "primitive",
-          32
-        ],
-        [
-          "primitive",
+          "struct",
           32
         ]
       ],
       "stack_2608": [
-        [
-          "primitive",
-          4
-        ],
         [
           "primitive",
           4
@@ -444,27 +485,15 @@
         [
           "primitive",
           4
-        ],
-        [
-          "primitive",
-          4
         ]
       ],
       "stack_2612": [
         [
           "primitive",
           4
-        ],
-        [
-          "primitive",
-          4
         ]
       ],
       "stack_596": [
-        [
-          "primitive",
-          4
-        ],
         [
           "primitive",
           4
@@ -484,7 +513,7 @@
       ]
     },
     "_ZN7uu_head4Mode4from17h53e4fee035ad00eeE": {
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8
@@ -494,13 +523,9 @@
         [
           "Result",
           80
-        ],
-        [
-          "Result",
-          80
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -524,10 +549,12 @@
         [
           "primitive",
           16
-        ],
+        ]
+      ],
+      "reg_rcx": [
         [
           "primitive",
-          1
+          8
         ]
       ],
       "stack_20": [
@@ -547,16 +574,10 @@
           "primitive",
           1
         ]
-      ],
-      "stack_40": [
-        [
-          "primitive",
-          8
-        ]
       ]
     },
     "_ZN7uu_head11HeadOptions8get_from17h1adb6e5857002fb6E": {
-      "reg_64": [
+      "reg_rsi": [
         [
           "primitive",
           8
@@ -564,22 +585,14 @@
       ],
       "stack_48": [
         [
-          "primitive",
-          4
-        ],
-        [
-          "Result",
-          80
+          "struct",
+          32
         ]
       ],
       "stack_8": [
         [
-          "primitive",
-          8
-        ],
-        [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_16": [
@@ -595,7 +608,11 @@
       "stack_24": [
         [
           "&primitive",
-          8
+          null
+        ],
+        [
+          "primitive",
+          16
         ]
       ],
       "stack_32": [
@@ -606,30 +623,26 @@
       ],
       "stack_40": [
         [
-          "primitive",
-          8
-        ],
+          "&primitive",
+          null
+        ]
+      ],
+      "stack_49": [
+        [
+          "Result",
+          80
+        ]
+      ],
+      "reg_rax": [
         [
           "struct",
           32
         ]
       ],
-      "stack_49": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "reg_16": [
-        [
-          "primitive",
-          1
-        ]
-      ],
       "stack_50": [
         [
-          "primitive",
-          1
+          "struct",
+          32
         ]
       ],
       "stack_56": [
@@ -638,12 +651,8 @@
           56
         ],
         [
-          "primitive",
-          8
-        ],
-        [
-          "Result",
-          88
+          "struct",
+          24
         ],
         [
           "struct",
@@ -654,7 +663,7 @@
           24
         ]
       ],
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8
@@ -666,8 +675,8 @@
       ],
       "stack_64": [
         [
-          "primitive",
-          8
+          "struct",
+          32
         ]
       ],
       "stack_72": [
@@ -682,23 +691,17 @@
           64
         ],
         [
-          "primitive",
+          "struct",
           64
         ]
       ],
       "stack_224": [
         [
-          "primitive",
+          "struct",
           64
         ]
       ],
-      "reg_128": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_208": [
+      "reg_r14": [
         [
           "primitive",
           8
@@ -706,21 +709,17 @@
       ],
       "stack_192": [
         [
-          "primitive",
-          1
-        ],
+          "struct",
+          24
+        ]
+      ],
+      "reg_ymm0": [
         [
           "primitive",
           16
         ]
       ],
-      "reg_224": [
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "reg_256": [
+      "reg_ymm1": [
         [
           "primitive",
           16
@@ -730,14 +729,8 @@
     "_ZN7uu_head12read_n_bytes17h336678ff3f92cdc9E": {
       "stack_16": [
         [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "primitive",
-          8
+          "struct",
+          16
         ]
       ],
       "stack_8": [
@@ -752,7 +745,7 @@
           8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -763,16 +756,10 @@
       "stack_16": [
         [
           "struct",
-          8
+          16
         ]
       ],
-      "stack_24": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -795,16 +782,10 @@
       "stack_16": [
         [
           "struct",
-          8
+          16
         ]
       ],
-      "stack_24": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -827,24 +808,12 @@
       "stack_16": [
         [
           "struct",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "struct",
-          8
+          24
         ]
       ],
       "stack_8": [
         [
-          "primitive",
+          "struct",
           8
         ]
       ],
@@ -854,7 +823,7 @@
           24
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -865,24 +834,12 @@
       "stack_16": [
         [
           "struct",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "struct",
-          8
+          24
         ]
       ],
       "stack_8": [
         [
-          "primitive",
+          "struct",
           8
         ]
       ],
@@ -892,7 +849,7 @@
           24
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -900,13 +857,13 @@
       ]
     },
     "_ZN7uu_head21read_but_last_n_bytes17hc5f1d0ad028c7bdeE": {
-      "reg_64": [
+      "reg_rsi": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8
@@ -936,20 +893,20 @@
       ],
       "stack_24": [
         [
-          "primitive",
-          8
+          "struct",
+          64
         ]
       ],
       "stack_32": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_48": [
         [
-          "&primitive",
-          8
+          "struct",
+          24
         ]
       ],
       "stack_72": [
@@ -964,29 +921,25 @@
           8
         ]
       ],
-      "reg_32": [
-        [
-          "primitive",
-          8
-        ],
+      "reg_rdx": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_56": [
+      "reg_rbp": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
-      "reg_24": [
+      "reg_rcx": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_112": [
+      "reg_r12": [
         [
           "primitive",
           8
@@ -998,13 +951,13 @@
       ]
     },
     "_ZN7uu_head21read_but_last_n_bytes17hcec7d62dae3b0b23E": {
-      "reg_64": [
+      "reg_rsi": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8
@@ -1029,7 +982,7 @@
       "stack_16": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_24": [
@@ -1041,7 +994,7 @@
       "stack_32": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_48": [
@@ -1062,29 +1015,25 @@
           8
         ]
       ],
-      "reg_32": [
-        [
-          "primitive",
-          8
-        ],
+      "reg_rdx": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_56": [
+      "reg_rbp": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
-      "reg_24": [
+      "reg_rcx": [
         [
           "Result",
           16
         ]
       ],
-      "reg_112": [
+      "reg_r12": [
         [
           "primitive",
           8
@@ -1111,42 +1060,22 @@
       "stack_128": [
         [
           "struct",
-          50
-        ]
-      ],
-      "stack_112": [
+          56
+        ],
         [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_96": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_80": [
-        [
-          "Result",
-          16
-        ]
-      ],
-      "stack_144": [
-        [
-          "primitive",
-          16
+          "struct",
+          56
         ]
       ],
       "stack_64": [
         [
-          "primitive",
-          16
+          "struct",
+          56
         ]
       ],
       "stack_40": [
         [
-          "primitive",
+          "struct",
           24
         ]
       ],
@@ -1158,11 +1087,11 @@
       ],
       "stack_24": [
         [
-          "Result",
-          80
+          "primitive",
+          8
         ]
       ],
-      "reg_40": [
+      "reg_rbx": [
         [
           "Result",
           8
@@ -1170,8 +1099,8 @@
       ],
       "stack_32": [
         [
-          "Result",
-          96
+          "primitive",
+          8
         ]
       ],
       "stack_56": [
@@ -1203,42 +1132,22 @@
       "stack_128": [
         [
           "struct",
-          50
-        ]
-      ],
-      "stack_112": [
+          56
+        ],
         [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_96": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_80": [
-        [
-          "Result",
-          16
-        ]
-      ],
-      "stack_144": [
-        [
-          "primitive",
-          16
+          "struct",
+          56
         ]
       ],
       "stack_64": [
         [
-          "primitive",
-          8
+          "struct",
+          56
         ]
       ],
       "stack_40": [
         [
-          "primitive",
+          "struct",
           24
         ]
       ],
@@ -1250,11 +1159,11 @@
       ],
       "stack_24": [
         [
-          "Result",
-          80
+          "primitive",
+          8
         ]
       ],
-      "reg_40": [
+      "reg_rbx": [
         [
           "Result",
           8
@@ -1262,8 +1171,8 @@
       ],
       "stack_32": [
         [
-          "Result",
-          96
+          "primitive",
+          8
         ]
       ],
       "stack_56": [
@@ -1280,17 +1189,13 @@
       ]
     },
     "_ZN7uu_head22find_nth_line_from_end17h5c4d4ddf46229ebfE": {
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_120": [
-        [
-          "primitive",
-          8
-        ],
+      "reg_r13": [
         [
           "struct",
           8
@@ -1314,7 +1219,7 @@
           8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -1328,23 +1233,19 @@
           8
         ]
       ],
-      "reg_128": [
-        [
-          "primitive",
-          8
-        ],
+      "reg_r14": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
-      "reg_40": [
+      "reg_rbx": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_112": [
+      "reg_r12": [
         [
           "primitive",
           8
@@ -1352,23 +1253,17 @@
       ],
       "stack_56": [
         [
-          "primitive",
-          8
+          "struct",
+          16
         ]
       ],
-      "stack_64": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_16": [
+      "reg_rax": [
         [
           "struct",
-          50
+          8
         ]
       ],
-      "reg_64": [
+      "reg_rsi": [
         [
           "primitive",
           8
@@ -1402,7 +1297,7 @@
           200
         ]
       ],
-      "reg_112": [
+      "reg_r12": [
         [
           "primitive",
           8
@@ -1412,13 +1307,13 @@
           8
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "Result",
           16
         ]
       ],
-      "reg_24": [
+      "reg_rcx": [
         [
           "primitive",
           8
@@ -1438,7 +1333,7 @@
           48
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -1454,19 +1349,15 @@
         [
           "struct",
           48
-        ],
-        [
-          "struct",
-          48
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "Result",
           16
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -1484,7 +1375,7 @@
           8
         ]
       ],
-      "reg_136": [
+      "reg_r15": [
         [
           "primitive",
           8
@@ -1496,7 +1387,7 @@
           8
         ]
       ],
-      "reg_128": [
+      "reg_r14": [
         [
           "primitive",
           8
@@ -1508,7 +1399,7 @@
           8
         ]
       ],
-      "reg_40": [
+      "reg_rbx": [
         [
           "primitive",
           8
@@ -1516,7 +1407,7 @@
       ]
     },
     "_ZN7uu_head5parse14parse_obsolete17ha14ffc23c3e4c861E": {
-      "reg_64": [
+      "reg_rsi": [
         [
           "primitive",
           8
@@ -1524,252 +1415,92 @@
       ],
       "stack_8": [
         [
-          "primitive",
+          "struct",
           24
         ]
       ],
-      "reg_32": [
-        [
-          "primitive",
-          4
-        ]
-      ],
-      "reg_16": [
-        [
-          "Option",
-          9
-        ],
+      "reg_rdx": [
         [
           "struct",
+          48
+        ]
+      ],
+      "reg_rax": [
+        [
+          "struct",
+          48
+        ],
+        [
+          "Option",
           16
         ],
         [
           "Option",
-          9
-        ],
-        [
-          "Option",
-          9
-        ]
-      ],
-      "reg_112": [
-        [
-          "primitive",
-          4
-        ],
-        [
-          "primitive",
-          4
-        ]
-      ],
-      "stack_32": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_40": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_48": [
-        [
-          "struct",
-          50
-        ]
-      ],
-      "reg_72": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17h46af4e6ffbb3148aE": {
-      "reg_64": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_0": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_16": [
-        [
-          "&primitive",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "Option",
-          9
-        ]
-      ],
-      "stack_48": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_56": [
-        [
-          "primitive",
-          24
-        ],
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_96": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_72": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_80": [
-        [
-          "primitive",
           16
         ]
       ],
-      "reg_120": [
-        [
-          "&primitive",
-          8
-        ]
-      ],
-      "reg_72": [
+      "reg_r12": [
         [
           "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17hc0845bc7cedacb1cE": {
-      "reg_64": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_0": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_16": [
-        [
-          "&primitive",
-          8
+          4
         ],
         [
           "struct",
-          24
-        ]
-      ],
-      "stack_24": [
-        [
-          "primitive",
-          8
+          48
         ]
       ],
       "stack_32": [
         [
-          "Option",
-          9
-        ]
-      ],
-      "stack_48": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_56": [
-        [
-          "primitive",
+          "struct",
           24
         ]
       ],
-      "stack_96": [
+      "reg_rdi": [
         [
           "primitive",
           8
-        ]
-      ],
-      "stack_72": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_80": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_120": [
-        [
-          "&primitive",
-          8
-        ]
-      ],
-      "reg_72": [
+        ],
         [
           "primitive",
           8
         ]
       ]
     },
-    "_ZN7uu_head6uumain17h7a1c29ec4f491e78E": {
-      "reg_16": [
+    "_ZN7uu_head5parse17process_num_block17h8e5bdc2257d4c6b6E": {
+      "reg_rsi": [
         [
           "primitive",
           8
         ]
       ],
-      "stack_0": [
+      "reg_r15": [
         [
           "primitive",
           8
         ]
       ],
-      "stack_128": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_96": [
+      "reg_rbx": [
         [
           "primitive",
-          1
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "Result",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
         ]
       ],
       "stack_112": [
@@ -1778,11 +1509,209 @@
           8
         ]
       ],
-      "stack_64": [
+      "stack_160": [
         [
           "primitive",
           8
+        ]
+      ],
+      "stack_136": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_12": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "reg_None": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          4
         ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_64": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_40": [
+        [
+          "struct",
+          16
+        ]
+      ]
+    },
+    "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17h46af4e6ffbb3148aE": {
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          null
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "Option",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_80": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_r13": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_head4take19TakeAllBut$LT$I$GT$3new17hc0845bc7cedacb1cE": {
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          null
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "Option",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_96": [
         [
           "primitive",
           8
@@ -1792,13 +1721,21 @@
         [
           "primitive",
           8
-        ],
+        ]
+      ],
+      "stack_80": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_32": [
+      "reg_r13": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rdi": [
         [
           "primitive",
           8

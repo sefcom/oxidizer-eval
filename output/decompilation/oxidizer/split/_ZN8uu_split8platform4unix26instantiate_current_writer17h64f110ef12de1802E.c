@@ -1,66 +1,76 @@
-fn uu_split::platform::unix::instantiate_current_writer(a0: &Result<struct41, struct8>, a1: void*, a2: u32, a3: u32, a4: u8) -> u64 {
-    let v0: Result<struct4, struct8>;  // [sp-0x78], Other Possible Types: int
-    let v1: iNone;  // [sp-0x78]
-    let v2: i64;  // [sp-0x60], Other Possible Types: struct36
-    let v3: i32;  // [bp-0x58]
-    let v4: i8;  // [sp-0x57]
-    let v5: i8;  // [sp-0x56]
-    let v6: i8;  // [sp-0x55]
-    let v7: i16;  // [bp-0x54], Other Possible Types: char
-    let v8: i64;  // [sp-0x40]
-    let v9: i64;  // [sp-0x38]
-    let v10: iNone;  // [sp-0x2c]
-    let v13: i64;  // rax
+fn uu_split::platform::unix::instantiate_current_writer(a1: i64, a2: i64, a3: i64, a4: i8) -> Result<struct41, struct16> {
+    let a0: i64;  // rsi
+    let v0: Result<struct4, struct8>;  // [bp-0x78], Other Possible Types: u128
+    let v1: u32;  // [bp-0x74]
+    let v2: u64;  // [bp-0x60]
+    let v3: core::fmt::Arguments;  // [bp-0x5c]
+    let v4: u32;  // [bp-0x58]
+    let v5: u8;  // [bp-0x57]
+    let v6: u8;  // [bp-0x56]
+    let v7: u8;  // [bp-0x55]
+    let v8: alloc::string::String;  // [bp-0x54], Other Possible Types: u16
+    let v9: u128;  // [bp-0x50]
+    let v10: struct16;  // [bp-0x40]
+    let v11: struct28;  // [bp-0x2c]
+    let v13: u64;  // rax
+    let v14: u64;  // rcx
+    let v15: i64;  // rdi
+    let v16: u64;  // rdi
 
-    v8 = a2;
-    v9 = a3;
-    if *(a1 as &i64) != 0x8000000000000000 {
-        v2 = uu_split::platform::unix::FilterWriter::new(*((a1 + 8) as &i64), *((a1 + 16) as &i64), a2, a3);
-        if v2.field_0 {
-            return Err(struct8 {
-                field_0: v12
-            });
+    v10 = struct16 {
+        field_0: a1
+        field_8: a2
+    };
+    if *(a0 as &i64) != 0x8000000000000000 {
+        uu_split::platform::unix::FilterWriter::new(*((a0 + 8) as &i64), *((a0 + 16) as &i64), a1, a2, a4);
+        if !v2 as i32 {
+            v14 = *(&v4 as &i64);
+            v0 = v9;
+            v11 = struct28 {
+                field_0: v3
+                field_4: v14
+                field_12: v9
+            };
+            alloc::boxed::Box<T>::new(&v11);
+            std::io::buffered::bufwriter::BufWriter<W>::with_capacity(v16, 0x2000);
+            return;
         }
-        v1 = *((&v2.field_4 as &char + 12) as &i128);
-        v10 = *(&v2.field_4 as &i224);
-        v13 = alloc::boxed::Box<T>::new(&v10);
-        std::io::buffered::bufwriter::BufWriter<W>::with_capacity(a0, 0x2000, v13, &g_548dd0);
+    } else if a3 {
+        v2 = 0x1b600000000;
+        v4 = 0;
+        v8 = 0;
+        v5 = 1;
+        v8 = 1;
+        v7 = 1;
+        v0 = std::fs::OpenOptions::open(&v2);
+        match v0 {
+            Ok(_) => {
+                alloc::boxed::Box<T>::new(v1 as u64);
+                std::io::buffered::bufwriter::BufWriter<W>::with_capacity(v16, 0x2000);
+                return;
+            },
+            Err(_) => {
+                v13 = uu_split::platform::unix::instantiate_current_writer::{{closure}}(&v10, *((&v0 as &char + 8) as &i64));
+            },
+        }
     } else {
-        if !a4 {
-            v2 = 0x1b600000000;
-            *(&v3 as &i32) = 0;
-            *(&v7 as &i16) = 0;
-            v5 = 1;
-            v0 = std::fs::OpenOptions::open(&v2, a2, a3);
-            match v0 {
-                Ok(_) => {
-                    alloc::boxed::Box<T>::new((&v0)[4] as i32 as u32 as u64);
-                    std::io::buffered::bufwriter::BufWriter<W>::with_capacity(a0, 0x2000, v13, &g_548d80);
-                },
-                Err(_) => {
-                    uu_split::platform::unix::instantiate_current_writer::{{closure}}(&v8, v1 as i64);
-                },
-            }
-        } else {
-            v2 = 0x1b600000000;
-            *(&v3 as &i32) = 0;
-            *(&v7 as &i16) = 0;
-            v4 = 1;
-            *(&v7 as &i8) = 1;
-            v6 = 1;
-            v0 = std::fs::OpenOptions::open(&v2, a2, a3);
-            match v0 {
-                Ok(_) => {
-                    v13 = alloc::boxed::Box<T>::new((&v0)[4] as i32 as u32 as u64);
-                    std::io::buffered::bufwriter::BufWriter<W>::with_capacity(a0, 0x2000, v13, &g_548d80);
-                },
-                Err(_) => {
-                    uu_split::platform::unix::instantiate_current_writer::{{closure}}(&v8, v1 as i64);
-                },
-            }
+        v2 = 0x1b600000000;
+        v4 = 0;
+        v8 = 0;
+        v6 = 1;
+        v0 = std::fs::OpenOptions::open(&v2);
+        match v0 {
+            Ok(_) => {
+                alloc::boxed::Box<T>::new(v1 as u64);
+                std::io::buffered::bufwriter::BufWriter<W>::with_capacity(v16, 0x2000);
+                return;
+            },
+            Err(_) => {
+                v13 = uu_split::platform::unix::instantiate_current_writer::{{closure}}(&v10, *((&v0 as &char + 8) as &i64));
+            },
         }
-        return Err(struct8 {
-            field_0: v12
-        });
     }
+    *((v15 + 8) as &u64) = v13;
+    *(v15 as &i64) = 0x8000000000000000;
+    return;
 }

@@ -1,19 +1,19 @@
 fn uu_sort::Line::print_debug(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {
     let v0: i64;  // [bp-0x108]
     let v1: i64;  // [bp-0x108]
-    let v2: std::io::stdio::Stdout;  // [bp-0x100]
+    let v2: u64;  // [bp-0x100]
     let v3: u64;  // [bp-0xf8]
-    let v4: u64;  // [bp-0xf0]
+    let v4: core::fmt::Arguments;  // [bp-0xf0], Other Possible Types: u64
     let v5: u64;  // [bp-0xe8]
-    let v6: u64;  // [bp-0xe0], Other Possible Types: void*
+    let v6: void*;  // [bp-0xe0], Other Possible Types: u64
     let v7: u64;  // [bp-0xe0]
     let v8: u64;  // [bp-0xd8]
     let v9: u64;  // [bp-0xd8]
-    let v10: alloc::string::String;  // [bp-0xc0], Other Possible Types: u64, struct25
-    let v11: alloc::string::String;  // [bp-0xc0], Other Possible Types: int
+    let v10: struct25;  // [bp-0xc0], Other Possible Types: alloc::string::String, u64
+    let v11: alloc::string::String;  // [bp-0xc0], Other Possible Types: core::fmt::rt::Argument
     let v12: i8;  // [bp-0xb8]
-    let v13: u128;  // [bp-0xa0]
-    let v14: u128;  // [bp-0xa0]
+    let v13: core::fmt::rt::Argument;  // [bp-0xa0]
+    let v14: core::fmt::rt::Argument;  // [bp-0xa0], Other Possible Types: core::fmt::Arguments
     let v15: u8;  // [bp-0x90]
     let v16: i64;  // [bp-0x88]
     let v17: u64;  // [bp-0x80]
@@ -32,7 +32,7 @@ fn uu_sort::Line::print_debug(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {
     let v32: i64;  // r12
     let v33: u64;  // r15
     let v34: i64;  // rdx
-    let v35: i64;  // rdx, Other Possible Types: u64
+    let v35: i64;  // rdx
     let v36: i64;  // rbp
     let v37: core::option::Option<&str>;  // rax
     let v39: core::option::Option<&str>;  // rax
@@ -43,7 +43,7 @@ fn uu_sort::Line::print_debug(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {
     let v44: u8;  // al
     let v45: i64;  // r14
     let v46: u64;  // r14
-    let v47: u64;  // r13
+    let v47: struct24;  // r13
     let v49: core::option::Option<&str>;  // rax
     let v51: i64;  // r15
     let v52: alloc::string::String;  // rbx
@@ -51,7 +51,7 @@ fn uu_sort::Line::print_debug(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {
     let v54: u64;  // rsi
     let v55: u64;  // rdi
     let v58: core::option::Option<&str>;  // rax
-    let v61: i64;  // r14
+    let v61: std::fs::File;  // r14
     let v66: u64;  // rax
     let v67: u64;  // rsi
 

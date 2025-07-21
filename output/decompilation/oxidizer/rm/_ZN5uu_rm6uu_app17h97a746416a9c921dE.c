@@ -12,7 +12,7 @@ fn uu_rm::uu_app(a0: &struct712) -> long long {
     let v10: i8;  // [bp-0x2f4]
     let v11: u64;  // [bp-0x284]
     let v12: u32;  // [bp-0x27c]
-    let v13: u256;  // [bp-0x278]
+    let v13: struct24;  // [bp-0x278], Other Possible Types: struct32, u64
     let v16: u64;  // rdx
 
     v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v16);
@@ -38,12 +38,24 @@ fn uu_rm::uu_app(a0: &struct712) -> long long {
         field_16: &g_41e202
         field_24: 11
     };
+    v13 = struct32 {
+        field_0: &g_41e234
+        field_8: 11
+        field_16: &g_41e202
+        field_24: 11
+    };
     clap_builder::builder::arg::Arg::overrides_with_all(&v5, &v0, &v13);
     clap_builder::builder::arg::Arg::action(&v13, &v5, 2);
     clap_builder::builder::command::Command::arg(&v0, &v8, &v13);
     clap_builder::builder::arg::Arg::new(&v8, "prompt-more");
     clap_builder::builder::arg::Arg::short(&v5, &v8, 73);
     clap_builder::builder::arg::Arg::help(&v8, &v5, "prompt once before removing more than three files, or when removing recursively. Less intrusive than -i, while still giving some protection against most mistakes");
+    v13 = struct32 {
+        field_0: &g_41e22e
+        field_8: 6
+        field_16: &g_41e202
+        field_24: 11
+    };
     v13 = struct32 {
         field_0: &g_41e22e
         field_8: 6
@@ -57,6 +69,11 @@ fn uu_rm::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::arg::Arg::long(&v5, &v0, "interactive");
     clap_builder::builder::arg::Arg::help(&v0, &v5, "prompt according to WHEN: never, once (-I), or always (-i). Without WHEN, prompts always");
     clap_builder::builder::arg::Arg::value_name(&v5, &v0);
+    v13 = struct24 {
+        field_0: 0
+        field_8: 1
+        field_16: 0
+    };
     v13 = struct17 {
         field_0: 0
         field_8: 1
@@ -67,6 +84,12 @@ fn uu_rm::uu_app(a0: &struct712) -> long long {
     v6 = 128 | v1;
     v7 = *(&v2 as &i32);
     clap_builder::builder::arg::Arg::default_missing_value(&v0, &v5);
+    v13 = struct32 {
+        field_0: &g_41e22e
+        field_8: 6
+        field_16: &g_41e234
+        field_24: 11
+    };
     v13 = struct32 {
         field_0: &g_41e22e
         field_8: 6

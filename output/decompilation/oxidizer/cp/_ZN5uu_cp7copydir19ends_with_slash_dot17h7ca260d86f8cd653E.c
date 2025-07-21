@@ -2,7 +2,7 @@ fn uu_cp::copydir::ends_with_slash_dot(a0: i64) -> long long {
     let v0: struct24;  // [bp-0x30]
     let v1: u64;  // [bp-0x28]
     let v2: u64;  // [bp-0x20]
-    let v3: u128;  // [bp-0x18]
+    let v3: struct16;  // [bp-0x18]
     let v5: u64;  // rdx
 
     v3 = struct16 {

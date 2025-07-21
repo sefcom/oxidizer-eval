@@ -1,13 +1,13 @@
 fn uu_cat::cat_files(a0: i64, a1: i64, a2: i64) -> long long {
-    let v0: u128;  // [bp-0x248], Other Possible Types: &u64
+    let v0: &u64;  // [bp-0x248], Other Possible Types: u128
     let v1: &u64;  // [bp-0x248]
     let v2: &u64;  // [bp-0x248]
     let v3: u64;  // [bp-0x238]
-    let v4: std::io::stdio::Stdout;  // [bp-0x220], Other Possible Types: alloc::vec::Vec<u8, alloc::alloc::Global>, void*, u64
+    let v4: void*;  // [bp-0x220], Other Possible Types: alloc::vec::Vec<u8, alloc::alloc::Global>, std::io::stdio::Stdout, u64
     let v5: u64;  // [bp-0x218]
     let v6: u64;  // [bp-0x210]
     let v7: u8;  // [bp-0x208]
-    let v8: struct16;  // [bp-0x200], Other Possible Types: void*
+    let v8: void*;  // [bp-0x200], Other Possible Types: struct16
     let v9: u64;  // [bp-0x1f8]
     let v10: void*;  // [bp-0x1f0]
     let v11: u64;  // [bp-0x1e8]
@@ -20,7 +20,7 @@ fn uu_cat::cat_files(a0: i64, a1: i64, a2: i64) -> long long {
     let v18: u64;  // [bp-0x1b8]
     let v19: u128;  // [bp-0x1b0]
     let v20: u64;  // [bp-0x1a0]
-    let v21: struct16;  // [bp-0x198], Other Possible Types: u224
+    let v21: struct16;  // [bp-0x198], Other Possible Types: struct28
     let v22: u64;  // [bp-0x180]
     let v23: u64;  // [bp-0x180]
     let v24: u128;  // [bp-0xf8]

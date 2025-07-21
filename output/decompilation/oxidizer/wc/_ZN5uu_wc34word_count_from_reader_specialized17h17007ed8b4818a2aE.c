@@ -1,6 +1,6 @@
 fn uu_wc::word_count_from_reader_specialized(a1: i64, a2: i32) -> : struct48 {
     let a0: u32;  // rsi
-    let v0: void*;  // [bp-0x99]
+    let v0: u8;  // [bp-0x99]
     let v1: u64;  // [bp-0x98]
     let v2: u8;  // [bp-0x90]
     let v3: void*;  // [bp-0x88]
@@ -10,7 +10,7 @@ fn uu_wc::word_count_from_reader_specialized(a1: i64, a2: i32) -> : struct48 {
     let v9: u128;  // [bp-0x68]
     let v10: void*;  // [bp-0x58]
     let v11: void*;  // [bp-0x50]
-    let v12: u192;  // [bp-0x48]
+    let v12: struct24;  // [bp-0x48]
     let v13: u64;  // [bp-0x40]
     let v15: u8;  // dl
     let v16: core::option::Option<u32>;  // rdx
@@ -32,15 +32,15 @@ fn uu_wc::word_count_from_reader_specialized(a1: i64, a2: i32) -> : struct48 {
         loop {
             vvar_154{stack -72} = struct24 OrderedDict({0: 𝜙@64b [((4960544, None), vvar_132{stack -72}), ((4960536, None), vvar_132{stack -72}), ((4960480, None), vvar_132{stack -72}), ((4960401, None), None)], 8: 𝜙@64b [((4960544, None), vvar_133{stack -64}), ((4960536, None), vvar_133{stack -64}), ((4960480, None), vvar_133{stack -64}), ((4960401, None), None)]})
             uu_wc::utf8::read::BufReadDecoder<B>::next_strict(&v12, &v1);
-            if v12 as i64 == 2 {
+            if v12.field_0 == 2 {
                 *((v19 + 32) as &void*) = v10;
                 *((v19 + 16) as &u128) = v9;
                 *(v19 as &u128) = v8;
                 *((v19 + 40) as &i64) = 0;
                 return;
             }
-            v16 = *((&v12 as &char + 16) as &i64);
-            if !v12 as i64 {
+            v16 = v12.field_16;
+            if !v12.field_0 {
                 uu_wc::process_chunk(v13, v16, &v11, &v0, v17);
             } else if !v13 {
                 break;

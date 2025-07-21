@@ -1,20 +1,11 @@
-fn uu_tail::follow::watch::WatcherRx::unwatch(a0: u32, a1: void*) -> u64 {
-    let v0: i8;  // [bp-0x70]
-    let v1: i8;  // [bp-0x60]
-    let v2: i8;  // [bp-0x50]
-    let v3: i8;  // [bp-0x40]
-    let v4: u128;  // [sp-0x38]
-    let v5: u128;  // [sp-0x28]
-    let v6: u128;  // [sp-0x18]
-    let v7: u64;  // [sp-0x8]
+fn uu_tail::follow::watch::WatcherRx::unwatch(a0: i64, a1: i64) -> long long {
+    let v0: struct56;  // [bp-0x70], Other Possible Types: u8
+    let v1: struct56;  // [bp-0x38]
 
-    a1->field_20();
+    *((a1 + 32) as &i64)(&v0, a0);
     if *(&v0 as &i32) != 6 {
-        v7 = *(&v3 as &i64);
-        v6 = *(&v2 as &i128);
-        v5 = *(&v1 as &i128);
-        v4 = *(&v0 as &i128);
-        return uu_tail::follow::watch::WatcherRx::unwatch::{{closure}}(&v4);
+        v1 = v0;
+        return uu_tail::follow::watch::WatcherRx::unwatch::{{closure}}(&v1);
     }
     return 0;
 }

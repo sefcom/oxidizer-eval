@@ -1,7 +1,7 @@
 fn uu_od::prn_float::format_item_flo32() -> : struct24 {
     let a0: i64;  // rdi
-    let v0: i64;  // [bp-0x80]
-    let v1: u64;  // [bp-0x78]
+    let v0: struct56;  // [bp-0x80]
+    let v1: struct56;  // [bp-0x78]
     let v2: struct24;  // [bp-0x70]
     let v3: u64;  // [bp-0x60]
     let v4: struct24;  // [bp-0x58], Other Possible Types: u64

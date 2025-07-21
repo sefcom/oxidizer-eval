@@ -1,9 +1,9 @@
 fn uu_uniq::handle_extract_obs_skip_fields(a1: i64, a2: i64, a3: i64) -> Option<struct24> {
     let a0: u64;  // rsi
-    let v0: alloc::string::String;  // [bp-0xca]
+    let v0: std::sys::os_str::bytes::Buf;  // [bp-0xca]
     let v1: u8;  // [bp-0xc9]
-    let v2: alloc::string::String;  // [bp-0xc8], Other Possible Types: u128
-    let v3: u64;  // [bp-0xb8], Other Possible Types: struct24
+    let v2: std::sys::os_str::bytes::Buf;  // [bp-0xc8], Other Possible Types: u128
+    let v3: core::fmt::rt::Argument;  // [bp-0xb8], Other Possible Types: struct24
     let v4: void*;  // [bp-0xa8]
     let v5: u64;  // [bp-0xa0]
     let v6: void*;  // [bp-0x98]
@@ -12,7 +12,7 @@ fn uu_uniq::handle_extract_obs_skip_fields(a1: i64, a2: i64, a3: i64) -> Option<
     let v9: u64;  // [bp-0x80]
     let v10: struct24;  // [bp-0x78]
     let v11: struct24;  // [bp-0x68]
-    let v12: u320;  // [bp-0x60]
+    let v12: struct40;  // [bp-0x60]
     let v13: struct24;  // [bp-0x38]
     let v15: i64;  // rdi
     let v16: u128;  // xmm0
@@ -42,7 +42,7 @@ fn uu_uniq::handle_extract_obs_skip_fields(a1: i64, a2: i64, a3: i64) -> Option<
                 alloc::vec::Vec<T,A>::append_elements(&v10, v20.ptr, a1);
             }
             v3 = v11;
-            memcpy(&v2 as u8, &v10, 16);
+            v2 = v10.field_0;
             *((a2 + 16) as &struct24) = v3;
             *(a2 as &u128) = v2;
         }
@@ -57,8 +57,8 @@ LABEL_4bdab2:
         }
     } else {
         v2 = std::sys::os_str::bytes::Slice::to_owned(a0, a1);
-        *((v15 + 16) as &u64) = v3;
-        v16 = *(&v2.vec.buf.ptr as &i128);
+        *((v15 + 16) as &core::fmt::rt::Argument) = v3;
+        v16 = *(&v2.inner.buf.cap as &i128);
         goto LABEL_4bdab2;
     }
     return;

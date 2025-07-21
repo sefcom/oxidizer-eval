@@ -1,10 +1,11 @@
-fn uu_numfmt::errors::NumfmtError::IllegalArgument(a0: &struct32, a1: u64) -> int {
-    let v1: u128;  // xmm0
+fn uu_numfmt::errors::NumfmtError::IllegalArgument(a1: i64) -> : struct32 {
+    let a0: i64;  // rdi
+    let v1: u64;  // rax
 
-    v1 = a1->field_0;
+    v1 = *((a1 + 16) as &i64);
     return struct32 {
         field_0: 1
-        field_8: v1
-        field_24: a1->field_10
+        field_8: *(a1 as &i128)
+        field_24: v1
     };
 }

@@ -1,7 +1,7 @@
 fn uu_dd::uu_app(a0: &struct712) -> long long {
     let v0: struct437;  // [bp-0x7f8]
-    let v1: u64;  // [bp-0x53c]
-    let v2: u32;  // [bp-0x534]
+    let v1: core::fmt::rt::Argument;  // [bp-0x53c]
+    let v2: core::fmt::rt::Argument;  // [bp-0x534]
     let v3: u8;  // [bp-0x530]
     let v4: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x274]
     let v5: u32;  // [bp-0x26c]

@@ -1,28 +1,22 @@
-fn uu_pr::split_lines_if_form_feed(a0: &struct24, a1: u64) -> int {
+fn uu_pr::split_lines_if_form_feed(a1: i64) -> : struct24 {
+    let a0: u64;  // rdi
     let v0: struct24;  // [bp-0x38]
-    let v1: struct24;  // [sp-0x20]
-    let v2: i64;  // [sp-0x8]
-    let v4: i64;  // rbx
-    let v5: iNone;  // xmm0
-    let v6: iNone;  // ymm0
-    let v7: iNone;  // xmm0
-    let v8: i64;  // rax
+    let v1: u8;  // [bp-0x20]
+    let v2: u64;  // [bp-0x10]
+    let v3: u64;  // [bp-0x8]
+    let v5: u64;  // rbx
 
-    if *(a1 as &i64) != 0x8000000000000000 {
-        v2 = v4;
-        v5 = *(a1 as &i128);
-        v0 = struct24 {
-            field_0: v5
-            field_16: *((a1 + 16) as &i64)
-        };
-        v1 = uu_pr::split_lines_if_form_feed::{{closure}}(&v0);
-        v7 = v1.field_0;
-        v8 = v1.field_16;
-        return struct24 {
-            field_0: v7
-            field_16: v8
-        };
+    if *(a1 as &i64) == 0x8000000000000000 {
+        return uu_pr::split_lines_if_form_feed::{{closure}}(a0, *((a1 + 8) as &i64)) as u64;
     }
-    uu_pr::split_lines_if_form_feed::{{closure}}(a0, *((a1 + 8) as &i64));
-    return v6 as u64;
+    v3 = v5;
+    v0 = struct24 {
+        field_0: *(a1 as &i128)
+        field_16: *((a1 + 16) as &i64)
+    };
+    uu_pr::split_lines_if_form_feed::{{closure}}(&v1, &v0);
+    return struct24 {
+        field_0: v1
+        field_16: v2
+    };
 }

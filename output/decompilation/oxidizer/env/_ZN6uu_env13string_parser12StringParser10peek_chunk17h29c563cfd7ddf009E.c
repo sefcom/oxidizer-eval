@@ -7,8 +7,8 @@ fn uu_env::string_parser::StringParser::peek_chunk(a1: i64) -> : struct24 {
 
     uu_env::string_parser::StringParser::get_chunk_with_length_at(a1, *((a1 + 32) as &i64), v3);
     v5 = 1;
-    return struct32 {
+    return struct24 {
         field_0: v6
-        field_8: <UNKNOWN>
+        field_8: *(&v1 as &i128)
     };
 }

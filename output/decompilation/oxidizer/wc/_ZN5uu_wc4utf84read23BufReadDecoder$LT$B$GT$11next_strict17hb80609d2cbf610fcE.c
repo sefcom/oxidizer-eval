@@ -7,12 +7,12 @@ fn uu_wc::utf8::read::BufReadDecoder<B>::next_strict(a0: &struct24, a1: i64) -> 
     let v6: u64;  // r15
     let v7: core::option::Option<u32>;  // r13
     let v8: u8;  // dl
-    let v9: u64;  // rax
-    let v10: struct32;  // rax
+    let v9: core::slice::iter::Iter<u8>;  // rax
+    let v10: struct16;  // rax
     let v12: u64;  // r13
     let v14: core::option::Option<u32>;  // bpl
     let v15: u64;  // rdx
-    let v16: core::result::Result<usize, std::io::error::Error>;  // rcx, Other Possible Types: struct_2 *
+    let v16: Result<struct40, struct16>;  // rcx
     let v17: core::result::Result<&[u8], std::io::error::Error>;  // rax:rdx
     let v18: core::result::Result<&[u8], std::io::error::Error>;  // rax:rdx
 
@@ -83,8 +83,8 @@ LABEL_4c2d1e:
         } else if !(v4 & 1) {
             *((a1 + 16) as &core::option::Option<u32>) = v7;
             v9 = uu_wc::utf8::Incomplete::new(v2 as i64, v7);
-            *((a1 + 24) as &u32) = v9;
-            *((a1 + 28) as &u8) = v9 >> 32;
+            *((a1 + 24) as &u32) = v9 as u32;
+            *((a1 + 28) as &u8) = (v9 >> 32) as u8;
         } else {
             v12 = *((&v2 as &char + 17) as &i8);
 LABEL_4c2cbb:
@@ -92,7 +92,7 @@ LABEL_4c2cbb:
             goto LABEL_4c2cc2;
         }
     }
-    *((v16 + 8) as &struct32) = v10;
+    *((v16 + 8) as &struct16) = v10;
     *((v16 + 16) as &u64) = v15;
     return v16;
 }

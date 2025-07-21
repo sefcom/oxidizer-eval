@@ -1,10 +1,10 @@
 fn uu_ls::should_display(a0: i64, a1: i64) -> long long {
     let v0: u16;  // [bp-0x83]
     let v1: u8;  // [bp-0x81]
-    let v2: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x80], Other Possible Types: u128
+    let v2: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x80], Other Possible Types: struct16
     let v3: u64;  // [bp-0x78]
     let v4: void*;  // [bp-0x70]
-    let v5: u128;  // [bp-0x68]
+    let v5: struct16;  // [bp-0x68]
     let v7: alloc::borrow::Cow<str>;  // [bp-0x48]
     let v8: u64;  // [bp-0x40]
     let v9: void*;  // [bp-0x38]
@@ -20,10 +20,10 @@ fn uu_ls::should_display(a0: i64, a1: i64) -> long long {
     v0 = 1;
     v1 = 1;
     v10 = std::fs::DirEntry::file_name(a0);
-    v2 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(v11, v10.inner.inner.len);
+    v2 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(v11, v10.inner.vec.len);
     match v2 {
         Err(_) => {
-            v7 = std::sys::os_str::bytes::Slice::to_string_lossy(v11, v10.inner.inner.len);
+            v7 = std::sys::os_str::bytes::Slice::to_string_lossy(v11, v10.inner.vec.len);
             if v7 as i64 == 0x8000000000000000 {
                 <T as alloc::slice::hack::ConvertVec>::to_vec(v8, v9, v14);
             }

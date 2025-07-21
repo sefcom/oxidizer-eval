@@ -1,7 +1,7 @@
 fn uu_uniq::opt_parsed(a1: i64, a2: i64, a3: i64) -> : struct24 {
     let a0: u64;  // rsi
     let v0: core::result::Result<usize, core::num::error::ParseIntError>;  // [bp-0xd0]
-    let v1: struct48;  // [bp-0xc8]
+    let v1: u64;  // [bp-0xc8]
     let v2: u64;  // [bp-0xc0]
     let v3: u64;  // [bp-0xb8]
     let v4: void*;  // [bp-0x90]
@@ -26,7 +26,7 @@ fn uu_uniq::opt_parsed(a1: i64, a2: i64, a3: i64) -> : struct24 {
     v0 = core::num::<impl core::str::traits::FromStr for usize>::from_str(*((v12 + 8) as &i64), *((v12 + 16) as &i64));
     if !v0 as i8 {
         *((v14 + 8) as &i64) = 1;
-        *((v14 + 16) as &struct48) = v1;
+        *((v14 + 16) as &u64) = v1;
     } else if *((&v0 as &char + 1) as &i8) == 2 {
         *((v14 + 8) as &i64) = 1;
         *((v14 + 16) as &i64) = -1;

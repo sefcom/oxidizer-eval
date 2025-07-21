@@ -1,7 +1,7 @@
 fn uu_sync::uumain::uumain(a0: i64, a1: i64) -> long long {
     let v0: u64;  // [bp-0x3a8]
-    let v1: u192;  // [bp-0x3a8]
-    let v2: u64;  // [bp-0x3a0]
+    let v1: struct24;  // [bp-0x3a8]
+    let v2: u128;  // [bp-0x3a0]
     let v3: void*;  // [bp-0x398]
     let v4: u64;  // [bp-0x390]
     let v5: struct24;  // [bp-0x388], Other Possible Types: struct56
@@ -13,7 +13,7 @@ fn uu_sync::uumain::uumain(a0: i64, a1: i64) -> long long {
     let v11: u64;  // [bp-0x340]
     let v12: struct24;  // [bp-0x310]
     let v13: u128;  // [bp-0x308]
-    let v14: u192;  // [bp-0x2f8]
+    let v14: struct16;  // [bp-0x2f8], Other Possible Types: struct24, u8
     let v15: u128;  // [bp-0x2f8]
     let v16: u128;  // [bp-0x2f8]
     let v17: struct56;  // [bp-0x2f8]

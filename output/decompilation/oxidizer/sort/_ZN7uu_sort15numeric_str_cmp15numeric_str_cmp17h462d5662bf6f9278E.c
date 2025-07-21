@@ -1,20 +1,20 @@
-fn uu_sort::numeric_str_cmp::numeric_str_cmp(a0: i64, a1: i64) -> long long {
+fn uu_sort::numeric_str_cmp::numeric_str_cmp(a0: &struct24, a1: &struct24) -> long long {
     let v0: core::result::Result<usize, std::io::error::Error>;  // [bp-0x40]
     let v1: u64;  // [bp-0x38]
     let v2: u64;  // [bp-0x30]
     let v3: u64;  // [bp-0x28]
     let v5: i64;  // rax
-    let v6: u64;  // r15
+    let v6: core::option::Option<&str>;  // r15
     let v7: u64;  // rcx
     let v8: u64;  // rax
-    let v10: u32;  // ebp
+    let v10: core::fmt::Arguments;  // ebp
     let v11: u32;  // eax
     let v12: u8;  // al
 
     v5 = *((a0 + 16) as &i64);
     v6 = *((v5 + 8) as &i8);
     v7 = *((*((a1 + 16) as &i64) + 8) as &i8);
-    if v6 != v7 {
+    if v6 as u8 != v7 {
         v8 = -((v6 & 255) < (v7 & 255));
         return v8 & 0xffffff00 | v8 | 1;
     }

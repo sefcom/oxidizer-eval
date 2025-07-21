@@ -1,12 +1,12 @@
 fn uu_echo::uu_app(a0: &struct712) -> long long {
     let v0: struct437;  // [bp-0xa48]
     let v1: u32;  // [bp-0x78c]
-    let v2: u64;  // [bp-0x788]
+    let v2: core::fmt::rt::Argument;  // [bp-0x788]
     let v3: u8;  // [bp-0x780]
-    let v4: u32;  // [bp-0x4c4]
-    let v5: u64;  // [bp-0x4c0]
+    let v4: core::fmt::Arguments;  // [bp-0x4c4]
+    let v5: core::fmt::rt::Argument;  // [bp-0x4c0]
     let v6: u8;  // [bp-0x4b8]
-    let v7: u64;  // [bp-0x268]
+    let v7: u8;  // [bp-0x268]
     let v10: u64;  // rdx
 
     v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);

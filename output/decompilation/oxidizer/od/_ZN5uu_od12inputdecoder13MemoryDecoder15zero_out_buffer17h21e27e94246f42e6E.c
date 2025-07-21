@@ -2,7 +2,7 @@ fn uu_od::inputdecoder::MemoryDecoder::zero_out_buffer(a0: i64, a1: i64, a2: i64
     let v1: i64;  // r15
     let v2: u64;  // rax
     let v3: i64;  // rbx
-    let v4: i64;  // rax
+    let v4: u64;  // rax
 
     if a1 >= a2 {
         return v2;

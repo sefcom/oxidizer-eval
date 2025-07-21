@@ -20,13 +20,13 @@ fn uu_nl::nl(a0: i64, a1: i64, a2: i64) -> long long {
     let v18: u64;  // [bp-0x88]
     let v19: u64;  // [bp-0x80]
     let v20: struct24;  // [bp-0x78]
-    let v21: u8;  // [bp-0x48]
-    let v22: u64;  // [bp-0x38]
+    let v21: struct24;  // [bp-0x78]
+    let v22: struct24;  // [bp-0x48]
     let v24: u64;  // rbp
 
     v7 = a0;
-    v20 = <std::io::Lines<B> as core::iter::traits::iterator::Iterator>::next(&v7);
-    if v20.field_0 as i64 == 9223372036854775809 {
+    v21 = <std::io::Lines<B> as core::iter::traits::iterator::Iterator>::next(&v7);
+    if v21.field_0 as i64 == 9223372036854775809 {
         return 0;
     }
     v18 = *((a2 + 56) as &i64);
@@ -43,9 +43,8 @@ fn uu_nl::nl(a0: i64, a1: i64, a2: i64) -> long long {
     v1 = *((a1 + 8) as &i64);
     v19 = 0x8000000000000000;
     v15 = a2 + 16;
-    v22 = v20.field_16;
-    memcpy(&v21, &v20, 16);
-    v2 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v21);
+    v22 = v20;
+    v2 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v22);
     if v2.field_0 as i64 == 0x8000000000000000 {
         return v3;
     }

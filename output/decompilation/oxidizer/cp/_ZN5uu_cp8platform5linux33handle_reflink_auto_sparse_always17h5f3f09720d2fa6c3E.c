@@ -8,29 +8,30 @@ fn uu_cp::platform::linux::handle_reflink_auto_sparse_always(a1: i64, a2: i64, a
     let v6: u64;  // rax
     let v7: u8;  // al
     let v8: u64;  // rax
-    let v9: u8;  // r15b
-    let v10: u8;  // al
-    let v11: struct40;  // rax
-    let v12: u8;  // al
+    let v9: u8;  // al
+    let v10: u8;  // r15b
+    let v11: u8;  // al
+    let v12: void*;  // rax
 
     uu_cp::platform::linux::check_for_data(a1, a2, a3);
     v5 = v2;
     if v5 != 2 {
         uu_cp::platform::linux::check_sparse_detection(a1, a2, a3);
         if !v0 {
-            v9 = (!v1 ? 2 : 4 - (!v5));
-            v10 = (!uu_cp::platform::linux::check_dest_is_fifo(a3, a4) as i8 ? (!v5 ? 2 : 2 - (v3 < 1)) : 1);
-            v11 = 0;
-            return struct5 {
-                field_0: v12
-                field_1: (!v5 ? (*(&v0 as &i64) < 0x200) as u8 as u8 * 3 : 3)
-                field_2: 4
-                field_3: v9
-                field_4: v10
-            };
+            v10 = (!v1 ? 2 : 4 - (!v5));
+            v11 = (!uu_cp::platform::linux::check_dest_is_fifo(a3, a4) as i8 ? (!v5 ? 2 : 2 - (v3 < 1)) : 1);
+            *((a0 + 1) as &i32) = (!v5 ? (*(&v0 as &i64) < 0x200) * 3 : 3);
+            *((a0 + 2) as &i8) = 4;
+            *((a0 + 3) as &u8) = v10;
+            *((a0 + 4) as &u8) = v11;
+            v12 = 0;
         }
     }
-    *((a0 + 8) as &u64) = v6;
     v7 = 1;
     v8 = v6 & -0x100 | 1;
+    return struct16 {
+        field_0: v9
+        padding_1: <UNKNOWN>
+        field_8: v6
+    };
 }

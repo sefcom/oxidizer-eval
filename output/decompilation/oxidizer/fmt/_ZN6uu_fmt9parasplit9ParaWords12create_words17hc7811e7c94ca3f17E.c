@@ -1,9 +1,9 @@
 fn uu_fmt::parasplit::ParaWords::create_words(a0: &struct32) -> long long {
-    let v0: u64;  // [bp-0x178]
-    let v1: u320;  // [bp-0x170]
+    let v0: core::fmt::rt::Argument;  // [bp-0x178]
+    let v1: struct40;  // [bp-0x170]
     let v2: u8;  // [bp-0x120]
     let v3: u8;  // [bp-0xf0]
-    let v4: u128;  // [bp-0xe8]
+    let v4: struct16;  // [bp-0xe8]
     let v5: u8;  // [bp-0x9f]
     let v6: alloc::string::String;  // [bp-0x5f]
     let v7: struct41;  // [bp-0x58]
@@ -13,7 +13,7 @@ fn uu_fmt::parasplit::ParaWords::create_words(a0: &struct32) -> long long {
     let v12: u64;  // r12
     let v13: u64;  // r15
     let v14: core::option::Option<&str>;  // rax
-    let v15: u64;  // r14
+    let v15: core::fmt::rt::Argument;  // r14
     let v16: u64;  // r12
     let v17: u64;  // r15
     let v18: u64;  // rdx

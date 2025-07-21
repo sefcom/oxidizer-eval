@@ -1,134 +1,139 @@
-fn uu_hostname::display_hostname(a0: u32) -> u64 {
-    let v0: struct24;  // [sp-0x168], Other Possible Types: struct48, struct32, Result<struct32, struct8>
-    let v1: i64;  // [sp-0x158]
-    let v2: i64;  // [sp-0x138], Other Possible Types: struct24
-    let v3: Option<struct32>;  // [sp-0x138], Other Possible Types: int
-    let v4: i64;  // [sp-0x130]
-    let v5: i64;  // [sp-0x128]
-    let v6: iNone;  // [sp-0x118]
-    let v7: i8;  // [bp-0x110]
-    let v8: i64;  // [sp-0x108]
-    let v9: struct16;  // [bp-0xf8], Other Possible Types: struct104, struct8
-    let v10: i64;  // [sp-0xf8], Other Possible Types: struct24
-    let v11: i64;  // [sp-0xf0]
-    let v12: Result<struct32, struct16>;  // [sp-0xd8], Other Possible Types: struct24, int
-    let v13: i64;  // [sp-0xd0]
-    let v14: i64;  // [sp-0xa0]
-    let v15: i64;  // [sp-0x98]
-    let v16: struct24;  // [sp-0x90]
-    let v17: i64;  // [sp-0x78]
-    let v18: i8;  // [bp-0x68]
-    let v19: iNone;  // [sp-0x58]
-    let v20: iNone;  // [sp-0x48]
-    let v22: i64;  // rax
-    let v29: iNone;  // ymm0
-    let v30: iNone;  // ymm0
-    let v32: iNone;  // ymm1
-    let v33: iNone;  // ymm1
-    let v34: i32;  // edx
-    let v35: i64;  // r13
-    let v36: iNone;  // xmm0
-    let v37: iNone;  // xmm1
-    let v38: i64;  // rdx
-    let v41: i64;  // rax
-    let v42: i64;  // rax
-    let v43: i64;  // r14
-    let v44: i64;  // rdx
-    let v45: i64;  // rdx
+fn uu_hostname::display_hostname(a0: i64) -> long long {
+    let v0: core::result::Result<alloc::vec::into_iter::IntoIter<core::net::socket_addr::SocketAddr, alloc::alloc::Global>, std::io::error::Error>;  // [bp-0x168], Other Possible Types: u128
+    let v1: struct24;  // [bp-0x168]
+    let v2: u128;  // [bp-0x168]
+    let v3: struct48;  // [bp-0x168]
+    let v4: u64;  // [bp-0x158]
+    let v5: u128;  // [bp-0x158]
+    let v6: alloc::string::String;  // [bp-0x138], Other Possible Types: u64
+    let v7: u64;  // [bp-0x138]
+    let v8: Option<struct32>;  // [bp-0x138]
+    let v9: u64;  // [bp-0x130]
+    let v10: u64;  // [bp-0x128]
+    let v11: u128;  // [bp-0x118]
+    let v12: u64;  // [bp-0x110]
+    let v13: u64;  // [bp-0x108]
+    let v14: u128;  // [bp-0xf8]
+    let v15: alloc::borrow::Cow<str>;  // [bp-0xf8]
+    let v16: void*;  // [bp-0xf0]
+    let v17: u128;  // [bp-0xe8]
+    let v18: Result<struct32, struct24>;  // [bp-0xd8], Other Possible Types: struct24
+    let v19: struct24;  // [bp-0xd8], Other Possible Types: u128
+    let v20: u64;  // [bp-0xd0]
+    let v21: u128;  // [bp-0xc8]
+    let v22: u64;  // [bp-0xc0]
+    let v23: u128;  // [bp-0xb8]
+    let v24: void*;  // [bp-0xa8]
+    let v25: u64;  // [bp-0xa0]
+    let v26: void*;  // [bp-0x98]
+    let v27: struct24;  // [bp-0x90]
+    let v28: u64;  // [bp-0x88]
+    let v29: u64;  // [bp-0x80]
+    let v30: u64;  // [bp-0x78]
+    let v31: u64;  // [bp-0x70]
+    let v32: u64;  // [bp-0x68]
+    let v33: u64;  // [bp-0x60]
+    let v34: u128;  // [bp-0x58]
+    let v35: u128;  // [bp-0x48]
+    let v37: u128;  // xmm0
+    let v38: u64;  // rdx
+    let v39: u64;  // rcx
+    let v40: u64;  // rax
+    let v41: u32;  // edx
+    let v42: u128;  // xmm0
+    let v43: u64;  // r13
+    let v46: u64;  // rcx
+    let v47: core::option::Option<&str>;  // rax
+    let v51: core::option::Option<&str>;  // rax
+    let v52: u64;  // rdx
+    let v54: u64;  // rdx
+    let v56: u64;  // rdx
+    let v61: &[u8];  // rax:rdx
 
     v0 = hostname::get();
-    v12 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v0);
-    v22 = v13;
-    if v2 == 0x8000000000000000 {
-        return v22;
+    v19 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v0);
+    if v19.field_0 as i64 == 0x8000000000000000 {
+        return v20;
     }
-    v2 = v12;
-    v10 = std::sys::os_str::bytes::Slice::to_string_lossy(v4, v5);
-    if v10 != 0x8000000000000000 {
-        v8 = v10.field_16;
-    } else {
-        v0 = <T as alloc::slice::hack::ConvertVec>::to_vec(v11, v10.field_16);
-        v8 = v1;
+    v7 = v19.field_0;
+    v9 = v20;
+    v10 = v21;
+    v15 = std::sys::os_str::bytes::Slice::to_string_lossy(v9, v21);
+    if v15 as i64 == 0x8000000000000000 {
+        v2 = <T as alloc::slice::hack::ConvertVec>::to_vec(v16, *((&v15 as &char + 16) as &i64));
+        v13 = v4;
+        v37 = v1.field_0;
     }
+    v11 = v37;
     if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "ip-address") as i8 {
-        v0 = struct24 {
-            field_0: v24
-            field_16: v8
-        };
-        v2 = <alloc::string::String as core::ops::arith::Add<&str>>::add(&v0);
-        v0 = <alloc::string::String as std::net::socket_addr::ToSocketAddrs>::to_socket_addrs(&v2);
-        v12 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v0);
-        v22 = v13;
-        if !v17 {
-            return v22;
-        }
-        v0 = <hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default();
-        v30 = ((v29 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v6 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v0.field_0) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v17 as &i128);
-        v33 = (v32 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v0.field_16) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v18 as &i128);
-        v9 = struct104 {
-            field_0: v28
-            field_16: v31
-            field_32: v26
-            field_48: v27
-            field_64: *(&v0.field_32 as &i128)
-            field_80: 0
-            field_88: 1
-            field_96: 0
-        };
-        v3 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v9);
-        match v3 {
-            Some(_) => {
-                do {
-                    v36 = v3 as i128;
-                    v30 = v30 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v36 as u256;
-                    v37 = (&v3)[16] as i128;
-                    v33 = v33 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v37 as u256;
-                    v20 = v37;
-                    v19 = v36;
-                    if !hashbrown::map::HashMap<K,V,S,A>::get_inner(&v9, &v19) {
-                        v16 = <T as alloc::string::ToString>::to_string(&v19);
-                        if core::slice::<impl [T]>::ends_with(*((&v16.field_0 as &char + 8) as &i64), v16.field_16, ":1") as i8 {
-                            alloc::string::String::truncate(&v16, v16.field_16 - 2);
+        v4 = v13;
+        v2 = v11;
+        v6 = <alloc::string::String as core::ops::arith::Add<&str>>::add(&v2, v38, v39);
+        v0 = <alloc::string::String as std::net::socket_addr::ToSocketAddrs>::to_socket_addrs(&v6);
+        v19 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v0);
+        match v19 as u704 {
+            Err(_) => {
+                return v20;
+            },
+            Ok(_) => {
+                v30 = v18 as i64;
+                v31 = v20;
+                v32 = v21;
+                v33 = v22;
+                v0 as u384 = <hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default();
+                v42 = v3.field_0;
+                v23 = *(&v3.field_32 as &i128);
+                v21 = *(&v4 as &i128) as u128;
+                v19 = v42;
+                v24 = 0;
+                v25 = 1;
+                v26 = 0;
+                v17 = *(&v32 as &i128);
+                v14 = *(&v30 as &i128) as u128;
+                v8 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v15);
+                if let Some(_) = v8 {
+                    do {
+                        v35 = *((&v8 as &char + 16) as &i128);
+                        v34 = v8 as i128;
+                        if !hashbrown::map::HashMap<K,V,S,A>::get_inner(&v19 as u704, &v34, v52) {
+                            v27 = <T as alloc::string::ToString>::to_string(&v34);
+                            if core::slice::<impl [T]>::ends_with(v28, v29, ":1") as u8 {
+                                alloc::string::String::truncate(&v27, v29 - 2);
+                            }
+                            v61 = core::slice::iter::Iter<T>::make_slice(v28);
+                            alloc::vec::Vec<T,A>::append_elements(&v24, v61.ptr, v38);
+                            alloc::string::String::push(&v24, 32);
+                            v5 = v35;
+                            v0 = v34;
+                            hashbrown::map::HashMap<K,V,S,A>::insert(&v19 as u704, &v0 as u384, v38, v39);
                         }
-                        v9 = alloc::vec::Vec<T,A>::append_elements(core::slice::iter::Iter<T>::make_slice(*((&v16.field_0 as &char + 8) as &i64), v16.field_16 + *((&v16.field_0 as &char + 8) as &i64)), v38);
-                        v9 = alloc::string::String::push(0x20);
-                        v30 = v30 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v19 as u256;
-                        v33 = v33 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v20 as u256;
-                        v0 = struct32 {
-                            field_0: v39
-                            field_16: v40
-                        };
-                        v9 = hashbrown::map::HashMap<K,V,S,A>::insert(&v0);
-                    }
-                } while ((v3 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v9), v3 as i16 != 2));
-            },
-            None => {
-                v43 = v15;
+                        v8 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v15);
+                    } while (v8 as i16 != 2);
+                }
             },
         }
-        if v43 {
-            v2 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v43 - 1, v14, v43);
-            v4 = v38;
-            println!("{}", &v2);
-        }
-    } else if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "short") as i8 && !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "domain") as i8 || (v12 = *(&v7 as &i192), v34 == 0x110000) {
-        println!("{}", &<0x4afce0[is_34]|Stack bp-0x118, 1 B>);
+    } else if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "short") as i8 && !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "domain") as i8 || (v18 = struct24 {
+    field_0: v12
+    field_8: v13 + v12
+    field_16: 0
+}, v18 = struct24 {
+    field_0: v12
+    field_8: v13 + v12
+    field_16: 0
+}, v40 = core::iter::traits::iterator::Iterator::try_fold(&v18), v41 == 0x110000) {
+        println!("{}", &v11 as u8);
     } else {
-        v35 = core::iter::traits::iterator::Iterator::try_fold(&v12);
-        if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "short") as i8 {
-            v42 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v35 + 1, *(&v7 as &i64), v8);
-            if v42 {
-                v2 = v42;
-                v4 = v45;
-                println!("{}", &v2);
-            }
+        v43 = core::iter::traits::iterator::Iterator::try_fold(&v18);
+        if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, "short") as i8 {
+            v47 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v43, v12, v13, v46) as u64;
+            v6 = v47;
+            v9 = v54;
+            println!("{}", &v6);
         } else {
-            v41 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v35, *(&v7 as &i64), v8);
-            if v41 {
-                v2 = v41;
-                v4 = v44;
-                println!("{}", &v2);
-            }
+            v51 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v43 + 1, v12, v13) as u64;
+            v6 = v51;
+            v9 = v56;
+            println!("{}", &v6);
         }
     }
     return 0;

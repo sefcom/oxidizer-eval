@@ -13,7 +13,7 @@ fn uu_df::uu_app(a0: &struct712) -> long long {
     let v11: u8;  // [bp-0x540]
     let v12: u64;  // [bp-0x284]
     let v13: u32;  // [bp-0x27c]
-    let v14: u64;  // [bp-0x278]
+    let v14: struct48;  // [bp-0x278], Other Possible Types: struct96, struct32, u64
     let v15: u64;  // [bp-0x270]
     let v16: u64;  // [bp-0x268]
     let v19: u64;  // rdx
@@ -49,6 +49,12 @@ fn uu_df::uu_app(a0: &struct712) -> long long {
         field_16: &anon.85076f12318d60a2ab8851d375b85267.4.llvm.15128465655211971851
         field_24: 9
     };
+    v14 = struct32 {
+        field_0: &g_40be58
+        field_8: 4
+        field_16: &anon.85076f12318d60a2ab8851d375b85267.4.llvm.15128465655211971851
+        field_24: 9
+    };
     clap_builder::builder::arg::Arg::overrides_with_all(&v6, &v3, &v14);
     clap_builder::builder::arg::Arg::help(&v3, &v6, "scale sizes by SIZE before printing them; e.g.'-BM' prints sizes in units of 1,048,576 bytes");
     clap_builder::builder::command::Command::arg(&v6, &v11, &v3);
@@ -67,6 +73,12 @@ fn uu_df::uu_app(a0: &struct712) -> long long {
         field_16: &g_415461
         field_24: 21
     };
+    v14 = struct32 {
+        field_0: &g_415476
+        field_8: 22
+        field_16: &g_415461
+        field_24: 21
+    };
     clap_builder::builder::arg::Arg::overrides_with_all(&v3, &v6, &v14);
     clap_builder::builder::arg::Arg::help(&v6, &v3, "print sizes in human readable format (e.g., 1K 234M 2G)");
     clap_builder::builder::arg::Arg::action(&v3, &v6, 2);
@@ -74,6 +86,12 @@ fn uu_df::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::arg::Arg::new(&v11, "human-readable-decimal");
     clap_builder::builder::arg::Arg::short(&v3, &v11, 72);
     clap_builder::builder::arg::Arg::long(&v11, &v3, "si");
+    v14 = struct32 {
+        field_0: &g_415461
+        field_8: 21
+        field_16: &g_415476
+        field_24: 22
+    };
     v14 = struct32 {
         field_0: &g_415461
         field_8: 21
@@ -100,6 +118,12 @@ fn uu_df::uu_app(a0: &struct712) -> long long {
         field_16: &g_40be58
         field_24: 4
     };
+    v14 = struct32 {
+        field_0: &anon.85076f12318d60a2ab8851d375b85267.4.llvm.15128465655211971851
+        field_8: 9
+        field_16: &g_40be58
+        field_24: 4
+    };
     clap_builder::builder::arg::Arg::overrides_with_all(&v3, &v11, &v14);
     clap_builder::builder::arg::Arg::action(&v14, &v3, 2);
     clap_builder::builder::command::Command::arg(&v11, &v6, &v14);
@@ -112,6 +136,12 @@ fn uu_df::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::command::Command::arg(&v6, &v11, &v3);
     clap_builder::builder::arg::Arg::new(&v11, "no-sync");
     clap_builder::builder::arg::Arg::long(&v3, &v11, "no-sync");
+    v14 = struct32 {
+        field_0: &g_40bea0
+        field_8: 4
+        field_16: &g_415497
+        field_24: 7
+    };
     v14 = struct32 {
         field_0: &g_40bea0
         field_8: 4
@@ -148,7 +178,29 @@ fn uu_df::uu_app(a0: &struct712) -> long long {
         field_80: &g_4154f7
         field_88: 6
     };
+    v14 = struct96 {
+        field_0: &g_4154ca
+        field_8: 6
+        field_16: &g_40bec8
+        field_24: 4
+        field_32: &g_40bedc
+        field_40: 4
+        field_48: &g_4154ed
+        field_56: 5
+        field_64: &g_4154f2
+        field_72: 5
+        field_80: &g_4154f7
+        field_88: 6
+    };
     clap_builder::builder::arg::Arg::default_values(&v3, &v6, &v14);
+    v14 = struct48 {
+        field_0: &anon.85076f12318d60a2ab8851d375b85267.8.llvm.15128465655211971851
+        field_8: 6
+        field_16: &anon.85076f12318d60a2ab8851d375b85267.14.llvm.15128465655211971851
+        field_24: 11
+        field_32: &anon.85076f12318d60a2ab8851d375b85267.17.llvm.15128465655211971851
+        field_40: 10
+    };
     v14 = struct48 {
         field_0: &anon.85076f12318d60a2ab8851d375b85267.8.llvm.15128465655211971851
         field_8: 6
@@ -169,6 +221,12 @@ fn uu_df::uu_app(a0: &struct712) -> long long {
     clap_builder::builder::command::Command::arg(&v11, &v6, &v3);
     clap_builder::builder::arg::Arg::new(&v6, "sync");
     clap_builder::builder::arg::Arg::long(&v3, &v6, "sync");
+    v14 = struct32 {
+        field_0: &g_415497
+        field_8: 7
+        field_16: &g_40bea0
+        field_24: 4
+    };
     v14 = struct32 {
         field_0: &g_415497
         field_8: 7

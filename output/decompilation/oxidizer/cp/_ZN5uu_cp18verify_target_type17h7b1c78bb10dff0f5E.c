@@ -1,11 +1,11 @@
 fn uu_cp::verify_target_type(a1: i64, a2: i64, a3: i64) -> : struct8 {
     let a0: u64;  // rsi
-    let v0: core::result::Result<(), std::io::error::Error>;  // [bp-0x80]
-    let v6: u64;  // [bp-0x50], Other Possible Types: struct24
-    let v7: u64;  // [bp-0x48]
+    let v0: core::fmt::Arguments;  // [bp-0x80]
+    let v6: struct24;  // [bp-0x50], Other Possible Types: u64
+    let v7: core::fmt::Arguments;  // [bp-0x48]
     let v8: i64;  // [bp-0x40]
     let v9: u64;  // [bp-0x38]
-    let v10: void*;  // [bp-0x30]
+    let v10: core::fmt::rt::Argument;  // [bp-0x30]
     let v12: u8;  // al
     let v13: u64;  // rcx
     let v14: u64;  // rax

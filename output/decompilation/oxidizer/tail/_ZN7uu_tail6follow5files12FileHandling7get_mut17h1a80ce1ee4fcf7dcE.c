@@ -1,11 +1,16 @@
-fn uu_tail::follow::files::FileHandling::get_mut(a0: u32, a1: u32, a2: u32) -> u64 {
-    let v0: struct24;  // [sp-0x28]
-    let v2: i64;  // rax
+fn uu_tail::follow::files::FileHandling::get_mut(a0: i64, a1: i64, a2: i64) -> long long {
+    let v0: u8;  // [bp-0x28]
+    let v2: u64;  // rcx
+    let v3: core::option::Option<&(&str, proc_macro::bridge::symbol::Symbol)>;  // rax
 
-    v0 = uu_tail::follow::files::FileHandling::canonicalize_path(a1, a2);
-    v2 = hashbrown::map::HashMap<K,V,S,A>::get_inner_mut(a0 + 24, &v0);
-    if v2 {
-        return v2 + 24;
+    uu_tail::follow::files::FileHandling::canonicalize_path(a1, a2, v2);
+    v3 = hashbrown::map::HashMap<K,V,S,A>::get_inner_mut(a0 + 24, &v0);
+    match v3 {
+        None => {
+            core::option::unwrap_failed(); /* do not return */
+        },
+        Some(_) => {
+            return v3 + 24;
+        },
     }
-    core::option::unwrap_failed("src/uu/tail/src/follow/files.rs"); /* do not return */
 }

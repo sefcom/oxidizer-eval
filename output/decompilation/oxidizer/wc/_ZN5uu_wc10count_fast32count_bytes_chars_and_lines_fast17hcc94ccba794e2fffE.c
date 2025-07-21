@@ -1,6 +1,6 @@
 fn uu_wc::count_fast::count_bytes_chars_and_lines_fast(a1: &struct12) -> : struct48 {
     let a0: &u32;  // rsi
-    let v0: struct44;  // [bp-0x4038], Other Possible Types: u64
+    let v0: core::option::Option<u32>;  // [bp-0x4038], Other Possible Types: u64
     let v1: void*;  // [bp-0x4030]
     let v2: void*;  // [bp-0x3030]
     let v3: void*;  // [bp-0x2030]
@@ -26,7 +26,7 @@ fn uu_wc::count_fast::count_bytes_chars_and_lines_fast(a1: &struct12) -> : struc
             Err(_) => {
                 if std::io::error::Error::kind(*((&v12 as &char + 8) as &i64)) != 35 {
                     *(v10 as &i64) = 0;
-                    *((v10 + 8) as &struct44) = v0;
+                    *((v10 + 8) as &core::option::Option<u32>) = v0;
                     *((v10 + 16) as &void*) = v7;
                     *((v10 + 24) as &i128) = 0;
                     *((v10 + 40) as &i64) = *((&v12 as &char + 8) as &i64);
@@ -40,7 +40,7 @@ fn uu_wc::count_fast::count_bytes_chars_and_lines_fast(a1: &struct12) -> : struc
                     v7 += bytecount::count(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(*((&v12 as &char + 8) as &i64), &v1, "src/uu/wc/src/count_fast.rs"), v8, 10);
                 } else {
                     *(v11 as &i64) = 0;
-                    *((v11 + 8) as &struct44) = v0;
+                    *((v11 + 8) as &core::option::Option<u32>) = v0;
                     *((v11 + 16) as &void*) = v7;
                     *((v11 + 24) as &i128) = 0;
                     *((v11 + 40) as &i64) = 0;

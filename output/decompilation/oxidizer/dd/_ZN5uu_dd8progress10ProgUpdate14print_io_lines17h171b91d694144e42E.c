@@ -1,4 +1,4 @@
-fn uu_dd::progress::ProgUpdate::print_io_lines(a0: i64) -> long long {
+fn uu_dd::progress::ProgUpdate::print_io_lines(a0: i32) -> long long {
     let v0: core::result::Result<u64, std::io::error::Error>;  // [bp-0x8], Other Possible Types: u64
     let v2: u64;  // rax
 

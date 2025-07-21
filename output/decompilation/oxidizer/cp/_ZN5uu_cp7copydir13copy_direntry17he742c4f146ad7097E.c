@@ -4,14 +4,14 @@ fn uu_cp::copydir::copy_direntry(a1: i64, a2: i64, a3: i64, a4: i64, a5: i8, a6:
     let v1: u64;  // [bp-0x1f0]
     let v2: u64;  // [bp-0x1e8]
     let v3: u128;  // [bp-0x1d8]
-    let v4: u32;  // [bp-0x1d0]
+    let v4: u64;  // [bp-0x1d0]
     let v5: u64;  // [bp-0x1c8]
     let v6: u64;  // [bp-0x1b8]
-    let v7: u8;  // [bp-0x1a8]
+    let v7: u64;  // [bp-0x1a8]
     let v8: u128;  // [bp-0x1a0]
-    let v9: u8;  // [bp-0x198]
+    let v9: u128;  // [bp-0x198]
     let v10: u8;  // [bp-0x190]
-    let v11: u8;  // [bp-0x188]
+    let v11: u128;  // [bp-0x188]
     let v12: u64;  // [bp-0x178]
     let v13: u128;  // [bp-0x168]
     let v14: u64;  // [bp-0x160]
@@ -64,13 +64,13 @@ fn uu_cp::copydir::copy_direntry(a1: i64, a2: i64, a3: i64, a4: i64, a5: i8, a6:
             }
             v23 = uu_cp::copydir::build_dir(*((a3 + 48) as &i32) as i8, *((a3 + 50) as &i8), &v3 as u8, 0);
             if v23.field_0 != 13 {
-                return struct72 {
+                return Some(struct64 {
                     field_0: v34
-                    field_8: <UNKNOWN>
-                    field_24: <UNKNOWN>
-                    field_40: <UNKNOWN>
-                    field_56: <UNKNOWN>
-                };
+                    field_8: v33
+                    field_24: v32
+                    field_40: v31
+                    field_56: *((&v22 as &char + 56) as &i64)
+                });
             }
             if !*((a3 + 72) as &i8) {
                 return struct8 {
@@ -100,9 +100,9 @@ fn uu_cp::copydir::copy_direntry(a1: i64, a2: i64, a3: i64, a4: i64, a5: i8, a6:
             v25 = v36;
             v24 = v35;
             if !std::path::Path::is_symlink() {
-                memcpy(&v7, &v24, 16);
-                memcpy(&v9, &v25, 16);
-                memcpy(&v11, &v26, 16);
+                v7 = *((&v24 as &char + 8) as &i128);
+                v9 = *((&v25 as &char + 8) as &i128);
+                v11 = *((&v26 as &char + 8) as &i128);
                 v12 = *((&v28 as &char + 8) as &i64);
                 if v23 != 13 {
                     *((a0 + 56) as &u64) = v12;

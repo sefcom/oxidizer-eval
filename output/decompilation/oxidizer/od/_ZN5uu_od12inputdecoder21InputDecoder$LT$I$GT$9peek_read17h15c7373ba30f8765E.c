@@ -12,7 +12,7 @@ fn uu_od::inputdecoder::InputDecoder<I>::peek_read(a1: &struct16) -> : struct25 
     v6 = *((&v0 as &char + 16) as &i64);
     *((a1 + 40) as &u64) = v1;
     *((a1 + 48) as &u64) = v6;
-    return struct25 {
+    return struct32 {
         field_0: v7
         field_8: v1
         field_16: v6

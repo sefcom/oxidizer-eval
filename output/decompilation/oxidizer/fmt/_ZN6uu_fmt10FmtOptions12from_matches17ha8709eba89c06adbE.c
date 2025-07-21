@@ -9,15 +9,15 @@ fn uu_fmt::FmtOptions::from_matches(a1: i64) -> Result<struct80, struct24> {
     let v6: u8;  // [bp-0x13b]
     let v7: u8;  // [bp-0x13a]
     let v8: core::num::error::ParseIntError;  // [bp-0x139]
-    let v9: u224;  // [bp-0x138], Other Possible Types: Result<struct40, struct16>, struct24
+    let v9: struct24;  // [bp-0x138], Other Possible Types: Result<struct40, struct16>, struct28, u128
     let v10: Result<struct40, struct16>;  // [bp-0x138]
     let v11: u64;  // [bp-0x130]
     let v12: u64;  // [bp-0x128]
     let v13: u128;  // [bp-0x120]
     let v14: u64;  // [bp-0x110]
-    let v15: struct24;  // [bp-0x100], Other Possible Types: void*, Result<struct80, struct24>
-    let v16: u64;  // [bp-0xf8], Other Possible Types: alloc::borrow::Cow<str>
-    let v17: u64;  // [bp-0xf0], Other Possible Types: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>
+    let v15: void*;  // [bp-0x100], Other Possible Types: Result<struct80, struct24>, struct24
+    let v16: alloc::borrow::Cow<str>;  // [bp-0xf8], Other Possible Types: u64
+    let v17: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>;  // [bp-0xf0], Other Possible Types: u64
     let v18: struct24;  // [bp-0xe8], Other Possible Types: u8
     let v19: core::result::Result<usize, core::num::error::ParseIntError>;  // [bp-0xe0]
     let v20: core::result::Result<usize, core::num::error::ParseIntError>;  // [bp-0xe0]
@@ -33,7 +33,7 @@ fn uu_fmt::FmtOptions::from_matches(a1: i64) -> Result<struct80, struct24> {
     let v31: u64;  // [bp-0x50]
     let v32: alloc::string::String;  // [bp-0x48]
     let v34: u64;  // rax
-    let v35: u64;  // rax
+    let v35: core::fmt::Arguments;  // rax
     let v36: u64;  // r13
     let v37: u64;  // rax
     let v38: u64;  // rax
@@ -61,12 +61,12 @@ fn uu_fmt::FmtOptions::from_matches(a1: i64) -> Result<struct80, struct24> {
     if v35 {
         v9 = core::ops::function::FnOnce::call_once(v35);
         v25 = v12;
-        memcpy(&v23, &v9, 16);
+        v23 = *(&v9.field_0 as &i128);
     }
     vvar_725{stack -312} = struct24 OrderedDict({0: 𝜙@64b [((4935102, None), None), ((4935074, None), None)], 8: 𝜙@64b [((4935102, None), None), ((4935074, None), None)], 16: 𝜙@64b [((4935102, None), None), ((4935074, None), vvar_595{stack -296})]})
     uu_fmt::extract_width(&v9, a0);
     v36 = v12;
-    if v9 as i64 {
+    if v9.field_0 {
         *((v43 + 8) as &u64) = v11;
         *((v43 + 16) as &u64) = v36;
         *(v43 as &i64) = 9223372036854775809;

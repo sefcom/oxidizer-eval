@@ -1,8 +1,8 @@
 fn uu_realpath::resolve_path(a0: i64, a1: i64, a2: i8, a3: i32, a4: i32, a5: i64, a6: i64, a7: i64, a8: i64) -> long long {
     let v0: u8;  // [bp-0x61]
-    let v1: u192;  // [bp-0x60], Other Possible Types: std::io::stdio::Stdout
+    let v1: std::io::stdio::Stdout;  // [bp-0x60], Other Possible Types: struct24, u64
     let v2: u64;  // [bp-0x58]
-    let v3: u192;  // [bp-0x48]
+    let v3: struct24;  // [bp-0x48]
     let v4: struct24;  // [bp-0x30]
     let v5: u64;  // rax
 

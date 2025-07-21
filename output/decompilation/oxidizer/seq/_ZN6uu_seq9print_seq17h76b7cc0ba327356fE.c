@@ -1,4 +1,4 @@
-fn uu_seq::print_seq(a0: &struct16, a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i8, a7: i64, a8: i64) -> long long {
+fn uu_seq::print_seq(a0: &struct120, a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i8, a7: i64, a8: i64) -> long long {
     let v0: std::io::stdio::StderrLock;  // [bp-0x200]
     let v1: u128;  // [bp-0x1f8]
     let v2: u128;  // [bp-0x1e8]
@@ -6,8 +6,6 @@ fn uu_seq::print_seq(a0: &struct16, a1: i64, a2: i64, a3: i64, a4: i64, a5: i64,
     let v5: u128;  // [bp-0x188]
     let v6: u128;  // [bp-0x178]
     let v7: u64;  // [bp-0x168]
-    let v9: u8;  // [bp-0x148]
-    let v10: u64;  // [bp-0x138]
     let v12: std::io::stdio::Stdout;  // [bp-0x118]
     let v13: u128;  // [bp-0xf8]
     let v14: u128;  // [bp-0xe8]
@@ -35,18 +33,10 @@ fn uu_seq::print_seq(a0: &struct16, a1: i64, a2: i64, a3: i64, a4: i64, a5: i64,
     v14 = *((a0 + 96) as &i128);
     v13 = *((a0 + 80) as &i128);
     v20 = a1 + 1;
-    if uu_seq::done_printing(&v1, &v5, &v13) {
-        v21 = <std::io::stdio::StdoutLock as std::io::Write>::flush(&v0);
-        return 0;
+    if !uu_seq::done_printing(&v1, &v5, &v13) {
+        v21 = uu_seq::write_value_float(&v0, &v1, (a6 ? v20 + a7 : 0), a1);
+        return v21;
     }
-    v21 = uu_seq::write_value_float(&v0, &v1, (a6 ? v20 + a7 : 0), a1);
-    match v21 {
-        Ok(_) => {
-            v10 = v3;
-            memcpy(&v9, &v2, 16);
-        },
-        Err(_) => {
-            return v21;
-        },
-    }
+    v21 = <std::io::stdio::StdoutLock as std::io::Write>::flush(&v0);
+    return 0;
 }

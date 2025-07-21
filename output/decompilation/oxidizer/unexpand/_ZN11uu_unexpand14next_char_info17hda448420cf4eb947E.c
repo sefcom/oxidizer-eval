@@ -1,90 +1,81 @@
-fn uu_unexpand::next_char_info(a0: void*, a1: u32, a2: &u8, a3: u32, a4: &u8) -> u64 {
-    let v0: i64;  // [sp-0x40]
-    let v1: i64;  // [sp-0x38]
-    let v2: Result<struct16, struct10>;  // [sp-0x30]
-    let v4: i64;  // r14
-    let v5: i32;  // ecx
-    let v6: i64;  // rax
-    let v7: i64;  // rcx
-    let v8: i32;  // edx
-    let v9: i64;  // r14
+fn uu_unexpand::next_char_info(a0: i64, a1: i32, a2: i64, a3: i64, a4: i64) -> long long {
+    let v0: core::slice::iter::Iter<u8>;  // [bp-0x40], Other Possible Types: struct16
+    let v1: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x30]
+    let v2: u64;  // [bp-0x28]
+    let v4: u64;  // r14
+    let v6: u64;  // rax
+    let v7: u8;  // bl
+    let v10: struct24;  // rcx
+    let v12: u32;  // edx
+    let v18: i64;  // rax
+    let v19: struct24;  // rax
+    let v20: core::option::Option<u32>;  // rax:rax
 
-    if !a1 {
-        if a4 < a3 {
-            v6 = 1;
-            match (v5) {
-                8 => {
-                    break;
-                }
-                9 => {
-                    break;
-                }
-                32 => {
-                    break;
-                }
-                _ => {
-                    goto LABEL_4b2aa1;
-                }
-            }
-        }
-LABEL_4b2aa1:
-        v7 = 1;
-    } else {
-        v4 = *((a2 + a4) as &i8) < 0;
-        if v4 + a4 + 1 > a3 {
-            v6 = 1;
-            goto LABEL_4b2aa1;
-        } else {
-            v2 = core::str::converts::from_utf8(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a4, v4 + a4 + 1, a2, a3, "src/uu/unexpand/src/unexpand.rs"), a2);
-            match v2 {
-                Err(_) => {
-                    v6 = 1;
-                    v7 = 1;
-                },
-                Ok(_) => {
-                    v0 = *((&v2 as &char + 8) as &i64);
-                    v1 = *((&v2 as &char + 16) as &i64) + v0;
-                    v7 = 1;
-                    if !core::str::validations::next_code_point(&v0) as i32 {
-                        v6 = 1;
-                    } else {
-                        match (v8) {
+    if a1 && !((v4 = (*((a2 + a4) as &i8) < 0) as u8 as u64, v4 + a4 + 1 > a3)) {
+        v1 = core::str::converts::from_utf8(<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(a4, v4 + a4 + 1, a2, a3, "src/uu/unexpand/src/unexpand.rs"), a2);
+        match v1 {
+            Err(_) => {
+                v7 = 3;
+                v10 = 1;
+                v10 = 1;
+            },
+            Ok(_) => {
+                v0 = struct16 {
+                    field_0: v2
+                    field_8: *((&v1 as &char + 16) as &i64) + v2
+                };
+                v0 = core::slice::iter::Iter<u8> {
+                    ptr: core::ptr::non_null::NonNull<u8> {
+                        pointer: v2
+                    }
+                    end_or_len: *((&v1 as &char + 16) as &i64) + v2
+                    _marker: core::marker::PhantomData<&u8> { }
+                };
+                v20 = core::str::validations::next_code_point(&v0) as u128;
+                v10 = 1;
+                v7 = 3;
+                match v20 {
+                    Some(_) => {
+                        match (v12) {
                             8 => {
-                                v6 = 0;
+                                v10 = 0;
                                 break;
                             }
                             9 => {
-                                v6 = 0;
+                                v7 = 2;
+                                v10 = 0;
                                 break;
                             }
                             32 => {
-                                v6 = 0;
+                                v7 = 1;
+                                v10 = 0;
                                 break;
                             }
                             _ => {
-                                v9 = v4 + 1;
-                                if v8 < 127 {
-                                    v6 = (32 <= v8) as u8 as u64;
-                                    v7 = v9;
-                                    break;
-                                } else if v8 <= 159 {
-                                    v6 = 0;
-                                    v7 = v9;
+                                v10 = v4 + 1;
+                                if v12 < 127 {
+                                    v10 = (32 <= v12) as u8 as u64;
                                     break;
                                 } else {
-                                    v6 = unicode_width::tables::charwidth::lookup_width(v8 as u64);
-                                    v7 = v9;
+                                    v18 = (v12 <= 159 ? 0 : unicode_width::tables::charwidth::lookup_width(v12 as u64));
                                     break;
                                 }
                             }
                         }
-                    }
-                },
-            }
+                    },
+                    None => {
+                        v10 = 1;
+                    },
+                }
+            },
         }
+    } else {
+        v10 = 1;
+        v10 = v6;
     }
-    *((a0 + 8) as &i8) = 3;
-    *(a0 as &unsigned long) = v6;
-    *((a0 + 16) as &unsigned long) = v7;
-    return v6;
+    v19 = v10;
+    *((a0 + 8) as &u8) = v7;
+    *(a0 as &struct24) = v19;
+    *((a0 + 16) as &struct24) = v10;
+    return v19;
 }

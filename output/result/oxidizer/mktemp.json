@@ -1,14 +1,12 @@
 {
   "decompilation": {
-    "_ZN9uu_mktemp6uumain17h4680465c94e688ceE": "fn uu_mktemp::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [bp-0x60]\n    let v3: u8;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_mktemp::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    memcpy(&v3, &v5, 16);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3 as u128);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
-    "_ZN9uu_mktemp7Options4from17h443dd3893f930365E": "fn uu_mktemp::Options::from(a1: i64) -> : struct76 {\n    let a0: u64;  // rsi\n    let v0: Result<struct40, struct16>;  // [bp-0xf8], Other Possible Types: std::path::PathBuf, struct24, u128\n    let v1: struct24;  // [bp-0xf8]\n    let v2: u64;  // [bp-0xf8]\n    let v3: u192;  // [sp-0xf8]\n    let v4: Result<struct40, struct16>;  // [bp-0xf8]\n    let v5: core::result::Result<alloc::string::String, std::env::VarError>;  // [bp-0xf8]\n    let v6: u128;  // [bp-0xf0]\n    let v7: u64;  // [bp-0xe8]\n    let v8: struct24;  // [bp-0xc8]\n    let v9: u128;  // [bp-0xc8]\n    let v10: u128;  // [bp-0xc8]\n    let v11: u64;  // [bp-0xb8]\n    let v12: std::sys::os_str::bytes::Buf;  // [bp-0xa8], Other Possible Types: u64\n    let v13: u128;  // [bp-0xa8]\n    let v14: u64;  // [bp-0xa0]\n    let v15: u64;  // [bp-0x98]\n    let v16: u64;  // [bp-0x88]\n    let v17: u128;  // [bp-0x88]\n    let v18: u128;  // [bp-0x88]\n    let v19: u64;  // [bp-0x78]\n    let v20: u128;  // [bp-0x68]\n    let v21: u64;  // [bp-0x58]\n    let v22: struct24;  // [bp-0x48]\n    let v23: u64;  // [bp-0x48]\n    let v25: &u64;  // rax\n    let v26: u64;  // rax\n    let v27: u64;  // rcx\n    let v28: u8;  // al\n    let v29: u8;  // al\n    let v30: u8;  // al\n    let v31: u64;  // rax\n    let v32: u8;  // al\n    let v33: i64;  // rdi\n\n    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, \"tmpdir\");\n    v25 = core::option::Option<T>::or_else(clap_builder::parser::error::MatchesError::unwrap(&g_41f0d1, 6, &v0), a0);\n    if v25 {\n        v22 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(v25);\n    }\n    v4 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, \"template\");\n    v26 = clap_builder::parser::error::MatchesError::unwrap(\"template\", &v4);\n    if v26 {\n        v5 = std::env::var(\"TMPDIR\");\n        if !v5 as i64 && clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"t\") as i8 {\n            v1 = std::env::var_os(\"TMPDIR\");\n            v23 = v1.field_0;\n            v27 = v23;\n            if !(v27 == 0x8000000000000000) {\n                goto LABEL_4bec99;\n            }\n        } else if v23 != 0x8000000000000000 {\n            memcpy(&v20, &v22 as u8, 16);\n        } else if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"t\") as i8 || (v23 = 0x8000000000000000, clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(a0, \"tmpdir\") as i8) {\n            v0 = std::env::temp_dir();\n            v27 = v2;\nLABEL_4bec99:\n            v23 = v27;\n            memcpy(&v20, &v3, 16);\n        }\n        v16 = v23;\n        v17 = v17 & 0xffffffffffffffff0000000000000000 | v16;\n        memcpy(&v17, &v20, 16);\n        v12 = <alloc::string::String as core::clone::Clone>::clone(v26);\n        v11 = v19;\n        v9 = v17;\n        memcpy(&v1, &v12, 16);\n        v7 = v15;\n    } else {\n        if v23 == 0x8000000000000000 {\n            v1 = core::ops::function::FnOnce::call_once();\n        } else {\n            v6 = *(&v22.field_8 as &i128);\n            v2 = v23;\n        }\n        v15 = v7;\n        v12 = v2;\n        v14 = v1.field_8;\n        v8 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"tmp.XXXXXXXXXX\");\n        v7 = v11;\n        v0 = *(&v8.field_0 as &i128);\n        memcpy(&v8, &v12, 16);\n        v11 = v15;\n    }\n    v21 = v11;\n    v20 = v9;\n    v19 = v7;\n    memcpy(&v17, &v2, 16);\n    v28 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"directory\") as i32;\n    v29 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"dry-run\") as i32;\n    v30 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"quiet\") as i32;\n    v15 = v21;\n    v13 = v20;\n    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, \"suffix\");\n    v31 = clap_builder::parser::error::MatchesError::unwrap(\"suffix\", &v0);\n    if v31 {\n        v0 = core::ops::function::FnOnce::call_once(v31);\n        v11 = v7;\n        memcpy(&v0, &v0, 16);\n    }\n    v32 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"t\") as i8;\n    *((v33 + 16) as &u64) = v19;\n    *(v33 as &u128) = v18;\n    *((v33 + 72) as &u8) = v28;\n    *((v33 + 73) as &u8) = v29;\n    *((v33 + 74) as &u8) = v30;\n    *((v33 + 24) as &u128) = v13;\n    *((v33 + 40) as &u64) = v15;\n    *((v33 + 48) as &u128) = v10;\n    *((v33 + 64) as &u64) = v11;\n    *((v33 + 75) as &u8) = v32;\n    return;\n}\n",
+    "_ZN9uu_mktemp6uumain17h4680465c94e688ceE": "fn uu_mktemp::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: u128;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_mktemp::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    v3 = *(&v5.vec.buf.cap as &i128);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
+    "_ZN9uu_mktemp7Options4from17h443dd3893f930365E": "fn uu_mktemp::Options::from(a1: &struct56) -> : struct76 {\n    let a0: u64;  // rsi\n    let v0: struct24;  // [bp-0xf8], Other Possible Types: core::result::Result<alloc::string::String, std::env::VarError>\n    let v1: std::path::PathBuf;  // [bp-0xf8], Other Possible Types: struct24, u192\n    let v2: u128;  // [bp-0xf8]\n    let v3: u64;  // [bp-0xf8]\n    let v4: Result<struct40, struct16>;  // [bp-0xf8]\n    let v5: struct24;  // [bp-0xf8]\n    let v6: u128;  // [bp-0xf0]\n    let v7: u64;  // [bp-0xe8]\n    let v8: struct24;  // [bp-0xc8], Other Possible Types: u128\n    let v10: u64;  // [bp-0xb8]\n    let v11: alloc::string::String;  // [bp-0xa8], Other Possible Types: u64\n    let v12: u128;  // [bp-0xa8]\n    let v13: u64;  // [bp-0xa0]\n    let v14: u64;  // [bp-0x98]\n    let v15: u64;  // [bp-0x88]\n    let v16: u128;  // [bp-0x88]\n    let v17: u128;  // [bp-0x80]\n    let v18: u64;  // [bp-0x78]\n    let v19: u128;  // [bp-0x68]\n    let v20: u64;  // [bp-0x58]\n    let v21: struct24;  // [bp-0x48]\n    let v22: u64;  // [bp-0x48]\n    let v24: &u64;  // rax\n    let v25: u64;  // rax\n    let v26: u64;  // rcx\n    let v27: u8;  // al\n    let v28: u8;  // al\n    let v29: u8;  // al\n    let v30: u64;  // rax\n    let v31: u8;  // al\n    let v32: i64;  // rdi\n\n    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, \"tmpdir\");\n    v24 = core::option::Option<T>::or_else(clap_builder::parser::error::MatchesError::unwrap(&g_41f0d1, 6, &v0), a0);\n    if v24 {\n        v21 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(v24);\n    }\n    v4 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, \"template\");\n    v25 = clap_builder::parser::error::MatchesError::unwrap(\"template\", &v4);\n    if v25 {\n        v0 = std::env::var(\"TMPDIR\");\n        if !v0 as i64 && clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"t\") as i8 {\n            v1 = std::env::var_os(\"TMPDIR\");\n            v22 = v1.field_0;\n            v26 = v22;\n            if !(v26 == 0x8000000000000000) {\n                goto LABEL_4bec99;\n            }\n        } else if v22 == 0x8000000000000000 && (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"t\") as i8 || (v22 = 0x8000000000000000, clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(a0, \"tmpdir\") as i8)) {\n            v1 = std::env::temp_dir();\n            v26 = v3;\nLABEL_4bec99:\n            v22 = v26;\n            v19 = *((&v1 as &char + 8) as &i128);\n        }\n        v15 = v22;\n        v17 = v19;\n        v11 = <alloc::string::String as core::clone::Clone>::clone(v25);\n        v10 = v18;\n        v8 = *(&v15 as &i128);\n        v2 = *(&v11.vec.buf.cap as &i128);\n        v7 = v14;\n    } else {\n        if v22 == 0x8000000000000000 {\n            v5 = core::ops::function::FnOnce::call_once();\n        } else {\n            v6 = *(&v21.field_8 as &i128);\n            v3 = v22;\n        }\n        v14 = v7;\n        v11 = v3;\n        v13 = v5.field_8;\n        v8 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"tmp.XXXXXXXXXX\");\n        v7 = v10;\n        v2 = *(&v8.field_0 as &i128);\n        v8 = *(&v11 as &i128);\n        v10 = v14;\n    }\n    v20 = v10;\n    v19 = v8;\n    v18 = v7;\n    v16 = *(&v3 as &i128);\n    v27 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"directory\") as i32;\n    v28 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"dry-run\") as i32;\n    v29 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"quiet\") as i32;\n    v14 = v20;\n    v12 = v19;\n    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, \"suffix\");\n    v30 = clap_builder::parser::error::MatchesError::unwrap(\"suffix\", &v0);\n    if v30 {\n        v0 = core::ops::function::FnOnce::call_once(v30);\n        v10 = v7;\n        v8 = *(&v0.field_0 as &i128);\n    }\n    v31 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"t\") as i8;\n    *((v32 + 16) as &u64) = v18;\n    *(v32 as &u128) = v16;\n    *((v32 + 72) as &u8) = v27;\n    *((v32 + 73) as &u8) = v28;\n    *((v32 + 74) as &u8) = v29;\n    *((v32 + 24) as &u128) = v12;\n    *((v32 + 40) as &u64) = v14;\n    *((v32 + 48) as &u128) = v8;\n    *((v32 + 64) as &u64) = v10;\n    *((v32 + 75) as &u8) = v31;\n    return;\n}\n",
     "_ZN9uu_mktemp32find_last_contiguous_block_of_xs17h8856c2687abea15aE": "fn uu_mktemp::find_last_contiguous_block_of_xs(a1: i64, a2: i64) -> : struct24 {\n    let a0: i64;  // rdi\n    let v0: u64;  // [bp-0x28]\n    let v2: u64;  // rax\n    let v3: u64;  // rax\n    let v4: u64;  // rdx\n    let v5: u64;  // rdx\n\n    v0 = v2;\n    v3 = core::str::<impl str>::rfind(a1, a2);\n    v5 = v4 + 3;\n    return struct24 {\n        field_0: v3\n        field_8: core::option::Option<T>::map_or(core::str::<impl str>::rfind(a1, v5), v4)\n        field_16: v5\n    };\n}\n",
-    "_ZN9uu_mktemp6Params4from17h08dfed7a01f28665E": "fn uu_mktemp::Params::from(a1: &struct64) -> Result<struct80, struct40> {\n    let a0: i64;  // rsi\n    let v0: u8;  // [bp-0x1a1]\n    let v1: u64;  // [bp-0x1a0]\n    let v2: u128;  // [bp-0x198], Other Possible Types: void*\n    let v3: struct24;  // [bp-0x198]\n    let v4: u64;  // [bp-0x190]\n    let v5: void*;  // [bp-0x188], Other Possible Types: u64\n    let v6: u128;  // [bp-0x178], Other Possible Types: std::path::PathBuf\n    let v7: u32;  // [bp-0x178]\n    let v8: u64;  // [bp-0x178]\n    let v9: u64;  // [bp-0x178]\n    let v10: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x178]\n    let v11: u64;  // [bp-0x170], Other Possible Types: char\n    let v12: u64;  // [bp-0x170]\n    let v13: u64;  // [bp-0x168], Other Possible Types: void*\n    let v14: u128;  // [bp-0x160]\n    let v15: u64;  // [bp-0x150]\n    let v16: u128;  // [bp-0x148]\n    let v17: u64;  // [bp-0x138]\n    let v18: u64;  // [bp-0x128]\n    let v19: u64;  // [bp-0x120]\n    let v20: u64;  // [bp-0x118]\n    let v21: u64;  // [bp-0x108], Other Possible Types: void*\n    let v22: u64;  // [bp-0x100]\n    let v23: u64;  // [bp-0xf8]\n    let v24: u64;  // [bp-0xf0]\n    let v25: void*;  // [bp-0xe8]\n    let v26: u8;  // [bp-0xe0]\n    let v27: u64;  // [bp-0xd8]\n    let v28: u64;  // [bp-0xd0]\n    let v29: struct24;  // [bp-0xc8]\n    let v30: u128;  // [bp-0xc8]\n    let v31: u64;  // [bp-0xb8]\n    let v32: void*;  // [bp-0xa8]\n    let v33: u128;  // [bp-0xa0]\n    let v35: u64;  // [bp-0x90]\n    let v36: u64;  // [bp-0x88]\n    let v37: u64;  // [bp-0x80]\n    let v38: u128;  // [bp-0x78]\n    let v39: u64;  // [bp-0x68]\n    let v40: u64;  // [bp-0x58]\n    let v41: u64;  // [bp-0x50]\n    let v42: std::sys::os_str::bytes::Buf;  // [bp-0x48]\n    let v45: u64;  // rdx\n    let v46: u64;  // rcx\n    let v47: i64;  // rdi\n    let v48: i64;  // rdi\n    let v49: u64;  // rbp\n    let v50: struct24;  // rax\n    let v51: i64;  // rdi\n    let v52: u64;  // rax\n    let v53: u64;  // rcx\n    let v54: void*;  // rdx\n    let v55: u64;  // r14\n    let v56: u64;  // rbp\n    let v57: core::option::Option<&std::path::Path>;  // rax\n    let v58: core::option::Option<&std::ffi::os_str::OsStr>;  // rax\n    let v59: u32;  // rcx\n    let v60: void*;  // rax\n    let v61: u64;  // r14\n    let v63: i64;  // rdi\n    let v64: i64;  // rdi\n    let v69: &str;  // rax:rdx\n    let v70: &str;  // rax:rdx\n    let v71: u64;  // [bp-0x178]\n\n    v1 = a0 + 48;\n    if *((a0 + 48) as &i64) != 0x8000000000000000 {\n        v6 = 0;\n        v71 = v7 & -0x100000000;\n        v69 = core::char::methods::encode_utf8_raw(88, &v71, a1);\n        if !core::slice::<impl [T]>::ends_with(*((a0 + 8) as &i64), *((a0 + 16) as &i64), v69.data_ptr, v69.length) {\n            *((v47 + 24) as &i64) = *((a0 + 16) as &i64);\n            *((v47 + 8) as &i128) = *(a0 as &i128);\n            *((v47 + 32) as &i64) = 9223372036854775809;\n            *(v47 as &i64) = 0x8000000000000000;\n            return;\n        }\n    }\n    uu_mktemp::find_last_contiguous_block_of_xs(*((a0 + 8) as &i64), *((a0 + 16) as &i64), v46);\n    if v18 {\n        v22 = v20;\n        v31 = *((a0 + 40) as &i64);\n        v30 = *((a0 + 24) as &i128);\n        if v30 as i64 != 0x8000000000000000 {\n            v29 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(a1);\n            v2 = *(&v11 as &i128);\n            if v71 != 0x8000000000000000 {\n                v24 = v2;\n                v23 = v71;\n            }\n        }\n        v49 = *((a0 + 8) as &i64);\n        v6 = std::path::Path::join(v24, v25, v49, v19);\n        memcpy(&v2, &v11, 16);\n        v21 = <T as alloc::string::ToString>::to_string(&v2) & -0x100 | 1;\n        if *((a0 + 75) as &i8) && <char as core::str::pattern::Pattern>::is_contained_in(v49, v19, a1) || v29.field_0 != 0x8000000000000000 && std::path::Path::is_absolute(v49, v19) {\n            *((v51 + 24) as &i64) = *((a0 + 16) as &i64);\n            *((v51 + 8) as &i128) = *(a0 as &i128);\n            *((v51 + 32) as &struct24) = v50;\n            *(v51 as &i64) = 0x8000000000000000;\n        } else {\n            v7 = 0;\n            v8 = v6.inner.inner.inner.buf.cap.__0 & -0x100000000;\n            v70 = core::char::methods::encode_utf8_raw(47, &v8, a1);\n            v0 = core::slice::<impl [T]>::ends_with(v27, v28, v70.data_ptr, v70.length);\n            if v0 {\n                v13 = v28;\n                memcpy(&v8, &v26, 16);\n                v52 = 1;\n                v21 = 0;\n                v53 = 0;\n                v54 = 0;\n            } else {\n                v55 = v27;\n                v56 = v28;\n                v57 = std::path::Path::parent(v55, v56) as u64;\n                match v57 {\n                    Some(_) => {\n                        v6 = struct16 {\n                            field_0: v57\n                            field_8: v45\n                        };\n                        v3 = <T as alloc::string::ToString>::to_string(&v6);\n                        v11 = v12;\n                    },\n                    None => {\n                        v2 = 0;\n                        v4 = 1;\n                        v5 = 0;\n                        v9 = v8;\n                    },\n                }\n                v58 = std::path::Path::file_name(v55, v56) as u64;\n                if let Some(_) = v58 {\n                    v10 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(v58, a1);\n                    match v10 {\n                        Err(_) => {\n                            core::option::unwrap_failed(); /* do not return */\n                        },\n                        Ok(_) => {\n                            <T as alloc::slice::hack::ConvertVec>::to_vec(v11, v13, v59);\n                            v53 = v10 as i64;\n                            v52 = v11;\n                            v54 = v13;\n                        },\n                    }\n                }\n                v13 = v5;\n                memcpy(&v10 as u64, &v2, 16);\n                v21 = v13 & -0x100 | 1;\n            }\n            v39 = v13;\n            memcpy(&v38, &v10, 16);\n            v35 = v53;\n            v36 = v52;\n            v37 = v54;\n            v60 = *(v1 as &i64);\n            if v60 != 0x8000000000000000 {\n                v33 = *((a0 + 56) as &i128);\n            }\n            v32 = v60;\n            v61 = *((a0 + 16) as &i64);\n            v40 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v22, *((a0 + 8) as &i64), v61) as u64;\n            v41 = v45;\n            v42 = format!(\"{}{}\", &v40, &v32);\n            memcpy(&v18, &v42, 16);\n            v20 = v42.inner.len;\n            if !<char as core::str::pattern::Pattern>::is_contained_in(v19, v42.inner.len, a1) {\n                v13 = v39;\n                v6 = v38;\n                v15 = v37;\n                v14 = *(&v35 as &i128);\n                v17 = v20;\n                memcpy(&v16, &v18, 16);\n                *((v64 + 64) as &u64) = v20;\n                *((v64 + 48) as &u128) = v16;\n                *(v64 as &u128) = v38;\n                *((v64 + 32) as &i64) = 0;\n                *((v64 + 40) as &u64) = v15;\n                *((v64 + 16) as &i128) = *(&v13 as &i128);\n                *((v64 + 72) as &u64) = v22 - v19;\n                return;\n            }\n            *((v63 + 24) as &u64) = v20;\n            *((v63 + 8) as &i128) = *(&v18 as &i128);\n            *((v63 + 32) as &i64) = 9223372036854775812;\n            *(v63 as &i64) = 0x8000000000000000;\n        }\n    } else {\n        if *(v1 as &i64) == 0x8000000000000000 {\n            v5 = *((a0 + 16) as &i64);\n            v2 = *(a0 as &i128);\n        } else {\n            v6 = struct24 {\n                field_0: *((a0 + 8) as &i64)\n                field_8: *((a0 + 8) as &i64) + *((a0 + 16) as &i64)\n                field_16: *((a0 + 16) as &i64)\n            };\n            v3 = <alloc::string::String as core::iter::traits::collect::FromIterator<char>>::from_iter(&v6);\n        }\n        *((v48 + 24) as &u64) = v5;\n        *((v48 + 8) as &i128) = *(&v3.field_0 as &i128);\n        *((v48 + 32) as &i64) = 9223372036854775810;\n        *(v48 as &i64) = 0x8000000000000000;\n    }\n    return;\n}\n",
-    "_ZN9uu_mktemp6uu_app17h678f679507a186e9E": "fn uu_mktemp::uu_app(a0: &struct712) -> long long {\n    let v0: u64;  // [bp-0xa60]\n    let v1: u64;  // [bp-0xa58]\n    let v2: u64;  // [bp-0xa50]\n    let v3: u8;  // [bp-0xa48]\n    let v4: u32;  // [bp-0x800]\n    let v5: u32;  // [bp-0x7fc]\n    let v6: struct437;  // [bp-0x7f8]\n    let v7: u32;  // [bp-0x5b0]\n    let v8: i8;  // [bp-0x5ac]\n    let v9: u64;  // [bp-0x53c]\n    let v10: u32;  // [bp-0x534]\n    let v11: u8;  // [bp-0x530]\n    let v12: u64;  // [bp-0x274]\n    let v13: u32;  // [bp-0x26c]\n    let v14: u8;  // [bp-0x268]\n    let v15: u64;  // [bp-0x260]\n    let v16: u64;  // [bp-0x258]\n    let v19: u64;  // rdx\n\n    v6 = clap_builder::builder::command::Command::new(uucore::util_name(), v19);\n    clap_builder::builder::command::Command::version(&v11, &v6, \"0.0.28\");\n    clap_builder::builder::command::Command::about(&v6, &v11, \"Create a temporary file or directory.\");\n    uucore::format_usage(&v3, \"{} [OPTION]... [TEMPLATE]\");\n    clap_builder::builder::command::Command::override_usage(&v11, &v6, &v3);\n    memcpy(&v6, &v11, 700);\n    v9 = 549755814016 | v12;\n    v10 = v13;\n    clap_builder::builder::arg::Arg::new(&v11, \"directory\");\n    clap_builder::builder::arg::Arg::short(&v3, &v11, 100);\n    clap_builder::builder::arg::Arg::long(&v11, &v3, \"directory\");\n    clap_builder::builder::arg::Arg::help(&v3, &v11, \"Make a directory instead of a file\");\n    clap_builder::builder::arg::Arg::action(&v14, &v3);\n    clap_builder::builder::command::Command::arg(&v11, &v6, &v14);\n    clap_builder::builder::arg::Arg::new(&v6, \"dry-run\");\n    clap_builder::builder::arg::Arg::short(&v3, &v6, 117);\n    clap_builder::builder::arg::Arg::long(&v6, &v3, \"dry-run\");\n    clap_builder::builder::arg::Arg::help(&v3, &v6, \"do not create anything; merely print a name (unsafe)\");\n    clap_builder::builder::arg::Arg::action(&v14, &v3);\n    clap_builder::builder::command::Command::arg(&v6, &v11, &v14);\n    clap_builder::builder::arg::Arg::new(&v11, \"quiet\");\n    clap_builder::builder::arg::Arg::short(&v3, &v11, 113);\n    clap_builder::builder::arg::Arg::long(&v11, &v3, \"quiet\");\n    clap_builder::builder::arg::Arg::help(&v3, &v11, \"Fail silently if an error occurs.\");\n    clap_builder::builder::arg::Arg::action(&v14, &v3);\n    clap_builder::builder::command::Command::arg(&v11, &v6, &v14);\n    clap_builder::builder::arg::Arg::new(&v6, \"suffix\");\n    clap_builder::builder::arg::Arg::long(&v3, &v6, \"suffix\");\n    clap_builder::builder::arg::Arg::help(&v6, &v3, \"append SUFFIX to TEMPLATE; SUFFIX must not contain a path separator. This option is implied if TEMPLATE does not end with X.\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v6, \"SUFFIX\");\n    clap_builder::builder::command::Command::arg(&v6, &v11, &v3);\n    clap_builder::builder::arg::Arg::new(&v11, \"p\");\n    clap_builder::builder::arg::Arg::short(&v3, &v11, 112);\n    clap_builder::builder::arg::Arg::help(&v11, &v3, \"short form of --tmpdir\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v11, \"DIR\");\n    clap_builder::builder::arg::Arg::num_args(&v11, &v3);\n    v0 = 3;\n    v16 = v2;\n    v14 = v0;\n    v15 = v1;\n    clap_builder::builder::arg::Arg::value_parser(&v3, &v11, &v14);\n    clap_builder::builder::arg::Arg::value_hint(&v14, &v3, 4);\n    clap_builder::builder::command::Command::arg(&v11, &v6, &v14);\n    clap_builder::builder::arg::Arg::new(&v6, \"tmpdir\");\n    clap_builder::builder::arg::Arg::long(&v3, &v6, \"tmpdir\");\n    clap_builder::builder::arg::Arg::help(&v6, &v3, \"interpret TEMPLATE relative to DIR; if DIR is not specified, use $TMPDIR ($TMP on windows) if set, else /tmp. With this option, TEMPLATE must not be an absolute name; unlike with -t, TEMPLATE may contain slashes, but mktemp creates only the final component\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v6, \"DIR\");\n    v14 = struct17 {\n        field_0: 0\n        field_8: 1\n        field_16: 0\n    };\n    clap_builder::builder::arg::Arg::num_args(&v6, &v3, &v14);\n    memcpy(&v3, &v6, 584);\n    v4 = 128 | v7;\n    v5 = *(&v8 as &i32);\n    clap_builder::builder::arg::Arg::overrides_with(&v6, &v3, \"p\");\n    clap_builder::builder::arg::Arg::value_parser(&v3, &v6, &v0);\n    clap_builder::builder::arg::Arg::value_hint(&v14, &v3, 4);\n    clap_builder::builder::command::Command::arg(&v6, &v11, &v14);\n    clap_builder::builder::arg::Arg::new(&v11, \"t\");\n    clap_builder::builder::arg::Arg::short(&v3, &v11, 116);\n    clap_builder::builder::arg::Arg::help(&v11, &v3, \"Generate a template (using the supplied prefix and TMPDIR (TMP on windows) if set) to create a filename template [deprecated]\");\n    clap_builder::builder::arg::Arg::action(&v3, &v11);\n    clap_builder::builder::command::Command::arg(&v11, &v6, &v3);\n    clap_builder::builder::arg::Arg::new(&v6, \"template\");\n    clap_builder::builder::arg::Arg::num_args(&v3, &v6);\n    clap_builder::builder::command::Command::arg(a0, &v11, &v3);\n    return a0;\n}\n",
-    "_ZN9uu_mktemp8dry_exec17h0a7898737835babcE": "fn uu_mktemp::dry_exec(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i64, a7: i64) -> : struct24 {\n    let a0: u64;  // rsi\n    let v0: u64;  // [bp-0xb8]\n    let v1: u64;  // [bp-0xb0]\n    let v2: void*;  // [bp-0xa8]\n    let v3: u128;  // [bp-0xa0], Other Possible Types: core::result::Result<alloc::string::String, alloc::string::FromUtf8Error>, struct24\n    let v4: u64;  // [bp-0x98]\n    let v5: u64;  // [bp-0x78]\n    let v6: u64;  // [bp-0x70]\n    let v7: u192;  // [bp-0x68]\n    let v8: struct24;  // [bp-0x48]\n    let v9: u64;  // r13\n    let v10: u64;  // r12\n    let v11: u64;  // rdx\n    let v12: i64;  // rax\n    let v13: u8;  // cl\n    let v14: u32;  // edx\n    let v15: u8;  // dl\n    let v16: u8;  // cl\n    let v17: u64;  // rdi\n\n    v6 = a1;\n    v5 = a0;\n    v9 = a4 + a3;\n    v3 = alloc::raw_vec::RawVec<T,A>::try_allocate_in(v9 + a6, 0);\n    v0 = v4;\n    v1 = v3.field_16;\n    v2 = 0;\n    <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<&T,core::slice::iter::Iter<T>>>::spec_extend(&v0, a2, a2 + a3);\n    <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,I>>::spec_extend(&v0, a4, 88);\n    <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<&T,core::slice::iter::Iter<T>>>::spec_extend(&v0, a5, a6 + a5);\n    v10 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index_mut(a3, v9, v1, v2, \"src/uu/mktemp/src/mktemp.rs\");\n    v3 = rand::rngs::thread::thread_rng();\n    rand::rng::Rng::fill(&v3, v10, v11);\n    v3 = struct16 {\n        field_0: v10\n        field_8: v10 + v11\n    };\n    v12 = <core::slice::iter::IterMut<T> as core::iter::traits::iterator::Iterator>::next(&v3);\n    if v12 {\n        do {\n            v13 = *(v12 as &i8);\n            v14 = (v13 >> 1) * 133 >> 12;\n            v16 = v13 - (v14 * 64 - v14 * 2);\n        } while ((*(v12 as &i32) = ((v13 as u64 - v15 as u64 & 255) < 10 ? v16 | 48 : (v16 < 36 ? v16 + 87 : v16 + 29)), v12 = <core::slice::iter::IterMut<T> as core::iter::traits::iterator::Iterator>::next(&v3), v12));\n    }\n    v7 = alloc::vec::Vec<u8, alloc::alloc::Global> {\n        buf: alloc::raw_vec::RawVec<u8, alloc::alloc::Global> {\n            cap: alloc::raw_vec::Cap {\n                __0: <UNKNOWN>\n            }\n            ptr: core::ptr::unique::Unique<u8> {\n                pointer: core::ptr::non_null::NonNull<u8> {\n                    pointer: <UNKNOWN>\n                }\n                _marker: core::marker::PhantomData<u8> { }\n            }\n            alloc: alloc::alloc::Global { }\n        }\n        len: v2\n    };\n    memcpy(&v7, &v0, 16);\n    v3 = alloc::string::String::from_utf8(&v7);\n    v8 = core::result::Result<T,E>::unwrap(&v3);\n    std::path::Path::join(v17);\n    return;\n}\n",
-    "_ZN9uu_mktemp13make_temp_dir17h59267eff7d377883E": "fn uu_mktemp::make_temp_dir(a1: i64, a2: i64, a3: i32, a4: i64, a5: i64, a6: i64, a7: i64) -> : struct24 {\n    let a0: i64;  // rdi\n    let v0: struct24;  // [bp-0x148], Other Possible Types: struct_0 *\n    let v1: u128;  // [bp-0x148]\n    let v2: u64;  // [bp-0x140]\n    let v3: i64;  // [bp-0x138], Other Possible Types: u64\n    let v4: u64;  // [bp-0x130]\n    let v5: i64;  // [bp-0x128]\n    let v6: u64;  // [bp-0x120]\n    let v7: u8;  // [bp-0x118]\n    let v8: u8;  // [bp-0x110]\n    let v9: u64;  // [bp-0x108]\n    let v10: alloc::string::String;  // [bp-0x100]\n    let v11: u64;  // [bp-0xf0]\n    let v12: u64;  // [bp-0xe8]\n    let v13: u64;  // [bp-0xe0]\n    let v14: u64;  // [bp-0xd8]\n    let v15: u64;  // [bp-0xd0]\n    let v16: u64;  // [bp-0xc8], Other Possible Types: struct24\n    let v17: u64;  // [bp-0xc0]\n    let v18: i64;  // [bp-0xb8]\n    let v19: u64;  // [bp-0xb0]\n    let v20: void*;  // [bp-0xa8]\n    let v21: struct24;  // [bp-0x98]\n    let v22: u32;  // [bp-0x80]\n    let v23: u64;  // [bp-0x78]\n    let v24: u64;  // [bp-0x70]\n    let v25: u64;  // [bp-0x68]\n    let v26: u64;  // [bp-0x60]\n    let v27: u64;  // [bp-0x58]\n    let v28: alloc::string::String;  // [bp-0x50]\n    let v29: u8;  // [bp-0x48]\n    let v30: u64;  // [bp-0x38]\n    let v31: u64;  // rax\n    let v32: u64;  // rdx\n    let v33: u64;  // rdx\n\n    v12 = a3;\n    v13 = a4;\n    v14 = a6;\n    v15 = a7;\n    v28 = 0;\n    v22 = 0;\n    v23 = a3;\n    v24 = a4;\n    v27 = a5;\n    v25 = a6;\n    v26 = a7;\n    v21 = tempfile::Builder::tempdir_in(&v22, a1, a2);\n    if v21.field_16 as i8 != 2 {\n        v0 = tempfile::dir::TempDir::into_path(&v21);\n        v31 = std::fs::set_permissions(&v0, 448);\n        if !v31 {\n            return struct24 {\n                field_0: v0.field_0\n                field_16: v3\n            };\n        }\n        return struct24 {\n            field_0: 0x8000000000000000\n            field_8: uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v31)\n            field_16: v33\n        };\n    } else if std::io::error::Error::kind(v21.field_0 as i64) {\n        return struct24 {\n            field_0: 0x8000000000000000\n            field_8: uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v21.field_0 as i64)\n            field_16: v32\n        };\n    } else {\n        v10 = alloc::str::<impl str>::repeat(\"X\", a5);\n        v0 = &v12;\n        v2 = <&T as core::fmt::Display>::fmt;\n        v3 = &v10;\n        v4 = <alloc::string::String as core::fmt::Display>::fmt;\n        v5 = &v14;\n        v6 = <&T as core::fmt::Display>::fmt;\n        v16 = &g_41f4d8;\n        v17 = 3;\n        v20 = 0;\n        v18 = &v0;\n        v19 = 3;\n        v16 = core::option::Option<T>::map_or_else(a2);\n        memcpy(&v29, &v7, 16);\n        v30 = v9;\n        std::path::Path::join(a1);\n        memcpy(&v0, &v8, 16);\n        v1 = <T as alloc::string::ToString>::to_string(a2);\n        <T as alloc::slice::hack::ConvertVec>::to_vec(\"directory\", a3);\n        v3 = v18;\n        v1 = v16.field_0;\n        memcpy(&v4, &v10, 16);\n        v6 = v11;\n        return struct24 {\n            field_0: 0x8000000000000000\n            field_8: alloc::boxed::Box<T>::new(&v1 as u192)\n            field_16: &g_536af0\n        };\n    }\n}\n",
-    "_ZN9uu_mktemp14make_temp_file17hfdb13d12b9e8c76aE": "fn uu_mktemp::make_temp_file(a1: i64, a2: i64, a3: i32, a4: i64, a5: i64, a6: i64, a7: i64) -> Result<struct24, struct24> {\n    let a0: i64;  // rdi\n    let v0: std::path::PathBuf;  // [bp-0x190]\n    let v1: u64;  // [bp-0x180]\n    let v2: struct24;  // [bp-0x178]\n    let v3: u128;  // [bp-0x178]\n    let v4: struct24;  // [bp-0x170]\n    let v5: i64;  // [bp-0x168], Other Possible Types: u64, alloc::string::String\n    let v6: u64;  // [bp-0x160], Other Possible Types: struct24\n    let v7: struct24;  // [bp-0x158]\n    let v8: u64;  // [bp-0x150]\n    let v9: u64;  // [bp-0x148], Other Possible Types: struct44, struct24\n    let v10: u64;  // [bp-0x140]\n    let v11: i64;  // [bp-0x138]\n    let v12: u64;  // [bp-0x130]\n    let v13: void*;  // [bp-0x128], Other Possible Types: u64\n    let v14: u64;  // [bp-0x120]\n    let v15: u128;  // [bp-0x118], Other Possible Types: alloc::string::String\n    let v16: u64;  // [bp-0x110]\n    let v17: u64;  // [bp-0xf8]\n    let v18: u64;  // [bp-0xf0]\n    let v19: u64;  // [bp-0xe8]\n    let v20: u64;  // [bp-0xe0]\n    let v21: u64;  // [bp-0xd8]\n    let v22: struct32;  // [bp-0xd0]\n    let v23: u128;  // [bp-0xd0]\n    let v24: u32;  // [bp-0xb0]\n    let v25: u64;  // [bp-0xa8]\n    let v26: u64;  // [bp-0xa0]\n    let v27: u64;  // [bp-0x98]\n    let v28: u64;  // [bp-0x90]\n    let v29: u64;  // [bp-0x88]\n    let v30: u16;  // [bp-0x80]\n    let v31: u8;  // [bp-0x78]\n    let v32: u64;  // [bp-0x68]\n    let v33: u128;  // [bp-0x58]\n    let v34: u8;  // [bp-0x48]\n    let v35: u64;  // rdx\n\n    v18 = a3;\n    v19 = a4;\n    v20 = a6;\n    v21 = a7;\n    v30 = 0;\n    v24 = 0;\n    v25 = a3;\n    v26 = a4;\n    v29 = a5;\n    v27 = a6;\n    v28 = a7;\n    v22 = tempfile::Builder::tempfile_in(&v24, a1, a2);\n    if v22.field_16 as i8 != 2 {\n        memcpy(&v34, &v22 as u8, 16);\n        v33 = v23;\n        v9 = tempfile::file::NamedTempFile<F>::keep(&v33);\n        if !v9.field_0 {\n            return Ok(struct24 {\n                field_0: v9.field_16\n                field_16: v13\n            });\n        }\n        v17 = v14;\n        memcpy(&v15 as u8, &v9 as u8, 16);\n        v15 = *(&v9.field_8 as &i128);\n        v0 = std::sys::pal::unix::os::split_paths::bytes_to_path(v16, v15.vec.buf.cap.__0);\n        v5 = v1;\n        memcpy(&v2 as u8, &v0, 16);\n        v6 = 0x8000000000000000;\n        return struct24 {\n            field_0: 0x8000000000000000\n            field_8: alloc::boxed::Box<T>::new(&v2 as u8)\n            field_16: &g_536af0\n        };\n    } else if std::io::error::Error::kind(v22.field_0 as i64) {\n        return struct24 {\n            field_0: 0x8000000000000000\n            field_8: uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v22.field_0 as i64)\n            field_16: v35\n        };\n    } else {\n        v15 = alloc::str::<impl str>::repeat(\"X\", a5);\n        v2 = &v18;\n        v4 = <&T as core::fmt::Display>::fmt;\n        v5 = &v15;\n        v6 = <alloc::string::String as core::fmt::Display>::fmt;\n        v7 = &v20;\n        v8 = <&T as core::fmt::Display>::fmt;\n        v9 = &g_41f4d8;\n        v10 = 3;\n        v13 = 0;\n        v11 = &v2;\n        v12 = 3;\n        v9 = core::option::Option<T>::map_or_else(a2);\n        memcpy(&v31, &v0, 16);\n        v32 = v1;\n        std::path::Path::join(a1);\n        memcpy(&v2, &v0 as u8, 16);\n        v3 = <T as alloc::string::ToString>::to_string(a2);\n        <T as alloc::slice::hack::ConvertVec>::to_vec(\"file\", a3);\n        v5 = v11;\n        v3 = *(&v9.field_0 as &i128);\n        memcpy(&v6, &v15, 16);\n        v8 = v15.vec.len;\n        return struct24 {\n            field_0: 0x8000000000000000\n            field_8: alloc::boxed::Box<T>::new(&v3 as u192)\n            field_16: &g_536af0\n        };\n    }\n}\n",
-    "_ZN9uu_mktemp4exec17h4964a5bb0e6c4200E": "fn uu_mktemp::exec(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i64, a7: i64, a8: i8) -> : struct24 {\n    let a0: u64;  // rsi\n    let v0: u64;  // [bp-0x68], Other Possible Types: core::result::Result<&str, core::str::error::Utf8Error>\n    let v1: u64;  // [bp-0x60]\n    let v2: u64;  // [bp-0x58]\n    let v3: u64;  // [bp-0x50]\n    let v4: u64;  // [bp-0x48]\n    let v5: u64;  // [bp-0x40]\n    let v6: std::path::PathBuf;  // [bp-0x38]\n    let v7: i64;  // rdi\n    let v8: core::option::Option<&std::ffi::os_str::OsStr>;  // rax\n    let v9: i64;  // rdi\n\n    if vvar_7 {\n        uu_mktemp::make_temp_dir(a0, a1, a2, a3, a4, a5, a6, *(&v0 as &i64));\n    } else {\n        uu_mktemp::make_temp_file(a0, a1, a2, a3, a4, a5, a6, *(&v0 as &i64));\n    }\n    if v0 == 0x8000000000000000 {\n        *((v7 + 8) as &u64) = v4;\n        *((v7 + 16) as &u64) = v5;\n        *(v7 as &i64) = 0x8000000000000000;\n        return;\n    }\n    v3 = v0;\n    v4 = v1;\n    v5 = v2;\n    v8 = std::path::Path::file_name(v4, v5) as u64;\n    if let Some(_) = v8 {\n        v0 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(v8, a1);\n        if let Ok(_) = v0 {\n            v6 = std::path::Path::join(a0, a1, v1, v2);\n            *((v9 + 16) as &u64) = v6.inner.inner.inner.len;\n            *(v9 as &i128) = *(&v6.inner.inner.inner.buf.cap as &i128);\n            return;\n        }\n    }\n    core::option::unwrap_failed(); /* do not return */\n}\n"
+    "_ZN9uu_mktemp6Params4from17h08dfed7a01f28665E": "fn uu_mktemp::Params::from(a1: &struct80) -> Result<struct80, struct40> {\n    let a0: i64;  // rsi\n    let v0: u8;  // [bp-0x1a1]\n    let v1: u64;  // [bp-0x1a0]\n    let v2: void*;  // [bp-0x198], Other Possible Types: u128\n    let v3: struct16;  // [bp-0x198], Other Possible Types: struct24\n    let v4: u64;  // [bp-0x190]\n    let v5: void*;  // [bp-0x188], Other Possible Types: u64\n    let v6: std::path::PathBuf;  // [bp-0x178], Other Possible Types: struct16, struct24, u32\n    let v7: u64;  // [bp-0x178]\n    let v8: u64;  // [bp-0x178]\n    let v9: u128;  // [bp-0x178]\n    let v10: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x178], Other Possible Types: u64\n    let v11: i8;  // [bp-0x170], Other Possible Types: u64\n    let v12: struct16;  // [bp-0x170], Other Possible Types: u64\n    let v13: void*;  // [bp-0x168], Other Possible Types: u64\n    let v14: u128;  // [bp-0x160]\n    let v15: u64;  // [bp-0x150]\n    let v16: u128;  // [bp-0x148]\n    let v17: u64;  // [bp-0x138]\n    let v18: i8;  // [bp-0x128], Other Possible Types: u128\n    let v19: u64;  // [bp-0x120]\n    let v20: u64;  // [bp-0x118]\n    let v21: void*;  // [bp-0x108], Other Possible Types: u64\n    let v22: u64;  // [bp-0x100]\n    let v23: u64;  // [bp-0xf8]\n    let v24: u128;  // [bp-0xf0]\n    let v25: void*;  // [bp-0xe8]\n    let v26: i8;  // [bp-0xe0]\n    let v27: u64;  // [bp-0xd8]\n    let v28: u64;  // [bp-0xd0]\n    let v29: struct24;  // [bp-0xc8]\n    let v30: u128;  // [bp-0xc8]\n    let v31: u64;  // [bp-0xb8]\n    let v32: void*;  // [bp-0xa8]\n    let v33: u128;  // [bp-0xa0]\n    let v35: u64;  // [bp-0x90]\n    let v36: u64;  // [bp-0x88]\n    let v37: u64;  // [bp-0x80]\n    let v38: u128;  // [bp-0x78]\n    let v39: u64;  // [bp-0x68]\n    let v40: u64;  // [bp-0x58]\n    let v41: u64;  // [bp-0x50]\n    let v42: alloc::string::String;  // [bp-0x48]\n    let v45: u64;  // rdx\n    let v46: u64;  // rcx\n    let v47: i64;  // rdi\n    let v48: i64;  // rdi\n    let v49: u64;  // rbp\n    let v50: u64;  // rax\n    let v51: i64;  // rdi\n    let v52: u64;  // rax\n    let v53: u64;  // rcx\n    let v54: void*;  // rdx\n    let v55: u64;  // r14\n    let v56: u64;  // rbp\n    let v57: core::option::Option<&std::path::Path>;  // rax\n    let v58: core::option::Option<&std::ffi::os_str::OsStr>;  // rax\n    let v59: u32;  // rcx\n    let v60: void*;  // rax\n    let v61: u64;  // r14\n    let v63: i64;  // rdi\n    let v64: i64;  // rdi\n    let v69: &str;  // rax:rdx\n    let v70: &str;  // rax:rdx\n    let v71: u64;  // [bp-0x178]\n\n    v1 = a0 + 48;\n    if *((a0 + 48) as &i64) != 0x8000000000000000 {\n        v6 = 0;\n        v71 = v7 & -0x100000000;\n        v69 = core::char::methods::encode_utf8_raw(88, &v71, a1);\n        if !core::slice::<impl [T]>::ends_with(*((a0 + 8) as &i64), *((a0 + 16) as &i64), v69.data_ptr, v69.length) {\n            *((v47 + 24) as &i64) = *((a0 + 16) as &i64);\n            *((v47 + 8) as &i128) = *(a0 as &i128);\n            *((v47 + 32) as &i64) = 9223372036854775809;\n            *(v47 as &i64) = 0x8000000000000000;\n            return;\n        }\n    }\n    uu_mktemp::find_last_contiguous_block_of_xs(*((a0 + 8) as &i64), *((a0 + 16) as &i64), v46);\n    if *(&v18 as &i64) {\n        v22 = v20;\n        v31 = *((a0 + 40) as &i64);\n        v30 = *((a0 + 24) as &i128);\n        if v30 as i64 != 0x8000000000000000 {\n            v29 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(a1);\n            v2 = *(&v11 as &i128);\n            if v71 != 0x8000000000000000 {\n                v24 = v2;\n                v23 = v71;\n            }\n        }\n        v49 = *((a0 + 8) as &i64);\n        v6 = std::path::Path::join(v24, v25, v49, v19);\n        v3 = v12;\n        v21 = <T as alloc::string::ToString>::to_string(&v3) & -0x100 | 1;\n        if *((a0 + 75) as &i8) && <char as core::str::pattern::Pattern>::is_contained_in(v49, v19, a1) || v29.field_0 != 0x8000000000000000 && std::path::Path::is_absolute(v49, v19) {\n            *((v51 + 24) as &i64) = *((a0 + 16) as &i64);\n            *((v51 + 8) as &i128) = *(a0 as &i128);\n            *((v51 + 32) as &u64) = v50;\n            *(v51 as &i64) = 0x8000000000000000;\n        } else {\n            v7 = 0;\n            v8 = v6.inner.inner.vec.buf.cap.__0 & -0x100000000;\n            v70 = core::char::methods::encode_utf8_raw(47, &v8, a1);\n            v0 = core::slice::<impl [T]>::ends_with(v27, v28, v70.data_ptr, v70.length);\n            if v0 {\n                v13 = v28;\n                v9 = *(&v26 as &i128);\n                v52 = 1;\n                v21 = 0;\n                v53 = 0;\n                v54 = 0;\n            } else {\n                v55 = v27;\n                v56 = v28;\n                v57 = std::path::Path::parent(v55, v56) as u64;\n                match v57 {\n                    Some(_) => {\n                        v6 = struct16 {\n                            field_0: v57\n                            field_8: v45\n                        };\n                        v3 = <T as alloc::string::ToString>::to_string(&v6);\n                        v8 = v10;\n                        v11 = v12;\n                    },\n                    None => {\n                        v2 = 0;\n                        v4 = 1;\n                        v5 = 0;\n                    },\n                }\n                v58 = std::path::Path::file_name(v55, v56) as u64;\n                if let Some(_) = v58 {\n                    v10 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(v58, a1);\n                    match v10 {\n                        Err(_) => {\n                            core::option::unwrap_failed(); /* do not return */\n                        },\n                        Ok(_) => {\n                            <T as alloc::slice::hack::ConvertVec>::to_vec(v11, v13, v59);\n                            v53 = v10 as i64;\n                            v52 = v11;\n                            v54 = v13;\n                        },\n                    }\n                }\n                v13 = v5;\n                v9 = *(&v2 as &i128);\n                v21 = v13 & -0x100 | 1;\n            }\n            v39 = v13;\n            v38 = v9;\n            v35 = v53;\n            v36 = v52;\n            v37 = v54;\n            v60 = *(v1 as &i64);\n            if v60 != 0x8000000000000000 {\n                v33 = *((a0 + 56) as &i128);\n            }\n            v32 = v60;\n            v61 = *((a0 + 16) as &i64);\n            v40 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v22, *((a0 + 8) as &i64), v61) as u64;\n            v41 = v45;\n            v42 = format!(\"{}{}\", &v40, &v32);\n            v18 = *(&v42.vec.buf.cap as &i128);\n            v20 = v42.vec.len;\n            if !<char as core::str::pattern::Pattern>::is_contained_in(v19, v42.vec.len, a1) {\n                v13 = v39;\n                v6 = v38;\n                v15 = v37;\n                v14 = *(&v35 as &i128);\n                v17 = v20;\n                v16 = v18;\n                *((v64 + 64) as &u64) = v20;\n                *((v64 + 48) as &u128) = v16;\n                *(v64 as &u128) = v38;\n                *((v64 + 32) as &i64) = 0;\n                *((v64 + 40) as &u64) = v15;\n                *((v64 + 16) as &i128) = *(&v13 as &i128);\n                *((v64 + 72) as &u64) = v22 - v19;\n                return;\n            }\n            *((v63 + 24) as &u64) = v20;\n            *((v63 + 8) as &u128) = v18;\n            *((v63 + 32) as &i64) = 9223372036854775812;\n            *(v63 as &i64) = 0x8000000000000000;\n        }\n    } else {\n        if *(v1 as &i64) == 0x8000000000000000 {\n            v5 = *((a0 + 16) as &i64);\n            v2 = *(a0 as &i128);\n        } else {\n            v6 = struct24 {\n                field_0: *((a0 + 8) as &i64)\n                field_8: *((a0 + 8) as &i64) + *((a0 + 16) as &i64)\n                field_16: *((a0 + 16) as &i64)\n            };\n            v3 = <alloc::string::String as core::iter::traits::collect::FromIterator<char>>::from_iter(&v6);\n        }\n        *((v48 + 24) as &u64) = v5;\n        *((v48 + 8) as &i128) = *(&v3.field_0 as &i128);\n        *((v48 + 32) as &i64) = 9223372036854775810;\n        *(v48 as &i64) = 0x8000000000000000;\n    }\n    return;\n}\n",
+    "_ZN9uu_mktemp6uu_app17h678f679507a186e9E": "fn uu_mktemp::uu_app(a0: &struct712) -> long long {\n    let v0: u64;  // [bp-0xa60]\n    let v1: u64;  // [bp-0xa58]\n    let v2: u64;  // [bp-0xa50]\n    let v3: u8;  // [bp-0xa48]\n    let v4: u32;  // [bp-0x800]\n    let v5: u32;  // [bp-0x7fc]\n    let v6: struct437;  // [bp-0x7f8]\n    let v7: u32;  // [bp-0x5b0]\n    let v8: i8;  // [bp-0x5ac]\n    let v9: u64;  // [bp-0x53c]\n    let v10: u32;  // [bp-0x534]\n    let v11: u8;  // [bp-0x530]\n    let v12: u64;  // [bp-0x274]\n    let v13: u32;  // [bp-0x26c]\n    let v14: struct24;  // [bp-0x268], Other Possible Types: u64\n    let v15: u64;  // [bp-0x260]\n    let v16: u64;  // [bp-0x258]\n    let v19: u64;  // rdx\n\n    v6 = clap_builder::builder::command::Command::new(uucore::util_name(), v19);\n    clap_builder::builder::command::Command::version(&v11, &v6, \"0.0.28\");\n    clap_builder::builder::command::Command::about(&v6, &v11, \"Create a temporary file or directory.\");\n    uucore::format_usage(&v3, \"{} [OPTION]... [TEMPLATE]\");\n    clap_builder::builder::command::Command::override_usage(&v11, &v6, &v3);\n    memcpy(&v6, &v11, 700);\n    v9 = 549755814016 | v12;\n    v10 = v13;\n    clap_builder::builder::arg::Arg::new(&v11, \"directory\");\n    clap_builder::builder::arg::Arg::short(&v3, &v11, 100);\n    clap_builder::builder::arg::Arg::long(&v11, &v3, \"directory\");\n    clap_builder::builder::arg::Arg::help(&v3, &v11, \"Make a directory instead of a file\");\n    clap_builder::builder::arg::Arg::action(&v14, &v3);\n    clap_builder::builder::command::Command::arg(&v11, &v6, &v14);\n    clap_builder::builder::arg::Arg::new(&v6, \"dry-run\");\n    clap_builder::builder::arg::Arg::short(&v3, &v6, 117);\n    clap_builder::builder::arg::Arg::long(&v6, &v3, \"dry-run\");\n    clap_builder::builder::arg::Arg::help(&v3, &v6, \"do not create anything; merely print a name (unsafe)\");\n    clap_builder::builder::arg::Arg::action(&v14, &v3);\n    clap_builder::builder::command::Command::arg(&v6, &v11, &v14);\n    clap_builder::builder::arg::Arg::new(&v11, \"quiet\");\n    clap_builder::builder::arg::Arg::short(&v3, &v11, 113);\n    clap_builder::builder::arg::Arg::long(&v11, &v3, \"quiet\");\n    clap_builder::builder::arg::Arg::help(&v3, &v11, \"Fail silently if an error occurs.\");\n    clap_builder::builder::arg::Arg::action(&v14, &v3);\n    clap_builder::builder::command::Command::arg(&v11, &v6, &v14);\n    clap_builder::builder::arg::Arg::new(&v6, \"suffix\");\n    clap_builder::builder::arg::Arg::long(&v3, &v6, \"suffix\");\n    clap_builder::builder::arg::Arg::help(&v6, &v3, \"append SUFFIX to TEMPLATE; SUFFIX must not contain a path separator. This option is implied if TEMPLATE does not end with X.\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v6, \"SUFFIX\");\n    clap_builder::builder::command::Command::arg(&v6, &v11, &v3);\n    clap_builder::builder::arg::Arg::new(&v11, \"p\");\n    clap_builder::builder::arg::Arg::short(&v3, &v11, 112);\n    clap_builder::builder::arg::Arg::help(&v11, &v3, \"short form of --tmpdir\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v11, \"DIR\");\n    clap_builder::builder::arg::Arg::num_args(&v11, &v3);\n    v0 = 3;\n    v16 = v2;\n    v14 = v0;\n    v15 = v1;\n    clap_builder::builder::arg::Arg::value_parser(&v3, &v11, &v14);\n    clap_builder::builder::arg::Arg::value_hint(&v14, &v3, 4);\n    clap_builder::builder::command::Command::arg(&v11, &v6, &v14);\n    clap_builder::builder::arg::Arg::new(&v6, \"tmpdir\");\n    clap_builder::builder::arg::Arg::long(&v3, &v6, \"tmpdir\");\n    clap_builder::builder::arg::Arg::help(&v6, &v3, \"interpret TEMPLATE relative to DIR; if DIR is not specified, use $TMPDIR ($TMP on windows) if set, else /tmp. With this option, TEMPLATE must not be an absolute name; unlike with -t, TEMPLATE may contain slashes, but mktemp creates only the final component\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v6, \"DIR\");\n    v14 = struct24 {\n        field_0: 0\n        field_8: 1\n        field_16: 0\n    };\n    v14 = struct17 {\n        field_0: 0\n        field_8: 1\n        field_16: 0\n    };\n    clap_builder::builder::arg::Arg::num_args(&v6, &v3, &v14);\n    memcpy(&v3, &v6, 584);\n    v4 = 128 | v7;\n    v5 = *(&v8 as &i32);\n    clap_builder::builder::arg::Arg::overrides_with(&v6, &v3, \"p\");\n    clap_builder::builder::arg::Arg::value_parser(&v3, &v6, &v0);\n    clap_builder::builder::arg::Arg::value_hint(&v14, &v3, 4);\n    clap_builder::builder::command::Command::arg(&v6, &v11, &v14);\n    clap_builder::builder::arg::Arg::new(&v11, \"t\");\n    clap_builder::builder::arg::Arg::short(&v3, &v11, 116);\n    clap_builder::builder::arg::Arg::help(&v11, &v3, \"Generate a template (using the supplied prefix and TMPDIR (TMP on windows) if set) to create a filename template [deprecated]\");\n    clap_builder::builder::arg::Arg::action(&v3, &v11);\n    clap_builder::builder::command::Command::arg(&v11, &v6, &v3);\n    clap_builder::builder::arg::Arg::new(&v6, \"template\");\n    clap_builder::builder::arg::Arg::num_args(&v3, &v6);\n    clap_builder::builder::command::Command::arg(a0, &v11, &v3);\n    return a0;\n}\n",
+    "_ZN9uu_mktemp8dry_exec17h0a7898737835babcE": "fn uu_mktemp::dry_exec(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i64, a7: i64) -> : struct24 {\n    let a0: u64;  // rsi\n    let v0: u64;  // [bp-0xb8]\n    let v1: u64;  // [bp-0xb0]\n    let v2: void*;  // [bp-0xa8]\n    let v3: core::result::Result<alloc::string::String, alloc::string::FromUtf8Error>;  // [bp-0xa0], Other Possible Types: struct24, struct16, u64\n    let v4: u64;  // [bp-0x98]\n    let v5: u64;  // [bp-0x78]\n    let v6: u64;  // [bp-0x70]\n    let v7: alloc::vec::Vec<u8, alloc::alloc::Global>;  // [bp-0x68]\n    let v8: struct24;  // [bp-0x48]\n    let v9: u64;  // r13\n    let v10: u64;  // r12\n    let v11: u64;  // rdx\n    let v12: i64;  // rax\n    let v13: u8;  // cl\n    let v14: u32;  // edx\n    let v15: u8;  // dl\n    let v16: u8;  // cl\n    let v17: u64;  // rdi\n\n    v6 = a1;\n    v5 = a0;\n    v9 = a4 + a3;\n    v3 = alloc::raw_vec::RawVec<T,A>::try_allocate_in(v9 + a6, 0);\n    v0 = v4;\n    v1 = v3.field_16;\n    v2 = 0;\n    <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<&T,core::slice::iter::Iter<T>>>::spec_extend(&v0, a2, a2 + a3);\n    <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,I>>::spec_extend(&v0, a4, 88);\n    <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<&T,core::slice::iter::Iter<T>>>::spec_extend(&v0, a5, a6 + a5);\n    v10 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index_mut(a3, v9, v1, v2, \"src/uu/mktemp/src/mktemp.rs\");\n    v3 = rand::rngs::thread::thread_rng();\n    rand::rng::Rng::fill(&v3, v10, v11);\n    v3 = struct16 {\n        field_0: v10\n        field_8: v10 + v11\n    };\n    v3 = struct16 {\n        field_0: v10\n        field_8: v10 + v11\n    };\n    v12 = <core::slice::iter::IterMut<T> as core::iter::traits::iterator::Iterator>::next(&v3);\n    if v12 {\n        do {\n            v13 = *(v12 as &i8);\n            v14 = (v13 >> 1) * 133 >> 12;\n            v16 = v13 - (v14 * 64 - v14 * 2);\n        } while ((*(v12 as &i32) = ((v13 as u64 - v15 as u64 & 255) < 10 ? v16 | 48 : (v16 < 36 ? v16 + 87 : v16 + 29)), v12 = <core::slice::iter::IterMut<T> as core::iter::traits::iterator::Iterator>::next(&v3), v12));\n    }\n    v7 = alloc::vec::Vec<u8, alloc::alloc::Global> {\n        buf: alloc::raw_vec::RawVec<u8, alloc::alloc::Global> {\n            cap: alloc::raw_vec::Cap {\n                __0: *(&v0 as &i128)\n            }\n            ptr: core::ptr::unique::Unique<u8> {\n                pointer: core::ptr::non_null::NonNull<u8> {\n                    pointer: <UNKNOWN>\n                }\n                _marker: core::marker::PhantomData<u8> { }\n            }\n            alloc: alloc::alloc::Global { }\n        }\n        len: v2\n    };\n    v3 = alloc::string::String::from_utf8(&v7);\n    v8 = core::result::Result<T,E>::unwrap(&v3);\n    std::path::Path::join(v17);\n    return;\n}\n",
+    "_ZN9uu_mktemp13make_temp_dir17h59267eff7d377883E": "fn uu_mktemp::make_temp_dir(a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i264, a7: i64) -> Result<struct24, struct24> {\n    let a0: i64;  // rdi\n    let v0: struct24;  // [bp-0x148], Other Possible Types: struct_0 *, u128\n    let v1: u128;  // [bp-0x148]\n    let v2: u64;  // [bp-0x140]\n    let v3: i64;  // [bp-0x138], Other Possible Types: u64\n    let v4: u128;  // [bp-0x130]\n    let v5: i64;  // [bp-0x128]\n    let v6: u64;  // [bp-0x120]\n    let v7: i8;  // [bp-0x118]\n    let v8: u128;  // [bp-0x110]\n    let v9: u64;  // [bp-0x108]\n    let v10: alloc::string::String;  // [bp-0x100]\n    let v11: u64;  // [bp-0xf0]\n    let v12: u64;  // [bp-0xe8]\n    let v13: u64;  // [bp-0xe0]\n    let v14: u64;  // [bp-0xd8]\n    let v15: u64;  // [bp-0xd0]\n    let v16: struct24;  // [bp-0xc8], Other Possible Types: u64\n    let v17: u64;  // [bp-0xc0]\n    let v18: i64;  // [bp-0xb8]\n    let v19: u64;  // [bp-0xb0]\n    let v20: void*;  // [bp-0xa8]\n    let v21: struct24;  // [bp-0x98]\n    let v22: u32;  // [bp-0x80]\n    let v23: core::fmt::Arguments;  // [bp-0x78]\n    let v24: core::fmt::rt::Argument;  // [bp-0x70]\n    let v25: core::fmt::Arguments;  // [bp-0x68]\n    let v26: core::fmt::rt::Argument;  // [bp-0x60]\n    let v27: u64;  // [bp-0x58]\n    let v28: alloc::string::String;  // [bp-0x50]\n    let v29: u128;  // [bp-0x48]\n    let v30: u64;  // [bp-0x38]\n    let v31: u64;  // rax\n    let v32: u64;  // rdx\n    let v33: u64;  // rdx\n\n    v12 = a3;\n    v13 = a4;\n    v14 = a6;\n    v15 = a7;\n    v28 = 0;\n    v22 = 0;\n    v23 = a3;\n    v24 = a4;\n    v27 = a5;\n    v25 = a6;\n    v26 = a7;\n    v21 = tempfile::Builder::tempdir_in(&v22, a1, a2);\n    if v21.field_16 as i8 != 2 {\n        v0 = tempfile::dir::TempDir::into_path(&v21);\n        v31 = std::fs::set_permissions(&v0, 448);\n        if !v31 {\n            return Ok(struct24 {\n                field_0: v0.field_0\n                field_16: v3\n            });\n        }\n        return struct24 {\n            field_0: 0x8000000000000000\n            field_8: uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v31)\n            field_16: v33\n        };\n    } else if std::io::error::Error::kind(v21.field_0 as i64) {\n        return struct24 {\n            field_0: 0x8000000000000000\n            field_8: uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v21.field_0 as i64)\n            field_16: v32\n        };\n    } else {\n        v10 = alloc::str::<impl str>::repeat(\"X\", a5);\n        v0 = &v12;\n        v2 = <&T as core::fmt::Display>::fmt;\n        v3 = &v10;\n        v4 = <alloc::string::String as core::fmt::Display>::fmt;\n        v5 = &v14;\n        v6 = <&T as core::fmt::Display>::fmt;\n        v16 = &g_41f4d8;\n        v17 = 3;\n        v20 = 0;\n        v18 = &v0;\n        v19 = 3;\n        v16 = core::option::Option<T>::map_or_else(a2);\n        v29 = *(&v7 as &i128);\n        v30 = v9;\n        std::path::Path::join(a1);\n        v0 = v8;\n        v1 = <T as alloc::string::ToString>::to_string(a2);\n        <T as alloc::slice::hack::ConvertVec>::to_vec(\"directory\", a3);\n        v3 = v18;\n        v1 = v16.field_0;\n        v4 = *(&v10.vec.buf.cap as &i128);\n        v6 = v11;\n        return struct24 {\n            field_0: 0x8000000000000000\n            field_8: alloc::boxed::Box<T>::new(&v1 as u192)\n            field_16: &g_536af0\n        };\n    }\n}\n"
   },
   "function_call_counts": {
     "_ZN9uu_mktemp6uumain17h4680465c94e688ceE": {
@@ -94,26 +92,6 @@
       "core::option::Option<T>::map_or_else": 1,
       "alloc::str::<impl str>::repeat": 1,
       "tempfile::Builder::tempdir_in": 1
-    },
-    "_ZN9uu_mktemp14make_temp_file17hfdb13d12b9e8c76aE": {
-      "alloc::boxed::Box<T>::new": 2,
-      "std::sys::pal::unix::os::split_paths::bytes_to_path": 1,
-      "tempfile::file::NamedTempFile<F>::keep": 1,
-      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
-      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
-      "<T as alloc::string::ToString>::to_string": 1,
-      "std::path::Path::join": 1,
-      "core::option::Option<T>::map_or_else": 1,
-      "alloc::str::<impl str>::repeat": 1,
-      "tempfile::Builder::tempfile_in": 1
-    },
-    "_ZN9uu_mktemp4exec17h4964a5bb0e6c4200E": {
-      "core::option::unwrap_failed": 1,
-      "std::path::Path::join": 1,
-      "std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from": 1,
-      "std::path::Path::file_name": 1,
-      "uu_mktemp::make_temp_dir": 1,
-      "uu_mktemp::make_temp_file": 1
     }
   },
   "macro_call_counts": {
@@ -129,24 +107,20 @@
     },
     "_ZN9uu_mktemp6uu_app17h678f679507a186e9E": {},
     "_ZN9uu_mktemp8dry_exec17h0a7898737835babcE": {},
-    "_ZN9uu_mktemp13make_temp_dir17h59267eff7d377883E": {},
-    "_ZN9uu_mktemp14make_temp_file17hfdb13d12b9e8c76aE": {},
-    "_ZN9uu_mktemp4exec17h4964a5bb0e6c4200E": {}
+    "_ZN9uu_mktemp13make_temp_dir17h59267eff7d377883E": {}
   },
   "node_counts": {
     "_ZN9uu_mktemp6uumain17h4680465c94e688ceE": 10,
-    "_ZN9uu_mktemp7Options4from17h443dd3893f930365E": 29,
+    "_ZN9uu_mktemp7Options4from17h443dd3893f930365E": 28,
     "_ZN9uu_mktemp32find_last_contiguous_block_of_xs17h8856c2687abea15aE": 3,
     "_ZN9uu_mktemp6Params4from17h08dfed7a01f28665E": 39,
     "_ZN9uu_mktemp6uu_app17h678f679507a186e9E": 56,
     "_ZN9uu_mktemp8dry_exec17h0a7898737835babcE": 12,
-    "_ZN9uu_mktemp13make_temp_dir17h59267eff7d377883E": 13,
-    "_ZN9uu_mktemp14make_temp_file17hfdb13d12b9e8c76aE": 14,
-    "_ZN9uu_mktemp4exec17h4964a5bb0e6c4200E": 10
+    "_ZN9uu_mktemp13make_temp_dir17h59267eff7d377883E": 13
   },
   "variable_types": {
     "_ZN9uu_mktemp6uumain17h4680465c94e688ceE": {
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -167,7 +141,7 @@
       "stack_96": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_112": [
@@ -180,23 +154,15 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_72": [
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -204,7 +170,7 @@
       ]
     },
     "_ZN9uu_mktemp7Options4from17h443dd3893f930365E": {
-      "reg_64": [
+      "reg_rsi": [
         [
           "primitive",
           8
@@ -216,51 +182,27 @@
           24
         ],
         [
+          "Result",
+          80
+        ],
+        [
           "struct",
           24
+        ],
+        [
+          "primitive",
+          8
         ],
         [
           "primitive",
           16
         ],
         [
-          "Result",
-          80
-        ],
-        [
-          "Result",
-          80
-        ],
-        [
-          "Result",
-          80
-        ],
-        [
-          "Result",
-          48
-        ],
-        [
           "struct",
-          24
-        ],
-        [
-          "struct",
-          24
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
           24
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "&primitive",
           8
@@ -300,7 +242,7 @@
           8
         ]
       ],
-      "reg_24": [
+      "reg_rcx": [
         [
           "primitive",
           8
@@ -310,10 +252,6 @@
         [
           "primitive",
           16
-        ],
-        [
-          "primitive",
-          1
         ]
       ],
       "stack_112": [
@@ -324,11 +262,9 @@
         [
           "primitive",
           16
-        ],
-        [
-          "primitive",
-          16
-        ],
+        ]
+      ],
+      "stack_120": [
         [
           "primitive",
           16
@@ -341,18 +277,10 @@
         ],
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
           16
         ]
       ],
       "stack_64": [
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           8
@@ -362,45 +290,21 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_48": [
         [
-          "primitive",
-          16
-        ],
-        [
           "struct",
           24
-        ],
-        [
-          "primitive",
-          16
         ]
       ],
       "stack_16": [
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_96": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           8
@@ -424,7 +328,7 @@
           8
         ]
       ],
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8
@@ -432,7 +336,7 @@
       ]
     },
     "_ZN9uu_mktemp32find_last_contiguous_block_of_xs17h8856c2687abea15aE": {
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8
@@ -444,7 +348,7 @@
           8
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -454,7 +358,7 @@
           8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -466,7 +370,7 @@
       ]
     },
     "_ZN9uu_mktemp6Params4from17h08dfed7a01f28665E": {
-      "reg_64": [
+      "reg_rsi": [
         [
           "primitive",
           8
@@ -480,51 +384,31 @@
       ],
       "stack_48": [
         [
-          "primitive",
-          16
-        ],
-        [
-          "primitive",
-          24
-        ],
-        [
-          "primitive",
-          4
-        ],
-        [
           "struct",
           24
         ],
         [
           "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
           16
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          4
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
         ],
         [
           "Result",
           24
         ]
       ],
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8
@@ -546,7 +430,7 @@
           8
         ]
       ],
-      "reg_24": [
+      "reg_rcx": [
         [
           "primitive",
           8
@@ -563,7 +447,7 @@
       "stack_128": [
         [
           "primitive",
-          8
+          1
         ]
       ],
       "stack_168": [
@@ -573,10 +457,6 @@
         ]
       ],
       "stack_144": [
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           8
@@ -601,48 +481,24 @@
       "stack_56": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
           1
         ],
         [
-          "primitive",
-          8
+          "struct",
+          16
         ]
       ],
       "stack_16": [
         [
-          "primitive",
-          16
-        ],
-        [
           "&primitive",
-          8
+          null
         ],
         [
-          "primitive",
+          "struct",
           16
-        ],
-        [
-          "struct",
-          24
-        ],
-        [
-          "struct",
-          24
         ]
       ],
       "stack_184": [
-        [
-          "primitive",
-          8
-        ],
         [
           "primitive",
           16
@@ -654,7 +510,7 @@
           8
         ]
       ],
-      "reg_56": [
+      "reg_rbp": [
         [
           "primitive",
           8
@@ -667,7 +523,7 @@
       "stack_192": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_136": [
@@ -678,22 +534,14 @@
       ],
       "stack_160": [
         [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
           "&primitive",
-          8
+          null
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
-          "struct",
-          24
+          "primitive",
+          8
         ],
         [
           "primitive",
@@ -709,7 +557,7 @@
         ],
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_7": [
@@ -732,16 +580,8 @@
       ],
       "stack_64": [
         [
-          "primitive",
-          8
-        ],
-        [
           "&primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          null
         ]
       ],
       "stack_200": [
@@ -750,17 +590,17 @@
           1
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "&primitive",
-          8
+          null
         ],
         [
           "primitive",
           8
         ]
       ],
-      "reg_128": [
+      "reg_r14": [
         [
           "primitive",
           8
@@ -779,11 +619,7 @@
       "stack_32": [
         [
           "&primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
+          null
         ]
       ],
       "stack_320": [
@@ -796,10 +632,6 @@
         [
           "primitive",
           16
-        ],
-        [
-          "primitive",
-          1
         ]
       ],
       "stack_280": [
@@ -829,7 +661,7 @@
       "stack_256": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_336": [
@@ -872,10 +704,6 @@
         [
           "primitive",
           16
-        ],
-        [
-          "primitive",
-          1
         ]
       ]
     },
@@ -883,10 +711,10 @@
       "stack_624": [
         [
           "struct",
-          466
+          448
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -930,16 +758,8 @@
       ],
       "stack_2048": [
         [
-          "primitive",
-          1
-        ],
-        [
-          "primitive",
-          17
-        ],
-        [
-          "primitive",
-          8
+          "struct",
+          24
         ]
       ],
       "stack_8": [
@@ -998,7 +818,7 @@
       ]
     },
     "_ZN9uu_mktemp8dry_exec17h0a7898737835babcE": {
-      "reg_64": [
+      "reg_rsi": [
         [
           "primitive",
           8
@@ -1016,7 +836,7 @@
           8
         ]
       ],
-      "reg_120": [
+      "reg_r13": [
         [
           "primitive",
           8
@@ -1024,20 +844,8 @@
       ],
       "stack_24": [
         [
-          "primitive",
-          16
-        ],
-        [
           "Result",
-          34
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "struct",
-          24
+          40
         ]
       ],
       "stack_0": [
@@ -1061,16 +869,16 @@
       "stack_16": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
-      "reg_112": [
+      "reg_r12": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -1084,13 +892,13 @@
           4
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_24": [
+      "reg_rcx": [
         [
           "primitive",
           1
@@ -1102,7 +910,7 @@
       ],
       "stack_80": [
         [
-          "primitive",
+          "struct",
           24
         ]
       ],
@@ -1112,7 +920,7 @@
           24
         ]
       ],
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8
@@ -1120,7 +928,7 @@
       ]
     },
     "_ZN9uu_mktemp13make_temp_dir17h59267eff7d377883E": {
-      "reg_72": [
+      "reg_rdi": [
         [
           "primitive",
           8
@@ -1164,14 +972,14 @@
       ],
       "stack_208": [
         [
-          "primitive",
-          8
+          "struct",
+          48
         ]
       ],
       "stack_216": [
         [
-          "primitive",
-          8
+          "struct",
+          16
         ]
       ],
       "stack_240": [
@@ -1182,14 +990,14 @@
       ],
       "stack_224": [
         [
-          "primitive",
-          8
+          "struct",
+          48
         ]
       ],
       "stack_232": [
         [
-          "primitive",
-          8
+          "struct",
+          16
         ]
       ],
       "stack_176": [
@@ -1205,14 +1013,10 @@
         ],
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
           16
         ]
       ],
-      "reg_16": [
+      "reg_rax": [
         [
           "primitive",
           8
@@ -1222,17 +1026,9 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
-      "reg_32": [
+      "reg_rdx": [
         [
           "primitive",
           8
@@ -1257,7 +1053,7 @@
       "stack_24": [
         [
           "primitive",
-          8
+          16
         ]
       ],
       "stack_32": [
@@ -1270,17 +1066,9 @@
         [
           "primitive",
           8
-        ],
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_128": [
-        [
-          "primitive",
-          8
-        ],
         [
           "struct",
           24
@@ -1295,7 +1083,7 @@
       "stack_160": [
         [
           "&primitive",
-          8
+          null
         ]
       ],
       "stack_144": [
@@ -1313,7 +1101,7 @@
       "stack_256": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_48": [
@@ -1337,343 +1125,13 @@
       "stack_56": [
         [
           "primitive",
-          1
+          16
         ]
       ],
       "stack_88": [
         [
           "primitive",
           8
-        ]
-      ]
-    },
-    "_ZN9uu_mktemp14make_temp_file17hfdb13d12b9e8c76aE": {
-      "reg_72": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_168": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_176": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_184": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_192": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_280": [
-        [
-          "primitive",
-          2
-        ]
-      ],
-      "stack_232": [
-        [
-          "primitive",
-          4
-        ]
-      ],
-      "stack_240": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_248": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_272": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_256": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_264": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_200": [
-        [
-          "struct",
-          32
-        ],
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "stack_336": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_320": [
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "stack_80": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "struct",
-          44
-        ],
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_112": [
-        [
-          "&primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_160": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_120": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_128": [
-        [
-          "primitive",
-          16
-        ],
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_8": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_136": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_48": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_24": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "struct",
-          24
-        ],
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "stack_56": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "struct",
-          24
-        ]
-      ],
-      "reg_32": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_40": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_64": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_72": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_88": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_96": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_104": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_288": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_304": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN9uu_mktemp4exec17h4964a5bb0e6c4200E": {
-      "reg_64": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_16": [
-        [
-          "Result",
-          24
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_48": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_72": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_56": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_40": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_16": [
-        [
-          "Option",
-          16
-        ]
-      ],
-      "stack_64": [
-        [
-          "struct",
-          24
         ]
       ]
     }

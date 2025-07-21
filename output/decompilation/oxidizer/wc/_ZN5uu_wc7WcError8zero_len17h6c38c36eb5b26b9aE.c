@@ -1,6 +1,6 @@
 fn uu_wc::WcError::zero_len(a1: i64, a2: i64) -> Option<struct32> {
     let a0: i64;  // rdi
-    let v0: u64;  // [bp-0x28]
+    let v0: u8;  // [bp-0x28]
     let v1: u64;  // [bp-0x10]
     let v2: u64;  // [bp-0x8]
     let v4: u64;  // rcx

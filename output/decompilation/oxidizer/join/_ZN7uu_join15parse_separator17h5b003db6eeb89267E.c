@@ -1,13 +1,13 @@
 fn uu_join::parse_separator(a1: i64, a2: i64) -> : struct24 {
     let a0: u64;  // rdi
-    let v0: u128;  // [bp-0xa0]
-    let v1: struct24;  // [bp-0x90], Other Possible Types: core::result::Result<&str, core::str::error::Utf8Error>, u64
-    let v2: u64;  // [bp-0x88]
-    let v3: u64;  // [bp-0x80], Other Possible Types: struct_0 *
+    let v0: core::slice::iter::Iter<u8>;  // [bp-0xa0]
+    let v1: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x90], Other Possible Types: struct24, u64
+    let v2: core::fmt::rt::Argument;  // [bp-0x88], Other Possible Types: u64
+    let v3: core::fmt::rt::Argument;  // [bp-0x80], Other Possible Types: struct_0 *
     let v4: u64;  // [bp-0x78]
     let v5: void*;  // [bp-0x70]
-    let v6: u64;  // [bp-0x60]
-    let v7: u64;  // [bp-0x58]
+    let v6: core::fmt::Arguments;  // [bp-0x60]
+    let v7: core::fmt::rt::Argument;  // [bp-0x58]
     let v8: struct8;  // [bp-0x50]
     let v9: u64;  // [bp-0x48]
     let v10: u8;  // [bp-0x40]
@@ -19,7 +19,7 @@ fn uu_join::parse_separator(a1: i64, a2: i64) -> : struct24 {
     let v21: core::option::Option<u32>;  // rax:rax
 
     if a2 == 1 {
-        return struct9 {
+        return struct16 {
             field_0: 0x8000000000000000
             field_8: *(a1 as &i8) as u8 as u64 as u8
         };
@@ -57,7 +57,7 @@ fn uu_join::parse_separator(a1: i64, a2: i64) -> : struct24 {
                             return <alloc::vec::Vec<u8> as core::convert::From<&str>>::from(a0, v14, v7) as u64;
                         }
                         if v16 == 92 && v18 as u32 == 48 {
-                            return struct9 {
+                            return struct16 {
                                 field_0: 0x8000000000000000
                                 field_8: 0
                             };

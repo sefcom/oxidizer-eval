@@ -1,33 +1,21 @@
-fn uu_sum::sysv_sum(a0: u32, a1: void*) -> u64 {
-    let v0: u64;  // [sp-0x1040]
-    let v1: u64;  // [sp-0x1038]
-    let v2: void*;  // [sp-0x1030]
-    let v4: u64;  // rbx
-    let v7: u64;  // r15
-    let v8: u64;  // r15
-    let v9: u64;  // rdx
-    let v10: struct8;  // rax
-    let v11: u64;  // r15
+fn uu_sum::sysv_sum(a0: i64, a1: i64) -> long long {
+    let v0: u64;  // [bp-0x1040]
+    let v1: struct16;  // [bp-0x1040]
+    let v2: void*;  // [bp-0x1030]
+    let v4: void*;  // r15
+    let v6: u32;  // rdx
 
     v2 = 0;
-    v4 = 0;
     memset(&v2, 0, 0x1000);
-    v7 = 0;
     loop {
-        v8 = v7;
-        if !(!a1->field_18()) || !(v9) {
+        if *((a1 + 24) as &i64)(a0, &v2, 0x1000) as i64 || !v6 {
             break;
         }
-        v0 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v9, &v2, "src/uu/sum/src/sum.rs");
-        v1 = v9 + v0;
-        loop {
-            v10 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next();
-            v7 = v11;
-            if !v10 {
-                break;
-            }
-            v4 = v4 + *(v10 as &i8) & 4294967295;
-        }
+        v1 = struct16 {
+            field_0: <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(v6, &v2, "src/uu/sum/src/sum.rs")
+            field_8: v6 + v0
+        };
+        do { } while (<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v1));
     }
-    return (v8 >> 9) - -1 - ((v8 & 511) < 1);
+    return (v4 >> 9) + 1 - ((v4 as u32 & 511) < 1);
 }

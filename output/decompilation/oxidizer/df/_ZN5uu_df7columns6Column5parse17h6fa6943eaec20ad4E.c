@@ -6,11 +6,11 @@ fn uu_df::columns::Column::parse(a0: i64, a1: i32) -> long long {
     let v5: u64;  // rax
     let v6: u64;  // rax
     let v7: u64;  // rax
-    let v8: u64;  // rax
+    let v8: struct16;  // rax
     let v9: u64;  // rax
     let v10: u64;  // rax
     let v11: u64;  // rax
-    let v12: core::result::Result<alloc::string::String, std::env::VarError>;  // rax
+    let v12: struct64;  // rax
 
     v0 = v2;
     if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, "source") as i8 {
@@ -37,7 +37,7 @@ fn uu_df::columns::Column::parse(a0: i64, a1: i32) -> long long {
         return v7 & -0x100 | 9;
     }
     v8 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, "size");
-    if v8 {
+    if v8 as u8 {
         return v8 & -0x100 | 1;
     }
     v9 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, a1, "used");

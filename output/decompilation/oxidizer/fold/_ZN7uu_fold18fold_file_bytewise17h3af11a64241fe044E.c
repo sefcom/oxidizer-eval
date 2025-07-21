@@ -2,30 +2,30 @@ fn uu_fold::fold_file_bytewise(a0: i64, a1: i32, a2: i64) -> long long {
     let v0: void*;  // [bp-0xb0]
     let v1: u64;  // [bp-0xa8]
     let v2: void*;  // [bp-0xa0]
-    let v3: u64;  // [bp-0x98], Other Possible Types: struct56
-    let v4: u64;  // [bp-0x98], Other Possible Types: struct56, struct16
+    let v3: struct56;  // [bp-0x98], Other Possible Types: u64
+    let v4: core::fmt::Arguments;  // [bp-0x98], Other Possible Types: struct16, struct56, u64
     let v5: u64;  // [bp-0x98]
-    let v6: u64;  // [bp-0x90]
-    let v7: u64;  // [bp-0x90]
+    let v6: struct16;  // [bp-0x90], Other Possible Types: u64
+    let v7: struct16;  // [bp-0x90], Other Possible Types: u64
     let v8: u64;  // [bp-0x90]
-    let v9: u8;  // [bp-0x88]
+    let v9: struct16;  // [bp-0x88]
     let v10: std::io::stdio::Stdin;  // [bp-0x80], Other Possible Types: u64
     let v11: std::io::stdio::Stdin;  // [bp-0x80], Other Possible Types: u64
     let v12: u32;  // [bp-0x64]
     let v13: u64;  // [bp-0x60]
-    let v14: struct8;  // [bp-0x58]
+    let v14: u64;  // [bp-0x58]
     let v15: u64;  // [bp-0x48]
     let v17: u64;  // r15
-    let v18: struct8;  // r14
+    let v18: i64;  // r14
     let v19: u64;  // rax
     let v20: u64;  // rcx
     let v22: u64;  // rbx
     let v23: u64;  // rbx
     let v25: core::option::Option<&str>;  // rax
     let v26: void*;  // r15
-    let v27: struct8;  // rdx
+    let v27: struct16;  // rdx
     let v28: u64;  // rdx
-    let v29: struct8;  // r12
+    let v29: u64;  // r12
     let v31: u64;  // rbx
     let v36: &str;  // rax:rdx
 
@@ -80,7 +80,7 @@ fn uu_fold::fold_file_bytewise(a0: i64, a1: i32, a2: i64) -> long long {
                     v4 = v4;
                     v7 = v7;
                     v10 = v10;
-                    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v25, v29 as u32, "\n") as i8 {
+                    if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v25, v29, "\n") as i8 {
                         break;
                     }
                     v26 += v14;

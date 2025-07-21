@@ -1,6 +1,6 @@
-fn uu_dd::progress::ProgUpdate::print_transfer_stats(a0: i64, a1: i32) -> long long {
-    let v0: u64;  // [bp-0x8]
-    let v2: u64;  // rax
+fn uu_dd::progress::ProgUpdate::print_transfer_stats(a0: i32, a1: i32) -> long long {
+    let v0: struct16;  // [bp-0x8], Other Possible Types: u64
+    let v2: struct16;  // rax
     let v4: u64;  // rdx
 
     v0 = v2;

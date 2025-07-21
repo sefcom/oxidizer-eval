@@ -1,9 +1,9 @@
 fn uu_csplit::InputSplitter<I>::add_line_to_buffer(a1: i64, a2: i64, a3: &struct24) -> Option<struct24> {
     let a0: i64;  // rsi
-    let v0: u256;  // [bp-0x58]
-    let v1: u256;  // [bp-0x58]
-    let v2: u64;  // [bp-0x48]
-    let v3: u64;  // [bp-0x40]
+    let v0: (usize, std::backtrace_rs::symbolize::gimli::Mapping);  // [bp-0x58], Other Possible Types: struct24, struct32
+    let v1: u64;  // [bp-0x40]
+    let v2: u128;  // [bp-0x38]
+    let v3: struct24;  // [bp-0x38]
     let v4: u64;  // [bp-0x28]
     let v6: i64;  // rdi
     let v7: u64;  // rdi
@@ -13,27 +13,22 @@ fn uu_csplit::InputSplitter<I>::add_line_to_buffer(a1: i64, a2: i64, a3: &struct
             __0: a1
             __1: std::backtrace_rs::symbolize::gimli::Mapping {
                 cx: std::backtrace_rs::symbolize::gimli::Context {
-                    dwarf: addr2line::Context<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>> {
-                        sections: alloc::sync::Arc<gimli::read::dwarf::Dwarf<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>>, alloc::alloc::Global> {
-                            ptr: core::ptr::non_null::NonNull<alloc::sync::ArcInner<gimli::read::dwarf::Dwarf<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>>>> {
-                                pointer: <UNKNOWN>
-                            }
-                            alloc: alloc::alloc::Global { }
-                        }
-                        unit_ranges: alloc::boxed::Box<[addr2line::UnitRange], alloc::alloc::Global> {
-                            data_ptr: <UNKNOWN>
-                            length: <UNKNOWN>
-                        }
-                        units: alloc::boxed::Box<[addr2line::ResUnit<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>>], alloc::alloc::Global> {
-                            data_ptr: <UNKNOWN>
-                            length: <UNKNOWN>
-                        }
-                        sup_units: alloc::boxed::Box<[addr2line::SupUnit<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>>], alloc::alloc::Global> {
-                            data_ptr: <UNKNOWN>
-                            length: <UNKNOWN>
-                        }
-                    }
                     object: std::backtrace_rs::symbolize::gimli::elf::Object {
+                        syms: alloc::vec::Vec<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, alloc::alloc::Global> {
+                            buf: alloc::raw_vec::RawVec<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, alloc::alloc::Global> {
+                                cap: alloc::raw_vec::Cap {
+                                    __0: <UNKNOWN>
+                                }
+                                ptr: core::ptr::unique::Unique<std::backtrace_rs::symbolize::gimli::elf::ParsedSym> {
+                                    pointer: core::ptr::non_null::NonNull<std::backtrace_rs::symbolize::gimli::elf::ParsedSym> {
+                                        pointer: <UNKNOWN>
+                                    }
+                                    _marker: core::marker::PhantomData<std::backtrace_rs::symbolize::gimli::elf::ParsedSym> { }
+                                }
+                                alloc: alloc::alloc::Global { }
+                            }
+                            len: <UNKNOWN>
+                        }
                         data: &[u8] {
                             ptr: <UNKNOWN>
                             len: <UNKNOWN>
@@ -56,23 +51,29 @@ fn uu_csplit::InputSplitter<I>::add_line_to_buffer(a1: i64, a2: i64, a3: &struct
                             end: <UNKNOWN>
                             marker: core::marker::PhantomData<&()> { }
                         }
-                        syms: alloc::vec::Vec<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, alloc::alloc::Global> {
-                            buf: alloc::raw_vec::RawVec<std::backtrace_rs::symbolize::gimli::elf::ParsedSym, alloc::alloc::Global> {
-                                ptr: core::ptr::unique::Unique<std::backtrace_rs::symbolize::gimli::elf::ParsedSym> {
-                                    pointer: core::ptr::non_null::NonNull<std::backtrace_rs::symbolize::gimli::elf::ParsedSym> {
-                                        pointer: <UNKNOWN>
-                                    }
-                                    _marker: core::marker::PhantomData<std::backtrace_rs::symbolize::gimli::elf::ParsedSym> { }
-                                }
-                                cap: alloc::raw_vec::Cap {
-                                    __0: <UNKNOWN>
-                                }
-                                alloc: alloc::alloc::Global { }
-                            }
-                            len: <UNKNOWN>
-                        }
+                        endian: object::endian::LittleEndian { }
                     }
                     package: <UNKNOWN>
+                    dwarf: addr2line::Context<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>> {
+                        sections: alloc::sync::Arc<gimli::read::dwarf::Dwarf<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>>, alloc::alloc::Global> {
+                            ptr: core::ptr::non_null::NonNull<alloc::sync::ArcInner<gimli::read::dwarf::Dwarf<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>>>> {
+                                pointer: <UNKNOWN>
+                            }
+                            alloc: alloc::alloc::Global { }
+                        }
+                        unit_ranges: alloc::boxed::Box<[addr2line::UnitRange], alloc::alloc::Global> {
+                            data_ptr: <UNKNOWN>
+                            length: <UNKNOWN>
+                        }
+                        units: alloc::boxed::Box<[addr2line::ResUnit<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>>], alloc::alloc::Global> {
+                            data_ptr: <UNKNOWN>
+                            length: <UNKNOWN>
+                        }
+                        sup_units: alloc::boxed::Box<[addr2line::SupUnit<gimli::read::endian_slice::EndianSlice<gimli::endianity::LittleEndian>>], alloc::alloc::Global> {
+                            data_ptr: <UNKNOWN>
+                            length: <UNKNOWN>
+                        }
+                    }
                 }
                 _map: std::backtrace_rs::symbolize::gimli::mmap::Mmap {
                     ptr: <UNKNOWN>
@@ -82,14 +83,14 @@ fn uu_csplit::InputSplitter<I>::add_line_to_buffer(a1: i64, a2: i64, a3: &struct
                     buffers: core::cell::UnsafeCell<alloc::vec::Vec<alloc::vec::Vec<u8, alloc::alloc::Global>, alloc::alloc::Global>> {
                         value: alloc::vec::Vec<alloc::vec::Vec<u8, alloc::alloc::Global>, alloc::alloc::Global> {
                             buf: alloc::raw_vec::RawVec<alloc::vec::Vec<u8, alloc::alloc::Global>, alloc::alloc::Global> {
+                                cap: alloc::raw_vec::Cap {
+                                    __0: <UNKNOWN>
+                                }
                                 ptr: core::ptr::unique::Unique<alloc::vec::Vec<u8, alloc::alloc::Global>> {
                                     pointer: core::ptr::non_null::NonNull<alloc::vec::Vec<u8, alloc::alloc::Global>> {
                                         pointer: <UNKNOWN>
                                     }
                                     _marker: core::marker::PhantomData<alloc::vec::Vec<u8, alloc::alloc::Global>> { }
-                                }
-                                cap: alloc::raw_vec::Cap {
-                                    __0: <UNKNOWN>
                                 }
                                 alloc: alloc::alloc::Global { }
                             }
@@ -99,14 +100,14 @@ fn uu_csplit::InputSplitter<I>::add_line_to_buffer(a1: i64, a2: i64, a3: &struct
                     mmaps: core::cell::UnsafeCell<alloc::vec::Vec<std::backtrace_rs::symbolize::gimli::mmap::Mmap, alloc::alloc::Global>> {
                         value: alloc::vec::Vec<std::backtrace_rs::symbolize::gimli::mmap::Mmap, alloc::alloc::Global> {
                             buf: alloc::raw_vec::RawVec<std::backtrace_rs::symbolize::gimli::mmap::Mmap, alloc::alloc::Global> {
+                                cap: alloc::raw_vec::Cap {
+                                    __0: <UNKNOWN>
+                                }
                                 ptr: core::ptr::unique::Unique<std::backtrace_rs::symbolize::gimli::mmap::Mmap> {
                                     pointer: core::ptr::non_null::NonNull<std::backtrace_rs::symbolize::gimli::mmap::Mmap> {
                                         pointer: <UNKNOWN>
                                     }
                                     _marker: core::marker::PhantomData<std::backtrace_rs::symbolize::gimli::mmap::Mmap> { }
-                                }
-                                cap: alloc::raw_vec::Cap {
-                                    __0: <UNKNOWN>
                                 }
                                 alloc: alloc::alloc::Global { }
                             }
@@ -125,18 +126,17 @@ fn uu_csplit::InputSplitter<I>::add_line_to_buffer(a1: i64, a2: i64, a3: &struct
         };
         alloc::vec::Vec<T,A>::push(a0, &v0);
     } else {
-        alloc::vec::Vec<T,A>::remove(&v0, a0, 0, "/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/csplit/src/csplit.rs");
-        v4 = v3;
-        memcpy(&v0, &v0, 16);
-        v1 = struct32 {
+        alloc::vec::Vec<T,A>::remove(&v0 as u8, a0, 0, "/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/csplit/src/csplit.rs");
+        v4 = v1;
+        v2 = *(&v0.__0 as &i128);
+        v0 = struct32 {
             field_0: a1
             field_8: *(a2 as &i128)
             field_24: *((a2 + 16) as &i64)
         };
-        alloc::vec::Vec<T,A>::push(a0, &v1);
-        v2 = v4;
-        memcpy(&v1, &v0, 16);
-        core::result::Result<T,E>::unwrap(v7, &v1, "/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/csplit/src/csplit.rs");
+        alloc::vec::Vec<T,A>::push(a0, &v0);
+        v0 = v3;
+        core::result::Result<T,E>::unwrap(v7, &v0, "/home/34r7hm4n/dev/oxidizer/oxidizer-eval/dataset-src/coreutils/src/uu/csplit/src/csplit.rs");
         return;
     }
     *(v6 as &i64) = 0x8000000000000000;

@@ -1,6 +1,6 @@
 fn uu_wc::count_fast::count_bytes_chars_and_lines_fast(a1: &struct12) -> : struct48 {
     let a0: &u32;  // rsi
-    let v0: u64;  // [bp-0x4038], Other Possible Types: void*
+    let v0: void*;  // [bp-0x4038], Other Possible Types: u64
     let v1: void*;  // [bp-0x4030]
     let v2: void*;  // [bp-0x3030]
     let v3: core::option::Option<u32>;  // [bp-0x2030]

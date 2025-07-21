@@ -1,6 +1,6 @@
 fn uu_shuf::NonrepeatingIterator::produce() -> Option<struct32> {
     let a0: i64;  // rdi
-    let v0: struct24;  // [bp-0x80], Other Possible Types: struct8
+    let v0: Result<struct24, struct24>;  // [bp-0x80], Other Possible Types: struct8
     let v1: u32;  // [bp-0x78]
     let v2: u64;  // [bp-0x70]
     let v3: struct16;  // [bp-0x58]
@@ -9,7 +9,7 @@ fn uu_shuf::NonrepeatingIterator::produce() -> Option<struct32> {
     let v7: u64;  // r12
     let v8: u64;  // rax
     let v9: u64;  // rax
-    let v10: struct17;  // [bp-0x68], Other Possible Types: struct32
+    let v10: Result<struct16, struct12>;  // [bp-0x68], Other Possible Types: struct17, struct32
 
     if *(a0 as &i64) {
         v7 = a0 + 64;
@@ -28,12 +28,12 @@ fn uu_shuf::NonrepeatingIterator::produce() -> Option<struct32> {
         v10 = <[T] as rand::seq::SliceRandom>::partial_shuffle(v1, v2, a0 + 56, *((a0 + 48) as &i64));
         v0 = alloc::vec::Vec<T,A>::truncate(*((a0 + 48) as &i64));
         v3 = v2;
-        memcpy(&v10, &v0, 16);
-        return struct40 {
+        v10 = v0 as i128;
+        return Some(struct32 {
             field_0: 0
-            field_8: <UNKNOWN>
-            field_24: <UNKNOWN>
-        };
+            field_8: v10
+            field_24: v3
+        });
     } else {
         v8 = *((a0 + 24) as &i64);
         if !v8 {

@@ -3,7 +3,6 @@ from multiprocessing import Pool
 
 from angr.rust.utils.library import demangle
 
-# from eval.decompilers.binja import binja_c_dec, binja_rust_dec
 from eval.decompilers.ida import ida_dec
 from eval.decompilers.oxidizer import oxidizer_dec
 from eval.decompilers.angr import angr_dec
@@ -12,20 +11,17 @@ from eval.decompilers.util import load_function_list, load_cached_inferred_proto
 from eval.metrics.result import FunctionEvalResult, BinaryEvalResult, EvalResult
 from eval.metrics import *
 from eval.metrics.trivial import *
-from eval.metrics.ground_truth import GroundTruth, MalwareGroundTruth
-from eval.type_recovery.dwarf_parser import extract_function_prototypes
+from eval.metrics.ground_truth import BinaryGroundTruth, FunctionGroundTruth
 
 
 DEC_OPTIONS = {
     # "angr": {"dec_func": angr_dec, "cache_only": True},
-    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False},
+    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True},
     # "IDA": {"dec_func": ida_dec, "cache_only": True},
     # "Ghidra": {"dec_func": ghidra_dec, "cache_only": True},
     # "Binary Ninja": {"dec_func": binja_c_dec, "cache_only": True},
     # "Binary Ninja (Pseudo Rust)": {"dec_func": binja_rust_dec, "cache_only": True},
 }
-
-MALWARE_MODE = False
 
 EXCLUDED_FUNCTIONS = [
     "_ZN5uu_df7columns6Column5parse17h6fa6943eaec20ad4E",
@@ -40,12 +36,12 @@ EXCLUDED_FUNCTIONS = [
 
 
 def convert_to_debug_path(path):
-    return path.replace("dataset", "dataset-debug")
+    return path.replace("datasets", "datasets-debug")
 
 
 def eval_binary(binary_path, is_malware):
     binary_name = os.path.basename(binary_path)
-    ground_truth = GroundTruth(binary_name)
+    ground_truth = BinaryGroundTruth(binary_name)
 
     # We do not evaluate on every function
     # For Coreutils binaries, we evaluate on functions that are relevant to current module
@@ -65,8 +61,10 @@ def eval_binary(binary_path, is_malware):
         )
 
         for func_name in function_list:
+            # if "write_fast_using_splice" not in func_name:
+            #     continue
             func_eval_result = FunctionEvalResult(func_name)
-            func_ground_truth = None if is_malware else ground_truth.get_function_ground_truth(func_name)
+            func_ground_truth = ground_truth.get_function_ground_truth(func_name)
 
             if func_ground_truth is None and not is_malware:
                 continue
@@ -128,15 +126,16 @@ def eval(dir_path):
                 continue
             binary_paths.append(os.path.join(dirpath, filename))
 
-    binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) == "fmt"]
+    # binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) == "fmt"]
+    # binary_paths = binary_paths[5:6]
     tasks = [(binary_path, is_malware) for binary_path in binary_paths if "expr" not in binary_path]
 
-    # with Pool(4) as pool:
-    #     results = pool.starmap(eval_binary, tasks)
+    with Pool(4) as pool:
+        results = pool.starmap(eval_binary, tasks)
 
-    results = []
-    for binary_path in binary_paths:
-        results.append(eval_binary(binary_path, is_malware))
+    # results = []
+    # for binary_path in binary_paths:
+    #     results.append(eval_binary(binary_path, is_malware))
 
     eval_result = EvalResult(is_malware)
 
@@ -150,6 +149,6 @@ def eval(dir_path):
 
 
 if __name__ == "__main__":
-    eval("dataset/o3")
+    eval("datasets/o3")
     # print("-------------- Malware Evaluation Results --------------")
     # eval("dataset/malware")
