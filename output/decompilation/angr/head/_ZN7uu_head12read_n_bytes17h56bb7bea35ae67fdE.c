@@ -1,0 +1,26 @@
+long long uu_head::read_n_bytes(unsigned long long a0, unsigned long long a1)
+{
+    unsigned long long v0;  // [bp-0x28]
+    unsigned long long v1;  // [bp-0x20]
+    unsigned long long v2;  // [bp-0x18]
+    unsigned long long v3;  // [bp-0x10]
+    unsigned long long v5;  // rdx
+    unsigned long long v6;  // rax
+
+    v2 = a0.take(a1);
+    v3 = v5;
+    v1 = std::io::stdio::stdout();
+    v0 = v1.lock();
+    if (!v2.copy(&v0))
+    {
+        v6 = v0.flush();
+        if (!v6)
+        {
+            ::0x4ac170::core::ptr::drop_in_place<std::io::stdio::StdoutLock>(v0);
+            return 0;
+        }
+    }
+    v6.call_once();
+    ::0x4ac170::core::ptr::drop_in_place<std::io::stdio::StdoutLock>(v0);
+    return 1;
+}

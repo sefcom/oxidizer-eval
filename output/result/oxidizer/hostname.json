@@ -1,20 +1,21 @@
 {
   "decompilation": {
-    "_ZN11uu_hostname6uumain17h8c04941627001c4fE": "fn uu_hostname::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: u128;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_hostname::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    v3 = *(&v5.vec.buf.cap as &i128);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
-    "_ZN11uu_hostname6uumain6uumain17hd29ed1ca8d950a5eE": "fn uu_hostname::uumain::uumain(a0: i64, a1: i64) -> long long {\n    let v0: Result<struct56, struct16>;  // [bp-0x318]\n    let v1: Result<struct40, struct16>;  // [bp-0x318], Other Possible Types: struct56\n    let v2: u64;  // [bp-0x310]\n    let v3: struct56;  // [bp-0x2e0], Other Possible Types: u8\n    let v4: u64;  // [bp-0x2d8]\n    let v6: u64;  // rdi\n    let v7: u64;  // rax\n\n    uu_hostname::uu_app(&v3);\n    v0 = clap_builder::builder::command::Command::try_get_matches_from(&v3, a0, a1);\n    v6 = v2;\n    match v0 {\n        Err(_) => {\n            return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v4);\n        },\n        Ok(v3) => {\n            v1 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v3, _ZN11uu_hostname8OPT_HOST17hfa1a143c3d8b3f66E.field_0, g_5181f0.field_0);\n            v7 = clap_builder::parser::error::MatchesError::unwrap(_ZN11uu_hostname8OPT_HOST17hfa1a143c3d8b3f66E.field_0, g_5181f0.field_0, &v1);\n            return (!v7 ? uu_hostname::display_hostname(&v1 as u64) : <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(hostname::set(v7)));\n        },\n    }\n}\n",
-    "_ZN11uu_hostname6uu_app17hb6e249c122554ffeE": "fn uu_hostname::uu_app(a0: &struct712) -> long long {\n    let v0: u64;  // [bp-0x878]\n    let v1: u64;  // [bp-0x870]\n    let v2: u64;  // [bp-0x868]\n    let v3: u64;  // [bp-0x860]\n    let v4: u64;  // [bp-0x858]\n    let v5: u64;  // [bp-0x850]\n    let v6: u64;  // [bp-0x848]\n    let v7: u64;  // [bp-0x840]\n    let v8: struct16;  // [bp-0x838], Other Possible Types: u128\n    let v9: u128;  // [bp-0x838]\n    let v10: u64;  // [bp-0x828]\n    let v11: u128;  // [bp-0x828]\n    let v12: u64;  // [bp-0x820]\n    let v13: u64;  // [bp-0x818]\n    let v14: u128;  // [bp-0x818]\n    let v15: u64;  // [bp-0x810]\n    let v16: u128;  // [bp-0x808]\n    let v17: u128;  // [bp-0x808]\n    let v18: u64;  // [bp-0x800]\n    let v19: struct437;  // [bp-0x7f8]\n    let v20: u64;  // [bp-0x53c]\n    let v21: u32;  // [bp-0x534]\n    let v22: u8;  // [bp-0x530]\n    let v23: u64;  // [bp-0x274]\n    let v24: u32;  // [bp-0x26c]\n    let v25: u8;  // [bp-0x268]\n    let v28: u64;  // rdx\n    let v29: u128;  // xmm0\n    let v30: u128;  // xmm1\n    let v31: u128;  // xmm2\n    let v32: u128;  // xmm0\n    let v33: u128;  // xmm1\n    let v34: u128;  // xmm2\n\n    v19 = clap_builder::builder::command::Command::new(uucore::util_name(), v28);\n    clap_builder::builder::command::Command::version(&v22, &v19, \"0.0.28\");\n    clap_builder::builder::command::Command::about(&v19, &v22, \"Display or set the system's host name.\");\n    uucore::format_usage(&v25, \"{} [OPTION]... [HOSTNAME]\");\n    clap_builder::builder::command::Command::override_usage(&v22, &v19, &v25);\n    memcpy(&v19, &v22, 700);\n    v20 = 549755814016 | v23;\n    v21 = v24;\n    clap_builder::builder::arg::Arg::new(&v22, \"domain\");\n    clap_builder::builder::arg::Arg::short(&v25, &v22, 100);\n    clap_builder::builder::arg::Arg::long(&v22, &v25, \"domain\");\n    v0 = &g_41d153;\n    v1 = 6;\n    v2 = &g_41d159;\n    v3 = 10;\n    v4 = &g_4143e8;\n    v5 = 4;\n    v6 = &g_41d163;\n    v7 = 5;\n    v16 = v6;\n    v18 = 5;\n    v13 = v4;\n    v15 = 4;\n    v10 = v2;\n    v12 = 10;\n    v8 = *(&v0 as &i128);\n    clap_builder::builder::arg::Arg::overrides_with_all(&v25, &v22, &v8);\n    clap_builder::builder::arg::Arg::help(&v22, &v25, \"Display the name of the DNS domain if possible\");\n    clap_builder::builder::arg::Arg::action(&v25, &v22);\n    clap_builder::builder::command::Command::arg(&v22, &v19, &v25);\n    clap_builder::builder::arg::Arg::new(&v19, \"ip-address\");\n    clap_builder::builder::arg::Arg::short(&v25, &v19, 105);\n    clap_builder::builder::arg::Arg::long(&v19, &v25, \"ip-address\");\n    v29 = *(&v0 as &i128);\n    v30 = *(&v2 as &i128);\n    v31 = *(&v4 as &i128);\n    v17 = *(&v6 as &i128);\n    v14 = v31;\n    v11 = v30;\n    v8 = v29;\n    clap_builder::builder::arg::Arg::overrides_with_all(&v25, &v19, &v8);\n    clap_builder::builder::arg::Arg::help(&v19, &v25, \"Display the network address(es) of the host\");\n    clap_builder::builder::arg::Arg::action(&v25, &v19);\n    clap_builder::builder::command::Command::arg(&v19, &v22, &v25);\n    clap_builder::builder::arg::Arg::new(&v22, \"fqdn\");\n    clap_builder::builder::arg::Arg::short(&v25, &v22, 102);\n    clap_builder::builder::arg::Arg::long(&v22, &v25, \"fqdn\");\n    v32 = *(&v0 as &i128);\n    v33 = *(&v2 as &i128);\n    v34 = *(&v4 as &i128);\n    v16 = *(&v6 as &i128);\n    v13 = v34;\n    v10 = v33;\n    v8 = v32;\n    clap_builder::builder::arg::Arg::overrides_with_all(&v25, &v22, &v8);\n    clap_builder::builder::arg::Arg::help(&v22, &v25, \"Display the FQDN (Fully Qualified Domain Name) (default)\");\n    clap_builder::builder::arg::Arg::action(&v25, &v22);\n    clap_builder::builder::command::Command::arg(&v22, &v19, &v25);\n    clap_builder::builder::arg::Arg::new(&v19, \"short\");\n    clap_builder::builder::arg::Arg::short(&v25, &v19, 115);\n    clap_builder::builder::arg::Arg::long(&v19, &v25, \"short\");\n    clap_builder::builder::arg::Arg::overrides_with_all(&v25, &v19, &v0);\n    clap_builder::builder::arg::Arg::help(&v19, &v25, \"Display the short hostname (the portion before the first dot) if possible\");\n    clap_builder::builder::arg::Arg::action(&v25, &v19);\n    clap_builder::builder::command::Command::arg(&v19, &v22, &v25);\n    clap_builder::builder::arg::Arg::new(&v22, \"host\");\n    v8 = 2;\n    v8 = struct16 {\n        field_0: v9 & 0xffffffffffffffff0000000000000000 | 2\n    };\n    clap_builder::builder::arg::Arg::value_parser(&v25, &v22, &v8);\n    clap_builder::builder::arg::Arg::value_hint(&v22, &v25, 10);\n    clap_builder::builder::command::Command::arg(a0, &v19, &v22);\n    return a0;\n}\n",
-    "_ZN11uu_hostname16display_hostname17hb7e83080e266b2caE": "fn uu_hostname::display_hostname(a0: i64) -> long long {\n    let v0: core::result::Result<alloc::vec::into_iter::IntoIter<core::net::socket_addr::SocketAddr, alloc::alloc::Global>, std::io::error::Error>;  // [bp-0x168], Other Possible Types: u128\n    let v1: struct24;  // [bp-0x168]\n    let v2: u128;  // [bp-0x168]\n    let v3: struct48;  // [bp-0x168]\n    let v4: u64;  // [bp-0x158]\n    let v5: u128;  // [bp-0x158]\n    let v6: alloc::string::String;  // [bp-0x138], Other Possible Types: u64\n    let v7: u64;  // [bp-0x138]\n    let v8: Option<struct32>;  // [bp-0x138]\n    let v9: u64;  // [bp-0x130]\n    let v10: u64;  // [bp-0x128]\n    let v11: u128;  // [bp-0x118]\n    let v12: u64;  // [bp-0x110]\n    let v13: u64;  // [bp-0x108]\n    let v14: u128;  // [bp-0xf8]\n    let v15: alloc::borrow::Cow<str>;  // [bp-0xf8]\n    let v16: void*;  // [bp-0xf0]\n    let v17: u128;  // [bp-0xe8]\n    let v18: Result<struct32, struct24>;  // [bp-0xd8], Other Possible Types: struct24\n    let v19: struct24;  // [bp-0xd8], Other Possible Types: u128\n    let v20: u64;  // [bp-0xd0]\n    let v21: u128;  // [bp-0xc8]\n    let v22: u64;  // [bp-0xc0]\n    let v23: u128;  // [bp-0xb8]\n    let v24: void*;  // [bp-0xa8]\n    let v25: u64;  // [bp-0xa0]\n    let v26: void*;  // [bp-0x98]\n    let v27: struct24;  // [bp-0x90]\n    let v28: u64;  // [bp-0x88]\n    let v29: u64;  // [bp-0x80]\n    let v30: u64;  // [bp-0x78]\n    let v31: u64;  // [bp-0x70]\n    let v32: u64;  // [bp-0x68]\n    let v33: u64;  // [bp-0x60]\n    let v34: u128;  // [bp-0x58]\n    let v35: u128;  // [bp-0x48]\n    let v37: u128;  // xmm0\n    let v38: u64;  // rdx\n    let v39: u64;  // rcx\n    let v40: u64;  // rax\n    let v41: u32;  // edx\n    let v42: u128;  // xmm0\n    let v43: u64;  // r13\n    let v46: u64;  // rcx\n    let v47: core::option::Option<&str>;  // rax\n    let v51: core::option::Option<&str>;  // rax\n    let v52: u64;  // rdx\n    let v54: u64;  // rdx\n    let v56: u64;  // rdx\n    let v61: &[u8];  // rax:rdx\n\n    v0 = hostname::get();\n    v19 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v0);\n    if v19.field_0 as i64 == 0x8000000000000000 {\n        return v20;\n    }\n    v7 = v19.field_0;\n    v9 = v20;\n    v10 = v21;\n    v15 = std::sys::os_str::bytes::Slice::to_string_lossy(v9, v21);\n    if v15 as i64 == 0x8000000000000000 {\n        v2 = <T as alloc::slice::hack::ConvertVec>::to_vec(v16, *((&v15 as &char + 16) as &i64));\n        v13 = v4;\n        v37 = v1.field_0;\n    }\n    v11 = v37;\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"ip-address\") as i8 {\n        v4 = v13;\n        v2 = v11;\n        v6 = <alloc::string::String as core::ops::arith::Add<&str>>::add(&v2, v38, v39);\n        v0 = <alloc::string::String as std::net::socket_addr::ToSocketAddrs>::to_socket_addrs(&v6);\n        v19 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v0);\n        match v19 as u704 {\n            Err(_) => {\n                return v20;\n            },\n            Ok(_) => {\n                v30 = v18 as i64;\n                v31 = v20;\n                v32 = v21;\n                v33 = v22;\n                v0 as u384 = <hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default();\n                v42 = v3.field_0;\n                v23 = *(&v3.field_32 as &i128);\n                v21 = *(&v4 as &i128) as u128;\n                v19 = v42;\n                v24 = 0;\n                v25 = 1;\n                v26 = 0;\n                v17 = *(&v32 as &i128);\n                v14 = *(&v30 as &i128) as u128;\n                v8 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v15);\n                if let Some(_) = v8 {\n                    do {\n                        v35 = *((&v8 as &char + 16) as &i128);\n                        v34 = v8 as i128;\n                        if !hashbrown::map::HashMap<K,V,S,A>::get_inner(&v19 as u704, &v34, v52) {\n                            v27 = <T as alloc::string::ToString>::to_string(&v34);\n                            if core::slice::<impl [T]>::ends_with(v28, v29, \":1\") as u8 {\n                                alloc::string::String::truncate(&v27, v29 - 2);\n                            }\n                            v61 = core::slice::iter::Iter<T>::make_slice(v28);\n                            alloc::vec::Vec<T,A>::append_elements(&v24, v61.ptr, v38);\n                            alloc::string::String::push(&v24, 32);\n                            v5 = v35;\n                            v0 = v34;\n                            hashbrown::map::HashMap<K,V,S,A>::insert(&v19 as u704, &v0 as u384, v38, v39);\n                        }\n                        v8 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v15);\n                    } while (v8 as i16 != 2);\n                }\n            },\n        }\n    } else if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"short\") as i8 && !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"domain\") as i8 || (v18 = struct24 {\n    field_0: v12\n    field_8: v13 + v12\n    field_16: 0\n}, v18 = struct24 {\n    field_0: v12\n    field_8: v13 + v12\n    field_16: 0\n}, v40 = core::iter::traits::iterator::Iterator::try_fold(&v18), v41 == 0x110000) {\n        println!(\"{}\", &v11 as u8);\n    } else {\n        v43 = core::iter::traits::iterator::Iterator::try_fold(&v18);\n        if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"short\") as i8 {\n            v47 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v43, v12, v13, v46) as u64;\n            v6 = v47;\n            v9 = v54;\n            println!(\"{}\", &v6);\n        } else {\n            v51 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v43 + 1, v12, v13) as u64;\n            v6 = v51;\n            v9 = v56;\n            println!(\"{}\", &v6);\n        }\n    }\n    return 0;\n}\n"
+    "_ZN11uu_hostname6uumain17h932ee5f96a935991E": "fn uu_hostname::uumain(a0: u64, a1: u64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: &str;  // [bp-0x98]\n    let v2: i64;  // [bp-0x88]\n    let v3: u64;  // [bp-0x80]\n    let v4: void*;  // [bp-0x78]\n    let v5: u64;  // [bp-0x68]\n    let v6: i64;  // [bp-0x60]\n    let v7: i64;  // [bp-0x48]\n    let v8: u64;  // [bp-0x48]\n    let v9: u64;  // [bp-0x40]\n    let v10: u64;  // [bp-0x38]\n    let v11: alloc::string::String;  // [bp-0x28]\n    let v14: u64;  // rax\n    let v15: i64;  // rdx\n    let v16: u64;  // rcx\n    let v17: u64;  // r8\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers());\n    v14 = uu_hostname::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v7 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = \"\\x01\";\n    v4 = 0;\n    v2 = &v7;\n    v3 = 1;\n    v11 = core::option::Option<T>::map_or_else(&v1 as u64, v15, v16, v17);\n    *(&v8 as &i128) = *(&v11.vec.buf.inner.cap as &i128);\n    v10 = v11.vec.len;\n    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(<alloc::boxed::Box<T,A> as core::fmt::Display>::fmt, v11.vec.len, 1, 0) {\n        v5 = uucore::util_name();\n        v6 = v15;\n        eprint!(\"{}: \", &v5);\n        eprintln!(\"{}\", &v7);\n    }\n    if !*((v15 + 96) as &i64)(v0) as i8 {\n        return *((v15 + 88) as &i64)(v0) as u32;\n    }\n    v5 = uucore::execution_phrase();\n    v6 = v15;\n    eprintln!(\"Try '{} --help' for more information.\", &v5);\n    return *((v15 + 88) as &i64)(v0) as u32;\n}\n",
+    "_ZN11uu_hostname6uumain6uumain17hc8bbe00a9ed25bc4E": "fn uu_hostname::uumain::uumain(a0: i64, a1: i64) -> u64 {\n    let v0: Result<struct56, struct16>;  // [bp-0x318]\n    let v1: Result<struct40, struct16>;  // [bp-0x318], Other Possible Types: struct56, u64\n    let v2: u64;  // [bp-0x310]\n    let v3: struct56;  // [bp-0x2e0], Other Possible Types: struct712\n    let v4: u64;  // [bp-0x2d8]\n    let v6: u64;  // rdi\n    let v7: u64;  // rax\n\n    v3 = uu_hostname::uu_app();\n    v0 = clap_builder::builder::command::Command::try_get_matches_from(&v3, a0, a1);\n    v6 = v2;\n    if (((0 ^ v0 as i64) & (0 ^ -(v1))) >> 63) as char {\n        return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v4);\n    }\n    v3 = v1;\n    v1 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v3, _ZN11uu_hostname8OPT_HOST17h6e97a8e55b68f4b8E.field_0, g_56f5b0.field_0);\n    v7 = clap_builder::parser::error::MatchesError::unwrap(_ZN11uu_hostname8OPT_HOST17h6e97a8e55b68f4b8E.field_0, g_56f5b0.field_0, &v1);\n    return (!v7 ? uu_hostname::display_hostname(&v1 as u64) : <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(hostname::set(v7)));\n}\n",
+    "_ZN11uu_hostname6uu_app17h659d2c9447fbf135E": "fn uu_hostname::uu_app() -> : struct712 {\n    let a0: u64;  // rdi\n    let v0: struct24;  // [bp-0x898], Other Possible Types: struct64, u64\n    let v1: struct24;  // [bp-0x858]\n    let v2: u64;  // [bp-0x850]\n    let v3: u32;  // [bp-0x848]\n    let v4: struct640;  // [bp-0x840]\n    let v5: u64;  // [bp-0x584]\n    let v6: u32;  // [bp-0x57c]\n    let v7: struct24;  // [bp-0x578], Other Possible Types: struct640\n    let v8: struct437;  // [bp-0x2f8], Other Possible Types: struct640\n    let v9: u64;  // [bp-0x3c]\n    let v10: u32;  // [bp-0x34]\n    let v13: u64;  // rdx\n\n    v8 = clap_builder::builder::command::Command::new(uucore::util_name(), v13);\n    v4 = clap_builder::builder::command::Command::version(&v8, \"(uutils coreutils) 0.1.0\");\n    v7 = uucore::mods::locale::get_message(\"hostname-about\");\n    v8 = clap_builder::builder::command::Command::about(&v4, &v7);\n    v1 = uucore::mods::locale::get_message(\"hostname-usage\");\n    v7 = uucore::format_usage(v2, v3);\n    v4 = clap_builder::builder::command::Command::override_usage(&v8, &v7);\n    memcpy(&v8, &v4, 700);\n    v9 = 549755814016 | v5;\n    v10 = v6;\n    v4 = clap_builder::builder::arg::Arg::new(\"domain\");\n    v7 = clap_builder::builder::arg::Arg::short(&v4, 100);\n    v4 = clap_builder::builder::arg::Arg::long(&v7, \"domain\");\n    v0 = struct64 {\n        field_0: \"domain\"\n        field_16: \"ip-address\"\n        field_32: \"fqdn\"\n        field_48: \"short\"\n    };\n    v7 = clap_builder::builder::arg::Arg::overrides_with_all(&v4, &v0);\n    v0 = uucore::mods::locale::get_message(\"hostname-help-domain\");\n    v4 = clap_builder::builder::arg::Arg::help(&v7, &v0);\n    v7 = clap_builder::builder::arg::Arg::action(&v4);\n    v4 = clap_builder::builder::command::Command::arg(&v8, &v7);\n    v8 = clap_builder::builder::arg::Arg::new(\"ip-address\");\n    v7 = clap_builder::builder::arg::Arg::short(&v8, 105);\n    v8 = clap_builder::builder::arg::Arg::long(&v7, \"ip-address\");\n    v0 = struct64 {\n        field_0: \"domain\"\n        field_16: \"ip-address\"\n        field_32: \"fqdn\"\n        field_48: \"short\"\n    };\n    v7 = clap_builder::builder::arg::Arg::overrides_with_all(&v8, &v0);\n    v0 = uucore::mods::locale::get_message(\"hostname-help-ip-address\");\n    v8 = clap_builder::builder::arg::Arg::help(&v7, &v0);\n    v7 = clap_builder::builder::arg::Arg::action(&v8);\n    v8 = clap_builder::builder::command::Command::arg(&v4, &v7);\n    v4 = clap_builder::builder::arg::Arg::new(\"fqdn\");\n    v7 = clap_builder::builder::arg::Arg::short(&v4, 102);\n    v4 = clap_builder::builder::arg::Arg::long(&v7, \"fqdn\");\n    v0 = struct64 {\n        field_0: \"domain\"\n        field_16: \"ip-address\"\n        field_32: \"fqdn\"\n        field_48: \"short\"\n    };\n    v7 = clap_builder::builder::arg::Arg::overrides_with_all(&v4, &v0);\n    v0 = uucore::mods::locale::get_message(\"hostname-help-fqdn\");\n    v4 = clap_builder::builder::arg::Arg::help(&v7, &v0);\n    v7 = clap_builder::builder::arg::Arg::action(&v4);\n    v4 = clap_builder::builder::command::Command::arg(&v8, &v7);\n    v8 = clap_builder::builder::arg::Arg::new(\"short\");\n    v7 = clap_builder::builder::arg::Arg::short(&v8, 115);\n    v8 = clap_builder::builder::arg::Arg::long(&v7, \"short\");\n    v0 = struct64 {\n        field_0: \"domain\"\n        field_16: \"ip-address\"\n        field_32: \"fqdn\"\n        field_48: \"short\"\n    };\n    v7 = clap_builder::builder::arg::Arg::overrides_with_all(&v8, &v0);\n    v0 = uucore::mods::locale::get_message(\"hostname-help-short\");\n    v8 = clap_builder::builder::arg::Arg::help(&v7, &v0);\n    v7 = clap_builder::builder::arg::Arg::action(&v8);\n    v8 = clap_builder::builder::command::Command::arg(&v4, &v7);\n    v4 = clap_builder::builder::arg::Arg::new(\"host\");\n    v0 = 2;\n    v7 = clap_builder::builder::arg::Arg::value_parser(&v4, &v0);\n    v4 = clap_builder::builder::arg::Arg::value_hint(&v7, 10);\n    clap_builder::builder::command::Command::arg(a0, &v8, &v4);\n    return;\n}\n",
+    "_ZN11uu_hostname16display_hostname17h83526c172796e357E": "fn uu_hostname::display_hostname(a0: i64) -> u64 {\n    let v0: Result<struct24, struct16>;  // [bp-0x168], Other Possible Types: u128\n    let v1: struct24;  // [bp-0x168]\n    let v2: u128;  // [bp-0x168]\n    let v3: struct48;  // [bp-0x168]\n    let v4: u64;  // [bp-0x158]\n    let v5: u128;  // [bp-0x158]\n    let v6: alloc::string::String;  // [bp-0x138], Other Possible Types: u64\n    let v7: Option<struct32>;  // [bp-0x138], Other Possible Types: u256\n    let v8: u64;  // [bp-0x138]\n    let v9: u64;  // [bp-0x130]\n    let v10: u64;  // [bp-0x128]\n    let v11: u128;  // [bp-0x118]\n    let v12: u64;  // [bp-0x110]\n    let v13: u64;  // [bp-0x108]\n    let v14: u128;  // [bp-0xf8]\n    let v15: alloc::borrow::Cow<str>;  // [bp-0xf8]\n    let v16: u32;  // [bp-0xf0]\n    let v17: u128;  // [bp-0xe8]\n    let v18: Result<struct24, struct24>;  // [bp-0xd8], Other Possible Types: struct24, u128\n    let v19: Result<struct32, struct24>;  // [bp-0xd8], Other Possible Types: u64\n    let v20: u64;  // [bp-0xd0]\n    let v21: u64;  // [bp-0xc8]\n    let v22: u64;  // [bp-0xc0]\n    let v23: u128;  // [bp-0xb8]\n    let v24: void*;  // [bp-0xa8]\n    let v25: u64;  // [bp-0xa0]\n    let v26: void*;  // [bp-0x98]\n    let v27: struct24;  // [bp-0x90]\n    let v28: u64;  // [bp-0x88]\n    let v29: u64;  // [bp-0x80]\n    let v30: u64;  // [bp-0x78]\n    let v31: u64;  // [bp-0x70]\n    let v32: u64;  // [bp-0x68]\n    let v33: u64;  // [bp-0x60]\n    let v34: u128;  // [bp-0x58]\n    let v35: u128;  // [bp-0x48]\n    let v37: u128;  // xmm0\n    let v38: u64;  // rdx\n    let v39: u64;  // rcx\n    let v40: u128;  // xmm0\n    let v41: u64;  // rdx\n    let v43: struct640;  // rax\n    let v44: u32;  // edx\n    let v45: struct640;  // r13\n    let v48: u64;  // rcx\n    let v49: core::option::Option<&str>;  // rax\n    let v50: u64;  // rdx\n    let v55: core::option::Option<&str>;  // rax\n    let v56: u64;  // rdx\n\n    v0 = hostname::get();\n    v18 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v0);\n    if (((0 ^ v18 as i64) & (0 ^ -(v19))) >> 63) as char {\n        return v20;\n    }\n    v8 = v18 as i64;\n    v9 = v20;\n    v10 = v21;\n    v15 = std::sys::os_str::bytes::Slice::to_string_lossy(v9, v21);\n    if v15 as i64 == 0x8000000000000000 {\n        v1 = <T as alloc::slice::hack::ConvertVec>::to_vec(v16, *((&v15 as &char + 16) as &i64));\n        v13 = v4;\n        v37 = *(&v1.field_0 as &i128);\n    }\n    v11 = v37;\n    if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"ip-address\") {\n        v4 = v13;\n        v2 = v11;\n        v6 = <alloc::string::String as core::ops::arith::Add<&str>>::add(&v0, v38, v39);\n        v0 = <alloc::string::String as std::net::socket_addr::ToSocketAddrs>::to_socket_addrs(&v6);\n        v18 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v0);\n        match v18 as u704 {\n            Err(_) => {\n                return v20;\n            },\n            Ok(_) => {\n                v30 = v19 as i64;\n                v31 = v20;\n                v32 = v21;\n                v33 = v22;\n                v0 as u384 = <hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default();\n                v40 = v3.field_0;\n                v23 = *(&v3.field_32 as &i128);\n                v21 = *(&v4 as &i128) as u128;\n                v18 = v40;\n                v24 = 0;\n                v25 = 1;\n                v26 = 0;\n                v17 = *(&v32 as &i128);\n                v14 = *(&v30 as &i128) as u128;\n                v7 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v15);\n                if let Some(_) = v7 {\n                    do {\n                        v35 = *((&v7 as &char + 16) as &i128);\n                        v34 = v7 as i128;\n                        if !hashbrown::map::HashMap<K,V,S,A>::get_inner(&v18 as u704, &v34, v41) {\n                            v27 = <T as alloc::string::SpecToString>::spec_to_string(&v34);\n                            if core::slice::<impl [T]>::ends_with(v28, v29, \":1\") as u8 {\n                                alloc::string::String::truncate(&v27, v29 - 2);\n                            }\n                            alloc::vec::Vec<T,A>::append_elements(&v24, v28, v29, \"/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/string.rs\");\n                            alloc::string::String::push(&v24, 32);\n                            v5 = v35;\n                            v0 = v34;\n                            hashbrown::map::HashMap<K,V,S,A>::insert(&v18 as u704, &v0 as u384, v38, v39);\n                        }\n                        v7 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v15);\n                    } while (v7 as i16 != 2);\n                }\n            },\n        }\n    } else if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"short\") || clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"domain\") {\n        v18 = struct24 {\n            field_0: v12\n            field_8: v13 + v12\n            field_16: 0\n        };\n        v43 = core::iter::traits::iterator::Iterator::try_fold(&v18);\n        if v44 == 0x110000 {\n            goto LABEL_498baa;\n        }\n        v45 = v43;\n        if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"short\") {\n            v49 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::Range<usize>>::get(v45, v12, v13, v48) as u64;\n            v6 = v49;\n            v9 = v50;\n            println!(\"{}\", &v6);\n        } else {\n            v55 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get(v45 + 1, v12, v13) as u64;\n            v6 = v55;\n            v9 = v56;\n            println!(\"{}\", &v6);\n        }\n    } else {\nLABEL_498baa:\n        println!(\"{}\", &v11 as u8);\n    }\n    return 0;\n}\n"
   },
   "function_call_counts": {
-    "_ZN11uu_hostname6uumain17h8c04941627001c4fE": {
+    "_ZN11uu_hostname6uumain17h932ee5f96a935991E": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
       "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
       "uu_hostname::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
     },
-    "_ZN11uu_hostname6uumain6uumain17hd29ed1ca8d950a5eE": {
+    "_ZN11uu_hostname6uumain6uumain17hc8bbe00a9ed25bc4E": {
       "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
       "uu_hostname::display_hostname": 1,
       "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
@@ -24,13 +25,14 @@
       "clap_builder::builder::command::Command::try_get_matches_from": 1,
       "uu_hostname::uu_app": 1
     },
-    "_ZN11uu_hostname6uu_app17hb6e249c122554ffeE": {
+    "_ZN11uu_hostname6uu_app17h659d2c9447fbf135E": {
       "clap_builder::builder::command::Command::arg": 5,
       "clap_builder::builder::arg::Arg::value_hint": 1,
       "clap_builder::builder::arg::Arg::value_parser": 1,
       "clap_builder::builder::arg::Arg::new": 5,
       "clap_builder::builder::arg::Arg::action": 4,
       "clap_builder::builder::arg::Arg::help": 4,
+      "uucore::mods::locale::get_message": 6,
       "clap_builder::builder::arg::Arg::overrides_with_all": 4,
       "clap_builder::builder::arg::Arg::long": 4,
       "clap_builder::builder::arg::Arg::short": 4,
@@ -42,14 +44,13 @@
       "clap_builder::builder::command::Command::new": 1,
       "uucore::util_name": 1
     },
-    "_ZN11uu_hostname16display_hostname17hb7e83080e266b2caE": {
+    "_ZN11uu_hostname16display_hostname17h83526c172796e357E": {
       "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next": 2,
       "hashbrown::map::HashMap<K,V,S,A>::insert": 1,
       "alloc::string::String::push": 1,
       "alloc::vec::Vec<T,A>::append_elements": 1,
-      "core::slice::iter::Iter<T>::make_slice": 1,
       "alloc::string::String::truncate": 1,
-      "<T as alloc::string::ToString>::to_string": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
       "<hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default": 1,
       "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 2,
       "<alloc::string::String as std::net::socket_addr::ToSocketAddrs>::to_socket_addrs": 1,
@@ -63,25 +64,24 @@
     }
   },
   "macro_call_counts": {
-    "_ZN11uu_hostname6uumain17h8c04941627001c4fE": {
+    "_ZN11uu_hostname6uumain17h932ee5f96a935991E": {
       "eprintln": 2,
-      "eprint": 1,
-      "format": 1
+      "eprint": 1
     },
-    "_ZN11uu_hostname6uumain6uumain17hd29ed1ca8d950a5eE": {},
-    "_ZN11uu_hostname6uu_app17hb6e249c122554ffeE": {},
-    "_ZN11uu_hostname16display_hostname17hb7e83080e266b2caE": {
+    "_ZN11uu_hostname6uumain6uumain17hc8bbe00a9ed25bc4E": {},
+    "_ZN11uu_hostname6uu_app17h659d2c9447fbf135E": {},
+    "_ZN11uu_hostname16display_hostname17h83526c172796e357E": {
       "println": 3
     }
   },
   "node_counts": {
-    "_ZN11uu_hostname6uumain17h8c04941627001c4fE": 10,
-    "_ZN11uu_hostname6uumain6uumain17hd29ed1ca8d950a5eE": 7,
-    "_ZN11uu_hostname6uu_app17hb6e249c122554ffeE": 39,
-    "_ZN11uu_hostname16display_hostname17hb7e83080e266b2caE": 29
+    "_ZN11uu_hostname6uumain17h932ee5f96a935991E": 10,
+    "_ZN11uu_hostname6uumain6uumain17hc8bbe00a9ed25bc4E": 7,
+    "_ZN11uu_hostname6uu_app17h659d2c9447fbf135E": 45,
+    "_ZN11uu_hostname16display_hostname17h83526c172796e357E": 30
   },
   "variable_types": {
-    "_ZN11uu_hostname6uumain17h8c04941627001c4fE": {
+    "_ZN11uu_hostname6uumain17h932ee5f96a935991E": {
       "reg_rax": [
         [
           "primitive",
@@ -94,16 +94,68 @@
           8
         ]
       ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
       "stack_128": [
         [
           "struct",
           24
         ]
       ],
-      "stack_96": [
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
         [
           "primitive",
-          16
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
         ]
       ],
       "stack_112": [
@@ -120,18 +172,12 @@
       ],
       "stack_72": [
         [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_rdx": [
-        [
-          "primitive",
+          "&primitive",
           8
         ]
       ]
     },
-    "_ZN11uu_hostname6uumain6uumain17hd29ed1ca8d950a5eE": {
+    "_ZN11uu_hostname6uumain6uumain17hc8bbe00a9ed25bc4E": {
       "stack_56": [
         [
           "struct",
@@ -173,8 +219,14 @@
         ]
       ]
     },
-    "_ZN11uu_hostname6uu_app17hb6e249c122554ffeE": {
-      "stack_128": [
+    "_ZN11uu_hostname6uu_app17h659d2c9447fbf135E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1440": [
         [
           "struct",
           448
@@ -186,117 +238,25 @@
           8
         ]
       ],
-      "stack_840": [
+      "stack_88": [
         [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_1552": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_828": [
-        [
-          "primitive",
+          "struct",
           8
         ]
       ],
-      "stack_1540": [
+      "stack_800": [
         [
-          "primitive",
-          8
+          "struct",
+          24
         ]
       ],
-      "stack_836": [
+      "stack_64": [
         [
-          "primitive",
-          4
+          "struct",
+          24
         ]
       ],
-      "stack_1548": [
-        [
-          "primitive",
-          4
-        ]
-      ],
-      "stack_0": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_8": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_16": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_40": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_48": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_56": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_112": [
-        [
-          "primitive",
-          16
-        ],
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "stack_120": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_96": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "stack_104": [
+      "stack_72": [
         [
           "primitive",
           8
@@ -305,73 +265,53 @@
       "stack_80": [
         [
           "primitive",
-          8
-        ],
-        [
-          "primitive",
-          16
+          4
         ]
       ],
-      "stack_88": [
+      "stack_2140": [
         [
           "primitive",
           8
         ]
       ],
-      "stack_64": [
+      "stack_788": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2148": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_796": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
         [
           "struct",
-          16
-        ],
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "reg_ymm0": [
-        [
-          "primitive",
-          16
-        ],
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "reg_ymm1": [
-        [
-          "primitive",
-          16
-        ],
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "reg_ymm2": [
-        [
-          "primitive",
-          16
-        ],
-        [
-          "primitive",
-          16
+          24
         ]
       ]
     },
-    "_ZN11uu_hostname16display_hostname17hb7e83080e266b2caE": {
+    "_ZN11uu_hostname16display_hostname17h83526c172796e357E": {
       "stack_0": [
         [
           "Result",
-          32
-        ],
-        [
-          "primitive",
-          16
+          80
         ],
         [
           "struct",
           24
+        ],
+        [
+          "primitive",
+          16
         ],
         [
           "struct",
@@ -380,8 +320,8 @@
       ],
       "stack_144": [
         [
-          "struct",
-          24
+          "Result",
+          88
         ],
         [
           "Result",
@@ -423,12 +363,12 @@
       "stack_160": [
         [
           "primitive",
-          16
+          8
         ]
       ],
       "stack_112": [
         [
-          "primitive",
+          "enum",
           24
         ],
         [
@@ -438,8 +378,8 @@
       ],
       "stack_120": [
         [
-          "&primitive",
-          null
+          "primitive",
+          4
         ]
       ],
       "stack_96": [
@@ -545,7 +485,7 @@
       "stack_192": [
         [
           "&primitive",
-          null
+          8
         ]
       ],
       "stack_200": [
@@ -557,7 +497,7 @@
       "stack_208": [
         [
           "&primitive",
-          null
+          8
         ]
       ],
       "stack_128": [
@@ -604,7 +544,7 @@
       ],
       "reg_rax": [
         [
-          "primitive",
+          "struct",
           8
         ],
         [
@@ -618,7 +558,7 @@
       ],
       "reg_r13": [
         [
-          "primitive",
+          "struct",
           8
         ]
       ]

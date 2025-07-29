@@ -59,7 +59,7 @@ def load_function_list(binary_path, module=None):
     return (
         function_list
         if module is None
-        else [name for name in function_list if demangle(name).startswith(module + "::") and "$closure$" not in name]
+        else [name for name in function_list if demangle(name).startswith(module + "") and "$closure$" not in name]
     )
 
 

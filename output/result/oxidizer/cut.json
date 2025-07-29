@@ -1,135 +1,164 @@
 {
   "decompilation": {
-    "_ZN6uu_cut6uumain17h4549f56a9d639c8aE": "fn uu_cut::uumain(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x68]\n    let v2: i64;  // [sp-0x60]\n    let v3: u128;  // [bp-0x48]\n    let v4: u64;  // [bp-0x38]\n    let v5: alloc::string::String;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers() as i32);\n    v8 = uu_cut::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v5 = format!(\"{}\", &v0);\n    v3 = *(&v5.vec.buf.cap as &i128);\n    v4 = v5.vec.len;\n    if v5.vec.len == <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v3);\n    }\n    if !*((v9 + 104) as &i64)(v0) as i8 {\n        return *((v9 + 96) as &i64)(v0) as u32;\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return *((v9 + 96) as &i64)(v0) as u32;\n}\n",
-    "_ZN6uu_cut13stdout_writer17h8d13c8405537874aE": "fn uu_cut::stdout_writer() -> long long {\n    let v0: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>;  // [bp-0x30], Other Possible Types: std::io::stdio::Stdout\n\n    v0 = std::io::stdio::stdout();\n    if std::sys::pal::unix::io::is_terminal() {\n        return alloc::boxed::Box<T>::new(std::io::stdio::stdout());\n    }\n    std::io::stdio::stdout();\n    v0 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x2000);\n    return alloc::boxed::Box<T>::new(&v0);\n}\n",
-    "_ZN6uu_cut14list_to_ranges17h582948f175afb12bE": "fn uu_cut::list_to_ranges(a1: i64, a2: i64, a3: i32) -> Option<struct24> {\n    let a0: u64;  // rsi\n    let v0: struct24;  // [bp-0x48]\n    let v1: Option<struct24>;  // [bp-0x30]\n    let v2: struct24;  // [bp-0x28], Other Possible Types: u128\n    let v4: u64;  // rdi\n    let v5: i64;  // rdi\n    let v6: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>;  // rax\n\n    if !a2 {\n        uucore::features::ranges::Range::from_list(v4, a0, a1);\n        return;\n    }\n    v1 = uucore::features::ranges::Range::from_list(a0, a1);\n    match v1 {\n        Some(_) => {\n            *((v5 + 24) as &i64) = *((&v1 as &char + 24) as &i64);\n            *((v5 + 8) as &u128) = v2;\n            v6 = 1;\n        },\n        None => {\n            v0 = v2;\n            uu_cut::list_to_ranges::{{closure}}(v5 + 8, &v0);\n        },\n    }\n    *(v5 as &std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>) = v6;\n    return;\n}\n",
-    "_ZN6uu_cut9cut_bytes17h04bd5adc21115d76E": "fn uu_cut::cut_bytes(a0: i64, a1: i64, a2: i64, a3: i64) -> long long {\n    let v0: i8;  // [bp-0xb1]\n    let v1: u64;  // [bp-0xb0]\n    let v2: u64;  // [bp-0xa0]\n    let v3: struct28;  // [bp-0x98], Other Possible Types: struct48\n    let v4: u64;  // [bp-0x68]\n    let v5: u64;  // [bp-0x60]\n    let v6: struct48;  // [bp-0x58]\n    let v7: struct24;  // [bp-0x28]\n    let v9: u64;  // rax\n    let v10: u64;  // rax\n    let v12: u64;  // rax\n\n    v4 = a1;\n    v5 = a2;\n    v6 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, a0);\n    v1 = uu_cut::stdout_writer();\n    v9 = *(a3 as &i64);\n    if v9 {\n        v10 = v9;\n    } else {\n        v10 = &g_41dc19;\n    }\n    v3 = struct48 {\n        field_0: &v4\n        field_8: &v1\n        field_16: v10\n        field_24: (v9 ? *((a3 + 8) as &i64) : 1)\n        field_32: a3\n        field_40: &v0\n    };\n    v3 = struct48 {\n        field_0: &v4\n        field_8: &v1\n        field_16: v10\n        field_24: (v9 ? *((a3 + 8) as &i64) : 1)\n        field_32: a3\n        field_40: &v0\n    };\n    v12 = bstr::io::BufReadExt::for_byte_record(&v6, *((a3 + 40) as &i8), &v3);\n    if !v12 {\n        return 0;\n    }\n    v2 = v12;\n    v7 = <T as alloc::string::ToString>::to_string(&v2);\n    v3 = struct28 {\n        field_0: v7.field_0\n        field_16: v7.field_16\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v3);\n}\n",
-    "_ZN6uu_cut9cut_bytes17hb75889e9eff680b7E": "fn uu_cut::cut_bytes(a0: i32, a1: i64, a2: i32, a3: i64) -> long long {\n    let v0: i8;  // [bp-0xb1]\n    let v1: u64;  // [bp-0xb0]\n    let v2: struct24;  // [bp-0xa0], Other Possible Types: u64\n    let v3: struct28;  // [bp-0x98], Other Possible Types: struct48\n    let v4: u64;  // [bp-0x68]\n    let v5: u64;  // [bp-0x60]\n    let v6: u128;  // [bp-0x58]\n    let v7: u64;  // [bp-0x48]\n    let v8: struct44;  // [bp-0x40]\n    let v10: u64;  // rax\n    let v11: u64;  // rax\n    let v13: u64;  // rax\n\n    v4 = a1;\n    v5 = a2;\n    v8 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, a0);\n    v1 = uu_cut::stdout_writer();\n    v10 = *(a3 as &i64);\n    if v10 {\n        v11 = v10;\n    } else {\n        v11 = &g_41dc19;\n    }\n    v3 = struct48 {\n        field_0: &v4\n        field_8: &v1\n        field_16: v11\n        field_24: (v10 ? *((a3 + 8) as &i64) : 1)\n        field_32: a3\n        field_40: &v0\n    };\n    v3 = struct48 {\n        field_0: &v4\n        field_8: &v1\n        field_16: v11\n        field_24: (v10 ? *((a3 + 8) as &i64) : 1)\n        field_32: a3\n        field_40: &v0\n    };\n    v13 = bstr::io::BufReadExt::for_byte_record(&v8, *((a3 + 40) as &i8), &v3);\n    if !v13 {\n        return 0;\n    }\n    v2 = v13;\n    v2 = <T as alloc::string::ToString>::to_string(a2);\n    v3 = struct28 {\n        field_0: v6\n        field_16: v7\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v3);\n}\n",
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h0a90ca972983d44eE": "fn uu_cut::cut_fields_explicit_out_delim(a0: i32, a1: i64, a2: i32, a3: i32, a4: i8, a5: i8, a6: i64, a7: i64) -> long long {\n    let v0: u8;  // [bp-0xc2]\n    let v1: u8;  // [bp-0xc1]\n    let v2: u64;  // [bp-0xc0]\n    let v3: struct24;  // [bp-0xb0], Other Possible Types: u64\n    let v4: struct28;  // [bp-0xa8], Other Possible Types: struct56\n    let v5: u64;  // [bp-0x68]\n    let v6: u64;  // [bp-0x60]\n    let v7: u64;  // [bp-0x58]\n    let v8: u128;  // [bp-0x28]\n    let v9: i8;  // [bp-0x18]\n    let v10: u64;  // rax\n\n    v5 = a2;\n    v6 = a3;\n    v0 = a4;\n    v1 = a5;\n    std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, a0, a3);\n    v2 = uu_cut::stdout_writer();\n    v4 = struct56 {\n        field_0: a1\n        field_8: &v0\n        field_16: &v2\n        field_24: &v1\n        field_32: &v5\n        field_40: a6\n        field_48: a7\n    };\n    v10 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v7, v1, &v4);\n    if !v10 {\n        return 0;\n    }\n    v3 = v10;\n    v3 = <T as alloc::string::ToString>::to_string(a2);\n    v4 = struct28 {\n        field_0: v8\n        field_16: *(&v9 as &i64)\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v4);\n}\n",
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h498d740af7877aa6E": "fn uu_cut::cut_fields_explicit_out_delim(a0: i32, a1: i64, a2: i32, a3: i64, a4: i8, a5: i8, a6: i64, a7: i64) -> long long {\n    let v0: u8;  // [bp-0xc2]\n    let v1: u8;  // [bp-0xc1]\n    let v2: u64;  // [bp-0xc0]\n    let v3: struct24;  // [bp-0xb0], Other Possible Types: u64\n    let v4: struct28;  // [bp-0xa8], Other Possible Types: struct56\n    let v5: u64;  // [bp-0x68]\n    let v6: u64;  // [bp-0x60]\n    let v7: u128;  // [bp-0x58]\n    let v8: u64;  // [bp-0x48]\n    let v9: u64;  // [bp-0x40]\n    let v10: u64;  // rax\n\n    v5 = a2;\n    v6 = a3;\n    v0 = a4;\n    v1 = a5;\n    std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, a0, a3);\n    v2 = uu_cut::stdout_writer();\n    v4 = struct56 {\n        field_0: a1\n        field_8: &v0\n        field_16: &v2\n        field_24: &v1\n        field_32: &v5\n        field_40: a6\n        field_48: a7\n    };\n    v10 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v9, v1, &v4);\n    if !v10 {\n        return 0;\n    }\n    v3 = v10;\n    v3 = <T as alloc::string::ToString>::to_string(a2);\n    v4 = struct28 {\n        field_0: v7\n        field_16: v8\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v4);\n}\n",
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h5c816d4033f8d8feE": "fn uu_cut::cut_fields_explicit_out_delim(a0: i32, a1: i64, a2: i32, a3: i64, a4: i8, a5: i8, a6: i64, a7: i64) -> long long {\n    let v0: u8;  // [bp-0xc2]\n    let v1: u8;  // [bp-0xc1]\n    let v2: u64;  // [bp-0xc0]\n    let v3: struct24;  // [bp-0xb0], Other Possible Types: u64\n    let v4: struct28;  // [bp-0xa8], Other Possible Types: struct56\n    let v5: u64;  // [bp-0x68]\n    let v6: u64;  // [bp-0x60]\n    let v7: u128;  // [bp-0x58]\n    let v8: u64;  // [bp-0x48]\n    let v9: u64;  // [bp-0x40]\n    let v10: u64;  // rax\n\n    v5 = a2;\n    v6 = a3;\n    v0 = a4;\n    v1 = a5;\n    std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, a0, a3);\n    v2 = uu_cut::stdout_writer();\n    v4 = struct56 {\n        field_0: a1\n        field_8: &v0\n        field_16: &v2\n        field_24: &v1\n        field_32: &v5\n        field_40: a6\n        field_48: a7\n    };\n    v10 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v9, v1, &v4);\n    if !v10 {\n        return 0;\n    }\n    v3 = v10;\n    v3 = <T as alloc::string::ToString>::to_string(a2);\n    v4 = struct28 {\n        field_0: v7\n        field_16: v8\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v4);\n}\n",
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17hf1ac07e2d7452ebcE": "fn uu_cut::cut_fields_explicit_out_delim(a0: i32, a1: i64, a2: i32, a3: i32, a4: i8, a5: i8, a6: i64, a7: i64) -> long long {\n    let v0: u8;  // [bp-0xc2]\n    let v1: u8;  // [bp-0xc1]\n    let v2: u64;  // [bp-0xc0]\n    let v3: struct24;  // [bp-0xb0], Other Possible Types: u64\n    let v4: struct28;  // [bp-0xa8], Other Possible Types: struct56\n    let v5: u64;  // [bp-0x68]\n    let v6: u64;  // [bp-0x60]\n    let v7: u64;  // [bp-0x58]\n    let v8: u128;  // [bp-0x28]\n    let v9: i8;  // [bp-0x18]\n    let v10: u64;  // rax\n\n    v5 = a2;\n    v6 = a3;\n    v0 = a4;\n    v1 = a5;\n    std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, a0, a3);\n    v2 = uu_cut::stdout_writer();\n    v4 = struct56 {\n        field_0: a1\n        field_8: &v0\n        field_16: &v2\n        field_24: &v1\n        field_32: &v5\n        field_40: a6\n        field_48: a7\n    };\n    v10 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v7, v1, &v4);\n    if !v10 {\n        return 0;\n    }\n    v3 = v10;\n    v3 = <T as alloc::string::ToString>::to_string(a2);\n    v4 = struct28 {\n        field_0: v8\n        field_16: *(&v9 as &i64)\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v4);\n}\n",
-    "_ZN6uu_cut29cut_fields_implicit_out_delim17h3e4a03ff417ae94aE": "fn uu_cut::cut_fields_implicit_out_delim(a0: i32, a1: i64, a2: i32, a3: i64, a4: i8, a5: i8) -> long long {\n    let v0: u8;  // [bp-0xb2]\n    let v1: u8;  // [bp-0xb1]\n    let v2: u64;  // [bp-0xb0]\n    let v3: struct24;  // [bp-0xa0], Other Possible Types: u64\n    let v4: struct28;  // [bp-0x98], Other Possible Types: struct40\n    let v5: u64;  // [bp-0x68]\n    let v6: u64;  // [bp-0x60]\n    let v7: u128;  // [bp-0x58]\n    let v8: u64;  // [bp-0x48]\n    let v9: u64;  // [bp-0x40]\n    let v11: u64;  // rax\n\n    v5 = a2;\n    v6 = a3;\n    v0 = a4;\n    v1 = a5;\n    std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, a0, a3);\n    v2 = uu_cut::stdout_writer();\n    v4 = struct40 {\n        field_0: a1\n        field_8: &v0\n        field_16: &v2\n        field_24: &v1\n        field_32: &v5\n    };\n    v11 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v9, v1, &v4);\n    if !v11 {\n        return 0;\n    }\n    v3 = v11;\n    v3 = <T as alloc::string::ToString>::to_string(a2);\n    v4 = struct28 {\n        field_0: v7\n        field_16: v8\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v4);\n}\n",
-    "_ZN6uu_cut29cut_fields_implicit_out_delim17hc1fc3b9aa7195642E": "fn uu_cut::cut_fields_implicit_out_delim(a0: i32, a1: i64, a2: i32, a3: i32, a4: i8, a5: i8) -> long long {\n    let v0: u8;  // [bp-0xb2]\n    let v1: u8;  // [bp-0xb1]\n    let v2: u64;  // [bp-0xb0]\n    let v3: struct24;  // [bp-0xa0], Other Possible Types: u64\n    let v4: struct28;  // [bp-0x98], Other Possible Types: struct40\n    let v5: u64;  // [bp-0x68]\n    let v6: u64;  // [bp-0x60]\n    let v7: u64;  // [bp-0x58]\n    let v8: u128;  // [bp-0x28]\n    let v9: i8;  // [bp-0x18]\n    let v11: u64;  // rax\n\n    v5 = a2;\n    v6 = a3;\n    v0 = a4;\n    v1 = a5;\n    std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, a0, a3);\n    v2 = uu_cut::stdout_writer();\n    v4 = struct40 {\n        field_0: a1\n        field_8: &v0\n        field_16: &v2\n        field_24: &v1\n        field_32: &v5\n    };\n    v11 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v7, v1, &v4);\n    if !v11 {\n        return 0;\n    }\n    v3 = v11;\n    v3 = <T as alloc::string::ToString>::to_string(a2);\n    v4 = struct28 {\n        field_0: v8\n        field_16: *(&v9 as &i64)\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v4);\n}\n",
-    "_ZN6uu_cut10cut_fields17h46a13446ac92181dE": "fn uu_cut::cut_fields(a0: i32, a1: i32, a2: i64, a3: i64) -> long long {\n    let v0: u8;  // [bp-0x41]\n    let v1: struct16;  // [bp-0x40]\n    let v3: u8;  // r13b\n    let v4: u8;  // bpl\n    let v5: core::fmt::rt::Argument;  // rax\n    let v6: u64;  // rdx\n    let v7: u64;  // rax\n    let v8: core::fmt::rt::Argument;  // rax\n\n    v3 = *((a3 + 32) as &i8);\n    if v3 == 2 {\n        core::option::unwrap_failed(); /* do not return */\n    }\n    v4 = *((a3 + 40) as &i8);\n    if *((a3 + 16) as &i64) {\n        v1 = struct16 {\n            field_0: uu_cut::matcher::ExactMatcher::new(*((a3 + 16) as &i64), *((a3 + 24) as &i64))\n            field_8: v6\n        };\n        if !*(a3 as &i64) {\n            return uu_cut::cut_fields_implicit_out_delim(a0, &v1, a1, a2, v3, v4);\n        }\n        v7 = uu_cut::cut_fields_explicit_out_delim(a0, &v1, a1, a2, v3, v4, *(a3 as &i64), *((a3 + 8) as &i64));\n    } else {\n        v5 = *(a3 as &i64);\n        if v5 {\n            v8 = v5;\n        } else {\n            v8 = &g_41dc19.ty;\n        }\n        v7 = uu_cut::cut_fields_explicit_out_delim(a0, &v0, a1, a2, v3, v4, v8, (v5 ? *((a3 + 8) as &i64) : 1));\n    }\n    return v7;\n}\n",
-    "_ZN6uu_cut10cut_fields17h5b603ad8eeef3f36E": "fn uu_cut::cut_fields(a0: i32, a1: i32, a2: i32, a3: i64) -> long long {\n    let v0: u8;  // [bp-0x41]\n    let v1: struct16;  // [bp-0x40]\n    let v3: u8;  // r13b\n    let v4: u8;  // bpl\n    let v5: core::fmt::Arguments;  // rax\n    let v6: u64;  // rdx\n    let v7: struct24;  // rax\n    let v8: core::fmt::Arguments;  // rax\n\n    v3 = *((a3 + 32) as &i8);\n    if v3 == 2 {\n        core::option::unwrap_failed(); /* do not return */\n    }\n    v4 = *((a3 + 40) as &i8);\n    if *((a3 + 16) as &i64) {\n        v1 = struct16 {\n            field_0: uu_cut::matcher::ExactMatcher::new(*((a3 + 16) as &i64), *((a3 + 24) as &i64))\n            field_8: v6\n        };\n        if !*(a3 as &i64) {\n            return uu_cut::cut_fields_implicit_out_delim(a0, &v1, a1, a2, v3, v4);\n        }\n        v7 = uu_cut::cut_fields_explicit_out_delim(a0, &v1, a1, a2, v3, v4, *(a3 as &i64), *((a3 + 8) as &i64));\n    } else {\n        v5 = *(a3 as &i64);\n        if v5 {\n            v8 = v5;\n        } else {\n            v8 = &g_41dc19.pieces.ptr;\n        }\n        v7 = uu_cut::cut_fields_explicit_out_delim(a0, &v0, a1, a2, v3, v4, v8, (v5 ? *((a3 + 8) as &i64) : 1));\n    }\n    return v7;\n}\n",
-    "_ZN6uu_cut9cut_files17hab9ba34aeaa70600E": "fn uu_cut::cut_files(a0: &struct24, a1: &struct80) {\n    let v0: u64;  // [bp-0xe8]\n    let v1: u64;  // [bp-0xe0]\n    let v2: struct16;  // [bp-0xd8], Other Possible Types: struct24, u64\n    let v3: void*;  // [bp-0xd8]\n    let v4: void*;  // [bp-0xd8]\n    let v5: i64;  // [bp-0xd0], Other Possible Types: u64\n    let v6: i64;  // [bp-0xd0]\n    let v7: struct24;  // [bp-0xc8]\n    let v8: u8;  // [bp-0xc0]\n    let v9: u32;  // [bp-0xb4]\n    let v10: struct24;  // [bp-0xb0], Other Possible Types: u64\n    let v11: struct24;  // [bp-0xb0], Other Possible Types: u64\n    let v12: u64;  // [bp-0xb0]\n    let v13: struct12;  // [bp-0xb0]\n    let v14: struct16;  // [bp-0x80]\n    let v15: u64;  // [bp-0x70]\n    let v16: u64;  // [bp-0x68]\n    let v17: u64;  // [bp-0x60]\n    let v18: struct16;  // [bp-0x48]\n    let v19: u64;  // [bp-0x38]\n    let v21: u64;  // rax\n    let v22: i64;  // rax\n    let v23: i64;  // rbp\n    let v24: struct24;  // rbx\n    let v25: u64;  // rdx\n    let v26: void*;  // rax\n    let v27: i64;  // rcx\n    let v29: u64;  // rcx\n\n    if !v21 {\n        v10 = <T as alloc::slice::hack::ConvertVec>::to_vec(\"-\");\n        v2 = v11;\n        alloc::vec::Vec<T,A>::push(a0, &v2);\n    }\n    v18 = struct16 {\n        field_0: *((a0 + 8) as &i64)\n        field_8: *((a0 + 8) as &i64) + v21 * 24\n    };\n    v18 = struct16 {\n        field_0: *((a0 + 8) as &i64)\n        field_8: *((a0 + 8) as &i64) + v21 * 24\n    };\n    <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v18);\n    if !v22 {\n        return;\n    }\n    v19 = *(a1 as &i64);\n    v17 = *((a1 + 64) as &i64);\n    v16 = *((a1 + 72) as &i64);\n    v15 = a1 + 8;\n    v9 = 0;\n    do {\n        v10 = v12;\n        if !(v9 as i8 & 1) {\n            loop {\n                v10 = v10;\n                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v22 + 8) as &i64), *((v22 + 16) as &i64), \"-\") as i8 {\n                    if v19 < 2 {\n                        uu_cut::cut_bytes(std::io::stdio::stdin(), v17, v16, v15);\n                    } else {\n                        uu_cut::cut_fields(std::io::stdio::stdin() as u32, v17, v16, v15);\n                    }\n                    v9 = v29 & -0x100 | 1;\n                    if v26 {\n                        v14 = struct16 {\n                            field_0: v26\n                            field_8: &g_528da0.padding_0[0]\n                        };\n                        uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v26) as i32);\n                        v0 = uucore::util_name();\n                        v1 = v25;\n                        eprintln!(\"{}: {}\", &v0, &v14);\n                        v10 = v11;\n                        v3 = v4;\n                        v5 = v6;\n                    }\n                }\n                if !std::path::Path::is_dir(*((v22 + 8) as &i64), *((v22 + 16) as &i64)) {\n                    break;\n                }\n                v2 = uucore::util_name();\n                v5 = v25;\n                eprint!(\"{}: \", &v2);\n                v3 = 0;\n                v5 = v23;\n                v7 = v24;\n                v8 = 0;\n                eprintln!(\"{}: Is a directory\", &v3);\n                uucore::mods::error::set_exit_code(1);\n                <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v18);\n                v10 = v11;\n                if !v22 {\n                    return;\n                }\n            }\n        } else {\n            do {\n                v10 = v12;\n                if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v22 + 8) as &i64), *((v22 + 16) as &i64), \"-\") as i8 {\n                    if !std::path::Path::is_dir(*((v22 + 8) as &i64), *((v22 + 16) as &i64)) {\n                        goto LABEL_4b70d0;\n                    }\n                    v2 = uucore::util_name();\n                    v5 = v25;\n                    eprint!(\"{}: \", &v2);\n                    v3 = 0;\n                    v5 = v23;\n                    v7 = v24;\n                    v8 = 0;\n                    eprintln!(\"{}: Is a directory\", &v3);\n                    uucore::mods::error::set_exit_code(1);\n                    v10 = v11;\n                }\n            } while ((v12 = v10, <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v18), v22));\n        }\nLABEL_4b70d0:\n        vvar_607{stack -176} = struct12 OrderedDict({0: \ud835\udf19@64b [((4943864, None), vvar_435{stack -176}), ((4943555, None), vvar_448{stack -176})]})\n        std::fs::File::open(&v13, v23, v24);\n        v2 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v13, v22);\n        if v2.field_0 {\n            v27 = v5;\n            v2 = v3;\n        } else {\n            v10 = v11;\n            v2 = uu_cut::cut_files::{{closure}}(a1, v2.field_8);\n            if !v2 {\n                continue;\n            }\n        }\n        v14 = struct16 {\n            field_0: v2\n            field_8: v27\n        };\n        uucore::mods::error::set_exit_code(*((v27 + 96) as &i64)(v2) as u32);\n        v0 = uucore::util_name();\n        v1 = v25;\n        eprintln!(\"{}: {}\", &v0, &v14);\n        v10 = v11;\n        v3 = v4;\n        v5 = v6;\n    } while ((v12 = v10, <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v18), v22));\n    return;\n}\n",
-    "_ZN6uu_cut14get_delimiters17h4e08f74774217561E": "fn uu_cut::get_delimiters(a1: i64, a2: i32) -> Result<struct32, struct16> {\n    let a0: u64;  // rsi\n    let v0: Result<struct40, struct16>;  // [bp-0x58]\n    let v1: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x58]\n    let v2: u64;  // [bp-0x50]\n    let v3: u64;  // [bp-0x48]\n    let v6: u8;  // r15b\n    let v7: i64;  // rax\n    let v8: struct40;  // r12\n    let v9: u64;  // rsi\n    let v10: i64;  // r14\n    let v11: u64;  // rdx\n    let v14: i64;  // r13\n    let v15: u64;  // rbp\n    let v16: struct28;  // rdx\n    let v17: i64;  // rdi\n    let v18: u64;  // rax\n    let v19: i64;  // rax\n    let v20: u64;  // rax\n\n    v6 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a0, \"whitespace-delimited\") as i32;\n    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, \"delimiter\");\n    v7 = clap_builder::parser::error::MatchesError::unwrap(\"delimiter\", &v0);\n    if v7 {\n        if v6 {\nLABEL_4b73a4:\n            <T as alloc::slice::hack::ConvertVec>::to_vec(v9, v11, a2);\n            *((v17 + 8) as &double) = alloc::boxed::Box<T>::new(v10);\n            *((v17 + 16) as &&u128) = &g_528da0.field_0;\n            *(v17 as &u64) = v18;\n            return;\n        } else if !a1 {\n            v14 = v7;\n            if !<std::ffi::os_str::OsString as core::cmp::PartialEq<str>>::eq(*((v7 + 8) as &i64), *((v7 + 16) as &i64), a1) && (v15 = *((v14 + 16) as &i64), v15) {\n                v0 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(*((v14 + 8) as &i64), v15);\n                if !((v0 as i64 || <core::str::iter::Chars as core::iter::traits::iterator::Iterator>::count(v2, v3 + v2) <= 1) && (v1 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(*((v14 + 8) as &i64), v15), v15 == 1 || !v1 as i64)) {\n                    goto LABEL_4b73a4;\n                }\n                <uu_cut::Delimiter as core::convert::From<&std::ffi::os_str::OsString>>::from(v14);\n            }\n        }\n    }\n    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a0, \"output-delimiter\");\n    v19 = clap_builder::parser::error::MatchesError::unwrap(\"output-delimiter\", &v0);\n    v20 = (!v19 ? 0 : uu_cut::get_delimiters::{{closure}}(*((v19 + 8) as &i64), *((v19 + 16) as &i64)));\n    *((v17 + 8) as &struct40) = v8;\n    *((v17 + 16) as &i64) = 1;\n    *((v17 + 24) as &u64) = v20;\n    *((v17 + 32) as &struct28) = v16;\n    *(v17 as &u64) = v18;\n    return;\n}\n",
-    "_ZN6uu_cut6uu_app17h2a5a44b0da1a04d9E": "fn uu_cut::uu_app(a0: &struct712) -> long long {\n    let v0: u64;  // [bp-0xa60]\n    let v1: u64;  // [bp-0xa58]\n    let v2: u64;  // [bp-0xa50]\n    let v3: u8;  // [bp-0xa48]\n    let v4: u32;  // [bp-0x800]\n    let v5: u32;  // [bp-0x7fc]\n    let v6: struct437;  // [bp-0x7f8]\n    let v7: u32;  // [bp-0x5b0]\n    let v8: u32;  // [bp-0x5ac]\n    let v9: u64;  // [bp-0x53c]\n    let v10: u32;  // [bp-0x534]\n    let v11: u8;  // [bp-0x530]\n    let v12: u32;  // [bp-0x2e8]\n    let v13: u32;  // [bp-0x2e4]\n    let v14: u64;  // [bp-0x274]\n    let v15: u32;  // [bp-0x26c]\n    let v16: u8;  // [bp-0x268]\n    let v17: u64;  // [bp-0x260]\n    let v18: u64;  // [bp-0x258]\n    let v21: u64;  // rdx\n\n    v6 = clap_builder::builder::command::Command::new(uucore::util_name(), v21);\n    clap_builder::builder::command::Command::version(&v11, &v6, \"0.0.28\");\n    uucore::format_usage(&v3, \"{} OPTION... [FILE]...\");\n    clap_builder::builder::command::Command::override_usage(&v6, &v11, &v3);\n    clap_builder::builder::command::Command::about(&v11, &v6, \"Prints specified byte or field columns from each line of stdin or the input files\");\n    clap_builder::builder::command::Command::after_help(&v6, &v11, \"Each call must specify a mode (what to use for columns),\\na sequence (which columns to print), and provide a data source\\n\\n### Specifying a mode\\n\\nUse --bytes (-b) or --characters (-c) to specify byte mode\\n\\nUse --fields (-f) to specify field mode, where each line is broken into\\nfields identified by a delimiter character. For example for a typical CSV\\nyou could use this in combination with setting comma as the delimiter\\n\\n### Specifying a sequence\\n\\nA sequence is a group of 1 or more numbers or inclusive ranges separated\\nby a commas.\\n\\n\\ncut -f 2,5-7 some_file.txt\\n\\n\\nwill display the 2nd, 5th, 6th, and 7th field for each source line\\n\\nRanges can extend to the end of the row by excluding the second number\\n\\n\\ncut -f 3- some_file.txt\\n\\n\\nwill display the 3rd field and all fields after for each source line\\n\\nThe first number of a range can be excluded, and this is effectively the\\nsame as using 1 as the first number: it causes the range to begin at the\\nfirst column. Ranges can also display a single column\\n\\n\\ncut -f 1,3-5 some_file.txt\\n\\n\\nwill display the 1st, 3rd, 4th, and 5th field for each source line\\n\\nThe --complement option, when used, inverts the effect of the sequence\\n\\n\\ncut --complement -f 4-6 some_file.txt\\n\\n\\nwill display the every field but the 4th, 5th, and 6th\\n\\n### Specifying a data source\\n\\nIf no sourcefile arguments are specified, stdin is used as the source of\\nlines to print\\n\\nIf sourcefile arguments are specified, stdin is ignored and all files are\\nread in consecutively if a sourcefile is not successfully read, a warning\\nwill print to stderr, and the eventual status code will be 1, but cut\\nwill continue to read through proceeding sourcefiles\\n\\nTo print columns from both STDIN and a file argument, use - (dash) as a\\nsourcefile argument to represent stdin.\\n\\n### Field Mode options\\n\\nThe fields in each line are identified by a delimiter (separator)\\n\\n#### Set the delimiter\\n\\nSet the delimiter which separates fields in the file using the\\n--delimiter (-d) option. Setting the delimiter is optional.\\nIf not set, a default delimiter of Tab will be used.\\n\\nIf the -w option is provided, fields will be separated by any number\\nof whitespace characters (Space and Tab). The output delimiter will\\nbe a Tab unless explicitly specified. Only one of -d or -w option can be specified.\\nThis is an extension adopted from FreeBSD.\\n\\n#### Optionally Filter based on delimiter\\n\\nIf the --only-delimited (-s) flag is provided, only lines which\\ncontain the delimiter will be printed\\n\\n#### Replace the delimiter\\n\\nIf the --output-delimiter option is provided, the argument used for\\nit will replace the delimiter character in each line printed. This is\\nuseful for transforming tabular data - e.g. to convert a CSV to a\\nTSV (tab-separated file)\\n\\n### Line endings\\n\\nWhen the --zero-terminated (-z) option is used, cut sees \\\\\\\\0 (null) as the\\n'line ending' character (both for the purposes of reading lines and\\nseparating printed lines) instead of \\\\\\\\n (newline). This is useful for\\ntabular data where some of the cells may contain newlines\\n\\n\\necho 'ab\\\\\\\\0cd' | cut -z -c 1\\n\\n\\nwill result in 'a\\\\\\\\0c\\\\\\\\0'\");\n    memcpy(&v11, &v6, 700);\n    v14 = 584115552392 | v9;\n    v15 = v10;\n    clap_builder::builder::arg::Arg::new(&v6, \"bytes\");\n    clap_builder::builder::arg::Arg::short(&v3, &v6, 98);\n    clap_builder::builder::arg::Arg::long(&v6, &v3, \"bytes\");\n    clap_builder::builder::arg::Arg::help(&v3, &v6, \"filter byte columns from the input source\");\n    memcpy(&v6, &v3, 584);\n    v7 = v4 | 32;\n    v8 = v5;\n    clap_builder::builder::arg::Arg::value_name(&v3, &v6, \"LIST\");\n    clap_builder::builder::arg::Arg::action(&v16, &v3, 1);\n    clap_builder::builder::command::Command::arg(&v6, &v11, &v16);\n    clap_builder::builder::arg::Arg::new(&v11, \"characters\");\n    clap_builder::builder::arg::Arg::short(&v3, &v11, 99);\n    clap_builder::builder::arg::Arg::long(&v11, &v3, \"characters\");\n    clap_builder::builder::arg::Arg::help(&v3, &v11, \"alias for character mode\");\n    memcpy(&v11, &v3, 584);\n    v12 = v4 | 32;\n    v13 = v5;\n    clap_builder::builder::arg::Arg::value_name(&v3, &v11, \"LIST\");\n    clap_builder::builder::arg::Arg::action(&v16, &v3, 1);\n    clap_builder::builder::command::Command::arg(&v11, &v6, &v16);\n    clap_builder::builder::arg::Arg::new(&v6, \"delimiter\");\n    clap_builder::builder::arg::Arg::short(&v3, &v6, 100);\n    clap_builder::builder::arg::Arg::long(&v6, &v3, \"delimiter\");\n    v0 = 2;\n    v18 = v2;\n    v16 = v0;\n    v17 = v1;\n    clap_builder::builder::arg::Arg::value_parser(&v3, &v6, &v16);\n    clap_builder::builder::arg::Arg::help(&v6, &v3, \"specify the delimiter character that separates fields in the input source. Defaults to Tab.\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v6, \"DELIM\");\n    clap_builder::builder::command::Command::arg(&v6, &v11, &v3);\n    clap_builder::builder::arg::Arg::new(&v11, \"whitespace-delimited\");\n    clap_builder::builder::arg::Arg::short(&v3, &v11, 119);\n    clap_builder::builder::arg::Arg::help(&v11, &v3, \"Use any number of whitespace (Space, Tab) to separate fields in the input source (FreeBSD extension).\");\n    clap_builder::builder::arg::Arg::value_name(&v3, &v11, \"WHITESPACE\");\n    clap_builder::builder::arg::Arg::action(&v16, &v3, 2);\n    clap_builder::builder::command::Command::arg(&v11, &v6, &v16);\n    clap_builder::builder::arg::Arg::new(&v6, \"fields\");\n    clap_builder::builder::arg::Arg::short(&v3, &v6, 102);\n    clap_builder::builder::arg::Arg::long(&v6, &v3, \"fields\");\n    clap_builder::builder::arg::Arg::help(&v3, &v6, \"filter field columns from the input source\");\n    memcpy(&v6, &v3, 584);\n    v7 = v4 | 32;\n    v8 = v5;\n    clap_builder::builder::arg::Arg::value_name(&v3, &v6, \"LIST\");\n    clap_builder::builder::arg::Arg::action(&v16, &v3, 1);\n    clap_builder::builder::command::Command::arg(&v6, &v11, &v16);\n    clap_builder::builder::arg::Arg::new(&v11, \"complement\");\n    clap_builder::builder::arg::Arg::long(&v3, &v11, \"complement\");\n    clap_builder::builder::arg::Arg::help(&v11, &v3, \"invert the filter - instead of displaying only the filtered columns, display all but those columns\");\n    clap_builder::builder::arg::Arg::action(&v3, &v11, 2);\n    clap_builder::builder::command::Command::arg(&v11, &v6, &v3);\n    clap_builder::builder::arg::Arg::new(&v6, \"only-delimited\");\n    clap_builder::builder::arg::Arg::short(&v3, &v6, 115);\n    clap_builder::builder::arg::Arg::long(&v6, &v3, \"only-delimited\");\n    clap_builder::builder::arg::Arg::help(&v3, &v6, \"in field mode, only print lines which contain the delimiter\");\n    clap_builder::builder::arg::Arg::action(&v16, &v3, 2);\n    clap_builder::builder::command::Command::arg(&v6, &v11, &v16);\n    clap_builder::builder::arg::Arg::new(&v11, \"zero-terminated\");\n    clap_builder::builder::arg::Arg::short(&v3, &v11, 122);\n    clap_builder::builder::arg::Arg::long(&v11, &v3, \"zero-terminated\");\n    clap_builder::builder::arg::Arg::help(&v3, &v11, \"instead of filtering columns based on line, filter columns based on \\\\0 (NULL character)\");\n    clap_builder::builder::arg::Arg::action(&v16, &v3, 2);\n    clap_builder::builder::command::Command::arg(&v11, &v6, &v16);\n    clap_builder::builder::arg::Arg::new(&v6, \"output-delimiter\");\n    clap_builder::builder::arg::Arg::long(&v3, &v6, \"output-delimiter\");\n    clap_builder::builder::arg::Arg::value_parser(&v6, &v3, &v0);\n    clap_builder::builder::arg::Arg::help(&v3, &v6, \"in field mode, replace the delimiter in output lines with this option's argument\");\n    clap_builder::builder::arg::Arg::value_name(&v16, &v3, \"NEW_DELIM\");\n    clap_builder::builder::command::Command::arg(&v6, &v11, &v16);\n    clap_builder::builder::arg::Arg::new(&v11, \"file\");\n    memcpy(&v3, &v11, 584);\n    v4 = v12 | 4;\n    v5 = v13;\n    clap_builder::builder::arg::Arg::action(&v11, &v3, 1);\n    clap_builder::builder::arg::Arg::value_hint(&v3, &v11, 3);\n    clap_builder::builder::command::Command::arg(a0, &v6, &v3);\n    return a0;\n}\n",
-    "_ZN6uu_cut7matcher12ExactMatcher3new17h393e805b97031375E": "fn uu_cut::matcher::ExactMatcher::new(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0x8]\n    let v2: u64;  // rax\n\n    if !a1 {\n        v0 = v2;\n        core::panicking::panic(\"assertion failed: !needle.is_empty()\"); /* do not return */\n    }\n    return a0;\n}\n"
+    "_ZN6uu_cut6uumain17h51931438997c09c4E": "fn uu_cut::uumain(a0: u64, a1: u64) -> long long {\n    let v0: u64;  // [bp-0xa8]\n    let v1: &str;  // [bp-0x98]\n    let v2: i64;  // [bp-0x88]\n    let v3: u64;  // [bp-0x80]\n    let v4: void*;  // [bp-0x78]\n    let v5: u64;  // [bp-0x68]\n    let v6: i64;  // [bp-0x60]\n    let v7: i64;  // [bp-0x48]\n    let v8: u64;  // [bp-0x48]\n    let v9: u64;  // [bp-0x40]\n    let v10: u64;  // [bp-0x38]\n    let v11: alloc::string::String;  // [bp-0x28]\n    let v14: u64;  // rax\n    let v15: i64;  // rdx\n    let v16: u64;  // rcx\n    let v17: u64;  // r8\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers());\n    v14 = uu_cut::uumain::uumain(a0, a1);\n    if !v14 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v14;\n    v7 = &v0;\n    v9 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = \"\\x01\";\n    v4 = 0;\n    v2 = &v7;\n    v3 = 1;\n    v11 = core::option::Option<T>::map_or_else(&v1 as u64, v15, v16, v17);\n    *(&v8 as &i128) = *(&v11.vec.buf.inner.cap as &i128);\n    v10 = v11.vec.len;\n    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(<alloc::boxed::Box<T,A> as core::fmt::Display>::fmt, v11.vec.len, 1, 0) {\n        v5 = uucore::util_name();\n        v6 = v15;\n        eprint!(\"{}: \", &v5);\n        eprintln!(\"{}\", &v7);\n    }\n    if !*((v15 + 96) as &i64)(v0) as i8 {\n        return *((v15 + 88) as &i64)(v0) as u32;\n    }\n    v5 = uucore::execution_phrase();\n    v6 = v15;\n    eprintln!(\"Try '{} --help' for more information.\", &v5);\n    return *((v15 + 88) as &i64)(v0) as u32;\n}\n",
+    "_ZN6uu_cut6uumain6uumain17hc5e2923a7df48ed0E": "fn uu_cut::uumain::uumain(a0: i64, a1: i64) -> u64 {\n    let v0: u8;  // [bp-0x4f9]\n    let v1: struct24;  // [bp-0x4f8], Other Possible Types: u64\n    let v2: struct24;  // [bp-0x4f8]\n    let v3: u64;  // [bp-0x4f0]\n    let v4: u64;  // [bp-0x4e8]\n    let v5: u64;  // [bp-0x4e0]\n    let v6: u64;  // [bp-0x4d8]\n    let v7: u8;  // [bp-0x4d0]\n    let v8: u8;  // [bp-0x4c8]\n    let v9: u128;  // [bp-0x4c0]\n    let v10: u64;  // [bp-0x4b8]\n    let v11: u64;  // [bp-0x4b0]\n    let v12: struct24;  // [bp-0x4a8], Other Possible Types: u128\n    let v13: Result<struct56, struct16>;  // [bp-0x4a8]\n    let v14: u64;  // [bp-0x4a8]\n    let v15: u64;  // [bp-0x4a0]\n    let v16: u128;  // [bp-0x4a0]\n    let v17: u128;  // [bp-0x498]\n    let v18: u64;  // [bp-0x498]\n    let v19: u64;  // [bp-0x490]\n    let v20: u128;  // [bp-0x488]\n    let v21: u128;  // [bp-0x478]\n    let v22: u128;  // [bp-0x468]\n    let v23: u64;  // [bp-0x450]\n    let v24: u64;  // [bp-0x448]\n    let v25: u64;  // [bp-0x440]\n    let v26: u64;  // [bp-0x438]\n    let v27: u128;  // [bp-0x430]\n    let v28: u128;  // [bp-0x420]\n    let v29: u64;  // [bp-0x410]\n    let v30: struct24;  // [bp-0x408]\n    let v31: struct24;  // [bp-0x408], Other Possible Types: u192\n    let v32: struct64;  // [bp-0x408]\n    let v33: u64;  // [bp-0x400]\n    let v34: u64;  // [bp-0x3f8]\n    let v35: u128;  // [bp-0x3e8]\n    let v36: u64;  // [bp-0x3d8]\n    let v37: void*;  // [bp-0x3d0]\n    let v38: u64;  // [bp-0x3c8]\n    let v39: struct24;  // [bp-0x3c0]\n    let v40: struct24;  // [bp-0x3c0]\n    let v41: struct24;  // [bp-0x3a8]\n    let v42: struct24;  // [bp-0x3a8]\n    let v43: void*;  // [bp-0x390]\n    let v44: u64;  // [bp-0x388]\n    let v45: u128;  // [bp-0x380]\n    let v46: u64;  // [bp-0x370]\n    let v47: u64;  // [bp-0x368]\n    let v48: u64;  // [bp-0x360]\n    let v49: u64;  // [bp-0x358]\n    let v50: u128;  // [bp-0x350]\n    let v51: u64;  // [bp-0x340]\n    let v52: struct64;  // [bp-0x338]\n    let v53: Result<struct32, struct16>;  // [bp-0x2f8], Other Possible Types: struct28, struct56, struct80\n    let v54: struct712;  // [bp-0x2f8], Other Possible Types: u128\n    let v55: struct32;  // [bp-0x2f8], Other Possible Types: u256\n    let v56: u128;  // [bp-0x2f8]\n    let v57: struct24;  // [bp-0x2f8], Other Possible Types: u192\n    let v58: u64;  // [bp-0x2f0]\n    let v59: u128;  // [bp-0x2e8]\n    let v60: u64;  // [bp-0x2e8]\n    let v61: u128;  // [bp-0x2e0]\n    let v62: u128;  // [bp-0x2d8]\n    let v63: u64;  // [bp-0x2d0]\n    let v64: u128;  // [bp-0x2c8]\n    let v65: u128;  // [bp-0x2b8]\n    let v68: u64;  // rdx\n    let v69: u32;  // ebp\n    let v71: u8;  // r14b\n    let v72: u128;  // xmm0\n    let v73: u64;  // r15\n    let v74: i64;  // r12\n    let v75: i64;  // r13\n    let v76: i64;  // rax\n    let v77: u128;  // xmm1\n    let v78: u128;  // xmm2\n    let v79: u128;  // xmm3\n    let v80: u8;  // al\n    let v81: u128;  // xmm0\n    let v83: u64;  // rax\n    let v84: u64;  // rcx\n    let v87: void*;  // rbx\n    let v88: u128;  // xmm0\n\n    v41 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(core::iter::traits::iterator::Iterator::map(a0, a1), v68, \"/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs\");\n    v54 = uu_cut::uu_app();\n    v2 = v42;\n    v13 = clap_builder::builder::command::Command::try_get_matches_from(&v54, &v2);\n    if (((0 ^ v13 as i64) & (0 ^ -(v14))) >> 63) as char {\n        return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v26);\n    }\n    v29 = *((&v13 as &char + 48) as &i64);\n    v28 = v20;\n    v27 = *((&v13 as &char + 16) as &i128);\n    v25 = v13 as i64;\n    v26 = v15;\n    v69 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v25, \"complement\");\n    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v25, \"only-delimited\");\n    v54 = uu_cut::get_delimiters(&v25);\n    match v54 as u320 {\n        Err(_) => {\n            return v58;\n        },\n        Ok(_) => {\n            v38 = v59;\n            v23 = *((&v53 as &char + 24) as &i64);\n            v24 = *((&v53 as &char + 32) as &i64);\n            v71 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v25, \"zero-terminated\") as u8 ? 0 : 10);\n            v30 = clap_builder::parser::matches::arg_matches::ArgMatches::indices_of(&v25, \"bytes\");\n            v1 = clap_builder::parser::matches::arg_matches::ArgMatches::indices_of(&v25, \"characters\");\n            v12 = clap_builder::parser::matches::arg_matches::ArgMatches::indices_of(&v25, \"fields\");\n            v60 = v34;\n            v72 = v30.field_0;\n            v54 = v72;\n            v61 = v1.field_0;\n            v63 = v4;\n            v64 = v12.field_0;\n            v65 = v17;\n            v45 = v72;\n            v50 = v12.field_0;\n            v51 = v65;\n            v46 = v60;\n            v47 = v61 as i64;\n            v48 = *((&v61 as &char + 8) as &i64);\n            v49 = v63;\n            v43 = 0;\n            v44 = 3;\n            v73 = <core::array::iter::IntoIter<T,_> as core::iter::traits::iterator::Iterator>::fold(&v43);\n            clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v54 as u320, &v25, \"bytes\");\n            v74 = clap_builder::parser::error::MatchesError::unwrap(\"bytes\", &v54 as u320);\n            clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v54 as u320, &v25, \"characters\");\n            v75 = clap_builder::parser::error::MatchesError::unwrap(\"characters\", &v54 as u320);\n            clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v54 as u320, &v25, \"fields\");\n            v76 = clap_builder::parser::error::MatchesError::unwrap(\"fields\", &v54 as u320);\n            if v73 {\n                if v73 != 1 {\n                    v57 = uucore::mods::locale::get_message(\"cut-error-multiple-mode-args\");\n                    goto LABEL_4a7f28;\n                }\n                if v74 {\n                    if !(!v75 && !v76) {\n                        goto LABEL_4a7f0e;\n                    }\n                    v55 = uu_cut::list_to_ranges(*((v74 + 8) as &i64), *((v74 + 16) as &i64), v69 as u64);\n                    if !(!(v55.field_0 as i8 & 1)) {\n                        goto LABEL_4a7e2c;\n                    }\n                    v11 = v55.field_24;\n                    v9 = v55.field_8;\n                    v3 = v23;\n                    v4 = v24;\n                    v7 = 2;\n                    v8 = v71;\n                    v1 = 0;\n                    if !(0) {\n                        goto LABEL_4a7e50;\n                    }\n                } else if v75 {\n                    if !(!v76) {\n                        goto LABEL_4a7f0e;\n                    }\n                    v55 = uu_cut::list_to_ranges(*((v75 + 8) as &i64), *((v75 + 16) as &i64), v69 as u64);\n                    if !(!(v55.field_0 as i8 & 1)) {\n                        goto LABEL_4a7e2c;\n                    }\n                    v11 = v55.field_24;\n                    v9 = v55.field_8;\n                    v3 = v23;\n                    v4 = v24;\n                    v7 = 2;\n                    v8 = v71;\n                    v1 = 1;\n                    if !(0) {\n                        goto LABEL_4a7e50;\n                    }\n                } else {\n                    if !v76 {\n                        goto LABEL_4a7f0e;\n                    }\n                    v55 = uu_cut::list_to_ranges(*((v76 + 8) as &i64), *((v76 + 16) as &i64), v69 as u64);\n                    if (v55.field_0 as i8 & 1) {\nLABEL_4a7e2c:\n                        v5 = *((&v55 as &char + 24) as &i64);\n                        v3 = *((&v55 as &char + 8) as &i128) as u128;\n                        v1 = 3;\n                        if !(1) {\n                            goto LABEL_4a7e50;\n                        }\n                    } else {\n                        v11 = v55.field_24;\n                        v9 = v55.field_8;\n                        v3 = v23;\n                        v4 = v24;\n                        v5 = v58;\n                        v6 = v38;\n                        v7 = v0;\n                        v8 = v71;\n                        v1 = 2;\nLABEL_4a7e50:\n                        v77 = *(&v4 as &i128);\n                        v78 = *(&v6 as &i128);\n                        v79 = *(&v8 as &i128);\n                        v56 = *(&v1 as &i128) as u128;\n                        v65 = *(&v10 as &i128);\n                        v64 = v79;\n                        v62 = v78;\n                        v59 = v77;\n                        if v56 as i64 {\n                            if !(v56 as i64 as i32 == 1) {\n                                goto LABEL_4a82f0;\n                            }\n                            if !(!clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v25, \"delimiter\") as u8) {\n                                goto LABEL_4a81ca;\n                            }\n                            if !(!clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v25, \"whitespace-delimited\") as u8) {\n                                goto LABEL_4a826a;\n                            }\n                            v80 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v25, \"only-delimited\") as u8;\n                            goto LABEL_4a82a0;\n                        }\n                        if clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v25, \"delimiter\") as u8 {\nLABEL_4a81ca:\n                            v31 = uucore::mods::locale::get_message(\"cut-error-delimiter-only-with-fields\");\n                            goto LABEL_4a82be;\n                        }\n                        if clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v25, \"whitespace-delimited\") as u8 {\nLABEL_4a826a:\n                            v31 = uucore::mods::locale::get_message(\"cut-error-whitespace-only-with-fields\");\n                            goto LABEL_4a82be;\n                        } else {\n                            v80 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v25, \"only-delimited\") as u8;\nLABEL_4a82a0:\n                            if v80 {\n                                v31 = uucore::mods::locale::get_message(\"cut-error-only-delimited-only-with-fields\");\nLABEL_4a82be:\n                                v19 = v34;\n                                v16 = v31 as i128 as u128;\n                                v14 = 3;\n                                goto LABEL_4a7f9c;\n                            } else {\nLABEL_4a82f0:\n                                v22 = v65;\n                                v81 = v56;\n                                v77 = v59;\n                                v21 = v64;\n                                v20 = v62;\n                                v17 = v77;\n                                v12 = v81;\n                                goto LABEL_4a7f9c;\n                            }\n                        }\n                    }\n                }\n            } else {\nLABEL_4a7f0e:\n                v57 = uucore::mods::locale::get_message(\"cut-error-missing-mode-arg\");\nLABEL_4a7f28:\n                v5 = v60;\n                v3 = v57 as i128 as u128;\n                v1 = 3;\n            }\n            v22 = *(&v10 as &i128);\n            v77 = *(&v8 as &i128);\n            v21 = v77;\n            v20 = *(&v6 as &i128);\n            v18 = v4;\n            v19 = v5;\n            v14 = v1;\n            v15 = v3;\nLABEL_4a7f9c:\n            v53 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v25, \"file\");\n            v32 = clap_builder::parser::error::MatchesError::unwrap(\"file\", &v53);\n            v83 = v32.field_0 as i64;\n            if v32.field_0 as i64 {\n                v84 = v33;\n                v77 = v32.field_16;\n            }\n            v52 = struct64 {\n                field_0: v83\n                field_8: v84\n                field_16: v77\n                field_32: v35\n                field_48: v36\n                field_56: v37\n            };\n            v39 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v52, \"/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs\");\n            if v14 as i32 == 3 {\n                v53 = struct28 {\n                    field_0: v16\n                    field_16: v19\n                    field_24: 1\n                };\n                v87 = alloc::boxed::Box<T>::new(&v53) as u64;\n            } else {\n                v88 = *(&v14 as &i128);\n                v53 = struct80 {\n                    field_0: v88\n                    field_16: *((&v16 as &char + 8) as &i128)\n                    field_32: v20\n                    field_48: v21\n                    field_64: v22\n                };\n                v30 = v40;\n                uu_cut::cut_files(&v30, &v53);\n            }\n            return v87;\n        },\n    }\n}\n",
+    "_ZN6uu_cut14list_to_ranges17h80c55328caab4d00E": "fn uu_cut::list_to_ranges(a1: i64, a2: i64, a3: i32) -> : struct32 {\n    let a0: u32;  // rdi\n    let v0: struct24;  // [bp-0x48]\n    let v1: u8;  // [bp-0x30]\n    let v2: struct24;  // [bp-0x28], Other Possible Types: u128\n    let v3: i8;  // [bp-0x18]\n    let v5: u64;  // rax\n    let v6: u64;  // rax\n\n    if !a3 {\n        uucore::features::ranges::Range::from_list(a0, a1, a2);\n        return;\n    }\n    uucore::features::ranges::Range::from_list(&v1, a1, a2);\n    if !(v1 & 1) {\n        v0 = v2;\n        uu_cut::list_to_ranges::{{closure}}(a0 + 8, &v0);\n    }\n    v5 = 1;\n    return struct32 {\n        field_0: v6\n        field_8: v2\n        field_24: *(&v3 as &i64)\n    };\n}\n",
+    "_ZN6uu_cut9cut_bytes17h9615d99508e855dcE": "fn uu_cut::cut_bytes(a0: i64, a1: u64, a2: u64, a3: u64, a4: i64) -> long long {\n    let v0: u8;  // [bp-0xb1]\n    let v1: u64;  // [bp-0xb0]\n    let v2: struct28;  // [bp-0xa8], Other Possible Types: struct48\n    let v3: u64;  // [bp-0x78]\n    let v4: u64;  // [bp-0x70]\n    let v5: std::io::buffered::bufreader::BufReader<std::io::stdio::StdinRaw>;  // [bp-0x68]\n    let v6: struct24;  // [bp-0x38]\n    let v8: u64;  // rax\n    let v9: u64;  // rax\n    let v11: u64;  // rax\n\n    v3 = a2;\n    v4 = a3;\n    v0 = *((a4 + 40) as &i32);\n    v5 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000);\n    v8 = *(a4 as &i64);\n    if v8 {\n        v9 = v8;\n    } else {\n        v9 = &g_416944;\n    }\n    v2 = struct48 {\n        field_0: &v3\n        field_8: a1\n        field_16: v9\n        field_24: (v8 ? *((a4 + 8) as &i64) : 1)\n        field_32: a4\n        field_40: &v0\n    };\n    v11 = bstr::io::BufReadExt::for_byte_record(&v5, v0, &v2);\n    if !v11 {\n        return 0;\n    }\n    v1 = v11;\n    v6 = <T as alloc::string::SpecToString>::spec_to_string(&v1);\n    v2 = struct28 {\n        field_0: v6.field_0\n        field_16: v6.field_16\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v2) as u64;\n}\n",
+    "_ZN6uu_cut9cut_bytes17h97305a96ab0e9485E": "fn uu_cut::cut_bytes(a0: i32, a1: u64, a2: u64, a3: u64, a4: i64) -> long long {\n    let v0: u8;  // [bp-0xb1]\n    let v1: u64;  // [bp-0xb0]\n    let v2: struct28;  // [bp-0xa8], Other Possible Types: struct48\n    let v3: u64;  // [bp-0x78]\n    let v4: u64;  // [bp-0x70]\n    let v5: struct24;  // [bp-0x68]\n    let v6: u64;  // [bp-0x58]\n    let v7: std::io::buffered::bufreader::BufReader<std::io::stdio::StdinRaw>;  // [bp-0x50]\n    let v9: u64;  // rax\n    let v10: u64;  // rax\n    let v12: u64;  // rax\n\n    v3 = a2;\n    v4 = a3;\n    v0 = *((a4 + 40) as &i32);\n    v7 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000);\n    v9 = *(a4 as &i64);\n    if v9 {\n        v10 = v9;\n    } else {\n        v10 = &g_416944;\n    }\n    v2 = struct48 {\n        field_0: &v3\n        field_8: a1\n        field_16: v10\n        field_24: (v9 ? *((a4 + 8) as &i64) : 1)\n        field_32: a4\n        field_40: &v0\n    };\n    v12 = bstr::io::BufReadExt::for_byte_record(&v7, v0, &v2);\n    if !v12 {\n        return 0;\n    }\n    v1 = v12;\n    v5 = <T as alloc::string::SpecToString>::spec_to_string(&v1);\n    v2 = struct28 {\n        field_0: v5.field_0\n        field_16: v6\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v2) as u64;\n}\n",
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h43217b0a15aa7243E": "fn uu_cut::cut_fields_explicit_out_delim(a0: i64, a1: u64, a2: u64, a3: u64, a4: u64, a5: u8, a6: u32, a7: i32) -> long long {\n    let v0: u8;  // [bp-0xc1]\n    let v1: u64;  // [bp-0xc0]\n    let v2: struct28;  // [bp-0xb8], Other Possible Types: struct56\n    let v3: u64;  // [bp-0x78]\n    let v4: u64;  // [bp-0x70]\n    let v5: std::io::buffered::bufreader::BufReader<std::io::stdio::StdinRaw>;  // [bp-0x68]\n    let v6: struct24;  // [bp-0x38]\n    let v7: u64;  // rax\n\n    v3 = a3;\n    v4 = a4;\n    v0 = a5;\n    v5 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000);\n    v2 = struct56 {\n        field_0: a2\n        field_8: &v0\n        field_16: a1\n        field_24: &vvar_6\n        field_32: &v3\n        field_40: vvar_7\n    };\n    v7 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v5, a6, &v2);\n    if !v7 {\n        return 0;\n    }\n    v1 = v7;\n    v6 = <T as alloc::string::SpecToString>::spec_to_string(&v1);\n    v2 = struct28 {\n        field_0: v6.field_0\n        field_16: v6.field_16\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v2) as u64;\n}\n",
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h507334dc32c22c03E": "fn uu_cut::cut_fields_explicit_out_delim(a0: i64, a1: u64, a2: u64, a3: u64, a4: u64, a5: u8, a6: u32, a7: i32) -> long long {\n    let v0: u8;  // [bp-0xc1]\n    let v1: u64;  // [bp-0xc0]\n    let v2: struct28;  // [bp-0xb8], Other Possible Types: struct56\n    let v3: u64;  // [bp-0x78]\n    let v4: u64;  // [bp-0x70]\n    let v5: std::io::buffered::bufreader::BufReader<std::io::stdio::StdinRaw>;  // [bp-0x68]\n    let v6: struct24;  // [bp-0x38]\n    let v7: u64;  // rax\n\n    v3 = a3;\n    v4 = a4;\n    v0 = a5;\n    v5 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000);\n    v2 = struct56 {\n        field_0: a2\n        field_8: &v0\n        field_16: a1\n        field_24: &vvar_6\n        field_32: &v3\n        field_40: vvar_7\n    };\n    v7 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v5, a6, &v2);\n    if !v7 {\n        return 0;\n    }\n    v1 = v7;\n    v6 = <T as alloc::string::SpecToString>::spec_to_string(&v1);\n    v2 = struct28 {\n        field_0: v6.field_0\n        field_16: v6.field_16\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v2) as u64;\n}\n",
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h6b4a7cd2ba3fb7a8E": "fn uu_cut::cut_fields_explicit_out_delim(a0: i32, a1: u64, a2: u64, a3: u64, a4: u64, a5: u8, a6: u32, a7: i32) -> long long {\n    let v0: u8;  // [bp-0xc1]\n    let v1: u64;  // [bp-0xc0]\n    let v2: struct28;  // [bp-0xb8], Other Possible Types: struct56\n    let v3: u64;  // [bp-0x78]\n    let v4: u64;  // [bp-0x70]\n    let v5: struct24;  // [bp-0x68]\n    let v6: u64;  // [bp-0x58]\n    let v7: std::io::buffered::bufreader::BufReader<std::io::stdio::StdinRaw>;  // [bp-0x50]\n    let v8: u64;  // rax\n\n    v3 = a3;\n    v4 = a4;\n    v0 = a5;\n    v7 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000);\n    v2 = struct56 {\n        field_0: a2\n        field_8: &v0\n        field_16: a1\n        field_24: &vvar_6\n        field_32: &v3\n        field_40: vvar_7\n    };\n    v8 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v7, a6, &v2);\n    if !v8 {\n        return 0;\n    }\n    v1 = v8;\n    v5 = <T as alloc::string::SpecToString>::spec_to_string(&v1);\n    v2 = struct28 {\n        field_0: v5.field_0\n        field_16: v6\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v2) as u64;\n}\n",
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17hcd0b14a15f1029a9E": "fn uu_cut::cut_fields_explicit_out_delim(a0: i32, a1: u64, a2: u64, a3: u64, a4: u64, a5: u8, a6: u32, a7: i32) -> long long {\n    let v0: u8;  // [bp-0xc1]\n    let v1: u64;  // [bp-0xc0]\n    let v2: struct28;  // [bp-0xb8], Other Possible Types: struct56\n    let v3: u64;  // [bp-0x78]\n    let v4: u64;  // [bp-0x70]\n    let v5: struct24;  // [bp-0x68]\n    let v6: u64;  // [bp-0x58]\n    let v7: std::io::buffered::bufreader::BufReader<std::io::stdio::StdinRaw>;  // [bp-0x50]\n    let v8: u64;  // rax\n\n    v3 = a3;\n    v4 = a4;\n    v0 = a5;\n    v7 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000);\n    v2 = struct56 {\n        field_0: a2\n        field_8: &v0\n        field_16: a1\n        field_24: &vvar_6\n        field_32: &v3\n        field_40: vvar_7\n    };\n    v8 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v7, a6, &v2);\n    if !v8 {\n        return 0;\n    }\n    v1 = v8;\n    v5 = <T as alloc::string::SpecToString>::spec_to_string(&v1);\n    v2 = struct28 {\n        field_0: v5.field_0\n        field_16: v6\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v2) as u64;\n}\n",
+    "_ZN6uu_cut29cut_fields_implicit_out_delim17h4e9f49ac6b1032b5E": "fn uu_cut::cut_fields_implicit_out_delim(a0: i32, a1: u64, a2: u64, a3: u64, a4: u64, a5: u8, a6: u32) -> long long {\n    let v0: u8;  // [bp-0xb1]\n    let v1: u64;  // [bp-0xb0]\n    let v2: struct28;  // [bp-0xa8], Other Possible Types: struct40\n    let v3: u64;  // [bp-0x78]\n    let v4: u64;  // [bp-0x70]\n    let v5: struct24;  // [bp-0x68]\n    let v6: u64;  // [bp-0x58]\n    let v7: std::io::buffered::bufreader::BufReader<std::io::stdio::StdinRaw>;  // [bp-0x50]\n    let v8: u64;  // rax\n\n    v3 = a3;\n    v4 = a4;\n    v0 = a5;\n    v7 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000);\n    v2 = struct40 {\n        field_0: a2\n        field_8: &v0\n        field_16: a1\n        field_24: &vvar_6\n        field_32: &v3\n    };\n    v8 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v7, a6, &v2);\n    if !v8 {\n        return 0;\n    }\n    v1 = v8;\n    v5 = <T as alloc::string::SpecToString>::spec_to_string(&v1);\n    v2 = struct28 {\n        field_0: v5.field_0\n        field_16: v6\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v2) as u64;\n}\n",
+    "_ZN6uu_cut29cut_fields_implicit_out_delim17h82b2d45f3a37308dE": "fn uu_cut::cut_fields_implicit_out_delim(a0: i64, a1: u64, a2: u64, a3: u64, a4: u64, a5: u8, a6: u32) -> long long {\n    let v0: u8;  // [bp-0xb1]\n    let v1: u64;  // [bp-0xb0]\n    let v2: struct28;  // [bp-0xa8], Other Possible Types: struct40\n    let v3: u64;  // [bp-0x78]\n    let v4: u64;  // [bp-0x70]\n    let v5: std::io::buffered::bufreader::BufReader<std::io::stdio::StdinRaw>;  // [bp-0x68]\n    let v6: struct24;  // [bp-0x38]\n    let v7: u64;  // rax\n\n    v3 = a3;\n    v4 = a4;\n    v0 = a5;\n    v5 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000);\n    v2 = struct40 {\n        field_0: a2\n        field_8: &v0\n        field_16: a1\n        field_24: &vvar_6\n        field_32: &v3\n    };\n    v7 = bstr::io::BufReadExt::for_byte_record_with_terminator(&v5, a6, &v2);\n    if !v7 {\n        return 0;\n    }\n    v1 = v7;\n    v6 = <T as alloc::string::SpecToString>::spec_to_string(&v1);\n    v2 = struct28 {\n        field_0: v6.field_0\n        field_16: v6.field_16\n        field_24: 1\n    };\n    return alloc::boxed::Box<T>::new(&v2) as u64;\n}\n",
+    "_ZN6uu_cut29cut_fields_newline_char_delim17h6ef8e7c6b4b08d89E": "fn uu_cut::cut_fields_newline_char_delim(a0: i64, a1: u32, a2: void*, a3: u64, a4: u64, a5: u8, a6: u32, a7: u64) -> long long {\n    let v0: Result<struct24, struct24>;  // [bp-0xb0]\n    let v1: u64;  // [bp-0xa8]\n    let v2: u64;  // [bp-0xa0]\n    let v3: struct16;  // [bp-0x98]\n    let v4: core::ops::range::RangeInclusive<usize>;  // [bp-0x88]\n    let v5: u8;  // [bp-0x88]\n    let v6: std::io::buffered::bufreader::BufReader<std::io::stdio::StdinRaw>;  // [bp-0x68]\n    let v7: u8;  // [bp-0x38]\n    let v8: i64;  // rax\n    let v9: u8;  // bpl\n    let v12: u64;  // rdx\n    let v13: core::fmt::rt::Argument;  // rax\n    let v14: u64;  // rdx\n    let v15: u64;  // rax\n    let v16: u64;  // rax\n    let v17: core::option::Option<usize>;  // rax:rdx\n    let v18: core::option::Option<usize>;  // rax:rdx\n\n    v6 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000);\n    v7 = a5;\n    v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v6, \"/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs\");\n    v3 = struct16 {\n        field_0: a3\n        field_8: a4 * 16 + a3\n    };\n    v8 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v3);\n    if !v8 {\nLABEL_4ad7ff:\n        v5 = a5;\n        v16 = std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all(a1, a2, &v5, 1) as u64;\n        if !v16 {\n            return 0;\n        }\n        v15 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v16);\n        return v15;\n    }\n    loop {\n        v4 = core::ops::range::RangeInclusive<usize> {\n            start: *(v8 as &i128)\n            end: <UNKNOWN>\n            exhausted: 0\n        };\n        v17 = <core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next(&v4);\n        if let None = v17 {\n            continue;\n        }\n        v12 = *((&v17 as &char + 8) as &i64) - 1;\n        if !(v12 < v2) {\n            continue;\n        }\n        if (v9 & 1) {\n            v13 = std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all(a1, a2, a6, a7) as u64;\n            if !(!v13) {\n                break;\n            }\n        }\n        for (v13 = std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all(a1, a2, *((v12 * 24 + v1 + 8) as &i64), *((v12 * 24 + v1 + 16) as &i64)) as u64; !v13; v13 = std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all(a1, a2, *((v14 * 24 + v1 + 8) as &i64), *((v14 * 24 + v1 + 16) as &i64)) as u64) {\n            v18 = <core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next(&v4);\n            v9 = 1;\n            if !v18 as i64 {\n                goto LABEL_4ad710;\n            }\n            v14 = *((&v18 as &char + 8) as &i64) - 1;\n            v13 = std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all(a1, a2, a6, a7) as u64;\n            if !(!v13) {\n                break;\n            }\n        }\n        if v14 < v2 {\n            break;\n        }\nLABEL_4ad710:\n        v8 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v3);\n        if !v8 {\n            goto LABEL_4ad7ff;\n        }\n    }\n    v15 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v13);\n}\n",
+    "_ZN6uu_cut29cut_fields_newline_char_delim17h89c29b2e212387d4E": "fn uu_cut::cut_fields_newline_char_delim(a0: i32, a1: u32, a2: void*, a3: u64, a4: u64, a5: u8, a6: u32, a7: u64) -> long long {\n    let v0: struct24;  // [bp-0xb0]\n    let v1: u64;  // [bp-0xa8]\n    let v2: u64;  // [bp-0xa0]\n    let v3: struct16;  // [bp-0x98]\n    let v4: core::ops::range::RangeInclusive<usize>;  // [bp-0x88]\n    let v5: u8;  // [bp-0x88]\n    let v6: std::io::buffered::bufreader::BufReader<std::io::stdio::StdinRaw>;  // [bp-0x68]\n    let v7: u8;  // [bp-0x38]\n    let v8: i64;  // rax\n    let v9: u8;  // bpl\n    let v12: u64;  // rdx\n    let v13: core::fmt::rt::Argument;  // rax\n    let v14: u64;  // rdx\n    let v15: u64;  // rax\n    let v16: u64;  // rax\n    let v17: core::option::Option<usize>;  // rax:rdx\n    let v18: core::option::Option<usize>;  // rax:rdx\n\n    v6 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000);\n    v7 = a5;\n    v0 = <alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter(&v6, \"/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs\");\n    v3 = struct16 {\n        field_0: a3\n        field_8: a4 * 16 + a3\n    };\n    v8 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v3);\n    if !v8 {\nLABEL_4ad9ff:\n        v5 = a5;\n        v16 = std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all(a1, a2, &v5, 1) as u64;\n        if !v16 {\n            return 0;\n        }\n        v15 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v16);\n        return v15;\n    }\n    loop {\n        v4 = core::ops::range::RangeInclusive<usize> {\n            start: *(v8 as &i128)\n            end: <UNKNOWN>\n            exhausted: 0\n        };\n        v17 = <core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next(&v4);\n        if let None = v17 {\n            continue;\n        }\n        v12 = *((&v17 as &char + 8) as &i64) - 1;\n        if !(v12 < v2) {\n            continue;\n        }\n        if (v9 & 1) {\n            v13 = std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all(a1, a2, a6, a7) as u64;\n            if !(!v13) {\n                break;\n            }\n        }\n        for (v13 = std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all(a1, a2, *((v12 * 24 + v1 + 8) as &i64), *((v12 * 24 + v1 + 16) as &i64)) as u64; !v13; v13 = std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all(a1, a2, *((v14 * 24 + v1 + 8) as &i64), *((v14 * 24 + v1 + 16) as &i64)) as u64) {\n            v18 = <core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next(&v4);\n            v9 = 1;\n            if !v18 as i64 {\n                goto LABEL_4ad910;\n            }\n            v14 = *((&v18 as &char + 8) as &i64) - 1;\n            v13 = std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all(a1, a2, a6, a7) as u64;\n            if !(!v13) {\n                break;\n            }\n        }\n        if v14 < v2 {\n            break;\n        }\nLABEL_4ad910:\n        v8 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v3);\n        if !v8 {\n            goto LABEL_4ad9ff;\n        }\n    }\n    v15 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v13);\n}\n",
+    "_ZN6uu_cut10cut_fields17h11df7cd9cfcc0244E": "fn uu_cut::cut_fields(a0: u32, a1: i64, a2: u64, a3: u64, a4: i64) -> long long {\n    let v0: u8;  // [bp-0x49]\n    let v1: u64;  // [bp-0x48]\n    let v2: struct16;  // [bp-0x40]\n    let v4: u8;  // bl\n    let v5: u64;  // r8\n    let v6: u64;  // rbp\n    let v7: i64;  // rax\n    let v8: core::option::Option<usize>;  // rcx\n    let v9: u64;  // r10\n    let v10: i64;  // rax\n    let v11: u64;  // rdx\n    let v12: std::io::buffered::bufreader::BufReader<std::io::stdio::StdinRaw>;  // rax\n    let v13: core::option::Option<usize>;  // rax\n\n    v4 = *((a4 + 32) as &i8);\n    if v4 == 2 {\n        core::option::unwrap_failed(); /* do not return */\n    }\n    v5 = a3;\n    v6 = *((a4 + 40) as &i8);\n    v7 = *((a4 + 16) as &i64);\n    if v7 {\n        if *((a4 + 24) as &i64) == 1 && *(v7 as &i8) == v6 {\n            v8 = *(a4 as &i64);\n            v9 = 1;\n            v10 = v7;\n            if !*(a4 as &i64) {\n                return uu_cut::cut_fields_newline_char_delim(a0, *(a1 as &i64), *((a1 + 8) as &i64), a2, a3, v6, v10 as u32, v9);\n            }\n            v9 = *((a4 + 8) as &i64);\n            v10 = v8;\n            return uu_cut::cut_fields_newline_char_delim(a0, *(a1 as &i64), *((a1 + 8) as &i64), a2, a3, v6, v10 as u32, v9);\n        }\n        v1 = a3;\n        v2 = struct16 {\n            field_0: uu_cut::matcher::ExactMatcher::new(v7, *((a4 + 24) as &i64))\n            field_8: v11\n        };\n        if *(a4 as &i64) {\n            v12 = uu_cut::cut_fields_explicit_out_delim(a0, a1, &v2, a2, v1, v4 & 1, v6 & 255, *(a4 as &i64));\n        } else {\n            v12 = uu_cut::cut_fields_implicit_out_delim(a0, a1, &v2, a2, v1, v4 & 1, v6 & 255);\n        }\n    } else {\n        v12 = uu_cut::cut_fields_explicit_out_delim(a0, a1, &v0, a2, a3, v4 & 1, v6 & 255, v13 as u32);\n    }\n    return v12;\n}\n",
+    "_ZN6uu_cut10cut_fields17hb40e63177bee048cE": "fn uu_cut::cut_fields(a0: u32, a1: i64, a2: u64, a3: u64, a4: i64) -> long long {\n    let v0: u8;  // [bp-0x49]\n    let v1: struct16;  // [bp-0x40]\n    let v3: u8;  // bl\n    let v4: u64;  // r13\n    let v5: i64;  // rdi\n    let v6: u64;  // rax\n    let v7: u64;  // rdx\n    let v8: struct28;  // rax\n    let v9: i64;  // rax\n\n    v3 = *((a4 + 32) as &i8);\n    if v3 == 2 {\n        core::option::unwrap_failed(); /* do not return */\n    }\n    v4 = *((a4 + 40) as &i8);\n    v5 = *((a4 + 16) as &i64);\n    if v5 {\n        if *((a4 + 24) as &i64) == 1 && *(v5 as &i8) == v4 {\n            return uu_cut::cut_fields_newline_char_delim(a0, *(a1 as &i64), *((a1 + 8) as &i64), a2, a3, v4, v5 as u32, v6);\n        }\n        v1 = struct16 {\n            field_0: uu_cut::matcher::ExactMatcher::new(v5, *((a4 + 24) as &i64))\n            field_8: v7\n        };\n        if *(a4 as &i64) {\n            v8 = uu_cut::cut_fields_explicit_out_delim(a0, a1, &v1, a2, a3, v3 & 1, v4 & 255, *(a4 as &i64));\n        } else {\n            v8 = uu_cut::cut_fields_implicit_out_delim(a0, a1, &v1, a2, a3, v3 & 1, v4 & 255);\n        }\n    } else {\n        v9 = *(a4 as &i64);\n        v8 = uu_cut::cut_fields_explicit_out_delim(a0, a1, &v0, a2, a3, v3 & 1, v4 & 255, (v9 ? v9 as u32 : &g_416944));\n    }\n    return v8;\n}\n",
+    "_ZN6uu_cut9cut_files17h3b5d4a76b37c7822E": "fn uu_cut::cut_files(a0: &struct24, a1: &struct80) -> int {\n    let v0: void*;  // [bp-0x108], Other Possible Types: struct24, u64\n    let v1: u64;  // [bp-0x108]\n    let v2: Result<struct16, struct12>;  // [bp-0x108]\n    let v3: u64;  // [bp-0x108]\n    let v4: i64;  // [bp-0x100]\n    let v5: i64;  // [bp-0x100]\n    let v6: u128;  // [bp-0x100]\n    let v7: u8;  // [bp-0xf0]\n    let v8: struct16;  // [bp-0xe8], Other Possible Types: u64\n    let v9: struct24;  // [bp-0xe8], Other Possible Types: u64\n    let v10: u64;  // [bp-0xe8]\n    let v11: Result<struct4, struct8>;  // [bp-0xd0], Other Possible Types: std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutRaw>, std::io::stdio::Stdout, struct24\n    let v12: struct24;  // [bp-0xd0], Other Possible Types: std::io::stdio::Stdout\n    let v13: std::io::stdio::Stdout;  // [bp-0xd0]\n    let v14: struct28;  // [bp-0xa0]\n    let v15: i64;  // [bp-0x98]\n    let v16: u64;  // [bp-0x90]\n    let v17: i64;  // [bp-0x88]\n    let v18: u64;  // [bp-0x70]\n    let v19: u64;  // [bp-0x68]\n    let v20: u64;  // [bp-0x60]\n    let v21: i64;  // [bp-0x40]\n    let v22: u64;  // [bp-0x38]\n    let v24: struct28;  // rax\n    let v25: struct56;  // rcx\n    let v26: i64;  // rdx\n    let v27: struct56;  // rax\n    let v28: i64;  // r14\n    let v29: u8;  // r12b\n    let v30: core::fmt::Arguments;  // rax\n    let v31: i64;  // rdx\n    let v34: i64;  // rdx\n    let v36: u64;  // rax\n    let v38: core::slice::iter::Iter<std::backtrace::BacktraceSymbol>;  // rax:rdx\n\n    if !*((a0 + 16) as &i64) {\n        v11 = <T as alloc::slice::hack::ConvertVec>::to_vec();\n        v0 = v12;\n        alloc::vec::Vec<T,A>::push(a0, &v0);\n    }\n    v13 = std::io::stdio::stdout();\n    if std::sys::pal::unix::io::is_terminal() {\n        v24 = alloc::boxed::Box<T>::new(std::io::stdio::stdout());\n    } else {\n        std::io::stdio::stdout();\n        v11 = std::io::buffered::bufwriter::BufWriter<W>::with_capacity(0x2000);\n        v24 = alloc::boxed::Box<T>::new(&v11) as u64;\n    }\n    v14 = v24;\n    v15 = v25;\n    v38 = <&alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a0);\n    v21 = v38.end_or_len;\n    v27 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v38.ptr.pointer);\n    if v27 {\n        v28 = v27;\n        v22 = *(a1 as &i64);\n        v20 = *((a1 + 64) as &i64);\n        v19 = a1 + 8;\n        v18 = *((a1 + 72) as &i64);\n        do {\n            if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((v28 + 8) as &i64), *((v28 + 16) as &i64), \"-\") {\n                v11 = v13;\n                v0 = v3;\n                v4 = v34;\n                v9 = v8;\n                if !(v29 & 1) {\n                    if v22 <= 1 {\n                        v30 = uu_cut::cut_bytes(std::io::stdio::stdin(), &v14, v20, v18, v19);\n                    } else {\n                        v30 = uu_cut::cut_fields(std::io::stdio::stdin() as u32, &v14, v20, v18, v19);\n                    }\n                    if v30 {\n                        v8 = struct16 {\n                            field_0: v30\n                            field_8: v31\n                        };\n                        uucore::mods::error::set_exit_code(*((v31 + 88) as &i64)(v30) as u32);\n                        v16 = uucore::util_name();\n                        v17 = v26;\n                        eprintln!(\"{}: {}\", &v16, &v8);\n                        v29 = 1;\n                        v11 = v12;\n                        v0 = v1;\n                        v4 = v5;\n                        v9 = v10;\n                        goto LABEL_4adf0a;\n                    } else {\n                        v11 = v13;\n                        v0 = v3;\n                        v4 = v34;\n                        v9 = v8;\n                        goto LABEL_4adf0a;\n                    }\n                }\n            }\n            if std::path::Path::is_dir(*((v28 + 8) as &i64), *((v28 + 16) as &i64)) {\n                v0 = uucore::util_name();\n                v4 = v26;\n                eprint!(\"{}: \", &v0);\n                v0 = 0;\n                v6 = *((v28 + 8) as &i128);\n                v7 = 0;\n                v9 = uucore::mods::locale::get_message(\"cut-error-is-directory\");\n                eprintln!(\"{}: {}\", &v0, &v9);\n                uucore::mods::error::set_exit_code(1);\n                v11 = v12;\n                v9 = v8;\n                continue;\n            }\n            v11 = std::fs::File::open(*((v28 + 8) as &i64), *((v28 + 16) as &i64));\n            v2 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v11, v28);\n            match v2 {\n                Ok(_) => {\n                    v0 = v3;\n                    goto LABEL_4ae1df;\n                },\n                Err(_) => {\n                    v0 = uu_cut::cut_files::{{closure}}(a1, &v14, *((&v2 as &char + 8) as &i32) as u32 as u64);\n                    if v0 {\nLABEL_4ae1df:\n                        v8 = struct16 {\n                            field_0: v0\n                            field_8: v34\n                        };\n                        uucore::mods::error::set_exit_code(*((v34 + 88) as &i64)(v0) as u32 as u64);\n                        v16 = uucore::util_name();\n                        v17 = v26;\n                        eprintln!(\"{}: {}\", &v16, &v8);\n                        v11 = v12;\n                        v0 = v1;\n                        v4 = v5;\n                        v9 = v10;\n                        continue;\n                    } else {\n                        v11 = v13;\n                        v0 = v3;\n                        v4 = v34;\n                        v9 = v8;\n                    }\n                },\n            }\nLABEL_4adf0a:\n            v8 = v9;\n            v34 = v4;\n            v3 = v0;\n            v13 = v11;\n            v28 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v38.ptr.pointer);\n        } while (v28);\n    }\n    v36 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(*((v15 + 48) as &i64)(v14) as i64);\n    if v36 {\n        v8 = struct16 {\n            field_0: v36\n            field_8: v26\n        };\n        uucore::mods::error::set_exit_code(*((v26 + 88) as &i64)(v36) as u32);\n        v16 = uucore::util_name();\n        v17 = v26;\n        eprintln!(\"{}: {}\", &v16, &v8);\n    }\n    return;\n}\n",
+    "_ZN6uu_cut14get_delimiters17hb8d24182c5c8c502E": "fn uu_cut::get_delimiters(a1: i64) -> Result<struct32, struct16> {\n    let a0: i64;  // rdi\n    let v0: Result<struct40, struct16>;  // [bp-0x58]\n    let v1: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x58]\n    let v2: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x58]\n    let v3: u64;  // [bp-0x50]\n    let v4: u64;  // [bp-0x48]\n    let v7: u8;  // bpl\n    let v8: i64;  // rax\n    let v9: u64;  // rsi\n    let v10: i64;  // r14\n    let v11: u64;  // rdx\n    let v12: i64;  // r13\n    let v13: u64;  // r15\n    let v14: u64;  // r12\n    let v15: u64;  // r12\n    let v16: u64;  // rdx\n    let v17: u64;  // rbp\n    let v18: std::io::buffered::bufreader::BufReader<std::io::stdio::StdinRaw>;  // rax\n    let v19: u64;  // rax\n    let v20: i64;  // rax\n    let v21: u64;  // rax\n    let v22: void*;  // rax\n\n    v7 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"whitespace-delimited\");\n    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, \"delimiter\");\n    v8 = clap_builder::parser::error::MatchesError::unwrap(\"delimiter\", &v0);\n    if v8 {\n        if v7 {\nLABEL_4ae481:\n            uucore::mods::locale::get_message(v10, v9, v11);\n            v18 = 1;\n            return struct24 {\n                field_0: v19\n                field_8: alloc::boxed::Box<T>::new(v10) as u64\n                field_16: &g_58bcf8\n            };\n        }\n        v12 = v8;\n        v13 = &g_416a2c;\n        v14 = 1;\n        v15 = v14;\n        if !<std::ffi::os_str::OsString as core::cmp::PartialEq<str>>::eq(*((v8 + 8) as &i64), *((v8 + 16) as &i64), v16) {\n            v17 = *((v12 + 16) as &i64);\n            v15 = v14;\n            if v17 {\n                v1 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(*((v12 + 8) as &i64), v17);\n                if !((v1 as i8 & 1) || <core::str::iter::Chars as core::iter::traits::iterator::Iterator>::count(v3, v4 + v3) <= 1) {\n                    goto LABEL_4ae481;\n                }\n                v2 = std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from(*((v12 + 8) as &i64), *((v12 + 16) as &i64));\n                if !(v17 == 1 || !v2 as i64) {\n                    goto LABEL_4ae481;\n                }\n                v13 = <uu_cut::Delimiter as core::convert::From<&std::ffi::os_str::OsString>>::from(v12);\n                v15 = v16;\n            }\n        }\n    }\n    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, \"output-delimiter\");\n    v20 = clap_builder::parser::error::MatchesError::unwrap(\"output-delimiter\", &v0);\n    v21 = (!v20 ? 0 : uu_cut::get_delimiters::{{closure}}(*((v20 + 8) as &i64), *((v20 + 16) as &i64)));\n    *((a0 + 8) as &u64) = v13;\n    *((a0 + 16) as &u64) = v15;\n    *((a0 + 24) as &u64) = v21;\n    *((a0 + 32) as &u64) = v16;\n    v22 = 0;\n}\n",
+    "_ZN6uu_cut6uu_app17hc4c1b1477c2f69a3E": "fn uu_cut::uu_app() -> : struct712 {\n    let a0: u64;  // rdi\n    let v0: struct24;  // [bp-0xad8]\n    let v1: u64;  // [bp-0xad0]\n    let v2: u32;  // [bp-0xac8]\n    let v3: u64;  // [bp-0xac0]\n    let v4: u64;  // [bp-0xab8]\n    let v5: u64;  // [bp-0xab0]\n    let v6: struct24;  // [bp-0xaa8], Other Possible Types: struct712\n    let v7: core::fmt::rt::Argument;  // [bp-0x830], Other Possible Types: u32\n    let v8: core::fmt::rt::Argument;  // [bp-0x82c], Other Possible Types: u32\n    let v9: struct437;  // [bp-0x828], Other Possible Types: struct712\n    let v10: u32;  // [bp-0x5b0]\n    let v11: u32;  // [bp-0x5ac]\n    let v12: u64;  // [bp-0x56c]\n    let v13: u32;  // [bp-0x564]\n    let v14: struct712;  // [bp-0x560]\n    let v15: u32;  // [bp-0x2e8]\n    let v16: u32;  // [bp-0x2e4]\n    let v17: u64;  // [bp-0x2a4]\n    let v18: u32;  // [bp-0x29c]\n    let v19: struct712;  // [bp-0x298], Other Possible Types: struct24, u64\n    let v20: u64;  // [bp-0x290]\n    let v21: u64;  // [bp-0x288]\n    let v24: u64;  // rdx\n\n    v9 = clap_builder::builder::command::Command::new(uucore::util_name(), v24);\n    v14 = clap_builder::builder::command::Command::version(&v9, \"(uutils coreutils) 0.1.0\");\n    v0 = uucore::mods::locale::get_message(\"cut-usage\");\n    v6 = uucore::format_usage(v1, v2);\n    v9 = clap_builder::builder::command::Command::override_usage(&v14, &v6);\n    v6 = uucore::mods::locale::get_message(\"cut-about\");\n    v14 = clap_builder::builder::command::Command::about(&v9, &v6);\n    v6 = uucore::mods::locale::get_message(\"cut-after-help\");\n    v9 = clap_builder::builder::command::Command::after_help(&v14, &v6);\n    memcpy(&v14, &v9, 700);\n    v17 = 584115552392 | v12;\n    v18 = v13;\n    v9 = clap_builder::builder::arg::Arg::new(\"bytes\");\n    v6 = clap_builder::builder::arg::Arg::short(&v9, 98);\n    v9 = clap_builder::builder::arg::Arg::long(&v6, \"bytes\");\n    v19 = uucore::mods::locale::get_message(\"cut-help-bytes\");\n    v6 = clap_builder::builder::arg::Arg::help(&v9, &v19);\n    memcpy(&v9, &v6, 632);\n    v10 = v7 | 32;\n    v11 = v8;\n    v6 = clap_builder::builder::arg::Arg::value_name(&v9, \"LIST\");\n    v19 = clap_builder::builder::arg::Arg::action(&v6, 1);\n    v9 = clap_builder::builder::command::Command::arg(&v14, &v19);\n    v14 = clap_builder::builder::arg::Arg::new(\"characters\");\n    v6 = clap_builder::builder::arg::Arg::short(&v14, 99);\n    v14 = clap_builder::builder::arg::Arg::long(&v6, \"characters\");\n    v19 = uucore::mods::locale::get_message(\"cut-help-characters\");\n    v6 = clap_builder::builder::arg::Arg::help(&v14, &v19);\n    memcpy(&v14, &v6, 632);\n    v15 = v7 | 32;\n    v16 = v8;\n    v6 = clap_builder::builder::arg::Arg::value_name(&v14, \"LIST\");\n    v19 = clap_builder::builder::arg::Arg::action(&v6, 1);\n    v14 = clap_builder::builder::command::Command::arg(&v9, &v19);\n    v9 = clap_builder::builder::arg::Arg::new(\"delimiter\");\n    v6 = clap_builder::builder::arg::Arg::short(&v9, 100);\n    v9 = clap_builder::builder::arg::Arg::long(&v6, \"delimiter\");\n    v3 = 2;\n    v21 = v5;\n    v19 = v3;\n    v20 = v4;\n    v6 = clap_builder::builder::arg::Arg::value_parser(&v9, &v19);\n    v19 = uucore::mods::locale::get_message(\"cut-help-delimiter\");\n    v9 = clap_builder::builder::arg::Arg::help(&v6, &v19);\n    v6 = clap_builder::builder::arg::Arg::value_name(&v9, \"DELIM\");\n    v9 = clap_builder::builder::command::Command::arg(&v14, &v6);\n    v14 = clap_builder::builder::arg::Arg::new(\"whitespace-delimited\");\n    v6 = clap_builder::builder::arg::Arg::short(&v14, 119);\n    v19 = uucore::mods::locale::get_message(\"cut-help-whitespace-delimited\");\n    v14 = clap_builder::builder::arg::Arg::help(&v6, &v19);\n    v6 = clap_builder::builder::arg::Arg::value_name(&v14, \"WHITESPACE\");\n    v19 = clap_builder::builder::arg::Arg::action(&v6, 2);\n    v14 = clap_builder::builder::command::Command::arg(&v9, &v19);\n    v9 = clap_builder::builder::arg::Arg::new(\"fields\");\n    v6 = clap_builder::builder::arg::Arg::short(&v9, 102);\n    v9 = clap_builder::builder::arg::Arg::long(&v6, \"fields\");\n    v19 = uucore::mods::locale::get_message(\"cut-help-fields\");\n    v6 = clap_builder::builder::arg::Arg::help(&v9, &v19);\n    memcpy(&v9, &v6, 632);\n    v10 = v7 | 32;\n    v11 = v8;\n    v6 = clap_builder::builder::arg::Arg::value_name(&v9, \"LIST\");\n    v19 = clap_builder::builder::arg::Arg::action(&v6, 1);\n    v9 = clap_builder::builder::command::Command::arg(&v14, &v19);\n    v14 = clap_builder::builder::arg::Arg::new(\"complement\");\n    v6 = clap_builder::builder::arg::Arg::long(&v14, \"complement\");\n    v19 = uucore::mods::locale::get_message(\"cut-help-complement\");\n    v14 = clap_builder::builder::arg::Arg::help(&v6, &v19);\n    v6 = clap_builder::builder::arg::Arg::action(&v14, 2);\n    v14 = clap_builder::builder::command::Command::arg(&v9, &v6);\n    v9 = clap_builder::builder::arg::Arg::new(\"only-delimited\");\n    v6 = clap_builder::builder::arg::Arg::short(&v9, 115);\n    v9 = clap_builder::builder::arg::Arg::long(&v6, \"only-delimited\");\n    v19 = uucore::mods::locale::get_message(\"cut-help-only-delimited\");\n    v6 = clap_builder::builder::arg::Arg::help(&v9, &v19);\n    v19 = clap_builder::builder::arg::Arg::action(&v6, 2);\n    v9 = clap_builder::builder::command::Command::arg(&v14, &v19);\n    v14 = clap_builder::builder::arg::Arg::new(\"zero-terminated\");\n    v6 = clap_builder::builder::arg::Arg::short(&v14, 122);\n    v14 = clap_builder::builder::arg::Arg::long(&v6, \"zero-terminated\");\n    v19 = uucore::mods::locale::get_message(\"cut-help-zero-terminated\");\n    v6 = clap_builder::builder::arg::Arg::help(&v14, &v19);\n    v19 = clap_builder::builder::arg::Arg::action(&v6, 2);\n    v14 = clap_builder::builder::command::Command::arg(&v9, &v19);\n    v9 = clap_builder::builder::arg::Arg::new(\"output-delimiter\");\n    v6 = clap_builder::builder::arg::Arg::long(&v9, \"output-delimiter\");\n    v9 = clap_builder::builder::arg::Arg::value_parser(&v6, &v3);\n    v19 = uucore::mods::locale::get_message(\"cut-help-output-delimiter\");\n    v6 = clap_builder::builder::arg::Arg::help(&v9, &v19);\n    v19 = clap_builder::builder::arg::Arg::value_name(&v6, \"NEW_DELIM\");\n    v9 = clap_builder::builder::command::Command::arg(&v14, &v19);\n    v14 = clap_builder::builder::arg::Arg::new(\"file\");\n    memcpy(&v6, &v14, 632);\n    v7 = v15 | 4;\n    v8 = v16;\n    v14 = clap_builder::builder::arg::Arg::action(&v6, 1);\n    v6 = clap_builder::builder::arg::Arg::value_hint(&v14, 3);\n    clap_builder::builder::command::Command::arg(a0, &v9, &v6);\n    return;\n}\n",
+    "_ZN6uu_cut7matcher12ExactMatcher3new17hc25bbaadbac87c3fE": "fn uu_cut::matcher::ExactMatcher::new(a0: i64, a1: i64) -> u64 {\n    let v0: u64;  // [bp-0x8]\n    let v2: u64;  // rax\n\n    if !a1 {\n        v0 = v2;\n        core::panicking::panic(\"assertion failed: !needle.is_empty()\"); /* do not return */\n    }\n    return a0;\n}\n"
   },
   "function_call_counts": {
-    "_ZN6uu_cut6uumain17h4549f56a9d639c8aE": {
+    "_ZN6uu_cut6uumain17h51931438997c09c4E": {
       "uucore::mods::error::get_exit_code": 1,
       "uucore::execution_phrase": 1,
       "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
       "uu_cut::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
     },
-    "_ZN6uu_cut13stdout_writer17h8d13c8405537874aE": {
-      "alloc::boxed::Box<T>::new": 2,
-      "std::io::stdio::stdout": 3,
-      "std::io::buffered::bufwriter::BufWriter<W>::with_capacity": 1
+    "_ZN6uu_cut6uumain6uumain17hc5e2923a7df48ed0E": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "uu_cut::cut_files": 1,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 2,
+      "clap_builder::parser::error::MatchesError::unwrap": 4,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "uu_cut::list_to_ranges": 3,
+      "uucore::mods::locale::get_message": 5,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 5,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 3,
+      "<core::array::iter::IntoIter<T,_> as core::iter::traits::iterator::Iterator>::fold": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::indices_of": 3,
+      "uu_cut::get_delimiters": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_cut::uu_app": 1,
+      "core::iter::traits::iterator::Iterator::map": 1
     },
-    "_ZN6uu_cut14list_to_ranges17h582948f175afb12bE": {
+    "_ZN6uu_cut14list_to_ranges17h80c55328caab4d00E": {
       "uucore::features::ranges::Range::from_list": 2,
       "uu_cut::list_to_ranges::{{closure}}": 1
     },
-    "_ZN6uu_cut9cut_bytes17h04bd5adc21115d76E": {
+    "_ZN6uu_cut9cut_bytes17h9615d99508e855dcE": {
       "alloc::boxed::Box<T>::new": 1,
-      "<T as alloc::string::ToString>::to_string": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
       "bstr::io::BufReadExt::for_byte_record": 1,
-      "uu_cut::stdout_writer": 1,
       "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1
     },
-    "_ZN6uu_cut9cut_bytes17hb75889e9eff680b7E": {
+    "_ZN6uu_cut9cut_bytes17h97305a96ab0e9485E": {
       "alloc::boxed::Box<T>::new": 1,
-      "<T as alloc::string::ToString>::to_string": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
       "bstr::io::BufReadExt::for_byte_record": 1,
-      "uu_cut::stdout_writer": 1,
       "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1
     },
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h0a90ca972983d44eE": {
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h43217b0a15aa7243E": {
       "alloc::boxed::Box<T>::new": 1,
-      "<T as alloc::string::ToString>::to_string": 1,
-      "uu_cut::stdout_writer": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
       "bstr::io::BufReadExt::for_byte_record_with_terminator": 1,
       "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1
     },
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h498d740af7877aa6E": {
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h507334dc32c22c03E": {
       "alloc::boxed::Box<T>::new": 1,
-      "<T as alloc::string::ToString>::to_string": 1,
-      "uu_cut::stdout_writer": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
       "bstr::io::BufReadExt::for_byte_record_with_terminator": 1,
       "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1
     },
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h5c816d4033f8d8feE": {
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h6b4a7cd2ba3fb7a8E": {
       "alloc::boxed::Box<T>::new": 1,
-      "<T as alloc::string::ToString>::to_string": 1,
-      "uu_cut::stdout_writer": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
       "bstr::io::BufReadExt::for_byte_record_with_terminator": 1,
       "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1
     },
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17hf1ac07e2d7452ebcE": {
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17hcd0b14a15f1029a9E": {
       "alloc::boxed::Box<T>::new": 1,
-      "<T as alloc::string::ToString>::to_string": 1,
-      "uu_cut::stdout_writer": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
       "bstr::io::BufReadExt::for_byte_record_with_terminator": 1,
       "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1
     },
-    "_ZN6uu_cut29cut_fields_implicit_out_delim17h3e4a03ff417ae94aE": {
+    "_ZN6uu_cut29cut_fields_implicit_out_delim17h4e9f49ac6b1032b5E": {
       "alloc::boxed::Box<T>::new": 1,
-      "<T as alloc::string::ToString>::to_string": 1,
-      "uu_cut::stdout_writer": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
       "bstr::io::BufReadExt::for_byte_record_with_terminator": 1,
       "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1
     },
-    "_ZN6uu_cut29cut_fields_implicit_out_delim17hc1fc3b9aa7195642E": {
+    "_ZN6uu_cut29cut_fields_implicit_out_delim17h82b2d45f3a37308dE": {
       "alloc::boxed::Box<T>::new": 1,
-      "<T as alloc::string::ToString>::to_string": 1,
-      "uu_cut::stdout_writer": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
       "bstr::io::BufReadExt::for_byte_record_with_terminator": 1,
       "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1
     },
-    "_ZN6uu_cut10cut_fields17h46a13446ac92181dE": {
+    "_ZN6uu_cut29cut_fields_newline_char_delim17h6ef8e7c6b4b08d89E": {
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 2,
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 2,
+      "std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all": 3,
+      "<core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next": 2,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
+      "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1
+    },
+    "_ZN6uu_cut29cut_fields_newline_char_delim17h89c29b2e212387d4E": {
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 2,
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 2,
+      "std::io::impls::<impl std::io::Write for alloc::boxed::Box<W>>::write_all": 3,
+      "<core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next": 2,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
+      "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1
+    },
+    "_ZN6uu_cut10cut_fields17h11df7cd9cfcc0244E": {
       "core::option::unwrap_failed": 1,
-      "uu_cut::cut_fields_implicit_out_delim": 1,
       "uu_cut::cut_fields_explicit_out_delim": 2,
-      "uu_cut::matcher::ExactMatcher::new": 1
+      "uu_cut::cut_fields_implicit_out_delim": 1,
+      "uu_cut::matcher::ExactMatcher::new": 1,
+      "uu_cut::cut_fields_newline_char_delim": 2
     },
-    "_ZN6uu_cut10cut_fields17h5b603ad8eeef3f36E": {
+    "_ZN6uu_cut10cut_fields17hb40e63177bee048cE": {
       "core::option::unwrap_failed": 1,
-      "uu_cut::cut_fields_implicit_out_delim": 1,
       "uu_cut::cut_fields_explicit_out_delim": 2,
-      "uu_cut::matcher::ExactMatcher::new": 1
+      "uu_cut::cut_fields_implicit_out_delim": 1,
+      "uu_cut::matcher::ExactMatcher::new": 1,
+      "uu_cut::cut_fields_newline_char_delim": 1
     },
-    "_ZN6uu_cut9cut_files17hab9ba34aeaa70600E": {
+    "_ZN6uu_cut9cut_files17h3b5d4a76b37c7822E": {
       "uucore::util_name": 4,
       "uucore::mods::error::set_exit_code": 4,
-      "uu_cut::cut_files::{{closure}}": 1,
-      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
-      "std::fs::File::open": 1,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 2,
       "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 2,
-      "<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code": 1,
+      "uu_cut::cut_files::{{closure}}": 1,
+      "std::fs::File::open": 1,
+      "uucore::mods::locale::get_message": 1,
       "uu_cut::cut_bytes": 1,
       "std::io::stdio::stdin": 2,
       "uu_cut::cut_fields": 1,
-      "std::path::Path::is_dir": 1,
+      "<&alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "alloc::boxed::Box<T>::new": 2,
+      "std::io::stdio::stdout": 3,
+      "std::io::buffered::bufwriter::BufWriter<W>::with_capacity": 1,
       "alloc::vec::Vec<T,A>::push": 1,
       "<T as alloc::slice::hack::ConvertVec>::to_vec": 1
     },
-    "_ZN6uu_cut14get_delimiters17h4e08f74774217561E": {
+    "_ZN6uu_cut14get_delimiters17hb8d24182c5c8c502E": {
       "uu_cut::get_delimiters::{{closure}}": 1,
       "clap_builder::parser::error::MatchesError::unwrap": 2,
       "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 2,
       "alloc::boxed::Box<T>::new": 1,
-      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
+      "uucore::mods::locale::get_message": 1,
       "<uu_cut::Delimiter as core::convert::From<&std::ffi::os_str::OsString>>::from": 1,
-      "std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from": 1,
+      "std::ffi::os_str::<impl core::convert::TryFrom<&std::ffi::os_str::OsStr> for &str>::try_from": 2,
       "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 1
     },
-    "_ZN6uu_cut6uu_app17h2a5a44b0da1a04d9E": {
+    "_ZN6uu_cut6uu_app17hc4c1b1477c2f69a3E": {
       "clap_builder::builder::command::Command::arg": 10,
       "clap_builder::builder::arg::Arg::value_hint": 1,
       "clap_builder::builder::arg::Arg::action": 8,
@@ -137,6 +166,7 @@
       "clap_builder::builder::arg::Arg::new": 10,
       "clap_builder::builder::arg::Arg::value_name": 6,
       "clap_builder::builder::arg::Arg::help": 9,
+      "uucore::mods::locale::get_message": 12,
       "clap_builder::builder::arg::Arg::value_parser": 2,
       "clap_builder::builder::arg::Arg::long": 8,
       "clap_builder::builder::arg::Arg::short": 7,
@@ -148,57 +178,60 @@
       "clap_builder::builder::command::Command::new": 1,
       "uucore::util_name": 1
     },
-    "_ZN6uu_cut7matcher12ExactMatcher3new17h393e805b97031375E": {
+    "_ZN6uu_cut7matcher12ExactMatcher3new17hc25bbaadbac87c3fE": {
       "core::panicking::panic": 1
     }
   },
   "macro_call_counts": {
-    "_ZN6uu_cut6uumain17h4549f56a9d639c8aE": {
+    "_ZN6uu_cut6uumain17h51931438997c09c4E": {
       "eprintln": 2,
-      "eprint": 1,
-      "format": 1
+      "eprint": 1
     },
-    "_ZN6uu_cut13stdout_writer17h8d13c8405537874aE": {},
-    "_ZN6uu_cut14list_to_ranges17h582948f175afb12bE": {},
-    "_ZN6uu_cut9cut_bytes17h04bd5adc21115d76E": {},
-    "_ZN6uu_cut9cut_bytes17hb75889e9eff680b7E": {},
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h0a90ca972983d44eE": {},
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h498d740af7877aa6E": {},
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h5c816d4033f8d8feE": {},
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17hf1ac07e2d7452ebcE": {},
-    "_ZN6uu_cut29cut_fields_implicit_out_delim17h3e4a03ff417ae94aE": {},
-    "_ZN6uu_cut29cut_fields_implicit_out_delim17hc1fc3b9aa7195642E": {},
-    "_ZN6uu_cut10cut_fields17h46a13446ac92181dE": {},
-    "_ZN6uu_cut10cut_fields17h5b603ad8eeef3f36E": {},
-    "_ZN6uu_cut9cut_files17hab9ba34aeaa70600E": {
+    "_ZN6uu_cut6uumain6uumain17hc5e2923a7df48ed0E": {},
+    "_ZN6uu_cut14list_to_ranges17h80c55328caab4d00E": {},
+    "_ZN6uu_cut9cut_bytes17h9615d99508e855dcE": {},
+    "_ZN6uu_cut9cut_bytes17h97305a96ab0e9485E": {},
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h43217b0a15aa7243E": {},
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h507334dc32c22c03E": {},
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h6b4a7cd2ba3fb7a8E": {},
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17hcd0b14a15f1029a9E": {},
+    "_ZN6uu_cut29cut_fields_implicit_out_delim17h4e9f49ac6b1032b5E": {},
+    "_ZN6uu_cut29cut_fields_implicit_out_delim17h82b2d45f3a37308dE": {},
+    "_ZN6uu_cut29cut_fields_newline_char_delim17h6ef8e7c6b4b08d89E": {},
+    "_ZN6uu_cut29cut_fields_newline_char_delim17h89c29b2e212387d4E": {},
+    "_ZN6uu_cut10cut_fields17h11df7cd9cfcc0244E": {},
+    "_ZN6uu_cut10cut_fields17hb40e63177bee048cE": {},
+    "_ZN6uu_cut9cut_files17h3b5d4a76b37c7822E": {
       "eprintln": 4,
-      "eprint": 2
+      "eprint": 1
     },
-    "_ZN6uu_cut14get_delimiters17h4e08f74774217561E": {},
-    "_ZN6uu_cut6uu_app17h2a5a44b0da1a04d9E": {},
-    "_ZN6uu_cut7matcher12ExactMatcher3new17h393e805b97031375E": {}
+    "_ZN6uu_cut14get_delimiters17hb8d24182c5c8c502E": {},
+    "_ZN6uu_cut6uu_app17hc4c1b1477c2f69a3E": {},
+    "_ZN6uu_cut7matcher12ExactMatcher3new17hc25bbaadbac87c3fE": {}
   },
   "node_counts": {
-    "_ZN6uu_cut6uumain17h4549f56a9d639c8aE": 10,
-    "_ZN6uu_cut13stdout_writer17h8d13c8405537874aE": 5,
-    "_ZN6uu_cut14list_to_ranges17h582948f175afb12bE": 7,
-    "_ZN6uu_cut9cut_bytes17h04bd5adc21115d76E": 9,
-    "_ZN6uu_cut9cut_bytes17hb75889e9eff680b7E": 9,
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h0a90ca972983d44eE": 6,
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h498d740af7877aa6E": 6,
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h5c816d4033f8d8feE": 6,
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17hf1ac07e2d7452ebcE": 6,
-    "_ZN6uu_cut29cut_fields_implicit_out_delim17h3e4a03ff417ae94aE": 6,
-    "_ZN6uu_cut29cut_fields_implicit_out_delim17hc1fc3b9aa7195642E": 6,
-    "_ZN6uu_cut10cut_fields17h46a13446ac92181dE": 11,
-    "_ZN6uu_cut10cut_fields17h5b603ad8eeef3f36E": 11,
-    "_ZN6uu_cut9cut_files17hab9ba34aeaa70600E": 33,
-    "_ZN6uu_cut14get_delimiters17h4e08f74774217561E": 14,
-    "_ZN6uu_cut6uu_app17h2a5a44b0da1a04d9E": 73,
-    "_ZN6uu_cut7matcher12ExactMatcher3new17h393e805b97031375E": 2
+    "_ZN6uu_cut6uumain17h51931438997c09c4E": 10,
+    "_ZN6uu_cut6uumain6uumain17hc5e2923a7df48ed0E": 62,
+    "_ZN6uu_cut14list_to_ranges17h80c55328caab4d00E": 5,
+    "_ZN6uu_cut9cut_bytes17h9615d99508e855dcE": 9,
+    "_ZN6uu_cut9cut_bytes17h97305a96ab0e9485E": 9,
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h43217b0a15aa7243E": 6,
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h507334dc32c22c03E": 6,
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h6b4a7cd2ba3fb7a8E": 6,
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17hcd0b14a15f1029a9E": 6,
+    "_ZN6uu_cut29cut_fields_implicit_out_delim17h4e9f49ac6b1032b5E": 6,
+    "_ZN6uu_cut29cut_fields_implicit_out_delim17h82b2d45f3a37308dE": 6,
+    "_ZN6uu_cut29cut_fields_newline_char_delim17h6ef8e7c6b4b08d89E": 17,
+    "_ZN6uu_cut29cut_fields_newline_char_delim17h89c29b2e212387d4E": 17,
+    "_ZN6uu_cut10cut_fields17h11df7cd9cfcc0244E": 13,
+    "_ZN6uu_cut10cut_fields17hb40e63177bee048cE": 10,
+    "_ZN6uu_cut9cut_files17h3b5d4a76b37c7822E": 39,
+    "_ZN6uu_cut14get_delimiters17hb8d24182c5c8c502E": 17,
+    "_ZN6uu_cut6uu_app17hc4c1b1477c2f69a3E": 85,
+    "_ZN6uu_cut7matcher12ExactMatcher3new17hc25bbaadbac87c3fE": 2
   },
   "variable_types": {
-    "_ZN6uu_cut6uumain17h4549f56a9d639c8aE": {
+    "_ZN6uu_cut6uumain17h51931438997c09c4E": {
       "reg_rax": [
         [
           "primitive",
@@ -211,16 +244,68 @@
           8
         ]
       ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
       "stack_128": [
         [
           "struct",
           24
         ]
       ],
-      "stack_96": [
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
         [
           "primitive",
-          16
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
         ]
       ],
       "stack_112": [
@@ -237,789 +322,105 @@
       ],
       "stack_72": [
         [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_rdx": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uu_cut13stdout_writer17h8d13c8405537874aE": {
-      "stack_8": [
-        [
-          "struct",
-          24
-        ]
-      ]
-    },
-    "_ZN6uu_cut14list_to_ranges17h582948f175afb12bE": {
-      "reg_rsi": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_rdi": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "Option",
-          32
-        ]
-      ],
-      "stack_32": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "reg_rax": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_0": [
-        [
-          "struct",
-          24
-        ]
-      ]
-    },
-    "_ZN6uu_cut9cut_bytes17h04bd5adc21115d76E": {
-      "stack_80": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_88": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_96": [
-        [
-          "struct",
-          48
-        ]
-      ],
-      "stack_8": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_rax": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "struct",
-          32
-        ]
-      ],
-      "stack_7": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_24": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_144": [
-        [
-          "struct",
-          24
-        ]
-      ]
-    },
-    "_ZN6uu_cut9cut_bytes17hb75889e9eff680b7E": {
-      "stack_80": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_88": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_120": [
-        [
-          "struct",
-          48
-        ]
-      ],
-      "stack_8": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_rax": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "struct",
-          32
-        ]
-      ],
-      "stack_7": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_24": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_96": [
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "stack_112": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h0a90ca972983d44eE": {
-      "stack_96": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_104": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_6": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_7": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_8": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "struct",
-          32
-        ]
-      ],
-      "reg_rax": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_112": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_160": [
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "stack_176": [
-        [
-          "primitive",
-          1
-        ]
-      ]
-    },
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h498d740af7877aa6E": {
-      "stack_96": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_104": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_6": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_7": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_8": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "struct",
-          32
-        ]
-      ],
-      "reg_rax": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_136": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_112": [
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "stack_128": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17h5c816d4033f8d8feE": {
-      "stack_96": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_104": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_6": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_7": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_8": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "struct",
-          32
-        ]
-      ],
-      "reg_rax": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_136": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_112": [
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "stack_128": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uu_cut29cut_fields_explicit_out_delim17hf1ac07e2d7452ebcE": {
-      "stack_96": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_104": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_6": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_7": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_8": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "struct",
-          32
-        ]
-      ],
-      "reg_rax": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_112": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_160": [
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "stack_176": [
-        [
-          "primitive",
-          1
-        ]
-      ]
-    },
-    "_ZN6uu_cut29cut_fields_implicit_out_delim17h3e4a03ff417ae94aE": {
-      "stack_80": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_88": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_6": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_7": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_8": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "struct",
-          32
-        ]
-      ],
-      "reg_rax": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_120": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_96": [
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "stack_112": [
-        [
-          "primitive",
-          8
-        ]
-      ]
-    },
-    "_ZN6uu_cut29cut_fields_implicit_out_delim17hc1fc3b9aa7195642E": {
-      "stack_80": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_88": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_6": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_7": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_8": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_32": [
-        [
-          "struct",
-          32
-        ]
-      ],
-      "reg_rax": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_96": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_144": [
-        [
-          "primitive",
-          16
-        ]
-      ],
-      "stack_160": [
-        [
-          "primitive",
-          1
-        ]
-      ]
-    },
-    "_ZN6uu_cut10cut_fields17h46a13446ac92181dE": {
-      "reg_r13": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "reg_rbp": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_24": [
-        [
-          "struct",
-          16
-        ]
-      ],
-      "reg_rdx": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_rax": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "struct",
-          16
-        ],
-        [
-          "struct",
-          16
-        ]
-      ],
-      "stack_23": [
-        [
-          "primitive",
-          1
-        ]
-      ]
-    },
-    "_ZN6uu_cut10cut_fields17h5b603ad8eeef3f36E": {
-      "reg_r13": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "reg_rbp": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_24": [
-        [
-          "struct",
-          16
-        ]
-      ],
-      "reg_rdx": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_rax": [
-        [
-          "struct",
-          24
-        ],
-        [
-          "struct",
-          48
-        ],
-        [
-          "struct",
-          48
-        ]
-      ],
-      "stack_23": [
-        [
-          "primitive",
-          1
-        ]
-      ]
-    },
-    "_ZN6uu_cut9cut_files17hab9ba34aeaa70600E": {
-      "reg_rax": [
-        [
-          "primitive",
-          8
-        ],
-        [
-          "primitive",
-          8
-        ],
-        [
           "&primitive",
-          null
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_cut6uumain6uumain17hc5e2923a7df48ed0E": {
+      "stack_352": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
         ]
       ],
-      "stack_56": [
-        [
-          "struct",
-          24
-        ],
-        [
-          "struct",
-          24
-        ],
+      "reg_rdx": [
         [
           "primitive",
           8
+        ]
+      ],
+      "stack_528": [
+        [
+          "struct",
+          8
+        ],
+        [
+          "Result",
+          40
         ],
         [
           "struct",
+          24
+        ],
+        [
+          "struct",
+          32
+        ],
+        [
+          "primitive",
           16
         ]
       ],
       "stack_16": [
         [
           "struct",
-          16
+          24
         ],
-        [
-          "&primitive",
-          null
-        ],
-        [
-          "&primitive",
-          null
-        ]
-      ],
-      "stack_160": [
         [
           "struct",
+          24
+        ]
+      ],
+      "stack_96": [
+        [
+          "Result",
+          80
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
           16
-        ]
-      ],
-      "stack_176": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "stack_136": [
-        [
-          "primitive",
-          8
         ]
       ],
       "stack_128": [
         [
           "primitive",
-          8
+          16
         ]
       ],
-      "stack_120": [
+      "stack_216": [
         [
           "primitive",
-          8
+          16
         ]
       ],
-      "stack_52": [
-        [
-          "primitive",
-          4
-        ]
-      ],
-      "reg_rcx": [
-        [
-          "primitive",
-          8
-        ],
+      "stack_200": [
         [
           "primitive",
           8
@@ -1027,39 +428,107 @@
       ],
       "stack_104": [
         [
-          "struct",
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
           16
         ]
       ],
-      "stack_0": [
+      "reg_rbp": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_536": [
         [
           "primitive",
           8
         ]
       ],
-      "stack_8": [
+      "stack_320": [
         [
           "primitive",
           8
         ]
       ],
-      "reg_rdx": [
+      "stack_544": [
         [
           "primitive",
-          8
-        ]
-      ],
-      "stack_24": [
-        [
-          "primitive",
-          8
+          16
         ],
         [
           "primitive",
           8
         ]
       ],
-      "reg_rbp": [
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_256": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          64
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_552": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_568": [
         [
           "primitive",
           8
@@ -1067,29 +536,81 @@
       ],
       "stack_32": [
         [
-          "struct",
-          24
+          "primitive",
+          8
         ]
       ],
-      "reg_rbx": [
-        [
-          "struct",
-          24
-        ]
-      ],
-      "stack_40": [
+      "stack_576": [
         [
           "primitive",
-          1
+          16
         ]
-      ]
-    },
-    "_ZN6uu_cut14get_delimiters17h4e08f74774217561E": {
-      "reg_rsi": [
+      ],
+      "stack_592": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ],
         [
           "primitive",
           8
-        ],
+        ]
+      ],
+      "stack_392": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_440": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_456": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_424": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_376": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_384": [
         [
           "primitive",
           8
@@ -1098,7 +619,1137 @@
       "reg_r15": [
         [
           "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
           1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ymm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_ymm2": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_ymm3": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_560": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_464": [
+        [
+          "struct",
+          64
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_328": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_cut14list_to_ranges17h80c55328caab4d00E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN6uu_cut9cut_bytes17h9615d99508e855dcE": {
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          24
+        ]
+      ]
+    },
+    "_ZN6uu_cut9cut_bytes17h97305a96ab0e9485E": {
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_104": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h43217b0a15aa7243E": {
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "struct",
+          24
+        ]
+      ]
+    },
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h507334dc32c22c03E": {
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "struct",
+          24
+        ]
+      ]
+    },
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17h6b4a7cd2ba3fb7a8E": {
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_120": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_cut29cut_fields_explicit_out_delim17hcd0b14a15f1029a9E": {
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_120": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_cut29cut_fields_implicit_out_delim17h4e9f49ac6b1032b5E": {
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_104": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_cut29cut_fields_implicit_out_delim17h82b2d45f3a37308dE": {
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          24
+        ]
+      ]
+    },
+    "_ZN6uu_cut29cut_fields_newline_char_delim17h6ef8e7c6b4b08d89E": {
+      "stack_80": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "Result",
+          88
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_cut29cut_fields_newline_char_delim17h89c29b2e212387d4E": {
+      "stack_80": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_cut10cut_fields17h11df7cd9cfcc0244E": {
+      "reg_rbx": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "struct",
+          40
+        ],
+        [
+          "Option",
+          16
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "Option",
+          16
+        ]
+      ],
+      "reg_r10": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_47": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN6uu_cut10cut_fields17hb40e63177bee048cE": {
+      "reg_rbx": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          32
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_47": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN6uu_cut9cut_files17h3b5d4a76b37c7822E": {
+      "stack_56": [
+        [
+          "Result",
+          16
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "Result",
+          80
+        ]
+      ],
+      "reg_rax": [
+        [
+          "struct",
+          32
+        ],
+        [
+          "struct",
+          56
+        ],
+        [
+          "struct",
+          48
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "struct",
+          56
+        ]
+      ],
+      "stack_200": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN6uu_cut14get_delimiters17hb8d24182c5c8c502E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
         ]
       ],
       "stack_0": [
@@ -1109,11 +1760,27 @@
         [
           "Result",
           24
+        ],
+        [
+          "Result",
+          24
         ]
       ],
       "reg_rax": [
         [
+          "&primitive",
+          8
+        ],
+        [
+          "struct",
+          40
+        ],
+        [
           "primitive",
+          8
+        ],
+        [
+          "&primitive",
           8
         ],
         [
@@ -1121,9 +1788,17 @@
           8
         ],
         [
-          "primitive",
+          "&primitive",
           8
-        ],
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
         [
           "primitive",
           8
@@ -1135,29 +1810,27 @@
           8
         ],
         [
-          "struct",
-          32
-        ]
-      ],
-      "reg_r14": [
-        [
-          "primitive",
-          8
-        ]
-      ],
-      "reg_rdi": [
-        [
           "primitive",
           8
         ]
       ],
       "reg_r13": [
         [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
           "primitive",
           8
         ]
       ],
-      "reg_rbp": [
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
         [
           "primitive",
           8
@@ -1174,16 +1847,16 @@
           "primitive",
           8
         ]
-      ],
-      "reg_r12": [
-        [
-          "struct",
-          40
-        ]
       ]
     },
-    "_ZN6uu_cut6uu_app17h2a5a44b0da1a04d9E": {
-      "stack_624": [
+    "_ZN6uu_cut6uu_app17hc4c1b1477c2f69a3E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_688": [
         [
           "struct",
           448
@@ -1195,82 +1868,22 @@
           8
         ]
       ],
-      "stack_1336": [
+      "stack_1400": [
         [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_32": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_2036": [
-        [
-          "primitive",
+          "struct",
           8
         ]
       ],
-      "stack_1324": [
+      "stack_0": [
         [
-          "primitive",
-          8
+          "struct",
+          24
         ]
       ],
-      "stack_2044": [
+      "stack_48": [
         [
-          "primitive",
-          4
-        ]
-      ],
-      "stack_1332": [
-        [
-          "primitive",
-          4
-        ]
-      ],
-      "stack_1208": [
-        [
-          "primitive",
-          4
-        ]
-      ],
-      "stack_616": [
-        [
-          "primitive",
-          4
-        ]
-      ],
-      "stack_1212": [
-        [
-          "primitive",
-          4
-        ]
-      ],
-      "stack_620": [
-        [
-          "primitive",
-          4
-        ]
-      ],
-      "stack_2048": [
-        [
-          "primitive",
-          1
-        ]
-      ],
-      "stack_1920": [
-        [
-          "primitive",
-          4
-        ]
-      ],
-      "stack_1924": [
-        [
-          "primitive",
-          4
+          "struct",
+          24
         ]
       ],
       "stack_8": [
@@ -1279,10 +1892,76 @@
           8
         ]
       ],
-      "stack_2064": [
+      "stack_16": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2100": [
         [
           "primitive",
           8
+        ]
+      ],
+      "stack_1388": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2108": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1396": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2112": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_1320": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_680": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_1324": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_684": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_2032": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2036": [
+        [
+          "primitive",
+          4
         ]
       ],
       "stack_24": [
@@ -1291,20 +1970,32 @@
           8
         ]
       ],
-      "stack_2056": [
+      "stack_2128": [
         [
           "primitive",
           8
         ]
       ],
-      "stack_16": [
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
         [
           "primitive",
           8
         ]
       ]
     },
-    "_ZN6uu_cut7matcher12ExactMatcher3new17h393e805b97031375E": {
+    "_ZN6uu_cut7matcher12ExactMatcher3new17hc25bbaadbac87c3fE": {
       "stack_0": [
         [
           "primitive",

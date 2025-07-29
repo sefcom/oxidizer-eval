@@ -110,7 +110,7 @@ class DwarfParser:
     def _get_value(die, attr, ensure_existence=True):
         attr = die.attributes.get(attr)
         if attr is None and ensure_existence:
-            raise NoExistenceException()
+            raise NoExistenceException("Attribute {} not found in DIE {}".format(attr, die))
         return attr.value if attr else None
 
     @staticmethod
@@ -120,7 +120,7 @@ class DwarfParser:
             if child.tag == tag:
                 result.append(child)
         if not result and ensure_existence:
-            raise NoExistenceException()
+            raise NoExistenceException("Child with tag {} not found in DIE {}".format(tag, die))
         return result
 
     @staticmethod
@@ -139,7 +139,7 @@ class DwarfParser:
 
     def _parse_type(self, die):
         if die.tag == "DW_TAG_pointer_type":
-            pointed_to_die = self._get_referred_die(die, "DW_AT_type")
+            pointed_to_die = self._get_referred_die(die, "DW_AT_type", ensure_existence=False)
             ty = self._parse_type(pointed_to_die)
             return Pointer(ty)
         elif die.tag == "DW_TAG_structure_type":
@@ -329,7 +329,7 @@ class DwarfParser:
                             self._handle_structure(die)
                         elif die.tag == "DW_TAG_subprogram":
                             self._handle_subprogram(die)
-                    except NoExistenceException:
+                    except:
                         print(f"Skip {die}")
                         traceback.print_exc()
         for variant_struct in self._variant_structs:
@@ -405,9 +405,9 @@ class DwarfParser:
                 d = json_object["variables"]
                 for name in d:
                     self.local_variables[name] = [self._from_dict(var) for var in d[name]]
-                d = json_object["decl_path_to_func_name"]
+                d = json_object.get("decl_path_to_func_name", {})
                 for key in d:
-                    self.decl_path_to_func_name[key] = [self._from_dict(name) for name in d[key]]
+                    self.decl_path_to_func_name[key] = d[key]
 
     def dump_json(self, path):
         with open(path, "w") as fd:

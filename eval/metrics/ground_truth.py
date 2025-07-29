@@ -23,7 +23,9 @@ class BinaryGroundTruth:
     def __init__(self):
         self.func_ground_truths = {}
 
-    def load(self, binary_name):
+    @staticmethod
+    def load(binary_name):
+        ground_truth = BinaryGroundTruth()
         with open(os.path.join(CACHED_GROUND_TRUTH_PATH, binary_name + ".json"), "r") as fd:
             data = json.load(fd)
         parser = DwarfParser()
@@ -32,7 +34,7 @@ class BinaryGroundTruth:
             func_name = parser.decl_path_to_func_name.get(decl_line, None)
             if func_name is not None:
                 func_name = demangle(func_name)
-                self.func_ground_truths[func_name] = FunctionGroundTruth(
+                ground_truth.func_ground_truths[func_name] = FunctionGroundTruth(
                     loc=func_data["loc"],
                     nofops=func_data["nofops"],
                     string_literals=func_data["string_literals"],
@@ -40,8 +42,9 @@ class BinaryGroundTruth:
                     calls=func_data["calls"],
                     variables_types=parser.local_variables.get(func_name, []),
                 )
+        return ground_truth
 
-    def get_function_ground_truth(self, func_name):
+    def get_function_ground_truth(self, func_name) -> FunctionGroundTruth | None:
         key = demangle(func_name)
         if key in self.func_ground_truths:
             return self.func_ground_truths[key]

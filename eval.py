@@ -3,22 +3,30 @@ from multiprocessing import Pool
 
 from angr.rust.utils.library import demangle
 
+from eval.config import DECOMPILERS
+from eval.decompilers.util import load_function_list, load_cached_inferred_prototypes
+from eval.metrics.result import FunctionEvalResult, BinaryEvalResult, EvalResult
+from eval.metrics import *
+from eval.metrics.calc import *
+from eval.metrics.ground_truth import BinaryGroundTruth
 from eval.decompilers.ida import ida_dec
 from eval.decompilers.oxidizer import oxidizer_dec
 from eval.decompilers.angr import angr_dec
 from eval.decompilers.ghidra import ghidra_dec
-from eval.decompilers.util import load_function_list, load_cached_inferred_prototypes
-from eval.metrics.result import FunctionEvalResult, BinaryEvalResult, EvalResult
-from eval.metrics import *
-from eval.metrics.trivial import *
-from eval.metrics.ground_truth import BinaryGroundTruth, FunctionGroundTruth
+
+# from eval.decompilers.binja import binja_c_dec, binja_rust_dec
+
+
+def dummy_dec(*args, **kwargs):
+    pass
 
 
 DEC_OPTIONS = {
-    # "angr": {"dec_func": angr_dec, "cache_only": True},
-    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True},
-    # "IDA": {"dec_func": ida_dec, "cache_only": True},
-    # "Ghidra": {"dec_func": ghidra_dec, "cache_only": True},
+    "Source": {"dec_func": dummy_dec, "cache_only": True},
+    "angr": {"dec_func": angr_dec, "cache_only": False},
+    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False},
+    "IDA": {"dec_func": ida_dec, "cache_only": True},
+    "Ghidra": {"dec_func": ghidra_dec, "cache_only": True},
     # "Binary Ninja": {"dec_func": binja_c_dec, "cache_only": True},
     # "Binary Ninja (Pseudo Rust)": {"dec_func": binja_rust_dec, "cache_only": True},
 }
@@ -39,17 +47,26 @@ def convert_to_debug_path(path):
     return path.replace("datasets", "datasets-debug")
 
 
-def eval_binary(binary_path, is_malware):
+def eval_binary(binary_path):
     binary_name = os.path.basename(binary_path)
-    ground_truth = BinaryGroundTruth(binary_name)
+
+    # Load ground truth from output/ground_truth/<binary_name>.json
+    ground_truth = BinaryGroundTruth.load(binary_name)
 
     # We do not evaluate on every function
     # For Coreutils binaries, we evaluate on functions that are relevant to current module
-    function_list = load_function_list(binary_path, module=f"uu_{binary_name}")
+    module = f"uu_{binary_name}" if "o3" in binary_path else binary_name
+    print(f"{binary_path=}")
+    function_list = load_function_list(binary_path, module)
 
-    binary_eval_result = BinaryEvalResult(binary_path, is_malware)
+    binary_eval_result = BinaryEvalResult(binary_path)
+
+    func_eval_results = {}
 
     for decompiler in DEC_OPTIONS:
+        if decompiler not in DECOMPILERS:
+            continue
+
         options = DEC_OPTIONS[decompiler]
         dec_func = options["dec_func"]
         cache_only = options["cache_only"]
@@ -61,63 +78,106 @@ def eval_binary(binary_path, is_malware):
         )
 
         for func_name in function_list:
-            # if "write_fast_using_splice" not in func_name:
+            # if "process_file" not in func_name:
             #     continue
-            func_eval_result = FunctionEvalResult(func_name)
+            if demangle(func_name) not in func_eval_results:
+                func_eval_results[demangle(func_name)] = FunctionEvalResult(func_name)
+            func_eval_result = func_eval_results[demangle(func_name)]
+
+            # Get function-level ground truth
             func_ground_truth = ground_truth.get_function_ground_truth(func_name)
 
-            if func_ground_truth is None and not is_malware:
-                continue
-
-            if (
+            # Special handling for source
+            if decompiler == "Source":
+                if func_ground_truth:
+                    func_eval_result.add_result(LOC, decompiler, func_ground_truth.loc)
+                    func_eval_result.add_result(NUM_VARIABLES, decompiler, func_ground_truth.nvars)
+                    func_eval_result.add_result(NUM_OPERATORS, decompiler, func_ground_truth.nofops)
+                    func_eval_result.add_result(NUM_GOTOS, decompiler, 0)  # Source does not have gotos
+                    func_eval_result.add_result(
+                        NUM_MATCHED_STRING_LITERALS, decompiler, sum(func_ground_truth.string_literals.values())
+                    )
+                    func_eval_result.add_result(
+                        NUM_MATCHED_FUNCTION_CALLS, decompiler, sum(func_ground_truth.calls.values())
+                    )
+                    func_eval_result.add_result(NUM_EXTRANEOUS_FUNCTION_CALLS, decompiler, 0)
+                    func_eval_result.add_result(
+                        NUM_MATCHED_MACRO_CALLS, decompiler, sum(func_ground_truth.macros.values())
+                    )
+            elif (
                 func_name not in EXCLUDED_FUNCTIONS
                 and func_name in result["decompilation"]
                 and func_name in result["function_call_counts"]
                 and func_name in result["variable_types"]
+                and func_ground_truth is not None
             ):
                 decompilation = result["decompilation"][func_name]
 
-                func_eval_result.add_result(
-                    NUM_MATCHED_STRING_LITERALS,
-                    decompiler,
-                    num_matched_string_literals(decompilation, func_ground_truth),
-                )
-                func_eval_result.add_result(
-                    NUM_MISMATCHED_FUNCTION_CALLS,
-                    decompiler,
-                    num_mismatched_function_calls(result["function_call_counts"][func_name], func_ground_truth),
-                )
-                func_eval_result.add_result(
-                    NUM_MISMATCHED_MACRO_CALLS,
-                    decompiler,
-                    num_mismatched_macro_calls(result["macro_call_counts"][func_name], func_ground_truth),
-                )
-
+                # Conciseness Metric-1: Number of lines of code
                 func_eval_result.add_result(LOC, decompiler, LoC(decompilation))
-                func_eval_result.add_result(NUM_GOTOS, decompiler, num_gotos(decompilation))
+
+                # Conciseness Metric-2: Number of variables
                 if decompiler.startswith("Binary Ninja"):
                     assert "num_variables" in result and func_name in result["num_variables"]
                     func_eval_result.add_result(NUM_VARIABLES, decompiler, result["num_variables"][func_name])
                 else:
                     func_eval_result.add_result(NUM_VARIABLES, decompiler, num_variables(decompilation))
+
+                # Conciseness Metric-3: Number of operators
                 func_eval_result.add_result(NUM_OPERATORS, decompiler, num_operators(decompilation))
+
+                # Fidelity Metric-1: Number of gotos
+                func_eval_result.add_result(NUM_GOTOS, decompiler, num_gotos(decompilation))
+
+                # Fidelity Metric-2: Number of matched string literals
                 func_eval_result.add_result(
-                    NUM_FUNCTION_CALL_COUNTS, decompiler, num_call_counts(result["function_call_counts"][func_name])
+                    NUM_MATCHED_STRING_LITERALS,
+                    decompiler,
+                    num_matched_string_literals(decompilation, func_ground_truth.string_literals),
                 )
 
-                binary_eval_result.generate_type_eval_result(
-                    result["variable_types"][func_name],
-                    func_ground_truth["variable_types"],
+                # Fidelity Metric-3: Number of matched function calls
+                func_eval_result.add_result(
+                    NUM_MATCHED_FUNCTION_CALLS,
+                    decompiler,
+                    num_matched_function_calls(result["function_call_counts"][func_name], func_ground_truth.calls),
                 )
 
-                binary_eval_result.add_func_eval_reuslt(func_eval_result)
+                # Fidelity Metric-3: Number of extraneous function calls
+                func_eval_result.add_result(
+                    NUM_EXTRANEOUS_FUNCTION_CALLS,
+                    decompiler,
+                    num_extraneous_function_calls(result["function_call_counts"][func_name], func_ground_truth.calls),
+                )
 
-    print(binary_eval_result)
+                # Fidelity Metric-4: Number of matched macro calls
+                func_eval_result.add_result(
+                    NUM_MATCHED_MACRO_CALLS,
+                    decompiler,
+                    num_matched_macro_calls(result["macro_call_counts"][func_name], func_ground_truth.macros),
+                )
+
+                type_eval_result, dwarf_var_to_predicted_types = generate_type_eval_result(
+                    result["variable_types"][func_name], func_ground_truth.variable_types
+                )
+                for metric in type_eval_result:
+                    func_eval_result.add_result(metric, decompiler, type_eval_result[metric])
+
+                # For debug purpose
+                if decompiler == "Oxidizer":
+                    with open(f"output/log/{binary_name}.log", "a+") as fd:
+                        fd.write(f"\nFunction: {demangle(func_name)}\n")
+                        for dwarf_var, pred_types in dwarf_var_to_predicted_types.items():
+                            fd.write(f"  {dwarf_var}: {pred_types}\n")
+
+    for func_name, func_eval_result in func_eval_results.items():
+        binary_eval_result.add_func_eval_result(func_eval_result)
+
+    # print(binary_eval_result)
     return binary_eval_result
 
 
 def eval(dir_path):
-    is_malware = "malware" in dir_path
     binary_paths = []
 
     for dirpath, _, filenames in os.walk(dir_path):
@@ -126,29 +186,33 @@ def eval(dir_path):
                 continue
             binary_paths.append(os.path.join(dirpath, filename))
 
-    # binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) == "fmt"]
-    # binary_paths = binary_paths[5:6]
-    tasks = [(binary_path, is_malware) for binary_path in binary_paths if "expr" not in binary_path]
+    # binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) == "spyware"]
+    # binary_paths = binary_paths[:30]
 
+    tasks = [(binary_path,) for binary_path in binary_paths]
     with Pool(4) as pool:
         results = pool.starmap(eval_binary, tasks)
 
     # results = []
     # for binary_path in binary_paths:
-    #     results.append(eval_binary(binary_path, is_malware))
+    #     results.append(eval_binary(binary_path))
 
-    eval_result = EvalResult(is_malware)
+    eval_result = EvalResult()
 
     for result in results:
         eval_result.add_binary_eval_result(result)
     # eval_result = EvalResult([result for result in results])
-    print(eval_result)
-    import ipdb
 
-    ipdb.set_trace()
+    return eval_result
 
 
 if __name__ == "__main__":
-    eval("datasets/o3")
-    # print("-------------- Malware Evaluation Results --------------")
-    # eval("dataset/malware")
+    coreutils_result = eval("datasets/o3")
+    print("-------------- Coreutils Evaluation Results --------------")
+    print(coreutils_result)
+    malware_result = eval("datasets/malware")
+    print("-------------- Malware Evaluation Results --------------")
+    print(malware_result)
+    print("-------------- Merged Results --------------")
+    merged_result = coreutils_result.merge(malware_result)
+    print(merged_result)

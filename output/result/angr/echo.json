@@ -1,61 +1,65 @@
 {
   "decompilation": {
-    "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": "long long uu_echo::uumain::h8bac35fb6b54f6b1(unsigned long long a0, unsigned long long a1)\n{\n    unsigned long v0;  // [sp-0xa8]\n    unsigned long v1;  // [sp-0x98]\n    unsigned long long v2;  // [sp-0x90]\n    struct struct_0 **v3;  // [sp-0x88], Other Possible Types: struct struct_1 **, struct struct_3 **\n    unsigned long long v4;  // [sp-0x80]\n    void* v5;  // [sp-0x78]\n    struct struct_0 **v6;  // [sp-0x68]\n    struct struct_2 *v7[14];  // [sp-0x60], Other Possible Types: unsigned long long\n    struct struct_1 **v8;  // [sp-0x58]\n    unsigned long long v9;  // [sp-0x50]\n    char *v10;  // [bp-0x48]\n    unsigned long long v11;  // [sp-0x40]\n    unsigned long long v12;  // [sp-0x38]\n    char v13;  // [bp-0x28]\n    char v14;  // [bp-0x18]\n    unsigned long long v16;  // rax\n    struct struct_2 *v17[14];  // rdx\n\n    core::result::Result$LT$T$C$E$GT$::expect::he5d88980ce35e87f((unsigned int)uucore::disable_rust_signal_handlers::hc16ff077e3f1e2f6());\n    v16 = uu_echo::uumain::uumain::h0a7e780663d83ed5(a0, a1);\n    if (!v16)\n        return uucore::mods::error::get_exit_code::he41365fe4dc666e7();\n    v0 = v16;\n    v10 = &v0;\n    v11 = _$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Display$GT$::fmt::h5b5aaafccc08f2c3;\n    v1 = &g_412de0;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v10;\n    v4 = 1;\n    core::option::Option$LT$T$GT$::map_or_else::h9427dc1ee5c35422(&v13, &v1);\n    *((int128_t *)&v10) = *((int128_t *)&v13);\n    v12 = *((long long *)&v14);\n    if (_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$::ne::hb4f2d17f007cd88a(v11, *((long long *)&v14)))\n    {\n        v6 = uucore::util_name::h60d842bf27b05e82();\n        v7[0] = &v17[0];\n        v8 = &v6;\n        v9 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::habdf9e024ec2f022;\n        v1 = &g_503a78;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v8;\n        v4 = 1;\n        std::io::stdio::_eprint::hcdfeec148c7134f7(&v1);\n        v6 = &v10;\n        v7 = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::hf84d46339d179f53;\n        v1 = &g_503a98;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v6;\n        v4 = 1;\n        std::io::stdio::_eprint::hcdfeec148c7134f7(&v1);\n    }\n    if (!(char)v17[13](v0))\n    {\n        ::0x45c420::core::ptr::drop_in_place$LT$alloc..string..String$GT$::hf369b6a8fea5715d(&v10);\n        core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::h8c310db8aaf02fe7(v0, v17);\n        return v17[12](v0);\n    }\n    v6 = uucore::execution_phrase::h7a36a698673d06ab();\n    v7[0] = &v17[0];\n    v8 = &v6;\n    v9 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::habdf9e024ec2f022;\n    v1 = &g_503ab8;\n    v2 = 2;\n    v5 = 0;\n    v3 = &v8;\n    v4 = 1;\n    std::io::stdio::_eprint::hcdfeec148c7134f7(&v1);\n}\n",
-    "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": "long long uu_echo::uumain::uumain::h0a7e780663d83ed5(unsigned long long a0, unsigned long long a1)\n{\n    unsigned long v0;  // [sp-0x370]\n    char v1;  // [bp-0x368]\n    char v2;  // [bp-0x330]\n    char v3;  // [bp-0x2f0], Other Possible Types: unsigned long\n    char v5;  // bl\n    void* v7;  // rax\n    unsigned long long v8;  // rax\n\n    uu_echo::uu_app::hac082564844c1592(&v3);\n    clap_builder::builder::command::Command::get_matches_from::hc64b423ca8b1bc86(&v1, &v3, a0, a1);\n    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v1, \"no_newline\", 10);\n    v3 = std::io::stdio::stdout::h077da66234850927();\n    v0 = std::io::stdio::Stderr::lock::h890f7962a170fc90(&v3);\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many::h12533fceda9f49bd(&v3, &v1, \"STRING\", 6);\n    clap_builder::parser::error::MatchesError::unwrap::hb3371b5fc2ddc015(&v2, &v3);\n    if (!*((long long *)&v2))\n    {\n        if (!(!v5) || !((v8 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(&v0, \"\\nTry ' --help' for more information.\\n\", 1), v8)))\n        {\n            core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::ha220d356cfc00f60(v0);\n            core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::hb403a57a7b833e43(&v1);\n            return 0;\n        }\n        v7 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v8);\n    }\n    else\n    {\n        v7 = uu_echo::execute::h70a095d897960844(&v0, v5 ^ 1, (unsigned int)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h5d143567c1b61caf(&v1, \"enable_backslash_escape\", 23), &v2);\n        if (!v7)\n        {\n            core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::ha220d356cfc00f60(v0);\n            core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::hb403a57a7b833e43(&v1);\n            return 0;\n        }\n    }\n    core::ptr::drop_in_place$LT$std..io..stdio..StdoutLock$GT$::ha220d356cfc00f60(v0);\n    core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::hb403a57a7b833e43(&v1);\n    return v7;\n}\n",
-    "_ZN7uu_echo4Base15ascii_to_number17h59ff941f17249d67E": "char uu_echo::Base::ascii_to_number::h59ff941f17249d67(char a0, unsigned int a1)\n{\n    unsigned long long v0;  // [sp-0x8]\n    unsigned long v2;  // rax\n\n    if (a0)\n    {\n        v0 = v2;\n        return uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number::h4428452b03aed7ea(a1);\n    }\n    return (char)a1 - 48 < 8;\n}\n",
-    "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE": "long long uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number::h4428452b03aed7ea(unsigned int a0)\n{\n    unsigned long long v1;  // rax\n\n    v1 = 0;\n    switch (a0)\n    {\n    case 48:\n        return 1;\n    case 49:\n        return 1;\n    case 50:\n        return 1;\n    case 51:\n        return 1;\n    case 52:\n        return 1;\n    case 53:\n        return 1;\n    case 54:\n        return 1;\n    case 55:\n        return 1;\n    case 56:\n        return 1;\n    case 57:\n        return 1;\n    case 66: case 98:\n        return 1;\n    case 67: case 99:\n        return 1;\n    case 68: case 100:\n        return 1;\n    case 69: case 101:\n        return 1;\n    case 70: case 102:\n        return 1;\n    case 65: case 97:\n        v1 = 1;\n    case 58: case 59: case 60: case 61: case 62: case 63: case 64: case 71: case 72: case 73: case 74: case 75: case 76: case 77: case 78: case 79: case 80: case 81: case 82: case 83: case 84: case 85: case 86: case 87: case 88: case 89: case 90: case 91: case 92: case 93: case 94: case 95: case 96:\n        return v1;\n    default:\n        return 0;\n    }\n}\n",
-    "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": "long long uu_echo::parse_backslash_number::he56ed8545e2dc3bc(unsigned long long *a0, char a1, unsigned int a2)\n{\n    unsigned long v0;  // [bp-0x38]\n    char v1;  // [sp-0x35]\n    unsigned int v2;  // [sp-0x34]\n    unsigned long v4;  // rax\n    unsigned long long v5;  // r14\n    char *v6;  // rax\n    unsigned long v7;  // r14\n    unsigned long long v8;  // rbp\n    unsigned long long v9;  // 4098\n    unsigned long long v10;  // rax\n    unsigned long long v11;  // r12\n    char *v13;  // rax\n    unsigned long long v14;  // 4098\n    unsigned int v15;  // rdx, Other Possible Types: unsigned long\n\n    v0 = v4;\n    if (!a1)\n    {\n        v5 = 0;\n        goto LABEL_4a45cd;\n    }\n    else\n    {\n        v6 = *((long long *)core::option::Option$LT$T$GT$::get_or_insert_with::hedc8c424b7d46203(a0, a0 + 2));\n        if (!v6)\n            return 0;\n        v5 = v7 & 0xffffffffffffff00 | a1 != 1;\nLABEL_4a45cd:\n        v2 = v5;\n        if ((uu_echo::Base::ascii_to_number::h59ff941f17249d67(v5, *(v6)) & 1))\n        {\n            v8 = v15;\n            v9 = *(a0);\n            *(a0) = 0;\n            if (!v9)\n                _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h67bb1ffa54fe1617(a0 + 2);\n            v11 = a0 + 2;\n            v1 = 4 - (!(char)v5);\n            while (true)\n            {\n                v13 = *((long long *)core::option::Option$LT$T$GT$::get_or_insert_with::hedc8c424b7d46203(a0, v11));\n                if (!(v13) || !((v13 = (long long)uu_echo::Base::ascii_to_number::h59ff941f17249d67((unsigned long long)v2, (unsigned long long)*(v13)), ((char)v13 & 1))))\n                    break;\n                v14 = *(a0);\n                *(a0) = 0;\n                if (!v14)\n                    v13 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h67bb1ffa54fe1617(v11);\n                v8 = v8 & 0xffffffffffffff00 | ((v8 & 255) << (v1 & 31)) + (v15 & 4294967295) & 255;\n                if ((char)_$LT$u8$u20$as$u20$core..iter..range..Step$GT$::forward_unchecked::h78b98a6df4caa3d9(1) >= (!(char)v5 | 2))\n                    break;\n            }\n            v10 = v13 & 0xffffffffffffff00 | 1;\n            return v10;\n        }\n    }\n}\n",
-    "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E": "long long uu_echo::print_escaped::hfb2c9877aef23019(struct_0 *a0, unsigned long a1, unsigned long a2, unsigned long long a3)\n{\n    char v0;  // [sp-0x5b]\n    char v1;  // [sp-0x5a]\n    char v2;  // [sp-0x5a]\n    char v3;  // [sp-0x59]\n    void* v4;  // [sp-0x50]\n    char v5;  // [bp-0x48]\n    unsigned long v6;  // [sp-0x40]\n    unsigned long long v7;  // [sp-0x38]\n    void* v9;  // rcx\n    char *v10;  // rax\n    char v11;  // al\n    char *v12;  // rax\n    unsigned long long v13;  // rax\n    char *v14;  // rax\n    unsigned long long v15;  // 4099\n    unsigned long long v16;  // rdi\n    char *v17;  // rsi\n    char v18;  // al\n    unsigned long long v19;  // r13\n    struct_0 *v20;  // rax\n    char *v21;  // rsi\n    char v22;  // dl\n    unsigned long long v23;  // rax\n    struct_0 *v24;  // rcx\n    struct_0 *v25;  // rcx\n    struct_0 *v26;  // rcx\n\n    v6 = a1;\n    v7 = a2 + a1;\n    v9 = 0;\n    while (true)\n    {\n        v4 = 0;\n        if (!v9)\n            v10 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h67bb1ffa54fe1617(&v6);\n        if (!v10)\n        {\n            v20 = a0;\n            *((unsigned short *)&v20->field_0) = 0;\n            return v20;\n        }\n        v11 = *(v10);\n        if (v1 != 92)\n        {\n            v1 = v11;\nLABEL_4a4764:\n            v16 = a3;\n            v17 = &v1;\n            goto LABEL_4a476f;\n        }\n        else\n        {\n            v12 = *((long long *)core::option::Option$LT$T$GT$::get_or_insert_with::hedc8c424b7d46203(&v4, &v6));\n            if (!(v12 && (v13 = (unsigned long long)*(v12), (v13 - 49 & 255) < 7)))\n            {\n                v14 = *((long long *)&v5);\n                v15 = v4;\n                v4 = 0;\n                if (v15)\n                {\n                    if (!v14)\n                        goto LABEL_4a47f0;\n                }\n                else\n                {\n                    v14 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h67bb1ffa54fe1617(&v6);\n                    if (!v14)\n                    {\nLABEL_4a47f0:\n                        v16 = a3;\n                        v17 = \"\\\\\";\nLABEL_4a476f:\n                        v20 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(v16, v17, 1);\n                        if (v20)\n                        {\n                            v25 = a0;\n                            v25->field_8 = v20;\n                            v25->field_0 = 1;\n                            return v20;\n                        }\n                        goto LABEL_4a46f1;\n                    }\n                }\n                v18 = *(v14);\n                switch (v3)\n                {\n                case 48:\n                    if (!((char)uu_echo::parse_backslash_number::he56ed8545e2dc3bc(&v4, 1, 4305632) & 1))\n                    {\n                        v21 = &g_41b426;\n                        break;\n                    }\n                    else\n                    {\n                        v0 = v22;\n                        v21 = &v0;\n                        break;\n                    }\n                case 92:\n                    v21 = \"\\\\\";\n                    break;\n                case 97:\n                    v21 = &g_41b41c;\n                    break;\n                case 98:\n                    v21 = &g_41b41d;\n                    break;\n                case 99:\n                    v26 = a0;\n                    v26->padding_1[0] = 1;\n                    v26->field_0 = 0;\n                    return 0;\n                case 101:\n                    v21 = &g_41b41e;\n                    break;\n                case 102:\n                    v21 = &g_41b41f;\n                    break;\n                case 110:\n                    v21 = \"\\n\";\n                    break;\n                case 114:\n                    v21 = \"\\r\";\n                    break;\n                case 116:\n                    v21 = \"\\t\";\n                    break;\n                case 118:\n                    v21 = &g_41b423;\n                    break;\n                case 120:\n                    v19 = 2;\n                    v21 = \"\\\\x\";\n                    if (((char)uu_echo::parse_backslash_number::he56ed8545e2dc3bc(&v4, 2, 4305632) & 1))\n                    {\n                        v0 = v22;\n                        v21 = &v0;\n                        v19 = 1;\n                        break;\n                    }\n                default:\n                    v2 = 92;\n                    v3 = v18;\n                    v19 = 2;\n                    v21 = &v1;\n                    break;\n                }\n                v23 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(a3, v21, v19);\n                if (v23)\n                {\n                    v24 = a0;\n                    v24->field_8 = v23;\n                    v20 = v23 & 0xffffffffffffff00 | 1;\n                    v24->field_0 = 1;\n                    return v20;\n                }\nLABEL_4a46f1:\n                v9 = v4;\n                v10 = *((long long *)&v5);\n            }\n            else if (((char)uu_echo::parse_backslash_number::he56ed8545e2dc3bc(&v4, 0, v13 & 4294967295) & 1))\n            {\n                v1 = v22;\n                goto LABEL_4a4764;\n            }\n            else\n            {\n                core::option::unwrap_failed::h0e11329e76906eaa(&g_5060f0); /* do not return */\n            }\n        }\n    }\n}\n",
-    "_ZN7uu_echo6uu_app17hac082564844c1592E": "long long uu_echo::uu_app::hac082564844c1592(unsigned long long a0)\n{\n    char v0;  // [bp-0xa48]\n    char v1;  // [bp-0x78c]\n    char v2;  // [bp-0x788]\n    char v3;  // [bp-0x780]\n    unsigned int v4;  // [sp-0x4c4]\n    unsigned long long v5;  // [sp-0x4c0]\n    char v6;  // [bp-0x4b8]\n    char v7;  // [bp-0x268], Other Possible Types: unsigned long long\n    unsigned long long v9;  // rdx\n\n    clap_builder::builder::command::Command::new::hc7ec6dfb1f3b4da7(&v0, uucore::util_name::h60d842bf27b05e82(), v9);\n    memcpy(&v3, &v0, 700);\n    v4 = *((int *)&v1) | 34;\n    v5 = *((long long *)&v2);\n    clap_builder::builder::command::Command::version::hafd05bea21e57d41(&v0, &v3);\n    clap_builder::builder::command::Command::about::hf2b328b183190985(&v3, &v0);\n    clap_builder::builder::command::Command::after_help::hcc85c3a742b69a8b(&v0, &v3);\n    uucore::format_usage::h76fcb2d15fbabc58(&v6, \"{} [OPTIONS]... [STRING]...\", 27);\n    clap_builder::builder::command::Command::override_usage::h92e7942a580e103d(&v3, &v0, &v6);\n    clap_builder::builder::arg::Arg::new::hb5e8990be33da4cd(&v0, \"no_newline\", 10);\n    clap_builder::builder::arg::Arg::short::h0c0faedee966dc35(&v6, &v0, 110);\n    clap_builder::builder::arg::Arg::help::h832a6dbb682de13b(&v0, &v6, \"do not output the trailing newline\", 34);\n    clap_builder::builder::arg::Arg::action::hf068255853920169(&v6, &v0, 2);\n    clap_builder::builder::command::Command::arg::h68fa26210e2f8086(&v0, &v3, &v6);\n    clap_builder::builder::arg::Arg::new::hb5e8990be33da4cd(&v3, \"enable_backslash_escape\", 23);\n    clap_builder::builder::arg::Arg::short::h0c0faedee966dc35(&v6, &v3, 101);\n    clap_builder::builder::arg::Arg::help::h832a6dbb682de13b(&v3, &v6, \"enable interpretation of backslash escapes\", 42);\n    clap_builder::builder::arg::Arg::action::hf068255853920169(&v6, &v3, 2);\n    clap_builder::builder::arg::Arg::overrides_with::h554d066c90c03c16(&v7, &v6, \"disable_backslash_escape\", 24);\n    clap_builder::builder::command::Command::arg::h68fa26210e2f8086(&v3, &v0, &v7);\n    clap_builder::builder::arg::Arg::new::hb5e8990be33da4cd(&v0, \"disable_backslash_escape\", 24);\n    clap_builder::builder::arg::Arg::short::h0c0faedee966dc35(&v6, &v0, 69);\n    clap_builder::builder::arg::Arg::help::h832a6dbb682de13b(&v0, &v6, \"disable interpretation of backslash escapes (default)\", 53);\n    clap_builder::builder::arg::Arg::action::hf068255853920169(&v6, &v0, 2);\n    clap_builder::builder::arg::Arg::overrides_with::h554d066c90c03c16(&v7, &v6, \"enable_backslash_escape\", 23);\n    clap_builder::builder::command::Command::arg::h68fa26210e2f8086(&v0, &v3, &v7);\n    clap_builder::builder::arg::Arg::new::hb5e8990be33da4cd(&v3, \"STRING\", 6);\n    clap_builder::builder::arg::Arg::action::hf068255853920169(&v6, &v3, 1);\n    v7 = 2;\n    clap_builder::builder::arg::Arg::value_parser::h5c4830a846a90deb(&v3, &v6, &v7);\n    clap_builder::builder::command::Command::arg::h68fa26210e2f8086(a0, &v0, &v3);\n    return a0;\n}\n",
-    "_ZN7uu_echo7execute17h70a095d897960844E": "long long uu_echo::execute::h70a095d897960844(unsigned long long a0, unsigned int a1, char a2, uint128_t a3[4])\n{\n    unsigned int v0;  // [sp-0x8c]\n    char v1;  // [bp-0x88]\n    char v2;  // [bp-0x87]\n    int v4;  // [sp-0x78]\n    int v5;  // [sp-0x68]\n    int v6;  // [sp-0x58]\n    int v7;  // [sp-0x48]\n    void* v8;  // [sp-0x38]\n    unsigned long long v10;  // rax\n    unsigned long long v11[3];  // rdx\n    unsigned long long v12[3];  // rdx\n    unsigned long long v15;  // rax\n    unsigned long long v18;  // rdi\n    void* v19;  // rax\n\n    v0 = a1;\n    *((uint128_t *)&v7) = a3[3];\n    *((uint128_t *)&v6) = a3[2];\n    *((uint128_t *)&v5) = a3[1];\n    *((uint128_t *)&v4) = a3[0];\n    v8 = 0;\n    v10 = _$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hbcfbc49f81d31fad(&v4);\n    if (!v11)\n    {\nLABEL_4a4d7c:\n        if (!((char)v0) || !((v15 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(a0, \"\\n\", 1), v15)))\n            return 0;\n    }\n    else if (!a2)\n    {\n        while (true)\n        {\n            if (!(!v10) && !((v15 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(a0, \" \", 1), !v15)) || !((v15 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(a0, v12[1], v12[2]), !v15)))\n                break;\n            v10 = _$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hbcfbc49f81d31fad(&v4);\n            if (!v11)\n                goto LABEL_4a4d7c;\n        }\n    }\n    else\n    {\n        while (true)\n        {\n            if (v10 && (v15 = _$LT$std..io..stdio..StdoutLock$u20$as$u20$std..io..Write$GT$::write_all::h10000d12d1c1ff48(a0, \" \", 1), v15))\n                break;\n            uu_echo::print_escaped::hfb2c9877aef23019(&v1, v12[1], v12[2], a0);\n            if (v1)\n            {\n                uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v18);\n                return v19;\n            }\n            if (v2)\n                return 0;\n            v10 = _$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hbcfbc49f81d31fad(&v4);\n            if (!v11)\n                goto LABEL_4a4d7c;\n        }\n    }\n    v18 = v15;\n    v19 = uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::hcd961c31063bf4fa(v18);\n    return v19;\n}\n"
+    "_ZN7uu_echo12filter_flags17h07a2ff3fe27df05eE": "long long uu_echo::filter_flags(unsigned long a0, int a1[17])\n{\n    unsigned short v0;  // [bp-0xd2]\n    unsigned long long v1;  // [bp-0xd0]\n    unsigned long long v2;  // [bp-0xc8]\n    void* v3;  // [bp-0xc0]\n    unsigned long long v4;  // [bp-0xb8]\n    unsigned long long v5;  // [bp-0xb0]\n    unsigned long long v6;  // [bp-0xa8]\n    struct_0 *v7;  // [bp-0x98]\n    char v8;  // [bp-0x90]\n    unsigned long long v9;  // [bp-0x80]\n    char v10;  // [bp-0x78]\n    unsigned long long v11;  // [bp-0x68]\n    int v12;  // [bp-0x58]\n    int v13;  // [bp-0x48]\n    unsigned long long v15;  // rdx\n\n    v10.size_hint((long long)a1[8], (long long)a1[24]);\n    v1 = *((long long *)&v10).with_capacity_in();\n    v2 = v15;\n    v3 = 0;\n    v0 = 1;\n    v8.next(a1);\n    if (!((char)(((0 ^ *((long long *)&v8)) & (0 ^ -(*((long long *)&v8)))) >> 63)))\n    {\n        do\n        {\n            memcpy(&v4, &v8, 16);\n            v6 = v9;\n            if (!(char)uu_echo::is_flag(v5, v9, &v0))\n            {\n                v11 = v6;\n                memcpy(&v10, &v4, 16);\n                v1.push(&v10);\n                break;\n            }\n            ::0x4797f0::core::ptr::drop_in_place<std::ffi::os_str::OsString>(&v4);\n            v8.next(a1);\n        } while (*((long long *)&v8) != 0x8000000000000000);\n    }\n    *((int128_t *)&v12) = (int128_t)a1[0];\n    *((int128_t *)&v13) = (int128_t)a1[16];\n    v1.spec_extend(&v12);\n    v7->field_10 = 0;\n    v7->field_0 = *((int128_t *)&v1);\n    v7->field_18 = v0;\n    return v0;\n}\n",
+    "_ZN7uu_echo6uumain17h31c9f2c18f0d4f4aE": "long long uu_echo::uumain(unsigned long long a0, unsigned long long a1)\n{\n    struct struct_0 v0[16];  // [bp-0xa8]\n    unsigned long long v1;  // [bp-0x98]\n    unsigned long long v2;  // [bp-0x90]\n    char *v3;  // [bp-0x88]\n    unsigned long long v4;  // [bp-0x80]\n    void* v5;  // [bp-0x78]\n    char *v6;  // [bp-0x68], Other Possible Types: unsigned long long\n    struct struct_1 *v7[13];  // [bp-0x60], Other Possible Types: unsigned long long\n    char *v8;  // [bp-0x58]\n    unsigned long long v9;  // [bp-0x50]\n    char *v10;  // [bp-0x48]\n    unsigned long long v11;  // [bp-0x40]\n    unsigned long long v12;  // [bp-0x38]\n    char v13;  // [bp-0x28]\n    char v14;  // [bp-0x18]\n    unsigned long long v17;  // rax\n    struct struct_1 *v18[13];  // rdx\n    unsigned int v19;  // eax\n\n    (unsigned int)uucore::disable_rust_signal_handlers().expect();\n    v17 = uu_echo::uumain::uumain(a0, a1);\n    if (!v17)\n        return uucore::mods::error::get_exit_code();\n    *((unsigned long long *)&v0[0]) = v17;\n    v10 = &v0[0].field_0;\n    v11 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_411480;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v10;\n    v4 = 1;\n    v13.map_or_else(&v1);\n    memcpy(&v10, &v13, 16);\n    v12 = *((long long *)&v14);\n    if (!(char)<alloc::boxed::Box<T,A> as core::fmt::Display>::fmt.equal(*((long long *)&v14), 1, 0))\n    {\n        v6 = uucore::util_name();\n        v7[0] = &v18[0];\n        v8 = &v6;\n        v9 = <&T as core::fmt::Display>::fmt;\n        v1 = &g_52b740;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v8;\n        v4 = 1;\n        std::io::stdio::_eprint(&v1);\n        v6 = &v10;\n        v7 = <alloc::string::String as core::fmt::Display>::fmt;\n        v1 = &g_52b760;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v6;\n        v4 = 1;\n        std::io::stdio::_eprint(&v1);\n    }\n    if ((char)v18[12](v0))\n    {\n        v6 = uucore::execution_phrase();\n        v7[0] = &v18[0];\n        v8 = &v6;\n        v9 = <&T as core::fmt::Display>::fmt;\n        v1 = &g_52b780;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v8;\n        v4 = 1;\n        std::io::stdio::_eprint(&v1);\n    }\n    v19 = v18[11](v0);\n    ::0x479780::core::ptr::drop_in_place<alloc::string::String>(&v10);\n    ::0x4796b0::core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v0, v18);\n    return v19;\n}\n",
+    "_ZN7uu_echo6uumain6uumain17h1c04c7e648904eceE": "long long uu_echo::uumain::uumain(unsigned long long a0, unsigned long long a1)\n{\n    char v0;  // [bp-0x3a0]\n    unsigned long long v1[3];  // [bp-0x398]\n    unsigned long v2;  // [bp-0x390], Other Possible Types: unsigned long long\n    char v3;  // [bp-0x388], Other Possible Types: unsigned long long\n    unsigned long long v4;  // [bp-0x378]\n    char v5;  // [bp-0x360], Other Possible Types: unsigned long long\n    int v6;  // [bp-0x348]\n    unsigned long long v7;  // [bp-0x340]\n    char *v8;  // [bp-0x338], Other Possible Types: unsigned long long\n    unsigned long long v9;  // [bp-0x330]\n    void* v10;  // [bp-0x328]\n    char *v11;  // [bp-0x310]\n    unsigned long long v12;  // [bp-0x308]\n    char v13;  // [bp-0x300]\n    char v14;  // [bp-0x2e8]\n    unsigned long long v15;  // [bp-0x2d8]\n    unsigned long long v17;  // rax\n    void* v18;  // rax\n    char v19;  // bl\n    char v20;  // bpl\n    unsigned long long v21;  // rax\n    unsigned long long v22;  // [bp-0x348]\n\n    v13.skip(a0, a1);\n    v0.from_iter(&v13, &g_52b7b8);\n    std::env::var_os(&v14);\n    ::0x479de0::core::ptr::drop_in_place<core::option::Option<std::ffi::os_str::OsString>>(&v14);\n    if (!((char)(((0 ^ *((long long *)&v14)) & (0 ^ -(*((long long *)&v14)))) >> 63)))\n    {\n        if (v2 && (char)v1[1].eq(v1[2]))\n        {\n            v14.into_iter(&v0);\n            uu_echo::filter_flags(&(char)v22, &v14);\n            memcpy(&v3, &(char)v22, 16);\n            v4 = v8;\n            v19 = 1;\n            goto LABEL_47a9c1;\n        }\n        else\n        {\n            v4 = v2;\n            memcpy(&v3, &v0, 16);\n            v19 = 1;\n            v20 = 1;\n            goto LABEL_47a9c1;\n        }\n    }\n    if (v2 != 1)\n    {\nLABEL_47a995:\n        v14.into_iter(&v0);\n        uu_echo::filter_flags(&v3, &v14);\nLABEL_47a9c1:\n        v8 = v4;\n        *((int128_t *)&v6) = *((int128_t *)&v3);\n        v3 = std::io::stdio::stdout();\n        v5 = v3.lock();\n        v15 = v8;\n        memcpy(&v14, &v22, 16);\n        v21 = uu_echo::execute(&v5, &v14, v20 & 1, v19 & 1);\n        if (!v21)\n        {\n            core::ptr::drop_in_place<std::io::stdio::StdoutLock>(v5);\n            return 0;\n        }\n        core::ptr::drop_in_place<std::io::stdio::StdoutLock>(v5);\n        return v21;\n    }\n    if ((char)v1[1].h755a6090d15ab747 (.specialized.2)(v1[2]))\n    {\n        uu_echo::uu_app(&v14);\n        v17 = v14.print_help();\n        if (v17)\n        {\n            v18 = v17.from();\n            ::0x479900::core::ptr::drop_in_place<clap_builder::builder::command::Command>(&v14);\n        }\n        else\n        {\n            ::0x479900::core::ptr::drop_in_place<clap_builder::builder::command::Command>(&v14);\nLABEL_47aa5c:\n            v18 = 0;\n        }\n        ::0x479d30::core::ptr::drop_in_place<alloc::vec::Vec<std::ffi::os_str::OsString>>(&v0);\n        return v18;\n    }\n    if (!(char)v1[1].h755a6090d15ab747 (.specialized.1)(v1[2]))\n        goto LABEL_47a995;\n    uu_echo::uu_app(&v14);\n    v5.render_version(&v14);\n    v11 = &v5;\n    v12 = <alloc::string::String as core::fmt::Display>::fmt;\n    v22 = &g_411480;\n    v7 = 1;\n    v10 = 0;\n    v8 = &v11;\n    v9 = 1;\n    std::io::stdio::_print(&v22);\n    ::0x479780::core::ptr::drop_in_place<alloc::string::String>(&v5);\n    ::0x479900::core::ptr::drop_in_place<clap_builder::builder::command::Command>(&v14);\n    goto LABEL_47aa5c;\n}\n",
+    "_ZN7uu_echo7is_flag17hf24b2cb0dd5910ebE": "long long uu_echo::is_flag(char *a0, unsigned long a1, char a2[2])\n{\n    unsigned long v0;  // [bp-0x38]\n    unsigned long long v1;  // [bp-0x30]\n    unsigned long long v2;  // [bp-0x28]\n    unsigned long long v3;  // [bp-0x20]\n    unsigned long long v4;  // [bp-0x18]\n    unsigned long long v5;  // [bp-0x10]\n    unsigned long long v7;  // r15\n    unsigned long long v8;  // r14\n    unsigned long long v9;  // r12\n    unsigned long long v10;  // rbx\n    char v11;  // bpl\n    char *v12;  // rax\n    char v13;  // r12b\n\n    if (!a1)\n    {\n        return 0;\n    }\n    else if (a1 == 1 || *(a0) != 45)\n    {\n        return 0;\n    }\n    else\n    {\n        v5 = v7;\n        v4 = v8;\n        v3 = v9;\n        v2 = v10;\n        v11 = a2[0];\n        v0 = a0 + 1;\n        v1 = &a0[a1];\n        v12 = v0.next();\n        if (v12)\n        {\n            do\n            {\n                switch (*(v12))\n                {\n                case 69:\n                    break;\n                case 101:\n                    v13 = 1;\n                    break;\n                case 110:\n                    v11 = 0;\n                    break;\n                default:\n                    return 0;\n                }\n                v12 = v0.next();\n            } while (v12);\n        }\n        a2[0] = v11 & 1;\n        a2[1] = v13 & 1;\n        return v12 & 0xffffffffffffff00 | 1;\n    }\n}\n",
+    "_ZN7uu_echo6uu_app17hb6c9b323b7667862E": "long long uu_echo::uu_app(unsigned long long a0)\n{\n    char v0;  // [bp-0xac0]\n    unsigned long long v1;  // [bp-0xab8]\n    unsigned long long v2;  // [bp-0xab0]\n    char v3;  // [bp-0xaa8]\n    unsigned int v4;  // [bp-0x7ec]\n    unsigned long long v5;  // [bp-0x7e8]\n    char v6;  // [bp-0x7e0]\n    char v7;  // [bp-0x560]\n    unsigned int v8;  // [bp-0x2a4]\n    unsigned long long v9;  // [bp-0x2a0]\n    char v10;  // [bp-0x298], Other Possible Types: unsigned long long\n    unsigned long long v13;  // rdx\n\n    v3.new(uucore::util_name(), v13);\n    memcpy(&v7, &v3, 700);\n    v8 = v4 | 34;\n    v9 = v5;\n    v3.version(&v7, \"(uutils coreutils) 0.1.0echo-aboutecho-after-helpecho-usageno_newlineecho-help-no-newlineenable_backslash_escapeecho-help-enable-escapesdisable_backslash_escapeecho-help-disable-escapesSTRING\\n \", 24);\n    uucore::mods::locale::get_message(&v6, \"echo-aboutecho-after-helpecho-usageno_newlineecho-help-no-newlineenable_backslash_escapeecho-help-enable-escapesdisable_backslash_escapeecho-help-disable-escapesSTRING\\n \", 10);\n    v7.about(&v3, &v6);\n    uucore::mods::locale::get_message(&v6, \"echo-after-helpecho-usageno_newlineecho-help-no-newlineenable_backslash_escapeecho-help-enable-escapesdisable_backslash_escapeecho-help-disable-escapesSTRING\\n \", 15);\n    v3.after_help(&v7, &v6);\n    uucore::mods::locale::get_message(&v0, \"echo-usageno_newlineecho-help-no-newlineenable_backslash_escapeecho-help-enable-escapesdisable_backslash_escapeecho-help-disable-escapesSTRING\\n \", 10);\n    uucore::format_usage(&v6, v1, v2);\n    v7.override_usage(&v3, &v6);\n    v3.new(\"no_newlineecho-help-no-newlineenable_backslash_escapeecho-help-enable-escapesdisable_backslash_escapeecho-help-disable-escapesSTRING\\n \", 10);\n    v6.short(&v3, 110);\n    uucore::mods::locale::get_message(&v10, \"echo-help-no-newlineenable_backslash_escapeecho-help-enable-escapesdisable_backslash_escapeecho-help-disable-escapesSTRING\\n \", 20);\n    v3.help(&v6, &v10);\n    v6.action(&v3, 2);\n    v3.arg(&v7, &v6);\n    v7.new(\"enable_backslash_escapeecho-help-enable-escapesdisable_backslash_escapeecho-help-disable-escapesSTRING\\n \", 23);\n    v6.short(&v7, 101);\n    uucore::mods::locale::get_message(&v10, \"echo-help-enable-escapesdisable_backslash_escapeecho-help-disable-escapesSTRING\\n \", 24);\n    v7.help(&v6, &v10);\n    v6.action(&v7, 2);\n    v10.overrides_with(&v6, \"disable_backslash_escapeecho-help-disable-escapesSTRING\\n \", 24);\n    v7.arg(&v3, &v10);\n    v3.new(\"disable_backslash_escapeecho-help-disable-escapesSTRING\\n \", 24);\n    v6.short(&v3, 69);\n    uucore::mods::locale::get_message(&v10, \"echo-help-disable-escapesSTRING\\n \", 25);\n    v3.help(&v6, &v10);\n    v6.action(&v3, 2);\n    v10.overrides_with(&v6, \"enable_backslash_escapeecho-help-enable-escapesdisable_backslash_escapeecho-help-disable-escapesSTRING\\n \", 23);\n    v3.arg(&v7, &v10);\n    v7.new(\"STRING\\n \", 6);\n    v6.action(&v7, 1);\n    v10 = 2;\n    v7.value_parser(&v6, &v10);\n    a0.arg(&v3, &v7);\n    ::0x47c850::core::ptr::drop_in_place<alloc::string::String>(&v0);\n    return a0;\n}\n",
+    "_ZN7uu_echo7execute17he1b26cd5bd6d7ad8E": "long long uu_echo::execute(unsigned long long a0, unsigned long long a1, unsigned int a2, char a3)\n{\n    char v0;  // [bp-0xd4]\n    unsigned int v1;  // [bp-0xd3]\n    unsigned short v2;  // [bp-0xcf]\n    char v3;  // [bp-0xcd]\n    unsigned int v4;  // [bp-0xcc]\n    int v5;  // [bp-0xc8]\n    unsigned long long v6;  // [bp-0xc0]\n    unsigned long long v7;  // [bp-0xb8]\n    unsigned long long v8;  // [bp-0xa8]\n    unsigned long long v10;  // [bp-0xa8]\n    int v11;  // [bp-0xa0]\n    char v12;  // [bp-0xa0]\n    int v13;  // [bp-0xa0]\n    unsigned long long v14;  // [bp-0x90]\n    unsigned long long v15;  // [bp-0x88]\n    char v16;  // [bp-0x80]\n    int v17;  // [bp-0x7f]\n    unsigned long long v18;  // [bp-0x78]\n    char v19;  // [bp-0x70]\n    void* v20;  // [bp-0x50]\n    unsigned long long v21;  // [bp-0x48]\n    unsigned long long v22;  // [bp-0x40]\n    char v23;  // [bp-0x38]\n    unsigned long long v26;  // rax\n    unsigned long long v27;  // rax\n    void* v28;  // r14\n    unsigned long long v29;  // rax\n    unsigned long long v30;  // rax\n\n    v4 = a2;\n    v19.into_iter(a1);\n    v20 = 0;\n    (char)v8.next(&v19);\n    if (!((char)(((0 ^ *((long long *)&v12)) & (0 ^ -(*((long long *)&v12)))) >> 63)))\n    {\n        if (a3)\n        {\n            do\n            {\n                v5 = v13;\n                v7 = v14;\n                v15 = v6;\n                if (!v10)\n                    continue;\n                if (!a0.write_all(\" \", 1))\n                    goto LABEL_47db12;\n                else\n                    goto LABEL_0x47dc61;\nLABEL_47db12:\n                v21 = v15;\n                v22 = v7;\n                v23 = 3;\n                while (true)\n                {\n                    v26 = uucore::features::format::parse_escape_only::{{closure}}(&v21);\n                    if ((char)v26 == 4)\n                        break;\n                    v0 = v26;\n                    v3 = v26 >> 56;\n                    v2 = v26 >> 40;\n                    v1 = v26 >> 8;\n                    v16.write(&v0, a0);\n                    if (v16)\n                    {\n                        v27 = v18.from();\n                        goto LABEL_47dc6a;\n                    }\n                    else if ((char)v17)\n                    {\n                        v28 = 0;\n                        goto LABEL_47dc70;\n                    }\n                }\n                core::ptr::drop_in_place<uucore::NonUtf8OsStrError>(&(char)v5);\n                (char)v8.next(&v19);\n            } while ((long long)v13 != 0x8000000000000000);\n            goto LABEL_47dc70;\n        }\n        else\n        {\n            do\n            {\n                v5 = v11;\n                v7 = v14;\n                if (!v8)\n                    continue;\n                if (!a0.write_all(\" \", 1))\n                    goto LABEL_47dc06;\n                else\n                    goto LABEL_0x47dc61;\nLABEL_47dc06:\n                v29 = a0.write_all(v6, v7);\n                if (v29)\n                {\n                    v27 = v29.from();\n                    goto LABEL_47dc6a;\n                }\n                core::ptr::drop_in_place<uucore::NonUtf8OsStrError>(&(char)v5);\n                (char)v8.next(&v19);\n            } while ((long long)v13 != 0x8000000000000000);\nLABEL_47dc6a:\n            v28 = v27;\nLABEL_47dc70:\n            core::ptr::drop_in_place<uucore::NonUtf8OsStrError>(&(char)v5);\n            core::ptr::drop_in_place<core::iter::adapters::enumerate::Enumerate<alloc::vec::into_iter::IntoIter<std::ffi::os_str::OsString>>>(&v19);\n            return v28;\n        }\n    }\n    core::ptr::drop_in_place<core::iter::adapters::enumerate::Enumerate<alloc::vec::into_iter::IntoIter<std::ffi::os_str::OsString>>>(&v19);\n    if ((char)v4)\n    {\n        v30 = a0.write_all(\"\\n \", 1);\n        if (v30)\n            return v30.from();\n    }\n    return 0;\n}\n"
   },
   "function_call_counts": {
-    "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": {
+    "_ZN7uu_echo12filter_flags17h07a2ff3fe27df05eE": {
+      "<alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,alloc::vec::into_iter::IntoIter<T>>>::spec_extend": 1,
+      "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next": 2,
+      "core::ptr::drop_in_place<std::ffi::os_str::OsString>": 1,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "alloc::raw_vec::RawVecInner<A>::with_capacity_in": 1,
+      "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::size_hint": 1
+    },
+    "_ZN7uu_echo6uumain17h31c9f2c18f0d4f4aE": {
       "uucore::mods::error::get_exit_code": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
       "uucore::execution_phrase": 1,
       "std::io::stdio::_eprint": 3,
-      "core::ptr::drop_in_place<alloc::boxed::Box<dyn uucore::mods::error::UError>>": 1,
-      "core::ptr::drop_in_place<alloc::string::String>": 1,
       "uucore::util_name": 1,
       "core::option::Option<T>::map_or_else": 1,
       "uu_echo::uumain::uumain": 1,
       "core::result::Result<T,E>::expect": 1,
       "uucore::disable_rust_signal_handlers": 1
     },
-    "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": {
-      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 3,
-      "core::ptr::drop_in_place<std::io::stdio::StdoutLock>": 3,
+    "_ZN7uu_echo6uumain6uumain17h1c04c7e648904eceE": {
+      "core::ptr::drop_in_place<clap_builder::builder::command::Command>": 3,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "std::io::stdio::_print": 1,
+      "clap_builder::builder::command::Command::render_version": 1,
+      "uu_echo::uu_app": 2,
+      "core::ptr::drop_in_place<alloc::vec::Vec<std::ffi::os_str::OsString>>": 1,
       "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
-      "uu_echo::execute": 1,
-      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 2,
-      "clap_builder::parser::error::MatchesError::unwrap": 1,
+      "clap_builder::builder::command::Command::print_help": 1,
+      "core::ptr::drop_in_place<std::io::stdio::StdoutLock>": 2,
       "std::io::stdio::Stderr::lock": 1,
-      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "uu_echo::execute": 1,
       "std::io::stdio::stdout": 1,
-      "clap_builder::builder::command::Command::get_matches_from": 1,
-      "uu_echo::uu_app": 1
+      "uu_echo::filter_flags": 2,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 2,
+      "core::ptr::drop_in_place<core::option::Option<std::ffi::os_str::OsString>>": 1,
+      "std::env::var_os": 1,
+      "<alloc::vec::Vec<T> as alloc::vec::spec_from_iter::SpecFromIter<T,I>>::from_iter": 1,
+      "core::iter::traits::iterator::Iterator::skip": 1
     },
-    "_ZN7uu_echo4Base15ascii_to_number17h59ff941f17249d67E": {
-      "uu_echo::Base::ascii_to_number::hexadecimal_ascii_digit_to_number": 1
+    "_ZN7uu_echo7is_flag17hf24b2cb0dd5910ebE": {
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 2
     },
-    "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE": {},
-    "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": {
-      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 2,
-      "core::option::Option<T>::get_or_insert_with": 2
-    },
-    "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E": {
-      "<std::io::stdio::StdoutLock as std::io::Write>::write_all": 2,
-      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next": 2,
-      "core::option::unwrap_failed": 1,
-      "core::option::Option<T>::get_or_insert_with": 1
-    },
-    "_ZN7uu_echo6uu_app17hac082564844c1592E": {
+    "_ZN7uu_echo6uu_app17hb6c9b323b7667862E": {
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
       "clap_builder::builder::command::Command::arg": 4,
       "clap_builder::builder::arg::Arg::value_parser": 1,
       "clap_builder::builder::arg::Arg::action": 4,
       "clap_builder::builder::arg::Arg::new": 4,
       "clap_builder::builder::arg::Arg::overrides_with": 2,
       "clap_builder::builder::arg::Arg::help": 3,
+      "uucore::mods::locale::get_message": 6,
       "clap_builder::builder::arg::Arg::short": 3,
       "clap_builder::builder::command::Command::override_usage": 1,
       "uucore::format_usage": 1,
@@ -66,31 +70,671 @@
       "clap_builder::builder::command::Command::new": 1,
       "uucore::util_name": 1
     },
-    "_ZN7uu_echo7execute17h70a095d897960844E": {
-      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 2,
+    "_ZN7uu_echo7execute17he1b26cd5bd6d7ad8E": {
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 3,
+      "<std::io::stdio::StdoutLock as std::io::Write>::write_all": 4,
+      "core::ptr::drop_in_place<core::iter::adapters::enumerate::Enumerate<alloc::vec::into_iter::IntoIter<std::ffi::os_str::OsString>>>": 2,
       "<core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next": 3,
-      "uu_echo::print_escaped": 1
+      "core::ptr::drop_in_place<uucore::NonUtf8OsStrError>": 3,
+      "<uucore::features::format::escape::EscapedChar as uucore::features::format::FormatChar>::write": 1,
+      "uucore::features::format::parse_escape_only::{{closure}}": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1
     }
   },
   "macro_call_counts": {
-    "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": {},
-    "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": {},
-    "_ZN7uu_echo4Base15ascii_to_number17h59ff941f17249d67E": {},
-    "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE": {},
-    "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": {},
-    "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E": {},
-    "_ZN7uu_echo6uu_app17hac082564844c1592E": {},
-    "_ZN7uu_echo7execute17h70a095d897960844E": {}
+    "_ZN7uu_echo12filter_flags17h07a2ff3fe27df05eE": {},
+    "_ZN7uu_echo6uumain17h31c9f2c18f0d4f4aE": {},
+    "_ZN7uu_echo6uumain6uumain17h1c04c7e648904eceE": {},
+    "_ZN7uu_echo7is_flag17hf24b2cb0dd5910ebE": {},
+    "_ZN7uu_echo6uu_app17hb6c9b323b7667862E": {},
+    "_ZN7uu_echo7execute17he1b26cd5bd6d7ad8E": {}
   },
   "node_counts": {
-    "_ZN7uu_echo6uumain17h8bac35fb6b54f6b1E": 11,
-    "_ZN7uu_echo6uumain6uumain17h0a7e780663d83ed5E": 17,
-    "_ZN7uu_echo4Base15ascii_to_number17h59ff941f17249d67E": 3,
-    "_ZN7uu_echo4Base15ascii_to_number33hexadecimal_ascii_digit_to_number17h4428452b03aed7eaE": 19,
-    "_ZN7uu_echo22parse_backslash_number17he56ed8545e2dc3bcE": 16,
-    "_ZN7uu_echo13print_escaped17hfb2c9877aef23019E": 41,
-    "_ZN7uu_echo6uu_app17hac082564844c1592E": 29,
-    "_ZN7uu_echo7execute17h70a095d897960844E": 16
+    "_ZN7uu_echo12filter_flags17h07a2ff3fe27df05eE": 8,
+    "_ZN7uu_echo6uumain17h31c9f2c18f0d4f4aE": 12,
+    "_ZN7uu_echo6uumain6uumain17h1c04c7e648904eceE": 32,
+    "_ZN7uu_echo7is_flag17hf24b2cb0dd5910ebE": 10,
+    "_ZN7uu_echo6uu_app17hb6c9b323b7667862E": 36,
+    "_ZN7uu_echo7execute17he1b26cd5bd6d7ad8E": 28
   },
-  "prototypes": {}
+  "variable_types": {
+    "_ZN7uu_echo12filter_flags17h07a2ff3fe27df05eE": {
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_6": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_echo6uumain17h31c9f2c18f0d4f4aE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_echo6uumain6uumain17h1c04c7e648904eceE": {
+      "stack_168": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_echo7is_flag17hf24b2cb0dd5910ebE": {
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_echo6uu_app17hb6c9b323b7667862E": {
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1384": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_732": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2084": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_736": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2088": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_744": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2096": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7uu_echo7execute17he1b26cd5bd6d7ad8E": {
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_136": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          null
+        ],
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_11": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_9": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_5": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_89": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    }
+  }
 }

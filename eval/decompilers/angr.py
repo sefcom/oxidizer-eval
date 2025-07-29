@@ -4,7 +4,7 @@ from collections import Counter
 
 from angr.rust.sim_type import *
 from angr.sim_variable import SimStackVariable, SimRegisterVariable
-from angr.sim_type import TypeRef, SimTypeChar, SimTypeInt, SimTypeFloat
+from angr.sim_type import TypeRef, SimTypeChar, SimTypeInt, SimTypeFloat, SimStruct, SimTypePointer, SimType
 
 from .util import *
 from ..type_recovery.function_prototype import FunctionPrototype, Type
@@ -21,22 +21,26 @@ def _extract_function_body(output):
     return "\n".join(body)
 
 
-def _normalize_type(ty: RustSimType) -> Type:
+def _normalize_type(ty: SimType) -> Type:
     if ty is None:
         return Type(None, None)
     if isinstance(ty, TypeRef):
         ty = ty.type
     name = None
-    is_pointer = isinstance(ty, RustSimTypeReference)
+    size = ty.size // 8 if ty.size else None
+    is_pointer = isinstance(ty, SimTypePointer)
     if is_pointer:
         ty = ty.pts_to
-    size = ty.size // 8 if ty.size else None
     if isinstance(ty, RustSimTypeResult):
         name = "Result"
     elif isinstance(ty, RustSimTypeOption):
         name = "Option"
-    elif isinstance(ty, RustSimStruct):
+    elif isinstance(ty, SimStruct):
         name = "struct"
+    elif isinstance(ty, RustSimEnum):
+        name = "enum"
+    elif isinstance(ty, SimTypePointer):
+        name = "reference"
     else:
         name = "primitive"
     if is_pointer:
@@ -58,7 +62,8 @@ def _normalize_prototype(name, prototype: RustSimTypeFunction) -> FunctionProtot
 def _dump_variable_types(decompiler):
     stack_depth = decompiler.clinic.calculate_stack_depth()
     ident_to_types = defaultdict(list)
-    for var, rust_var_and_vartypes in decompiler.codegen.rust_func.get_unified_local_vars().items():
+    func = decompiler.codegen.rust_func if decompiler.project.is_rust_binary else decompiler.codegen.cfunc
+    for var, rust_var_and_vartypes in func.get_unified_local_vars().items():
         vartypes = [x[1] for x in rust_var_and_vartypes]
         count = Counter(vartypes)
         vartypes = sorted(
