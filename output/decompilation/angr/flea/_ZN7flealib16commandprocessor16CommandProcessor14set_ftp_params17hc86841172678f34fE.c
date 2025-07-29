@@ -1,4 +1,4 @@
-void flealib::commandprocessor::CommandProcessor::set_ftp_params(struct_0 *a0, struct_1 *a1, unsigned long long a2, unsigned long long a3)
+void flealib::commandprocessor::CommandProcessor::set_ftp_params(struct_1 *a0, struct_0 *a1, unsigned long long a2, unsigned long long a3)
 {
     char v0;  // [bp-0x140]
     unsigned long long v1[6];  // [bp-0x138]

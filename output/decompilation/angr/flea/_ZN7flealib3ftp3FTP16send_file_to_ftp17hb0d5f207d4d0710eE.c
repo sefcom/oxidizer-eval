@@ -110,9 +110,9 @@ long long flealib::ftp::FTP::send_file_to_ftp(struct_0 *a0, unsigned long a1, un
             v32 = v0;
             if (v32 == 4)
             {
-                (char)v10.spec_to_string(&v15);
+                (char)v8.spec_to_string(&v15);
                 v4 = v12;
-                memcpy(&(char)v1, &(char)v10, 16);
+                memcpy(&(char)v1, &(char)v8, 16);
                 a0->field_0 = 2;
                 v33 = *((long long *)&(&v2)[7]);
                 v34 = v4;
@@ -137,7 +137,7 @@ long long flealib::ftp::FTP::send_file_to_ftp(struct_0 *a0, unsigned long a1, un
             v36 = a8.file_name(a9);
             if (!v36)
                 core::option::unwrap_failed(&g_b0bb20); /* do not return */
-            (char)v10.try_from(v36, a2);
+            (char)v8.try_from(v36, a2);
             if ((int)v10 == 1)
                 core::option::unwrap_failed(&g_b0bb38); /* do not return */
             v0.put(&v21, v11, v12, &v16);

@@ -41,6 +41,8 @@ def _normalize_type(ty: SimType) -> Type:
         name = "enum"
     elif isinstance(ty, SimTypePointer):
         name = "reference"
+    elif isinstance(ty, SimTypeArray):
+        name = "array"
     else:
         name = "primitive"
     if is_pointer:

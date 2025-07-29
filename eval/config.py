@@ -1,9 +1,9 @@
 import os
 
 # DECOMPILERS = ("angr", "Oxidizer", "IDA", "Ghidra", "Binary Ninja", "Binary Ninja (Pseudo Rust)")
-DECOMPILERS = ("Source", "Oxidizer", "angr")
+DECOMPILERS = ("Source", "Oxidizer", "angr", "IDA")
 
-IDA_PATH = os.path.abspath("./idapro-9.0/idat64")
+IDA_PATH = os.path.abspath("tools/idapro-9.0/idat64")
 GHIDRA_PATH = os.path.abspath("../ghidra_11.2.1_PUBLIC/support/analyzeHeadless")
 IDA_SCRIPTS_PATH = os.path.abspath("scripts/ida")
 CACHE_DIR = os.path.abspath("output")

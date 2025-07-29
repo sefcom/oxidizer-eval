@@ -1,4 +1,4 @@
-long long spyware::communication::server::get_message(struct_1 *a0, unsigned long long a1)
+long long spyware::communication::server::get_message(struct_0 *a0, unsigned long long a1)
 {
     unsigned int v0;  // [bp-0x114]
     unsigned long long v1;  // [bp-0x110]

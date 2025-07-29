@@ -4,7 +4,7 @@ from multiprocessing import Pool
 from angr.rust.utils.library import demangle
 
 from eval.config import DECOMPILERS
-from eval.decompilers.util import load_function_list, load_cached_inferred_prototypes
+from eval.decompilers.util import load_function_list
 from eval.metrics.result import FunctionEvalResult, BinaryEvalResult, EvalResult
 from eval.metrics import *
 from eval.metrics.calc import *
@@ -23,8 +23,8 @@ def dummy_dec(*args, **kwargs):
 
 DEC_OPTIONS = {
     "Source": {"dec_func": dummy_dec, "cache_only": True},
-    "angr": {"dec_func": angr_dec, "cache_only": False},
-    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False},
+    "angr": {"dec_func": angr_dec, "cache_only": True},
+    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True},
     "IDA": {"dec_func": ida_dec, "cache_only": True},
     "Ghidra": {"dec_func": ghidra_dec, "cache_only": True},
     # "Binary Ninja": {"dec_func": binja_c_dec, "cache_only": True},
@@ -190,7 +190,7 @@ def eval(dir_path):
     # binary_paths = binary_paths[:30]
 
     tasks = [(binary_path,) for binary_path in binary_paths]
-    with Pool(4) as pool:
+    with Pool(20) as pool:
         results = pool.starmap(eval_binary, tasks)
 
     # results = []
@@ -207,12 +207,12 @@ def eval(dir_path):
 
 
 if __name__ == "__main__":
-    coreutils_result = eval("datasets/o3")
-    print("-------------- Coreutils Evaluation Results --------------")
-    print(coreutils_result)
+    # coreutils_result = eval("datasets/o3")
+    # print("-------------- Coreutils Evaluation Results --------------")
+    # print(coreutils_result)
     malware_result = eval("datasets/malware")
     print("-------------- Malware Evaluation Results --------------")
     print(malware_result)
-    print("-------------- Merged Results --------------")
-    merged_result = coreutils_result.merge(malware_result)
-    print(merged_result)
+    # print("-------------- Merged Results --------------")
+    # merged_result = coreutils_result.merge(malware_result)
+    # print(merged_result)

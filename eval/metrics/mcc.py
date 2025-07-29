@@ -21,7 +21,7 @@ from pathlib import Path
 from tree_sitter import Language, Parser
 import tree_sitter_rust as trust
 
-# from pyjoern import parse_source
+from pyjoern import parse_source
 
 DECOMPILERS = {"oxidizer", "angr", "ida", "ghidra"}
 # DECOMPILERS = {"oxidizer", }
@@ -172,10 +172,10 @@ class RustDecompilerMCC:
         SWITCH_CASE_REGEX,
     ]
 
-    def measure_mcc(self, code) -> int:
+    def measure_mcc(self, source_file_path) -> int:
         decision_points = 0
-        # with open(source_file_path, "r") as fp:
-        #     code = fp.read()
+        with open(source_file_path, "r") as fp:
+            code = fp.read()
 
         # count exits
         returns = re.findall(self.RETURN_REGEX, code)
@@ -232,8 +232,29 @@ def measure_rust_decompiler(decompiler_folder: Path) -> dict:
 
 
 def measure_mcc_rust(code):
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".rs", delete=False) as fd:
+        fd.write(code)
+        temp_path = Path(fd.name)
+
+    _, _ = preprocess_decompiled_code(temp_path)
+
     mcc_counter = RustDecompilerMCC()
-    return mcc_counter.measure_mcc(code)
+    result = mcc_counter.measure_mcc(temp_path)
+
+    temp_path.unlink()
+    return result
+
+
+def measure_mcc_c(code) -> dict:
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".cpp", delete=False) as fd:
+        fd.write(code)
+        temp_path = Path(fd.name)
+
+    functions = parse_source(temp_path, no_metadata=True, no_cfg=False, no_ddg=True, no_ast=True)
+    for function in functions.values():
+        mcc = len(function.cfg.edges) - len(function.cfg.nodes) + 2
+        return mcc
+    return -1
 
 
 #
@@ -316,20 +337,20 @@ def rename_as_cpp_files(decompiler_folder: Path, new_folder: Path):
             preprocess_decompiled_code(new_decompiled_file)
 
 
-# def measure_mcc(decompiler_folder: Path) -> dict:
-#     with tempfile.TemporaryDirectory() as tmpdir:
-#         tmp_folder = Path(tmpdir)
-#         rename_as_cpp_files(decompiler_folder, tmp_folder)
-#         # disable everything except CFG
-#         functions = parse_source(tmp_folder, no_metadata=True, no_cfg=False, no_ddg=True, no_ast=True)
+def measure_mcc(decompiler_folder: Path) -> dict:
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmp_folder = Path(tmpdir)
+        rename_as_cpp_files(decompiler_folder, tmp_folder)
+        # disable everything except CFG
+        functions = parse_source(tmp_folder, no_metadata=True, no_cfg=False, no_ddg=True, no_ast=True)
 
-#     data = defaultdict(dict)
-#     for (func_name, file_name), function in functions.items():
-#         mcc = len(function.cfg.edges) - len(function.cfg.nodes) + 2
-#         metric_data = {"mcc": mcc}
-#         data[Path(file_name).with_suffix("").name] = metric_data
+    data = defaultdict(dict)
+    for (func_name, file_name), function in functions.items():
+        mcc = len(function.cfg.edges) - len(function.cfg.nodes) + 2
+        metric_data = {"mcc": mcc}
+        data[Path(file_name).with_suffix("").name] = metric_data
 
-#     return data
+    return data
 
 
 #

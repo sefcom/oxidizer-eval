@@ -1,4 +1,4 @@
-long long flealib::systemcmd::SystemCmd::execute_bash_command(struct_1 *a0, unsigned long a1, unsigned long long a2, unsigned long long a3)
+long long flealib::systemcmd::SystemCmd::execute_bash_command(struct_0 *a0, unsigned long a1, unsigned long long a2, unsigned long long a3)
 {
     char *v0;  // [bp-0x318], Other Possible Types: unsigned long long
     unsigned long long v1;  // [bp-0x310]
@@ -8,7 +8,7 @@ long long flealib::systemcmd::SystemCmd::execute_bash_command(struct_1 *a0, unsi
     unsigned long long v5;  // [bp-0x2f0]
     int v6;  // [bp-0x2e8], Other Possible Types: char
     char *v7;  // [bp-0x2d8], Other Possible Types: unsigned long long
-    struct struct_0 v8[16];  // [bp-0x2c8]
+    struct struct_1 v8[16];  // [bp-0x2c8]
     char *v9;  // [bp-0x2b8], Other Possible Types: unsigned long long
     unsigned long long v10;  // [bp-0x2b0]
     char *v11;  // [bp-0x2a8], Other Possible Types: unsigned long long
@@ -76,7 +76,7 @@ long long flealib::systemcmd::SystemCmd::execute_bash_command(struct_1 *a0, unsi
         v18 = 18;
         v19 = log::__private_api::loc(&g_b08fb0);
         log::__private_api::log(&v43, 4, &v14);
-        *((struct struct_0 [16])&v53) = v8;
+        *((struct struct_1 [16])&v53) = v8;
         v54 = a3;
     }
     v56 = v54;

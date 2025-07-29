@@ -1,4 +1,4 @@
-long long backdoorautomater::cronshell::create_cron(unsigned long long a0, struct_1 *a1, unsigned long long a2[3], unsigned long a3, unsigned int a4, struct_0 *a5)
+long long backdoorautomater::cronshell::create_cron(unsigned long long a0, struct_0 *a1, unsigned long long a2[3], unsigned long a3, unsigned int a4, struct_1 *a5)
 {
     unsigned int v0;  // [bp-0x2ec]
     int v1;  // [bp-0x2e8]
@@ -14,7 +14,7 @@ long long backdoorautomater::cronshell::create_cron(unsigned long long a0, struc
     unsigned long long v11;  // [bp-0x278]
     unsigned long long v12;  // [bp-0x270]
     unsigned long long v13;  // [bp-0x268]
-    struct_1 *v14;  // [bp-0x240]
+    struct_0 *v14;  // [bp-0x240]
     int v15;  // [bp-0x238], Other Possible Types: char
     int v16;  // [bp-0x228]
     int v17;  // [bp-0x218], Other Possible Types: char
@@ -22,7 +22,7 @@ long long backdoorautomater::cronshell::create_cron(unsigned long long a0, struc
     unsigned long long v19;  // [bp-0x208]
     int v20;  // [bp-0x1f8], Other Possible Types: char
     unsigned long long v21;  // [bp-0x1e8]
-    struct_1 *v22;  // [bp-0x1e0]
+    struct_0 *v22;  // [bp-0x1e0]
     int v23;  // [bp-0x1d8], Other Possible Types: unsigned long long, unsigned long
     unsigned int v24;  // [bp-0x1d4]
     unsigned long long v25;  // [bp-0x1d0]
@@ -31,7 +31,7 @@ long long backdoorautomater::cronshell::create_cron(unsigned long long a0, struc
     int v28;  // [bp-0x1c0], Other Possible Types: unsigned long long
     int v29;  // [bp-0x1b8], Other Possible Types: void*
     unsigned long v30;  // [bp-0x1b0]
-    struct_1 *v31;  // [bp-0x100]
+    struct_0 *v31;  // [bp-0x100]
     int v32;  // [bp-0xf8], Other Possible Types: char
     unsigned long long v33;  // [bp-0xe8]
     void* v34;  // [bp-0xd8]
@@ -57,11 +57,11 @@ long long backdoorautomater::cronshell::create_cron(unsigned long long a0, struc
     char v57;  // r15b
     unsigned long v58;  // r12
     unsigned long long v59;  // r14
-    struct_1 *v60;  // rcx
+    struct_0 *v60;  // rcx
     unsigned long long v61;  // rax
     unsigned int v62;  // ebx
-    struct_1 *v63;  // rcx
-    struct_1 *v64;  // rcx
+    struct_0 *v63;  // rcx
+    struct_0 *v64;  // rcx
     int v65;  // xmm0
     unsigned long long v66;  // rdx
     unsigned long long v67;  // rsi

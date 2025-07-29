@@ -1,4 +1,4 @@
-long long flealib::fleaserver::FleaServer::start(unsigned long a0, unsigned long long a1, unsigned long long a2, struct_0 **a3)
+long long flealib::fleaserver::FleaServer::start(unsigned long a0, unsigned long long a1, unsigned long long a2, struct_1 **a3)
 {
     unsigned int v0;  // [bp-0x120]
     unsigned int v1;  // [bp-0x11c]

@@ -3,7 +3,7 @@ long long flealib::commandprocessor::CommandProcessor::bytes_to_string(unsigned 
     void* v0;  // [bp-0x100]
     unsigned long long v1;  // [bp-0xf8]
     void* v2;  // [bp-0xf0]
-    struct_1 *v3;  // [bp-0xe8]
+    struct_0 *v3;  // [bp-0xe8]
     unsigned long long v4;  // [bp-0xe0]
     unsigned long long v5;  // [bp-0xd8]
     unsigned long long v6;  // [bp-0xd0]

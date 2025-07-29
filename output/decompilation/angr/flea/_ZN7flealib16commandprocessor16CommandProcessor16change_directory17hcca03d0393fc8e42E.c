@@ -1,4 +1,4 @@
-long long flealib::commandprocessor::CommandProcessor::change_directory(struct_0 *a0, unsigned long long a1, unsigned long long a2, unsigned long a3)
+long long flealib::commandprocessor::CommandProcessor::change_directory(struct_1 *a0, unsigned long long a1, unsigned long long a2, unsigned long a3)
 {
     unsigned long long v0;  // [bp-0xd0]
     unsigned long long v1;  // [bp-0xc8]
@@ -90,8 +90,8 @@ long long flealib::commandprocessor::CommandProcessor::change_directory(struct_0
             log::__private_api::log(&v5, 4, &v0);
             return a0.to_vec("Directory name is empty..flealib/src/commandprocessor.rs", 23);
         }
-        (char)v7.lock(a3 + 16);
-        v20 = (char)v7.unwrap(&g_b08670);
+        (char)v5.lock(a3 + 16);
+        v20 = (char)v5.unwrap(&g_b08670);
         v22 = v23 & 1;
         v17.change_directory(v20 + 8, a1, a2);
         if ((char)(((0 ^ *((long long *)&v17)) & (0 ^ -(*((long long *)&v17)))) >> 63))
@@ -109,7 +109,7 @@ long long flealib::commandprocessor::CommandProcessor::change_directory(struct_0
                 v4 = log::__private_api::loc(&g_b08688);
                 log::__private_api::log(&v6, 4, &v0);
             }
-            (char)v7.to_vec("Directory changedError: ", 17);
+            (char)v5.to_vec("Directory changedError: ", 17);
 LABEL_76d52a:
             a0->field_10 = v10;
             v25 = *((int128_t *)&v7);

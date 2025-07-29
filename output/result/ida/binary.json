@@ -1,0 +1,1892 @@
+{
+  "decompilation": {
+    "_ZN6binary7install4main17h1e5509fe79972199E": "unsigned __int64 binary::install::main()\n{\n  unsigned __int64 result; // rax\n  __int64 v1; // rax\n  __int64 v2; // r8\n  __int64 v3; // r9\n  const char *v4; // [rsp+0h] [rbp-78h] BYREF\n  __int64 v5; // [rsp+8h] [rbp-70h]\n  const char *v6; // [rsp+10h] [rbp-68h]\n  __int64 v7; // [rsp+18h] [rbp-60h]\n  __int64 v8; // [rsp+20h] [rbp-58h]\n  char **v9; // [rsp+28h] [rbp-50h] BYREF\n  __int64 v10; // [rsp+30h] [rbp-48h]\n  __int64 v11; // [rsp+38h] [rbp-40h]\n  __int128 v12; // [rsp+40h] [rbp-38h]\n  _BYTE v13[32]; // [rsp+58h] [rbp-20h] BYREF\n\n  if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 3 )\n  {\n    v9 = &off_18E6AB8;\n    v10 = 1LL;\n    v11 = 8LL;\n    v12 = 0LL;\n    v4 = aBinaryInstall;\n    v5 = 15LL;\n    v6 = aBinaryInstall;\n    v7 = 15LL;\n    v8 = log::__private_api::loc(&off_18E6AD8);\n    ((void (__fastcall *)(char ***, __int64, const char **))log::__private_api::log)(&v9, 3LL, &v4);\n  }\n  binary::install::copy_self();\n  binary::install::drop_library(v13);\n  binary::install::add_preload_hook(v13);\n  result = core::sync::atomic::atomic_load();\n  if ( result >= 3 )\n  {\n    v9 = &off_18E6AC8;\n    v10 = 1LL;\n    v11 = 8LL;\n    v12 = 0LL;\n    v1 = log::__private_api::loc(&off_18E6AF0);\n    v4 = aBinaryInstall;\n    v5 = 15LL;\n    v6 = aBinaryInstall;\n    v7 = 15LL;\n    v8 = v1;\n    return ((__int64 (__fastcall *)(char ***, __int64, const char **, const char *, __int64, __int64))log::__private_api::log)(\n             &v9,\n             3LL,\n             &v4,\n             aBinaryInstall,\n             v2,\n             v3);\n  }\n  return result;\n}",
+    "_ZN6binary7install16add_preload_hook17hf67ddbcc23099137E": "__int64 __fastcall binary::install::add_preload_hook(__int64 a1)\n{\n  __int64 v2; // r8\n  __int64 v3; // r9\n  __int64 v4; // rax\n  __int64 v5; // rdx\n  __int64 v6; // r14\n  __int64 v7; // rdx\n  __int64 v8; // r15\n  __int64 v9; // rax\n  __int64 v10; // r8\n  __int64 v11; // r9\n  __int64 v12; // rdx\n  __int64 (__fastcall *v13)(); // rdx\n  __int64 v14; // rdi\n  __int64 v15; // rdi\n  __int64 v16; // rax\n  __int64 v17; // r8\n  __int64 v18; // r9\n  unsigned int v20; // [rsp+Ch] [rbp-ACh] BYREF\n  char **v21; // [rsp+10h] [rbp-A8h] BYREF\n  __int64 v22; // [rsp+18h] [rbp-A0h]\n  __int128 *v23; // [rsp+20h] [rbp-98h]\n  __int128 v24; // [rsp+28h] [rbp-90h]\n  __int128 v25; // [rsp+40h] [rbp-78h] BYREF\n  const char *v26; // [rsp+50h] [rbp-68h]\n  __int64 (__fastcall *v27)(); // [rsp+58h] [rbp-60h]\n  __int64 v28; // [rsp+60h] [rbp-58h]\n  __int128 v29; // [rsp+68h] [rbp-50h] BYREF\n  __int64 v30; // [rsp+78h] [rbp-40h]\n  __int128 *v31; // [rsp+80h] [rbp-38h] BYREF\n  __int64 (__fastcall *v32)(); // [rsp+88h] [rbp-30h]\n  __int128 v33; // [rsp+90h] [rbp-28h] BYREF\n\n  if ( (unsigned __int64)core::sync::atomic::atomic_load() > 2 )\n  {\n    v29 = *(_OWORD *)(a1 + 8);\n    v31 = &v29;\n    v32 = <std::path::Display as core::fmt::Display>::fmt;\n    v21 = &off_18E6B08;\n    v22 = 1LL;\n    v23 = (__int128 *)&v31;\n    v24 = 1uLL;\n    *(_QWORD *)&v25 = aBinaryInstall;\n    *((_QWORD *)&v25 + 1) = 15LL;\n    v26 = aBinaryInstall;\n    v27 = (__int64 (__fastcall *)())(byte_9 + 6);\n    v28 = log::__private_api::loc(&off_18E6B88);\n    log::__private_api::log(&v21, 3LL, &v25, aBinaryInstall, v2, v3);\n  }\n  *(_QWORD *)&v29 = 0LL;\n  *((_QWORD *)&v29 + 1) = 1LL;\n  v30 = 0LL;\n  std::fs::File::open(&v21, aEtcLdSoPreload, 18LL);\n  if ( (_DWORD)v21 == 1\n    || (LODWORD(v25) = HIDWORD(v21),\n        v4 = <std::fs::File as std::io::Read>::read_to_string(&v25, &v29),\n        core::result::Result<T,E>::unwrap(v4, v5),\n        core::ptr::drop_in_place<std::fs::File>((unsigned int)v25),\n        ((unsigned __int8)v21 & 1) != 0) )\n  {\n    core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>(&v21);\n  }\n  v6 = core::str::<impl str>::trim_end_matches(*((_QWORD *)&v29 + 1), v30);\n  v8 = v7;\n  alloc::string::String::from_utf8_lossy(&v21, *(_QWORD *)(a1 + 8), *(_QWORD *)(a1 + 16));\n  if ( (unsigned __int8)<&str as core::str::pattern::Pattern>::is_contained_in(v22, v23, v6, v8) )\n  {\n    core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v21);\n    if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 3 )\n    {\n      v21 = &off_18E6B78;\n      v22 = 1LL;\n      v23 = (_OWORD *)&byte_8;\n      v24 = 0LL;\n      v9 = log::__private_api::loc(&off_18E6C18);\n      *(_QWORD *)&v25 = aBinaryInstall;\n      *((_QWORD *)&v25 + 1) = 15LL;\n      v26 = aBinaryInstall;\n      v27 = (__int64 (__fastcall *)())(byte_9 + 6);\n      v28 = v9;\n      log::__private_api::log(&v21, 3LL, &v25, aBinaryInstall, v10, v11);\n    }\n  }\n  else\n  {\n    core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v21);\n    std::fs::File::create(&v21, aEtcLdSoPreload, 18LL);\n    v20 = core::result::Result<T,E>::unwrap(&v21);\n    core::str::<impl str>::trim_end_matches(*((_QWORD *)&v29 + 1), v30);\n    if ( v12 )\n    {\n      v33 = *(_OWORD *)(a1 + 8);\n      v31 = (__int128 *)core::str::<impl str>::trim_end_matches(*((_QWORD *)&v29 + 1), v30);\n      v32 = v13;\n      *(_QWORD *)&v25 = &v33;\n      *((_QWORD *)&v25 + 1) = <std::path::Display as core::fmt::Display>::fmt;\n      v26 = (const char *)&v31;\n      v27 = <&T as core::fmt::Display>::fmt;\n      v21 = (char **)&unk_18E6B18;\n      v22 = 3LL;\n      v23 = &v25;\n      v24 = 2uLL;\n      v14 = std::io::Write::write_fmt(&v20, &v21);\n      core::result::Result<T,E>::unwrap(v14, &off_18E6BE8);\n    }\n    else\n    {\n      v25 = *(_OWORD *)(a1 + 8);\n      v31 = &v25;\n      v32 = <std::path::Display as core::fmt::Display>::fmt;\n      v21 = (char **)&unk_18E6B48;\n      v22 = 2LL;\n      v23 = (__int128 *)&v31;\n      v24 = 1uLL;\n      v15 = std::io::Write::write_fmt(&v20, &v21);\n      core::result::Result<T,E>::unwrap(v15, &off_18E6BD0);\n    }\n    if ( (unsigned __int64)core::sync::atomic::atomic_load() > 2 )\n    {\n      v21 = &off_18E6B68;\n      v22 = 1LL;\n      v23 = (_OWORD *)&byte_8;\n      v24 = 0LL;\n      v16 = log::__private_api::loc(&off_18E6C00);\n      *(_QWORD *)&v25 = aBinaryInstall;\n      *((_QWORD *)&v25 + 1) = 15LL;\n      v26 = aBinaryInstall;\n      v27 = (__int64 (__fastcall *)())(byte_9 + 6);\n      v28 = v16;\n      log::__private_api::log(&v21, 3LL, &v25, aBinaryInstall, v17, v18);\n    }\n    core::ptr::drop_in_place<std::fs::File>(v20);\n  }\n  core::ptr::drop_in_place<alloc::string::String>(&v29);\n  return core::ptr::drop_in_place<std::path::PathBuf>(a1);\n}",
+    "_ZN6binary7install9copy_self17h6799c86bda448ec8E": "__int64 binary::install::copy_self()\n{\n  __int64 v0; // r8\n  __int64 v1; // r9\n  __int64 v2; // rax\n  __int64 v3; // r8\n  __int64 v4; // r9\n  __int64 v5; // rax\n  __int64 v6; // r8\n  __int64 v7; // r9\n  __int128 v8; // rax\n  __int64 v9; // rax\n  __int64 v10; // r8\n  __int64 v11; // r9\n  __int64 v12; // rax\n  __int64 v13; // r8\n  __int64 v14; // r9\n  __int64 v16; // rax\n  __int64 v17; // r8\n  __int64 v18; // r9\n  __int128 v19; // [rsp+0h] [rbp-B8h] BYREF\n  __int128 **v20; // [rsp+10h] [rbp-A8h]\n  __int128 v21; // [rsp+18h] [rbp-A0h]\n  const char *v22; // [rsp+30h] [rbp-88h] BYREF\n  __int64 v23; // [rsp+38h] [rbp-80h]\n  const char *v24; // [rsp+40h] [rbp-78h]\n  __int64 v25; // [rsp+48h] [rbp-70h]\n  __int64 v26; // [rsp+50h] [rbp-68h]\n  __int128 *v27; // [rsp+58h] [rbp-60h] BYREF\n  __int64 (__fastcall *v28)(); // [rsp+60h] [rbp-58h]\n  __int128 v29; // [rsp+68h] [rbp-50h] BYREF\n  _BYTE v30[8]; // [rsp+78h] [rbp-40h] BYREF\n  __int128 v31; // [rsp+80h] [rbp-38h]\n  __int128 v32; // [rsp+90h] [rbp-28h] BYREF\n  __int128 **v33; // [rsp+A0h] [rbp-18h]\n\n  if ( (unsigned __int64)((__int64 (*)(void))core::sync::atomic::atomic_load)() >= 3 )\n  {\n    *(_QWORD *)&v19 = &off_18E6C30;\n    *((_QWORD *)&v19 + 1) = 1LL;\n    v20 = (__int128 **)&byte_8;\n    v21 = 0LL;\n    v22 = aBinaryInstall;\n    v23 = 15LL;\n    v24 = aBinaryInstall;\n    v25 = 15LL;\n    v26 = log::__private_api::loc(&off_18E6C90);\n    log::__private_api::log(&v19, 3LL, &v22, aBinaryInstall, v0, v1);\n  }\n  <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v19, aVarLogCross, 15LL);\n  v33 = v20;\n  v32 = v19;\n  *(_QWORD *)&v19 = std::fs::create_dir_all(&v32);\n  if ( (_QWORD)v19 )\n  {\n    core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(&v19);\n    if ( core::sync::atomic::atomic_load(&v19) )\n    {\n      *(_QWORD *)&v19 = &off_18E6C40;\n      *((_QWORD *)&v19 + 1) = 1LL;\n      v20 = (__int128 **)&byte_8;\n      v21 = 0LL;\n      v2 = log::__private_api::loc(&off_18E6D20);\n      v22 = aBinaryInstall;\n      v23 = 15LL;\n      v24 = aBinaryInstall;\n      v25 = 15LL;\n      v26 = v2;\n      log::__private_api::log(&v19, 1LL, &v22, aBinaryInstall, v3, v4);\n    }\n  }\n  else\n  {\n    core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(&v19);\n    *(_QWORD *)&v19 = std::fs::set_permissions(&v32, 511LL);\n    if ( (_QWORD)v19 )\n    {\n      core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(&v19);\n      if ( core::sync::atomic::atomic_load(&v19) )\n      {\n        *(_QWORD *)&v19 = &off_18E6C50;\n        *((_QWORD *)&v19 + 1) = 1LL;\n        v20 = (__int128 **)&byte_8;\n        v21 = 0LL;\n        v5 = log::__private_api::loc(&off_18E6D08);\n        v22 = aBinaryInstall;\n        v23 = 15LL;\n        v24 = aBinaryInstall;\n        v25 = 15LL;\n        v26 = v5;\n        log::__private_api::log(&v19, 1LL, &v22, aBinaryInstall, v6, v7);\n      }\n    }\n    else\n    {\n      core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(&v19);\n      std::path::Path::join(v30, *((_QWORD *)&v32 + 1), v33, aAutoColor, 10LL);\n      std::env::current_exe(&v19);\n      core::result::Result<T,E>::unwrap(&v22, &v19);\n      *(_QWORD *)&v8 = std::fs::copy(&v22, v30);\n      v29 = v8;\n      if ( (_QWORD)v8 )\n      {\n        core::ptr::drop_in_place<core::result::Result<u64,std::io::error::Error>>(&v29);\n        if ( core::sync::atomic::atomic_load(&v29) )\n        {\n          v29 = v31;\n          v27 = &v29;\n          v28 = <std::path::Display as core::fmt::Display>::fmt;\n          *(_QWORD *)&v19 = &off_18E6C60;\n          *((_QWORD *)&v19 + 1) = 1LL;\n          v20 = &v27;\n          v21 = 1uLL;\n          v9 = log::__private_api::loc(&off_18E6CF0);\n          v22 = aBinaryInstall;\n          v23 = 15LL;\n          v24 = aBinaryInstall;\n          v25 = 15LL;\n          v26 = v9;\n          log::__private_api::log(&v19, 1LL, &v22, aBinaryInstall, v10, v11);\n        }\n      }\n      else\n      {\n        core::ptr::drop_in_place<core::result::Result<u64,std::io::error::Error>>(&v29);\n        *(_QWORD *)&v19 = std::fs::set_permissions(v30, 511LL);\n        if ( (_QWORD)v19 )\n        {\n          core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(&v19);\n          if ( core::sync::atomic::atomic_load(&v19) )\n          {\n            v29 = v31;\n            v27 = &v29;\n            v28 = <std::path::Display as core::fmt::Display>::fmt;\n            *(_QWORD *)&v19 = &off_18E6C70;\n            *((_QWORD *)&v19 + 1) = 1LL;\n            v20 = &v27;\n            v21 = 1uLL;\n            v12 = log::__private_api::loc(&off_18E6CD8);\n            v22 = aBinaryInstall;\n            v23 = 15LL;\n            v24 = aBinaryInstall;\n            v25 = 15LL;\n            v26 = v12;\n            log::__private_api::log(&v19, 1LL, &v22, aBinaryInstall, v13, v14);\n          }\n        }\n        else\n        {\n          core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(&v19);\n          if ( (unsigned __int64)core::sync::atomic::atomic_load(&v19) >= 3 )\n          {\n            v29 = v31;\n            v27 = &v29;\n            v28 = <std::path::Display as core::fmt::Display>::fmt;\n            *(_QWORD *)&v19 = &off_18E6C80;\n            *((_QWORD *)&v19 + 1) = 1LL;\n            v20 = &v27;\n            v21 = 1uLL;\n            v16 = log::__private_api::loc(&off_18E6CC0);\n            v22 = aBinaryInstall;\n            v23 = 15LL;\n            v24 = aBinaryInstall;\n            v25 = 15LL;\n            v26 = v16;\n            log::__private_api::log(&v19, 3LL, &v22, aBinaryInstall, v17, v18);\n          }\n        }\n      }\n      core::ptr::drop_in_place<std::path::PathBuf>(v30);\n    }\n  }\n  return core::ptr::drop_in_place<std::path::PathBuf>(&v32);\n}",
+    "_ZN6binary7install12drop_library17h6c2d6da60051269aE": "__int64 __fastcall binary::install::drop_library(__int64 a1)\n{\n  __int64 v1; // r8\n  __int64 v2; // r9\n  __int64 v3; // rax\n  __int64 v4; // r8\n  __int64 v5; // r9\n  __int64 v6; // rdx\n  __int64 v7; // rax\n  __int64 v8; // r8\n  __int64 v9; // r9\n  __int64 v10; // rax\n  __int64 v11; // r8\n  __int64 v12; // r9\n  __int64 v13; // rax\n  __int64 v14; // r8\n  __int64 v15; // r9\n  unsigned int v17; // [rsp+Ch] [rbp-CCh] BYREF\n  __int128 *v18; // [rsp+10h] [rbp-C8h] BYREF\n  __int64 (__fastcall *v19)(); // [rsp+18h] [rbp-C0h]\n  const char *v20; // [rsp+20h] [rbp-B8h] BYREF\n  __int64 v21; // [rsp+28h] [rbp-B0h]\n  const char *v22; // [rsp+30h] [rbp-A8h]\n  __int64 v23; // [rsp+38h] [rbp-A0h]\n  __int64 v24; // [rsp+40h] [rbp-98h]\n  char **v25; // [rsp+48h] [rbp-90h] BYREF\n  __int64 v26; // [rsp+50h] [rbp-88h]\n  __int128 **v27; // [rsp+58h] [rbp-80h]\n  __int128 v28; // [rsp+60h] [rbp-78h]\n  _QWORD v29[2]; // [rsp+78h] [rbp-60h] BYREF\n  _BYTE v30[24]; // [rsp+88h] [rbp-50h] BYREF\n  __int128 v31; // [rsp+A0h] [rbp-38h] BYREF\n  _BYTE v32[8]; // [rsp+B0h] [rbp-28h] BYREF\n  __int64 v33; // [rsp+B8h] [rbp-20h]\n  __int64 v34; // [rsp+C0h] [rbp-18h]\n\n  if ( (unsigned __int64)core::sync::atomic::atomic_load(a1) >= 3 )\n  {\n    v25 = &off_18E6D38;\n    v26 = 1LL;\n    v27 = (__int128 **)&byte_8;\n    v28 = 0LL;\n    v20 = aBinaryInstall;\n    v21 = 15LL;\n    v22 = aBinaryInstall;\n    v23 = 15LL;\n    v24 = log::__private_api::loc(&off_18E6D78);\n    log::__private_api::log(&v25, 3LL, &v20, aBinaryInstall, v1, v2);\n  }\n  binary::install::find_library_path(v32);\n  std::path::Path::join(v30, v33, v34, aLibcextSo2, 12LL);\n  std::fs::File::create(v29, v30);\n  if ( LODWORD(v29[0]) == 1 )\n  {\n    if ( core::sync::atomic::atomic_load(v29) )\n    {\n      v31 = *(_OWORD *)&v30[8];\n      v18 = &v31;\n      v19 = <std::path::Display as core::fmt::Display>::fmt;\n      v25 = &off_18E6D48;\n      v26 = 1LL;\n      v27 = &v18;\n      v28 = 1uLL;\n      v3 = log::__private_api::loc(&off_18E6DD8);\n      v20 = aBinaryInstall;\n      v21 = 15LL;\n      v22 = aBinaryInstall;\n      v23 = 15LL;\n      v24 = v3;\n      log::__private_api::log(&v25, 1LL, &v20, aBinaryInstall, v4, v5);\n    }\n    *(_QWORD *)(a1 + 16) = *(_QWORD *)&v30[16];\n    *(_OWORD *)a1 = *(_OWORD *)v30;\n    core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>(v29);\n  }\n  else\n  {\n    v17 = HIDWORD(v29[0]);\n    v29[0] = <std::os::unix::net::stream::UnixStream as std::io::Write>::write(&v17, &unk_5047A, \"743194b43ab51cE\");\n    v29[1] = v6;\n    if ( v29[0] && core::sync::atomic::atomic_load(&v17) )\n    {\n      v31 = *(_OWORD *)&v30[8];\n      v18 = &v31;\n      v19 = <std::path::Display as core::fmt::Display>::fmt;\n      v25 = &off_18E6D58;\n      v26 = 1LL;\n      v27 = &v18;\n      v28 = 1uLL;\n      v7 = log::__private_api::loc(&off_18E6D90);\n      v20 = aBinaryInstall;\n      v21 = 15LL;\n      v22 = aBinaryInstall;\n      v23 = 15LL;\n      v24 = v7;\n      log::__private_api::log(&v25, 1LL, &v20, aBinaryInstall, v8, v9);\n    }\n    v25 = (char **)std::fs::set_permissions(v30, 511LL);\n    if ( v25 )\n    {\n      core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(&v25);\n      if ( core::sync::atomic::atomic_load(&v25) )\n      {\n        v31 = *(_OWORD *)&v30[8];\n        v18 = &v31;\n        v19 = <std::path::Display as core::fmt::Display>::fmt;\n        v25 = &off_18E6C70;\n        v26 = 1LL;\n        v27 = &v18;\n        v28 = 1uLL;\n        v10 = log::__private_api::loc(&off_18E6DA8);\n        v20 = aBinaryInstall;\n        v21 = 15LL;\n        v22 = aBinaryInstall;\n        v23 = 15LL;\n        v24 = v10;\n        log::__private_api::log(&v25, 1LL, &v20, aBinaryInstall, v11, v12);\n      }\n    }\n    else\n    {\n      core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(&v25);\n    }\n    if ( (unsigned __int64)core::sync::atomic::atomic_load(&v25) > 2 )\n    {\n      v31 = *(_OWORD *)&v30[8];\n      v18 = &v31;\n      v19 = <std::path::Display as core::fmt::Display>::fmt;\n      v25 = &off_18E6D68;\n      v26 = 1LL;\n      v27 = &v18;\n      v28 = 1uLL;\n      v13 = log::__private_api::loc(&off_18E6DC0);\n      v20 = aBinaryInstall;\n      v21 = 15LL;\n      v22 = aBinaryInstall;\n      v23 = 15LL;\n      v24 = v13;\n      log::__private_api::log(&v25, 3LL, &v20, aBinaryInstall, v14, v15);\n    }\n    *(_QWORD *)(a1 + 16) = *(_QWORD *)&v30[16];\n    *(_OWORD *)a1 = *(_OWORD *)v30;\n    core::ptr::drop_in_place<core::result::Result<u64,std::io::error::Error>>(v29);\n    core::ptr::drop_in_place<std::fs::File>(v17);\n  }\n  return core::ptr::drop_in_place<std::path::PathBuf>(v32);\n}",
+    "_ZN6binary7install17find_library_path17h2e217bf23a93cdc7E": "__int64 __fastcall binary::install::find_library_path(__int64 a1)\n{\n  __int64 v2; // r8\n  __int64 v3; // r9\n  char *(**v4)(int); // rdi\n  int v5; // eax\n  size_t v6; // rax\n  __int64 v7; // rax\n  __int64 v8; // r8\n  __int64 v9; // r9\n  __int64 result; // rax\n  __int64 v11; // rax\n  __int64 v12; // r8\n  __int64 v13; // r9\n  const char *v14; // [rsp+8h] [rbp-E0h] BYREF\n  __int64 v15; // [rsp+10h] [rbp-D8h]\n  const char *v16; // [rsp+18h] [rbp-D0h]\n  __int64 v17; // [rsp+20h] [rbp-C8h]\n  __int64 v18; // [rsp+28h] [rbp-C0h]\n  char **v19; // [rsp+30h] [rbp-B8h] BYREF\n  __int64 v20; // [rsp+38h] [rbp-B0h]\n  _QWORD *v21; // [rsp+40h] [rbp-A8h]\n  __int128 v22; // [rsp+48h] [rbp-A0h]\n  _BYTE v23[24]; // [rsp+60h] [rbp-88h] BYREF\n  _QWORD v24[2]; // [rsp+78h] [rbp-70h] BYREF\n  int v25; // [rsp+88h] [rbp-60h] BYREF\n  __int64 v26; // [rsp+90h] [rbp-58h]\n  __int64 v27; // [rsp+98h] [rbp-50h]\n  Dl_info info; // [rsp+A0h] [rbp-48h] BYREF\n  __int128 v29; // [rsp+C8h] [rbp-20h] BYREF\n\n  if ( (unsigned __int64)core::sync::atomic::atomic_load(a1) >= 3 )\n  {\n    v19 = &off_18E6DF0;\n    v20 = 1LL;\n    v21 = (_QWORD *)&byte_8;\n    v22 = 0LL;\n    v14 = aBinaryInstall;\n    v15 = 15LL;\n    v16 = aBinaryInstall;\n    v17 = 15LL;\n    v18 = log::__private_api::loc(&off_18E6E20);\n    log::__private_api::log(&v19, 3LL, &v14, aBinaryInstall, v2, v3);\n  }\n  memset(&info, 0, sizeof(info));\n  v4 = &strerror;\n  v5 = dladdr(&strerror, &info);\n  if ( v5 == 0\n    || info.dli_fname == 0LL\n    || (v6 = strlen(info.dli_fname),\n        v4 = (char *(**)(int))&v25,\n        core::ffi::c_str::CStr::to_str(&v25, info.dli_fname, v6 + 1),\n        v25 == 1) )\n  {\n    if ( (unsigned __int64)core::sync::atomic::atomic_load(v4) > 1 )\n    {\n      v19 = &off_18E6E10;\n      v20 = 1LL;\n      v21 = (_QWORD *)&byte_8;\n      v22 = 0LL;\n      v7 = log::__private_api::loc(&off_18E6E50);\n      v14 = aBinaryInstall;\n      v15 = 15LL;\n      v16 = aBinaryInstall;\n      v17 = 15LL;\n      v18 = v7;\n      log::__private_api::log(&v19, 2LL, &v14, aBinaryInstall, v8, v9);\n    }\n    return <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(a1, aLib, 4LL);\n  }\n  else\n  {\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v23, v26, v27);\n    std::path::PathBuf::pop(v23);\n    if ( (unsigned __int64)core::sync::atomic::atomic_load(v23) >= 3 )\n    {\n      v29 = *(_OWORD *)&v23[8];\n      v24[0] = &v29;\n      v24[1] = <std::path::Display as core::fmt::Display>::fmt;\n      v19 = &off_18E6E00;\n      v20 = 1LL;\n      v21 = v24;\n      v22 = 1uLL;\n      v11 = log::__private_api::loc(&off_18E6E38);\n      v14 = aBinaryInstall;\n      v15 = 15LL;\n      v16 = aBinaryInstall;\n      v17 = 15LL;\n      v18 = v11;\n      log::__private_api::log(&v19, 3LL, &v14, aBinaryInstall, v12, v13);\n    }\n    result = *(_QWORD *)&v23[16];\n    *(_QWORD *)(a1 + 16) = *(_QWORD *)&v23[16];\n    *(_OWORD *)a1 = *(_OWORD *)v23;\n  }\n  return result;\n}",
+    "_ZN6binary4main17h80d390edd5c6dad9E": "__int64 binary::main()\n{\n  __int64 v0; // r8\n  __int64 v1; // r9\n  __int64 result; // rax\n  __int64 v3; // r8\n  __int64 v4; // r9\n  __int64 v5; // rax\n  __int64 v6; // rdx\n  char v7; // bl\n  unsigned __int64 v8; // rax\n  __int64 v9; // r8\n  __int64 v10; // r9\n  __int64 v11; // r8\n  __int64 v12; // r9\n  __int64 v13; // r8\n  __int64 v14; // r9\n  const char *v15; // [rsp+0h] [rbp-98h] BYREF\n  __int64 v16; // [rsp+8h] [rbp-90h]\n  const char *v17; // [rsp+10h] [rbp-88h]\n  __int64 v18; // [rsp+18h] [rbp-80h]\n  __int64 v19; // [rsp+20h] [rbp-78h]\n  char **v20; // [rsp+28h] [rbp-70h] BYREF\n  __int64 v21; // [rsp+30h] [rbp-68h]\n  __int64 v22; // [rsp+38h] [rbp-60h]\n  __int128 v23; // [rsp+40h] [rbp-58h]\n  __int128 v24; // [rsp+58h] [rbp-40h] BYREF\n  __int64 v25; // [rsp+68h] [rbp-30h]\n  __int128 v26; // [rsp+70h] [rbp-28h] BYREF\n  __int64 v27; // [rsp+80h] [rbp-18h]\n\n  colog::init();\n  if ( geteuid() )\n  {\n    if ( (unsigned __int64)core::sync::atomic::atomic_load() > 1 )\n    {\n      v20 = &off_18E6F30;\n      v21 = 1LL;\n      v22 = 8LL;\n      v23 = 0LL;\n      v15 = aBinary_0;\n      v16 = 6LL;\n      v17 = aBinary_0;\n      v18 = 6LL;\n      v19 = log::__private_api::loc(&off_18E6FE0);\n      log::__private_api::log(&v20, 2LL, &v15, aBinary_0, v0, v1);\n    }\n    binary::delete_self();\n    return binary::daemon::main();\n  }\n  else\n  {\n    std::env::current_exe(&v24);\n    if ( __OFSUB__(0LL, (_QWORD)v24) )\n    {\n      core::ptr::drop_in_place<core::result::Result<std::path::PathBuf,std::io::error::Error>>(&v24);\n      result = core::sync::atomic::atomic_load();\n      if ( result )\n      {\n        v20 = &off_18E6F70;\n        v21 = 1LL;\n        v22 = 8LL;\n        v23 = 0LL;\n        v15 = aBinary_0;\n        v16 = 6LL;\n        v17 = aBinary_0;\n        v18 = 6LL;\n        v19 = log::__private_api::loc(&off_18E6FC8);\n        return log::__private_api::log(&v20, 1LL, &v15, aBinary_0, v3, v4);\n      }\n    }\n    else\n    {\n      v26 = v24;\n      v27 = v25;\n      v5 = std::path::Path::file_name(*((_QWORD *)&v24 + 1));\n      if ( v5 )\n      {\n        v7 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v5, v6, &unk_1700121, 10LL);\n        v8 = core::sync::atomic::atomic_load();\n        if ( v7 )\n        {\n          if ( v8 > 2 )\n          {\n            v20 = &off_18E6F40;\n            v21 = 1LL;\n            v22 = 8LL;\n            v23 = 0LL;\n            v15 = aBinary_0;\n            v16 = 6LL;\n            v17 = aBinary_0;\n            v18 = 6LL;\n            v19 = log::__private_api::loc(&off_18E6F98);\n            log::__private_api::log(&v20, 3LL, &v15, aBinary_0, v9, v10);\n          }\n          binary::daemon::main();\n        }\n        else\n        {\n          if ( v8 > 2 )\n          {\n            v20 = &off_18E6F50;\n            v21 = 1LL;\n            v22 = 8LL;\n            v23 = 0LL;\n            v15 = aBinary_0;\n            v16 = 6LL;\n            v17 = aBinary_0;\n            v18 = 6LL;\n            v19 = log::__private_api::loc(&off_18E6F80);\n            log::__private_api::log(&v20, 3LL, &v15, aBinary_0, v13, v14);\n          }\n          binary::install::main();\n          binary::delete_self();\n        }\n      }\n      else if ( core::sync::atomic::atomic_load() )\n      {\n        v20 = &off_18E6F60;\n        v21 = 1LL;\n        v22 = 8LL;\n        v23 = 0LL;\n        v15 = aBinary_0;\n        v16 = 6LL;\n        v17 = aBinary_0;\n        v18 = 6LL;\n        v19 = log::__private_api::loc(&off_18E6FB0);\n        log::__private_api::log(&v20, 1LL, &v15, aBinary_0, v11, v12);\n      }\n      result = core::ptr::drop_in_place<std::path::PathBuf>(&v26);\n      if ( (_QWORD)v24 == 0x8000000000000000LL )\n        return core::ptr::drop_in_place<core::result::Result<std::path::PathBuf,std::io::error::Error>>(&v24);\n    }\n  }\n  return result;\n}",
+    "_ZN6binary11delete_self17h8376a8a8af45fd9aE": "unsigned __int64 binary::delete_self()\n{\n  __int64 v0; // r8\n  __int64 v1; // r9\n  __int64 v2; // rbx\n  unsigned __int64 result; // rax\n  __int64 v4; // rax\n  __int64 v5; // r8\n  __int64 v6; // r9\n  __int64 v7; // rsi\n  __int64 v8; // rax\n  const char *v9; // [rsp+8h] [rbp-A0h] BYREF\n  __int64 v10; // [rsp+10h] [rbp-98h]\n  const char *v11; // [rsp+18h] [rbp-90h]\n  __int64 v12; // [rsp+20h] [rbp-88h]\n  __int64 v13; // [rsp+28h] [rbp-80h]\n  __int128 v14; // [rsp+30h] [rbp-78h] BYREF\n  _QWORD *v15; // [rsp+40h] [rbp-68h]\n  __int128 v16; // [rsp+48h] [rbp-60h]\n  _BYTE v17[24]; // [rsp+68h] [rbp-40h] BYREF\n  _QWORD v18[2]; // [rsp+80h] [rbp-28h] BYREF\n  __int128 v19; // [rsp+90h] [rbp-18h] BYREF\n\n  std::env::current_exe(&v14);\n  core::result::Result<T,E>::unwrap(v17, &v14);\n  if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 3 )\n  {\n    v19 = *(_OWORD *)&v17[8];\n    v18[0] = &v19;\n    v18[1] = <std::path::Display as core::fmt::Display>::fmt;\n    *(_QWORD *)&v14 = &off_18E6FF8;\n    *((_QWORD *)&v14 + 1) = 1LL;\n    v15 = v18;\n    v16 = 1uLL;\n    v9 = aBinary_0;\n    v10 = 6LL;\n    v11 = aBinary_0;\n    v12 = 6LL;\n    v13 = log::__private_api::loc(&off_18E7040);\n    log::__private_api::log(&v14, 3LL, &v9, aBinary_0, v0, v1);\n  }\n  v15 = *(_QWORD **)&v17[16];\n  v14 = *(_OWORD *)v17;\n  v2 = std::fs::remove_file(&v14);\n  v9 = (const char *)v2;\n  core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(&v9);\n  result = core::sync::atomic::atomic_load();\n  if ( v2 )\n  {\n    if ( !result )\n      return result;\n    *(_QWORD *)&v14 = &off_18E7008;\n    *((_QWORD *)&v14 + 1) = 1LL;\n    v15 = (_QWORD *)&byte_8;\n    v16 = 0LL;\n    v4 = log::__private_api::loc(&off_18E7070);\n    v9 = aBinary_0;\n    v10 = 6LL;\n    v11 = aBinary_0;\n    v12 = 6LL;\n    v13 = v4;\n    v7 = 1LL;\n  }\n  else\n  {\n    if ( result <= 2 )\n      return result;\n    *(_QWORD *)&v14 = &off_18E7018;\n    *((_QWORD *)&v14 + 1) = 1LL;\n    v15 = (_QWORD *)&byte_8;\n    v16 = 0LL;\n    v8 = log::__private_api::loc(&off_18E7058);\n    v9 = aBinary_0;\n    v10 = 6LL;\n    v11 = aBinary_0;\n    v12 = 6LL;\n    v13 = v8;\n    v7 = 3LL;\n  }\n  return log::__private_api::log(&v14, v7, &v9, aBinary_0, v5, v6);\n}",
+    "_ZN6binary6daemon4main17hc30634c30f3261a4E": "__int64 binary::daemon::main()\n{\n  __int64 v0; // r8\n  __int64 v1; // r9\n  const char *v2; // rbx\n  __int64 v3; // rdx\n  __int64 v4; // r14\n  int v5; // ebp\n  __int64 v6; // rax\n  __int64 v7; // r8\n  __int64 v8; // r9\n  __int64 v9; // rax\n  __int64 v10; // r8\n  __int64 v11; // r9\n  __int64 v12; // rax\n  __int64 v13; // rcx\n  __int64 v14; // r8\n  __int64 v15; // r9\n  __int64 result; // rax\n  __int64 v17; // rax\n  __int64 v18; // r8\n  __int64 v19; // r9\n  const char *v20; // [rsp+0h] [rbp-88h] BYREF\n  __int64 v21; // [rsp+8h] [rbp-80h]\n  const char *v22; // [rsp+10h] [rbp-78h]\n  __int64 v23; // [rsp+18h] [rbp-70h]\n  __int64 v24; // [rsp+20h] [rbp-68h]\n  char **v25; // [rsp+28h] [rbp-60h] BYREF\n  __int64 v26; // [rsp+30h] [rbp-58h]\n  __int64 v27; // [rsp+38h] [rbp-50h]\n  __int128 v28; // [rsp+40h] [rbp-48h]\n\n  if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 3 )\n  {\n    v25 = &off_18E7118;\n    v26 = 1LL;\n    v27 = 8LL;\n    v28 = 0LL;\n    v20 = aBinaryDaemon;\n    v21 = 14LL;\n    v22 = aBinaryDaemon;\n    v23 = 14LL;\n    v24 = log::__private_api::loc(&off_18E7168);\n    log::__private_api::log(&v25, 3LL, &v20, aBinaryDaemon, v0, v1);\n  }\n  if ( (unsigned __int8)binary::daemon::check_lock() )\n  {\n    binary::daemon::fork_to_bg();\n    binary::daemon::redirect_to_dev_null();\n    binary::daemon::close_all_fds();\n    umask(0);\n    <&[u8] as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl(&v25, asc_170099F, 1LL);\n    v2 = (const char *)core::result::Result<T,E>::unwrap(&v25, &off_18E7198);\n    v4 = v3;\n    v5 = chdir(v2);\n    core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v2, v4);\n    if ( v5 && core::sync::atomic::atomic_load() )\n    {\n      v25 = &off_18E7128;\n      v26 = 1LL;\n      v27 = 8LL;\n      v28 = 0LL;\n      v6 = log::__private_api::loc(&off_18E71B0);\n      v20 = aBinaryDaemon;\n      v21 = 14LL;\n      v22 = aBinaryDaemon;\n      v23 = 14LL;\n      v24 = v6;\n      log::__private_api::log(&v25, 1LL, &v20, aBinaryDaemon, v7, v8);\n    }\n    if ( (unsigned __int64)core::sync::atomic::atomic_load() > 2 )\n    {\n      v25 = &off_18E7138;\n      v26 = 1LL;\n      v27 = 8LL;\n      v28 = 0LL;\n      v9 = log::__private_api::loc(&off_18E71C8);\n      v20 = aBinaryDaemon;\n      v21 = 14LL;\n      v22 = aBinaryDaemon;\n      v23 = 14LL;\n      v24 = v9;\n      log::__private_api::log(&v25, 3LL, &v20, aBinaryDaemon, v10, v11);\n    }\n    while ( 1 )\n    {\n      if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 3 )\n      {\n        v25 = &off_18E7148;\n        v26 = 1LL;\n        v27 = 8LL;\n        v28 = 0LL;\n        v12 = log::__private_api::loc(&off_18E71E0);\n        v20 = aBinaryDaemon;\n        v21 = 14LL;\n        v22 = aBinaryDaemon;\n        v23 = 14LL;\n        v24 = v12;\n        log::__private_api::log(&v25, 3LL, &v20, v13, v14, v15);\n      }\n      std::thread::sleep(60LL, 0LL);\n    }\n  }\n  result = core::sync::atomic::atomic_load();\n  if ( result )\n  {\n    v25 = &off_18E7158;\n    v26 = 1LL;\n    v27 = 8LL;\n    v28 = 0LL;\n    v17 = log::__private_api::loc(&off_18E7180);\n    v20 = aBinaryDaemon;\n    v21 = 14LL;\n    v22 = aBinaryDaemon;\n    v23 = 14LL;\n    v24 = v17;\n    return log::__private_api::log(&v25, 1LL, &v20, aBinaryDaemon, v18, v19);\n  }\n  return result;\n}",
+    "_ZN6binary6daemon10fork_to_bg17h3f8212ac914619a4E": "unsigned __int64 binary::daemon::fork_to_bg()\n{\n  __int64 v0; // r8\n  __int64 v1; // r9\n  unsigned __int64 result; // rax\n  __int64 v3; // rax\n  __int64 v4; // r8\n  __int64 v5; // r9\n  __int64 v6; // rax\n  __int64 v7; // r8\n  __int64 v8; // r9\n  const char *v9; // [rsp+0h] [rbp-58h] BYREF\n  __int64 v10; // [rsp+8h] [rbp-50h]\n  const char *v11; // [rsp+10h] [rbp-48h]\n  __int64 v12; // [rsp+18h] [rbp-40h]\n  __int64 v13; // [rsp+20h] [rbp-38h]\n  char **v14; // [rsp+28h] [rbp-30h] BYREF\n  __int64 v15; // [rsp+30h] [rbp-28h]\n  __int64 v16; // [rsp+38h] [rbp-20h]\n  __int128 v17; // [rsp+40h] [rbp-18h]\n\n  if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 3 )\n  {\n    v14 = &off_18E71F8;\n    v15 = 1LL;\n    v16 = 8LL;\n    v17 = 0LL;\n    v9 = aBinaryDaemon;\n    v10 = 14LL;\n    v11 = aBinaryDaemon;\n    v12 = 14LL;\n    v13 = log::__private_api::loc(&off_18E7228);\n    log::__private_api::log(&v14, 3LL, &v9, aBinaryDaemon, v0, v1);\n  }\n  if ( fork() > 0 )\n    goto LABEL_9;\n  if ( setsid() < 0 )\n  {\n    if ( core::sync::atomic::atomic_load() )\n    {\n      v14 = &off_18E7208;\n      v15 = 1LL;\n      v16 = 8LL;\n      v17 = 0LL;\n      v6 = log::__private_api::loc(&off_18E7258);\n      v9 = aBinaryDaemon;\n      v10 = 14LL;\n      v11 = aBinaryDaemon;\n      v12 = 14LL;\n      v13 = v6;\n      log::__private_api::log(&v14, 1LL, &v9, aBinaryDaemon, v7, v8);\n    }\n    exit(1);\n  }\n  if ( fork() > 0 )\nLABEL_9:\n    exit(0);\n  result = core::sync::atomic::atomic_load();\n  if ( result > 2 )\n  {\n    v14 = &off_18E7218;\n    v15 = 1LL;\n    v16 = 8LL;\n    v17 = 0LL;\n    v3 = log::__private_api::loc(&off_18E7240);\n    v9 = aBinaryDaemon;\n    v10 = 14LL;\n    v11 = aBinaryDaemon;\n    v12 = 14LL;\n    v13 = v3;\n    return log::__private_api::log(&v14, 3LL, &v9, aBinaryDaemon, v4, v5);\n  }\n  return result;\n}",
+    "_ZN6binary6daemon20redirect_to_dev_null17hc6ab844550b7c720E": "__int64 binary::daemon::redirect_to_dev_null()\n{\n  __int64 v0; // r8\n  __int64 v1; // r9\n  const char *v2; // r14\n  __int64 v3; // rdx\n  __int64 v4; // rbx\n  int v5; // eax\n  int v6; // ebp\n  __int64 v7; // rax\n  __int64 v8; // r8\n  __int64 v9; // r9\n  __int64 v10; // rax\n  __int64 v11; // r8\n  __int64 v12; // r9\n  const char *v14; // [rsp+0h] [rbp-78h] BYREF\n  __int64 v15; // [rsp+8h] [rbp-70h]\n  const char *v16; // [rsp+10h] [rbp-68h]\n  __int64 v17; // [rsp+18h] [rbp-60h]\n  __int64 v18; // [rsp+20h] [rbp-58h]\n  char **v19; // [rsp+28h] [rbp-50h] BYREF\n  __int64 v20; // [rsp+30h] [rbp-48h]\n  __int64 v21; // [rsp+38h] [rbp-40h]\n  __int128 v22; // [rsp+40h] [rbp-38h]\n\n  if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 3 )\n  {\n    v19 = &off_18E7270;\n    v20 = 1LL;\n    v21 = 8LL;\n    v22 = 0LL;\n    v14 = aBinaryDaemon;\n    v15 = 14LL;\n    v16 = aBinaryDaemon;\n    v17 = 14LL;\n    v18 = log::__private_api::loc(&off_18E72A0);\n    log::__private_api::log(&v19, 3LL, &v14, aBinaryDaemon, v0, v1);\n  }\n  <&[u8] as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl(&v19, aDevNull, 9LL);\n  v2 = (const char *)core::result::Result<T,E>::unwrap(&v19, &off_18E72B8);\n  v4 = v3;\n  v5 = open(v2, 2, 0LL);\n  if ( v5 < 0 )\n  {\n    if ( core::sync::atomic::atomic_load() )\n    {\n      v19 = &off_18E7290;\n      v20 = 1LL;\n      v21 = 8LL;\n      v22 = 0LL;\n      v10 = log::__private_api::loc(&off_18E72D0);\n      v14 = aBinaryDaemon;\n      v15 = 14LL;\n      v16 = aBinaryDaemon;\n      v17 = 14LL;\n      v18 = v10;\n      log::__private_api::log(&v19, 1LL, &v14, aBinaryDaemon, v11, v12);\n    }\n  }\n  else\n  {\n    v6 = v5;\n    dup2(v5, 0);\n    dup2(v6, 1);\n    dup2(v6, 2);\n    close(v6);\n    if ( (unsigned __int64)core::sync::atomic::atomic_load() > 2 )\n    {\n      v19 = &off_18E7280;\n      v20 = 1LL;\n      v21 = 8LL;\n      v22 = 0LL;\n      v7 = log::__private_api::loc(&off_18E72E8);\n      v14 = aBinaryDaemon;\n      v15 = 14LL;\n      v16 = aBinaryDaemon;\n      v17 = 14LL;\n      v18 = v7;\n      log::__private_api::log(&v19, 3LL, &v14, aBinaryDaemon, v8, v9);\n    }\n  }\n  return core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v2, v4);\n}",
+    "_ZN6binary6daemon13close_all_fds17h475452edc915d318E": "unsigned __int64 binary::daemon::close_all_fds()\n{\n  __int64 v0; // r8\n  __int64 v1; // r9\n  __int64 v2; // rax\n  int v3; // ebx\n  int v4; // edi\n  unsigned __int64 result; // rax\n  __int64 v6; // rax\n  __int64 v7; // r8\n  __int64 v8; // r9\n  __int64 v9; // rsi\n  __int64 v10; // rax\n  const char *v11; // [rsp+8h] [rbp-70h] BYREF\n  __int64 v12; // [rsp+10h] [rbp-68h]\n  const char *v13; // [rsp+18h] [rbp-60h]\n  __int64 v14; // [rsp+20h] [rbp-58h]\n  __int64 v15; // [rsp+28h] [rbp-50h]\n  char **v16; // [rsp+30h] [rbp-48h] BYREF\n  __int64 v17; // [rsp+38h] [rbp-40h]\n  __int64 v18; // [rsp+40h] [rbp-38h]\n  __int128 v19; // [rsp+48h] [rbp-30h]\n\n  if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 3 )\n  {\n    v16 = &off_18E7300;\n    v17 = 1LL;\n    v18 = 8LL;\n    v19 = 0LL;\n    v11 = aBinaryDaemon;\n    v12 = 14LL;\n    v13 = aBinaryDaemon;\n    v14 = 14LL;\n    v15 = log::__private_api::loc(&off_18E7330);\n    log::__private_api::log(&v16, 3LL, &v11, aBinaryDaemon, v0, v1);\n  }\n  v2 = sysconf(4);\n  if ( v2 <= 0 )\n  {\n    result = core::sync::atomic::atomic_load();\n    if ( !result )\n      return result;\n    v16 = &off_18E7320;\n    v17 = 1LL;\n    v18 = 8LL;\n    v19 = 0LL;\n    v10 = log::__private_api::loc(&off_18E7348);\n    v11 = aBinaryDaemon;\n    v12 = 14LL;\n    v13 = aBinaryDaemon;\n    v14 = 14LL;\n    v15 = v10;\n    v9 = 1LL;\n    return log::__private_api::log(&v16, v9, &v11, aBinaryDaemon, v7, v8);\n  }\n  v3 = v2;\n  if ( (int)v2 >= 4 )\n  {\n    v4 = 3;\n    do\n      close(v4++);\n    while ( v3 != v4 );\n  }\n  result = core::sync::atomic::atomic_load();\n  if ( result >= 3 )\n  {\n    v16 = &off_18E7310;\n    v17 = 1LL;\n    v18 = 8LL;\n    v19 = 0LL;\n    v6 = log::__private_api::loc(&off_18E7360);\n    v11 = aBinaryDaemon;\n    v12 = 14LL;\n    v13 = aBinaryDaemon;\n    v14 = 14LL;\n    v15 = v6;\n    v9 = 3LL;\n    return log::__private_api::log(&v16, v9, &v11, aBinaryDaemon, v7, v8);\n  }\n  return result;\n}",
+    "_ZN6binary6daemon10check_lock17h88dc1ba9caa4a2edE": "__int64 binary::daemon::check_lock()\n{\n  __int64 v0; // r8\n  __int64 v1; // r9\n  char *v2; // r14\n  const char *v3; // rbx\n  int v4; // eax\n  unsigned __int64 v5; // rax\n  unsigned int v6; // ebp\n  __int64 v7; // rax\n  __int64 v8; // r8\n  __int64 v9; // r9\n  __int64 v10; // rax\n  __int64 v11; // r8\n  __int64 v12; // r9\n  __int64 v13; // rax\n  __int64 v14; // r8\n  __int64 v15; // r9\n  __int64 v16; // rax\n  __int64 v17; // r8\n  __int64 v18; // r9\n  const char *v20; // [rsp+0h] [rbp-A8h] BYREF\n  char *file; // [rsp+8h] [rbp-A0h]\n  const char *v22; // [rsp+10h] [rbp-98h]\n  __int64 v23; // [rsp+18h] [rbp-90h]\n  __int64 v24; // [rsp+20h] [rbp-88h]\n  char **v25; // [rsp+28h] [rbp-80h] BYREF\n  __int64 v26; // [rsp+30h] [rbp-78h]\n  _QWORD *v27; // [rsp+38h] [rbp-70h]\n  __int128 v28; // [rsp+40h] [rbp-68h]\n  __uid_t v29; // [rsp+5Ch] [rbp-4Ch] BYREF\n  _QWORD v30[2]; // [rsp+60h] [rbp-48h] BYREF\n  _BYTE v31[56]; // [rsp+70h] [rbp-38h] BYREF\n\n  if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 3 )\n  {\n    v25 = &off_18E7378;\n    v26 = 1LL;\n    v27 = (_QWORD *)&byte_8;\n    v28 = 0LL;\n    v20 = aBinaryDaemon;\n    file = byte_9 + 5;\n    v22 = aBinaryDaemon;\n    v23 = 14LL;\n    v24 = log::__private_api::loc(&off_18E73D8);\n    log::__private_api::log(&v25, 3LL, &v20, aBinaryDaemon, v0, v1);\n  }\n  v29 = geteuid();\n  v30[0] = &v29;\n  v30[1] = core::fmt::num::imp::<impl core::fmt::Display for u32>::fmt;\n  v25 = &off_18E7398;\n  v26 = 1LL;\n  v27 = v30;\n  v28 = 1uLL;\n  core::option::Option<T>::map_or_else(v31, &v25);\n  <T as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl(&v20, v31);\n  if ( __OFSUB__(0LL, v20) )\n  {\n    v2 = file;\n    v3 = v22;\n    v4 = open(file, 66, 384LL);\n    if ( v4 < 0 )\n    {\n      if ( core::sync::atomic::atomic_load() )\n      {\n        v25 = &off_18E73A8;\n        v26 = 1LL;\n        v27 = (_QWORD *)&byte_8;\n        v28 = 0LL;\n        v13 = log::__private_api::loc(&off_18E7420);\n        v20 = aBinaryDaemon;\n        file = byte_9 + 5;\n        v22 = aBinaryDaemon;\n        v23 = 14LL;\n        v24 = v13;\n        log::__private_api::log(&v25, 1LL, &v20, aBinaryDaemon, v14, v15);\n      }\n      core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v2, v3);\n      return 0;\n    }\n    else\n    {\n      v6 = flock(v4, 6);\n      v5 = core::sync::atomic::atomic_load();\n      LOBYTE(v6) = v6 == 0;\n      if ( (_BYTE)v6 )\n      {\n        if ( v5 > 2 )\n        {\n          v25 = &off_18E73B8;\n          v26 = 1LL;\n          v27 = (_QWORD *)&byte_8;\n          v28 = 0LL;\n          v16 = log::__private_api::loc(&off_18E73F0);\n          v20 = aBinaryDaemon;\n          file = byte_9 + 5;\n          v22 = aBinaryDaemon;\n          v23 = 14LL;\n          v24 = v16;\n          log::__private_api::log(&v25, 3LL, &v20, aBinaryDaemon, v17, v18);\n        }\n      }\n      else if ( v5 > 1 )\n      {\n        v25 = &off_18E73C8;\n        v26 = 1LL;\n        v27 = (_QWORD *)&byte_8;\n        v28 = 0LL;\n        v7 = log::__private_api::loc(&off_18E7408);\n        v20 = aBinaryDaemon;\n        file = byte_9 + 5;\n        v22 = aBinaryDaemon;\n        v23 = 14LL;\n        v24 = v7;\n        log::__private_api::log(&v25, 2LL, &v20, aBinaryDaemon, v8, v9);\n      }\n      core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v2, v3);\n    }\n  }\n  else\n  {\n    core::ptr::drop_in_place<core::result::Result<alloc::ffi::c_str::CString,alloc::ffi::c_str::NulError>>(&v20);\n    if ( core::sync::atomic::atomic_load() )\n    {\n      v25 = &off_18E7388;\n      v26 = 1LL;\n      v27 = (_QWORD *)&byte_8;\n      v28 = 0LL;\n      v10 = log::__private_api::loc(&off_18E7438);\n      v20 = aBinaryDaemon;\n      file = byte_9 + 5;\n      v22 = aBinaryDaemon;\n      v23 = 14LL;\n      v24 = v10;\n      log::__private_api::log(&v25, 1LL, &v20, aBinaryDaemon, v11, v12);\n    }\n    return 0;\n  }\n  return v6;\n}"
+  },
+  "function_call_counts": {
+    "_ZN6binary7install4main17h1e5509fe79972199E": {
+      "log::__private_api::loc": 2,
+      "core::sync::atomic::atomic_load": 2,
+      "binary::install::copy_self": 1,
+      "binary::install::drop_library": 1,
+      "binary::install::add_preload_hook": 1
+    },
+    "_ZN6binary7install16add_preload_hook17hf67ddbcc23099137E": {
+      "log::__private_api::loc": 3,
+      "log::__private_api::log": 3,
+      "core::sync::atomic::atomic_load": 3,
+      "std::fs::File::open": 1,
+      "core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>": 1,
+      "<std::fs::File as std::io::Read>::read_to_string": 1,
+      "core::result::Result<T,E>::unwrap": 4,
+      "core::ptr::drop_in_place<std::fs::File>": 2,
+      "core::str::<impl str>::trim_end_matches": 3,
+      "alloc::string::String::from_utf8_lossy": 1,
+      "core::ptr::drop_in_place<alloc::borrow::Cow<str>>": 2,
+      "std::fs::File::create": 1,
+      "std::io::Write::write_fmt": 2,
+      "<&str as core::str::pattern::Pattern>::is_contained_in": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1
+    },
+    "_ZN6binary7install9copy_self17h6799c86bda448ec8E": {
+      "log::__private_api::loc": 6,
+      "log::__private_api::log": 6,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "std::fs::create_dir_all": 1,
+      "core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>": 6,
+      "core::sync::atomic::atomic_load": 5,
+      "std::fs::set_permissions": 2,
+      "std::path::Path::join": 1,
+      "std::env::current_exe": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "std::fs::copy": 1,
+      "core::ptr::drop_in_place<core::result::Result<u64,std::io::error::Error>>": 2,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 2
+    },
+    "_ZN6binary7install12drop_library17h6c2d6da60051269aE": {
+      "log::__private_api::loc": 5,
+      "log::__private_api::log": 5,
+      "core::sync::atomic::atomic_load": 5,
+      "binary::install::find_library_path": 1,
+      "std::path::Path::join": 1,
+      "std::fs::File::create": 1,
+      "core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>": 1,
+      "<std::os::unix::net::stream::UnixStream as std::io::Write>::write": 1,
+      "std::fs::set_permissions": 1,
+      "core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>": 2,
+      "core::ptr::drop_in_place<core::result::Result<u64,std::io::error::Error>>": 1,
+      "core::ptr::drop_in_place<std::fs::File>": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1
+    },
+    "_ZN6binary7install17find_library_path17h2e217bf23a93cdc7E": {
+      "log::__private_api::loc": 3,
+      "log::__private_api::log": 3,
+      "core::sync::atomic::atomic_load": 3,
+      "dladdr": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 2,
+      "std::path::PathBuf::pop": 1,
+      "strlen": 1,
+      "core::ffi::c_str::CStr::to_str": 1
+    },
+    "_ZN6binary4main17h80d390edd5c6dad9E": {
+      "colog::init": 1,
+      "log::__private_api::loc": 5,
+      "log::__private_api::log": 5,
+      "core::sync::atomic::atomic_load": 4,
+      "binary::delete_self": 2,
+      "binary::daemon::main": 2,
+      "std::env::current_exe": 1,
+      "core::ptr::drop_in_place<core::result::Result<std::path::PathBuf,std::io::error::Error>>": 2,
+      "std::path::Path::file_name": 1,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "binary::install::main": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "geteuid": 1
+    },
+    "_ZN6binary11delete_self17h8376a8a8af45fd9aE": {
+      "std::env::current_exe": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "log::__private_api::loc": 3,
+      "log::__private_api::log": 2,
+      "core::sync::atomic::atomic_load": 2,
+      "std::fs::remove_file": 1,
+      "core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>": 1
+    },
+    "_ZN6binary6daemon4main17hc30634c30f3261a4E": {
+      "log::__private_api::loc": 5,
+      "log::__private_api::log": 5,
+      "core::sync::atomic::atomic_load": 5,
+      "binary::daemon::fork_to_bg": 1,
+      "binary::daemon::redirect_to_dev_null": 1,
+      "binary::daemon::close_all_fds": 1,
+      "umask": 1,
+      "<&[u8] as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "chdir": 1,
+      "core::ptr::drop_in_place<alloc::ffi::c_str::CString>": 1,
+      "std::thread::sleep": 1,
+      "binary::daemon::check_lock": 1
+    },
+    "_ZN6binary6daemon10fork_to_bg17h3f8212ac914619a4E": {
+      "log::__private_api::loc": 3,
+      "log::__private_api::log": 3,
+      "core::sync::atomic::atomic_load": 3,
+      "fork": 2,
+      "_exit": 2,
+      "setsid": 1
+    },
+    "_ZN6binary6daemon20redirect_to_dev_null17hc6ab844550b7c720E": {
+      "log::__private_api::loc": 3,
+      "log::__private_api::log": 3,
+      "core::sync::atomic::atomic_load": 3,
+      "<&[u8] as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "open": 1,
+      "dup2": 3,
+      "close": 1,
+      "core::ptr::drop_in_place<alloc::ffi::c_str::CString>": 1
+    },
+    "_ZN6binary6daemon13close_all_fds17h475452edc915d318E": {
+      "log::__private_api::loc": 3,
+      "log::__private_api::log": 3,
+      "core::sync::atomic::atomic_load": 3,
+      "sysconf": 1,
+      "close": 1
+    },
+    "_ZN6binary6daemon10check_lock17h88dc1ba9caa4a2edE": {
+      "log::__private_api::loc": 5,
+      "log::__private_api::log": 5,
+      "core::sync::atomic::atomic_load": 4,
+      "geteuid": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "<T as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl": 1,
+      "open": 1,
+      "core::ptr::drop_in_place<alloc::ffi::c_str::CString>": 2,
+      "flock": 1,
+      "core::ptr::drop_in_place<core::result::Result<alloc::ffi::c_str::CString,alloc::ffi::c_str::NulError>>": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN6binary7install4main17h1e5509fe79972199E": 0,
+    "_ZN6binary7install16add_preload_hook17hf67ddbcc23099137E": 0,
+    "_ZN6binary7install9copy_self17h6799c86bda448ec8E": 0,
+    "_ZN6binary7install12drop_library17h6c2d6da60051269aE": 0,
+    "_ZN6binary7install17find_library_path17h2e217bf23a93cdc7E": 0,
+    "_ZN6binary4main17h80d390edd5c6dad9E": 0,
+    "_ZN6binary11delete_self17h8376a8a8af45fd9aE": 0,
+    "_ZN6binary6daemon4main17hc30634c30f3261a4E": 0,
+    "_ZN6binary6daemon10fork_to_bg17h3f8212ac914619a4E": 0,
+    "_ZN6binary6daemon20redirect_to_dev_null17hc6ab844550b7c720E": 0,
+    "_ZN6binary6daemon13close_all_fds17h475452edc915d318E": 0,
+    "_ZN6binary6daemon10check_lock17h88dc1ba9caa4a2edE": 0
+  },
+  "variable_types": {
+    "_ZN6binary7install4main17h1e5509fe79972199E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "array",
+          32
+        ]
+      ]
+    },
+    "_ZN6binary7install16add_preload_hook17hf67ddbcc23099137E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN6binary7install9copy_self17h6799c86bda448ec8E": {
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "&&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6binary7install12drop_library17h6c2d6da60051269aE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6binary7install17find_library_path17h2e217bf23a93cdc7E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN6binary4main17h80d390edd5c6dad9E": {
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6binary11delete_self17h8376a8a8af45fd9aE": {
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_128": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN6binary6daemon4main17hc30634c30f3261a4E": {
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN6binary6daemon10fork_to_bg17h3f8212ac914619a4E": {
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN6binary6daemon20redirect_to_dev_null17hc6ab844550b7c720E": {
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN6binary6daemon13close_all_fds17h475452edc915d318E": {
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_edi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN6binary6daemon10check_lock17h88dc1ba9caa4a2edE": {
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_92": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_96": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "array",
+          56
+        ]
+      ]
+    }
+  }
+}

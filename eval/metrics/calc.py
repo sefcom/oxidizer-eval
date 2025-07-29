@@ -42,6 +42,8 @@ def num_assignments(output):
 
 def num_operators(output):
     pointer_types = [
+        "***",
+        "**",
         "void *",
         "char *",
         "const char *",
@@ -70,6 +72,11 @@ def num_operators(output):
         "uint32_t *",
         "int64_t *",
         "uint64_t *",
+        "int8 *",
+        "int16 *",
+        "int32 *",
+        "int64 *",
+        "int128 *",
         "size_t *",
         "ssize_t *",
         "intptr_t *",
@@ -231,6 +238,9 @@ def _normalize_dwarf_type(dwarf_type: Type, recursive=True):
                 return "enum", dwarf_type.size
         case Primitive():
             return "primitive", dwarf_type.size
+        case Array(ele_ty, length):
+            if hasattr(ele_ty, "size") and length:
+                return "array", length * ele_ty.size
         case Pointer(pts_to):
             if recursive:
                 pts_category, _ = _normalize_dwarf_type(pts_to, recursive=False)

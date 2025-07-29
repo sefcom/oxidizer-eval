@@ -78,7 +78,7 @@ void flea::main()
     unsigned long long v76;  // [bp-0x1f8]
     unsigned long long v77;  // [bp-0x1f0]
     char *v78;  // [bp-0x1e8]
-    struct_1 *v79;  // [bp-0x1e8]
+    struct_0 *v79;  // [bp-0x1e8]
     unsigned long long v80;  // [bp-0x1e0]
     int v81;  // [bp-0x1d8]
     char v82;  // [bp-0x1c8]
@@ -121,7 +121,7 @@ void flea::main()
     unsigned long long v121;  // cc_op
     char *v122;  // cc_dep1
     char *v123;  // rax
-    struct_1 *v124;  // rax
+    struct_0 *v124;  // rax
     unsigned long long v125;  // rax
     unsigned long long v126;  // rsi
     unsigned long long v127;  // rcx
@@ -142,7 +142,7 @@ void flea::main()
     unsigned long long v142;  // rax
     unsigned long long v143;  // 4096
     int v144;  // xmm1
-    struct_0 *v145;  // rax
+    struct_1 *v145;  // rax
     int v147;  // xmm0
     int v149;  // xmm0
     unsigned int v153;  // [bp-0x3f8]
@@ -208,7 +208,7 @@ void flea::main()
     memcpy(&v107, &v29, 16);
     v106 = v28;
     v105 = v27;
-    memcpy(&v104, &v21, 16);
+    memcpy(&v104, &v22, 16);
     memcpy(&v103, &v153, 16);
     memcpy(&v102, &v7, 16);
     v109 = 0;
@@ -359,7 +359,7 @@ LABEL_67b473:
             v53 = v28;
             v132 = *((int128_t *)&v7);
             v52 = v27;
-            memcpy(&v50, &v21, 16);
+            memcpy(&v50, &v22, 16);
             *((int128_t *)&v48) = *((int128_t *)&v153);
             v44 = v132;
             v133 = v46.opt_present("hPrint this help menuError setting Ctrl-C handlerCouldn't get current directory!flea-key.logfailed to spawn thread/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/mod.rs", 1);

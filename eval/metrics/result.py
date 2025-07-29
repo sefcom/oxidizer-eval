@@ -103,6 +103,7 @@ class EvalResult:
             "primitive",
             "struct",
             "enum",
+            "array",
             "Result",
             "Option",
             "&primitive",
@@ -110,6 +111,7 @@ class EvalResult:
             "&enum",
             "&Result",
             "&Option",
+            "&array",
             "&reference",
             "reference",
         ]

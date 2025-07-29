@@ -40,18 +40,6 @@ def load_cached_result(decompiler, bin_name):
     return result
 
 
-def load_cached_inferred_prototypes(bin_name) -> Dict[str, FunctionPrototype]:
-    path = os.path.join(CACHE_DIR, "result", "oxidizer", bin_name + ".json")
-    if os.path.exists(path):
-        with open(path, "r") as fd:
-            object = json.load(fd)["prototypes"]
-            prototypes = {}
-            for name in object:
-                prototypes[name] = FunctionPrototype.from_dict(object[name])
-            return prototypes
-    return None
-
-
 def load_function_list(binary_path, module=None):
     proj = angr.Project(binary_path, auto_load_libs=False)
     symbols = proj.loader.main_object.symbols

