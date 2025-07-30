@@ -12,7 +12,7 @@ from binaryninja.highlevelil import HighLevelILInstruction
 from binaryninja.types import TypeClass, VariableSourceType
 from binaryninja.variable import Variable
 
-from .util import calculate_mcc, load_cached_result, save_result
+from .util import load_cached_result, save_result
 
 
 def _decompile(bv, func, language="C"):
@@ -118,7 +118,6 @@ def _binja_dec_base(binary_path, function_list, is_rust_binary, cache_only=False
         "num_variables": {},
         "macro_call_counts": {},
         "variable_types": {},
-        "mcc": {},
     }
 
     bin_name = os.path.basename(binary_path)
@@ -149,7 +148,6 @@ def _binja_dec_base(binary_path, function_list, is_rust_binary, cache_only=False
                 except BaseException as e:
                     traceback.print_exception(e)
                     print(f"Failed to decompile functon: {demangle(func.name)}")
-        result["mcc"] = calculate_mcc(result, is_rust_binary)
         save_result(decompiler_name, bin_name, result)
     return result
 

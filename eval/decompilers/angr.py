@@ -138,8 +138,6 @@ def _angr_dec_base(binary_path, function_list, extract_body_func, is_rust_binary
                 traceback.print_exception(e)
                 print(f"Failed to decompile functon: {demangle(func.name)}")
 
-        result["mcc"] = calculate_mcc(result, is_rust_binary)
-
         save_result(decompiler_name, bin_name, result)
     return result
 
