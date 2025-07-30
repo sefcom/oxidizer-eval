@@ -9,7 +9,7 @@ fn flealib::fleaserver::handle_client(a0: u32, a1: u64, a2: i64) -> int {
     let v7: struct40;  // [bp-0x520], Other Possible Types: u64
     let v8: void*;  // [bp-0x520]
     let v9: struct24;  // [bp-0x518], Other Possible Types: struct_0 *
-    let v10: u128;  // [bp-0x518]
+    let v10: u32;  // [bp-0x518]
     let v11: u64;  // [bp-0x510]
     let v12: struct72;  // [bp-0x508], Other Possible Types: void*
     let v13: i64;  // [bp-0x4f8], Other Possible Types: u64
@@ -45,7 +45,7 @@ fn flealib::fleaserver::handle_client(a0: u32, a1: u64, a2: i64) -> int {
     let v43: struct40;  // [bp-0x458]
     let v44: u64;  // [bp-0x440]
     let v45: u8;  // [bp-0x430]
-    let v47: Option<struct24>;  // ymm0, Other Possible Types: u256
+    let v47: struct64;  // ymm0, Other Possible Types: u256
     let v51: u128;  // xmm0
     let v52: u128;  // xmm0
     let v53: u256;  // ymm0
@@ -91,8 +91,8 @@ fn flealib::fleaserver::handle_client(a0: u32, a1: u64, a2: i64) -> int {
         }
         v2 = <T as alloc::slice::hack::ConvertVec>::to_vec(0x1, 0);
         v33 = v9;
-        v47 = v47 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v2.field_0;
-        v31 = v2.field_0;
+        v47 = v47 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v2.field_0 as &i128);
+        *(&v31 as &i128) = *(&v2.field_0 as &i128);
         if *((&v67 as &char + 8) as &i64) - 1023 <= -1023 {
             core::result::Result<T,E>::unwrap(std::os::unix::net::datagram::UnixDatagram::shutdown(&v0, 2), "flealib/src/fleaserver.rs");
             goto LABEL_79d84e;
@@ -138,7 +138,7 @@ LABEL_79d84e:
                     vvar_654{stack -1320} = struct24 OrderedDict([(0, 𝜙@64b [((7985278, None), vvar_509{stack -1320}), ((7985381, None), vvar_554{stack -1320})]), (8, 𝜙@64b [((7985278, None), vvar_512{stack -1312}), ((7985381, None), vvar_555{stack -1312})]), (16, 𝜙@64b [((7985278, None), vvar_511{stack -1304}), ((7985381, None), vvar_559{stack -1304})])])
                     flealib::fleaserver::remove_newline_characters(&v4, v13, v16 as u32);
                     v40 = <T as alloc::slice::hack::ConvertVec>::to_vec(v8, v10);
-                    v52 = v40.field_0;
+                    v52 = *(&v40.field_0 as &i128);
                     v18 = alloc::vec::Vec<u8, alloc::alloc::Global> {
                         buf: alloc::raw_vec::RawVec<u8, alloc::alloc::Global> {
                             inner: alloc::raw_vec::RawVecInner<alloc::alloc::Global> {
@@ -160,8 +160,8 @@ LABEL_79d84e:
                     v5 = alloc::string::String::from_utf8(&v18);
                     v18 = core::result::Result<T,E>::unwrap(&v5);
                     v33 = v24;
-                    v53 = ((v47 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v51 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v52 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v18.field_0 as u256;
-                    v31 = v18.field_0;
+                    v53 = ((v47 & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v51 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | v52 as u256) & 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000 | *(&v18.field_0 as &i128) as u128 as u256;
+                    *(&v31 as &i128) = *(&v18.field_0 as &i128);
                     v20 = flealib::commandparser::CommandParser::get_command(&v1, v32 as u32, v24 as u32);
                     if !((((0 ^ v20 as i64) & (0 ^ -(v17))) >> 63) as char) {
                         v54 = v20 as i128;

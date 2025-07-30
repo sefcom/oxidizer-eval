@@ -38,7 +38,7 @@ long long flealib::systemcmd::SystemCmd::get_system_info(unsigned long a0, unsig
     unsigned long long v35;  // [bp-0x118]
     unsigned long long v36;  // [bp-0x108]
     char v37;  // [bp-0xf8]
-    struct_1 *v38;  // [bp-0xe8]
+    struct_0 *v38;  // [bp-0xe8]
     char v39;  // [bp-0xe0]
     unsigned long long v40;  // [bp-0xd8]
     unsigned long long v41;  // [bp-0xd0]
@@ -61,7 +61,7 @@ long long flealib::systemcmd::SystemCmd::get_system_info(unsigned long a0, unsig
     int v59;  // xmm0
     int v60;  // xmm0
     int v61;  // xmm0
-    struct_0 *v62;  // rax
+    struct_1 *v62;  // rax
     unsigned long long v63;  // rax
     unsigned long long v64;  // rax
     unsigned long long v65;  // rdx

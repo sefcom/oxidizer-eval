@@ -7,13 +7,15 @@ clean () {
     mkdir -p "$1"
 }
 
-# clean output/result/oxidizer
-# clean output/result/angr
-# clean output/result/ida
-# clean output/decompilation/ida
-# clean output/result/ghidra
-# clean output/decompilation/ghidra
-# clean output/result/ghidra
+clean output/result/oxidizer
+clean output/decompilation/oxidizer
+clean output/result/angr
+clean output/decompilation/angr
+clean output/result/ida
+clean output/decompilation/ida
+clean output/result/ghidra
+clean output/decompilation/ghidra
+clean output/result/ghidra
 clean "output/decompilation/Binary Ninja"
 clean "output/result/Binary Ninja"
 clean "output/decompilation/Binary Ninja (Pseudo Rust)"

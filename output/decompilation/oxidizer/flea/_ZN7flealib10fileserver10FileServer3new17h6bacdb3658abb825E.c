@@ -1,5 +1,5 @@
 fn flealib::fileserver::FileServer::new(a0: i64) -> long long {
-    let v0: struct24;  // [bp-0x40], Other Possible Types: core::result::Result<std::path::PathBuf, std::io::error::Error>
+    let v0: struct24;  // [bp-0x40], Other Possible Types: core::result::Result<&str, core::str::error::Utf8Error>
     let v1: void*;  // [bp-0x38]
     let v2: u32;  // [bp-0x30]
     let v3: struct24;  // [bp-0x28]

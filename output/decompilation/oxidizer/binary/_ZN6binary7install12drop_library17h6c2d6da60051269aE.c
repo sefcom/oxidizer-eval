@@ -4,7 +4,7 @@ fn binary::install::drop_library() -> : struct24 {
     let v1: core::result::Result<std::fs::File, std::io::error::Error>;  // [bp-0xc8], Other Possible Types: struct_0 *
     let v2: alloc::borrow::Cow<str>;  // [bp-0xc0], Other Possible Types: u64
     let v3: struct40;  // [bp-0xb8]
-    let v4: struct4;  // [bp-0x90], Other Possible Types: u64
+    let v4: core::num::niche_types::I32NotAllOnes;  // [bp-0x90], Other Possible Types: u64
     let v5: core::fmt::Arguments;  // [bp-0x88], Other Possible Types: u64
     let v6: std::fs::File;  // [bp-0x80], Other Possible Types: struct_0 *
     let v7: u64;  // [bp-0x78]
@@ -40,11 +40,11 @@ fn binary::install::drop_library() -> : struct24 {
         Err(_) => {
             if !core::sync::atomic::atomic_load() {
                 return struct24 {
-                    field_0: *(&v12.inner.inner.vec.buf.inner.cap as &i128)
+                    field_0: *(&v12.inner.inner.inner.buf.inner.cap as &i128)
                     field_16: v14
                 };
             }
-            v15 = *(&v12.inner.inner.vec.buf.inner.ptr as &i128);
+            v15 = *(&v12.inner.inner.inner.buf.inner.ptr as &i128);
             v1 = &v15;
             v2 = <std::path::Display as core::fmt::Display>::fmt;
             v4 = "⚠️ Failed to create library file at ";
@@ -59,7 +59,7 @@ fn binary::install::drop_library() -> : struct24 {
             };
             log::__private_api::log(&v4, 1, &v3);
             return struct24 {
-                field_0: *(&v12.inner.inner.vec.buf.inner.cap as &i128)
+                field_0: *(&v12.inner.inner.inner.buf.inner.cap as &i128)
                 field_16: v14
             };
         },
@@ -69,7 +69,7 @@ fn binary::install::drop_library() -> : struct24 {
             v11 = *((&v21 as &char + 8) as &i64);
             if let Err(_) = v21 {
                 if core::sync::atomic::atomic_load() {
-                    v15 = *(&v12.inner.inner.vec.buf.inner.ptr as &i128);
+                    v15 = *(&v12.inner.inner.inner.buf.inner.ptr as &i128);
                     v1 = &v15;
                     v2 = <std::path::Display as core::fmt::Display>::fmt;
                     v4 = "⚠️ Failed to write library contents to ";
@@ -104,7 +104,7 @@ fn binary::install::drop_library() -> : struct24 {
             }
             if core::sync::atomic::atomic_load() <= 2 {
                 return struct24 {
-                    field_0: *(&v12.inner.inner.vec.buf.inner.cap as &i128)
+                    field_0: *(&v12.inner.inner.inner.buf.inner.cap as &i128)
                     field_16: v14
                 };
             }
@@ -123,7 +123,7 @@ fn binary::install::drop_library() -> : struct24 {
             };
             log::__private_api::log(&v4, 3, &v3);
             return struct24 {
-                field_0: *(&v12.inner.inner.vec.buf.inner.cap as &i128)
+                field_0: *(&v12.inner.inner.inner.buf.inner.cap as &i128)
                 field_16: v14
             };
         },

@@ -4,7 +4,7 @@ fn binary::daemon::close_all_fds() -> u64 {
     let v6: u64;  // rax
     let v7: struct24;  // rdi
     let v8: struct40;  // rdx
-    let v9: struct40;  // rsi
+    let v9: u64;  // rsi
     let v10: u64;  // rax
 
     if core::sync::atomic::atomic_load() >= 3 {

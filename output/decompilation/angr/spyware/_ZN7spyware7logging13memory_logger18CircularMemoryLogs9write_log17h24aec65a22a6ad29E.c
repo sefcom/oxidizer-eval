@@ -1,8 +1,8 @@
-long long spyware::logging::memory_logger::CircularMemoryLogs::write_log(struct_2 *a0, struct_1 *a1)
+long long spyware::logging::memory_logger::CircularMemoryLogs::write_log(struct_1 *a0, struct_0 *a1)
 {
     int v0;  // [bp-0x48], Other Possible Types: char
     unsigned long v1;  // [bp-0x38]
-    struct_0 *v3;  // r14
+    struct_2 *v3;  // r14
     unsigned long v4;  // r15
     unsigned long long v5;  // rax
     unsigned long long v6;  // rax

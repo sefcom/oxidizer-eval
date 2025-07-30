@@ -137,12 +137,9 @@ def _angr_dec_base(binary_path, function_list, extract_body_func, is_rust_binary
             except BaseException as e:
                 traceback.print_exception(e)
                 print(f"Failed to decompile functon: {demangle(func.name)}")
-        # Save inferred prototypes
-        # if is_rust_binary:
-        #     for func_addr in proj.kb.functions:
-        #         func = proj.kb.functions[func_addr]
-        #         if isinstance(func.prototype, RustSimTypeFunction):
-        #             result["prototypes"][func.name] = _normalize_prototype(func.name, func.prototype).to_dict()
+
+        result["mcc"] = calculate_mcc(result, is_rust_binary)
+
         save_result(decompiler_name, bin_name, result)
     return result
 

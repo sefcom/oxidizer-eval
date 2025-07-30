@@ -29,7 +29,7 @@ fn flealib::fleaserver::replay(a0: u64, a1: i64, a2: i64, a3: void*) -> long lon
     let v30: core::result::Result<std::path::PathBuf, std::io::error::Error>;  // r15
     let v31: u64;  // rdx
     let v35: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
-    let v36: u128;  // [bp-0x348]
+    let v36: u64;  // [bp-0x348]
 
     v15 = a0;
     if core::sync::atomic::atomic_load() >= 4 {

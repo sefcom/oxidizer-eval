@@ -2,7 +2,7 @@ fn FakeCrypt::stealth::is_sandbox() -> long long {
     let v0: Result<struct24, struct16>;  // [bp-0x218], Other Possible Types: alloc::borrow::Cow<str>, struct24, struct16
     let v1: u64;  // [bp-0x210]
     let v2: u64;  // [bp-0x208]
-    let v3: Result<struct24, struct24>;  // [bp-0x200], Other Possible Types: alloc::string::String
+    let v3: alloc::string::String;  // [bp-0x200], Other Possible Types: struct24
     let v4: u64;  // [bp-0x1f8]
     let v5: u64;  // [bp-0x1f0]
     let v6: alloc::string::String;  // [bp-0x1e8]

@@ -26,8 +26,8 @@ DEC_OPTIONS = {
     "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True},
     "IDA": {"dec_func": ida_dec, "cache_only": True},
     "Ghidra": {"dec_func": ghidra_dec, "cache_only": True},
-    "Binary Ninja": {"dec_func": binja_c_dec, "cache_only": False},
-    "Binary Ninja (Pseudo Rust)": {"dec_func": binja_rust_dec, "cache_only": False},
+    "Binary Ninja": {"dec_func": binja_c_dec, "cache_only": True},
+    "Binary Ninja (Pseudo Rust)": {"dec_func": binja_rust_dec, "cache_only": True},
 }
 
 EXCLUDED_FUNCTIONS = [
@@ -77,7 +77,7 @@ def eval_binary(binary_path):
         )
 
         for func_name in function_list:
-            # if "process_file" not in func_name:
+            # if "_ZN7spyware13communication6server14handle_message17h02435bd595e8370dE" not in func_name:
             #     continue
             if demangle(func_name) not in func_eval_results:
                 func_eval_results[demangle(func_name)] = FunctionEvalResult(func_name)
@@ -89,6 +89,7 @@ def eval_binary(binary_path):
             # Special handling for source
             if decompiler == "Source":
                 if func_ground_truth:
+                    func_eval_result.add_result(MCC, decompiler, 0)  # Source does not have MCC
                     func_eval_result.add_result(LOC, decompiler, func_ground_truth.loc)
                     func_eval_result.add_result(NUM_VARIABLES, decompiler, func_ground_truth.nvars)
                     func_eval_result.add_result(NUM_OPERATORS, decompiler, func_ground_truth.nofops)
@@ -108,9 +109,13 @@ def eval_binary(binary_path):
                 and func_name in result["decompilation"]
                 and func_name in result["function_call_counts"]
                 and func_name in result["variable_types"]
+                # and func_name in result["mcc"]
                 and func_ground_truth is not None
             ):
                 decompilation = result["decompilation"][func_name]
+
+                # Conciseness Metric-0: Number of lines of code
+                func_eval_result.add_result(MCC, decompiler, mcc(decompilation))
 
                 # Conciseness Metric-1: Number of lines of code
                 func_eval_result.add_result(LOC, decompiler, LoC(decompilation))
@@ -185,7 +190,7 @@ def eval(dir_path):
                 continue
             binary_paths.append(os.path.join(dirpath, filename))
 
-    binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) == "binary"]
+    # binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) in ["flea"]]
     # binary_paths = binary_paths[:30]
 
     tasks = [(binary_path,) for binary_path in binary_paths]

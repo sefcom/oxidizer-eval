@@ -3207,3 +3207,1333 @@ Function: flealib::keylogger::run
   Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [['struct', 24]]
 
 Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [('primitive', 16)]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [('&primitive', 8), ('Option', 24), ('struct', 32)]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [('&primitive', 8)]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [('&primitive', 8), ('struct', 32)]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [('&primitive', 8), ('struct', 32)]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [('struct', 32), ('struct', 32)]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [('&primitive', 8)]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [('struct', 24), ('primitive', 8)]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [('struct', 24)]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [('struct', 24)]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [('&primitive', 8)]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [('Option', 24)]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [('struct', 40), ('struct', 32), ('primitive', 4), ('&primitive', 8)]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [('struct', 24), ('&primitive', 8), ('struct', 24), ('&primitive', 8), ('primitive', 16)]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [('struct', 24), ('&primitive', 8), ('struct', 24), ('&primitive', 8), ('primitive', 16)]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [('struct', 24), ('&primitive', 8), ('struct', 24), ('&primitive', 8), ('primitive', 16)]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [('&primitive', 8)]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [('struct', 24)]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [('struct', 24)]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [('Result', 8), ('struct', 16), ('Result', 24), ('struct', 24), ('struct', 144), ('struct', 16), ('struct', 24), ('Result', 96), ('struct', 24), ('struct', 24), ('struct', 56), ('primitive', 8), ('struct', 24)]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [('&primitive', 8)]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [('Result', 88)]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [('primitive', 16)]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [('primitive', 16)]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [('struct', 24)]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [('struct', 24)]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [('&primitive', 8)]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [('struct', 24), ('struct', 24)]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [('struct', 8)]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [('Option', 120), ('&primitive', 8), ('struct', 4), ('primitive', 8)]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [('struct', 32), ('struct', 120)]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [('primitive', 8)]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [('primitive', 8)]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [('struct', 24), ('struct', 64)]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [('struct', 72)]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [('primitive', 8)]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [('struct', 96)]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [('struct', 4)]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [('&primitive', 8)]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [('struct', 24)]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [('struct', 24)]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [('struct', 8)]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [('struct', 24), ('struct', 24)]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [('struct', 24)]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [('struct', 24)]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [('struct', 24)]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [('primitive', 1)]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [('struct', 24)]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [('struct', 56)]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [('&primitive', 8), ('primitive', 16), ('primitive', 16)]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [('&primitive', 8), ('primitive', 16), ('primitive', 16)]
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [('&primitive', 8), ('primitive', 16), ('primitive', 16)]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [('Result', 32), ('primitive', 8), ('struct', 24), ('Result', 40), ('struct', 16)]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [('struct', 40), ('struct', 24), ('primitive', 8), ('Result', 88)]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [('struct', 32), ('struct', 24)]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [('struct', 24)]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [('primitive', 1)]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [('primitive', 8)]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [('primitive', 8)]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [('struct', 24), ('struct', 48), ('primitive', 8)]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [('struct', 16)]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [('Result', 16)]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [('enum', 24), ('primitive', 16)]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [('struct', 24)]
+
+Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['primitive', 16]]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [['&primitive', 8], ['Option', 24], ['struct', 32]]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [['&primitive', 8]]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [['struct', 32], ['struct', 32]]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [['&primitive', 8]]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [['struct', 24], ['primitive', 8]]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [['struct', 24]]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [['struct', 24]]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [['&primitive', 8]]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [['Option', 24]]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [['struct', 40], ['struct', 32], ['primitive', 4], ['&primitive', 8]]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [['&primitive', 8]]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [['struct', 24]]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [['struct', 24]]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['Result', 8], ['struct', 16], ['Result', 24], ['struct', 24], ['struct', 144], ['struct', 16], ['struct', 24], ['Result', 96], ['struct', 24], ['struct', 24], ['struct', 56], ['primitive', 8], ['struct', 24]]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [['&primitive', 8]]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [['Result', 88]]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [['primitive', 16]]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [['primitive', 16]]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [['struct', 24]]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24], ['struct', 24]]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [['struct', 8]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [['Option', 120], ['&primitive', 8], ['struct', 4], ['primitive', 8]]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [['struct', 32], ['struct', 120]]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [['primitive', 8]]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [['primitive', 8]]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['struct', 24], ['struct', 64]]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [['struct', 72]]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [['primitive', 8]]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [['struct', 96]]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [['struct', 4]]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [['struct', 8]]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['struct', 24], ['struct', 24]]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [['struct', 24]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['primitive', 1]]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24]]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [['struct', 56]]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [['Result', 32], ['primitive', 8], ['struct', 24], ['Result', 40], ['struct', 16]]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [['struct', 40], ['struct', 24], ['primitive', 8], ['Result', 88]]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [['struct', 32], ['struct', 24]]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [['struct', 24]]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [['primitive', 1]]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['struct', 24], ['struct', 48], ['primitive', 8]]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [['struct', 16]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [['Result', 16]]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['enum', 24], ['primitive', 16]]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [['struct', 24]]
+
+Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['primitive', 16]]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [['&primitive', 8], ['Option', 24], ['struct', 32]]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [['&primitive', 8]]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [['struct', 32], ['struct', 32]]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [['&primitive', 8]]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [['struct', 24], ['primitive', 8]]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [['struct', 24]]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [['struct', 24]]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [['&primitive', 8]]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [['Option', 24]]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [['struct', 40], ['struct', 32], ['primitive', 4], ['&primitive', 8]]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [['&primitive', 8]]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [['struct', 24]]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [['struct', 24]]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['Result', 8], ['struct', 16], ['Result', 24], ['struct', 24], ['struct', 144], ['struct', 16], ['struct', 24], ['Result', 96], ['struct', 24], ['struct', 24], ['struct', 56], ['primitive', 8], ['struct', 24]]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [['&primitive', 8]]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [['Result', 88]]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [['primitive', 16]]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [['primitive', 16]]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [['struct', 24]]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24], ['struct', 24]]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [['struct', 8]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [['Option', 120], ['&primitive', 8], ['struct', 4], ['primitive', 8]]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [['struct', 32], ['struct', 120]]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [['primitive', 8]]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [['primitive', 8]]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['struct', 24], ['struct', 64]]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [['struct', 72]]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [['primitive', 8]]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [['struct', 96]]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [['struct', 4]]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [['struct', 8]]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['struct', 24], ['struct', 24]]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [['struct', 24]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['primitive', 1]]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24]]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [['struct', 56]]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [['Result', 32], ['primitive', 8], ['struct', 24], ['Result', 40], ['struct', 16]]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [['struct', 40], ['struct', 24], ['primitive', 8], ['Result', 88]]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [['struct', 32], ['struct', 24]]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [['struct', 24]]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [['primitive', 1]]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['struct', 24], ['struct', 48], ['primitive', 8]]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [['struct', 16]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [['Result', 16]]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['enum', 24], ['primitive', 16]]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [['struct', 24]]
+
+Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['primitive', 16]]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [['&primitive', 8], ['Option', 24], ['struct', 32]]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [['&primitive', 8]]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [['struct', 32], ['struct', 32]]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [['&primitive', 8]]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [['struct', 24], ['primitive', 8]]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [['struct', 24]]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [['struct', 24]]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [['&primitive', 8]]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [['Option', 24]]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [['struct', 40], ['struct', 32], ['primitive', 4], ['&primitive', 8]]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [['&primitive', 8]]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [['struct', 24]]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [['struct', 24]]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['Result', 8], ['struct', 16], ['Result', 24], ['struct', 24], ['struct', 144], ['struct', 16], ['struct', 24], ['Result', 96], ['struct', 24], ['struct', 24], ['struct', 56], ['primitive', 8], ['struct', 24]]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [['&primitive', 8]]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [['Result', 88]]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [['primitive', 16]]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [['primitive', 16]]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [['struct', 24]]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24], ['struct', 24]]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [['struct', 8]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [['Option', 120], ['&primitive', 8], ['struct', 4], ['primitive', 8]]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [['struct', 32], ['struct', 120]]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [['primitive', 8]]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [['primitive', 8]]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['struct', 24], ['struct', 64]]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [['struct', 72]]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [['primitive', 8]]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [['struct', 96]]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [['struct', 4]]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [['struct', 8]]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['struct', 24], ['struct', 24]]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [['struct', 24]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['primitive', 1]]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24]]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [['struct', 56]]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [['Result', 32], ['primitive', 8], ['struct', 24], ['Result', 40], ['struct', 16]]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [['struct', 40], ['struct', 24], ['primitive', 8], ['Result', 88]]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [['struct', 32], ['struct', 24]]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [['struct', 24]]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [['primitive', 1]]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['struct', 24], ['struct', 48], ['primitive', 8]]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [['struct', 16]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [['Result', 16]]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['enum', 24], ['primitive', 16]]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [['struct', 24]]
+
+Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['primitive', 16]]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [['&primitive', 8], ['Option', 24], ['struct', 32]]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [['&primitive', 8]]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [['struct', 32], ['struct', 32]]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [['&primitive', 8]]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [['struct', 24], ['primitive', 8]]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [['struct', 24]]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [['struct', 24]]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [['&primitive', 8]]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [['Option', 24]]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [['struct', 40], ['struct', 32], ['primitive', 4], ['&primitive', 8]]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [['&primitive', 8]]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [['struct', 24]]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [['struct', 24]]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['Result', 8], ['struct', 16], ['Result', 24], ['struct', 24], ['struct', 144], ['struct', 16], ['struct', 24], ['Result', 96], ['struct', 24], ['struct', 24], ['struct', 56], ['primitive', 8], ['struct', 24]]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [['&primitive', 8]]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [['Result', 88]]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [['primitive', 16]]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [['primitive', 16]]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [['struct', 24]]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24], ['struct', 24]]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [['struct', 8]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [['Option', 120], ['&primitive', 8], ['struct', 4], ['primitive', 8]]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [['struct', 32], ['struct', 120]]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [['primitive', 8]]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [['primitive', 8]]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['struct', 24], ['struct', 64]]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [['struct', 72]]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [['primitive', 8]]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [['struct', 96]]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [['struct', 4]]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [['struct', 8]]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['struct', 24], ['struct', 24]]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [['struct', 24]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['primitive', 1]]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24]]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [['struct', 56]]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [['Result', 32], ['primitive', 8], ['struct', 24], ['Result', 40], ['struct', 16]]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [['struct', 40], ['struct', 24], ['primitive', 8], ['Result', 88]]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [['struct', 32], ['struct', 24]]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [['struct', 24]]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [['primitive', 1]]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['struct', 24], ['struct', 48], ['primitive', 8]]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [['struct', 16]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [['Result', 16]]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['enum', 24], ['primitive', 16]]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [['struct', 24]]
+
+Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['primitive', 16]]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [['&primitive', 8], ['Option', 24], ['struct', 32]]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [['&primitive', 8]]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [['struct', 32], ['struct', 32]]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [['&primitive', 8]]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [['struct', 24], ['primitive', 8]]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [['struct', 24]]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [['struct', 24]]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [['&primitive', 8]]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [['Option', 24]]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [['struct', 40], ['struct', 32], ['primitive', 4], ['&primitive', 8]]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [['&primitive', 8]]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [['struct', 24]]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [['struct', 24]]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['Result', 8], ['struct', 16], ['Result', 24], ['struct', 24], ['struct', 144], ['struct', 16], ['struct', 24], ['Result', 96], ['struct', 24], ['struct', 24], ['struct', 56], ['primitive', 8], ['struct', 24]]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [['&primitive', 8]]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [['Result', 88]]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [['primitive', 16]]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [['primitive', 16]]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [['struct', 24]]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24], ['struct', 24]]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [['struct', 8]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [['Option', 120], ['&primitive', 8], ['struct', 4], ['primitive', 8]]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [['struct', 32], ['struct', 120]]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [['primitive', 8]]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [['primitive', 8]]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['struct', 24], ['struct', 64]]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [['struct', 72]]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [['primitive', 8]]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [['struct', 96]]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [['struct', 4]]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [['struct', 8]]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['struct', 24], ['struct', 24]]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [['struct', 24]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['primitive', 1]]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24]]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [['struct', 56]]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [['Result', 32], ['primitive', 8], ['struct', 24], ['Result', 40], ['struct', 16]]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [['struct', 40], ['struct', 24], ['primitive', 8], ['Result', 88]]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [['struct', 32], ['struct', 24]]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [['struct', 24]]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [['primitive', 1]]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['struct', 24], ['struct', 48], ['primitive', 8]]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [['struct', 16]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [['Result', 16]]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['enum', 24], ['primitive', 16]]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [['struct', 24]]
+
+Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['primitive', 16]]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [['&primitive', 8], ['Option', 24], ['struct', 32]]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [['&primitive', 8]]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [['struct', 32], ['struct', 32]]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [['&primitive', 8]]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [['struct', 24], ['primitive', 8]]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [['struct', 24]]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [['struct', 24]]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [['&primitive', 8]]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [['Option', 24]]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [['struct', 40], ['struct', 32], ['primitive', 4], ['&primitive', 8]]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [['&primitive', 8]]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [['struct', 24]]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [['struct', 24]]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['Result', 8], ['struct', 16], ['Result', 24], ['struct', 24], ['struct', 144], ['struct', 16], ['struct', 24], ['Result', 96], ['struct', 24], ['struct', 24], ['struct', 56], ['primitive', 8], ['struct', 24]]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [['&primitive', 8]]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [['Result', 88]]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [['primitive', 16]]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [['primitive', 16]]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [['struct', 24]]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24], ['struct', 24]]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [['struct', 8]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [['Option', 120], ['&primitive', 8], ['struct', 4], ['primitive', 8]]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [['struct', 32], ['struct', 120]]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [['primitive', 8]]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [['primitive', 8]]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['struct', 24], ['struct', 64]]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [['struct', 72]]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [['primitive', 8]]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [['struct', 96]]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [['struct', 4]]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [['struct', 8]]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['struct', 24], ['struct', 24]]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [['struct', 24]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['primitive', 1]]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24]]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [['struct', 56]]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [['Result', 32], ['primitive', 8], ['struct', 24], ['Result', 40], ['struct', 16]]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [['struct', 40], ['struct', 24], ['primitive', 8], ['Result', 88]]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [['struct', 32], ['struct', 24]]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [['struct', 24]]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [['primitive', 1]]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['struct', 24], ['struct', 48], ['primitive', 8]]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [['struct', 16]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [['Result', 16]]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['enum', 24], ['primitive', 16]]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [['struct', 24]]
+
+Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [('primitive', 16)]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [('&primitive', 8), ('Option', 24), ('struct', 32)]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [('&primitive', 8)]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [('&primitive', 8), ('struct', 32)]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [('&primitive', 8), ('struct', 32)]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [('struct', 32), ('struct', 32)]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [('&primitive', 8)]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [('struct', 24), ('primitive', 8)]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [('struct', 24)]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [('struct', 24)]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [('&primitive', 8)]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [('Option', 24)]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [('struct', 40), ('struct', 32), ('primitive', 4), ('&primitive', 8)]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [('struct', 24), ('&primitive', 8), ('struct', 24), ('&primitive', 8), ('primitive', 16)]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [('struct', 24), ('&primitive', 8), ('struct', 24), ('&primitive', 8), ('primitive', 16)]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [('struct', 24), ('&primitive', 8), ('struct', 24), ('&primitive', 8), ('primitive', 16)]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [('&primitive', 8)]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [('struct', 24)]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [('struct', 24)]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [('Result', 8), ('struct', 16), ('Result', 200), ('struct', 24), ('struct', 144), ('struct', 16), ('struct', 24), ('Result', 96), ('struct', 24), ('struct', 24), ('struct', 56), ('primitive', 8), ('struct', 24)]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [('&primitive', 8)]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [('Result', 88)]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [('primitive', 16)]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [('primitive', 16)]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [('struct', 24)]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [('struct', 24)]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [('&primitive', 8)]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [('struct', 24), ('struct', 24)]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [('struct', 8)]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [('Option', 120), ('&primitive', 8), ('struct', 4), ('primitive', 8)]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [('struct', 32), ('struct', 120)]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [('primitive', 8)]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [('primitive', 8)]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [('struct', 24), ('struct', 64)]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [('struct', 72)]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [('primitive', 8)]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [('struct', 96)]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [('struct', 4)]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [('&primitive', 8)]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [('struct', 24)]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [('struct', 24)]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [('struct', 8)]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [('struct', 24), ('struct', 24)]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [('struct', 24)]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [('struct', 24)]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [('struct', 24)]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [('primitive', 1)]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [('struct', 24)]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [('struct', 56)]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [('&primitive', 8), ('primitive', 16), ('primitive', 16)]
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [('&primitive', 8), ('primitive', 16), ('primitive', 16)]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [('&primitive', 8), ('primitive', 16), ('primitive', 16)]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [('Result', 32), ('primitive', 8), ('struct', 24), ('Result', 40), ('struct', 16)]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [('struct', 40), ('struct', 24), ('primitive', 8), ('Result', 88)]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [('struct', 32), ('struct', 24)]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [('struct', 24)]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [('primitive', 1)]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [('primitive', 8)]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [('primitive', 8)]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [('struct', 24), ('struct', 48), ('primitive', 8)]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [('struct', 16)]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [('Result', 16)]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [('enum', 24), ('primitive', 16)]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [('struct', 24)]
+
+Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['primitive', 16]]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [['&primitive', 8], ['Option', 24], ['struct', 32]]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [['&primitive', 8]]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [['struct', 32], ['struct', 32]]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [['&primitive', 8]]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [['struct', 24], ['primitive', 8]]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [['struct', 24]]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [['struct', 24]]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [['&primitive', 8]]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [['Option', 24]]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [['struct', 40], ['struct', 32], ['primitive', 4], ['&primitive', 8]]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [['&primitive', 8]]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [['struct', 24]]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [['struct', 24]]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['Result', 8], ['struct', 16], ['Result', 200], ['struct', 24], ['struct', 144], ['struct', 16], ['struct', 24], ['Result', 96], ['struct', 24], ['struct', 24], ['struct', 56], ['primitive', 8], ['struct', 24]]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [['&primitive', 8]]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [['Result', 88]]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [['primitive', 16]]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [['primitive', 16]]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [['struct', 24]]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24], ['struct', 24]]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [['struct', 8]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [['Option', 120], ['&primitive', 8], ['struct', 4], ['primitive', 8]]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [['struct', 32], ['struct', 120]]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [['primitive', 8]]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [['primitive', 8]]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['struct', 24], ['struct', 64]]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [['struct', 72]]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [['primitive', 8]]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [['struct', 96]]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [['struct', 4]]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [['struct', 8]]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['struct', 24], ['struct', 24]]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [['struct', 24]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['primitive', 1]]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24]]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [['struct', 56]]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [['Result', 32], ['primitive', 8], ['struct', 24], ['Result', 40], ['struct', 16]]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [['struct', 40], ['struct', 24], ['primitive', 8], ['Result', 88]]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [['struct', 32], ['struct', 24]]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [['struct', 24]]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [['primitive', 1]]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['struct', 24], ['struct', 48], ['primitive', 8]]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [['struct', 16]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [['Result', 16]]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['enum', 24], ['primitive', 16]]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [['struct', 24]]
+
+Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['primitive', 16]]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [['&primitive', 8], ['Option', 24], ['struct', 32]]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [['&primitive', 8]]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [['struct', 32], ['struct', 32]]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [['&primitive', 8]]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [['struct', 24], ['primitive', 8]]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [['struct', 24]]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [['struct', 24]]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [['&primitive', 8]]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [['Option', 24]]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [['struct', 40], ['struct', 32], ['primitive', 4], ['&primitive', 8]]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [['&primitive', 8]]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [['struct', 24]]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [['struct', 24]]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['Result', 8], ['struct', 16], ['Result', 200], ['struct', 24], ['struct', 144], ['struct', 16], ['struct', 24], ['Result', 96], ['struct', 24], ['struct', 24], ['struct', 56], ['primitive', 8], ['struct', 24]]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [['&primitive', 8]]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [['Result', 88]]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [['primitive', 16]]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [['primitive', 16]]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [['struct', 24]]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24], ['struct', 24]]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [['struct', 8]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [['Option', 120], ['&primitive', 8], ['struct', 4], ['primitive', 8]]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [['struct', 32], ['struct', 120]]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [['primitive', 8]]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [['primitive', 8]]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['struct', 24], ['struct', 64]]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [['struct', 72]]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [['primitive', 8]]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [['struct', 96]]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [['struct', 4]]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [['struct', 8]]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['struct', 24], ['struct', 24]]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [['struct', 24]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['primitive', 1]]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24]]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [['struct', 56]]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [['Result', 32], ['primitive', 8], ['struct', 24], ['Result', 40], ['struct', 16]]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [['struct', 40], ['struct', 24], ['primitive', 8], ['Result', 88]]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [['struct', 32], ['struct', 24]]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [['struct', 24]]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [['primitive', 1]]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['struct', 24], ['struct', 48], ['primitive', 8]]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [['struct', 16]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [['Result', 16]]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['enum', 24], ['primitive', 16]]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [['struct', 24]]
+
+Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['primitive', 16]]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [['&primitive', 8], ['Option', 24], ['struct', 32]]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [['&primitive', 8]]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [['struct', 32], ['struct', 32]]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [['&primitive', 8]]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [['struct', 24], ['primitive', 8]]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [['struct', 24]]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [['struct', 24]]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [['&primitive', 8]]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [['Option', 24]]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [['struct', 40], ['struct', 32], ['primitive', 4], ['&primitive', 8]]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [['&primitive', 8]]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [['struct', 24]]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [['struct', 24]]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['Result', 8], ['struct', 16], ['Result', 200], ['struct', 24], ['struct', 144], ['struct', 16], ['struct', 24], ['Result', 96], ['struct', 24], ['struct', 24], ['struct', 56], ['primitive', 8], ['struct', 24]]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [['&primitive', 8]]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [['Result', 88]]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [['primitive', 16]]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [['primitive', 16]]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [['struct', 24]]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24], ['struct', 24]]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [['struct', 8]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [['Option', 120], ['&primitive', 8], ['struct', 4], ['primitive', 8]]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [['struct', 32], ['struct', 120]]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [['primitive', 8]]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [['primitive', 8]]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['struct', 24], ['struct', 64]]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [['struct', 72]]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [['primitive', 8]]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [['struct', 96]]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [['struct', 4]]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [['struct', 8]]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['struct', 24], ['struct', 24]]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [['struct', 24]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['primitive', 1]]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24]]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [['struct', 56]]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [['Result', 32], ['primitive', 8], ['struct', 24], ['Result', 40], ['struct', 16]]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [['struct', 40], ['struct', 24], ['primitive', 8], ['Result', 88]]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [['struct', 32], ['struct', 24]]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [['struct', 24]]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [['primitive', 1]]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['struct', 24], ['struct', 48], ['primitive', 8]]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [['struct', 16]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [['Result', 16]]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['enum', 24], ['primitive', 16]]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [['struct', 24]]
+
+Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['primitive', 16]]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [['&primitive', 8], ['Option', 24], ['struct', 32]]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [['&primitive', 8]]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [['struct', 32], ['struct', 32]]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [['&primitive', 8]]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [['struct', 24], ['primitive', 8]]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [['struct', 24]]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [['struct', 24]]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [['&primitive', 8]]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [['Option', 24]]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [['struct', 40], ['struct', 32], ['primitive', 4], ['&primitive', 8]]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [['&primitive', 8]]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [['struct', 24]]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [['struct', 24]]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['Result', 8], ['struct', 16], ['Result', 200], ['struct', 24], ['struct', 144], ['struct', 16], ['struct', 24], ['Result', 96], ['struct', 24], ['struct', 24], ['struct', 56], ['primitive', 8], ['struct', 24]]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [['&primitive', 8]]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [['Result', 88]]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [['primitive', 16]]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [['primitive', 16]]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [['struct', 24]]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24], ['struct', 24]]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [['struct', 8]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [['Option', 120], ['&primitive', 8], ['struct', 4], ['primitive', 8]]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [['struct', 32], ['struct', 120]]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [['primitive', 8]]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [['primitive', 8]]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['struct', 24], ['struct', 64]]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [['struct', 72]]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [['primitive', 8]]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [['struct', 96]]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [['struct', 4]]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [['struct', 8]]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['struct', 24], ['struct', 24]]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [['struct', 24]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['primitive', 1]]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24]]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [['struct', 56]]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [['Result', 32], ['primitive', 8], ['struct', 24], ['Result', 40], ['struct', 16]]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [['struct', 40], ['struct', 24], ['primitive', 8], ['Result', 88]]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [['struct', 32], ['struct', 24]]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [['struct', 24]]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [['primitive', 1]]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['struct', 24], ['struct', 48], ['primitive', 8]]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [['struct', 16]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [['Result', 16]]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['enum', 24], ['primitive', 16]]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [['struct', 24]]
+
+Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['primitive', 16]]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [['&primitive', 8], ['Option', 24], ['struct', 32]]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [['&primitive', 8]]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [['struct', 32], ['struct', 32]]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [['&primitive', 8]]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [['struct', 24], ['primitive', 8]]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [['struct', 24]]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [['struct', 24]]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [['&primitive', 8]]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [['Option', 24]]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [['struct', 40], ['struct', 32], ['primitive', 4], ['&primitive', 8]]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [['&primitive', 8]]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [['struct', 24]]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [['struct', 24]]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['Result', 8], ['struct', 16], ['Result', 200], ['struct', 24], ['struct', 144], ['struct', 16], ['struct', 24], ['Result', 96], ['struct', 24], ['struct', 24], ['struct', 56], ['primitive', 8], ['struct', 24]]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [['&primitive', 8]]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [['Result', 88]]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [['primitive', 16]]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [['primitive', 16]]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [['struct', 24]]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24], ['struct', 24]]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [['struct', 8]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [['Option', 120], ['&primitive', 8], ['struct', 4], ['primitive', 8]]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [['struct', 32], ['struct', 120]]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [['primitive', 8]]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [['primitive', 8]]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['struct', 24], ['struct', 64]]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [['struct', 72]]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [['primitive', 8]]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [['struct', 96]]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [['struct', 4]]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [['struct', 8]]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['struct', 24], ['struct', 24]]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [['struct', 24]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['primitive', 1]]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24]]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [['struct', 56]]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [['Result', 32], ['primitive', 8], ['struct', 24], ['Result', 40], ['struct', 16]]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [['struct', 40], ['struct', 24], ['primitive', 8], ['Result', 88]]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [['struct', 32], ['struct', 24]]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [['struct', 24]]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [['primitive', 1]]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['struct', 24], ['struct', 48], ['primitive', 8]]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [['struct', 16]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [['Result', 16]]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['enum', 24], ['primitive', 16]]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [['struct', 24]]
+
+Function: flealib::hideflea::hide_flea_process
+
+Function: flea::print_usage
+  Variable(name='brief', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['primitive', 16]]
+
+Function: flea::main
+  Variable(name='backdoor_handle', type=Enumeration(name='core::option::Option<std::thread::JoinHandle<()>>', size=32, discriminant_size=32, variants=None), category='stack', location=304): [['&primitive', 8], ['Option', 24], ['struct', 32]]
+  Variable(name='kl3', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='register', location='r14'): [['&primitive', 8]]
+  Variable(name='handle2', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='i', type=Pointer(pts_to=Struct(name='&str', size=16, fields=None)), category='stack', location=624): [['&primitive', 8], ['struct', 32]]
+  Variable(name='handle', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=840): [['struct', 32], ['struct', 32]]
+  Variable(name='key_logger_data', type=Struct(name='alloc::sync::Arc<std::sync::mutex::Mutex<flealib::keylogger::Keylogger>, alloc::alloc::Global>', size=8, fields=None), category='stack', location=712): [['&primitive', 8]]
+  Variable(name='address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=472): [['struct', 24], ['primitive', 8]]
+  Variable(name='current_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=688): [['struct', 24]]
+  Variable(name='dir', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=768): [['struct', 24]]
+  Variable(name='running', type=Struct(name='alloc::sync::Arc<core::sync::atomic::AtomicBool, alloc::alloc::Global>', size=8, fields=None), category='stack', location=464): [['&primitive', 8]]
+  Variable(name='host_address', type=Enumeration(name='core::option::Option<alloc::string::String>', size=24, discriminant_size=24, variants=None), category='stack', location=744): [['Option', 24]]
+  Variable(name='matches', type=Struct(name='getopts::Matches', size=88, fields=None), category='stack', location=368): [['struct', 40], ['struct', 32], ['primitive', 4], ['&primitive', 8]]
+  Variable(name='f', type=Enumeration(name='getopts::Fail', size=32, discriminant_size=32, variants=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='iter', type=Struct(name='core::iter::adapters::take::Take<core::slice::iter::Iter<&str>>', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24], ['&primitive', 8], ['struct', 24], ['&primitive', 8], ['primitive', 16]]
+  Variable(name='opts', type=Struct(name='getopts::Options', size=32, fields=None), category='stack', location=496): [['&primitive', 8]]
+  Variable(name='program', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=600): [['struct', 24]]
+  Variable(name='my_local_ip', type=Enumeration(name='core::net::ip_addr::IpAddr', size=17, discriminant_size=17, variants=None), category='stack', location=879): [['struct', 24]]
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=80): [['Result', 8], ['struct', 16], ['Result', 200], ['struct', 24], ['struct', 144], ['struct', 16], ['struct', 24], ['Result', 96], ['struct', 24], ['struct', 24], ['struct', 56], ['primitive', 8], ['struct', 24]]
+  Variable(name='program_dir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=336): [['&primitive', 8]]
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<&str, alloc::alloc::Global>', size=24, fields=None), category='stack', location=720): [['Result', 88]]
+  Variable(name='separator', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=656): [['primitive', 16]]
+  Variable(name='pdir', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=272): [['primitive', 16]]
+  Variable(name='args', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=576): [['struct', 24]]
+
+Function: flea::updater::find_update
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flea::updater::start_new_process
+  Variable(name='info', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='std::path::PathBuf', size=24, fields=None), category='stack', location=0): [['struct', 24], ['struct', 24]]
+
+Function: flealib::camera::save_camera_frames
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=32): [['struct', 8]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=136): [['Option', 120], ['&primitive', 8], ['struct', 4], ['primitive', 8]]
+  Variable(name='frame', type=Struct(name='rscam::Frame', size=120, fields=None), category='stack', location=336): [['struct', 32], ['struct', 120]]
+  Variable(name='i', type=Primitive(name='u32', size=4), category='stack', location=4): [['primitive', 8]]
+  Variable(name='rx', type=Struct(name='std::sync::mpsc::Receiver<rscam::Frame>', size=16, fields=None), category='stack', location=16): [['primitive', 8]]
+
+Function: flealib::browserhistory::get_history
+  Variable(name='history', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['struct', 24], ['struct', 64]]
+  Variable(name='stmt', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='stack', location=176): [['struct', 72]]
+  Variable(name='val', type=Struct(name='rusqlite::statement::Statement', size=72, fields=None), category='register', location='rax'): [['primitive', 8]]
+  Variable(name='conn', type=Struct(name='rusqlite::Connection', size=96, fields=None), category='stack', location=272): [['struct', 96]]
+
+Function: flealib::browserhistory::get_browsing_history
+  Variable(name='v', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=0): [['struct', 4]]
+  Variable(name='ret', type=Struct(name='alloc::vec::Vec<alloc::string::String, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['&primitive', 8]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: flealib::browserhistory::get_firefox_history
+  Variable(name='temp_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='conf', type=Struct(name='ini::Ini', size=176, fields=None), category='stack', location=304): [['struct', 8]]
+  Variable(name='profile_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['struct', 24], ['struct', 24]]
+  Variable(name='buf_path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=72): [['struct', 24]]
+  Variable(name='path', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+
+Function: flealib::fleaserver::remove_newline_characters
+  Variable(name='s2', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=0): [['struct', 24]]
+  Variable(name='s1', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=24): [['primitive', 1]]
+
+Function: flealib::fleaserver::replay
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): []
+  Variable(name='cmd', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=32): [['struct', 24]]
+  Variable(name='command_processor', type=Struct(name='flealib::commandprocessor::CommandProcessor', size=728, fields=None), category='stack', location=192): [['struct', 56]]
+
+Function: flealib::fleaserver::handle_client
+  Variable(name='rets', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='&str', size=16, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=64): [['&primitive', 8], ['primitive', 16], ['primitive', 16]]
+  Variable(name='x', type=Struct(name='(alloc::string::String, alloc::string::String)', size=48, fields=None), category='stack', location=16): [['Result', 32], ['primitive', 8], ['struct', 24], ['Result', 40], ['struct', 16]]
+  Variable(name='ret', type=Enumeration(name='core::result::Result<(alloc::string::String, alloc::string::String), &str>', size=48, discriminant_size=48, variants=None), category='stack', location=80): [['struct', 40], ['struct', 24], ['primitive', 8], ['Result', 88]]
+  Variable(name='data_vec', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=208): [['struct', 32], ['struct', 24]]
+  Variable(name='data_str', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=128): [['struct', 24]]
+  Variable(name='data', type=Array(ele_type=Primitive(name='u8', size=1), length=1024), category='stack', location=264): [['primitive', 1]]
+
+Function: flealib::keylogger::remove_keylog_file
+  Variable(name='x', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: flealib::keylogger::get_key_logger_content
+  Variable(name='y', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: flealib::keylogger::run
+  Variable(name='keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=64): [['struct', 24], ['struct', 48], ['primitive', 8]]
+  Variable(name='local', type=Struct(name='chrono::datetime::DateTime<chrono::offset::local::Local>', size=16, fields=None), category='stack', location=248): [['struct', 16]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=12): [['Result', 16]]
+  Variable(name='prev_keys', type=Struct(name='alloc::vec::Vec<device_query::keymap::Keycode, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['enum', 24], ['primitive', 16]]
+  Variable(name='device_state', type=Struct(name='device_query::device_state::linux::DeviceState', size=8, fields=None), category='stack', location=56): [['struct', 24]]
+
+Function: flealib::hideflea::hide_flea_process

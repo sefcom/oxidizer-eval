@@ -1,6 +1,6 @@
 fn binary::install::add_preload_hook(a0: i64) {
     let v0: u32;  // [bp-0xac]
-    let v1: Result<struct4, struct8>;  // [bp-0xa8], Other Possible Types: u64
+    let v1: core::result::Result<std::fs::File, std::io::error::Error>;  // [bp-0xa8], Other Possible Types: u64
     let v2: u64;  // [bp-0xa8]
     let v3: core::fmt::Arguments;  // [bp-0xa8]
     let v5: u64;  // [bp-0xa8]
@@ -19,7 +19,7 @@ fn binary::install::add_preload_hook(a0: i64) {
     let v18: void*;  // [bp-0x50], Other Possible Types: u128
     let v19: u64;  // [bp-0x48]
     let v20: void*;  // [bp-0x40]
-    let v21: core::fmt::rt::Argument;  // [bp-0x38], Other Possible Types: struct_0 *, u64
+    let v21: core::fmt::rt::Argument;  // [bp-0x38], Other Possible Types: struct_1 *, u64
     let v22: u64;  // [bp-0x38]
     let v23: u64;  // [bp-0x30]
     let v24: u128;  // [bp-0x28]

@@ -76,9 +76,9 @@ fn harry::exec(a1: &struct24) -> : struct24 {
             v14 = 0 as u128;
             v4 as u448 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, v15 as i64, v16 as i64);
             v23 = std::io::buffered::bufreader::BufReader<R>::with_capacity(0x2000, v17, v19);
-            v30 = <std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read_to_string(&v4 as u8, &v4 as u448);
+            v31 = <std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read_to_string(&v4 as u8, &v4 as u448);
             core::result::Result<T,E>::unwrap(&v4 as u8, "src/main.rs");
-            v31 = <std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read_to_string(&v4 as u8, &v23);
+            v30 = <std::io::buffered::bufreader::BufReader<R> as std::io::Read>::read_to_string(&v4 as u8, &v23);
             core::result::Result<T,E>::unwrap(&v4 as u8, "src/main.rs");
             return struct24 {
                 field_0: *(&v13 as &i128)

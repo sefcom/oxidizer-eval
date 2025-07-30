@@ -38,15 +38,12 @@ fn flealib::fileencrypter::FileEncrypter::decrypt_file(a0: u64, a1: u64, a2: u32
                     v5 = v7;
                     v2 = v6 as i128 as u128;
                     v9 = std::fs::File::create(a1, a2);
-                    match v9 {
-                        Err(_) => {
-                            return v14;
-                        },
-                        Ok(v1) => {
-                            v14 = std::io::Write::write_all(&v1, v4, v5);
-                            return 0;
-                        },
+                    if let Err(_) = v9 {
+                        return v14;
                     }
+                    v1 = v10;
+                    v14 = std::io::Write::write_all(&v1, v4, v5);
+                    return v14;
                 },
             }
         },

@@ -2958,3 +2958,1189 @@ Function: spyware::actions::commands::run_command_message
   Variable(name='output', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=112): [['struct', 24], ['primitive', 16]]
   Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['&primitive', 8]]
   Variable(name='result', type=Enumeration(name='core::result::Result<alloc::string::String, std::io::error::Error>', size=24, discriminant_size=24, variants=None), category='stack', location=144): [['struct', 24]]
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [('primitive', 8)]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [('struct', 64)]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [('struct', 32)]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [('struct', 64)]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [('struct', 56)]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [('struct', 64)]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [('struct', 56)]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [('struct', 24)]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [('struct', 64)]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [('struct', 24), ('struct', 64)]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [('struct', 40)]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [('struct', 64)]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [('struct', 56)]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [('struct', 32)]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [('struct', 64)]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [('struct', 24)]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [('primitive', 8)]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [('primitive', 4)]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [('primitive', 8)]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [('Result', 32), ('primitive', 16)]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [('primitive', 4)]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [('Result', 32)]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [('struct', 8)]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [('struct', 8)]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [('&primitive', 8), ('&primitive', 8)]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [('struct', 4)]
+
+Function: spyware::run_server_loop
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [('primitive', 8)]
+
+Function: spyware::run_cnc_connection_loop
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [('primitive', 4)]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=96): [('struct', 48)]
+  Variable(name='server_address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=160): [('struct', 24)]
+
+Function: spyware::init_logging
+
+Function: spyware::main
+  Variable(name='cnc_connect', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=176): [('struct', 32), ('struct', 32)]
+  Variable(name='server_handler', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=144): [('struct', 32), ('struct', 32)]
+
+Function: spyware::actions::basic_info::get_running_os_info
+
+Function: spyware::actions::basic_info::get_basic_info_request
+
+Function: spyware::actions::basic_info::download_file_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=48): [('struct', 24)]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=8): [('struct', 40), ('struct', 4)]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [('primitive', 8)]
+
+Function: spyware::actions::log_actions::get_logs_request
+
+Function: spyware::logging::core::setup_logging
+
+Function: spyware::logging::core::get_logs
+  Variable(name='logger', type=Pointer(pts_to=Struct(name='spyware::logging::core::MemoryLogger', size=88, fields=None)), category='register', location='rax'): [('primitive', 8)]
+
+Function: spyware::logging::memory_logger::compute_used_chars
+
+Function: spyware::communication::serialization::extract_msg_type_and_length
+  Variable(name='rdr', type=Struct(name='std::io::cursor::Cursor<&[u8]>', size=24, fields=None), category='stack', location=8): [('struct', 24)]
+
+Function: spyware::communication::serialization::serialize_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [('Result', 64), ('struct', 48)]
+  Variable(name='serialized_message', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=64): [('struct', 24)]
+
+Function: spyware::actions::screenshot_actions::get_screenshot_request
+  Variable(name='error', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [('primitive', 8)]
+  Variable(name='capturer', type=Struct(name='scrap::common::x11::Capturer', size=64, fields=None), category='stack', location=176): [('struct', 24), ('struct', 64)]
+  Variable(name='display', type=Struct(name='scrap::common::x11::Display', size=24, fields=None), category='stack', location=128): [('primitive', 16), ('struct', 24)]
+  Variable(name='iter', type=Struct(name='alloc::vec::into_iter::IntoIter<scrap::common::x11::Display, alloc::alloc::Global>', size=32, fields=None), category='stack', location=288): [('struct', 32)]
+  Variable(name='displays', type=Struct(name='alloc::vec::Vec<scrap::common::x11::Display, alloc::alloc::Global>', size=24, fields=None), category='stack', location=320): [('struct', 24)]
+  Variable(name='screenshots', type=Struct(name='alloc::vec::Vec<spyware::communication::messages::DisplayScreenshot, alloc::alloc::Global>', size=24, fields=None), category='stack', location=88): [('struct', 24)]
+
+Function: spyware::actions::commands::run_command
+
+Function: spyware::actions::commands::run_command_message
+  Variable(name='output', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=112): [('struct', 24), ('primitive', 16)]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [('&primitive', 8)]
+  Variable(name='result', type=Enumeration(name='core::result::Result<alloc::string::String, std::io::error::Error>', size=24, discriminant_size=24, variants=None), category='stack', location=144): [('struct', 24)]
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [['struct', 64]]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [['struct', 24]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [['primitive', 8]]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [['primitive', 4]]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [['Result', 32], ['primitive', 16]]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [['Result', 32]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [['&primitive', 8], ['&primitive', 8]]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [['struct', 4]]
+
+Function: spyware::run_server_loop
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['primitive', 8]]
+
+Function: spyware::run_cnc_connection_loop
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=96): [['struct', 48]]
+  Variable(name='server_address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=160): [['struct', 24]]
+
+Function: spyware::init_logging
+
+Function: spyware::main
+  Variable(name='cnc_connect', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=176): [['struct', 32], ['struct', 32]]
+  Variable(name='server_handler', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=144): [['struct', 32], ['struct', 32]]
+
+Function: spyware::actions::basic_info::get_running_os_info
+
+Function: spyware::actions::basic_info::get_basic_info_request
+
+Function: spyware::actions::basic_info::download_file_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=8): [['struct', 40], ['struct', 4]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: spyware::actions::log_actions::get_logs_request
+
+Function: spyware::logging::core::setup_logging
+
+Function: spyware::logging::core::get_logs
+  Variable(name='logger', type=Pointer(pts_to=Struct(name='spyware::logging::core::MemoryLogger', size=88, fields=None)), category='register', location='rax'): [['primitive', 8]]
+
+Function: spyware::logging::memory_logger::compute_used_chars
+
+Function: spyware::communication::serialization::extract_msg_type_and_length
+  Variable(name='rdr', type=Struct(name='std::io::cursor::Cursor<&[u8]>', size=24, fields=None), category='stack', location=8): [['struct', 24]]
+
+Function: spyware::communication::serialization::serialize_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['Result', 64], ['struct', 48]]
+  Variable(name='serialized_message', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=64): [['struct', 24]]
+
+Function: spyware::actions::screenshot_actions::get_screenshot_request
+  Variable(name='error', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='capturer', type=Struct(name='scrap::common::x11::Capturer', size=64, fields=None), category='stack', location=176): [['struct', 24], ['struct', 64]]
+  Variable(name='display', type=Struct(name='scrap::common::x11::Display', size=24, fields=None), category='stack', location=128): [['primitive', 16], ['struct', 24]]
+  Variable(name='iter', type=Struct(name='alloc::vec::into_iter::IntoIter<scrap::common::x11::Display, alloc::alloc::Global>', size=32, fields=None), category='stack', location=288): [['struct', 32]]
+  Variable(name='displays', type=Struct(name='alloc::vec::Vec<scrap::common::x11::Display, alloc::alloc::Global>', size=24, fields=None), category='stack', location=320): [['struct', 24]]
+  Variable(name='screenshots', type=Struct(name='alloc::vec::Vec<spyware::communication::messages::DisplayScreenshot, alloc::alloc::Global>', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: spyware::actions::commands::run_command
+
+Function: spyware::actions::commands::run_command_message
+  Variable(name='output', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=112): [['struct', 24], ['primitive', 16]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['&primitive', 8]]
+  Variable(name='result', type=Enumeration(name='core::result::Result<alloc::string::String, std::io::error::Error>', size=24, discriminant_size=24, variants=None), category='stack', location=144): [['struct', 24]]
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [['struct', 64]]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [['struct', 24]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [['primitive', 8]]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [['primitive', 4]]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [['Result', 32], ['primitive', 16]]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [['Result', 32]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [['&primitive', 8], ['&primitive', 8]]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [['struct', 4]]
+
+Function: spyware::run_server_loop
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['primitive', 8]]
+
+Function: spyware::run_cnc_connection_loop
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=96): [['struct', 48]]
+  Variable(name='server_address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=160): [['struct', 24]]
+
+Function: spyware::init_logging
+
+Function: spyware::main
+  Variable(name='cnc_connect', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=176): [['struct', 32], ['struct', 32]]
+  Variable(name='server_handler', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=144): [['struct', 32], ['struct', 32]]
+
+Function: spyware::actions::basic_info::get_running_os_info
+
+Function: spyware::actions::basic_info::get_basic_info_request
+
+Function: spyware::actions::basic_info::download_file_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=8): [['struct', 40], ['struct', 4]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: spyware::actions::log_actions::get_logs_request
+
+Function: spyware::logging::core::setup_logging
+
+Function: spyware::logging::core::get_logs
+  Variable(name='logger', type=Pointer(pts_to=Struct(name='spyware::logging::core::MemoryLogger', size=88, fields=None)), category='register', location='rax'): [['primitive', 8]]
+
+Function: spyware::logging::memory_logger::compute_used_chars
+
+Function: spyware::communication::serialization::extract_msg_type_and_length
+  Variable(name='rdr', type=Struct(name='std::io::cursor::Cursor<&[u8]>', size=24, fields=None), category='stack', location=8): [['struct', 24]]
+
+Function: spyware::communication::serialization::serialize_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['Result', 64], ['struct', 48]]
+  Variable(name='serialized_message', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=64): [['struct', 24]]
+
+Function: spyware::actions::screenshot_actions::get_screenshot_request
+  Variable(name='error', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='capturer', type=Struct(name='scrap::common::x11::Capturer', size=64, fields=None), category='stack', location=176): [['struct', 24], ['struct', 64]]
+  Variable(name='display', type=Struct(name='scrap::common::x11::Display', size=24, fields=None), category='stack', location=128): [['primitive', 16], ['struct', 24]]
+  Variable(name='iter', type=Struct(name='alloc::vec::into_iter::IntoIter<scrap::common::x11::Display, alloc::alloc::Global>', size=32, fields=None), category='stack', location=288): [['struct', 32]]
+  Variable(name='displays', type=Struct(name='alloc::vec::Vec<scrap::common::x11::Display, alloc::alloc::Global>', size=24, fields=None), category='stack', location=320): [['struct', 24]]
+  Variable(name='screenshots', type=Struct(name='alloc::vec::Vec<spyware::communication::messages::DisplayScreenshot, alloc::alloc::Global>', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: spyware::actions::commands::run_command
+
+Function: spyware::actions::commands::run_command_message
+  Variable(name='output', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=112): [['struct', 24], ['primitive', 16]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['&primitive', 8]]
+  Variable(name='result', type=Enumeration(name='core::result::Result<alloc::string::String, std::io::error::Error>', size=24, discriminant_size=24, variants=None), category='stack', location=144): [['struct', 24]]
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [('primitive', 8)]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [('struct', 64)]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [('struct', 32)]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [('struct', 64)]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [('struct', 56)]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [('struct', 64)]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [('struct', 56)]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [('struct', 24)]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [('struct', 64)]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [('struct', 24), ('struct', 64)]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [('struct', 40)]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [('struct', 64)]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [('struct', 56)]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [('struct', 32)]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [('struct', 64)]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [('struct', 24)]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [('primitive', 8)]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [('primitive', 4)]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [('primitive', 8)]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [('Result', 32), ('primitive', 16)]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [('primitive', 4)]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [('Result', 32)]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [('struct', 8)]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [('struct', 8)]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [('&primitive', 8), ('&primitive', 8)]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [('struct', 4)]
+
+Function: spyware::run_server_loop
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [('primitive', 8)]
+
+Function: spyware::run_cnc_connection_loop
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [('primitive', 4)]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=96): [('struct', 48)]
+  Variable(name='server_address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=160): [('struct', 24)]
+
+Function: spyware::init_logging
+
+Function: spyware::main
+  Variable(name='cnc_connect', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=176): [('struct', 32), ('struct', 32)]
+  Variable(name='server_handler', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=144): [('struct', 32), ('struct', 32)]
+
+Function: spyware::actions::basic_info::get_running_os_info
+
+Function: spyware::actions::basic_info::get_basic_info_request
+
+Function: spyware::actions::basic_info::download_file_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=48): [('struct', 24)]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=8): [('struct', 40), ('struct', 4)]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [('primitive', 8)]
+
+Function: spyware::actions::log_actions::get_logs_request
+
+Function: spyware::logging::core::setup_logging
+
+Function: spyware::logging::core::get_logs
+  Variable(name='logger', type=Pointer(pts_to=Struct(name='spyware::logging::core::MemoryLogger', size=88, fields=None)), category='register', location='rax'): [('primitive', 8)]
+
+Function: spyware::logging::memory_logger::compute_used_chars
+
+Function: spyware::communication::serialization::extract_msg_type_and_length
+  Variable(name='rdr', type=Struct(name='std::io::cursor::Cursor<&[u8]>', size=24, fields=None), category='stack', location=8): [('struct', 24)]
+
+Function: spyware::communication::serialization::serialize_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [('Result', 64), ('struct', 48)]
+  Variable(name='serialized_message', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=64): [('struct', 24)]
+
+Function: spyware::actions::screenshot_actions::get_screenshot_request
+  Variable(name='error', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [('primitive', 8)]
+  Variable(name='capturer', type=Struct(name='scrap::common::x11::Capturer', size=64, fields=None), category='stack', location=176): [('struct', 24), ('struct', 64)]
+  Variable(name='display', type=Struct(name='scrap::common::x11::Display', size=24, fields=None), category='stack', location=128): [('primitive', 16), ('struct', 24)]
+  Variable(name='iter', type=Struct(name='alloc::vec::into_iter::IntoIter<scrap::common::x11::Display, alloc::alloc::Global>', size=32, fields=None), category='stack', location=288): [('struct', 32)]
+  Variable(name='displays', type=Struct(name='alloc::vec::Vec<scrap::common::x11::Display, alloc::alloc::Global>', size=24, fields=None), category='stack', location=320): [('struct', 24)]
+  Variable(name='screenshots', type=Struct(name='alloc::vec::Vec<spyware::communication::messages::DisplayScreenshot, alloc::alloc::Global>', size=24, fields=None), category='stack', location=88): [('struct', 24)]
+
+Function: spyware::actions::commands::run_command
+
+Function: spyware::actions::commands::run_command_message
+  Variable(name='output', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=112): [('struct', 24), ('primitive', 16)]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [('&primitive', 8)]
+  Variable(name='result', type=Enumeration(name='core::result::Result<alloc::string::String, std::io::error::Error>', size=24, discriminant_size=24, variants=None), category='stack', location=144): [('struct', 24)]
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [['struct', 64]]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [['struct', 24]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [['primitive', 8]]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [['primitive', 4]]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [['Result', 32], ['primitive', 16]]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [['Result', 32]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [['&primitive', 8], ['&primitive', 8]]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [['struct', 4]]
+
+Function: spyware::run_server_loop
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['primitive', 8]]
+
+Function: spyware::run_cnc_connection_loop
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=96): [['struct', 48]]
+  Variable(name='server_address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=160): [['struct', 24]]
+
+Function: spyware::init_logging
+
+Function: spyware::main
+  Variable(name='cnc_connect', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=176): [['struct', 32], ['struct', 32]]
+  Variable(name='server_handler', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=144): [['struct', 32], ['struct', 32]]
+
+Function: spyware::actions::basic_info::get_running_os_info
+
+Function: spyware::actions::basic_info::get_basic_info_request
+
+Function: spyware::actions::basic_info::download_file_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=8): [['struct', 40], ['struct', 4]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: spyware::actions::log_actions::get_logs_request
+
+Function: spyware::logging::core::setup_logging
+
+Function: spyware::logging::core::get_logs
+  Variable(name='logger', type=Pointer(pts_to=Struct(name='spyware::logging::core::MemoryLogger', size=88, fields=None)), category='register', location='rax'): [['primitive', 8]]
+
+Function: spyware::logging::memory_logger::compute_used_chars
+
+Function: spyware::communication::serialization::extract_msg_type_and_length
+  Variable(name='rdr', type=Struct(name='std::io::cursor::Cursor<&[u8]>', size=24, fields=None), category='stack', location=8): [['struct', 24]]
+
+Function: spyware::communication::serialization::serialize_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['Result', 64], ['struct', 48]]
+  Variable(name='serialized_message', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=64): [['struct', 24]]
+
+Function: spyware::actions::screenshot_actions::get_screenshot_request
+  Variable(name='error', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='capturer', type=Struct(name='scrap::common::x11::Capturer', size=64, fields=None), category='stack', location=176): [['struct', 24], ['struct', 64]]
+  Variable(name='display', type=Struct(name='scrap::common::x11::Display', size=24, fields=None), category='stack', location=128): [['primitive', 16], ['struct', 24]]
+  Variable(name='iter', type=Struct(name='alloc::vec::into_iter::IntoIter<scrap::common::x11::Display, alloc::alloc::Global>', size=32, fields=None), category='stack', location=288): [['struct', 32]]
+  Variable(name='displays', type=Struct(name='alloc::vec::Vec<scrap::common::x11::Display, alloc::alloc::Global>', size=24, fields=None), category='stack', location=320): [['struct', 24]]
+  Variable(name='screenshots', type=Struct(name='alloc::vec::Vec<spyware::communication::messages::DisplayScreenshot, alloc::alloc::Global>', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: spyware::actions::commands::run_command
+
+Function: spyware::actions::commands::run_command_message
+  Variable(name='output', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=112): [['struct', 24], ['primitive', 16]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['&primitive', 8]]
+  Variable(name='result', type=Enumeration(name='core::result::Result<alloc::string::String, std::io::error::Error>', size=24, discriminant_size=24, variants=None), category='stack', location=144): [['struct', 24]]
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [['struct', 64]]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [['struct', 24]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [['primitive', 8]]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [['primitive', 4]]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [['Result', 32], ['primitive', 16]]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [['Result', 32]]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [['&primitive', 8], ['&primitive', 8]]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [['struct', 4]]
+
+Function: spyware::run_server_loop
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['primitive', 8]]
+
+Function: spyware::run_cnc_connection_loop
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=96): [['struct', 48]]
+  Variable(name='server_address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=160): [['struct', 24]]
+
+Function: spyware::init_logging
+
+Function: spyware::main
+  Variable(name='cnc_connect', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=176): [['struct', 32], ['struct', 32]]
+  Variable(name='server_handler', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=144): [['struct', 32], ['struct', 32]]
+
+Function: spyware::actions::basic_info::get_running_os_info
+
+Function: spyware::actions::basic_info::get_basic_info_request
+
+Function: spyware::actions::basic_info::download_file_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=8): [['struct', 40], ['struct', 4]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: spyware::actions::log_actions::get_logs_request
+
+Function: spyware::logging::core::setup_logging
+
+Function: spyware::logging::core::get_logs
+  Variable(name='logger', type=Pointer(pts_to=Struct(name='spyware::logging::core::MemoryLogger', size=88, fields=None)), category='register', location='rax'): [['primitive', 8]]
+
+Function: spyware::logging::memory_logger::compute_used_chars
+
+Function: spyware::communication::serialization::extract_msg_type_and_length
+  Variable(name='rdr', type=Struct(name='std::io::cursor::Cursor<&[u8]>', size=24, fields=None), category='stack', location=8): [['struct', 24]]
+
+Function: spyware::communication::serialization::serialize_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['Result', 64], ['struct', 48]]
+  Variable(name='serialized_message', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=64): [['struct', 24]]
+
+Function: spyware::actions::screenshot_actions::get_screenshot_request
+  Variable(name='error', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='capturer', type=Struct(name='scrap::common::x11::Capturer', size=64, fields=None), category='stack', location=176): [['struct', 24], ['struct', 64]]
+  Variable(name='display', type=Struct(name='scrap::common::x11::Display', size=24, fields=None), category='stack', location=128): [['primitive', 16], ['struct', 24]]
+  Variable(name='iter', type=Struct(name='alloc::vec::into_iter::IntoIter<scrap::common::x11::Display, alloc::alloc::Global>', size=32, fields=None), category='stack', location=288): [['struct', 32]]
+  Variable(name='displays', type=Struct(name='alloc::vec::Vec<scrap::common::x11::Display, alloc::alloc::Global>', size=24, fields=None), category='stack', location=320): [['struct', 24]]
+  Variable(name='screenshots', type=Struct(name='alloc::vec::Vec<spyware::communication::messages::DisplayScreenshot, alloc::alloc::Global>', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: spyware::actions::commands::run_command
+
+Function: spyware::actions::commands::run_command_message
+  Variable(name='output', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=112): [['struct', 24], ['primitive', 16]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['&primitive', 8]]
+  Variable(name='result', type=Enumeration(name='core::result::Result<alloc::string::String, std::io::error::Error>', size=24, discriminant_size=24, variants=None), category='stack', location=144): [['struct', 24]]
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [['struct', 64]]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [['struct', 24]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [['primitive', 8]]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [['primitive', 4]]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [['Result', 32], ['primitive', 16]]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [['Result', 32]]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [['&primitive', 8], ['&primitive', 8]]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [['struct', 4]]
+
+Function: spyware::run_server_loop
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['primitive', 8]]
+
+Function: spyware::run_cnc_connection_loop
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=96): [['struct', 48]]
+  Variable(name='server_address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=160): [['struct', 24]]
+
+Function: spyware::init_logging
+
+Function: spyware::main
+  Variable(name='cnc_connect', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=176): [['struct', 32], ['struct', 32]]
+  Variable(name='server_handler', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=144): [['struct', 32], ['struct', 32]]
+
+Function: spyware::actions::basic_info::get_running_os_info
+
+Function: spyware::actions::basic_info::get_basic_info_request
+
+Function: spyware::actions::basic_info::download_file_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=8): [['struct', 40], ['struct', 4]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: spyware::actions::log_actions::get_logs_request
+
+Function: spyware::logging::core::setup_logging
+
+Function: spyware::logging::core::get_logs
+  Variable(name='logger', type=Pointer(pts_to=Struct(name='spyware::logging::core::MemoryLogger', size=88, fields=None)), category='register', location='rax'): [['primitive', 8]]
+
+Function: spyware::logging::memory_logger::compute_used_chars
+
+Function: spyware::communication::serialization::extract_msg_type_and_length
+  Variable(name='rdr', type=Struct(name='std::io::cursor::Cursor<&[u8]>', size=24, fields=None), category='stack', location=8): [['struct', 24]]
+
+Function: spyware::communication::serialization::serialize_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['Result', 64], ['struct', 48]]
+  Variable(name='serialized_message', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=64): [['struct', 24]]
+
+Function: spyware::actions::screenshot_actions::get_screenshot_request
+  Variable(name='error', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='capturer', type=Struct(name='scrap::common::x11::Capturer', size=64, fields=None), category='stack', location=176): [['struct', 24], ['struct', 64]]
+  Variable(name='display', type=Struct(name='scrap::common::x11::Display', size=24, fields=None), category='stack', location=128): [['primitive', 16], ['struct', 24]]
+  Variable(name='iter', type=Struct(name='alloc::vec::into_iter::IntoIter<scrap::common::x11::Display, alloc::alloc::Global>', size=32, fields=None), category='stack', location=288): [['struct', 32]]
+  Variable(name='displays', type=Struct(name='alloc::vec::Vec<scrap::common::x11::Display, alloc::alloc::Global>', size=24, fields=None), category='stack', location=320): [['struct', 24]]
+  Variable(name='screenshots', type=Struct(name='alloc::vec::Vec<spyware::communication::messages::DisplayScreenshot, alloc::alloc::Global>', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: spyware::actions::commands::run_command
+
+Function: spyware::actions::commands::run_command_message
+  Variable(name='output', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=112): [['struct', 24], ['primitive', 16]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['&primitive', 8]]
+  Variable(name='result', type=Enumeration(name='core::result::Result<alloc::string::String, std::io::error::Error>', size=24, discriminant_size=24, variants=None), category='stack', location=144): [['struct', 24]]
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [['struct', 64]]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [['struct', 24]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [['primitive', 8]]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [['primitive', 4]]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [['Result', 32], ['primitive', 16]]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [['Result', 32]]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [['&primitive', 8], ['&primitive', 8]]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [['struct', 4]]
+
+Function: spyware::run_server_loop
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['primitive', 8]]
+
+Function: spyware::run_cnc_connection_loop
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=96): [['struct', 48]]
+  Variable(name='server_address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=160): [['struct', 24]]
+
+Function: spyware::init_logging
+
+Function: spyware::main
+  Variable(name='cnc_connect', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=176): [['struct', 32], ['struct', 32]]
+  Variable(name='server_handler', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=144): [['struct', 32], ['struct', 32]]
+
+Function: spyware::actions::basic_info::get_running_os_info
+
+Function: spyware::actions::basic_info::get_basic_info_request
+
+Function: spyware::actions::basic_info::download_file_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=8): [['struct', 40], ['struct', 4]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: spyware::actions::log_actions::get_logs_request
+
+Function: spyware::logging::core::setup_logging
+
+Function: spyware::logging::core::get_logs
+  Variable(name='logger', type=Pointer(pts_to=Struct(name='spyware::logging::core::MemoryLogger', size=88, fields=None)), category='register', location='rax'): [['primitive', 8]]
+
+Function: spyware::logging::memory_logger::compute_used_chars
+
+Function: spyware::communication::serialization::extract_msg_type_and_length
+  Variable(name='rdr', type=Struct(name='std::io::cursor::Cursor<&[u8]>', size=24, fields=None), category='stack', location=8): [['struct', 24]]
+
+Function: spyware::communication::serialization::serialize_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['Result', 64], ['struct', 48]]
+  Variable(name='serialized_message', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=64): [['struct', 24]]
+
+Function: spyware::actions::screenshot_actions::get_screenshot_request
+  Variable(name='error', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='capturer', type=Struct(name='scrap::common::x11::Capturer', size=64, fields=None), category='stack', location=176): [['struct', 24], ['struct', 64]]
+  Variable(name='display', type=Struct(name='scrap::common::x11::Display', size=24, fields=None), category='stack', location=128): [['primitive', 16], ['struct', 24]]
+  Variable(name='iter', type=Struct(name='alloc::vec::into_iter::IntoIter<scrap::common::x11::Display, alloc::alloc::Global>', size=32, fields=None), category='stack', location=288): [['struct', 32]]
+  Variable(name='displays', type=Struct(name='alloc::vec::Vec<scrap::common::x11::Display, alloc::alloc::Global>', size=24, fields=None), category='stack', location=320): [['struct', 24]]
+  Variable(name='screenshots', type=Struct(name='alloc::vec::Vec<spyware::communication::messages::DisplayScreenshot, alloc::alloc::Global>', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: spyware::actions::commands::run_command
+
+Function: spyware::actions::commands::run_command_message
+  Variable(name='output', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=112): [['struct', 24], ['primitive', 16]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['&primitive', 8]]
+  Variable(name='result', type=Enumeration(name='core::result::Result<alloc::string::String, std::io::error::Error>', size=24, discriminant_size=24, variants=None), category='stack', location=144): [['struct', 24]]
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [['struct', 64]]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [['struct', 24]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [['primitive', 8]]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [['primitive', 4]]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [['Result', 32], ['primitive', 16]]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [['Result', 32]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [['&primitive', 8], ['&primitive', 8]]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [['struct', 4]]
+
+Function: spyware::run_server_loop
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['primitive', 8]]
+
+Function: spyware::run_cnc_connection_loop
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=96): [['struct', 48]]
+  Variable(name='server_address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=160): [['struct', 24]]
+
+Function: spyware::init_logging
+
+Function: spyware::main
+  Variable(name='cnc_connect', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=176): [['struct', 32], ['struct', 32]]
+  Variable(name='server_handler', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=144): [['struct', 32], ['struct', 32]]
+
+Function: spyware::actions::basic_info::get_running_os_info
+
+Function: spyware::actions::basic_info::get_basic_info_request
+
+Function: spyware::actions::basic_info::download_file_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=8): [['struct', 40], ['struct', 4]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: spyware::actions::log_actions::get_logs_request
+
+Function: spyware::logging::core::setup_logging
+
+Function: spyware::logging::core::get_logs
+  Variable(name='logger', type=Pointer(pts_to=Struct(name='spyware::logging::core::MemoryLogger', size=88, fields=None)), category='register', location='rax'): [['primitive', 8]]
+
+Function: spyware::logging::memory_logger::compute_used_chars
+
+Function: spyware::communication::serialization::extract_msg_type_and_length
+  Variable(name='rdr', type=Struct(name='std::io::cursor::Cursor<&[u8]>', size=24, fields=None), category='stack', location=8): [['struct', 24]]
+
+Function: spyware::communication::serialization::serialize_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['Result', 64], ['struct', 48]]
+  Variable(name='serialized_message', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=64): [['struct', 24]]
+
+Function: spyware::actions::screenshot_actions::get_screenshot_request
+  Variable(name='error', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='capturer', type=Struct(name='scrap::common::x11::Capturer', size=64, fields=None), category='stack', location=176): [['struct', 24], ['struct', 64]]
+  Variable(name='display', type=Struct(name='scrap::common::x11::Display', size=24, fields=None), category='stack', location=128): [['primitive', 16], ['struct', 24]]
+  Variable(name='iter', type=Struct(name='alloc::vec::into_iter::IntoIter<scrap::common::x11::Display, alloc::alloc::Global>', size=32, fields=None), category='stack', location=288): [['struct', 32]]
+  Variable(name='displays', type=Struct(name='alloc::vec::Vec<scrap::common::x11::Display, alloc::alloc::Global>', size=24, fields=None), category='stack', location=320): [['struct', 24]]
+  Variable(name='screenshots', type=Struct(name='alloc::vec::Vec<spyware::communication::messages::DisplayScreenshot, alloc::alloc::Global>', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: spyware::actions::commands::run_command
+
+Function: spyware::actions::commands::run_command_message
+  Variable(name='output', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=112): [['struct', 24], ['primitive', 16]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['&primitive', 8]]
+  Variable(name='result', type=Enumeration(name='core::result::Result<alloc::string::String, std::io::error::Error>', size=24, discriminant_size=24, variants=None), category='stack', location=144): [['struct', 24]]
+
+Function: spyware::main
+  Variable(name='cnc_connect', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=176): [['struct', 32], ['struct', 32]]
+  Variable(name='server_handler', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=144): [['struct', 32], ['struct', 32]]
+
+Function: spyware::actions::commands::run_command
+
+Function: spyware::actions::commands::run_command_message
+  Variable(name='output', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=112): [['struct', 24], ['primitive', 16]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['&primitive', 8]]
+  Variable(name='result', type=Enumeration(name='core::result::Result<alloc::string::String, std::io::error::Error>', size=24, discriminant_size=24, variants=None), category='stack', location=144): [['struct', 24]]
+
+Function: spyware::actions::basic_info::get_running_os_info
+
+Function: spyware::actions::basic_info::get_basic_info_request
+
+Function: spyware::actions::basic_info::download_file_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=8): [['struct', 40], ['struct', 4]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: spyware::actions::log_actions::get_logs_request
+
+Function: spyware::actions::screenshot_actions::get_screenshot_request
+  Variable(name='error', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='capturer', type=Struct(name='scrap::common::x11::Capturer', size=64, fields=None), category='stack', location=176): [['struct', 24], ['struct', 64]]
+  Variable(name='display', type=Struct(name='scrap::common::x11::Display', size=24, fields=None), category='stack', location=128): [['primitive', 16], ['struct', 24]]
+  Variable(name='iter', type=Struct(name='alloc::vec::into_iter::IntoIter<scrap::common::x11::Display, alloc::alloc::Global>', size=32, fields=None), category='stack', location=288): [['struct', 32]]
+  Variable(name='displays', type=Struct(name='alloc::vec::Vec<scrap::common::x11::Display, alloc::alloc::Global>', size=24, fields=None), category='stack', location=320): [['struct', 24]]
+  Variable(name='screenshots', type=Struct(name='alloc::vec::Vec<spyware::communication::messages::DisplayScreenshot, alloc::alloc::Global>', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: spyware::logging::core::setup_logging
+
+Function: spyware::logging::memory_logger::compute_used_chars
+
+Function: spyware::init_logging
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [['struct', 64]]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [['struct', 24]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [['primitive', 8]]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [['primitive', 4]]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [['Result', 32], ['primitive', 16]]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [['Result', 32]]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [['&primitive', 8], ['&primitive', 8]]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [['struct', 4]]
+
+Function: spyware::communication::serialization::extract_msg_type_and_length
+  Variable(name='rdr', type=Struct(name='std::io::cursor::Cursor<&[u8]>', size=24, fields=None), category='stack', location=8): [['struct', 24]]
+
+Function: spyware::communication::serialization::serialize_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['Result', 64], ['struct', 48]]
+  Variable(name='serialized_message', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=64): [['struct', 24]]
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [['struct', 64]]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [['struct', 24]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [['primitive', 8]]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [['primitive', 4]]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [['Result', 32], ['primitive', 16]]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [['Result', 32]]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [['&primitive', 8], ['&primitive', 8]]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [['struct', 4]]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [['Result', 32]]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [['&primitive', 8], ['&primitive', 8]]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [['struct', 4]]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [['struct', 64]]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [['struct', 24]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [['primitive', 8]]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [['primitive', 4]]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [['Result', 32], ['primitive', 16]]
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [['struct', 64]]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [['struct', 24]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [['primitive', 8]]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [['primitive', 4]]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [['Result', 32], ['primitive', 16]]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [['Result', 32]]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [['&primitive', 8], ['&primitive', 8]]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [['struct', 4]]
+
+Function: spyware::run_server_loop
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['primitive', 8]]
+
+Function: spyware::run_cnc_connection_loop
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=96): [['struct', 48]]
+  Variable(name='server_address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=160): [['struct', 24]]
+
+Function: spyware::init_logging
+
+Function: spyware::main
+  Variable(name='cnc_connect', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=176): [['struct', 32], ['struct', 32]]
+  Variable(name='server_handler', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=144): [['struct', 32], ['struct', 32]]
+
+Function: spyware::actions::basic_info::get_running_os_info
+
+Function: spyware::actions::basic_info::get_basic_info_request
+
+Function: spyware::actions::basic_info::download_file_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=8): [['struct', 40], ['struct', 4]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: spyware::actions::log_actions::get_logs_request
+
+Function: spyware::logging::core::setup_logging
+
+Function: spyware::logging::core::get_logs
+  Variable(name='logger', type=Pointer(pts_to=Struct(name='spyware::logging::core::MemoryLogger', size=88, fields=None)), category='register', location='rax'): [['primitive', 8]]
+
+Function: spyware::logging::memory_logger::compute_used_chars
+
+Function: spyware::communication::serialization::extract_msg_type_and_length
+  Variable(name='rdr', type=Struct(name='std::io::cursor::Cursor<&[u8]>', size=24, fields=None), category='stack', location=8): [['struct', 24]]
+
+Function: spyware::communication::serialization::serialize_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['Result', 64], ['struct', 48]]
+  Variable(name='serialized_message', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=64): [['struct', 24]]
+
+Function: spyware::actions::screenshot_actions::get_screenshot_request
+  Variable(name='error', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='capturer', type=Struct(name='scrap::common::x11::Capturer', size=64, fields=None), category='stack', location=176): [['struct', 24], ['struct', 64]]
+  Variable(name='display', type=Struct(name='scrap::common::x11::Display', size=24, fields=None), category='stack', location=128): [['primitive', 16], ['struct', 24]]
+  Variable(name='iter', type=Struct(name='alloc::vec::into_iter::IntoIter<scrap::common::x11::Display, alloc::alloc::Global>', size=32, fields=None), category='stack', location=288): [['struct', 32]]
+  Variable(name='displays', type=Struct(name='alloc::vec::Vec<scrap::common::x11::Display, alloc::alloc::Global>', size=24, fields=None), category='stack', location=320): [['struct', 24]]
+  Variable(name='screenshots', type=Struct(name='alloc::vec::Vec<spyware::communication::messages::DisplayScreenshot, alloc::alloc::Global>', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: spyware::actions::commands::run_command
+
+Function: spyware::actions::commands::run_command_message
+  Variable(name='output', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=112): [['struct', 24], ['primitive', 16]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['&primitive', 8]]
+  Variable(name='result', type=Enumeration(name='core::result::Result<alloc::string::String, std::io::error::Error>', size=24, discriminant_size=24, variants=None), category='stack', location=144): [['struct', 24]]
+
+Function: spyware::communication::server::send_response
+  Variable(name='response_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=8): [['primitive', 8]]
+
+Function: spyware::communication::server::handle_message
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=352): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetScreenshotResponse', size=56, fields=None), category='stack', location=584): [['struct', 32]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=288): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetLogsResponse', size=56, fields=None), category='stack', location=528): [['struct', 56]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=224): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::DownloadFileResponse', size=56, fields=None), category='stack', location=472): [['struct', 56]]
+  Variable(name='dfr', type=Struct(name='spyware::communication::messages::DownloadFileRequest', size=24, fields=None), category='stack', location=96): [['struct', 24]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=640): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::GetBasicInfoResponse', size=64, fields=None), category='stack', location=712): [['struct', 24], ['struct', 64]]
+  Variable(name='_bir', type=Struct(name='spyware::communication::messages::GetBasicInfoRequest', size=24, fields=None), category='stack', location=0): [['struct', 40]]
+  Variable(name='response', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=160): [['struct', 64]]
+  Variable(name='response', type=Struct(name='spyware::communication::messages::RunCommandResponse', size=56, fields=None), category='stack', location=416): [['struct', 56]]
+  Variable(name='rcr', type=Struct(name='spyware::communication::messages::RunCommandRequest', size=32, fields=None), category='stack', location=128): [['struct', 32]]
+
+Function: spyware::communication::server::get_message
+  Variable(name='msg', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=192): [['struct', 64]]
+  Variable(name='message_buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=24): [['struct', 24]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=16): [['primitive', 8]]
+  Variable(name='type_and_length', type=Array(ele_type=Primitive(name='u8', size=1), length=4), category='stack', location=4): [['primitive', 4]]
+
+Function: spyware::communication::server::handle_client
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='message', type=Enumeration(name='spyware::communication::messages::Message', size=64, discriminant_size=64, variants=None), category='stack', location=16): [['Result', 32], ['primitive', 16]]
+
+Function: spyware::communication::server::run_server
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=160): [['Result', 32]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='iter', type=Struct(name='std::net::tcp::Incoming', size=8, fields=None), category='stack', location=56): [['struct', 8]]
+  Variable(name='address', type=Enumeration(name='core::net::socket_addr::SocketAddr', size=32, discriminant_size=32, variants=None), category='stack', location=128): [['&primitive', 8], ['&primitive', 8]]
+  Variable(name='listener', type=Struct(name='std::net::tcp::TcpListener', size=4, fields=None), category='stack', location=8): [['struct', 4]]
+
+Function: spyware::run_server_loop
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['primitive', 8]]
+
+Function: spyware::run_cnc_connection_loop
+  Variable(name='stream', type=Struct(name='std::net::tcp::TcpStream', size=4, fields=None), category='stack', location=4): [['primitive', 4]]
+  Variable(name='e', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=96): [['struct', 48]]
+  Variable(name='server_address', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=160): [['struct', 24]]
+
+Function: spyware::init_logging
+
+Function: spyware::main
+  Variable(name='cnc_connect', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=176): [['struct', 32], ['struct', 32]]
+  Variable(name='server_handler', type=Struct(name='std::thread::JoinHandle<()>', size=32, fields=None), category='stack', location=144): [['struct', 32], ['struct', 32]]
+
+Function: spyware::actions::basic_info::get_running_os_info
+
+Function: spyware::actions::basic_info::get_basic_info_request
+
+Function: spyware::actions::basic_info::download_file_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=48): [['struct', 24]]
+  Variable(name='file', type=Struct(name='std::fs::File', size=4, fields=None), category='stack', location=8): [['struct', 40], ['struct', 4]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=0): [['primitive', 8]]
+
+Function: spyware::actions::log_actions::get_logs_request
+
+Function: spyware::logging::core::setup_logging
+
+Function: spyware::logging::core::get_logs
+  Variable(name='logger', type=Pointer(pts_to=Struct(name='spyware::logging::core::MemoryLogger', size=88, fields=None)), category='register', location='rax'): [['primitive', 8]]
+
+Function: spyware::logging::memory_logger::compute_used_chars
+
+Function: spyware::communication::serialization::extract_msg_type_and_length
+  Variable(name='rdr', type=Struct(name='std::io::cursor::Cursor<&[u8]>', size=24, fields=None), category='stack', location=8): [['struct', 24]]
+
+Function: spyware::communication::serialization::serialize_message
+  Variable(name='buffer', type=Struct(name='alloc::vec::Vec<u8, alloc::alloc::Global>', size=24, fields=None), category='stack', location=16): [['Result', 64], ['struct', 48]]
+  Variable(name='serialized_message', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=64): [['struct', 24]]
+
+Function: spyware::actions::screenshot_actions::get_screenshot_request
+  Variable(name='error', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=8): [['primitive', 8]]
+  Variable(name='capturer', type=Struct(name='scrap::common::x11::Capturer', size=64, fields=None), category='stack', location=176): [['struct', 24], ['struct', 64]]
+  Variable(name='display', type=Struct(name='scrap::common::x11::Display', size=24, fields=None), category='stack', location=128): [['primitive', 16], ['struct', 24]]
+  Variable(name='iter', type=Struct(name='alloc::vec::into_iter::IntoIter<scrap::common::x11::Display, alloc::alloc::Global>', size=32, fields=None), category='stack', location=288): [['struct', 32]]
+  Variable(name='displays', type=Struct(name='alloc::vec::Vec<scrap::common::x11::Display, alloc::alloc::Global>', size=24, fields=None), category='stack', location=320): [['struct', 24]]
+  Variable(name='screenshots', type=Struct(name='alloc::vec::Vec<spyware::communication::messages::DisplayScreenshot, alloc::alloc::Global>', size=24, fields=None), category='stack', location=88): [['struct', 24]]
+
+Function: spyware::actions::commands::run_command
+
+Function: spyware::actions::commands::run_command_message
+  Variable(name='output', type=Struct(name='alloc::string::String', size=24, fields=None), category='stack', location=112): [['struct', 24], ['primitive', 16]]
+  Variable(name='err', type=Struct(name='std::io::error::Error', size=8, fields=None), category='stack', location=48): [['&primitive', 8]]
+  Variable(name='result', type=Enumeration(name='core::result::Result<alloc::string::String, std::io::error::Error>', size=24, discriminant_size=24, variants=None), category='stack', location=144): [['struct', 24]]

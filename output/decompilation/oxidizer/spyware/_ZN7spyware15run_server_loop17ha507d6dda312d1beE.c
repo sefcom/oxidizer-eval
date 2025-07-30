@@ -6,7 +6,7 @@ fn spyware::run_server_loop() -> void {
     let v4: u64;  // [bp-0x78]
     let v5: i64;  // [bp-0x70], Other Possible Types: u64
     let v6: u128;  // [bp-0x68]
-    let v7: u64;  // [bp-0x68]
+    let v7: struct52;  // [bp-0x68]
     let v8: void*;  // [bp-0x60]
     let v9: i64;  // [bp-0x50]
     let v10: u64;  // [bp-0x48]

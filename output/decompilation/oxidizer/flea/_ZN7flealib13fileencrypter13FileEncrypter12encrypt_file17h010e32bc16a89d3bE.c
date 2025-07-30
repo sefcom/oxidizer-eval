@@ -1,5 +1,5 @@
 fn flealib::fileencrypter::FileEncrypter::encrypt_file(a0: u64, a1: u64, a2: u32) -> long long {
-    let v0: struct4;  // [bp-0x9c]
+    let v0: std::os::fd::owned::OwnedFd;  // [bp-0x9c]
     let v1: struct24;  // [bp-0x98], Other Possible Types: Result<struct4, struct8>
     let v2: struct24;  // [bp-0x98]
     let v3: u32;  // [bp-0x94]

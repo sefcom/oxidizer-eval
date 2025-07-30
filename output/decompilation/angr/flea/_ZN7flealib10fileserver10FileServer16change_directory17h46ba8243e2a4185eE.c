@@ -31,7 +31,7 @@ long long flealib::fileserver::FileServer::change_directory(struct_0 *a0, struct
 
     v5.to_vec(a2, a3);
     v8 = 0;
-    (char)v17.to_vec(::0x7796f0::core::char::methods::encode_utf8_raw(47, &v8), a2);
+    v18.to_vec(::0x7796f0::core::char::methods::encode_utf8_raw(47, &v8), a2);
     v3 = v20;
     *((int128_t *)&v1) = *((int128_t *)&v18);
     if (v2.is_contained_in(v20, v6, v7))
@@ -58,17 +58,17 @@ long long flealib::fileserver::FileServer::change_directory(struct_0 *a0, struct
     v28 = *((long long *)&a1->padding_1[7]);
     v29 = a1->field_10;
     v9 = 0;
-    (char)v17.to_vec(::0x7796f0::core::char::methods::encode_utf8_raw(47, &v9), a2);
+    v18.to_vec(::0x7796f0::core::char::methods::encode_utf8_raw(47, &v9), a2);
     v3 = v20;
     *((int128_t *)&v1) = *((int128_t *)&v17);
     if ((char)core::slice::<impl [T]>::ends_with(v28, v29, v2, v20))
     {
         ::0x7789b0::core::ptr::drop_in_place<alloc::string::String>(&(char)v1);
         v10 = 0;
-        (char)v17.to_vec(::0x7796f0::core::char::methods::encode_utf8_raw(47, &v10), a2);
+        v18.to_vec(::0x7796f0::core::char::methods::encode_utf8_raw(47, &v10), a2);
         v3 = v20;
         *((int128_t *)&v1) = *((int128_t *)&v17);
-        alloc::str::<impl str>::replace(&(char)v17, v6, v7, v2, v20);
+        alloc::str::<impl str>::replace(&v18, v6, v7, v2, v20);
         ::0x7789b0::core::ptr::drop_in_place<alloc::string::String>(&v5);
         v7 = v20;
         *((int128_t *)&v5) = *((int128_t *)&v17);

@@ -8,7 +8,7 @@ import json
 
 from angr.rust.utils.library import demangle
 
-from eval.decompilers.util import load_cached_result, save_result
+from eval.decompilers.util import calculate_mcc, load_cached_result, save_result
 
 from ..config import GHIDRA_PATH
 
@@ -203,6 +203,7 @@ def ghidra_dec(binary_path, function_list, cache_only=False):
             os.unlink(result_fd.name)
             os.unlink(post_dec_script_path)
 
+        result["mcc"] = calculate_mcc(result)
         save_result("ghidra", bin_name, result)
 
     return result

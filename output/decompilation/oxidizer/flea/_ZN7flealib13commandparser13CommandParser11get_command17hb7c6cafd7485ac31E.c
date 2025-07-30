@@ -2,7 +2,7 @@ fn flealib::commandparser::CommandParser::get_command(a0: u64, a1: i64, a2: u32,
     let v0: Option<struct24>;  // [bp-0x1c8], Other Possible Types: struct20, struct24, u128
     let v1: std::io::error::Error;  // [bp-0x1c0]
     let v2: u64;  // [bp-0x1b8]
-    let v3: u64;  // [bp-0x1b0]
+    let v3: u128;  // [bp-0x1b0]
     let v4: std::io::error::Error;  // [bp-0x1a8]
     let v5: u64;  // [bp-0x1a0]
     let v6: u128;  // [bp-0x198]
@@ -24,7 +24,7 @@ fn flealib::commandparser::CommandParser::get_command(a0: u64, a1: i64, a2: u32,
     let v23: struct24;  // rax
     let v24: u64;  // rdx
     let v25: &str;  // rax
-    let v26: u64;  // rdx
+    let v26: core::slice::iter::Iter<std::backtrace::BacktraceSymbol>;  // rdx
 
     roxmltree::parse::parse(&v16, a2, a3, -1, 0);
     if !((((0 ^ *(&v16 as &i64)) & (0 ^ -(*(&v16 as &i64)))) >> 63) as char) {

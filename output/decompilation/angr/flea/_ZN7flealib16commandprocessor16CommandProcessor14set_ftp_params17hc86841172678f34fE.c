@@ -1,4 +1,4 @@
-void flealib::commandprocessor::CommandProcessor::set_ftp_params(struct_1 *a0, struct_0 *a1, unsigned long long a2, unsigned long long a3)
+void flealib::commandprocessor::CommandProcessor::set_ftp_params(struct_0 *a0, struct_1 *a1, unsigned long long a2, unsigned long long a3)
 {
     char v0;  // [bp-0x140]
     unsigned long long v1[6];  // [bp-0x138]
@@ -87,6 +87,6 @@ LABEL_76ddf9:
         ::0x76bda0::core::ptr::drop_in_place<alloc::vec::Vec<&str>>(&v0);
         return;
     }
-    (char)v9.to_vec("Wrong number of parametersOk/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs", 26);
+    v9.to_vec("Wrong number of parametersOk/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs", 26);
     goto LABEL_76ddf9;
 }

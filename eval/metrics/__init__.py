@@ -3,6 +3,7 @@ NUM_MATCHED_FUNCTION_CALLS = "# Matched Function Calls"
 NUM_EXTRANEOUS_FUNCTION_CALLS = "# Extraneous Function Calls"
 NUM_MATCHED_MACRO_CALLS = "# Matched Macro Calls"
 
+MCC = "MCC"
 LOC = "LoC"
 NUM_VARIABLES = "# Variables"
 NUM_PTR_DEREF = "# Pointer dereference"
@@ -15,7 +16,7 @@ NUM_OPERATORS = "# Operators"
 NUM_MISSED_FUNCTION_CALLS = "# Missed Function Calls"
 
 # Metrics that require ground truth
-CONCISENESS_METRICS = (LOC, NUM_VARIABLES, NUM_OPERATORS)
+CONCISENESS_METRICS = (MCC, LOC, NUM_VARIABLES, NUM_OPERATORS)
 FIDELITY_METRICS = (
     NUM_GOTOS,
     NUM_MATCHED_STRING_LITERALS,

@@ -1,6 +1,6 @@
 fn FakeCrypt::fileops::drop_ransom_note() {
     let v0: u32;  // [bp-0x64]
-    let v1: core::result::Result<std::fs::File, std::io::error::Error>;  // [bp-0x60], Other Possible Types: struct8
+    let v1: core::num::niche_types::UsizeNoHighBit;  // [bp-0x60], Other Possible Types: core::result::Result<std::fs::File, std::io::error::Error>
     let v2: u64;  // [bp-0x50]
     let v3: std::path::PathBuf;  // [bp-0x48], Other Possible Types: u128
     let v4: u64;  // [bp-0x40]
@@ -10,7 +10,7 @@ fn FakeCrypt::fileops::drop_ransom_note() {
     let v10: Result<(), &BOT>;  // rax
 
     v1 = dirs::desktop_dir();
-    if (((0 ^ v1.field_0) & (0 ^ -(v1.field_0))) >> 63) as char {
+    if (((0 ^ v1.__0) & (0 ^ -(v1.__0))) >> 63) as char {
         v3 = std::sys::pal::unix::os::split_paths::bytes_to_path("/tmp");
     } else {
         v5 = v2;

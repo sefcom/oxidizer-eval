@@ -1,5 +1,5 @@
 fn FakeCrypt::fileops::decrypt_file(a0: u64, a1: u64, a2: u64, a3: u64) -> int {
-    let v0: core::num::niche_types::I32NotAllOnes;  // [bp-0x808]
+    let v0: struct4;  // [bp-0x808]
     let v2: Result<struct4, struct8>;  // [bp-0x800]
     let v3: alloc::vec::Vec<u8, alloc::alloc::Global>;  // [bp-0x7f0]
     let v4: u64;  // [bp-0x7d8]

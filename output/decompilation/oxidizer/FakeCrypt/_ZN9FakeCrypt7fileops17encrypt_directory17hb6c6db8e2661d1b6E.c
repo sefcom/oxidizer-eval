@@ -1,5 +1,5 @@
 fn FakeCrypt::fileops::encrypt_directory(a0: i64, a1: i64, a2: i64, a3: i64) {
-    let v0: struct9;  // [bp-0x120]
+    let v0: std::sys::fs::unix::dirent64_min;  // [bp-0x120]
     let v1: std::path::PathBuf;  // [bp-0x110]
     let v2: u64;  // [bp-0x108]
     let v3: u64;  // [bp-0x100]
@@ -8,7 +8,7 @@ fn FakeCrypt::fileops::encrypt_directory(a0: i64, a1: i64, a2: i64, a3: i64) {
     let v6: core::iter::adapters::flatten::FlattenCompat<core::iter::adapters::map::Map<core::str::iter::Chars, std::sys_common::wtf8::{impl#10}::fmt::write_str_escaped::{closure_env#0}>, core::char::EscapeDebug>;  // [bp-0xc8]
 
     v0 = std::fs::read_dir(a0, a1);
-    if v0.field_8 == 2 {
+    if v0.d_type == 2 {
         return;
     }
     loop {

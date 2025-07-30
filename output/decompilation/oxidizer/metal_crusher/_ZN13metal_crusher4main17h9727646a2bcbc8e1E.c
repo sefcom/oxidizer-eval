@@ -1,16 +1,16 @@
 fn metal_crusher::main() -> int {
-    let v0: std::env::Args;  // [bp-0x268], Other Possible Types: struct48, struct24, u128
-    let v1: alloc::boxed::Box<[u8], alloc::alloc::Global>;  // [bp-0x268], Other Possible Types: struct24
-    let v2: alloc::boxed::Box<[u8], alloc::alloc::Global>;  // [bp-0x268]
-    let v3: alloc::boxed::Box<[u8], alloc::alloc::Global>;  // [bp-0x268]
-    let v4: alloc::boxed::Box<[u8], alloc::alloc::Global>;  // [bp-0x268]
+    let v0: std::env::Args;  // [bp-0x268], Other Possible Types: struct48, struct24, u64
+    let v1: &str;  // [bp-0x268], Other Possible Types: struct24
+    let v2: &str;  // [bp-0x268]
+    let v3: &str;  // [bp-0x268]
+    let v4: &str;  // [bp-0x268]
     let v5: u64;  // [bp-0x260]
-    let v6: alloc::boxed::Box<[u8], alloc::alloc::Global>;  // [bp-0x258], Other Possible Types: struct_0 *, u64
+    let v6: &str;  // [bp-0x258], Other Possible Types: struct_0 *, u64
     let v7: u64;  // [bp-0x250]
     let v8: void*;  // [bp-0x248], Other Possible Types: u64
     let v9: u64;  // [bp-0x240]
-    let v10: alloc::boxed::Box<[u8], alloc::alloc::Global>;  // [bp-0x238]
-    let v11: alloc::boxed::Box<[u8], alloc::alloc::Global>;  // [bp-0x228]
+    let v10: &str;  // [bp-0x238]
+    let v11: &str;  // [bp-0x228]
     let v12: void*;  // [bp-0x218]
     let v13: u64;  // [bp-0x210]
     let v14: u64;  // [bp-0x208]

@@ -1,7 +1,7 @@
 fn flealib::fileserver::FileServer::read_binary_file_by_path(a1: i64, a2: i64) -> Result<struct24, struct16> {
     let a0: i64;  // rdi
     let v0: struct24;  // [bp-0xe0], Other Possible Types: struct4
-    let v1: alloc::vec::Vec<u8, alloc::alloc::Global>;  // [bp-0xc8], Other Possible Types: core::result::Result<std::fs::Metadata, std::io::error::Error>
+    let v1: alloc::vec::Vec<u8, alloc::alloc::Global>;  // [bp-0xc8], Other Possible Types: Result<struct4, struct8>
     let v2: u32;  // [bp-0xc4]
     let v4: struct24;  // rax
     let v7: core::result::Result<usize, std::io::error::Error>;  // rax:rdx

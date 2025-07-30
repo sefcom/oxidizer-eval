@@ -49,12 +49,12 @@ fn flealib::screenshot::Screenshot::take_screenshot(a0: i64, a1: u64, a2: u64, a
     let v55: struct136;  // rax
     let v57: void*;  // rax
     let v58: alloc::borrow::Cow<str>;  // rax
-    let v59: core::time::Duration;  // rax:rdx
-    let v60: alloc::raw_vec::RawVecInner<alloc::alloc::Global>;  // rax:rdx
+    let v59: alloc::raw_vec::RawVecInner<alloc::alloc::Global>;  // rax:rdx
+    let v60: core::time::Duration;  // rax:rdx
     let v61: struct6;  // [bp-0x180], Other Possible Types: struct64, struct24
 
-    v59 = core::time::Duration::new(1, 0);
-    v36 = core::time::Duration::checked_div(v59.secs, v59.nanos.__0);
+    v60 = core::time::Duration::new(1, 0);
+    v36 = core::time::Duration::checked_div(v60.secs, v60.nanos.fd);
     if v35 == 0x3b9aca00 {
         core::option::expect_failed("divide by zero error when dividing duration by scalar"); /* do not return */
     }
@@ -149,9 +149,9 @@ fn flealib::screenshot::Screenshot::take_screenshot(a0: i64, a1: u64, a2: u64, a
                 };
                 log::__private_api::log(&v7 as u512, 4, &v13);
             }
-            v60 = alloc::raw_vec::RawVecInner<A>::with_capacity_in(v42 * v20 * 4, "flealib/src/screenshot.rs", v43, v44);
-            v17 = v60.cap.field_0;
-            v18 = v60.ptr.pointer.pointer;
+            v59 = alloc::raw_vec::RawVecInner<A>::with_capacity_in(v42 * v20 * 4, "flealib/src/screenshot.rs", v43, v44);
+            v17 = v59.cap.__0;
+            v18 = v59.ptr.pointer.pointer;
             v19 = 0;
             if v41 >> 32 {
                 v24 = ((0 CONCAT v41) % v42) as u64 CONCAT ((0 CONCAT v41) / v42) as u64;

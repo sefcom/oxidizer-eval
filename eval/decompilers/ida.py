@@ -132,6 +132,7 @@ def ida_dec(binary_path, function_list, cache_only=False):
         "function_call_counts": {},
         "macro_call_counts": {},
         "variable_types": {},
+        "mcc": {},
     }
 
     bin_name = os.path.basename(binary_path)
@@ -157,6 +158,10 @@ def ida_dec(binary_path, function_list, cache_only=False):
             more_result = json.load(fd)
             for key in list(result.keys()):
                 result[key].update(more_result.get(key, {}))
+        result["mcc"] = calculate_mcc(result)
+
+        os.unlink(result_fd.name)
+        os.unlink(script_fd.name)
 
         save_result("ida", bin_name, result)
     return result

@@ -22,14 +22,14 @@ fn flealib::fileserver::FileServer::read_binary_file(a0: i64, a1: i64, a2: u32, 
     let v22: u64;  // rdx
     let v23: u64;  // r8
     let v24: u64;  // rax
-    let v26: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
-    let v27: &mut [u8];  // rax:rdx
+    let v26: &mut [u8];  // rax:rdx
+    let v27: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
 
     v13 = a2;
     v14 = a3;
     v5 = 0;
-    v27 = core::char::methods::encode_utf8_raw(47, &v5, a2);
-    v15 = <T as alloc::slice::hack::ConvertVec>::to_vec(v27.data_ptr, a2);
+    v26 = core::char::methods::encode_utf8_raw(47, &v5, a2);
+    v15 = <T as alloc::slice::hack::ConvertVec>::to_vec(v26.data_ptr, a2);
     v3 = v17;
     v1 = *(&v15.field_0 as &i128);
     if core::slice::<impl [T]>::ends_with(*((a1 + 8) as &i64), *((a1 + 16) as &i64), v2, v17) {
@@ -76,8 +76,8 @@ fn flealib::fileserver::FileServer::read_binary_file(a0: i64, a1: i64, a2: u32, 
             },
             Ok(v0) => {
                 v15 = Vec::new();
-                v26 = <std::fs::File as std::io::Read>::read_to_end(&v0, &v15);
-                match v26 {
+                v27 = <std::fs::File as std::io::Read>::read_to_end(&v0, &v15);
+                match v27 {
                     Ok(_) => {
                         return struct24 {
                             field_0: *(&v15.buf.inner.cap as &i128)
@@ -87,7 +87,7 @@ fn flealib::fileserver::FileServer::read_binary_file(a0: i64, a1: i64, a2: u32, 
                     Err(_) => {
                         return struct16 {
                             field_0: 0x8000000000000000
-                            field_8: *((&v26 as &char + 8) as &i64)
+                            field_8: *((&v27 as &char + 8) as &i64)
                         };
                     },
                 }

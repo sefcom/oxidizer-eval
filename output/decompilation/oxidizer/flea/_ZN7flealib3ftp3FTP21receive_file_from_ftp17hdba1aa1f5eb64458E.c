@@ -33,7 +33,7 @@ fn flealib::ftp::FTP::receive_file_from_ftp(a0: u64, a1: i64, a2: u64, a3: u64, 
     let v32: struct24;  // al
     let v33: alloc::vec::Vec<u8, alloc::alloc::Global>;  // rax
     let v34: Result<struct4, struct8>;  // rcx
-    let v35: std::sys::os_str::bytes::Buf;  // xmm0
+    let v35: alloc::string::String;  // xmm0
     let v36: Option<struct24>;  // rax
     let v37: struct88;  // al
     let v38: u64;  // rax

@@ -25,7 +25,7 @@ fn flealib::systemcmd::SystemCmd::execute_bash_command(a0: u64, a1: i64, a2: u64
     let v24: u128;  // [bp-0x238]
     let v25: core::fmt::Arguments;  // [bp-0x230]
     let v26: u64;  // [bp-0x228]
-    let v27: Result<struct24, struct24>;  // [bp-0x220]
+    let v27: struct24;  // [bp-0x220]
     let v28: u64;  // [bp-0x210]
     let v29: u128;  // [bp-0x208]
     let v30: u64;  // [bp-0x1f8]

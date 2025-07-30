@@ -1,6 +1,6 @@
 fn backdoorautomater::sanitizer::sanitize_port(a1: &struct24) -> : struct24 {
     let a0: i64;  // rdi
-    let v0: struct32;  // [bp-0x98]
+    let v0: Result<struct32, struct32>;  // [bp-0x98]
     let v1: struct24;  // [bp-0x98]
     let v2: alloc::string::String;  // [bp-0x98]
     let v3: u64;  // [bp-0x90]

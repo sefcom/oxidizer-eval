@@ -1,8 +1,10 @@
 from collections import defaultdict
 import os
+from pathlib import Path
 from typing import Dict
 import json
 import re
+import tempfile
 
 import angr
 from angr.rust.utils.library import demangle
@@ -11,6 +13,7 @@ from angr.analyses.decompiler.sequence_walker import SequenceWalker
 from angr.ailment import AILBlockWalker, Block, Const
 
 from eval.type_recovery.function_prototype import FunctionPrototype
+from eval.metrics.mcc import measure_mcc, measure_rust_decompiler
 
 from ..config import (
     CACHE_DIR,
@@ -123,3 +126,27 @@ class NodeCounter(SequenceWalker):
 
     def _handle_AILBlock(self, node, **kwargs):
         self.node_counts += 1
+
+
+def _save_decompilation(result):
+    tmp_dir = tempfile.TemporaryDirectory()
+    decompilation = result["decompilation"]
+    for func_name, decompilation_code in decompilation.items():
+        path = os.path.join(tmp_dir.name, func_name + ".c")
+        with open(path, "w", encoding="utf-8") as fd:
+            fd.write(decompilation_code)
+    return tmp_dir
+
+
+def calculate_mcc(result, is_rust_binary=False):
+    mcc = {}
+    if "decompilation" in result:
+        tmp_dir = _save_decompilation(result)
+        if is_rust_binary:
+            data = measure_rust_decompiler(Path(tmp_dir.name))
+        else:
+            data = measure_mcc(Path(tmp_dir.name))
+        for func_name, func_result in data.items():
+            mcc[func_name] = func_result["mcc"]
+        tmp_dir.cleanup()
+    return mcc

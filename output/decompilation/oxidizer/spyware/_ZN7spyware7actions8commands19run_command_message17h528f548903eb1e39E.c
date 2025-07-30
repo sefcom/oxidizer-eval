@@ -1,18 +1,18 @@
 fn spyware::actions::commands::run_command_message(a1: &struct32) -> : struct52 {
     let a0: i64;  // rdi
-    let v0: Result<struct4, struct8>;  // [bp-0xc8], Other Possible Types: struct40
-    let v1: u128;  // [bp-0xc8]
-    let v2: u64;  // [bp-0xc8]
+    let v0: alloc::string::String;  // [bp-0xc8], Other Possible Types: struct40
+    let v1: u64;  // [bp-0xc8]
+    let v2: alloc::string::String;  // [bp-0xc8]
     let v3: struct24;  // [bp-0xb8]
     let v4: i64;  // [bp-0x98], Other Possible Types: u64
     let v5: u64;  // [bp-0x90]
     let v6: struct9;  // [bp-0x88], Other Possible Types: struct24, u64
     let v7: Result<struct48, struct13>;  // [bp-0x84]
     let v8: struct24;  // [bp-0x80], Other Possible Types: u64
-    let v9: struct64;  // [bp-0x78], Other Possible Types: struct_0 *
+    let v9: struct64;  // [bp-0x78], Other Possible Types: struct_1 *
     let v10: struct8;  // [bp-0x70], Other Possible Types: u64
     let v11: struct32;  // [bp-0x68], Other Possible Types: void*
-    let v12: struct24;  // [bp-0x58], Other Possible Types: struct_0 *
+    let v12: struct24;  // [bp-0x58], Other Possible Types: struct_1 *
     let v13: u128;  // [bp-0x58]
     let v14: struct64;  // [bp-0x50], Other Possible Types: u64
     let v15: core::fmt::Arguments;  // [bp-0x48]

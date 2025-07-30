@@ -1,4 +1,4 @@
-long long flealib::fileserver::FileServer::list_content(struct_0 *a0, unsigned long long a1)
+long long flealib::fileserver::FileServer::list_content(struct_1 *a0, unsigned long long a1)
 {
     char *v0;  // [bp-0x1a8], Other Possible Types: unsigned long long
     int v1;  // [bp-0x1a8]
@@ -10,7 +10,7 @@ long long flealib::fileserver::FileServer::list_content(struct_0 *a0, unsigned l
     unsigned long long v7;  // [bp-0x180]
     char v8;  // [bp-0x178], Other Possible Types: unsigned int, unsigned long long
     char *v9;  // [bp-0x178]
-    unsigned long v10;  // [bp-0x170], Other Possible Types: unsigned long long
+    unsigned long long v10;  // [bp-0x170]
     char v11;  // [bp-0x170]
     char *v12;  // [bp-0x168]
     unsigned long long v13;  // [bp-0x160]
@@ -40,7 +40,7 @@ long long flealib::fileserver::FileServer::list_content(struct_0 *a0, unsigned l
     char v37;  // [bp-0x48]
     char v39;  // bl
     unsigned long long v41;  // rdx
-    struct_0 *v42;  // rbx
+    struct_1 *v42;  // rbx
 
     v15 = 0;
     v16 = 8;
@@ -75,7 +75,7 @@ long long flealib::fileserver::FileServer::list_content(struct_0 *a0, unsigned l
         v37.file_name(&v2);
         v9.into_string(&v37);
         v26 = v13;
-        *((int128_t *)&v24) = *((int128_t *)&v10);
+        *((int128_t *)&v24) = *((int128_t *)&v11);
         v22 = v9;
         v20.unwrap(&v22);
         v42 = a0;

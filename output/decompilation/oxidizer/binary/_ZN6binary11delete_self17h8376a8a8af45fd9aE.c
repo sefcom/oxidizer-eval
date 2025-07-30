@@ -4,7 +4,7 @@ fn binary::delete_self() -> u64 {
     let v2: struct32;  // [bp-0x78]
     let v3: u64;  // [bp-0x70]
     let v4: i64;  // [bp-0x68], Other Possible Types: u64
-    let v5: u64;  // [bp-0x60]
+    let v5: u128;  // [bp-0x60]
     let v6: void*;  // [bp-0x58]
     let v7: struct24;  // [bp-0x40]
     let v8: u64;  // [bp-0x30]

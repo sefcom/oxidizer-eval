@@ -5,26 +5,26 @@ fn flea::main() -> void {
     let v3: i64;  // [bp-0x438]
     let v4: u128;  // [bp-0x438]
     let v5: u64;  // [bp-0x430]
-    let v6: u128;  // [bp-0x428]
+    let v6: u64;  // [bp-0x428]
     let v7: u64;  // [bp-0x428]
     let v8: core::result::Result<(), std::io::error::Error>;  // [bp-0x408], Other Possible Types: u64
-    let v9: struct16;  // [bp-0x408], Other Possible Types: struct22, struct48, struct32, core::result::Result<std::fs::Metadata, std::io::error::Error>, struct24, u64
+    let v9: struct16;  // [bp-0x408], Other Possible Types: struct22, struct48, struct32, core::result::Result<std::path::PathBuf, std::io::error::Error>, struct24, u64
     let v10: struct24;  // [bp-0x408], Other Possible Types: core::result::Result<(), std::io::error::Error>, u64
     let v11: struct24;  // [bp-0x408], Other Possible Types: u128
     let v12: struct24;  // [bp-0x408]
     let v13: struct48;  // [bp-0x408]
     let v14: u64;  // [bp-0x408]
-    let v15: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x408]
+    let v15: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x408]
     let v16: struct24;  // [bp-0x408]
     let v17: struct24;  // [bp-0x408]
-    let v18: core::str::pattern::StrSearcher;  // [bp-0x408], Other Possible Types: struct32
+    let v18: core::str::pattern::StrSearcher;  // [bp-0x408]
     let v19: &str;  // [bp-0x408]
-    let v20: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x408]
+    let v20: Result<struct32, struct25>;  // [bp-0x408]
     let v21: u64;  // [bp-0x400]
     let v22: u64;  // [bp-0x400]
     let v23: u64;  // [bp-0x400]
     let v24: i64;  // [bp-0x3f8], Other Possible Types: u64
-    let v25: u64;  // [bp-0x3f8]
+    let v25: u32;  // [bp-0x3f8]
     let v26: u128;  // [bp-0x3f0]
     let v27: u64;  // [bp-0x3f0]
     let v28: void*;  // [bp-0x3e8]
@@ -39,7 +39,7 @@ fn flea::main() -> void {
     let v37: struct32;  // [bp-0x328], Other Possible Types: u128
     let v38: i64;  // [bp-0x328], Other Possible Types: u64
     let v39: Option<struct24>;  // [bp-0x328]
-    let v40: u64;  // [bp-0x318]
+    let v40: u128;  // [bp-0x318]
     let v41: void*;  // [bp-0x308], Other Possible Types: u128
     let v42: u64;  // [bp-0x300]
     let v43: void*;  // [bp-0x2f8]
@@ -74,10 +74,10 @@ fn flea::main() -> void {
     let v73: u32;  // [bp-0x21f]
     let v74: u16;  // [bp-0x21b]
     let v75: u8;  // [bp-0x219]
-    let v76: Result<struct24, struct24>;  // [bp-0x218]
+    let v76: struct24;  // [bp-0x218]
     let v77: u64;  // [bp-0x210]
     let v78: u64;  // [bp-0x208]
-    let v79: std::sys::os_str::bytes::Buf;  // [bp-0x200]
+    let v79: alloc::string::String;  // [bp-0x200]
     let v80: struct32;  // [bp-0x1e8], Other Possible Types: struct_0 *
     let v81: i64;  // [bp-0x1e8]
     let v82: u64;  // [bp-0x1e0]
@@ -87,7 +87,7 @@ fn flea::main() -> void {
     let v86: struct24;  // [bp-0x1a8]
     let v87: u64;  // [bp-0x198]
     let v88: i64;  // [bp-0x190]
-    let v89: struct24;  // [bp-0x188]
+    let v89: Result<struct24, struct24>;  // [bp-0x188]
     let v90: i64;  // [bp-0x180]
     let v91: u64;  // [bp-0x178]
     let v92: Option<struct24>;  // [bp-0x170]
@@ -95,9 +95,9 @@ fn flea::main() -> void {
     let v94: struct24;  // [bp-0x158]
     let v95: u64;  // [bp-0x150]
     let v96: u64;  // [bp-0x148]
-    let v97: std::sys::os_str::bytes::Buf;  // [bp-0x140]
+    let v97: alloc::string::String;  // [bp-0x140]
     let v98: u64;  // [bp-0x130]
-    let v99: std::sys::os_str::bytes::Buf;  // [bp-0x128]
+    let v99: alloc::string::String;  // [bp-0x128]
     let v100: u32;  // [bp-0x118]
     let v101: struct32;  // [bp-0x110]
     let v102: struct32;  // [bp-0x110]
@@ -248,7 +248,7 @@ fn flea::main() -> void {
                         *(&v24 as &&struct_0 *) = &v47;
                         v27 = 2;
                         v97 = core::option::Option<T>::map_or_else(&v19 as u64, v110, v119, v120);
-                        v10 = *(&v97.inner.buf.inner.cap as &i128) as u128;
+                        v10 = *(&v97.vec.buf.inner.cap as &i128) as u128;
                         v25 = v98;
                         alloc::vec::Vec<T,A>::append_elements(&v41, v23, v98, "/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/string.rs");
                         v9 = v10;
@@ -274,7 +274,7 @@ fn flea::main() -> void {
                 *(&v24 as &&struct_0 *) = &v47;
                 v27 = 1;
                 v99 = core::option::Option<T>::map_or_else(&v8, v122, v121, v120);
-                v9 = *(&v99.inner.buf.inner.cap as &i128) as u128;
+                v9 = *(&v99.vec.buf.inner.cap as &i128) as u128;
                 v25 = v100;
                 v123 = std::env::set_current_dir(&v41);
                 core::result::Result<T,E>::expect(v123, v22, *(&v25 as &i64), "src/main.rs");
@@ -300,14 +300,14 @@ LABEL_67b473:
             if v9 as i64 as i32 != 2 {
                 v8 = std::fs::remove_file("flea.bak");
             }
-            v20 = std::fs::metadata("flea.rst");
-            if v20 as i64 as i32 != 2 {
+            v15 = std::fs::metadata("flea.rst");
+            if v15 as i64 as i32 != 2 {
                 v8 = std::fs::remove_file("flea.rst");
             }
             v39 = flea::updater::find_update(0x1, v43, "flea.upd");
             if (((0 ^ v39 as i64) & (0 ^ -(v38))) >> 63) as char {
-                v18 = local_ip_address::local_ip(v124, v110, v119, v120);
-                v103 = core::result::Result<T,E>::unwrap(&v18);
+                v20 = local_ip_address::local_ip(v124, v110, v119, v120);
+                v103 = core::result::Result<T,E>::unwrap(&v20);
                 v79 = <alloc::string::String as core::clone::Clone>::clone(v77);
                 v64 = 0;
                 v65 = 8;
@@ -317,9 +317,9 @@ LABEL_67b473:
                 v64 = getopts::Options::optflag("b", "backdoor", "Starts connection to the backdoor server");
                 v64 = getopts::Options::optflag("h", "help", "Print this help menu");
                 v125 = amd64g_calculate_rflags_c(20, v78, 0, v114);
-                getopts::Options::parse(&v18, &v64, v77 + 24, v78 - 1);
-                if v18.field_0 as i32 == 2 {
-                    v126 = *((&v18.field_0 as &char + 8) as &i128);
+                getopts::Options::parse(&v20, &v64, v77 + 24, v78 - 1);
+                if v20 as i32 == 2 {
+                    v126 = *((&v20 as &char + 8) as &i128);
                     v6 = *(&v27 as &i128) as u128;
                     v0 = v126;
                     println!("{}", &v4 as u64);
@@ -332,7 +332,7 @@ LABEL_67b473:
                 } else {
                     v58 = *((&v20 as &char + 80) as &i64);
                     v57 = v31;
-                    v128 = v18.field_0;
+                    v128 = v20 as i128;
                     v56 = v30;
                     v55 = *((&v20 as &char + 32) as &i128);
                     v51 = *(&v154 as &i128) as u128;
@@ -382,7 +382,7 @@ LABEL_67b473:
                             v133 = v12.field_16;
                             v6 = v12.field_16;
                             v0 = v12.field_0;
-                            alloc::vec::Vec<T,A>::append_elements(&v60 as u8, v5, v133, "/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/string.rs");
+                            alloc::vec::Vec<T,A>::append_elements(&v61 as u8, v5, v133, "/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/string.rs");
                             v9 = struct22 {
                                 field_0: 1
                                 field_8: 1

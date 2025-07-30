@@ -2,13 +2,13 @@ fn backdoorautomater::main() -> int {
     let v0: void*;  // [bp-0x3b8], Other Possible Types: struct24, u128
     let v2: alloc::vec::Vec<u8, alloc::alloc::Global>;  // [bp-0x3b0]
     let v3: void*;  // [bp-0x3a8], Other Possible Types: u64
-    let v4: struct24;  // [bp-0x398], Other Possible Types: u128
+    let v4: struct24;  // [bp-0x398], Other Possible Types: u8
     let v5: struct48;  // [bp-0x398]
     let v6: u64;  // [bp-0x388]
     let v7: void*;  // [bp-0x380], Other Possible Types: std::io::stdio::Stdin, struct24
     let v8: struct24;  // [bp-0x380]
     let v9: u64;  // [bp-0x378]
-    let v10: u128;  // [bp-0x370]
+    let v10: u32;  // [bp-0x370]
     let v11: struct24;  // [bp-0x368]
     let v12: u64;  // [bp-0x360]
     let v13: u128;  // [bp-0x358]
@@ -41,8 +41,8 @@ fn backdoorautomater::main() -> int {
     let v43: u32;  // ecx
     let v47: u32;  // ecx
     let v49: u64;  // rax
-    let v52: core::result::Result<u8, core::num::error::ParseIntError>;  // rax:rax
-    let v53: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
+    let v52: core::result::Result<usize, std::io::error::Error>;  // rax:rdx
+    let v53: core::result::Result<u8, core::num::error::ParseIntError>;  // rax:rax
     let v54: &str;  // rax:rdx
 
     do {
@@ -55,10 +55,10 @@ fn backdoorautomater::main() -> int {
         v2 = 1;
         v3 = 0;
         v7 = std::io::stdio::stdin();
-        v53 = std::io::stdio::Stdin::read_line(&v7, &v0);
-        core::result::Result<T,E>::expect(v53 as i64, *((&v53 as &char + 8) as &i64), "src/main.rs");
+        v52 = std::io::stdio::Stdin::read_line(&v7, &v0);
+        core::result::Result<T,E>::expect(v52 as i64, *((&v52 as &char + 8) as &i64), "src/main.rs");
         v54 = core::str::<impl str>::trim_matches(v2, v3);
-        v52 = core::num::<impl core::str::traits::FromStr for u8>::from_str(v54.data_ptr, v54.length) as u128;
+        v53 = core::num::<impl core::str::traits::FromStr for u8>::from_str(v54.data_ptr, v54.length) as u128;
         v38 = v37;
         v7 = <T as alloc::slice::hack::ConvertVec>::to_vec("Concert String to Integer: Error");
         v5 = struct48 {
@@ -67,7 +67,7 @@ fn backdoorautomater::main() -> int {
             field_24: <alloc::string::String as core::ops::arith::Add<&str>>::add(&v4 as u128, v2, v3)
         };
         v39 = v38;
-        core::result::Result<T,E>::expect(*(&v52 as &i32) & 1, v39 as u64, 1, v10, "src/main.rs");
+        core::result::Result<T,E>::expect(*(&v53 as &i32) & 1, v39 as u64, 1, v10, "src/main.rs");
         v0 = alloc::vec::Vec<T,A>::clear();
     } while (!v38);
     v7 = 0;

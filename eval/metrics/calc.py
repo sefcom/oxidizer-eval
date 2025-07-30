@@ -312,3 +312,66 @@ def generate_type_eval_result(variable_types, ground_truth):
                 if category and category.startswith("&"):
                     result[f"reference_FP"] += 1
     return result, dwarf_var_to_predicted_types
+
+
+class MCCCalculator:
+    # based on:
+    # https://github.com/mozilla/rust-code-analysis/blob/efe98948323d4965348559ca607838746e6d7e4c/src/metrics/cyclomatic.rs#L190
+    IF_REGEX = r" if .*"
+    FOR_REGEX = r"  for .*"
+    WHILE_REGEX = r" while .*"
+    LOOP_REGEX = r"  loop"
+    MATCH_ARM_REGEX = r" =>"
+    AND_REGEX = r" && "
+    OR_REGEX = r" \|\| "
+    # Due to the special way cyclomatic complexity is calculated in programs without CFGs, you can actually ignore
+    # counting any question mark operators. Why? The formula below:
+    # C = D - E + 2
+    #
+    # Where:
+    # C = Cyclomatic complexity
+    # D = Number of decision points in the program
+    # E = Number of exits in the program
+    #
+    # Every question mark operator is a decision point, but it is also an exit. So, it cancels itself out.
+    QUESTION_MARK_REGEX = r"\?;"
+    # needed because bug in decompiler:
+    SWITCH_CASE_REGEX = r"case .*:"
+    DEFAULT_CASE_REGEX = r"default:"
+
+    CONTROL_STRUCTURE_REGEXES = [
+        IF_REGEX,
+        FOR_REGEX,
+        WHILE_REGEX,
+        LOOP_REGEX,
+        # MATCH_ARM_REGEX,
+        AND_REGEX,
+        OR_REGEX,
+        SWITCH_CASE_REGEX,
+        DEFAULT_CASE_REGEX,
+        QUESTION_MARK_REGEX,
+    ]
+
+    def measure_mcc(self, code) -> int:
+        decision_points = 0
+        count = {}
+        for regex in self.CONTROL_STRUCTURE_REGEXES:
+            matches = re.findall(regex, code)
+            count[regex] = len(matches)
+            decision_points += len(matches)
+
+        # Special handling for:
+        # 1 | 3 | 5 | 7 =>
+        for line in code.split("\n"):
+            if len(re.findall(self.MATCH_ARM_REGEX, line)):
+                decision_points += line.count(" | ") + 1
+
+        # formula:
+        # C = D + 1
+        mcc = decision_points + 1
+
+        return mcc
+
+
+def mcc(decompilation):
+    return MCCCalculator().measure_mcc(decompilation)

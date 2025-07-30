@@ -5,7 +5,7 @@ fn backdoorautomater::cronshell::create_cron(a0: i64, a1: i64, a2: u64, a3: i64,
     let v3: struct56;  // [bp-0x2e8]
     let v4: struct56;  // [bp-0x2e8]
     let v5: struct56;  // [bp-0x2e8]
-    let v6: struct24;  // [bp-0x2d8], Other Possible Types: struct8, u64
+    let v6: alloc::raw_vec::Cap;  // [bp-0x2d8], Other Possible Types: struct24, u64
     let v7: struct24;  // [bp-0x2d8]
     let v8: struct56;  // [bp-0x2c8]
     let v9: struct24;  // [bp-0x2a8]
@@ -32,8 +32,8 @@ fn backdoorautomater::cronshell::create_cron(a0: i64, a1: i64, a2: u64, a3: i64,
     let v30: u128;  // [bp-0x1d8]
     let v32: &str;  // [bp-0x1d8]
     let v33: u32;  // [bp-0x1d4]
-    let v35: u64;  // [sp-0x1c8]
-    let v36: struct8;  // [bp-0x1c8]
+    let v35: u128;  // [sp-0x1c8]
+    let v36: alloc::raw_vec::Cap;  // [bp-0x1c8]
     let v37: u128;  // [bp-0x1c0]
     let v38: u128;  // [bp-0x1b8]
     let v39: u64;  // [bp-0x1b0]
@@ -56,7 +56,7 @@ fn backdoorautomater::cronshell::create_cron(a0: i64, a1: i64, a2: u64, a3: i64,
     let v64: u64;  // rax
     let v65: u32;  // ebx
     let v69: u64;  // rdx
-    let v70: struct24;  // rsi
+    let v70: &str;  // rsi
     let v72: struct56;  // xmm1
     let v75: struct24;  // xmm1
     let v78: u128;  // xmm1

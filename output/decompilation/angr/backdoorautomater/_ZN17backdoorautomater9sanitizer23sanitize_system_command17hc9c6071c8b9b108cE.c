@@ -1,6 +1,6 @@
-void backdoorautomater::sanitizer::sanitize_system_command(struct_1 *a0)
+void backdoorautomater::sanitizer::sanitize_system_command(struct_0 *a0)
 {
-    struct_1 *v0;  // [bp-0x48]
+    struct_0 *v0;  // [bp-0x48]
     char *v1;  // [bp-0x40]
     unsigned long long v2;  // [bp-0x38]
     unsigned long long v3;  // [bp-0x30]

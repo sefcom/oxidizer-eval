@@ -1,6 +1,6 @@
 fn flealib::fileserver::FileServer::list_content(a0: i64, a1: u64) -> long long {
     let v0: struct40;  // [bp-0x1a8], Other Possible Types: struct_0 *, struct24
-    let v1: &mut [u8];  // [bp-0x1a8]
+    let v1: &str;  // [bp-0x1a8]
     let v2: u128;  // [bp-0x1a8]
     let v3: u64;  // [bp-0x1a0]
     let v4: i64;  // [bp-0x198], Other Possible Types: u64
@@ -8,10 +8,10 @@ fn flealib::fileserver::FileServer::list_content(a0: i64, a1: u64) -> long long 
     let v6: void*;  // [bp-0x188], Other Possible Types: struct_0 *
     let v7: u64;  // [bp-0x180]
     let v8: core::result::Result<alloc::string::String, std::sys::os_str::bytes::Buf>;  // [bp-0x178], Other Possible Types: struct_0 *, struct24, u32
-    let v9: struct32;  // [bp-0x178]
-    let v10: u256;  // [bp-0x178]
-    let v11: struct9;  // [bp-0x178]
-    let v12: &mut [u8];  // [bp-0x178]
+    let v9: Option<struct120>;  // [bp-0x178]
+    let v10: struct24;  // [bp-0x178], Other Possible Types: u256
+    let v11: std::sys::pal::unix::fs::dirent64_min;  // [bp-0x178]
+    let v12: &str;  // [bp-0x178]
     let v13: u64;  // [bp-0x170]
     let v14: i64;  // [bp-0x168]
     let v15: u64;  // [bp-0x160]
@@ -39,7 +39,7 @@ fn flealib::fileserver::FileServer::list_content(a0: i64, a1: u64) -> long long 
     let v38: u64;  // rdx
     let v40: i64;  // rbx
     let v41: u64;  // r8
-    let v42: &mut [u8];  // rax:rdx
+    let v42: &str;  // rax:rdx
     let v43: struct24;  // [bp-0x120]
     let v44: core::option::Option<core::result::Result<std::fs::DirEntry, std::io::error::Error>>;  // [bp-0xa8], Other Possible Types: u64
     let v45: u320;  // [bp-0xa0]
@@ -49,9 +49,9 @@ fn flealib::fileserver::FileServer::list_content(a0: i64, a1: u64) -> long long 
     v20 = 8;
     v21 = 0;
     v11 = std::fs::read_dir(a1);
-    v37 = v11.field_8;
+    v37 = v11.d_type;
     if v37 == 2 {
-        v44 = v11.field_0;
+        v44 = v11.d_ino;
         v0 = <T as alloc::string::SpecToString>::spec_to_string(&v44);
         return struct32 {
             field_0: 1
@@ -59,11 +59,11 @@ fn flealib::fileserver::FileServer::list_content(a0: i64, a1: u64) -> long long 
             field_24: v4
         };
     }
-    v31 = v11.field_0;
+    v31 = v11.d_ino;
     v32 = v37;
     v8 = 0;
     v42 = core::char::methods::encode_utf8_raw(47, &v8, v38);
-    v0 = <T as alloc::slice::hack::ConvertVec>::to_vec(v42.data_ptr, v38);
+    v0 = <T as alloc::slice::hack::ConvertVec>::to_vec(v42.ptr, v38);
     v29 = v4;
     v28 = *(&v0.field_0 as &i128);
     v22 = v31;

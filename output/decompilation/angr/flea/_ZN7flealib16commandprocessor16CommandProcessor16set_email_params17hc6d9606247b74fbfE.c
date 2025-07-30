@@ -127,6 +127,6 @@ LABEL_76da96:
         }
         core::panicking::panic_bounds_check(v28, v21, v27); /* do not return */
     }
-    (char)v9.to_vec("Wrong number of parametersOk/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs", 26);
+    v9.to_vec("Wrong number of parametersOk/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/iter/traits/iterator.rs", 26);
     goto LABEL_76da96;
 }

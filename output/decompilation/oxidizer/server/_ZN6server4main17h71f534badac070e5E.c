@@ -3,7 +3,7 @@ fn server::main(a0: i64, a1: i64, a2: i64, a3: u64, a4: u64, a5: u64) -> int {
     let v1: std::net::tcp::TcpStream;  // [bp-0xc0]
     let v2: u32;  // [bp-0xbc]
     let v3: i64;  // [bp-0xb8]
-    let v4: struct24;  // [bp-0xb0], Other Possible Types: core::result::Result<core::net::socket_addr::SocketAddr, std::io::error::Error>
+    let v4: struct24;  // [bp-0xb0], Other Possible Types: Result<struct4, struct8>
     let v7: u128;  // [bp-0x60]
     let v8: struct32;  // [bp-0x50]
 

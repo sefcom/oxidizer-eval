@@ -137,11 +137,11 @@ def measure_rust_source(source_folder: Path) -> dict:
 class RustDecompilerMCC:
     # based on:
     # https://github.com/mozilla/rust-code-analysis/blob/efe98948323d4965348559ca607838746e6d7e4c/src/metrics/cyclomatic.rs#L190
-    IF_REGEX = r"if .*\{"
-    FOR_REGEX = r"for .*\{"
-    WHILE_REGEX = r"while .*\{"
-    LOOP_REGEX = r"loop \{"
-    MATCH_ARM_REGEX = r" => \{"
+    IF_REGEX = r"  if .*"
+    FOR_REGEX = r"  for .*"
+    WHILE_REGEX = r"  while .*"
+    LOOP_REGEX = r"  loop "
+    MATCH_ARM_REGEX = r" => "
     AND_REGEX = r" && "
     OR_REGEX = r" \|\| "
     # Due to the special way cyclomatic complexity is calculated in programs without CFGs, you can actually ignore
@@ -286,6 +286,8 @@ def preprocess_decompiled_code(decompiled_code_path: Path) -> tuple[bool, bool]:
         "__fastcall": "",
         "__noreturn": "",
         "__cdecl": "",
+        "*mut ": "",
+        "/* no return */": "",
     }
     for k, v in replacement_map.items():
         if k in code:
@@ -328,13 +330,13 @@ def preprocess_decompiled_code(decompiled_code_path: Path) -> tuple[bool, bool]:
 
 
 def rename_as_cpp_files(decompiler_folder: Path, new_folder: Path):
-    for bin_dir in decompiler_folder.iterdir():
-        new_bin_dir = new_folder / bin_dir.name
-        new_bin_dir.mkdir(exist_ok=True)
-        for decompiled_file in bin_dir.glob("*.c"):
-            new_decompiled_file = new_bin_dir / (decompiled_file.stem + ".cpp")
-            shutil.copy(decompiled_file, new_decompiled_file)
-            preprocess_decompiled_code(new_decompiled_file)
+    # for bin_dir in decompiler_folder.iterdir():
+    #     new_bin_dir = new_folder / bin_dir.name
+    #     new_bin_dir.mkdir(exist_ok=True)
+    for decompiled_file in decompiler_folder.glob("*.c"):
+        new_decompiled_file = new_folder / (decompiled_file.stem + ".cpp")
+        shutil.copy(decompiled_file, new_decompiled_file)
+        preprocess_decompiled_code(new_decompiled_file)
 
 
 def measure_mcc(decompiler_folder: Path) -> dict:

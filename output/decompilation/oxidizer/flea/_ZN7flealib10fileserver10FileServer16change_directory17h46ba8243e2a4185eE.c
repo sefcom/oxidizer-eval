@@ -21,9 +21,9 @@ fn flealib::fileserver::FileServer::change_directory(a1: &struct24, a2: i64, a3:
     let v18: u64;  // [bp-0x118]
     let v19: alloc::string::String;  // [bp-0x110]
     let v20: u64;  // [bp-0x100]
-    let v21: &str;  // [bp-0xf8], Other Possible Types: struct24
+    let v21: &mut [u8];  // [bp-0xf8], Other Possible Types: struct24
     let v22: struct24;  // [bp-0xf8]
-    let v23: &str;  // [bp-0xf8]
+    let v23: &mut [u8];  // [bp-0xf8]
     let v24: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xf8]
     let v25: struct42;  // [bp-0xe8], Other Possible Types: struct_0 *
     let v26: u64;  // [bp-0xe0]
@@ -35,18 +35,18 @@ fn flealib::fileserver::FileServer::change_directory(a1: &struct24, a2: i64, a3:
     let v34: u64;  // rdx
     let v35: u64;  // rcx
     let v36: u64;  // r8
-    let v37: &str;  // rax:rdx
-    let v38: &str;  // rax:rdx
-    let v39: &str;  // rax:rdx
+    let v37: &mut [u8];  // rax:rdx
+    let v38: &mut [u8];  // rax:rdx
+    let v39: &mut [u8];  // rax:rdx
 
     v5 = <T as alloc::slice::hack::ConvertVec>::to_vec(a2, a3);
     v10 = 0;
-    v39 = core::char::methods::encode_utf8_raw(47, &v10, a2);
-    v22 = <T as alloc::slice::hack::ConvertVec>::to_vec(v39.ptr, a2);
+    v38 = core::char::methods::encode_utf8_raw(47, &v10, a2);
+    v22 = <T as alloc::slice::hack::ConvertVec>::to_vec(v38.data_ptr, a2);
     v3 = v25;
     v1 = *(&v22.field_0 as &i128);
     if !<&str as core::str::pattern::Pattern>::is_contained_in(v2, v25, v8, v9) {
-        v0 = &g_45177c.haystack.ptr;
+        v0 = &g_45177c.haystack.data_ptr;
         v2 = <char as core::fmt::Display>::fmt;
         v3 = &v5;
         v4 = <alloc::string::String as core::fmt::Display>::fmt;
@@ -62,13 +62,13 @@ fn flealib::fileserver::FileServer::change_directory(a1: &struct24, a2: i64, a3:
     v33 = *((a1 + 16) as &i64);
     v11 = 0;
     v37 = core::char::methods::encode_utf8_raw(47, &v11, a2);
-    v21 = <T as alloc::slice::hack::ConvertVec>::to_vec(v37.ptr, a2);
+    v21 = <T as alloc::slice::hack::ConvertVec>::to_vec(v37.data_ptr, a2);
     v3 = v25;
     v1 = *(&v21.field_0 as &i128);
     if core::slice::<impl [T]>::ends_with(v32, v33, v2, v25) {
         v12 = 0;
-        v38 = core::char::methods::encode_utf8_raw(47, &v12 as u128, a2);
-        v21 = <T as alloc::slice::hack::ConvertVec>::to_vec(v38.ptr, a2);
+        v39 = core::char::methods::encode_utf8_raw(47, &v12 as u128, a2);
+        v21 = <T as alloc::slice::hack::ConvertVec>::to_vec(v39.data_ptr, a2);
         v3 = v25;
         v0 = *(&v21.field_0 as &i128);
         alloc::str::<impl str>::replace(&v21, v8, v9, v2, v25);

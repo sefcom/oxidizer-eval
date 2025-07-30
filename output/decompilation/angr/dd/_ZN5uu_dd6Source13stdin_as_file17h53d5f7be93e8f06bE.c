@@ -1,4 +1,0 @@
-long long uu_dd::Source::stdin_as_file()
-{
-    return std::io::stdio::stdin();
-}

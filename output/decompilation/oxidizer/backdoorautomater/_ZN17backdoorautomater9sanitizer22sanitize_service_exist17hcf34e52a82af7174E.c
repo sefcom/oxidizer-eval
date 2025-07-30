@@ -6,7 +6,7 @@ fn backdoorautomater::sanitizer::sanitize_service_exist(a0: i64) {
     let v4: struct56;  // [bp-0x110]
     let v5: u64;  // [bp-0xf0]
     let v6: &str;  // [bp-0xd8], Other Possible Types: struct149, struct24
-    let v7: u128;  // [bp-0xc8]
+    let v7: u64;  // [bp-0xc8]
     let v11: u32;  // rdx
 
     v6 = "systemctl status ";

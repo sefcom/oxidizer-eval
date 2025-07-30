@@ -113,9 +113,9 @@ long long flealib::ftp::FTP::receive_file_from_ftp(struct_0 *a0, unsigned long l
             v35 = v0;
             if (v35 == 4)
             {
-                (char)v8.spec_to_string(&v19);
+                (char)v10.spec_to_string(&v19);
                 v4 = v13;
-                memcpy(&(char)v1, &(char)v8, 16);
+                memcpy(&(char)v1, &(char)v10, 16);
                 a0->field_0 = 2;
                 v36 = *((long long *)&(&v2)[7]);
                 v37 = v4;
@@ -165,9 +165,9 @@ long long flealib::ftp::FTP::receive_file_from_ftp(struct_0 *a0, unsigned long l
                 v40 = v0;
                 if (v40 == 4)
                 {
-                    (char)v8.spec_to_string(&v16);
+                    (char)v10.spec_to_string(&v16);
                     v4 = v13;
-                    memcpy(&(char)v1, &(char)v8, 16);
+                    memcpy(&(char)v1, &(char)v10, 16);
                     a0->field_0 = 2;
                     v41 = *((long long *)&(&v2)[7]);
                     v42 = v4;

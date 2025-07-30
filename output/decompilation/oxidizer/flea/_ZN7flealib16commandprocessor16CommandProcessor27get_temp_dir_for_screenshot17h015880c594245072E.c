@@ -8,7 +8,7 @@ fn flealib::commandprocessor::CommandProcessor::get_temp_dir_for_screenshot(a0: 
     let v6: i64;  // [bp-0xb8]
     let v7: u64;  // [bp-0xb0]
     let v8: core::fmt::rt::Argument;  // [bp-0xa8]
-    let v9: std::sys::os_str::bytes::Buf;  // [bp-0xa0]
+    let v9: alloc::string::String;  // [bp-0xa0]
     let v10: struct12;  // [bp-0x84]
     let v11: struct24;  // [bp-0x78], Other Possible Types: struct60
     let v13: u64;  // rdx
@@ -30,8 +30,8 @@ fn flealib::commandprocessor::CommandProcessor::get_temp_dir_for_screenshot(a0: 
     v2 = &v6;
     v3 = 1;
     v9 = core::option::Option<T>::map_or_else(&v0, v13, v14, v15);
-    *(&v5 as &i128) = *(&v9.inner.buf.inner.cap as &i128);
-    v8 = v9.inner.len;
+    *(&v5 as &i128) = *(&v9.vec.buf.inner.cap as &i128);
+    v8 = v9.vec.len;
     v0 = std::env::temp_dir();
     v11 = v5;
     std::path::Path::join(a0, 2, v2, &v11, v15);

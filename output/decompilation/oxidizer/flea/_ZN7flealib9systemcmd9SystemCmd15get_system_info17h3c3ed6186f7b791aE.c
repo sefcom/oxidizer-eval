@@ -10,8 +10,8 @@ fn flealib::systemcmd::SystemCmd::get_system_info(a0: u64, a1: i64, a2: u64) -> 
     let v8: u64;  // [bp-0x220]
     let v9: i64;  // [bp-0x218]
     let v10: u64;  // [bp-0x210]
-    let v11: struct24;  // [bp-0x200], Other Possible Types: struct_0 *, struct8, u64
-    let v12: struct24;  // [bp-0x200], Other Possible Types: u128
+    let v11: struct24;  // [bp-0x200], Other Possible Types: struct_0 *, alloc::raw_vec::Cap, u64
+    let v12: struct24;  // [bp-0x200], Other Possible Types: u64
     let v13: u64;  // [bp-0x1f8]
     let v14: struct40;  // [bp-0x1f0], Other Possible Types: struct_0 *, u64
     let v15: u64;  // [bp-0x1e8]
@@ -28,9 +28,9 @@ fn flealib::systemcmd::SystemCmd::get_system_info(a0: u64, a1: i64, a2: u64) -> 
     let v26: u64;  // [bp-0x168]
     let v27: u64;  // [bp-0x158]
     let v28: u64;  // [bp-0x150]
-    let v29: struct16;  // [bp-0x148], Other Possible Types: struct_0 *, u64
+    let v29: struct16;  // [bp-0x148], Other Possible Types: struct_0 *, u128
     let v30: u64;  // [bp-0x140]
-    let v32: struct24;  // [bp-0x118], Other Possible Types: struct8
+    let v32: alloc::raw_vec::Cap;  // [bp-0x118], Other Possible Types: struct24
     let v33: u64;  // [bp-0x118]
     let v34: u64;  // [bp-0x118]
     let v35: u64;  // [bp-0x108]
@@ -39,7 +39,7 @@ fn flealib::systemcmd::SystemCmd::get_system_info(a0: u64, a1: i64, a2: u64) -> 
     let v38: alloc::string::String;  // [bp-0xe0], Other Possible Types: struct24
     let v39: u64;  // [bp-0xd8]
     let v40: u64;  // [bp-0xd0]
-    let v41: u128;  // [bp-0xc8]
+    let v41: u64;  // [bp-0xc8]
     let v42: u64;  // [bp-0xc0]
     let v43: u64;  // [bp-0xb8]
     let v44: u64;  // [bp-0xb0]
@@ -55,7 +55,7 @@ fn flealib::systemcmd::SystemCmd::get_system_info(a0: u64, a1: i64, a2: u64) -> 
     let v55: u128;  // xmm0
     let v56: u64;  // rdx
     let v57: u64;  // r8
-    let v58: Option<struct24>;  // rax
+    let v58: struct96;  // rax
     let v59: u64;  // rdx
     let v60: u64;  // rcx
     let v61: struct24;  // rax
@@ -147,10 +147,10 @@ fn flealib::systemcmd::SystemCmd::get_system_info(a0: u64, a1: i64, a2: u64) -> 
         field_8: v40 * 56 + v39
     };
     v58 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v24);
-    if let None = v58 {
+    if v58 {
         do {
-            v12 = *((v58 + 8) as &i128) as u128;
-            v29 = &v12 as u64;
+            v12 = *((v58 + 8) as &i128);
+            v29 = &v12;
             v30 = <&T as core::fmt::Debug>::fmt;
             v0 = &g_b09090;
             v2 = 2;
@@ -158,7 +158,7 @@ fn flealib::systemcmd::SystemCmd::get_system_info(a0: u64, a1: i64, a2: u64) -> 
             v3 = &v29;
             v4 = 1;
             v67 = core::option::Option<T>::map_or_else(&v0, v59, v60, v57);
-            v1 = *(&v67.vec.buf.inner.cap as &i128) as u128;
+            v1 = *(&v67.vec.buf.inner.cap as &i128);
             v3 = v47;
             alloc::vec::Vec<T,A>::append_elements(&v18, 2, v47, "/root/.rustup/toolchains/nightly-2025-01-01-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/string.rs");
             v58 = <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::next(&v24);
@@ -193,7 +193,7 @@ fn flealib::systemcmd::SystemCmd::get_system_info(a0: u64, a1: i64, a2: u64) -> 
     v32 = <&sysinfo::common::Networks as core::iter::traits::collect::IntoIterator>::into_iter(&v29);
     v26 = *(&v36 as &i64);
     v25 = *(&v35 as &i128);
-    *(&v23.field_0 as &struct8) = v32;
+    *(&v23.field_0 as &alloc::raw_vec::Cap) = v32;
     loop {
         v64 = <hashbrown::map::Iter<K,V> as core::iter::traits::iterator::Iterator>::next(&v23);
         if let Ok(_) = v64 {

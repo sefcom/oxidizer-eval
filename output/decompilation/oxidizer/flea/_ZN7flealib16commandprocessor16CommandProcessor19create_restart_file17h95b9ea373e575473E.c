@@ -2,7 +2,7 @@ fn flealib::commandprocessor::CommandProcessor::create_restart_file(a0: i64, a1:
     let v0: std::io::error::Error;  // [bp-0x98], Other Possible Types: struct_0 *
     let v1: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x90]
     let v2: struct16;  // [bp-0x88], Other Possible Types: struct24
-    let v3: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x88]
+    let v3: std::sys::os_str::bytes::Buf;  // [bp-0x88]
     let v4: struct24;  // [bp-0x80]
     let v5: core::result::Result<&str, core::str::error::Utf8Error>;  // [bp-0x78], Other Possible Types: std::sys::os_str::bytes::Buf
     let v6: u64;  // [bp-0x70]

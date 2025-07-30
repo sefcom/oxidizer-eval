@@ -3,7 +3,7 @@ fn flealib::commandprocessor::CommandProcessor::get_camera_frame(a0: u64, a1: u6
     let v1: u128;  // [bp-0x178]
     let v2: void*;  // [bp-0x170], Other Possible Types: u64
     let v3: i64;  // [bp-0x168], Other Possible Types: u64
-    let v4: u128;  // [bp-0x160]
+    let v4: u64;  // [bp-0x160]
     let v5: void*;  // [bp-0x158]
     let v6: struct40;  // [bp-0x148]
     let v7: struct40;  // [bp-0x140]
