@@ -13,8 +13,7 @@ from eval.decompilers.ida import ida_dec
 from eval.decompilers.oxidizer import oxidizer_dec
 from eval.decompilers.angr import angr_dec
 from eval.decompilers.ghidra import ghidra_dec
-
-# from eval.decompilers.binja import binja_c_dec, binja_rust_dec
+from eval.decompilers.binja import binja_c_dec, binja_rust_dec
 
 
 def dummy_dec(*args, **kwargs):
@@ -27,8 +26,8 @@ DEC_OPTIONS = {
     "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True},
     "IDA": {"dec_func": ida_dec, "cache_only": True},
     "Ghidra": {"dec_func": ghidra_dec, "cache_only": True},
-    # "Binary Ninja": {"dec_func": binja_c_dec, "cache_only": True},
-    # "Binary Ninja (Pseudo Rust)": {"dec_func": binja_rust_dec, "cache_only": True},
+    "Binary Ninja": {"dec_func": binja_c_dec, "cache_only": False},
+    "Binary Ninja (Pseudo Rust)": {"dec_func": binja_rust_dec, "cache_only": False},
 }
 
 EXCLUDED_FUNCTIONS = [
@@ -186,7 +185,7 @@ def eval(dir_path):
                 continue
             binary_paths.append(os.path.join(dirpath, filename))
 
-    # binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) == "spyware"]
+    binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) == "binary"]
     # binary_paths = binary_paths[:30]
 
     tasks = [(binary_path,) for binary_path in binary_paths]

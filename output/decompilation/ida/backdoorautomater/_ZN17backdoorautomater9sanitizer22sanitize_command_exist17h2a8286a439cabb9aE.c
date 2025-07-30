@@ -3,7 +3,7 @@ __int64 __fastcall backdoorautomater::sanitizer::sanitize_command_exist(__int64 
   __int128 v1; // xmm0
   __int64 v2; // rax
   __int64 v3; // rax
-  __int64 v4; // rsi
+  __int64 v4; // rax
   __int64 v5; // rdx
   __int64 v6; // rbx
   __int128 v8; // [rsp+0h] [rbp-178h] BYREF

@@ -20,6 +20,6 @@ __int64 __fastcall flealib::fileencrypter::FileEncrypter::encrypt(__int64 a1, __
   *(_QWORD *)(a1 + 16) = v11;
   *(_OWORD *)a1 = dest;
   core::ptr::drop_in_place<alloc::vec::Vec<u8>>(v7);
-  core::ptr::drop_in_place<aes_gcm::AesGcm<aes::autodetect::Aes256,typenum::uint::UInt<typenum::uint::UInt<typenum::uint::UInt<typenum::uint::UInt<typenum::uint::UTerm,typenum::bit::B1>,typenum::bit::B1>,typenum::bit::B0>,typenum::bit::B0>>>();
+  core::ptr::drop_in_place<aes_gcm::AesGcm<aes::autodetect::Aes256,typenum::uint::UInt<typenum::uint::UInt<typenum::uint::UInt<typenum::uint::UInt<typenum::uint::UTerm,typenum::bit::B1>,typenum::bit::B1>,typenum::bit::B0>,typenum::bit::B0>>>(v7);
   return core::ptr::drop_in_place<alloc::string::String>(a3);
 }

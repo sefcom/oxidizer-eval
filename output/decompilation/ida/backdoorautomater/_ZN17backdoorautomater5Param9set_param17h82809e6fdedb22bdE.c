@@ -156,7 +156,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v2 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v2, v3, &off_22AA50);
       }
@@ -180,7 +180,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v7 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v7, v8, &off_22AA78);
       }
@@ -205,7 +205,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v13 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v13, v14, &off_22AAA0);
       }
@@ -250,7 +250,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v20 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v20, v21, &off_22AB08);
       }
@@ -272,7 +272,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v97 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v97, v98, &off_22AB48);
       }
@@ -296,7 +296,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v102 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v102, v103, &off_22AB60);
       }
@@ -321,7 +321,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v108 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v108, v109, &off_22AB88);
       }
@@ -346,7 +346,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v114 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v114, v115, &off_22ABB0);
       }
@@ -391,7 +391,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v121 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v121, v122, &off_22ABD8);
       }
@@ -413,7 +413,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v28 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v28, v29, &off_22AC08);
       }
@@ -437,7 +437,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v33 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v33, v34, &off_22AC20);
       }
@@ -477,7 +477,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v40 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v40, v41, &off_22AC68);
       }
@@ -498,7 +498,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v48 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v48, v49, &off_22ACA8);
       }
@@ -523,7 +523,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v54 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v54, v55, &off_22ACD0);
       }
@@ -547,7 +547,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v60 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v60, v61, &off_22ACE8);
       }
@@ -571,7 +571,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v65 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v65, v66, &off_22AD00);
       }
@@ -611,7 +611,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v72 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v72, v73, &off_22AD18);
       }
@@ -632,7 +632,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v80 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v80, v81, &off_22AD48);
       }
@@ -657,7 +657,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v86 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v86, v87, &off_22AD70);
       }
@@ -682,7 +682,7 @@ __int64 __fastcall backdoorautomater::Param::set_param(__int64 a1, char a2)
         v131 = 8LL;
         v132 = 0LL;
         std::io::stdio::_print(&v130);
-        *(_QWORD *)&v130 = std::io::stdio::stdin();
+        *(_QWORD *)&v130 = std::io::stdio::stdin(&v130);
         v92 = std::io::stdio::Stdin::read_line(&v130, &v135);
         core::result::Result<T,E>::expect(v92, v93, &off_22AD98);
       }

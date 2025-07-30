@@ -23,9 +23,12 @@ def classify_type(tif):
     if tif.is_ptr():
         pointed = tif.get_pointed_object()
         if pointed:
-            return f"&{classify_type(pointed)}"
-        else:
-            return "&reference"
+            if pointed.is_ptr():
+                inner = "reference"
+            else:
+                inner = classify_type(pointed)
+            return f"&{inner}" if inner else None
+        return None
     elif tif.is_array():
         return "array"
     elif tif.is_struct() or tif.is_union():
@@ -112,7 +115,7 @@ if __name__ == "__main__":
                 pseudocode = get_pseudocode(cfunc)
                 result["decompilation"][func_name] = pseudocode
                 result["function_call_counts"][func_name] = function_call_counts
-                result["macro_call_counts"][func_name] = 0
+                result["macro_call_counts"][func_name] = {}
                 result["variable_types"][func_name] = variable_types
     with open("%RESULT_PATH%", "w", encoding="utf-8") as fd:
         json.dump(result, fd, indent=2)

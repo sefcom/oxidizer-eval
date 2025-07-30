@@ -77,7 +77,7 @@ LABEL_19:
     std::sync::mutex::Mutex<T>::lock(&v17, a4 + 16);
     v6 = core::result::Result<T,E>::unwrap(&v17, &off_708670);
     v8 = v9 & 1;
-    flealib::fileserver::FileServer::change_directory(&v24, v6 + 8, a2, a3);
+    flealib::fileserver::FileServer::change_directory((__int64)&v24, v6 + 8, a2, a3);
     if ( __OFSUB__(0LL, (_QWORD)v24) )
     {
       if ( (unsigned __int64)core::sync::atomic::atomic_load(&log::MAX_LOG_LEVEL_FILTER) >= 4 )

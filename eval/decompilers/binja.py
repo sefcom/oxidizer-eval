@@ -9,6 +9,8 @@ from binaryninja.commonil import Constant, Call
 from binaryninja.enums import DisassemblyOption, InstructionTextTokenType
 from binaryninja.function import DisassemblySettings, Function
 from binaryninja.highlevelil import HighLevelILInstruction
+from binaryninja.types import TypeClass, VariableSourceType
+from binaryninja.variable import Variable
 
 from .util import load_cached_result, save_result
 
@@ -46,6 +48,59 @@ def count_calls(bv, func: Function):
     return dict(call_counts)
 
 
+def classify_type(bn_type):
+    if bn_type is None:
+        return None
+    if bn_type.type_class == TypeClass.PointerTypeClass:
+        inner = classify_type(bn_type.target)
+        return "&{}".format(inner if inner else "reference")
+    elif bn_type.type_class == TypeClass.ArrayTypeClass:
+        return "array"
+    elif bn_type.type_class == TypeClass.StructureTypeClass:
+        return "struct"
+    else:
+        return "primitive"
+
+
+def estimate_frame_size(func):
+    offsets = [
+        var.storage for var in func.stack_layout if var.source_type == VariableSourceType.StackVariableSourceType
+    ]
+    if not offsets:
+        return 0
+    return abs(min(offsets))
+
+
+def get_variable_ident(var: Variable, func):
+    if var.source_type == VariableSourceType.StackVariableSourceType:
+        frame_size = estimate_frame_size(func)
+        adjusted_offset = frame_size + var.storage
+        return f"stack_{adjusted_offset}"
+
+    # Registers
+    elif var.source_type == VariableSourceType.RegisterVariableSourceType:
+        arch = func.arch
+        reg_name = arch.get_reg_name(var.storage)
+        reg_info = arch.regs[reg_name]
+        return f"reg_{reg_info.full_width_reg}"
+
+    return None  # Ignore other types
+
+
+def get_variable_types(func):
+    ident_to_types = defaultdict(list)
+
+    hlil = func.hlil
+    for var in set(hlil.vars) | set(hlil.aliased_vars):
+        ident = get_variable_ident(var, func)
+        if ident:
+            ty = classify_type(var.type)
+            size = var.type.width if var.type else -1
+            ident_to_types[ident].append((ty, size))
+
+    return ident_to_types
+
+
 def count_variables(func: Function):
     return len(set(func.hlil.vars) | set(func.hlil.aliased_vars)) - len(func.parameter_vars)
 
@@ -61,8 +116,7 @@ def _binja_dec_base(binary_path, function_list, is_rust_binary, cache_only=False
         "function_call_counts": {},
         "num_variables": {},
         "macro_call_counts": {},
-        "node_counts": {},
-        "prototypes": {},
+        "variable_types": {},
     }
 
     bin_name = os.path.basename(binary_path)
@@ -85,8 +139,8 @@ def _binja_dec_base(binary_path, function_list, is_rust_binary, cache_only=False
                             # Save call counts result
                             result["function_call_counts"][func.name] = count_calls(bv, func)
                             result["num_variables"][func.name] = count_variables(func)
-                            result["macro_call_counts"][func.name] = 0
-                            result["node_counts"][func.name] = 0
+                            result["macro_call_counts"][func.name] = {}
+                            result["variable_types"][func.name] = get_variable_types(func)
                         else:
                             raise Exception()
 

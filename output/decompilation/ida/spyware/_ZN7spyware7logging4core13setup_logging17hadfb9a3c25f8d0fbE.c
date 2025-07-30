@@ -63,7 +63,13 @@ char __fastcall spyware::logging::core::setup_logging(_QWORD *a1)
     v14 = v31;
     if ( (_QWORD)v30 != 6LL )
     {
-      ((void (__fastcall *)(__int128 *))core::ptr::drop_in_place<core::result::Result<(),spyware::logging::core::MemoryLogger>>)(&v13);
+      ((void (__fastcall *)(__int128 *, void *, __int64, __int64, __int64, __int64))core::ptr::drop_in_place<core::result::Result<(),spyware::logging::core::MemoryLogger>>)(
+        &v13,
+        &spyware::logging::core::MEMORY_LOGGER_INSTANCE,
+        v2,
+        v35,
+        v4,
+        v5);
       return 2;
     }
   }

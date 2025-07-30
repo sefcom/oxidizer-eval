@@ -105,7 +105,7 @@ __int64 __fastcall backdoorautomater::newservice::create_service(__int64 a1, __i
 
   v85 = a2;
   v90 = a1;
-  backdoorautomater::sanitizer::sanitize_service_exist();
+  backdoorautomater::sanitizer::sanitize_service_exist(a1);
   v2 = *(_OWORD *)(a1 + 8);
   *(_QWORD *)&v86 = aChmod777_0;
   *((_QWORD *)&v86 + 1) = 10LL;
@@ -132,7 +132,7 @@ __int64 __fastcall backdoorautomater::newservice::create_service(__int64 a1, __i
     v86,
     *((_QWORD *)&v86 + 1),
     *(_QWORD *)v87);
-  backdoorautomater::sanitizer::sanitize_system_command(&v72);
+  backdoorautomater::sanitizer::sanitize_system_command((__int64)&v72);
   v10 = *(_OWORD *)(a1 + 8);
   *(_QWORD *)&v86 = aMv;
   *((_QWORD *)&v86 + 1) = 3LL;
@@ -160,11 +160,11 @@ __int64 __fastcall backdoorautomater::newservice::create_service(__int64 a1, __i
   v73 = v86;
   core::ptr::drop_in_place<alloc::string::String>(&v72);
   core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v81, v13, v14, v15, v16, v17, v73, *((_QWORD *)&v73 + 1), v74);
-  backdoorautomater::sanitizer::sanitize_system_command(&v72);
+  backdoorautomater::sanitizer::sanitize_system_command((__int64)&v72);
   <T as alloc::slice::hack::ConvertVec>::to_vec(&v86, aRestorecon);
   v98 = *(_QWORD *)v87;
   v97 = v86;
-  if ( (unsigned __int8)backdoorautomater::sanitizer::sanitize_command_exist(&v97) )
+  if ( (unsigned __int8)backdoorautomater::sanitizer::sanitize_command_exist((__int64)&v97) )
   {
     alloc::str::join_generic_copy(&v86, &off_22A0A0, 2LL, 1LL, 0LL);
     v84 = *(_QWORD *)v87;
@@ -188,7 +188,7 @@ __int64 __fastcall backdoorautomater::newservice::create_service(__int64 a1, __i
     v73 = v86;
     core::ptr::drop_in_place<alloc::string::String>(&v72);
     core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v81, v20, v21, v22, v23, v24, v73, *((_QWORD *)&v73 + 1), v74);
-    backdoorautomater::sanitizer::sanitize_system_command(&v72);
+    backdoorautomater::sanitizer::sanitize_system_command((__int64)&v72);
     core::ptr::drop_in_place<alloc::string::String>(&v83);
   }
   v91 = aSystemctlDaemo_0;
@@ -211,7 +211,7 @@ __int64 __fastcall backdoorautomater::newservice::create_service(__int64 a1, __i
   v73 = v86;
   core::ptr::drop_in_place<alloc::string::String>(&v72);
   core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v81, v27, v28, v29, v30, v31, v73, *((_QWORD *)&v73 + 1), v74);
-  backdoorautomater::sanitizer::sanitize_system_command(&v72);
+  backdoorautomater::sanitizer::sanitize_system_command((__int64)&v72);
   v32 = *(_OWORD *)(a1 + 8);
   *(_QWORD *)&v86 = aSystemctlEnabl;
   *((_QWORD *)&v86 + 1) = 17LL;
@@ -237,7 +237,7 @@ __int64 __fastcall backdoorautomater::newservice::create_service(__int64 a1, __i
   v73 = v86;
   core::ptr::drop_in_place<alloc::string::String>(&v72);
   core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v81, v35, v36, v37, v38, v39, v73, *((_QWORD *)&v73 + 1), v74);
-  backdoorautomater::sanitizer::sanitize_ex_stderr(&v72);
+  backdoorautomater::sanitizer::sanitize_ex_stderr((__int64)&v72);
   v91 = aSystemctlDaemo_0;
   v92 = 23LL;
   std::process::Command::new(&v86, aSh_0, 2LL);
@@ -258,7 +258,7 @@ __int64 __fastcall backdoorautomater::newservice::create_service(__int64 a1, __i
   v73 = v86;
   core::ptr::drop_in_place<alloc::string::String>(&v72);
   core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v81, v42, v43, v44, v45, v46, v73, *((_QWORD *)&v73 + 1), v74);
-  backdoorautomater::sanitizer::sanitize_system_command(&v72);
+  backdoorautomater::sanitizer::sanitize_system_command((__int64)&v72);
   v47 = *(_OWORD *)(a1 + 8);
   *(_QWORD *)&v86 = aSystemctlStop_0;
   *((_QWORD *)&v86 + 1) = 15LL;
@@ -284,7 +284,7 @@ __int64 __fastcall backdoorautomater::newservice::create_service(__int64 a1, __i
   v73 = v86;
   core::ptr::drop_in_place<alloc::string::String>(&v72);
   core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v81, v50, v51, v52, v53, v54, v73, *((_QWORD *)&v73 + 1), v74);
-  backdoorautomater::sanitizer::sanitize_system_command(&v72);
+  backdoorautomater::sanitizer::sanitize_system_command((__int64)&v72);
   v55 = *(_OWORD *)(a1 + 8);
   *(_QWORD *)&v86 = aSystemctlStart;
   *((_QWORD *)&v86 + 1) = 16LL;
@@ -322,7 +322,7 @@ __int64 __fastcall backdoorautomater::newservice::create_service(__int64 a1, __i
     *(_QWORD *)v87 = 8LL;
     *(_OWORD *)&v87[8] = 0LL;
     std::io::stdio::_print(&v86);
-    *(_QWORD *)&v86 = std::io::stdio::stdin();
+    *(_QWORD *)&v86 = std::io::stdio::stdin(&v86);
     v60 = std::io::stdio::Stdin::read_line(&v86, &v88);
     core::result::Result<T,E>::expect(v60, v61);
     v62 = core::str::<impl str>::trim_end_matches(*((_QWORD *)&v88 + 1), v89, 10LL);
@@ -363,7 +363,7 @@ __int64 __fastcall backdoorautomater::newservice::create_service(__int64 a1, __i
   v73 = v86;
   core::ptr::drop_in_place<alloc::string::String>(&v72);
   core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v81, v66, v67, v68, v69, v70, v73, *((_QWORD *)&v73 + 1), v74);
-  backdoorautomater::sanitizer::sanitize_system_command(&v72);
+  backdoorautomater::sanitizer::sanitize_system_command((__int64)&v72);
   *(_QWORD *)&v86 = &off_22A160;
   *((_QWORD *)&v86 + 1) = 1LL;
   *(_QWORD *)v87 = 8LL;

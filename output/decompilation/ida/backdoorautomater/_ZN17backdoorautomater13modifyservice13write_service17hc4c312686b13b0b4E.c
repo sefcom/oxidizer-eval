@@ -63,7 +63,7 @@ LABEL_7:
       v14 = *(_QWORD *)v25;
       v13 = v24;
       core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v16);
-      backdoorautomater::sanitizer::sanitize_system_command(&v13);
+      backdoorautomater::sanitizer::sanitize_system_command((__int64)&v13);
       core::ptr::drop_in_place<alloc::string::String>(&v13);
       core::ptr::drop_in_place<std::process::Output>(&v20);
       core::ptr::drop_in_place<std::fs::File>(v12);

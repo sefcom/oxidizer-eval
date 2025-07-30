@@ -129,7 +129,7 @@ LABEL_61:
       v15 = *a1;
       *(_QWORD *)&v20 = v23;
       v19 = v22;
-      ((void (__fastcall *)(__int128 *, __int128 *))backdoorautomater::newservice::create_service)(&v15, &v19);
+      backdoorautomater::newservice::create_service((__int64)&v15, (__int64)&v19);
       if ( !v13 )
       {
         core::ptr::drop_in_place<alloc::string::String>(a3);
@@ -141,7 +141,7 @@ LABEL_61:
       v15 = *a2;
       *(_QWORD *)&v20 = *((_QWORD *)a3 + 2);
       v19 = *a3;
-      v9 = backdoorautomater::newservice::write_shell_pyfile(&v15, &v19);
+      v9 = backdoorautomater::newservice::write_shell_pyfile((__int64)&v15, (__int64)&v19);
       backdoorautomater::sanitizer::sanitize_return_fn(v9);
       *(_QWORD *)&v19 = aExecstartPytho;
       *((_QWORD *)&v19 + 1) = 17LL;
@@ -193,7 +193,7 @@ LABEL_61:
       v15 = *a2;
       *(_QWORD *)&v20 = *((_QWORD *)a3 + 2);
       v19 = *a3;
-      v10 = backdoorautomater::newservice::write_shell_perl(&v15, &v19);
+      v10 = backdoorautomater::newservice::write_shell_perl((__int64)&v15, (__int64)&v19);
       backdoorautomater::sanitizer::sanitize_return_fn(v10);
       *(_QWORD *)&v19 = aExecstartPerl;
       *((_QWORD *)&v19 + 1) = 15LL;

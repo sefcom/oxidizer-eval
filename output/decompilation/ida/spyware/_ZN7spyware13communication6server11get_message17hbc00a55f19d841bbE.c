@@ -11,7 +11,7 @@ __int64 __fastcall spyware::communication::server::get_message(__int64 a1, __int
   __int128 v10; // xmm2
   __int64 result; // rax
   __int64 v12; // rax
-  unsigned int v13; // [rsp+4h] [rbp-114h] BYREF
+  int v13; // [rsp+4h] [rbp-114h] BYREF
   __int64 v14; // [rsp+8h] [rbp-110h] BYREF
   __int64 v15; // [rsp+10h] [rbp-108h] BYREF
   const char *v16; // [rsp+18h] [rbp-100h] BYREF

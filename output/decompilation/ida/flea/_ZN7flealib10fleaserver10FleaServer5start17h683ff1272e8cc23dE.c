@@ -29,7 +29,7 @@ __int64 __fastcall flealib::fleaserver::FleaServer::start(
   volatile signed __int64 *v28; // [rsp+90h] [rbp-98h] BYREF
   __int64 (__fastcall *v29)(); // [rsp+98h] [rbp-90h]
   int v30; // [rsp+A0h] [rbp-88h]
-  __int64 v31; // [rsp+B0h] [rbp-78h]
+  volatile signed __int64 *v31; // [rsp+B0h] [rbp-78h]
   unsigned int *v32; // [rsp+B8h] [rbp-70h] BYREF
   _QWORD v33[2]; // [rsp+C0h] [rbp-68h] BYREF
   __int128 v34; // [rsp+D0h] [rbp-58h] BYREF
@@ -72,7 +72,7 @@ __int64 __fastcall flealib::fleaserver::FleaServer::start(
   }
   v32 = &v17;
   v7 = *a4;
-  v31 = (__int64)(*a4 + 2);
+  v31 = *a4 + 2;
   while ( 1 )
   {
     <std::net::tcp::Incoming as core::iter::traits::iterator::Iterator>::next(&v34, &v32);

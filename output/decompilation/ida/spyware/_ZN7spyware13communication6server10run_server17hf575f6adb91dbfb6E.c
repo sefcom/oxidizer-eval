@@ -18,11 +18,11 @@ __int64 __fastcall spyware::communication::server::run_server(__int16 a1)
   unsigned int *v17; // [rsp+38h] [rbp-E0h] BYREF
   char **v18; // [rsp+40h] [rbp-D8h] BYREF
   __int64 v19; // [rsp+48h] [rbp-D0h]
-  __int128 *v20; // [rsp+50h] [rbp-C8h]
+  unsigned int ***v20; // [rsp+50h] [rbp-C8h]
   __int64 v21; // [rsp+58h] [rbp-C0h]
   __int64 v22; // [rsp+60h] [rbp-B8h]
   char v23; // [rsp+68h] [rbp-B0h]
-  __int128 *v24; // [rsp+70h] [rbp-A8h] BYREF
+  unsigned int **v24; // [rsp+70h] [rbp-A8h] BYREF
   __int64 (__fastcall *v25)(); // [rsp+78h] [rbp-A0h]
   __int128 v26; // [rsp+80h] [rbp-98h] BYREF
   __int128 v27; // [rsp+90h] [rbp-88h]
@@ -37,7 +37,7 @@ __int64 __fastcall spyware::communication::server::run_server(__int16 a1)
   v18 = (char **)&unk_B8CA0;
   v19 = 2LL;
   v22 = 0LL;
-  v20 = &v14;
+  v20 = (unsigned int ***)&v14;
   v21 = 2LL;
   core::option::Option<T>::map_or_else(v29, &v18);
   std::net::tcp::TcpListener::bind(&v18, v29);
@@ -50,13 +50,13 @@ __int64 __fastcall spyware::communication::server::run_server(__int16 a1)
       v17 = (unsigned int *)*((_QWORD *)&v28[0] + 1);
       if ( core::sync::atomic::atomic_load(v28, &v12, v2, v3) )
       {
-        v24 = (__int128 *)&v17;
+        v24 = &v17;
         *(_QWORD *)&v26 = &v24;
         *((_QWORD *)&v26 + 1) = <&T as core::fmt::Display>::fmt;
         v18 = &off_B8CD0;
         v19 = 2LL;
         v22 = 0LL;
-        v20 = &v26;
+        v20 = (unsigned int ***)&v26;
         v21 = 1LL;
         v4 = log::__private_api::loc(&off_B8D38);
         *(_QWORD *)&v14 = aSpywareCommuni;
@@ -74,12 +74,12 @@ __int64 __fastcall spyware::communication::server::run_server(__int16 a1)
       v26 = v28[0];
       if ( (unsigned __int64)core::sync::atomic::atomic_load(v28, &v12, v2, v3) >= 3 )
       {
-        v24 = &v26;
+        v24 = (unsigned int **)&v26;
         v25 = <core::net::socket_addr::SocketAddr as core::fmt::Debug>::fmt;
         v18 = &off_B8CC0;
         v19 = 1LL;
         v22 = 0LL;
-        v20 = (__int128 *)&v24;
+        v20 = &v24;
         v21 = 1LL;
         v5 = log::__private_api::loc(&off_B8D20);
         *(_QWORD *)&v14 = aSpywareCommuni;
@@ -108,7 +108,7 @@ __int64 __fastcall spyware::communication::server::run_server(__int16 a1)
           v18 = &off_B8D00;
           v19 = 1LL;
           v22 = 0LL;
-          v20 = &v26;
+          v20 = (unsigned int ***)&v26;
           v21 = 1LL;
           v8 = log::__private_api::loc(&off_B8D98);
           *(_QWORD *)&v14 = aSpywareCommuni;
@@ -139,7 +139,7 @@ __int64 __fastcall spyware::communication::server::run_server(__int16 a1)
         v18 = &off_B8CF0;
         v19 = 1LL;
         v22 = 0LL;
-        v20 = v28;
+        v20 = (unsigned int ***)v28;
         v21 = 1LL;
         v9 = log::__private_api::loc(&off_B8D68);
         *(_QWORD *)&v14 = aSpywareCommuni;
@@ -149,7 +149,7 @@ __int64 __fastcall spyware::communication::server::run_server(__int16 a1)
         v16 = v9;
         log::__private_api::log(&v18, 3LL, &v14);
       }
-      v20 = (__int128 *)0x8000000000000000LL;
+      v20 = (unsigned int ***)0x8000000000000000LL;
       v18 = 0LL;
       v23 = 0;
       std::thread::Builder::spawn_unchecked(&v14, &v18, v11);

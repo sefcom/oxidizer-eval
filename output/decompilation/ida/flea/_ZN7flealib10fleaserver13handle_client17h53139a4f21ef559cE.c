@@ -12,7 +12,7 @@ __int64 __fastcall flealib::fleaserver::handle_client(unsigned int a1, __int64 a
   __int64 v13; // rax
   __int64 v14; // rax
   __int64 v15; // rax
-  __int64 v17; // rax
+  __int64 v17; // rdi
   __int64 v18; // rax
   unsigned int v19; // [rsp+8h] [rbp-530h] BYREF
   char v20; // [rsp+Fh] [rbp-529h] BYREF

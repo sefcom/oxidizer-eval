@@ -62,7 +62,7 @@ LABEL_6:
     v10 = 0LL;
     core::ptr::drop_in_place<alloc::vec::Vec<alloc::string::String>>(&v9);
   }
-  flealib::browserhistory::get_firefox_history(&v18);
+  flealib::browserhistory::get_firefox_history((__int64)&v18);
   v4 = v18;
   v11 = v19;
   v12 = v20;

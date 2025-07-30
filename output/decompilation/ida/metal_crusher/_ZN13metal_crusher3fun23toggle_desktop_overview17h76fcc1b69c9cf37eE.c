@@ -42,7 +42,7 @@ __int64 metal_crusher::fun::toggle_desktop_overview()
       v2 = aDbusSendSessio;
       v3 = 180LL;
     }
-    return metal_crusher::fun::execute_shell(v2, v3);
+    return metal_crusher::fun::execute_shell((__int64)v2, v3);
   }
   return result;
 }

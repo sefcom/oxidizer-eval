@@ -47,7 +47,7 @@ __int64 __fastcall binary::install::drop_library(__int64 a1)
     v24 = log::__private_api::loc(&off_18E6D78);
     log::__private_api::log(&v25, 3LL, &v20, aBinaryInstall, v1, v2);
   }
-  binary::install::find_library_path(v32);
+  binary::install::find_library_path((__int64)v32);
   std::path::Path::join(v30, v33, v34, aLibcextSo2, 12LL);
   std::fs::File::create(v29, v30);
   if ( LODWORD(v29[0]) == 1 )

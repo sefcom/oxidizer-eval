@@ -1,8 +1,8 @@
 __int64 FakeCrypt::main()
 {
   __int64 v0; // r12
-  char **v1; // r14
-  __int64 (__fastcall *v2)(); // rbx
+  __int64 v1; // r14
+  __int64 v2; // rbx
   int v3; // r15d
   __int64 v4; // r15
   __int64 v5; // r12
@@ -54,8 +54,8 @@ __int64 FakeCrypt::main()
   }
   v0 = v29;
   v31 = v29 + 48;
-  v1 = *(char ***)(v29 + 56);
-  v2 = *(__int64 (__fastcall **)())(v29 + 64);
+  v1 = *(_QWORD *)(v29 + 56);
+  v2 = *(_QWORD *)(v29 + 64);
   std::fs::metadata(dest);
   v3 = *(_DWORD *)dest;
   core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>(dest, v1);
@@ -80,8 +80,8 @@ __int64 FakeCrypt::main()
     v26 = 0LL;
     rand::rng::Rng::fill(v27, v21);
     rand::rng::Rng::fill(v27, &v26);
-    v22 = v1;
-    v23 = v2;
+    v22 = (char **)v1;
+    v23 = (__int64 (__fastcall *)())v2;
     v19 = &v22;
     v20 = <std::path::Display as core::fmt::Display>::fmt;
     *(_QWORD *)dest = &off_D93A0;
@@ -90,7 +90,7 @@ __int64 FakeCrypt::main()
     *(_QWORD *)&dest[16] = &v19;
     *(_QWORD *)&dest[24] = 1LL;
     std::io::stdio::_print(dest);
-    FakeCrypt::fileops::encrypt_directory(v1, v2, v21, &v26);
+    FakeCrypt::fileops::encrypt_directory(v1, v2, (__int64)v21, (__int64)&v26);
     *(_QWORD *)dest = &off_D93C0;
     *(_QWORD *)&dest[8] = 1LL;
     *(_QWORD *)&dest[16] = 8LL;
@@ -195,7 +195,7 @@ LABEL_25:
   dest[0] = v15;
   core::result::Result<T,E>::unwrap(v27, dest);
   v19 = (char ***)v1;
-  v20 = v2;
+  v20 = (__int64 (__fastcall *)())v2;
   *(_QWORD *)&v26 = &v19;
   *((_QWORD *)&v26 + 1) = <std::path::Display as core::fmt::Display>::fmt;
   *(_QWORD *)dest = &off_D9430;
@@ -204,7 +204,7 @@ LABEL_25:
   *(_QWORD *)&dest[16] = &v26;
   *(_QWORD *)&dest[24] = 1LL;
   std::io::stdio::_print(dest);
-  FakeCrypt::fileops::decrypt_directory(v1, v2, v21, v27);
+  FakeCrypt::fileops::decrypt_directory(v1, v2, (__int64)v21, (__int64)v27);
   *(_QWORD *)dest = &off_D9450;
   *(_QWORD *)&dest[8] = 1LL;
   *(_QWORD *)&dest[16] = 8LL;

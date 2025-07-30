@@ -34,7 +34,7 @@ __int64 __fastcall flealib::fileencrypter::FileEncrypter::encrypt_file(__int64 a
     <T as alloc::slice::hack::ConvertVec>::to_vec(&v8, v14, v15);
     v20 = v9;
     v19 = v8;
-    flealib::fileencrypter::FileEncrypter::encrypt(v16, a1, &v19);
+    flealib::fileencrypter::FileEncrypter::encrypt((__int64)v16, a1, (__int64)&v19);
     core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v13);
     std::fs::File::create(&v8, a2, a3);
     if ( (v8 & 1) != 0 )

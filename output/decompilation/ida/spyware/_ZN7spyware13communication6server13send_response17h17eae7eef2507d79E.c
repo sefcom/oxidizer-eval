@@ -18,7 +18,7 @@ __int64 __fastcall spyware::communication::server::send_response(__int64 a1, __i
   _QWORD v18[7]; // [rsp+70h] [rbp-38h] BYREF
 
   v10 = a2;
-  spyware::communication::serialization::serialize_message(&v12, a1);
+  spyware::communication::serialization::serialize_message((__int64)&v12, a1);
   v3 = v13;
   if ( !__OFSUB__(-v12, 1LL) )
   {

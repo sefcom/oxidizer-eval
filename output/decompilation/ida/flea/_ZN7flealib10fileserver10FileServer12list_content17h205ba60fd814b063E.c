@@ -15,136 +15,134 @@ __int64 __fastcall flealib::fileserver::FileServer::list_content(__int64 a1, __i
   __int64 v14; // rcx
   __int64 v15; // r8
   __int64 v16; // r9
-  __int128 v18; // [rsp+0h] [rbp-1A8h] BYREF
-  __int128 **v19; // [rsp+10h] [rbp-198h]
-  __int64 v20; // [rsp+18h] [rbp-190h]
-  __int64 v21; // [rsp+20h] [rbp-188h]
-  __int128 *v22; // [rsp+30h] [rbp-178h] BYREF
-  __int128 v23; // [rsp+38h] [rbp-170h]
-  __int64 (__fastcall *v24)(); // [rsp+48h] [rbp-160h]
-  __int64 v25; // [rsp+50h] [rbp-158h]
-  __int128 v26; // [rsp+60h] [rbp-148h] BYREF
-  __int64 v27; // [rsp+70h] [rbp-138h]
-  __int128 *v28; // [rsp+78h] [rbp-130h] BYREF
-  char v29; // [rsp+80h] [rbp-128h]
-  __int128 v30; // [rsp+88h] [rbp-120h] BYREF
-  __int128 **v31; // [rsp+98h] [rbp-110h]
-  _BYTE v32[24]; // [rsp+A0h] [rbp-108h] BYREF
-  __int64 (__fastcall *v33)(); // [rsp+B8h] [rbp-F0h]
-  __int128 v34; // [rsp+C0h] [rbp-E8h] BYREF
-  __int128 **v35; // [rsp+D0h] [rbp-D8h]
-  __int64 v36; // [rsp+E0h] [rbp-C8h]
-  _QWORD v37[2]; // [rsp+E8h] [rbp-C0h] BYREF
-  char v38; // [rsp+F8h] [rbp-B0h]
-  __int128 *v39; // [rsp+100h] [rbp-A8h] BYREF
-  char v40[40]; // [rsp+108h] [rbp-A0h] BYREF
-  __int128 v41; // [rsp+130h] [rbp-78h] BYREF
-  __int64 v42; // [rsp+140h] [rbp-68h]
-  _BYTE v43[24]; // [rsp+148h] [rbp-60h] BYREF
-  _BYTE v44[72]; // [rsp+160h] [rbp-48h] BYREF
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  __int128 v21; // [rsp+0h] [rbp-1A8h] BYREF
+  __int128 *v22; // [rsp+10h] [rbp-198h]
+  __int64 (__fastcall *v23)(); // [rsp+18h] [rbp-190h]
+  __int128 *v24; // [rsp+20h] [rbp-188h]
+  __int64 (__fastcall *v25)(); // [rsp+28h] [rbp-180h]
+  __int128 *v26; // [rsp+30h] [rbp-178h] BYREF
+  __int128 v27; // [rsp+38h] [rbp-170h]
+  __int64 (__fastcall *v28)(); // [rsp+48h] [rbp-160h]
+  __int64 v29; // [rsp+50h] [rbp-158h]
+  __int128 v30; // [rsp+60h] [rbp-148h] BYREF
+  __int64 v31; // [rsp+70h] [rbp-138h]
+  __int128 *v32; // [rsp+78h] [rbp-130h] BYREF
+  char v33; // [rsp+80h] [rbp-128h]
+  __int128 v34; // [rsp+88h] [rbp-120h] BYREF
+  __int128 *v35; // [rsp+98h] [rbp-110h]
+  _BYTE v36[24]; // [rsp+A0h] [rbp-108h] BYREF
+  __int64 (__fastcall *v37)(); // [rsp+B8h] [rbp-F0h]
+  __int128 v38; // [rsp+C0h] [rbp-E8h] BYREF
+  __int128 *v39; // [rsp+D0h] [rbp-D8h]
+  __int64 v40; // [rsp+E0h] [rbp-C8h]
+  _QWORD v41[2]; // [rsp+E8h] [rbp-C0h] BYREF
+  char v42; // [rsp+F8h] [rbp-B0h]
+  __int128 *v43; // [rsp+100h] [rbp-A8h] BYREF
+  char v44[40]; // [rsp+108h] [rbp-A0h] BYREF
+  __int128 v45; // [rsp+130h] [rbp-78h] BYREF
+  __int64 v46; // [rsp+140h] [rbp-68h]
+  _BYTE v47[24]; // [rsp+148h] [rbp-60h] BYREF
+  _BYTE v48[72]; // [rsp+160h] [rbp-48h] BYREF
 
-  *(_QWORD *)&v26 = 0LL;
-  *((_QWORD *)&v26 + 1) = 8LL;
-  v27 = 0LL;
-  v36 = a2;
-  std::fs::read_dir(&v22);
-  v2 = v23;
-  if ( (_BYTE)v23 != 2 )
+  *(_QWORD *)&v30 = 0LL;
+  *((_QWORD *)&v30 + 1) = 8LL;
+  v31 = 0LL;
+  v40 = a2;
+  std::fs::read_dir(&v26);
+  v2 = v27;
+  if ( (_BYTE)v27 != 2 )
   {
-    v3 = v22;
-    v37[1] = v22;
-    v38 = v23;
-    LODWORD(v22) = 0;
-    v4 = core::char::methods::encode_utf8_raw(47LL, &v22);
-    <T as alloc::slice::hack::ConvertVec>::to_vec(&v18, v4, v5);
-    v35 = v19;
-    v34 = v18;
-    v28 = v3;
-    v29 = v2;
+    v3 = v26;
+    v41[1] = v26;
+    v42 = v27;
+    LODWORD(v26) = 0;
+    v4 = core::char::methods::encode_utf8_raw(47LL, &v26);
+    <T as alloc::slice::hack::ConvertVec>::to_vec(&v21, v4, v5);
+    v39 = v22;
+    v38 = v21;
+    v32 = v3;
+    v33 = v2;
     while ( 1 )
     {
-      <std::fs::ReadDir as core::iter::traits::iterator::Iterator>::next(&v39, &v28);
-      if ( ((unsigned __int8)v39 & 1) == 0 )
+      <std::fs::ReadDir as core::iter::traits::iterator::Iterator>::next(&v43, &v32);
+      if ( ((unsigned __int8)v43 & 1) == 0 )
       {
-        core::ptr::drop_in_place<std::fs::ReadDir>(&v28);
-        *(_QWORD *)(a1 + 24) = v27;
-        *(_OWORD *)(a1 + 8) = v26;
+        core::ptr::drop_in_place<std::fs::ReadDir>(&v32);
+        *(_QWORD *)(a1 + 24) = v31;
+        *(_OWORD *)(a1 + 8) = v30;
         *(_QWORD *)a1 = 0LL;
-        core::ptr::drop_in_place<alloc::string::String>(&v34);
+        core::ptr::drop_in_place<alloc::string::String>(&v38);
         return a1;
       }
-      core::result::Result<T,E>::unwrap(&v18, v40);
-      std::fs::DirEntry::file_name(v44, &v18);
-      std::sys::os_str::bytes::Buf::into_string(&v22, v44);
-      v33 = v24;
-      *(_OWORD *)&v32[8] = v23;
-      *(_QWORD *)v32 = v22;
-      core::result::Result<T,E>::unwrap(&v30, v32);
-      core::ptr::drop_in_place<std::fs::DirEntry>(&v18);
-      v37[0] = v36;
-      v22 = (__int128 *)&unk_6B258;
-      *(_QWORD *)&v23 = 3LL;
-      v25 = 0LL;
-      *((_QWORD *)&v23 + 1) = &v18;
-      v24 = (__int64 (__fastcall *)())(&dword_0 + 3);
-      core::option::Option<T>::map_or_else(
-        &v41,
-        &v22,
-        v6,
-        <alloc::string::String as core::fmt::Display>::fmt,
-        v7,
-        v8,
-        v37,
-        <&T as core::fmt::Display>::fmt,
-        &v34,
-        <alloc::string::String as core::fmt::Display>::fmt,
-        &v30,
-        <alloc::string::String as core::fmt::Display>::fmt);
-      *(_OWORD *)v32 = v41;
-      v9 = v42;
-      *(_QWORD *)&v32[16] = v42;
-      v10 = *((_QWORD *)&v41 + 1);
-      if ( (unsigned __int8)std::path::Path::is_dir(*((_QWORD *)&v41 + 1), v42) )
+      core::result::Result<T,E>::unwrap(&v21, v44);
+      std::fs::DirEntry::file_name(v48, &v21);
+      std::sys::os_str::bytes::Buf::into_string(&v26, v48);
+      v37 = v28;
+      *(_OWORD *)&v36[8] = v27;
+      *(_QWORD *)v36 = v26;
+      core::result::Result<T,E>::unwrap(&v34, v36);
+      core::ptr::drop_in_place<std::fs::DirEntry>(&v21);
+      v41[0] = v40;
+      *(_QWORD *)&v21 = v41;
+      *((_QWORD *)&v21 + 1) = <&T as core::fmt::Display>::fmt;
+      v22 = &v38;
+      v23 = <alloc::string::String as core::fmt::Display>::fmt;
+      v24 = &v34;
+      v25 = <alloc::string::String as core::fmt::Display>::fmt;
+      v26 = (__int128 *)&unk_6B258;
+      *(_QWORD *)&v27 = 3LL;
+      v29 = 0LL;
+      *((_QWORD *)&v27 + 1) = &v21;
+      v28 = (__int64 (__fastcall *)())(&dword_0 + 3);
+      core::option::Option<T>::map_or_else(&v45, &v26, v6, <alloc::string::String as core::fmt::Display>::fmt, v7, v8);
+      *(_OWORD *)v36 = v45;
+      v9 = v46;
+      *(_QWORD *)&v36[16] = v46;
+      v10 = *((_QWORD *)&v45 + 1);
+      if ( (unsigned __int8)std::path::Path::is_dir(*((_QWORD *)&v45 + 1), v46) )
         break;
       if ( (unsigned __int8)std::path::Path::is_file(v10, v9) )
       {
-        v19 = v31;
-        v18 = v30;
-        ((void (__fastcall *)(__int128 *, __int128 *, char **))alloc::vec::Vec<T,A>::push)(&v26, &v18, &off_7098E0);
-        core::ptr::drop_in_place<alloc::string::String>(v32);
+        v22 = v35;
+        v21 = v34;
+        ((void (__fastcall *)(__int128 *, __int128 *, char **, __int64, __int64, __int64))alloc::vec::Vec<T,A>::push)(
+          &v30,
+          &v21,
+          &off_7098E0,
+          v17,
+          v18,
+          v19);
+        core::ptr::drop_in_place<alloc::string::String>(v36);
       }
       else
       {
 LABEL_9:
-        core::ptr::drop_in_place<alloc::string::String>(v32);
-        core::ptr::drop_in_place<alloc::string::String>(&v30);
+        core::ptr::drop_in_place<alloc::string::String>(v36);
+        core::ptr::drop_in_place<alloc::string::String>(&v34);
       }
     }
-    v22 = &v34;
-    *(_QWORD *)&v23 = <alloc::string::String as core::fmt::Display>::fmt;
-    *((_QWORD *)&v23 + 1) = &v30;
-    v24 = <alloc::string::String as core::fmt::Display>::fmt;
-    *(_QWORD *)&v18 = "\x01";
-    *((_QWORD *)&v18 + 1) = 2LL;
-    v21 = 0LL;
-    v19 = &v22;
-    v20 = 2LL;
-    ((void (__fastcall *)(_BYTE *, __int128 *, __int64, __int64 (__fastcall *)(), __int64, __int64))core::option::Option<T>::map_or_else)(
-      v43,
-      &v18,
-      v11,
-      <alloc::string::String as core::fmt::Display>::fmt,
-      v12,
-      v13);
-    alloc::vec::Vec<T,A>::push(&v26, v43, &off_7098F8, v14, v15, v16, v18, *((_QWORD *)&v18 + 1), v19);
+    v26 = &v38;
+    *(_QWORD *)&v27 = <alloc::string::String as core::fmt::Display>::fmt;
+    *((_QWORD *)&v27 + 1) = &v34;
+    v28 = <alloc::string::String as core::fmt::Display>::fmt;
+    *(_QWORD *)&v21 = "\x01";
+    *((_QWORD *)&v21 + 1) = 2LL;
+    v24 = 0LL;
+    v22 = (__int128 *)&v26;
+    v23 = (__int64 (__fastcall *)())(&dword_0 + 2);
+    core::option::Option<T>::map_or_else(v47, &v21, v11, <alloc::string::String as core::fmt::Display>::fmt, v12, v13);
+    alloc::vec::Vec<T,A>::push(&v30, v47, &off_7098F8, v14, v15, v16, v21, *((_QWORD *)&v21 + 1), v22);
     goto LABEL_9;
   }
-  v39 = v22;
-  <T as alloc::string::SpecToString>::spec_to_string(&v18, &v39);
-  *(_QWORD *)(a1 + 24) = v19;
-  *(_OWORD *)(a1 + 8) = v18;
+  v43 = v26;
+  <T as alloc::string::SpecToString>::spec_to_string(&v21, &v43);
+  *(_QWORD *)(a1 + 24) = v22;
+  *(_OWORD *)(a1 + 8) = v21;
   *(_QWORD *)a1 = 1LL;
-  core::ptr::drop_in_place<std::io::error::Error>(&v39);
-  core::ptr::drop_in_place<alloc::vec::Vec<alloc::string::String>>(&v26);
+  core::ptr::drop_in_place<std::io::error::Error>(&v43);
+  core::ptr::drop_in_place<alloc::vec::Vec<alloc::string::String>>(&v30);
   return a1;
 }

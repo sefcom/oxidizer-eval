@@ -91,7 +91,7 @@ __int64 __fastcall backdoorautomater::modifyservice::modify_service(
   __int64 v90; // [rsp+290h] [rbp-F8h]
   __int128 v91; // [rsp+2A0h] [rbp-E8h] BYREF
   __int64 v92; // [rsp+2B0h] [rbp-D8h]
-  _BYTE v93[24]; // [rsp+2C0h] [rbp-C8h] BYREF
+  char v93[24]; // [rsp+2C0h] [rbp-C8h] BYREF
   char v94[8]; // [rsp+2D8h] [rbp-B0h] BYREF
   __int128 v95; // [rsp+2E0h] [rbp-A8h]
   _QWORD v96[2]; // [rsp+2F0h] [rbp-98h] BYREF
@@ -175,7 +175,7 @@ __int64 __fastcall backdoorautomater::modifyservice::modify_service(
         v59 = *v70;
         *(_QWORD *)v75 = *((_QWORD *)v69 + 2);
         v74 = *v69;
-        v28 = backdoorautomater::modifyservice::write_shell_pyfile(&v59, &v74);
+        v28 = backdoorautomater::modifyservice::write_shell_pyfile((__int64)&v59, (__int64)&v74);
         backdoorautomater::sanitizer::sanitize_return_fn(v28);
         *(_QWORD *)&v74 = aExecstartpost;
         *((_QWORD *)&v74 + 1) = 14LL;
@@ -196,7 +196,7 @@ __int64 __fastcall backdoorautomater::modifyservice::modify_service(
         v59 = *v70;
         *(_QWORD *)v75 = *((_QWORD *)v69 + 2);
         v74 = *v69;
-        v29 = backdoorautomater::modifyservice::write_shell_perl(&v59, &v74);
+        v29 = backdoorautomater::modifyservice::write_shell_perl((__int64)&v59, (__int64)&v74);
         backdoorautomater::sanitizer::sanitize_return_fn(v29);
         *(_QWORD *)&v74 = aExecstartpost;
         *((_QWORD *)&v74 + 1) = 14LL;
@@ -333,7 +333,7 @@ LABEL_34:
   *(_QWORD *)v75 = *((_QWORD *)v86 + 2);
   v74 = *v86;
   v68 = v6;
-  v34 = backdoorautomater::modifyservice::write_service(&v59, &v74, v7);
+  v34 = backdoorautomater::modifyservice::write_service((__int64)&v59, &v74, v7);
   backdoorautomater::sanitizer::sanitize_return_fn(v34);
   v96[0] = aSystemctlDaemo;
   v96[1] = 23LL;
@@ -349,7 +349,7 @@ LABEL_34:
   v73 = *(_QWORD *)v75;
   v72 = v74;
   core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v59);
-  backdoorautomater::sanitizer::sanitize_system_command(&v72);
+  backdoorautomater::sanitizer::sanitize_system_command((__int64)&v72);
   *(_QWORD *)&v74 = aSystemctlStop;
   *((_QWORD *)&v74 + 1) = 15LL;
   *(_OWORD *)v75 = v95;
@@ -376,7 +376,7 @@ LABEL_34:
   v73 = v62;
   v72 = v61;
   core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v59);
-  backdoorautomater::sanitizer::sanitize_system_command(&v72);
+  backdoorautomater::sanitizer::sanitize_system_command((__int64)&v72);
   *(_QWORD *)&v74 = aSystemctlStart;
   *((_QWORD *)&v74 + 1) = 16LL;
   *(_OWORD *)v75 = v95;
@@ -414,7 +414,7 @@ LABEL_34:
     *(_QWORD *)v75 = 8LL;
     *(_OWORD *)&v75[8] = 0LL;
     std::io::stdio::_print(&v74);
-    *(_QWORD *)&v74 = std::io::stdio::stdin();
+    *(_QWORD *)&v74 = std::io::stdio::stdin(&v74);
     v47 = std::io::stdio::Stdin::read_line(&v74, &v80);
     core::result::Result<T,E>::expect(v47, v48);
     v49 = core::str::<impl str>::trim_end_matches(*((_QWORD *)&v80 + 1), v81, 10LL);
@@ -458,7 +458,7 @@ LABEL_34:
   v73 = v62;
   v72 = v61;
   core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v59);
-  backdoorautomater::sanitizer::sanitize_ex_stderr(&v72);
+  backdoorautomater::sanitizer::sanitize_ex_stderr((__int64)&v72);
   *(_QWORD *)&v74 = &off_229EC8;
   *((_QWORD *)&v74 + 1) = 1LL;
   *(_QWORD *)v75 = 8LL;

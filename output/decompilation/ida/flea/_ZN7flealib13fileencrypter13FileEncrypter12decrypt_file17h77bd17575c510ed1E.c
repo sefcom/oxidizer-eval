@@ -30,7 +30,7 @@ __int64 __fastcall flealib::fileencrypter::FileEncrypter::decrypt_file(__int64 a
     }
     v10 = v14;
     v9 = v13;
-    flealib::fileencrypter::FileEncrypter::decrypt(&v11, a1, &v9);
+    flealib::fileencrypter::FileEncrypter::decrypt(&v11, a1, (__int64)&v9);
     if ( __OFSUB__(0LL, (_QWORD)v11) )
     {
       v4 = std::io::error::Error::new(40LL, aFailedToDecryp, 17LL);

