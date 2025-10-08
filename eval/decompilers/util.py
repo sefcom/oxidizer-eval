@@ -9,8 +9,10 @@ import tempfile
 import angr
 from angr.rust.utils.library import demangle
 from angr.ailment.statement import FunctionLikeMacro, Call
+from angr.ailment.expression import StringLiteral
 from angr.analyses.decompiler.sequence_walker import SequenceWalker
 from angr.ailment import AILBlockWalker, Block, Const
+import cle
 
 from eval.type_recovery.function_prototype import FunctionPrototype
 from eval.metrics.mcc import measure_mcc, measure_rust_decompiler
@@ -44,14 +46,20 @@ def load_cached_result(decompiler, bin_name):
 
 
 def load_function_list(binary_path, module=None):
-    proj = angr.Project(binary_path, auto_load_libs=False)
-    symbols = proj.loader.main_object.symbols
+    loader = cle.Loader(binary_path, auto_load_libs=False)
+    symbols = loader.main_object.symbols
     function_list = [symbol.name for symbol in symbols if symbol.is_function]
-    return (
-        function_list
-        if module is None
-        else [name for name in function_list if demangle(name).startswith(module + "") and "$closure$" not in name]
-    )
+    # Remove functions that have the same demangled name as another function
+    seen = set()
+    function_list = [f for f in function_list if demangle(f) not in seen and not seen.add(demangle(f))]
+    # Remove functions that have too long names
+    function_list = [f for f in function_list if len(f) <= 245]
+    # Filter by module if specified
+    if module is not None:
+        function_list = [
+            name for name in function_list if demangle(name).startswith(module) and "$closure$" not in name
+        ]
+    return function_list
 
 
 def collect_string_literals(output):
@@ -78,6 +86,8 @@ class BlockCallCounter(AILBlockWalker):
             if func_addr in self.project.kb.functions:
                 func = self.project.kb.functions[func_addr]
                 self.function_call_counts[demangle(func.name)] += 1
+        elif isinstance(call.target, StringLiteral):
+            self.function_call_counts[call.target.data] += 1
 
     def _handle_stmt(self, stmt_idx, stmt, block):
         if isinstance(stmt, FunctionLikeMacro):

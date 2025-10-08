@@ -1,6 +1,6 @@
 import os
 
-# DECOMPILERS = ("angr", "Oxidizer", "IDA", "Ghidra", "Binary Ninja", "Binary Ninja (Pseudo Rust)")
+# DECOMPILERS = ("Source", "Oxidizer", "angr")
 DECOMPILERS = ("Source", "Oxidizer", "angr", "IDA", "Ghidra", "Binary Ninja", "Binary Ninja (Pseudo Rust)")
 
 IDA_PATH = os.path.abspath("tools/idapro-9.0/idat64")

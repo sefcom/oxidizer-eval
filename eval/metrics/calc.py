@@ -126,7 +126,10 @@ def num_operators(output):
         output = output.replace(pointer_type, "")
 
     string_pattern = r'"(\\.|[^"\\])*"'
+    comment_pattern = r"//.*|/\*.*?\*/"
     output = re.sub(string_pattern, '""', output)
+    output = re.sub(comment_pattern, "", output)
+    output = output.replace("->", "")
     operators = [
         " + ",
         " -",
@@ -255,12 +258,17 @@ def generate_type_eval_result(variable_types, ground_truth):
     result = defaultdict(int)
     ident_to_dwarf_vars = defaultdict(list)
     for var in ground_truth:
+        category, _ = _normalize_dwarf_type(var.type)
+        if category and category.startswith("&"):
+            result[f"reference_total"] += 1
+        else:
+            result[f"{category}_total"] += 1
         if var.category == "stack":
             ident = f"stack_{var.location}"
         elif var.category == "register":
             ident = f"reg_{var.location}"
         else:
-            continue
+            ident = f"unknown"
         ident_to_dwarf_vars[ident].append(var)
 
     ident_to_matched_pred = defaultdict(set)
@@ -278,11 +286,9 @@ def generate_type_eval_result(variable_types, ground_truth):
             for j, dwarf_var in enumerate(dwarf_vars):
                 true_type = _normalize_dwarf_type(dwarf_var.type)
                 category = true_type[0]
-
-                if j in matched_gt:
-                    continue  # This GT is already matched
-
-                if tuple(pred_type) == true_type:
+                if tuple(pred_type) == true_type or (
+                    category == "enum" and pred_type[0] == "struct" and true_type[1] == pred_type[1]
+                ):
                     matched_gt.add(j)
                     matched_pred.add(i)
                     result[f"{category}_TP"] += 1
@@ -317,13 +323,15 @@ def generate_type_eval_result(variable_types, ground_truth):
 class MCCCalculator:
     # based on:
     # https://github.com/mozilla/rust-code-analysis/blob/efe98948323d4965348559ca607838746e6d7e4c/src/metrics/cyclomatic.rs#L190
-    IF_REGEX = r" if .*"
+    IF_REGEX = r"if .*"
     FOR_REGEX = r"  for .*"
     WHILE_REGEX = r" while .*"
     LOOP_REGEX = r"  loop"
-    MATCH_ARM_REGEX = r" =>"
-    AND_REGEX = r" && "
-    OR_REGEX = r" \|\| "
+    ENUM_ARM_REGEX = r"\) =>"
+    DEFAULT_ARM_REGEX = r"_ =>"
+    AND_REGEX = r"&&"
+    OR_REGEX = r"\|\|"
+    TERNARY_REGEX = r" \? "
     # Due to the special way cyclomatic complexity is calculated in programs without CFGs, you can actually ignore
     # counting any question mark operators. Why? The formula below:
     # C = D - E + 2
@@ -334,7 +342,7 @@ class MCCCalculator:
     # E = Number of exits in the program
     #
     # Every question mark operator is a decision point, but it is also an exit. So, it cancels itself out.
-    QUESTION_MARK_REGEX = r"\?;"
+    # QUESTION_MARK_REGEX = r"\?;"
     # needed because bug in decompiler:
     SWITCH_CASE_REGEX = r"case .*:"
     DEFAULT_CASE_REGEX = r"default:"
@@ -344,16 +352,74 @@ class MCCCalculator:
         FOR_REGEX,
         WHILE_REGEX,
         LOOP_REGEX,
-        # MATCH_ARM_REGEX,
+        ENUM_ARM_REGEX,
+        DEFAULT_ARM_REGEX,
         AND_REGEX,
         OR_REGEX,
         SWITCH_CASE_REGEX,
         DEFAULT_CASE_REGEX,
-        QUESTION_MARK_REGEX,
+        TERNARY_REGEX,
+        # QUESTION_MARK_REGEX,
     ]
 
-    def measure_mcc(self, code) -> int:
+    # returns:
+    RETURN_REGEX = r"return "
+
+    def _clean_string(self, s: str) -> str:
+        s = s.replace("\n", " ").replace("\r", " ")
+        lines = s.splitlines()
+        cleaned = " ".join(line.strip() for line in lines)
+        return " ".join(cleaned.split())
+
+    def _count_match_arms(self, code: str) -> int:
+        cleaned_code = self._clean_string(code)
+
+        pattern = r"((?:0x[a-fA-F0-9]+|\d+)(?:\s*\|\s*(?:0x[a-fA-F0-9]+|\d+))*)\s*=>"
+        matches = re.findall(pattern, cleaned_code)
+
         decision_points = 0
+        for match in matches:
+            arms = [part.strip() for part in match.split("|") if part.strip()]
+            decision_points += len(arms)
+
+        return decision_points
+
+    def measure_mcc(self, code) -> int:
+        code = code.replace("/* no return */", "").replace("__noreturn", "").replace("/* do not return */", "")
+        decision_points = 0
+
+        # count exits
+        returns = re.findall(self.RETURN_REGEX, code)
+        # we can always have a function that has no return at the end because it is implicit
+        # so we need to find out if our current count of returns includes a return at the end.
+        # If it does not, we need to add one to the count.
+        exits = len(returns)
+        code_lines = code.split("\n")
+        # find the last line starting from the bottm
+        for i, line in enumerate(code_lines[::-1]):
+            if line.startswith("}"):
+                break
+        else:
+            raise ValueError("No closing bracket found.")
+        last_line = code_lines[-(i + 2)]
+        for line in reversed(code_lines[: -(i + 2)]):
+            if not line.strip().endswith(";"):
+                last_line = line.strip() + " " + last_line
+            else:
+                break
+
+        for idx in range(len(code_lines) - (i + 3)):
+            line = code_lines[idx]
+            next_line = code_lines[idx + 1] if idx + 1 < len(code_lines) else ""
+            line = line.strip()
+            next_line = next_line.strip()
+            if not line.endswith(";") and line != "}" and next_line == "}":
+                exits += 1
+
+        # last line has one of the returns?
+        if not re.findall(self.RETURN_REGEX, last_line):
+            exits += 1
+
         count = {}
         for regex in self.CONTROL_STRUCTURE_REGEXES:
             matches = re.findall(regex, code)
@@ -362,13 +428,16 @@ class MCCCalculator:
 
         # Special handling for:
         # 1 | 3 | 5 | 7 =>
-        for line in code.split("\n"):
-            if len(re.findall(self.MATCH_ARM_REGEX, line)):
-                decision_points += line.count(" | ") + 1
+        decision_points += self._count_match_arms(code)
 
-        # formula:
-        # C = D + 1
-        mcc = decision_points + 1
+        if exits <= 1:
+            # formula:
+            # C = D + 1
+            mcc = decision_points + 1
+        elif exits > 1:
+            # formula:
+            # C = D - E + 2
+            mcc = decision_points - exits + 2
 
         return mcc
 

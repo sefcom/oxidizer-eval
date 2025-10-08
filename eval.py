@@ -1,5 +1,10 @@
+#!/usr/bin/env python3
 import os
 from multiprocessing import Pool
+from pathlib import Path
+import logging
+import resource
+import time
 
 from angr.rust.utils.library import demangle
 
@@ -20,43 +25,164 @@ def dummy_dec(*args, **kwargs):
     pass
 
 
+# Debug mode: only use cached results, do not run decompilers
+CACHE_ONLY = True
+
 DEC_OPTIONS = {
     "Source": {"dec_func": dummy_dec, "cache_only": True},
-    "angr": {"dec_func": angr_dec, "cache_only": True},
-    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True},
-    "IDA": {"dec_func": ida_dec, "cache_only": True},
-    "Ghidra": {"dec_func": ghidra_dec, "cache_only": True},
-    "Binary Ninja": {"dec_func": binja_c_dec, "cache_only": True},
-    "Binary Ninja (Pseudo Rust)": {"dec_func": binja_rust_dec, "cache_only": True},
+    "angr": {"dec_func": angr_dec, "cache_only": False or CACHE_ONLY},
+    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False or CACHE_ONLY},
+    "IDA": {"dec_func": ida_dec, "cache_only": False or CACHE_ONLY},
+    "Ghidra": {"dec_func": ghidra_dec, "cache_only": False or CACHE_ONLY},
+    "Binary Ninja": {"dec_func": binja_c_dec, "cache_only": False or CACHE_ONLY},
+    "Binary Ninja (Pseudo Rust)": {"dec_func": binja_rust_dec, "cache_only": False or CACHE_ONLY},
 }
 
-EXCLUDED_FUNCTIONS = [
-    "_ZN5uu_df7columns6Column5parse17h6fa6943eaec20ad4E",
-    "_ZN7uu_head5parse17process_num_block17h8e5bdc2257d4c6b6E",
-    "_ZN5uu_ls12extract_time17h4f1c34fa33e953acE",
-    "_ZN5uu_cp8platform5linux24sparse_copy_without_hole17h5128473705372174E",
-    "_ZN5uu_od13parse_formats18parse_format_flags17h9e51e9c420287b95E",
-    "_ZN5uu_od13parse_formats30od_argument_traditional_format17h14da6a638cd1f622E",
-    "_ZN5uu_dd9parseargs15conversion_mode17h18084a71126044cdE",
-    "_ZN5uu_tr9operation8Sequence15parse_backslash17h345c32065b0e9c92E",
+TARGET_RELEASE_DIR = Path("targets/release").absolute()
+TARGET_DEBUG_DIR = Path("targets/debug").absolute()
+TARGET_GROUND_TRUTH_DIR = Path("targets/merged_ground_truth").absolute()
+LOG_PATH = Path("output/eval.log").absolute()
+l = logging.getLogger("oxidizer-eval")
+
+COREUTILS_MODULES = [
+    "df",
+    "mv",
+    "kill",
+    "touch",
+    "base64",
+    "unlink",
+    "vdir",
+    "rmdir",
+    "nice",
+    "ln",
+    "install",
+    "split",
+    "printenv",
+    "factor",
+    "printf",
+    "groups",
+    "uname",
+    "expr",
+    "false",
+    "pwd",
+    "base32",
+    "fold",
+    "uniq",
+    "fmt",
+    "yes",
+    "cat",
+    "nohup",
+    "uptime",
+    "true",
+    "chcon",
+    "mkdir",
+    "echo",
+    "ls",
+    "who",
+    "pinky",
+    "comm",
+    "readlink",
+    "nproc",
+    "csplit",
+    "sync",
+    "du",
+    "tail",
+    "numfmt",
+    "dirname",
+    "cksum",
+    "hostid",
+    "basename",
+    "users",
+    "chroot",
+    "runcon",
+    "stty",
+    "sort",
+    "unexpand",
+    "wc",
+    "shred",
+    "test",
+    "dircolors",
+    "tr",
+    "tac",
+    "tsort",
+    "chmod",
+    "stat",
+    "mktemp",
+    "cp",
+    "seq",
+    "hashsum",
+    "cut",
+    "paste",
+    "ptx",
+    "shuf",
+    "sum",
+    "stdbuf",
+    "id",
+    "timeout",
+    "tee",
+    "realpath",
+    "od",
+    "join",
+    "pathchk",
+    "mknod",
+    "mkfifo",
+    "link",
+    "head",
+    "date",
+    "rm",
+    "more",
+    "hostname",
+    "truncate",
+    "chown",
+    "dd",
+    "nl",
+    "pr",
+    "dir",
+    "sleep",
+    "basenc",
+    "expand",
+    "env",
+    "chgrp",
+    "tty",
+    "whoami",
+    "logname",
+    "arch",
 ]
 
-
-def convert_to_debug_path(path):
-    return path.replace("datasets", "datasets-debug")
+EXCLUDED_FUNCTIONS = ["uu_sort::exec"]
 
 
-def eval_binary(binary_path):
+def get_module_from_binary_path(binary_path):
+    binary_name = os.path.basename(binary_path)
+    if binary_name in COREUTILS_MODULES:
+        return f"uu_{binary_name}"
+    return binary_name.replace("-", "_")
+
+
+# DEC_OPTIONS = {
+#     "Source": {"dec_func": dummy_dec, "cache_only": True},
+#     "angr": {"dec_func": angr_dec, "cache_only": False},
+#     "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False},
+#     "IDA": {"dec_func": ida_dec, "cache_only": False},
+#     "Ghidra": {"dec_func": ghidra_dec, "cache_only": False},
+#     "Binary Ninja": {"dec_func": binja_c_dec, "cache_only": False},
+#     "Binary Ninja (Pseudo Rust)": {"dec_func": binja_rust_dec, "cache_only": False},
+# }
+
+
+def eval_binary(binary_path, opt_level):
+    l.info(f"Evaluating binary: {binary_path} ({os.path.getsize(binary_path) / (1024 * 1024):.2f} MB)")
+
     binary_name = os.path.basename(binary_path)
 
-    # Load ground truth from output/ground_truth/<binary_name>.json
-    ground_truth = BinaryGroundTruth.load(binary_name)
+    # Load ground truth for <binary_path>
+    ground_truth_path = TARGET_GROUND_TRUTH_DIR / opt_level / f"{binary_name}.json"
+    ground_truth = BinaryGroundTruth.load(ground_truth_path)
 
-    # We do not evaluate on every function
-    # For Coreutils binaries, we evaluate on functions that are relevant to current module
-    module = f"uu_{binary_name}" if "o3" in binary_path else binary_name
-    print(f"{binary_path=}")
-    function_list = load_function_list(binary_path, module)
+    # We only evaluate application functions
+    function_list = load_function_list(binary_path, get_module_from_binary_path(binary_path))
+    # Exclude certain functions from evaluation
+    function_list = [func for func in function_list if demangle(func) not in EXCLUDED_FUNCTIONS]
 
     binary_eval_result = BinaryEvalResult(binary_path)
 
@@ -77,42 +203,46 @@ def eval_binary(binary_path):
         )
 
         for func_name in function_list:
-            # if "_ZN7spyware13communication6server14handle_message17h02435bd595e8370dE" not in func_name:
-            #     continue
-            if demangle(func_name) not in func_eval_results:
-                func_eval_results[demangle(func_name)] = FunctionEvalResult(func_name)
-            func_eval_result = func_eval_results[demangle(func_name)]
+            # Get ground truth by demangled function name
+            func_ground_truth = ground_truth.get_function_ground_truth(demangle(func_name))
+            if func_ground_truth is None:
+                continue
 
-            # Get function-level ground truth
-            func_ground_truth = ground_truth.get_function_ground_truth(func_name)
+            # Initialize function eval result if not exists
+            if func_name not in func_eval_results:
+                func_eval_results[func_name] = FunctionEvalResult(func_name)
+            func_eval_result = func_eval_results[func_name]
 
             # Special handling for source
             if decompiler == "Source":
-                if func_ground_truth:
-                    func_eval_result.add_result(MCC, decompiler, 0)  # Source does not have MCC
-                    func_eval_result.add_result(LOC, decompiler, func_ground_truth.loc)
-                    func_eval_result.add_result(NUM_VARIABLES, decompiler, func_ground_truth.nvars)
-                    func_eval_result.add_result(NUM_OPERATORS, decompiler, func_ground_truth.nofops)
-                    func_eval_result.add_result(NUM_GOTOS, decompiler, 0)  # Source does not have gotos
-                    func_eval_result.add_result(
-                        NUM_MATCHED_STRING_LITERALS, decompiler, sum(func_ground_truth.string_literals.values())
-                    )
-                    func_eval_result.add_result(
-                        NUM_MATCHED_FUNCTION_CALLS, decompiler, sum(func_ground_truth.calls.values())
-                    )
-                    func_eval_result.add_result(NUM_EXTRANEOUS_FUNCTION_CALLS, decompiler, 0)
-                    func_eval_result.add_result(
-                        NUM_MATCHED_MACRO_CALLS, decompiler, sum(func_ground_truth.macros.values())
-                    )
+                func_eval_result.add_result(MCC, decompiler, func_ground_truth.mcc)
+                func_eval_result.add_result(LOC, decompiler, func_ground_truth.loc)
+                func_eval_result.add_result(NUM_VARIABLES, decompiler, func_ground_truth.nvars)
+                func_eval_result.add_result(NUM_OPERATORS, decompiler, func_ground_truth.nofops)
+                func_eval_result.add_result(NUM_GOTOS, decompiler, 0)  # Source does not have gotos
+                func_eval_result.add_result(
+                    NUM_MATCHED_STRING_LITERALS, decompiler, sum(func_ground_truth.string_literals.values())
+                )
+                func_eval_result.add_result(
+                    NUM_MATCHED_FUNCTION_CALLS, decompiler, sum(func_ground_truth.calls.values())
+                )
+                func_eval_result.add_result(NUM_EXTRANEOUS_FUNCTION_CALLS, decompiler, 0)
+                func_eval_result.add_result(NUM_MATCHED_MACRO_CALLS, decompiler, sum(func_ground_truth.macros.values()))
             elif (
-                func_name not in EXCLUDED_FUNCTIONS
-                and func_name in result["decompilation"]
+                func_name in result["decompilation"]
                 and func_name in result["function_call_counts"]
                 and func_name in result["variable_types"]
-                # and func_name in result["mcc"]
                 and func_ground_truth is not None
             ):
                 decompilation = result["decompilation"][func_name]
+                # print(
+                #     "Evaluating function:",
+                #     demangle(func_name),
+                #     "with decompiler:",
+                #     decompiler,
+                #     "call counts:",
+                #     num_matched_function_calls(result["function_call_counts"][func_name], func_ground_truth.calls),
+                # )
 
                 # Conciseness Metric-0: Number of lines of code
                 func_eval_result.add_result(MCC, decompiler, mcc(decompilation))
@@ -167,21 +297,32 @@ def eval_binary(binary_path):
                 for metric in type_eval_result:
                     func_eval_result.add_result(metric, decompiler, type_eval_result[metric])
 
-                # For debug purpose
-                if decompiler == "Oxidizer":
-                    with open(f"output/log/{binary_name}.log", "a+") as fd:
-                        fd.write(f"\nFunction: {demangle(func_name)}\n")
-                        for dwarf_var, pred_types in dwarf_var_to_predicted_types.items():
-                            fd.write(f"  {dwarf_var}: {pred_types}\n")
-
-    for func_name, func_eval_result in func_eval_results.items():
+    for func_eval_result in func_eval_results.values():
         binary_eval_result.add_func_eval_result(func_eval_result)
 
-    # print(binary_eval_result)
+    l.info(f"Finished evaluating binary: {binary_path}")
+    l.info(f"\n{binary_eval_result}")
+
     return binary_eval_result
 
 
-def eval(dir_path):
+def safe_eval_binary(binary_path, opt_level):
+    try:
+        return eval_binary(binary_path, opt_level)
+    except Exception as e:
+        l.error(f"Exception: Failed to evaluate binary {binary_path}: {e}")
+        l.error(traceback.format_exc())
+        return None
+
+
+def set_memory_limit_gb(limit_gb: int):
+    """Set a per-process virtual memory limit in GB."""
+    soft, hard = limit_gb * 1024**3, limit_gb * 1024**3
+    resource.setrlimit(resource.RLIMIT_AS, (soft, hard))
+
+
+def eval(dir_path, opt_level):
+    # Find all binaries in dir_path (recursively)
     binary_paths = []
 
     for dirpath, _, filenames in os.walk(dir_path):
@@ -190,33 +331,50 @@ def eval(dir_path):
                 continue
             binary_paths.append(os.path.join(dirpath, filename))
 
-    # binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) in ["flea"]]
-    # binary_paths = binary_paths[:30]
+    binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) in COREUTILS_MODULES]
+    # binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) == "printf"]
+    # binary_paths = [binary_path for binary_path in binary_paths if os.path.getsize(binary_path) < 50 * 1024 * 1024]
 
-    tasks = [(binary_path,) for binary_path in binary_paths]
-    with Pool(20) as pool:
-        results = pool.starmap(eval_binary, tasks)
-
-    # results = []
-    # for binary_path in binary_paths:
-    #     results.append(eval_binary(binary_path))
+    with Pool(processes=10, initializer=set_memory_limit_gb, initargs=(64,)) as pool:
+        async_results = []
+        results = []
+        for binary_path in sorted(binary_paths, key=lambda p: os.path.getsize(p)):
+            async_results.append(pool.apply_async(safe_eval_binary, (binary_path, opt_level)))
+        for r in async_results:
+            results.append(r.get())
 
     eval_result = EvalResult()
 
     for result in results:
-        eval_result.add_binary_eval_result(result)
-    # eval_result = EvalResult([result for result in results])
+        if result:
+            eval_result.add_binary_eval_result(result)
 
     return eval_result
 
 
+def init_logger():
+    Path(LOG_PATH).unlink(missing_ok=True)
+    # Create a named logger
+    logger = logging.getLogger("oxidizer-eval")
+    logger.setLevel(logging.INFO)
+
+    # Create handlers
+    file_handler = logging.FileHandler(LOG_PATH, mode="w")
+    stream_handler = logging.StreamHandler()
+
+    # Create formatter and attach to handlers
+    logging.Formatter.converter = time.localtime
+    formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
+    file_handler.setFormatter(formatter)
+    stream_handler.setFormatter(formatter)
+
+    # Attach handlers to the logger
+    logger.addHandler(file_handler)
+    logger.addHandler(stream_handler)
+
+
 if __name__ == "__main__":
-    # coreutils_result = eval("datasets/o3")
-    # print("-------------- Coreutils Evaluation Results --------------")
-    # print(coreutils_result)
-    malware_result = eval("datasets/malware")
-    print("-------------- Malware Evaluation Results --------------")
-    print(malware_result)
-    # print("-------------- Merged Results --------------")
-    # merged_result = coreutils_result.merge(malware_result)
-    # print(merged_result)
+    init_logger()
+    l.info("Starting evaluation...")
+    o3_result = eval(TARGET_RELEASE_DIR / "O3", "O3")
+    print(o3_result)

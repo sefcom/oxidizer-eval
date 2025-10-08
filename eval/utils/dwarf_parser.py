@@ -138,31 +138,35 @@ class DwarfParser:
         return referred_die
 
     def _parse_type(self, die):
-        if die.tag == "DW_TAG_pointer_type":
-            pointed_to_die = self._get_referred_die(die, "DW_AT_type", ensure_existence=False)
-            ty = self._parse_type(pointed_to_die)
-            return Pointer(ty)
-        elif die.tag == "DW_TAG_structure_type":
-            name = self._get_value(die, "DW_AT_name").decode()
-            full_name = self._get_full_name(die, name)
-            size = self._get_value(die, "DW_AT_byte_size")
-            if self._get_child(die, "DW_TAG_variant_part", ensure_existence=False):
-                return Enumeration(full_name, size, size, None)
-            return Struct(full_name, size, None)
-        elif die.tag == "DW_TAG_base_type":
-            size = self._get_value(die, "DW_AT_byte_size")
-            return Primitive(self._get_value(die, "DW_AT_name").decode(), size)
-        elif die.tag == "DW_TAG_enumeration_type":
-            type_die = self._get_referred_die(die, "DW_AT_type")
-            return self._parse_type(type_die)
-        elif die.tag == "DW_TAG_array_type":
-            ele_ty_die = self._get_referred_die(die, "DW_AT_type")
-            ele_ty = self._parse_type(ele_ty_die)
-            length = None
-            subrange_die = self._get_child(die, "DW_TAG_subrange_type")
-            length = self._get_value(subrange_die, "DW_AT_count", ensure_existence=False)
-            if length is not None:
-                return Array(ele_ty, length)
+        try:
+            if die.tag == "DW_TAG_pointer_type":
+                pointed_to_die = self._get_referred_die(die, "DW_AT_type", ensure_existence=False)
+                if pointed_to_die is not None:
+                    ty = self._parse_type(pointed_to_die)
+                    return Pointer(ty)
+            elif die.tag == "DW_TAG_structure_type":
+                name = self._get_value(die, "DW_AT_name").decode()
+                full_name = self._get_full_name(die, name)
+                size = self._get_value(die, "DW_AT_byte_size")
+                if self._get_child(die, "DW_TAG_variant_part", ensure_existence=False):
+                    return Enumeration(full_name, size, size, None)
+                return Struct(full_name, size, None)
+            elif die.tag == "DW_TAG_base_type":
+                size = self._get_value(die, "DW_AT_byte_size")
+                return Primitive(self._get_value(die, "DW_AT_name").decode(), size)
+            elif die.tag == "DW_TAG_enumeration_type":
+                type_die = self._get_referred_die(die, "DW_AT_type")
+                return self._parse_type(type_die)
+            elif die.tag == "DW_TAG_array_type":
+                ele_ty_die = self._get_referred_die(die, "DW_AT_type")
+                ele_ty = self._parse_type(ele_ty_die)
+                length = None
+                subrange_die = self._get_child(die, "DW_TAG_subrange_type")
+                length = self._get_value(subrange_die, "DW_AT_count", ensure_existence=False)
+                if length is not None:
+                    return Array(ele_ty, length)
+        except NoExistenceException:
+            pass
         return None
 
     def _parse_member(self, die):
@@ -330,8 +334,9 @@ class DwarfParser:
                         elif die.tag == "DW_TAG_subprogram":
                             self._handle_subprogram(die)
                     except:
-                        print(f"Skip {die}")
-                        traceback.print_exc()
+                        pass
+                        # print(f"Skip {die}")
+                        # traceback.print_exc()
         for variant_struct in self._variant_structs:
             if variant_struct in self.structs:
                 del self.structs[variant_struct]
@@ -391,6 +396,10 @@ class DwarfParser:
 
                 ipdb.set_trace()
                 assert False
+
+    @staticmethod
+    def parse_dict(data):
+        return DwarfParser._from_dict(data)
 
     def parse_json(self, path):
         with open(path, "r") as fd:

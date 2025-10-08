@@ -1,3 +1,5 @@
+# !/bin/bash
+set -e
 pip install -U git+https://github.com/angr/archinfo.git
 pip install -U git+https://github.com/angr/claripy.git
 pip install -U git+https://github.com/angr/pyvex.git

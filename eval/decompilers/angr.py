@@ -1,13 +1,19 @@
-import json
+import logging
 import traceback
 from collections import Counter
 
 from angr.rust.sim_type import *
 from angr.sim_variable import SimStackVariable, SimRegisterVariable
 from angr.sim_type import TypeRef, SimTypeChar, SimTypeInt, SimTypeFloat, SimStruct, SimTypePointer, SimType
+from angr.angrdb import AngrDB
 
 from .util import *
 from ..type_recovery.function_prototype import FunctionPrototype, Type
+
+
+l = logging.getLogger("oxidizer-eval")
+
+USE_ANGRDB = False
 
 
 def _extract_function_body(output):
@@ -106,12 +112,16 @@ def _angr_dec_base(binary_path, function_list, extract_body_func, is_rust_binary
             function_list.remove(func_name)
 
     if function_list and not cache_only:
-        try:
+        adb_path = binary_path + ".adb"
+        if os.path.exists(adb_path) and USE_ANGRDB:
+            proj = AngrDB().load(adb_path)
+            cfg = proj.kb.cfgs.get_most_accurate()
+            proj.is_rust_binary = is_rust_binary
+        else:
             proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=is_rust_binary)
             cfg = proj.analyses.CFGFast(normalize=True)
-            proj.analyses.CompleteCallingConventions(recover_variables=True, cfg=cfg)
-        except:
-            return result
+            proj.analyses.CompleteCallingConventions(cfg=cfg)
+            AngrDB(proj).dump(adb_path)
 
         if proj.is_rust_binary:
             proj.analyses.KnownTypeLoader()

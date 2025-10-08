@@ -1,22 +1,14 @@
 #!/bin/bash
+# remove_adb_files.sh
+# This script removes all .adb files under targets/release/O3
 
-# find datasets/malware -type f -name "*.i64" -exec rm -v {} \;
+DIR="targets/release/O3"
 
-clean () {
-    rm -rf "$1"
-    mkdir -p "$1"
-}
-
-clean output/result/oxidizer
-clean output/decompilation/oxidizer
-clean output/result/angr
-clean output/decompilation/angr
-clean output/result/ida
-clean output/decompilation/ida
-clean output/result/ghidra
-clean output/decompilation/ghidra
-clean output/result/ghidra
-clean "output/decompilation/Binary Ninja"
-clean "output/result/Binary Ninja"
-clean "output/decompilation/Binary Ninja (Pseudo Rust)"
-clean "output/result/Binary Ninja (Pseudo Rust)"
+if [ -d "$DIR" ]; then
+    echo "Removing all .adb files in $DIR..."
+    find "$DIR" -type f -name "*.adb" -exec rm -f {} +
+    echo "Done."
+else
+    echo "Directory $DIR does not exist."
+    exit 1
+fi
