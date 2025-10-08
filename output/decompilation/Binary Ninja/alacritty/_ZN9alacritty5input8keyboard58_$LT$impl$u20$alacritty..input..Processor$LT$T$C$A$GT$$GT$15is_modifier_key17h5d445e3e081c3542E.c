@@ -1,0 +1,18 @@
+
+  uint64_t alacritty::input::keyboard::_$LT$impl$u20$alacritty..input..Processor$LT$T$C$A$GT$$GT$::is_modifier_key::h5d445e3e081c3542(int16_t* arg1)
+
+{
+    char var_20;
+    winit::keyboard::Key::as_ref::ha61159f0166fa8fb(&var_20, arg1);
+    int16_t var_1e;
+    uint32_t rbx;
+    
+    if (var_20 != 0x1f || var_1e > 0xd)
+        rbx = 0;
+    else
+        rbx = 0x2109 >> var_1e;
+    
+    core::ptr::drop_in_place$LT$winit..keyboard..Key$LT$$RF$str$GT$$GT$::h2dc152dabd79984b(&var_20);
+    rbx &= 1;
+    return rbx;
+}

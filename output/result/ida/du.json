@@ -1,0 +1,3473 @@
+{
+  "decompilation": {
+    "_ZN5uu_du6uumain17hdf52685a297106f5E": "__int64 __fastcall uu_du::uumain(__int64 a1, __int64 a2)\n{\n  unsigned int v2; // eax\n  __int64 v3; // rax\n  __int64 v4; // rdx\n  __int128 v5; // rax\n  __int128 v6; // rax\n  unsigned int v7; // ebx\n  __int64 v9; // [rsp+8h] [rbp-90h] BYREF\n  __int64 v10; // [rsp+10h] [rbp-88h]\n  char **v11; // [rsp+18h] [rbp-80h] BYREF\n  __int64 v12; // [rsp+20h] [rbp-78h]\n  __int128 *v13; // [rsp+28h] [rbp-70h]\n  __int64 v14; // [rsp+30h] [rbp-68h]\n  __int64 v15; // [rsp+38h] [rbp-60h]\n  __int128 v16; // [rsp+48h] [rbp-50h] BYREF\n  __int64 v17; // [rsp+58h] [rbp-40h]\n  __int128 *v18; // [rsp+60h] [rbp-38h] BYREF\n  __int64 (__fastcall *v19)(); // [rsp+68h] [rbp-30h]\n  __int128 v20; // [rsp+70h] [rbp-28h] BYREF\n  __int64 v21; // [rsp+80h] [rbp-18h]\n\n  v2 = uucore::disable_rust_signal_handlers();\n  core::result::Result<T,E>::expect(v2);\n  v3 = uu_du::uumain::uumain(a1, a2);\n  if ( !v3 )\n    return uucore::mods::error::get_exit_code();\n  v9 = v3;\n  v10 = v4;\n  *(_QWORD *)&v20 = &v9;\n  *((_QWORD *)&v20 + 1) = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n  v11 = (char **)&unk_1D7A0;\n  v12 = 1LL;\n  v15 = 0LL;\n  v13 = &v20;\n  v14 = 1LL;\n  core::option::Option<T>::map_or_else(&v16, &v11);\n  v20 = v16;\n  v21 = v17;\n  if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((_QWORD *)&v16 + 1), v17, 1LL, 0LL) )\n  {\n    *(_QWORD *)&v5 = uucore::util_name();\n    v16 = v5;\n    v18 = &v16;\n    v19 = <&T as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_144360;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v18;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n    *(_QWORD *)&v16 = &v20;\n    *((_QWORD *)&v16 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_144380;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = &v16;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  if ( (*(unsigned __int8 (__fastcall **)(__int64))(v10 + 96))(v9) )\n  {\n    *(_QWORD *)&v6 = uucore::execution_phrase();\n    v16 = v6;\n    v18 = &v16;\n    v19 = <&T as core::fmt::Display>::fmt;\n    v11 = &off_1443A0;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v18;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  v7 = (*(__int64 (__fastcall **)(__int64))(v10 + 88))(v9);\n  core::ptr::drop_in_place<alloc::string::String>(&v20);\n  core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v9, v10);\n  return v7;\n}",
+    "_ZN5uu_du6uumain6uumain17h8e6fd9b29ab94c0cE": "__int64 __fastcall uu_du::uumain::uumain(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rdx\n  __int64 v3; // r15\n  __m128i v4; // xmm0\n  __int64 v5; // rax\n  __int64 v6; // rdx\n  __int64 v7; // rsi\n  __int64 v8; // r13\n  __int64 v9; // rax\n  __int64 v10; // rbx\n  __int64 v11; // r14\n  __int64 v12; // r12\n  __int64 v13; // rax\n  __int64 v14; // rcx\n  __int64 v15; // rax\n  __int64 v16; // rax\n  __int64 v17; // rdi\n  __int64 v18; // rax\n  __m128i *v19; // rbx\n  __m128i v20; // xmm0\n  __m128i v21; // xmm0\n  __int64 v22; // rbx\n  char v23; // al\n  char v24; // al\n  char v25; // r12\n  char v26; // r14\n  __int64 v27; // rax\n  char v28; // bp\n  __int64 v29; // r13\n  __int64 v30; // rbx\n  __int64 v31; // rax\n  __int64 v32; // rdx\n  __int64 v33; // rsi\n  char v34; // r12\n  char v35; // bp\n  __int64 v36; // rax\n  char v37; // r14\n  bool v38; // zf\n  char v39; // al\n  __int128 v40; // rax\n  __m128i v41; // xmm1\n  __m128i v42; // xmm0\n  __int64 i; // rbp\n  __int64 v44; // rsi\n  __int64 v45; // rsi\n  __int64 v46; // rbx\n  __int64 v47; // rdi\n  __int64 v48; // r14\n  __int64 v49; // r15\n  __int64 v50; // r12\n  char v51; // al\n  __m128i v52; // xmm0\n  __m128i v53; // kr00_16\n  __m256i *v54; // r15\n  __int64 (__fastcall *v55)(); // r12\n  __int64 v56; // rbp\n  __m128i v57; // xmm0\n  __m128i v58; // xmm0\n  __m128i v59; // xmm0\n  __int64 v60; // rax\n  __int64 v61; // rdx\n  __int64 v62; // r14\n  __int64 v63; // rsi\n  __int64 v65; // rax\n  __int128 v66; // rax\n  __int64 v67; // rax\n  __int64 v68; // rax\n  unsigned __int8 flag; // [rsp+0h] [rbp-7A8h]\n  __int64 v70; // [rsp+0h] [rbp-7A8h]\n  char v71; // [rsp+8h] [rbp-7A0h]\n  __int64 v72; // [rsp+8h] [rbp-7A0h]\n  char v73; // [rsp+10h] [rbp-798h]\n  __int64 v74; // [rsp+10h] [rbp-798h]\n  _OWORD v75[3]; // [rsp+18h] [rbp-790h] BYREF\n  __int64 v76; // [rsp+48h] [rbp-760h]\n  void *v77; // [rsp+50h] [rbp-758h]\n  __int64 v78; // [rsp+58h] [rbp-750h]\n  __m128i v79; // [rsp+60h] [rbp-748h] BYREF\n  __m128i v80; // [rsp+70h] [rbp-738h] BYREF\n  __int64 v81; // [rsp+80h] [rbp-728h]\n  __m128i v82; // [rsp+88h] [rbp-720h] BYREF\n  __int64 v83; // [rsp+98h] [rbp-710h]\n  __m128i si128; // [rsp+A0h] [rbp-708h]\n  __int64 v85; // [rsp+B0h] [rbp-6F8h]\n  char v86; // [rsp+B8h] [rbp-6F0h]\n  char v87; // [rsp+B9h] [rbp-6EFh]\n  char v88; // [rsp+BAh] [rbp-6EEh]\n  char v89; // [rsp+BBh] [rbp-6EDh]\n  char v90; // [rsp+BCh] [rbp-6ECh]\n  __m256i v91; // [rsp+C0h] [rbp-6E8h] BYREF\n  __m128i v92; // [rsp+E0h] [rbp-6C8h] BYREF\n  __int128 v93; // [rsp+F0h] [rbp-6B8h]\n  __int128 v94; // [rsp+100h] [rbp-6A8h]\n  __m128i v95; // [rsp+110h] [rbp-698h]\n  __m128i v96; // [rsp+120h] [rbp-688h]\n  __m128i v97; // [rsp+130h] [rbp-678h]\n  __m128i v98; // [rsp+140h] [rbp-668h]\n  _OWORD v99[3]; // [rsp+150h] [rbp-658h] BYREF\n  __m128i v100; // [rsp+180h] [rbp-628h] BYREF\n  __int64 v101; // [rsp+190h] [rbp-618h]\n  __int64 v102; // [rsp+198h] [rbp-610h]\n  __int64 v103; // [rsp+1A0h] [rbp-608h]\n  __m128i v104; // [rsp+1A8h] [rbp-600h] BYREF\n  __int128 v105; // [rsp+1B8h] [rbp-5F0h]\n  __int128 v106; // [rsp+1C8h] [rbp-5E0h]\n  __m128i v107; // [rsp+1D8h] [rbp-5D0h]\n  __int128 v108; // [rsp+1E8h] [rbp-5C0h]\n  __int64 v109; // [rsp+1F8h] [rbp-5B0h] BYREF\n  __int64 v110; // [rsp+200h] [rbp-5A8h]\n  __int64 v111; // [rsp+208h] [rbp-5A0h]\n  __m128i v112; // [rsp+210h] [rbp-598h] BYREF\n  __m256i *v113; // [rsp+220h] [rbp-588h]\n  __int64 (__fastcall *v114)(); // [rsp+228h] [rbp-580h]\n  __int64 v115; // [rsp+230h] [rbp-578h]\n  __int128 v116; // [rsp+238h] [rbp-570h]\n  __int64 v117; // [rsp+248h] [rbp-560h]\n  __int64 v118; // [rsp+250h] [rbp-558h]\n  __int64 v119; // [rsp+258h] [rbp-550h]\n  __m128i v120[4]; // [rsp+260h] [rbp-548h] BYREF\n  __m128i v121; // [rsp+2A8h] [rbp-500h] BYREF\n  __int64 v122; // [rsp+2B8h] [rbp-4F0h]\n  __m128i dest; // [rsp+2C0h] [rbp-4E8h] BYREF\n  _BYTE v124[48]; // [rsp+2D0h] [rbp-4D8h]\n  __int128 v125; // [rsp+300h] [rbp-4A8h]\n  __m128i v126; // [rsp+310h] [rbp-498h]\n  __m128i v127; // [rsp+320h] [rbp-488h]\n  __m128i v128; // [rsp+330h] [rbp-478h]\n  __m128i v129; // [rsp+340h] [rbp-468h]\n  __int64 v130; // [rsp+350h] [rbp-458h]\n  _BYTE v131[32]; // [rsp+588h] [rbp-220h] BYREF\n  __m128i v132; // [rsp+5A8h] [rbp-200h] BYREF\n  __int64 v133; // [rsp+5B8h] [rbp-1F0h]\n  __m128i v134[4]; // [rsp+5C0h] [rbp-1E8h] BYREF\n  _BYTE v135[24]; // [rsp+600h] [rbp-1A8h] BYREF\n  _BYTE v136[24]; // [rsp+618h] [rbp-190h] BYREF\n  __m128i v137[10]; // [rsp+630h] [rbp-178h] BYREF\n  __m128i v138[13]; // [rsp+6D0h] [rbp-D8h] BYREF\n\n  uu_du::uu_app(&dest);\n  clap_builder::builder::command::Command::try_get_matches_from(&v91, &dest, a1, a2);\n  if ( !__OFSUB__(-v91.m256i_i64[0], 1LL) )\n  {\n    v76 = v93;\n    v4 = _mm_loadu_si128((const __m128i *)&v91.m256i_u64[2]);\n    v75[2] = v92;\n    v75[1] = v4;\n    v75[0] = *(_OWORD *)v91.m256i_i8;\n    flag = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aS, 1LL);\n    v71 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, asc_1E916, 1LL);\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&dest, v75, aD, 1LL);\n    v5 = clap_builder::parser::error::MatchesError::unwrap(aD, 1LL, &dest);\n    if ( v5 )\n    {\n      v7 = *(_QWORD *)(v5 + 8);\n      v6 = *(_QWORD *)(v5 + 16);\n    }\n    else\n    {\n      v7 = 0LL;\n    }\n    uu_du::parse_depth(&dest, v7, v6, flag);\n    v3 = dest.m128i_i64[1];\n    v8 = *(_QWORD *)v124;\n    if ( (dest.m128i_i8[0] & 1) != 0 )\n      goto LABEL_93;\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&dest, v75, aFiles0From, 11LL);\n    v9 = clap_builder::parser::error::MatchesError::unwrap(aFiles0From, 11LL, &dest);\n    v10 = v9;\n    if ( v9 )\n    {\n      v11 = *(_QWORD *)(v9 + 8);\n      v12 = *(_QWORD *)(v9 + 16);\n      if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v11, v12, asc_1E923, 1LL) )\n      {\n        clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&dest, v75, aFile, 4LL);\n        if ( clap_builder::parser::error::MatchesError::unwrap(aFile, 4LL, &dest) )\n        {\n          clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&dest, v75, aFile, 4LL);\n          v13 = clap_builder::parser::error::MatchesError::unwrap(aFile, 4LL, &dest);\n          if ( !v13 )\n            core::option::unwrap_failed(&off_144488);\n          v14 = *(_QWORD *)(v13 + 8);\n          v15 = *(_QWORD *)(v13 + 16);\n          v91.m256i_i64[0] = 0LL;\n          v91.m256i_i64[1] = v14;\n          v91.m256i_i64[2] = v15;\n          v91.m256i_i8[24] = 1;\n          v112.m128i_i64[0] = (__int64)&v91;\n          v112.m128i_i64[1] = (__int64)<os_display::Quoted as core::fmt::Display>::fmt;\n          dest.m128i_i64[0] = (__int64)&off_1443D8;\n          dest.m128i_i64[1] = 2LL;\n          *(_QWORD *)&v124[16] = 0LL;\n          *(_QWORD *)v124 = &v112;\n          *(_QWORD *)&v124[8] = 1LL;\n          core::option::Option<T>::map_or_else(v135, &dest);\n          v16 = alloc::boxed::Box<T>::new(v135);\n          v17 = std::io::error::Error::_new(40LL, v16, &off_1444C0);\n          goto LABEL_19;\n        }\n        v11 = *(_QWORD *)(v10 + 8);\n        v12 = *(_QWORD *)(v10 + 16);\n      }\n      uu_du::read_files_from(&dest, v11, v12);\n      v17 = dest.m128i_i64[1];\n      if ( dest.m128i_i64[0] == 0x8000000000000000LL )\n      {\nLABEL_19:\n        v3 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v17);\n        goto LABEL_93;\n      }\n      v80 = dest;\n      v81 = *(_QWORD *)v124;\n    }\n    else\n    {\n      clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&dest, v75);\n      clap_builder::parser::error::MatchesError::unwrap(v134, &dest);\n      if ( v134[0].m128i_i64[0] )\n      {\n        if ( v71 )\n        {\n          core::iter::traits::iterator::Iterator::collect(&v80, v134);\n        }\n        else\n        {\n          <hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default(&dest);\n          v92 = *(__m128i *)&v124[16];\n          *(_OWORD *)&v91.m256i_u64[2] = *(_OWORD *)v124;\n          *(__m128i *)v91.m256i_i8 = dest;\n          v21 = _mm_loadu_si128(v134);\n          *(__m128i *)&v124[32] = v134[3];\n          *(__m128i *)&v124[16] = v134[2];\n          *(__m128i *)v124 = v134[1];\n          dest = v21;\n          *(_QWORD *)&v125 = &v91;\n          core::iter::traits::iterator::Iterator::collect(&v80, &dest);\n          core::ptr::drop_in_place<std::collections::hash::set::HashSet<std::path::PathBuf>>(&v91);\n        }\n      }\n      else\n      {\n        v18 = alloc::alloc::Global::alloc_impl(8LL, 24LL, 0LL);\n        if ( !v18 )\n          alloc::alloc::handle_alloc_error(8LL, 24LL);\n        v19 = (__m128i *)v18;\n        <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&dest, asc_1E878, 1LL);\n        v91.m256i_i64[2] = *(_QWORD *)v124;\n        v20 = _mm_loadu_si128(&dest);\n        *(__m128i *)v91.m256i_i8 = v20;\n        v19[1].m128i_i64[0] = *(_QWORD *)v124;\n        *v19 = v20;\n        v80.m128i_i64[0] = 1LL;\n        v80.m128i_i64[1] = (__int64)v19;\n        v81 = 1LL;\n      }\n    }\n    v73 = 3;\n    if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(v75, aTime, 4LL) )\n      v73 = uu_du::uumain::uumain::{{closure}}(v75);\n    v22 = 1LL;\n    if ( !(unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, asc_1EA1C, 1LL) )\n    {\n      if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aSi, 2LL) )\n      {\n        v22 = 0LL;\n      }\n      else\n      {\n        v77 = &dword_0 + 1;\n        v22 = 2LL;\n        if ( !(unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aB, 1LL) )\n        {\n          v23 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aK, 1LL);\n          v77 = &stru_400;\n          if ( !v23 )\n          {\n            v24 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aM, 1LL);\n            v77 = &loc_100000;\n            if ( !v24 )\n            {\n              clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&dest, v75, aBlockSize, 10LL);\n              v60 = clap_builder::parser::error::MatchesError::unwrap(aBlockSize, 10LL, &dest);\n              v62 = v60;\n              if ( v60 )\n              {\n                v63 = *(_QWORD *)(v60 + 8);\n                v61 = *(_QWORD *)(v60 + 16);\n              }\n              else\n              {\n                v63 = 0LL;\n              }\n              uu_du::read_block_size(&dest, v63, v61);\n              v65 = v8;\n              v29 = dest.m128i_i64[0];\n              if ( dest.m128i_i64[0] )\n                goto LABEL_51;\n              v77 = (void *)dest.m128i_i64[1];\n              v8 = v65;\n              v22 = 2LL;\n              if ( !dest.m128i_i64[1] )\n              {\n                *(_QWORD *)&v66 = core::option::Option<T>::map_or(v62);\n                v91.m256i_i64[0] = 0LL;\n                *(_OWORD *)&v91.m256i_u64[1] = v66;\n                v91.m256i_i8[24] = 1;\n                v112.m128i_i64[0] = (__int64)&off_144518;\n                v112.m128i_i64[1] = (__int64)<&T as core::fmt::Display>::fmt;\n                v113 = &v91;\n                v114 = <os_display::Quoted as core::fmt::Display>::fmt;\n                dest.m128i_i64[0] = (__int64)&off_1443F8;\n                dest.m128i_i64[1] = 2LL;\n                *(_QWORD *)&v124[16] = 0LL;\n                *(_QWORD *)v124 = &v112;\n                *(_QWORD *)&v124[8] = 2LL;\n                core::option::Option<T>::map_or_else(v136, &dest);\n                v67 = alloc::boxed::Box<T>::new(v136);\n                v68 = std::io::error::Error::_new(40LL, v67, &off_1444C0);\n                v29 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v68);\n                goto LABEL_51;\n              }\n            }\n          }\n        }\n      }\n    }\n    LOBYTE(v78) = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aAll, 3LL);\n    v25 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aS_0, 1LL);\n    v26 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aOneFileSystem, 15LL);\n    if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aDereference, 11LL) )\n    {\n      v27 = 0x8000000000000000LL;\n    }\n    else\n    {\n      if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(\n                              v75,\n                              \"dereference-argsConnection resetentity not found\",\n                              16LL) )\n      {\n        <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(&dest, v80.m128i_i64[1], v81);\n        v91.m256i_i64[2] = *(_QWORD *)v124;\n        *(__m128i *)v91.m256i_i8 = _mm_loadu_si128(&dest);\n        goto LABEL_36;\n      }\n      v27 = 0x8000000000000002LL;\n    }\n    v91.m256i_i64[0] = v27;\nLABEL_36:\n    v102 = v22;\n    v103 = v8;\n    v28 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aVerbose, 7LL);\n    uu_du::build_exclude_patterns(&dest, v75);\n    v29 = dest.m128i_i64[1];\n    v30 = *(_QWORD *)v124;\n    if ( dest.m128i_i64[0] == 0x8000000000000000LL )\n    {\n      core::ptr::drop_in_place<uu_du::Deref>(&v91);\nLABEL_51:\n      core::ptr::drop_in_place<alloc::vec::Vec<std::path::PathBuf>>(&v80);\n      v3 = v29;\n      goto LABEL_93;\n    }\n    v86 = v78;\n    v87 = v25;\n    v88 = v26;\n    si128 = _mm_load_si128((const __m128i *)&v91);\n    v85 = v91.m256i_i64[2];\n    v89 = v71;\n    v90 = v28;\n    v82 = dest;\n    v83 = *(_QWORD *)v124;\n    if ( v73 == 3 )\n    {\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&dest, aYMDHM, 14LL);\n    }\n    else\n    {\n      clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&dest, v75, aTimeStyle, 10LL);\n      v31 = clap_builder::parser::error::MatchesError::unwrap(aTimeStyle, 10LL, &dest);\n      if ( v31 )\n      {\n        v33 = *(_QWORD *)(v31 + 8);\n        v32 = *(_QWORD *)(v31 + 16);\n      }\n      else\n      {\n        v33 = 0LL;\n      }\n      uu_du::parse_time_style(&dest, v33, v32);\n      v29 = dest.m128i_i64[1];\n      v30 = *(_QWORD *)v124;\n      if ( (dest.m128i_i8[0] & 1) != 0 )\n        goto LABEL_50;\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&dest, dest.m128i_i64[1], *(_QWORD *)v124);\n    }\n    v101 = *(_QWORD *)v124;\n    v100 = _mm_loadu_si128(&dest);\n    v34 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aC, 1LL);\n    v35 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aInodes, 6LL);\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&dest, v75, aThreshold, 9LL);\n    v36 = clap_builder::parser::error::MatchesError::unwrap(aThreshold, 9LL, &dest);\n    if ( v36 )\n    {\n      uu_du::uumain::uumain::{{closure}}(&dest, *(_QWORD *)(v36 + 8), *(_QWORD *)(v36 + 16));\n      v29 = dest.m128i_i64[0];\n      if ( dest.m128i_i64[0] != 2 )\n        v29 = dest.m128i_i64[1];\n      v30 = *(_QWORD *)v124;\n      if ( (dest.m128i_i8[0] & 1) != 0 )\n      {\n        core::ptr::drop_in_place<alloc::string::String>(&v100);\nLABEL_50:\n        core::ptr::drop_in_place<uu_du::TraversalOptions>(&v82);\n        goto LABEL_51;\n      }\n    }\n    else\n    {\n      v29 = 2LL;\n    }\n    v37 = 1;\n    if ( !(unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aApparentSize, 13LL) )\n      v37 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aB, 1LL);\n    v38 = (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, a0, 1LL) == 0;\n    v39 = 10;\n    if ( !v38 )\n      v39 = 0;\n    BYTE8(v108) = v34;\n    BYTE9(v108) = v35;\n    v104.m128i_i64[0] = v3;\n    v104.m128i_i64[1] = v103;\n    *(_QWORD *)&v105 = v29;\n    *((_QWORD *)&v105 + 1) = v30;\n    BYTE10(v108) = v37;\n    *(_QWORD *)&v106 = v102;\n    *((_QWORD *)&v106 + 1) = v77;\n    BYTE12(v108) = v73;\n    v107 = _mm_load_si128(&v100);\n    *(_QWORD *)&v108 = v101;\n    BYTE13(v108) = v39;\n    BYTE11(v108) = flag;\n    if ( v35\n      && ((unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aApparentSize, 13LL)\n       || (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v75, aB, 1LL)) )\n    {\n      *(_QWORD *)&v40 = uucore::util_name();\n      *(_OWORD *)v91.m256i_i8 = v40;\n      v112.m128i_i64[0] = (__int64)&v91;\n      v112.m128i_i64[1] = (__int64)<&T as core::fmt::Display>::fmt;\n      dest.m128i_i64[0] = (__int64)&unk_144418;\n      dest.m128i_i64[1] = 2LL;\n      *(_QWORD *)&v124[16] = 0LL;\n      *(_QWORD *)v124 = &v112;\n      *(_QWORD *)&v124[8] = 1LL;\n      std::io::stdio::_eprint(&dest);\n      dest.m128i_i64[0] = (__int64)&off_144438;\n      dest.m128i_i64[1] = 1LL;\n      *(_QWORD *)v124 = 8LL;\n      *(_OWORD *)&v124[8] = 0LL;\n      std::io::stdio::_eprint(&dest);\n    }\n    std::sync::mpmc::channel(&dest);\n    v41 = *(__m128i *)v124;\n    v79 = dest;\n    v125 = v108;\n    v42 = _mm_loadu_si128(&v104);\n    *(__m128i *)&v124[32] = v107;\n    *(_OWORD *)&v124[16] = v106;\n    *(_OWORD *)v124 = v105;\n    dest = v42;\n    v126 = v41;\n    v91.m256i_i64[2] = 0x8000000000000000LL;\n    v91.m256i_i64[0] = 0LL;\n    v92.m128i_i8[8] = 0;\n    std::thread::Builder::spawn_unchecked(&v112, &v91, &dest);\n    core::result::Result<T,E>::expect(&v121, &v112);\n    <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(v131, &v80);\n    <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v109, v131);\n    for ( i = v109; v109 != 0x8000000000000000LL; i = v109 )\n    {\n      v45 = v110;\n      v46 = v111;\n      v70 = v110;\n      if ( v83 )\n      {\n        alloc::string::String::from_utf8_lossy(&v112, v110, v111);\n        v47 = v82.m128i_i64[1];\n        v48 = v82.m128i_i64[1] + 56 * v83;\n        v49 = v112.m128i_i64[1];\n        v50 = (__int64)v113;\n        do\n        {\n          if ( v47 == v48 )\n          {\n            core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v112);\n            v45 = v70;\n            goto LABEL_75;\n          }\n          v51 = glob::Pattern::matches(v47, v49, v50);\n          v47 += 56LL;\n        }\n        while ( !v51 );\n        if ( v90 )\n        {\n          v91.m256i_i64[0] = 0LL;\n          v91.m256i_i64[1] = v49;\n          v91.m256i_i64[2] = v50;\n          v91.m256i_i8[24] = 1;\n          *(_QWORD *)&v99[0] = &v91;\n          *((_QWORD *)&v99[0] + 1) = <os_display::Quoted as core::fmt::Display>::fmt;\n          dest.m128i_i64[0] = (__int64)&unk_144448;\n          dest.m128i_i64[1] = 2LL;\n          *(_QWORD *)&v124[16] = 0LL;\n          *(_QWORD *)v124 = v99;\n          *(_QWORD *)&v124[8] = 1LL;\n          std::io::stdio::_print(&dest);\n        }\n        core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v112);\n        v44 = v70;\n      }\n      else\n      {\nLABEL_75:\n        uu_du::Stat::new(&v112, v45, v46, 0LL, &v82);\n        if ( _mm_movemask_epi8(_mm_cmpeq_epi8(_mm_load_si128(&v112), (__m128i)xmmword_1D730)) == 0xFFFF )\n        {\n          core::ptr::drop_in_place<core::result::Result<uu_du::Stat,std::io::error::Error>>(&v112);\n          alloc::string::String::from_utf8_lossy(&v112, v70, v46);\n          v52 = _mm_loadu_si128((const __m128i *)&v112.m128i_u64[1]);\n          v91.m256i_i64[0] = 0LL;\n          *(__m128i *)&v91.m256i_u64[1] = v52;\n          v91.m256i_i8[24] = 1;\n          *(_QWORD *)&v99[0] = &v91;\n          *((_QWORD *)&v99[0] + 1) = <os_display::Quoted as core::fmt::Display>::fmt;\n          dest.m128i_i64[0] = (__int64)&off_144468;\n          dest.m128i_i64[1] = 2LL;\n          *(_QWORD *)&v124[16] = 0LL;\n          *(_QWORD *)v124 = v99;\n          *(_QWORD *)&v124[8] = 1LL;\n          core::option::Option<T>::map_or_else(&v132, &dest);\n          core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v112);\n          *(_DWORD *)&v124[8] = 1;\n          dest = _mm_loadu_si128(&v132);\n          *(_QWORD *)v124 = v133;\n          *(_QWORD *)v124 = alloc::boxed::Box<T>::new(&dest);\n          *(_QWORD *)&v124[8] = &off_144560;\n          dest = (__m128i)2uLL;\n          std::sync::mpmc::Sender<T>::send(v138, v79.m128i_i64[0], v79.m128i_i64[1], &dest);\n          v44 = v70;\n          if ( _mm_movemask_epi8(_mm_cmpeq_epi8(_mm_load_si128(v138), (__m128i)xmmword_1D8E0)) != 0xFFFF )\n          {\n            v3 = uu_du::uumain::uumain::{{closure}}(v138);\n            v44 = v70;\n            if ( v3 )\n              goto LABEL_91;\n          }\n        }\n        else\n        {\n          v72 = i;\n          v53 = v112;\n          v54 = v113;\n          v55 = v114;\n          v56 = v115;\n          v74 = v118;\n          v78 = v119;\n          <hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default(&dest);\n          v57 = _mm_loadu_si128(&dest);\n          v99[2] = *(_OWORD *)&v124[16];\n          v99[1] = *(_OWORD *)v124;\n          v99[0] = v57;\n          if ( (v53.m128i_i8[0] & 1) != 0 )\n            hashbrown::map::HashMap<K,V,S,A>::insert(v99, v54, v55, v56);\n          dest = v53;\n          *(_QWORD *)&v124[8] = v55;\n          *(_QWORD *)v124 = v54;\n          *(_QWORD *)&v124[16] = v56;\n          *(_QWORD *)&v124[40] = v117;\n          *(_OWORD *)&v124[24] = v116;\n          *(_QWORD *)&v125 = v74;\n          *((_QWORD *)&v125 + 1) = v78;\n          v58 = _mm_load_si128(v120);\n          v129 = v120[3];\n          v128 = v120[2];\n          v127 = v120[1];\n          v126 = v58;\n          uu_du::du(&v91, &dest, &v82, 0LL, v99, &v79);\n          if ( _mm_movemask_epi8(_mm_cmpeq_epi8(_mm_load_si128((const __m128i *)&v91), (__m128i)xmmword_1D730)) == 0xFFFF )\n          {\n            v3 = uu_du::uumain::uumain::{{closure}}(v91.m256i_i64[2]);\nLABEL_90:\n            i = v72;\n            core::ptr::drop_in_place<std::collections::hash::set::HashSet<uu_du::FileInfo>>(\n              *(_QWORD *)&v99[0],\n              *((_QWORD *)&v99[0] + 1));\n            v44 = v70;\nLABEL_91:\n            core::mem::drop(i, v44);\n            core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<std::path::PathBuf>>(v131);\n            core::ptr::drop_in_place<std::thread::JoinHandle<core::result::Result<(),alloc::boxed::Box<dyn uucore::mods::error::UError>>>>(&v121);\n            core::ptr::drop_in_place<std::sync::mpsc::Sender<core::result::Result<uu_du::StatPrintInfo,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>(&v79);\n            goto LABEL_92;\n          }\n          v129 = v98;\n          v128 = v97;\n          v127 = v96;\n          v59 = _mm_load_si128(&v92);\n          v126 = v95;\n          v125 = v94;\n          *(_OWORD *)&v124[32] = v93;\n          *(__m128i *)&v124[16] = v59;\n          dest = *(__m128i *)v91.m256i_i8;\n          *(_OWORD *)v124 = *(_OWORD *)&v91.m256i_u64[2];\n          v130 = 0LL;\n          std::sync::mpmc::Sender<T>::send(v137, v79.m128i_i64[0], v79.m128i_i64[1], &dest);\n          if ( _mm_movemask_epi8(_mm_cmpeq_epi8(_mm_load_si128(v137), (__m128i)xmmword_1D8E0)) != 0xFFFF )\n          {\n            v3 = uu_du::uumain::uumain::{{closure}}(v137);\n            if ( v3 )\n              goto LABEL_90;\n          }\n          core::ptr::drop_in_place<std::collections::hash::set::HashSet<uu_du::FileInfo>>(\n            *(_QWORD *)&v99[0],\n            *((_QWORD *)&v99[0] + 1));\n          i = v72;\n          v44 = v70;\n        }\n      }\n      core::mem::drop(i, v44);\n      <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(&v109, v131);\n    }\n    core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<std::path::PathBuf>>(v131);\n    dest = _mm_loadu_si128(&v79);\n    core::ptr::drop_in_place<std::sync::mpsc::Sender<core::result::Result<uu_du::StatPrintInfo,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>(&dest);\n    *(_QWORD *)v124 = v122;\n    dest = _mm_loadu_si128(&v121);\n    std::thread::JoinInner<T>::join(&v91, &dest);\n    v3 = v91.m256i_i64[1];\n    if ( v91.m256i_i32[0] == 1 )\n    {\n      v3 = uu_du::uumain::uumain::{{closure}}(v91.m256i_i64[1], v91.m256i_i64[2]);\n      goto LABEL_92;\n    }\n    if ( !v91.m256i_i64[1] )\n    {\n      core::ptr::drop_in_place<uu_du::TraversalOptions>(&v82);\n      core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(v75);\n      return 0LL;\n    }\nLABEL_92:\n    core::ptr::drop_in_place<uu_du::TraversalOptions>(&v82);\nLABEL_93:\n    core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(v75);\n    return v3;\n  }\n  return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(\n           v91.m256i_i64[1],\n           &dest,\n           v2,\n           -v91.m256i_i64[0]);\n}",
+    "_ZN5uu_du4Stat3new17hd07a900d361a9fcdE": "__int64 __fastcall uu_du::Stat::new(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)\n{\n  unsigned __int64 v6; // rax\n  __int64 v7; // r13\n  __int64 v8; // rbp\n  __int64 v9; // rax\n  __int64 v10; // rcx\n  __int16 v11; // bp\n  __int64 v12; // r13\n  __int64 v13; // rax\n  __int64 v14; // rdx\n  int v15; // ebp\n  __int64 v17; // [rsp+0h] [rbp-1B8h]\n  __int64 v18; // [rsp+0h] [rbp-1B8h]\n  __int64 v19; // [rsp+8h] [rbp-1B0h]\n  __int64 v20; // [rsp+10h] [rbp-1A8h]\n  __int64 v21; // [rsp+18h] [rbp-1A0h]\n  __int64 v22; // [rsp+20h] [rbp-198h]\n  __int128 dest; // [rsp+28h] [rbp-190h] BYREF\n  __int128 v24; // [rsp+38h] [rbp-180h]\n  __int64 v25; // [rsp+48h] [rbp-170h]\n  __int128 v26; // [rsp+50h] [rbp-168h]\n  int v27; // [rsp+60h] [rbp-158h]\n  __int128 v28; // [rsp+64h] [rbp-154h]\n  int v29; // [rsp+74h] [rbp-144h]\n  __int128 v30; // [rsp+78h] [rbp-140h]\n  __int64 v31; // [rsp+88h] [rbp-130h]\n  __int128 v32; // [rsp+90h] [rbp-128h]\n  __int64 v33; // [rsp+A0h] [rbp-118h]\n  __int128 v34; // [rsp+A8h] [rbp-110h]\n  __int128 v35; // [rsp+B8h] [rbp-100h]\n  __int128 v36; // [rsp+C8h] [rbp-F0h]\n  _QWORD v37[2]; // [rsp+D8h] [rbp-E0h] BYREF\n  __int128 v38; // [rsp+E8h] [rbp-D0h]\n  __int64 v39; // [rsp+F8h] [rbp-C0h]\n  __int128 v40; // [rsp+100h] [rbp-B8h]\n  int v41; // [rsp+110h] [rbp-A8h]\n  __int128 v42; // [rsp+114h] [rbp-A4h]\n  int v43; // [rsp+124h] [rbp-94h]\n  __int128 v44; // [rsp+128h] [rbp-90h]\n  __int64 v45; // [rsp+138h] [rbp-80h]\n  __int128 v46; // [rsp+140h] [rbp-78h]\n  __int64 v47; // [rsp+150h] [rbp-68h]\n  __int128 v48; // [rsp+158h] [rbp-60h]\n  __int128 v49; // [rsp+168h] [rbp-50h]\n  __int128 v50; // [rsp+178h] [rbp-40h]\n\n  v6 = 1LL;\n  if ( (a5[3] ^ 0x8000000000000000LL) < 3 )\n    v6 = a5[3] ^ 0x8000000000000000LL;\n  if ( !v6\n    || v6 == 1\n    && (v17 = a4,\n        v7 = a5[4],\n        v8 = a5[5],\n        std::path::Path::to_path_buf(&dest, a2, a3),\n        LOBYTE(v8) = <T as core::slice::cmp::SliceContains>::slice_contains(&dest, v7, v8),\n        core::ptr::drop_in_place<std::path::PathBuf>(&dest),\n        a4 = v17,\n        (_BYTE)v8) )\n  {\n    std::fs::metadata(&dest);\n    v9 = *((_QWORD *)&dest + 1);\n    v10 = dest;\n    if ( (_QWORD)dest != 2LL )\n      goto LABEL_12;\nLABEL_10:\n    *(_QWORD *)(a1 + 16) = v9;\n    *(_QWORD *)(a1 + 8) = 0LL;\n    *(_QWORD *)a1 = 2LL;\n    return a1;\n  }\n  if ( a4 )\n  {\n    std::fs::DirEntry::metadata(&dest);\n    v9 = *((_QWORD *)&dest + 1);\n    v10 = dest;\n    if ( (_QWORD)dest == 2LL )\n      goto LABEL_10;\n  }\n  else\n  {\n    std::fs::symlink_metadata(&dest);\n    v9 = *((_QWORD *)&dest + 1);\n    v10 = dest;\n    if ( (_QWORD)dest == 2LL )\n      goto LABEL_10;\n  }\nLABEL_12:\n  v38 = v24;\n  v11 = v27;\n  v42 = v28;\n  v43 = v29;\n  v48 = v34;\n  v49 = v35;\n  v50 = v36;\n  v19 = v26;\n  v12 = v30;\n  v20 = v32;\n  v37[0] = v10;\n  v37[1] = v9;\n  v18 = v25;\n  v39 = v25;\n  v40 = v26;\n  v41 = v27;\n  v44 = v30;\n  v21 = v31;\n  v45 = v31;\n  v46 = v32;\n  v22 = v33;\n  v47 = v33;\n  std::path::Path::to_path_buf(&dest, a2, a3);\n  v13 = uu_du::birth_u64(v37);\n  v15 = v11 & 0xF000;\n  if ( v15 == 0x4000 )\n    v12 = 0LL;\n  *(_QWORD *)(a1 + 80) = v24;\n  *(_OWORD *)(a1 + 64) = dest;\n  *(_QWORD *)(a1 + 8) = 0LL;\n  *(_QWORD *)a1 = 1LL;\n  *(_QWORD *)(a1 + 16) = v19;\n  *(_QWORD *)(a1 + 24) = 0LL;\n  *(_QWORD *)(a1 + 32) = v18;\n  *(_QWORD *)(a1 + 48) = v13;\n  *(_QWORD *)(a1 + 56) = v14;\n  *(_QWORD *)(a1 + 88) = v12;\n  *(_QWORD *)(a1 + 96) = v21;\n  *(_QWORD *)(a1 + 104) = 1LL;\n  *(_QWORD *)(a1 + 112) = v20;\n  *(_QWORD *)(a1 + 120) = v22;\n  *(_BYTE *)(a1 + 128) = v15 == 0x4000;\n  return a1;\n}",
+    "_ZN5uu_du9birth_u6417h1d347758d1f93929E": "_BOOL8 __fastcall uu_du::birth_u64(__int64 a1)\n{\n  __int64 v2; // [rsp+0h] [rbp-28h] BYREF\n  __int64 v3; // [rsp+8h] [rbp-20h]\n  __int64 v4; // [rsp+18h] [rbp-10h] BYREF\n  int v5; // [rsp+20h] [rbp-8h]\n\n  std::fs::Metadata::created(&v2, a1);\n  if ( (_DWORD)v3 == 1000000000 )\n  {\n    core::ptr::drop_in_place<core::result::Result<std::time::SystemTime,std::io::error::Error>>(&v2);\n    return 0LL;\n  }\n  else\n  {\n    v4 = v2;\n    v5 = v3;\n    std::time::SystemTime::duration_since(&v2, &v4, 0LL, 0LL);\n    return (v2 & 1) == 0;\n  }\n}",
+    "_ZN5uu_du15read_block_size17hba09d611c2cef060E": "__int64 *__fastcall uu_du::read_block_size(__int64 *a1, __int64 a2, __int64 a3)\n{\n  __int64 (__fastcall **v4)(); // rcx\n  __int64 v5; // rax\n  __int64 v6; // rax\n  char v7; // bp\n  __int64 v9; // [rsp+8h] [rbp-D0h] BYREF\n  char v10[8]; // [rsp+10h] [rbp-C8h] BYREF\n  __int64 v11; // [rsp+18h] [rbp-C0h]\n  __int64 v12; // [rsp+20h] [rbp-B8h]\n  _QWORD v13[8]; // [rsp+28h] [rbp-B0h] BYREF\n  int v14; // [rsp+68h] [rbp-70h] BYREF\n  __int64 (__fastcall **v15)(); // [rsp+70h] [rbp-68h]\n  int v16; // [rsp+88h] [rbp-50h] BYREF\n  __int64 v17; // [rsp+90h] [rbp-48h]\n\n  if ( a2 )\n  {\n    uucore::features::parser::parse_size::parse_size_u64(&v14, a2, a3);\n    if ( v14 == 4 )\n    {\n      v4 = v15;\n      v5 = 0LL;\n    }\n    else\n    {\n      v5 = uu_du::read_block_size::{{closure}}(a2, a3, &v14);\n      v4 = &off_145BC0;\n    }\n    a1[1] = (__int64)v4;\n    *a1 = v5;\n  }\n  else\n  {\n    v13[0] = 0LL;\n    v13[1] = 3LL;\n    v13[2] = aDuBlockSize;\n    v13[3] = 13LL;\n    v13[4] = aBlockSize_0;\n    v13[5] = 10LL;\n    v13[6] = aBlocksize;\n    v13[7] = 9LL;\n    v6 = core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next(v13);\n    if ( v6 )\n    {\n      while ( 1 )\n      {\n        while ( 1 )\n        {\n          std::env::var(&v9, v6);\n          if ( !v9 )\n            break;\n          core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>(&v9);\n          v6 = core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next(v13);\n          if ( !v6 )\n            goto LABEL_10;\n        }\n        uucore::features::parser::parse_size::parse_size_u64(&v16, v11, v12);\n        if ( v16 == 4 )\n          break;\n        core::ptr::drop_in_place<core::result::Result<u64,uucore::features::parser::parse_size::ParseSizeError>>(&v16);\n        core::ptr::drop_in_place<alloc::string::String>(v10);\n        v6 = core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next(v13);\n        if ( !v6 )\n          goto LABEL_10;\n      }\n      a1[1] = v17;\n      *a1 = 0LL;\n      core::ptr::drop_in_place<core::result::Result<u64,uucore::features::parser::parse_size::ParseSizeError>>(&v16);\n      core::ptr::drop_in_place<alloc::string::String>(v10);\n    }\n    else\n    {\nLABEL_10:\n      std::env::var(v13, aPosixlyCorrect);\n      v7 = v13[0];\n      core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>(v13);\n      if ( (v7 & 1) != 0 )\n        a1[1] = 1024LL;\n      else\n        a1[1] = 512LL;\n      *a1 = 0LL;\n    }\n  }\n  return a1;\n}",
+    "_ZN5uu_du2du17h5e7b3b5654d85404E": "void *__fastcall uu_du::du(_QWORD *a1, _BYTE *a2, __int64 a3, __int64 a4, __int64 a5, _QWORD *a6)\n{\n  const void *v6; // r15\n  void *v7; // r12\n  __int64 v9; // rax\n  __int64 v10; // rcx\n  __int64 v11; // rdx\n  __int64 v12; // r13\n  __int64 v13; // rbp\n  __int64 v14; // rdx\n  __int64 v15; // r13\n  __int64 v16; // rbp\n  __int64 v17; // rax\n  __int64 v18; // r12\n  __int64 v19; // r15\n  __int64 v20; // r14\n  char v21; // bl\n  char v22; // bl\n  __int8 v23; // bl\n  __int64 v24; // rax\n  __int128 v25; // kr00_16\n  __m128i v26; // xmm0\n  __int64 v27; // rsi\n  __m128i v28; // xmm1\n  char v30; // [rsp+Bh] [rbp-44Dh]\n  char v31; // [rsp+Ch] [rbp-44Ch]\n  char v32; // [rsp+Dh] [rbp-44Bh]\n  unsigned __int8 v33; // [rsp+Eh] [rbp-44Ah]\n  char v34; // [rsp+Fh] [rbp-449h]\n  __int64 v36; // [rsp+20h] [rbp-438h]\n  __int64 v38; // [rsp+28h] [rbp-430h]\n  __int64 v40; // [rsp+38h] [rbp-420h]\n  __int64 v41; // [rsp+40h] [rbp-418h]\n  _OWORD v43[10]; // [rsp+50h] [rbp-408h] BYREF\n  __int64 v44; // [rsp+F0h] [rbp-368h] BYREF\n  __int8 v45; // [rsp+F8h] [rbp-360h]\n  _QWORD v46[2]; // [rsp+100h] [rbp-358h] BYREF\n  __m128i v47; // [rsp+110h] [rbp-348h]\n  __int64 v48; // [rsp+120h] [rbp-338h]\n  char v49[8]; // [rsp+128h] [rbp-330h] BYREF\n  __int64 v50; // [rsp+130h] [rbp-328h]\n  __int64 v51; // [rsp+138h] [rbp-320h]\n  _OWORD v52[10]; // [rsp+140h] [rbp-318h] BYREF\n  __int64 v53; // [rsp+1E8h] [rbp-270h]\n  __int64 v54; // [rsp+1F0h] [rbp-268h]\n  __int64 v55; // [rsp+1F8h] [rbp-260h]\n  __int64 v56; // [rsp+200h] [rbp-258h]\n  _OWORD *v57; // [rsp+208h] [rbp-250h] BYREF\n  __m128i v58; // [rsp+210h] [rbp-248h] BYREF\n  __int64 v59; // [rsp+220h] [rbp-238h]\n  __m128i si128; // [rsp+230h] [rbp-228h] BYREF\n  __int64 v61; // [rsp+240h] [rbp-218h]\n  int v62; // [rsp+250h] [rbp-208h] BYREF\n  __int64 v63; // [rsp+258h] [rbp-200h]\n  __int64 v64; // [rsp+260h] [rbp-1F8h]\n  __m128i v65; // [rsp+268h] [rbp-1F0h] BYREF\n  __int64 v66; // [rsp+278h] [rbp-1E0h]\n  __m128i v67; // [rsp+280h] [rbp-1D8h] BYREF\n  __int128 v68; // [rsp+290h] [rbp-1C8h]\n  __int128 v69; // [rsp+2A0h] [rbp-1B8h]\n  __int128 v70; // [rsp+2B0h] [rbp-1A8h]\n  __int128 v71; // [rsp+2C0h] [rbp-198h]\n  __int128 v72; // [rsp+2D0h] [rbp-188h]\n  __m128i v73[9]; // [rsp+2E0h] [rbp-178h] BYREF\n  _BYTE v74[24]; // [rsp+378h] [rbp-E0h] BYREF\n  __m128i v75[12]; // [rsp+390h] [rbp-C8h] BYREF\n\n  v6 = a2;\n  v7 = a1;\n  if ( !a2[128] )\n  {\nLABEL_44:\n    memcpy(v7, v6, 0x90uLL);\n    return v7;\n  }\n  std::fs::read_dir(v73, a2 + 64);\n  if ( v73[0].m128i_i8[8] == 2 )\n  {\n    *(_QWORD *)&v43[1] = <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(\n                           v73[0].m128i_i64[0],\n                           *((_QWORD *)a2 + 9),\n                           *((_QWORD *)a2 + 10));\n    *((_QWORD *)&v43[1] + 1) = &off_145C80;\n    v43[0] = 2uLL;\n    std::sync::mpmc::Sender<T>::send(v52, *a6, a6[1], v43);\n    if ( _mm_movemask_epi8(_mm_cmpeq_epi8(_mm_load_si128((const __m128i *)v52), (__m128i)xmmword_1D8E0)) != 0xFFFF )\n    {\n      memcpy(&v43[1], &v52[1], 0x90uLL);\n      v43[0] = v52[0];\n      a1[2] = alloc::boxed::Box<T>::new(v43);\n      a1[1] = 0LL;\n      *a1 = 2LL;\n      goto LABEL_48;\n    }\n    goto LABEL_44;\n  }\n  v44 = v73[0].m128i_i64[0];\n  v45 = v73[0].m128i_i8[8];\n  v9 = *(_QWORD *)(a3 + 8);\n  v10 = *(_QWORD *)(a3 + 16);\n  v11 = 56LL;\n  if ( !v10 )\n    v11 = 0LL;\n  v55 = *(_QWORD *)(a3 + 8);\n  v53 = v11 + v9;\n  v34 = *(_BYTE *)(a3 + 52);\n  v32 = *(_BYTE *)(a3 + 51);\n  v30 = *(_BYTE *)(a3 + 48);\n  v38 = a4 + 1;\n  v12 = *a6;\n  v13 = a6[1];\n  v33 = *(_BYTE *)(a3 + 50);\n  v31 = *(_BYTE *)(a3 + 49);\n  v56 = v10;\n  v54 = v11 - 56 * v10;\n  v36 = a3;\n  v41 = v12;\n  v40 = v13;\n  while ( 1 )\n  {\n    while ( 1 )\n    {\n      while ( 1 )\n      {\n        <std::fs::ReadDir as core::iter::traits::iterator::Iterator>::next(&v62, &v44);\n        if ( v62 != 1 )\n        {\n          v6 = a2;\n          core::ptr::drop_in_place<std::fs::ReadDir>(&v44);\n          v7 = a1;\n          goto LABEL_44;\n        }\n        if ( v63 )\n          break;\n        *(_QWORD *)&v43[1] = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v64);\n        *((_QWORD *)&v43[1] + 1) = v14;\n        v43[0] = 2uLL;\n        std::sync::mpmc::Sender<T>::send(v52, v12, v13, v43);\n        if ( _mm_movemask_epi8(_mm_cmpeq_epi8(_mm_load_si128((const __m128i *)v52), (__m128i)xmmword_1D8E0)) != 0xFFFF )\n        {\n          memcpy(&v43[1], &v52[1], 0x90uLL);\n          v43[0] = v52[0];\n          v6 = a2;\n          v7 = a1;\n          a1[2] = alloc::boxed::Box<T>::new(v43);\n          a1[1] = 0LL;\n          *a1 = 2LL;\n          goto LABEL_47;\n        }\n      }\n      v46[0] = v63;\n      v46[1] = v64;\n      v48 = v66;\n      v47 = _mm_loadu_si128(&v65);\n      std::fs::DirEntry::path(v49, v46);\n      uu_du::Stat::new((__int64)v75, v50, v51, (__int64)v46, (_QWORD *)a3);\n      if ( _mm_movemask_epi8(_mm_cmpeq_epi8(_mm_load_si128(v75), (__m128i)xmmword_1D730)) == 0xFFFF )\n      {\n        *(_QWORD *)&v43[1] = <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(\n                               v75[1].m128i_i64[0],\n                               v46);\n        *((_QWORD *)&v43[1] + 1) = &off_145C80;\n        v43[0] = 2uLL;\n        std::sync::mpmc::Sender<T>::send(v52, v12, v13, v43);\n        if ( _mm_movemask_epi8(_mm_cmpeq_epi8(_mm_load_si128((const __m128i *)v52), (__m128i)xmmword_1D8E0)) != 0xFFFF )\n        {\n          memcpy(&v43[1], &v52[1], 0x90uLL);\n          v43[0] = v52[0];\n          v7 = a1;\n          a1[2] = alloc::boxed::Box<T>::new(v43);\n          a1[1] = 0LL;\n          *a1 = 2LL;\n          v6 = a2;\n          goto LABEL_46;\n        }\n        goto LABEL_42;\n      }\n      memcpy(v73, v75, sizeof(v73));\n      if ( !v56 )\n        break;\n      v15 = v73[4].m128i_i64[1];\n      v16 = v73[5].m128i_i64[0];\n      v17 = v53;\n      v18 = v54;\n      v19 = v55;\n      while ( 1 )\n      {\n        v20 = v17;\n        alloc::string::String::from_utf8_lossy(v43, v15, v16);\n        v21 = glob::Pattern::matches(v19, *((_QWORD *)&v43[0] + 1), *(_QWORD *)&v43[1]);\n        core::ptr::drop_in_place<alloc::borrow::Cow<str>>(v43);\n        if ( v21 )\n          break;\n        std::fs::DirEntry::file_name(v74, v46);\n        alloc::string::String::from_utf8(v43, v74);\n        v58 = _mm_loadu_si128((const __m128i *)((char *)v43 + 8 * __OFSUB__(0LL, *(_QWORD *)&v43[0])));\n        v59 = *((_QWORD *)&v43[1] + __OFSUB__(0LL, *(_QWORD *)&v43[0]));\n        *((_QWORD *)&v52[1] + 1) = v59;\n        *(__m128i *)((char *)v52 + 8) = v58;\n        *(_QWORD *)&v52[0] = !__OFSUB__(0LL, *(_QWORD *)&v43[0]);\n        core::result::Result<T,E>::unwrap(v43, v52);\n        v22 = glob::Pattern::matches(v19, *((_QWORD *)&v43[0] + 1), *(_QWORD *)&v43[1]);\n        core::ptr::drop_in_place<alloc::string::String>(v43);\n        if ( v22 )\n          break;\n        v18 += 56LL;\n        v17 = v20 + 56;\n        v19 = v20;\n        if ( v18 == 56 )\n          goto LABEL_22;\n      }\n      if ( (v34 & 1) != 0 )\n      {\n        *(_QWORD *)&v52[0] = 1LL;\n        *((_QWORD *)&v52[0] + 1) = v15;\n        *(_QWORD *)&v52[1] = v16;\n        BYTE8(v52[1]) = 1;\n        v57 = v52;\n        v58.m128i_i64[0] = (__int64)&v57;\n        v58.m128i_i64[1] = (__int64)<&T as core::fmt::Display>::fmt;\n        *(_QWORD *)&v43[0] = &unk_145C28;\n        *((_QWORD *)&v43[0] + 1) = 2LL;\n        *(_QWORD *)&v43[2] = 0LL;\n        *(_QWORD *)&v43[1] = &v58;\n        *((_QWORD *)&v43[1] + 1) = 1LL;\n        std::io::stdio::_print(v43);\n      }\nLABEL_9:\n      core::ptr::drop_in_place<uu_du::Stat>(v73);\n      core::ptr::drop_in_place<std::path::PathBuf>(v49);\n      core::ptr::drop_in_place<std::fs::DirEntry>(v46);\n      a3 = v36;\n      v12 = v41;\n      v13 = v40;\n    }\nLABEL_22:\n    v23 = v73[0].m128i_i8[0];\n    if ( (v73[0].m128i_i8[0] & 1) != 0 )\n    {\n      si128 = _mm_load_si128(&v73[1]);\n      v61 = v73[2].m128i_i64[0];\n      if ( hashbrown::map::HashMap<K,V,S,A>::get_inner(a5, &si128) )\n      {\n        if ( (v32 & 1) == 0 )\n          goto LABEL_9;\n        if ( (v30 & 1) == 0 )\n        {\n          ++*((_QWORD *)a2 + 13);\n          goto LABEL_9;\n        }\n      }\n      hashbrown::map::HashMap<K,V,S,A>::insert(a5, si128.m128i_i64[0], si128.m128i_i64[1], v61);\n    }\n    if ( !v73[8].m128i_i8[0] )\n    {\n      v6 = a2;\n      *(__m128i *)(a2 + 88) = _mm_add_epi64(\n                                _mm_loadu_si128((const __m128i *)(a2 + 88)),\n                                _mm_loadu_si128((const __m128i *)&v73[5].m128i_u64[1]));\n      ++*((_QWORD *)a2 + 13);\n      v12 = v41;\n      v13 = v40;\n      if ( (v30 & 1) != 0 )\n      {\n        memcpy(v43, v75, 0x90uLL);\n        *(_QWORD *)&v43[9] = v38;\n        std::sync::mpmc::Sender<T>::send(v52, v41, v40, v43);\n        a3 = v36;\n        if ( _mm_movemask_epi8(_mm_cmpeq_epi8(_mm_load_si128((const __m128i *)v52), (__m128i)xmmword_1D8E0)) != 0xFFFF )\n          break;\n      }\n      else\n      {\n        core::ptr::drop_in_place<uu_du::Stat>(v75);\n        a3 = v36;\n      }\n      goto LABEL_42;\n    }\n    if ( (v33 & (unsigned __int8)v23 & 1) != 0 && (*a2 & 1) != 0 && v73[2].m128i_i64[0] != *((_QWORD *)a2 + 4) )\n      goto LABEL_9;\n    memcpy(v43, v75, 0x90uLL);\n    a3 = v36;\n    v6 = a2;\n    uu_du::du(v52, v43, v36, v38, a5, a6);\n    v12 = v41;\n    v13 = v40;\n    v24 = *(_QWORD *)&v52[1];\n    if ( _mm_movemask_epi8(_mm_cmpeq_epi8(_mm_load_si128((const __m128i *)v52), (__m128i)xmmword_1D730)) == 0xFFFF )\n      goto LABEL_45;\n    v25 = v52[0];\n    v72 = *(_OWORD *)((char *)&v52[4] + 8);\n    v71 = *(_OWORD *)((char *)&v52[3] + 8);\n    v70 = *(_OWORD *)((char *)&v52[2] + 8);\n    v69 = *(_OWORD *)((char *)&v52[1] + 8);\n    v26 = _mm_loadu_si128((const __m128i *)((char *)&v52[5] + 8));\n    v27 = *((_QWORD *)&v52[6] + 1);\n    v67 = _mm_load_si128((const __m128i *)&v52[7]);\n    v68 = v52[8];\n    if ( (v31 & 1) == 0 )\n    {\n      *(__m128i *)(a2 + 88) = _mm_add_epi64(_mm_loadu_si128((const __m128i *)(a2 + 88)), v26);\n      *((_QWORD *)a2 + 13) += v27;\n    }\n    *(_OWORD *)((char *)&v43[4] + 8) = v72;\n    *(_OWORD *)((char *)&v43[3] + 8) = v71;\n    *(_OWORD *)((char *)&v43[2] + 8) = v70;\n    *(_OWORD *)((char *)&v43[1] + 8) = v69;\n    v28 = _mm_load_si128(&v67);\n    v43[8] = v68;\n    v43[7] = v28;\n    v43[0] = v25;\n    *(_QWORD *)&v43[1] = v24;\n    *(__m128i *)((char *)&v43[5] + 8) = v26;\n    *((_QWORD *)&v43[6] + 1) = v27;\n    *(_QWORD *)&v43[9] = v38;\n    std::sync::mpmc::Sender<T>::send(v52, v41, v40, v43);\n    if ( _mm_movemask_epi8(_mm_cmpeq_epi8(_mm_load_si128((const __m128i *)v52), (__m128i)xmmword_1D8E0)) != 0xFFFF )\n      break;\nLABEL_42:\n    core::ptr::drop_in_place<std::path::PathBuf>(v49);\n    core::ptr::drop_in_place<std::fs::DirEntry>(v46);\n  }\n  memcpy(&v43[1], &v52[1], 0x90uLL);\n  v43[0] = v52[0];\n  v24 = alloc::boxed::Box<T>::new(v43);\nLABEL_45:\n  v7 = a1;\n  a1[2] = v24;\n  a1[1] = 0LL;\n  *a1 = 2LL;\nLABEL_46:\n  core::ptr::drop_in_place<std::path::PathBuf>(v49);\n  core::ptr::drop_in_place<std::fs::DirEntry>(v46);\nLABEL_47:\n  core::ptr::drop_in_place<std::fs::ReadDir>(&v44);\nLABEL_48:\n  core::ptr::drop_in_place<uu_du::Stat>(v6);\n  return v7;\n}",
+    "_ZN5uu_du11file_as_vec17he8743ad0d34e58bdE": "__int64 __fastcall uu_du::file_as_vec(__int64 a1)\n{\n  unsigned int v1; // eax\n  _BYTE v3[64]; // [rsp+8h] [rbp-40h] BYREF\n\n  std::fs::File::open(v3);\n  v1 = core::result::Result<T,E>::expect(v3);\n  std::io::buffered::bufreader::BufReader<R>::with_capacity(v3, v1);\n  return core::iter::traits::iterator::Iterator::collect(a1, v3);\n}",
+    "_ZN5uu_du22build_exclude_patterns17he2599e522f595380E": "__int64 __fastcall uu_du::build_exclude_patterns(__int64 a1, __int64 a2)\n{\n  void *v2; // rsi\n  void (__fastcall __noreturn *v3)(); // rax\n  const char *v4; // rcx\n  __int128 v5; // xmm1\n  __int128 v6; // xmm0\n  __int64 v7; // rdx\n  const char *v8; // rsi\n  void (__fastcall __noreturn *v9)(); // rax\n  const char *v10; // rcx\n  __int128 v11; // xmm1\n  __int128 v12; // xmm0\n  __int64 v13; // rdx\n  __int64 v14; // rbx\n  __int128 v17; // [rsp+18h] [rbp-2B0h] BYREF\n  __int64 v18; // [rsp+28h] [rbp-2A0h]\n  __int128 v19; // [rsp+30h] [rbp-298h] BYREF\n  __int64 v20; // [rsp+40h] [rbp-288h]\n  char **v21; // [rsp+50h] [rbp-278h] BYREF\n  _BYTE v22[24]; // [rsp+58h] [rbp-270h]\n  __int128 v23; // [rsp+70h] [rbp-258h]\n  const char *v24; // [rsp+80h] [rbp-248h]\n  __int64 v25; // [rsp+88h] [rbp-240h]\n  __int128 v26; // [rsp+90h] [rbp-238h] BYREF\n  __int64 v27; // [rsp+A0h] [rbp-228h]\n  __int128 v28; // [rsp+A8h] [rbp-220h] BYREF\n  __int64 v29; // [rsp+B8h] [rbp-210h]\n  void (__fastcall __noreturn *v30)(); // [rsp+C0h] [rbp-208h] BYREF\n  const char *v31; // [rsp+C8h] [rbp-200h]\n  __int128 v32; // [rsp+D0h] [rbp-1F8h]\n  __int128 v33; // [rsp+E0h] [rbp-1E8h]\n  void *v34; // [rsp+F0h] [rbp-1D8h]\n  __int64 v35; // [rsp+F8h] [rbp-1D0h]\n  __int64 v36; // [rsp+100h] [rbp-1C8h]\n  __int64 v37; // [rsp+120h] [rbp-1A8h]\n  __int128 v38; // [rsp+140h] [rbp-188h] BYREF\n  __int64 v39; // [rsp+150h] [rbp-178h]\n  _QWORD v40[2]; // [rsp+158h] [rbp-170h] BYREF\n  __int128 v41; // [rsp+168h] [rbp-160h]\n  __int128 v42; // [rsp+178h] [rbp-150h]\n  const char *v43; // [rsp+188h] [rbp-140h]\n  __int64 v44; // [rsp+190h] [rbp-138h]\n  __int64 v45; // [rsp+198h] [rbp-130h] BYREF\n  __int128 v46; // [rsp+1A0h] [rbp-128h]\n  __int64 v47; // [rsp+1B0h] [rbp-118h]\n  _BYTE v48[136]; // [rsp+1D0h] [rbp-F8h] BYREF\n  _BYTE v49[112]; // [rsp+258h] [rbp-70h] BYREF\n\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(v48, a2, &unk_21424, 12LL);\n  v2 = &unk_21424;\n  clap_builder::parser::error::MatchesError::unwrap(&v30, &unk_21424, 12LL, v48);\n  v3 = v30;\n  if ( v30 )\n  {\n    v4 = v31;\n    v5 = v32;\n    v6 = v33;\n    v2 = v34;\n    v7 = v35;\n  }\n  else\n  {\n    v6 = 0LL;\n    v5 = (unsigned __int64)<clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::default::Default>::default::EMPTY;\n    v3 = core::ops::function::FnOnce::call_once;\n    v4 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::default::Default>::default::EMPTY;\n    v7 = 0LL;\n  }\n  v30 = v3;\n  v31 = v4;\n  v32 = v5;\n  v33 = v6;\n  v34 = v2;\n  v35 = v7;\n  v36 = 0LL;\n  v37 = 0LL;\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(v48, a2, aExclude, 7LL);\n  v8 = aExclude;\n  clap_builder::parser::error::MatchesError::unwrap(&v21, aExclude, 7LL, v48);\n  v9 = (void (__fastcall __noreturn *)())v21;\n  if ( v21 )\n  {\n    v10 = *(const char **)v22;\n    v11 = *(_OWORD *)&v22[8];\n    v12 = v23;\n    v8 = v24;\n    v13 = v25;\n  }\n  else\n  {\n    v12 = 0LL;\n    v11 = (unsigned __int64)<clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::default::Default>::default::EMPTY;\n    v10 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::default::Default>::default::EMPTY;\n    v9 = core::ops::function::FnOnce::call_once;\n    v13 = 0LL;\n  }\n  v40[0] = v9;\n  v40[1] = v10;\n  v41 = v11;\n  v42 = v12;\n  v43 = v8;\n  v44 = v13;\n  *(_QWORD *)&v17 = 0LL;\n  *((_QWORD *)&v17 + 1) = 8LL;\n  v18 = 0LL;\n  core::iter::traits::iterator::Iterator::chain(v48, v40, &v30);\n  while ( 1 )\n  {\n    core::iter::adapters::chain::and_then_or_clear(&v21, v49);\n    core::option::Option<T>::or_else(&v28, &v21, v48);\n    if ( (_QWORD)v28 == 0x8000000000000000LL )\n    {\n      core::ptr::drop_in_place<core::iter::adapters::chain::Chain<core::iter::adapters::cloned::Cloned<clap_builder::parser::matches::arg_matches::ValuesRef<alloc::string::String>>,core::iter::adapters::flatten::FlatMap<clap_builder::parser::matches::arg_matches::ValuesRef<alloc::string::String>,alloc::vec::Vec<alloc::string::String>,uu_du::file_as_vec<&alloc::string::String>>>>(v48);\n      v14 = a1;\n      *(_QWORD *)(a1 + 16) = v18;\n      *(_OWORD *)a1 = v17;\n      return v14;\n    }\n    v20 = v29;\n    v19 = v28;\n    if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aVerbose_0, 7LL) )\n    {\n      *(_QWORD *)&v26 = &v19;\n      *((_QWORD *)&v26 + 1) = <alloc::string::String as core::fmt::Debug>::fmt;\n      v21 = &off_145D38;\n      *(_QWORD *)v22 = 2LL;\n      *(_QWORD *)&v23 = 0LL;\n      *(_QWORD *)&v22[8] = &v26;\n      *(_QWORD *)&v22[16] = 1LL;\n      std::io::stdio::_print(&v21);\n    }\n    uucore::features::parser::parse_glob::from_str(&v45, *((_QWORD *)&v19 + 1), v20);\n    if ( v45 == 0x8000000000000000LL )\n      break;\n    alloc::vec::Vec<T,A>::push(&v17, &v45);\n    core::ptr::drop_in_place<alloc::string::String>(&v19);\n  }\n  v39 = v47;\n  v38 = v46;\n  <T as alloc::string::SpecToString>::spec_to_string(&v26, &v38);\n  *(_QWORD *)&v22[16] = v27;\n  *(_OWORD *)v22 = v26;\n  v21 = (char **)&byte_4;\n  v14 = a1;\n  *(_QWORD *)(a1 + 8) = alloc::boxed::Box<T>::new(&v21);\n  *(_QWORD *)(a1 + 16) = &off_145D90;\n  *(_QWORD *)a1 = 0x8000000000000000LL;\n  core::ptr::drop_in_place<alloc::string::String>(&v19);\n  core::ptr::drop_in_place<core::iter::adapters::chain::Chain<core::iter::adapters::cloned::Cloned<clap_builder::parser::matches::arg_matches::ValuesRef<alloc::string::String>>,core::iter::adapters::flatten::FlatMap<clap_builder::parser::matches::arg_matches::ValuesRef<alloc::string::String>,alloc::vec::Vec<alloc::string::String>,uu_du::file_as_vec<&alloc::string::String>>>>(v48);\n  core::ptr::drop_in_place<alloc::vec::Vec<glob::Pattern>>(&v17);\n  return v14;\n}",
+    "_ZN5uu_du11StatPrinter11print_stats17h571f331b863e373aE": "__int64 __fastcall uu_du::StatPrinter::print_stats(char *a1, __int64 *a2)\n{\n  __int64 v2; // r15\n  __int64 v3; // r13\n  char *v4; // r14\n  __int64 v5; // rbx\n  __int64 v7; // rax\n  __int64 v8; // rcx\n  unsigned int v9; // eax\n  __int64 v10; // rdx\n  __m128i si128; // xmm0\n  unsigned __int64 v12; // rdx\n  __int64 v13; // rcx\n  unsigned __int64 v14; // r15\n  bool v15; // si\n  unsigned __int8 v16; // [rsp+4h] [rbp-1E4h]\n  char v17; // [rsp+5h] [rbp-1E3h]\n  char v18; // [rsp+6h] [rbp-1E2h]\n  char v19; // [rsp+7h] [rbp-1E1h]\n  __m128i *v20; // [rsp+8h] [rbp-1E0h] BYREF\n  __int64 v21; // [rsp+10h] [rbp-1D8h]\n  char *v22; // [rsp+18h] [rbp-1D0h]\n  unsigned __int64 v23; // [rsp+20h] [rbp-1C8h]\n  __int64 v24; // [rsp+28h] [rbp-1C0h]\n  unsigned __int64 v25; // [rsp+30h] [rbp-1B8h]\n  __int64 v26; // [rsp+38h] [rbp-1B0h]\n  __m128i *p_dest; // [rsp+40h] [rbp-1A8h] BYREF\n  __int64 (__fastcall *v28)(); // [rsp+48h] [rbp-1A0h]\n  __m128i **v29; // [rsp+50h] [rbp-198h]\n  __int64 (__fastcall *v30)(); // [rsp+58h] [rbp-190h]\n  void *v31; // [rsp+60h] [rbp-188h] BYREF\n  __int64 v32; // [rsp+68h] [rbp-180h]\n  __m128i *p_p_dest; // [rsp+70h] [rbp-178h]\n  __int64 v34; // [rsp+78h] [rbp-170h]\n  __m128i v35; // [rsp+80h] [rbp-168h]\n  __m128i v36; // [rsp+90h] [rbp-158h]\n  __m128i v37; // [rsp+A0h] [rbp-148h]\n  __m128i v38; // [rsp+B0h] [rbp-138h]\n  __m128i v39; // [rsp+C0h] [rbp-128h]\n  __m128i v40; // [rsp+D0h] [rbp-118h]\n  __m128i v41; // [rsp+E0h] [rbp-108h]\n  __m128i v42; // [rsp+F0h] [rbp-F8h]\n  _QWORD v43[2]; // [rsp+100h] [rbp-E8h] BYREF\n  __m128i dest; // [rsp+110h] [rbp-D8h] BYREF\n  __m128i *v45; // [rsp+120h] [rbp-C8h]\n  __int64 v46; // [rsp+128h] [rbp-C0h]\n  __m128i v47[11]; // [rsp+130h] [rbp-B8h] BYREF\n\n  v2 = *a2;\n  std::sync::mpmc::Receiver<T>::recv(&dest);\n  v22 = a1;\n  if ( _mm_movemask_epi8(_mm_cmpeq_epi8(_mm_load_si128(&dest), (__m128i)xmmword_1D8E0)) != 0xFFFF )\n  {\n    v8 = dest.m128i_i64[1];\n    v7 = dest.m128i_i64[0];\n    v19 = a1[73];\n    v18 = a1[74];\n    v24 = *((_QWORD *)a1 + 2);\n    v25 = *((_QWORD *)a1 + 3);\n    v16 = *a1;\n    v23 = *((_QWORD *)a1 + 1);\n    v17 = a1[75];\n    v3 = 0LL;\n    v26 = v2;\n    while ( 1 )\n    {\n      if ( !(v8 | v7 ^ 2) )\n      {\n        v20 = v45;\n        v21 = v46;\n        v9 = (*(__int64 (**)(void))(v46 + 88))();\n        uucore::mods::error::set_exit_code(v9);\n        v43[0] = uucore::util_name();\n        v43[1] = v10;\n        p_dest = (__m128i *)v43;\n        v28 = <&T as core::fmt::Display>::fmt;\n        v29 = &v20;\n        v30 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n        v31 = &unk_145DF8;\n        v32 = 3LL;\n        v35.m128i_i64[0] = 0LL;\n        p_p_dest = (__m128i *)&p_dest;\n        v34 = 2LL;\n        std::io::stdio::_eprint(&v31);\n        core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v20, v21);\n        goto LABEL_9;\n      }\n      v31 = (void *)v7;\n      v32 = v8;\n      p_p_dest = v45;\n      v34 = v46;\n      v42 = v47[7];\n      v41 = v47[6];\n      v40 = v47[5];\n      v39 = v47[4];\n      si128 = _mm_load_si128(v47);\n      v38 = v47[3];\n      v37 = v47[2];\n      v36 = v47[1];\n      v35 = si128;\n      if ( (v19 & 1) != 0 )\n      {\n        v12 = v39.m128i_u64[1];\n        v13 = v24;\n      }\n      else\n      {\n        v13 = v24;\n        if ( (v18 & 1) != 0 )\n          v12 = v38.m128i_u64[1];\n        else\n          v12 = v39.m128i_i64[0] << 9;\n      }\n      v14 = 0LL;\n      if ( !v42.m128i_i64[0] )\n        v14 = v12;\n      if ( v13 == 2 )\n      {\n        if ( ((v42.m128i_i64[0] > v23) & v16) == 0 )\n          goto LABEL_25;\n      }\n      else\n      {\n        v15 = v12 < v25;\n        if ( (v13 & 1) != 0 )\n          v15 = v12 > v25;\n        if ( !(v15 | v16 & (v42.m128i_i64[0] > v23)) )\n        {\nLABEL_25:\n          if ( !v42.m128i_i64[0] || (v17 & 1) == 0 )\n          {\n            v5 = uu_du::StatPrinter::print_stat(v22, &v31, v12);\n            if ( v5 )\n            {\n              core::ptr::drop_in_place<uu_du::StatPrintInfo>(&v31);\n              return v5;\n            }\n          }\n        }\n      }\n      v3 += v14;\n      core::ptr::drop_in_place<uu_du::StatPrintInfo>(&v31);\nLABEL_9:\n      std::sync::mpmc::Receiver<T>::recv(&dest);\n      v8 = dest.m128i_i64[1];\n      v7 = dest.m128i_i64[0];\n      if ( _mm_movemask_epi8(_mm_cmpeq_epi8(_mm_load_si128(&dest), (__m128i)xmmword_1D8E0)) == 0xFFFF )\n        goto LABEL_3;\n    }\n  }\n  v3 = 0LL;\nLABEL_3:\n  v4 = v22;\n  if ( v22[72] )\n  {\n    uu_du::StatPrinter::convert_size(&dest, v22, v3);\n    p_dest = &dest;\n    v28 = <alloc::string::String as core::fmt::Display>::fmt;\n    v31 = &unk_145E28;\n    v32 = 2LL;\n    v35.m128i_i64[0] = 0LL;\n    p_p_dest = (__m128i *)&p_dest;\n    v34 = 1LL;\n    std::io::stdio::_print(&v31);\n    core::ptr::drop_in_place<alloc::string::String>(&dest);\n    dest.m128i_i64[0] = (__int64)(v4 + 77);\n    dest.m128i_i64[1] = (__int64)<uucore::mods::line_ending::LineEnding as core::fmt::Display>::fmt;\n    v31 = &unk_1D7A0;\n    v32 = 1LL;\n    v35.m128i_i64[0] = 0LL;\n    p_p_dest = &dest;\n    v34 = 1LL;\n    std::io::stdio::_print(&v31);\n  }\n  return 0LL;\n}",
+    "_ZN5uu_du11StatPrinter12convert_size17hd9a65cfff278d727E": "__int64 __fastcall uu_du::StatPrinter::convert_size(__int64 a1, __int64 a2, unsigned __int64 a3)\n{\n  unsigned __int64 v3; // rax\n  __int64 v4; // rcx\n  __int64 result; // rax\n  __int64 v6; // rbx\n  unsigned __int64 v7; // rcx\n  unsigned __int64 v8; // rax\n  unsigned __int64 v9; // rdx\n  __int64 v10; // rax\n  __int128 v11; // [rsp+0h] [rbp-38h] BYREF\n  __int64 v12; // [rsp+10h] [rbp-28h]\n  _BYTE v13[28]; // [rsp+1Ch] [rbp-1Ch] BYREF\n\n  v3 = a3;\n  v4 = *(_QWORD *)(a2 + 32);\n  if ( !v4 )\n    return uucore::features::format::human::human_readable(a1, a3, 2LL);\n  if ( (_DWORD)v4 == 1 )\n    return uucore::features::format::human::human_readable(a1, a3, 1LL);\n  if ( *(_BYTE *)(a2 + 73) )\n  {\n    v6 = a1;\n  }\n  else\n  {\n    v7 = *(_QWORD *)(a2 + 40);\n    if ( !v7 )\n      core::panicking::panic_const::panic_const_div_by_zero(&off_145E48);\n    v6 = a1;\n    if ( (v7 | a3) >> 32 )\n    {\n      v8 = a3 / v7;\n      v9 = a3 % v7;\n    }\n    else\n    {\n      v9 = (unsigned int)a3 % (unsigned int)v7;\n      v8 = (unsigned int)v3 / (unsigned int)v7;\n    }\n    v3 = v8 - ((v9 == 0) - 1LL);\n  }\n  v10 = core::fmt::num::imp::<impl usize>::_fmt(v3, v13, 20LL);\n  <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v11, v10);\n  result = v12;\n  *(_QWORD *)(v6 + 16) = v12;\n  *(_OWORD *)v6 = v11;\n  return result;\n}",
+    "_ZN5uu_du11StatPrinter10print_stat17h55862af7f00f1efdE": "__int64 __fastcall uu_du::StatPrinter::print_stat(__int64 a1, __int64 a2, unsigned __int64 a3)\n{\n  unsigned __int8 v4; // al\n  __int128 *v5; // rdi\n  __int64 v7; // rax\n  __int64 v8; // rax\n  __int128 v10; // [rsp+8h] [rbp-F0h] BYREF\n  __int128 v11; // [rsp+18h] [rbp-E0h]\n  char v12; // [rsp+28h] [rbp-D0h]\n  __int128 v13; // [rsp+30h] [rbp-C8h] BYREF\n  __int128 v14; // [rsp+40h] [rbp-B8h]\n  __int64 v15; // [rsp+50h] [rbp-A8h]\n  _QWORD v16[3]; // [rsp+88h] [rbp-70h] BYREF\n  _BYTE v17[24]; // [rsp+A0h] [rbp-58h] BYREF\n  _BYTE v18[64]; // [rsp+B8h] [rbp-40h] BYREF\n\n  v4 = *(_BYTE *)(a1 + 76);\n  if ( v4 == 3 )\n  {\n    uu_du::StatPrinter::convert_size((__int64)&v10, a1, a3);\n    v16[0] = &v10;\n    v16[1] = <alloc::string::String as core::fmt::Display>::fmt;\n    *(_QWORD *)&v13 = &unk_145E90;\n    *((_QWORD *)&v13 + 1) = 2LL;\n    v15 = 0LL;\n    *(_QWORD *)&v14 = v16;\n    *((_QWORD *)&v14 + 1) = 1LL;\n    std::io::stdio::_print(&v13);\n    v5 = &v10;\nLABEL_5:\n    core::ptr::drop_in_place<alloc::string::String>(v5);\n    v8 = uucore::mods::display::print_verbatim(a2 + 64);\n    core::result::Result<T,E>::unwrap(v8);\n    *(_QWORD *)&v10 = a1 + 77;\n    *((_QWORD *)&v10 + 1) = <uucore::mods::line_ending::LineEnding as core::fmt::Display>::fmt;\n    *(_QWORD *)&v13 = &unk_1D7A0;\n    *((_QWORD *)&v13 + 1) = 1LL;\n    v15 = 0LL;\n    *(_QWORD *)&v14 = &v10;\n    *((_QWORD *)&v14 + 1) = 1LL;\n    std::io::stdio::_print(&v13);\n    return 0LL;\n  }\n  uu_du::get_time_secs(&v10, v4, a2);\n  if ( (_QWORD)v10 == 5LL )\n  {\n    v7 = <std::time::SystemTime as core::ops::arith::Add<core::time::Duration>>::add(\n           0LL,\n           0LL,\n           *((_QWORD *)&v10 + 1),\n           0LL);\n    <chrono::datetime::DateTime<chrono::offset::local::Local> as core::convert::From<std::time::SystemTime>>::from(\n      v18,\n      v7);\n    v10 = *(_OWORD *)(a1 + 56);\n    v11 = 8uLL;\n    v12 = 0;\n    chrono::datetime::DateTime<Tz>::format_with_items(&v13, v18, &v10);\n    <T as alloc::string::SpecToString>::spec_to_string(v17, &v13);\n    core::ptr::drop_in_place<chrono::format::formatting::DelayedFormat<chrono::format::strftime::StrftimeItems>>(&v13);\n    uu_du::StatPrinter::convert_size((__int64)v16, a1, a3);\n    *(_QWORD *)&v10 = v16;\n    *((_QWORD *)&v10 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n    *(_QWORD *)&v11 = v17;\n    *((_QWORD *)&v11 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n    *(_QWORD *)&v13 = &unk_145E60;\n    *((_QWORD *)&v13 + 1) = 3LL;\n    v15 = 0LL;\n    *(_QWORD *)&v14 = &v10;\n    *((_QWORD *)&v14 + 1) = 2LL;\n    std::io::stdio::_print(&v13);\n    core::ptr::drop_in_place<alloc::string::String>(v16);\n    v5 = (__int128 *)v17;\n    goto LABEL_5;\n  }\n  v14 = v11;\n  v13 = v10;\n  return alloc::boxed::Box<T>::new(&v13);\n}",
+    "_ZN5uu_du15read_files_from17h40a5e404b0358f57E": "_OWORD *__fastcall uu_du::read_files_from(_QWORD *a1, __int64 a2, __int64 a3)\n{\n  _OWORD *v3; // r12\n  __int64 v4; // rax\n  __int64 v5; // rax\n  __int64 (__fastcall **v6)(); // rcx\n  __int64 (__fastcall *v7)(); // r14\n  __int64 v8; // r15\n  __int128 v9; // rax\n  __int64 v10; // rdx\n  __int64 v11; // rcx\n  __int64 v12; // r8\n  __int64 v13; // r9\n  __int64 v14; // rax\n  __int64 (__fastcall **v15)(); // rbx\n  __int64 v17; // rbx\n  __int64 v18; // rsi\n  __int128 v19; // [rsp+0h] [rbp-148h] BYREF\n  __int128 *v20; // [rsp+10h] [rbp-138h]\n  __int64 v21; // [rsp+18h] [rbp-130h]\n  __int64 v22; // [rsp+20h] [rbp-128h]\n  _QWORD *v23; // [rsp+38h] [rbp-110h]\n  __int64 v24; // [rsp+40h] [rbp-108h] BYREF\n  __int64 (__fastcall **v25)(); // [rsp+48h] [rbp-100h]\n  char v26; // [rsp+50h] [rbp-F8h]\n  __int64 v27; // [rsp+58h] [rbp-F0h]\n  __int128 v28; // [rsp+60h] [rbp-E8h] BYREF\n  char **v29; // [rsp+70h] [rbp-D8h]\n  __int64 (__fastcall *v30)(); // [rsp+78h] [rbp-D0h]\n  __int128 v31; // [rsp+80h] [rbp-C8h] BYREF\n  char **v32; // [rsp+90h] [rbp-B8h]\n  __int64 v33; // [rsp+98h] [rbp-B0h] BYREF\n  __int64 v34; // [rsp+A0h] [rbp-A8h]\n  __int128 v35; // [rsp+A8h] [rbp-A0h] BYREF\n  __int64 v36; // [rsp+B8h] [rbp-90h]\n  __int64 *v37; // [rsp+C0h] [rbp-88h] BYREF\n  __int64 (__fastcall *v38)(); // [rsp+C8h] [rbp-80h]\n  __int64 v39; // [rsp+D0h] [rbp-78h]\n  __int64 v40; // [rsp+D8h] [rbp-70h]\n  char *v41; // [rsp+E0h] [rbp-68h] BYREF\n  _BYTE v42[24]; // [rsp+E8h] [rbp-60h] BYREF\n  _BYTE v43[72]; // [rsp+100h] [rbp-48h] BYREF\n\n  v3 = a1;\n  v33 = a2;\n  v34 = a3;\n  if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, asc_21680, 1LL) )\n  {\n    v23 = a1;\n    v4 = std::io::stdio::stdin();\n    std::io::buffered::bufreader::BufReader<R>::with_capacity(&v19, v4);\n    v5 = alloc::boxed::Box<T>::new(&v19);\n    v6 = &off_146058;\n    goto LABEL_3;\n  }\n  <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v28, a2);\n  if ( (unsigned __int8)std::path::Path::is_dir(*((_QWORD *)&v28 + 1), v29) )\n  {\n    v37 = &v33;\n    v38 = <&T as core::fmt::Display>::fmt;\n    *(_QWORD *)&v19 = &unk_145EC8;\n    *((_QWORD *)&v19 + 1) = 2LL;\n    v22 = 0LL;\n    v20 = (__int128 *)&v37;\n    v21 = 1LL;\n    ((void (__fastcall *)(_BYTE *, __int128 *, __int64, __int64, __int64, __int64))core::option::Option<T>::map_or_else)(\n      v42,\n      &v19,\n      v10,\n      v11,\n      v12,\n      v13);\n    v14 = alloc::boxed::Box<T>::new(v42);\n    a1[1] = std::io::error::Error::_new(40LL, v14, &off_146000);\n    goto LABEL_19;\n  }\n  std::fs::File::open(&v24, v33, v34);\n  if ( (_DWORD)v24 == 1 )\n  {\n    v15 = v25;\n    if ( !(unsigned __int8)std::io::error::Error::kind(v25) )\n    {\n      *(_QWORD *)&v31 = v15;\n      v37 = &v33;\n      v38 = <&T as core::fmt::Display>::fmt;\n      *(_QWORD *)&v19 = &off_145EE8;\n      *((_QWORD *)&v19 + 1) = 2LL;\n      v22 = 0LL;\n      v20 = (__int128 *)&v37;\n      v21 = 1LL;\n      ((void (__fastcall *)(_BYTE *, __int128 *))core::option::Option<T>::map_or_else)(v43, &v19);\n      v18 = alloc::boxed::Box<T>::new(v43);\n      a1[1] = std::io::error::Error::_new(40LL, v18, &off_146000);\n      *a1 = 0x8000000000000000LL;\n      core::ptr::drop_in_place<std::io::error::Error>(&v31);\n      goto LABEL_20;\n    }\n    a1[1] = v15;\nLABEL_19:\n    *a1 = 0x8000000000000000LL;\nLABEL_20:\n    core::ptr::drop_in_place<std::path::PathBuf>(&v28);\n    return v3;\n  }\n  std::io::buffered::bufreader::BufReader<R>::with_capacity(&v19, HIDWORD(v24));\n  v17 = alloc::boxed::Box<T>::new(&v19);\n  v23 = a1;\n  core::ptr::drop_in_place<std::path::PathBuf>(&v28);\n  v6 = &off_145F58;\n  v5 = v17;\nLABEL_3:\n  *(_QWORD *)&v35 = 0LL;\n  *((_QWORD *)&v35 + 1) = 8LL;\n  v36 = 0LL;\n  v24 = v5;\n  v25 = v6;\n  v26 = 0;\n  v27 = 0LL;\n  while ( 1 )\n  {\n    <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v37, &v24);\n    v7 = v38;\n    if ( v38 == (__int64 (__fastcall *)())0x8000000000000001LL )\n    {\n      core::ptr::drop_in_place<core::iter::adapters::enumerate::Enumerate<std::io::Split<alloc::boxed::Box<dyn std::io::BufRead>>>>(\n        v24,\n        v25);\n      v3 = v23;\n      v23[2] = v36;\n      *v3 = v35;\n      return v3;\n    }\n    v8 = v39;\n    if ( v38 == (__int64 (__fastcall *)())0x8000000000000000LL )\n      break;\n    if ( v40 )\n    {\n      alloc::string::String::from_utf8_lossy(&v19, v39, v40);\n      <alloc::borrow::Cow<str> as alloc::string::SpecToString>::spec_to_string(&v28, *((_QWORD *)&v19 + 1), v20);\n      v32 = v29;\n      v31 = v28;\n      core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v19);\n      if ( (unsigned __int8)<T as core::slice::cmp::SliceContains>::slice_contains(&v31, *((_QWORD *)&v35 + 1), v36) )\n      {\n        core::ptr::drop_in_place<std::path::PathBuf>(&v31);\n      }\n      else\n      {\n        v20 = (__int128 *)v32;\n        v19 = v31;\n        alloc::vec::Vec<T,A>::push(&v35, &v19);\n      }\n    }\n    else\n    {\n      v41 = (char *)v37 + 1;\n      *(_QWORD *)&v9 = uucore::util_name();\n      v28 = v9;\n      *(_QWORD *)&v31 = &v28;\n      *((_QWORD *)&v31 + 1) = <&T as core::fmt::Display>::fmt;\n      *(_QWORD *)&v19 = &unk_145F08;\n      *((_QWORD *)&v19 + 1) = 2LL;\n      v22 = 0LL;\n      v20 = &v31;\n      v21 = 1LL;\n      std::io::stdio::_eprint(&v19);\n      *(_QWORD *)&v28 = &v33;\n      *((_QWORD *)&v28 + 1) = <&T as core::fmt::Display>::fmt;\n      v29 = &v41;\n      v30 = core::fmt::num::imp::<impl core::fmt::Display for usize>::fmt;\n      *(_QWORD *)&v19 = &unk_145F28;\n      *((_QWORD *)&v19 + 1) = 3LL;\n      v22 = 0LL;\n      v20 = &v28;\n      v21 = 2LL;\n      std::io::stdio::_eprint(&v19);\n      uucore::mods::error::set_exit_code(1LL);\n    }\n    core::ptr::drop_in_place<alloc::vec::Vec<u8>>(v7, v8);\n  }\n  v3 = v23;\n  v23[1] = v39;\n  *(_QWORD *)v3 = 0x8000000000000000LL;\n  core::ptr::drop_in_place<core::iter::adapters::enumerate::Enumerate<std::io::Split<alloc::boxed::Box<dyn std::io::BufRead>>>>(\n    v24,\n    v25);\n  core::ptr::drop_in_place<alloc::vec::Vec<std::path::PathBuf>>(&v35);\n  return v3;\n}",
+    "_ZN5uu_du13get_time_secs17h49debf4b9f55f9aaE": "__int64 __fastcall uu_du::get_time_secs(__int64 a1, char a2, __int64 a3)\n{\n  __int64 result; // rax\n  __int64 v4; // rax\n  bool v5; // zf\n  __int64 v6; // rcx\n  _QWORD v7[2]; // [rsp+0h] [rbp-20h] BYREF\n  __int128 v8; // [rsp+10h] [rbp-10h]\n\n  if ( a2 )\n  {\n    if ( a2 == 1 )\n    {\n      result = *(_QWORD *)(a3 + 120);\n      *(_QWORD *)(a1 + 8) = result;\n      *(_QWORD *)a1 = 5LL;\n    }\n    else\n    {\n      v4 = *(_QWORD *)(a3 + 56);\n      v5 = (*(_BYTE *)(a3 + 48) & 1) == 0;\n      v7[0] = 3LL;\n      if ( v5 )\n      {\n        result = v7[0];\n        v6 = v7[1];\n        *(_OWORD *)(a1 + 16) = v8;\n        *(_QWORD *)a1 = result;\n        *(_QWORD *)(a1 + 8) = v6;\n      }\n      else\n      {\n        *(_QWORD *)(a1 + 8) = v4;\n        *(_QWORD *)a1 = 5LL;\n        return core::ptr::drop_in_place<uu_du::DuError>(v7);\n      }\n    }\n  }\n  else\n  {\n    result = *(_QWORD *)(a3 + 112);\n    *(_QWORD *)(a1 + 8) = result;\n    *(_QWORD *)a1 = 5LL;\n  }\n  return result;\n}",
+    "_ZN5uu_du16parse_time_style17ha80c5924fa1465d3E": "__int64 *__fastcall uu_du::parse_time_style(__int64 *a1, __int64 a2, __int64 a3)\n{\n  __int64 v4; // rax\n  __int64 v6; // [rsp+0h] [rbp-38h] BYREF\n  _BYTE v7[48]; // [rsp+8h] [rbp-30h] BYREF\n\n  if ( !a2 )\n    goto LABEL_5;\n  if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aFullIso, 8LL) )\n  {\n    a1[1] = (__int64)aYMDHMSFZ;\n    a1[2] = 23LL;\n    goto LABEL_6;\n  }\n  if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aLongIso, 8LL) )\n  {\nLABEL_5:\n    a1[1] = (__int64)aYMDHM_0;\n    a1[2] = 14LL;\n    goto LABEL_6;\n  }\n  if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aIso, 3LL) )\n  {\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v7, a2);\n    v6 = 2LL;\n    a1[1] = alloc::boxed::Box<T>::new(&v6);\n    a1[2] = (__int64)&off_145D90;\n    v4 = 1LL;\n    goto LABEL_7;\n  }\n  a1[1] = (__int64)aYMD;\n  a1[2] = 8LL;\nLABEL_6:\n  v4 = 0LL;\nLABEL_7:\n  *a1 = v4;\n  return a1;\n}",
+    "_ZN5uu_du11parse_depth17hceb993b72658530cE": "__int64 *__fastcall uu_du::parse_depth(__int64 *a1, __int64 a2, __int64 a3, char a4)\n{\n  __int64 v4; // rax\n  __int64 v6; // rcx\n  __int64 v7; // rax\n  __int64 v9; // [rsp+8h] [rbp-40h] BYREF\n  _QWORD v10[7]; // [rsp+10h] [rbp-38h] BYREF\n\n  if ( !a2 )\n  {\n    v6 = 0LL;\n    goto LABEL_10;\n  }\n  core::num::<impl usize>::from_ascii_radix(&v9);\n  if ( !(_BYTE)v9 )\n  {\n    if ( a4 )\n      goto LABEL_7;\n    v4 = v10[0];\n    v6 = 1LL;\nLABEL_10:\n    a1[1] = v6;\n    a1[2] = v4;\n    v7 = 0LL;\n    goto LABEL_11;\n  }\n  if ( a4 )\n  {\nLABEL_7:\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v10, a2);\n    v9 = 1LL;\n    goto LABEL_8;\n  }\n  <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v10, a2);\n  v9 = 0LL;\nLABEL_8:\n  a1[1] = alloc::boxed::Box<T>::new(&v9);\n  a1[2] = (__int64)&off_145D90;\n  v7 = 1LL;\nLABEL_11:\n  *a1 = v7;\n  return a1;\n}",
+    "_ZN5uu_du6uu_app17habf9d5389fa2ad43E": "void *__fastcall uu_du::uu_app(void *dest)\n{\n  __int64 v1; // rax\n  __int64 v2; // r8\n  __int64 v3; // r9\n  __int64 v4; // r8\n  __int64 v5; // r9\n  __int64 v6; // r8\n  __int64 v7; // r9\n  _BYTE v9[632]; // [rsp+0h] [rbp-B58h] BYREF\n  int v10; // [rsp+278h] [rbp-8E0h]\n  int v11; // [rsp+27Ch] [rbp-8DCh]\n  __int128 v12; // [rsp+288h] [rbp-8D0h]\n  _DWORD src[175]; // [rsp+298h] [rbp-8C0h] BYREF\n  __int64 v14; // [rsp+554h] [rbp-604h]\n  int v15; // [rsp+55Ch] [rbp-5FCh]\n  _DWORD desta[175]; // [rsp+560h] [rbp-5F8h] BYREF\n  __int64 v17; // [rsp+81Ch] [rbp-33Ch]\n  int v18; // [rsp+824h] [rbp-334h]\n  _OWORD v19[4]; // [rsp+828h] [rbp-330h] BYREF\n  __int64 v20; // [rsp+868h] [rbp-2F0h]\n  _OWORD v21[4]; // [rsp+870h] [rbp-2E8h] BYREF\n  __int64 v22; // [rsp+8B0h] [rbp-2A8h]\n  _OWORD v23[4]; // [rsp+8B8h] [rbp-2A0h] BYREF\n  __int64 v24; // [rsp+8F8h] [rbp-260h]\n\n  v1 = uucore::util_name();\n  clap_builder::builder::command::Command::new(src, v1);\n  clap_builder::builder::command::Command::version(desta, src);\n  clap_builder::builder::command::Command::about(src, desta);\n  clap_builder::builder::command::Command::after_help(desta, src);\n  uucore::format_usage(v9, aOptionFileOpti, 55LL);\n  clap_builder::builder::command::Command::override_usage(src, desta);\n  memcpy(desta, src, sizeof(desta));\n  v17 = v14 | 0x8008000080080LL;\n  v18 = v15;\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::long(v9, src);\n  clap_builder::builder::arg::Arg::help(src, v9);\n  clap_builder::builder::arg::Arg::action(v9, src, 5LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v9, desta, 97LL);\n  clap_builder::builder::arg::Arg::long(desta, v9);\n  clap_builder::builder::arg::Arg::help(v9, desta);\n  clap_builder::builder::arg::Arg::action(v23, v9, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::long(v9, src);\n  clap_builder::builder::arg::Arg::help(src, v9);\n  clap_builder::builder::arg::Arg::action(v9, src, 2LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v9, desta, 66LL);\n  clap_builder::builder::arg::Arg::long(desta, v9);\n  clap_builder::builder::arg::Arg::value_name(v9, desta);\n  clap_builder::builder::arg::Arg::help(v23, v9);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v9, src, 98LL);\n  clap_builder::builder::arg::Arg::long(src, v9);\n  clap_builder::builder::arg::Arg::help(v9, src);\n  clap_builder::builder::arg::Arg::action(v23, v9, 2LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::long(v9, desta);\n  clap_builder::builder::arg::Arg::short(desta, v9, 99LL);\n  clap_builder::builder::arg::Arg::help(v9, desta);\n  clap_builder::builder::arg::Arg::action(v23, v9, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v9, src, 100LL);\n  clap_builder::builder::arg::Arg::long(src, v9);\n  clap_builder::builder::arg::Arg::value_name(v9, src);\n  clap_builder::builder::arg::Arg::help(v23, v9);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::long(v9, desta);\n  clap_builder::builder::arg::Arg::short(desta, v9, 104LL);\n  clap_builder::builder::arg::Arg::help(v9, desta);\n  clap_builder::builder::arg::Arg::action(v23, v9, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::long(v9, src);\n  clap_builder::builder::arg::Arg::help(src, v9);\n  clap_builder::builder::arg::Arg::action(v9, src, 2LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v9, desta, 107LL);\n  clap_builder::builder::arg::Arg::help(desta, v9);\n  clap_builder::builder::arg::Arg::action(v9, desta, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v9, src, 108LL);\n  clap_builder::builder::arg::Arg::long(src, v9);\n  clap_builder::builder::arg::Arg::help(v9, src);\n  clap_builder::builder::arg::Arg::action(v23, v9, 2LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v9, desta, 76LL);\n  clap_builder::builder::arg::Arg::long(desta, v9);\n  clap_builder::builder::arg::Arg::help(v9, desta);\n  clap_builder::builder::arg::Arg::action(v23, v9, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v9, src, 68LL);\n  clap_builder::builder::arg::Arg::visible_short_alias(src, v9);\n  clap_builder::builder::arg::Arg::long(v9, src);\n  clap_builder::builder::arg::Arg::help(src, v9);\n  clap_builder::builder::arg::Arg::action(v9, src, 2LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v9, desta, 80LL);\n  clap_builder::builder::arg::Arg::long(desta, v9);\n  clap_builder::builder::arg::Arg::help(v9, desta);\n  clap_builder::builder::arg::Arg::overrides_with(desta, v9);\n  clap_builder::builder::arg::Arg::action(v9, desta, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v9, src, 109LL);\n  clap_builder::builder::arg::Arg::help(src, v9);\n  clap_builder::builder::arg::Arg::action(v9, src, 2LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v9, desta, 48LL);\n  clap_builder::builder::arg::Arg::long(desta, v9);\n  clap_builder::builder::arg::Arg::help(v9, desta);\n  clap_builder::builder::arg::Arg::action(v23, v9, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v9, src, 83LL);\n  clap_builder::builder::arg::Arg::long(src, v9);\n  clap_builder::builder::arg::Arg::help(v9, src);\n  clap_builder::builder::arg::Arg::action(v23, v9, 2LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v9, desta, 115LL);\n  clap_builder::builder::arg::Arg::long(desta, v9);\n  clap_builder::builder::arg::Arg::help(v9, desta);\n  clap_builder::builder::arg::Arg::action(v23, v9, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::long(v9, src);\n  clap_builder::builder::arg::Arg::help(src, v9);\n  clap_builder::builder::arg::Arg::action(v9, src, 2LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v9, desta, 120LL);\n  clap_builder::builder::arg::Arg::long(desta, v9);\n  clap_builder::builder::arg::Arg::help(v9, desta);\n  clap_builder::builder::arg::Arg::action(v23, v9, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v9, src, 116LL);\n  clap_builder::builder::arg::Arg::long(src, v9);\n  clap_builder::builder::arg::Arg::value_name(v9, src);\n  clap_builder::builder::arg::Arg::num_args(src, v9);\n  memcpy(v9, src, sizeof(v9));\n  v10 = src[158] | 0x20;\n  v11 = src[159];\n  clap_builder::builder::arg::Arg::help(v23, v9);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v9, desta, 118LL);\n  clap_builder::builder::arg::Arg::long(desta, v9);\n  clap_builder::builder::arg::Arg::help(v9, desta);\n  clap_builder::builder::arg::Arg::action(v23, v9, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::long(v9, src);\n  clap_builder::builder::arg::Arg::value_name(src, v9);\n  clap_builder::builder::arg::Arg::help(v9, src);\n  clap_builder::builder::arg::Arg::action(v23, v9, 1LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v9, desta, 88LL);\n  clap_builder::builder::arg::Arg::long(desta, v9);\n  clap_builder::builder::arg::Arg::value_name(v9, desta);\n  clap_builder::builder::arg::Arg::value_hint(desta, v9);\n  clap_builder::builder::arg::Arg::help(v9, desta);\n  clap_builder::builder::arg::Arg::action(v23, v9, 1LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::long(v9, src);\n  clap_builder::builder::arg::Arg::value_name(src, v9);\n  clap_builder::builder::arg::Arg::value_hint(v9, src);\n  clap_builder::builder::arg::Arg::help(src, v9);\n  clap_builder::builder::arg::Arg::action(v9, src, 1LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::long(v9, desta);\n  clap_builder::builder::arg::Arg::value_name(desta, v9);\n  memcpy(v9, desta, sizeof(v9));\n  v10 = desta[158] | 0x80;\n  v11 = desta[159];\n  clap_builder::builder::arg::Arg::num_args(desta, v9);\n  *(_QWORD *)&v9[48] = aAtime_0;\n  *(_QWORD *)&v9[56] = 5LL;\n  *(_QWORD *)&v9[24] = 0x8000000000000000LL;\n  *(_OWORD *)&v9[32] = v12;\n  *(_QWORD *)v9 = 0LL;\n  *(_QWORD *)&v9[8] = 8LL;\n  *(_QWORD *)&v9[16] = 0LL;\n  v9[64] = 0;\n  ((void (__fastcall *)(_OWORD *, _BYTE *, const char *, __int64))clap_builder::builder::possible_value::PossibleValue::alias)(\n    v23,\n    v9,\n    aAccess_0,\n    6LL);\n  clap_builder::builder::possible_value::PossibleValue::alias(\n    v19,\n    v23,\n    aUse_0,\n    3LL,\n    v2,\n    v3,\n    *(_QWORD *)v9,\n    *(_QWORD *)&v9[8],\n    *(_QWORD *)&v9[16],\n    *(_QWORD *)&v9[24],\n    *(_QWORD *)&v9[32],\n    *(_QWORD *)&v9[40],\n    *(_QWORD *)&v9[48],\n    *(_QWORD *)&v9[56],\n    *(_QWORD *)&v9[64]);\n  *(_QWORD *)&v9[48] = aCtime_0;\n  *(_QWORD *)&v9[56] = 5LL;\n  *(_QWORD *)&v9[24] = 0x8000000000000000LL;\n  *(_OWORD *)&v9[32] = v12;\n  *(_QWORD *)v9 = 0LL;\n  *(_QWORD *)&v9[8] = 8LL;\n  *(_QWORD *)&v9[16] = 0LL;\n  v9[64] = 0;\n  ((void (__fastcall *)(_OWORD *, _BYTE *, const char *, __int64, __int64, __int64))clap_builder::builder::possible_value::PossibleValue::alias)(\n    v21,\n    v9,\n    aStatus_0,\n    6LL,\n    v4,\n    v5);\n  *(_QWORD *)&v9[48] = aCreation;\n  *(_QWORD *)&v9[56] = 8LL;\n  *(_QWORD *)&v9[24] = 0x8000000000000000LL;\n  *(_OWORD *)&v9[32] = v12;\n  *(_QWORD *)v9 = 0LL;\n  *(_QWORD *)&v9[8] = 8LL;\n  *(_QWORD *)&v9[16] = 0LL;\n  v9[64] = 0;\n  ((void (__fastcall *)(_OWORD *, _BYTE *, const char *, __int64, __int64, __int64))clap_builder::builder::possible_value::PossibleValue::alias)(\n    v23,\n    v9,\n    aBirth_0,\n    5LL,\n    v6,\n    v7);\n  *(_OWORD *)v9 = v19[0];\n  *(_OWORD *)&v9[16] = v19[1];\n  *(_OWORD *)&v9[32] = v19[2];\n  *(_OWORD *)&v9[48] = v19[3];\n  *(_QWORD *)&v9[64] = v20;\n  *(_OWORD *)&v9[72] = v21[0];\n  *(_OWORD *)&v9[88] = v21[1];\n  *(_OWORD *)&v9[104] = v21[2];\n  *(_OWORD *)&v9[120] = v21[3];\n  *(_QWORD *)&v9[136] = v22;\n  *(_QWORD *)&v9[208] = v24;\n  *(_OWORD *)&v9[192] = v23[3];\n  *(_OWORD *)&v9[176] = v23[2];\n  *(_OWORD *)&v9[160] = v23[1];\n  *(_OWORD *)&v9[144] = v23[0];\n  ((void (__fastcall *)(_OWORD *, _BYTE *))<uucore::features::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from)(\n    v23,\n    v9);\n  clap_builder::builder::arg::Arg::value_parser(v9, desta);\n  clap_builder::builder::arg::Arg::help(v23, v9);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::long(v9, src);\n  clap_builder::builder::arg::Arg::value_name(src, v9);\n  clap_builder::builder::arg::Arg::help(v9, src);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  memcpy(v9, desta, sizeof(v9));\n  v10 = desta[158] | 4;\n  v11 = desta[159];\n  clap_builder::builder::arg::Arg::value_hint(desta, v9);\n  clap_builder::builder::arg::Arg::action(v9, desta, 1LL);\n  clap_builder::builder::command::Command::arg(dest, src);\n  return dest;\n}",
+    "_ZN5uu_du20format_error_message17hd932310dd610a64fE": "__int64 __fastcall uu_du::format_error_message(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)\n{\n  char **v6; // rax\n  _QWORD *v8; // [rsp+0h] [rbp-88h] BYREF\n  __int64 (__fastcall *v9)(); // [rsp+8h] [rbp-80h]\n  __int64 *v10; // [rsp+10h] [rbp-78h]\n  __int64 (__fastcall *v11)(); // [rsp+18h] [rbp-70h]\n  __int64 v12; // [rsp+20h] [rbp-68h] BYREF\n  __int64 v13; // [rsp+28h] [rbp-60h]\n  __int64 v14; // [rsp+30h] [rbp-58h]\n  char v15; // [rsp+38h] [rbp-50h]\n  char **v16; // [rsp+40h] [rbp-48h] BYREF\n  __int64 v17; // [rsp+48h] [rbp-40h]\n  _QWORD *v18; // [rsp+50h] [rbp-38h]\n  __int64 v19; // [rsp+58h] [rbp-30h]\n  __int64 v20; // [rsp+60h] [rbp-28h]\n  _QWORD v21[3]; // [rsp+70h] [rbp-18h] BYREF\n\n  v21[0] = a5;\n  v21[1] = a6;\n  switch ( *a2 )\n  {\n    case 0LL:\n      v12 = 0LL;\n      v13 = a3;\n      v14 = a4;\n      v15 = 1;\n      v8 = v21;\n      v9 = <&T as core::fmt::Display>::fmt;\n      v10 = &v12;\n      v11 = <os_display::Quoted as core::fmt::Display>::fmt;\n      v6 = &off_146110;\n      goto LABEL_4;\n    case 1LL:\n    case 3LL:\n      v12 = 0LL;\n      v13 = a3;\n      v14 = a4;\n      v15 = 1;\n      v8 = v21;\n      v9 = <&T as core::fmt::Display>::fmt;\n      v10 = &v12;\n      v11 = <os_display::Quoted as core::fmt::Display>::fmt;\n      v6 = &off_146130;\nLABEL_4:\n      v16 = v6;\n      v17 = 2LL;\n      break;\n    case 2LL:\n      v12 = 0LL;\n      v13 = a3;\n      v14 = a4;\n      v15 = 1;\n      v8 = v21;\n      v9 = <&T as core::fmt::Display>::fmt;\n      v10 = &v12;\n      v11 = <os_display::Quoted as core::fmt::Display>::fmt;\n      v16 = &off_146150;\n      v17 = 3LL;\n      break;\n  }\n  v20 = 0LL;\n  v18 = &v8;\n  v19 = 2LL;\n  core::option::Option<T>::map_or_else(a1, &v16, a3, a4, a5, a6, v8, v9, v10, v11, v12);\n  return a1;\n}"
+  },
+  "function_call_counts": {
+    "_ZN5uu_du6uumain17hdf52685a297106f5E": {
+      "uucore::disable_rust_signal_handlers": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uu_du::uumain::uumain": 1,
+      "uucore::mods::error::get_exit_code": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 3,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "uucore::execution_phrase": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1
+    },
+    "_ZN5uu_du6uumain6uumain17h8e6fd9b29ab94c0cE": {
+      "uu_du::uu_app": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 20,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 7,
+      "clap_builder::parser::error::MatchesError::unwrap": 8,
+      "uu_du::parse_depth": 1,
+      "core::option::unwrap_failed": 1,
+      "core::option::Option<T>::map_or_else": 3,
+      "alloc::boxed::Box<T>::new": 3,
+      "std::io::error::Error::_new": 2,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "uu_du::read_files_from": 1,
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "core::iter::traits::iterator::Iterator::collect": 2,
+      "<hashbrown::map::HashMap<K,V,S,A> as core::default::Default>::default": 2,
+      "core::ptr::drop_in_place<std::collections::hash::set::HashSet<std::path::PathBuf>>": 1,
+      "alloc::alloc::Global::alloc_impl": 1,
+      "alloc::alloc::handle_alloc_error": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 3,
+      "uu_du::uumain::uumain::{{closure}}": 6,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::contains_id": 1,
+      "uu_du::read_block_size": 1,
+      "core::option::Option<T>::map_or": 1,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone": 1,
+      "uu_du::build_exclude_patterns": 1,
+      "core::ptr::drop_in_place<uu_du::Deref>": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<std::path::PathBuf>>": 1,
+      "uu_du::parse_time_style": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<uu_du::TraversalOptions>": 3,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 2,
+      "std::sync::mpmc::channel": 1,
+      "std::thread::Builder::spawn_unchecked": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next": 2,
+      "alloc::string::String::from_utf8_lossy": 2,
+      "core::ptr::drop_in_place<alloc::borrow::Cow<str>>": 3,
+      "glob::Pattern::matches": 1,
+      "std::io::stdio::_print": 1,
+      "uu_du::Stat::new": 1,
+      "core::ptr::drop_in_place<core::result::Result<uu_du::Stat,std::io::error::Error>>": 1,
+      "std::sync::mpmc::Sender<T>::send": 2,
+      "hashbrown::map::HashMap<K,V,S,A>::insert": 1,
+      "uu_du::du": 1,
+      "core::ptr::drop_in_place<std::collections::hash::set::HashSet<uu_du::FileInfo>>": 2,
+      "core::mem::drop": 2,
+      "core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<std::path::PathBuf>>": 2,
+      "core::ptr::drop_in_place<std::thread::JoinHandle<core::result::Result<(),alloc::boxed::Box<dyn uucore::mods::error::UError>>>>": 1,
+      "core::ptr::drop_in_place<std::sync::mpsc::Sender<core::result::Result<uu_du::StatPrintInfo,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>": 2,
+      "std::thread::JoinInner<T>::join": 1,
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 2,
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1
+    },
+    "_ZN5uu_du4Stat3new17hd07a900d361a9fcdE": {
+      "std::fs::metadata": 1,
+      "std::path::Path::to_path_buf": 2,
+      "<T as core::slice::cmp::SliceContains>::slice_contains": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "std::fs::DirEntry::metadata": 1,
+      "std::fs::symlink_metadata": 1,
+      "uu_du::birth_u64": 1
+    },
+    "_ZN5uu_du9birth_u6417h1d347758d1f93929E": {
+      "std::fs::Metadata::created": 1,
+      "core::ptr::drop_in_place<core::result::Result<std::time::SystemTime,std::io::error::Error>>": 1,
+      "std::time::SystemTime::duration_since": 1
+    },
+    "_ZN5uu_du15read_block_size17hba09d611c2cef060E": {
+      "uucore::features::parser::parse_size::parse_size_u64": 2,
+      "uu_du::read_block_size::{{closure}}": 1,
+      "core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next": 3,
+      "std::env::var": 2,
+      "core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>": 2,
+      "core::ptr::drop_in_place<core::result::Result<u64,uucore::features::parser::parse_size::ParseSizeError>>": 2,
+      "core::ptr::drop_in_place<alloc::string::String>": 2
+    },
+    "_ZN5uu_du2du17h5e7b3b5654d85404E": {
+      "memcpy": 8,
+      "std::fs::read_dir": 1,
+      "<std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context": 2,
+      "std::sync::mpmc::Sender<T>::send": 5,
+      "alloc::boxed::Box<T>::new": 4,
+      "<std::fs::ReadDir as core::iter::traits::iterator::Iterator>::next": 1,
+      "core::ptr::drop_in_place<std::fs::ReadDir>": 2,
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "std::fs::DirEntry::path": 1,
+      "uu_du::Stat::new": 1,
+      "alloc::string::String::from_utf8_lossy": 1,
+      "glob::Pattern::matches": 2,
+      "core::ptr::drop_in_place<alloc::borrow::Cow<str>>": 1,
+      "std::fs::DirEntry::file_name": 1,
+      "alloc::string::String::from_utf8": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "std::io::stdio::_print": 1,
+      "core::ptr::drop_in_place<uu_du::Stat>": 3,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 3,
+      "core::ptr::drop_in_place<std::fs::DirEntry>": 3,
+      "hashbrown::map::HashMap<K,V,S,A>::get_inner": 1,
+      "hashbrown::map::HashMap<K,V,S,A>::insert": 1,
+      "uu_du::du": 1
+    },
+    "_ZN5uu_du11file_as_vec17he8743ad0d34e58bdE": {
+      "std::fs::File::open": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1
+    },
+    "_ZN5uu_du22build_exclude_patterns17he2599e522f595380E": {
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 2,
+      "clap_builder::parser::error::MatchesError::unwrap": 2,
+      "core::iter::traits::iterator::Iterator::chain": 1,
+      "core::iter::adapters::chain::and_then_or_clear": 1,
+      "core::option::Option<T>::or_else": 1,
+      "core::ptr::drop_in_place<core::iter::adapters::chain::Chain<core::iter::adapters::cloned::Cloned<clap_builder::parser::matches::arg_matches::ValuesRef<alloc::string::String>>,core::iter::adapters::flatten::FlatMap<clap_builder::parser::matches::arg_matches::ValuesRef<alloc::string::String>,alloc::vec::Vec<alloc::string::String>,uu_du::file_as_vec<&alloc::string::String>>>>": 2,
+      "std::io::stdio::_print": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 1,
+      "uucore::features::parser::parse_glob::from_str": 1,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<glob::Pattern>>": 1
+    },
+    "_ZN5uu_du11StatPrinter11print_stats17h571f331b863e373aE": {
+      "std::sync::mpmc::Receiver<T>::recv": 2,
+      "uucore::mods::error::set_exit_code": 1,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1,
+      "uu_du::StatPrinter::print_stat": 1,
+      "core::ptr::drop_in_place<uu_du::StatPrintInfo>": 2,
+      "uu_du::StatPrinter::convert_size": 1,
+      "std::io::stdio::_print": 2,
+      "core::ptr::drop_in_place<alloc::string::String>": 1
+    },
+    "_ZN5uu_du11StatPrinter12convert_size17hd9a65cfff278d727E": {
+      "uucore::features::format::human::human_readable": 2,
+      "core::panicking::panic_const::panic_const_div_by_zero": 1,
+      "core::fmt::num::imp::<impl usize>::_fmt": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1
+    },
+    "_ZN5uu_du11StatPrinter10print_stat17h55862af7f00f1efdE": {
+      "uu_du::StatPrinter::convert_size": 2,
+      "std::io::stdio::_print": 3,
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "uucore::mods::display::print_verbatim": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "uu_du::get_time_secs": 1,
+      "<std::time::SystemTime as core::ops::arith::Add<core::time::Duration>>::add": 1,
+      "<chrono::datetime::DateTime<chrono::offset::local::Local> as core::convert::From<std::time::SystemTime>>::from": 1,
+      "chrono::datetime::DateTime<Tz>::format_with_items": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
+      "core::ptr::drop_in_place<chrono::format::formatting::DelayedFormat<chrono::format::strftime::StrftimeItems>>": 1,
+      "alloc::boxed::Box<T>::new": 1
+    },
+    "_ZN5uu_du15read_files_from17h40a5e404b0358f57E": {
+      "std::io::stdio::stdin": 1,
+      "std::io::buffered::bufreader::BufReader<R>::with_capacity": 2,
+      "alloc::boxed::Box<T>::new": 4,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "std::io::error::Error::_new": 2,
+      "std::path::Path::is_dir": 1,
+      "std::fs::File::open": 1,
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "std::io::error::Error::kind": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 3,
+      "<core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next": 1,
+      "core::ptr::drop_in_place<core::iter::adapters::enumerate::Enumerate<std::io::Split<alloc::boxed::Box<dyn std::io::BufRead>>>>": 2,
+      "alloc::string::String::from_utf8_lossy": 1,
+      "<alloc::borrow::Cow<str> as alloc::string::SpecToString>::spec_to_string": 1,
+      "core::ptr::drop_in_place<alloc::borrow::Cow<str>>": 1,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "<T as core::slice::cmp::SliceContains>::slice_contains": 1,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 2,
+      "uucore::mods::error::set_exit_code": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<std::path::PathBuf>>": 1
+    },
+    "_ZN5uu_du13get_time_secs17h49debf4b9f55f9aaE": {
+      "core::ptr::drop_in_place<uu_du::DuError>": 1
+    },
+    "_ZN5uu_du16parse_time_style17ha80c5924fa1465d3E": {
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 3,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "alloc::boxed::Box<T>::new": 1
+    },
+    "_ZN5uu_du11parse_depth17hceb993b72658530cE": {
+      "core::num::<impl usize>::from_ascii_radix": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 2,
+      "alloc::boxed::Box<T>::new": 1
+    },
+    "_ZN5uu_du6uu_app17habf9d5389fa2ad43E": {
+      "uucore::util_name": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "memcpy": 4,
+      "clap_builder::builder::arg::Arg::new": 28,
+      "clap_builder::builder::arg::Arg::long": 25,
+      "clap_builder::builder::arg::Arg::help": 27,
+      "clap_builder::builder::arg::Arg::action": 23,
+      "clap_builder::builder::command::Command::arg": 28,
+      "clap_builder::builder::arg::Arg::short": 19,
+      "clap_builder::builder::arg::Arg::value_name": 8,
+      "clap_builder::builder::arg::Arg::visible_short_alias": 1,
+      "clap_builder::builder::arg::Arg::overrides_with": 1,
+      "clap_builder::builder::arg::Arg::num_args": 2,
+      "clap_builder::builder::arg::Arg::value_hint": 3,
+      "clap_builder::builder::possible_value::PossibleValue::alias": 1,
+      "clap_builder::builder::arg::Arg::value_parser": 1
+    },
+    "_ZN5uu_du20format_error_message17hd932310dd610a64fE": {
+      "core::option::Option<T>::map_or_else": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN5uu_du6uumain17hdf52685a297106f5E": {},
+    "_ZN5uu_du6uumain6uumain17h8e6fd9b29ab94c0cE": {},
+    "_ZN5uu_du4Stat3new17hd07a900d361a9fcdE": {},
+    "_ZN5uu_du9birth_u6417h1d347758d1f93929E": {},
+    "_ZN5uu_du15read_block_size17hba09d611c2cef060E": {},
+    "_ZN5uu_du2du17h5e7b3b5654d85404E": {},
+    "_ZN5uu_du11file_as_vec17he8743ad0d34e58bdE": {},
+    "_ZN5uu_du22build_exclude_patterns17he2599e522f595380E": {},
+    "_ZN5uu_du11StatPrinter11print_stats17h571f331b863e373aE": {},
+    "_ZN5uu_du11StatPrinter12convert_size17hd9a65cfff278d727E": {},
+    "_ZN5uu_du11StatPrinter10print_stat17h55862af7f00f1efdE": {},
+    "_ZN5uu_du15read_files_from17h40a5e404b0358f57E": {},
+    "_ZN5uu_du13get_time_secs17h49debf4b9f55f9aaE": {},
+    "_ZN5uu_du16parse_time_style17ha80c5924fa1465d3E": {},
+    "_ZN5uu_du11parse_depth17hceb993b72658530cE": {},
+    "_ZN5uu_du6uu_app17habf9d5389fa2ad43E": {},
+    "_ZN5uu_du20format_error_message17hd932310dd610a64fE": {}
+  },
+  "variable_types": {
+    "_ZN5uu_du6uumain17hdf52685a297106f5E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_du6uumain6uumain17h8e6fd9b29ab94c0cE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&struct",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&struct",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_zf": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_kr00_16": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_185": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_186": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_187": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_188": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_192": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_224": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_272": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_288": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_304": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_320": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_336": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_384": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_424": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_440": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_456": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_472": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_488": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_504": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_512": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_520": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_528": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_544": [
+        [
+          "&struct",
+          8
+        ]
+      ],
+      "stack_552": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_560": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_568": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_584": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_592": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_600": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_608": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_680": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_696": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_704": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_720": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_768": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_784": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_800": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_816": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_832": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_848": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1416": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_1448": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_1464": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1472": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_1536": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_1560": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_1584": [
+        [
+          "array",
+          160
+        ]
+      ],
+      "stack_1744": [
+        [
+          "array",
+          208
+        ]
+      ]
+    },
+    "_ZN5uu_du4Stat3new17hd07a900d361a9fcdE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_100": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_116": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_216": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_276": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_292": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN5uu_du9birth_u6417h1d347758d1f93929E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_du15read_block_size17hba09d611c2cef060E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_112": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_du2du17h5e7b3b5654d85404E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bl": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_kr00_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_11": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_13": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_14": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "array",
+          160
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_256": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_272": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "array",
+          160
+        ]
+      ],
+      "stack_488": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_496": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_504": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_512": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_520": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_528": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_544": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_560": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_576": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_592": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_600": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_608": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_616": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_632": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_640": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_656": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_672": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_688": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_704": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_720": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_736": [
+        [
+          "array",
+          144
+        ]
+      ],
+      "stack_888": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_912": [
+        [
+          "array",
+          192
+        ]
+      ]
+    },
+    "_ZN5uu_du11file_as_vec17he8743ad0d34e58bdE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          64
+        ]
+      ]
+    },
+    "_ZN5uu_du22build_exclude_patterns17he2599e522f595380E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_240": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_344": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_392": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_464": [
+        [
+          "array",
+          136
+        ]
+      ],
+      "stack_600": [
+        [
+          "array",
+          112
+        ]
+      ]
+    },
+    "_ZN5uu_du11StatPrinter11print_stats17h571f331b863e373aE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_5": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_6": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "&struct",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&struct",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&struct",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_208": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_240": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_256": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_272": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_288": [
+        [
+          "&struct",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_304": [
+        [
+          "array",
+          176
+        ]
+      ]
+    },
+    "_ZN5uu_du11StatPrinter12convert_size17hd9a65cfff278d727E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_28": [
+        [
+          "array",
+          28
+        ]
+      ]
+    },
+    "_ZN5uu_du11StatPrinter10print_stat17h55862af7f00f1efdE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_160": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_184": [
+        [
+          "array",
+          64
+        ]
+      ]
+    },
+    "_ZN5uu_du15read_files_from17h40a5e404b0358f57E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&reference",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&reference",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_256": [
+        [
+          "array",
+          72
+        ]
+      ]
+    },
+    "_ZN5uu_du13get_time_secs17h49debf4b9f55f9aaE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zf": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN5uu_du16parse_time_style17ha80c5924fa1465d3E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          48
+        ]
+      ]
+    },
+    "_ZN5uu_du11parse_depth17hceb993b72658530cE": {
+      "reg_cl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "array",
+          56
+        ]
+      ]
+    },
+    "_ZN5uu_du6uu_app17habf9d5389fa2ad43E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          632
+        ]
+      ],
+      "stack_632": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_636": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_648": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_664": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_1364": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1372": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1376": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_2076": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2084": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2088": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_2152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2160": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_2224": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2232": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_2296": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_du20format_error_message17hd932310dd610a64fE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&reference",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_64": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "array",
+          24
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+void _ZN9alacritty2gl15VertexAttrib2sv9load_with17h77abd2257ce8be58E(undefined8 param_1)
+
+{
+  code *pcVar1;
+  undefined8 local_10;
+  undefined *local_8;
+  
+  local_8 = &DAT_00986f38;
+  local_10 = param_1;
+  pcVar1 = (code *)_ZN9alacritty2gl10metaloadfn17h7eed37a2c35596e4E
+                             (&local_10,"glVertexAttrib2sv",0x11,
+                              &PTR_s_glVertexAttrib2svARBglVertexAttr_00986ae0,2);
+  _ZN9alacritty2gl7storage15VertexAttrib2sv17hf9c74f8c44d222eaE._0_8_ =
+       _ZN9alacritty2gl16missing_fn_panic17h74aefa71347b4c5eE;
+  if (pcVar1 != (code *)0x0) {
+    _ZN9alacritty2gl7storage15VertexAttrib2sv17hf9c74f8c44d222eaE._0_8_ = pcVar1;
+  }
+  _ZN9alacritty2gl7storage15VertexAttrib2sv17hf9c74f8c44d222eaE[8] = pcVar1 != (code *)0x0;
+  return;
+}

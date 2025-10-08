@@ -1,0 +1,1404 @@
+{
+  "decompilation": {
+    "_ZN10uu_hashsum6uumain17ha650a7ced3cf363fE": "__int64 __fastcall uu_hashsum::uumain(__int64 a1, __int64 a2)\n{\n  unsigned int v2; // eax\n  __int64 v3; // rax\n  __int64 v4; // rdx\n  __int128 v5; // rax\n  __int128 v6; // rax\n  unsigned int v7; // ebx\n  __int64 v9; // [rsp+0h] [rbp-98h] BYREF\n  __int64 v10; // [rsp+8h] [rbp-90h]\n  char **v11; // [rsp+10h] [rbp-88h] BYREF\n  __int64 v12; // [rsp+18h] [rbp-80h]\n  __int128 *v13; // [rsp+20h] [rbp-78h]\n  __int64 v14; // [rsp+28h] [rbp-70h]\n  __int64 v15; // [rsp+30h] [rbp-68h]\n  __int128 v16; // [rsp+40h] [rbp-58h] BYREF\n  __int64 v17; // [rsp+50h] [rbp-48h]\n  __int128 v18; // [rsp+60h] [rbp-38h] BYREF\n  __int64 v19; // [rsp+70h] [rbp-28h]\n  __int128 *v20; // [rsp+78h] [rbp-20h] BYREF\n  __int64 (__fastcall *v21)(); // [rsp+80h] [rbp-18h]\n\n  v2 = uucore::disable_rust_signal_handlers();\n  core::result::Result<T,E>::expect(v2);\n  v3 = uu_hashsum::uumain::uumain(a1, a2);\n  if ( !v3 )\n    return uucore::mods::error::get_exit_code();\n  v9 = v3;\n  v10 = v4;\n  *(_QWORD *)&v16 = &v9;\n  *((_QWORD *)&v16 + 1) = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n  v11 = (char **)&unk_118D0;\n  v12 = 1LL;\n  v15 = 0LL;\n  v13 = &v16;\n  v14 = 1LL;\n  core::option::Option<T>::map_or_else(&v18, &v11);\n  v16 = v18;\n  v17 = v19;\n  if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((_QWORD *)&v18 + 1), v19, 1LL, 0LL) )\n  {\n    *(_QWORD *)&v5 = uucore::util_name();\n    v18 = v5;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_150398;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n    *(_QWORD *)&v18 = &v16;\n    *((_QWORD *)&v18 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_1503B8;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = &v18;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  if ( (*(unsigned __int8 (__fastcall **)(__int64))(v10 + 96))(v9) )\n  {\n    *(_QWORD *)&v6 = uucore::execution_phrase();\n    v18 = v6;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = &off_1503D8;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  v7 = (*(__int64 (__fastcall **)(__int64))(v10 + 88))(v9);\n  core::ptr::drop_in_place<alloc::string::String>(v16, *((_QWORD *)&v16 + 1));\n  core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v9, v10);\n  return v7;\n}",
+    "_ZN10uu_hashsum6uumain6uumain17hecb560f1711a631bE": "__int64 __fastcall uu_hashsum::uumain::uumain(__int64 a1, __int64 a2)\n{\n  __int64 v2; // r12\n  __int64 v3; // r14\n  __int64 v4; // r15\n  __int64 v5; // rbx\n  __int64 v6; // rax\n  __int64 v7; // rdx\n  const char *v8; // rsi\n  __int64 v9; // r15\n  __int64 v10; // rbp\n  char v11; // r14\n  __int64 v12; // r13\n  _QWORD *v13; // rax\n  __int64 v14; // r12\n  char v15; // bl\n  unsigned __int8 v16; // r14\n  char v17; // bp\n  unsigned __int8 v18; // bp\n  unsigned __int8 v19; // al\n  char v20; // bl\n  char v21; // bl\n  int v22; // ecx\n  int v23; // eax\n  __int64 v24; // rbx\n  const char *v26; // rax\n  const char *v27; // rcx\n  char v28; // r14\n  __int64 v29; // rax\n  __int64 v30; // rdx\n  __int64 v31; // rbx\n  char v32; // bp\n  __int64 v33; // rax\n  unsigned __int8 v34; // [rsp+Dh] [rbp-70Bh]\n  char v35; // [rsp+Dh] [rbp-70Bh]\n  char flag; // [rsp+Eh] [rbp-70Ah]\n  unsigned __int8 v37; // [rsp+Fh] [rbp-709h]\n  unsigned __int8 v38; // [rsp+10h] [rbp-708h]\n  __int64 v39; // [rsp+10h] [rbp-708h]\n  __int64 v40; // [rsp+18h] [rbp-700h]\n  __int64 v41; // [rsp+20h] [rbp-6F8h]\n  __int64 v42; // [rsp+28h] [rbp-6F0h]\n  __int64 v43; // [rsp+30h] [rbp-6E8h]\n  __int64 v44; // [rsp+38h] [rbp-6E0h]\n  _OWORD v45[3]; // [rsp+40h] [rbp-6D8h] BYREF\n  __int64 v46; // [rsp+70h] [rbp-6A8h]\n  __int64 v47; // [rsp+78h] [rbp-6A0h] BYREF\n  __int64 v48; // [rsp+80h] [rbp-698h]\n  _QWORD v49[3]; // [rsp+88h] [rbp-690h] BYREF\n  __int128 v50; // [rsp+A0h] [rbp-678h] BYREF\n  __int64 v51; // [rsp+B0h] [rbp-668h]\n  _BYTE v52[40]; // [rsp+E8h] [rbp-630h] BYREF\n  _BYTE src[712]; // [rsp+110h] [rbp-608h] BYREF\n  char v54; // [rsp+3D8h] [rbp-340h]\n  _QWORD v55[8]; // [rsp+3E0h] [rbp-338h] BYREF\n  _BYTE dest[760]; // [rsp+420h] [rbp-2F8h] BYREF\n\n  v47 = a1;\n  v48 = a2;\n  <core::iter::adapters::cloned::Cloned<I> as core::iter::traits::iterator::Iterator>::next(&v50, &v47);\n  v3 = v50;\n  if ( __OFSUB__(-(__int64)v50, 1LL) )\n  {\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(src, \"hashsum\", 7LL);\n    v4 = *(_QWORD *)&src[8];\n    v3 = *(_QWORD *)src;\n    v5 = *(_QWORD *)&src[16];\n  }\n  else\n  {\n    v4 = *((_QWORD *)&v50 + 1);\n    v5 = v51;\n  }\n  v44 = v3;\n  v43 = v4;\n  v6 = std::path::Path::file_stem(v4, v5);\n  if ( !v6 )\n    v7 = 7LL;\n  v8 = \"hashsum\";\n  if ( v6 )\n    v8 = (const char *)v6;\n  alloc::string::String::from_utf8_lossy(v49, v8, v7);\n  <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(src, v4, v5);\n  v51 = *(_QWORD *)&src[16];\n  v50 = *(_OWORD *)src;\n  core::iter::traits::iterator::Iterator::chain(v52, &v50, v47, v48);\n  v9 = v49[1];\n  v10 = v49[2];\n  uu_hashsum::uu_app(src);\n  memcpy(dest, src, 0x2C8uLL);\n  v11 = v54;\n  clap_builder::builder::command::Command::try_get_matches_from(src, dest, v52);\n  if ( *(_QWORD *)src == 0x8000000000000000LL )\n  {\n    v12 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(*(_QWORD *)&src[8]);\nLABEL_35:\n    core::ptr::drop_in_place<alloc::borrow::Cow<str>>(v49[0], v9);\n    core::ptr::drop_in_place<std::ffi::os_str::OsString>(v44, v43);\n    return v12;\n  }\n  v46 = *(_QWORD *)&src[48];\n  v45[2] = *(_OWORD *)&src[32];\n  v45[1] = *(_OWORD *)&src[16];\n  v45[0] = *(_OWORD *)src;\n  if ( (unsigned __int8)alloc::string::<impl core::cmp::PartialEq<&str> for alloc::borrow::Cow<str>>::eq(v9, v10)\n    && (clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(src, v45),\n        (v13 = (_QWORD *)clap_builder::parser::error::MatchesError::unwrap(src)) != 0LL) )\n  {\n    uucore::features::checksum::calculate_blake2b_length(src, *v13);\n    v12 = *(_QWORD *)&src[8];\n    v2 = *(_QWORD *)&src[16];\n    if ( (src[0] & 1) != 0 )\n    {\nLABEL_34:\n      core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(v45);\n      goto LABEL_35;\n    }\n    if ( v11 )\n      goto LABEL_14;\n  }\n  else\n  {\n    v12 = 0LL;\n    if ( v11 )\n    {\nLABEL_14:\n      uu_hashsum::create_algorithm_from_flags(src, v45);\n      goto LABEL_17;\n    }\n  }\n  uucore::features::checksum::detect_algo(src, v9, v10, v12, v2);\nLABEL_17:\n  v12 = *(_QWORD *)&src[8];\n  v14 = *(_QWORD *)&src[16];\n  if ( !*(_QWORD *)src )\n    goto LABEL_34;\n  v41 = *(_QWORD *)src;\n  v40 = *(_QWORD *)&src[24];\n  v42 = *(_QWORD *)&src[32];\n  flag = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v45, aBinary, 6LL);\n  if ( !flag )\n    clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v45, aText, 4LL);\n  v15 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v45, aCheck, 5LL);\n  v16 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v45, aStatus, 6LL);\n  v17 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v45, aQuiet, 5LL);\n  v34 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v45, aStrict, 6LL);\n  v37 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v45, aWarn, 4LL);\n  v38 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v45, aIgnoreMissing, 14LL);\n  v18 = v16 | v17;\n  if ( v38 )\n  {\n    v19 = 1;\n    if ( !v15 )\n      goto LABEL_32;\n    goto LABEL_24;\n  }\n  if ( v15 )\n  {\nLABEL_24:\n    v20 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v45, aText, 4LL);\n    v21 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v45, aBinary, 6LL) | v20;\n    v19 = 11;\n    if ( v21 != 1 )\n    {\n      clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(src, v45);\n      clap_builder::parser::error::MatchesError::unwrap(&v50, src);\n      core::option::Option<T>::map_or_else(src, &v50);\n      v22 = 0x1000000;\n      if ( !v18 )\n        v22 = ((v16 ^ 1) & v37 | 2) << 24;\n      v23 = 0;\n      if ( !v16 )\n        v23 = v22;\n      v24 = *(_QWORD *)&src[8];\n      v12 = uucore::features::checksum::perform_checksum_validation(\n              *(_QWORD *)&src[8],\n              *(_QWORD *)&src[8] + 16LL * *(_QWORD *)&src[16],\n              v41,\n              v12,\n              v42,\n              v23 | (v34 << 16) | (v38 << 8));\n      core::ptr::drop_in_place<alloc::vec::Vec<clap_builder::util::id::Id>>(*(_QWORD *)src, v24);\n      goto LABEL_33;\n    }\nLABEL_32:\n    v12 = alloc::boxed::Box<T>::new(v19);\nLABEL_33:\n    core::ptr::drop_in_place<uu_hashsum::Options>(v14, v40);\n    goto LABEL_34;\n  }\n  if ( v18 | v34 )\n  {\n    v19 = v18 | 2;\n    goto LABEL_32;\n  }\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(src, v45);\n  if ( *(_DWORD *)src == 2 )\n    v26 = *(const char **)&src[8];\n  else\n    v26 = 0LL;\n  v27 = \"\";\n  if ( v26 )\n    v27 = v26;\n  v28 = *v27;\n  v35 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v45, aZero_0, 4LL);\n  v29 = (*(__int64 (__fastcall **)(__int64))(v40 + 40))(v14);\n  v39 = v30;\n  v31 = v29;\n  v32 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(v45, aTag, 3LL);\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(src, v45);\n  clap_builder::parser::error::MatchesError::unwrap(v55, src);\n  *(_QWORD *)src = v41;\n  *(_QWORD *)&src[8] = v12;\n  *(_QWORD *)&src[16] = v31;\n  *(_QWORD *)&src[24] = v39;\n  *(_QWORD *)&src[32] = v42;\n  src[40] = flag;\n  src[41] = v32;\n  src[42] = v28;\n  src[43] = v35;\n  if ( v55[0] )\n    v33 = uu_hashsum::hashsum(src, v55);\n  else\n    v33 = uu_hashsum::hashsum(src);\n  v12 = v33;\n  core::ptr::drop_in_place<uu_hashsum::Options>(v14, v40);\n  core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(v45);\n  core::ptr::drop_in_place<alloc::borrow::Cow<str>>(v49[0], v9);\n  core::ptr::drop_in_place<std::ffi::os_str::OsString>(v44, v43);\n  return v12;\n}",
+    "_ZN10uu_hashsum7hashsum17h4817e91e428ae9c2E": "__int64 (__fastcall *__fastcall uu_hashsum::hashsum(__int64 *a1))()\n{\n  const char *v1; // rcx\n  __int64 v2; // rax\n  __int64 v3; // rdx\n  __int64 v4; // r12\n  __int64 v5; // r14\n  __int64 v6; // rax\n  __int64 v7; // rax\n  __int64 (__fastcall **v8)(); // rdx\n  __int64 (__fastcall *v9)(); // r15\n  __int64 v10; // rdx\n  __int64 v11; // rcx\n  __int64 v12; // r14\n  __int64 v13; // r15\n  __int64 (__fastcall *v14)(); // rsi\n  __int64 v15; // rdx\n  __int64 v16; // rcx\n  __int64 v17; // rdx\n  __int128 v19; // [rsp+0h] [rbp-168h] BYREF\n  __int64 *v20; // [rsp+10h] [rbp-158h]\n  __int128 v21; // [rsp+18h] [rbp-150h]\n  __int64 (__fastcall *v22)(); // [rsp+28h] [rbp-140h]\n  __int64 *v23; // [rsp+30h] [rbp-138h]\n  __int64 (__fastcall *v24)(); // [rsp+38h] [rbp-130h]\n  __int64 v25; // [rsp+40h] [rbp-128h] BYREF\n  __int64 (__fastcall *v26)(); // [rsp+48h] [rbp-120h]\n  __int64 *v27; // [rsp+50h] [rbp-118h]\n  __int64 (__fastcall *v28)(); // [rsp+58h] [rbp-110h]\n  __int64 v29; // [rsp+60h] [rbp-108h]\n  __int64 v30; // [rsp+80h] [rbp-E8h] BYREF\n  __int64 (__fastcall *v31)(); // [rsp+88h] [rbp-E0h]\n  __int64 *v32; // [rsp+90h] [rbp-D8h]\n  __int64 v33; // [rsp+98h] [rbp-D0h] BYREF\n  __int64 v34; // [rsp+A0h] [rbp-C8h]\n  __int128 v35; // [rsp+B0h] [rbp-B8h] BYREF\n  __int64 *v36; // [rsp+C0h] [rbp-A8h]\n  __int64 *v37; // [rsp+C8h] [rbp-A0h]\n  _QWORD v38[2]; // [rsp+D0h] [rbp-98h] BYREF\n  _QWORD v39[2]; // [rsp+E0h] [rbp-88h] BYREF\n  __int128 v40; // [rsp+F0h] [rbp-78h] BYREF\n  _BYTE v41[104]; // [rsp+100h] [rbp-68h] BYREF\n\n  v1 = asc_11FE6;\n  if ( *((_BYTE *)a1 + 40) )\n    v1 = asc_11FE7;\n  v38[0] = v1;\n  v38[1] = 1LL;\n  v39[0] = asc_11CD3;\n  v39[1] = 1LL;\n  v2 = <core::iter::sources::once::Once<T> as core::iter::traits::iterator::Iterator>::next(v39);\n  if ( v2 )\n  {\n    v4 = v2;\n    v5 = v3;\n    v37 = a1 + 2;\n    while ( 1 )\n    {\n      std::path::Path::components(&v25, v4, v5);\n      std::path::Path::components(&v19, asc_11CD3, 1LL);\n      if ( (unsigned __int8)<std::path::Components as core::cmp::PartialEq>::eq(&v25, &v19) )\n      {\n        v6 = std::io::stdio::stdin();\n        v7 = alloc::boxed::Box<T>::new(v6);\n        v8 = (__int64 (__fastcall **)())&unk_150640;\n      }\n      else\n      {\n        std::fs::File::open(&v19, v4, v5);\n        <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(\n          &v25,\n          &v19);\n        v9 = (__int64 (__fastcall *)())v25;\n        if ( v25 )\n          goto LABEL_25;\n        v7 = alloc::boxed::Box<T>::new((unsigned int)v26);\n        v8 = &off_1505E8;\n      }\n      std::io::buffered::bufreader::BufReader<R>::with_capacity(v41, v7, v8);\n      uucore::features::checksum::digest_reader(&v19, v37, v41, *((unsigned __int8 *)a1 + 40), a1[4]);\n      <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(\n        &v25,\n        &v19);\n      v9 = v26;\n      v11 = -v25;\n      if ( __OFSUB__(-v25, 1LL) )\n        break;\n      v30 = v25;\n      v31 = v26;\n      v32 = v27;\n      uucore::features::checksum::escape_filename(&v19, v4, v5, v11);\n      v36 = v20;\n      v35 = v19;\n      v40 = v21;\n      if ( *((_BYTE *)a1 + 41) )\n      {\n        v12 = *a1;\n        v13 = a1[1];\n        if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*a1, v13, aBlake2b_1, 7LL) )\n        {\n          if ( (*(__int64 (__fastcall **)(__int64))(a1[3] + 48))(a1[2]) == 512 )\n          {\n            v25 = (__int64)&v35;\n            v26 = <alloc::string::String as core::fmt::Display>::fmt;\n            v27 = &v30;\n            v28 = <alloc::string::String as core::fmt::Display>::fmt;\n            *(_QWORD *)&v19 = &off_150498;\n            *((_QWORD *)&v19 + 1) = 3LL;\n            v20 = &v25;\n            v21 = 2uLL;\n            std::io::stdio::_print(&v19);\n          }\n          else\n          {\n            v33 = (*(__int64 (__fastcall **)(__int64))(a1[3] + 48))(a1[2]);\n            *(_QWORD *)&v19 = &v33;\n            *((_QWORD *)&v19 + 1) = core::fmt::num::imp::<impl core::fmt::Display for usize>::fmt;\n            v20 = (__int64 *)&v35;\n            *(_QWORD *)&v21 = <alloc::string::String as core::fmt::Display>::fmt;\n            *((_QWORD *)&v21 + 1) = &v30;\n            v22 = <alloc::string::String as core::fmt::Display>::fmt;\n            v25 = (__int64)&off_1504C8;\n            v26 = (__int64 (__fastcall *)())&byte_4;\n            v29 = 0LL;\n            v27 = (__int64 *)&v19;\n            v28 = (__int64 (__fastcall *)())(&dword_0 + 3);\n            std::io::stdio::_print(&v25);\n          }\n        }\n        else\n        {\n          alloc::str::<impl str>::to_ascii_uppercase(&v33, v12, v13);\n          *(_QWORD *)&v19 = &v40;\n          *((_QWORD *)&v19 + 1) = <&T as core::fmt::Display>::fmt;\n          v20 = &v33;\n          *(_QWORD *)&v21 = <alloc::string::String as core::fmt::Display>::fmt;\n          *((_QWORD *)&v21 + 1) = &v35;\n          v22 = <alloc::string::String as core::fmt::Display>::fmt;\n          v23 = &v30;\n          v24 = <alloc::string::String as core::fmt::Display>::fmt;\n          v25 = (__int64)&unk_150508;\n          v26 = (__int64 (__fastcall *)())&byte_5;\n          v29 = 0LL;\n          v27 = (__int64 *)&v19;\n          v28 = (__int64 (__fastcall *)())&byte_4;\n          std::io::stdio::_print(&v25);\n          core::ptr::drop_in_place<alloc::string::String>(v33, v34);\n        }\n      }\n      else if ( *((_BYTE *)a1 + 42) )\n      {\n        v25 = (__int64)&v30;\n        v26 = <alloc::string::String as core::fmt::Display>::fmt;\n        *(_QWORD *)&v19 = &unk_1503B8;\n        *((_QWORD *)&v19 + 1) = 2LL;\n        v20 = &v25;\n        v21 = 1uLL;\n        std::io::stdio::_print(&v19);\n      }\n      else\n      {\n        if ( *((_BYTE *)a1 + 43) )\n        {\n          v33 = v4;\n          v34 = v5;\n          *(_QWORD *)&v19 = &v30;\n          *((_QWORD *)&v19 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n          v20 = v38;\n          *(_QWORD *)&v21 = <&T as core::fmt::Display>::fmt;\n          *((_QWORD *)&v21 + 1) = &v33;\n          v22 = <std::path::Display as core::fmt::Display>::fmt;\n          v25 = (__int64)&unk_150558;\n          v26 = (__int64 (__fastcall *)())&byte_4;\n          v29 = 0LL;\n          v27 = (__int64 *)&v19;\n          v28 = (__int64 (__fastcall *)())(&dword_0 + 3);\n        }\n        else\n        {\n          *(_QWORD *)&v19 = &v40;\n          *((_QWORD *)&v19 + 1) = <&T as core::fmt::Display>::fmt;\n          v20 = &v30;\n          *(_QWORD *)&v21 = <alloc::string::String as core::fmt::Display>::fmt;\n          *((_QWORD *)&v21 + 1) = v38;\n          v22 = <&T as core::fmt::Display>::fmt;\n          v23 = (__int64 *)&v35;\n          v24 = <alloc::string::String as core::fmt::Display>::fmt;\n          v25 = (__int64)&unk_150598;\n          v26 = (__int64 (__fastcall *)())&byte_5;\n          v29 = 0LL;\n          v27 = (__int64 *)&v19;\n          v28 = (__int64 (__fastcall *)())&byte_4;\n        }\n        std::io::stdio::_print(&v25);\n      }\n      core::ptr::drop_in_place<alloc::string::String>(v35, *((_QWORD *)&v35 + 1));\n      v14 = v31;\n      core::ptr::drop_in_place<alloc::string::String>(v30, v31);\n      core::ptr::drop_in_place<std::io::buffered::bufreader::BufReader<alloc::boxed::Box<dyn std::io::Read>>>(\n        v41,\n        v14,\n        v15,\n        v16);\n      v4 = <core::iter::sources::once::Once<T> as core::iter::traits::iterator::Iterator>::next(v39);\n      v5 = v17;\n      if ( !v4 )\n        goto LABEL_23;\n    }\n    core::ptr::drop_in_place<std::io::buffered::bufreader::BufReader<alloc::boxed::Box<dyn std::io::Read>>>(\n      v41,\n      &v19,\n      v10,\n      v11);\nLABEL_25:\n    core::ptr::drop_in_place<uu_hashsum::Options>(a1[2], a1[3]);\n  }\n  else\n  {\nLABEL_23:\n    core::ptr::drop_in_place<uu_hashsum::Options>(a1[2], a1[3]);\n    return 0LL;\n  }\n  return v9;\n}",
+    "_ZN10uu_hashsum27create_algorithm_from_flags17h1839fc02dfbf2f14E": "__int64 __fastcall uu_hashsum::create_algorithm_from_flags(__int64 a1, __int64 a2)\n{\n  __int64 v3; // r8\n  __int64 v4; // rax\n  __int64 v5; // rcx\n  __int64 v6; // rax\n  __int64 v7; // r8\n  __int64 v8; // r8\n  __int64 v9; // r8\n  __int64 v10; // r8\n  __int64 v11; // r8\n  __int64 v12; // r8\n  __int64 v13; // r8\n  __int64 *v14; // rax\n  __int64 v15; // rdx\n  __int64 v16; // rsi\n  __int64 v17; // rax\n  __int64 v18; // rax\n  __int64 v19; // rax\n  __int64 v20; // rax\n  __int64 *v21; // r15\n  __int64 v22; // rax\n  __int64 v23; // rcx\n  __int64 *v24; // r14\n  __int64 v25; // rax\n  __int64 v26; // rcx\n  __int64 v27; // rax\n  __int128 v28; // xmm0\n  const char *v30; // [rsp+8h] [rbp-90h] BYREF\n  __int64 v31; // [rsp+10h] [rbp-88h]\n  __int64 v32; // [rsp+18h] [rbp-80h]\n  __int128 v33; // [rsp+20h] [rbp-78h]\n  const char *v34; // [rsp+30h] [rbp-68h] BYREF\n  __int64 v35; // [rsp+38h] [rbp-60h]\n  __int64 v36; // [rsp+40h] [rbp-58h]\n  __int128 v37; // [rsp+48h] [rbp-50h]\n  __int64 v38; // [rsp+58h] [rbp-40h] BYREF\n  __int128 v39; // [rsp+60h] [rbp-38h]\n  __int128 v40; // [rsp+70h] [rbp-28h]\n\n  v38 = 0LL;\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aMd5, 3LL) )\n  {\n    uucore::features::checksum::detect_algo(&v30, aMd5sum, 6LL, 0LL, v3);\n    v4 = v31;\n    v5 = v32;\n    if ( !v30 )\n      goto LABEL_47;\n    v37 = v33;\n    v34 = v30;\n    v35 = v31;\n    v36 = v32;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v34);\n    if ( v6 )\n      goto LABEL_51;\n  }\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aSha1, 4LL) )\n  {\n    uucore::features::checksum::detect_algo(&v30, aSha1sum, 7LL, 0LL, v7);\n    v4 = v31;\n    v5 = v32;\n    if ( !v30 )\n      goto LABEL_47;\n    v37 = v33;\n    v34 = v30;\n    v35 = v31;\n    v36 = v32;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v34);\n    if ( v6 )\n      goto LABEL_51;\n  }\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aSha224, 6LL) )\n  {\n    uucore::features::checksum::detect_algo(&v30, aSha224sum, 9LL, 0LL, v8);\n    v4 = v31;\n    v5 = v32;\n    if ( !v30 )\n      goto LABEL_47;\n    v37 = v33;\n    v34 = v30;\n    v35 = v31;\n    v36 = v32;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v34);\n    if ( v6 )\n      goto LABEL_51;\n  }\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aSha256, 6LL) )\n  {\n    uucore::features::checksum::detect_algo(&v30, aSha256sum, 9LL, 0LL, v9);\n    v4 = v31;\n    v5 = v32;\n    if ( !v30 )\n      goto LABEL_47;\n    v37 = v33;\n    v34 = v30;\n    v35 = v31;\n    v36 = v32;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v34);\n    if ( v6 )\n      goto LABEL_51;\n  }\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aSha384, 6LL) )\n  {\n    uucore::features::checksum::detect_algo(&v30, aSha384sum, 9LL, 0LL, v10);\n    v4 = v31;\n    v5 = v32;\n    if ( !v30 )\n      goto LABEL_47;\n    v37 = v33;\n    v34 = v30;\n    v35 = v31;\n    v36 = v32;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v34);\n    if ( v6 )\n      goto LABEL_51;\n  }\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aSha512, 6LL) )\n  {\n    uucore::features::checksum::detect_algo(&v30, aSha512sum, 9LL, 0LL, v11);\n    v4 = v31;\n    v5 = v32;\n    if ( !v30 )\n      goto LABEL_47;\n    v37 = v33;\n    v34 = v30;\n    v35 = v31;\n    v36 = v32;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v34);\n    if ( v6 )\n      goto LABEL_51;\n  }\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aB2sum_0, 5LL) )\n  {\n    uucore::features::checksum::detect_algo(&v30, aB2sum_0, 5LL, 0LL, v12);\n    v4 = v31;\n    v5 = v32;\n    if ( !v30 )\n      goto LABEL_47;\n    v37 = v33;\n    v34 = v30;\n    v35 = v31;\n    v36 = v32;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v34);\n    if ( v6 )\n      goto LABEL_51;\n  }\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aB3sum, 5LL) )\n  {\n    uucore::features::checksum::detect_algo(&v30, aB3sum, 5LL, 0LL, v13);\n    v4 = v31;\n    v5 = v32;\n    if ( !v30 )\n      goto LABEL_47;\n    v37 = v33;\n    v34 = v30;\n    v35 = v31;\n    v36 = v32;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v34);\n    if ( v6 )\n      goto LABEL_51;\n  }\n  if ( !(unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aSha3, 4LL) )\n    goto LABEL_31;\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v30, a2);\n  v14 = (__int64 *)clap_builder::parser::error::MatchesError::unwrap(&v30);\n  if ( v14 )\n  {\n    v15 = *v14;\n    v16 = 1LL;\n  }\n  else\n  {\n    v16 = 0LL;\n  }\n  uucore::features::checksum::create_sha3(&v30, v16, v15);\n  v4 = v31;\n  v5 = v32;\n  if ( !v30 )\n  {\nLABEL_47:\n    *(_QWORD *)(a1 + 8) = v4;\n    *(_QWORD *)(a1 + 16) = v5;\nLABEL_52:\n    *(_QWORD *)a1 = 0LL;\n    core::ptr::drop_in_place<core::option::Option<uucore::features::checksum::HashAlgorithm>>(&v38);\n    return a1;\n  }\n  v37 = v33;\n  v34 = v30;\n  v35 = v31;\n  v36 = v32;\n  v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v34);\n  if ( v6 )\n    goto LABEL_51;\nLABEL_31:\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(\n                          a2,\n                          \"sha3-224CommandsEALREADY0\",\n                          8LL) )\n  {\n    v17 = alloc::boxed::Box<T>::new();\n    v30 = aSha3224_0;\n    v31 = 8LL;\n    v32 = v17;\n    *(_QWORD *)&v33 = &unk_151670;\n    *((_QWORD *)&v33 + 1) = 224LL;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v30);\n    if ( v6 )\n      goto LABEL_51;\n  }\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aSha3256_0, 8LL) )\n  {\n    v18 = alloc::boxed::Box<T>::new();\n    v30 = aSha3256_1;\n    v31 = 8LL;\n    v32 = v18;\n    *(_QWORD *)&v33 = &unk_1516A0;\n    *((_QWORD *)&v33 + 1) = 256LL;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v30);\n    if ( v6 )\n      goto LABEL_51;\n  }\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(\n                          a2,\n                          \"sha3-384SHA3_224SHA3_384@\",\n                          8LL) )\n  {\n    v19 = alloc::boxed::Box<T>::new();\n    v30 = (const char *)&unk_11E00;\n    v31 = 8LL;\n    v32 = v19;\n    *(_QWORD *)&v33 = &unk_1516D0;\n    *((_QWORD *)&v33 + 1) = 384LL;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v30);\n    if ( v6 )\n      goto LABEL_51;\n  }\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aSha3512_0, 8LL) )\n  {\n    v20 = alloc::boxed::Box<T>::new();\n    v30 = aSha3512;\n    v31 = 8LL;\n    v32 = v20;\n    *(_QWORD *)&v33 = &unk_151700;\n    *((_QWORD *)&v33 + 1) = 512LL;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v30);\n    if ( v6 )\n      goto LABEL_51;\n  }\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aShake128, 8LL) )\n  {\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v30, a2);\n    v21 = (__int64 *)clap_builder::parser::error::MatchesError::unwrap(&v30);\n    if ( !v21 )\n    {\n      v6 = alloc::boxed::Box<T>::new(6LL);\n      goto LABEL_51;\n    }\n    v22 = alloc::boxed::Box<T>::new();\n    v23 = *v21;\n    v30 = aShake128_0;\n    v31 = 8LL;\n    v32 = v22;\n    *(_QWORD *)&v33 = &unk_1517B8;\n    *((_QWORD *)&v33 + 1) = v23;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v30);\n    if ( v6 )\n      goto LABEL_51;\n  }\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aShake256, 8LL) )\n  {\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v30, a2);\n    v24 = (__int64 *)clap_builder::parser::error::MatchesError::unwrap(&v30);\n    if ( !v24 )\n    {\n      v6 = alloc::boxed::Box<T>::new(7LL);\n      goto LABEL_51;\n    }\n    v25 = alloc::boxed::Box<T>::new();\n    v26 = *v24;\n    v30 = aShake256_0;\n    v31 = 8LL;\n    v32 = v25;\n    *(_QWORD *)&v33 = &unk_1517E8;\n    *((_QWORD *)&v33 + 1) = v26;\n    v6 = uu_hashsum::create_algorithm_from_flags::{{closure}}(&v38, &v30);\n    if ( v6 )\n    {\nLABEL_51:\n      *(_QWORD *)(a1 + 8) = v6;\n      *(_QWORD *)(a1 + 16) = &unk_151750;\n      goto LABEL_52;\n    }\n  }\n  v27 = v38;\n  if ( !v38 )\n  {\n    v6 = alloc::boxed::Box<T>::new(14LL);\n    goto LABEL_51;\n  }\n  v28 = v39;\n  *(_OWORD *)(a1 + 24) = v40;\n  *(_OWORD *)(a1 + 8) = v28;\n  *(_QWORD *)a1 = v27;\n  return a1;\n}",
+    "_ZN10uu_hashsum13parse_bit_num17ha8aed7afd30853a8E": "// attributes: thunk\n__int64 uu_hashsum::parse_bit_num()\n{\n  return core::num::<impl usize>::from_ascii_radix();\n}",
+    "_ZN10uu_hashsum13uu_app_common17he3603fb037840435E": "void *__fastcall uu_hashsum::uu_app_common(void *dest)\n{\n  __int64 v1; // rax\n  _BYTE v3[640]; // [rsp+8h] [rbp-AC0h] BYREF\n  _BYTE desta[700]; // [rsp+288h] [rbp-840h] BYREF\n  __int64 v5; // [rsp+544h] [rbp-584h]\n  int v6; // [rsp+54Ch] [rbp-57Ch]\n  _BYTE src[700]; // [rsp+550h] [rbp-578h] BYREF\n  __int64 v8; // [rsp+80Ch] [rbp-2BCh]\n  int v9; // [rsp+814h] [rbp-2B4h]\n  const char *v10; // [rsp+818h] [rbp-2B0h] BYREF\n  __int64 v11; // [rsp+820h] [rbp-2A8h]\n  const char *v12; // [rsp+828h] [rbp-2A0h]\n  __int64 v13; // [rsp+830h] [rbp-298h]\n\n  v1 = uucore::util_name();\n  clap_builder::builder::command::Command::new(desta, v1);\n  clap_builder::builder::command::Command::version(src, desta);\n  clap_builder::builder::command::Command::about(desta, src);\n  uucore::format_usage(v3, aDigestOptionsF, 36LL);\n  clap_builder::builder::command::Command::override_usage(src, desta);\n  memcpy(desta, src, sizeof(desta));\n  v5 = v8 | 0x8800000088LL;\n  v6 = v9;\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v3, src, 98LL);\n  clap_builder::builder::arg::Arg::long(src, v3);\n  clap_builder::builder::arg::Arg::help(v3, src);\n  clap_builder::builder::arg::Arg::action(&v10, v3, 2LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v3, desta, 99LL);\n  clap_builder::builder::arg::Arg::long(desta, v3);\n  clap_builder::builder::arg::Arg::help(v3, desta);\n  clap_builder::builder::arg::Arg::action(desta, v3, 2LL);\n  clap_builder::builder::arg::Arg::conflicts_with(v3, desta);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::long(v3, src);\n  clap_builder::builder::arg::Arg::help(src, v3);\n  clap_builder::builder::arg::Arg::action(v3, src, 2LL);\n  clap_builder::builder::arg::Arg::conflicts_with(&v10, v3);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v3, desta, 116LL);\n  clap_builder::builder::arg::Arg::long(desta, v3);\n  clap_builder::builder::arg::Arg::help(v3, desta);\n  clap_builder::builder::arg::Arg::conflicts_with(desta, v3);\n  clap_builder::builder::arg::Arg::action(v3, desta, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v3, src, 113LL);\n  clap_builder::builder::arg::Arg::long(src, v3);\n  clap_builder::builder::arg::Arg::help(v3, src);\n  clap_builder::builder::arg::Arg::action(src, v3, 2LL);\n  v10 = aStatus_0;\n  v11 = 6LL;\n  v12 = aWarn;\n  v13 = 4LL;\n  clap_builder::builder::arg::Arg::overrides_with_all(v3, src);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v3, desta, 115LL);\n  clap_builder::builder::arg::Arg::long(desta, v3);\n  clap_builder::builder::arg::Arg::help(v3, desta);\n  clap_builder::builder::arg::Arg::action(desta, v3, 2LL);\n  v10 = (const char *)&unk_13F58;\n  v11 = 5LL;\n  v12 = aWarn;\n  v13 = 4LL;\n  clap_builder::builder::arg::Arg::overrides_with_all(v3, desta);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::long(v3, src);\n  clap_builder::builder::arg::Arg::help(src, v3);\n  clap_builder::builder::arg::Arg::action(v3, src, 2LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::long(v3, desta);\n  clap_builder::builder::arg::Arg::help(desta, v3);\n  clap_builder::builder::arg::Arg::action(v3, desta, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v3, src, 119LL);\n  clap_builder::builder::arg::Arg::long(src, v3);\n  clap_builder::builder::arg::Arg::help(v3, src);\n  clap_builder::builder::arg::Arg::action(src, v3, 2LL);\n  v10 = (const char *)&unk_13F58;\n  v11 = 5LL;\n  v12 = aStatus_0;\n  v13 = 6LL;\n  clap_builder::builder::arg::Arg::overrides_with_all(v3, src);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v3, desta, 122LL);\n  clap_builder::builder::arg::Arg::long(desta, v3);\n  clap_builder::builder::arg::Arg::help(v3, desta);\n  clap_builder::builder::arg::Arg::action(&v10, v3, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::index(v3, src);\n  clap_builder::builder::arg::Arg::action(src, v3, 1LL);\n  clap_builder::builder::arg::Arg::value_name(v3, src);\n  clap_builder::builder::arg::Arg::value_hint(src, v3);\n  v10 = (_BYTE *)(&dword_0 + 2);\n  clap_builder::builder::arg::Arg::value_parser(v3, src);\n  clap_builder::builder::command::Command::arg(dest, desta);\n  return dest;\n}",
+    "_ZN10uu_hashsum13uu_app_length17h30e6017986078ce7E": "void *__fastcall uu_hashsum::uu_app_length(void *dest)\n{\n  __int64 v2; // [rsp+0h] [rbp-2D8h] BYREF\n\n  uu_hashsum::uu_app_common(&v2);\n  uu_hashsum::uu_app_opt_length(dest);\n  return dest;\n}",
+    "_ZN10uu_hashsum17uu_app_opt_length17ha4be398f09f1abb1E": "__int64 __fastcall uu_hashsum::uu_app_opt_length(void *dest, const void *a2)\n{\n  _BYTE v3[640]; // [rsp+18h] [rbp-7E0h] BYREF\n  _BYTE src[640]; // [rsp+298h] [rbp-560h] BYREF\n  _BYTE desta[736]; // [rsp+518h] [rbp-2E0h] BYREF\n\n  memcpy(desta, a2, 0x2C8uLL);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::long(v3, src);\n  alloc::boxed::Box<T>::new(core::num::<impl core::str::traits::FromStr for usize>::from_str);\n  clap_builder::builder::arg::Arg::value_parser(src, v3);\n  clap_builder::builder::arg::Arg::short(v3, src, 108LL);\n  clap_builder::builder::arg::Arg::help(src, v3);\n  clap_builder::builder::arg::Arg::overrides_with(v3, src);\n  clap_builder::builder::arg::Arg::action(src, v3, 0LL);\n  return clap_builder::builder::command::Command::arg(dest, desta);\n}",
+    "_ZN10uu_hashsum12uu_app_b3sum17hff277f31cb1bc261E": "void *__fastcall uu_hashsum::uu_app_b3sum(void *dest)\n{\n  __int64 v2; // [rsp+0h] [rbp-2D8h] BYREF\n\n  uu_hashsum::uu_app_common(&v2);\n  uu_hashsum::uu_app_b3sum_opts(dest);\n  return dest;\n}",
+    "_ZN10uu_hashsum17uu_app_b3sum_opts17h5c3cae50ae21738fE": "__int64 __fastcall uu_hashsum::uu_app_b3sum_opts(void *dest, const void *a2)\n{\n  _BYTE v3[640]; // [rsp+0h] [rbp-7E8h] BYREF\n  _BYTE desta[712]; // [rsp+280h] [rbp-568h] BYREF\n  _BYTE src[672]; // [rsp+548h] [rbp-2A0h] BYREF\n\n  memcpy(desta, a2, sizeof(desta));\n  clap_builder::builder::arg::Arg::new(v3);\n  clap_builder::builder::arg::Arg::long(src, v3);\n  clap_builder::builder::arg::Arg::help(v3, src);\n  clap_builder::builder::arg::Arg::action(src, v3, 2LL);\n  return clap_builder::builder::command::Command::arg(dest, desta);\n}",
+    "_ZN10uu_hashsum11uu_app_bits17h94948ede73a9a318E": "void *__fastcall uu_hashsum::uu_app_bits(void *dest)\n{\n  __int64 v2; // [rsp+0h] [rbp-2D8h] BYREF\n\n  uu_hashsum::uu_app_common(&v2);\n  uu_hashsum::uu_app_opt_bits(dest);\n  return dest;\n}",
+    "_ZN10uu_hashsum15uu_app_opt_bits17hd6aa31a29dfb5e22E": "__int64 __fastcall uu_hashsum::uu_app_opt_bits(void *dest, const void *a2)\n{\n  _BYTE v3[640]; // [rsp+0h] [rbp-7E8h] BYREF\n  _BYTE src[640]; // [rsp+280h] [rbp-568h] BYREF\n  _BYTE desta[744]; // [rsp+500h] [rbp-2E8h] BYREF\n\n  memcpy(desta, a2, 0x2C8uLL);\n  clap_builder::builder::arg::Arg::new(v3);\n  clap_builder::builder::arg::Arg::long(src, v3);\n  clap_builder::builder::arg::Arg::help(v3, src);\n  clap_builder::builder::arg::Arg::value_name(src, v3);\n  clap_builder::builder::arg::Arg::value_parser(v3, src);\n  return clap_builder::builder::command::Command::arg(dest, desta);\n}",
+    "_ZN10uu_hashsum13uu_app_custom17h3a63177c817a427eE": "void *__fastcall uu_hashsum::uu_app_custom(void *a1)\n{\n  __int64 i; // r14\n  _BYTE v3[640]; // [rsp+10h] [rbp-B08h] BYREF\n  _BYTE v4[712]; // [rsp+290h] [rbp-888h] BYREF\n  _BYTE src[712]; // [rsp+558h] [rbp-5C0h] BYREF\n  _BYTE dest[760]; // [rsp+820h] [rbp-2F8h] BYREF\n\n  uu_hashsum::uu_app_common(dest);\n  uu_hashsum::uu_app_opt_bits(v4, dest);\n  uu_hashsum::uu_app_b3sum_opts(src, v4);\n  for ( i = 24LL; i != 504; i += 32LL )\n  {\n    memcpy(dest, src, 0x2C8uLL);\n    clap_builder::builder::arg::Arg::new(v4);\n    clap_builder::builder::arg::Arg::long(v3, v4);\n    clap_builder::builder::arg::Arg::help(v4, v3);\n    clap_builder::builder::arg::Arg::action(v3, v4, 2LL);\n    clap_builder::builder::command::Command::arg(src, dest);\n  }\n  memcpy(a1, src, 0x2C8uLL);\n  return a1;\n}",
+    "_ZN10uu_hashsum6uu_app17hd115e3ccac06eb0bE": "void *__fastcall uu_hashsum::uu_app(void *dest, __int64 a2, __int64 a3)\n{\n  if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aMd5sum, 6LL)\n    || (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aSha1sum, 7LL)\n    || (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aSha224sum, 9LL)\n    || (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aSha256sum, 9LL)\n    || (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aSha384sum, 9LL)\n    || (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aSha512sum, 9LL) )\n  {\n    goto LABEL_7;\n  }\n  if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aB2sum_0, 5LL) )\n  {\n    uu_hashsum::uu_app_length(dest);\n    goto LABEL_8;\n  }\n  if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aSha3224sum, 11LL)\n    || (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aSha3256sum, 11LL)\n    || (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aSha3384sum, 11LL)\n    || (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aSha3512sum, 11LL) )\n  {\nLABEL_7:\n    uu_hashsum::uu_app_common(dest);\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aSha3sum, 7LL)\n         || (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aShake128sum, 11LL)\n         || (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aShake256sum, 11LL) )\n  {\n    uu_hashsum::uu_app_bits(dest);\n  }\n  else\n  {\n    if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aB3sum, 5LL) )\n    {\n      uu_hashsum::uu_app_custom(dest);\n      *((_BYTE *)dest + 712) = 1;\n      return dest;\n    }\n    uu_hashsum::uu_app_b3sum(dest);\n  }\nLABEL_8:\n  *((_BYTE *)dest + 712) = 0;\n  return dest;\n}"
+  },
+  "function_call_counts": {
+    "_ZN10uu_hashsum6uumain17ha650a7ced3cf363fE": {
+      "uucore::disable_rust_signal_handlers": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uu_hashsum::uumain::uumain": 1,
+      "uucore::mods::error::get_exit_code": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 3,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "uucore::execution_phrase": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1
+    },
+    "_ZN10uu_hashsum6uumain6uumain17hecb560f1711a631bE": {
+      "<core::iter::adapters::cloned::Cloned<I> as core::iter::traits::iterator::Iterator>::next": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "std::path::Path::file_stem": 1,
+      "alloc::string::String::from_utf8_lossy": 1,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone": 1,
+      "core::iter::traits::iterator::Iterator::chain": 1,
+      "uu_hashsum::uu_app": 1,
+      "memcpy": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "core::ptr::drop_in_place<alloc::borrow::Cow<str>>": 2,
+      "core::ptr::drop_in_place<std::ffi::os_str::OsString>": 2,
+      "uucore::features::checksum::calculate_blake2b_length": 1,
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 2,
+      "uu_hashsum::create_algorithm_from_flags": 1,
+      "alloc::string::<impl core::cmp::PartialEq<&str> for alloc::borrow::Cow<str>>::eq": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 2,
+      "clap_builder::parser::error::MatchesError::unwrap": 3,
+      "uucore::features::checksum::detect_algo": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 12,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 2,
+      "core::option::Option<T>::map_or_else": 1,
+      "uucore::features::checksum::perform_checksum_validation": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<clap_builder::util::id::Id>>": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "core::ptr::drop_in_place<uu_hashsum::Options>": 2,
+      "uu_hashsum::hashsum": 2
+    },
+    "_ZN10uu_hashsum7hashsum17h4817e91e428ae9c2E": {
+      "<core::iter::sources::once::Once<T> as core::iter::traits::iterator::Iterator>::next": 2,
+      "std::path::Path::components": 2,
+      "std::io::stdio::stdin": 1,
+      "alloc::boxed::Box<T>::new": 2,
+      "std::fs::File::open": 1,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 2,
+      "<std::path::Components as core::cmp::PartialEq>::eq": 1,
+      "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1,
+      "uucore::features::checksum::digest_reader": 1,
+      "uucore::features::checksum::escape_filename": 1,
+      "std::io::stdio::_print": 5,
+      "alloc::str::<impl str>::to_ascii_uppercase": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 3,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "core::ptr::drop_in_place<std::io::buffered::bufreader::BufReader<alloc::boxed::Box<dyn std::io::Read>>>": 2,
+      "core::ptr::drop_in_place<uu_hashsum::Options>": 2
+    },
+    "_ZN10uu_hashsum27create_algorithm_from_flags17h1839fc02dfbf2f14E": {
+      "uucore::features::checksum::detect_algo": 8,
+      "uu_hashsum::create_algorithm_from_flags::{{closure}}": 15,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 15,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 3,
+      "clap_builder::parser::error::MatchesError::unwrap": 3,
+      "uucore::features::checksum::create_sha3": 1,
+      "core::ptr::drop_in_place<core::option::Option<uucore::features::checksum::HashAlgorithm>>": 1,
+      "alloc::boxed::Box<T>::new": 9
+    },
+    "_ZN10uu_hashsum13parse_bit_num17ha8aed7afd30853a8E": {
+      "core::num::<impl usize>::from_ascii_radix": 1
+    },
+    "_ZN10uu_hashsum13uu_app_common17he3603fb037840435E": {
+      "uucore::util_name": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "memcpy": 1,
+      "clap_builder::builder::arg::Arg::new": 11,
+      "clap_builder::builder::arg::Arg::short": 7,
+      "clap_builder::builder::arg::Arg::long": 10,
+      "clap_builder::builder::arg::Arg::help": 10,
+      "clap_builder::builder::arg::Arg::action": 11,
+      "clap_builder::builder::command::Command::arg": 11,
+      "clap_builder::builder::arg::Arg::conflicts_with": 3,
+      "clap_builder::builder::arg::Arg::overrides_with_all": 3,
+      "clap_builder::builder::arg::Arg::index": 1,
+      "clap_builder::builder::arg::Arg::value_name": 1,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::arg::Arg::value_parser": 1
+    },
+    "_ZN10uu_hashsum13uu_app_length17h30e6017986078ce7E": {
+      "uu_hashsum::uu_app_common": 1,
+      "uu_hashsum::uu_app_opt_length": 1
+    },
+    "_ZN10uu_hashsum17uu_app_opt_length17ha4be398f09f1abb1E": {
+      "memcpy": 1,
+      "clap_builder::builder::arg::Arg::new": 1,
+      "clap_builder::builder::arg::Arg::long": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "clap_builder::builder::arg::Arg::value_parser": 1,
+      "clap_builder::builder::arg::Arg::short": 1,
+      "clap_builder::builder::arg::Arg::help": 1,
+      "clap_builder::builder::arg::Arg::overrides_with": 1,
+      "clap_builder::builder::arg::Arg::action": 1,
+      "clap_builder::builder::command::Command::arg": 1
+    },
+    "_ZN10uu_hashsum12uu_app_b3sum17hff277f31cb1bc261E": {
+      "uu_hashsum::uu_app_common": 1,
+      "uu_hashsum::uu_app_b3sum_opts": 1
+    },
+    "_ZN10uu_hashsum17uu_app_b3sum_opts17h5c3cae50ae21738fE": {
+      "memcpy": 1,
+      "clap_builder::builder::arg::Arg::new": 1,
+      "clap_builder::builder::arg::Arg::long": 1,
+      "clap_builder::builder::arg::Arg::help": 1,
+      "clap_builder::builder::arg::Arg::action": 1,
+      "clap_builder::builder::command::Command::arg": 1
+    },
+    "_ZN10uu_hashsum11uu_app_bits17h94948ede73a9a318E": {
+      "uu_hashsum::uu_app_common": 1,
+      "uu_hashsum::uu_app_opt_bits": 1
+    },
+    "_ZN10uu_hashsum15uu_app_opt_bits17hd6aa31a29dfb5e22E": {
+      "memcpy": 1,
+      "clap_builder::builder::arg::Arg::new": 1,
+      "clap_builder::builder::arg::Arg::long": 1,
+      "clap_builder::builder::arg::Arg::help": 1,
+      "clap_builder::builder::arg::Arg::value_name": 1,
+      "clap_builder::builder::arg::Arg::value_parser": 1,
+      "clap_builder::builder::command::Command::arg": 1
+    },
+    "_ZN10uu_hashsum13uu_app_custom17h3a63177c817a427eE": {
+      "uu_hashsum::uu_app_common": 1,
+      "uu_hashsum::uu_app_opt_bits": 1,
+      "uu_hashsum::uu_app_b3sum_opts": 1,
+      "memcpy": 2,
+      "clap_builder::builder::arg::Arg::new": 1,
+      "clap_builder::builder::arg::Arg::long": 1,
+      "clap_builder::builder::arg::Arg::help": 1,
+      "clap_builder::builder::arg::Arg::action": 1,
+      "clap_builder::builder::command::Command::arg": 1
+    },
+    "_ZN10uu_hashsum6uu_app17hd115e3ccac06eb0bE": {
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 15,
+      "uu_hashsum::uu_app_length": 1,
+      "uu_hashsum::uu_app_common": 1,
+      "uu_hashsum::uu_app_bits": 1,
+      "uu_hashsum::uu_app_custom": 1,
+      "uu_hashsum::uu_app_b3sum": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN10uu_hashsum6uumain17ha650a7ced3cf363fE": {},
+    "_ZN10uu_hashsum6uumain6uumain17hecb560f1711a631bE": {},
+    "_ZN10uu_hashsum7hashsum17h4817e91e428ae9c2E": {},
+    "_ZN10uu_hashsum27create_algorithm_from_flags17h1839fc02dfbf2f14E": {},
+    "_ZN10uu_hashsum13parse_bit_num17ha8aed7afd30853a8E": {},
+    "_ZN10uu_hashsum13uu_app_common17he3603fb037840435E": {},
+    "_ZN10uu_hashsum13uu_app_length17h30e6017986078ce7E": {},
+    "_ZN10uu_hashsum17uu_app_opt_length17ha4be398f09f1abb1E": {},
+    "_ZN10uu_hashsum12uu_app_b3sum17hff277f31cb1bc261E": {},
+    "_ZN10uu_hashsum17uu_app_b3sum_opts17h5c3cae50ae21738fE": {},
+    "_ZN10uu_hashsum11uu_app_bits17h94948ede73a9a318E": {},
+    "_ZN10uu_hashsum15uu_app_opt_bits17hd6aa31a29dfb5e22E": {},
+    "_ZN10uu_hashsum13uu_app_custom17h3a63177c817a427eE": {},
+    "_ZN10uu_hashsum6uu_app17hd115e3ccac06eb0bE": {}
+  },
+  "variable_types": {
+    "_ZN10uu_hashsum6uumain17ha650a7ced3cf363fE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10uu_hashsum6uumain6uumain17hecb560f1711a631bE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bl": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_13": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_14": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_272": [
+        [
+          "array",
+          712
+        ]
+      ],
+      "stack_984": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_992": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_1056": [
+        [
+          "array",
+          760
+        ]
+      ]
+    },
+    "_ZN10uu_hashsum7hashsum17h4817e91e428ae9c2E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&reference",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_256": [
+        [
+          "array",
+          104
+        ]
+      ]
+    },
+    "_ZN10uu_hashsum27create_algorithm_from_flags17h1839fc02dfbf2f14E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN10uu_hashsum13parse_bit_num17ha8aed7afd30853a8E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10uu_hashsum13uu_app_common17he3603fb037840435E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          640
+        ]
+      ],
+      "stack_648": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_1348": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1356": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1360": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_2060": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2068": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2072": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_2080": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2088": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_2096": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10uu_hashsum13uu_app_length17h30e6017986078ce7E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10uu_hashsum17uu_app_opt_length17ha4be398f09f1abb1E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          640
+        ]
+      ],
+      "stack_664": [
+        [
+          "array",
+          640
+        ]
+      ],
+      "stack_1304": [
+        [
+          "array",
+          736
+        ]
+      ]
+    },
+    "_ZN10uu_hashsum12uu_app_b3sum17hff277f31cb1bc261E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10uu_hashsum17uu_app_b3sum_opts17h5c3cae50ae21738fE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          640
+        ]
+      ],
+      "stack_640": [
+        [
+          "array",
+          712
+        ]
+      ],
+      "stack_1352": [
+        [
+          "array",
+          672
+        ]
+      ]
+    },
+    "_ZN10uu_hashsum11uu_app_bits17h94948ede73a9a318E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10uu_hashsum15uu_app_opt_bits17hd6aa31a29dfb5e22E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          640
+        ]
+      ],
+      "stack_640": [
+        [
+          "array",
+          640
+        ]
+      ],
+      "stack_1280": [
+        [
+          "array",
+          744
+        ]
+      ]
+    },
+    "_ZN10uu_hashsum13uu_app_custom17h3a63177c817a427eE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "array",
+          640
+        ]
+      ],
+      "stack_656": [
+        [
+          "array",
+          712
+        ]
+      ],
+      "stack_1368": [
+        [
+          "array",
+          712
+        ]
+      ],
+      "stack_2080": [
+        [
+          "array",
+          760
+        ]
+      ]
+    },
+    "_ZN10uu_hashsum6uu_app17hd115e3ccac06eb0bE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,748 @@
+{
+  "decompilation": {
+    "_ZN8uu_mknod6uumain17h73b17a6bda407fcfE": "__int64 __fastcall uu_mknod::uumain(__int64 a1, __int64 a2)\n{\n  unsigned int v2; // eax\n  __int64 v3; // rax\n  __int64 v4; // rdx\n  __int128 v5; // rax\n  __int128 v6; // rax\n  unsigned int v7; // ebx\n  __int64 v9; // [rsp+0h] [rbp-98h] BYREF\n  __int64 v10; // [rsp+8h] [rbp-90h]\n  char **v11; // [rsp+10h] [rbp-88h] BYREF\n  __int64 v12; // [rsp+18h] [rbp-80h]\n  __int128 *v13; // [rsp+20h] [rbp-78h]\n  __int64 v14; // [rsp+28h] [rbp-70h]\n  __int64 v15; // [rsp+30h] [rbp-68h]\n  __int128 v16; // [rsp+40h] [rbp-58h] BYREF\n  __int64 v17; // [rsp+50h] [rbp-48h]\n  __int128 v18; // [rsp+60h] [rbp-38h] BYREF\n  __int64 v19; // [rsp+70h] [rbp-28h]\n  __int128 *v20; // [rsp+78h] [rbp-20h] BYREF\n  __int64 (__fastcall *v21)(); // [rsp+80h] [rbp-18h]\n\n  v2 = uucore::disable_rust_signal_handlers();\n  core::result::Result<T,E>::expect(v2);\n  v3 = uu_mknod::uumain::uumain(a1, a2);\n  if ( !v3 )\n    return uucore::mods::error::get_exit_code();\n  v9 = v3;\n  v10 = v4;\n  *(_QWORD *)&v16 = &v9;\n  *((_QWORD *)&v16 + 1) = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n  v11 = (char **)&unk_180E0;\n  v12 = 1LL;\n  v15 = 0LL;\n  v13 = &v16;\n  v14 = 1LL;\n  core::option::Option<T>::map_or_else(&v18, &v11);\n  v16 = v18;\n  v17 = v19;\n  if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((_QWORD *)&v18 + 1), v19, 1LL, 0LL) )\n  {\n    *(_QWORD *)&v5 = uucore::util_name();\n    v18 = v5;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_E3250;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n    *(_QWORD *)&v18 = &v16;\n    *((_QWORD *)&v18 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_E3270;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = &v18;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  if ( (*(unsigned __int8 (__fastcall **)(__int64))(v10 + 96))(v9) )\n  {\n    *(_QWORD *)&v6 = uucore::execution_phrase();\n    v18 = v6;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = &off_E3290;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  v7 = (*(__int64 (__fastcall **)(__int64))(v10 + 88))(v9);\n  core::ptr::drop_in_place<alloc::string::String>(v16, *((_QWORD *)&v16 + 1));\n  core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v9, v10);\n  return v7;\n}",
+    "_ZN8uu_mknod6uumain6uumain17h8bac4110a78873abE": "__int64 __fastcall uu_mknod::uumain::uumain(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rdx\n  _BYTE *v4; // rbx\n  __int64 v5; // rax\n  int v6; // r13d\n  __int64 v7; // r14\n  char flag; // bp\n  __int64 v9; // r15\n  __int64 v10; // r12\n  __int64 v11; // rax\n  unsigned __int64 v12; // rcx\n  __int64 v13; // rbx\n  __int64 v14; // rdx\n  __int64 v15; // rcx\n  __int64 v16; // r8\n  __int64 v17; // r9\n  __int64 v18; // rax\n  __int64 v19; // rdx\n  __int64 v20; // rcx\n  __int64 v21; // r8\n  __int64 v22; // r9\n  unsigned int v23; // eax\n  __int128 v24; // [rsp+0h] [rbp-368h] BYREF\n  __int128 v25; // [rsp+10h] [rbp-358h]\n  __int128 v26; // [rsp+20h] [rbp-348h]\n  __int64 v27; // [rsp+30h] [rbp-338h]\n  __int128 v28; // [rsp+40h] [rbp-328h] BYREF\n  __int64 v29; // [rsp+50h] [rbp-318h]\n  _QWORD v30[2]; // [rsp+58h] [rbp-310h] BYREF\n  int v31; // [rsp+68h] [rbp-300h]\n  char v32; // [rsp+6Ch] [rbp-2FCh]\n  _OWORD dest[3]; // [rsp+70h] [rbp-2F8h] BYREF\n  __int64 v34; // [rsp+A0h] [rbp-2C8h]\n\n  uu_mknod::uu_app(dest);\n  clap_builder::builder::command::Command::try_get_matches_from(&v24, dest, a1, a2);\n  if ( __OFSUB__(-(__int64)v24, 1LL) )\n    return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(\n             *((_QWORD *)&v24 + 1),\n             dest,\n             v2,\n             -(__int64)v24);\n  v34 = v27;\n  dest[2] = v26;\n  dest[1] = v25;\n  dest[0] = v24;\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v24, dest);\n  v4 = (_BYTE *)clap_builder::parser::error::MatchesError::unwrap(&v24);\n  if ( !v4 )\n    core::option::unwrap_failed(&off_E32C8);\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v24, dest, aMode_0, 4LL);\n  v5 = clap_builder::parser::error::MatchesError::unwrap(aMode_0, 4LL, &v24);\n  uu_mknod::get_mode(&v28, v5);\n  if ( (_QWORD)v28 != 0x8000000000000000LL )\n  {\n    *(_QWORD *)&v25 = v29;\n    v24 = v28;\n    DWORD2(v25) = 1;\n    v13 = ((__int64 (__fastcall *)(__int128 *))alloc::boxed::Box<T>::new)(&v24);\nLABEL_14:\n    core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(dest);\n    return v13;\n  }\n  v6 = dword_18C10[(unsigned __int8)*v4] | DWORD2(v28);\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v24, dest, aName_0, 4LL);\n  v7 = clap_builder::parser::error::MatchesError::unwrap(aName_0, 4LL, &v24);\n  if ( !v7 )\n    core::option::expect_failed(aMissingArgumen, 23LL, &off_E3368);\n  flag = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(dest, aZ, 1LL);\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v24, dest, aContext, 7LL);\n  v9 = clap_builder::parser::error::MatchesError::unwrap(aContext, 7LL, &v24);\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v24, dest, aMajorminor);\n  v10 = clap_builder::parser::error::MatchesError::unwrap(aMajorminor, &v24);\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v24, dest, &aMajorminor[5]);\n  v11 = clap_builder::parser::error::MatchesError::unwrap(&aMajorminor[5], &v24);\n  if ( *v4 != 2 )\n  {\n    if ( v11 != 0 && v10 != 0 )\n    {\n      v12 = (*(_QWORD *)v11 << 12) & 0xFFFFFFFFFFF00000LL | (unsigned __int8)*(_QWORD *)v11 | (unsigned __int64)(((unsigned int)*(_QWORD *)v10 << 8) & 0xFFF00) | ((*(_QWORD *)v10 & 0xFFFFF000LL) << 32);\n      goto LABEL_16;\n    }\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v28, aSpecialFilesRe, 53LL);\n    *(_QWORD *)&v25 = v29;\n    v24 = v28;\n    DWORD2(v25) = 1;\n    v18 = ((__int64 (__fastcall *)(__int128 *, const char *, __int64, __int64, __int64, __int64))alloc::boxed::Box<T>::new)(\n            &v24,\n            aSpecialFilesRe,\n            v14,\n            v15,\n            v16,\n            v17);\n    goto LABEL_13;\n  }\n  if ( v11 | v10 )\n  {\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v28, aFifosDoNotHave, 49LL);\n    *(_QWORD *)&v25 = v29;\n    v24 = v28;\n    DWORD2(v25) = 1;\n    v18 = ((__int64 (__fastcall *)(__int128 *, const char *, __int64, __int64, __int64, __int64))alloc::boxed::Box<T>::new)(\n            &v24,\n            aFifosDoNotHave,\n            v19,\n            v20,\n            v21,\n            v22);\nLABEL_13:\n    v13 = v18;\n    goto LABEL_14;\n  }\n  v12 = 0LL;\nLABEL_16:\n  v31 = v6;\n  v30[0] = v12;\n  v32 = (v9 != 0) | flag;\n  v30[1] = v9;\n  v23 = uu_mknod::mknod(*(_QWORD *)(v7 + 8), *(_QWORD *)(v7 + 16), v30);\n  uucore::mods::error::set_exit_code(v23);\n  core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(dest);\n  return 0LL;\n}",
+    "_ZN8uu_mknod5mknod17hdf9c77b8560e7a8dE": "__int64 __fastcall uu_mknod::mknod(__int64 a1, __int64 a2, __int64 a3)\n{\n  const char *v4; // r14\n  __int64 v5; // rdx\n  __int64 v6; // rbx\n  __mode_t v7; // ebp\n  unsigned int v8; // ebp\n  __mode_t v9; // r12d\n  __int64 v11; // rax\n  __int64 v12; // rdx\n  const char *v13; // r15\n  __int64 v14; // rdx\n  __int64 v15; // r12\n  _BYTE v16[80]; // [rsp+8h] [rbp-50h] BYREF\n\n  <&[u8] as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl(v16, a1, a2);\n  v4 = (const char *)core::result::Result<T,E>::expect(v16, &off_E3FF0);\n  v6 = v5;\n  v7 = *(_DWORD *)(a3 + 16);\n  if ( (~v7 & 0x1B6) != 0 )\n  {\n    v9 = umask(0);\n    v8 = mknod(v4, v7, *(_QWORD *)a3);\n    umask(v9);\n    if ( v8 == -1 )\n    {\nLABEL_6:\n      v11 = uucore::execution_phrase();\n      <&[u8] as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl(v16, v11, v12);\n      v13 = (const char *)core::result::Result<T,E>::expect(v16, &off_E4008);\n      v15 = v14;\n      perror(v13);\n      core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v13, v15);\n    }\n  }\n  else\n  {\n    v8 = mknod(v4, v7, *(_QWORD *)a3);\n    if ( v8 == -1 )\n      goto LABEL_6;\n  }\n  core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v4, v6);\n  return v8;\n}",
+    "_ZN8uu_mknod6uu_app17hee70adc3caf76ce8E": "void *__fastcall uu_mknod::uu_app(void *dest)\n{\n  __int64 v1; // rax\n  _BYTE v3[632]; // [rsp+8h] [rbp-AB0h] BYREF\n  int v4; // [rsp+280h] [rbp-838h]\n  int v5; // [rsp+284h] [rbp-834h]\n  _DWORD src[175]; // [rsp+288h] [rbp-830h] BYREF\n  __int64 v7; // [rsp+544h] [rbp-574h]\n  int v8; // [rsp+54Ch] [rbp-56Ch]\n  _DWORD desta[175]; // [rsp+550h] [rbp-568h] BYREF\n  __int64 v10; // [rsp+80Ch] [rbp-2ACh]\n  int v11; // [rsp+814h] [rbp-2A4h]\n  _QWORD v12[84]; // [rsp+818h] [rbp-2A0h] BYREF\n\n  v1 = uucore::util_name();\n  clap_builder::builder::command::Command::new(src, v1);\n  clap_builder::builder::command::Command::version(desta, src);\n  uucore::format_usage(v3, aOptionNameType, 38LL);\n  clap_builder::builder::command::Command::override_usage(src, desta);\n  clap_builder::builder::command::Command::after_help(desta, src);\n  clap_builder::builder::command::Command::about(src, desta);\n  memcpy(desta, src, sizeof(desta));\n  v10 = v7 | 0x8000000080LL;\n  v11 = v8;\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v3, src, 109LL);\n  clap_builder::builder::arg::Arg::long(src, v3);\n  clap_builder::builder::arg::Arg::value_name(v3, src);\n  clap_builder::builder::arg::Arg::help(v12, v3);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::value_name(v3, desta);\n  clap_builder::builder::arg::Arg::help(desta, v3);\n  memcpy(v3, desta, sizeof(v3));\n  v4 = desta[158] | 1;\n  v5 = desta[159];\n  clap_builder::builder::arg::Arg::value_hint(v12, v3);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::value_name(v3, src);\n  clap_builder::builder::arg::Arg::help(src, v3);\n  memcpy(v3, src, sizeof(v3));\n  v4 = src[158] | 1;\n  v5 = src[159];\n  clap_builder::builder::arg::Arg::value_parser(v12, v3);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::value_name(v3, desta);\n  clap_builder::builder::arg::Arg::help(desta, v3);\n  <u64 as clap_builder::builder::value_parser::ValueParserFactory>::value_parser(v12);\n  clap_builder::builder::arg::Arg::value_parser(v3, desta);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::value_name(v3, src);\n  clap_builder::builder::arg::Arg::help(src, v3);\n  <u64 as clap_builder::builder::value_parser::ValueParserFactory>::value_parser(v12);\n  clap_builder::builder::arg::Arg::value_parser(v3, src);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v3, desta, 90LL);\n  clap_builder::builder::arg::Arg::help(desta, v3);\n  clap_builder::builder::arg::Arg::action(v3, desta);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::long(v3, src);\n  clap_builder::builder::arg::Arg::value_name(src, v3);\n  v12[0] = 1LL;\n  clap_builder::builder::arg::Arg::value_parser(v3, src);\n  clap_builder::builder::arg::Arg::num_args(src, v3);\n  memcpy(v3, src, sizeof(v3));\n  v4 = src[158] | 0x80;\n  v5 = src[159];\n  clap_builder::builder::arg::Arg::help(src, v3);\n  clap_builder::builder::command::Command::arg(dest, desta);\n  return dest;\n}",
+    "_ZN8uu_mknod8get_mode17h084d65bfd1ad9130E": "__int64 __fastcall uu_mknod::get_mode(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rax\n  int v3; // ecx\n  __int64 v4; // rsi\n  __int128 v6; // [rsp+0h] [rbp-68h] BYREF\n  __int64 v7; // [rsp+10h] [rbp-58h]\n  __int64 v8; // [rsp+18h] [rbp-50h] BYREF\n  int v9; // [rsp+20h] [rbp-48h]\n  __int64 v10; // [rsp+24h] [rbp-44h]\n  int v11; // [rsp+2Ch] [rbp-3Ch]\n  __int64 v12; // [rsp+30h] [rbp-38h]\n  int v13; // [rsp+38h] [rbp-30h]\n  __int128 v14; // [rsp+40h] [rbp-28h] BYREF\n  __int64 v15; // [rsp+50h] [rbp-18h]\n\n  if ( !a2 )\n  {\n    *(_DWORD *)(a1 + 8) = 438;\nLABEL_8:\n    *(_QWORD *)a1 = 0x8000000000000000LL;\n    return a1;\n  }\n  uucore::features::mode::parse_mode(&v6, *(_QWORD *)(a2 + 8), *(_QWORD *)(a2 + 16));\n  if ( (_QWORD)v6 != 0x8000000000000000LL )\n  {\n    v15 = v7;\n    v14 = v6;\n    uu_mknod::get_mode::{{closure}}(&v8, &v14);\n    v2 = v8;\n    v3 = v9;\n    v13 = v11;\n    v4 = v10;\n    v12 = v10;\n    *(_DWORD *)(a1 + 20) = v11;\n    *(_QWORD *)(a1 + 12) = v4;\n    *(_QWORD *)a1 = v2;\n    *(_DWORD *)(a1 + 8) = v3;\n    return a1;\n  }\n  if ( DWORD2(v6) <= 0x1FF )\n  {\n    *(_DWORD *)(a1 + 8) = DWORD2(v6);\n    goto LABEL_8;\n  }\n  <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(a1, aModeMustSpecif, 43LL);\n  return a1;\n}",
+    "_ZN8uu_mknod10parse_type17h7d6922ce34f49271E": "__int64 __fastcall uu_mknod::parse_type(__int64 a1, __int64 a2, __int64 a3)\n{\n  unsigned int v4; // edx\n  __int64 result; // rax\n  int v6; // ecx\n  __int64 v7; // [rsp+8h] [rbp-40h] BYREF\n  int v8; // [rsp+10h] [rbp-38h]\n  __int64 v9; // [rsp+14h] [rbp-34h]\n  int v10; // [rsp+1Ch] [rbp-2Ch]\n  _QWORD v11[5]; // [rsp+20h] [rbp-28h] BYREF\n\n  v11[0] = a2;\n  v11[1] = a2 + a3;\n  if ( (core::str::validations::next_code_point(v11) & 1) != 0 )\n    return uu_mknod::parse_type::{{closure}}(a1, a2, a3, v4);\n  <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v7, aMissingDeviceT, 19LL);\n  result = v7;\n  v6 = v8;\n  *(_DWORD *)(a1 + 20) = v10;\n  *(_QWORD *)(a1 + 12) = v9;\n  *(_QWORD *)a1 = result;\n  *(_DWORD *)(a1 + 8) = v6;\n  return result;\n}"
+  },
+  "function_call_counts": {
+    "_ZN8uu_mknod6uumain17h73b17a6bda407fcfE": {
+      "uucore::disable_rust_signal_handlers": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uu_mknod::uumain::uumain": 1,
+      "uucore::mods::error::get_exit_code": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 3,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "uucore::execution_phrase": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1
+    },
+    "_ZN8uu_mknod6uumain6uumain17h8bac4110a78873abE": {
+      "uu_mknod::uu_app": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 6,
+      "clap_builder::parser::error::MatchesError::unwrap": 6,
+      "core::option::unwrap_failed": 1,
+      "uu_mknod::get_mode": 1,
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 2,
+      "core::option::expect_failed": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 2,
+      "uu_mknod::mknod": 1,
+      "uucore::mods::error::set_exit_code": 1
+    },
+    "_ZN8uu_mknod5mknod17hdf9c77b8560e7a8dE": {
+      "<&[u8] as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl": 2,
+      "core::result::Result<T,E>::expect": 2,
+      "umask": 2,
+      "mknod": 2,
+      "uucore::execution_phrase": 1,
+      "perror": 1,
+      "core::ptr::drop_in_place<alloc::ffi::c_str::CString>": 2
+    },
+    "_ZN8uu_mknod6uu_app17hee70adc3caf76ce8E": {
+      "uucore::util_name": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "memcpy": 4,
+      "clap_builder::builder::arg::Arg::new": 7,
+      "clap_builder::builder::arg::Arg::short": 2,
+      "clap_builder::builder::arg::Arg::long": 2,
+      "clap_builder::builder::arg::Arg::value_name": 6,
+      "clap_builder::builder::arg::Arg::help": 7,
+      "clap_builder::builder::command::Command::arg": 7,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::arg::Arg::value_parser": 4,
+      "<u64 as clap_builder::builder::value_parser::ValueParserFactory>::value_parser": 2,
+      "clap_builder::builder::arg::Arg::action": 1,
+      "clap_builder::builder::arg::Arg::num_args": 1
+    },
+    "_ZN8uu_mknod8get_mode17h084d65bfd1ad9130E": {
+      "uucore::features::mode::parse_mode": 1,
+      "uu_mknod::get_mode::{{closure}}": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1
+    },
+    "_ZN8uu_mknod10parse_type17h7d6922ce34f49271E": {
+      "uu_mknod::parse_type::{{closure}}": 1,
+      "core::str::validations::next_code_point": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN8uu_mknod6uumain17h73b17a6bda407fcfE": {},
+    "_ZN8uu_mknod6uumain6uumain17h8bac4110a78873abE": {},
+    "_ZN8uu_mknod5mknod17hdf9c77b8560e7a8dE": {},
+    "_ZN8uu_mknod6uu_app17hee70adc3caf76ce8E": {},
+    "_ZN8uu_mknod8get_mode17h084d65bfd1ad9130E": {},
+    "_ZN8uu_mknod10parse_type17h7d6922ce34f49271E": {}
+  },
+  "variable_types": {
+    "_ZN8uu_mknod6uumain17h73b17a6bda407fcfE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_mknod6uumain6uumain17h8bac4110a78873abE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_108": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_mknod5mknod17hdf9c77b8560e7a8dE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r12d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          80
+        ]
+      ]
+    },
+    "_ZN8uu_mknod6uu_app17hee70adc3caf76ce8E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          632
+        ]
+      ],
+      "stack_640": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_644": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_648": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_1348": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1356": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1360": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_2060": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2068": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2072": [
+        [
+          "array",
+          672
+        ]
+      ]
+    },
+    "_ZN8uu_mknod8get_mode17h084d65bfd1ad9130E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_36": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_44": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_mknod10parse_type17h7d6922ce34f49271E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_edx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_28": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_32": [
+        [
+          "array",
+          40
+        ]
+      ]
+    }
+  }
+}

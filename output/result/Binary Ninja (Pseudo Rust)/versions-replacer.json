@@ -1,0 +1,646 @@
+{
+  "decompilation": {
+    "_ZN17versions_replacer7replace24replace_versions_in_file17hd2df8f901e71d2fcE": "\n  fn versions_replacer::replace::replace_versions_in_file::hd2df8f901e71d2fc(arg1: i64, arg2: i64, arg3: *mut i64) -> i64\n\n{\n    let mut rax: i64;\n    let mut rdx: i64;\n    rax = _$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$::as_ref::h990a0115cc6ce4a4(arg1);\n    let mut var_58: i64 = rax;\n    let mut var_30: i128;\n    std::fs::read_to_string::h0dbd6e5991166611(&var_30, rax);\n    let mut var_78: i64;\n    eyre::context::_$LT$impl$u20$eyre..WrapErr$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$::wrap_err_with::h956695fcc1fb384c(&var_78, &var_30, &var_58);\n    let rax_1: i64 = var_78;\n    \n    if -(rax_1) == -0x8000000000000000\n    {\n        return 1;\n    }\n    \n    let mut var_48: i64 = rax_1;\n    let var_70: *mut i8;\n    let var_40_1: *mut i8 = var_70;\n    let var_68: i64;\n    let var_38_1: i64 = var_68;\n    versions_replacer::replace::replace_versions_in_string::h063c15bef42f5705(&var_30, var_70, \n        var_68, arg3);\n    let var_20: i64;\n    let var_68_1: i64 = var_20;\n    var_78 = var_30;\n    let var_18: *mut i8;\n    \n    if var_18 != 0 && eyre::context::_$LT$impl$u20$eyre..WrapErr$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$::wrap_err_with::h7ae28368aab41094(std::fs::write::h48952fe712cc9e14(var_58, rdx, var_70), &var_58) != 0\n    {\n        core::ptr::drop_in_place$LT$regex..error..Error$GT$::h40176a95864f42c7(&var_78);\n        core::ptr::drop_in_place$LT$alloc..string..String$GT$::h8e8a5cd0dfd373fb(&var_48);\n        return 1;\n    }\n    \n    core::ptr::drop_in_place$LT$regex..error..Error$GT$::h40176a95864f42c7(&var_78);\n    core::ptr::drop_in_place$LT$alloc..string..String$GT$::h8e8a5cd0dfd373fb(&var_48);\n    0\n}\n",
+    "_ZN17versions_replacer8metadata32collect_versions_from_cargo_toml17hfc1c339465d44313E": "\n  fn versions_replacer::metadata::collect_versions_from_cargo_toml::hfc1c339465d44313(arg1: *mut i64, arg2: *mut c_void) -> i64\n\n{\n    let var_258: i64 = -0x8000000000000000;\n    let var_240: i64 = -0x8000000000000000;\n    let var_228: i64 = -0x8000000000000000;\n    let mut var_288: i64 = 0;\n    let var_280: i64 = 8;\n    let var_278: i128 = {0};\n    let var_268: i64 = 8;\n    let var_260: i64 = 0;\n    let var_210: i64 = 0;\n    let var_200: i64 = 0;\n    let var_1f8: i32 = 0;\n    cargo_metadata::MetadataCommand::manifest_path::h505cce700b18956d(&var_288, \n        _$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$::as_ref::h5b3439d32baa9182(arg2));\n    let mut var_1c0: i64;\n    cargo_metadata::MetadataCommand::exec::heef95a2c2766c53e(&var_1c0, &var_288);\n    let mut var_f0: i64;\n    eyre::context::_$LT$impl$u20$eyre..WrapErr$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$::wrap_err::h1fc4642316d0d90b(&var_f0, &var_1c0);\n    let r12: i64 = var_f0;\n    let var_e8: i64;\n    \n    if r12 == -0x8000000000000000\n    {\n        arg1[1] = var_e8;\n        *arg1 = 0;\n        return core::ptr::drop_in_place$LT$cargo_metadata..MetadataCommand$GT$::h13f2d0c45c19c03e(\n            &var_288);\n    }\n    \n    let mut var_1b0: i64;\n    let mut var_e0: ();\n    memcpy(&var_1b0, &var_e0, 0xc0);\n    var_1c0 = r12;\n    let var_1b8_1: i64 = var_e8;\n    core::ptr::drop_in_place$LT$cargo_metadata..MetadataCommand$GT$::h13f2d0c45c19c03e(&var_288);\n    let mut var_1f0: i128;\n    core::iter::traits::iterator::Iterator::collect::heb703dadacfa79d7(&var_1f0, var_e8);\n    let zmm0_1: i128 = var_1f0;\n    let var_1d0: i128;\n    *arg1.byte_offset(0x20) = var_1d0;\n    let var_1e0: i128;\n    *arg1.byte_offset(0x10) = var_1e0;\n    *arg1 = zmm0_1;\n    core::ptr::drop_in_place$LT$cargo_metadata..Metadata$GT$::h2465f5346126ad86(&var_1c0)\n}\n",
+    "_ZN17versions_replacer4main17h6cefe8d236acc800E": "\n  fn versions_replacer::main::h6cefe8d236acc800() -> *mut i8\n\n{\n    let mut var_b8: ();\n    argh::from_env::ha041fed7dc0b5261(&var_b8);\n    let mut var_198: *mut *mut c_void;\n    let mut var_a0: ();\n    versions_replacer::metadata::collect_versions_from_cargo_toml::hfc1c339465d44313(&var_198, \n        &var_a0);\n    let rax: *mut *mut c_void = var_198;\n    let result_3: *mut i8;\n    let mut result: *mut i8 = result_3;\n    \n    if rax != 0\n    {\n        let var_178: i128;\n        let var_1a8_1: i128 = var_178;\n        let mut var_188: i128;\n        let var_1b8_1: i128 = var_188;\n        let mut var_1c8: *mut *mut c_void = rax;\n        let result_2: *mut i8 = result;\n        let mut var_258: i64 = 0;\n        let var_250_1: i64 = 8;\n        let var_248_1: i64 = 0;\n        let mut var_240: i128;\n        walkdir::WalkDir::new::hfe01dd7f4cf1d222(&var_240, &var_b8);\n        let var_208: i128;\n        let var_108_1: i128 = var_208;\n        let mut var_218: i128;\n        let var_118_1: i128 = var_218;\n        let mut var_228: i128;\n        let var_128_1: i128 = var_228;\n        let var_140_1: i128 = var_240;\n        let mut var_230: i64;\n        let var_130_1: i64 = var_230;\n        var_198 = nullptr;\n        var_188 = 0;\n        *var_188[8] = 8;\n        let mut var_178_1: i128 = {0};\n        let var_168_1: i64 = 8;\n        let var_160_1: i128 = {0};\n        let var_150_1: i64 = 8;\n        let var_148_1: i64 = 0;\n        let var_f8_1: i128 = {0};\n        \n        loop\n        {\n            let mut var_68: i64;\n            _$LT$walkdir..IntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hca085ed089cd688a(&var_68, &var_198);\n            let mut var_1f8: i64;\n            let mut var_e8: i64;\n            \n            if var_68 == -0x7ffffffffffffffe\n            {\n                core::ptr::drop_in_place$LT$walkdir..IntoIter$GT$::h74a10217dc8cc9e3(&var_198);\n                var_1f8 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::fold::hb96c0dc395601aaf(var_250_1, var_250_1 + (var_248_1 << 3));\n                var_e8 = var_248_1;\n                var_240 = &var_1f8;\n                *var_240[8] = core::fmt::num::imp::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$::fmt::h3bef13756113ac7b;\n                let var_230_1: *mut i64 = &var_e8;\n                var_228 = core::fmt::num::imp::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$::fmt::h3bef13756113ac7b;\n                var_198 = &data_62c388;\n                let var_190: i64 = 3;\n                var_178_1 = 0;\n                var_188 = &var_240;\n                *var_188[8] = 2;\n                std::io::stdio::_print::h5e446ff973c02de6(&var_198);\n                core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$regex_automata..util..primitives..NonMaxUsize$GT$$GT$$GT$::h82db46cefddfb97a(var_258, var_250_1);\n                core::ptr::drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$::hd78a9aace21418ed(&var_1c8);\n                result = nullptr;\n                break;\n            }\n            \n            eyre::context::_$LT$impl$u20$eyre..WrapErr$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$::wrap_err::h1daad06df65dddf2(&var_240, &var_68);\n            let rax_2: i64 = var_240;\n            result = *var_240[8];\n            \n            if rax_2 != -0x8000000000000000\n            {\n                let var_1d8_1: i128 = var_228;\n                var_1f8 = rax_2;\n                let result_1: *mut i8 = result;\n                let r15_1: u64 = var_230;\n                let var_88: *mut c_void;\n                \n                if std::path::Path::is_file::h6e28d87ff76ffc41(result, r15_1) == 0\n                {\n                    core::ptr::drop_in_place$LT$walkdir..dent..DirEntry$GT$::h1c7f82e77fa4296a(\n                        &var_1f8);\n                    continue;\n                }\n                else if var_88 == 0\n                {\n                    'label_50a811:\n                    let mut rax_6: i8;\n                    let mut rdx_4: *mut c_void;\n                    rax_6 = versions_replacer::replace::replace_versions_in_file::hd2df8f901e71d2fc(\n                        result, r15_1, &var_1c8);\n                    let mut rax_7: i8;\n                    let mut result_4: *mut i8;\n                    rax_7 = eyre::context::_$LT$impl$u20$eyre..WrapErr$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$::wrap_err_with::h2af13dbc59207415(rax_6, rdx_4, result);\n                    result = result_4;\n                    \n                    if (rax_7 & 1) != 0\n                    {\n                        core::ptr::drop_in_place$LT$walkdir..dent..DirEntry$GT$::h1c7f82e77fa4296a(\n                            &var_1f8);\n                    }\n                    else\n                    {\n                        if result != 0\n                        {\n                            alloc::vec::Vec$LT$T$C$A$GT$::push::h2718dbc9e5e05a23(&var_258, result);\n                        }\n                        \n                        core::ptr::drop_in_place$LT$walkdir..dent..DirEntry$GT$::h1c7f82e77fa4296a(\n                            &var_1f8);\n                        continue;\n                    }\n                }\n                else\n                {\n                    let mut rax_4: *mut i8;\n                    let mut rdx_1: i64;\n                    rax_4 = std::path::Path::file_name::h6d40d88bf3fb287a(result, r15_1);\n                    \n                    if rax_4 == 0\n                    {\n                        result = versions_replacer::main::_$u7b$$u7b$closure$u7d$$u7d$::hb3dbdd388b13090f(result);\n                        core::ptr::drop_in_place$LT$walkdir..dent..DirEntry$GT$::h1c7f82e77fa4296a(\n                            &var_1f8);\n                    }\n                    else\n                    {\n                        core::str::converts::from_utf8::h8a6dc80f786921e0(&var_240, rax_4, rdx_1);\n                        \n                        if var_240 == 1\n                        {\n                            var_240 = &data_62c378;\n                            *var_240[8] = 1;\n                            let var_230_2: i64 = 8;\n                            let var_228_1: i128 = {0};\n                            result = eyre::private::format_err::ha07d25133e5e7f47(&var_240, \n                                &data_62c3d0);\n                            core::ptr::drop_in_place$LT$walkdir..dent..DirEntry$GT$::h1c7f82e77fa4296a(&var_1f8);\n                        }\n                        else\n                        {\n                            let rsi_7: i64 = var_230;\n                            var_240 = 0;\n                            *var_240[8] = *var_240[8];\n                            var_230 = rsi_7;\n                            var_228 = 0;\n                            *var_228[8] = rsi_7;\n                            var_218 = 1;\n                            regex_automata::util::search::Input::set_span::h281761d27acb2fd6(\n                                &var_240);\n                            let var_c8_1: i128 = var_228;\n                            let var_d8_1: i128 = var_230;\n                            var_e8 = var_240;\n                            let var_80: *mut c_void;\n                            regex_automata::meta::regex::Regex::search_half::hbf4439b22ad82210(\n                                &var_240, var_88, var_80, &var_e8);\n                            \n                            if (var_240 & 1) != 0\n                            {\n                                goto 'label_50a811;\n                            }\n                            \n                            core::ptr::drop_in_place$LT$walkdir..dent..DirEntry$GT$::h1c7f82e77fa4296a(&var_1f8);\n                            continue;\n                        }\n                    }\n                }\n            }\n            \n            core::ptr::drop_in_place$LT$walkdir..IntoIter$GT$::h74a10217dc8cc9e3(&var_198);\n            core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$regex_automata..util..primitives..NonMaxUsize$GT$$GT$$GT$::h82db46cefddfb97a(var_258, var_250_1);\n            core::ptr::drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$::hd78a9aace21418ed(&var_1c8);\n            break;\n        }\n    }\n    \n    core::ptr::drop_in_place$LT$versions_replacer..VersionsReplacer$GT$::hc569756555df0ae2(&var_b8);\n    result\n}\n",
+    "_ZN17versions_replacer7replace26replace_versions_in_string17h063c15bef42f5705E": "\n  fn versions_replacer::replace::replace_versions_in_string::h063c15bef42f5705(arg1: *mut i64, arg2: *mut i8, arg3: i64, arg4: *mut i64) -> *mut i64\n\n{\n    let rax: i64;\n    let mut var_28: i64 = rax;\n    var_28 = 0;\n    regex::regex::string::Regex::replacen::hc4c3a388728a78fb(arg1, \n        once_cell::sync::OnceCell$LT$T$GT$::get_or_try_init::h080610189289e47a(), arg2, arg3, arg4, \n        &var_28);\n    arg1[3] = var_28;\n    arg1\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN17versions_replacer7replace24replace_versions_in_file17hd2df8f901e71d2fcE": {
+      "_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h990a0115cc6ce4a4E": 1,
+      "_ZN3std2fs14read_to_string17h0dbd6e5991166611E": 1,
+      "_ZN4eyre7context90_$LT$impl$u20$eyre..WrapErr$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$13wrap_err_with17h956695fcc1fb384cE": 1,
+      "_ZN17versions_replacer7replace26replace_versions_in_string17h063c15bef42f5705E": 1,
+      "_ZN4eyre7context90_$LT$impl$u20$eyre..WrapErr$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$13wrap_err_with17h7ae28368aab41094E": 1,
+      "_ZN3std2fs5write17h48952fe712cc9e14E": 1,
+      "_ZN4core3ptr40drop_in_place$LT$regex..error..Error$GT$17h40176a95864f42c7E": 2,
+      "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8e8a5cd0dfd373fbE": 2
+    },
+    "_ZN17versions_replacer8metadata32collect_versions_from_cargo_toml17hfc1c339465d44313E": {
+      "_ZN14cargo_metadata15MetadataCommand13manifest_path17h505cce700b18956dE": 1,
+      "_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h5b3439d32baa9182E": 1,
+      "_ZN14cargo_metadata15MetadataCommand4exec17heef95a2c2766c53eE": 1,
+      "_ZN4eyre7context90_$LT$impl$u20$eyre..WrapErr$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$8wrap_err17h1fc4642316d0d90bE": 1,
+      "_ZN4core3ptr52drop_in_place$LT$cargo_metadata..MetadataCommand$GT$17h13f2d0c45c19c03eE": 2,
+      "memcpy": 1,
+      "_ZN4core4iter6traits8iterator8Iterator7collect17heb703dadacfa79d7E": 1,
+      "_ZN4core3ptr45drop_in_place$LT$cargo_metadata..Metadata$GT$17h2465f5346126ad86E": 1
+    },
+    "_ZN17versions_replacer4main17h6cefe8d236acc800E": {
+      "_ZN4argh8from_env17ha041fed7dc0b5261E": 1,
+      "_ZN17versions_replacer8metadata32collect_versions_from_cargo_toml17hfc1c339465d44313E": 1,
+      "_ZN7walkdir7WalkDir3new17hfe01dd7f4cf1d222E": 1,
+      "_ZN76_$LT$walkdir..IntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca085ed089cd688aE": 1,
+      "_ZN4core3ptr38drop_in_place$LT$walkdir..IntoIter$GT$17h74a10217dc8cc9e3E": 2,
+      "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb96c0dc395601aafE": 1,
+      "_ZN3std2io5stdio6_print17h5e446ff973c02de6E": 1,
+      "_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$regex_automata..util..primitives..NonMaxUsize$GT$$GT$$GT$17h82db46cefddfb97aE": 2,
+      "_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17hd78a9aace21418edE": 2,
+      "_ZN4eyre7context90_$LT$impl$u20$eyre..WrapErr$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$8wrap_err17h1daad06df65dddf2E": 1,
+      "_ZN3std4path4Path7is_file17h6e28d87ff76ffc41E": 1,
+      "_ZN4core3ptr44drop_in_place$LT$walkdir..dent..DirEntry$GT$17h1c7f82e77fa4296aE": 6,
+      "_ZN17versions_replacer7replace24replace_versions_in_file17hd2df8f901e71d2fcE": 1,
+      "_ZN4eyre7context90_$LT$impl$u20$eyre..WrapErr$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$13wrap_err_with17h2af13dbc59207415E": 1,
+      "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2718dbc9e5e05a23E": 1,
+      "_ZN3std4path4Path9file_name17h6d40d88bf3fb287aE": 1,
+      "_ZN17versions_replacer4main28_$u7b$$u7b$closure$u7d$$u7d$17hb3dbdd388b13090fE": 1,
+      "_ZN4core3str8converts9from_utf817h8a6dc80f786921e0E": 1,
+      "_ZN4eyre7private10format_err17ha07d25133e5e7f47E": 1,
+      "_ZN14regex_automata4util6search5Input8set_span17h281761d27acb2fd6E": 1,
+      "_ZN14regex_automata4meta5regex5Regex11search_half17hbf4439b22ad82210E": 1,
+      "_ZN4core3ptr56drop_in_place$LT$versions_replacer..VersionsReplacer$GT$17hc569756555df0ae2E": 1
+    },
+    "_ZN17versions_replacer7replace26replace_versions_in_string17h063c15bef42f5705E": {
+      "_ZN5regex5regex6string5Regex8replacen17hc4c3a388728a78fbE": 1,
+      "_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h080610189289e47aE": 1
+    }
+  },
+  "num_variables": {
+    "_ZN17versions_replacer7replace24replace_versions_in_file17hd2df8f901e71d2fcE": 13,
+    "_ZN17versions_replacer8metadata32collect_versions_from_cargo_toml17hfc1c339465d44313E": 22,
+    "_ZN17versions_replacer4main17h6cefe8d236acc800E": 53,
+    "_ZN17versions_replacer7replace26replace_versions_in_string17h063c15bef42f5705E": 2
+  },
+  "macro_call_counts": {
+    "_ZN17versions_replacer7replace24replace_versions_in_file17hd2df8f901e71d2fcE": {},
+    "_ZN17versions_replacer8metadata32collect_versions_from_cargo_toml17hfc1c339465d44313E": {},
+    "_ZN17versions_replacer4main17h6cefe8d236acc800E": {},
+    "_ZN17versions_replacer7replace26replace_versions_in_string17h063c15bef42f5705E": {}
+  },
+  "variable_types": {
+    "_ZN17versions_replacer7replace24replace_versions_in_file17hd2df8f901e71d2fcE": {
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN17versions_replacer8metadata32collect_versions_from_cargo_toml17hfc1c339465d44313E": {
+      "stack_144": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_424": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN17versions_replacer4main17h6cefe8d236acc800E": {
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_200": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_464": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_152": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_496": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_472": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_440": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN17versions_replacer7replace26replace_versions_in_string17h063c15bef42f5705E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

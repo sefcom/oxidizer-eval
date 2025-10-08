@@ -1,0 +1,955 @@
+{
+  "decompilation": {
+    "_ZN10check_docs4main17ha386782cabb158e1E": "fn check_docs::main() -> long long {\n    let v0: struct40;  // [bp-0x1e8], Other Possible Types: struct48, Result<struct24, struct16>\n    let v1: struct48;  // [bp-0x1e8], Other Possible Types: u64\n    let v2: struct24;  // [bp-0x1e8], Other Possible Types: struct48\n    let v3: Result<struct48, struct16>;  // [bp-0x1e8]\n    let v4: struct48;  // [bp-0x1e8]\n    let v5: u64;  // [bp-0x1e0]\n    let v6: u64;  // [bp-0x1d8]\n    let v7: struct24;  // [bp-0x1d0]\n    let v8: u64;  // [bp-0x1c0]\n    let v9: u128;  // [bp-0x1b8]\n    let v10: u64;  // [bp-0x1b0]\n    let v11: u64;  // [bp-0x1a8]\n    let v12: u128;  // [bp-0x198]\n    let v13: u64;  // [bp-0x190]\n    let v14: u64;  // [bp-0x188]\n    let v15: u128;  // [bp-0x178]\n    let v16: u64;  // [bp-0x170]\n    let v17: u64;  // [bp-0x168]\n    let v18: u128;  // [bp-0x158]\n    let v19: u64;  // [bp-0x150]\n    let v20: u64;  // [bp-0x148]\n    let v21: iNone;  // [bp-0x138]\n    let v22: struct24;  // [bp-0x138]\n    let v23: u64;  // [bp-0x128]\n    let v24: u64;  // [bp-0x118]\n    let v25: u8;  // [bp-0x110]\n    let v26: u64;  // [bp-0x108]\n    let v27: u64;  // [bp-0x100]\n    let v28: struct24;  // [bp-0xf8]\n    let v29: struct48;  // [bp-0xf8]\n    let v30: u128;  // [bp-0xd8]\n    let v31: struct24;  // [bp-0xc8]\n    let v32: u64;  // [bp-0xb0]\n    let v33: u64;  // [bp-0xa8]\n    let v34: u64;  // [bp-0xa0]\n    let v35: struct24;  // [bp-0x98]\n    let v36: struct24;  // [bp-0x80]\n    let v37: struct24;  // [bp-0x68]\n    let v38: struct24;  // [bp-0x48]\n    let v40: u64;  // r15\n    let v41: iNone;  // xmm1\n\n    v0 = check_docs::search_for_pattern(\"ANCHOR\", \".\");\n    if (((0 ^ v0 as i64) & (0 ^ -(v1))) >> 63) as char {\n        return v5;\n    }\n    v3 = check_docs::extract_starts_and_ends(v5, v6);\n    v40 = v5;\n    if let Err(_) = v3 {\n        return v40;\n    }\n    v38 = v7;\n    v36 = struct24 {\n        field_0: v3 as i64\n        field_8: v40\n        field_16: v6\n    };\n    v4 = check_docs::filter_valid_anchors(&v36, &v38);\n    v23 = v6;\n    v21 = v4.field_0;\n    v11 = v8;\n    v9 = v4.field_24;\n    v0 = check_docs::search_for_pattern(\"{{#include\", \".\");\n    v40 = v5;\n    if let Ok(_) = v0 {\n        v31 = struct24 {\n            field_0: v0 as i64\n            field_8: v40\n            field_16: v6\n        };\n        v1 = check_docs::parse_includes(&v31);\n        v37 = v2;\n        v14 = v8;\n        v12 = v1.field_24;\n        v28 = v22;\n        v2 = check_docs::validate_includes(&v37, &v28);\n        v17 = v6;\n        v15 = v2.field_0;\n        v20 = v8;\n        v18 = v2.field_24;\n        v0 = check_docs::search_for_pattern(\".md\", \"./docs/src/SUMMARY.md\");\n        v40 = v5;\n        if let Ok(_) = v0 {\n            v32 = v0 as i64;\n            v33 = v40;\n            v34 = v6;\n            v29 = check_docs::parse_md_files(&v32, \"./docs/src/\");\n            check_docs::find_files(&v0, \"*.md\", \"./docs/src/\", \"SUMMARY.md\");\n            v40 = v5;\n            if let Ok(_) = v0 {\n                v35 = struct24 {\n                    field_0: v0 as i64\n                    field_8: v40\n                    field_16: v6\n                };\n                v41 = *(&v29.field_16 as &i128);\n                v0 = struct48 {\n                    field_0: v29.field_0\n                    field_16: v41\n                    field_32: v30\n                };\n                check_docs::validate_md_files(&v25, &v0, &v35);\n                v24 = v20;\n                check_docs::report_errors(\"warning\", v19, v20);\n                check_docs::report_errors(\"include paths\", v13, v14);\n                check_docs::report_errors(\"anchors\", v10, v11);\n                check_docs::report_errors(\"includes\", v16, v17);\n                check_docs::report_errors(\"md files\", v26, v27);\n                if !v11 && !v17 && !v14 && !v24 && !v27 {\n                    return 0;\n                }\n                v0 = struct40 {\n                    field_0: \"Finished with errors\"\n                    field_8: 1\n                    field_16: 8\n                    field_24: 0\n                };\n                v40 = anyhow::__private::format_err(&v0);\n            }\n        }\n    }\n    return v40;\n}\n",
+    "_ZN10check_docs13report_errors17h75874821b4daa881E": "fn check_docs::report_errors(a0: i64, a1: i64, a2: i64, a3: i64) -> u64 {\n    let v0: u64;  // [bp-0x78]\n    let v1: struct16;  // [bp-0x40]\n    let v3: u64;  // rbx\n    let v4: u64;  // rbx\n    let v5: u64;  // rax\n    let v6: u64;  // rbx\n    let v7: u64;  // rax\n\n    v1 = struct16 {\n        field_0: a0\n        field_8: a1\n    };\n    if !a3 {\n        return v7;\n    }\n    eprintln!(\"\\nInvalid {} detected!\\n\", &v1);\n    do {\n        v4 = v3;\n        v0 = a2;\n        a2 += 8;\n        v5 = eprintln!(\"{}\\n\", &v0);\n        v6 = v4 - 8;\n        v3 = v6;\n    } while (v4 != 8);\n    return v5;\n}\n",
+    "_ZN10check_docs17validate_includes17h41bae39804dee97eE": "fn check_docs::validate_includes(a1: &struct24, a2: &struct24) -> : struct48 {\n    let a0: i64;  // rdi\n    let v0: u128;  // [bp-0xa8]\n    let v1: u64;  // [bp-0x98]\n    let v2: struct24;  // [bp-0x88], Other Possible Types: struct48\n    let v3: u64;  // [bp-0x78]\n    let v4: iNone;  // [bp-0x70]\n    let v5: u64;  // [bp-0x60]\n    let v6: struct32;  // [bp-0x58], Other Possible Types: u128\n    let v7: u64;  // [bp-0x48]\n    let v8: i64;  // [bp-0x38]\n    let v9: u8;  // [bp-0x30]\n    let v10: i8;  // [bp-0x20]\n\n    v6 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a1);\n    v8 = a2;\n    v2 = itertools::Itertools::partition_map(&v6);\n    v1 = v3;\n    v0 = v2.field_0;\n    v7 = v5;\n    v6 = v4;\n    v2 = struct24 {\n        field_0: *((a2 + 8) as &i64)\n        field_8: *((a2 + 16) as &i64) * 56 + *((a2 + 8) as &i64)\n        field_16: &v0\n    };\n    core::iter::traits::iterator::Iterator::collect(&v9, &v2);\n    return struct48 {\n        field_0: v6\n        field_16: v7\n        field_24: v9\n        field_40: *(&v10 as &i64)\n    };\n}\n",
+    "_ZN10check_docs14parse_includes17h98cae0f800d53a09E": "fn check_docs::parse_includes(a1: &struct24) -> : struct48 {\n    let a0: u64;  // rdi\n    let v0: Result<struct32, struct32>;  // [bp-0x58], Other Possible Types: struct32\n    let v1: struct32;  // [bp-0x30]\n    let v2: struct32;  // [bp-0x30]\n\n    v0 = regex::regex::string::Regex::new(\"^(\\\\S+):(\\\\d+):\\\\s*\\\\{\\\\{\\\\s*#include\\\\s*(\\\\S+?)\\\\s*(?::\\\\s*(\\\\S+)\\\\s*)?\\\\}\\\\}\");\n    v1 = core::result::Result<T,E>::expect(&v0, \"scripts/check-docs/src/lib.rs\");\n    v0 = v2;\n    check_docs::parse_includes::{{closure}}(a0, a1, &v0);\n    return;\n}\n",
+    "_ZN10check_docs20filter_valid_anchors17h39bbb345caf4f14fE": "fn check_docs::filter_valid_anchors(a1: &struct24, a2: &struct24) -> : struct48 {\n    let a0: i64;  // rdi\n    let v0: i64;  // [bp-0x140]\n    let v1: struct48;  // [bp-0x138], Other Possible Types: struct32\n    let v2: u64;  // [bp-0x128]\n    let v3: iNone;  // [bp-0x120]\n    let v4: u64;  // [bp-0x110]\n    let v5: u64;  // [bp-0x108]\n    let v6: u64;  // [bp-0x100]\n    let v7: u64;  // [bp-0xf8]\n    let v8: u64;  // [bp-0xe8]\n    let v9: u64;  // [bp-0xd8]\n    let v10: u128;  // [bp-0xc8]\n    let v11: u64;  // [bp-0xb8]\n    let v12: struct32;  // [bp-0xb0]\n    let v13: i64;  // [bp-0x90]\n    let v14: u64;  // [bp-0x88]\n    let v15: core::iter::adapters::chain::Chain<core::iter::adapters::flatten::Flatten<core::option::IntoIter<core::char::EscapeDebug>>, core::iter::adapters::flatten::FlatMap<core::str::iter::Chars, core::char::EscapeDebug, core::str::CharEscapeDebugContinue>>;  // [bp-0x70]\n\n    v0 = a2;\n    v12 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a1);\n    v13 = &v0;\n    v1 = itertools::Itertools::partition_map(&v12);\n    v5 = v1.field_0;\n    v7 = v2;\n    v8 = v3;\n    v9 = v4;\n    check_docs::filter_unused_ends(&v12, *((a2 + 8) as &i64), *((a2 + 16) as &i64), v6, v2);\n    v1 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v12);\n    core::iter::traits::iterator::Iterator::collect(&v14, &v1);\n    v1 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v5);\n    core::iter::traits::iterator::Iterator::collect(&v10, &v1);\n    v12 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v8);\n    v1 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v14);\n    v15 = core::iter::traits::iterator::Iterator::chain(&v12, &v1);\n    core::iter::traits::iterator::Iterator::collect(&v1, &v15);\n    return struct48 {\n        field_0: v10\n        field_16: v11\n        field_24: *(&v1.field_0 as &i128)\n        field_40: v2\n    };\n}\n",
+    "_ZN10check_docs18filter_unused_ends17h49a7d1140d6f97f2E": "fn check_docs::filter_unused_ends(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64) -> u64 {\n    let v0: struct40;  // [bp-0x28]\n\n    v0 = struct40 {\n        field_0: a1\n        field_8: a2 * 56 + a1\n        field_16: a3\n        field_24: a4\n        field_32: <UNKNOWN>\n    };\n    core::iter::traits::iterator::Iterator::collect(a0, &v0);\n    return a0;\n}\n",
+    "_ZN10check_docs29check_validity_of_anchor_pair17hd8345c0881509e49E": "fn check_docs::check_validity_of_anchor_pair(a0: i64, a1: i64) -> long long {\n    let v0: i64;  // [bp-0x60]\n    let v1: i64;  // [bp-0x58]\n    let v2: core::fmt::rt::Argument;  // [bp-0x50]\n    let v3: u128;  // [bp-0x50]\n    let v4: core::fmt::rt::Argument;  // [bp-0x40]\n    let v5: u128;  // [bp-0x40]\n    let v6: core::fmt::Arguments;  // [bp-0x30]\n\n    v0 = a0;\n    v1 = a1;\n    if *((a0 + 48) as &i64) > *((a1 + 48) as &i64) {\n        v2 = core::fmt::rt::Argument {\n            ty: &v1\n        };\n        v4 = core::fmt::rt::Argument {\n            ty: &v0\n        };\n        v6 = core::fmt::Arguments {\n            pieces: [\"The end of the anchor appears before the beginning. End anchor: \", \". Begin anchor: \"]\n            args: [v3, v5]\n            fmt: 0\n        };\n        return anyhow::__private::format_err(&v6);\n    }\n    return 0;\n}\n",
+    "_ZN10check_docs23extract_starts_and_ends17h30dde6298c2e4524E": "fn check_docs::extract_starts_and_ends(a1: i64, a2: i64) -> Result<struct48, struct16> {\n    let a0: i64;  // rdi\n    let v0: iNone;  // [bp-0xb8], Other Possible Types: struct24\n    let v1: struct24;  // [bp-0xb8]\n    let v2: iNone;  // [bp-0xb8]\n    let v3: u64;  // [bp-0xa8]\n    let v4: Result<struct32, struct32>;  // [bp-0x98], Other Possible Types: struct24\n    let v5: Result<struct32, struct32>;  // [bp-0x98]\n    let v6: u64;  // [bp-0x70]\n    let v7: u64;  // [bp-0x68]\n    let v8: u64;  // [bp-0x60]\n    let v9: u64;  // [bp-0x58]\n    let v10: u64;  // [bp-0x50]\n    let v11: u64;  // [bp-0x48]\n    let v12: struct32;  // [bp-0x40]\n    let v14: u64;  // rax\n    let v15: u64;  // rax\n\n    v4 = regex::regex::string::Regex::new(\"^(.+):(\\\\d+):\\\\s*(?:/{2,}|/\\\\*)\\\\s*ANCHOR\\\\s*:\\\\s*([\\\\w_-]+)\\\\s*(?:\\\\*/)?\");\n    v2 = *((&v4 as &char + 8) as &i128);\n    v3 = *((&v4 as &char + 24) as &i64);\n    match v4 {\n        Ok(_) => {\n            v12 = struct32 {\n                field_0: v4 as i64\n                field_8: v2\n                field_24: v3\n            };\n            check_docs::extract_starts_and_ends::{{closure}}(&v5 as u8, a1, a2, &v12);\n            v14 = v7;\n            if v6 != 0x8000000000000000 {\n                v9 = v6;\n                v10 = v14;\n                v11 = v8;\n                v5 = regex::regex::string::Regex::new(\"^(.+):(\\\\d+):\\\\s*(?:/{2,}|/\\\\*)\\\\s*ANCHOR_END\\\\s*:\\\\s*([\\\\w_-]+)\\\\s*(?:\\\\*/)?\");\n                v0 = *((&v5 as &char + 8) as &i128);\n                v3 = *((&v5 as &char + 24) as &i64);\n                match v5 {\n                    Ok(_) => {\n                        v12 = struct32 {\n                            field_0: v5 as i64\n                            field_8: v0\n                            field_24: v3\n                        };\n                        check_docs::extract_starts_and_ends::{{closure}}(&v5 as u8, a1, a2, &v12);\n                        v15 = v7;\n                        if v6 != 0x8000000000000000 {\n                            return Ok(struct48 {\n                                field_0: *((&v5 as &char + 64) as &i128)\n                                field_16: v11\n                                field_24: v6\n                                field_32: v7\n                                field_40: v8\n                            });\n                        }\n                    },\n                    Err(_) => {\n                        v4 = v1;\n                        v15 = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(&v4);\n                    },\n                }\n                return struct16 {\n                    field_0: 0x8000000000000000\n                    field_8: v15\n                };\n            }\n        },\n        Err(_) => {\n            v4 = v0;\n            v14 = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(&v4);\n        },\n    }\n    return struct16 {\n        field_0: 0x8000000000000000\n        field_8: v14\n    };\n}\n",
+    "_ZN10check_docs14parse_md_files17hf10b783de1f7744bE": "fn check_docs::parse_md_files(a1: &struct24, a2: i64, a3: i64) -> : struct48 {\n    let a0: u64;  // rdi\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0xa0]\n    let v2: Result<struct32, struct32>;  // [bp-0x98], Other Possible Types: struct32\n    let v3: core::str::pattern::CharSearcher;  // [bp-0x78]\n    let v4: u16;  // [bp-0x48]\n    let v5: struct32;  // [bp-0x40]\n\n    v0 = a2;\n    v1 = a3;\n    v2 = regex::regex::string::Regex::new(\"\\\\((.*\\\\.md)\\\\)\");\n    v5 = core::result::Result<T,E>::expect(&v2, \"scripts/check-docs/src/lib.rs\");\n    v3 = <char as core::str::pattern::Pattern>::into_searcher(*((a1 + 8) as &i64), *((a1 + 16) as &i64), a3);\n    v4 = 0;\n    v2 = struct32 {\n        field_0: &v0\n        field_8: &v5\n        field_16: 0\n        field_24: *((a1 + 16) as &i64)\n    };\n    core::iter::traits::iterator::Iterator::collect(a0, &v2);\n    return;\n}\n",
+    "_ZN10check_docs17validate_md_files17ha2d5d22a4b1fbbc4E": "fn check_docs::validate_md_files(a0: i64, a1: &struct48, a2: &struct24) -> u64 {\n    let v0: struct24;  // [bp-0x70]\n    let v1: core::str::pattern::CharSearcher;  // [bp-0x58]\n    let v2: u16;  // [bp-0x28]\n    let v4: u64;  // rcx\n\n    v1 = <char as core::str::pattern::Pattern>::into_searcher(*((a2 + 8) as &i64), *((a2 + 16) as &i64), v4);\n    v2 = 0;\n    v0 = struct24 {\n        field_0: a1\n        field_8: 0\n        field_16: *((a2 + 16) as &i64)\n    };\n    core::iter::traits::iterator::Iterator::collect(a0, &v0);\n    return a0;\n}\n",
+    "_ZN10check_docs18search_for_pattern17hb802ea78856797e4E": "fn check_docs::search_for_pattern(a1: i64, a2: i64, a3: i64, a4: i64) -> Result<struct24, struct16> {\n    let a0: i64;  // rdi\n    let v0: u64;  // [bp-0x1a8]\n    let v1: u64;  // [bp-0x1a0]\n    let v2: Result<struct52, struct16>;  // [bp-0x198]\n    let v3: u128;  // [bp-0x198]\n    let v4: struct24;  // [bp-0x188]\n    let v5: struct56;  // [bp-0x160]\n    let v6: struct157;  // [bp-0x128], Other Possible Types: struct32, struct16\n    let v7: Result<struct40, struct32>;  // [bp-0x128]\n    let v8: u64;  // [bp-0x128]\n    let v9: u128;  // [bp-0x120]\n    let v10: struct24;  // [bp-0x110], Other Possible Types: struct32\n    let v11: alloc::string::String;  // [bp-0x48]\n\n    v0 = a1;\n    v1 = a2;\n    v6 = std::process::Command::new(&g_4451ac);\n    v6 = std::process::Command::arg(\"-H\");\n    v6 = std::process::Command::arg(\"-n\");\n    v6 = std::process::Command::arg(\"-r\");\n    v6 = std::process::Command::arg(\"--binary-files=without-match\");\n    v6 = std::process::Command::arg(\"--exclude-dir=check-docs\");\n    v6 = std::process::Command::arg(a1, a2);\n    v6 = std::process::Command::arg(a3, a4);\n    v2 = std::process::Command::output(&v6);\n    v5 = core::result::Result<T,E>::expect(&v2, \"failed grep command\", \"scripts/check-docs/src/lib.rs\");\n    if v5.field_48 as i32 {\n        v11 = format!(\"Failed running `grep` command for pattern '{}'\", &v0);\n        return struct16 {\n            field_0: 0x8000000000000000\n            field_8: anyhow::error::<impl anyhow::Error>::msg(&v11)\n        };\n    }\n    v7 = alloc::string::String::from_utf8(&v5);\n    v3 = *((&v7 as &char + 8) as &i128);\n    v4 = v10;\n    if !((((0 ^ v7 as i64) & (0 ^ -(v8))) >> 63) as char) {\n        v10 = v4;\n        v9 = v3;\n        v6 = v7 as i64;\n        return struct16 {\n            field_0: 0x8000000000000000\n            field_8: anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(&v6)\n        };\n    }\n    return Ok(struct24 {\n        field_0: v3\n        field_16: v4\n    });\n}\n",
+    "_ZN10check_docs10find_files17h9e4b901753d7660dE": "fn check_docs::find_files(a0: i64, a1: i64, a2: i64, a3: i64, a4: i64, a5: i64, a6: i64) -> u64 {\n    let v0: void*;  // [bp-0x200]\n    let v1: struct128;  // [bp-0x1f8], Other Possible Types: u128\n    let v2: Result<struct52, struct16>;  // [bp-0x1f8]\n    let v3: u64;  // [bp-0x1e8]\n    let v4: u64;  // [bp-0x170]\n    let v5: u64;  // [bp-0x168]\n    let v6: struct56;  // [bp-0x160]\n    let v7: Result<struct40, struct32>;  // [bp-0x128], Other Possible Types: u64\n    let v8: u64;  // [bp-0x128]\n    let v9: struct157;  // [bp-0x128], Other Possible Types: struct16\n    let v10: u128;  // [bp-0x120]\n    let v11: u64;  // [bp-0x110]\n    let v12: alloc::string::String;  // [bp-0x48]\n\n    v4 = a1;\n    v5 = a2;\n    v9 = std::process::Command::new(&g_444240);\n    v1 = struct128 {\n        field_0: a3\n        field_8: a4\n        field_16: \"-type\"\n        field_32: \"f\"\n        field_48: \"-name\"\n        field_64: a1\n        field_72: a2\n        field_80: \"!\"\n        field_96: \"-name\"\n        field_112: a5\n        field_120: a6\n    };\n    v9 = std::process::Command::args(&v1);\n    v2 = std::process::Command::output(&v9);\n    v6 = core::result::Result<T,E>::expect(&v2, \"Program `find` not in PATH\", \"scripts/check-docs/src/lib.rs\");\n    if v6.field_48 as i32 {\n        v12 = format!(\"Failed running `find` command for pattern {}\", &v4);\n        *(&v0[8] as &u64) = anyhow::error::<impl anyhow::Error>::msg(&v12);\n        *(v0 as &i64) = 0x8000000000000000;\n    } else {\n        v7 = alloc::string::String::from_utf8(&v6);\n        v1 = *((&v7 as &char + 8) as &i128);\n        v3 = v11;\n        if (((0 ^ v7 as i64) & (0 ^ -(v8))) >> 63) as char {\n            *(&v0[16] as &u64) = v3;\n            *(v0 as &u128) = v1;\n        } else {\n            v11 = v3;\n            v10 = v1;\n            v7 = v7 as i64;\n            *(&v0[8] as &u64) = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(&v7);\n            *(v0 as &i64) = 0x8000000000000000;\n        }\n    }\n    return v0;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN10check_docs4main17ha386782cabb158e1E": {
+      "anyhow::__private::format_err": 1,
+      "check_docs::report_errors": 5,
+      "check_docs::validate_md_files": 1,
+      "check_docs::find_files": 1,
+      "check_docs::parse_md_files": 1,
+      "check_docs::search_for_pattern": 3,
+      "check_docs::validate_includes": 1,
+      "check_docs::parse_includes": 1,
+      "check_docs::filter_valid_anchors": 1,
+      "check_docs::extract_starts_and_ends": 1
+    },
+    "_ZN10check_docs13report_errors17h75874821b4daa881E": {},
+    "_ZN10check_docs17validate_includes17h41bae39804dee97eE": {
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "itertools::Itertools::partition_map": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1
+    },
+    "_ZN10check_docs14parse_includes17h98cae0f800d53a09E": {
+      "check_docs::parse_includes::{{closure}}": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "regex::regex::string::Regex::new": 1
+    },
+    "_ZN10check_docs20filter_valid_anchors17h39bbb345caf4f14fE": {
+      "core::iter::traits::iterator::Iterator::collect": 3,
+      "core::iter::traits::iterator::Iterator::chain": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 5,
+      "check_docs::filter_unused_ends": 1,
+      "itertools::Itertools::partition_map": 1
+    },
+    "_ZN10check_docs18filter_unused_ends17h49a7d1140d6f97f2E": {
+      "core::iter::traits::iterator::Iterator::collect": 1
+    },
+    "_ZN10check_docs29check_validity_of_anchor_pair17hd8345c0881509e49E": {
+      "anyhow::__private::format_err": 1
+    },
+    "_ZN10check_docs23extract_starts_and_ends17h30dde6298c2e4524E": {
+      "check_docs::extract_starts_and_ends::{{closure}}": 2,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 2,
+      "regex::regex::string::Regex::new": 2
+    },
+    "_ZN10check_docs14parse_md_files17hf10b783de1f7744bE": {
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "<char as core::str::pattern::Pattern>::into_searcher": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "regex::regex::string::Regex::new": 1
+    },
+    "_ZN10check_docs17validate_md_files17ha2d5d22a4b1fbbc4E": {
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "<char as core::str::pattern::Pattern>::into_searcher": 1
+    },
+    "_ZN10check_docs18search_for_pattern17hb802ea78856797e4E": {
+      "anyhow::error::<impl anyhow::Error>::msg": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 1,
+      "alloc::string::String::from_utf8": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "std::process::Command::output": 1,
+      "std::process::Command::arg": 7,
+      "std::process::Command::new": 1
+    },
+    "_ZN10check_docs10find_files17h9e4b901753d7660dE": {
+      "anyhow::error::<impl anyhow::Error>::msg": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 1,
+      "alloc::string::String::from_utf8": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "std::process::Command::output": 1,
+      "std::process::Command::args": 1,
+      "std::process::Command::new": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN10check_docs4main17ha386782cabb158e1E": {},
+    "_ZN10check_docs13report_errors17h75874821b4daa881E": {
+      "eprintln": 2
+    },
+    "_ZN10check_docs17validate_includes17h41bae39804dee97eE": {},
+    "_ZN10check_docs14parse_includes17h98cae0f800d53a09E": {},
+    "_ZN10check_docs20filter_valid_anchors17h39bbb345caf4f14fE": {},
+    "_ZN10check_docs18filter_unused_ends17h49a7d1140d6f97f2E": {},
+    "_ZN10check_docs29check_validity_of_anchor_pair17hd8345c0881509e49E": {},
+    "_ZN10check_docs23extract_starts_and_ends17h30dde6298c2e4524E": {},
+    "_ZN10check_docs14parse_md_files17hf10b783de1f7744bE": {},
+    "_ZN10check_docs17validate_md_files17ha2d5d22a4b1fbbc4E": {},
+    "_ZN10check_docs18search_for_pattern17hb802ea78856797e4E": {
+      "format": 1
+    },
+    "_ZN10check_docs10find_files17h9e4b901753d7660dE": {
+      "format": 1
+    }
+  },
+  "node_counts": {
+    "_ZN10check_docs4main17ha386782cabb158e1E": 25,
+    "_ZN10check_docs13report_errors17h75874821b4daa881E": 6,
+    "_ZN10check_docs17validate_includes17h41bae39804dee97eE": 4,
+    "_ZN10check_docs14parse_includes17h98cae0f800d53a09E": 4,
+    "_ZN10check_docs20filter_valid_anchors17h39bbb345caf4f14fE": 12,
+    "_ZN10check_docs18filter_unused_ends17h49a7d1140d6f97f2E": 2,
+    "_ZN10check_docs29check_validity_of_anchor_pair17hd8345c0881509e49E": 4,
+    "_ZN10check_docs23extract_starts_and_ends17h30dde6298c2e4524E": 13,
+    "_ZN10check_docs14parse_md_files17hf10b783de1f7744bE": 5,
+    "_ZN10check_docs17validate_md_files17ha2d5d22a4b1fbbc4E": 3,
+    "_ZN10check_docs18search_for_pattern17hb802ea78856797e4E": 17,
+    "_ZN10check_docs10find_files17h9e4b901753d7660dE": 12
+  },
+  "variable_types": {
+    "_ZN10check_docs4main17ha386782cabb158e1E": {
+      "stack_16": [
+        [
+          "struct",
+          40
+        ],
+        [
+          "struct",
+          48
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "struct",
+          48
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_432": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_40": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_376": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          null
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_304": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_400": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_256": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_352": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_ymm1": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10check_docs13report_errors17h75874821b4daa881E": {
+      "stack_72": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10check_docs17validate_includes17h41bae39804dee97eE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN10check_docs14parse_includes17h98cae0f800d53a09E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "Result",
+          96
+        ]
+      ],
+      "stack_40": [
+        [
+          "struct",
+          32
+        ],
+        [
+          "struct",
+          32
+        ]
+      ]
+    },
+    "_ZN10check_docs20filter_valid_anchors17h39bbb345caf4f14fE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_184": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_216": [
+        [
+          "struct",
+          96
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10check_docs18filter_unused_ends17h49a7d1140d6f97f2E": {
+      "stack_0": [
+        [
+          "struct",
+          40
+        ]
+      ]
+    },
+    "_ZN10check_docs29check_validity_of_anchor_pair17hd8345c0881509e49E": {
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "struct",
+          48
+        ]
+      ]
+    },
+    "_ZN10check_docs23extract_starts_and_ends17h30dde6298c2e4524E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "Result",
+          96
+        ],
+        [
+          "Result",
+          96
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          null
+        ],
+        [
+          "primitive",
+          null
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10check_docs14parse_md_files17hf10b783de1f7744bE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "Result",
+          96
+        ]
+      ],
+      "stack_104": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_48": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          2
+        ]
+      ]
+    },
+    "_ZN10check_docs17validate_md_files17ha2d5d22a4b1fbbc4E": {
+      "stack_32": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          24
+        ]
+      ]
+    },
+    "_ZN10check_docs18search_for_pattern17hb802ea78856797e4E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          168
+        ],
+        [
+          "Result",
+          96
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "Result",
+          80
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "struct",
+          56
+        ]
+      ],
+      "stack_352": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_152": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN10check_docs10find_files17h9e4b901753d7660dE": {
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "struct",
+          168
+        ],
+        [
+          "Result",
+          96
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          128
+        ],
+        [
+          "Result",
+          80
+        ]
+      ],
+      "stack_168": [
+        [
+          "struct",
+          56
+        ]
+      ],
+      "stack_448": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    }
+  }
+}

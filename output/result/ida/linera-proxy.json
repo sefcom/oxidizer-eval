@@ -1,0 +1,1810 @@
+{
+  "decompilation": {
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$3new17h7d2436f68da5c578E": "__int64 __fastcall linera_proxy::grpc::GrpcProxy<S>::new(\n        void *src,\n        __int64 a2,\n        unsigned int a3,\n        __int64 a4,\n        unsigned int a5,\n        char a6,\n        _OWORD *a7,\n        __int64 a8)\n{\n  __int64 v11; // rax\n  __int64 v12; // rax\n  __int128 v13; // xmm1\n  _OWORD v16[4]; // [rsp+8h] [rbp-390h] BYREF\n  __int64 v17; // [rsp+48h] [rbp-350h]\n  _OWORD srca[24]; // [rsp+50h] [rbp-348h] BYREF\n  __int128 v19; // [rsp+1D0h] [rbp-1C8h] BYREF\n  _BYTE v20[376]; // [rsp+1E0h] [rbp-1B8h] BYREF\n  __int64 v21; // [rsp+358h] [rbp-40h]\n  char v22; // [rsp+360h] [rbp-38h]\n\n  v11 = std::thread::local::LocalKey<T>::with();\n  papaya::map::HashMap<K,V,S>::with_capacity_and_hasher(srca, v11);\n  *(_DWORD *)&v20[64] = 1000000000;\n  *(_DWORD *)&v20[80] = 1000000000;\n  v19 = srca[0];\n  *(_OWORD *)v20 = srca[1];\n  *(_OWORD *)&v20[16] = srca[2];\n  *(_OWORD *)&v20[32] = srca[3];\n  *(_QWORD *)&v20[48] = *(_QWORD *)&srca[4];\n  linera_rpc::grpc::pool::GrpcConnectionPool::with_connect_timeout(srca, &v19, a2, a3);\n  linera_rpc::grpc::pool::GrpcConnectionPool::with_timeout(&v19, srca, a4, a5);\n  v12 = std::thread::local::LocalKey<T>::with();\n  papaya::map::HashMap<K,V,S>::with_capacity_and_hasher(v16, v12);\n  *((_QWORD *)&srca[10] + 1) = v17;\n  *(_OWORD *)((char *)&srca[9] + 8) = v16[3];\n  *(_OWORD *)((char *)&srca[8] + 8) = v16[2];\n  *(_OWORD *)((char *)&srca[7] + 8) = v16[1];\n  *(_OWORD *)((char *)&srca[6] + 8) = v16[0];\n  memcpy(&srca[11], src, 0xA8uLL);\n  srca[0] = v19;\n  srca[1] = *(_OWORD *)v20;\n  srca[2] = *(_OWORD *)&v20[16];\n  srca[3] = *(_OWORD *)&v20[32];\n  srca[4] = *(_OWORD *)&v20[48];\n  srca[5] = *(_OWORD *)&v20[64];\n  *(_QWORD *)&srca[6] = *(_QWORD *)&v20[80];\n  v13 = a7[1];\n  *(_OWORD *)((char *)&srca[21] + 8) = *a7;\n  *(_OWORD *)((char *)&srca[22] + 8) = v13;\n  *(_QWORD *)&v19 = 1LL;\n  *((_QWORD *)&v19 + 1) = 1LL;\n  memcpy(v20, srca, sizeof(v20));\n  v21 = a8;\n  v22 = a6;\n  return alloc::boxed::Box<T>::new(&v19);\n}",
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$17as_validator_node17h6dc438575a810413E": "__int64 __fastcall linera_proxy::grpc::GrpcProxy<S>::as_validator_node(_QWORD *a1, volatile signed __int64 *a2)\n{\n  char v2; // of\n  __int64 v3; // rt0\n  __int64 result; // rax\n  _BYTE v5[16]; // [rsp+0h] [rbp-30h] BYREF\n  __int64 v6; // [rsp+10h] [rbp-20h]\n  __int64 v7; // [rsp+18h] [rbp-18h]\n  __int64 v8; // [rsp+20h] [rbp-10h]\n\n  v3 = _InterlockedIncrement64(a2);\n  if ( (v3 < 0) ^ v2 | (v3 == 0) )\n    BUG();\n  linera_rpc::grpc::api::validator_node_server::ValidatorNodeServer<T>::new(v5);\n  v6 = 1LL;\n  v7 = 0x1000000LL;\n  a1[4] = v8;\n  a1[2] = v6;\n  result = v7;\n  a1[3] = v7;\n  *a1 = 1LL;\n  a1[1] = 0x1000000LL;\n  return result;\n}",
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$6config17h5740d3fc61532a61E": "__int64 __fastcall linera_proxy::grpc::GrpcProxy<S>::config(_QWORD *a1)\n{\n  unsigned __int64 v1; // rax\n\n  v1 = a1[49];\n  if ( v1 >= a1[32] )\n    core::option::expect_failed(aNoProxyConfigP, 25LL, &off_14A9598);\n  return a1[31] + 32 * v1;\n}",
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$19as_notifier_service17h371a1d964230f3d2E": "__int64 __fastcall linera_proxy::grpc::GrpcProxy<S>::as_notifier_service(__int64 a1, volatile signed __int64 *a2)\n{\n  char v2; // of\n  __int64 v3; // rt0\n\n  v3 = _InterlockedIncrement64(a2);\n  if ( (v3 < 0) ^ v2 | (v3 == 0) )\n    BUG();\n  return linera_rpc::grpc::api::validator_node_server::ValidatorNodeServer<T>::new(a1);\n}",
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$14public_address17h409f9dd3f70af379E": "__int64 __fastcall linera_proxy::grpc::GrpcProxy<S>::public_address(__int64 a1, _QWORD *a2)\n{\n  __int64 result; // rax\n\n  result = *(unsigned __int16 *)(linera_proxy::grpc::GrpcProxy<S>::config(a2) + 24);\n  *(_DWORD *)(a1 + 2) = 0;\n  *(_WORD *)(a1 + 6) = result;\n  *(_WORD *)a1 = 0;\n  return result;\n}",
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$15metrics_address17h2608380e1f613793E": "__int64 __fastcall linera_proxy::grpc::GrpcProxy<S>::metrics_address(__int64 a1, _QWORD *a2)\n{\n  __int64 result; // rax\n\n  result = *(unsigned __int16 *)(linera_proxy::grpc::GrpcProxy<S>::config(a2) + 28);\n  *(_DWORD *)(a1 + 2) = 0;\n  *(_WORD *)(a1 + 6) = result;\n  *(_WORD *)a1 = 0;\n  return result;\n}",
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$16internal_address17h46850e2bf68c6985E": "__int64 __fastcall linera_proxy::grpc::GrpcProxy<S>::internal_address(__int64 a1, _QWORD *a2)\n{\n  __int64 result; // rax\n\n  result = *(unsigned __int16 *)(linera_proxy::grpc::GrpcProxy<S>::config(a2) + 26);\n  *(_DWORD *)(a1 + 2) = 0;\n  *(_WORD *)(a1 + 6) = result;\n  *(_WORD *)a1 = 0;\n  return result;\n}",
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$9shard_for17h0b00677dc09e2974E": "unsigned __int64 __fastcall linera_proxy::grpc::GrpcProxy<S>::shard_for(__int64 a1, __int64 a2, __int64 a3)\n{\n  __int64 shard_for; // r14\n  unsigned __int64 result; // rax\n  char v5; // [rsp+Fh] [rbp-59h] BYREF\n  __int128 v6; // [rsp+10h] [rbp-58h]\n  __int128 v7; // [rsp+20h] [rbp-48h]\n  _OWORD v8[3]; // [rsp+30h] [rbp-38h] BYREF\n\n  <linera_rpc::grpc::api::HandleConfirmedCertificateRequest as linera_rpc::grpc::server::GrpcProxyable>::chain_id(\n    &v5,\n    a3);\n  if ( v5 == 1 )\n  {\n    v8[1] = v7;\n    v8[0] = v6;\n    shard_for = linera_rpc::config::ValidatorInternalNetworkPreConfig<P>::get_shard_for(a2 + 192, v8);\n    <alloc::string::String as core::clone::Clone>::clone(a1, shard_for);\n    result = *(unsigned __int16 *)(shard_for + 28);\n    *(_DWORD *)(a1 + 24) = *(_DWORD *)(shard_for + 24);\n    *(_WORD *)(a1 + 28) = result;\n  }\n  else\n  {\n    result = 0x8000000000000000LL;\n    *(_QWORD *)a1 = 0x8000000000000000LL;\n  }\n  return result;\n}",
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$23worker_client_for_shard17h5c25ff08ca6d3d63E": "__int64 __fastcall linera_proxy::grpc::GrpcProxy<S>::worker_client_for_shard(__int64 *a1, __int64 a2, __int64 a3)\n{\n  __int64 v3; // rcx\n  __int64 result; // rax\n  __int128 v5; // [rsp+0h] [rbp-128h]\n  __int64 v6; // [rsp+20h] [rbp-108h] BYREF\n  __int128 v7; // [rsp+28h] [rbp-100h]\n  __int128 v8; // [rsp+38h] [rbp-F0h]\n  __int64 v9; // [rsp+48h] [rbp-E0h]\n  _BYTE v10[168]; // [rsp+50h] [rbp-D8h] BYREF\n  _BYTE v11[48]; // [rsp+F8h] [rbp-30h] BYREF\n\n  linera_rpc::config::ShardConfig::http_address(v11, a3);\n  linera_rpc::grpc::pool::GrpcConnectionPool::channel(v10, a2 + 16, v11);\n  v5 = *(_OWORD *)&v10[8];\n  if ( *(_QWORD *)v10 == 4LL )\n  {\n    *(_OWORD *)&v10[16] = *(_OWORD *)&v10[24];\n    *(_OWORD *)v10 = v5;\n    result = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(v10);\n    v3 = 2LL;\n  }\n  else\n  {\n    v6 = *(_QWORD *)v10;\n    v7 = *(_OWORD *)&v10[8];\n    v8 = *(_OWORD *)&v10[24];\n    v9 = *(_QWORD *)&v10[40];\n    tonic::client::grpc::Grpc<T>::new(v10, &v6);\n    memcpy(a1 + 4, &v10[32], 0x88uLL);\n    a1[2] = 1LL;\n    a1[3] = 0x1000000LL;\n    v3 = 1LL;\n    result = 0x1000000LL;\n  }\n  a1[1] = result;\n  *a1 = v3;\n  return result;\n}",
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$13public_server17h8beeb9e104351e51E": "void __fastcall linera_proxy::grpc::GrpcProxy<S>::public_server(__int64 a1, __int64 a2)\n{\n  __int64 v2; // r14\n  __int128 v3; // [rsp+0h] [rbp-258h]\n  __int64 v4; // [rsp+10h] [rbp-248h]\n  __int128 v5; // [rsp+20h] [rbp-238h] BYREF\n  __int64 v6; // [rsp+30h] [rbp-228h]\n  int v7; // [rsp+40h] [rbp-218h]\n  int v8; // [rsp+48h] [rbp-210h]\n  unsigned __int64 v9; // [rsp+50h] [rbp-208h]\n  int v10; // [rsp+58h] [rbp-200h]\n  int v11; // [rsp+60h] [rbp-1F8h]\n  __int64 v12; // [rsp+68h] [rbp-1F0h]\n  int v13; // [rsp+70h] [rbp-1E8h]\n  __int16 v14; // [rsp+78h] [rbp-1E0h]\n  char v15; // [rsp+7Ah] [rbp-1DEh]\n  int v16; // [rsp+80h] [rbp-1D8h]\n  int v17; // [rsp+90h] [rbp-1C8h]\n  int v18; // [rsp+A0h] [rbp-1B8h]\n  int v19; // [rsp+B0h] [rbp-1A8h]\n  int v20; // [rsp+C8h] [rbp-190h]\n  __int64 v21; // [rsp+D0h] [rbp-188h]\n  int v22; // [rsp+E0h] [rbp-178h]\n  __int64 v23; // [rsp+E8h] [rbp-170h] BYREF\n  __int128 v24; // [rsp+F0h] [rbp-168h]\n  __int64 v25; // [rsp+100h] [rbp-158h]\n  _BYTE src[168]; // [rsp+108h] [rbp-150h] BYREF\n  _BYTE v27[48]; // [rsp+1B0h] [rbp-A8h] BYREF\n  _BYTE v28[120]; // [rsp+1E0h] [rbp-78h] BYREF\n\n  if ( *(_BYTE *)(a2 + 400) == 1 )\n  {\n    tonic::transport::tls::Identity::from_pem(v27);\n    *(_QWORD *)&v5 = 0x8000000000000000LL;\n    v9 = 0x8000000000000000LL;\n    v14 = 0;\n    v15 = 0;\n    v13 = 1000000000;\n    tonic::transport::server::tls::ServerTlsConfig::identity(v28, &v5, v27);\n    v21 = 0LL;\n    *(_QWORD *)&v5 = 0LL;\n    v16 = 1000000000;\n    v20 = 1000000001;\n    v7 = 0;\n    v8 = 0;\n    LODWORD(v9) = 0;\n    v17 = 1000000000;\n    v18 = 1000000000;\n    v12 = 20LL;\n    v13 = 0;\n    v6 = 0LL;\n    v10 = 0;\n    v11 = 0;\n    v22 = 33554688;\n    v19 = 1000000000;\n    tonic::transport::server::Server<L>::tls_config(&v23, &v5, v28);\n    v2 = v23;\n    v3 = v24;\n    v4 = v25;\n    if ( v23 == 2 )\n    {\n      v6 = v25;\n      v5 = v24;\n      *(_QWORD *)(a1 + 8) = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(&v5);\n      *(_QWORD *)a1 = 2LL;\n    }\n    else\n    {\n      memcpy((void *)(a1 + 32), src, 0xA8uLL);\n      *(_QWORD *)(a1 + 24) = v4;\n      *(_OWORD *)(a1 + 8) = v3;\n      *(_QWORD *)a1 = v2;\n    }\n  }\n  else\n  {\n    *(_QWORD *)a1 = 0LL;\n    *(_QWORD *)(a1 + 16) = 0LL;\n    *(_DWORD *)(a1 + 32) = 0;\n    *(_DWORD *)(a1 + 40) = 0;\n    *(_DWORD *)(a1 + 48) = 0;\n    *(_DWORD *)(a1 + 56) = 0;\n    *(_DWORD *)(a1 + 64) = 0;\n    *(_QWORD *)(a1 + 72) = 20LL;\n    *(_DWORD *)(a1 + 80) = 0;\n    *(_DWORD *)(a1 + 96) = 1000000000;\n    *(_DWORD *)(a1 + 112) = 1000000000;\n    *(_DWORD *)(a1 + 128) = 1000000000;\n    *(_DWORD *)(a1 + 144) = 1000000000;\n    *(_DWORD *)(a1 + 168) = 1000000001;\n    *(_QWORD *)(a1 + 176) = 0LL;\n    *(_DWORD *)(a1 + 192) = 33554688;\n  }\n}",
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$36log_and_return_proxy_request_outcome17h58ab5b7b9b545e2bE": "void *__fastcall linera_proxy::grpc::GrpcProxy<S>::log_and_return_proxy_request_outcome(void *a1, const void *a2)\n{\n  return memcpy(a1, a2, 0x98uLL);\n}",
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$20view_error_to_status17h3c1dbf4fc512a708E": "__int64 __fastcall linera_proxy::grpc::GrpcProxy<S>::view_error_to_status(__int128 *a1)\n{\n  __int64 v1; // rax\n  __int128 v2; // xmm0\n  __int64 v3; // rax\n  __int64 v5; // [rsp+8h] [rbp-50h] BYREF\n  _QWORD v6[2]; // [rsp+10h] [rbp-48h] BYREF\n  __int128 v7; // [rsp+20h] [rbp-38h]\n  __int128 v8; // [rsp+30h] [rbp-28h]\n  __int64 v9; // [rsp+40h] [rbp-18h]\n\n  switch ( *(_BYTE *)a1 )\n  {\n    case 0:\n      <T as alloc::string::SpecToString>::spec_to_string(v6, a1);\n      v1 = tonic::status::Status::new(3LL, v6);\n      break;\n    case 1:\n    case 8:\n    case 0xA:\n      <T as alloc::string::SpecToString>::spec_to_string(v6, a1);\n      v1 = tonic::status::Status::new(5LL, v6);\n      break;\n    case 2:\n    case 4:\n    case 5:\n    case 6:\n    case 9:\n    case 0xB:\n      <T as alloc::string::SpecToString>::spec_to_string(v6, a1);\n      v1 = tonic::status::Status::new(13LL, v6);\n      break;\n    case 3:\n    case 7:\n      <T as alloc::string::SpecToString>::spec_to_string(v6, a1);\n      v1 = tonic::status::Status::new(11LL, v6);\n      break;\n  }\n  v5 = v1;\n  v9 = *((_QWORD *)a1 + 4);\n  v2 = *a1;\n  v8 = a1[1];\n  v7 = v2;\n  v6[0] = 1LL;\n  v6[1] = 1LL;\n  v3 = alloc::boxed::Box<T>::new(v6);\n  tonic::status::Status::set_source(&v5, v3, &off_14A6BA8);\n  return v5;\n}",
+    "_ZN12linera_proxy4grpc27GrpcMessageLimiter$LT$T$GT$4fits17h52b80d7647445b66E": "unsigned __int64 __fastcall linera_proxy::grpc::GrpcMessageLimiter<T>::fits(\n        __int64 a1,\n        unsigned __int64 *a2,\n        __int64 a3)\n{\n  unsigned __int64 result; // rax\n  __int128 v4; // xmm0\n  unsigned __int64 v5; // rcx\n  __int64 v6; // [rsp+0h] [rbp-68h] BYREF\n  __int128 v7; // [rsp+8h] [rbp-60h]\n  __int128 v8; // [rsp+18h] [rbp-50h]\n  __int128 v9; // [rsp+28h] [rbp-40h]\n\n  linera_rpc::grpc::conversions::<impl core::convert::TryFrom<linera_chain::certificate::Certificate> for linera_rpc::grpc::api::Certificate>::try_from(\n    &v6,\n    a3);\n  result = 0LL;\n  if ( __OFSUB__(0LL, v6) )\n  {\n    v4 = v8;\n    *(_OWORD *)(a1 + 32) = v9;\n    *(_OWORD *)(a1 + 16) = v4;\n    *(_OWORD *)a1 = v7;\n  }\n  else\n  {\n    result = linera_proxy::grpc::GrpcMessageLimiter<T>::fits::{{closure}}(&v6);\n    v5 = *a2;\n    if ( *a2 >= result )\n      *a2 -= result;\n    *(_BYTE *)(a1 + 8) = v5 >= result;\n    *(_QWORD *)a1 = 0x8000000000000010LL;\n  }\n  return result;\n}",
+    "_ZN12linera_proxy4grpc27GrpcMessageLimiter$LT$T$GT$8fits_raw17hd1a230e0b2010adcE": "bool __fastcall linera_proxy::grpc::GrpcMessageLimiter<T>::fits_raw(unsigned __int64 *a1, unsigned __int64 a2)\n{\n  unsigned __int64 v2; // rax\n\n  v2 = *a1;\n  if ( *a1 >= a2 )\n    *a1 -= a2;\n  return v2 >= a2;\n}",
+    "_ZN12linera_proxy12ProxyContext12from_options17ha7ab8772410a7c34E": "__int64 __fastcall linera_proxy::ProxyContext::from_options(__int64 a1, __int64 a2)\n{\n  __int64 v4; // r15\n  __int64 v5; // r12\n  __int64 result; // rax\n  int v7; // ecx\n  __int64 v8; // rdx\n  int v9; // esi\n  __int64 v10; // rdi\n  _QWORD v11[2]; // [rsp+0h] [rbp-218h] BYREF\n  _BYTE src[488]; // [rsp+10h] [rbp-208h] BYREF\n\n  linera_service::util::read_json(v11, *(_QWORD *)(a2 + 112), *(_QWORD *)(a2 + 120));\n  v4 = v11[0];\n  v5 = v11[1];\n  result = -v11[0];\n  if ( !__OFSUB__(-v11[0], 1LL) )\n  {\n    memcpy((void *)(a1 + 16), src, 0x1E8uLL);\n    result = *(_QWORD *)(a2 + 184);\n    v7 = *(_DWORD *)(a2 + 192);\n    v8 = *(_QWORD *)(a2 + 200);\n    v9 = *(_DWORD *)(a2 + 208);\n    if ( *(_BYTE *)(a2 + 88) )\n      v10 = *(_QWORD *)(a2 + 96);\n    else\n      v10 = 0LL;\n    *(_QWORD *)(a1 + 504) = result;\n    *(_DWORD *)(a1 + 512) = v7;\n    *(_QWORD *)(a1 + 520) = v8;\n    *(_DWORD *)(a1 + 528) = v9;\n    *(_QWORD *)(a1 + 536) = v10;\n  }\n  *(_QWORD *)(a1 + 8) = v5;\n  *(_QWORD *)a1 = v4;\n  return result;\n}",
+    "_ZN12linera_proxy14Proxy$LT$S$GT$12from_context17h6acf1242999046a5E": "__int64 __fastcall linera_proxy::Proxy<S>::from_context(_QWORD *a1, __int64 a2, __int128 *a3)\n{\n  const void *v5; // rsi\n  unsigned __int8 v6; // al\n  char v7; // cl\n  unsigned __int8 v8; // r14\n  __int64 v9; // rax\n  __int64 v11; // r14\n  int v12; // r13d\n  __int128 v13; // xmm1\n  __int64 v14; // rax\n  _BYTE v15[2]; // [rsp+8h] [rbp-240h] BYREF\n  _BYTE v16[2]; // [rsp+Ah] [rbp-23Eh] BYREF\n  int v17; // [rsp+Ch] [rbp-23Ch]\n  const void *v18; // [rsp+10h] [rbp-238h]\n  __int64 v19; // [rsp+18h] [rbp-230h]\n  __int64 v20; // [rsp+20h] [rbp-228h]\n  _OWORD v21[2]; // [rsp+28h] [rbp-220h] BYREF\n  _BYTE v22[24]; // [rsp+48h] [rbp-200h] BYREF\n  _BYTE dest[200]; // [rsp+60h] [rbp-1E8h] BYREF\n  __int64 v24; // [rsp+128h] [rbp-120h]\n  int v25; // [rsp+130h] [rbp-118h]\n  __int64 v26; // [rsp+138h] [rbp-110h]\n  int v27; // [rsp+140h] [rbp-108h]\n  __int128 v28; // [rsp+148h] [rbp-100h]\n  __int128 v29; // [rsp+158h] [rbp-F0h]\n  __int64 v30; // [rsp+168h] [rbp-E0h]\n  _QWORD src[27]; // [rsp+170h] [rbp-D8h] BYREF\n\n  v5 = (const void *)(a2 + 216);\n  v6 = *(_BYTE *)(a2 + 377);\n  v15[0] = *(_BYTE *)(a2 + 376);\n  v15[1] = v6;\n  v7 = *(_BYTE *)(a2 + 24);\n  v8 = *(_BYTE *)(a2 + 25);\n  v16[0] = v7;\n  v16[1] = v8;\n  v18 = v5;\n  if ( v15[0] == 1 )\n  {\n    if ( v7 )\n    {\n      memcpy(dest, v5, 0xA8uLL);\n      v9 = linera_proxy::grpc::GrpcProxy<S>::new(\n             dest,\n             *(_QWORD *)(a2 + 504),\n             *(_DWORD *)(a2 + 512),\n             *(_QWORD *)(a2 + 520),\n             *(_DWORD *)(a2 + 528),\n             v8,\n             a3,\n             *(_QWORD *)(a2 + 536));\n      *a1 = 1LL;\n      a1[1] = v9;\n      core::ptr::drop_in_place<linera_client::config::ValidatorConfig>(a2);\n      return core::ptr::drop_in_place<linera_base::crypto::secp256k1::Secp256k1SecretKey>(a2 + 384);\n    }\n    goto LABEL_5;\n  }\n  if ( v7 )\n  {\nLABEL_5:\n    src[0] = v15;\n    src[1] = <linera_rpc::config::NetworkProtocol as core::fmt::Display>::fmt;\n    src[2] = v16;\n    src[3] = <linera_rpc::config::NetworkProtocol as core::fmt::Display>::fmt;\n    *(_QWORD *)dest = &off_14A95B0;\n    *(_QWORD *)&dest[8] = 3LL;\n    *(_QWORD *)&dest[32] = 0LL;\n    *(_QWORD *)&dest[16] = src;\n    *(_QWORD *)&dest[24] = 2LL;\n    core::option::Option<T>::map_or_else(v22, 0LL, a3, dest);\n    a1[1] = anyhow::error::<impl anyhow::Error>::msg(v22);\n    *a1 = 2LL;\n    core::ptr::drop_in_place<linera_storage::db_storage::DbStorage<linera_views::backends::lru_caching::LruCachingDatabase<linera_storage_service::client::StorageServiceDatabaseInternal>>>(a3);\n    return core::ptr::drop_in_place<linera_proxy::ProxyContext>(a2);\n  }\n  linera_rpc::config::ValidatorInternalNetworkPreConfig<P>::clone_with_protocol(src, v5, v6);\n  linera_rpc::config::ValidatorPublicNetworkPreConfig<P>::clone_with_protocol(v21, a2, v8);\n  v11 = *(_QWORD *)(a2 + 504);\n  v12 = *(_DWORD *)(a2 + 512);\n  v19 = *(_QWORD *)(a2 + 520);\n  v17 = *(_DWORD *)(a2 + 528);\n  v20 = *(_QWORD *)(a2 + 536);\n  *(_OWORD *)&dest[16] = v21[1];\n  *(_OWORD *)dest = v21[0];\n  memcpy(&dest[32], src, 0xA8uLL);\n  v24 = v11;\n  v25 = v12;\n  v26 = v19;\n  v27 = v17;\n  v13 = a3[1];\n  v28 = *a3;\n  v29 = v13;\n  v30 = v20;\n  v14 = alloc::boxed::Box<T>::new(dest);\n  *a1 = 0LL;\n  a1[1] = v14;\n  core::ptr::drop_in_place<linera_client::config::ValidatorConfig>(a2);\n  core::ptr::drop_in_place<linera_base::crypto::secp256k1::Secp256k1SecretKey>(a2 + 384);\n  return core::ptr::drop_in_place<linera_rpc::config::ValidatorInternalNetworkPreConfig<linera_rpc::config::NetworkProtocol>>(v18);\n}",
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$4port17h7e434b38376c2effE": "__int64 __fastcall linera_proxy::SimpleProxy<S>::port(_QWORD *a1)\n{\n  unsigned __int64 v1; // rax\n  _QWORD v3[2]; // [rsp+0h] [rbp-40h] BYREF\n  _QWORD v4[6]; // [rsp+10h] [rbp-30h] BYREF\n\n  v1 = a1[33];\n  if ( v1 >= a1[12] )\n  {\n    v3[0] = a1 + 33;\n    v3[1] = core::fmt::num::imp::<impl core::fmt::Display for usize>::fmt;\n    v4[0] = &off_14A95E0;\n    v4[1] = 2LL;\n    v4[4] = 0LL;\n    v4[2] = v3;\n    v4[3] = 1LL;\n    core::panicking::panic_fmt(v4, &off_14A9600);\n  }\n  return *(unsigned __int16 *)(a1[11] + 32 * v1 + 24);\n}",
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$12metrics_port17h924c336ff76fd0f1E": "__int64 __fastcall linera_proxy::SimpleProxy<S>::metrics_port(_QWORD *a1)\n{\n  unsigned __int64 v1; // rax\n  _QWORD v3[2]; // [rsp+0h] [rbp-40h] BYREF\n  _QWORD v4[6]; // [rsp+10h] [rbp-30h] BYREF\n\n  v1 = a1[33];\n  if ( v1 >= a1[12] )\n  {\n    v3[0] = a1 + 33;\n    v3[1] = core::fmt::num::imp::<impl core::fmt::Display for usize>::fmt;\n    v4[0] = &off_14A95E0;\n    v4[1] = 2LL;\n    v4[4] = 0LL;\n    v4[2] = v3;\n    v4[3] = 1LL;\n    core::panicking::panic_fmt(v4, &off_14A9618);\n  }\n  return *(unsigned __int16 *)(a1[11] + 32 * v1 + 28);\n}",
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$18get_listen_address17h46b742f31b286ebfE": "__int64 __fastcall linera_proxy::SimpleProxy<S>::get_listen_address(__int64 a1, _QWORD *a2)\n{\n  __int64 result; // rax\n\n  result = linera_proxy::SimpleProxy<S>::port(a2);\n  *(_DWORD *)(a1 + 2) = 0;\n  *(_WORD *)(a1 + 6) = result;\n  *(_WORD *)a1 = 0;\n  return result;\n}",
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$17try_proxy_message17h3752cd643023484dE": "__int64 __fastcall linera_proxy::SimpleProxy<S>::try_proxy_message(\n        __int64 a1,\n        __int128 *a2,\n        _OWORD *a3,\n        char a4,\n        __int64 a5,\n        int a6,\n        __int64 a7,\n        unsigned int a8)\n{\n  __int64 result; // rax\n  __int128 v9; // xmm0\n  __int128 v10; // xmm1\n  __int128 v11; // xmm1\n\n  result = a8;\n  *(_QWORD *)(a1 + 80) = *((_QWORD *)a2 + 6);\n  v9 = *a2;\n  v10 = a2[1];\n  *(_OWORD *)(a1 + 64) = a2[2];\n  *(_OWORD *)(a1 + 48) = v10;\n  *(_OWORD *)(a1 + 32) = v9;\n  v11 = a3[1];\n  *(_OWORD *)a1 = *a3;\n  *(_OWORD *)(a1 + 16) = v11;\n  *(_BYTE *)(a1 + 440) = a4;\n  *(_QWORD *)(a1 + 88) = a5;\n  *(_DWORD *)(a1 + 96) = a6;\n  *(_QWORD *)(a1 + 104) = a7;\n  *(_DWORD *)(a1 + 112) = a8;\n  *(_BYTE *)(a1 + 441) = 0;\n  return result;\n}",
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$17try_local_message17h634029505e90dc78E": "__int64 __fastcall linera_proxy::SimpleProxy<S>::try_local_message(__int64 a1, __int64 a2, __int64 a3)\n{\n  __int128 v3; // xmm1\n  __int128 v4; // xmm2\n  __int64 result; // rax\n\n  *(_QWORD *)(a1 + 56) = a2;\n  v3 = *(_OWORD *)(a3 + 16);\n  v4 = *(_OWORD *)(a3 + 32);\n  *(_OWORD *)a1 = *(_OWORD *)a3;\n  *(_OWORD *)(a1 + 16) = v3;\n  *(_OWORD *)(a1 + 32) = v4;\n  result = *(_QWORD *)(a3 + 48);\n  *(_QWORD *)(a1 + 48) = result;\n  *(_BYTE *)(a1 + 168) = 0;\n  return result;\n}",
+    "_ZN12linera_proxy4main17h05cb79a16b5bcf85E": "__int64 linera_proxy::main()\n{\n  char v0; // bp\n  __int64 v1; // r14\n  __int64 v2; // rbx\n  _OWORD v4[5]; // [rsp+8h] [rbp-660h] BYREF\n  _BYTE dest[216]; // [rsp+58h] [rbp-610h] BYREF\n  _BYTE v6[8]; // [rsp+130h] [rbp-538h] BYREF\n  __int64 v7; // [rsp+138h] [rbp-530h]\n  int v8; // [rsp+140h] [rbp-528h]\n  __int64 v9; // [rsp+148h] [rbp-520h]\n  _OWORD src[33]; // [rsp+208h] [rbp-460h] BYREF\n  char v11; // [rsp+418h] [rbp-250h]\n\n  clap_builder::derive::Parser::parse(v6);\n  v0 = v6[0];\n  v1 = v7;\n  if ( ((v7 == 1) & v6[0]) != 0 )\n  {\n    tokio::runtime::builder::Builder::new_current_thread(dest);\n    if ( v8 != 1 )\n      goto LABEL_8;\nLABEL_7:\n    tokio::runtime::builder::Builder::max_blocking_threads(dest, v9, &off_14A9730);\n    goto LABEL_8;\n  }\n  tokio::runtime::builder::Builder::new_multi_thread(src);\n  if ( (v0 & 1) != 0 )\n    tokio::runtime::builder::Builder::worker_threads(src, v1, &off_14A9718);\n  memcpy(dest, src, sizeof(dest));\n  if ( v8 == 1 )\n    goto LABEL_7;\nLABEL_8:\n  *(_WORD *)&dest[205] = 257;\n  tokio::runtime::builder::Builder::build(src, dest);\n  if ( *(_QWORD *)&src[0] == 2LL )\n  {\n    v2 = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(*((_QWORD *)&src[0] + 1));\n    core::ptr::drop_in_place<tokio::runtime::builder::Builder>(dest);\n    core::ptr::drop_in_place<linera_proxy::ProxyOptions>(v6);\n  }\n  else\n  {\n    v4[4] = src[4];\n    v4[3] = src[3];\n    v4[2] = src[2];\n    v4[1] = src[1];\n    v4[0] = src[0];\n    *(_QWORD *)&src[0] = v6;\n    v11 = 0;\n    v2 = tokio::runtime::runtime::Runtime::block_on(v4, src);\n    core::ptr::drop_in_place<tokio::runtime::builder::Builder>(dest);\n    core::ptr::drop_in_place<linera_proxy::ProxyOptions>(v6);\n    core::ptr::drop_in_place<tokio::runtime::runtime::Runtime>(v4);\n  }\n  return v2;\n}",
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$3run17h36eed6a2014c1b75E": "void __fastcall linera_proxy::grpc::GrpcProxy<S>::run(__int64 a1, __int64 a2, __int64 a3)\n{\n  *(_QWORD *)(a1 + 48) = a2;\n  *(_QWORD *)(a1 + 56) = a3;\n  *(_BYTE *)(a1 + 68) = 0;\n}",
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$13worker_client17h0a10530ef002e949E": "__int64 __fastcall linera_proxy::grpc::GrpcProxy<S>::worker_client(_QWORD *a1, __int64 a2, _QWORD *a3)\n{\n  char v3; // r12\n  unsigned __int8 v4; // al\n  char *v5; // rbx\n  __int64 v6; // rax\n  char *v7; // r13\n  __int64 v8; // rax\n  unsigned __int8 v9; // al\n  char *v10; // rbx\n  __int64 v11; // rax\n  __int128 v12; // xmm0\n  __int64 v13; // rdx\n  __int64 v14; // r15\n  char *v15; // rbx\n  __int64 v16; // rax\n  __int64 v17; // rbx\n  __int128 v18; // kr00_16\n  __int64 result; // rax\n  __int128 v21; // [rsp+10h] [rbp-2C8h] BYREF\n  __int128 v22; // [rsp+20h] [rbp-2B8h]\n  __int64 v23; // [rsp+30h] [rbp-2A8h]\n  __int128 **v24; // [rsp+38h] [rbp-2A0h] BYREF\n  __int128 **v25; // [rsp+40h] [rbp-298h] BYREF\n  __int128 *v26; // [rsp+48h] [rbp-290h] BYREF\n  __int64 (__fastcall *v27)(); // [rsp+50h] [rbp-288h]\n  char *v28; // [rsp+58h] [rbp-280h]\n  __int128 v29; // [rsp+60h] [rbp-278h] BYREF\n  __int128 v30; // [rsp+70h] [rbp-268h]\n  void *v31; // [rsp+80h] [rbp-258h]\n  __int128 *v32; // [rsp+88h] [rbp-250h] BYREF\n  _OWORD *v33; // [rsp+90h] [rbp-248h]\n  void *v34; // [rsp+98h] [rbp-240h]\n  _OWORD v35[9]; // [rsp+B0h] [rbp-228h] BYREF\n  __int128 *v36; // [rsp+140h] [rbp-198h] BYREF\n  __int64 (__fastcall *v37)(); // [rsp+148h] [rbp-190h]\n  char *v38; // [rsp+150h] [rbp-188h]\n  __int128 v39; // [rsp+160h] [rbp-178h] BYREF\n  __int128 v40; // [rsp+170h] [rbp-168h]\n  __int64 v41; // [rsp+180h] [rbp-158h]\n  _OWORD dest[15]; // [rsp+188h] [rbp-150h] BYREF\n  __int64 v43; // [rsp+278h] [rbp-60h]\n  void *v44; // [rsp+280h] [rbp-58h]\n  __int64 v45; // [rsp+288h] [rbp-50h]\n  _OWORD v46[4]; // [rsp+290h] [rbp-48h] BYREF\n\n  v45 = a2;\n  if ( (unsigned __int64)core::sync::atomic::atomic_load(&tracing_core::metadata::MAX_LEVEL, 0LL) > 2\n    && (unsigned __int8)core::sync::atomic::atomic_load(&tracing_core::dispatcher::EXISTS, 0LL) )\n  {\n    v3 = 0;\n  }\n  else\n  {\n    if ( (unsigned __int64)core::sync::atomic::atomic_load(&tracing_core::metadata::MAX_LEVEL, 0LL) <= 2\n      && (v4 = tracing_core::callsite::DefaultCallsite::interest(&linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE)) != 0\n      && (unsigned __int8)tracing::__macro_support::__is_enabled(\n                            linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE,\n                            v4) )\n    {\n      v5 = (char *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE;\n      v6 = *((_QWORD *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE + 7);\n      v35[1] = *((_OWORD *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE + 4);\n      v35[0] = *((_OWORD *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE + 3);\n      *(_QWORD *)&v35[2] = 0LL;\n      *((_QWORD *)&v35[2] + 1) = v6;\n      <tracing_core::field::Iter as core::iter::traits::iterator::Iterator>::next(dest, v35);\n      if ( !*(_QWORD *)&dest[0]\n        || (v41 = *(_QWORD *)&dest[2],\n            v40 = dest[1],\n            v39 = dest[0],\n            tonic::request::Request<T>::remote_addr(&v36, a3[29]),\n            v24 = &v36,\n            <tracing_core::field::Iter as core::iter::traits::iterator::Iterator>::next(dest, v35),\n            !*(_QWORD *)&dest[0]) )\n      {\n        core::option::expect_failed(aFieldsetCorrup, 34LL, &off_14A9A48);\n      }\n      v23 = *(_QWORD *)&dest[2];\n      v22 = dest[1];\n      v21 = dest[0];\n      <linera_rpc::grpc::api::ChainInfoQuery as linera_rpc::grpc::server::GrpcProxyable>::chain_id(&v32, a3);\n      v25 = &v32;\n      *(_QWORD *)&dest[0] = &v39;\n      *((_QWORD *)&dest[0] + 1) = &v24;\n      *(_QWORD *)&dest[1] = &unk_14A9A60;\n      *((_QWORD *)&dest[1] + 1) = &v21;\n      *(_QWORD *)&dest[2] = &v25;\n      *((_QWORD *)&dest[2] + 1) = &unk_14A9A80;\n      v26 = dest;\n      v27 = (__int64 (__fastcall *)())(&dword_0 + 2);\n      v28 = v5 + 48;\n      tracing::span::Span::new(v35, v5, &v26);\n    }\n    else\n    {\n      *(_QWORD *)&v29 = 2LL;\n      v31 = linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE;\n      if ( !(unsigned __int8)core::sync::atomic::atomic_load(&tracing_core::dispatcher::EXISTS, 0LL) )\n      {\n        v7 = (char *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE;\n        v8 = *((_QWORD *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE + 7);\n        v35[0] = *((_OWORD *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE + 3);\n        v35[1] = *((_OWORD *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE + 4);\n        *(_QWORD *)&v35[2] = 0LL;\n        *((_QWORD *)&v35[2] + 1) = v8;\n        <tracing_core::field::Iter as core::iter::traits::iterator::Iterator>::next(dest, v35);\n        if ( !*(_QWORD *)&dest[0]\n          || (v41 = *(_QWORD *)&dest[2],\n              v40 = dest[1],\n              v39 = dest[0],\n              tonic::request::Request<T>::remote_addr(&v36, a3[29]),\n              v24 = &v36,\n              <tracing_core::field::Iter as core::iter::traits::iterator::Iterator>::next(dest, v35),\n              !*(_QWORD *)&dest[0]) )\n        {\n          core::option::expect_failed(aFieldsetCorrup, 34LL, &off_14A9A48);\n        }\n        v23 = *(_QWORD *)&dest[2];\n        v22 = dest[1];\n        v21 = dest[0];\n        <linera_rpc::grpc::api::ChainInfoQuery as linera_rpc::grpc::server::GrpcProxyable>::chain_id(&v32, a3);\n        v25 = &v32;\n        *(_QWORD *)&dest[0] = &v39;\n        *((_QWORD *)&dest[0] + 1) = &v24;\n        *(_QWORD *)&dest[1] = &unk_14A9A60;\n        *((_QWORD *)&dest[1] + 1) = &v21;\n        *(_QWORD *)&dest[2] = &v25;\n        *((_QWORD *)&dest[2] + 1) = &unk_14A9A80;\n        v26 = dest;\n        v27 = (__int64 (__fastcall *)())(&dword_0 + 2);\n        v28 = v7 + 48;\n        tracing::span::Span::record_all(&v29, &v26);\n      }\n      *(_QWORD *)&v35[2] = v31;\n      v35[1] = v30;\n      v35[0] = v29;\n    }\n    v31 = *(void **)&v35[2];\n    v30 = v35[1];\n    v29 = v35[0];\n    v3 = 1;\n    tracing::span::Span::do_enter(&v29);\n  }\n  if ( (unsigned __int64)core::sync::atomic::atomic_load(&tracing_core::metadata::MAX_LEVEL, 0LL) <= 1 )\n  {\n    v9 = tracing_core::callsite::DefaultCallsite::interest(&linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE);\n    if ( v9 )\n    {\n      if ( (unsigned __int8)tracing::__macro_support::__is_enabled(\n                              linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE,\n                              v9) )\n      {\n        v10 = (char *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE;\n        v11 = *((_QWORD *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE + 7);\n        v35[0] = *((_OWORD *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE + 3);\n        v35[1] = *((_OWORD *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE + 4);\n        *(_QWORD *)&v35[2] = 0LL;\n        *((_QWORD *)&v35[2] + 1) = v11;\n        <tracing_core::field::Iter as core::iter::traits::iterator::Iterator>::next(dest, v35);\n        if ( *(_QWORD *)&dest[0] )\n        {\n          v23 = *(_QWORD *)&dest[2];\n          v22 = dest[1];\n          v21 = dest[0];\n          tonic::request::Request<T>::remote_addr(&v39, a3[29]);\n          v36 = &v39;\n          v37 = <core::option::Option<T> as core::fmt::Debug>::fmt;\n          *(_QWORD *)&dest[0] = &off_14A9A38;\n          *((_QWORD *)&dest[0] + 1) = 1LL;\n          *(_QWORD *)&dest[2] = 0LL;\n          *(_QWORD *)&dest[1] = &v36;\n          *((_QWORD *)&dest[1] + 1) = 1LL;\n          v32 = &v21;\n          v33 = dest;\n          v34 = &unk_149B698;\n          *(_QWORD *)&v35[0] = &v32;\n          *((_QWORD *)&v35[0] + 1) = 1LL;\n          *(_QWORD *)&v35[1] = v10 + 48;\n          linera_proxy::grpc::GrpcProxy<S>::worker_client::{{closure}}(v35);\n          goto LABEL_26;\n        }\nLABEL_36:\n        core::option::expect_failed(aFieldsetCorrup, 34LL, &off_14A9AA0);\n      }\n    }\n  }\n  if ( !(unsigned __int8)core::sync::atomic::atomic_load(&tracing_core::dispatcher::EXISTS, 0LL)\n    && (unsigned __int64)core::sync::atomic::atomic_load(&log::MAX_LOG_LEVEL_FILTER, 0LL) >= 4 )\n  {\n    v44 = linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE;\n    v12 = *((_OWORD *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE + 2);\n    *(_QWORD *)&v46[0] = 4LL;\n    *(_OWORD *)((char *)v46 + 8) = v12;\n    v43 = log::logger();\n    v14 = v13;\n    if ( (*(unsigned __int8 (__fastcall **)(__int64, _OWORD *))(v13 + 24))(v43, v46) )\n    {\n      v15 = (char *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE;\n      v16 = *((_QWORD *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE + 7);\n      v35[0] = *((_OWORD *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE + 3);\n      v35[1] = *((_OWORD *)linera_proxy::grpc::GrpcProxy<S>::worker_client::__CALLSITE + 4);\n      *(_QWORD *)&v35[2] = 0LL;\n      *((_QWORD *)&v35[2] + 1) = v16;\n      <tracing_core::field::Iter as core::iter::traits::iterator::Iterator>::next(dest, v35);\n      if ( !*(_QWORD *)&dest[0] )\n        goto LABEL_36;\n      v23 = *(_QWORD *)&dest[2];\n      v22 = dest[1];\n      v21 = dest[0];\n      tonic::request::Request<T>::remote_addr(&v39, a3[29]);\n      v26 = &v39;\n      v27 = <core::option::Option<T> as core::fmt::Debug>::fmt;\n      *(_QWORD *)&dest[0] = &off_14A9A38;\n      *((_QWORD *)&dest[0] + 1) = 1LL;\n      *(_QWORD *)&dest[2] = 0LL;\n      *(_QWORD *)&dest[1] = &v26;\n      *((_QWORD *)&dest[1] + 1) = 1LL;\n      v32 = &v21;\n      v33 = dest;\n      v34 = &unk_149B698;\n      v36 = (__int128 *)&v32;\n      v37 = (__int64 (__fastcall *)())(&dword_0 + 1);\n      v38 = v15 + 48;\n      *(_QWORD *)&v35[1] = *(_QWORD *)&v46[1];\n      v35[0] = v46[0];\n      tracing::__macro_support::__tracing_log(v44, v43, v14, v35, &v36);\n    }\n  }\nLABEL_26:\n  memcpy(dest, a3, sizeof(dest));\n  tonic::request::Request<T>::into_inner(v35, dest);\n  v17 = v45;\n  linera_proxy::grpc::GrpcProxy<S>::shard_for(dest, v45, v35);\n  if ( __OFSUB__(-*(_QWORD *)&dest[0], 1LL) )\n  {\n    a1[1] = tonic::status::Status::new(5LL, aCouldNotFindSh, 32LL, -*(_QWORD *)&dest[0]);\n    *a1 = 2LL;\n  }\n  else\n  {\n    v22 = dest[1];\n    v21 = dest[0];\n    linera_proxy::grpc::GrpcProxy<S>::worker_client_for_shard((__int64 *)dest, v17, (__int64)&v21);\n    v18 = dest[0];\n    if ( *(_QWORD *)&dest[0] != 2LL )\n    {\n      memcpy(a1 + 2, &dest[1], 0x98uLL);\n      memcpy(a1 + 21, v35, 0x88uLL);\n      *(_OWORD *)a1 = v18;\n      result = core::ptr::drop_in_place<linera_rpc::config::ValidatorPublicNetworkPreConfig<linera_rpc::config::NetworkProtocol>>(&v21);\n      if ( !v3 )\n        return result;\n      goto LABEL_33;\n    }\n    a1[1] = linera_proxy::grpc::GrpcProxy<S>::worker_client::{{closure}}(*((_QWORD *)&dest[0] + 1));\n    *a1 = 2LL;\n    core::ptr::drop_in_place<linera_rpc::config::ValidatorPublicNetworkPreConfig<linera_rpc::config::NetworkProtocol>>(&v21);\n  }\n  result = core::ptr::drop_in_place<linera_rpc::grpc::api::ChainInfoQuery>(v35);\n  if ( !v3 )\n    return result;\nLABEL_33:\n  core::ptr::drop_in_place<tracing::span::Entered>(&v29);\n  return core::ptr::drop_in_place<tracing::span::Span>(&v29);\n}",
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$3run17h2acb902ca299aad0E": "void *__fastcall linera_proxy::SimpleProxy<S>::run(__int64 a1, const void *a2, __int64 a3)\n{\n  void *result; // rax\n\n  result = memcpy((void *)a1, a2, 0x110uLL);\n  *(_QWORD *)(a1 + 272) = a3;\n  *(_BYTE *)(a1 + 592) = 0;\n  return result;\n}"
+  },
+  "function_call_counts": {
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$3new17h7d2436f68da5c578E": {
+      "std::thread::local::LocalKey<T>::with": 2,
+      "papaya::map::HashMap<K,V,S>::with_capacity_and_hasher": 2,
+      "linera_rpc::grpc::pool::GrpcConnectionPool::with_connect_timeout": 1,
+      "linera_rpc::grpc::pool::GrpcConnectionPool::with_timeout": 1,
+      "memcpy": 2,
+      "alloc::boxed::Box<T>::new": 1
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$17as_validator_node17h6dc438575a810413E": {
+      "linera_rpc::grpc::api::validator_node_server::ValidatorNodeServer<T>::new": 1
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$6config17h5740d3fc61532a61E": {
+      "core::option::expect_failed": 1
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$19as_notifier_service17h371a1d964230f3d2E": {
+      "linera_rpc::grpc::api::validator_node_server::ValidatorNodeServer<T>::new": 1
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$14public_address17h409f9dd3f70af379E": {
+      "linera_proxy::grpc::GrpcProxy<S>::config": 1
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$15metrics_address17h2608380e1f613793E": {
+      "linera_proxy::grpc::GrpcProxy<S>::config": 1
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$16internal_address17h46850e2bf68c6985E": {
+      "linera_proxy::grpc::GrpcProxy<S>::config": 1
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$9shard_for17h0b00677dc09e2974E": {
+      "<linera_rpc::grpc::api::HandleConfirmedCertificateRequest as linera_rpc::grpc::server::GrpcProxyable>::chain_id": 1,
+      "linera_rpc::config::ValidatorInternalNetworkPreConfig<P>::get_shard_for": 1,
+      "<alloc::string::String as core::clone::Clone>::clone": 1
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$23worker_client_for_shard17h5c25ff08ca6d3d63E": {
+      "linera_rpc::config::ShardConfig::http_address": 1,
+      "linera_rpc::grpc::pool::GrpcConnectionPool::channel": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 1,
+      "tonic::client::grpc::Grpc<T>::new": 1,
+      "memcpy": 1
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$13public_server17h8beeb9e104351e51E": {
+      "tonic::transport::tls::Identity::from_pem": 1,
+      "tonic::transport::server::tls::ServerTlsConfig::identity": 1,
+      "tonic::transport::server::Server<L>::tls_config": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 1,
+      "memcpy": 1
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$36log_and_return_proxy_request_outcome17h58ab5b7b9b545e2bE": {
+      "memcpy": 1
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$20view_error_to_status17h3c1dbf4fc512a708E": {
+      "<T as alloc::string::SpecToString>::spec_to_string": 4,
+      "tonic::status::Status::new": 4,
+      "alloc::boxed::Box<T>::new": 1,
+      "tonic::status::Status::set_source": 1
+    },
+    "_ZN12linera_proxy4grpc27GrpcMessageLimiter$LT$T$GT$4fits17h52b80d7647445b66E": {
+      "linera_rpc::grpc::conversions::<impl core::convert::TryFrom<linera_chain::certificate::Certificate> for linera_rpc::grpc::api::Certificate>::try_from": 1,
+      "linera_proxy::grpc::GrpcMessageLimiter<T>::fits::{{closure}}": 1
+    },
+    "_ZN12linera_proxy4grpc27GrpcMessageLimiter$LT$T$GT$8fits_raw17hd1a230e0b2010adcE": {},
+    "_ZN12linera_proxy12ProxyContext12from_options17ha7ab8772410a7c34E": {
+      "linera_service::util::read_json": 1,
+      "memcpy": 1
+    },
+    "_ZN12linera_proxy14Proxy$LT$S$GT$12from_context17h6acf1242999046a5E": {
+      "memcpy": 2,
+      "linera_proxy::grpc::GrpcProxy<S>::new": 1,
+      "core::ptr::drop_in_place<linera_client::config::ValidatorConfig>": 2,
+      "core::ptr::drop_in_place<linera_base::crypto::secp256k1::Secp256k1SecretKey>": 2,
+      "core::option::Option<T>::map_or_else": 1,
+      "anyhow::error::<impl anyhow::Error>::msg": 1,
+      "core::ptr::drop_in_place<linera_storage::db_storage::DbStorage<linera_views::backends::lru_caching::LruCachingDatabase<linera_storage_service::client::StorageServiceDatabaseInternal>>>": 1,
+      "core::ptr::drop_in_place<linera_proxy::ProxyContext>": 1,
+      "linera_rpc::config::ValidatorInternalNetworkPreConfig<P>::clone_with_protocol": 1,
+      "linera_rpc::config::ValidatorPublicNetworkPreConfig<P>::clone_with_protocol": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "core::ptr::drop_in_place<linera_rpc::config::ValidatorInternalNetworkPreConfig<linera_rpc::config::NetworkProtocol>>": 1
+    },
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$4port17h7e434b38376c2effE": {
+      "core::panicking::panic_fmt": 1
+    },
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$12metrics_port17h924c336ff76fd0f1E": {
+      "core::panicking::panic_fmt": 1
+    },
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$18get_listen_address17h46b742f31b286ebfE": {
+      "linera_proxy::SimpleProxy<S>::port": 1
+    },
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$17try_proxy_message17h3752cd643023484dE": {},
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$17try_local_message17h634029505e90dc78E": {},
+    "_ZN12linera_proxy4main17h05cb79a16b5bcf85E": {
+      "clap_builder::derive::Parser::parse": 1,
+      "tokio::runtime::builder::Builder::new_current_thread": 1,
+      "tokio::runtime::builder::Builder::max_blocking_threads": 1,
+      "tokio::runtime::builder::Builder::new_multi_thread": 1,
+      "tokio::runtime::builder::Builder::worker_threads": 1,
+      "memcpy": 1,
+      "tokio::runtime::builder::Builder::build": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 1,
+      "core::ptr::drop_in_place<tokio::runtime::builder::Builder>": 2,
+      "core::ptr::drop_in_place<linera_proxy::ProxyOptions>": 2,
+      "tokio::runtime::runtime::Runtime::block_on": 1,
+      "core::ptr::drop_in_place<tokio::runtime::runtime::Runtime>": 1
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$3run17h36eed6a2014c1b75E": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$13worker_client17h0a10530ef002e949E": {
+      "<tracing_core::field::Iter as core::iter::traits::iterator::Iterator>::next": 6,
+      "core::option::expect_failed": 3,
+      "tonic::request::Request<T>::remote_addr": 4,
+      "<linera_rpc::grpc::api::ChainInfoQuery as linera_rpc::grpc::server::GrpcProxyable>::chain_id": 2,
+      "tracing::span::Span::new": 1,
+      "tracing::span::Span::record_all": 1,
+      "core::sync::atomic::atomic_load": 7,
+      "tracing_core::callsite::DefaultCallsite::interest": 2,
+      "tracing::__macro_support::__is_enabled": 2,
+      "tracing::span::Span::do_enter": 1,
+      "linera_proxy::grpc::GrpcProxy<S>::worker_client::{{closure}}": 2,
+      "log::logger": 1,
+      "tracing::__macro_support::__tracing_log": 1,
+      "memcpy": 3,
+      "tonic::request::Request<T>::into_inner": 1,
+      "linera_proxy::grpc::GrpcProxy<S>::shard_for": 1,
+      "tonic::status::Status::new": 1,
+      "linera_proxy::grpc::GrpcProxy<S>::worker_client_for_shard": 1,
+      "core::ptr::drop_in_place<linera_rpc::config::ValidatorPublicNetworkPreConfig<linera_rpc::config::NetworkProtocol>>": 2,
+      "core::ptr::drop_in_place<linera_rpc::grpc::api::ChainInfoQuery>": 1,
+      "core::ptr::drop_in_place<tracing::span::Entered>": 1,
+      "core::ptr::drop_in_place<tracing::span::Span>": 1
+    },
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$3run17h2acb902ca299aad0E": {
+      "memcpy": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$3new17h7d2436f68da5c578E": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$17as_validator_node17h6dc438575a810413E": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$6config17h5740d3fc61532a61E": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$19as_notifier_service17h371a1d964230f3d2E": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$14public_address17h409f9dd3f70af379E": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$15metrics_address17h2608380e1f613793E": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$16internal_address17h46850e2bf68c6985E": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$9shard_for17h0b00677dc09e2974E": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$23worker_client_for_shard17h5c25ff08ca6d3d63E": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$13public_server17h8beeb9e104351e51E": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$36log_and_return_proxy_request_outcome17h58ab5b7b9b545e2bE": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$20view_error_to_status17h3c1dbf4fc512a708E": {},
+    "_ZN12linera_proxy4grpc27GrpcMessageLimiter$LT$T$GT$4fits17h52b80d7647445b66E": {},
+    "_ZN12linera_proxy4grpc27GrpcMessageLimiter$LT$T$GT$8fits_raw17hd1a230e0b2010adcE": {},
+    "_ZN12linera_proxy12ProxyContext12from_options17ha7ab8772410a7c34E": {},
+    "_ZN12linera_proxy14Proxy$LT$S$GT$12from_context17h6acf1242999046a5E": {},
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$4port17h7e434b38376c2effE": {},
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$12metrics_port17h924c336ff76fd0f1E": {},
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$18get_listen_address17h46b742f31b286ebfE": {},
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$17try_proxy_message17h3752cd643023484dE": {},
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$17try_local_message17h634029505e90dc78E": {},
+    "_ZN12linera_proxy4main17h05cb79a16b5bcf85E": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$3run17h36eed6a2014c1b75E": {},
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$13worker_client17h0a10530ef002e949E": {},
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$3run17h2acb902ca299aad0E": {}
+  },
+  "variable_types": {
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$3new17h7d2436f68da5c578E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_edx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_928": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_936": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "array",
+          384
+        ]
+      ],
+      "stack_464": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_480": [
+        [
+          "array",
+          376
+        ]
+      ],
+      "stack_856": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_864": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$17as_validator_node17h6dc438575a810413E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_of": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rt0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$6config17h5740d3fc61532a61E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$19as_notifier_service17h371a1d964230f3d2E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_of": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rt0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$14public_address17h409f9dd3f70af379E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$15metrics_address17h2608380e1f613793E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$16internal_address17h46850e2bf68c6985E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$9shard_for17h0b00677dc09e2974E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          48
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$23worker_client_for_shard17h5c25ff08ca6d3d63E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "array",
+          168
+        ]
+      ],
+      "stack_248": [
+        [
+          "array",
+          48
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$13public_server17h8beeb9e104351e51E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_122": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "array",
+          168
+        ]
+      ],
+      "stack_432": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_480": [
+        [
+          "array",
+          120
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$36log_and_return_proxy_request_outcome17h58ab5b7b9b545e2bE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$20view_error_to_status17h3c1dbf4fc512a708E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc27GrpcMessageLimiter$LT$T$GT$4fits17h52b80d7647445b66E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc27GrpcMessageLimiter$LT$T$GT$8fits_raw17hd1a230e0b2010adcE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12linera_proxy12ProxyContext12from_options17ha7ab8772410a7c34E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_esi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "array",
+          488
+        ]
+      ]
+    },
+    "_ZN12linera_proxy14Proxy$LT$S$GT$12from_context17h6acf1242999046a5E": {
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_cl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          2
+        ]
+      ],
+      "stack_26": [
+        [
+          "array",
+          2
+        ]
+      ],
+      "stack_28": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_88": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_112": [
+        [
+          "array",
+          200
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_384": [
+        [
+          "array",
+          216
+        ]
+      ]
+    },
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$4port17h7e434b38376c2effE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          48
+        ]
+      ]
+    },
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$12metrics_port17h924c336ff76fd0f1E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          48
+        ]
+      ]
+    },
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$18get_listen_address17h46b742f31b286ebfE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$17try_proxy_message17h3752cd643023484dE": {
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_cl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$17try_local_message17h634029505e90dc78E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm2": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4main17h05cb79a16b5bcf85E": {
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          80
+        ]
+      ],
+      "stack_88": [
+        [
+          "array",
+          216
+        ]
+      ],
+      "stack_304": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_520": [
+        [
+          "array",
+          528
+        ]
+      ],
+      "stack_1048": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$3run17h36eed6a2014c1b75E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN12linera_proxy4grpc18GrpcProxy$LT$S$GT$13worker_client17h0a10530ef002e949E": {
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_kr00_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "array",
+          144
+        ]
+      ],
+      "stack_320": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_328": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_392": [
+        [
+          "array",
+          240
+        ]
+      ],
+      "stack_632": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_640": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_648": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_656": [
+        [
+          "array",
+          64
+        ]
+      ]
+    },
+    "_ZN12linera_proxy20SimpleProxy$LT$S$GT$3run17h2acb902ca299aad0E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

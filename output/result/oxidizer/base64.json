@@ -1,0 +1,141 @@
+{
+  "decompilation": {
+    "_ZN9uu_base646uumain17h3b92bcd310f7e10aE": "fn uu_base64::uumain(a0: u64, a1: u64) -> long long {\n    let v0: u64;  // [bp-0x98]\n    let v1: u128;  // [bp-0x58]\n    let v2: u64;  // [bp-0x48]\n    let v3: alloc::string::String;  // [bp-0x38], Other Possible Types: u64\n    let v4: i64;  // [bp-0x30]\n    let v5: u64;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers());\n    v8 = uu_base64::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v3 = format!(\"{}\", &v0);\n    v1 = *(&v3.vec.buf.inner.cap as &i128);\n    v2 = v5;\n    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v5) {\n        v3 = uucore::util_name();\n        v4 = v9;\n        eprint!(\"{}: \", &v3);\n        eprintln!(\"{}\", &v1);\n    }\n    if !*((v9 + 96) as &i64)(v0) as i8 {\n        return *((v9 + 88) as &i64)(v0) as u32;\n    }\n    v3 = uucore::execution_phrase();\n    v4 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v3);\n    return *((v9 + 88) as &i64)(v0) as u32;\n}\n",
+    "_ZN9uu_base646uumain6uumain17h6c6308a3430c0a47E": "fn uu_base64::uumain::uumain(a0: i64, a1: i64) -> u64 {\n    let v0: struct16;  // [bp-0x88]\n    let v1: struct48;  // [bp-0x78], Other Possible Types: Result<struct42, struct24>\n    let v2: struct16;  // [bp-0x70], Other Possible Types: u64\n    let v3: u64;  // [bp-0x50]\n    let v4: struct48;  // [bp-0x48]\n    let v6: u64;  // rax\n    let v7: u64;  // rbx\n    let v8: iNone;  // xmm0\n    let v9: iNone;  // xmm1\n\n    v1 = uu_base32::base_common::parse_base_cmd_args(a0, a1);\n    v6 = v1 as i64;\n    v7 = *((&v1 as &char + 16) as &i64);\n    if v6 == 2 {\n        return v2;\n    }\n    v4 = struct48 {\n        field_0: v6\n        field_8: v2\n        field_16: v7\n        field_24: *((&v1 as &char + 24) as &i128)\n        field_40: v3\n    };\n    v1 = uu_base32::base_common::get_input(&v4);\n    match v1 {\n        Err(_) => {\n            return v2;\n        },\n        Ok(v0) => {\n            v8 = *(&v4.field_0 as &i128);\n            v9 = *(&v4.field_16 as &i128);\n            v1 = struct48 {\n                field_0: v8\n                field_16: v9\n                field_32: *((&v4.field_24 as &char + 8) as &i128)\n            };\n            return uu_base32::base_common::handle_input(&v0, &v1);\n        },\n    }\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN9uu_base646uumain17h3b92bcd310f7e10aE": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "uu_base64::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN9uu_base646uumain6uumain17h6c6308a3430c0a47E": {
+      "uu_base32::base_common::handle_input": 1,
+      "uu_base32::base_common::get_input": 1,
+      "uu_base32::base_common::parse_base_cmd_args": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN9uu_base646uumain17h3b92bcd310f7e10aE": {
+      "eprintln": 2,
+      "eprint": 1,
+      "format": 1
+    },
+    "_ZN9uu_base646uumain6uumain17h6c6308a3430c0a47E": {}
+  },
+  "node_counts": {
+    "_ZN9uu_base646uumain17h3b92bcd310f7e10aE": 10,
+    "_ZN9uu_base646uumain6uumain17h6c6308a3430c0a47E": 7
+  },
+  "variable_types": {
+    "_ZN9uu_base646uumain17h3b92bcd310f7e10aE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_base646uumain6uumain17h6c6308a3430c0a47E": {
+      "stack_16": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_ymm1": [
+        [
+          "primitive",
+          null
+        ]
+      ]
+    }
+  }
+}

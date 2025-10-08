@@ -1,0 +1,664 @@
+{
+  "decompilation": {
+    "_ZN9uu_stdbuf6uumain17h944a838e666ad5ebE": "fn uu_stdbuf::uumain(a0: u64, a1: u64) -> long long {\n    let v0: u64;  // [bp-0x98]\n    let v1: u128;  // [bp-0x58]\n    let v2: u64;  // [bp-0x48]\n    let v3: alloc::string::String;  // [bp-0x38], Other Possible Types: u64\n    let v4: i64;  // [bp-0x30]\n    let v5: u64;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers());\n    v8 = uu_stdbuf::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v3 = format!(\"{}\", &v0);\n    v1 = *(&v3.vec.buf.inner.cap as &i128);\n    v2 = v5;\n    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(<alloc::boxed::Box<T,A> as core::fmt::Display>::fmt, v5, 1, 0) {\n        v3 = uucore::util_name();\n        v4 = v9;\n        eprint!(\"{}: \", &v3);\n        eprintln!(\"{}\", &v1);\n    }\n    if !*((v9 + 96) as &i64)(v0) as i8 {\n        return *((v9 + 88) as &i64)(v0) as u32;\n    }\n    v3 = uucore::execution_phrase();\n    v4 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v3);\n    return *((v9 + 88) as &i64)(v0) as u32;\n}\n",
+    "_ZN9uu_stdbuf6uumain6uumain17h0359c5a0823afe83E": "fn uu_stdbuf::uumain::uumain(a0: i64, a1: i64) -> u64 {\n    let v0: struct64;  // [bp-0x518], Other Possible Types: struct28, u128\n    let v1: struct16;  // [bp-0x518]\n    let v2: Result<struct48, struct24>;  // [bp-0x518], Other Possible Types: struct56, struct64, u64\n    let v3: Result<struct4, struct8>;  // [bp-0x518]\n    let v4: u128;  // [bp-0x518]\n    let v5: u64;  // [bp-0x510]\n    let v6: u64;  // [bp-0x508]\n    let v7: struct24;  // [bp-0x500], Other Possible Types: u32\n    let v8: u64;  // [bp-0x4d8]\n    let v9: struct16;  // [bp-0x4d0]\n    let v10: u64;  // [bp-0x4c8]\n    let v11: u8;  // [bp-0x4b0]\n    let v12: struct16;  // [bp-0x498]\n    let v13: struct24;  // [bp-0x470]\n    let v14: struct56;  // [bp-0x458]\n    let v15: u64;  // [bp-0x450]\n    let v16: struct32;  // [bp-0x420], Other Possible Types: u32\n    let v17: struct16;  // [bp-0x41c]\n    let v18: u64;  // [bp-0x418]\n    let v19: struct24;  // [bp-0x400]\n    let v20: u64;  // [bp-0x3e8]\n    let v21: u128;  // [bp-0x3e0]\n    let v22: u128;  // [bp-0x3d0]\n    let v23: u64;  // [bp-0x3c0]\n    let v24: struct24;  // [bp-0x3b8]\n    let v25: alloc::string::String;  // [bp-0x398]\n    let v26: u64;  // [bp-0x388]\n    let v27: alloc::string::String;  // [bp-0x380]\n    let v28: u64;  // [bp-0x370]\n    let v29: alloc::string::String;  // [bp-0x368]\n    let v30: u64;  // [bp-0x358]\n    let v31: alloc::string::String;  // [bp-0x350]\n    let v32: u64;  // [bp-0x340]\n    let v33: struct64;  // [bp-0x338]\n    let v34: struct157;  // [bp-0x2f0], Other Possible Types: struct16, struct56, struct712\n    let v35: Result<struct48, struct32>;  // [bp-0x2f0]\n    let v36: u128;  // [bp-0x2e8]\n    let v37: u128;  // [bp-0x2d8]\n    let v39: u64;  // r14\n    let v40: u64;  // rax\n    let v41: u64;  // rax\n    let v43: u32;  // eax\n    let v44: u32;  // eax\n\n    v34 = uu_stdbuf::uu_app();\n    v0 = clap_builder::builder::command::Command::try_get_matches_from(&v34, a0, a1);\n    if (((0 ^ v1.field_0) & (0 ^ -(v2))) >> 63) as char {\n        return alloc::boxed::Box<T>::new(v15, 125);\n    }\n    v14 = v2;\n    v35 = <uu_stdbuf::ProgramOptions as core::convert::TryFrom<&clap_builder::parser::matches::arg_matches::ArgMatches>>::try_from(&v14);\n    match v35 {\n        Err(_) => {\n            v6 = *((&v35 as &char + 24) as &i64) as u64;\n            v0 = v36;\n            v7 = 125;\n            alloc::boxed::Box<T>::new(&v0);\n        },\n        Ok(_) => {\n            v23 = *((&v35 as &char + 40) as &i64);\n            v22 = v37;\n            v20 = v35 as i64;\n            v21 = v36;\n            v34 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v14);\n            v0 = clap_builder::parser::error::MatchesError::unwrap(&v34);\n            if !v0.field_0 as i64 {\n                core::option::unwrap_failed(); /* do not return */\n            }\n            v33 = v2;\n            v40 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next(&v33);\n            if !v40 {\n                core::option::unwrap_failed(); /* do not return */\n            }\n            v34 = std::process::Command::new(v40);\n            core::iter::traits::iterator::Iterator::collect(&v11, &v33);\n            tempfile::dir::tempdir(&v0);\n            v13 = core::result::Result<T,E>::unwrap(&v0);\n            v2 = uu_stdbuf::get_preload_env(&v13);\n            if let Ok(_) = v2 {\n                v24 = v7;\n                v19 = struct24 {\n                    field_0: v2 as i64\n                    field_8: v39\n                    field_16: *((&v2 as &char + 16) as &i64)\n                };\n                std::process::Command::env(&v34, &v19, &v24);\n                uu_stdbuf::set_command_env(&v34, \"_STDBUF_I\", &v20);\n                uu_stdbuf::set_command_env(&v34, \"_STDBUF_O\", &v21 as u8);\n                uu_stdbuf::set_command_env(&v34, \"_STDBUF_E\", &v22 as u8);\n                v34 = std::process::Command::args(&v11);\n                v16 = std::process::Command::spawn(&v34);\n                if v16.field_0 == 1 {\n                    v8 = v18;\n                    v41 = std::io::error::Error::kind(v18) as u64;\n                    if !v41 as u8 {\n                        v27 = format!(\"{} No such file or directory\", \"failed to execute process:\");\n                        v0 = struct28 {\n                            field_0: *(&v27.vec.buf.inner.cap as &i128)\n                            field_16: v28\n                            field_24: 127\n                        };\n                        alloc::boxed::Box<T>::new(&v0);\n                    } else if v41 as u32 == 1 {\n                        v25 = format!(\"{} Permission denied\", \"failed to execute process:\");\n                        v0 = struct28 {\n                            field_0: *(&v25.vec.buf.inner.cap as &i128)\n                            field_16: v26\n                            field_24: 126\n                        };\n                        alloc::boxed::Box<T>::new(&v0);\n                    } else {\n                        v29 = format!(\"{} {}\", \"failed to execute process:\", &v8);\n                        v0 = struct28 {\n                            field_0: *(&v29.vec.buf.inner.cap as &i128)\n                            field_16: v30\n                            field_24: 1\n                        };\n                        alloc::boxed::Box<T>::new(&v0);\n                    }\n                } else {\n                    v12 = v17;\n                    v3 = std::process::Child::wait(&v12);\n                    v9 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v3);\n                    if !v9.field_0 {\n                        v43 = v10 as u32;\n                        v44 = v43 & 127;\n                        if !(v43 as u8 & 127) {\n                            v39 = (!(v10 >> 8) as u32 ? 0 : uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from((v10 >> 8) as u32));\n                        } else if v44 as u8 + 1 >= 2 {\n                            v16 = v44;\n                            v31 = format!(\"process killed by signal {}\", &v16);\n                            v7 = 1;\n                            v4 = *(&v31.vec.buf.inner.cap as &i128) as u128;\n                            v6 = v32;\n                            alloc::boxed::Box<T>::new(&v4 as u384);\n                        } else {\n                            core::option::unwrap_failed(); /* do not return */\n                        }\n                    }\n                }\n            }\n        },\n    }\n    return v5;\n}\n",
+    "_ZN9uu_stdbuf12check_option17hbe6559dacc455cfaE": "fn uu_stdbuf::check_option(a0: i64, a1: u64, a2: void*, a3: u64) -> long long {\n    let v0: Result<struct40, struct16>;  // [bp-0x50], Other Possible Types: struct32\n    let v2: void*;  // rax\n\n    v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1, a2, a3);\n    v2 = clap_builder::parser::error::MatchesError::unwrap(a2, a3, &v0);\n    if !v2 {\n        *((a0 + 8) as &i64) = 0;\n    } else if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v2[8] as i64, v2[16] as i64, \"L\") {\n        v0 = uucore::features::parser::parse_size::parse_size_u64(v2[8] as i64, v2[16] as i64);\n        return core::result::Result<T,E>::map_or_else(a0, &v0);\n    } else if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, \"input\") {\n        return struct16 {\n            field_0: 0x8000000000000000\n            field_8: 1\n        };\n    } else {\n        return <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(a0, \"line buffering stdin is meaningless\");\n    }\n}\n",
+    "_ZN9uu_stdbuf15set_command_env17had9ec2fedfe42dc9E": "fn uu_stdbuf::set_command_env(a0: i64, a1: i64, a2: i64, a3: i64) -> u64 {\n    let v0: u8;  // [bp-0x4c]\n    let v1: u8;  // [bp-0x38]\n    let v2: u64;  // [bp-0x20]\n    let v3: u64;  // [bp-0x18]\n    let v4: u64;  // [bp-0x10]\n    let v5: u64;  // [bp-0x8]\n    let v7: u64;  // rax\n    let v8: u64;  // r15\n    let v9: u64;  // r14\n    let v10: u64;  // r12\n    let v11: u64;  // rbx\n    let v13: core::result::Result<(), core::fmt::Error>;  // rax\n\n    v7 = *(a3 as &i64);\n    if !v7 {\n        return v7;\n    } else if v7 != 1 {\n        v5 = v8;\n        v4 = v9;\n        v3 = v10;\n        v2 = v11;\n        v13 = core::fmt::num::imp::<impl u64>::_fmt(*((a3 + 8) as &i64), &v0) as u64;\n        <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v1, *(&v13 as &i64), a2);\n        return std::process::Command::env(a0, a1, a2, &v1);\n    } else {\n        return std::process::Command::env(a0, a1, a2);\n    }\n}\n",
+    "_ZN9uu_stdbuf15get_preload_env17hcdd0d7c41618a612E": "fn uu_stdbuf::get_preload_env(a1: i64) -> Result<struct48, struct24> {\n    let a0: i64;  // rdi\n    let v0: struct4;  // [bp-0x7c]\n    let v1: Result<struct4, struct8>;  // [bp-0x78], Other Possible Types: struct24, u128\n    let v2: struct4;  // [bp-0x74]\n    let v3: u64;  // [bp-0x70]\n    let v4: u64;  // [bp-0x68]\n    let v5: u128;  // [bp-0x60]\n    let v6: u64;  // [bp-0x58]\n    let v7: u64;  // [bp-0x50]\n    let v8: struct24;  // [bp-0x40]\n    let v9: u64;  // [bp-0x30]\n    let v10: u128;  // [bp-0x28]\n    let v11: i8;  // [bp-0x18]\n    let v13: u64;  // rdx\n    let v14: u64;  // rdx\n    let v15: Result<(), &BOT>;  // rax\n\n    v1 = std::path::Path::join(*(a1 as &i64), *((a1 + 8) as &i64));\n    v8 = std::path::Path::with_extension(v3, v4);\n    v1 = std::fs::File::create(&v8);\n    match v1 {\n        Err(_) => {\n            return struct24 {\n                field_0: 0x8000000000000000\n                field_8: uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v3)\n                field_16: v13\n            };\n        },\n        Ok(v0) => {\n            v15 = std::io::Write::write_all(&v0, a1, v14);\n            match v15 {\n                Ok(_) => {\n                    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v10, \"LD_PRELOAD\");\n                    v4 = *(&v11 as &i64);\n                    v1 = v10;\n                    v7 = v9;\n                    v5 = v8.field_0;\n                    return Ok(struct48 {\n                        field_0: v10\n                        field_16: v4\n                        field_24: v5 as i64\n                        field_32: v6\n                        field_40: v7\n                    });\n                },\n                Err(_) => {\n                    return struct24 {\n                        field_0: 0x8000000000000000\n                        field_8: uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v15)\n                        field_16: v14\n                    };\n                },\n            }\n        },\n    }\n}\n",
+    "_ZN9uu_stdbuf6uu_app17h91a2ac6dea78ecddE": "fn uu_stdbuf::uu_app() -> : struct712 {\n    let a0: u64;  // rdi\n    let v0: struct32;  // [bp-0x860]\n    let v1: struct24;  // [bp-0x840], Other Possible Types: struct640\n    let v2: u32;  // [bp-0x5c8]\n    let v3: u32;  // [bp-0x5c4]\n    let v4: struct712;  // [bp-0x5c0], Other Possible Types: struct640\n    let v5: u32;  // [bp-0x348]\n    let v6: u32;  // [bp-0x344]\n    let v7: u64;  // [bp-0x304]\n    let v8: u32;  // [bp-0x2fc]\n    let v9: struct437;  // [bp-0x2f8], Other Possible Types: struct712, struct640\n    let v10: u64;  // [bp-0x3c]\n    let v11: i8;  // [bp-0x34]\n    let v14: u64;  // rdx\n\n    v9 = clap_builder::builder::command::Command::new(uucore::util_name(), v14);\n    v4 = clap_builder::builder::command::Command::version(&v9);\n    v9 = clap_builder::builder::command::Command::about(&v4);\n    v4 = clap_builder::builder::command::Command::after_help(&v9);\n    v1 = uucore::format_usage(\"{} [OPTION]... COMMAND\");\n    v9 = clap_builder::builder::command::Command::override_usage(&v4, &v1);\n    memcpy(&v4, &v9, 700);\n    v7 = 549755814048 | v10;\n    v8 = *(&v11 as &i32);\n    v9 = clap_builder::builder::arg::Arg::new(\"input\");\n    v1 = clap_builder::builder::arg::Arg::long(&v9, \"input\");\n    v9 = clap_builder::builder::arg::Arg::short(&v1, 105);\n    v1 = clap_builder::builder::arg::Arg::help(&v9, \"adjust standard input stream buffering\");\n    v9 = clap_builder::builder::arg::Arg::value_name(&v1);\n    v0 = struct32 {\n        field_0: \"output\"\n        field_16: \"error\"\n    };\n    v1 = clap_builder::builder::arg::Arg::required_unless_present_any(&v9, &v0);\n    v9 = clap_builder::builder::command::Command::arg(&v4, &v1);\n    v4 = clap_builder::builder::arg::Arg::new(\"output\");\n    v1 = clap_builder::builder::arg::Arg::long(&v4, \"output\");\n    v4 = clap_builder::builder::arg::Arg::short(&v1, 111);\n    v1 = clap_builder::builder::arg::Arg::help(&v4, \"adjust standard output stream buffering\");\n    v4 = clap_builder::builder::arg::Arg::value_name(&v1);\n    v0 = struct32 {\n        field_0: \"input\"\n        field_16: \"error\"\n    };\n    v1 = clap_builder::builder::arg::Arg::required_unless_present_any(&v4, &v0);\n    v4 = clap_builder::builder::command::Command::arg(&v9, &v1);\n    v9 = clap_builder::builder::arg::Arg::new(\"error\");\n    v1 = clap_builder::builder::arg::Arg::long(&v9, \"error\");\n    v9 = clap_builder::builder::arg::Arg::short(&v1, 101);\n    v1 = clap_builder::builder::arg::Arg::help(&v9, \"adjust standard error stream buffering\");\n    v9 = clap_builder::builder::arg::Arg::value_name(&v1);\n    v0 = struct32 {\n        field_0: \"input\"\n        field_16: \"output\"\n    };\n    v1 = clap_builder::builder::arg::Arg::required_unless_present_any(&v9, &v0);\n    v9 = clap_builder::builder::command::Command::arg(&v4, &v1);\n    v4 = clap_builder::builder::arg::Arg::new(\"command\");\n    v1 = clap_builder::builder::arg::Arg::action(&v4);\n    memcpy(&v4, &v1, 632);\n    v5 = v2 | 5;\n    v6 = v3;\n    v1 = clap_builder::builder::arg::Arg::value_hint(&v4);\n    clap_builder::builder::command::Command::arg(a0, &v9, &v1);\n    return;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN9uu_stdbuf6uumain17h944a838e666ad5ebE": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "uu_stdbuf::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN9uu_stdbuf6uumain6uumain17h0359c5a0823afe83E": {
+      "alloc::boxed::Box<T>::new": 6,
+      "core::option::unwrap_failed": 3,
+      "std::io::error::Error::kind": 1,
+      "uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "std::process::Child::wait": 1,
+      "std::process::Command::spawn": 1,
+      "std::process::Command::args": 1,
+      "uu_stdbuf::set_command_env": 3,
+      "std::process::Command::env": 1,
+      "uu_stdbuf::get_preload_env": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "tempfile::dir::tempdir": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "std::process::Command::new": 1,
+      "<clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "<uu_stdbuf::ProgramOptions as core::convert::TryFrom<&clap_builder::parser::matches::arg_matches::ArgMatches>>::try_from": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_stdbuf::uu_app": 1
+    },
+    "_ZN9uu_stdbuf12check_option17hbe6559dacc455cfaE": {
+      "core::result::Result<T,E>::map_or_else": 1,
+      "uucore::features::parser::parse_size::parse_size_u64": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 1
+    },
+    "_ZN9uu_stdbuf15set_command_env17had9ec2fedfe42dc9E": {
+      "std::process::Command::env": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::fmt::num::imp::<impl u64>::_fmt": 1
+    },
+    "_ZN9uu_stdbuf15get_preload_env17hcdd0d7c41618a612E": {
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "std::io::Write::write_all": 1,
+      "std::fs::File::create": 1,
+      "std::path::Path::with_extension": 1,
+      "std::path::Path::join": 1
+    },
+    "_ZN9uu_stdbuf6uu_app17h91a2ac6dea78ecddE": {
+      "clap_builder::builder::command::Command::arg": 4,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "memcpy": 2,
+      "clap_builder::builder::arg::Arg::action": 1,
+      "clap_builder::builder::arg::Arg::new": 4,
+      "clap_builder::builder::arg::Arg::required_unless_present_any": 3,
+      "clap_builder::builder::arg::Arg::value_name": 3,
+      "clap_builder::builder::arg::Arg::help": 3,
+      "clap_builder::builder::arg::Arg::short": 3,
+      "clap_builder::builder::arg::Arg::long": 3,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN9uu_stdbuf6uumain17h944a838e666ad5ebE": {
+      "eprintln": 2,
+      "eprint": 1,
+      "format": 1
+    },
+    "_ZN9uu_stdbuf6uumain6uumain17h0359c5a0823afe83E": {
+      "format": 4
+    },
+    "_ZN9uu_stdbuf12check_option17hbe6559dacc455cfaE": {},
+    "_ZN9uu_stdbuf15set_command_env17had9ec2fedfe42dc9E": {},
+    "_ZN9uu_stdbuf15get_preload_env17hcdd0d7c41618a612E": {},
+    "_ZN9uu_stdbuf6uu_app17h91a2ac6dea78ecddE": {}
+  },
+  "node_counts": {
+    "_ZN9uu_stdbuf6uumain17h944a838e666ad5ebE": 10,
+    "_ZN9uu_stdbuf6uumain6uumain17h0359c5a0823afe83E": 38,
+    "_ZN9uu_stdbuf12check_option17hbe6559dacc455cfaE": 7,
+    "_ZN9uu_stdbuf15set_command_env17had9ec2fedfe42dc9E": 6,
+    "_ZN9uu_stdbuf15get_preload_env17hcdd0d7c41618a612E": 8,
+    "_ZN9uu_stdbuf6uu_app17h91a2ac6dea78ecddE": 34
+  },
+  "variable_types": {
+    "_ZN9uu_stdbuf6uumain17h944a838e666ad5ebE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_stdbuf6uumain6uumain17h0359c5a0823afe83E": {
+      "stack_552": [
+        [
+          "struct",
+          168
+        ],
+        [
+          "Result",
+          96
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          64
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "Result",
+          88
+        ],
+        [
+          "Result",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "struct",
+          64
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_560": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_576": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_480": [
+        [
+          "struct",
+          64
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_168": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_352": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_280": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_408": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_424": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_384": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_432": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_448": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_252": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_456": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_472": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_stdbuf12check_option17hbe6559dacc455cfaE": {
+      "stack_8": [
+        [
+          "Result",
+          80
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_stdbuf15set_command_env17had9ec2fedfe42dc9E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN9uu_stdbuf15get_preload_env17hcdd0d7c41618a612E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "Result",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_12": [
+        [
+          "struct",
+          4
+        ]
+      ],
+      "stack_20": [
+        [
+          "struct",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "Result",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_stdbuf6uu_app17h91a2ac6dea78ecddE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1392": [
+        [
+          "struct",
+          448
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_680": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_1380": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2092": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1388": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2100": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_1312": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_672": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1316": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_676": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    }
+  }
+}

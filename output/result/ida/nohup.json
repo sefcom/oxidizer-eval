@@ -1,0 +1,666 @@
+{
+  "decompilation": {
+    "_ZN8uu_nohup6uumain17hbe703f46f3d16b73E": "__int64 __fastcall uu_nohup::uumain(__int64 a1, __int64 a2)\n{\n  unsigned int v2; // eax\n  __int64 v3; // rax\n  __int64 v4; // rdx\n  __int128 v5; // rax\n  __int128 v6; // rax\n  unsigned int v7; // ebx\n  __int64 v9; // [rsp+0h] [rbp-98h] BYREF\n  __int64 v10; // [rsp+8h] [rbp-90h]\n  char **v11; // [rsp+10h] [rbp-88h] BYREF\n  __int64 v12; // [rsp+18h] [rbp-80h]\n  __int128 *v13; // [rsp+20h] [rbp-78h]\n  __int64 v14; // [rsp+28h] [rbp-70h]\n  __int64 v15; // [rsp+30h] [rbp-68h]\n  __int128 v16; // [rsp+40h] [rbp-58h] BYREF\n  __int64 v17; // [rsp+50h] [rbp-48h]\n  __int128 v18; // [rsp+60h] [rbp-38h] BYREF\n  __int64 v19; // [rsp+70h] [rbp-28h]\n  __int128 *v20; // [rsp+78h] [rbp-20h] BYREF\n  __int64 (__fastcall *v21)(); // [rsp+80h] [rbp-18h]\n\n  v2 = uucore::disable_rust_signal_handlers();\n  core::result::Result<T,E>::expect(v2);\n  v3 = uu_nohup::uumain::uumain(a1, a2);\n  if ( !v3 )\n    return uucore::mods::error::get_exit_code();\n  v9 = v3;\n  v10 = v4;\n  *(_QWORD *)&v16 = &v9;\n  *((_QWORD *)&v16 + 1) = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n  v11 = (char **)&unk_17B00;\n  v12 = 1LL;\n  v15 = 0LL;\n  v13 = &v16;\n  v14 = 1LL;\n  core::option::Option<T>::map_or_else(&v18, &v11);\n  v16 = v18;\n  v17 = v19;\n  if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((_QWORD *)&v18 + 1), v19, 1LL, 0LL) )\n  {\n    *(_QWORD *)&v5 = uucore::util_name();\n    v18 = v5;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_DE190;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n    *(_QWORD *)&v18 = &v16;\n    *((_QWORD *)&v18 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_DE1B0;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = &v18;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  if ( (*(unsigned __int8 (__fastcall **)(__int64))(v10 + 96))(v9) )\n  {\n    *(_QWORD *)&v6 = uucore::execution_phrase();\n    v18 = v6;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = &off_DE1D0;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  v7 = (*(__int64 (__fastcall **)(__int64))(v10 + 88))(v9);\n  core::ptr::drop_in_place<alloc::string::String>(v16, *((_QWORD *)&v16 + 1));\n  core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v9, v10);\n  return v7;\n}",
+    "_ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E": "__int64 __fastcall uu_nohup::uumain::uumain(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rdx\n  __int64 v4; // rax\n  __int64 v5; // rbx\n  int v6; // eax\n  __int128 v7; // [rsp+8h] [rbp-360h] BYREF\n  _BYTE v8[48]; // [rsp+18h] [rbp-350h]\n  __int128 v9; // [rsp+48h] [rbp-320h] BYREF\n  int v10; // [rsp+58h] [rbp-310h]\n  __int128 v11; // [rsp+5Ch] [rbp-30Ch]\n  __int128 v12; // [rsp+6Ch] [rbp-2FCh]\n  int v13; // [rsp+7Ch] [rbp-2ECh]\n  char **argv[2]; // [rsp+80h] [rbp-2E8h] BYREF\n  __int128 v15; // [rsp+90h] [rbp-2D8h]\n  __int128 v16; // [rsp+A0h] [rbp-2C8h]\n  __int128 v17; // [rsp+B0h] [rbp-2B8h]\n\n  uu_nohup::uu_app(argv);\n  clap_builder::builder::command::Command::try_get_matches_from(&v7, argv, a1, a2);\n  if ( __OFSUB__(-(__int64)v7, 1LL) )\n    return alloc::boxed::Box<T>::new(*((_QWORD *)&v7 + 1), argv, v2, -(__int64)v7);\n  v11 = *(_OWORD *)&v8[4];\n  v12 = *(_OWORD *)&v8[20];\n  v13 = *(_DWORD *)&v8[36];\n  v9 = v7;\n  v10 = *(_DWORD *)v8;\n  v4 = uu_nohup::replace_fds();\n  if ( v4 )\n  {\n    v5 = v4;\n    core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(&v9);\n    return v5;\n  }\n  else\n  {\n    signal(1, (__sighandler_t)((char *)&dword_0 + 1));\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(argv, &v9);\n    clap_builder::parser::error::MatchesError::unwrap(&v7, argv);\n    if ( !(_QWORD)v7 )\n      core::option::unwrap_failed(&off_DE208);\n    v17 = *(_OWORD *)&v8[32];\n    v16 = *(_OWORD *)&v8[16];\n    v15 = *(_OWORD *)v8;\n    *(_OWORD *)argv = v7;\n    core::iter::traits::iterator::Iterator::collect(&v7, argv);\n    core::iter::traits::iterator::Iterator::collect(\n      argv,\n      *((_QWORD *)&v7 + 1),\n      *((_QWORD *)&v7 + 1) + 16LL * *(_QWORD *)v8);\n    alloc::vec::Vec<T,A>::push(argv);\n    if ( !(_QWORD)v15 )\n      core::panicking::panic_bounds_check(0LL, 0LL, &off_DE238);\n    v6 = execvp(*(const char **)argv[1], argv[1]);\n    uucore::mods::error::set_exit_code((v6 == 2) | 0x7Eu);\n    core::ptr::drop_in_place<alloc::vec::Vec<usize>>(argv[0], argv[1]);\n    core::ptr::drop_in_place<alloc::vec::Vec<alloc::ffi::c_str::CString>>(&v7);\n    core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(&v9);\n    return 0LL;\n  }\n}",
+    "_ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E": "char *__fastcall uu_nohup::uu_app(char *dest)\n{\n  __int64 v1; // rax\n  int v2; // ecx\n  _DWORD v4[175]; // [rsp+0h] [rbp-828h] BYREF\n  __int64 v5; // [rsp+2BCh] [rbp-56Ch]\n  int v6; // [rsp+2C4h] [rbp-564h]\n  _BYTE desta[632]; // [rsp+2C8h] [rbp-560h] BYREF\n  int v8; // [rsp+540h] [rbp-2E8h]\n  int v9; // [rsp+544h] [rbp-2E4h]\n  _BYTE src[736]; // [rsp+548h] [rbp-2E0h] BYREF\n\n  v1 = uucore::util_name();\n  clap_builder::builder::command::Command::new(src, v1);\n  clap_builder::builder::command::Command::version(v4, src);\n  clap_builder::builder::command::Command::about(src, v4);\n  clap_builder::builder::command::Command::after_help(v4, src);\n  uucore::format_usage(desta, aCommandArgOpti, 29LL);\n  clap_builder::builder::command::Command::override_usage(src, v4);\n  clap_builder::builder::arg::Arg::new(v4);\n  memcpy(desta, v4, sizeof(desta));\n  v8 = v4[158] | 5;\n  v9 = v4[159];\n  clap_builder::builder::arg::Arg::action(v4, desta);\n  clap_builder::builder::arg::Arg::value_hint(desta, v4);\n  clap_builder::builder::command::Command::arg(v4, src);\n  memcpy(dest, v4, 0x2BCuLL);\n  v2 = v6;\n  *(_QWORD *)(dest + 700) = v5 | 0x80000000A0LL;\n  *((_DWORD *)dest + 177) = v2;\n  return dest;\n}",
+    "_ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E": "__int64 uu_nohup::replace_fds()\n{\n  unsigned __int64 v0; // rax\n  unsigned int v1; // ebx\n  unsigned __int64 v2; // rax\n  __int64 v3; // rax\n  __int64 result; // rax\n  unsigned __int64 v5; // rax\n  unsigned __int64 v6; // rax\n  __int64 v7; // r14\n  int fd[2]; // [rsp+8h] [rbp-40h] BYREF\n  int v9[2]; // [rsp+10h] [rbp-38h]\n  __int64 v10; // [rsp+18h] [rbp-30h]\n  unsigned __int64 v11; // [rsp+20h] [rbp-28h]\n\n  std::io::stdio::stdin();\n  if ( !(unsigned __int8)std::sys::io::is_terminal::isatty::is_terminal() )\n  {\nLABEL_7:\n    std::io::stdio::stdout();\n    if ( (unsigned __int8)std::sys::io::is_terminal::isatty::is_terminal() )\n    {\n      uu_nohup::find_stdout(fd);\n      result = *(_QWORD *)fd;\n      if ( *(_QWORD *)fd )\n        return result;\n      v1 = v9[0];\n      if ( dup2(v9[0], 1) != 1 )\n      {\n        v6 = ((unsigned __int64)(unsigned int)*_errno_location() << 32) | 2;\n        *(_QWORD *)v9 = aStdout;\n        v10 = 6LL;\n        v11 = v6;\n        *(_QWORD *)fd = 0x8000000000000001LL;\n        v3 = alloc::boxed::Box<T>::new(fd);\n        goto LABEL_17;\n      }\n      core::ptr::drop_in_place<std::fs::File>(v1);\n    }\n    if ( !(unsigned __int8)std::sys::io::is_terminal::isatty::is_terminal() || dup2(1, 2) == 2 )\n      return 0LL;\n    v5 = ((unsigned __int64)(unsigned int)*_errno_location() << 32) | 2;\n    *(_QWORD *)v9 = aStderr;\n    v10 = 6LL;\n    v11 = v5;\n    *(_QWORD *)fd = 0x8000000000000001LL;\n    return alloc::boxed::Box<T>::new(fd);\n  }\n  std::fs::File::open(fd);\n  if ( (fd[0] & 1) != 0 )\n  {\n    v0 = *(_QWORD *)v9;\n    *(_QWORD *)fd = 0x8000000000000001LL;\n    *(_QWORD *)v9 = aStdin;\n    v10 = 5LL;\n    v11 = v0;\n    return alloc::boxed::Box<T>::new(fd);\n  }\n  v1 = fd[1];\n  if ( !dup2(fd[1], 0) )\n  {\n    core::ptr::drop_in_place<std::fs::File>(v1);\n    goto LABEL_7;\n  }\n  v2 = ((unsigned __int64)(unsigned int)*_errno_location() << 32) | 2;\n  *(_QWORD *)v9 = aStdin;\n  v10 = 5LL;\n  v11 = v2;\n  *(_QWORD *)fd = 0x8000000000000001LL;\n  v3 = alloc::boxed::Box<T>::new(fd);\nLABEL_17:\n  v7 = v3;\n  core::ptr::drop_in_place<std::fs::File>(v1);\n  return v7;\n}",
+    "_ZN8uu_nohup11find_stdout17hadffd7477f170ba3E": "__int64 __fastcall uu_nohup::find_stdout(_QWORD *a1)\n{\n  unsigned __int8 v1; // r15\n  _BYTE *v2; // r13\n  int v3; // eax\n  int v4; // r14d\n  __int64 result; // rax\n  int v6; // ebp\n  __int128 v7; // rax\n  __int64 v8; // r12\n  __int128 *v9; // r15\n  __int64 v10; // rbp\n  int v11; // ebp\n  __int128 v12; // rax\n  __int128 v13; // [rsp+0h] [rbp-F8h] BYREF\n  __int128 *v14; // [rsp+10h] [rbp-E8h]\n  __int64 v15; // [rsp+18h] [rbp-E0h]\n  __int64 v16; // [rsp+20h] [rbp-D8h]\n  int v17; // [rsp+28h] [rbp-D0h]\n  __int128 v18; // [rsp+30h] [rbp-C8h] BYREF\n  __int64 v19; // [rsp+40h] [rbp-B8h]\n  _BYTE v20[24]; // [rsp+48h] [rbp-B0h] BYREF\n  __int64 v21; // [rsp+60h] [rbp-98h]\n  _BYTE *v22; // [rsp+68h] [rbp-90h] BYREF\n  __int64 (__fastcall *v23)(); // [rsp+70h] [rbp-88h]\n  _BYTE *v24; // [rsp+78h] [rbp-80h] BYREF\n  __int64 v25; // [rsp+80h] [rbp-78h] BYREF\n  int v26; // [rsp+88h] [rbp-70h]\n  __int16 v27; // [rsp+8Ch] [rbp-6Ch]\n  __int64 v28; // [rsp+90h] [rbp-68h] BYREF\n  int v29; // [rsp+98h] [rbp-60h]\n  __int16 v30; // [rsp+9Ch] [rbp-5Ch]\n  _DWORD v31[2]; // [rsp+A0h] [rbp-58h] BYREF\n  _BYTE *v32; // [rsp+A8h] [rbp-50h]\n  _DWORD v33[2]; // [rsp+B0h] [rbp-48h] BYREF\n  __int64 v34; // [rsp+B8h] [rbp-40h]\n  __int64 v35; // [rsp+C0h] [rbp-38h]\n\n  std::env::var(&v13, aPosixlyCorrect, 15LL);\n  v1 = v13;\n  core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>(&v13);\n  v25 = 0x1B600000000LL;\n  v27 = 1;\n  v26 = 0x10000;\n  std::fs::OpenOptions::open(v31, &v25, aNohupOut, 9LL);\n  if ( v31[0] == 1 )\n  {\n    v2 = v32;\n    v24 = v32;\n    std::env::var(v20, aHome, 4LL);\n    v3 = v1 ^ 1;\n    v4 = 2 * v3 + 125;\n    if ( *(_QWORD *)v20 == 1LL )\n    {\n      LODWORD(v14) = 2 * v3 + 125;\n      *((_QWORD *)&v13 + 1) = v2;\n      *(_QWORD *)&v13 = 0x8000000000000002LL;\n      *a1 = alloc::boxed::Box<T>::new(&v13);\n      a1[1] = &off_DEBB0;\n      return core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>(v20);\n    }\n    else\n    {\n      v19 = v21;\n      v18 = *(_OWORD *)&v20[8];\n      std::path::PathBuf::push(&v18);\n      core::str::converts::from_utf8(&v13, *((_QWORD *)&v18 + 1), v19);\n      if ( (v13 & 1) != 0 )\n        core::option::unwrap_failed(&off_DEC58);\n      v8 = *((_QWORD *)&v13 + 1);\n      v9 = v14;\n      v28 = 0x1B600000000LL;\n      v30 = 1;\n      v29 = 0x10000;\n      std::fs::OpenOptions::open(v33, &v28, &v18);\n      if ( v33[0] == 1 )\n      {\n        v10 = v34;\n        v35 = v34;\n        v22 = v2;\n        <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v20, v8, v9);\n        v14 = *(__int128 **)&v20[16];\n        v13 = *(_OWORD *)v20;\n        v17 = v4;\n        v15 = (__int64)v2;\n        v16 = v10;\n        *a1 = alloc::boxed::Box<T>::new(&v13);\n        a1[1] = &off_DEBB0;\n        return core::ptr::drop_in_place<std::path::PathBuf>(v18, *((_QWORD *)&v18 + 1));\n      }\n      else\n      {\n        v11 = v33[1];\n        *(_QWORD *)&v12 = uucore::util_name();\n        *(_OWORD *)v20 = v12;\n        v22 = v20;\n        v23 = <&T as core::fmt::Display>::fmt;\n        *(_QWORD *)&v13 = &unk_DEC18;\n        *((_QWORD *)&v13 + 1) = 2LL;\n        v16 = 0LL;\n        v14 = (__int128 *)&v22;\n        v15 = 1LL;\n        std::io::stdio::_eprint(&v13);\n        *(_QWORD *)v20 = 0LL;\n        *(_QWORD *)&v20[8] = v8;\n        *(_QWORD *)&v20[16] = v9;\n        LOBYTE(v21) = 1;\n        v22 = v20;\n        v23 = <os_display::Quoted as core::fmt::Display>::fmt;\n        *(_QWORD *)&v13 = &off_DEC38;\n        *((_QWORD *)&v13 + 1) = 2LL;\n        v16 = 0LL;\n        v14 = (__int128 *)&v22;\n        v15 = 1LL;\n        std::io::stdio::_eprint(&v13);\n        *((_DWORD *)a1 + 2) = v11;\n        *a1 = 0LL;\n        core::ptr::drop_in_place<std::path::PathBuf>(v18, *((_QWORD *)&v18 + 1));\n        return core::ptr::drop_in_place<std::io::error::Error>(&v24);\n      }\n    }\n  }\n  else\n  {\n    v6 = v31[1];\n    *(_QWORD *)&v7 = uucore::util_name();\n    *(_OWORD *)v20 = v7;\n    *(_QWORD *)&v18 = v20;\n    *((_QWORD *)&v18 + 1) = <&T as core::fmt::Display>::fmt;\n    *(_QWORD *)&v13 = &unk_DEC18;\n    *((_QWORD *)&v13 + 1) = 2LL;\n    v16 = 0LL;\n    v14 = &v18;\n    v15 = 1LL;\n    std::io::stdio::_eprint(&v13);\n    *(_QWORD *)v20 = 0LL;\n    *(_QWORD *)&v20[8] = aNohupOut;\n    *(_QWORD *)&v20[16] = 9LL;\n    LOBYTE(v21) = 1;\n    *(_QWORD *)&v18 = v20;\n    *((_QWORD *)&v18 + 1) = <os_display::Quoted as core::fmt::Display>::fmt;\n    *(_QWORD *)&v13 = &off_DEC38;\n    *((_QWORD *)&v13 + 1) = 2LL;\n    v16 = 0LL;\n    v14 = &v18;\n    v15 = 1LL;\n    result = std::io::stdio::_eprint(&v13);\n    *((_DWORD *)a1 + 2) = v6;\n    *a1 = 0LL;\n  }\n  return result;\n}"
+  },
+  "function_call_counts": {
+    "_ZN8uu_nohup6uumain17hbe703f46f3d16b73E": {
+      "uucore::disable_rust_signal_handlers": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uu_nohup::uumain::uumain": 1,
+      "uucore::mods::error::get_exit_code": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 3,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "uucore::execution_phrase": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1
+    },
+    "_ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E": {
+      "uu_nohup::uu_app": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "uu_nohup::replace_fds": 1,
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 2,
+      "signal": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 1,
+      "core::option::unwrap_failed": 1,
+      "core::iter::traits::iterator::Iterator::collect": 2,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "core::panicking::panic_bounds_check": 1,
+      "execvp": 1,
+      "uucore::mods::error::set_exit_code": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<usize>>": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<alloc::ffi::c_str::CString>>": 1
+    },
+    "_ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E": {
+      "uucore::util_name": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "clap_builder::builder::arg::Arg::new": 1,
+      "memcpy": 2,
+      "clap_builder::builder::arg::Arg::action": 1,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::command::Command::arg": 1
+    },
+    "_ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E": {
+      "std::io::stdio::stdin": 1,
+      "std::io::stdio::stdout": 1,
+      "uu_nohup::find_stdout": 1,
+      "__errno_location": 3,
+      "alloc::boxed::Box<T>::new": 4,
+      "dup2": 3,
+      "core::ptr::drop_in_place<std::fs::File>": 3,
+      "std::sys::io::is_terminal::isatty::is_terminal": 3,
+      "std::fs::File::open": 1
+    },
+    "_ZN8uu_nohup11find_stdout17hadffd7477f170ba3E": {
+      "std::env::var": 2,
+      "core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>": 2,
+      "std::fs::OpenOptions::open": 2,
+      "alloc::boxed::Box<T>::new": 2,
+      "std::path::PathBuf::push": 1,
+      "core::str::converts::from_utf8": 1,
+      "core::option::unwrap_failed": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 2,
+      "uucore::util_name": 2,
+      "std::io::stdio::_eprint": 4,
+      "core::ptr::drop_in_place<std::io::error::Error>": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN8uu_nohup6uumain17hbe703f46f3d16b73E": {},
+    "_ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E": {},
+    "_ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E": {},
+    "_ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E": {},
+    "_ZN8uu_nohup11find_stdout17hadffd7477f170ba3E": {}
+  },
+  "variable_types": {
+    "_ZN8uu_nohup6uumain17hbe703f46f3d16b73E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_92": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_108": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_124": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_128": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_700": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_708": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_712": [
+        [
+          "array",
+          632
+        ]
+      ],
+      "stack_1344": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1348": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1352": [
+        [
+          "array",
+          736
+        ]
+      ]
+    },
+    "_ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_nohup11find_stdout17hadffd7477f170ba3E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r14d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_140": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_156": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_160": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+fn uu_dd::progress::ProgUpdate::write_transfer_stats(a0: void*, a1: u64, a2: u32) -> long long {
+    let v0: core::fmt::Arguments;  // [bp-0x40]
+    let v2: core::result::Result<(), std::io::error::Error>;  // rax
+
+    if a2 {
+        v0 = core::fmt::Arguments {
+            pieces: ["\n"]
+            args: []
+            fmt: 0
+        };
+        v2 = <std::io::stdio::Stderr as std::io::Write>::write_fmt(a1, &v0);
+        if let Err(_) = v2 {
+            return uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v2);
+        }
+    }
+    v2 = uu_dd::progress::ProgUpdate::write_io_lines(a0, a1);
+    match v2 {
+        Err(_) => {
+            return uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v2);
+        },
+        Ok(_) => {
+            return uu_dd::progress::ProgUpdate::write_prog_line(a0, a1, 0) as u64;
+        },
+    }
+}

@@ -1,0 +1,318 @@
+{
+  "decompilation": {
+    "_ZN6uu_tty6uumain17h923e2a17c3617a23E": "long long uu_tty::uumain(unsigned long long a0, unsigned long long a1)\n{\n    unsigned long long v0;  // [bp-0x98]\n    unsigned long long v1;  // [bp-0x88]\n    unsigned long long v2;  // [bp-0x80]\n    char *v3;  // [bp-0x78]\n    unsigned long long v4;  // [bp-0x70]\n    void* v5;  // [bp-0x68]\n    char *v6;  // [bp-0x58]\n    unsigned long long v7;  // [bp-0x50]\n    unsigned long long v8;  // [bp-0x48]\n    char *v9;  // [bp-0x38], Other Possible Types: char, unsigned long long\n    struct_2 *v10;  // [bp-0x30], Other Possible Types: unsigned long long\n    unsigned long long v11;  // [bp-0x28]\n    char *v12;  // [bp-0x20]\n    unsigned long long v13;  // [bp-0x18]\n    unsigned long long v16;  // rax\n    struct_2 *v17;  // rdx\n    unsigned int v18;  // eax\n\n    (unsigned int)uucore::disable_rust_signal_handlers().expect();\n    v16 = uu_tty::uumain::uumain(a0, a1);\n    if (!v16)\n        return uucore::mods::error::get_exit_code();\n    v0 = v16;\n    v6 = &v0;\n    v7 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_416450;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v6;\n    v4 = 1;\n    v9.map_or_else(&v1);\n    memcpy(&v6, &v9, 16);\n    v8 = v11;\n    if (!v11.equal())\n    {\n        v9 = uucore::util_name();\n        v10 = v17;\n        v12 = &v9;\n        v13 = <&T as core::fmt::Display>::fmt;\n        v1 = &g_4d1ed8;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v12;\n        v4 = 1;\n        std::io::stdio::_eprint(&v1);\n        v9 = &v6;\n        v10 = <alloc::string::String as core::fmt::Display>::fmt;\n        v1 = &g_4d1ef8;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v9;\n        v4 = 1;\n        std::io::stdio::_eprint(&v1);\n    }\n    if ((char)v17->field_60(v0))\n    {\n        v9 = uucore::execution_phrase();\n        v10 = v17;\n        v12 = &v9;\n        v13 = <&T as core::fmt::Display>::fmt;\n        v1 = &g_4d1f18;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v12;\n        v4 = 1;\n        std::io::stdio::_eprint(&v1);\n    }\n    v18 = v17->field_58(v0);\n    core::ptr::drop_in_place<alloc::string::String>(v6, <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt);\n    core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v0, v17);\n    return v18;\n}\n",
+    "_ZN6uu_tty6uumain6uumain17h948a3cf0fefd9e14E": "long long uu_tty::uumain::uumain(unsigned long long a0, unsigned long long a1)\n{\n    unsigned long long v0;  // [bp-0x360]\n    char *v1;  // [bp-0x358]\n    unsigned long long v2;  // [bp-0x350]\n    unsigned long long v3;  // [bp-0x348]\n    unsigned long long v4;  // [bp-0x340]\n    char v5;  // [bp-0x338], Other Possible Types: unsigned long long\n    unsigned long long v6;  // [bp-0x330]\n    unsigned long long v7;  // [bp-0x328]\n    char v8;  // [bp-0x320]\n    char v9;  // [bp-0x2e8], Other Possible Types: unsigned long long\n    unsigned long long v10;  // [bp-0x2e0]\n    char *v11;  // [bp-0x2d8], Other Possible Types: unsigned long long\n    int v12;  // [bp-0x2d0], Other Possible Types: unsigned long long\n    void* v13;  // [bp-0x2c8]\n    void* v15;  // rbx\n    unsigned long long v16;  // rax\n    unsigned long long v17;  // rax\n\n    uu_tty::uu_app(&v9);\n    v8.get_matches_from(&v9, a0, a1);\n    if ((char)v8.get_flag(\"silent/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/slice.rsError flushing stdout: \", 6))\n    {\n        std::io::stdio::stdin();\n        if (std::sys::io::is_terminal::isatty::is_terminal())\n            goto LABEL_44bafb;\n        v15 = 1.from();\n    }\n    else\n    {\n        v0 = std::io::stdio::stdout();\n        std::io::stdio::stdin();\n        nix::unistd::ttyname(&v5);\n        if ((char)(((0 ^ v5) & (0 ^ -(v5))) >> 63))\n        {\n            uucore::mods::error::set_exit_code(1);\n            v9 = &g_4d1f50;\n            v10 = 1;\n            v11 = 8;\n            *((uint128_t *)&v12) = 0;\n            v16 = v0.write_fmt(&v9);\n        }\n        else\n        {\n            v3 = v6;\n            v4 = v7;\n            v1 = &v3;\n            v2 = <std::path::Display as core::fmt::Display>::fmt;\n            v9 = &g_4d1ef8;\n            v10 = 2;\n            v13 = 0;\n            v11 = &v1;\n            v12 = 1;\n            v16 = v0.write_fmt(&v9);\n            core::mem::drop(v5, v6);\n        }\n        if (v16)\n            std::process::exit(3); /* do not return */\n        v17 = v0.flush();\n        if (v17)\n        {\n            core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(v17);\n            std::process::exit(3); /* do not return */\n        }\n        core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(0);\n        core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(0);\nLABEL_44bafb:\n        v15 = 0;\n    }\n    core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(&v8);\n    return v15;\n}\n",
+    "_ZN6uu_tty6uu_app17h4ff84cf484ac9a18E": "long long uu_tty::uu_app(unsigned long long a0)\n{\n    char v0;  // [bp-0x828]\n    unsigned long v1;  // [bp-0x56c]\n    unsigned int v2;  // [bp-0x564]\n    char v3;  // [bp-0x560]\n    unsigned long long v4;  // [bp-0x2a4]\n    unsigned int v5;  // [bp-0x29c]\n    char v6;  // [bp-0x298]\n    unsigned long long v9;  // rdx\n\n    v3.new(uucore::util_name(), v9);\n    v0.version(&v3);\n    v3.about(&v0);\n    uucore::format_usage(&v6, \"{} [OPTION]...silentquietprint nothing, only return an exit status\", 14);\n    v0.override_usage(&v3, &v6);\n    memcpy(&v3, &v0, 700);\n    v4 = 549755814016 | v1;\n    v5 = v2;\n    v0.new();\n    v6.long(&v0);\n    v0.visible_alias(&v6);\n    v6.short(&v0);\n    v0.help(&v6);\n    v6.action(&v0);\n    a0.arg(&v3, &v6);\n    return a0;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN6uu_tty6uumain17h923e2a17c3617a23E": {
+      "uucore::mods::error::get_exit_code": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "uucore::execution_phrase": 1,
+      "std::io::stdio::_eprint": 3,
+      "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_tty::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN6uu_tty6uumain6uumain17h948a3cf0fefd9e14E": {
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 1,
+      "uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "std::io::stdio::stdin": 2,
+      "std::process::exit": 2,
+      "core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>": 3,
+      "<std::io::stdio::Stdout as std::io::Write>::flush": 1,
+      "<std::io::stdio::Stdout as std::io::Write>::write_fmt": 2,
+      "uucore::mods::error::set_exit_code": 1,
+      "core::mem::drop": 1,
+      "nix::unistd::ttyname": 1,
+      "std::io::stdio::stdout": 1,
+      "clap_builder::builder::command::Command::get_matches_from": 1,
+      "uu_tty::uu_app": 1
+    },
+    "_ZN6uu_tty6uu_app17h4ff84cf484ac9a18E": {
+      "clap_builder::builder::command::Command::arg": 1,
+      "clap_builder::builder::arg::Arg::action": 1,
+      "clap_builder::builder::arg::Arg::help": 1,
+      "clap_builder::builder::arg::Arg::short": 1,
+      "clap_builder::builder::arg::Arg::visible_alias": 1,
+      "clap_builder::builder::arg::Arg::long": 1,
+      "clap_builder::builder::arg::Arg::new": 1,
+      "memcpy": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN6uu_tty6uumain17h923e2a17c3617a23E": {},
+    "_ZN6uu_tty6uumain6uumain17h948a3cf0fefd9e14E": {},
+    "_ZN6uu_tty6uu_app17h4ff84cf484ac9a18E": {}
+  },
+  "node_counts": {
+    "_ZN6uu_tty6uumain17h923e2a17c3617a23E": 12,
+    "_ZN6uu_tty6uumain6uumain17h948a3cf0fefd9e14E": 21,
+    "_ZN6uu_tty6uu_app17h4ff84cf484ac9a18E": 14
+  },
+  "variable_types": {
+    "_ZN6uu_tty6uumain17h923e2a17c3617a23E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_tty6uumain6uumain17h948a3cf0fefd9e14E": {
+      "stack_128": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_tty6uu_app17h4ff84cf484ac9a18E": {
+      "stack_712": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_1424": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_700": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1412": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_708": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1420": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    }
+  }
+}

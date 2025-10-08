@@ -1,0 +1,372 @@
+{
+  "decompilation": {
+    "_ZN10uu_dirname6uumain17he7293537806c4832E": "fn uu_dirname::uumain(a0: u64, a1: u64) -> long long {\n    let v0: u64;  // [bp-0x98]\n    let v1: u128;  // [bp-0x58]\n    let v2: u64;  // [bp-0x48]\n    let v3: alloc::string::String;  // [bp-0x38], Other Possible Types: u64\n    let v4: i64;  // [bp-0x30]\n    let v5: u64;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers());\n    v8 = uu_dirname::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v3 = format!(\"{}\", &v0);\n    v1 = *(&v3.vec.buf.inner.cap as &i128);\n    v2 = v5;\n    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(<alloc::boxed::Box<T,A> as core::fmt::Display>::fmt, v5, 1, 0) {\n        v3 = uucore::util_name();\n        v4 = v9;\n        eprint!(\"{}: \", &v3);\n        eprintln!(\"{}\", &v1);\n    }\n    if !*((v9 + 96) as &i64)(v0) as i8 {\n        return *((v9 + 88) as &i64)(v0) as u32;\n    }\n    v3 = uucore::execution_phrase();\n    v4 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v3);\n    return *((v9 + 88) as &i64)(v0) as u32;\n}\n",
+    "_ZN10uu_dirname6uumain6uumain17h479ddc3d3d19de5dE": "fn uu_dirname::uumain::uumain(a0: i64, a1: i64) -> u64 {\n    let v0: u8;  // [bp-0x641]\n    let v1: u64;  // [bp-0x640]\n    let v2: struct16;  // [bp-0x638]\n    let v3: u64;  // [bp-0x638]\n    let v4: u64;  // [bp-0x630]\n    let v5: iNone;  // [bp-0x628]\n    let v6: iNone;  // [bp-0x618]\n    let v7: u64;  // [bp-0x608]\n    let v8: u64;  // [bp-0x600]\n    let v9: u64;  // [bp-0x5f8]\n    let v10: iNone;  // [bp-0x5f0]\n    let v11: iNone;  // [sp-0x5e0]\n    let v12: u64;  // [bp-0x5d0]\n    let v13: struct28;  // [bp-0x5c8], Other Possible Types: struct56, struct64, struct712, u64\n    let v14: u64;  // [bp-0x5c8]\n    let v15: u64;  // [bp-0x5c8]\n    let v16: u64;  // [bp-0x5b0]\n    let v17: u64;  // [bp-0x5b0]\n    let v18: core::option::Option<std::path::Component>;  // [bp-0x2f8], Other Possible Types: struct24, struct64\n    let v19: struct712;  // [bp-0x2f8]\n    let v20: iNone;  // [bp-0x2e8]\n    let v21: iNone;  // [bp-0x2e8]\n    let v22: u64;  // [bp-0x2c8]\n    let v25: u64;  // rdx\n    let v26: u128;  // xmm0\n    let v27: u64;  // rcx\n    let v28: u64;  // rax\n    let v29: void*;  // r14\n    let v30: core::fmt::Arguments;  // r12\n    let v31: u64;  // rdx\n\n    v13 = uu_dirname::uu_app();\n    v19 = clap_builder::builder::command::Command::after_help(&v13);\n    v2 = clap_builder::builder::command::Command::try_get_matches_from(&v19, a0, a1);\n    if (((0 ^ v2.field_0) & (0 ^ -(v3))) >> 63) as char {\n        return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v9);\n    }\n    v12 = v7;\n    v11 = v6;\n    v10 = v5;\n    v8 = v2.field_0;\n    v9 = v4;\n    v0 = (clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v8, \"zero\") ? 0 : 10);\n    v13 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v8);\n    v18 = clap_builder::parser::error::MatchesError::unwrap(&v13);\n    if v18.field_0 as i64 {\n        v25 = *((&v18.field_48 as &char + 8) as &i64);\n        v21 = v20;\n    } else {\n        v26 = 0;\n        v27 = &_ZN105_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default5EMPTY17he135a60093c36a3aE;\n        v28 = core::ops::function::FnOnce::call_once;\n        v25 = 0;\n        v20 = v11;\n    }\n    v13 = struct64 {\n        field_0: v28\n        field_8: v27\n        field_16: v20\n        field_32: v26\n        field_48: v22\n        field_56: v25\n    };\n    core::iter::traits::iterator::Iterator::collect(&v2, &v13);\n    if !v5 as i64 {\n        v18 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(\"missing operand\");\n        v13 = struct28 {\n            field_0: *(&v18.field_0 as &i128)\n            field_16: v18.field_16\n            field_24: 1\n        };\n        return alloc::boxed::Box<T>::new(&v13) as u64;\n    }\n    v1 = v5 as i64 * 24;\n    v29 = 0;\n    do {\n        v13 = v14;\n        v30 = std::path::Path::parent(*((8 + v4 + v29 as &u8) as &i64), *((16 + v4 + v29 as &u8) as &i64));\n        if v30 {\n            std::path::Path::components(&v13, v30, v31);\n            v18 = <std::path::Components as core::iter::traits::iterator::Iterator>::next(&v13);\n            if &v18 == \"\\n\" {\n                print!(\".\");\n            } else {\n                core::result::Result<T,E>::unwrap(uucore::mods::display::print_verbatim(v30, v31));\n            }\n        } else if std::path::Path::is_absolute(*((8 + v4 + v29 as &u8) as &i64), *((16 + v4 + v29 as &u8) as &i64)) || <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((8 + v4 + v29 as &u8) as &i64), *((16 + v4 + v29 as &u8) as &i64), \"/\") {\n            print!(\"/\");\n        } else {\n            print!(\".\");\n        }\n        print!(\"{}\", &v0);\n        v29 += 24;\n        v14 = v15;\n        v16 = v17;\n    } while (v1 != v29);\n    return 0;\n}\n",
+    "_ZN10uu_dirname6uu_app17hdf88fbea4c615f4bE": "fn uu_dirname::uu_app() -> : struct712 {\n    let a0: u64;  // rdi\n    let v0: struct437;  // [bp-0xaa8], Other Possible Types: struct712, struct640\n    let v1: u32;  // [bp-0x830]\n    let v2: i8;  // [bp-0x82c]\n    let v3: u64;  // [bp-0x7ec]\n    let v4: u32;  // [bp-0x7e4]\n    let v5: struct24;  // [bp-0x7e0], Other Possible Types: struct640\n    let v6: u32;  // [bp-0x568]\n    let v7: u32;  // [bp-0x564]\n    let v8: struct640;  // [bp-0x560], Other Possible Types: struct712\n    let v9: u64;  // [bp-0x2a4]\n    let v10: u32;  // [bp-0x29c]\n    let v11: struct640;  // [bp-0x298]\n    let v14: u64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v14);\n    v8 = clap_builder::builder::command::Command::about(&v0);\n    v0 = clap_builder::builder::command::Command::version(&v8);\n    v5 = uucore::format_usage(\"{} [OPTION] NAME...\");\n    v8 = clap_builder::builder::command::Command::override_usage(&v0, &v5);\n    memcpy(&v0, &v8, 700);\n    v3 = 584115552392 | v9;\n    v4 = v10;\n    v8 = clap_builder::builder::arg::Arg::new(\"zero\");\n    v5 = clap_builder::builder::arg::Arg::long(&v8);\n    v8 = clap_builder::builder::arg::Arg::short(&v5);\n    v5 = clap_builder::builder::arg::Arg::help(&v8);\n    v11 = clap_builder::builder::arg::Arg::action(&v5, 2);\n    v8 = clap_builder::builder::command::Command::arg(&v0, &v11);\n    v0 = clap_builder::builder::arg::Arg::new(\"dir\");\n    memcpy(&v5, &v0, 632);\n    v6 = v1 | 4;\n    v7 = *(&v2 as &i32);\n    v0 = clap_builder::builder::arg::Arg::action(&v5, 1);\n    v5 = clap_builder::builder::arg::Arg::value_hint(&v0);\n    clap_builder::builder::command::Command::arg(a0, &v8, &v5);\n    return;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN10uu_dirname6uumain17he7293537806c4832E": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "uu_dirname::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN10uu_dirname6uumain6uumain17h479ddc3d3d19de5dE": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "uucore::mods::display::print_verbatim": 1,
+      "<std::path::Components as core::iter::traits::iterator::Iterator>::next": 1,
+      "std::path::Path::components": 1,
+      "std::path::Path::parent": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "uu_dirname::uu_app": 1
+    },
+    "_ZN10uu_dirname6uu_app17hdf88fbea4c615f4bE": {
+      "clap_builder::builder::command::Command::arg": 2,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::arg::Arg::action": 2,
+      "memcpy": 2,
+      "clap_builder::builder::arg::Arg::new": 2,
+      "clap_builder::builder::arg::Arg::help": 1,
+      "clap_builder::builder::arg::Arg::short": 1,
+      "clap_builder::builder::arg::Arg::long": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN10uu_dirname6uumain17he7293537806c4832E": {
+      "eprintln": 2,
+      "eprint": 1,
+      "format": 1
+    },
+    "_ZN10uu_dirname6uumain6uumain17h479ddc3d3d19de5dE": {
+      "print": 4
+    },
+    "_ZN10uu_dirname6uu_app17hdf88fbea4c615f4bE": {}
+  },
+  "node_counts": {
+    "_ZN10uu_dirname6uumain17he7293537806c4832E": 10,
+    "_ZN10uu_dirname6uumain6uumain17h479ddc3d3d19de5dE": 25,
+    "_ZN10uu_dirname6uu_app17hdf88fbea4c615f4bE": 18
+  },
+  "variable_types": {
+    "_ZN10uu_dirname6uumain17he7293537806c4832E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10uu_dirname6uumain6uumain17h479ddc3d3d19de5dE": {
+      "stack_128": [
+        [
+          "struct",
+          32
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_848": [
+        [
+          "struct",
+          8
+        ],
+        [
+          "Option",
+          80
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_864": [
+        [
+          "primitive",
+          null
+        ],
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_896": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10uu_dirname6uu_app17hdf88fbea4c615f4bE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          448
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1352": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_712": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_700": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2052": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_708": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2060": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2064": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_1344": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_632": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1348": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_636": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    }
+  }
+}

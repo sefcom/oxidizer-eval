@@ -1,0 +1,456 @@
+{
+  "decompilation": {
+    "_ZN3uvx10exec_spawn17h8a36b7e310b79222E": "long long uvx::exec_spawn(unsigned long long a0)\n{\n    return a0.exec();\n}\n",
+    "_ZN3uvx14get_uvx_suffix17h9d58d2b7efa33399E": "long long uvx::get_uvx_suffix(unsigned long long a0, unsigned long long a1)\n{\n    char v0;  // [bp-0x18]\n    unsigned long long v1;  // [bp-0x10]\n    char v2;  // [bp-0x8]\n    unsigned long long v4;  // rax\n    unsigned long long v5;  // rdx\n\n    v4 = a0.file_name(a1);\n    if (!v4)\n        return 0;\n    core::str::converts::from_utf8(&v0, v4, v5);\n    if (!(v0 & 1))\n        return v1.strip_prefix_of(*((long long *)&v2));\n    return 0;\n}\n",
+    "_ZN3uvx11get_uv_path17h0750ce6cdeed20acE": "long long uvx::get_uv_path(void* a0, unsigned long long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4)\n{\n    unsigned long long v0;  // [bp-0x120]\n    unsigned long long v1;  // [bp-0x118]\n    char v2;  // [bp-0x110], Other Possible Types: unsigned long\n    unsigned long v3;  // [bp-0x110]\n    unsigned long long v4;  // [bp-0x108]\n    char *v5;  // [bp-0x100], Other Possible Types: unsigned long long\n    unsigned long long v6;  // [bp-0xf8]\n    void* v7;  // [bp-0xf0]\n    char *v8;  // [bp-0xe0], Other Possible Types: unsigned long long\n    unsigned long long v9;  // [bp-0xd8]\n    char v10;  // [bp-0xd0]\n    char v11;  // [bp-0xcf]\n    unsigned long long v12;  // [bp-0xc8]\n    unsigned long long v13;  // [bp-0xc0]\n    char *v14;  // [bp-0xb8], Other Possible Types: unsigned long long\n    unsigned long long v15;  // [bp-0xb0]\n    char *v16;  // [bp-0xa8]\n    unsigned long long v18;  // [bp-0xa0]\n    unsigned long long v19;  // [bp-0x98]\n    unsigned long long v20;  // [bp-0x90]\n    unsigned long long v21;  // [bp-0x90]\n    unsigned long long v22;  // [bp-0x88]\n    int v24;  // [bp-0x78], Other Possible Types: char\n    char *v25;  // [bp-0x68]\n    char v28;  // [bp-0x48]\n    unsigned long long v30;  // r14\n    unsigned long long v31;  // rsi\n    unsigned long long v32;  // r13\n    unsigned long long v33;  // rbx\n    unsigned long v34;  // rbx\n    unsigned long long v35;  // r12\n    unsigned long long v36;  // rbp\n    char v37;  // al\n\n    v30 = 0x8000000000000000;\n    if (a3)\n    {\n        uvx::get_uv_path::{{closure}}(&v2, a1, a2, a3, a4);\n        v30 = *((long long *)&v2);\n        v31 = v4;\n        v32 = v5;\n        if (v30 == 0x8000000000000000)\n        {\n            v19 = v32;\n            v0 = v33;\n            v30 = 0x8000000000000000;\n        }\n        else\n        {\n            v33 = v0;\n            std::fs::exists(&v10, v0, v32);\n            if (v10 == 1)\n            {\n                v8 = v12;\n                v20 = v34;\n                v22 = v32;\n                v14 = &v20;\n                v15 = <std::path::Display as core::fmt::Display>::fmt;\n                v16 = &v8;\n                v18 = <std::io::error::Error as core::fmt::Display>::fmt;\n                v2 = &g_463010;\n                v4 = 3;\n                v7 = 0;\n                v5 = &v14;\n                v6 = 2;\n                std::io::stdio::_eprint(&v2);\n                core::ptr::drop_in_place<std::io::error::Error>(v8);\n            }\n            else if (v11)\n            {\n                v2.clone(v34, v32);\n                *((unsigned long long *)&a0[16]) = v5;\n                *((int128_t *)a0) = *((int128_t *)&v2);\n                return (unsigned long long)core::ptr::drop_in_place<core::option::Option<std::path::PathBuf>>(v30, v34);\n            }\n            v19 = v32;\n            v0 = v34;\n        }\n    }\n    v1 = v30;\n    v14 = &g_4097f0;\n    v15 = <&T as core::fmt::Display>::fmt;\n    v3 = &g_463040;\n    v4 = 1;\n    v7 = 0;\n    v5 = &v14;\n    v6 = 1;\n    v28.map_or_else(&(char)v2);\n    v10.join(a1, a2, &v28);\n    v35 = v12;\n    v36 = v13;\n    std::fs::exists(&(char)v2, v35, v36);\n    v37 = v3;\n    if (!v37 && !(*((char *)&v3 + 1) & 1))\n    {\n        core::ptr::drop_in_place<core::result::Result<bool,std::io::error::Error>>(v37, 1);\n        v21 = v35;\n        v22 = v36;\n        v8 = &v21;\n        v9 = <std::path::Display as core::fmt::Display>::fmt;\n        v2 = &g_463070;\n        v4 = 1;\n        v7 = 0;\n        v5 = &v8;\n        v6 = 1;\n        v14.map_or_else(&(char)v2);\n        memcpy(&v24, &v14, 16);\n        v25 = v16;\n        *((long long *)&a0[8]) = v24.new();\n        *((unsigned long long *)a0) = 0x8000000000000000;\n        return (unsigned long long)core::ptr::drop_in_place<std::path::PathBuf>(*((long long *)&v10), v35);\n    }\n    core::ptr::drop_in_place<core::result::Result<bool,std::io::error::Error>>(v37, 1);\n    *((unsigned long long *)&a0[16]) = v13;\n    *((int128_t *)a0) = *((int128_t *)&v10);\n    return v13;\n}\n",
+    "_ZN3uvx3run17he42f7266f97e898dE": "long long uvx::run(struct_0 *a0)\n{\n    unsigned long long v0;  // [bp-0x158]\n    char v1;  // [bp-0x150]\n    unsigned long long v2;  // [bp-0x148]\n    unsigned long long v3;  // [bp-0x140]\n    int v4;  // [bp-0x138], Other Possible Types: unsigned long long\n    unsigned long long v5;  // [bp-0x130]\n    char v6;  // [bp-0x128], Other Possible Types: unsigned long long\n    unsigned long long v7;  // [bp-0x118]\n    unsigned long long v8;  // [bp-0x110]\n    unsigned long long v9;  // [bp-0x108]\n    char v10;  // [bp-0x100]\n    unsigned long long v12;  // rbx\n    unsigned long long v13;  // rax\n    unsigned long long v15;  // rdx\n\n    std::env::current_exe(&(char)v8);\n    v12 = v9;\n    if ((char)(((0 ^ v8) & (0 ^ -(v8))) >> 63))\n    {\n        a0->field_8 = v12;\n        a0->field_0 = 1;\n        return -(v8);\n    }\n    v13 = v12.parent(*((long long *)&v10));\n    if (v13)\n    {\n        uvx::get_uv_path(&(char)v8, v13, v15, uvx::get_uvx_suffix(v12, *((long long *)&v10)), v15);\n        if (v8 == 0x8000000000000000)\n        {\n            a0->field_8 = v9;\n            a0->field_0 = 1;\n        }\n        else\n        {\n            v0 = *((long long *)&v10);\n            std::env::args_os(&(char)v8);\n            memcpy(&v6, &v10, 16);\n            *((int128_t *)&v4) = *((int128_t *)&v8);\n            v7 = 1;\n            (char)v8.chain(&(char)v4);\n            v1.collect(&(char)v8);\n            v4 = v8;\n            v5 = v9;\n            v6 = v0;\n            (char)v8.new(&v4);\n            (char)v8.args(v2, v3);\n            a0->field_8 = uvx::exec_spawn(&(char)v8);\n            a0->field_0 = 1;\n            core::ptr::drop_in_place<std::process::Command>(&(char)v8);\n            core::ptr::drop_in_place<alloc::vec::Vec<std::ffi::os_str::OsString>>(&v1);\n        }\n    }\n    else\n    {\n        a0->field_8 = 0.new(\"Could not determine the location of the `uvx` binaryerror: \", 52);\n        a0->field_0 = 1;\n    }\n    return (unsigned long long)core::ptr::drop_in_place<std::path::PathBuf>(v8, v12);\n}\n",
+    "_ZN3uvx4main17h46717cb7913c9f08E": "long long uvx::main()\n{\n    unsigned long long v0;  // [bp-0x60]\n    char v1;  // [bp-0x58], Other Possible Types: unsigned int\n    unsigned int v2;  // [bp-0x54]\n    unsigned long long v3;  // [bp-0x50]\n    char *v4;  // [bp-0x48]\n    unsigned long long v5;  // [bp-0x40]\n    unsigned long long v6;  // [bp-0x38]\n    unsigned long long v7;  // [bp-0x30]\n    char *v8;  // [bp-0x28]\n    unsigned long long v9;  // [bp-0x20]\n    void* v10;  // [bp-0x18]\n    unsigned long v12;  // rax\n\n    uvx::run(&v1);\n    if (v1 != 1)\n    {\n        v12 = v2;\n        return (!((char)v12 & 127) ? (unsigned int)v12 >> 8 : 2);\n    }\n    v0 = v3;\n    v4 = &v0;\n    v5 = <std::io::error::Error as core::fmt::Display>::fmt;\n    v6 = &g_4630a0;\n    v7 = 2;\n    v10 = 0;\n    v8 = &v4;\n    v9 = 1;\n    std::io::stdio::_eprint(&v6);\n    return (unsigned long long)core::ptr::drop_in_place<std::io::error::Error>(v0) & 0xffffffffffffff00 | 2;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN3uvx10exec_spawn17h8a36b7e310b79222E": {
+      "<std::process::Command as std::os::unix::process::CommandExt>::exec": 1
+    },
+    "_ZN3uvx14get_uvx_suffix17h9d58d2b7efa33399E": {
+      "<&str as core::str::pattern::Pattern>::strip_prefix_of": 1,
+      "core::str::converts::from_utf8": 1,
+      "std::path::Path::file_name": 1
+    },
+    "_ZN3uvx11get_uv_path17h0750ce6cdeed20acE": {
+      "core::ptr::drop_in_place<core::result::Result<bool,std::io::error::Error>>": 2,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "std::io::error::Error::new": 1,
+      "core::option::Option<T>::map_or_else": 2,
+      "std::fs::exists": 2,
+      "std::path::Path::join": 1,
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "std::io::stdio::_eprint": 1,
+      "core::ptr::drop_in_place<core::option::Option<std::path::PathBuf>>": 1,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone": 1,
+      "uvx::get_uv_path::{{closure}}": 1
+    },
+    "_ZN3uvx3run17he42f7266f97e898dE": {
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<std::ffi::os_str::OsString>>": 1,
+      "uvx::exec_spawn": 1,
+      "core::ptr::drop_in_place<std::process::Command>": 1,
+      "std::process::Command::args": 1,
+      "std::process::Command::new": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "core::iter::traits::iterator::Iterator::chain": 1,
+      "std::env::args_os": 1,
+      "uvx::get_uv_path": 1,
+      "uvx::get_uvx_suffix": 1,
+      "std::io::error::Error::new": 1,
+      "std::path::Path::parent": 1,
+      "std::env::current_exe": 1
+    },
+    "_ZN3uvx4main17h46717cb7913c9f08E": {
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "std::io::stdio::_eprint": 1,
+      "uvx::run": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN3uvx10exec_spawn17h8a36b7e310b79222E": {},
+    "_ZN3uvx14get_uvx_suffix17h9d58d2b7efa33399E": {},
+    "_ZN3uvx11get_uv_path17h0750ce6cdeed20acE": {},
+    "_ZN3uvx3run17he42f7266f97e898dE": {},
+    "_ZN3uvx4main17h46717cb7913c9f08E": {}
+  },
+  "node_counts": {
+    "_ZN3uvx10exec_spawn17h8a36b7e310b79222E": 1,
+    "_ZN3uvx14get_uvx_suffix17h9d58d2b7efa33399E": 5,
+    "_ZN3uvx11get_uv_path17h0750ce6cdeed20acE": 24,
+    "_ZN3uvx3run17he42f7266f97e898dE": 16,
+    "_ZN3uvx4main17h46717cb7913c9f08E": 5
+  },
+  "variable_types": {
+    "_ZN3uvx10exec_spawn17h8a36b7e310b79222E": {},
+    "_ZN3uvx14get_uvx_suffix17h9d58d2b7efa33399E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN3uvx11get_uv_path17h0750ce6cdeed20acE": {
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_89": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_192": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3uvx3run17he42f7266f97e898dE": {
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN3uvx4main17h46717cb7913c9f08E": {
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

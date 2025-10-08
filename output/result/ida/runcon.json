@@ -1,0 +1,1871 @@
+{
+  "decompilation": {
+    "_ZN9uu_runcon18parse_command_line17hf9e79084b7f1ba94E": "__int64 (__fastcall **__fastcall uu_runcon::parse_command_line(_QWORD *dest))()\n{\n  __int64 v1; // r14\n  __int64 v2; // rdx\n  __int64 (__fastcall **result)(); // rax\n  __int8 flag; // bp\n  _OWORD *v5; // rsi\n  void (__fastcall __noreturn *v6)(); // rax\n  const char *v7; // rcx\n  __int128 v8; // xmm1\n  __int128 v9; // xmm0\n  __int64 v10; // rdx\n  __int64 v11; // rax\n  __int64 v12; // rax\n  __int64 v13; // rax\n  __int64 v14; // rax\n  __int64 v15; // rax\n  __int64 v16; // rax\n  __int64 v17; // rax\n  __int64 v18; // rax\n  __int128 v19; // [rsp+0h] [rbp-2F8h] BYREF\n  __int64 v20; // [rsp+10h] [rbp-2E8h]\n  __int128 v21; // [rsp+20h] [rbp-2D8h] BYREF\n  __int64 v22; // [rsp+30h] [rbp-2C8h]\n  _OWORD src[10]; // [rsp+40h] [rbp-2B8h] BYREF\n  __int128 v24; // [rsp+E0h] [rbp-218h]\n  __int64 v25; // [rsp+F0h] [rbp-208h]\n  __int128 v26; // [rsp+F8h] [rbp-200h] BYREF\n  int v27; // [rsp+108h] [rbp-1F0h]\n  __int128 v28; // [rsp+10Ch] [rbp-1ECh]\n  __int128 v29; // [rsp+11Ch] [rbp-1DCh]\n  int v30; // [rsp+12Ch] [rbp-1CCh]\n  _BYTE v31[48]; // [rsp+130h] [rbp-1C8h] BYREF\n  __int128 v32; // [rsp+160h] [rbp-198h]\n  __m256i v33; // [rsp+170h] [rbp-188h]\n  __m256i v34; // [rsp+190h] [rbp-168h]\n  __int128 v35; // [rsp+1B0h] [rbp-148h] BYREF\n  __int128 v36; // [rsp+1C0h] [rbp-138h]\n  __int128 v37; // [rsp+1D0h] [rbp-128h]\n  __int128 v38; // [rsp+1E0h] [rbp-118h]\n  __int128 v39; // [rsp+1F0h] [rbp-108h]\n  __int64 v40; // [rsp+200h] [rbp-F8h]\n  __int128 v41; // [rsp+210h] [rbp-E8h]\n  __m256i v42; // [rsp+220h] [rbp-D8h]\n  __int128 v43; // [rsp+240h] [rbp-B8h]\n  __int64 v44; // [rsp+250h] [rbp-A8h]\n  __int128 v45; // [rsp+258h] [rbp-A0h]\n  __int64 v46; // [rsp+268h] [rbp-90h]\n  __int128 v47; // [rsp+270h] [rbp-88h] BYREF\n  __int64 v48; // [rsp+280h] [rbp-78h]\n  __int128 v49; // [rsp+288h] [rbp-70h]\n  __int128 v50; // [rsp+298h] [rbp-60h]\n  __int128 v51; // [rsp+2A8h] [rbp-50h]\n  __int128 v52; // [rsp+2B8h] [rbp-40h]\n  __int128 v53; // [rsp+2D0h] [rbp-28h]\n\n  v1 = 0x8000000000000000LL;\n  clap_builder::builder::command::Command::try_get_matches_from(src);\n  if ( __OFSUB__(-*(_QWORD *)&src[0], 1LL) )\n  {\n    dest[1] = alloc::boxed::Box<T>::new(*((_QWORD *)&src[0] + 1), 125LL, v2, -*(_QWORD *)&src[0]);\n    result = &off_EACE8;\n    dest[2] = &off_EACE8;\n    *dest = 0x8000000000000000LL;\n    return result;\n  }\n  v28 = *(_OWORD *)((char *)&src[1] + 4);\n  v29 = *(_OWORD *)((char *)&src[2] + 4);\n  v30 = DWORD1(src[3]);\n  v26 = src[0];\n  v27 = src[1];\n  flag = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v26, aCompute, 7LL);\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(src, &v26);\n  v5 = src;\n  clap_builder::parser::error::MatchesError::unwrap(v31, src);\n  v6 = *(void (__fastcall __noreturn **)())v31;\n  if ( *(_QWORD *)v31 )\n  {\n    v7 = *(const char **)&v31[8];\n    v8 = *(_OWORD *)&v31[16];\n    v9 = *(_OWORD *)&v31[32];\n    v10 = *((_QWORD *)&v32 + 1);\n    v5 = (_OWORD *)v32;\n  }\n  else\n  {\n    v9 = 0LL;\n    v8 = (unsigned __int64)<clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::default::Default>::default::EMPTY;\n    v7 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::default::Default>::default::EMPTY;\n    v6 = core::ops::function::FnOnce::call_once;\n    v10 = 0LL;\n  }\n  *(_QWORD *)&v35 = v6;\n  *((_QWORD *)&v35 + 1) = v7;\n  v36 = v8;\n  v37 = v9;\n  *(_QWORD *)&v38 = v5;\n  *((_QWORD *)&v38 + 1) = v10;\n  if ( flag\n    || (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v26, aUser, 4LL)\n    || (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v26, aRole, 4LL)\n    || (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v26, aType, 4LL)\n    || (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v26, aRange, 5LL) )\n  {\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(src, &v26, aUser, 4LL);\n    v11 = clap_builder::parser::error::MatchesError::unwrap(aUser, 4LL, src);\n    if ( v11 )\n    {\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(src, *(_QWORD *)(v11 + 8), *(_QWORD *)(v11 + 16));\n      v40 = *(_QWORD *)&src[1];\n      v39 = src[0];\n    }\n    else\n    {\n      *(_QWORD *)&v39 = 0x8000000000000000LL;\n    }\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(src, &v26, aRole, 4LL);\n    v12 = clap_builder::parser::error::MatchesError::unwrap(aRole, 4LL, src);\n    if ( v12 )\n    {\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(src, *(_QWORD *)(v12 + 8), *(_QWORD *)(v12 + 16));\n      v25 = *(_QWORD *)&src[1];\n      v24 = src[0];\n    }\n    else\n    {\n      *(_QWORD *)&v24 = 0x8000000000000000LL;\n    }\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(src, &v26, aType, 4LL);\n    v13 = clap_builder::parser::error::MatchesError::unwrap(aType, 4LL, src);\n    if ( v13 )\n    {\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(src, *(_QWORD *)(v13 + 8), *(_QWORD *)(v13 + 16));\n      v22 = *(_QWORD *)&src[1];\n      v21 = src[0];\n    }\n    else\n    {\n      *(_QWORD *)&v21 = 0x8000000000000000LL;\n    }\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(src, &v26, aRange, 5LL);\n    v14 = clap_builder::parser::error::MatchesError::unwrap(aRange, 5LL, src);\n    if ( v14 )\n    {\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(src, *(_QWORD *)(v14 + 8), *(_QWORD *)(v14 + 16));\n      *(_QWORD *)&v31[16] = *(_QWORD *)&src[1];\n      *(_OWORD *)v31 = src[0];\n    }\n    else\n    {\n      *(_QWORD *)v31 = 0x8000000000000000LL;\n    }\n    v15 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next(&v35);\n    if ( v15 )\n    {\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(src, *(_QWORD *)(v15 + 8), *(_QWORD *)(v15 + 16));\n      v1 = *(_QWORD *)&src[0];\n      v53 = *(_OWORD *)((char *)src + 8);\n    }\n    v42.m256i_i64[0] = v40;\n    v41 = v39;\n    *(_OWORD *)&v42.m256i_u64[1] = v24;\n    v42.m256i_i64[3] = v25;\n    v43 = v21;\n    v44 = v22;\n    v45 = *(_OWORD *)v31;\n    v46 = *(_QWORD *)&v31[16];\n    v33.m256i_i64[3] = *(_QWORD *)&v31[16];\n    v33.m256i_i64[0] = v22;\n    *(_OWORD *)&v33.m256i_u64[1] = *(_OWORD *)v31;\n    v32 = v21;\n    *(__m256i *)&v31[16] = v42;\n    *(_OWORD *)v31 = v39;\n    v34.m256i_i64[0] = v1;\n    *(_OWORD *)&v34.m256i_u64[1] = v53;\n    v34.m256i_i8[24] = flag;\n    *(__int32 *)((char *)&v34.m256i_i32[6] + 1) = v24;\n    v34.m256i_i32[7] = *(_DWORD *)((char *)&v24 + 3);\n    core::iter::traits::iterator::Iterator::collect(&v21, &v35);\n    *(__m256i *)((char *)&src[7] + 8) = v34;\n    *(__m256i *)((char *)&src[5] + 8) = v33;\n    *(_OWORD *)((char *)&src[4] + 8) = v32;\n    *(_OWORD *)((char *)&src[3] + 8) = *(_OWORD *)&v31[32];\n    *(_OWORD *)((char *)&src[2] + 8) = *(_OWORD *)&v31[16];\n    *(_OWORD *)((char *)&src[1] + 8) = *(_OWORD *)v31;\n    src[0] = v21;\n    *(_QWORD *)&src[1] = v22;\n    goto LABEL_26;\n  }\n  v16 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next(&v35);\n  if ( !v16 )\n  {\n    *(_QWORD *)&v19 = 0x8000000000000000LL;\n    goto LABEL_34;\n  }\n  <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(src, *(_QWORD *)(v16 + 8), *(_QWORD *)(v16 + 16));\n  v20 = *(_QWORD *)&src[1];\n  v19 = src[0];\n  if ( *(_QWORD *)&src[0] == 0x8000000000000000LL )\n  {\nLABEL_34:\n    core::ptr::drop_in_place<core::option::Option<std::ffi::os_str::OsString>>(&v19);\n    *dest = 0LL;\n    dest[1] = 8LL;\n    dest[2] = 0LL;\n    dest[3] = 0x8000000000000001LL;\n    return (__int64 (__fastcall **)())core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(&v26);\n  }\n  v17 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next(&v35);\n  if ( !v17\n    || (<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(src, *(_QWORD *)(v17 + 8), *(_QWORD *)(v17 + 16)),\n        *(_QWORD *)&src[0] == 0x8000000000000000LL) )\n  {\n    LODWORD(src[0]) = 10;\n    v18 = alloc::boxed::Box<T>::new(src);\n    v47 = v19;\n    v48 = v20;\n    v49 = v35;\n    v50 = v36;\n    v51 = v37;\n    v52 = v38;\n    dest[1] = v18;\n    dest[2] = &off_EAC60;\n    *dest = 0x8000000000000000LL;\n    core::ptr::drop_in_place<uu_runcon::parse_command_line<core::iter::adapters::cloned::Cloned<core::slice::iter::Iter<std::ffi::os_str::OsString>>>::{{closure}}>(&v47);\n    return (__int64 (__fastcall **)())core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(&v26);\n  }\n  v48 = v20;\n  v47 = v19;\n  v49 = v35;\n  v50 = v36;\n  v51 = v37;\n  v52 = v38;\n  *(_QWORD *)v31 = *(_QWORD *)&src[0];\n  *(_OWORD *)&v31[8] = *(_OWORD *)((char *)src + 8);\n  uu_runcon::parse_command_line::{{closure}}(src, &v47, v31);\nLABEL_26:\n  memcpy(dest, src, 0x98uLL);\n  return (__int64 (__fastcall **)())core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(&v26);\n}",
+    "_ZN9uu_runcon6uumain17h53499f17b4d0585dE": "__int64 __fastcall uu_runcon::uumain(__int64 a1, __int64 a2)\n{\n  unsigned int v2; // eax\n  __int64 v3; // rax\n  __int64 v4; // rdx\n  __int128 v5; // rax\n  __int128 v6; // rax\n  unsigned int v7; // ebx\n  __int64 v9; // [rsp+0h] [rbp-98h] BYREF\n  __int64 v10; // [rsp+8h] [rbp-90h]\n  char **v11; // [rsp+10h] [rbp-88h] BYREF\n  __int64 v12; // [rsp+18h] [rbp-80h]\n  __int128 *v13; // [rsp+20h] [rbp-78h]\n  __int64 v14; // [rsp+28h] [rbp-70h]\n  __int64 v15; // [rsp+30h] [rbp-68h]\n  __int128 v16; // [rsp+40h] [rbp-58h] BYREF\n  __int64 v17; // [rsp+50h] [rbp-48h]\n  __int128 v18; // [rsp+60h] [rbp-38h] BYREF\n  __int64 v19; // [rsp+70h] [rbp-28h]\n  __int128 *v20; // [rsp+78h] [rbp-20h] BYREF\n  __int64 (__fastcall *v21)(); // [rsp+80h] [rbp-18h]\n\n  v2 = uucore::disable_rust_signal_handlers();\n  core::result::Result<T,E>::expect(v2);\n  v3 = uu_runcon::uumain::uumain(a1, a2);\n  if ( !v3 )\n    return uucore::mods::error::get_exit_code();\n  v9 = v3;\n  v10 = v4;\n  *(_QWORD *)&v16 = &v9;\n  *((_QWORD *)&v16 + 1) = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n  v11 = (char **)&unk_196B0;\n  v12 = 1LL;\n  v15 = 0LL;\n  v13 = &v16;\n  v14 = 1LL;\n  core::option::Option<T>::map_or_else(&v18, &v11);\n  v16 = v18;\n  v17 = v19;\n  if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((_QWORD *)&v18 + 1), v19, 1LL, 0LL) )\n  {\n    *(_QWORD *)&v5 = uucore::util_name();\n    v18 = v5;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_EAD50;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n    *(_QWORD *)&v18 = &v16;\n    *((_QWORD *)&v18 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_EAD70;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = &v18;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  if ( (*(unsigned __int8 (__fastcall **)(__int64))(v10 + 96))(v9) )\n  {\n    *(_QWORD *)&v6 = uucore::execution_phrase();\n    v18 = v6;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = &off_EAD90;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  v7 = (*(__int64 (__fastcall **)(__int64))(v10 + 88))(v9);\n  core::ptr::drop_in_place<alloc::string::String>(v16, *((_QWORD *)&v16 + 1));\n  core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v9, v10);\n  return v7;\n}",
+    "_ZN9uu_runcon6uumain6uumain17he67dd5d0614d5a18E": "__int64 uu_runcon::uumain::uumain()\n{\n  __int64 v1; // rax\n  int v2; // eax\n  __int64 v3; // rax\n  __int64 v4; // rax\n  __int64 v5; // rax\n  int v6; // edx\n  int v7; // r8d\n  __int64 v8; // r10\n  __int64 v9; // rbx\n  __int64 v10; // r14\n  __int64 v11; // rbx\n  __int64 v12; // rbx\n  _BYTE v13[72]; // [rsp+0h] [rbp-468h] BYREF\n  _OWORD src[10]; // [rsp+50h] [rbp-418h] BYREF\n  _QWORD dest[19]; // [rsp+F0h] [rbp-378h] BYREF\n  _BYTE v16[736]; // [rsp+188h] [rbp-2E0h] BYREF\n\n  uu_runcon::uu_app(v16);\n  uu_runcon::parse_command_line(src);\n  if ( __OFSUB__(0LL, *(_QWORD *)&src[0]) )\n    return *((_QWORD *)&src[0] + 1);\n  memcpy(dest, src, sizeof(dest));\n  v1 = 2LL;\n  if ( (unsigned __int64)(dest[3] + 0x7FFFFFFFFFFFFFFFLL) < 2 )\n    v1 = dest[3] + 0x7FFFFFFFFFFFFFFFLL;\n  if ( !v1 )\n  {\n    uu_runcon::print_current_context(v13);\n    if ( *(_DWORD *)v13 == 17 )\n    {\nLABEL_14:\n      v4 = 0LL;\nLABEL_31:\n      v11 = v4;\n      goto LABEL_32;\n    }\nLABEL_30:\n    *(_QWORD *)&src[4] = *(_QWORD *)&v13[64];\n    src[3] = *(_OWORD *)&v13[48];\n    src[2] = *(_OWORD *)&v13[32];\n    src[1] = *(_OWORD *)&v13[16];\n    src[0] = *(_OWORD *)v13;\n    DWORD2(src[4]) = 1;\n    v4 = alloc::boxed::Box<T>::new(src);\n    goto LABEL_31;\n  }\n  if ( v1 == 1 )\n  {\n    uu_runcon::get_plain_context(src, dest[5], dest[6]);\n    if ( LODWORD(src[0]) == 17 )\n    {\n      uu_runcon::uumain::uumain::{{closure}}(v13, *((_QWORD *)&src[0] + 1));\n      v2 = *(_DWORD *)v13;\n      if ( *(_DWORD *)v13 == 17 )\n      {\n        v3 = uu_runcon::execute_command(dest[8], dest[9], dest[1], dest[2]);\nLABEL_24:\n        v11 = v3;\nLABEL_32:\n        core::ptr::drop_in_place<uu_runcon::Options>(dest);\n        return v11;\n      }\n    }\n    else\n    {\n      *(_QWORD *)&v13[64] = *(_QWORD *)&src[4];\n      *(_OWORD *)&v13[48] = src[3];\n      *(_OWORD *)&v13[32] = src[2];\n      *(_OWORD *)&v13[16] = src[1];\n      *(_OWORD *)v13 = src[0];\n      v2 = src[0];\n    }\n    goto LABEL_34;\n  }\n  if ( dest[15] == 0x8000000000000000LL )\n  {\n    uu_runcon::print_current_context(v13);\n    if ( *(_DWORD *)v13 == 17 )\n      goto LABEL_14;\n    goto LABEL_30;\n  }\n  v5 = 0LL;\n  v6 = 0;\n  if ( dest[3] == 0x8000000000000000LL )\n  {\n    v7 = 0;\n    if ( dest[6] == 0x8000000000000000LL )\n      goto LABEL_17;\n  }\n  else\n  {\n    v6 = dest[4];\n    v7 = 0;\n    if ( dest[6] == 0x8000000000000000LL )\n    {\nLABEL_17:\n      v8 = 0LL;\n      if ( dest[9] == 0x8000000000000000LL )\n        goto LABEL_19;\n      goto LABEL_18;\n    }\n  }\n  v7 = dest[7];\n  v8 = 0LL;\n  if ( dest[9] != 0x8000000000000000LL )\nLABEL_18:\n    v8 = dest[10];\nLABEL_19:\n  if ( dest[12] != 0x8000000000000000LL )\n    v5 = dest[13];\n  v9 = dest[16];\n  v10 = dest[17];\n  uu_runcon::get_custom_context(\n    (unsigned int)src,\n    LOBYTE(dest[18]),\n    v6,\n    dest[5],\n    v7,\n    dest[8],\n    v8,\n    dest[11],\n    v5,\n    dest[14],\n    dest[16],\n    dest[17]);\n  if ( LODWORD(src[0]) == 17 )\n  {\n    uu_runcon::uumain::uumain::{{closure}}(v13, *((_QWORD *)&src[0] + 1));\n    v2 = *(_DWORD *)v13;\n    if ( *(_DWORD *)v13 == 17 )\n    {\n      v3 = uu_runcon::execute_command(v9, v10, dest[1], dest[2]);\n      goto LABEL_24;\n    }\n  }\n  else\n  {\n    *(_QWORD *)&v13[64] = *(_QWORD *)&src[4];\n    *(_OWORD *)&v13[48] = src[3];\n    *(_OWORD *)&v13[32] = src[2];\n    *(_OWORD *)&v13[16] = src[1];\n    *(_OWORD *)v13 = src[0];\n    v2 = src[0];\n  }\nLABEL_34:\n  *(_QWORD *)((char *)&src[4] + 4) = *(unsigned int *)&v13[68] | 0x100000000LL;\n  *(_OWORD *)((char *)&src[3] + 4) = *(_OWORD *)&v13[52];\n  *(_OWORD *)((char *)&src[2] + 4) = *(_OWORD *)&v13[36];\n  *(_OWORD *)((char *)&src[1] + 4) = *(_OWORD *)&v13[20];\n  *(_OWORD *)((char *)src + 4) = *(_OWORD *)&v13[4];\n  LODWORD(src[0]) = v2;\n  v12 = alloc::boxed::Box<T>::new(src);\n  core::ptr::drop_in_place<uu_runcon::Options>(dest);\n  return v12;\n}",
+    "_ZN9uu_runcon6errors5Error8from_io117h2e5a1b363c345453E": "__int64 __fastcall uu_runcon::errors::Error::from_io1(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3,\n        __int64 a4,\n        __int64 a5,\n        __int64 a6)\n{\n  __int64 result; // rax\n  __int128 v9; // [rsp+10h] [rbp-38h] BYREF\n  __int64 v10; // [rsp+20h] [rbp-28h]\n\n  <T as core::convert::Into<U>>::into(&v9, a4, a5);\n  *(_QWORD *)(a1 + 32) = a2;\n  *(_QWORD *)(a1 + 40) = a3;\n  *(_OWORD *)(a1 + 8) = v9;\n  result = v10;\n  *(_QWORD *)(a1 + 24) = v10;\n  *(_QWORD *)(a1 + 48) = a6;\n  *(_DWORD *)a1 = 16;\n  return result;\n}",
+    "_ZN9uu_runcon6errors16write_full_error17h4b9c997c285ea129E": "__int64 __fastcall uu_runcon::errors::write_full_error(__int64 a1, __int64 a2, __int64 a3)\n{\n  unsigned int v3; // ebp\n  __int64 v4; // rax\n  __int64 v5; // rdx\n  __int64 *v7; // [rsp+8h] [rbp-90h] BYREF\n  __int64 (__fastcall *v8)(); // [rsp+10h] [rbp-88h]\n  __int64 v9; // [rsp+18h] [rbp-80h] BYREF\n  __int64 (__fastcall **v10)(); // [rsp+20h] [rbp-78h]\n  __int64 v11; // [rsp+28h] [rbp-70h] BYREF\n  __int64 v12; // [rsp+30h] [rbp-68h]\n  char **v13; // [rsp+38h] [rbp-60h] BYREF\n  __int64 v14; // [rsp+40h] [rbp-58h]\n  __int64 **v15; // [rsp+48h] [rbp-50h]\n  __int64 v16; // [rsp+50h] [rbp-48h]\n  __int64 v17; // [rsp+58h] [rbp-40h]\n\n  v9 = a3;\n  v10 = &off_EBDE0;\n  v7 = &v9;\n  v8 = <&T as core::fmt::Display>::fmt;\n  v13 = (char **)&unk_196B0;\n  v14 = 1LL;\n  v17 = 0LL;\n  v15 = &v7;\n  v16 = 1LL;\n  LOBYTE(v3) = 1;\n  if ( !(unsigned __int8)core::fmt::Formatter::write_fmt(a1, a2, &v13) )\n  {\n    v4 = ((__int64 (__fastcall *)(__int64))v10[6])(v9);\n    if ( v4 )\n    {\n      do\n      {\n        v11 = v4;\n        v12 = v5;\n        v7 = &v11;\n        v8 = <&T as core::fmt::Display>::fmt;\n        v13 = &off_EBDB0;\n        v14 = 1LL;\n        v17 = 0LL;\n        v15 = &v7;\n        v16 = 1LL;\n        v3 = core::fmt::Formatter::write_fmt(a1, a2, &v13);\n        if ( (_BYTE)v3 )\n          break;\n        v4 = (*(__int64 (__fastcall **)(__int64))(v12 + 48))(v11);\n      }\n      while ( v4 );\n    }\n    else\n    {\n      return 0;\n    }\n  }\n  return v3;\n}",
+    "_ZN9uu_runcon6uu_app17h1fe07eb190a905e6E": "void *__fastcall uu_runcon::uu_app(void *dest)\n{\n  __int64 v1; // rax\n  __int64 v2; // rcx\n  _BYTE v4[640]; // [rsp+18h] [rbp-AB0h] BYREF\n  _BYTE desta[700]; // [rsp+298h] [rbp-830h] BYREF\n  _BYTE v6[12]; // [rsp+554h] [rbp-574h]\n  _BYTE src[700]; // [rsp+560h] [rbp-568h] BYREF\n  __int64 v8; // [rsp+81Ch] [rbp-2ACh]\n  int v9; // [rsp+824h] [rbp-2A4h]\n  _BYTE v10[672]; // [rsp+828h] [rbp-2A0h] BYREF\n\n  v1 = uucore::util_name();\n  clap_builder::builder::command::Command::new(src, v1);\n  clap_builder::builder::command::Command::version(desta, src);\n  clap_builder::builder::command::Command::about(src, desta);\n  clap_builder::builder::command::Command::after_help(desta, src);\n  uucore::format_usage(v4, aContextCommand, 93LL);\n  clap_builder::builder::command::Command::override_usage(src, desta);\n  memcpy(desta, src, sizeof(desta));\n  *(_QWORD *)v6 = v8 | 0x8000000080LL;\n  *(_DWORD *)&v6[8] = v9;\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v4, src, 99LL);\n  clap_builder::builder::arg::Arg::long(src, v4);\n  clap_builder::builder::arg::Arg::help(v4, src);\n  clap_builder::builder::arg::Arg::action(v10, v4, 2LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v4, desta, 117LL);\n  clap_builder::builder::arg::Arg::long(desta, v4);\n  clap_builder::builder::arg::Arg::value_name(v4, desta);\n  clap_builder::builder::arg::Arg::help(desta, v4);\n  clap_builder::builder::arg::Arg::value_parser(v4, desta);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v4, src, 114LL);\n  clap_builder::builder::arg::Arg::long(src, v4);\n  clap_builder::builder::arg::Arg::value_name(v4, src);\n  clap_builder::builder::arg::Arg::help(src, v4);\n  clap_builder::builder::arg::Arg::value_parser(v4, src);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v4, desta, 116LL);\n  clap_builder::builder::arg::Arg::long(desta, v4);\n  clap_builder::builder::arg::Arg::value_name(v4, desta);\n  clap_builder::builder::arg::Arg::help(desta, v4);\n  clap_builder::builder::arg::Arg::value_parser(v4, desta);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v4, src, 108LL);\n  clap_builder::builder::arg::Arg::long(src, v4);\n  clap_builder::builder::arg::Arg::value_name(v4, src);\n  clap_builder::builder::arg::Arg::help(src, v4);\n  clap_builder::builder::arg::Arg::value_parser(v4, src);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::action(v4, desta, 1LL);\n  clap_builder::builder::arg::Arg::value_parser(desta, v4);\n  clap_builder::builder::arg::Arg::value_hint(v4, desta);\n  clap_builder::builder::command::Command::arg(desta, src);\n  memcpy(dest, desta, 0x2BCuLL);\n  v2 = *(_QWORD *)&v6[4];\n  *((_DWORD *)dest + 175) = *(_DWORD *)v6 | 0x20;\n  *((_QWORD *)dest + 88) = v2;\n  return dest;\n}",
+    "_ZN9uu_runcon21print_current_context17h9215a313e1a60e64E": "__int64 __fastcall uu_runcon::print_current_context(__int64 a1)\n{\n  int v1; // eax\n  int v2; // eax\n  __int128 v3; // xmm0\n  __int128 v4; // xmm1\n  int v6; // ecx\n  __int64 v7; // rdx\n  __int64 v8; // rcx\n  __int64 v9; // rax\n  _BYTE v10[56]; // [rsp+8h] [rbp-D0h] BYREF\n  __m256i v11; // [rsp+40h] [rbp-98h] BYREF\n  int v12; // [rsp+60h] [rbp-78h]\n  __m256i v13; // [rsp+70h] [rbp-68h] BYREF\n  int v14; // [rsp+90h] [rbp-48h]\n  __int128 v15; // [rsp+A0h] [rbp-38h] BYREF\n  _QWORD v16[2]; // [rsp+B0h] [rbp-28h] BYREF\n  __int128 v17; // [rsp+C0h] [rbp-18h]\n\n  selinux::SecurityContext::current(v10, 0LL);\n  v1 = *(_DWORD *)v10;\n  if ( *(_DWORD *)v10 != 10 )\n  {\n    v14 = *(_DWORD *)&v10[36];\n    v13 = *(__m256i *)&v10[4];\n    *(_OWORD *)(a1 + 40) = *(_OWORD *)&v10[40];\n    v3 = *(_OWORD *)v13.m256i_i8;\n    v4 = *(_OWORD *)&v13.m256i_u64[2];\n    v11 = v13;\n    v12 = v14;\n    *(_DWORD *)(a1 + 36) = v14;\n    *(_OWORD *)(a1 + 20) = v4;\n    *(_OWORD *)(a1 + 4) = v3;\n    *(_DWORD *)a1 = v1;\n    *(_QWORD *)(a1 + 56) = aGettingSecurit;\n    *(_QWORD *)(a1 + 64) = 47LL;\n    return a1;\n  }\n  v13 = *(__m256i *)&v10[8];\n  selinux::SecurityContext::to_c_string(v10, &v13);\n  v2 = *(_DWORD *)v10;\n  if ( *(_DWORD *)v10 == 10 )\n  {\n    v17 = *(_OWORD *)&v10[16];\n    if ( *(_QWORD *)&v10[8] == 2LL )\n    {\n      *(_QWORD *)v10 = &off_EBBE8;\n      *(_QWORD *)&v10[8] = 1LL;\n      *(_QWORD *)&v10[16] = 8LL;\n      *(_OWORD *)&v10[24] = 0LL;\n      std::io::stdio::_print(v10);\nLABEL_10:\n      *(_DWORD *)a1 = 17;\n      goto LABEL_11;\n    }\n    v11.m256i_i64[0] = *(_QWORD *)&v10[8];\n    *(_OWORD *)&v11.m256i_u64[1] = v17;\n    core::ffi::c_str::CStr::to_str(v10, v17, *((_QWORD *)&v17 + 1));\n    v8 = *(_QWORD *)&v10[8];\n    v9 = *(_QWORD *)&v10[16];\n    if ( *(_DWORD *)v10 != 1 )\n    {\n      v16[0] = *(_QWORD *)&v10[8];\n      v16[1] = *(_QWORD *)&v10[16];\n      *(_QWORD *)&v15 = v16;\n      *((_QWORD *)&v15 + 1) = <&T as core::fmt::Display>::fmt;\n      *(_QWORD *)v10 = &unk_EBC08;\n      *(_QWORD *)&v10[8] = 2LL;\n      *(_QWORD *)&v10[16] = &v15;\n      *(_OWORD *)&v10[24] = 1uLL;\n      std::io::stdio::_print(v10);\n      core::ptr::drop_in_place<alloc::borrow::Cow<core::ffi::c_str::CStr>>(&v11);\n      goto LABEL_10;\n    }\n    *(_DWORD *)a1 = 12;\n    *(_QWORD *)(a1 + 8) = v8;\n    *(_QWORD *)(a1 + 16) = v9;\n    core::ptr::drop_in_place<alloc::borrow::Cow<core::ffi::c_str::CStr>>(&v11);\n  }\n  else\n  {\n    v6 = *(_DWORD *)&v10[4];\n    v7 = *(_QWORD *)&v10[8];\n    *(_OWORD *)v11.m256i_i8 = *(_OWORD *)&v10[16];\n    *(_QWORD *)(a1 + 48) = *(_QWORD *)&v10[48];\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v10[32];\n    v15 = *(_OWORD *)v11.m256i_i8;\n    *(_OWORD *)(a1 + 16) = *(_OWORD *)v11.m256i_i8;\n    *(_DWORD *)a1 = v2;\n    *(_DWORD *)(a1 + 4) = v6;\n    *(_QWORD *)(a1 + 8) = v7;\n    *(_QWORD *)(a1 + 56) = aGettingSecurit;\n    *(_QWORD *)(a1 + 64) = 47LL;\n  }\nLABEL_11:\n  core::ptr::drop_in_place<selinux::SecurityContext>(&v13);\n  return a1;\n}",
+    "_ZN9uu_runcon21set_next_exec_context17h3c5444e4c838f269E": "__int64 __fastcall uu_runcon::set_next_exec_context(__int64 a1)\n{\n  int v1; // eax\n  __int64 v2; // r15\n  __int64 v3; // r14\n  __int64 v4; // r12\n  char v5; // al\n  int v6; // ecx\n  __int128 v7; // xmm0\n  __int128 v8; // xmm0\n  __int128 v9; // xmm1\n  __int128 v10; // xmm2\n  __int128 v11; // xmm0\n  __int128 v12; // xmm1\n  _QWORD v14[3]; // [rsp+0h] [rbp-88h] BYREF\n  __int16 v15; // [rsp+18h] [rbp-70h]\n  _BYTE v16[64]; // [rsp+20h] [rbp-68h] BYREF\n  __int64 v17; // [rsp+60h] [rbp-28h]\n\n  selinux::OpaqueSecurityContext::to_c_string(v16);\n  v1 = *(_DWORD *)v16;\n  if ( *(_DWORD *)v16 == 10 )\n  {\n    v2 = *(_QWORD *)&v16[8];\n    v3 = *(_QWORD *)&v16[16];\n    v4 = *(_QWORD *)&v16[16] - 1LL;\n    v14[2] = *(_QWORD *)&v16[8];\n    v14[0] = 1LL;\n    v14[1] = *(_QWORD *)&v16[16] - 1LL;\n    v15 = 0;\n    v5 = ((__int64 (__fastcall *)(_QWORD *))selinux::SecurityContext::check)(v14);\n    if ( v5 == 2 || (v5 & 1) == 0 )\n    {\n      uu_runcon::errors::Error::from_io1((__int64)v16, (__int64)aCheckingSecuri, 25LL, v2, v4, 0x1400000003LL);\n      *(_QWORD *)(a1 + 64) = v17;\n      v8 = *(_OWORD *)v16;\n      v9 = *(_OWORD *)&v16[16];\n      v10 = *(_OWORD *)&v16[32];\n      *(_OWORD *)(a1 + 48) = *(_OWORD *)&v16[48];\n      *(_OWORD *)(a1 + 32) = v10;\n      *(_OWORD *)(a1 + 16) = v9;\n      *(_OWORD *)a1 = v8;\n      core::ptr::drop_in_place<selinux::SecurityContext>(v14);\n    }\n    else\n    {\n      selinux::SecurityContext::set_for_next_exec(v16, v14);\n      if ( *(_DWORD *)v16 == 10 )\n      {\n        *(_DWORD *)a1 = 17;\n      }\n      else\n      {\n        *(_QWORD *)(a1 + 48) = *(_QWORD *)&v16[48];\n        v11 = *(_OWORD *)v16;\n        v12 = *(_OWORD *)&v16[16];\n        *(_OWORD *)(a1 + 32) = *(_OWORD *)&v16[32];\n        *(_OWORD *)(a1 + 16) = v12;\n        *(_OWORD *)a1 = v11;\n        *(_QWORD *)(a1 + 56) = aSettingNewSecu;\n        *(_QWORD *)(a1 + 64) = 28LL;\n      }\n      core::ptr::drop_in_place<selinux::SecurityContext>(v14);\n    }\n    core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v2, v3);\n  }\n  else\n  {\n    v6 = *(_DWORD *)&v16[4];\n    v7 = *(_OWORD *)&v16[8];\n    *(_OWORD *)(a1 + 24) = *(_OWORD *)&v16[24];\n    *(_OWORD *)(a1 + 40) = *(_OWORD *)&v16[40];\n    *(_DWORD *)a1 = v1;\n    *(_DWORD *)(a1 + 4) = v6;\n    *(_OWORD *)(a1 + 8) = v7;\n    *(_QWORD *)(a1 + 56) = aCreatingNewCon;\n    *(_QWORD *)(a1 + 64) = 20LL;\n  }\n  return a1;\n}",
+    "_ZN9uu_runcon17get_plain_context17hdc7dc8eb3b1060b4E": "__int64 __fastcall uu_runcon::get_plain_context(__int64 a1, __int64 a2, __int64 a3)\n{\n  int v4; // eax\n  __int64 v5; // r15\n  __int64 v6; // r14\n  int v7; // ecx\n  __int128 v8; // xmm0\n  __int128 v9; // xmm0\n  __int128 v10; // xmm1\n  _BYTE v12[56]; // [rsp+8h] [rbp-60h] BYREF\n  __int128 v13; // [rsp+40h] [rbp-28h]\n\n  if ( (unsigned __int8)uucore::features::selinux::is_selinux_enabled() )\n  {\n    uu_runcon::os_str_to_c_string(v12, a2, a3);\n    v4 = *(_DWORD *)v12;\n    if ( *(_DWORD *)v12 == 17 )\n    {\n      v5 = *(_QWORD *)&v12[8];\n      v6 = *(_QWORD *)&v12[16];\n      selinux::OpaqueSecurityContext::from_c_str(v12, *(_QWORD *)&v12[8], *(_QWORD *)&v12[16]);\n      if ( *(_DWORD *)v12 == 10 )\n      {\n        *(_QWORD *)(a1 + 8) = *(_QWORD *)&v12[8];\n        *(_DWORD *)a1 = 17;\n      }\n      else\n      {\n        *(_QWORD *)(a1 + 48) = *(_QWORD *)&v12[48];\n        v9 = *(_OWORD *)v12;\n        v10 = *(_OWORD *)&v12[16];\n        *(_OWORD *)(a1 + 32) = *(_OWORD *)&v12[32];\n        *(_OWORD *)(a1 + 16) = v10;\n        *(_OWORD *)a1 = v9;\n        *(_QWORD *)(a1 + 56) = aCreatingNewCon;\n        *(_QWORD *)(a1 + 64) = 20LL;\n      }\n      core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v5, v6);\n    }\n    else\n    {\n      v7 = *(_DWORD *)&v12[4];\n      v8 = *(_OWORD *)&v12[8];\n      *(_OWORD *)(a1 + 24) = *(_OWORD *)&v12[24];\n      *(_OWORD *)(a1 + 40) = *(_OWORD *)&v12[40];\n      *(_OWORD *)(a1 + 56) = v13;\n      *(_DWORD *)a1 = v4;\n      *(_DWORD *)(a1 + 4) = v7;\n      *(_OWORD *)(a1 + 8) = v8;\n    }\n  }\n  else\n  {\n    *(_DWORD *)a1 = 11;\n  }\n  return a1;\n}",
+    "_ZN9uu_runcon22get_transition_context17h61b6643746ed6c81E": "const char *__fastcall uu_runcon::get_transition_context(__int64 a1, __int64 a2, __int64 a3)\n{\n  int v4; // eax\n  unsigned int v5; // ebp\n  const char *result; // rax\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  __int128 v9; // xmm0\n  __int128 v10; // xmm1\n  int v11; // eax\n  __int128 v12; // xmm0\n  __int128 v13; // xmm0\n  __int128 v14; // xmm1\n  __int128 v15; // xmm0\n  __int128 v16; // xmm1\n  _BYTE v17[56]; // [rsp+8h] [rbp-F0h] BYREF\n  _OWORD v18[2]; // [rsp+40h] [rbp-B8h] BYREF\n  __int128 v19; // [rsp+60h] [rbp-98h]\n  __int128 v20; // [rsp+70h] [rbp-88h]\n  int v21; // [rsp+80h] [rbp-78h]\n  _OWORD v22[4]; // [rsp+90h] [rbp-68h] BYREF\n  int v23; // [rsp+D0h] [rbp-28h]\n\n  selinux::SecurityClass::from_name(v17, aProcess, 7LL);\n  v4 = *(_DWORD *)v17;\n  v5 = *(unsigned __int16 *)&v17[4];\n  if ( *(_DWORD *)v17 == 10 )\n  {\n    selinux::SecurityContext::of_path(v17, a2, a3);\n    if ( *(_DWORD *)v17 == 10 )\n    {\n      if ( *(_DWORD *)&v17[8] == 2 )\n      {\n        return (const char *)uu_runcon::errors::Error::from_io1(\n                               a1,\n                               (__int64)aGetfilecon_1,\n                               10LL,\n                               a2,\n                               a3,\n                               0x3D00000002LL);\n      }\n      else\n      {\n        v18[1] = *(_OWORD *)&v17[24];\n        v18[0] = *(_OWORD *)&v17[8];\n        selinux::SecurityContext::current(v17, 0LL);\n        v11 = *(_DWORD *)v17;\n        if ( *(_DWORD *)v17 == 10 )\n        {\n          v22[0] = *(_OWORD *)&v17[8];\n          v22[1] = *(_OWORD *)&v17[24];\n          selinux::SecurityContext::of_labeling_decision(v17, v22, v18, v5, 1LL, 0LL);\n          if ( *(_DWORD *)v17 == 10 )\n          {\n            v12 = *(_OWORD *)&v17[8];\n            *(_OWORD *)(a1 + 24) = *(_OWORD *)&v17[24];\n            *(_OWORD *)(a1 + 8) = v12;\n            *(_DWORD *)a1 = 17;\n          }\n          else\n          {\n            *(_QWORD *)(a1 + 48) = *(_QWORD *)&v17[48];\n            v15 = *(_OWORD *)v17;\n            v16 = *(_OWORD *)&v17[16];\n            *(_OWORD *)(a1 + 32) = *(_OWORD *)&v17[32];\n            *(_OWORD *)(a1 + 16) = v16;\n            *(_OWORD *)a1 = v15;\n            *(_QWORD *)(a1 + 56) = aComputingResul;\n            *(_QWORD *)(a1 + 64) = 38LL;\n          }\n          core::ptr::drop_in_place<selinux::SecurityContext>(v22);\n        }\n        else\n        {\n          v21 = *(_DWORD *)&v17[36];\n          v20 = *(_OWORD *)&v17[20];\n          v19 = *(_OWORD *)&v17[4];\n          *(_OWORD *)(a1 + 40) = *(_OWORD *)&v17[40];\n          v13 = v19;\n          v14 = v20;\n          v22[2] = v19;\n          v22[3] = v20;\n          v23 = v21;\n          *(_DWORD *)(a1 + 36) = v21;\n          *(_OWORD *)(a1 + 20) = v14;\n          *(_OWORD *)(a1 + 4) = v13;\n          *(_DWORD *)a1 = v11;\n          *(_QWORD *)(a1 + 56) = aGettingSecurit;\n          *(_QWORD *)(a1 + 64) = 47LL;\n        }\n        return (const char *)core::ptr::drop_in_place<selinux::SecurityContext>(v18);\n      }\n    }\n    else\n    {\n      *(_QWORD *)(a1 + 48) = *(_QWORD *)&v17[48];\n      v9 = *(_OWORD *)v17;\n      v10 = *(_OWORD *)&v17[16];\n      *(_OWORD *)(a1 + 32) = *(_OWORD *)&v17[32];\n      *(_OWORD *)(a1 + 16) = v10;\n      *(_OWORD *)a1 = v9;\n      result = aGettingSecurit_0;\n      *(_QWORD *)(a1 + 56) = aGettingSecurit_0;\n      *(_QWORD *)(a1 + 64) = 40LL;\n    }\n  }\n  else\n  {\n    *(_WORD *)(a1 + 54) = *(_WORD *)&v17[54];\n    v7 = *(_OWORD *)&v17[6];\n    v8 = *(_OWORD *)&v17[22];\n    *(_OWORD *)(a1 + 38) = *(_OWORD *)&v17[38];\n    *(_OWORD *)(a1 + 22) = v8;\n    *(_OWORD *)(a1 + 6) = v7;\n    *(_DWORD *)a1 = v4;\n    *(_WORD *)(a1 + 4) = v5;\n    result = aGettingProcess;\n    *(_QWORD *)(a1 + 56) = aGettingProcess;\n    *(_QWORD *)(a1 + 64) = 30LL;\n  }\n  return result;\n}",
+    "_ZN9uu_runcon33get_initial_custom_opaque_context17h39145ef6673c12efE": "const char *__fastcall uu_runcon::get_initial_custom_opaque_context(__int64 a1, int a2, __int64 a3, __int64 a4)\n{\n  const char *result; // rax\n  __int128 v5; // xmm0\n  int v6; // eax\n  int v7; // eax\n  __int64 v8; // rdx\n  __int64 v9; // rsi\n  __int128 v10; // xmm0\n  __int128 v11; // xmm1\n  int v12; // ecx\n  __int64 v13; // rdx\n  __int128 v14; // xmm0\n  __int128 v15; // xmm1\n  __m256i v16; // [rsp+0h] [rbp-D8h] BYREF\n  int v17; // [rsp+20h] [rbp-B8h]\n  _BYTE v18[56]; // [rsp+28h] [rbp-B0h] BYREF\n  __int128 v19; // [rsp+60h] [rbp-78h]\n  _OWORD v20[2]; // [rsp+70h] [rbp-68h] BYREF\n  __int128 v21; // [rsp+90h] [rbp-48h]\n  __m256i v22; // [rsp+A0h] [rbp-38h]\n  int v23; // [rsp+C0h] [rbp-18h]\n\n  if ( a2 )\n  {\n    uu_runcon::get_transition_context((__int64)v18, a3, a4);\n    result = (const char *)*(unsigned int *)v18;\n    if ( *(_DWORD *)v18 != 17 )\n    {\n      v17 = *(_DWORD *)&v18[36];\n      v16 = *(__m256i *)&v18[4];\n      *(_OWORD *)(a1 + 56) = v19;\n      *(_OWORD *)(a1 + 40) = *(_OWORD *)&v18[40];\n      *(_DWORD *)(a1 + 36) = v17;\n      v5 = *(_OWORD *)v16.m256i_i8;\n      *(_OWORD *)(a1 + 20) = *(_OWORD *)&v16.m256i_u64[2];\n      *(_OWORD *)(a1 + 4) = v5;\n      *(_DWORD *)a1 = (_DWORD)result;\n      return result;\n    }\n  }\n  else\n  {\n    selinux::SecurityContext::current(v18, 0LL);\n    v6 = *(_DWORD *)v18;\n    if ( *(_DWORD *)v18 != 10 )\n    {\n      v17 = *(_DWORD *)&v18[36];\n      v16 = *(__m256i *)&v18[4];\n      *(_OWORD *)(a1 + 40) = *(_OWORD *)&v18[40];\n      v10 = *(_OWORD *)v16.m256i_i8;\n      v11 = *(_OWORD *)&v16.m256i_u64[2];\n      v22 = v16;\n      v23 = v17;\n      *(_DWORD *)(a1 + 36) = v17;\n      *(_OWORD *)(a1 + 20) = v11;\n      *(_OWORD *)(a1 + 4) = v10;\n      *(_DWORD *)a1 = v6;\n      result = aGettingSecurit;\n      *(_QWORD *)(a1 + 56) = aGettingSecurit;\n      *(_QWORD *)(a1 + 64) = 47LL;\n      return result;\n    }\n  }\n  v20[0] = *(_OWORD *)&v18[8];\n  v20[1] = *(_OWORD *)&v18[24];\n  selinux::SecurityContext::to_c_string(v18, v20);\n  v7 = *(_DWORD *)v18;\n  if ( *(_DWORD *)v18 == 10 )\n  {\n    v21 = *(_OWORD *)&v18[16];\n    if ( *(_QWORD *)&v18[8] == 2LL )\n    {\n      v9 = <alloc::ffi::c_str::CString as core::default::Default>::default();\n      v16.m256i_i64[1] = v9;\n      v16.m256i_i64[2] = v8;\n      v16.m256i_i64[0] = 1LL;\n    }\n    else\n    {\n      *(_OWORD *)&v16.m256i_u64[1] = v21;\n      v16.m256i_i64[0] = *(_QWORD *)&v18[8];\n      v8 = *((_QWORD *)&v21 + 1);\n      v9 = v21;\n    }\n    selinux::OpaqueSecurityContext::from_c_str(v18, v9, v8);\n    if ( *(_DWORD *)v18 == 10 )\n    {\n      *(_QWORD *)(a1 + 8) = *(_QWORD *)&v18[8];\n      *(_DWORD *)a1 = 17;\n    }\n    else\n    {\n      *(_QWORD *)(a1 + 48) = *(_QWORD *)&v18[48];\n      v14 = *(_OWORD *)v18;\n      v15 = *(_OWORD *)&v18[16];\n      *(_OWORD *)(a1 + 32) = *(_OWORD *)&v18[32];\n      *(_OWORD *)(a1 + 16) = v15;\n      *(_OWORD *)a1 = v14;\n      *(_QWORD *)(a1 + 56) = aCreatingNewCon;\n      *(_QWORD *)(a1 + 64) = 20LL;\n    }\n    core::ptr::drop_in_place<alloc::borrow::Cow<core::ffi::c_str::CStr>>(&v16);\n  }\n  else\n  {\n    v12 = *(_DWORD *)&v18[4];\n    v13 = *(_QWORD *)&v18[8];\n    *(_OWORD *)v22.m256i_i8 = *(_OWORD *)&v18[16];\n    *(_QWORD *)(a1 + 48) = *(_QWORD *)&v18[48];\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v18[32];\n    v21 = *(_OWORD *)v22.m256i_i8;\n    *(_OWORD *)(a1 + 16) = *(_OWORD *)v22.m256i_i8;\n    *(_DWORD *)a1 = v7;\n    *(_DWORD *)(a1 + 4) = v12;\n    *(_QWORD *)(a1 + 8) = v13;\n    *(_QWORD *)(a1 + 56) = aGettingSecurit_1;\n    *(_QWORD *)(a1 + 64) = 24LL;\n  }\n  return (const char *)core::ptr::drop_in_place<selinux::SecurityContext>(v20);\n}",
+    "_ZN9uu_runcon18get_custom_context17hfc7b7c6ca4bc17a5E": "__int64 __fastcall uu_runcon::get_custom_context(\n        __int64 a1,\n        unsigned __int8 a2,\n        __int64 a3,\n        __int64 a4,\n        __int64 a5,\n        __int64 a6,\n        __int64 a7,\n        __int64 a8,\n        __int64 a9,\n        __int64 a10,\n        __int64 a11,\n        __int64 a12)\n{\n  int v16; // eax\n  int v17; // eax\n  __int64 v18; // r14\n  __int64 v19; // r15\n  int v20; // eax\n  int v21; // ecx\n  __int64 v22; // rdx\n  int v23; // ecx\n  __int128 v24; // xmm0\n  __int64 v25; // rcx\n  const char *v26; // rdx\n  __int128 v27; // xmm0\n  __int128 v28; // xmm1\n  __int64 v30; // [rsp+8h] [rbp-80h] BYREF\n  int v31; // [rsp+10h] [rbp-78h] BYREF\n  _BYTE v32[68]; // [rsp+14h] [rbp-74h]\n\n  if ( !(unsigned __int8)uucore::features::selinux::is_selinux_enabled() )\n  {\n    *(_DWORD *)a1 = 11;\n    return a1;\n  }\n  uu_runcon::get_initial_custom_opaque_context((__int64)&v31, a2, a11, a12);\n  v16 = v31;\n  if ( v31 != 17 )\n  {\n    v21 = *(_DWORD *)v32;\n    v22 = *(_QWORD *)&v32[4];\n    *(_QWORD *)(a1 + 64) = *(_QWORD *)&v32[60];\n    *(_OWORD *)(a1 + 48) = *(_OWORD *)&v32[44];\n    *(_OWORD *)(a1 + 32) = *(_OWORD *)&v32[28];\n    *(_OWORD *)(a1 + 16) = *(_OWORD *)&v32[12];\n    *(_DWORD *)a1 = v16;\n    *(_DWORD *)(a1 + 4) = v21;\n    *(_QWORD *)(a1 + 8) = v22;\n    return a1;\n  }\n  v30 = *(_QWORD *)&v32[4];\n  if ( a3 )\n  {\n    uu_runcon::os_str_to_c_string(&v31, a3, a4);\n    v17 = v31;\n    if ( v31 != 17 )\n      goto LABEL_22;\n    v18 = *(_QWORD *)&v32[12];\n    v19 = *(_QWORD *)&v32[4];\n    selinux::OpaqueSecurityContext::set_user(&v31, &v30, *(_QWORD *)&v32[4], *(_QWORD *)&v32[12]);\n    v20 = v31;\n    if ( v31 != 10 )\n    {\n      v25 = 29LL;\n      v26 = aSettingSecurit;\nLABEL_27:\n      *(_DWORD *)(a1 + 52) = *(_DWORD *)&v32[48];\n      v27 = *(_OWORD *)v32;\n      v28 = *(_OWORD *)&v32[16];\n      *(_OWORD *)(a1 + 36) = *(_OWORD *)&v32[32];\n      *(_OWORD *)(a1 + 20) = v28;\n      *(_OWORD *)(a1 + 4) = v27;\n      *(_DWORD *)a1 = v20;\n      *(_QWORD *)(a1 + 56) = v26;\n      *(_QWORD *)(a1 + 64) = v25;\n      core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v19, v18);\n      goto LABEL_28;\n    }\n    core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v19, v18);\n  }\n  if ( !a5 )\n    goto LABEL_11;\n  uu_runcon::os_str_to_c_string(&v31, a5, a6);\n  v17 = v31;\n  if ( v31 != 17 )\n    goto LABEL_22;\n  v19 = *(_QWORD *)&v32[4];\n  v18 = *(_QWORD *)&v32[12];\n  selinux::OpaqueSecurityContext::set_role(&v31, &v30, *(_QWORD *)&v32[4], *(_QWORD *)&v32[12]);\n  v20 = v31;\n  if ( v31 != 10 )\n  {\n    v25 = 29LL;\n    v26 = aSettingSecurit_0;\n    goto LABEL_27;\n  }\n  core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v19, v18);\nLABEL_11:\n  if ( !a7 )\n    goto LABEL_15;\n  uu_runcon::os_str_to_c_string(&v31, a7, a8);\n  v17 = v31;\n  if ( v31 != 17 )\n    goto LABEL_22;\n  v19 = *(_QWORD *)&v32[4];\n  v18 = *(_QWORD *)&v32[12];\n  selinux::OpaqueSecurityContext::set_type(&v31, &v30, *(_QWORD *)&v32[4], *(_QWORD *)&v32[12]);\n  v20 = v31;\n  if ( v31 != 10 )\n  {\n    v25 = 29LL;\n    v26 = aSettingSecurit_1;\n    goto LABEL_27;\n  }\n  core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v19, v18);\nLABEL_15:\n  if ( a9 )\n  {\n    uu_runcon::os_str_to_c_string(&v31, a9, a10);\n    v17 = v31;\n    if ( v31 == 17 )\n    {\n      v19 = *(_QWORD *)&v32[4];\n      v18 = *(_QWORD *)&v32[12];\n      selinux::OpaqueSecurityContext::set_range(&v31, &v30, *(_QWORD *)&v32[4], *(_QWORD *)&v32[12]);\n      v20 = v31;\n      if ( v31 == 10 )\n      {\n        core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v19, v18);\n        goto LABEL_19;\n      }\n      v25 = 30LL;\n      v26 = aSettingSecurit_2;\n      goto LABEL_27;\n    }\nLABEL_22:\n    v23 = *(_DWORD *)v32;\n    v24 = *(_OWORD *)&v32[4];\n    *(_OWORD *)(a1 + 24) = *(_OWORD *)&v32[20];\n    *(_OWORD *)(a1 + 40) = *(_OWORD *)&v32[36];\n    *(_OWORD *)(a1 + 56) = *(_OWORD *)&v32[52];\n    *(_DWORD *)a1 = v17;\n    *(_DWORD *)(a1 + 4) = v23;\n    *(_OWORD *)(a1 + 8) = v24;\nLABEL_28:\n    core::ptr::drop_in_place<selinux::OpaqueSecurityContext>(&v30);\n    return a1;\n  }\nLABEL_19:\n  *(_QWORD *)(a1 + 8) = v30;\n  *(_DWORD *)a1 = 17;\n  return a1;\n}",
+    "_ZN9uu_runcon15execute_command17hf1fa972cc5d084a3E": "__int64 __fastcall uu_runcon::execute_command(__int64 a1, __int64 a2, __int64 a3, __int64 a4)\n{\n  const char *v7; // r14\n  __int64 v8; // rbx\n  bool v9; // cf\n  __int64 v10; // r13\n  __int64 v11; // rdi\n  __int64 v12; // rdx\n  unsigned __int64 v13; // r13\n  char v14; // bp\n  __int64 v15; // r15\n  _BYTE file[72]; // [rsp+8h] [rbp-170h] BYREF\n  _BYTE v18[72]; // [rsp+50h] [rbp-128h] BYREF\n  int v19; // [rsp+98h] [rbp-E0h]\n  __int128 v20; // [rsp+A0h] [rbp-D8h] BYREF\n  __int64 v21; // [rsp+B0h] [rbp-C8h]\n  _OWORD v22[2]; // [rsp+C0h] [rbp-B8h]\n  _BYTE v23[28]; // [rsp+E0h] [rbp-98h]\n  _OWORD v24[4]; // [rsp+100h] [rbp-78h] BYREF\n  __int64 v25; // [rsp+140h] [rbp-38h]\n\n  uu_runcon::os_str_to_c_string(file, a1, a2);\n  if ( *(_DWORD *)file == 17 )\n  {\n    v7 = *(const char **)&file[8];\n    v8 = *(_QWORD *)&file[16];\n    core::iter::traits::iterator::Iterator::collect(file, a3, a3 + 24 * a4);\n    if ( *(_DWORD *)file == 17 )\n    {\n      v20 = *(_OWORD *)&file[8];\n      v21 = *(_QWORD *)&file[24];\n      v9 = __CFADD__(a4, 2LL);\n      v10 = a4 + 2;\n      v11 = -1LL;\n      if ( !v9 )\n        v11 = v10;\n      *(_QWORD *)file = alloc::raw_vec::RawVecInner<A>::with_capacity_in(v11, 8LL, 8LL, &off_EBE38);\n      *(_QWORD *)&file[8] = v12;\n      *(_QWORD *)&file[16] = 0LL;\n      alloc::vec::Vec<T,A>::push(file, v7, &off_EBE50);\n      alloc::vec::Vec<T,A>::extend_trusted(file, *((_QWORD *)&v20 + 1), *((_QWORD *)&v20 + 1) + 16 * v21);\n      alloc::vec::Vec<T,A>::push(file, 0LL, &off_EBE80);\n      execvp(v7, *(char *const *__attribute__((__org_arrdim(0,0))) *)&file[8]);\n      v13 = ((unsigned __int64)(unsigned int)*_errno_location() << 32) | 2;\n      v14 = std::io::error::Error::kind(v13);\n      uu_runcon::errors::Error::from_io1((__int64)v24, (__int64)aExecutingComma, 17LL, a1, a2, v13);\n      *(_QWORD *)&v18[64] = v25;\n      *(_OWORD *)&v18[48] = v24[3];\n      *(_OWORD *)&v18[32] = v24[2];\n      *(_OWORD *)&v18[16] = v24[1];\n      *(_OWORD *)v18 = v24[0];\n      v19 = (v14 == 0) + 126;\n      v15 = alloc::boxed::Box<T>::new(v18);\n      core::ptr::drop_in_place<alloc::vec::Vec<*const i8>>(*(_QWORD *)file, *(_QWORD *)&file[8]);\n      core::ptr::drop_in_place<alloc::vec::Vec<alloc::ffi::c_str::CString>>(&v20);\n    }\n    else\n    {\n      *(_OWORD *)&v23[12] = *(_OWORD *)&file[16];\n      *(_OWORD *)v23 = *(_OWORD *)&file[4];\n      *(_QWORD *)&v18[64] = *(_QWORD *)&file[64];\n      *(_OWORD *)&v18[48] = *(_OWORD *)&file[48];\n      *(_OWORD *)&v18[32] = *(_OWORD *)&file[32];\n      v22[0] = *(_OWORD *)&file[4];\n      *(_OWORD *)((char *)v22 + 12) = *(_OWORD *)&v23[12];\n      *(_OWORD *)&v18[4] = v22[0];\n      *(_OWORD *)&v18[16] = *(_OWORD *)&v23[12];\n      *(_DWORD *)v18 = *(_DWORD *)file;\n      v19 = 1;\n      v15 = alloc::boxed::Box<T>::new(v18);\n    }\n    core::ptr::drop_in_place<alloc::ffi::c_str::CString>(v7, v8);\n    return v15;\n  }\n  else\n  {\n    *(_OWORD *)&v18[56] = *(_OWORD *)&file[56];\n    *(_OWORD *)&v18[40] = *(_OWORD *)&file[40];\n    *(_OWORD *)&v18[24] = *(_OWORD *)&file[24];\n    *(_QWORD *)v18 = *(_QWORD *)file;\n    *(_OWORD *)&v18[8] = *(_OWORD *)&file[8];\n    v19 = 1;\n    return alloc::boxed::Box<T>::new(v18);\n  }\n}",
+    "_ZN9uu_runcon18os_str_to_c_string17h048fb3727ae8a25aE": "__int64 __fastcall uu_runcon::os_str_to_c_string(__int64 a1)\n{\n  void *v1; // rsi\n  __int64 result; // rax\n  __int64 v3; // rcx\n  __int64 v4; // [rsp+0h] [rbp-28h] BYREF\n  void *v5; // [rsp+8h] [rbp-20h]\n  __int64 v6; // [rsp+10h] [rbp-18h]\n\n  <&[u8] as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl(&v4);\n  v1 = v5;\n  if ( __OFSUB__(-v4, 1LL) )\n  {\n    result = 17LL;\n    v3 = v6;\n  }\n  else\n  {\n    core::ptr::drop_in_place<alloc::string::String>(v4, v5);\n    *(_QWORD *)(a1 + 24) = 0x1400000003LL;\n    result = 15LL;\n    v3 = 14LL;\n    v1 = &unk_1B408;\n  }\n  *(_QWORD *)(a1 + 8) = v1;\n  *(_QWORD *)(a1 + 16) = v3;\n  *(_DWORD *)a1 = result;\n  return result;\n}"
+  },
+  "function_call_counts": {
+    "_ZN9uu_runcon18parse_command_line17hf9e79084b7f1ba94E": {
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "alloc::boxed::Box<T>::new": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 5,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 4,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 7,
+      "<clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next": 3,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::contains_id": 4,
+      "core::ptr::drop_in_place<core::option::Option<std::ffi::os_str::OsString>>": 1,
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 3,
+      "core::ptr::drop_in_place<uu_runcon::parse_command_line<core::iter::adapters::cloned::Cloned<core::slice::iter::Iter<std::ffi::os_str::OsString>>>::{{closure}}>": 1,
+      "uu_runcon::parse_command_line::{{closure}}": 1,
+      "memcpy": 1
+    },
+    "_ZN9uu_runcon6uumain17h53499f17b4d0585dE": {
+      "uucore::disable_rust_signal_handlers": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uu_runcon::uumain::uumain": 1,
+      "uucore::mods::error::get_exit_code": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 3,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "uucore::execution_phrase": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1
+    },
+    "_ZN9uu_runcon6uumain6uumain17he67dd5d0614d5a18E": {
+      "uu_runcon::uu_app": 1,
+      "uu_runcon::parse_command_line": 1,
+      "memcpy": 1,
+      "uu_runcon::print_current_context": 2,
+      "alloc::boxed::Box<T>::new": 2,
+      "uu_runcon::get_plain_context": 1,
+      "uu_runcon::uumain::uumain::{{closure}}": 2,
+      "uu_runcon::execute_command": 2,
+      "core::ptr::drop_in_place<uu_runcon::Options>": 2,
+      "uu_runcon::get_custom_context": 1
+    },
+    "_ZN9uu_runcon6errors5Error8from_io117h2e5a1b363c345453E": {
+      "<T as core::convert::Into<U>>::into": 1
+    },
+    "_ZN9uu_runcon6errors16write_full_error17h4b9c997c285ea129E": {
+      "core::fmt::Formatter::write_fmt": 2
+    },
+    "_ZN9uu_runcon6uu_app17h1fe07eb190a905e6E": {
+      "uucore::util_name": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "memcpy": 2,
+      "clap_builder::builder::arg::Arg::new": 6,
+      "clap_builder::builder::arg::Arg::short": 5,
+      "clap_builder::builder::arg::Arg::long": 5,
+      "clap_builder::builder::arg::Arg::help": 5,
+      "clap_builder::builder::arg::Arg::action": 2,
+      "clap_builder::builder::command::Command::arg": 6,
+      "clap_builder::builder::arg::Arg::value_name": 4,
+      "clap_builder::builder::arg::Arg::value_parser": 5,
+      "clap_builder::builder::arg::Arg::value_hint": 1
+    },
+    "_ZN9uu_runcon21print_current_context17h9215a313e1a60e64E": {
+      "selinux::SecurityContext::current": 1,
+      "selinux::SecurityContext::to_c_string": 1,
+      "std::io::stdio::_print": 2,
+      "core::ffi::c_str::CStr::to_str": 1,
+      "core::ptr::drop_in_place<alloc::borrow::Cow<core::ffi::c_str::CStr>>": 2,
+      "core::ptr::drop_in_place<selinux::SecurityContext>": 1
+    },
+    "_ZN9uu_runcon21set_next_exec_context17h3c5444e4c838f269E": {
+      "selinux::OpaqueSecurityContext::to_c_string": 1,
+      "uu_runcon::errors::Error::from_io1": 1,
+      "core::ptr::drop_in_place<selinux::SecurityContext>": 2,
+      "selinux::SecurityContext::set_for_next_exec": 1,
+      "core::ptr::drop_in_place<alloc::ffi::c_str::CString>": 1
+    },
+    "_ZN9uu_runcon17get_plain_context17hdc7dc8eb3b1060b4E": {
+      "uu_runcon::os_str_to_c_string": 1,
+      "selinux::OpaqueSecurityContext::from_c_str": 1,
+      "core::ptr::drop_in_place<alloc::ffi::c_str::CString>": 1,
+      "uucore::features::selinux::is_selinux_enabled": 1
+    },
+    "_ZN9uu_runcon22get_transition_context17h61b6643746ed6c81E": {
+      "selinux::SecurityClass::from_name": 1,
+      "selinux::SecurityContext::of_path": 1,
+      "uu_runcon::errors::Error::from_io1": 1,
+      "selinux::SecurityContext::current": 1,
+      "selinux::SecurityContext::of_labeling_decision": 1,
+      "core::ptr::drop_in_place<selinux::SecurityContext>": 2
+    },
+    "_ZN9uu_runcon33get_initial_custom_opaque_context17h39145ef6673c12efE": {
+      "uu_runcon::get_transition_context": 1,
+      "selinux::SecurityContext::current": 1,
+      "selinux::SecurityContext::to_c_string": 1,
+      "<alloc::ffi::c_str::CString as core::default::Default>::default": 1,
+      "selinux::OpaqueSecurityContext::from_c_str": 1,
+      "core::ptr::drop_in_place<alloc::borrow::Cow<core::ffi::c_str::CStr>>": 1,
+      "core::ptr::drop_in_place<selinux::SecurityContext>": 1
+    },
+    "_ZN9uu_runcon18get_custom_context17hfc7b7c6ca4bc17a5E": {
+      "uucore::features::selinux::is_selinux_enabled": 1,
+      "uu_runcon::get_initial_custom_opaque_context": 1,
+      "uu_runcon::os_str_to_c_string": 4,
+      "selinux::OpaqueSecurityContext::set_user": 1,
+      "core::ptr::drop_in_place<alloc::ffi::c_str::CString>": 5,
+      "selinux::OpaqueSecurityContext::set_role": 1,
+      "selinux::OpaqueSecurityContext::set_type": 1,
+      "selinux::OpaqueSecurityContext::set_range": 1,
+      "core::ptr::drop_in_place<selinux::OpaqueSecurityContext>": 1
+    },
+    "_ZN9uu_runcon15execute_command17hf1fa972cc5d084a3E": {
+      "uu_runcon::os_str_to_c_string": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "alloc::raw_vec::RawVecInner<A>::with_capacity_in": 1,
+      "alloc::vec::Vec<T,A>::push": 2,
+      "alloc::vec::Vec<T,A>::extend_trusted": 1,
+      "execvp": 1,
+      "__errno_location": 1,
+      "std::io::error::Error::kind": 1,
+      "uu_runcon::errors::Error::from_io1": 1,
+      "alloc::boxed::Box<T>::new": 3,
+      "core::ptr::drop_in_place<alloc::vec::Vec<*const i8>>": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<alloc::ffi::c_str::CString>>": 1,
+      "core::ptr::drop_in_place<alloc::ffi::c_str::CString>": 1
+    },
+    "_ZN9uu_runcon18os_str_to_c_string17h048fb3727ae8a25aE": {
+      "<&[u8] as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN9uu_runcon18parse_command_line17hf9e79084b7f1ba94E": {},
+    "_ZN9uu_runcon6uumain17h53499f17b4d0585dE": {},
+    "_ZN9uu_runcon6uumain6uumain17he67dd5d0614d5a18E": {},
+    "_ZN9uu_runcon6errors5Error8from_io117h2e5a1b363c345453E": {},
+    "_ZN9uu_runcon6errors16write_full_error17h4b9c997c285ea129E": {},
+    "_ZN9uu_runcon6uu_app17h1fe07eb190a905e6E": {},
+    "_ZN9uu_runcon21print_current_context17h9215a313e1a60e64E": {},
+    "_ZN9uu_runcon21set_next_exec_context17h3c5444e4c838f269E": {},
+    "_ZN9uu_runcon17get_plain_context17hdc7dc8eb3b1060b4E": {},
+    "_ZN9uu_runcon22get_transition_context17h61b6643746ed6c81E": {},
+    "_ZN9uu_runcon33get_initial_custom_opaque_context17h39145ef6673c12efE": {},
+    "_ZN9uu_runcon18get_custom_context17hfc7b7c6ca4bc17a5E": {},
+    "_ZN9uu_runcon15execute_command17hf1fa972cc5d084a3E": {},
+    "_ZN9uu_runcon18os_str_to_c_string17h048fb3727ae8a25aE": {}
+  },
+  "variable_types": {
+    "_ZN9uu_runcon18parse_command_line17hf9e79084b7f1ba94E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&reference",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "array",
+          160
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_268": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_284": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_300": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_304": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_368": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_400": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_448": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_464": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_480": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_496": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_512": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_528": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_544": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_576": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_592": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_600": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_616": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_624": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_640": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_648": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_664": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_680": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_696": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_720": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN9uu_runcon6uumain17h53499f17b4d0585dE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_runcon6uumain6uumain17he67dd5d0614d5a18E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_edx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r8d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r10": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          72
+        ]
+      ],
+      "stack_128": [
+        [
+          "array",
+          160
+        ]
+      ],
+      "stack_288": [
+        [
+          "array",
+          152
+        ]
+      ],
+      "stack_440": [
+        [
+          "array",
+          736
+        ]
+      ]
+    },
+    "_ZN9uu_runcon6errors5Error8from_io117h2e5a1b363c345453E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_runcon6errors16write_full_error17h4b9c997c285ea129E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_runcon6uu_app17h1fe07eb190a905e6E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          640
+        ]
+      ],
+      "stack_664": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_1364": [
+        [
+          "array",
+          12
+        ]
+      ],
+      "stack_1376": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_2076": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2084": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2088": [
+        [
+          "array",
+          672
+        ]
+      ]
+    },
+    "_ZN9uu_runcon21print_current_context17h9215a313e1a60e64E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          56
+        ]
+      ],
+      "stack_64": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_112": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN9uu_runcon21set_next_exec_context17h3c5444e4c838f269E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm2": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_32": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_runcon17get_plain_context17hdc7dc8eb3b1060b4E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          56
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN9uu_runcon22get_transition_context17h61b6643746ed6c81E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          56
+        ]
+      ],
+      "stack_64": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_144": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN9uu_runcon33get_initial_custom_opaque_context17h39145ef6673c12efE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_esi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_40": [
+        [
+          "array",
+          56
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN9uu_runcon18get_custom_context17hfc7b7c6ca4bc17a5E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_20": [
+        [
+          "array",
+          68
+        ]
+      ]
+    },
+    "_ZN9uu_runcon15execute_command17hf1fa972cc5d084a3E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_cf": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          72
+        ]
+      ],
+      "stack_80": [
+        [
+          "array",
+          72
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_224": [
+        [
+          "array",
+          28
+        ]
+      ],
+      "stack_256": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_runcon18os_str_to_c_string17h048fb3727ae8a25aE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

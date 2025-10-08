@@ -1,0 +1,333 @@
+{
+  "decompilation": {
+    "_ZN11turbo_trace13import_finder12ImportFinder3new17hde5a105d49ed433bE": "fn turbo_trace::import_finder::ImportFinder::new(a0: i64, a1: u8) -> void {\n    return struct32 {\n        field_0: 0\n        field_8: 8\n        field_16: 0\n        field_24: a1\n    };\n}\n",
+    "_ZN11turbo_trace6tracer6Tracer3new17h4eab5fa39fe3ae41E": "fn turbo_trace::tracer::Tracer::new(a0: i64, a1: i64, a2: &u64, a3: i64) -> long long {\n    let v1: iNone;  // [bp-0x218]\n    let v2: u64;  // [bp-0x208]\n    let v3: void*;  // [bp-0x200]\n    let v4: u64;  // [bp-0x1f8]\n    let v5: void*;  // [bp-0x1f0]\n    let v6: u128;  // [bp-0x1e8]\n    let v7: u64;  // [bp-0x1d8]\n    let v8: struct16;  // [bp-0x1d0], Other Possible Types: struct24\n    let v9: struct32;  // [bp-0x1d0]\n    let v10: struct120;  // [bp-0xf0]\n    let v12: u64;  // rax\n\n    if !((((0 ^ *(a3 as &i64)) & (0 ^ -(*(a3 as &i64)))) >> 63) as char) {\n        v8 = turbopath::absolute_system_path_buf::AbsoluteSystemPathBuf::from_unknown(*((a1 + 8) as &i64), *((a1 + 16) as &i64), a3);\n    }\n    vvar_119{stack -464} = struct32 OrderedDict([(0, \ud835\udf19@64b [((7764286, None), None), ((7764320, None), None)]), (16, \ud835\udf19@1664b [((7764286, None), None), ((7764320, None), None)])])\n    <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v9, a2);\n    core::iter::traits::iterator::Iterator::collect(&v6, &v9);\n    v3 = 0;\n    v4 = 8;\n    v5 = 0;\n    v10 = <swc_common::source_map::SourceMap as core::default::Default>::default();\n    v8 = struct16 {\n        field_0: 1\n        field_8: 1\n    };\n    memcpy(&v9 as u1664, &v10, 208);\n    v12 = alloc::boxed::Box<T>::new(&v8);\n    return struct112 {\n        field_0: v6\n        field_16: v7\n        field_24: *(a1 as &i128)\n        field_40: *((a1 + 16) as &i64)\n        field_48: *(&v3 as &i128)\n        field_64: 0\n        field_72: v1\n        field_88: v2\n        field_96: v12\n        field_104: 0\n    };\n}\n",
+    "_ZN11turbo_trace6tracer6Tracer10trace_file17h2e89e37767255dc4E": "fn turbo_trace::tracer::Tracer::trace_file(a0: i64, a1: u64, a2: u64, a3: i64, a4: u64, a5: u64) -> long long {\n    let v1: u64;  // rax\n\n    v1 = *((a3 + 16) as &i64);\n    return struct152 {\n        field_0: *(a3 as &i128)\n        field_16: v1\n        field_24: a1\n        field_32: a2\n        field_40: a5\n        field_48: a4\n        padding_56: <UNKNOWN>\n        field_768: <UNKNOWN>\n    };\n}\n",
+    "_ZN11turbo_trace6tracer6Tracer29infer_resolver_with_ts_config17h13561f598b20342fE": "fn turbo_trace::tracer::Tracer::infer_resolver_with_ts_config(a0: u64, a1: u64, a2: u64, a3: i64) -> long long {\n    let v1: struct24;  // [bp-0x4e0]\n    let v2: struct391;  // [bp-0x4c8]\n    let v6: struct24;  // [bp-0x340]\n    let v7: u64;  // [bp-0x340]\n    let v8: void*;  // [bp-0x1b0]\n    let v10: u64;  // r13\n    let v11: u64;  // r15\n    let v12: u64;  // rdx\n    let v13: struct24;  // [bp-0x4f8]\n    let v14: struct24;  // [bp-0x1b8], Other Possible Types: struct392\n\n    v6 = struct24 {\n        field_0: a1\n        field_8: a2\n        field_16: 1\n    };\n    v10 = <core::iter::adapters::skip::Skip<I> as core::iter::traits::iterator::Iterator>::try_fold(&v6);\n    v6 = struct24 {\n        field_0: a1\n        field_8: a2\n        field_16: 1\n    };\n    v11 = <core::iter::adapters::skip::Skip<I> as core::iter::traits::iterator::Iterator>::try_fold(&v6);\n    if !v10 && !v11 {\n        return struct8 {\n            field_0: 0x8000000000000000\n        };\n    }\n    v2 = <oxc_resolver::options::ResolveOptions as core::clone::Clone>::clone(a3);\n    if v10 {\n        v14 = turbopath::absolute_system_path::AbsoluteSystemPath::join_component(v10, v12, \"tsconfig.json\");\n        v6 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v8, v14.field_16);\n    }\n    if v11 {\n        memcpy(&v7, &v2, 392);\n        v13 = turbopath::absolute_system_path::AbsoluteSystemPath::join_component(v11, v12, \"node_modules\");\n        v1 = <T as alloc::string::SpecToString>::spec_to_string(&v13);\n        v14 = oxc_resolver::options::ResolveOptions::with_module(&v7, &v1);\n        memcpy(&v2, &v14, 392);\n    }\n    memcpy(&v7, &v2, 392);\n    return oxc_resolver::ResolverGeneric<C>::clone_with_options(a0, *((a3 + 392) as &i64), &v7);\n}\n",
+    "_ZN11turbo_trace6tracer6Tracer15create_resolver17h65055149db132350E": "fn turbo_trace::tracer::Tracer::create_resolver(a0: u64, a1: void*, a2: u32) -> long long {\n    let v0: struct392;  // [bp-0x4c0]\n    let v4: struct392;  // [bp-0x338], Other Possible Types: u8\n    let v6: u8;  // [bp-0x1b2]\n    let v7: u8;  // [bp-0x1b1]\n    let v8: struct391;  // [bp-0x1b0], Other Possible Types: struct392\n    let v9: struct392;  // [bp-0x1b0]\n    let v11: u8;  // [bp-0x2b]\n\n    v8 = <oxc_resolver::options::ResolveOptions as core::default::Default>::default();\n    v11 = 1;\n    memcpy(&v4, &v8, 390);\n    v6 = 2;\n    v7 = (&v11)[2];\n    v8 = oxc_resolver::options::ResolveOptions::with_extension(&v4, \".ts\");\n    v4 = oxc_resolver::options::ResolveOptions::with_extension(&v8, \".tsx\");\n    v8 = oxc_resolver::options::ResolveOptions::with_extension(&v4, \".jsx\");\n    v4 = oxc_resolver::options::ResolveOptions::with_extension(&v8, \".d.ts\");\n    v8 = oxc_resolver::options::ResolveOptions::with_extension(&v4, \".mjs\");\n    v4 = oxc_resolver::options::ResolveOptions::with_extension(&v8, \".cjs\");\n    v9 = oxc_resolver::options::ResolveOptions::with_main_field(&v4, \"module\");\n    v4 = oxc_resolver::options::ResolveOptions::with_main_field(&v9, \"types\");\n    v0 = oxc_resolver::options::ResolveOptions::with_condition_names(&v4, \"import\", 5);\n    if a1 {\n        v9 as u192 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(a1, a2);\n    }\n    memcpy(&v9 as u192, &v0, 392);\n    return oxc_resolver::ResolverGeneric<C>::new(a0, &v9 as u192);\n}\n",
+    "_ZN11turbo_trace6tracer6Tracer5trace17he12392618f4441c2E": "fn turbo_trace::tracer::Tracer::trace(a0: i64, a1: i64, a2: i64, a3: i64) -> double {\n    let v1: u128;  // xmm0\n    let v2: iNone;  // xmm1\n    let v3: iNone;  // xmm2\n\n    v1 = *(a1 as &i128);\n    v2 = *((a1 + 16) as &i128);\n    v3 = *((a1 + 32) as &i128);\n    return struct304 {\n        field_0: a2\n        field_8: a3\n        field_16: v1\n        field_32: v2\n        field_48: v3\n        field_64: *((a1 + 48) as &i128)\n        field_80: *((a1 + 64) as &i128)\n        field_96: *((a1 + 80) as &i128)\n        field_112: *((a1 + 96) as &i128)\n        padding_128: <UNKNOWN>\n        field_1512: <UNKNOWN>\n    };\n}\n",
+    "_ZN11turbo_trace6tracer6Tracer13reverse_trace17h3f1c34d2a73020d4E": "fn turbo_trace::tracer::Tracer::reverse_trace(a0: i64, a1: i64) -> double {\n    let v1: u128;  // xmm0\n    let v2: iNone;  // xmm1\n    let v3: iNone;  // xmm2\n\n    v1 = *(a1 as &i128);\n    v2 = *((a1 + 16) as &i128);\n    v3 = *((a1 + 32) as &i128);\n    return struct144 {\n        field_0: v1\n        field_16: v2\n        field_32: v3\n        field_48: *((a1 + 48) as &i128)\n        field_64: *((a1 + 64) as &i128)\n        field_80: *((a1 + 80) as &i128)\n        field_96: *((a1 + 96) as &i128)\n        padding_112: <UNKNOWN>\n        field_360: <UNKNOWN>\n    };\n}\n",
+    "_ZN11turbo_trace6tracer6Tracer21get_imports_from_file17hf94da0c441bb33abE": "fn turbo_trace::tracer::Tracer::get_imports_from_file(a0: i64, a1: u64, a2: u64, a3: u64, a4: u64, a5: u64, a6: u8) -> long long {\n    *((a0 + 80) as &u64) = a1;\n    *((a0 + 88) as &u64) = a2;\n    *((a0 + 96) as &u64) = a3;\n    *((a0 + 16) as &u64) = a4;\n    *((a0 + 24) as &u64) = a5;\n    *((a0 + 108) as &u8) = a6;\n    *((a0 + 107) as &i8) = 0;\n    return a6;\n}\n",
+    "_ZN11turbo_trace4main17h9e56cea794bb9d42E": "fn turbo_trace::main(a0: u64) -> long long {\n    let v0: struct80;  // [bp-0x810]\n    let v1: struct40;  // [bp-0x7c0]\n    let v2: struct130;  // [bp-0x770]\n    let v3: u16;  // [bp-0x6a3]\n    let v4: u8;  // [bp-0x698]\n    let v5: u8;  // [bp-0x604]\n\n    v5 = 0;\n    v2 = tokio::runtime::builder::Builder::new_multi_thread();\n    v3 = 257;\n    v1 = tokio::runtime::builder::Builder::build(&v2);\n    v0 = core::result::Result<T,E>::expect(&v1);\n    tokio::runtime::runtime::Runtime::block_on(a0, &v0, &v4);\n    return a0;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN11turbo_trace13import_finder12ImportFinder3new17hde5a105d49ed433bE": {},
+    "_ZN11turbo_trace6tracer6Tracer3new17h4eab5fa39fe3ae41E": {
+      "alloc::boxed::Box<T>::new": 1,
+      "memcpy": 1,
+      "<swc_common::source_map::SourceMap as core::default::Default>::default": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "turbopath::absolute_system_path_buf::AbsoluteSystemPathBuf::from_unknown": 1
+    },
+    "_ZN11turbo_trace6tracer6Tracer10trace_file17h2e89e37767255dc4E": {},
+    "_ZN11turbo_trace6tracer6Tracer29infer_resolver_with_ts_config17h13561f598b20342fE": {
+      "oxc_resolver::ResolverGeneric<C>::clone_with_options": 1,
+      "memcpy": 3,
+      "oxc_resolver::options::ResolveOptions::with_module": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
+      "turbopath::absolute_system_path::AbsoluteSystemPath::join_component": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "<oxc_resolver::options::ResolveOptions as core::clone::Clone>::clone": 1,
+      "<core::iter::adapters::skip::Skip<I> as core::iter::traits::iterator::Iterator>::try_fold": 2
+    },
+    "_ZN11turbo_trace6tracer6Tracer15create_resolver17h65055149db132350E": {
+      "oxc_resolver::ResolverGeneric<C>::new": 1,
+      "memcpy": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "oxc_resolver::options::ResolveOptions::with_condition_names": 1,
+      "oxc_resolver::options::ResolveOptions::with_main_field": 2,
+      "oxc_resolver::options::ResolveOptions::with_extension": 6,
+      "<oxc_resolver::options::ResolveOptions as core::default::Default>::default": 1
+    },
+    "_ZN11turbo_trace6tracer6Tracer5trace17he12392618f4441c2E": {},
+    "_ZN11turbo_trace6tracer6Tracer13reverse_trace17h3f1c34d2a73020d4E": {},
+    "_ZN11turbo_trace6tracer6Tracer21get_imports_from_file17hf94da0c441bb33abE": {},
+    "_ZN11turbo_trace4main17h9e56cea794bb9d42E": {
+      "tokio::runtime::runtime::Runtime::block_on": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "tokio::runtime::builder::Builder::build": 1,
+      "tokio::runtime::builder::Builder::new_multi_thread": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN11turbo_trace13import_finder12ImportFinder3new17hde5a105d49ed433bE": {},
+    "_ZN11turbo_trace6tracer6Tracer3new17h4eab5fa39fe3ae41E": {},
+    "_ZN11turbo_trace6tracer6Tracer10trace_file17h2e89e37767255dc4E": {},
+    "_ZN11turbo_trace6tracer6Tracer29infer_resolver_with_ts_config17h13561f598b20342fE": {},
+    "_ZN11turbo_trace6tracer6Tracer15create_resolver17h65055149db132350E": {},
+    "_ZN11turbo_trace6tracer6Tracer5trace17he12392618f4441c2E": {},
+    "_ZN11turbo_trace6tracer6Tracer13reverse_trace17h3f1c34d2a73020d4E": {},
+    "_ZN11turbo_trace6tracer6Tracer21get_imports_from_file17hf94da0c441bb33abE": {},
+    "_ZN11turbo_trace4main17h9e56cea794bb9d42E": {}
+  },
+  "node_counts": {
+    "_ZN11turbo_trace13import_finder12ImportFinder3new17hde5a105d49ed433bE": 1,
+    "_ZN11turbo_trace6tracer6Tracer3new17h4eab5fa39fe3ae41E": 7,
+    "_ZN11turbo_trace6tracer6Tracer10trace_file17h2e89e37767255dc4E": 1,
+    "_ZN11turbo_trace6tracer6Tracer29infer_resolver_with_ts_config17h13561f598b20342fE": 14,
+    "_ZN11turbo_trace6tracer6Tracer15create_resolver17h65055149db132350E": 14,
+    "_ZN11turbo_trace6tracer6Tracer5trace17he12392618f4441c2E": 1,
+    "_ZN11turbo_trace6tracer6Tracer13reverse_trace17h3f1c34d2a73020d4E": 1,
+    "_ZN11turbo_trace6tracer6Tracer21get_imports_from_file17hf94da0c441bb33abE": 1,
+    "_ZN11turbo_trace4main17h9e56cea794bb9d42E": 5
+  },
+  "variable_types": {
+    "_ZN11turbo_trace13import_finder12ImportFinder3new17hde5a105d49ed433bE": {},
+    "_ZN11turbo_trace6tracer6Tracer3new17h4eab5fa39fe3ae41E": {
+      "stack_72": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "struct",
+          120
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11turbo_trace6tracer6Tracer10trace_file17h2e89e37767255dc4E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11turbo_trace6tracer6Tracer29infer_resolver_with_ts_config17h13561f598b20342fE": {
+      "stack_440": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "struct",
+          392
+        ]
+      ],
+      "stack_832": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_840": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          24
+        ]
+      ]
+    },
+    "_ZN11turbo_trace6tracer6Tracer15create_resolver17h65055149db132350E": {
+      "stack_792": [
+        [
+          "struct",
+          392
+        ],
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_1181": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_400": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_790": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_791": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          8
+        ]
+      ]
+    },
+    "_ZN11turbo_trace6tracer6Tracer5trace17he12392618f4441c2E": {
+      "reg_ymm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_ymm1": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_ymm2": [
+        [
+          "primitive",
+          null
+        ]
+      ]
+    },
+    "_ZN11turbo_trace6tracer6Tracer13reverse_trace17h3f1c34d2a73020d4E": {
+      "reg_ymm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_ymm1": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_ymm2": [
+        [
+          "primitive",
+          null
+        ]
+      ]
+    },
+    "_ZN11turbo_trace6tracer6Tracer21get_imports_from_file17hf94da0c441bb33abE": {},
+    "_ZN11turbo_trace4main17h9e56cea794bb9d42E": {
+      "stack_532": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_168": [
+        [
+          "struct",
+          136
+        ]
+      ],
+      "stack_373": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_88": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          80
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,5 @@
+// attributes: thunk
+__int64 just::subcommand::backtick_re()
+{
+  return std::sync::once_lock::OnceLock<T>::get_or_try_init();
+}

@@ -1,0 +1,609 @@
+{
+  "decompilation": {
+    "_ZN8uu_mknod6uumain17h73b17a6bda407fcfE": "fn uu_mknod::uumain(a0: u64, a1: u64) -> long long {\n    let v0: u64;  // [bp-0x98]\n    let v1: u128;  // [bp-0x58]\n    let v2: u64;  // [bp-0x48]\n    let v3: alloc::string::String;  // [bp-0x38], Other Possible Types: u64\n    let v4: u64;  // [bp-0x30]\n    let v5: u64;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers());\n    v8 = uu_mknod::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v3 = format!(\"{}\", &v0);\n    v1 = *(&v3.vec.buf.inner.cap as &i128);\n    v2 = v5;\n    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(<alloc::boxed::Box<T,A> as core::fmt::Display>::fmt, v5, 1, 0) {\n        v3 = uucore::util_name();\n        v4 = v9;\n        eprint!(\"{}: \", &v3);\n        eprintln!(\"{}\", &v1);\n    }\n    if !UnresolvableCallTarget(v0) {\n        return UnresolvableCallTarget(v0);\n    }\n    v3 = uucore::execution_phrase();\n    v4 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v3);\n    return UnresolvableCallTarget(v0);\n}\n",
+    "_ZN8uu_mknod6uumain6uumain17h8bac4110a78873abE": "fn uu_mknod::uumain::uumain(a0: i64, a1: i64) -> u64 {\n    let v0: struct16;  // [bp-0x368], Other Possible Types: struct28, Result<struct40, struct16>, u128\n    let v1: Result<struct40, struct16>;  // [bp-0x368], Other Possible Types: struct56\n    let v3: u64;  // [bp-0x358]\n    let v4: u32;  // [bp-0x350]\n    let v5: Result<struct24, struct12>;  // [bp-0x328], Other Possible Types: struct24\n    let v6: u64;  // [bp-0x318]\n    let v7: struct24;  // [bp-0x310]\n    let v8: struct56;  // [bp-0x2f8], Other Possible Types: struct752\n    let v9: u64;  // [bp-0x2f0]\n    let v11: u64;  // rbx\n    let v12: u64;  // r12\n    let v13: u64;  // r13\n    let v14: u64;  // r14\n    let v15: u64;  // r15\n    let v16: void*;  // rax\n    let v17: i64;  // rbx\n    let v19: i64;  // r14\n    let v20: u8;  // al\n    let v21: u64;  // r15\n    let v22: alloc::string::String;  // r12\n    let v23: core::fmt::rt::Argument;  // rax\n    let v24: u64;  // rcx\n    let v25: void*;  // rax\n\n    v8 = struct752 {\n        field_0: uu_mknod::uu_app()\n        field_712: v11\n        field_720: v12\n        field_728: v13\n        field_736: v14\n        field_744: v15\n    };\n    v0 = clap_builder::builder::command::Command::try_get_matches_from(&v8, a0, a1);\n    if (((0 ^ v0.field_0) & (0 ^ -(v0.field_0))) >> 63) as char {\n        v16 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v9);\n    } else {\n        v8 = v1;\n        v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v8);\n        v17 = clap_builder::parser::error::MatchesError::unwrap(&v0);\n        core::option::unwrap(v17);\n        v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v8, \"mode\");\n        v5 = uu_mknod::get_mode(clap_builder::parser::error::MatchesError::unwrap(\"mode\", &v0));\n        match v5 {\n            Err(_) => {\n                v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v8, \"name\");\n                v19 = clap_builder::parser::error::MatchesError::unwrap(\"name\", &v0);\n                if !v19 {\n                    core::option::expect_failed(\"Missing argument 'NAME'\"); /* do not return */\n                }\n                v20 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v8, \"z\") as u32 as u8;\n                v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v8, \"context\");\n                v21 = clap_builder::parser::error::MatchesError::unwrap(\"context\", &v0);\n                v0 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v8, &g_4183ea);\n                v22 = clap_builder::parser::error::MatchesError::unwrap(&g_4183ea, &v0);\n                v1 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v8, &g_4183ef);\n                v23 = clap_builder::parser::error::MatchesError::unwrap(&g_4183ef, &v1);\n                if *(v17 as &i8) == 2 {\n                    if !v22 && !v23 {\n                        goto LABEL_45582f;\n                    }\n                    v5 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(\"Fifos do not have major and minor device numbers.\");\n                    v0 = struct28 {\n                        field_0: *(&v5.field_0 as &i128)\n                        field_16: v6\n                        field_24: 1\n                    };\n                    v25 = alloc::boxed::Box<T>::new(&v0) as u64;\n                    goto LABEL_4557e1;\n                } else if !v22 || !v23 {\n                    v5 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(\"Special files require major and minor device numbers.\");\n                    v0 = struct28 {\n                        field_0: *(&v5.field_0 as &i128)\n                        field_16: v6\n                        field_24: 1\n                    };\n                    v25 = alloc::boxed::Box<T>::new(&v0) as u64;\nLABEL_4557e1:\n                    v16 = v25;\n                } else {\nLABEL_45582f:\n                    v7 = struct24 {\n                        field_0: v24\n                        field_8: v21\n                        field_16: *((&v1 as &char + 72) as &i32) | (&g_418c10.field_0)[*(v17 as &i8)]\n                        field_20: v20 | (v21) as u8 as u8\n                    };\n                    uucore::mods::error::set_exit_code(uu_mknod::mknod(*((v19 + 8) as &i64), *((v19 + 16) as &i64), &v7) as u32 as u64);\n                }\n            },\n            Ok(_) => {\n                v3 = v6;\n                v0 = v5 as i128 as u128;\n                v4 = 1;\n                v16 = alloc::boxed::Box<T>::new(&v0 as u640) as u64;\n            },\n        }\n    }\n    return v16;\n}\n",
+    "_ZN8uu_mknod5mknod17hdf9c77b8560e7a8dE": "fn uu_mknod::mknod(a0: &[u8], a1: &struct21) -> u64 {\n    let v0: core::result::Result<alloc::ffi::c_str::CString, alloc::ffi::c_str::NulError>;  // [bp-0x50], Other Possible Types: struct72\n    let v2: u64;  // rbx\n    let v3: u64;  // r12\n    let v4: u64;  // r13\n    let v5: u64;  // r14\n    let v6: u64;  // r15\n    let v7: u64;  // r14\n    let v8: u32;  // ebp\n    let v9: u32;  // ebp\n    let v10: u32;  // eax\n\n    v0 = struct72 {\n        field_0: <&[u8] as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl(a0)\n        field_32: v2\n        field_40: v3\n        field_48: v4\n        field_56: v5\n        field_64: v6\n    };\n    v7 = core::result::Result<T,E>::expect(&v0, \"src/uu/mknod/src/mknod.rs\");\n    v8 = *((a1 + 16) as &i32);\n    if !(~(v8) & 438) {\n        v9 = mknod(v7, v8, *(a1 as &i64));\n        if v9 == -1 {\n            goto LABEL_45a166;\n        }\n    } else {\n        v10 = umask(0);\n        v9 = mknod(v7, v8, *(a1 as &i64));\n        umask(v10);\n        if v9 == -1 {\nLABEL_45a166:\n            v0 = <&[u8] as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl(uucore::execution_phrase(), a1);\n            perror(core::result::Result<T,E>::expect(&v0, \"src/uu/mknod/src/mknod.rs\"));\n        }\n    }\n    return v9;\n}\n",
+    "_ZN8uu_mknod6uu_app17hee70adc3caf76ce8E": "fn uu_mknod::uu_app() -> : struct712 {\n    let a0: u64;  // rdi\n    let v0: struct24;  // [bp-0xab0], Other Possible Types: struct640\n    let v1: u32;  // [bp-0x838]\n    let v2: u32;  // [bp-0x834]\n    let v3: struct437;  // [bp-0x830], Other Possible Types: struct712, struct640\n    let v4: struct712;  // [bp-0x830]\n    let v5: struct640;  // [bp-0x830]\n    let v6: struct640;  // [bp-0x830]\n    let v7: u32;  // [bp-0x5b8]\n    let v8: u64;  // [bp-0x574]\n    let v9: u32;  // [bp-0x56c]\n    let v10: struct712;  // [bp-0x568], Other Possible Types: struct640\n    let v11: struct640;  // [bp-0x568]\n    let v12: struct712;  // [bp-0x568]\n    let v13: struct712;  // [bp-0x568]\n    let v14: u32;  // [bp-0x2f0]\n    let v15: u64;  // [bp-0x2ac]\n    let v16: u32;  // [bp-0x2a4]\n    let v17: struct16;  // [bp-0x2a0], Other Possible Types: struct640, u64\n    let v18: u64;  // [bp-0x20]\n    let v19: u64;  // [bp-0x18]\n    let v20: u64;  // [bp-0x10]\n    let v21: u64;  // [bp-0x8]\n    let v23: u64;  // r15\n    let v24: u64;  // r14\n    let v25: u64;  // r12\n    let v26: u64;  // rbx\n    let v28: u64;  // rdx\n\n    v21 = v23;\n    v20 = v24;\n    v19 = v25;\n    v18 = v26;\n    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v28);\n    v12 = clap_builder::builder::command::Command::version(&v3);\n    v0 = uucore::format_usage(\"{} [OPTION]... NAME TYPE [MAJOR MINOR]\");\n    v3 = clap_builder::builder::command::Command::override_usage(&v12, &v0);\n    v13 = clap_builder::builder::command::Command::after_help(&v3);\n    v3 = clap_builder::builder::command::Command::about(&v13);\n    memcpy(&v13, &v3, 700);\n    v15 = 549755814016 | v8;\n    v16 = v9;\n    v3 = clap_builder::builder::arg::Arg::new(\"mode\");\n    v0 = clap_builder::builder::arg::Arg::short(&v3, 109);\n    v3 = clap_builder::builder::arg::Arg::long(&v0, \"mode\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v3, \"MODE\");\n    v17 = clap_builder::builder::arg::Arg::help(&v0, \"set file permission bits to MODE, not a=rw - umask\");\n    v4 = clap_builder::builder::command::Command::arg(&v13, &v17);\n    v10 = clap_builder::builder::arg::Arg::new(\"name\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v10, \"NAME\");\n    v11 = clap_builder::builder::arg::Arg::help(&v0, \"name of the new file\");\n    memcpy(&v0, &v11, 632);\n    v1 = v14 | 1;\n    v2 = v14;\n    v17 = clap_builder::builder::arg::Arg::value_hint(&v0);\n    v10 = clap_builder::builder::command::Command::arg(&v4, &v17);\n    v5 = clap_builder::builder::arg::Arg::new(\"type\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v5, \"TYPE\");\n    v6 = clap_builder::builder::arg::Arg::help(&v0, \"type of the new file (b, c, u or p)\");\n    memcpy(&v0, &v6, 632);\n    v1 = v7 | 1;\n    v2 = v7;\n    v17 = clap_builder::builder::arg::Arg::value_parser(&v0);\n    v3 = clap_builder::builder::command::Command::arg(&v10, &v17);\n    v10 = clap_builder::builder::arg::Arg::new(\"major\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v10, \"major\");\n    v10 = clap_builder::builder::arg::Arg::help(&v0, \"major file type\");\n    v17 = <u64 as clap_builder::builder::value_parser::ValueParserFactory>::value_parser();\n    v0 = clap_builder::builder::arg::Arg::value_parser(&v10, &v17);\n    v10 = clap_builder::builder::command::Command::arg(&v3, &v0);\n    v3 = clap_builder::builder::arg::Arg::new(\"minor\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v3, \"minor\");\n    v3 = clap_builder::builder::arg::Arg::help(&v0, \"minor file type\");\n    v17 = <u64 as clap_builder::builder::value_parser::ValueParserFactory>::value_parser();\n    v0 = clap_builder::builder::arg::Arg::value_parser(&v3, &v17);\n    v3 = clap_builder::builder::command::Command::arg(&v10, &v0);\n    v10 = clap_builder::builder::arg::Arg::new(\"z\");\n    v0 = clap_builder::builder::arg::Arg::short(&v10, 90);\n    v10 = clap_builder::builder::arg::Arg::help(&v0, \"set SELinux security context of each created directory to the default type\");\n    v0 = clap_builder::builder::arg::Arg::action(&v10);\n    v10 = clap_builder::builder::command::Command::arg(&v3, &v0);\n    v3 = clap_builder::builder::arg::Arg::new(\"context\");\n    v0 = clap_builder::builder::arg::Arg::long(&v3, \"context\");\n    v3 = clap_builder::builder::arg::Arg::value_name(&v0, \"CTX\");\n    v17 = 1;\n    v0 = clap_builder::builder::arg::Arg::value_parser(&v3, &v17);\n    v3 = clap_builder::builder::arg::Arg::num_args(&v0, None, 1);\n    memcpy(&v0, &v3, 632);\n    v1 = 128 | v7;\n    v2 = *((&(&v6)[79].field_0 as &char + 4) as &i32);\n    v3 = clap_builder::builder::arg::Arg::help(&v0, \"like -Z, or if CTX is specified then set the SELinux or SMACK security context to CTX\");\n    clap_builder::builder::command::Command::arg(a0, &v10, &v3);\n    return;\n}\n",
+    "_ZN8uu_mknod8get_mode17h084d65bfd1ad9130E": "fn uu_mknod::get_mode(a1: i64) -> Result<struct24, struct12> {\n    let a0: i64;  // rdi\n    let v0: struct24;  // [bp-0x68]\n    let v1: struct24;  // [bp-0x68]\n    let v2: u8;  // [bp-0x50]\n    let v3: u32;  // [bp-0x48]\n    let v4: u64;  // [bp-0x44]\n    let v5: u32;  // [bp-0x3c]\n    let v6: u64;  // [bp-0x38]\n    let v7: u32;  // [bp-0x30]\n    let v8: struct24;  // [bp-0x28]\n    let v9: u64;  // [bp-0x10]\n    let v10: u64;  // [bp-0x8]\n    let v12: u64;  // r14\n    let v13: u64;  // rbx\n\n    v10 = v12;\n    v9 = v13;\n    if !a1 {\n        *((a0 + 8) as &i32) = 438;\n    }\n    v0 = uucore::features::mode::parse_mode(*((a1 + 8) as &i64), *((a1 + 16) as &i64));\n    if v0.field_0 != 0x8000000000000000 {\n        v8 = v1;\n        uu_mknod::get_mode::{{closure}}(&v2, &v8);\n        v7 = v5;\n        v6 = v4;\n        return struct32 {\n            field_0: v2\n            field_8: v3\n            field_12: <UNKNOWN>\n            field_20: <UNKNOWN>\n        };\n    } else if v0.field_8 > 511 {\n        <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(a0, \"mode must specify only file permission bits\");\n    } else {\n        return struct16 {\n            field_0: 0x8000000000000000\n            field_8: v0.field_8\n        };\n    }\n}\n",
+    "_ZN8uu_mknod10parse_type17h7d6922ce34f49271E": "fn uu_mknod::parse_type(a0: u64, a1: u64, a2: u64) -> long long {\n    let v0: struct24;  // [bp-0x40]\n    let v1: u32;  // [bp-0x38]\n    let v2: u64;  // [bp-0x34]\n    let v3: u32;  // [bp-0x2c]\n    let v4: core::slice::iter::Iter<u8>;  // [bp-0x28]\n    let v7: u32;  // edx\n    let v8: core::option::Option<u32>;  // rax:rax\n\n    v4 = core::slice::iter::Iter<u8> {\n        ptr: core::ptr::non_null::NonNull<u8> {\n            pointer: a1\n        }\n        end_or_len: a1 + a2\n        _marker: core::marker::PhantomData<&u8> { }\n    };\n    v8 = core::str::validations::next_code_point(&v4) as u128;\n    match v8 {\n        Some(_) => {\n            return uu_mknod::parse_type::{{closure}}(a0, a1, a2, v7 as u64);\n        },\n        None => {\n            v0 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(\"missing device type\");\n            return struct32 {\n                field_0: v0.field_0\n                field_8: v1\n                field_12: <UNKNOWN>\n                field_20: <UNKNOWN>\n            };\n        },\n    }\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN8uu_mknod6uumain17h73b17a6bda407fcfE": {
+      "uucore::mods::error::get_exit_code": 1,
+      "UnresolvableCallTarget": 2,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "uu_mknod::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN8uu_mknod6uumain6uumain17h8bac4110a78873abE": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "core::option::expect_failed": 1,
+      "alloc::boxed::Box<T>::new": 3,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 2,
+      "uucore::mods::error::set_exit_code": 1,
+      "uu_mknod::mknod": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 6,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 6,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 1,
+      "uu_mknod::get_mode": 1,
+      "core::option::unwrap": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_mknod::uu_app": 1
+    },
+    "_ZN8uu_mknod5mknod17hdf9c77b8560e7a8dE": {
+      "mknod": 2,
+      "perror": 1,
+      "core::result::Result<T,E>::expect": 2,
+      "<&[u8] as alloc::ffi::c_str::CString::new::SpecNewImpl>::spec_new_impl": 2,
+      "uucore::execution_phrase": 1,
+      "umask": 2
+    },
+    "_ZN8uu_mknod6uu_app17hee70adc3caf76ce8E": {
+      "clap_builder::builder::command::Command::arg": 7,
+      "clap_builder::builder::arg::Arg::help": 7,
+      "memcpy": 4,
+      "clap_builder::builder::arg::Arg::num_args": 1,
+      "clap_builder::builder::arg::Arg::value_parser": 4,
+      "clap_builder::builder::arg::Arg::value_name": 6,
+      "clap_builder::builder::arg::Arg::long": 2,
+      "clap_builder::builder::arg::Arg::new": 7,
+      "clap_builder::builder::arg::Arg::action": 1,
+      "clap_builder::builder::arg::Arg::short": 2,
+      "<u64 as clap_builder::builder::value_parser::ValueParserFactory>::value_parser": 2,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN8uu_mknod8get_mode17h084d65bfd1ad9130E": {
+      "uu_mknod::get_mode::{{closure}}": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "uucore::features::mode::parse_mode": 1
+    },
+    "_ZN8uu_mknod10parse_type17h7d6922ce34f49271E": {
+      "uu_mknod::parse_type::{{closure}}": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::str::validations::next_code_point": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN8uu_mknod6uumain17h73b17a6bda407fcfE": {
+      "eprintln": 2,
+      "eprint": 1,
+      "format": 1
+    },
+    "_ZN8uu_mknod6uumain6uumain17h8bac4110a78873abE": {},
+    "_ZN8uu_mknod5mknod17hdf9c77b8560e7a8dE": {},
+    "_ZN8uu_mknod6uu_app17hee70adc3caf76ce8E": {},
+    "_ZN8uu_mknod8get_mode17h084d65bfd1ad9130E": {},
+    "_ZN8uu_mknod10parse_type17h7d6922ce34f49271E": {}
+  },
+  "node_counts": {
+    "_ZN8uu_mknod6uumain17h73b17a6bda407fcfE": 10,
+    "_ZN8uu_mknod6uumain6uumain17h8bac4110a78873abE": 28,
+    "_ZN8uu_mknod5mknod17hdf9c77b8560e7a8dE": 10,
+    "_ZN8uu_mknod6uu_app17hee70adc3caf76ce8E": 52,
+    "_ZN8uu_mknod8get_mode17h084d65bfd1ad9130E": 7,
+    "_ZN8uu_mknod10parse_type17h7d6922ce34f49271E": 4
+  },
+  "variable_types": {
+    "_ZN8uu_mknod6uumain17h73b17a6bda407fcfE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_mknod6uumain6uumain17h8bac4110a78873abE": {
+      "stack_112": [
+        [
+          "struct",
+          56
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "Result",
+          80
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "Result",
+          80
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN8uu_mknod5mknod17hdf9c77b8560e7a8dE": {
+      "stack_8": [
+        [
+          "Result",
+          32
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN8uu_mknod6uu_app17hee70adc3caf76ce8E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2736": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2728": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2720": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2712": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_648": [
+        [
+          "struct",
+          448
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1360": [
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_2060": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1348": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2068": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1356": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2072": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_640": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1992": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_644": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1280": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN8uu_mknod8get_mode17h084d65bfd1ad9130E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          32
+        ],
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_64": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_44": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_36": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN8uu_mknod10parse_type17h7d6922ce34f49271E": {
+      "stack_32": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_28": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    }
+  }
+}

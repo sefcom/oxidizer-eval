@@ -1,0 +1,2513 @@
+{
+  "decompilation": {
+    "_ZN9uu_mktemp4exec17heedcd9fa9b859fddE": "undefined8 *\n_ZN9uu_mktemp4exec17heedcd9fa9b859fddE(undefined8 *param_1,undefined8 param_2,undefined8 param_3)\n\n{\n  code *pcVar1;\n  long lVar2;\n  undefined **ppuVar3;\n  char param_9;\n  int local_68;\n  undefined4 uStack_64;\n  undefined8 local_60;\n  undefined8 local_58;\n  undefined local_50 [8];\n  undefined8 local_48;\n  undefined8 local_40;\n  undefined4 local_38;\n  undefined4 uStack_34;\n  undefined4 uStack_30;\n  undefined4 uStack_2c;\n  undefined8 local_28;\n  \n  if (param_9 == '\\0') {\n    _ZN9uu_mktemp14make_temp_file17hb72bef91cb9e45f4E(&local_68,param_2,param_3);\n  }\n  else {\n    _ZN9uu_mktemp13make_temp_dir17h6dfece6cf0e8d640E(&local_68,param_2,param_3);\n  }\n  if (CONCAT44(uStack_64,local_68) != -0x8000000000000000) {\n    local_48 = local_60;\n    local_40 = local_58;\n                    /* try { // try from 00166639 to 001666af has its CatchHandler @ 001666b2 */\n    lVar2 = (*(code *)PTR__ZN3std4path4Path9file_name17h6d40d88bf3fb287aE_001ffe00)();\n    if (lVar2 == 0) {\n      ppuVar3 = &PTR_s_src_uu_mktemp_src_mktemp_rs_001f9100;\n    }\n    else {\n      (*(code *)PTR__ZN4core3str8converts9from_utf817h8a6dc80f786921e0E_001ffdf8)(&local_68,lVar2);\n      if (local_68 != 1) {\n        _ZN3std4path4Path4join17h54ca0a2412d4ea69E(&local_38,param_2,param_3,local_60,local_58);\n        param_1[2] = local_28;\n        *(undefined4 *)param_1 = local_38;\n        *(undefined4 *)((long)param_1 + 4) = uStack_34;\n        *(undefined4 *)(param_1 + 1) = uStack_30;\n        *(undefined4 *)((long)param_1 + 0xc) = uStack_2c;\n        _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17h4af838b51e1cae1bE(local_50);\n        return param_1;\n      }\n      ppuVar3 = &PTR_s_src_uu_mktemp_src_mktemp_rs_001f9118;\n    }\n    (*(code *)PTR__ZN4core6option13unwrap_failed17h893f57cb7db71cb7E_001ffdd0)(ppuVar3);\n                    /* WARNING: Does not return */\n    pcVar1 = (code *)invalidInstructionException();\n    (*pcVar1)();\n  }\n  param_1[1] = local_60;\n  param_1[2] = local_58;\n  *param_1 = 0x8000000000000000;\n  return param_1;\n}",
+    "_ZN9uu_mktemp6uu_app17hf890987c6ac202a5E": "undefined8 _ZN9uu_mktemp6uu_app17hf890987c6ac202a5E(undefined8 param_1)\n\n{\n  undefined8 uVar1;\n  undefined8 local_ac8 [3];\n  undefined local_ab0 [632];\n  uint local_838;\n  undefined4 local_834;\n  undefined local_830 [632];\n  uint local_5b8;\n  undefined4 local_5b4;\n  ulong local_574;\n  undefined4 local_56c;\n  undefined local_568 [700];\n  ulong local_2ac;\n  undefined4 local_2a4;\n  undefined local_2a0 [640];\n  \n  uVar1 = (*(code *)PTR__ZN6uucore9util_name17h074417a1e6395129E_001fff00)();\n  _ZN12clap_builder7builder7command7Command3new17h5db50cac6bb2c0c5E(local_830,uVar1);\n  _ZN12clap_builder7builder7command7Command7version17h16e0c3d9a351c218E(local_568,local_830);\n  _ZN12clap_builder7builder7command7Command5about17hd3333a05ba94c313E(local_830,local_568);\n                    /* try { // try from 0016548d to 001654a3 has its CatchHandler @ 00165a39 */\n  (*(code *)PTR__ZN6uucore12format_usage17he053403a896311edE_00200140)\n            (local_ab0,\"{} [OPTION]... [TEMPLATE]\",0x19);\n  _ZN12clap_builder7builder7command7Command14override_usage17hdd1d88fcfe1a7150E\n            (local_568,local_830,local_ab0);\n  (*(code *)PTR_memcpy_001ffeb0)(local_830,local_568,700);\n  local_574 = local_2ac | 0x8000000080;\n  local_56c = local_2a4;\n  _ZN12clap_builder7builder3arg3Arg3new17h818570739cffec02E(local_568,\"directory\",9);\n  _ZN12clap_builder7builder3arg3Arg5short17h9c8d68eeb82284f5E(local_ab0,local_568,100);\n  _ZN12clap_builder7builder3arg3Arg4long17h3183e585d2873c7fE(local_568,local_ab0,\"directory\",9);\n                    /* try { // try from 0016554e to 00165566 has its CatchHandler @ 00165a27 */\n  _ZN12clap_builder7builder3arg3Arg4help17heac2a5ae67bb5eabE\n            (local_ab0,local_568,\"Make a directory instead of a file\",0x22);\n  _ZN12clap_builder7builder3arg3Arg6action17h0cd1618274b163e9E(local_2a0,local_ab0);\n  _ZN12clap_builder7builder7command7Command3arg17h4729d43e59919395E(local_568,local_830,local_2a0);\n  _ZN12clap_builder7builder3arg3Arg3new17h818570739cffec02E(local_830,\"dry-run\",7);\n  _ZN12clap_builder7builder3arg3Arg5short17h9c8d68eeb82284f5E(local_ab0,local_830,0x75);\n  _ZN12clap_builder7builder3arg3Arg4long17h3183e585d2873c7fE(local_830,local_ab0,\"dry-run\",7);\n                    /* try { // try from 001655e3 to 001655fb has its CatchHandler @ 00165a15 */\n  _ZN12clap_builder7builder3arg3Arg4help17heac2a5ae67bb5eabE\n            (local_ab0,local_830,\"do not create anything; merely print a name (unsafe)\",0x34);\n  _ZN12clap_builder7builder3arg3Arg6action17h0cd1618274b163e9E(local_2a0,local_ab0);\n  _ZN12clap_builder7builder7command7Command3arg17h4729d43e59919395E(local_830,local_568,local_2a0);\n  _ZN12clap_builder7builder3arg3Arg3new17h818570739cffec02E(local_568,\"quiet\",5);\n  _ZN12clap_builder7builder3arg3Arg5short17h9c8d68eeb82284f5E(local_ab0,local_568,0x71);\n  _ZN12clap_builder7builder3arg3Arg4long17h3183e585d2873c7fE(local_568,local_ab0,\"quiet\",5);\n                    /* try { // try from 00165678 to 00165690 has its CatchHandler @ 00165a03 */\n  _ZN12clap_builder7builder3arg3Arg4help17heac2a5ae67bb5eabE\n            (local_ab0,local_568,\"Fail silently if an error occurs.\",0x21);\n  _ZN12clap_builder7builder3arg3Arg6action17h0cd1618274b163e9E(local_2a0,local_ab0);\n  _ZN12clap_builder7builder7command7Command3arg17h4729d43e59919395E(local_568,local_830,local_2a0);\n  _ZN12clap_builder7builder3arg3Arg3new17h818570739cffec02E(local_830,\"suffix\",6);\n  _ZN12clap_builder7builder3arg3Arg4long17h3183e585d2873c7fE(local_ab0,local_830,\"suffix\",6);\n                    /* try { // try from 001656f5 to 0016572e has its CatchHandler @ 00165a4b */\n  _ZN12clap_builder7builder3arg3Arg4help17heac2a5ae67bb5eabE\n            (local_830,local_ab0,\n             \"append SUFFIX to TEMPLATE; SUFFIX must not contain a path separator. This option is implied if TEMPLATE does not end with X.\"\n             ,0x7c);\n  _ZN12clap_builder7builder3arg3Arg10value_name17h5a7e638e0cfa072bE(local_ab0,local_830,\"SUFFIX\",6);\n  _ZN12clap_builder7builder7command7Command3arg17h4729d43e59919395E(local_830,local_568,local_ab0);\n  _ZN12clap_builder7builder3arg3Arg3new17h818570739cffec02E(local_568,\"p\",1);\n  _ZN12clap_builder7builder3arg3Arg5short17h9c8d68eeb82284f5E(local_ab0,local_568,0x70);\n                    /* try { // try from 0016577a to 001657f2 has its CatchHandler @ 00165a5d */\n  _ZN12clap_builder7builder3arg3Arg4help17heac2a5ae67bb5eabE\n            (local_568,local_ab0,\"short form of --tmpdir\",0x16);\n  _ZN12clap_builder7builder3arg3Arg10value_name17h5a7e638e0cfa072bE(local_ab0,local_568,\"DIR\",3);\n  _ZN12clap_builder7builder3arg3Arg8num_args17h4725b88c15ee3b35E(local_568,local_ab0);\n  local_ac8[0] = 3;\n  _ZN12clap_builder7builder3arg3Arg12value_parser17h53c071e9fea324d0E(local_ab0,local_568,local_ac8)\n  ;\n  _ZN12clap_builder7builder3arg3Arg10value_hint17h38dc1041fdb80014E(local_2a0,local_ab0);\n  _ZN12clap_builder7builder7command7Command3arg17h4729d43e59919395E(local_568,local_830,local_2a0);\n  _ZN12clap_builder7builder3arg3Arg3new17h818570739cffec02E(local_830,\"tmpdir\",6);\n  _ZN12clap_builder7builder3arg3Arg4long17h3183e585d2873c7fE(local_ab0,local_830,\"tmpdir\",6);\n                    /* try { // try from 00165847 to 00165880 has its CatchHandler @ 00165a6f */\n  _ZN12clap_builder7builder3arg3Arg4help17heac2a5ae67bb5eabE\n            (local_830,local_ab0,\n             \"interpret TEMPLATE relative to DIR; if DIR is not specified, use $TMPDIR ($TMP on windows) if set, else /tmp. With this option, TEMPLATE must not be an absolute name; unlike with -t, TEMPLATE may contain slashes, but mktemp creates only the final component\"\n             ,0x100);\n  _ZN12clap_builder7builder3arg3Arg10value_name17h5a7e638e0cfa072bE(local_ab0,local_830,\"DIR\",3);\n  _ZN12clap_builder7builder3arg3Arg8num_args17h8f8560e5ead6f6ebE(local_830,local_ab0,0,1);\n  (*(code *)PTR_memcpy_001ffeb0)(local_ab0,local_830,0x278);\n  local_838 = local_5b8 | 0x80;\n  local_834 = local_5b4;\n                    /* try { // try from 001658d4 to 0016590a has its CatchHandler @ 00165a6f */\n  _ZN12clap_builder7builder3arg3Arg14overrides_with17h2c577479195a85f1E(local_830,local_ab0);\n  _ZN12clap_builder7builder3arg3Arg12value_parser17h53c071e9fea324d0E(local_ab0,local_830,local_ac8)\n  ;\n  _ZN12clap_builder7builder3arg3Arg10value_hint17h38dc1041fdb80014E(local_2a0,local_ab0);\n  _ZN12clap_builder7builder7command7Command3arg17h4729d43e59919395E(local_830,local_568,local_2a0);\n  _ZN12clap_builder7builder3arg3Arg3new17h818570739cffec02E(local_568,\"t\",1);\n  _ZN12clap_builder7builder3arg3Arg5short17h9c8d68eeb82284f5E(local_ab0,local_568,0x74);\n                    /* try { // try from 00165959 to 00165974 has its CatchHandler @ 001659f1 */\n  _ZN12clap_builder7builder3arg3Arg4help17heac2a5ae67bb5eabE\n            (local_568,local_ab0,\n             \"Generate a template (using the supplied prefix and TMPDIR (TMP on windows) if set) to create a filename template [deprecated]\"\n             ,0x7d);\n  _ZN12clap_builder7builder3arg3Arg6action17h0cd1618274b163e9E(local_ab0,local_568);\n  _ZN12clap_builder7builder7command7Command3arg17h4729d43e59919395E(local_568,local_830,local_ab0);\n  _ZN12clap_builder7builder3arg3Arg3new17h818570739cffec02E(local_830,\"template\",8);\n  _ZN12clap_builder7builder3arg3Arg8num_args17hcf42f6fcb8c68822E(local_ab0,local_830);\n  _ZN12clap_builder7builder7command7Command3arg17h4729d43e59919395E(param_1,local_568,local_ab0);\n  return param_1;\n}",
+    "_ZN9uu_mktemp32find_last_contiguous_block_of_xs17h8d96f8bfdfc9b9d5E": "void _ZN9uu_mktemp32find_last_contiguous_block_of_xs17h8d96f8bfdfc9b9d5E\n               (undefined8 *param_1,undefined8 param_2,undefined8 param_3)\n\n{\n  code *pcVar1;\n  undefined8 uVar2;\n  long lVar3;\n  undefined auVar4 [16];\n  \n  auVar4 = _ZN4core3str21__LT_impl_u20_str_GT_5rfind17h3ea40a8a7df4209cE(param_2,param_3);\n  if ((auVar4 & (undefined  [16])0x1) == (undefined  [16])0x0) {\n    uVar2 = 0;\n  }\n  else {\n    lVar3 = auVar4._8_8_ + 3;\n    auVar4 = _ZN4core3str6traits110__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeTo_LT_usize_GT__GT_3get17hf838fc4d891e0944E\n                       (lVar3,param_2,param_3);\n    if (auVar4._0_8_ == 0) {\n      (*(code *)PTR__ZN4core3str16slice_error_fail17h1a2885084e28d077E_002000c8)\n                (param_2,param_3,0,lVar3,&PTR_s_src_uu_mktemp_src_mktemp_rs_001f8fb8);\n      pcVar1 = (code *)swi(3);\n      (*pcVar1)();\n      return;\n    }\n    auVar4 = _ZN4core3str21__LT_impl_u20_str_GT_5rfind17h7a5049edaccade27E\n                       (auVar4._0_8_,auVar4._8_8_);\n    uVar2 = _ZN4core6option15Option_LT_T_GT_6map_or17hda51459bca63de71E(auVar4._0_8_,auVar4._8_8_);\n    param_1[1] = uVar2;\n    param_1[2] = lVar3;\n    uVar2 = 1;\n  }\n  *param_1 = uVar2;\n  return;\n}",
+    "_ZN9uu_mktemp6uumain17h64d3039214fcaa61E": "ulong _ZN9uu_mktemp6uumain17h64d3039214fcaa61E(undefined8 param_1,undefined8 param_2)\n\n{\n  char cVar1;\n  undefined4 uVar2;\n  uint uVar3;\n  ulong uVar4;\n  undefined local_90 [16];\n  undefined **local_80;\n  undefined8 local_78;\n  undefined8 **local_70;\n  undefined8 local_68;\n  undefined8 local_60;\n  undefined local_50 [16];\n  undefined8 local_40;\n  undefined8 **local_38;\n  code *local_30;\n  undefined8 *local_28;\n  code *pcStack_20;\n  undefined8 local_18;\n  \n  uVar2 = (*(code *)PTR__ZN6uucore28disable_rust_signal_handlers17hcf33f4a6d6e443c4E_001ffef8)();\n  _ZN4core6result19Result_LT_T_C_E_GT_6expect17he424e41642cfd826E(uVar2);\n  local_90 = _ZN9uu_mktemp6uumain6uumain17h57caf5767550e8caE(param_1,param_2);\n  if (local_90._0_8_ != 0) {\n    local_28 = (undefined8 *)local_90;\n    pcStack_20 = \n    _ZN69__LT_alloc__boxed__Box_LT_T_C_A_GT__u20_as_u20_core__fmt__Display_GT_3fmt17hbf2e9bdad192fc0cE\n    ;\n    local_80 = (undefined **)&DAT_001195a0;\n    local_78 = 1;\n    local_60 = 0;\n    local_68 = 1;\n                    /* try { // try from 0015dde2 to 0015ddf3 has its CatchHandler @ 0015df7c */\n    local_70 = &local_28;\n    _ZN4core6option15Option_LT_T_GT_11map_or_else17h106e115e46fdcba6E(local_50,&local_80);\n    local_18 = local_40;\n    cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h81f4ba8d19a066abE\n                      (local_50._8_8_,local_40,1,0);\n    if (cVar1 == '\\0') {\n                    /* try { // try from 0015de24 to 0015df43 has its CatchHandler @ 0015df81 */\n      local_50 = (*(code *)PTR__ZN6uucore9util_name17h074417a1e6395129E_001fff00)();\n      local_30 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h2683a917f0c307a6E;\n      local_80 = (undefined **)&DAT_001f8248;\n      local_78 = 2;\n      local_60 = 0;\n      local_70 = &local_38;\n      local_68 = 1;\n      local_38 = (undefined8 **)local_50;\n      (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_001fff08)(&local_80);\n      local_50._8_8_ =\n           _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E\n      ;\n      local_80 = (undefined **)&DAT_001f8268;\n      local_78 = 2;\n      local_60 = 0;\n      local_68 = 1;\n      local_70 = (undefined8 **)local_50;\n      local_50._0_8_ = &local_28;\n      (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_001fff08)(&local_80);\n    }\n    cVar1 = (**(code **)(local_90._8_8_ + 0x60))(local_90._0_8_);\n    if (cVar1 != '\\0') {\n      local_50 = (*(code *)PTR__ZN6uucore16execution_phrase17hf0e80cb4793732adE_001fff10)();\n      local_30 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h2683a917f0c307a6E;\n      local_80 = &PTR_s_Try_____help__for_more_informati_001f8288;\n      local_78 = 2;\n      local_60 = 0;\n      local_70 = &local_38;\n      local_68 = 1;\n      local_38 = (undefined8 **)local_50;\n      (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_001fff08)(&local_80);\n    }\n    uVar3 = (**(code **)(local_90._8_8_ + 0x58))(local_90._0_8_);\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h1f07e27e74b22b47E(&local_28);\n    _ZN4core3ptr105drop_in_place_LT_alloc__boxed__Box_LT_dyn_u20_clap_builder__builder__value_parser__AnyValueParser_GT__GT_17ha3d6a8653d5e0089E\n              (local_90._0_8_,local_90._8_8_);\n    return (ulong)uVar3;\n  }\n  uVar4 = (*(code *)PTR__ZN6uucore4mods5error13get_exit_code17h4ce6cf124c2ef658E_001fff18)();\n  return uVar4;\n}",
+    "_ZN9uu_mktemp7Options4from17h9e8f44a051439882E": "ulong * _ZN9uu_mktemp7Options4from17h9e8f44a051439882E(ulong *param_1,undefined8 param_2)\n\n{\n  bool bVar1;\n  ulong uVar2;\n  char cVar3;\n  undefined uVar4;\n  undefined uVar5;\n  undefined uVar6;\n  undefined uVar7;\n  undefined8 uVar8;\n  long lVar9;\n  undefined8 local_e0;\n  undefined4 uStack_d8;\n  undefined4 uStack_d4;\n  undefined4 local_d0;\n  undefined4 uStack_cc;\n  undefined8 local_b8;\n  undefined8 uStack_b0;\n  ulong uStack_a8;\n  ulong local_98;\n  ulong uStack_90;\n  ulong local_88;\n  ulong local_78;\n  undefined8 uStack_70;\n  ulong local_68;\n  ulong local_60;\n  undefined4 local_58;\n  undefined4 uStack_54;\n  undefined4 uStack_50;\n  undefined4 uStack_4c;\n  ulong local_48;\n  ulong uStack_40;\n  \n  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h789cfa99835b6965E\n            (&local_e0,param_2,\"tmpdir\",6);\n  uVar8 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h12ab4f930c67ffa3E\n                    (\"tmpdir\",6,&local_e0);\n  lVar9 = _ZN4core6option15Option_LT_T_GT_7or_else17h248713d5b765eca6E(uVar8,param_2);\n  if (lVar9 == 0) {\n    local_60 = 0x8000000000000000;\n  }\n  else {\n    _ZN67__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__clone__Clone_GT_5clone17h5e9a9c3d89a1dce2E\n              (&local_60,*(undefined8 *)(lVar9 + 8),*(undefined8 *)(lVar9 + 0x10));\n  }\n                    /* try { // try from 0016479f to 001648b0 has its CatchHandler @ 00164b12 */\n  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf4be33f6152294d1E\n            (&local_e0,param_2,\"template\",8);\n  lVar9 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h948cd45e5aec830eE\n                    (\"template\",8,&local_e0);\n  if (lVar9 == 0) {\n    if (local_60 == 0x8000000000000000) {\n      (*(code *)PTR__ZN3std3env8temp_dir17h4c6b7a08795666f1E_00200128)(&local_e0);\n    }\n    else {\n      uStack_d8 = local_58;\n      uStack_d4 = uStack_54;\n      local_d0 = uStack_50;\n      uStack_cc = uStack_4c;\n      local_e0 = local_60;\n    }\n    uStack_a8 = CONCAT44(uStack_cc,local_d0);\n    local_b8 = local_e0;\n    uStack_b0 = CONCAT44(uStack_d4,uStack_d8);\n                    /* try { // try from 00164943 to 00164958 has its CatchHandler @ 00164ab8 */\n    _ZN87__LT_T_u20_as_u20_alloc__slice___LT_impl_u20__u5b_T_u5d__GT___to_vec_in__ConvertVec_GT_6to_vec17h3c498dae33407f89E\n              (&local_e0,\"tmp.XXXXXXXXXX\",0xe);\n    local_68 = CONCAT44(uStack_cc,local_d0);\n    uStack_70 = CONCAT44(uStack_d4,uStack_d8);\n    bVar1 = false;\n    goto LAB_00164987;\n  }\n  _ZN3std3env3var17hf86fc8a5cc8e1c21E(&local_e0);\n  uVar2 = local_e0;\n  _ZN4core3ptr91drop_in_place_LT_core__result__Result_LT_alloc__string__String_C_std__env__VarError_GT__GT_17hed0475f018d949a2E\n            (&local_e0);\n  if (((uVar2 & 1) == 0) &&\n     (cVar3 = (*(code *)\n                PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E_00200120\n              )(param_2,\"t\",1), cVar3 != '\\0')) {\n    _ZN3std3env6var_os17hdb714acdd43fad0eE(&local_e0);\n    if (local_e0 != 0x8000000000000000) {\nLAB_00164885:\n      local_48 = CONCAT44(uStack_d4,uStack_d8);\n      uStack_40 = CONCAT44(uStack_cc,local_d0);\n    }\n    bVar1 = true;\n    local_b8 = local_e0;\n  }\n  else {\n    if (local_60 == 0x8000000000000000) {\n      cVar3 = (*(code *)\n                PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E_00200120\n              )(param_2,\"t\",1);\n      if (cVar3 == '\\0') {\n        cVar3 = (*(code *)\n                  PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h5efeb7e2d2f22590E_001fff38\n                )(param_2,\"tmpdir\",6);\n        local_b8 = 0x8000000000000000;\n        bVar1 = true;\n        if (cVar3 == '\\0') goto LAB_001648c6;\n      }\n      (*(code *)PTR__ZN3std3env8temp_dir17h4c6b7a08795666f1E_00200128)(&local_e0);\n      goto LAB_00164885;\n    }\n    local_48 = CONCAT44(uStack_54,local_58);\n    uStack_40 = CONCAT44(uStack_4c,uStack_50);\n    bVar1 = false;\n    local_b8 = local_60;\n  }\nLAB_001648c6:\n  uStack_b0 = local_48;\n  uStack_a8 = uStack_40;\n                    /* try { // try from 001648d8 to 001648e5 has its CatchHandler @ 00164ac2 */\n  (*(code *)\n    PTR__ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h94782b8343b62bd8E_00200130\n  )(&local_e0,lVar9);\n  uStack_70 = CONCAT44(uStack_d4,uStack_d8);\n  local_68 = CONCAT44(uStack_cc,local_d0);\nLAB_00164987:\n                    /* try { // try from 00164987 to 001649ca has its CatchHandler @ 00164af9 */\n  local_98 = local_b8;\n  uStack_90 = uStack_b0;\n  local_88 = uStack_a8;\n  local_78 = local_e0;\n  uVar4 = (*(code *)\n            PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E_00200120\n          )(param_2,\"directory\",9);\n  uVar5 = (*(code *)\n            PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E_00200120\n          )(param_2,\"dry-run\",7);\n  uVar6 = (*(code *)\n            PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E_00200120\n          )(param_2,\"quiet\",5);\n                    /* try { // try from 001649cb to 00164a0f has its CatchHandler @ 00164ae0 */\n  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf4be33f6152294d1E\n            (&local_e0,param_2,\"suffix\",6);\n  lVar9 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h948cd45e5aec830eE\n                    (\"suffix\",6,&local_e0);\n  if (lVar9 == 0) {\n    local_b8._0_4_ = 0;\n    local_b8._4_4_ = 0x80000000;\n  }\n  else {\n    (*(code *)\n      PTR__ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h94782b8343b62bd8E_00200130\n    )(&local_e0,lVar9);\n    uStack_a8 = CONCAT44(uStack_cc,local_d0);\n    local_b8._0_4_ = (undefined4)local_e0;\n    local_b8._4_4_ = local_e0._4_4_;\n    uStack_b0 = CONCAT44(uStack_d4,uStack_d8);\n  }\n                    /* try { // try from 00164a35 to 00164a49 has its CatchHandler @ 00164ad1 */\n  uVar7 = (*(code *)\n            PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E_00200120\n          )(param_2,\"t\",1);\n  param_1[2] = local_68;\n  *param_1 = local_78;\n  param_1[1] = uStack_70;\n  *(undefined *)(param_1 + 9) = uVar4;\n  *(undefined *)((long)param_1 + 0x49) = uVar5;\n  *(undefined *)((long)param_1 + 0x4a) = uVar6;\n  param_1[3] = local_98;\n  param_1[4] = uStack_90;\n  param_1[5] = local_88;\n  *(undefined4 *)(param_1 + 6) = (undefined4)local_b8;\n  *(undefined4 *)((long)param_1 + 0x34) = local_b8._4_4_;\n  *(undefined4 *)(param_1 + 7) = (undefined4)uStack_b0;\n  *(undefined4 *)((long)param_1 + 0x3c) = uStack_b0._4_4_;\n  param_1[8] = uStack_a8;\n  *(undefined *)((long)param_1 + 0x4b) = uVar7;\n  if (bVar1) {\n    _ZN4core3ptr67drop_in_place_LT_core__option__Option_LT_std__path__PathBuf_GT__GT_17h92010b458ccdc0ceE\n              (&local_60);\n  }\n  return param_1;\n}",
+    "_ZN9uu_mktemp8dry_exec17h79e853eb482345aeE": "undefined8\n_ZN9uu_mktemp8dry_exec17h79e853eb482345aeE\n          (undefined8 param_1,undefined8 param_2,undefined8 param_3,long param_4,long param_5,\n          long param_6,long param_7,long param_8)\n\n{\n  undefined8 uVar1;\n  undefined auVar2 [15];\n  undefined auVar3 [15];\n  undefined auVar4 [15];\n  undefined auVar5 [15];\n  undefined auVar6 [15];\n  undefined auVar7 [15];\n  undefined auVar8 [15];\n  undefined auVar9 [15];\n  undefined auVar10 [15];\n  undefined auVar11 [15];\n  undefined auVar12 [15];\n  undefined auVar13 [15];\n  undefined auVar14 [15];\n  unkuint9 Var15;\n  undefined auVar16 [11];\n  undefined auVar17 [14];\n  undefined auVar18 [12];\n  unkbyte10 Var19;\n  undefined auVar20 [15];\n  undefined auVar21 [11];\n  undefined auVar22 [14];\n  undefined auVar23 [12];\n  undefined auVar24 [15];\n  undefined auVar25 [15];\n  undefined auVar26 [15];\n  undefined auVar27 [15];\n  uint7 uVar28;\n  short sVar29;\n  short sVar30;\n  short sVar31;\n  short sVar32;\n  short sVar33;\n  short sVar34;\n  short sVar35;\n  short sVar36;\n  undefined auVar37 [16];\n  char cVar38;\n  char cVar39;\n  char cVar40;\n  char cVar41;\n  char cVar42;\n  char cVar43;\n  char cVar44;\n  char cVar45;\n  char cVar46;\n  char cVar47;\n  char cVar48;\n  char cVar49;\n  char cVar50;\n  char cVar51;\n  char cVar52;\n  char cVar53;\n  ushort uVar54;\n  ushort uVar55;\n  ushort uVar56;\n  ushort uVar57;\n  ushort uVar58;\n  ushort uVar59;\n  ushort uVar60;\n  ushort uVar61;\n  byte bVar62;\n  byte bVar63;\n  byte bVar64;\n  byte bVar65;\n  byte bVar66;\n  byte bVar67;\n  byte bVar68;\n  char cVar69;\n  char cVar70;\n  char cVar71;\n  char cVar72;\n  char cVar73;\n  char cVar74;\n  char cVar75;\n  char cVar76;\n  char cVar77;\n  char cVar78;\n  char cVar79;\n  char cVar80;\n  char cVar81;\n  char cVar82;\n  char cVar83;\n  char cVar84;\n  char acVar85 [2];\n  short sVar86;\n  short sVar87;\n  short sVar88;\n  short sVar89;\n  short sVar90;\n  short sVar91;\n  short sVar92;\n  char cVar93;\n  char cVar94;\n  char cVar95;\n  char cVar96;\n  char cVar97;\n  char cVar98;\n  char cVar99;\n  char cVar100;\n  byte bVar101;\n  byte bVar102;\n  byte bVar103;\n  byte bVar104;\n  byte bVar105;\n  byte bVar106;\n  byte bVar107;\n  byte bVar108;\n  byte bVar109;\n  byte bVar110;\n  byte bVar111;\n  byte bVar112;\n  byte bVar113;\n  byte bVar114;\n  byte bVar115;\n  byte bVar116;\n  char cVar117;\n  char cVar118;\n  char cVar119;\n  char cVar120;\n  char cVar121;\n  char cVar122;\n  char cVar123;\n  char cVar124;\n  char cVar125;\n  char cVar126;\n  char cVar127;\n  char cVar128;\n  char cVar129;\n  char cVar130;\n  char cVar131;\n  char cVar132;\n  byte bVar133;\n  byte *pbVar134;\n  ulong uVar135;\n  byte *pbVar136;\n  ulong uVar137;\n  ulong uVar138;\n  char cVar139;\n  byte bVar140;\n  char cVar141;\n  byte bVar142;\n  char cVar143;\n  byte bVar144;\n  char cVar145;\n  byte bVar146;\n  char cVar147;\n  byte bVar148;\n  char cVar149;\n  byte bVar150;\n  char cVar151;\n  byte bVar152;\n  char cVar153;\n  byte bVar154;\n  byte bVar155;\n  byte bVar156;\n  byte bVar157;\n  byte bVar158;\n  byte bVar159;\n  byte bVar160;\n  byte bVar161;\n  byte bVar162;\n  byte bVar163;\n  byte bVar164;\n  byte bVar165;\n  byte bVar166;\n  byte bVar167;\n  byte bVar168;\n  byte bVar169;\n  byte bVar170;\n  byte bVar171;\n  byte bVar172;\n  byte bVar173;\n  byte bVar174;\n  byte bVar175;\n  byte bVar176;\n  byte bVar177;\n  byte bVar178;\n  byte bVar179;\n  byte bVar180;\n  byte bVar181;\n  byte bVar182;\n  byte bVar183;\n  byte bVar184;\n  byte bVar185;\n  byte bVar186;\n  ushort uVar187;\n  ushort uVar188;\n  ushort uVar215;\n  ushort uVar216;\n  undefined4 uVar189;\n  ulong uVar192;\n  ushort uVar217;\n  ushort uVar218;\n  ushort uVar219;\n  ushort uVar220;\n  ushort uVar221;\n  ushort uVar222;\n  ushort uVar223;\n  ushort uVar224;\n  ushort uVar225;\n  ushort uVar226;\n  ushort uVar227;\n  ushort uVar228;\n  undefined auVar199 [16];\n  undefined auVar200 [16];\n  undefined auVar206 [16];\n  undefined8 uVar193;\n  undefined auVar208 [16];\n  undefined auVar209 [16];\n  ushort uVar229;\n  ushort uVar230;\n  short sVar231;\n  ushort uVar235;\n  ushort uVar236;\n  ushort uVar237;\n  ushort uVar238;\n  ushort uVar239;\n  ushort uVar240;\n  ushort uVar241;\n  ushort uVar242;\n  ushort uVar243;\n  ushort uVar244;\n  ushort uVar245;\n  ushort uVar246;\n  ushort uVar247;\n  ushort uVar248;\n  ulong uVar249;\n  undefined auVar250 [16];\n  undefined local_b0 [16];\n  undefined8 local_a0;\n  undefined8 local_98;\n  undefined8 local_90;\n  undefined local_88 [16];\n  undefined8 local_78;\n  long local_70 [5];\n  undefined local_48 [24];\n  undefined6 uVar190;\n  undefined8 uVar191;\n  undefined auVar194 [12];\n  undefined auVar201 [16];\n  undefined auVar195 [12];\n  undefined auVar210 [16];\n  undefined auVar202 [16];\n  undefined auVar211 [16];\n  undefined auVar196 [14];\n  undefined auVar203 [16];\n  undefined auVar197 [14];\n  undefined auVar212 [16];\n  undefined auVar204 [16];\n  undefined auVar213 [16];\n  undefined auVar198 [16];\n  undefined auVar205 [16];\n  undefined auVar207 [16];\n  undefined auVar214 [16];\n  undefined auVar232 [12];\n  undefined auVar233 [14];\n  undefined auVar234 [16];\n  \n  local_98 = param_2;\n  local_90 = param_3;\n  local_b0 = _ZN5alloc7raw_vec20RawVecInner_LT_A_GT_16with_capacity_in17h1ce624207ce12e07E\n                       (param_6 + param_5 + param_8,1,1,&PTR_s_src_uu_mktemp_src_mktemp_rs_001f9018)\n  ;\n  local_a0 = 0;\n                    /* try { // try from 00165af5 to 00165b47 has its CatchHandler @ 00165f19 */\n  _ZN132__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_alloc__vec__spec_extend__SpecExtend_LT__RF_T_C_core__slice__iter__Iter_LT_T_GT__GT__GT_11spec_extend17h0a7a3c02395513eeE\n            (local_b0,param_4,param_4 + param_5);\n  _ZN5alloc3vec16Vec_LT_T_C_A_GT_14extend_trusted17h8fe8267ec7921697E(local_b0,param_6);\n  _ZN132__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_alloc__vec__spec_extend__SpecExtend_LT__RF_T_C_core__slice__iter__Iter_LT_T_GT__GT__GT_11spec_extend17h0a7a3c02395513eeE\n            (local_b0,param_7,param_8 + param_7);\n  auVar250 = _ZN106__LT_core__ops__range__Range_LT_usize_GT__u20_as_u20_core__slice__index__SliceIndex_LT__u5b_T_u5d__GT__GT_9index_mut17h58b12ff6e736bfc6E\n                       (param_5,param_6 + param_5,local_b0._8_8_);\n  uVar137 = auVar250._8_8_;\n  pbVar134 = auVar250._0_8_;\n  local_70[0] = (*(code *)PTR__ZN4rand4rngs6thread3rng17h4ff389470e265d23E_00200148)();\n                    /* try { // try from 00165b51 to 00165b5e has its CatchHandler @ 00165f04 */\n  _ZN74__LT_rand_core__block__BlockRng_LT_R_GT__u20_as_u20_rand_core__RngCore_GT_10fill_bytes17h9d96d4e2b1acda12E\n            (local_70[0] + 0x10,pbVar134,uVar137);\n                    /* try { // try from 00165b5f to 00165b68 has its CatchHandler @ 00165f19 */\n  _ZN4core3ptr50drop_in_place_LT_rand__rngs__thread__ThreadRng_GT_17h76d95870443bb98bE(local_70);\n  cVar132 = s__________________00119750[0xf];\n  cVar131 = s__________________00119750[0xe];\n  cVar130 = s__________________00119750[0xd];\n  cVar129 = s__________________00119750[0xc];\n  cVar128 = s__________________00119750[0xb];\n  cVar127 = s__________________00119750[10];\n  cVar126 = s__________________00119750[9];\n  cVar125 = s__________________00119750[8];\n  cVar124 = s__________________00119750[7];\n  cVar123 = s__________________00119750[6];\n  cVar122 = s__________________00119750[5];\n  cVar121 = s__________________00119750[4];\n  cVar120 = s__________________00119750[3];\n  cVar119 = s__________________00119750[2];\n  cVar118 = s__________________00119750[1];\n  cVar117 = s__________________00119750[0];\n  bVar116 = UNK_0011973f;\n  bVar115 = UNK_0011973e;\n  bVar114 = UNK_0011973d;\n  bVar113 = UNK_0011973c;\n  bVar112 = UNK_0011973b;\n  bVar111 = UNK_0011973a;\n  bVar110 = UNK_00119739;\n  bVar109 = UNK_00119738;\n  bVar108 = UNK_00119737;\n  bVar107 = UNK_00119736;\n  bVar106 = UNK_00119735;\n  bVar105 = UNK_00119734;\n  bVar104 = UNK_00119733;\n  bVar103 = UNK_00119732;\n  bVar102 = UNK_00119731;\n  bVar101 = DAT_00119730;\n  cVar100 = UNK_0011972f;\n  cVar99 = UNK_0011972e;\n  cVar98 = UNK_0011972d;\n  cVar97 = UNK_0011972c;\n  cVar96 = UNK_0011972b;\n  cVar95 = UNK_0011972a;\n  cVar94 = UNK_00119729;\n  cVar93 = UNK_00119728;\n  cVar153 = UNK_00119727;\n  cVar151 = UNK_00119726;\n  cVar149 = UNK_00119725;\n  cVar147 = UNK_00119724;\n  cVar145 = UNK_00119723;\n  cVar143 = UNK_00119722;\n  cVar141 = UNK_00119721;\n  cVar139 = DAT_00119720;\n  sVar92 = _UNK_0011969e;\n  sVar91 = _UNK_0011969c;\n  sVar90 = _UNK_0011969a;\n  sVar89 = _UNK_00119698;\n  sVar88 = _UNK_00119696;\n  sVar87 = _UNK_00119694;\n  sVar86 = _UNK_00119692;\n  acVar85 = s_>_00119690;\n  cVar84 = UNK_001195df;\n  cVar83 = UNK_001195de;\n  cVar82 = UNK_001195dd;\n  cVar81 = UNK_001195dc;\n  cVar80 = UNK_001195db;\n  cVar79 = UNK_001195da;\n  cVar78 = UNK_001195d9;\n  cVar77 = UNK_001195d8;\n  cVar76 = UNK_001195d7;\n  cVar75 = UNK_001195d6;\n  cVar74 = UNK_001195d5;\n  cVar73 = UNK_001195d4;\n  cVar72 = UNK_001195d3;\n  cVar71 = UNK_001195d2;\n  cVar70 = UNK_001195d1;\n  cVar69 = DAT_001195d0;\n  bVar177 = UNK_001194ef;\n  bVar175 = UNK_001194ee;\n  bVar173 = UNK_001194ed;\n  bVar171 = UNK_001194ec;\n  bVar169 = UNK_001194eb;\n  bVar167 = UNK_001194ea;\n  bVar165 = UNK_001194e9;\n  bVar163 = UNK_001194e8;\n  bVar68 = UNK_001194e7;\n  bVar67 = UNK_001194e6;\n  bVar66 = UNK_001194e5;\n  bVar65 = UNK_001194e4;\n  bVar64 = UNK_001194e3;\n  bVar63 = UNK_001194e2;\n  bVar62 = UNK_001194e1;\n  bVar133 = DAT_001194e0;\n  uVar61 = _UNK_001194de;\n  uVar60 = _UNK_001194dc;\n  uVar59 = _UNK_001194da;\n  uVar58 = _UNK_001194d8;\n  uVar57 = _UNK_001194d6;\n  uVar56 = _UNK_001194d4;\n  uVar55 = _UNK_001194d2;\n  uVar54 = _DAT_001194d0;\n  cVar53 = s_WWWWWWWWWWWWWWWW_00119490[0xf];\n  cVar52 = s_WWWWWWWWWWWWWWWW_00119490[0xe];\n  cVar51 = s_WWWWWWWWWWWWWWWW_00119490[0xd];\n  cVar50 = s_WWWWWWWWWWWWWWWW_00119490[0xc];\n  cVar49 = s_WWWWWWWWWWWWWWWW_00119490[0xb];\n  cVar48 = s_WWWWWWWWWWWWWWWW_00119490[10];\n  cVar47 = s_WWWWWWWWWWWWWWWW_00119490[9];\n  cVar46 = s_WWWWWWWWWWWWWWWW_00119490[8];\n  cVar45 = s_WWWWWWWWWWWWWWWW_00119490[7];\n  cVar44 = s_WWWWWWWWWWWWWWWW_00119490[6];\n  cVar43 = s_WWWWWWWWWWWWWWWW_00119490[5];\n  cVar42 = s_WWWWWWWWWWWWWWWW_00119490[4];\n  cVar41 = s_WWWWWWWWWWWWWWWW_00119490[3];\n  cVar40 = s_WWWWWWWWWWWWWWWW_00119490[2];\n  cVar39 = s_WWWWWWWWWWWWWWWW_00119490[1];\n  cVar38 = s_WWWWWWWWWWWWWWWW_00119490[0];\n  auVar37 = _DAT_001193b0;\n  sVar36 = _UNK_0011938e;\n  sVar35 = _UNK_0011938c;\n  sVar34 = _UNK_0011938a;\n  sVar33 = _UNK_00119388;\n  sVar32 = _UNK_00119386;\n  sVar31 = _UNK_00119384;\n  sVar30 = _UNK_00119382;\n  sVar29 = _DAT_00119380;\n  if (uVar137 == 0) goto LAB_00165e3e;\n  pbVar136 = pbVar134;\n  if (7 < uVar137) {\n    if (uVar137 < 0x10) {\n      uVar135 = 0;\n    }\n    else {\n      uVar135 = uVar137 & 0xfffffffffffffff0;\n      uVar138 = 0;\n      do {\n        auVar198 = *(undefined (*) [16])(pbVar134 + uVar138);\n        auVar206._0_2_ = auVar198._0_2_ >> 1;\n        auVar206._2_2_ = auVar198._2_2_ >> 1;\n        auVar206._4_2_ = auVar198._4_2_ >> 1;\n        auVar206._6_2_ = auVar198._6_2_ >> 1;\n        auVar206._8_2_ = auVar198._8_2_ >> 1;\n        auVar206._10_2_ = auVar198._10_2_ >> 1;\n        auVar206._12_2_ = auVar198._12_2_ >> 1;\n        auVar206._14_2_ = auVar198._14_2_ >> 1;\n        auVar206 = auVar206 & _DAT_00119370;\n        uVar229 = (ushort)auVar206[8] * sVar29;\n        uVar235 = (ushort)auVar206[9] * sVar30;\n        uVar237 = (ushort)auVar206[10] * sVar31;\n        uVar239 = (ushort)auVar206[0xb] * sVar32;\n        uVar241 = (ushort)auVar206[0xc] * sVar33;\n        uVar243 = (ushort)auVar206[0xd] * sVar34;\n        uVar245 = (ushort)auVar206[0xe] * sVar35;\n        uVar247 = (ushort)auVar206[0xf] * sVar36;\n        uVar230 = uVar229 >> 8;\n        uVar236 = uVar235 >> 8;\n        uVar238 = uVar237 >> 8;\n        uVar240 = uVar239 >> 8;\n        uVar242 = uVar241 >> 8;\n        uVar244 = uVar243 >> 8;\n        uVar246 = uVar245 >> 8;\n        uVar248 = uVar247 >> 8;\n        auVar3[0xd] = 0;\n        auVar3._0_13_ = auVar206._0_13_;\n        auVar3[0xe] = auVar206[7];\n        auVar5[0xc] = auVar206[6];\n        auVar5._0_12_ = auVar206._0_12_;\n        auVar5._13_2_ = auVar3._13_2_;\n        auVar7[0xb] = 0;\n        auVar7._0_11_ = auVar206._0_11_;\n        auVar7._12_3_ = auVar5._12_3_;\n        auVar9[10] = auVar206[5];\n        auVar9._0_10_ = auVar206._0_10_;\n        auVar9._11_4_ = auVar7._11_4_;\n        auVar11[9] = 0;\n        auVar11._0_9_ = auVar206._0_9_;\n        auVar11._10_5_ = auVar9._10_5_;\n        uVar28 = CONCAT61(auVar11._9_6_,auVar206[4]);\n        auVar20._7_8_ = 0;\n        auVar20._0_7_ = uVar28;\n        Var15 = CONCAT81(SUB158(auVar20 << 0x40,7),auVar206[3]);\n        auVar26._9_6_ = 0;\n        auVar26._0_9_ = Var15;\n        auVar21._1_10_ = SUB1510(auVar26 << 0x30,5);\n        auVar21[0] = auVar206[2];\n        auVar27._11_4_ = 0;\n        auVar27._0_11_ = auVar21;\n        auVar13[2] = auVar206[1];\n        auVar13._0_2_ = auVar206._0_2_;\n        auVar13._3_12_ = SUB1512(auVar27 << 0x20,3);\n        uVar187 = (auVar206._0_2_ & 0xff) * sVar29;\n        uVar215 = auVar13._2_2_ * sVar30;\n        uVar217 = auVar21._0_2_ * sVar31;\n        uVar219 = (short)Var15 * sVar32;\n        uVar221 = (short)uVar28 * sVar33;\n        uVar223 = auVar9._10_2_ * sVar34;\n        uVar225 = auVar5._12_2_ * sVar35;\n        uVar227 = (auVar3._13_2_ >> 8) * sVar36;\n        uVar188 = uVar187 >> 8;\n        uVar216 = uVar215 >> 8;\n        uVar218 = uVar217 >> 8;\n        uVar220 = uVar219 >> 8;\n        uVar222 = uVar221 >> 8;\n        uVar224 = uVar223 >> 8;\n        uVar226 = uVar225 >> 8;\n        uVar228 = uVar227 >> 8;\n        uVar187 = CONCAT11((uVar216 != 0) * (uVar216 < 0x100) * (char)(uVar215 >> 8) -\n                           (0xff < uVar216),\n                           (uVar188 != 0) * (uVar188 < 0x100) * (char)(uVar187 >> 8) -\n                           (0xff < uVar188));\n        uVar189 = CONCAT13((uVar220 != 0) * (uVar220 < 0x100) * (char)(uVar219 >> 8) -\n                           (0xff < uVar220),\n                           CONCAT12((uVar218 != 0) * (uVar218 < 0x100) * (char)(uVar217 >> 8) -\n                                    (0xff < uVar218),uVar187));\n        uVar190 = CONCAT15((uVar224 != 0) * (uVar224 < 0x100) * (char)(uVar223 >> 8) -\n                           (0xff < uVar224),\n                           CONCAT14((uVar222 != 0) * (uVar222 < 0x100) * (char)(uVar221 >> 8) -\n                                    (0xff < uVar222),uVar189));\n        uVar193 = CONCAT17((uVar228 != 0) * (uVar228 < 0x100) * (char)(uVar227 >> 8) -\n                           (0xff < uVar228),\n                           CONCAT16((uVar226 != 0) * (uVar226 < 0x100) * (char)(uVar225 >> 8) -\n                                    (0xff < uVar226),uVar190));\n        auVar195._0_10_ =\n             CONCAT19((uVar236 != 0) * (uVar236 < 0x100) * (char)(uVar235 >> 8) - (0xff < uVar236),\n                      CONCAT18((uVar230 != 0) * (uVar230 < 0x100) * (char)(uVar229 >> 8) -\n                               (0xff < uVar230),uVar193));\n        auVar195[10] = (uVar238 != 0) * (uVar238 < 0x100) * (char)(uVar237 >> 8) - (0xff < uVar238);\n        auVar195[0xb] = (uVar240 != 0) * (uVar240 < 0x100) * (char)(uVar239 >> 8) - (0xff < uVar240)\n        ;\n        auVar197[0xc] = (uVar242 != 0) * (uVar242 < 0x100) * (char)(uVar241 >> 8) - (0xff < uVar242)\n        ;\n        auVar197._0_12_ = auVar195;\n        auVar197[0xd] = (uVar244 != 0) * (uVar244 < 0x100) * (char)(uVar243 >> 8) - (0xff < uVar244)\n        ;\n        auVar207[0xe] = (uVar246 != 0) * (uVar246 < 0x100) * (char)(uVar245 >> 8) - (0xff < uVar246)\n        ;\n        auVar207._0_14_ = auVar197;\n        auVar207[0xf] = (uVar248 != 0) * (uVar248 < 0x100) * (char)(uVar247 >> 8) - (0xff < uVar248)\n        ;\n        auVar208._0_2_ = uVar187 >> 4;\n        auVar208._2_2_ = (ushort)((uint)uVar189 >> 0x14);\n        auVar208._4_2_ = (ushort)((uint6)uVar190 >> 0x24);\n        auVar208._6_2_ = (ushort)((ulong)uVar193 >> 0x34);\n        auVar208._8_2_ = (ushort)((unkuint10)auVar195._0_10_ >> 0x44);\n        auVar208._10_2_ = auVar195._10_2_ >> 4;\n        auVar208._12_2_ = auVar197._12_2_ >> 4;\n        auVar208._14_2_ = auVar207._14_2_ >> 4;\n        auVar208 = auVar208 & auVar37;\n        sVar231 = CONCAT11(auVar208[8],auVar208[8]);\n        uVar189 = CONCAT13(auVar208[9],CONCAT12(auVar208[9],sVar231));\n        uVar190 = CONCAT15(auVar208[10],CONCAT14(auVar208[10],uVar189));\n        uVar193 = CONCAT17(auVar208[0xb],CONCAT16(auVar208[0xb],uVar190));\n        auVar232._0_10_ = CONCAT19(auVar208[0xc],CONCAT18(auVar208[0xc],uVar193));\n        auVar232[10] = auVar208[0xd];\n        auVar232[0xb] = auVar208[0xd];\n        auVar233[0xc] = auVar208[0xe];\n        auVar233._0_12_ = auVar232;\n        auVar233[0xd] = auVar208[0xe];\n        auVar234[0xf] = auVar208[0xf];\n        auVar234[0xe] = auVar234[0xf];\n        auVar234._0_14_ = auVar233;\n        uVar221 = sVar231 * (short)acVar85 & uVar54;\n        uVar222 = (short)((uint)uVar189 >> 0x10) * sVar86 & uVar55;\n        uVar223 = (short)((uint6)uVar190 >> 0x20) * sVar87 & uVar56;\n        uVar224 = (short)((ulong)uVar193 >> 0x30) * sVar88 & uVar57;\n        uVar225 = (short)((unkuint10)auVar232._0_10_ >> 0x40) * sVar89 & uVar58;\n        uVar226 = auVar232._10_2_ * sVar90 & uVar59;\n        uVar227 = auVar233._12_2_ * sVar91 & uVar60;\n        uVar228 = auVar234._14_2_ * sVar92 & uVar61;\n        auVar214._0_14_ = auVar208._0_14_;\n        auVar214[0xe] = auVar208[7];\n        auVar214[0xf] = auVar208[7];\n        auVar213._14_2_ = auVar214._14_2_;\n        auVar213._0_13_ = auVar208._0_13_;\n        auVar213[0xd] = auVar208[6];\n        auVar212._13_3_ = auVar213._13_3_;\n        auVar212._0_12_ = auVar208._0_12_;\n        auVar212[0xc] = auVar208[6];\n        auVar211._12_4_ = auVar212._12_4_;\n        auVar211._0_11_ = auVar208._0_11_;\n        auVar211[0xb] = auVar208[5];\n        auVar210._11_5_ = auVar211._11_5_;\n        auVar210._0_10_ = auVar208._0_10_;\n        auVar210[10] = auVar208[5];\n        auVar209._10_6_ = auVar210._10_6_;\n        auVar209._0_9_ = auVar208._0_9_;\n        auVar209[9] = auVar208[4];\n        uVar193 = CONCAT71(auVar209._9_7_,auVar208[4]);\n        Var19 = CONCAT91(CONCAT81(uVar193,auVar208[3]),auVar208[3]);\n        auVar23._2_10_ = Var19;\n        auVar23[1] = auVar208[2];\n        auVar23[0] = auVar208[2];\n        auVar22._2_12_ = auVar23;\n        auVar22[1] = auVar208[1];\n        auVar22[0] = auVar208[1];\n        uVar187 = CONCAT11(auVar208[0],auVar208[0]) * (short)acVar85 & uVar54;\n        uVar188 = auVar22._0_2_ * sVar86 & uVar55;\n        uVar215 = auVar23._0_2_ * sVar87 & uVar56;\n        uVar216 = (short)Var19 * sVar88 & uVar57;\n        uVar217 = (short)uVar193 * sVar89 & uVar58;\n        uVar218 = auVar210._10_2_ * sVar90 & uVar59;\n        uVar219 = auVar212._12_2_ * sVar91 & uVar60;\n        uVar220 = auVar213._14_2_ * sVar92 & uVar61;\n        bVar140 = auVar198[0] -\n                  ((0 < (short)uVar187) * ((short)uVar187 < 0x100) * (char)uVar187 -\n                  (0xff < (short)uVar187));\n        bVar142 = auVar198[1] -\n                  ((0 < (short)uVar188) * ((short)uVar188 < 0x100) * (char)uVar188 -\n                  (0xff < (short)uVar188));\n        bVar144 = auVar198[2] -\n                  ((0 < (short)uVar215) * ((short)uVar215 < 0x100) * (char)uVar215 -\n                  (0xff < (short)uVar215));\n        bVar146 = auVar198[3] -\n                  ((0 < (short)uVar216) * ((short)uVar216 < 0x100) * (char)uVar216 -\n                  (0xff < (short)uVar216));\n        bVar148 = auVar198[4] -\n                  ((0 < (short)uVar217) * ((short)uVar217 < 0x100) * (char)uVar217 -\n                  (0xff < (short)uVar217));\n        bVar150 = auVar198[5] -\n                  ((0 < (short)uVar218) * ((short)uVar218 < 0x100) * (char)uVar218 -\n                  (0xff < (short)uVar218));\n        bVar152 = auVar198[6] -\n                  ((0 < (short)uVar219) * ((short)uVar219 < 0x100) * (char)uVar219 -\n                  (0xff < (short)uVar219));\n        bVar154 = auVar198[7] -\n                  ((0 < (short)uVar220) * ((short)uVar220 < 0x100) * (char)uVar220 -\n                  (0xff < (short)uVar220));\n        bVar155 = auVar198[8] -\n                  ((0 < (short)uVar221) * ((short)uVar221 < 0x100) * (char)uVar221 -\n                  (0xff < (short)uVar221));\n        bVar156 = auVar198[9] -\n                  ((0 < (short)uVar222) * ((short)uVar222 < 0x100) * (char)uVar222 -\n                  (0xff < (short)uVar222));\n        bVar157 = auVar198[10] -\n                  ((0 < (short)uVar223) * ((short)uVar223 < 0x100) * (char)uVar223 -\n                  (0xff < (short)uVar223));\n        bVar158 = auVar198[0xb] -\n                  ((0 < (short)uVar224) * ((short)uVar224 < 0x100) * (char)uVar224 -\n                  (0xff < (short)uVar224));\n        bVar159 = auVar198[0xc] -\n                  ((0 < (short)uVar225) * ((short)uVar225 < 0x100) * (char)uVar225 -\n                  (0xff < (short)uVar225));\n        bVar160 = auVar198[0xd] -\n                  ((0 < (short)uVar226) * ((short)uVar226 < 0x100) * (char)uVar226 -\n                  (0xff < (short)uVar226));\n        bVar161 = auVar198[0xe] -\n                  ((0 < (short)uVar227) * ((short)uVar227 < 0x100) * (char)uVar227 -\n                  (0xff < (short)uVar227));\n        bVar162 = auVar198[0xf] -\n                  ((0 < (short)uVar228) * ((short)uVar228 < 0x100) * (char)uVar228 -\n                  (0xff < (short)uVar228));\n        bVar164 = bVar140 + cVar69;\n        bVar166 = bVar142 + cVar70;\n        bVar168 = bVar144 + cVar71;\n        bVar170 = bVar146 + cVar72;\n        bVar172 = bVar148 + cVar73;\n        bVar174 = bVar150 + cVar74;\n        bVar176 = bVar152 + cVar75;\n        bVar178 = bVar154 + cVar76;\n        bVar179 = bVar155 + cVar77;\n        bVar180 = bVar156 + cVar78;\n        bVar181 = bVar157 + cVar79;\n        bVar182 = bVar158 + cVar80;\n        bVar183 = bVar159 + cVar81;\n        bVar184 = bVar160 + cVar82;\n        bVar185 = bVar161 + cVar83;\n        bVar186 = bVar162 + cVar84;\n        bVar164 = -((byte)((bVar133 < bVar164) * bVar133 | (bVar133 >= bVar164) * bVar164) ==\n                   bVar164);\n        bVar166 = -((byte)((bVar62 < bVar166) * bVar62 | (bVar62 >= bVar166) * bVar166) == bVar166);\n        bVar168 = -((byte)((bVar63 < bVar168) * bVar63 | (bVar63 >= bVar168) * bVar168) == bVar168);\n        bVar170 = -((byte)((bVar64 < bVar170) * bVar64 | (bVar64 >= bVar170) * bVar170) == bVar170);\n        bVar172 = -((byte)((bVar65 < bVar172) * bVar65 | (bVar65 >= bVar172) * bVar172) == bVar172);\n        bVar174 = -((byte)((bVar66 < bVar174) * bVar66 | (bVar66 >= bVar174) * bVar174) == bVar174);\n        bVar176 = -((byte)((bVar67 < bVar176) * bVar67 | (bVar67 >= bVar176) * bVar176) == bVar176);\n        bVar178 = -((byte)((bVar68 < bVar178) * bVar68 | (bVar68 >= bVar178) * bVar178) == bVar178);\n        bVar179 = -((byte)((bVar163 < bVar179) * bVar163 | (bVar163 >= bVar179) * bVar179) ==\n                   bVar179);\n        bVar180 = -((byte)((bVar165 < bVar180) * bVar165 | (bVar165 >= bVar180) * bVar180) ==\n                   bVar180);\n        bVar181 = -((byte)((bVar167 < bVar181) * bVar167 | (bVar167 >= bVar181) * bVar181) ==\n                   bVar181);\n        bVar182 = -((byte)((bVar169 < bVar182) * bVar169 | (bVar169 >= bVar182) * bVar182) ==\n                   bVar182);\n        bVar183 = -((byte)((bVar171 < bVar183) * bVar171 | (bVar171 >= bVar183) * bVar183) ==\n                   bVar183);\n        bVar184 = -((byte)((bVar173 < bVar184) * bVar173 | (bVar173 >= bVar184) * bVar184) ==\n                   bVar184);\n        bVar185 = -((byte)((bVar175 < bVar185) * bVar175 | (bVar175 >= bVar185) * bVar185) ==\n                   bVar185);\n        bVar186 = -((byte)((bVar177 < bVar186) * bVar177 | (bVar177 >= bVar186) * bVar186) ==\n                   bVar186);\n        pbVar136 = pbVar134 + uVar138;\n        *pbVar136 = bVar140 + cVar139 & -(cVar117 < (char)bVar140) |\n                    ~-(cVar117 < (char)bVar140) &\n                    (~bVar164 & (bVar140 | bVar101) | bVar140 + cVar38 & bVar164);\n        pbVar136[1] = bVar142 + cVar141 & -(cVar118 < (char)bVar142) |\n                      ~-(cVar118 < (char)bVar142) &\n                      (~bVar166 & (bVar142 | bVar102) | bVar142 + cVar39 & bVar166);\n        pbVar136[2] = bVar144 + cVar143 & -(cVar119 < (char)bVar144) |\n                      ~-(cVar119 < (char)bVar144) &\n                      (~bVar168 & (bVar144 | bVar103) | bVar144 + cVar40 & bVar168);\n        pbVar136[3] = bVar146 + cVar145 & -(cVar120 < (char)bVar146) |\n                      ~-(cVar120 < (char)bVar146) &\n                      (~bVar170 & (bVar146 | bVar104) | bVar146 + cVar41 & bVar170);\n        pbVar136[4] = bVar148 + cVar147 & -(cVar121 < (char)bVar148) |\n                      ~-(cVar121 < (char)bVar148) &\n                      (~bVar172 & (bVar148 | bVar105) | bVar148 + cVar42 & bVar172);\n        pbVar136[5] = bVar150 + cVar149 & -(cVar122 < (char)bVar150) |\n                      ~-(cVar122 < (char)bVar150) &\n                      (~bVar174 & (bVar150 | bVar106) | bVar150 + cVar43 & bVar174);\n        pbVar136[6] = bVar152 + cVar151 & -(cVar123 < (char)bVar152) |\n                      ~-(cVar123 < (char)bVar152) &\n                      (~bVar176 & (bVar152 | bVar107) | bVar152 + cVar44 & bVar176);\n        pbVar136[7] = bVar154 + cVar153 & -(cVar124 < (char)bVar154) |\n                      ~-(cVar124 < (char)bVar154) &\n                      (~bVar178 & (bVar154 | bVar108) | bVar154 + cVar45 & bVar178);\n        pbVar136[8] = bVar155 + cVar93 & -(cVar125 < (char)bVar155) |\n                      ~-(cVar125 < (char)bVar155) &\n                      (~bVar179 & (bVar155 | bVar109) | bVar155 + cVar46 & bVar179);\n        pbVar136[9] = bVar156 + cVar94 & -(cVar126 < (char)bVar156) |\n                      ~-(cVar126 < (char)bVar156) &\n                      (~bVar180 & (bVar156 | bVar110) | bVar156 + cVar47 & bVar180);\n        pbVar136[10] = bVar157 + cVar95 & -(cVar127 < (char)bVar157) |\n                       ~-(cVar127 < (char)bVar157) &\n                       (~bVar181 & (bVar157 | bVar111) | bVar157 + cVar48 & bVar181);\n        pbVar136[0xb] =\n             bVar158 + cVar96 & -(cVar128 < (char)bVar158) |\n             ~-(cVar128 < (char)bVar158) &\n             (~bVar182 & (bVar158 | bVar112) | bVar158 + cVar49 & bVar182);\n        pbVar136[0xc] =\n             bVar159 + cVar97 & -(cVar129 < (char)bVar159) |\n             ~-(cVar129 < (char)bVar159) &\n             (~bVar183 & (bVar159 | bVar113) | bVar159 + cVar50 & bVar183);\n        pbVar136[0xd] =\n             bVar160 + cVar98 & -(cVar130 < (char)bVar160) |\n             ~-(cVar130 < (char)bVar160) &\n             (~bVar184 & (bVar160 | bVar114) | bVar160 + cVar51 & bVar184);\n        pbVar136[0xe] =\n             bVar161 + cVar99 & -(cVar131 < (char)bVar161) |\n             ~-(cVar131 < (char)bVar161) &\n             (~bVar185 & (bVar161 | bVar115) | bVar161 + cVar52 & bVar185);\n        pbVar136[0xf] =\n             bVar162 + cVar100 & -(cVar132 < (char)bVar162) |\n             ~-(cVar132 < (char)bVar162) &\n             (~bVar186 & (bVar162 | bVar116) | bVar162 + cVar53 & bVar186);\n        uVar138 = uVar138 + 0x10;\n      } while (uVar135 != uVar138);\n      if (uVar137 == uVar135) goto LAB_00165e3e;\n      if ((auVar250 & (undefined  [16])0x8) == (undefined  [16])0x0) {\n        pbVar136 = pbVar134 + uVar135;\n        goto LAB_00165eae;\n      }\n    }\n    cVar84 = UNK_001197d7;\n    cVar83 = UNK_001197d6;\n    cVar82 = UNK_001197d5;\n    cVar81 = UNK_001197d4;\n    cVar80 = UNK_001197d3;\n    cVar79 = UNK_001197d2;\n    cVar78 = UNK_001197d1;\n    cVar77 = DAT_001197d0;\n    cVar76 = s__________001197c0[7];\n    cVar75 = s__________001197c0[6];\n    cVar74 = s__________001197c0[5];\n    cVar73 = s__________001197c0[4];\n    cVar72 = s__________001197c0[3];\n    cVar71 = s__________001197c0[2];\n    cVar70 = s__________001197c0[1];\n    cVar69 = s__________001197c0[0];\n    bVar68 = UNK_001196d7;\n    bVar67 = UNK_001196d6;\n    bVar66 = UNK_001196d5;\n    bVar65 = UNK_001196d4;\n    bVar64 = UNK_001196d3;\n    bVar63 = UNK_001196d2;\n    bVar62 = UNK_001196d1;\n    bVar133 = DAT_001196d0;\n    sVar92 = _UNK_0011969e;\n    sVar91 = _UNK_0011969c;\n    sVar90 = _UNK_0011969a;\n    sVar89 = _UNK_00119698;\n    sVar88 = _UNK_00119696;\n    sVar87 = _UNK_00119694;\n    sVar86 = _UNK_00119692;\n    acVar85 = s_>_00119690;\n    uVar193 = s_00000000_001195e0._0_8_;\n    cVar53 = UNK_00119537;\n    cVar52 = UNK_00119536;\n    cVar51 = UNK_00119535;\n    cVar50 = UNK_00119534;\n    cVar49 = UNK_00119533;\n    cVar48 = UNK_00119532;\n    cVar47 = UNK_00119531;\n    cVar46 = DAT_00119530;\n    uVar61 = _UNK_001194de;\n    uVar60 = _UNK_001194dc;\n    uVar59 = _UNK_001194da;\n    uVar58 = _UNK_001194d8;\n    uVar57 = _UNK_001194d6;\n    uVar56 = _UNK_001194d4;\n    uVar55 = _UNK_001194d2;\n    uVar54 = _DAT_001194d0;\n    cVar45 = s_WWWWWWWW_001193d0[7];\n    cVar44 = s_WWWWWWWW_001193d0[6];\n    cVar43 = s_WWWWWWWW_001193d0[5];\n    cVar42 = s_WWWWWWWW_001193d0[4];\n    cVar41 = s_WWWWWWWW_001193d0[3];\n    cVar40 = s_WWWWWWWW_001193d0[2];\n    cVar39 = s_WWWWWWWW_001193d0[1];\n    cVar38 = s_WWWWWWWW_001193d0[0];\n    auVar37 = _DAT_001193b0;\n    sVar36 = _UNK_0011938e;\n    sVar35 = _UNK_0011938c;\n    sVar34 = _UNK_0011938a;\n    sVar33 = _UNK_00119388;\n    sVar32 = _UNK_00119386;\n    sVar31 = _UNK_00119384;\n    sVar30 = _UNK_00119382;\n    sVar29 = _DAT_00119380;\n    uVar138 = uVar137 & 0xfffffffffffffff8;\n    do {\n      uVar1 = *(undefined8 *)(pbVar134 + uVar135);\n      auVar250._0_2_ = (ushort)uVar1 >> 1;\n      auVar250._2_2_ = (ushort)((ulong)uVar1 >> 0x10) >> 1;\n      auVar250._4_2_ = (ushort)((ulong)uVar1 >> 0x20) >> 1;\n      auVar250._6_2_ = (ushort)((ulong)uVar1 >> 0x31);\n      auVar250._8_8_ = 0;\n      auVar250 = auVar250 & _DAT_00119370;\n      uVar229 = (ushort)auVar250[8] * sVar29;\n      uVar235 = (ushort)auVar250[9] * sVar30;\n      uVar237 = (ushort)auVar250[10] * sVar31;\n      uVar239 = (ushort)auVar250[0xb] * sVar32;\n      uVar241 = (ushort)auVar250[0xc] * sVar33;\n      uVar243 = (ushort)auVar250[0xd] * sVar34;\n      uVar245 = (ushort)auVar250[0xe] * sVar35;\n      uVar247 = (ushort)auVar250[0xf] * sVar36;\n      uVar230 = uVar229 >> 8;\n      uVar236 = uVar235 >> 8;\n      uVar238 = uVar237 >> 8;\n      uVar240 = uVar239 >> 8;\n      uVar242 = uVar241 >> 8;\n      uVar244 = uVar243 >> 8;\n      uVar246 = uVar245 >> 8;\n      uVar248 = uVar247 >> 8;\n      auVar2[0xd] = 0;\n      auVar2._0_13_ = auVar250._0_13_;\n      auVar2[0xe] = auVar250[7];\n      auVar4[0xc] = auVar250[6];\n      auVar4._0_12_ = auVar250._0_12_;\n      auVar4._13_2_ = auVar2._13_2_;\n      auVar6[0xb] = 0;\n      auVar6._0_11_ = auVar250._0_11_;\n      auVar6._12_3_ = auVar4._12_3_;\n      auVar8[10] = auVar250[5];\n      auVar8._0_10_ = auVar250._0_10_;\n      auVar8._11_4_ = auVar6._11_4_;\n      auVar10[9] = 0;\n      auVar10._0_9_ = auVar250._0_9_;\n      auVar10._10_5_ = auVar8._10_5_;\n      uVar28 = CONCAT61(auVar10._9_6_,auVar250[4]);\n      auVar14._7_8_ = 0;\n      auVar14._0_7_ = uVar28;\n      Var15 = CONCAT81(SUB158(auVar14 << 0x40,7),auVar250[3]);\n      auVar24._9_6_ = 0;\n      auVar24._0_9_ = Var15;\n      auVar16._1_10_ = SUB1510(auVar24 << 0x30,5);\n      auVar16[0] = auVar250[2];\n      auVar25._11_4_ = 0;\n      auVar25._0_11_ = auVar16;\n      auVar12[2] = auVar250[1];\n      auVar12._0_2_ = auVar250._0_2_;\n      auVar12._3_12_ = SUB1512(auVar25 << 0x20,3);\n      uVar187 = (auVar250._0_2_ & 0xff) * sVar29;\n      uVar215 = auVar12._2_2_ * sVar30;\n      uVar217 = auVar16._0_2_ * sVar31;\n      uVar219 = (short)Var15 * sVar32;\n      uVar221 = (short)uVar28 * sVar33;\n      uVar223 = auVar8._10_2_ * sVar34;\n      uVar225 = auVar4._12_2_ * sVar35;\n      uVar227 = (auVar2._13_2_ >> 8) * sVar36;\n      uVar188 = uVar187 >> 8;\n      uVar216 = uVar215 >> 8;\n      uVar218 = uVar217 >> 8;\n      uVar220 = uVar219 >> 8;\n      uVar222 = uVar221 >> 8;\n      uVar224 = uVar223 >> 8;\n      uVar226 = uVar225 >> 8;\n      uVar228 = uVar227 >> 8;\n      uVar187 = CONCAT11((uVar216 != 0) * (uVar216 < 0x100) * (char)(uVar215 >> 8) -\n                         (0xff < uVar216),\n                         (uVar188 != 0) * (uVar188 < 0x100) * (char)(uVar187 >> 8) -\n                         (0xff < uVar188));\n      uVar189 = CONCAT13((uVar220 != 0) * (uVar220 < 0x100) * (char)(uVar219 >> 8) -\n                         (0xff < uVar220),\n                         CONCAT12((uVar218 != 0) * (uVar218 < 0x100) * (char)(uVar217 >> 8) -\n                                  (0xff < uVar218),uVar187));\n      uVar190 = CONCAT15((uVar224 != 0) * (uVar224 < 0x100) * (char)(uVar223 >> 8) -\n                         (0xff < uVar224),\n                         CONCAT14((uVar222 != 0) * (uVar222 < 0x100) * (char)(uVar221 >> 8) -\n                                  (0xff < uVar222),uVar189));\n      uVar191 = CONCAT17((uVar228 != 0) * (uVar228 < 0x100) * (char)(uVar227 >> 8) -\n                         (0xff < uVar228),\n                         CONCAT16((uVar226 != 0) * (uVar226 < 0x100) * (char)(uVar225 >> 8) -\n                                  (0xff < uVar226),uVar190));\n      auVar194._0_10_ =\n           CONCAT19((uVar236 != 0) * (uVar236 < 0x100) * (char)(uVar235 >> 8) - (0xff < uVar236),\n                    CONCAT18((uVar230 != 0) * (uVar230 < 0x100) * (char)(uVar229 >> 8) -\n                             (0xff < uVar230),uVar191));\n      auVar194[10] = (uVar238 != 0) * (uVar238 < 0x100) * (char)(uVar237 >> 8) - (0xff < uVar238);\n      auVar194[0xb] = (uVar240 != 0) * (uVar240 < 0x100) * (char)(uVar239 >> 8) - (0xff < uVar240);\n      auVar196[0xc] = (uVar242 != 0) * (uVar242 < 0x100) * (char)(uVar241 >> 8) - (0xff < uVar242);\n      auVar196._0_12_ = auVar194;\n      auVar196[0xd] = (uVar244 != 0) * (uVar244 < 0x100) * (char)(uVar243 >> 8) - (0xff < uVar244);\n      auVar198[0xe] = (uVar246 != 0) * (uVar246 < 0x100) * (char)(uVar245 >> 8) - (0xff < uVar246);\n      auVar198._0_14_ = auVar196;\n      auVar198[0xf] = (uVar248 != 0) * (uVar248 < 0x100) * (char)(uVar247 >> 8) - (0xff < uVar248);\n      auVar199._0_2_ = uVar187 >> 4;\n      auVar199._2_2_ = (ushort)((uint)uVar189 >> 0x14);\n      auVar199._4_2_ = (ushort)((uint6)uVar190 >> 0x24);\n      auVar199._6_2_ = (ushort)((ulong)uVar191 >> 0x34);\n      auVar199._8_2_ = (ushort)((unkuint10)auVar194._0_10_ >> 0x44);\n      auVar199._10_2_ = auVar194._10_2_ >> 4;\n      auVar199._12_2_ = auVar196._12_2_ >> 4;\n      auVar199._14_2_ = auVar198._14_2_ >> 4;\n      auVar199 = auVar199 & auVar37;\n      auVar205._0_14_ = auVar199._0_14_;\n      auVar205[0xe] = auVar199[7];\n      auVar205[0xf] = auVar199[7];\n      auVar204._14_2_ = auVar205._14_2_;\n      auVar204._0_13_ = auVar199._0_13_;\n      auVar204[0xd] = auVar199[6];\n      auVar203._13_3_ = auVar204._13_3_;\n      auVar203._0_12_ = auVar199._0_12_;\n      auVar203[0xc] = auVar199[6];\n      auVar202._12_4_ = auVar203._12_4_;\n      auVar202._0_11_ = auVar199._0_11_;\n      auVar202[0xb] = auVar199[5];\n      auVar201._11_5_ = auVar202._11_5_;\n      auVar201._0_10_ = auVar199._0_10_;\n      auVar201[10] = auVar199[5];\n      auVar200._10_6_ = auVar201._10_6_;\n      auVar200._0_9_ = auVar199._0_9_;\n      auVar200[9] = auVar199[4];\n      uVar191 = CONCAT71(auVar200._9_7_,auVar199[4]);\n      Var19 = CONCAT91(CONCAT81(uVar191,auVar199[3]),auVar199[3]);\n      auVar18._2_10_ = Var19;\n      auVar18[1] = auVar199[2];\n      auVar18[0] = auVar199[2];\n      auVar17._2_12_ = auVar18;\n      auVar17[1] = auVar199[1];\n      auVar17[0] = auVar199[1];\n      uVar187 = CONCAT11(auVar199[0],auVar199[0]) * (short)acVar85 & uVar54;\n      uVar188 = auVar17._0_2_ * sVar86 & uVar55;\n      uVar215 = auVar18._0_2_ * sVar87 & uVar56;\n      uVar216 = (short)Var19 * sVar88 & uVar57;\n      uVar217 = (short)uVar191 * sVar89 & uVar58;\n      uVar218 = auVar201._10_2_ * sVar90 & uVar59;\n      uVar219 = auVar203._12_2_ * sVar91 & uVar60;\n      uVar220 = auVar204._14_2_ * sVar92 & uVar61;\n      cVar139 = (char)uVar1 -\n                ((0 < (short)uVar187) * ((short)uVar187 < 0x100) * (char)uVar187 -\n                (0xff < (short)uVar187));\n      cVar141 = (char)((ulong)uVar1 >> 8) -\n                ((0 < (short)uVar188) * ((short)uVar188 < 0x100) * (char)uVar188 -\n                (0xff < (short)uVar188));\n      cVar143 = (char)((ulong)uVar1 >> 0x10) -\n                ((0 < (short)uVar215) * ((short)uVar215 < 0x100) * (char)uVar215 -\n                (0xff < (short)uVar215));\n      cVar145 = (char)((ulong)uVar1 >> 0x18) -\n                ((0 < (short)uVar216) * ((short)uVar216 < 0x100) * (char)uVar216 -\n                (0xff < (short)uVar216));\n      cVar147 = (char)((ulong)uVar1 >> 0x20) -\n                ((0 < (short)uVar217) * ((short)uVar217 < 0x100) * (char)uVar217 -\n                (0xff < (short)uVar217));\n      cVar149 = (char)((ulong)uVar1 >> 0x28) -\n                ((0 < (short)uVar218) * ((short)uVar218 < 0x100) * (char)uVar218 -\n                (0xff < (short)uVar218));\n      cVar151 = (char)((ulong)uVar1 >> 0x30) -\n                ((0 < (short)uVar219) * ((short)uVar219 < 0x100) * (char)uVar219 -\n                (0xff < (short)uVar219));\n      cVar153 = (char)((ulong)uVar1 >> 0x38) -\n                ((0 < (short)uVar220) * ((short)uVar220 < 0x100) * (char)uVar220 -\n                (0xff < (short)uVar220));\n      bVar163 = cVar139 + cVar46;\n      bVar165 = cVar141 + cVar47;\n      bVar167 = cVar143 + cVar48;\n      bVar169 = cVar145 + cVar49;\n      bVar171 = cVar147 + cVar50;\n      bVar173 = cVar149 + cVar51;\n      bVar175 = cVar151 + cVar52;\n      bVar177 = cVar153 + cVar53;\n      uVar249 = CONCAT17(-((byte)((bVar177 < bVar68) * bVar68 | (bVar177 >= bVar68) * bVar177) ==\n                          bVar177),\n                         CONCAT16(-((byte)((bVar175 < bVar67) * bVar67 |\n                                          (bVar175 >= bVar67) * bVar175) == bVar175),\n                                  CONCAT15(-((byte)((bVar173 < bVar66) * bVar66 |\n                                                   (bVar173 >= bVar66) * bVar173) == bVar173),\n                                           CONCAT14(-((byte)((bVar171 < bVar65) * bVar65 |\n                                                            (bVar171 >= bVar65) * bVar171) ==\n                                                     bVar171),\n                                                    CONCAT13(-((byte)((bVar169 < bVar64) * bVar64 |\n                                                                     (bVar169 >= bVar64) * bVar169)\n                                                              == bVar169),\n                                                             CONCAT12(-((byte)((bVar167 < bVar63) *\n                                                                               bVar63 | (bVar167 >=\n                                                                                        bVar63) * \n                                                  bVar167) == bVar167),\n                                                  CONCAT11(-((byte)((bVar165 < bVar62) * bVar62 |\n                                                                   (bVar165 >= bVar62) * bVar165) ==\n                                                            bVar165),\n                                                           -((byte)((bVar163 < bVar133) * bVar133 |\n                                                                   (bVar163 >= bVar133) * bVar163)\n                                                            == bVar163))))))));\n      uVar192 = CONCAT17(-(cVar76 < cVar153),\n                         CONCAT16(-(cVar75 < cVar151),\n                                  CONCAT15(-(cVar74 < cVar149),\n                                           CONCAT14(-(cVar73 < cVar147),\n                                                    CONCAT13(-(cVar72 < cVar145),\n                                                             CONCAT12(-(cVar71 < cVar143),\n                                                                      CONCAT11(-(cVar70 < cVar141),\n                                                                               -(cVar69 < cVar139)))\n                                                            )))));\n      *(ulong *)(pbVar134 + uVar135) =\n           CONCAT17(cVar153 + cVar84,\n                    CONCAT16(cVar151 + cVar83,\n                             CONCAT15(cVar149 + cVar82,\n                                      CONCAT14(cVar147 + cVar81,\n                                               CONCAT13(cVar145 + cVar80,\n                                                        CONCAT12(cVar143 + cVar79,\n                                                                 CONCAT11(cVar141 + cVar78,\n                                                                          cVar139 + cVar77))))))) &\n           uVar192 | ~uVar192 &\n                     (~uVar249 &\n                      CONCAT17(cVar153 + cVar45,\n                               CONCAT16(cVar151 + cVar44,\n                                        CONCAT15(cVar149 + cVar43,\n                                                 CONCAT14(cVar147 + cVar42,\n                                                          CONCAT13(cVar145 + cVar41,\n                                                                   CONCAT12(cVar143 + cVar40,\n                                                                            CONCAT11(cVar141 + \n                                                  cVar39,cVar139 + cVar38))))))) |\n                     (CONCAT17(cVar153,CONCAT16(cVar151,CONCAT15(cVar149,CONCAT14(cVar147,CONCAT13(\n                                                  cVar145,CONCAT12(cVar143,CONCAT11(cVar141,cVar139)\n                                                                  )))))) | uVar193) & uVar249);\n      uVar135 = uVar135 + 8;\n    } while (uVar138 != uVar135);\n    pbVar136 = pbVar134 + uVar138;\n    if (uVar137 == uVar138) goto LAB_00165e3e;\n  }\nLAB_00165eae:\n  do {\n    bVar133 = *pbVar136 % 0x3e;\n    if (bVar133 < 10) {\n      bVar133 = bVar133 | 0x30;\n    }\n    else if (bVar133 < 0x24) {\n      bVar133 = bVar133 + 0x57;\n    }\n    else {\n      bVar133 = bVar133 + 0x1d;\n    }\n    *pbVar136 = bVar133;\n    pbVar136 = pbVar136 + 1;\n  } while (pbVar136 != pbVar134 + uVar137);\nLAB_00165e3e:\n  local_78 = local_a0;\n  local_88 = local_b0;\n  _ZN5alloc6string6String9from_utf817hcb4419710bc0e60bE(local_70,local_88);\n  _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h77945e3bff9165c9E(local_48,local_70);\n  _ZN3std4path4Path4join17h71cca2405c68dc0dE(param_1,local_98,local_90,local_48);\n  return param_1;\n}",
+    "_ZN9uu_mktemp6Params4from17h79f2486a494e973aE": "undefined8 * _ZN9uu_mktemp6Params4from17h79f2486a494e973aE(undefined8 *param_1,undefined8 *param_2)\n\n{\n  undefined *puVar1;\n  code *pcVar2;\n  undefined4 uVar3;\n  undefined4 uVar4;\n  undefined4 uVar5;\n  bool bVar6;\n  bool bVar7;\n  long lVar8;\n  undefined auVar9 [16];\n  bool bVar10;\n  bool bVar11;\n  char cVar12;\n  char cVar13;\n  undefined8 uVar14;\n  undefined8 uVar15;\n  long lVar16;\n  undefined auVar17 [16];\n  undefined8 local_1a8;\n  undefined8 uStack_1a0;\n  code *local_198;\n  code *local_190;\n  code *local_188;\n  undefined8 *local_180;\n  undefined local_178 [8];\n  undefined *puStack_170;\n  undefined8 uStack_168;\n  undefined auStack_160 [16];\n  code *local_150;\n  int local_148;\n  undefined4 uStack_144;\n  undefined4 uStack_140;\n  undefined4 uStack_13c;\n  long local_138;\n  long local_128;\n  long local_120;\n  undefined *local_118;\n  undefined *local_110;\n  code *pcStack_108;\n  long local_100;\n  undefined4 local_f8;\n  undefined4 uStack_f4;\n  undefined4 uStack_f0;\n  undefined4 uStack_ec;\n  undefined8 local_e8;\n  int local_d8;\n  undefined4 uStack_d4;\n  undefined4 uStack_d0;\n  undefined4 uStack_cc;\n  long local_c8;\n  undefined4 local_b8;\n  undefined4 uStack_b4;\n  undefined4 uStack_b0;\n  undefined4 uStack_ac;\n  code *local_a8;\n  undefined4 local_a0;\n  undefined4 uStack_9c;\n  undefined4 uStack_98;\n  undefined4 uStack_94;\n  code *local_90;\n  long local_88;\n  undefined8 local_80;\n  undefined8 uStack_78;\n  undefined local_70 [16];\n  code *local_60;\n  int local_58;\n  undefined4 uStack_54;\n  undefined4 uStack_50;\n  undefined4 uStack_4c;\n  long local_48;\n  undefined local_40 [16];\n  \n  local_180 = param_2 + 6;\n  local_120 = param_2[6];\n  puVar1 = (undefined *)param_2[1];\n  pcVar2 = (code *)param_2[2];\n  local_178 = (undefined  [8])((ulong)local_178 & 0xffffffff00000000);\n  uVar14 = _ZN4core4char7methods15encode_utf8_raw17h5e8f6d90a161f6f4E(0x58,local_178);\n                    /* try { // try from 00164c83 to 00164cb3 has its CatchHandler @ 00165395 */\n  cVar12 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_9ends_with17hce4324c85153fc81E\n                     (puVar1,pcVar2,uVar14);\n  if (cVar12 == '\\0') {\n    param_1[1] = 0x8000000000000001;\n    uVar3 = *(undefined4 *)((long)param_2 + 4);\n    uVar4 = *(undefined4 *)(param_2 + 1);\n    uVar5 = *(undefined4 *)((long)param_2 + 0xc);\n    *(undefined4 *)(param_1 + 2) = *(undefined4 *)param_2;\n    *(undefined4 *)((long)param_1 + 0x14) = uVar3;\n    *(undefined4 *)(param_1 + 3) = uVar4;\n    *(undefined4 *)((long)param_1 + 0x1c) = uVar5;\n    param_1[4] = param_2[2];\n    *param_1 = 0x8000000000000000;\n    _ZN4core3ptr67drop_in_place_LT_core__option__Option_LT_std__path__PathBuf_GT__GT_17h92010b458ccdc0ceE\n              (param_2 + 3);\n    _ZN4core3ptr70drop_in_place_LT_core__option__Option_LT_alloc__string__String_GT__GT_17he610de4c4ff4ed65E\n              (local_180);\n    return param_1;\n  }\n  local_188 = pcVar2;\n  _ZN9uu_mktemp32find_last_contiguous_block_of_xs17h8d96f8bfdfc9b9d5E(&local_58,puVar1);\n  if (local_58 != 1) {\n    if (local_120 == -0x8000000000000000) {\n      local_198 = (code *)param_2[2];\n      local_1a8 = (undefined *)*param_2;\n      uStack_1a0 = (code *)param_2[1];\n    }\n    else {\n      puStack_170 = puVar1 + (long)local_188;\n      uStack_168 = local_188;\n                    /* try { // try from 00164df4 to 00164e00 has its CatchHandler @ 00165395 */\n      local_178 = (undefined  [8])puVar1;\n      _ZN4core4iter6traits8iterator8Iterator7collect17h4f4da201e1fe28f0E(&local_1a8,local_178);\n    }\n    param_1[4] = local_198;\n    *(undefined4 *)(param_1 + 2) = (undefined4)local_1a8;\n    *(undefined4 *)((long)param_1 + 0x14) = local_1a8._4_4_;\n    *(undefined4 *)(param_1 + 3) = (undefined4)uStack_1a0;\n    *(undefined4 *)((long)param_1 + 0x1c) = uStack_1a0._4_4_;\n    param_1[1] = 0x8000000000000002;\n    *param_1 = 0x8000000000000000;\n    _ZN4core3ptr67drop_in_place_LT_core__option__Option_LT_std__path__PathBuf_GT__GT_17h92010b458ccdc0ceE\n              (param_2 + 3);\n    _ZN4core3ptr70drop_in_place_LT_core__option__Option_LT_alloc__string__String_GT__GT_17he610de4c4ff4ed65E\n              (local_180);\n    if (local_120 == -0x8000000000000000) {\n      return param_1;\n    }\n    goto LAB_001652fd;\n  }\n  lVar16 = CONCAT44(uStack_4c,uStack_50);\n  local_128 = local_48;\n  local_e8 = param_2[5];\n  local_f8 = *(undefined4 *)(param_2 + 3);\n  uStack_f4 = *(undefined4 *)((long)param_2 + 0x1c);\n  lVar8 = param_2[3];\n  uStack_f0 = *(undefined4 *)(param_2 + 4);\n  uStack_ec = *(undefined4 *)((long)param_2 + 0x24);\n  if (lVar8 == -0x8000000000000000) {\nLAB_00164d4e:\n    local_118 = (undefined *)0x0;\n    local_110 = &DAT_00000001;\n    pcStack_108 = (code *)0x0;\n  }\n  else {\n                    /* try { // try from 00164d20 to 00164d29 has its CatchHandler @ 0016536a */\n    _ZN67__LT_alloc__vec__Vec_LT_T_C_A_GT__u20_as_u20_core__clone__Clone_GT_5clone17h5e9a9c3d89a1dce2E\n              (local_178,param_2[4],local_e8);\n    local_1a8 = puStack_170;\n    uStack_1a0 = uStack_168;\n    if (local_178 == (undefined  [8])0x8000000000000000) goto LAB_00164d4e;\n    local_110 = puStack_170;\n    pcStack_108 = uStack_168;\n    local_118 = (undefined *)local_178;\n  }\n  local_100 = lVar16;\n  auVar17 = _ZN4core3str6traits110__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeTo_LT_usize_GT__GT_3get17hf838fc4d891e0944E\n                      (lVar16,puVar1,local_188);\n  uVar14 = auVar17._8_8_;\n  lVar16 = auVar17._0_8_;\n  if (lVar16 == 0) {\n                    /* try { // try from 0016531a to 00165338 has its CatchHandler @ 001653f6 */\n    (*(code *)PTR__ZN4core3str16slice_error_fail17h1a2885084e28d077E_002000c8)\n              (puVar1,local_188,0,local_100,&PTR_s_src_uu_mktemp_src_mktemp_rs_001f8fd0);\nLAB_00165368:\n                    /* WARNING: Does not return */\n    pcVar2 = (code *)invalidInstructionException();\n    (*pcVar2)();\n  }\n                    /* try { // try from 00164e96 to 00164ea5 has its CatchHandler @ 001653f6 */\n  _ZN3std4path4Path4join17h54ca0a2412d4ea69E(local_178,local_110,pcStack_108,lVar16,uVar14);\n  local_1a8 = puStack_170;\n  uStack_1a0 = uStack_168;\n                    /* try { // try from 00164eaf to 00164ebe has its CatchHandler @ 00165381 */\n  _ZN49__LT_T_u20_as_u20_alloc__string__SpecToString_GT_14spec_to_string17hbac688a0c4ef4a45E\n            (&local_a0,&local_1a8);\n  _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17h4af838b51e1cae1bE(local_178);\n                    /* try { // try from 00164ecf to 00164fcd has its CatchHandler @ 00165390 */\n  if ((*(char *)((long)param_2 + 0x4b) == '\\0') ||\n     (cVar12 = _ZN52__LT_char_u20_as_u20_core__str__pattern__Pattern_GT_15is_contained_in17h822e1c3c690e59b6E\n                         (lVar16,uVar14), cVar12 == '\\0')) {\n    if ((lVar8 != -0x8000000000000000) &&\n       (cVar12 = (*(code *)PTR__ZN3std4path4Path11is_absolute17hf2dacc49683e82acE_002000e0)\n                           (lVar16,uVar14), cVar12 != '\\0')) {\n      uVar14 = 0x8000000000000005;\n      goto LAB_00164f1b;\n    }\n    pcVar2 = local_90;\n    uVar14 = CONCAT44(uStack_94,uStack_98);\n    local_178 = (undefined  [8])((ulong)local_178 & 0xffffffff00000000);\n    uVar15 = _ZN4core4char7methods15encode_utf8_raw17h5e8f6d90a161f6f4E(0x2f,local_178);\n    cVar12 = _ZN4core5slice29__LT_impl_u20__u5b_T_u5d__GT_9ends_with17hce4324c85153fc81E\n                       (uVar14,pcVar2,uVar15);\n    if (cVar12 == '\\0') {\n      auVar17 = (*(code *)PTR__ZN3std4path4Path6parent17hef287f60afa56900E_00200138)(uVar14,pcVar2);\n      if (auVar17._0_8_ == 0) {\n        local_1a8 = (undefined *)0x0;\n        uStack_1a0 = (code *)&DAT_00000001;\n        local_198 = (code *)0x0;\n      }\n      else {\n        _local_178 = auVar17;\n        _ZN49__LT_T_u20_as_u20_alloc__string__SpecToString_GT_14spec_to_string17hbac688a0c4ef4a45E\n                  (&local_1a8,local_178);\n      }\n                    /* try { // try from 00164fea to 00165027 has its CatchHandler @ 001653a6 */\n      lVar16 = (*(code *)PTR__ZN3std4path4Path9file_name17h6d40d88bf3fb287aE_001ffe00)\n                         (uVar14,pcVar2);\n      if (lVar16 == 0) {\n        auVar17._8_8_ = 0;\n        auVar17._0_8_ = &DAT_00000001;\n        local_70 = auVar17 << 0x40;\n        uStack_168 = (code *)0x0;\n      }\n      else {\n        (*(code *)PTR__ZN4core3str8converts9from_utf817h8a6dc80f786921e0E_001ffdf8)\n                  (local_178,lVar16);\n        if ((_local_178 & (undefined  [16])0x1) != (undefined  [16])0x0) {\n                    /* try { // try from 0016535b to 00165367 has its CatchHandler @ 001653a6 */\n          (*(code *)PTR__ZN4core6option13unwrap_failed17h893f57cb7db71cb7E_001ffdd0)\n                    (&PTR_s_src_uu_mktemp_src_mktemp_rs_001f8fe8);\n          goto LAB_00165368;\n        }\n        _ZN87__LT_T_u20_as_u20_alloc__slice___LT_impl_u20__u5b_T_u5d__GT___to_vec_in__ConvertVec_GT_6to_vec17h3c498dae33407f89E\n                  (local_178,puStack_170,uStack_168);\n        local_70 = _local_178;\n      }\n      local_a8 = local_198;\n      local_b8 = (undefined4)local_1a8;\n      uStack_b4 = local_1a8._4_4_;\n      uStack_b0 = (undefined4)uStack_1a0;\n      uStack_ac = uStack_1a0._4_4_;\n    }\n    else {\n      local_a8 = local_90;\n      local_b8 = local_a0;\n      uStack_b4 = uStack_9c;\n      uStack_b0 = uStack_98;\n      uStack_ac = uStack_94;\n      auVar9._8_8_ = 0;\n      auVar9._0_8_ = &DAT_00000001;\n      local_70 = auVar9 << 0x40;\n      uStack_168 = (code *)0x0;\n    }\n    pcVar2 = local_188;\n    if (local_120 == -0x8000000000000000) {\n      local_80 = 1;\n      uStack_78 = 0;\n      local_88 = 0;\n    }\n    else {\n      local_80 = param_2[7];\n      uStack_78 = param_2[8];\n      local_88 = local_120;\n    }\n    local_60 = uStack_168;\n    local_40 = _ZN4core3str6traits112__LT_impl_u20_core__slice__index__SliceIndex_LT_str_GT__u20_for_u20_core__ops__range__RangeFrom_LT_usize_GT__GT_3get17h28e9e81c5537bbedE\n                         (local_128,puVar1,local_188);\n    if (local_40._0_8_ == 0) {\n                    /* try { // try from 0016533b to 00165358 has its CatchHandler @ 001653b6 */\n      (*(code *)PTR__ZN4core3str16slice_error_fail17h1a2885084e28d077E_002000c8)\n                (puVar1,pcVar2,local_128,pcVar2,&PTR_s_src_uu_mktemp_src_mktemp_rs_001f9000);\n      goto LAB_00165368;\n    }\n    local_1a8 = local_40;\n    uStack_1a0 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h6e4bdad1b13e5d00E;\n    local_198 = (code *)&local_88;\n    local_190 = \n    _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E;\n    local_178 = (undefined  [8])&DAT_0011b210;\n    puStack_170 = (undefined *)0x2;\n    auStack_160._8_8_ = 0;\n    auStack_160._0_8_ = 2;\n                    /* try { // try from 0016514e to 0016515f has its CatchHandler @ 001653b6 */\n    uStack_168 = (code *)&local_1a8;\n    _ZN4core6option15Option_LT_T_GT_11map_or_else17h00d6975f0c0267a7E(&local_58,local_178);\n    local_d8 = local_58;\n    uStack_d4 = uStack_54;\n    uStack_d0 = uStack_50;\n    uStack_cc = uStack_4c;\n    local_c8 = local_48;\n                    /* try { // try from 00165188 to 0016518c has its CatchHandler @ 0016536f */\n    cVar13 = _ZN52__LT_char_u20_as_u20_core__str__pattern__Pattern_GT_15is_contained_in17h822e1c3c690e59b6E\n                       (CONCAT44(uStack_4c,uStack_50));\n    if (cVar13 == '\\0') {\n      uStack_168 = local_a8;\n      pcVar2 = uStack_168;\n      local_178 = (undefined  [8])CONCAT44(uStack_b4,local_b8);\n      puStack_170 = (undefined *)CONCAT44(uStack_ac,uStack_b0);\n      local_150 = local_60;\n      local_138 = local_c8;\n      local_148 = local_d8;\n      uStack_144 = uStack_d4;\n      uStack_140 = uStack_d0;\n      uStack_13c = uStack_cc;\n      param_1[8] = local_c8;\n      *(int *)(param_1 + 6) = local_d8;\n      *(undefined4 *)((long)param_1 + 0x34) = uStack_d4;\n      *(undefined4 *)(param_1 + 7) = uStack_d0;\n      *(undefined4 *)((long)param_1 + 0x3c) = uStack_cc;\n      *param_1 = local_178;\n      param_1[1] = puStack_170;\n      param_1[4] = local_70._8_8_;\n      param_1[5] = local_60;\n      uStack_168._0_4_ = SUB84(local_a8,0);\n      uStack_168._4_4_ = (undefined4)((ulong)local_a8 >> 0x20);\n      auStack_160._0_4_ = local_70._0_4_;\n      auStack_160._4_4_ = local_70._4_4_;\n      *(undefined4 *)(param_1 + 2) = (undefined4)uStack_168;\n      *(undefined4 *)((long)param_1 + 0x14) = uStack_168._4_4_;\n      *(undefined4 *)(param_1 + 3) = auStack_160._0_4_;\n      *(undefined4 *)((long)param_1 + 0x1c) = auStack_160._4_4_;\n      param_1[9] = local_128 - local_100;\n      uStack_168 = pcVar2;\n      auStack_160 = local_70;\n      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hdd7c658a73a0c2dfE(&local_88);\n      if (cVar12 == '\\0') {\n        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hdd7c658a73a0c2dfE(&local_a0);\n      }\n      _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17h4af838b51e1cae1bE(&local_118);\n      _ZN4core3ptr67drop_in_place_LT_core__option__Option_LT_std__path__PathBuf_GT__GT_17h92010b458ccdc0ceE\n                (&local_f8);\n      goto LAB_001652fd;\n    }\n    param_1[4] = local_c8;\n    *(int *)(param_1 + 2) = local_d8;\n    *(undefined4 *)((long)param_1 + 0x14) = uStack_d4;\n    *(undefined4 *)(param_1 + 3) = uStack_d0;\n    *(undefined4 *)((long)param_1 + 0x1c) = uStack_cc;\n    param_1[1] = 0x8000000000000004;\n    *param_1 = 0x8000000000000000;\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hdd7c658a73a0c2dfE(&local_88);\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hdd7c658a73a0c2dfE(local_70);\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hdd7c658a73a0c2dfE(&local_b8);\n    bVar7 = true;\n    bVar6 = false;\n    bVar10 = false;\n    bVar11 = true;\n    if (cVar12 == '\\0') goto LAB_001651f5;\n  }\n  else {\n    uVar14 = 0x8000000000000003;\nLAB_00164f1b:\n    param_1[1] = uVar14;\n    uVar3 = *(undefined4 *)((long)param_2 + 4);\n    uVar4 = *(undefined4 *)(param_2 + 1);\n    uVar5 = *(undefined4 *)((long)param_2 + 0xc);\n    *(undefined4 *)(param_1 + 2) = *(undefined4 *)param_2;\n    *(undefined4 *)((long)param_1 + 0x14) = uVar3;\n    *(undefined4 *)(param_1 + 3) = uVar4;\n    *(undefined4 *)((long)param_1 + 0x1c) = uVar5;\n    param_1[4] = param_2[2];\n    *param_1 = 0x8000000000000000;\n    bVar10 = true;\n    bVar11 = false;\nLAB_001651f5:\n    bVar7 = bVar11;\n    bVar6 = bVar10;\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hdd7c658a73a0c2dfE(&local_a0);\n  }\n  _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17h4af838b51e1cae1bE(&local_118);\n  _ZN4core3ptr67drop_in_place_LT_core__option__Option_LT_std__path__PathBuf_GT__GT_17h92010b458ccdc0ceE\n            (&local_f8);\n  if (bVar6) {\n    _ZN4core3ptr70drop_in_place_LT_core__option__Option_LT_alloc__string__String_GT__GT_17he610de4c4ff4ed65E\n              (local_180);\n  }\n  if (!bVar7) {\n    return param_1;\n  }\nLAB_001652fd:\n  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hdd7c658a73a0c2dfE(param_2);\n  return param_1;\n}",
+    "_ZN9uu_mktemp14make_temp_file17hb72bef91cb9e45f4E": "void _ZN9uu_mktemp14make_temp_file17hb72bef91cb9e45f4E\n               (undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,\n               undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8)\n\n{\n  char cVar1;\n  undefined8 uVar2;\n  undefined auVar3 [16];\n  undefined8 local_168;\n  undefined8 uStack_160;\n  int *local_158;\n  undefined8 local_150;\n  undefined8 uStack_148;\n  code *local_140;\n  int local_138;\n  undefined4 uStack_134;\n  undefined4 uStack_130;\n  undefined4 uStack_12c;\n  undefined8 local_128;\n  undefined4 uStack_120;\n  undefined4 uStack_11c;\n  undefined8 local_118;\n  undefined *local_108;\n  undefined8 uStack_100;\n  undefined8 local_f8;\n  undefined8 uStack_f0;\n  undefined8 uStack_e8;\n  undefined8 local_e0;\n  undefined local_d8 [24];\n  undefined8 local_c0;\n  undefined8 local_b8;\n  undefined8 local_b0;\n  undefined8 local_a8;\n  undefined4 local_a0 [2];\n  undefined8 local_98;\n  undefined8 local_90;\n  undefined8 local_88;\n  undefined8 local_80;\n  undefined8 local_78;\n  undefined2 local_70;\n  undefined8 local_68 [2];\n  char local_58;\n  undefined local_48 [24];\n  \n  local_b0 = param_7;\n  local_a8 = param_8;\n  local_70 = 0;\n  local_a0[0] = 0;\n  local_88 = param_7;\n  local_80 = param_8;\n  local_c0 = param_4;\n  local_b8 = param_5;\n  local_98 = param_4;\n  local_90 = param_5;\n  local_78 = param_6;\n  _ZN8tempfile7Builder11tempfile_in17he0411b7e1dc3d234E(local_68,local_a0,param_2,param_3);\n  if (local_58 == '\\x02') {\n    cVar1 = _ZN3std2io5error5Error4kind17h135fe00c4e7365f3E(local_68[0]);\n    if (cVar1 == '\\0') {\n                    /* try { // try from 001663e3 to 001663f0 has its CatchHandler @ 0016657d */\n      _ZN5alloc5slice29__LT_impl_u20__u5b_T_u5d__GT_6repeat17h972a0325fa79cda6E(&local_168,param_6);\n      local_128 = local_158;\n      local_138 = (int)local_168;\n      uStack_134 = local_168._4_4_;\n      uStack_130 = (undefined4)uStack_160;\n      uStack_12c = uStack_160._4_4_;\n      local_168 = &local_c0;\n      uStack_160 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h6e4bdad1b13e5d00E;\n      local_158 = &local_138;\n      local_150 = \n      _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E;\n      uStack_148 = &local_b0;\n      local_140 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h6e4bdad1b13e5d00E;\n      local_108 = &DAT_0011b658;\n      uStack_100 = 3;\n      uStack_e8 = 0;\n      uStack_f0 = 3;\n                    /* try { // try from 00166473 to 00166484 has its CatchHandler @ 0016656e */\n      local_f8 = &local_168;\n      _ZN4core6option15Option_LT_T_GT_11map_or_else17h00d6975f0c0267a7E(local_48,&local_108);\n      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hdd7c658a73a0c2dfE(&local_138);\n                    /* try { // try from 0016648f to 001664a9 has its CatchHandler @ 0016657d */\n      _ZN3std4path4Path4join17h71cca2405c68dc0dE(local_d8,param_2,param_3,local_48);\n                    /* try { // try from 001664b6 to 001664c2 has its CatchHandler @ 0016655c */\n      _ZN49__LT_T_u20_as_u20_alloc__string__SpecToString_GT_14spec_to_string17hbac688a0c4ef4a45E\n                (&local_138,&local_168);\n                    /* try { // try from 001664c3 to 001664d8 has its CatchHandler @ 0016654d */\n      _ZN87__LT_T_u20_as_u20_alloc__slice___LT_impl_u20__u5b_T_u5d__GT___to_vec_in__ConvertVec_GT_6to_vec17h3c498dae33407f89E\n                (&local_108,\"file\",4);\n      local_158 = (int *)local_f8;\n      local_168 = (undefined8 *)local_108;\n      uStack_160 = (code *)uStack_100;\n      local_150 = (code *)CONCAT44(uStack_134,local_138);\n      uStack_148 = (undefined8 *)CONCAT44(uStack_12c,uStack_130);\n      local_140 = (code *)local_128;\n                    /* try { // try from 00166500 to 00166507 has its CatchHandler @ 0016654b */\n      uVar2 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h066bf77b12338303E(&local_168);\n      param_1[1] = uVar2;\n      param_1[2] = &\n                   PTR__ZN4core3ptr43drop_in_place_LT_uu_mktemp__MkTempError_GT_17h4cd5fdd633393dd9E_001f9098\n      ;\n      *param_1 = 0x8000000000000000;\n      _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17h4af838b51e1cae1bE(local_d8);\n      _ZN4core3ptr42drop_in_place_LT_std__io__error__Error_GT_17h107f4e23998bf9d2E(local_68[0]);\n    }\n    else {\n      auVar3 = (*(code *)\n                 PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_00200150\n               )(local_68[0]);\n      *(undefined (*) [16])(param_1 + 1) = auVar3;\n      *param_1 = 0x8000000000000000;\n    }\n  }\n  else {\n    _ZN8tempfile4file22NamedTempFile_LT_F_GT_4keep17hc7ec6b05f101e459E(&local_108,local_68);\n    if ((int)local_108 == 1) {\n      local_118 = local_e0;\n      uStack_120 = (undefined4)uStack_e8;\n      uStack_11c = uStack_e8._4_4_;\n      local_138 = (int)uStack_100;\n      uStack_134 = uStack_100._4_4_;\n      uStack_130 = (undefined4)local_f8;\n      uStack_12c = local_f8._4_4_;\n                    /* try { // try from 00166362 to 0016639f has its CatchHandler @ 0016658a */\n      (*(code *)PTR__ZN3std3sys3pal4unix2os11split_paths13bytes_to_path17h3f69b771c0ce4140E_00200160\n      )(local_d8,local_f8,uStack_f0);\n      local_168 = (undefined8 *)0x8000000000000000;\n      uVar2 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h066bf77b12338303E(&local_168);\n      param_1[1] = uVar2;\n      param_1[2] = &\n                   PTR__ZN4core3ptr43drop_in_place_LT_uu_mktemp__MkTempError_GT_17h4cd5fdd633393dd9E_001f9098\n      ;\n      *param_1 = 0x8000000000000000;\n      _ZN4core3ptr49drop_in_place_LT_tempfile__file__PersistError_GT_17h0aa05fd71ac9bb03E\n                (&local_138);\n    }\n    else {\n      param_1[2] = uStack_e8;\n      *param_1 = local_f8;\n      param_1[1] = uStack_f0;\n      _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17hf84162f12f94393fE((int)uStack_100);\n    }\n  }\n  return;\n}",
+    "_ZN9uu_mktemp13make_temp_dir17h6dfece6cf0e8d640E": "void _ZN9uu_mktemp13make_temp_dir17h6dfece6cf0e8d640E\n               (undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,\n               undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8)\n\n{\n  undefined8 uVar1;\n  char cVar2;\n  undefined8 uVar3;\n  undefined auVar4 [16];\n  undefined4 local_188;\n  undefined4 uStack_184;\n  undefined4 uStack_180;\n  undefined4 uStack_17c;\n  undefined8 local_178;\n  undefined8 local_168;\n  undefined8 uStack_160;\n  undefined8 *local_158;\n  undefined8 local_150;\n  undefined8 uStack_148;\n  code *local_140;\n  undefined4 local_130;\n  undefined4 uStack_12c;\n  undefined4 uStack_128;\n  undefined4 uStack_124;\n  char local_120;\n  undefined8 local_118;\n  undefined8 local_110;\n  undefined8 local_108;\n  undefined8 local_100;\n  undefined *local_f8;\n  undefined8 uStack_f0;\n  undefined8 *local_e8;\n  undefined8 local_e0;\n  undefined8 local_d8;\n  undefined local_c8 [24];\n  undefined8 local_b0;\n  undefined8 local_a8;\n  undefined8 local_a0;\n  undefined8 local_98;\n  undefined8 local_90;\n  undefined8 local_88;\n  undefined2 local_80;\n  undefined4 local_78;\n  undefined4 uStack_74;\n  undefined4 uStack_70;\n  undefined4 uStack_6c;\n  undefined8 local_60;\n  undefined8 uStack_58;\n  undefined8 local_50;\n  undefined local_48 [24];\n  \n  local_108 = param_7;\n  local_100 = param_8;\n  local_80 = 0;\n  local_98 = param_7;\n  local_90 = param_8;\n  local_b0 = 0x1c000000001;\n  local_118 = param_4;\n  local_110 = param_5;\n  local_a8 = param_4;\n  local_a0 = param_5;\n  local_88 = param_6;\n  _ZN8tempfile7Builder10tempdir_in17hfc85b0e03fc17ef4E(&local_130,&local_b0,param_2,param_3);\n  if (local_120 == '\\x02') {\n    uVar1 = CONCAT44(uStack_12c,local_130);\n    cVar2 = _ZN3std2io5error5Error4kind17h135fe00c4e7365f3E(uVar1);\n    if (cVar2 == '\\0') {\n                    /* try { // try from 0016605b to 0016606a has its CatchHandler @ 00166208 */\n      _ZN5alloc5slice29__LT_impl_u20__u5b_T_u5d__GT_6repeat17h972a0325fa79cda6E(&local_168,param_6);\n      local_178 = local_158;\n      local_188 = (undefined4)local_168;\n      uStack_184 = local_168._4_4_;\n      uStack_180 = (undefined4)uStack_160;\n      uStack_17c = uStack_160._4_4_;\n      local_168 = &local_118;\n      uStack_160 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h6e4bdad1b13e5d00E;\n      local_150 = \n      _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E;\n      uStack_148 = &local_108;\n      local_140 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h6e4bdad1b13e5d00E;\n      local_f8 = &DAT_0011b658;\n      uStack_f0 = 3;\n      local_d8 = 0;\n      local_e0 = 3;\n                    /* try { // try from 001660f5 to 00166109 has its CatchHandler @ 001661fb */\n      local_158 = (undefined8 *)&local_188;\n      local_e8 = &local_168;\n      _ZN4core6option15Option_LT_T_GT_11map_or_else17h00d6975f0c0267a7E(local_48,&local_f8);\n      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hdd7c658a73a0c2dfE(&local_188);\n                    /* try { // try from 00166112 to 0016612c has its CatchHandler @ 00166208 */\n      _ZN3std4path4Path4join17h71cca2405c68dc0dE(local_c8,param_2,param_3,local_48);\n                    /* try { // try from 0016613a to 00166146 has its CatchHandler @ 001661e9 */\n      _ZN49__LT_T_u20_as_u20_alloc__string__SpecToString_GT_14spec_to_string17hbac688a0c4ef4a45E\n                (&local_188,&local_168);\n                    /* try { // try from 00166147 to 0016615f has its CatchHandler @ 001661dc */\n      _ZN87__LT_T_u20_as_u20_alloc__slice___LT_impl_u20__u5b_T_u5d__GT___to_vec_in__ConvertVec_GT_6to_vec17h3c498dae33407f89E\n                (&local_f8,\"directory\",9);\n      local_158 = local_e8;\n      local_168 = (undefined8 *)local_f8;\n      uStack_160 = (code *)uStack_f0;\n      local_150 = (code *)CONCAT44(uStack_184,local_188);\n      uStack_148 = (undefined8 *)CONCAT44(uStack_17c,uStack_180);\n      local_140 = (code *)local_178;\n                    /* try { // try from 0016618d to 00166196 has its CatchHandler @ 001661da */\n      uVar3 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h066bf77b12338303E(&local_168);\n      param_1[1] = uVar3;\n      param_1[2] = &\n                   PTR__ZN4core3ptr43drop_in_place_LT_uu_mktemp__MkTempError_GT_17h4cd5fdd633393dd9E_001f9098\n      ;\n      *param_1 = 0x8000000000000000;\n      _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17h4af838b51e1cae1bE(local_c8);\n      _ZN4core3ptr42drop_in_place_LT_std__io__error__Error_GT_17h107f4e23998bf9d2E(uVar1);\n    }\n    else {\n      auVar4 = (*(code *)\n                 PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_00200150\n               )(uVar1);\n      *(undefined (*) [16])(param_1 + 1) = auVar4;\n      *param_1 = 0x8000000000000000;\n    }\n  }\n  else {\n    local_78 = local_130;\n    uStack_74 = uStack_12c;\n    uStack_70 = uStack_128;\n    uStack_6c = uStack_124;\n    (*(code *)PTR__ZN8tempfile3dir7TempDir4keep17hd8ce1fb884c31a5cE_00200158)(&local_60,&local_78);\n    param_1[2] = local_50;\n    *param_1 = local_60;\n    param_1[1] = uStack_58;\n  }\n  return;\n}",
+    "_ZN9uu_mktemp6uumain6uumain17h57caf5767550e8caE": "undefined  [16]\n_ZN9uu_mktemp6uumain6uumain17h57caf5767550e8caE(undefined8 param_1,undefined8 param_2)\n\n{\n  code *pcVar1;\n  long lVar2;\n  long lVar3;\n  char cVar4;\n  undefined8 uVar5;\n  undefined auVar6 [16];\n  undefined8 local_440;\n  undefined8 local_438;\n  undefined8 uStack_430;\n  undefined4 local_428;\n  undefined4 uStack_424;\n  undefined4 uStack_420;\n  undefined4 uStack_41c;\n  undefined8 local_418;\n  undefined4 uStack_410;\n  undefined4 uStack_40c;\n  undefined4 local_408;\n  undefined4 uStack_404;\n  undefined4 uStack_400;\n  undefined4 uStack_3fc;\n  undefined8 local_3f8;\n  undefined8 local_3f0;\n  undefined8 uStack_3e8;\n  undefined8 local_3e0;\n  undefined local_3b8 [8];\n  long local_3b0;\n  long local_3a8;\n  undefined4 local_3a0;\n  undefined4 uStack_39c;\n  undefined4 uStack_398;\n  undefined4 uStack_394;\n  undefined4 local_390;\n  undefined4 uStack_38c;\n  undefined4 uStack_388;\n  undefined4 uStack_384;\n  undefined4 uStack_378;\n  undefined4 uStack_374;\n  undefined4 local_370;\n  undefined4 uStack_36c;\n  undefined4 uStack_368;\n  undefined4 uStack_364;\n  undefined8 local_360;\n  undefined uStack_358;\n  char cStack_357;\n  char cStack_356;\n  long local_350;\n  undefined8 local_348;\n  undefined8 local_340;\n  undefined4 local_338;\n  undefined4 uStack_334;\n  undefined4 uStack_330;\n  undefined4 uStack_32c;\n  undefined4 local_328;\n  undefined4 uStack_324;\n  undefined4 uStack_320;\n  undefined4 uStack_31c;\n  undefined4 local_318;\n  undefined4 uStack_314;\n  undefined4 uStack_310;\n  undefined4 uStack_30c;\n  undefined8 local_308;\n  undefined8 local_2f8;\n  undefined8 uStack_2f0;\n  undefined4 local_2e8;\n  undefined4 uStack_2e4;\n  undefined4 uStack_2e0;\n  undefined4 uStack_2dc;\n  undefined8 uStack_2d0;\n  undefined4 local_2c8;\n  undefined4 uStack_2c4;\n  undefined4 uStack_2c0;\n  undefined4 uStack_2bc;\n  undefined8 local_2b8;\n  \n  _ZN4core4iter6traits8iterator8Iterator7collect17hd83c665600655c8fE(local_3b8,param_1,param_2);\n                    /* try { // try from 0015dfd4 to 0015e009 has its CatchHandler @ 0015e494 */\n  (*(code *)PTR__ZN9uu_mktemp6uu_app17hf890987c6ac202a5E_001fff20)(&local_2f8);\n  _ZN12clap_builder7builder7command7Command20try_get_matches_from17hb2bf9d3bff290aa8E\n            (&local_428,&local_2f8,local_3b0,local_3a8);\n  local_308 = local_3f8;\n  local_318 = local_408;\n  uStack_314 = uStack_404;\n  uStack_310 = uStack_400;\n  uStack_30c = uStack_3fc;\n  local_328 = (undefined4)local_418;\n  uStack_324 = local_418._4_4_;\n  uStack_320 = uStack_410;\n  uStack_31c = uStack_40c;\n  local_338 = local_428;\n  uStack_334 = uStack_424;\n  uStack_330 = uStack_420;\n  uStack_32c = uStack_41c;\n                    /* try { // try from 0015e0f1 to 0015e106 has its CatchHandler @ 0015e469 */\n  (*(code *)PTR__ZN9uu_mktemp7Options4from17h9e8f44a051439882E_001fff28)(&local_3a0,&local_338);\n                    /* try { // try from 0015e107 to 0015e154 has its CatchHandler @ 0015e4ac */\n  _ZN3std3env3var17hd1d7290f1c0b217fE(&local_2f8);\n  _ZN4core3ptr91drop_in_place_LT_core__result__Result_LT_alloc__string__String_C_std__env__VarError_GT__GT_17h3eea05ffe5343f6cE\n            (&local_2f8);\n  if ((((byte)local_2f8 & 1) == 0) &&\n     (cVar4 = (*(code *)\n                PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h5efeb7e2d2f22590E_001fff38\n              )(&local_338,\n                *(undefined8 *)PTR__ZN9uu_mktemp12ARG_TEMPLATE17hfee3cbf22394565cE_001fff30,\n                *(undefined8 *)(PTR__ZN9uu_mktemp12ARG_TEMPLATE17hfee3cbf22394565cE_001fff30 + 8)),\n     cVar4 != '\\0')) {\n    if ((local_3a8 == 0) || (local_3b0 + local_3a8 * 0x18 == 0x18)) {\n      (*(code *)PTR__ZN4core6option13unwrap_failed17h893f57cb7db71cb7E_001ffdd0)\n                (&PTR_s__home_34r7hm4n_dev_oxidizer_oxid_001f82c0);\n                    /* WARNING: Does not return */\n      pcVar1 = (code *)invalidInstructionException();\n      (*pcVar1)();\n    }\n    local_3b0 = local_3b0 + local_3a8 * 0x18;\n    cVar4 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h81f4ba8d19a066abE\n                      (*(undefined8 *)(local_3b0 + -0x10),*(undefined8 *)(local_3b0 + -8),\n                       CONCAT44(uStack_394,uStack_398),CONCAT44(uStack_38c,local_390));\n    if (cVar4 != '\\0') goto LAB_0015e1a0;\n    local_2f8 = -0x7ffffffffffffffa;\n                    /* try { // try from 0015e429 to 0015e457 has its CatchHandler @ 0015e4ac */\n    uVar5 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h926c3f51c79b10e8E(&local_2f8);\n    _ZN4core3ptr39drop_in_place_LT_uu_mktemp__Options_GT_17h3eaafb388e86958cE(&local_3a0);\nLAB_0015e292:\n    auVar6._8_8_ = &\n                   PTR__ZN4core3ptr43drop_in_place_LT_uu_mktemp__MkTempError_GT_17h5ed7a83c0a0dcbe6E_001f82f8\n    ;\n    auVar6._0_8_ = uVar5;\n  }\n  else {\nLAB_0015e1a0:\n    local_2b8 = local_360;\n    local_2c8 = local_370;\n    uStack_2c4 = uStack_36c;\n    uStack_2c0 = uStack_368;\n    uStack_2bc = uStack_364;\n    uStack_2d0 = CONCAT44(uStack_374,uStack_378);\n    local_2e8 = local_390;\n    uStack_2e4 = uStack_38c;\n    uStack_2e0 = uStack_388;\n    uStack_2dc = uStack_384;\n    local_2f8 = CONCAT44(uStack_39c,local_3a0);\n    uStack_2f0 = CONCAT44(uStack_394,uStack_398);\n                    /* try { // try from 0015e20a to 0015e28e has its CatchHandler @ 0015e48f */\n    (*(code *)PTR__ZN9uu_mktemp6Params4from17h79f2486a494e973aE_001fff40)(&local_428,&local_2f8);\n    lVar2 = CONCAT44(uStack_424,local_428);\n    lVar3 = CONCAT44(uStack_41c,uStack_420);\n    if (lVar2 == -0x8000000000000000) {\n      local_2e8 = uStack_410;\n      uStack_2e4 = uStack_40c;\n      uStack_2e0 = local_408;\n      uStack_2dc = uStack_404;\n      uStack_2f0 = local_418;\n      uStack_2d0 = local_3f8;\n      local_2f8 = lVar3;\n      uVar5 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h926c3f51c79b10e8E(&local_2f8);\n      goto LAB_0015e292;\n    }\n    local_438 = local_3f0;\n    uStack_430 = uStack_3e8;\n    local_428 = uStack_410;\n    uStack_424 = uStack_40c;\n    uStack_420 = local_408;\n    uStack_41c = uStack_404;\n    local_440 = local_3f8;\n    if (cStack_357 == '\\0') {\n      (*(code *)PTR__ZN9uu_mktemp4exec17heedcd9fa9b859fddE_001fff58)\n                (&local_2f8,lVar3,local_418,CONCAT44(uStack_404,local_408),\n                 CONCAT44(uStack_3fc,uStack_400),local_3e0,local_3f0,uStack_3e8,uStack_358);\n    }\n    else {\n                    /* try { // try from 0015e2f1 to 0015e359 has its CatchHandler @ 0015e46b */\n      (*(code *)PTR__ZN9uu_mktemp8dry_exec17h79e853eb482345aeE_001fff50)(&local_2f8,lVar3);\n    }\n    uVar5 = CONCAT44(uStack_2e4,local_2e8);\n    auVar6._8_8_ = uVar5;\n    auVar6._0_8_ = uStack_2f0;\n    if (cStack_356 == '\\0') {\n      if (local_2f8 != -0x8000000000000000) goto LAB_0015e395;\n    }\n    else {\n      if (local_2f8 != -0x8000000000000000) {\nLAB_0015e395:\n        local_350 = local_2f8;\n        local_348 = uStack_2f0;\n                    /* try { // try from 0015e3ad to 0015e3c1 has its CatchHandler @ 0015e46b */\n        local_340 = uVar5;\n        uVar5 = _ZN6uucore4mods7display16println_verbatim17h83517c5b48aaf591E(&local_350);\n        uVar5 = _ZN201__LT_core__result__Result_LT_T_C_std__io__error__Error_GT__u20_as_u20_uucore__mods__error__FromIo_LT_core__result__Result_LT_T_C_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT__GT__GT_15map_err_context17hff3b8e8518f7a10fE\n                          (uVar5);\n        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h1f07e27e74b22b47E(&local_440);\n        _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h1f07e27e74b22b47E(&local_428);\n        _ZN4core3mem4drop17hefa9b82e173370e7E(lVar2,lVar3);\n                    /* try { // try from 0015e3e4 to 0015e3f0 has its CatchHandler @ 0015e494 */\n        _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17ha3cfcef4e4d23239E\n                  (&local_338);\n        auVar6._8_8_ = &\n                       PTR__ZN4core3ptr50drop_in_place_LT_uucore__mods__error__UIoError_GT_17h788463024e1f2c0cE_001f8040\n        ;\n        auVar6._0_8_ = uVar5;\n        goto LAB_0015e3f8;\n      }\n      auVar6 = _ZN9uu_mktemp6uumain6uumain28__u7b__u7b_closure_u7d__u7d_17hc70eeb2c2d7c4ce4E\n                         (uStack_2f0,uVar5);\n    }\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h1f07e27e74b22b47E(&local_440);\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h1f07e27e74b22b47E(&local_428);\n    _ZN4core3mem4drop17hefa9b82e173370e7E(lVar2,lVar3);\n  }\n                    /* try { // try from 0015e386 to 0015e392 has its CatchHandler @ 0015e494 */\n  _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17ha3cfcef4e4d23239E\n            (&local_338);\nLAB_0015e3f8:\n  _ZN4core3ptr70drop_in_place_LT_alloc__vec__Vec_LT_std__ffi__os_str__OsString_GT__GT_17hc2a7ab734109fc31E\n            (local_3b8);\n  return auVar6;\n}"
+  },
+  "function_call_counts": {
+    "_ZN9uu_mktemp4exec17heedcd9fa9b859fddE": {
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "std::path::Path::join": 1,
+      "uu_mktemp::make_temp_file": 1,
+      "uu_mktemp::make_temp_dir": 1
+    },
+    "_ZN9uu_mktemp6uu_app17hf890987c6ac202a5E": {
+      "clap_builder::builder::arg::Arg::num_args": 1,
+      "clap_builder::builder::arg::Arg::value_hint": 2,
+      "clap_builder::builder::arg::Arg::new": 8,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::arg": 8,
+      "clap_builder::builder::arg::Arg::action": 4,
+      "clap_builder::builder::arg::Arg::help": 7,
+      "clap_builder::builder::arg::Arg::short": 5,
+      "clap_builder::builder::arg::Arg::long": 5,
+      "clap_builder::builder::arg::Arg::overrides_with": 1,
+      "clap_builder::builder::arg::Arg::value_name": 3,
+      "clap_builder::builder::command::Command::new": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::arg::Arg::value_parser": 2,
+      "clap_builder::builder::command::Command::override_usage": 1
+    },
+    "_ZN9uu_mktemp32find_last_contiguous_block_of_xs17h8d96f8bfdfc9b9d5E": {
+      "core::str::<impl str>::rfind": 1,
+      "core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeTo<usize>>::get": 1,
+      "core::option::Option<T>::map_or": 1
+    },
+    "_ZN9uu_mktemp6uumain17h64d3039214fcaa61E": {
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1,
+      "uu_mktemp::uumain::uumain": 1
+    },
+    "_ZN9uu_mktemp7Options4from17h9e8f44a051439882E": {
+      "std::env::var_os": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 2,
+      "core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>": 1,
+      "std::env::var": 1,
+      "core::ptr::drop_in_place<core::option::Option<std::path::PathBuf>>": 1,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone": 1,
+      "core::option::Option<T>::or_else": 1
+    },
+    "_ZN9uu_mktemp8dry_exec17h79e853eb482345aeE": {
+      "std::path::Path::join": 1,
+      "core::ptr::drop_in_place<rand::rngs::thread::ThreadRng>": 1,
+      "<rand_core::block::BlockRng<R> as rand_core::RngCore>::fill_bytes": 1,
+      "alloc::vec::Vec<T,A>::extend_trusted": 1,
+      "alloc::raw_vec::RawVecInner<A>::with_capacity_in": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "alloc::string::String::from_utf8": 1,
+      "<alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<&T,core::slice::iter::Iter<T>>>::spec_extend": 2,
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index_mut": 1
+    },
+    "_ZN9uu_mktemp6Params4from17h79f2486a494e973aE": {
+      "uu_mktemp::find_last_contiguous_block_of_xs": 1,
+      "<char as core::str::pattern::Pattern>::is_contained_in": 2,
+      "core::slice::<impl [T]>::ends_with": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::ptr::drop_in_place<core::option::Option<alloc::string::String>>": 3,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 3,
+      "<T as alloc::string::SpecToString>::spec_to_string": 2,
+      "core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeTo<usize>>::get": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 7,
+      "core::ptr::drop_in_place<core::option::Option<std::path::PathBuf>>": 4,
+      "std::path::Path::join": 1,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "core::char::methods::encode_utf8_raw": 2,
+      "core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeFrom<usize>>::get": 1
+    },
+    "_ZN9uu_mktemp14make_temp_file17hb72bef91cb9e45f4E": {
+      "alloc::slice::<impl [T]>::repeat": 1,
+      "core::ptr::drop_in_place<tempfile::file::PersistError>": 1,
+      "std::path::Path::join": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "tempfile::file::NamedTempFile<F>::keep": 1,
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "std::io::error::Error::kind": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<std::fs::File>": 1,
+      "alloc::boxed::Box<T>::new": 2,
+      "tempfile::Builder::tempfile_in": 1
+    },
+    "_ZN9uu_mktemp13make_temp_dir17h6dfece6cf0e8d640E": {
+      "alloc::slice::<impl [T]>::repeat": 1,
+      "std::path::Path::join": 1,
+      "tempfile::Builder::tempdir_in": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "std::io::error::Error::kind": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "alloc::boxed::Box<T>::new": 1
+    },
+    "_ZN9uu_mktemp6uumain6uumain17h57caf5767550e8caE": {
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "core::mem::drop": 2,
+      "uu_mktemp::uumain::uumain::{{closure}}": 1,
+      "core::ptr::drop_in_place<uu_mktemp::Options>": 1,
+      "alloc::boxed::Box<T>::new": 2,
+      "uucore::mods::display::println_verbatim": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "std::env::var": 1,
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 2,
+      "core::ptr::drop_in_place<alloc::string::String>": 4,
+      "core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<std::ffi::os_str::OsString>>": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN9uu_mktemp4exec17heedcd9fa9b859fddE": {},
+    "_ZN9uu_mktemp6uu_app17hf890987c6ac202a5E": {},
+    "_ZN9uu_mktemp32find_last_contiguous_block_of_xs17h8d96f8bfdfc9b9d5E": {},
+    "_ZN9uu_mktemp6uumain17h64d3039214fcaa61E": {},
+    "_ZN9uu_mktemp7Options4from17h9e8f44a051439882E": {},
+    "_ZN9uu_mktemp8dry_exec17h79e853eb482345aeE": {},
+    "_ZN9uu_mktemp6Params4from17h79f2486a494e973aE": {},
+    "_ZN9uu_mktemp14make_temp_file17hb72bef91cb9e45f4E": {},
+    "_ZN9uu_mktemp13make_temp_dir17h6dfece6cf0e8d640E": {},
+    "_ZN9uu_mktemp6uumain6uumain17h57caf5767550e8caE": {}
+  },
+  "variable_types": {
+    "_ZN9uu_mktemp4exec17heedcd9fa9b859fddE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_41": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_33": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_77": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_65": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_21": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&reference",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_81": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_73": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_17": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_145": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_49": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_57": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_69": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_25": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_mktemp6uu_app17hf890987c6ac202a5E": {
+      "stack_656": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2084": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1364": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1296": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2088": [
+        [
+          "array",
+          640
+        ]
+      ],
+      "stack_1372": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2076": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1300": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_660": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1376": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          632
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_664": [
+        [
+          "array",
+          632
+        ]
+      ]
+    },
+    "_ZN9uu_mktemp32find_last_contiguous_block_of_xs17h8d96f8bfdfc9b9d5E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_mktemp6uumain17h64d3039214fcaa61E": {
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_mktemp7Options4from17h9e8f44a051439882E": {
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_140": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_148": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_mktemp8dry_exec17h79e853eb482345aeE": {
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_zmm12": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_zmm13": [
+        [
+          "array",
+          16
+        ],
+        [
+          "array",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "array",
+          16
+        ],
+        [
+          "array",
+          16
+        ],
+        [
+          "array",
+          16
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_80": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "reg_zmm14": [
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_zmm15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_mktemp6Params4from17h79f2486a494e973aE": {
+      "stack_328": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_252": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_212": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_256": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_180": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_188": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_144": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_100": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_340": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_220": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_268": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_108": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_348": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_152": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_276": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_360": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_160": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_244": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_mktemp14make_temp_file17hb72bef91cb9e45f4E": {
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_304": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_76": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_92": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_392": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_68": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_mktemp13make_temp_dir17h6dfece6cf0e8d640E": {
+      "stack_328": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_292": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_176": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_424": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_300": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_108": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_116": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_28": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_mktemp6uumain6uumain17h57caf5767550e8caE": {
+      "stack_328": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_52": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_292": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_172": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_212": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_180": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_380": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_188": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_220": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_300": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_388": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_268": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_348": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_308": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_392": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_276": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_233": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_234": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_356": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_36": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_60": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_284": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_28": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_164": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_68": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_204": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    }
+  }
+}

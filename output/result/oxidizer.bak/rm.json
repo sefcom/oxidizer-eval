@@ -1,0 +1,2517 @@
+{
+  "decompilation": {
+    "_ZN5uu_rm6uumain17h1e1b7d5d0a97386eE": "fn uu_rm::uumain(a0: u64, a1: u64) -> long long {\n    let v0: u64;  // [bp-0x90]\n    let v1: alloc::string::String;  // [bp-0x50], Other Possible Types: u64\n    let v2: u64;  // [bp-0x48]\n    let v3: u64;  // [bp-0x40]\n    let v4: u128;  // [bp-0x28]\n    let v5: u64;  // [bp-0x18]\n    let v8: u64;  // rax\n    let v9: u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers());\n    v8 = uu_rm::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v1 = format!(\"{}\", &v0);\n    v4 = *(&v1.vec.buf.inner.cap as &i128);\n    v5 = v3;\n    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(<alloc::boxed::Box<T,A> as core::fmt::Display>::fmt, v3, 1, 0) {\n        v1 = uucore::util_name();\n        v2 = v9;\n        eprint!(\"{}: \", &v1);\n        eprintln!(\"{}\", &v4);\n    }\n    if !UnresolvableCallTarget(v0) {\n        return UnresolvableCallTarget(v0);\n    }\n    v1 = uucore::execution_phrase();\n    v2 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v1);\n    return UnresolvableCallTarget(v0);\n}\n",
+    "_ZN5uu_rm6uumain6uumain17h70e0ab345ddb6bc4E": "fn uu_rm::uumain::uumain(a0: i64, a1: i64) -> u64 {\n    let v0: u8;  // [bp-0x6d9]\n    let v1: struct8;  // [bp-0x6d8]\n    let v2: void*;  // [bp-0x6d0]\n    let v3: u64;  // [bp-0x6c8]\n    let v4: u64;  // [bp-0x6c0]\n    let v5: struct16;  // [bp-0x6b8], Other Possible Types: u64\n    let v6: u64;  // [bp-0x6b0]\n    let v7: struct16;  // [bp-0x6a8], Other Possible Types: struct24, struct56, u64\n    let v8: struct16;  // [bp-0x6a8]\n    let v9: u64;  // [bp-0x6a0]\n    let v10: u64;  // [bp-0x698]\n    let v11: void*;  // [bp-0x670], Other Possible Types: alloc::string::String, u64\n    let v13: u64;  // [bp-0x668]\n    let v14: u32;  // [bp-0x654]\n    let v15: void*;  // [bp-0x650]\n    let v16: u64;  // [bp-0x648]\n    let v17: &str;  // [bp-0x648]\n    let v18: u64;  // [bp-0x640]\n    let v20: alloc::string::String;  // [bp-0x620]\n    let v21: u64;  // [bp-0x610]\n    let v22: Result<struct40, struct16>;  // [bp-0x608], Other Possible Types: std::io::stdio::Stderr, struct28, struct56\n    let v23: struct712;  // [bp-0x608], Other Possible Types: u128\n    let v24: u128;  // [bp-0x608]\n    let v25: u64;  // [bp-0x600]\n    let v26: void*;  // [bp-0x5f8], Other Possible Types: u64\n    let v27: u32;  // [bp-0x5f0]\n    let v28: u128;  // [bp-0x5e8]\n    let v29: struct64;  // [bp-0x338]\n    let v30: struct56;  // [bp-0x2f8], Other Possible Types: struct712\n    let v31: u64;  // [bp-0x2f0]\n    let v32: u64;  // [bp-0x30]\n    let v33: u64;  // [bp-0x28]\n    let v34: u64;  // [bp-0x20]\n    let v35: u64;  // [bp-0x18]\n    let v36: u64;  // [bp-0x10]\n    let v38: u64;  // r15\n    let v39: u64;  // r14\n    let v40: u64;  // r13\n    let v41: u64;  // r12\n    let v42: u64;  // rbx\n    let v43: void*;  // rax\n    let v44: void*;  // rcx\n    let v45: u32;  // ecx\n    let v46: u32;  // ecx\n    let v47: u8;  // bpl\n    let v48: i64;  // rax\n    let v49: u64;  // rbx\n    let v50: u64;  // r12\n    let v51: void*;  // rax\n    let v52: u8;  // al\n    let v53: u8;  // al\n    let v54: u8;  // bl\n    let v55: void*;  // rdx\n    let v56: u64;  // rax\n    let v57: u64;  // rcx\n    let v58: u64;  // rdx\n    let v59: core::result::Result<(), std::io::error::Error>;  // rax\n    let v60: void*;  // rax\n    let v63: void*;  // rbx\n\n    v36 = v38;\n    v35 = v39;\n    v34 = v40;\n    v33 = v41;\n    v32 = v42;\n    v23 = uu_rm::uu_app();\n    v30 = clap_builder::builder::command::Command::after_help(&v23);\n    v8 = clap_builder::builder::command::Command::try_get_matches_from(&v30, a0, a1);\n    if (((0 ^ v8.field_0) & (0 ^ -(v7))) >> 63) as char {\n        v43 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v31);\n    } else {\n        v30 = v7;\n        v22 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v30, _ZN5uu_rm9ARG_FILES17hef95834ae08469abE.field_0, g_4ea498.field_0);\n        v29 = clap_builder::parser::error::MatchesError::unwrap(_ZN5uu_rm9ARG_FILES17hef95834ae08469abE.field_0, g_4ea498.field_0, &v22);\n        if v29.field_0 as i64 {\n            core::iter::traits::iterator::Iterator::collect(&v22, &v29);\n            if v22.field_0 != 0x8000000000000000 {\n                v3 = v22.field_0;\n                v4 = v25;\n                v2 = v26;\n            }\n        }\n        v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v30, _ZN5uu_rm9OPT_FORCE17h0cb038dfafcd96caE.field_0, g_4ea418.field_0);\n        if v0 {\n            v11 = v44;\n            v23 = *(&_ZN5uu_rm10OPT_PROMPT17ha40e439f0eca58adE as &i128);\n            v26 = *(&_ZN5uu_rm15OPT_PROMPT_MORE17h9f4f98361447e1efE as &i128);\n            v28 = *(&_ZN5uu_rm15OPT_INTERACTIVE17hdcb858e2bfe51191E as &i128);\n            v7 = struct16 {\n                field_0: &v22\n                field_8: &v22 as u8\n            };\n            v45 = 0;\n            if <core::slice::iter::Iter<T> as core::iter::traits::iterator::Iterator>::any(&v7, &v30, &v11) {\n                goto LABEL_457319;\n            }\n        } else {\n            if !v2 {\n                v7 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(\"missing operand\");\n                v26 = v10;\n                v24 = v7.field_0;\n                v27 = 1;\n                v63 = alloc::boxed::Box<T>::new(&v22) as u64;\n                goto LABEL_4579cb;\n            }\nLABEL_457319:\n            if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v30, *(&_ZN5uu_rm10OPT_PROMPT17ha40e439f0eca58adE as &i64), g_4ea448.field_0) {\n                v45 = v46 & -0x100 | 1;\n                v47 = 1;\n                if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v30, *(&_ZN5uu_rm15OPT_PROMPT_MORE17h9f4f98361447e1efE as &i64), g_4ea458.field_0) && clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v30, *(&_ZN5uu_rm15OPT_INTERACTIVE17hdcb858e2bfe51191E as &i64), g_4ea408.field_0) {\n                    v22 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v30, *(&_ZN5uu_rm15OPT_INTERACTIVE17hdcb858e2bfe51191E as &i64), g_4ea408.field_0);\n                    v48 = clap_builder::parser::error::MatchesError::unwrap(*(&_ZN5uu_rm15OPT_INTERACTIVE17hdcb858e2bfe51191E as &i64), g_4ea408.field_0, &v22);\n                    core::option::unwrap(v48);\n                    v49 = *((v48 + 8) as &i64);\n                    v50 = *((v48 + 16) as &i64);\n                    v45 = 0;\n                    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v49, v50, \"never\") {\n                        v45 = v46 & -0x100 | 1;\n                        v47 = 1;\n                        if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v49, v50, \"once\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v49, v50, \"always\") {\n                            v11 = v49;\n                            v13 = v50;\n                            v20 = format!(\"Invalid argument to interactive ({})\", &v11);\n                            v22 = struct28 {\n                                field_0: *(&v20.vec.buf.inner.cap as &i128)\n                                field_16: v21\n                                field_24: 1\n                            };\n                            v51 = alloc::boxed::Box<T>::new(&v22) as u64;\n                            goto LABEL_4579cb;\n                        }\n                    }\n                }\n            }\n        }\n        v14 = v45;\n        v52 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v30, _ZN5uu_rm19OPT_ONE_FILE_SYSTEM17h8bb65e4078269c0bE.field_0, g_4ea438.field_0);\n        v53 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v30, _ZN5uu_rm20OPT_NO_PRESERVE_ROOT17h5f2a6f148cad7644E.field_0, g_4ea428.field_0);\n        v54 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v30, _ZN5uu_rm13OPT_RECURSIVE17hd1a2487ee0992495E.field_0, g_4ea468.field_0);\n        v1 = struct8 {\n            field_0: v0\n            field_1: v52\n            field_2: v53 ^ 1\n            field_3: v54\n            field_4: clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v30, _ZN5uu_rm7OPT_DIR17h1fc8202a571f3541E.field_0, g_4ea3f8.field_0) as u32 as u8\n            field_5: clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v30, _ZN5uu_rm11OPT_VERBOSE17h2e250573aa413252E.field_0, g_4ea478.field_0) as u32 as u8\n            field_6: 2 - clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v30, _ZN5uu_rm17PRESUME_INPUT_TTY17h16578df483f43972E.field_0, g_4ea488.field_0) as u8\n            field_7: v47\n        };\n        if v14 as i8 {\n            if v54 {\n                v55 = v2;\n                v15 = v55;\n                v16 = (2 <= v55 ? &g_418ec8 : &g_418eb0);\n                v18 = 9 - (v55 < 2);\n                v56 = 13;\n                v57 = &g_418ed2;\n                goto LABEL_4576c1;\n            }\n            if v2 > 3 {\n                v15 = v2;\n                v17 = \"arguments\";\n                v56 = 1;\n                v57 = &g_418ed1;\nLABEL_4576c1:\n                v5 = v57;\n                v6 = v56;\n                v11 = format!(\"remove {} {}{}\", &v15, &v16, &v5);\n                v7 = uucore::util_name();\n                v9 = v58;\n                eprint!(\"{}: \", &v7);\n                eprint!(\"{}\", &v19);\n                eprint!(\" \");\n                v22 = &_ZN3std2io5stdio6stderr8INSTANCE17h8cff5a7d41eb89e3E.inner;\n                v59 = <std::io::stdio::Stderr as std::io::Write>::flush(&v22);\n                if let Err(_) = v59 {\n                    v60 = uu_rm::uumain::uumain::{{closure}}(v59);\n                    if v60 {\n                        v5 = struct16 {\n                            field_0: v60\n                            field_8: &g_4e9960\n                        };\n                        uucore::mods::error::set_exit_code(<uucore::mods::error::UUsageError as uucore::mods::error::UError>::code(v60) as u32 as u64);\n                        v11 = uucore::util_name();\n                        v13 = v58;\n                        eprintln!(\"{}: {}\", &v11, &v5);\n                    }\n                }\n                if !uucore::read_yes() {\n                    goto LABEL_4579cb;\n                }\n            }\n        }\n        if !uu_rm::remove(v4, v2, &v1) {\n            goto LABEL_4579f3;\n        }\n        v51 = uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(1);\nLABEL_4579cb:\n        v43 = v51;\n    }\nLABEL_4579f3:\n    return v43;\n}\n",
+    "_ZN5uu_rm6uu_app17hbf90efb73f59e8a6E": "fn uu_rm::uu_app() -> : struct712 {\n    let a0: u64;  // rdi\n    let v0: struct437;  // [bp-0xac0], Other Possible Types: struct712, struct640\n    let v1: struct712;  // [bp-0xac0]\n    let v2: struct640;  // [bp-0xac0]\n    let v3: struct640;  // [bp-0xac0]\n    let v4: struct640;  // [bp-0xac0]\n    let v5: u32;  // [bp-0x848]\n    let v6: u64;  // [bp-0x804]\n    let v7: u32;  // [bp-0x7fc]\n    let v8: struct24;  // [bp-0x7f8], Other Possible Types: struct640\n    let v9: u32;  // [bp-0x580]\n    let v10: u32;  // [bp-0x57c]\n    let v11: struct712;  // [bp-0x578], Other Possible Types: struct640\n    let v12: struct712;  // [bp-0x578]\n    let v13: struct640;  // [bp-0x578]\n    let v14: struct640;  // [bp-0x578]\n    let v15: u32;  // [bp-0x300]\n    let v16: u64;  // [bp-0x2bc]\n    let v17: u32;  // [bp-0x2b4]\n    let v18: struct32;  // [bp-0x2b0], Other Possible Types: struct640, u64\n    let v19: u64;  // [bp-0x30]\n    let v20: u64;  // [bp-0x28]\n    let v21: u64;  // [bp-0x20]\n    let v22: u64;  // [bp-0x18]\n    let v23: u64;  // [bp-0x10]\n    let v25: u64;  // r15\n    let v26: u64;  // r14\n    let v27: u64;  // r13\n    let v28: u64;  // r12\n    let v29: u64;  // rbx\n    let v31: u64;  // rdx\n\n    v23 = v25;\n    v22 = v26;\n    v21 = v27;\n    v20 = v28;\n    v19 = v29;\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v31);\n    v11 = clap_builder::builder::command::Command::version(&v0);\n    v0 = clap_builder::builder::command::Command::about(&v11);\n    v8 = uucore::format_usage(\"{} [OPTION]... FILE...\");\n    v11 = clap_builder::builder::command::Command::override_usage(&v0, &v8);\n    memcpy(&v0, &v11, 700);\n    v6 = 584115552392 | v16;\n    v7 = v17;\n    v11 = clap_builder::builder::arg::Arg::new(\"force\");\n    v8 = clap_builder::builder::arg::Arg::short(&v11, 102);\n    v11 = clap_builder::builder::arg::Arg::long(&v8, \"force\");\n    v8 = clap_builder::builder::arg::Arg::help(&v11, \"ignore nonexistent files and arguments, never prompt\");\n    v18 = clap_builder::builder::arg::Arg::action(&v8, 2);\n    v11 = clap_builder::builder::command::Command::arg(&v0, &v18);\n    v0 = clap_builder::builder::arg::Arg::new(\"prompt\");\n    v8 = clap_builder::builder::arg::Arg::short(&v0, 105);\n    v0 = clap_builder::builder::arg::Arg::help(&v8, \"prompt before every removal\");\n    v18 = struct32 {\n        field_0: \"prompt-more\"\n        field_16: \"interactive\"\n    };\n    v8 = clap_builder::builder::arg::Arg::overrides_with_all(&v0, &v18);\n    v18 = clap_builder::builder::arg::Arg::action(&v8, 2);\n    v1 = clap_builder::builder::command::Command::arg(&v11, &v18);\n    v11 = clap_builder::builder::arg::Arg::new(\"prompt-more\");\n    v8 = clap_builder::builder::arg::Arg::short(&v11, 73);\n    v11 = clap_builder::builder::arg::Arg::help(&v8, \"prompt once before removing more than three files, or when removing recursively. Less intrusive than -i, while still giving some protection against most mistakes\");\n    v18 = struct32 {\n        field_0: \"prompt\"\n        field_16: \"interactive\"\n    };\n    v8 = clap_builder::builder::arg::Arg::overrides_with_all(&v11, &v18);\n    v18 = clap_builder::builder::arg::Arg::action(&v8, 2);\n    v11 = clap_builder::builder::command::Command::arg(&v1, &v18);\n    v2 = clap_builder::builder::arg::Arg::new(\"interactive\");\n    v8 = clap_builder::builder::arg::Arg::long(&v2, \"interactive\");\n    v3 = clap_builder::builder::arg::Arg::help(&v8, \"prompt according to WHEN: never, once (-I), or always (-i). Without WHEN, prompts always\");\n    v8 = clap_builder::builder::arg::Arg::value_name(&v3);\n    v4 = clap_builder::builder::arg::Arg::num_args(&v8, None, 1);\n    memcpy(&v8, &v4, 632);\n    v9 = 128 | v5;\n    v10 = v5;\n    v0 = clap_builder::builder::arg::Arg::default_missing_value(&v8);\n    v18 = struct32 {\n        field_0: \"prompt\"\n        field_16: \"prompt-more\"\n    };\n    v8 = clap_builder::builder::arg::Arg::overrides_with_all(&v0, &v18);\n    v0 = clap_builder::builder::command::Command::arg(&v11, &v8);\n    v11 = clap_builder::builder::arg::Arg::new(\"one-file-system\");\n    v8 = clap_builder::builder::arg::Arg::long(&v11, \"one-file-system\");\n    v11 = clap_builder::builder::arg::Arg::help(&v8, \"when removing a hierarchy recursively, skip any directory that is on a file system different from that of the corresponding command line argument (NOT IMPLEMENTED)\");\n    v8 = clap_builder::builder::arg::Arg::action(&v11, 2);\n    v11 = clap_builder::builder::command::Command::arg(&v0, &v8);\n    v0 = clap_builder::builder::arg::Arg::new(\"no-preserve-root\");\n    v8 = clap_builder::builder::arg::Arg::long(&v0, \"no-preserve-root\");\n    v0 = clap_builder::builder::arg::Arg::help(&v8, \"do not treat '/' specially\");\n    v8 = clap_builder::builder::arg::Arg::action(&v0, 2);\n    v0 = clap_builder::builder::command::Command::arg(&v11, &v8);\n    v11 = clap_builder::builder::arg::Arg::new(\"preserve-root\");\n    v8 = clap_builder::builder::arg::Arg::long(&v11, \"preserve-root\");\n    v11 = clap_builder::builder::arg::Arg::help(&v8, \"do not remove '/' (default)\");\n    v8 = clap_builder::builder::arg::Arg::action(&v11, 2);\n    v11 = clap_builder::builder::command::Command::arg(&v0, &v8);\n    v0 = clap_builder::builder::arg::Arg::new(\"recursive\");\n    v8 = clap_builder::builder::arg::Arg::short(&v0, 114);\n    v0 = clap_builder::builder::arg::Arg::visible_short_alias(&v8);\n    v8 = clap_builder::builder::arg::Arg::long(&v0, \"recursive\");\n    v0 = clap_builder::builder::arg::Arg::help(&v8, \"remove directories and their contents recursively\");\n    v8 = clap_builder::builder::arg::Arg::action(&v0, 2);\n    v0 = clap_builder::builder::command::Command::arg(&v11, &v8);\n    v11 = clap_builder::builder::arg::Arg::new(\"dir\");\n    v8 = clap_builder::builder::arg::Arg::short(&v11, 100);\n    v11 = clap_builder::builder::arg::Arg::long(&v8, \"dir\");\n    v8 = clap_builder::builder::arg::Arg::help(&v11, \"remove empty directories\");\n    v18 = clap_builder::builder::arg::Arg::action(&v8, 2);\n    v12 = clap_builder::builder::command::Command::arg(&v0, &v18);\n    v0 = clap_builder::builder::arg::Arg::new(\"verbose\");\n    v8 = clap_builder::builder::arg::Arg::short(&v0, 118);\n    v0 = clap_builder::builder::arg::Arg::long(&v8, \"verbose\");\n    v8 = clap_builder::builder::arg::Arg::help(&v0, \"explain what is being done\");\n    v18 = clap_builder::builder::arg::Arg::action(&v8, 2);\n    v0 = clap_builder::builder::command::Command::arg(&v12, &v18);\n    v13 = clap_builder::builder::arg::Arg::new(\"-presume-input-tty\");\n    v8 = clap_builder::builder::arg::Arg::long(&v13, \"presume-input-tty\");\n    v14 = clap_builder::builder::arg::Arg::alias(&v8);\n    memcpy(&v8, &v14, 632);\n    v9 = v15 | 4;\n    v10 = v15;\n    v18 = clap_builder::builder::arg::Arg::action(&v8, 2);\n    v11 = clap_builder::builder::command::Command::arg(&v0, &v18);\n    v0 = clap_builder::builder::arg::Arg::new(\"files\");\n    v8 = clap_builder::builder::arg::Arg::action(&v0, 1);\n    v18 = 2;\n    v0 = clap_builder::builder::arg::Arg::value_parser(&v8, &v18);\n    v8 = clap_builder::builder::arg::Arg::num_args(&v0);\n    v0 = clap_builder::builder::arg::Arg::value_hint(&v8);\n    clap_builder::builder::command::Command::arg(a0, &v11, &v0);\n    return;\n}\n",
+    "_ZN5uu_rm6remove17h1125bc30f1a1af71E": "fn uu_rm::remove(a0: i64, a1: i64, a2: i64) -> u64 {\n    let v0: i8;  // [bp-0x151]\n    let v2: u64;  // [bp-0x100]\n    let v3: u64;  // [bp-0xf8]\n    let v4: u64;  // [bp-0xf0]\n    let v5: u8;  // [bp-0xe8]\n    let v6: u960;  // [bp-0xa8]\n    let v7: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x30]\n    let v8: u64;  // [bp-0x28]\n    let v9: u64;  // [bp-0x20]\n    let v10: u64;  // [bp-0x18]\n    let v11: u64;  // [bp-0x10]\n    let v12: i8;  // [bp+0x0]\n    let v14: u64;  // r15\n    let v15: u64;  // r14\n    let v16: u64;  // r13\n    let v17: u64;  // r12\n    let v18: i64;  // rbx\n    let v19: i64;  // r15\n    let v20: u64;  // r14\n    let v21: u64;  // rbx\n    let v22: u64;  // r12\n    let v23: u64;  // rdx\n    let v24: u64;  // rdi\n    let v25: u64;  // rsi\n    let v26: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xe0]\n\n    v11 = v14;\n    v10 = v15;\n    v9 = v16;\n    v8 = v17;\n    v7 = v18;\n    if !a1 {\n        return &v12 as u32 & -0x100 | &v12 as u8 & 1;\n    }\n    v19 = a0;\n    v20 = a1 * 16 + a0;\n    v0 = *(a2 as &i8) ^ 1;\n    if (*(a2 as &i8) & 1) {\n        do {\n            v7 as u1536 = std::fs::symlink_metadata(*(v19 as &i64), *((v19 + 8) as &i64));\n            if let Ok(_) = v7 as u1536 {\n                if (v6 as i32 as i16 & 0xf000) == 0x4000 {\n                    uu_rm::handle_dir(*(v19 as &i64), *((v19 + 8) as &i64), a2);\n                } else {\n                    uu_rm::remove_file(*(v19 as &i64), *((v19 + 8) as &i64), a2);\n                }\n            }\n            v19 += 16;\n        } while (v19 != v20);\n    } else {\n        do {\n            v21 = *(v19 as &i64);\n            v22 = *((v19 + 8) as &i64);\n            v26 = std::fs::symlink_metadata(v21, v22);\n            match v26 {\n                Err(_) => {\n                    v2 = uucore::util_name();\n                    v3 = v23;\n                    eprint!(\"{}: \", &v2);\n                    v2 = 1;\n                    v3 = v21;\n                    v4 = v22;\n                    v5 = 1;\n                    eprintln!(\"cannot remove {}: No such file or directory\", &v2);\n                },\n                Ok(_) => {\n                    v24 = v21;\n                    v25 = v22;\n                    if (v6 as i32 as i16 & 0xf000) != 0x4000 {\n                        uu_rm::remove_file(v24, v25, a2);\n                    } else {\n                        uu_rm::handle_dir(v24, v25, a2);\n                    }\n                },\n            }\n            v19 += 16;\n        } while (v19 != v20);\n    }\n    return &v12 as u32 & -0x100 | &v12 as u8 & 1;\n}\n",
+    "_ZN5uu_rm12is_dir_empty17h0b58628bb17a83e8E": "fn uu_rm::is_dir_empty(a0: u64, a1: u64) -> long long {\n    let v0: struct24;  // [bp-0x18]\n    let v2: u64;  // rbx\n    let v3: u32;  // ebx\n\n    v0 = struct24 {\n        field_0: std::fs::read_dir(a0, a1)\n        field_16: v2\n    };\n    if *((&v0.field_0 as &char + 8) as &i8) != 2 {\n        v3 = v2 & -0x100 | !core::iter::traits::iterator::Iterator::fold(v0.field_0 as i64, *((&v0.field_0 as &char + 8) as &i8));\n    }\n    return v3;\n}\n",
+    "_ZN5uu_rm11is_readable17h11778c167935ca98E": "fn uu_rm::is_readable(a0: u64, a1: u64) -> long long {\n    let v0: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xb0]\n\n    v0 = std::fs::metadata(a0, a1);\n    match v0 {\n        Ok(_) => {\n            return (*((&v0 as &char + 57) as &i8) & 1) as u8 as u64;\n        },\n        Err(_) => {\n            return 0;\n        },\n    }\n}\n",
+    "_ZN5uu_rm11is_writable17h35835a5ca0912becE": "fn uu_rm::is_writable(a0: i64, a1: i64) -> long long {\n    let v0: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xb0]\n\n    v0 = std::fs::metadata(a0, a1);\n    match v0 {\n        Ok(_) => {\n            return (*((&v0 as &char + 56) as &i8) >> 7) as u8 as u64;\n        },\n        Err(_) => {\n            return 0;\n        },\n    }\n}\n",
+    "_ZN5uu_rm20remove_dir_recursive17h796f941ab304c174E": "fn uu_rm::remove_dir_recursive(a0: &[u8], a1: i64) -> u64 {\n    let v0: u8;  // [bp-0x10a]\n    let v1: struct640;  // [bp-0x109]\n    let v2: core::option::Option<core::result::Result<std::fs::DirEntry, std::io::error::Error>>;  // [bp-0x108], Other Possible Types: core::result::Result<&str, core::str::error::Utf8Error>\n    let v3: struct640;  // [bp-0xf8]\n    let v4: u64;  // [bp-0xe0]\n    let v5: struct40;  // [bp-0xd8]\n    let v6: struct640;  // [bp-0xd0], Other Possible Types: u64\n    let v7: u8;  // [bp-0xc0]\n    let v8: struct24;  // [bp-0xb0]\n    let v9: u64;  // [bp-0xa8]\n    let v10: void*;  // [bp-0xa0]\n    let v11: u64;  // [bp-0x98]\n    let v12: u128;  // [bp-0x98]\n    let v13: u64;  // [bp-0x90]\n    let v14: iNone;  // [bp-0x88], Other Possible Types: struct640\n    let v16: u64;  // [bp-0x78]\n    let v17: u64;  // [bp-0x68]\n    let v18: struct32;  // [bp-0x60]\n    let v19: u64;  // [bp-0x58]\n    let v20: u8;  // [bp-0x50]\n    let v21: struct32;  // [bp-0x48]\n    let v22: struct9;  // [bp-0x40]\n    let v23: struct640;  // [bp-0x30]\n    let v24: struct640;  // [bp-0x28]\n    let v25: struct640;  // [bp-0x20]\n    let v26: struct640;  // [bp-0x18]\n    let v27: struct640;  // [bp-0x10]\n    let v28: i8;  // [bp+0x0]\n    let v30: struct640;  // r15\n    let v31: struct640;  // r14\n    let v32: struct640;  // r13\n    let v33: struct640;  // r12\n    let v34: struct640;  // rbx\n    let v35: i64;  // rbx\n    let v36: core::fmt::Arguments;  // r13\n    let v37: u64;  // rax\n    let v38: struct640;  // rdx\n    let v39: u8;  // r12b\n    let v40: iNone;  // xmm1\n    let v41: iNone;  // xmm0\n    let v42: u8;  // bpl\n    let v43: u64;  // rax\n    let v44: u64;  // rdx\n    let v46: u64;  // rdx\n    let v48: u64;  // [bp-0x100]\n    let v50: struct640;  // [bp-0xd8], Other Possible Types: u64\n    let v51: core::fmt::Arguments;  // [bp-0xc8], Other Possible Types: u64\n    let v52: struct640;  // [bp-0xb0], Other Possible Types: u64\n\n    v27 = v30;\n    v26 = v31;\n    v25 = v32;\n    v24 = v33;\n    v23 = v34;\n    v35 = a2;\n    v36 = a1;\n    v2 = core::str::converts::from_utf8(a0, a1);\n    if !(v2 as i8 & 1) && v3 >= 1001 {\n        v37 = std::fs::remove_dir_all(a0, a1);\n        if v37 {\n            v52 = <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(v37, a0, a1);\n            v50 = uucore::util_name();\n            v6 = v38;\n            eprint!(\"{}: \", &v50);\n            eprintln!(\"{}\", &v52);\n        }\n    } else if !std::path::Path::is_dir(a0, a1) || std::path::Path::is_symlink(a0, a1) {\n        uu_rm::remove_file(a0, a1, a2);\n    } else {\n        v1 = *((a2 + 7) as &i8);\n        if *((a2 + 7) as &i8) != 2 || uu_rm::is_dir_empty(a0, a1) || uu_rm::prompt_descend(a0, a1) {\n            v22 = std::fs::read_dir(a0, a1);\n            v39 = v22.field_8;\n            if v39 != 2 {\n                v18 = a2;\n                v21 = a1;\n                v17 = v22.field_0;\n                v19 = v17;\n                v0 = v39;\n                v20 = v39;\n                loop {\n                    v2 = <std::fs::ReadDir as core::iter::traits::iterator::Iterator>::next(&v19);\n                    if let None = v2 {\n                        break;\n                    }\n                    v40 = *((&v2 as &char + 24) as &i128);\n                    v12 = *(&v48 as &i128);\n                    v16 = v4;\n                    v14 = v40;\n                    if !v11 {\n                        continue;\n                    }\n                    v41 = *((&v2 as &char + 8) as &i128);\n                    v5 = struct40 {\n                        field_0: v41\n                        field_16: *((&v2 as &char + 24) as &i128)\n                        field_32: v4\n                    };\n                    v8 = std::fs::DirEntry::path(&v5);\n                    uu_rm::remove_dir_recursive(v9, v10, v18);\n                }\n                v36 = v21;\n                v35 = v18;\n                if v1 == 2 {\n                    goto LABEL_45cbfd;\n                }\n            } else if std::io::error::Error::kind(v17) as u8 != 1 {\n                v42 = 1;\n                if v1 == 2 {\nLABEL_45cbfd:\n                    if !uu_rm::prompt_dir(a0, v36, *((v35 + 6) as &i8), 2) {\n                        goto LABEL_45ce98;\n                    }\n                }\n            } else if v1 == 2 {\n                goto LABEL_45cbfd;\n            }\n            v43 = std::fs::remove_dir(a0, v36);\n            if v43 {\n                if !(v42 & 1) {\n                    if uu_rm::is_readable(a0, v36) {\n                        v52 = <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(v43, a0, v36);\n                        v50 = uucore::util_name();\n                        v6 = v44;\n                        eprint!(\"{}: \", &v50);\n                        eprintln!(\"{}\", &v52);\n                    } else {\n                        v50 = uucore::util_name();\n                        v6 = v46;\n                        eprint!(\"{}: \", &v50);\n                        v50 = 1;\n                        v6 = a0;\n                        v51 = v36;\n                        v7 = 1;\n                        eprintln!(\"cannot remove {}: Permission denied\", &v50);\n                    }\n                }\n            } else {\n                if *((v35 + 5) as &i8) == 1 {\n                    uu_rm::normalize(&v11, a0, v36);\n                    v50 = 1;\n                    v6 = v13;\n                    v51 = v14.field_0;\n                    v7 = 1;\n                    println!(\"removed directory {}\", &v50);\n                }\n            }\n        }\n    }\nLABEL_45ce98:\n    return &v28 & 4294967295;\n}\n",
+    "_ZN5uu_rm10handle_dir17hb9074543311991f9E": "fn uu_rm::handle_dir(a0: i64, a1: i64, a2: i64) -> u64 {\n    let v2: core::fmt::Arguments;  // [bp-0x90], Other Possible Types: struct20\n    let v3: u8;  // [bp-0x56]\n    let v4: u64;  // [bp-0x50]\n    let v5: core::fmt::Arguments;  // [bp-0x48], Other Possible Types: u64\n    let v9: u64;  // r14\n    let v10: u64;  // rdx\n    let v11: i64;  // r12\n    let v12: u64;  // rax\n    let v13: u8;  // cl\n    let v14: u64;  // rax\n    let v15: u64;  // rax\n\n    v9 = uu_rm::clean_trailing_slashes(a0, a1);\n    if uu_rm::path_is_current_or_parent_directory(v9, v10) {\n        v4 = uucore::util_name();\n        v5 = v10;\n        eprint!(\"{}: \", &v4);\n        v2 = core::fmt::Arguments {\n            pieces: &[&str] {\n                ptr: v12\n                len: 2\n            }\n            args: &[core::fmt::rt::Argument] {\n                ptr: v11\n                len: 1\n            }\n            fmt: 0\n        };\n        std::io::stdio::_eprint(&v2);\n        return v15 & -0x100 | 1;\n    }\n    v2 = std::path::Path::components(v9, v10);\n    if !v3 && v2.field_16 - 5 < 2 {\n        v13 = *((a2 + 3) as &i8);\n        if *((a2 + 3) as &i8) {\n            return uu_rm::remove_dir_recursive(v9, v10, a2);\n        }\n        if *((a2 + 4) as &i8) {\n            return uu_rm::remove_dir(v9, v10, a2);\n        }\n    } else {\n        v14 = std::path::Path::parent(v9, v10);\n        v13 = *((a2 + 3) as &i8);\n        if v13 {\n            if v14 {\n                return uu_rm::remove_dir_recursive(v9, v10, a2);\n            }\n            if !*((a2 + 2) as &i8) {\n                return uu_rm::remove_dir_recursive(v9, v10, a2);\n            }\n        } else if *((a2 + 4) as &i8) && (v14 || !*((a2 + 2) as &i8)) {\n            goto LABEL_0x45dad2;\n        }\n    }\n    if !v13 {\n        v4 = uucore::util_name();\n        v5 = v10;\n        eprint!(\"{}: \", &v4);\n        v2 = core::fmt::Arguments {\n            pieces: &[&str] {\n                ptr: v12\n                len: 2\n            }\n            args: &[core::fmt::rt::Argument] {\n                ptr: v11\n                len: 1\n            }\n            fmt: 0\n        };\n        std::io::stdio::_eprint(&v2);\n        return v15 & -0x100 | 1;\n    }\n    v4 = uucore::util_name();\n    v5 = v10;\n    eprint!(\"{}: \", &v4);\n    eprintln!(\"it is dangerous to operate recursively on '{}'\", &g_418b04);\n    v4 = uucore::util_name();\n    v5 = v10;\n    eprint!(\"{}: \", &v4);\n    eprintln!(\"use --no-preserve-root to override this failsafe\")    return v15 & -0x100 | 1;\n}\n",
+    "_ZN5uu_rm10remove_dir17h55820dedda8befb2E": "fn uu_rm::remove_dir(a0: &std::path::Path, a1: i64) -> u64 {\n    let v0: u64;  // [bp-0xa0]\n    let v1: u64;  // [bp-0x98]\n    let v2: i64;  // [bp-0x90]\n    let v3: u64;  // [bp-0x88]\n    let v4: void*;  // [bp-0x80]\n    let v5: core::fmt::rt::Argument;  // [bp-0x70]\n    let v6: u64;  // [bp-0x68]\n    let v7: u64;  // [bp-0x60]\n    let v8: core::fmt::Arguments;  // [bp-0x58], Other Possible Types: u64\n    let v9: core::fmt::rt::Argument;  // [bp-0x50], Other Possible Types: u64\n    let v10: u64;  // [bp-0x48]\n    let v11: core::fmt::Arguments;  // [bp-0x40], Other Possible Types: u8\n    let v12: u64;  // [bp-0x38]\n    let v13: u64;  // [bp-0x28]\n    let v14: u64;  // [bp-0x20]\n    let v15: u64;  // [bp-0x18]\n    let v16: u64;  // [bp-0x10]\n    let v17: u64;  // [bp-0x8]\n    let v19: u64;  // r15\n    let v20: u64;  // r14\n    let v21: u64;  // r13\n    let v22: u64;  // r12\n    let v23: u64;  // rbx\n    let v24: u64;  // rdi\n    let v25: u64;  // rsi\n    let v26: u64;  // rdx\n    let v27: u64;  // rax\n    let v28: u64;  // rax\n    let v29: u64;  // rdx\n\n    v17 = v19;\n    v16 = v20;\n    v15 = v21;\n    v14 = v22;\n    v13 = v23;\n    if !uu_rm::prompt_dir(v24, v25, *((a1 + 6) as &i8), *((a1 + 7) as &i8)) {\n        return v27;\n    }\n    if *((a1 + 4) as &i8) || *((a1 + 3) as &i8) == 1 {\n        v28 = std::fs::remove_dir(a0);\n        if v28 {\n            v12 = <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(v28, a0);\n            v8 = uucore::util_name();\n            v9 = v29;\n            eprint!(\"{}: \", &v8);\n            eprintln!(\"{}\", &v12);\n            v27 = core::ptr::drop_in_place<alloc::boxed::Box<uucore::mods::error::UIoError>>(v12) as u64 & -0x100 | 1;\n        } else if *((a1 + 5) as &i8) == 1 {\n            uu_rm::normalize(&v5 as u8, a0);\n            v8 = 1;\n            v9 = v6;\n            v10 = v7;\n            v11 = 1;\n            println!(\"removed directory {}\", &v8);\n        }\n    } else {\n        v8 = uucore::util_name();\n        v9 = v26;\n        eprint!(\"{}: \", &v8);\n        v8 = 1;\n        v9 = v24;\n        v10 = v25;\n        v11 = 1;\n        v5 = &v8;\n        v6 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v0 = \"cannot remove \";\n        v1 = 2;\n        v4 = 0;\n        v2 = &v5;\n        v3 = 1;\n        v27 = std::io::stdio::_eprint(&v0) & -0x100 | 1;\n    }\n    return v27;\n}\n",
+    "_ZN5uu_rm11remove_file17h42f0a78696bb1093E": "fn uu_rm::remove_file(a0: i64, a1: i64, a2: i64) -> u64 {\n    let v0: core::fmt::rt::Argument;  // [bp-0x78], Other Possible Types: u64\n    let v1: u64;  // [bp-0x70]\n    let v2: core::fmt::Arguments;  // [bp-0x68], Other Possible Types: u64\n    let v3: core::fmt::rt::Argument;  // [bp-0x60], Other Possible Types: u8\n    let v4: u8;  // [bp-0x58]\n    let v5: u64;  // [bp-0x50]\n    let v6: core::fmt::Arguments;  // [bp-0x48]\n    let v7: core::fmt::Arguments;  // [bp-0x38]\n    let v8: core::fmt::Arguments;  // [bp-0x28]\n    let v9: u64;  // [bp-0x20]\n    let v10: core::fmt::rt::Argument;  // [bp-0x18]\n    let v11: core::fmt::Arguments;  // [bp-0x10]\n    let v12: u64;  // [bp-0x8]\n    let v14: u64;  // r15\n    let v15: core::fmt::Arguments;  // r14\n    let v16: core::fmt::rt::Argument;  // r13\n    let v17: u64;  // r12\n    let v18: core::fmt::Arguments;  // rbx\n    let v19: core::fmt::Arguments;  // rax\n    let v20: u64;  // rdx\n    let v21: core::fmt::Arguments;  // rax\n    let v22: u64;  // rdx\n    let v25: u64;  // rax\n\n    v12 = v14;\n    v11 = v15;\n    v10 = v16;\n    v9 = v17;\n    v8 = v18;\n    if !uu_rm::prompt_file(a0, a1, *((a2 + 6) as &i8), *((a2 + 7) as &i8)) {\n        return v25;\n    }\n    v19 = std::fs::remove_file(a0, a1);\n    if v19 {\n        v7 = v19;\n        if std::io::error::Error::kind(v19) as u8 == 1 {\n            v0 = uucore::util_name();\n            v1 = v20;\n            eprint!(\"{}: \", &v0);\n            v0 = 1;\n            v1 = a0;\n            v2 = a1;\n            v3 = 1;\n            eprintln!(\"cannot remove {}: Permission denied\", &v0);\n            v21 = v19;\n        } else {\n            v0 = uucore::util_name();\n            v1 = v22;\n            eprint!(\"{}: \", &v0);\n            v0 = 1;\n            v1 = a0;\n            v2 = a1;\n            v3 = 1;\n            eprintln!(\"cannot remove {}: {}\", &v0, &v7);\n            v21 = v7;\n        }\n        v25 = core::ptr::drop_in_place<std::io::error::Error>(v21) & -0x100 | 1;\n    } else if *((a2 + 5) as &i8) == 1 {\n        uu_rm::normalize(&v4, a0, a1);\n        v0 = 1;\n        v1 = v5;\n        v2 = v6;\n        v3 = 1;\n        println!(\"removed {}\", &v0);\n    }\n    return v25;\n}\n",
+    "_ZN5uu_rm10prompt_dir17h2b47d5798effefb0E": "fn uu_rm::prompt_dir(a0: &std::path::Path, a1: i8, a2: i32) -> u64 {\n    let v0: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xd8]\n    let v1: u64;  // [bp-0x28]\n    let v2: u64;  // [bp-0x20]\n    let v3: u64;  // [bp-0x18]\n    let v4: u64;  // [bp-0x10]\n    let v5: i8;  // [bp+0x0]\n    let v7: u64;  // r15\n    let v8: u64;  // r14\n    let v9: u64;  // r12\n    let v10: u64;  // rbx\n    let v11: u8;  // bpl\n    let v12: u64;  // rsi\n\n    v4 = v7;\n    v3 = v8;\n    v2 = v9;\n    v1 = v10;\n    v11 = a2;\n    if v11 {\n        v0 = std::fs::metadata(a0);\n        if let Ok(_) = v0 {\n            uu_rm::handle_writable_directory(a0, v12, a1, v11);\n        }\n    }\n    return &v5 & 4294967295;\n}\n",
+    "_ZN5uu_rm11prompt_file17h7c1fa3f92c48040aE": "fn uu_rm::prompt_file(a0: &std::path::Path, a1: i8, a2: i32) -> u64 {\n    let v0: struct16;  // [bp-0x158], Other Possible Types: u64\n    let v1: u64;  // [bp-0x150]\n    let v2: std::io::stdio::Stderr;  // [bp-0x148], Other Possible Types: u64\n    let v3: u64;  // [bp-0x140]\n    let v4: u64;  // [bp-0x138]\n    let v5: u8;  // [bp-0x130]\n    let v6: u64;  // [bp-0x118]\n    let v7: u64;  // [bp-0x110]\n    let v8: u64;  // [bp-0x108]\n    let v9: u8;  // [bp-0x100]\n    let v10: u64;  // [bp-0xf8]\n    let v11: struct16;  // [bp-0xf0]\n    let v12: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xe0], Other Possible Types: std::io::stdio::Stderr\n    let v13: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xe0]\n    let v14: i8;  // [bp+0x0]\n    let v16: u64;  // rbx\n    let v17: u64;  // r13\n    let v18: u64;  // rdi\n    let v19: struct640;  // rdi\n    let v20: u64;  // rdx\n    let v21: u64;  // rdi\n    let v22: u64;  // rsi\n    let v23: core::result::Result<(), std::io::error::Error>;  // rax\n    let v24: void*;  // rax\n    let v28: u64;  // rdx\n    let v29: u64;  // rdi\n    let v30: u64;  // rsi\n    let v31: core::result::Result<(), std::io::error::Error>;  // rax\n    let v32: void*;  // rax\n    let v34: u64;  // rdx\n    let v35: u64;  // rdi\n    let v36: u64;  // rsi\n    let v37: core::result::Result<(), std::io::error::Error>;  // rax\n    let v38: void*;  // rax\n    let v50: u8;  // rsi\n\n    v16 = a2;\n    v17 = v16 & 4294967295;\n    if v17 == 2 {\n        v12 = std::fs::symlink_metadata(a0);\n        v18 = 2;\n        v10 = v12 as i64;\n        v19 = 2;\n        match v12 {\n            Ok(_) => {\n                if (0xf000 & *((&v12 as &char + 56) as &i32)) == 0xa000 {\n                    v6 = uucore::util_name();\n                    v7 = v20;\n                    eprint!(\"{}: \", &v6);\n                    v6 = 1;\n                    v7 = v21;\n                    v8 = v22;\n                    v9 = 1;\n                    eprint!(\"remove symbolic link {}?\", &v6);\n                    eprint!(\" \");\n                    v2 = &_ZN3std2io5stdio6stderr8INSTANCE17h8cff5a7d41eb89e3E.inner;\n                    v23 = <std::io::stdio::Stderr as std::io::Write>::flush(&v2);\n                    if let Err(_) = v23 {\n                        v24 = uu_rm::prompt_file::{{closure}}(v23);\n                        if v24 {\n                            v11 = struct16 {\n                                field_0: v24\n                                field_8: &g_4ea7a8\n                            };\n                            uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v24) as u32 as u64);\n                            v0 = uucore::util_name();\n                            v1 = v20;\n                            eprintln!(\"{}: {}\", &v0, &v11);\n                        }\n                    }\n                    uucore::read_yes();\n                }\n            },\n            Err(_) => {\nLABEL_45dc56:\n                v13 = std::fs::metadata(a0);\n                if let Ok(_) = v13 {\n                    if v16 as u8 == 2 && uu_rm::is_writable(a0) as u8 {\n                        if *((&v13 as &char + 80) as &i64) {\n                            v2 = uucore::util_name();\n                            v3 = v28;\n                            eprint!(\"{}: \", &v2);\n                            v2 = 1;\n                            v3 = v29;\n                            v4 = v30;\n                            v5 = 1;\n                            eprint!(\"remove file {}?\", &v2);\n                            eprint!(\" \");\n                            v12 = &_ZN3std2io5stdio6stderr8INSTANCE17h8cff5a7d41eb89e3E.inner;\n                            v31 = <std::io::stdio::Stderr as std::io::Write>::flush(&v12);\n                            if let Err(_) = v31 {\n                                v32 = uu_rm::prompt_file::{{closure}}(v31);\n                                if v32 {\n                                    v0 = struct16 {\n                                        field_0: v32\n                                        field_8: &g_4ea7a8\n                                    };\n                                    uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v32) as u32 as u64);\n                                    v6 = uucore::util_name();\n                                    v7 = v28;\n                                    eprintln!(\"{}: {}\", &v6, &v0);\n                                }\n                            }\n                        } else {\n                            v2 = uucore::util_name();\n                            v3 = v34;\n                            eprint!(\"{}: \", &v2);\n                            v2 = 1;\n                            v3 = v35;\n                            v4 = v36;\n                            v5 = 1;\n                            eprint!(\"remove regular empty file {}?\", &v2);\n                            eprint!(\" \");\n                            v12 = &_ZN3std2io5stdio6stderr8INSTANCE17h8cff5a7d41eb89e3E.inner;\n                            v37 = <std::io::stdio::Stderr as std::io::Write>::flush(&v12);\n                            if let Err(_) = v37 {\n                                v38 = uu_rm::prompt_file::{{closure}}(v37);\n                                if v38 {\n                                    v0 = struct16 {\n                                        field_0: v38\n                                        field_8: &g_4ea7a8\n                                    };\n                                    uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v38) as u32 as u64);\n                                    v6 = uucore::util_name();\n                                    v7 = v34;\n                                    eprintln!(\"{}: {}\", &v6, &v0);\n                                }\n                            }\n                        }\n                        uucore::read_yes();\n                    } else {\n                        return uu_rm::prompt_file_permission_readonly(a0, v50, a1);\n                    }\n                }\n            },\n        }\n    } else if !(!v17) {\n        goto LABEL_45dc56;\n    }\n    return &v14 & 4294967295;\n}\n",
+    "_ZN5uu_rm31prompt_file_permission_readonly17h22905ffc5cf8659cE": "fn uu_rm::prompt_file_permission_readonly(a0: &std::path::Path, a1: i8, a2: i32) -> u64 {\n    let v0: struct16;  // [bp-0x120]\n    let v1: u64;  // [bp-0x110]\n    let v2: core::fmt::Arguments;  // [bp-0x108], Other Possible Types: u64\n    let v3: core::fmt::Arguments;  // [bp-0x100], Other Possible Types: u64\n    let v4: core::fmt::rt::Argument;  // [bp-0xf8], Other Possible Types: u64\n    let v5: u64;  // [bp-0xf0]\n    let v6: u8;  // [bp-0xe8]\n    let v7: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0xe0], Other Possible Types: std::io::stdio::Stderr\n    let v8: u64;  // [bp-0x30]\n    let v9: u64;  // [bp-0x28]\n    let v10: u64;  // [bp-0x20]\n    let v11: u64;  // [bp-0x18]\n    let v12: u64;  // [bp-0x10]\n    let v14: u64;  // r15\n    let v15: u64;  // r14\n    let v16: u64;  // r13\n    let v17: u64;  // r12\n    let v18: u64;  // rbx\n    let v19: u64;  // rbp\n    let v20: u8;  // r13b\n    let v21: u32;  // ebp\n    let v22: u64;  // rdx\n    let v23: u64;  // rdi\n    let v24: u64;  // rsi\n    let v25: core::result::Result<(), std::io::error::Error>;  // rax\n    let v26: core::result::Result<(), std::io::error::Error>;  // rax\n    let v28: u64;  // rdx\n    let v29: u64;  // rdi\n    let v30: u64;  // rsi\n    let v31: core::result::Result<(), std::io::error::Error>;  // rax\n    let v32: void*;  // rax\n\n    v12 = v14;\n    v11 = v15;\n    v10 = v16;\n    v9 = v17;\n    v8 = v18;\n    v19 = a2;\n    if a1 != 2 {\n        v20 = 1;\n        if (a1 & 1) {\n            goto LABEL_45e154;\n        }\n    }\n    std::io::stdio::stdin();\n    std::sys::io::is_terminal::isatty::is_terminal();\nLABEL_45e154:\n    v7 = std::fs::metadata(a0);\n    v21 = v19 & -0x100 | 1;\n    if ((v20 ^ 1) & v19 == 3) {\n        return v21;\n    }\n    if v7 as i64 == 2 {\nLABEL_45e1b5:\n        v3 = uucore::util_name();\n        v4 = v28;\n        eprint!(\"{}: \", &v3);\n        v3 = 1;\n        v4 = v29;\n        v5 = v30;\n        v6 = 1;\n        eprint!(\"remove write-protected regular file {}?\", &v3);\n        eprint!(\" \");\n        v7 = &_ZN3std2io5stdio6stderr8INSTANCE17h8cff5a7d41eb89e3E.inner;\n        v31 = <std::io::stdio::Stderr as std::io::Write>::flush(&v7);\n        if let Err(_) = v31 {\n            v32 = uu_rm::prompt_file::{{closure}}(v31);\n            if v32 {\n                v0 = struct16 {\n                    field_0: v32\n                    field_8: &g_4ea7a8\n                };\n                uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v32) as u32 as u64);\n                v1 = uucore::util_name();\n                v2 = v28;\n                eprintln!(\"{}: {}\", &v1, &v0);\n            }\n        }\n        v21 = uucore::read_yes();\n    } else if !uu_rm::is_writable(a0) {\n        if *((&v7 as &char + 80) as &i64) {\n            goto LABEL_45e1b5;\n        }\n        v3 = uucore::util_name();\n        v4 = v22;\n        eprint!(\"{}: \", &v3);\n        v3 = 1;\n        v4 = v23;\n        v5 = v24;\n        v6 = 1;\n        eprint!(\"remove write-protected regular empty file {}?\", &v3);\n        eprint!(\" \");\n        v7 = &_ZN3std2io5stdio6stderr8INSTANCE17h8cff5a7d41eb89e3E.inner;\n        v25 = <std::io::stdio::Stderr as std::io::Write>::flush(&v7);\n        if let Err(_) = v25 {\n            v26 = uu_rm::prompt_file::{{closure}}(v25);\n            if let Err(_) = v26 {\n                v0 = struct16 {\n                    field_0: v26\n                    field_8: &g_4ea7a8\n                };\n                uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v26) as u32 as u64);\n                v1 = uucore::util_name();\n                v2 = v22;\n                eprintln!(\"{}: {}\", &v1, &v0);\n            }\n        }\n        v21 = uucore::read_yes();\n    }\n    return v21;\n}\n",
+    "_ZN5uu_rm25handle_writable_directory17ha4e75ec62de4407cE": "fn uu_rm::handle_writable_directory(a0: i64, a1: i64, a2: i8, a3: i8, a4: i32) -> u64 {\n    let v0: std::io::stdio::Stderr;  // [bp-0xa0]\n    let v1: struct16;  // [bp-0x70]\n    let v2: u64;  // [bp-0x60]\n    let v3: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x58], Other Possible Types: u64\n    let v4: core::fmt::Arguments;  // [bp-0x50], Other Possible Types: u64\n    let v5: core::fmt::Arguments;  // [bp-0x48], Other Possible Types: core::fmt::rt::Argument, unsigned long, u64\n    let v6: u64;  // [bp-0x40]\n    let v7: core::fmt::Arguments;  // [bp-0x38], Other Possible Types: u8\n    let v8: u64;  // [bp-0x30]\n    let v9: u64;  // [bp-0x28]\n    let v10: u64;  // [bp-0x20]\n    let v11: u64;  // [bp-0x18]\n    let v12: u64;  // [bp-0x10]\n    let v14: u64;  // r15\n    let v15: u64;  // r14\n    let v16: u64;  // r13\n    let v17: u64;  // r12\n    let v18: u64;  // rbx\n    let v19: u64;  // r15\n    let v20: u64;  // rax\n    let v21: u64;  // rax\n    let v22: i64;  // rdx\n    let v23: core::result::Result<(), std::io::error::Error>;  // rax\n    let v24: void*;  // rax\n    let v26: u64;  // rdx\n    let v27: core::result::Result<(), std::io::error::Error>;  // rax\n    let v28: void*;  // rax\n    let v30: u64;  // rdx\n    let v31: core::result::Result<(), std::io::error::Error>;  // rax\n    let v32: core::fmt::Arguments;  // rax\n    let v34: u64;  // rdx\n    let v35: core::result::Result<(), std::io::error::Error>;  // rax\n    let v36: void*;  // rax\n\n    v12 = v14;\n    v11 = v15;\n    v10 = v16;\n    v9 = v17;\n    v8 = v18;\n    v19 = a4;\n    if a2 == 2 || !(a2 & 1) {\n        std::io::stdio::stdin();\n        v20 = std::sys::io::is_terminal::isatty::is_terminal();\n        v21 = v20 & -0x100 | 1;\n        if ((v20 ^ 1) & a3 == 3) {\n            goto LABEL_45ecfb;\n        }\n    }\n    if !(v19 & 0x100) {\n        if v19 >= 0 {\n            v4 = uucore::util_name();\n            v5 = v22;\n            eprint!(\"{}: \", &v4);\n            v4 = 1;\n            v5 = a0;\n            v6 = a1;\n            v7 = 1;\n            eprint!(\"attempt removal of inaccessible directory {}?\", &v4);\n            eprint!(\" \");\n            v0 = &_ZN3std2io5stdio6stderr8INSTANCE17h8cff5a7d41eb89e3E.inner;\n            v23 = <std::io::stdio::Stderr as std::io::Write>::flush(&v0);\n            if let Err(_) = v23 {\n                v24 = uu_rm::prompt_file::{{closure}}(v23);\n                if v24 {\n                    v1 = struct16 {\n                        field_0: v24\n                        field_8: &g_4ea7a8\n                    };\n                    uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v24) as u32 as u64);\n                    v2 = uucore::util_name();\n                    v3 = v22;\n                    eprintln!(\"{}: {}\", &v2, &v1);\n                }\n            }\n        } else {\n            v21 = v21 & -0x100 | 1;\n            if a3 != 2 {\n                goto LABEL_45ecfb;\n            }\n            v4 = uucore::util_name();\n            v5 = v26;\n            eprint!(\"{}: \", &v4);\n            v4 = 1;\n            v5 = a0;\n            v6 = a1;\n            v7 = 1;\n            eprint!(\"attempt removal of inaccessible directory {}?\", &v4);\n            eprint!(\" \");\n            v0 = &_ZN3std2io5stdio6stderr8INSTANCE17h8cff5a7d41eb89e3E.inner;\n            v27 = <std::io::stdio::Stderr as std::io::Write>::flush(&v0);\n            if let Err(_) = v27 {\n                v28 = uu_rm::prompt_file::{{closure}}(v27);\n                if v28 {\n                    v1 = struct16 {\n                        field_0: v28\n                        field_8: &g_4ea7a8\n                    };\n                    uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v28) as u32 as u64);\n                    v2 = uucore::util_name();\n                    v3 = v26;\n                    eprintln!(\"{}: {}\", &v2, &v1);\n                }\n            }\n        }\n    } else {\n        if v19 >= 0 {\n            v4 = uucore::util_name();\n            v5 = v30;\n            eprint!(\"{}: \", &v4);\n            v4 = 1;\n            v5 = a0;\n            v6 = a1;\n            v7 = 1;\n            eprint!(\"remove write-protected directory {}?\", &v4);\n            eprint!(\" \");\n            v0 = &_ZN3std2io5stdio6stderr8INSTANCE17h8cff5a7d41eb89e3E.inner;\n            v31 = <std::io::stdio::Stderr as std::io::Write>::flush(&v0);\n            if let Err(_) = v31 {\n                v32 = uu_rm::prompt_file::{{closure}}(v31);\n                if v32 {\n                    v1 = struct16 {\n                        field_0: v32\n                        field_8: &g_4ea7a8\n                    };\n                    uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v32) as u32 as u64);\n                    v2 = uucore::util_name();\n                    v3 = v30;\n                    eprintln!(\"{}: {}\", &v2, &v1);\n                }\n            }\n        } else {\n            v21 = v21 & -0x100 | 1;\n            if a3 != 2 {\n                goto LABEL_45ecfb;\n            }\n            v4 = uucore::util_name();\n            v5 = v34;\n            eprint!(\"{}: \", &v4);\n            v4 = 1;\n            v5 = a0;\n            v6 = a1;\n            v7 = 1;\n            eprint!(\"remove directory {}?\", &v4);\n            eprint!(\" \");\n            v0 = &_ZN3std2io5stdio6stderr8INSTANCE17h8cff5a7d41eb89e3E.inner;\n            v35 = <std::io::stdio::Stderr as std::io::Write>::flush(&v0);\n            if let Err(_) = v35 {\n                v36 = uu_rm::prompt_file::{{closure}}(v35);\n                if v36 {\n                    v1 = struct16 {\n                        field_0: v36\n                        field_8: &g_4ea7a8\n                    };\n                    uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v36) as u32 as u64);\n                    v2 = uucore::util_name();\n                    v3 = v34;\n                    eprintln!(\"{}: {}\", &v2, &v1);\n                }\n            }\n        }\n    }\n    v21 = uucore::read_yes();\nLABEL_45ecfb:\n    return v21;\n}\n",
+    "_ZN5uu_rm35path_is_current_or_parent_directory17h8073b220e3800501E": "fn uu_rm::path_is_current_or_parent_directory(a0: &[u8]) -> u64 {\n    let v0: struct4;  // [bp-0x34]\n    let v2: void*;  // [bp-0x30]\n    let v3: u64;  // [bp-0x28]\n    let v4: u64;  // [bp-0x20]\n    let v5: u64;  // [bp-0x18]\n    let v6: u64;  // [bp-0x10]\n    let v7: i8;  // [bp+0x0]\n    let v9: u64;  // r14\n    let v10: u64;  // rbx\n    let v11: u64;  // rdi\n    let v12: u64;  // rsi\n    let v13: u64;  // rbp\n\n    v6 = v9;\n    v5 = v10;\n    v3 = v11;\n    v4 = v12;\n    v2 = 0;\n    if v12 == 2 {\n        v13 = &v7 & -0x100 | 1;\n        if v11 == \"..\" {\n            goto LABEL_45ee50;\n        }\n    } else if v12 == 1 {\n        v13 = &v7 & -0x100 | 1;\n        if v11 == \".\" {\n            goto LABEL_45ee50;\n        }\n    }\n    v13 = v13 & -0x100 | 1;\n    if !core::slice::<impl [T]>::ends_with(v11, v12) && !core::slice::<impl [T]>::ends_with(v11, v12) {\n        v0 = struct4 {\n            field_0: 11823\n            field_2: 47\n        };\n        if !core::slice::<impl [T]>::ends_with(v11, v12) {\n            strncpy(&v0, 0, 4);\n            v13 = core::slice::<impl [T]>::ends_with(v11, v12);\n        }\n    }\nLABEL_45ee50:\n    return v13 & 4294967295;\n}\n",
+    "_ZN5uu_rm22clean_trailing_slashes17hf055f5506fb084d9E": "fn uu_rm::clean_trailing_slashes(a0: &[u8]) -> u64 {\n    let v0: void*;  // [bp-0x40]\n    let v1: u64;  // [bp-0x38]\n    let v2: u64;  // [bp-0x30]\n    let v3: core::ops::range::RangeInclusive<usize>;  // [bp-0x28]\n    let v4: u64;  // [bp-0x10]\n    let v5: u64;  // [bp-0x8]\n    let v7: u64;  // r14\n    let v8: u64;  // rbx\n    let v9: u64;  // rdi\n    let v10: u64;  // rsi\n    let v11: u64;  // rsi\n    let v12: u64;  // rcx\n    let v13: u64;  // rdx\n    let v14: u64;  // r14\n    let v15: &[u8];  // rax:rdx\n\n    v5 = v7;\n    v4 = v8;\n    v1 = v9;\n    v2 = v10;\n    v0 = 0;\n    if v10 >= 2 && v9 + v10 - 1 == \"/\" {\n        v11 = v10;\n        loop {\n            v12 = v13;\n            if v12 <= 1 {\n                break;\n            }\n            v13 = v12 - 1;\n            if v9 + v12 - 2 != \"/\" {\n                break;\n            }\n        }\n        v3 = core::ops::range::RangeInclusive<usize> {\n            start: 0\n            end: v13\n            exhausted: 0\n        };\n        v15 = <core::ops::range::RangeInclusive<usize> as core::slice::index::SliceIndex<[T]>>::index(&v3, a0);\n    }\n    return v14;\n}\n",
+    "_ZN5uu_rm14prompt_descend17heddf5145b62c3c76E": "fn uu_rm::prompt_descend(a0: i64, a1: i64) -> u64 {\n    let v0: std::io::stdio::Stderr;  // [bp-0xa0]\n    let v1: struct16;  // [bp-0x70]\n    let v2: u64;  // [bp-0x60]\n    let v3: u64;  // [bp-0x58]\n    let v4: core::result::Result<(), std::io::error::Error>;  // [bp-0x50], Other Possible Types: u64\n    let v5: u64;  // [bp-0x48]\n    let v6: u64;  // [bp-0x40]\n    let v7: u8;  // [bp-0x38]\n    let v8: u64;  // [bp-0x30]\n    let v9: u64;  // [bp-0x28]\n    let v10: u64;  // [bp-0x20]\n    let v11: u64;  // [bp-0x18]\n    let v12: u64;  // [bp-0x10]\n    let v14: u64;  // r15\n    let v15: u64;  // r14\n    let v16: u64;  // r13\n    let v17: u64;  // r12\n    let v18: u64;  // rbx\n    let v19: u64;  // rdx\n    let v20: core::result::Result<(), std::io::error::Error>;  // rax\n    let v21: void*;  // rax\n\n    v12 = v14;\n    v11 = v15;\n    v10 = v16;\n    v9 = v17;\n    v8 = v18;\n    v4 = uucore::util_name();\n    v5 = v19;\n    eprint!(\"{}: \", &v4);\n    v4 = 1;\n    v5 = a0;\n    v6 = a1;\n    v7 = 1;\n    eprint!(\"descend into directory {}?\", &v4);\n    eprint!(\" \");\n    v0 = &_ZN3std2io5stdio6stderr8INSTANCE17h8cff5a7d41eb89e3E.inner;\n    v20 = <std::io::stdio::Stderr as std::io::Write>::flush(&v0);\n    if let Err(_) = v20 {\n        v21 = uu_rm::prompt_file::{{closure}}(v20);\n        if v21 {\n            v1 = struct16 {\n                field_0: v21\n                field_8: &g_4ea7a8\n            };\n            uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v21) as u32 as u64);\n            v2 = uucore::util_name();\n            v3 = v19;\n            eprintln!(\"{}: {}\", &v2, &v1);\n        }\n    }\n    return uucore::read_yes();\n}\n",
+    "_ZN5uu_rm9normalize17h371ce75c5c819b8dE": "fn uu_rm::normalize(a0: i64, a1: i64, a2: i64) -> u64 {\n    return uucore::features::fs::normalize_path(a0, a1, a2);\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN5uu_rm6uumain17h1e1b7d5d0a97386eE": {
+      "uucore::mods::error::get_exit_code": 1,
+      "UnresolvableCallTarget": 2,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "uu_rm::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN5uu_rm6uumain6uumain17h70e0ab345ddb6bc4E": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uucore::util_name": 2,
+      "uucore::mods::error::set_exit_code": 1,
+      "<uucore::mods::error::UUsageError as uucore::mods::error::UError>::code": 1,
+      "uu_rm::uumain::uumain::{{closure}}": 1,
+      "<std::io::stdio::Stderr as std::io::Write>::flush": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 7,
+      "alloc::boxed::Box<T>::new": 2,
+      "core::option::unwrap": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "uu_rm::uu_app": 1
+    },
+    "_ZN5uu_rm6uu_app17hbf90efb73f59e8a6E": {
+      "clap_builder::builder::command::Command::arg": 12,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::arg::Arg::num_args": 2,
+      "clap_builder::builder::arg::Arg::value_parser": 1,
+      "clap_builder::builder::arg::Arg::action": 11,
+      "clap_builder::builder::arg::Arg::new": 12,
+      "memcpy": 3,
+      "clap_builder::builder::arg::Arg::alias": 1,
+      "clap_builder::builder::arg::Arg::long": 9,
+      "clap_builder::builder::arg::Arg::help": 10,
+      "clap_builder::builder::arg::Arg::short": 6,
+      "clap_builder::builder::arg::Arg::visible_short_alias": 1,
+      "clap_builder::builder::arg::Arg::overrides_with_all": 3,
+      "clap_builder::builder::arg::Arg::default_missing_value": 1,
+      "clap_builder::builder::arg::Arg::value_name": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN5uu_rm6remove17h1125bc30f1a1af71E": {
+      "uu_rm::handle_dir": 2,
+      "uu_rm::remove_file": 2,
+      "std::fs::symlink_metadata": 2,
+      "uucore::util_name": 1
+    },
+    "_ZN5uu_rm12is_dir_empty17h0b58628bb17a83e8E": {
+      "core::iter::traits::iterator::Iterator::fold": 1,
+      "std::fs::read_dir": 1
+    },
+    "_ZN5uu_rm11is_readable17h11778c167935ca98E": {
+      "std::fs::metadata": 1
+    },
+    "_ZN5uu_rm11is_writable17h35835a5ca0912becE": {
+      "std::fs::metadata": 1
+    },
+    "_ZN5uu_rm20remove_dir_recursive17h796f941ab304c174E": {
+      "uucore::util_name": 3,
+      "<std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context": 2,
+      "std::fs::remove_dir_all": 1,
+      "uu_rm::remove_file": 1,
+      "uu_rm::normalize": 1,
+      "std::fs::remove_dir": 1,
+      "uu_rm::remove_dir_recursive": 1,
+      "std::fs::DirEntry::path": 1,
+      "<std::fs::ReadDir as core::iter::traits::iterator::Iterator>::next": 1,
+      "std::fs::read_dir": 1,
+      "core::str::converts::from_utf8": 1
+    },
+    "_ZN5uu_rm10handle_dir17hb9074543311991f9E": {
+      "std::io::stdio::_eprint": 2,
+      "uucore::util_name": 4,
+      "uu_rm::remove_dir": 1,
+      "uu_rm::remove_dir_recursive": 3,
+      "std::path::Path::parent": 1,
+      "std::path::Path::components": 1,
+      "uu_rm::clean_trailing_slashes": 1
+    },
+    "_ZN5uu_rm10remove_dir17h55820dedda8befb2E": {
+      "core::ptr::drop_in_place<alloc::boxed::Box<uucore::mods::error::UIoError>>": 1,
+      "uucore::util_name": 2,
+      "<std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context": 1,
+      "uu_rm::normalize": 1,
+      "std::fs::remove_dir": 1,
+      "std::io::stdio::_eprint": 1
+    },
+    "_ZN5uu_rm11remove_file17h42f0a78696bb1093E": {
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "uucore::util_name": 2,
+      "uu_rm::normalize": 1,
+      "std::fs::remove_file": 1
+    },
+    "_ZN5uu_rm10prompt_dir17h2b47d5798effefb0E": {
+      "uu_rm::handle_writable_directory": 1,
+      "std::fs::metadata": 1
+    },
+    "_ZN5uu_rm11prompt_file17h7c1fa3f92c48040aE": {
+      "uucore::read_yes": 2,
+      "uucore::util_name": 6,
+      "uucore::mods::error::set_exit_code": 3,
+      "<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code": 3,
+      "uu_rm::prompt_file::{{closure}}": 3,
+      "<std::io::stdio::Stderr as std::io::Write>::flush": 3,
+      "uu_rm::prompt_file_permission_readonly": 1,
+      "std::fs::metadata": 1,
+      "std::fs::symlink_metadata": 1
+    },
+    "_ZN5uu_rm31prompt_file_permission_readonly17h22905ffc5cf8659cE": {
+      "uucore::read_yes": 2,
+      "uucore::util_name": 4,
+      "uucore::mods::error::set_exit_code": 2,
+      "<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code": 2,
+      "uu_rm::prompt_file::{{closure}}": 2,
+      "<std::io::stdio::Stderr as std::io::Write>::flush": 2,
+      "std::fs::metadata": 1,
+      "std::sys::io::is_terminal::isatty::is_terminal": 1,
+      "std::io::stdio::stdin": 1
+    },
+    "_ZN5uu_rm25handle_writable_directory17ha4e75ec62de4407cE": {
+      "uucore::read_yes": 1,
+      "uucore::util_name": 8,
+      "uucore::mods::error::set_exit_code": 4,
+      "<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code": 4,
+      "uu_rm::prompt_file::{{closure}}": 4,
+      "<std::io::stdio::Stderr as std::io::Write>::flush": 4,
+      "std::sys::io::is_terminal::isatty::is_terminal": 1,
+      "std::io::stdio::stdin": 1
+    },
+    "_ZN5uu_rm35path_is_current_or_parent_directory17h8073b220e3800501E": {
+      "core::slice::<impl [T]>::ends_with": 1
+    },
+    "_ZN5uu_rm22clean_trailing_slashes17hf055f5506fb084d9E": {
+      "<core::ops::range::RangeInclusive<usize> as core::slice::index::SliceIndex<[T]>>::index": 1
+    },
+    "_ZN5uu_rm14prompt_descend17heddf5145b62c3c76E": {
+      "uucore::read_yes": 1,
+      "uucore::util_name": 2,
+      "uucore::mods::error::set_exit_code": 1,
+      "<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code": 1,
+      "uu_rm::prompt_file::{{closure}}": 1,
+      "<std::io::stdio::Stderr as std::io::Write>::flush": 1
+    },
+    "_ZN5uu_rm9normalize17h371ce75c5c819b8dE": {
+      "uucore::features::fs::normalize_path": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN5uu_rm6uumain17h1e1b7d5d0a97386eE": {
+      "eprintln": 2,
+      "eprint": 1,
+      "format": 1
+    },
+    "_ZN5uu_rm6uumain6uumain17h70e0ab345ddb6bc4E": {
+      "eprintln": 1,
+      "eprint": 3,
+      "format": 2
+    },
+    "_ZN5uu_rm6uu_app17hbf90efb73f59e8a6E": {},
+    "_ZN5uu_rm6remove17h1125bc30f1a1af71E": {
+      "eprintln": 1,
+      "eprint": 1
+    },
+    "_ZN5uu_rm12is_dir_empty17h0b58628bb17a83e8E": {},
+    "_ZN5uu_rm11is_readable17h11778c167935ca98E": {},
+    "_ZN5uu_rm11is_writable17h35835a5ca0912becE": {},
+    "_ZN5uu_rm20remove_dir_recursive17h796f941ab304c174E": {
+      "eprintln": 3,
+      "eprint": 3,
+      "println": 1
+    },
+    "_ZN5uu_rm10handle_dir17hb9074543311991f9E": {
+      "eprint": 4,
+      "eprintln": 2
+    },
+    "_ZN5uu_rm10remove_dir17h55820dedda8befb2E": {
+      "eprintln": 1,
+      "eprint": 2,
+      "println": 1
+    },
+    "_ZN5uu_rm11remove_file17h42f0a78696bb1093E": {
+      "eprintln": 2,
+      "eprint": 2,
+      "println": 1
+    },
+    "_ZN5uu_rm10prompt_dir17h2b47d5798effefb0E": {},
+    "_ZN5uu_rm11prompt_file17h7c1fa3f92c48040aE": {
+      "eprintln": 3,
+      "eprint": 9
+    },
+    "_ZN5uu_rm31prompt_file_permission_readonly17h22905ffc5cf8659cE": {
+      "eprintln": 2,
+      "eprint": 6
+    },
+    "_ZN5uu_rm25handle_writable_directory17ha4e75ec62de4407cE": {
+      "eprintln": 4,
+      "eprint": 12
+    },
+    "_ZN5uu_rm35path_is_current_or_parent_directory17h8073b220e3800501E": {},
+    "_ZN5uu_rm22clean_trailing_slashes17hf055f5506fb084d9E": {},
+    "_ZN5uu_rm14prompt_descend17heddf5145b62c3c76E": {
+      "eprintln": 1,
+      "eprint": 3
+    },
+    "_ZN5uu_rm9normalize17h371ce75c5c819b8dE": {}
+  },
+  "node_counts": {
+    "_ZN5uu_rm6uumain17h1e1b7d5d0a97386eE": 10,
+    "_ZN5uu_rm6uumain6uumain17h70e0ab345ddb6bc4E": 48,
+    "_ZN5uu_rm6uu_app17hbf90efb73f59e8a6E": 81,
+    "_ZN5uu_rm6remove17h1125bc30f1a1af71E": 15,
+    "_ZN5uu_rm12is_dir_empty17h0b58628bb17a83e8E": 3,
+    "_ZN5uu_rm11is_readable17h11778c167935ca98E": 3,
+    "_ZN5uu_rm11is_writable17h35835a5ca0912becE": 3,
+    "_ZN5uu_rm20remove_dir_recursive17h796f941ab304c174E": 29,
+    "_ZN5uu_rm10handle_dir17hb9074543311991f9E": 21,
+    "_ZN5uu_rm10remove_dir17h55820dedda8befb2E": 13,
+    "_ZN5uu_rm11remove_file17h42f0a78696bb1093E": 14,
+    "_ZN5uu_rm10prompt_dir17h2b47d5798effefb0E": 4,
+    "_ZN5uu_rm11prompt_file17h7c1fa3f92c48040aE": 33,
+    "_ZN5uu_rm31prompt_file_permission_readonly17h22905ffc5cf8659cE": 28,
+    "_ZN5uu_rm25handle_writable_directory17ha4e75ec62de4407cE": 43,
+    "_ZN5uu_rm35path_is_current_or_parent_directory17h8073b220e3800501E": 10,
+    "_ZN5uu_rm22clean_trailing_slashes17hf055f5506fb084d9E": 6,
+    "_ZN5uu_rm14prompt_descend17heddf5145b62c3c76E": 10,
+    "_ZN5uu_rm9normalize17h371ce75c5c819b8dE": 1
+  },
+  "variable_types": {
+    "_ZN5uu_rm6uumain17h1e1b7d5d0a97386eE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_rm6uumain6uumain17h70e0ab345ddb6bc4E": {
+      "stack_1752": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1744": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1736": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1728": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1720": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_224": [
+        [
+          "struct",
+          8
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_1008": [
+        [
+          "struct",
+          56
+        ]
+      ],
+      "stack_64": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "Result",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_1016": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_944": [
+        [
+          "struct",
+          64
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_148": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "struct",
+          24
+        ]
+      ]
+    },
+    "_ZN5uu_rm6uu_app17hbf90efb73f59e8a6E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2744": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2736": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2728": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2720": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2712": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          448
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1360": [
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_720": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_708": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2060": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_716": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2068": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2072": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_1352": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_640": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1356": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1992": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_rm6remove17h1125bc30f1a1af71E": {
+      "stack_328": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "Result",
+          200
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          120
+        ]
+      ],
+      "stack_120": [
+        [
+          "Result",
+          200
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_rm12is_dir_empty17h0b58628bb17a83e8E": {
+      "stack_0": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_rm11is_readable17h11778c167935ca98E": {
+      "stack_8": [
+        [
+          "Result",
+          200
+        ]
+      ]
+    },
+    "_ZN5uu_rm11is_writable17h35835a5ca0912becE": {
+      "stack_8": [
+        [
+          "Result",
+          200
+        ]
+      ]
+    },
+    "_ZN5uu_rm20remove_dir_recursive17h796f941ab304c174E": {
+      "stack_264": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_240": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "struct",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_232": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "struct",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "Option",
+          80
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_64": [
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          40
+        ]
+      ],
+      "stack_72": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "struct",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_15": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_184": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_208": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_14": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_ymm1": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN5uu_rm10handle_dir17hb9074543311991f9E": {
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_82": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN5uu_rm10remove_dir17h55820dedda8befb2E": {
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_88": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_rm11remove_file17h42f0a78696bb1093E": {
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "reg_r14": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_144": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_r13": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          48
+        ],
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_112": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_48": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_72": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          48
+        ]
+      ]
+    },
+    "_ZN5uu_rm10prompt_dir17h2b47d5798effefb0E": {
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "Result",
+          200
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN5uu_rm11prompt_file17h7c1fa3f92c48040aE": {
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "Result",
+          200
+        ],
+        [
+          "Result",
+          200
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "Result",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "Result",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "Result",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN5uu_rm31prompt_file_permission_readonly17h22905ffc5cf8659cE": {
+      "stack_280": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_72": [
+        [
+          "Result",
+          200
+        ]
+      ],
+      "stack_40": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_48": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "Result",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "Result",
+          8
+        ],
+        [
+          "Result",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          48
+        ]
+      ]
+    },
+    "_ZN5uu_rm25handle_writable_directory17ha4e75ec62de4407cE": {
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "Result",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "Result",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "Result",
+          8
+        ],
+        [
+          "struct",
+          48
+        ],
+        [
+          "Result",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "Result",
+          200
+        ]
+      ]
+    },
+    "_ZN5uu_rm35path_is_current_or_parent_directory17h8073b220e3800501E": {
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_4": [
+        [
+          "struct",
+          4
+        ]
+      ]
+    },
+    "_ZN5uu_rm22clean_trailing_slashes17hf055f5506fb084d9E": {
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          24
+        ]
+      ]
+    },
+    "_ZN5uu_rm14prompt_descend17heddf5145b62c3c76E": {
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "Result",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "Result",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_rm9normalize17h371ce75c5c819b8dE": {}
+  }
+}

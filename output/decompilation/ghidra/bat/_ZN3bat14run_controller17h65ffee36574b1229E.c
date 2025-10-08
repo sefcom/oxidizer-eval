@@ -1,0 +1,183 @@
+void _ZN3bat14run_controller17h65ffee36574b1229E
+               (undefined4 *param_1,undefined4 *param_2,long param_3,undefined8 param_4,
+               undefined8 param_5)
+
+{
+  undefined8 uVar1;
+  undefined8 uVar2;
+  undefined8 uVar3;
+  undefined8 uVar4;
+  undefined8 uVar5;
+  undefined8 uVar6;
+  undefined8 uVar7;
+  undefined8 uVar8;
+  undefined8 uVar9;
+  long local_188;
+  undefined8 uStack_180;
+  undefined8 local_178;
+  undefined8 uStack_170;
+  undefined8 local_168;
+  undefined8 uStack_160;
+  undefined8 local_158;
+  undefined8 uStack_150;
+  undefined8 local_148;
+  undefined8 uStack_140;
+  undefined4 local_138;
+  undefined4 uStack_134;
+  undefined4 uStack_130;
+  undefined4 uStack_12c;
+  undefined8 uStack_128;
+  undefined8 local_120;
+  undefined8 uStack_118;
+  undefined8 local_110;
+  undefined8 uStack_108;
+  undefined8 local_100;
+  undefined8 uStack_f8;
+  undefined8 local_f0;
+  undefined8 uStack_e8;
+  undefined8 local_e0;
+  undefined8 uStack_d8;
+  undefined8 local_d0;
+  undefined8 uStack_c8;
+  undefined8 local_c0;
+  undefined8 uStack_b8;
+  undefined8 local_b0;
+  undefined local_a8 [16];
+  undefined8 uStack_98;
+  undefined4 local_90;
+  undefined4 uStack_8c;
+  undefined4 uStack_88;
+  undefined4 uStack_84;
+  undefined4 local_80;
+  undefined4 uStack_7c;
+  undefined4 uStack_78;
+  undefined4 uStack_74;
+  undefined4 local_70;
+  undefined4 uStack_6c;
+  undefined4 uStack_68;
+  undefined4 uStack_64;
+  undefined4 local_60;
+  undefined4 uStack_5c;
+  undefined4 uStack_58;
+  undefined4 uStack_54;
+  undefined8 local_50;
+  undefined8 uStack_48;
+  undefined8 local_40;
+  undefined8 uStack_38;
+  undefined8 local_30;
+  undefined8 uStack_28;
+  undefined8 local_20;
+  
+                    /* try { // try from 004af42c to 004af43b has its CatchHandler @ 004af5ef */
+  _ZN3bat6assets27assets_from_cache_or_binary17h4bfa381507131f37E
+            (&local_138,*(undefined *)(param_3 + 0x127),param_4,param_5);
+  uStack_180 = (undefined *)uStack_128;
+  uVar1 = uStack_180;
+  local_178 = local_120;
+  uVar2 = local_178;
+  uStack_170 = uStack_118;
+  uVar3 = uStack_170;
+  local_168 = local_110;
+  uVar4 = local_168;
+  uStack_160 = uStack_108;
+  uVar5 = uStack_160;
+  local_158 = local_100;
+  uVar6 = local_158;
+  uStack_150 = uStack_f8;
+  uVar7 = uStack_150;
+  local_148 = local_f0;
+  uVar8 = local_148;
+  uStack_140 = uStack_e8;
+  uVar9 = uStack_140;
+  local_178._0_4_ = (undefined4)local_120;
+  local_178._4_4_ = (undefined4)((ulong)local_120 >> 0x20);
+  uStack_170._0_4_ = (undefined4)uStack_118;
+  uStack_170._4_4_ = (undefined4)((ulong)uStack_118 >> 0x20);
+  local_168._0_4_ = (undefined4)local_110;
+  local_168._4_4_ = (undefined4)((ulong)local_110 >> 0x20);
+  uStack_160._0_4_ = (undefined4)uStack_108;
+  uStack_160._4_4_ = (undefined4)((ulong)uStack_108 >> 0x20);
+  local_158._0_4_ = (undefined4)local_100;
+  local_158._4_4_ = (undefined4)((ulong)local_100 >> 0x20);
+  uStack_150._0_4_ = (undefined4)uStack_f8;
+  uStack_150._4_4_ = (undefined4)((ulong)uStack_f8 >> 0x20);
+  local_178 = uVar2;
+  uStack_170 = uVar3;
+  local_168 = uVar4;
+  uStack_160 = uVar5;
+  local_158 = uVar6;
+  uStack_150 = uVar7;
+  if (CONCAT44(uStack_134,local_138) == -0x7fffffffffffffff) {
+    *(undefined8 *)(param_1 + 0x10) = local_f0;
+    *(undefined8 *)(param_1 + 0x12) = uStack_e8;
+    uStack_180._0_4_ = (undefined4)uStack_128;
+    uStack_180._4_4_ = (undefined4)((ulong)uStack_128 >> 0x20);
+    param_1[0xc] = (undefined4)local_158;
+    param_1[0xd] = local_158._4_4_;
+    param_1[0xe] = (undefined4)uStack_150;
+    param_1[0xf] = uStack_150._4_4_;
+    param_1[8] = (undefined4)local_168;
+    param_1[9] = local_168._4_4_;
+    param_1[10] = (undefined4)uStack_160;
+    param_1[0xb] = uStack_160._4_4_;
+    param_1[4] = (undefined4)local_178;
+    param_1[5] = local_178._4_4_;
+    param_1[6] = (undefined4)uStack_170;
+    param_1[7] = uStack_170._4_4_;
+    *param_1 = uStack_130;
+    param_1[1] = uStack_12c;
+    param_1[2] = (undefined4)uStack_180;
+    param_1[3] = uStack_180._4_4_;
+    uStack_180 = (undefined *)uVar1;
+    _ZN4core3ptr61drop_in_place_LT_alloc__vec__Vec_LT_bat__input__Input_GT__GT_17ha5b8727e1c389dbcE
+              (param_2);
+    return;
+  }
+  local_20 = local_b0;
+  local_30 = local_c0;
+  uStack_28 = uStack_b8;
+  local_40 = local_d0;
+  uStack_38 = uStack_c8;
+  local_50 = local_e0;
+  uStack_48 = uStack_d8;
+  uStack_98 = uStack_128;
+  local_90 = (undefined4)local_178;
+  uStack_8c = local_178._4_4_;
+  uStack_88 = (undefined4)uStack_170;
+  uStack_84 = uStack_170._4_4_;
+  local_80 = (undefined4)local_168;
+  uStack_7c = local_168._4_4_;
+  uStack_78 = (undefined4)uStack_160;
+  uStack_74 = uStack_160._4_4_;
+  local_70 = (undefined4)local_158;
+  uStack_6c = local_158._4_4_;
+  uStack_68 = (undefined4)uStack_150;
+  uStack_64 = uStack_150._4_4_;
+  local_148._0_4_ = (undefined4)local_f0;
+  local_148._4_4_ = (undefined4)((ulong)local_f0 >> 0x20);
+  uStack_140._0_4_ = (undefined4)uStack_e8;
+  uStack_140._4_4_ = (undefined4)((ulong)uStack_e8 >> 0x20);
+  local_60 = (undefined4)local_148;
+  uStack_5c = local_148._4_4_;
+  uStack_58 = (undefined4)uStack_140;
+  uStack_54 = uStack_140._4_4_;
+  uStack_180 = local_a8;
+  local_188 = param_3;
+  local_148 = uVar8;
+  uStack_140 = uVar9;
+  if ((*(char *)(param_3 + 0x12a) != '\x02') && (*(char *)(param_3 + 0x128) != '\0')) {
+                    /* try { // try from 004af583 to 004af5bd has its CatchHandler @ 004af5d8 */
+    _ZN3bat22get_new_terminal_title17h8b51db7900522cfaE
+              (&local_138,*(undefined8 *)(param_2 + 2),*(undefined8 *)(param_2 + 4));
+    _ZN3bat21set_terminal_title_to17h432aeef32092f2a4E(&local_138);
+  }
+  uStack_128 = *(undefined8 *)(param_2 + 4);
+  local_138 = *param_2;
+  uStack_134 = param_2[1];
+  uStack_130 = param_2[2];
+  uStack_12c = param_2[3];
+  (*(code *)PTR__ZN3bat10controller10Controller3run17h2c1d1acaa272306eE_00807b28)
+            (param_1,&local_188,&local_138,0);
+  _ZN4core3ptr52drop_in_place_LT_bat__assets__HighlightingAssets_GT_17h6be43cd2c3f1f295E(local_a8);
+  return;
+}

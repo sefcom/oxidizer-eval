@@ -1,0 +1,104 @@
+void _ZN9alacritty6config8bindings10RawBinding18into_mouse_binding17h7a8cfac036ae1ccdE
+               (undefined8 *param_1,undefined4 *param_2)
+
+{
+  short sVar1;
+  undefined2 uVar2;
+  undefined2 uVar3;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  undefined4 uVar6;
+  undefined4 uVar7;
+  undefined4 uVar8;
+  undefined4 uVar9;
+  undefined4 uVar10;
+  undefined4 uVar11;
+  undefined4 uVar12;
+  undefined4 uVar13;
+  undefined4 uVar14;
+  undefined4 uVar15;
+  undefined8 uVar16;
+  undefined4 local_78;
+  undefined4 uStack_74;
+  undefined4 uStack_70;
+  undefined4 uStack_6c;
+  undefined4 local_68;
+  undefined4 uStack_64;
+  undefined4 uStack_60;
+  undefined4 uStack_5c;
+  undefined4 local_58;
+  undefined4 uStack_54;
+  undefined4 uStack_50;
+  undefined4 uStack_4c;
+  undefined4 local_48;
+  undefined4 uStack_44;
+  undefined4 uStack_40;
+  undefined4 uStack_3c;
+  undefined8 local_38;
+  undefined8 uStack_30;
+  undefined8 local_28;
+  undefined8 uStack_20;
+  undefined8 local_18;
+  
+  sVar1 = *(short *)(param_2 + 0x16);
+  if (sVar1 == 6) {
+    local_18 = *(undefined8 *)(param_2 + 0x18);
+    local_28 = *(undefined8 *)(param_2 + 0x14);
+    uStack_20 = *(undefined8 *)(param_2 + 0x16);
+    local_38 = *(undefined8 *)(param_2 + 0x10);
+    uStack_30 = *(undefined8 *)(param_2 + 0x12);
+    local_78 = *param_2;
+    uStack_74 = param_2[1];
+    uStack_70 = param_2[2];
+    uStack_6c = param_2[3];
+    local_68 = param_2[4];
+    uStack_64 = param_2[5];
+    uStack_60 = param_2[6];
+    uStack_5c = param_2[7];
+    local_58 = param_2[8];
+    uStack_54 = param_2[9];
+    uStack_50 = param_2[10];
+    uStack_4c = param_2[0xb];
+    local_48 = param_2[0xc];
+    uStack_44 = param_2[0xd];
+    uStack_40 = param_2[0xe];
+    uStack_3c = param_2[0xf];
+    uVar16 = _ZN5alloc5boxed12Box_LT_T_GT_3new17he9b99f1ca761bae9E(&local_78);
+    param_1[1] = uVar16;
+    *param_1 = 0x8000000000000035;
+    return;
+  }
+  uVar2 = *(undefined2 *)((long)param_2 + 0x5a);
+  uVar4 = param_2[0x17];
+  uVar5 = *param_2;
+  uVar6 = param_2[1];
+  uVar7 = param_2[2];
+  uVar8 = param_2[3];
+  uVar9 = param_2[4];
+  uVar10 = param_2[5];
+  uVar11 = param_2[6];
+  uVar12 = param_2[7];
+  uVar13 = param_2[9];
+  uVar14 = param_2[10];
+  uVar15 = param_2[0xb];
+  *(undefined4 *)(param_1 + 4) = param_2[8];
+  *(undefined4 *)((long)param_1 + 0x24) = uVar13;
+  *(undefined4 *)(param_1 + 5) = uVar14;
+  *(undefined4 *)((long)param_1 + 0x2c) = uVar15;
+  *(undefined4 *)(param_1 + 2) = uVar9;
+  *(undefined4 *)((long)param_1 + 0x14) = uVar10;
+  *(undefined4 *)(param_1 + 3) = uVar11;
+  *(undefined4 *)((long)param_1 + 0x1c) = uVar12;
+  *(undefined4 *)param_1 = uVar5;
+  *(undefined4 *)((long)param_1 + 4) = uVar6;
+  *(undefined4 *)(param_1 + 1) = uVar7;
+  *(undefined4 *)((long)param_1 + 0xc) = uVar8;
+  uVar3 = *(undefined2 *)(param_2 + 0x18);
+  *(short *)(param_1 + 6) = sVar1;
+  *(undefined2 *)((long)param_1 + 0x32) = uVar2;
+  *(undefined4 *)((long)param_1 + 0x34) = uVar4;
+  *(undefined2 *)(param_1 + 7) = uVar3;
+  _ZN4core3ptr88drop_in_place_LT_core__option__Option_LT_alacritty__config__bindings__BindingKey_GT__GT_17h4838dee35b4ef80cE
+            (param_2 + 0xc);
+  return;
+}

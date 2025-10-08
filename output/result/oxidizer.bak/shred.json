@@ -1,0 +1,1799 @@
+{
+  "decompilation": {
+    "_ZN8uu_shred6uumain17h1c8266caa243a3a4E": "fn uu_shred::uumain(a0: u64, a1: u64) -> long long {\n    let v0: u64;  // [bp-0x98]\n    let v1: u128;  // [bp-0x58]\n    let v2: u64;  // [bp-0x48]\n    let v3: alloc::string::String;  // [bp-0x38], Other Possible Types: u64\n    let v4: u64;  // [bp-0x30]\n    let v5: u64;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers());\n    v8 = uu_shred::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v3 = format!(\"{}\", &v0);\n    v1 = *(&v3.vec.buf.inner.cap as &i128);\n    v2 = v5;\n    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(<alloc::boxed::Box<T,A> as core::fmt::Display>::fmt, v5, 1, 0) {\n        v3 = uucore::util_name();\n        v4 = v9;\n        eprint!(\"{}: \", &v3);\n        eprintln!(\"{}\", &v1);\n    }\n    if !UnresolvableCallTarget(v0) {\n        return UnresolvableCallTarget(v0);\n    }\n    v3 = uucore::execution_phrase();\n    v4 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v3);\n    return UnresolvableCallTarget(v0);\n}\n",
+    "_ZN8uu_shred6uumain6uumain17h5887b3d9b9cbbb8dE": "fn uu_shred::uumain::uumain(a0: i64, a1: i64) -> u64 {\n    let v0: u8;  // [bp-0x3f9]\n    let v1: u64;  // [bp-0x3f0]\n    let v2: void*;  // [bp-0x3e0], Other Possible Types: struct16, struct24\n    let v3: struct64;  // [bp-0x3e0], Other Possible Types: u64\n    let v4: u64;  // [bp-0x3d8]\n    let v5: u64;  // [bp-0x3d0]\n    let v6: u8;  // [bp-0x3c8]\n    let v7: i8;  // [bp-0x3c0]\n    let v8: i8;  // [bp-0x3b0], Other Possible Types: u128\n    let v9: u8;  // [bp-0x3a0]\n    let v10: u64;  // [bp-0x398]\n    let v11: u64;  // [bp-0x390]\n    let v12: u64;  // [bp-0x388]\n    let v13: iNone;  // [bp-0x380]\n    let v14: iNone;  // [bp-0x370]\n    let v15: u64;  // [bp-0x360]\n    let v16: u64;  // [bp-0x350]\n    let v17: u128;  // [bp-0x328]\n    let v18: alloc::string::String;  // [bp-0x310]\n    let v19: u64;  // [bp-0x300]\n    let v20: Result<struct40, struct16>;  // [bp-0x2f8], Other Possible Types: struct752, u128\n    let v21: Result<struct40, struct16>;  // [bp-0x2f8]\n    let v22: Result<struct40, struct16>;  // [bp-0x2f8], Other Possible Types: u128\n    let v23: alloc::string::String;  // [bp-0x2f8]\n    let v24: u128;  // [bp-0x2f8]\n    let v25: u128;  // [bp-0x2f0]\n    let v26: u64;  // [bp-0x2e8]\n    let v27: u32;  // [bp-0x2e0]\n    let v28: iNone;  // [bp-0x2d8]\n    let v29: iNone;  // [bp-0x2c8]\n    let v31: u64;  // rbx\n    let v32: u64;  // r12\n    let v33: u64;  // r13\n    let v34: u64;  // r14\n    let v35: u64;  // r15\n    let v36: void*;  // rax\n    let v37: i64;  // rax\n    let v38: void*;  // rbx\n    let v39: u64;  // r12\n    let v40: void*;  // rax\n    let v41: void*;  // rbx\n    let v42: u64;  // r15\n    let v43: u8;  // al\n    let v44: u64;  // rax\n    let v45: u64;  // rax\n    let v46: u64;  // rsi\n    let v47: u64;  // r15\n    let v48: u8;  // al\n    let v49: u8;  // al\n    let v50: iNone;  // xmm0\n    let v51: i64;  // rax\n    let v52: u64;  // rdx\n    let v53: u64;  // rax\n    let v55: core::result::Result<usize, core::num::error::ParseIntError>;  // rax:rdx\n\n    v20 = struct752 {\n        field_0: uu_shred::uu_app()\n        field_712: v31\n        field_720: v32\n        field_728: v33\n        field_736: v34\n        field_744: v35\n    };\n    v2 = clap_builder::builder::command::Command::try_get_matches_from(&v20, a0, a1);\n    if (((0 ^ v2.field_0) & (0 ^ -(v3))) >> 63) as char {\n        v36 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v12);\n    } else {\n        v15 = *(&v8 as &i64);\n        v14 = *(&v7 as &i128);\n        v13 = *(&v5 as &i128);\n        v11 = v2.field_0;\n        v12 = v4;\n        if clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v11, \"file\") {\n            v21 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v11, \"iterations\");\n            v37 = clap_builder::parser::error::MatchesError::unwrap(\"iterations\", &v21);\n            if !v37 {\n                core::panicking::panic(\"internal error: entered unreachable code\"); /* do not return */\n            }\n            v55 = core::num::<impl usize>::from_ascii_radix(&v9, *((v37 + 8) as &i64), *((v37 + 16) as &i64));\n            if v9 {\n                v2 = 0;\n                v4 = *((v37 + 8) as &i64);\n                v5 = *((v37 + 16) as &i64);\n                v6 = 1;\n                v18 = format!(\"invalid number of passes: {}\", &v2);\n                v27 = 1;\n                v22 = *(&v18.vec.buf.inner.cap as &i128);\n                v26 = v19;\n                v38 = alloc::boxed::Box<T>::new(&v22) as u64;\nLABEL_45d588:\n                v36 = v38;\n            } else {\n                v16 = v10;\n                v39 = &v21 & -0x100 | 3;\n                if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v11, \"u\") && clap_builder::parser::matches::arg_matches::ArgMatches::contains_id(&v11, \"remove\") {\n                    v20 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v11, \"remove\");\n                    v40 = clap_builder::parser::error::MatchesError::unwrap(\"remove\", &v20);\n                    if !v40 {\nLABEL_45d683:\n                        panic!(\"internal error: entered unreachable code: should be caught by clap\");\n                    }\n                    v41 = v40[8] as i64;\n                    v42 = v40[16] as i64;\n                    v39 = v39 & -0x100 | 1;\n                    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v41, v42, \"unlink\") {\n                        v39 = v39 & -0x100 | 2;\n                        if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v41, v42, \"wipe\") {\n                            v39 = v39 & -0x100 | 3;\n                            if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v41, v42, \"wipesync\") {\n                                goto LABEL_45d683;\n                            }\n                        }\n                    }\n                }\n                v43 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v11, \"force\");\n                v22 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v11, \"size\");\n                v44 = clap_builder::parser::error::MatchesError::unwrap(\"size\", &v22);\n                if v44 {\n                    v23 = <alloc::string::String as core::clone::Clone>::clone(v44);\n                }\n                v20 = v45;\n                v25 = v17;\n                v47 = uu_shred::get_size(&v20, v46);\n                v48 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v11, \"exact\");\n                v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v11, \"zero\");\n                v49 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v11, \"verbose\");\n                v20 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v11);\n                v3 = clap_builder::parser::error::MatchesError::unwrap(&v20);\n                core::option::unwrap(v3);\n                v50 = v3.field_0;\n                v29 = v8;\n                v28 = v3.field_32;\n                v26 = v3.field_16;\n                *(&v20 as void*) = v50;\n                loop {\n                    v51 = <clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next(&v20);\n                    if !v51 {\n                        break;\n                    }\n                    v53 = uu_shred::wipe_file(*((v51 + 8) as &i64), *((v51 + 16) as &i64), v16, v39 & 4294967295, v47, v52, v48 | v47 == 1, v0, v49, v43);\n                    if !v53 {\n                        continue;\n                    }\n                    v1 = v53;\n                    uucore::mods::error::set_exit_code(UnresolvableCallTarget(v53));\n                    v9 = uucore::util_name();\n                    v10 = v52;\n                    eprintln!(\"{}: {}\", &v9, &v1);\n                }\n            }\n        } else {\n            v2 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(\"missing file operand\");\n            v26 = v5;\n            v24 = *(&v2.field_0 as &i128);\n            v27 = 1;\n            v38 = alloc::boxed::Box<T>::new(&v20) as u64;\n            goto LABEL_45d588;\n        }\n    }\n    return v36;\n}\n",
+    "_ZN8uu_shred12FilenameIter3new17hd6443cd1750eb6daE": "fn uu_shred::FilenameIter::new(a0: i64, a1: u64) -> long long {\n    let v0: u64;  // [bp-0x8]\n    let v2: u64;  // rbx\n    let v3: u64;  // rax\n\n    v0 = v2;\n    v3 = <T as alloc::vec::spec_from_elem::SpecFromElem>::from_elem(a0, a1);\n    *((a0 + 24) as &i8) = 0;\n    return v3;\n}\n",
+    "_ZN8uu_shred11BytesWriter14from_pass_type17hee8253cabbfb6b71E": "fn uu_shred::BytesWriter::from_pass_type() -> int {\n    let v0: struct40;  // [bp-0x20060]\n    let v1: void*;  // [bp-0x20050]\n    let v2: u64;  // [bp-0x20048]\n    let v3: u8;  // [bp-0x20034]\n    let v4: u8;  // [bp-0x10032]\n    let v6: u64;  // [bp-0x30]\n    let v7: u64;  // [bp-0x28]\n    let v8: core::fmt::rt::Argument;  // [bp-0x20]\n    let v9: core::fmt::Arguments;  // [bp-0x18]\n    let v10: u64;  // [bp-0x10]\n    let v12: u64;  // r15\n    let v13: core::fmt::Arguments;  // r14\n    let v14: core::fmt::rt::Argument;  // r13\n    let v15: u64;  // r12\n    let v16: u64;  // rbx\n    let v17: i64;  // rsi\n    let v18: u64;  // r14\n    let v19: u64;  // r15\n    let v20: u8;  // bpl\n    let v21: i64;  // rdi\n\n    v10 = v12;\n    v9 = v13;\n    v8 = v14;\n    v7 = v15;\n    v6 = v16;\n    if *(v17 as &i8) == 2 {\n        rand_core::SeedableRng::from_os_rng(v21 + 16);\n        memset(v21 + 336, 0, 0x10000);\n    } else {\n        v18 = v17 + 1;\n        if (*(v17 as &i8) & 1) {\n            memset(&v4, 0, 65538);\n            v0 = core::slice::<impl [T]>::chunks_exact_mut(&v4, 65538, 3);\n            v19 = v0.field_32;\n            if v2 >= v19 {\n                do {\n                    v2 -= v19;\n                    core::slice::<impl [T]>::copy_from_slice(v1, v19, v18, 3, \"src/uu/shred/src/shred.rs\");\n                    v1 += v19;\n                } while (v2 >= v19);\n            }\n            memcpy(&v3, &v4, 65538);\n        } else {\n            memset(&v3, *(v18 as &i8), 65538);\n        }\n        *((v21 + 65544) as &i64) = 0;\n        memcpy(v21 + 1, &v3, 65538);\n    }\n    *(v21 as &u8) = v20;\n    return;\n}\n",
+    "_ZN8uu_shred11BytesWriter14bytes_for_pass17hdca822ed44bdc744E": "fn uu_shred::BytesWriter::bytes_for_pass(a0: i64, a1: u32) -> long long {\n    let v0: u64;  // [bp-0x18]\n    let v1: u64;  // [bp-0x10]\n    let v2: u64;  // [bp-0x8]\n    let v4: u64;  // r15\n    let v5: u64;  // r14\n    let v6: u64;  // rbx\n    let v7: u64;  // rax\n    let v8: u64;  // rax\n    let v9: u32;  // rdx\n\n    v2 = v4;\n    v1 = v5;\n    v0 = v6;\n    if *(a0 as &i8) != 1 {\n        v8 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index_mut(a1, a0 + 336);\n        <rand_core::block::BlockRng<R> as rand_core::RngCore>::fill_bytes(a0 + 16, v8, v9);\n        return v8;\n    }\n    v7 = <core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index(*((a0 + 65544) as &i64), *((a0 + 65544) as &i64) + a1, a0 + 1, 65538, \"src/uu/shred/src/shred.rs\");\n    *((a0 + 65544) as &i64) = (a1 + *((a0 + 65544) as &i64)) % 3;\n    return v7;\n}\n",
+    "_ZN8uu_shred6uu_app17hd2dcc3f31ff24fbdE": "fn uu_shred::uu_app() -> : struct712 {\n    let a0: u64;  // rdi\n    let v0: struct24;  // [bp-0xab0], Other Possible Types: struct48, struct640\n    let v1: u32;  // [bp-0x838]\n    let v2: u32;  // [bp-0x834]\n    let v3: struct437;  // [bp-0x830], Other Possible Types: struct712, struct640\n    let v4: struct712;  // [bp-0x830]\n    let v5: struct640;  // [bp-0x830]\n    let v6: struct640;  // [bp-0x830]\n    let v7: struct640;  // [bp-0x830]\n    let v8: u32;  // [bp-0x5b8]\n    let v9: u64;  // [bp-0x574]\n    let v10: u32;  // [bp-0x56c]\n    let v11: struct712;  // [bp-0x568], Other Possible Types: struct640\n    let v12: u64;  // [bp-0x2ac]\n    let v13: u32;  // [bp-0x2a4]\n    let v14: struct640;  // [bp-0x2a0]\n    let v15: u64;  // [bp-0x20]\n    let v16: u64;  // [bp-0x18]\n    let v17: u64;  // [bp-0x10]\n    let v18: u64;  // [bp-0x8]\n    let v20: u64;  // r15\n    let v21: u64;  // r14\n    let v22: u64;  // r12\n    let v23: u64;  // rbx\n    let v25: u64;  // rdx\n\n    v18 = v20;\n    v17 = v21;\n    v16 = v22;\n    v15 = v23;\n    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v25);\n    v11 = clap_builder::builder::command::Command::version(&v3);\n    v3 = clap_builder::builder::command::Command::about(&v11);\n    v11 = clap_builder::builder::command::Command::after_help(&v3);\n    v0 = uucore::format_usage(\"{} [OPTION]... FILE...\");\n    v3 = clap_builder::builder::command::Command::override_usage(&v11, &v0);\n    memcpy(&v11, &v3, 700);\n    v12 = 549755814016 | v9;\n    v13 = v10;\n    v3 = clap_builder::builder::arg::Arg::new(\"force\");\n    v0 = clap_builder::builder::arg::Arg::long(&v3, \"force\");\n    v3 = clap_builder::builder::arg::Arg::short(&v0, 102);\n    v0 = clap_builder::builder::arg::Arg::help(&v3, \"change permissions to allow writing if necessary\");\n    v14 = clap_builder::builder::arg::Arg::action(&v0, 2);\n    v3 = clap_builder::builder::command::Command::arg(&v11, &v14);\n    v11 = clap_builder::builder::arg::Arg::new(\"iterations\");\n    v0 = clap_builder::builder::arg::Arg::long(&v11, \"iterations\");\n    v11 = clap_builder::builder::arg::Arg::short(&v0, 110);\n    v0 = clap_builder::builder::arg::Arg::help(&v11, \"overwrite N times instead of the default (3)\");\n    v11 = clap_builder::builder::arg::Arg::value_name(&v0, \"NUMBER\");\n    v0 = clap_builder::builder::arg::Arg::default_value(&v11);\n    v11 = clap_builder::builder::command::Command::arg(&v3, &v0);\n    v3 = clap_builder::builder::arg::Arg::new(\"size\");\n    v0 = clap_builder::builder::arg::Arg::long(&v3, \"size\");\n    v3 = clap_builder::builder::arg::Arg::short(&v0, 115);\n    v0 = clap_builder::builder::arg::Arg::value_name(&v3, \"N\");\n    v14 = clap_builder::builder::arg::Arg::help(&v0, \"shred this many bytes (suffixes like K, M, G accepted)\");\n    v4 = clap_builder::builder::command::Command::arg(&v11, &v14);\n    v11 = clap_builder::builder::arg::Arg::new(\"u\");\n    v0 = clap_builder::builder::arg::Arg::short(&v11, 117);\n    v11 = clap_builder::builder::arg::Arg::help(&v0, \"deallocate and remove file after overwriting\");\n    v0 = clap_builder::builder::arg::Arg::action(&v11, 2);\n    v11 = clap_builder::builder::command::Command::arg(&v4, &v0);\n    v5 = clap_builder::builder::arg::Arg::new(\"remove\");\n    v0 = clap_builder::builder::arg::Arg::long(&v5, \"remove\");\n    v6 = clap_builder::builder::arg::Arg::value_name(&v0, \"HOW\");\n    v0 = struct48 {\n        field_0: \"unlink\"\n        field_16: \"wipe\"\n        field_32: \"wipesync\"\n    };\n    <uucore::features::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from(&v14, &v0);\n    v0 = clap_builder::builder::arg::Arg::value_parser(&v6, &v14);\n    v7 = clap_builder::builder::arg::Arg::num_args(&v0, None, 1);\n    memcpy(&v0, &v7, 632);\n    v1 = 128 | v8;\n    v2 = v8;\n    v3 = clap_builder::builder::arg::Arg::default_missing_value(&v0);\n    v0 = clap_builder::builder::arg::Arg::help(&v3, \"like -u but give control on HOW to delete;  See below\");\n    v14 = clap_builder::builder::arg::Arg::action(&v0, 0);\n    v3 = clap_builder::builder::command::Command::arg(&v11, &v14);\n    v11 = clap_builder::builder::arg::Arg::new(\"verbose\");\n    v0 = clap_builder::builder::arg::Arg::long(&v11, \"verbose\");\n    v11 = clap_builder::builder::arg::Arg::short(&v0, 118);\n    v0 = clap_builder::builder::arg::Arg::help(&v11, \"show progress\");\n    v14 = clap_builder::builder::arg::Arg::action(&v0, 2);\n    v11 = clap_builder::builder::command::Command::arg(&v3, &v14);\n    v3 = clap_builder::builder::arg::Arg::new(\"exact\");\n    v0 = clap_builder::builder::arg::Arg::long(&v3, \"exact\");\n    v3 = clap_builder::builder::arg::Arg::short(&v0, 120);\n    v0 = clap_builder::builder::arg::Arg::help(&v3, \"do not round file sizes up to the next full block;\\nthis is the default for non-regular files\");\n    v14 = clap_builder::builder::arg::Arg::action(&v0, 2);\n    v3 = clap_builder::builder::command::Command::arg(&v11, &v14);\n    v11 = clap_builder::builder::arg::Arg::new(\"zero\");\n    v0 = clap_builder::builder::arg::Arg::long(&v11, \"zero\");\n    v11 = clap_builder::builder::arg::Arg::short(&v0, 122);\n    v0 = clap_builder::builder::arg::Arg::help(&v11, \"add a final overwrite with zeros to hide shredding\");\n    v14 = clap_builder::builder::arg::Arg::action(&v0, 2);\n    v11 = clap_builder::builder::command::Command::arg(&v3, &v14);\n    v3 = clap_builder::builder::arg::Arg::new(\"file\");\n    v0 = clap_builder::builder::arg::Arg::action(&v3, 1);\n    v3 = clap_builder::builder::arg::Arg::value_hint(&v0);\n    clap_builder::builder::command::Command::arg(a0, &v11, &v3);\n    return;\n}\n",
+    "_ZN8uu_shred8get_size17hc596c7d8cb6dc047E": "fn uu_shred::get_size(a0: i64, a1: i64) -> u64 {\n    let v0: u64;  // [bp-0x18]\n    let v2: u64;  // rax\n    let v3: void*;  // rdi\n    let v4: u64;  // 4096\n    let v5: u64;  // rdx\n\n    v0 = v2;\n    v3 = 0;\n    v4 = a1;\n    if !((((0 ^ *(a0 as &i64)) & (0 ^ -(*(a0 as &i64)))) >> 63) as char) {\n        v3 = uu_shred::get_size::{{closure}}(*((a0 + 8) as &i64), *((a0 + 16) as &i64));\n        v4 = v5;\n    }\n    return core::option::Option<T>::or_else(v3, v4, a0);\n}\n",
+    "_ZN8uu_shred9pass_name17h9fc29581f7f0cfb7E": "fn uu_shred::pass_name(a0: u64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0x78]\n    let v1: struct48;  // [bp-0x70], Other Possible Types: struct_2 *\n    let v2: u64;  // [bp-0x68]\n    let v3: i64;  // [bp-0x60]\n    let v4: u64;  // [bp-0x58]\n    let v5: i64;  // [bp-0x50]\n    let v6: u64;  // [bp-0x48]\n    let v7: u64;  // [bp-0x40]\n    let v8: u64;  // [bp-0x38]\n    let v9: struct48;  // [bp-0x30], Other Possible Types: struct_1 *\n    let v10: u64;  // [bp-0x28]\n\n    if *(a1 as &i8) == 2 {\n        return <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(a0, \"random\");\n    } else if (*(a1 as &i8) & 1) {\n        v7 = v0;\n        v8 = a1 + 2;\n        v0 = a1 + 3;\n        v1 = &v7;\n        v2 = <&T as core::fmt::LowerHex>::fmt;\n        v3 = &v8;\n        v4 = <&T as core::fmt::LowerHex>::fmt;\n        v5 = &v0;\n        v6 = <&T as core::fmt::LowerHex>::fmt;\n        v9 = struct48 {\n            field_0: \"\\x01\\x00\\x00\"\n            field_16: &v1\n            field_24: 3\n            field_32: \"\\x02\\x00\\x00\"\n        };\n        return core::option::Option<T>::map_or_else(a0, &v9);\n    } else {\n        v0 = v7;\n        v9 = &v0;\n        v10 = <&T as core::fmt::LowerHex>::fmt;\n        v1 = struct48 {\n            field_0: \"\\x01\\x00\\x00\"\n            field_16: &v9\n            field_24: 1\n            field_32: \"\\x02\\x00\\x00\"\n        };\n        return core::option::Option<T>::map_or_else(a0, &v1);\n    }\n}\n",
+    "_ZN8uu_shred7do_pass17h5f3b51dd2439eebaE": "fn uu_shred::do_pass() -> int {\n    let v0: u8;  // [bp-0x10178]\n    let v2: u64;  // [bp-0x28]\n    let v3: u64;  // [bp-0x20]\n    let v4: u64;  // [bp-0x18]\n    let v5: u64;  // [bp-0x10]\n    let v7: u64;  // r15\n    let v8: u64;  // r14\n    let v9: u64;  // r12\n    let v10: u64;  // rbx\n    let v11: u64;  // rdi\n    let v12: u64;  // rsi\n    let v15: u64;  // r14\n    let v16: core::result::Result<usize, core::num::error::ParseIntError>;  // r12\n    let v17: u64;  // r12\n\n    v5 = v7;\n    v4 = v8;\n    v3 = v9;\n    v2 = v10;\n    if !std::io::Seek::rewind(v11) {\n        uu_shred::BytesWriter::from_pass_type(&v0, v12);\n        do {\n            v17 = v16 - 1;\n            if let Err(_) = v16 {\n                if !std::io::Write::write_all(v11, uu_shred::BytesWriter::bytes_for_pass(&v0, v15 as u32), rdx<8>) {\n                    std::fs::File::sync_data(v11);\n                    break;\n                }\n            }\n            v16 = v17;\n        } while (!std::io::Write::write_all(v11, uu_shred::BytesWriter::bytes_for_pass(&v0, 0x10000), rdx<8>));\n    }\n    return;\n}\n",
+    "_ZN8uu_shred9wipe_name17he9016127f4be3579E": "fn uu_shred::wipe_name(a0: i64, a1: void*, a2: u64, a3: u32, a4: u32) -> long long {\n    let v0: u64;  // [bp-0x218]\n    let v1: u32;  // [bp-0x210]\n    let v2: u8;  // [bp-0x20f]\n    let v3: u16;  // [bp-0x20c]\n    let v4: u8;  // [bp-0x200]\n    let v5: u128;  // [bp-0x1f8]\n    let v7: u64;  // [bp-0x1f0]\n    let v8: u64;  // [bp-0x1e8]\n    let v9: struct24;  // [bp-0x1d8]\n    let v10: u64;  // [bp-0x1d0]\n    let v11: u64;  // [bp-0x1c8]\n    let v12: u32;  // [bp-0x1c0]\n    let v13: u32;  // [bp-0x1bc]\n    let v14: struct640;  // [bp-0x1b8], Other Possible Types: u64\n    let v15: struct24;  // [bp-0x1b8], Other Possible Types: struct640, u64\n    let v16: u32;  // [bp-0x1b8]\n    let v17: struct640;  // [bp-0x1b8]\n    let v18: u64;  // [bp-0x1b0]\n    let v19: u8;  // [bp-0x1a0]\n    let v21: i64;  // [bp-0x180]\n    let v22: u128;  // [bp-0x178]\n    let v23: iNone;  // [bp-0x168]\n    let v24: struct17;  // [bp-0x150]\n    let v25: u64;  // [bp-0x138]\n    let v26: struct24;  // [bp-0x138], Other Possible Types: core::result::Result<&str, core::str::error::Utf8Error>, u64\n    let v27: u192;  // [bp-0x138]\n    let v28: Result<struct4, struct8>;  // [bp-0x138]\n    let v29: u128;  // [bp-0x138]\n    let v30: struct640;  // [bp-0x128], Other Possible Types: u64\n    let v31: struct640;  // [bp-0x128]\n    let v32: u128;  // [bp-0x88]\n    let v33: iNone;  // [bp-0x80]\n    let v34: u8;  // [bp-0x70]\n    let v35: struct56;  // [bp-0x68]\n    let v36: iNone;  // [bp-0x58]\n    let v37: struct24;  // [bp-0x48]\n    let v38: struct24;  // [bp-0x48]\n    let v39: u64;  // [bp-0x30]\n    let v40: u64;  // [bp-0x28]\n    let v41: u64;  // [bp-0x20]\n    let v42: u64;  // [bp-0x18]\n    let v43: u64;  // [bp-0x10]\n    let v45: u64;  // r15\n    let v46: u64;  // r14\n    let v47: u64;  // r13\n    let v48: u64;  // r12\n    let v49: u64;  // rbx\n    let v50: u64;  // rax\n    let v51: u64;  // rdx\n    let v53: u64;  // rdx\n    let v55: u64;  // rdx\n    let v57: u64;  // [bp-0x88]\n\n    v43 = v45;\n    v42 = v46;\n    v41 = v47;\n    v40 = v48;\n    v39 = v49;\n    v12 = a4;\n    v13 = a3;\n    v50 = std::path::Path::file_name(a1, a2);\n    core::option::unwrap(v50);\n    v26 = core::str::converts::from_utf8(v50, a2);\n    match v26 {\n        Err(_) => {\n            core::option::unwrap_failed(); /* do not return */\n        },\n        Ok(_) => {\n            <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v26, a1, a2);\n            v8 = v30;\n            v5 = v26 as i128 as u128;\n            v24 = struct17 {\n                field_0: 1\n                field_8: v30\n                field_16: 0\n            };\n            if (<core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next_back(&v24) as u8 & 1) {\n                do {\n                    vvar_554{stack -104} = struct56 OrderedDict([(0, \ud835\udf19@128b [((4608485, None), vvar_307{stack -104}), ((4608354, None), None)]), (16, \ud835\udf19@128b [((4608485, None), vvar_308{stack -88}), ((4608354, None), None)]), (32, \ud835\udf19@192b [((4608485, None), vvar_332{stack -72}), ((4608354, None), None)])])\n                    uu_shred::FilenameIter::new(&v35, v51);\n                    v23 = v36;\n                    v22 = v35.field_0;\n                    v37 = v38;\n                    loop {\n                        <uu_shred::FilenameIter as core::iter::traits::iterator::Iterator>::next(&v37, &v22 as u8);\n                        if (((0 ^ v37.field_0 as i64) & (0 ^ -(v37.field_0 as i64))) >> 63) as char {\n                            break;\n                        }\n                        v9 = std::path::Path::with_file_name(a1, a2, &v37);\n                        v26 = std::fs::metadata(v10, v11);\n                        if v26 as i64 as i32 == 2 {\n                            if !std::fs::rename(&v5 as u8, &v9) {\n                                v26 = v25;\n                                if v13 as i8 {\n                                    v15 = uucore::util_name();\n                                    v18 = v53;\n                                    eprint!(\"{}: \", &v15);\n                                    v14 = 1;\n                                    v18 = *(&v7 as &i128) as u128;\n                                    v19 = 0;\n                                    v32 = *(&v10 as &i128) as u128;\n                                    eprintln!(\"{}: renamed to {}\", &v14, &v57);\n                                    v26 = v27;\n                                    v30 = v31;\n                                }\n                                v25 = v26;\n                                v15 = v14;\n                                if v12 as i8 == 3 {\n                                    v0 = 0x1b600000000;\n                                    v3 = 0;\n                                    v1 = 0 as u32;\n                                    v2 = 1;\n                                    v26 = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(v10, v11);\n                                    v15 = v27;\n                                    v28 = std::fs::OpenOptions::open(&v0, &v15);\n                                    v16 = core::result::Result<T,E>::expect(&v28) as u32;\n                                    core::result::Result<T,E>::expect(std::fs::File::sync_all(&v16 as u64));\n                                    v15 = v17;\n                                }\n                                v14 = v15;\n                                v30 = v11;\n                                v29 = v9.field_0;\n                                v8 = v30;\n                                v5 = v29;\n                                break;\n                            } else {\n                                v15 = uucore::util_name();\n                                v18 = v55;\n                                eprint!(\"{}: \", &v15);\n                                v57 = 1;\n                                v33 = *(&v7 as &i128);\n                                v34 = 0;\n                                v0 = 1;\n                                v1 = *(&v10 as &i128) as u128;\n                                v4 = 1;\n                                eprintln!(\"{}: Couldn't rename to {}: {}\", &v57, &v0, &v20);\n                                std::process::exit(1); /* do not return */\n                            }\n                        }\n                    }\n                } while ((<core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next_back(&v24) as u8 & 1));\n            }\n            *((v21 + 16) as &u64) = v8;\n            *(v21 as &u128) = v5;\n            return v8;\n        },\n    }\n}\n",
+    "_ZN8uu_shred9do_remove17he7f6ef1c114a8897E": "fn uu_shred::do_remove(a0: u64, a1: u64, a2: u64, a3: u64, a4: u32, a5: u32) -> long long {\n    let v0: void*;  // [bp-0x68], Other Possible Types: u64\n    let v1: u64;  // [bp-0x60]\n    let v2: u64;  // [bp-0x58]\n    let v3: u8;  // [bp-0x50]\n    let v4: struct24;  // [bp-0x48]\n    let v5: u64;  // [bp-0x30]\n    let v6: u64;  // [bp-0x28]\n    let v7: u64;  // [bp-0x20]\n    let v8: u64;  // [bp-0x18]\n    let v9: u64;  // [bp-0x10]\n    let v11: u64;  // r15\n    let v12: u64;  // r14\n    let v13: u64;  // r13\n    let v14: u64;  // r12\n    let v15: u64;  // rbx\n    let v16: u64;  // r13\n    let v17: u64;  // rbp\n    let v18: u64;  // rdx\n    let v19: void*;  // rax\n\n    v9 = v11;\n    v8 = v12;\n    v7 = v13;\n    v6 = v14;\n    v5 = v15;\n    v16 = a5;\n    v17 = a4;\n    if a4 {\n        v0 = uucore::util_name();\n        v1 = v18;\n        eprint!(\"{}: \", &v0);\n        v0 = 0;\n        v1 = a2;\n        v2 = a3;\n        v3 = 0;\n        eprintln!(\"{}: removing\", &v0);\n    }\n    if v16 == 1 {\n        v4 = std::path::Path::with_file_name(a0, a1, a2, a3);\n        if (((0 ^ v4.field_0 as i64) & (0 ^ -(v4.field_0 as i64))) >> 63) as char {\n            goto LABEL_4657b0;\n        }\nLABEL_465775:\n        v19 = std::fs::remove_file(&v4);\n        if (v17 & !v19) {\n            goto LABEL_4657bf;\n        }\n    } else {\n        uu_shred::wipe_name(&v4 as u8, a0, a1, v17, v16);\n        if !((((0 ^ v4.field_0 as i64) & (0 ^ -(v4.field_0 as i64))) >> 63) as char) {\n            goto LABEL_465775;\n        }\nLABEL_4657b0:\n        if v17 {\nLABEL_4657bf:\n            v0 = uucore::util_name();\n            v1 = v18;\n            eprint!(\"{}: \", &v0);\n            v0 = 0;\n            v1 = a2;\n            v2 = a3;\n            v3 = 0;\n            eprintln!(\"{}: removed\", &v0);\n        }\n    }\n    return v19;\n}\n",
+    "_ZN8uu_shred9wipe_file17h03ce7ff5299acd49E": "fn uu_shred::wipe_file(a0: u64, a1: u64, a2: u64, a3: u32, a4: u64, a5: i64, a6: u8, a7: u8, a8: u8, a9: u8) -> long long {\n    let v0: u32;  // [bp-0x26c]\n    let v1: void*;  // [bp-0x268]\n    let v2: u64;  // [bp-0x260]\n    let v3: void*;  // [bp-0x258]\n    let v4: u32;  // [bp-0x24c]\n    let v5: u64;  // [bp-0x248]\n    let v6: u64;  // [bp-0x240]\n    let v7: core::fmt::rt::Argument;  // [bp-0x240]\n    let v8: u64;  // [bp-0x238]\n    let v9: u64;  // [bp-0x230]\n    let v10: u8;  // [bp-0x228]\n    let v11: Result<struct16, struct12>;  // [bp-0x218], Other Possible Types: struct32\n    let v12: u64;  // [bp-0x210]\n    let v15: void*;  // [bp-0x1f8]\n    let v16: u64;  // [bp-0x1f0]\n    let v17: struct12;  // [bp-0x1e8]\n    let v18: u64;  // [bp-0x1e8]\n    let v19: struct16;  // [bp-0x1d8], Other Possible Types: u64\n    let v20: u64;  // [bp-0x1d8]\n    let v21: core::fmt::Arguments;  // [bp-0x1c0], Other Possible Types: core::result::Result<std::fs::Metadata, std::io::error::Error>, struct14\n    let v22: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x1c0], Other Possible Types: void*\n    let v23: u64;  // [bp-0x1b8]\n    let v24: u128;  // [bp-0x1b0]\n    let v25: u128;  // [bp-0x1a0]\n    let v26: u128;  // [bp-0x190]\n    let v27: u128;  // [bp-0x180]\n    let v28: u128;  // [bp-0x170]\n    let v29: u64;  // [bp-0x160]\n    let v30: u64;  // [bp-0x158]\n    let v31: u64;  // [bp-0x100]\n    let v32: u64;  // [bp-0xf8]\n    let v33: void*;  // [bp-0xf0]\n    let v34: u64;  // [bp-0xe8]\n    let v35: Result<struct4, struct8>;  // [bp-0xe0], Other Possible Types: u64\n    let v36: u64;  // [bp-0xd8]\n    let v37: u32;  // [bp-0xc8]\n    let v38: u64;  // [bp-0x30]\n    let v39: u64;  // [bp-0x28]\n    let v40: u64;  // [bp-0x20]\n    let v41: u64;  // [bp-0x18]\n    let v42: u64;  // [bp-0x10]\n    let v43: i8;  // [bp+0x0]\n    let v44: u64;  // r15\n    let v45: u64;  // r14\n    let v46: u64;  // r13\n    let v47: u64;  // r12\n    let v48: u64;  // rbx\n    let v49: u64;  // rax\n    let v50: u64;  // rax\n    let v51: u64;  // r15\n    let v52: u64;  // r15\n    let v54: u64;  // r15\n    let v55: u64;  // r12\n    let v56: u64;  // r12\n    let v57: u64;  // rax\n    let v59: u64;  // rax\n    let v60: u64;  // r15\n    let v61: u64;  // rax\n    let v62: i64;  // rbp\n    let v63: i64;  // rbp\n    let v64: u64;  // rdx\n    let v65: u64;  // rax\n    let v68: u128;  // [bp-0x1b0]\n    let v69: u128;  // [bp-0x1a0]\n    let v70: u128;  // [bp-0x190]\n\n    v42 = v44;\n    v41 = v45;\n    v40 = v46;\n    v39 = v47;\n    v38 = v48;\n    v31 = a4;\n    v22 = std::fs::metadata(a0, a1);\n    match v22 {\n        Ok(_) => {\n            if std::path::Path::is_file(a0, a1) as u8 {\n                v21 = std::fs::metadata(a0, a1);\n                v35 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v21);\n                if let Ok(_) = v35 {\n                    v5 = *((&v35 as &char + 80) as &i64);\n                    if a9 {\n                        v50 = *((&v35 as &char + 56) as &i32) as u32 as u64;\n                        if <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(std::fs::set_permissions(a0, a1, (v50 as u8 < 0 ? v50 & 4294967295 : 128))) {\n                            goto LABEL_46464e;\n                        }\n                    }\n                    v1 = 0;\n                    v2 = 1;\n                    v3 = 0;\n                    if v5 {\n                        if a2 <= 3 {\n                            loop {\n                                v52 = v51 - 1;\n                                if v51 == 1 {\n                                    break;\n                                }\n                                alloc::vec::Vec<T,A>::push(&v1, 2, \"src/uu/shred/src/shred.rs\");\n                                v51 = v52;\n                            }\n                        } else {\n                            alloc::vec::Vec<T,A>::push(&v1, 2, \"src/uu/shred/src/shred.rs\");\n                            v54 = a2 - core::cmp::Ord::max(a2 / 10, 3);\n                            v16 = v54 / 22;\n                            if v54 >= 22 {\n                                do {\n                                    v56 = v55;\n                                    v22 = 0;\n                                    v23 = 22 as u64;\n                                    v28 = 0xcc000000bb000000990000008800;\n                                    v27 = 0x7700000066000000440000003300;\n                                    v26 = 689601926604450170026677061268993 as u128;\n                                    v25 = 48234206897958065916534445818495771649 as u128;\n                                    v24 = 0xaa00000055000000ff0000000000 as u128;\n                                    v29 = 0xee000000dd00;\n                                    loop {\n                                        v57 = core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next(&v22);\n                                        if v57 as u8 == 2 {\n                                            break;\n                                        }\n                                        alloc::vec::Vec<T,A>::push(&v1, v57 & 4294967295, \"src/uu/shred/src/shred.rs\");\n                                    }\n                                    v55 = v56 + (v56 < v16) as u8 as u64;\n                                } while (v56 < v16);\n                            }\n                            v59 = v16 * 22;\n                            v22 = 0;\n                            v23 = 22 as u64;\n                            v68 = 0xaa00000055000000ff0000000000 as u128;\n                            v69 = 48234206897958065916534445818495771649 as u128;\n                            v70 = 689601926604450170026677061268993 as u128;\n                            v27 = 0x7700000066000000440000003300;\n                            v28 = 0xcc000000bb000000990000008800;\n                            v29 = 0xee000000dd00;\n                            v60 = v54 - v59;\n                            if v54 != v59 {\n                                loop {\n                                    v30 -= 1;\n                                    v61 = core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next(&v22);\n                                    if v61 as u8 == 2 {\n                                        break;\n                                    }\n                                    alloc::vec::Vec<T,A>::push(&v1, v61 & 4294967295, \"src/uu/shred/src/shred.rs\");\n                                    if !v30 {\n                                        break;\n                                    }\n                                }\n                            }\n                            loop {\n                                v63 = v62 - 1;\n                                if v62 == 1 {\n                                    break;\n                                }\n                                alloc::vec::Vec<T,A>::push(&v1, 2, \"src/uu/shred/src/shred.rs\");\n                                v62 = v63;\n                            }\n                            v35 = rand::rngs::thread::rng();\n                            if v3 >= 3 {\n                                <[T] as rand::seq::slice::SliceRandom>::partial_shuffle(&v22, 5, v3 - 1, &v35, v3 - 1);\n                            }\n                            alloc::vec::Vec<T,A>::push(&v1, 2, \"src/uu/shred/src/shred.rs\");\n                        }\n                        if a7 {\n                            alloc::vec::Vec<T,A>::push(&v1, 0, \"src/uu/shred/src/shred.rs\");\n                        }\n                    }\n                    v33 = v3;\n                    v21 = struct14 {\n                        field_0: 0x1b600000000\n                        field_8: 0\n                        field_12: 0\n                    };\n                    v35 = std::fs::OpenOptions::open(&v21, a0, a1);\n                    v11 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(&v35, a0, a1);\n                    if let Err(_) = v11 {\n                        v0 = v12 as u32;\n                        if (v31 as i8 & 1) {\n                            v32 = v32;\n                        } else {\n                            v32 = v5;\n                        }\n                        v5 = v32;\n                        v11 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v1);\n                        v15 = 0;\n                        v17 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v11);\n                        if v17.field_8 as i8 != 3 {\n                            do {\n                                v4 = v17.field_8;\n                                if a8 {\n                                    uu_shred::pass_name(&v19, &v4);\n                                    v35 = uucore::util_name();\n                                    v36 = v64;\n                                    eprint!(\"{}: \", &v35);\n                                    v6 = 1;\n                                    v8 = a0;\n                                    v9 = a1;\n                                    v10 = 0;\n                                    v34 = v18 + 1;\n                                    eprintln!(\"{}: pass {}/{} ({})...\", &v6, &v34, &v33, &v19);\n                                }\n                                v65 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(uu_shred::do_pass(&v0, &v4, a6 as u64, v5) as i64, a0, a1);\n                                v19 = v19;\n                                if v65 {\n                                    v19 = struct16 {\n                                        field_0: v65\n                                        field_8: &g_4f9bb8\n                                    };\n                                    uucore::mods::error::set_exit_code(uucore::mods::error::UError::code() as u32 as u64);\n                                    v6 = uucore::util_name();\n                                    v8 = v64;\n                                    eprintln!(\"{}: {}\", &v6, &v19);\n                                    v19 = v20;\n                                }\n                                v17 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v11);\n                            } while (v17.field_8 as i8 != 3);\n                        }\n                    }\n                }\n            }\n        },\n        Err(_) => {\n            v21 = core::fmt::Arguments {\n                pieces: &[&str] {\n                    ptr: v49\n                    len: 2\n                }\n                args: [v7]\n                fmt: 0\n            };\n            core::option::Option<T>::map_or_else(&v35 as u8, &v21);\n            v37 = 1;\n            alloc::boxed::Box<T>::new(&v35 as u8);\n        },\n    }\nLABEL_46464e:\n    return &v43;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN8uu_shred6uumain17h1c8266caa243a3a4E": {
+      "uucore::mods::error::get_exit_code": 1,
+      "UnresolvableCallTarget": 2,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "uu_shred::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN8uu_shred6uumain6uumain17h5887b3d9b9cbbb8dE": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "alloc::boxed::Box<T>::new": 2,
+      "uucore::util_name": 1,
+      "uucore::mods::error::set_exit_code": 1,
+      "UnresolvableCallTarget": 1,
+      "uu_shred::wipe_file": 1,
+      "<clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next": 1,
+      "core::option::unwrap": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 4,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 4,
+      "uu_shred::get_size": 1,
+      "<alloc::string::String as core::clone::Clone>::clone": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 3,
+      "core::num::<impl usize>::from_ascii_radix": 1,
+      "core::panicking::panic": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_shred::uu_app": 1
+    },
+    "_ZN8uu_shred12FilenameIter3new17hd6443cd1750eb6daE": {
+      "<T as alloc::vec::spec_from_elem::SpecFromElem>::from_elem": 1
+    },
+    "_ZN8uu_shred11BytesWriter14from_pass_type17hee8253cabbfb6b71E": {
+      "memset": 3,
+      "rand_core::SeedableRng::from_os_rng": 1,
+      "memcpy": 2,
+      "core::slice::<impl [T]>::copy_from_slice": 1,
+      "core::slice::<impl [T]>::chunks_exact_mut": 1
+    },
+    "_ZN8uu_shred11BytesWriter14bytes_for_pass17hdca822ed44bdc744E": {
+      "<rand_core::block::BlockRng<R> as rand_core::RngCore>::fill_bytes": 1,
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index_mut": 1,
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index": 1
+    },
+    "_ZN8uu_shred6uu_app17hd2dcc3f31ff24fbdE": {
+      "clap_builder::builder::command::Command::arg": 9,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::arg::Arg::action": 7,
+      "clap_builder::builder::arg::Arg::new": 9,
+      "clap_builder::builder::arg::Arg::help": 8,
+      "clap_builder::builder::arg::Arg::short": 7,
+      "clap_builder::builder::arg::Arg::long": 7,
+      "clap_builder::builder::arg::Arg::default_missing_value": 1,
+      "memcpy": 2,
+      "clap_builder::builder::arg::Arg::num_args": 1,
+      "clap_builder::builder::arg::Arg::value_parser": 1,
+      "<uucore::features::parser::shortcut_value_parser::ShortcutValueParser as core::convert::From<I>>::from": 1,
+      "clap_builder::builder::arg::Arg::value_name": 3,
+      "clap_builder::builder::arg::Arg::default_value": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN8uu_shred8get_size17hc596c7d8cb6dc047E": {
+      "core::option::Option<T>::or_else": 1,
+      "uu_shred::get_size::{{closure}}": 1
+    },
+    "_ZN8uu_shred9pass_name17h9fc29581f7f0cfb7E": {
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::option::Option<T>::map_or_else": 2
+    },
+    "_ZN8uu_shred7do_pass17h5f3b51dd2439eebaE": {
+      "std::fs::File::sync_data": 1,
+      "uu_shred::BytesWriter::from_pass_type": 1
+    },
+    "_ZN8uu_shred9wipe_name17he9016127f4be3579E": {
+      "core::option::unwrap_failed": 1,
+      "core::result::Result<T,E>::expect": 2,
+      "std::fs::File::sync_all": 1,
+      "std::fs::OpenOptions::open": 1,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone": 1,
+      "uucore::util_name": 2,
+      "std::process::exit": 1,
+      "std::fs::metadata": 1,
+      "std::path::Path::with_file_name": 1,
+      "<uu_shred::FilenameIter as core::iter::traits::iterator::Iterator>::next": 1,
+      "uu_shred::FilenameIter::new": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::str::converts::from_utf8": 1,
+      "core::option::unwrap": 1,
+      "std::path::Path::file_name": 1
+    },
+    "_ZN8uu_shred9do_remove17he7f6ef1c114a8897E": {
+      "std::fs::remove_file": 1,
+      "std::path::Path::with_file_name": 1,
+      "uucore::util_name": 2,
+      "uu_shred::wipe_name": 1
+    },
+    "_ZN8uu_shred9wipe_file17h03ce7ff5299acd49E": {
+      "<core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next": 2,
+      "uucore::util_name": 2,
+      "uucore::mods::error::set_exit_code": 1,
+      "uucore::mods::error::UError::code": 1,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 3,
+      "uu_shred::do_pass": 1,
+      "uu_shred::pass_name": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "std::fs::OpenOptions::open": 1,
+      "alloc::vec::Vec<T,A>::push": 7,
+      "<[T] as rand::seq::slice::SliceRandom>::partial_shuffle": 1,
+      "rand::rngs::thread::rng": 1,
+      "core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next": 2,
+      "core::cmp::Ord::max": 1,
+      "std::fs::metadata": 2,
+      "alloc::boxed::Box<T>::new": 1,
+      "core::option::Option<T>::map_or_else": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN8uu_shred6uumain17h1c8266caa243a3a4E": {
+      "eprintln": 2,
+      "eprint": 1,
+      "format": 1
+    },
+    "_ZN8uu_shred6uumain6uumain17h5887b3d9b9cbbb8dE": {
+      "format": 1,
+      "eprintln": 1,
+      "panic": 1
+    },
+    "_ZN8uu_shred12FilenameIter3new17hd6443cd1750eb6daE": {},
+    "_ZN8uu_shred11BytesWriter14from_pass_type17hee8253cabbfb6b71E": {},
+    "_ZN8uu_shred11BytesWriter14bytes_for_pass17hdca822ed44bdc744E": {},
+    "_ZN8uu_shred6uu_app17hd2dcc3f31ff24fbdE": {},
+    "_ZN8uu_shred8get_size17hc596c7d8cb6dc047E": {},
+    "_ZN8uu_shred9pass_name17h9fc29581f7f0cfb7E": {},
+    "_ZN8uu_shred7do_pass17h5f3b51dd2439eebaE": {},
+    "_ZN8uu_shred9wipe_name17he9016127f4be3579E": {
+      "eprintln": 2,
+      "eprint": 2
+    },
+    "_ZN8uu_shred9do_remove17he7f6ef1c114a8897E": {
+      "eprintln": 2,
+      "eprint": 2
+    },
+    "_ZN8uu_shred9wipe_file17h03ce7ff5299acd49E": {
+      "eprintln": 2,
+      "eprint": 1
+    }
+  },
+  "node_counts": {
+    "_ZN8uu_shred6uumain17h1c8266caa243a3a4E": 10,
+    "_ZN8uu_shred6uumain6uumain17h5887b3d9b9cbbb8dE": 42,
+    "_ZN8uu_shred12FilenameIter3new17hd6443cd1750eb6daE": 2,
+    "_ZN8uu_shred11BytesWriter14from_pass_type17hee8253cabbfb6b71E": 13,
+    "_ZN8uu_shred11BytesWriter14bytes_for_pass17hdca822ed44bdc744E": 6,
+    "_ZN8uu_shred6uu_app17hd2dcc3f31ff24fbdE": 66,
+    "_ZN8uu_shred8get_size17hc596c7d8cb6dc047E": 4,
+    "_ZN8uu_shred9pass_name17h9fc29581f7f0cfb7E": 5,
+    "_ZN8uu_shred7do_pass17h5f3b51dd2439eebaE": 6,
+    "_ZN8uu_shred9wipe_name17he9016127f4be3579E": 26,
+    "_ZN8uu_shred9do_remove17he7f6ef1c114a8897E": 13,
+    "_ZN8uu_shred9wipe_file17h03ce7ff5299acd49E": 47
+  },
+  "variable_types": {
+    "_ZN8uu_shred6uumain17h1c8266caa243a3a4E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_shred6uumain6uumain17h5887b3d9b9cbbb8dE": {
+      "stack_304": [
+        [
+          "Result",
+          80
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "struct",
+          64
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_280": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_47": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_shred12FilenameIter3new17hd6443cd1750eb6daE": {
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_shred11BytesWriter14from_pass_type17hee8253cabbfb6b71E": {
+      "stack_131160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_131152": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "reg_r14": [
+        [
+          "struct",
+          48
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_131144": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_r13": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_131136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_131128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_65590": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_52": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN8uu_shred11BytesWriter14bytes_for_pass17hdca822ed44bdc744E": {
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN8uu_shred6uu_app17hd2dcc3f31ff24fbdE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2736": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2728": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2720": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2712": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_648": [
+        [
+          "struct",
+          448
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1360": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_2060": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1348": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2068": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1356": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2072": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_640": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1280": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_644": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN8uu_shred8get_size17hc596c7d8cb6dc047E": {
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_None": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_shred9pass_name17h9fc29581f7f0cfb7E": {
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_shred7do_pass17h5f3b51dd2439eebaE": {
+      "stack_65896": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_65888": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_65880": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "Result",
+          16
+        ]
+      ],
+      "stack_65872": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_shred9wipe_name17he9016127f4be3579E": {
+      "stack_520": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_512": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_504": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_496": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_488": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_92": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          24
+        ],
+        [
+          "Result",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_200": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_432": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_448": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_464": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_64": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_9": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_424": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_152": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_shred9do_remove17he7f6ef1c114a8897E": {
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_shred9wipe_file17h03ce7ff5299acd49E": {
+      "stack_616": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_608": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_600": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_592": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_584": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "Result",
+          200
+        ],
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_408": [
+        [
+          "Result",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_392": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "Result",
+          80
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_44": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_160": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_632": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    }
+  }
+}

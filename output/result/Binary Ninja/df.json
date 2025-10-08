@@ -1,0 +1,4217 @@
+{
+  "decompilation": {
+    "_ZN5uu_df10filesystem10Filesystem9from_path17h8c044b7be3620a3cE": "\n  int64_t* uu_df::filesystem::Filesystem::from_path::h8c044b7be3620a3c(int64_t* arg1, int64_t arg2, int64_t arg3, int64_t* arg4)\n\n{\n    int64_t rax;\n    int64_t rdx;\n    rax = _$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$::as_ref::h07de46ba282a0abf(arg4);\n    int64_t var_68 = rax;\n    int64_t var_60 = rdx;\n    int128_t var_90;\n    _$LT$T$u20$as$u20$alloc..string..SpecToString$GT$::spec_to_string::h5d1558b0a1eb3735(&var_90, \n        &var_68);\n    char var_78;\n    uu_df::filesystem::mount_info_from_path::hc0bcb2ea98b5090a(&var_78, arg2, arg3, arg4);\n    int64_t var_50 = arg2;\n    int64_t var_48 = arg3;\n    var_68 = var_90;\n    int64_t var_80;\n    int64_t var_58 = var_80;\n    \n    if (var_78 == 1)\n    {\n        char var_77;\n        arg1[1] = var_77;\n        *arg1 = -0x8000000000000000;\n        return core::ptr::drop_in_place$LT$uu_df..filesystem..Filesystem..from_path$LT$$RF$$RF$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$::h3f753883bea380f6(&var_68);\n    }\n    \n    int64_t var_28_1 = var_80;\n    int128_t var_38 = var_90;\n    void* var_70;\n    return uu_df::filesystem::Filesystem::from_mount::h8c34ead0ca2ea541(arg1, arg2, arg3, var_70, \n        &var_38);\n}\n",
+    "_ZN5uu_df10filesystem20mount_info_from_path17hc0bcb2ea98b5090aE": "\n  int64_t uu_df::filesystem::mount_info_from_path::hc0bcb2ea98b5090a(int16_t* arg1, int64_t arg2, int64_t arg3, int64_t* arg4)\n\n{\n    int64_t var_88;\n    std::fs::canonicalize::he3861711874680a2(&var_88, \n        _$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$::as_ref::h07de46ba282a0abf(arg4));\n    int64_t rax_1 = var_88;\n    char var_80;\n    \n    if (-(rax_1) == -0x8000000000000000)\n    {\n        int64_t result =\n            core::ptr::drop_in_place$LT$std..io..error..Error$GT$::h69a84c60d5093e65(var_80);\n        *arg1 = 0x101;\n        return result;\n    }\n    \n    int64_t var_7f;\n    int64_t var_5f_1 = var_7f;\n    var_5f_1 = var_7f;\n    int64_t var_68 = rax_1;\n    char var_60_1 = var_80;\n    int64_t var_50 = arg2;\n    int64_t var_48_1 = arg3 * 0x98 + arg2;\n    int64_t* var_40 = &var_40;\n    int64_t* var_38_1 = &var_68;\n    int64_t** var_30_1 = &var_40;\n    _$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::try_fold::h9c71e0ce0d4c8b4f(&var_88, &var_50, &var_40);\n    int64_t rax_4 = var_80;\n    int64_t r12_1;\n    \n    if (rax_4 != -0x8000000000000000)\n    {\n        r12_1 = var_88;\n        core::ptr::drop_in_place$LT$$LP$$RF$uucore..features..fsext..MountInfo$C$std..path..PathBuf$RP$$GT$::he3cf3c9f5c62efb3(rax_4, var_7f);\n    }\n    else\n    {\n        core::ptr::drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$$LP$$RF$uucore..features..fsext..MountInfo$C$std..path..PathBuf$RP$$GT$$GT$::he2ec4800f4f1f216(-0x8000000000000000, var_7f);\n        r12_1 = 0;\n    }\n    \n    var_88 = arg2;\n    var_80 = arg3;\n    var_7f = &var_68;\n    int64_t rax_5 = core::option::Option$LT$T$GT$::or_else::hfb47a539a566ef5e(r12_1, &var_88);\n    \n    if (!rax_5)\n    {\n        *(arg1 + 1) = 2;\n        rax_5 = 1;\n    }\n    else\n    {\n        *(arg1 + 8) = rax_5;\n        rax_5 = 0;\n    }\n    \n    *arg1 = rax_5;\n    return core::mem::drop::hf2e2fee3dcd8d14f(var_68, var_60_1);\n}\n",
+    "_ZN5uu_df21get_named_filesystems17h04ac4719102a6bd6E": "\n  void* const uu_df::get_named_filesystems::h04ac4719102a6bd6(int64_t* arg1, int64_t* arg2, int64_t arg3, void* arg4)\n\n{\n    int64_t* r12 = arg2;\n    void* const result_2;\n    uucore::features::fsext::read_fs_list::h6f122f433e9b10c6(&result_2);\n    void* const result = result_2;\n    int64_t var_310;\n    int64_t var_308;\n    \n    if (-(result) == -0x8000000000000000)\n    {\n        arg1[1] = var_310;\n        arg1[2] = var_308;\n        *arg1 = -0x8000000000000000;\n        return result;\n    }\n    \n    void* const result_1 = result;\n    int64_t var_328_1 = var_310;\n    int64_t var_320_1 = var_308;\n    int64_t var_358 = 0;\n    int64_t var_350_1 = 8;\n    int64_t var_348_1 = 0;\n    int128_t* var_378;\n    int128_t var_230;\n    uint64_t* var_220;\n    int64_t var_118;\n    \n    if (arg3)\n    {\n        int64_t i_1 = arg3 << 3;\n        int64_t i;\n        \n        do\n        {\n            uu_df::filesystem::Filesystem::from_path::h8c044b7be3620a3c(&var_118, var_310, var_308, \n                r12);\n            \n            if (var_118 != -0x8000000000000000)\n            {\n                memcpy(&var_230, &var_118, 0xe8);\n                \n                if (!uu_df::is_included::h2cb576fb785b9846(&var_230, arg4))\n                    core::ptr::drop_in_place$LT$uu_df..filesystem..Filesystem$GT$::h796a453b85755ea4(&var_230);\n                else\n                {\n                    memcpy(&result_2, &var_230, 0xe8);\n                    alloc::vec::Vec$LT$T$C$A$GT$::push::h5c5f06b26c9d90a4(&var_358, &result_2);\n                }\n            }\n            else\n            {\n                char var_110;\n                uint32_t rax = var_110;\n                uint64_t var_368;\n                int32_t var_300;\n                int64_t (* var_218)(int64_t* arg1);\n                \n                if (!rax)\n                {\n                    int64_t rax_7;\n                    int64_t rdx_3;\n                    rax_7 = _$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$::as_ref::he61e357f22fb6931(*r12);\n                    var_230 = 1;\n                    *var_230[8] = rax_7;\n                    int64_t var_220_1 = rdx_3;\n                    var_218 = 1;\n                    var_378 = &var_230;\n                    int64_t (* var_370_3)(int32_t* arg1, int64_t* arg2) = _$LT$os_display..Quoted$u20$as$u20$core..fmt..Display$GT$::fmt::ha3782f403933d3a5;\n                    result_2 = &data_502038;\n                    int64_t var_310_3 = 2;\n                    int64_t var_2f8_3 = 0;\n                    int128_t** var_308_4 = &var_378;\n                    var_300 = 1;\n                    int128_t var_130;\n                    core::option::Option$LT$T$GT$::map_or_else::hd603ea6dce20e29a(&var_130, \n                        &result_2);\n                    var_300 = 1;\n                    result_2 = var_130;\n                    int64_t var_120;\n                    int64_t var_308_5 = var_120;\n                    uint64_t rax_9 = alloc::boxed::Box$LT$T$GT$::new::h9b3314f0e2696c29(&result_2);\n                    var_368 = rax_9;\n                    int64_t* var_360_2 = &data_502078;\n                    uucore::mods::error::set_exit_code::hbbe6ffc423a314f1(_$LT$uucore..mods..error..USimpleError$u20$as$u20$uucore..mods..error..UError$GT$::code::ha04d37fdd51c3108(rax_9));\n                    int128_t* rax_11;\n                    int64_t rdx_4;\n                    rax_11 = uucore::util_name::h074417a1e6395129();\n                    var_378 = rax_11;\n                    int64_t var_370_4 = rdx_4;\n                    var_230 = &var_378;\n                    *var_230[8] =\n                        _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h3c47c1ce865d8231;\n                    var_220 = &var_368;\n                    var_218 = _$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Display$GT$::fmt::h9d2dcefa87161161;\n                    result_2 = &data_502008;\n                    int64_t var_310_4 = 3;\n                    int64_t var_2f8_4 = 0;\n                    int128_t* var_308_6 = &var_230;\n                    var_300 = 2;\n                    std::io::stdio::_eprint::h57899770eacec2ad(&result_2);\n                    core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$clap_builder..builder..value_parser..AnyValueParser$GT$$GT$::hfabf09c63ef1010c(var_368, var_360_2);\n                }\n                else if (rax != 1)\n                {\n                    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h5e212f3fc67d7e91(&var_230, \"no file systems processed: No su\u2026\", 0x19);\n                    uint64_t* var_308_7 = var_220;\n                    result_2 = var_230;\n                    var_300 = 1;\n                    uint64_t rax_13 = alloc::boxed::Box$LT$T$GT$::new::h9b3314f0e2696c29(&result_2);\n                    var_368 = rax_13;\n                    int64_t* var_360_3 = &data_502078;\n                    uucore::mods::error::set_exit_code::hbbe6ffc423a314f1(_$LT$uucore..mods..error..USimpleError$u20$as$u20$uucore..mods..error..UError$GT$::code::ha04d37fdd51c3108(rax_13));\n                    int128_t* rax_15;\n                    int64_t rdx_5;\n                    rax_15 = uucore::util_name::h074417a1e6395129();\n                    var_378 = rax_15;\n                    int64_t var_370_5 = rdx_5;\n                    var_230 = &var_378;\n                    *var_230[8] =\n                        _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h3c47c1ce865d8231;\n                    var_220 = &var_368;\n                    var_218 = _$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Display$GT$::fmt::h9d2dcefa87161161;\n                    result_2 = &data_502008;\n                    int64_t var_310_5 = 3;\n                    int64_t var_2f8_5 = 0;\n                    int128_t* var_308_8 = &var_230;\n                    var_300 = 2;\n                    std::io::stdio::_eprint::h57899770eacec2ad(&result_2);\n                    core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$clap_builder..builder..value_parser..AnyValueParser$GT$$GT$::hfabf09c63ef1010c(var_368, var_360_3);\n                }\n                else\n                {\n                    int64_t rax_1;\n                    int64_t rdx_1;\n                    rax_1 = _$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$::as_ref::he61e357f22fb6931(*r12);\n                    var_230 = rax_1;\n                    *var_230[8] = rdx_1;\n                    var_378 = &var_230;\n                    uint64_t (* var_370_1)(int64_t* arg1, int64_t arg2) = _$LT$std..path..Display$u20$as$u20$core..fmt..Display$GT$::fmt::hdc1404ac42f64ec9;\n                    result_2 = &data_501fe8;\n                    int64_t var_310_1 = 2;\n                    int64_t var_2f8_1 = 0;\n                    int128_t** var_308_1 = &var_378;\n                    var_300 = 1;\n                    int128_t var_148;\n                    core::option::Option$LT$T$GT$::map_or_else::hd603ea6dce20e29a(&var_148, \n                        &result_2);\n                    var_300 = 1;\n                    result_2 = var_148;\n                    int64_t var_138;\n                    int64_t var_308_2 = var_138;\n                    uint64_t rax_3 = alloc::boxed::Box$LT$T$GT$::new::h9b3314f0e2696c29(&result_2);\n                    var_368 = rax_3;\n                    void** const var_360_1 = &data_502078;\n                    uucore::mods::error::set_exit_code::hbbe6ffc423a314f1(_$LT$uucore..mods..error..USimpleError$u20$as$u20$uucore..mods..error..UError$GT$::code::ha04d37fdd51c3108(rax_3));\n                    int128_t* rax_5;\n                    int64_t rdx_2;\n                    rax_5 = uucore::util_name::h074417a1e6395129();\n                    var_378 = rax_5;\n                    int64_t var_370_2 = rdx_2;\n                    var_230 = &var_378;\n                    *var_230[8] =\n                        _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h3c47c1ce865d8231;\n                    var_220 = &var_368;\n                    var_218 = _$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Display$GT$::fmt::h9d2dcefa87161161;\n                    result_2 = &data_502008;\n                    int64_t var_310_2 = 3;\n                    int64_t var_2f8_2 = 0;\n                    int128_t* var_308_3 = &var_230;\n                    var_300 = 2;\n                    std::io::stdio::_eprint::h57899770eacec2ad(&result_2);\n                    core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$clap_builder..builder..value_parser..AnyValueParser$GT$$GT$::hfabf09c63ef1010c(var_368, var_360_1);\n                }\n            }\n            \n            r12 = &r12[1];\n            i = i_1;\n            i_1 -= 8;\n        } while (i != 8);\n    }\n    \n    if (!uucore::mods::error::get_exit_code::h4ce6cf124c2ef658() && !var_348_1)\n    {\n        _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h5e212f3fc67d7e91(&var_230, \"no file systems processed: No su\u2026\", 0x19);\n        uint64_t* var_308_9 = var_220;\n        result_2 = var_230;\n        int32_t var_300_1 = 1;\n        uint64_t rax_18 = alloc::boxed::Box$LT$T$GT$::new::h9b3314f0e2696c29(&result_2);\n        var_378 = rax_18;\n        void** const var_370_6 = &data_502078;\n        uucore::mods::error::set_exit_code::hbbe6ffc423a314f1(_$LT$uucore..mods..error..USimpleError$u20$as$u20$uucore..mods..error..UError$GT$::code::ha04d37fdd51c3108(rax_18));\n        int64_t rax_20;\n        int64_t rdx_6;\n        rax_20 = uucore::util_name::h074417a1e6395129();\n        var_118 = rax_20;\n        int64_t var_110_1 = rdx_6;\n        var_230 = &var_118;\n        *var_230[8] = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h3c47c1ce865d8231;\n        int128_t** var_220_2 = &var_378;\n        int64_t (* var_218_1)(int64_t* arg1) = _$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Display$GT$::fmt::h9d2dcefa87161161;\n        result_2 = &data_502008;\n        int64_t var_310_6 = 3;\n        int64_t var_2f8_6 = 0;\n        int128_t* var_308_10 = &var_230;\n        var_300_1 = 2;\n        std::io::stdio::_eprint::h57899770eacec2ad(&result_2);\n        core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$clap_builder..builder..value_parser..AnyValueParser$GT$$GT$::hfabf09c63ef1010c(var_378, var_370_6);\n    }\n    \n    arg1[2] = var_348_1;\n    *arg1 = var_358;\n    return core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uucore..features..fsext..MountInfo$GT$$GT$::h2b7ba84ce5c92a56(&result_1);\n}\n",
+    "_ZN5uu_df6uumain17h952234f03fc05d86E": "\n  uint64_t uu_df::uumain::h952234f03fc05d86(int64_t arg1)\n\n{\n    core::result::Result$LT$T$C$E$GT$::expect::h33265ad5955dfc08(\n        uucore::disable_rust_signal_handlers::hcf33f4a6d6e443c4());\n    uint64_t rax_1;\n    int64_t* rdx;\n    rax_1 = uu_df::uumain::uumain::h219d096a97f03177(arg1);\n    \n    if (!rax_1)\n        /* tailcall */\n        return uucore::mods::error::get_exit_code::h4ce6cf124c2ef658();\n    \n    uint64_t var_90 = rax_1;\n    uint64_t* var_28 = &var_90;\n    int64_t (* var_20)(int64_t* arg1) = _$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Display$GT$::fmt::h9d2dcefa87161161;\n    void* const var_80 = &data_419280;\n    int64_t var_78 = 1;\n    int64_t var_60 = 0;\n    uint64_t** var_70 = &var_28;\n    int64_t var_68 = 1;\n    int128_t var_50;\n    core::option::Option$LT$T$GT$::map_or_else::hd603ea6dce20e29a(&var_50, &var_80);\n    var_28 = var_50;\n    uint64_t var_40;\n    uint64_t var_18 = var_40;\n    int128_t* var_38;\n    \n    if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h68d19500281838ab(var_20, var_40, 1, 0))\n    {\n        int64_t rax_3;\n        int64_t rdx_1;\n        rax_3 = uucore::util_name::h074417a1e6395129();\n        var_50 = rax_3;\n        *var_50[8] = rdx_1;\n        var_38 = &var_50;\n        int64_t (* var_30_1)(int64_t* arg1, int64_t arg2) =\n            _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h3c47c1ce865d8231;\n        var_80 = &data_5020f8;\n        int64_t var_78_1 = 2;\n        int64_t var_60_1 = 0;\n        int128_t** var_70_1 = &var_38;\n        int64_t var_68_1 = 1;\n        std::io::stdio::_eprint::h57899770eacec2ad(&var_80);\n        var_50 = &var_28;\n        *var_50[8] =\n            _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n        var_80 = &data_502118;\n        int64_t var_78_2 = 2;\n        int64_t var_60_2 = 0;\n        int128_t* var_70_2 = &var_50;\n        int64_t var_68_2 = 1;\n        std::io::stdio::_eprint::h57899770eacec2ad(&var_80);\n    }\n    \n    if (rdx[0xc](var_90))\n    {\n        int64_t rax_6;\n        int64_t rdx_2;\n        rax_6 = uucore::execution_phrase::hf0e80cb4793732ad();\n        var_50 = rax_6;\n        *var_50[8] = rdx_2;\n        var_38 = &var_50;\n        int64_t (* var_30_2)(int64_t* arg1, int64_t arg2) =\n            _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h3c47c1ce865d8231;\n        var_80 = &data_502138;\n        int64_t var_78_3 = 2;\n        int64_t var_60_3 = 0;\n        int128_t** var_70_3 = &var_38;\n        int64_t var_68_3 = 1;\n        std::io::stdio::_eprint::h57899770eacec2ad(&var_80);\n    }\n    \n    int32_t rax_8 = rdx[0xb](var_90);\n    core::ptr::drop_in_place$LT$alloc..string..String$GT$::hb293845502db5768(&var_28);\n    core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$clap_builder..builder..value_parser..AnyValueParser$GT$$GT$::hfabf09c63ef1010c(var_90, rdx);\n    return rax_8;\n}\n",
+    "_ZN5uu_df6uumain6uumain17h219d096a97f03177E": "\n  uint64_t uu_df::uumain::uumain::h219d096a97f03177(int64_t arg1)\n\n{\n    int64_t* var_2e8;\n    uu_df::uu_app::h7dd88faa65059b5c(&var_2e8);\n    int64_t* var_408;\n    clap_builder::builder::command::Command::try_get_matches_from::hdff312c40bc5334b(&var_408, \n        &var_2e8, arg1);\n    int64_t* rax = var_408;\n    int64_t var_400;\n    \n    if (-(rax) == -0x8000000000000000)\n        return uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::he92a37de32738e67(var_400);\n    \n    int64_t var_3d8;\n    int64_t var_380_1 = var_3d8;\n    int128_t var_3e8;\n    int128_t var_390_1 = var_3e8;\n    int128_t var_3f8;\n    int128_t var_3a0_1 = var_3f8;\n    int64_t* var_3b0 = rax;\n    int64_t var_3a8_1 = var_400;\n    uu_df::Options::from::h8b6ce45144534520(&var_2e8, &var_3b0);\n    int64_t* rax_2 = var_2e8;\n    int128_t var_2e0;\n    int128_t var_458 = var_2e0;\n    uint64_t result;\n    int128_t var_348;\n    int128_t var_2d0;\n    \n    if (rax_2 != -0x8000000000000000)\n    {\n        int128_t var_2a0;\n        int128_t var_3c0_1 = var_2a0;\n        int128_t var_2b0;\n        int128_t var_3d0_1 = var_2b0;\n        int128_t var_2c0;\n        var_3e8 = var_2c0;\n        int128_t zmm0_2 = var_458;\n        var_348 = zmm0_2;\n        int128_t var_338_2 = var_2d0;\n        var_400 = zmm0_2;\n        var_3f8 = var_2d0;\n        var_408 = rax_2;\n        clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many::h1be3b76b5e4259b7(\n            &var_2e8, &var_3b0, \"pathsportabilityprint-typeexclud\u2026\", 5);\n        int64_t var_328;\n        clap_builder::parser::error::MatchesError::unwrap::h9666b4fb430f9123(&var_328, \n            \"pathsportabilityprint-typeexclud\u2026\", 5, &var_2e8);\n        int64_t* var_428;\n        \n        if (!var_328)\n        {\n            int64_t* var_378;\n            uu_df::get_all_filesystems::ha7950162b929c2f8(&var_378, &var_408);\n            int64_t* rax_6 = var_378;\n            int64_t var_370;\n            int64_t* var_368;\n            \n            if (rax_6 != -0x8000000000000000)\n            {\n                int64_t* var_470 = rax_6;\n                \n                if (var_368)\n                {\n                    int64_t* var_418_2 = var_368;\n                    var_428 = var_470;\n                    int64_t var_420_2 = var_370;\n                    label_460eb5:\n                    uu_df::table::Table::new::h1ab1638dbdc475f0(&var_2e8, &var_408, &var_428);\n                    var_470 = &var_2e8;\n                    int64_t (* var_468_2)(void* arg1, int64_t* arg2) = _$LT$uu_df..table..Table$u20$as$u20$core..fmt..Display$GT$::fmt::h34165fdb5bafaf68;\n                    var_458 = &data_502118;\n                    *var_458[8] = 2;\n                    int64_t var_438_1 = 0;\n                    int128_t var_448_1;\n                    var_448_1 = &var_470;\n                    *var_448_1[8] = 1;\n                    std::io::stdio::_print::h5e446ff973c02de6(&var_458);\n                    core::ptr::drop_in_place$LT$uu_df..table..Table$GT$::h3f6dd34f640bd290(\n                        &var_2e8);\n                    core::ptr::drop_in_place$LT$uu_df..Options$GT$::h907ddf1f87b71eb9(&var_408);\n                    core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h1612bae07920f9e3(&var_3b0);\n                    return 0;\n                }\n                \n                _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h5e212f3fc67d7e91(&var_458, \"no file systems processed: No su\u2026\", 0x19);\n                *var_2e0[8] = var_2d0;\n                var_2e8 = var_458;\n                var_2d0 = 1;\n                result = alloc::boxed::Box$LT$T$GT$::new::h9b3314f0e2696c29(&var_2e8);\n                core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uu_df..filesystem..Filesystem$GT$$GT$::h60c6be51676db6a7(&var_470);\n            }\n            else\n                result = uu_df::uumain::uumain::_$u7b$$u7b$closure$u7d$$u7d$::h4bee578f8c35ee3d(\n                    var_370, var_368);\n        }\n        else\n        {\n            core::iter::traits::iterator::Iterator::collect::h29c077bce706520c(&var_458, &var_328);\n            int64_t* rbx_2 = *var_458[8];\n            int64_t* var_360;\n            uu_df::get_named_filesystems::h04ac4719102a6bd6(&var_360, rbx_2, var_2d0, &var_408);\n            int64_t* rax_4 = var_360;\n            int64_t var_358;\n            int64_t* var_350;\n            \n            if (rax_4 != -0x8000000000000000)\n            {\n                var_2e8 = rax_4;\n                var_2e0 = var_358;\n                *var_2e0[8] = var_350;\n                \n                if (var_350)\n                {\n                    int64_t var_418_1 = *var_2e0[8];\n                    var_428 = var_2e8;\n                    int64_t var_420_1 = var_2e0;\n                    core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$::he20e0cbd0c056ce4(\n                        var_458, rbx_2);\n                    goto label_460eb5;\n                }\n                \n                core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uu_df..filesystem..Filesystem$GT$$GT$::h60c6be51676db6a7(&var_2e8);\n                result = 0;\n                core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$::he20e0cbd0c056ce4(\n                    var_458, rbx_2);\n            }\n            else\n            {\n                result = uu_df::uumain::uumain::_$u7b$$u7b$closure$u7d$$u7d$::h4bee578f8c35ee3d(\n                    var_358, var_350);\n                core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$::he20e0cbd0c056ce4(\n                    var_458, rbx_2);\n            }\n        }\n        core::ptr::drop_in_place$LT$uu_df..Options$GT$::h907ddf1f87b71eb9(&var_408);\n    }\n    else\n    {\n        var_348 = var_458;\n        int128_t var_338_1 = var_2d0;\n        result = alloc::boxed::Box$LT$T$GT$::new::h4aae9c6e7d3a8f03(&var_348);\n    }\n    core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h1612bae07920f9e3(&var_3b0);\n    return result;\n}\n",
+    "_ZN5uu_df6blocks23to_magnitude_and_suffix17hab68afb684dfcc4eE": "\n  int128_t* uu_df::blocks::to_magnitude_and_suffix::hab68afb684dfcc4e(int128_t* arg1, int64_t arg2, int64_t arg3, char arg4)\n\n{\n    char rax_1 = 2;\n    \n    if (arg4 - 2 < 2)\n        rax_1 = arg4 - 2;\n    \n    int64_t var_180_1;\n    uint64_t var_178_1;\n    int64_t var_170_1;\n    uint64_t var_168_1;\n    int64_t var_160_1;\n    int64_t var_158_1;\n    int64_t var_150_1;\n    int64_t var_148_1;\n    int64_t var_140_1;\n    int64_t rax_3;\n    char const* const rcx;\n    int64_t rbx;\n    char const* const rbp;\n    char const* const rdi_1;\n    char const* const r8;\n    char const* const r9;\n    char const* const r10;\n    char const* const r11;\n    uint64_t r12;\n    int64_t r13;\n    char const* const r14;\n    char const* const r15;\n    int64_t var_1c8;\n    int64_t var_188_1;\n    \n    if (!rax_1)\n    {\n        r12 = 0;\n        var_1c8 = 0x4000000;\n        var_178_1 = 0x10000;\n        __builtin_memcpy(&var_168_1, \n            \"\\x40\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x10\\x00\\x00\\x00\\x00\\x00\\x00\\x04\\x00\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x00\\x00\\x40\\x00\\x00\\x00\\x00\\x00\\x00\\x10\\x00\\x00\\x00\\x00\\x00\", 0x30);\n        r13 = 0x400;\n        r15 = \"YkBMBGBTBPBEBZBYBksrc/uu/df/src/\u2026\";\n        r14 = \"ZYkBMBGBTBPBEBZBYBksrc/uu/df/src\u2026\";\n        rcx = \"EZYkBMBGBTBPBEBZBYBksrc/uu/df/sr\u2026\";\n        rdi_1 = \"PEZYkBMBGBTBPBEBZBYBksrc/uu/df/s\u2026\";\n        r11 = \"TPEZYkBMBGBTBPBEBZBYBksrc/uu/df/\u2026\";\n        rbp = \"GTPEZYkBMBGBTBPBEBZBYBksrc/uu/df\u2026\";\n        r9 = \"MGTPEZYkBMBGBTBPBEBZBYBksrc/uu/d\u2026\";\n        r8 = \"KMGTPEZYkBMBGBTBPBEBZBYBksrc/uu/\u2026\";\n        rax_3 = 1;\n        r10 = \"BKMGTPEZYkBMBGBTBPBEBZBYBksrc/uu\u2026\";\n        rbx = 1;\n        var_170_1 = 0;\n        var_180_1 = 0;\n        var_188_1 = 0;\n    }\n    else if (rax_1 != 1)\n    {\n        rax_3 = 0;\n        char temp2_1 = arg4 & 1;\n        r13 = 0x3e8;\n        \n        if (temp2_1)\n            r13 = 0x400;\n        \n        int64_t rdi_2 = 0xf4240;\n        \n        if (temp2_1)\n            rdi_2 = 0x100000;\n        \n        var_140_1 = rdi_2;\n        int64_t rdi_3 = 0x3b9aca00;\n        \n        if (temp2_1)\n            rdi_3 = 0x40000000;\n        \n        var_148_1 = rdi_3;\n        int64_t rdi_4 = 0xe8d4a51000;\n        \n        if (temp2_1)\n            rdi_4 = 0x10000000000;\n        \n        var_150_1 = rdi_4;\n        int64_t rdi_5 = 0x38d7ea4c68000;\n        \n        if (temp2_1)\n            rdi_5 = 0x4000000000000;\n        \n        var_158_1 = rdi_5;\n        int64_t rdi_6 = 0xde0b6b3a7640000;\n        \n        if (temp2_1)\n            rdi_6 = 0x1000000000000000;\n        \n        var_160_1 = rdi_6;\n        uint64_t rdi_7 = 0x36;\n        \n        if (temp2_1)\n            rdi_7 = 0x40;\n        \n        var_168_1 = rdi_7;\n        int64_t rcx_1 = 0x35c9adc5dea00000;\n        \n        if (temp2_1)\n            rcx_1 = 0;\n        \n        var_170_1 = rcx_1;\n        uint64_t rdi_8 = 0xd3c2;\n        \n        if (temp2_1)\n            rdi_8 = 0x10000;\n        \n        var_178_1 = rdi_8;\n        int64_t rcx_2 = 0x1bcecceda1000000;\n        \n        if (temp2_1)\n            rcx_2 = 0;\n        \n        var_180_1 = rcx_2;\n        int64_t rdi_9 = 0x33b2e3c;\n        \n        if (temp2_1)\n            rdi_9 = 0x4000000;\n        \n        var_1c8 = rdi_9;\n        int64_t rcx_3 = -0x602f7fc318000000;\n        \n        if (temp2_1)\n            rcx_3 = 0;\n        \n        var_188_1 = rcx_3;\n        r8 = \"ksrc/uu/df/src/blocks.rsPOSIXLY_\u2026\";\n        \n        if (temp2_1)\n            r8 = \"KMGTPEZYkBMBGBTBPBEBZBYBksrc/uu/\u2026\";\n        \n        r15 = \"YkBMBGBTBPBEBZBYBksrc/uu/df/src/\u2026\";\n        r14 = \"ZYkBMBGBTBPBEBZBYBksrc/uu/df/src\u2026\";\n        rcx = \"EZYkBMBGBTBPBEBZBYBksrc/uu/df/sr\u2026\";\n        rdi_1 = \"PEZYkBMBGBTBPBEBZBYBksrc/uu/df/s\u2026\";\n        r11 = \"TPEZYkBMBGBTBPBEBZBYBksrc/uu/df/\u2026\";\n        rbp = \"GTPEZYkBMBGBTBPBEBZBYBksrc/uu/df\u2026\";\n        r9 = \"MGTPEZYkBMBGBTBPBEBZBYBksrc/uu/d\u2026\";\n        r10 = 1;\n        rbx = 1;\n        r12 = 0;\n    }\n    else\n    {\n        var_1c8 = 0x33b2e3c;\n        __builtin_memcpy(&var_188_1, \n            \"\\x00\\x00\\x00\\xe8\\x3c\\x80\\xd0\\x9f\\x00\\x00\\x00\\xa1\\xed\\xcc\\xce\\x1b\\xc2\\xd3\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\xa0\\xde\\xc5\\xad\\xc9\\x35\\x36\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x64\\xa7\\xb3\\xb6\\xe0\\x0d\\x00\\x80\\xc6\\xa4\\x7e\\x8d\\x03\\x00\\x00\\x10\\xa5\\xd4\\xe8\\x00\\x00\\x00\\x00\\xca\\x9a\\x3b\\x00\\x00\\x00\\x00\\x40\\x42\\x0f\\x00\\x00\\x00\\x00\\x00\", 0x50);\n        r12 = 0;\n        r13 = 0x3e8;\n        r15 = \"YBksrc/uu/df/src/blocks.rsPOSIXL\u2026\";\n        r14 = \"ZBYBksrc/uu/df/src/blocks.rsPOSI\u2026\";\n        rcx = \"EBZBYBksrc/uu/df/src/blocks.rsPO\u2026\";\n        rdi_1 = \"PBEBZBYBksrc/uu/df/src/blocks.rs\u2026\";\n        r11 = \"TBPBEBZBYBksrc/uu/df/src/blocks.\u2026\";\n        rbp = \"GBTBPBEBZBYBksrc/uu/df/src/block\u2026\";\n        r9 = \"MBGBTBPBEBZBYBksrc/uu/df/src/blo\u2026\";\n        rbx = 2;\n        r8 = \"kBMBGBTBPBEBZBYBksrc/uu/df/src/b\u2026\";\n        rax_3 = 1;\n        r10 = \"BKMGTPEZYkBMBGBTBPBEBZBYBksrc/uu\u2026\";\n    }\n    char const* const var_c0 = r10;\n    int64_t var_b8 = rax_3;\n    char const* const var_b0 = r8;\n    int64_t var_a8 = rbx;\n    char const* const var_a0 = r9;\n    int64_t var_98 = rbx;\n    char const* const var_90 = rbp;\n    int64_t var_88 = rbx;\n    char const* const var_80 = r11;\n    int64_t var_78 = rbx;\n    char* var_70 = rdi_1;\n    int64_t var_68 = rbx;\n    char const* const var_60 = rcx;\n    int64_t var_58 = rbx;\n    char const* const var_50 = r14;\n    int64_t var_48 = rbx;\n    char const* const var_40 = r15;\n    int64_t var_38 = rbx;\n    bool c_2 = /* bool c_2 = unimplemented  {sbb rcx, rdx} */;\n    char const* const* var_1c8_1;\n    int64_t r14_1;\n    int64_t r15_1;\n    \n    if (!c_2)\n    {\n        r14_1 = arg3;\n        r15_1 = arg2;\n        r13 = 1;\n        var_1c8_1 = &var_c0;\n        r12 = 0;\n    }\n    else\n    {\n        bool c_5 = /* bool c_5 = unimplemented  {sbb rcx, rdx} */;\n        \n        if (!c_5)\n        {\n            r14_1 = arg3;\n            r15_1 = arg2;\n            var_1c8_1 = &var_b0;\n        }\n        else\n        {\n            bool c_8 = /* bool c_8 = unimplemented  {sbb rcx, rdx} */;\n            \n            if (!c_8)\n            {\n                r14_1 = arg3;\n                r15_1 = arg2;\n                var_1c8_1 = &var_a0;\n                r13 = var_140_1;\n            }\n            else\n            {\n                r13 = var_150_1;\n                bool c_11 = /* bool c_11 = unimplemented  {sbb rcx, rdx} */;\n                \n                if (!c_11)\n                {\n                    r14_1 = arg3;\n                    r15_1 = arg2;\n                    var_1c8_1 = &var_90;\n                    r13 = var_148_1;\n                }\n                else\n                {\n                    bool c_14 = /* bool c_14 = unimplemented  {sbb rcx, rdx} */;\n                    \n                    if (!c_14)\n                    {\n                        r14_1 = arg3;\n                        r15_1 = arg2;\n                        var_1c8_1 = &var_80;\n                    }\n                    else\n                    {\n                        r13 = var_160_1;\n                        bool c_17 = /* bool c_17 = unimplemented  {sbb rcx, rdx} */;\n                        \n                        if (!c_17)\n                        {\n                            r14_1 = arg3;\n                            r15_1 = arg2;\n                            var_1c8_1 = &var_70;\n                            r13 = var_158_1;\n                        }\n                        else\n                        {\n                            bool c_20 = /* bool c_20 = unimplemented  {sbb rcx, rdx} */;\n                            \n                            if (!c_20)\n                            {\n                                r14_1 = arg3;\n                                r15_1 = arg2;\n                                var_1c8_1 = &var_60;\n                            }\n                            else\n                            {\n                                r13 = var_180_1;\n                                r12 = var_178_1;\n                                bool c_23 = /* bool c_23 = unimplemented  {sbb rcx, rdx} */;\n                                \n                                if (!c_23)\n                                {\n                                    r14_1 = arg3;\n                                    r15_1 = arg2;\n                                    var_1c8_1 = &var_50;\n                                    r13 = var_170_1;\n                                    r12 = var_168_1;\n                                }\n                                else\n                                {\n                                    bool c_26 = /* bool c_26 = unimplemented  {sbb rax, rdx} */;\n                                    \n                                    if (c_26)\n                                    {\n                                        core::panicking::panic_bounds_check::h025cadc56a971af7(0xa, \n                                            0xa);\n                                        /* no return */\n                                    }\n                                    \n                                    r15_1 = arg2;\n                                    r14_1 = arg3;\n                                    var_1c8_1 = &var_40;\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n    \n    uint64_t rax_25;\n    int64_t rdx_1;\n    rax_25 = __udivti3(r15_1, r14_1, r13, r12);\n    int64_t var_f0 = rdx_1;\n    uint64_t var_f8 = rax_25;\n    int64_t rax_26;\n    int64_t rdx_2;\n    rdx_2 = HIGHQ(rax_25 * r13);\n    rax_26 = LOWQ(rax_25 * r13);\n    int64_t r15_2 = r15_1 - rax_26;\n    int64_t r14_2 = r14_1 - (rdx_1 * r13 + rdx_2 + rax_25 * r12);\n    int128_t var_e8 = *var_1c8_1;\n    uint64_t** rsi_3;\n    uint64_t* var_1b8;\n    uint64_t* var_138;\n    uint64_t* rax_42;\n    \n    if (!(r15_2 | r14_2))\n    {\n        rax_42 = &var_f8;\n        label_46a910:\n        var_138 = rax_42;\n        int64_t (* var_130)(int64_t* arg1, int64_t* arg2) = core::fmt::num::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u128$GT$::fmt::hf75db8903b60bf5d;\n        int128_t* var_128 = &var_e8;\n        int64_t (* var_120)(int64_t* arg1, int64_t arg2) =\n            _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h2fb20b9e0280238f;\n        var_1b8 = &data_419680;\n        int64_t var_1b0 = 2;\n        int64_t var_198 = 0;\n        uint64_t** var_1a8 = &var_138;\n        int64_t var_1a0 = 2;\n        rsi_3 = &var_1b8;\n    }\n    else\n    {\n        bool c_29 = /* bool c_29 = unimplemented  {sbb rax, 0x0} */;\n        \n        if (c_29)\n        {\n            core::panicking::panic_const::panic_const_div_by_zero::hc7d962fcb87948a3();\n            /* no return */\n        }\n        \n        int64_t r13_1 = r13 >> 1 | r12 << 0x3f;\n        uint64_t r12_1 = r12 >> 1;\n        int64_t rcx_33 = (r13_1 + r12_1 + 0) % 5;\n        int64_t r13_2 = r13_1 - rcx_33;\n        int64_t rax_36;\n        int64_t rdx_6;\n        rdx_6 = HIGHQ(r13_2 * -0x3333333333333333);\n        rax_36 = LOWQ(r13_2 * -0x3333333333333333);\n        uint64_t r12_4 = rdx_6 - r13_2 * 0x3333333333333334 - (r12_1 - 0) * 0x3333333333333333;\n        uint64_t rax_37;\n        int64_t rdx_9;\n        rax_37 = __udivti3(r15_2, r14_2, rax_36, r12_4);\n        int64_t var_d0_1 = rdx_9;\n        uint64_t var_d8 = rax_37;\n        int64_t rax_38;\n        int64_t rdx_10;\n        rdx_10 = HIGHQ(rax_37 * rax_36);\n        rax_38 = LOWQ(rax_37 * rax_36);\n        uint64_t* rcx_37;\n        \n        if (!((r14_2 - (rax_36 * rdx_9 + rdx_10 + r12_4 * rax_37)) | (r15_2 - rax_38)))\n        {\n            var_1b8 = &var_f8;\n            int64_t (* var_1b0_1)(int64_t* arg1, int64_t* arg2) = core::fmt::num::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u128$GT$::fmt::hf75db8903b60bf5d;\n            rcx_37 = &var_d8;\n        }\n        else\n        {\n            int64_t rax_41;\n            rax_41 = !((rax_37 ^ 9) | rdx_9);\n            bool c_33 = /* bool c_33 = unimplemented  {sbb rdx, rbx} */;\n            uint64_t var_108;\n            \n            if (c_33 | rax_41)\n            {\n                int64_t var_100_1 = rdx_1 + 0;\n                var_108 = rax_25 + 1;\n                rax_42 = &var_108;\n                goto label_46a910;\n            }\n            \n            int64_t var_100_2 = rdx_9 + 0;\n            var_108 = rax_37 + 1;\n            var_1b8 = &var_f8;\n            int64_t (* var_1b0_2)(int64_t* arg1, int64_t* arg2) = core::fmt::num::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u128$GT$::fmt::hf75db8903b60bf5d;\n            rcx_37 = &var_108;\n        }\n        \n        uint64_t* var_1a8_1 = rcx_37;\n        int64_t (* var_1a0_1)(int64_t* arg1, int64_t* arg2) = core::fmt::num::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u128$GT$::fmt::hf75db8903b60bf5d;\n        int128_t* var_198_1 = &var_e8;\n        int64_t (* var_190_1)(int64_t* arg1, int64_t arg2) =\n            _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h2fb20b9e0280238f;\n        var_138 = &data_502da8;\n        int64_t var_130_1 = 3;\n        int64_t var_118_1 = 0;\n        uint64_t** var_128_1 = &var_1b8;\n        int64_t var_120_1 = 3;\n        rsi_3 = &var_138;\n    }\n    return core::option::Option$LT$T$GT$::map_or_else::h7e34be96cbbb4028(arg1, rsi_3);\n}\n",
+    "_ZN5uu_df6blocks15read_block_size17h32d30779f3aa72e5E": "\n  int128_t* uu_df::blocks::read_block_size::h32d30779f3aa72e5(int64_t* arg1, void* arg2)\n\n{\n    int128_t* result;\n    \n    if (!clap_builder::parser::matches::arg_matches::ArgMatches::contains_id::h5efeb7e2d2f22590(\n        arg2, \"blocksizehuman-readable-binaryhu\u2026\", 9))\n    {\n        char rax_3 =\n            clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h0358b00a34050e02(\n            arg2, \"portabilityprint-typeexclude-typ\u2026\", 0xb);\n        int64_t rdx_2;\n        \n        if (!rax_3)\n            result = uu_df::blocks::block_size_from_env::hdb573be3e983bfb6();\n        \n        if (rax_3 || !(result & 1))\n        {\n            result = _$LT$uu_df..blocks..BlockSize$u20$as$u20$core..default..Default$GT$::default::hd82b76b8049fd167();\n            arg1[1] = result;\n            *arg1 = 4;\n        }\n        else\n        {\n            arg1[1] = rdx_2;\n            *arg1 = 4;\n        }\n    }\n    else\n    {\n        void* const var_78;\n        clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::h117add036a1ff1af(\n            &var_78, arg2);\n        void* rax_1 = clap_builder::parser::error::MatchesError::unwrap::h8bc7816bfd18267b(&var_78);\n        \n        if (!rax_1)\n        {\n            core::option::unwrap_failed::h893f57cb7db71cb7();\n            /* no return */\n        }\n        \n        uucore::features::parser::parse_size::parse_size_u64::hcabf5090504a6d94(&var_78, \n            *(rax_1 + 8), *(rax_1 + 0x10));\n        void* const rcx_1 = var_78;\n        int128_t* result_1;\n        result = result_1;\n        int128_t var_68;\n        \n        if (rcx_1 != 4)\n        {\n            *(arg1 + 0x10) = var_68;\n            *arg1 = rcx_1;\n            arg1[1] = result;\n        }\n        else if (result)\n        {\n            arg1[1] = result;\n            *arg1 = 4;\n        }\n        else\n        {\n            int64_t rax_2 = *(rax_1 + 8);\n            int64_t rcx_2 = *(rax_1 + 0x10);\n            int64_t var_38 = 0;\n            int64_t var_30_1 = rax_2;\n            int64_t var_28_1 = rcx_2;\n            char var_20_1 = 1;\n            int64_t* var_48 = &var_38;\n            int64_t (* var_40_1)(int32_t* arg1, int64_t* arg2) =\n                _$LT$os_display..Quoted$u20$as$u20$core..fmt..Display$GT$::fmt::ha3782f403933d3a5;\n            var_78 = &data_419280;\n            int64_t var_70 = 1;\n            int64_t var_58_1 = 0;\n            var_68 = &var_48;\n            *var_68[8] = 1;\n            result =\n                core::option::Option$LT$T$GT$::map_or_else::h7e34be96cbbb4028(&arg1[1], &var_78);\n            *arg1 = 1;\n        }\n    }\n    \n    return result;\n}\n",
+    "_ZN5uu_df6blocks19block_size_from_env17hdb573be3e983bfb6E": "\n  int64_t uu_df::blocks::block_size_from_env::hdb573be3e983bfb6()\n\n{\n    int64_t* r14;\n    int64_t* var_10 = r14;\n    int64_t var_80 = 0;\n    int64_t var_78 = 3;\n    void* const var_70 = \"DF_BLOCK_SIZEBLOCK_SIZEBLOCKSIZE\u2026\";\n    int64_t var_68 = 0xd;\n    void* const var_60 = \"BLOCK_SIZEBLOCKSIZEsrc/uu/df/src\u2026\";\n    int64_t var_58 = 0xa;\n    void* const var_50 = \"BLOCKSIZEsrc/uu/df/src/columns.r\u2026\";\n    int64_t var_48 = 9;\n    int64_t i = core::array::iter::iter_inner::PolymorphicIter$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$GT$$u5d$$GT$::next::h2841b62643c07fc9(&var_80);\n    \n    if (!i)\n        return 0;\n    \n    int64_t result = 0;\n    \n    do\n    {\n        int64_t var_a0;\n        std::env::var::hcd02c620244cf284(&var_a0, i);\n        \n        if (!var_a0)\n        {\n            void* var_90;\n            uint64_t var_88;\n            int64_t var_40;\n            uucore::features::parser::parse_size::parse_size_u64::hcabf5090504a6d94(&var_40, \n                var_90, var_88);\n            int64_t rax = var_40;\n            result = rax == 4;\n            \n            if (rax != 4)\n                core::ptr::drop_in_place$LT$core..result..Result$LT$u64$C$uucore..features..parser..parse_size..ParseSizeError$GT$$GT$::hecbb26056e05f293(&var_40);\n            \n            void var_98;\n            core::ptr::drop_in_place$LT$alloc..string..String$GT$::h73027cd2db783008(&var_98);\n            break;\n        }\n        \n        core::ptr::drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$::h9bc22df766544719(&var_a0);\n        i = core::array::iter::iter_inner::PolymorphicIter$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$GT$$u5d$$GT$::next::h2841b62643c07fc9(&var_80);\n    } while (i);\n    \n    return result;\n}\n",
+    "_ZN5uu_df7columns6Column12from_matches17h56d2df2bf88d44daE": "\n  uint64_t uu_df::columns::Column::from_matches::h56d2df2bf88d44da(int64_t* arg1, void* arg2)\n\n{\n    char rax = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h0358b00a34050e02(\n        arg2, \"print-typeexclude-typesrc/uu/df/\u2026\", 0xa);\n    char rax_1 =\n        clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h0358b00a34050e02(arg2, \n        \"inodeslocalno-syncoutputpathspor\u2026\", 6);\n    char rax_2 =\n        clap_builder::parser::matches::arg_matches::ArgMatches::value_source::h45c0c3cb9ce2c562(\n        arg2, \"outputpathsportabilityprint-type\u2026\", 6);\n    \n    if (rax_2 == 3)\n    {\n        uint64_t result;\n        \n        if (!rax)\n        {\n            if (rax_1)\n            {\n                label_46af68:\n                result = alloc::alloc::Global::alloc_impl::h6fb1b6049873c120(1, 6);\n                \n                if (!result)\n                {\n                    alloc::alloc::handle_alloc_error::h88aa4f4f9d19c4f9();\n                    /* no return */\n                }\n                \n                *result = 0x8070600;\n                *(result + 4) = 0x509;\n            }\n            else\n            {\n                label_46b0fa:\n                result = alloc::alloc::Global::alloc_impl::h6fb1b6049873c120(1, 6);\n                \n                if (!result)\n                {\n                    alloc::alloc::handle_alloc_error::h88aa4f4f9d19c4f9();\n                    /* no return */\n                }\n                \n                *result = 0x3020100;\n                *(result + 4) = 0x504;\n            }\n            \n            arg1[1] = 6;\n            arg1[2] = result;\n            arg1[3] = 6;\n        }\n        else\n        {\n            if (rax_1)\n            {\n                label_46af2b:\n                result = alloc::alloc::Global::alloc_impl::h6fb1b6049873c120(1, 7);\n                \n                if (!result)\n                {\n                    alloc::alloc::handle_alloc_error::h88aa4f4f9d19c4f9();\n                    /* no return */\n                }\n                \n                *result = 0x7060b00;\n                *(result + 4) = 0x908;\n            }\n            else\n            {\n                label_46af99:\n                result = alloc::alloc::Global::alloc_impl::h6fb1b6049873c120(1, 7);\n                \n                if (!result)\n                {\n                    alloc::alloc::handle_alloc_error::h88aa4f4f9d19c4f9();\n                    /* no return */\n                }\n                \n                *result = 0x2010b00;\n                *(result + 4) = 0x403;\n            }\n            \n            *(result + 6) = 5;\n            arg1[1] = 7;\n            arg1[2] = result;\n            arg1[3] = 7;\n        }\n        \n        *arg1 = 0;\n        return result;\n    }\n    \n    if (rax)\n    {\n        if (!rax_1)\n        {\n            if (rax_2 != 2)\n                goto label_46af99;\n            \n            core::panicking::panic::h85d6dd562679980c(\"internal error: entered unreacha\u2026\");\n            /* no return */\n        }\n        \n        if (rax_2 == 2)\n        {\n            core::panicking::panic::h85d6dd562679980c(\"internal error: entered unreacha\u2026\");\n            /* no return */\n        }\n        \n        goto label_46af2b;\n    }\n    \n    if (rax_1)\n    {\n        if (rax_2 == 2)\n        {\n            core::panicking::panic::h85d6dd562679980c(\"internal error: entered unreacha\u2026\");\n            /* no return */\n        }\n        \n        goto label_46af68;\n    }\n    \n    if (rax_2 == 2)\n    {\n        int128_t var_78;\n        clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many::h54572697988ee692(\n            &var_78, arg2);\n        int64_t var_b8;\n        clap_builder::parser::error::MatchesError::unwrap::h953c1c3ca778ca12(&var_b8, &var_78);\n        \n        if (!var_b8)\n        {\n            core::option::unwrap_failed::h893f57cb7db71cb7();\n            /* no return */\n        }\n        \n        int128_t var_88;\n        int128_t var_48_1 = var_88;\n        int128_t var_98;\n        int128_t var_58_1 = var_98;\n        int128_t var_a8;\n        int128_t var_68_1 = var_a8;\n        var_78 = var_b8;\n        int64_t var_f8 = 0;\n        int64_t var_f0_1 = 8;\n        int64_t var_e8_1 = 0;\n        int64_t var_e0 = 0;\n        int64_t var_d8_1 = 1;\n        int64_t var_d0_1 = 0;\n        \n        while (true)\n        {\n            void* rax_3 = _$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::hded8a622fced995e(&var_78);\n            \n            if (!rax_3)\n            {\n                arg1[3] = var_d0_1;\n                *(arg1 + 8) = var_e0;\n                *arg1 = 0;\n                return core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$::hc3fe8674e0b3654c(var_f8, var_f0_1);\n            }\n            \n            int64_t r12_1 = *(rax_3 + 8);\n            uint64_t rbp_1 = *(rax_3 + 0x10);\n            int64_t var_c8 = r12_1;\n            \n            if (_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$::slice_contains::h120b22dc52b1e14e(&var_c8, var_f0_1, var_e8_1))\n            {\n                _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_b8, r12_1, rbp_1);\n                arg1[3] = var_a8;\n                *(arg1 + 8) = var_b8;\n                *arg1 = 1;\n                core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$::h4a907a8f82cf67de(\n                    var_e0, var_d8_1);\n                return core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$::hc3fe8674e0b3654c(var_f8, var_f0_1);\n            }\n            \n            alloc::vec::Vec$LT$T$C$A$GT$::push::hab2276672e065655(&var_f8, r12_1, rbp_1);\n            uint32_t rbp_2 = uu_df::columns::Column::parse::h53cde52d906cd7b1(var_c8, rbp_1);\n            core::result::Result$LT$T$C$E$GT$::unwrap::hcb2f69e768e07283(rbp_2);\n            alloc::vec::Vec$LT$T$C$A$GT$::push::hb31c117abee96b92(&var_e0, rbp_2);\n        }\n    }\n    \n    goto label_46b0fa;\n}\n",
+    "_ZN5uu_df7columns6Column5parse17h53cde52d906cd7b1E": "\n  int64_t uu_df::columns::Column::parse::h53cde52d906cd7b1(int64_t arg1, uint64_t arg2)\n\n{\n    int64_t rax;\n    int64_t var_18 = rax;\n    \n    if (_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h6249ba97ac26ea5b(arg1, arg2, \"sourcefstypeitotaliusediavailipc\u2026\", 6))\n        return 0;\n    \n    char result = 0xb;\n    \n    if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h6249ba97ac26ea5b(arg1, arg2, \"fstypeitotaliusediavailipcentava\u2026\", 6))\n    {\n        result = 6;\n        \n        if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h6249ba97ac26ea5b(arg1, arg2, \"itotaliusediavailipcentavailpcen\u2026\", 6))\n        {\n            result = 7;\n            \n            if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h6249ba97ac26ea5b(arg1, arg2, \"iusediavailipcentavailpcenttarge\u2026\", 5))\n            {\n                result = 8;\n                \n                if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h6249ba97ac26ea5b(arg1, arg2, \"iavailipcentavailpcenttarget-tot\u2026\", 6))\n                {\n                    result = 9;\n                    \n                    if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h6249ba97ac26ea5b(arg1, arg2, \"ipcentavailpcenttarget-total%\", 6))\n                    {\n                        result = 1;\n                        \n                        if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h6249ba97ac26ea5b(arg1, arg2, \"sizefilei128 as dyn usedTypeERAN\u2026\", 4))\n                        {\n                            result = 2;\n                            \n                            if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h6249ba97ac26ea5b(arg1, arg2, \"usedTypeERANGEEDEADLKENAMETOOLON\u2026\", 4))\n                            {\n                                result = 3;\n                                \n                                if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h6249ba97ac26ea5b(arg1, arg2, \"availpcenttarget-total%\", 5))\n                                {\n                                    result = 4;\n                                    \n                                    if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h6249ba97ac26ea5b(arg1, arg2, \"pcenttarget-total%\", 5))\n                                    {\n                                        result = 0xa;\n                                        \n                                        if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h6249ba97ac26ea5b(arg1, arg2, \"filei128 as dyn usedTypeERANGEED\u2026\", 4))\n                                        {\n                                            if (_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h6249ba97ac26ea5b(arg1, arg2, \"target-total%\", 6))\n                                                return 5;\n                                            \n                                            return 0xc;\n                                        }\n                                    }\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n    \n    return result;\n}\n",
+    "_ZN5uu_df10filesystem15is_over_mounted17he031024296dde685E": "\n  int64_t uu_df::filesystem::is_over_mounted::he031024296dde685(int64_t arg1, int64_t arg2, void* arg3)\n\n{\n    int64_t var_20 = arg1;\n    int64_t var_18 = arg2 * 0x98 + arg1;\n    void* var_10 = arg3;\n    void* rax_2 =\n        core::iter::traits::double_ended::DoubleEndedIterator::try_rfold::h0447a209abcf8cc8(\n        &var_20, &var_10);\n    \n    if (!rax_2)\n        return 0;\n    \n    return alloc::vec::partial_eq::_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$::eq::h6c46bd122a266b24(*(rax_2 + 0x20), *(rax_2 + 0x28), *(arg3 + 0x20), *(arg3 + 0x28)) ^ 1;\n}\n",
+    "_ZN5uu_df10filesystem10Filesystem3new17h176c4d07e180ea46E": "\n  int64_t uu_df::filesystem::Filesystem::new::h176c4d07e180ea46(int64_t* arg1, int64_t* arg2, int128_t* arg3)\n\n{\n    void* rsi = &arg2[0xc];\n    \n    if (!arg2[0xe])\n        rsi = &arg2[3];\n    \n    void var_1a8;\n    _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h94782b8343b62bd8(\n        &var_1a8, rsi);\n    char var_190;\n    uucore::features::fsext::statfs::h383ebb62e1d8f19a(&var_190, &var_1a8);\n    \n    if (var_190 & 1)\n    {\n        core::ptr::drop_in_place$LT$core..result..Result$LT$libc..unix..linux_like..linux..gnu..b64..x86_64..statfs$C$alloc..string..String$GT$$GT$::h4dda94d0d41dac03(&var_190);\n        *arg1 = -0x8000000000000000;\n        core::ptr::drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$::hac58f874263dbc4e(arg3);\n        /* tailcall */\n        return\n            core::ptr::drop_in_place$LT$uucore..features..fsext..MountInfo$GT$::h0026f4350179d2b5(\n            arg2);\n    }\n    \n    int64_t var_118;\n    int64_t var_38 = var_118;\n    int128_t var_128;\n    int128_t var_48 = var_128;\n    int128_t var_138;\n    int128_t var_58 = var_138;\n    int128_t var_148;\n    int128_t var_68 = var_148;\n    int128_t var_158;\n    int128_t var_78 = var_158;\n    int128_t var_168;\n    int128_t var_88 = var_168;\n    int128_t var_178;\n    int128_t var_98 = var_178;\n    int128_t var_188;\n    int128_t var_a8 = var_188;\n    int128_t var_1e0;\n    uucore::features::fsext::FsUsage::new::hb771c82a6e6cf300(&var_1e0, &var_a8);\n    memcpy(&var_190, arg2, 0x98);\n    int128_t var_f8 = *arg3;\n    int64_t var_e8 = arg3[1];\n    int128_t var_e0 = var_1e0;\n    int128_t var_1d0;\n    int128_t var_d0 = var_1d0;\n    int128_t var_1c0;\n    int128_t var_c0 = var_1c0;\n    int64_t var_1b0;\n    int64_t var_b0 = var_1b0;\n    return memcpy(arg1, &var_190, 0xe8);\n}\n",
+    "_ZN5uu_df10filesystem10Filesystem10from_mount17h8c34ead0ca2ea541E": "\n  int64_t* uu_df::filesystem::Filesystem::from_mount::h8c34ead0ca2ea541(int64_t* arg1, int64_t arg2, int64_t arg3, void* arg4, int64_t* arg5)\n\n{\n    if (!uu_df::filesystem::is_over_mounted::he031024296dde685(arg2, arg3, arg4))\n    {\n        void var_198;\n        _$LT$uucore..features..fsext..MountInfo$u20$as$u20$core..clone..Clone$GT$::clone::h6d17af9e90a4bf91(&var_198, arg4);\n        int64_t var_100;\n        uu_df::filesystem::Filesystem::new::h176c4d07e180ea46(&var_100, &var_198, arg5);\n        \n        if (!(0 + -(var_100)))\n            memcpy(arg1, &var_100, 0xe8);\n        else\n        {\n            arg1[1] = 2;\n            *arg1 = -0x8000000000000000;\n        }\n    }\n    else\n    {\n        arg1[1] = 0;\n        *arg1 = -0x8000000000000000;\n        core::ptr::drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$::hac58f874263dbc4e(arg5);\n    }\n    \n    return arg1;\n}\n",
+    "_ZN5uu_df5table3Row3new17h9186d85196a04d3bE": "\n  int64_t uu_df::table::Row::new::h9186d85196a04d3b(int64_t* arg1)\n\n{\n    int64_t var_20 = -0x8000000000000000;\n    int128_t var_70;\n    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_70, \"total%\", 5);\n    int128_t zmm0 = var_70;\n    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_70, \"-total%\", 1);\n    int128_t zmm0_1 = var_70;\n    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_70, \"-total%\", 1);\n    int64_t result;\n    arg1[0x12] = result;\n    *(arg1 + 0x80) = var_70;\n    int64_t var_10;\n    arg1[0x15] = var_10;\n    *(arg1 + 0x98) = var_20;\n    arg1[0xc] = result;\n    *(arg1 + 0x50) = zmm0;\n    *(arg1 + 0x68) = zmm0_1;\n    arg1[0xf] = result;\n    *arg1 = 0;\n    arg1[2] = 0;\n    __builtin_memset(&arg1[4], 0, 0x30);\n    __builtin_memset(&arg1[0x16], 0, 0x18);\n    return result;\n}\n",
+    "_ZN5uu_df5table12RowFormatter12scaled_bytes17h1421e1083b656cc7E": "\n  int64_t uu_df::table::RowFormatter::scaled_bytes::h1421e1083b656cc7(int128_t* arg1, void* arg2, int64_t arg3)\n\n{\n    char rax_2 = *(arg2 + 0x54);\n    \n    if (rax_2 != 2)\n        /* tailcall */\n        return uu_df::blocks::to_magnitude_and_suffix::hab68afb684dfcc4e(arg1, arg3, 0, rax_2);\n    \n    uint128_t zmm1 = *(arg2 + 0x48);\n    int64_t zmm3 = 0x4530000043300000;\n    double zmm2[0x2] = _mm_unpacklo_epi32(arg3, zmm3);\n    double zmm4[0x2] = data_4190e0;\n    double temp0_1[0x2] = _mm_sub_pd(zmm2, zmm4);\n    double temp0_2[0x2] = _mm_unpackhi_pd(temp0_1, temp0_1[0]);\n    temp0_2[0] = temp0_2[0] + temp0_1[0];\n    zmm1 = _mm_sub_pd(_mm_unpacklo_epi32(zmm1, zmm3), zmm4);\n    double temp0_5[0x2] = _mm_unpackhi_pd(zmm1, zmm1);\n    temp0_5[0] = temp0_5[0] + zmm1;\n    temp0_2[0] = temp0_2[0] / temp0_5[0];\n    int64_t var_10 = ceil(temp0_2[0]);\n    return _$LT$T$u20$as$u20$alloc..string..SpecToString$GT$::spec_to_string::h089b99e5dbd02ab0(\n        arg1, &var_10);\n}\n",
+    "_ZN5uu_df5table12RowFormatter13scaled_inodes17h53c80a3954ed717bE": "\n  int64_t uu_df::table::RowFormatter::scaled_inodes::h53c80a3954ed717b(int128_t* arg1, void* arg2, int64_t arg3, int64_t arg4)\n\n{\n    int64_t var_10 = arg4;\n    int64_t var_18 = arg3;\n    char rax = *(arg2 + 0x54);\n    \n    if (rax != 2)\n        /* tailcall */\n        return uu_df::blocks::to_magnitude_and_suffix::hab68afb684dfcc4e(arg1, arg3, arg4, rax);\n    \n    return _$LT$T$u20$as$u20$alloc..string..SpecToString$GT$::spec_to_string::hd1726df42c6324b3(\n        arg1, &var_18);\n}\n",
+    "_ZN5uu_df5table12RowFormatter10percentage17h1b6e4d875b5dc07fE": "\n  int128_t* uu_df::table::RowFormatter::percentage::h1b6e4d875b5dc07f(int128_t* arg1, char arg2, double arg3)\n\n{\n    if (!(arg2 & 1))\n        /* tailcall */\n        return _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(arg1, \"-total%\", 1);\n    \n    int64_t var_50 = ceil(arg3 * 100.0);\n    int64_t* var_48 = &var_50;\n    int64_t (* var_40)(int64_t* arg1, int64_t* arg2) = core::fmt::float::_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$::fmt::h78a04ef564c69060;\n    void* const var_38 = &data_502e98;\n    int64_t var_30 = 2;\n    char const* const var_18 = &data_41b0a6[0x72];\n    int64_t var_10 = 1;\n    int64_t** var_28 = &var_48;\n    int64_t var_20 = 1;\n    return core::option::Option$LT$T$GT$::map_or_else::h7e34be96cbbb4028(arg1, &var_38);\n}\n",
+    "_ZN5uu_df5table12RowFormatter10get_values17hdf51f7a80eb4184bE": "\n  int64_t uu_df::table::RowFormatter::get_values::hdf51f7a80eb4184b(int64_t* arg1, int64_t* arg2)\n\n{\n    int64_t var_e8 = 0;\n    int64_t result = 8;\n    int64_t var_d8 = 0;\n    void* rax = arg2[1];\n    int64_t rax_1 = *(rax + 0x10);\n    \n    if (rax_1)\n    {\n        void* rax_3 = *(rax + 8);\n        int64_t* r13_1 = *arg2;\n        char rax_11 = arg2[2];\n        int64_t r14_1 = 0;\n        \n        do\n        {\n            int64_t* rcx_1 = &r13_1[4];\n            int128_t var_100;\n            int64_t var_f0;\n            int128_t var_68;\n            int64_t var_58_1;\n            \n            switch (*(rax_3 + r14_1))\n            {\n                case 0:\n                {\n                    if (!(rax_11 & 1))\n                        _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h94782b8343b62bd8(&var_68, &r13_1[0xa]);\n                    else\n                    {\n                        _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_100, \"total%\", 5);\n                        var_58_1 = var_f0;\n                        var_68 = var_100;\n                    }\n                    break;\n                }\n                case 1:\n                {\n                    uu_df::table::RowFormatter::scaled_bytes::h1421e1083b656cc7(&var_68, rax, \n                        r13_1[0x16]);\n                    break;\n                }\n                case 2:\n                {\n                    uu_df::table::RowFormatter::scaled_bytes::h1421e1083b656cc7(&var_68, rax, \n                        r13_1[0x17]);\n                    break;\n                }\n                case 3:\n                {\n                    uu_df::table::RowFormatter::scaled_bytes::h1421e1083b656cc7(&var_68, rax, \n                        r13_1[0x18]);\n                    break;\n                }\n                case 4:\n                {\n                    uu_df::table::RowFormatter::percentage::h1b6e4d875b5dc07f(&var_68, *r13_1, \n                        r13_1[1]);\n                    break;\n                }\n                case 5:\n                {\n                    if (!(rax_11 & 1))\n                        _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h94782b8343b62bd8(&var_68, &r13_1[0x10]);\n                    else if (!_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$::slice_contains::h71ef4b7cfeebb3c7(*(rax + 8), *(rax + 0x10)))\n                    {\n                        _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_100, \"total%\", 5);\n                        var_58_1 = var_f0;\n                        var_68 = var_100;\n                    }\n                    else\n                        _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h94782b8343b62bd8(&var_68, &r13_1[0x10]);\n                    break;\n                }\n                case 6:\n                {\n                    uu_df::table::RowFormatter::scaled_inodes::h53c80a3954ed717b(&var_68, rax, \n                        *rcx_1, rcx_1[1]);\n                    break;\n                }\n                case 7:\n                {\n                    rcx_1 = &r13_1[6];\n                    uu_df::table::RowFormatter::scaled_inodes::h53c80a3954ed717b(&var_68, rax, \n                        *rcx_1, rcx_1[1]);\n                    break;\n                }\n                case 8:\n                {\n                    rcx_1 = &r13_1[8];\n                    uu_df::table::RowFormatter::scaled_inodes::h53c80a3954ed717b(&var_68, rax, \n                        *rcx_1, rcx_1[1]);\n                    break;\n                }\n                case 9:\n                {\n                    uu_df::table::RowFormatter::percentage::h1b6e4d875b5dc07f(&var_68, r13_1[2], \n                        r13_1[3]);\n                    break;\n                }\n                case 0xa:\n                {\n                    int64_t rbx_1 = r13_1[0x13];\n                    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_100, \"-total%\", 1);\n                    void* rsi_1 = &r13_1[0x13];\n                    int128_t var_48;\n                    \n                    if (-(rbx_1) == -0x8000000000000000)\n                        rsi_1 = &var_48;\n                    \n                    int64_t var_38_1 = var_f0;\n                    var_48 = var_100;\n                    _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h94782b8343b62bd8(&var_68, rsi_1);\n                    core::ptr::drop_in_place$LT$alloc..string..String$GT$::h73027cd2db783008(\n                        &var_48);\n                    break;\n                }\n                case 0xb:\n                {\n                    _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h94782b8343b62bd8(&var_68, &r13_1[0xd]);\n                    break;\n                }\n            }\n            \n            alloc::vec::Vec$LT$T$C$A$GT$::push::h4b8ce3b04144c5a5(&var_e8, &var_68);\n            r14_1 += 1;\n        } while (rax_1 != r14_1);\n    }\n    \n    arg1[2] = var_d8;\n    *arg1 = var_e8;\n    arg1[1] = result;\n    return result;\n}\n",
+    "_ZN5uu_df5table6Header11get_headers17h2b6e3eeea1b48b3eE": "\n  int64_t uu_df::table::Header::get_headers::h2b6e3eeea1b48b3e(int64_t* arg1, void* arg2)\n\n{\n    int64_t var_80 = 0;\n    int64_t result = 8;\n    int64_t var_70 = 0;\n    int64_t rbx = *(arg2 + 0x10);\n    \n    if (rbx)\n    {\n        void* r14_1 = *(arg2 + 8);\n        uint32_t rcx_1 = *(arg2 + 0x55);\n        int64_t rdx_1 = *(arg2 + 0x48);\n        int64_t r12_1 = 0;\n        \n        do\n        {\n            int128_t var_e8;\n            void** var_d8_1;\n            int128_t var_c8;\n            void** var_b8;\n            \n            switch (*(r14_1 + r12_1))\n            {\n                case 0:\n                {\n                    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"Filesystem-blocksAvailableAvail \u2026\", 0xa);\n                    var_d8_1 = var_b8;\n                    var_e8 = var_c8;\n                    break;\n                }\n                case 1:\n                {\n                    if (rcx_1 == 1)\n                    {\n                        _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"SizesynctypeCyan    TYPE\"`$\\EADV\u2026\", 4);\n                        var_d8_1 = var_b8;\n                        var_e8 = var_c8;\n                    }\n                    else\n                    {\n                        int128_t var_48;\n                        void* var_90;\n                        \n                        if (rcx_1 != 2)\n                        {\n                            var_90 = arg2 + 0x48;\n                            uint64_t (* var_88_2)(int64_t* arg1, int64_t* arg2) = _$LT$uu_df..blocks..BlockSize$u20$as$u20$core..fmt..Display$GT$::fmt::hfdf71bd12488da41;\n                            var_c8 = &data_502ed0;\n                            *var_c8[8] = 2;\n                            int64_t var_a8_2 = 0;\n                            var_b8 = &var_90;\n                            int64_t var_b0_2 = 1;\n                            core::option::Option$LT$T$GT$::map_or_else::h7e34be96cbbb4028(&var_48, \n                                &var_c8);\n                        }\n                        else\n                        {\n                            int64_t var_50 = rdx_1;\n                            var_90 = &var_50;\n                            uint64_t (* var_88_1)(int64_t* arg1, int64_t* arg2) = core::fmt::num::imp::_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$::fmt::h3bef13756113ac7b;\n                            var_c8 = &data_502ed0;\n                            *var_c8[8] = 2;\n                            int64_t var_a8_1 = 0;\n                            var_b8 = &var_90;\n                            int64_t var_b0_1 = 1;\n                            core::option::Option$LT$T$GT$::map_or_else::h7e34be96cbbb4028(&var_48, \n                                &var_c8);\n                        }\n                        var_e8 = var_48;\n                        int64_t var_38;\n                        int64_t var_d8_2 = var_38;\n                    }\n                    break;\n                }\n                case 2:\n                {\n                    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"UsedhelpnoneUse%Noneshim\\x1b[0mn\u2026\", 4);\n                    var_d8_1 = var_b8;\n                    var_e8 = var_c8;\n                    break;\n                }\n                case 3:\n                {\n                    if ((rcx_1 | 2) != 3)\n                        _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"AvailableAvail \\n\", 9);\n                    else\n                        _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"Avail \\n\", 5);\n                    \n                    var_d8_1 = var_b8;\n                    var_e8 = var_c8;\n                    break;\n                }\n                case 4:\n                {\n                    if (rcx_1 != 2)\n                        _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"Use%Noneshim\\x1b[0mnameSizesynct\u2026\", 4);\n                    else\n                        _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"CapacityUIoErrorEL3HLTEL3RSTELNR\u2026\", 8);\n                    \n                    var_d8_1 = var_b8;\n                    var_e8 = var_c8;\n                    break;\n                }\n                case 5:\n                {\n                    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"Mounted onFilesystem-blocksAvail\u2026\", 0xa);\n                    var_d8_1 = var_b8;\n                    var_e8 = var_c8;\n                    break;\n                }\n                case 6:\n                {\n                    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"InodesMounted onFilesystem-block\u2026\", 6);\n                    var_d8_1 = var_b8;\n                    var_e8 = var_c8;\n                    break;\n                }\n                case 7:\n                {\n                    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"IUsedInodesMounted onFilesystem-\u2026\", 5);\n                    var_d8_1 = var_b8;\n                    var_e8 = var_c8;\n                    break;\n                }\n                case 8:\n                {\n                    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"IFreeIUsedInodesMounted onFilesy\u2026\", 5);\n                    var_d8_1 = var_b8;\n                    var_e8 = var_c8;\n                    break;\n                }\n                case 9:\n                {\n                    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"IUse%IFreeIUsedInodesMounted onF\u2026\", 5);\n                    var_d8_1 = var_b8;\n                    var_e8 = var_c8;\n                    break;\n                }\n                case 0xa:\n                {\n                    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"Filekeys\\134u128for<\\x1b[1mKindb\u2026\", 4);\n                    var_d8_1 = var_b8;\n                    var_e8 = var_c8;\n                    break;\n                }\n                case 0xb:\n                {\n                    _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h40d1dda03127eab3(&var_c8, \"TypeERANGEEDEADLKENAMETOOLONGENO\u2026\", 4);\n                    var_d8_1 = var_b8;\n                    var_e8 = var_c8;\n                    break;\n                }\n            }\n            \n            alloc::vec::Vec$LT$T$C$A$GT$::push::h4b8ce3b04144c5a5(&var_80, &var_e8);\n            r12_1 += 1;\n        } while (rbx != r12_1);\n    }\n    \n    arg1[2] = var_70;\n    *arg1 = var_80;\n    arg1[1] = result;\n    return result;\n}\n",
+    "_ZN5uu_df5table5Table3new17h1ab1638dbdc475f0E": "\n  int128_t* uu_df::table::Table::new::h1ab1638dbdc475f0(int128_t* arg1, void* arg2, int64_t* arg3)\n\n{\n    int128_t var_3e0;\n    uu_df::table::Header::get_headers::h2b6e3eeea1b48b3e(&var_3e0, arg2);\n    void* i_3 = *(arg2 + 8);\n    int64_t rbp = *(arg2 + 0x10);\n    void* i = i_3;\n    void* var_388 = i_3 + rbp;\n    int64_t var_380 = 0;\n    int128_t* var_378 = &var_3e0;\n    int64_t var_438;\n    core::iter::traits::iterator::Iterator::collect::h6fc38ef75d149566(&var_438, &i);\n    uint64_t rax_1 = alloc::alloc::Global::alloc_impl::h6fb1b6049873c120(8, 0x18);\n    \n    if (!rax_1)\n    {\n        alloc::alloc::handle_alloc_error::h88aa4f4f9d19c4f9();\n        /* no return */\n    }\n    \n    int128_t zmm0 = var_3e0;\n    int64_t var_3d0;\n    *(rax_1 + 0x10) = var_3d0;\n    *rax_1 = zmm0;\n    int64_t var_450 = 1;\n    int64_t var_440 = 1;\n    void var_2a8;\n    uu_df::table::Row::new::h9186d85196a04d3b(&var_2a8);\n    int64_t* var_408 = arg3;\n    void var_3c8;\n    _$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$::into_iter::h21e6825ac7f6927e(&var_3c8, arg3);\n    _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h0f20750b6c1dd1d2(&i, &var_3c8);\n    void* var_1d8;\n    \n    if (!(0 + -(i)))\n    {\n        void* var_420;\n        void var_3a8;\n        void var_108;\n        \n        if (*(arg2 + 0x51) != 1)\n        {\n            do\n            {\n                int64_t var_2d8;\n                \n                if (!var_2d8)\n                    core::ptr::drop_in_place$LT$uu_df..filesystem..Filesystem$GT$::h59dcd820d6503e9b(&i);\n                else\n                {\n                    _$LT$uu_df..table..Row$u20$as$u20$core..convert..From$LT$uu_df..filesystem..Filesystem$GT$$GT$::from::h5bb8f604f83ef093(&var_108, &i);\n                    var_420 = &var_108;\n                    void* var_418_2 = arg2;\n                    char var_410_2 = 0;\n                    uu_df::table::RowFormatter::get_values::hdf51f7a80eb4184b(&var_3a8, &var_420);\n                    memcpy(&var_1d8, &var_108, 0xd0);\n                    _$LT$uu_df..table..Row$u20$as$u20$core..ops..arith..AddAssign$GT$::add_assign::hc07f7a0b7d63dbc9(&var_2a8, &var_1d8);\n                    alloc::vec::Vec$LT$T$C$A$GT$::push::hce097b6b3d6d1bdf(&var_450, &var_3a8);\n                }\n                \n                _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h0f20750b6c1dd1d2(&i, &var_3c8);\n            } while (i != -0x8000000000000000);\n        }\n        else\n        {\n            do\n            {\n                _$LT$uu_df..table..Row$u20$as$u20$core..convert..From$LT$uu_df..filesystem..Filesystem$GT$$GT$::from::h5bb8f604f83ef093(&var_108, &i);\n                var_420 = &var_108;\n                void* var_418_1 = arg2;\n                char var_410_1 = 0;\n                uu_df::table::RowFormatter::get_values::hdf51f7a80eb4184b(&var_3a8, &var_420);\n                memcpy(&var_1d8, &var_108, 0xd0);\n                _$LT$uu_df..table..Row$u20$as$u20$core..ops..arith..AddAssign$GT$::add_assign::hc07f7a0b7d63dbc9(&var_2a8, &var_1d8);\n                alloc::vec::Vec$LT$T$C$A$GT$::push::hce097b6b3d6d1bdf(&var_450, &var_3a8);\n                _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h0f20750b6c1dd1d2(&i, &var_3c8);\n            } while (i != -0x8000000000000000);\n        }\n    }\n    \n    core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_df..filesystem..Filesystem$GT$$GT$::hd711030a980c8f88(&var_3c8);\n    \n    if (*(arg2 + 0x53))\n    {\n        var_1d8 = &var_2a8;\n        void* var_1d0_1 = arg2;\n        char var_1c8_1 = 1;\n        uu_df::table::RowFormatter::get_values::hdf51f7a80eb4184b(&i, &var_1d8);\n        alloc::vec::Vec$LT$T$C$A$GT$::push::hce097b6b3d6d1bdf(&var_450, &i);\n    }\n    \n    int64_t rbp_1;\n    int64_t r13_1;\n    int64_t var_430;\n    int64_t var_428;\n    \n    if (!var_440)\n    {\n        r13_1 = var_430;\n        rbp_1 = var_428;\n    }\n    else\n    {\n        uint64_t r12 = rax_1;\n        int64_t rax_4 = r12 + var_440 * 0x18;\n        uint64_t rax_5 = r12 + 0x18;\n        r13_1 = var_430;\n        rbp_1 = var_428;\n        \n        do\n        {\n            void* i_2 = *(r12 + 8);\n            int64_t rdx_2 = *(r12 + 0x10);\n            r12 = rax_5;\n            i = i_2;\n            void* var_388_1 = i_2 + rdx_2 * 0x18;\n            var_380 = 0;\n            int64_t rax_8;\n            void* i_5;\n            rax_8 = _$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h9f2ee3703a036410(&i);\n            \n            if (i_5)\n            {\n                int64_t r14_1 = rax_8;\n                void* i_4 = i_5;\n                void* i_1;\n                \n                do\n                {\n                    *(i_4 + 0x10);\n                    int64_t rax_10 = core::iter::traits::double_ended::DoubleEndedIterator::rfold::h29668c6b9213f166(*(i_4 + 8));\n                    \n                    if (r14_1 >= rbp_1)\n                    {\n                        core::panicking::panic_bounds_check::h025cadc56a971af7(r14_1, rbp_1);\n                        /* no return */\n                    }\n                    \n                    if (rax_10 > *(r13_1 + (r14_1 << 3)))\n                    {\n                        *(i_4 + 0x10);\n                        *(r13_1 + (r14_1 << 3)) = core::iter::traits::double_ended::DoubleEndedIterator::rfold::h29668c6b9213f166(*(i_4 + 8));\n                    }\n                    \n                    int64_t rax_9;\n                    rax_9 = _$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h9f2ee3703a036410(&i);\n                    r14_1 = rax_9;\n                    i_4 = i_1;\n                } while (i_1);\n            }\n            \n            rax_5 = r12 + 0x18;\n            \n            if (r12 == rax_4)\n                rax_5 = r12;\n        } while (r12 != rax_4);\n    }\n    int64_t rbx = var_438;\n    uu_df::table::Table::get_alignments::h30bf81e1dc4abfc2(&i, i_3, rbp);\n    arg1[1] = var_380;\n    *arg1 = i;\n    *(arg1 + 0x18) = var_450;\n    *(arg1 + 0x28) = var_440;\n    arg1[3] = rbx;\n    *(arg1 + 0x38) = r13_1;\n    arg1[4] = rbp_1;\n    core::ptr::drop_in_place$LT$uu_df..table..Row$GT$::hd2993f597084129f(&var_2a8);\n    return arg1;\n}\n",
+    "_ZN5uu_df5table5Table14get_alignments17h30bf81e1dc4abfc2E": "\n  int64_t uu_df::table::Table::get_alignments::h30bf81e1dc4abfc2(int128_t* arg1, void* arg2, int64_t arg3)\n\n{\n    int64_t var_48 = 0;\n    int64_t var_40 = 1;\n    int64_t result = 0;\n    int64_t r13 = 0;\n    \n    while (arg3 != r13)\n    {\n        uint32_t rax_1 = *(arg2 + r13);\n        r13 += 1;\n        alloc::vec::Vec$LT$T$C$A$GT$::push::h5276f4d6a06e1d30(&var_48, TEST_BITD(0x3de, rax_1));\n    }\n    \n    arg1[1] = result;\n    *arg1 = var_48;\n    return result;\n}\n",
+    "_ZN5uu_df7Options4from17h8b6ce45144534520E": "\n  int128_t* uu_df::Options::from::h8b6ce45144534520(int128_t* arg1, void* arg2)\n\n{\n    int128_t var_158;\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many::h3719f0ee9075a3fe(\n        &var_158, arg2, &data_419a18[0xc], 4);\n    int64_t var_c8;\n    clap_builder::parser::error::MatchesError::unwrap::h3fb7cb9ce86227a4(&var_c8, \n        &data_419a18[0xc], 4, &var_158);\n    int64_t var_198;\n    \n    if (!var_c8)\n        var_198 = -0x8000000000000000;\n    else\n        core::iter::traits::iterator::Iterator::collect::h49a51ee5ac4b4f6e(&var_198, &var_c8);\n    \n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many::h3719f0ee9075a3fe(\n        &var_158, arg2, \"exclude-typesrc/uu/df/src/df.rs(\u2026\", 0xc);\n    int64_t var_88;\n    clap_builder::parser::error::MatchesError::unwrap::h3fb7cb9ce86227a4(&var_88, \n        \"exclude-typesrc/uu/df/src/df.rs(\u2026\", 0xc, &var_158);\n    int64_t var_1b8;\n    int64_t var_1a8;\n    int64_t var_188;\n    \n    if (var_88)\n    {\n        core::iter::traits::iterator::Iterator::collect::h49a51ee5ac4b4f6e(&var_158, &var_88);\n        int64_t var_148;\n        var_1a8 = var_148;\n        var_1b8 = var_158;\n        \n        if (var_198 == -0x8000000000000000 || var_1b8 == -0x8000000000000000)\n            goto label_46d1d1;\n        \n        int64_t var_1b0;\n        void* var_190;\n        uu_df::Options::get_intersected_types::h9cab40c1fdffacad(&var_158, var_190, var_188, \n            var_1b0, var_1a8);\n        \n        if (var_158 == -0x8000000000000000)\n        {\n            core::ptr::drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$::h38b38b300538279c(&var_158);\n            goto label_46d1d1;\n        }\n        \n        arg1[2] = var_148;\n        arg1[1] = var_158;\n        *(arg1 + 8) = 4;\n        goto label_46d477;\n    }\n    \n    var_1b8 = -0x8000000000000000;\n    label_46d1d1:\n    char rax_2 =\n        clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h0358b00a34050e02(arg2, \n        \"localno-syncoutputpathsportabili\u2026\", 5);\n    char rax_3 =\n        clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h0358b00a34050e02(arg2, \n        \"allblocksizehuman-readable-binar\u2026\", 3);\n    char rax_4 =\n        clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h0358b00a34050e02(arg2, \n        \"synctypeCyan    TYPE\"`$\\EADVlofs\u2026\", 4);\n    int32_t var_e8;\n    uu_df::blocks::read_block_size::h32d30779f3aa72e5(&var_e8, arg2);\n    int64_t var_180_1;\n    int64_t var_108;\n    int64_t var_100;\n    int128_t var_f8;\n    \n    if (var_e8 != 4)\n    {\n        uu_df::Options::from::_$u7b$$u7b$closure$u7d$$u7d$::h55bdb2272571ef7d(&var_108, arg2, \n            &var_e8);\n        int64_t rax_6 = var_108;\n        \n        if (rax_6 == 5)\n        {\n            var_180_1 = var_100;\n            goto label_46d289;\n        }\n        \n        *(arg1 + 0x18) = var_f8;\n        *(arg1 + 8) = rax_6;\n        arg1[1] = var_100;\n        label_46d477:\n        *arg1 = -0x8000000000000000;\n        core::ptr::drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$::h38b38b300538279c(&var_1b8);\n        core::ptr::drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$::h38b38b300538279c(&var_198);\n    }\n    else\n    {\n        int64_t var_e0;\n        var_180_1 = var_e0;\n        label_46d289:\n        char r12_1 = 1;\n        \n        if (!clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h0358b00a34050e02(\n            arg2, \"human-readable-binaryhuman-reada\u2026\", 0x15) && !\n            clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h0358b00a34050e02(\n            arg2, \"human-readable-decimalinodesloca\u2026\", 0x16))\n        {\n            r12_1 = 2;\n            \n            if (!\n                clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h0358b00a34050e02(\n                arg2, \"portabilityprint-typeexclude-typ\u2026\", 0xb))\n            {\n                int64_t rcx_4;\n                rcx_4 = clap_builder::parser::matches::arg_matches::ArgMatches::value_source::h45c0c3cb9ce2c562(arg2, \"outputpathsportabilityprint-type\u2026\", 6) == 2;\n                r12_1 = rcx_4 * 3;\n            }\n        }\n        \n        char r13_1 = 1;\n        \n        if (!clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h0358b00a34050e02(\n                arg2, \"human-readable-binaryhuman-reada\u2026\", 0x15))\n            r13_1 = (\n                clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h0358b00a34050e02(\n                arg2, \"human-readable-decimalinodesloca\u2026\", 0x16) ^ 1) * 2;\n        \n        char rax_13 =\n            clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h0358b00a34050e02(\n            arg2, \"total%\", 5);\n        uu_df::columns::Column::from_matches::h56d2df2bf88d44da(&var_108, arg2);\n        int64_t rcx_5 = *var_f8[8];\n        int128_t zmm0_4 = var_100;\n        \n        if (var_108 == 1)\n        {\n            arg1[2] = rcx_5;\n            arg1[1] = zmm0_4;\n            *(arg1 + 8) = 3;\n            goto label_46d477;\n        }\n        \n        var_158 = zmm0_4;\n        int128_t var_140_1 = var_198;\n        int64_t var_118_1 = var_1a8;\n        int128_t zmm1_1 = var_1b8;\n        int128_t var_128_1 = zmm1_1;\n        *arg1 = zmm0_4;\n        arg1[4] = var_1a8;\n        arg1[3] = zmm1_1;\n        arg1[1] = rcx_5;\n        *(arg1 + 0x18) = var_140_1;\n        arg1[2] = *var_140_1[8];\n        *(arg1 + 0x28) = var_188;\n        *(arg1 + 0x48) = var_180_1;\n        arg1[5] = rax_2;\n        *(arg1 + 0x51) = rax_3;\n        *(arg1 + 0x52) = rax_4;\n        *(arg1 + 0x53) = rax_13;\n        *(arg1 + 0x54) = r13_1;\n        *(arg1 + 0x55) = r12_1;\n    }\n    return arg1;\n}\n",
+    "_ZN5uu_df7Options21get_intersected_types17h9cab40c1fdffacadE": "\n  int64_t uu_df::Options::get_intersected_types::h9cab40c1fdffacad(int128_t* arg1, void* arg2, int64_t arg3, int64_t arg4, int64_t arg5)\n\n{\n    int64_t var_70 = 0;\n    int64_t var_68 = 8;\n    int64_t result = 0;\n    int64_t var_58;\n    \n    if (!arg3)\n    {\n        int64_t var_48 = 0;\n        var_58 = var_70;\n        int64_t var_50_1 = var_68;\n    }\n    else\n    {\n        void* r12_1 = arg2;\n        int64_t i_1 = arg3 * 0x18;\n        int64_t i;\n        \n        do\n        {\n            if (_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$::slice_contains::h51781a1e8c4dac70(r12_1, arg4, arg5))\n            {\n                _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h94782b8343b62bd8(&var_58, r12_1);\n                alloc::vec::Vec$LT$T$C$A$GT$::push::h4b8ce3b04144c5a5(&var_70, &var_58);\n            }\n            \n            r12_1 += 0x18;\n            i = i_1;\n            i_1 -= 0x18;\n        } while (i != 0x18);\n        int64_t result_1 = result;\n        var_58 = var_70;\n        \n        if (result)\n        {\n            arg1[1] = result;\n            *arg1 = var_70;\n            return result;\n        }\n    }\n    \n    *arg1 = -0x8000000000000000;\n    return core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$::h3cde21800b3ef049(&var_58);\n}\n",
+    "_ZN5uu_df11is_included17h2cb576fb785b9846E": "\n  int64_t uu_df::is_included::h2cb576fb785b9846(void* arg1, void* arg2)\n\n{\n    int64_t rax;\n    int64_t var_18 = rax;\n    \n    if (*(arg1 + 0x90) && *(arg2 + 0x50))\n        return 0;\n    \n    if (!*(arg1 + 0x91))\n    {\n        if (_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h6249ba97ac26ea5b(*(arg1 + 0x38), *(arg1 + 0x40), &data_419a18[0x24], 4) && *(arg2 + 0x51) != 1)\n            return 0;\n    }\n    else if (*(arg2 + 0x51) != 1)\n        return 0;\n    \n    if (!(0 + -(*(arg2 + 0x30))) && _$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$::slice_contains::h51781a1e8c4dac70(arg1 + 0x30, *(arg2 + 0x38), *(arg2 + 0x40)))\n        return 0;\n    \n    if (*(arg2 + 0x18) != -0x8000000000000000)\n        /* tailcall */\n        return _$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$::slice_contains::h51781a1e8c4dac70(arg1 + 0x30, *(arg2 + 0x20), *(arg2 + 0x28));\n    \n    return 1;\n}\n",
+    "_ZN5uu_df13mount_info_lt17h4da597b980b7148dE": "\n  int64_t uu_df::mount_info_lt::h4da597b980b7148d(void* arg1, void* arg2)\n\n{\n    int64_t rax;\n    int64_t var_38 = rax;\n    int64_t r15 = *(arg1 + 0x20);\n    uint64_t r12 = *(arg1 + 0x28);\n    var_38 = 0;\n    char rax_2 = core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::starts_with::h9cf7c8293e15fd51(r15, \n        r12, core::char::methods::encode_utf8_raw::h5e8f6d90a161f6f4(&var_38));\n    char rax_4;\n    \n    if (rax_2)\n    {\n        *var_38[4] = 0;\n        rax_4 = core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::starts_with::h9cf7c8293e15fd51(\n            *(arg2 + 0x20), *(arg2 + 0x28), \n            core::char::methods::encode_utf8_raw::h5e8f6d90a161f6f4(&*var_38[4]));\n    }\n    \n    if (!rax_2 || rax_4)\n    {\n        int64_t rax_5 = *(arg1 + 0x58);\n        uint64_t rbp_2 = *(arg1 + 0x70);\n        int64_t r13_2 = *(arg2 + 0x70);\n        int64_t rcx_1;\n        \n        if (rax_5)\n            rcx_1 = *(arg2 + 0x58);\n        \n        if (rax_5 && rcx_1)\n        {\n            rax_5 = rax_5 > rcx_1;\n            rax_5 |= rbp_2 >= r13_2;\n            \n            if (rax_5 == 1)\n                goto label_46d88e;\n        }\n        else if (rbp_2 >= r13_2)\n        {\n            label_46d88e:\n            \n            if (alloc::vec::partial_eq::_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$::eq::h6c46bd122a266b24(r15, r12, *(arg2 + 0x20), *(arg2 + 0x28)))\n                return 1;\n            \n            return alloc::vec::partial_eq::_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$::eq::h6c46bd122a266b24(*(arg1 + 0x68), rbp_2, *(arg2 + 0x68), r13_2) ^ 1;\n        }\n    }\n    \n    return 0;\n}\n",
+    "_ZN5uu_df7is_best17h2e728b01e5cd47e3E": "\n  uint64_t uu_df::is_best::h2e728b01e5cd47e3(void* arg1, int64_t arg2, void* arg3)\n\n{\n    int64_t rax;\n    int64_t var_38 = rax;\n    int64_t rbx;\n    rbx = 1;\n    \n    if (arg2)\n    {\n        void* r15_1 = arg1;\n        int64_t r12_1 = *(arg3 + 8);\n        int64_t r13_1 = *(arg3 + 0x10);\n        int64_t i_1 = arg2 * 0x98;\n        int64_t i;\n        \n        do\n        {\n            if (alloc::vec::partial_eq::_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$::eq::h6c46bd122a266b24(*(r15_1 + 8), *(r15_1 + 0x10), r12_1, r13_1)\n                && uu_df::mount_info_lt::h4da597b980b7148d(arg3, r15_1))\n            {\n                rbx = 0;\n                break;\n            }\n            \n            r15_1 += 0x98;\n            i = i_1;\n            i_1 -= 0x98;\n        } while (i != 0x98);\n    }\n    \n    return rbx;\n}\n",
+    "_ZN5uu_df19get_all_filesystems17ha7950162b929c2f8E": "\n  int64_t* uu_df::get_all_filesystems::ha7950162b929c2f8(int64_t* arg1, void* arg2)\n\n{\n    if (*(arg2 + 0x52))\n        sync();\n    \n    int64_t var_1b8 = 0;\n    void* var_1b0 = 8;\n    int64_t var_1a8 = 0;\n    int64_t var_160;\n    uucore::features::fsext::read_fs_list::h6f122f433e9b10c6(&var_160);\n    int64_t rdx = var_160;\n    int64_t var_158;\n    int64_t var_150;\n    \n    if (-(rdx) != -0x8000000000000000)\n    {\n        int64_t var_178 = rdx;\n        int64_t var_170_1 = var_158;\n        int64_t var_168_1 = var_150;\n        int128_t var_1a0;\n        _$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$::into_iter::h4e6a242ff752ace5(&var_1a0, &var_178);\n        int64_t i;\n        _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h04f884ed303dea1c(&i, &var_1a0);\n        \n        if (i != -0x8000000000000000)\n        {\n            do\n            {\n                memcpy(&var_160, &i, 0x98);\n                char rax_3 = uu_df::is_included::h2cb576fb785b9846(&var_160, arg2);\n                char rax_4;\n                \n                if (rax_3)\n                    rax_4 = uu_df::is_best::h2e728b01e5cd47e3(var_1b0, var_1a8, &i);\n                \n                if (!rax_3 || !rax_4)\n                    core::ptr::drop_in_place$LT$uucore..features..fsext..MountInfo$GT$::h0026f4350179d2b5(&i);\n                else\n                    alloc::vec::Vec$LT$T$C$A$GT$::push::h009a998fb78397fa(&var_1b8, &i);\n                \n                _$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h04f884ed303dea1c(&i, &var_1a0);\n            } while (i != -0x8000000000000000);\n        }\n        \n        core::ptr::drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uucore..features..fsext..MountInfo$GT$$GT$::h2cba2fcf95045450(&var_1a0);\n        _$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$::clone::h32af2e8d1bfd3746(&var_1a0, var_1b0, var_1a8);\n        _$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$::into_iter::h4e6a242ff752ace5(&var_160, &var_1a0);\n        int64_t* var_140_1 = &var_1b8;\n        void* var_138_1 = arg2;\n        core::iter::traits::iterator::Iterator::collect::h5024ba8280d3069a(&var_1a0, &var_160);\n        int64_t var_190;\n        arg1[2] = var_190;\n        *arg1 = var_1a0;\n    }\n    else\n    {\n        arg1[1] = var_158;\n        arg1[2] = var_150;\n        *arg1 = -0x8000000000000000;\n    }\n    core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$uucore..features..fsext..MountInfo$GT$$GT$::h2845cb9837793921(&var_1b8);\n    return arg1;\n}\n",
+    "_ZN5uu_df6uu_app17h7dd88faa65059b5cE": "\n  int64_t uu_df::uu_app::h7dd88faa65059b5c(int64_t arg1)\n\n{\n    void var_840;\n    clap_builder::builder::command::Command::new::h67a6f61a06204ec6(&var_840, \n        uucore::util_name::h074417a1e6395129());\n    void var_2f8;\n    clap_builder::builder::command::Command::version::h6faf0654a1ec6cb4(&var_2f8, &var_840);\n    clap_builder::builder::command::Command::about::h15013569107be41a(&var_840, &var_2f8);\n    void var_ac0;\n    uucore::format_usage::he053403a896311ed(&var_ac0, \"{} [OPTION]... [FILE]...Display \u2026\", 0x18);\n    clap_builder::builder::command::Command::override_usage::hb1d69ce83f1ce17b(&var_2f8, &var_840, \n        &var_ac0);\n    clap_builder::builder::command::Command::after_help::h5255e8afe6f596a9(&var_840, &var_2f8);\n    memcpy(&var_2f8, &var_840, 0x2bc);\n    int64_t var_584;\n    int64_t var_3c = 0x8008000080080 | var_584;\n    int32_t var_57c;\n    int32_t var_34 = var_57c;\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_840, \n        \"helpnoneUse%Noneshim\\x1b[0mnameS\u2026\");\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_ac0, &var_840, \n        \"helpnoneUse%Noneshim\\x1b[0mnameS\u2026\");\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_840, &var_ac0, \n        \"Print help information.include d\u2026\", 0x17);\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_ac0, &var_840, 5);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_840, &var_2f8, &var_ac0);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_2f8, \n        \"allblocksizehuman-readable-binar\u2026\");\n    clap_builder::builder::arg::Arg::short::hf333541e6269ab5e(&var_ac0, &var_2f8, 0x61);\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_2f8, &var_ac0, \n        \"allblocksizehuman-readable-binar\u2026\");\n    clap_builder::builder::arg::Arg::overrides_with::hb0f1abfc705b7f5b(&var_ac0, &var_2f8, \n        \"allblocksizehuman-readable-binar\u2026\");\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_2f8, &var_ac0, \n        \"include dummy file systemsblock-\u2026\", 0x1a);\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_ac0, &var_2f8, 2);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_2f8, &var_840, &var_ac0);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_840, \n        \"blocksizehuman-readable-binaryhu\u2026\");\n    clap_builder::builder::arg::Arg::short::hf333541e6269ab5e(&var_ac0, &var_840, 0x42);\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_840, &var_ac0, \n        \"block-sizescale sizes by SIZE be\u2026\");\n    clap_builder::builder::arg::Arg::value_name::hec0c8c7399c0b6c9(&var_ac0, &var_840, \n        \"SIZE) = Zero\\x1b[7mBool\");\n    char const* const var_578 = \"kilobindmainch\";\n    int64_t var_570 = 4;\n    char const* const var_568 = \"blocksizehuman-readable-binaryhu\u2026\";\n    int64_t var_560 = 9;\n    clap_builder::builder::arg::Arg::overrides_with_all::h390b75bbc4ea83ce(&var_840, &var_ac0, \n        &var_578);\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_ac0, &var_840, \n        \"scale sizes by SIZE before print\u2026\", 0x5c);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_840, &var_2f8, &var_ac0);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_2f8, \"total%\");\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_ac0, &var_2f8, \"total%\");\n    clap_builder::builder::arg::Arg::overrides_with::hb0f1abfc705b7f5b(&var_2f8, &var_ac0, \n        \"total%\");\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_ac0, &var_2f8, \n        \"produce a grand totalhuman-reada\u2026\", 0x15);\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_578, &var_ac0, 2);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_2f8, &var_840, &var_578);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_840, \n        \"human-readable-binaryhuman-reada\u2026\");\n    clap_builder::builder::arg::Arg::short::hf333541e6269ab5e(&var_ac0, &var_840, 0x68);\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_840, &var_ac0, \n        \"human-readableprint sizes in hum\u2026\");\n    var_578 = \"human-readable-decimalinodesloca\u2026\";\n    int64_t var_570_1 = 0x16;\n    char const* const var_568_1 = \"human-readable-binaryhuman-reada\u2026\";\n    int64_t var_560_1 = 0x15;\n    clap_builder::builder::arg::Arg::overrides_with_all::h390b75bbc4ea83ce(&var_ac0, &var_840, \n        &var_578);\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_840, &var_ac0, \n        \"print sizes in human readable fo\u2026\", 0x37);\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_ac0, &var_840, 2);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_840, &var_2f8, &var_ac0);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_2f8, \n        \"human-readable-decimalinodesloca\u2026\");\n    clap_builder::builder::arg::Arg::short::hf333541e6269ab5e(&var_ac0, &var_2f8, 0x48);\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_2f8, &var_ac0, \n        \"silikewise, but use powers of 10\u2026\");\n    var_578 = \"human-readable-binaryhuman-reada\u2026\";\n    int64_t var_570_2 = 0x15;\n    char const* const var_568_2 = \"human-readable-decimalinodesloca\u2026\";\n    int64_t var_560_2 = 0x16;\n    clap_builder::builder::arg::Arg::overrides_with_all::h390b75bbc4ea83ce(&var_ac0, &var_2f8, \n        &var_578);\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_2f8, &var_ac0, \n        \"likewise, but use powers of 1000\u2026\", 0x29);\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_ac0, &var_2f8, 2);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_2f8, &var_840, &var_ac0);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_840, \n        \"inodeslocalno-syncoutputpathspor\u2026\");\n    clap_builder::builder::arg::Arg::short::hf333541e6269ab5e(&var_ac0, &var_840, 0x69);\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_840, &var_ac0, \n        \"inodeslocalno-syncoutputpathspor\u2026\");\n    clap_builder::builder::arg::Arg::overrides_with::hb0f1abfc705b7f5b(&var_ac0, &var_840, \n        \"inodeslocalno-syncoutputpathspor\u2026\");\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_840, &var_ac0, \n        \"list inode information instead o\u2026\", 0x2d);\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_ac0, &var_840, 2);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_840, &var_2f8, &var_ac0);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_2f8, \"kilobindmainch\");\n    clap_builder::builder::arg::Arg::short::hf333541e6269ab5e(&var_ac0, &var_2f8, 0x6b);\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_2f8, &var_ac0, \n        \"like --block-size=1Klimit listin\u2026\", 0x14);\n    var_578 = \"blocksizehuman-readable-binaryhu\u2026\";\n    int64_t var_570_3 = 9;\n    char const* const var_568_3 = \"kilobindmainch\";\n    int64_t var_560_3 = 4;\n    clap_builder::builder::arg::Arg::overrides_with_all::h390b75bbc4ea83ce(&var_ac0, &var_2f8, \n        &var_578);\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_578, &var_ac0, 2);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_2f8, &var_840, &var_578);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_840, \n        \"localno-syncoutputpathsportabili\u2026\");\n    clap_builder::builder::arg::Arg::short::hf333541e6269ab5e(&var_ac0, &var_840, 0x6c);\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_840, &var_ac0, \n        \"localno-syncoutputpathsportabili\u2026\");\n    clap_builder::builder::arg::Arg::overrides_with::hb0f1abfc705b7f5b(&var_ac0, &var_840, \n        \"localno-syncoutputpathsportabili\u2026\");\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_840, &var_ac0, \n        \"limit listing to local file syst\u2026\", 0x23);\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_ac0, &var_840, 2);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_840, &var_2f8, &var_ac0);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_2f8, \n        \"no-syncoutputpathsportabilitypri\u2026\");\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_ac0, &var_2f8, \n        \"no-syncoutputpathsportabilitypri\u2026\");\n    var_578 = \"synctypeCyan    TYPE\"`$\\EADVlofs\u2026\";\n    int64_t var_570_4 = 4;\n    char const* const var_568_4 = \"no-syncoutputpathsportabilitypri\u2026\";\n    int64_t var_560_4 = 7;\n    clap_builder::builder::arg::Arg::overrides_with_all::h390b75bbc4ea83ce(&var_2f8, &var_ac0, \n        &var_578);\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_ac0, &var_2f8, \n        \"do not invoke sync before gettin\u2026\", 0x36);\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_578, &var_ac0, 2);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_2f8, &var_840, &var_578);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_840, \n        \"outputpathsportabilityprint-type\u2026\");\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_ac0, &var_840, \n        \"outputpathsportabilityprint-type\u2026\");\n    clap_builder::builder::arg::Arg::value_name::hec0c8c7399c0b6c9(&var_840, &var_ac0, \n        \"FIELD_LISTuse the output format \u2026\");\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_ac0, &var_840, 1);\n    clap_builder::builder::arg::Arg::num_args::h77b85b1013d661bf(&var_840, &var_ac0);\n    memcpy(&var_ac0, &var_840, 0x278);\n    int32_t var_5c8;\n    int32_t var_848 = 0x80 | var_5c8;\n    int32_t var_5c4;\n    int32_t var_844 = var_5c4;\n    clap_builder::builder::arg::Arg::use_value_delimiter::hbc9e6ac97bf7a88b(&var_840, &var_ac0, 1);\n    clap_builder::builder::arg::Arg::value_parser::h22f60de3ac056b5f(&var_ac0, &var_840, \n        &uu_df::OUTPUT_FIELD_LIST::hdf9a91c365a9b214);\n    clap_builder::builder::arg::Arg::default_missing_values_os::h7450261ffdb59db3(&var_840, \n        &var_ac0, &uu_df::OUTPUT_FIELD_LIST::hdf9a91c365a9b214);\n    var_578 = \"sourcefstypeitotaliusediavailipc\u2026\";\n    int64_t var_570_5 = 6;\n    char const* const var_568_5 = \"sizefilei128 as dyn usedTypeERAN\u2026\";\n    int64_t var_560_5 = 4;\n    char const* const var_558 = \"usedTypeERANGEEDEADLKENAMETOOLON\u2026\";\n    int64_t var_550 = 4;\n    char const* const var_548 = \"availpcenttarget-total%\";\n    int64_t var_540 = 5;\n    char const* const var_538 = \"pcenttarget-total%\";\n    int64_t var_530 = 5;\n    char const* const var_528 = \"target-total%\";\n    int64_t var_520 = 6;\n    clap_builder::builder::arg::Arg::default_values::h27c064a7ef70ce87(&var_ac0, &var_840, \n        &var_578);\n    var_578 = \"inodeslocalno-syncoutputpathspor\u2026\";\n    int64_t var_570_6 = 6;\n    char const* const var_568_6 = \"portabilityprint-typeexclude-typ\u2026\";\n    int64_t var_560_6 = 0xb;\n    char const* const var_558_1 = \"print-typeexclude-typesrc/uu/df/\u2026\";\n    int64_t var_550_1 = 0xa;\n    clap_builder::builder::arg::Arg::conflicts_with_all::h32a65daa6d7fc264(&var_840, &var_ac0, \n        &var_578);\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_ac0, &var_840, \n        \"use the output format defined by\u2026\", 0x5a);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_840, &var_2f8, &var_ac0);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_2f8, \n        \"portabilityprint-typeexclude-typ\u2026\");\n    clap_builder::builder::arg::Arg::short::hf333541e6269ab5e(&var_ac0, &var_2f8, 0x50);\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_2f8, &var_ac0, \n        \"portabilityprint-typeexclude-typ\u2026\");\n    clap_builder::builder::arg::Arg::overrides_with::hb0f1abfc705b7f5b(&var_ac0, &var_2f8, \n        \"portabilityprint-typeexclude-typ\u2026\");\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_2f8, &var_ac0, \n        \"use the POSIX output formatinvok\u2026\", 0x1b);\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_ac0, &var_2f8, 2);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_2f8, &var_840, &var_ac0);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_840, \n        \"synctypeCyan    TYPE\"`$\\EADVlofs\u2026\");\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_ac0, &var_840, \n        \"synctypeCyan    TYPE\"`$\\EADVlofs\u2026\");\n    var_578 = \"no-syncoutputpathsportabilitypri\u2026\";\n    int64_t var_570_7 = 7;\n    char const* const var_568_7 = \"synctypeCyan    TYPE\"`$\\EADVlofs\u2026\";\n    int64_t var_560_7 = 4;\n    clap_builder::builder::arg::Arg::overrides_with_all::h390b75bbc4ea83ce(&var_840, &var_ac0, \n        &var_578);\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_ac0, &var_840, \n        \"invoke sync before getting usage\u2026\", 0x38);\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_578, &var_ac0, 2);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_840, &var_2f8, &var_578);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_2f8, &data_419a18[0xc]);\n    clap_builder::builder::arg::Arg::short::hf333541e6269ab5e(&var_ac0, &var_2f8, 0x74);\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_2f8, &var_ac0, &data_419a18[0xc]);\n    int64_t var_ad8 = 2;\n    clap_builder::builder::arg::Arg::value_parser::hc2a9e64838dd396a(&var_ac0, &var_2f8, &var_ad8);\n    clap_builder::builder::arg::Arg::value_name::hec0c8c7399c0b6c9(&var_2f8, &var_ac0, \n        &data_419a18[0x18]);\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_ac0, &var_2f8, 1);\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_578, &var_ac0, \n        \"limit listing to file systems of\u2026\", 0x2a);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_2f8, &var_840, &var_578);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_840, \n        \"print-typeexclude-typesrc/uu/df/\u2026\");\n    clap_builder::builder::arg::Arg::short::hf333541e6269ab5e(&var_ac0, &var_840, 0x54);\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_840, &var_ac0, \n        \"print-typeexclude-typesrc/uu/df/\u2026\");\n    clap_builder::builder::arg::Arg::overrides_with::hb0f1abfc705b7f5b(&var_ac0, &var_840, \n        \"print-typeexclude-typesrc/uu/df/\u2026\");\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_840, &var_ac0, \n        \"print file system typelimit list\u2026\", 0x16);\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_ac0, &var_840, 2);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_840, &var_2f8, &var_ac0);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_2f8, \n        \"exclude-typesrc/uu/df/src/df.rs(\u2026\");\n    clap_builder::builder::arg::Arg::short::hf333541e6269ab5e(&var_ac0, &var_2f8, 0x78);\n    clap_builder::builder::arg::Arg::long::hde57b13e2eeedca8(&var_2f8, &var_ac0, \n        \"exclude-typesrc/uu/df/src/df.rs(\u2026\");\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_ac0, &var_2f8, 1);\n    clap_builder::builder::arg::Arg::value_parser::hc2a9e64838dd396a(&var_2f8, &var_ac0, &var_ad8);\n    clap_builder::builder::arg::Arg::value_name::hec0c8c7399c0b6c9(&var_ac0, &var_2f8, \n        &data_419a18[0x18]);\n    clap_builder::builder::arg::Arg::use_value_delimiter::hbc9e6ac97bf7a88b(&var_2f8, &var_ac0, 1);\n    clap_builder::builder::arg::Arg::help::h0a16dabfd6ab2d83(&var_ac0, &var_2f8, \n        \"limit listing to file systems no\u2026\", 0x2e);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(&var_2f8, &var_840, &var_ac0);\n    clap_builder::builder::arg::Arg::new::h76d9c4d4934362f7(&var_840, \n        \"pathsportabilityprint-typeexclud\u2026\");\n    clap_builder::builder::arg::Arg::action::hc2ecefe6811dd1ba(&var_ac0, &var_840, 1);\n    clap_builder::builder::arg::Arg::value_hint::he34e6a3be3181bcb(&var_840, &var_ac0);\n    clap_builder::builder::command::Command::arg::hf2ef1ae6c22ba7d6(arg1, &var_2f8, &var_840);\n    return arg1;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN5uu_df10filesystem10Filesystem9from_path17h8c044b7be3620a3cE": {
+      "_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h07de46ba282a0abfE": 1,
+      "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h5d1558b0a1eb3735E": 1,
+      "_ZN5uu_df10filesystem20mount_info_from_path17hc0bcb2ea98b5090aE": 1,
+      "_ZN4core3ptr127drop_in_place$LT$uu_df..filesystem..Filesystem..from_path$LT$$RF$$RF$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3f753883bea380f6E": 1,
+      "_ZN5uu_df10filesystem10Filesystem10from_mount17h8c34ead0ca2ea541E": 1
+    },
+    "_ZN5uu_df10filesystem20mount_info_from_path17hc0bcb2ea98b5090aE": {
+      "_ZN3std2fs12canonicalize17he3861711874680a2E": 1,
+      "_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h07de46ba282a0abfE": 1,
+      "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h69a84c60d5093e65E": 1,
+      "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9c71e0ce0d4c8b4fE": 1,
+      "_ZN4core3ptr88drop_in_place$LT$$LP$$RF$uucore..features..fsext..MountInfo$C$std..path..PathBuf$RP$$GT$17he3cf3c9f5c62efb3E": 1,
+      "_ZN4core3ptr132drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$$LP$$RF$uucore..features..fsext..MountInfo$C$std..path..PathBuf$RP$$GT$$GT$17he2ec4800f4f1f216E": 1,
+      "_ZN4core6option15Option$LT$T$GT$7or_else17hfb47a539a566ef5eE": 1,
+      "_ZN4core3mem4drop17hf2e2fee3dcd8d14fE": 1
+    },
+    "_ZN5uu_df21get_named_filesystems17h04ac4719102a6bd6E": {
+      "_ZN6uucore8features5fsext12read_fs_list17h6f122f433e9b10c6E": 1,
+      "_ZN5uu_df10filesystem10Filesystem9from_path17h8c044b7be3620a3cE": 1,
+      "memcpy": 2,
+      "_ZN5uu_df11is_included17h2cb576fb785b9846E": 1,
+      "_ZN4core3ptr50drop_in_place$LT$uu_df..filesystem..Filesystem$GT$17h796a453b85755ea4E": 1,
+      "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5c5f06b26c9d90a4E": 1,
+      "_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17he61e357f22fb6931E": 2,
+      "_ZN4core6option15Option$LT$T$GT$11map_or_else17hd603ea6dce20e29aE": 2,
+      "_ZN5alloc5boxed12Box$LT$T$GT$3new17h9b3314f0e2696c29E": 4,
+      "_ZN6uucore4mods5error13set_exit_code17hbbe6ffc423a314f1E": 4,
+      "_ZN81_$LT$uucore..mods..error..USimpleError$u20$as$u20$uucore..mods..error..UError$GT$4code17ha04d37fdd51c3108E": 4,
+      "_ZN6uucore9util_name17h074417a1e6395129E": 4,
+      "_ZN3std2io5stdio7_eprint17h57899770eacec2adE": 4,
+      "_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$clap_builder..builder..value_parser..AnyValueParser$GT$$GT$17hfabf09c63ef1010cE": 4,
+      "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h5e212f3fc67d7e91E": 2,
+      "_ZN6uucore4mods5error13get_exit_code17h4ce6cf124c2ef658E": 1,
+      "_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$uucore..features..fsext..MountInfo$GT$$GT$17h2b7ba84ce5c92a56E": 1
+    },
+    "_ZN5uu_df6uumain17h952234f03fc05d86E": {
+      "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h33265ad5955dfc08E": 1,
+      "_ZN6uucore28disable_rust_signal_handlers17hcf33f4a6d6e443c4E": 1,
+      "_ZN5uu_df6uumain6uumain17h219d096a97f03177E": 1,
+      "_ZN6uucore4mods5error13get_exit_code17h4ce6cf124c2ef658E": 1,
+      "_ZN4core6option15Option$LT$T$GT$11map_or_else17hd603ea6dce20e29aE": 1,
+      "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h68d19500281838abE": 1,
+      "_ZN6uucore9util_name17h074417a1e6395129E": 1,
+      "_ZN3std2io5stdio7_eprint17h57899770eacec2adE": 3,
+      "_ZN6uucore16execution_phrase17hf0e80cb4793732adE": 1,
+      "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb293845502db5768E": 1,
+      "_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$clap_builder..builder..value_parser..AnyValueParser$GT$$GT$17hfabf09c63ef1010cE": 1
+    },
+    "_ZN5uu_df6uumain6uumain17h219d096a97f03177E": {
+      "_ZN5uu_df6uu_app17h7dd88faa65059b5cE": 1,
+      "_ZN12clap_builder7builder7command7Command20try_get_matches_from17hdff312c40bc5334bE": 1,
+      "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17he92a37de32738e67E": 1,
+      "_ZN5uu_df7Options4from17h8b6ce45144534520E": 1,
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h1be3b76b5e4259b7E": 1,
+      "_ZN12clap_builder6parser5error12MatchesError6unwrap17h9666b4fb430f9123E": 1,
+      "_ZN5uu_df19get_all_filesystems17ha7950162b929c2f8E": 1,
+      "_ZN5uu_df5table5Table3new17h1ab1638dbdc475f0E": 1,
+      "_ZN3std2io5stdio6_print17h5e446ff973c02de6E": 1,
+      "_ZN4core3ptr40drop_in_place$LT$uu_df..table..Table$GT$17h3f6dd34f640bd290E": 1,
+      "_ZN4core3ptr35drop_in_place$LT$uu_df..Options$GT$17h907ddf1f87b71eb9E": 2,
+      "_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$17h1612bae07920f9e3E": 2,
+      "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h5e212f3fc67d7e91E": 1,
+      "_ZN5alloc5boxed12Box$LT$T$GT$3new17h9b3314f0e2696c29E": 1,
+      "_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$uu_df..filesystem..Filesystem$GT$$GT$17h60c6be51676db6a7E": 2,
+      "_ZN5uu_df6uumain6uumain28_$u7b$$u7b$closure$u7d$$u7d$17h4bee578f8c35ee3dE": 2,
+      "_ZN4core4iter6traits8iterator8Iterator7collect17h29c077bce706520cE": 1,
+      "_ZN5uu_df21get_named_filesystems17h04ac4719102a6bd6E": 1,
+      "_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17he20e0cbd0c056ce4E": 3,
+      "_ZN5alloc5boxed12Box$LT$T$GT$3new17h4aae9c6e7d3a8f03E": 1
+    },
+    "_ZN5uu_df6blocks23to_magnitude_and_suffix17hab68afb684dfcc4eE": {
+      "__builtin_memcpy": 2,
+      "_ZN4core9panicking18panic_bounds_check17h025cadc56a971af7E": 1,
+      "__udivti3": 2,
+      "_ZN4core9panicking11panic_const23panic_const_div_by_zero17hc7d962fcb87948a3E": 1,
+      "_ZN4core6option15Option$LT$T$GT$11map_or_else17h7e34be96cbbb4028E": 1
+    },
+    "_ZN5uu_df6blocks15read_block_size17h32d30779f3aa72e5E": {
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h5efeb7e2d2f22590E": 1,
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E": 1,
+      "_ZN5uu_df6blocks19block_size_from_env17hdb573be3e983bfb6E": 1,
+      "_ZN67_$LT$uu_df..blocks..BlockSize$u20$as$u20$core..default..Default$GT$7default17hd82b76b8049fd167E": 1,
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h117add036a1ff1afE": 1,
+      "_ZN12clap_builder6parser5error12MatchesError6unwrap17h8bc7816bfd18267bE": 1,
+      "_ZN4core6option13unwrap_failed17h893f57cb7db71cb7E": 1,
+      "_ZN6uucore8features6parser10parse_size14parse_size_u6417hcabf5090504a6d94E": 1,
+      "_ZN4core6option15Option$LT$T$GT$11map_or_else17h7e34be96cbbb4028E": 1
+    },
+    "_ZN5uu_df6blocks19block_size_from_env17hdb573be3e983bfb6E": {
+      "_ZN4core5array4iter10iter_inner78PolymorphicIter$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$GT$$u5d$$GT$4next17h2841b62643c07fc9E": 2,
+      "_ZN3std3env3var17hcd02c620244cf284E": 1,
+      "_ZN6uucore8features6parser10parse_size14parse_size_u6417hcabf5090504a6d94E": 1,
+      "_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$u64$C$uucore..features..parser..parse_size..ParseSizeError$GT$$GT$17hecbb26056e05f293E": 1,
+      "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73027cd2db783008E": 1,
+      "_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h9bc22df766544719E": 1
+    },
+    "_ZN5uu_df7columns6Column12from_matches17h56d2df2bf88d44daE": {
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E": 2,
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12value_source17h45c0c3cb9ce2c562E": 1,
+      "_ZN5alloc5alloc6Global10alloc_impl17h6fb1b6049873c120E": 4,
+      "_ZN5alloc5alloc18handle_alloc_error17h88aa4f4f9d19c4f9E": 4,
+      "_ZN4core9panicking5panic17h85d6dd562679980cE": 3,
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h54572697988ee692E": 1,
+      "_ZN12clap_builder6parser5error12MatchesError6unwrap17h953c1c3ca778ca12E": 1,
+      "_ZN4core6option13unwrap_failed17h893f57cb7db71cb7E": 1,
+      "_ZN121_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hded8a622fced995eE": 1,
+      "_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17hc3fe8674e0b3654cE": 2,
+      "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h120b22dc52b1e14eE": 1,
+      "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h40d1dda03127eab3E": 1,
+      "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4a907a8f82cf67deE": 1,
+      "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hab2276672e065655E": 1,
+      "_ZN5uu_df7columns6Column5parse17h53cde52d906cd7b1E": 1,
+      "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb2f69e768e07283E": 1,
+      "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb31c117abee96b92E": 1
+    },
+    "_ZN5uu_df7columns6Column5parse17h53cde52d906cd7b1E": {
+      "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6249ba97ac26ea5bE": 12
+    },
+    "_ZN5uu_df10filesystem15is_over_mounted17he031024296dde685E": {
+      "_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h0447a209abcf8cc8E": 1,
+      "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6c46bd122a266b24E": 1
+    },
+    "_ZN5uu_df10filesystem10Filesystem3new17h176c4d07e180ea46E": {
+      "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h94782b8343b62bd8E": 1,
+      "_ZN6uucore8features5fsext6statfs17h383ebb62e1d8f19aE": 1,
+      "_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$libc..unix..linux_like..linux..gnu..b64..x86_64..statfs$C$alloc..string..String$GT$$GT$17h4dda94d0d41dac03E": 1,
+      "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hac58f874263dbc4eE": 1,
+      "_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0026f4350179d2b5E": 1,
+      "_ZN6uucore8features5fsext7FsUsage3new17hb771c82a6e6cf300E": 1,
+      "memcpy": 2
+    },
+    "_ZN5uu_df10filesystem10Filesystem10from_mount17h8c34ead0ca2ea541E": {
+      "_ZN5uu_df10filesystem15is_over_mounted17he031024296dde685E": 1,
+      "_ZN73_$LT$uucore..features..fsext..MountInfo$u20$as$u20$core..clone..Clone$GT$5clone17h6d17af9e90a4bf91E": 1,
+      "_ZN5uu_df10filesystem10Filesystem3new17h176c4d07e180ea46E": 1,
+      "memcpy": 1,
+      "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hac58f874263dbc4eE": 1
+    },
+    "_ZN5uu_df5table3Row3new17h9186d85196a04d3bE": {
+      "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h40d1dda03127eab3E": 3,
+      "__builtin_memset": 2
+    },
+    "_ZN5uu_df5table12RowFormatter12scaled_bytes17h1421e1083b656cc7E": {
+      "_ZN5uu_df6blocks23to_magnitude_and_suffix17hab68afb684dfcc4eE": 1,
+      "ceil": 1,
+      "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h089b99e5dbd02ab0E": 1
+    },
+    "_ZN5uu_df5table12RowFormatter13scaled_inodes17h53c80a3954ed717bE": {
+      "_ZN5uu_df6blocks23to_magnitude_and_suffix17hab68afb684dfcc4eE": 1,
+      "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hd1726df42c6324b3E": 1
+    },
+    "_ZN5uu_df5table12RowFormatter10percentage17h1b6e4d875b5dc07fE": {
+      "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h40d1dda03127eab3E": 1,
+      "ceil": 1,
+      "_ZN4core6option15Option$LT$T$GT$11map_or_else17h7e34be96cbbb4028E": 1
+    },
+    "_ZN5uu_df5table12RowFormatter10get_values17hdf51f7a80eb4184bE": {
+      "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h94782b8343b62bd8E": 5,
+      "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h40d1dda03127eab3E": 3,
+      "_ZN5uu_df5table12RowFormatter12scaled_bytes17h1421e1083b656cc7E": 3,
+      "_ZN5uu_df5table12RowFormatter10percentage17h1b6e4d875b5dc07fE": 2,
+      "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h71ef4b7cfeebb3c7E": 1,
+      "_ZN5uu_df5table12RowFormatter13scaled_inodes17h53c80a3954ed717bE": 3,
+      "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73027cd2db783008E": 1,
+      "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4b8ce3b04144c5a5E": 1
+    },
+    "_ZN5uu_df5table6Header11get_headers17h2b6e3eeea1b48b3eE": {
+      "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h40d1dda03127eab3E": 14,
+      "_ZN4core6option15Option$LT$T$GT$11map_or_else17h7e34be96cbbb4028E": 2,
+      "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4b8ce3b04144c5a5E": 1
+    },
+    "_ZN5uu_df5table5Table3new17h1ab1638dbdc475f0E": {
+      "_ZN5uu_df5table6Header11get_headers17h2b6e3eeea1b48b3eE": 1,
+      "_ZN4core4iter6traits8iterator8Iterator7collect17h6fc38ef75d149566E": 1,
+      "_ZN5alloc5alloc6Global10alloc_impl17h6fb1b6049873c120E": 1,
+      "_ZN5alloc5alloc18handle_alloc_error17h88aa4f4f9d19c4f9E": 1,
+      "_ZN5uu_df5table3Row3new17h9186d85196a04d3bE": 1,
+      "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h21e6825ac7f6927eE": 1,
+      "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f20750b6c1dd1d2E": 3,
+      "_ZN4core3ptr50drop_in_place$LT$uu_df..filesystem..Filesystem$GT$17h59dcd820d6503e9bE": 1,
+      "_ZN94_$LT$uu_df..table..Row$u20$as$u20$core..convert..From$LT$uu_df..filesystem..Filesystem$GT$$GT$4from17h5bb8f604f83ef093E": 2,
+      "_ZN5uu_df5table12RowFormatter10get_values17hdf51f7a80eb4184bE": 3,
+      "memcpy": 2,
+      "_ZN65_$LT$uu_df..table..Row$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hc07f7a0b7d63dbc9E": 2,
+      "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hce097b6b3d6d1bdfE": 3,
+      "_ZN4core3ptr89drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_df..filesystem..Filesystem$GT$$GT$17hd711030a980c8f88E": 1,
+      "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9f2ee3703a036410E": 2,
+      "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h29668c6b9213f166E": 2,
+      "_ZN4core9panicking18panic_bounds_check17h025cadc56a971af7E": 1,
+      "_ZN5uu_df5table5Table14get_alignments17h30bf81e1dc4abfc2E": 1,
+      "_ZN4core3ptr38drop_in_place$LT$uu_df..table..Row$GT$17hd2993f597084129fE": 1
+    },
+    "_ZN5uu_df5table5Table14get_alignments17h30bf81e1dc4abfc2E": {
+      "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5276f4d6a06e1d30E": 1
+    },
+    "_ZN5uu_df7Options4from17h8b6ce45144534520E": {
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h3719f0ee9075a3feE": 2,
+      "_ZN12clap_builder6parser5error12MatchesError6unwrap17h3fb7cb9ce86227a4E": 2,
+      "_ZN4core4iter6traits8iterator8Iterator7collect17h49a51ee5ac4b4f6eE": 2,
+      "_ZN5uu_df7Options21get_intersected_types17h9cab40c1fdffacadE": 1,
+      "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h38b38b300538279cE": 3,
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E": 9,
+      "_ZN5uu_df6blocks15read_block_size17h32d30779f3aa72e5E": 1,
+      "_ZN5uu_df7Options4from28_$u7b$$u7b$closure$u7d$$u7d$17h55bdb2272571ef7dE": 1,
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12value_source17h45c0c3cb9ce2c562E": 1,
+      "_ZN5uu_df7columns6Column12from_matches17h56d2df2bf88d44daE": 1
+    },
+    "_ZN5uu_df7Options21get_intersected_types17h9cab40c1fdffacadE": {
+      "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h51781a1e8c4dac70E": 1,
+      "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h94782b8343b62bd8E": 1,
+      "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4b8ce3b04144c5a5E": 1,
+      "_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h3cde21800b3ef049E": 1
+    },
+    "_ZN5uu_df11is_included17h2cb576fb785b9846E": {
+      "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6249ba97ac26ea5bE": 1,
+      "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h51781a1e8c4dac70E": 2
+    },
+    "_ZN5uu_df13mount_info_lt17h4da597b980b7148dE": {
+      "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h9cf7c8293e15fd51E": 2,
+      "_ZN4core4char7methods15encode_utf8_raw17h5e8f6d90a161f6f4E": 2,
+      "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6c46bd122a266b24E": 2
+    },
+    "_ZN5uu_df7is_best17h2e728b01e5cd47e3E": {
+      "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6c46bd122a266b24E": 1,
+      "_ZN5uu_df13mount_info_lt17h4da597b980b7148dE": 1
+    },
+    "_ZN5uu_df19get_all_filesystems17ha7950162b929c2f8E": {
+      "sync": 1,
+      "_ZN6uucore8features5fsext12read_fs_list17h6f122f433e9b10c6E": 1,
+      "_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h4e6a242ff752ace5E": 2,
+      "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h04f884ed303dea1cE": 2,
+      "memcpy": 1,
+      "_ZN5uu_df11is_included17h2cb576fb785b9846E": 1,
+      "_ZN5uu_df7is_best17h2e728b01e5cd47e3E": 1,
+      "_ZN4core3ptr55drop_in_place$LT$uucore..features..fsext..MountInfo$GT$17h0026f4350179d2b5E": 1,
+      "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h009a998fb78397faE": 1,
+      "_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uucore..features..fsext..MountInfo$GT$$GT$17h2cba2fcf95045450E": 1,
+      "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h32af2e8d1bfd3746E": 1,
+      "_ZN4core4iter6traits8iterator8Iterator7collect17h5024ba8280d3069aE": 1,
+      "_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$uucore..features..fsext..MountInfo$GT$$GT$17h2845cb9837793921E": 1
+    },
+    "_ZN5uu_df6uu_app17h7dd88faa65059b5cE": {
+      "_ZN12clap_builder7builder7command7Command3new17h67a6f61a06204ec6E": 1,
+      "_ZN6uucore9util_name17h074417a1e6395129E": 1,
+      "_ZN12clap_builder7builder7command7Command7version17h6faf0654a1ec6cb4E": 1,
+      "_ZN12clap_builder7builder7command7Command5about17h15013569107be41aE": 1,
+      "_ZN6uucore12format_usage17he053403a896311edE": 1,
+      "_ZN12clap_builder7builder7command7Command14override_usage17hb1d69ce83f1ce17bE": 1,
+      "_ZN12clap_builder7builder7command7Command10after_help17h5255e8afe6f596a9E": 1,
+      "memcpy": 2,
+      "_ZN12clap_builder7builder3arg3Arg3new17h76d9c4d4934362f7E": 17,
+      "_ZN12clap_builder7builder3arg3Arg4long17hde57b13e2eeedca8E": 15,
+      "_ZN12clap_builder7builder3arg3Arg4help17h0a16dabfd6ab2d83E": 16,
+      "_ZN12clap_builder7builder3arg3Arg6action17hc2ecefe6811dd1baE": 16,
+      "_ZN12clap_builder7builder7command7Command3arg17hf2ef1ae6c22ba7d6E": 17,
+      "_ZN12clap_builder7builder3arg3Arg5short17hf333541e6269ab5eE": 11,
+      "_ZN12clap_builder7builder3arg3Arg14overrides_with17hb0f1abfc705b7f5bE": 6,
+      "_ZN12clap_builder7builder3arg3Arg10value_name17hec0c8c7399c0b6c9E": 4,
+      "_ZN12clap_builder7builder3arg3Arg18overrides_with_all17h390b75bbc4ea83ceE": 6,
+      "_ZN12clap_builder7builder3arg3Arg8num_args17h77b85b1013d661bfE": 1,
+      "_ZN12clap_builder7builder3arg3Arg19use_value_delimiter17hbc9e6ac97bf7a88bE": 2,
+      "_ZN12clap_builder7builder3arg3Arg12value_parser17h22f60de3ac056b5fE": 1,
+      "_ZN12clap_builder7builder3arg3Arg25default_missing_values_os17h7450261ffdb59db3E": 1,
+      "_ZN12clap_builder7builder3arg3Arg14default_values17h27c064a7ef70ce87E": 1,
+      "_ZN12clap_builder7builder3arg3Arg18conflicts_with_all17h32a65daa6d7fc264E": 1,
+      "_ZN12clap_builder7builder3arg3Arg12value_parser17hc2a9e64838dd396aE": 2,
+      "_ZN12clap_builder7builder3arg3Arg10value_hint17he34e6a3be3181bcbE": 1
+    }
+  },
+  "num_variables": {
+    "_ZN5uu_df10filesystem10Filesystem9from_path17h8c044b7be3620a3cE": 14,
+    "_ZN5uu_df10filesystem20mount_info_from_path17hc0bcb2ea98b5090aE": 16,
+    "_ZN5uu_df21get_named_filesystems17h04ac4719102a6bd6E": 78,
+    "_ZN5uu_df6uumain17h952234f03fc05d86E": 33,
+    "_ZN5uu_df6uumain6uumain17h219d096a97f03177E": 45,
+    "_ZN5uu_df6blocks23to_magnitude_and_suffix17hab68afb684dfcc4eE": 117,
+    "_ZN5uu_df6blocks15read_block_size17h32d30779f3aa72e5E": 18,
+    "_ZN5uu_df6blocks19block_size_from_env17hdb573be3e983bfb6E": 18,
+    "_ZN5uu_df7columns6Column12from_matches17h56d2df2bf88d44daE": 23,
+    "_ZN5uu_df7columns6Column5parse17h53cde52d906cd7b1E": 3,
+    "_ZN5uu_df10filesystem15is_over_mounted17he031024296dde685E": 4,
+    "_ZN5uu_df10filesystem10Filesystem3new17h176c4d07e180ea46E": 29,
+    "_ZN5uu_df10filesystem10Filesystem10from_mount17h8c34ead0ca2ea541E": 2,
+    "_ZN5uu_df5table3Row3new17h9186d85196a04d3bE": 6,
+    "_ZN5uu_df5table12RowFormatter12scaled_bytes17h1421e1083b656cc7E": 9,
+    "_ZN5uu_df5table12RowFormatter13scaled_inodes17h53c80a3954ed717bE": 3,
+    "_ZN5uu_df5table12RowFormatter10percentage17h1b6e4d875b5dc07fE": 9,
+    "_ZN5uu_df5table12RowFormatter10get_values17hdf51f7a80eb4184bE": 18,
+    "_ZN5uu_df5table6Header11get_headers17h2b6e3eeea1b48b3eE": 23,
+    "_ZN5uu_df5table5Table3new17h1ab1638dbdc475f0E": 45,
+    "_ZN5uu_df5table5Table14get_alignments17h30bf81e1dc4abfc2E": 5,
+    "_ZN5uu_df7Options4from17h8b6ce45144534520E": 30,
+    "_ZN5uu_df7Options21get_intersected_types17h9cab40c1fdffacadE": 10,
+    "_ZN5uu_df11is_included17h2cb576fb785b9846E": 2,
+    "_ZN5uu_df13mount_info_lt17h4da597b980b7148dE": 10,
+    "_ZN5uu_df7is_best17h2e728b01e5cd47e3E": 8,
+    "_ZN5uu_df19get_all_filesystems17ha7950162b929c2f8E": 17,
+    "_ZN5uu_df6uu_app17h7dd88faa65059b5cE": 47
+  },
+  "macro_call_counts": {
+    "_ZN5uu_df10filesystem10Filesystem9from_path17h8c044b7be3620a3cE": {},
+    "_ZN5uu_df10filesystem20mount_info_from_path17hc0bcb2ea98b5090aE": {},
+    "_ZN5uu_df21get_named_filesystems17h04ac4719102a6bd6E": {},
+    "_ZN5uu_df6uumain17h952234f03fc05d86E": {},
+    "_ZN5uu_df6uumain6uumain17h219d096a97f03177E": {},
+    "_ZN5uu_df6blocks23to_magnitude_and_suffix17hab68afb684dfcc4eE": {},
+    "_ZN5uu_df6blocks15read_block_size17h32d30779f3aa72e5E": {},
+    "_ZN5uu_df6blocks19block_size_from_env17hdb573be3e983bfb6E": {},
+    "_ZN5uu_df7columns6Column12from_matches17h56d2df2bf88d44daE": {},
+    "_ZN5uu_df7columns6Column5parse17h53cde52d906cd7b1E": {},
+    "_ZN5uu_df10filesystem15is_over_mounted17he031024296dde685E": {},
+    "_ZN5uu_df10filesystem10Filesystem3new17h176c4d07e180ea46E": {},
+    "_ZN5uu_df10filesystem10Filesystem10from_mount17h8c34ead0ca2ea541E": {},
+    "_ZN5uu_df5table3Row3new17h9186d85196a04d3bE": {},
+    "_ZN5uu_df5table12RowFormatter12scaled_bytes17h1421e1083b656cc7E": {},
+    "_ZN5uu_df5table12RowFormatter13scaled_inodes17h53c80a3954ed717bE": {},
+    "_ZN5uu_df5table12RowFormatter10percentage17h1b6e4d875b5dc07fE": {},
+    "_ZN5uu_df5table12RowFormatter10get_values17hdf51f7a80eb4184bE": {},
+    "_ZN5uu_df5table6Header11get_headers17h2b6e3eeea1b48b3eE": {},
+    "_ZN5uu_df5table5Table3new17h1ab1638dbdc475f0E": {},
+    "_ZN5uu_df5table5Table14get_alignments17h30bf81e1dc4abfc2E": {},
+    "_ZN5uu_df7Options4from17h8b6ce45144534520E": {},
+    "_ZN5uu_df7Options21get_intersected_types17h9cab40c1fdffacadE": {},
+    "_ZN5uu_df11is_included17h2cb576fb785b9846E": {},
+    "_ZN5uu_df13mount_info_lt17h4da597b980b7148dE": {},
+    "_ZN5uu_df7is_best17h2e728b01e5cd47e3E": {},
+    "_ZN5uu_df19get_all_filesystems17ha7950162b929c2f8E": {},
+    "_ZN5uu_df6uu_app17h7dd88faa65059b5cE": {}
+  },
+  "variable_types": {
+    "_ZN5uu_df10filesystem10Filesystem9from_path17h8c044b7be3620a3cE": {
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_33": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df10filesystem20mount_info_from_path17hc0bcb2ea98b5090aE": {
+      "stack_88": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_41": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df21get_named_filesystems17h04ac4719102a6bd6E": {
+      "stack_352": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_576": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_600": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_560": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_584": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_344": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_608": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_616": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df6uumain17h952234f03fc05d86E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df6uumain6uumain17h219d096a97f03177E": {
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_400": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_424": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_456": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_440": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_296": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_472": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN5uu_df6blocks23to_magnitude_and_suffix17hab68afb684dfcc4eE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_344": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_376": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_392": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_328": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_360": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r11": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r10": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df6blocks15read_block_size17h32d30779f3aa72e5E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df6blocks19block_size_from_env17hdb573be3e983bfb6E": {
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df7columns6Column12from_matches17h56d2df2bf88d44daE": {
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN5uu_df7columns6Column5parse17h53cde52d906cd7b1E": {
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df10filesystem15is_over_mounted17he031024296dde685E": {
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df10filesystem10Filesystem3new17h176c4d07e180ea46E": {
+      "stack_264": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN5uu_df10filesystem10Filesystem10from_mount17h8c34ead0ca2ea541E": {
+      "reg_r8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df5table3Row3new17h9186d85196a04d3bE": {
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN5uu_df5table12RowFormatter12scaled_bytes17h1421e1083b656cc7E": {
+      "reg_zmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm4": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_zmm2": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "reg_zmm3": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df5table12RowFormatter13scaled_inodes17h53c80a3954ed717bE": {
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df5table12RowFormatter10percentage17h1b6e4d875b5dc07fE": {
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN5uu_df5table12RowFormatter10get_values17hdf51f7a80eb4184bE": {
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df5table6Header11get_headers17h2b6e3eeea1b48b3eE": {
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN5uu_df5table5Table3new17h1ab1638dbdc475f0E": {
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_648": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_656": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_848": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_640": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df5table5Table14get_alignments17h30bf81e1dc4abfc2E": {
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df7Options4from17h8b6ce45144534520E": {
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_zmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN5uu_df7Options21get_intersected_types17h9cab40c1fdffacadE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df11is_included17h2cb576fb785b9846E": {
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df13mount_info_lt17h4da597b980b7148dE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df7is_best17h2e728b01e5cd47e3E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df19get_all_filesystems17ha7950162b929c2f8E": {
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN5uu_df6uu_app17h7dd88faa65059b5cE": {
+      "stack_1408": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_1472": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_676": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2032": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_2732": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1432": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1392": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_1400": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1440": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_1416": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1480": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1448": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1312": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_680": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_2740": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1388": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1464": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1380": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1424": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_672": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1316": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_1456": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

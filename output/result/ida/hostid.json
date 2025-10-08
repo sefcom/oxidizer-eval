@@ -1,0 +1,386 @@
+{
+  "decompilation": {
+    "_ZN9uu_hostid6uumain17hc59bd0da7eccae26E": "__int64 __fastcall uu_hostid::uumain(__int64 a1, __int64 a2)\n{\n  unsigned int v2; // eax\n  __int64 v3; // rax\n  __int64 v4; // rdx\n  __int128 v5; // rax\n  __int128 v6; // rax\n  unsigned int v7; // ebx\n  __int64 v9; // [rsp+0h] [rbp-98h] BYREF\n  __int64 v10; // [rsp+8h] [rbp-90h]\n  char **v11; // [rsp+10h] [rbp-88h] BYREF\n  __int64 v12; // [rsp+18h] [rbp-80h]\n  __int128 *v13; // [rsp+20h] [rbp-78h]\n  __int64 v14; // [rsp+28h] [rbp-70h]\n  __int64 v15; // [rsp+30h] [rbp-68h]\n  __int128 v16; // [rsp+40h] [rbp-58h] BYREF\n  __int64 v17; // [rsp+50h] [rbp-48h]\n  __int128 v18; // [rsp+60h] [rbp-38h] BYREF\n  __int64 v19; // [rsp+70h] [rbp-28h]\n  __int128 *v20; // [rsp+78h] [rbp-20h] BYREF\n  __int64 (__fastcall *v21)(); // [rsp+80h] [rbp-18h]\n\n  v2 = uucore::disable_rust_signal_handlers();\n  core::result::Result<T,E>::expect(v2);\n  v3 = uu_hostid::uumain::uumain(a1, a2);\n  if ( !v3 )\n    return uucore::mods::error::get_exit_code();\n  v9 = v3;\n  v10 = v4;\n  *(_QWORD *)&v16 = &v9;\n  *((_QWORD *)&v16 + 1) = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n  v11 = (char **)&unk_16D50;\n  v12 = 1LL;\n  v15 = 0LL;\n  v13 = &v16;\n  v14 = 1LL;\n  core::option::Option<T>::map_or_else(&v18, &v11);\n  v16 = v18;\n  v17 = v19;\n  if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal() )\n  {\n    *(_QWORD *)&v5 = uucore::util_name();\n    v18 = v5;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_D49D8;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n    *(_QWORD *)&v18 = &v16;\n    *((_QWORD *)&v18 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_D49F8;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = &v18;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  if ( (*(unsigned __int8 (__fastcall **)(__int64))(v10 + 96))(v9) )\n  {\n    *(_QWORD *)&v6 = uucore::execution_phrase();\n    v18 = v6;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = &off_D4A18;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  v7 = (*(__int64 (__fastcall **)(__int64))(v10 + 88))(v9);\n  core::ptr::drop_in_place<alloc::string::String>(v16, *((_QWORD *)&v16 + 1));\n  core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v9, v10);\n  return v7;\n}",
+    "_ZN9uu_hostid6uumain6uumain17h88c5630835ac5a61E": "__int64 __fastcall uu_hostid::uumain::uumain(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rdx\n  _QWORD v4[2]; // [rsp+8h] [rbp-350h] BYREF\n  __int128 v5; // [rsp+18h] [rbp-340h]\n  __int128 v6; // [rsp+28h] [rbp-330h]\n  __int64 v7; // [rsp+38h] [rbp-320h]\n  __int64 v8; // [rsp+40h] [rbp-318h] BYREF\n  __int64 v9; // [rsp+48h] [rbp-310h]\n  __int128 v10; // [rsp+50h] [rbp-308h]\n  __int128 v11; // [rsp+60h] [rbp-2F8h]\n  __int64 v12; // [rsp+70h] [rbp-2E8h]\n  _BYTE dest[736]; // [rsp+78h] [rbp-2E0h] BYREF\n\n  uu_hostid::uu_app(dest);\n  clap_builder::builder::command::Command::try_get_matches_from(&v8, dest, a1, a2);\n  if ( __OFSUB__(-v8, 1LL) )\n    return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(\n             v9,\n             dest,\n             v2,\n             -v8);\n  v7 = v12;\n  v6 = v11;\n  v5 = v10;\n  v4[0] = v8;\n  v4[1] = v9;\n  core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(v4);\n  uu_hostid::hostid();\n  return 0LL;\n}",
+    "_ZN9uu_hostid6uu_app17h2645cc966e8adce6E": "char *__fastcall uu_hostid::uu_app(char *dest)\n{\n  __int64 v1; // rax\n  int v2; // ecx\n  _BYTE v4[24]; // [rsp+8h] [rbp-5C0h] BYREF\n  _BYTE src[700]; // [rsp+20h] [rbp-5A8h] BYREF\n  __int64 v6; // [rsp+2DCh] [rbp-2ECh]\n  int v7; // [rsp+2E4h] [rbp-2E4h]\n  _BYTE desta[736]; // [rsp+2E8h] [rbp-2E0h] BYREF\n\n  v1 = uucore::util_name();\n  clap_builder::builder::command::Command::new(desta, v1);\n  clap_builder::builder::command::Command::version(src, desta);\n  clap_builder::builder::command::Command::about(desta, src);\n  uucore::format_usage(v4, aOptions, 12LL);\n  clap_builder::builder::command::Command::override_usage(src, desta);\n  memcpy(dest, src, 0x2BCuLL);\n  v2 = v7;\n  *(_QWORD *)(dest + 700) = v6 | 0x8000000080LL;\n  *((_DWORD *)dest + 177) = v2;\n  return dest;\n}",
+    "_ZN9uu_hostid6hostid17h7b168fc893b08b3cE": "__int64 __fastcall uu_hostid::hostid(__int64 a1, __int64 a2)\n{\n  unsigned int v2; // eax\n  __int64 v3; // rdx\n  __int64 v4; // rcx\n  __int64 v5; // r8\n  __int64 v6; // r9\n  __int64 v8; // [rsp+0h] [rbp-48h] BYREF\n  _QWORD v9[2]; // [rsp+8h] [rbp-40h] BYREF\n  _QWORD v10[6]; // [rsp+18h] [rbp-30h] BYREF\n\n  v2 = gethostid();\n  v9[0] = &v8;\n  v9[1] = core::fmt::num::<impl core::fmt::LowerHex for usize>::fmt;\n  v10[0] = &unk_D5270;\n  v10[1] = 2LL;\n  v10[4] = asc_17828;\n  v10[5] = 1LL;\n  v10[2] = v9;\n  v10[3] = 1LL;\n  return ((__int64 (__fastcall *)(_QWORD *, __int64, __int64, __int64, __int64, __int64, _QWORD))std::io::stdio::_print)(\n           v10,\n           a2,\n           v3,\n           v4,\n           v5,\n           v6,\n           v2);\n}"
+  },
+  "function_call_counts": {
+    "_ZN9uu_hostid6uumain17hc59bd0da7eccae26E": {
+      "uucore::disable_rust_signal_handlers": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uu_hostid::uumain::uumain": 1,
+      "uucore::mods::error::get_exit_code": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 3,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "uucore::execution_phrase": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1
+    },
+    "_ZN9uu_hostid6uumain6uumain17h88c5630835ac5a61E": {
+      "uu_hostid::uu_app": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 1,
+      "uu_hostid::hostid": 1
+    },
+    "_ZN9uu_hostid6uu_app17h2645cc966e8adce6E": {
+      "uucore::util_name": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "memcpy": 1
+    },
+    "_ZN9uu_hostid6hostid17h7b168fc893b08b3cE": {
+      "gethostid": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN9uu_hostid6uumain17hc59bd0da7eccae26E": {},
+    "_ZN9uu_hostid6uumain6uumain17h88c5630835ac5a61E": {},
+    "_ZN9uu_hostid6uu_app17h2645cc966e8adce6E": {},
+    "_ZN9uu_hostid6hostid17h7b168fc893b08b3cE": {}
+  },
+  "variable_types": {
+    "_ZN9uu_hostid6uumain17hc59bd0da7eccae26E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_hostid6uumain6uumain17h88c5630835ac5a61E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          736
+        ]
+      ]
+    },
+    "_ZN9uu_hostid6uu_app17h2645cc966e8adce6E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_32": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_732": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_740": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_744": [
+        [
+          "array",
+          736
+        ]
+      ]
+    },
+    "_ZN9uu_hostid6hostid17h7b168fc893b08b3cE": {
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          48
+        ]
+      ]
+    }
+  }
+}

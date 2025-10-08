@@ -1,0 +1,1438 @@
+{
+  "decompilation": {
+    "_ZN7uu_stty6uumain17hcee4d0c4c52cd202E": "__int64 __fastcall uu_stty::uumain(__int64 a1, __int64 a2)\n{\n  unsigned int v2; // eax\n  __int64 v3; // rax\n  __int64 v4; // rdx\n  __int128 v5; // rax\n  __int128 v6; // rax\n  unsigned int v7; // ebx\n  __int64 v9; // [rsp+0h] [rbp-98h] BYREF\n  __int64 v10; // [rsp+8h] [rbp-90h]\n  char **v11; // [rsp+10h] [rbp-88h] BYREF\n  __int64 v12; // [rsp+18h] [rbp-80h]\n  __int128 *v13; // [rsp+20h] [rbp-78h]\n  __int64 v14; // [rsp+28h] [rbp-70h]\n  __int64 v15; // [rsp+30h] [rbp-68h]\n  __int128 v16; // [rsp+40h] [rbp-58h] BYREF\n  __int64 v17; // [rsp+50h] [rbp-48h]\n  __int128 v18; // [rsp+60h] [rbp-38h] BYREF\n  __int64 v19; // [rsp+70h] [rbp-28h]\n  __int128 *v20; // [rsp+78h] [rbp-20h] BYREF\n  __int64 (__fastcall *v21)(); // [rsp+80h] [rbp-18h]\n\n  v2 = uucore::disable_rust_signal_handlers();\n  core::result::Result<T,E>::expect(v2);\n  v3 = uu_stty::uumain::uumain(a1, a2);\n  if ( !v3 )\n    return uucore::mods::error::get_exit_code();\n  v9 = v3;\n  v10 = v4;\n  *(_QWORD *)&v16 = &v9;\n  *((_QWORD *)&v16 + 1) = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n  v11 = (char **)&unk_19D90;\n  v12 = 1LL;\n  v15 = 0LL;\n  v13 = &v16;\n  v14 = 1LL;\n  core::option::Option<T>::map_or_else(&v18, &v11);\n  v16 = v18;\n  v17 = v19;\n  if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal() )\n  {\n    *(_QWORD *)&v5 = uucore::util_name();\n    v18 = v5;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_E1F10;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n    *(_QWORD *)&v18 = &v16;\n    *((_QWORD *)&v18 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_E1F30;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = &v18;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  if ( (*(unsigned __int8 (__fastcall **)(__int64))(v10 + 96))(v9) )\n  {\n    *(_QWORD *)&v6 = uucore::execution_phrase();\n    v18 = v6;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = &off_E1F50;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  v7 = (*(__int64 (__fastcall **)(__int64))(v10 + 88))(v9);\n  core::ptr::drop_in_place<alloc::string::String>(v16, *((_QWORD *)&v16 + 1));\n  core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v9, v10);\n  return v7;\n}",
+    "_ZN7uu_stty6uumain6uumain17hc483f49143486963E": "// bad sp value at call has been detected, the output may be wrong!\n__int64 __fastcall uu_stty::uumain::uumain(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rdx\n  __int64 v4; // rbx\n  __int64 v5; // [rsp+0h] [rbp-348h] BYREF\n  __int64 v6; // [rsp+8h] [rbp-340h]\n  __int128 v7; // [rsp+10h] [rbp-338h]\n  __int128 v8; // [rsp+20h] [rbp-328h]\n  __int64 v9; // [rsp+30h] [rbp-318h]\n  _QWORD v10[2]; // [rsp+38h] [rbp-310h] BYREF\n  __int128 v11; // [rsp+48h] [rbp-300h]\n  __int128 v12; // [rsp+58h] [rbp-2F0h]\n  _QWORD dest[2]; // [rsp+68h] [rbp-2E0h] BYREF\n  __int128 v14; // [rsp+78h] [rbp-2D0h]\n  __int128 v15; // [rsp+88h] [rbp-2C0h]\n  __int64 v16; // [rsp+98h] [rbp-2B0h]\n\n  uu_stty::uu_app(dest);\n  clap_builder::builder::command::Command::try_get_matches_from(&v5, dest, a1, a2);\n  if ( __OFSUB__(-v5, 1LL) )\n    return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(\n             v6,\n             dest,\n             v2,\n             -v5);\n  v16 = v9;\n  v15 = v8;\n  v14 = v7;\n  dest[0] = v5;\n  dest[1] = v6;\n  uu_stty::Options::from(&v5, dest);\n  if ( v5 == 0x8000000000000001LL )\n  {\n    v4 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v6);\n  }\n  else\n  {\n    v12 = v8;\n    v11 = v7;\n    v10[0] = v5;\n    v10[1] = v6;\n    v4 = uu_stty::stty(v10);\n    core::ptr::drop_in_place<uu_stty::Options>(v10);\n  }\n  core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(dest);\n  return v4;\n}",
+    "_ZN7uu_stty7Options4from17h626d4b5746ed2b17E": "__int64 __fastcall uu_stty::Options::from(__int64 a1, __int64 a2)\n{\n  __int64 v2; // r13\n  char flag; // bp\n  char v4; // r14\n  __int64 v5; // rax\n  int v6; // r12d\n  unsigned __int64 v7; // rax\n  int v9; // [rsp+4h] [rbp-E4h]\n  _BYTE v10[4]; // [rsp+8h] [rbp-E0h] BYREF\n  int v11; // [rsp+Ch] [rbp-DCh]\n  __int64 v12; // [rsp+10h] [rbp-D8h]\n  __int64 v13; // [rsp+18h] [rbp-D0h] BYREF\n  __int128 v14; // [rsp+20h] [rbp-C8h]\n  __int128 v15; // [rsp+60h] [rbp-88h]\n  _QWORD v16[14]; // [rsp+78h] [rbp-70h] BYREF\n\n  flag = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aAll, 3LL);\n  v4 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a2, aSave, 4LL);\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v13, a2);\n  v5 = clap_builder::parser::error::MatchesError::unwrap(&v13);\n  if ( v5 )\n  {\n    LODWORD(v14) = 1;\n    WORD2(v14) = 0;\n    v13 = 0x1B600000800LL;\n    std::fs::OpenOptions::open(v10, &v13, v5);\n    if ( (v10[0] & 1) != 0 )\n    {\n      *(_QWORD *)(a1 + 8) = v12;\n      *(_QWORD *)a1 = 0x8000000000000001LL;\n      return a1;\n    }\n    v9 = v11;\n    v6 = 0;\n  }\n  else\n  {\n    v6 = 1;\n    v2 = std::io::stdio::stdout();\n  }\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v13, a2);\n  clap_builder::parser::error::MatchesError::unwrap(v16, &v13);\n  if ( v16[0] )\n  {\n    core::iter::traits::iterator::Iterator::collect(&v13, v16);\n    v7 = v13;\n    v15 = v14;\n  }\n  else\n  {\n    v7 = 0x8000000000000000LL;\n  }\n  *(_QWORD *)a1 = v7;\n  *(_OWORD *)(a1 + 8) = v15;\n  *(_DWORD *)(a1 + 24) = v6;\n  *(_DWORD *)(a1 + 28) = v9;\n  *(_QWORD *)(a1 + 32) = v2;\n  *(_BYTE *)(a1 + 40) = flag;\n  *(_BYTE *)(a1 + 41) = v4;\n  return a1;\n}",
+    "_ZN7uu_stty4stty17h530db3b548de0632E": "__int64 __fastcall uu_stty::stty(_QWORD *a1)\n{\n  const char *v1; // rsi\n  _BYTE *v2; // rbx\n  __int64 v3; // rdx\n  char v4; // bp\n  unsigned int v5; // eax\n  unsigned int v6; // eax\n  const char *v7; // rsi\n  char **v8; // rcx\n  __int64 v9; // rdx\n  __int64 v11; // r15\n  _QWORD *v12; // r12\n  _QWORD *v13; // r15\n  int v14; // eax\n  _QWORD *v15; // [rsp+0h] [rbp-168h] BYREF\n  _QWORD v16[2]; // [rsp+8h] [rbp-160h] BYREF\n  _QWORD v17[3]; // [rsp+18h] [rbp-150h] BYREF\n  __int64 v18; // [rsp+30h] [rbp-138h]\n  __int64 v19; // [rsp+38h] [rbp-130h]\n  _BYTE v20[24]; // [rsp+A0h] [rbp-C8h] BYREF\n  int v21; // [rsp+B8h] [rbp-B0h]\n  _BYTE v22[168]; // [rsp+C0h] [rbp-A8h] BYREF\n\n  if ( !*((_BYTE *)a1 + 41) )\n  {\n    v4 = 1;\n    if ( __OFSUB__(0LL, *a1) )\n      goto LABEL_8;\n    if ( *((_BYTE *)a1 + 40) != 1 )\n    {\n      v4 = 0;\n      goto LABEL_8;\n    }\nLABEL_10:\n    v1 = aWhenSpecifying;\n    v2 = v17;\n    v3 = 53LL;\n    goto LABEL_11;\n  }\n  if ( *((_BYTE *)a1 + 40) == 1 )\n  {\n    v1 = aTheOptionsForV;\n    v2 = v17;\n    v3 = 78LL;\nLABEL_11:\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v17, v1, v3);\n    LODWORD(v18) = 1;\n    return alloc::boxed::Box<T>::new(v2);\n  }\n  v4 = 1;\n  if ( !__OFSUB__(0LL, *a1) )\n    goto LABEL_10;\nLABEL_8:\n  v5 = <uu_stty::Device as std::os::fd::owned::AsFd>::as_fd(a1 + 3);\n  nix::sys::termios::tcgetattr(v17, v5);\n  core::result::Result<T,E>::expect(v22, v17);\n  if ( v4 )\n  {\n    v6 = uu_stty::print_settings(v22, a1);\n    v7 = aTodoMakeProper;\n    v8 = &off_E2A38;\n    v9 = 43LL;\n  }\n  else\n  {\n    v11 = a1[2];\n    if ( v11 )\n    {\n      v12 = (_QWORD *)a1[1];\n      v13 = &v12[2 * v11];\n      while ( 1 )\n      {\n        v15 = v12;\n        if ( !(unsigned __int8)uu_stty::apply_setting(v22, *v12, v12[1]) )\n          break;\n        v12 += 2;\n        if ( v12 == v13 )\n          goto LABEL_17;\n      }\n      v16[0] = &v15;\n      v16[1] = <&T as core::fmt::Display>::fmt;\n      v17[0] = &off_E2960;\n      v17[1] = 2LL;\n      v19 = 0LL;\n      v17[2] = v16;\n      v18 = 1LL;\n      v2 = v20;\n      core::option::Option<T>::map_or_else(v20, v17);\n      v21 = 1;\n      return alloc::boxed::Box<T>::new(v2);\n    }\nLABEL_17:\n    v14 = <uu_stty::Device as std::os::fd::owned::AsFd>::as_fd(a1 + 3);\n    v6 = nix::sys::termios::tcsetattr(v14);\n    v7 = aCouldNotWriteT;\n    v8 = &off_E2A20;\n    v9 = 35LL;\n  }\n  core::result::Result<T,E>::expect(v6, v7, v9, v8);\n  return 0LL;\n}",
+    "_ZN7uu_stty19print_terminal_size17h7d50ec96cc45cfabE": "__int64 __fastcall uu_stty::print_terminal_size(__int64 a1, __int64 a2)\n{\n  int v3; // eax\n  __int64 v4; // rdi\n  unsigned int v5; // edx\n  char **v7; // [rsp+8h] [rbp-80h] BYREF\n  char **v8; // [rsp+10h] [rbp-78h] BYREF\n  __int64 v9; // [rsp+18h] [rbp-70h]\n  char ****v10; // [rsp+20h] [rbp-68h]\n  __int128 v11; // [rsp+28h] [rbp-60h]\n  char ***v12; // [rsp+58h] [rbp-30h] BYREF\n  __int64 (__fastcall *v13)(); // [rsp+60h] [rbp-28h]\n  char *v14; // [rsp+68h] [rbp-20h]\n  __int64 (__fastcall *v15)(); // [rsp+70h] [rbp-18h]\n\n  v3 = nix::sys::termios::cfgetospeed();\n  v7 = (char **)&off_E2AD0;\n  if ( !v3 )\n    goto LABEL_30;\n  v7 = &off_E2AE8;\n  if ( v3 == 1 )\n    goto LABEL_30;\n  v7 = &off_E2B00;\n  if ( v3 == 2 )\n    goto LABEL_30;\n  v7 = &off_E2B18;\n  if ( v3 == 3 )\n    goto LABEL_30;\n  v7 = &off_E2B30;\n  if ( v3 == 4 )\n    goto LABEL_30;\n  v7 = &off_E2B48;\n  if ( v3 == 5 )\n    goto LABEL_30;\n  v7 = &off_E2B60;\n  if ( v3 == 6 )\n    goto LABEL_30;\n  v7 = &off_E2B78;\n  if ( v3 == 7 )\n    goto LABEL_30;\n  v7 = &off_E2B90;\n  if ( v3 == 8 )\n    goto LABEL_30;\n  v7 = &off_E2BA8;\n  if ( v3 == 9 )\n    goto LABEL_30;\n  v7 = &off_E2BC0;\n  if ( v3 == 10 )\n    goto LABEL_30;\n  v7 = &off_E2BD8;\n  if ( v3 == 11 )\n    goto LABEL_30;\n  v7 = &off_E2BF0;\n  if ( v3 == 13 )\n    goto LABEL_30;\n  v7 = &off_E2C08;\n  if ( v3 == 14 )\n    goto LABEL_30;\n  v7 = &off_E2C20;\n  if ( v3 == 15 )\n    goto LABEL_30;\n  v7 = &off_E2C38;\n  if ( v3 == 4097 )\n    goto LABEL_30;\n  v7 = &off_E2C50;\n  if ( v3 == 4098 )\n    goto LABEL_30;\n  v7 = &off_E2C68;\n  if ( v3 == 4099 )\n    goto LABEL_30;\n  v7 = &off_E2C80;\n  if ( v3 == 4101 )\n    goto LABEL_30;\n  v7 = &off_E2C98;\n  if ( v3 == 4102 )\n    goto LABEL_30;\n  v7 = &off_E2CB0;\n  if ( v3 == 4103 )\n    goto LABEL_30;\n  v7 = &off_E2CC8;\n  if ( v3 == 4104\n    || (v7 = &off_E2CE0, v3 == 4105)\n    || (v7 = &off_E2CF8, v3 == 4106)\n    || (v7 = &off_E2D10, v3 == 4107)\n    || (v7 = &off_E2D28, v3 == 4108)\n    || (v7 = &off_E2D40, v3 == 4109)\n    || (v7 = &off_E2D58, v3 == 4110)\n    || (v7 = &off_E2D70, v3 == 4111) )\n  {\nLABEL_30:\n    v12 = &v7;\n    v13 = <&T as core::fmt::Display>::fmt;\n    v8 = &off_E2A50;\n    v9 = 2LL;\n    v10 = &v12;\n    v11 = 1uLL;\n    std::io::stdio::_print(&v8);\n  }\n  if ( *(_BYTE *)(a2 + 40) )\n  {\n    v7 = 0LL;\n    v4 = 1LL;\n    if ( !*(_BYTE *)(a2 + 24) )\n      v4 = *(unsigned int *)(a2 + 28);\n    if ( (uu_stty::tiocgwinsz(v4, &v7) & 1) != 0 )\n      return v5;\n    v12 = &v7;\n    v13 = core::fmt::num::imp::<impl core::fmt::Display for u16>::fmt;\n    v14 = (char *)&v7 + 2;\n    v15 = core::fmt::num::imp::<impl core::fmt::Display for u16>::fmt;\n    v8 = &off_E2A70;\n    v9 = 3LL;\n    v10 = &v12;\n    v11 = 2uLL;\n    std::io::stdio::_print(&v8);\n  }\n  <core::cell::RefCell<T> as core::clone::Clone>::clone(&v8, a1 + 32);\n  LOBYTE(v7) = v11;\n  v12 = &v7;\n  v13 = core::fmt::num::imp::<impl core::fmt::Display for u8>::fmt;\n  v8 = &off_E2AA0;\n  v9 = 2LL;\n  v10 = &v12;\n  v11 = 1uLL;\n  std::io::stdio::_print(&v8);\n  v8 = (char **)&off_E2AC0;\n  v9 = 1LL;\n  v10 = (char ****)&byte_8;\n  v11 = 0LL;\n  std::io::stdio::_print(&v8);\n  return 134LL;\n}",
+    "_ZN7uu_stty22control_char_to_string17hcb31aba3c5c265dbE": "__int64 __fastcall uu_stty::control_char_to_string(__int64 a1, char a2)\n{\n  unsigned __int8 v2; // al\n  const char *v3; // rdx\n  __int64 v4; // rcx\n  char *v5; // rdx\n  unsigned __int64 v6; // rsi\n  int v8; // [rsp+0h] [rbp-84h] BYREF\n  _QWORD v9[2]; // [rsp+4h] [rbp-80h] BYREF\n  _QWORD v10[2]; // [rsp+14h] [rbp-70h] BYREF\n  _QWORD v11[6]; // [rsp+24h] [rbp-60h] BYREF\n  _QWORD v12[6]; // [rsp+54h] [rbp-30h] BYREF\n\n  if ( !a2 )\n    return <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(a1, aUndef, 7LL);\n  v2 = a2 & 0x7F;\n  v3 = aM;\n  v4 = 1LL;\n  if ( a2 >= 0 )\n    v3 = (_BYTE *)(&dword_0 + 1);\n  v9[0] = v3;\n  v9[1] = ((unsigned __int8)a2 >> 6) & 2;\n  if ( v2 >= 0x20u )\n  {\n    if ( v2 == 127 )\n    {\n      v5 = &asc_1B211[1];\n      v6 = (unsigned __int64)&asc_1B211[1] & 0xFFFFFFFF00000000LL;\n      v2 = 63;\n    }\n    else\n    {\n      LODWORD(v5) = 1;\n      v6 = 0LL;\n      v4 = 0LL;\n    }\n  }\n  else\n  {\n    v2 = a2 & 0x3F | 0x40;\n    v5 = &asc_1B211[1];\n    v6 = (unsigned __int64)&asc_1B211[1] & 0xFFFFFFFF00000000LL;\n  }\n  v10[0] = v6 | (unsigned int)v5;\n  v10[1] = v4;\n  v8 = v2;\n  v11[0] = v9;\n  v11[1] = <&T as core::fmt::Display>::fmt;\n  v11[2] = v10;\n  v11[3] = <&T as core::fmt::Display>::fmt;\n  v11[4] = &v8;\n  v11[5] = <char as core::fmt::Display>::fmt;\n  v12[0] = &unk_1B1E0;\n  v12[1] = 3LL;\n  v12[4] = 0LL;\n  v12[2] = v11;\n  v12[3] = 3LL;\n  return core::option::Option<T>::map_or_else(a1, v12);\n}",
+    "_ZN7uu_stty19print_control_chars17hed7af0204ba7e7a6E": "__int64 __fastcall uu_stty::print_control_chars(__int64 a1, char a2)\n{\n  __int64 result; // rax\n  __int64 v3; // r12\n  __int64 v4; // [rsp+0h] [rbp-B8h] BYREF\n  _BYTE v5[12]; // [rsp+8h] [rbp-B0h]\n  int v6; // [rsp+14h] [rbp-A4h]\n  char ***v7; // [rsp+18h] [rbp-A0h] BYREF\n  __int64 (__fastcall *v8)(); // [rsp+20h] [rbp-98h]\n  __int64 *v9; // [rsp+28h] [rbp-90h]\n  __int64 (__fastcall *v10)(); // [rsp+30h] [rbp-88h]\n  char **v11; // [rsp+38h] [rbp-80h] BYREF\n  char **v12; // [rsp+40h] [rbp-78h] BYREF\n  __int64 v13; // [rsp+48h] [rbp-70h]\n  char ****v14; // [rsp+50h] [rbp-68h]\n  __int64 v15; // [rsp+58h] [rbp-60h]\n  __int64 v16; // [rsp+60h] [rbp-58h]\n  __int64 v17; // [rsp+70h] [rbp-48h] BYREF\n  unsigned int v18; // [rsp+78h] [rbp-40h]\n  __int64 v19; // [rsp+7Ch] [rbp-3Ch]\n  int v20; // [rsp+84h] [rbp-34h]\n\n  result = 134LL;\n  if ( (a2 & 1) != 0 )\n  {\n    v3 = 0LL;\n    while ( 1 )\n    {\n      v11 = &(&off_E2E00)[v3];\n      uu_stty::control_char_to_string((__int64)&v17, (&off_E2E00)[v3 + 2][a1]);\n      if ( __OFSUB__(-v17, 1LL) )\n        break;\n      v6 = v20;\n      *(_QWORD *)&v5[4] = v19;\n      v4 = v17;\n      *(_DWORD *)v5 = v18;\n      v7 = &v11;\n      v8 = <&T as core::fmt::Display>::fmt;\n      v9 = &v4;\n      v10 = <alloc::string::String as core::fmt::Display>::fmt;\n      v12 = (char **)&unk_E2DA0;\n      v13 = 3LL;\n      v16 = 0LL;\n      v14 = &v7;\n      v15 = 2LL;\n      std::io::stdio::_print(&v12);\n      v3 += 3LL;\n      core::ptr::drop_in_place<alloc::string::String>(v4, *(_QWORD *)v5);\n      if ( v3 == 45 )\n      {\n        v7 = (char ***)(a1 + 6);\n        v8 = core::fmt::num::imp::<impl core::fmt::Display for u8>::fmt;\n        v9 = (__int64 *)(a1 + 5);\n        v10 = core::fmt::num::imp::<impl core::fmt::Display for u8>::fmt;\n        v12 = &off_E2DD0;\n        v13 = 3LL;\n        v16 = 0LL;\n        v14 = &v7;\n        v15 = 2LL;\n        std::io::stdio::_print(&v12);\n        return 134LL;\n      }\n    }\n    return v18;\n  }\n  return result;\n}",
+    "_ZN7uu_stty20print_in_save_format17he259ed46e6739654E": "__int64 __fastcall uu_stty::print_in_save_format(__int128 *a1)\n{\n  __int128 v1; // xmm0\n  char v2; // dl\n  int v4; // [rsp+Ch] [rbp-BCh] BYREF\n  int v5; // [rsp+10h] [rbp-B8h] BYREF\n  int v6; // [rsp+14h] [rbp-B4h] BYREF\n  int *v7; // [rsp+18h] [rbp-B0h] BYREF\n  __int64 (__fastcall *v8)(); // [rsp+20h] [rbp-A8h]\n  int *v9; // [rsp+28h] [rbp-A0h]\n  __int128 v10; // [rsp+30h] [rbp-98h]\n  __int64 (__fastcall *v11)(); // [rsp+40h] [rbp-88h]\n  _QWORD *v12; // [rsp+48h] [rbp-80h]\n  __int64 (__fastcall *v13)(); // [rsp+50h] [rbp-78h]\n  void *v14; // [rsp+58h] [rbp-70h] BYREF\n  __int64 v15; // [rsp+60h] [rbp-68h]\n  __int128 v16; // [rsp+68h] [rbp-60h]\n  __int128 v17; // [rsp+78h] [rbp-50h]\n  _QWORD v18[8]; // [rsp+88h] [rbp-40h] BYREF\n\n  v5 = *((_DWORD *)a1 + 26);\n  v6 = *((_DWORD *)a1 + 27);\n  v4 = *((_DWORD *)a1 + 28);\n  LODWORD(v18[0]) = *((_DWORD *)a1 + 29);\n  v7 = &v5;\n  v8 = core::fmt::num::<impl core::fmt::LowerHex for u32>::fmt;\n  v9 = &v6;\n  *(_QWORD *)&v10 = core::fmt::num::<impl core::fmt::LowerHex for u32>::fmt;\n  *((_QWORD *)&v10 + 1) = &v4;\n  v11 = core::fmt::num::<impl core::fmt::LowerHex for u32>::fmt;\n  v12 = v18;\n  v13 = core::fmt::num::<impl core::fmt::LowerHex for u32>::fmt;\n  v14 = &unk_E2F68;\n  v15 = 4LL;\n  *(_QWORD *)&v17 = 0LL;\n  *(_QWORD *)&v16 = &v7;\n  *((_QWORD *)&v16 + 1) = 4LL;\n  std::io::stdio::_print(&v14);\n  v1 = *a1;\n  v17 = a1[1];\n  v16 = v1;\n  v14 = 0LL;\n  v15 = 32LL;\n  while ( (core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next(&v14) & 1) != 0 )\n  {\n    LOBYTE(v4) = v2;\n    v18[0] = &v4;\n    v18[1] = core::fmt::num::<impl core::fmt::LowerHex for u8>::fmt;\n    v7 = (int *)&off_E2FA8;\n    v8 = (__int64 (__fastcall *)())(&dword_0 + 1);\n    v9 = (int *)v18;\n    v10 = 1uLL;\n    std::io::stdio::_print(&v7);\n  }\n  v7 = (int *)&off_E2AC0;\n  v8 = (__int64 (__fastcall *)())(&dword_0 + 1);\n  v9 = (_DWORD *)&byte_8;\n  v10 = 0LL;\n  return std::io::stdio::_print(&v7);\n}",
+    "_ZN7uu_stty14print_settings17h6562ceefa3305078E": "__int64 __fastcall uu_stty::print_settings(__int128 *a1, __int64 a2)\n{\n  __int64 result; // rax\n  unsigned int v3; // ebp\n\n  if ( *(_BYTE *)(a2 + 41) )\n  {\n    uu_stty::print_in_save_format(a1);\n    return 134LL;\n  }\n  result = uu_stty::print_terminal_size((__int64)a1, a2);\n  if ( (_DWORD)result == 134 )\n  {\n    v3 = *(unsigned __int8 *)(a2 + 40);\n    result = uu_stty::print_control_chars((__int64)a1, *(_BYTE *)(a2 + 40));\n    if ( (_DWORD)result == 134 )\n    {\n      uu_stty::print_flags(a1, v3);\n      uu_stty::print_flags(a1, v3);\n      uu_stty::print_flags(a1, v3);\n      uu_stty::print_flags(a1, v3);\n      return 134LL;\n    }\n  }\n  return result;\n}",
+    "_ZN7uu_stty11print_flags17h1fca9bc374a8d8a1E": "__int64 __fastcall uu_stty::print_flags(__int64 a1, char a2)\n{\n  __int64 result; // rax\n  char v3; // r15\n  __int64 v4; // r13\n  unsigned __int8 v5; // bl\n  __int64 v6; // rdi\n  unsigned int v7; // ebp\n  __int64 v8; // rcx\n  unsigned __int8 v9; // al\n  void *v10; // [rsp+0h] [rbp-88h] BYREF\n  __int64 v11; // [rsp+8h] [rbp-80h]\n  _QWORD *v12; // [rsp+10h] [rbp-78h]\n  __int128 v13; // [rsp+18h] [rbp-70h]\n  _QWORD v14[2]; // [rsp+30h] [rbp-58h] BYREF\n  __int64 v15; // [rsp+40h] [rbp-48h]\n  __int128 v16; // [rsp+48h] [rbp-40h] BYREF\n\n  result = a1;\n  v3 = 0;\n  v4 = 0LL;\n  do\n  {\n    while ( 1 )\n    {\n      v4 += 32LL;\n      while ( 1 )\n      {\n        v16 = *(_OWORD *)&byte_E2FB8[v4 - 24];\n        if ( byte_E2FB8[v4 - 4] )\n          break;\n        v4 += 32LL;\n        if ( v4 == 416 )\n          goto LABEL_16;\n      }\n      v5 = byte_E2FB8[v4 - 3];\n      v6 = *(unsigned int *)&byte_E2FB8[v4 - 8];\n      v7 = *(_DWORD *)&byte_E2FB8[v4 - 32];\n      v8 = *(unsigned int *)&byte_E2FB8[v4 - 28];\n      v15 = result;\n      v9 = <nix::sys::termios::InputFlags as uu_stty::TermiosFlag>::is_in(v6, *(unsigned int *)(result + 112), v7, v8);\n      if ( !v7 )\n        break;\n      if ( ((unsigned __int8)(a2 | v5 ^ 1) & v9) != 0 )\n        goto LABEL_15;\nLABEL_11:\n      result = v15;\n      if ( v4 == 384 )\n        goto LABEL_16;\n    }\n    if ( (a2 & 1) == 0 && v9 == v5 )\n      goto LABEL_11;\n    if ( !v9 )\n    {\n      v10 = &off_E3858;\n      v11 = 1LL;\n      v12 = (_QWORD *)&byte_8;\n      v13 = 0LL;\n      std::io::stdio::_print(&v10);\n    }\nLABEL_15:\n    v14[0] = &v16;\n    v14[1] = <&T as core::fmt::Display>::fmt;\n    v10 = &unk_E3838;\n    v11 = 2LL;\n    v12 = v14;\n    v13 = 1uLL;\n    std::io::stdio::_print(&v10);\n    v3 = 1;\n    result = v15;\n  }\n  while ( v4 != 384 );\nLABEL_16:\n  if ( (v3 & 1) != 0 )\n  {\n    v10 = &off_E2AC0;\n    v11 = 1LL;\n    v12 = (_QWORD *)&byte_8;\n    v13 = 0LL;\n    return std::io::stdio::_print(&v10);\n  }\n  return result;\n}",
+    "_ZN7uu_stty13apply_setting17h519146f657897442E": "char __fastcall uu_stty::apply_setting(__int64 a1, __int64 a2, __int64 a3)\n{\n  __int64 v4; // rbx\n  char v5; // cl\n  char result; // al\n  __int64 v7; // rax\n  __int64 v8; // rax\n  __int64 v9; // r12\n  __int64 v10; // rdx\n  __int64 v11; // r15\n  int v12[11]; // [rsp+Ch] [rbp-2Ch] BYREF\n\n  v4 = a2;\n  v5 = uu_stty::apply_baud_rate_flag();\n  result = 1;\n  if ( v5 == 2 )\n  {\n    v12[0] = 0;\n    v7 = core::char::methods::encode_utf8_raw(v12);\n    v8 = <&str as core::str::pattern::Pattern>::strip_prefix_of(v7, a2, a3);\n    v9 = v8;\n    v11 = v10;\n    if ( v8 )\n      v4 = v8;\n    else\n      v11 = a3;\n    result = uu_stty::apply_flag(a1, v4, v11, v8 != 0);\n    if ( result == 2 )\n    {\n      result = uu_stty::apply_flag(a1, v4, v11, v9 != 0);\n      if ( result == 2 )\n      {\n        result = uu_stty::apply_flag(a1, v4, v11, v9 != 0);\n        if ( result == 2 )\n          return uu_stty::apply_flag(a1, v4, v11, v9 != 0) & 1;\n      }\n    }\n  }\n  return result;\n}",
+    "_ZN7uu_stty10apply_flag17h3592b40468ad7979E": "char __fastcall uu_stty::apply_flag(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)\n{\n  int *v7; // rdi\n  char v8; // cl\n  char result; // al\n  int v10; // eax\n\n  if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aIgnbrk, 6LL) )\n  {\n    v7 = (int *)&unk_E3138;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aBrkint, 6LL) )\n  {\n    v7 = (int *)&unk_E3158;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aIgnpar, 6LL) )\n  {\n    v7 = (int *)&unk_E3178;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aParmrk, 6LL) )\n  {\n    v7 = (int *)&unk_E3198;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aInpck, 5LL) )\n  {\n    v7 = (int *)&unk_E31B8;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aIstrip, 6LL) )\n  {\n    v7 = (int *)&unk_E31D8;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aInlcr, 5LL) )\n  {\n    v7 = (int *)&unk_E31F8;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aIgncr, 5LL) )\n  {\n    v7 = (int *)&unk_E3218;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aIcrnl, 5LL) )\n  {\n    v7 = (int *)&unk_E3238;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aIxoff, 5LL) )\n  {\n    v7 = (int *)&unk_E3258;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aTandem, 6LL) )\n  {\n    v7 = (int *)&unk_E3278;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aIxon, 4LL) )\n  {\n    v7 = (int *)&unk_E3298;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aIxany, 5LL) )\n  {\n    v7 = (int *)&unk_E32B8;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aImaxbel, 7LL) )\n  {\n    v7 = (int *)&unk_E32D8;\n  }\n  else\n  {\n    v8 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2, a3, aIutf8, 5LL);\n    result = 2;\n    if ( !v8 )\n      return result;\n    v7 = (int *)&unk_E32F8;\n  }\n  v10 = *v7;\n  if ( a4 )\n  {\n    if ( v10 )\n      return 0;\n  }\n  else if ( (v10 & 1) != 0 )\n  {\n    <nix::sys::termios::InputFlags as uu_stty::TermiosFlag>::apply(v7 + 1, a1, 0LL);\n  }\n  <nix::sys::termios::InputFlags as uu_stty::TermiosFlag>::apply(v7 + 6, a1, a4 ^ 1u);\n  return 1;\n}",
+    "_ZN7uu_stty20apply_baud_rate_flag17he6909650e23d0221E": "char __fastcall uu_stty::apply_baud_rate_flag(__int64 a1, __int64 a2, __int64 a3)\n{\n  char **v4; // rax\n  char v5; // cl\n  char result; // al\n  unsigned int v7; // eax\n\n  if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a0, 1LL, a2, a3) )\n  {\n    v4 = (char **)&off_E2AD0;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a50, 2LL, a2, a3) )\n  {\n    v4 = &off_E2AE8;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a75, 2LL, a2, a3) )\n  {\n    v4 = &off_E2B00;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a110, 3LL, a2, a3) )\n  {\n    v4 = &off_E2B18;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a134, 3LL, a2, a3) )\n  {\n    v4 = &off_E2B30;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a150, 3LL, a2, a3) )\n  {\n    v4 = &off_E2B48;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a200, 3LL, a2, a3) )\n  {\n    v4 = &off_E2B60;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a300, 3LL, a2, a3) )\n  {\n    v4 = &off_E2B78;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a600, 3LL, a2, a3) )\n  {\n    v4 = &off_E2B90;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1200, 4LL, a2, a3) )\n  {\n    v4 = &off_E2BA8;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1800, 4LL, a2, a3) )\n  {\n    v4 = &off_E2BC0;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2400, 4LL, a2, a3) )\n  {\n    v4 = &off_E2BD8;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a9600, 4LL, a2, a3) )\n  {\n    v4 = &off_E2BF0;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a19200, 5LL, a2, a3) )\n  {\n    v4 = &off_E2C08;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a38400, 5LL, a2, a3) )\n  {\n    v4 = &off_E2C20;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a57600, 5LL, a2, a3) )\n  {\n    v4 = &off_E2C38;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a115200, 6LL, a2, a3) )\n  {\n    v4 = &off_E2C50;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a230400, 6LL, a2, a3) )\n  {\n    v4 = &off_E2C68;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a500000, 6LL, a2, a3) )\n  {\n    v4 = &off_E2C80;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a576000, 6LL, a2, a3) )\n  {\n    v4 = &off_E2C98;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a921600, 6LL, a2, a3) )\n  {\n    v4 = &off_E2CB0;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1000000, 7LL, a2, a3) )\n  {\n    v4 = &off_E2CC8;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1152000, 7LL, a2, a3) )\n  {\n    v4 = &off_E2CE0;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1500000, 7LL, a2, a3) )\n  {\n    v4 = &off_E2CF8;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2000000, 7LL, a2, a3) )\n  {\n    v4 = &off_E2D10;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2500000, 7LL, a2, a3) )\n  {\n    v4 = &off_E2D28;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a3000000, 7LL, a2, a3) )\n  {\n    v4 = &off_E2D40;\n  }\n  else if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a3500000, 7LL, a2, a3) )\n  {\n    v4 = &off_E2D58;\n  }\n  else\n  {\n    v5 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a4000000, 7LL, a2, a3);\n    result = 2;\n    if ( !v5 )\n      return result;\n    v4 = &off_E2D70;\n  }\n  v7 = nix::sys::termios::cfsetospeed(a1, *((unsigned int *)v4 + 4));\n  core::result::Result<T,E>::expect(v7, aFailedToSetBau, 23LL, &off_E3868);\n  return 1;\n}",
+    "_ZN7uu_stty6uu_app17hd6e5ef485fb27574E": "void *__fastcall uu_stty::uu_app(void *dest)\n{\n  __int64 v1; // rax\n  _BYTE src[700]; // [rsp+8h] [rbp-AB0h] BYREF\n  __int64 v4; // [rsp+2C4h] [rbp-7F4h]\n  int v5; // [rsp+2CCh] [rbp-7ECh]\n  _BYTE v6[640]; // [rsp+2D0h] [rbp-7E8h] BYREF\n  _BYTE desta[700]; // [rsp+550h] [rbp-568h] BYREF\n  __int64 v8; // [rsp+80Ch] [rbp-2ACh]\n  int v9; // [rsp+814h] [rbp-2A4h]\n  _BYTE v10[672]; // [rsp+818h] [rbp-2A0h] BYREF\n\n  v1 = uucore::util_name();\n  clap_builder::builder::command::Command::new(desta, v1);\n  clap_builder::builder::command::Command::version(src, desta);\n  uucore::format_usage(v6, aFDeviceFileDev, 128LL);\n  clap_builder::builder::command::Command::override_usage(desta, src);\n  clap_builder::builder::command::Command::about(src, desta);\n  memcpy(desta, src, sizeof(desta));\n  v8 = v4 | 0x8000000080LL;\n  v9 = v5;\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v6, src, 97LL);\n  clap_builder::builder::arg::Arg::long(src, v6);\n  clap_builder::builder::arg::Arg::help(v6, src);\n  clap_builder::builder::arg::Arg::action(v10, v6, 2LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v6, desta, 103LL);\n  clap_builder::builder::arg::Arg::long(desta, v6);\n  clap_builder::builder::arg::Arg::help(v6, desta);\n  clap_builder::builder::arg::Arg::action(v10, v6, 2LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v6, src, 70LL);\n  clap_builder::builder::arg::Arg::long(src, v6);\n  clap_builder::builder::arg::Arg::value_hint(v6, src);\n  clap_builder::builder::arg::Arg::value_name(src, v6);\n  clap_builder::builder::arg::Arg::help(v6, src);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::action(v6, desta, 1LL);\n  clap_builder::builder::arg::Arg::help(desta, v6);\n  clap_builder::builder::command::Command::arg(dest, src);\n  return dest;\n}",
+    "_ZN7uu_stty10tiocgwinsz17hc5ed27eca5acd6afE": "__int64 __fastcall uu_stty::tiocgwinsz(int a1, __int64 a2)\n{\n  unsigned int v2; // eax\n\n  v2 = ioctl(a1, 0x5413uLL, a2);\n  return nix::errno::<impl nix::errno::consts::Errno>::result(v2);\n}"
+  },
+  "function_call_counts": {
+    "_ZN7uu_stty6uumain17hcee4d0c4c52cd202E": {
+      "uucore::disable_rust_signal_handlers": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uu_stty::uumain::uumain": 1,
+      "uucore::mods::error::get_exit_code": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 3,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "uucore::execution_phrase": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1
+    },
+    "_ZN7uu_stty6uumain6uumain17hc483f49143486963E": {
+      "uu_stty::uu_app": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uu_stty::Options::from": 1,
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uu_stty::stty": 1,
+      "core::ptr::drop_in_place<uu_stty::Options>": 1,
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 1
+    },
+    "_ZN7uu_stty7Options4from17h626d4b5746ed2b17E": {
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 2,
+      "std::fs::OpenOptions::open": 1,
+      "std::io::stdio::stdout": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1
+    },
+    "_ZN7uu_stty4stty17h530db3b548de0632E": {
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "alloc::boxed::Box<T>::new": 2,
+      "<uu_stty::Device as std::os::fd::owned::AsFd>::as_fd": 2,
+      "nix::sys::termios::tcgetattr": 1,
+      "core::result::Result<T,E>::expect": 2,
+      "uu_stty::print_settings": 1,
+      "uu_stty::apply_setting": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "nix::sys::termios::tcsetattr": 1
+    },
+    "_ZN7uu_stty19print_terminal_size17h7d50ec96cc45cfabE": {
+      "nix::sys::termios::cfgetospeed": 1,
+      "std::io::stdio::_print": 4,
+      "uu_stty::tiocgwinsz": 1,
+      "<core::cell::RefCell<T> as core::clone::Clone>::clone": 1
+    },
+    "_ZN7uu_stty22control_char_to_string17hcb31aba3c5c265dbE": {
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN7uu_stty19print_control_chars17hed7af0204ba7e7a6E": {
+      "uu_stty::control_char_to_string": 1,
+      "std::io::stdio::_print": 2,
+      "core::ptr::drop_in_place<alloc::string::String>": 1
+    },
+    "_ZN7uu_stty20print_in_save_format17he259ed46e6739654E": {
+      "std::io::stdio::_print": 3,
+      "core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next": 1
+    },
+    "_ZN7uu_stty14print_settings17h6562ceefa3305078E": {
+      "uu_stty::print_in_save_format": 1,
+      "uu_stty::print_terminal_size": 1,
+      "uu_stty::print_control_chars": 1,
+      "uu_stty::print_flags": 4
+    },
+    "_ZN7uu_stty11print_flags17h1fca9bc374a8d8a1E": {
+      "<nix::sys::termios::InputFlags as uu_stty::TermiosFlag>::is_in": 1,
+      "std::io::stdio::_print": 3
+    },
+    "_ZN7uu_stty13apply_setting17h519146f657897442E": {
+      "uu_stty::apply_baud_rate_flag": 1,
+      "core::char::methods::encode_utf8_raw": 1,
+      "<&str as core::str::pattern::Pattern>::strip_prefix_of": 1,
+      "uu_stty::apply_flag": 4
+    },
+    "_ZN7uu_stty10apply_flag17h3592b40468ad7979E": {
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 15,
+      "<nix::sys::termios::InputFlags as uu_stty::TermiosFlag>::apply": 2
+    },
+    "_ZN7uu_stty20apply_baud_rate_flag17he6909650e23d0221E": {
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 29,
+      "nix::sys::termios::cfsetospeed": 1,
+      "core::result::Result<T,E>::expect": 1
+    },
+    "_ZN7uu_stty6uu_app17hd6e5ef485fb27574E": {
+      "uucore::util_name": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "memcpy": 1,
+      "clap_builder::builder::arg::Arg::new": 4,
+      "clap_builder::builder::arg::Arg::short": 3,
+      "clap_builder::builder::arg::Arg::long": 3,
+      "clap_builder::builder::arg::Arg::help": 4,
+      "clap_builder::builder::arg::Arg::action": 3,
+      "clap_builder::builder::command::Command::arg": 4,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::arg::Arg::value_name": 1
+    },
+    "_ZN7uu_stty10tiocgwinsz17hc5ed27eca5acd6afE": {
+      "ioctl": 1,
+      "nix::errno::<impl nix::errno::consts::Errno>::result": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN7uu_stty6uumain17hcee4d0c4c52cd202E": {},
+    "_ZN7uu_stty6uumain6uumain17hc483f49143486963E": {},
+    "_ZN7uu_stty7Options4from17h626d4b5746ed2b17E": {},
+    "_ZN7uu_stty4stty17h530db3b548de0632E": {},
+    "_ZN7uu_stty19print_terminal_size17h7d50ec96cc45cfabE": {},
+    "_ZN7uu_stty22control_char_to_string17hcb31aba3c5c265dbE": {},
+    "_ZN7uu_stty19print_control_chars17hed7af0204ba7e7a6E": {},
+    "_ZN7uu_stty20print_in_save_format17he259ed46e6739654E": {},
+    "_ZN7uu_stty14print_settings17h6562ceefa3305078E": {},
+    "_ZN7uu_stty11print_flags17h1fca9bc374a8d8a1E": {},
+    "_ZN7uu_stty13apply_setting17h519146f657897442E": {},
+    "_ZN7uu_stty10apply_flag17h3592b40468ad7979E": {},
+    "_ZN7uu_stty20apply_baud_rate_flag17he6909650e23d0221E": {},
+    "_ZN7uu_stty6uu_app17hd6e5ef485fb27574E": {},
+    "_ZN7uu_stty10tiocgwinsz17hc5ed27eca5acd6afE": {}
+  },
+  "variable_types": {
+    "_ZN7uu_stty6uumain17hcee4d0c4c52cd202E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_stty6uumain6uumain17hc483f49143486963E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_stty7Options4from17h626d4b5746ed2b17E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          4
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          112
+        ]
+      ]
+    },
+    "_ZN7uu_stty4stty17h530db3b548de0632E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_192": [
+        [
+          "array",
+          168
+        ]
+      ]
+    },
+    "_ZN7uu_stty19print_terminal_size17h7d50ec96cc45cfabE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_edx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_stty22control_char_to_string17hcb31aba3c5c265dbE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_88": [
+        [
+          "array",
+          48
+        ]
+      ]
+    },
+    "_ZN7uu_stty19print_control_chars17hed7af0204ba7e7a6E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          12
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_24": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_124": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_132": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_stty20print_in_save_format17he259ed46e6739654E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_dl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "array",
+          64
+        ]
+      ]
+    },
+    "_ZN7uu_stty14print_settings17h6562ceefa3305078E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_stty11print_flags17h1fca9bc374a8d8a1E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN7uu_stty13apply_setting17h519146f657897442E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_cl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_12": [
+        [
+          "array",
+          44
+        ]
+      ]
+    },
+    "_ZN7uu_stty10apply_flag17h3592b40468ad7979E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_cl": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_stty20apply_baud_rate_flag17he6909650e23d0221E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_cl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_stty6uu_app17hd6e5ef485fb27574E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_708": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_716": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_720": [
+        [
+          "array",
+          640
+        ]
+      ],
+      "stack_1360": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_2060": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2068": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2072": [
+        [
+          "array",
+          672
+        ]
+      ]
+    },
+    "_ZN7uu_stty10tiocgwinsz17hc5ed27eca5acd6afE": {
+      "reg_edi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

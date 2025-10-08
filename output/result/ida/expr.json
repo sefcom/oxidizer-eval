@@ -1,0 +1,2730 @@
+{
+  "decompilation": {
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$16parse_expression17hd5f39d703e318a8fE": "__int64 __fastcall uu_expr::syntax_tree::Parser<S>::parse_expression(__int64 a1, __int64 a2)\n{\n  return uu_expr::syntax_tree::Parser<S>::parse_precedence(a1, a2, 0LL);\n}",
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$16parse_precedence17h425891ff58303efeE": "__int64 __fastcall uu_expr::syntax_tree::Parser<S>::parse_precedence(__int64 a1, __int64 a2, unsigned __int64 a3)\n{\n  __int64 v3; // r15\n  __int64 result; // rax\n  unsigned __int64 v5; // rbx\n  __int128 v6; // xmm0\n  char v7; // dl\n  char v8; // r13\n  char v9; // r14\n  int next_id; // ebx\n  __int64 v11; // r15\n  __int64 v12; // rax\n  __int128 v13; // xmm0\n  __int128 v14; // xmm0\n  _BYTE v15[40]; // [rsp+8h] [rbp-100h] BYREF\n  _BYTE v16[40]; // [rsp+30h] [rbp-D8h] BYREF\n  _BYTE v17[40]; // [rsp+60h] [rbp-A8h]\n  __int128 v18; // [rsp+90h] [rbp-78h]\n  __int128 v19; // [rsp+A0h] [rbp-68h]\n  unsigned __int64 v20; // [rsp+B8h] [rbp-50h]\n  __int64 v21; // [rsp+C0h] [rbp-48h]\n  unsigned __int64 v22; // [rsp+C8h] [rbp-40h]\n  unsigned __int64 v23; // [rsp+D0h] [rbp-38h]\n\n  v3 = a2;\n  if ( a3 > 5 )\n    return uu_expr::syntax_tree::Parser<S>::parse_simple_expression(a1, a2);\n  v5 = a3;\n  v23 = a3 + 1;\n  uu_expr::syntax_tree::Parser<S>::parse_precedence(v16, a2, a3 + 1);\n  *(_OWORD *)v17 = *(_OWORD *)&v16[8];\n  *(_OWORD *)&v17[16] = *(_OWORD *)&v16[24];\n  if ( *(_QWORD *)v16 == 0x8000000000000005LL )\n  {\n    v6 = *(_OWORD *)v17;\n    result = a1;\n    *(_OWORD *)(a1 + 24) = *(_OWORD *)&v17[16];\n    *(_OWORD *)(a1 + 8) = v6;\n    *(_QWORD *)a1 = 0x8000000000000005LL;\n  }\n  else\n  {\n    *(_OWORD *)&v15[24] = *(_OWORD *)&v17[16];\n    *(_OWORD *)&v15[8] = *(_OWORD *)v17;\n    *(_QWORD *)v15 = *(_QWORD *)v16;\n    v20 = 0x8000000000000002LL;\n    v22 = v5;\n    v21 = a2;\n    while ( 1 )\n    {\n      *(_QWORD *)v16 = v5;\n      v8 = uu_expr::syntax_tree::Parser<S>::accept(v3, v16);\n      if ( v8 == 3 )\n      {\n        result = *(_QWORD *)&v15[32];\n        *(_QWORD *)(a1 + 32) = *(_QWORD *)&v15[32];\n        v13 = *(_OWORD *)v15;\n        *(_OWORD *)(a1 + 16) = *(_OWORD *)&v15[16];\n        *(_OWORD *)a1 = v13;\n        return result;\n      }\n      v9 = v7;\n      uu_expr::syntax_tree::Parser<S>::parse_precedence(v16, v3, v23);\n      v18 = *(_OWORD *)&v16[8];\n      v19 = *(_OWORD *)&v16[24];\n      if ( *(_QWORD *)v16 == 0x8000000000000005LL )\n        break;\n      *(_OWORD *)&v17[24] = v19;\n      *(_OWORD *)&v17[8] = v18;\n      *(_QWORD *)v17 = *(_QWORD *)v16;\n      next_id = uu_expr::syntax_tree::get_next_id();\n      *(_QWORD *)&v16[32] = *(_QWORD *)&v15[32];\n      *(_OWORD *)&v16[16] = *(_OWORD *)&v15[16];\n      *(_OWORD *)v16 = *(_OWORD *)v15;\n      v11 = alloc::boxed::Box<T>::new(v16);\n      *(_QWORD *)&v18 = v11;\n      *(_QWORD *)&v16[32] = *(_QWORD *)&v17[32];\n      *(_OWORD *)&v16[16] = *(_OWORD *)&v17[16];\n      *(_OWORD *)v16 = *(_OWORD *)v17;\n      v12 = alloc::boxed::Box<T>::new(v16);\n      *(_QWORD *)v15 = v20;\n      *(_QWORD *)&v15[8] = v11;\n      *(_QWORD *)&v15[16] = v12;\n      v15[24] = v8;\n      v15[25] = v9;\n      *(_DWORD *)&v15[32] = next_id;\n      v3 = v21;\n      v5 = v22;\n    }\n    v14 = v18;\n    *(_OWORD *)(a1 + 24) = v19;\n    *(_OWORD *)(a1 + 8) = v14;\n    *(_QWORD *)a1 = 0x8000000000000005LL;\n    return core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>(v15);\n  }\n  return result;\n}",
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$23parse_simple_expression17h48250ee92a4d841bE": "__int64 __fastcall uu_expr::syntax_tree::Parser<S>::parse_simple_expression(__int64 a1, _QWORD *a2)\n{\n  __int64 result; // rax\n  __int64 v5; // r15\n  __int64 v6; // r12\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  _BYTE *v9; // rdi\n  __int64 v10; // rcx\n  __int128 v11; // xmm0\n  __int64 v12; // r14\n  __int64 v13; // rax\n  __int128 v14; // xmm0\n  __int128 v15; // xmm1\n  unsigned __int64 v16; // r13\n  __int128 v17; // xmm0\n  __int64 v18; // rsi\n  __int64 v19; // rdx\n  __int128 v20; // xmm0\n  __int64 v21; // r14\n  __int64 v22; // r15\n  __int64 v23; // rax\n  unsigned __int64 v24; // rsi\n  unsigned __int64 v25; // rdi\n  __int64 v26; // rax\n  unsigned __int64 v27; // rsi\n  unsigned __int64 v28; // rdi\n  __int64 v29; // rax\n  _BYTE v30[40]; // [rsp+0h] [rbp-178h] BYREF\n  _BYTE v31[40]; // [rsp+30h] [rbp-148h] BYREF\n  _BYTE v32[40]; // [rsp+58h] [rbp-120h] BYREF\n  _BYTE v33[40]; // [rsp+80h] [rbp-F8h] BYREF\n  __int128 v34; // [rsp+B0h] [rbp-C8h] BYREF\n  __int128 v35; // [rsp+C0h] [rbp-B8h]\n  __int128 v36; // [rsp+D0h] [rbp-A8h]\n  __int128 v37; // [rsp+E0h] [rbp-98h]\n  __int64 v38; // [rsp+F0h] [rbp-88h]\n  __int64 v39; // [rsp+F8h] [rbp-80h] BYREF\n  __int128 v40; // [rsp+100h] [rbp-78h]\n  __int128 v41; // [rsp+110h] [rbp-68h]\n  __int64 v42; // [rsp+120h] [rbp-58h] BYREF\n  __int128 v43; // [rsp+128h] [rbp-50h]\n  __int128 v44; // [rsp+138h] [rbp-40h]\n\n  uu_expr::syntax_tree::Parser<S>::next(v30);\n  v5 = *(_QWORD *)&v30[8];\n  result = *(_QWORD *)v30;\n  v6 = *(_QWORD *)&v30[16];\n  if ( *(_QWORD *)v30 != 13LL )\n  {\n    v10 = *(_QWORD *)&v30[24];\n    *(_OWORD *)(a1 + 8) = *(_OWORD *)v30;\n    *(_QWORD *)(a1 + 24) = v6;\n    goto LABEL_10;\n  }\n  if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(\n                           *(_QWORD *)&v30[8],\n                           *(_QWORD *)&v30[16],\n                           aMatch,\n                           5LL) )\n  {\n    if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v5, v6, aSubstr, 6LL) )\n    {\n      uu_expr::syntax_tree::Parser<S>::parse_expression((__int64)v30, (__int64)a2);\n      result = *(_QWORD *)v30;\n      *(_OWORD *)v31 = *(_OWORD *)&v30[8];\n      *(_OWORD *)&v31[16] = *(_OWORD *)&v30[24];\n      if ( *(_QWORD *)v30 != 0x8000000000000005LL )\n      {\n        *(_OWORD *)&v33[24] = *(_OWORD *)&v31[16];\n        *(_OWORD *)&v33[8] = *(_OWORD *)v31;\n        *(_QWORD *)v33 = *(_QWORD *)v30;\n        uu_expr::syntax_tree::Parser<S>::parse_expression((__int64)v30, (__int64)a2);\n        *(_OWORD *)v31 = *(_OWORD *)&v30[8];\n        *(_OWORD *)&v31[16] = *(_OWORD *)&v30[24];\n        if ( *(_QWORD *)v30 == 0x8000000000000005LL )\n        {\n          v11 = *(_OWORD *)v31;\n          *(_OWORD *)(a1 + 24) = *(_OWORD *)&v31[16];\n          *(_OWORD *)(a1 + 8) = v11;\n          *(_QWORD *)a1 = 0x8000000000000005LL;\n        }\n        else\n        {\n          *(_OWORD *)&v32[24] = *(_OWORD *)&v31[16];\n          *(_OWORD *)&v32[8] = *(_OWORD *)v31;\n          *(_QWORD *)v32 = *(_QWORD *)v30;\n          uu_expr::syntax_tree::Parser<S>::parse_expression((__int64)v30, (__int64)a2);\n          v36 = *(_OWORD *)&v30[8];\n          v37 = *(_OWORD *)&v30[24];\n          if ( *(_QWORD *)v30 != 0x8000000000000005LL )\n          {\n            *(_OWORD *)&v31[24] = v37;\n            *(_OWORD *)&v31[8] = v36;\n            *(_QWORD *)v31 = *(_QWORD *)v30;\n            *(_QWORD *)&v30[32] = *(_QWORD *)&v33[32];\n            *(_OWORD *)&v30[16] = *(_OWORD *)&v33[16];\n            *(_OWORD *)v30 = *(_OWORD *)v33;\n            v21 = alloc::boxed::Box<T>::new(v30);\n            v38 = v21;\n            *(_QWORD *)&v30[32] = *(_QWORD *)&v32[32];\n            *(_OWORD *)&v30[16] = *(_OWORD *)&v32[16];\n            *(_OWORD *)v30 = *(_OWORD *)v32;\n            v22 = alloc::boxed::Box<T>::new(v30);\n            *(_QWORD *)&v36 = v22;\n            *(_QWORD *)&v30[32] = *(_QWORD *)&v31[32];\n            *(_OWORD *)&v30[16] = *(_OWORD *)&v31[16];\n            *(_OWORD *)v30 = *(_OWORD *)v31;\n            v23 = alloc::boxed::Box<T>::new(v30);\n            *((_QWORD *)&v34 + 1) = v21;\n            *(_QWORD *)&v35 = v22;\n            *((_QWORD *)&v35 + 1) = v23;\n            v16 = 0x8000000000000003LL;\n            goto LABEL_25;\n          }\n          v20 = v36;\n          *(_OWORD *)(a1 + 24) = v37;\n          *(_OWORD *)(a1 + 8) = v20;\n          *(_QWORD *)a1 = 0x8000000000000005LL;\n          core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>(v32);\n        }\n        v9 = v33;\n        return core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>(v9);\n      }\n      goto LABEL_21;\n    }\n    if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v5, v6, aIndex, 5LL) )\n    {\n      uu_expr::syntax_tree::Parser<S>::parse_expression((__int64)v30, (__int64)a2);\n      result = *(_QWORD *)v30;\n      *(_OWORD *)v31 = *(_OWORD *)&v30[8];\n      *(_OWORD *)&v31[16] = *(_OWORD *)&v30[24];\n      if ( *(_QWORD *)v30 != 0x8000000000000005LL )\n      {\n        *(_OWORD *)&v32[24] = *(_OWORD *)&v31[16];\n        *(_OWORD *)&v32[8] = *(_OWORD *)v31;\n        *(_QWORD *)v32 = *(_QWORD *)v30;\n        uu_expr::syntax_tree::Parser<S>::parse_expression((__int64)v30, (__int64)a2);\n        *(_OWORD *)v33 = *(_OWORD *)&v30[8];\n        *(_OWORD *)&v33[16] = *(_OWORD *)&v30[24];\n        if ( *(_QWORD *)v30 == 0x8000000000000005LL )\n          goto LABEL_5;\n        *(_OWORD *)&v31[24] = *(_OWORD *)&v33[16];\n        *(_OWORD *)&v31[8] = *(_OWORD *)v33;\n        *(_QWORD *)v31 = *(_QWORD *)v30;\n        *(_QWORD *)&v30[32] = *(_QWORD *)&v32[32];\n        *(_OWORD *)&v30[16] = *(_OWORD *)&v32[16];\n        *(_OWORD *)v30 = *(_OWORD *)v32;\n        v12 = alloc::boxed::Box<T>::new(v30);\n        *(_QWORD *)v33 = v12;\n        *(_QWORD *)&v30[32] = *(_QWORD *)&v31[32];\n        *(_OWORD *)&v30[16] = *(_OWORD *)&v31[16];\n        *(_OWORD *)v30 = *(_OWORD *)v31;\n        v13 = alloc::boxed::Box<T>::new(v30);\n        WORD4(v35) = 258;\n        goto LABEL_24;\n      }\n      goto LABEL_21;\n    }\n    if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v5, v6, aLength, 6LL) )\n    {\n      uu_expr::syntax_tree::Parser<S>::parse_expression((__int64)v30, (__int64)a2);\n      result = *(_QWORD *)v30;\n      *(_OWORD *)v31 = *(_OWORD *)&v30[8];\n      *(_OWORD *)&v31[16] = *(_OWORD *)&v30[24];\n      if ( *(_QWORD *)v30 != 0x8000000000000005LL )\n      {\n        v39 = *(_QWORD *)v30;\n        v40 = *(_OWORD *)v31;\n        v41 = *(_OWORD *)&v31[16];\n        *((_QWORD *)&v34 + 1) = alloc::boxed::Box<T>::new(&v39);\n        v16 = 0x8000000000000004LL;\n        goto LABEL_25;\n      }\n      goto LABEL_21;\n    }\n    if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v5, v6, asc_1BC74, 1LL) )\n    {\n      if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v5, v6, asc_1BC75, 1LL) )\n      {\n        uu_expr::syntax_tree::Parser<S>::parse_expression((__int64)v30, (__int64)a2);\n        result = *(_QWORD *)v30;\n        *(_OWORD *)v33 = *(_OWORD *)&v30[8];\n        *(_OWORD *)&v33[16] = *(_OWORD *)&v30[24];\n        if ( *(_QWORD *)v30 == 0x8000000000000005LL )\n        {\n          v14 = *(_OWORD *)v33;\n          v15 = *(_OWORD *)&v33[16];\n        }\n        else\n        {\n          v42 = *(_QWORD *)v30;\n          v43 = *(_OWORD *)v33;\n          v44 = *(_OWORD *)&v33[16];\n          uu_expr::syntax_tree::AstNode::evaluated(v31, &v42);\n          result = *(_QWORD *)v31;\n          v36 = *(_OWORD *)&v31[8];\n          v37 = *(_OWORD *)&v31[24];\n          if ( *(_QWORD *)v31 != 0x8000000000000005LL )\n          {\n            *(_OWORD *)&v32[24] = v37;\n            *(_OWORD *)&v32[8] = v36;\n            *(_QWORD *)v32 = *(_QWORD *)v31;\n            uu_expr::syntax_tree::Parser<S>::next(v30);\n            if ( *(_QWORD *)v30 == 1LL )\n            {\n              v24 = a2[1];\n              v25 = a2[2] - 1LL;\n              if ( v25 >= v24 )\n                core::panicking::panic_bounds_check(v25, v24, &off_149908);\n              v26 = <alloc::string::String as core::convert::AsRef<str>>::as_ref(\n                      *(_QWORD *)(*a2 + 24 * v25 + 8),\n                      *(_QWORD *)(*a2 + 24 * v25 + 16));\n              <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v31, v26);\n              *(_QWORD *)(a1 + 32) = *(_QWORD *)&v31[16];\n              *(_OWORD *)(a1 + 16) = *(_OWORD *)v31;\n              *(_QWORD *)(a1 + 8) = 6LL;\n              *(_QWORD *)a1 = 0x8000000000000005LL;\n              core::ptr::drop_in_place<uu_expr::ExprError>(v30);\n              goto LABEL_8;\n            }\n            if ( *(_DWORD *)v30 != 13 )\n            {\n              v7 = *(_OWORD *)v30;\n              v8 = *(_OWORD *)&v30[16];\n              goto LABEL_6;\n            }\n            if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(\n                                     *(_QWORD *)&v30[8],\n                                     *(_QWORD *)&v30[16],\n                                     asc_1BC76,\n                                     1LL) )\n            {\n              v27 = a2[1];\n              v28 = a2[2] - 1LL;\n              if ( v28 >= v27 )\n                core::panicking::panic_bounds_check(v28, v27, &off_1498F0);\n              v29 = <alloc::string::String as core::convert::AsRef<str>>::as_ref(\n                      *(_QWORD *)(*a2 + 24 * v28 + 8),\n                      *(_QWORD *)(*a2 + 24 * v28 + 16));\n              <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v31, v29);\n              *(_QWORD *)(a1 + 32) = *(_QWORD *)&v31[16];\n              *(_OWORD *)(a1 + 16) = *(_OWORD *)v31;\n              *(_QWORD *)(a1 + 8) = 7LL;\n              goto LABEL_7;\n            }\n            v34 = *(_OWORD *)v32;\n            v35 = *(_OWORD *)&v32[16];\nLABEL_26:\n            result = uu_expr::syntax_tree::get_next_id();\n            v17 = v34;\n            *(_OWORD *)(a1 + 16) = v35;\n            *(_OWORD *)a1 = v17;\n            *(_DWORD *)(a1 + 32) = result;\n            return result;\n          }\n          v14 = v36;\n          v15 = v37;\n        }\nLABEL_22:\n        *(_OWORD *)(a1 + 24) = v15;\n        *(_OWORD *)(a1 + 8) = v14;\n        *(_QWORD *)a1 = 0x8000000000000005LL;\n        return result;\n      }\n      v18 = v5;\nLABEL_41:\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec((char *)&v34 + 8, v18);\n      v16 = 0x8000000000000001LL;\n      goto LABEL_25;\n    }\n    uu_expr::syntax_tree::Parser<S>::next(v30);\n    v18 = *(_QWORD *)&v30[8];\n    result = *(_QWORD *)v30;\n    v19 = *(_QWORD *)&v30[16];\n    if ( *(_QWORD *)v30 == 13LL )\n      goto LABEL_41;\n    v10 = *(_QWORD *)&v30[24];\n    *(_OWORD *)(a1 + 8) = *(_OWORD *)v30;\n    *(_QWORD *)(a1 + 24) = v19;\nLABEL_10:\n    *(_QWORD *)(a1 + 32) = v10;\n    *(_QWORD *)a1 = 0x8000000000000005LL;\n    return result;\n  }\n  uu_expr::syntax_tree::Parser<S>::parse_expression((__int64)v30, (__int64)a2);\n  result = *(_QWORD *)v30;\n  *(_OWORD *)v31 = *(_OWORD *)&v30[8];\n  *(_OWORD *)&v31[16] = *(_OWORD *)&v30[24];\n  if ( *(_QWORD *)v30 == 0x8000000000000005LL )\n  {\nLABEL_21:\n    v14 = *(_OWORD *)v31;\n    v15 = *(_OWORD *)&v31[16];\n    goto LABEL_22;\n  }\n  *(_OWORD *)&v32[24] = *(_OWORD *)&v31[16];\n  *(_OWORD *)&v32[8] = *(_OWORD *)v31;\n  *(_QWORD *)v32 = *(_QWORD *)v30;\n  uu_expr::syntax_tree::Parser<S>::parse_expression((__int64)v30, (__int64)a2);\n  *(_OWORD *)v33 = *(_OWORD *)&v30[8];\n  *(_OWORD *)&v33[16] = *(_OWORD *)&v30[24];\n  if ( *(_QWORD *)v30 != 0x8000000000000005LL )\n  {\n    *(_OWORD *)&v31[24] = *(_OWORD *)&v33[16];\n    *(_OWORD *)&v31[8] = *(_OWORD *)v33;\n    *(_QWORD *)v31 = *(_QWORD *)v30;\n    *(_QWORD *)&v30[32] = *(_QWORD *)&v32[32];\n    *(_OWORD *)&v30[16] = *(_OWORD *)&v32[16];\n    *(_OWORD *)v30 = *(_OWORD *)v32;\n    v12 = alloc::boxed::Box<T>::new(v30);\n    *(_QWORD *)v33 = v12;\n    *(_QWORD *)&v30[32] = *(_QWORD *)&v31[32];\n    *(_OWORD *)&v30[16] = *(_OWORD *)&v31[16];\n    *(_OWORD *)v30 = *(_OWORD *)v31;\n    v13 = alloc::boxed::Box<T>::new(v30);\n    WORD4(v35) = 2;\nLABEL_24:\n    *((_QWORD *)&v34 + 1) = v12;\n    *(_QWORD *)&v35 = v13;\n    v16 = 0x8000000000000002LL;\nLABEL_25:\n    *(_QWORD *)&v34 = v16;\n    goto LABEL_26;\n  }\nLABEL_5:\n  v7 = *(_OWORD *)v33;\n  v8 = *(_OWORD *)&v33[16];\nLABEL_6:\n  *(_OWORD *)(a1 + 24) = v8;\n  *(_OWORD *)(a1 + 8) = v7;\nLABEL_7:\n  *(_QWORD *)a1 = 0x8000000000000005LL;\nLABEL_8:\n  v9 = v32;\n  return core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>(v9);\n}",
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$4next17hcbcc00427960fc28E": "__int64 __fastcall uu_expr::syntax_tree::Parser<S>::next(__int64 a1, __int64 *a2)\n{\n  unsigned __int64 v3; // rax\n  unsigned __int64 v4; // rdi\n  __int64 v5; // rax\n  __int64 result; // rax\n  __int64 v7; // rdx\n  unsigned __int64 v8; // rdi\n  __int64 v9; // rax\n  __int128 v10; // [rsp+8h] [rbp-20h] BYREF\n  __int64 v11; // [rsp+18h] [rbp-10h]\n\n  v3 = a2[1];\n  v4 = a2[2];\n  if ( v4 >= v3 )\n  {\n    v8 = v4 - 1;\n    if ( v8 >= v3 )\n      core::panicking::panic_bounds_check(v8, a2[1], &off_149920);\n    v9 = <alloc::string::String as core::convert::AsRef<str>>::as_ref(\n           *(_QWORD *)(*a2 + 24 * v8 + 8),\n           *(_QWORD *)(*a2 + 24 * v8 + 16));\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v10, v9);\n    *(_QWORD *)a1 = 1LL;\n    *(_OWORD *)(a1 + 8) = v10;\n    result = v11;\n    *(_QWORD *)(a1 + 24) = v11;\n  }\n  else\n  {\n    v5 = *a2;\n    a2[2] = v4 + 1;\n    result = <alloc::string::String as core::convert::AsRef<str>>::as_ref(\n               *(_QWORD *)(v5 + 24 * v4 + 8),\n               *(_QWORD *)(v5 + 24 * v4 + 16));\n    *(_QWORD *)(a1 + 8) = result;\n    *(_QWORD *)(a1 + 16) = v7;\n    *(_QWORD *)a1 = 13LL;\n  }\n  return result;\n}",
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$5parse17hd9457b01c74b6ec9E": "void __fastcall uu_expr::syntax_tree::Parser<S>::parse(__int64 a1, _QWORD *a2)\n{\n  __int128 v2; // xmm0\n  unsigned __int64 v3; // rax\n  __int64 v4; // rax\n  __int64 v5; // rax\n  __int64 v6; // rcx\n  __int64 v7; // [rsp+8h] [rbp-90h] BYREF\n  __m256i v8; // [rsp+10h] [rbp-88h]\n  __m256i v9; // [rsp+30h] [rbp-68h]\n  _BYTE v10[40]; // [rsp+58h] [rbp-40h] BYREF\n\n  if ( !a2[1] )\n  {\n    *(_QWORD *)(a1 + 8) = 3LL;\n    goto LABEL_5;\n  }\n  uu_expr::syntax_tree::Parser<S>::parse_precedence((__int64)v10, (__int64)a2, 0LL);\n  v9 = *(__m256i *)&v10[8];\n  if ( *(_QWORD *)v10 == 0x8000000000000005LL )\n  {\n    v2 = *(_OWORD *)v9.m256i_i8;\n    *(_OWORD *)(a1 + 24) = *(_OWORD *)&v9.m256i_u64[2];\n    *(_OWORD *)(a1 + 8) = v2;\nLABEL_5:\n    *(_QWORD *)a1 = 0x8000000000000005LL;\n    return;\n  }\n  v8 = v9;\n  v7 = *(_QWORD *)v10;\n  v3 = a2[2];\n  if ( v3 >= a2[1] )\n  {\n    *(_QWORD *)(a1 + 32) = v8.m256i_i64[3];\n    v5 = v7;\n    v6 = v8.m256i_i64[0];\n    *(_OWORD *)(a1 + 16) = *(_OWORD *)&v8.m256i_u64[1];\n    *(_QWORD *)a1 = v5;\n    *(_QWORD *)(a1 + 8) = v6;\n  }\n  else\n  {\n    v4 = <alloc::string::String as core::convert::AsRef<str>>::as_ref(\n           *(_QWORD *)(*a2 + 24 * v3 + 8),\n           *(_QWORD *)(*a2 + 24 * v3 + 16));\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v10, v4);\n    *(_QWORD *)(a1 + 32) = *(_QWORD *)&v10[16];\n    *(_OWORD *)(a1 + 16) = *(_OWORD *)v10;\n    *(_QWORD *)(a1 + 8) = 0LL;\n    *(_QWORD *)a1 = 0x8000000000000005LL;\n    core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>(&v7);\n  }\n}",
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$6accept17h4b5ad55db2b3a3a4E": "__int64 __fastcall uu_expr::syntax_tree::Parser<S>::accept(_QWORD *a1, __int64 a2)\n{\n  unsigned int v2; // ebx\n  unsigned __int64 v3; // r12\n  __int64 v4; // rax\n  unsigned int v5; // eax\n\n  v3 = a1[2];\n  LOBYTE(v2) = 3;\n  if ( v3 < a1[1] )\n  {\n    v4 = <alloc::string::String as core::convert::AsRef<str>>::as_ref(\n           *(_QWORD *)(*a1 + 24 * v3 + 8),\n           *(_QWORD *)(*a1 + 24 * v3 + 16));\n    v5 = uu_expr::syntax_tree::Parser<S>::parse_op::{{closure}}(a2, v4);\n    if ( (_BYTE)v5 != 3 )\n    {\n      a1[2] = v3 + 1;\n      return v5;\n    }\n  }\n  return v2;\n}",
+    "_ZN7uu_expr6uumain17h3918786314094026E": "__int64 __fastcall uu_expr::uumain(__int64 a1, __int64 a2)\n{\n  unsigned int v2; // eax\n  __int64 v3; // rax\n  __int64 v4; // rdx\n  __int128 v5; // rax\n  __int128 v6; // rax\n  unsigned int v7; // ebx\n  __int64 v9; // [rsp+0h] [rbp-98h] BYREF\n  __int64 v10; // [rsp+8h] [rbp-90h]\n  char **v11; // [rsp+10h] [rbp-88h] BYREF\n  __int64 v12; // [rsp+18h] [rbp-80h]\n  __int128 *v13; // [rsp+20h] [rbp-78h]\n  __int64 v14; // [rsp+28h] [rbp-70h]\n  __int64 v15; // [rsp+30h] [rbp-68h]\n  __int128 v16; // [rsp+40h] [rbp-58h] BYREF\n  __int64 v17; // [rsp+50h] [rbp-48h]\n  __int128 v18; // [rsp+60h] [rbp-38h] BYREF\n  __int64 v19; // [rsp+70h] [rbp-28h]\n  __int128 *v20; // [rsp+78h] [rbp-20h] BYREF\n  __int64 (__fastcall *v21)(); // [rsp+80h] [rbp-18h]\n\n  v2 = uucore::disable_rust_signal_handlers();\n  core::result::Result<T,E>::expect(v2);\n  v3 = uu_expr::uumain::uumain(a1, a2);\n  if ( !v3 )\n    return uucore::mods::error::get_exit_code();\n  v9 = v3;\n  v10 = v4;\n  *(_QWORD *)&v16 = &v9;\n  *((_QWORD *)&v16 + 1) = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n  v11 = (char **)&unk_1BEA0;\n  v12 = 1LL;\n  v15 = 0LL;\n  v13 = &v16;\n  v14 = 1LL;\n  core::option::Option<T>::map_or_else(&v18, &v11);\n  v16 = v18;\n  v17 = v19;\n  if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((_QWORD *)&v18 + 1), v19, 1LL, 0LL) )\n  {\n    *(_QWORD *)&v5 = uucore::util_name();\n    v18 = v5;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_149B00;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n    *(_QWORD *)&v18 = &v16;\n    *((_QWORD *)&v18 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_149B20;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = &v18;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  if ( (*(unsigned __int8 (__fastcall **)(__int64))(v10 + 96))(v9) )\n  {\n    *(_QWORD *)&v6 = uucore::execution_phrase();\n    v18 = v6;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = &off_149B40;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  v7 = (*(__int64 (__fastcall **)(__int64))(v10 + 88))(v9);\n  core::ptr::drop_in_place<alloc::string::String>(v16, *((_QWORD *)&v16 + 1));\n  core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v9, v10);\n  return v7;\n}",
+    "_ZN7uu_expr6uumain6uumain17h9e42dfdf094b08cdE": "__int64 __fastcall uu_expr::uumain::uumain(__int64 a1, __int64 a2)\n{\n  __int64 v2; // r12\n  __int64 v3; // r15\n  __int64 v4; // rbx\n  __int64 v5; // r14\n  __int64 v6; // rax\n  __int64 v7; // rdx\n  __int64 v8; // rbx\n  char is_truthy; // bl\n  __int128 *v11; // [rsp+8h] [rbp-3C0h] BYREF\n  __int128 v12; // [rsp+10h] [rbp-3B8h]\n  __int128 v13; // [rsp+20h] [rbp-3A8h]\n  _BYTE v14[8]; // [rsp+30h] [rbp-398h] BYREF\n  __int64 v15; // [rsp+38h] [rbp-390h]\n  __int64 v16; // [rsp+40h] [rbp-388h]\n  __int128 v17; // [rsp+48h] [rbp-380h] BYREF\n  __int64 v18; // [rsp+58h] [rbp-370h]\n  __int128 **v19; // [rsp+60h] [rbp-368h] BYREF\n  __int128 v20; // [rsp+68h] [rbp-360h]\n  __int128 v21; // [rsp+78h] [rbp-350h]\n  _QWORD v22[3]; // [rsp+88h] [rbp-340h] BYREF\n  __int128 v23; // [rsp+A0h] [rbp-328h] BYREF\n  __int128 v24; // [rsp+B0h] [rbp-318h]\n  _OWORD v25[2]; // [rsp+C0h] [rbp-308h] BYREF\n  __int128 *dest; // [rsp+E0h] [rbp-2E8h] BYREF\n  __int128 v27; // [rsp+E8h] [rbp-2E0h]\n  __int128 v28; // [rsp+F8h] [rbp-2D0h]\n\n  core::iter::traits::iterator::Iterator::skip(&dest, a1, a2);\n  core::iter::traits::iterator::Iterator::collect(v14, &dest);\n  v2 = v15;\n  v3 = v16;\n  if ( v16 )\n  {\n    if ( v16 == 1 )\n    {\n      v4 = *(_QWORD *)(v15 + 8);\n      v5 = *(_QWORD *)(v15 + 16);\n      if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v5, aHelp_0, 6LL) )\n      {\n        uu_expr::uu_app(&dest);\n        v6 = clap_builder::builder::command::Command::print_help(&dest);\n        core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>(v6);\n        core::ptr::drop_in_place<clap_builder::builder::command::Command>(&dest);\nLABEL_15:\n        v8 = 0LL;\n        goto LABEL_17;\n      }\n      if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v5, aVersion, 9LL) )\n      {\n        v11 = (__int128 *)uucore::util_name();\n        *(_QWORD *)&v12 = v7;\n        v19 = &v11;\n        *(_QWORD *)&v20 = <&T as core::fmt::Display>::fmt;\n        dest = (__int128 *)&unk_149B78;\n        *(_QWORD *)&v27 = 2LL;\n        *((_QWORD *)&v27 + 1) = &v19;\n        v28 = 1uLL;\n        std::io::stdio::_print(&dest);\n        goto LABEL_15;\n      }\n    }\n    else\n    {\n      v4 = *(_QWORD *)(v15 + 8);\n      v5 = *(_QWORD *)(v15 + 16);\n    }\n    if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v4, v5, asc_1C12D, 2LL) )\n    {\n      --v3;\n      v2 += 24LL;\n    }\n  }\n  v22[0] = v2;\n  v22[1] = v3;\n  v22[2] = 0LL;\n  uu_expr::syntax_tree::Parser<S>::parse((__int64)&dest, v22);\n  v23 = v27;\n  v24 = v28;\n  if ( dest == (__int128 *)0x8000000000000005LL )\n  {\n    v8 = alloc::boxed::Box<T>::new(&v23);\n  }\n  else\n  {\n    v13 = v24;\n    v12 = v23;\n    v11 = dest;\n    uu_expr::syntax_tree::AstNode::eval(&v19, &v11);\n    v25[0] = v20;\n    v25[1] = v21;\n    if ( (_DWORD)v19 != 1 )\n    {\n      uu_expr::syntax_tree::NumOrStr::eval_as_string(&v17, v25);\n      core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>(&v11);\n      v11 = &v17;\n      *(_QWORD *)&v12 = <alloc::string::String as core::fmt::Display>::fmt;\n      dest = (__int128 *)&unk_149B20;\n      *(_QWORD *)&v27 = 2LL;\n      *((_QWORD *)&v27 + 1) = &v11;\n      v28 = 1uLL;\n      std::io::stdio::_print(&dest);\n      *(_QWORD *)&v28 = v18;\n      v27 = v17;\n      dest = (__int128 *)0x8000000000000000LL;\n      is_truthy = uu_expr::syntax_tree::is_truthy(&dest);\n      core::ptr::drop_in_place<uu_expr::syntax_tree::NumOrStr>(&dest);\n      if ( !is_truthy )\n      {\n        v8 = uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(1LL);\n        goto LABEL_17;\n      }\n      goto LABEL_15;\n    }\n    v8 = alloc::boxed::Box<T>::new(v25);\n    core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>(&v11);\n  }\nLABEL_17:\n  core::ptr::drop_in_place<alloc::vec::Vec<alloc::string::String>>(v14);\n  return v8;\n}",
+    "_ZN7uu_expr11syntax_tree5BinOp4eval17h135374f3f8bf6168E": "__int64 __fastcall uu_expr::syntax_tree::BinOp::eval(__int64 a1, char a2, unsigned __int8 a3, __int64 a4, __int64 a5)\n{\n  if ( !a2 )\n    return uu_expr::syntax_tree::RelationOp::eval(a1, a3, a4, a5);\n  if ( a2 == 1 )\n    return uu_expr::syntax_tree::NumericOp::eval(a1, a3, a4, a5);\n  return uu_expr::syntax_tree::StringOp::eval(a1, a3, a4, a5);\n}",
+    "_ZN7uu_expr11syntax_tree10RelationOp4eval17he3600cb1c737b18aE": "__int64 __fastcall uu_expr::syntax_tree::RelationOp::eval(__int64 a1, char a2, __int64 a3, __int64 a4)\n{\n  __int128 *v4; // r15\n  __int128 v5; // xmm0\n  __int64 result; // rax\n  __int128 v7; // xmm0\n  __int128 *v8; // r12\n  __int128 v9; // xmm0\n  _OWORD *v10; // rdi\n  __int128 v11; // xmm0\n  __int64 v12; // r14\n  unsigned __int8 v13; // bp\n  __int64 v14; // r15\n  unsigned __int8 v15; // bp\n  char v16; // bp\n  char v17; // r14\n  char v18; // bp\n  __int128 v19; // xmm0\n  __int128 v20; // [rsp+0h] [rbp-A8h] BYREF\n  __int128 v21; // [rsp+10h] [rbp-98h]\n  __int64 v22; // [rsp+20h] [rbp-88h] BYREF\n  __int64 v23; // [rsp+28h] [rbp-80h]\n  __int64 v24; // [rsp+30h] [rbp-78h]\n  char v25; // [rsp+38h] [rbp-70h]\n  _OWORD v26[2]; // [rsp+40h] [rbp-68h] BYREF\n  _OWORD v27[4]; // [rsp+60h] [rbp-48h] BYREF\n\n  v4 = (__int128 *)(a3 + 8);\n  if ( *(_DWORD *)a3 == 1 )\n  {\n    v5 = *v4;\n    *(_OWORD *)(a1 + 24) = *(_OWORD *)(a3 + 24);\n    *(_OWORD *)(a1 + 8) = v5;\n    *(_QWORD *)a1 = 1LL;\n    return core::ptr::drop_in_place<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>(a4);\n  }\n  v7 = *v4;\n  v26[1] = *(_OWORD *)(a3 + 24);\n  v26[0] = v7;\n  v8 = (__int128 *)(a4 + 8);\n  if ( (*(_BYTE *)a4 & 1) != 0 )\n  {\n    v9 = *v8;\n    *(_OWORD *)(a1 + 24) = *(_OWORD *)(a4 + 24);\n    *(_OWORD *)(a1 + 8) = v9;\n    *(_QWORD *)a1 = 1LL;\n    v10 = (_OWORD *)(a3 + 8);\n    return core::ptr::drop_in_place<uu_expr::syntax_tree::NumOrStr>(v10);\n  }\n  v11 = *v8;\n  v27[1] = *(_OWORD *)(a4 + 24);\n  v27[0] = v11;\n  uu_expr::syntax_tree::NumOrStr::to_bigint(&v22, a3 + 8);\n  uu_expr::syntax_tree::NumOrStr::to_bigint(&v20, v8);\n  v12 = v22;\n  if ( (__OFSUB__(-v22, 1LL) | __OFSUB__(-(__int64)v20, 1LL)) != 1 )\n  {\n    switch ( a2 )\n    {\n      case 0:\n        v14 = v20;\n        v15 = <num_bigint::bigint::BigInt as core::cmp::Ord>::cmp(&v22, &v20);\n        goto LABEL_19;\n      case 1:\n        v14 = v20;\n        v16 = (char)<num_bigint::bigint::BigInt as core::cmp::Ord>::cmp(&v22, &v20) <= 0;\n        goto LABEL_20;\n      case 2:\n        if ( v25 != BYTE8(v21) )\n          goto LABEL_16;\n        if ( v25 != 1 )\n        {\n          v14 = v20;\n          v16 = alloc::vec::partial_eq::<impl core::cmp::PartialEq<alloc::vec::Vec<U,A2>> for alloc::vec::Vec<T,A1>>::eq(\n                  v23,\n                  v24,\n                  *((_QWORD *)&v20 + 1),\n                  v21);\n          goto LABEL_20;\n        }\nLABEL_30:\n        core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,num_bigint::ParseBigIntError>>(\n          v20,\n          *((_QWORD *)&v20 + 1));\n        core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,num_bigint::ParseBigIntError>>(\n          v12,\n          v23);\n        v17 = 1;\n        goto LABEL_31;\n      case 3:\n        if ( v25 != BYTE8(v21) )\n          goto LABEL_30;\n        if ( v25 == 1 )\n        {\nLABEL_16:\n          core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,num_bigint::ParseBigIntError>>(\n            v20,\n            *((_QWORD *)&v20 + 1));\n          core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,num_bigint::ParseBigIntError>>(\n            v12,\n            v23);\n          v17 = 1;\n          goto LABEL_29;\n        }\n        v14 = v20;\n        v16 = alloc::vec::partial_eq::<impl core::cmp::PartialEq<alloc::vec::Vec<U,A2>> for alloc::vec::Vec<T,A1>>::eq(\n                v23,\n                v24,\n                *((_QWORD *)&v20 + 1),\n                v21) ^ 1;\nLABEL_20:\n        core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,num_bigint::ParseBigIntError>>(\n          v14,\n          *((_QWORD *)&v20 + 1));\n        core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,num_bigint::ParseBigIntError>>(\n          v12,\n          v23);\n        v17 = 1;\n        if ( v16 )\n          goto LABEL_31;\n        goto LABEL_29;\n      case 4:\n        v14 = v20;\n        v16 = (char)<num_bigint::bigint::BigInt as core::cmp::Ord>::cmp(&v22, &v20) > 0;\n        goto LABEL_20;\n      case 5:\n        v14 = v20;\n        v15 = ~(unsigned __int8)<num_bigint::bigint::BigInt as core::cmp::Ord>::cmp(&v22, &v20);\nLABEL_19:\n        v16 = v15 >> 7;\n        goto LABEL_20;\n    }\n  }\n  core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,num_bigint::ParseBigIntError>>(\n    v20,\n    *((_QWORD *)&v20 + 1));\n  core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,num_bigint::ParseBigIntError>>(v12, v23);\n  uu_expr::syntax_tree::NumOrStr::eval_as_string(&v22, v4);\n  uu_expr::syntax_tree::NumOrStr::eval_as_string(&v20, v8);\n  switch ( a2 )\n  {\n    case 0:\n      v13 = <alloc::vec::Vec<T,A1> as core::cmp::PartialOrd<alloc::vec::Vec<T,A2>>>::partial_cmp(\n              v23,\n              v24,\n              *((_QWORD *)&v20 + 1),\n              v21);\n      goto LABEL_27;\n    case 1:\n      v18 = (char)<alloc::vec::Vec<T,A1> as core::cmp::PartialOrd<alloc::vec::Vec<T,A2>>>::partial_cmp(\n                    v23,\n                    v24,\n                    *((_QWORD *)&v20 + 1),\n                    v21) <= 0;\n      break;\n    case 2:\n      v18 = alloc::vec::partial_eq::<impl core::cmp::PartialEq<alloc::vec::Vec<U,A2>> for alloc::vec::Vec<T,A1>>::eq(\n              v23,\n              v24,\n              *((_QWORD *)&v20 + 1),\n              v21);\n      break;\n    case 3:\n      v18 = alloc::vec::partial_eq::<impl core::cmp::PartialEq<alloc::vec::Vec<U,A2>> for alloc::vec::Vec<T,A1>>::eq(\n              v23,\n              v24,\n              *((_QWORD *)&v20 + 1),\n              v21) ^ 1;\n      break;\n    case 4:\n      v18 = (char)<alloc::vec::Vec<T,A1> as core::cmp::PartialOrd<alloc::vec::Vec<T,A2>>>::partial_cmp(\n                    v23,\n                    v24,\n                    *((_QWORD *)&v20 + 1),\n                    v21) > 0;\n      break;\n    case 5:\n      v13 = ~(unsigned __int8)<alloc::vec::Vec<T,A1> as core::cmp::PartialOrd<alloc::vec::Vec<T,A2>>>::partial_cmp(\n                                v23,\n                                v24,\n                                *((_QWORD *)&v20 + 1),\n                                v21);\nLABEL_27:\n      v18 = v13 >> 7;\n      break;\n  }\n  core::ptr::drop_in_place<alloc::string::String>(&v20);\n  core::ptr::drop_in_place<alloc::string::String>(&v22);\n  v17 = 0;\n  if ( v18 )\nLABEL_31:\n    result = <uu_expr::syntax_tree::NumOrStr as core::convert::From<usize>>::from(&v20, 1LL);\n  else\nLABEL_29:\n    result = <uu_expr::syntax_tree::NumOrStr as core::convert::From<usize>>::from(&v20, 0LL);\n  v19 = v20;\n  *(_OWORD *)(a1 + 24) = v21;\n  *(_OWORD *)(a1 + 8) = v19;\n  *(_QWORD *)a1 = 0LL;\n  if ( v17 )\n  {\n    core::ptr::drop_in_place<uu_expr::syntax_tree::NumOrStr>(v27);\n    v10 = v26;\n    return core::ptr::drop_in_place<uu_expr::syntax_tree::NumOrStr>(v10);\n  }\n  return result;\n}",
+    "_ZN7uu_expr11syntax_tree9NumericOp4eval17h7467ae4d7f97e677E": "__int64 __fastcall uu_expr::syntax_tree::NumericOp::eval(__int64 a1, char a2, __int64 a3, __int64 a4)\n{\n  __int128 *v6; // rsi\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  __int64 result; // rax\n  __int128 *v10; // rsi\n  __int128 v11; // xmm0\n  __int128 v12; // xmm1\n  __int128 v13; // xmm0\n  __int128 v14; // xmm0\n  __int128 v15; // [rsp+0h] [rbp-E8h] BYREF\n  __int128 v16; // [rsp+10h] [rbp-D8h]\n  _BYTE v17[40]; // [rsp+20h] [rbp-C8h] BYREF\n  __int128 v18; // [rsp+50h] [rbp-98h] BYREF\n  __int128 v19; // [rsp+60h] [rbp-88h]\n  __int128 v20; // [rsp+70h] [rbp-78h] BYREF\n  __int128 v21; // [rsp+80h] [rbp-68h]\n  __int128 v22; // [rsp+90h] [rbp-58h] BYREF\n  __int128 v23; // [rsp+A0h] [rbp-48h]\n  __int128 v24; // [rsp+B0h] [rbp-38h]\n  __int128 v25; // [rsp+C0h] [rbp-28h]\n\n  v6 = (__int128 *)(a3 + 8);\n  if ( *(_DWORD *)a3 == 1 )\n  {\n    v7 = *v6;\n    v8 = *(_OWORD *)(a3 + 24);\nLABEL_5:\n    *(_OWORD *)(a1 + 24) = v8;\n    *(_OWORD *)(a1 + 8) = v7;\n    *(_QWORD *)a1 = 1LL;\n    return core::ptr::drop_in_place<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>(a4);\n  }\n  uu_expr::syntax_tree::NumOrStr::eval_as_bigint(v17, v6);\n  v15 = *(_OWORD *)&v17[8];\n  v16 = *(_OWORD *)&v17[24];\n  if ( *(_DWORD *)v17 == 1 )\n  {\n    v7 = v15;\n    v8 = v16;\n    goto LABEL_5;\n  }\n  v21 = v16;\n  v20 = v15;\n  v10 = (__int128 *)(a4 + 8);\n  if ( (*(_BYTE *)a4 & 1) != 0 )\n  {\n    v11 = *v10;\n    v12 = *(_OWORD *)(a4 + 24);\n  }\n  else\n  {\n    uu_expr::syntax_tree::NumOrStr::eval_as_bigint(v17, v10);\n    v15 = *(_OWORD *)&v17[8];\n    v16 = *(_OWORD *)&v17[24];\n    if ( *(_DWORD *)v17 != 1 )\n    {\n      v19 = v16;\n      v18 = v15;\n      switch ( a2 )\n      {\n        case 0:\n          v16 = v21;\n          v15 = v20;\n          *(_OWORD *)&v17[16] = v19;\n          *(_OWORD *)v17 = v18;\n          result = ((__int64 (__fastcall *)(__int128 *, __int128 *, _BYTE *))num_bigint::bigint::addition::<impl core::ops::arith::Add for num_bigint::bigint::BigInt>::add)(\n                     &v22,\n                     &v15,\n                     v17);\n          goto LABEL_21;\n        case 1:\n          v16 = v21;\n          v15 = v20;\n          *(_OWORD *)&v17[16] = v19;\n          *(_OWORD *)v17 = v18;\n          result = ((__int64 (__fastcall *)(__int128 *, __int128 *, _BYTE *))num_bigint::bigint::subtraction::<impl core::ops::arith::Sub for num_bigint::bigint::BigInt>::sub)(\n                     &v22,\n                     &v15,\n                     v17);\n          goto LABEL_21;\n        case 2:\n          v16 = v21;\n          v15 = v20;\n          *(_OWORD *)&v17[16] = v19;\n          *(_OWORD *)v17 = v18;\n          result = ((__int64 (__fastcall *)(__int128 *, __int128 *, _BYTE *))num_bigint::bigint::multiplication::<impl core::ops::arith::Mul for num_bigint::bigint::BigInt>::mul)(\n                     &v22,\n                     &v15,\n                     v17);\n          goto LABEL_21;\n        case 3:\n          if ( BYTE8(v19) == 1 )\n            goto LABEL_19;\n          num_bigint::bigint::division::<impl core::ops::arith::Div for &num_bigint::bigint::BigInt>::div(\n            v17,\n            &v20,\n            &v18);\n          v14 = *(_OWORD *)v17;\n          v24 = *(_OWORD *)v17;\n          v25 = *(_OWORD *)&v17[16];\n          *(_OWORD *)(a1 + 24) = *(_OWORD *)&v17[16];\n          *(_OWORD *)(a1 + 8) = v14;\n          *(_QWORD *)a1 = 0LL;\n          goto LABEL_23;\n        case 4:\n          if ( BYTE8(v19) != 1 )\n          {\n            num_bigint::bigint::division::<impl core::ops::arith::Div for &num_bigint::bigint::BigInt>::div(\n              v17,\n              &v20,\n              &v18);\n            v10 = *(__int128 **)&v17[8];\n            if ( *(_QWORD *)v17 != 0x8000000000000000LL )\n            {\n              core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,num_bigint::ParseBigIntError>>(\n                *(_QWORD *)v17,\n                *(_QWORD *)&v17[8]);\n              v16 = v21;\n              v15 = v20;\n              *(_OWORD *)&v17[16] = v19;\n              *(_OWORD *)v17 = v18;\n              result = ((__int64 (__fastcall *)(__int128 *, __int128 *, _BYTE *))num_bigint::bigint::division::<impl core::ops::arith::Rem for num_bigint::bigint::BigInt>::rem)(\n                         &v22,\n                         &v15,\n                         v17);\nLABEL_21:\n              v13 = v22;\n              v25 = v23;\n              v24 = v22;\n              *(_OWORD *)(a1 + 24) = v23;\n              *(_OWORD *)(a1 + 8) = v13;\n              *(_QWORD *)a1 = 0LL;\n              return result;\n            }\n          }\n          core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,num_bigint::ParseBigIntError>>(\n            0x8000000000000000LL,\n            v10);\nLABEL_19:\n          *(_QWORD *)(a1 + 8) = 4LL;\n          *(_QWORD *)a1 = 1LL;\nLABEL_23:\n          core::ptr::drop_in_place<num_bigint::bigint::BigInt>(v18, *((_QWORD *)&v18 + 1));\n          break;\n      }\n      return core::ptr::drop_in_place<num_bigint::bigint::BigInt>(v20, *((_QWORD *)&v20 + 1));\n    }\n    v11 = v15;\n    v12 = v16;\n  }\n  *(_OWORD *)(a1 + 24) = v12;\n  *(_OWORD *)(a1 + 8) = v11;\n  *(_QWORD *)a1 = 1LL;\n  return core::ptr::drop_in_place<num_bigint::bigint::BigInt>(v20, *((_QWORD *)&v20 + 1));\n}",
+    "_ZN7uu_expr11syntax_tree8StringOp4eval17h76d6f11cecdfc211E": "__int64 __fastcall uu_expr::syntax_tree::StringOp::eval(__int64 a1, char a2, __int64 a3, __int64 a4)\n{\n  __int128 *v5; // r14\n  __int128 *v6; // rsi\n  __int128 v7; // xmm0\n  __int128 *v8; // r12\n  __int128 v9; // xmm0\n  __int64 v10; // rax\n  __int128 v11; // xmm0\n  __int128 v12; // xmm0\n  __int128 *v14; // rsi\n  __int128 v15; // xmm0\n  __int64 *v16; // rdi\n  __int128 v17; // xmm0\n  __int64 v18; // rax\n  __int128 v19; // xmm0\n  __int64 v20; // r14\n  __int64 v21; // r15\n  __int64 v22; // rax\n  __int64 v23; // rdx\n  unsigned int v24; // edx\n  unsigned int v25; // r14d\n  __int128 v26; // xmm0\n  __int64 v27; // rax\n  int v28; // edx\n  __int128 v29; // xmm0\n  __int128 v30; // xmm0\n  __int64 v31; // r14\n  int v32; // ebp\n  int v33; // edx\n  int v34; // edx\n  __int128 v35; // xmm0\n  __int128 v36; // xmm0\n  char v37; // r13\n  char v38; // al\n  unsigned int v39; // edx\n  unsigned int v40; // r12d\n  __int64 v41; // rdx\n  __int64 v42; // rax\n  __int64 v43; // rsi\n  __int64 v44; // [rsp+10h] [rbp-158h] BYREF\n  __int64 v45; // [rsp+18h] [rbp-150h]\n  __int64 v46; // [rsp+20h] [rbp-148h]\n  __int64 v47; // [rsp+28h] [rbp-140h] BYREF\n  __m256i v48; // [rsp+30h] [rbp-138h] BYREF\n  __int128 v49; // [rsp+50h] [rbp-118h]\n  __int64 v50; // [rsp+60h] [rbp-108h]\n  __int128 v51; // [rsp+70h] [rbp-F8h] BYREF\n  __int64 v52; // [rsp+80h] [rbp-E8h]\n  _BYTE v53[8]; // [rsp+88h] [rbp-E0h] BYREF\n  __int64 v54; // [rsp+90h] [rbp-D8h]\n  __int64 v55; // [rsp+98h] [rbp-D0h]\n  __int64 v56; // [rsp+A0h] [rbp-C8h] BYREF\n  __int64 v57; // [rsp+A8h] [rbp-C0h]\n  __int64 v58; // [rsp+B0h] [rbp-B8h]\n  _QWORD v59[3]; // [rsp+B8h] [rbp-B0h] BYREF\n  __int128 v60; // [rsp+D0h] [rbp-98h] BYREF\n  __m256i v61; // [rsp+E0h] [rbp-88h] BYREF\n  __int128 v62; // [rsp+100h] [rbp-68h]\n  __int64 v63; // [rsp+110h] [rbp-58h]\n  _QWORD v64[10]; // [rsp+118h] [rbp-50h] BYREF\n\n  v5 = (__int128 *)(a3 + 8);\n  switch ( a2 )\n  {\n    case 0:\n      if ( (*(_BYTE *)a3 & 1) != 0 )\n        goto LABEL_14;\n      uu_expr::syntax_tree::NumOrStr::eval_as_string(v53, a3 + 8);\n      v6 = (__int128 *)(a4 + 8);\n      if ( (*(_BYTE *)a4 & 1) != 0 )\n      {\n        v7 = *v6;\n        *(_OWORD *)(a1 + 24) = *(_OWORD *)(a4 + 24);\n        *(_OWORD *)(a1 + 8) = v7;\n        *(_QWORD *)a1 = 1LL;\n        goto LABEL_73;\n      }\n      uu_expr::syntax_tree::NumOrStr::eval_as_string(&v56, v6);\n      v20 = v57;\n      v21 = v58;\n      uu_expr::syntax_tree::check_posix_regex_errors(&v48, v57, v58);\n      v22 = v48.m256i_i64[0];\n      if ( v48.m256i_i64[0] != 13 )\n      {\n        *(_QWORD *)(a1 + 32) = v48.m256i_i64[3];\n        *(_OWORD *)(a1 + 16) = *(_OWORD *)&v48.m256i_u64[1];\n        *(_QWORD *)(a1 + 8) = v22;\n        *(_QWORD *)a1 = 1LL;\n        goto LABEL_72;\n      }\n      v44 = alloc::raw_vec::RawVecInner<A>::with_capacity_in(v21 + 1, 1LL, 1LL, &off_14A858);\n      v45 = v23;\n      v46 = 0LL;\n      alloc::string::String::push(&v44, 94LL);\n      *(_QWORD *)&v60 = v20;\n      *((_QWORD *)&v60 + 1) = v20 + v21;\n      v25 = 1114112;\n      if ( (core::str::validations::next_code_point(&v60) & 1) != 0 )\n        v25 = v24;\n      if ( v25 == 42 )\n      {\n        <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<&T,core::slice::iter::Iter<T>>>::spec_extend(\n          &v44,\n          asc_1D637,\n          &asc_1D637[2]);\n      }\n      else if ( v25 != 94 )\n      {\n        if ( v25 == 1114112 )\n        {\n          <uu_expr::syntax_tree::NumOrStr as core::convert::From<usize>>::from(&v48, 0LL);\n          v26 = *(_OWORD *)v48.m256i_i8;\n          *(_OWORD *)(a1 + 24) = *(_OWORD *)&v48.m256i_u64[2];\n          *(_OWORD *)(a1 + 8) = v26;\n          *(_QWORD *)a1 = 0LL;\n          goto LABEL_71;\n        }\n        alloc::string::String::push(&v44, v25);\n      }\n      *(_OWORD *)v48.m256i_i8 = v60;\n      v37 = 0;\n      while ( 1 )\n      {\n        v38 = core::str::validations::next_code_point(&v48);\n        v40 = v39;\n        if ( (v38 & 1) == 0 )\n          v40 = 1114112;\n        if ( v40 == 94 )\n        {\n          if ( v37 & 1 | (v25 - 93 < 0xFFFFFFFE) )\n          {\n            <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<&T,core::slice::iter::Iter<T>>>::spec_extend(\n              &v44,\n              &asc_1D637[2],\n              a0);\n            goto LABEL_50;\n          }\n        }\n        else if ( v40 == 1114112 )\n        {\n          onig::Regex::with_options(v64, v45, v46, 8LL, &OnigSyntaxGrep);\n          if ( __OFSUB__(0LL, v64[0]) )\n          {\n            v47 = v64[1];\n            if ( onig::Regex::captures_len(&v47) )\n            {\n              onig::find::<impl onig::Regex>::captures(&v61, &v47, v54, v55);\n              if ( v61.m256i_i64[0] )\n              {\n                v50 = v63;\n                v49 = v62;\n                v48 = v61;\n                v42 = uu_expr::syntax_tree::StringOp::eval::{{closure}}(&v48);\n              }\n              else\n              {\n                v42 = 0LL;\n              }\n              if ( !v42 )\n                v41 = 0LL;\n              v43 = 1LL;\n              if ( v42 )\n                v43 = v42;\n              <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v48, v43, v41);\n              v52 = v48.m256i_i64[2];\n              v51 = *(_OWORD *)v48.m256i_i8;\n            }\n            else\n            {\n              onig::Regex::find(v59, &v47, v54, v55);\n              <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v48, a0, 1LL);\n              v61.m256i_i64[2] = v48.m256i_i64[2];\n              *(_OWORD *)v61.m256i_i8 = *(_OWORD *)v48.m256i_i8;\n              core::option::Option<T>::map_or(&v51, v59, &v61);\n            }\n            *(_QWORD *)(a1 + 32) = v52;\n            *(_OWORD *)(a1 + 16) = v51;\n            *(_QWORD *)(a1 + 8) = 0x8000000000000000LL;\n            *(_QWORD *)a1 = 0LL;\n            core::ptr::drop_in_place<onig::Regex>(&v47);\n          }\n          else\n          {\n            core::ptr::drop_in_place<onig::Error>(v64);\n            *(_QWORD *)(a1 + 8) = 5LL;\n            *(_QWORD *)a1 = 1LL;\n          }\nLABEL_71:\n          core::ptr::drop_in_place<alloc::string::String>(&v44);\nLABEL_72:\n          core::ptr::drop_in_place<alloc::string::String>(&v56);\nLABEL_73:\n          v16 = (__int64 *)v53;\n          return core::ptr::drop_in_place<alloc::string::String>(v16);\n        }\n        alloc::string::String::push(&v44, v40);\nLABEL_50:\n        v37 = (v25 == 92) & (v37 ^ 1);\n        v25 = v40;\n      }\n    case 1:\n      if ( (*(_BYTE *)a3 & 1) != 0 )\n        goto LABEL_14;\n      uu_expr::syntax_tree::NumOrStr::eval_as_string(&v44, a3 + 8);\n      v14 = (__int128 *)(a4 + 8);\n      if ( (*(_BYTE *)a4 & 1) != 0 )\n      {\n        v15 = *v14;\n        *(_OWORD *)(a1 + 24) = *(_OWORD *)(a4 + 24);\n        *(_OWORD *)(a1 + 8) = v15;\n        *(_QWORD *)a1 = 1LL;\n        v16 = &v44;\n        return core::ptr::drop_in_place<alloc::string::String>(v16);\n      }\n      uu_expr::syntax_tree::NumOrStr::eval_as_string(&v51, v14);\n      v59[0] = v45;\n      v59[1] = v45 + v46;\n      v59[2] = 0LL;\n      v27 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(v59);\n      if ( v28 == 1114112 )\n        goto LABEL_31;\n      v31 = v27;\n      v32 = v28;\nLABEL_35:\n      <alloc::string::String as core::clone::Clone>::clone(&v61, &v51);\n      v56 = v61.m256i_i64[1];\n      v57 = v61.m256i_i64[1] + v61.m256i_i64[2];\n      do\n      {\n        if ( (core::str::validations::next_code_point(&v56) & 1) == 0 || v33 == 1114112 )\n        {\n          core::ptr::drop_in_place<alloc::string::String>(&v61);\n          v31 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(v59);\n          v32 = v34;\n          if ( v34 == 1114112 )\n          {\nLABEL_31:\n            <uu_expr::syntax_tree::NumOrStr as core::convert::From<usize>>::from(&v48, 0LL);\n            v29 = *(_OWORD *)v48.m256i_i8;\n            *(_OWORD *)(a1 + 24) = *(_OWORD *)&v48.m256i_u64[2];\n            *(_OWORD *)(a1 + 8) = v29;\n            *(_QWORD *)a1 = 0LL;\n            goto LABEL_43;\n          }\n          goto LABEL_35;\n        }\n      }\n      while ( v33 != v32 );\n      <uu_expr::syntax_tree::NumOrStr as core::convert::From<usize>>::from(&v48, v31 + 1);\n      v35 = *(_OWORD *)v48.m256i_i8;\n      *(_OWORD *)(a1 + 24) = *(_OWORD *)&v48.m256i_u64[2];\n      *(_OWORD *)(a1 + 8) = v35;\n      *(_QWORD *)a1 = 0LL;\n      core::ptr::drop_in_place<alloc::string::String>(&v61);\nLABEL_43:\n      core::ptr::drop_in_place<alloc::string::String>(&v51);\n      v16 = &v44;\n      return core::ptr::drop_in_place<alloc::string::String>(v16);\n    case 2:\n      if ( (*(_BYTE *)a3 & 1) != 0 )\n      {\nLABEL_14:\n        v12 = *v5;\n        *(_OWORD *)(a1 + 24) = *(_OWORD *)(a3 + 24);\n        *(_OWORD *)(a1 + 8) = v12;\n        *(_QWORD *)a1 = 1LL;\n        return core::ptr::drop_in_place<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>(a4);\n      }\n      if ( !(unsigned __int8)uu_expr::syntax_tree::is_truthy(a3 + 8) )\n      {\n        <uu_expr::syntax_tree::NumOrStr as core::convert::From<usize>>::from(&v48, 0LL);\n        v17 = *(_OWORD *)v48.m256i_i8;\n        *(_OWORD *)(a1 + 24) = *(_OWORD *)&v48.m256i_u64[2];\n        *(_OWORD *)(a1 + 8) = v17;\n        *(_QWORD *)a1 = 0LL;\n        core::ptr::drop_in_place<uu_expr::syntax_tree::NumOrStr>(v5);\n        return core::ptr::drop_in_place<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>(a4);\n      }\n      v8 = (__int128 *)(a4 + 8);\n      if ( (*(_BYTE *)a4 & 1) != 0 )\n      {\n        v9 = *v8;\n        *(_OWORD *)(a1 + 24) = *(_OWORD *)(a4 + 24);\n        *(_OWORD *)(a1 + 8) = v9;\n        *(_QWORD *)a1 = 1LL;\n        return core::ptr::drop_in_place<uu_expr::syntax_tree::NumOrStr>(v5);\n      }\n      if ( !(unsigned __int8)uu_expr::syntax_tree::is_truthy(a4 + 8) )\n        goto LABEL_44;\n      v30 = *v5;\n      *(_OWORD *)(a1 + 24) = v5[1];\n      *(_OWORD *)(a1 + 8) = v30;\n      *(_QWORD *)a1 = 0LL;\n      return core::ptr::drop_in_place<uu_expr::syntax_tree::NumOrStr>(a4 + 8);\n    case 3:\n      v10 = 1LL;\n      if ( (*(_BYTE *)a3 & 1) != 0 )\n        goto LABEL_12;\n      if ( !(unsigned __int8)uu_expr::syntax_tree::is_truthy(a3 + 8) )\n      {\n        v8 = (__int128 *)(a4 + 8);\n        v18 = 1LL;\n        if ( (*(_BYTE *)a4 & 1) == 0 )\n        {\n          if ( !(unsigned __int8)uu_expr::syntax_tree::is_truthy(a4 + 8) )\n          {\nLABEL_44:\n            <uu_expr::syntax_tree::NumOrStr as core::convert::From<usize>>::from(&v48, 0LL);\n            v36 = *(_OWORD *)v48.m256i_i8;\n            *(_OWORD *)(a1 + 24) = *(_OWORD *)&v48.m256i_u64[2];\n            *(_OWORD *)(a1 + 8) = v36;\n            *(_QWORD *)a1 = 0LL;\n            core::ptr::drop_in_place<uu_expr::syntax_tree::NumOrStr>(v8);\n            return core::ptr::drop_in_place<uu_expr::syntax_tree::NumOrStr>(v5);\n          }\n          v18 = 0LL;\n        }\n        v19 = *v8;\n        *(_OWORD *)(a1 + 24) = *(_OWORD *)(a4 + 24);\n        *(_OWORD *)(a1 + 8) = v19;\n        *(_QWORD *)a1 = v18;\n        return core::ptr::drop_in_place<uu_expr::syntax_tree::NumOrStr>(v5);\n      }\n      v10 = 0LL;\nLABEL_12:\n      v11 = *v5;\n      *(_OWORD *)(a1 + 24) = v5[1];\n      *(_OWORD *)(a1 + 8) = v11;\n      *(_QWORD *)a1 = v10;\n      return core::ptr::drop_in_place<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>(a4);\n  }\n}",
+    "_ZN7uu_expr11syntax_tree24check_posix_regex_errors17h83c506dd31e4b1f6E": "__int64 __fastcall uu_expr::syntax_tree::check_posix_regex_errors(__int64 *a1, __int64 a2, __int64 a3)\n{\n  __int64 *v3; // rbx\n  unsigned __int8 code_point; // al\n  int v5; // edx\n  int v6; // r14d\n  char v7; // bp\n  __int64 v8; // r15\n  bool v9; // cf\n  __int64 v10; // r15\n  __int64 v11; // r12\n  unsigned __int64 v12; // r15\n  unsigned __int64 v13; // rbx\n  __int64 v14; // rax\n  __int64 v15; // rdx\n  __int64 v16; // r13\n  __int64 v17; // rdx\n  __int64 v18; // r12\n  __int64 v19; // r15\n  __int64 end; // r13\n  __int64 v21; // rdx\n  int v22; // eax\n  char v23; // al\n  int v24; // ecx\n  __int64 v25; // rax\n  __int64 v26; // rdx\n  char v27; // bl\n  __int64 v28; // rdi\n  __int64 v29; // rsi\n  char v30; // al\n  bool v31; // bl\n  int v32; // edx\n  int v33; // ebx\n  __int64 v34; // rax\n  __int64 v36; // rax\n  __int64 v37; // rcx\n  __int64 *v38; // rdx\n  int v39; // [rsp+8h] [rbp-D0h]\n  __int64 v40; // [rsp+10h] [rbp-C8h]\n  __int64 v41; // [rsp+18h] [rbp-C0h]\n  _QWORD v42[2]; // [rsp+20h] [rbp-B8h] BYREF\n  __int64 v43; // [rsp+30h] [rbp-A8h] BYREF\n  __int64 v44; // [rsp+38h] [rbp-A0h]\n  unsigned __int64 v45; // [rsp+40h] [rbp-98h]\n  __int64 *v46; // [rsp+48h] [rbp-90h]\n  __int64 v47; // [rsp+50h] [rbp-88h]\n  __int64 v48; // [rsp+58h] [rbp-80h] BYREF\n  _QWORD v49[2]; // [rsp+60h] [rbp-78h] BYREF\n  char v50[48]; // [rsp+70h] [rbp-68h] BYREF\n  __int16 v51; // [rsp+A0h] [rbp-38h]\n\n  v3 = a1;\n  v43 = 0LL;\n  v44 = 1LL;\n  v45 = 0LL;\n  v42[0] = a2;\n  v42[1] = a2 + a3;\n  code_point = core::str::validations::next_code_point(v42);\n  if ( (code_point & (v5 != 1114112)) != 1 )\n  {\nLABEL_49:\n    *v3 = 13LL;\n    return core::ptr::drop_in_place<alloc::string::String>(&v43);\n  }\n  v6 = v5;\n  v46 = a1;\n  v7 = 0;\n  v39 = 0;\n  v41 = 0LL;\n  v8 = 0LL;\n  do\n  {\n    if ( (v7 & 1) == 0 )\n      goto LABEL_17;\n    if ( v6 > 122 )\n    {\n      if ( v6 == 123 )\n      {\n        ++v8;\n        goto LABEL_39;\n      }\n      if ( v6 == 125 )\n      {\n        v48 = 11LL;\n        v9 = v8 == 0;\n        v10 = v8 - 1;\n        if ( !v9 )\n        {\n          v47 = v10;\n          core::ptr::drop_in_place<uu_expr::ExprError>(&v48);\n          v11 = v44;\n          v12 = v45;\n          v13 = v45 - 1;\n          v14 = core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeTo<usize>>::get(\n                  v45 - 1,\n                  v44,\n                  v45);\n          if ( !v14 )\n            core::str::slice_error_fail(v11, v12, 0LL, v13, &off_14A870);\n          v16 = v15;\n          <char as core::str::pattern::Pattern>::into_searcher(v50, v14);\n          v49[0] = 0LL;\n          v49[1] = v16;\n          v51 = 1;\n          v48 = 1LL;\n          v18 = core::str::iter::SplitInternal<P>::next(v49);\n          if ( !v18 )\n            core::option::expect_failed(aSplitnAlwaysRe, 41LL, &off_14A888);\n          v19 = v17;\n          if ( !v48 )\n          {\n            v23 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v18, v17, 1LL, 0LL);\n            LOBYTE(v24) = 1;\n            if ( v23 )\n              goto LABEL_38;\n            goto LABEL_35;\n          }\n          if ( v48 == 1 )\n          {\n            v48 = 0LL;\n            end = core::str::iter::SplitInternal<P>::get_end(v49);\n            v40 = v21;\n          }\n          else\n          {\n            --v48;\n            v25 = core::str::iter::SplitInternal<P>::next(v49);\n            v40 = v26;\n            end = v25;\n          }\n          v27 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v18, v19, 1LL, 0LL);\n          if ( v27 )\n          {\n            if ( !end )\n            {\n              LOBYTE(v24) = 1;\nLABEL_38:\n              v45 = 0LL;\n              v39 = v24;\n              v8 = v47;\n              goto LABEL_39;\n            }\nLABEL_34:\n            if ( (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(end, v40, 1LL, 0LL) )\n            {\nLABEL_35:\n              v28 = v18;\n              v29 = v19;\n            }\n            else\n            {\n              if ( !v27 )\n              {\n                v33 = core::num::<impl i16>::from_ascii_radix(v18, v19);\n                v34 = core::num::<impl i16>::from_ascii_radix(end, v40);\n                LOBYTE(v24) = 1;\n                if ( (v33 & 1) == 0 && (v34 & 1) == 0 )\n                {\n                  v24 = v39;\n                  LOBYTE(v24) = (SHIWORD(v33) > SWORD1(v34)) | v39 & 1;\n                }\n                goto LABEL_38;\n              }\n              v28 = end;\n              v29 = v40;\n            }\n            v30 = core::num::<impl i16>::from_ascii_radix(v28, v29);\n            v24 = (unsigned __int8)v39;\n            if ( (v30 & 1) != 0 )\n              v24 = 1;\n            goto LABEL_38;\n          }\n          if ( end )\n            goto LABEL_34;\n          goto LABEL_35;\n        }\n        v36 = v49[0];\n        v37 = 11LL;\nLABEL_57:\n        v38 = v46;\n        *v46 = v37;\n        v38[1] = v36;\n        return core::ptr::drop_in_place<alloc::string::String>(&v43);\n      }\nLABEL_17:\n      if ( v8 )\n      {\n        if ( v45 <= 0xD )\n          alloc::string::String::push(&v43, (unsigned int)v6);\n        v22 = v6 - 48;\n        if ( (unsigned int)(v6 - 48) >= 0xA && v6 != 44 && v6 != 92 )\n        {\n          LOBYTE(v22) = 1;\n          v39 = v22;\n        }\n      }\n      else\n      {\n        v8 = 0LL;\n      }\n      goto LABEL_39;\n    }\n    if ( v6 == 40 )\n    {\n      ++v41;\n      goto LABEL_39;\n    }\n    if ( v6 != 41 )\n      goto LABEL_17;\n    v48 = 9LL;\n    if ( !v41 )\n    {\n      v36 = v49[0];\n      v37 = 9LL;\n      goto LABEL_57;\n    }\n    --v41;\n    core::ptr::drop_in_place<uu_expr::ExprError>(&v48);\nLABEL_39:\n    v31 = v6 == 92;\n    if ( (core::str::validations::next_code_point(v42) & 1) == 0 )\n      break;\n    v6 = v32;\n    v7 = v31 & ~v7;\n  }\n  while ( v32 != 1114112 );\n  v3 = v46;\n  if ( !(v8 | v41) && (v39 & 1) == 0 )\n    goto LABEL_49;\n  if ( v8 )\n  {\n    *v46 = 10LL;\n  }\n  else if ( v41 )\n  {\n    *v46 = 8LL;\n  }\n  else\n  {\n    *v46 = 12LL;\n  }\n  return core::ptr::drop_in_place<alloc::string::String>(&v43);\n}",
+    "_ZN7uu_expr11syntax_tree8NumOrStr9to_bigint17hc415274c30aae534E": "__int64 __fastcall uu_expr::syntax_tree::NumOrStr::to_bigint(__int64 a1, _QWORD *a2)\n{\n  __int64 result; // rax\n  char v3; // bp\n\n  if ( __OFSUB__(0LL, *a2) )\n    return num_bigint::bigint::convert::<impl num_traits::Num for num_bigint::bigint::BigInt>::from_str_radix(\n             a1,\n             a2[2],\n             a2[3]);\n  v3 = *((_BYTE *)a2 + 24);\n  result = <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(a1, a2[1], a2[2]);\n  *(_BYTE *)(a1 + 24) = v3;\n  return result;\n}",
+    "_ZN7uu_expr11syntax_tree8NumOrStr14eval_as_bigint17hfc488cc1793399d6E": "__int64 __fastcall uu_expr::syntax_tree::NumOrStr::eval_as_bigint(__int64 a1, _QWORD *a2)\n{\n  __int64 result; // rax\n  _QWORD *v3; // rax\n  __int64 v4; // rax\n  __int128 v5; // xmm0\n  __int128 v6; // xmm0\n  _OWORD v7[3]; // [rsp+8h] [rbp-30h] BYREF\n\n  result = 0LL;\n  if ( __OFSUB__(0LL, *a2) )\n  {\n    num_bigint::bigint::convert::<impl num_traits::Num for num_bigint::bigint::BigInt>::from_str_radix(v7, a2[2], a2[3]);\n    v3 = (_QWORD *)(a1 + 8);\n    if ( *(_QWORD *)&v7[0] == 0x8000000000000000LL )\n    {\n      *v3 = 2LL;\n      v4 = 1LL;\n    }\n    else\n    {\n      v6 = v7[0];\n      *(_OWORD *)(a1 + 24) = v7[1];\n      *(_OWORD *)v3 = v6;\n      v4 = 0LL;\n    }\n    *(_QWORD *)a1 = v4;\n    return core::ptr::drop_in_place<alloc::string::String>(a2 + 1);\n  }\n  else\n  {\n    v5 = *(_OWORD *)a2;\n    *(_OWORD *)(a1 + 24) = *((_OWORD *)a2 + 1);\n    *(_OWORD *)(a1 + 8) = v5;\n    *(_QWORD *)a1 = 0LL;\n  }\n  return result;\n}",
+    "_ZN7uu_expr11syntax_tree8NumOrStr14eval_as_string17h12de1e9c78140f1fE": "__int64 __fastcall uu_expr::syntax_tree::NumOrStr::eval_as_string(__int64 a1, __int128 *a2)\n{\n  __int128 v3; // xmm0\n  _OWORD v4[2]; // [rsp+0h] [rbp-28h] BYREF\n\n  if ( __OFSUB__(0LL, *(_QWORD *)a2) )\n  {\n    *(_QWORD *)(a1 + 16) = *((_QWORD *)a2 + 3);\n    *(_OWORD *)a1 = *(__int128 *)((char *)a2 + 8);\n  }\n  else\n  {\n    v3 = *a2;\n    v4[1] = a2[1];\n    v4[0] = v3;\n    <T as alloc::string::SpecToString>::spec_to_string(a1, v4);\n    core::ptr::drop_in_place<num_bigint::bigint::BigInt>(*(_QWORD *)&v4[0], *((_QWORD *)&v4[0] + 1));\n  }\n  return a1;\n}",
+    "_ZN7uu_expr11syntax_tree7AstNode9evaluated17h50cae09c54c1e370E": "__int64 __fastcall uu_expr::syntax_tree::AstNode::evaluated(__int64 a1, __int64 a2)\n{\n  int next_id; // ebp\n  __int128 v4; // [rsp+0h] [rbp-68h]\n  int v5; // [rsp+28h] [rbp-40h] BYREF\n  __int128 v6; // [rsp+30h] [rbp-38h]\n  __int128 v7; // [rsp+40h] [rbp-28h]\n\n  next_id = uu_expr::syntax_tree::get_next_id();\n  uu_expr::syntax_tree::AstNode::eval(&v5, a2);\n  v4 = v6;\n  if ( v5 == 1 )\n  {\n    *(_OWORD *)(a1 + 24) = v7;\n    *(_OWORD *)(a1 + 8) = v4;\n    *(_QWORD *)a1 = 0x8000000000000005LL;\n  }\n  else\n  {\n    *(_OWORD *)(a1 + 16) = v7;\n    *(_OWORD *)a1 = v4;\n    *(_DWORD *)(a1 + 32) = next_id;\n  }\n  core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>(a2);\n  return a1;\n}",
+    "_ZN7uu_expr11syntax_tree7AstNode4eval17h7294554a61514edeE": "__int64 __fastcall uu_expr::syntax_tree::AstNode::eval(__int64 a1, _QWORD *a2)\n{\n  __int64 **v2; // rax\n  __int64 **v3; // rbp\n  __int64 *v4; // r13\n  __int64 v5; // rax\n  unsigned __int64 v6; // rsi\n  __int64 v7; // r14\n  __int64 v8; // rax\n  unsigned __int64 v9; // rsi\n  unsigned int v10; // ebp\n  __int8 v11; // bl\n  __int64 v12; // rax\n  _QWORD *v13; // rbx\n  __int64 v14; // rbx\n  __int128 v15; // xmm0\n  __int64 v16; // rax\n  char **v17; // r14\n  __int64 v18; // rax\n  __int64 v19; // rax\n  __int64 v20; // rdx\n  __int64 v21; // rdx\n  __int64 v22; // r14\n  unsigned int v23; // ebp\n  unsigned int v24; // ebx\n  __int64 v25; // rdx\n  _OWORD *v26; // rcx\n  __int128 v27; // xmm0\n  __int64 v28; // rdi\n  __int64 **v29; // rsi\n  __int64 v30; // rdx\n  __int128 v31; // xmm0\n  __int64 v32; // rax\n  __int128 v33; // xmm0\n  __int64 v34; // rax\n  _BYTE *v35; // rdi\n  __int128 v36; // xmm0\n  __int64 v37; // rax\n  __m256i v39; // [rsp+0h] [rbp-2B8h] BYREF\n  __int64 v40; // [rsp+20h] [rbp-298h]\n  __int64 v41; // [rsp+28h] [rbp-290h]\n  __int64 v42; // [rsp+30h] [rbp-288h] BYREF\n  __int64 **v43; // [rsp+38h] [rbp-280h]\n  __int64 v44; // [rsp+40h] [rbp-278h]\n  _QWORD v45[3]; // [rsp+48h] [rbp-270h] BYREF\n  _BYTE v46[40]; // [rsp+60h] [rbp-258h] BYREF\n  __m256i v47; // [rsp+88h] [rbp-230h]\n  __int64 v48; // [rsp+A8h] [rbp-210h]\n  __m256i v49; // [rsp+B0h] [rbp-208h]\n  __int64 v50; // [rsp+D0h] [rbp-1E8h]\n  __m256i v51; // [rsp+E0h] [rbp-1D8h] BYREF\n  __int64 v52; // [rsp+100h] [rbp-1B8h]\n  _BYTE v53[40]; // [rsp+110h] [rbp-1A8h] BYREF\n  _QWORD *v54; // [rsp+140h] [rbp-178h]\n  _OWORD v55[2]; // [rsp+148h] [rbp-170h] BYREF\n  __int64 v56; // [rsp+168h] [rbp-150h]\n  _BYTE v57[40]; // [rsp+170h] [rbp-148h] BYREF\n  __int128 v58; // [rsp+1A0h] [rbp-118h] BYREF\n  __int128 v59; // [rsp+1B0h] [rbp-108h]\n  __int128 v60; // [rsp+1C0h] [rbp-F8h] BYREF\n  __int128 v61; // [rsp+1D0h] [rbp-E8h]\n  __int128 v62; // [rsp+1E8h] [rbp-D0h] BYREF\n  __int64 v63; // [rsp+1F8h] [rbp-C0h]\n  _OWORD v64[2]; // [rsp+200h] [rbp-B8h] BYREF\n  __int64 v65; // [rsp+220h] [rbp-98h]\n  __m256i v66; // [rsp+230h] [rbp-88h] BYREF\n  __int64 v67; // [rsp+250h] [rbp-68h]\n  _BYTE v68[88]; // [rsp+260h] [rbp-58h] BYREF\n\n  v41 = a1;\n  v2 = (__int64 **)alloc::alloc::Global::alloc_impl(8LL, 8LL);\n  if ( !v2 )\n    alloc::alloc::handle_alloc_error(8LL, 8LL);\n  v54 = a2;\n  *v2 = a2;\n  v42 = 1LL;\n  v43 = v2;\n  v45[0] = 0LL;\n  v45[2] = 0LL;\n  v44 = 0LL;\n  v3 = v2;\n  v4 = *v2;\n  v5 = **v2;\n  v6 = 0LL;\n  if ( (unsigned __int64)(v5 + 0x7FFFFFFFFFFFFFFFLL) < 4 )\n    v6 = v5 ^ 0x8000000000000000LL;\n  v7 = v42;\n  switch ( v6 )\n  {\n    case 0uLL:\nLABEL_10:\n      v10 = *((_DWORD *)v4 + 8);\n      if ( v5 == 0x8000000000000000LL )\n      {\n        <alloc::string::String as core::clone::Clone>::clone(&v39, v4 + 1);\n        *(_OWORD *)v51.m256i_i8 = *(_OWORD *)v39.m256i_i8;\n        v11 = v39.m256i_i8[16];\n        LODWORD(v55[0]) = *(__int32 *)((char *)&v39.m256i_i32[4] + 1);\n        *(_DWORD *)((char *)v55 + 3) = v39.m256i_i32[5];\n        v12 = 0x8000000000000000LL;\n      }\n      else\n      {\n        v11 = *((_BYTE *)v4 + 24);\n        <alloc::vec::Vec<T,A> as core::clone::Clone>::clone(&v39, v4[1], v4[2]);\n        v12 = v39.m256i_i64[0];\n        *(_OWORD *)v51.m256i_i8 = *(_OWORD *)&v39.m256i_u64[1];\n      }\n      *(_QWORD *)&v46[8] = v12;\n      *(_OWORD *)&v46[16] = *(_OWORD *)v51.m256i_i8;\n      v46[32] = v11;\n      *(_DWORD *)&v46[36] = *(_DWORD *)((char *)v55 + 3);\n      *(_DWORD *)&v46[33] = v55[0];\n      *(_QWORD *)v46 = 0LL;\n      alloc::collections::btree::map::BTreeMap<K,V,A>::insert(&v39, v45, v10, v46);\n      goto LABEL_37;\n    case 1uLL:\nLABEL_36:\n      v24 = *((_DWORD *)v4 + 8);\n      <alloc::string::String as core::clone::Clone>::clone(&v39, v4 + 1);\n      *(_QWORD *)&v46[32] = v39.m256i_i64[2];\n      *(_OWORD *)&v46[16] = *(_OWORD *)v39.m256i_i8;\n      *(_QWORD *)&v46[8] = 0x8000000000000000LL;\n      *(_QWORD *)v46 = 0LL;\n      alloc::collections::btree::map::BTreeMap<K,V,A>::insert(&v39, v45, v24, v46);\n      goto LABEL_37;\n    case 2uLL:\nLABEL_38:\n      alloc::collections::btree::map::BTreeMap<K,V,A>::remove(&v51, v45, *(unsigned int *)(v4[2] + 32));\n      alloc::collections::btree::map::BTreeMap<K,V,A>::remove(&v39, v45, *(unsigned int *)(v4[1] + 32));\n      v13 = v4 + 1;\n      *(_QWORD *)&v46[32] = v52;\n      *(__m256i *)v46 = v51;\n      v48 = v40;\n      v47 = v39;\n      if ( v51.m256i_i32[0] != 2 && v47.m256i_i64[0] != 2 )\n      {\n        v65 = *(_QWORD *)&v46[32];\n        v64[1] = *(_OWORD *)&v46[16];\n        v64[0] = *(_OWORD *)v46;\n        v66 = v47;\n        v67 = v48;\n        uu_expr::syntax_tree::BinOp::eval(\n          (__int64)v68,\n          *((_DWORD *)v4 + 6),\n          *((_BYTE *)v4 + 25),\n          (__int64)&v66,\n          (__int64)v64);\n        alloc::collections::btree::map::BTreeMap<K,V,A>::insert(v46, v45, *((unsigned int *)v4 + 8), v68);\n        core::ptr::drop_in_place<core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>>(v46);\n        goto LABEL_6;\n      }\n      core::ptr::drop_in_place<(core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>,core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>)>(v46);\n      alloc::vec::Vec<T,A>::push(&v42, v4, &off_14A8A0);\n      v17 = &off_14A8D0;\n      alloc::vec::Vec<T,A>::push(&v42, v4[2], &off_14A8B8);\n      goto LABEL_42;\n    case 3uLL:\n      while ( 2 )\n      {\n        alloc::collections::btree::map::BTreeMap<K,V,A>::remove(v55, v45, *(unsigned int *)(v4[1] + 32));\n        alloc::collections::btree::map::BTreeMap<K,V,A>::remove(&v51, v45, *(unsigned int *)(v4[2] + 32));\n        alloc::collections::btree::map::BTreeMap<K,V,A>::remove(&v39, v45, *(unsigned int *)(v4[3] + 32));\n        v13 = v4 + 3;\n        *(_QWORD *)&v46[32] = v56;\n        *(_OWORD *)&v46[16] = v55[1];\n        *(_OWORD *)v46 = v55[0];\n        v48 = v52;\n        v47 = v51;\n        v50 = v40;\n        v49 = v39;\n        if ( *(_QWORD *)&v55[0] == 2LL || v47.m256i_i64[0] == 2 || v49.m256i_i64[0] == 2 )\n        {\n          core::ptr::drop_in_place<(core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>,core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>,core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>)>(v46);\n          alloc::vec::Vec<T,A>::push(&v42, v4, &off_14A8E8);\n          alloc::vec::Vec<T,A>::push(&v42, v4[1], &off_14A900);\n          v17 = &off_14A930;\n          alloc::vec::Vec<T,A>::push(&v42, v4[2], &off_14A918);\nLABEL_42:\n          alloc::vec::Vec<T,A>::push(&v42, *v13, v17);\n          goto LABEL_6;\n        }\n        v59 = *(_OWORD *)&v46[24];\n        v58 = *(_OWORD *)&v46[8];\n        *(__m256i *)v57 = v47;\n        *(_QWORD *)&v57[32] = v48;\n        *(__m256i *)v53 = v49;\n        *(_QWORD *)&v53[32] = v50;\n        if ( (v46[0] & 1) != 0 )\n        {\n          v33 = v58;\n          v34 = v41;\n          *(_OWORD *)(v41 + 24) = v59;\n          *(_OWORD *)(v34 + 8) = v33;\n          *(_QWORD *)v34 = 1LL;\n          core::ptr::drop_in_place<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>(v53);\n          v35 = v57;\n        }\n        else\n        {\n          uu_expr::syntax_tree::NumOrStr::eval_as_string((__int64)&v51, &v58);\n          if ( (v57[0] & 1) == 0 )\n          {\n            uu_expr::syntax_tree::NumOrStr::eval_as_bigint((__int64)v46, &v57[8]);\n            if ( *(_DWORD *)v46 == 1 )\n            {\n              core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,uu_expr::ExprError>>(v46);\n              v14 = 0LL;\n              if ( (v53[0] & 1) != 0 )\n              {\nLABEL_21:\n                v15 = *(_OWORD *)&v53[8];\n                v16 = v41;\n                *(_OWORD *)(v41 + 24) = *(_OWORD *)&v53[24];\n                *(_OWORD *)(v16 + 8) = v15;\n                *(_QWORD *)v16 = 1LL;\n                core::ptr::drop_in_place<alloc::string::String>(&v51);\n                goto LABEL_54;\n              }\n            }\n            else\n            {\n              v18 = *(_QWORD *)&v46[8];\n              *(_OWORD *)v39.m256i_i8 = *(_OWORD *)&v46[16];\n              v39.m256i_i64[2] = *(_QWORD *)&v46[32];\n              if ( *(_QWORD *)&v46[8] == 0x8000000000000000LL )\n              {\n                v14 = 0LL;\n                if ( (v53[0] & 1) != 0 )\n                  goto LABEL_21;\n              }\n              else\n              {\n                *(_QWORD *)&v46[24] = v39.m256i_i64[2];\n                *(_OWORD *)&v46[8] = *(_OWORD *)v39.m256i_i8;\n                *(_QWORD *)v46 = v18;\n                v14 = 0LL;\n                if ( (uu_expr::syntax_tree::AstNode::eval::{{closure}}(v46) & 1) != 0 )\n                  v14 = v25;\n                if ( (v53[0] & 1) != 0 )\n                  goto LABEL_21;\n              }\n            }\n            uu_expr::syntax_tree::NumOrStr::eval_as_bigint((__int64)v46, &v53[8]);\n            if ( *(_DWORD *)v46 == 1 )\n            {\n              core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,uu_expr::ExprError>>(v46);\n            }\n            else\n            {\n              v19 = *(_QWORD *)&v46[8];\n              *(_OWORD *)v39.m256i_i8 = *(_OWORD *)&v46[16];\n              v39.m256i_i64[2] = *(_QWORD *)&v46[32];\n              if ( *(_QWORD *)&v46[8] != 0x8000000000000000LL )\n              {\n                *(_QWORD *)&v46[24] = v39.m256i_i64[2];\n                *(_OWORD *)&v46[8] = *(_OWORD *)v39.m256i_i8;\n                *(_QWORD *)v46 = v19;\n                if ( (uu_expr::syntax_tree::AstNode::eval::{{closure}}(v46) & 1) != 0 && v20 != 0 && v14 != 0 )\n                {\n                  *(_QWORD *)v46 = v51.m256i_i64[1];\n                  *(_QWORD *)&v46[8] = v51.m256i_i64[1] + v51.m256i_i64[2];\n                  *(_QWORD *)&v46[16] = v14 - 1;\n                  *(_QWORD *)&v46[24] = v20;\n                  core::iter::traits::iterator::Iterator::collect(&v62, v46);\n                  v30 = *((unsigned int *)v4 + 8);\n                  *(_QWORD *)&v46[32] = v63;\n                  *(_OWORD *)&v46[16] = v62;\n                  *(_QWORD *)&v46[8] = 0x8000000000000000LL;\n                  *(_QWORD *)v46 = 0LL;\n                  alloc::collections::btree::map::BTreeMap<K,V,A>::insert(&v39, v45, v30, v46);\n                  goto LABEL_31;\n                }\n              }\n            }\n            v21 = *((unsigned int *)v4 + 8);\n            *(_QWORD *)&v46[8] = 0x8000000000000000LL;\n            *(_QWORD *)&v46[16] = 0LL;\n            *(_QWORD *)&v46[24] = 1LL;\n            *(_QWORD *)&v46[32] = 0LL;\n            *(_QWORD *)v46 = 0LL;\n            alloc::collections::btree::map::BTreeMap<K,V,A>::insert(&v39, v45, v21, v46);\nLABEL_31:\n            core::ptr::drop_in_place<core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>>(&v39);\n            core::ptr::drop_in_place<alloc::string::String>(&v51);\nLABEL_6:\n            v8 = v44;\n            if ( v44 )\n            {\n              --v44;\n              v7 = v42;\n              v3 = v43;\n              v4 = v43[v8 - 1];\n              v5 = *v4;\n              v9 = 0LL;\n              if ( (unsigned __int64)(*v4 + 0x7FFFFFFFFFFFFFFFLL) < 4 )\n                v9 = *v4 ^ 0x8000000000000000LL;\n              switch ( v9 )\n              {\n                case 0uLL:\n                  goto LABEL_10;\n                case 1uLL:\n                  goto LABEL_36;\n                case 2uLL:\n                  goto LABEL_38;\n                case 3uLL:\n                  continue;\n                case 4uLL:\n                  goto LABEL_32;\n              }\n            }\n            alloc::collections::btree::map::BTreeMap<K,V,A>::remove(v46, v45, *((unsigned int *)v54 + 8));\n            if ( *(_DWORD *)v46 == 2 )\n              core::option::unwrap_failed(&off_14A978);\n            v26 = (_OWORD *)v41;\n            *(_QWORD *)(v41 + 32) = *(_QWORD *)&v46[32];\n            v27 = *(_OWORD *)v46;\n            v26[1] = *(_OWORD *)&v46[16];\n            *v26 = v27;\n            core::ptr::drop_in_place<alloc::collections::btree::map::BTreeMap<u32,core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>>(v45);\n            v28 = v42;\n            v29 = v43;\n            goto LABEL_55;\n          }\n          v36 = *(_OWORD *)&v57[8];\n          v37 = v41;\n          *(_OWORD *)(v41 + 24) = *(_OWORD *)&v57[24];\n          *(_OWORD *)(v37 + 8) = v36;\n          *(_QWORD *)v37 = 1LL;\n          core::ptr::drop_in_place<alloc::string::String>(&v51);\n          v35 = v53;\n        }\n        break;\n      }\n      core::ptr::drop_in_place<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>(v35);\nLABEL_54:\n      core::ptr::drop_in_place<alloc::collections::btree::map::BTreeMap<u32,core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>>(v45);\n      v28 = v7;\n      v29 = v3;\nLABEL_55:\n      core::ptr::drop_in_place<alloc::vec::Vec<u64>>(v28, v29);\n      return v41;\n    case 4uLL:\nLABEL_32:\n      alloc::collections::btree::map::BTreeMap<K,V,A>::remove(v46, v45, *(unsigned int *)(v4[1] + 32));\n      if ( *(_QWORD *)v46 == 2LL )\n      {\n        core::ptr::drop_in_place<core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>>(v46);\n        alloc::vec::Vec<T,A>::push(&v42, v4, &off_14A948);\n        v17 = &off_14A960;\n        v13 = v4 + 1;\n        goto LABEL_42;\n      }\n      v61 = *(_OWORD *)&v46[24];\n      v60 = *(_OWORD *)&v46[8];\n      if ( (v46[0] & 1) != 0 )\n      {\n        v31 = v60;\n        v32 = v41;\n        *(_OWORD *)(v41 + 24) = v61;\n        *(_OWORD *)(v32 + 8) = v31;\n        *(_QWORD *)v32 = 1LL;\n        goto LABEL_54;\n      }\n      uu_expr::syntax_tree::NumOrStr::eval_as_string((__int64)v46, &v60);\n      v22 = <core::str::iter::Chars as core::iter::traits::iterator::Iterator>::count(\n              *(_QWORD *)&v46[8],\n              *(_QWORD *)&v46[8] + *(_QWORD *)&v46[16]);\n      core::ptr::drop_in_place<alloc::string::String>(v46);\n      v23 = *((_DWORD *)v4 + 8);\n      <uu_expr::syntax_tree::NumOrStr as core::convert::From<usize>>::from(&v39, v22);\n      *(__m256i *)&v46[8] = v39;\n      *(_QWORD *)v46 = 0LL;\n      alloc::collections::btree::map::BTreeMap<K,V,A>::insert(&v39, v45, v23, v46);\nLABEL_37:\n      core::ptr::drop_in_place<core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>>(&v39);\n      goto LABEL_6;\n  }\n}",
+    "_ZN7uu_expr11syntax_tree11get_next_id17hf082ef3e5b1b606fE": "// attributes: thunk\n__int64 uu_expr::syntax_tree::get_next_id(void)\n{\n  return std::thread::local::LocalKey<T>::with();\n}",
+    "_ZN7uu_expr11syntax_tree9is_truthy17hefcaac958900f87aE": "__int64 __fastcall uu_expr::syntax_tree::is_truthy(_QWORD *a1)\n{\n  unsigned int v1; // ebx\n  unsigned __int8 *v2; // r14\n  __int64 v3; // r15\n  int v4; // eax\n  unsigned __int8 v5; // al\n  char v6; // al\n  unsigned __int8 *v8; // [rsp+0h] [rbp-38h] BYREF\n  unsigned __int8 *v9; // [rsp+8h] [rbp-30h]\n  __int64 v10; // [rsp+10h] [rbp-28h]\n  char v11; // [rsp+18h] [rbp-20h]\n\n  if ( __OFSUB__(0LL, *a1) )\n  {\n    v2 = (unsigned __int8 *)a1[2];\n    v3 = a1[3];\n    LOBYTE(v1) = 1;\n    if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v2, v3, asc_1D683, 1LL) )\n    {\n      v9 = &v2[v3];\n      if ( v3 )\n      {\n        v8 = v2 + 1;\n        v4 = *v2;\n        if ( v4 == 45 || (LOBYTE(v1) = 1, v4 == 48) )\n        {\n          v5 = core::iter::traits::iterator::Iterator::try_fold(&v8);\n          v1 = <core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq(v5);\n          LOBYTE(v1) = v1 ^ 1;\n        }\n      }\n      else\n      {\n        return 0;\n      }\n    }\n  }\n  else\n  {\n    num_bigint::bigint::convert::<impl core::convert::From<i64> for num_bigint::bigint::BigInt>::from(&v8);\n    v6 = *((_BYTE *)a1 + 24);\n    LOBYTE(v1) = 1;\n    if ( v6 == v11 )\n    {\n      if ( v6 == 1 )\n      {\n        v1 = 0;\n      }\n      else\n      {\n        v1 = alloc::vec::partial_eq::<impl core::cmp::PartialEq<alloc::vec::Vec<U,A2>> for alloc::vec::Vec<T,A1>>::eq(\n               a1[1],\n               a1[2],\n               v9,\n               v10);\n        LOBYTE(v1) = v1 ^ 1;\n      }\n    }\n    core::ptr::drop_in_place<num_bigint::bigint::BigInt>(v8, v9);\n  }\n  return v1;\n}",
+    "_ZN7uu_expr6uu_app17h86f9ff8623407d10E": "void *__fastcall uu_expr::uu_app(void *dest)\n{\n  __int64 v1; // rax\n  _DWORD src[175]; // [rsp+8h] [rbp-830h] BYREF\n  __int64 v4; // [rsp+2C4h] [rbp-574h]\n  int v5; // [rsp+2CCh] [rbp-56Ch]\n  _BYTE desta[700]; // [rsp+2D0h] [rbp-568h] BYREF\n  __int64 v7; // [rsp+58Ch] [rbp-2ACh]\n  int v8; // [rsp+594h] [rbp-2A4h]\n  _BYTE v9[632]; // [rsp+598h] [rbp-2A0h] BYREF\n  int v10; // [rsp+810h] [rbp-28h]\n  int v11; // [rsp+814h] [rbp-24h]\n\n  v1 = uucore::util_name();\n  clap_builder::builder::command::Command::new(src, v1);\n  clap_builder::builder::command::Command::version(desta, src);\n  clap_builder::builder::command::Command::about(src, desta);\n  uucore::format_usage(v9, aExpressionOpti, 28LL);\n  clap_builder::builder::command::Command::override_usage(desta, src);\n  clap_builder::builder::command::Command::after_help(src, desta);\n  memcpy(desta, src, sizeof(desta));\n  v7 = v4 | 0x28008000280080LL;\n  v8 = v5;\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::long(v9, src);\n  clap_builder::builder::arg::Arg::help(src, v9);\n  clap_builder::builder::arg::Arg::action(v9, src, 8LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::long(v9, desta);\n  clap_builder::builder::arg::Arg::help(desta, v9);\n  clap_builder::builder::arg::Arg::action(v9, desta, 5LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::action(v9, src, 1LL);\n  memcpy(src, v9, 0x278uLL);\n  src[158] = v10 | 0x20;\n  src[159] = v11;\n  clap_builder::builder::command::Command::arg(dest, desta);\n  return dest;\n}"
+  },
+  "function_call_counts": {
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$16parse_expression17hd5f39d703e318a8fE": {
+      "uu_expr::syntax_tree::Parser<S>::parse_precedence": 1
+    },
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$16parse_precedence17h425891ff58303efeE": {
+      "uu_expr::syntax_tree::Parser<S>::parse_simple_expression": 1,
+      "uu_expr::syntax_tree::Parser<S>::parse_precedence": 2,
+      "uu_expr::syntax_tree::Parser<S>::accept": 1,
+      "uu_expr::syntax_tree::get_next_id": 1,
+      "alloc::boxed::Box<T>::new": 2,
+      "core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>": 1
+    },
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$23parse_simple_expression17h48250ee92a4d841bE": {
+      "uu_expr::syntax_tree::Parser<S>::next": 3,
+      "uu_expr::syntax_tree::Parser<S>::parse_expression": 9,
+      "alloc::boxed::Box<T>::new": 8,
+      "core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>": 3,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 7,
+      "uu_expr::syntax_tree::AstNode::evaluated": 1,
+      "core::panicking::panic_bounds_check": 2,
+      "<alloc::string::String as core::convert::AsRef<str>>::as_ref": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 3,
+      "core::ptr::drop_in_place<uu_expr::ExprError>": 1,
+      "uu_expr::syntax_tree::get_next_id": 1
+    },
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$4next17hcbcc00427960fc28E": {
+      "core::panicking::panic_bounds_check": 1,
+      "<alloc::string::String as core::convert::AsRef<str>>::as_ref": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1
+    },
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$5parse17hd9457b01c74b6ec9E": {
+      "uu_expr::syntax_tree::Parser<S>::parse_precedence": 1,
+      "<alloc::string::String as core::convert::AsRef<str>>::as_ref": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>": 1
+    },
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$6accept17h4b5ad55db2b3a3a4E": {
+      "<alloc::string::String as core::convert::AsRef<str>>::as_ref": 1,
+      "uu_expr::syntax_tree::Parser<S>::parse_op::{{closure}}": 1
+    },
+    "_ZN7uu_expr6uumain17h3918786314094026E": {
+      "uucore::disable_rust_signal_handlers": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uu_expr::uumain::uumain": 1,
+      "uucore::mods::error::get_exit_code": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 3,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "uucore::execution_phrase": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1
+    },
+    "_ZN7uu_expr6uumain6uumain17h9e42dfdf094b08cdE": {
+      "core::iter::traits::iterator::Iterator::skip": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "uu_expr::uu_app": 1,
+      "clap_builder::builder::command::Command::print_help": 1,
+      "core::ptr::drop_in_place<core::result::Result<(),std::io::error::Error>>": 1,
+      "core::ptr::drop_in_place<clap_builder::builder::command::Command>": 1,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 3,
+      "uucore::util_name": 1,
+      "std::io::stdio::_print": 2,
+      "uu_expr::syntax_tree::Parser<S>::parse": 1,
+      "alloc::boxed::Box<T>::new": 2,
+      "uu_expr::syntax_tree::AstNode::eval": 1,
+      "uu_expr::syntax_tree::NumOrStr::eval_as_string": 1,
+      "core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>": 2,
+      "uu_expr::syntax_tree::is_truthy": 1,
+      "core::ptr::drop_in_place<uu_expr::syntax_tree::NumOrStr>": 1,
+      "uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<alloc::string::String>>": 1
+    },
+    "_ZN7uu_expr11syntax_tree5BinOp4eval17h135374f3f8bf6168E": {
+      "uu_expr::syntax_tree::RelationOp::eval": 1,
+      "uu_expr::syntax_tree::NumericOp::eval": 1,
+      "uu_expr::syntax_tree::StringOp::eval": 1
+    },
+    "_ZN7uu_expr11syntax_tree10RelationOp4eval17he3600cb1c737b18aE": {
+      "core::ptr::drop_in_place<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>": 1,
+      "core::ptr::drop_in_place<uu_expr::syntax_tree::NumOrStr>": 3,
+      "uu_expr::syntax_tree::NumOrStr::to_bigint": 2,
+      "<num_bigint::bigint::BigInt as core::cmp::Ord>::cmp": 4,
+      "alloc::vec::partial_eq::<impl core::cmp::PartialEq<alloc::vec::Vec<U,A2>> for alloc::vec::Vec<T,A1>>::eq": 4,
+      "core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,num_bigint::ParseBigIntError>>": 8,
+      "uu_expr::syntax_tree::NumOrStr::eval_as_string": 2,
+      "<alloc::vec::Vec<T,A1> as core::cmp::PartialOrd<alloc::vec::Vec<T,A2>>>::partial_cmp": 4,
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "<uu_expr::syntax_tree::NumOrStr as core::convert::From<usize>>::from": 2
+    },
+    "_ZN7uu_expr11syntax_tree9NumericOp4eval17h7467ae4d7f97e677E": {
+      "core::ptr::drop_in_place<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>": 1,
+      "uu_expr::syntax_tree::NumOrStr::eval_as_bigint": 2,
+      "num_bigint::bigint::division::<impl core::ops::arith::Div for &num_bigint::bigint::BigInt>::div": 2,
+      "core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,num_bigint::ParseBigIntError>>": 2,
+      "core::ptr::drop_in_place<num_bigint::bigint::BigInt>": 3
+    },
+    "_ZN7uu_expr11syntax_tree8StringOp4eval17h76d6f11cecdfc211E": {
+      "uu_expr::syntax_tree::NumOrStr::eval_as_string": 4,
+      "uu_expr::syntax_tree::check_posix_regex_errors": 1,
+      "alloc::raw_vec::RawVecInner<A>::with_capacity_in": 1,
+      "alloc::string::String::push": 3,
+      "core::str::validations::next_code_point": 3,
+      "<alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<&T,core::slice::iter::Iter<T>>>::spec_extend": 2,
+      "<uu_expr::syntax_tree::NumOrStr as core::convert::From<usize>>::from": 5,
+      "onig::Regex::with_options": 1,
+      "onig::find::<impl onig::Regex>::captures": 1,
+      "uu_expr::syntax_tree::StringOp::eval::{{closure}}": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 2,
+      "onig::Regex::find": 1,
+      "core::option::Option<T>::map_or": 1,
+      "onig::Regex::captures_len": 1,
+      "core::ptr::drop_in_place<onig::Regex>": 1,
+      "core::ptr::drop_in_place<onig::Error>": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 8,
+      "<core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next": 2,
+      "<alloc::string::String as core::clone::Clone>::clone": 1,
+      "core::ptr::drop_in_place<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>": 3,
+      "core::ptr::drop_in_place<uu_expr::syntax_tree::NumOrStr>": 6,
+      "uu_expr::syntax_tree::is_truthy": 4
+    },
+    "_ZN7uu_expr11syntax_tree24check_posix_regex_errors17h83c506dd31e4b1f6E": {
+      "core::str::validations::next_code_point": 2,
+      "core::ptr::drop_in_place<alloc::string::String>": 3,
+      "core::ptr::drop_in_place<uu_expr::ExprError>": 2,
+      "core::str::traits::<impl core::slice::index::SliceIndex<str> for core::ops::range::RangeTo<usize>>::get": 1,
+      "core::str::slice_error_fail": 1,
+      "<char as core::str::pattern::Pattern>::into_searcher": 1,
+      "core::str::iter::SplitInternal<P>::next": 2,
+      "core::option::expect_failed": 1,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 3,
+      "core::str::iter::SplitInternal<P>::get_end": 1,
+      "core::num::<impl i16>::from_ascii_radix": 3,
+      "alloc::string::String::push": 1
+    },
+    "_ZN7uu_expr11syntax_tree8NumOrStr9to_bigint17hc415274c30aae534E": {
+      "num_bigint::bigint::convert::<impl num_traits::Num for num_bigint::bigint::BigInt>::from_str_radix": 1,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone": 1
+    },
+    "_ZN7uu_expr11syntax_tree8NumOrStr14eval_as_bigint17hfc488cc1793399d6E": {
+      "num_bigint::bigint::convert::<impl num_traits::Num for num_bigint::bigint::BigInt>::from_str_radix": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1
+    },
+    "_ZN7uu_expr11syntax_tree8NumOrStr14eval_as_string17h12de1e9c78140f1fE": {
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
+      "core::ptr::drop_in_place<num_bigint::bigint::BigInt>": 1
+    },
+    "_ZN7uu_expr11syntax_tree7AstNode9evaluated17h50cae09c54c1e370E": {
+      "uu_expr::syntax_tree::get_next_id": 1,
+      "uu_expr::syntax_tree::AstNode::eval": 1,
+      "core::ptr::drop_in_place<uu_expr::syntax_tree::AstNode>": 1
+    },
+    "_ZN7uu_expr11syntax_tree7AstNode4eval17h7294554a61514edeE": {
+      "alloc::alloc::Global::alloc_impl": 1,
+      "alloc::alloc::handle_alloc_error": 1,
+      "<alloc::string::String as core::clone::Clone>::clone": 2,
+      "<alloc::vec::Vec<T,A> as core::clone::Clone>::clone": 1,
+      "alloc::collections::btree::map::BTreeMap<K,V,A>::insert": 6,
+      "alloc::collections::btree::map::BTreeMap<K,V,A>::remove": 7,
+      "uu_expr::syntax_tree::BinOp::eval": 1,
+      "core::ptr::drop_in_place<core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>>": 4,
+      "core::ptr::drop_in_place<(core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>,core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>)>": 1,
+      "alloc::vec::Vec<T,A>::push": 7,
+      "core::ptr::drop_in_place<(core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>,core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>,core::option::Option<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>)>": 1,
+      "core::ptr::drop_in_place<core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>": 2,
+      "uu_expr::syntax_tree::NumOrStr::eval_as_string": 2,
+      "uu_expr::syntax_tree::NumOrStr::eval_as_bigint": 2,
+      "core::ptr::drop_in_place<core::result::Result<num_bigint::bigint::BigInt,uu_expr::ExprError>>": 2,
+      "core::ptr::drop_in_place<alloc::string::String>": 4,
+      "uu_expr::syntax_tree::AstNode::eval::{{closure}}": 2,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "core::option::unwrap_failed": 1,
+      "core::ptr::drop_in_place<alloc::collections::btree::map::BTreeMap<u32,core::result::Result<uu_expr::syntax_tree::NumOrStr,uu_expr::ExprError>>>": 2,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u64>>": 1,
+      "<core::str::iter::Chars as core::iter::traits::iterator::Iterator>::count": 1,
+      "<uu_expr::syntax_tree::NumOrStr as core::convert::From<usize>>::from": 1
+    },
+    "_ZN7uu_expr11syntax_tree11get_next_id17hf082ef3e5b1b606fE": {
+      "std::thread::local::LocalKey<T>::with": 1
+    },
+    "_ZN7uu_expr11syntax_tree9is_truthy17hefcaac958900f87aE": {
+      "core::iter::traits::iterator::Iterator::try_fold": 1,
+      "<core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq": 1,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "num_bigint::bigint::convert::<impl core::convert::From<i64> for num_bigint::bigint::BigInt>::from": 1,
+      "alloc::vec::partial_eq::<impl core::cmp::PartialEq<alloc::vec::Vec<U,A2>> for alloc::vec::Vec<T,A1>>::eq": 1,
+      "core::ptr::drop_in_place<num_bigint::bigint::BigInt>": 1
+    },
+    "_ZN7uu_expr6uu_app17h86f9ff8623407d10E": {
+      "uucore::util_name": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "memcpy": 2,
+      "clap_builder::builder::arg::Arg::new": 3,
+      "clap_builder::builder::arg::Arg::long": 2,
+      "clap_builder::builder::arg::Arg::help": 2,
+      "clap_builder::builder::arg::Arg::action": 3,
+      "clap_builder::builder::command::Command::arg": 3
+    }
+  },
+  "macro_call_counts": {
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$16parse_expression17hd5f39d703e318a8fE": {},
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$16parse_precedence17h425891ff58303efeE": {},
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$23parse_simple_expression17h48250ee92a4d841bE": {},
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$4next17hcbcc00427960fc28E": {},
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$5parse17hd9457b01c74b6ec9E": {},
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$6accept17h4b5ad55db2b3a3a4E": {},
+    "_ZN7uu_expr6uumain17h3918786314094026E": {},
+    "_ZN7uu_expr6uumain6uumain17h9e42dfdf094b08cdE": {},
+    "_ZN7uu_expr11syntax_tree5BinOp4eval17h135374f3f8bf6168E": {},
+    "_ZN7uu_expr11syntax_tree10RelationOp4eval17he3600cb1c737b18aE": {},
+    "_ZN7uu_expr11syntax_tree9NumericOp4eval17h7467ae4d7f97e677E": {},
+    "_ZN7uu_expr11syntax_tree8StringOp4eval17h76d6f11cecdfc211E": {},
+    "_ZN7uu_expr11syntax_tree24check_posix_regex_errors17h83c506dd31e4b1f6E": {},
+    "_ZN7uu_expr11syntax_tree8NumOrStr9to_bigint17hc415274c30aae534E": {},
+    "_ZN7uu_expr11syntax_tree8NumOrStr14eval_as_bigint17hfc488cc1793399d6E": {},
+    "_ZN7uu_expr11syntax_tree8NumOrStr14eval_as_string17h12de1e9c78140f1fE": {},
+    "_ZN7uu_expr11syntax_tree7AstNode9evaluated17h50cae09c54c1e370E": {},
+    "_ZN7uu_expr11syntax_tree7AstNode4eval17h7294554a61514edeE": {},
+    "_ZN7uu_expr11syntax_tree11get_next_id17hf082ef3e5b1b606fE": {},
+    "_ZN7uu_expr11syntax_tree9is_truthy17hefcaac958900f87aE": {},
+    "_ZN7uu_expr6uu_app17h86f9ff8623407d10E": {}
+  },
+  "variable_types": {
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$16parse_expression17hd5f39d703e318a8fE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$16parse_precedence17h425891ff58303efeE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_dl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_96": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$23parse_simple_expression17h48250ee92a4d841bE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_88": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_128": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$4next17hcbcc00427960fc28E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$5parse17hd9457b01c74b6ec9E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_48": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_88": [
+        [
+          "array",
+          40
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree15Parser$LT$S$GT$6accept17h4b5ad55db2b3a3a4E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_expr6uumain17h3918786314094026E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_expr6uumain6uumain17h9e42dfdf094b08cdE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_224": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree5BinOp4eval17h135374f3f8bf6168E": {
+      "reg_dl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree10RelationOp4eval17he3600cb1c737b18aE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_64": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_96": [
+        [
+          "array",
+          64
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree9NumericOp4eval17h7467ae4d7f97e677E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree8StringOp4eval17h76d6f11cecdfc211E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_si": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_r12": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_edx": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r14d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r12d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "array",
+          80
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree24check_posix_regex_errors17h83c506dd31e4b1f6E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_edx": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r14d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_cf": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ecx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_bl": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          2
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree8NumOrStr9to_bigint17hc415274c30aae534E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree8NumOrStr14eval_as_bigint17hfc488cc1793399d6E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          48
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree8NumOrStr14eval_as_string17h12de1e9c78140f1fE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          32
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree7AstNode9evaluated17h50cae09c54c1e370E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree7AstNode4eval17h7294554a61514edeE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&reference",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&reference",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebp": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_bl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_96": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_136": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_320": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_328": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_368": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_448": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_464": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_488": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_504": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_512": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_544": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_560": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_592": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_608": [
+        [
+          "array",
+          88
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree11get_next_id17hf082ef3e5b1b606fE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_expr11syntax_tree9is_truthy17hefcaac958900f87aE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7uu_expr6uu_app17h86f9ff8623407d10E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_708": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_716": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_720": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_1420": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1428": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1432": [
+        [
+          "array",
+          632
+        ]
+      ],
+      "stack_2064": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2068": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    }
+  }
+}

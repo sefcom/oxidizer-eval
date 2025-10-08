@@ -1,0 +1,750 @@
+{
+  "decompilation": {
+    "_ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E": "long _ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E(long param_1)\n\n{\n  undefined8 uVar1;\n  undefined auStack_828 [632];\n  uint local_5b0;\n  undefined4 local_5ac;\n  ulong local_56c;\n  undefined4 local_564;\n  undefined local_560 [632];\n  uint local_2e8;\n  undefined4 local_2e4;\n  undefined local_2e0 [712];\n  \n  uVar1 = (*(code *)PTR__ZN6uucore9util_name17h074417a1e6395129E_001e4d48)();\n  _ZN12clap_builder7builder7command7Command3new17h981273b5e07a6a17E(local_2e0,uVar1);\n  _ZN12clap_builder7builder7command7Command7version17h718c87c5d51c1e7fE(auStack_828,local_2e0);\n  _ZN12clap_builder7builder7command7Command5about17hc21fc57f17db85f4E(local_2e0,auStack_828);\n  _ZN12clap_builder7builder7command7Command10after_help17h644b19a871734a41E(auStack_828,local_2e0);\n                    /* try { // try from 00156894 to 001568ad has its CatchHandler @ 0015699b */\n  (*(code *)PTR__ZN6uucore12format_usage17he053403a896311edE_001e4e40)\n            (local_560,\"{} COMMAND [ARG]...\\n{} OPTION\",0x1d);\n  _ZN12clap_builder7builder7command7Command14override_usage17h2684d3db08a78274E\n            (local_2e0,auStack_828,local_560);\n  _ZN12clap_builder7builder3arg3Arg3new17h548695783e35bc0eE(auStack_828);\n  (*(code *)PTR_memcpy_001e4cf8)(local_560,auStack_828,0x278);\n  local_2e8 = local_5b0 | 5;\n  local_2e4 = local_5ac;\n  _ZN12clap_builder7builder3arg3Arg6action17h44213a50f0145d8cE(auStack_828,local_560);\n                    /* try { // try from 00156917 to 00156926 has its CatchHandler @ 00156989 */\n  _ZN12clap_builder7builder3arg3Arg10value_hint17hdacfd02738c32f18E(local_560,auStack_828);\n  _ZN12clap_builder7builder7command7Command3arg17ha415107f2087353eE(auStack_828,local_2e0,local_560)\n  ;\n  (*(code *)PTR_memcpy_001e4cf8)(param_1,auStack_828,700);\n  *(ulong *)(param_1 + 700) = local_56c | 0x80000000a0;\n  *(undefined4 *)(param_1 + 0x2c4) = local_564;\n  return param_1;\n}",
+    "_ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E": "undefined  [16] _ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E(void)\n\n{\n  undefined auVar1 [16];\n  char cVar2;\n  int iVar3;\n  int iVar4;\n  uint *puVar5;\n  undefined8 uVar6;\n  ulong extraout_RDX;\n  ulong extraout_RDX_00;\n  ulong uVar7;\n  undefined auVar8 [16];\n  undefined auVar9 [16];\n  undefined auVar10 [16];\n  undefined8 local_40;\n  char *local_38;\n  undefined8 local_30;\n  ulong local_28;\n  \n  (*(code *)PTR__ZN3std2io5stdio5stdin17h9a05a2c3e7544b2aE_001e4e48)();\n  cVar2 = _ZN3std3sys2io11is_terminal6isatty11is_terminal17h046b5b5b5fb1a26bE();\n  if (cVar2 != '\\0') {\n    _ZN3std2fs4File4open17h2416ede482a4a2f7E(&local_40);\n    local_28 = (ulong)local_38;\n    if ((local_40 & 1) != 0) {\n      local_38 = \"STDIN\";\n      local_30 = 5;\n      goto LAB_00156b38;\n    }\n    iVar4 = local_40._4_4_;\n    iVar3 = (*(code *)PTR_dup2_001e4e50)(local_40._4_4_,0);\n    if (iVar3 != 0) {\n      puVar5 = (uint *)(*(code *)PTR___errno_location_001e4e58)();\n      local_28 = (ulong)*puVar5 << 0x20 | 2;\n      local_38 = \"STDIN\";\n      local_30 = 5;\n      local_40 = 0x8000000000000001;\n                    /* try { // try from 00156a70 to 00156a79 has its CatchHandler @ 00156bb2 */\n      uVar6 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hea0f551513cd90e2E(&local_40);\n      goto LAB_00156b94;\n    }\n    _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17h184ce9d8bb619024E(iVar4);\n  }\n  (*(code *)PTR__ZN3std2io5stdio6stdout17hb6a8e10bcccf3287E_001e4db0)();\n  cVar2 = _ZN3std3sys2io11is_terminal6isatty11is_terminal17hcf7d6d4c2f7f995eE();\n  if (cVar2 != '\\0') {\n    _ZN8uu_nohup11find_stdout17hadffd7477f170ba3E(&local_40);\n    if (local_40 != 0) {\n      auVar8._8_8_ = local_38;\n      auVar8._0_8_ = local_40;\n      return auVar8;\n    }\n    iVar4 = (int)local_38;\n    iVar3 = (*(code *)PTR_dup2_001e4e50)((ulong)local_38 & 0xffffffff,1);\n    if (iVar3 != 1) {\n      puVar5 = (uint *)(*(code *)PTR___errno_location_001e4e58)();\n      local_28 = (ulong)*puVar5 << 0x20 | 2;\n      local_38 = \"STDOUT: \";\n      local_30 = 6;\n      local_40 = 0x8000000000000001;\n                    /* try { // try from 00156b8a to 00156b93 has its CatchHandler @ 00156bb0 */\n      uVar6 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hea0f551513cd90e2E(&local_40);\nLAB_00156b94:\n      _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17h184ce9d8bb619024E(iVar4);\n      auVar10._8_8_ =\n           &PTR__ZN4core3ptr41drop_in_place_LT_uu_nohup__NohupError_GT_17h1aac36d21234ba1dE_001debb0\n      ;\n      auVar10._0_8_ = uVar6;\n      return auVar10;\n    }\n    _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17h184ce9d8bb619024E((int)local_38);\n  }\n  cVar2 = _ZN3std3sys2io11is_terminal6isatty11is_terminal17h8f1b5f7a0186fa4cE();\n  uVar7 = extraout_RDX;\n  if (cVar2 != '\\0') {\n    iVar4 = (*(code *)PTR_dup2_001e4e50)(1,2);\n    uVar7 = extraout_RDX_00;\n    if (iVar4 != 2) {\n      puVar5 = (uint *)(*(code *)PTR___errno_location_001e4e58)();\n      local_28 = (ulong)*puVar5 << 0x20 | 2;\n      local_38 = \"STDERR\";\n      local_30 = 6;\nLAB_00156b38:\n      local_40 = 0x8000000000000001;\n      auVar9._0_8_ = _ZN5alloc5boxed12Box_LT_T_GT_3new17hea0f551513cd90e2E(&local_40);\n      auVar9._8_8_ = &\n                     PTR__ZN4core3ptr41drop_in_place_LT_uu_nohup__NohupError_GT_17h1aac36d21234ba1dE_001debb0\n      ;\n      return auVar9;\n    }\n  }\n  auVar1._8_8_ = 0;\n  auVar1._0_8_ = uVar7;\n  return auVar1 << 0x40;\n}",
+    "_ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E": "long _ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E(undefined8 param_1,undefined8 param_2)\n\n{\n  code *pcVar1;\n  int iVar2;\n  long lVar3;\n  undefined4 local_360;\n  undefined4 uStack_35c;\n  undefined4 uStack_358;\n  undefined4 uStack_354;\n  undefined4 local_350;\n  undefined4 uStack_34c;\n  undefined4 uStack_348;\n  undefined4 uStack_344;\n  undefined4 uStack_340;\n  undefined4 uStack_33c;\n  undefined4 uStack_338;\n  undefined4 uStack_334;\n  undefined4 uStack_330;\n  undefined4 local_32c;\n  undefined4 uStack_328;\n  undefined4 uStack_324;\n  undefined local_320 [16];\n  undefined4 local_310;\n  undefined4 local_2fc;\n  undefined4 uStack_2f8;\n  undefined4 uStack_2f4;\n  undefined4 uStack_2f0;\n  undefined4 local_2ec;\n  undefined4 local_2e8;\n  undefined4 uStack_2e4;\n  undefined4 uStack_2e0;\n  undefined4 uStack_2dc;\n  undefined4 local_2d8;\n  undefined4 uStack_2d4;\n  undefined4 uStack_2d0;\n  undefined4 uStack_2cc;\n  undefined4 local_2c8;\n  undefined4 uStack_2c4;\n  undefined4 uStack_2c0;\n  undefined4 uStack_2bc;\n  undefined4 local_2b8;\n  undefined4 uStack_2b4;\n  undefined4 uStack_2b0;\n  undefined4 uStack_2ac;\n  \n  (*(code *)PTR__ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E_001e4d68)(&local_2e8);\n  _ZN12clap_builder7builder7command7Command20try_get_matches_from17h13de5036085f0ef3E\n            (&local_360,&local_2e8,param_1,param_2);\n  local_2fc = uStack_33c;\n  uStack_2f8 = uStack_338;\n  uStack_2f4 = uStack_334;\n  uStack_2f0 = uStack_330;\n  local_2ec = local_32c;\n  local_310 = local_350;\n                    /* try { // try from 001542c7 to 001542cc has its CatchHandler @ 0015444f */\n  lVar3 = (*(code *)PTR__ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E_001e4d70)();\n  if (lVar3 != 0) {\n    _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17h2ae17a9f6073f8efE\n              (local_320);\n    return lVar3;\n  }\n  (*(code *)PTR_signal_001e4d78)(1,1);\n                    /* try { // try from 001542fd to 00154372 has its CatchHandler @ 0015444f */\n  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h64fb2621c0592c05E\n            (&local_2e8,local_320);\n  _ZN12clap_builder6parser5error12MatchesError6unwrap17h03d1525767c0830fE(&local_360,&local_2e8);\n  if (CONCAT44(uStack_35c,local_360) == 0) {\n                    /* try { // try from 00154404 to 00154410 has its CatchHandler @ 0015444f */\n    (*(code *)PTR__ZN4core6option13unwrap_failed17h893f57cb7db71cb7E_001e4d90)\n              (&PTR_s__home_34r7hm4n_dev_oxidizer_oxid_001de208);\n  }\n  else {\n    local_2b8 = uStack_330;\n    uStack_2b4 = local_32c;\n    uStack_2b0 = uStack_328;\n    uStack_2ac = uStack_324;\n    local_2c8 = uStack_340;\n    uStack_2c4 = uStack_33c;\n    uStack_2c0 = uStack_338;\n    uStack_2bc = uStack_334;\n    local_2d8 = local_350;\n    uStack_2d4 = uStack_34c;\n    uStack_2d0 = uStack_348;\n    uStack_2cc = uStack_344;\n    local_2e8 = local_360;\n    uStack_2e4 = uStack_35c;\n    uStack_2e0 = uStack_358;\n    uStack_2dc = uStack_354;\n    _ZN4core4iter6traits8iterator8Iterator7collect17ha7b23250fe83d133E(&local_360,&local_2e8);\n                    /* try { // try from 00154384 to 00154390 has its CatchHandler @ 00154426 */\n    _ZN4core4iter6traits8iterator8Iterator7collect17h986ce61074ee98cdE\n              (&local_2e8,CONCAT44(uStack_354,uStack_358),\n               CONCAT44(uStack_34c,local_350) * 0x10 + CONCAT44(uStack_354,uStack_358));\n                    /* try { // try from 00154391 to 001543cb has its CatchHandler @ 0015442b */\n    _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17he0f547bf2c815009E(&local_2e8);\n    if (CONCAT44(uStack_2d4,local_2d8) != 0) {\n      iVar2 = (*(code *)PTR_execvp_001e4d80)(*(undefined8 *)CONCAT44(uStack_2dc,uStack_2e0));\n      (*(code *)PTR__ZN6uucore4mods5error13set_exit_code17hbbe6ffc423a314f1E_001e4d88)\n                (iVar2 == 2 | 0x7e);\n      _ZN4core3ptr49drop_in_place_LT_alloc__vec__Vec_LT_usize_GT__GT_17h4cbb849d5961f95bE\n                (CONCAT44(uStack_2e4,local_2e8),CONCAT44(uStack_2dc,uStack_2e0));\n      _ZN4core3ptr70drop_in_place_LT_alloc__vec__Vec_LT_alloc__ffi__c_str__CString_GT__GT_17h1140044b68f73ffcE\n                (&local_360);\n      _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17h2ae17a9f6073f8efE\n                (local_320);\n      return 0;\n    }\n                    /* try { // try from 00154413 to 00154423 has its CatchHandler @ 0015442b */\n    (*(code *)PTR__ZN4core9panicking18panic_bounds_check17h025cadc56a971af7E_001e4ba8)\n              (0,0,&PTR_s__home_34r7hm4n_dev_oxidizer_oxid_001de238);\n  }\n                    /* WARNING: Does not return */\n  pcVar1 = (code *)invalidInstructionException();\n  (*pcVar1)();\n}",
+    "_ZN8uu_nohup6uumain17hbe703f46f3d16b73E": "undefined4 _ZN8uu_nohup6uumain17hbe703f46f3d16b73E(undefined8 param_1,undefined8 param_2)\n\n{\n  char cVar1;\n  undefined4 uVar2;\n  undefined local_98 [16];\n  undefined **local_88;\n  undefined8 local_80;\n  undefined8 ***local_78;\n  undefined8 local_70;\n  undefined8 local_68;\n  undefined8 ***local_58;\n  code *pcStack_50;\n  undefined8 local_48;\n  undefined local_38 [16];\n  undefined8 local_28;\n  undefined8 ***local_20;\n  code *local_18;\n  \n  uVar2 = (*(code *)PTR__ZN6uucore28disable_rust_signal_handlers17hcf33f4a6d6e443c4E_001e4d40)();\n  _ZN4core6result19Result_LT_T_C_E_GT_6expect17h4f55ca5a1de17ec7E(uVar2);\n  local_98 = _ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E(param_1,param_2);\n  if (local_98._0_8_ == 0) {\n    return _ZN6uucore4mods5error9EXIT_CODE17hcdc285b475eac33eE_0;\n  }\n  pcStack_50 = \n  _ZN69__LT_alloc__boxed__Box_LT_T_C_A_GT__u20_as_u20_core__fmt__Display_GT_3fmt17h48854978e5320c88E\n  ;\n  local_88 = (undefined **)&DAT_00117b00;\n  local_80 = 1;\n  local_68 = 0;\n  local_70 = 1;\n                    /* try { // try from 0015405f to 00154070 has its CatchHandler @ 001541fe */\n  local_78 = &local_58;\n  local_58 = (undefined8 ***)local_98;\n  _ZN4core6option15Option_LT_T_GT_11map_or_else17h74d9f230e380178dE(local_38,&local_88);\n  local_58 = (undefined8 ***)local_38._0_8_;\n  pcStack_50 = (code *)local_38._8_8_;\n  local_48 = local_28;\n  cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hf03f9b55eedef8beE\n                    (local_38._8_8_,local_28,1,0);\n  if (cVar1 == '\\0') {\n                    /* try { // try from 0015409e to 001541c1 has its CatchHandler @ 00154203 */\n    local_38 = (*(code *)PTR__ZN6uucore9util_name17h074417a1e6395129E_001e4d48)();\n    local_18 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h5c297fd59d55f657E;\n    local_88 = (undefined **)&DAT_001de190;\n    local_80 = 2;\n    local_68 = 0;\n    local_78 = &local_20;\n    local_70 = 1;\n    local_20 = (undefined8 ***)local_38;\n    (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_001e4d50)(&local_88);\n    local_38._8_8_ =\n         _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E;\n    local_88 = (undefined **)&DAT_001de1b0;\n    local_80 = 2;\n    local_68 = 0;\n    local_70 = 1;\n    local_78 = (undefined8 ***)local_38;\n    local_38._0_8_ = &local_58;\n    (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_001e4d50)(&local_88);\n  }\n  cVar1 = (**(code **)(local_98._8_8_ + 0x60))(local_98._0_8_);\n  if (cVar1 != '\\0') {\n    local_38 = (*(code *)PTR__ZN6uucore16execution_phrase17hf0e80cb4793732adE_001e4d58)();\n    local_18 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h5c297fd59d55f657E;\n    local_88 = &PTR_s_Try_____help__for_more_informati_001de1d0;\n    local_80 = 2;\n    local_68 = 0;\n    local_78 = &local_20;\n    local_70 = 1;\n    local_20 = (undefined8 ***)local_38;\n    (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_001e4d50)(&local_88);\n  }\n  uVar2 = (**(code **)(local_98._8_8_ + 0x58))(local_98._0_8_);\n  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h59f2ef44d25a3f5cE(local_58,pcStack_50);\n  _ZN4core3ptr105drop_in_place_LT_alloc__boxed__Box_LT_dyn_u20_clap_builder__builder__value_parser__AnyValueParser_GT__GT_17h1b36c152713e8919E\n            (local_98._0_8_,local_98._8_8_);\n  return uVar2;\n}",
+    "_ZN8uu_nohup11find_stdout17hadffd7477f170ba3E": "void _ZN8uu_nohup11find_stdout17hadffd7477f170ba3E(undefined8 *param_1)\n\n{\n  code *pcVar1;\n  byte bVar2;\n  undefined8 *puVar3;\n  undefined8 **ppuVar4;\n  undefined8 uVar5;\n  int iVar6;\n  undefined **local_f8;\n  undefined8 *puStack_f0;\n  undefined8 **local_e8;\n  undefined8 *local_e0;\n  undefined8 local_d8;\n  int local_d0;\n  undefined8 *local_c8;\n  code *pcStack_c0;\n  undefined8 local_b8;\n  undefined local_b0 [16];\n  undefined8 uStack_a0;\n  undefined local_98;\n  undefined7 uStack_97;\n  undefined8 *local_90;\n  code *local_88;\n  undefined8 *local_80;\n  undefined8 local_78;\n  undefined4 local_70;\n  undefined2 local_6c;\n  undefined8 local_68;\n  undefined4 local_60;\n  undefined2 local_5c;\n  int local_58;\n  undefined4 local_54;\n  undefined8 *local_50;\n  int local_48;\n  undefined4 local_44;\n  undefined8 local_40;\n  undefined8 local_38;\n  \n  _ZN3std3env3var17h9bd4fb999c9dbe8dE(&local_f8,\"POSIXLY_CORRECT\",0xf);\n  bVar2 = (byte)local_f8;\n  _ZN4core3ptr91drop_in_place_LT_core__result__Result_LT_alloc__string__String_C_std__env__VarError_GT__GT_17he0e3335e5b80ba06E\n            (&local_f8);\n  local_78 = 0x1b600000000;\n  local_6c = 1;\n  local_70 = 0x10000;\n  _ZN3std2fs11OpenOptions4open17h9017e185fad19e88E(&local_58,&local_78,\"nohup.out\",9);\n  if (local_58 == 1) {\n    local_80 = local_50;\n                    /* try { // try from 00156c7a to 00156c8f has its CatchHandler @ 0015702c */\n    _ZN3std3env3var17h9bd4fb999c9dbe8dE(local_b0,&DAT_00117230,4);\n    iVar6 = (uint)(bVar2 ^ 1) * 2 + 0x7d;\n    if (local_b0._0_8_ == 1) {\n      local_e8 = (undefined8 **)CONCAT44(local_e8._4_4_,iVar6);\n      puStack_f0 = local_50;\n      local_f8 = (undefined **)0x8000000000000002;\n                    /* try { // try from 00156cc7 to 00156cce has its CatchHandler @ 00157006 */\n      uVar5 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hea0f551513cd90e2E(&local_f8);\n      *param_1 = uVar5;\n      param_1[1] = &\n                   PTR__ZN4core3ptr41drop_in_place_LT_uu_nohup__NohupError_GT_17h1aac36d21234ba1dE_001debb0\n      ;\n      _ZN4core3ptr91drop_in_place_LT_core__result__Result_LT_alloc__string__String_C_std__env__VarError_GT__GT_17he0e3335e5b80ba06E\n                (local_b0);\n    }\n    else {\n      local_b8 = CONCAT71(uStack_97,local_98);\n      local_c8 = (undefined8 *)local_b0._8_8_;\n      pcStack_c0 = (code *)uStack_a0;\n                    /* try { // try from 00156de3 to 00156e5a has its CatchHandler @ 00157043 */\n      _ZN3std4path7PathBuf4push17h7e011101ff3a8e62E(&local_c8);\n      (*(code *)PTR__ZN4core3str8converts9from_utf817h8a6dc80f786921e0E_001e4be8)\n                (&local_f8,pcStack_c0,local_b8);\n      ppuVar4 = local_e8;\n      puVar3 = puStack_f0;\n      if (((ulong)local_f8 & 1) != 0) {\n                    /* try { // try from 00156fc1 to 00156fcd has its CatchHandler @ 00157043 */\n        (*(code *)PTR__ZN4core6option13unwrap_failed17h893f57cb7db71cb7E_001e4d90)\n                  (&PTR_s_src_uu_nohup_src_nohup_rs_001dec58);\n                    /* WARNING: Does not return */\n        pcVar1 = (code *)invalidInstructionException();\n        (*pcVar1)();\n      }\n      local_68 = 0x1b600000000;\n      local_5c = 1;\n      local_60 = 0x10000;\n      _ZN3std2fs11OpenOptions4open17hc8219ae85e6b165dE(&local_48,&local_68,&local_c8);\n      if (local_48 == 1) {\n        local_38 = local_40;\n        local_90 = local_50;\n                    /* try { // try from 00156e7a to 00156e89 has its CatchHandler @ 00156fd5 */\n        _ZN87__LT_T_u20_as_u20_alloc__slice___LT_impl_u20__u5b_T_u5d__GT___to_vec_in__ConvertVec_GT_6to_vec17hd404e6f6c4fd17c6E\n                  (local_b0,puStack_f0,local_e8);\n        local_e8 = (undefined8 **)uStack_a0;\n        local_e0 = local_50;\n        local_d8 = local_40;\n        local_d0 = iVar6;\n                    /* try { // try from 00156eac to 00156eb3 has its CatchHandler @ 00156fd0 */\n        uVar5 = _ZN5alloc5boxed12Box_LT_T_GT_3new17hea0f551513cd90e2E(&local_f8);\n        *param_1 = uVar5;\n        param_1[1] = &\n                     PTR__ZN4core3ptr41drop_in_place_LT_uu_nohup__NohupError_GT_17h1aac36d21234ba1dE_001debb0\n        ;\n        _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17he63e5d41399ae48fE\n                  (local_c8,pcStack_c0);\n      }\n      else {\n                    /* try { // try from 00156edd to 00156f98 has its CatchHandler @ 00157020 */\n        local_b0 = (*(code *)PTR__ZN6uucore9util_name17h074417a1e6395129E_001e4d48)();\n        local_88 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h2ca060958355d931E;\n        local_f8 = (undefined **)&DAT_001dec18;\n        puStack_f0 = (undefined8 *)0x2;\n        local_d8 = 0;\n        local_e0 = (undefined8 *)0x1;\n        local_e8 = &local_90;\n        local_90 = (undefined8 *)local_b0;\n        (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_001e4d50)(&local_f8);\n        local_b0._0_8_ = 0;\n        local_b0._8_8_ = puVar3;\n        uStack_a0 = ppuVar4;\n        local_98 = 1;\n        local_88 = (code *)\n                   PTR__ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17ha3782f403933d3a5E_001e4e60\n        ;\n        local_f8 = &PTR_s_ignoring_input_and_appending_out_001dec38;\n        puStack_f0 = (undefined8 *)0x2;\n        local_d8 = 0;\n        local_e0 = (undefined8 *)0x1;\n        local_e8 = &local_90;\n        local_90 = (undefined8 *)local_b0;\n        (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_001e4d50)(&local_f8);\n        *(undefined4 *)(param_1 + 1) = local_44;\n        *param_1 = 0;\n        _ZN4core3ptr39drop_in_place_LT_std__path__PathBuf_GT_17he63e5d41399ae48fE\n                  (local_c8,pcStack_c0);\n        _ZN4core3ptr42drop_in_place_LT_std__io__error__Error_GT_17hb34077f862f5102eE(&local_80);\n      }\n    }\n  }\n  else {\n                    /* try { // try from 00156cf3 to 00156db2 has its CatchHandler @ 00157031 */\n    local_b0 = (*(code *)PTR__ZN6uucore9util_name17h074417a1e6395129E_001e4d48)();\n    pcStack_c0 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h2ca060958355d931E;\n    local_f8 = (undefined **)&DAT_001dec18;\n    puStack_f0 = (undefined8 *)0x2;\n    local_d8 = 0;\n    local_e0 = (undefined8 *)0x1;\n    local_e8 = &local_c8;\n    local_c8 = (undefined8 *)local_b0;\n    (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_001e4d50)(&local_f8);\n    local_b0._0_8_ = 0;\n    local_b0._8_8_ = \"nohup.out\";\n    uStack_a0 = 9;\n    local_98 = 1;\n    pcStack_c0 = (code *)\n                 PTR__ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17ha3782f403933d3a5E_001e4e60\n    ;\n    local_f8 = &PTR_s_ignoring_input_and_appending_out_001dec38;\n    puStack_f0 = (undefined8 *)0x2;\n    local_d8 = 0;\n    local_e0 = (undefined8 *)0x1;\n    local_e8 = &local_c8;\n    local_c8 = (undefined8 *)local_b0;\n    (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_001e4d50)(&local_f8);\n    *(undefined4 *)(param_1 + 1) = local_54;\n    *param_1 = 0;\n  }\n  return;\n}"
+  },
+  "function_call_counts": {
+    "_ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E": {
+      "clap_builder::builder::command::Command::arg": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "clap_builder::builder::arg::Arg::action": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::arg::Arg::new": 1
+    },
+    "_ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E": {
+      "std::fs::File::open": 1,
+      "std::sys::io::is_terminal::isatty::is_terminal": 1,
+      "alloc::boxed::Box<T>::new": 3,
+      "uu_nohup::find_stdout": 1,
+      "core::ptr::drop_in_place<std::fs::File>": 3
+    },
+    "_ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E": {
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 2,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<usize>>": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<alloc::ffi::c_str::CString>>": 1,
+      "alloc::vec::Vec<T,A>::push": 1
+    },
+    "_ZN8uu_nohup6uumain17hbe703f46f3d16b73E": {
+      "core::option::Option<T>::map_or_else": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uu_nohup::uumain::uumain": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1
+    },
+    "_ZN8uu_nohup11find_stdout17hadffd7477f170ba3E": {
+      "std::fs::OpenOptions::open": 1,
+      "std::env::var": 2,
+      "alloc::boxed::Box<T>::new": 2,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>": 2,
+      "std::path::PathBuf::push": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E": {},
+    "_ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E": {},
+    "_ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E": {},
+    "_ZN8uu_nohup6uumain17hbe703f46f3d16b73E": {},
+    "_ZN8uu_nohup11find_stdout17hadffd7477f170ba3E": {}
+  },
+  "variable_types": {
+    "_ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E": {
+      "stack_712": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_716": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_80": [
+        [
+          "array",
+          632
+        ]
+      ],
+      "stack_76": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_68": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_720": [
+        [
+          "array",
+          712
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_-632": [
+        [
+          "array",
+          632
+        ]
+      ]
+    },
+    "_ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E": {
+      "stack_108": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_52": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_172": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_156": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_132": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_116": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_36": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_180": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_64": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_44": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_60": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_140": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_28": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_100": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_164": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_148": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_124": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN8uu_nohup6uumain17hbe703f46f3d16b73E": {
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_nohup11find_stdout17hadffd7477f170ba3E": {
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_97": [
+        [
+          "primitive",
+          7
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_72": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_156": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_180": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_140": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_164": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

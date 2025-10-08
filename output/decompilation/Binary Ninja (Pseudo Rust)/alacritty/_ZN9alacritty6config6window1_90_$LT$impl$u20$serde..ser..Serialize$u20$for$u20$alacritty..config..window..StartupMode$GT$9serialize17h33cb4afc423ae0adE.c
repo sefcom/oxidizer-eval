@@ -1,0 +1,28 @@
+
+  fn alacritty::config::window::_::_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alacritty..config..window..StartupMode$GT$::serialize::h33cb4afc423ae0ad(arg1: i8, arg2: *mut i64) -> i64
+
+{
+    match arg1
+    {
+        0 =>
+        {
+            /* tailcall */
+            _$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$::serialize_unit_variant::h9902c65e3ba750b4(arg2, "WindowedWRITABLECommands, group=…", 8)
+        }
+        1 =>
+        {
+            /* tailcall */
+            _$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$::serialize_unit_variant::h9902c65e3ba750b4(arg2, "MaximizedFullscreenone of `Full`…", 9)
+        }
+        2 =>
+        {
+            /* tailcall */
+            _$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$::serialize_unit_variant::h9902c65e3ba750b4(arg2, "Fullscreenone of `Full`, `Transp…", 0xa)
+        }
+        3 =>
+        {
+            /* tailcall */
+            _$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$::serialize_unit_variant::h9902c65e3ba750b4(arg2, "SimpleFullscreenactive seat lost", 0x10)
+        }
+    }
+}

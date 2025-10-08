@@ -1,0 +1,747 @@
+{
+  "decompilation": {
+    "_ZN8uu_chown10parse_spec17h35c2058a4fb20997E": "void _ZN8uu_chown10parse_spec17h35c2058a4fb20997E\n               (undefined4 *param_1,undefined8 param_2,undefined8 param_3,undefined4 param_4)\n\n{\n  code *pcVar1;\n  undefined **ppuVar2;\n  char cVar3;\n  byte bVar4;\n  undefined4 uVar5;\n  uint uVar6;\n  ulong extraout_RDX;\n  long lVar7;\n  long lVar8;\n  long lVar9;\n  undefined auVar10 [16];\n  undefined4 local_134;\n  undefined4 *local_130;\n  undefined **local_128;\n  undefined **local_120;\n  undefined8 **local_118;\n  undefined8 local_110;\n  undefined8 local_108;\n  undefined8 *local_f8;\n  undefined *local_f0;\n  undefined8 local_e8;\n  undefined8 local_e0;\n  undefined8 local_d8;\n  undefined local_d0;\n  undefined **local_c8;\n  undefined8 uStack_c0;\n  undefined8 local_b8;\n  undefined8 uStack_b0;\n  long local_a0;\n  undefined8 local_98;\n  undefined8 local_90;\n  undefined local_88 [48];\n  undefined2 local_58;\n  undefined local_50 [24];\n  undefined4 local_38;\n  \n  local_134 = param_4;\n  cVar3 = _ZN56__LT_char_u20_as_u20_core__slice__cmp__SliceContains_GT_14slice_contains17h2af8667b79ce998cE\n                    (&local_134);\n  if (cVar3 == '\\0') {\n    (*(code *)PTR__ZN4core9panicking5panic17h85d6dd562679980cE_001fd048)\n              (\"assertion failed: [\\'.\\', \\':\\'].contains(&sep)\",0x2b,\n               &PTR_s_src_uu_chown_src_chown_rs_001f5fc0);\n    pcVar1 = (code *)swi(3);\n    (*pcVar1)();\n    return;\n  }\n  _ZN52__LT_char_u20_as_u20_core__str__pattern__Pattern_GT_13into_searcher17h19abee4db16fb58dE\n            (local_88,param_4,param_2,param_3);\n  local_98 = 0;\n  local_58 = 1;\n  local_a0 = 1;\n  local_90 = param_3;\n  auVar10 = _ZN4core3str4iter22SplitInternal_LT_P_GT_4next17hf71c92c096863657E(&local_98);\n  if (auVar10._0_8_ == 0) {\n    auVar10 = ZEXT816(1);\n  }\n  lVar9 = auVar10._8_8_;\n  ppuVar2 = auVar10._0_8_;\n  local_130 = param_1;\n  if (local_a0 == 0) {\n    lVar7 = 0;\n  }\n  else if (local_a0 == 1) {\n    local_a0 = 0;\n    auVar10 = _ZN4core3str4iter22SplitInternal_LT_P_GT_7get_end17h74cf200cf9f6e638E(&local_98);\n    param_1 = auVar10._8_8_;\n    lVar7 = auVar10._0_8_;\n  }\n  else {\n    local_a0 = local_a0 + -1;\n    auVar10 = _ZN4core3str4iter22SplitInternal_LT_P_GT_4next17hf71c92c096863657E(&local_98);\n    param_1 = auVar10._8_8_;\n    lVar7 = auVar10._0_8_;\n  }\n  if (lVar7 == 0) {\n    param_1 = (undefined4 *)0x0;\n  }\n  _ZN8uu_chown9parse_uid17h01027c14780af233E(&local_128,ppuVar2,lVar9,param_2,param_3,local_134);\n  if (local_128 == (undefined **)0x0) {\n    lVar8 = 1;\n    if (lVar7 != 0) {\n      lVar8 = lVar7;\n    }\n    local_b8 = local_120;\n    uStack_b0 = 0;\n    _ZN8uu_chown9parse_gid17h180219f2ead778f4E(&local_128,lVar8,param_1,param_2,param_3);\n    if (local_128 == (undefined **)0x0) {\n      local_c8 = local_120;\n      uStack_c0 = 0;\n      local_120 = (undefined **)(lVar9 + (long)ppuVar2);\n      local_128 = ppuVar2;\n      bVar4 = _ZN4core3str11validations15next_code_point17h64a24206fe1d1fcaE(&local_128);\n      uVar6 = (uint)extraout_RDX;\n      if ((((uVar6 != 0x110000 & bVar4) != 1) ||\n          (((9 < uVar6 - 0x30 &&\n            ((uVar6 < 0x80 ||\n             (cVar3 = (*(code *)\n                        PTR__ZN4core7unicode12unicode_data1n6lookup17h2205f79143053ee8E_001fd040)\n                                (extraout_RDX & 0xffffffff), cVar3 == '\\0')))) ||\n           (param_1 != (undefined4 *)0x0)))) ||\n         (cVar3 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h734d187c689c169fE\n                            (param_2,param_3,ppuVar2,lVar9), cVar3 != '\\0')) {\n        local_130[1] = (undefined4)local_b8;\n        local_130[2] = local_b8._4_4_;\n        local_130[3] = (int)local_c8;\n        local_130[4] = (int)((ulong)local_c8 >> 0x20);\n        uVar5 = 0;\n        goto LAB_001618ba;\n      }\n      local_e8 = 0;\n      local_d0 = 1;\n      local_f8 = &local_e8;\n      local_f0 = \n      PTR__ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17ha3782f403933d3a5E_001fd018\n      ;\n      local_128 = &PTR_s_invalid_spec__001f5fb0;\n      local_120 = (undefined **)0x1;\n      local_108 = 0;\n      local_118 = &local_f8;\n      local_110 = 1;\n      local_e0 = param_2;\n      local_d8 = param_3;\n      _ZN4core6option15Option_LT_T_GT_11map_or_else17h4bc4c2e4ba7ee2f5E(local_50,&local_128);\n      local_38 = 1;\n      local_128 = (undefined **)_ZN5alloc5boxed12Box_LT_T_GT_3new17hb4f3be129963c03fE(local_50);\n      local_120 = &\n                  PTR__ZN4core3ptr54drop_in_place_LT_uucore__mods__error__USimpleError_GT_17h275083bfbf694abdE_001f5f38\n      ;\n    }\n  }\n  *(undefined ***)(local_130 + 2) = local_128;\n  *(undefined ***)(local_130 + 4) = local_120;\n  uVar5 = 1;\nLAB_001618ba:\n  *local_130 = uVar5;\n  return;\n}",
+    "_ZN8uu_chown9parse_gid17h180219f2ead778f4E": "void _ZN8uu_chown9parse_gid17h180219f2ead778f4E(undefined8 *param_1,undefined8 param_2,long param_3)\n\n{\n  undefined8 local_90;\n  undefined8 local_88;\n  undefined4 local_78;\n  \n  if (param_3 == 0) {\n    *(undefined4 *)(param_1 + 1) = 0;\n    *param_1 = 0;\n  }\n  else {\n    (*(code *)\n      PTR__ZN101__LT_uucore__features__entries__Group_u20_as_u20_uucore__features__entries__Locate_LT__RF_str_GT__GT_6locate17h2c7d885aadff2e1bE_001fd038\n    )(&local_90);\n    *(undefined4 *)(param_1 + 1) = 1;\n    *(undefined4 *)((long)param_1 + 0xc) = local_78;\n    *param_1 = 0;\n    _ZN4core3ptr47drop_in_place_LT_std__ffi__os_str__OsString_GT_17h64edeac6d8c4e76cE\n              (local_90,local_88);\n  }\n  return;\n}",
+    "_ZN8uu_chown9parse_uid17h01027c14780af233E": "void _ZN8uu_chown9parse_uid17h01027c14780af233E(undefined8 *param_1,undefined8 param_2,long param_3)\n\n{\n  undefined local_b0 [120];\n  undefined4 local_38;\n  \n  if (param_3 == 0) {\n    *(undefined4 *)(param_1 + 1) = 0;\n    *param_1 = 0;\n  }\n  else {\n    (*(code *)\n      PTR__ZN102__LT_uucore__features__entries__Passwd_u20_as_u20_uucore__features__entries__Locate_LT__RF_str_GT__GT_6locate17h4bb3a5c7c498e57dE_001fd030\n    )(local_b0);\n    *(undefined4 *)(param_1 + 1) = 1;\n    *(undefined4 *)((long)param_1 + 0xc) = local_38;\n    *param_1 = 0;\n    _ZN4core3ptr54drop_in_place_LT_uucore__features__entries__Passwd_GT_17h9d92376eadf8fa93E\n              (local_b0);\n  }\n  return;\n}",
+    "_ZN8uu_chown6uumain17h8c8cf8013569fa3bE": "undefined4 _ZN8uu_chown6uumain17h8c8cf8013569fa3bE(undefined8 param_1,undefined8 param_2)\n\n{\n  char cVar1;\n  undefined4 uVar2;\n  undefined local_98 [16];\n  undefined **local_88;\n  undefined8 local_80;\n  undefined8 ***local_78;\n  undefined8 local_70;\n  undefined8 local_68;\n  undefined8 ***local_58;\n  code *pcStack_50;\n  undefined8 local_48;\n  undefined local_38 [16];\n  undefined8 local_28;\n  undefined8 ***local_20;\n  code *local_18;\n  \n  uVar2 = (*(code *)PTR__ZN6uucore28disable_rust_signal_handlers17hcf33f4a6d6e443c4E_001fcf30)();\n  _ZN4core6result19Result_LT_T_C_E_GT_6expect17h688d1fb3987ff57aE(uVar2);\n  local_98 = _ZN8uu_chown6uumain6uumain17h7968a4fb42b70870E(param_1,param_2);\n  if (local_98._0_8_ == 0) {\n    return _ZN6uucore4mods5error9EXIT_CODE17hcdc285b475eac33eE_0;\n  }\n  pcStack_50 = \n  _ZN69__LT_alloc__boxed__Box_LT_T_C_A_GT__u20_as_u20_core__fmt__Display_GT_3fmt17h4c33c9ece88789fdE\n  ;\n  local_88 = (undefined **)&DAT_00119090;\n  local_80 = 1;\n  local_68 = 0;\n  local_70 = 1;\n                    /* try { // try from 0015cbaf to 0015cbc0 has its CatchHandler @ 0015cd4e */\n  local_78 = &local_58;\n  local_58 = (undefined8 ***)local_98;\n  _ZN4core6option15Option_LT_T_GT_11map_or_else17hfb56e351ee998a5fE(local_38,&local_88);\n  local_58 = (undefined8 ***)local_38._0_8_;\n  pcStack_50 = (code *)local_38._8_8_;\n  local_48 = local_28;\n  cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hcedb9c889542f842E\n                    (local_38._8_8_,local_28,1,0);\n  if (cVar1 == '\\0') {\n                    /* try { // try from 0015cbee to 0015cd11 has its CatchHandler @ 0015cd53 */\n    local_38 = (*(code *)PTR__ZN6uucore9util_name17h074417a1e6395129E_001fcf38)();\n    local_18 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h271735b342f7586aE;\n    local_88 = (undefined **)&DAT_001f53c8;\n    local_80 = 2;\n    local_68 = 0;\n    local_78 = &local_20;\n    local_70 = 1;\n    local_20 = (undefined8 ***)local_38;\n    (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_001fcf40)(&local_88);\n    local_38._8_8_ =\n         _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E;\n    local_88 = (undefined **)&DAT_001f53e8;\n    local_80 = 2;\n    local_68 = 0;\n    local_70 = 1;\n    local_78 = (undefined8 ***)local_38;\n    local_38._0_8_ = &local_58;\n    (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_001fcf40)(&local_88);\n  }\n  cVar1 = (**(code **)(local_98._8_8_ + 0x60))(local_98._0_8_);\n  if (cVar1 != '\\0') {\n    local_38 = (*(code *)PTR__ZN6uucore16execution_phrase17hf0e80cb4793732adE_001fcf48)();\n    local_18 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h271735b342f7586aE;\n    local_88 = &PTR_s_Try_____help__for_more_informati_001f5408;\n    local_80 = 2;\n    local_68 = 0;\n    local_78 = &local_20;\n    local_70 = 1;\n    local_20 = (undefined8 ***)local_38;\n    (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_001fcf40)(&local_88);\n  }\n  uVar2 = (**(code **)(local_98._8_8_ + 0x58))(local_98._0_8_);\n  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17hae17b464692af90fE(local_58,pcStack_50);\n  _ZN4core3ptr105drop_in_place_LT_alloc__boxed__Box_LT_dyn_u20_clap_builder__builder__value_parser__AnyValueParser_GT__GT_17h01d8e049d6b635e5E\n            (local_98._0_8_,local_98._8_8_);\n  return uVar2;\n}",
+    "_ZN8uu_chown24parse_gid_uid_and_filter17h83a04fecdc4af108E": "ulong * _ZN8uu_chown24parse_gid_uid_and_filter17h83a04fecdc4af108E\n                  (ulong *param_1,undefined8 param_2)\n\n{\n  undefined4 uVar1;\n  long lVar2;\n  undefined8 uVar3;\n  ulong *puVar4;\n  uint uVar5;\n  int iVar6;\n  ulong uVar7;\n  ulong uVar8;\n  ulong uVar9;\n  undefined4 local_268;\n  undefined4 local_25c;\n  ulong local_258;\n  ulong local_250;\n  ulong local_248;\n  ulong local_240;\n  ulong local_238;\n  ulong local_230;\n  undefined8 local_228;\n  undefined8 local_220;\n  undefined8 uStack_218;\n  undefined8 local_210;\n  undefined8 local_208;\n  ulong local_178;\n  ulong local_170;\n  ulong local_168;\n  ulong *local_160;\n  code *local_158;\n  ulong *puStack_150;\n  code *local_148;\n  uint local_124;\n  undefined4 local_120;\n  long local_b0;\n  ulong local_a8;\n  \n  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h5935285ab4a5747dE\n            (&local_228,param_2,\"from\",4);\n  lVar2 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h9b44e677d9dc182bE\n                    (\"from\",4,&local_228);\n  if (lVar2 == 0) {\n    iVar6 = 0;\n    local_268 = 0;\n  }\n  else {\n    _ZN8uu_chown10parse_spec17h35c2058a4fb20997E\n              (&local_228,*(undefined8 *)(lVar2 + 8),*(undefined8 *)(lVar2 + 0x10),0x3a);\n    if ((int)local_228 == 1) {\n      param_1[1] = local_220;\n      param_1[2] = (ulong)uStack_218;\n      *param_1 = 0x8000000000000000;\n      return param_1;\n    }\n    local_25c = (undefined4)uStack_218;\n    uVar5 = (uint)(local_220 >> 0x20);\n    if (((ulong)local_228 & 0x100000000) == 0) {\n      iVar6 = (uVar5 & 1) * 2;\n      local_268 = (undefined4)uStack_218;\n    }\n    else {\n      local_268 = (undefined4)local_220;\n      iVar6 = (uVar5 & 1) * 2 + 1;\n    }\n  }\n  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h5935285ab4a5747dE\n            (&local_228,param_2,\"reference\",9);\n  lVar2 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h9b44e677d9dc182bE\n                    (\"reference\",9,&local_228);\n  if (lVar2 == 0) {\n    _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h5935285ab4a5747dE\n              (&local_228,param_2,\"OWNER\",5);\n    lVar2 = _ZN12clap_builder6parser5error12MatchesError6unwrap17h9b44e677d9dc182bE\n                      (\"OWNER\",5,&local_228);\n    if (lVar2 == 0) {\n      uVar3 = (*(code *)PTR__ZN4core6option13unwrap_failed17h893f57cb7db71cb7E_001fd010)\n                        (&PTR_s_src_uu_chown_src_chown_rs_001f5ee0);\n                    /* catch() { ... } // from try @ 00160b52 with catch @ 00160bf3 */\n      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h98a49a101b406adaE\n                (local_240,local_238);\n      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h98a49a101b406adaE\n                (local_258,local_250);\n      puVar4 = (ulong *)_Unwind_Resume(uVar3);\n      return puVar4;\n    }\n    (*(code *)\n      PTR__ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h94782b8343b62bd8E_001fcee8\n    )(&local_228,lVar2);\n    uVar8 = (ulong)uStack_218;\n    uVar9 = local_220;\n    uVar7 = (ulong)local_228;\n                    /* try { // try from 001609dc to 001609f0 has its CatchHandler @ 00160c07 */\n    _ZN8uu_chown10parse_spec17h35c2058a4fb20997E(&local_228,local_220,uStack_218,0x3a);\n    if (((ulong)local_228 & 1) != 0) {\n      *(undefined4 *)(param_1 + 1) = (undefined4)local_220;\n      *(undefined4 *)((long)param_1 + 0xc) = local_220._4_4_;\n      *(undefined4 *)(param_1 + 2) = (undefined4)uStack_218;\n      *(undefined4 *)((long)param_1 + 0x14) = uStack_218._4_4_;\n      *param_1 = 0x8000000000000000;\n      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h98a49a101b406adaE(uVar7,uVar9);\n      return param_1;\n    }\n    local_120 = (undefined4)uStack_218;\n    uVar1 = local_220._4_4_;\n  }\n  else {\n    _ZN3std2fs8metadata17h235a34ba4fc3f8eaE(&local_228,lVar2);\n    _ZN201__LT_core__result__Result_LT_T_C_std__io__error__Error_GT__u20_as_u20_uucore__mods__error__FromIo_LT_core__result__Result_LT_T_C_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT__GT__GT_15map_err_context17hd465c1b746ec1c17E\n              (&local_160,&local_228,*(undefined8 *)(lVar2 + 8),*(undefined8 *)(lVar2 + 0x10));\n    if ((int)local_160 == 2) {\n      param_1[1] = (ulong)local_158;\n      param_1[2] = (ulong)puStack_150;\n      *param_1 = 0x8000000000000000;\n      return param_1;\n    }\n    (*(code *)\n      PTR__ZN98__LT_uucore__features__entries__Passwd_u20_as_u20_uucore__features__entries__Locate_LT_u32_GT__GT_6locate17h5d0bb482984d9c00E_001fd000\n    )(&local_b0,(ulong)local_124);\n    if ((local_b0 == -0x8000000000000000) ||\n       (_ZN6uucore8features7entries7uid2usr28__u7b__u7b_closure_u7d__u7d_17h8535064aed5e7fd9E\n                  (&local_228,&local_b0), local_a8 = local_220,\n       local_228 == (undefined *)0x8000000000000000)) {\n      _ZN8uu_chown24parse_gid_uid_and_filter28__u7b__u7b_closure_u7d__u7d_17h18486d473721014cE\n                (&local_258,local_124,local_a8);\n    }\n    else {\n      local_258 = (ulong)local_228;\n      local_250 = local_220;\n      local_248 = (ulong)uStack_218;\n    }\n                    /* try { // try from 00160ab0 to 00160ad9 has its CatchHandler @ 00160c1d */\n    (*(code *)\n      PTR__ZN97__LT_uucore__features__entries__Group_u20_as_u20_uucore__features__entries__Locate_LT_u32_GT__GT_6locate17hf537d3ad4e514fa6E_001fd008\n    )(&local_228,local_120);\n    if (local_228 == (undefined *)0x8000000000000000) {\n      _ZN8uu_chown24parse_gid_uid_and_filter28__u7b__u7b_closure_u7d__u7d_17h18486d473721014cE\n                (&local_240,local_120);\n    }\n    else {\n      local_240 = (ulong)local_228;\n      local_238 = local_220;\n      local_230 = (ulong)uStack_218;\n    }\n    local_160 = &local_258;\n    local_158 = \n    _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E;\n    puStack_150 = &local_240;\n    local_148 = \n    _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E;\n    local_228 = &DAT_001f5ec0;\n    local_220 = 2;\n    local_208 = 0;\n    local_210 = 2;\n                    /* try { // try from 00160b52 to 00160b63 has its CatchHandler @ 00160bf3 */\n    uStack_218 = &local_160;\n    _ZN4core6option15Option_LT_T_GT_11map_or_else17h4bc4c2e4ba7ee2f5E(&local_178,&local_228);\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h98a49a101b406adaE\n              (local_240,local_238);\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h98a49a101b406adaE\n              (local_258,local_250);\n    local_228._4_4_ = 1;\n    uVar7 = local_178;\n    uVar8 = local_168;\n    local_220 = (ulong)local_124;\n    uVar9 = local_170;\n    uVar1 = 1;\n  }\n  *param_1 = uVar7;\n  param_1[1] = uVar9;\n  param_1[2] = uVar8;\n  *(undefined4 *)(param_1 + 3) = uVar1;\n  *(undefined4 *)((long)param_1 + 0x1c) = local_120;\n  *(undefined4 *)(param_1 + 4) = local_228._4_4_;\n  *(int *)((long)param_1 + 0x24) = (int)local_220;\n  *(int *)(param_1 + 5) = iVar6;\n  *(undefined4 *)((long)param_1 + 0x2c) = local_268;\n  *(undefined4 *)(param_1 + 6) = local_25c;\n  return param_1;\n}",
+    "_ZN8uu_chown6uu_app17h7079829ae89435deE": "undefined8 _ZN8uu_chown6uu_app17h7079829ae89435deE(undefined8 param_1)\n\n{\n  undefined8 uVar1;\n  undefined auStack_ab8 [700];\n  ulong local_7fc;\n  undefined4 local_7f4;\n  undefined local_7f0 [700];\n  ulong local_534;\n  undefined4 local_52c;\n  undefined local_528 [640];\n  undefined local_2a8 [640];\n  \n  uVar1 = (*(code *)PTR__ZN6uucore9util_name17h074417a1e6395129E_001fcf38)();\n  _ZN12clap_builder7builder7command7Command3new17he84976e68bf9751fE(auStack_ab8,uVar1);\n  _ZN12clap_builder7builder7command7Command7version17he6d09115f1abe4b4E(local_7f0,auStack_ab8);\n  _ZN12clap_builder7builder7command7Command5about17h5d49ab93355817e2E(auStack_ab8,local_7f0);\n                    /* try { // try from 00160d05 to 00160d1e has its CatchHandler @ 00161397 */\n  (*(code *)PTR__ZN6uucore12format_usage17he053403a896311edE_001fd020)\n            (local_528,\n             \"{} [OPTION]... [OWNER][:[GROUP]] FILE...\\n{} [OPTION]... --reference=RFILE FILE...\",\n             0x51);\n  _ZN12clap_builder7builder7command7Command14override_usage17hf74fadb7db654dbeE\n            (local_7f0,auStack_ab8,local_528);\n  (*(code *)PTR_memcpy_001fce40)(auStack_ab8,local_7f0,700);\n  local_7fc = local_534 | 0x8008000080080;\n  local_7f4 = local_52c;\n  _ZN12clap_builder7builder3arg3Arg3new17hf74b138bbe56f1ebE(local_7f0,&DAT_001189f8,4);\n  _ZN12clap_builder7builder3arg3Arg4long17h416db7d698e07d33E(local_528,local_7f0,&DAT_001189f8,4);\n                    /* try { // try from 00160dad to 00160dc8 has its CatchHandler @ 0016138a */\n  _ZN12clap_builder7builder3arg3Arg4help17hc3aff765a442d3deE\n            (local_7f0,local_528,\"Print help information.\",0x17);\n  _ZN12clap_builder7builder3arg3Arg6action17h9a5083a81a500870E(local_528,local_7f0,5);\n  _ZN12clap_builder7builder7command7Command3arg17h0075d72f8abe0bbfE(local_7f0,auStack_ab8,local_528)\n  ;\n  _ZN12clap_builder7builder3arg3Arg3new17hf74b138bbe56f1ebE(auStack_ab8,\"changes\",7);\n  _ZN12clap_builder7builder3arg3Arg5short17h023b35eec73eba08E(local_528,auStack_ab8,99);\n  _ZN12clap_builder7builder3arg3Arg4long17h416db7d698e07d33E(auStack_ab8,local_528,\"changes\",7);\n                    /* try { // try from 00160e41 to 00160e5c has its CatchHandler @ 00161378 */\n  _ZN12clap_builder7builder3arg3Arg4help17hc3aff765a442d3deE\n            (local_528,auStack_ab8,\"like verbose but report only when a change is made\",0x32);\n  _ZN12clap_builder7builder3arg3Arg6action17h9a5083a81a500870E(local_2a8,local_528,2);\n  _ZN12clap_builder7builder7command7Command3arg17h0075d72f8abe0bbfE(auStack_ab8,local_7f0,local_2a8)\n  ;\n  _ZN12clap_builder7builder3arg3Arg3new17hf74b138bbe56f1ebE(local_7f0,\"from\",4);\n  _ZN12clap_builder7builder3arg3Arg4long17h416db7d698e07d33E(local_528,local_7f0,\"from\",4);\n                    /* try { // try from 00160ec7 to 00160f03 has its CatchHandler @ 001613a4 */\n  _ZN12clap_builder7builder3arg3Arg4help17hc3aff765a442d3deE\n            (local_7f0,local_528,\n             \"change the owner and/or group of each file only if its current owner and/or group match those specified here. Either may be omitted, in which case a match is not required for the omitted attribute\"\n             ,0xc4);\n  _ZN12clap_builder7builder3arg3Arg10value_name17h1161217eea0dd428E\n            (local_528,local_7f0,\"CURRENT_OWNER:CURRENT_GROUP\",0x1b);\n  _ZN12clap_builder7builder7command7Command3arg17h0075d72f8abe0bbfE(local_7f0,auStack_ab8,local_528)\n  ;\n  _ZN12clap_builder7builder3arg3Arg3new17hf74b138bbe56f1ebE(auStack_ab8,\"preserve-root\",0xd);\n  _ZN12clap_builder7builder3arg3Arg4long17h416db7d698e07d33E\n            (local_528,auStack_ab8,\"preserve-root\",0xd);\n                    /* try { // try from 00160f51 to 00160f67 has its CatchHandler @ 00161366 */\n  _ZN12clap_builder7builder3arg3Arg4help17hc3aff765a442d3deE\n            (auStack_ab8,local_528,\"fail to operate recursively on \\'/\\'\",0x22);\n  _ZN12clap_builder7builder3arg3Arg6action17h9a5083a81a500870E(local_528,auStack_ab8,2);\n  _ZN12clap_builder7builder7command7Command3arg17h0075d72f8abe0bbfE(auStack_ab8,local_7f0,local_528)\n  ;\n  _ZN12clap_builder7builder3arg3Arg3new17hf74b138bbe56f1ebE(local_7f0,\"no-preserve-root\",0x10);\n  _ZN12clap_builder7builder3arg3Arg4long17h416db7d698e07d33E\n            (local_528,local_7f0,\"no-preserve-root\",0x10);\n                    /* try { // try from 00160fcd to 00160fe8 has its CatchHandler @ 00161359 */\n  _ZN12clap_builder7builder3arg3Arg4help17hc3aff765a442d3deE\n            (local_7f0,local_528,\"do not treat \\'/\\' specially (the default)\",0x28);\n  _ZN12clap_builder7builder3arg3Arg6action17h9a5083a81a500870E(local_528,local_7f0,2);\n  _ZN12clap_builder7builder7command7Command3arg17h0075d72f8abe0bbfE(local_7f0,auStack_ab8,local_528)\n  ;\n  _ZN12clap_builder7builder3arg3Arg3new17hf74b138bbe56f1ebE(auStack_ab8,\"quiet\",5);\n  _ZN12clap_builder7builder3arg3Arg4long17h416db7d698e07d33E(local_528,auStack_ab8,\"quiet\",5);\n                    /* try { // try from 0016104e to 00161064 has its CatchHandler @ 00161347 */\n  _ZN12clap_builder7builder3arg3Arg4help17hc3aff765a442d3deE\n            (auStack_ab8,local_528,\"suppress most error messages\",0x1c);\n  _ZN12clap_builder7builder3arg3Arg6action17h9a5083a81a500870E(local_528,auStack_ab8,2);\n  _ZN12clap_builder7builder7command7Command3arg17h0075d72f8abe0bbfE(auStack_ab8,local_7f0,local_528)\n  ;\n  _ZN12clap_builder7builder3arg3Arg3new17hf74b138bbe56f1ebE(local_7f0,\"recursive\",9);\n  _ZN12clap_builder7builder3arg3Arg5short17h023b35eec73eba08E(local_528,local_7f0,0x52);\n  _ZN12clap_builder7builder3arg3Arg4long17h416db7d698e07d33E(local_7f0,local_528,\"recursive\",9);\n                    /* try { // try from 001610e2 to 001610fd has its CatchHandler @ 0016133a */\n  _ZN12clap_builder7builder3arg3Arg4help17hc3aff765a442d3deE\n            (local_528,local_7f0,\"operate on files and directories recursively\",0x2c);\n  _ZN12clap_builder7builder3arg3Arg6action17h9a5083a81a500870E(local_2a8,local_528,2);\n  _ZN12clap_builder7builder7command7Command3arg17h0075d72f8abe0bbfE(local_7f0,auStack_ab8,local_2a8)\n  ;\n  _ZN12clap_builder7builder3arg3Arg3new17hf74b138bbe56f1ebE(auStack_ab8,\"reference\",9);\n  _ZN12clap_builder7builder3arg3Arg4long17h416db7d698e07d33E(local_528,auStack_ab8,\"reference\",9);\n                    /* try { // try from 00161163 to 001611a5 has its CatchHandler @ 001613b1 */\n  _ZN12clap_builder7builder3arg3Arg4help17hc3aff765a442d3deE\n            (auStack_ab8,local_528,\n             \"use RFILE\\'s owner and group rather than specifying OWNER:GROUP va\",0x45);\n  _ZN12clap_builder7builder3arg3Arg10value_name17h1161217eea0dd428E(local_528,auStack_ab8,\"R\",5);\n  _ZN12clap_builder7builder3arg3Arg10value_hint17head2676a54ba14e3E(auStack_ab8,local_528);\n  _ZN12clap_builder7builder3arg3Arg8num_args17hcd1625a1d55df35bE(local_528,auStack_ab8);\n  _ZN12clap_builder7builder7command7Command3arg17h0075d72f8abe0bbfE(auStack_ab8,local_7f0,local_528)\n  ;\n  _ZN12clap_builder7builder3arg3Arg3new17hf74b138bbe56f1ebE(local_7f0,\"s\",6);\n  _ZN12clap_builder7builder3arg3Arg5short17h023b35eec73eba08E(local_528,local_7f0,0x66);\n  _ZN12clap_builder7builder3arg3Arg4long17h416db7d698e07d33E(local_7f0,local_528,\"s\",6);\n  _ZN12clap_builder7builder3arg3Arg6action17h9a5083a81a500870E(local_528,local_7f0,2);\n  _ZN12clap_builder7builder7command7Command3arg17h0075d72f8abe0bbfE(local_7f0,auStack_ab8,local_528)\n  ;\n  _ZN12clap_builder7builder3arg3Arg3new17hf74b138bbe56f1ebE(auStack_ab8,\"v\",7);\n  _ZN12clap_builder7builder3arg3Arg4long17h416db7d698e07d33E(local_528,auStack_ab8,\"v\",7);\n  _ZN12clap_builder7builder3arg3Arg5short17h023b35eec73eba08E(auStack_ab8,local_528,0x76);\n                    /* try { // try from 00161294 to 001612af has its CatchHandler @ 00161325 */\n  _ZN12clap_builder7builder3arg3Arg4help17hc3aff765a442d3deE(local_528,auStack_ab8,\"o\",0x2c);\n  _ZN12clap_builder7builder3arg3Arg6action17h9a5083a81a500870E(local_2a8,local_528,2);\n  _ZN12clap_builder7builder7command7Command3arg17h0075d72f8abe0bbfE(auStack_ab8,local_7f0,local_2a8)\n  ;\n                    /* try { // try from 001612e0 to 001612ed has its CatchHandler @ 00161315 */\n  (*(code *)PTR__ZN6uucore8features5perms11common_args17h624fd87efa47755fE_001fd028)(local_7f0);\n  _ZN12clap_builder7builder7command7Command4args17h6d978477c76bd577E(param_1,auStack_ab8,local_7f0);\n  return param_1;\n}",
+    "_ZN8uu_chown6uumain6uumain17h7968a4fb42b70870E": "void _ZN8uu_chown6uumain6uumain17h7968a4fb42b70870E(undefined8 param_1,undefined8 param_2)\n\n{\n  undefined local_2e0 [712];\n  \n  (*(code *)PTR__ZN8uu_chown6uu_app17h7079829ae89435deE_001fcf58)(local_2e0);\n  _ZN6uucore8features5perms10chown_base17h83f8b106c13d73b7E(local_2e0,param_1,param_2);\n  return;\n}"
+  },
+  "function_call_counts": {
+    "_ZN8uu_chown10parse_spec17h35c2058a4fb20997E": {
+      "alloc::boxed::Box<T>::new": 1,
+      "uu_chown::parse_gid": 1,
+      "core::str::iter::SplitInternal<P>::get_end": 1,
+      "core::str::validations::next_code_point": 1,
+      "<char as core::slice::cmp::SliceContains>::slice_contains": 1,
+      "uu_chown::parse_uid": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "<char as core::str::pattern::Pattern>::into_searcher": 1,
+      "core::str::iter::SplitInternal<P>::next": 2,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1
+    },
+    "_ZN8uu_chown9parse_gid17h180219f2ead778f4E": {
+      "core::ptr::drop_in_place<std::ffi::os_str::OsString>": 1
+    },
+    "_ZN8uu_chown9parse_uid17h01027c14780af233E": {
+      "core::ptr::drop_in_place<uucore::features::entries::Passwd>": 1
+    },
+    "_ZN8uu_chown6uumain17h8c8cf8013569fa3bE": {
+      "core::option::Option<T>::map_or_else": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "uu_chown::uumain::uumain": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1
+    },
+    "_ZN8uu_chown24parse_gid_uid_and_filter17h83a04fecdc4af108E": {
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 3,
+      "core::ptr::drop_in_place<alloc::string::String>": 5,
+      "uu_chown::parse_spec": 2,
+      "<EXTERNAL>::_Unwind_Resume": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 3,
+      "std::fs::metadata": 1,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "uu_chown::parse_gid_uid_and_filter::{{closure}}": 2,
+      "uucore::features::entries::uid2usr::{{closure}}": 1,
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN8uu_chown6uu_app17h7079829ae89435deE": {
+      "clap_builder::builder::command::Command::args": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "clap_builder::builder::arg::Arg::long": 10,
+      "clap_builder::builder::arg::Arg::help": 9,
+      "clap_builder::builder::arg::Arg::num_args": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::arg::Arg::action": 8,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::arg::Arg::value_name": 2,
+      "clap_builder::builder::command::Command::arg": 10,
+      "clap_builder::builder::arg::Arg::short": 4,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "clap_builder::builder::arg::Arg::new": 10
+    },
+    "_ZN8uu_chown6uumain6uumain17h7968a4fb42b70870E": {
+      "uucore::features::perms::chown_base": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN8uu_chown10parse_spec17h35c2058a4fb20997E": {},
+    "_ZN8uu_chown9parse_gid17h180219f2ead778f4E": {},
+    "_ZN8uu_chown9parse_uid17h01027c14780af233E": {},
+    "_ZN8uu_chown6uumain17h8c8cf8013569fa3bE": {},
+    "_ZN8uu_chown24parse_gid_uid_and_filter17h83a04fecdc4af108E": {},
+    "_ZN8uu_chown6uu_app17h7079829ae89435deE": {},
+    "_ZN8uu_chown6uumain6uumain17h7968a4fb42b70870E": {}
+  },
+  "variable_types": {
+    "_ZN8uu_chown10parse_spec17h35c2058a4fb20997E": {
+      "stack_108": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_228": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_76": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_92": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_172": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_156": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_252": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_132": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_116": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_12": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_36": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_20": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_44": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_60": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_84": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_28": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_100": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_164": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_220": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_148": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_68": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_124": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_chown9parse_gid17h180219f2ead778f4E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_chown9parse_uid17h01027c14780af233E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          120
+        ]
+      ]
+    },
+    "_ZN8uu_chown6uumain17h8c8cf8013569fa3bE": {
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_chown24parse_gid_uid_and_filter17h83a04fecdc4af108E": {
+      "stack_328": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_448": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_440": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_324": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_chown6uu_app17h7079829ae89435deE": {
+      "stack_724": [
+        [
+          "array",
+          640
+        ]
+      ],
+      "stack_-700": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_712": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1364": [
+        [
+          "array",
+          640
+        ]
+      ],
+      "stack_720": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_12": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_chown6uumain6uumain17h7968a4fb42b70870E": {
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          712
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,448 @@
+{
+  "decompilation": {
+    "_ZN9uu_printf6uumain17hf4a89ebaf0b1c085E": "__int64 __fastcall uu_printf::uumain(__int64 a1, __int64 a2)\n{\n  unsigned int v2; // eax\n  __int64 v3; // rax\n  __int64 v4; // rdx\n  __int128 v5; // rax\n  __int128 v6; // rax\n  unsigned int v7; // ebx\n  __int64 v9; // [rsp+8h] [rbp-90h] BYREF\n  __int64 v10; // [rsp+10h] [rbp-88h]\n  char **v11; // [rsp+18h] [rbp-80h] BYREF\n  __int64 v12; // [rsp+20h] [rbp-78h]\n  __int128 *v13; // [rsp+28h] [rbp-70h]\n  __int64 v14; // [rsp+30h] [rbp-68h]\n  __int64 v15; // [rsp+38h] [rbp-60h]\n  __int128 v16; // [rsp+48h] [rbp-50h] BYREF\n  __int64 v17; // [rsp+58h] [rbp-40h]\n  __int128 *v18; // [rsp+60h] [rbp-38h] BYREF\n  __int64 (__fastcall *v19)(); // [rsp+68h] [rbp-30h]\n  __int128 v20; // [rsp+70h] [rbp-28h] BYREF\n  __int64 v21; // [rsp+80h] [rbp-18h]\n\n  v2 = uucore::disable_rust_signal_handlers();\n  core::result::Result<T,E>::expect(v2);\n  v3 = uu_printf::uumain::uumain(a1, a2);\n  if ( !v3 )\n    return uucore::mods::error::get_exit_code();\n  v9 = v3;\n  v10 = v4;\n  *(_QWORD *)&v20 = &v9;\n  *((_QWORD *)&v20 + 1) = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n  v11 = (char **)&unk_E980;\n  v12 = 1LL;\n  v15 = 0LL;\n  v13 = &v20;\n  v14 = 1LL;\n  core::option::Option<T>::map_or_else(&v16, &v11);\n  v20 = v16;\n  v21 = v17;\n  if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((_QWORD *)&v16 + 1), v17, 1LL, 0LL) )\n  {\n    *(_QWORD *)&v5 = uucore::util_name();\n    v16 = v5;\n    v18 = &v16;\n    v19 = <&T as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_114980;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v18;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n    *(_QWORD *)&v16 = &v20;\n    *((_QWORD *)&v16 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_1149A0;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = &v16;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  if ( (*(unsigned __int8 (__fastcall **)(__int64))(v10 + 96))(v9) )\n  {\n    *(_QWORD *)&v6 = uucore::execution_phrase();\n    v16 = v6;\n    v18 = &v16;\n    v19 = <&T as core::fmt::Display>::fmt;\n    v11 = &off_1149C0;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v18;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  v7 = (*(__int64 (__fastcall **)(__int64))(v10 + 88))(v9);\n  core::ptr::drop_in_place<alloc::string::String>(&v20);\n  core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v9, v10);\n  return v7;\n}",
+    "_ZN9uu_printf6uumain6uumain17h34ac81daaf91927fE": "__int64 __fastcall uu_printf::uumain::uumain(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rax\n  __int64 v3; // rbx\n  __int64 v4; // r14\n  __int64 v5; // rax\n  unsigned __int64 v6; // rcx\n  __int64 v7; // rbx\n  char v8; // bl\n  __int64 v9; // rax\n  __int8 v10; // al\n  __int64 v11; // rax\n  __int64 v13; // rax\n  _QWORD *v14; // rax\n  __int128 v15; // rax\n  char v16; // [rsp+8h] [rbp-460h] BYREF\n  __int64 v17; // [rsp+10h] [rbp-458h] BYREF\n  __int64 v18; // [rsp+18h] [rbp-450h]\n  unsigned __int64 v19; // [rsp+20h] [rbp-448h]\n  __int64 v20; // [rsp+28h] [rbp-440h] BYREF\n  __int64 v21; // [rsp+30h] [rbp-438h]\n  _BYTE v22[48]; // [rsp+38h] [rbp-430h] BYREF\n  _BYTE *v23; // [rsp+68h] [rbp-400h] BYREF\n  __m256i v24; // [rsp+70h] [rbp-3F8h]\n  _BYTE *v25; // [rsp+90h] [rbp-3D8h] BYREF\n  __int8 v26; // [rsp+98h] [rbp-3D0h]\n  _BYTE v27[31]; // [rsp+99h] [rbp-3CFh]\n  _QWORD v28[2]; // [rsp+B8h] [rbp-3B0h] BYREF\n  __int64 v29; // [rsp+C8h] [rbp-3A0h]\n  unsigned __int64 v30; // [rsp+D0h] [rbp-398h]\n  __int128 v31; // [rsp+D8h] [rbp-390h]\n  __int64 v32; // [rsp+E8h] [rbp-380h]\n  __int64 v33; // [rsp+F0h] [rbp-378h]\n  _BYTE v34[56]; // [rsp+F8h] [rbp-370h] BYREF\n  _QWORD v35[8]; // [rsp+130h] [rbp-338h] BYREF\n  _BYTE dest[720]; // [rsp+170h] [rbp-2F8h] BYREF\n\n  uu_printf::uu_app(dest);\n  clap_builder::builder::command::Command::get_matches_from(v34, dest, a1, a2);\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(dest, v34);\n  v2 = clap_builder::parser::error::MatchesError::unwrap(dest);\n  if ( !v2 )\n  {\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v22, aMissingOperand, 15LL);\n    *(_QWORD *)&dest[16] = *(_QWORD *)&v22[16];\n    *(_OWORD *)dest = *(_OWORD *)v22;\n    *(_DWORD *)&dest[24] = 1;\n    v7 = alloc::boxed::Box<T>::new(dest);\n    goto LABEL_18;\n  }\n  v3 = *(_QWORD *)(v2 + 8);\n  v4 = *(_QWORD *)(v2 + 16);\n  clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(dest, v34);\n  clap_builder::parser::error::MatchesError::unwrap(v35, dest);\n  if ( v35[0] )\n  {\n    core::iter::traits::iterator::Iterator::collect(&v17, v35);\n    v5 = v18;\n    v6 = v19;\n  }\n  else\n  {\n    v17 = 0LL;\n    v18 = 8LL;\n    v19 = 0LL;\n    v5 = 8LL;\n    v6 = 0LL;\n  }\n  v29 = v5;\n  v30 = v6;\n  v28[0] = 0LL;\n  v31 = 0LL;\n  v33 = v3;\n  v20 = v3;\n  v32 = v4;\n  v21 = v4;\n  v8 = 0;\n  while ( 1 )\n  {\n    uucore::features::format::parse_spec_and_escape::{{closure}}(v22, &v20);\n    if ( v22[0] == 7 )\n      goto LABEL_11;\n    if ( v22[0] == 8 )\n    {\nLABEL_15:\n      v11 = alloc::boxed::Box<T>::new(&v22[8]);\nLABEL_16:\n      v7 = v11;\nLABEL_17:\n      core::ptr::drop_in_place<alloc::vec::Vec<uucore::features::format::argument::FormatArgument>>(&v17);\n      goto LABEL_18;\n    }\n    if ( v22[0] == 9 )\n      break;\n    v8 = 1;\nLABEL_11:\n    *(_OWORD *)&dest[32] = *(_OWORD *)&v22[32];\n    *(_OWORD *)&dest[17] = *(_OWORD *)&v22[17];\n    *(_OWORD *)&dest[1] = *(_OWORD *)&v22[1];\n    dest[0] = v22[0];\n    v9 = std::io::stdio::stdout();\n    uucore::features::format::FormatItem<C>::write(&v25, dest, v9, v28);\n    v10 = v26;\n    if ( v25 != (_BYTE *)0x8000000000000016LL )\n    {\nLABEL_14:\n      *(_OWORD *)&v24.m256i_u64[2] = *(_OWORD *)&v27[15];\n      *(_OWORD *)&v24.m256i_i8[1] = *(_OWORD *)v27;\n      v23 = v25;\n      v24.m256i_i8[0] = v10;\n      v11 = alloc::boxed::Box<T>::new(&v23);\n      goto LABEL_16;\n    }\n    if ( (v26 & 1) != 0 )\n      goto LABEL_13;\n  }\n  uucore::features::format::argument::FormatArguments::start_next_batch(v28);\n  if ( (v8 & 1) == 0 )\n  {\n    if ( *((_QWORD *)&v31 + 1) < v30 )\n    {\n      if ( (unsigned __int64)v31 >= v30 || (v14 = (_QWORD *)(v29 + 40 * v31), *v14 != 0x800000000000000ALL) )\n      {\n        *(_QWORD *)dest = &off_1149F8;\n        *(_QWORD *)&dest[8] = 1LL;\n        *(_QWORD *)&dest[16] = &v16;\n        *(_OWORD *)&dest[24] = 0LL;\n        core::panicking::panic_fmt(dest, &off_114AD0);\n      }\n      v25 = v14 + 1;\n      *(_QWORD *)&v15 = uucore::util_name();\n      *(_OWORD *)v22 = v15;\n      v23 = v22;\n      v24.m256i_i64[0] = (__int64)<&T as core::fmt::Display>::fmt;\n      *(_QWORD *)dest = &unk_114A08;\n      *(_QWORD *)&dest[8] = 2LL;\n      *(_QWORD *)&dest[16] = &v23;\n      *(_OWORD *)&dest[24] = 1uLL;\n      std::io::stdio::_eprint(dest);\n      *(_QWORD *)v22 = &v25;\n      *(_QWORD *)&v22[8] = <&T as core::fmt::Display>::fmt;\n      *(_QWORD *)dest = &off_114A28;\n      *(_QWORD *)&dest[8] = 2LL;\n      *(_QWORD *)&dest[16] = v22;\n      *(_OWORD *)&dest[24] = 1uLL;\n      std::io::stdio::_eprint(dest);\n    }\nLABEL_13:\n    v7 = 0LL;\n    goto LABEL_17;\n  }\n  while ( *((_QWORD *)&v31 + 1) < v30 )\n  {\n    v20 = v33;\n    v21 = v32;\n    while ( 1 )\n    {\n      uucore::features::format::parse_spec_and_escape::{{closure}}(v22, &v20);\n      if ( v22[0] == 9 )\n        break;\n      if ( v22[0] == 8 )\n        goto LABEL_15;\n      *(_OWORD *)&dest[32] = *(_OWORD *)&v22[32];\n      *(_OWORD *)&dest[17] = *(_OWORD *)&v22[17];\n      *(_OWORD *)&dest[1] = *(_OWORD *)&v22[1];\n      dest[0] = v22[0];\n      v13 = std::io::stdio::stdout();\n      uucore::features::format::FormatItem<C>::write(&v25, dest, v13, v28);\n      v10 = v26;\n      if ( v25 != (_BYTE *)0x8000000000000016LL )\n        goto LABEL_14;\n      if ( (v26 & 1) != 0 )\n        goto LABEL_13;\n    }\n    uucore::features::format::argument::FormatArguments::start_next_batch(v28);\n  }\n  core::ptr::drop_in_place<alloc::vec::Vec<uucore::features::format::argument::FormatArgument>>(&v17);\n  v7 = 0LL;\nLABEL_18:\n  core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(v34);\n  return v7;\n}",
+    "_ZN9uu_printf6uu_app17hc502dcf642f8474cE": "void *__fastcall uu_printf::uu_app(void *dest)\n{\n  __int64 v1; // rax\n  _BYTE src[700]; // [rsp+18h] [rbp-830h] BYREF\n  _BYTE v4[12]; // [rsp+2D4h] [rbp-574h]\n  _BYTE desta[700]; // [rsp+2E0h] [rbp-568h] BYREF\n  _BYTE v6[12]; // [rsp+59Ch] [rbp-2ACh]\n  _BYTE v7[672]; // [rsp+5A8h] [rbp-2A0h] BYREF\n\n  v1 = uucore::util_name();\n  clap_builder::builder::command::Command::new(src, v1);\n  memcpy(desta, src, sizeof(desta));\n  *(_DWORD *)v6 = *(_DWORD *)v4 | 2;\n  *(_QWORD *)&v6[4] = *(_QWORD *)&v4[4];\n  clap_builder::builder::command::Command::version(src, desta);\n  clap_builder::builder::command::Command::about(desta, src);\n  clap_builder::builder::command::Command::after_help(src, desta);\n  uucore::format_usage(v7, aFormatArgument, 33LL);\n  clap_builder::builder::command::Command::override_usage(desta, src);\n  memcpy(src, desta, sizeof(src));\n  *(_QWORD *)v4 = *(_QWORD *)v6 | 0x28000000280000LL;\n  *(_DWORD *)&v4[8] = *(_DWORD *)&v6[8];\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::long(v7, desta);\n  clap_builder::builder::arg::Arg::help(desta, v7);\n  clap_builder::builder::arg::Arg::action(v7, desta, 5LL);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::long(v7, src);\n  clap_builder::builder::arg::Arg::help(src, v7);\n  clap_builder::builder::arg::Arg::action(v7, src, 8LL);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::value_parser(v7, desta);\n  clap_builder::builder::command::Command::arg(desta, src);\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::action(v7, src, 1LL);\n  clap_builder::builder::arg::Arg::value_parser(src, v7);\n  clap_builder::builder::command::Command::arg(dest, desta);\n  return dest;\n}"
+  },
+  "function_call_counts": {
+    "_ZN9uu_printf6uumain17hf4a89ebaf0b1c085E": {
+      "uucore::disable_rust_signal_handlers": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uu_printf::uumain::uumain": 1,
+      "uucore::mods::error::get_exit_code": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 3,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "uucore::execution_phrase": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1
+    },
+    "_ZN9uu_printf6uumain6uumain17h34ac81daaf91927fE": {
+      "uu_printf::uu_app": 1,
+      "clap_builder::builder::command::Command::get_matches_from": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "alloc::boxed::Box<T>::new": 3,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "uucore::features::format::parse_spec_and_escape::{{closure}}": 2,
+      "core::ptr::drop_in_place<alloc::vec::Vec<uucore::features::format::argument::FormatArgument>>": 2,
+      "std::io::stdio::stdout": 2,
+      "uucore::features::format::FormatItem<C>::write": 2,
+      "uucore::features::format::argument::FormatArguments::start_next_batch": 2,
+      "core::panicking::panic_fmt": 1,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 2,
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 1
+    },
+    "_ZN9uu_printf6uu_app17hc502dcf642f8474cE": {
+      "uucore::util_name": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "memcpy": 2,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "clap_builder::builder::arg::Arg::new": 4,
+      "clap_builder::builder::arg::Arg::long": 2,
+      "clap_builder::builder::arg::Arg::help": 2,
+      "clap_builder::builder::arg::Arg::action": 3,
+      "clap_builder::builder::command::Command::arg": 4,
+      "clap_builder::builder::arg::Arg::value_parser": 2
+    }
+  },
+  "macro_call_counts": {
+    "_ZN9uu_printf6uumain17hf4a89ebaf0b1c085E": {},
+    "_ZN9uu_printf6uumain6uumain17h34ac81daaf91927fE": {},
+    "_ZN9uu_printf6uu_app17hc502dcf642f8474cE": {}
+  },
+  "variable_types": {
+    "_ZN9uu_printf6uumain17hf4a89ebaf0b1c085E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_printf6uumain6uumain17h34ac81daaf91927fE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_144": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_153": [
+        [
+          "array",
+          31
+        ]
+      ],
+      "stack_184": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "array",
+          56
+        ]
+      ],
+      "stack_304": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_368": [
+        [
+          "array",
+          720
+        ]
+      ]
+    },
+    "_ZN9uu_printf6uu_app17hc502dcf642f8474cE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_724": [
+        [
+          "array",
+          12
+        ]
+      ],
+      "stack_736": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_1436": [
+        [
+          "array",
+          12
+        ]
+      ],
+      "stack_1448": [
+        [
+          "array",
+          672
+        ]
+      ]
+    }
+  }
+}

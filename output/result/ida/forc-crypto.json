@@ -1,0 +1,3909 @@
+{
+  "decompilation": {
+    "_ZN11forc_crypto6sha2564hash17h072b0afa8176419bE": "__int64 __fastcall forc_crypto::sha256::hash(_OWORD *a1, __int64 a2)\n{\n  __int128 v2; // xmm0\n  __int128 v4; // [rsp+0h] [rbp-138h] BYREF\n  __int128 v5; // [rsp+10h] [rbp-128h]\n  __int128 v6; // [rsp+20h] [rbp-118h]\n  __int128 v7; // [rsp+30h] [rbp-108h]\n  __int128 v8; // [rsp+40h] [rbp-F8h]\n  __int128 v9; // [rsp+50h] [rbp-E8h]\n  __int128 v10; // [rsp+60h] [rbp-D8h]\n  __int128 v11; // [rsp+70h] [rbp-C8h] BYREF\n  __int128 v12; // [rsp+80h] [rbp-B8h]\n  __int128 v13; // [rsp+90h] [rbp-A8h]\n  __int128 v14; // [rsp+A0h] [rbp-98h]\n  __int128 v15; // [rsp+B0h] [rbp-88h]\n  __int128 v16; // [rsp+C0h] [rbp-78h]\n  __int128 v17; // [rsp+D0h] [rbp-68h]\n  _BYTE v18[24]; // [rsp+E8h] [rbp-50h] BYREF\n  _OWORD v19[3]; // [rsp+100h] [rbp-38h] BYREF\n\n  <digest::core_api::wrapper::CoreWrapper<T> as core::default::Default>::default(&v4);\n  v17 = v10;\n  v16 = v9;\n  v15 = v8;\n  v14 = v7;\n  v13 = v6;\n  v12 = v5;\n  v11 = v4;\n  <T as core::convert::Into<U>>::into(&v4, a2);\n  <D as digest::digest::Digest>::update(&v11, &v4);\n  v10 = v17;\n  v9 = v16;\n  v8 = v15;\n  v7 = v14;\n  v6 = v13;\n  v5 = v12;\n  v4 = v11;\n  ((void (__fastcall *)(_OWORD *, __int128 *))fuel_crypto::hasher::Hasher::finalize)(v19, &v4);\n  hex::encode(v18, v19);\n  serde_json::value::to_value(&v4, v18);\n  core::result::Result<T,E>::unwrap(v19, &v4, &off_62C070);\n  v2 = v19[0];\n  a1[1] = v19[1];\n  *a1 = v2;\n  return core::ptr::drop_in_place<alloc::string::String>(v18);\n}",
+    "_ZN11forc_crypto7address12dump_address17h61c0e54a2abc32fcE": "__int64 __fastcall forc_crypto::address::dump_address(__int64 a1, __int64 a2)\n{\n  __int128 *v2; // rax\n  __int64 v3; // rdx\n  __int64 v4; // r14\n  __int128 v5; // xmm0\n  __int64 result; // rax\n  __int64 v7; // rax\n  __m256i v8; // [rsp+8h] [rbp-F0h] BYREF\n  __int8 v9; // [rsp+28h] [rbp-D0h]\n  __m256i v10; // [rsp+30h] [rbp-C8h] BYREF\n  __int128 v11; // [rsp+58h] [rbp-A0h] BYREF\n  __int64 v12; // [rsp+68h] [rbp-90h]\n  __int128 v13; // [rsp+70h] [rbp-88h] BYREF\n  __int64 v14; // [rsp+80h] [rbp-78h]\n  _BYTE v15[24]; // [rsp+88h] [rbp-70h] BYREF\n  _BYTE v16[16]; // [rsp+A0h] [rbp-58h] BYREF\n  __int64 v17; // [rsp+B0h] [rbp-48h]\n  __int128 v18; // [rsp+C0h] [rbp-38h]\n  __int128 v19; // [rsp+D0h] [rbp-28h]\n\n  v2 = (__int128 *)<alloc::string::String as core::convert::AsRef<[u8]>>::as_ref(\n                     *(_QWORD *)(a2 + 8),\n                     *(_QWORD *)(a2 + 16));\n  v4 = v3;\n  if ( v3 == 32 )\n  {\n    v5 = *v2;\n    v19 = v2[1];\n    v18 = v5;\n    *(_OWORD *)&v10.m256i_u64[2] = v19;\n    *(_OWORD *)v10.m256i_i8 = v5;\n  }\n  else\n  {\n    forc_crypto::address::handle_string_conversion(&v8, a2);\n    if ( v8.m256i_i8[0] )\n    {\n      result = v8.m256i_i64[1];\n      *(_QWORD *)(a1 + 8) = v8.m256i_i64[1];\n      *(_BYTE *)a1 = 6;\n      return result;\n    }\n    *(__int32 *)((char *)v10.m256i_i32 + 3) = v8.m256i_i32[1];\n    v10.m256i_i32[0] = *(__int32 *)((char *)v8.m256i_i32 + 1);\n    *(_OWORD *)((char *)&v10.m256i_u64[1] + 7) = *(_OWORD *)&v8.m256i_u64[2];\n    v10.m256i_i8[31] = v9;\n    *(__int64 *)((char *)v10.m256i_i64 + 7) = v8.m256i_i64[1];\n  }\n  *(_QWORD *)&v11 = 0LL;\n  v12 = 0LL;\n  <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v8, aAddress, 7LL);\n  v14 = v8.m256i_i64[2];\n  v13 = *(_OWORD *)v8.m256i_i8;\n  <T as alloc::string::SpecToString>::spec_to_string(v15, &v10);\n  serde_json::value::to_value(&v8, v15);\n  core::result::Result<T,E>::unwrap(v16, &v8, &off_62C088);\n  alloc::collections::btree::map::BTreeMap<K,V,A>::insert(&v8, &v11, &v13, v16);\n  core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(&v8);\n  core::ptr::drop_in_place<alloc::string::String>(v15);\n  v17 = v12;\n  *(_OWORD *)((char *)&v8.m256i_u32[1] + 3) = v11;\n  *(__int64 *)((char *)&v8.m256i_i64[2] + 7) = v12;\n  *(_BYTE *)a1 = 5;\n  v7 = *(__int64 *)((char *)&v8.m256i_i64[1] + 7);\n  *(_OWORD *)(a1 + 1) = *(_OWORD *)v8.m256i_i8;\n  *(_QWORD *)(a1 + 16) = v7;\n  result = *(__int64 *)((char *)&v8.m256i_i64[2] + 7);\n  *(_QWORD *)(a1 + 24) = *(__int64 *)((char *)&v8.m256i_i64[2] + 7);\n  if ( v4 == 32 )\n    return core::ptr::drop_in_place<alloc::string::String>(a2);\n  return result;\n}",
+    "_ZN11forc_crypto7address24handle_string_conversion17h63cc450610a58430E": "__int64 __fastcall forc_crypto::address::handle_string_conversion(__int64 a1, __int64 a2)\n{\n  __int64 v3; // rax\n  __int64 v4; // rsi\n  char v6; // al\n  __int128 v7; // xmm0\n  _BYTE v8[33]; // [rsp+0h] [rbp-48h] BYREF\n  _QWORD v9[4]; // [rsp+28h] [rbp-20h] BYREF\n\n  v3 = <alloc::string::String as core::convert::AsRef<[u8]>>::as_ref(*(_QWORD *)(a2 + 8), *(_QWORD *)(a2 + 16));\n  core::str::converts::from_utf8(v8, v3);\n  v4 = *(_QWORD *)&v8[8];\n  if ( *(_DWORD *)v8 == 1 )\n  {\n    *(_OWORD *)v8 = *(_OWORD *)&v8[8];\n    *(_QWORD *)(a1 + 8) = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(v8);\n    *(_BYTE *)a1 = 1;\n    return core::ptr::drop_in_place<alloc::string::String>(a2);\n  }\n  else\n  {\n    v9[0] = *(_QWORD *)&v8[8];\n    v9[1] = *(_QWORD *)&v8[16];\n    <fuel_types::array_types::Address as core::str::traits::FromStr>::from_str(v8);\n    if ( v8[0] == 1 )\n    {\n      *(_QWORD *)(a1 + 8) = forc_crypto::address::handle_string_conversion::{{closure}}(v9, v4);\n      v6 = 1;\n    }\n    else\n    {\n      v7 = *(_OWORD *)&v8[1];\n      *(_OWORD *)(a1 + 17) = *(_OWORD *)&v8[17];\n      *(_OWORD *)(a1 + 1) = v7;\n      v6 = 0;\n    }\n    *(_BYTE *)a1 = v6;\n    return core::ptr::drop_in_place<alloc::string::String>(a2);\n  }\n}",
+    "_ZN11forc_crypto9keccak2564hash17h665ad0faa9bbb11eE": "__int64 __fastcall forc_crypto::keccak256::hash(_OWORD *a1, __int64 a2)\n{\n  __int128 v2; // xmm0\n  _BYTE v4[24]; // [rsp+0h] [rbp-318h] BYREF\n  _OWORD v5[2]; // [rsp+18h] [rbp-300h] BYREF\n  _BYTE dest[352]; // [rsp+38h] [rbp-2E0h] BYREF\n  _BYTE src[384]; // [rsp+198h] [rbp-180h] BYREF\n\n  <digest::core_api::wrapper::CoreWrapper<T> as core::default::Default>::default(src);\n  <T as core::convert::Into<U>>::into(dest, a2);\n  <D as digest::digest::Digest>::update(src, dest);\n  memcpy(dest, src, sizeof(dest));\n  digest::FixedOutput::finalize_fixed(v5, dest);\n  hex::encode(v4, v5);\n  serde_json::value::to_value(dest, v4);\n  core::result::Result<T,E>::unwrap(v5, dest, &off_62C0C0);\n  v2 = v5[0];\n  a1[1] = v5[1];\n  *a1 = v2;\n  return core::ptr::drop_in_place<alloc::string::String>(v4);\n}",
+    "_ZN11forc_crypto4main17h4cb215e16df55901E": "__int64 forc_crypto::main()\n{\n  __int64 v0; // rax\n  __int64 v2; // [rsp+8h] [rbp-70h] BYREF\n  __int128 v3; // [rsp+10h] [rbp-68h] BYREF\n  _QWORD *v4; // [rsp+20h] [rbp-58h]\n  __int64 v5; // [rsp+28h] [rbp-50h]\n  __int64 v6; // [rsp+30h] [rbp-48h]\n  __int64 v7; // [rsp+40h] [rbp-38h] BYREF\n  _QWORD v8[2]; // [rsp+48h] [rbp-30h] BYREF\n  __int128 v9; // [rsp+58h] [rbp-20h] BYREF\n  _QWORD *v10; // [rsp+68h] [rbp-10h]\n\n  LOBYTE(v6) = 0;\n  WORD1(v6) = 1026;\n  *(_QWORD *)&v3 = 6LL;\n  *((_QWORD *)&v3 + 1) = 0x8000000000000000LL;\n  forc_tracing::init_tracing_subscriber(&v3);\n  v0 = forc_crypto::run();\n  v7 = v0;\n  if ( v0 )\n  {\n    v2 = v0;\n    v8[0] = &v2;\n    v8[1] = anyhow::error::<impl core::fmt::Display for anyhow::Error>::fmt;\n    *(_QWORD *)&v3 = asc_7AB60;\n    *((_QWORD *)&v3 + 1) = 1LL;\n    v6 = 0LL;\n    v4 = v8;\n    v5 = 1LL;\n    core::option::Option<T>::map_or_else(&v9, &v3);\n    v3 = v9;\n    v4 = v10;\n    forc_tracing::println_error(*((_QWORD *)&v9 + 1));\n    core::ptr::drop_in_place<alloc::string::String>(&v3);\n    std::process::exit(1);\n  }\n  return core::ptr::drop_in_place<core::result::Result<(),anyhow::Error>>(&v7);\n}",
+    "_ZN11forc_crypto3run17h9233c73a0bfd917dE": "__int64 forc_crypto::run()\n{\n  __int64 v0; // rcx\n  char v1; // al\n  int v3; // [rsp+Bh] [rbp-14Dh]\n  _OWORD v4[3]; // [rsp+10h] [rbp-148h] BYREF\n  _BYTE v5[48]; // [rsp+48h] [rbp-110h] BYREF\n  __int128 v6; // [rsp+78h] [rbp-E0h]\n  __int128 v7; // [rsp+88h] [rbp-D0h]\n  __int128 v8; // [rsp+98h] [rbp-C0h]\n  __int128 v9; // [rsp+A8h] [rbp-B0h]\n  __int64 v10; // [rsp+B8h] [rbp-A0h]\n  _OWORD v11[2]; // [rsp+C0h] [rbp-98h] BYREF\n  _OWORD v12[7]; // [rsp+E0h] [rbp-78h] BYREF\n  __int64 v13; // [rsp+150h] [rbp-8h]\n\n  clap_builder::derive::Parser::parse(v5);\n  v0 = 6LL;\n  if ( (unsigned __int64)(*(_QWORD *)v5 - 2LL) < 6 )\n    v0 = *(_QWORD *)v5 - 2LL;\n  switch ( v0 )\n  {\n    case 0LL:\n      forc_crypto::keccak256::hash(v4, (__int64)&v5[8]);\n      v1 = v4[0];\n      if ( LOBYTE(v4[0]) == 6 )\n        return *((_QWORD *)&v4[0] + 1);\n      goto LABEL_17;\n    case 1LL:\n      forc_crypto::sha256::hash(v4, (__int64)&v5[8]);\n      v1 = v4[0];\n      if ( LOBYTE(v4[0]) != 6 )\n        goto LABEL_17;\n      return *((_QWORD *)&v4[0] + 1);\n    case 2LL:\n      forc_crypto::address::dump_address((__int64)v4, (__int64)&v5[8]);\n      v1 = v4[0];\n      if ( LOBYTE(v4[0]) != 6 )\n        goto LABEL_17;\n      return *((_QWORD *)&v4[0] + 1);\n    case 3LL:\n      forc_crypto::keys::get_public_key::handler(v4, &v5[8]);\n      v1 = v4[0];\n      if ( LOBYTE(v4[0]) != 6 )\n        goto LABEL_17;\n      return *((_QWORD *)&v4[0] + 1);\n    case 4LL:\n      forc_crypto::keys::new_key::handler(v4, v5[8]);\n      v1 = v4[0];\n      if ( LOBYTE(v4[0]) != 6 )\n        goto LABEL_17;\n      return *((_QWORD *)&v4[0] + 1);\n    case 5LL:\n      v11[1] = *(_OWORD *)&v5[24];\n      v11[0] = *(_OWORD *)&v5[8];\n      forc_crypto::keys::parse_secret::handler(v4, v11);\n      v1 = v4[0];\n      if ( LOBYTE(v4[0]) == 6 )\n        return *((_QWORD *)&v4[0] + 1);\n      goto LABEL_17;\n    case 6LL:\n      v13 = v10;\n      v12[6] = v9;\n      v12[5] = v8;\n      v12[4] = v7;\n      v12[3] = v6;\n      v12[2] = *(_OWORD *)&v5[32];\n      v12[1] = *(_OWORD *)&v5[16];\n      v12[0] = *(_OWORD *)v5;\n      forc_crypto::keys::vanity::handler(v4, v12);\n      v1 = v4[0];\n      if ( LOBYTE(v4[0]) == 6 )\n        return *((_QWORD *)&v4[0] + 1);\nLABEL_17:\n      v3 = DWORD1(v4[0]);\n      LOBYTE(v3) = BYTE4(v4[0]);\n      v4[2] = v4[1];\n      LOBYTE(v4[0]) = v1;\n      DWORD1(v4[0]) = v3;\n      return forc_crypto::display_output(v4);\n  }\n}",
+    "_ZN11forc_crypto17wait_for_keypress17h097f336dd4d0c55fE": "__int64 forc_crypto::wait_for_keypress()\n{\n  __int64 v0; // rax\n  char v2; // [rsp+Fh] [rbp-9h] BYREF\n  __int64 v3; // [rsp+10h] [rbp-8h] BYREF\n\n  v2 = 0;\n  v3 = std::io::stdio::stdin();\n  v0 = <std::io::stdio::Stdin as std::io::Read>::read_exact(&v3, &v2, 1LL);\n  return core::result::Result<T,E>::unwrap(v0);\n}",
+    "_ZN11forc_crypto17has_sensible_info17hdcf6a8a75752cdf1E": "__int64 __fastcall forc_crypto::has_sensible_info(__int64 a1)\n{\n  __int64 v1; // rbx\n  _BYTE v3[8]; // [rsp+0h] [rbp-48h] BYREF\n  __int128 v4; // [rsp+8h] [rbp-40h]\n  __int64 v5; // [rsp+18h] [rbp-30h]\n  __int128 v6; // [rsp+20h] [rbp-28h] BYREF\n  __int64 v7; // [rsp+30h] [rbp-18h]\n\n  serde_json::value::to_value(v3, a1);\n  LODWORD(v1) = 0;\n  if ( v3[0] == 6 )\n    goto LABEL_5;\n  if ( v3[0] == 5 )\n  {\n    v6 = v4;\n    v7 = v5;\n    v1 = alloc::collections::btree::map::BTreeMap<K,V,A>::get(v4, *((_QWORD *)&v4 + 1));\n    core::ptr::drop_in_place<serde_json::map::Map<alloc::string::String,serde_json::value::Value>>(&v6);\n    LOBYTE(v1) = v1 != 0;\n    if ( v3[0] == 5 )\n      return (unsigned int)v1;\n    if ( v3[0] == 6 )\n    {\nLABEL_5:\n      core::ptr::drop_in_place<core::result::Result<serde_json::value::Value,serde_json::error::Error>>(v3);\n      return (unsigned int)v1;\n    }\n  }\n  core::ptr::drop_in_place<serde_json::value::Value>(v3);\n  return (unsigned int)v1;\n}",
+    "_ZN11forc_crypto14display_output17h66f719bf0e2367ecE": "__int64 __fastcall forc_crypto::display_output(__int64 a1)\n{\n  __int64 v2; // rax\n  __int64 v3; // rdx\n  __int64 v4; // r14\n  __int128 *v5; // rdi\n  __int64 v6; // rax\n  __int64 v8; // [rsp+8h] [rbp-80h] BYREF\n  __int128 v9; // [rsp+10h] [rbp-78h] BYREF\n  __int128 *v10; // [rsp+20h] [rbp-68h]\n  __int128 v11; // [rsp+28h] [rbp-60h]\n  __int128 v12; // [rsp+40h] [rbp-48h] BYREF\n  __int128 *v13; // [rsp+50h] [rbp-38h]\n  __int128 *v14; // [rsp+58h] [rbp-30h] BYREF\n  __int64 (__fastcall *v15)(); // [rsp+60h] [rbp-28h]\n\n  std::io::stdio::stdout();\n  if ( (unsigned __int8)std::sys::io::is_terminal::isatty::is_terminal() )\n  {\n    serde_yaml::ser::to_string(&v9, a1);\n    core::result::Result<T,E>::expect(&v12, &v9);\n    if ( (unsigned __int8)forc_crypto::has_sensible_info(a1) )\n    {\n      v2 = std::io::stdio::stdout();\n      if ( (termion::screen::IntoAlternateScreen::into_alternate_screen(v2) & 1) != 0 )\n      {\n        v4 = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(v3);\nLABEL_15:\n        core::ptr::drop_in_place<alloc::string::String>(&v12);\n        goto LABEL_16;\n      }\n      v8 = v3;\n      v14 = &v12;\n      v15 = <alloc::string::String as core::fmt::Display>::fmt;\n      *(_QWORD *)&v9 = &unk_62CB98;\n      *((_QWORD *)&v9 + 1) = 2LL;\n      v10 = (__int128 *)&v14;\n      v11 = 1uLL;\n      v6 = std::io::Write::write_fmt(&v8, &v9);\n      if ( v6 || (v6 = <std::io::stdio::Stdout as std::io::Write>::flush(&v8)) != 0 )\n      {\n        v4 = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(v6);\n        core::ptr::drop_in_place<termion::screen::AlternateScreen<std::io::stdio::Stdout>>(&v8);\n        goto LABEL_15;\n      }\n      *(_QWORD *)&v9 = &off_62CBB8;\n      *((_QWORD *)&v9 + 1) = 1LL;\n      v10 = (_OWORD *)&byte_8;\n      v11 = 0LL;\n      std::io::stdio::_print(&v9);\n      forc_crypto::wait_for_keypress();\n      core::ptr::drop_in_place<termion::screen::AlternateScreen<std::io::stdio::Stdout>>(&v8);\n    }\n    else\n    {\n      v14 = &v12;\n      v15 = <alloc::string::String as core::fmt::Display>::fmt;\n      *(_QWORD *)&v9 = &unk_62CB98;\n      *((_QWORD *)&v9 + 1) = 2LL;\n      v10 = (__int128 *)&v14;\n      v11 = 1uLL;\n      std::io::stdio::_print(&v9);\n    }\n    v5 = &v12;\n  }\n  else\n  {\n    serde_json::ser::to_vec(&v9, a1);\n    if ( __OFSUB__(0LL, (_QWORD)v9) )\n    {\n      *((_QWORD *)&v12 + 1) = *((_QWORD *)&v9 + 1);\n      *(_QWORD *)&v12 = 0x8000000000000000LL;\n    }\n    else\n    {\n      v13 = v10;\n      v12 = v9;\n    }\n    core::result::Result<T,E>::expect(&v14, &v12);\n    *(_QWORD *)&v12 = &v14;\n    *((_QWORD *)&v12 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n    *(_QWORD *)&v9 = asc_7AB60;\n    *((_QWORD *)&v9 + 1) = 1LL;\n    v10 = &v12;\n    v11 = 1uLL;\n    std::io::stdio::_print(&v9);\n    v5 = (__int128 *)&v14;\n  }\n  core::ptr::drop_in_place<alloc::string::String>(v5);\n  v4 = 0LL;\nLABEL_16:\n  core::ptr::drop_in_place<serde_json::value::Value>(a1);\n  return v4;\n}",
+    "_ZN11forc_crypto4args17checked_read_file17h22b9faaf715a9a45E": "__int64 __fastcall forc_crypto::args::checked_read_file(_QWORD *a1, _QWORD *a2)\n{\n  __int64 result; // rax\n  __int64 v3; // [rsp+8h] [rbp-40h] BYREF\n  __int128 v4; // [rsp+10h] [rbp-38h]\n  __int64 v5; // [rsp+20h] [rbp-28h] BYREF\n  __int128 v6; // [rsp+28h] [rbp-20h]\n\n  result = 0LL;\n  if ( __OFSUB__(0LL, *a2) )\n  {\n    *a1 = 0x8000000000000000LL;\n  }\n  else\n  {\n    std::fs::read(&v5);\n    v4 = v6;\n    v3 = v5;\n    if ( v5 == 0x8000000000000000LL )\n    {\n      *a1 = 0x8000000000000000LL;\n      return core::ptr::drop_in_place<core::result::Result<alloc::vec::Vec<u8>,std::io::error::Error>>(&v3);\n    }\n    else\n    {\n      a1[2] = *((_QWORD *)&v4 + 1);\n      *a1 = v3;\n      result = v4;\n      a1[1] = v4;\n    }\n  }\n  return result;\n}",
+    "_ZN11forc_crypto4args18checked_read_stdin17hc53103be1c9a90d0E": "__int64 __fastcall forc_crypto::args::checked_read_stdin(_QWORD *a1, _QWORD *a2, __int64 a3, unsigned __int8 a4)\n{\n  unsigned __int8 v4; // bp\n  __int64 v5; // r14\n  __int64 v6; // rdx\n  __int64 v8; // [rsp+8h] [rbp-50h] BYREF\n  unsigned __int8 v9; // [rsp+10h] [rbp-48h]\n  __int128 v10; // [rsp+18h] [rbp-40h] BYREF\n  __int64 v11; // [rsp+28h] [rbp-30h]\n  _QWORD v12[5]; // [rsp+30h] [rbp-28h] BYREF\n\n  v4 = a4;\n  v8 = a3;\n  v9 = a4;\n  if ( __OFSUB__(0LL, *a2)\n    || (v5 = a3, (unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a2[1], a2[2], asc_8080C, 1LL)) )\n  {\n    *(_QWORD *)&v10 = 0LL;\n    *((_QWORD *)&v10 + 1) = 1LL;\n    v11 = 0LL;\n    v12[0] = <std::io::stdio::StdinLock as std::io::Read>::read_to_end(&v8, &v10);\n    v12[1] = v6;\n    if ( v12[0] )\n    {\n      core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(v12);\n      *a1 = 0LL;\n      a1[1] = 1LL;\n      a1[2] = 0LL;\n      core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&v10);\n    }\n    else\n    {\n      core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>(v12);\n      a1[2] = v11;\n      *(_OWORD *)a1 = v10;\n    }\n    v5 = v8;\n    v4 = v9;\n  }\n  else\n  {\n    *a1 = 0x8000000000000000LL;\n  }\n  return core::ptr::drop_in_place<std::sync::poison::PoisonError<std::sync::poison::mutex::MutexGuard<alloc::vec::Vec<alloc::boxed::Box<regex_automata::meta::regex::Cache>>>>>(\n           v5,\n           v4);\n}",
+    "_ZN11forc_crypto4args14read_as_binary17h6ffe604cc99fdcccE": "__int64 __fastcall forc_crypto::args::read_as_binary(_QWORD *a1, _QWORD *a2)\n{\n  __int64 result; // rax\n  __int64 v3; // [rsp+8h] [rbp-20h] BYREF\n  __int128 v4; // [rsp+10h] [rbp-18h]\n\n  if ( __OFSUB__(0LL, *a2) )\n  {\n    a1[1] = 1LL;\n    a1[2] = 0LL;\n    result = 0LL;\n    *a1 = 0LL;\n  }\n  else\n  {\n    forc_crypto::args::read_as_binary::{{closure}}(&v3, a2[1], a2[2]);\n    result = v3;\n    *(_OWORD *)(a1 + 1) = v4;\n    *a1 = result;\n  }\n  return result;\n}",
+    "_ZN11forc_crypto4args30read_content_filepath_or_stdin17h735eec317a7ae007E": "_QWORD *__fastcall forc_crypto::args::read_content_filepath_or_stdin(_QWORD *a1, _QWORD *a2)\n{\n  __int64 v2; // rax\n  char v3; // dl\n  __int128 v4; // xmm0\n  __int64 v6; // [rsp+0h] [rbp-48h] BYREF\n  __int128 v7; // [rsp+8h] [rbp-40h] BYREF\n  __int64 v8; // [rsp+18h] [rbp-30h]\n  __int128 v9; // [rsp+20h] [rbp-28h] BYREF\n  __int64 v10; // [rsp+30h] [rbp-18h]\n\n  forc_crypto::args::checked_read_file(&v7, a2);\n  if ( !__OFSUB__(0LL, (_QWORD)v7) )\n  {\n    a1[2] = v8;\n    v4 = v7;\nLABEL_6:\n    *(_OWORD *)a1 = v4;\n    goto LABEL_7;\n  }\n  v6 = std::io::stdio::stdin();\n  v2 = std::io::stdio::Stdin::lock(&v6);\n  forc_crypto::args::checked_read_stdin(&v9, a2, v2, v3 & 1);\n  if ( (_QWORD)v9 != 0x8000000000000000LL )\n  {\n    a1[2] = v10;\n    v4 = v9;\n    goto LABEL_6;\n  }\n  forc_crypto::args::read_as_binary(a1, a2);\nLABEL_7:\n  core::ptr::drop_in_place<alloc::borrow::Cow<str>>(a2);\n  return a1;\n}",
+    "_ZN11forc_crypto4args110_$LT$impl$u20$core..convert..From$LT$forc_crypto..args..HashArgs$GT$$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$4from17h594ca9919f43c62dE": "_QWORD *__fastcall forc_crypto::args::<impl core::convert::From<forc_crypto::args::HashArgs> for alloc::vec::Vec<u8>>::from(\n        _QWORD *a1,\n        __int128 *a2)\n{\n  __int128 v3; // [rsp+0h] [rbp-28h] BYREF\n  __int64 v4; // [rsp+10h] [rbp-18h]\n\n  v4 = *((_QWORD *)a2 + 2);\n  v3 = *a2;\n  forc_crypto::args::read_content_filepath_or_stdin(a1, &v3);\n  return a1;\n}",
+    "_ZN11forc_crypto4keys14get_public_key7handler17h2392f84c0c5629b2E": "__int64 __fastcall forc_crypto::keys::get_public_key::handler(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rax\n  __int64 v3; // rcx\n  _BYTE v5[34]; // [rsp+0h] [rbp-168h] BYREF\n  _OWORD v6[2]; // [rsp+22h] [rbp-146h]\n  __int128 v7; // [rsp+50h] [rbp-118h] BYREF\n  __int64 v8; // [rsp+60h] [rbp-108h]\n  _BYTE v9[24]; // [rsp+70h] [rbp-F8h] BYREF\n  __int128 v10; // [rsp+88h] [rbp-E0h] BYREF\n  __int64 v11; // [rsp+98h] [rbp-D0h]\n  _OWORD v12[2]; // [rsp+A0h] [rbp-C8h] BYREF\n  char v13; // [rsp+C8h] [rbp-A0h] BYREF\n  __int128 v14; // [rsp+C9h] [rbp-9Fh]\n  __int128 v15; // [rsp+D9h] [rbp-8Fh]\n  _BYTE v16[31]; // [rsp+E9h] [rbp-7Fh]\n  _BYTE v17[32]; // [rsp+108h] [rbp-60h] BYREF\n  _BYTE v18[64]; // [rsp+128h] [rbp-40h] BYREF\n\n  *(_QWORD *)&v5[16] = *(_QWORD *)(a2 + 16);\n  *(_OWORD *)v5 = *(_OWORD *)a2;\n  forc_crypto::args::read_content_filepath_or_stdin(&v13, v5);\n  fuel_crypto::hasher::Hasher::hash(v18, &v13);\n  fuel_crypto::secp256::signature::Signature::recover(v5, a2 + 24, v18);\n  if ( v5[0] == 1 )\n  {\n    *(_QWORD *)(a1 + 8) = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(v5[1]);\n    *(_BYTE *)a1 = 6;\n  }\n  else\n  {\n    *(_OWORD *)&v16[15] = *(_OWORD *)((char *)v6 + 15);\n    *(_OWORD *)v16 = v6[0];\n    v15 = *(_OWORD *)&v5[18];\n    v14 = *(_OWORD *)&v5[2];\n    v13 = v5[1];\n    fuel_crypto::secp256::public::PublicKey::hash(v17, &v13);\n    *(_QWORD *)&v10 = 0LL;\n    v11 = 0LL;\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v5, aPublickey, 9LL);\n    v8 = *(_QWORD *)&v5[16];\n    v7 = *(_OWORD *)v5;\n    <T as alloc::string::SpecToString>::spec_to_string(v9, &v13);\n    serde_json::value::to_value(v5, v9);\n    core::result::Result<T,E>::unwrap(v12, v5, &off_62EF60);\n    alloc::collections::btree::map::BTreeMap<K,V,A>::insert(v5, &v10, &v7, v12);\n    core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(v5);\n    core::ptr::drop_in_place<alloc::string::String>(v9);\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v5, aAddress_0, 7LL);\n    v8 = *(_QWORD *)&v5[16];\n    v7 = *(_OWORD *)v5;\n    <T as alloc::string::SpecToString>::spec_to_string(v9, v17);\n    serde_json::value::to_value(v5, v9);\n    core::result::Result<T,E>::unwrap(v12, v5, &off_62EF60);\n    alloc::collections::btree::map::BTreeMap<K,V,A>::insert(v5, &v10, &v7, v12);\n    core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(v5);\n    core::ptr::drop_in_place<alloc::string::String>(v9);\n    v12[0] = v10;\n    *(_OWORD *)&v5[7] = v10;\n    *(_QWORD *)&v5[23] = v11;\n    *(_BYTE *)a1 = 5;\n    v2 = *(_QWORD *)&v5[15];\n    v3 = *(_QWORD *)&v5[23];\n    *(_OWORD *)(a1 + 1) = *(_OWORD *)v5;\n    *(_QWORD *)(a1 + 16) = v2;\n    *(_QWORD *)(a1 + 24) = v3;\n  }\n  return a1;\n}",
+    "_ZN11forc_crypto4keys7new_key7handler17h9c4194e818a0987dE": "__int64 __fastcall forc_crypto::keys::new_key::handler(__int64 a1, int a2)\n{\n  __int64 v2; // rax\n  __int64 v3; // rcx\n  __int128 v5; // [rsp+0h] [rbp-588h] BYREF\n  __int64 v6; // [rsp+10h] [rbp-578h]\n  __int128 v7; // [rsp+20h] [rbp-568h] BYREF\n  __int64 v8; // [rsp+30h] [rbp-558h]\n  __int128 v9; // [rsp+40h] [rbp-548h] BYREF\n  __int128 v10; // [rsp+50h] [rbp-538h]\n  __int128 v11; // [rsp+60h] [rbp-528h]\n  __int128 v12; // [rsp+70h] [rbp-518h]\n  __int128 v13; // [rsp+80h] [rbp-508h]\n  __int64 v14; // [rsp+90h] [rbp-4F8h]\n  __int128 v15; // [rsp+A0h] [rbp-4E8h] BYREF\n  __int128 v16; // [rsp+B0h] [rbp-4D8h]\n  __int128 v17; // [rsp+C0h] [rbp-4C8h] BYREF\n  __int64 v18; // [rsp+D0h] [rbp-4B8h]\n  __int128 v19; // [rsp+D8h] [rbp-4B0h] BYREF\n  __int64 v20; // [rsp+E8h] [rbp-4A0h]\n  _BYTE v21[23]; // [rsp+F1h] [rbp-497h]\n  __int64 v22; // [rsp+108h] [rbp-480h]\n  _BYTE v23[24]; // [rsp+110h] [rbp-478h] BYREF\n  _OWORD dest[13]; // [rsp+128h] [rbp-460h] BYREF\n  _OWORD v25[2]; // [rsp+1F8h] [rbp-390h] BYREF\n  __int128 v26; // [rsp+218h] [rbp-370h]\n  __int128 v27; // [rsp+228h] [rbp-360h]\n  __int128 v28; // [rsp+238h] [rbp-350h]\n  __int128 v29; // [rsp+248h] [rbp-340h]\n  __int128 v30; // [rsp+258h] [rbp-330h]\n  __int64 v31; // [rsp+268h] [rbp-320h]\n  _OWORD v32[2]; // [rsp+270h] [rbp-318h] BYREF\n  _OWORD src[13]; // [rsp+290h] [rbp-2F8h] BYREF\n  _BYTE v34[80]; // [rsp+360h] [rbp-228h] BYREF\n  _BYTE v35[64]; // [rsp+3B0h] [rbp-1D8h] BYREF\n  _BYTE v36[408]; // [rsp+3F0h] [rbp-198h] BYREF\n\n  rand_core::SeedableRng::from_entropy(v36);\n  secp256k1::key::SecretKey::new(dest, v36);\n  <fuel_crypto::secp256::secret::SecretKey as core::convert::From<secp256k1::key::SecretKey>>::from(v32, dest);\n  fuel_crypto::secp256::secret::SecretKey::public_key(v35, v32);\n  <T as alloc::string::SpecToString>::spec_to_string(v23, v32);\n  if ( a2 )\n  {\n    v16 = v32[1];\n    v15 = v32[0];\n    libp2p_identity::secp256k1::SecretKey::try_from_bytes(dest, &v15);\n    core::result::Result<T,E>::expect(v25, dest, &off_62EF90);\n    *(_OWORD *)((char *)&src[7] + 8) = v26;\n    *(_OWORD *)((char *)&src[8] + 8) = v27;\n    *(_OWORD *)((char *)&src[9] + 8) = v28;\n    *(_OWORD *)((char *)&src[10] + 8) = v29;\n    *(_OWORD *)((char *)&src[11] + 8) = v30;\n    *((_QWORD *)&src[12] + 1) = v31;\n    src[0] = v25[0];\n    src[1] = v25[1];\n    src[2] = v26;\n    src[3] = v27;\n    src[4] = v28;\n    src[5] = v29;\n    src[6] = v30;\n    *(_QWORD *)&src[7] = v31;\n    memcpy(dest, src, sizeof(dest));\n    v14 = v31;\n    v13 = v30;\n    v12 = v29;\n    v11 = v28;\n    v10 = v27;\n    v9 = v26;\n    libp2p_identity::peer_id::PeerId::from_public_key(v34, &v9);\n    *(_QWORD *)&v19 = 0LL;\n    v20 = 0LL;\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v9, aSecret, 6LL);\n    v6 = v10;\n    v5 = v9;\n    serde_json::value::to_value(&v9, v23);\n    core::result::Result<T,E>::unwrap(&v7, &v9, &off_62EFA8);\n    alloc::collections::btree::map::BTreeMap<K,V,A>::insert(&v9, &v19, &v5, &v7);\n    core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(&v9);\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v9, aPeerId, 7LL);\n    v18 = v10;\n    v17 = v9;\n    ((void (__fastcall *)(__int128 *, _BYTE *))<T as alloc::string::SpecToString>::spec_to_string)(&v5, v34);\n    serde_json::value::to_value(&v9, &v5);\n    core::result::Result<T,E>::unwrap(&v7, &v9, &off_62EFA8);\n    alloc::collections::btree::map::BTreeMap<K,V,A>::insert(&v9, &v19, &v17, &v7);\n    core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(&v9);\n    core::ptr::drop_in_place<alloc::string::String>(&v5);\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v9, aType, 4LL);\n    v6 = v10;\n    v5 = v9;\n    *(_QWORD *)&v17 = aP2p;\n    *((_QWORD *)&v17 + 1) = 3LL;\n    serde_json::value::to_value(&v9, &v17);\n    core::result::Result<T,E>::unwrap(&v7, &v9, &off_62EFA8);\n    alloc::collections::btree::map::BTreeMap<K,V,A>::insert(&v9, &v19, &v5, &v7);\n    core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(&v9);\n    *(_OWORD *)&v21[7] = v19;\n    v22 = v20;\n    core::ptr::drop_in_place<libp2p_identity::keypair::Keypair>(dest);\n  }\n  else\n  {\n    fuel_tx::transaction::types::input::Input::owner(v34, v35);\n    *(_QWORD *)&v15 = 0LL;\n    *(_QWORD *)&v16 = 0LL;\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(dest, aSecret, 6LL);\n    v8 = *(_QWORD *)&dest[1];\n    v7 = dest[0];\n    serde_json::value::to_value(dest, v23);\n    core::result::Result<T,E>::unwrap(&v9, dest, &off_62EF78);\n    alloc::collections::btree::map::BTreeMap<K,V,A>::insert(dest, &v15, &v7, &v9);\n    core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(dest);\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(dest, aAddress_1, 7LL);\n    v8 = *(_QWORD *)&dest[1];\n    v7 = dest[0];\n    serde_json::value::to_value(dest, v34);\n    core::result::Result<T,E>::unwrap(&v9, dest, &off_62EF78);\n    alloc::collections::btree::map::BTreeMap<K,V,A>::insert(dest, &v15, &v7, &v9);\n    core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(dest);\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(dest, aType, 4LL);\n    v8 = *(_QWORD *)&dest[1];\n    v7 = dest[0];\n    *(_QWORD *)&v5 = aBlockProductio;\n    *((_QWORD *)&v5 + 1) = 16LL;\n    serde_json::value::to_value(dest, &v5);\n    core::result::Result<T,E>::unwrap(&v9, dest, &off_62EF78);\n    alloc::collections::btree::map::BTreeMap<K,V,A>::insert(dest, &v15, &v7, &v9);\n    core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(dest);\n    *(_OWORD *)&v21[7] = v15;\n    v22 = v16;\n  }\n  *(_BYTE *)a1 = 5;\n  v2 = *(_QWORD *)&v21[15];\n  v3 = v22;\n  *(_OWORD *)(a1 + 1) = *(_OWORD *)v21;\n  *(_QWORD *)(a1 + 16) = v2;\n  *(_QWORD *)(a1 + 24) = v3;\n  core::ptr::drop_in_place<alloc::string::String>(v23);\n  return a1;\n}",
+    "_ZN11forc_crypto4keys12parse_secret7handler17hc911bd93ff9f1e31E": "__int64 __fastcall forc_crypto::keys::parse_secret::handler(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rdx\n  __int64 v3; // rcx\n  __int64 v4; // r8\n  __int64 v5; // r9\n  __int64 v6; // rax\n  __int64 v7; // rcx\n  __int128 v9; // [rsp+0h] [rbp-408h] BYREF\n  __int64 v10; // [rsp+10h] [rbp-3F8h]\n  _OWORD v11[2]; // [rsp+20h] [rbp-3E8h] BYREF\n  __int128 v12; // [rsp+40h] [rbp-3C8h] BYREF\n  __int64 v13; // [rsp+50h] [rbp-3B8h]\n  __int128 v14; // [rsp+60h] [rbp-3A8h] BYREF\n  __int64 v15; // [rsp+70h] [rbp-398h]\n  __int128 v16; // [rsp+78h] [rbp-390h] BYREF\n  __int64 v17; // [rsp+88h] [rbp-380h]\n  __int128 v18; // [rsp+90h] [rbp-378h] BYREF\n  __int128 v19; // [rsp+A0h] [rbp-368h]\n  __int128 v20; // [rsp+B0h] [rbp-358h]\n  __int128 v21; // [rsp+C0h] [rbp-348h]\n  __int128 v22; // [rsp+D0h] [rbp-338h]\n  __int64 v23; // [rsp+E0h] [rbp-328h]\n  _BYTE v24[23]; // [rsp+F1h] [rbp-317h]\n  __int64 v25; // [rsp+108h] [rbp-300h]\n  _BYTE v26[31]; // [rsp+110h] [rbp-2F8h]\n  _OWORD v27[2]; // [rsp+138h] [rbp-2D0h] BYREF\n  __int128 v28; // [rsp+158h] [rbp-2B0h]\n  __int128 v29; // [rsp+168h] [rbp-2A0h]\n  __int128 v30; // [rsp+178h] [rbp-290h]\n  __int128 v31; // [rsp+188h] [rbp-280h]\n  __int128 v32; // [rsp+198h] [rbp-270h]\n  __int64 v33; // [rsp+1A8h] [rbp-260h]\n  _OWORD dest[13]; // [rsp+1B0h] [rbp-258h] BYREF\n  char v35; // [rsp+280h] [rbp-188h] BYREF\n  _BYTE v36[31]; // [rsp+281h] [rbp-187h]\n  _OWORD src[13]; // [rsp+2A0h] [rbp-168h] BYREF\n  _BYTE v38[152]; // [rsp+370h] [rbp-98h] BYREF\n\n  <fuel_crypto::secp256::secret::SecretKey as core::str::traits::FromStr>::from_str(\n    dest,\n    *(_QWORD *)(a2 + 8),\n    *(_QWORD *)(a2 + 16));\n  if ( LOBYTE(dest[0]) == 1 )\n  {\n    *(_QWORD *)(a1 + 8) = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(BYTE1(dest[0]));\n    *(_BYTE *)a1 = 6;\n  }\n  else\n  {\n    *(_OWORD *)&v26[15] = *(_OWORD *)((char *)&dest[1] + 1);\n    *(_OWORD *)v26 = *(_OWORD *)((char *)dest + 2);\n    v35 = BYTE1(dest[0]);\n    *(_OWORD *)&v36[15] = *(_OWORD *)&v26[15];\n    *(_OWORD *)v36 = *(_OWORD *)((char *)dest + 2);\n    if ( *(_BYTE *)(a2 + 24) == 1 )\n    {\n      LOBYTE(v11[0]) = BYTE1(dest[0]);\n      *(_OWORD *)((char *)v11 + 1) = *(_OWORD *)v26;\n      v11[1] = *(_OWORD *)&v26[15];\n      libp2p_identity::secp256k1::SecretKey::try_from_bytes(dest, v11);\n      core::result::Result<T,E>::expect(v27, dest, &off_62EFD8);\n      *(_OWORD *)((char *)&src[7] + 8) = v28;\n      *(_OWORD *)((char *)&src[8] + 8) = v29;\n      *(_OWORD *)((char *)&src[9] + 8) = v30;\n      *(_OWORD *)((char *)&src[10] + 8) = v31;\n      *(_OWORD *)((char *)&src[11] + 8) = v32;\n      *((_QWORD *)&src[12] + 1) = v33;\n      src[0] = v27[0];\n      src[1] = v27[1];\n      src[2] = v28;\n      src[3] = v29;\n      src[4] = v30;\n      src[5] = v31;\n      src[6] = v32;\n      *(_QWORD *)&src[7] = v33;\n      memcpy(dest, src, sizeof(dest));\n      v23 = v33;\n      v22 = v32;\n      v21 = v31;\n      v20 = v30;\n      v19 = v29;\n      v18 = v28;\n      libp2p_identity::peer_id::PeerId::from_public_key(v38, &v18);\n      *(_QWORD *)&v16 = 0LL;\n      v17 = 0LL;\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v18, aPeerId, 7LL);\n      v15 = v19;\n      v14 = v18;\n      ((void (__fastcall *)(__int128 *, _BYTE *, __int64, __int64, __int64, __int64))<T as alloc::string::SpecToString>::spec_to_string)(\n        &v9,\n        v38,\n        v2,\n        v3,\n        v4,\n        v5);\n      serde_json::value::to_value(&v18, &v9);\n      core::result::Result<T,E>::unwrap(&v12, &v18, &off_62EFF0);\n      alloc::collections::btree::map::BTreeMap<K,V,A>::insert(&v18, &v16, &v14, &v12);\n      core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(&v18);\n      core::ptr::drop_in_place<alloc::string::String>(&v9);\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v18, aType, 4LL);\n      v10 = v19;\n      v9 = v18;\n      *(_QWORD *)&v14 = aP2p;\n      *((_QWORD *)&v14 + 1) = 3LL;\n      serde_json::value::to_value(&v18, &v14);\n      core::result::Result<T,E>::unwrap(&v12, &v18, &off_62EFF0);\n      alloc::collections::btree::map::BTreeMap<K,V,A>::insert(&v18, &v16, &v9, &v12);\n      core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(&v18);\n      *(_OWORD *)&v24[7] = v16;\n      v25 = v17;\n      core::ptr::drop_in_place<libp2p_identity::keypair::Keypair>(dest);\n    }\n    else\n    {\n      fuel_crypto::secp256::secret::SecretKey::public_key(dest, &v35);\n      fuel_tx::transaction::types::input::Input::owner(v38, dest);\n      *(_QWORD *)&v9 = 0LL;\n      v10 = 0LL;\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(dest, aAddress_1, 7LL);\n      *(_QWORD *)&v11[1] = *(_QWORD *)&dest[1];\n      v11[0] = dest[0];\n      <T as alloc::string::SpecToString>::spec_to_string(&v12, v38);\n      serde_json::value::to_value(dest, &v12);\n      core::result::Result<T,E>::unwrap(&v18, dest, &off_62EFC0);\n      alloc::collections::btree::map::BTreeMap<K,V,A>::insert(dest, &v9, v11, &v18);\n      core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(dest);\n      core::ptr::drop_in_place<alloc::string::String>(&v12);\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(dest, aType, 4LL);\n      v13 = *(_QWORD *)&dest[1];\n      v12 = dest[0];\n      *(_QWORD *)&v11[0] = aBlockProductio;\n      *((_QWORD *)&v11[0] + 1) = 16LL;\n      serde_json::value::to_value(dest, v11);\n      core::result::Result<T,E>::unwrap(&v18, dest, &off_62EFC0);\n      alloc::collections::btree::map::BTreeMap<K,V,A>::insert(dest, &v9, &v12, &v18);\n      core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(dest);\n      *(_OWORD *)&v24[7] = v9;\n      v25 = v10;\n    }\n    *(_BYTE *)a1 = 5;\n    v6 = *(_QWORD *)&v24[15];\n    v7 = v25;\n    *(_OWORD *)(a1 + 1) = *(_OWORD *)v24;\n    *(_QWORD *)(a1 + 16) = v6;\n    *(_QWORD *)(a1 + 24) = v7;\n  }\n  core::ptr::drop_in_place<forc_crypto::keys::parse_secret::Arg>(a2);\n  return a1;\n}",
+    "_ZN11forc_crypto4keys6vanity19validate_hex_string17h622429bd06bdd4a3E": "__int64 __fastcall forc_crypto::keys::vanity::validate_hex_string(__int64 *a1, __int64 a2, __int64 a3)\n{\n  unsigned __int8 v5; // al\n  _QWORD *v6; // rdi\n  __int64 result; // rax\n  _QWORD v8[5]; // [rsp+0h] [rbp-28h] BYREF\n\n  v8[0] = a2;\n  v8[1] = a2 + a3;\n  v5 = core::iter::traits::iterator::Iterator::try_fold(v8);\n  v6 = a1 + 1;\n  if ( (unsigned __int8)<core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq(v5) )\n  {\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v6, a2, a3);\n    result = 0LL;\n  }\n  else\n  {\n    <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v6, aPatternMustCon, 51LL);\n    result = 1LL;\n  }\n  *a1 = result;\n  return result;\n}",
+    "_ZN11forc_crypto4keys6vanity22validate_regex_pattern17h388a3a22683553dfE": "__int64 __fastcall forc_crypto::keys::vanity::validate_regex_pattern(__int64 a1, __int64 a2, unsigned __int64 a3)\n{\n  __int64 result; // rax\n  __int64 v4; // rdx\n  __int64 v5; // [rsp+0h] [rbp-C8h] BYREF\n  unsigned __int64 v6; // [rsp+8h] [rbp-C0h]\n  __int128 v7; // [rsp+10h] [rbp-B8h] BYREF\n  __int64 v8; // [rsp+20h] [rbp-A8h]\n  __int64 v9; // [rsp+28h] [rbp-A0h] BYREF\n  __int128 v10; // [rsp+30h] [rbp-98h]\n  __int64 v11; // [rsp+40h] [rbp-88h]\n  _BYTE v12[8]; // [rsp+48h] [rbp-80h] BYREF\n  __int64 v13; // [rsp+50h] [rbp-78h]\n  __int64 v14; // [rsp+58h] [rbp-70h]\n  char **v15; // [rsp+60h] [rbp-68h] BYREF\n  __int64 v16; // [rsp+68h] [rbp-60h]\n  __int128 *v17; // [rsp+70h] [rbp-58h]\n  __int64 v18; // [rsp+78h] [rbp-50h]\n  __int64 v19; // [rsp+80h] [rbp-48h]\n  _QWORD v20[2]; // [rsp+90h] [rbp-38h] BYREF\n  __int128 v21; // [rsp+A0h] [rbp-28h] BYREF\n  __int64 v22; // [rsp+B0h] [rbp-18h]\n\n  v5 = a2;\n  v6 = a3;\n  if ( a3 <= 0x80 )\n  {\n    *(_QWORD *)&v7 = &v5;\n    *((_QWORD *)&v7 + 1) = <&T as core::fmt::Display>::fmt;\n    v15 = &off_62F008;\n    v16 = 1LL;\n    v19 = 0LL;\n    v17 = &v7;\n    v18 = 1LL;\n    core::option::Option<T>::map_or_else(v12, 0LL, a3, &v15);\n    regex::regex::string::Regex::new(&v9, v13, v14);\n    if ( v9 )\n    {\n      core::ptr::drop_in_place<core::result::Result<regex::regex::string::Regex,regex::error::Error>>(&v9);\n      core::ptr::drop_in_place<alloc::string::String>(v12);\n      result = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(a1 + 8, v5, v6);\n      *(_QWORD *)a1 = 0LL;\n    }\n    else\n    {\n      v8 = v11;\n      v7 = v10;\n      v20[0] = &v7;\n      v20[1] = <regex::error::Error as core::fmt::Display>::fmt;\n      v15 = &off_62F018;\n      v16 = 1LL;\n      v19 = 0LL;\n      v17 = (__int128 *)v20;\n      v18 = 1LL;\n      core::option::Option<T>::map_or_else(&v21, 0LL, v4, &v15);\n      *(_QWORD *)(a1 + 24) = v22;\n      *(_OWORD *)(a1 + 8) = v21;\n      *(_QWORD *)a1 = 1LL;\n      core::ptr::drop_in_place<regex::error::Error>(&v7);\n      if ( v9 )\n        core::ptr::drop_in_place<core::result::Result<regex::regex::string::Regex,regex::error::Error>>(&v9);\n      return core::ptr::drop_in_place<alloc::string::String>(v12);\n    }\n  }\n  else\n  {\n    result = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(a1 + 8, aRegexPatternTo, 42LL);\n    *(_QWORD *)a1 = 1LL;\n  }\n  return result;\n}",
+    "_ZN11forc_crypto4keys6vanity3Arg8validate17h776811c8940670ebE": "__int64 __fastcall forc_crypto::keys::vanity::Arg::validate(__int64 a1)\n{\n  __int64 v2; // rdi\n  __int64 v3; // rbx\n  __int64 v4; // r15\n  __int64 v5; // rdi\n  _QWORD v7[3]; // [rsp+0h] [rbp-48h] BYREF\n  __int128 v8; // [rsp+18h] [rbp-30h]\n\n  v2 = a1 + 16;\n  v3 = 0LL;\n  if ( __OFSUB__(0LL, *(_QWORD *)(a1 + 16)) )\n    v2 = 0LL;\n  v4 = core::option::Option<T>::map_or(v2);\n  v5 = a1 + 40;\n  if ( __OFSUB__(0LL, *(_QWORD *)(a1 + 40)) )\n    v5 = 0LL;\n  if ( (unsigned __int64)(v4 + core::option::Option<T>::map_or(v5)) >= 0x41 )\n  {\n    v7[0] = &off_62F028;\n    v7[1] = 1LL;\n    v7[2] = 8LL;\n    v8 = 0LL;\n    return ((__int64 (__fastcall *)(_QWORD *))anyhow::__private::format_err)(v7);\n  }\n  return v3;\n}",
+    "_ZN11forc_crypto4keys6vanity7handler17h7d15fe22a5661bf3E": "__int64 __fastcall forc_crypto::keys::vanity::handler(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rax\n  unsigned __int8 v3; // bp\n  __int64 v4; // r14\n  __int64 v5; // r15\n  __int64 v6; // rdx\n  __int64 v7; // rsi\n  char v8; // r13\n  char v9; // r13\n  int v10; // edx\n  __int64 v11; // r14\n  bool v12; // r15\n  __m128d v13; // xmm0\n  int v14; // edx\n  __int64 v15; // rcx\n  __int64 v16; // r8\n  __int64 v17; // r9\n  char v18; // r12\n  char v20; // r12\n  __int64 v21; // rax\n  __int128 v22; // xmm0\n  __int128 v23; // [rsp+0h] [rbp-2D8h] BYREF\n  __int64 v24; // [rsp+10h] [rbp-2C8h]\n  _BYTE v25[64]; // [rsp+18h] [rbp-2C0h] BYREF\n  __int64 v26; // [rsp+58h] [rbp-280h]\n  __int128 v27; // [rsp+60h] [rbp-278h]\n  __int128 v28; // [rsp+70h] [rbp-268h] BYREF\n  __int64 v29; // [rsp+80h] [rbp-258h]\n  __m256i v30; // [rsp+88h] [rbp-250h] BYREF\n  __int64 v31; // [rsp+A8h] [rbp-230h]\n  __int128 v32; // [rsp+B0h] [rbp-228h] BYREF\n  __int64 v33; // [rsp+C0h] [rbp-218h]\n  __int128 v34; // [rsp+D0h] [rbp-208h] BYREF\n  __int64 v35; // [rsp+E0h] [rbp-1F8h]\n  __m256i v36; // [rsp+F0h] [rbp-1E8h] BYREF\n  __int128 v37; // [rsp+110h] [rbp-1C8h]\n  __int128 v38; // [rsp+120h] [rbp-1B8h]\n  __int128 v39; // [rsp+130h] [rbp-1A8h] BYREF\n  __int64 v40; // [rsp+140h] [rbp-198h]\n  __int128 v41; // [rsp+150h] [rbp-188h] BYREF\n  __int64 v42; // [rsp+160h] [rbp-178h]\n  __int128 v43; // [rsp+170h] [rbp-168h] BYREF\n  __int64 v44; // [rsp+180h] [rbp-158h]\n  _BYTE v45[24]; // [rsp+188h] [rbp-150h] BYREF\n  __int128 v46; // [rsp+1A0h] [rbp-138h] BYREF\n  __int64 v47; // [rsp+1B0h] [rbp-128h]\n  _BYTE v48[48]; // [rsp+1C0h] [rbp-118h]\n  __int128 v49; // [rsp+1F0h] [rbp-E8h] BYREF\n  __int64 v50; // [rsp+200h] [rbp-D8h]\n  __int64 v51; // [rsp+208h] [rbp-D0h] BYREF\n  int v52; // [rsp+210h] [rbp-C8h]\n  __int128 v53; // [rsp+218h] [rbp-C0h] BYREF\n  __int64 v54; // [rsp+228h] [rbp-B0h]\n  __int128 v55; // [rsp+230h] [rbp-A8h] BYREF\n  __int64 v56; // [rsp+240h] [rbp-98h]\n  __int64 v57; // [rsp+248h] [rbp-90h]\n  __int128 v58; // [rsp+250h] [rbp-88h]\n  __m256i v59; // [rsp+260h] [rbp-78h]\n  __int64 v60; // [rsp+280h] [rbp-58h]\n  __int64 v61; // [rsp+288h] [rbp-50h] BYREF\n  __int128 v62; // [rsp+290h] [rbp-48h]\n  __int64 v63; // [rsp+2A0h] [rbp-38h]\n\n  v2 = forc_crypto::keys::vanity::Arg::validate(a2);\n  if ( !v2 )\n  {\n    v40 = *(_QWORD *)(a2 + 32);\n    v39 = *(_OWORD *)(a2 + 16);\n    v42 = *(_QWORD *)(a2 + 56);\n    v41 = *(_OWORD *)(a2 + 40);\n    v47 = *(_QWORD *)(a2 + 80);\n    v46 = *(_OWORD *)(a2 + 64);\n    v3 = *(_BYTE *)(a2 + 112);\n    v4 = *(_QWORD *)a2;\n    v5 = *(_QWORD *)(a2 + 8);\n    v33 = *(_QWORD *)(a2 + 104);\n    v32 = *(_OWORD *)(a2 + 88);\n    v31 = v46;\n    if ( __OFSUB__(-(__int64)v46, 1LL) )\n    {\n      v6 = v40;\n      if ( (_QWORD)v39 == 0x8000000000000000LL )\n        v6 = 0LL;\n      v7 = *((_QWORD *)&v39 + 1);\n      if ( (_QWORD)v39 == 0x8000000000000000LL )\n        v7 = 1LL;\n      forc_crypto::keys::vanity::HexMatcher::new(v25, v7, v6);\n      if ( *(_QWORD *)v25 == 0x8000000000000000LL )\n      {\n        *(_QWORD *)(a1 + 8) = *(_QWORD *)&v25[8];\n        *(_BYTE *)a1 = 6;\n        v8 = 0;\nLABEL_20:\n        v12 = 0;\n        goto LABEL_21;\n      }\n      *(_OWORD *)&v48[32] = *(_OWORD *)&v25[32];\n      *(_OWORD *)&v48[16] = *(_OWORD *)&v25[16];\n      *(_OWORD *)v48 = *(_OWORD *)v25;\n      v9 = 1;\n    }\n    else\n    {\n      forc_crypto::keys::vanity::RegexMatcher::new(v25, *(_QWORD *)(a2 + 72), *(_QWORD *)(a2 + 80));\n      if ( !*(_QWORD *)v25 )\n      {\n        *(_QWORD *)(a1 + 8) = *(_QWORD *)&v25[8];\n        *(_BYTE *)a1 = 6;\n        core::ptr::drop_in_place<alloc::string::String>(a2 + 64);\n        v8 = 1;\n        goto LABEL_20;\n      }\n      *(_OWORD *)&v48[24] = *(_OWORD *)&v25[16];\n      *(_OWORD *)&v48[8] = *(_OWORD *)v25;\n      *(_QWORD *)v48 = 0x8000000000000000LL;\n      core::ptr::drop_in_place<alloc::string::String>(a2 + 64);\n      v9 = 0;\n    }\n    *(_QWORD *)v25 = &off_62F038;\n    *(_QWORD *)&v25[8] = 1LL;\n    *(_QWORD *)&v25[16] = 8LL;\n    *(_OWORD *)&v25[24] = 0LL;\n    std::io::stdio::_print(v25);\n    v51 = std::time::Instant::now();\n    v52 = v10;\n    v37 = *(_OWORD *)&v48[32];\n    v36 = *(__m256i *)v48;\n    forc_crypto::keys::vanity::find_vanity_address_with_timeout(v25, &v36, v3, v4, v5);\n    v11 = v26;\n    if ( v26 == 0x8000000000000001LL )\n    {\n      *(_QWORD *)(a1 + 8) = *(_QWORD *)v25;\n      *(_BYTE *)a1 = 6;\n      v12 = 0;\n      v8 = v9 ^ 1;\n      goto LABEL_21;\n    }\n    v60 = *(_QWORD *)&v25[56];\n    v59 = *(__m256i *)&v25[24];\n    v58 = *(_OWORD *)&v25[8];\n    *(_OWORD *)&v45[8] = v27;\n    v61 = *(_QWORD *)v25;\n    v62 = *(_OWORD *)&v25[8];\n    v63 = *(_QWORD *)&v25[24];\n    v56 = *(_QWORD *)&v25[48];\n    v57 = *(_QWORD *)&v25[56];\n    v55 = *(_OWORD *)&v25[32];\n    *(_QWORD *)v45 = v26;\n    v13 = _mm_sub_pd(\n            (__m128d)_mm_unpacklo_epi32(\n                       (__m128i)(unsigned __int64)std::time::Instant::elapsed(&v51),\n                       (__m128i)xmmword_7A5B0),\n            (__m128d)xmmword_7A420);\n    *(double *)v30.m256i_i64 = (double)v14 / 1000000000.0 + _mm_unpackhi_pd(v13, v13).m128d_f64[0] + v13.m128d_f64[0];\n    v36.m256i_i64[0] = (__int64)&v30;\n    v36.m256i_i64[1] = (__int64)core::fmt::float::<impl core::fmt::Display for f64>::fmt;\n    *(_QWORD *)v25 = &off_62F048;\n    *(_QWORD *)&v25[8] = 2LL;\n    *(_QWORD *)&v25[32] = &unk_809E8;\n    *(_QWORD *)&v25[40] = 1LL;\n    *(_QWORD *)&v25[16] = &v36;\n    *(_QWORD *)&v25[24] = 1LL;\n    std::io::stdio::_print(v25);\n    <T as alloc::string::SpecToString>::spec_to_string(&v30, &v61);\n    fuels_core::types::checksum_address::checksum_encode(&v36, v30.m256i_i64[1], v30.m256i_i64[2]);\n    v23 = *(_OWORD *)&v36.m256i_u64[1];\n    v24 = v36.m256i_i64[3];\n    v12 = v36.m256i_i64[0] == 12;\n    if ( v36.m256i_i64[0] != 12 )\n    {\n      *(_OWORD *)&v25[48] = v38;\n      *(_OWORD *)&v25[32] = v37;\n      *(_OWORD *)&v25[8] = v23;\n      *(_QWORD *)&v25[24] = v24;\n      *(_QWORD *)v25 = v36.m256i_i64[0];\n      *(_QWORD *)(a1 + 8) = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(v25);\n      *(_BYTE *)a1 = 6;\n      core::ptr::drop_in_place<alloc::string::String>(&v30);\n      v20 = 0;\nLABEL_35:\n      if ( !(v20 & 1 | (v11 == 0x8000000000000000LL)) )\n        core::ptr::drop_in_place<alloc::string::String>(v45);\n      v8 = v9 ^ 1;\nLABEL_21:\n      if ( !v12 && (_QWORD)v32 != 0x8000000000000000LL )\n        core::ptr::drop_in_place<std::path::PathBuf>(&v32);\n      if ( v8 & 1 | (v31 == 0x8000000000000000LL) )\n        goto LABEL_26;\n      goto LABEL_25;\n    }\n    v43 = v23;\n    v44 = v24;\n    core::ptr::drop_in_place<alloc::string::String>(&v30);\n    if ( v11 == 0x8000000000000000LL )\n    {\n      *(_QWORD *)&v28 = 0LL;\n      v29 = 0LL;\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v25, aAddress_0, 7LL);\n      v24 = *(_QWORD *)&v25[16];\n      v23 = *(_OWORD *)v25;\n      serde_json::value::to_value(v25, &v43);\n      core::result::Result<T,E>::unwrap(&v36, v25, &off_62F080);\n      alloc::collections::btree::map::BTreeMap<K,V,A>::insert(v25, &v28, &v23, &v36);\n      core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(v25);\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v25, aPrivatekey, 10LL);\n      v35 = *(_QWORD *)&v25[16];\n      v34 = *(_OWORD *)v25;\n      ((void (__fastcall *)(__int128 *, __int128 *, __int64, __int64, __int64, __int64))hex::encode)(\n        &v23,\n        &v55,\n        32LL,\n        v15,\n        v16,\n        v17);\n      serde_json::value::to_value(v25, &v23);\n      core::result::Result<T,E>::unwrap(&v36, v25, &off_62F080);\n      alloc::collections::btree::map::BTreeMap<K,V,A>::insert(v25, &v28, &v34, &v36);\n      core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(v25);\n      core::ptr::drop_in_place<alloc::string::String>(&v23);\n      *(_OWORD *)&v30.m256i_u64[1] = v28;\n      v30.m256i_i64[3] = v29;\n      v30.m256i_i8[0] = 5;\n      v18 = 1;\n      if ( (_QWORD)v32 == 0x8000000000000000LL )\n        goto LABEL_38;\n    }\n    else\n    {\n      v50 = *(_QWORD *)&v45[16];\n      v49 = *(_OWORD *)v45;\n      *(_QWORD *)&v28 = 0LL;\n      v29 = 0LL;\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v25, aAddress_0, 7LL);\n      v24 = *(_QWORD *)&v25[16];\n      v23 = *(_OWORD *)v25;\n      serde_json::value::to_value(v25, &v43);\n      core::result::Result<T,E>::unwrap(&v36, v25, &off_62F068);\n      alloc::collections::btree::map::BTreeMap<K,V,A>::insert(v25, &v28, &v23, &v36);\n      core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(v25);\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v25, aPrivatekey, 10LL);\n      v35 = *(_QWORD *)&v25[16];\n      v34 = *(_OWORD *)v25;\n      ((void (__fastcall *)(__int128 *, __int128 *, __int64))hex::encode)(&v23, &v55, 32LL);\n      serde_json::value::to_value(v25, &v23);\n      core::result::Result<T,E>::unwrap(&v36, v25, &off_62F068);\n      alloc::collections::btree::map::BTreeMap<K,V,A>::insert(v25, &v28, &v34, &v36);\n      core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(v25);\n      core::ptr::drop_in_place<alloc::string::String>(&v23);\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v25, aMnemonic_1, 8LL);\n      v24 = *(_QWORD *)&v25[16];\n      v23 = *(_OWORD *)v25;\n      serde_json::value::to_value(v25, &v49);\n      core::result::Result<T,E>::unwrap(&v36, v25, &off_62F068);\n      alloc::collections::btree::map::BTreeMap<K,V,A>::insert(v25, &v28, &v23, &v36);\n      core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>(v25);\n      *(_OWORD *)&v30.m256i_u64[1] = v28;\n      v30.m256i_i64[3] = v29;\n      v30.m256i_i8[0] = 5;\n      core::ptr::drop_in_place<alloc::string::String>(&v49);\n      v18 = 0;\n      if ( (_QWORD)v32 == 0x8000000000000000LL )\n        goto LABEL_38;\n    }\n    serde_json::ser::to_vec_pretty(v25, &v30);\n    if ( *(_QWORD *)v25 == 0x8000000000000000LL )\n    {\n      *(_QWORD *)(a1 + 8) = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(*(_QWORD *)&v25[8]);\n      *(_BYTE *)a1 = 6;\n      core::ptr::drop_in_place<std::path::PathBuf>(&v32);\nLABEL_34:\n      core::ptr::drop_in_place<serde_json::value::Value>(&v30);\n      core::ptr::drop_in_place<alloc::string::String>(&v43);\n      v20 = v18 ^ 1;\n      goto LABEL_35;\n    }\n    v53 = *(_OWORD *)v25;\n    v54 = *(_QWORD *)&v25[16];\n    v21 = std::fs::write(&v32, &v53);\n    if ( v21 )\n    {\n      *(_QWORD *)(a1 + 8) = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(v21);\n      *(_BYTE *)a1 = 6;\n      goto LABEL_34;\n    }\nLABEL_38:\n    v22 = *(_OWORD *)v30.m256i_i8;\n    *(_OWORD *)(a1 + 16) = *(_OWORD *)&v30.m256i_u64[2];\n    *(_OWORD *)a1 = v22;\n    core::ptr::drop_in_place<alloc::string::String>(&v43);\n    if ( v11 != 0x8000000000000000LL && v18 )\n      core::ptr::drop_in_place<alloc::string::String>(v45);\n    if ( v31 == 0x8000000000000000LL || !v9 )\n      goto LABEL_26;\nLABEL_25:\n    core::ptr::drop_in_place<alloc::string::String>(&v46);\nLABEL_26:\n    core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v41);\n    core::ptr::drop_in_place<alloc::borrow::Cow<str>>(&v39);\n    return a1;\n  }\n  *(_QWORD *)(a1 + 8) = v2;\n  *(_BYTE *)a1 = 6;\n  core::ptr::drop_in_place<alloc::borrow::Cow<str>>(a2 + 16);\n  core::ptr::drop_in_place<alloc::borrow::Cow<str>>(a2 + 40);\n  core::ptr::drop_in_place<alloc::borrow::Cow<str>>(a2 + 64);\n  core::ptr::drop_in_place<core::option::Option<std::path::PathBuf>>(a2 + 88);\n  return a1;\n}",
+    "_ZN11forc_crypto4keys6vanity10HexMatcher3new17hd4658ac7716e1740E": "__int64 __fastcall forc_crypto::keys::vanity::HexMatcher::new(__int64 a1)\n{\n  __int128 v1; // xmm0\n  __int64 v3; // [rsp+10h] [rbp-78h]\n  __int64 v4; // [rsp+18h] [rbp-70h]\n  __int64 v5; // [rsp+28h] [rbp-60h]\n  __int128 v6; // [rsp+38h] [rbp-50h] BYREF\n  __int64 v7; // [rsp+48h] [rbp-40h]\n  _QWORD v8[7]; // [rsp+50h] [rbp-38h] BYREF\n\n  alloc::str::<impl str>::to_lowercase(&v6);\n  alloc::str::<impl str>::to_lowercase(v8);\n  v3 = v7;\n  v1 = v6;\n  v4 = v8[0];\n  v5 = v8[2];\n  *(_QWORD *)(a1 + 32) = v8[1];\n  *(_QWORD *)(a1 + 40) = v5;\n  *(_QWORD *)(a1 + 16) = v3;\n  *(_QWORD *)(a1 + 24) = v4;\n  *(_OWORD *)a1 = v1;\n  return a1;\n}",
+    "_ZN11forc_crypto4keys6vanity12RegexMatcher3new17h881b9c176c268426E": "__int64 __fastcall forc_crypto::keys::vanity::RegexMatcher::new(__int64 a1, __int64 a2, __int64 a3)\n{\n  __int64 v3; // r14\n  _BYTE v5[24]; // [rsp+0h] [rbp-98h] BYREF\n  __int64 v6; // [rsp+18h] [rbp-80h]\n  __int64 v7; // [rsp+20h] [rbp-78h]\n  __int128 v8; // [rsp+30h] [rbp-68h]\n  __int64 v9; // [rsp+40h] [rbp-58h]\n  _BYTE v10[8]; // [rsp+50h] [rbp-48h] BYREF\n  __int64 v11; // [rsp+58h] [rbp-40h]\n  __int64 v12; // [rsp+60h] [rbp-38h]\n  _QWORD v13[2]; // [rsp+68h] [rbp-30h] BYREF\n  _QWORD v14[4]; // [rsp+78h] [rbp-20h] BYREF\n\n  v13[0] = a2;\n  v13[1] = a3;\n  v14[0] = v13;\n  v14[1] = <&T as core::fmt::Display>::fmt;\n  *(_QWORD *)v5 = &off_62F008;\n  *(_QWORD *)&v5[8] = 1LL;\n  v7 = 0LL;\n  *(_QWORD *)&v5[16] = v14;\n  v6 = 1LL;\n  core::option::Option<T>::map_or_else(v10, 0LL, a3, v5);\n  regex::regex::string::Regex::new(v5, v11, v12);\n  v3 = *(_QWORD *)v5;\n  v8 = *(_OWORD *)&v5[8];\n  v9 = v6;\n  if ( *(_QWORD *)v5 )\n  {\n    *(_QWORD *)(a1 + 24) = v9;\n    *(_OWORD *)(a1 + 8) = v8;\n    core::ptr::drop_in_place<alloc::string::String>(v10);\n    *(_QWORD *)a1 = v3;\n  }\n  else\n  {\n    *(_QWORD *)&v5[16] = v9;\n    *(_OWORD *)v5 = v8;\n    *(_QWORD *)(a1 + 8) = ((__int64 (__fastcall *)(_BYTE *))anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from)(v5);\n    *(_QWORD *)a1 = 0LL;\n    core::ptr::drop_in_place<alloc::string::String>(v10);\n  }\n  return a1;\n}",
+    "_ZN11forc_crypto4keys6vanity32find_vanity_address_with_timeout17hda53e568c7769d8cE": "_QWORD *__fastcall forc_crypto::keys::vanity::find_vanity_address_with_timeout(\n        _QWORD *a1,\n        __int128 *a2,\n        char a3,\n        char a4,\n        __int64 a5)\n{\n  volatile signed __int64 *v8; // rax\n  __int64 v9; // rt0\n  char v10; // of\n  __int128 v11; // xmm1\n  __int128 v12; // xmm2\n  volatile signed __int64 *v14; // [rsp+0h] [rbp-208h] BYREF\n  __int64 v15; // [rsp+8h] [rbp-200h] BYREF\n  __int128 v16; // [rsp+10h] [rbp-1F8h] BYREF\n  __int128 v17; // [rsp+20h] [rbp-1E8h]\n  __int128 v18; // [rsp+30h] [rbp-1D8h]\n  __int128 v19; // [rsp+40h] [rbp-1C8h]\n  _OWORD v20[5]; // [rsp+50h] [rbp-1B8h] BYREF\n  __int128 v21; // [rsp+A0h] [rbp-168h] BYREF\n  __int128 v22; // [rsp+B0h] [rbp-158h]\n  __int128 v23; // [rsp+C0h] [rbp-148h]\n  __int128 v24; // [rsp+D0h] [rbp-138h]\n  __int128 v25; // [rsp+E0h] [rbp-128h]\n  char v26; // [rsp+148h] [rbp-C0h]\n\n  *(_QWORD *)&v21 = 1LL;\n  *((_QWORD *)&v21 + 1) = 1LL;\n  LOBYTE(v22) = 0;\n  v8 = (volatile signed __int64 *)alloc::boxed::Box<T>::new(&v21);\n  v9 = _InterlockedIncrement64(v8);\n  if ( (v9 < 0) ^ v10 | (v9 == 0) )\n    BUG();\n  v14 = v8;\n  BYTE8(v19) = a3;\n  *(_QWORD *)&v19 = v8;\n  v11 = a2[1];\n  v12 = a2[2];\n  v16 = *a2;\n  v17 = v11;\n  v18 = v12;\n  if ( (a4 & 1) != 0 )\n  {\n    v15 = a5;\n    tokio::runtime::runtime::Runtime::new(&v21);\n    if ( (_QWORD)v21 != 2LL )\n    {\n      v20[4] = v25;\n      v20[3] = v24;\n      v20[2] = v23;\n      v20[1] = v22;\n      v20[0] = v21;\n      v24 = v19;\n      v23 = v18;\n      v22 = v17;\n      v21 = v16;\n      *(_QWORD *)&v25 = &v15;\n      *((_QWORD *)&v25 + 1) = &v14;\n      v26 = 0;\n      tokio::runtime::runtime::Runtime::block_on(a1, v20, &v21);\n      core::ptr::drop_in_place<alloc::sync::Arc<core::sync::atomic::AtomicBool>>(&v14);\n      core::ptr::drop_in_place<tokio::runtime::runtime::Runtime>(v20);\n      return a1;\n    }\n    *a1 = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(*((_QWORD *)&v21 + 1));\n    a1[8] = 0x8000000000000001LL;\n    core::ptr::drop_in_place<forc_crypto::keys::vanity::find_vanity_address_with_timeout::{{closure}}>(&v16);\n  }\n  else\n  {\n    forc_crypto::keys::vanity::find_vanity_address_with_timeout::{{closure}}(a1, &v16);\n    core::ptr::drop_in_place<forc_crypto::keys::vanity::find_vanity_address_with_timeout::{{closure}}>(&v16);\n  }\n  core::ptr::drop_in_place<alloc::sync::Arc<core::sync::atomic::AtomicBool>>(&v14);\n  return a1;\n}",
+    "_ZN11forc_crypto4keys6vanity15generate_wallet17hb850cb6e0907b629E": "__int64 __fastcall forc_crypto::keys::vanity::generate_wallet(__int64 a1, int a2)\n{\n  __int64 v2; // rax\n  __int8 v3; // al\n  unsigned __int64 v4; // rcx\n  __int128 v5; // xmm0\n  __int128 v6; // xmm1\n  __int128 v7; // xmm2\n  __int128 v8; // xmm3\n  __int128 v9; // xmm4\n  __int64 v11; // [rsp+8h] [rbp-150h] BYREF\n  _BYTE v12[24]; // [rsp+10h] [rbp-148h]\n  _BYTE v13[24]; // [rsp+30h] [rbp-128h] BYREF\n  __m256i v14; // [rsp+50h] [rbp-108h] BYREF\n  _BYTE v15[64]; // [rsp+70h] [rbp-E8h] BYREF\n  __int128 v16; // [rsp+B0h] [rbp-A8h]\n  __int64 v17; // [rsp+C0h] [rbp-98h]\n  __m256i v18; // [rsp+D0h] [rbp-88h] BYREF\n  __int128 v19; // [rsp+F0h] [rbp-68h]\n  __int128 v20; // [rsp+100h] [rbp-58h]\n  __m256i v21; // [rsp+110h] [rbp-48h] BYREF\n  __int128 v22; // [rsp+130h] [rbp-28h]\n\n  v2 = rand::rngs::thread::thread_rng();\n  v11 = v2;\n  if ( !a2 )\n  {\n    secp256k1::key::SecretKey::new(v15, &v11);\n    <fuel_crypto::secp256::secret::SecretKey as core::convert::From<secp256k1::key::SecretKey>>::from(&v18, v15);\n    v3 = v18.m256i_i8[0];\n    *(_OWORD *)v14.m256i_i8 = *(_OWORD *)&v18.m256i_i8[1];\n    *(_OWORD *)((char *)&v14.m256i_u64[1] + 7) = *(_OWORD *)&v18.m256i_u64[2];\n    v4 = 0x8000000000000000LL;\nLABEL_6:\n    v21.m256i_i8[0] = v3;\n    *(_OWORD *)&v21.m256i_i8[1] = *(_OWORD *)v14.m256i_i8;\n    *(_OWORD *)&v21.m256i_u64[2] = *(_OWORD *)((char *)&v14.m256i_u64[1] + 7);\n    *(_QWORD *)v12 = v4;\n    *(_OWORD *)&v12[8] = v22;\n    <fuel_crypto::secp256::public::PublicKey as core::convert::From<&fuel_crypto::secp256::secret::SecretKey>>::from(\n      &v18,\n      &v21);\n    fuel_crypto::secp256::public::PublicKey::hash(&v14, &v18);\n    v5 = *(_OWORD *)v14.m256i_i8;\n    v6 = *(_OWORD *)&v14.m256i_u64[2];\n    *(__m256i *)v15 = v14;\n    v7 = *(_OWORD *)v12;\n    v16 = *(_OWORD *)v12;\n    v17 = *(_QWORD *)&v12[16];\n    v8 = *(_OWORD *)v21.m256i_i8;\n    v9 = *(_OWORD *)&v21.m256i_u64[2];\n    *(__m256i *)&v15[32] = v21;\n    *(_QWORD *)(a1 + 80) = *(_QWORD *)&v12[16];\n    *(_OWORD *)(a1 + 64) = v7;\n    *(_OWORD *)(a1 + 48) = v9;\n    *(_OWORD *)(a1 + 32) = v8;\n    *(_OWORD *)(a1 + 16) = v6;\n    *(_OWORD *)a1 = v5;\n    goto LABEL_8;\n  }\n  fuels_accounts::signers::private_key::generate_mnemonic_phrase(&v18, v2);\n  *(_OWORD *)v12 = *(_OWORD *)&v18.m256i_u64[1];\n  *(_QWORD *)&v12[16] = v18.m256i_i64[3];\n  if ( v18.m256i_i64[0] != 12 )\n  {\n    *(_OWORD *)&v15[48] = v20;\n    *(_OWORD *)&v15[32] = v19;\n    *(_OWORD *)&v15[8] = *(_OWORD *)v12;\n    *(_QWORD *)&v15[24] = *(_QWORD *)&v12[16];\n    *(_QWORD *)v15 = v18.m256i_i64[0];\n    *(_QWORD *)a1 = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(v15);\n    *(_QWORD *)(a1 + 64) = 0x8000000000000001LL;\n    goto LABEL_8;\n  }\n  *(_OWORD *)v13 = *(_OWORD *)v12;\n  *(_QWORD *)&v13[16] = *(_QWORD *)&v12[16];\n  fuel_crypto::secp256::secret::SecretKey::new_from_mnemonic_phrase_with_path(\n    v15,\n    *(_QWORD *)&v12[8],\n    *(_QWORD *)&v12[16],\n    aM4411799934200,\n    24LL);\n  v3 = v15[1];\n  if ( v15[0] != 1 )\n  {\n    *(_OWORD *)((char *)&v14.m256i_u64[1] + 7) = *(_OWORD *)&v15[17];\n    *(_OWORD *)v14.m256i_i8 = *(_OWORD *)&v15[2];\n    v4 = *(_QWORD *)v13;\n    v22 = *(_OWORD *)&v13[8];\n    goto LABEL_6;\n  }\n  *(_QWORD *)a1 = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(v15[1]);\n  *(_QWORD *)(a1 + 64) = 0x8000000000000001LL;\n  core::ptr::drop_in_place<alloc::string::String>(v13);\nLABEL_8:\n  core::ptr::drop_in_place<rand::rngs::thread::ThreadRng>(&v11);\n  return a1;\n}",
+    "_ZN11forc_crypto4help17h27066134cf3ccdc5E": "__int64 forc_crypto::help()\n{\n  __int64 v0; // rdx\n  __int64 v1; // rdx\n  __int64 v2; // rdx\n  __int64 v3; // rdx\n  __int64 v4; // rdx\n  __int64 v5; // rdx\n  _QWORD v7[2]; // [rsp+8h] [rbp-110h] BYREF\n  _QWORD v8[2]; // [rsp+18h] [rbp-100h] BYREF\n  _QWORD v9[2]; // [rsp+28h] [rbp-F0h] BYREF\n  _QWORD v10[2]; // [rsp+38h] [rbp-E0h] BYREF\n  _QWORD v11[2]; // [rsp+48h] [rbp-D0h] BYREF\n  _QWORD v12[2]; // [rsp+58h] [rbp-C0h] BYREF\n  _QWORD v13[12]; // [rsp+68h] [rbp-B0h] BYREF\n  _QWORD v14[6]; // [rsp+C8h] [rbp-50h] BYREF\n  _BYTE v15[32]; // [rsp+F8h] [rbp-20h] BYREF\n\n  v7[0] = forc_crypto::args::examples();\n  v7[1] = v0;\n  v8[0] = forc_crypto::address::examples();\n  v8[1] = v1;\n  v9[0] = forc_crypto::keys::new_key::examples();\n  v9[1] = v2;\n  v10[0] = forc_crypto::keys::parse_secret::examples();\n  v10[1] = v3;\n  v11[0] = forc_crypto::keys::get_public_key::examples();\n  v11[1] = v4;\n  v12[0] = forc_crypto::keys::vanity::examples();\n  v12[1] = v5;\n  v13[0] = v7;\n  v13[1] = <&T as core::fmt::Display>::fmt;\n  v13[2] = v8;\n  v13[3] = <&T as core::fmt::Display>::fmt;\n  v13[4] = v9;\n  v13[5] = <&T as core::fmt::Display>::fmt;\n  v13[6] = v10;\n  v13[7] = <&T as core::fmt::Display>::fmt;\n  v13[8] = v11;\n  v13[9] = <&T as core::fmt::Display>::fmt;\n  v13[10] = v12;\n  v13[11] = <&T as core::fmt::Display>::fmt;\n  v14[0] = &off_62F1B0;\n  v14[1] = 6LL;\n  v14[4] = 0LL;\n  v14[2] = v13;\n  v14[3] = 6LL;\n  core::option::Option<T>::map_or_else(v15, 0LL, v5, v14);\n  return alloc::vec::Vec<T,A>::into_boxed_slice(v15);\n}",
+    "_ZN11forc_crypto7address4help17h1eb48005217d3573E": "__int64 forc_crypto::address::help()\n{\n  __int64 v0; // rdx\n  _QWORD v2[5]; // [rsp+8h] [rbp-B0h] BYREF\n  __int128 v3; // [rsp+30h] [rbp-88h] BYREF\n  _QWORD *v4; // [rsp+40h] [rbp-78h]\n  __int64 v5; // [rsp+48h] [rbp-70h]\n  __int64 v6; // [rsp+50h] [rbp-68h]\n  _QWORD v7[2]; // [rsp+68h] [rbp-50h] BYREF\n  _QWORD v8[4]; // [rsp+78h] [rbp-40h] BYREF\n  __int128 v9; // [rsp+98h] [rbp-20h] BYREF\n  _QWORD *v10; // [rsp+A8h] [rbp-10h]\n\n  v2[3] = 0LL;\n  v2[4] = 0x1300000003LL;\n  v2[0] = 0x8000000000000000LL;\n  v2[1] = aExamples_0;\n  v2[2] = 9LL;\n  v7[0] = forc_crypto::address::examples();\n  v7[1] = v0;\n  v8[0] = v2;\n  v8[1] = <ansiterm::display::ANSIGenericString<str> as core::fmt::Display>::fmt;\n  v8[2] = v7;\n  v8[3] = <&T as core::fmt::Display>::fmt;\n  *(_QWORD *)&v3 = &unk_62F228;\n  *((_QWORD *)&v3 + 1) = 2LL;\n  v6 = 0LL;\n  v4 = v8;\n  v5 = 2LL;\n  core::option::Option<T>::map_or_else(&v9, 0LL, v0, &v3);\n  core::ptr::drop_in_place<ansiterm::display::ANSIGenericString<str>>(v2);\n  v4 = v10;\n  v3 = v9;\n  return alloc::vec::Vec<T,A>::into_boxed_slice(&v3);\n}",
+    "_ZN11forc_crypto7address8examples17h06fffe9fc2f60a1aE": "__int64 forc_crypto::address::examples()\n{\n  __int64 v0; // rbx\n  __int64 v2; // [rsp+0h] [rbp-78h] BYREF\n  _BYTE v3[24]; // [rsp+8h] [rbp-70h] BYREF\n  _QWORD v4[3]; // [rsp+20h] [rbp-58h] BYREF\n  __int128 v5; // [rsp+38h] [rbp-40h]\n  _BYTE v6[40]; // [rsp+50h] [rbp-28h] BYREF\n\n  v4[0] = &off_62F248;\n  v4[1] = 1LL;\n  v4[2] = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(v3, aConvertAnAddre, 132LL, v4);\n  alloc::str::join_generic_copy(v6, v3, 1LL);\n  v0 = alloc::vec::Vec<T,A>::into_boxed_slice(v6);\n  core::ptr::drop_in_place<forc_crypto::address::Args>(v3);\n  return v0;\n}",
+    "_ZN11forc_crypto4args4help17hbdd9a15f6f314c46E": "__int64 forc_crypto::args::help()\n{\n  __int64 v0; // rdx\n  _QWORD v2[5]; // [rsp+8h] [rbp-B0h] BYREF\n  __int128 v3; // [rsp+30h] [rbp-88h] BYREF\n  _QWORD *v4; // [rsp+40h] [rbp-78h]\n  __int64 v5; // [rsp+48h] [rbp-70h]\n  __int64 v6; // [rsp+50h] [rbp-68h]\n  _QWORD v7[2]; // [rsp+68h] [rbp-50h] BYREF\n  _QWORD v8[4]; // [rsp+78h] [rbp-40h] BYREF\n  __int128 v9; // [rsp+98h] [rbp-20h] BYREF\n  _QWORD *v10; // [rsp+A8h] [rbp-10h]\n\n  v2[3] = 0LL;\n  v2[4] = 0x1300000003LL;\n  v2[0] = 0x8000000000000000LL;\n  v2[1] = aExamples_0;\n  v2[2] = 9LL;\n  v7[0] = forc_crypto::args::examples();\n  v7[1] = v0;\n  v8[0] = v2;\n  v8[1] = <ansiterm::display::ANSIGenericString<str> as core::fmt::Display>::fmt;\n  v8[2] = v7;\n  v8[3] = <&T as core::fmt::Display>::fmt;\n  *(_QWORD *)&v3 = &unk_62F228;\n  *((_QWORD *)&v3 + 1) = 2LL;\n  v6 = 0LL;\n  v4 = v8;\n  v5 = 2LL;\n  core::option::Option<T>::map_or_else(&v9, 0LL, v0, &v3);\n  core::ptr::drop_in_place<ansiterm::display::ANSIGenericString<str>>(v2);\n  v4 = v10;\n  v3 = v9;\n  return alloc::vec::Vec<T,A>::into_boxed_slice(&v3);\n}",
+    "_ZN11forc_crypto4args8examples17h88b11cb6130bc186E": "__int64 forc_crypto::args::examples()\n{\n  __int64 v0; // rbx\n  char v2; // [rsp+8h] [rbp-120h] BYREF\n  __int128 v3; // [rsp+10h] [rbp-118h] BYREF\n  char *v4; // [rsp+20h] [rbp-108h]\n  __int128 v5; // [rsp+28h] [rbp-100h]\n  __int64 v6; // [rsp+38h] [rbp-F0h]\n  __int128 v7; // [rsp+40h] [rbp-E8h]\n  __int64 v8; // [rsp+50h] [rbp-D8h]\n  __int128 v9; // [rsp+58h] [rbp-D0h]\n  __int64 v10; // [rsp+68h] [rbp-C0h]\n  __int128 v11; // [rsp+78h] [rbp-B0h] BYREF\n  __int64 v12; // [rsp+88h] [rbp-A0h]\n  __int128 v13; // [rsp+90h] [rbp-98h]\n  __int64 v14; // [rsp+A0h] [rbp-88h]\n  __int128 v15; // [rsp+B0h] [rbp-78h]\n  __int64 v16; // [rsp+C0h] [rbp-68h]\n  __int128 v17; // [rsp+D0h] [rbp-58h] BYREF\n  char *v18; // [rsp+E0h] [rbp-48h]\n  __int128 v19; // [rsp+E8h] [rbp-40h] BYREF\n  __int64 v20; // [rsp+F8h] [rbp-30h]\n  _BYTE v21[40]; // [rsp+100h] [rbp-28h] BYREF\n\n  *(_QWORD *)&v3 = &off_62F258;\n  *((_QWORD *)&v3 + 1) = 1LL;\n  v4 = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(&v17, aHashesAnArgume, 66LL, &v3);\n  *(_QWORD *)&v3 = &off_62F268;\n  *((_QWORD *)&v3 + 1) = 1LL;\n  v4 = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(&v11, aHashesAnArgume_0, 72LL, &v3);\n  v13 = v11;\n  v14 = v12;\n  *(_QWORD *)&v3 = &off_62F278;\n  *((_QWORD *)&v3 + 1) = 1LL;\n  v4 = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(&v11, aHashesAFilePat, 68LL, &v3);\n  v15 = v11;\n  v16 = v12;\n  *(_QWORD *)&v3 = &off_62F288;\n  *((_QWORD *)&v3 + 1) = 1LL;\n  v4 = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(&v19, aHashesAFilePat_0, 74LL, &v3);\n  v3 = v17;\n  v4 = v18;\n  v5 = v13;\n  v6 = v14;\n  v7 = v15;\n  v8 = v16;\n  v9 = v19;\n  v10 = v20;\n  alloc::str::join_generic_copy(v21, &v3, 4LL);\n  v0 = alloc::vec::Vec<T,A>::into_boxed_slice(v21);\n  core::ptr::drop_in_place<[alloc::string::String; 4]>(&v3);\n  return v0;\n}",
+    "_ZN11forc_crypto4keys14get_public_key4help17hc91b74640bdb4820E": "__int64 forc_crypto::keys::get_public_key::help()\n{\n  __int64 v0; // rdx\n  _QWORD v2[5]; // [rsp+8h] [rbp-B0h] BYREF\n  __int128 v3; // [rsp+30h] [rbp-88h] BYREF\n  _QWORD *v4; // [rsp+40h] [rbp-78h]\n  __int64 v5; // [rsp+48h] [rbp-70h]\n  __int64 v6; // [rsp+50h] [rbp-68h]\n  _QWORD v7[2]; // [rsp+68h] [rbp-50h] BYREF\n  _QWORD v8[4]; // [rsp+78h] [rbp-40h] BYREF\n  __int128 v9; // [rsp+98h] [rbp-20h] BYREF\n  _QWORD *v10; // [rsp+A8h] [rbp-10h]\n\n  v2[3] = 0LL;\n  v2[4] = 0x1300000003LL;\n  v2[0] = 0x8000000000000000LL;\n  v2[1] = aExamples_0;\n  v2[2] = 9LL;\n  v7[0] = forc_crypto::keys::get_public_key::examples();\n  v7[1] = v0;\n  v8[0] = v2;\n  v8[1] = <ansiterm::display::ANSIGenericString<str> as core::fmt::Display>::fmt;\n  v8[2] = v7;\n  v8[3] = <&T as core::fmt::Display>::fmt;\n  *(_QWORD *)&v3 = &unk_62F228;\n  *((_QWORD *)&v3 + 1) = 2LL;\n  v6 = 0LL;\n  v4 = v8;\n  v5 = 2LL;\n  core::option::Option<T>::map_or_else(&v9, 0LL, v0, &v3);\n  core::ptr::drop_in_place<ansiterm::display::ANSIGenericString<str>>(v2);\n  v4 = v10;\n  v3 = v9;\n  return alloc::vec::Vec<T,A>::into_boxed_slice(&v3);\n}",
+    "_ZN11forc_crypto4keys14get_public_key8examples17h26ddd7e79c1632e2E": "__int64 forc_crypto::keys::get_public_key::examples()\n{\n  __int64 v0; // rbx\n  __int64 v2; // [rsp+0h] [rbp-78h] BYREF\n  _BYTE v3[24]; // [rsp+8h] [rbp-70h] BYREF\n  _QWORD v4[3]; // [rsp+20h] [rbp-58h] BYREF\n  __int128 v5; // [rsp+38h] [rbp-40h]\n  _BYTE v6[40]; // [rsp+50h] [rbp-28h] BYREF\n\n  v4[0] = &off_62F298;\n  v4[1] = 1LL;\n  v4[2] = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(v3, aGetThePublicKe, 284LL, v4);\n  alloc::str::join_generic_copy(v6, v3, 1LL);\n  v0 = alloc::vec::Vec<T,A>::into_boxed_slice(v6);\n  core::ptr::drop_in_place<forc_crypto::address::Args>(v3);\n  return v0;\n}",
+    "_ZN11forc_crypto4keys7new_key4help17h997ac3090a4b8d4eE": "__int64 forc_crypto::keys::new_key::help()\n{\n  __int64 v0; // rdx\n  _QWORD v2[5]; // [rsp+8h] [rbp-B0h] BYREF\n  __int128 v3; // [rsp+30h] [rbp-88h] BYREF\n  _QWORD *v4; // [rsp+40h] [rbp-78h]\n  __int64 v5; // [rsp+48h] [rbp-70h]\n  __int64 v6; // [rsp+50h] [rbp-68h]\n  _QWORD v7[2]; // [rsp+68h] [rbp-50h] BYREF\n  _QWORD v8[4]; // [rsp+78h] [rbp-40h] BYREF\n  __int128 v9; // [rsp+98h] [rbp-20h] BYREF\n  _QWORD *v10; // [rsp+A8h] [rbp-10h]\n\n  v2[3] = 0LL;\n  v2[4] = 0x1300000003LL;\n  v2[0] = 0x8000000000000000LL;\n  v2[1] = aExamples_0;\n  v2[2] = 9LL;\n  v7[0] = forc_crypto::keys::new_key::examples();\n  v7[1] = v0;\n  v8[0] = v2;\n  v8[1] = <ansiterm::display::ANSIGenericString<str> as core::fmt::Display>::fmt;\n  v8[2] = v7;\n  v8[3] = <&T as core::fmt::Display>::fmt;\n  *(_QWORD *)&v3 = &unk_62F228;\n  *((_QWORD *)&v3 + 1) = 2LL;\n  v6 = 0LL;\n  v4 = v8;\n  v5 = 2LL;\n  core::option::Option<T>::map_or_else(&v9, 0LL, v0, &v3);\n  core::ptr::drop_in_place<ansiterm::display::ANSIGenericString<str>>(v2);\n  v4 = v10;\n  v3 = v9;\n  return alloc::vec::Vec<T,A>::into_boxed_slice(&v3);\n}",
+    "_ZN11forc_crypto4keys7new_key8examples17h885697e6381d1c74E": "__int64 forc_crypto::keys::new_key::examples()\n{\n  __int64 v0; // rbx\n  char v2; // [rsp+8h] [rbp-E0h] BYREF\n  __int128 v3; // [rsp+10h] [rbp-D8h] BYREF\n  char *v4; // [rsp+20h] [rbp-C8h]\n  __int128 v5; // [rsp+28h] [rbp-C0h]\n  __int64 v6; // [rsp+38h] [rbp-B0h]\n  __int128 v7; // [rsp+40h] [rbp-A8h]\n  __int64 v8; // [rsp+50h] [rbp-98h]\n  __int128 v9; // [rsp+60h] [rbp-88h]\n  __int64 v10; // [rsp+70h] [rbp-78h]\n  __int128 v11; // [rsp+78h] [rbp-70h] BYREF\n  char *v12; // [rsp+88h] [rbp-60h]\n  __int128 v13; // [rsp+90h] [rbp-58h] BYREF\n  __int64 v14; // [rsp+A0h] [rbp-48h]\n  __int128 v15; // [rsp+A8h] [rbp-40h] BYREF\n  __int64 v16; // [rsp+B8h] [rbp-30h]\n  _BYTE v17[40]; // [rsp+C0h] [rbp-28h] BYREF\n\n  *(_QWORD *)&v3 = &off_62F2A8;\n  *((_QWORD *)&v3 + 1) = 1LL;\n  v4 = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(&v11, aCreatesANewKey, 78LL, &v3);\n  *(_QWORD *)&v3 = &off_62F2B8;\n  *((_QWORD *)&v3 + 1) = 1LL;\n  v4 = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(&v13, aCreatesANewKey_0, 72LL, &v3);\n  v9 = v13;\n  v10 = v14;\n  *(_QWORD *)&v3 = &off_62F2C8;\n  *((_QWORD *)&v3 + 1) = 1LL;\n  v4 = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(&v15, aCreatesANewKey_1, 90LL, &v3);\n  v3 = v11;\n  v4 = v12;\n  v5 = v9;\n  v6 = v10;\n  v7 = v15;\n  v8 = v16;\n  alloc::str::join_generic_copy(v17, &v3, 3LL);\n  v0 = alloc::vec::Vec<T,A>::into_boxed_slice(v17);\n  core::ptr::drop_in_place<[alloc::string::String; 3]>(&v3);\n  return v0;\n}",
+    "_ZN11forc_crypto4keys12parse_secret4help17h05e536bd94cc3b88E": "__int64 forc_crypto::keys::parse_secret::help()\n{\n  __int64 v0; // rdx\n  _QWORD v2[5]; // [rsp+8h] [rbp-B0h] BYREF\n  __int128 v3; // [rsp+30h] [rbp-88h] BYREF\n  _QWORD *v4; // [rsp+40h] [rbp-78h]\n  __int64 v5; // [rsp+48h] [rbp-70h]\n  __int64 v6; // [rsp+50h] [rbp-68h]\n  _QWORD v7[2]; // [rsp+68h] [rbp-50h] BYREF\n  _QWORD v8[4]; // [rsp+78h] [rbp-40h] BYREF\n  __int128 v9; // [rsp+98h] [rbp-20h] BYREF\n  _QWORD *v10; // [rsp+A8h] [rbp-10h]\n\n  v2[3] = 0LL;\n  v2[4] = 0x1300000003LL;\n  v2[0] = 0x8000000000000000LL;\n  v2[1] = aExamples_0;\n  v2[2] = 9LL;\n  v7[0] = forc_crypto::keys::parse_secret::examples();\n  v7[1] = v0;\n  v8[0] = v2;\n  v8[1] = <ansiterm::display::ANSIGenericString<str> as core::fmt::Display>::fmt;\n  v8[2] = v7;\n  v8[3] = <&T as core::fmt::Display>::fmt;\n  *(_QWORD *)&v3 = &unk_62F228;\n  *((_QWORD *)&v3 + 1) = 2LL;\n  v6 = 0LL;\n  v4 = v8;\n  v5 = 2LL;\n  core::option::Option<T>::map_or_else(&v9, 0LL, v0, &v3);\n  core::ptr::drop_in_place<ansiterm::display::ANSIGenericString<str>>(v2);\n  v4 = v10;\n  v3 = v9;\n  return alloc::vec::Vec<T,A>::into_boxed_slice(&v3);\n}",
+    "_ZN11forc_crypto4keys12parse_secret8examples17h7f4f8a92d4b53c85E": "__int64 forc_crypto::keys::parse_secret::examples()\n{\n  __int64 v0; // rbx\n  char v2; // [rsp+8h] [rbp-90h] BYREF\n  __int128 v3; // [rsp+10h] [rbp-88h] BYREF\n  char *v4; // [rsp+20h] [rbp-78h]\n  __int128 v5; // [rsp+28h] [rbp-70h]\n  __int64 v6; // [rsp+38h] [rbp-60h]\n  __int128 v7; // [rsp+40h] [rbp-58h] BYREF\n  char *v8; // [rsp+50h] [rbp-48h]\n  __int128 v9; // [rsp+58h] [rbp-40h] BYREF\n  __int64 v10; // [rsp+68h] [rbp-30h]\n  _BYTE v11[40]; // [rsp+70h] [rbp-28h] BYREF\n\n  *(_QWORD *)&v3 = &off_62F2D8;\n  *((_QWORD *)&v3 + 1) = 1LL;\n  v4 = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(&v7, aParsesTheSecre, 143LL, &v3);\n  *(_QWORD *)&v3 = &off_62F2E8;\n  *((_QWORD *)&v3 + 1) = 1LL;\n  v4 = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(&v9, aParsesTheSecre_0, 145LL, &v3);\n  v3 = v7;\n  v4 = v8;\n  v5 = v9;\n  v6 = v10;\n  alloc::str::join_generic_copy(v11, &v3, 2LL);\n  v0 = alloc::vec::Vec<T,A>::into_boxed_slice(v11);\n  core::ptr::drop_in_place<forc_crypto::keys::vanity::HexMatcher>(&v3);\n  return v0;\n}",
+    "_ZN11forc_crypto4keys6vanity8examples17h6d559cc5ef86d80eE": "__int64 forc_crypto::keys::vanity::examples()\n{\n  __int64 v0; // rbx\n  char v2; // [rsp+8h] [rbp-120h] BYREF\n  __int128 v3; // [rsp+10h] [rbp-118h] BYREF\n  char *v4; // [rsp+20h] [rbp-108h]\n  __int128 v5; // [rsp+28h] [rbp-100h]\n  __int64 v6; // [rsp+38h] [rbp-F0h]\n  __int128 v7; // [rsp+40h] [rbp-E8h]\n  __int64 v8; // [rsp+50h] [rbp-D8h]\n  __int128 v9; // [rsp+58h] [rbp-D0h]\n  __int64 v10; // [rsp+68h] [rbp-C0h]\n  __int128 v11; // [rsp+78h] [rbp-B0h] BYREF\n  __int64 v12; // [rsp+88h] [rbp-A0h]\n  __int128 v13; // [rsp+90h] [rbp-98h]\n  __int64 v14; // [rsp+A0h] [rbp-88h]\n  __int128 v15; // [rsp+B0h] [rbp-78h]\n  __int64 v16; // [rsp+C0h] [rbp-68h]\n  __int128 v17; // [rsp+D0h] [rbp-58h] BYREF\n  char *v18; // [rsp+E0h] [rbp-48h]\n  __int128 v19; // [rsp+E8h] [rbp-40h] BYREF\n  __int64 v20; // [rsp+F8h] [rbp-30h]\n  _BYTE v21[40]; // [rsp+100h] [rbp-28h] BYREF\n\n  *(_QWORD *)&v3 = &off_62F2F8;\n  *((_QWORD *)&v3 + 1) = 1LL;\n  v4 = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(&v17, aGenerateACheck, 108LL, &v3);\n  *(_QWORD *)&v3 = &off_62F308;\n  *((_QWORD *)&v3 + 1) = 1LL;\n  v4 = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(&v11, aGenerateACheck_0, 106LL, &v3);\n  v13 = v11;\n  v14 = v12;\n  *(_QWORD *)&v3 = &off_62F318;\n  *((_QWORD *)&v3 + 1) = 1LL;\n  v4 = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(&v11, aGenerateACheck_1, 135LL, &v3);\n  v15 = v11;\n  v16 = v12;\n  *(_QWORD *)&v3 = &off_62F328;\n  *((_QWORD *)&v3 + 1) = 1LL;\n  v4 = &v2;\n  v5 = 0LL;\n  core::option::Option<T>::map_or_else(&v19, aGenerateACheck_2, 114LL, &v3);\n  v3 = v17;\n  v4 = v18;\n  v5 = v13;\n  v6 = v14;\n  v7 = v15;\n  v8 = v16;\n  v9 = v19;\n  v10 = v20;\n  alloc::str::join_generic_copy(v21, &v3, 4LL);\n  v0 = alloc::vec::Vec<T,A>::into_boxed_slice(v21);\n  core::ptr::drop_in_place<[alloc::string::String; 4]>(&v3);\n  return v0;\n}"
+  },
+  "function_call_counts": {
+    "_ZN11forc_crypto6sha2564hash17h072b0afa8176419bE": {
+      "<digest::core_api::wrapper::CoreWrapper<T> as core::default::Default>::default": 1,
+      "<T as core::convert::Into<U>>::into": 1,
+      "<D as digest::digest::Digest>::update": 1,
+      "hex::encode": 1,
+      "serde_json::value::to_value": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1
+    },
+    "_ZN11forc_crypto7address12dump_address17h61c0e54a2abc32fcE": {
+      "<alloc::string::String as core::convert::AsRef<[u8]>>::as_ref": 1,
+      "forc_crypto::address::handle_string_conversion": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
+      "serde_json::value::to_value": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "alloc::collections::btree::map::BTreeMap<K,V,A>::insert": 1,
+      "core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 2
+    },
+    "_ZN11forc_crypto7address24handle_string_conversion17h63cc450610a58430E": {
+      "<alloc::string::String as core::convert::AsRef<[u8]>>::as_ref": 1,
+      "core::str::converts::from_utf8": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "<fuel_types::array_types::Address as core::str::traits::FromStr>::from_str": 1,
+      "forc_crypto::address::handle_string_conversion::{{closure}}": 1
+    },
+    "_ZN11forc_crypto9keccak2564hash17h665ad0faa9bbb11eE": {
+      "<digest::core_api::wrapper::CoreWrapper<T> as core::default::Default>::default": 1,
+      "<T as core::convert::Into<U>>::into": 1,
+      "<D as digest::digest::Digest>::update": 1,
+      "memcpy": 1,
+      "digest::FixedOutput::finalize_fixed": 1,
+      "hex::encode": 1,
+      "serde_json::value::to_value": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1
+    },
+    "_ZN11forc_crypto4main17h4cb215e16df55901E": {
+      "forc_tracing::init_tracing_subscriber": 1,
+      "forc_crypto::run": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "forc_tracing::println_error": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "std::process::exit": 1,
+      "core::ptr::drop_in_place<core::result::Result<(),anyhow::Error>>": 1
+    },
+    "_ZN11forc_crypto3run17h9233c73a0bfd917dE": {
+      "clap_builder::derive::Parser::parse": 1,
+      "forc_crypto::keccak256::hash": 1,
+      "forc_crypto::sha256::hash": 1,
+      "forc_crypto::address::dump_address": 1,
+      "forc_crypto::keys::get_public_key::handler": 1,
+      "forc_crypto::keys::new_key::handler": 1,
+      "forc_crypto::keys::parse_secret::handler": 1,
+      "forc_crypto::keys::vanity::handler": 1,
+      "forc_crypto::display_output": 1
+    },
+    "_ZN11forc_crypto17wait_for_keypress17h097f336dd4d0c55fE": {
+      "std::io::stdio::stdin": 1,
+      "<std::io::stdio::Stdin as std::io::Read>::read_exact": 1,
+      "core::result::Result<T,E>::unwrap": 1
+    },
+    "_ZN11forc_crypto17has_sensible_info17hdcf6a8a75752cdf1E": {
+      "serde_json::value::to_value": 1,
+      "alloc::collections::btree::map::BTreeMap<K,V,A>::get": 1,
+      "core::ptr::drop_in_place<serde_json::map::Map<alloc::string::String,serde_json::value::Value>>": 1,
+      "core::ptr::drop_in_place<core::result::Result<serde_json::value::Value,serde_json::error::Error>>": 1,
+      "core::ptr::drop_in_place<serde_json::value::Value>": 1
+    },
+    "_ZN11forc_crypto14display_output17h66f719bf0e2367ecE": {
+      "std::io::stdio::stdout": 2,
+      "serde_yaml::ser::to_string": 1,
+      "core::result::Result<T,E>::expect": 2,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 2,
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "termion::screen::IntoAlternateScreen::into_alternate_screen": 1,
+      "std::io::Write::write_fmt": 1,
+      "core::ptr::drop_in_place<termion::screen::AlternateScreen<std::io::stdio::Stdout>>": 2,
+      "<std::io::stdio::Stdout as std::io::Write>::flush": 1,
+      "std::io::stdio::_print": 3,
+      "forc_crypto::wait_for_keypress": 1,
+      "forc_crypto::has_sensible_info": 1,
+      "serde_json::ser::to_vec": 1,
+      "std::sys::io::is_terminal::isatty::is_terminal": 1,
+      "core::ptr::drop_in_place<serde_json::value::Value>": 1
+    },
+    "_ZN11forc_crypto4args17checked_read_file17h22b9faaf715a9a45E": {
+      "std::fs::read": 1,
+      "core::ptr::drop_in_place<core::result::Result<alloc::vec::Vec<u8>,std::io::error::Error>>": 1
+    },
+    "_ZN11forc_crypto4args18checked_read_stdin17hc53103be1c9a90d0E": {
+      "<std::io::stdio::StdinLock as std::io::Read>::read_to_end": 1,
+      "core::ptr::drop_in_place<core::result::Result<usize,std::io::error::Error>>": 2,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 1,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "core::ptr::drop_in_place<std::sync::poison::PoisonError<std::sync::poison::mutex::MutexGuard<alloc::vec::Vec<alloc::boxed::Box<regex_automata::meta::regex::Cache>>>>>": 1
+    },
+    "_ZN11forc_crypto4args14read_as_binary17h6ffe604cc99fdcccE": {
+      "forc_crypto::args::read_as_binary::{{closure}}": 1
+    },
+    "_ZN11forc_crypto4args30read_content_filepath_or_stdin17h735eec317a7ae007E": {
+      "forc_crypto::args::checked_read_file": 1,
+      "std::io::stdio::stdin": 1,
+      "std::io::stdio::Stdin::lock": 1,
+      "forc_crypto::args::checked_read_stdin": 1,
+      "forc_crypto::args::read_as_binary": 1,
+      "core::ptr::drop_in_place<alloc::borrow::Cow<str>>": 1
+    },
+    "_ZN11forc_crypto4args110_$LT$impl$u20$core..convert..From$LT$forc_crypto..args..HashArgs$GT$$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$4from17h594ca9919f43c62dE": {
+      "forc_crypto::args::read_content_filepath_or_stdin": 1
+    },
+    "_ZN11forc_crypto4keys14get_public_key7handler17h2392f84c0c5629b2E": {
+      "forc_crypto::args::read_content_filepath_or_stdin": 1,
+      "fuel_crypto::hasher::Hasher::hash": 1,
+      "fuel_crypto::secp256::signature::Signature::recover": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 1,
+      "fuel_crypto::secp256::public::PublicKey::hash": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 2,
+      "<T as alloc::string::SpecToString>::spec_to_string": 2,
+      "serde_json::value::to_value": 2,
+      "core::result::Result<T,E>::unwrap": 2,
+      "alloc::collections::btree::map::BTreeMap<K,V,A>::insert": 2,
+      "core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>": 2,
+      "core::ptr::drop_in_place<alloc::string::String>": 2
+    },
+    "_ZN11forc_crypto4keys7new_key7handler17h9c4194e818a0987dE": {
+      "rand_core::SeedableRng::from_entropy": 1,
+      "secp256k1::key::SecretKey::new": 1,
+      "<fuel_crypto::secp256::secret::SecretKey as core::convert::From<secp256k1::key::SecretKey>>::from": 1,
+      "fuel_crypto::secp256::secret::SecretKey::public_key": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
+      "libp2p_identity::secp256k1::SecretKey::try_from_bytes": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "memcpy": 1,
+      "libp2p_identity::peer_id::PeerId::from_public_key": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 6,
+      "serde_json::value::to_value": 6,
+      "core::result::Result<T,E>::unwrap": 6,
+      "alloc::collections::btree::map::BTreeMap<K,V,A>::insert": 6,
+      "core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>": 6,
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "core::ptr::drop_in_place<libp2p_identity::keypair::Keypair>": 1,
+      "fuel_tx::transaction::types::input::Input::owner": 1
+    },
+    "_ZN11forc_crypto4keys12parse_secret7handler17hc911bd93ff9f1e31E": {
+      "<fuel_crypto::secp256::secret::SecretKey as core::str::traits::FromStr>::from_str": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 1,
+      "libp2p_identity::secp256k1::SecretKey::try_from_bytes": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "memcpy": 1,
+      "libp2p_identity::peer_id::PeerId::from_public_key": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 4,
+      "serde_json::value::to_value": 4,
+      "core::result::Result<T,E>::unwrap": 4,
+      "alloc::collections::btree::map::BTreeMap<K,V,A>::insert": 4,
+      "core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>": 4,
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "core::ptr::drop_in_place<libp2p_identity::keypair::Keypair>": 1,
+      "fuel_crypto::secp256::secret::SecretKey::public_key": 1,
+      "fuel_tx::transaction::types::input::Input::owner": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
+      "core::ptr::drop_in_place<forc_crypto::keys::parse_secret::Arg>": 1
+    },
+    "_ZN11forc_crypto4keys6vanity19validate_hex_string17h622429bd06bdd4a3E": {
+      "core::iter::traits::iterator::Iterator::try_fold": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 2,
+      "<core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq": 1
+    },
+    "_ZN11forc_crypto4keys6vanity22validate_regex_pattern17h388a3a22683553dfE": {
+      "core::option::Option<T>::map_or_else": 2,
+      "regex::regex::string::Regex::new": 1,
+      "core::ptr::drop_in_place<core::result::Result<regex::regex::string::Regex,regex::error::Error>>": 2,
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 2,
+      "core::ptr::drop_in_place<regex::error::Error>": 1
+    },
+    "_ZN11forc_crypto4keys6vanity3Arg8validate17h776811c8940670ebE": {
+      "core::option::Option<T>::map_or": 2
+    },
+    "_ZN11forc_crypto4keys6vanity7handler17h7d15fe22a5661bf3E": {
+      "forc_crypto::keys::vanity::Arg::validate": 1,
+      "forc_crypto::keys::vanity::HexMatcher::new": 1,
+      "forc_crypto::keys::vanity::RegexMatcher::new": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 12,
+      "std::io::stdio::_print": 2,
+      "std::time::Instant::now": 1,
+      "forc_crypto::keys::vanity::find_vanity_address_with_timeout": 1,
+      "std::time::Instant::elapsed": 1,
+      "<T as alloc::string::SpecToString>::spec_to_string": 1,
+      "fuels_core::types::checksum_address::checksum_encode": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 3,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 5,
+      "serde_json::value::to_value": 5,
+      "core::result::Result<T,E>::unwrap": 5,
+      "alloc::collections::btree::map::BTreeMap<K,V,A>::insert": 5,
+      "core::ptr::drop_in_place<core::option::Option<serde_json::value::Value>>": 5,
+      "serde_json::ser::to_vec_pretty": 1,
+      "core::ptr::drop_in_place<serde_json::value::Value>": 1,
+      "std::fs::write": 1,
+      "core::ptr::drop_in_place<alloc::borrow::Cow<str>>": 5,
+      "core::ptr::drop_in_place<core::option::Option<std::path::PathBuf>>": 1
+    },
+    "_ZN11forc_crypto4keys6vanity10HexMatcher3new17hd4658ac7716e1740E": {
+      "alloc::str::<impl str>::to_lowercase": 2
+    },
+    "_ZN11forc_crypto4keys6vanity12RegexMatcher3new17h881b9c176c268426E": {
+      "core::option::Option<T>::map_or_else": 1,
+      "regex::regex::string::Regex::new": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 2
+    },
+    "_ZN11forc_crypto4keys6vanity32find_vanity_address_with_timeout17hda53e568c7769d8cE": {
+      "alloc::boxed::Box<T>::new": 1,
+      "tokio::runtime::runtime::Runtime::new": 1,
+      "tokio::runtime::runtime::Runtime::block_on": 1,
+      "core::ptr::drop_in_place<alloc::sync::Arc<core::sync::atomic::AtomicBool>>": 2,
+      "core::ptr::drop_in_place<tokio::runtime::runtime::Runtime>": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 1,
+      "core::ptr::drop_in_place<forc_crypto::keys::vanity::find_vanity_address_with_timeout::{{closure}}>": 2,
+      "forc_crypto::keys::vanity::find_vanity_address_with_timeout::{{closure}}": 1
+    },
+    "_ZN11forc_crypto4keys6vanity15generate_wallet17hb850cb6e0907b629E": {
+      "rand::rngs::thread::thread_rng": 1,
+      "secp256k1::key::SecretKey::new": 1,
+      "<fuel_crypto::secp256::secret::SecretKey as core::convert::From<secp256k1::key::SecretKey>>::from": 1,
+      "<fuel_crypto::secp256::public::PublicKey as core::convert::From<&fuel_crypto::secp256::secret::SecretKey>>::from": 1,
+      "fuel_crypto::secp256::public::PublicKey::hash": 1,
+      "fuels_accounts::signers::private_key::generate_mnemonic_phrase": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 2,
+      "fuel_crypto::secp256::secret::SecretKey::new_from_mnemonic_phrase_with_path": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<rand::rngs::thread::ThreadRng>": 1
+    },
+    "_ZN11forc_crypto4help17h27066134cf3ccdc5E": {
+      "forc_crypto::args::examples": 1,
+      "forc_crypto::address::examples": 1,
+      "forc_crypto::keys::new_key::examples": 1,
+      "forc_crypto::keys::parse_secret::examples": 1,
+      "forc_crypto::keys::get_public_key::examples": 1,
+      "forc_crypto::keys::vanity::examples": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "alloc::vec::Vec<T,A>::into_boxed_slice": 1
+    },
+    "_ZN11forc_crypto7address4help17h1eb48005217d3573E": {
+      "forc_crypto::address::examples": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "core::ptr::drop_in_place<ansiterm::display::ANSIGenericString<str>>": 1,
+      "alloc::vec::Vec<T,A>::into_boxed_slice": 1
+    },
+    "_ZN11forc_crypto7address8examples17h06fffe9fc2f60a1aE": {
+      "core::option::Option<T>::map_or_else": 1,
+      "alloc::str::join_generic_copy": 1,
+      "alloc::vec::Vec<T,A>::into_boxed_slice": 1,
+      "core::ptr::drop_in_place<forc_crypto::address::Args>": 1
+    },
+    "_ZN11forc_crypto4args4help17hbdd9a15f6f314c46E": {
+      "forc_crypto::args::examples": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "core::ptr::drop_in_place<ansiterm::display::ANSIGenericString<str>>": 1,
+      "alloc::vec::Vec<T,A>::into_boxed_slice": 1
+    },
+    "_ZN11forc_crypto4args8examples17h88b11cb6130bc186E": {
+      "core::option::Option<T>::map_or_else": 4,
+      "alloc::str::join_generic_copy": 1,
+      "alloc::vec::Vec<T,A>::into_boxed_slice": 1,
+      "core::ptr::drop_in_place<[alloc::string::String; 4]>": 1
+    },
+    "_ZN11forc_crypto4keys14get_public_key4help17hc91b74640bdb4820E": {
+      "forc_crypto::keys::get_public_key::examples": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "core::ptr::drop_in_place<ansiterm::display::ANSIGenericString<str>>": 1,
+      "alloc::vec::Vec<T,A>::into_boxed_slice": 1
+    },
+    "_ZN11forc_crypto4keys14get_public_key8examples17h26ddd7e79c1632e2E": {
+      "core::option::Option<T>::map_or_else": 1,
+      "alloc::str::join_generic_copy": 1,
+      "alloc::vec::Vec<T,A>::into_boxed_slice": 1,
+      "core::ptr::drop_in_place<forc_crypto::address::Args>": 1
+    },
+    "_ZN11forc_crypto4keys7new_key4help17h997ac3090a4b8d4eE": {
+      "forc_crypto::keys::new_key::examples": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "core::ptr::drop_in_place<ansiterm::display::ANSIGenericString<str>>": 1,
+      "alloc::vec::Vec<T,A>::into_boxed_slice": 1
+    },
+    "_ZN11forc_crypto4keys7new_key8examples17h885697e6381d1c74E": {
+      "core::option::Option<T>::map_or_else": 3,
+      "alloc::str::join_generic_copy": 1,
+      "alloc::vec::Vec<T,A>::into_boxed_slice": 1,
+      "core::ptr::drop_in_place<[alloc::string::String; 3]>": 1
+    },
+    "_ZN11forc_crypto4keys12parse_secret4help17h05e536bd94cc3b88E": {
+      "forc_crypto::keys::parse_secret::examples": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "core::ptr::drop_in_place<ansiterm::display::ANSIGenericString<str>>": 1,
+      "alloc::vec::Vec<T,A>::into_boxed_slice": 1
+    },
+    "_ZN11forc_crypto4keys12parse_secret8examples17h7f4f8a92d4b53c85E": {
+      "core::option::Option<T>::map_or_else": 2,
+      "alloc::str::join_generic_copy": 1,
+      "alloc::vec::Vec<T,A>::into_boxed_slice": 1,
+      "core::ptr::drop_in_place<forc_crypto::keys::vanity::HexMatcher>": 1
+    },
+    "_ZN11forc_crypto4keys6vanity8examples17h6d559cc5ef86d80eE": {
+      "core::option::Option<T>::map_or_else": 4,
+      "alloc::str::join_generic_copy": 1,
+      "alloc::vec::Vec<T,A>::into_boxed_slice": 1,
+      "core::ptr::drop_in_place<[alloc::string::String; 4]>": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN11forc_crypto6sha2564hash17h072b0afa8176419bE": {},
+    "_ZN11forc_crypto7address12dump_address17h61c0e54a2abc32fcE": {},
+    "_ZN11forc_crypto7address24handle_string_conversion17h63cc450610a58430E": {},
+    "_ZN11forc_crypto9keccak2564hash17h665ad0faa9bbb11eE": {},
+    "_ZN11forc_crypto4main17h4cb215e16df55901E": {},
+    "_ZN11forc_crypto3run17h9233c73a0bfd917dE": {},
+    "_ZN11forc_crypto17wait_for_keypress17h097f336dd4d0c55fE": {},
+    "_ZN11forc_crypto17has_sensible_info17hdcf6a8a75752cdf1E": {},
+    "_ZN11forc_crypto14display_output17h66f719bf0e2367ecE": {},
+    "_ZN11forc_crypto4args17checked_read_file17h22b9faaf715a9a45E": {},
+    "_ZN11forc_crypto4args18checked_read_stdin17hc53103be1c9a90d0E": {},
+    "_ZN11forc_crypto4args14read_as_binary17h6ffe604cc99fdcccE": {},
+    "_ZN11forc_crypto4args30read_content_filepath_or_stdin17h735eec317a7ae007E": {},
+    "_ZN11forc_crypto4args110_$LT$impl$u20$core..convert..From$LT$forc_crypto..args..HashArgs$GT$$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$4from17h594ca9919f43c62dE": {},
+    "_ZN11forc_crypto4keys14get_public_key7handler17h2392f84c0c5629b2E": {},
+    "_ZN11forc_crypto4keys7new_key7handler17h9c4194e818a0987dE": {},
+    "_ZN11forc_crypto4keys12parse_secret7handler17hc911bd93ff9f1e31E": {},
+    "_ZN11forc_crypto4keys6vanity19validate_hex_string17h622429bd06bdd4a3E": {},
+    "_ZN11forc_crypto4keys6vanity22validate_regex_pattern17h388a3a22683553dfE": {},
+    "_ZN11forc_crypto4keys6vanity3Arg8validate17h776811c8940670ebE": {},
+    "_ZN11forc_crypto4keys6vanity7handler17h7d15fe22a5661bf3E": {},
+    "_ZN11forc_crypto4keys6vanity10HexMatcher3new17hd4658ac7716e1740E": {},
+    "_ZN11forc_crypto4keys6vanity12RegexMatcher3new17h881b9c176c268426E": {},
+    "_ZN11forc_crypto4keys6vanity32find_vanity_address_with_timeout17hda53e568c7769d8cE": {},
+    "_ZN11forc_crypto4keys6vanity15generate_wallet17hb850cb6e0907b629E": {},
+    "_ZN11forc_crypto4help17h27066134cf3ccdc5E": {},
+    "_ZN11forc_crypto7address4help17h1eb48005217d3573E": {},
+    "_ZN11forc_crypto7address8examples17h06fffe9fc2f60a1aE": {},
+    "_ZN11forc_crypto4args4help17hbdd9a15f6f314c46E": {},
+    "_ZN11forc_crypto4args8examples17h88b11cb6130bc186E": {},
+    "_ZN11forc_crypto4keys14get_public_key4help17hc91b74640bdb4820E": {},
+    "_ZN11forc_crypto4keys14get_public_key8examples17h26ddd7e79c1632e2E": {},
+    "_ZN11forc_crypto4keys7new_key4help17h997ac3090a4b8d4eE": {},
+    "_ZN11forc_crypto4keys7new_key8examples17h885697e6381d1c74E": {},
+    "_ZN11forc_crypto4keys12parse_secret4help17h05e536bd94cc3b88E": {},
+    "_ZN11forc_crypto4keys12parse_secret8examples17h7f4f8a92d4b53c85E": {},
+    "_ZN11forc_crypto4keys6vanity8examples17h6d559cc5ef86d80eE": {}
+  },
+  "variable_types": {
+    "_ZN11forc_crypto6sha2564hash17h072b0afa8176419bE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_232": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_256": [
+        [
+          "array",
+          48
+        ]
+      ]
+    },
+    "_ZN11forc_crypto7address12dump_address17h61c0e54a2abc32fcE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_48": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_160": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN11forc_crypto7address24handle_string_conversion17h63cc450610a58430E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          33
+        ]
+      ],
+      "stack_40": [
+        [
+          "array",
+          32
+        ]
+      ]
+    },
+    "_ZN11forc_crypto9keccak2564hash17h665ad0faa9bbb11eE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_56": [
+        [
+          "array",
+          352
+        ]
+      ],
+      "stack_408": [
+        [
+          "array",
+          384
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4main17h4cb215e16df55901E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto3run17h9233c73a0bfd917dE": {
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_11": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_72": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_224": [
+        [
+          "array",
+          112
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto17wait_for_keypress17h097f336dd4d0c55fE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto17has_sensible_info17hdcf6a8a75752cdf1E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto14display_output17h66f719bf0e2367ecE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4args17checked_read_file17h22b9faaf715a9a45E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4args18checked_read_stdin17hc53103be1c9a90d0E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_cl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          40
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4args14read_as_binary17h6ffe604cc99fdcccE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4args30read_content_filepath_or_stdin17h735eec317a7ae007E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_dl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4args110_$LT$impl$u20$core..convert..From$LT$forc_crypto..args..HashArgs$GT$$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$4from17h594ca9919f43c62dE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys14get_public_key7handler17h2392f84c0c5629b2E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          34
+        ]
+      ],
+      "stack_34": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_201": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_217": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_233": [
+        [
+          "array",
+          31
+        ]
+      ],
+      "stack_264": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_296": [
+        [
+          "array",
+          64
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys7new_key7handler17h9c4194e818a0987dE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_esi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_241": [
+        [
+          "array",
+          23
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_296": [
+        [
+          "array",
+          208
+        ]
+      ],
+      "stack_504": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_536": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_552": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_568": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_584": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_600": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_616": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_624": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_656": [
+        [
+          "array",
+          208
+        ]
+      ],
+      "stack_864": [
+        [
+          "array",
+          80
+        ]
+      ],
+      "stack_944": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_1008": [
+        [
+          "array",
+          408
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys12parse_secret7handler17hc911bd93ff9f1e31E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_241": [
+        [
+          "array",
+          23
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "array",
+          31
+        ]
+      ],
+      "stack_312": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_392": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_424": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_432": [
+        [
+          "array",
+          208
+        ]
+      ],
+      "stack_640": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_641": [
+        [
+          "array",
+          31
+        ]
+      ],
+      "stack_672": [
+        [
+          "array",
+          208
+        ]
+      ],
+      "stack_880": [
+        [
+          "array",
+          152
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys6vanity19validate_hex_string17h622429bd06bdd4a3E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          40
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys6vanity22validate_regex_pattern17h388a3a22683553dfE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys6vanity3Arg8validate17h776811c8940670ebE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys6vanity7handler17h7d15fe22a5661bf3E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_edx": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_392": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_448": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_496": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_512": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_520": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_528": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_536": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_552": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_560": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_576": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_584": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_592": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_608": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_640": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_648": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_656": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_672": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys6vanity10HexMatcher3new17hd4658ac7716e1740E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "array",
+          56
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys6vanity12RegexMatcher3new17h881b9c176c268426E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          32
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys6vanity32find_vanity_address_with_timeout17hda53e568c7769d8cE": {
+      "reg_dl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_cl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rt0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_of": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm2": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "array",
+          80
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys6vanity15generate_wallet17hb850cb6e0907b629E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_esi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm2": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm3": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm4": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_80": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_112": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_272": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4help17h27066134cf3ccdc5E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "array",
+          96
+        ]
+      ],
+      "stack_200": [
+        [
+          "array",
+          48
+        ]
+      ],
+      "stack_248": [
+        [
+          "array",
+          32
+        ]
+      ]
+    },
+    "_ZN11forc_crypto7address4help17h1eb48005217d3573E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_168": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto7address8examples17h06fffe9fc2f60a1aE": {
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_32": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "array",
+          40
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4args4help17hbdd9a15f6f314c46E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_168": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4args8examples17h88b11cb6130bc186E": {
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "array",
+          40
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys14get_public_key4help17hc91b74640bdb4820E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_168": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys14get_public_key8examples17h26ddd7e79c1632e2E": {
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_32": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "array",
+          40
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys7new_key4help17h997ac3090a4b8d4eE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_168": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys7new_key8examples17h885697e6381d1c74E": {
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "array",
+          40
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys12parse_secret4help17h05e536bd94cc3b88E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_168": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys12parse_secret8examples17h7f4f8a92d4b53c85E": {
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "array",
+          40
+        ]
+      ]
+    },
+    "_ZN11forc_crypto4keys6vanity8examples17h6d559cc5ef86d80eE": {
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "array",
+          40
+        ]
+      ]
+    }
+  }
+}

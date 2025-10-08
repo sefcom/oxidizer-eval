@@ -1,0 +1,4 @@
+__int64 __fastcall uu_expr::syntax_tree::Parser<S>::parse_expression(__int64 a1, __int64 a2)
+{
+  return uu_expr::syntax_tree::Parser<S>::parse_precedence(a1, a2, 0LL);
+}

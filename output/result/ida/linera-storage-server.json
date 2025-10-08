@@ -1,0 +1,513 @@
+{
+  "decompilation": {
+    "_ZN21linera_storage_server13StorageServer12contains_key17hcd85c9b96525862eE": "void __fastcall linera_storage_server::StorageServer::contains_key(__int64 a1, __int64 a2, __int64 a3, __int64 a4)\n{\n  *(_QWORD *)a1 = a2;\n  *(_QWORD *)(a1 + 8) = a3;\n  *(_QWORD *)(a1 + 16) = a4;\n  *(_BYTE *)(a1 + 56) = 0;\n}",
+    "_ZN21linera_storage_server13StorageServer11write_batch17h3b6679ca37b524d4E": "__int64 __fastcall linera_storage_server::StorageServer::write_batch(__int64 a1, __int64 a2, __int64 a3)\n{\n  __int64 result; // rax\n\n  *(_QWORD *)(a1 + 24) = a2;\n  *(_OWORD *)a1 = *(_OWORD *)a3;\n  result = *(_QWORD *)(a3 + 16);\n  *(_QWORD *)(a1 + 16) = result;\n  *(_BYTE *)(a1 + 72) = 0;\n  return result;\n}",
+    "_ZN21linera_storage_server13StorageServer8list_all17h9e1f92bed5974527E": "void __fastcall linera_storage_server::StorageServer::list_all(__int64 a1, __int64 a2)\n{\n  *(_QWORD *)a1 = a2;\n  *(_BYTE *)(a1 + 72) = 0;\n}",
+    "_ZN21linera_storage_server13StorageServer14list_root_keys17h21456c87a4d95fb1E": "void __fastcall linera_storage_server::StorageServer::list_root_keys(__int64 a1, __int64 a2, __int64 a3, __int64 a4)\n{\n  *(_QWORD *)a1 = a2;\n  *(_QWORD *)(a1 + 8) = a3;\n  *(_QWORD *)(a1 + 16) = a4;\n  *(_BYTE *)(a1 + 112) = 0;\n}",
+    "_ZN21linera_storage_server13StorageServer10delete_all17ha14520f32bf7d59cE": "void __fastcall linera_storage_server::StorageServer::delete_all(__int64 a1, __int64 a2)\n{\n  *(_QWORD *)a1 = a2;\n  *(_BYTE *)(a1 + 112) = 0;\n}",
+    "_ZN21linera_storage_server13StorageServer16create_namespace17h98679c2271bd15ddE": "void __fastcall linera_storage_server::StorageServer::create_namespace(__int64 a1, __int64 a2, __int64 a3, __int64 a4)\n{\n  *(_QWORD *)a1 = a2;\n  *(_QWORD *)(a1 + 8) = a3;\n  *(_QWORD *)(a1 + 16) = a4;\n  *(_BYTE *)(a1 + 152) = 0;\n}",
+    "_ZN21linera_storage_server13StorageServer16delete_namespace17h6b12f5f1822f5f61E": "void __fastcall linera_storage_server::StorageServer::delete_namespace(__int64 a1, __int64 a2, __int64 a3, __int64 a4)\n{\n  *(_QWORD *)a1 = a2;\n  *(_QWORD *)(a1 + 8) = a3;\n  *(_QWORD *)(a1 + 16) = a4;\n  *(_BYTE *)(a1 + 200) = 0;\n}",
+    "_ZN21linera_storage_server13StorageServer19insert_pending_read17h523df35d5779ab9aE": "__int64 __fastcall linera_storage_server::StorageServer::insert_pending_read(__int64 a1, __int64 a2, __int64 a3)\n{\n  __int64 result; // rax\n\n  *(_QWORD *)(a1 + 24) = a2;\n  *(_OWORD *)a1 = *(_OWORD *)a3;\n  result = *(_QWORD *)(a3 + 16);\n  *(_QWORD *)(a1 + 16) = result;\n  *(_BYTE *)(a1 + 180) = 0;\n  return result;\n}",
+    "_ZN21linera_storage_server15key_value_store22storage_service_server29StorageServiceServer$LT$T$GT$3new17h2450ca3bd8e5fff2E": "__int64 __fastcall linera_storage_server::key_value_store::storage_service_server::StorageServiceServer<T>::new(\n        __int64 a1,\n        __int128 *a2)\n{\n  __int128 v2; // xmm1\n  __int64 v3; // rax\n  _QWORD v5[2]; // [rsp+0h] [rbp-38h] BYREF\n  __int128 v6; // [rsp+10h] [rbp-28h]\n  __int128 v7; // [rsp+20h] [rbp-18h]\n\n  v5[0] = 1LL;\n  v5[1] = 1LL;\n  v2 = a2[1];\n  v6 = *a2;\n  v7 = v2;\n  v3 = ((__int64 (__fastcall *)(_QWORD *))alloc::boxed::Box<T>::new)(v5);\n  return linera_storage_server::key_value_store::storage_service_server::StorageServiceServer<T>::from_arc(a1, v3);\n}",
+    "_ZN21linera_storage_server15key_value_store22storage_service_server29StorageServiceServer$LT$T$GT$8from_arc17h4df142ad80ddaf3aE": "void __fastcall linera_storage_server::key_value_store::storage_service_server::StorageServiceServer<T>::from_arc(\n        _QWORD *a1,\n        __int64 a2)\n{\n  a1[4] = a2;\n  *a1 = 0LL;\n  a1[2] = 0LL;\n}",
+    "_ZN21linera_storage_server15key_value_store9statement9Operation5merge17hf4ace5ce91133ff3E": "__int64 __fastcall linera_storage_server::key_value_store::statement::Operation::merge(\n        __int64 a1,\n        int a2,\n        unsigned __int8 a3,\n        _QWORD *a4)\n{\n  __int64 v4; // r14\n  __int128 v6; // xmm0\n  __int128 v7; // xmm1\n  __int128 v8; // xmm1\n  __int128 v9; // xmm2\n  int v10; // [rsp+Ch] [rbp-10Ch] BYREF\n  __int128 v11; // [rsp+10h] [rbp-108h] BYREF\n  __int128 v12; // [rsp+20h] [rbp-F8h]\n  __int128 v13; // [rsp+30h] [rbp-E8h]\n  __int64 v14; // [rsp+40h] [rbp-D8h]\n  __int64 v15; // [rsp+48h] [rbp-D0h]\n  __int128 v16; // [rsp+58h] [rbp-C0h] BYREF\n  __int64 v17; // [rsp+68h] [rbp-B0h]\n  __int128 v18; // [rsp+70h] [rbp-A8h] BYREF\n  __int64 v19; // [rsp+80h] [rbp-98h]\n  __int128 v20; // [rsp+88h] [rbp-90h] BYREF\n  __int128 v21; // [rsp+98h] [rbp-80h]\n  __int128 v22; // [rsp+A8h] [rbp-70h]\n  __int64 v23; // [rsp+B8h] [rbp-60h]\n  __int128 v24; // [rsp+C0h] [rbp-58h] BYREF\n  __int128 v25; // [rsp+D0h] [rbp-48h]\n  __int128 v26; // [rsp+E0h] [rbp-38h]\n  _QWORD v27[5]; // [rsp+F0h] [rbp-28h] BYREF\n\n  v10 = a2;\n  switch ( a2 )\n  {\n    case 1:\n      if ( *(_QWORD *)a1 == 0x8000000000000000LL )\n        return prost::encoding::bytes::merge(a3, a1 + 8, *a4);\n      *(_QWORD *)&v16 = 0LL;\n      *((_QWORD *)&v16 + 1) = 1LL;\n      v17 = 0LL;\n      v4 = prost::encoding::bytes::merge(a3, &v16, *a4);\n      *((_QWORD *)&v12 + 1) = a1;\n      v11 = v16;\n      *(_QWORD *)&v12 = v17;\n      if ( v4 )\n        goto LABEL_14;\n      core::ptr::drop_in_place<core::option::Option<linera_storage_server::key_value_store::statement::Operation>>(a1);\n      *(_QWORD *)a1 = 0x8000000000000000LL;\n      *(_OWORD *)(a1 + 8) = v16;\n      *(_QWORD *)(a1 + 24) = v17;\n      return v4;\n    case 2:\n      if ( *(_QWORD *)a1 == 0x8000000000000001LL )\n        return prost::encoding::message::merge(a3, a1 + 8, a4);\n      *(_QWORD *)&v24 = 0LL;\n      *((_QWORD *)&v24 + 1) = 1LL;\n      v25 = 0LL;\n      v26 = 1uLL;\n      v4 = prost::encoding::message::merge(a3, &v24, a4);\n      v14 = a1;\n      v11 = v24;\n      v12 = v25;\n      v13 = v26;\n      if ( v4 )\n      {\n        core::ptr::drop_in_place<linera_storage_server::key_value_store::statement::Operation::merge<&mut &mut tonic::codec::buffer::DecodeBuf>::{{closure}}>(&v11);\n      }\n      else\n      {\n        core::ptr::drop_in_place<core::option::Option<linera_storage_server::key_value_store::statement::Operation>>(a1);\n        *(_QWORD *)a1 = 0x8000000000000001LL;\n        v8 = v25;\n        v9 = v26;\n        *(_OWORD *)(a1 + 8) = v24;\n        *(_OWORD *)(a1 + 24) = v8;\n        *(_OWORD *)(a1 + 40) = v9;\n      }\n      return v4;\n    case 3:\n      if ( *(_QWORD *)a1 > (signed __int64)0x8000000000000004LL )\n        return prost::encoding::message::merge(a3, a1, a4);\n      *(_QWORD *)&v20 = 0LL;\n      *((_QWORD *)&v20 + 1) = 1LL;\n      v21 = 0LL;\n      v22 = 1uLL;\n      LOBYTE(v23) = 0;\n      v4 = prost::encoding::message::merge(a3, &v20, a4);\n      v15 = a1;\n      v11 = v20;\n      v12 = v21;\n      v13 = v22;\n      v14 = v23;\n      if ( v4 )\n      {\n        core::ptr::drop_in_place<linera_storage_server::key_value_store::statement::Operation::merge<&mut &mut tonic::codec::buffer::DecodeBuf>::{{closure}}>(&v11);\n      }\n      else\n      {\n        core::ptr::drop_in_place<core::option::Option<linera_storage_server::key_value_store::statement::Operation>>(a1);\n        *(_QWORD *)(a1 + 48) = v23;\n        v6 = v20;\n        v7 = v21;\n        *(_OWORD *)(a1 + 32) = v22;\n        *(_OWORD *)(a1 + 16) = v7;\n        *(_OWORD *)a1 = v6;\n      }\n      return v4;\n    case 4:\n      if ( *(_QWORD *)a1 == 0x8000000000000003LL )\n        return prost::encoding::bytes::merge(a3, a1 + 8, *a4);\n      *(_QWORD *)&v18 = 0LL;\n      *((_QWORD *)&v18 + 1) = 1LL;\n      v19 = 0LL;\n      v4 = prost::encoding::bytes::merge(a3, &v18, *a4);\n      *((_QWORD *)&v12 + 1) = a1;\n      v11 = v18;\n      *(_QWORD *)&v12 = v19;\n      if ( v4 )\n      {\nLABEL_14:\n        core::ptr::drop_in_place<linera_storage_server::key_value_store::statement::Operation::merge<&mut &mut tonic::codec::buffer::DecodeBuf>::{{closure}}>(&v11);\n      }\n      else\n      {\n        core::ptr::drop_in_place<core::option::Option<linera_storage_server::key_value_store::statement::Operation>>(a1);\n        *(_QWORD *)a1 = 0x8000000000000003LL;\n        *(_OWORD *)(a1 + 8) = v18;\n        *(_QWORD *)(a1 + 24) = v19;\n      }\n      return v4;\n    default:\n      v27[0] = &v10;\n      v27[1] = core::fmt::num::imp::<impl core::fmt::Display for u32>::fmt;\n      *(_QWORD *)&v11 = &off_A199E8;\n      *((_QWORD *)&v11 + 1) = 1LL;\n      *(_QWORD *)&v13 = 0LL;\n      *(_QWORD *)&v12 = v27;\n      *((_QWORD *)&v12 + 1) = 1LL;\n      core::panicking::panic_fmt(&v11, &off_A199F8);\n  }\n}",
+    "_ZN21linera_storage_server4main17h66a2e32dcb9b47c4E": "__int64 linera_storage_server::main()\n{\n  _BYTE v1[80]; // [rsp+0h] [rbp-B68h] BYREF\n  _BYTE v2[80]; // [rsp+50h] [rbp-B18h] BYREF\n  _BYTE v3[205]; // [rsp+A0h] [rbp-AC8h] BYREF\n  __int16 v4; // [rsp+16Dh] [rbp-9FBh]\n  _BYTE v5[2544]; // [rsp+178h] [rbp-9F0h] BYREF\n\n  v5[61] = 0;\n  tokio::runtime::builder::Builder::new_multi_thread(v3);\n  v4 = 257;\n  tokio::runtime::builder::Builder::build(v2, v3);\n  core::result::Result<T,E>::expect(v1, v2);\n  tokio::runtime::runtime::Runtime::block_on(v1, v5);\n  core::ptr::drop_in_place<tokio::runtime::runtime::Runtime>(v1);\n  return core::ptr::drop_in_place<tokio::runtime::builder::Builder>(v3);\n}"
+  },
+  "function_call_counts": {
+    "_ZN21linera_storage_server13StorageServer12contains_key17hcd85c9b96525862eE": {},
+    "_ZN21linera_storage_server13StorageServer11write_batch17h3b6679ca37b524d4E": {},
+    "_ZN21linera_storage_server13StorageServer8list_all17h9e1f92bed5974527E": {},
+    "_ZN21linera_storage_server13StorageServer14list_root_keys17h21456c87a4d95fb1E": {},
+    "_ZN21linera_storage_server13StorageServer10delete_all17ha14520f32bf7d59cE": {},
+    "_ZN21linera_storage_server13StorageServer16create_namespace17h98679c2271bd15ddE": {},
+    "_ZN21linera_storage_server13StorageServer16delete_namespace17h6b12f5f1822f5f61E": {},
+    "_ZN21linera_storage_server13StorageServer19insert_pending_read17h523df35d5779ab9aE": {},
+    "_ZN21linera_storage_server15key_value_store22storage_service_server29StorageServiceServer$LT$T$GT$3new17h2450ca3bd8e5fff2E": {
+      "linera_storage_server::key_value_store::storage_service_server::StorageServiceServer<T>::from_arc": 1
+    },
+    "_ZN21linera_storage_server15key_value_store22storage_service_server29StorageServiceServer$LT$T$GT$8from_arc17h4df142ad80ddaf3aE": {},
+    "_ZN21linera_storage_server15key_value_store9statement9Operation5merge17hf4ace5ce91133ff3E": {
+      "prost::encoding::bytes::merge": 4,
+      "core::ptr::drop_in_place<core::option::Option<linera_storage_server::key_value_store::statement::Operation>>": 4,
+      "prost::encoding::message::merge": 4,
+      "core::ptr::drop_in_place<linera_storage_server::key_value_store::statement::Operation::merge<&mut &mut tonic::codec::buffer::DecodeBuf>::{{closure}}>": 3,
+      "core::panicking::panic_fmt": 1
+    },
+    "_ZN21linera_storage_server4main17h66a2e32dcb9b47c4E": {
+      "tokio::runtime::builder::Builder::new_multi_thread": 1,
+      "tokio::runtime::builder::Builder::build": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "tokio::runtime::runtime::Runtime::block_on": 1,
+      "core::ptr::drop_in_place<tokio::runtime::runtime::Runtime>": 1,
+      "core::ptr::drop_in_place<tokio::runtime::builder::Builder>": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN21linera_storage_server13StorageServer12contains_key17hcd85c9b96525862eE": {},
+    "_ZN21linera_storage_server13StorageServer11write_batch17h3b6679ca37b524d4E": {},
+    "_ZN21linera_storage_server13StorageServer8list_all17h9e1f92bed5974527E": {},
+    "_ZN21linera_storage_server13StorageServer14list_root_keys17h21456c87a4d95fb1E": {},
+    "_ZN21linera_storage_server13StorageServer10delete_all17ha14520f32bf7d59cE": {},
+    "_ZN21linera_storage_server13StorageServer16create_namespace17h98679c2271bd15ddE": {},
+    "_ZN21linera_storage_server13StorageServer16delete_namespace17h6b12f5f1822f5f61E": {},
+    "_ZN21linera_storage_server13StorageServer19insert_pending_read17h523df35d5779ab9aE": {},
+    "_ZN21linera_storage_server15key_value_store22storage_service_server29StorageServiceServer$LT$T$GT$3new17h2450ca3bd8e5fff2E": {},
+    "_ZN21linera_storage_server15key_value_store22storage_service_server29StorageServiceServer$LT$T$GT$8from_arc17h4df142ad80ddaf3aE": {},
+    "_ZN21linera_storage_server15key_value_store9statement9Operation5merge17hf4ace5ce91133ff3E": {},
+    "_ZN21linera_storage_server4main17h66a2e32dcb9b47c4E": {}
+  },
+  "variable_types": {
+    "_ZN21linera_storage_server13StorageServer12contains_key17hcd85c9b96525862eE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN21linera_storage_server13StorageServer11write_batch17h3b6679ca37b524d4E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN21linera_storage_server13StorageServer8list_all17h9e1f92bed5974527E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN21linera_storage_server13StorageServer14list_root_keys17h21456c87a4d95fb1E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN21linera_storage_server13StorageServer10delete_all17ha14520f32bf7d59cE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN21linera_storage_server13StorageServer16create_namespace17h98679c2271bd15ddE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN21linera_storage_server13StorageServer16delete_namespace17h6b12f5f1822f5f61E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN21linera_storage_server13StorageServer19insert_pending_read17h523df35d5779ab9aE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN21linera_storage_server15key_value_store22storage_service_server29StorageServiceServer$LT$T$GT$3new17h2450ca3bd8e5fff2E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN21linera_storage_server15key_value_store22storage_service_server29StorageServiceServer$LT$T$GT$8from_arc17h4df142ad80ddaf3aE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN21linera_storage_server15key_value_store9statement9Operation5merge17hf4ace5ce91133ff3E": {
+      "reg_dl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_esi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm2": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_240": [
+        [
+          "array",
+          40
+        ]
+      ]
+    },
+    "_ZN21linera_storage_server4main17h66a2e32dcb9b47c4E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          80
+        ]
+      ],
+      "stack_80": [
+        [
+          "array",
+          80
+        ]
+      ],
+      "stack_160": [
+        [
+          "array",
+          205
+        ]
+      ],
+      "stack_365": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_376": [
+        [
+          "array",
+          2544
+        ]
+      ]
+    }
+  }
+}

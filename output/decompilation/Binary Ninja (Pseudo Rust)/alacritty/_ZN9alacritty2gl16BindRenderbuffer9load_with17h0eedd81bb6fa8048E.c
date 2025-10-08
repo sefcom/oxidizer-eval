@@ -1,0 +1,19 @@
+
+  fn alacritty::gl::BindRenderbuffer::load_with::h0eedd81bb6fa8048(arg1: i64) -> fn() -> !
+
+{
+    let mut var_10: i64 = arg1;
+    let var_8: *mut c_void = &data_c86f38;
+    let result: fn() -> ! = alacritty::gl::metaloadfn::h7eed37a2c35596e4(&var_10, 
+        "glBindRenderbufferglBindSamplerg…", 0x12, 8, 0);
+    let mut result_1: fn() -> ! = alacritty::gl::missing_fn_panic::h74aefa71347b4c5e;
+    
+    if result != 0
+    {
+        result_1 = result;
+    }
+    
+    alacritty::gl::storage::BindRenderbuffer::hc44915f445dd80c8 = result_1;
+    data_ce5608 = result != 0;
+    result
+}

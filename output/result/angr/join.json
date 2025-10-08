@@ -1,0 +1,3702 @@
+{
+  "decompilation": {
+    "_ZN7uu_join15Repr$LT$Sep$GT$12print_fields17h4210fd7bff018645E": "long long uu_join::Repr<Sep>::print_fields(unsigned long long a0, unsigned long long a1, unsigned long long a2, struct_0 *a3, unsigned long a4)\n{\n    unsigned long long v0;  // [bp-0x38]\n    unsigned long long v2;  // rax\n    void* v3;  // rbx\n    unsigned long long v4;  // rax\n    unsigned long long v5;  // rax\n    unsigned long long v6;  // rax\n\n    v0 = v2;\n    v0 = a1;\n    if (!a3->field_10)\n        return 0;\n    v3 = 0;\n    do\n    {\n        if (a4 != v3)\n        {\n            v4 = a2.write_all(a0.as_ref(v0), a2);\n            if (v4)\n                return v4;\n            v5 = a3.get_field(v3);\n            if (!v5)\n                core::option::unwrap_failed(&g_4fd2c8); /* do not return */\n            v6 = a2.write_all(v5, a2);\n            if (v6)\n                return v6;\n        }\n        v3 += 1;\n    } while (a3->field_10 != v3);\n    return 0;\n}\n",
+    "_ZN7uu_join15Repr$LT$Sep$GT$12print_format17h42b6e953664a5ea5E": "long long uu_join::Repr<Sep>::print_format(unsigned long long a0[5], unsigned long long a1, unsigned long long a2)\n{\n    unsigned long v0;  // [bp-0x38], Other Possible Types: unsigned long long\n    unsigned long long v2;  // rax\n    unsigned long long v3;  // r13\n    unsigned long long v4;  // r15\n    unsigned long long v5;  // rax\n    unsigned long v6;  // rax, Other Possible Types: unsigned long long\n    unsigned long long v7;  // r15\n    unsigned long long v8;  // rdx\n    unsigned long long v9;  // rdx\n    unsigned long long v10;  // rax\n    unsigned long v11;  // r12\n    unsigned long v12;  // r13\n    unsigned long long v13;  // rax\n    unsigned long long v14;  // rax\n    unsigned long v15;  // rax, Other Possible Types: unsigned long long\n    unsigned long long v16;  // rdx\n    unsigned long long v17;  // r15\n    unsigned long long v19;  // rax\n\n    v0 = v2;\n    v3 = a0[2];\n    if (!a0[2])\n        return 0;\n    v4 = a0[4];\n    v5 = uu_join::State::combine::{{closure}}(a2, a0[1]);\n    if (!v5)\n    {\n        v6 = a0[3];\n        if (v5)\n            goto LABEL_45e72e;\nLABEL_45e72d:\n        v7 = v4;\n    }\n    else\n    {\n        v6 = v5;\n        if (!v5)\n            goto LABEL_45e72d;\nLABEL_45e72e:\n        v7 = v9;\n    }\n    v10 = a1.write_all(v6, v7);\n    if (v10)\n        return v10;\n    v0 = a0[3];\n    v11 = a0[1] + 16;\n    while (true)\n    {\n        v12 = v3 - 1;\n        if (v3 == 1)\n            break;\n        v13 = a1.write_all(1, 0);\n        if (v13)\n            return v13;\n        v14 = uu_join::State::combine::{{closure}}(a2, v11);\n        if (!v14)\n        {\n            v15 = v0;\n            v16 = v8;\n            if (v14)\n                goto LABEL_45e783;\n            goto LABEL_45e782;\n        }\n        else\n        {\n            v15 = v14;\n            v16 = v8;\n            if (!v14)\n            {\nLABEL_45e782:\n                v17 = v4;\n                goto LABEL_45e785;\n            }\n            else\n            {\nLABEL_45e783:\n                v17 = v16;\nLABEL_45e785:\n                v19 = a1.write_all(v15, v17);\n                v11 += 16;\n                v3 = v12;\n                if (v19)\n                    return v19;\n            }\n        }\n    }\n    return 0;\n}\n",
+    "_ZN7uu_join16Input$LT$Sep$GT$7compare17h365eb74b1ebb2c70E": "long long uu_join::Input<Sep>::compare(char a0, void* a1, unsigned long a2, void* a3, unsigned long a4)\n{\n    void* v0;  // [bp-0x28]\n    unsigned long v1;  // [bp-0x20]\n    void* v2;  // [bp-0x18]\n    unsigned long v3;  // [bp-0x10]\n    unsigned long v5;  // rbx\n    unsigned long v6;  // 4096\n    unsigned long v7;  // rax\n    unsigned long v8;  // rax\n\n    if (!(a3 & a1))\n    {\n        return (!a1 ? -(0 < a3) : 1);\n    }\n    else if ((a0 & 1))\n    {\n        v0 = a1;\n        v1 = a2;\n        v2 = a3;\n        v3 = a4;\n        return v0.cmp(&v2);\n    }\n    else\n    {\n        v5 = a2 - a4;\n        if (a2 < a4)\n            v6 = a2;\n        else\n            v6 = a4;\n        v7 = memcmp(a1, a3, v6);\n        if ((unsigned int)v7)\n            v8 = v7;\n        else\n            v8 = v5;\n        return v7 & 0xffffff00 | (v8 > 0) - (v8 < 0);\n    }\n}\n",
+    "_ZN7uu_join4Line3new17h4d6d45b3b26be861E": "long long uu_join::Line::new(struct_1 *a0, struct_0 *a1, unsigned long long a2, unsigned long long a3)\n{\n    int v0;  // [bp-0x30], Other Possible Types: char\n    char v1;  // [bp-0x20]\n    unsigned long long v3;  // rax\n\n    v0.field_ranges(a2, a1->field_0[1], a1->field_8, a3);\n    a0->field_10 = *((long long *)&v1);\n    *((void*)&a0->field_0) = v0;\n    *((unsigned long long [2])&(&a0->field_10)[1]) = a1->field_0;\n    v3 = a1->field_8;\n    *((unsigned long long *)((char *)&a0->field_18 + 8)) = v3;\n    return v3;\n}\n",
+    "_ZN7uu_join4exec17h240f3fcdcfc58a54E": "long long uu_join::exec(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long a3, void* a4, char a5)\n{\n    char v0;  // [bp-0x23c]\n    char v1;  // [bp-0x23b]\n    char v2;  // [bp-0x23a]\n    char v3;  // [bp-0x239]\n    char *v4;  // [bp-0x238], Other Possible Types: int, char, unsigned long\n    unsigned long v5;  // [bp-0x231]\n    unsigned long long v6;  // [bp-0x230]\n    char *v7;  // [bp-0x228]\n    int v8;  // [bp-0x228]\n    int v9;  // [bp-0x228]\n    char v10;  // [bp-0x220], Other Possible Types: unsigned long long\n    void* v11;  // [bp-0x218], Other Possible Types: unsigned long long\n    int v12;  // [bp-0x218]\n    int v13;  // [bp-0x218]\n    int v14;  // [bp-0x210]\n    int v15;  // [bp-0x200]\n    int v16;  // [bp-0x1f0]\n    unsigned long v17;  // [bp-0x1e0]\n    unsigned long long v18;  // [bp-0x1d8]\n    int v19;  // [bp-0x1d8]\n    struct_0 *v20;  // [bp-0x1d0], Other Possible Types: unsigned long\n    unsigned long long v21;  // [bp-0x1c8]\n    int v22;  // [bp-0x1c8], Other Possible Types: unsigned long long\n    int v23;  // [bp-0x1b8], Other Possible Types: char\n    char v24;  // [bp-0x1a8]\n    unsigned long long v25;  // [bp-0x180]\n    int v26;  // [bp-0x178]\n    unsigned long long v27;  // [bp-0x170]\n    unsigned long long v28;  // [bp-0x168]\n    int v29;  // [bp-0x160]\n    char v30;  // [bp-0x150]\n    char v31;  // [bp-0x14f]\n    unsigned long long v32;  // [bp-0x148]\n    unsigned long long v33;  // [bp-0x140]\n    char *v34;  // [bp-0x138]\n    char v35;  // [bp-0x130]\n    int v36;  // [bp-0x120]\n    int v37;  // [bp-0x110]\n    int v38;  // [bp-0x100]\n    unsigned long v39;  // [bp-0xf0]\n    char v40;  // [bp-0xee]\n    char v41;  // [bp-0xed]\n    int v42;  // [bp-0xe8], Other Possible Types: char\n    unsigned long long v43;  // [bp-0xd8]\n    unsigned long long v44;  // [bp-0xd0]\n    int v45;  // [bp-0xc8]\n    unsigned long long v46;  // [bp-0xc0]\n    int v47;  // [bp-0xb8], Other Possible Types: char\n    int v48;  // [bp-0xa8], Other Possible Types: char\n    unsigned long long v49;  // [bp-0x90]\n    unsigned long long v50;  // [bp-0x88]\n    char *v51;  // [bp-0x80]\n    char v52;  // [bp-0x78]\n    int v53;  // [bp-0x68]\n    int v54;  // [bp-0x58]\n    int v55;  // [bp-0x48]\n    unsigned long v56;  // [bp-0x38]\n    char v57;  // [bp-0x36]\n    char v58;  // [bp-0x35]\n    unsigned long long v60;  // rax\n    unsigned long long v61;  // r15\n    unsigned long long v62;  // rax\n    unsigned long long v63;  // r14\n    struct_0 *v64;  // rax\n    unsigned long long v65;  // rcx\n    unsigned long long v66;  // rdx\n    unsigned long long v67;  // rax\n    unsigned long long v68;  // rdx\n    char v70;  // al\n    unsigned long long v72;  // rax\n    unsigned long long v73;  // rax\n    unsigned long long v74;  // rax\n    unsigned long long v75;  // rax\n    void* v76;  // rax\n    unsigned long v77;  // rdx\n    unsigned long long v78;  // rax\n    unsigned long long v79;  // rax\n    int v80;  // xmm0\n    int v81;  // xmm0\n    unsigned long long v82;  // rax\n    unsigned long long v83;  // r12\n    unsigned long long v84;  // rax\n    unsigned long long v85;  // rax\n    unsigned long long v86;  // rax\n    unsigned long long v87;  // rax\n    unsigned long long v88;  // rax\n    unsigned long long v89;  // rax\n    unsigned long long v90;  // rax\n    unsigned long long v91;  // rax\n    char *v93;  // [bp-0xc8]\n\n    v0 = a5;\n    v25 = std::io::stdio::stdin();\n    v4.new(0, a0, a1, &v25, (long long)a4[72], (char)a4[95], (char)a4[88]);\n    v60 = *((long long *)&v4);\n    if ((char)(((0 ^ v60) & (0 ^ -(v60))) >> 63))\n    {\n        core::ptr::drop_in_place<uu_join::SepSetting>((long long)a4[48], (long long)a4[56]);\n        *((long long *)a4).drop_in_place<alloc::vec::Vec<uu_join::Spec>>((long long)a4[8]);\n        core::ptr::drop_in_place<alloc::vec::Vec<u8>>((long long)a4[24], (long long)a4[32]);\n        return v61;\n    }\n    v39 = v17;\n    v38 = v16;\n    v37 = v15;\n    v36 = v14;\n    memcpy(&v35, &v10, 16);\n    v32 = v60;\n    v33 = v6;\n    v34 = v7;\n    v4.new(1, a2, a3, &v25, (long long)a4[80], (char)a4[95], (char)a4[89]);\n    v62 = *((long long *)&v4);\n    v61 = v6;\n    if (v62 == 0x8000000000000000)\n        goto LABEL_45f30a;\n    v56 = v17;\n    v55 = v16;\n    v54 = v15;\n    v53 = v14;\n    memcpy(&v52, &v10, 16);\n    v49 = v62;\n    v50 = v61;\n    v51 = v7;\n    v3 = v0;\n    v1 = (char)a4[91];\n    v2 = (char)a4[94];\n    v63 = a4 + 92;\n    if (!(char)a4[92])\n    {\n        if (((char)v32.initialize(&v0, 0) & 1))\n        {\n            v67 = v66.from();\n        }\n        else if (((char)v49.initialize(&v0, *((char *)v63)) & 1))\n        {\n            v67 = v68.from();\n        }\n        else\n        {\n            v43 = (long long)a4[16];\n            *((int128_t *)&v42) = *((int128_t *)a4);\n            goto LABEL_45f395;\n        }\n        v61 = v67;\nLABEL_45f2fa:\n        goto LABEL_45f2fd;\n    }\n    v64 = 8.alloc_impl(16);\n    if (!v64)\n        alloc::alloc::handle_alloc_error(8, 16); /* do not return */\n    v64->field_0 = 0;\n    v65 = *((long long *)&v4);\n    v64->field_1 = v5;\n    *((unsigned long long *)&(&v64->field_0)[1]) = v65;\n    v18 = 1;\n    v20 = v64;\n    v21 = 1;\n    v4 = &v0;\n    v6 = v63;\n    v7 = &v18;\n    v61 = uu_join::exec::{{closure}}(&v4, &v32);\n    if (v61)\n    {\nLABEL_45f29a:\n        v18.drop_in_place<alloc::vec::Vec<uu_join::Spec>>(v20);\n        goto LABEL_45f2fa;\n    }\n    v61 = uu_join::exec::{{closure}}(&v4, &v49);\n    if (v61)\n        goto LABEL_45f29a;\n    v43 = v22;\n    memcpy(&v42, &v18, 16);\nLABEL_45f395:\n    v70 = (char)a4[95];\n    v26 = v42;\n    v28 = v43;\n    v30 = v70;\n    v31 = v0;\n    *((int128_t *)&v29) = (int128_t)a4[32];\n    v44 = std::io::stdio::stdout();\n    v24.with_capacity(v44.lock());\n    if ((char)a4[93])\n    {\n        v72 = v32.print_headers(&v24, &v49, &(char)v26);\n        if (v72)\n        {\n            v73 = v72.from();\n            goto LABEL_45f7bb;\n        }\n        else\n        {\n            v74 = v32.reset_read_line(&v1);\n            if (v74)\n            {\n                v73 = v74.from();\n                goto LABEL_45f7bb;\n            }\n            else\n            {\n                v75 = v49.reset_read_line(&v1);\n                if (!v75)\n                    goto LABEL_45f490;\n                v73 = v75.from();\n                goto LABEL_45f7bb;\n            }\n        }\n    }\nLABEL_45f490:\n    if (v34)\n    {\n        while (v51)\n        {\n            v76 = v32.get_current_key();\n            v78 = v1.compare(v76, v77, v49.get_current_key(), v77);\n            if ((char)v78)\n            {\n                if ((unsigned int)v78 == 1)\n                {\n                    v61 = v49.skip_line(&v24, &v1, &(char)v26);\n                    if (!v61)\n                    {\n                        core::ptr::drop_in_place<core::result::Result<(),alloc::boxed::Box<dyn uucore::mods::error::UError>>>(0, v77);\n                    }\n                    else\n                    {\n                        v86 = v24.flush();\n                        if (!v86)\n                            goto LABEL_45f868;\n                        v83 = v86.from();\n                        core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v61, v77);\n                        goto LABEL_45f862;\n                    }\n                }\n                else\n                {\n                    v61 = v32.skip_line(&v24, &v1, &(char)v26);\n                    if (!v61)\n                    {\n                        core::ptr::drop_in_place<core::result::Result<(),alloc::boxed::Box<dyn uucore::mods::error::UError>>>(0, v77);\n                    }\n                    else\n                    {\n                        v82 = v24.flush();\n                        if (!v82)\n                            goto LABEL_45f868;\n                        v83 = v82.from();\n                        core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v61, v77);\n                        goto LABEL_45f862;\n                    }\n                }\n                v41 = 1;\n                v58 = 1;\n            }\n            else\n            {\n                v4.extend(&v32, &v1);\n                if ((long long)v4 == 9223372036854775809)\n                {\n                    v61 = v6;\n                    v84 = v24.flush();\n                    if (v84)\n                    {\n                        v85 = v84.from();\n                        core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v6, v7);\n                        v61 = v85;\n                        goto LABEL_45f868;\n                    }\n                }\n                memcpy(&v48, &v11, 16);\n                memcpy(&v47, &v7, 16);\n                *((int128_t *)&v45) = (int128_t)v4;\n                v4.extend(&v49, &v1);\n                if ((long long)v4 != 9223372036854775809)\n                {\n                    memcpy(&v23, &v11, 16);\n                    memcpy(&v21, &v7, 16);\n                    *((int128_t *)&v19) = (int128_t)v4;\n                    if ((char)a4[90])\n                    {\n                        v79 = v32.combine(&v24, &v49);\n                        if (v79)\n                        {\n                            v61 = v79.from();\n                            (unsigned long long)v19.drop_in_place<core::option::Option<uu_join::Line>>();\nLABEL_45f9e6:\n                            (unsigned long long)v45.drop_in_place<core::option::Option<uu_join::Line>>();\n                            goto LABEL_45f868;\n                        }\n                    }\n                    v80 = (int128_t)v45;\n                    v12 = v48;\n                    v8 = v47;\n                    v4 = v80;\n                    v32.reset(&v4);\n                    v81 = (int128_t)v19;\n                    v13 = v23;\n                    v9 = v22;\n                    v4 = v81;\n                    v49.reset(&v4);\n                }\n                else\n                {\n                    v61 = v6;\n                    v87 = v24.flush();\n                    if (v87)\n                    {\n                        v88 = v87.from();\n                        core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v6, v7);\n                        v61 = v88;\n                        goto LABEL_45f9e6;\n                    }\n                }\n            }\n            if (!v34)\n                break;\n        }\n        goto LABEL_45f6c4;\n    }\n    else\n    {\nLABEL_45f6c4:\n        v61 = v32.finalize(&v24, &v1, &(char)v26);\n        if (v61)\n        {\n            v89 = v24.flush();\n            if (v89)\n            {\n                v83 = v89.from();\n                core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v61, v77);\n                goto LABEL_45f862;\n            }\n        }\n        else\n        {\n            core::ptr::drop_in_place<core::result::Result<(),alloc::boxed::Box<dyn uucore::mods::error::UError>>>(0, v77);\n            v61 = v49.finalize(&v24, &v1, &(char)v26);\n            if (v61)\n            {\n                v90 = v24.flush();\n                if (v90)\n                {\n                    v83 = v90.from();\n                    core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v61, v77);\nLABEL_45f862:\n                    v61 = v83;\n                }\n            }\n            else\n            {\n                core::ptr::drop_in_place<core::result::Result<(),alloc::boxed::Box<dyn uucore::mods::error::UError>>>(0, v77);\n                v91 = v24.flush();\n                if (v91)\n                {\n                    v73 = v91.from();\n                }\n                else\n                {\n                    if (v40 || v57 == 1)\n                    {\n                        v18 = uucore::execution_phrase();\n                        v20 = v77;\n                        v93 = &v18;\n                        v46 = <&T as core::fmt::Display>::fmt;\n                        v4 = &g_4fd2e0;\n                        v6 = 2;\n                        v11 = 0;\n                        v7 = &v93;\n                        v10 = 1;\n                        std::io::stdio::_eprint(&v4);\n                        uucore::mods::error::set_exit_code(1);\n                    }\n                    core::ptr::drop_in_place<std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutLock>>(&v24);\n                    (long long)v26.drop_in_place<uu_join::Repr<uu_join::LineSep>>(v27);\n                    core::ptr::drop_in_place<uu_join::State>(&v49);\n                    core::ptr::drop_in_place<uu_join::State>(&v32);\n                    core::ptr::drop_in_place<uu_join::SepSetting>((long long)a4[48], (long long)a4[56]);\n                    *((long long *)a4).drop_in_place<alloc::vec::Vec<uu_join::Spec>>((long long)a4[8]);\n                    core::ptr::drop_in_place<alloc::vec::Vec<u8>>((long long)a4[24], (long long)a4[32]);\n                    return 0;\n                }\nLABEL_45f7bb:\n                v61 = v73;\n            }\n        }\n    }\nLABEL_45f868:\n    core::ptr::drop_in_place<std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutLock>>(&v24);\n    (long long)v26.drop_in_place<uu_join::Repr<uu_join::LineSep>>(v27);\nLABEL_45f2fd:\n    core::ptr::drop_in_place<uu_join::State>(&v49);\nLABEL_45f30a:\n    core::ptr::drop_in_place<uu_join::State>(&v32);\n    core::ptr::drop_in_place<uu_join::SepSetting>((long long)a4[48], (long long)a4[56]);\n    if (true)\n    {\n        *((long long *)a4).drop_in_place<alloc::vec::Vec<uu_join::Spec>>((long long)a4[8]);\n        core::ptr::drop_in_place<alloc::vec::Vec<u8>>((long long)a4[24], (long long)a4[32]);\n        return v61;\n    }\n    core::ptr::drop_in_place<alloc::vec::Vec<u8>>((long long)a4[24], (long long)a4[32]);\n    return v61;\n}\n",
+    "_ZN7uu_join5State10initialize17h26fceea0e160947aE": "long long uu_join::State::initialize(struct_0 *a0, unsigned long long a1, char a2)\n{\n    unsigned long long v0;  // [bp-0x78]\n    unsigned long long v1;  // [bp-0x70]\n    int v2;  // [bp-0x68]\n    char v3;  // [bp-0x58]\n    char v4;  // [bp-0x48], Other Possible Types: unsigned long long\n    unsigned long long v5;  // [bp-0x40]\n    int v6;  // [bp-0x38]\n    char v7;  // [bp-0x28]\n\n    v4.read_line(a0, a1);\n    if (v4 == 9223372036854775809)\n        return 1;\n    memcpy(&v3, &v7, 16);\n    v2 = v6;\n    v0 = v4;\n    v1 = v5;\n    if (v4 == 0x8000000000000000)\n    {\n        v0.drop_in_place<core::option::Option<uu_join::Line>>();\n    }\n    else\n    {\n        a0.push(&v0, &g_4fd318);\n        if (!a2)\n        {\n            return 0;\n        }\n        else if (!a0->field_10)\n        {\n            core::panicking::panic_bounds_check(0, 0, &g_4fd330); /* do not return */\n        }\n    }\n    return 0;\n}\n",
+    "_ZN7uu_join5State10print_line17h1eb7dc8a2006cedbE": "long long uu_join::State::print_line(struct_1 *a0, unsigned long long a1, unsigned long long a2, struct_0 *a3)\n{\n    unsigned long v0;  // [bp-0x28]\n    char v1;  // [bp-0x21]\n    unsigned long v3;  // rax\n    unsigned long long v4;  // rax\n    unsigned long long v5;  // rax\n    unsigned long long v6;  // rdx\n    unsigned long long v7;  // rax\n    unsigned long long v8;  // rax\n\n    v0 = v3;\n    if (a3->field_10)\n    {\n        v4 = a3.print_format(a1, a2, a0);\n        if (v4)\n            return v4;\n    }\n    else\n    {\n        v5 = a2.get_field(a0->field_40);\n        if (!v5)\n        {\n            v5 = a3->field_18;\n            v6 = a3->field_20;\n        }\n        v7 = a1.write_all(v5, v6);\n        if (v7)\n            return v7;\n        v8 = a3.print_fields(a1, a2, a0->field_40);\n        if (v8)\n            return v8;\n    }\n    v1 = a3->field_28;\n    return a1.write_all(&v1, 1);\n}\n",
+    "_ZN7uu_join5State13print_headers17h1a883c7176263678E": "long long uu_join::State::print_headers(struct_0 *a0, unsigned long long a1, struct_0 *a2, unsigned long long a3)\n{\n    unsigned long long v0;  // [bp-0x8]\n    unsigned long long v2;  // rax\n    struct_0 *v3;  // 4096\n    unsigned long long v4;  // rax\n    unsigned long long v5;  // rax\n\n    v0 = v2;\n    if (a0->field_10)\n    {\n        v3 = a0;\n        if (a2->field_10)\n        {\n            v4 = a0.combine(a1, a2);\n            if (!v4)\n                return 0;\n            return v4;\n        }\n    }\n    else if (a2->field_10)\n    {\n        v3 = a2;\n    }\n    else\n    {\n        return 0;\n    }\n    v5 = v3.print_first_line(a1, a3);\n    if (!v5)\n        return 0;\n    return v5;\n}\n",
+    "_ZN7uu_join5State15reset_next_line17h0d342ae7cfd1067fE": "long long uu_join::State::reset_next_line(void* a0, unsigned long long a1, unsigned long long a2)\n{\n    int v0;  // [bp-0x98], Other Possible Types: char\n    unsigned long long v1;  // [bp-0x88]\n    char v2;  // [bp-0x78], Other Possible Types: unsigned long long\n    char v3;  // [bp-0x70]\n    unsigned long long v4;  // [bp-0x60]\n    int v5;  // [bp-0x58]\n    unsigned long long v6;  // [bp-0x48]\n    char v7;  // [bp-0x40]\n    unsigned long long v8;  // [bp-0x30]\n    int v9;  // [bp-0x28]\n    unsigned long long v11;  // rax\n\n    v2.next_line(a1, a2);\n    memcpy(&v0, &v3, 16);\n    v1 = v4;\n    if (v2 != 9223372036854775809)\n    {\n        v9 = v5;\n        v6 = v2;\n        memcpy(&v7, &v0, 16);\n        v8 = v1;\n        v11 = a1.reset(&v6);\n        *((unsigned long long *)a0) = 9223372036854775809;\n        return v11;\n    }\n    *((unsigned long long *)&a0[16]) = v1;\n    *(a0) = v0;\n    return v1;\n}\n",
+    "_ZN7uu_join5State15reset_read_line17h306d000c56424020E": "long long uu_join::State::reset_read_line(unsigned long long a0, unsigned long long a1)\n{\n    char v0;  // [bp-0x68], Other Possible Types: unsigned long long\n    unsigned long long v1;  // [bp-0x60]\n    int v2;  // [bp-0x58]\n    char v3;  // [bp-0x48]\n    unsigned long long v4;  // [bp-0x38]\n    unsigned long long v5;  // [bp-0x30]\n    int v6;  // [bp-0x28]\n    char v7;  // [bp-0x18]\n\n    v0.read_line(a0, a1);\n    if (v0 == 9223372036854775809)\n        return v1;\n    memcpy(&v7, &v3, 16);\n    v6 = v2;\n    v4 = v0;\n    v5 = v1;\n    a0.reset(&v4);\n    return 0;\n}\n",
+    "_ZN7uu_join5State16print_first_line17h3e0e204aedad6bbeE": "long long uu_join::State::print_first_line(unsigned long long a0[3], unsigned long long a1, unsigned long long a2)\n{\n    unsigned long long v0;  // [bp-0x8]\n    unsigned long long v2;  // rax\n\n    if (!a0[2])\n    {\n        v0 = v2;\n        core::panicking::panic_bounds_check(0, 0, &g_4fd348); /* do not return */\n    }\n    return a0.print_line(a1, a0[1], a2);\n}\n",
+    "_ZN7uu_join5State6extend17h2ec74ec0241156b7E": "long long uu_join::State::extend(unsigned long a0, struct_0 *a1, char *a2)\n{\n    void* v0;  // [bp-0x100]\n    unsigned int v1;  // [bp-0xf4]\n    unsigned long long v2;  // [bp-0xf0]\n    int v3;  // [bp-0xe8]\n    unsigned long long v4;  // [bp-0xd8]\n    unsigned long long v5;  // [bp-0xc8]\n    unsigned long long v6;  // [bp-0xc0]\n    int v7;  // [bp-0xb8], Other Possible Types: char\n    int v8;  // [bp-0xa8]\n    int v9;  // [bp-0x98], Other Possible Types: char\n    unsigned long long v10;  // [bp-0x90]\n    int v11;  // [bp-0x88]\n    unsigned long long v12;  // [bp-0x80]\n    int v13;  // [bp-0x78]\n    unsigned long long v14;  // [bp-0x60]\n    unsigned long long v15;  // [bp-0x58]\n    char v16;  // [bp-0x50]\n    unsigned long long v17;  // [bp-0x48]\n    int v18;  // [bp-0x40]\n    unsigned long long v20;  // rax\n    void* v21;  // rax\n    unsigned int v22;  // rdx\n    int v23;  // xmm0\n    int v24;  // xmm0\n\n    v9.next_line(a1, a2);\n    if (*((long long *)&v9) != 9223372036854775809)\n    {\n        v2 = 0x8000000000000000;\n        v1 = *(a2);\n        do\n        {\n            v4 = v12;\n            memcpy(&v3, &v10, 16);\n            v18 = v13;\n            v17 = v4;\n            memcpy(&v15, &v3, 16);\n            v14 = v20;\n            if (v20 == v2)\n            {\n                v14.drop_in_place<core::option::Option<uu_join::Line>>();\n                *((unsigned long long *)v0) = v2;\n                return a0;\n            }\n            memcpy(&v8, &v18, 16);\n            memcpy(&v7, &v16, 16);\n            v5 = v14;\n            v6 = v15;\n            v21 = a1.get_current_key();\n            if ((char)v1.compare(v21, v22, v5.get_field(a1->field_40), v22))\n            {\n                v24 = *((int128_t *)&v5);\n                v0[32] = v8;\n                v0[16] = v7;\n                *(v0) = v24;\n                return a0;\n            }\n            v23 = *((int128_t *)&v5);\n            v13 = v8;\n            v11 = v7;\n            v9 = v23;\n            a1.push(&v9, &g_4fd360);\n            v9.next_line(a1, a2);\n            v20 = (long long)v9;\n        } while (*((long long *)&v9) != 9223372036854775809);\n    }\n    v4 = v12;\n    memcpy(&v3, &v10, 16);\n    *((double *)&v0[8]) = v3.new();\n    *((char **)&v0[16]) = &g_4fd398;\n    *((unsigned long long *)v0) = 9223372036854775809;\n    return 9223372036854775809;\n}\n",
+    "_ZN7uu_join5State7combine17h04498694d71d4131E": "long long uu_join::State::combine(struct_1 *a0, unsigned long long a1, unsigned long long a2[9])\n{\n    char v0;  // [bp-0xb1]\n    void* v1;  // [bp-0xb0]\n    void* v2;  // [bp-0xb0]\n    void* v3;  // [bp-0xb0]\n    struct_0 *v4;  // [bp-0xa8], Other Possible Types: unsigned long long\n    unsigned long v5;  // [bp-0xa0]\n    unsigned long long v6;  // [bp-0x98]\n    unsigned long long v7;  // [bp-0x90]\n    void* v8;  // [bp-0x88]\n    unsigned long long v9;  // [bp-0x80]\n    unsigned long v10;  // [bp-0x78]\n    unsigned long v11;  // [bp-0x70]\n    char *v12;  // [bp-0x68], Other Possible Types: char\n    char v13;  // [bp-0x68]\n    struct_1 *v14;  // [bp-0x60]\n    void* v15;  // [bp-0x58]\n    unsigned long long v16[9];  // [bp-0x50]\n    unsigned long v17;  // [bp-0x48]\n    unsigned long long v18;  // [bp-0x40]\n    unsigned long long v19;  // [bp-0x38]\n    unsigned long long v21;  // rdx\n    void* v22;  // rcx\n    void* v23;  // rsi\n    unsigned long v24;  // rdi\n    struct_0 *v25;  // rcx\n    unsigned long v26;  // rdi\n    unsigned long v27;  // rdi\n    unsigned long v28;  // rcx\n    unsigned long v29;  // rbp\n    unsigned long v30;  // rcx\n    unsigned long v31;  // rbp\n    unsigned long long v32;  // rax\n    unsigned long long v33;  // rax\n    void* v34;  // rcx\n    void* v35;  // rsi\n    void* v36;  // rcx\n    unsigned long v38;  // rdi\n    unsigned long v39;  // rdi\n    unsigned long v40;  // r12\n    unsigned long v41;  // rbp\n    unsigned long v42;  // r12\n    unsigned long v43;  // rbp\n    unsigned long long v44;  // rax\n    unsigned long long v45;  // rax\n    unsigned long long v46;  // rax\n    unsigned long long v47;  // rax\n    void* v48;  // rax\n    void* v49;  // rsi\n    void* v50;  // rax\n\n    v4 = a0.get_current_key();\n    v18 = v4;\n    v6 = v21;\n    v19 = v21;\n    if (!a0->field_10)\n        return 0;\n    v22 = a0->field_8;\n    v3 = v22;\n    v23 = v22 + 48;\n    v24 = a2[1];\n    v7 = a2[2] * 48 + v24;\n    v0 = v25->field_148;\n    v5 = v24;\n    if (v25->field_140)\n    {\n        v4 = v25;\n        v9 = a0->field_10 * 48 + v22;\n        v26 = v24;\n        do\n        {\n            v27 = v26;\n            v1 = v3;\n            v2 = v23;\n            while (true)\n            {\n                v28 = v27;\n                v29 = v28 + 48;\n                if (v28 == v7)\n                {\n                    v30 = v28;\n                    if (v30 == v7)\n                        break;\n                }\n                else\n                {\n                    v30 = v29;\n                    if (v28 == v7)\n                        break;\n                }\n                v31 = v30;\n                v12 = &v18;\n                v14 = a0;\n                v15 = v1;\n                v16[0] = a2;\n                v17 = v28;\n                v32 = v4.print_format(a1, &v12);\n                if (v32)\n                    return v32;\n                v13 = v0;\n                v33 = a1.write_all(&v13, 1);\n                v27 = v31;\n                if (v33)\n                    return v33;\n            }\n            v34 = v2;\n            v35 = v34 + 48;\n            if (v34 == v9)\n                v36 = v34;\n            else\n                v36 = v35;\n            v23 = v36;\n            v3 = v2;\n            v26 = v5;\n        } while (v34 != v9);\n        return 0;\n    }\n    else\n    {\n        if (!v4)\n        {\n            v4 = v25->field_120;\n            v6 = v25->field_128;\n        }\n        v11 = a0->field_40;\n        v10 = a2[8];\n        v38 = v24;\n        do\n        {\n            v39 = v38;\n            v8 = v23;\n            while (true)\n            {\n                v40 = v39;\n                v41 = v40 + 48;\n                if (v40 == v7)\n                {\n                    v42 = v40;\n                    if (v42 == v7)\n                        break;\n                }\n                else\n                {\n                    v42 = v41;\n                    if (v40 == v7)\n                        break;\n                }\n                v43 = v42;\n                v44 = a1.write_all(v4, v6);\n                if (v44)\n                    return v44;\n                v45 = v25->field_108.print_fields(v25->field_110, a1, v3, v11);\n                if (v45)\n                    return v45;\n                v46 = v25->field_108.print_fields(v25->field_110, a1, v40, v10);\n                if (v46)\n                    return v46;\n                v12 = v0;\n                v47 = a1.write_all(&v12, 1);\n                v39 = v43;\n                if (v47)\n                    return v47;\n            }\n            v48 = v8;\n            v49 = v48 + 48;\n            v3 = v48;\n            if (v48 == v9)\n                v50 = v48;\n            else\n                v50 = v49;\n            v23 = v50;\n            v38 = v5;\n        } while (v48 != v9);\n        return 0;\n    }\n}\n",
+    "_ZN7uu_join5State8finalize17h08fcfa0f14de09a2E": "long long uu_join::State::finalize(struct_0 *a0, unsigned long long a1, unsigned long long a2, unsigned long long a3)\n{\n    unsigned long long v0;  // [bp-0xd8]\n    int v1;  // [bp-0xd0]\n    unsigned long long v3;  // [bp-0xc8]\n    unsigned long long v4;  // [bp-0xc0]\n    int v5;  // [bp-0xb8]\n    int v6;  // [bp-0x98], Other Possible Types: char\n    char v7;  // [bp-0x90]\n    int v8;  // [bp-0x88]\n    unsigned long long v9;  // [bp-0x80]\n    int v10;  // [bp-0x78]\n    int v11;  // [bp-0x68], Other Possible Types: char\n    unsigned long long v12;  // [bp-0x58]\n    int v13;  // [bp-0x48], Other Possible Types: char\n    unsigned long long v14;  // [bp-0x38]\n    unsigned long long v16;  // rax\n    unsigned long long v17;  // rax\n    char *v18;  // rdi\n    unsigned long long v19;  // rax\n    int v20;  // xmm0\n    unsigned long long v21;  // rax\n    unsigned long long v22;  // rax\n\n    if (!a0->field_10)\n        return 0;\n    if (a0->field_59)\n    {\n        v16 = a0.print_first_line(a1, a3);\n        if (v16)\n            return v16.from();\n    }\n    (char)v6.next_line(a0, a2);\n    v17 = *((long long *)&v6);\n    memcpy(&v11, &v7, 16);\n    v12 = v9;\n    if (v17 == 9223372036854775809)\n    {\n        v18 = &v11;\n        return v18.new();\n    }\n    v5 = v10;\n    v1 = v11;\n    v4 = v12;\n    v0 = v17;\n    if (v0 != 0x8000000000000000)\n    {\n        do\n        {\n            if (a0->field_59)\n            {\n                v19 = a0.print_line(a1, &v0, a3);\n                if (v19)\n                {\n                    v22 = v19.from();\n                    v0.drop_in_place<core::option::Option<uu_join::Line>>();\n                    return v22;\n                }\n            }\n            v20 = *((int128_t *)&v0);\n            v10 = v5;\n            *((int128_t *)&v8) = *((int128_t *)&v3);\n            v6 = v20;\n            a0.reset(&(char)v6);\n            (char)v6.next_line(a0, a2);\n            v21 = (long long)v6;\n            memcpy(&v13, &v7, 16);\n            v14 = v9;\n            if (v21 == 9223372036854775809)\n            {\n                v18 = &v13;\n                return v13.new();\n            }\n            v5 = v10;\n            v4 = v14;\n            v1 = v13;\n            v0 = v21;\n        } while (v0 != 0x8000000000000000);\n    }\n    v0.drop_in_place<core::option::Option<uu_join::Line>>();\n    return 0;\n}\n",
+    "_ZN7uu_join5State9next_line17h055b38e9d9bddb6cE": "long long uu_join::State::next_line(void* a0, struct_0 *a1, char a2[2])\n{\n    char v0;  // [bp-0x169]\n    char v1;  // [bp-0x168], Other Possible Types: unsigned long long\n    unsigned long long v2;  // [bp-0x160]\n    unsigned long long v3;  // [bp-0x158]\n    char *v4;  // [bp-0x148], Other Possible Types: char, unsigned long long\n    unsigned long long v5;  // [bp-0x140]\n    char *v6;  // [bp-0x138], Other Possible Types: char, unsigned long\n    unsigned long long v7;  // [bp-0x130]\n    void* v8;  // [bp-0x128], Other Possible Types: char *, char\n    unsigned long long v9;  // [bp-0x120]\n    unsigned long long v10;  // [bp-0x118]\n    unsigned long long v11;  // [bp-0x110]\n    int v12;  // [bp-0x108]\n    char v13;  // [bp-0xf8], Other Possible Types: unsigned long long\n    unsigned long long v14;  // [bp-0xf0]\n    void* v15;  // [bp-0xe8]\n    unsigned long long v16;  // [bp-0xe0]\n    unsigned long long v17;  // [bp-0xd8]\n    int v18;  // [bp-0xd0], Other Possible Types: char\n    int v19;  // [bp-0xc0], Other Possible Types: char\n    char *v20;  // [bp-0xb0], Other Possible Types: unsigned long long\n    unsigned long long v21;  // [bp-0xa8]\n    char *v22;  // [bp-0xa0]\n    unsigned long long v23;  // [bp-0x98]\n    void* v24;  // [bp-0x90]\n    char v25;  // [bp-0x80], Other Possible Types: unsigned long long\n    char v26;  // [bp-0x78]\n    void* v27;  // [bp-0x68], Other Possible Types: unsigned long long\n    int v28;  // [bp-0x60], Other Possible Types: unsigned long\n    char v29;  // [bp-0x50]\n    char v30;  // [bp-0x48]\n    char v31;  // [bp-0x38]\n    unsigned long long v33;  // rax\n    unsigned long v34;  // rax\n    int v35;  // xmm0\n    int v36;  // xmm2\n    void* v37;  // rax\n    unsigned long v38;  // rdx\n\n    v4.read_line(a1, a2 + 1);\n    if (v4 == 9223372036854775809)\n    {\n        *((unsigned long long *)&a0[8]) = 0x8000000000000000;\n        *((unsigned long long *)&a0[16]) = v17;\n        *((unsigned long long *)a0) = 9223372036854775809;\n        return v5;\n    }\n    memcpy(&v19, &v8, 16);\n    memcpy(&v18, &v6, 16);\n    v16 = v4;\n    v17 = v5;\n    if (v4 == 0x8000000000000000)\n    {\n        v33 = (unsigned long long)v16.drop_in_place<core::option::Option<uu_join::Line>>();\n        *((unsigned long long *)a0) = 0x8000000000000000;\n        return v33;\n    }\n    memcpy(&v13, &v19, 16);\n    v12 = v18;\n    v10 = v16;\n    v11 = v17;\n    v34 = a2[1];\n    v0 = v34;\n    if (v0 == 1)\n    {\n        v35 = *((int128_t *)&v16);\n        v36 = v19;\n    }\n    else\n    {\n        v15 = a1.get_current_key();\n        v37 = v10.get_field(*((long long *)&a1->padding_28[16]));\n        v34 = a2[0].compare(v15, v38, v37, v38);\n        if ((char)v34 == 1 && (v0 == 2 || a1->padding_48[11] && !a1->padding_48[10]))\n        {\n            v27 = 0;\n            *((int128_t *)&v28) = *((int128_t *)&(&a1->padding_0)[1]);\n            v29 = 0;\n            v25.from_utf8_lossy(v13, v14);\n            v4 = &v27;\n            v5 = <os_display::Quoted as core::fmt::Display>::fmt;\n            v6 = &a1->padding_48;\n            v7 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n            v8 = &v25;\n            v9 = <alloc::borrow::Cow<B> as core::fmt::Display>::fmt;\n            v20 = &g_4fd400;\n            v21 = 3;\n            v24 = 0;\n            v22 = &v4;\n            v23 = 3;\n            v30.map_or_else(&v20);\n            core::ptr::drop_in_place<alloc::borrow::Cow<str>>(v25, *((long long *)&v26));\n            memcpy(&v1, &v30, 16);\n            v3 = *((long long *)&v31);\n            if (v0 == 2)\n            {\n                *((unsigned long long *)&a0[24]) = v3;\n                *((int128_t *)&a0[8]) = *((int128_t *)&v1);\n                *((unsigned long long *)a0) = 9223372036854775809;\n                return (unsigned long long)core::ptr::drop_in_place<uu_join::Line>(&v10);\n            }\n            v27 = uucore::execution_phrase();\n            v28 = v38;\n            v20 = &v27;\n            v21 = <&T as core::fmt::Display>::fmt;\n            v22 = &v1;\n            v23 = <alloc::string::String as core::fmt::Display>::fmt;\n            v4 = &g_4fd430;\n            v5 = 3;\n            v8 = 0;\n            v6 = &v20;\n            v7 = 2;\n            std::io::stdio::_eprint(&v4);\n            a1->padding_48[10] = 1;\n            v34 = (unsigned long long)core::ptr::drop_in_place<alloc::string::String>(v1, v2);\n        }\n        v35 = *((int128_t *)&v10);\n        v36 = *((int128_t *)&v13);\n        v18 = v12;\n    }\n    a0[32] = v36;\n    a0[16] = v18;\n    *(a0) = v35;\n    return v34;\n}\n",
+    "_ZN7uu_join5State9read_line17h10a0d716756ca345E": "long long uu_join::State::read_line(void* a0, unsigned long long a1[11], unsigned long long a2)\n{\n    char v0;  // [bp-0x80], Other Possible Types: unsigned long long\n    unsigned long long v1;  // [bp-0x78]\n    unsigned long long v2;  // [bp-0x70]\n    unsigned long long v3;  // [bp-0x68]\n    unsigned long long v4;  // [bp-0x60]\n    unsigned long long v5;  // [bp-0x58]\n    int v6;  // [bp-0x50], Other Possible Types: char\n    int v7;  // [bp-0x40], Other Possible Types: char\n    char v8;  // [bp-0x30]\n    unsigned long long v10;  // rax\n\n    v0.next(&a1[5]);\n    if (v0 == 9223372036854775809)\n    {\n        *((unsigned long long *)a0) = 0x8000000000000000;\n        return v0;\n    }\n    a1[10] = a1[10] + 1;\n    if (v0 == 0x8000000000000000)\n    {\n        *((unsigned long long *)&a0[8]) = v1;\n        *((unsigned long long *)a0) = 9223372036854775809;\n        return v0;\n    }\n    v3 = v0;\n    v4 = v1;\n    v5 = v2;\n    v6.new(&v3, a2, a1[9]);\n    v10 = *((long long *)&v7);\n    if (v10 > a1[9])\n        a1[9] = v10;\n    *((int128_t *)&a0[32]) = *((int128_t *)&v8);\n    a0[16] = v7;\n    *(a0) = v6;\n    return v10;\n}\n",
+    "_ZN7uu_join5State9skip_line17h8781fa653874b392E": "long long uu_join::State::skip_line(struct_0 *a0, unsigned long long a1, unsigned long long a2, unsigned long long a3)\n{\n    char v0;  // [bp-0x40]\n    unsigned long long v1;  // [bp-0x30]\n    char v2;  // [bp-0x28]\n    unsigned long long v3;  // [bp-0x18]\n    unsigned long long v5;  // rax\n\n    if (a0->field_59)\n    {\n        v5 = a0.print_first_line(a1, a3);\n        if (v5)\n            return v5.from();\n    }\n    v0.reset_next_line(a0, a2);\n    if (*((long long *)&v0) != 9223372036854775809)\n    {\n        v3 = v1;\n        memcpy(&v2, &v0, 16);\n        return v2.new();\n    }\n    return 0;\n}\n",
+    "_ZN7uu_join6uumain17h3ecfd3c521e93144E": "long long uu_join::uumain(unsigned long long a0, unsigned long long a1)\n{\n    unsigned long long v0;  // [bp-0x98]\n    unsigned long long v1;  // [bp-0x88]\n    unsigned long long v2;  // [bp-0x80]\n    char *v3;  // [bp-0x78]\n    unsigned long long v4;  // [bp-0x70]\n    void* v5;  // [bp-0x68]\n    char *v6;  // [bp-0x58]\n    unsigned long long v7;  // [bp-0x50]\n    unsigned long long v8;  // [bp-0x48]\n    char *v9;  // [bp-0x38], Other Possible Types: char, unsigned long long\n    struct_2 *v10;  // [bp-0x30], Other Possible Types: unsigned long long\n    unsigned long long v11;  // [bp-0x28]\n    char *v12;  // [bp-0x20]\n    unsigned long long v13;  // [bp-0x18]\n    unsigned long long v16;  // rax\n    struct_2 *v17;  // rdx\n    unsigned int v18;  // eax\n\n    (unsigned int)uucore::disable_rust_signal_handlers().expect();\n    v16 = uu_join::uumain::uumain(a0, a1);\n    if (!v16)\n        return uucore::mods::error::get_exit_code();\n    v0 = v16;\n    v6 = &v0;\n    v7 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_419a80;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v6;\n    v4 = 1;\n    v9.map_or_else(&v1);\n    memcpy(&v6, &v9, 16);\n    v8 = v11;\n    if (!(char)v7.equal(v11, 1, 0))\n    {\n        v9 = uucore::util_name();\n        v10 = v17;\n        v12 = &v9;\n        v13 = <&T as core::fmt::Display>::fmt;\n        v1 = &g_4fd460;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v12;\n        v4 = 1;\n        std::io::stdio::_eprint(&v1);\n        v9 = &v6;\n        v10 = <alloc::string::String as core::fmt::Display>::fmt;\n        v1 = &g_4fd480;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v9;\n        v4 = 1;\n        std::io::stdio::_eprint(&v1);\n    }\n    if ((char)v17->field_60(v0))\n    {\n        v9 = uucore::execution_phrase();\n        v10 = v17;\n        v12 = &v9;\n        v13 = <&T as core::fmt::Display>::fmt;\n        v1 = &g_4fd4a0;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v12;\n        v4 = 1;\n        std::io::stdio::_eprint(&v1);\n    }\n    v18 = v17->field_58(v0);\n    core::ptr::drop_in_place<alloc::string::String>(v6, v7);\n    core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v0, v17);\n    return v18;\n}\n",
+    "_ZN7uu_join6uumain6uumain17h8d1d569db9477de2E": "long long uu_join::uumain::uumain(unsigned long long a0, unsigned long long a1)\n{\n    unsigned long long v0;  // [bp-0x558]\n    unsigned long long v1;  // [bp-0x550]\n    unsigned long long v2;  // [bp-0x548]\n    int v3;  // [bp-0x540]\n    int v4;  // [bp-0x530]\n    unsigned long long v5;  // [bp-0x528]\n    int v6;  // [bp-0x520]\n    int v7;  // [bp-0x510]\n    unsigned long long v8;  // [bp-0x500]\n    unsigned long long v9;  // [bp-0x4e8]\n    unsigned long long v10;  // [bp-0x4e0]\n    int v11;  // [bp-0x4d8]\n    int v12;  // [bp-0x4c8]\n    unsigned long long v13;  // [bp-0x4b8]\n    int v14;  // [bp-0x450], Other Possible Types: char\n    unsigned long long v15;  // [bp-0x448]\n    unsigned long long v16;  // [bp-0x440]\n    char v17;  // [bp-0x438], Other Possible Types: unsigned int\n    int v18;  // [bp-0x428]\n    int v19;  // [bp-0x418]\n    int v20;  // [bp-0x408]\n    char v21;  // [bp-0x3f8]\n    char v22;  // [bp-0x170], Other Possible Types: unsigned long long\n    unsigned long long v23;  // [bp-0x168]\n    int v24;  // [bp-0x160]\n    int v25;  // [bp-0x150]\n    char v26;  // [bp-0x140]\n    unsigned long long v27;  // [bp-0x10]\n    unsigned long long v29;  // r15\n    unsigned long long v30;  // rax\n    int v31;  // xmm0\n    unsigned long long v32[3];  // rbx\n    unsigned long long v33[3];  // r14\n    unsigned long v34;  // rcx\n\n    v27 = v29;\n    uu_join::uu_app(&v14);\n    v22.try_get_matches_from(&v14, a0, a1);\n    if ((char)(((0 ^ v22) & (0 ^ -(v22))) >> 63))\n        return v10.from();\n    v13 = *((long long *)&v26);\n    v12 = v25;\n    v11 = v24;\n    v9 = v22;\n    v10 = v23;\n    uu_join::parse_settings(&v14, &v9);\n    v30 = *((long long *)&v14);\n    if (v30 != 0x8000000000000000)\n    {\n        v8 = *((long long *)&v21);\n        v31 = *((int128_t *)&v17);\n        v7 = v20;\n        v6 = v19;\n        v4 = v18;\n        v3 = v31;\n        v0 = v30;\n        v1 = v15;\n        v2 = v16;\n        v14.try_get_one(&v9, \"file1file2-/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/io/mod.rs/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/slice.rsError flushing stdout: \");\n        v32 = \"file1file2-/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/io/mod.rs/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/slice.rsError flushing stdout: \".unwrap(&v14);\n        if (!v32)\n            core::option::unwrap_failed(&g_4fd4d8); /* do not return */\n        v14.try_get_one(&v9, \"file2-/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/io/mod.rs/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/slice.rsError flushing stdout: \");\n        v33 = \"file2-/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/io/mod.rs/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/slice.rsError flushing stdout: \".unwrap(&v14);\n        if (!v33)\n        {\n            core::option::unwrap_failed(&g_4fd4f0); /* do not return */\n        }\n        else if ((char)v32[1].equal(v32[2], \"-/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/io/mod.rs/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/slice.rsError flushing stdout: \", 1) && (char)v33[1].equal(v33[2], \"-/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/io/mod.rs/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/slice.rsError flushing stdout: \", 1))\n        {\n            v22.to_vec(\"both files cannot be standard inputfile1file2-/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/io/mod.rs/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc/src/slice.rsError flushing stdout: \", 35);\n            v16 = (long long)v24;\n            *((int128_t *)&v14) = *((int128_t *)&v22);\n            v17 = 1;\n            v1 = v14.new();\n            core::ptr::drop_in_place<uu_join::Settings>(&v0);\n        }\n        else\n        {\n            v34 = v5 ^ 0x8000000000000000;\n            goto (long long)(g_418b20[(v34 < 4 ? v34 : 1)] + (char *)&g_418b20[0]);\n        }\n    }\n    core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(&v9);\n    return v1;\n}\n",
+    "_ZN7uu_join4Spec5parse17hcfd2d4b38d6b0e96E": "long long uu_join::Spec::parse(void* a0, unsigned long long a1, unsigned long long a2)\n{\n    char *v0;  // [bp-0xb0]\n    unsigned long long v1;  // [bp-0xa8]\n    void* v2;  // [bp-0xa0]\n    unsigned long long v3;  // [bp-0x98]\n    unsigned long long v4;  // [bp-0x90]\n    char v5;  // [bp-0x88]\n    unsigned long long v6;  // [bp-0x80]\n    unsigned long long v7;  // [bp-0x78]\n    char v8;  // [bp-0x70], Other Possible Types: unsigned long, unsigned long long\n    unsigned long long v9;  // [bp-0x68]\n    char *v10;  // [bp-0x60]\n    unsigned long long v11;  // [bp-0x58]\n    void* v12;  // [bp-0x50]\n    char v13;  // [bp-0x40]\n    unsigned int v14;  // [bp-0x28]\n    unsigned int v16;  // edx\n    unsigned int v18;  // eax\n    char v19;  // bpl\n\n    v6 = a1;\n    v7 = a1 + a2;\n    v18 = (((char)core::str::validations::next_code_point(&v6) & 1) ? v16 : 0x110000);\n    if (v18 != 48)\n    {\n        if (v18 != 49)\n        {\n            if (v18 != 50)\n            {\n                v2 = 0;\n                v3 = a1;\n                v4 = a2;\n                v5 = 1;\n                v0 = &v2;\n                v1 = <os_display::Quoted as core::fmt::Display>::fmt;\n                v8 = 5235504;\n                v9 = 1;\n                v12 = 0;\n                v10 = &v0;\n                v11 = 1;\n                v13.map_or_else(&v8);\n                v14 = 1;\n                *((double *)&a0[8]) = v13.new();\n                *((unsigned long long *)&a0[16]) = 5235552;\n                *((unsigned long long *)a0) = 1;\n                return 1;\n            }\n            v19 = 1;\n            if (((char)core::str::validations::next_code_point(&v6) & 1))\n                goto LABEL_46d16e;\n        }\n        else if (((char)core::str::validations::next_code_point(&v6) & 1))\n        {\nLABEL_46d16e:\n            if (v16 == 46)\n            {\n                uu_join::parse_field_number(&v8, v6, v7 - v6);\n                if (!v8)\n                {\n                    *((char *)&a0[8]) = 1;\n                    *((char *)&a0[9]) = v19;\n                    *((unsigned long long *)&a0[16]) = v9;\n                    *((unsigned long long *)a0) = 0;\n                    return 0;\n                }\n                *((unsigned long *)&a0[8]) = v8;\n                *((unsigned long long *)&a0[16]) = v9;\n                *((unsigned long long *)a0) = 1;\n                return 1;\n            }\n        }\n    }\n    else\n    {\n        if (!((char)core::str::validations::next_code_point(&v6) & 1))\n        {\n            *((char *)&a0[8]) = 0;\n            *((unsigned long long *)a0) = 0;\n            return 0;\n        }\n    }\n    v2 = 0;\n    v3 = a1;\n    v4 = a2;\n    v5 = 1;\n    v0 = &v2;\n    v1 = <os_display::Quoted as core::fmt::Display>::fmt;\n    v8 = &g_4fe320;\n    v9 = 1;\n    v12 = 0;\n    v10 = &v0;\n    v11 = 1;\n    v13.map_or_else(&v8);\n    v14 = 1;\n    *((double *)&a0[8]) = v13.new();\n    *((unsigned long long **)&a0[16]) = &g_4fe360;\n    *((unsigned long long *)a0) = 1;\n    return 1;\n}\n",
+    "_ZN7uu_join4Line9get_field17h5172ba7928bd7492E": "long long uu_join::Line::get_field(unsigned long long a0[6], unsigned long a1)\n{\n    unsigned long long v0;  // [bp-0x8]\n    unsigned long long v2;  // rax\n    unsigned long long v3;  // rsi\n\n    if (a1 >= a0[2])\n        return 0;\n    v0 = v2;\n    v3 = a1 * 16;\n    return *((long long *)(a0[1] + v3)).index(*((long long *)(a0[1] + v3 + 8)), a0[4], a0[5], &g_4fe3c8);\n}\n",
+    "_ZN7uu_join5State3new17hab21adfd9d97a2fdE": "long long uu_join::State::new(struct_0 *a0, char a1, unsigned long long a2, unsigned long long a3, unsigned long long a4, unsigned long a5, char a6, char a7)\n{\n    char v0;  // [bp-0x70], Other Possible Types: unsigned long long\n    void* v1;  // [bp-0x68]\n    char v2;  // [bp-0x60]\n    unsigned int v3;  // edx\n    unsigned long long v4;  // rax\n    unsigned long long v5;  // rcx\n\n    if ((char)a2.equal(a3, \"-non-UTF-8 multi-byte tabvalid string with at least one bytemulti-character tab \", 1))\n    {\n        v4 = a4.lock().new(v3 & 1);\n        v5 = &g_4fe468;\n    }\n    else\n    {\n        v2.open(a2, a3);\n        v0.map_err_context(&v2, a2, a3);\n        if (v0)\n        {\n            a0->field_8 = v0;\n            a0->field_10 = v1;\n            a0->field_0 = 0x8000000000000000;\n            return a0;\n        }\n        v2.with_capacity((int)v1);\n        v4 = v2.new();\n        v5 = &g_4fe3e0;\n    }\n    a0->field_0 = 0;\n    a0->field_8 = 8;\n    a0->field_10 = 0;\n    a0->field_18 = a2;\n    a0->field_20 = a3;\n    a0->field_28 = v4;\n    a0->field_30 = v5;\n    a0->field_38 = a6;\n    a0->field_40 = a5;\n    a0->field_48 = 1;\n    a0->field_50 = 0;\n    a0->field_58 = a1;\n    a0->field_59 = a7;\n    a0->field_5a = 0;\n    return a0;\n}\n",
+    "_ZN7uu_join5State5reset17hf11a3d581915b2afE": "long long uu_join::State::reset(struct_0 *a0, unsigned long long *a1)\n{\n    unsigned long long v0;  // [bp-0x18]\n    unsigned long long v2;  // rax\n    unsigned long long v3;  // rdi\n    void* v4;  // rsi\n\n    v0 = v2;\n    v3 = a0->field_8;\n    v4 = a0->field_10;\n    a0->field_10 = 0;\n    core::ptr::drop_in_place<[uu_join::Line]>(v3, v4);\n    if (!((char)(((0 ^ *(a1)) & (0 ^ -(*(a1)))) >> 63)))\n        return a0.push(a1);\n    return 0;\n}\n",
+    "_ZN7uu_join5State15get_current_key17hb0aa7b8c555c38dcE": "long long uu_join::State::get_current_key(struct_0 *a0)\n{\n    unsigned long long v0;  // [bp-0x8]\n    unsigned long long v2;  // rax\n\n    if (!a0->field_10)\n    {\n        v0 = v2;\n        core::panicking::panic_bounds_check(0, 0, &g_4fe508); /* do not return */\n    }\n    return a0->field_8.get_field(*((long long *)&a0->field_40));\n}\n",
+    "_ZN7uu_join15parse_separator17hf124353ffbd88396E": "long long uu_join::parse_separator(void* a0, char *a1, unsigned long long a2)\n{\n    unsigned long long v0;  // [bp-0xa0]\n    unsigned long long v1;  // [bp-0x98]\n    char v2;  // [bp-0x90], Other Possible Types: unsigned long long\n    unsigned long long v3;  // [bp-0x88]\n    char *v4;  // [bp-0x80], Other Possible Types: unsigned long long\n    unsigned int v5;  // [bp-0x78], Other Possible Types: unsigned long long\n    void* v6;  // [bp-0x70]\n    unsigned long long v7;  // [bp-0x60]\n    unsigned long long v8;  // [bp-0x58]\n    char *v9;  // [bp-0x50]\n    unsigned long long v10;  // [bp-0x48]\n    char v11;  // [bp-0x40]\n    unsigned int v12;  // [bp-0x28]\n    unsigned long long v14;  // r14\n    unsigned int v15;  // edx\n    unsigned long long v16;  // rax\n    unsigned long v17;  // rax\n\n    if (a2 == 1)\n    {\n        v17 = *(a1);\n        *((unsigned long long *)a0) = 0x8000000000000000;\n        *((char *)&a0[8]) = v17;\n        return v17;\n    }\n    else if (!a2)\n    {\n        *((unsigned long long *)a0) = 9223372036854775810;\n        return 9223372036854775810;\n    }\n    else\n    {\n        core::str::converts::from_utf8(&v2, a1, a2);\n        if (*((int *)&v2) == 1)\n        {\n            v2.to_vec(\"non-UTF-8 multi-byte tabvalid string with at least one bytemulti-character tab \", 24);\n            v5 = 1;\n            *((double *)&a0[8]) = v2.new();\n            *((char **)&a0[16]) = &g_4fe360;\n            *((unsigned long long *)a0) = 9223372036854775812;\n            return 9223372036854775812;\n        }\n        v14 = v3;\n        v7 = v14;\n        v8 = v4;\n        v0 = v14;\n        v1 = v14 + v8;\n        if (((char)core::str::validations::next_code_point(&v0) & 1) && v15 != 0x110000)\n        {\n            v16 = core::str::validations::next_code_point(&v0);\n            if (!((char)v16 & 1))\n            {\n                return a0.from(v14, v8);\n            }\n            else if (!(v15 ^ 92) && !(v15 ^ 48))\n            {\n                *((unsigned long long *)a0) = 0x8000000000000000;\n                *((char *)&a0[8]) = 0;\n                return v16;\n            }\n            else\n            {\n                v9 = &v7;\n                v10 = <&T as core::fmt::Display>::fmt;\n                v2 = &g_4fe520;\n                v3 = 1;\n                v6 = 0;\n                v4 = &v9;\n                v5 = 1;\n                v11.map_or_else(&v2);\n                v12 = 1;\n                *((double *)&a0[8]) = v11.new();\n                *((char **)&a0[16]) = &g_4fe360;\n                *((unsigned long long *)a0) = 9223372036854775812;\n                return &g_4fe360;\n            }\n        }\n        core::option::expect_failed(\"valid string with at least one bytemulti-character tab \", 35, &g_4fe530); /* do not return */\n    }\n}\n",
+    "_ZN7uu_join20parse_print_settings17h08c07f537be3ed8cE": "long long uu_join::parse_print_settings(unsigned long a0, unsigned long long a1)\n{\n    void* v0;  // [bp-0x1c8]\n    unsigned long long v1;  // [bp-0x1c0]\n    int v2;  // [bp-0x1b8]\n    unsigned long long v3;  // [bp-0x1b8]\n    unsigned long long v4;  // [bp-0x1b0]\n    int v5;  // [bp-0x1a8], Other Possible Types: unsigned long long\n    void* v6;  // [bp-0x1a0]\n    int v7;  // [bp-0x198]\n    void* v8;  // [bp-0x190]\n    int v9;  // [bp-0x188]\n    void* v10;  // [bp-0x180]\n    int v11;  // [bp-0x178]\n    unsigned long long v12;  // [bp-0x178]\n    unsigned long long v13;  // [bp-0x170]\n    int v14;  // [bp-0x168], Other Possible Types: unsigned long long\n    void* v15;  // [bp-0x160]\n    int v16;  // [bp-0x158]\n    void* v17;  // [bp-0x150]\n    int v18;  // [bp-0x148]\n    void* v19;  // [bp-0x140]\n    unsigned long long v21;  // [bp-0x130]\n    unsigned long long v22;  // [bp-0x128]\n    int v23;  // [bp-0x120]\n    int v24;  // [bp-0x110]\n    int v25;  // [bp-0x100]\n    int v26;  // [bp-0xf0], Other Possible Types: char\n    int v27;  // [bp-0xe0]\n    int v28;  // [bp-0xd0]\n    int v29;  // [bp-0xc0]\n    char v30;  // [bp-0xb0]\n    char v31;  // [bp-0x70]\n    int v33;  // xmm0\n    unsigned long long v34[3];  // rax\n    void* v35;  // rbp\n    void* v36;  // r13\n\n    v30.try_get_many(a1, \"vaj12itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`,\");\n    v26.unwrap(\"vaj12itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`,\", &v30);\n    v1 = *((long long *)&v26);\n    if (*((long long *)&v26))\n    {\n        v9 = v29;\n        v7 = v28;\n        v5 = v27;\n        v2 = v26;\n    }\n    else\n    {\n        v3 = core::ops::function::FnOnce::call_once;\n        v4 = \"/home/34r7hm4n/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clap_builder-4.5.38/src/parser/matches/matched_arg.rsinternal error: entered unreachable code: `to_long` always has the flag specified/home/34r7hm4n/.cargo/registry/src/index.crates.io-194\";\n        v5 = \"/home/34r7hm4n/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clap_builder-4.5.38/src/parser/matches/matched_arg.rsinternal error: entered unreachable code: `to_long` always has the flag specified/home/34r7hm4n/.cargo/registry/src/index.crates.io-194\";\n        v6 = 0;\n        v8 = 0;\n        v10 = 0;\n    }\n    v30.try_get_many(a1, \"aj12itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, \");\n    (char)v21.unwrap(\"aj12itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, \", &v30);\n    if (v21)\n    {\n        v33 = *((int128_t *)&v21);\n        v18 = v25;\n        v16 = v24;\n        v14 = v23;\n        v11 = v33;\n    }\n    else\n    {\n        v12 = core::ops::function::FnOnce::call_once;\n        v13 = \"/home/34r7hm4n/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clap_builder-4.5.38/src/parser/matches/matched_arg.rsinternal error: entered unreachable code: `to_long` always has the flag specified/home/34r7hm4n/.cargo/registry/src/index.crates.io-194\";\n        v14 = \"/home/34r7hm4n/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clap_builder-4.5.38/src/parser/matches/matched_arg.rsinternal error: entered unreachable code: `to_long` always has the flag specified/home/34r7hm4n/.cargo/registry/src/index.crates.io-194\";\n        v15 = 0;\n        v17 = 0;\n        v19 = 0;\n    }\n    v30.chain(&(char)v3, &(char)v11);\n    if (core::iter::adapters::chain::and_then_or_clear(&v30).or_else(&v31))\n    {\n        v35 = 0;\n        v36 = 0;\n        do\n        {\n            uu_join::parse_file_number(&(char)v21, v34[1], v34[2]);\n            if (v21)\n            {\n                *((unsigned long long *)v0) = v21;\n                *((unsigned long long *)&v0[8]) = v22;\n                return v21;\n            }\n            v36 = ((char)v22 ? 1 : v36 & 4294967295);\n            v35 = (!(char)v22 ? 1 : v35 & 4294967295);\n            v34 = core::iter::adapters::chain::and_then_or_clear(&v30).or_else(&v31);\n        } while (v34);\n    }\n    else\n    {\n        v36 = 0;\n        v35 = 0;\n    }\n    *((char *)&v0[8]) = !v1;\n    *((char *)&v0[9]) = (char)v35;\n    *((char *)&v0[10]) = (char)v36;\n    *((unsigned long long *)v0) = 0;\n    return a0;\n}\n",
+    "_ZN7uu_join26get_and_parse_field_number17hff9b1fd9eb95d74dE": "long long uu_join::get_and_parse_field_number(unsigned long long a0, unsigned long long a1, unsigned long long a2)\n{\n    char v0;  // [bp-0x40]\n    struct_0 *v2;  // rax\n    void* v3;  // rsi\n    unsigned long long v4;  // rdx\n\n    v0.try_get_one(a1, a2);\n    v2 = a2.unwrap(&v0);\n    if (v2)\n    {\n        v3 = v2->field_8;\n        v4 = v2->field_10;\n    }\n    else\n    {\n        v3 = 0;\n    }\n    return uu_join::parse_field_number_option(a0, v3, v4);\n}\n",
+    "_ZN7uu_join14parse_settings17ha7f529424dcbcc67E": "long long uu_join::parse_settings(void* a0, unsigned long long a1)\n{\n    int v0;  // [bp-0x148], Other Possible Types: void*, char, unsigned long long\n    unsigned long long v1;  // [bp-0x140]\n    unsigned long long v2;  // [bp-0x140]\n    int v3;  // [bp-0x138]\n    void* v4;  // [bp-0x138]\n    int v5;  // [bp-0x130]\n    unsigned long long v6;  // [bp-0x128]\n    void* v7;  // [bp-0x120], Other Possible Types: unsigned long long\n    unsigned long long v8;  // [bp-0x118]\n    unsigned long long v9;  // [bp-0x110]\n    unsigned long long v10;  // [bp-0x108]\n    int v11;  // [bp-0x100], Other Possible Types: unsigned long long\n    unsigned long long v12;  // [bp-0xf8]\n    char v13;  // [bp-0xf0]\n    char v14;  // [bp-0xef]\n    char v15;  // [bp-0xee]\n    char v16;  // [bp-0xed], Other Possible Types: unsigned int\n    char v17;  // [bp-0xec]\n    char v18;  // [bp-0xeb]\n    char v19;  // [bp-0xea]\n    char v20;  // [bp-0xe9]\n    void* v21;  // [bp-0xe8]\n    unsigned long long v22;  // [bp-0xe0]\n    void* v23;  // [bp-0xd8]\n    char v24;  // [bp-0xd0], Other Possible Types: unsigned long long\n    void* v25;  // [bp-0xd0]\n    unsigned long v26;  // [bp-0xc8], Other Possible Types: unsigned long long\n    int v27;  // [bp-0xc0], Other Possible Types: char\n    unsigned short v28;  // [bp-0x88]\n    unsigned long long v29;  // [bp-0x80]\n    unsigned long long v30;  // [bp-0x78]\n    void* v31;  // [bp-0x70]\n    void* v32;  // [bp-0x68]\n    unsigned long long v33;  // [bp-0x60]\n    unsigned long long v34;  // [bp-0x58]\n    unsigned int v35;  // [bp-0x50]\n    unsigned long long v36;  // [bp-0x48]\n    unsigned long long v37;  // [bp-0x40]\n    unsigned long long v38;  // [bp-0x38]\n    unsigned long long v40;  // rax\n    unsigned long long v41;  // rax\n    struct_0 *v42;  // rax\n    unsigned long long v43;  // r12\n    unsigned long long v44[3];  // rax\n    unsigned long v45;  // r12\n    unsigned long long v46;  // rax\n    unsigned long long v47;  // rdx\n    unsigned long long v48[3];  // rax\n    int v50;  // xmm0\n    int v51;  // xmm1\n    int v52;  // xmm2\n\n    uu_join::get_and_parse_field_number(&v0, a1, \"j12itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, r\");\n    if (*((int *)&v0) != 1)\n    {\n        uu_join::get_and_parse_field_number(&v0, a1, \"12itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, re\");\n        if (*((int *)&v0) != 1)\n        {\n            uu_join::get_and_parse_field_number(&v0, a1, \"2itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, rea\");\n            if (*((int *)&v0) == 1)\n            {\n                *((int128_t *)&a0[8]) = *((int128_t *)&vvar_522{stack -320});\n            }\n            else\n            {\n                v32 = v4;\n                v33 = v2;\n                uu_join::parse_print_settings(&v0, a1);\n                v40 = v2;\n                if (v0)\n                {\n                    *((unsigned long long *)&a0[8]) = v0;\n                    *((unsigned long long *)&a0[16]) = v40;\n                }\n                else\n                {\n                    v31 = v4;\n                    v30 = v2;\n                    *((uint128_t *)&v11) = 0;\n                    v20 = 10;\n                    v29 = 9223372036854775811;\n                    v8 = 9223372036854775811;\n                    v0 = 0;\n                    v1 = 8;\n                    *((uint128_t *)&v3) = 0;\n                    v6 = 1;\n                    v7 = 0;\n                    v16 = 0;\n                    v15 = (char)v40 & 1;\n                    v13 = (char)((v40 & 4294967295) >> 8) & 1;\n                    v14 = (char)((v40 & 4294967295) >> 16) & 1;\n                    v16 = a1.get_flag(\"itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read\", 1);\n                    uu_join::get_field_number(&v24, v2, v4, v33, v32);\n                    v41 = v26;\n                    if (!v24)\n                    {\n                        v11 = v41;\n                        uu_join::get_field_number(&v24, v2, v4, v30, v31);\n                        v41 = v26;\n                        if (!v24)\n                        {\n                            v12 = v41;\n                            v24.try_get_one(a1);\n                            v42 = v24.unwrap();\n                            if (v42)\n                            {\n                                uu_join::parse_separator(&v24, v42->field_8, v42->field_10);\n                                v43 = *((long long *)&v27);\n                                if (v24 == 9223372036854775812)\n                                {\n                                    *((unsigned long long *)&a0[8]) = v26;\n                                    *((unsigned long long *)&a0[16]) = v43;\n                                    *((unsigned long long *)a0) = 0x8000000000000000;\n                                    core::ptr::drop_in_place<uu_join::Settings>(&v0);\n                                    return a0;\n                                }\n                                core::ptr::drop_in_place<uu_join::SepSetting>(9223372036854775811, v9);\n                                v8 = v24;\n                                v9 = v26;\n                                v10 = v43;\n                            }\n                            v24.try_get_one(a1, \"oenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read s\");\n                            v44 = \"oenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read s\".unwrap(&v24);\n                            if (v44)\n                            {\n                                v45 = v44[2];\n                                if ((char)v44[1].equal(v45, \"autoBool\", 4))\n                                {\n                                    v17 = 1;\n                                }\n                                else\n                                {\n                                    v21 = 0;\n                                    v22 = 8;\n                                    v23 = 0;\n                                    v34 = 188978561056;\n                                    v35 = 9;\n                                    v27.into_searcher(&v34, v44[1], v45);\n                                    v25 = 0;\n                                    v26 = v45;\n                                    v28 = 1;\n                                    while (true)\n                                    {\n                                        v46 = v25.next();\n                                        if (!v46)\n                                            break;\n                                        v34.parse(v46, v47);\n                                        if ((int)v34 == 1)\n                                        {\n                                            *((long long *)&a0[8]) = *((long long *)&v35);\n                                            *((unsigned long long *)&a0[16]) = v36;\n                                            *((unsigned long long *)a0) = 0x8000000000000000;\n                                            v21.drop_in_place<alloc::vec::Vec<uu_join::Spec>>(8);\n                                            core::ptr::drop_in_place<uu_join::Settings>(&v0);\n                                            return a0;\n                                        }\n                                        v37 = *((long long *)&v35);\n                                        v38 = v36;\n                                        v21.push(&v37);\n                                    }\n                                    *((int128_t *)&v0) = *((int128_t *)&v21);\n                                    v4 = 0;\n                                    0.drop_in_place<alloc::vec::Vec<uu_join::Spec>>(8);\n                                }\n                            }\n                            v24.try_get_one(a1, \"enocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read st\");\n                            v48 = \"enocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read st\".unwrap(&v24);\n                            if (v48)\n                            {\n                                v24.to_vec(v48[1], v48[2]);\n                                core::ptr::drop_in_place<alloc::vec::Vec<u8>>(0, 1);\n                                v7 = (long long)v27;\n                                *((int128_t *)&v5) = *((int128_t *)&v25);\n                            }\n                            if ((char)a1.get_flag(\"nocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read sta\", 13))\n                                v19 = 1;\n                            if ((char)a1.get_flag(\"check-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read standard input.{\", 11))\n                                v19 = 2;\n                            if ((char)a1.get_flag(\"headerz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read standard input.{} [OPTION].\", 6))\n                                v18 = 1;\n                            *((int *)&v20) = ((char)a1.get_flag(\"z(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read standard input.{} [OPTION]... FIL\", 1) ? 0 : 10);\n                            *((int128_t *)&a0[64]) = *((int128_t *)&v10);\n                            v50 = (int128_t)v0;\n                            v51 = (int128_t)v3;\n                            v52 = *((int128_t *)&v6);\n                            *((int128_t *)&a0[48]) = *((int128_t *)&v8);\n                            a0[32] = v52;\n                            a0[16] = v51;\n                            *(a0) = v50;\n                            *((unsigned long long *)&a0[80]) = v12;\n                            *((int *)&a0[88]) = *((int *)&v13);\n                            *((short *)&a0[92]) = *((short *)((char *)&v16 + 1));\n                            *((char *)&a0[94]) = v19;\n                            *((char *)&a0[95]) = v20;\n                            return a0;\n                        }\n                    }\n                    *((unsigned long long *)&a0[8]) = v24;\n                    *((unsigned long long *)&a0[16]) = v41;\n                    *((unsigned long long *)a0) = 0x8000000000000000;\n                    core::ptr::drop_in_place<uu_join::Settings>(&v0);\n                    return a0;\n                }\n            }\n            *((unsigned long long *)a0) = 0x8000000000000000;\n            return a0;\n        }\n    }\n    *((int128_t *)&a0[8]) = *((int128_t *)&v2);\n    *((unsigned long long *)a0) = 0x8000000000000000;\n    return a0;\n}\n",
+    "_ZN7uu_join6uu_app17hf0c646455b56e430E": "long long uu_join::uu_app(unsigned long long a0)\n{\n    char v0;  // [bp-0xab8]\n    unsigned int v1;  // [bp-0x840]\n    unsigned int v2;  // [bp-0x83c]\n    char v3;  // [bp-0x838]\n    unsigned int v4;  // [bp-0x5c0]\n    unsigned int v5;  // [bp-0x5bc]\n    unsigned long v6;  // [bp-0x57c]\n    unsigned int v7;  // [bp-0x574]\n    char v8;  // [bp-0x570]\n    unsigned int v9;  // [bp-0x2f8]\n    char v10;  // [bp-0x2f4]\n    unsigned long long v11;  // [bp-0x2b4]\n    unsigned int v12;  // [bp-0x2ac]\n    unsigned long long v13;  // [bp-0x2a8]\n    unsigned long long v14;  // [bp-0x2a0]\n    unsigned long long v15;  // [bp-0x298]\n    unsigned long long v16;  // [bp-0x290]\n    unsigned int v17;  // [bp-0x30]\n    unsigned int v18;  // [bp-0x2c]\n    unsigned long long v21;  // rdx\n\n    v8.new(uucore::util_name(), v21);\n    v3.version(&v8);\n    v8.about(&v3);\n    uucore::format_usage(&v0, \"{} [OPTION]... FILE1 FILE2FILENUMalso print unpairable lines from file FILENUM, where\\nFILENUM is 1 or 2, corresponding to FILE1 or FILE2like -a FILENUM, but suppress joined output linesEMPTYreplace missing input fields with EMPTYignore-caseignore differenc\", 26);\n    v3.override_usage(&v8, &v0);\n    memcpy(&v8, &v3, 700);\n    v11 = 549755814016 | v6;\n    v12 = v7;\n    v3.new(\"aj12itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, \", 1);\n    v0.short(&v3, 97);\n    v3.action(&v0, 1);\n    v0.num_args(&v3);\n    v13 = \"12itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, re\";\n    v14 = 1;\n    v15 = \"2itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, rea\";\n    v16 = 1;\n    v3.value_parser(&v0, &v13);\n    v0.value_name(&v3, \"FILENUMalso print unpairable lines from file FILENUM, where\\nFILENUM is 1 or 2, corresponding to FILE1 or FILE2like -a FILENUM, but suppress joined output linesEMPTYreplace missing input fields with EMPTYignore-caseignore differences in case when comparing \", 7);\n    v13.help(&v0, \"also print unpairable lines from file FILENUM, where\\nFILENUM is 1 or 2, corresponding to FILE1 or FILE2like -a FILENUM, but suppress joined output linesEMPTYreplace missing input fields with EMPTYignore-caseignore differences in case when comparing fieldsF\", 103);\n    v3.arg(&v8, &v13);\n    v8.new(\"vaj12itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`,\", 1);\n    v0.short(&v8, 118);\n    v8.action(&v0, 1);\n    v0.num_args(&v8);\n    v13 = \"12itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, re\";\n    v14 = 1;\n    v15 = \"2itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, rea\";\n    v16 = 1;\n    v8.value_parser(&v0, &v13);\n    v0.value_name(&v8, \"FILENUMalso print unpairable lines from file FILENUM, where\\nFILENUM is 1 or 2, corresponding to FILE1 or FILE2like -a FILENUM, but suppress joined output linesEMPTYreplace missing input fields with EMPTYignore-caseignore differences in case when comparing \", 7);\n    v13.help(&v0, \"like -a FILENUM, but suppress joined output linesEMPTYreplace missing input fields with EMPTYignore-caseignore differences in case when comparing fieldsFIELDequivalent to '-1 FIELD -2 FIELD'FORMATobey FORMAT while constructing output lineuse CHAR as input \", 49);\n    v8.arg(&v3, &v13);\n    v3.new(\"enocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read st\", 1);\n    v0.short(&v3, 101);\n    v3.value_name(&v0, \"EMPTYreplace missing input fields with EMPTYignore-caseignore differences in case when comparing fieldsFIELDequivalent to '-1 FIELD -2 FIELD'FORMATobey FORMAT while constructing output lineuse CHAR as input and output field separatorjoin on this FIELD of f\", 5);\n    v0.help(&v3, \"replace missing input fields with EMPTYignore-caseignore differences in case when comparing fieldsFIELDequivalent to '-1 FIELD -2 FIELD'FORMATobey FORMAT while constructing output lineuse CHAR as input and output field separatorjoin on this FIELD of file 1\", 39);\n    v3.arg(&v8, &v0);\n    v8.new(\"itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read\", 1);\n    v0.short(&v8, 105);\n    v8.long(&v0, \"ignore-caseignore differences in case when comparing fieldsFIELDequivalent to '-1 FIELD -2 FIELD'FORMATobey FORMAT while constructing output lineuse CHAR as input and output field separatorjoin on this FIELD of file 1join on this FIELD of file 2check that \", 11);\n    v0.help(&v8, \"ignore differences in case when comparing fieldsFIELDequivalent to '-1 FIELD -2 FIELD'FORMATobey FORMAT while constructing output lineuse CHAR as input and output field separatorjoin on this FIELD of file 1join on this FIELD of file 2check that the input i\", 48);\n    v13.action(&v0, 2);\n    v8.arg(&v3, &v13);\n    v3.new(\"j12itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, r\", 1);\n    v0.short(&v3, 106);\n    v3.value_name(&v0, \"FIELDequivalent to '-1 FIELD -2 FIELD'FORMATobey FORMAT while constructing output lineuse CHAR as input and output field separatorjoin on this FIELD of file 1join on this FIELD of file 2check that the input is correctly sorted, even if all input lines are \", 5);\n    v0.help(&v3, \"equivalent to '-1 FIELD -2 FIELD'FORMATobey FORMAT while constructing output lineuse CHAR as input and output field separatorjoin on this FIELD of file 1join on this FIELD of file 2check that the input is correctly sorted, even if all input lines are paira\", 33);\n    v3.arg(&v8, &v0);\n    v8.new(\"oenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read s\", 1);\n    v0.short(&v8, 111);\n    v8.value_name(&v0, \"FORMATobey FORMAT while constructing output lineuse CHAR as input and output field separatorjoin on this FIELD of file 1join on this FIELD of file 2check that the input is correctly sorted, even if all input lines are pairabledo not check that the input is\", 6);\n    v0.help(&v8, \"obey FORMAT while constructing output lineuse CHAR as input and output field separatorjoin on this FIELD of file 1join on this FIELD of file 2check that the input is correctly sorted, even if all input lines are pairabledo not check that the input is corre\", 42);\n    v8.arg(&v3, &v0);\n    v3.new(\"toenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read \", 1);\n    v0.short(&v3, 116);\n    v3.value_name(&v0, \"CHARZero\", 4);\n    v13 = 2;\n    v0.value_parser(&v3, &v13);\n    v13.help(&v0, \"use CHAR as input and output field separatorjoin on this FIELD of file 1join on this FIELD of file 2check that the input is correctly sorted, even if all input lines are pairabledo not check that the input is correctly sortedtreat the first line in each fi\", 44);\n    v3.arg(&v8, &v13);\n    v8.new(\"12itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, re\", 1);\n    v0.short(&v8, 49);\n    v8.value_name(&v0, \"FIELDequivalent to '-1 FIELD -2 FIELD'FORMATobey FORMAT while constructing output lineuse CHAR as input and output field separatorjoin on this FIELD of file 1join on this FIELD of file 2check that the input is correctly sorted, even if all input lines are \", 5);\n    v0.help(&v8, \"join on this FIELD of file 1join on this FIELD of file 2check that the input is correctly sorted, even if all input lines are pairabledo not check that the input is correctly sortedtreat the first line in each file as field headers, print them without tryi\", 28);\n    v8.arg(&v3, &v0);\n    v3.new(\"2itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, rea\", 1);\n    v0.short(&v3, 50);\n    v3.value_name(&v0, \"FIELDequivalent to '-1 FIELD -2 FIELD'FORMATobey FORMAT while constructing output lineuse CHAR as input and output field separatorjoin on this FIELD of file 1join on this FIELD of file 2check that the input is correctly sorted, even if all input lines are \", 5);\n    v0.help(&v3, \"join on this FIELD of file 2check that the input is correctly sorted, even if all input lines are pairabledo not check that the input is correctly sortedtreat the first line in each file as field headers, print them without trying to pair themzero-terminat\", 28);\n    v3.arg(&v8, &v0);\n    v8.new(\"check-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read standard input.{\", 11);\n    v0.long(&v8, \"check-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read standard input.{\", 11);\n    v8.help(&v0, \"check that the input is correctly sorted, even if all input lines are pairabledo not check that the input is correctly sortedtreat the first line in each file as field headers, print them without trying to pair themzero-terminatedline delimiter is NUL, not\", 78);\n    v0.action(&v8, 2);\n    v8.arg(&v3, &v0);\n    v3.new(\"nocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read sta\", 13);\n    v0.long(&v3, \"nocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read sta\", 13);\n    v3.help(&v0, \"do not check that the input is correctly sortedtreat the first line in each file as field headers, print them without trying to pair themzero-terminatedline delimiter is NUL, not newlinefile1FILE1file2FILE2incompatible join fields , invalid field number: i\", 47);\n    v0.action(&v3, 2);\n    v3.arg(&v8, &v0);\n    v8.new(\"headerz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read standard input.{} [OPTION].\", 6);\n    v0.long(&v8, \"headerz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read standard input.{} [OPTION].\", 6);\n    v8.help(&v0, \"treat the first line in each file as field headers, print them without trying to pair themzero-terminatedline delimiter is NUL, not newlinefile1FILE1file2FILE2incompatible join fields , invalid field number: invalid file number: io error: \", 90);\n    v0.action(&v8, 2);\n    v8.arg(&v3, &v0);\n    v3.new(\"z(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, read standard input.{} [OPTION]... FIL\", 1);\n    v0.short(&v3, 122);\n    v3.long(&v0, \"zero-terminatedline delimiter is NUL, not newlinefile1FILE1file2FILE2incompatible join fields , invalid field number: invalid file number: io error: \", 15);\n    v0.help(&v3, \"line delimiter is NUL, not newlinefile1FILE1file2FILE2incompatible join fields , invalid field number: invalid file number: io error: \", 34);\n    v13.action(&v0, 2);\n    v3.arg(&v8, &v13);\n    v8.new(\"file1FILE1file2FILE2incompatible join fields , invalid field number: invalid file number: io error: \", 5);\n    memcpy(&v0, &v8, 632);\n    v1 = v9 | 1;\n    v2 = *((int *)&v10);\n    v8.value_name(&v0, \"FILE1file2FILE2incompatible join fields , invalid field number: invalid file number: io error: \", 5);\n    v0.value_hint(&v8);\n    memcpy(&v13, &v0, 632);\n    v17 = v1 | 4;\n    v18 = v2;\n    v8.arg(&v3, &v13);\n    v3.new(\"file2FILE2incompatible join fields , invalid field number: invalid file number: io error: \", 5);\n    memcpy(&v0, &v3, 632);\n    v1 = v4 | 1;\n    v2 = v5;\n    v3.value_name(&v0, \"FILE2incompatible join fields , invalid field number: invalid file number: io error: \", 5);\n    v0.value_hint(&v3);\n    memcpy(&v3, &v0, 632);\n    v4 = v1 | 4;\n    v5 = v2;\n    a0.arg(&v8, &v3);\n    return a0;\n}\n",
+    "_ZN7uu_join16get_field_number17ha34d3b07c5e6ef90E": "long long uu_join::get_field_number(struct_0 *a0, char a1, void* a2, char a3, void* a4)\n{\n    unsigned long v0;  // [bp-0x90]\n    unsigned long v1;  // [bp-0x88]\n    char *v2;  // [bp-0x80]\n    unsigned long long v3;  // [bp-0x78]\n    char *v4;  // [bp-0x70]\n    unsigned long long v5;  // [bp-0x68]\n    unsigned long long v6;  // [bp-0x60]\n    unsigned long long v7;  // [bp-0x58]\n    char *v8;  // [bp-0x50]\n    unsigned long long v9;  // [bp-0x48]\n    void* v10;  // [bp-0x40]\n    char v11;  // [bp-0x30]\n    unsigned int v12;  // [bp-0x18]\n    unsigned long long v13;  // [bp-0x10]\n    unsigned long long v14;  // [bp-0x8]\n    unsigned long long v16;  // r14\n    unsigned long long v17;  // rbx\n    unsigned long v18;  // rax\n\n    if (!(a1 & 1))\n    {\n        if (!(a3 & 1))\n            a4 = 0;\n        a0->field_8 = a4;\n        a0->field_0 = 0;\n        return a4;\n    }\n    else if ((a2 != a4 & a3))\n    {\n        v14 = v16;\n        v13 = v17;\n        v0 = a2 + 1;\n        v1 = a4 + 1;\n        v2 = &v0;\n        v3 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n        v4 = &v1;\n        v5 = core::fmt::num::imp::<impl core::fmt::Display for u64>::fmt;\n        v6 = &g_4fe578;\n        v7 = 2;\n        v10 = 0;\n        v8 = &v2;\n        v9 = 2;\n        v11.map_or_else(&v6);\n        v12 = 1;\n        *((double *)&a0->field_0) = v11.new();\n        a0->field_8 = &g_4fe360;\n        return &g_4fe360;\n    }\n    else\n    {\n        a0->field_8 = a2;\n        a0->field_0 = 0;\n        return v18 & 0xffffffffffffff00 | a2 != a4;\n    }\n}\n",
+    "_ZN7uu_join18parse_field_number17h7876c58ca785f0e6E": "long long uu_join::parse_field_number(struct_0 *a0, unsigned long long a1, unsigned long long a2)\n{\n    char v0;  // [bp-0xa8]\n    char v1;  // [bp-0xa7]\n    unsigned long v2;  // [bp-0xa0]\n    char *v3;  // [bp-0x98]\n    unsigned long long v4;  // [bp-0x90]\n    void* v5;  // [bp-0x88]\n    unsigned long long v6;  // [bp-0x80]\n    unsigned long long v7;  // [bp-0x78]\n    char v8;  // [bp-0x70]\n    unsigned long long v9;  // [bp-0x68]\n    unsigned long long v10;  // [bp-0x60]\n    char *v11;  // [bp-0x58]\n    unsigned long long v12;  // [bp-0x50]\n    void* v13;  // [bp-0x48]\n    char v14;  // [bp-0x38]\n    unsigned int v15;  // [bp-0x20]\n    unsigned long long v17;  // rax\n\n    v17 = ::0x469360::core::num::<impl usize>::from_ascii_radix(&v0, a1, a2);\n    if (v0 == 1)\n    {\n        if (v1 == 2)\n        {\n            a0->field_8 = 18446744073709551615;\n        }\n        else\n        {\n            v5 = 0;\n            v6 = a1;\n            v7 = a2;\n            v8 = 1;\n            v3 = &v5;\n            v4 = <os_display::Quoted as core::fmt::Display>::fmt;\n            v9 = &g_4fe598;\n            v10 = 1;\n            v13 = 0;\n            v11 = &v3;\n            v12 = 1;\n            v14.map_or_else(&v9);\n            v15 = 1;\n            *((double *)&a0->field_0) = v14.new();\n            a0->field_8 = &g_4fe360;\n            return &g_4fe360;\n        }\n    }\n    else\n    {\n        if (v2)\n        {\n            v17 = v2 - 1;\n            a0->field_8 = v17;\n        }\n        else\n        {\n            v5 = 0;\n            v6 = a1;\n            v7 = a2;\n            v8 = 1;\n            v3 = &v5;\n            v4 = <os_display::Quoted as core::fmt::Display>::fmt;\n            v9 = &g_4fe598;\n            v10 = 1;\n            v13 = 0;\n            v11 = &v3;\n            v12 = 1;\n            v14.map_or_else(&v9);\n            v15 = 1;\n            *((double *)&a0->field_0) = v14.new();\n            a0->field_8 = &g_4fe360;\n            return &g_4fe360;\n        }\n    }\n    a0->field_0 = 0;\n    return v17;\n}\n",
+    "_ZN7uu_join17parse_file_number17h9b8850bce422b1b9E": "long long uu_join::parse_file_number(void* a0, unsigned long long a1, unsigned long long a2)\n{\n    char *v0;  // [bp-0x98]\n    unsigned long long v1;  // [bp-0x90]\n    void* v2;  // [bp-0x88]\n    unsigned long long v3;  // [bp-0x80]\n    unsigned long long v4;  // [bp-0x78]\n    char v5;  // [bp-0x70]\n    unsigned long long v6;  // [bp-0x68]\n    unsigned long long v7;  // [bp-0x60]\n    char *v8;  // [bp-0x58]\n    unsigned long long v9;  // [bp-0x50]\n    void* v10;  // [bp-0x48]\n    char v11;  // [bp-0x38]\n    unsigned int v12;  // [bp-0x20]\n    unsigned long long v14;  // rax\n\n    v14 = a1.equal(a2, \"12itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, re\", 1);\n    if ((char)v14)\n    {\n        *((char *)&a0[8]) = 0;\n    }\n    else\n    {\n        v14 = a1.equal(a2, \"2itoenocheck-ordercheck-orderheaderz(uutils coreutils) 0.0.30For each pair of input lines with identical join fields, write a line to\\nstandard output. The default join field is the first, delimited by blanks.\\n\\nWhen `FILE1` or `FILE2` (not both) is `-`, rea\", 1);\n        if (!(char)v14)\n        {\n            v2 = 0;\n            v3 = a1;\n            v4 = a2;\n            v5 = 1;\n            v0 = &v2;\n            v1 = <os_display::Quoted as core::fmt::Display>::fmt;\n            v6 = &g_4fe5a8;\n            v7 = 1;\n            v10 = 0;\n            v8 = &v0;\n            v9 = 1;\n            v11.map_or_else(&v6);\n            v12 = 1;\n            *((double *)a0) = v11.new();\n            *((char **)&a0[8]) = &g_4fe360;\n            return &g_4fe360;\n        }\n        *((char *)&a0[8]) = 1;\n    }\n    *((unsigned long long *)a0) = 0;\n    return v14;\n}\n",
+    "_ZN7uu_join25parse_field_number_option17hc351970518f2dd89E": "long long uu_join::parse_field_number_option(void* a0, unsigned long long a1, unsigned long long a2)\n{\n    char v0;  // [bp-0x18], Other Possible Types: unsigned long long\n    char v1;  // [bp-0x10]\n    unsigned long long v3;  // rcx\n    unsigned long long v4;  // rax\n    unsigned long v5;  // rax\n\n    if (!a1)\n    {\n        *((uint128_t *)a0) = 0;\n        return v5;\n    }\n    uu_join::parse_field_number(&v0, a1, a2);\n    if (!v0)\n    {\n        v4 = *((long long *)&v1);\n        *((unsigned long long *)&a0[8]) = 1;\n        *((unsigned long long *)&a0[16]) = v4;\n        *((unsigned long long *)a0) = 0;\n        return v4;\n    }\n    v3 = *((long long *)&v1);\n    *((unsigned long long *)&a0[8]) = v0;\n    *((unsigned long long *)&a0[16]) = v3;\n    *((unsigned long long *)a0) = 1;\n    return v0;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN7uu_join15Repr$LT$Sep$GT$12print_fields17h4210fd7bff018645E": {
+      "core::option::unwrap_failed": 1,
+      "<std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all": 2,
+      "uu_join::Line::get_field": 1,
+      "std::ffi::os_str::<impl core::convert::AsRef<std::ffi::os_str::OsStr> for alloc::string::String>::as_ref": 1
+    },
+    "_ZN7uu_join15Repr$LT$Sep$GT$12print_format17h42b6e953664a5ea5E": {
+      "<std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all": 3,
+      "uu_join::State::combine::{{closure}}": 2
+    },
+    "_ZN7uu_join16Input$LT$Sep$GT$7compare17h365eb74b1ebb2c70E": {
+      "<uu_join::CaseInsensitiveSlice as core::cmp::Ord>::cmp": 1,
+      "memcmp": 1
+    },
+    "_ZN7uu_join4Line3new17h4d6d45b3b26be861E": {
+      "<uu_join::WhitespaceSep as uu_join::Separator>::field_ranges": 1
+    },
+    "_ZN7uu_join4exec17h240f3fcdcfc58a54E": {
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 4,
+      "core::ptr::drop_in_place<alloc::vec::Vec<uu_join::Spec>>": 4,
+      "core::ptr::drop_in_place<uu_join::SepSetting>": 3,
+      "core::ptr::drop_in_place<uu_join::State>": 4,
+      "core::ptr::drop_in_place<uu_join::Repr<uu_join::LineSep>>": 2,
+      "core::ptr::drop_in_place<std::io::buffered::bufwriter::BufWriter<std::io::stdio::StdoutLock>>": 2,
+      "core::ptr::drop_in_place<core::result::Result<(),alloc::boxed::Box<dyn uucore::mods::error::UError>>>": 4,
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 13,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 6,
+      "<std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::flush": 7,
+      "uu_join::State::skip_line": 2,
+      "uu_join::State::reset": 2,
+      "core::ptr::drop_in_place<core::option::Option<uu_join::Line>>": 2,
+      "uu_join::State::combine": 1,
+      "uu_join::State::extend": 2,
+      "uu_join::Input<Sep>::compare": 1,
+      "uu_join::State::get_current_key": 2,
+      "uucore::mods::error::set_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "std::io::stdio::_eprint": 1,
+      "uu_join::State::finalize": 2,
+      "uu_join::State::reset_read_line": 2,
+      "uu_join::State::print_headers": 1,
+      "std::io::buffered::bufwriter::BufWriter<W>::with_capacity": 1,
+      "std::io::stdio::Stderr::lock": 1,
+      "std::io::stdio::stdout": 1,
+      "uu_join::exec::{{closure}}": 2,
+      "alloc::alloc::handle_alloc_error": 1,
+      "alloc::alloc::Global::alloc_impl": 1,
+      "uu_join::State::new": 2,
+      "std::io::stdio::stdin": 1
+    },
+    "_ZN7uu_join5State10initialize17h26fceea0e160947aE": {
+      "core::ptr::drop_in_place<core::option::Option<uu_join::Line>>": 1,
+      "core::panicking::panic_bounds_check": 1,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "uu_join::State::read_line": 1
+    },
+    "_ZN7uu_join5State10print_line17h1eb7dc8a2006cedbE": {
+      "<std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all": 2,
+      "uu_join::Repr<Sep>::print_format": 1,
+      "uu_join::Repr<Sep>::print_fields": 1,
+      "uu_join::Line::get_field": 1
+    },
+    "_ZN7uu_join5State13print_headers17h1a883c7176263678E": {
+      "uu_join::State::print_first_line": 1,
+      "uu_join::State::combine": 1
+    },
+    "_ZN7uu_join5State15reset_next_line17h0d342ae7cfd1067fE": {
+      "uu_join::State::reset": 1,
+      "uu_join::State::next_line": 1
+    },
+    "_ZN7uu_join5State15reset_read_line17h306d000c56424020E": {
+      "uu_join::State::reset": 1,
+      "uu_join::State::read_line": 1
+    },
+    "_ZN7uu_join5State16print_first_line17h3e0e204aedad6bbeE": {
+      "core::panicking::panic_bounds_check": 1,
+      "uu_join::State::print_line": 1
+    },
+    "_ZN7uu_join5State6extend17h2ec74ec0241156b7E": {
+      "alloc::boxed::Box<T>::new": 1,
+      "uu_join::State::next_line": 2,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "uu_join::State::get_current_key": 1,
+      "core::ptr::drop_in_place<core::option::Option<uu_join::Line>>": 1
+    },
+    "_ZN7uu_join5State7combine17h04498694d71d4131E": {
+      "<std::io::buffered::bufwriter::BufWriter<W> as std::io::Write>::write_all": 3,
+      "uu_join::Repr<Sep>::print_format": 1,
+      "uu_join::Repr<Sep>::print_fields": 2,
+      "uu_join::State::get_current_key": 1
+    },
+    "_ZN7uu_join5State8finalize17h08fcfa0f14de09a2E": {
+      "core::ptr::drop_in_place<core::option::Option<uu_join::Line>>": 2,
+      "alloc::boxed::Box<T>::new": 2,
+      "uu_join::State::next_line": 2,
+      "uu_join::State::reset": 1,
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 2,
+      "uu_join::State::print_line": 1,
+      "uu_join::State::print_first_line": 1
+    },
+    "_ZN7uu_join5State9next_line17h055b38e9d9bddb6cE": {
+      "core::ptr::drop_in_place<core::option::Option<uu_join::Line>>": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "uucore::execution_phrase": 1,
+      "std::io::stdio::_eprint": 1,
+      "core::ptr::drop_in_place<uu_join::Line>": 1,
+      "core::ptr::drop_in_place<alloc::borrow::Cow<str>>": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "alloc::string::String::from_utf8_lossy": 1,
+      "uu_join::Input<Sep>::compare": 1,
+      "uu_join::State::get_current_key": 1,
+      "uu_join::Line::get_field": 1,
+      "uu_join::State::read_line": 1
+    },
+    "_ZN7uu_join5State9read_line17h10a0d716756ca345E": {
+      "uu_join::Line::new": 1,
+      "<std::io::Split<B> as core::iter::traits::iterator::Iterator>::next": 1
+    },
+    "_ZN7uu_join5State9skip_line17h8781fa653874b392E": {
+      "alloc::boxed::Box<T>::new": 1,
+      "uu_join::State::reset_next_line": 1,
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uu_join::State::print_first_line": 1
+    },
+    "_ZN7uu_join6uumain17h3ecfd3c521e93144E": {
+      "uucore::mods::error::get_exit_code": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "uucore::execution_phrase": 1,
+      "std::io::stdio::_eprint": 3,
+      "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_join::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN7uu_join6uumain6uumain17h8d1d569db9477de2E": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 1,
+      "core::option::unwrap_failed": 2,
+      "core::ptr::drop_in_place<uu_join::Settings>": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 2,
+      "uu_join::parse_settings": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_join::uu_app": 1
+    },
+    "_ZN7uu_join4Spec5parse17hcfd2d4b38d6b0e96E": {
+      "alloc::boxed::Box<T>::new": 2,
+      "core::option::Option<T>::map_or_else": 2,
+      "uu_join::parse_field_number": 1,
+      "core::str::validations::next_code_point": 1
+    },
+    "_ZN7uu_join4Line9get_field17h5172ba7928bd7492E": {
+      "<core::ops::range::Range<usize> as core::slice::index::SliceIndex<[T]>>::index": 1
+    },
+    "_ZN7uu_join5State3new17hab21adfd9d97a2fdE": {
+      "alloc::boxed::Box<T>::new": 2,
+      "std::io::stdio::Stdin::lock": 1,
+      "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 1,
+      "std::fs::File::open": 1
+    },
+    "_ZN7uu_join5State5reset17hf11a3d581915b2afE": {
+      "alloc::vec::Vec<T,A>::push": 1,
+      "core::ptr::drop_in_place<[uu_join::Line]>": 1
+    },
+    "_ZN7uu_join5State15get_current_key17hb0aa7b8c555c38dcE": {
+      "core::panicking::panic_bounds_check": 1,
+      "uu_join::Line::get_field": 1
+    },
+    "_ZN7uu_join15parse_separator17hf124353ffbd88396E": {
+      "alloc::boxed::Box<T>::new": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::option::expect_failed": 1,
+      "<alloc::vec::Vec<u8> as core::convert::From<&str>>::from": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "core::str::validations::next_code_point": 1,
+      "core::str::converts::from_utf8": 1
+    },
+    "_ZN7uu_join20parse_print_settings17h08c07f537be3ed8cE": {
+      "core::option::Option<T>::or_else": 1,
+      "core::iter::adapters::chain::and_then_or_clear": 1,
+      "uu_join::parse_file_number": 1,
+      "core::iter::traits::iterator::Iterator::chain": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 2
+    },
+    "_ZN7uu_join26get_and_parse_field_number17hff9b1fd9eb95d74dE": {
+      "uu_join::parse_field_number_option": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 1
+    },
+    "_ZN7uu_join14parse_settings17ha7f529424dcbcc67E": {
+      "core::ptr::drop_in_place<uu_join::Settings>": 3,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 2,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 3,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 3,
+      "core::ptr::drop_in_place<alloc::vec::Vec<uu_join::Spec>>": 2,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "uu_join::Spec::parse": 1,
+      "core::str::iter::SplitInternal<P>::next": 1,
+      "<core::str::pattern::MultiCharEqPattern<C> as core::str::pattern::Pattern>::into_searcher": 1,
+      "core::ptr::drop_in_place<uu_join::SepSetting>": 1,
+      "uu_join::parse_separator": 1,
+      "uu_join::get_field_number": 2,
+      "uu_join::parse_print_settings": 1,
+      "uu_join::get_and_parse_field_number": 3
+    },
+    "_ZN7uu_join6uu_app17hf0c646455b56e430E": {
+      "clap_builder::builder::command::Command::arg": 15,
+      "memcpy": 5,
+      "clap_builder::builder::arg::Arg::value_hint": 2,
+      "clap_builder::builder::arg::Arg::value_name": 10,
+      "clap_builder::builder::arg::Arg::new": 15,
+      "clap_builder::builder::arg::Arg::action": 7,
+      "clap_builder::builder::arg::Arg::help": 13,
+      "clap_builder::builder::arg::Arg::long": 5,
+      "clap_builder::builder::arg::Arg::short": 10,
+      "clap_builder::builder::arg::Arg::value_parser": 3,
+      "clap_builder::builder::arg::Arg::num_args": 2,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN7uu_join16get_field_number17ha34d3b07c5e6ef90E": {
+      "alloc::boxed::Box<T>::new": 1,
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN7uu_join18parse_field_number17h7876c58ca785f0e6E": {
+      "alloc::boxed::Box<T>::new": 2,
+      "core::option::Option<T>::map_or_else": 2,
+      "core::num::<impl usize>::from_ascii_radix": 1
+    },
+    "_ZN7uu_join17parse_file_number17h9b8850bce422b1b9E": {
+      "alloc::boxed::Box<T>::new": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 2
+    },
+    "_ZN7uu_join25parse_field_number_option17hc351970518f2dd89E": {
+      "uu_join::parse_field_number": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN7uu_join15Repr$LT$Sep$GT$12print_fields17h4210fd7bff018645E": {},
+    "_ZN7uu_join15Repr$LT$Sep$GT$12print_format17h42b6e953664a5ea5E": {},
+    "_ZN7uu_join16Input$LT$Sep$GT$7compare17h365eb74b1ebb2c70E": {},
+    "_ZN7uu_join4Line3new17h4d6d45b3b26be861E": {},
+    "_ZN7uu_join4exec17h240f3fcdcfc58a54E": {},
+    "_ZN7uu_join5State10initialize17h26fceea0e160947aE": {},
+    "_ZN7uu_join5State10print_line17h1eb7dc8a2006cedbE": {},
+    "_ZN7uu_join5State13print_headers17h1a883c7176263678E": {},
+    "_ZN7uu_join5State15reset_next_line17h0d342ae7cfd1067fE": {},
+    "_ZN7uu_join5State15reset_read_line17h306d000c56424020E": {},
+    "_ZN7uu_join5State16print_first_line17h3e0e204aedad6bbeE": {},
+    "_ZN7uu_join5State6extend17h2ec74ec0241156b7E": {},
+    "_ZN7uu_join5State7combine17h04498694d71d4131E": {},
+    "_ZN7uu_join5State8finalize17h08fcfa0f14de09a2E": {},
+    "_ZN7uu_join5State9next_line17h055b38e9d9bddb6cE": {},
+    "_ZN7uu_join5State9read_line17h10a0d716756ca345E": {},
+    "_ZN7uu_join5State9skip_line17h8781fa653874b392E": {},
+    "_ZN7uu_join6uumain17h3ecfd3c521e93144E": {},
+    "_ZN7uu_join6uumain6uumain17h8d1d569db9477de2E": {},
+    "_ZN7uu_join4Spec5parse17hcfd2d4b38d6b0e96E": {},
+    "_ZN7uu_join4Line9get_field17h5172ba7928bd7492E": {},
+    "_ZN7uu_join5State3new17hab21adfd9d97a2fdE": {},
+    "_ZN7uu_join5State5reset17hf11a3d581915b2afE": {},
+    "_ZN7uu_join5State15get_current_key17hb0aa7b8c555c38dcE": {},
+    "_ZN7uu_join15parse_separator17hf124353ffbd88396E": {},
+    "_ZN7uu_join20parse_print_settings17h08c07f537be3ed8cE": {},
+    "_ZN7uu_join26get_and_parse_field_number17hff9b1fd9eb95d74dE": {},
+    "_ZN7uu_join14parse_settings17ha7f529424dcbcc67E": {},
+    "_ZN7uu_join6uu_app17hf0c646455b56e430E": {},
+    "_ZN7uu_join16get_field_number17ha34d3b07c5e6ef90E": {},
+    "_ZN7uu_join18parse_field_number17h7876c58ca785f0e6E": {},
+    "_ZN7uu_join17parse_file_number17h9b8850bce422b1b9E": {},
+    "_ZN7uu_join25parse_field_number_option17hc351970518f2dd89E": {}
+  },
+  "node_counts": {
+    "_ZN7uu_join15Repr$LT$Sep$GT$12print_fields17h4210fd7bff018645E": 12,
+    "_ZN7uu_join15Repr$LT$Sep$GT$12print_format17h42b6e953664a5ea5E": 28,
+    "_ZN7uu_join16Input$LT$Sep$GT$7compare17h365eb74b1ebb2c70E": 11,
+    "_ZN7uu_join4Line3new17h4d6d45b3b26be861E": 2,
+    "_ZN7uu_join4exec17h240f3fcdcfc58a54E": 105,
+    "_ZN7uu_join5State10initialize17h26fceea0e160947aE": 8,
+    "_ZN7uu_join5State10print_line17h1eb7dc8a2006cedbE": 11,
+    "_ZN7uu_join5State13print_headers17h1a883c7176263678E": 10,
+    "_ZN7uu_join5State15reset_next_line17h0d342ae7cfd1067fE": 7,
+    "_ZN7uu_join5State15reset_read_line17h306d000c56424020E": 4,
+    "_ZN7uu_join5State16print_first_line17h3e0e204aedad6bbeE": 2,
+    "_ZN7uu_join5State6extend17h2ec74ec0241156b7E": 15,
+    "_ZN7uu_join5State7combine17h04498694d71d4131E": 38,
+    "_ZN7uu_join5State8finalize17h08fcfa0f14de09a2E": 22,
+    "_ZN7uu_join5State9next_line17h055b38e9d9bddb6cE": 22,
+    "_ZN7uu_join5State9read_line17h10a0d716756ca345E": 11,
+    "_ZN7uu_join5State9skip_line17h8781fa653874b392E": 6,
+    "_ZN7uu_join6uumain17h3ecfd3c521e93144E": 12,
+    "_ZN7uu_join6uumain6uumain17h8d1d569db9477de2E": 18,
+    "_ZN7uu_join4Spec5parse17hcfd2d4b38d6b0e96E": 25,
+    "_ZN7uu_join4Line9get_field17h5172ba7928bd7492E": 3,
+    "_ZN7uu_join5State3new17hab21adfd9d97a2fdE": 11,
+    "_ZN7uu_join5State5reset17hf11a3d581915b2afE": 3,
+    "_ZN7uu_join5State15get_current_key17hb0aa7b8c555c38dcE": 2,
+    "_ZN7uu_join15parse_separator17hf124353ffbd88396E": 19,
+    "_ZN7uu_join20parse_print_settings17h08c07f537be3ed8cE": 20,
+    "_ZN7uu_join26get_and_parse_field_number17hff9b1fd9eb95d74dE": 6,
+    "_ZN7uu_join14parse_settings17ha7f529424dcbcc67E": 54,
+    "_ZN7uu_join6uu_app17hf0c646455b56e430E": 93,
+    "_ZN7uu_join16get_field_number17ha34d3b07c5e6ef90E": 6,
+    "_ZN7uu_join18parse_field_number17h7876c58ca785f0e6E": 13,
+    "_ZN7uu_join17parse_file_number17h9b8850bce422b1b9E": 10,
+    "_ZN7uu_join25parse_field_number_option17hc351970518f2dd89E": 4
+  },
+  "variable_types": {
+    "_ZN7uu_join15Repr$LT$Sep$GT$12print_fields17h4210fd7bff018645E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join15Repr$LT$Sep$GT$12print_format17h42b6e953664a5ea5E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join16Input$LT$Sep$GT$7compare17h365eb74b1ebb2c70E": {
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_None": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join4Line3new17h4d6d45b3b26be861E": {
+      "stack_8": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join4exec17h240f3fcdcfc58a54E": {
+      "stack_28": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          null
+        ],
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_288": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_544": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_528": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_512": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_496": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_480": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_456": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_464": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_472": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_31": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_29": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_30": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_39": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_136": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_265": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_392": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_363": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_547": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          null
+        ],
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          null
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          null
+        ],
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_362": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_546": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join5State10initialize17h26fceea0e160947aE": {
+      "stack_48": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join5State10print_line17h1eb7dc8a2006cedbE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7uu_join5State13print_headers17h1a883c7176263678E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_None": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join5State15reset_next_line17h0d342ae7cfd1067fE": {
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join5State15reset_read_line17h306d000c56424020E": {
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join5State16print_first_line17h3e0e204aedad6bbeE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join5State6extend17h2ec74ec0241156b7E": {
+      "stack_112": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          null
+        ],
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          null
+        ]
+      ]
+    },
+    "_ZN7uu_join5State7combine17h04498694d71d4131E": {
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&array",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join5State8finalize17h08fcfa0f14de09a2E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join5State9next_line17h055b38e9d9bddb6cE": {
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_ymm2": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_144": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join5State9read_line17h10a0d716756ca345E": {
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7uu_join5State9skip_line17h8781fa653874b392E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7uu_join6uumain17h3ecfd3c521e93144E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join6uumain6uumain17h8d1d569db9477de2E": {
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_5472": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4384": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_5120": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_4240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_5168": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_4280": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_5152": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_4264": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_5136": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_4248": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_4232": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_5128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4472": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_4208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4408": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_4456": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_4192": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_4440": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_4176": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_4424": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_4160": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_4144": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_4120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4392": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4400": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&array",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&array",
+          8
+        ]
+      ],
+      "stack_4168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join4Spec5parse17hcfd2d4b38d6b0e96E": {
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7uu_join4Line9get_field17h5172ba7928bd7492E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join5State3new17hab21adfd9d97a2fdE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join5State5reset17hf11a3d581915b2afE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join5State15get_current_key17hb0aa7b8c555c38dcE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join15parse_separator17hf124353ffbd88396E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_join20parse_print_settings17h08c07f537be3ed8cE": {
+      "stack_280": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          null
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          null
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&array",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join26get_and_parse_field_number17hff9b1fd9eb95d74dE": {
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join14parse_settings17ha7f529424dcbcc67E": {
+      "stack_0": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_224": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&array",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&array",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_95": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_91": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_90": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_89": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_92": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_94": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_93": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_ymm1": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_ymm2": [
+        [
+          "primitive",
+          null
+        ]
+      ]
+    },
+    "_ZN7uu_join6uu_app17hf0c646455b56e430E": {
+      "stack_1352": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_640": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_1340": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2052": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1348": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2060": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2064": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2072": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2080": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2088": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1984": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_632": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1988": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_636": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2696": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2700": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1272": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1276": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_join16get_field_number17ha34d3b07c5e6ef90E": {
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join18parse_field_number17h7876c58ca785f0e6E": {
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_join17parse_file_number17h9b8850bce422b1b9E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_join25parse_field_number_option17hc351970518f2dd89E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,517 @@
+{
+  "decompilation": {
+    "_ZN9uu_basenc14parse_cmd_args17h179f17a9a715c835E": "\n  fn uu_basenc::parse_cmd_args::h179f17a9a715c835(arg1: *mut i64, arg2: i64) -> u64\n\n{\n    let mut var_2e8: i64;\n    uu_basenc::uu_app::hf8773d6a5be336bd(&var_2e8);\n    let mut var_310: i128;\n    uucore::Args::collect_lossy::hc1619b15e767c58d(&var_310, arg2);\n    let mut var_348: i64;\n    clap_builder::builder::command::Command::try_get_matches_from::hc7f9a554853dd5dc(&var_348, \n        &var_2e8, &var_310);\n    let rax: i64 = var_348;\n    let var_340: i64;\n    \n    if -(rax) == -0x8000000000000000\n    {\n        let result: u64 = alloc::boxed::Box$LT$T$GT$::new::he18ed11548f4bb02(var_340);\n        arg1[1] = result;\n        arg1[2] = &data_510cc0;\n        *arg1 = 2;\n        return result;\n    }\n    \n    let mut var_334: i128;\n    let var_2d4_1: i128 = var_334;\n    let var_324: i128;\n    let var_2c4_1: i128 = var_324;\n    let var_314: i32;\n    let var_2b4_1: i32 = var_314;\n    var_2e8 = rax;\n    let var_2e0_1: i64 = var_340;\n    let mut var_338: i32;\n    let var_2d8_1: i32 = var_338;\n    let mut var_2f8: *mut *mut c_void = &data_510ad8;\n    let var_2f0_1: *mut *mut c_void = &data_510c18;\n    let rax_1: *mut i64 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::find::h8368b17440220354(&var_2f8, &var_2e8);\n    \n    if rax_1 == 0\n    {\n        _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::hef4f8f39a54bc1b8(&var_310, \"missing encoding typebase64same \u2026\", 0x15);\n        let var_300: i64;\n        var_338 = var_300;\n        var_348 = var_310;\n        *var_334[4] = 1;\n        arg1[1] = alloc::boxed::Box$LT$T$GT$::new::h1050c4150b32dc44(&var_348);\n        arg1[2] = &data_510c38;\n        *arg1 = 2;\n    }\n    else\n    {\n        let rbp_1: i8 = rax_1[2];\n        uu_base32::base_common::Config::from::he8007e948e715e4f(&var_348, &var_2e8);\n        let rdx_4: i64 = var_348;\n        let rcx_3: i64 = var_338;\n        \n        if rdx_4 != 2\n        {\n            arg1[5] = *var_324[4];\n            *arg1.byte_offset(0x18) = var_334;\n            *arg1 = rdx_4;\n            arg1[1] = var_340;\n            arg1[2] = rcx_3;\n            arg1[6] = rbp_1;\n        }\n        else\n        {\n            arg1[1] = var_340;\n            arg1[2] = rcx_3;\n            *arg1 = 2;\n        }\n    }\n    \n    core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h3cb77b187d077377(&var_2e8)\n}\n",
+    "_ZN9uu_basenc6uumain17h1fb53c08c667ec80E": "\n  fn uu_basenc::uumain::h1fb53c08c667ec80(arg1: i64) -> u64\n\n{\n    core::result::Result$LT$T$C$E$GT$::expect::h29c870c65c659f77(\n        uucore::disable_rust_signal_handlers::hcf33f4a6d6e443c4());\n    let mut rax_1: u64;\n    let mut rdx: *mut i64;\n    rax_1 = uu_basenc::uumain::uumain::h682ba7894498b6ba(arg1);\n    \n    if rax_1 == 0\n    {\n        /* tailcall */\n        return uucore::mods::error::get_exit_code::h4ce6cf124c2ef658();\n    }\n    \n    let mut var_98: u64 = rax_1;\n    let mut var_58: *mut u64 = &var_98;\n    let var_50: fn(arg1: *mut i64) -> i64 = _$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Display$GT$::fmt::h26118149b1a92e03;\n    let mut var_88: *mut c_void = &data_41a080;\n    let var_80: i64 = 1;\n    let var_68: i64 = 0;\n    let var_78: *mut *mut u64 = &var_58;\n    let var_70: i64 = 1;\n    let mut var_38: i128;\n    core::option::Option$LT$T$GT$::map_or_else::h6da4bcc74f50fc18(&var_38, &var_88);\n    var_58 = var_38;\n    let var_28: i64;\n    let var_48: i64 = var_28;\n    let mut var_20: *mut i128;\n    \n    if _$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::ha595f61bc4a5c974(var_28) == 0\n    {\n        let mut rax_3: i64;\n        let mut rdx_1: i64;\n        rax_3 = uucore::util_name::h074417a1e6395129();\n        var_38 = rax_3;\n        *var_38[8] = rdx_1;\n        var_20 = &var_38;\n        let var_18_1: fn(arg1: *mut i64, arg2: i64) -> i64 =\n            _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h1cd34e89f5843668;\n        var_88 = &data_510d28;\n        let var_80_1: i64 = 2;\n        let var_68_1: i64 = 0;\n        let var_78_1: *mut *mut i128 = &var_20;\n        let var_70_1: i64 = 1;\n        std::io::stdio::_eprint::h57899770eacec2ad(&var_88);\n        var_38 = &var_58;\n        *var_38[8] =\n            _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n        var_88 = &data_510d48;\n        let var_80_2: i64 = 2;\n        let var_68_2: i64 = 0;\n        let var_78_2: *mut i128 = &var_38;\n        let var_70_2: i64 = 1;\n        std::io::stdio::_eprint::h57899770eacec2ad(&var_88);\n    }\n    \n    if rdx[0xc](var_98) != 0\n    {\n        let mut rax_6: i64;\n        let mut rdx_2: i64;\n        rax_6 = uucore::execution_phrase::hf0e80cb4793732ad();\n        var_38 = rax_6;\n        *var_38[8] = rdx_2;\n        var_20 = &var_38;\n        let var_18_2: fn(arg1: *mut i64, arg2: i64) -> i64 =\n            _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h1cd34e89f5843668;\n        var_88 = &data_510d68;\n        let var_80_3: i64 = 2;\n        let var_68_3: i64 = 0;\n        let var_78_3: *mut *mut i128 = &var_20;\n        let var_70_3: i64 = 1;\n        std::io::stdio::_eprint::h57899770eacec2ad(&var_88);\n    }\n    \n    let rax_8: i32 = rdx[0xb](var_98);\n    core::ptr::drop_in_place$LT$alloc..string..String$GT$::hc4db81cd31d5c60c(var_58, var_50);\n    core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$clap_builder..builder..value_parser..AnyValueParser$GT$$GT$::hc57c0afb45fb5411(var_98, rdx);\n    rax_8\n}\n",
+    "_ZN9uu_basenc6uumain6uumain17h682ba7894498b6baE": "\n  fn uu_basenc::uumain::uumain::h682ba7894498b6ba(arg1: i64) -> u64\n\n{\n    let mut var_88: i64;\n    uu_basenc::parse_cmd_args::h179f17a9a715c835(&var_88, arg1);\n    let rax: i64 = var_88;\n    let result_2: u64;\n    let mut result: u64 = result_2;\n    \n    if rax != 2\n    {\n        let var_60: i64;\n        let var_28_1: i64 = var_60;\n        let mut var_50: i64 = rax;\n        let result_3: u64 = result;\n        uu_base32::base_common::get_input::hb11f0dc280e05835(&var_88, &var_50);\n        result = result_2;\n        let var_70: i128;\n        let mut var_78: i64;\n        \n        if var_88 != 1\n        {\n            let mut result_1: u64 = result;\n            let var_90_1: i64 = var_78;\n            var_78 = var_78;\n            var_88 = var_50;\n            let var_58: i8;\n            let mut result_4: u64;\n            let mut rdx_2: i64;\n            result_4 =\n                uu_base32::base_common::handle_input::hbf931206a21706fe(&result_1, var_58, &var_88);\n            result = result_4;\n            core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$uu_base32..base_common..ReadSeek$GT$$GT$::hbd9d2bace0cbdda3(&result_1);\n        }\n        else\n        {\n            core::ptr::drop_in_place$LT$uu_base32..base_common..Config$GT$::h084e20302bc333b2(\n                var_78, var_70);\n        }\n    }\n    \n    result\n}\n",
+    "_ZN9uu_basenc6uu_app17hf8773d6a5be336bdE": "\n  fn uu_basenc::uu_app::hf8773d6a5be336bd(arg1: i64) -> i64\n\n{\n    let mut var_7e8: ();\n    uu_base32::base_common::base_app::hf62dc1f5a26396f2(&var_7e8, \n        \"Encode/decode data and print to \u2026\", 0x129, \"{} [OPTION]... [FILE]base64same \u2026\", 0x15);\n    let mut var_ab0: ();\n    clap_builder::builder::arg::Arg::new::h1f8c2db82ca22d91(&var_ab0, \n        \"base64same as 'base64' programba\u2026\");\n    let mut var_2a0: ();\n    clap_builder::builder::arg::Arg::long::h1b0d770fd536ad44(&var_2a0, &var_ab0, \n        \"base64same as 'base64' programba\u2026\");\n    let mut var_fb0: ();\n    clap_builder::builder::arg::Arg::help::hf221cb535377cfbe(&var_fb0, &var_2a0, \n        \"same as 'base64' programbase64ur\u2026\", 0x18);\n    let mut var_520: ();\n    clap_builder::builder::arg::Arg::action::h75f9294667bf6f81(&var_520, &var_fb0);\n    let mut var_d30: ();\n    _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::fold::h256b271d75ae46c1(&var_d30);\n    memcpy(&var_ab0, &var_7e8, 0x2c8);\n    clap_builder::builder::command::Command::arg::ha5d99f6751f86f1e(&var_7e8, &var_ab0, &var_d30);\n    clap_builder::builder::arg::Arg::new::h1f8c2db82ca22d91(&var_ab0, \n        \"base64urlfile- and url-safe base\u2026\");\n    clap_builder::builder::arg::Arg::long::h1b0d770fd536ad44(&var_2a0, &var_ab0, \n        \"base64urlfile- and url-safe base\u2026\");\n    clap_builder::builder::arg::Arg::help::hf221cb535377cfbe(&var_fb0, &var_2a0, \n        \"file- and url-safe base64base32s\u2026\", 0x19);\n    clap_builder::builder::arg::Arg::action::h75f9294667bf6f81(&var_520, &var_fb0);\n    _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::fold::h256b271d75ae46c1(&var_d30);\n    memcpy(&var_ab0, &var_7e8, 0x2c8);\n    clap_builder::builder::command::Command::arg::ha5d99f6751f86f1e(&var_7e8, &var_ab0, &var_d30);\n    clap_builder::builder::arg::Arg::new::h1f8c2db82ca22d91(&var_ab0, \n        \"base32same as 'base32' programba\u2026\");\n    clap_builder::builder::arg::Arg::long::h1b0d770fd536ad44(&var_2a0, &var_ab0, \n        \"base32same as 'base32' programba\u2026\");\n    clap_builder::builder::arg::Arg::help::hf221cb535377cfbe(&var_fb0, &var_2a0, \n        \"same as 'base32' programbase32he\u2026\", 0x18);\n    clap_builder::builder::arg::Arg::action::h75f9294667bf6f81(&var_520, &var_fb0);\n    _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::fold::h256b271d75ae46c1(&var_d30);\n    memcpy(&var_ab0, &var_7e8, 0x2c8);\n    clap_builder::builder::command::Command::arg::ha5d99f6751f86f1e(&var_7e8, &var_ab0, &var_d30);\n    clap_builder::builder::arg::Arg::new::h1f8c2db82ca22d91(&var_ab0, \n        \"base32hexextended hex alphabet b\u2026\");\n    clap_builder::builder::arg::Arg::long::h1b0d770fd536ad44(&var_2a0, &var_ab0, \n        \"base32hexextended hex alphabet b\u2026\");\n    clap_builder::builder::arg::Arg::help::hf221cb535377cfbe(&var_fb0, &var_2a0, \n        \"extended hex alphabet base32base\u2026\", 0x1c);\n    clap_builder::builder::arg::Arg::action::h75f9294667bf6f81(&var_520, &var_fb0);\n    _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::fold::h256b271d75ae46c1(&var_d30);\n    memcpy(&var_ab0, &var_7e8, 0x2c8);\n    clap_builder::builder::command::Command::arg::ha5d99f6751f86f1e(&var_7e8, &var_ab0, &var_d30);\n    clap_builder::builder::arg::Arg::new::h1f8c2db82ca22d91(&var_ab0, \n        \"base16hex encodingbase2lsbfbit s\u2026\");\n    clap_builder::builder::arg::Arg::long::h1b0d770fd536ad44(&var_2a0, &var_ab0, \n        \"base16hex encodingbase2lsbfbit s\u2026\");\n    clap_builder::builder::arg::Arg::help::hf221cb535377cfbe(&var_fb0, &var_2a0, \n        \"hex encodingbase2lsbfbit string \u2026\", 0xc);\n    clap_builder::builder::arg::Arg::action::h75f9294667bf6f81(&var_520, &var_fb0);\n    _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::fold::h256b271d75ae46c1(&var_d30);\n    memcpy(&var_ab0, &var_7e8, 0x2c8);\n    clap_builder::builder::command::Command::arg::ha5d99f6751f86f1e(&var_7e8, &var_ab0, &var_d30);\n    clap_builder::builder::arg::Arg::new::h1f8c2db82ca22d91(&var_ab0, \n        \"base2lsbfbit string with least s\u2026\");\n    clap_builder::builder::arg::Arg::long::h1b0d770fd536ad44(&var_2a0, &var_ab0, \n        \"base2lsbfbit string with least s\u2026\");\n    clap_builder::builder::arg::Arg::help::hf221cb535377cfbe(&var_fb0, &var_2a0, \n        \"bit string with least significan\u2026\", 0x31);\n    clap_builder::builder::arg::Arg::action::h75f9294667bf6f81(&var_520, &var_fb0);\n    _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::fold::h256b271d75ae46c1(&var_d30);\n    memcpy(&var_ab0, &var_7e8, 0x2c8);\n    clap_builder::builder::command::Command::arg::ha5d99f6751f86f1e(&var_7e8, &var_ab0, &var_d30);\n    clap_builder::builder::arg::Arg::new::h1f8c2db82ca22d91(&var_ab0, \n        \"base2msbfbit string with most si\u2026\");\n    clap_builder::builder::arg::Arg::long::h1b0d770fd536ad44(&var_2a0, &var_ab0, \n        \"base2msbfbit string with most si\u2026\");\n    clap_builder::builder::arg::Arg::help::hf221cb535377cfbe(&var_fb0, &var_2a0, \n        \"bit string with most significant\u2026\", 0x30);\n    clap_builder::builder::arg::Arg::action::h75f9294667bf6f81(&var_520, &var_fb0);\n    _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::fold::h256b271d75ae46c1(&var_d30);\n    memcpy(&var_ab0, &var_7e8, 0x2c8);\n    clap_builder::builder::command::Command::arg::ha5d99f6751f86f1e(&var_7e8, &var_ab0, &var_d30);\n    clap_builder::builder::arg::Arg::new::h1f8c2db82ca22d91(&var_ab0, \n        \"z85ascii85-like encoding;\\nwhen \u2026\");\n    clap_builder::builder::arg::Arg::long::h1b0d770fd536ad44(&var_2a0, &var_ab0, \n        \"z85ascii85-like encoding;\\nwhen \u2026\");\n    clap_builder::builder::arg::Arg::help::hf221cb535377cfbe(&var_fb0, &var_2a0, \n        \"ascii85-like encoding;\\nwhen enc\u2026\", 0x7f);\n    clap_builder::builder::arg::Arg::action::h75f9294667bf6f81(&var_520, &var_fb0);\n    _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::fold::h256b271d75ae46c1(&var_d30);\n    memcpy(&var_ab0, &var_7e8, 0x2c8);\n    clap_builder::builder::command::Command::arg::ha5d99f6751f86f1e(&var_7e8, &var_ab0, &var_d30);\n    memcpy(arg1, &var_7e8, 0x2c8);\n    arg1\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN9uu_basenc14parse_cmd_args17h179f17a9a715c835E": {
+      "_ZN9uu_basenc6uu_app17hf8773d6a5be336bdE": 1,
+      "_ZN6uucore4Args13collect_lossy17hc1619b15e767c58dE": 1,
+      "_ZN12clap_builder7builder7command7Command20try_get_matches_from17hc7f9a554853dd5dcE": 1,
+      "_ZN5alloc5boxed12Box$LT$T$GT$3new17he18ed11548f4bb02E": 1,
+      "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h8368b17440220354E": 1,
+      "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hef4f8f39a54bc1b8E": 1,
+      "_ZN5alloc5boxed12Box$LT$T$GT$3new17h1050c4150b32dc44E": 1,
+      "_ZN9uu_base3211base_common6Config4from17he8007e948e715e4fE": 1,
+      "_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$17h3cb77b187d077377E": 1
+    },
+    "_ZN9uu_basenc6uumain17h1fb53c08c667ec80E": {
+      "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h29c870c65c659f77E": 1,
+      "_ZN6uucore28disable_rust_signal_handlers17hcf33f4a6d6e443c4E": 1,
+      "_ZN9uu_basenc6uumain6uumain17h682ba7894498b6baE": 1,
+      "_ZN6uucore4mods5error13get_exit_code17h4ce6cf124c2ef658E": 1,
+      "_ZN4core6option15Option$LT$T$GT$11map_or_else17h6da4bcc74f50fc18E": 1,
+      "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha595f61bc4a5c974E": 1,
+      "_ZN6uucore9util_name17h074417a1e6395129E": 1,
+      "_ZN3std2io5stdio7_eprint17h57899770eacec2adE": 3,
+      "_ZN6uucore16execution_phrase17hf0e80cb4793732adE": 1,
+      "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc4db81cd31d5c60cE": 1,
+      "_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$clap_builder..builder..value_parser..AnyValueParser$GT$$GT$17hc57c0afb45fb5411E": 1
+    },
+    "_ZN9uu_basenc6uumain6uumain17h682ba7894498b6baE": {
+      "_ZN9uu_basenc14parse_cmd_args17h179f17a9a715c835E": 1,
+      "_ZN9uu_base3211base_common9get_input17hb11f0dc280e05835E": 1,
+      "_ZN9uu_base3211base_common12handle_input17hbf931206a21706feE": 1,
+      "_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$uu_base32..base_common..ReadSeek$GT$$GT$17hbd9d2bace0cbdda3E": 1,
+      "_ZN4core3ptr51drop_in_place$LT$uu_base32..base_common..Config$GT$17h084e20302bc333b2E": 1
+    },
+    "_ZN9uu_basenc6uu_app17hf8773d6a5be336bdE": {
+      "_ZN9uu_base3211base_common8base_app17hf62dc1f5a26396f2E": 1,
+      "_ZN12clap_builder7builder3arg3Arg3new17h1f8c2db82ca22d91E": 8,
+      "_ZN12clap_builder7builder3arg3Arg4long17h1b0d770fd536ad44E": 8,
+      "_ZN12clap_builder7builder3arg3Arg4help17hf221cb535377cfbeE": 8,
+      "_ZN12clap_builder7builder3arg3Arg6action17h75f9294667bf6f81E": 8,
+      "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h256b271d75ae46c1E": 8,
+      "memcpy": 9,
+      "_ZN12clap_builder7builder7command7Command3arg17ha5d99f6751f86f1eE": 8
+    }
+  },
+  "num_variables": {
+    "_ZN9uu_basenc14parse_cmd_args17h179f17a9a715c835E": 22,
+    "_ZN9uu_basenc6uumain17h1fb53c08c667ec80E": 33,
+    "_ZN9uu_basenc6uumain6uumain17h682ba7894498b6baE": 15,
+    "_ZN9uu_basenc6uu_app17hf8773d6a5be336bdE": 6
+  },
+  "macro_call_counts": {
+    "_ZN9uu_basenc14parse_cmd_args17h179f17a9a715c835E": {},
+    "_ZN9uu_basenc6uumain17h1fb53c08c667ec80E": {},
+    "_ZN9uu_basenc6uumain6uumain17h682ba7894498b6baE": {},
+    "_ZN9uu_basenc6uu_app17hf8773d6a5be336bdE": {}
+  },
+  "variable_types": {
+    "_ZN9uu_basenc14parse_cmd_args17h179f17a9a715c835E": {
+      "stack_80": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_36": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_148": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_132": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_116": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_52": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN9uu_basenc6uumain17h1fb53c08c667ec80E": {
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_basenc6uumain6uumain17h682ba7894498b6baE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_basenc6uu_app17hf8773d6a5be336bdE": {
+      "stack_1288": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_648": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_3352": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2000": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_2712": [
+        [
+          "primitive",
+          -1
+        ]
+      ]
+    }
+  }
+}

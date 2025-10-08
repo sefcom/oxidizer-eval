@@ -1,0 +1,1373 @@
+{
+  "decompilation": {
+    "_ZN7uu_stty6uumain17hcee4d0c4c52cd202E": "fn uu_stty::uumain(a0: u64, a1: u64) -> long long {\n    let v0: u64;  // [bp-0x98]\n    let v1: u128;  // [bp-0x58]\n    let v2: u64;  // [bp-0x48]\n    let v3: alloc::string::String;  // [bp-0x38], Other Possible Types: u64\n    let v4: u64;  // [bp-0x30]\n    let v5: u64;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers());\n    v8 = uu_stty::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v3 = format!(\"{}\", &v0);\n    v1 = *(&v3.vec.buf.inner.cap as &i128);\n    v2 = v5;\n    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v5) {\n        v3 = uucore::util_name();\n        v4 = v9;\n        eprint!(\"{}: \", &v3);\n        eprintln!(\"{}\", &v1);\n    }\n    if !UnresolvableCallTarget(v0) {\n        return UnresolvableCallTarget(v0);\n    }\n    v3 = uucore::execution_phrase();\n    v4 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v3);\n    return UnresolvableCallTarget(v0);\n}\n",
+    "_ZN7uu_stty6uumain6uumain17hc483f49143486963E": "fn uu_stty::uumain::uumain(a0: i64, a1: i64) -> u64 {\n    let v0: struct42;  // [bp-0x348], Other Possible Types: struct56, u64\n    let v1: Result<struct42, struct16>;  // [bp-0x348], Other Possible Types: struct16\n    let v2: u64;  // [bp-0x340]\n    let v3: struct42;  // [bp-0x310]\n    let v4: u64;  // [bp-0x308]\n    let v5: struct56;  // [bp-0x2e0], Other Possible Types: struct712\n    let v6: u64;  // [bp-0x2d8]\n    let v8: u64;  // rdi\n    let v9: u64;  // rax\n\n    v5 = uu_stty::uu_app();\n    v1 = clap_builder::builder::command::Command::try_get_matches_from(&v5, a0, a1);\n    v8 = v2;\n    if (((0 ^ v1.field_0) & (0 ^ -(v0))) >> 63) as char {\n        return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v6);\n    }\n    v5 = v0;\n    v1 = uu_stty::Options::from(&v5);\n    match v1 {\n        Err(_) => {\n            v9 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v4);\n        },\n        Ok(v3) => {\n            v9 = uu_stty::stty(&v3);\n        },\n    }\n    return v9;\n}\n",
+    "_ZN7uu_stty7Options4from17h626d4b5746ed2b17E": "fn uu_stty::Options::from(a1: &struct56) -> Result<struct42, struct16> {\n    let a0: i64;  // rdi\n    let v0: core::fmt::rt::Argument;  // [bp-0xe4]\n    let v1: Result<struct4, struct8>;  // [bp-0xe0]\n    let v2: u32;  // [bp-0xdc]\n    let v3: u64;  // [bp-0xd8]\n    let v4: struct56;  // [bp-0xd0]\n    let v5: Result<struct40, struct16>;  // [bp-0xd0], Other Possible Types: struct9\n    let v6: u32;  // [bp-0xc8]\n    let v7: core::fmt::rt::Argument;  // [bp-0x88]\n    let v8: struct64;  // [bp-0x70]\n    let v9: u64;  // [bp-0x30]\n    let v10: u64;  // [bp-0x28]\n    let v11: u64;  // [bp-0x20]\n    let v12: u64;  // [bp-0x18]\n    let v13: u64;  // [bp-0x10]\n    let v15: u64;  // r15\n    let v16: u64;  // r14\n    let v17: u64;  // r13\n    let v18: u64;  // r12\n    let v19: u64;  // rbx\n    let v20: u8;  // al\n    let v21: u8;  // al\n    let v22: u64;  // rax\n    let v23: u32;  // r12d\n    let v24: std::io::stdio::Stdout;  // rax\n    let v25: u64;  // rax\n\n    v13 = v15;\n    v12 = v16;\n    v11 = v17;\n    v10 = v18;\n    v9 = v19;\n    v20 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"all\");\n    v21 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(a1, \"save\");\n    v5 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(a1);\n    v22 = clap_builder::parser::error::MatchesError::unwrap(&v5);\n    if v22 {\n        v6 = 0;\n        v5 = struct9 {\n            field_0: 0x1b600000800\n            field_8: 1\n        };\n        v1 = std::fs::OpenOptions::open(&v5, v22);\n        match v1 {\n            Err(_) => {\n                return struct16 {\n                    field_0: 9223372036854775809\n                    field_8: v3\n                };\n            },\n            Ok(v0) => {\n                v23 = 0;\n            },\n        }\n    } else {\n        v23 = 1;\n        v24 = std::io::stdio::stdout();\n    }\n    vvar_202{stack -208} = struct56 OrderedDict([(0, \ud835\udf19@64b [((4556202, None), None), ((4556207, None), vvar_186{stack -208})]), (8, \ud835\udf19@8b [((4556202, None), None), ((4556207, None), None)])])\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v4, a1);\n    v8 = clap_builder::parser::error::MatchesError::unwrap(&v4);\n    if v8.field_0 as i64 {\n        core::iter::traits::iterator::Iterator::collect(&v4, &v8);\n    }\n    return Ok(struct48 {\n        field_0: v25\n        field_8: v7\n        field_24: v23\n        field_28: v0\n        field_32: v24\n        field_40: v20\n        field_41: v21\n    });\n}\n",
+    "_ZN7uu_stty4stty17h530db3b548de0632E": "fn uu_stty::stty(a0: &struct48) -> u64 {\n    let v1: Option<struct4>;  // [bp-0x150], Other Possible Types: struct24\n    let v5: struct128;  // [bp-0xa8]\n    let v6: u64;  // [bp-0x28]\n    let v7: u64;  // [bp-0x20]\n    let v8: u64;  // [bp-0x18]\n    let v9: u64;  // [bp-0x10]\n    let v11: u64;  // r15\n    let v12: u64;  // r14\n    let v13: u64;  // r12\n    let v14: u64;  // rbx\n    let v15: void*;  // rsi\n    let v16: i64;  // rbx\n    let v17: u64;  // rdx\n    let v19: u32;  // eax\n    let v20: core::fmt::Arguments;  // eax\n    let v21: core::fmt::rt::Argument;  // rsi\n    let v22: struct64;  // rcx\n    let v23: Result<struct4, struct8>;  // rdx\n    let v25: void*;  // rax\n\n    v9 = v11;\n    v8 = v12;\n    v7 = v13;\n    v6 = v14;\n    if *((a0 + 41) as &i8) {\n        if *((a0 + 40) as &i8) == 1 || !((((0 ^ *(a0 as &i64)) & (0 ^ -(*(a0 as &i64)))) >> 63) as char) {\n            goto LABEL_45871c;\n        }\nLABEL_4586b2:\n        v19 = <uu_stty::Device as std::os::fd::owned::AsFd>::as_fd(a0 + 24);\n        v1 = nix::sys::termios::tcgetattr(v19);\n        v5 = core::result::Result<T,E>::expect(&v1);\n        v20 = uu_stty::print_settings(&v5, a0);\n        core::result::Result<T,E>::expect(v20 as u64, v21, v23, v22);\n    } else {\n        if (((0 ^ *(a0 as &i64)) & (0 ^ -(*(a0 as &i64)))) >> 63) as char || *((a0 + 40) as &i8) != 1 {\n            goto LABEL_4586b2;\n        }\nLABEL_45871c:\n        v1 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(v15, v17);\n        v25 = alloc::boxed::Box<T>::new(v16) as u64;\n    }\n    return v25;\n}\n",
+    "_ZN7uu_stty19print_terminal_size17h7d50ec96cc45cfabE": "fn uu_stty::print_terminal_size(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0x80]\n    let v1: void*;  // [bp-0x80]\n    let v2: core::fmt::Arguments;  // [bp-0x78]\n    let v3: struct72;  // [bp-0x78]\n    let v6: u64;  // [bp-0x10]\n    let v7: u64;  // [bp-0x8]\n    let v9: u64;  // r14\n    let v10: u64;  // rbx\n    let v11: u32;  // eax\n    let v12: u32;  // edi\n    let v13: u32;  // edx\n\n    v7 = v9;\n    v6 = v10;\n    v11 = nix::sys::termios::cfgetospeed(a0);\n    *(&v0 as &&str) = \"0\";\n    if v11 {\n        *(&v0 as &&str) = \"50\";\n        if v11 != 1 {\n            *(&v0 as &&str) = \"75\";\n            if v11 != 2 {\n                *(&v0 as &&str) = \"110\";\n                if v11 != 3 {\n                    *(&v0 as &&str) = \"134\";\n                    if v11 != 4 {\n                        *(&v0 as &&str) = \"150\";\n                        if v11 != 5 {\n                            *(&v0 as &&str) = \"200\";\n                            if v11 != 6 {\n                                *(&v0 as &&str) = \"300\";\n                                if v11 != 7 {\n                                    *(&v0 as &&str) = \"600\";\n                                    if v11 != 8 {\n                                        *(&v0 as &&str) = \"1200\";\n                                        if v11 != 9 {\n                                            *(&v0 as &&str) = \"1800\";\n                                            if v11 != 10 {\n                                                *(&v0 as &&str) = \"2400\";\n                                                if v11 != 11 {\n                                                    *(&v0 as &&str) = \"9600\";\n                                                    if v11 != 13 {\n                                                        *(&v0 as &&str) = \"19200\";\n                                                        if v11 != 14 {\n                                                            *(&v0 as &&str) = \"38400\";\n                                                            if v11 != 15 {\n                                                                *(&v0 as &&str) = \"57600\";\n                                                                if v11 != 4097 {\n                                                                    *(&v0 as &&str) = \"115200\";\n                                                                    if v11 != 4098 {\n                                                                        *(&v0 as &&str) = \"230400\";\n                                                                        if v11 != 4099 {\n                                                                            *(&v0 as &&str) = \"500000\";\n                                                                            if v11 != 4101 {\n                                                                                *(&v0 as &&str) = \"576000\";\n                                                                                if v11 != 4102 {\n                                                                                    *(&v0 as &&str) = \"921600\";\n                                                                                    if v11 != 4103 {\n                                                                                        *(&v0 as &&str) = \"1000000\";\n                                                                                        if v11 != 4104 {\n                                                                                            *(&v0 as &&str) = \"1152000\";\n                                                                                            if v11 != 4105 {\n                                                                                                *(&v0 as &&str) = \"1500000\";\n                                                                                                if v11 != 4106 {\n                                                                                                    *(&v0 as &&str) = \"2000000\";\n                                                                                                    if v11 != 4107 {\n                                                                                                        *(&v0 as &&str) = \"2500000\";\n                                                                                                        if v11 != 4108 {\n                                                                                                            *(&v0 as &&str) = \"3000000\";\n                                                                                                            if v11 != 4109 {\n                                                                                                                *(&v0 as &&str) = \"3500000\";\n                                                                                                                if v11 != 4110 {\n                                                                                                                    *(&v0 as &&str) = \"4000000\";\n                                                                                                                    if v11 != 4111 {\n                                                                                                                        goto LABEL_458b05;\n                                                                                                                    }\n                                                                                                                }\n                                                                                                            }\n                                                                                                        }\n                                                                                                    }\n                                                                                                }\n                                                                                            }\n                                                                                        }\n                                                                                    }\n                                                                                }\n                                                                            }\n                                                                        }\n                                                                    }\n                                                                }\n                                                            }\n                                                        }\n                                                    }\n                                                }\n                                            }\n                                        }\n                                    }\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n    print!(\"speed {} baud; \", &v0);\nLABEL_458b05:\n    if *((a1 + 40) as &i8) {\n        v1 = 0;\n        v12 = 1;\n        if (uu_stty::tiocgwinsz(v12, &v1 as u8) & 1) {\n            return v13;\n        }\n        print!(\"rows {}; columns {}; \", &v1 as u8, &v14);\n    }\n    vvar_303{stack -120} = struct72 OrderedDict([(0, \ud835\udf19@64b [((4557573, None), vvar_237{stack -120}), ((4557640, None), vvar_271{stack -120})]), (24, \ud835\udf19@64b [((4557573, None), vvar_241{stack -96}), ((4557640, None), vvar_275{stack -96})])])\n    <core::cell::RefCell<T> as core::clone::Clone>::clone(&v3, a0 + 32);\n    v0 = v3.field_24;\n    print!(\"line = {};\", &v0);\n    v2 = core::fmt::Arguments {\n        pieces: [\"\\n\"]\n        args: []\n        fmt: 0\n    };\n    std::io::stdio::_print(&v2);\n    return 134;\n}\n",
+    "_ZN7uu_stty22control_char_to_string17hcb31aba3c5c265dbE": "fn uu_stty::control_char_to_string(a0: u64, a1: u8) -> long long {\n    let v0: u32;  // [bp-0x84]\n    let v1: struct16;  // [bp-0x80]\n    let v2: std::io::stdio::Stdout;  // [bp-0x70]\n    let v3: u64;  // [bp-0x68]\n    let v5: u8;  // al\n    let v6: u64;  // rcx\n    let v7: u32;  // edx\n\n    if !a1 {\n        return <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(a0, \"<undef>\");\n    }\n    v1 = struct16 {\n        field_0: (a1 >= 0 ? 1 : &g_41b210)\n        field_8: (a1 >> 6 & 2) as u64\n    };\n    v2 = v7;\n    v3 = v6;\n    v0 = v5;\n    return format!(\"{}{}{}\", &v1, &v2, &v0);\n}\n",
+    "_ZN7uu_stty19print_control_chars17hed7af0204ba7e7a6E": "fn uu_stty::print_control_chars(a0: i64, a1: i8) -> long long {\n    let v0: u64;  // [bp-0xb8]\n    let v1: u32;  // [bp-0xb0]\n    let v2: u64;  // [bp-0xac]\n    let v3: u32;  // [bp-0xa4]\n    let v4: u64;  // [bp-0x80]\n    let v5: u64;  // [bp-0x48]\n    let v6: struct24;  // [bp-0x48]\n    let v7: u32;  // [bp-0x40]\n    let v8: u64;  // [bp-0x3c]\n    let v9: u32;  // [bp-0x34]\n    let v10: u64;  // [bp-0x30]\n    let v11: u64;  // [bp-0x28]\n    let v12: u64;  // [bp-0x20]\n    let v13: u64;  // [bp-0x18]\n    let v14: u64;  // [bp-0x10]\n    let v16: u64;  // r15\n    let v17: u64;  // r14\n    let v18: u64;  // r13\n    let v19: u64;  // r12\n    let v20: u64;  // rbx\n    let v21: std::io::stdio::Stdout;  // rax\n    let v22: i64;  // r12\n\n    v14 = v16;\n    v13 = v17;\n    v12 = v18;\n    v11 = v19;\n    v10 = v20;\n    v21 = 134;\n    if !(a1 & 1) {\n        return v21;\n    }\n    loop {\n        vvar_199{stack -72} = struct24 OrderedDict([(0, \ud835\udf19@64b [((4558445, None), vvar_142{stack -72}), ((4558224, None), None)])])\n        v4 = \"intr\" + v22;\n        uu_stty::control_char_to_string(&v6, *((a0 + *(&(&g_4e2e10)[v22] as &i64)) as &i8));\n        if (((0 ^ v6.field_0 as i64) & (0 ^ -(v5))) >> 63) as char {\n            break;\n        }\n        v3 = v9;\n        v2 = v8;\n        v0 = v6.field_0;\n        v1 = v7;\n        print!(\"{} = {}; \", &v4, &v0);\n        if v22 == 360 {\n            println!(\"min = {}; time = {};\", a0 + 6, a0 + 5);\n        }\n    }\n    return v21;\n}\n",
+    "_ZN7uu_stty20print_in_save_format17he259ed46e6739654E": "fn uu_stty::print_in_save_format(a0: i64) -> long long {\n    let v0: u8;  // [bp-0xbc]\n    let v1: u32;  // [bp-0xb8]\n    let v2: u32;  // [bp-0xb4]\n    let v3: core::fmt::Arguments;  // [bp-0xb0]\n    let v4: struct48;  // [bp-0x70]\n    let v5: u32;  // [bp-0x40]\n    let v6: u64;  // [bp-0x30]\n    let v7: u64;  // [bp-0x28]\n    let v8: u64;  // [bp-0x20]\n    let v9: u64;  // [bp-0x18]\n    let v10: u64;  // [bp-0x10]\n    let v12: u64;  // r15\n    let v13: u64;  // r14\n    let v14: u64;  // r13\n    let v15: u64;  // r12\n    let v16: u64;  // rbx\n    let v17: u8;  // dl\n\n    v10 = v12;\n    v9 = v13;\n    v8 = v14;\n    v7 = v15;\n    v6 = v16;\n    v1 = *((a0 + 104) as &i32);\n    v2 = *((a0 + 108) as &i32);\n    v0 = *((a0 + 112) as &i32);\n    v5 = *((a0 + 116) as &i32);\n    print!(\"{}:{}:{}:{}\", &v1, &v2, &v0, &v5 as u64);\n    v4 = struct48 {\n        field_0: 0\n        field_8: 32\n        field_16: *(a0 as &i128)\n        field_32: *((a0 + 16) as &i128)\n    };\n    if (core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next(&v4) & 1) {\n        do {\n            v0 = v17;\n            print!(\":{}\", &v0 as u32);\n        } while ((core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next(&v4) & 1));\n    }\n    v3 = core::fmt::Arguments {\n        pieces: [\"\\n\"]\n        args: []\n        fmt: 0\n    };\n    return std::io::stdio::_print(&v3);\n}\n",
+    "_ZN7uu_stty14print_settings17h6562ceefa3305078E": "fn uu_stty::print_settings(a0: i64, a1: i64) -> u64 {\n    let v0: u64;  // [bp-0x18]\n    let v1: u64;  // [bp-0x10]\n    let v3: u64;  // r14\n    let v4: u64;  // rbx\n    let v5: u64;  // rax\n    let v6: u8;  // bpl\n\n    v1 = v3;\n    v0 = v4;\n    if *((a1 + 41) as &i8) {\n        uu_stty::print_in_save_format(a0);\n    } else {\n        v5 = uu_stty::print_terminal_size(a0, a1);\n        if v5 == 134 {\n            v6 = *((a1 + 40) as &i8);\n            v5 = uu_stty::print_control_chars(a0, v6);\n            if v5 == 134 {\n                uu_stty::print_flags(a0, v6);\n                uu_stty::print_flags(a0, v6);\n                uu_stty::print_flags(a0, v6);\n                uu_stty::print_flags(a0, v6);\n            }\n        }\n    }\n    return v5;\n}\n",
+    "_ZN7uu_stty11print_flags17h1fca9bc374a8d8a1E": "fn uu_stty::print_flags(a0: i64, a1: i8) -> u64 {\n    let v0: core::fmt::Arguments;  // [bp-0x88]\n    let v1: core::fmt::rt::Argument;  // [bp-0x70]\n    let v2: core::fmt::rt::Argument;  // [bp-0x70]\n    let v3: i64;  // [bp-0x48]\n    let v4: u128;  // [bp-0x40]\n    let v5: u64;  // [bp-0x30]\n    let v6: u64;  // [bp-0x28]\n    let v7: u64;  // [bp-0x20]\n    let v8: u64;  // [bp-0x18]\n    let v9: u8;  // [bp-0x10]\n    let v11: u8;  // r15\n    let v12: u64;  // r14\n    let v13: u64;  // r13\n    let v14: u64;  // r12\n    let v15: u64;  // rbx\n    let v16: i64;  // rax\n    let v17: void*;  // r13\n    let v18: u8;  // al\n\n    v9 = v11;\n    v8 = v12;\n    v7 = v13;\n    v6 = v14;\n    v5 = v15;\n    v16 = a0;\n    v17 = 0;\n    loop {\n        v4 = v17[5124000] as i128;\n        if !v17[5124020] as i8 {\n            v17 += 32;\n            if v17 == 416 {\n                break;\n            }\n            continue;\n        }\n        v3 = v16;\n        v18 = <nix::sys::termios::InputFlags as uu_stty::TermiosFlag>::is_in(v17[5124016] as i32, *((v16 + 112) as &i32), v17[5123992] as i32, v17[5123996] as i32);\n        if v17[5123992] as i32 {\n            if ((v17[5124021] as i8 ^ 1 | a1) & v18) {\n                goto LABEL_459230;\n            }\n            goto LABEL_4591e0;\n        } else if !(a1 & 1) && !(v17[5124021] as i8 ^ v18) {\nLABEL_4591e0:\n            v16 = v3;\n            if v17 == 384 {\n                break;\n            }\n        } else {\n            if !v18 {\n                print!(\"-\");\n            }\nLABEL_459230:\n            print!(\"{} \", &v4);\n            v11 = 1;\n            v16 = v3;\n            v1 = v2;\n            if v17 == 384 {\n                break;\n            }\n        }\n    }\n    v1 = v1;\n    if (v11 & 1) {\n        v0 = core::fmt::Arguments {\n            pieces: [\"\\n\"]\n            args: []\n            fmt: 0\n        };\n        v16 = std::io::stdio::_print(&v0);\n    }\n    return v16;\n}\n",
+    "_ZN7uu_stty13apply_setting17h519146f657897442E": "fn uu_stty::apply_setting(a0: i64, a1: &mut [u8]) -> u64 {\n    let v0: u32;  // [bp-0x2c]\n    let v1: u64;  // [bp-0x28]\n    let v2: u64;  // [bp-0x20]\n    let v3: u64;  // [bp-0x18]\n    let v4: u64;  // [bp-0x10]\n    let v5: u64;  // [bp-0x8]\n    let v7: u64;  // r15\n    let v8: u64;  // r14\n    let v9: u64;  // r13\n    let v10: u64;  // r12\n    let v11: u64;  // rbx\n    let v12: u64;  // rsi\n    let v13: u64;  // rdx\n    let v14: u64;  // rax\n    let v15: struct712;  // rax\n    let v17: core::option::Option<&str>;  // rax\n    let v18: u64;  // r12\n    let v19: u64;  // rbx\n    let v20: u64;  // r15\n    let v21: u64;  // rax\n    let v22: &mut [u8];  // rax:rdx\n\n    v5 = v7;\n    v4 = v8;\n    v3 = v9;\n    v2 = v10;\n    v1 = v11;\n    v14 = uu_stty::apply_baud_rate_flag(a0, v12, v13);\n    v15 = v14 & -0x100 | 1;\n    if v14 != 2 {\n        return v15;\n    }\n    v0 = 0;\n    v22 = core::char::methods::encode_utf8_raw(&v0 as u32, v12, v13);\n    v17 = <&str as core::str::pattern::Pattern>::strip_prefix_of(v22.data_ptr, a1, v13) as u64;\n    v18 = v17;\n    match v17 {\n        Some(_) => {\n            v19 = v17;\n        },\n        None => {\n            v19 = v12;\n        },\n    }\n    v15 = uu_stty::apply_flag(a0, v19, v20, v17);\n    if v15 as u8 == 2 {\n        v15 = uu_stty::apply_flag(a0, v19, v20, v18);\n        if v15 as u8 == 2 {\n            v15 = uu_stty::apply_flag(a0, v19, v20, v18);\n            if v15 as u8 == 2 {\n                v21 = uu_stty::apply_flag(a0, v19, v20, v18);\n            }\n        }\n    }\n    return v15;\n}\n",
+    "_ZN7uu_stty10apply_flag17h3592b40468ad7979E": "fn uu_stty::apply_flag(a0: i64, a1: i64, a2: i64, a3: i8) -> u64 {\n    let v0: u64;  // [bp-0x28]\n    let v1: u64;  // [bp-0x20]\n    let v2: u64;  // [bp-0x18]\n    let v3: u64;  // [bp-0x10]\n    let v4: u64;  // [bp-0x8]\n    let v6: u64;  // r15\n    let v7: u64;  // r14\n    let v8: u64;  // r12\n    let v9: u64;  // rbx\n    let v10: u64;  // rax\n    let v11: std::io::stdio::Stdout;  // rdi, Other Possible Types: u64\n    let v12: core::fmt::rt::Argument;  // rax\n    let v13: core::fmt::Arguments;  // rax\n    let v14: u64;  // rax\n\n    v4 = v6;\n    v3 = v7;\n    v2 = v8;\n    v1 = v9;\n    v0 = v10;\n    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"ignbrk\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"brkint\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"ignpar\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"parmrk\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"inpck\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"istrip\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"inlcr\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"igncr\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"icrnl\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"ixoff\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"tandem\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"ixon\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"ixany\") && !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"imaxbel\") {\n        v12 = <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(a1, a2, \"iutf8\");\n        v13 = v12 & -0x100 | 2;\n        if !(v12 & 255) {\n            goto LABEL_459b21;\n        }\n    }\n    v14 = *(v11 as &i32);\n    if a3 {\n        if v14 {\n            goto LABEL_459b21;\n        }\n    } else {\n        if (v14 & 1) {\n            <nix::sys::termios::InputFlags as uu_stty::TermiosFlag>::apply(v11 + 4, a0, 0);\n        }\n    }\n    v13 = <nix::sys::termios::InputFlags as uu_stty::TermiosFlag>::apply(v11 + 24, a0, a3 ^ 1) & -0x100 | 1;\nLABEL_459b21:\n    return v13;\n}\n",
+    "_ZN7uu_stty20apply_baud_rate_flag17he6909650e23d0221E": "fn uu_stty::apply_baud_rate_flag(a0: i64, a1: i64, a2: i64) -> u8 {\n    let v0: u64;  // [bp-0x18]\n    let v1: u64;  // [bp-0x10]\n    let v2: u64;  // [bp-0x8]\n    let v4: u64;  // r15\n    let v5: u64;  // r14\n    let v6: u64;  // rbx\n    let v7: core::fmt::rt::Argument;  // rax\n    let v8: u8;  // al\n\n    v2 = v4;\n    v1 = v5;\n    v0 = v6;\n    if ... {\n        v8 = 2;\n        if !(<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(\"4000000\", a1, a2) & 255) {\n            goto LABEL_45a8f7;\n        }\n    }\n    core::result::Result<T,E>::expect(nix::sys::termios::cfsetospeed(a0, *((v7 + 16) as &i32)), \"Failed to set baud rate\", \"src/uu/stty/src/stty.rs\");\nLABEL_45a8f7:\n    return v8;\n}\n",
+    "_ZN7uu_stty6uu_app17hd6e5ef485fb27574E": "fn uu_stty::uu_app() -> : struct712 {\n    let a0: u64;  // rdi\n    let v0: struct712;  // [bp-0xab0], Other Possible Types: struct640\n    let v1: u64;  // [bp-0x7f4]\n    let v2: u32;  // [bp-0x7ec]\n    let v3: struct24;  // [bp-0x7e8], Other Possible Types: struct640\n    let v4: struct437;  // [bp-0x568], Other Possible Types: struct712, struct640\n    let v5: u64;  // [bp-0x2ac]\n    let v6: u32;  // [bp-0x2a4]\n    let v7: struct640;  // [bp-0x2a0]\n    let v8: u64;  // [bp-0x20]\n    let v9: u64;  // [bp-0x18]\n    let v10: u64;  // [bp-0x10]\n    let v11: u64;  // [bp-0x8]\n    let v13: u64;  // r15\n    let v14: u64;  // r14\n    let v15: u64;  // r12\n    let v16: u64;  // rbx\n    let v18: u64;  // rdx\n\n    v11 = v13;\n    v10 = v14;\n    v9 = v15;\n    v8 = v16;\n    v4 = clap_builder::builder::command::Command::new(uucore::util_name(), v18);\n    v0 = clap_builder::builder::command::Command::version(&v4);\n    v3 = uucore::format_usage(\"{} [-F DEVICE | --file=DEVICE] [SETTING]...\\n{} [-F DEVICE | --file=DEVICE] [-a|--all]\\n{} [-F DEVICE | --file=DEVICE] [-g|--save]\");\n    v4 = clap_builder::builder::command::Command::override_usage(&v0, &v3);\n    v0 = clap_builder::builder::command::Command::about(&v4);\n    memcpy(&v4, &v0, 700);\n    v5 = 549755814016 | v1;\n    v6 = v2;\n    v0 = clap_builder::builder::arg::Arg::new(\"all\");\n    v3 = clap_builder::builder::arg::Arg::short(&v0, 97);\n    v0 = clap_builder::builder::arg::Arg::long(&v3, \"all\");\n    v3 = clap_builder::builder::arg::Arg::help(&v0, \"print all current settings in human-readable form\");\n    v7 = clap_builder::builder::arg::Arg::action(&v3, 2);\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v7);\n    v4 = clap_builder::builder::arg::Arg::new(\"save\");\n    v3 = clap_builder::builder::arg::Arg::short(&v4, 103);\n    v4 = clap_builder::builder::arg::Arg::long(&v3, \"save\");\n    v3 = clap_builder::builder::arg::Arg::help(&v4, \"print all current settings in a stty-readable form\");\n    v7 = clap_builder::builder::arg::Arg::action(&v3, 2);\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v7);\n    v0 = clap_builder::builder::arg::Arg::new(\"file\");\n    v3 = clap_builder::builder::arg::Arg::short(&v0, 70);\n    v0 = clap_builder::builder::arg::Arg::long(&v3, \"file\");\n    v3 = clap_builder::builder::arg::Arg::value_hint(&v0);\n    v0 = clap_builder::builder::arg::Arg::value_name(&v3);\n    v3 = clap_builder::builder::arg::Arg::help(&v0, \"open and use the specified DEVICE instead of stdin\");\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v3);\n    v4 = clap_builder::builder::arg::Arg::new(\"settings\");\n    v3 = clap_builder::builder::arg::Arg::action(&v4, 1);\n    v4 = clap_builder::builder::arg::Arg::help(&v3, \"settings to change\");\n    clap_builder::builder::command::Command::arg(a0, &v0, &v4);\n    return;\n}\n",
+    "_ZN7uu_stty10tiocgwinsz17hc5ed27eca5acd6afE": "fn uu_stty::tiocgwinsz(a0: i32, a1: i64) -> u64 {\n    let v0: u64;  // [bp-0x8]\n    let v2: u64;  // rax\n\n    v0 = v2;\n    return nix::errno::<impl nix::errno::consts::Errno>::result(ioctl(a0, 21523) as u32);\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN7uu_stty6uumain17hcee4d0c4c52cd202E": {
+      "uucore::mods::error::get_exit_code": 1,
+      "UnresolvableCallTarget": 2,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "uu_stty::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN7uu_stty6uumain6uumain17hc483f49143486963E": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uu_stty::stty": 1,
+      "uu_stty::Options::from": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_stty::uu_app": 1
+    },
+    "_ZN7uu_stty7Options4from17h626d4b5746ed2b17E": {
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "std::fs::OpenOptions::open": 1,
+      "std::io::stdio::stdout": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 2
+    },
+    "_ZN7uu_stty4stty17h530db3b548de0632E": {
+      "core::result::Result<T,E>::expect": 2,
+      "uu_stty::print_settings": 1,
+      "nix::sys::termios::tcgetattr": 1,
+      "<uu_stty::Device as std::os::fd::owned::AsFd>::as_fd": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1
+    },
+    "_ZN7uu_stty19print_terminal_size17h7d50ec96cc45cfabE": {
+      "std::io::stdio::_print": 1,
+      "<core::cell::RefCell<T> as core::clone::Clone>::clone": 1,
+      "nix::sys::termios::cfgetospeed": 1
+    },
+    "_ZN7uu_stty22control_char_to_string17hcb31aba3c5c265dbE": {
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1
+    },
+    "_ZN7uu_stty19print_control_chars17hed7af0204ba7e7a6E": {
+      "uu_stty::control_char_to_string": 1
+    },
+    "_ZN7uu_stty20print_in_save_format17he259ed46e6739654E": {
+      "std::io::stdio::_print": 1
+    },
+    "_ZN7uu_stty14print_settings17h6562ceefa3305078E": {
+      "uu_stty::print_in_save_format": 1,
+      "uu_stty::print_flags": 4,
+      "uu_stty::print_control_chars": 1,
+      "uu_stty::print_terminal_size": 1
+    },
+    "_ZN7uu_stty11print_flags17h1fca9bc374a8d8a1E": {
+      "std::io::stdio::_print": 1,
+      "<nix::sys::termios::InputFlags as uu_stty::TermiosFlag>::is_in": 1
+    },
+    "_ZN7uu_stty13apply_setting17h519146f657897442E": {
+      "uu_stty::apply_flag": 4,
+      "<&str as core::str::pattern::Pattern>::strip_prefix_of": 1,
+      "core::char::methods::encode_utf8_raw": 1,
+      "uu_stty::apply_baud_rate_flag": 1
+    },
+    "_ZN7uu_stty10apply_flag17h3592b40468ad7979E": {
+      "<nix::sys::termios::InputFlags as uu_stty::TermiosFlag>::apply": 2,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1
+    },
+    "_ZN7uu_stty20apply_baud_rate_flag17he6909650e23d0221E": {
+      "core::result::Result<T,E>::expect": 1,
+      "nix::sys::termios::cfsetospeed": 1
+    },
+    "_ZN7uu_stty6uu_app17hd6e5ef485fb27574E": {
+      "clap_builder::builder::command::Command::arg": 4,
+      "clap_builder::builder::arg::Arg::help": 4,
+      "clap_builder::builder::arg::Arg::action": 3,
+      "clap_builder::builder::arg::Arg::new": 4,
+      "clap_builder::builder::arg::Arg::value_name": 1,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::arg::Arg::long": 3,
+      "clap_builder::builder::arg::Arg::short": 3,
+      "memcpy": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN7uu_stty10tiocgwinsz17hc5ed27eca5acd6afE": {
+      "nix::errno::<impl nix::errno::consts::Errno>::result": 1,
+      "ioctl": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN7uu_stty6uumain17hcee4d0c4c52cd202E": {
+      "eprintln": 2,
+      "eprint": 1,
+      "format": 1
+    },
+    "_ZN7uu_stty6uumain6uumain17hc483f49143486963E": {},
+    "_ZN7uu_stty7Options4from17h626d4b5746ed2b17E": {},
+    "_ZN7uu_stty4stty17h530db3b548de0632E": {},
+    "_ZN7uu_stty19print_terminal_size17h7d50ec96cc45cfabE": {
+      "print": 3
+    },
+    "_ZN7uu_stty22control_char_to_string17hcb31aba3c5c265dbE": {
+      "format": 1
+    },
+    "_ZN7uu_stty19print_control_chars17hed7af0204ba7e7a6E": {
+      "println": 1,
+      "print": 1
+    },
+    "_ZN7uu_stty20print_in_save_format17he259ed46e6739654E": {
+      "print": 2
+    },
+    "_ZN7uu_stty14print_settings17h6562ceefa3305078E": {},
+    "_ZN7uu_stty11print_flags17h1fca9bc374a8d8a1E": {
+      "print": 2
+    },
+    "_ZN7uu_stty13apply_setting17h519146f657897442E": {},
+    "_ZN7uu_stty10apply_flag17h3592b40468ad7979E": {},
+    "_ZN7uu_stty20apply_baud_rate_flag17he6909650e23d0221E": {},
+    "_ZN7uu_stty6uu_app17hd6e5ef485fb27574E": {},
+    "_ZN7uu_stty10tiocgwinsz17hc5ed27eca5acd6afE": {}
+  },
+  "node_counts": {
+    "_ZN7uu_stty6uumain17hcee4d0c4c52cd202E": 10,
+    "_ZN7uu_stty6uumain6uumain17hc483f49143486963E": 8,
+    "_ZN7uu_stty7Options4from17h626d4b5746ed2b17E": 12,
+    "_ZN7uu_stty4stty17h530db3b548de0632E": 11,
+    "_ZN7uu_stty19print_terminal_size17h7d50ec96cc45cfabE": 40,
+    "_ZN7uu_stty22control_char_to_string17hcb31aba3c5c265dbE": 4,
+    "_ZN7uu_stty19print_control_chars17hed7af0204ba7e7a6E": 6,
+    "_ZN7uu_stty20print_in_save_format17he259ed46e6739654E": 5,
+    "_ZN7uu_stty14print_settings17h6562ceefa3305078E": 9,
+    "_ZN7uu_stty11print_flags17h1fca9bc374a8d8a1E": 13,
+    "_ZN7uu_stty13apply_setting17h519146f657897442E": 13,
+    "_ZN7uu_stty10apply_flag17h3592b40468ad7979E": 9,
+    "_ZN7uu_stty20apply_baud_rate_flag17he6909650e23d0221E": 5,
+    "_ZN7uu_stty6uu_app17hd6e5ef485fb27574E": 31,
+    "_ZN7uu_stty10tiocgwinsz17hc5ed27eca5acd6afE": 2
+  },
+  "variable_types": {
+    "_ZN7uu_stty6uumain17hcee4d0c4c52cd202E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_stty6uumain6uumain17hc483f49143486963E": {
+      "stack_104": [
+        [
+          "struct",
+          56
+        ]
+      ],
+      "stack_0": [
+        [
+          "Result",
+          80
+        ],
+        [
+          "struct",
+          48
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "struct",
+          48
+        ]
+      ]
+    },
+    "_ZN7uu_stty7Options4from17h626d4b5746ed2b17E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "Result",
+          80
+        ],
+        [
+          "struct",
+          56
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "Result",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_120": [
+        [
+          "struct",
+          64
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          16
+        ]
+      ]
+    },
+    "_ZN7uu_stty4stty17h530db3b548de0632E": {
+      "stack_344": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "struct",
+          48
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "Option",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "struct",
+          128
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "Result",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "struct",
+          64
+        ]
+      ]
+    },
+    "_ZN7uu_stty19print_terminal_size17h7d50ec96cc45cfabE": {
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          72
+        ],
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_10": [
+        [
+          "primitive",
+          null
+        ]
+      ]
+    },
+    "_ZN7uu_stty22control_char_to_string17hcb31aba3c5c265dbE": {
+      "stack_8": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7uu_stty19print_control_chars17hed7af0204ba7e7a6E": {
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_132": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_124": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_stty20print_in_save_format17he259ed46e6739654E": {
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_88": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          48
+        ]
+      ]
+    },
+    "_ZN7uu_stty14print_settings17h6562ceefa3305078E": {
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7uu_stty11print_flags17h1fca9bc374a8d8a1E": {
+      "stack_120": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          48
+        ]
+      ]
+    },
+    "_ZN7uu_stty13apply_setting17h519146f657897442E": {
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "Option",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_stty10apply_flag17h3592b40468ad7979E": {
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          48
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "struct",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_stty20apply_baud_rate_flag17he6909650e23d0221E": {
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "struct",
+          16
+        ]
+      ]
+    },
+    "_ZN7uu_stty6uu_app17hd6e5ef485fb27574E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2736": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2728": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2720": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2712": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1360": [
+        [
+          "struct",
+          448
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_720": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_2060": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_708": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2068": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_716": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2072": [
+        [
+          "struct",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_stty10tiocgwinsz17hc5ed27eca5acd6afE": {
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

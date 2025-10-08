@@ -1,0 +1,1245 @@
+{
+  "decompilation": {
+    "_ZN10check_docs4main17ha386782cabb158e1E": "long long check_docs::main()\n{\n    int v0;  // [bp-0x1e8], Other Possible Types: char, unsigned long long\n    unsigned long long v1;  // [bp-0x1e8]\n    unsigned long long v2;  // [bp-0x1e0]\n    unsigned long long v3;  // [bp-0x1e0]\n    int v4;  // [bp-0x1d8], Other Possible Types: unsigned long long\n    unsigned long long v5;  // [bp-0x1d8]\n    int v6;  // [bp-0x1d0], Other Possible Types: char\n    int v7;  // [bp-0x1c8]\n    unsigned long long v8;  // [bp-0x1c0]\n    int v9;  // [bp-0x1b8]\n    unsigned long long v10;  // [bp-0x1b0]\n    unsigned long long v11;  // [bp-0x1a8]\n    int v12;  // [bp-0x198]\n    unsigned long long v13;  // [bp-0x190]\n    unsigned long long v14;  // [bp-0x188]\n    int v15;  // [bp-0x178]\n    unsigned long long v16;  // [bp-0x170]\n    unsigned long long v17;  // [bp-0x168]\n    int v18;  // [bp-0x158]\n    unsigned long long v19;  // [bp-0x150]\n    unsigned long long v20;  // [bp-0x148]\n    char v21;  // [bp-0x138]\n    unsigned long long v22;  // [bp-0x128]\n    unsigned long long v23;  // [bp-0x118]\n    char v24;  // [bp-0x110]\n    unsigned long long v25;  // [bp-0x108]\n    unsigned long long v26;  // [bp-0x100]\n    int v27;  // [bp-0xf8], Other Possible Types: char\n    unsigned long long v28;  // [bp-0xe8]\n    int v29;  // [bp-0xd8]\n    unsigned long long v30;  // [bp-0xc8]\n    unsigned long long v31;  // [bp-0xc0]\n    unsigned long long v32;  // [bp-0xb8]\n    unsigned long long v33;  // [bp-0xb0]\n    unsigned long long v34;  // [bp-0xa8]\n    unsigned long long v35;  // [bp-0xa0]\n    unsigned long long v36;  // [bp-0x98]\n    unsigned long long v37;  // [bp-0x90]\n    unsigned long long v38;  // [bp-0x88]\n    unsigned long long v39;  // [bp-0x80]\n    unsigned long long v40;  // [bp-0x78]\n    unsigned long long v41;  // [bp-0x70]\n    char v42;  // [bp-0x68]\n    unsigned long long v43;  // [bp-0x58]\n    char v44;  // [bp-0x48]\n    unsigned long long v45;  // [bp-0x38]\n    unsigned long long v47;  // r15\n    int v48;  // xmm1\n\n    check_docs::search_for_pattern(&v0, \"ANCHOR.{{#include.md./docs/src/SUMMARY.md./docs/src/utf8info\", 6, \".{{#include.md./docs/src/SUMMARY.md./docs/src/utf8info\", 1);\n    if ((char)(((0 ^ v0) & (0 ^ -(v0))) >> 63))\n        return v2;\n    check_docs::extract_starts_and_ends(&v0, v2, v4);\n    v47 = v2;\n    if (v0 != 0x8000000000000000)\n    {\n        memcpy(&v44, &v6, 16);\n        v45 = v8;\n        v39 = v0;\n        v40 = v47;\n        v41 = v4;\n        check_docs::filter_valid_anchors(&v0, &v39, &v44);\n        v22 = v4;\n        memcpy(&v21, &v0, 16);\n        v11 = v8;\n        *((int128_t *)&v9) = *((int128_t *)&v6);\n        check_docs::search_for_pattern(&v0, \"{{#include.md./docs/src/SUMMARY.md./docs/src/utf8info\", 10, \".{{#include.md./docs/src/SUMMARY.md./docs/src/utf8info\", 1);\n        v47 = v2;\n        if (v0 != 0x8000000000000000)\n        {\n            v30 = v0;\n            v31 = v47;\n            v32 = v4;\n            check_docs::parse_includes(&v0, &v30);\n            v43 = v4;\n            memcpy(&v42, &v0, 16);\n            v14 = v8;\n            *((int128_t *)&v12) = *((int128_t *)&v6);\n            v28 = v22;\n            memcpy(&v27, &v21, 16);\n            check_docs::validate_includes(&v0, &v42, &v27);\n            v17 = v4;\n            *((int128_t *)&v15) = *((int128_t *)&v0);\n            v20 = v8;\n            *((int128_t *)&v18) = *((int128_t *)&v6);\n            check_docs::search_for_pattern(&v0, \".md./docs/src/SUMMARY.md./docs/src/utf8info\", 3, \"./docs/src/SUMMARY.md./docs/src/utf8info\", 21);\n            v47 = v2;\n            if (v0 != 0x8000000000000000)\n            {\n                v33 = v0;\n                v34 = v47;\n                v35 = v4;\n                check_docs::parse_md_files(&v27, &v33, \"./docs/src/utf8info\", 11);\n                check_docs::find_files(&v0, \"*.md\", 4, \"./docs/src/utf8info\", 11, \"SUMMARY.mdwarninginclude pathsanchors\", 10);\n                v47 = v2;\n                if (v0 == 0x8000000000000000)\n                {\n                    core::ptr::drop_in_place<std::collections::hash::set::HashSet<std::path::PathBuf>>(&v27);\n                }\n                else\n                {\n                    v36 = v0;\n                    v37 = v47;\n                    v38 = v4;\n                    v48 = *((int128_t *)&v28);\n                    v7 = v29;\n                    v4 = v48;\n                    v0 = v27;\n                    check_docs::validate_md_files(&v24, &v0, &v36);\n                    v23 = v20;\n                    check_docs::report_errors(\"warninginclude pathsanchors\", 7, v19, v20);\n                    check_docs::report_errors(\"include pathsanchors\", 13, v13, v14);\n                    check_docs::report_errors(\"anchors\", 7, v10, v11);\n                    check_docs::report_errors(&g_446320, 8, v16, v17);\n                    check_docs::report_errors(&g_446750, 8, v25, v26);\n                    if (!v11 && !v17 && !v14 && !v23 && !v26)\n                    {\n                        v24.drop_in_place<alloc::vec::Vec<anyhow::Error>>();\n                        (char)v18.drop_in_place<alloc::vec::Vec<anyhow::Error>>();\n                        (char)v15.drop_in_place<alloc::vec::Vec<anyhow::Error>>();\n                        (char)v12.drop_in_place<alloc::vec::Vec<anyhow::Error>>();\n                        (char)v9.drop_in_place<alloc::vec::Vec<anyhow::Error>>();\n                        core::ptr::drop_in_place<alloc::string::String>(v0, v2);\n                        return 0;\n                    }\n                    v1 = &g_5d28c8;\n                    v3 = 1;\n                    v5 = 8;\n                    *((uint128_t *)&v6) = 0;\n                    v47 = ::0x4dfda0::anyhow::__private::format_err(&v1);\n                    v24.drop_in_place<alloc::vec::Vec<anyhow::Error>>();\n                }\n            }\n            (char)v18.drop_in_place<alloc::vec::Vec<anyhow::Error>>();\n            (char)v15.drop_in_place<alloc::vec::Vec<anyhow::Error>>();\n            (char)v12.drop_in_place<alloc::vec::Vec<anyhow::Error>>();\n        }\n        (char)v9.drop_in_place<alloc::vec::Vec<anyhow::Error>>();\n        v21.drop_in_place<alloc::vec::Vec<check_docs::Anchor>>();\n    }\n    core::ptr::drop_in_place<alloc::string::String>(v0, v2);\n    return v47;\n}\n",
+    "_ZN10check_docs13report_errors17h75874821b4daa881E": "long long check_docs::report_errors(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long a3)\n{\n    char *v0;  // [bp-0x88]\n    unsigned long long v1;  // [bp-0x80]\n    unsigned long long v2;  // [bp-0x78]\n    unsigned long long v3;  // [bp-0x70]\n    unsigned long long v4;  // [bp-0x68]\n    char *v5;  // [bp-0x60]\n    unsigned long long v6;  // [bp-0x58]\n    void* v7;  // [bp-0x50]\n    unsigned long long v8;  // [bp-0x40]\n    unsigned long long v9;  // [bp-0x38]\n    unsigned long long v11;  // rbx\n    unsigned long long v12;  // rbx\n    unsigned long long v13;  // rax\n    unsigned long v14;  // rbx\n    unsigned long v15;  // rax\n\n    v8 = a0;\n    v9 = a1;\n    if (!a3)\n        return v15;\n    v0 = &v8;\n    v1 = <&T as core::fmt::Display>::fmt;\n    v3 = &g_5d33f8;\n    v4 = 2;\n    v7 = 0;\n    v5 = &v0;\n    v6 = 1;\n    std::io::stdio::_eprint(&v3);\n    v11 = a3 * 8;\n    do\n    {\n        v12 = v11;\n        v2 = a2;\n        a2 += 8;\n        v0 = &v2;\n        v1 = <&T as core::fmt::Display>::fmt;\n        v3 = &g_5d3418;\n        v4 = 2;\n        v7 = 0;\n        v5 = &v0;\n        v6 = 1;\n        v13 = std::io::stdio::_eprint(&v3);\n        v14 = v12 - 8;\n        v11 = v14;\n    } while (v12 != 8);\n    return v13;\n}\n",
+    "_ZN10check_docs17validate_includes17h41bae39804dee97eE": "long long check_docs::validate_includes(struct_0 *a0, unsigned long long a1, unsigned long long a2[3])\n{\n    char v0;  // [bp-0xa8]\n    unsigned long long v1;  // [bp-0x98]\n    char v2;  // [bp-0x88], Other Possible Types: unsigned long\n    unsigned long long v3;  // [bp-0x80]\n    char *v4;  // [bp-0x78], Other Possible Types: unsigned long long\n    char v5;  // [bp-0x70]\n    unsigned long long v6;  // [bp-0x60]\n    int v7;  // [bp-0x58], Other Possible Types: char\n    unsigned long long v8;  // [bp-0x48]\n    unsigned long long v9[3];  // [bp-0x38]\n    int v10;  // [bp-0x30], Other Possible Types: char\n    char v11;  // [bp-0x20]\n\n    v7.into_iter(a1);\n    v9[0] = a2;\n    v2.partition_map(&v7);\n    v1 = v4;\n    memcpy(&v0, &v2, 16);\n    v8 = v6;\n    memcpy(&v7, &v5, 16);\n    v2 = a2[1];\n    v3 = a2[2] * 56 + a2[1];\n    v4 = &v0;\n    v10.collect(&v2);\n    a0->field_10 = v8;\n    *((void*)&a0->field_0) = v7;\n    *((void*)&(&a0->field_10)[1]) = v10;\n    *((long long *)((char *)&a0->field_18 + 8)) = *((long long *)&v11);\n    v0.drop_in_place<alloc::vec::Vec<check_docs::Anchor>>();\n    a2.drop_in_place<alloc::vec::Vec<check_docs::Anchor>>();\n    return a0;\n}\n",
+    "_ZN10check_docs14parse_includes17h98cae0f800d53a09E": "long long check_docs::parse_includes(unsigned long long a0, unsigned long long a1)\n{\n    char v0;  // [bp-0x58]\n    char v1;  // [bp-0x48]\n    char v2;  // [bp-0x30]\n    char v3;  // [bp-0x20]\n\n    v0.new(\"^(\\\\S+):(\\\\d+):\\\\s*\\\\{\\\\{\\\\s*#include\\\\s*(\\\\S+?)\\\\s*(?::\\\\s*(\\\\S+)\\\\s*)?\\\\}\\\\}could not construct regexscripts/check-docs/src/lib.rs/home/34r7hm4n/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-1.11.3/src/regex/string.rs\", 64);\n    v2.expect(&v0, &g_5d3468);\n    memcpy(&v0, &v2, 16);\n    memcpy(&v1, &v3, 16);\n    check_docs::parse_includes::{{closure}}(a0, a1, &v0);\n    core::ptr::drop_in_place<alloc::string::String>(a1);\n    return a0;\n}\n",
+    "_ZN10check_docs20filter_valid_anchors17h39bbb345caf4f14fE": "long long check_docs::filter_valid_anchors(struct_0 *a0, unsigned long long a1, unsigned long long a2[3])\n{\n    unsigned long long v0[3];  // [bp-0x140]\n    int v1;  // [bp-0x138], Other Possible Types: char\n    unsigned long long v2;  // [bp-0x128]\n    char v3;  // [bp-0x120]\n    unsigned long long v4;  // [bp-0x110]\n    int v5;  // [bp-0x108]\n    unsigned long long v6;  // [bp-0x100]\n    unsigned long long v7;  // [bp-0xf8]\n    char v8;  // [bp-0xe8]\n    unsigned long long v9;  // [bp-0xd8]\n    int v10;  // [bp-0xc8], Other Possible Types: char\n    unsigned long v11;  // [bp-0xb8]\n    char v12;  // [bp-0xb0]\n    char *v13;  // [bp-0x90]\n    char v14;  // [bp-0x88]\n    char v15;  // [bp-0x70]\n\n    v0[0] = a2;\n    v12.into_iter(a1);\n    v13 = &v0;\n    v1.partition_map(&v12);\n    v5 = v1;\n    v7 = v2;\n    memcpy(&v8, &v3, 16);\n    v9 = v4;\n    check_docs::filter_unused_ends(&v12, a2[1], a2[2], v6, v2);\n    v1.into_iter(&v12);\n    v14.collect(&v1);\n    v1.into_iter(&(char)v5);\n    v10.collect(&v1);\n    v12.into_iter(&v8);\n    v1.into_iter(&v14);\n    v15.chain(&v12, &v1);\n    v1.collect(&v15);\n    a0->field_10 = v11;\n    *((void*)&a0->field_0) = v10;\n    *((void*)&(&a0->field_10)[1]) = v1;\n    *((unsigned long long *)((char *)&a0->field_18 + 8)) = v2;\n    a2.drop_in_place<alloc::vec::Vec<check_docs::Anchor>>();\n    return a0;\n}\n",
+    "_ZN10check_docs18filter_unused_ends17h49a7d1140d6f97f2E": "long long check_docs::filter_unused_ends(unsigned long long a0, unsigned long long a1, unsigned long a2, unsigned long long a3, unsigned long long a4)\n{\n    unsigned long long v0;  // [bp-0x28]\n    unsigned long long v1;  // [bp-0x20]\n    unsigned long long v2;  // [bp-0x18]\n    unsigned long long v3;  // [bp-0x10]\n\n    v0 = a1;\n    v1 = a2 * 56 + a1;\n    v2 = a3;\n    v3 = a4;\n    a0.collect(&v0);\n    return a0;\n}\n",
+    "_ZN10check_docs29check_validity_of_anchor_pair17hd8345c0881509e49E": "long long check_docs::check_validity_of_anchor_pair(struct_0 *a0, struct_1 *a1)\n{\n    struct_0 *v0;  // [bp-0x60]\n    struct_1 *v1;  // [bp-0x58]\n    char *v2;  // [bp-0x50]\n    unsigned long long v3;  // [bp-0x48]\n    char *v4;  // [bp-0x40]\n    unsigned long long v5;  // [bp-0x38]\n    unsigned long long v6;  // [bp-0x30]\n    unsigned long long v7;  // [bp-0x28]\n    char *v8;  // [bp-0x20]\n    unsigned long long v9;  // [bp-0x18]\n    void* v10;  // [bp-0x10]\n\n    v0 = a0;\n    v1 = a1;\n    if (a0->field_30 > a1->field_30)\n    {\n        v2 = &v1;\n        v3 = <&T as core::fmt::Debug>::fmt;\n        v4 = &v0;\n        v5 = <&T as core::fmt::Debug>::fmt;\n        v6 = &g_5d3568;\n        v7 = 2;\n        v10 = 0;\n        v8 = &v2;\n        v9 = 2;\n        return ::0x4e9780::anyhow::__private::format_err(&v6);\n    }\n    return 0;\n}\n",
+    "_ZN10check_docs23extract_starts_and_ends17h30dde6298c2e4524E": "long long check_docs::extract_starts_and_ends(void* a0, unsigned long long a1, unsigned long long a2)\n{\n    int v0;  // [bp-0xb8], Other Possible Types: char\n    unsigned long long v1;  // [bp-0xa8]\n    int v2;  // [bp-0x98], Other Possible Types: char\n    char v3;  // [bp-0x90]\n    unsigned long long v4;  // [bp-0x88]\n    char v5;  // [bp-0x80]\n    char v6;  // [bp-0x70], Other Possible Types: unsigned long long\n    unsigned long long v7;  // [bp-0x68]\n    unsigned long long v8;  // [bp-0x60]\n    unsigned long long v9;  // [bp-0x58]\n    unsigned long long v10;  // [bp-0x50]\n    unsigned long long v11;  // [bp-0x48]\n    unsigned long long v12;  // [bp-0x40]\n    int v13;  // [bp-0x38], Other Possible Types: char\n    unsigned long long v14;  // [bp-0x28]\n    unsigned long long v16;  // rax\n    unsigned long long v17;  // rax\n\n    v2.new(\"^(.+):(\\\\d+):\\\\s*(?:/{2,}|/\\\\*)\\\\s*ANCHOR\\\\s*:\\\\s*([\\\\w_-]+)\\\\s*(?:\\\\*/)?^(.+):(\\\\d+):\\\\s*(?:/{2,}|/\\\\*)\\\\s*ANCHOR_END\\\\s*:\\\\s*([\\\\w_-]+)\\\\s*(?:\\\\*/)?\\\\((.*\\\\.md)\\\\) could not canonicalize md pathfile `` not in SUMMARY.mdFailed running `grep` command for pattern ''\", 64);\n    memcpy(&v0, &v3, 16);\n    v1 = *((long long *)&v5);\n    if (*((long long *)&v2))\n    {\n        v14 = v1;\n        memcpy(&v13, &v0, 16);\n        v12 = *((long long *)&v2);\n        check_docs::extract_starts_and_ends::{{closure}}(&v6, a1, a2, &v12);\n        v16 = v7;\n        if (v6 != 0x8000000000000000)\n        {\n            v9 = v6;\n            v10 = v16;\n            v11 = v8;\n            v2.new(\"^(.+):(\\\\d+):\\\\s*(?:/{2,}|/\\\\*)\\\\s*ANCHOR_END\\\\s*:\\\\s*([\\\\w_-]+)\\\\s*(?:\\\\*/)?\\\\((.*\\\\.md)\\\\) could not canonicalize md pathfile `` not in SUMMARY.mdFailed running `grep` command for pattern ''\", 68);\n            memcpy(&v0, &v3, 16);\n            v1 = *((long long *)&v5);\n            if (*((long long *)&v2))\n            {\n                v14 = v1;\n                v13 = v0;\n                v12 = *((long long *)&v2);\n                check_docs::extract_starts_and_ends::{{closure}}(&v6, a1, a2, &v12);\n                v17 = v7;\n                if (v6 != 0x8000000000000000)\n                {\n                    *((unsigned long long *)&a0[16]) = v11;\n                    *((int128_t *)a0) = *((int128_t *)&v9);\n                    *((unsigned long long *)&a0[24]) = v6;\n                    *((unsigned long long *)&a0[32]) = v7;\n                    *((unsigned long long *)&a0[40]) = v8;\n                    return a0;\n                }\n            }\n            else\n            {\n                v4 = v1;\n                v2 = v0;\n                v17 = v2.from();\n            }\n            *((unsigned long long *)&a0[8]) = v17;\n            *((unsigned long long *)a0) = 0x8000000000000000;\n            v9.drop_in_place<alloc::vec::Vec<check_docs::Anchor>>();\n            return a0;\n        }\n    }\n    else\n    {\n        v4 = v1;\n        memcpy(&v2, &v0, 16);\n        v16 = v2.from();\n    }\n    *((unsigned long long *)&a0[8]) = v16;\n    *((unsigned long long *)a0) = 0x8000000000000000;\n    return a0;\n}\n",
+    "_ZN10check_docs14parse_md_files17hf10b783de1f7744bE": "long long check_docs::parse_md_files(unsigned long long a0, unsigned long long a1[3], unsigned long long a2, unsigned long long a3)\n{\n    unsigned long long v0;  // [bp-0xa8]\n    unsigned long long v1;  // [bp-0xa0]\n    char *v2;  // [bp-0x98], Other Possible Types: char\n    char *v3;  // [bp-0x90]\n    void* v4;  // [bp-0x88]\n    unsigned long v5;  // [bp-0x80]\n    char v6;  // [bp-0x78]\n    unsigned short v7;  // [bp-0x48]\n    char v8;  // [bp-0x40]\n\n    v0 = a2;\n    v1 = a3;\n    v2.new(\"\\\\((.*\\\\.md)\\\\) could not canonicalize md pathfile `` not in SUMMARY.mdFailed running `grep` command for pattern ''\", 12);\n    v8.expect(&v2, &g_5d35d0);\n    v6.into_searcher(a1[1], a1[2]);\n    v3 = &v8;\n    v4 = 0;\n    v5 = a1[2];\n    v7 = 0;\n    v2 = &v0;\n    a0.collect(&v2);\n    core::ptr::drop_in_place<regex::regex::string::Regex>(&v8);\n    core::ptr::drop_in_place<alloc::string::String>(a1);\n    return a0;\n}\n",
+    "_ZN10check_docs17validate_md_files17ha2d5d22a4b1fbbc4E": "long long check_docs::validate_md_files(unsigned long long a0, unsigned long long a1, unsigned long long a2[3])\n{\n    unsigned long long v0;  // [bp-0x70]\n    void* v1;  // [bp-0x68]\n    unsigned long v2;  // [bp-0x60]\n    char v3;  // [bp-0x58]\n    unsigned short v4;  // [bp-0x28]\n\n    v3.into_searcher(a2[1], a2[2]);\n    v1 = 0;\n    v2 = a2[2];\n    v4 = 0;\n    v0 = a1;\n    a0.collect(&v0);\n    core::ptr::drop_in_place<alloc::string::String>(a2);\n    core::ptr::drop_in_place<std::collections::hash::set::HashSet<std::path::PathBuf>>(a1);\n    return a0;\n}\n",
+    "_ZN10check_docs18search_for_pattern17hb802ea78856797e4E": "long long check_docs::search_for_pattern(void* a0, unsigned long long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4)\n{\n    unsigned long long v0;  // [bp-0x1a8]\n    unsigned long long v1;  // [bp-0x1a0]\n    char *v2;  // [sp-0x198], Other Possible Types: char\n    unsigned long long v3;  // [bp-0x190]\n    unsigned long long v4;  // [bp-0x188]\n    char v5;  // [bp-0x160]\n    char v6;  // [bp-0x148]\n    char v7;  // [bp-0x130]\n    char v8;  // [bp-0x128], Other Possible Types: unsigned long long\n    int v9;  // [bp-0x120], Other Possible Types: unsigned long long\n    char *v10;  // [bp-0x118]\n    unsigned long long v11;  // [bp-0x110]\n    void* v12;  // [bp-0x108]\n    char v13;  // [bp-0x48]\n\n    v0 = a1;\n    v1 = a2;\n    v8.new(\"grepb\");\n    v8.arg(\"-H-n-r--binary-files=without-match--exclude-dir=check-docsfailed grep commandFailed running `find` command for pattern \", 2);\n    v8.arg(\"-n-r--binary-files=without-match--exclude-dir=check-docsfailed grep commandFailed running `find` command for pattern \", 2);\n    v8.arg(\"-r--binary-files=without-match--exclude-dir=check-docsfailed grep commandFailed running `find` command for pattern \", 2);\n    v8.arg(\"--binary-files=without-match--exclude-dir=check-docsfailed grep commandFailed running `find` command for pattern \", 28);\n    v8.arg(\"--exclude-dir=check-docsfailed grep commandFailed running `find` command for pattern \", 24);\n    v8.arg(a1, a2);\n    v8.arg(a3, a4);\n    v2.output(&v8);\n    v5.expect(&v2, \"failed grep commandFailed running `find` command for pattern \", 19, &g_5d36a8);\n    core::ptr::drop_in_place<std::process::Command>(&v8);\n    if (*((int *)&v7))\n    {\n        v2 = &v0;\n        v3 = <&T as core::fmt::Display>::fmt;\n        v8 = &g_5d3688;\n        v9 = 2;\n        v12 = 0;\n        v10 = &v2;\n        v11 = 1;\n        v13.map_or_else(0, a2, &v8);\n        *((long long *)&a0[8]) = v13.msg();\n        *((unsigned long long *)a0) = 0x8000000000000000;\n        core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&v5);\n    }\n    else\n    {\n        v8.from_utf8(&v5);\n        memcpy(&v2, &(char)v9, 16);\n        v4 = v11;\n        if ((char)(((0 ^ v8) & (0 ^ -(v8))) >> 63))\n        {\n            *((unsigned long long *)&a0[16]) = v4;\n            *((int128_t *)a0) = *((int128_t *)&v2);\n        }\n        else\n        {\n            v11 = v4;\n            *((int128_t *)&v9) = *((int128_t *)&v2);\n            *((long long *)&a0[8]) = v8.from();\n            *((unsigned long long *)a0) = 0x8000000000000000;\n        }\n    }\n    core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&v6);\n    return a0;\n}\n",
+    "_ZN10check_docs10find_files17h9e4b901753d7660dE": "long long check_docs::find_files(unsigned long a0, unsigned long long a1, unsigned long long a2, unsigned long long a3, unsigned long long a4, unsigned long long a5, unsigned long long a6)\n{\n    void* v0;  // [bp-0x200]\n    char *v1;  // [bp-0x1f8], Other Possible Types: unsigned long long\n    unsigned long long v2;  // [bp-0x1f0]\n    unsigned long long v3;  // [bp-0x1e8]\n    unsigned long long v4;  // [bp-0x1e0]\n    unsigned long long v5;  // [bp-0x1d8]\n    unsigned long long v6;  // [bp-0x1d0]\n    unsigned long long v7;  // [bp-0x1c8]\n    unsigned long long v8;  // [bp-0x1c0]\n    unsigned long long v9;  // [bp-0x1b8]\n    unsigned long long v10;  // [bp-0x1b0]\n    unsigned long long v11;  // [bp-0x1a8]\n    unsigned long long v12;  // [bp-0x1a0]\n    unsigned long long v13;  // [bp-0x198]\n    unsigned long long v14;  // [bp-0x190]\n    unsigned long long v15;  // [bp-0x188]\n    unsigned long long v16;  // [bp-0x180]\n    unsigned long long v17;  // [bp-0x170]\n    unsigned long long v18;  // [bp-0x168]\n    char v19;  // [bp-0x160]\n    char v20;  // [bp-0x148]\n    char v21;  // [bp-0x130]\n    char v22;  // [bp-0x128], Other Possible Types: unsigned long long\n    int v23;  // [bp-0x120], Other Possible Types: unsigned long long\n    char *v24;  // [bp-0x118]\n    unsigned long long v25;  // [bp-0x110]\n    void* v26;  // [bp-0x108]\n    char v27;  // [bp-0x48]\n\n    v17 = a1;\n    v18 = a2;\n    v22.new(\"findFAIL\");\n    v1 = a3;\n    v2 = a4;\n    v3 = \"-typef-nameProgram `find` not in PATHIncludeanchor_nameanchor_fileinclude_fileline_noAnchor\";\n    v4 = 5;\n    v5 = \"f-nameProgram `find` not in PATHIncludeanchor_nameanchor_fileinclude_fileline_noAnchor\";\n    v6 = 1;\n    v7 = \"-nameProgram `find` not in PATHIncludeanchor_nameanchor_fileinclude_fileline_noAnchor\";\n    v8 = 5;\n    v9 = a1;\n    v10 = a2;\n    v11 = \"!^(\\\\S+):(\\\\d+):\\\\s*\\\\{\\\\{\\\\s*#include\\\\s*(\\\\S+?)\\\\s*(?::\\\\s*(\\\\S+)\\\\s*)?\\\\}\\\\}could not construct regexscripts/check-docs/src/lib.rs/home/34r7hm4n/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-1.11.3/src/regex/string.rs\";\n    v12 = 1;\n    v13 = \"-nameProgram `find` not in PATHIncludeanchor_nameanchor_fileinclude_fileline_noAnchor\";\n    v14 = 5;\n    v15 = a5;\n    v16 = a6;\n    v22.args(&v1);\n    v1.output(&v22);\n    v19.expect(&v1, \"Program `find` not in PATHIncludeanchor_nameanchor_fileinclude_fileline_noAnchor\", 26, &g_5d36d0);\n    core::ptr::drop_in_place<std::process::Command>(&v22);\n    if (*((int *)&v21))\n    {\n        v1 = &v17;\n        v2 = <&T as core::fmt::Display>::fmt;\n        v22 = &g_5d36c0;\n        v23 = 1;\n        v26 = 0;\n        v24 = &v1;\n        v25 = 1;\n        v27.map_or_else(0, a2, &v22);\n        *((long long *)&v0[8]) = v27.msg();\n        *((unsigned long long *)v0) = 0x8000000000000000;\n        core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&v19);\n    }\n    else\n    {\n        v22.from_utf8(&v19);\n        memcpy(&v1, &(char)v23, 16);\n        v3 = v25;\n        if ((char)(((0 ^ v22) & (0 ^ -(v22))) >> 63))\n        {\n            *((unsigned long long *)&v0[16]) = v3;\n            *((int128_t *)v0) = *((int128_t *)&v1);\n        }\n        else\n        {\n            v25 = v3;\n            *((int128_t *)&v23) = *((int128_t *)&v1);\n            *((long long *)&v0[8]) = v22.from();\n            *((unsigned long long *)v0) = 0x8000000000000000;\n        }\n    }\n    core::ptr::drop_in_place<alloc::vec::Vec<u8>>(&v20);\n    return v0;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN10check_docs4main17ha386782cabb158e1E": {
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "core::ptr::drop_in_place<alloc::vec::Vec<check_docs::Anchor>>": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<anyhow::Error>>": 10,
+      "core::ptr::drop_in_place<std::collections::hash::set::HashSet<std::path::PathBuf>>": 1,
+      "anyhow::__private::format_err": 1,
+      "check_docs::report_errors": 5,
+      "check_docs::validate_md_files": 1,
+      "check_docs::find_files": 1,
+      "check_docs::parse_md_files": 1,
+      "check_docs::search_for_pattern": 3,
+      "check_docs::validate_includes": 1,
+      "check_docs::parse_includes": 1,
+      "check_docs::filter_valid_anchors": 1,
+      "check_docs::extract_starts_and_ends": 1
+    },
+    "_ZN10check_docs13report_errors17h75874821b4daa881E": {
+      "std::io::stdio::_eprint": 2
+    },
+    "_ZN10check_docs17validate_includes17h41bae39804dee97eE": {
+      "core::ptr::drop_in_place<alloc::vec::Vec<check_docs::Anchor>>": 2,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "itertools::Itertools::partition_map": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1
+    },
+    "_ZN10check_docs14parse_includes17h98cae0f800d53a09E": {
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "check_docs::parse_includes::{{closure}}": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "regex::regex::string::Regex::new": 1
+    },
+    "_ZN10check_docs20filter_valid_anchors17h39bbb345caf4f14fE": {
+      "core::ptr::drop_in_place<alloc::vec::Vec<check_docs::Anchor>>": 1,
+      "core::iter::traits::iterator::Iterator::collect": 3,
+      "core::iter::traits::iterator::Iterator::chain": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 5,
+      "check_docs::filter_unused_ends": 1,
+      "itertools::Itertools::partition_map": 1
+    },
+    "_ZN10check_docs18filter_unused_ends17h49a7d1140d6f97f2E": {
+      "core::iter::traits::iterator::Iterator::collect": 1
+    },
+    "_ZN10check_docs29check_validity_of_anchor_pair17hd8345c0881509e49E": {
+      "anyhow::__private::format_err": 1
+    },
+    "_ZN10check_docs23extract_starts_and_ends17h30dde6298c2e4524E": {
+      "core::ptr::drop_in_place<alloc::vec::Vec<check_docs::Anchor>>": 1,
+      "check_docs::extract_starts_and_ends::{{closure}}": 2,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 2,
+      "regex::regex::string::Regex::new": 2
+    },
+    "_ZN10check_docs14parse_md_files17hf10b783de1f7744bE": {
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<regex::regex::string::Regex>": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "<char as core::str::pattern::Pattern>::into_searcher": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "regex::regex::string::Regex::new": 1
+    },
+    "_ZN10check_docs17validate_md_files17ha2d5d22a4b1fbbc4E": {
+      "core::ptr::drop_in_place<std::collections::hash::set::HashSet<std::path::PathBuf>>": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "<char as core::str::pattern::Pattern>::into_searcher": 1
+    },
+    "_ZN10check_docs18search_for_pattern17hb802ea78856797e4E": {
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 2,
+      "anyhow::error::<impl anyhow::Error>::msg": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 1,
+      "alloc::string::String::from_utf8": 1,
+      "core::ptr::drop_in_place<std::process::Command>": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "std::process::Command::output": 1,
+      "std::process::Command::arg": 7,
+      "std::process::Command::new": 1
+    },
+    "_ZN10check_docs10find_files17h9e4b901753d7660dE": {
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 2,
+      "anyhow::error::<impl anyhow::Error>::msg": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 1,
+      "alloc::string::String::from_utf8": 1,
+      "core::ptr::drop_in_place<std::process::Command>": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "std::process::Command::output": 1,
+      "std::process::Command::args": 1,
+      "std::process::Command::new": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN10check_docs4main17ha386782cabb158e1E": {},
+    "_ZN10check_docs13report_errors17h75874821b4daa881E": {},
+    "_ZN10check_docs17validate_includes17h41bae39804dee97eE": {},
+    "_ZN10check_docs14parse_includes17h98cae0f800d53a09E": {},
+    "_ZN10check_docs20filter_valid_anchors17h39bbb345caf4f14fE": {},
+    "_ZN10check_docs18filter_unused_ends17h49a7d1140d6f97f2E": {},
+    "_ZN10check_docs29check_validity_of_anchor_pair17hd8345c0881509e49E": {},
+    "_ZN10check_docs23extract_starts_and_ends17h30dde6298c2e4524E": {},
+    "_ZN10check_docs14parse_md_files17hf10b783de1f7744bE": {},
+    "_ZN10check_docs17validate_md_files17ha2d5d22a4b1fbbc4E": {},
+    "_ZN10check_docs18search_for_pattern17hb802ea78856797e4E": {},
+    "_ZN10check_docs10find_files17h9e4b901753d7660dE": {}
+  },
+  "node_counts": {
+    "_ZN10check_docs4main17ha386782cabb158e1E": 37,
+    "_ZN10check_docs13report_errors17h75874821b4daa881E": 7,
+    "_ZN10check_docs17validate_includes17h41bae39804dee97eE": 6,
+    "_ZN10check_docs14parse_includes17h98cae0f800d53a09E": 5,
+    "_ZN10check_docs20filter_valid_anchors17h39bbb345caf4f14fE": 13,
+    "_ZN10check_docs18filter_unused_ends17h49a7d1140d6f97f2E": 2,
+    "_ZN10check_docs29check_validity_of_anchor_pair17hd8345c0881509e49E": 4,
+    "_ZN10check_docs23extract_starts_and_ends17h30dde6298c2e4524E": 16,
+    "_ZN10check_docs14parse_md_files17hf10b783de1f7744bE": 7,
+    "_ZN10check_docs17validate_md_files17ha2d5d22a4b1fbbc4E": 5,
+    "_ZN10check_docs18search_for_pattern17hb802ea78856797e4E": 20,
+    "_ZN10check_docs10find_files17h9e4b901753d7660dE": 14
+  },
+  "variable_types": {
+    "_ZN10check_docs4main17ha386782cabb158e1E": {
+      "stack_16": [
+        [
+          "primitive",
+          null
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          null
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_448": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_392": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ymm1": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10check_docs13report_errors17h75874821b4daa881E": {
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10check_docs17validate_includes17h41bae39804dee97eE": {
+      "stack_80": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_112": [
+        [
+          "&array",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN10check_docs14parse_includes17h98cae0f800d53a09E": {
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN10check_docs20filter_valid_anchors17h39bbb345caf4f14fE": {
+      "stack_8": [
+        [
+          "&array",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_184": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10check_docs18filter_unused_ends17h49a7d1140d6f97f2E": {
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10check_docs29check_validity_of_anchor_pair17hd8345c0881509e49E": {
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10check_docs23extract_starts_and_ends17h30dde6298c2e4524E": {
+      "stack_32": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10check_docs14parse_md_files17hf10b783de1f7744bE": {
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          2
+        ]
+      ]
+    },
+    "_ZN10check_docs17validate_md_files17ha2d5d22a4b1fbbc4E": {
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN10check_docs18search_for_pattern17hb802ea78856797e4E": {
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_160": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_352": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN10check_docs10find_files17h9e4b901753d7660dE": {
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_256": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_448": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    }
+  }
+}

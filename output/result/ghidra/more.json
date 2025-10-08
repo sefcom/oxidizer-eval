@@ -1,0 +1,2174 @@
+{
+  "decompilation": {
+    "_ZN7uu_more5Pager12should_close17h4a303d1ec4dab858E": "undefined8 _ZN7uu_more5Pager12should_close17h4a303d1ec4dab858E(long param_1)\n\n{\n  ulong uVar1;\n  ulong uVar2;\n  \n  uVar1 = *(ulong *)(param_1 + 0x50) + *(ulong *)(param_1 + 0x58);\n  uVar2 = 0xffffffffffffffff;\n  if (!CARRY8(*(ulong *)(param_1 + 0x50),*(ulong *)(param_1 + 0x58))) {\n    uVar2 = uVar1;\n  }\n  return CONCAT71((int7)(uVar1 >> 8),*(ulong *)(param_1 + 0x70) <= uVar2);\n}",
+    "_ZN7uu_more5Pager9page_down17h5965084d09aa1aceE": "void _ZN7uu_more5Pager9page_down17h5965084d09aa1aceE(long param_1)\n\n{\n  ulong uVar1;\n  ulong uVar2;\n  long lVar3;\n  ulong uVar4;\n  \n  uVar1 = *(ulong *)(param_1 + 0x50);\n  uVar2 = *(ulong *)(param_1 + 0x58);\n  uVar4 = uVar2 * 2 + uVar1;\n  if (CARRY8(uVar2 * 2,uVar1)) {\n    uVar4 = 0xffffffffffffffff;\n  }\n  if (uVar4 < *(ulong *)(param_1 + 0x70)) {\n    lVar3 = uVar1 + uVar2;\n    if (CARRY8(uVar1,uVar2)) {\n      lVar3 = -1;\n    }\n    *(long *)(param_1 + 0x50) = lVar3;\n    return;\n  }\n  *(ulong *)(param_1 + 0x50) = *(ulong *)(param_1 + 0x70) - uVar2;\n  return;\n}",
+    "_ZN7uu_more5Pager3new17h47a9bf468cd5af2fE": "void _ZN7uu_more5Pager3new17h47a9bf468cd5af2fE\n               (long *param_1,undefined8 param_2,undefined4 param_3,undefined8 *param_4)\n\n{\n  undefined2 uVar1;\n  undefined8 uVar2;\n  code *pcVar3;\n  undefined8 *puVar4;\n  char cVar5;\n  long lVar6;\n  long lVar7;\n  ushort uVar8;\n  long lVar9;\n  undefined8 *puVar10;\n  long lVar11;\n  long lVar12;\n  undefined auVar13 [16];\n  undefined8 local_a8;\n  undefined8 uStack_a0;\n  long local_98;\n  undefined4 local_8c;\n  long *local_88;\n  undefined8 local_80;\n  undefined8 local_78;\n  undefined8 local_70;\n  undefined8 *local_38;\n  \n  _ZN3std2io8buffered9bufreader18BufReader_LT_R_GT_13with_capacity17hf77cf67876c263beE(&local_80);\n  lVar6 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h3b1064158fd98561E(&local_80);\n  uStack_a0 = (undefined8 *)_ZN5alloc5alloc6Global10alloc_impl17h6fb1b6049873c120E(8,8);\n  if (uStack_a0 == (undefined8 *)0x0) {\n                    /* try { // try from 00172295 to 001722a4 has its CatchHandler @ 0017230b */\n    (*(code *)PTR__ZN5alloc5alloc18handle_alloc_error17h88aa4f4f9d19c4f9E_0022d2a0)(8,8);\n                    /* WARNING: Does not return */\n    pcVar3 = (code *)invalidInstructionException();\n    (*pcVar3)();\n  }\n  *uStack_a0 = 0;\n  local_a8 = 1;\n  local_98 = 1;\n  local_80 = 0;\n  local_78 = 1;\n  lVar12 = param_4[2];\n  local_8c = param_3;\n  local_88 = param_1;\n  local_38 = param_4;\n  if (lVar12 == 0) {\n    lVar12 = 0;\n    puVar10 = (undefined8 *)0x0;\n    while( true ) {\n      local_70 = 0;\n                    /* try { // try from 001720e9 to 0017210e has its CatchHandler @ 001722ce */\n      auVar13 = _ZN3std2io16append_to_string17heca66a3d4abc446cE(&local_80,lVar6);\n      lVar7 = auVar13._8_8_;\n      if ((auVar13 & (undefined  [16])0x1) != (undefined  [16])0x0) break;\n      if (lVar7 == 0) {\n        param_4 = &local_a8;\n        lVar9 = 0;\n        goto LAB_00172175;\n      }\n      lVar12 = lVar12 + lVar7;\n      _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h757588eaf91d0364E(&local_a8,lVar12);\n      puVar10 = (undefined8 *)((long)puVar10 + 1);\n    }\n  }\n  else {\n    uVar2 = param_4[1];\n    lVar9 = 0;\n    lVar11 = 0;\n    puVar10 = (undefined8 *)0x0;\n    while( true ) {\n      local_70 = 0;\n                    /* try { // try from 00172059 to 00172088 has its CatchHandler @ 001722d0 */\n      auVar13 = _ZN3std2io16append_to_string17heca66a3d4abc446cE(&local_80,lVar6);\n      lVar7 = auVar13._8_8_;\n      if ((auVar13 & (undefined  [16])0x1) != (undefined  [16])0x0) break;\n      if (lVar7 == 0) goto LAB_00172175;\n      lVar11 = lVar11 + lVar7;\n      _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h757588eaf91d0364E(&local_a8,lVar11);\n      if (lVar9 != 0) {\n        goto LAB_00172140;\n      }\n                    /* try { // try from 0017209c to 001720a6 has its CatchHandler @ 001722ca */\n      cVar5 = _ZN55__LT__RF_str_u20_as_u20_core__str__pattern__Pattern_GT_15is_contained_in17hff4183d19d767429E\n                        (uVar2,lVar12,local_78,local_70);\n      if (cVar5 != '\\0') {\n        lVar9 = 1;\n        param_4 = puVar10;\n      }\n      puVar10 = (undefined8 *)((long)puVar10 + 1);\n    }\n  }\nLAB_00172185:\n                    /* try { // try from 00172185 to 0017218d has its CatchHandler @ 001722c8 */\n  auVar13 = (*(code *)\n              PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n            )(lVar7);\n  *(undefined (*) [16])(local_88 + 1) = auVar13;\n  *local_88 = 2;\n  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h252ce3d2b34612c7E(local_80,local_78);\n  _ZN4core3ptr47drop_in_place_LT_alloc__vec__Vec_LT_u64_GT__GT_17h4c16795df9b5d41dE\n            (local_a8,uStack_a0);\n  _ZN4core3ptr145drop_in_place_LT_alloc__boxed__Box_LT_std__io__buffered__bufreader__BufReader_LT_std__io__cursor__Cursor_LT_alloc__string__String_GT__GT__GT__GT_17ha655b3afb2736741E\n            (lVar6);\n  return;\nLAB_00172140:\n  puVar10 = (undefined8 *)((long)puVar10 + 1);\n  local_70 = 0;\n                    /* try { // try from 00172149 to 0017216a has its CatchHandler @ 001722cc */\n  auVar13 = _ZN3std2io16append_to_string17heca66a3d4abc446cE(&local_80,lVar6);\n  lVar7 = auVar13._8_8_;\n  if ((auVar13 & (undefined  [16])0x1) != (undefined  [16])0x0) goto LAB_00172185;\n  if (lVar7 == 0) {\n    lVar9 = 1;\nLAB_00172175:\n    lVar7 = _ZN3std2io4Seek6rewind17h94046bf5fb21e5d5E(lVar6);\n    puVar4 = local_38;\n    if (lVar7 == 0) {\n      uVar8 = (short)local_8c - 1;\n      if ((short)local_8c == 0) {\n        uVar8 = 0;\n      }\n      lVar12 = local_38[3];\n                    /* try { // try from 001721fd to 00172215 has its CatchHandler @ 001722a7 */\n      auVar13 = _ZN5alloc7raw_vec20RawVecInner_LT_A_GT_16with_capacity_in17h8d8ba4d4acd59853E\n                          ((ulong)uVar8,8,0x18,&PTR_s__home_34r7hm4n_dev_oxidizer_oxid_00224198);\n      local_88[7] = local_98;\n      *(undefined4 *)(local_88 + 5) = (undefined4)local_a8;\n      *(undefined4 *)((long)local_88 + 0x2c) = local_a8._4_4_;\n      *(undefined4 *)(local_88 + 6) = (undefined4)uStack_a0;\n      *(undefined4 *)((long)local_88 + 0x34) = uStack_a0._4_4_;\n      uVar1 = *(undefined2 *)((long)puVar4 + 0x26);\n      *local_88 = lVar9;\n      local_88[1] = (long)param_4;\n      *(undefined (*) [16])(local_88 + 2) = auVar13;\n      local_88[4] = 0;\n      local_88[8] = lVar6;\n      local_88[9] = (long)&\n                          PTR__ZN4core3ptr120drop_in_place_LT_std__io__buffered__bufreader__BufReader_LT_std__io__cursor__Cursor_LT_alloc__string__String_GT__GT__GT_17h387e05fec80e4ad1E_002240e0\n      ;\n      local_88[10] = lVar12;\n      local_88[0xb] = (ulong)uVar8;\n      local_88[0xc] = 0;\n      local_88[0xe] = (long)puVar10;\n      local_88[0xf] = 0;\n      *(undefined2 *)(local_88 + 0x10) = uVar1;\n      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h252ce3d2b34612c7E\n                (local_80,local_78);\n      return;\n    }\n    goto LAB_00172185;\n  }\n  lVar11 = lVar11 + lVar7;\n  _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h757588eaf91d0364E(&local_a8,lVar11);\n  goto LAB_00172140;\n}",
+    "_ZN7uu_more5Pager12seek_to_line17h869c7595a8249d8fE": "undefined8 _ZN7uu_more5Pager12seek_to_line17h869c7595a8249d8fE(long param_1,undefined8 param_2)\n\n{\n  code *pcVar1;\n  ulong uVar2;\n  undefined8 uVar3;\n  undefined auVar4 [16];\n  \n  uVar2 = _ZN4core3cmp3Ord3min17hb3329b13fb983db2E(param_2,*(undefined8 *)(param_1 + 0x70));\n  if (uVar2 < *(ulong *)(param_1 + 0x38)) {\n    uVar3 = 0;\n    auVar4 = (**(code **)(*(long *)(param_1 + 0x48) + 0x88))\n                       (*(undefined8 *)(param_1 + 0x40),0,\n                        *(undefined8 *)(*(long *)(param_1 + 0x30) + uVar2 * 8));\n    if ((auVar4 & (undefined  [16])0x1) != (undefined  [16])0x0) {\n      uVar3 = (*(code *)\n                PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n              )(auVar4._8_8_);\n    }\n    return uVar3;\n  }\n  (*(code *)PTR__ZN4core9panicking18panic_bounds_check17h025cadc56a971af7E_0022d198)\n            (uVar2,*(ulong *)(param_1 + 0x38),&PTR_s_src_uu_more_src_more_rs_00225470);\n  pcVar1 = (code *)swi(3);\n  uVar3 = (*pcVar1)();\n  return uVar3;\n}",
+    "_ZN7uu_more5Pager19should_squeeze_line17hcc3a424a86437f5aE": "byte _ZN7uu_more5Pager19should_squeeze_line17hcc3a424a86437f5aE\n               (long param_1,undefined8 param_2,undefined8 param_3)\n\n{\n  long lVar1;\n  long lVar2;\n  bool bVar3;\n  \n  if (*(char *)(param_1 + 0x81) == '\\x01') {\n    lVar1 = _ZN4core3str21__LT_impl_u20_str_GT_12trim_matches17h829d259aa4156da6E(param_2,param_3);\n    lVar2 = *(long *)(param_1 + 0x20);\n    if (lVar2 == 0) {\n      bVar3 = false;\n    }\n    else {\n      lVar2 = _ZN4core3str21__LT_impl_u20_str_GT_12trim_matches17h829d259aa4156da6E\n                        (*(undefined8 *)(*(long *)(param_1 + 0x18) + -0x10 + lVar2 * 0x18),\n                         *(undefined8 *)(*(long *)(param_1 + 0x18) + -8 + lVar2 * 0x18));\n      bVar3 = lVar2 == 0;\n    }\n    return lVar1 == 0 & bVar3;\n  }\n  return 0;\n}",
+    "_ZN7uu_more5Pager9next_line17hfb1901652829b949E": "void _ZN7uu_more5Pager9next_line17hfb1901652829b949E(long param_1)\n\n{\n  ulong uVar1;\n  \n  uVar1 = 0;\n  if (*(long *)(param_1 + 0x70) != 0) {\n    uVar1 = *(long *)(param_1 + 0x70) - 1;\n  }\n  if (*(ulong *)(param_1 + 0x50) < uVar1) {\n    *(ulong *)(param_1 + 0x50) = *(ulong *)(param_1 + 0x50) + 1;\n  }\n  return;\n}",
+    "_ZN7uu_more10setup_term17h0836ea3f29ebee77E": "undefined (*) [16] _ZN7uu_more10setup_term17h0836ea3f29ebee77E(undefined (*param_1) [16])\n\n{\n  ulong uVar1;\n  long lVar2;\n  undefined auVar3 [16];\n  \n  uVar1 = (*(code *)PTR__ZN3std2io5stdio6stdout17hb6a8e10bcccf3287E_0022d430)();\n  lVar2 = (*(code *)PTR__ZN9crossterm8terminal15enable_raw_mode17hd50a747b44e84432E_0022d3c8)();\n  if (lVar2 == 0) {\n    auVar3._8_8_ = 0;\n    auVar3._0_8_ = uVar1;\n    auVar3 = auVar3 << 0x40;\n  }\n  else {\n    auVar3 = (*(code *)\n               PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n             )(lVar2);\n  }\n  *param_1 = auVar3;\n  return param_1;\n}",
+    "_ZN7uu_more23paging_add_back_message17hedfccf033ee11a1cE": "undefined8 _ZN7uu_more23paging_add_back_message17hedfccf033ee11a1cE(long param_1,undefined8 param_2)\n\n{\n  long lVar1;\n  undefined8 uVar2;\n  \n  if (*(short *)(param_1 + 0x20) == 0) {\n    return 0;\n  }\n  lVar1 = _ZN9crossterm7command18write_command_ansi17hc311d26e5a2b15cbE(param_2);\n  if (lVar1 == 0) {\n    lVar1 = (*(code *)\n              PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_5flush17hfb2969f84e2164f2E_0022d300\n            )(param_2);\n    if (lVar1 == 0) {\n      lVar1 = (*(code *)\n                PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_9write_all17hda8b04bbc47966cdE_0022d218\n              )(param_2,&DAT_0011f8df,0x11);\n      if (lVar1 == 0) {\n        return 0;\n      }\n    }\n  }\n  uVar2 = (*(code *)\n            PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n          )(lVar1);\n  return uVar2;\n}",
+    "_ZN7uu_more4more17h6e099d2d6eef5fb4E": "undefined  [16]\n_ZN7uu_more4more17h6e099d2d6eef5fb4E\n          (int param_1,undefined8 param_2,char param_3,long param_4,undefined8 param_5,long param_6,\n          undefined8 param_7,long param_8)\n\n{\n  undefined2 uVar1;\n  ulong uVar2;\n  undefined auVar3 [16];\n  ulong uVar4;\n  byte bVar5;\n  char cVar6;\n  long lVar7;\n  int iVar8;\n  code *pcVar9;\n  undefined8 uVar10;\n  undefined auVar11 [16];\n  ulong local_158;\n  byte local_140;\n  byte bStack_13f;\n  undefined2 uStack_13e;\n  undefined2 uStack_13c;\n  undefined2 uStack_13a;\n  ulong local_138;\n  ulong local_130;\n  undefined4 local_128;\n  undefined4 uStack_124;\n  undefined4 uStack_120;\n  undefined4 uStack_11c;\n  undefined4 local_118;\n  undefined4 uStack_114;\n  undefined4 uStack_110;\n  undefined4 uStack_10c;\n  undefined4 local_108;\n  undefined4 uStack_104;\n  undefined4 uStack_100;\n  undefined4 uStack_fc;\n  undefined4 local_f8;\n  undefined4 uStack_f4;\n  long local_e8;\n  undefined8 uStack_e0;\n  undefined8 local_d8;\n  undefined8 uStack_d0;\n  undefined8 local_c8;\n  undefined8 uStack_c0;\n  undefined local_b8 [8];\n  ulong local_b0;\n  ulong local_a8;\n  undefined4 local_a0;\n  undefined4 uStack_9c;\n  undefined4 uStack_98;\n  undefined4 uStack_94;\n  undefined4 local_90;\n  undefined4 uStack_8c;\n  undefined4 uStack_88;\n  undefined4 uStack_84;\n  undefined4 local_80;\n  undefined4 uStack_7c;\n  undefined4 uStack_78;\n  undefined4 uStack_74;\n  undefined4 local_70;\n  undefined4 uStack_6c;\n  long local_60;\n  undefined8 uStack_58;\n  undefined8 local_50;\n  undefined8 uStack_48;\n  undefined8 local_40;\n  undefined8 uStack_38;\n  \n                    /* try { // try from 00171396 to 001713b2 has its CatchHandler @ 001719d0 */\n  (*(code *)PTR__ZN9crossterm8terminal4size17h3c0ebe6c30d16b00E_0022d2f0)(&local_140);\n  if (local_140 == 1) {\n    auVar11 = (*(code *)\n                PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n              )(local_138);\n    _ZN4core3ptr34drop_in_place_LT_std__fs__File_GT_17h9d765ec0b470dfeaE(param_1);\n    return auVar11;\n  }\n  uVar1 = uStack_13c;\n  if (*(char *)(param_8 + 0x20) != '\\0') {\n    uVar1 = *(undefined2 *)(param_8 + 0x22);\n  }\n  _ZN7uu_more5Pager3new17heff9eb46b434e09fE(&local_140,param_1,uVar1,param_6,param_7,param_8);\n  auVar11._8_8_ = local_130;\n  auVar11._0_8_ = local_138;\n  if (CONCAT26(uStack_13a,CONCAT24(uStack_13c,CONCAT22(uStack_13e,CONCAT11(bStack_13f,local_140))))\n      == 2) {\n    return auVar11;\n  }\n  local_40 = local_c8;\n  uStack_38 = uStack_c0;\n  local_50 = local_d8;\n  uStack_48 = uStack_d0;\n  local_60 = local_e8;\n  uStack_58 = uStack_e0;\n  local_70 = local_f8;\n  uStack_6c = uStack_f4;\n  local_80 = local_108;\n  uStack_7c = uStack_104;\n  uStack_78 = uStack_100;\n  uStack_74 = uStack_fc;\n  local_90 = local_118;\n  uStack_8c = uStack_114;\n  uStack_88 = uStack_110;\n  uStack_84 = uStack_10c;\n  local_a0 = local_128;\n  uStack_9c = uStack_124;\n  uStack_98 = uStack_120;\n  uStack_94 = uStack_11c;\n  local_b0 = local_138;\n  local_a8 = local_130;\n  if ((local_140 & 1) == 0) {\n    lVar7 = _ZN9crossterm7command18write_command_ansi17he3f0a408e6774d22E(param_2,4);\n    if ((lVar7 != 0) ||\n       (lVar7 = (*(code *)\n                  PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_5flush17hfb2969f84e2164f2E_0022d300\n                )(param_2), lVar7 != 0)) {\n      auVar11 = (*(code *)\n                  PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                )(lVar7);\n      uVar10 = auVar11._8_8_;\n      lVar7 = auVar11._0_8_;\n      goto LAB_001715e6;\n    }\n                    /* try { // try from 00171570 to 001715da has its CatchHandler @ 001719b0 */\n    lVar7 = (*(code *)\n              PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_9write_all17hda8b04bbc47966cdE_0022d218\n            )(param_2,\"\\rPattern not found\\n\",0x13);\n    if (lVar7 != 0) {\n      auVar11 = (*(code *)\n                  PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                )(lVar7);\n      uVar10 = auVar11._8_8_;\n      lVar7 = auVar11._0_8_;\n      goto LAB_001715e6;\n    }\n    local_60 = local_60 + -1;\n  }\n  if (param_3 != '\\0') {\n                    /* try { // try from 001714b9 to 00171536 has its CatchHandler @ 001719b0 */\n    lVar7 = _ZN9crossterm7command18write_command_ansi17he3f0a408e6774d22E(param_2,4);\n    if ((lVar7 != 0) ||\n       (lVar7 = (*(code *)\n                  PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_5flush17hfb2969f84e2164f2E_0022d300\n                )(param_2), lVar7 != 0)) {\n      auVar11 = (*(code *)\n                  PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                )(lVar7);\n      uVar10 = auVar11._8_8_;\n      lVar7 = auVar11._0_8_;\n      goto LAB_001715e6;\n    }\n    if (param_4 == 0) {\n      param_5 = 0;\n    }\n    lVar7 = 1;\n    if (param_4 != 0) {\n      lVar7 = param_4;\n    }\n    _ZN5alloc3str21__LT_impl_u20_str_GT_7replace17ha5d636e049a4df3eE(&local_140,lVar7,param_5);\n    uVar2 = local_138;\n                    /* try { // try from 00171541 to 0017155a has its CatchHandler @ 0017198e */\n    lVar7 = (*(code *)\n              PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_9write_all17hda8b04bbc47966cdE_0022d218\n            )(param_2,local_138,local_130);\n    if (lVar7 != 0) {\n      auVar11 = (*(code *)\n                  PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                )(lVar7);\n      lVar7 = auVar11._0_8_;\n      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h252ce3d2b34612c7E\n                (CONCAT26(uStack_13a,\n                          CONCAT24(uStack_13c,CONCAT22(uStack_13e,CONCAT11(bStack_13f,local_140)))),\n                 uVar2);\n      uVar10 = auVar11._8_8_;\n      goto LAB_001715e6;\n    }\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h252ce3d2b34612c7E\n              (CONCAT26(uStack_13a,\n                        CONCAT24(uStack_13c,CONCAT22(uStack_13e,CONCAT11(bStack_13f,local_140)))),\n               uVar2);\n    local_60 = local_60 + -3;\n  }\n  auVar11 = (*(code *)PTR__ZN7uu_more5Pager4draw17h5a1246f76957cacaE_0022d308)\n                      (local_b8,param_2,0x110000);\n  uVar10 = auVar11._8_8_;\n  lVar7 = auVar11._0_8_;\n  if (lVar7 == 0) {\n    if (param_3 != '\\0') {\n      *(undefined8 *)(param_8 + 0x18) = 0;\n      local_60 = local_60 + 3;\n    }\n                    /* try { // try from 00171621 to 0017162e has its CatchHandler @ 001719b0 */\n    bVar5 = (*(code *)PTR__ZN7uu_more5Pager12should_close17h4a303d1ec4dab858E_0022d310)(local_b8);\n    if ((param_6 == 0 & bVar5) == 0) {\n      pcVar9 = (code *)PTR__ZN9crossterm5event4poll17h4df22f16cb5171ddE_0022d318;\n      do {\n        while( true ) {\n          do {\n                    /* try { // try from 00171677 to 0017169d has its CatchHandler @ 001719b2 */\n            (*pcVar9)(&local_140,0,10000000);\n            if (local_140 == 1) {\n                    /* try { // try from 00171941 to 00171970 has its CatchHandler @ 001719b0 */\n              auVar11 = (*(code *)\n                          PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                        )(local_138);\n              uVar10 = auVar11._8_8_;\n              lVar7 = auVar11._0_8_;\n              goto LAB_001715e6;\n            }\n          } while ((bStack_13f & 1) == 0);\n          (*(code *)PTR__ZN9crossterm5event4read17hf474a75175ea9df0E_0022d320)(&local_140);\n          uVar4 = local_138;\n          uVar2 = CONCAT26(uStack_13a,\n                           CONCAT24(uStack_13c,CONCAT22(uStack_13e,CONCAT11(bStack_13f,local_140))))\n          ;\n          if (uVar2 == 0x8000000000000006) {\n            auVar11 = (*(code *)\n                        PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                      )(local_138);\n            uVar10 = auVar11._8_8_;\n            lVar7 = auVar11._0_8_;\n            goto LAB_001715e6;\n          }\n          if ((uVar2 ^ 0x8000000000000000) == 2) break;\n          if ((uVar2 ^ 0x8000000000000000) == 5) {\n            local_158 = 0x110000;\n                    /* try { // try from 001716f2 to 00171702 has its CatchHandler @ 001719a0 */\n            (*(code *)PTR__ZN7uu_more5Pager11page_resize17h297f71cdfbb5531cE_0022d328)\n                      (local_b8,local_138 & 0xffffffff,local_138 >> 0x10,\n                       *(undefined4 *)(param_8 + 0x20),*(undefined2 *)(param_8 + 0x22));\n            goto LAB_00171703;\n          }\nLAB_0017165f:\n          _ZN4core3ptr44drop_in_place_LT_crossterm__event__Event_GT_17ha48fc9fd5e8599d4E(uVar2);\n          pcVar9 = (code *)PTR__ZN9crossterm5event4poll17h4df22f16cb5171ddE_0022d318;\n        }\n        iVar8 = (int)(local_138 >> 0x20);\n        if ((char)(local_130 >> 0x10) == '\\0') {\n          if ((char)local_138 != '\\x0f') goto LAB_00171829;\n          if ((char)local_130 == '\\x02') {\n            if (iVar8 != 99) goto LAB_00171829;\n          }\n          else if (((local_130 & 0xff) != 0) || (iVar8 != 0x71)) goto LAB_00171829;\nLAB_00171976:\n          lVar7 = 0;\n          uVar10 = param_2;\nLAB_0017197e:\n          _ZN4core3ptr44drop_in_place_LT_crossterm__event__Event_GT_17ha48fc9fd5e8599d4E\n                    (uVar2,uVar4);\n          break;\n        }\n        if (((uint)(local_130 >> 0x10) & 0xff) != 1) goto LAB_0017165f;\nLAB_00171829:\n        if ((char)local_130 == '\\0') {\n          switch((uint)local_138 & 0xff) {\n          case 4:\n          case 8:\n                    /* try { // try from 00171863 to 00171936 has its CatchHandler @ 001719a0 */\n            auVar11 = (*(code *)PTR__ZN7uu_more5Pager7page_up17h8ac51dfc33201f5eE_0022d330)\n                                (local_b8);\n            uVar10 = auVar11._8_8_;\n            lVar7 = auVar11._0_8_;\n            if (lVar7 == 0) {\n              auVar11 = (*(code *)\n                          PTR__ZN7uu_more23paging_add_back_message17hedfccf033ee11a1cE_0022d338)\n                                  (param_8,param_2);\n              uVar10 = auVar11._8_8_;\n              lVar7 = auVar11._0_8_;\n              local_158 = 0x110000;\n              if (lVar7 == 0) break;\n            }\n            goto LAB_0017197e;\n          case 5:\n          case 9:\nswitchD_00171861_caseD_5:\n            cVar6 = (*(code *)PTR__ZN7uu_more5Pager12should_close17h4a303d1ec4dab858E_0022d310)\n                              (local_b8);\n            if (cVar6 != '\\0') goto LAB_00171976;\n            local_158 = 0x110000;\n            (*(code *)PTR__ZN7uu_more5Pager9page_down17h5965084d09aa1aceE_0022d348)(local_b8);\n            break;\n          default:\n            goto switchD_00171861_caseD_6;\n          case 0xf:\n            if (local_138 >> 0x20 == 0x20) goto switchD_00171861_caseD_5;\n            if (iVar8 == 0x6a) {\n              cVar6 = (*(code *)PTR__ZN7uu_more5Pager12should_close17h4a303d1ec4dab858E_0022d310)\n                                (local_b8);\n              if (cVar6 != '\\0') goto LAB_00171976;\n              local_158 = 0x110000;\n              (*(code *)PTR__ZN7uu_more5Pager9next_line17hfb1901652829b949E_0022d350)(local_b8);\n            }\n            else {\n              if (iVar8 != 0x6b) goto switchD_00171861_caseD_6;\n              local_158 = 0x110000;\n              (*(code *)PTR__ZN7uu_more5Pager9prev_line17h81e664c16673410eE_0022d340)(local_b8);\n            }\n          }\n        }\n        else {\nswitchD_00171861_caseD_6:\n          if ((char)local_138 != '\\x0f') goto LAB_0017165f;\n          local_158 = local_138 >> 0x20;\n        }\nLAB_00171703:\n        _ZN4core3ptr44drop_in_place_LT_crossterm__event__Event_GT_17ha48fc9fd5e8599d4E(uVar2,uVar4);\n        pcVar9 = (code *)PTR__ZN9crossterm5event4poll17h4df22f16cb5171ddE_0022d318;\n        if (*(char *)(param_8 + 0x25) == '\\0') {\n          if ((*(char *)(param_8 + 0x24) != '\\0') &&\n             (((lVar7 = _ZN9crossterm7command18write_command_ansi17he3f0a408e6774d22E(param_2,0),\n               lVar7 != 0 ||\n               (lVar7 = _ZN9crossterm7command18write_command_ansi17hc824fe4d1649aa05E(param_2),\n               lVar7 != 0)) ||\n              (lVar7 = (*(code *)\n                         PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_5flush17hfb2969f84e2164f2E_0022d300\n                       )(param_2), lVar7 != 0)))) {\n            auVar11 = (*(code *)\n                        PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                      )(lVar7);\n            uVar10 = auVar11._8_8_;\n            lVar7 = auVar11._0_8_;\n            break;\n          }\n        }\n        else {\n                    /* try { // try from 00171718 to 001717e5 has its CatchHandler @ 001719b2 */\n          lVar7 = _ZN9crossterm7command18write_command_ansi17hc824fe4d1649aa05E(param_2);\n          pcVar9 = (code *)PTR__ZN9crossterm5event4poll17h4df22f16cb5171ddE_0022d318;\n          if (((lVar7 != 0) ||\n              (lVar7 = _ZN9crossterm7command18write_command_ansi17he3f0a408e6774d22E(param_2,2),\n              lVar7 != 0)) ||\n             (lVar7 = (*(code *)\n                        PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_5flush17hfb2969f84e2164f2E_0022d300\n                      )(param_2), lVar7 != 0)) {\n            auVar11 = (*(code *)\n                        PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                      )(lVar7);\n            uVar10 = auVar11._8_8_;\n            lVar7 = auVar11._0_8_;\n            break;\n          }\n        }\n        auVar11 = (*(code *)PTR__ZN7uu_more5Pager4draw17h5a1246f76957cacaE_0022d308)\n                            (local_b8,param_2,local_158);\n        uVar10 = auVar11._8_8_;\n        lVar7 = auVar11._0_8_;\n      } while (lVar7 == 0);\n    }\n    else {\n      lVar7 = 0;\n      uVar10 = param_2;\n    }\n  }\nLAB_001715e6:\n  auVar3._8_8_ = uVar10;\n  auVar3._0_8_ = lVar7;\n  _ZN4core3ptr35drop_in_place_LT_uu_more__Pager_GT_17h156f155d4da5bce8E(local_b8);\n  return auVar3;\n}",
+    "_ZN7uu_more5Pager11page_resize17h297f71cdfbb5531cE": "void _ZN7uu_more5Pager11page_resize17h297f71cdfbb5531cE\n               (long param_1,undefined8 param_2,short param_3,short param_4)\n\n{\n  ushort uVar1;\n  \n  if (param_4 != 0) {\n    return;\n  }\n  uVar1 = param_3 - 1;\n  if (param_3 == 0) {\n    uVar1 = 0;\n  }\n  *(ulong *)(param_1 + 0x58) = (ulong)uVar1;\n  return;\n}",
+    "_ZN7uu_more6uu_app17h91a4b949c44828f9E": "undefined8 _ZN7uu_more6uu_app17h91a4b949c44828f9E(undefined8 param_1)\n\n{\n  undefined *puVar1;\n  undefined8 uVar2;\n  undefined auStack_ab8 [632];\n  uint local_840;\n  undefined4 local_83c;\n  undefined local_838 [632];\n  uint local_5c0;\n  undefined4 local_5bc;\n  ulong local_57c;\n  undefined4 local_574;\n  undefined local_570 [700];\n  ulong local_2b4;\n  undefined4 local_2ac;\n  undefined8 local_2a8;\n  undefined8 local_2a0;\n  undefined *local_298;\n  uint local_30;\n  undefined4 local_2c;\n  \n  uVar2 = (*(code *)PTR__ZN6uucore9util_name17h074417a1e6395129E_0022d360)();\n  _ZN12clap_builder7builder7command7Command3new17h30f6ba13e97ee7b8E(local_838,uVar2);\n  _ZN12clap_builder7builder7command7Command5about17h69937b26e7a4dc33E(local_570,local_838);\n                    /* try { // try from 0017a67c to 0017a690 has its CatchHandler @ 0017aeb0 */\n  (*(code *)PTR__ZN6uucore12format_usage17he053403a896311edE_0022d510)\n            (auStack_ab8,\"{} [OPTIONS] FILE...\",0x14);\n  _ZN12clap_builder7builder7command7Command14override_usage17hf67b24ac5419c372E\n            (local_838,local_570,auStack_ab8);\n  _ZN12clap_builder7builder7command7Command7version17h5c3b9e434c95db22E(local_570,local_838);\n  (*(code *)PTR_memcpy_0022d208)(local_838,local_570,700);\n  local_57c = local_2b4 | 0x8000000080;\n  local_574 = local_2ac;\n  _ZN12clap_builder7builder3arg3Arg3new17h35c2f329dc6a9a7bE(local_570,\"print-over\",10);\n  _ZN12clap_builder7builder3arg3Arg5short17h907209d848174291E(auStack_ab8,local_570,99);\n  _ZN12clap_builder7builder3arg3Arg4long17hd968281fcccab1b6E(local_570,auStack_ab8,\"print-over\",10);\n                    /* try { // try from 0017a74a to 0017a760 has its CatchHandler @ 0017ae9e */\n  _ZN12clap_builder7builder3arg3Arg4help17h15d351abe03d51b6E\n            (auStack_ab8,local_570,\"Do not scroll, display text and clean line ends\",0x2f);\n  _ZN12clap_builder7builder3arg3Arg6action17h491360c059fb3385E(&local_2a8,auStack_ab8,2);\n  _ZN12clap_builder7builder7command7Command3arg17h9aa5a89359e32a76E(local_570,local_838,&local_2a8);\n  _ZN12clap_builder7builder3arg3Arg3new17h35c2f329dc6a9a7bE(local_838,\"silent\",6);\n  _ZN12clap_builder7builder3arg3Arg5short17h907209d848174291E(auStack_ab8,local_838,100);\n  _ZN12clap_builder7builder3arg3Arg4long17hd968281fcccab1b6E(local_838,auStack_ab8,\"silent\",6);\n                    /* try { // try from 0017a7de to 0017a7f4 has its CatchHandler @ 0017ae8c */\n  _ZN12clap_builder7builder3arg3Arg4help17h15d351abe03d51b6E\n            (auStack_ab8,local_838,\"Display help instead of ringing bell\",0x24);\n  _ZN12clap_builder7builder3arg3Arg6action17h491360c059fb3385E(&local_2a8,auStack_ab8,2);\n  _ZN12clap_builder7builder7command7Command3arg17h9aa5a89359e32a76E(local_838,local_570,&local_2a8);\n  _ZN12clap_builder7builder3arg3Arg3new17h35c2f329dc6a9a7bE(local_570,\"clean-print\",0xb);\n  _ZN12clap_builder7builder3arg3Arg5short17h907209d848174291E(auStack_ab8,local_570,0x70);\n  _ZN12clap_builder7builder3arg3Arg4long17hd968281fcccab1b6E\n            (local_570,auStack_ab8,\"clean-print\",0xb);\n                    /* try { // try from 0017a872 to 0017a888 has its CatchHandler @ 0017ae7a */\n  _ZN12clap_builder7builder3arg3Arg4help17h15d351abe03d51b6E\n            (auStack_ab8,local_570,\"Do not scroll, clean screen and display text\",0x2c);\n  _ZN12clap_builder7builder3arg3Arg6action17h491360c059fb3385E(&local_2a8,auStack_ab8,2);\n  _ZN12clap_builder7builder7command7Command3arg17h9aa5a89359e32a76E(local_570,local_838,&local_2a8);\n  _ZN12clap_builder7builder3arg3Arg3new17h35c2f329dc6a9a7bE(local_838,\"squeeze\",7);\n  _ZN12clap_builder7builder3arg3Arg5short17h907209d848174291E(auStack_ab8,local_838,0x73);\n  _ZN12clap_builder7builder3arg3Arg4long17hd968281fcccab1b6E(local_838,auStack_ab8,\"squeeze\",7);\n                    /* try { // try from 0017a906 to 0017a91c has its CatchHandler @ 0017ae65 */\n  _ZN12clap_builder7builder3arg3Arg4help17h15d351abe03d51b6E\n            (auStack_ab8,local_838,\"Squeeze multiple blank lines into one\",0x25);\n  _ZN12clap_builder7builder3arg3Arg6action17h491360c059fb3385E(&local_2a8,auStack_ab8,2);\n  _ZN12clap_builder7builder7command7Command3arg17h9aa5a89359e32a76E(local_838,local_570,&local_2a8);\n  _ZN12clap_builder7builder3arg3Arg3new17h35c2f329dc6a9a7bE(local_570,\"plain\",5);\n  _ZN12clap_builder7builder3arg3Arg5short17h907209d848174291E(auStack_ab8,local_570,0x75);\n  _ZN12clap_builder7builder3arg3Arg4long17hd968281fcccab1b6E(local_570,auStack_ab8,\"plain\",5);\n  _ZN12clap_builder7builder3arg3Arg6action17h491360c059fb3385E(auStack_ab8,local_570,2);\n  puVar1 = PTR_memcpy_0022d208;\n  (*(code *)PTR_memcpy_0022d208)(&local_2a8,auStack_ab8,0x278);\n  local_30 = local_840 | 4;\n  local_2c = local_83c;\n  _ZN12clap_builder7builder7command7Command3arg17h9aa5a89359e32a76E(local_570,local_838,&local_2a8);\n  _ZN12clap_builder7builder3arg3Arg3new17h35c2f329dc6a9a7bE(local_838,\"pattern\",7);\n  _ZN12clap_builder7builder3arg3Arg5short17h907209d848174291E(auStack_ab8,local_838,0x50);\n  _ZN12clap_builder7builder3arg3Arg4long17hd968281fcccab1b6E(local_838,auStack_ab8,\"pattern\",7);\n  (*(code *)puVar1)(auStack_ab8,local_838,0x278);\n  local_840 = local_5c0 & 0xffffffde | 0x20;\n  local_83c = local_5bc;\n                    /* try { // try from 0017aa7f to 0017aab2 has its CatchHandler @ 0017aef8 */\n  _ZN12clap_builder7builder3arg3Arg10value_name17h3e4c8569e32d7d7aE\n            (local_838,auStack_ab8,\"pattern\",7);\n  _ZN12clap_builder7builder3arg3Arg4help17h15d351abe03d51b6E\n            (auStack_ab8,local_838,\"Display file beginning from pattern match\",0x29);\n  _ZN12clap_builder7builder7command7Command3arg17h9aa5a89359e32a76E(local_838,local_570,auStack_ab8)\n  ;\n  _ZN12clap_builder7builder3arg3Arg3new17h35c2f329dc6a9a7bE(local_570,\"from-line\",9);\n  _ZN12clap_builder7builder3arg3Arg5short17h907209d848174291E(auStack_ab8,local_570,0x46);\n  _ZN12clap_builder7builder3arg3Arg4long17hd968281fcccab1b6E(local_570,auStack_ab8,\"from-line\",9);\n  _ZN12clap_builder7builder3arg3Arg8num_args17h4f759de10311f98cE(auStack_ab8,local_570);\n                    /* try { // try from 0017ab26 to 0017ab41 has its CatchHandler @ 0017aee6 */\n  _ZN12clap_builder7builder3arg3Arg10value_name17h3e4c8569e32d7d7aE\n            (local_570,auStack_ab8,\"number\",6);\n                    /* try { // try from 0017ab42 to 0017ab4d has its CatchHandler @ 0017ae50 */\n  local_2a0 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h21f2183ad1d56373E\n                        (\n                        _ZN4core3num62__LT_impl_u20_core__str__traits__FromStr_u20_for_u20_usize_GT_8from_str17he7963e1397bf94dbE\n                        );\n  local_2a8 = 4;\n  local_298 = &DAT_00225228;\n                    /* try { // try from 0017ab71 to 0017ab88 has its CatchHandler @ 0017ae4b */\n  _ZN12clap_builder7builder3arg3Arg12value_parser17hb2f24d6413984688E\n            (auStack_ab8,local_570,&local_2a8);\n                    /* try { // try from 0017ab89 to 0017aba4 has its CatchHandler @ 0017aee6 */\n  _ZN12clap_builder7builder3arg3Arg4help17h15d351abe03d51b6E\n            (&local_2a8,auStack_ab8,\"Display file beginning from line number\",0x27);\n  _ZN12clap_builder7builder7command7Command3arg17h9aa5a89359e32a76E(local_570,local_838,&local_2a8);\n  _ZN12clap_builder7builder3arg3Arg3new17h35c2f329dc6a9a7bE(local_838,\"lines\",5);\n  _ZN12clap_builder7builder3arg3Arg5short17h907209d848174291E(auStack_ab8,local_838,0x6e);\n  _ZN12clap_builder7builder3arg3Arg4long17hd968281fcccab1b6E(local_838,auStack_ab8,\"lines\",5);\n                    /* try { // try from 0017ac0f to 0017ac25 has its CatchHandler @ 0017aed4 */\n  _ZN12clap_builder7builder3arg3Arg10value_name17h3e4c8569e32d7d7aE\n            (auStack_ab8,local_838,\"number\",6);\n  _ZN12clap_builder7builder3arg3Arg8num_args17h4f759de10311f98cE(local_838,auStack_ab8);\n                    /* try { // try from 0017ac36 to 0017ac3e has its CatchHandler @ 0017ae36 */\n  (*(code *)\n    PTR__ZN79__LT_u16_u20_as_u20_clap_builder__builder__value_parser__ValueParserFactory_GT_12value_parser17hf6bd37019978ff12E_0022d518\n  )(auStack_ab8);\n  _ZN12clap_builder7builder12value_parser29RangedI64ValueParser_LT_T_GT_5range17hc2282f1ad623b328E\n            (&local_2a8,auStack_ab8);\n                    /* try { // try from 0017ac52 to 0017ac64 has its CatchHandler @ 0017ae31 */\n  _ZN12clap_builder7builder3arg3Arg12value_parser17h9ba99eb30652d3bbE\n            (auStack_ab8,local_838,&local_2a8);\n                    /* try { // try from 0017ac65 to 0017ac80 has its CatchHandler @ 0017aed4 */\n  _ZN12clap_builder7builder3arg3Arg4help17h15d351abe03d51b6E\n            (&local_2a8,auStack_ab8,\"The number of lines per screen full\",0x23);\n  _ZN12clap_builder7builder7command7Command3arg17h9aa5a89359e32a76E(local_838,local_570,&local_2a8);\n  _ZN12clap_builder7builder3arg3Arg3new17h35c2f329dc6a9a7bE(local_570,\"number\",6);\n  _ZN12clap_builder7builder3arg3Arg4long17hd968281fcccab1b6E(auStack_ab8,local_570,\"number\",6);\n  _ZN12clap_builder7builder3arg3Arg8num_args17h4f759de10311f98cE(local_570,auStack_ab8);\n                    /* try { // try from 0017ace3 to 0017aceb has its CatchHandler @ 0017ae0f */\n  (*(code *)\n    PTR__ZN79__LT_u16_u20_as_u20_clap_builder__builder__value_parser__ValueParserFactory_GT_12value_parser17hf6bd37019978ff12E_0022d518\n  )(auStack_ab8);\n  _ZN12clap_builder7builder12value_parser29RangedI64ValueParser_LT_T_GT_5range17hc2282f1ad623b328E\n            (&local_2a8,auStack_ab8);\n                    /* try { // try from 0017acff to 0017ad11 has its CatchHandler @ 0017ae0a */\n  _ZN12clap_builder7builder3arg3Arg12value_parser17h9ba99eb30652d3bbE\n            (auStack_ab8,local_570,&local_2a8);\n                    /* try { // try from 0017ad12 to 0017ad2d has its CatchHandler @ 0017ae05 */\n  _ZN12clap_builder7builder3arg3Arg4help17h15d351abe03d51b6E\n            (&local_2a8,auStack_ab8,\"Same as --lines\",0xf);\n  _ZN12clap_builder7builder7command7Command3arg17h9aa5a89359e32a76E(local_570,local_838,&local_2a8);\n  _ZN12clap_builder7builder3arg3Arg3new17h35c2f329dc6a9a7bE(local_838,\"files\",5);\n  (*(code *)PTR_memcpy_0022d208)(auStack_ab8,local_838,0x278);\n  local_840 = local_5c0 & 0xfffffffe;\n  local_83c = local_5bc;\n  _ZN12clap_builder7builder3arg3Arg6action17h491360c059fb3385E(local_838,auStack_ab8,1);\n                    /* try { // try from 0017adb2 to 0017add8 has its CatchHandler @ 0017aec2 */\n  _ZN12clap_builder7builder3arg3Arg4help17h15d351abe03d51b6E\n            (auStack_ab8,local_838,\"Path to the files to be read\",0x1c);\n  _ZN12clap_builder7builder3arg3Arg10value_hint17h6e3af0887a8b9f0eE(local_838,auStack_ab8);\n  _ZN12clap_builder7builder7command7Command3arg17h9aa5a89359e32a76E(param_1,local_570,local_838);\n  return param_1;\n}",
+    "_ZN7uu_more5Pager18load_visible_lines17hab6b7f963f4c8df4E": "long _ZN7uu_more5Pager18load_visible_lines17hab6b7f963f4c8df4E(long param_1)\n\n{\n  undefined8 uVar1;\n  char cVar2;\n  long lVar3;\n  undefined auVar4 [16];\n  undefined8 local_50;\n  undefined8 uStack_48;\n  undefined8 local_40;\n  undefined4 local_38;\n  undefined4 uStack_34;\n  undefined4 uStack_30;\n  undefined4 uStack_2c;\n  undefined8 local_28;\n  \n  uVar1 = *(undefined8 *)(param_1 + 0x20);\n  *(undefined8 *)(param_1 + 0x20) = 0;\n  _ZN4core3ptr52drop_in_place_LT__u5b_alloc__string__String_u5d__GT_17h6802b68d421aa63dE\n            (*(undefined8 *)(param_1 + 0x18),uVar1);\n  *(undefined8 *)(param_1 + 0x78) = 0;\n  lVar3 = _ZN7uu_more5Pager12seek_to_line17h869c7595a8249d8fE\n                    (param_1,*(undefined8 *)(param_1 + 0x50));\n  if (lVar3 == 0) {\n    local_50 = 0;\n    uStack_48 = 1;\n    local_40 = 0;\n    if (*(long *)(param_1 + 0x58) != 0) {\n      do {\n        local_40 = 0;\n                    /* try { // try from 0017b88f to 0017b8f0 has its CatchHandler @ 0017b92e */\n        auVar4 = (**(code **)(*(long *)(param_1 + 0x48) + 0x80))\n                           (*(undefined8 *)(param_1 + 0x40),&local_50);\n        if ((auVar4 & (undefined  [16])0x1) != (undefined  [16])0x0) {\n                    /* try { // try from 0017b901 to 0017b909 has its CatchHandler @ 0017b92c */\n          lVar3 = (*(code *)\n                    PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                  )(auVar4._8_8_);\n          _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17habcac018958bfd8aE(&local_50);\n          return lVar3;\n        }\n        if (auVar4._8_8_ == 0) break;\n        cVar2 = _ZN7uu_more5Pager19should_squeeze_line17hcc3a424a86437f5aE\n                          (param_1,uStack_48,local_40);\n        if (cVar2 == '\\0') {\n          local_28 = local_40;\n          local_38 = (undefined4)local_50;\n          uStack_34 = local_50._4_4_;\n          uStack_30 = (undefined4)uStack_48;\n          uStack_2c = uStack_48._4_4_;\n          local_50 = 0;\n          uStack_48 = 1;\n          local_40 = 0;\n          _ZN5alloc3vec16Vec_LT_T_C_A_GT_4push17h4de2a5e1402a45f2E(param_1 + 0x10,&local_38);\n        }\n        else {\n          *(long *)(param_1 + 0x78) = *(long *)(param_1 + 0x78) + 1;\n        }\n      } while (*(ulong *)(param_1 + 0x20) < *(ulong *)(param_1 + 0x58));\n    }\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17habcac018958bfd8aE(&local_50);\n    lVar3 = 0;\n  }\n  return lVar3;\n}",
+    "_ZN7uu_more5Pager7page_up17h8ac51dfc33201f5eE": "undefined  [16]\n_ZN7uu_more5Pager7page_up17h8ac51dfc33201f5eE(long param_1,undefined8 param_2,long param_3)\n\n{\n  ulong uVar1;\n  undefined8 uVar2;\n  long lVar3;\n  char cVar4;\n  long lVar5;\n  long unaff_RBX;\n  ulong uVar6;\n  long lVar7;\n  undefined auVar8 [16];\n  undefined8 local_48;\n  undefined8 local_40;\n  undefined8 local_38;\n  \n  uVar1 = *(ulong *)(param_1 + 0x50);\n  uVar6 = 0xffffffffffffffff;\n  if (!CARRY8(*(ulong *)(param_1 + 0x58),*(ulong *)(param_1 + 0x78))) {\n    uVar6 = *(ulong *)(param_1 + 0x58) + *(ulong *)(param_1 + 0x78);\n  }\n  lVar5 = 0;\n  lVar7 = uVar1 - uVar6;\n  if (uVar1 < uVar6) {\n    lVar7 = lVar5;\n  }\n  *(long *)(param_1 + 0x50) = lVar7;\n  if (*(char *)(param_1 + 0x81) == '\\x01') {\n    local_48 = 0;\n    local_40 = 1;\n    local_38 = 0;\n    if (uVar6 < uVar1) {\n      uVar2 = *(undefined8 *)(param_1 + 0x40);\n      lVar3 = *(long *)(param_1 + 0x48);\n      do {\n                    /* try { // try from 0017b0c0 to 0017b0e4 has its CatchHandler @ 0017b145 */\n        auVar8 = _ZN7uu_more5Pager12seek_to_line17h869c7595a8249d8fE(param_1,lVar7);\n        param_3 = auVar8._8_8_;\n        lVar5 = auVar8._0_8_;\n        if (lVar5 != 0) goto LAB_0017b126;\n        local_38 = 0;\n        auVar8 = (**(code **)(lVar3 + 0x80))(uVar2,&local_48);\n        if ((auVar8 & (undefined  [16])0x1) != (undefined  [16])0x0) {\n                    /* try { // try from 0017b117 to 0017b11f has its CatchHandler @ 0017b143 */\n          auVar8 = (*(code *)\n                     PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                   )(auVar8._8_8_);\n          param_3 = auVar8._8_8_;\n          lVar5 = auVar8._0_8_;\n          goto LAB_0017b126;\n        }\n        cVar4 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17h506ca15ca5b86ee2E\n                          (local_40,local_38,\n                           \"\\nNext file: %--More--()\\'. Press \\'h\\' for instructions. (unimplemented)][Press space to continue, \\'q\\' to quit.]\"\n                           ,1);\n        if (cVar4 == '\\0') break;\n        lVar7 = lVar7 + -1;\n        *(long *)(param_1 + 0x50) = lVar7;\n      } while (lVar7 != 0);\n      lVar5 = 0;\n      param_3 = param_1;\n    }\n    else {\n      lVar5 = 0;\n      param_3 = unaff_RBX;\n    }\nLAB_0017b126:\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17habcac018958bfd8aE(&local_48);\n  }\n  auVar8._8_8_ = param_3;\n  auVar8._0_8_ = lVar5;\n  return auVar8;\n}",
+    "_ZN7uu_more7Options4from17h891a40eb4d8100b7E": "undefined8 * _ZN7uu_more7Options4from17h891a40eb4d8100b7E(undefined8 *param_1,undefined8 param_2)\n\n{\n  bool bVar1;\n  undefined uVar2;\n  undefined uVar3;\n  undefined uVar4;\n  undefined uVar5;\n  short *psVar6;\n  ushort *puVar7;\n  ushort *puVar8;\n  ulong *puVar9;\n  long lVar10;\n  short sVar11;\n  ulong local_80;\n  undefined8 local_70;\n  undefined8 uStack_68;\n  undefined8 local_60;\n  undefined local_58 [40];\n  \n  sVar11 = -0xae5;\n  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17he1bd1c63b5c632b9E\n            (local_58,param_2,\"lines\",5);\n  psVar6 = (short *)_ZN12clap_builder6parser5error12MatchesError6unwrap17he5942f34b5911f57E\n                              (\"lines\",5,local_58);\n  if (psVar6 != (short *)0x0) {\n    sVar11 = *psVar6;\n  }\n  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17he1bd1c63b5c632b9E\n            (local_58,param_2,\"number\",6);\n  puVar7 = (ushort *)\n           _ZN12clap_builder6parser5error12MatchesError6unwrap17he5942f34b5911f57E\n                     (\"number\",6,local_58);\n  puVar8 = puVar7;\n  if (puVar7 != (ushort *)0x0) {\n    puVar8 = (ushort *)(ulong)*puVar7;\n  }\n  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17h5c9036044c528d5bE\n            (local_58,param_2);\n  puVar9 = (ulong *)_ZN12clap_builder6parser5error12MatchesError6unwrap17h7a5118f34f3edf6dE\n                              (local_58);\n  if (puVar9 != (ulong *)0x0) {\n    local_80 = *puVar9;\n  }\n  _ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17haf1677129f8b985cE\n            (local_58,param_2);\n  lVar10 = _ZN12clap_builder6parser5error12MatchesError6unwrap17ha0af60c966f39268E(local_58);\n  if (lVar10 == 0) {\n    local_70 = 0x8000000000000000;\n  }\n  else {\n    (*(code *)\n      PTR__ZN60__LT_alloc__string__String_u20_as_u20_core__clone__Clone_GT_5clone17h94782b8343b62bd8E_0022d500\n    )(&local_70,lVar10);\n  }\n                    /* try { // try from 0017a519 to 0017a531 has its CatchHandler @ 0017a609 */\n  uVar2 = (*(code *)\n            PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E_0022d508\n          )(param_2,\"clean-print\",0xb);\n                    /* try { // try from 0017a532 to 0017a576 has its CatchHandler @ 0017a60b */\n  uVar3 = (*(code *)\n            PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E_0022d508\n          )(param_2,\"print-over\",10);\n  uVar4 = (*(code *)\n            PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E_0022d508\n          )(param_2,\"silent\",6);\n  uVar5 = (*(code *)\n            PTR__ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E_0022d508\n          )(param_2,\"squeeze\",7);\n  bVar1 = sVar11 != 0;\n  if (psVar6 == (short *)0x0) {\n    bVar1 = (short)puVar8 != 0 && puVar7 != (ushort *)0x0;\n    sVar11 = (short)puVar8;\n  }\n  lVar10 = 0;\n  if (1 < local_80) {\n    lVar10 = local_80 - 1;\n  }\n  if (puVar9 == (ulong *)0x0) {\n    lVar10 = 0;\n  }\n  *(undefined *)((long)param_1 + 0x24) = uVar2;\n  param_1[3] = lVar10;\n  *(ushort *)(param_1 + 4) = (ushort)bVar1;\n  *(short *)((long)param_1 + 0x22) = sVar11 + 1;\n  *param_1 = local_70;\n  param_1[1] = uStack_68;\n  param_1[2] = local_60;\n  *(undefined *)((long)param_1 + 0x25) = uVar3;\n  *(undefined *)((long)param_1 + 0x26) = uVar4;\n  *(undefined *)((long)param_1 + 0x27) = uVar5;\n  return param_1;\n}",
+    "_ZN7uu_more10reset_term17h8f55483ea7f41c94E": "void _ZN7uu_more10reset_term17h8f55483ea7f41c94E(undefined8 param_1)\n\n{\n  undefined8 uVar1;\n  undefined **local_38;\n  undefined8 local_30;\n  undefined8 local_28;\n  undefined8 local_20;\n  undefined8 uStack_18;\n  \n  uVar1 = (*(code *)PTR__ZN9crossterm8terminal16disable_raw_mode17h465f563c46635ef8E_0022d3b0)();\n  _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h3a901ae51f259b59E\n            (uVar1,&PTR_s_src_uu_more_src_more_rs_00225318);\n  uVar1 = _ZN9crossterm7command18write_command_ansi17h092cdb5fcd9c0436E(param_1);\n  _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h3a901ae51f259b59E\n            (uVar1,&PTR_s_src_uu_more_src_more_rs_00225330);\n  local_38 = &PTR_s__00225308;\n  local_30 = 1;\n  local_28 = 8;\n  local_20 = 0;\n  uStack_18 = 0;\n  (*(code *)PTR__ZN3std2io5stdio6_print17h5e446ff973c02de6E_0022d3e8)(&local_38);\n  uVar1 = (*(code *)\n            PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_5flush17hfb2969f84e2164f2E_0022d300\n          )(param_1);\n  _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h3a901ae51f259b59E\n            (uVar1,&PTR_s_src_uu_more_src_more_rs_00225348);\n  return;\n}",
+    "_ZN7uu_more5Pager9prev_line17h81e664c16673410eE": "void _ZN7uu_more5Pager9prev_line17h81e664c16673410eE(long param_1)\n\n{\n  if (*(long *)(param_1 + 0x50) != 0) {\n    *(long *)(param_1 + 0x50) = *(long *)(param_1 + 0x50) + -1;\n  }\n  return;\n}",
+    "_ZN7uu_more5Pager4draw17h5a1246f76957cacaE": "long _ZN7uu_more5Pager4draw17h5a1246f76957cacaE(long param_1,undefined8 param_2,undefined4 param_3)\n\n{\n  long lVar1;\n  undefined8 uVar2;\n  \n  lVar1 = _ZN7uu_more5Pager10draw_lines17hf362fbee6ca4fba8E();\n  if (lVar1 != 0) {\n    return lVar1;\n  }\n  lVar1 = -1;\n  if (!CARRY8(*(ulong *)(param_1 + 0x50),*(ulong *)(param_1 + 0x58))) {\n    lVar1 = *(ulong *)(param_1 + 0x50) + *(ulong *)(param_1 + 0x58);\n  }\n  uVar2 = _ZN4core3cmp3Ord3min17hb3329b13fb983db2E(*(undefined8 *)(param_1 + 0x70),lVar1);\n  _ZN7uu_more5Pager11draw_prompt17hc5b983e1ff1da72eE(param_1,param_2,uVar2,param_3);\n  lVar1 = (*(code *)\n            PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_5flush17hfb2969f84e2164f2E_0022d300\n          )(param_2);\n  if (lVar1 != 0) {\n    lVar1 = (*(code *)\n              PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n            )(lVar1);\n    return lVar1;\n  }\n  return 0;\n}",
+    "_ZN7uu_more6uumain17hc7d99fd42bff3ee4E": "ulong _ZN7uu_more6uumain17hc7d99fd42bff3ee4E(undefined8 param_1,undefined8 param_2)\n\n{\n  char cVar1;\n  undefined4 uVar2;\n  uint uVar3;\n  ulong uVar4;\n  undefined local_98 [16];\n  undefined **local_88;\n  undefined8 local_80;\n  undefined8 **local_78;\n  undefined8 local_70;\n  undefined8 local_68;\n  undefined8 **local_58;\n  code *pcStack_50;\n  undefined8 local_48;\n  undefined local_38 [16];\n  undefined8 local_28;\n  undefined8 **local_20;\n  code *local_18;\n  \n  uVar2 = (*(code *)PTR__ZN6uucore28disable_rust_signal_handlers17hcf33f4a6d6e443c4E_0022d358)();\n  _ZN4core6result19Result_LT_T_C_E_GT_6expect17h537143b39b561459E(uVar2);\n  local_98 = _ZN7uu_more6uumain6uumain17h09bf99930d1e22a4E(param_1,param_2);\n  if (local_98._0_8_ != 0) {\n    pcStack_50 = \n    _ZN69__LT_alloc__boxed__Box_LT_T_C_A_GT__u20_as_u20_core__fmt__Display_GT_3fmt17h4cb9a5d0848ee960E\n    ;\n    local_88 = (undefined **)&DAT_0011e020;\n    local_80 = 1;\n    local_68 = 0;\n    local_70 = 1;\n                    /* try { // try from 0017277f to 00172790 has its CatchHandler @ 0017291e */\n    local_78 = &local_58;\n    local_58 = (undefined8 **)local_98;\n    _ZN4core6option15Option_LT_T_GT_11map_or_else17h725dcc8f79796e4cE(local_38,&local_88);\n    local_58 = (undefined8 **)local_38._0_8_;\n    pcStack_50 = (code *)local_38._8_8_;\n    local_48 = local_28;\n    cVar1 = _ZN73__LT__u5b_A_u5d__u20_as_u20_core__slice__cmp__SlicePartialEq_LT_B_GT__GT_5equal17hf204b4af95552d88E\n                      (local_38._8_8_,local_28,1,0);\n    if (cVar1 == '\\0') {\n                    /* try { // try from 001727be to 001728e1 has its CatchHandler @ 00172923 */\n      local_38 = (*(code *)PTR__ZN6uucore9util_name17h074417a1e6395129E_0022d360)();\n      local_18 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h17d30c655730047aE;\n      local_88 = (undefined **)&DAT_002242c0;\n      local_80 = 2;\n      local_68 = 0;\n      local_78 = &local_20;\n      local_70 = 1;\n      local_20 = (undefined8 **)local_38;\n      (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_0022d368)(&local_88);\n      local_38._8_8_ =\n           _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E\n      ;\n      local_88 = (undefined **)&DAT_002242e0;\n      local_80 = 2;\n      local_68 = 0;\n      local_70 = 1;\n      local_78 = (undefined8 **)local_38;\n      local_38._0_8_ = &local_58;\n      (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_0022d368)(&local_88);\n    }\n    cVar1 = (**(code **)(local_98._8_8_ + 0x60))(local_98._0_8_);\n    if (cVar1 != '\\0') {\n      local_38 = (*(code *)PTR__ZN6uucore16execution_phrase17hf0e80cb4793732adE_0022d370)();\n      local_18 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h17d30c655730047aE;\n      local_88 = &PTR_s_Try_____help__for_more_informati_00224300;\n      local_80 = 2;\n      local_68 = 0;\n      local_78 = &local_20;\n      local_70 = 1;\n      local_20 = (undefined8 **)local_38;\n      (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_0022d368)(&local_88);\n    }\n    uVar3 = (**(code **)(local_98._8_8_ + 0x58))(local_98._0_8_);\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h252ce3d2b34612c7E\n              (local_58,pcStack_50);\n    _ZN4core3ptr105drop_in_place_LT_alloc__boxed__Box_LT_dyn_u20_clap_builder__builder__value_parser__AnyValueParser_GT__GT_17hc76cfff48b2d6fadE\n              (local_98._0_8_,local_98._8_8_);\n    return (ulong)uVar3;\n  }\n  uVar4 = (*(code *)PTR__ZN6uucore4mods5error13get_exit_code17h4ce6cf124c2ef658E_0022d378)();\n  return uVar4;\n}",
+    "_ZN7uu_more5Pager11draw_prompt17hc5b983e1ff1da72eE": "void _ZN7uu_more5Pager11draw_prompt17hc5b983e1ff1da72eE\n               (long param_1,undefined8 param_2,long param_3,int param_4)\n\n{\n  long lVar1;\n  undefined8 *puVar2;\n  bool bVar3;\n  undefined8 uVar4;\n  undefined4 uVar5;\n  double dVar6;\n  undefined4 uVar7;\n  double dVar8;\n  undefined auVar9 [16];\n  undefined auVar10 [16];\n  undefined *local_108;\n  undefined *local_100;\n  undefined8 *local_f8;\n  code *local_f0;\n  undefined *local_e8;\n  undefined *local_e0;\n  undefined8 local_d8;\n  undefined8 uStack_d0;\n  undefined8 local_c8;\n  undefined8 local_c0;\n  undefined8 uStack_b8;\n  undefined **local_b0;\n  code *local_a8;\n  undefined8 local_a0;\n  int local_8c;\n  undefined4 local_88;\n  undefined4 uStack_84;\n  undefined4 uStack_80;\n  undefined4 uStack_7c;\n  undefined8 local_78;\n  undefined4 local_68;\n  undefined4 uStack_64;\n  undefined4 uStack_60;\n  undefined4 uStack_5c;\n  undefined8 local_58;\n  undefined8 local_50;\n  undefined4 local_48 [6];\n  \n  lVar1 = *(long *)(param_1 + 0x70);\n  local_50 = param_2;\n  if (param_3 == lVar1) {\n    puVar2 = *(undefined8 **)(param_1 + 0x60);\n    uStack_b8 = (code *)puVar2;\n    local_c0 = (undefined **)&DAT_00000001;\n    if (puVar2 != (undefined8 *)0x0) {\n      uStack_b8 = *(code **)(param_1 + 0x68);\n      local_c0 = (undefined **)puVar2;\n    }\n    local_d8 = &local_c0;\n    uStack_d0 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17hadf97448b344c082E;\n    local_108 = &DAT_00225360;\n    local_100 = (undefined *)0x1;\n    local_f8 = &local_d8;\n  }\n  else {\n    auVar9._8_4_ = (int)((ulong)param_3 >> 0x20);\n    auVar9._0_8_ = param_3;\n    auVar9._12_4_ = DAT_0011dea0._4_4_;\n    auVar10._8_4_ = (int)((ulong)lVar1 >> 0x20);\n    auVar10._0_8_ = lVar1;\n    auVar10._12_4_ = DAT_0011dea0._4_4_;\n    dVar6 = (double)(*(code *)PTR_round_0022d520)\n                              (SUB84((((auVar9._8_8_ - _UNK_0011de48) +\n                                      ((double)CONCAT44((undefined4)DAT_0011dea0,(int)param_3) -\n                                      _s__0011de40)) /\n                                     ((auVar10._8_8_ - _UNK_0011de48) +\n                                     ((double)CONCAT44((undefined4)DAT_0011dea0,(int)lVar1) -\n                                     _s__0011de40))) * _s__0011da20,0));\n    dVar8 = 0.0;\n    if (0.0 <= dVar6) {\n      dVar8 = dVar6;\n    }\n    uVar5 = SUB84(_s__0011daa8,0);\n    uVar7 = (undefined4)((ulong)_s__0011daa8 >> 0x20);\n    if (dVar8 <= _s__0011daa8) {\n      uVar5 = SUB84(dVar8,0);\n      uVar7 = (undefined4)((ulong)dVar8 >> 0x20);\n    }\n    local_d8 = (undefined8 *)CONCAT62(local_d8._2_6_,(short)(int)(double)CONCAT44(uVar7,uVar5));\n    local_c0 = (undefined **)&local_d8;\n    uStack_b8 = (code *)\n                PTR__ZN4core3fmt3num3imp52__LT_impl_u20_core__fmt__Display_u20_for_u20_u16_GT_3fmt17h76cd049dd60d778dE_0022d2e0\n    ;\n    local_108 = &DAT_00225370;\n    local_100 = (undefined *)0x2;\n    local_f8 = &local_c0;\n  }\n  local_e8 = (undefined *)0x0;\n  local_f0 = (code *)0x1;\n  _ZN4core6option15Option_LT_T_GT_11map_or_else17hc1ec3d5ca74f474dE(local_48,&local_108);\n  local_d8 = (undefined8 *)local_48;\n  uStack_d0 = \n  _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E;\n  local_108 = &DAT_00225390;\n  local_100 = (undefined *)0x2;\n  local_e8 = (undefined *)0x0;\n  local_f0 = (code *)0x1;\n                    /* try { // try from 0017b513 to 0017b525 has its CatchHandler @ 0017b79a */\n  local_f8 = &local_d8;\n  _ZN4core6option15Option_LT_T_GT_11map_or_else17hc1ec3d5ca74f474dE(&local_c0,&local_108);\n  local_68 = (undefined4)local_c0;\n  uStack_64 = local_c0._4_4_;\n  uStack_60 = (undefined4)uStack_b8;\n  uStack_5c = uStack_b8._4_4_;\n  local_58 = local_b0;\n  local_f8 = &local_c0;\n  if (*(char *)(param_1 + 0x80) == '\\0') {\n    if (param_4 == 0x110000) {\n      local_78 = local_b0;\n      local_88 = (undefined4)local_c0;\n      uStack_84 = local_c0._4_4_;\n      uStack_80 = (undefined4)uStack_b8;\n      uStack_7c = uStack_b8._4_4_;\n      bVar3 = false;\n      goto LAB_0017b6cf;\n    }\n    local_c0 = (undefined **)&local_68;\n    uStack_b8 = \n    _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E;\n    local_b0 = &PTR_DAT_00225430;\n    local_a8 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17hadf97448b344c082E;\n    local_108 = &DAT_0011f780;\n    local_100 = (undefined *)0x2;\n    local_e8 = (undefined *)0x0;\n    local_f0 = (code *)0x2;\n    _ZN4core6option15Option_LT_T_GT_11map_or_else17hc1ec3d5ca74f474dE(&local_d8,&local_108);\nLAB_0017b6b2:\n    local_88 = (undefined4)local_d8;\n    uStack_84 = local_d8._4_4_;\n    uStack_80 = (undefined4)uStack_d0;\n    uStack_7c = uStack_d0._4_4_;\n    local_b0 = (undefined **)local_c8;\n  }\n  else {\n    if (param_4 != 0x110000) {\n      local_c0 = (undefined **)&local_68;\n      uStack_b8 = \n      _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E;\n      local_b0 = (undefined **)&local_8c;\n      local_a8 = (code *)\n                 PTR__ZN43__LT_char_u20_as_u20_core__fmt__Display_GT_3fmt17h0215b7857ad55b0cE_0022d528\n      ;\n      local_108 = &DAT_002253b0;\n      local_100 = (undefined *)0x3;\n      local_e8 = (undefined *)0x0;\n      local_f0 = (code *)0x2;\n      local_8c = param_4;\n      _ZN4core6option15Option_LT_T_GT_11map_or_else17hc1ec3d5ca74f474dE(&local_d8,&local_108);\n      goto LAB_0017b6b2;\n    }\n    local_d8 = (undefined8 *)&local_68;\n    uStack_d0 = \n    _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E;\n    local_108 = &DAT_002253e0;\n    local_100 = (undefined *)0x2;\n    local_e8 = (undefined *)0x0;\n    local_f0 = (code *)0x1;\n                    /* try { // try from 0017b593 to 0017b6b1 has its CatchHandler @ 0017b795 */\n    local_f8 = &local_d8;\n    _ZN4core6option15Option_LT_T_GT_11map_or_else17hc1ec3d5ca74f474dE(&local_c0,&local_108);\n    local_88 = (undefined4)local_c0;\n    uStack_84 = local_c0._4_4_;\n    uStack_80 = (undefined4)uStack_b8;\n    uStack_7c = uStack_b8._4_4_;\n  }\n  bVar3 = true;\n  local_78 = local_b0;\nLAB_0017b6cf:\n  local_108 = &DAT_0011f8c1;\n  local_100 = \n  PTR__ZN84__LT_crossterm__style__types__attribute__Attribute_u20_as_u20_core__fmt__Display_GT_3fmt17h487a2075555157a2E_0022d530\n  ;\n  local_f8 = (undefined8 *)&local_88;\n  local_f0 = \n  _ZN60__LT_alloc__string__String_u20_as_u20_core__fmt__Display_GT_3fmt17h28f4d01eb787df69E;\n  local_e8 = &DAT_0011f8c2;\n  local_e0 = \n  PTR__ZN84__LT_crossterm__style__types__attribute__Attribute_u20_as_u20_core__fmt__Display_GT_3fmt17h487a2075555157a2E_0022d530\n  ;\n  local_c0 = &PTR_s__00225400;\n  uStack_b8 = (code *)0x3;\n  local_a0 = 0;\n  local_a8 = (code *)0x3;\n                    /* try { // try from 0017b735 to 0017b756 has its CatchHandler @ 0017b7b2 */\n  local_b0 = &local_108;\n  uVar4 = (*(code *)\n            PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_9write_fmt17h3907d576e608aa2aE_0022d538\n          )(local_50,&local_c0);\n  _ZN4core6result19Result_LT_T_C_E_GT_6unwrap17h3a901ae51f259b59E\n            (uVar4,&PTR_s_src_uu_more_src_more_rs_00225440);\n  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17habcac018958bfd8aE(&local_88);\n  if (bVar3) {\n    _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17habcac018958bfd8aE(&local_68);\n  }\n  _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17habcac018958bfd8aE(local_48);\n  return;\n}",
+    "_ZN7uu_more5Pager10draw_lines17hf362fbee6ca4fba8E": "long _ZN7uu_more5Pager10draw_lines17hf362fbee6ca4fba8E(long param_1,undefined8 param_2)\n\n{\n  undefined *puVar1;\n  long lVar2;\n  long lVar3;\n  long lVar4;\n  long local_90;\n  undefined local_88 [8];\n  undefined8 local_80;\n  undefined8 local_78;\n  long *local_70;\n  code *local_68;\n  undefined **local_60;\n  undefined8 local_58;\n  long **local_50;\n  undefined8 local_48;\n  undefined8 local_40;\n  \n  lVar2 = _ZN9crossterm7command18write_command_ansi17h092cdb5fcd9c0436E(param_2);\n  if ((lVar2 == 0) &&\n     (lVar2 = (*(code *)\n                PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_5flush17hfb2969f84e2164f2E_0022d300\n              )(param_2), lVar2 == 0)) {\n    lVar2 = _ZN7uu_more5Pager18load_visible_lines17hab6b7f963f4c8df4E(param_1);\n    puVar1 = \n    PTR__ZN57__LT_std__io__stdio__Stdout_u20_as_u20_std__io__Write_GT_9write_all17hda8b04bbc47966cdE_0022d218\n    ;\n    if (lVar2 == 0) {\n      if (*(long *)(param_1 + 0x20) == 0) {\n        lVar2 = 0;\n      }\n      else {\n        lVar3 = *(long *)(param_1 + 0x18);\n        lVar4 = *(long *)(param_1 + 0x20) * 0x18;\n        do {\n          local_70 = &local_90;\n          local_68 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17hb390d762ea379179E;\n          local_60 = &PTR_s__00225308;\n          local_58 = 1;\n          local_40 = 0;\n          local_50 = &local_70;\n          local_48 = 1;\n          local_90 = lVar3;\n          _ZN4core6option15Option_LT_T_GT_11map_or_else17hc1ec3d5ca74f474dE(local_88,&local_60);\n                    /* try { // try from 0017b311 to 0017b315 has its CatchHandler @ 0017b368 */\n          lVar2 = (*(code *)puVar1)(param_2,local_80,local_78);\n          if (lVar2 != 0) {\n                    /* try { // try from 0017b342 to 0017b34a has its CatchHandler @ 0017b366 */\n            lVar2 = (*(code *)\n                      PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                    )(lVar2);\n            _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17habcac018958bfd8aE(local_88);\n            return lVar2;\n          }\n          _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17habcac018958bfd8aE(local_88);\n          lVar3 = lVar3 + 0x18;\n          lVar4 = lVar4 + -0x18;\n          lVar2 = 0;\n        } while (lVar4 != 0);\n      }\n    }\n  }\n  else {\n    lVar2 = (*(code *)\n              PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n            )(lVar2);\n  }\n  return lVar2;\n}",
+    "_ZN7uu_more6uumain6uumain17h09bf99930d1e22a4E": "undefined  [16] _ZN7uu_more6uumain6uumain17h09bf99930d1e22a4E(undefined8 param_1,undefined8 param_2)\n\n{\n  undefined auVar1 [16];\n  undefined8 uVar2;\n  char cVar3;\n  undefined uVar4;\n  undefined4 uVar5;\n  undefined8 uVar6;\n  undefined **ppuVar7;\n  long lVar8;\n  long *plVar9;\n  long lVar10;\n  ulong uVar11;\n  long lVar12;\n  undefined auVar13 [16];\n  undefined local_4d9;\n  undefined8 local_4d8;\n  undefined **local_4d0;\n  undefined8 *local_4c8;\n  code *local_4c0;\n  undefined8 *local_4b8;\n  code *local_4b0;\n  undefined local_4a8 [16];\n  undefined8 *local_498;\n  undefined *local_490;\n  undefined8 local_488;\n  ulong local_480;\n  undefined8 local_478;\n  undefined8 uStack_470;\n  long local_468;\n  undefined8 uStack_460;\n  undefined8 local_458;\n  undefined8 uStack_450;\n  undefined8 local_448;\n  undefined8 local_440;\n  ulong local_438;\n  int local_430;\n  undefined4 local_42c;\n  undefined8 local_428;\n  undefined **local_420;\n  undefined4 uStack_418;\n  undefined4 uStack_414;\n  undefined4 local_410;\n  undefined4 uStack_40c;\n  undefined4 uStack_408;\n  undefined4 uStack_404;\n  undefined4 local_400;\n  undefined4 uStack_3fc;\n  undefined8 uStack_3f8;\n  undefined8 local_3f0;\n  undefined8 local_3e8;\n  undefined8 uStack_3e0;\n  undefined8 local_3d8;\n  undefined8 local_3d0;\n  undefined8 local_3c8;\n  undefined8 local_3c0;\n  undefined **local_3a0 [2];\n  undefined4 local_390;\n  undefined4 uStack_38c;\n  undefined4 uStack_388;\n  undefined4 uStack_384;\n  undefined4 local_380;\n  undefined4 uStack_37c;\n  undefined4 uStack_378;\n  undefined4 uStack_374;\n  undefined8 local_370;\n  undefined4 local_368;\n  undefined4 uStack_364;\n  undefined4 uStack_360;\n  undefined4 uStack_35c;\n  long local_358;\n  undefined8 local_350;\n  undefined local_340 [16];\n  undefined8 local_330;\n  undefined local_328 [16];\n  undefined8 local_318;\n  undefined local_310 [16];\n  undefined8 local_300;\n  undefined **local_2f8;\n  undefined8 uStack_2f0;\n  undefined8 **local_2e8;\n  ulong local_2e0;\n  undefined8 local_2d8;\n  \n                    /* try { // try from 00172977 to 001729d2 has its CatchHandler @ 0017339f */\n  uVar6 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h280b746f5ffff174E();\n  (*(code *)PTR__ZN3std9panicking8set_hook17h907d45d363a27a50E_0022d380)(uVar6,&DAT_002243c8);\n  (*(code *)PTR__ZN7uu_more6uu_app17h91a4b949c44828f9E_0022d388)(&local_2f8);\n  _ZN12clap_builder7builder7command7Command20try_get_matches_from17h6f280e93681d8b4eE\n            (&local_420,&local_2f8,param_1,param_2);\n  local_370 = local_3f0;\n  local_380 = local_400;\n  uStack_37c = uStack_3fc;\n  uStack_378 = (undefined4)uStack_3f8;\n  uStack_374 = uStack_3f8._4_4_;\n  local_390 = local_410;\n  uStack_38c = uStack_40c;\n  uStack_388 = uStack_408;\n  uStack_384 = uStack_404;\n  local_3a0[0] = local_420;\n                    /* try { // try from 00172a1e to 00172a33 has its CatchHandler @ 00173361 */\n  (*(code *)PTR__ZN7uu_more7Options4from17h891a40eb4d8100b7E_0022d398)(&local_3c8,local_3a0);\n                    /* try { // try from 00172a34 to 00172aaa has its CatchHandler @ 00173389 */\n  (*(code *)PTR__ZN7uu_more10setup_term17h0836ea3f29ebee77E_0022d3a0)(&local_2f8);\n  uVar11 = uStack_2f0;\n  auVar13._8_8_ = uStack_2f0;\n  auVar13._0_8_ = local_2f8;\n  if (local_2f8 == (undefined **)0x0) {\n    local_480 = uStack_2f0;\n    _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17hb1a200c6a1fe7de3E\n              (&local_2f8,local_3a0);\n    _ZN12clap_builder6parser5error12MatchesError6unwrap17hb8dd9878ac53ee79E(&local_478,&local_2f8);\n    if (local_478 == 0) {\n      local_478 = 0;\n      uStack_470 = 1;\n      local_468 = 0;\n                    /* try { // try from 00173164 to 00173191 has its CatchHandler @ 00173339 */\n      local_2f8 = (undefined **)(*(code *)PTR__ZN3std2io5stdio5stdin17h9a05a2c3e7544b2aE_0022d3d8)()\n      ;\n      auVar13 = (*(code *)\n                  PTR__ZN55__LT_std__io__stdio__Stdin_u20_as_u20_std__io__Read_GT_14read_to_string17hfb372f0d8ac67275E_0022d3e0\n                )(&local_2f8,&local_478);\n      if ((auVar13 & (undefined  [16])0x1) == (undefined  [16])0x0) {\n        if (local_468 != 0) {\n          local_358 = local_468;\n          local_368 = (undefined4)local_478;\n          uStack_364 = local_478._4_4_;\n          uStack_360 = (undefined4)uStack_470;\n          uStack_35c = uStack_470._4_4_;\n          local_350 = 0;\n                    /* try { // try from 001731d5 to 001731ee has its CatchHandler @ 00173328 */\n          auVar13 = _ZN7uu_more4more17h7c8eea8d2920cc18E(&local_368,&local_480,&local_3c8);\n          if (auVar13._0_8_ == 0) {\nLAB_001731fb:\n            _ZN4core3ptr37drop_in_place_LT_uu_more__Options_GT_17h3d5cdd05e4c7b237E\n                      (local_3c8,local_3c0);\n                    /* try { // try from 00173210 to 0017321c has its CatchHandler @ 0017339f */\n            _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17h2140f0859326984bE\n                      (local_3a0);\n            auVar1._8_8_ = 0;\n            auVar1._0_8_ = uVar11;\n            auVar13 = auVar1 << 0x40;\n            goto LAB_00173304;\n          }\n          goto LAB_001732e2;\n        }\n                    /* try { // try from 00173241 to 00173291 has its CatchHandler @ 00173339 */\n        _ZN87__LT_T_u20_as_u20_alloc__slice___LT_impl_u20__u5b_T_u5d__GT___to_vec_in__ConvertVec_GT_6to_vec17h18293cfa67260e0bE\n                  (&local_420,\"bad usage\",9);\n        local_2e8 = (undefined8 **)CONCAT44(uStack_40c,local_410);\n        local_2f8 = local_420;\n        uStack_2f0 = CONCAT44(uStack_414,uStack_418);\n        local_2e0 = CONCAT44(local_2e0._4_4_,1);\n        uVar6 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h5e437b04e14cce82E(&local_2f8);\n        auVar13._8_8_ =\n             &\n             PTR__ZN4core3ptr53drop_in_place_LT_uucore__mods__error__UUsageError_GT_17ha12dd1038329db0dE_002244a0\n        ;\n        auVar13._0_8_ = uVar6;\n      }\n      else {\n        auVar13 = (*(code *)\n                    PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                  )(auVar13._8_8_);\n      }\n      _ZN4core3ptr42drop_in_place_LT_alloc__string__String_GT_17h252ce3d2b34612c7E\n                (local_478,uStack_470);\n    }\n    else {\n      local_438 = _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17he3ff82773236146fE\n                            (local_440);\n      local_3d8 = local_448;\n      local_3e8 = local_458;\n      uStack_3e0 = uStack_450;\n      uStack_3f8 = local_468;\n      local_3f0 = uStack_460;\n      uStack_408 = (undefined4)local_478;\n      uStack_404 = local_478._4_4_;\n      local_400 = (undefined4)uStack_470;\n      uStack_3fc = uStack_470._4_4_;\n      local_3d0 = local_440;\n      ppuVar7 = (undefined **)0x0;\nLAB_00172b08:\n      do {\n        while( true ) {\n          while( true ) {\n            uVar11 = CONCAT44(uStack_414,uStack_418);\n            uVar6 = CONCAT44(uStack_40c,local_410);\n            local_420 = (undefined **)0x0;\n            if (((ulong)ppuVar7 & 1) == 0) {\n                    /* try { // try from 00172b28 to 00172c47 has its CatchHandler @ 001733a4 */\n              lVar8 = _ZN121__LT_clap_builder__parser__matches__arg_matches__ValuesRef_LT_T_GT__u20_as_u20_core__iter__traits__iterator__Iterator_GT_4next17h6dc70c466a64e469E\n                                (&uStack_408);\n              if (lVar8 == 0) {\n                uVar11 = 0;\n              }\n              else {\n                uVar11 = *(ulong *)(lVar8 + 8);\n                uVar6 = *(undefined8 *)(lVar8 + 0x10);\n              }\n            }\n            plVar9 = (long *)_ZN4core6option15Option_LT_T_GT_18get_or_insert_with17h96ff1e210b7855ffE\n                                       (&local_420,&uStack_408);\n            if (uVar11 == 0) goto LAB_001731fb;\n            lVar8 = *plVar9;\n            cVar3 = (*(code *)PTR__ZN3std4path4Path6is_dir17h02edbc48c38d7d9eE_0022d3a8)\n                              (uVar11,uVar6);\n            if (cVar3 == '\\0') break;\n            lVar8 = (*(code *)\n                      PTR__ZN9crossterm8terminal16disable_raw_mode17h465f563c46635ef8E_0022d3b0)();\n            if (lVar8 != 0) {\n                    /* try { // try from 00173225 to 0017323b has its CatchHandler @ 00173389 */\n              auVar13 = (*(code *)\n                          PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                        )(lVar8);\n              goto LAB_001732e2;\n            }\n            local_4c8 = (undefined8 *)0x1;\n            local_4b0 = (code *)CONCAT71(local_4b0._1_7_,1);\n            local_4a8._0_8_ = &local_4c8;\n            local_4a8._8_8_ =\n                 PTR__ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17ha3782f403933d3a5E_0022d3b8\n            ;\n            local_2f8 = (undefined **)&DAT_00224338;\n            uStack_2f0 = 2;\n            local_2d8 = 0;\n            local_2e8 = (undefined8 **)local_4a8;\n            local_2e0 = 1;\n            local_4c0 = (code *)uVar11;\n            local_4b8 = (undefined8 *)uVar6;\n            _ZN4core6option15Option_LT_T_GT_11map_or_else17h725dcc8f79796e4cE(local_340,&local_2f8);\n            local_2e0 = local_2e0 & 0xffffffff00000000;\n            local_2e8 = (undefined8 **)local_330;\n            local_4d8 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h5e437b04e14cce82E(&local_2f8);\n            local_4d0 = &\n                        PTR__ZN4core3ptr53drop_in_place_LT_uucore__mods__error__UUsageError_GT_17ha12dd1038329db0dE_002244a0\n            ;\n            uVar5 = _ZN80__LT_uucore__mods__error__UUsageError_u20_as_u20_uucore__mods__error__UError_GT_4code17h8679b4fbf35c6f91E\n                              (local_4d8);\n                    /* try { // try from 00172c61 to 00172ced has its CatchHandler @ 0017338b */\n            (*(code *)PTR__ZN6uucore4mods5error13set_exit_code17hbbe6ffc423a314f1E_0022d3c0)(uVar5);\n            local_4a8 = (*(code *)PTR__ZN6uucore9util_name17h074417a1e6395129E_0022d360)();\n            local_4c8 = (undefined8 *)local_4a8;\n            local_4c0 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h17d30c655730047aE;\n            local_4b8 = &local_4d8;\n            local_4b0 = \n            _ZN69__LT_alloc__boxed__Box_LT_T_C_A_GT__u20_as_u20_core__fmt__Display_GT_3fmt17h4cb9a5d0848ee960E\n            ;\n            local_2f8 = (undefined **)&DAT_00224358;\n            uStack_2f0 = 3;\n            local_2d8 = 0;\n            local_2e8 = &local_4c8;\n            local_2e0 = 2;\n            (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_0022d368)(&local_2f8);\n                    /* try { // try from 00172cf8 to 00172e07 has its CatchHandler @ 001733a4 */\n            _ZN4core3ptr105drop_in_place_LT_alloc__boxed__Box_LT_dyn_u20_clap_builder__builder__value_parser__AnyValueParser_GT__GT_17hc76cfff48b2d6fadE\n                      (local_4d8,local_4d0);\n            lVar8 = (*(code *)\n                      PTR__ZN9crossterm8terminal15enable_raw_mode17hd50a747b44e84432E_0022d3c8)();\n            ppuVar7 = local_420;\n            if (lVar8 != 0) {\n              auVar13 = (*(code *)\n                          PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                        )(lVar8);\n              goto LAB_001732e2;\n            }\n          }\n          _ZN3std2fs8metadata17hc83829b9c1bdbf56E(&local_2f8,uVar11,uVar6);\n          ppuVar7 = local_2f8;\n          _ZN4core3ptr90drop_in_place_LT_core__result__Result_LT_std__fs__Metadata_C_std__io__error__Error_GT__GT_17hb95ebecb39e0d4bcE\n                    (&local_2f8);\n          if ((int)ppuVar7 != 2) break;\n          lVar8 = (*(code *)\n                    PTR__ZN9crossterm8terminal16disable_raw_mode17h465f563c46635ef8E_0022d3b0)();\n          if (lVar8 != 0) {\n                    /* try { // try from 001732ad to 001732b5 has its CatchHandler @ 00173389 */\n            auVar13 = (*(code *)\n                        PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                      )(lVar8);\n            goto LAB_001732e2;\n          }\n          local_4c8 = (undefined8 *)0x1;\n          local_4b0 = (code *)CONCAT71(local_4b0._1_7_,1);\n          local_4a8._0_8_ = &local_4c8;\n          local_4a8._8_8_ =\n               PTR__ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17ha3782f403933d3a5E_0022d3b8\n          ;\n          local_2f8 = &PTR_s_cannot_open___No_such_file_or_di_00224388;\n          uStack_2f0 = 2;\n          local_2d8 = 0;\n          local_2e8 = (undefined8 **)local_4a8;\n          local_2e0 = 1;\n          local_4c0 = (code *)uVar11;\n          local_4b8 = (undefined8 *)uVar6;\n          _ZN4core6option15Option_LT_T_GT_11map_or_else17h725dcc8f79796e4cE(local_328,&local_2f8);\n          local_2e0 = local_2e0 & 0xffffffff00000000;\n          local_2e8 = (undefined8 **)local_318;\n          local_4d8 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h5e437b04e14cce82E(&local_2f8);\n          local_4d0 = &\n                      PTR__ZN4core3ptr53drop_in_place_LT_uucore__mods__error__UUsageError_GT_17ha12dd1038329db0dE_00224418\n          ;\n          uVar5 = _ZN80__LT_uucore__mods__error__UUsageError_u20_as_u20_uucore__mods__error__UError_GT_4code17h8679b4fbf35c6f91E\n                            (local_4d8);\n                    /* try { // try from 00172e21 to 00172ead has its CatchHandler @ 00173375 */\n          (*(code *)PTR__ZN6uucore4mods5error13set_exit_code17hbbe6ffc423a314f1E_0022d3c0)(uVar5);\n          local_4a8 = (*(code *)PTR__ZN6uucore9util_name17h074417a1e6395129E_0022d360)();\n          local_4c8 = (undefined8 *)local_4a8;\n          local_4c0 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h17d30c655730047aE;\n          local_4b8 = &local_4d8;\n          local_4b0 = \n          _ZN69__LT_alloc__boxed__Box_LT_T_C_A_GT__u20_as_u20_core__fmt__Display_GT_3fmt17h4cb9a5d0848ee960E\n          ;\n          local_2f8 = (undefined **)&DAT_00224358;\n          uStack_2f0 = 3;\n          local_2d8 = 0;\n          local_2e8 = &local_4c8;\n          local_2e0 = 2;\n          (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_0022d368)(&local_2f8);\n                    /* try { // try from 00172eb8 to 00172ef2 has its CatchHandler @ 001733a4 */\n          _ZN4core3ptr105drop_in_place_LT_alloc__boxed__Box_LT_dyn_u20_clap_builder__builder__value_parser__AnyValueParser_GT__GT_17hc76cfff48b2d6fadE\n                    (local_4d8,local_4d0);\n          lVar8 = (*(code *)PTR__ZN9crossterm8terminal15enable_raw_mode17hd50a747b44e84432E_0022d3c8\n                  )();\n          ppuVar7 = local_420;\n          if (lVar8 != 0) {\n            auVar13 = (*(code *)\n                        PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                      )(lVar8);\n            goto LAB_001732e2;\n          }\n        }\n        _ZN3std2fs4File4open17h9aa6ed797dd29ae7E(&local_430,uVar11,uVar6);\n        uVar2 = local_428;\n        uVar5 = local_42c;\n        if (local_430 == 1) {\n          local_488 = local_428;\n                    /* try { // try from 00172f0e to 00172fef has its CatchHandler @ 00173366 */\n          lVar8 = (*(code *)\n                    PTR__ZN9crossterm8terminal16disable_raw_mode17h465f563c46635ef8E_0022d3b0)();\n          if (lVar8 == 0) {\n            local_4c8 = (undefined8 *)0x1;\n            local_4b0 = (code *)CONCAT71(local_4b0._1_7_,1);\n            local_4c0 = (code *)uVar11;\n            local_4b8 = (undefined8 *)uVar6;\n            uVar4 = _ZN3std2io5error5Error4kind17h135fe00c4e7365f3E(uVar2);\n            local_4d8 = CONCAT71(local_4d8._1_7_,uVar4);\n            local_4a8._0_8_ = &local_4c8;\n            local_4a8._8_8_ =\n                 PTR__ZN57__LT_os_display__Quoted_u20_as_u20_core__fmt__Display_GT_3fmt17ha3782f403933d3a5E_0022d3b8\n            ;\n            local_498 = &local_4d8;\n            local_490 = \n            PTR__ZN64__LT_std__io__error__ErrorKind_u20_as_u20_core__fmt__Display_GT_3fmt17heda7d5343088b56fE_0022d3d0\n            ;\n            local_2f8 = &PTR_s_cannot_open___No_such_file_or_di_002243a8;\n            uStack_2f0 = 2;\n            local_2d8 = 0;\n            local_2e8 = (undefined8 **)local_4a8;\n            local_2e0 = 2;\n            _ZN4core6option15Option_LT_T_GT_11map_or_else17h725dcc8f79796e4cE(local_310,&local_2f8);\n            local_2e0 = local_2e0 & 0xffffffff00000000;\n            local_2e8 = (undefined8 **)local_300;\n            local_4d8 = _ZN5alloc5boxed12Box_LT_T_GT_3new17h5e437b04e14cce82E(&local_2f8);\n            local_4d0 = &\n                        PTR__ZN4core3ptr53drop_in_place_LT_uucore__mods__error__UUsageError_GT_17ha12dd1038329db0dE_00224418\n            ;\n            uVar5 = _ZN80__LT_uucore__mods__error__UUsageError_u20_as_u20_uucore__mods__error__UError_GT_4code17h8679b4fbf35c6f91E\n                              (local_4d8);\n                    /* try { // try from 00173009 to 00173095 has its CatchHandler @ 0017334d */\n            (*(code *)PTR__ZN6uucore4mods5error13set_exit_code17hbbe6ffc423a314f1E_0022d3c0)(uVar5);\n            local_4a8 = (*(code *)PTR__ZN6uucore9util_name17h074417a1e6395129E_0022d360)();\n            local_4c8 = (undefined8 *)local_4a8;\n            local_4c0 = _ZN44__LT__RF_T_u20_as_u20_core__fmt__Display_GT_3fmt17h17d30c655730047aE;\n            local_4b8 = &local_4d8;\n            local_4b0 = \n            _ZN69__LT_alloc__boxed__Box_LT_T_C_A_GT__u20_as_u20_core__fmt__Display_GT_3fmt17h4cb9a5d0848ee960E\n            ;\n            local_2f8 = (undefined **)&DAT_00224358;\n            uStack_2f0 = 3;\n            local_2d8 = 0;\n            local_2e8 = &local_4c8;\n            local_2e0 = 2;\n            (*(code *)PTR__ZN3std2io5stdio7_eprint17h57899770eacec2adE_0022d368)(&local_2f8);\n                    /* try { // try from 001730a0 to 001730aa has its CatchHandler @ 00173366 */\n            _ZN4core3ptr105drop_in_place_LT_alloc__boxed__Box_LT_dyn_u20_clap_builder__builder__value_parser__AnyValueParser_GT__GT_17hc76cfff48b2d6fadE\n                      (local_4d8,local_4d0);\n            lVar8 = (*(code *)\n                      PTR__ZN9crossterm8terminal15enable_raw_mode17hd50a747b44e84432E_0022d3c8)();\n            if (lVar8 == 0) {\n                    /* try { // try from 001730b4 to 001730bd has its CatchHandler @ 001733a4 */\n              _ZN4core3ptr42drop_in_place_LT_std__io__error__Error_GT_17hfeb26519dcae8a08E\n                        (&local_488);\n              ppuVar7 = local_420;\n              goto LAB_00172b08;\n            }\n          }\n                    /* try { // try from 001732b8 to 001732c0 has its CatchHandler @ 00173326 */\n          auVar13 = (*(code *)\n                      PTR__ZN6uucore4mods5error139__LT_impl_u20_core__convert__From_LT_std__io__error__Error_GT__u20_for_u20_alloc__boxed__Box_LT_dyn_u20_uucore__mods__error__UError_GT__GT_4from17h7b5f769e1554bcc2E_0022d2f8\n                    )(lVar8);\n                    /* try { // try from 001732c1 to 001732db has its CatchHandler @ 00173389 */\n          _ZN4core3ptr42drop_in_place_LT_std__io__error__Error_GT_17hfeb26519dcae8a08E(&local_488);\n          break;\n        }\n                    /* try { // try from 001730cb to 001730d9 has its CatchHandler @ 0017332c */\n        lVar10 = (*(code *)PTR__ZN4core3str8converts9from_utf817h8a6dc80f786921e0E_0022d1d8)\n                           (&local_2f8,uVar11,uVar6);\n        lVar12 = 0;\n        uVar11 = 0;\n        if ((char)local_2f8 == '\\0') {\n          uVar11 = uStack_2f0;\n        }\n        if (lVar8 != 0) {\n          lVar12 = *plVar9;\n          lVar10 = plVar9[1];\n        }\n                    /* try { // try from 00173119 to 00173134 has its CatchHandler @ 0017332a */\n        auVar13 = _ZN7uu_more4more17h6e099d2d6eef5fb4E\n                            (uVar5,&local_480,1 < local_438,uVar11,local_2e8,lVar12,lVar10,\n                             &local_3c8);\n        ppuVar7 = local_420;\n      } while (auVar13._0_8_ == 0);\n    }\n  }\nLAB_001732e2:\n  _ZN4core3ptr37drop_in_place_LT_uu_more__Options_GT_17h3d5cdd05e4c7b237E(local_3c8,local_3c0);\n                    /* try { // try from 001732f7 to 00173303 has its CatchHandler @ 0017339f */\n  _ZN4core3ptr75drop_in_place_LT_clap_builder__parser__matches__arg_matches__ArgMatches_GT_17h2140f0859326984bE\n            (local_3a0);\nLAB_00173304:\n  _ZN4core3ptr43drop_in_place_LT_uu_more__TerminalGuard_GT_17h095bf8633f89bcc9E(&local_4d9);\n  return auVar13;\n}"
+  },
+  "function_call_counts": {
+    "_ZN7uu_more5Pager12should_close17h4a303d1ec4dab858E": {},
+    "_ZN7uu_more5Pager9page_down17h5965084d09aa1aceE": {},
+    "_ZN7uu_more5Pager3new17h47a9bf468cd5af2fE": {
+      "<&str as core::str::pattern::Pattern>::is_contained_in": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u64>>": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<std::io::buffered::bufreader::BufReader<std::io::cursor::Cursor<alloc::string::String>>>>": 1,
+      "alloc::raw_vec::RawVecInner<A>::with_capacity_in": 1,
+      "std::io::append_to_string": 3,
+      "alloc::alloc::Global::alloc_impl": 1,
+      "std::io::buffered::bufreader::BufReader<R>::with_capacity": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "alloc::boxed::Box<T>::new": 1,
+      "alloc::vec::Vec<T,A>::push": 3,
+      "std::io::Seek::rewind": 1
+    },
+    "_ZN7uu_more5Pager12seek_to_line17h869c7595a8249d8fE": {
+      "core::cmp::Ord::min": 1
+    },
+    "_ZN7uu_more5Pager19should_squeeze_line17hcc3a424a86437f5aE": {
+      "core::str::<impl str>::trim_matches": 2
+    },
+    "_ZN7uu_more5Pager9next_line17hfb1901652829b949E": {},
+    "_ZN7uu_more10setup_term17h0836ea3f29ebee77E": {},
+    "_ZN7uu_more23paging_add_back_message17hedfccf033ee11a1cE": {
+      "crossterm::command::write_command_ansi": 1
+    },
+    "_ZN7uu_more4more17h6e099d2d6eef5fb4E": {
+      "uu_more::Pager::new": 1,
+      "core::ptr::drop_in_place<crossterm::event::Event>": 3,
+      "core::ptr::drop_in_place<uu_more::Pager>": 1,
+      "core::ptr::drop_in_place<std::fs::File>": 1,
+      "crossterm::command::write_command_ansi": 4,
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "alloc::str::<impl str>::replace": 1
+    },
+    "_ZN7uu_more5Pager11page_resize17h297f71cdfbb5531cE": {},
+    "_ZN7uu_more6uu_app17h91a4b949c44828f9E": {
+      "clap_builder::builder::command::Command::new": 1,
+      "clap_builder::builder::arg::Arg::value_parser": 2,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::arg::Arg::help": 9,
+      "clap_builder::builder::arg::Arg::long": 9,
+      "clap_builder::builder::arg::Arg::num_args": 3,
+      "clap_builder::builder::arg::Arg::short": 8,
+      "clap_builder::builder::command::Command::arg": 10,
+      "clap_builder::builder::value_parser::RangedI64ValueParser<T>::range": 2,
+      "alloc::boxed::Box<T>::new": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "clap_builder::builder::arg::Arg::action": 6,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::arg::Arg::value_name": 3,
+      "clap_builder::builder::arg::Arg::new": 10
+    },
+    "_ZN7uu_more5Pager18load_visible_lines17hab6b7f963f4c8df4E": {
+      "uu_more::Pager::seek_to_line": 1,
+      "uu_more::Pager::should_squeeze_line": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "core::ptr::drop_in_place<[alloc::string::String]>": 1,
+      "alloc::vec::Vec<T,A>::push": 1
+    },
+    "_ZN7uu_more5Pager7page_up17h8ac51dfc33201f5eE": {
+      "uu_more::Pager::seek_to_line": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1
+    },
+    "_ZN7uu_more7Options4from17h891a40eb4d8100b7E": {
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 1
+    },
+    "_ZN7uu_more10reset_term17h8f55483ea7f41c94E": {
+      "crossterm::command::write_command_ansi": 1,
+      "core::result::Result<T,E>::unwrap": 3
+    },
+    "_ZN7uu_more5Pager9prev_line17h81e664c16673410eE": {},
+    "_ZN7uu_more5Pager4draw17h5a1246f76957cacaE": {
+      "core::cmp::Ord::min": 1,
+      "uu_more::Pager::draw_prompt": 1,
+      "uu_more::Pager::draw_lines": 1
+    },
+    "_ZN7uu_more6uumain17hc7d99fd42bff3ee4E": {
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "uu_more::uumain::uumain": 1
+    },
+    "_ZN7uu_more5Pager11draw_prompt17hc5b983e1ff1da72eE": {
+      "core::ptr::drop_in_place<alloc::string::String>": 3,
+      "core::result::Result<T,E>::unwrap": 1,
+      "core::option::Option<T>::map_or_else": 5
+    },
+    "_ZN7uu_more5Pager10draw_lines17hf362fbee6ca4fba8E": {
+      "core::ptr::drop_in_place<alloc::string::String>": 2,
+      "uu_more::Pager::load_visible_lines": 1,
+      "crossterm::command::write_command_ansi": 1,
+      "core::option::Option<T>::map_or_else": 1
+    },
+    "_ZN7uu_more6uumain6uumain17h09bf99930d1e22a4E": {
+      "uu_more::more": 1,
+      "core::ptr::drop_in_place<uu_more::Options>": 2,
+      "std::fs::File::open": 1,
+      "core::option::Option<T>::map_or_else": 3,
+      "<uucore::mods::error::UUsageError as uucore::mods::error::UError>::code": 3,
+      "alloc::boxed::Box<T>::new": 4,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "std::fs::metadata": 1,
+      "core::ptr::drop_in_place<std::io::error::Error>": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 1,
+      "core::iter::traits::exact_size::ExactSizeIterator::len": 1,
+      "core::option::Option<T>::get_or_insert_with": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "std::io::error::Error::kind": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 3,
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 2,
+      "core::ptr::drop_in_place<uu_more::TerminalGuard>": 1,
+      "<clap_builder::parser::matches::arg_matches::ValuesRef<T> as core::iter::traits::iterator::Iterator>::next": 1,
+      "core::ptr::drop_in_place<core::result::Result<std::fs::Metadata,std::io::error::Error>>": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN7uu_more5Pager12should_close17h4a303d1ec4dab858E": {},
+    "_ZN7uu_more5Pager9page_down17h5965084d09aa1aceE": {},
+    "_ZN7uu_more5Pager3new17h47a9bf468cd5af2fE": {},
+    "_ZN7uu_more5Pager12seek_to_line17h869c7595a8249d8fE": {},
+    "_ZN7uu_more5Pager19should_squeeze_line17hcc3a424a86437f5aE": {},
+    "_ZN7uu_more5Pager9next_line17hfb1901652829b949E": {},
+    "_ZN7uu_more10setup_term17h0836ea3f29ebee77E": {},
+    "_ZN7uu_more23paging_add_back_message17hedfccf033ee11a1cE": {},
+    "_ZN7uu_more4more17h6e099d2d6eef5fb4E": {},
+    "_ZN7uu_more5Pager11page_resize17h297f71cdfbb5531cE": {},
+    "_ZN7uu_more6uu_app17h91a4b949c44828f9E": {},
+    "_ZN7uu_more5Pager18load_visible_lines17hab6b7f963f4c8df4E": {},
+    "_ZN7uu_more5Pager7page_up17h8ac51dfc33201f5eE": {},
+    "_ZN7uu_more7Options4from17h891a40eb4d8100b7E": {},
+    "_ZN7uu_more10reset_term17h8f55483ea7f41c94E": {},
+    "_ZN7uu_more5Pager9prev_line17h81e664c16673410eE": {},
+    "_ZN7uu_more5Pager4draw17h5a1246f76957cacaE": {},
+    "_ZN7uu_more6uumain17hc7d99fd42bff3ee4E": {},
+    "_ZN7uu_more5Pager11draw_prompt17hc5b983e1ff1da72eE": {},
+    "_ZN7uu_more5Pager10draw_lines17hf362fbee6ca4fba8E": {},
+    "_ZN7uu_more6uumain6uumain17h09bf99930d1e22a4E": {}
+  },
+  "variable_types": {
+    "_ZN7uu_more5Pager12should_close17h4a303d1ec4dab858E": {
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more5Pager9page_down17h5965084d09aa1aceE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more5Pager3new17h47a9bf468cd5af2fE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_36": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_more5Pager12seek_to_line17h869c7595a8249d8fE": {
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more5Pager19should_squeeze_line17hcc3a424a86437f5aE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zf": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN7uu_more5Pager9next_line17hfb1901652829b949E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more10setup_term17h0836ea3f29ebee77E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&array",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more23paging_add_back_message17hedfccf033ee11a1cE": {
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more4more17h6e099d2d6eef5fb4E": {
+      "stack_208": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_92": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_252": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_212": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_42": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_41": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_44": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_84": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_100": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_220": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_46": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_108": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_228": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_76": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_236": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_116": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_244": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_68": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_204": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more5Pager11page_resize17h297f71cdfbb5531cE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more6uu_app17h91a4b949c44828f9E": {
+      "stack_1428": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          632
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_716": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_708": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2064": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2068": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1440": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_640": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1432": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1420": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_720": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_1448": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_644": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_-632": [
+        [
+          "array",
+          632
+        ]
+      ]
+    },
+    "_ZN7uu_more5Pager18load_visible_lines17hab6b7f963f4c8df4E": {
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_28": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_36": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_more5Pager7page_up17h8ac51dfc33201f5eE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more7Options4from17h891a40eb4d8100b7E": {
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_30": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_22": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_38": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_6": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_46": [
+        [
+          "array",
+          40
+        ]
+      ]
+    },
+    "_ZN7uu_more10reset_term17h8f55483ea7f41c94E": {
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&reference",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more5Pager9prev_line17h81e664c16673410eE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more5Pager4draw17h5a1246f76957cacaE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more6uumain17hc7d99fd42bff3ee4E": {
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more5Pager11draw_prompt17hc5b983e1ff1da72eE": {
+      "stack_128": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_172": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_132": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm1": [
+        [
+          "array",
+          16
+        ],
+        [
+          "array",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_140": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_164": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_124": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more5Pager10draw_lines17hf362fbee6ca4fba8E": {
+      "stack_8": [
+        [
+          "array",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&reference",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_more6uumain6uumain17h09bf99930d1e22a4E": {
+      "stack_449": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_329": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_205": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_249": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_129": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_409": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_209": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_97": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_173": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_17": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_177": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_497": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_373": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_137": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_457": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_377": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_333": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_257": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_213": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_337": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_217": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_9": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_41": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_185": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_81": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_381": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_265": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_221": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_49": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_145": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_385": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_341": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_225": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_89": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_105": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_345": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_505": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_425": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_349": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_33": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_393": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_273": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_73": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_193": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_353": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_233": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_153": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_197": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_473": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_313": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_357": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_1": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_113": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_433": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_513": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_65": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_481": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_361": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_281": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_161": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_241": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_121": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_489": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_369": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_201": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_169": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_25": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

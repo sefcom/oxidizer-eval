@@ -1,0 +1,46 @@
+
+  int64_t uu_cp::aligned_ancestors::h2e8a6c5e1cc13323(int128_t* arg1, int64_t arg2, int64_t arg3, int64_t arg4)
+
+{
+    int64_t var_a8;
+    core::iter::traits::iterator::Iterator::collect::heb38e31adf96ce37(&var_a8, arg2);
+    int64_t var_90;
+    core::iter::traits::iterator::Iterator::collect::heb38e31adf96ce37(&var_90, arg4);
+    int64_t var_a0;
+    int64_t var_98;
+    int64_t rax;
+    int64_t rdx_2;
+    rax = _$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$::index::hd08b9cd1821d2b58(1, var_98 - 1, var_a0, var_98);
+    int64_t var_78 = 1;
+    int64_t var_70 = rdx_2;
+    char var_68 = 0;
+    int64_t var_88;
+    int64_t var_80;
+    int64_t rax_1;
+    int64_t rdx_4;
+    rax_1 = _$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$::index::hb683b9b3d8ee793f(&var_78, var_88, var_80);
+    int64_t var_c0 = 0;
+    int64_t var_b8 = 8;
+    int64_t var_b0 = 0;
+    core::iter::traits::iterator::Iterator::zip::h84d8d8ae872bd595(&var_78, rax, 
+        (rdx_2 << 4) + rax, rax_1);
+    int128_t* i;
+    int128_t* rdx_6;
+    i = _$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$::next::h0d9f1cecca08572c(&var_78);
+    
+    while (i)
+    {
+        int128_t zmm1_1 = *rdx_6;
+        int128_t var_40 = *i;
+        int128_t var_30_1 = zmm1_1;
+        alloc::vec::Vec$LT$T$C$A$GT$::push::h73cc691693fef28d(&var_c0, &var_40);
+        i = _$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$::next::h0d9f1cecca08572c(&var_78);
+    }
+    
+    arg1[1] = var_b0;
+    *arg1 = var_c0;
+    core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$$RF$std..path..Path$GT$$GT$::hdbbfa47157db735d(
+        var_90, var_88);
+    /* tailcall */
+    return core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$$RF$std..path..Path$GT$$GT$::hdbbfa47157db735d(var_a8, var_a0);
+}

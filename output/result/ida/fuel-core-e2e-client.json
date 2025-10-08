@@ -1,0 +1,1224 @@
+{
+  "decompilation": {
+    "_ZN20fuel_core_e2e_client4main17h27da3fd13c80071fE": "__int64 fuel_core_e2e_client::main()\n{\n  _BYTE v1[104]; // [rsp+8h] [rbp-130h] BYREF\n  _BYTE v2[200]; // [rsp+70h] [rbp-C8h] BYREF\n\n  fuel_core_e2e_client::load_config_env(v2);\n  libtest_mimic::args::Arguments::from_args(v1);\n  return fuel_core_e2e_client::main_body(v2, v1);\n}",
+    "_ZN20fuel_core_e2e_client6config11SuiteConfig12sync_timeout17hb0f2c1f45fabbc6cE": "__int64 __fastcall fuel_core_e2e_client::config::SuiteConfig::sync_timeout(__int64 a1)\n{\n  return a1;\n}",
+    "_ZN20fuel_core_e2e_client12test_context11TestContext3new17h86a181115343ae6aE": "void *__fastcall fuel_core_e2e_client::test_context::TestContext::new(_BYTE *a1, const void *a2)\n{\n  void *result; // rax\n\n  result = memcpy(a1, a2, 0xC0uLL);\n  a1[792] = 0;\n  return result;\n}",
+    "_ZN20fuel_core_e2e_client12test_context11TestContext10new_client17h463e8bf17e8bef5bE": "__int64 __fastcall fuel_core_e2e_client::test_context::TestContext::new_client(__int64 a1, __int128 *a2, _QWORD *a3)\n{\n  __int64 v5; // rdx\n  __int64 v6; // rcx\n  __int64 v7; // r8\n  __int64 v8; // r9\n  __int64 v9; // rdx\n  __int64 v10; // rcx\n  __int64 v11; // r8\n  __int64 v12; // r9\n  __int128 v14; // [rsp+0h] [rbp-B8h] BYREF\n  __int64 v15; // [rsp+10h] [rbp-A8h]\n  _QWORD v16[19]; // [rsp+20h] [rbp-98h] BYREF\n\n  if ( __OFSUB__(0LL, *a3) )\n  {\n    v15 = *((_QWORD *)a2 + 2);\n    v14 = *a2;\n  }\n  else\n  {\n    <alloc::string::String as core::clone::Clone>::clone(v16, a3);\n    core::ptr::drop_in_place<alloc::string::String>(a2, a3, v5, v6, v7, v8, v16[0], v16[1], v16[2]);\n  }\n  ((void (__fastcall *)(_QWORD *, __int128 *))fuel_core_client::client::FuelClient::new)(v16, &v14);\n  core::result::Result<T,E>::unwrap(a1, v16, v9, v10, v11, v12, v14, *((_QWORD *)&v14 + 1), v15);\n  return a1;\n}",
+    "_ZN20fuel_core_e2e_client12test_context6Wallet3new17hd56319df658fcb9eE": "void *__fastcall fuel_core_e2e_client::test_context::Wallet::new(__int64 a1, __int128 *a2, const void *a3)\n{\n  __int128 v3; // xmm0\n  void *result; // rax\n\n  v3 = *a2;\n  *(_OWORD *)(a1 + 152) = a2[1];\n  *(_OWORD *)(a1 + 136) = v3;\n  result = memcpy((void *)a1, a3, 0x88uLL);\n  *(_BYTE *)(a1 + 536) = 0;\n  return result;\n}",
+    "_ZN20fuel_core_e2e_client12test_context6Wallet9owns_coin17h0ab31b4875dfe45eE": "__int64 __fastcall fuel_core_e2e_client::test_context::Wallet::owns_coin(__int64 a1, __int64 a2, __int64 a3)\n{\n  __int128 v3; // xmm1\n  __int64 result; // rax\n\n  *(_QWORD *)a1 = a2;\n  v3 = *(_OWORD *)(a3 + 16);\n  *(_OWORD *)(a1 + 160) = *(_OWORD *)a3;\n  *(_OWORD *)(a1 + 176) = v3;\n  result = *(unsigned __int16 *)(a3 + 32);\n  *(_WORD *)(a1 + 192) = result;\n  *(_BYTE *)(a1 + 228) = 0;\n  return result;\n}",
+    "_ZN20fuel_core_e2e_client12test_context6Wallet11transfer_tx17hf1a5fd46012fdccbE": "__int64 __fastcall fuel_core_e2e_client::test_context::Wallet::transfer_tx(\n        __int64 a1,\n        __int64 a2,\n        _OWORD *a3,\n        __int64 a4,\n        __int64 a5)\n{\n  __int128 v5; // xmm1\n  __int128 v6; // xmm1\n  __int64 result; // rax\n\n  *(_QWORD *)(a1 + 2064) = a2;\n  v5 = a3[1];\n  *(_OWORD *)a1 = *a3;\n  *(_OWORD *)(a1 + 16) = v5;\n  *(_QWORD *)(a1 + 32) = a4;\n  v6 = *(_OWORD *)(a5 + 16);\n  *(_OWORD *)(a1 + 2073) = *(_OWORD *)a5;\n  *(_OWORD *)(a1 + 2089) = v6;\n  result = *(unsigned __int8 *)(a5 + 32);\n  *(_BYTE *)(a1 + 2105) = result;\n  *(_BYTE *)(a1 + 2072) = 0;\n  return result;\n}",
+    "_ZN20fuel_core_e2e_client12test_context6Wallet14collect_fee_tx17h929366bd03cc2c71E": "void __fastcall fuel_core_e2e_client::test_context::Wallet::collect_fee_tx(\n        __int64 a1,\n        __int64 a2,\n        _OWORD *a3,\n        _OWORD *a4)\n{\n  __int128 v4; // xmm1\n  __int128 v5; // xmm1\n\n  *(_QWORD *)(a1 + 1456) = a2;\n  v4 = a3[1];\n  *(_OWORD *)a1 = *a3;\n  *(_OWORD *)(a1 + 16) = v4;\n  v5 = a4[1];\n  *(_OWORD *)(a1 + 32) = *a4;\n  *(_OWORD *)(a1 + 48) = v5;\n  *(_BYTE *)(a1 + 1465) = 0;\n}",
+    "_ZN20fuel_core_e2e_client12test_context6Wallet8transfer17h00d933dda90fce20E": "__int64 __fastcall fuel_core_e2e_client::test_context::Wallet::transfer(\n        __int64 a1,\n        __int64 a2,\n        _OWORD *a3,\n        __int64 a4,\n        __int64 a5)\n{\n  __int128 v5; // xmm1\n  __int128 v6; // xmm1\n  __int64 result; // rax\n\n  *(_QWORD *)(a1 + 48) = a2;\n  v5 = a3[1];\n  *(_OWORD *)a1 = *a3;\n  *(_OWORD *)(a1 + 16) = v5;\n  *(_QWORD *)(a1 + 32) = a4;\n  v6 = *(_OWORD *)(a5 + 16);\n  *(_OWORD *)(a1 + 57) = *(_OWORD *)a5;\n  *(_OWORD *)(a1 + 73) = v6;\n  result = *(unsigned __int8 *)(a5 + 32);\n  *(_BYTE *)(a1 + 89) = result;\n  *(_BYTE *)(a1 + 56) = 0;\n  return result;\n}",
+    "_ZN20fuel_core_e2e_client12test_context6Wallet15deploy_contract17h15bd3cbce3f80496E": "void *__fastcall fuel_core_e2e_client::test_context::Wallet::deploy_contract(\n        __int64 a1,\n        __int64 a2,\n        const void *a3,\n        _OWORD *a4)\n{\n  void *result; // rax\n  __int128 v6; // xmm1\n\n  *(_QWORD *)(a1 + 144) = a2;\n  result = memcpy((void *)a1, a3, 0x90uLL);\n  v6 = a4[1];\n  *(_OWORD *)(a1 + 152) = *a4;\n  *(_OWORD *)(a1 + 168) = v6;\n  *(_BYTE *)(a1 + 400) = 0;\n  return result;\n}",
+    "_ZN20fuel_core_e2e_client5tests11collect_fee11collect_fee17hff069f441df063e5E": "void __fastcall fuel_core_e2e_client::tests::collect_fee::collect_fee(__int64 a1, __int64 a2)\n{\n  *(_QWORD *)a1 = a2;\n  *(_BYTE *)(a1 + 16) = 0;\n}",
+    "_ZN20fuel_core_e2e_client5tests9contracts21deploy_large_contract17hb41a7d744380e5e3E": "void __fastcall fuel_core_e2e_client::tests::contracts::deploy_large_contract(__int64 a1, __int64 a2)\n{\n  *(_QWORD *)(a1 + 3632) = a2;\n  *(_BYTE *)(a1 + 3643) = 0;\n}",
+    "_ZN20fuel_core_e2e_client5tests6script8receipts17hf65f011e4fa589d3E": "void __fastcall fuel_core_e2e_client::tests::script::receipts(__int64 a1, __int64 a2)\n{\n  *(_QWORD *)(a1 + 8) = a2;\n  *(_BYTE *)(a1 + 18) = 0;\n}",
+    "_ZN20fuel_core_e2e_client5tests6script7dry_run17hd250c01342164524E": "void __fastcall fuel_core_e2e_client::tests::script::dry_run(__int64 a1, __int64 a2)\n{\n  *(_QWORD *)(a1 + 8) = a2;\n  *(_BYTE *)(a1 + 17) = 0;\n}",
+    "_ZN20fuel_core_e2e_client5tests6script20dry_run_multiple_txs17h27a8ebd2f123273aE": "void __fastcall fuel_core_e2e_client::tests::script::dry_run_multiple_txs(__int64 a1, __int64 a2)\n{\n  *(_QWORD *)(a1 + 8) = a2;\n  *(_BYTE *)(a1 + 18) = 0;\n}",
+    "_ZN20fuel_core_e2e_client5tests6script13load_contract17h50fdcbf5862e9e54E": "__int64 __fastcall fuel_core_e2e_client::tests::script::load_contract(char *dest, __int64 a2)\n{\n  __int64 v4; // rdx\n  __int64 v5; // rsi\n  __int64 v6; // rcx\n  char *v7; // rdi\n  __int64 result; // rax\n  _BYTE v9[160]; // [rsp+0h] [rbp-278h] BYREF\n  _BYTE v10[32]; // [rsp+A0h] [rbp-1D8h] BYREF\n  __int128 v11; // [rsp+C0h] [rbp-1B8h]\n  _QWORD desta[18]; // [rsp+D0h] [rbp-1A8h] BYREF\n  _QWORD v13[18]; // [rsp+160h] [rbp-118h] BYREF\n  __int128 v14; // [rsp+1F0h] [rbp-88h]\n  __int128 v15; // [rsp+200h] [rbp-78h]\n  __int128 v16; // [rsp+210h] [rbp-68h]\n  __int128 v17; // [rsp+220h] [rbp-58h]\n  __int128 v18; // [rsp+230h] [rbp-48h]\n  __int128 v19; // [rsp+240h] [rbp-38h]\n\n  fuel_core_chain_config::config::snapshot_metadata::SnapshotMetadata::read(v9);\n  v5 = *(_QWORD *)&v9[8];\n  v6 = -*(_QWORD *)v9;\n  if ( __OFSUB__(-*(_QWORD *)v9, 1LL) )\n  {\n    v7 = dest + 8;\nLABEL_5:\n    result = <libtest_mimic::Failed as core::convert::From<M>>::from(v7, v5, v4, v6);\n    *(_QWORD *)dest = 0x8000000000000000LL;\n    return result;\n  }\n  v19 = *(_OWORD *)&v9[80];\n  v18 = *(_OWORD *)&v9[64];\n  v17 = *(_OWORD *)&v9[48];\n  v16 = *(_OWORD *)&v9[32];\n  v15 = *(_OWORD *)&v9[16];\n  v14 = *(_OWORD *)v9;\n  fuel_core_chain_config::config::state::StateConfig::from_snapshot_metadata(v9);\n  if ( *(_QWORD *)v9 == 2LL )\n  {\n    v7 = dest + 8;\n    v5 = *(_QWORD *)&v9[8];\n    goto LABEL_5;\n  }\n  memcpy(desta, &v9[16], sizeof(desta));\n  v11 = *(_OWORD *)v9;\n  <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(v10, &desta[15]);\n  <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(v9, v10);\n  if ( *(_QWORD *)v9 == 0x8000000000000000LL )\n  {\n    <libtest_mimic::Failed as core::convert::From<M>>::from(v9, aNoContractFoun, 30LL);\n    *((_QWORD *)dest + 3) = *(_QWORD *)&v9[16];\n    *(_OWORD *)(dest + 8) = *(_OWORD *)v9;\n    *(_QWORD *)dest = 0x8000000000000000LL;\n    core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<fuel_core_chain_config::config::contract::ContractConfig>>(v10);\n  }\n  else\n  {\n    *(_OWORD *)&v13[3] = *(_OWORD *)&v9[24];\n    *(_OWORD *)&v13[5] = *(_OWORD *)&v9[40];\n    *(_OWORD *)&v13[7] = *(_OWORD *)&v9[56];\n    *(_OWORD *)&v13[9] = *(_OWORD *)&v9[72];\n    *(_OWORD *)&v13[11] = *(_OWORD *)&v9[88];\n    *(_OWORD *)&v13[13] = *(_OWORD *)&v9[104];\n    *(_OWORD *)&v13[15] = *(_OWORD *)&v9[120];\n    v13[17] = *(_QWORD *)&v9[136];\n    v13[0] = *(_QWORD *)v9;\n    *(_OWORD *)&v13[1] = *(_OWORD *)&v9[8];\n    core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<fuel_core_chain_config::config::contract::ContractConfig>>(v10);\n    fuel_core_chain_config::config::contract::ContractConfig::update_contract_id(v13, a2);\n    memcpy(dest, v13, 0x90uLL);\n  }\n  core::ptr::drop_in_place<alloc::vec::Vec<fuel_core_client::client::types::ResolvedOutput>>(desta[6], desta[7]);\n  core::ptr::drop_in_place<alloc::vec::Vec<fuel_core_chain_config::config::message::MessageConfig>>(&desta[9]);\n  return core::ptr::drop_in_place<alloc::vec::Vec<fuel_core_chain_config::config::contract::ContractStateConfig>>(&desta[12]);\n}",
+    "_ZN20fuel_core_e2e_client5tests6script24run_contract_large_state17hffea1e8778e2f685E": "void __fastcall fuel_core_e2e_client::tests::script::run_contract_large_state(__int64 a1, __int64 a2)\n{\n  *(_QWORD *)(a1 + 648) = a2;\n  *(_BYTE *)(a1 + 659) = 0;\n}",
+    "_ZN20fuel_core_e2e_client5tests6script21arbitrary_transaction17ha98b396916a521e8E": "void __fastcall fuel_core_e2e_client::tests::script::arbitrary_transaction(__int64 a1, __int64 a2)\n{\n  *(_QWORD *)(a1 + 1704) = a2;\n  *(_BYTE *)(a1 + 1713) = 0;\n}",
+    "_ZN20fuel_core_e2e_client5tests6script9_dry_runs17h2fbc2011001cc2bcE": "void __fastcall fuel_core_e2e_client::tests::script::_dry_runs(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)\n{\n  *(_QWORD *)(a1 + 72) = a2;\n  *(_QWORD *)(a1 + 16) = a3;\n  *(_QWORD *)(a1 + 24) = a4;\n  *(_QWORD *)(a1 + 32) = 100LL;\n  *(_BYTE *)(a1 + 85) = a5;\n  *(_BYTE *)(a1 + 84) = 0;\n}",
+    "_ZN20fuel_core_e2e_client5tests9transfers14basic_transfer17h022a63f1128cdb89E": "void __fastcall fuel_core_e2e_client::tests::transfers::basic_transfer(__int64 a1, __int64 a2)\n{\n  *(_QWORD *)a1 = a2;\n  *(_BYTE *)(a1 + 16) = 0;\n}",
+    "_ZN20fuel_core_e2e_client5tests9transfers13transfer_back17h2274519533582108E": "void __fastcall fuel_core_e2e_client::tests::transfers::transfer_back(__int64 a1, __int64 a2)\n{\n  *(_QWORD *)a1 = a2;\n  *(_BYTE *)(a1 + 224) = 0;\n}",
+    "_ZN20fuel_core_e2e_client9main_body17h05540fc9600c63f6E": "__int64 __fastcall fuel_core_e2e_client::main_body(__int64 a1, _QWORD *a2)\n{\n  __int64 v2; // rax\n  __int64 v3; // r15\n  __int128 v4; // xmm0\n  __int128 v5; // xmm1\n  __int128 v6; // xmm2\n  __int128 v7; // xmm0\n  __int128 v8; // xmm1\n  __int128 v9; // xmm2\n  __int128 v10; // xmm1\n  __int128 v11; // xmm2\n  __int128 v12; // xmm3\n  __int128 v13; // xmm1\n  __int128 v14; // xmm2\n  __int128 v15; // xmm3\n  __int128 v16; // xmm1\n  __int128 v17; // xmm2\n  __int128 v18; // xmm3\n  __int128 v19; // xmm1\n  __int128 v20; // xmm2\n  __int128 v21; // xmm3\n  __int128 v22; // xmm0\n  __int128 v23; // xmm1\n  __int128 v24; // xmm2\n  __int128 v25; // xmm1\n  __int128 v26; // xmm2\n  __int128 v27; // xmm3\n  __int128 v28; // xmm1\n  __int128 v29; // xmm2\n  __int128 v30; // xmm3\n  _QWORD v32[3]; // [rsp+8h] [rbp-380h] BYREF\n  _BYTE v33[192]; // [rsp+20h] [rbp-368h] BYREF\n  _OWORD v34[4]; // [rsp+E0h] [rbp-2A8h] BYREF\n  __int64 v35; // [rsp+120h] [rbp-268h]\n  _OWORD v36[4]; // [rsp+128h] [rbp-260h] BYREF\n  __int64 v37; // [rsp+168h] [rbp-220h]\n  _OWORD v38[4]; // [rsp+170h] [rbp-218h] BYREF\n  __int64 v39; // [rsp+1B0h] [rbp-1D8h]\n  _OWORD v40[4]; // [rsp+1B8h] [rbp-1D0h] BYREF\n  __int64 v41; // [rsp+1F8h] [rbp-190h]\n  _OWORD v42[4]; // [rsp+200h] [rbp-188h] BYREF\n  __int64 v43; // [rsp+240h] [rbp-148h]\n  _OWORD v44[4]; // [rsp+248h] [rbp-140h] BYREF\n  __int64 v45; // [rsp+288h] [rbp-100h]\n  _OWORD v46[4]; // [rsp+290h] [rbp-F8h] BYREF\n  __int64 v47; // [rsp+2D0h] [rbp-B8h]\n  _OWORD v48[4]; // [rsp+2D8h] [rbp-B0h] BYREF\n  __int64 v49; // [rsp+318h] [rbp-70h]\n  _OWORD v50[4]; // [rsp+320h] [rbp-68h] BYREF\n  __int64 v51; // [rsp+360h] [rbp-28h]\n\n  *a2 = 1LL;\n  a2[1] = 1LL;\n  v2 = alloc::alloc::Global::alloc_impl(8LL, 648LL, 0LL);\n  if ( !v2 )\n    alloc::alloc::handle_alloc_error(8LL, 648LL);\n  v3 = v2;\n  fuel_core_e2e_client::main_body::with_cloned(v33, a1);\n  libtest_mimic::Trial::test(v34, v33);\n  fuel_core_e2e_client::main_body::with_cloned(v33, a1);\n  libtest_mimic::Trial::test(v36, v33);\n  fuel_core_e2e_client::main_body::with_cloned(v33, a1);\n  libtest_mimic::Trial::test(v38, v33);\n  fuel_core_e2e_client::main_body::with_cloned(v33, a1);\n  libtest_mimic::Trial::test(v40, v33);\n  fuel_core_e2e_client::main_body::with_cloned(v33, a1);\n  libtest_mimic::Trial::test(v42, v33);\n  fuel_core_e2e_client::main_body::with_cloned(v33, a1);\n  libtest_mimic::Trial::test(v44, v33);\n  fuel_core_e2e_client::main_body::with_cloned(v33, a1);\n  libtest_mimic::Trial::test(v46, v33);\n  fuel_core_e2e_client::main_body::with_cloned(v33, a1);\n  libtest_mimic::Trial::test(v48, v33);\n  fuel_core_e2e_client::main_body::with_cloned(v33, a1);\n  libtest_mimic::Trial::test(v50, v33);\n  *(_QWORD *)(v3 + 64) = v35;\n  v4 = v34[0];\n  v5 = v34[1];\n  v6 = v34[2];\n  *(_OWORD *)(v3 + 48) = v34[3];\n  *(_OWORD *)(v3 + 32) = v6;\n  *(_OWORD *)(v3 + 16) = v5;\n  *(_OWORD *)v3 = v4;\n  *(_QWORD *)(v3 + 136) = v37;\n  v7 = v36[0];\n  v8 = v36[1];\n  v9 = v36[2];\n  *(_OWORD *)(v3 + 120) = v36[3];\n  *(_OWORD *)(v3 + 104) = v9;\n  *(_OWORD *)(v3 + 88) = v8;\n  *(_OWORD *)(v3 + 72) = v7;\n  v10 = v38[1];\n  v11 = v38[2];\n  v12 = v38[3];\n  *(_OWORD *)(v3 + 144) = v38[0];\n  *(_OWORD *)(v3 + 160) = v10;\n  *(_OWORD *)(v3 + 176) = v11;\n  *(_OWORD *)(v3 + 192) = v12;\n  *(_QWORD *)(v3 + 208) = v39;\n  v13 = v40[1];\n  v14 = v40[2];\n  v15 = v40[3];\n  *(_OWORD *)(v3 + 216) = v40[0];\n  *(_OWORD *)(v3 + 232) = v13;\n  *(_OWORD *)(v3 + 248) = v14;\n  *(_OWORD *)(v3 + 264) = v15;\n  *(_QWORD *)(v3 + 280) = v41;\n  v16 = v42[1];\n  v17 = v42[2];\n  v18 = v42[3];\n  *(_OWORD *)(v3 + 288) = v42[0];\n  *(_OWORD *)(v3 + 304) = v16;\n  *(_OWORD *)(v3 + 320) = v17;\n  *(_OWORD *)(v3 + 336) = v18;\n  *(_QWORD *)(v3 + 352) = v43;\n  v19 = v44[1];\n  v20 = v44[2];\n  v21 = v44[3];\n  *(_OWORD *)(v3 + 360) = v44[0];\n  *(_OWORD *)(v3 + 376) = v19;\n  *(_OWORD *)(v3 + 392) = v20;\n  *(_QWORD *)(v3 + 424) = v45;\n  *(_OWORD *)(v3 + 408) = v21;\n  *(_QWORD *)(v3 + 496) = v47;\n  v22 = v46[0];\n  v23 = v46[1];\n  v24 = v46[2];\n  *(_OWORD *)(v3 + 480) = v46[3];\n  *(_OWORD *)(v3 + 464) = v24;\n  *(_OWORD *)(v3 + 448) = v23;\n  *(_OWORD *)(v3 + 432) = v22;\n  v25 = v48[1];\n  v26 = v48[2];\n  v27 = v48[3];\n  *(_OWORD *)(v3 + 504) = v48[0];\n  *(_OWORD *)(v3 + 520) = v25;\n  *(_OWORD *)(v3 + 536) = v26;\n  *(_OWORD *)(v3 + 552) = v27;\n  *(_QWORD *)(v3 + 568) = v49;\n  v28 = v50[1];\n  v29 = v50[2];\n  v30 = v50[3];\n  *(_OWORD *)(v3 + 576) = v50[0];\n  *(_OWORD *)(v3 + 592) = v28;\n  *(_OWORD *)(v3 + 608) = v29;\n  *(_OWORD *)(v3 + 624) = v30;\n  *(_QWORD *)(v3 + 640) = v51;\n  v32[0] = 9LL;\n  v32[1] = v3;\n  v32[2] = 9LL;\n  libtest_mimic::run(v33, a2, v32);\n  libtest_mimic::Conclusion::exit_if_failed(v33);\n  core::ptr::drop_in_place<libtest_mimic::args::Arguments>(a2);\n  return core::ptr::drop_in_place<fuel_core_e2e_client::config::SuiteConfig>(a1);\n}",
+    "_ZN20fuel_core_e2e_client9main_body11with_cloned17h3201b48a03b28ea3E": "// attributes: thunk\n__int64 __fastcall fuel_core_e2e_client::main_body::with_cloned(__int64 a1, __int64 a2)\n{\n  return <fuel_core_e2e_client::config::SuiteConfig as core::clone::Clone>::clone(a1, a2);\n}",
+    "_ZN20fuel_core_e2e_client15load_config_env17h0d99df9a2f88ebc8E": "_QWORD *__fastcall fuel_core_e2e_client::load_config_env(_QWORD *a1)\n{\n  __int64 v1; // r14\n  _QWORD v3[3]; // [rsp+0h] [rbp-E8h] BYREF\n  __int64 v4; // [rsp+18h] [rbp-D0h] BYREF\n  _BYTE src[184]; // [rsp+20h] [rbp-C8h] BYREF\n\n  std::env::var_os(v3, aFuelCoreE2eCon, 20LL);\n  if ( __OFSUB__(0LL, v3[0]) )\n  {\n    <fuel_core_e2e_client::config::SuiteConfig as core::default::Default>::default(a1);\n  }\n  else\n  {\n    fuel_core_e2e_client::load_config_env::{{closure}}(&v4, v3);\n    v1 = v4;\n    memcpy(a1 + 1, src, 0xB8uLL);\n    *a1 = v1;\n  }\n  return a1;\n}",
+    "_ZN20fuel_core_e2e_client11load_config17h45da6642a24956afE": "__int64 __fastcall fuel_core_e2e_client::load_config(__int64 a1)\n{\n  _QWORD v2[3]; // [rsp+0h] [rbp-E8h] BYREF\n  _BYTE v3[208]; // [rsp+18h] [rbp-D0h] BYREF\n\n  std::fs::read(v3);\n  core::result::Result<T,E>::unwrap(v2, v3);\n  toml::de::from_slice(v3, v2[1], v2[2]);\n  core::result::Result<T,E>::unwrap(a1, v3);\n  core::ptr::drop_in_place<alloc::vec::Vec<u8>>(v2);\n  return a1;\n}",
+    "_ZN20fuel_core_e2e_client13async_execute17h0594924446d8f7daE": "__int64 __fastcall fuel_core_e2e_client::async_execute(__int64 a1, __int64 a2)\n{\n  _BYTE v3[80]; // [rsp+8h] [rbp-190h] BYREF\n  _BYTE v4[80]; // [rsp+58h] [rbp-140h] BYREF\n  _BYTE v5[205]; // [rsp+A8h] [rbp-F0h] BYREF\n  __int16 v6; // [rsp+175h] [rbp-23h]\n\n  tokio::runtime::builder::Builder::new_current_thread(v5);\n  v6 = 257;\n  tokio::runtime::builder::Builder::build(v4, v5);\n  core::result::Result<T,E>::unwrap(v3, v4);\n  tokio::runtime::runtime::Runtime::block_on(a1, v3, a2);\n  core::ptr::drop_in_place<tokio::runtime::runtime::Runtime>(v3);\n  return core::ptr::drop_in_place<tokio::runtime::builder::Builder>(v5);\n}",
+    "_ZN20fuel_core_e2e_client6config1_94_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_e2e_client..config..SuiteConfig$GT$11deserialize17h10b4d0c673274046E": "// attributes: thunk\n__int64 fuel_core_e2e_client::config::_::<impl serde::de::Deserialize for fuel_core_e2e_client::config::SuiteConfig>::deserialize()\n{\n  return <&mut toml::de::Deserializer as serde::de::Deserializer>::deserialize_struct();\n}",
+    "_ZN20fuel_core_e2e_client6config1_95_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_e2e_client..config..ClientConfig$GT$11deserialize17h9a32df4b358ca533E": "// attributes: thunk\n__int64 fuel_core_e2e_client::config::_::<impl serde::de::Deserialize for fuel_core_e2e_client::config::ClientConfig>::deserialize()\n{\n  return <toml::de::MapVisitor as serde::de::Deserializer>::deserialize_struct();\n}"
+  },
+  "function_call_counts": {
+    "_ZN20fuel_core_e2e_client4main17h27da3fd13c80071fE": {
+      "fuel_core_e2e_client::load_config_env": 1,
+      "libtest_mimic::args::Arguments::from_args": 1,
+      "fuel_core_e2e_client::main_body": 1
+    },
+    "_ZN20fuel_core_e2e_client6config11SuiteConfig12sync_timeout17hb0f2c1f45fabbc6cE": {},
+    "_ZN20fuel_core_e2e_client12test_context11TestContext3new17h86a181115343ae6aE": {
+      "memcpy": 1
+    },
+    "_ZN20fuel_core_e2e_client12test_context11TestContext10new_client17h463e8bf17e8bef5bE": {
+      "<alloc::string::String as core::clone::Clone>::clone": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::result::Result<T,E>::unwrap": 1
+    },
+    "_ZN20fuel_core_e2e_client12test_context6Wallet3new17hd56319df658fcb9eE": {
+      "memcpy": 1
+    },
+    "_ZN20fuel_core_e2e_client12test_context6Wallet9owns_coin17h0ab31b4875dfe45eE": {},
+    "_ZN20fuel_core_e2e_client12test_context6Wallet11transfer_tx17hf1a5fd46012fdccbE": {},
+    "_ZN20fuel_core_e2e_client12test_context6Wallet14collect_fee_tx17h929366bd03cc2c71E": {},
+    "_ZN20fuel_core_e2e_client12test_context6Wallet8transfer17h00d933dda90fce20E": {},
+    "_ZN20fuel_core_e2e_client12test_context6Wallet15deploy_contract17h15bd3cbce3f80496E": {
+      "memcpy": 1
+    },
+    "_ZN20fuel_core_e2e_client5tests11collect_fee11collect_fee17hff069f441df063e5E": {},
+    "_ZN20fuel_core_e2e_client5tests9contracts21deploy_large_contract17hb41a7d744380e5e3E": {},
+    "_ZN20fuel_core_e2e_client5tests6script8receipts17hf65f011e4fa589d3E": {},
+    "_ZN20fuel_core_e2e_client5tests6script7dry_run17hd250c01342164524E": {},
+    "_ZN20fuel_core_e2e_client5tests6script20dry_run_multiple_txs17h27a8ebd2f123273aE": {},
+    "_ZN20fuel_core_e2e_client5tests6script13load_contract17h50fdcbf5862e9e54E": {
+      "fuel_core_chain_config::config::snapshot_metadata::SnapshotMetadata::read": 1,
+      "<libtest_mimic::Failed as core::convert::From<M>>::from": 2,
+      "fuel_core_chain_config::config::state::StateConfig::from_snapshot_metadata": 1,
+      "memcpy": 2,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next": 1,
+      "core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<fuel_core_chain_config::config::contract::ContractConfig>>": 2,
+      "fuel_core_chain_config::config::contract::ContractConfig::update_contract_id": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<fuel_core_client::client::types::ResolvedOutput>>": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<fuel_core_chain_config::config::message::MessageConfig>>": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<fuel_core_chain_config::config::contract::ContractStateConfig>>": 1
+    },
+    "_ZN20fuel_core_e2e_client5tests6script24run_contract_large_state17hffea1e8778e2f685E": {},
+    "_ZN20fuel_core_e2e_client5tests6script21arbitrary_transaction17ha98b396916a521e8E": {},
+    "_ZN20fuel_core_e2e_client5tests6script9_dry_runs17h2fbc2011001cc2bcE": {},
+    "_ZN20fuel_core_e2e_client5tests9transfers14basic_transfer17h022a63f1128cdb89E": {},
+    "_ZN20fuel_core_e2e_client5tests9transfers13transfer_back17h2274519533582108E": {},
+    "_ZN20fuel_core_e2e_client9main_body17h05540fc9600c63f6E": {
+      "alloc::alloc::Global::alloc_impl": 1,
+      "alloc::alloc::handle_alloc_error": 1,
+      "fuel_core_e2e_client::main_body::with_cloned": 9,
+      "libtest_mimic::Trial::test": 9,
+      "libtest_mimic::run": 1,
+      "libtest_mimic::Conclusion::exit_if_failed": 1,
+      "core::ptr::drop_in_place<libtest_mimic::args::Arguments>": 1,
+      "core::ptr::drop_in_place<fuel_core_e2e_client::config::SuiteConfig>": 1
+    },
+    "_ZN20fuel_core_e2e_client9main_body11with_cloned17h3201b48a03b28ea3E": {
+      "<fuel_core_e2e_client::config::SuiteConfig as core::clone::Clone>::clone": 1
+    },
+    "_ZN20fuel_core_e2e_client15load_config_env17h0d99df9a2f88ebc8E": {
+      "std::env::var_os": 1,
+      "<fuel_core_e2e_client::config::SuiteConfig as core::default::Default>::default": 1,
+      "fuel_core_e2e_client::load_config_env::{{closure}}": 1,
+      "memcpy": 1
+    },
+    "_ZN20fuel_core_e2e_client11load_config17h45da6642a24956afE": {
+      "std::fs::read": 1,
+      "core::result::Result<T,E>::unwrap": 2,
+      "toml::de::from_slice": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<u8>>": 1
+    },
+    "_ZN20fuel_core_e2e_client13async_execute17h0594924446d8f7daE": {
+      "tokio::runtime::builder::Builder::new_current_thread": 1,
+      "tokio::runtime::builder::Builder::build": 1,
+      "core::result::Result<T,E>::unwrap": 1,
+      "tokio::runtime::runtime::Runtime::block_on": 1,
+      "core::ptr::drop_in_place<tokio::runtime::runtime::Runtime>": 1,
+      "core::ptr::drop_in_place<tokio::runtime::builder::Builder>": 1
+    },
+    "_ZN20fuel_core_e2e_client6config1_94_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_e2e_client..config..SuiteConfig$GT$11deserialize17h10b4d0c673274046E": {
+      "<&mut toml::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN20fuel_core_e2e_client6config1_95_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_e2e_client..config..ClientConfig$GT$11deserialize17h9a32df4b358ca533E": {
+      "<toml::de::MapVisitor as serde::de::Deserializer>::deserialize_struct": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN20fuel_core_e2e_client4main17h27da3fd13c80071fE": {},
+    "_ZN20fuel_core_e2e_client6config11SuiteConfig12sync_timeout17hb0f2c1f45fabbc6cE": {},
+    "_ZN20fuel_core_e2e_client12test_context11TestContext3new17h86a181115343ae6aE": {},
+    "_ZN20fuel_core_e2e_client12test_context11TestContext10new_client17h463e8bf17e8bef5bE": {},
+    "_ZN20fuel_core_e2e_client12test_context6Wallet3new17hd56319df658fcb9eE": {},
+    "_ZN20fuel_core_e2e_client12test_context6Wallet9owns_coin17h0ab31b4875dfe45eE": {},
+    "_ZN20fuel_core_e2e_client12test_context6Wallet11transfer_tx17hf1a5fd46012fdccbE": {},
+    "_ZN20fuel_core_e2e_client12test_context6Wallet14collect_fee_tx17h929366bd03cc2c71E": {},
+    "_ZN20fuel_core_e2e_client12test_context6Wallet8transfer17h00d933dda90fce20E": {},
+    "_ZN20fuel_core_e2e_client12test_context6Wallet15deploy_contract17h15bd3cbce3f80496E": {},
+    "_ZN20fuel_core_e2e_client5tests11collect_fee11collect_fee17hff069f441df063e5E": {},
+    "_ZN20fuel_core_e2e_client5tests9contracts21deploy_large_contract17hb41a7d744380e5e3E": {},
+    "_ZN20fuel_core_e2e_client5tests6script8receipts17hf65f011e4fa589d3E": {},
+    "_ZN20fuel_core_e2e_client5tests6script7dry_run17hd250c01342164524E": {},
+    "_ZN20fuel_core_e2e_client5tests6script20dry_run_multiple_txs17h27a8ebd2f123273aE": {},
+    "_ZN20fuel_core_e2e_client5tests6script13load_contract17h50fdcbf5862e9e54E": {},
+    "_ZN20fuel_core_e2e_client5tests6script24run_contract_large_state17hffea1e8778e2f685E": {},
+    "_ZN20fuel_core_e2e_client5tests6script21arbitrary_transaction17ha98b396916a521e8E": {},
+    "_ZN20fuel_core_e2e_client5tests6script9_dry_runs17h2fbc2011001cc2bcE": {},
+    "_ZN20fuel_core_e2e_client5tests9transfers14basic_transfer17h022a63f1128cdb89E": {},
+    "_ZN20fuel_core_e2e_client5tests9transfers13transfer_back17h2274519533582108E": {},
+    "_ZN20fuel_core_e2e_client9main_body17h05540fc9600c63f6E": {},
+    "_ZN20fuel_core_e2e_client9main_body11with_cloned17h3201b48a03b28ea3E": {},
+    "_ZN20fuel_core_e2e_client15load_config_env17h0d99df9a2f88ebc8E": {},
+    "_ZN20fuel_core_e2e_client11load_config17h45da6642a24956afE": {},
+    "_ZN20fuel_core_e2e_client13async_execute17h0594924446d8f7daE": {},
+    "_ZN20fuel_core_e2e_client6config1_94_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_e2e_client..config..SuiteConfig$GT$11deserialize17h10b4d0c673274046E": {},
+    "_ZN20fuel_core_e2e_client6config1_95_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_e2e_client..config..ClientConfig$GT$11deserialize17h9a32df4b358ca533E": {}
+  },
+  "variable_types": {
+    "_ZN20fuel_core_e2e_client4main17h27da3fd13c80071fE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          104
+        ]
+      ],
+      "stack_112": [
+        [
+          "array",
+          200
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client6config11SuiteConfig12sync_timeout17hb0f2c1f45fabbc6cE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client12test_context11TestContext3new17h86a181115343ae6aE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client12test_context11TestContext10new_client17h463e8bf17e8bef5bE": {
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "array",
+          152
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client12test_context6Wallet3new17hd56319df658fcb9eE": {
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client12test_context6Wallet9owns_coin17h0ab31b4875dfe45eE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client12test_context6Wallet11transfer_tx17hf1a5fd46012fdccbE": {
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client12test_context6Wallet14collect_fee_tx17h929366bd03cc2c71E": {
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client12test_context6Wallet8transfer17h00d933dda90fce20E": {
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client12test_context6Wallet15deploy_contract17h15bd3cbce3f80496E": {
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client5tests11collect_fee11collect_fee17hff069f441df063e5E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client5tests9contracts21deploy_large_contract17hb41a7d744380e5e3E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client5tests6script8receipts17hf65f011e4fa589d3E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client5tests6script7dry_run17hd250c01342164524E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client5tests6script20dry_run_multiple_txs17h27a8ebd2f123273aE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client5tests6script13load_contract17h50fdcbf5862e9e54E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          160
+        ]
+      ],
+      "stack_160": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_208": [
+        [
+          "array",
+          144
+        ]
+      ],
+      "stack_352": [
+        [
+          "array",
+          144
+        ]
+      ],
+      "stack_496": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_512": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_528": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_544": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_560": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_576": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client5tests6script24run_contract_large_state17hffea1e8778e2f685E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client5tests6script21arbitrary_transaction17ha98b396916a521e8E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client5tests6script9_dry_runs17h2fbc2011001cc2bcE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client5tests9transfers14basic_transfer17h022a63f1128cdb89E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client5tests9transfers13transfer_back17h2274519533582108E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client9main_body17h05540fc9600c63f6E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm2": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm3": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_32": [
+        [
+          "array",
+          192
+        ]
+      ],
+      "stack_224": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_368": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_432": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_440": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_504": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_512": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_576": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_584": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_648": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_656": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_720": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_728": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_792": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_800": [
+        [
+          "array",
+          64
+        ]
+      ],
+      "stack_864": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client9main_body11with_cloned17h3201b48a03b28ea3E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client15load_config_env17h0d99df9a2f88ebc8E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "array",
+          184
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client11load_config17h45da6642a24956afE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_24": [
+        [
+          "array",
+          208
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client13async_execute17h0594924446d8f7daE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          80
+        ]
+      ],
+      "stack_88": [
+        [
+          "array",
+          80
+        ]
+      ],
+      "stack_168": [
+        [
+          "array",
+          205
+        ]
+      ],
+      "stack_373": [
+        [
+          "primitive",
+          2
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client6config1_94_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_e2e_client..config..SuiteConfig$GT$11deserialize17h10b4d0c673274046E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN20fuel_core_e2e_client6config1_95_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_e2e_client..config..ClientConfig$GT$11deserialize17h9a32df4b358ca533E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

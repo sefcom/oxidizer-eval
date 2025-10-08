@@ -1,0 +1,1112 @@
+{
+  "decompilation": {
+    "_ZN16fuel_core_client11reqwest_ext1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..reqwest_ext..ExtensionsRequest$GT$9serialize17h3acfb4a3ad087fbdE": "fn fuel_core_client::reqwest_ext::_::<impl serde::ser::Serialize for fuel_core_client::reqwest_ext::ExtensionsRequest>::serialize(a0: u32, a1: u32, a2: u64) -> long long {\n    let v0: u64;  // [bp-0x30]\n    let v1: u32;  // [bp-0x2f]\n    let v2: u32;  // [bp-0x2c]\n    let v3: u64;  // [bp-0x28]\n    let v4: struct24;  // [bp-0x20]\n    let v5: u32;  // [bp-0x1c]\n    let v6: u64;  // [bp-0x18]\n    let v8: u64;  // rbx\n    let v9: u64;  // rax\n\n    v4 = struct24 {\n        field_0: <&mut serde_json::ser::Serializer<W,F> as serde::ser::Serializer>::serialize_struct(a2)\n        field_16: v8\n    };\n    if v4.field_0 as i8 == 2 {\n        v9 = v6;\n    } else {\n        v2 = v5;\n        v1 = *((&v4.field_0 as &char + 1) as &i32);\n        v0 = v4.field_0 as i8;\n        v3 = v6;\n        v9 = <serde_json::ser::Compound<W,F> as serde::ser::SerializeStruct>::serialize_field(&v0, a0, a1);\n        if !v9 {\n            <serde_json::ser::Compound<W,F> as serde::ser::SerializeStruct>::end(&v0);\n            return 0;\n        }\n    }\n    return v9;\n}\n",
+    "_ZN16fuel_core_client11reqwest_ext1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_client..reqwest_ext..ExtensionsResponse$GT$11deserialize17hbf7ebed855b1349cE": "fn fuel_core_client::reqwest_ext::_::<impl serde::de::Deserialize for fuel_core_client::reqwest_ext::ExtensionsResponse>::deserialize(a0: u64, a1: &u64, a2: u8) -> long long {\n    return <&mut serde_json::de::Deserializer<R> as serde::de::Deserializer>::deserialize_struct(a0, a1, a2);\n}\n",
+    "_ZN16fuel_core_client11reqwest_ext1_113_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..reqwest_ext..FuelOperation$LT$Operation$GT$$GT$9serialize17h0488957e77c1d8d0E": "fn fuel_core_client::reqwest_ext::_::<impl serde::ser::Serialize for fuel_core_client::reqwest_ext::FuelOperation<Operation>>::serialize(a0: i64, a1: &u64) -> long long {\n    let v0: u64;  // [bp-0x28]\n    let v1: struct10;  // [bp-0x28]\n    let v2: u32;  // [bp-0x24]\n    let v3: u64;  // [bp-0x20]\n    let v4: u8;  // [bp-0x18]\n    let v5: u32;  // [bp-0x17]\n    let v6: u32;  // [bp-0x14]\n    let v7: u64;  // [bp-0x10]\n    let v8: u64;  // [bp-0x8]\n    let v10: u64;  // rbx\n    let v11: u8;  // al\n    let v12: u64;  // rax\n\n    v8 = v10;\n    v1 = <&mut serde_json::ser::Serializer<W,F> as serde::ser::Serializer>::serialize_map(a1);\n    v11 = v1.field_0;\n    if v11 == 2 {\n        v12 = v3;\n    } else {\n        v6 = v2;\n        v5 = *((&v1.field_0 as &char + 1) as &i32);\n        v4 = v11;\n        v7 = v3;\n        v12 = <cynic::operation::Operation<QueryFragment,Variables> as serde::ser::Serialize>::serialize(a0, &v4);\n        if !v12 {\n            v12 = serde::ser::SerializeMap::serialize_entry(&v4, *((a0 + 80) as &i32), *((a0 + 84) as &i32));\n            if !v12 {\n                *(&v0 as &i128) = *(&v4 as &i128);\n                <serde_json::ser::Compound<W,F> as serde::ser::SerializeMap>::end(&v1);\n                return 0;\n            }\n        }\n    }\n    return v12;\n}\n",
+    "_ZN16fuel_core_client11reqwest_ext1_130_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_client..reqwest_ext..FuelGraphQlResponse$LT$T$C$ErrorExtensions$GT$$GT$11deserialize17h2228d7878928352bE": "fn fuel_core_client::reqwest_ext::_::<impl serde::de::Deserialize for fuel_core_client::reqwest_ext::FuelGraphQlResponse<T,ErrorExtensions>>::deserialize(a0: u64, a1: &u64, a2: u8) -> long long {\n    return <&mut serde_json::de::Deserializer<R> as serde::de::Deserializer>::deserialize_map(a0, a1, a2);\n}\n",
+    "_ZN16fuel_core_client11reqwest_ext30FuelOperation$LT$Operation$GT$3new17h2a6fede262a19031E": "fn fuel_core_client::reqwest_ext::FuelOperation<Operation>::new(a0: i64, a1: i64, a2: u32, a3: u32) -> long long {\n    let v1: u64;  // rax\n    let v2: u128;  // xmm0\n    let v3: iNone;  // xmm1\n    let v4: iNone;  // xmm2\n\n    v1 = *((a1 + 96) as &i64);\n    v2 = *(a1 as &i128);\n    v3 = *((a1 + 16) as &i128);\n    v4 = *((a1 + 32) as &i128);\n    return struct112 {\n        field_0: v2\n        field_16: v3\n        field_32: v4\n        field_48: *((a1 + 48) as &i128)\n        field_64: *((a1 + 64) as &i128)\n        field_80: *((a1 + 80) as &i128)\n        field_96: v1\n        field_104: a2\n        field_108: a3\n    };\n}\n",
+    "_ZN16fuel_core_client11reqwest_ext9deser_gql17h0944e9231200dd57E": "fn fuel_core_client::reqwest_ext::deser_gql(a0: i64, a1: u64) -> long long {\n    let v0: u64;  // [bp-0x8]\n    let v2: u64;  // rbx\n    let v3: u64;  // rax\n\n    v0 = v2;\n    v3 = memcpy(a0, a1, 136);\n    *((a0 + 410) as &i8) = 0;\n    return v3;\n}\n",
+    "_ZN16fuel_core_client6client10FuelClient10submit_opt17h459081aceac6f61dE": "fn fuel_core_client::client::FuelClient::submit_opt(a0: i64, a1: u64, a2: u64) -> void {\n    *((a0 + 120) as &u64) = a1;\n    *((a0 + 128) as &u64) = a2;\n    *((a0 + 137) as &i16) = 0x200;\n    return;\n}\n",
+    "_ZN16fuel_core_client6client10FuelClient11dry_run_opt17h2ec6d7b6383b949fE": "fn fuel_core_client::client::FuelClient::dry_run_opt(a0: i64, a1: u64, a2: u64, a3: u64) -> void {\n    return struct72 {\n        field_0: 0\n        padding_8: <UNKNOWN>\n        field_16: <UNKNOWN>\n        padding_16: 0\n        field_24: a1\n        field_32: a2\n        field_40: a3\n        padding_48: <UNKNOWN>\n        field_192: <UNKNOWN>\n    };\n}\n",
+    "_ZN16fuel_core_client6client10FuelClient11transaction17h988594fbdb40c7e9E": "fn fuel_core_client::client::FuelClient::transaction(a0: i64, a1: u64, a2: u64) -> void {\n    return struct32 {\n        field_0: a1\n        field_8: a2\n        padding_16: <UNKNOWN>\n        field_136: <UNKNOWN>\n    };\n}\n",
+    "_ZN16fuel_core_client6client10FuelClient15decode_response17h09b9fa5506794bf8E": "fn fuel_core_client::client::FuelClient::decode_response(a0: i64, a1: void*, a2: i64) -> int {\n    let v0: u128;  // [bp-0xf8]\n    let v1: u128;  // [bp-0xe8]\n    let v2: u128;  // [bp-0xd8]\n    let v3: u128;  // [bp-0xc8]\n    let v4: u128;  // [bp-0xb8]\n    let v5: u128;  // [bp-0xa8]\n    let v6: u128;  // [bp-0x98]\n    let v7: u128;  // [bp-0x88]\n    let v8: u128;  // [bp-0x78]\n    let v9: u64;  // [bp-0x68]\n    let v10: u8;  // [bp-0x58]\n    let v11: struct32;  // [bp-0x40]\n    let v13: u64;  // rax\n    let v14: u64;  // r14\n    let v15: u128;  // xmm0\n    let v16: u128;  // xmm1\n    let v17: u128;  // xmm2\n\n    fuel_core_client::client::FuelClient::update_chain_state_info(a1, a2);\n    if *((a2 + 152) as &i32) != 2 && *((a2 + 184) as &i8) != 2 && (*((a2 + 184) as &i8) & 1) {\n        return struct16 {\n            field_0: 9223372036854775817\n            field_8: std::io::error::Error::new(40, \"The required block height was not met\")\n        };\n    }\n    v7 = *((a2 + 136) as &i128);\n    v6 = *((a2 + 120) as &i128);\n    v5 = *((a2 + 104) as &i128);\n    v4 = *((a2 + 88) as &i128);\n    v3 = *((a2 + 72) as &i128);\n    v2 = *((a2 + 56) as &i128);\n    v1 = *((a2 + 40) as &i128);\n    v0 = *((a2 + 24) as &i128);\n    v8 = *(a2 as &i128);\n    v9 = *((a2 + 16) as &i64);\n    if v0 as i64 != 9223372036854775817 {\n        v14 = a2 + 24;\n        v15 = *(v14 as &i128);\n        v16 = *((v14 + 16) as &i128);\n        v17 = *((v14 + 32) as &i128);\n        return struct128 {\n            field_0: v15\n            field_16: v16\n            field_32: v17\n            field_48: *((v14 + 48) as &i128)\n            field_64: *((v14 + 64) as &i128)\n            field_80: *((v14 + 80) as &i128)\n            field_96: *((v14 + 96) as &i128)\n            field_112: *((v14 + 112) as &i128)\n        };\n        return;\n    }\n    if v8 as i64 == 0x8000000000000000 {\n        v13 = std::io::error::Error::new(40, \"Invalid response\");\n    } else {\n        v11 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a2);\n        core::iter::traits::iterator::Iterator::collect(&v10, &v11);\n        v13 = fuel_core_client::client::from_strings_errors_to_std_error(&v10);\n    }\n    return struct16 {\n        field_0: 9223372036854775817\n        field_8: v13\n    };\n}\n",
+    "_ZN16fuel_core_client6client10FuelClient19estimate_predicates17h118723bfc42d3c01E": "fn fuel_core_client::client::FuelClient::estimate_predicates(a0: i64, a1: u64, a2: u64) -> void {\n    return struct32 {\n        field_0: a1\n        field_8: a2\n        padding_16: <UNKNOWN>\n        field_136: <UNKNOWN>\n    };\n}\n",
+    "_ZN16fuel_core_client6client10FuelClient23update_chain_state_info17h151b0e17701ba9b6E": "fn fuel_core_client::client::FuelClient::update_chain_state_info(a0: i64, a1: i64) -> int {\n    let v0: struct17;  // [bp-0x48]\n    let v1: i64;  // [bp-0x40]\n    let v2: u64;  // [bp-0x30]\n    let v3: u64;  // [bp-0x28]\n    let v4: u64;  // [bp-0x20]\n    let v5: u64;  // [bp-0x18]\n    let v6: u64;  // [bp-0x10]\n    let v8: u64;  // r15\n    let v9: u64;  // r14\n    let v10: u64;  // r12\n    let v11: u64;  // rbx\n    let v12: u32;  // ebp\n    let v13: u32;  // r12d\n    let v14: u32;  // r12d\n    let v15: struct32;  // 4097\n    let v16: u64;  // cc_ndep\n    let v17: u32;  // ebx\n    let v18: i64;  // rax\n\n    v6 = v8;\n    v5 = v9;\n    v4 = v10;\n    v3 = v11;\n    v12 = *((a1 + 48) as &i32);\n    if v12 != 2 {\n        if *((a1 + 64) as &i32) == 1 {\n            v13 = *((a1 + 68) as &i32);\n            v0 = std::sync::poison::mutex::Mutex<T>::lock(*((a0 + 120) as &i64) + 16);\n            if v0.field_0 != 1 {\n                *((v1 + 8) as &i32) = 1;\n                *((v1 + 12) as &u32) = v13;\n            }\n        }\n        if *((a1 + 72) as &i32) == 1 {\n            v14 = *((a1 + 76) as &i32);\n            v0 = std::sync::poison::mutex::Mutex<T>::lock(*((a0 + 128) as &i64) + 16);\n            if v0.field_0 != 1 {\n                *((v1 + 8) as &i32) = 1;\n                *((v1 + 12) as &u32) = v14;\n            }\n        }\n    }\n    if !(*((a0 + 88) as &i8) & 1) {\n        v15 = atomic_fetch_add(*((a0 + 96) as &i64));\n        if _ccall(14, 24, v15 + 1, 0, _ccall(17, (*((a0 + 88) as &i8) & 1) as u8 as u64, 0, v16)) as char {\n            [D] Unsupported jumpkind Ijk_NoDecode at address 6896833()\n        }\n        v2 = *((a0 + 96) as &i64);\n        if v12 != 2 && *((a1 + 56) as &i32) == 1 {\n            v17 = *((a1 + 60) as &i32);\n            v0 = std::sync::poison::mutex::Mutex<T>::lock(v2 + 16);\n            v18 = core::result::Result<T,E>::expect(&v0);\n            if *((v18 + 8) as &i32) != 1 || v17 >= *((v18 + 12) as &i32) {\n                *((v18 + 8) as &i32) = 1;\n                *((v18 + 12) as &u32) = v17;\n            }\n        }\n    }\n    return;\n}\n",
+    "_ZN16fuel_core_client6client10FuelClient3new17h476859146e711305E": "fn fuel_core_client::client::FuelClient::new(a0: u64, a1: u64, a2: u64) -> long long {\n    return <fuel_core_client::client::FuelClient as core::str::traits::FromStr>::from_str(a0, <&T as core::convert::AsRef<U>>::as_ref(a1, a2), a2);\n}\n",
+    "_ZN16fuel_core_client6client10FuelClient5query17h0ed5d4feb39eaa66E": "fn fuel_core_client::client::FuelClient::query(a0: i64, a1: i64, a2: i64) -> double {\n    let v1: u128;  // xmm1\n    let v2: iNone;  // xmm2\n    let v3: iNone;  // xmm3\n    let v4: iNone;  // xmm0\n\n    v1 = *((a2 + 16) as &i128);\n    v2 = *((a2 + 32) as &i128);\n    v3 = *((a2 + 48) as &i128);\n    v4 = *((a2 + 64) as &i128);\n    return struct96 {\n        field_0: *(a2 as &i128)\n        field_16: v1\n        field_32: v2\n        field_48: v3\n        field_64: v4\n        field_80: a1\n        padding_88: <UNKNOWN>\n        field_112: <UNKNOWN>\n    };\n}\n",
+    "_ZN16fuel_core_client6client10FuelClient6submit17h9e06992ce652fdddE": "fn fuel_core_client::client::FuelClient::submit(a0: i64, a1: u64, a2: u64) -> void {\n    return struct40 {\n        field_0: a1\n        field_8: a2\n        padding_16: <UNKNOWN>\n        field_160: <UNKNOWN>\n    };\n}\n",
+    "_ZN16fuel_core_client6client10FuelClient7dry_run17h16aaf1f3144a41f3E": "fn fuel_core_client::client::FuelClient::dry_run(a0: i64, a1: u64, a2: u64, a3: u64) -> void {\n    return struct56 {\n        field_0: a1\n        field_8: a2\n        field_16: a3\n        padding_24: <UNKNOWN>\n        field_224: <UNKNOWN>\n    };\n}\n",
+    "_ZN16fuel_core_client6client10FuelClient8receipts17h6c08b3b8631d7c6cE": "fn fuel_core_client::client::FuelClient::receipts(a0: i64, a1: u64, a2: u64) -> void {\n    return struct40 {\n        field_0: a1\n        field_8: a2\n        padding_16: <UNKNOWN>\n        field_144: <UNKNOWN>\n    };\n}\n",
+    "_ZN16fuel_core_client6client5types1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionType$GT$9serialize17ha0e906398218eae8E": "fn fuel_core_client::client::types::_::<impl serde::ser::Serialize for fuel_core_client::client::types::TransactionType>::serialize(a0: u64, a1: u64) -> long long {\n    if a1 == 9223372036854775814 {\n        return <serde_json::value::ser::RawValueEmitter as serde::ser::Serializer>::serialize_unit_variant(a0);\n    }\n    return <serde_json::value::ser::RawValueEmitter as serde::ser::Serializer>::serialize_newtype_struct(a0);\n}\n",
+    "_ZN16fuel_core_client6client5types1_102_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionStatus$GT$9serialize17h0609a79bcbdde6d8E": "fn fuel_core_client::client::types::_::<impl serde::ser::Serialize for fuel_core_client::client::types::TransactionStatus>::serialize(a0: i64, a1: u64) -> void {\n    let v0: u64;  // [bp-0x8]\n    let v2: u64;  // rbx\n    let v3: u64;  // rax\n\n    v0 = v2;\n    v3 = 0x8000000000000000 ^ a1;\n}\n",
+    "_ZN16fuel_core_client6client5types1_104_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionResponse$GT$9serialize17he11dc95e6be1e411E": "fn fuel_core_client::client::types::_::<impl serde::ser::Serialize for fuel_core_client::client::types::TransactionResponse>::serialize(a0: u64, a1: u64) -> int {\n    let v0: struct48;  // [bp-0x78]\n    let v1: iNone;  // [bp-0x68]\n    let v2: iNone;  // [bp-0x58]\n    let v3: u128;  // [bp-0x48]\n    let v4: Result<struct24, struct9>;  // [bp-0x48]\n    let v5: struct48;  // [bp-0x48]\n    let v6: u64;  // [bp-0x40]\n    let v7: iNone;  // [bp-0x38]\n    let v8: iNone;  // [bp-0x28]\n    let v9: u64;  // [bp-0x10]\n    let v10: u64;  // [bp-0x8]\n    let v12: u64;  // r14\n    let v13: u64;  // rbx\n    let v14: u64;  // rax\n\n    v10 = v12;\n    v9 = v13;\n    v4 = <serde_json::value::ser::Serializer as serde::ser::Serializer>::serialize_struct(\"TransactionResponse\");\n    if v4 as i64 == 9223372036854775810 {\n        return struct16 {\n            field_0: 6\n            padding_1: <UNKNOWN>\n            field_8: v6\n        };\n    }\n    v0 = v5;\n    v14 = <serde_json::value::ser::SerializeMap as serde::ser::SerializeStruct>::serialize_field(&v0, a1 + 136) as u64;\n    if v14 {\n        return struct16 {\n            field_0: 6\n            padding_1: <UNKNOWN>\n            field_8: v14\n        };\n    }\n    v14 = <serde_json::value::ser::SerializeMap as serde::ser::SerializeStruct>::serialize_field(&v0, a1) as u64;\n    if !v14 {\n        v8 = v2;\n        v7 = v1;\n        v3 = *(&v0.field_0 as &i128);\n        <serde_json::value::ser::SerializeMap as serde::ser::SerializeStruct>::end(a0, &v4);\n        return;\n    }\n    return struct16 {\n        field_0: 6\n        padding_1: <UNKNOWN>\n        field_8: v14\n    };\n}\n",
+    "_ZN16fuel_core_client6client5types1_99_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..ResolvedOutput$GT$9serialize17heacca25b2b689838E": "fn fuel_core_client::client::types::_::<impl serde::ser::Serialize for fuel_core_client::client::types::ResolvedOutput>::serialize(a0: u64, a1: u64) -> int {\n    let v0: struct48;  // [bp-0x78]\n    let v1: iNone;  // [bp-0x68]\n    let v2: iNone;  // [bp-0x58]\n    let v3: u128;  // [bp-0x48]\n    let v4: Result<struct24, struct9>;  // [bp-0x48]\n    let v5: struct48;  // [bp-0x48]\n    let v6: u64;  // [bp-0x40]\n    let v7: iNone;  // [bp-0x38]\n    let v8: iNone;  // [bp-0x28]\n    let v9: u64;  // [bp-0x10]\n    let v10: u64;  // [bp-0x8]\n    let v12: u64;  // r14\n    let v13: u64;  // rbx\n    let v14: u64;  // rax\n\n    v10 = v12;\n    v9 = v13;\n    v4 = <serde_json::value::ser::Serializer as serde::ser::Serializer>::serialize_struct(\"ResolvedOutput\");\n    if v4 as i64 == 9223372036854775810 {\n        return struct16 {\n            field_0: 6\n            padding_1: <UNKNOWN>\n            field_8: v6\n        };\n    }\n    v0 = v5;\n    v14 = <serde_json::value::ser::SerializeMap as serde::ser::SerializeStruct>::serialize_field(&v0, a1 + 80) as u64;\n    if v14 {\n        return struct16 {\n            field_0: 6\n            padding_1: <UNKNOWN>\n            field_8: v14\n        };\n    }\n    v14 = <serde_json::value::ser::SerializeMap as serde::ser::SerializeStruct>::serialize_field(&v0, a1) as u64;\n    if !v14 {\n        v8 = v2;\n        v7 = v1;\n        v3 = *(&v0.field_0 as &i128);\n        <serde_json::value::ser::SerializeMap as serde::ser::SerializeStruct>::end(a0, &v4);\n        return;\n    }\n    return struct16 {\n        field_0: 6\n        padding_1: <UNKNOWN>\n        field_8: v14\n    };\n}\n",
+    "_ZN16fuel_core_client7CliArgs4exec17hc912f565458cbcd4E": "fn fuel_core_client::CliArgs::exec(a0: i64, a1: u64) -> void {\n    return struct32 {\n        field_0: a1\n        padding_8: <UNKNOWN>\n        field_144: <UNKNOWN>\n    };\n}\n",
+    "_ZN16fuel_core_client4main17h15c87e0597913d8fE": "fn fuel_core_client::main() -> int {\n    let v0: struct80;  // [bp-0x4b8]\n    let v1: struct40;  // [bp-0x468]\n    let v2: struct130;  // [bp-0x418]\n    let v3: u16;  // [bp-0x34b]\n    let v4: u8;  // [bp-0x340]\n    let v5: u8;  // [bp-0x18]\n    let v6: u64;  // [bp-0x10]\n    let v8: u64;  // rbx\n\n    v6 = v8;\n    v5 = 0;\n    v2 = tokio::runtime::builder::Builder::new_current_thread();\n    v3 = 257;\n    v1 = tokio::runtime::builder::Builder::build(&v2);\n    v0 = core::result::Result<T,E>::expect(&v1);\n    tokio::runtime::runtime::Runtime::block_on(&v0, &v4);\n    return;\n}\n",
+    "_ZN16fuel_core_client6client6schema10primitives155_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..primitives..U64$GT$$u20$for$u20$fuel_asm..panic_instruction..PanicInstruction$GT$8try_from17hf514da350207d085E": "fn fuel_core_client::client::schema::primitives::<impl core::convert::TryFrom<fuel_core_client::client::schema::primitives::U64> for fuel_asm::panic_instruction::PanicInstruction>::try_from(a0: i64, a1: u32) -> long long {\n    let v0: u64;  // [bp-0x8]\n    let v2: u64;  // rbx\n    let v3: u8;  // dl\n\n    v0 = v2;\n    return struct16 {\n        field_0: 10\n        field_8: <fuel_asm::panic_instruction::PanicInstruction as core::convert::From<u64>>::from(a1) as u32\n        field_12: v3\n    };\n}\n",
+    "_ZN16fuel_core_client6client6schema2tx19transparent_receipt152_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..transparent_receipt..Receipt$GT$$u20$for$u20$fuel_tx..receipt..Receipt$GT$8try_from17h063abc35bc51dab3E": "fn fuel_core_client::client::schema::tx::transparent_receipt::<impl core::convert::TryFrom<fuel_core_client::client::schema::tx::transparent_receipt::Receipt> for fuel_tx::receipt::Receipt>::try_from(a0: i64, a1: i64) -> void {\n    let v0: u64;  // [bp-0x30]\n    let v1: u64;  // [bp-0x28]\n    let v2: u64;  // [bp-0x20]\n    let v3: u64;  // [bp-0x18]\n    let v4: u64;  // [bp-0x10]\n    let v6: u64;  // r15\n    let v7: u64;  // r14\n    let v8: u64;  // r13\n    let v9: u64;  // r12\n    let v10: u64;  // rbx\n\n    v4 = v6;\n    v3 = v7;\n    v2 = v8;\n    v1 = v9;\n    v0 = v10;\n    UnresolvableJumpTarget(); /* do not return */\n}\n",
+    "_ZN16fuel_core_client6client6schema2tx149_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..OpaqueTransaction$GT$$u20$for$u20$fuel_tx..transaction..Transaction$GT$8try_from17hbb1eb2c39a6cd705E": "fn fuel_core_client::client::schema::tx::<impl core::convert::TryFrom<fuel_core_client::client::schema::tx::OpaqueTransaction> for fuel_tx::transaction::Transaction>::try_from(a0: void*, a1: i64) -> long long {\n    let v0: struct16;  // [bp-0x1d8]\n    let v1: Result<struct432, struct32>;  // [bp-0x1c8]\n    let v2: u128;  // [bp-0x1c0]\n    let v3: u64;  // [bp-0x18]\n    let v4: struct130;  // [bp-0x10]\n    let v5: struct80;  // [bp-0x8]\n    let v7: struct80;  // r15\n    let v8: struct130;  // r14\n    let v9: u64;  // rbx\n\n    v5 = v7;\n    v4 = v8;\n    v3 = v9;\n    v0 = struct16 {\n        field_0: *((a1 + 8) as &i64)\n        field_8: *((a1 + 16) as &i64)\n    };\n    v1 = fuel_types::canonical::Deserialize::decode(&v0);\n    match v1 {\n        Ok(_) => {\n            memcpy(a0, &v1, 432);\n        },\n        Err(_) => {\n            return struct40 {\n                field_0: 9223372036854775814\n                field_8: 6\n                field_16: v2\n                field_32: *((&v1 as &char + 24) as &i64)\n            };\n        },\n    }\n}\n",
+    "_ZN16fuel_core_client6client6schema2tx139_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..ProgramState$GT$$u20$for$u20$fuel_vm..state..ProgramState$GT$8try_from17h02db243cd6ccd8caE": "fn fuel_core_client::client::schema::tx::<impl core::convert::TryFrom<fuel_core_client::client::schema::tx::ProgramState> for fuel_vm::state::ProgramState>::try_from(a0: i64, a1: i64) -> long long {\n    let v0: u64;  // [bp-0x60]\n    let v1: i8;  // [bp-0x58]\n    let v4: u64;  // [bp-0x10]\n    let v6: u64;  // rbx\n    let v7: u64;  // rbp\n    let v8: i64;  // rax\n    let v9: u64;  // rcx\n    let v10: u32;  // edi\n    let v11: i64;  // rdi\n    let v12: i64;  // rsi\n\n    v4 = v6;\n    v7 = *((a1 + 24) as &i8);\n    if v7 && v7 == 1 {\n        v8 = *((a1 + 8) as &i64);\n        if *((a1 + 16) as &i64) != 32 {\n            return struct16 {\n                field_0: 5\n                padding_1: <UNKNOWN>\n                field_8: 8\n            };\n        }\n        v9 = *((v8 + 7) as &i64);\n        v10 = *((v8 + 3) as &i32);\n        return struct48 {\n            field_0: 1\n            field_1: v10\n            field_4: v9\n            field_8: *((v8 + 15) as &i128)\n            field_16: <UNKNOWN>\n            field_32: <UNKNOWN>\n        };\n    }\n    alloc::vec::<impl core::convert::TryFrom<alloc::vec::Vec<T,A>> for [T; N]>::try_from(v11, v12);\n    if !((((0 ^ v0) & (0 ^ -(v0))) >> 63) as char) {\n        return struct16 {\n            field_0: 5\n            padding_1: <UNKNOWN>\n            field_8: 8\n        };\n    }\n    return struct16 {\n        field_0: v7 as u8\n        padding_1: <UNKNOWN>\n        field_8: (((((*(&v1 as &i64) & -0xff00ff00ff0100) >> 8 | *(&v1 as &i64) * 0x100 & -0xff00ff00ff0100) & -0xffff00010000) >> 16 | ((*(&v1 as &i64) & -0xff00ff00ff0100) >> 8 | *(&v1 as &i64) * 0x100 & -0xff00ff00ff0100) * 0x10000 & -0xffff00010000) & -0x100000000) >> 32 | ((((*(&v1 as &i64) & -0xff00ff00ff0100) >> 8 | *(&v1 as &i64) * 0x100 & -0xff00ff00ff0100) & -0xffff00010000) >> 16 | ((*(&v1 as &i64) & -0xff00ff00ff0100) >> 8 | *(&v1 as &i64) * 0x100 & -0xff00ff00ff0100) * 0x10000 & -0xffff00010000) * 0x100000000 & -0x100000000\n    };\n}\n",
+    "_ZN16fuel_core_client6client6schema128_$LT$impl$u20$core..convert..From$LT$fuel_core_client..client..schema..ConversionError$GT$$u20$for$u20$std..io..error..Error$GT$4from17h6a2fcb74acf22723E": "fn fuel_core_client::client::schema::<impl core::convert::From<fuel_core_client::client::schema::ConversionError> for std::io::error::Error>::from(a0: u64) -> long long {\n    return std::io::error::Error::new(40, a0);\n}\n",
+    "_ZN16fuel_core_client6client32from_strings_errors_to_std_error17h0d912308b953dd65E": "fn fuel_core_client::client::from_strings_errors_to_std_error(a0: i64) -> u64 {\n    let v0: struct24;  // [bp-0x78]\n    let v1: struct24;  // [bp-0x58]\n    let v2: struct24;  // [bp-0x58]\n    let v3: struct32;  // [bp-0x40]\n    let v4: struct24;  // [bp-0x20]\n    let v5: u64;  // [bp-0x8]\n    let v7: u64;  // rbx\n\n    v5 = v7;\n    v3 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(a0);\n    v1 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(\"Response errors\");\n    v0 = v2;\n    v4 = <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::fold(&v3, &v0);\n    return std::io::error::Error::new(40, &v4);\n}\n",
+    "_ZN16fuel_core_client6client10FuelClient21required_block_height17h470eea40bb77c49aE": "fn fuel_core_client::client::FuelClient::required_block_height(a0: i64) -> long long {\n    let v0: struct17;  // [bp-0x28]\n    let v2: struct130;  // [bp-0x10]\n    let v4: struct130;  // rbx\n    let v5: i64;  // rax\n\n    v2 = v4;\n    if *((a0 + 88) as &i32) != 1 {\n        v0 = std::sync::poison::mutex::Mutex<T>::lock(*((a0 + 96) as &i64) + 16);\n    }\n    return v5;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN16fuel_core_client11reqwest_ext1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..reqwest_ext..ExtensionsRequest$GT$9serialize17h3acfb4a3ad087fbdE": {
+      "<serde_json::ser::Compound<W,F> as serde::ser::SerializeStruct>::end": 1,
+      "<serde_json::ser::Compound<W,F> as serde::ser::SerializeStruct>::serialize_field": 1,
+      "<&mut serde_json::ser::Serializer<W,F> as serde::ser::Serializer>::serialize_struct": 1
+    },
+    "_ZN16fuel_core_client11reqwest_ext1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_client..reqwest_ext..ExtensionsResponse$GT$11deserialize17hbf7ebed855b1349cE": {
+      "<&mut serde_json::de::Deserializer<R> as serde::de::Deserializer>::deserialize_struct": 1
+    },
+    "_ZN16fuel_core_client11reqwest_ext1_113_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..reqwest_ext..FuelOperation$LT$Operation$GT$$GT$9serialize17h0488957e77c1d8d0E": {
+      "<serde_json::ser::Compound<W,F> as serde::ser::SerializeMap>::end": 1,
+      "serde::ser::SerializeMap::serialize_entry": 1,
+      "<cynic::operation::Operation<QueryFragment,Variables> as serde::ser::Serialize>::serialize": 1,
+      "<&mut serde_json::ser::Serializer<W,F> as serde::ser::Serializer>::serialize_map": 1
+    },
+    "_ZN16fuel_core_client11reqwest_ext1_130_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_client..reqwest_ext..FuelGraphQlResponse$LT$T$C$ErrorExtensions$GT$$GT$11deserialize17h2228d7878928352bE": {
+      "<&mut serde_json::de::Deserializer<R> as serde::de::Deserializer>::deserialize_map": 1
+    },
+    "_ZN16fuel_core_client11reqwest_ext30FuelOperation$LT$Operation$GT$3new17h2a6fede262a19031E": {},
+    "_ZN16fuel_core_client11reqwest_ext9deser_gql17h0944e9231200dd57E": {
+      "memcpy": 1
+    },
+    "_ZN16fuel_core_client6client10FuelClient10submit_opt17h459081aceac6f61dE": {},
+    "_ZN16fuel_core_client6client10FuelClient11dry_run_opt17h2ec6d7b6383b949fE": {},
+    "_ZN16fuel_core_client6client10FuelClient11transaction17h988594fbdb40c7e9E": {},
+    "_ZN16fuel_core_client6client10FuelClient15decode_response17h09b9fa5506794bf8E": {
+      "std::io::error::Error::new": 2,
+      "fuel_core_client::client::from_strings_errors_to_std_error": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "fuel_core_client::client::FuelClient::update_chain_state_info": 1
+    },
+    "_ZN16fuel_core_client6client10FuelClient19estimate_predicates17h118723bfc42d3c01E": {},
+    "_ZN16fuel_core_client6client10FuelClient23update_chain_state_info17h151b0e17701ba9b6E": {
+      "core::result::Result<T,E>::expect": 1,
+      "std::sync::poison::mutex::Mutex<T>::lock": 3
+    },
+    "_ZN16fuel_core_client6client10FuelClient3new17h476859146e711305E": {
+      "<fuel_core_client::client::FuelClient as core::str::traits::FromStr>::from_str": 1,
+      "<&T as core::convert::AsRef<U>>::as_ref": 1
+    },
+    "_ZN16fuel_core_client6client10FuelClient5query17h0ed5d4feb39eaa66E": {},
+    "_ZN16fuel_core_client6client10FuelClient6submit17h9e06992ce652fdddE": {},
+    "_ZN16fuel_core_client6client10FuelClient7dry_run17h16aaf1f3144a41f3E": {},
+    "_ZN16fuel_core_client6client10FuelClient8receipts17h6c08b3b8631d7c6cE": {},
+    "_ZN16fuel_core_client6client5types1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionType$GT$9serialize17ha0e906398218eae8E": {
+      "<serde_json::value::ser::RawValueEmitter as serde::ser::Serializer>::serialize_unit_variant": 1,
+      "<serde_json::value::ser::RawValueEmitter as serde::ser::Serializer>::serialize_newtype_struct": 1
+    },
+    "_ZN16fuel_core_client6client5types1_102_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionStatus$GT$9serialize17h0609a79bcbdde6d8E": {},
+    "_ZN16fuel_core_client6client5types1_104_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionResponse$GT$9serialize17he11dc95e6be1e411E": {
+      "<serde_json::value::ser::SerializeMap as serde::ser::SerializeStruct>::end": 1,
+      "<serde_json::value::ser::SerializeMap as serde::ser::SerializeStruct>::serialize_field": 2,
+      "<serde_json::value::ser::Serializer as serde::ser::Serializer>::serialize_struct": 1
+    },
+    "_ZN16fuel_core_client6client5types1_99_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..ResolvedOutput$GT$9serialize17heacca25b2b689838E": {
+      "<serde_json::value::ser::SerializeMap as serde::ser::SerializeStruct>::end": 1,
+      "<serde_json::value::ser::SerializeMap as serde::ser::SerializeStruct>::serialize_field": 2,
+      "<serde_json::value::ser::Serializer as serde::ser::Serializer>::serialize_struct": 1
+    },
+    "_ZN16fuel_core_client7CliArgs4exec17hc912f565458cbcd4E": {},
+    "_ZN16fuel_core_client4main17h15c87e0597913d8fE": {
+      "tokio::runtime::runtime::Runtime::block_on": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "tokio::runtime::builder::Builder::build": 1,
+      "tokio::runtime::builder::Builder::new_current_thread": 1
+    },
+    "_ZN16fuel_core_client6client6schema10primitives155_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..primitives..U64$GT$$u20$for$u20$fuel_asm..panic_instruction..PanicInstruction$GT$8try_from17hf514da350207d085E": {
+      "<fuel_asm::panic_instruction::PanicInstruction as core::convert::From<u64>>::from": 1
+    },
+    "_ZN16fuel_core_client6client6schema2tx19transparent_receipt152_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..transparent_receipt..Receipt$GT$$u20$for$u20$fuel_tx..receipt..Receipt$GT$8try_from17h063abc35bc51dab3E": {
+      "UnresolvableJumpTarget": 1
+    },
+    "_ZN16fuel_core_client6client6schema2tx149_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..OpaqueTransaction$GT$$u20$for$u20$fuel_tx..transaction..Transaction$GT$8try_from17hbb1eb2c39a6cd705E": {
+      "memcpy": 1,
+      "fuel_types::canonical::Deserialize::decode": 1
+    },
+    "_ZN16fuel_core_client6client6schema2tx139_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..ProgramState$GT$$u20$for$u20$fuel_vm..state..ProgramState$GT$8try_from17h02db243cd6ccd8caE": {
+      "alloc::vec::<impl core::convert::TryFrom<alloc::vec::Vec<T,A>> for [T; N]>::try_from": 1
+    },
+    "_ZN16fuel_core_client6client6schema128_$LT$impl$u20$core..convert..From$LT$fuel_core_client..client..schema..ConversionError$GT$$u20$for$u20$std..io..error..Error$GT$4from17h6a2fcb74acf22723E": {
+      "std::io::error::Error::new": 1
+    },
+    "_ZN16fuel_core_client6client32from_strings_errors_to_std_error17h0d912308b953dd65E": {
+      "std::io::error::Error::new": 1,
+      "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::fold": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1
+    },
+    "_ZN16fuel_core_client6client10FuelClient21required_block_height17h470eea40bb77c49aE": {
+      "std::sync::poison::mutex::Mutex<T>::lock": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN16fuel_core_client11reqwest_ext1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..reqwest_ext..ExtensionsRequest$GT$9serialize17h3acfb4a3ad087fbdE": {},
+    "_ZN16fuel_core_client11reqwest_ext1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_client..reqwest_ext..ExtensionsResponse$GT$11deserialize17hbf7ebed855b1349cE": {},
+    "_ZN16fuel_core_client11reqwest_ext1_113_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..reqwest_ext..FuelOperation$LT$Operation$GT$$GT$9serialize17h0488957e77c1d8d0E": {},
+    "_ZN16fuel_core_client11reqwest_ext1_130_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_client..reqwest_ext..FuelGraphQlResponse$LT$T$C$ErrorExtensions$GT$$GT$11deserialize17h2228d7878928352bE": {},
+    "_ZN16fuel_core_client11reqwest_ext30FuelOperation$LT$Operation$GT$3new17h2a6fede262a19031E": {},
+    "_ZN16fuel_core_client11reqwest_ext9deser_gql17h0944e9231200dd57E": {},
+    "_ZN16fuel_core_client6client10FuelClient10submit_opt17h459081aceac6f61dE": {},
+    "_ZN16fuel_core_client6client10FuelClient11dry_run_opt17h2ec6d7b6383b949fE": {},
+    "_ZN16fuel_core_client6client10FuelClient11transaction17h988594fbdb40c7e9E": {},
+    "_ZN16fuel_core_client6client10FuelClient15decode_response17h09b9fa5506794bf8E": {},
+    "_ZN16fuel_core_client6client10FuelClient19estimate_predicates17h118723bfc42d3c01E": {},
+    "_ZN16fuel_core_client6client10FuelClient23update_chain_state_info17h151b0e17701ba9b6E": {},
+    "_ZN16fuel_core_client6client10FuelClient3new17h476859146e711305E": {},
+    "_ZN16fuel_core_client6client10FuelClient5query17h0ed5d4feb39eaa66E": {},
+    "_ZN16fuel_core_client6client10FuelClient6submit17h9e06992ce652fdddE": {},
+    "_ZN16fuel_core_client6client10FuelClient7dry_run17h16aaf1f3144a41f3E": {},
+    "_ZN16fuel_core_client6client10FuelClient8receipts17h6c08b3b8631d7c6cE": {},
+    "_ZN16fuel_core_client6client5types1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionType$GT$9serialize17ha0e906398218eae8E": {},
+    "_ZN16fuel_core_client6client5types1_102_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionStatus$GT$9serialize17h0609a79bcbdde6d8E": {},
+    "_ZN16fuel_core_client6client5types1_104_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionResponse$GT$9serialize17he11dc95e6be1e411E": {},
+    "_ZN16fuel_core_client6client5types1_99_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..ResolvedOutput$GT$9serialize17heacca25b2b689838E": {},
+    "_ZN16fuel_core_client7CliArgs4exec17hc912f565458cbcd4E": {},
+    "_ZN16fuel_core_client4main17h15c87e0597913d8fE": {},
+    "_ZN16fuel_core_client6client6schema10primitives155_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..primitives..U64$GT$$u20$for$u20$fuel_asm..panic_instruction..PanicInstruction$GT$8try_from17hf514da350207d085E": {},
+    "_ZN16fuel_core_client6client6schema2tx19transparent_receipt152_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..transparent_receipt..Receipt$GT$$u20$for$u20$fuel_tx..receipt..Receipt$GT$8try_from17h063abc35bc51dab3E": {},
+    "_ZN16fuel_core_client6client6schema2tx149_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..OpaqueTransaction$GT$$u20$for$u20$fuel_tx..transaction..Transaction$GT$8try_from17hbb1eb2c39a6cd705E": {},
+    "_ZN16fuel_core_client6client6schema2tx139_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..ProgramState$GT$$u20$for$u20$fuel_vm..state..ProgramState$GT$8try_from17h02db243cd6ccd8caE": {},
+    "_ZN16fuel_core_client6client6schema128_$LT$impl$u20$core..convert..From$LT$fuel_core_client..client..schema..ConversionError$GT$$u20$for$u20$std..io..error..Error$GT$4from17h6a2fcb74acf22723E": {},
+    "_ZN16fuel_core_client6client32from_strings_errors_to_std_error17h0d912308b953dd65E": {},
+    "_ZN16fuel_core_client6client10FuelClient21required_block_height17h470eea40bb77c49aE": {}
+  },
+  "node_counts": {
+    "_ZN16fuel_core_client11reqwest_ext1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..reqwest_ext..ExtensionsRequest$GT$9serialize17h3acfb4a3ad087fbdE": 6,
+    "_ZN16fuel_core_client11reqwest_ext1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_client..reqwest_ext..ExtensionsResponse$GT$11deserialize17hbf7ebed855b1349cE": 1,
+    "_ZN16fuel_core_client11reqwest_ext1_113_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..reqwest_ext..FuelOperation$LT$Operation$GT$$GT$9serialize17h0488957e77c1d8d0E": 8,
+    "_ZN16fuel_core_client11reqwest_ext1_130_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_client..reqwest_ext..FuelGraphQlResponse$LT$T$C$ErrorExtensions$GT$$GT$11deserialize17h2228d7878928352bE": 1,
+    "_ZN16fuel_core_client11reqwest_ext30FuelOperation$LT$Operation$GT$3new17h2a6fede262a19031E": 1,
+    "_ZN16fuel_core_client11reqwest_ext9deser_gql17h0944e9231200dd57E": 2,
+    "_ZN16fuel_core_client6client10FuelClient10submit_opt17h459081aceac6f61dE": 1,
+    "_ZN16fuel_core_client6client10FuelClient11dry_run_opt17h2ec6d7b6383b949fE": 1,
+    "_ZN16fuel_core_client6client10FuelClient11transaction17h988594fbdb40c7e9E": 1,
+    "_ZN16fuel_core_client6client10FuelClient15decode_response17h09b9fa5506794bf8E": 10,
+    "_ZN16fuel_core_client6client10FuelClient19estimate_predicates17h118723bfc42d3c01E": 1,
+    "_ZN16fuel_core_client6client10FuelClient23update_chain_state_info17h151b0e17701ba9b6E": 12,
+    "_ZN16fuel_core_client6client10FuelClient3new17h476859146e711305E": 1,
+    "_ZN16fuel_core_client6client10FuelClient5query17h0ed5d4feb39eaa66E": 1,
+    "_ZN16fuel_core_client6client10FuelClient6submit17h9e06992ce652fdddE": 1,
+    "_ZN16fuel_core_client6client10FuelClient7dry_run17h16aaf1f3144a41f3E": 1,
+    "_ZN16fuel_core_client6client10FuelClient8receipts17h6c08b3b8631d7c6cE": 1,
+    "_ZN16fuel_core_client6client5types1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionType$GT$9serialize17ha0e906398218eae8E": 2,
+    "_ZN16fuel_core_client6client5types1_102_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionStatus$GT$9serialize17h0609a79bcbdde6d8E": 1,
+    "_ZN16fuel_core_client6client5types1_104_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionResponse$GT$9serialize17he11dc95e6be1e411E": 8,
+    "_ZN16fuel_core_client6client5types1_99_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..ResolvedOutput$GT$9serialize17heacca25b2b689838E": 8,
+    "_ZN16fuel_core_client7CliArgs4exec17hc912f565458cbcd4E": 1,
+    "_ZN16fuel_core_client4main17h15c87e0597913d8fE": 5,
+    "_ZN16fuel_core_client6client6schema10primitives155_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..primitives..U64$GT$$u20$for$u20$fuel_asm..panic_instruction..PanicInstruction$GT$8try_from17hf514da350207d085E": 2,
+    "_ZN16fuel_core_client6client6schema2tx19transparent_receipt152_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..transparent_receipt..Receipt$GT$$u20$for$u20$fuel_tx..receipt..Receipt$GT$8try_from17h063abc35bc51dab3E": 1,
+    "_ZN16fuel_core_client6client6schema2tx149_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..OpaqueTransaction$GT$$u20$for$u20$fuel_tx..transaction..Transaction$GT$8try_from17hbb1eb2c39a6cd705E": 3,
+    "_ZN16fuel_core_client6client6schema2tx139_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..ProgramState$GT$$u20$for$u20$fuel_vm..state..ProgramState$GT$8try_from17h02db243cd6ccd8caE": 7,
+    "_ZN16fuel_core_client6client6schema128_$LT$impl$u20$core..convert..From$LT$fuel_core_client..client..schema..ConversionError$GT$$u20$for$u20$std..io..error..Error$GT$4from17h6a2fcb74acf22723E": 1,
+    "_ZN16fuel_core_client6client32from_strings_errors_to_std_error17h0d912308b953dd65E": 4,
+    "_ZN16fuel_core_client6client10FuelClient21required_block_height17h470eea40bb77c49aE": 3
+  },
+  "variable_types": {
+    "_ZN16fuel_core_client11reqwest_ext1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..reqwest_ext..ExtensionsRequest$GT$9serialize17h3acfb4a3ad087fbdE": {
+      "stack_24": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_28": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_9": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client11reqwest_ext1_102_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_client..reqwest_ext..ExtensionsResponse$GT$11deserialize17hbf7ebed855b1349cE": {},
+    "_ZN16fuel_core_client11reqwest_ext1_113_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..reqwest_ext..FuelOperation$LT$Operation$GT$$GT$9serialize17h0488957e77c1d8d0E": {
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_17": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client11reqwest_ext1_130_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$fuel_core_client..reqwest_ext..FuelGraphQlResponse$LT$T$C$ErrorExtensions$GT$$GT$11deserialize17h2228d7878928352bE": {},
+    "_ZN16fuel_core_client11reqwest_ext30FuelOperation$LT$Operation$GT$3new17h2a6fede262a19031E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_ymm1": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_ymm2": [
+        [
+          "primitive",
+          null
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client11reqwest_ext9deser_gql17h0944e9231200dd57E": {
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client6client10FuelClient10submit_opt17h459081aceac6f61dE": {},
+    "_ZN16fuel_core_client6client10FuelClient11dry_run_opt17h2ec6d7b6383b949fE": {},
+    "_ZN16fuel_core_client6client10FuelClient11transaction17h988594fbdb40c7e9E": {},
+    "_ZN16fuel_core_client6client10FuelClient15decode_response17h09b9fa5506794bf8E": {
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_ymm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_ymm2": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client6client10FuelClient19estimate_predicates17h118723bfc42d3c01E": {},
+    "_ZN16fuel_core_client6client10FuelClient23update_chain_state_info17h151b0e17701ba9b6E": {
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_None": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "reg_cc_ndep": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client6client10FuelClient3new17h476859146e711305E": {},
+    "_ZN16fuel_core_client6client10FuelClient5query17h0ed5d4feb39eaa66E": {
+      "reg_ymm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_ymm2": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_ymm3": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "reg_ymm0": [
+        [
+          "primitive",
+          null
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client6client10FuelClient6submit17h9e06992ce652fdddE": {},
+    "_ZN16fuel_core_client6client10FuelClient7dry_run17h16aaf1f3144a41f3E": {},
+    "_ZN16fuel_core_client6client10FuelClient8receipts17h6c08b3b8631d7c6cE": {},
+    "_ZN16fuel_core_client6client5types1_100_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionType$GT$9serialize17ha0e906398218eae8E": {},
+    "_ZN16fuel_core_client6client5types1_102_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionStatus$GT$9serialize17h0609a79bcbdde6d8E": {
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client6client5types1_104_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..TransactionResponse$GT$9serialize17he11dc95e6be1e411E": {
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "Result",
+          80
+        ],
+        [
+          "struct",
+          48
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          null
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client6client5types1_99_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$fuel_core_client..client..types..ResolvedOutput$GT$9serialize17heacca25b2b689838E": {
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "Result",
+          80
+        ],
+        [
+          "struct",
+          48
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          null
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client7CliArgs4exec17hc912f565458cbcd4E": {},
+    "_ZN16fuel_core_client4main17h15c87e0597913d8fE": {
+      "stack_1192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1184": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_160": [
+        [
+          "struct",
+          136
+        ]
+      ],
+      "stack_365": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_80": [
+        [
+          "struct",
+          40
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          80
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client6client6schema10primitives155_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..primitives..U64$GT$$u20$for$u20$fuel_asm..panic_instruction..PanicInstruction$GT$8try_from17hf514da350207d085E": {
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client6client6schema2tx19transparent_receipt152_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..transparent_receipt..Receipt$GT$$u20$for$u20$fuel_tx..receipt..Receipt$GT$8try_from17h063abc35bc51dab3E": {
+      "stack_424": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_392": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client6client6schema2tx149_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..OpaqueTransaction$GT$$u20$for$u20$fuel_tx..transaction..Transaction$GT$8try_from17hbb1eb2c39a6cd705E": {
+      "stack_464": [
+        [
+          "struct",
+          80
+        ]
+      ],
+      "reg_r15": [
+        [
+          "struct",
+          80
+        ]
+      ],
+      "stack_456": [
+        [
+          "struct",
+          136
+        ]
+      ],
+      "reg_r14": [
+        [
+          "struct",
+          136
+        ]
+      ],
+      "stack_448": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "Result",
+          96
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client6client6schema2tx139_$LT$impl$u20$core..convert..TryFrom$LT$fuel_core_client..client..schema..tx..ProgramState$GT$$u20$for$u20$fuel_vm..state..ProgramState$GT$8try_from17h02db243cd6ccd8caE": {
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client6client6schema128_$LT$impl$u20$core..convert..From$LT$fuel_core_client..client..schema..ConversionError$GT$$u20$for$u20$std..io..error..Error$GT$4from17h6a2fcb74acf22723E": {},
+    "_ZN16fuel_core_client6client32from_strings_errors_to_std_error17h0d912308b953dd65E": {
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_88": [
+        [
+          "struct",
+          24
+        ]
+      ]
+    },
+    "_ZN16fuel_core_client6client10FuelClient21required_block_height17h470eea40bb77c49aE": {
+      "stack_24": [
+        [
+          "struct",
+          136
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "struct",
+          136
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

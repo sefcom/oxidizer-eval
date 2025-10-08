@@ -1,0 +1,3777 @@
+{
+  "decompilation": {
+    "_ZN9uu_numfmt11handle_args17h88f782532eeab52aE": "\n  int128_t* uu_numfmt::handle_args::h88f782532eeab52a(int128_t* arg1, char* arg2)\n\n{\n    int128_t var_38 = arg1[3];\n    int128_t var_48 = arg1[2];\n    int128_t var_58 = arg1[1];\n    int128_t var_68 = *arg1;\n    int128_t* i;\n    \n    do\n    {\n        int64_t rax_1;\n        int64_t rdx_1;\n        rax_1 = _$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h92623d70016f3062(&var_68);\n        \n        if (!rax_1)\n            return nullptr;\n        \n        i = uu_numfmt::format_and_handle_validation::hcfab93a3f32ae107(rax_1, rdx_1, arg2);\n    } while (!i);\n    \n    return i;\n}\n",
+    "_ZN9uu_numfmt13handle_buffer17h8d59c98e3da551b3E": "\n  int64_t uu_numfmt::handle_buffer::h8d59c98e3da551b3(int64_t arg1, char* arg2)\n\n{\n    if (!arg2[0xc8])\n        /* tailcall */\n        return uu_numfmt::handle_buffer_iterator::hfeb0cb0be5b9a655(arg1, arg2);\n    \n    /* tailcall */\n    return uu_numfmt::handle_buffer_iterator::h414c95f5f8eb45b9(\n        std::io::BufRead::split::h0409658dc3119191(arg1), arg2);\n}\n",
+    "_ZN9uu_numfmt22handle_buffer_iterator17h414c95f5f8eb45b9E": "\n  int128_t* uu_numfmt::handle_buffer_iterator::h414c95f5f8eb45b9(int64_t arg1, char* arg2)\n\n{\n    int128_t* result = nullptr;\n    int32_t rax = 0xa;\n    \n    if (arg2[0xc8])\n        rax = 0;\n    \n    int32_t var_d4 = rax;\n    void var_48;\n    core::iter::traits::iterator::Iterator::enumerate::ha5b6576aba57f0de(&var_48, arg1);\n    int64_t var_68;\n    int64_t rdx = _$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h54f092d491cf1a5a(&var_68, &var_48);\n    void* var_60;\n    void* rax_1 = var_60;\n    \n    if (rax_1 != -0x7fffffffffffffff)\n    {\n        int64_t r12_1 = *(arg2 + 0xc0);\n        \n        while (true)\n        {\n            void* var_d0;\n            void* const var_b8;\n            int128_t var_88;\n            int32_t* var_78;\n            void* var_58;\n            \n            if (rax_1 == -0x8000000000000000)\n            {\n                var_d0 = var_58;\n                _$LT$T$u20$as$u20$alloc..string..SpecToString$GT$::spec_to_string::hae49a63914faa038(&var_88, &var_d0, rdx);\n                int32_t* var_a0_2 = var_78;\n                int128_t var_b0_1 = var_88;\n                var_b8 = nullptr;\n                result = alloc::boxed::Box$LT$T$GT$::new::hb6e44097f5c9c613(&var_b8);\n                core::ptr::drop_in_place$LT$std..io..error..Error$GT$::hd93953e64ca236e7(&var_d0);\n                break;\n            }\n            \n            int128_t var_b0;\n            int64_t var_50;\n            \n            if (var_68 >= r12_1)\n            {\n                var_b8 = rax_1;\n                var_b0 = var_58;\n                *var_b0[8] = var_50;\n                result = uu_numfmt::format_and_handle_validation::hcfab93a3f32ae107(var_58, var_50, \n                    arg2);\n                core::ptr::drop_in_place$LT$alloc..string..String$GT$::hbc2a262c10a1490f(&var_b8);\n                \n                if (result)\n                    break;\n            }\n            else\n            {\n                var_d0 = rax_1;\n                void* var_c8_1 = var_58;\n                int64_t var_c0_1 = var_50;\n                var_88 = &var_d0;\n                *var_88[8] = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n                var_78 = &var_d4;\n                int64_t (* var_70_1)(int32_t* arg1, int64_t* arg2) =\n                    _$LT$char$u20$as$u20$core..fmt..Display$GT$::fmt::h0215b7857ad55b0c;\n                var_b8 = &data_4195a0;\n                var_b0 = 2;\n                int64_t var_98_1 = 0;\n                *var_b0[8] = &var_88;\n                int64_t var_a0_1 = 2;\n                std::io::stdio::_print::h5e446ff973c02de6(&var_b8);\n                core::ptr::drop_in_place$LT$alloc..string..String$GT$::hbc2a262c10a1490f(&var_d0);\n            }\n            rdx = _$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::next::h54f092d491cf1a5a(&var_68, &var_48);\n            rax_1 = var_60;\n            \n            if (rax_1 == -0x7fffffffffffffff)\n                return nullptr;\n        }\n    }\n    \n    return result;\n}\n",
+    "_ZN9uu_numfmt6uumain17he5d270763546e61dE": "\n  uint64_t uu_numfmt::uumain::he5d270763546e61d(int64_t arg1)\n\n{\n    core::result::Result$LT$T$C$E$GT$::expect::hada264d8931b89d1(\n        uucore::disable_rust_signal_handlers::hcf33f4a6d6e443c4());\n    uint64_t rax_1;\n    int64_t* rdx;\n    rax_1 = uu_numfmt::uumain::uumain::h7a36dd360fce0307(arg1);\n    \n    if (!rax_1)\n        /* tailcall */\n        return uucore::mods::error::get_exit_code::h4ce6cf124c2ef658();\n    \n    uint64_t var_90 = rax_1;\n    uint64_t* var_28 = &var_90;\n    int64_t (* var_20)(int64_t* arg1) = _$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Display$GT$::fmt::h1241721a1cd07fd4;\n    void* const var_80 = &data_4198c0;\n    int64_t var_78 = 1;\n    int64_t var_60 = 0;\n    uint64_t** var_70 = &var_28;\n    int64_t var_68 = 1;\n    int128_t var_50;\n    core::option::Option$LT$T$GT$::map_or_else::h05153684b171c193(&var_50, &var_80);\n    var_28 = var_50;\n    uint64_t var_40;\n    uint64_t var_18 = var_40;\n    int128_t* var_38;\n    \n    if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::ha6d370ac452f0a35(var_20, var_40, 1, 0))\n    {\n        int64_t rax_3;\n        int64_t rdx_1;\n        rax_3 = uucore::util_name::h074417a1e6395129();\n        var_50 = rax_3;\n        *var_50[8] = rdx_1;\n        var_38 = &var_50;\n        int64_t (* var_30_1)(int64_t* arg1, int64_t arg2) =\n            _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h97691ae48d37b1eb;\n        var_80 = &data_501868;\n        int64_t var_78_1 = 2;\n        int64_t var_60_1 = 0;\n        int128_t** var_70_1 = &var_38;\n        int64_t var_68_1 = 1;\n        std::io::stdio::_eprint::h57899770eacec2ad(&var_80);\n        var_50 = &var_28;\n        *var_50[8] =\n            _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n        var_80 = &data_501888;\n        int64_t var_78_2 = 2;\n        int64_t var_60_2 = 0;\n        int128_t* var_70_2 = &var_50;\n        int64_t var_68_2 = 1;\n        std::io::stdio::_eprint::h57899770eacec2ad(&var_80);\n    }\n    \n    if (rdx[0xc](var_90))\n    {\n        int64_t rax_6;\n        int64_t rdx_2;\n        rax_6 = uucore::execution_phrase::hf0e80cb4793732ad();\n        var_50 = rax_6;\n        *var_50[8] = rdx_2;\n        var_38 = &var_50;\n        int64_t (* var_30_2)(int64_t* arg1, int64_t arg2) =\n            _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::h97691ae48d37b1eb;\n        var_80 = &data_5018a8;\n        int64_t var_78_3 = 2;\n        int64_t var_60_3 = 0;\n        int128_t** var_70_3 = &var_38;\n        int64_t var_68_3 = 1;\n        std::io::stdio::_eprint::h57899770eacec2ad(&var_80);\n    }\n    \n    int32_t rax_8 = rdx[0xb](var_90);\n    core::ptr::drop_in_place$LT$alloc..string..String$GT$::hbc2a262c10a1490f(&var_28);\n    core::ptr::drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$clap_builder..builder..value_parser..AnyValueParser$GT$$GT$::h0855b8f2974e583a(var_90, rdx);\n    return rax_8;\n}\n",
+    "_ZN9uu_numfmt6uumain6uumain17h7a36dd360fce0307E": "\n  uint64_t uu_numfmt::uumain::uumain::h7a36dd360fce0307(int64_t arg1)\n\n{\n    int64_t* var_2e0;\n    uu_numfmt::uu_app::h17d783a9d7220ae7(&var_2e0);\n    int64_t* var_3f0;\n    clap_builder::builder::command::Command::try_get_matches_from::hfb908c4e8fd8a90b(&var_3f0, \n        &var_2e0, arg1);\n    int64_t* rax = var_3f0;\n    int64_t var_3e8;\n    \n    if (-(rax) == -0x8000000000000000)\n        /* tailcall */\n        return uucore::mods::error::_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$::from::he92a37de32738e67(var_3e8);\n    \n    int64_t var_3c0;\n    int64_t var_410 = var_3c0;\n    int128_t var_3d0;\n    int128_t var_420 = var_3d0;\n    int128_t var_3e0;\n    int128_t var_430 = var_3e0;\n    int64_t* var_440 = rax;\n    int64_t var_438 = var_3e8;\n    uu_numfmt::parse_options::hdd4028f9a896523f(&var_2e0, &var_440);\n    int64_t* rbx_1 = var_2e0;\n    uint64_t result;\n    void** var_2d8;\n    int128_t var_2d0;\n    \n    if (rbx_1 != 2)\n    {\n        int128_t var_458 = var_2d0;\n        void var_2b8;\n        memcpy(&*var_3d0[8], &var_2b8, 0xa8);\n        int128_t zmm0_3 = var_458;\n        int128_t var_408_1 = zmm0_3;\n        int128_t var_3e0_1 = zmm0_3;\n        int64_t var_2c0;\n        var_3d0 = var_2c0;\n        var_3f0 = rbx_1;\n        void** const var_3e8_1 = var_2d8;\n        clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many::h471fa3c8de9cc35d(\n            &var_2e0, &var_440);\n        int64_t var_320;\n        clap_builder::parser::error::MatchesError::unwrap::h7285758572399059(&var_320, &var_2e0);\n        \n        if (!var_320)\n        {\n            std::io::stdio::stdin::h9a05a2c3e7544b2a();\n            var_458 = &std::io::stdio::stdin::INSTANCE::heccb3522b341563b;\n            int64_t* rax_5;\n            char rdx_3;\n            rax_5 = std::io::stdio::Stdin::lock::h8b2bf765bae79e2f(&var_458);\n            var_2e0 = rax_5;\n            var_2d8 = rdx_3 & 1;\n            uint64_t result_2;\n            void** rdx_4;\n            result_2 = uu_numfmt::handle_buffer::h8d59c98e3da551b3(&var_2e0, &var_3f0);\n            result = result_2;\n            core::ptr::drop_in_place$LT$std..io..stdio..StdinLock$GT$::h74753e38be762355(var_2e0, \n                var_2d8);\n            \n            if (!result)\n                result = 0;\n            else\n            {\n                label_463ac0:\n                std::io::stdio::stdout::hb6a8e10bcccf3287();\n                var_2e0 = &std::io::stdio::STDOUT::h411b213c5c9add46;\n                core::result::Result$LT$T$C$E$GT$::expect::h35336489fa14421a(_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$::flush::hfb2969f84e2164f2(&var_2e0));\n            }\n        }\n        else\n        {\n            int128_t* result_1;\n            void** rdx_2;\n            result_1 = uu_numfmt::handle_args::h88f782532eeab52a(&var_320, &var_3f0);\n            result = result_1;\n            \n            if (result_1)\n                goto label_463ac0;\n            \n            result = 0;\n        }\n        \n        core::ptr::drop_in_place$LT$uu_numfmt..options..NumfmtOptions$GT$::h46b9f219212e0ff3(\n            &var_3f0);\n        core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h2f0f0406eae3d8c2(&var_440);\n    }\n    else\n    {\n        int64_t rcx_4 = *var_2d0[8];\n        int128_t zmm0_2 = var_2d8;\n        int128_t var_408 = zmm0_2;\n        int64_t var_3f8_1 = rcx_4;\n        *var_2d0[8] = rcx_4;\n        var_2d8 = zmm0_2;\n        var_2e0 = 1;\n        result = alloc::boxed::Box$LT$T$GT$::new::hb6e44097f5c9c613(&var_2e0);\n        core::ptr::drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$::h2f0f0406eae3d8c2(&var_440);\n    }\n    return result;\n}\n",
+    "_ZN9uu_numfmt6format12parse_suffix17h65381ef2a47d074cE": "\n  char* uu_numfmt::format::parse_suffix::h65381ef2a47d074c(uint64_t arg1, char* arg2, int64_t arg3, int64_t arg4 @ r13)\n\n{\n    int64_t var_20 = arg4;\n    \n    if (!arg3)\n        /* tailcall */\n        return _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h4c3223c430555e40(arg1, \"invalid number: ''invalid suffix\u2026\", 0x12);\n    \n    int32_t var_90 = 0;\n    char rbp = core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::ends_with::h8acf7e79f75ef2f1(arg2, arg3, \n        core::char::methods::encode_utf8_raw::h5e8f6d90a161f6f4(0x69, &var_90), 1);\n    char* var_a0 = arg2;\n    void* var_98 = &arg2[arg3];\n    \n    if (rbp)\n        core::str::validations::next_code_point_reverse::h55d2d504630d5ed9(&var_a0, arg1);\n    \n    char rax_3;\n    int32_t rdx_1;\n    rax_3 = core::str::validations::next_code_point_reverse::h55d2d504630d5ed9(&var_a0, arg1);\n    int64_t var_60;\n    \n    if (rax_3 & 1)\n    {\n        uint64_t rax_4 = rdx_1 - 0x45;\n        uint64_t r12_2;\n        \n        if (rax_4 <= 0x15)\n        {\n            switch (rax_4)\n            {\n                case 0:\n                {\n                    arg4 = 5;\n                    break;\n                }\n                case 1:\n                case 3:\n                case 4:\n                case 5:\n                case 7:\n                case 9:\n                case 0xa:\n                case 0xc:\n                case 0xd:\n                case 0xe:\n                case 0x10:\n                case 0x11:\n                case 0x12:\n                case 0x13:\n                {\n                    goto label_4698eb;\n                }\n                case 2:\n                {\n                    arg4 = 2;\n                    break;\n                }\n                case 6:\n                {\n                    arg4 = 0;\n                    break;\n                }\n                case 8:\n                {\n                    arg4 = 1;\n                    break;\n                }\n                case 0xb:\n                {\n                    arg4 = 4;\n                    break;\n                }\n                case 0xf:\n                {\n                    arg4 = 3;\n                    break;\n                }\n                case 0x14:\n                {\n                    arg4 = 7;\n                    break;\n                }\n                case 0x15:\n                {\n                    arg4 = 6;\n                    break;\n                }\n            }\n            \n            r12_2 = ~rbp;\n            goto label_469990;\n        }\n        \n        label_4698eb:\n        rax_4 = rdx_1 - 0x3a < 0xfffffff6;\n        \n        if (!(rbp | rax_4))\n        {\n            rbp = 2;\n            r12_2 = 0;\n            label_469990:\n            int64_t r12_3 = r12_2 + arg3;\n            char* rax_7;\n            int64_t* rdx_5;\n            rax_7 = core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$::get::hf838fc4d891e0944(r12_3, arg2, arg3);\n            \n            if (!rax_7)\n            {\n                core::str::slice_error_fail::h1a2885084e28d077(arg2, arg3, 0, r12_3);\n                /* no return */\n            }\n            \n            char* result = core::num::dec2flt::_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$f64$GT$::from_str::h05023748d9faa6d2(&var_60, rax_7, rdx_5);\n            int64_t zmm0_2;\n            \n            if (!var_60)\n            {\n                int64_t var_58;\n                zmm0_2 = var_58;\n                label_469a02:\n                *(arg1 + 8) = zmm0_2;\n                *(arg1 + 0x10) = arg4;\n                *(arg1 + 0x11) = rbp;\n                *arg1 = -0x8000000000000000;\n            }\n            else\n            {\n                uu_numfmt::format::parse_suffix::_$u7b$$u7b$closure$u7d$$u7d$::h697123fed7d6da64(\n                    &var_90);\n                result = var_90;\n                int64_t var_88;\n                zmm0_2 = var_88;\n                \n                if (result == -0x8000000000000000)\n                    goto label_469a02;\n                \n                *arg1 = result;\n                *(arg1 + 8) = zmm0_2;\n                int64_t var_80;\n                *(arg1 + 0x10) = var_80;\n            }\n            return result;\n        }\n    }\n    \n    var_60 = 0;\n    char* var_58_1 = arg2;\n    int64_t var_50_1 = arg3;\n    char var_48_1 = 1;\n    int64_t* var_40 = &var_60;\n    int64_t (* var_38_1)(int32_t* arg1, int64_t* arg2) =\n        _$LT$os_display..Quoted$u20$as$u20$core..fmt..Display$GT$::fmt::ha3782f403933d3a5;\n    var_90 = &data_5023a0;\n    int64_t var_88_1 = 1;\n    int64_t var_70_1 = 0;\n    int64_t** var_80_1 = &var_40;\n    int64_t var_78_1 = 1;\n    return core::option::Option$LT$T$GT$::map_or_else::h6181b64f68c0f373(arg1, &var_90);\n}\n",
+    "_ZN9uu_numfmt6format24parse_implicit_precision17hb5d21ae12bf7afedE": "\n  int64_t uu_numfmt::format::parse_implicit_precision::hb5d21ae12bf7afed(int64_t arg1, int64_t arg2)\n\n{\n    int64_t var_20;\n    core::str::_$LT$impl$u20$str$GT$::split_once::h55795b6daa7535c4(&var_20, arg1, arg2);\n    \n    if (!var_20)\n        return 0;\n    \n    int64_t var_10;\n    int64_t var_38 = var_10;\n    int64_t var_8;\n    int64_t var_30 = var_8 + var_10;\n    char var_28 = 0;\n    return _$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::fold::had2f6788d87bb353(&var_38);\n}\n",
+    "_ZN9uu_numfmt6format13remove_suffix17h7f875f2aa3a3c8adE": "\n  void uu_numfmt::format::remove_suffix::h7f875f2aa3a3c8ad(int128_t* arg1, char arg2, char arg3, char arg4, void* arg5 @ zmm0)\n\n{\n    void* var_78 = arg5;\n    \n    if (arg3 != 2)\n    {\n        char r8_1 = 2;\n        \n        if (arg4 - 2 < 4)\n            r8_1 = arg4 - 2;\n        \n        int64_t rax_2;\n        char const* const rcx;\n        \n        if (!(arg3 & 1))\n        {\n            if (r8_1 >= 2)\n            {\n                char var_70;\n                int64_t* var_60;\n                void** const var_30;\n                \n                if (r8_1 == 2)\n                {\n                    if (arg4 & 1)\n                    {\n                        var_70 = arg2;\n                        var_30 = &var_78;\n                        int64_t (* var_28)(int64_t* arg1, int64_t* arg2) = core::fmt::float::_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$::fmt::h78a04ef564c69060;\n                        char* var_20 = &var_70;\n                        int64_t (* var_18)(char* arg1, int64_t* arg2) = _$LT$uu_numfmt..units..RawSuffix$u20$as$u20$core..fmt..Debug$GT$::fmt::h24671838996c3b7b;\n                        var_60 = &data_5023d8;\n                        int64_t var_58 = 3;\n                        int64_t var_40 = 0;\n                        void** const* var_50 = &var_30;\n                        int64_t var_48 = 2;\n                        core::option::Option$LT$T$GT$::map_or_else::h6181b64f68c0f373(arg1, \n                            &var_60);\n                        return;\n                    }\n                    \n                    goto label_469c45;\n                }\n                \n                if (arg4 != 5)\n                    /* tailcall */\n                    return _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h4c3223c430555e40(arg1, \"This suffix is unsupported for s\u2026\", 0x2d);\n                \n                rcx = 1;\n                rax_2 = 0;\n                label_469c75:\n                char var_79 = arg2;\n                var_70 = rcx;\n                int64_t var_68 = rax_2;\n                var_60 = &var_78;\n                int64_t (* var_58_1)(int64_t* arg1, int64_t* arg2) = core::fmt::float::_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$::fmt::h78a04ef564c69060;\n                char* var_50_1 = &var_79;\n                int64_t (* var_48_1)(char* arg1, int64_t* arg2) = _$LT$uu_numfmt..units..RawSuffix$u20$as$u20$core..fmt..Debug$GT$::fmt::h24671838996c3b7b;\n                char* var_40_1 = &var_70;\n                int64_t (* var_38)(int64_t* arg1, int64_t arg2) =\n                    _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::heebe613453956698;\n                var_30 = &data_502408;\n                int64_t var_28_1 = 4;\n                int64_t var_10 = 0;\n                int64_t** var_20_1 = &var_60;\n                int64_t var_18_1 = 3;\n                core::option::Option$LT$T$GT$::map_or_else::h6181b64f68c0f373(arg1, &var_30);\n                return;\n            }\n            \n            switch (arg2)\n            {\n                case 0:\n                {\n                    arg5 = arg5 * 1000.0;\n                    break;\n                }\n                case 1:\n                {\n                    arg5 = arg5 * 1000000.0;\n                    break;\n                }\n                case 2:\n                {\n                    arg5 = arg5 * 1000000000.0;\n                    break;\n                }\n                case 3:\n                {\n                    arg5 = arg5 * 1000000000000.0;\n                    break;\n                }\n                case 4:\n                {\n                    arg5 = arg5 * 1000000000000000.0;\n                    break;\n                }\n                case 5:\n                {\n                    arg5 = arg5 * 1e+18;\n                    break;\n                }\n                case 6:\n                {\n                    arg5 = arg5 * 1e+21;\n                    break;\n                }\n                case 7:\n                {\n                    arg5 = arg5 * 9.9999999999999998e+23;\n                    break;\n                }\n            }\n        }\n        else\n        {\n            if (r8_1 && (r8_1 != 2 || !(arg4 & 1)))\n            {\n                if (arg4 != 5)\n                    /* tailcall */\n                    return _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h4c3223c430555e40(arg1, \"This suffix is unsupported for s\u2026\", 0x2d);\n                \n                rax_2 = 1;\n                rcx = \"iUnit 'auto' isn't supported wit\u2026\";\n                goto label_469c75;\n            }\n            \n            label_469c45:\n            \n            switch (arg2)\n            {\n                case 0:\n                {\n                    arg5 = arg5 * 1024.0;\n                    break;\n                }\n                case 1:\n                {\n                    arg5 = arg5 * 1048576.0;\n                    break;\n                }\n                case 2:\n                {\n                    arg5 = arg5 * 1073741824.0;\n                    break;\n                }\n                case 3:\n                {\n                    arg5 = arg5 * 1099511627776.0;\n                    break;\n                }\n                case 4:\n                {\n                    arg5 = arg5 * 1125899906842624.0;\n                    break;\n                }\n                case 5:\n                {\n                    arg5 = arg5 * 1.152921504606847e+18;\n                    break;\n                }\n                case 6:\n                {\n                    arg5 = arg5 * 1.1805916207174113e+21;\n                    break;\n                }\n                case 7:\n                {\n                    arg5 = arg5 * 1.2089258196146292e+24;\n                    break;\n                }\n            }\n        }\n    }\n    \n    *(arg1 + 8) = arg5;\n    *arg1 = -0x8000000000000000;\n}\n",
+    "_ZN9uu_numfmt6format14transform_from17hcd3fb358ec05b121E": "\n  uint64_t uu_numfmt::format::transform_from::hcd3fb358ec05b121(int64_t* arg1, char* arg2, int64_t arg3, int64_t arg4, char arg5)\n\n{\n    int64_t var_50;\n    int64_t r13;\n    uu_numfmt::format::parse_suffix::h65381ef2a47d074c(&var_50, arg2, arg3, r13);\n    int64_t rdx = var_50;\n    char result_1;\n    uint64_t result = result_1;\n    double var_48;\n    char var_40;\n    \n    if (-(rdx) != -0x8000000000000000)\n    {\n        int16_t var_3a;\n        int16_t var_54_1 = var_3a;\n        int32_t var_3e;\n        int32_t var_58_1 = var_3e;\n        *(arg1 + 0x16) = var_3a;\n        *(arg1 + 0x12) = var_3e;\n        *arg1 = rdx;\n        arg1[1] = var_48;\n        arg1[2] = var_40;\n        *(arg1 + 0x11) = result;\n    }\n    else\n    {\n        uint128_t zmm1_1 =\n            __subpd_xmmpd_mempd(__punpckldq_xmmdq_memdq(arg4, data_419750), data_419640[0xa0][0]);\n        double zmm2_1[0x2] = _mm_unpackhi_pd(zmm1_1, zmm1_1);\n        zmm2_1[0] = zmm2_1[0] + zmm1_1;\n        int64_t var_38;\n        uint64_t zmm1_2[0x2] = uu_numfmt::format::remove_suffix::h7f875f2aa3a3c8ad(&var_38, var_40, \n            result, arg5, var_48 * zmm2_1[0]);\n        \n        if (var_38 != -0x8000000000000000)\n        {\n            uint64_t result_2;\n            result = result_2;\n            arg1[2] = result;\n            *arg1 = var_38;\n        }\n        else\n        {\n            int64_t var_30;\n            int64_t zmm0_2;\n            zmm0_2 =\n                uu_numfmt::format::transform_from::_$u7b$$u7b$closure$u7d$$u7d$::hb3e2a9b15b793ed1(\n                arg5, var_30, zmm1_2);\n            arg1[1] = zmm0_2;\n            *arg1 = -0x8000000000000000;\n        }\n    }\n    return result;\n}\n",
+    "_ZN9uu_numfmt6format9div_round17hdf3f58dd879fd2aeE": "\n  int64_t uu_numfmt::format::div_round::hdf3f58dd879fd2ae(char arg1, uint64_t arg2[0x2] @ zmm0, uint64_t arg3[0x2] @ zmm1)\n\n{\n    int64_t result_1;\n    int64_t result = result_1;\n    *result[7] = arg1;\n    arg2[0] = arg2[0] / arg3[0];\n    uint64_t temp0[0x2] = _mm_and_pd(data_4196f0, arg2);\n    int64_t zmm2 = 0x4024000000000000;\n    \n    if (zmm2 <= temp0[0])\n    {\n        uu_numfmt::options::RoundMethod::round::h874ad1975578cac0(&*result[7], arg2, temp0);\n        return result;\n    }\n    \n    arg2[0] = arg2[0] * zmm2;\n    uu_numfmt::options::RoundMethod::round::h874ad1975578cac0(&*result[7], arg2, temp0);\n    return result;\n}\n",
+    "_ZN9uu_numfmt6format20round_with_precision17hbeea945620f7b8d9E": "\n  double uu_numfmt::format::round_with_precision::hbeea945620f7b8d9(char arg1, int64_t arg2, uint128_t arg3 @ zmm0)\n\n{\n    int64_t var_8 = arg3;\n    arg3 = __subpd_xmmpd_mempd(__punpckldq_xmmdq_memdq(arg2, data_419750), data_419640[0xa0][0]);\n    char var_11 = arg1;\n    uint128_t zmm1;\n    zmm1 = _mm_unpackhi_pd(arg3, arg3) + arg3;\n    uint128_t zmm0 = pow(0x4024000000000000, zmm1);\n    uint128_t zmm1_1 = zmm0;\n    uint64_t var_10 = zmm0;\n    zmm0 = var_8 * zmm1_1;\n    return uu_numfmt::options::RoundMethod::round::h874ad1975578cac0(&var_11, zmm0, zmm1_1)\n        / var_10;\n}\n",
+    "_ZN9uu_numfmt6format15consider_suffix17h8fe5d35b3319f348E": "\n  void* uu_numfmt::format::consider_suffix::h8fe5d35b3319f348(int64_t* arg1, char arg2, char arg3, int64_t arg4, uint64_t arg5[0x2] @ zmm0)\n\n{\n    int64_t var_38 = 0x706050403020100;\n    char rsi = 2;\n    \n    if (arg2 - 2 < 4)\n        rsi = arg2 - 2;\n    \n    void* result = jump_table_41a3f8[rsi] + &jump_table_41a3f8;\n    uint64_t rdx;\n    char rbx;\n    char const* const rsi_1;\n    \n    switch (result)\n    {\n        case 0x46a010:\n        {\n            rsi_1 = \"Unit 'auto' isn't supported with\u2026\";\n            rdx = 0x2d;\n            break;\n        }\n        case 0x46a02d:\n        {\n            result = &data_41aab8;\n            rbx = 0;\n            label_46a04a:\n            uint128_t zmm1 = _mm_and_pd(data_4196f0, arg5);\n            double zmm3 = *(result + 8);\n            \n            if (-1.0 + zmm3 >= zmm1)\n                goto label_46a083;\n            \n            int64_t rbp;\n            rbp = 1;\n            double var_30;\n            double* r14_1;\n            int64_t r15_1;\n            \n            if (!(*(result + 0x10) <= zmm1))\n            {\n                r14_1 = &*var_38[1];\n                r15_1 = 1;\n                label_46a14d:\n                var_30 = zmm3;\n                zmm1 = *(result + (r15_1 << 3));\n                uint64_t zmm0_1[0x2];\n                \n                if (!arg4)\n                    zmm0_1 = uu_numfmt::format::div_round::hdf3f58dd879fd2ae(arg3, arg5, zmm1);\n                else\n                {\n                    arg5[0] = arg5[0] / zmm1;\n                    zmm0_1 = uu_numfmt::format::round_with_precision::hbeea945620f7b8d9(arg3, arg4, \n                        arg5);\n                }\n                \n                uint64_t temp0_2[0x2] = _mm_and_pd(data_4196f0, zmm0_1);\n                double zmm2_2 = var_30;\n                \n                if (temp0_2[0] >= zmm2_2)\n                {\n                    if (!rbp)\n                    {\n                        core::panicking::panic_bounds_check::h025cadc56a971af7(8, 8);\n                        /* no return */\n                    }\n                    \n                    zmm0_1[0] = zmm0_1[0] / zmm2_2;\n                    result = *(&var_38 + r15_1);\n                }\n                else\n                    result = *(r14_1 - 1);\n                \n                arg1[1] = zmm0_1;\n                arg1[2] = result;\n                *(arg1 + 0x11) = rbx;\n                *arg1 = -0x8000000000000000;\n                return result;\n            }\n            \n            if (!(*(result + 0x18) <= zmm1))\n            {\n                r14_1 = &*var_38[2];\n                r15_1 = 2;\n                goto label_46a14d;\n            }\n            \n            if (!(*(result + 0x20) <= zmm1))\n            {\n                r14_1 = &*var_38[3];\n                r15_1 = 3;\n                goto label_46a14d;\n            }\n            \n            if (!(*(result + 0x28) <= zmm1))\n            {\n                r14_1 = &*var_38[4];\n                r15_1 = 4;\n                goto label_46a14d;\n            }\n            \n            if (!(*(result + 0x30) <= zmm1))\n            {\n                r14_1 = &*var_38[5];\n                r15_1 = 5;\n                goto label_46a14d;\n            }\n            \n            if (!(*(result + 0x38) <= zmm1))\n            {\n                r14_1 = &*var_38[6];\n                r15_1 = 6;\n                goto label_46a14d;\n            }\n            \n            if (!(*(result + 0x40) <= zmm1))\n            {\n                r14_1 = &*var_38[7];\n                r15_1 = 7;\n                goto label_46a14d;\n            }\n            \n            if (!(*(result + 0x48) <= zmm1))\n            {\n                r14_1 = &var_30;\n                r15_1 = 8;\n                rbp = 0;\n                goto label_46a14d;\n            }\n            \n            rsi_1 = \"Number is too big and unsupporte\u2026\";\n            rdx = 0x21;\n            break;\n        }\n        case 0x46a038:\n        {\n            rbx = arg2 & 1;\n            result = &data_41ab08;\n            goto label_46a04a;\n        }\n        case 0x46a083:\n        {\n            label_46a083:\n            arg1[1] = arg5;\n            *(arg1 + 0x11) = 2;\n            *arg1 = -0x8000000000000000;\n            return result;\n            break;\n        }\n    }\n    \n    /* tailcall */\n    return _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h4c3223c430555e40(arg1, rsi_1, rdx);\n}\n",
+    "_ZN9uu_numfmt6format12transform_to17he005deddceb3df89E": "\n  uint64_t uu_numfmt::format::transform_to::he005deddceb3df89(int64_t* arg1, int64_t arg2, char arg3, char arg4, int64_t arg5, uint64_t arg6[0x2] @ zmm0)\n\n{\n    uint64_t* var_b0;\n    uu_numfmt::format::consider_suffix::h8fe5d35b3319f348(&var_b0, arg3, arg4, arg5, arg6);\n    uint64_t* rdx_1 = var_b0;\n    int64_t var_a8;\n    uint128_t zmm0 = var_a8;\n    char result_1;\n    uint64_t result = result_1;\n    char var_a0;\n    int32_t var_78;\n    \n    if (-(rdx_1) != -0x8000000000000000)\n    {\n        int16_t var_9a;\n        int16_t var_74_1 = var_9a;\n        int32_t var_9e;\n        var_78 = var_9e;\n        *(arg1 + 0x1e) = var_9a;\n        *(arg1 + 0x1a) = var_9e;\n        arg1[1] = rdx_1;\n        arg1[2] = zmm0;\n        arg1[3] = var_a0;\n        *(arg1 + 0x19) = result;\n        *arg1 = 1;\n    }\n    else\n    {\n        uint128_t zmm1_1 =\n            __subpd_xmmpd_mempd(__punpckldq_xmmdq_memdq(arg2, data_419750), data_419640[0xa0][0]);\n        uint128_t zmm2_1;\n        zmm2_1 = _mm_unpackhi_pd(zmm1_1, zmm1_1) + zmm1_1;\n        zmm0 = zmm0 / zmm2_1;\n        uint64_t var_80 = zmm0;\n        int128_t var_48;\n        uint64_t** rsi_3;\n        int128_t* rdi_3;\n        int64_t var_b8;\n        int128_t var_98;\n        \n        if (result != 2)\n        {\n            int16_t var_60;\n            \n            if (!arg5)\n            {\n                result &= 1;\n                void* const rax_1;\n                \n                if (0x4024000000000000 <= __andpd_xmmxuq_memxuq(zmm0, data_4196f0))\n                {\n                    *var_b8[1] = var_a0;\n                    *var_b8[2] = result;\n                    var_b8 = arg3;\n                    var_78 = &var_80;\n                    int64_t (* var_70_4)(int64_t* arg1, int64_t* arg2) = core::fmt::float::_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$::fmt::h78a04ef564c69060;\n                    int64_t* var_68_4 = &var_b8;\n                    var_60 = _$LT$uu_numfmt..units..DisplayableSuffix$u20$as$u20$core..fmt..Display$GT$::fmt::hb791543f09c937f1;\n                    var_b0 = &data_4195a0;\n                    int64_t var_a8_4 = 2;\n                    rax_1 = &data_41ab88;\n                }\n                else\n                {\n                    *var_b8[1] = var_a0;\n                    *var_b8[2] = result;\n                    var_b8 = arg3;\n                    var_78 = &var_80;\n                    int64_t (* var_70_3)(int64_t* arg1, int64_t* arg2) = core::fmt::float::_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$::fmt::h78a04ef564c69060;\n                    int64_t* var_68_3 = &var_b8;\n                    var_60 = _$LT$uu_numfmt..units..DisplayableSuffix$u20$as$u20$core..fmt..Display$GT$::fmt::hb791543f09c937f1;\n                    var_b0 = &data_4195a0;\n                    int64_t var_a8_3 = 2;\n                    rax_1 = &data_41abe8;\n                }\n                \n                *var_98[8] = rax_1;\n                int64_t var_88_2 = 2;\n                goto label_46a4a0;\n            }\n            \n            *var_b8[1] = var_a0;\n            result &= 1;\n            *var_b8[2] = result;\n            var_b8 = arg3;\n            \n            if (arg5 > 0xffff)\n            {\n                var_b0 = &data_502460;\n                int64_t var_a8_6 = 1;\n                var_a0 = 8;\n                uint128_t var_98_2 = _mm_xor_pd(zmm0, zmm0);\n                core::panicking::panic_fmt::h96f341d36638c225(&var_b0);\n                /* no return */\n            }\n            \n            var_b0 = &var_80;\n            int64_t (* var_a8_2)(int64_t* arg1, int64_t* arg2) = core::fmt::float::_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$::fmt::h78a04ef564c69060;\n            var_a0 = &var_b8;\n            var_98 = _$LT$uu_numfmt..units..DisplayableSuffix$u20$as$u20$core..fmt..Display$GT$::fmt::hb791543f09c937f1;\n            *var_98[8] = 0;\n            int64_t var_88;\n            var_88 = arg5;\n            var_78 = &data_4195a0;\n            int64_t var_70_2 = 2;\n            void* const var_58_1 = &data_41ac48;\n            int64_t var_50_1 = 2;\n            uint64_t** var_68_2 = &var_b0;\n            var_60 = 3;\n            rdi_3 = &var_48;\n            rsi_3 = &var_78;\n        }\n        else\n        {\n            uint64_t zmm0_1[0x2] =\n                uu_numfmt::format::round_with_precision::hbeea945620f7b8d9(arg4, arg5, zmm0);\n            var_b8 = zmm0_1;\n            \n            if (arg5 > 0xffff)\n            {\n                var_b0 = &data_502460;\n                int64_t var_a8_5 = 1;\n                var_a0 = 8;\n                uint64_t var_98_1[0x2] = _mm_xor_pd(zmm0_1, zmm0_1);\n                core::panicking::panic_fmt::h96f341d36638c225(&var_b0);\n                /* no return */\n            }\n            \n            var_78 = &var_b8;\n            int64_t (* var_70_1)(int64_t* arg1, int64_t* arg2) = core::fmt::float::_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$::fmt::h78a04ef564c69060;\n            int64_t var_68_1 = 0;\n            int16_t var_60_1 = arg5;\n            var_b0 = &data_4198c0;\n            int64_t var_a8_1 = 1;\n            *var_98[8] = &data_41ab58;\n            int64_t var_88_1 = 1;\n            label_46a4a0:\n            var_a0 = &var_78;\n            var_98 = 2;\n            rdi_3 = &var_48;\n            rsi_3 = &var_b0;\n        }\n        core::option::Option$LT$T$GT$::map_or_else::h6181b64f68c0f373(rdi_3, rsi_3);\n        uint64_t result_2;\n        result = result_2;\n        arg1[3] = result;\n        *(arg1 + 8) = var_48;\n        *arg1 = 0;\n    }\n    return result;\n}\n",
+    "_ZN9uu_numfmt6format13format_string17h3b8df337189cc348E": "\n  void** uu_numfmt::format::format_string::h3b8df337189cc348(int64_t* arg1, char* arg2, int64_t arg3, char* arg4, char arg5, int64_t arg6)\n\n{\n    int64_t rbp = arg3;\n    char* r15 = arg2;\n    int64_t r12 = *(arg4 + 0x88);\n    \n    if (-(r12) != -0x8000000000000000)\n    {\n        char* rax_2;\n        int64_t rdx_1;\n        rax_2 = _$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$::strip_suffix_of::ha48df28aef4c1d38(*(arg4 + 0x90), *(arg4 + 0x98), r15, rbp);\n        \n        if (rax_2)\n            rbp = rdx_1;\n        \n        if (rax_2)\n            r15 = rax_2;\n    }\n    \n    int64_t r12_1;\n    char r13;\n    \n    if (*(arg4 + 0x10) != 1)\n    {\n        r13 = arg4[0xb0];\n        \n        if (r13 != 5)\n            r12_1 = 0;\n        else\n        {\n            r13 = 5;\n            \n            if (arg4[0xb1] != 5)\n                r12_1 = 0;\n            else\n                r12_1 = uu_numfmt::format::parse_implicit_precision::hb5d21ae12bf7afed(r15, rbp);\n        }\n    }\n    else\n    {\n        r12_1 = *(arg4 + 0x18);\n        r13 = arg4[0xb0];\n    }\n    \n    void** result_2;\n    uu_numfmt::format::transform_from::hcd3fb358ec05b121(&result_2, r15, rbp, *(arg4 + 0xa0), r13);\n    void** result = result_2;\n    int64_t var_100;\n    uint128_t zmm0 = var_100;\n    \n    if (result != -0x8000000000000000)\n    {\n        arg1[1] = result;\n        arg1[2] = zmm0;\n        int64_t var_f8;\n        arg1[3] = var_f8;\n        *arg1 = 1;\n    }\n    else\n    {\n        int32_t var_158;\n        uu_numfmt::format::transform_to::he005deddceb3df89(&var_158, *(arg4 + 0xa8), arg4[0xb1], \n            arg4[0xca], r12_1, zmm0);\n        int32_t rax_4 = var_158;\n        int128_t var_150;\n        int128_t var_128 = var_150;\n        void** result_3;\n        void** result_1 = result_3;\n        \n        if (rax_4 != 1)\n        {\n            int128_t var_68 = var_128;\n            int64_t (* var_f0)(int64_t* arg1, int64_t arg2);\n            int128_t var_b8;\n            void** result_7;\n            void* var_98;\n            int64_t rax_7;\n            int64_t r12_2;\n            \n            if (r12 != -0x8000000000000000)\n            {\n                var_98 = &arg4[0x88];\n                result_2 = &var_68;\n                int64_t (* var_100_1)(void* arg1, int64_t arg2) = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n                void** var_f8_1 = &var_98;\n                var_f0 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::hed06e343d9a3976c;\n                var_158 = &data_4195a0;\n                var_150 = 2;\n                int64_t var_138_1 = 0;\n                *var_150[8] = &result_2;\n                result_3 = 2;\n                core::option::Option$LT$T$GT$::map_or_else::h6181b64f68c0f373(&var_128, &var_158);\n                var_b8 = var_128;\n                result_7 = result_1;\n                rax_7 = arg6;\n                \n                if (*arg4 & 1)\n                    r12_2 = *(arg4 + 8);\n                else\n                {\n                    label_46a7dc:\n                    r12_2 = rax_7;\n                    \n                    if (!(arg5 & 1))\n                        r12_2 = *(arg4 + 0xb8);\n                }\n            }\n            else\n            {\n                result_7 = result_1;\n                var_b8 = var_68;\n                rax_7 = arg6;\n                \n                if (!(*arg4 & 1))\n                    goto label_46a7dc;\n                \n                r12_2 = *(arg4 + 8);\n            }\n            \n            int128_t var_d8;\n            \n            if (!r12_2)\n            {\n                void** result_8 = result_7;\n                var_d8 = var_b8;\n            }\n            else\n            {\n                void** result_4;\n                \n                if (r12_2 <= 0)\n                {\n                    int64_t rax_13 = -(r12_2);\n                    \n                    if (rax_13 > 0xffff)\n                    {\n                        label_46ac6a:\n                        var_158 = &data_502460;\n                        var_150 = 1;\n                        *var_150[8] = 8;\n                        result_3 = {0};\n                        core::panicking::panic_fmt::h96f341d36638c225(&var_158);\n                        /* no return */\n                    }\n                    \n                    result_2 = &var_b8;\n                    int64_t (* var_100_4)(void* arg1, int64_t arg2) = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n                    int64_t var_f8_4 = 0;\n                    var_f0 = rax_13;\n                    var_158 = &data_4198c0;\n                    var_150 = 1;\n                    void* const var_138_4 = &data_41acd8;\n                    int64_t var_130_3 = 1;\n                    *var_150[8] = &result_2;\n                    int64_t var_140_2 = 2;\n                    core::option::Option$LT$T$GT$::map_or_else::h6181b64f68c0f373(&var_128, \n                        &var_158);\n                    var_d8 = var_128;\n                    result_4 = result_1;\n                }\n                else if (arg4[0x51] != 1)\n                {\n                    if (r12_2 > 0xffff)\n                        goto label_46ac6a;\n                    \n                    result_2 = &var_b8;\n                    int64_t (* var_100_5)(void* arg1, int64_t arg2) = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n                    int64_t var_f8_5 = 0;\n                    var_f0 = r12_2;\n                    var_158 = &data_4198c0;\n                    var_150 = 1;\n                    void* const var_138_5 = &data_41ad08;\n                    int64_t var_130_4 = 1;\n                    *var_150[8] = &result_2;\n                    int64_t var_140_3 = 2;\n                    core::option::Option$LT$T$GT$::map_or_else::h6181b64f68c0f373(&var_128, \n                        &var_158);\n                    var_d8 = var_128;\n                    result_4 = result_1;\n                }\n                else\n                {\n                    if (r12_2 > 0xffff)\n                        goto label_46ac6a;\n                    \n                    int64_t r15_1 = rax_7;\n                    result_2 = &var_b8;\n                    int64_t (* var_100_2)(void* arg1, int64_t arg2) = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n                    int64_t var_f8_2 = 0;\n                    var_f0 = r12_2;\n                    var_158 = &data_4198c0;\n                    var_150 = 1;\n                    void* const var_138_2 = &data_41ad38;\n                    int64_t var_130_1 = 1;\n                    *var_150[8] = &result_2;\n                    int64_t var_140 = 2;\n                    core::option::Option$LT$T$GT$::map_or_else::h6181b64f68c0f373(&var_128, \n                        &var_158);\n                    var_98 = var_128;\n                    \n                    if (!(arg5 & 1))\n                        r15_1 = *(arg4 + 0xb8);\n                    \n                    if (!r15_1)\n                    {\n                        void** result_5 = result_1;\n                        var_d8 = var_98;\n                    }\n                    else\n                    {\n                        if (r15_1 <= 0)\n                        {\n                            int64_t r15_2 = -(r15_1);\n                            \n                            if (r15_2 > 0xffff)\n                            {\n                                label_46aca7:\n                                var_158 = &data_502460;\n                                var_150 = 1;\n                                *var_150[8] = 8;\n                                var_140 = {0};\n                                core::panicking::panic_fmt::h96f341d36638c225(&var_158);\n                                /* no return */\n                            }\n                            \n                            result_2 = &var_98;\n                            int64_t (* var_100_6)(void* arg1, int64_t arg2) = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n                            int64_t var_f8_6 = 0;\n                            var_f0 = r15_2;\n                            var_158 = &data_4198c0;\n                            var_150 = 1;\n                            void* const var_138_6 = &data_41acd8;\n                            int64_t var_130_5 = 1;\n                            *var_150[8] = &result_2;\n                            int64_t var_140_4 = 2;\n                            core::option::Option$LT$T$GT$::map_or_else::h6181b64f68c0f373(&var_128, \n                                &var_158);\n                        }\n                        else\n                        {\n                            if (r15_1 > 0xffff)\n                                goto label_46aca7;\n                            \n                            result_2 = &var_98;\n                            int64_t (* var_100_3)(void* arg1, int64_t arg2) = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n                            int64_t var_f8_3 = 0;\n                            var_f0 = r15_1;\n                            var_158 = &data_4198c0;\n                            var_150 = 1;\n                            void* const var_138_3 = &data_41ad08;\n                            int64_t var_130_2 = 1;\n                            *var_150[8] = &result_2;\n                            int64_t var_140_1 = 2;\n                            core::option::Option$LT$T$GT$::map_or_else::h6181b64f68c0f373(&var_128, \n                                &var_158);\n                        }\n                        \n                        var_d8 = var_128;\n                        void** result_6 = result_1;\n                        core::ptr::drop_in_place$LT$alloc..string..String$GT$::h34fbae09aa78bed8(\n                            &var_98);\n                    }\n                }\n            }\n            \n            var_158 = &arg4[0x20];\n            var_150 = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n            *var_150[8] = &var_d8;\n            int64_t (* var_140_5)(void* arg1, int64_t arg2) = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n            void* var_138_7 = &arg4[0x38];\n            int64_t (* var_130_6)(void* arg1, int64_t arg2) = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n            result_2 = &data_41aca8;\n            int64_t var_100_7 = 3;\n            int64_t var_e8_1 = 0;\n            int32_t* var_f8_7 = &var_158;\n            int64_t var_f0_1 = 3;\n            int128_t var_48;\n            core::option::Option$LT$T$GT$::map_or_else::h6181b64f68c0f373(&var_48, &result_2);\n            int64_t var_38;\n            arg1[3] = var_38;\n            *(arg1 + 8) = var_48;\n            *arg1 = 0;\n            result =\n                core::ptr::drop_in_place$LT$alloc..string..String$GT$::h34fbae09aa78bed8(&var_d8);\n            \n            if (r12_2)\n                result = core::ptr::drop_in_place$LT$alloc..string..String$GT$::h34fbae09aa78bed8(\n                    &var_b8);\n            \n            if (r12 != -0x8000000000000000)\n                return core::ptr::drop_in_place$LT$alloc..string..String$GT$::h34fbae09aa78bed8(\n                    &var_68);\n        }\n        else\n        {\n            result = result_1;\n            arg1[3] = result;\n            *(arg1 + 8) = var_128;\n            *arg1 = 1;\n        }\n    }\n    \n    return result;\n}\n",
+    "_ZN9uu_numfmt6format26format_and_print_delimited17h098508a496fb9107E": "\n  int64_t* uu_numfmt::format::format_and_print_delimited::h098508a496fb9107(int128_t* arg1, int64_t arg2, int64_t arg3, char* arg4)\n\n{\n    if (0 + -(*(arg4 + 0x70)))\n    {\n        core::option::unwrap_failed::h893f57cb7db71cb7();\n        /* no return */\n    }\n    \n    void* var_1b8 = &arg4[0x70];\n    void* const var_168;\n    _$LT$$RF$alloc..string..String$u20$as$u20$core..str..pattern..Pattern$GT$::into_searcher::hf8368330bc7d3e9a(&var_168, &arg4[0x70], arg2, arg3);\n    int64_t var_100 = 0;\n    int64_t var_f8 = arg3;\n    int16_t var_f0 = 1;\n    char const (** const var_d0)[0x118];\n    core::iter::traits::iterator::Iterator::zip::ha700ff6630919b15(&var_d0, &var_168);\n    int64_t var_1b0;\n    int64_t r9 = _$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$::next::h63a30ee2b5483774(&var_1b0, &var_d0);\n    void* var_1a8;\n    void* rax = var_1a8;\n    int64_t* result;\n    \n    if (!rax)\n    {\n        label_46b003:\n        var_d0 = &data_502518;\n        int64_t var_c8_1 = 1;\n        int64_t var_c0_1 = 8;\n        int128_t var_b8_1 = {0};\n        std::io::stdio::_print::h5e446ff973c02de6(&var_d0);\n        result = arg1;\n        *result = -0x8000000000000000;\n    }\n    else\n    {\n        int64_t* r15_1 = *(arg4 + 0x60);\n        int64_t r12_1 = *(arg4 + 0x68);\n        \n        while (true)\n        {\n            int64_t r14_1 = var_1b0;\n            void* var_1e8 = rax;\n            char rax_1 = uucore::features::ranges::contain::ha2f044f5693f050c(r15_1, r12_1, r14_1);\n            void** var_198;\n            int64_t (* var_190)(int64_t* arg1, int64_t arg2);\n            \n            if (r14_1 > 1)\n            {\n                var_198 = &var_1b8;\n                var_190 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::hed06e343d9a3976c;\n                var_168 = &data_4198c0;\n                int64_t var_160_2 = 1;\n                int64_t var_148_2 = 0;\n                void*** var_158_2 = &var_198;\n                int64_t var_150_2 = 1;\n                r9 = std::io::stdio::_print::h5e446ff973c02de6(&var_168);\n            }\n            \n            if (!rax_1)\n            {\n                var_198 = &var_1e8;\n                var_190 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::heebe613453956698;\n                var_168 = &data_4198c0;\n                int64_t var_160_1 = 1;\n                int64_t var_148_1 = 0;\n                void*** var_158_1 = &var_198;\n                int64_t var_150_1 = 1;\n                std::io::stdio::_print::h5e446ff973c02de6(&var_168);\n            }\n            else\n            {\n                int64_t var_1a0;\n                char* rax_2;\n                int64_t rdx_2;\n                rax_2 = core::str::_$LT$impl$u20$str$GT$::trim_start_matches::ha4fc5e4c9ad6ee5c(\n                    var_1e8, var_1a0);\n                uu_numfmt::format::format_string::h3b8df337189cc348(&var_198, rax_2, rdx_2, arg4, \n                    0, r9);\n                int128_t zmm0_2 = var_190;\n                int64_t* result_1;\n                \n                if (var_198 & 1)\n                {\n                    result = result_1;\n                    arg1[1] = result;\n                    *arg1 = zmm0_2;\n                    break;\n                }\n                \n                int64_t* result_2 = result_1;\n                int128_t var_e8 = zmm0_2;\n                int128_t* var_178 = &var_e8;\n                int64_t (* var_170_1)(void* arg1, int64_t arg2) = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n                var_168 = &data_4198c0;\n                int64_t var_160_3 = 1;\n                int64_t var_148_3 = 0;\n                int128_t** var_158_3 = &var_178;\n                int64_t var_150_3 = 1;\n                std::io::stdio::_print::h5e446ff973c02de6(&var_168);\n                core::ptr::drop_in_place$LT$alloc..string..String$GT$::h34fbae09aa78bed8(&var_e8);\n            }\n            \n            r9 = _$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$::next::h63a30ee2b5483774(&var_1b0, &var_d0);\n            rax = var_1a8;\n            \n            if (!rax)\n                goto label_46b003;\n        }\n    }\n    \n    return result;\n}\n",
+    "_ZN9uu_numfmt6format27format_and_print_whitespace17ha5007c78915f30adE": "\n  int64_t (*)(int64_t* arg1, int64_t arg2) uu_numfmt::format::format_and_print_whitespace::ha5007c78915f30ad(int128_t* arg1, int64_t arg2, int64_t arg3, char* arg4)\n\n{\n    int64_t* var_60;\n    core::iter::traits::iterator::Iterator::zip::hc5c51cab09057469(&var_60, arg2);\n    int64_t var_d0;\n    _$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$::next::hcacff3f450858e3c(&var_d0, &var_60);\n    char* i_2;\n    char* i = i_2;\n    char const (** const var_158)[0x117];\n    char rcx_2;\n    \n    if (!i)\n        rcx_2 = arg4[0xc8];\n    else\n    {\n        int64_t* rax_1 = *(arg4 + 0x60);\n        int64_t rax_2 = *(arg4 + 0x68);\n        char rax_3 = arg4[0xc8];\n        int64_t rax_4 = *(arg4 + 0xb8);\n        \n        do\n        {\n            int64_t r13_1 = var_d0;\n            int64_t var_c0;\n            int64_t r14_1 = var_c0;\n            char* var_b8;\n            char* r12_1 = var_b8;\n            char* var_100 = r12_1;\n            int64_t var_140;\n            char* i_1;\n            char** var_a8;\n            int64_t (* var_a0)(int64_t* arg1, int64_t arg2);\n            int64_t (* var_90)(int64_t* arg1, int64_t arg2);\n            \n            if (!uucore::features::ranges::contain::ha2f044f5693f050c(rax_1, rax_2, r13_1))\n            {\n                if (rax_3 & 1)\n                {\n                    var_158 = 0;\n                    \n                    if (core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::starts_with::h436c904482f687d7(\n                        i, r14_1, \n                        core::char::methods::encode_utf8_raw::h5e8f6d90a161f6f4(0xa, &var_158)))\n                    {\n                        var_158 = &data_502540;\n                        int64_t var_150_4 = 1;\n                        int64_t var_148_4 = 8;\n                        var_140 = {0};\n                        std::io::stdio::_print::h5e446ff973c02de6(&var_158);\n                        void* i_3;\n                        int64_t rdx_6;\n                        i_3 = core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::h28e9e81c5537bbed(1, i, r14_1);\n                        \n                        if (!i_3)\n                        {\n                            core::str::slice_error_fail::h1a2885084e28d077(i, r14_1, 1, r14_1);\n                            /* no return */\n                        }\n                        \n                        i = i_3;\n                        r14_1 = rdx_6;\n                    }\n                }\n                \n                i_1 = i;\n                int64_t var_120_1 = r14_1;\n                var_a8 = &i_1;\n                var_a0 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::heebe613453956698;\n                char** var_98_1 = &var_100;\n                var_90 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::heebe613453956698;\n                var_158 = &data_4195a0;\n                int64_t var_150_1 = 2;\n                int64_t var_138_1 = 0;\n                char*** var_148_1 = &var_a8;\n                var_140 = 2;\n                std::io::stdio::_print::h5e446ff973c02de6(&var_158);\n            }\n            else\n            {\n                int64_t r9_1 = r14_1;\n                void* rax_5;\n                \n                if (r13_1 > 1)\n                {\n                    var_158 = &data_502540;\n                    int64_t var_150_2 = 1;\n                    int64_t var_148_2 = 8;\n                    var_140 = {0};\n                    std::io::stdio::_print::h5e446ff973c02de6(&var_158);\n                    int64_t rdx_2;\n                    rax_5 = core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::h28e9e81c5537bbed(1, i, r14_1);\n                    \n                    if (!rax_5)\n                    {\n                        core::str::slice_error_fail::h1a2885084e28d077(i, r14_1, 1, r14_1);\n                        /* no return */\n                    }\n                    \n                    r9_1 = rdx_2;\n                    r12_1 = var_100;\n                }\n                \n                rax_5 = r14_1;\n                int64_t var_b0;\n                uu_numfmt::format::format_string::h3b8df337189cc348(&var_a8, r12_1, var_b0, arg4, \n                    !rax_4 & rax_5, r9_1 + var_b0);\n                i_1 = var_a0;\n                \n                if (var_a8 & 1)\n                {\n                    arg1[1] = var_90;\n                    *arg1 = i_1;\n                    return var_90;\n                }\n                \n                int64_t (* var_68_1)(int64_t* arg1, int64_t arg2) = var_90;\n                int128_t var_78 = i_1;\n                int128_t* var_88 = &var_78;\n                int64_t (* var_80_1)(void* arg1, int64_t arg2) = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n                var_158 = &data_4198c0;\n                int64_t var_150_3 = 1;\n                int64_t var_138_2 = 0;\n                int128_t** var_148_3 = &var_88;\n                var_140 = 1;\n                std::io::stdio::_print::h5e446ff973c02de6(&var_158);\n                core::ptr::drop_in_place$LT$alloc..string..String$GT$::h34fbae09aa78bed8(&var_78);\n            }\n            _$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$::next::hcacff3f450858e3c(&var_d0, &var_60);\n            i = i_2;\n        } while (i);\n        \n        rcx_2 = rax_3;\n    }\n    \n    int32_t rcx_3 = 0xa;\n    \n    if (rcx_2 & 1)\n        rcx_3 = 0;\n    \n    var_d0 = rcx_3;\n    var_60 = &var_d0;\n    int64_t (* var_58_1)(int32_t* arg1, int64_t* arg2) =\n        _$LT$char$u20$as$u20$core..fmt..Display$GT$::fmt::h0215b7857ad55b0c;\n    var_158 = &data_4198c0;\n    int64_t var_150_5 = 1;\n    int64_t var_138_3 = 0;\n    int64_t** var_148_5 = &var_60;\n    int64_t var_140_1 = 1;\n    int64_t (* rax_10)(int64_t* arg1, int64_t arg2) =\n        std::io::stdio::_print::h5e446ff973c02de6(&var_158);\n    *arg1 = -0x8000000000000000;\n    return rax_10;\n}\n",
+    "_ZN9uu_numfmt6format16format_and_print17h5bf849f061ae056fE": "\n  int128_t* uu_numfmt::format::format_and_print::h5bf849f061ae056f(int128_t* arg1, int64_t arg2, int64_t arg3, char* arg4)\n\n{\n    if (0 + -(*(arg4 + 0x70)))\n    {\n        uu_numfmt::format::format_and_print_whitespace::ha5007c78915f30ad(arg1, arg2, arg3, arg4);\n        return arg1;\n    }\n    \n    uu_numfmt::format::format_and_print_delimited::h098508a496fb9107(arg1, arg2, arg3, arg4);\n    return arg1;\n}\n",
+    "_ZN9uu_numfmt7options11RoundMethod5round17h874ad1975578cac0E": "\n  int64_t uu_numfmt::options::RoundMethod::round::h874ad1975578cac0(char* arg1, uint128_t arg2 @ zmm0, uint64_t arg3[0x2] @ zmm1)\n\n{\n    switch (*arg1)\n    {\n        case 0:\n        {\n            /* tailcall */\n            return ceil(arg2);\n        }\n        case 1:\n        {\n            /* tailcall */\n            return floor(arg2, arg3);\n        }\n        case 2:\n        {\n            arg3 = _mm_xor_pd(arg3, arg3);\n            \n            if (arg3[0] <= arg2)\n                /* tailcall */\n                return ceil(arg2);\n            \n            /* tailcall */\n            return floor(arg2, arg3);\n        }\n        case 3:\n        {\n            arg3 = _mm_xor_pd(arg3, arg3);\n            \n            if (arg3[0] <= arg2)\n                /* tailcall */\n                return floor(arg2, arg3);\n            \n            /* tailcall */\n            return ceil(arg2);\n        }\n        case 4:\n        {\n            /* tailcall */\n            return round(arg2);\n        }\n    }\n}\n",
+    "_ZN9uu_numfmt28format_and_handle_validation17hcfab93a3f32ae107E": "\n  int128_t* uu_numfmt::format_and_handle_validation::hcfab93a3f32ae107(int64_t arg1, int64_t arg2, char* arg3)\n\n{\n    int64_t var_30 = arg1;\n    int64_t var_28 = arg2;\n    int64_t var_80;\n    int128_t* result =\n        uu_numfmt::format::format_and_print::h5bf849f061ae056f(&var_80, arg1, arg2, arg3);\n    \n    if (0 + -(var_80))\n        return result;\n    \n    int64_t var_70;\n    int64_t var_38_1 = var_70;\n    int128_t var_48 = var_80;\n    int64_t rbp;\n    rbp = 1;\n    void* const var_d0;\n    int128_t var_c8;\n    int64_t* var_a0;\n    int64_t** var_68;\n    \n    switch (jump_table_41a43c[arg3[0xc9]])\n    {\n        case 0x51db5:\n        {\n            int64_t var_b8_1 = var_70;\n            int128_t var_c8_1 = var_80;\n            var_d0 = 2;\n            return alloc::boxed::Box$LT$T$GT$::new::h9fc007057db03ec8(&var_d0);\n            break;\n        }\n        case 0x51de1:\n        {\n            int64_t var_50_1 = var_70;\n            int128_t var_60_1 = var_80;\n            var_68 = 2;\n            uucore::mods::error::set_exit_code::hbbe6ffc423a314f1(2);\n            int64_t rax_6;\n            int64_t rdx_1;\n            rax_6 = uucore::util_name::h074417a1e6395129();\n            int64_t var_20 = rax_6;\n            int64_t var_18_1 = rdx_1;\n            var_a0 = &var_20;\n            int64_t (* var_98_1)(int64_t* arg1, int64_t arg2) =\n                _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::heebe613453956698;\n            int64_t*** var_90_1 = &var_68;\n            int64_t (* var_88_1)(int64_t* arg1, int64_t* arg2) = _$LT$uu_numfmt..errors..NumfmtError$u20$as$u20$core..fmt..Display$GT$::fmt::h88668725e89ac501;\n            var_d0 = &data_502708;\n            var_c8 = 3;\n            int64_t var_b0_1 = 0;\n            *var_c8[8] = &var_a0;\n            int64_t var_b8_2 = 2;\n            std::io::stdio::_eprint::h57899770eacec2ad(&var_d0);\n            core::ptr::drop_in_place$LT$uu_numfmt..errors..NumfmtError$GT$::h84537972f923e6b2(\n                &var_68);\n            rbp = 0;\n            label_46c394:\n            var_a0 = &var_30;\n            int64_t (* var_98_4)(int64_t* arg1, int64_t arg2) =\n                _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::heebe613453956698;\n            var_d0 = &data_502758;\n            var_c8 = 2;\n            int64_t var_b0_4 = 0;\n            *var_c8[8] = &var_a0;\n            int64_t var_b8_5 = 1;\n            std::io::stdio::_print::h5e446ff973c02de6(&var_d0);\n            \n            if (rbp)\n                core::ptr::drop_in_place$LT$alloc..string..String$GT$::h34fbae09aa78bed8(&var_48);\n            \n            return nullptr;\n            break;\n        }\n        case 0x51e9e:\n        {\n            int64_t* rax_7;\n            int64_t rdx_2;\n            rax_7 = uucore::util_name::h074417a1e6395129();\n            var_a0 = rax_7;\n            int64_t var_98_2 = rdx_2;\n            var_68 = &var_a0;\n            int128_t var_60;\n            var_60 = _$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$::fmt::heebe613453956698;\n            var_d0 = &data_502738;\n            var_c8 = 2;\n            int64_t var_b0_2 = 0;\n            *var_c8[8] = &var_68;\n            int64_t var_b8_3 = 1;\n            std::io::stdio::_eprint::h57899770eacec2ad(&var_d0);\n            var_a0 = &var_48;\n            int64_t (* var_98_3)(void* arg1, int64_t arg2) = _$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$::fmt::h28f4d01eb787df69;\n            var_d0 = &data_502758;\n            var_c8 = 2;\n            int64_t var_b0_3 = 0;\n            *var_c8[8] = &var_a0;\n            int64_t var_b8_4 = 1;\n            std::io::stdio::_eprint::h57899770eacec2ad(&var_d0);\n            goto label_46c394;\n        }\n        case 0x51f50:\n        {\n            goto label_46c394;\n        }\n    }\n}\n",
+    "_ZN9uu_numfmt10parse_unit17h5b8dda5b61233202E": "\n  int64_t uu_numfmt::parse_unit::h5b8dda5b61233202(int64_t* arg1, int64_t arg2, uint64_t arg3)\n\n{\n    char result = _$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h47d6932d4cc292c3(arg2, arg3, \"autoBool\", 4);\n    \n    if (!result)\n    {\n        result = _$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h47d6932d4cc292c3(arg2, arg3, \"siieciec-i0invalid unit size: sr\u2026\", 2);\n        \n        if (!result)\n        {\n            result = _$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h47d6932d4cc292c3(arg2, arg3, \"ieciec-i0invalid unit size: src/\u2026\", 3);\n            \n            if (!result)\n            {\n                result = _$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h47d6932d4cc292c3(arg2, arg3, \"iec-i0invalid unit size: src/uu/\u2026\", 5);\n                \n                if (!result)\n                {\n                    result = _$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h47d6932d4cc292c3(arg2, arg3, \"nonedownhelpNoneshim\\x1b[0mnameC\u2026\", 4);\n                    \n                    if (!result)\n                        /* tailcall */\n                        return _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h4c3223c430555e40(arg1, \"Unsupported unit is specifiedsii\u2026\", 0x1d);\n                    \n                    arg1[1] = 5;\n                }\n                else\n                    arg1[1] = 1;\n            }\n            else\n                arg1[1] = 0;\n        }\n        else\n            arg1[1] = 3;\n    }\n    else\n        arg1[1] = 2;\n    \n    *arg1 = -0x8000000000000000;\n    return result;\n}\n",
+    "_ZN9uu_numfmt15parse_unit_size17h03bace1e31195027E": "\n  int64_t uu_numfmt::parse_unit_size::h03bace1e31195027(int64_t* arg1, char* arg2, int64_t arg3)\n\n{\n    char* var_c8 = arg2;\n    char var_b8 = 0;\n    void var_70;\n    core::iter::traits::iterator::Iterator::collect::h967ab1cd420e9d0a(&var_70, &var_c8);\n    uint64_t var_60;\n    void* rax_1;\n    int64_t rdx_1;\n    rax_1 = core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::h28e9e81c5537bbed(var_60, arg2, arg3);\n    \n    if (!rax_1)\n    {\n        core::str::slice_error_fail::h1a2885084e28d077(arg2, arg3, var_60, arg3);\n        /* no return */\n    }\n    \n    char* var_68;\n    \n    if (!var_60)\n    {\n        label_46c5dd:\n        char rax_3;\n        int64_t rdx_3;\n        rax_3 = uu_numfmt::parse_unit_size_suffix::hdf13b6214e4b882f(rax_1, rdx_1);\n        \n        if (!(rax_3 & 1))\n            goto label_46c60c;\n        \n        if (!var_60)\n        {\n            arg1[1] = rdx_3;\n            *arg1 = -0x8000000000000000;\n        }\n        else\n        {\n            core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(&var_c8, \n                var_68, var_60);\n            \n            if (var_c8 == 1)\n                goto label_46c60c;\n            \n            arg1[1] = rdx_3 * &arg2[arg3];\n            *arg1 = -0x8000000000000000;\n        }\n    }\n    else\n    {\n        alloc::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::repeat::h65bc8cec15465d63(&var_c8, var_60);\n        uint64_t rsi_3 = var_b8;\n        uint64_t var_88_1 = rsi_3;\n        int128_t var_98 = var_c8;\n        char rax_2 = alloc::vec::partial_eq::_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$::eq::h57e8dd7d227d19fb(*var_98[8], rsi_3, var_68, var_60);\n        core::ptr::drop_in_place$LT$alloc..string..String$GT$::h34fbae09aa78bed8(&var_98);\n        \n        if (!rax_2)\n            goto label_46c5dd;\n        \n        label_46c60c:\n        var_98 = 0;\n        *var_98[8] = arg2;\n        int64_t var_88_2 = arg3;\n        char var_80_1 = 1;\n        int128_t* var_58 = &var_98;\n        int64_t (* var_50_1)(int32_t* arg1, int64_t* arg2) =\n            _$LT$os_display..Quoted$u20$as$u20$core..fmt..Display$GT$::fmt::ha3782f403933d3a5;\n        var_c8 = &data_502800;\n        int64_t var_c0_1 = 1;\n        int64_t var_a8_1 = 0;\n        var_b8 = &var_58;\n        int64_t var_b0_1 = 1;\n        int128_t var_48;\n        core::option::Option$LT$T$GT$::map_or_else::h6181b64f68c0f373(&var_48, &var_c8);\n        int64_t var_38;\n        arg1[2] = var_38;\n        *arg1 = var_48;\n    }\n    return core::ptr::drop_in_place$LT$alloc..string..String$GT$::h34fbae09aa78bed8(&var_70);\n}\n",
+    "_ZN9uu_numfmt22parse_unit_size_suffix17hdf13b6214e4b882fE": "\n  int64_t uu_numfmt::parse_unit_size_suffix::hdf13b6214e4b882f(wchar32* arg1, int64_t arg2)\n\n{\n    if (arg2)\n    {\n        uint64_t rbx_1 = arg1;\n        wchar32 const* const var_20 = arg1;\n        void* var_18_1 = arg1 + arg2;\n        char rax_2;\n        int32_t rdx;\n        rax_2 = core::str::validations::next_code_point::h5d7df44f8cb1b62e(&var_20, rbx_1);\n        \n        if (!(rax_2 & 1))\n        {\n            core::option::unwrap_failed::h893f57cb7db71cb7();\n            /* no return */\n        }\n        \n        int32_t var_28 = rdx;\n        var_20 = U\"KMGTPE\";\n        wchar32 const* const var_18_2 = &data_41aedc;\n        char rax_3;\n        int64_t rdx_1;\n        rax_3 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$::position::h8c3a699082174296(&var_20, &var_28);\n        \n        if (!(rax_3 & 1))\n            return 0;\n        \n        uint128_t zmm0;\n        \n        if (arg2 == 2)\n        {\n            int32_t var_24 = 0;\n            \n            if (!core::slice::_$LT$impl$u20$$u5b$T$u5d$$GT$::ends_with::h8acf7e79f75ef2f1(rbx_1, 2, \n                    core::char::methods::encode_utf8_raw::h5e8f6d90a161f6f4(0x69, &var_24), 1))\n                return 0;\n            \n            if (rdx_1 + 1 > 9)\n            {\n                core::panicking::panic_bounds_check::h025cadc56a971af7(rdx_1 + 1, 0xa);\n                /* no return */\n            }\n            \n            zmm0 = *((rdx_1 << 3) + 0x41ab10);\n        }\n        else\n        {\n            if (arg2 != 1)\n                return 0;\n            \n            if (rdx_1 + 1 >= 0xa)\n            {\n                core::panicking::panic_bounds_check::h025cadc56a971af7(rdx_1 + 1, 0xa);\n                /* no return */\n            }\n            \n            zmm0 = *((rdx_1 << 3) + 0x41aac0);\n        }\n        \n        uint128_t zmm1;\n        zmm1 = zmm0 - 9.2233720368547758e+18;\n        _mm_xor_pd(zmm1, zmm1);\n    }\n    \n    return 1;\n}\n",
+    "_ZN9uu_numfmt13parse_options17hdd4028f9a896523fE": "\n  int128_t* uu_numfmt::parse_options::hdd4028f9a896523f(int128_t* arg1, void* arg2)\n\n{\n    void** const var_178;\n    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::hf5a604ebb31d81af(\n        &var_178, arg2, \"fromkindAuto/\", 4);\n    void* rax = clap_builder::parser::error::MatchesError::unwrap::h00661b2bfd48ffd9(\n        \"fromkindAuto/\", 4, &var_178);\n    \n    if (!rax)\n    {\n        core::option::unwrap_failed::h893f57cb7db71cb7();\n        /* no return */\n    }\n    \n    void** const var_f0;\n    uu_numfmt::parse_unit::h5b8dda5b61233202(&var_f0, *(rax + 8), *(rax + 0x10));\n    void** const rax_1 = var_f0;\n    char var_e8;\n    char rbp = var_e8;\n    int64_t var_e7;\n    \n    if (-(rax_1) != -0x8000000000000000)\n    {\n        *(arg1 + 0x18) = var_e7;\n        *(arg1 + 0x11) = var_e7;\n        *(arg1 + 8) = rax_1;\n        arg1[1] = rbp;\n        *arg1 = 2;\n    }\n    else\n    {\n        clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::hf5a604ebb31d81af(\n            &var_178, arg2, \"tofrom-unitto-unitpaddingheaderf\u2026\", 2);\n        void* rax_2 = clap_builder::parser::error::MatchesError::unwrap::h00661b2bfd48ffd9(\n            \"tofrom-unitto-unitpaddingheaderf\u2026\", 2, &var_178);\n        \n        if (!rax_2)\n        {\n            core::option::unwrap_failed::h893f57cb7db71cb7();\n            /* no return */\n        }\n        \n        uu_numfmt::parse_unit::h5b8dda5b61233202(&var_f0, *(rax_2 + 8), *(rax_2 + 0x10));\n        void** const rax_3 = var_f0;\n        \n        if (rax_3 != -0x8000000000000000)\n        {\n            *(arg1 + 0x18) = var_e7;\n            *(arg1 + 0x11) = var_e7;\n            *(arg1 + 8) = rax_3;\n            arg1[1] = var_e8;\n            *arg1 = 2;\n        }\n        else\n        {\n            clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::hf5a604ebb31d81af(\n                &var_178, arg2, \"from-unitto-unitpaddingheaderfie\u2026\", 9);\n            void* rax_4 = clap_builder::parser::error::MatchesError::unwrap::h00661b2bfd48ffd9(\n                \"from-unitto-unitpaddingheaderfie\u2026\", 9, &var_178);\n            \n            if (!rax_4)\n            {\n                core::option::unwrap_failed::h893f57cb7db71cb7();\n                /* no return */\n            }\n            \n            uu_numfmt::parse_unit_size::h03bace1e31195027(&var_178, *(rax_4 + 8), *(rax_4 + 0x10));\n            void** const rax_5 = var_178;\n            int128_t var_170;\n            \n            if (rax_5 != -0x8000000000000000)\n            {\n                label_46cbe0:\n                *(arg1 + 8) = rax_5;\n                arg1[1] = var_170;\n                *arg1 = 2;\n            }\n            else\n            {\n                int64_t rax_6 = var_170;\n                clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::hf5a604ebb31d81af(&var_178, arg2, \"to-unitpaddingheaderfieldformatd\u2026\", 7);\n                void* rax_7 = clap_builder::parser::error::MatchesError::unwrap::h00661b2bfd48ffd9(\n                    \"to-unitpaddingheaderfieldformatd\u2026\", 7, &var_178);\n                \n                if (!rax_7)\n                {\n                    core::option::unwrap_failed::h893f57cb7db71cb7();\n                    /* no return */\n                }\n                \n                uu_numfmt::parse_unit_size::h03bace1e31195027(&var_178, *(rax_7 + 8), \n                    *(rax_7 + 0x10));\n                rax_5 = var_178;\n                \n                if (rax_5 != -0x8000000000000000)\n                    goto label_46cbe0;\n                \n                int64_t rax_8 = var_170;\n                clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::hf5a604ebb31d81af(&var_178, arg2, \"paddingheaderfieldformatdelimite\u2026\", 7);\n                void* rax_9 = clap_builder::parser::error::MatchesError::unwrap::h00661b2bfd48ffd9(\n                    \"paddingheaderfieldformatdelimite\u2026\", 7, &var_178);\n                int64_t rcx_2;\n                \n                if (rax_9)\n                {\n                    core::num::_$LT$impl$u20$isize$GT$::from_ascii_radix::h0e9490fe82f40334(\n                        &var_178, *(rax_9 + 8), *(rax_9 + 0x10));\n                    rcx_2 = var_170;\n                    \n                    if ((!rcx_2 | var_178) != 1)\n                        goto label_46cb41;\n                    \n                    uu_numfmt::parse_options::_$u7b$$u7b$closure$u7d$$u7d$::h6e66c07552a1ddec(\n                        &var_178);\n                    rax_5 = var_178;\n                    \n                    if (rax_5 != -0x8000000000000000)\n                        goto label_46cbe0;\n                    \n                    rcx_2 = var_170;\n                    goto label_46cb41;\n                }\n                \n                rcx_2 = 0;\n                label_46cb41:\n                int64_t rcx_5;\n                \n                if (clap_builder::parser::matches::arg_matches::ArgMatches::value_source::h45c0c3cb9ce2c562(arg2, \"headerfieldformatdelimiterrounds\u2026\", 6) == 2)\n                {\n                    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::hf5a604ebb31d81af(&var_178, arg2, \"headerfieldformatdelimiterrounds\u2026\", 6);\n                    void* rax_12 =\n                        clap_builder::parser::error::MatchesError::unwrap::h00661b2bfd48ffd9(\n                        \"headerfieldformatdelimiterrounds\u2026\", 6, &var_178);\n                    \n                    if (!rax_12)\n                    {\n                        core::option::unwrap_failed::h893f57cb7db71cb7();\n                        /* no return */\n                    }\n                    \n                    core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(\n                        &var_178, *(rax_12 + 8), *(rax_12 + 0x10));\n                    rcx_5 = var_170;\n                    \n                    if (!(!rcx_5 | var_178))\n                        goto label_46cc0e;\n                    \n                    uu_numfmt::parse_options::_$u7b$$u7b$closure$u7d$$u7d$::h569d4ca4d2a71d66(\n                        &var_178);\n                    rax_5 = var_178;\n                    \n                    if (rax_5 != -0x8000000000000000)\n                        goto label_46cbe0;\n                    \n                    rcx_5 = var_170;\n                    goto label_46cc0e;\n                }\n                \n                rcx_5 = 0;\n                label_46cc0e:\n                char var_185_1 = var_e8;\n                clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::hf5a604ebb31d81af(&var_178, arg2, \"fieldformatdelimiterroundsuffixi\u2026\", 5);\n                void* rax_15 = clap_builder::parser::error::MatchesError::unwrap::h00661b2bfd48ffd9(\n                    \"fieldformatdelimiterroundsuffixi\u2026\", 5, &var_178);\n                \n                if (!rax_15)\n                {\n                    core::option::unwrap_failed::h893f57cb7db71cb7();\n                    /* no return */\n                }\n                \n                int64_t r15_3 = *(rax_15 + 8);\n                int64_t r12_3 = *(rax_15 + 0x10);\n                _$LT$core..str..pattern..MultiCharEqPattern$LT$C$GT$$u20$as$u20$core..str..pattern..Pattern$GT$::into_searcher::h1608f67deb20dfc5(&var_178, r15_3, r12_3);\n                int64_t var_148_1 = 0;\n                int64_t var_140_1 = r12_3;\n                int16_t var_138_1 = 1;\n                int64_t var_f8_1;\n                char r12_4;\n                int64_t r13_2;\n                uint64_t r15_4;\n                \n                if (_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$::eq::h78f8b3ebfd2d8e96(core::iter::traits::iterator::Iterator::try_fold::hddf39aa1e55312ac(&var_178)))\n                {\n                    uint64_t rax_18 = alloc::alloc::Global::alloc_impl::h6fb1b6049873c120(8, 0x10);\n                    r12_4 = var_185_1;\n                    \n                    if (!rax_18)\n                    {\n                        alloc::alloc::handle_alloc_error::h88aa4f4f9d19c4f9();\n                        /* no return */\n                    }\n                    \n                    r15_4 = rax_18;\n                    *rax_18 = 1;\n                    *(rax_18 + 8) = -1;\n                    var_f8_1 = 1;\n                    r13_2 = 1;\n                    goto label_46cd2e;\n                }\n                \n                uucore::features::ranges::Range::from_list::h55160c8343b59905(&var_178, r15_3, \n                    r12_3);\n                r13_2 = var_170;\n                r15_4 = *var_170[8];\n                r12_4 = var_185_1;\n                int64_t var_160;\n                \n                if (!(var_178 & 1))\n                {\n                    var_f8_1 = var_160;\n                    label_46cd2e:\n                    clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::hf5a604ebb31d81af(&var_178, arg2, \"formatdelimiterroundsuffixinvali\u2026\", 6);\n                    void* rax_20 =\n                        clap_builder::parser::error::MatchesError::unwrap::h00661b2bfd48ffd9(\n                        \"formatdelimiterroundsuffixinvali\u2026\", 6, &var_178);\n                    int128_t var_118;\n                    int64_t var_108;\n                    int64_t var_d0;\n                    int128_t var_c0_1;\n                    int64_t var_b0;\n                    int16_t var_a0;\n                    int128_t zmm0_4;\n                    \n                    if (!rax_20)\n                    {\n                        var_a0 = 0;\n                        var_f0 = nullptr;\n                        var_e7 = 0;\n                        var_d0 = 0;\n                        int64_t var_c8_1 = 1;\n                        var_c0_1 = {0};\n                        var_b0 = 1;\n                        int64_t var_a8_1 = 0;\n                        label_46ce83:\n                        clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::hf5a604ebb31d81af(&var_178, arg2, \"delimiterroundsuffixinvalidzero-\u2026\", 9);\n                        void* rax_23 =\n                            clap_builder::parser::error::MatchesError::unwrap::h00661b2bfd48ffd9(\n                            \"delimiterroundsuffixinvalidzero-\u2026\", 9, &var_178);\n                        var_170 = -0x8000000000000000;\n                        var_178 = nullptr;\n                        core::option::Option$LT$T$GT$::map_or::hb6e0e39bf98ad812(&var_118, rax_23, \n                            &var_178);\n                        zmm0_4 = var_118;\n                        int64_t var_100;\n                        \n                        if (var_118 != 1)\n                        {\n                            clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::hf5a604ebb31d81af(&var_178, arg2, \"roundsuffixinvalidzero-terminate\u2026\", 5);\n                            void* rax_27 = clap_builder::parser::error::MatchesError::unwrap::h00661b2bfd48ffd9(\"roundsuffixinvalidzero-terminate\u2026\", 5, &var_178);\n                            \n                            if (!rax_27)\n                            {\n                                core::option::unwrap_failed::h893f57cb7db71cb7();\n                                /* no return */\n                            }\n                            \n                            int64_t r13_3 = *(rax_27 + 8);\n                            uint64_t r12_5 = *(rax_27 + 0x10);\n                            char var_184_1;\n                            \n                            if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h47d6932d4cc292c3(r13_3, r12_5, \"upfrom-zerotowards-zeronearestin\u2026\", 2))\n                            {\n                                var_184_1 = 1;\n                                \n                                if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h47d6932d4cc292c3(r13_3, r12_5, \"downhelpNoneshim\\x1b[0mnameCyan \u2026\", 4))\n                                {\n                                    var_184_1 = 2;\n                                    \n                                    if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h47d6932d4cc292c3(r13_3, r12_5, \"from-zerotowards-zeronearestinte\u2026\", 9))\n                                    {\n                                        var_184_1 = 3;\n                                        \n                                        if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h47d6932d4cc292c3(r13_3, r12_5, \"towards-zeronearestinternal erro\u2026\", \n                                            0xc))\n                                        {\n                                            var_184_1 = 4;\n                                            \n                                            if (!_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$::equal::h47d6932d4cc292c3(r13_3, r12_5, \"nearestinternal error: entered u\u2026\", \n                                                7))\n                                            {\n                                                var_178 = &data_502870;\n                                                var_170 = 1;\n                                                void var_180;\n                                                *var_170[8] = &var_180;\n                                                var_160 = {0};\n                                                core::panicking::panic_fmt::h96f341d36638c225(\n                                                    &var_178);\n                                                /* no return */\n                                            }\n                                        }\n                                    }\n                                }\n                            }\n                            else\n                                var_184_1 = 0;\n                            \n                            clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::hf5a604ebb31d81af(&var_178, arg2, \"suffixinvalidzero-terminatedinva\u2026\", 6);\n                            void* rax_33 = clap_builder::parser::error::MatchesError::unwrap::h00661b2bfd48ffd9(\"suffixinvalidzero-terminatedinva\u2026\", 6, &var_178);\n                            int128_t var_40;\n                            \n                            if (!rax_33)\n                            {\n                                var_118 = -0x8000000000000000;\n                                var_118 = var_40;\n                            }\n                            else\n                            {\n                                _$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$::clone::h94782b8343b62bd8(&var_178, rax_33);\n                                var_108 = *var_40[8];\n                                var_118 = var_178;\n                            }\n                            clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one::hf5a604ebb31d81af(&var_178, arg2, \"invalidzero-terminatedinvalid pa\u2026\", 7);\n                            void* rax_35 = clap_builder::parser::error::MatchesError::unwrap::h00661b2bfd48ffd9(\"invalidzero-terminatedinvalid pa\u2026\", 7, &var_178);\n                            \n                            if (!rax_35)\n                            {\n                                core::option::unwrap_failed::h893f57cb7db71cb7();\n                                /* no return */\n                            }\n                            \n                            _$LT$uu_numfmt..options..InvalidModes$u20$as$u20$core..str..traits..FromStr$GT$::from_str::h28548c6647834f32(&var_178, *(rax_35 + 8), *(rax_35 + 0x10));\n                            char rax_36 =\n                                core::result::Result$LT$T$C$E$GT$::unwrap::h8a277b51c91b5632(\n                                &var_178);\n                            char rax_37 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag::h0358b00a34050e02(arg2, \"zero-terminatedinvalid padding v\u2026\", 0xf);\n                            arg1[8] = var_100;\n                            arg1[7] = zmm0_4;\n                            *(arg1 + 0x88) = var_118;\n                            *(arg1 + 0x98) = var_108;\n                            int128_t zmm0_7 = var_f0;\n                            arg1[1] = *var_e7[7];\n                            arg1[2] = var_d0;\n                            arg1[3] = var_c0_1;\n                            arg1[4] = var_b0;\n                            arg1[5] = var_a0;\n                            *arg1 = zmm0_7;\n                            *(arg1 + 0x58) = r13_2;\n                            arg1[6] = r15_4;\n                            *(arg1 + 0x68) = var_f8_1;\n                            arg1[0xa] = rax_6;\n                            *(arg1 + 0xa8) = rax_8;\n                            arg1[0xb] = rbp;\n                            *(arg1 + 0xb1) = var_185_1;\n                            *(arg1 + 0xb8) = rcx_2;\n                            arg1[0xc] = rcx_5;\n                            *(arg1 + 0xc8) = rax_37;\n                            *(arg1 + 0xc9) = rax_36;\n                            *(arg1 + 0xca) = var_184_1;\n                        }\n                        else\n                        {\n                            *(arg1 + 0x18) = var_100;\n                            label_46d233:\n                            *(arg1 + 8) = zmm0_4;\n                            *arg1 = 2;\n                            core::ptr::drop_in_place$LT$uu_numfmt..options..FormatOptions$GT$::h8dc90de00e50d096(&var_f0);\n                            core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$$GT$::h9c4bd89731b2c9ca(r13_2, r15_4);\n                        }\n                    }\n                    else\n                    {\n                        _$LT$uu_numfmt..options..FormatOptions$u20$as$u20$core..str..traits..FromStr$GT$::from_str::h667c9ec046668b63(&var_178, *(rax_20 + 8), *(rax_20 + 0x10));\n                        void** const rax_21 = var_178;\n                        var_118 = var_170;\n                        var_108 = var_160;\n                        \n                        if (rax_21 != 2)\n                        {\n                            int64_t var_128;\n                            var_a0 = var_128;\n                            var_b0 = var_138_1;\n                            var_c0_1 = var_148_1;\n                            int128_t var_158;\n                            var_d0 = var_158;\n                            var_e8 = var_118;\n                            int64_t var_d8_1 = var_108;\n                            var_f0 = rax_21;\n                            \n                            if (!(var_128 & 1) || r12_4 == 5)\n                                goto label_46ce83;\n                            \n                            _$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$::to_vec::h4c3223c430555e40(&var_178, &data_41aedc, 0x25);\n                            *(arg1 + 0x18) = *var_170[8];\n                            zmm0_4 = var_178;\n                            goto label_46d233;\n                        }\n                        \n                        *(arg1 + 0x18) = var_108;\n                        *(arg1 + 8) = var_118;\n                        *arg1 = 2;\n                        core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$$GT$::h9c4bd89731b2c9ca(r13_2, r15_4);\n                    }\n                }\n                else\n                {\n                    *(arg1 + 8) = r13_2;\n                    arg1[1] = r15_4;\n                    *(arg1 + 0x18) = var_160;\n                    *arg1 = 2;\n                }\n            }\n        }\n    }\n    return arg1;\n}\n",
+    "_ZN9uu_numfmt6uu_app17h17d783a9d7220ae7E": "\n  int64_t uu_numfmt::uu_app::h17d783a9d7220ae7(int64_t arg1)\n\n{\n    void var_568;\n    clap_builder::builder::command::Command::new::hd4aa3d50c2b3ebb5(&var_568, \n        uucore::util_name::h074417a1e6395129());\n    void var_830;\n    clap_builder::builder::command::Command::version::h65f9ae31c75a1f13(&var_830, &var_568);\n    clap_builder::builder::command::Command::about::h29965a2561e854e1(&var_568, &var_830);\n    clap_builder::builder::command::Command::after_help::he7b36b9534028bf3(&var_830, &var_568);\n    void* const var_ab0;\n    uucore::format_usage::he053403a896311ed(&var_ab0, \"{} [OPTION]... [NUMBER]...Xuse X\u2026\", 0x1a);\n    clap_builder::builder::command::Command::override_usage::h60b38f6a906c750f(&var_568, &var_830, \n        &var_ab0);\n    memcpy(&var_830, &var_568, 0x2bc);\n    int64_t var_2ac;\n    int64_t var_574 = 0x8000000084 | var_2ac;\n    int32_t var_2a4;\n    int32_t var_56c = var_2a4;\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_568, \n        \"delimiterroundsuffixinvalidzero-\u2026\");\n    clap_builder::builder::arg::Arg::short::hb07776535c4064a9(&var_ab0, &var_568, 0x64);\n    clap_builder::builder::arg::Arg::long::hfeb8ebcd71024214(&var_568, &var_ab0, \n        \"delimiterroundsuffixinvalidzero-\u2026\");\n    clap_builder::builder::arg::Arg::value_name::h0438544fd33361a2(&var_ab0, &var_568, \n        \"Xuse X instead of whitespace for\u2026\");\n    char const* const var_2a0;\n    clap_builder::builder::arg::Arg::help::h288b8f3846a27dc5(&var_2a0, &var_ab0, \n        \"use X instead of whitespace for \u2026\", 0x2f);\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(&var_568, &var_830, &var_2a0);\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_830, \n        \"fieldformatdelimiterroundsuffixi\u2026\");\n    clap_builder::builder::arg::Arg::long::hfeb8ebcd71024214(&var_ab0, &var_830, \n        \"fieldformatdelimiterroundsuffixi\u2026\");\n    clap_builder::builder::arg::Arg::help::h288b8f3846a27dc5(&var_830, &var_ab0, \n        \"replace the numbers in these inp\u2026\", 0x3b);\n    clap_builder::builder::arg::Arg::value_name::h0438544fd33361a2(&var_ab0, &var_830, \n        \"FIELDS1use printf style floating\u2026\");\n    memcpy(&var_830, &var_ab0, 0x278);\n    clap_builder::builder::arg::Arg::default_value::hb3311da4cde74683(&var_ab0, &var_830, \n        \"1use printf style floating-point\u2026\");\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(&var_830, &var_568, &var_ab0);\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_568, \n        \"formatdelimiterroundsuffixinvali\u2026\");\n    clap_builder::builder::arg::Arg::long::hfeb8ebcd71024214(&var_ab0, &var_568, \n        \"formatdelimiterroundsuffixinvali\u2026\");\n    clap_builder::builder::arg::Arg::help::h288b8f3846a27dc5(&var_568, &var_ab0, \n        \"use printf style floating-point \u2026\", 0x44);\n    clap_builder::builder::arg::Arg::value_name::h0438544fd33361a2(&var_ab0, &var_568, \n        \"FORMATauto-scale input numbers t\u2026\");\n    memcpy(&var_2a0, &var_ab0, 0x278);\n    int32_t var_838;\n    int32_t var_28 = var_838 | 0x20;\n    int32_t var_834;\n    int32_t var_24 = var_834;\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(&var_568, &var_830, &var_2a0);\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_830, \"fromkindAuto/\");\n    clap_builder::builder::arg::Arg::long::hfeb8ebcd71024214(&var_ab0, &var_830, \"fromkindAuto/\");\n    clap_builder::builder::arg::Arg::help::h288b8f3846a27dc5(&var_830, &var_ab0, \n        \"auto-scale input numbers to UNIT\u2026\", 0x31);\n    clap_builder::builder::arg::Arg::value_name::h0438544fd33361a2(&var_ab0, &var_830, \n        \"UNITSomedumb\\x1b[5m\\x1b[9m <=  o\u2026\");\n    clap_builder::builder::arg::Arg::default_value::hb3311da4cde74683(&var_2a0, &var_ab0, \n        \"nonedownhelpNoneshim\\x1b[0mnameC\u2026\");\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(&var_830, &var_568, &var_2a0);\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_568, \n        \"from-unitto-unitpaddingheaderfie\u2026\");\n    clap_builder::builder::arg::Arg::long::hfeb8ebcd71024214(&var_ab0, &var_568, \n        \"from-unitto-unitpaddingheaderfie\u2026\");\n    clap_builder::builder::arg::Arg::help::h288b8f3846a27dc5(&var_568, &var_ab0, \n        \"specify the input unit sizeNauto\u2026\", 0x1b);\n    clap_builder::builder::arg::Arg::value_name::h0438544fd33361a2(&var_ab0, &var_568, \n        \"Nauto-scale output numbers to UN\u2026\");\n    clap_builder::builder::arg::Arg::default_value::hb3311da4cde74683(&var_2a0, &var_ab0, \n        \"1use printf style floating-point\u2026\");\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(&var_568, &var_830, &var_2a0);\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_830, \n        \"tofrom-unitto-unitpaddingheaderf\u2026\");\n    clap_builder::builder::arg::Arg::long::hfeb8ebcd71024214(&var_ab0, &var_830, \n        \"tofrom-unitto-unitpaddingheaderf\u2026\");\n    clap_builder::builder::arg::Arg::help::h288b8f3846a27dc5(&var_830, &var_ab0, \n        \"auto-scale output numbers to UNI\u2026\", 0x32);\n    clap_builder::builder::arg::Arg::value_name::h0438544fd33361a2(&var_ab0, &var_830, \n        \"UNITSomedumb\\x1b[5m\\x1b[9m <=  o\u2026\");\n    clap_builder::builder::arg::Arg::default_value::hb3311da4cde74683(&var_2a0, &var_ab0, \n        \"nonedownhelpNoneshim\\x1b[0mnameC\u2026\");\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(&var_830, &var_568, &var_2a0);\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_568, \n        \"to-unitpaddingheaderfieldformatd\u2026\");\n    clap_builder::builder::arg::Arg::long::hfeb8ebcd71024214(&var_ab0, &var_568, \n        \"to-unitpaddingheaderfieldformatd\u2026\");\n    clap_builder::builder::arg::Arg::help::h288b8f3846a27dc5(&var_568, &var_ab0, \n        \"the output unit sizepad the outp\u2026\", 0x14);\n    clap_builder::builder::arg::Arg::value_name::h0438544fd33361a2(&var_ab0, &var_568, \n        \"Nauto-scale output numbers to UN\u2026\");\n    clap_builder::builder::arg::Arg::default_value::hb3311da4cde74683(&var_2a0, &var_ab0, \n        \"1use printf style floating-point\u2026\");\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(&var_568, &var_830, &var_2a0);\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_830, \n        \"paddingheaderfieldformatdelimite\u2026\");\n    clap_builder::builder::arg::Arg::long::hfeb8ebcd71024214(&var_ab0, &var_830, \n        \"paddingheaderfieldformatdelimite\u2026\");\n    clap_builder::builder::arg::Arg::help::h288b8f3846a27dc5(&var_830, &var_ab0, \n        \"pad the output to N characters; \u2026\", 0xc7);\n    clap_builder::builder::arg::Arg::value_name::h0438544fd33361a2(&var_ab0, &var_830, \n        \"Nauto-scale output numbers to UN\u2026\");\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(&var_830, &var_568, &var_ab0);\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_568, \n        \"headerfieldformatdelimiterrounds\u2026\");\n    clap_builder::builder::arg::Arg::long::hfeb8ebcd71024214(&var_ab0, &var_568, \n        \"headerfieldformatdelimiterrounds\u2026\");\n    clap_builder::builder::arg::Arg::help::h288b8f3846a27dc5(&var_568, &var_ab0, \n        \"print (without converting) the f\u2026\", 0x55);\n    clap_builder::builder::arg::Arg::num_args::h6ad762ef558a42d9(&var_ab0, &var_568);\n    clap_builder::builder::arg::Arg::value_name::h0438544fd33361a2(&var_568, &var_ab0, \n        \"Nauto-scale output numbers to UN\u2026\");\n    clap_builder::builder::arg::Arg::default_missing_value::hf7cff759fc6b1d65(&var_ab0, &var_568);\n    memcpy(&var_2a0, &var_ab0, 0x278);\n    int32_t var_28_1 = 0x400 | var_838;\n    int32_t var_24_1 = var_834;\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(&var_568, &var_830, &var_2a0);\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_830, \n        \"roundsuffixinvalidzero-terminate\u2026\");\n    clap_builder::builder::arg::Arg::long::hfeb8ebcd71024214(&var_ab0, &var_830, \n        \"roundsuffixinvalidzero-terminate\u2026\");\n    clap_builder::builder::arg::Arg::help::h288b8f3846a27dc5(&var_830, &var_ab0, \n        \"use METHOD for rounding when sca\u2026\", 0x24);\n    clap_builder::builder::arg::Arg::value_name::h0438544fd33361a2(&var_ab0, &var_830, \n        \"METHODprint SUFFIX after each fo\u2026\");\n    clap_builder::builder::arg::Arg::default_value::hb3311da4cde74683(&var_830, &var_ab0, \n        \"from-zerotowards-zeronearestinte\u2026\");\n    var_ab0 = \"upfrom-zerotowards-zeronearestin\u2026\";\n    int64_t var_aa8 = 2;\n    char const* const var_aa0 = \"downhelpNoneshim\\x1b[0mnameCyan \u2026\";\n    int64_t var_a98 = 4;\n    void* const var_a90 = \"from-zerotowards-zeronearestinte\u2026\";\n    int64_t var_a88 = 9;\n    void* const var_a80 = \"towards-zeronearestinternal erro\u2026\";\n    int64_t var_a78 = 0xc;\n    void* const var_a70 = \"nearestinternal error: entered u\u2026\";\n    int64_t var_a68 = 7;\n    _$LT$uucore..features..parser..shortcut_value_parser..ShortcutValueParser$u20$as$u20$core..convert..From$LT$I$GT$$GT$::from::hc35a50c645406067(&var_2a0, &var_ab0);\n    clap_builder::builder::arg::Arg::value_parser::hb3bb9f292253c5f8(&var_ab0, &var_830, &var_2a0);\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(&var_830, &var_568, &var_ab0);\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_568, \n        \"suffixinvalidzero-terminatedinva\u2026\");\n    clap_builder::builder::arg::Arg::long::hfeb8ebcd71024214(&var_ab0, &var_568, \n        \"suffixinvalidzero-terminatedinva\u2026\");\n    clap_builder::builder::arg::Arg::help::h288b8f3846a27dc5(&var_568, &var_ab0, \n        \"print SUFFIX after each formatte\u2026\", 0x59);\n    clap_builder::builder::arg::Arg::value_name::h0438544fd33361a2(&var_ab0, &var_568, \n        \"SUFFIXset the failure mode for i\u2026\");\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(&var_568, &var_830, &var_ab0);\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_830, \n        \"invalidzero-terminatedinvalid pa\u2026\");\n    clap_builder::builder::arg::Arg::long::hfeb8ebcd71024214(&var_ab0, &var_830, \n        \"invalidzero-terminatedinvalid pa\u2026\");\n    clap_builder::builder::arg::Arg::help::h288b8f3846a27dc5(&var_830, &var_ab0, \n        \"set the failure mode for invalid\u2026\", 0x26);\n    clap_builder::builder::arg::Arg::default_value::hb3311da4cde74683(&var_ab0, &var_830, \n        \"abortignoreUnknown invalid mode:\u2026\");\n    var_2a0 = \"abortignoreUnknown invalid mode:\u2026\";\n    int64_t var_298 = 5;\n    char const* const var_290 = \"failkeysu128for<\\x1b[1mKindboolm\u2026\";\n    int64_t var_288 = 4;\n    char const* const var_280 = \"warnZero\\x1b[7mautoBool\";\n    int64_t var_278 = 4;\n    char const* const var_270 = \"ignoreUnknown invalid mode: YZEP\u2026\";\n    int64_t var_268 = 6;\n    clap_builder::builder::arg::Arg::value_parser::h8ebfb6cb29cb1cdf(&var_830, &var_ab0, &var_2a0);\n    clap_builder::builder::arg::Arg::value_name::h0438544fd33361a2(&var_ab0, &var_830, \n        \"INVALIDline delimiter is NUL, no\u2026\");\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(&var_830, &var_568, &var_ab0);\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_568, \n        \"zero-terminatedinvalid padding v\u2026\");\n    clap_builder::builder::arg::Arg::long::hfeb8ebcd71024214(&var_ab0, &var_568, \n        \"zero-terminatedinvalid padding v\u2026\");\n    clap_builder::builder::arg::Arg::short::hb07776535c4064a9(&var_568, &var_ab0, 0x7a);\n    clap_builder::builder::arg::Arg::help::h288b8f3846a27dc5(&var_ab0, &var_568, \n        \"line delimiter is NUL, not newli\u2026\", 0x22);\n    clap_builder::builder::arg::Arg::action::h5e426cf5bd95badf(&var_2a0, &var_ab0, 2);\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(&var_568, &var_830, &var_2a0);\n    clap_builder::builder::arg::Arg::new::h6e2e53945c4f26b2(&var_830, \n        \"NUMBERIoErrorIllegalArgumentForm\u2026\");\n    memcpy(&var_ab0, &var_830, 0x278);\n    int32_t var_838_1 = var_838 | 0x20 | 4;\n    int32_t var_834_1 = var_834;\n    clap_builder::builder::arg::Arg::action::h5e426cf5bd95badf(&var_830, &var_ab0, 1);\n    clap_builder::builder::command::Command::arg::hec16206f3ca3d61a(arg1, &var_568, &var_830);\n    return arg1;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN9uu_numfmt11handle_args17h88f782532eeab52aE": {
+      "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92623d70016f3062E": 1,
+      "_ZN9uu_numfmt28format_and_handle_validation17hcfab93a3f32ae107E": 1
+    },
+    "_ZN9uu_numfmt13handle_buffer17h8d59c98e3da551b3E": {
+      "_ZN9uu_numfmt22handle_buffer_iterator17hfeb0cb0be5b9a655E": 1,
+      "_ZN9uu_numfmt22handle_buffer_iterator17h414c95f5f8eb45b9E": 1,
+      "_ZN3std2io7BufRead5split17h0409658dc3119191E": 1
+    },
+    "_ZN9uu_numfmt22handle_buffer_iterator17h414c95f5f8eb45b9E": {
+      "_ZN4core4iter6traits8iterator8Iterator9enumerate17ha5b6576aba57f0deE": 1,
+      "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h54f092d491cf1a5aE": 2,
+      "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hae49a63914faa038E": 1,
+      "_ZN5alloc5boxed12Box$LT$T$GT$3new17hb6e44097f5c9c613E": 1,
+      "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hd93953e64ca236e7E": 1,
+      "_ZN9uu_numfmt28format_and_handle_validation17hcfab93a3f32ae107E": 1,
+      "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc2a262c10a1490fE": 2,
+      "_ZN3std2io5stdio6_print17h5e446ff973c02de6E": 1
+    },
+    "_ZN9uu_numfmt6uumain17he5d270763546e61dE": {
+      "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hada264d8931b89d1E": 1,
+      "_ZN6uucore28disable_rust_signal_handlers17hcf33f4a6d6e443c4E": 1,
+      "_ZN9uu_numfmt6uumain6uumain17h7a36dd360fce0307E": 1,
+      "_ZN6uucore4mods5error13get_exit_code17h4ce6cf124c2ef658E": 1,
+      "_ZN4core6option15Option$LT$T$GT$11map_or_else17h05153684b171c193E": 1,
+      "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha6d370ac452f0a35E": 1,
+      "_ZN6uucore9util_name17h074417a1e6395129E": 1,
+      "_ZN3std2io5stdio7_eprint17h57899770eacec2adE": 3,
+      "_ZN6uucore16execution_phrase17hf0e80cb4793732adE": 1,
+      "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc2a262c10a1490fE": 1,
+      "_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$clap_builder..builder..value_parser..AnyValueParser$GT$$GT$17h0855b8f2974e583aE": 1
+    },
+    "_ZN9uu_numfmt6uumain6uumain17h7a36dd360fce0307E": {
+      "_ZN9uu_numfmt6uu_app17h17d783a9d7220ae7E": 1,
+      "_ZN12clap_builder7builder7command7Command20try_get_matches_from17hfb908c4e8fd8a90bE": 1,
+      "_ZN6uucore4mods5error144_$LT$impl$u20$core..convert..From$LT$clap_builder..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17he92a37de32738e67E": 1,
+      "_ZN9uu_numfmt13parse_options17hdd4028f9a896523fE": 1,
+      "memcpy": 1,
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12try_get_many17h471fa3c8de9cc35dE": 1,
+      "_ZN12clap_builder6parser5error12MatchesError6unwrap17h7285758572399059E": 1,
+      "_ZN3std2io5stdio5stdin17h9a05a2c3e7544b2aE": 1,
+      "_ZN3std2io5stdio5Stdin4lock17h8b2bf765bae79e2fE": 1,
+      "_ZN9uu_numfmt13handle_buffer17h8d59c98e3da551b3E": 1,
+      "_ZN4core3ptr46drop_in_place$LT$std..io..stdio..StdinLock$GT$17h74753e38be762355E": 1,
+      "_ZN3std2io5stdio6stdout17hb6a8e10bcccf3287E": 1,
+      "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h35336489fa14421aE": 1,
+      "_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$5flush17hfb2969f84e2164f2E": 1,
+      "_ZN9uu_numfmt11handle_args17h88f782532eeab52aE": 1,
+      "_ZN4core3ptr54drop_in_place$LT$uu_numfmt..options..NumfmtOptions$GT$17h46b9f219212e0ff3E": 1,
+      "_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$17h2f0f0406eae3d8c2E": 2,
+      "_ZN5alloc5boxed12Box$LT$T$GT$3new17hb6e44097f5c9c613E": 1
+    },
+    "_ZN9uu_numfmt6format12parse_suffix17h65381ef2a47d074cE": {
+      "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4c3223c430555e40E": 1,
+      "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h8acf7e79f75ef2f1E": 1,
+      "_ZN4core4char7methods15encode_utf8_raw17h5e8f6d90a161f6f4E": 1,
+      "_ZN4core3str11validations23next_code_point_reverse17h55d2d504630d5ed9E": 2,
+      "_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17hf838fc4d891e0944E": 1,
+      "_ZN4core3str16slice_error_fail17h1a2885084e28d077E": 1,
+      "_ZN4core3num7dec2flt60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$f64$GT$8from_str17h05023748d9faa6d2E": 1,
+      "_ZN9uu_numfmt6format12parse_suffix28_$u7b$$u7b$closure$u7d$$u7d$17h697123fed7d6da64E": 1,
+      "_ZN4core6option15Option$LT$T$GT$11map_or_else17h6181b64f68c0f373E": 1
+    },
+    "_ZN9uu_numfmt6format24parse_implicit_precision17hb5d21ae12bf7afedE": {
+      "_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h55795b6daa7535c4E": 1,
+      "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17had2f6788d87bb353E": 1
+    },
+    "_ZN9uu_numfmt6format13remove_suffix17h7f875f2aa3a3c8adE": {
+      "_ZN4core6option15Option$LT$T$GT$11map_or_else17h6181b64f68c0f373E": 2,
+      "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4c3223c430555e40E": 2
+    },
+    "_ZN9uu_numfmt6format14transform_from17hcd3fb358ec05b121E": {
+      "_ZN9uu_numfmt6format12parse_suffix17h65381ef2a47d074cE": 1,
+      "_ZN9uu_numfmt6format13remove_suffix17h7f875f2aa3a3c8adE": 1,
+      "_ZN9uu_numfmt6format14transform_from28_$u7b$$u7b$closure$u7d$$u7d$17hb3e2a9b15b793ed1E": 1
+    },
+    "_ZN9uu_numfmt6format9div_round17hdf3f58dd879fd2aeE": {
+      "_ZN9uu_numfmt7options11RoundMethod5round17h874ad1975578cac0E": 2
+    },
+    "_ZN9uu_numfmt6format20round_with_precision17hbeea945620f7b8d9E": {
+      "pow": 1,
+      "_ZN9uu_numfmt7options11RoundMethod5round17h874ad1975578cac0E": 1
+    },
+    "_ZN9uu_numfmt6format15consider_suffix17h8fe5d35b3319f348E": {
+      "_ZN9uu_numfmt6format9div_round17hdf3f58dd879fd2aeE": 1,
+      "_ZN9uu_numfmt6format20round_with_precision17hbeea945620f7b8d9E": 1,
+      "_ZN4core9panicking18panic_bounds_check17h025cadc56a971af7E": 1,
+      "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4c3223c430555e40E": 1
+    },
+    "_ZN9uu_numfmt6format12transform_to17he005deddceb3df89E": {
+      "_ZN9uu_numfmt6format15consider_suffix17h8fe5d35b3319f348E": 1,
+      "_ZN4core9panicking9panic_fmt17h96f341d36638c225E": 2,
+      "_ZN9uu_numfmt6format20round_with_precision17hbeea945620f7b8d9E": 1,
+      "_ZN4core6option15Option$LT$T$GT$11map_or_else17h6181b64f68c0f373E": 1
+    },
+    "_ZN9uu_numfmt6format13format_string17h3b8df337189cc348E": {
+      "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17ha48df28aef4c1d38E": 1,
+      "_ZN9uu_numfmt6format24parse_implicit_precision17hb5d21ae12bf7afedE": 1,
+      "_ZN9uu_numfmt6format14transform_from17hcd3fb358ec05b121E": 1,
+      "_ZN9uu_numfmt6format12transform_to17he005deddceb3df89E": 1,
+      "_ZN4core6option15Option$LT$T$GT$11map_or_else17h6181b64f68c0f373E": 7,
+      "_ZN4core9panicking9panic_fmt17h96f341d36638c225E": 2,
+      "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h34fbae09aa78bed8E": 4
+    },
+    "_ZN9uu_numfmt6format26format_and_print_delimited17h098508a496fb9107E": {
+      "_ZN4core6option13unwrap_failed17h893f57cb7db71cb7E": 1,
+      "_ZN73_$LT$$RF$alloc..string..String$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hf8368330bc7d3e9aE": 1,
+      "_ZN4core4iter6traits8iterator8Iterator3zip17ha700ff6630919b15E": 1,
+      "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h63a30ee2b5483774E": 2,
+      "_ZN3std2io5stdio6_print17h5e446ff973c02de6E": 4,
+      "_ZN6uucore8features6ranges7contain17ha2f044f5693f050cE": 1,
+      "_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_matches17ha4fc5e4c9ad6ee5cE": 1,
+      "_ZN9uu_numfmt6format13format_string17h3b8df337189cc348E": 1,
+      "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h34fbae09aa78bed8E": 1
+    },
+    "_ZN9uu_numfmt6format27format_and_print_whitespace17ha5007c78915f30adE": {
+      "_ZN4core4iter6traits8iterator8Iterator3zip17hc5c51cab09057469E": 1,
+      "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcacff3f450858e3cE": 2,
+      "_ZN6uucore8features6ranges7contain17ha2f044f5693f050cE": 1,
+      "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h436c904482f687d7E": 1,
+      "_ZN4core4char7methods15encode_utf8_raw17h5e8f6d90a161f6f4E": 1,
+      "_ZN3std2io5stdio6_print17h5e446ff973c02de6E": 5,
+      "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h28e9e81c5537bbedE": 2,
+      "_ZN4core3str16slice_error_fail17h1a2885084e28d077E": 2,
+      "_ZN9uu_numfmt6format13format_string17h3b8df337189cc348E": 1,
+      "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h34fbae09aa78bed8E": 1
+    },
+    "_ZN9uu_numfmt6format16format_and_print17h5bf849f061ae056fE": {
+      "_ZN9uu_numfmt6format27format_and_print_whitespace17ha5007c78915f30adE": 1,
+      "_ZN9uu_numfmt6format26format_and_print_delimited17h098508a496fb9107E": 1
+    },
+    "_ZN9uu_numfmt7options11RoundMethod5round17h874ad1975578cac0E": {
+      "ceil": 3,
+      "floor": 3,
+      "round": 1
+    },
+    "_ZN9uu_numfmt28format_and_handle_validation17hcfab93a3f32ae107E": {
+      "_ZN9uu_numfmt6format16format_and_print17h5bf849f061ae056fE": 1,
+      "_ZN5alloc5boxed12Box$LT$T$GT$3new17h9fc007057db03ec8E": 1,
+      "_ZN6uucore4mods5error13set_exit_code17hbbe6ffc423a314f1E": 1,
+      "_ZN6uucore9util_name17h074417a1e6395129E": 2,
+      "_ZN3std2io5stdio7_eprint17h57899770eacec2adE": 3,
+      "_ZN4core3ptr51drop_in_place$LT$uu_numfmt..errors..NumfmtError$GT$17h84537972f923e6b2E": 1,
+      "_ZN3std2io5stdio6_print17h5e446ff973c02de6E": 1,
+      "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h34fbae09aa78bed8E": 1
+    },
+    "_ZN9uu_numfmt10parse_unit17h5b8dda5b61233202E": {
+      "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h47d6932d4cc292c3E": 5,
+      "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4c3223c430555e40E": 1
+    },
+    "_ZN9uu_numfmt15parse_unit_size17h03bace1e31195027E": {
+      "_ZN4core4iter6traits8iterator8Iterator7collect17h967ab1cd420e9d0aE": 1,
+      "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h28e9e81c5537bbedE": 1,
+      "_ZN4core3str16slice_error_fail17h1a2885084e28d077E": 1,
+      "_ZN9uu_numfmt22parse_unit_size_suffix17hdf13b6214e4b882fE": 1,
+      "_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17he77532141bbadde7E": 1,
+      "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17h65bc8cec15465d63E": 1,
+      "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h57e8dd7d227d19fbE": 1,
+      "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h34fbae09aa78bed8E": 2,
+      "_ZN4core6option15Option$LT$T$GT$11map_or_else17h6181b64f68c0f373E": 1
+    },
+    "_ZN9uu_numfmt22parse_unit_size_suffix17hdf13b6214e4b882fE": {
+      "_ZN4core3str11validations15next_code_point17h5d7df44f8cb1b62eE": 1,
+      "_ZN4core6option13unwrap_failed17h893f57cb7db71cb7E": 1,
+      "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h8c3a699082174296E": 1,
+      "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h8acf7e79f75ef2f1E": 1,
+      "_ZN4core4char7methods15encode_utf8_raw17h5e8f6d90a161f6f4E": 1,
+      "_ZN4core9panicking18panic_bounds_check17h025cadc56a971af7E": 2
+    },
+    "_ZN9uu_numfmt13parse_options17hdd4028f9a896523fE": {
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11try_get_one17hf5a604ebb31d81afE": 12,
+      "_ZN12clap_builder6parser5error12MatchesError6unwrap17h00661b2bfd48ffd9E": 12,
+      "_ZN4core6option13unwrap_failed17h893f57cb7db71cb7E": 8,
+      "_ZN9uu_numfmt10parse_unit17h5b8dda5b61233202E": 2,
+      "_ZN9uu_numfmt15parse_unit_size17h03bace1e31195027E": 2,
+      "_ZN4core3num23_$LT$impl$u20$isize$GT$16from_ascii_radix17h0e9490fe82f40334E": 1,
+      "_ZN9uu_numfmt13parse_options28_$u7b$$u7b$closure$u7d$$u7d$17h6e66c07552a1ddecE": 1,
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12value_source17h45c0c3cb9ce2c562E": 1,
+      "_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17he77532141bbadde7E": 1,
+      "_ZN9uu_numfmt13parse_options28_$u7b$$u7b$closure$u7d$$u7d$17h569d4ca4d2a71d66E": 1,
+      "_ZN95_$LT$core..str..pattern..MultiCharEqPattern$LT$C$GT$$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h1608f67deb20dfc5E": 1,
+      "_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78f8b3ebfd2d8e96E": 1,
+      "_ZN4core4iter6traits8iterator8Iterator8try_fold17hddf39aa1e55312acE": 1,
+      "_ZN5alloc5alloc6Global10alloc_impl17h6fb1b6049873c120E": 1,
+      "_ZN5alloc5alloc18handle_alloc_error17h88aa4f4f9d19c4f9E": 1,
+      "_ZN6uucore8features6ranges5Range9from_list17h55160c8343b59905E": 1,
+      "_ZN4core6option15Option$LT$T$GT$6map_or17hb6e0e39bf98ad812E": 1,
+      "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h47d6932d4cc292c3E": 5,
+      "_ZN4core9panicking9panic_fmt17h96f341d36638c225E": 1,
+      "_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h94782b8343b62bd8E": 1,
+      "_ZN79_$LT$uu_numfmt..options..InvalidModes$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h28548c6647834f32E": 1,
+      "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8a277b51c91b5632E": 1,
+      "_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17h0358b00a34050e02E": 1,
+      "_ZN4core3ptr54drop_in_place$LT$uu_numfmt..options..FormatOptions$GT$17h8dc90de00e50d096E": 1,
+      "_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..util..id..Id$GT$$GT$17h9c4bd89731b2c9caE": 2,
+      "_ZN80_$LT$uu_numfmt..options..FormatOptions$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h667c9ec046668b63E": 1,
+      "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4c3223c430555e40E": 1
+    },
+    "_ZN9uu_numfmt6uu_app17h17d783a9d7220ae7E": {
+      "_ZN12clap_builder7builder7command7Command3new17hd4aa3d50c2b3ebb5E": 1,
+      "_ZN6uucore9util_name17h074417a1e6395129E": 1,
+      "_ZN12clap_builder7builder7command7Command7version17h65f9ae31c75a1f13E": 1,
+      "_ZN12clap_builder7builder7command7Command5about17h29965a2561e854e1E": 1,
+      "_ZN12clap_builder7builder7command7Command10after_help17he7b36b9534028bf3E": 1,
+      "_ZN6uucore12format_usage17he053403a896311edE": 1,
+      "_ZN12clap_builder7builder7command7Command14override_usage17h60b38f6a906c750fE": 1,
+      "memcpy": 5,
+      "_ZN12clap_builder7builder3arg3Arg3new17h6e2e53945c4f26b2E": 14,
+      "_ZN12clap_builder7builder3arg3Arg5short17hb07776535c4064a9E": 2,
+      "_ZN12clap_builder7builder3arg3Arg4long17hfeb8ebcd71024214E": 13,
+      "_ZN12clap_builder7builder3arg3Arg10value_name17h0438544fd33361a2E": 12,
+      "_ZN12clap_builder7builder3arg3Arg4help17h288b8f3846a27dc5E": 13,
+      "_ZN12clap_builder7builder7command7Command3arg17hec16206f3ca3d61aE": 14,
+      "_ZN12clap_builder7builder3arg3Arg13default_value17hb3311da4cde74683E": 7,
+      "_ZN12clap_builder7builder3arg3Arg8num_args17h6ad762ef558a42d9E": 1,
+      "_ZN12clap_builder7builder3arg3Arg21default_missing_value17hf7cff759fc6b1d65E": 1,
+      "_ZN117_$LT$uucore..features..parser..shortcut_value_parser..ShortcutValueParser$u20$as$u20$core..convert..From$LT$I$GT$$GT$4from17hc35a50c645406067E": 1,
+      "_ZN12clap_builder7builder3arg3Arg12value_parser17hb3bb9f292253c5f8E": 1,
+      "_ZN12clap_builder7builder3arg3Arg12value_parser17h8ebfb6cb29cb1cdfE": 1,
+      "_ZN12clap_builder7builder3arg3Arg6action17h5e426cf5bd95badfE": 2
+    }
+  },
+  "num_variables": {
+    "_ZN9uu_numfmt11handle_args17h88f782532eeab52aE": 7,
+    "_ZN9uu_numfmt13handle_buffer17h8d59c98e3da551b3E": 0,
+    "_ZN9uu_numfmt22handle_buffer_iterator17h414c95f5f8eb45b9E": 23,
+    "_ZN9uu_numfmt6uumain17he5d270763546e61dE": 33,
+    "_ZN9uu_numfmt6uumain6uumain17h7a36dd360fce0307E": 34,
+    "_ZN9uu_numfmt6format12parse_suffix17h65381ef2a47d074cE": 27,
+    "_ZN9uu_numfmt6format24parse_implicit_precision17hb5d21ae12bf7afedE": 6,
+    "_ZN9uu_numfmt6format13remove_suffix17h7f875f2aa3a3c8adE": 25,
+    "_ZN9uu_numfmt6format14transform_from17hcd3fb358ec05b121E": 18,
+    "_ZN9uu_numfmt6format9div_round17hdf3f58dd879fd2aeE": 4,
+    "_ZN9uu_numfmt6format20round_with_precision17hbeea945620f7b8d9E": 6,
+    "_ZN9uu_numfmt6format15consider_suffix17h8fe5d35b3319f348E": 15,
+    "_ZN9uu_numfmt6format12transform_to17he005deddceb3df89E": 45,
+    "_ZN9uu_numfmt6format13format_string17h3b8df337189cc348E": 70,
+    "_ZN9uu_numfmt6format26format_and_print_delimited17h098508a496fb9107E": 42,
+    "_ZN9uu_numfmt6format27format_and_print_whitespace17ha5007c78915f30adE": 49,
+    "_ZN9uu_numfmt6format16format_and_print17h5bf849f061ae056fE": 0,
+    "_ZN9uu_numfmt7options11RoundMethod5round17h874ad1975578cac0E": 0,
+    "_ZN9uu_numfmt28format_and_handle_validation17hcfab93a3f32ae107E": 37,
+    "_ZN9uu_numfmt10parse_unit17h5b8dda5b61233202E": 1,
+    "_ZN9uu_numfmt15parse_unit_size17h03bace1e31195027E": 22,
+    "_ZN9uu_numfmt22parse_unit_size_suffix17hdf13b6214e4b882fE": 12,
+    "_ZN9uu_numfmt13parse_options17hdd4028f9a896523fE": 59,
+    "_ZN9uu_numfmt6uu_app17h17d783a9d7220ae7E": 32
+  },
+  "macro_call_counts": {
+    "_ZN9uu_numfmt11handle_args17h88f782532eeab52aE": {},
+    "_ZN9uu_numfmt13handle_buffer17h8d59c98e3da551b3E": {},
+    "_ZN9uu_numfmt22handle_buffer_iterator17h414c95f5f8eb45b9E": {},
+    "_ZN9uu_numfmt6uumain17he5d270763546e61dE": {},
+    "_ZN9uu_numfmt6uumain6uumain17h7a36dd360fce0307E": {},
+    "_ZN9uu_numfmt6format12parse_suffix17h65381ef2a47d074cE": {},
+    "_ZN9uu_numfmt6format24parse_implicit_precision17hb5d21ae12bf7afedE": {},
+    "_ZN9uu_numfmt6format13remove_suffix17h7f875f2aa3a3c8adE": {},
+    "_ZN9uu_numfmt6format14transform_from17hcd3fb358ec05b121E": {},
+    "_ZN9uu_numfmt6format9div_round17hdf3f58dd879fd2aeE": {},
+    "_ZN9uu_numfmt6format20round_with_precision17hbeea945620f7b8d9E": {},
+    "_ZN9uu_numfmt6format15consider_suffix17h8fe5d35b3319f348E": {},
+    "_ZN9uu_numfmt6format12transform_to17he005deddceb3df89E": {},
+    "_ZN9uu_numfmt6format13format_string17h3b8df337189cc348E": {},
+    "_ZN9uu_numfmt6format26format_and_print_delimited17h098508a496fb9107E": {},
+    "_ZN9uu_numfmt6format27format_and_print_whitespace17ha5007c78915f30adE": {},
+    "_ZN9uu_numfmt6format16format_and_print17h5bf849f061ae056fE": {},
+    "_ZN9uu_numfmt7options11RoundMethod5round17h874ad1975578cac0E": {},
+    "_ZN9uu_numfmt28format_and_handle_validation17hcfab93a3f32ae107E": {},
+    "_ZN9uu_numfmt10parse_unit17h5b8dda5b61233202E": {},
+    "_ZN9uu_numfmt15parse_unit_size17h03bace1e31195027E": {},
+    "_ZN9uu_numfmt22parse_unit_size_suffix17hdf13b6214e4b882fE": {},
+    "_ZN9uu_numfmt13parse_options17hdd4028f9a896523fE": {},
+    "_ZN9uu_numfmt6uu_app17h17d783a9d7220ae7E": {}
+  },
+  "variable_types": {
+    "_ZN9uu_numfmt11handle_args17h88f782532eeab52aE": {
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt13handle_buffer17h8d59c98e3da551b3E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt22handle_buffer_iterator17h414c95f5f8eb45b9E": {
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6uumain17he5d270763546e61dE": {
+      "stack_40": [
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6uumain6uumain17h7a36dd360fce0307E": {
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_392": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_376": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_384": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_416": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6format12parse_suffix17h65381ef2a47d074cE": {
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6format24parse_implicit_precision17hb5d21ae12bf7afedE": {
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6format13remove_suffix17h7f875f2aa3a3c8adE": {
+      "reg_r8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&&&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6format14transform_from17hcd3fb358ec05b121E": {
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm1": [
+        [
+          "array",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_26": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm2": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_30": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_25": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          2
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6format9div_round17hdf3f58dd879fd2aeE": {
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm1": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "reg_zmm2": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6format20round_with_precision17hbeea945620f7b8d9E": {
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_zmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6format15consider_suffix17h8fe5d35b3319f348E": {
+      "reg_rsi": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_zmm2": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_zmm3": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "array",
+          16
+        ],
+        [
+          "array",
+          16
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6format12transform_to17he005deddceb3df89E": {
+      "stack_80": [
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_25": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "array",
+          16
+        ],
+        [
+          "array",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_30": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_26": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_68": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_zmm2": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6format13format_string17h3b8df337189cc348E": {
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6format26format_and_print_delimited17h098508a496fb9107E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_304": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "&&&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&&&primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_296": [
+        [
+          "&&array",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "primitive",
+          16
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6format27format_and_print_whitespace17ha5007c78915f30adE": {
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&&&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&&array",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_256": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_232": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6format16format_and_print17h5bf849f061ae056fE": {
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt7options11RoundMethod5round17h874ad1975578cac0E": {
+      "reg_zmm1": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt28format_and_handle_validation17hcfab93a3f32ae107E": {
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&&&primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt10parse_unit17h5b8dda5b61233202E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt15parse_unit_size17h03bace1e31195027E": {
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt22parse_unit_size_suffix17hdf13b6214e4b882fE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_zmm1": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt13parse_options17hdd4028f9a896523fE": {
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_zmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_161": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_16": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_3": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "&&primitive",
+          8
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN9uu_numfmt6uu_app17h17d783a9d7220ae7E": {
+      "stack_640": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_2068": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2704": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2080": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2708": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_644": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1348": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_2120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_1360": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2096": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_2112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_2128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1356": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2072": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_2060": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_648": [
+        [
+          "primitive",
+          -1
+        ]
+      ],
+      "stack_2088": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

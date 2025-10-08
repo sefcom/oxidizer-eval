@@ -1,0 +1,1796 @@
+{
+  "decompilation": {
+    "_ZN13linera_server13ServerContext16make_shard_state17h1a3aeb2cdfd11fa8E": "void *__fastcall linera_server::ServerContext::make_shard_state(\n        char *dest,\n        __int64 a2,\n        __int64 a3,\n        __int64 a4,\n        unsigned __int64 a5,\n        __int64 a6)\n{\n  unsigned __int64 v7; // rsi\n  __int128 *v8; // r14\n  unsigned __int8 v9; // al\n  char *v10; // r13\n  __int64 v11; // rax\n  void *v12; // r15\n  __int128 v13; // xmm0\n  __int64 v14; // r13\n  __int64 v15; // rdx\n  __int64 v16; // rbp\n  char *v17; // r15\n  __int64 v18; // rax\n  unsigned __int8 v19; // al\n  char *v20; // r13\n  __int64 v21; // rax\n  __int128 v22; // xmm0\n  __int128 v23; // xmm1\n  __int128 v24; // xmm2\n  __int64 v25; // rdx\n  void *v26; // r13\n  __int128 v27; // xmm0\n  __int64 v28; // rbp\n  __int64 v29; // rdx\n  __int64 v30; // r15\n  char *v31; // r13\n  __int64 v32; // rax\n  __int128 v33; // xmm0\n  __int128 v34; // xmm1\n  __int128 v35; // xmm2\n  __int128 v36; // xmm0\n  __int128 v37; // xmm1\n  __int128 v38; // xmm2\n  unsigned __int64 v39; // r15\n  __int16 v40; // r12\n  __int16 v41; // bp\n  void *result; // rax\n  char **v43; // rdx\n  __int128 *v44; // [rsp+8h] [rbp-2F0h] BYREF\n  __int64 (__fastcall *v45)(); // [rsp+10h] [rbp-2E8h]\n  void *v46; // [rsp+18h] [rbp-2E0h]\n  void *v47; // [rsp+20h] [rbp-2D8h]\n  __int128 **v48; // [rsp+28h] [rbp-2D0h] BYREF\n  __int64 (__fastcall *v49)(); // [rsp+30h] [rbp-2C8h]\n  char *v50; // [rsp+38h] [rbp-2C0h]\n  __int128 v51; // [rsp+40h] [rbp-2B8h] BYREF\n  __int128 v52; // [rsp+50h] [rbp-2A8h]\n  __int64 v53; // [rsp+60h] [rbp-298h]\n  __int64 v54; // [rsp+70h] [rbp-288h]\n  unsigned __int64 v55; // [rsp+78h] [rbp-280h] BYREF\n  _OWORD src[10]; // [rsp+80h] [rbp-278h] BYREF\n  _BYTE desta[40]; // [rsp+120h] [rbp-1D8h] BYREF\n  __int128 v58; // [rsp+148h] [rbp-1B0h]\n  __int128 v59; // [rsp+158h] [rbp-1A0h]\n  __int128 v60; // [rsp+168h] [rbp-190h]\n  __int128 v61; // [rsp+178h] [rbp-180h]\n  __int128 v62; // [rsp+188h] [rbp-170h]\n  __int64 v63; // [rsp+198h] [rbp-160h]\n  _BYTE v64[24]; // [rsp+1C0h] [rbp-138h] BYREF\n  _BYTE v65[24]; // [rsp+1D8h] [rbp-120h] BYREF\n  _QWORD v66[2]; // [rsp+1F0h] [rbp-108h] BYREF\n  _QWORD v67[2]; // [rsp+200h] [rbp-F8h] BYREF\n  __int128 v68; // [rsp+210h] [rbp-E8h] BYREF\n  __int128 v69; // [rsp+220h] [rbp-D8h]\n  __int64 v70; // [rsp+230h] [rbp-C8h]\n  __int64 v71; // [rsp+238h] [rbp-C0h]\n  _BYTE v72[72]; // [rsp+2B0h] [rbp-48h] BYREF\n\n  v54 = a6;\n  v66[0] = a3;\n  v66[1] = a4;\n  v55 = a5;\n  v7 = *(_QWORD *)(a2 + 248);\n  if ( a5 >= v7 )\n    core::panicking::panic_bounds_check(a5, v7, &off_2324F90);\n  v8 = (__int128 *)(*(_QWORD *)(a2 + 240) + 32 * a5);\n  if ( (unsigned __int64)core::sync::atomic::atomic_load(&tracing_core::metadata::MAX_LEVEL, 0LL) <= 2 )\n  {\n    v9 = tracing_core::callsite::DefaultCallsite::interest(&linera_server::ServerContext::make_shard_state::__CALLSITE);\n    if ( v9 )\n    {\n      if ( (unsigned __int8)tracing::__macro_support::__is_enabled(\n                              linera_server::ServerContext::make_shard_state::__CALLSITE,\n                              v9) )\n      {\n        v10 = (char *)linera_server::ServerContext::make_shard_state::__CALLSITE;\n        v11 = *((_QWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 7);\n        *(_OWORD *)desta = *((_OWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 3);\n        *(_OWORD *)&desta[16] = *((_OWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 4);\n        *(_QWORD *)&desta[32] = 0LL;\n        *(_QWORD *)&v58 = v11;\n        <tracing_core::field::Iter as core::iter::traits::iterator::Iterator>::next(src, desta);\n        if ( *(_QWORD *)&src[0] )\n        {\n          v70 = *(_QWORD *)&src[2];\n          v69 = src[1];\n          v68 = src[0];\n          v44 = v8;\n          v45 = <alloc::string::String as core::fmt::Display>::fmt;\n          *(_QWORD *)&src[0] = &off_23391F0;\n          *((_QWORD *)&src[0] + 1) = 1LL;\n          *(_QWORD *)&src[2] = 0LL;\n          *(_QWORD *)&src[1] = &v44;\n          *((_QWORD *)&src[1] + 1) = 1LL;\n          *(_QWORD *)&v51 = &v68;\n          *((_QWORD *)&v51 + 1) = src;\n          *(_QWORD *)&v52 = &unk_2324B18;\n          *(_QWORD *)desta = &v51;\n          *(_QWORD *)&desta[8] = 1LL;\n          *(_QWORD *)&desta[16] = v10 + 48;\n          linera_server::ServerContext::make_shard_state::{{closure}}(desta);\n          goto LABEL_12;\n        }\nLABEL_26:\n        v43 = &off_2339240;\n        goto LABEL_28;\n      }\n    }\n  }\n  if ( !(unsigned __int8)core::sync::atomic::atomic_load(&tracing_core::dispatcher::EXISTS, 0LL)\n    && (unsigned __int64)core::sync::atomic::atomic_load(&log::MAX_LOG_LEVEL_FILTER, 0LL) >= 3 )\n  {\n    v12 = linera_server::ServerContext::make_shard_state::__CALLSITE;\n    v13 = *((_OWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 2);\n    *(_QWORD *)v64 = 3LL;\n    *(_OWORD *)&v64[8] = v13;\n    v14 = log::logger();\n    v16 = v15;\n    if ( (*(unsigned __int8 (__fastcall **)(__int64, _BYTE *))(v15 + 24))(v14, v64) )\n    {\n      v47 = v12;\n      v17 = (char *)linera_server::ServerContext::make_shard_state::__CALLSITE;\n      v18 = *((_QWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 7);\n      *(_OWORD *)desta = *((_OWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 3);\n      *(_OWORD *)&desta[16] = *((_OWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 4);\n      *(_QWORD *)&desta[32] = 0LL;\n      *(_QWORD *)&v58 = v18;\n      <tracing_core::field::Iter as core::iter::traits::iterator::Iterator>::next(src, desta);\n      if ( *(_QWORD *)&src[0] )\n      {\n        v70 = *(_QWORD *)&src[2];\n        v69 = src[1];\n        v68 = src[0];\n        v48 = (__int128 **)v8;\n        v49 = <alloc::string::String as core::fmt::Display>::fmt;\n        *(_QWORD *)&src[0] = &off_23391F0;\n        *((_QWORD *)&src[0] + 1) = 1LL;\n        *(_QWORD *)&src[2] = 0LL;\n        *(_QWORD *)&src[1] = &v48;\n        *((_QWORD *)&src[1] + 1) = 1LL;\n        *(_QWORD *)&v51 = &v68;\n        *((_QWORD *)&v51 + 1) = src;\n        *(_QWORD *)&v52 = &unk_2324B18;\n        v44 = &v51;\n        v45 = (__int64 (__fastcall *)())(&dword_0 + 1);\n        v46 = v17 + 48;\n        *(_QWORD *)&desta[16] = *(_QWORD *)&v64[16];\n        *(_OWORD *)desta = *(_OWORD *)v64;\n        tracing::__macro_support::__tracing_log(v47, v14, v16, desta, &v44);\n        goto LABEL_12;\n      }\n      goto LABEL_26;\n    }\n  }\nLABEL_12:\n  if ( (unsigned __int64)core::sync::atomic::atomic_load(&tracing_core::metadata::MAX_LEVEL, 0LL) <= 2 )\n  {\n    v19 = tracing_core::callsite::DefaultCallsite::interest(&linera_server::ServerContext::make_shard_state::__CALLSITE);\n    if ( v19 )\n    {\n      if ( (unsigned __int8)tracing::__macro_support::__is_enabled(\n                              linera_server::ServerContext::make_shard_state::__CALLSITE,\n                              v19) )\n      {\n        v20 = (char *)linera_server::ServerContext::make_shard_state::__CALLSITE;\n        v21 = *((_QWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 7);\n        v68 = *((_OWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 3);\n        v69 = *((_OWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 4);\n        v70 = 0LL;\n        v71 = v21;\n        <tracing_core::field::Iter as core::iter::traits::iterator::Iterator>::next(src, &v68);\n        if ( *(_QWORD *)&src[0] )\n        {\n          v53 = *(_QWORD *)&src[2];\n          v52 = src[1];\n          v51 = src[0];\n          *(_QWORD *)&src[5] = *(_QWORD *)(a2 + 512);\n          src[4] = *(_OWORD *)(a2 + 496);\n          v22 = *(_OWORD *)(a2 + 432);\n          v23 = *(_OWORD *)(a2 + 448);\n          v24 = *(_OWORD *)(a2 + 464);\n          src[3] = *(_OWORD *)(a2 + 480);\n          src[2] = v24;\n          src[1] = v23;\n          src[0] = v22;\n          v48 = (__int128 **)src;\n          v49 = <linera_base::crypto::secp256k1::Secp256k1PublicKey as core::fmt::Display>::fmt;\n          *(_QWORD *)desta = &off_2339200;\n          *(_QWORD *)&desta[8] = 1LL;\n          *(_QWORD *)&desta[32] = 0LL;\n          *(_QWORD *)&desta[16] = &v48;\n          *(_QWORD *)&desta[24] = 1LL;\n          v44 = &v51;\n          v45 = (__int64 (__fastcall *)())desta;\n          v46 = &unk_2324B18;\n          *(_QWORD *)&v68 = &v44;\n          *((_QWORD *)&v68 + 1) = 1LL;\n          *(_QWORD *)&v69 = v20 + 48;\n          linera_server::ServerContext::make_shard_state::{{closure}}(&v68);\n          goto LABEL_22;\n        }\n        goto LABEL_27;\n      }\n    }\n  }\n  if ( (unsigned __int8)core::sync::atomic::atomic_load(&tracing_core::dispatcher::EXISTS, 0LL) )\n    goto LABEL_22;\n  if ( (unsigned __int64)core::sync::atomic::atomic_load(&log::MAX_LOG_LEVEL_FILTER, 0LL) < 3 )\n    goto LABEL_22;\n  v26 = linera_server::ServerContext::make_shard_state::__CALLSITE;\n  v27 = *((_OWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 2);\n  *(_QWORD *)v65 = 3LL;\n  *(_OWORD *)&v65[8] = v27;\n  v28 = log::logger();\n  v30 = v29;\n  if ( !(*(unsigned __int8 (__fastcall **)(__int64, _BYTE *))(v29 + 24))(v28, v65) )\n    goto LABEL_22;\n  v47 = v26;\n  v31 = (char *)linera_server::ServerContext::make_shard_state::__CALLSITE;\n  v32 = *((_QWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 7);\n  v68 = *((_OWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 3);\n  v69 = *((_OWORD *)linera_server::ServerContext::make_shard_state::__CALLSITE + 4);\n  v70 = 0LL;\n  v71 = v32;\n  <tracing_core::field::Iter as core::iter::traits::iterator::Iterator>::next(src, &v68);\n  if ( !*(_QWORD *)&src[0] )\n  {\nLABEL_27:\n    v43 = &off_2339258;\nLABEL_28:\n    core::option::expect_failed(aFieldsetCorrup_0, 34LL, v43);\n  }\n  v53 = *(_QWORD *)&src[2];\n  v52 = src[1];\n  v51 = src[0];\n  *(_QWORD *)&src[5] = *(_QWORD *)(a2 + 512);\n  src[4] = *(_OWORD *)(a2 + 496);\n  v33 = *(_OWORD *)(a2 + 432);\n  v34 = *(_OWORD *)(a2 + 448);\n  v35 = *(_OWORD *)(a2 + 464);\n  src[3] = *(_OWORD *)(a2 + 480);\n  src[2] = v35;\n  src[1] = v34;\n  src[0] = v33;\n  v67[0] = src;\n  v67[1] = <linera_base::crypto::secp256k1::Secp256k1PublicKey as core::fmt::Display>::fmt;\n  *(_QWORD *)desta = &off_2339200;\n  *(_QWORD *)&desta[8] = 1LL;\n  *(_QWORD *)&desta[32] = 0LL;\n  *(_QWORD *)&desta[16] = v67;\n  *(_QWORD *)&desta[24] = 1LL;\n  v44 = &v51;\n  v45 = (__int64 (__fastcall *)())desta;\n  v46 = &unk_2324B18;\n  v48 = &v44;\n  v49 = (__int64 (__fastcall *)())(&dword_0 + 1);\n  v50 = v31 + 48;\n  *(_QWORD *)&v69 = *(_QWORD *)&v65[16];\n  v68 = *(_OWORD *)v65;\n  tracing::__macro_support::__tracing_log(v47, v28, v30, &v68, &v48);\nLABEL_22:\n  *(_QWORD *)&src[0] = &v55;\n  *((_QWORD *)&src[0] + 1) = core::fmt::num::imp::<impl core::fmt::Display for usize>::fmt;\n  *(_QWORD *)&src[1] = v66;\n  *((_QWORD *)&src[1] + 1) = <&T as core::fmt::Display>::fmt;\n  *(_QWORD *)&src[2] = (char *)v8 + 28;\n  *((_QWORD *)&src[2] + 1) = core::fmt::num::imp::<impl core::fmt::Display for u16>::fmt;\n  *(_QWORD *)desta = &off_2339210;\n  *(_QWORD *)&desta[8] = 3LL;\n  *(_QWORD *)&desta[32] = 0LL;\n  *(_QWORD *)&desta[16] = src;\n  *(_QWORD *)&desta[24] = 3LL;\n  core::option::Option<T>::map_or_else(v72, 0LL, v25, desta);\n  v63 = *(_QWORD *)(a2 + 512);\n  v62 = *(_OWORD *)(a2 + 496);\n  v61 = *(_OWORD *)(a2 + 480);\n  v60 = *(_OWORD *)(a2 + 464);\n  v36 = *(_OWORD *)(a2 + 400);\n  v37 = *(_OWORD *)(a2 + 416);\n  v38 = *(_OWORD *)(a2 + 432);\n  v59 = *(_OWORD *)(a2 + 448);\n  v58 = v38;\n  *(_OWORD *)&desta[24] = v37;\n  *(_OWORD *)&desta[8] = v36;\n  *(_QWORD *)desta = 1LL;\n  linera_core::worker::WorkerState<StorageClient>::new(\n    src,\n    v72,\n    desta,\n    v54,\n    *(_QWORD *)(a2 + 592),\n    *(_QWORD *)(a2 + 600));\n  linera_core::worker::WorkerState<StorageClient>::with_allow_inactive_chains(desta, src);\n  linera_core::worker::WorkerState<StorageClient>::with_allow_messages_from_deprecated_epochs(src, desta);\n  linera_core::worker::WorkerState<StorageClient>::with_grace_period(desta, src);\n  linera_core::worker::WorkerState<StorageClient>::with_chain_worker_ttl(&v68, desta);\n  linera_core::worker::WorkerState<StorageClient>::with_chain_info_max_received_log_entries(src, &v68);\n  v39 = v55;\n  <alloc::string::String as core::clone::Clone>::clone(desta, v8);\n  v40 = *((_WORD *)v8 + 12);\n  v41 = *((_WORD *)v8 + 14);\n  if ( (_BYTE)v40 == 1 )\n    LOWORD(v8) = *((_WORD *)v8 + 13);\n  else\n    v40 = 0;\n  *((_QWORD *)dest + 23) = *(_QWORD *)&desta[16];\n  *(_OWORD *)(dest + 168) = *(_OWORD *)desta;\n  result = memcpy(dest, src, 0xA0uLL);\n  *((_QWORD *)dest + 20) = v39;\n  *((_WORD *)dest + 96) = v40;\n  *((_WORD *)dest + 97) = (_WORD)v8;\n  *((_WORD *)dest + 98) = v41;\n  return result;\n}",
+    "_ZN13linera_server13ServerContext12spawn_simple17h06b180a099588b99E": "__int64 __fastcall linera_server::ServerContext::spawn_simple(\n        __int64 a1,\n        __int64 a2,\n        __int64 a3,\n        __int64 a4,\n        unsigned __int8 a5,\n        __int64 a6)\n{\n  __int64 v8; // rbx\n  __int128 v9; // xmm0\n  __int64 v10; // rax\n  __int64 v11; // rdx\n  __int64 v12; // rdx\n  __int64 v13; // rbx\n  __int64 v15; // [rsp+8h] [rbp-530h] BYREF\n  _QWORD v16[3]; // [rsp+10h] [rbp-528h] BYREF\n  __int64 v17; // [rsp+28h] [rbp-510h]\n  __int64 v18; // [rsp+30h] [rbp-508h]\n  _BYTE v19[24]; // [rsp+38h] [rbp-500h] BYREF\n  __int128 v20; // [rsp+50h] [rbp-4E8h]\n  __int128 v21; // [rsp+60h] [rbp-4D8h]\n  _BYTE v22[32]; // [rsp+78h] [rbp-4C0h] BYREF\n  __int128 v23; // [rsp+98h] [rbp-4A0h] BYREF\n  __int64 v24; // [rsp+A8h] [rbp-490h]\n  _QWORD src[21]; // [rsp+B0h] [rbp-488h] BYREF\n  _OWORD v26[2]; // [rsp+158h] [rbp-3E0h] BYREF\n  _BYTE v27[168]; // [rsp+178h] [rbp-3C0h] BYREF\n  _QWORD v28[21]; // [rsp+220h] [rbp-318h] BYREF\n  __int128 v29; // [rsp+2C8h] [rbp-270h]\n  __int64 v30; // [rsp+2D8h] [rbp-260h]\n  _BYTE v31[160]; // [rsp+2E0h] [rbp-258h] BYREF\n  __int64 v32; // [rsp+380h] [rbp-1B8h]\n  __int128 v33; // [rsp+388h] [rbp-1B0h]\n  __int128 v34; // [rsp+398h] [rbp-1A0h]\n  __int128 v35; // [rsp+3A8h] [rbp-190h]\n  __int16 v36; // [rsp+3B8h] [rbp-180h]\n  _BYTE dest[160]; // [rsp+3C0h] [rbp-178h] BYREF\n  _BYTE v38[216]; // [rsp+460h] [rbp-D8h] BYREF\n\n  v18 = a3;\n  v17 = a2;\n  v15 = a6;\n  v16[2] = a4;\n  v16[0] = tokio::util::idle_notified_set::IdleNotifiedSet<T>::new();\n  v16[1] = 0LL;\n  futures_util::stream::futures_unordered::FuturesUnordered<Fut>::new(v19);\n  linera_rpc::config::ValidatorInternalNetworkPreConfig<P>::clone_with_protocol(v27, a1 + 232, a5);\n  <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(v22, a4);\n  <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(src, v22);\n  if ( !__OFSUB__(0LL, src[0]) )\n  {\n    do\n    {\n      memcpy(dest, src, sizeof(dest));\n      v8 = src[20];\n      v21 = v26[1];\n      v20 = v26[0];\n      <linera_rpc::config::ValidatorInternalNetworkPreConfig<P> as core::clone::Clone>::clone(v38, v27);\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v23, v17, v18);\n      v30 = v24;\n      v29 = v23;\n      memcpy(v28, v38, sizeof(v28));\n      memcpy(v31, src, sizeof(v31));\n      v36 = WORD6(v21);\n      v32 = v8;\n      v9 = *(_OWORD *)(a1 + 552);\n      v34 = *(_OWORD *)(a1 + 568);\n      v33 = v9;\n      v35 = 0LL;\n      <tokio_util::sync::cancellation_token::CancellationToken as core::clone::Clone>::clone(&v15);\n      v10 = linera_rpc::simple::server::Server<S>::spawn(v28);\n      v28[0] = 0LL;\n      v28[1] = v10;\n      v28[2] = v11;\n      LOBYTE(v28[5]) = 0;\n      v28[6] = v8;\n      futures_util::stream::futures_unordered::FuturesUnordered<Fut>::push(v19, v28);\n      core::ptr::drop_in_place<linera_rpc::config::ValidatorPublicNetworkPreConfig<linera_rpc::config::NetworkProtocol>>(v26);\n      <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(src, v22);\n    }\n    while ( src[0] != 0x8000000000000000LL );\n  }\n  core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<(linera_core::worker::WorkerState<linera_storage::db_storage::DbStorage<linera_views::backends::lru_caching::LruCachingDatabase<linera_storage_service::client::StorageServiceDatabaseInternal>>>,usize,linera_rpc::config::ShardConfig)>>(v22);\n  <linera_storage_service::client::StorageServiceStoreInternal as linera_views::store::ReadableKeyValueStore>::read_multi_values_bytes::{{closure}}::{{closure}}(\n    v28,\n    v19);\n  src[0] = <tokio::task::join_set::JoinSet<()> as linera_core::join_set_ext::implementation::JoinSetExt>::spawn_task(\n             v16,\n             v28);\n  src[1] = v12;\n  core::ptr::drop_in_place<linera_core::join_set_ext::TaskHandle<()>>(src);\n  v13 = v16[0];\n  core::ptr::drop_in_place<linera_rpc::config::ValidatorInternalNetworkPreConfig<linera_rpc::config::NetworkProtocol>>(v27);\n  core::ptr::drop_in_place<tokio_util::sync::cancellation_token::CancellationToken>(&v15);\n  return v13;\n}",
+    "_ZN13linera_server13ServerContext10spawn_grpc17h327ee1b7ebb4144cE": "__int64 __fastcall linera_server::ServerContext::spawn_grpc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)\n{\n  __int64 v6; // r15\n  int v7; // r12d\n  __int64 v8; // rax\n  __int64 v9; // rax\n  __int64 v10; // rdx\n  __int128 v11; // rax\n  __int64 v12; // rbx\n  __int64 v14; // [rsp+8h] [rbp-380h] BYREF\n  _QWORD v15[3]; // [rsp+10h] [rbp-378h] BYREF\n  __int64 v16; // [rsp+28h] [rbp-360h]\n  __int64 v17; // [rsp+30h] [rbp-358h]\n  __int64 v18; // [rsp+38h] [rbp-350h]\n  __int64 v19; // [rsp+40h] [rbp-348h]\n  __int64 v20; // [rsp+48h] [rbp-340h]\n  __int128 v21; // [rsp+50h] [rbp-338h] BYREF\n  __int64 v22; // [rsp+60h] [rbp-328h]\n  _BYTE v23[24]; // [rsp+70h] [rbp-318h] BYREF\n  _BYTE v24[32]; // [rsp+88h] [rbp-300h] BYREF\n  __int128 v25; // [rsp+A8h] [rbp-2E0h] BYREF\n  __int64 v26; // [rsp+B8h] [rbp-2D0h]\n  char v27; // [rsp+D0h] [rbp-2B8h]\n  __int64 v28; // [rsp+D8h] [rbp-2B0h]\n  _QWORD src[21]; // [rsp+150h] [rbp-238h] BYREF\n  _BYTE v30[28]; // [rsp+1F8h] [rbp-190h] BYREF\n  unsigned __int16 v31; // [rsp+214h] [rbp-174h]\n  _BYTE dest[160]; // [rsp+218h] [rbp-170h] BYREF\n  _BYTE v33[160]; // [rsp+2B8h] [rbp-D0h] BYREF\n\n  v20 = a3;\n  v19 = a2;\n  v14 = a5;\n  v15[2] = a4;\n  v15[0] = tokio::util::idle_notified_set::IdleNotifiedSet<T>::new();\n  v15[1] = 0LL;\n  futures_util::stream::futures_unordered::FuturesUnordered<Fut>::new(v23);\n  <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(v24, a4);\n  <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(src, v24);\n  if ( !__OFSUB__(0LL, src[0]) )\n  {\n    v18 = a1 + 232;\n    v16 = *(_QWORD *)(a1 + 584);\n    v17 = a1 + 552;\n    do\n    {\n      memcpy(dest, src, sizeof(dest));\n      v6 = src[20];\n      v7 = v31;\n      <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(&v25, v19, v20);\n      v22 = v26;\n      v21 = v25;\n      memcpy(v33, src, sizeof(v33));\n      <linera_rpc::config::ValidatorInternalNetworkPreConfig<P> as core::clone::Clone>::clone(&v25, v18);\n      v8 = <tokio_util::sync::cancellation_token::CancellationToken as core::clone::Clone>::clone(&v14);\n      v9 = linera_rpc::grpc::server::GrpcServer<S>::spawn(\n             (unsigned int)&v21,\n             v7,\n             (unsigned int)v33,\n             v6,\n             (unsigned int)&v25,\n             v17,\n             v16,\n             v8,\n             (__int64)v15);\n      *(_QWORD *)&v25 = 0LL;\n      *((_QWORD *)&v25 + 1) = v9;\n      v26 = v10;\n      v27 = 0;\n      v28 = v6;\n      futures_util::stream::futures_unordered::FuturesUnordered<Fut>::push(v23, &v25);\n      core::ptr::drop_in_place<linera_rpc::config::ValidatorPublicNetworkPreConfig<linera_rpc::config::NetworkProtocol>>(v30);\n      <alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next(src, v24);\n    }\n    while ( src[0] != 0x8000000000000000LL );\n  }\n  core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<(linera_core::worker::WorkerState<linera_storage::db_storage::DbStorage<linera_views::backends::metering::MeteredDatabase<linera_views::backends::lru_caching::LruCachingDatabase<linera_views::backends::metering::MeteredDatabase<linera_views::backends::value_splitting::ValueSplittingDatabase<linera_views::backends::metering::MeteredDatabase<linera_views::backends::rocks_db::RocksDbDatabaseInternal>>>>>>>,usize,linera_rpc::config::ShardConfig)>>(v24);\n  <linera_storage_service::client::StorageServiceStoreInternal as linera_views::store::ReadableKeyValueStore>::read_multi_values_bytes::{{closure}}::{{closure}}(\n    src,\n    v23);\n  *(_QWORD *)&v11 = <tokio::task::join_set::JoinSet<()> as linera_core::join_set_ext::implementation::JoinSetExt>::spawn_task(\n                      v15,\n                      src);\n  v25 = v11;\n  core::ptr::drop_in_place<linera_core::join_set_ext::TaskHandle<()>>(&v25);\n  v12 = v15[0];\n  core::ptr::drop_in_place<tokio_util::sync::cancellation_token::CancellationToken>(&v14);\n  return v12;\n}",
+    "_ZN13linera_server13ServerContext18get_listen_address17h111c1e41c534743cE": "__int64 __fastcall linera_server::ServerContext::get_listen_address(__int64 a1)\n{\n  return <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(\n           a1,\n           \"0.0.0.0Failed to create Tokio runtimevalidator--shard-Failed to read server configUnable to write server conf\"\n           \"ig fileWrote server config ,Unable to open committee configurationUnable to read validator options fileUnable\"\n           \" to open server config fileUnable to write committee descriptionWrote committee config Failed to write update\"\n           \"d server configInvalid options file format: \\n\"\n           \" Failed to parse the number of shards\",\n           7LL);\n}",
+    "_ZN13linera_server18make_server_config17h90c52137435cd678E": "__int64 __fastcall linera_server::make_server_config(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)\n{\n  __int16 v6; // r12\n  __int16 v7; // r13\n  __int16 v8; // r15\n  __int64 v9; // r15\n  __int128 v10; // xmm0\n  __int128 v12; // [rsp+10h] [rbp-6C8h]\n  __int128 v13; // [rsp+20h] [rbp-6B8h]\n  __int128 v14; // [rsp+30h] [rbp-6A8h]\n  __int128 v15; // [rsp+40h] [rbp-698h]\n  __int128 v16; // [rsp+50h] [rbp-688h]\n  __int128 v17; // [rsp+60h] [rbp-678h]\n  __int128 v18; // [rsp+70h] [rbp-668h]\n  __int64 v19; // [rsp+80h] [rbp-658h]\n  __int128 v20; // [rsp+88h] [rbp-650h]\n  __int128 v21; // [rsp+98h] [rbp-640h]\n  __int128 v22; // [rsp+A8h] [rbp-630h]\n  __int128 v23; // [rsp+B8h] [rbp-620h]\n  __int128 v24; // [rsp+C8h] [rbp-610h]\n  __int64 v25; // [rsp+D8h] [rbp-600h]\n  _OWORD v26[10]; // [rsp+E0h] [rbp-5F8h] BYREF\n  __int128 v27; // [rsp+180h] [rbp-558h]\n  __int128 v28; // [rsp+190h] [rbp-548h]\n  _BYTE v29[96]; // [rsp+1A0h] [rbp-538h] BYREF\n  __int128 v30; // [rsp+200h] [rbp-4D8h]\n  __int128 v31; // [rsp+210h] [rbp-4C8h]\n  __int128 v32; // [rsp+220h] [rbp-4B8h]\n  __int128 v33; // [rsp+230h] [rbp-4A8h]\n  __int128 v34; // [rsp+240h] [rbp-498h]\n  __int64 v35; // [rsp+250h] [rbp-488h]\n  _BYTE v36[160]; // [rsp+258h] [rbp-480h] BYREF\n  __int16 v37; // [rsp+2F8h] [rbp-3E0h]\n  __int128 v38; // [rsp+300h] [rbp-3D8h]\n  __int128 v39; // [rsp+310h] [rbp-3C8h]\n  __int128 v40; // [rsp+320h] [rbp-3B8h]\n  __int128 v41; // [rsp+330h] [rbp-3A8h]\n  __int128 v42; // [rsp+340h] [rbp-398h]\n  __int128 v43; // [rsp+350h] [rbp-388h]\n  __int128 v44; // [rsp+360h] [rbp-378h]\n  __int64 v45; // [rsp+370h] [rbp-368h]\n  _OWORD src[36]; // [rsp+380h] [rbp-358h] BYREF\n  __int64 v47; // [rsp+5C0h] [rbp-118h] BYREF\n  _BYTE dest[224]; // [rsp+5C8h] [rbp-110h] BYREF\n\n  ecdsa::signing::SigningKey<C>::random(src, a4);\n  v19 = *(_QWORD *)&src[7];\n  v18 = src[6];\n  v17 = src[5];\n  v16 = src[4];\n  v15 = src[3];\n  v14 = src[2];\n  v13 = src[1];\n  v12 = src[0];\n  v20 = src[2];\n  v21 = src[3];\n  v22 = src[4];\n  v23 = src[5];\n  v24 = src[6];\n  v25 = *(_QWORD *)&src[7];\n  ed25519_dalek::signing::SigningKey::generate(src);\n  memcpy(dest, src, sizeof(dest));\n  v47 = 0LL;\n  v6 = *(_WORD *)(a5 + 120);\n  *(_QWORD *)&v28 = *(_QWORD *)(a5 + 40);\n  v27 = *(_OWORD *)(a5 + 24);\n  v7 = *(_WORD *)(a5 + 124);\n  v8 = *(_WORD *)(a5 + 122);\n  *(_QWORD *)&v26[1] = *(_QWORD *)(a5 + 88);\n  v26[0] = *(_OWORD *)(a5 + 72);\n  *((_QWORD *)&v26[2] + 1) = *(_QWORD *)(a5 + 64);\n  *(_OWORD *)((char *)&v26[1] + 8) = *(_OWORD *)(a5 + 48);\n  *(_QWORD *)&v26[4] = *(_QWORD *)(a5 + 112);\n  v26[3] = *(_OWORD *)(a5 + 96);\n  *(_OWORD *)((char *)&v26[4] + 8) = v20;\n  *(_OWORD *)((char *)&v26[5] + 8) = v21;\n  *(_OWORD *)((char *)&v26[6] + 8) = v22;\n  *(_OWORD *)((char *)&v26[7] + 8) = v23;\n  *(_OWORD *)((char *)&v26[8] + 8) = v24;\n  *((_QWORD *)&v26[9] + 1) = v25;\n  linera_base::crypto::AccountSecretKey::public(v29, &v47);\n  v38 = v12;\n  v39 = v13;\n  v40 = v14;\n  v41 = v15;\n  v42 = v16;\n  v43 = v17;\n  v44 = v18;\n  v45 = v19;\n  WORD4(v28) = v6;\n  WORD5(v28) = v7;\n  v35 = v25;\n  v34 = v24;\n  v33 = v23;\n  v32 = v22;\n  v31 = v21;\n  v30 = v20;\n  memcpy(v36, v26, sizeof(v36));\n  v37 = v8;\n  linera_persistent::file::File<T>::new(src);\n  v9 = *(_QWORD *)&src[0];\n  v27 = *(_OWORD *)((char *)src + 8);\n  v28 = *(_OWORD *)((char *)&src[1] + 8);\n  if ( __OFSUB__(-*(_QWORD *)&src[0], 1LL) )\n  {\n    src[1] = v28;\n    src[0] = v27;\n    *(_QWORD *)(a1 + 8) = anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from(src, a2);\n    *(_QWORD *)a1 = 0x8000000000000000LL;\n  }\n  else\n  {\n    memcpy((void *)(a1 + 40), (char *)&src[2] + 8, 0x210uLL);\n    v10 = v27;\n    *(_OWORD *)(a1 + 24) = v28;\n    *(_OWORD *)(a1 + 8) = v10;\n    *(_QWORD *)a1 = v9;\n  }\n  core::ptr::drop_in_place<linera_base::crypto::AccountSecretKey>(&v47);\n  return core::ptr::drop_in_place<std::path::PathBuf>(a5);\n}",
+    "_ZN13linera_server4main17h7a0264c37cf4b5b5E": "__int64 linera_server::main()\n{\n  char v0; // bp\n  __int64 v1; // rbx\n  _BYTE v3[80]; // [rsp+8h] [rbp-820h] BYREF\n  _BYTE dest[216]; // [rsp+58h] [rbp-7D0h] BYREF\n  _QWORD v5[36]; // [rsp+130h] [rbp-6F8h] BYREF\n  _BYTE src[1496]; // [rsp+250h] [rbp-5D8h] BYREF\n\n  clap_builder::derive::Parser::parse(v5);\n  v0 = v5[0];\n  v1 = v5[1];\n  if ( ((v5[1] == 1LL) & v5[0]) != 0 )\n  {\n    tokio::runtime::builder::Builder::new_current_thread(dest);\n    if ( LODWORD(v5[2]) != 1 )\n      goto LABEL_8;\n    goto LABEL_7;\n  }\n  tokio::runtime::builder::Builder::new_multi_thread(src);\n  if ( (v0 & 1) != 0 )\n    tokio::runtime::builder::Builder::worker_threads(src, v1, &off_23392C0);\n  memcpy(dest, src, sizeof(dest));\n  if ( LODWORD(v5[2]) == 1 )\nLABEL_7:\n    tokio::runtime::builder::Builder::max_blocking_threads(dest, v5[3], &off_23392D8);\nLABEL_8:\n  *(_WORD *)&dest[205] = 257;\n  tokio::runtime::builder::Builder::build(src, dest);\n  core::result::Result<T,E>::expect(v3, src);\n  memcpy(src, v5, 0x120uLL);\n  src[696] = 0;\n  tokio::runtime::runtime::Runtime::block_on(v3, src);\n  core::ptr::drop_in_place<tokio::runtime::builder::Builder>(dest);\n  return core::ptr::drop_in_place<tokio::runtime::runtime::Runtime>(v3);\n}",
+    "_ZN13linera_server17log_file_name_for17hac57d26873280f74E": "__int64 __fastcall linera_server::log_file_name_for(_QWORD *a1, __int64 a2)\n{\n  __int64 v2; // rdx\n  __int64 *v3; // rax\n  __int64 result; // rax\n  char *v5; // [rsp+8h] [rbp-450h] BYREF\n  __int64 v6; // [rsp+10h] [rbp-448h] BYREF\n  __int128 v7; // [rsp+18h] [rbp-440h] BYREF\n  __int64 *v8; // [rsp+28h] [rbp-430h]\n  __int128 v9; // [rsp+30h] [rbp-428h] BYREF\n  __int64 *v10; // [rsp+40h] [rbp-418h]\n  __int64 (__fastcall *v11)(); // [rsp+48h] [rbp-410h]\n  __int128 v12; // [rsp+50h] [rbp-408h] BYREF\n  __int128 *v13; // [rsp+60h] [rbp-3F8h]\n  __int64 v14; // [rsp+68h] [rbp-3F0h]\n  __int64 v15; // [rsp+70h] [rbp-3E8h]\n  _BYTE v16[128]; // [rsp+248h] [rbp-210h] BYREF\n  char v17; // [rsp+2C8h] [rbp-190h] BYREF\n\n  if ( *(_DWORD *)a2 > 1u )\n  {\n    a1[1] = aServer_0;\n    a1[2] = 6LL;\n    result = 0x8000000000000000LL;\n    *a1 = 0x8000000000000000LL;\n  }\n  else\n  {\n    linera_service::util::read_json(&v12, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88));\n    core::result::Result<T,E>::expect(v16, &v12, &off_2339350);\n    v5 = &v17;\n    if ( (*(_BYTE *)(a2 + 56) & 1) != 0 )\n    {\n      v6 = a2 + 64;\n      *(_QWORD *)&v9 = &v5;\n      *((_QWORD *)&v9 + 1) = <&T as core::fmt::Display>::fmt;\n      v10 = &v6;\n      v11 = <&T as core::fmt::Display>::fmt;\n      *(_QWORD *)&v12 = &off_2339320;\n      *((_QWORD *)&v12 + 1) = 2LL;\n      v15 = 0LL;\n      v13 = &v9;\n      v14 = 2LL;\n      core::option::Option<T>::map_or_else(&v7, 0LL, v2, &v12);\n      v12 = v7;\n      v3 = v8;\n    }\n    else\n    {\n      *(_QWORD *)&v7 = &v5;\n      *((_QWORD *)&v7 + 1) = <&T as core::fmt::Display>::fmt;\n      *(_QWORD *)&v12 = &off_2339340;\n      *((_QWORD *)&v12 + 1) = 1LL;\n      v15 = 0LL;\n      v13 = &v7;\n      v14 = 1LL;\n      core::option::Option<T>::map_or_else(&v9, 0LL, v2, &v12);\n      v12 = v9;\n      v3 = v10;\n    }\n    v13 = (__int128 *)v3;\n    a1[2] = v3;\n    *(_OWORD *)a1 = v12;\n    return core::ptr::drop_in_place<linera_client::config::ValidatorServerConfig>(v16);\n  }\n  return result;\n}",
+    "_ZN13linera_server22generate_shard_configs17h797ef9f940b78891E": "__int64 __fastcall linera_server::generate_shard_configs(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int64 *a5)\n{\n  __int64 v7; // r14\n  __int64 v8; // rdi\n  unsigned int v9; // eax\n  _QWORD *v10; // rcx\n  __int16 v11; // bx\n  __int64 v12; // rdx\n  __int128 *v13; // r14\n  __int64 v14; // rbx\n  __int64 v15; // r13\n  __int128 *v16; // rbp\n  unsigned int v17; // eax\n  __int16 v18; // r14\n  __int16 v19; // cx\n  __int16 v20; // ax\n  _OWORD *v21; // rcx\n  _QWORD *v22; // rcx\n  _QWORD *v24; // rcx\n  __int16 v25; // [rsp+Eh] [rbp-1AAh] BYREF\n  __int64 v26; // [rsp+10h] [rbp-1A8h]\n  __int64 v27; // [rsp+18h] [rbp-1A0h]\n  _WORD v28[2]; // [rsp+22h] [rbp-196h] BYREF\n  char v29; // [rsp+26h] [rbp-192h]\n  __int64 v30; // [rsp+28h] [rbp-190h]\n  _QWORD *v31; // [rsp+30h] [rbp-188h]\n  __int64 *v32; // [rsp+38h] [rbp-180h]\n  unsigned __int64 v33; // [rsp+40h] [rbp-178h]\n  __int128 v34; // [rsp+48h] [rbp-170h] BYREF\n  __int64 v35; // [rsp+58h] [rbp-160h]\n  __int128 v36; // [rsp+60h] [rbp-158h]\n  __int128 v37; // [rsp+78h] [rbp-140h] BYREF\n  __int64 v38; // [rsp+88h] [rbp-130h]\n  __int16 *v39; // [rsp+90h] [rbp-128h] BYREF\n  __int64 (__fastcall *v40)(); // [rsp+98h] [rbp-120h]\n  __int64 v41; // [rsp+A0h] [rbp-118h]\n  __int16 v42; // [rsp+A8h] [rbp-110h]\n  __int128 v43; // [rsp+B0h] [rbp-108h] BYREF\n  __int64 v44; // [rsp+C0h] [rbp-F8h]\n  __int128 v45; // [rsp+D0h] [rbp-E8h] BYREF\n  __int64 v46; // [rsp+E0h] [rbp-D8h]\n  __int64 v47; // [rsp+E8h] [rbp-D0h]\n  __int64 v48; // [rsp+F0h] [rbp-C8h]\n  __int64 v49; // [rsp+F8h] [rbp-C0h]\n  __int64 v50; // [rsp+100h] [rbp-B8h]\n  __int64 v51; // [rsp+108h] [rbp-B0h]\n  __int64 v52; // [rsp+110h] [rbp-A8h]\n  __int64 v53; // [rsp+118h] [rbp-A0h]\n  __int128 v54; // [rsp+120h] [rbp-98h] BYREF\n  __int16 **v55; // [rsp+130h] [rbp-88h]\n  __int64 v56; // [rsp+138h] [rbp-80h]\n  void *v57; // [rsp+140h] [rbp-78h]\n  __int64 v58; // [rsp+148h] [rbp-70h]\n  __int128 v59; // [rsp+150h] [rbp-68h] BYREF\n  __int16 **v60; // [rsp+160h] [rbp-58h]\n  __int16 v61; // [rsp+168h] [rbp-50h]\n  __int16 v62; // [rsp+16Ah] [rbp-4Eh]\n  __int16 v63; // [rsp+16Ch] [rbp-4Ch]\n  __int128 v64; // [rsp+170h] [rbp-48h] BYREF\n  __int64 v65; // [rsp+180h] [rbp-38h]\n\n  v32 = a5;\n  v7 = a2;\n  v31 = a1;\n  *(_QWORD *)&v37 = 0LL;\n  *((_QWORD *)&v37 + 1) = 8LL;\n  v38 = 0LL;\n  v8 = *(_QWORD *)(a2 + 8);\n  v33 = *(_QWORD *)(a2 + 16);\n  v9 = <core::num::nonzero::NonZero<u16> as core::str::traits::FromStr>::from_str(v8);\n  anyhow::context::<impl anyhow::Context<T,E> for core::result::Result<T,E>>::context(&v34, v9);\n  if ( (_BYTE)v34 == 1 )\n  {\n    v10 = v31;\n    v31[1] = *((_QWORD *)&v34 + 1);\n    *v10 = 0x8000000000000000LL;\n    goto LABEL_16;\n  }\n  v11 = WORD1(v34);\n  alloc::slice::<impl [T]>::repeat(&v34, v33);\n  v26 = a4;\n  v27 = a3;\n  v30 = a2;\n  v44 = v35;\n  v43 = v34;\n  v28[0] = 1;\n  v28[1] = v11;\n  v29 = 0;\n  if ( (<core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next(v28) & 1) == 0 )\n  {\nLABEL_13:\n    v21 = v31;\n    v31[2] = v38;\n    *v21 = v37;\n    core::ptr::drop_in_place<alloc::string::String>(&v43);\n    v7 = v30;\n    a3 = v27;\n    a4 = v26;\n    goto LABEL_17;\n  }\n  if ( v33 > 0xFFFF )\n  {\n    v25 = v12;\n    *(_QWORD *)&v34 = &off_2339590;\n    *((_QWORD *)&v34 + 1) = 1LL;\n    v35 = 8LL;\n    v36 = 0LL;\n    core::panicking::panic_fmt(&v34, &off_23395B8);\n  }\n  v53 = *(_QWORD *)(v27 + 8);\n  v52 = *(_QWORD *)(v27 + 16);\n  v51 = *(_QWORD *)(v26 + 8);\n  v50 = *(_QWORD *)(v26 + 16);\n  v49 = *v32;\n  v48 = v32[1];\n  v47 = v32[2];\n  v13 = &v54;\n  while ( 1 )\n  {\n    v25 = v12;\n    v39 = &v25;\n    v40 = core::fmt::num::imp::<impl core::fmt::Display for u16>::fmt;\n    v41 = 0LL;\n    v42 = v33;\n    *(_QWORD *)&v54 = asc_3124D0;\n    *((_QWORD *)&v54 + 1) = 1LL;\n    v57 = &unk_344600;\n    v58 = 1LL;\n    v55 = &v39;\n    v56 = 2LL;\n    core::option::Option<T>::map_or_else(&v64, 0LL, v12, v13);\n    v45 = v64;\n    v14 = v65;\n    v46 = v65;\n    v15 = *((_QWORD *)&v64 + 1);\n    v16 = v13;\n    alloc::str::<impl str>::replacen(v13, v53, v52, &v43, *((_QWORD *)&v64 + 1), v65);\n    alloc::str::<impl str>::replacen(&v34, v51, v50, &v43, v15, v14);\n    v17 = core::num::<impl u16>::from_ascii_radix(*((_QWORD *)&v34 + 1), v35);\n    anyhow::context::<impl anyhow::Context<T,E> for core::result::Result<T,E>>::context(\n      &v39,\n      v17,\n      aFailedToDecode,\n      38LL);\n    if ( (_BYTE)v39 == 1 )\n    {\n      v22 = v31;\n      v31[1] = v40;\n      *v22 = 0x8000000000000000LL;\n      core::ptr::drop_in_place<alloc::string::String>(&v34);\n      goto LABEL_15;\n    }\n    v18 = WORD1(v39);\n    core::ptr::drop_in_place<alloc::string::String>(&v34);\n    if ( v49 != 0x8000000000000000LL )\n    {\n      linera_server::generate_shard_configs::{{closure}}(&v34, &v43, v15, v14, v48, v47);\n      if ( (_WORD)v34 != 2 )\n        break;\n    }\n    v20 = 0;\nLABEL_12:\n    v60 = v55;\n    v59 = v54;\n    v63 = v18;\n    v61 = v20;\n    v62 = v19;\n    alloc::vec::Vec<T,A>::push(&v37, &v59, &off_23395A0);\n    core::ptr::drop_in_place<alloc::string::String>(&v45);\n    v13 = v16;\n    if ( (<core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next(v28) & 1) == 0 )\n      goto LABEL_13;\n  }\n  if ( (v34 & 1) == 0 )\n  {\n    v19 = WORD1(v34);\n    v20 = 1;\n    goto LABEL_12;\n  }\n  v24 = v31;\n  v31[1] = *((_QWORD *)&v34 + 1);\n  *v24 = 0x8000000000000000LL;\nLABEL_15:\n  core::ptr::drop_in_place<alloc::string::String>(&v54);\n  core::ptr::drop_in_place<alloc::string::String>(&v45);\n  core::ptr::drop_in_place<alloc::string::String>(&v43);\n  v7 = v30;\n  a3 = v27;\n  a4 = v26;\nLABEL_16:\n  core::ptr::drop_in_place<alloc::vec::Vec<linera_rpc::config::ShardConfig>>(&v37);\nLABEL_17:\n  core::ptr::drop_in_place<core::option::Option<alloc::string::String>>(v32);\n  core::ptr::drop_in_place<alloc::string::String>(a4);\n  core::ptr::drop_in_place<alloc::string::String>(a3);\n  return core::ptr::drop_in_place<alloc::string::String>(v7);\n}",
+    "_ZN13linera_server1_84_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$linera_server..ValidatorOptions$GT$11deserialize17h3df31e5bdd7c2c58E": "// attributes: thunk\n__int64 linera_server::_::<impl serde::de::Deserialize for linera_server::ValidatorOptions>::deserialize()\n{\n  return <toml::de::Deserializer as serde::de::Deserializer>::deserialize_struct();\n}"
+  },
+  "function_call_counts": {
+    "_ZN13linera_server13ServerContext16make_shard_state17h1a3aeb2cdfd11fa8E": {
+      "core::panicking::panic_bounds_check": 1,
+      "tracing_core::callsite::DefaultCallsite::interest": 2,
+      "<tracing_core::field::Iter as core::iter::traits::iterator::Iterator>::next": 4,
+      "linera_server::ServerContext::make_shard_state::{{closure}}": 2,
+      "tracing::__macro_support::__is_enabled": 2,
+      "core::sync::atomic::atomic_load": 6,
+      "log::logger": 2,
+      "tracing::__macro_support::__tracing_log": 2,
+      "core::option::expect_failed": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "linera_core::worker::WorkerState<StorageClient>::new": 1,
+      "linera_core::worker::WorkerState<StorageClient>::with_allow_inactive_chains": 1,
+      "linera_core::worker::WorkerState<StorageClient>::with_allow_messages_from_deprecated_epochs": 1,
+      "linera_core::worker::WorkerState<StorageClient>::with_grace_period": 1,
+      "linera_core::worker::WorkerState<StorageClient>::with_chain_worker_ttl": 1,
+      "linera_core::worker::WorkerState<StorageClient>::with_chain_info_max_received_log_entries": 1,
+      "<alloc::string::String as core::clone::Clone>::clone": 1,
+      "memcpy": 1
+    },
+    "_ZN13linera_server13ServerContext12spawn_simple17h06b180a099588b99E": {
+      "tokio::util::idle_notified_set::IdleNotifiedSet<T>::new": 1,
+      "futures_util::stream::futures_unordered::FuturesUnordered<Fut>::new": 1,
+      "linera_rpc::config::ValidatorInternalNetworkPreConfig<P>::clone_with_protocol": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next": 2,
+      "memcpy": 3,
+      "<linera_rpc::config::ValidatorInternalNetworkPreConfig<P> as core::clone::Clone>::clone": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "<tokio_util::sync::cancellation_token::CancellationToken as core::clone::Clone>::clone": 1,
+      "linera_rpc::simple::server::Server<S>::spawn": 1,
+      "futures_util::stream::futures_unordered::FuturesUnordered<Fut>::push": 1,
+      "core::ptr::drop_in_place<linera_rpc::config::ValidatorPublicNetworkPreConfig<linera_rpc::config::NetworkProtocol>>": 1,
+      "core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<(linera_core::worker::WorkerState<linera_storage::db_storage::DbStorage<linera_views::backends::lru_caching::LruCachingDatabase<linera_storage_service::client::StorageServiceDatabaseInternal>>>,usize,linera_rpc::config::ShardConfig)>>": 1,
+      "<linera_storage_service::client::StorageServiceStoreInternal as linera_views::store::ReadableKeyValueStore>::read_multi_values_bytes::{{closure}}::{{closure}}": 1,
+      "<tokio::task::join_set::JoinSet<()> as linera_core::join_set_ext::implementation::JoinSetExt>::spawn_task": 1,
+      "core::ptr::drop_in_place<linera_core::join_set_ext::TaskHandle<()>>": 1,
+      "core::ptr::drop_in_place<linera_rpc::config::ValidatorInternalNetworkPreConfig<linera_rpc::config::NetworkProtocol>>": 1,
+      "core::ptr::drop_in_place<tokio_util::sync::cancellation_token::CancellationToken>": 1
+    },
+    "_ZN13linera_server13ServerContext10spawn_grpc17h327ee1b7ebb4144cE": {
+      "tokio::util::idle_notified_set::IdleNotifiedSet<T>::new": 1,
+      "futures_util::stream::futures_unordered::FuturesUnordered<Fut>::new": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "<alloc::vec::into_iter::IntoIter<T,A> as core::iter::traits::iterator::Iterator>::next": 2,
+      "memcpy": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "<linera_rpc::config::ValidatorInternalNetworkPreConfig<P> as core::clone::Clone>::clone": 1,
+      "<tokio_util::sync::cancellation_token::CancellationToken as core::clone::Clone>::clone": 1,
+      "linera_rpc::grpc::server::GrpcServer<S>::spawn": 1,
+      "futures_util::stream::futures_unordered::FuturesUnordered<Fut>::push": 1,
+      "core::ptr::drop_in_place<linera_rpc::config::ValidatorPublicNetworkPreConfig<linera_rpc::config::NetworkProtocol>>": 1,
+      "core::ptr::drop_in_place<alloc::vec::into_iter::IntoIter<(linera_core::worker::WorkerState<linera_storage::db_storage::DbStorage<linera_views::backends::metering::MeteredDatabase<linera_views::backends::lru_caching::LruCachingDatabase<linera_views::backends::metering::MeteredDatabase<linera_views::backends::value_splitting::ValueSplittingDatabase<linera_views::backends::metering::MeteredDatabase<linera_views::backends::rocks_db::RocksDbDatabaseInternal>>>>>>>,usize,linera_rpc::config::ShardConfig)>>": 1,
+      "<linera_storage_service::client::StorageServiceStoreInternal as linera_views::store::ReadableKeyValueStore>::read_multi_values_bytes::{{closure}}::{{closure}}": 1,
+      "<tokio::task::join_set::JoinSet<()> as linera_core::join_set_ext::implementation::JoinSetExt>::spawn_task": 1,
+      "core::ptr::drop_in_place<linera_core::join_set_ext::TaskHandle<()>>": 1,
+      "core::ptr::drop_in_place<tokio_util::sync::cancellation_token::CancellationToken>": 1
+    },
+    "_ZN13linera_server13ServerContext18get_listen_address17h111c1e41c534743cE": {
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1
+    },
+    "_ZN13linera_server18make_server_config17h90c52137435cd678E": {
+      "ecdsa::signing::SigningKey<C>::random": 1,
+      "ed25519_dalek::signing::SigningKey::generate": 1,
+      "memcpy": 3,
+      "linera_base::crypto::AccountSecretKey::public": 1,
+      "linera_persistent::file::File<T>::new": 1,
+      "anyhow::error::<impl core::convert::From<E> for anyhow::Error>::from": 1,
+      "core::ptr::drop_in_place<linera_base::crypto::AccountSecretKey>": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1
+    },
+    "_ZN13linera_server4main17h7a0264c37cf4b5b5E": {
+      "clap_builder::derive::Parser::parse": 1,
+      "tokio::runtime::builder::Builder::new_current_thread": 1,
+      "tokio::runtime::builder::Builder::new_multi_thread": 1,
+      "tokio::runtime::builder::Builder::worker_threads": 1,
+      "memcpy": 2,
+      "tokio::runtime::builder::Builder::max_blocking_threads": 1,
+      "tokio::runtime::builder::Builder::build": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "tokio::runtime::runtime::Runtime::block_on": 1,
+      "core::ptr::drop_in_place<tokio::runtime::builder::Builder>": 1,
+      "core::ptr::drop_in_place<tokio::runtime::runtime::Runtime>": 1
+    },
+    "_ZN13linera_server17log_file_name_for17hac57d26873280f74E": {
+      "linera_service::util::read_json": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "core::option::Option<T>::map_or_else": 2,
+      "core::ptr::drop_in_place<linera_client::config::ValidatorServerConfig>": 1
+    },
+    "_ZN13linera_server22generate_shard_configs17h797ef9f940b78891E": {
+      "<core::num::nonzero::NonZero<u16> as core::str::traits::FromStr>::from_str": 1,
+      "anyhow::context::<impl anyhow::Context<T,E> for core::result::Result<T,E>>::context": 2,
+      "alloc::slice::<impl [T]>::repeat": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 10,
+      "<core::ops::range::RangeInclusive<T> as core::iter::range::RangeInclusiveIteratorImpl>::spec_next": 2,
+      "core::panicking::panic_fmt": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "alloc::str::<impl str>::replacen": 2,
+      "core::num::<impl u16>::from_ascii_radix": 1,
+      "linera_server::generate_shard_configs::{{closure}}": 1,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<linera_rpc::config::ShardConfig>>": 1,
+      "core::ptr::drop_in_place<core::option::Option<alloc::string::String>>": 1
+    },
+    "_ZN13linera_server1_84_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$linera_server..ValidatorOptions$GT$11deserialize17h3df31e5bdd7c2c58E": {
+      "<toml::de::Deserializer as serde::de::Deserializer>::deserialize_struct": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN13linera_server13ServerContext16make_shard_state17h1a3aeb2cdfd11fa8E": {},
+    "_ZN13linera_server13ServerContext12spawn_simple17h06b180a099588b99E": {},
+    "_ZN13linera_server13ServerContext10spawn_grpc17h327ee1b7ebb4144cE": {},
+    "_ZN13linera_server13ServerContext18get_listen_address17h111c1e41c534743cE": {},
+    "_ZN13linera_server18make_server_config17h90c52137435cd678E": {},
+    "_ZN13linera_server4main17h7a0264c37cf4b5b5E": {},
+    "_ZN13linera_server17log_file_name_for17hac57d26873280f74E": {},
+    "_ZN13linera_server22generate_shard_configs17h797ef9f940b78891E": {},
+    "_ZN13linera_server1_84_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$linera_server..ValidatorOptions$GT$11deserialize17h3df31e5bdd7c2c58E": {}
+  },
+  "variable_types": {
+    "_ZN13linera_server13ServerContext16make_shard_state17h1a3aeb2cdfd11fa8E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_r14": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r13": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm1": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_xmm2": [
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "array",
+          160
+        ]
+      ],
+      "stack_288": [
+        [
+          "array",
+          40
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_344": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_376": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_392": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_408": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_448": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_472": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_496": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_512": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_528": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_544": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_560": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_568": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_688": [
+        [
+          "array",
+          72
+        ]
+      ]
+    },
+    "_ZN13linera_server13ServerContext12spawn_simple17h06b180a099588b99E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r9": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "array",
+          168
+        ]
+      ],
+      "stack_344": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_376": [
+        [
+          "array",
+          168
+        ]
+      ],
+      "stack_544": [
+        [
+          "array",
+          168
+        ]
+      ],
+      "stack_712": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_728": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_736": [
+        [
+          "array",
+          160
+        ]
+      ],
+      "stack_896": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_904": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_920": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_936": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_952": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_960": [
+        [
+          "array",
+          160
+        ]
+      ],
+      "stack_1120": [
+        [
+          "array",
+          216
+        ]
+      ]
+    },
+    "_ZN13linera_server13ServerContext10spawn_grpc17h327ee1b7ebb4144cE": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12d": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_168": [
+        [
+          "array",
+          32
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_368": [
+        [
+          "array",
+          168
+        ]
+      ],
+      "stack_536": [
+        [
+          "array",
+          28
+        ]
+      ],
+      "stack_564": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_568": [
+        [
+          "array",
+          160
+        ]
+      ],
+      "stack_728": [
+        [
+          "array",
+          160
+        ]
+      ]
+    },
+    "_ZN13linera_server13ServerContext18get_listen_address17h111c1e41c534743cE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN13linera_server18make_server_config17h90c52137435cd678E": {
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          2
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_xmm0": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_224": [
+        [
+          "array",
+          160
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_400": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_416": [
+        [
+          "array",
+          96
+        ]
+      ],
+      "stack_512": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_528": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_544": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_560": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_576": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_592": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_600": [
+        [
+          "array",
+          160
+        ]
+      ],
+      "stack_760": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_768": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_784": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_800": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_816": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_832": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_848": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_864": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_880": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_896": [
+        [
+          "array",
+          576
+        ]
+      ],
+      "stack_1472": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1480": [
+        [
+          "array",
+          224
+        ]
+      ]
+    },
+    "_ZN13linera_server4main17h7a0264c37cf4b5b5E": {
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          80
+        ]
+      ],
+      "stack_88": [
+        [
+          "array",
+          216
+        ]
+      ],
+      "stack_304": [
+        [
+          "array",
+          288
+        ]
+      ],
+      "stack_592": [
+        [
+          "array",
+          1496
+        ]
+      ]
+    },
+    "_ZN13linera_server17log_file_name_for17hac57d26873280f74E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_584": [
+        [
+          "array",
+          128
+        ]
+      ],
+      "stack_712": [
+        [
+          "primitive",
+          1
+        ]
+      ]
+    },
+    "_ZN13linera_server22generate_shard_configs17h797ef9f940b78891E": {
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_bx": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_cx": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_ax": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_14": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_34": [
+        [
+          "array",
+          4
+        ]
+      ],
+      "stack_38": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_224": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_232": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_304": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_320": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_328": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_352": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_360": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_362": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_364": [
+        [
+          "primitive",
+          2
+        ]
+      ],
+      "stack_368": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_384": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN13linera_server1_84_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$linera_server..ValidatorOptions$GT$11deserialize17h3df31e5bdd7c2c58E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

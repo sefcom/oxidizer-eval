@@ -1,0 +1,112 @@
+fn starship::modules::haskell::module(a0: i64, a1: u64) -> void {
+    let v0: struct40;  // [bp-0x200], Other Possible Types: u64
+    let v1: struct72;  // [bp-0x200]
+    let v2: Result<struct72, struct24>;  // [bp-0x200]
+    let v3: u64;  // [bp-0x1e8]
+    let v4: u128;  // [bp-0x1d0]
+    let v5: u64;  // [bp-0x1c0]
+    let v6: struct32;  // [bp-0x1b8]
+    let v7: u128;  // [bp-0x1b0]
+    let v8: core::result::Result<usize, core::num::error::ParseIntError>;  // [bp-0x1a0]
+    let v9: iNone;  // [bp-0x198]
+    let v10: u64;  // [bp-0x188]
+    let v11: Option<struct56>;  // [bp-0x178], Other Possible Types: struct72, u64
+    let v12: u64;  // [bp-0x170]
+    let v13: i64;  // [bp-0x168]
+    let v14: u64;  // [bp-0x160]
+    let v15: void*;  // [bp-0x158]
+    let v16: i64;  // [bp-0x130]
+    let v17: u64;  // [bp-0x128]
+    let v18: struct32;  // [bp-0x120]
+    let v19: struct92;  // [bp-0x100]
+    let v20: struct24;  // [bp-0x100]
+    let v21: struct16;  // [bp-0xf0]
+    let v22: iNone;  // [bp-0xe0]
+    let v23: iNone;  // [bp-0xd0]
+    let v24: struct24;  // [bp-0xc0]
+    let v25: u64;  // [bp-0xa8]
+    let v26: Option<struct137>;  // [bp-0xa0]
+    let v27: struct24;  // [bp-0x68]
+    let v28: u64;  // [bp-0x58]
+    let v29: struct40;  // [bp-0x38]
+    let v31: iNone;  // xmm0
+    let v32: struct32;  // xmm0
+
+    v19 = starship::context::Context::new_module(a1, "haskell");
+    v26 = starship::config::ModuleConfig::try_load(v25);
+    v11 = starship::context::Context::try_begin_scan(a1);
+    if let None = v11 {
+        return struct8 {
+            field_0: 0x8000000000000000
+        };
+    }
+    v31 = *((&v26 as &char + 8) as &i128);
+    v1 = struct72 {
+        field_0: v11 as i64
+        field_8: *((&v26 as &char + 32) as &i64)
+        field_16: *((&v26 as &char + 40) as &i64)
+        field_24: v27
+        field_40: v31
+        field_56: <UNKNOWN>
+        field_64: <UNKNOWN>
+    };
+    if starship::context::ScanDir::is_match(&v1) {
+        v2 = starship::formatter::string_formatter::StringFormatter::new(v28, *((&v26 as &char + 80) as &i64));
+        v18 = struct32 {
+            field_0: v29
+            field_16: &v26 as u8
+            field_24: a1
+        };
+        if (((0 ^ v2 as i64) & (0 ^ -(v0))) >> 63) as char {
+            v8 = v3;
+            v7 = *((&v2 as &char + 8) as &i128);
+        } else {
+            v32 = v2 as i128;
+            v11 = struct72 {
+                field_0: v32
+                field_16: *((&v2 as &char + 16) as &i128)
+                field_32: *((&v2 as &char + 32) as &i128)
+                field_48: v4
+                field_64: v5
+            };
+            v6 = starship::modules::haskell::module::{{closure}}(&v18, &v11);
+            if v6.field_0 as i32 != 1 {
+                v20 = starship::module::Module::set_segments(&v6 as u8);
+                return struct96 {
+                    field_0: v19.field_0
+                    field_16: v21
+                    field_32: v22
+                    field_48: v23
+                    field_64: v24
+                    field_80: *(&v19.field_80 as &i128)
+                };
+            }
+        }
+        v10 = v8;
+        v9 = v7;
+        if core::sync::atomic::atomic_load(&_ZN3log20MAX_LOG_LEVEL_FILTER17hce4481ac8dff0d42E, 0) as u64 < 2 {
+            return struct8 {
+                field_0: 0x8000000000000000
+            };
+        }
+        v16 = &v9;
+        v17 = <starship::formatter::string_formatter::StringFormatterError as core::fmt::Display>::fmt;
+        v11 = "Error in module `haskell`:\n";
+        v12 = 1;
+        v15 = 0;
+        v13 = &v16;
+        v14 = 1;
+        v0 = struct40 {
+            field_0: "starship::modules::haskell"
+            field_16: "starship::modules::haskell"
+            field_32: log::__private_api::loc("src/modules/haskell.rs")
+        };
+        log::__private_api::log(&v11, 2, &v0);
+        return struct8 {
+            field_0: 0x8000000000000000
+        };
+    }
+    return struct8 {
+        field_0: 0x8000000000000000
+    };
+}

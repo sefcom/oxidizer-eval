@@ -1,0 +1,13 @@
+long long uu_tr::operation::Sequence::parse_octal_two_digits(unsigned long long a0, unsigned long long a1, unsigned long long a2)
+{
+    unsigned long long v0;  // [bp-0x20]
+    unsigned long long v1;  // [bp-0x18]
+    unsigned long long v2;  // [bp-0x10]
+    unsigned long long v3;  // [bp-0x8]
+
+    v0 = "01234567";
+    v1 = 8;
+    v2 = 2;
+    v3 = 2;
+    return a0.process(&v0, a1, a2);
+}

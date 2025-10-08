@@ -1,0 +1,394 @@
+
+  uint64_t bat::line_range::LineRange::parse_range::heebe4213cefeda82(char* arg1, char* arg2, int64_t arg3)
+
+{
+    if (arg3)
+    {
+        char rbp_1 = *arg2;
+        char* var_98;
+        uint64_t result;
+        
+        if (rbp_1 == 0x3a)
+        {
+            uint64_t result_1;
+            int64_t rcx_1;
+            
+            if (arg3 != 1 && arg2[1] == 0x2d)
+            {
+                void* rax_1;
+                int64_t rdx_1;
+                rax_1 = core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::h28e9e81c5537bbed(2, arg2, arg3);
+                
+                if (!rax_1)
+                {
+                    core::str::slice_error_fail::h1a2885084e28d077(arg2, arg3, 2, arg3);
+                    /* no return */
+                }
+                
+                core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(&var_98, 
+                    rax_1, rdx_1);
+                
+                if (var_98)
+                    goto label_83c3e6;
+                
+                result = result_1;
+                rcx_1 = 1;
+                goto label_83c400;
+            }
+            
+            void* rax_6;
+            int64_t rdx_6;
+            rax_6 = core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::h28e9e81c5537bbed(1, arg2, arg3);
+            
+            if (!rax_6)
+            {
+                core::str::slice_error_fail::h1a2885084e28d077(arg2, arg3, 1, arg3);
+                /* no return */
+            }
+            
+            core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(&var_98, rax_6, 
+                rdx_6);
+            
+            if (var_98)
+            {
+                label_83c3e6:
+                result = *var_98[1];
+                *arg1 = 4;
+                arg1[1] = result;
+                return result;
+            }
+            
+            result = result_1;
+            rcx_1 = 0;
+            label_83c400:
+            *(arg1 + 8) = {0};
+            *(arg1 + 0x18) = rcx_1;
+            *(arg1 + 0x20) = result;
+            *arg1 = 0xd;
+            return result;
+        }
+        
+        var_98 = arg2;
+        uint64_t result_2 = &arg2[arg3];
+        char* rax_3 = _$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$::next_back::he12edd73c094a135(&var_98);
+        
+        if (rax_3)
+        {
+            if (*rax_3 == 0x3a)
+            {
+                int64_t r13_1;
+                
+                if (rbp_1 != 0x2d)
+                {
+                    char* rax_8;
+                    int64_t rdx_10;
+                    rax_8 = core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$::get::hf838fc4d891e0944(arg3 - 1, arg2, arg3);
+                    
+                    if (!rax_8)
+                    {
+                        core::str::slice_error_fail::h1a2885084e28d077(arg2, arg3, 0, arg3 - 1);
+                        /* no return */
+                    }
+                    
+                    core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(
+                        &var_98, rax_8, rdx_10);
+                    
+                    if (var_98)
+                        goto label_83c3e6;
+                    
+                    result = result_2;
+                    r13_1 = 0;
+                }
+                else
+                {
+                    r13_1 = 1;
+                    void* rax_4;
+                    int64_t rdx_3;
+                    rax_4 = core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$::get::h6f62413506656e8f(1, arg3 - 1, arg2, arg3);
+                    
+                    if (!rax_4)
+                    {
+                        core::str::slice_error_fail::h1a2885084e28d077(arg2, arg3, 1, arg3 - 1);
+                        /* no return */
+                    }
+                    
+                    core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(
+                        &var_98, rax_4, rdx_3);
+                    
+                    if (var_98)
+                        goto label_83c3e6;
+                    
+                    result = result_2;
+                }
+                
+                *(arg1 + 8) = r13_1;
+                *(arg1 + 0x10) = result;
+                *(arg1 + 0x18) = 0;
+                *(arg1 + 0x20) = -1;
+                *arg1 = 0xd;
+                return result;
+            }
+            
+            int128_t var_88;
+            _$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$::into_searcher::h19abee4db16fb58d(
+                &var_88, 0x3a, arg2, arg3);
+            var_98 = nullptr;
+            int16_t var_58_1 = 1;
+            int64_t var_48;
+            core::iter::traits::iterator::Iterator::collect::h9b072ccbbd6d7802(&var_48, &var_98);
+            int64_t var_38;
+            int64_t* r14_2;
+            int64_t* var_40;
+            
+            if (var_38 == 1)
+            {
+                r14_2 = var_40;
+                core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(&var_98, 
+                    *r14_2, r14_2[1]);
+                
+                if (var_98)
+                {
+                    label_83c69b:
+                    char rax_12 = *var_98[1];
+                    *arg1 = 4;
+                    arg1[1] = rax_12;
+                }
+                else
+                {
+                    *(arg1 + 8) = 0;
+                    *(arg1 + 0x10) = arg3;
+                    *(arg1 + 0x18) = 0;
+                    *(arg1 + 0x20) = arg3;
+                    *arg1 = 0xd;
+                }
+            }
+            else if (var_38 == 2)
+            {
+                r14_2 = var_40;
+                core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(&var_98, 
+                    *r14_2, r14_2[1]);
+                
+                if (var_98 == 1)
+                    goto label_83c69b;
+                
+                int64_t r13_2 = arg3;
+                char* r12_2 = r14_2[2];
+                int64_t r15_3 = r14_2[3];
+                int64_t rax_13;
+                
+                if (!r15_3)
+                {
+                    label_83c68c:
+                    core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(
+                        &var_98, r12_2, r15_3);
+                    
+                    if (var_98 == 1)
+                        goto label_83c69b;
+                    
+                    rax_13 = r13_2;
+                    r13_2 = arg3;
+                }
+                else
+                {
+                    uint32_t rax_9 = *r12_2;
+                    
+                    if (rax_9 == 0x2b)
+                    {
+                        void* rax_14;
+                        int64_t rdx_21;
+                        rax_14 = core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::h28e9e81c5537bbed(1, r12_2, r15_3);
+                        
+                        if (!rax_14)
+                        {
+                            core::str::slice_error_fail::h1a2885084e28d077(r12_2, r15_3, 1, r15_3);
+                            /* no return */
+                        }
+                        
+                        core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(
+                            &var_98, rax_14, rdx_21);
+                        
+                        if (var_98)
+                        {
+                            _$LT$bat..error..Error$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$::from::h8ad35b8946c9894b(&var_98, "Invalid character after +Invalid…", 0x19);
+                            goto label_83c802;
+                        }
+                        
+                        int64_t rcx_8 = arg3 + r13_2;
+                        bool c_2 = arg3 + r13_2 < arg3;
+                        rax_13 = r13_2;
+                        r13_2 = -1;
+                        
+                        if (!c_2)
+                            r13_2 = rcx_8;
+                    }
+                    else
+                    {
+                        if (rax_9 != 0x2d)
+                            goto label_83c68c;
+                        
+                        void* rax_10;
+                        int64_t rdx_13;
+                        rax_10 = core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::h28e9e81c5537bbed(1, r12_2, r15_3);
+                        
+                        if (!rax_10)
+                        {
+                            core::str::slice_error_fail::h1a2885084e28d077(r12_2, r15_3, 1, r15_3);
+                            /* no return */
+                        }
+                        
+                        if (rdx_13 && *rax_10 == 0x2b)
+                        {
+                            _$LT$bat..error..Error$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$::from::h8ad35b8946c9894b(&var_98, "Invalid character after -Invalid…", 0x19);
+                            goto label_83c802;
+                        }
+                        
+                        char* rax_16;
+                        int64_t rdx_25;
+                        rax_16 = core::str::traits::_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$::get::h28e9e81c5537bbed(1, r12_2, r15_3);
+                        
+                        if (!rax_16)
+                        {
+                            core::str::slice_error_fail::h1a2885084e28d077(r12_2, r15_3, 1, r15_3);
+                            /* no return */
+                        }
+                        
+                        core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(
+                            &var_98, rax_16, rdx_25);
+                        
+                        if (var_98 == 1)
+                        {
+                            _$LT$bat..error..Error$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$::from::h8ad35b8946c9894b(&var_98, "Invalid character after -Invalid…", 0x19);
+                            goto label_83c802;
+                        }
+                        
+                        rax_13 = 0;
+                        
+                        if (r13_2 >= arg3)
+                            rax_13 = r13_2 - arg3;
+                    }
+                }
+                
+                *(arg1 + 8) = 0;
+                *(arg1 + 0x10) = rax_13;
+                *(arg1 + 0x18) = 0;
+                *(arg1 + 0x20) = r13_2;
+                *arg1 = 0xd;
+            }
+            else
+            {
+                int128_t var_78;
+                int128_t var_68;
+                
+                if (var_38 != 3)
+                {
+                    _$LT$bat..error..Error$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$::from::h8ad35b8946c9894b(&var_98, "Line range contained too many ':…", 0x5d);
+                    *(arg1 + 0x40) = var_58_1;
+                    int128_t zmm0_3 = var_98;
+                    int128_t zmm1_3 = var_88;
+                    *(arg1 + 0x30) = var_68;
+                    *(arg1 + 0x20) = var_78;
+                    *(arg1 + 0x10) = zmm1_3;
+                    *arg1 = zmm0_3;
+                    r14_2 = var_40;
+                }
+                else
+                {
+                    r14_2 = var_40;
+                    int64_t r15_2 = r14_2[3];
+                    int64_t rax_15;
+                    int64_t rcx_5;
+                    int64_t r15_4;
+                    
+                    if (r15_2)
+                    {
+                        core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(
+                            &var_98, *r14_2, r14_2[1]);
+                        
+                        if (var_98 == 1)
+                        {
+                            _$LT$bat..error..Error$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$::from::h8ad35b8946c9894b(&var_98, "Invalid start line number in N:M…", 0x29);
+                            goto label_83c802;
+                        }
+                        
+                        core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(
+                            &var_98, r14_2[2], r15_2);
+                        
+                        if (var_98 == 1)
+                        {
+                            _$LT$bat..error..Error$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$::from::h8ad35b8946c9894b(&var_98, "Invalid end line number in N:M:C…", 0x27);
+                            goto label_83c802;
+                        }
+                        
+                        r15_4 = arg3;
+                        core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(
+                            &var_98, r14_2[4], r14_2[5]);
+                        
+                        if (var_98 == 1)
+                        {
+                            _$LT$bat..error..Error$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$::from::h8ad35b8946c9894b(&var_98, "Invalid context number in N:M:C …", 0x26);
+                            goto label_83c802;
+                        }
+                        
+                        rcx_5 = arg3;
+                        rax_15 = 0;
+                        
+                        if (arg3 >= rcx_5)
+                            rax_15 = arg3 - rcx_5;
+                        
+                        goto label_83c796;
+                    }
+                    
+                    core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(
+                        &var_98, *r14_2, r14_2[1]);
+                    
+                    if (var_98 != 1)
+                    {
+                        r15_4 = arg3;
+                        core::num::_$LT$impl$u20$usize$GT$::from_ascii_radix::he77532141bbadde7(
+                            &var_98, r14_2[4], r14_2[5]);
+                        
+                        if (var_98 == 1)
+                        {
+                            _$LT$bat..error..Error$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$::from::h8ad35b8946c9894b(&var_98, "Invalid context number in N::C f…", 0x25);
+                            goto label_83c802;
+                        }
+                        
+                        rcx_5 = arg3;
+                        rax_15 = 0;
+                        
+                        if (r15_4 >= rcx_5)
+                            rax_15 = r15_4 - rcx_5;
+                        
+                        label_83c796:
+                        int64_t rcx_6 = -1;
+                        
+                        if (r15_4 + rcx_5 >= r15_4)
+                            rcx_6 = r15_4 + rcx_5;
+                        
+                        *(arg1 + 8) = 0;
+                        *(arg1 + 0x10) = rax_15;
+                        *(arg1 + 0x18) = 0;
+                        *(arg1 + 0x20) = rcx_6;
+                        *arg1 = 0xd;
+                    }
+                    else
+                    {
+                        _$LT$bat..error..Error$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$::from::h8ad35b8946c9894b(&var_98, "Invalid line number in N::C form…", 0x22);
+                        label_83c802:
+                        *(arg1 + 0x40) = var_58_1;
+                        int128_t zmm0_2 = var_98;
+                        int128_t zmm1_2 = var_88;
+                        *(arg1 + 0x30) = var_68;
+                        *(arg1 + 0x20) = var_78;
+                        *(arg1 + 0x10) = zmm1_2;
+                        *arg1 = zmm0_2;
+                    }
+                }
+            }
+            return core::ptr::drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$alloc..string..String$C$$RF$alloc..string..String$RP$$GT$$GT$::h5d217fd71d6c8aa5(var_48, r14_2);
+        }
+    }
+    
+    /* tailcall */
+    return _$LT$bat..error..Error$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$::from::h8ad35b8946c9894b(arg1, "Empty line range", 0x10);
+}

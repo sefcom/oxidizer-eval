@@ -1,0 +1,558 @@
+{
+  "decompilation": {
+    "_ZN6uu_pwd6uumain17h012b30d7e4bbab85E": "__int64 __fastcall uu_pwd::uumain(__int64 a1, __int64 a2)\n{\n  unsigned int v2; // eax\n  __int64 v3; // rax\n  __int64 v4; // rdx\n  __int128 v5; // rax\n  __int128 v6; // rax\n  unsigned int v7; // ebx\n  __int64 v9; // [rsp+0h] [rbp-98h] BYREF\n  __int64 v10; // [rsp+8h] [rbp-90h]\n  char **v11; // [rsp+10h] [rbp-88h] BYREF\n  __int64 v12; // [rsp+18h] [rbp-80h]\n  __int128 *v13; // [rsp+20h] [rbp-78h]\n  __int64 v14; // [rsp+28h] [rbp-70h]\n  __int64 v15; // [rsp+30h] [rbp-68h]\n  __int128 v16; // [rsp+40h] [rbp-58h] BYREF\n  __int64 v17; // [rsp+50h] [rbp-48h]\n  __int128 v18; // [rsp+60h] [rbp-38h] BYREF\n  __int64 v19; // [rsp+70h] [rbp-28h]\n  __int128 *v20; // [rsp+78h] [rbp-20h] BYREF\n  __int64 (__fastcall *v21)(); // [rsp+80h] [rbp-18h]\n\n  v2 = uucore::disable_rust_signal_handlers();\n  core::result::Result<T,E>::expect(v2);\n  v3 = uu_pwd::uumain::uumain(a1, a2);\n  if ( !v3 )\n    return uucore::mods::error::get_exit_code();\n  v9 = v3;\n  v10 = v4;\n  *(_QWORD *)&v16 = &v9;\n  *((_QWORD *)&v16 + 1) = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n  v11 = (char **)&unk_170F0;\n  v12 = 1LL;\n  v15 = 0LL;\n  v13 = &v16;\n  v14 = 1LL;\n  core::option::Option<T>::map_or_else(&v18, &v11);\n  v16 = v18;\n  v17 = v19;\n  if ( !(unsigned __int8)<[A] as core::slice::cmp::SlicePartialEq<B>>::equal() )\n  {\n    *(_QWORD *)&v5 = uucore::util_name();\n    v18 = v5;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_D7DF8;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n    *(_QWORD *)&v18 = &v16;\n    *((_QWORD *)&v18 + 1) = <alloc::string::String as core::fmt::Display>::fmt;\n    v11 = (char **)&unk_D7E18;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = &v18;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  if ( (*(unsigned __int8 (__fastcall **)(__int64))(v10 + 96))(v9) )\n  {\n    *(_QWORD *)&v6 = uucore::execution_phrase();\n    v18 = v6;\n    v20 = &v18;\n    v21 = <&T as core::fmt::Display>::fmt;\n    v11 = &off_D7E38;\n    v12 = 2LL;\n    v15 = 0LL;\n    v13 = (__int128 *)&v20;\n    v14 = 1LL;\n    std::io::stdio::_eprint(&v11);\n  }\n  v7 = (*(__int64 (__fastcall **)(__int64))(v10 + 88))(v9);\n  core::ptr::drop_in_place<alloc::string::String>(v16, *((_QWORD *)&v16 + 1));\n  core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v9, v10);\n  return v7;\n}",
+    "_ZN6uu_pwd6uumain6uumain17h7e973018fc311786E": "__int64 __fastcall uu_pwd::uumain::uumain(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rdx\n  char v4; // bl\n  __int64 v5; // rbx\n  __int64 v6; // rax\n  __int64 v7; // rax\n  __int64 v8; // [rsp+0h] [rbp-348h] BYREF\n  __int64 v9; // [rsp+8h] [rbp-340h]\n  __int128 v10; // [rsp+10h] [rbp-338h]\n  __int128 v11; // [rsp+20h] [rbp-328h]\n  __int64 v12; // [rsp+30h] [rbp-318h]\n  __int64 v13; // [rsp+38h] [rbp-310h] BYREF\n  __int64 v14; // [rsp+40h] [rbp-308h]\n  __int64 v15; // [rsp+48h] [rbp-300h]\n  _QWORD v16[3]; // [rsp+50h] [rbp-2F8h] BYREF\n  _QWORD dest[2]; // [rsp+68h] [rbp-2E0h] BYREF\n  __int128 v18; // [rsp+78h] [rbp-2D0h]\n  __int128 v19; // [rsp+88h] [rbp-2C0h]\n  __int64 v20; // [rsp+98h] [rbp-2B0h]\n\n  uu_pwd::uu_app(dest);\n  clap_builder::builder::command::Command::try_get_matches_from(&v8, dest, a1, a2);\n  if ( __OFSUB__(-v8, 1LL) )\n    return uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(\n             v9,\n             dest,\n             v2,\n             -v8);\n  v20 = v12;\n  v19 = v11;\n  v18 = v10;\n  dest[0] = v8;\n  dest[1] = v9;\n  if ( (unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(dest, &unk_16BB0, 8LL)\n    || !(unsigned __int8)clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(dest, aLogical, 7LL)\n    && (std::env::var(&v8),\n        v4 = v8,\n        core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>(&v8),\n        (v4 & 1) != 0) )\n  {\n    uu_pwd::physical_path(&v8);\n  }\n  else\n  {\n    uu_pwd::logical_path(&v8);\n  }\n  <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(\n    &v13,\n    &v8);\n  v5 = v14;\n  if ( v13 == 0x8000000000000000LL )\n    goto LABEL_11;\n  v16[0] = v13;\n  v16[1] = v14;\n  v16[2] = v15;\n  v6 = uucore::mods::display::println_verbatim(v16);\n  v7 = <core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context(v6);\n  if ( v7 )\n  {\n    v5 = v7;\nLABEL_11:\n    core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(dest);\n    return v5;\n  }\n  core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(dest);\n  return 0LL;\n}",
+    "_ZN6uu_pwd13physical_path17hc6deef78d56e1cc2E": "__int64 __fastcall uu_pwd::physical_path(__int64 a1)\n{\n  std::env::current_dir();\n  return a1;\n}",
+    "_ZN6uu_pwd12logical_path17ha7064184a6fb3e0eE": "_QWORD *__fastcall uu_pwd::logical_path(_QWORD *a1)\n{\n  __int64 v1; // r15\n  __int64 v2; // r14\n  __int64 v3; // r12\n  __int64 v5; // [rsp+0h] [rbp-38h] BYREF\n  __int64 v6; // [rsp+8h] [rbp-30h]\n  __int64 v7; // [rsp+10h] [rbp-28h]\n\n  std::env::var_os(&v5);\n  v2 = v5;\n  if ( __OFSUB__(-v5, 1LL) || (v1 = v6, v3 = v7, !(unsigned __int8)uu_pwd::logical_path::looks_reasonable(v6, v7)) )\n  {\n    std::env::current_dir(a1);\n    if ( !__OFSUB__(-v2, 1LL) )\n      core::ptr::drop_in_place<std::path::PathBuf>(v2, v1);\n  }\n  else\n  {\n    *a1 = v2;\n    a1[1] = v1;\n    a1[2] = v3;\n  }\n  return a1;\n}",
+    "_ZN6uu_pwd12logical_path16looks_reasonable17h9259bfbf6c23b9afE": "__int64 __fastcall uu_pwd::logical_path::looks_reasonable(__int64 a1, __int64 a2)\n{\n  __int64 v2; // r15\n  __int64 v3; // r12\n  __int64 v4; // r13\n  unsigned __int8 v5; // al\n  char v6; // bp\n  unsigned int v7; // ebx\n  __int64 v8; // rdx\n  __int64 v9; // rcx\n  _OWORD dest[11]; // [rsp+8h] [rbp-2F0h] BYREF\n  _OWORD v12[11]; // [rsp+B8h] [rbp-240h] BYREF\n  _QWORD v13[22]; // [rsp+168h] [rbp-190h] BYREF\n  _BYTE src[224]; // [rsp+218h] [rbp-E0h] BYREF\n\n  std::path::Path::components(dest, a1, a2);\n  if ( !BYTE10(dest[3]) && (unsigned __int8)(LOBYTE(dest[1]) - 5) < 2u )\n    return 0;\n  alloc::string::String::from_utf8_lossy(v13, a1, a2);\n  v2 = v13[0];\n  v3 = v13[1];\n  v4 = v13[2];\n  <core::str::pattern::MultiCharEqPattern<C> as core::str::pattern::Pattern>::into_searcher(&dest[1], v13[1], v13[2]);\n  *(_QWORD *)&dest[0] = 0LL;\n  *((_QWORD *)&dest[0] + 1) = v4;\n  WORD4(dest[3]) = 1;\n  v5 = core::iter::traits::iterator::Iterator::try_fold(dest);\n  v6 = <core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq(v5);\n  core::ptr::drop_in_place<alloc::borrow::Cow<str>>(v2, v3);\n  if ( !v6 )\n  {\n    std::fs::metadata(src);\n    std::fs::metadata(v13);\n    memcpy(dest, src, sizeof(dest));\n    memcpy(v12, v13, sizeof(v12));\n    v7 = 0;\n    if ( LODWORD(dest[0]) != 2 && *(_QWORD *)&v12[0] != 2LL )\n    {\n      v9 = *(_QWORD *)&v12[2] ^ *(_QWORD *)&dest[2] | *((_QWORD *)&dest[2] + 1) ^ *((_QWORD *)&v12[2] + 1);\n      LOBYTE(v7) = v12[2] == dest[2];\n    }\n    core::ptr::drop_in_place<(core::result::Result<std::fs::Metadata,std::io::error::Error>,core::result::Result<std::fs::Metadata,std::io::error::Error>)>(\n      dest,\n      v13,\n      v8,\n      v9);\n  }\n  else\n  {\n    return 0;\n  }\n  return v7;\n}",
+    "_ZN6uu_pwd6uu_app17h1da5d5fec9c2ec70E": "void *__fastcall uu_pwd::uu_app(void *dest)\n{\n  __int64 v1; // rax\n  _BYTE desta[700]; // [rsp+8h] [rbp-AB0h] BYREF\n  __int64 v4; // [rsp+2C4h] [rbp-7F4h]\n  int v5; // [rsp+2CCh] [rbp-7ECh]\n  _BYTE v6[640]; // [rsp+2D0h] [rbp-7E8h] BYREF\n  _BYTE src[700]; // [rsp+550h] [rbp-568h] BYREF\n  __int64 v8; // [rsp+80Ch] [rbp-2ACh]\n  int v9; // [rsp+814h] [rbp-2A4h]\n  _BYTE v10[672]; // [rsp+818h] [rbp-2A0h] BYREF\n\n  v1 = uucore::util_name();\n  clap_builder::builder::command::Command::new(desta, v1);\n  clap_builder::builder::command::Command::version(src, desta);\n  clap_builder::builder::command::Command::about(desta, src);\n  uucore::format_usage(v6, aOptionFile, 24LL);\n  clap_builder::builder::command::Command::override_usage(src, desta);\n  memcpy(desta, src, sizeof(desta));\n  v4 = v8 | 0x8000000080LL;\n  v5 = v9;\n  clap_builder::builder::arg::Arg::new(src);\n  clap_builder::builder::arg::Arg::short(v6, src, 76LL);\n  clap_builder::builder::arg::Arg::long(src, v6);\n  clap_builder::builder::arg::Arg::help(v6, src);\n  clap_builder::builder::arg::Arg::action(v10, v6);\n  clap_builder::builder::command::Command::arg(src, desta);\n  clap_builder::builder::arg::Arg::new(desta);\n  clap_builder::builder::arg::Arg::short(v6, desta, 80LL);\n  clap_builder::builder::arg::Arg::long(desta, v6);\n  clap_builder::builder::arg::Arg::overrides_with(v6, desta);\n  clap_builder::builder::arg::Arg::help(desta, v6);\n  clap_builder::builder::arg::Arg::action(v6, desta);\n  clap_builder::builder::command::Command::arg(dest, src);\n  return dest;\n}"
+  },
+  "function_call_counts": {
+    "_ZN6uu_pwd6uumain17h012b30d7e4bbab85E": {
+      "uucore::disable_rust_signal_handlers": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uu_pwd::uumain::uumain": 1,
+      "uucore::mods::error::get_exit_code": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uucore::util_name": 1,
+      "std::io::stdio::_eprint": 3,
+      "<[A] as core::slice::cmp::SlicePartialEq<B>>::equal": 1,
+      "uucore::execution_phrase": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1
+    },
+    "_ZN6uu_pwd6uumain6uumain17h7e973018fc311786E": {
+      "uu_pwd::uu_app": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uu_pwd::physical_path": 1,
+      "uu_pwd::logical_path": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 2,
+      "std::env::var": 1,
+      "core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>": 1,
+      "<core::result::Result<T,std::io::error::Error> as uucore::mods::error::FromIo<core::result::Result<T,alloc::boxed::Box<dyn uucore::mods::error::UError>>>>::map_err_context": 2,
+      "uucore::mods::display::println_verbatim": 1,
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 2
+    },
+    "_ZN6uu_pwd13physical_path17hc6deef78d56e1cc2E": {
+      "std::env::current_dir": 1
+    },
+    "_ZN6uu_pwd12logical_path17ha7064184a6fb3e0eE": {
+      "std::env::var_os": 1,
+      "std::env::current_dir": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 1,
+      "uu_pwd::logical_path::looks_reasonable": 1
+    },
+    "_ZN6uu_pwd12logical_path16looks_reasonable17h9259bfbf6c23b9afE": {
+      "std::path::Path::components": 1,
+      "alloc::string::String::from_utf8_lossy": 1,
+      "<core::str::pattern::MultiCharEqPattern<C> as core::str::pattern::Pattern>::into_searcher": 1,
+      "core::iter::traits::iterator::Iterator::try_fold": 1,
+      "<core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq": 1,
+      "core::ptr::drop_in_place<alloc::borrow::Cow<str>>": 1,
+      "std::fs::metadata": 2,
+      "memcpy": 2,
+      "core::ptr::drop_in_place<(core::result::Result<std::fs::Metadata,std::io::error::Error>,core::result::Result<std::fs::Metadata,std::io::error::Error>)>": 1
+    },
+    "_ZN6uu_pwd6uu_app17h1da5d5fec9c2ec70E": {
+      "uucore::util_name": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "memcpy": 1,
+      "clap_builder::builder::arg::Arg::new": 2,
+      "clap_builder::builder::arg::Arg::short": 2,
+      "clap_builder::builder::arg::Arg::long": 2,
+      "clap_builder::builder::arg::Arg::help": 2,
+      "clap_builder::builder::arg::Arg::action": 2,
+      "clap_builder::builder::command::Command::arg": 2,
+      "clap_builder::builder::arg::Arg::overrides_with": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN6uu_pwd6uumain17h012b30d7e4bbab85E": {},
+    "_ZN6uu_pwd6uumain6uumain17h7e973018fc311786E": {},
+    "_ZN6uu_pwd13physical_path17hc6deef78d56e1cc2E": {},
+    "_ZN6uu_pwd12logical_path17ha7064184a6fb3e0eE": {},
+    "_ZN6uu_pwd12logical_path16looks_reasonable17h9259bfbf6c23b9afE": {},
+    "_ZN6uu_pwd6uu_app17h1da5d5fec9c2ec70E": {}
+  },
+  "variable_types": {
+    "_ZN6uu_pwd6uumain17h012b30d7e4bbab85E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_eax": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&reference",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_pwd6uumain6uumain17h7e973018fc311786E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_bl": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "array",
+          24
+        ]
+      ],
+      "stack_104": [
+        [
+          "array",
+          16
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_pwd13physical_path17hc6deef78d56e1cc2E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_pwd12logical_path17ha7064184a6fb3e0eE": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN6uu_pwd12logical_path16looks_reasonable17h9259bfbf6c23b9afE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_al": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_bp": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_ebx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          176
+        ]
+      ],
+      "stack_184": [
+        [
+          "array",
+          176
+        ]
+      ],
+      "stack_360": [
+        [
+          "array",
+          176
+        ]
+      ],
+      "stack_536": [
+        [
+          "array",
+          224
+        ]
+      ]
+    },
+    "_ZN6uu_pwd6uu_app17h1da5d5fec9c2ec70E": {
+      "reg_rdi": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_708": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_716": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_720": [
+        [
+          "array",
+          640
+        ]
+      ],
+      "stack_1360": [
+        [
+          "array",
+          700
+        ]
+      ],
+      "stack_2060": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2068": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2072": [
+        [
+          "array",
+          672
+        ]
+      ]
+    }
+  }
+}

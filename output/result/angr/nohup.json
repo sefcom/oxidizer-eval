@@ -1,0 +1,674 @@
+{
+  "decompilation": {
+    "_ZN8uu_nohup6uumain17hbe703f46f3d16b73E": "long long uu_nohup::uumain(unsigned long long a0, unsigned long long a1)\n{\n    unsigned long long v0;  // [bp-0x98]\n    unsigned long long v1;  // [bp-0x88]\n    unsigned long long v2;  // [bp-0x80]\n    char *v3;  // [bp-0x78]\n    unsigned long long v4;  // [bp-0x70]\n    void* v5;  // [bp-0x68]\n    char *v6;  // [bp-0x58]\n    unsigned long long v7;  // [bp-0x50]\n    unsigned long long v8;  // [bp-0x48]\n    char *v9;  // [bp-0x38], Other Possible Types: char, unsigned long long\n    struct_2 *v10;  // [bp-0x30], Other Possible Types: unsigned long long\n    unsigned long long v11;  // [bp-0x28]\n    char *v12;  // [bp-0x20]\n    unsigned long long v13;  // [bp-0x18]\n    unsigned long long v16;  // rax\n    struct_2 *v17;  // rdx\n    unsigned int v18;  // eax\n\n    (unsigned int)uucore::disable_rust_signal_handlers().expect();\n    v16 = uu_nohup::uumain::uumain(a0, a1);\n    if (!v16)\n        return uucore::mods::error::get_exit_code();\n    v0 = v16;\n    v6 = &v0;\n    v7 = <alloc::boxed::Box<T,A> as core::fmt::Display>::fmt;\n    v1 = &g_417b00;\n    v2 = 1;\n    v5 = 0;\n    v3 = &v6;\n    v4 = 1;\n    v9.map_or_else(&v1);\n    memcpy(&v6, &v9, 16);\n    v8 = v11;\n    if (!(char)v7.equal(v11, 1, 0))\n    {\n        v9 = uucore::util_name();\n        v10 = v17;\n        v12 = &v9;\n        v13 = <&T as core::fmt::Display>::fmt;\n        v1 = &g_4de190;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v12;\n        v4 = 1;\n        std::io::stdio::_eprint(&v1);\n        v9 = &v6;\n        v10 = <alloc::string::String as core::fmt::Display>::fmt;\n        v1 = &g_4de1b0;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v9;\n        v4 = 1;\n        std::io::stdio::_eprint(&v1);\n    }\n    if ((char)v17->field_60(v0))\n    {\n        v9 = uucore::execution_phrase();\n        v10 = v17;\n        v12 = &v9;\n        v13 = <&T as core::fmt::Display>::fmt;\n        v1 = &g_4de1d0;\n        v2 = 2;\n        v5 = 0;\n        v3 = &v12;\n        v4 = 1;\n        std::io::stdio::_eprint(&v1);\n    }\n    v18 = v17->field_58(v0);\n    core::ptr::drop_in_place<alloc::string::String>(v6, v7);\n    core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>(v0, v17);\n    return v18;\n}\n",
+    "_ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E": "long long uu_nohup::uumain::uumain(unsigned long long a0, unsigned long long a1)\n{\n    char v0;  // [bp-0x360], Other Possible Types: unsigned long long\n    unsigned long long v1;  // [bp-0x358]\n    unsigned int v2;  // [bp-0x350]\n    char v3;  // [bp-0x34c]\n    char v4;  // [bp-0x340]\n    char v5;  // [bp-0x33c]\n    char v6;  // [bp-0x330]\n    char v7;  // [bp-0x32c]\n    unsigned long long v8;  // [bp-0x320]\n    unsigned long long v9;  // [bp-0x318]\n    unsigned int v10;  // [bp-0x310]\n    char v11;  // [bp-0x30c]\n    char v12;  // [bp-0x2fc]\n    unsigned int v13;  // [bp-0x2ec]\n    int v14;  // [bp-0x2e8]\n    char **v15;  // [bp-0x2e0]\n    char v16;  // [bp-0x2d8]\n    char v17;  // [bp-0x2c8]\n    char v18;  // [bp-0x2b8]\n    unsigned long long v20;  // rax\n\n    uu_nohup::uu_app(&(char)v14);\n    v0.try_get_matches_from(&(char)v14, a0, a1);\n    if ((char)(((0 ^ v0) & (0 ^ -(v0))) >> 63))\n        return v9.new();\n    memcpy(&v11, &v3, 16);\n    memcpy(&v12, &v5, 16);\n    v13 = *((int *)&v7);\n    v8 = v0;\n    v9 = v1;\n    v10 = v2;\n    v20 = uu_nohup::replace_fds();\n    if (v20)\n    {\n        core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(&v8);\n        return v20;\n    }\n    signal(1, 0x1);\n    (char)v14.try_get_many(&v8);\n    v0.unwrap(&(char)v14);\n    if (!v0)\n        core::option::unwrap_failed(&g_4de208); /* do not return */\n    memcpy(&v18, &v6, 16);\n    memcpy(&v17, &v4, 16);\n    memcpy(&v16, &v2, 16);\n    *((int128_t *)&v14) = *((int128_t *)&v0);\n    v0.collect(&(char)v14);\n    (char)v14.collect(v1, *((long long *)&v2) * 16 + v1);\n    (char)v14.push();\n    if (!*((long long *)&v16))\n        core::panicking::panic_bounds_check(0, 0, &g_4de238); /* do not return */\n    uucore::mods::error::set_exit_code(execvp(*(v15), v15) == 2 | 126);\n    core::ptr::drop_in_place<alloc::vec::Vec<usize>>((long long)v14, v15);\n    core::ptr::drop_in_place<alloc::vec::Vec<alloc::ffi::c_str::CString>>(&v0);\n    core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>(&v8);\n    return 0;\n}\n",
+    "_ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E": "long long uu_nohup::uu_app(struct_0 *a0)\n{\n    char v0;  // [bp-0x828]\n    unsigned int v1;  // [bp-0x5b0]\n    char v2;  // [bp-0x5ac]\n    unsigned long v3;  // [bp-0x56c]\n    unsigned int v4;  // [bp-0x564]\n    char v5;  // [bp-0x560]\n    unsigned int v6;  // [bp-0x2e8]\n    unsigned int v7;  // [bp-0x2e4]\n    char v8;  // [bp-0x2e0]\n    unsigned long long v11;  // rdx\n\n    v8.new(uucore::util_name(), v11);\n    v0.version(&v8);\n    v8.about(&v0);\n    v0.after_help(&v8);\n    uucore::format_usage(&v5, \"{} COMMAND [ARG]...\\n{} OPTIONcmd/dev/nullSTDINSTDERRSTDOUT: ignoring input and appending output to \\n\", 29);\n    v8.override_usage(&v0, &v5);\n    v0.new();\n    memcpy(&v5, &v0, 632);\n    v6 = v1 | 5;\n    v7 = *((int *)&v2);\n    v0.action(&v5);\n    v5.value_hint(&v0);\n    v0.arg(&v8, &v5);\n    memcpy(a0, &v0, 700);\n    *((unsigned long *)&(&a0->padding_0)[1]) = 549755814048 | v3;\n    *((unsigned int *)((char *)&a0->field_2bc + 4)) = v4;\n    return a0;\n}\n",
+    "_ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E": "long long uu_nohup::replace_fds()\n{\n    char v0;  // [bp-0x40], Other Possible Types: unsigned long long\n    unsigned long long v1;  // [bp-0x40]\n    unsigned int v2;  // [bp-0x3c]\n    char v3;  // [bp-0x38], Other Possible Types: unsigned long, unsigned int\n    unsigned int v4;  // [bp-0x34]\n    unsigned long long v5;  // [bp-0x30]\n    unsigned long long v6;  // [bp-0x28]\n    unsigned long long v8;  // rax\n    unsigned int v9;  // ebx\n    unsigned long long v10;  // rax\n    unsigned long long v11;  // rax\n    unsigned long long v12;  // rax\n    unsigned long long v13;  // rax\n\n    std::io::stdio::stdin();\n    if (std::sys::io::is_terminal::isatty::is_terminal())\n    {\n        (char)v0.open();\n        if ((v0 & 1))\n        {\n            v8 = *((long long *)&v3);\n            v1 = 9223372036854775809;\n            *((unsigned int **)&v3) = &g_418d00;\n            v4 = 0;\n            v5 = 5;\n            v6 = v8;\n            return (char)v0.new();\n        }\n        if (dup2(v2, 0))\n        {\n            v10 = *(__errno_location()) * 0x100000000;\n            *((char **)&v3) = \"STDINSTDERRSTDOUT: ignoring input and appending output to \\n\";\n            v5 = 5;\n            v6 = v10 | 2;\n            v0 = 9223372036854775809;\n            v11 = (char)v0.new();\n            core::ptr::drop_in_place<std::fs::File>(v2);\n            return v11;\n        }\n        core::ptr::drop_in_place<std::fs::File>(v2);\n    }\n    std::io::stdio::stdout();\n    if (std::sys::io::is_terminal::isatty::is_terminal())\n    {\n        uu_nohup::find_stdout(&(char)v0);\n        if (v0)\n            return v0;\n        v9 = v3;\n        if (dup2(v3, 1) != 1)\n        {\n            v12 = *(__errno_location()) * 0x100000000;\n            v3 = \"STDOUT: ignoring input and appending output to \\n\";\n            v5 = 6;\n            v6 = v12 | 2;\n            v0 = 9223372036854775809;\n            v11 = (char)v0.new();\n            core::ptr::drop_in_place<std::fs::File>(v9);\n            return v11;\n        }\n        core::ptr::drop_in_place<std::fs::File>(v3);\n    }\n    if (!std::sys::io::is_terminal::isatty::is_terminal())\n    {\n        return 0;\n    }\n    else if (dup2(1, 2) == 2)\n    {\n        return 0;\n    }\n    else\n    {\n        v13 = *(__errno_location()) * 0x100000000;\n        v3 = \"STDERRSTDOUT: ignoring input and appending output to \\n\";\n        v5 = 6;\n        v6 = v13 | 2;\n        v1 = 9223372036854775809;\n        return (char)v0.new();\n    }\n}\n",
+    "_ZN8uu_nohup11find_stdout17hadffd7477f170ba3E": "long long uu_nohup::find_stdout(void* a0)\n{\n    char v0;  // [bp-0xf8], Other Possible Types: unsigned long long\n    unsigned long long v1;  // [bp-0xf0]\n    unsigned long long v2;  // [bp-0xf0]\n    char *v3;  // [bp-0xe8], Other Possible Types: unsigned int, unsigned long long\n    char *v4;  // [bp-0xe8], Other Possible Types: unsigned long long\n    unsigned long long v5;  // [bp-0xe0]\n    void* v6;  // [bp-0xd8], Other Possible Types: unsigned long long\n    unsigned int v7;  // [bp-0xd0]\n    char *v8;  // [bp-0xc8], Other Possible Types: char, unsigned long long\n    unsigned long long v9;  // [bp-0xc0]\n    unsigned long long v10;  // [bp-0xb8]\n    void* v11;  // [bp-0xb0], Other Possible Types: char, unsigned long, unsigned long long\n    char v12;  // [bp-0xa8], Other Possible Types: unsigned long long\n    unsigned long long v13;  // [bp-0xa0]\n    char v14;  // [bp-0x98]\n    char *v15;  // [bp-0x90], Other Possible Types: unsigned long long\n    unsigned long long v16;  // [bp-0x88]\n    unsigned long long v17;  // [bp-0x80]\n    unsigned long long v18;  // [bp-0x78]\n    unsigned int v19;  // [bp-0x70]\n    char v20;  // [bp-0x6e]\n    char v21;  // [bp-0x6c], Other Possible Types: unsigned short\n    unsigned long long v22;  // [bp-0x68]\n    unsigned int v23;  // [bp-0x60]\n    char v24;  // [bp-0x5e]\n    char v25;  // [bp-0x5c], Other Possible Types: unsigned short\n    char v26;  // [bp-0x58], Other Possible Types: unsigned int\n    unsigned int v27;  // [bp-0x54]\n    unsigned long long v28;  // [bp-0x50]\n    char v29;  // [bp-0x48], Other Possible Types: unsigned int\n    unsigned int v30;  // [bp-0x44]\n    unsigned long long v31;  // [bp-0x40]\n    unsigned long long v32;  // [bp-0x38]\n    char v34;  // r15b\n    unsigned long long v35;  // r13\n    unsigned long long v36;  // rdx\n    unsigned long long v37;  // rdx\n    unsigned long long v38;  // rax\n\n    std::env::var(&v0, \"POSIXLY_CORRECTsrc/uu/nohup/src/nohup.rs\", 15);\n    v34 = v0;\n    core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>(&v0);\n    v18 = 0x1b600000000;\n    v21 = 0;\n    v19 = 0;\n    v21 = 1;\n    v20 = 1;\n    v26.open(&v18, \"nohup.out(uutils coreutils) 0.0.30Run COMMAND ignoring hangup signals.If standard input is terminal, it'll be replaced with /dev/null.\\nIf standard output is terminal, it'll be appended to nohup.out instead,\\nor $HOME/nohup.out, if nohup.out open failed.\\nIf \", 9);\n    if (v26 != 1)\n    {\n        v11 = uucore::util_name();\n        v12 = v37;\n        v8 = &v11;\n        v9 = <&T as core::fmt::Display>::fmt;\n        v0 = &g_4dec18;\n        v1 = 2;\n        v6 = 0;\n        v3 = &v8;\n        v5 = 1;\n        std::io::stdio::_eprint(&v0);\n        v11 = 0;\n        v12 = \"nohup.out(uutils coreutils) 0.0.30Run COMMAND ignoring hangup signals.If standard input is terminal, it'll be replaced with /dev/null.\\nIf standard output is terminal, it'll be appended to nohup.out instead,\\nor $HOME/nohup.out, if nohup.out open failed.\\nIf \";\n        v13 = 9;\n        v14 = 1;\n        v8 = &v11;\n        v9 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v0 = &g_4dec38;\n        v1 = 2;\n        v6 = 0;\n        v3 = &v8;\n        v5 = 1;\n        v38 = std::io::stdio::_eprint(&v0);\n        *((unsigned int *)&a0[8]) = v27;\n        *((unsigned long long *)a0) = 0;\n        return v38;\n    }\n    v35 = v28;\n    v17 = v35;\n    std::env::var(&v11, \"HOME\", 4);\n    if (v11 == 1)\n    {\n        v3 = (v34 ^ 1) * 2 + 125;\n        v1 = v35;\n        v0 = 9223372036854775810;\n        *((double *)a0) = v0.new();\n        *((char **)&a0[8]) = &g_4debb0;\n        return (unsigned long long)core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>(&v11);\n    }\n    v10 = *((long long *)&v14);\n    memcpy(&v8, &v12, 16);\n    v8.push();\n    core::str::converts::from_utf8(&v0, v9, v10);\n    if ((v0 & 1))\n        core::option::unwrap_failed(&g_4dec58); /* do not return */\n    v22 = 0x1b600000000;\n    v25 = 0;\n    v23 = 0;\n    v25 = 1;\n    v24 = 1;\n    v29.open(&v22, &v8);\n    if (v29 != 1)\n    {\n        v11 = uucore::util_name();\n        v12 = v36;\n        v15 = &v11;\n        v16 = <&T as core::fmt::Display>::fmt;\n        v0 = &g_4dec18;\n        v2 = 2;\n        v6 = 0;\n        v4 = &v15;\n        v5 = 1;\n        std::io::stdio::_eprint(&v0);\n        v11 = 0;\n        v12 = v1;\n        v13 = v3;\n        v14 = 1;\n        v15 = &v11;\n        v16 = <os_display::Quoted as core::fmt::Display>::fmt;\n        v0 = &g_4dec38;\n        v1 = 2;\n        v6 = 0;\n        v3 = &v15;\n        v5 = 1;\n        std::io::stdio::_eprint(&v0);\n        *((unsigned int *)&a0[8]) = v30;\n        *((unsigned long long *)a0) = 0;\n        core::ptr::drop_in_place<std::path::PathBuf>(v8, v9);\n        return (unsigned long long)core::ptr::drop_in_place<std::io::error::Error>(&v17);\n    }\n    v32 = v31;\n    v15 = v35;\n    v11.to_vec(v1, v3);\n    v4 = v13;\n    memcpy(&v0, &v11, 16);\n    v7 = v3;\n    v5 = v35;\n    v6 = v32;\n    *((double *)a0) = v0.new();\n    *((char **)&a0[8]) = &g_4debb0;\n    return (unsigned long long)core::ptr::drop_in_place<std::path::PathBuf>(v8, v9);\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN8uu_nohup6uumain17hbe703f46f3d16b73E": {
+      "uucore::mods::error::get_exit_code": 1,
+      "core::ptr::drop_in_place<alloc::boxed::Box<dyn clap_builder::builder::value_parser::AnyValueParser>>": 1,
+      "core::ptr::drop_in_place<alloc::string::String>": 1,
+      "uucore::execution_phrase": 1,
+      "std::io::stdio::_eprint": 3,
+      "uucore::util_name": 1,
+      "core::option::Option<T>::map_or_else": 1,
+      "uu_nohup::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E": {
+      "alloc::boxed::Box<T>::new": 1,
+      "core::ptr::drop_in_place<clap_builder::parser::matches::arg_matches::ArgMatches>": 2,
+      "core::option::unwrap_failed": 1,
+      "core::panicking::panic_bounds_check": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<alloc::ffi::c_str::CString>>": 1,
+      "core::ptr::drop_in_place<alloc::vec::Vec<usize>>": 1,
+      "uucore::mods::error::set_exit_code": 1,
+      "execvp": 1,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "core::iter::traits::iterator::Iterator::collect": 2,
+      "clap_builder::parser::error::MatchesError::unwrap": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "signal": 1,
+      "uu_nohup::replace_fds": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_nohup::uu_app": 1
+    },
+    "_ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E": {
+      "memcpy": 2,
+      "clap_builder::builder::command::Command::arg": 1,
+      "clap_builder::builder::arg::Arg::value_hint": 1,
+      "clap_builder::builder::arg::Arg::action": 1,
+      "clap_builder::builder::arg::Arg::new": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E": {
+      "alloc::boxed::Box<T>::new": 4,
+      "__errno_location": 3,
+      "core::ptr::drop_in_place<std::fs::File>": 4,
+      "uu_nohup::find_stdout": 1,
+      "std::io::stdio::stdout": 1,
+      "std::fs::File::open": 1,
+      "std::io::stdio::stdin": 1
+    },
+    "_ZN8uu_nohup11find_stdout17hadffd7477f170ba3E": {
+      "std::io::stdio::_eprint": 4,
+      "uucore::util_name": 2,
+      "core::ptr::drop_in_place<core::result::Result<alloc::string::String,std::env::VarError>>": 2,
+      "alloc::boxed::Box<T>::new": 2,
+      "core::option::unwrap_failed": 1,
+      "core::ptr::drop_in_place<std::io::error::Error>": 1,
+      "core::ptr::drop_in_place<std::path::PathBuf>": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "std::fs::OpenOptions::open": 2,
+      "core::str::converts::from_utf8": 1,
+      "std::path::PathBuf::push": 1,
+      "std::env::var": 2
+    }
+  },
+  "macro_call_counts": {
+    "_ZN8uu_nohup6uumain17hbe703f46f3d16b73E": {},
+    "_ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E": {},
+    "_ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E": {},
+    "_ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E": {},
+    "_ZN8uu_nohup11find_stdout17hadffd7477f170ba3E": {}
+  },
+  "node_counts": {
+    "_ZN8uu_nohup6uumain17hbe703f46f3d16b73E": 12,
+    "_ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E": 19,
+    "_ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E": 13,
+    "_ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E": 21,
+    "_ZN8uu_nohup11find_stdout17hadffd7477f170ba3E": 23
+  },
+  "variable_types": {
+    "_ZN8uu_nohup6uumain17hbe703f46f3d16b73E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_nohup6uumain6uumain17hc0edd149f256cc13E": {
+      "stack_128": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_92": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_28": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_108": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_44": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_60": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_124": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_136": [
+        [
+          "&reference",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_nohup6uu_app17hfbdd0a2e12237cc1E": {
+      "stack_1352": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_712": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_632": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1344": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_636": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_1348": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_700": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_708": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN8uu_nohup11replace_fds17h2e47797ec36e0a94E": {
+      "stack_8": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_20": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN8uu_nohup11find_stdout17hadffd7477f170ba3E": {
+      "stack_0": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_140": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_138": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_48": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_164": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_156": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_154": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_180": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    }
+  }
+}

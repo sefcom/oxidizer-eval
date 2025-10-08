@@ -1,0 +1,1401 @@
+{
+  "decompilation": {
+    "_ZN8uu_chmod22extract_negative_modes17h96e49cec7b4bfb40E": "fn uu_chmod::extract_negative_modes(a0: i64, a1: i64) -> void {\n    let v0: i64;  // [bp-0x110]\n    let v1: struct24;  // [bp-0x108]\n    let v3: u64;  // [bp-0x100]\n    let v4: u64;  // [bp-0xf8]\n    let v5: u64;  // [bp-0xf8]\n    let v6: void*;  // [bp-0xf0], Other Possible Types: struct16\n    let v7: struct16;  // [bp-0xf0]\n    let v8: struct8;  // [bp-0xf0]\n    let v9: struct16;  // [bp-0xf0]\n    let v10: u64;  // [bp-0xe8]\n    let v11: void*;  // [bp-0xe0]\n    let v12: Result<struct24, struct24>;  // [bp-0xd8], Other Possible Types: struct32, struct48, struct24\n    let v13: struct24;  // [bp-0xd8]\n    let v14: u64;  // [bp-0xc8]\n    let v15: u64;  // [bp-0xc8]\n    let v16: iNone;  // [bp-0xc0]\n    let v17: u64;  // [bp-0xb0]\n    let v18: struct24;  // [bp-0xa8], Other Possible Types: u8\n    let v19: u64;  // [bp-0xa0]\n    let v20: u64;  // [bp-0x98]\n    let v21: u128;  // [bp-0x88]\n    let v22: u64;  // [bp-0x80]\n    let v23: u64;  // [bp-0x78]\n    let v24: iNone;  // [bp-0x68]\n    let v25: u64;  // [bp-0x58]\n    let v26: struct24;  // [bp-0x48]\n    let v28: u64;  // r13\n\n    v12 = core::iter::traits::iterator::Iterator::partition(a1);\n    v23 = v14;\n    v21 = v12.field_0;\n    v24 = v16;\n    v25 = v17;\n    v6 = 0;\n    v10 = 8;\n    v11 = 0;\n    if v14 {\n        v12 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(\"w\");\n        v1 = v13;\n        v7 = alloc::vec::Vec<T,A>::push(&v1, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/targets/src/coreutils/src/uu/chmod/src/chmod.rs\");\n    }\n    v12 = <alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter(&v24);\n    v0 = &v6;\n    v8 = <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,alloc::vec::into_iter::IntoIter<T>>>::spec_extend(&v12);\n    <core::iter::adapters::skip::Skip<I> as core::iter::traits::iterator::Iterator>::next(&v18);\n    v28 = *(&v18 as &i64);\n    if (((0 ^ v28) & (0 ^ -(v28))) >> 63) as char {\n        v15 = v14;\n    } else {\n        v12 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(\"--\");\n        v1 = v13;\n        v6 = alloc::vec::Vec<T,A>::push(&v1, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/targets/src/coreutils/src/uu/chmod/src/chmod.rs\");\n        v12 = struct24 {\n            field_0: v28\n            field_8: v19\n            field_16: v20\n        };\n        v9 = alloc::vec::Vec<T,A>::push(&v12, \"/home/34r7hm4n/dev/oxidizer/oxidizer-eval/targets/src/coreutils/src/uu/chmod/src/chmod.rs\");\n        v4 = v5;\n    }\n    v26 = struct24 {\n        field_0: *(a1 as &i128)\n        field_16: *((a1 + 16) as &i64)\n    };\n    <alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,I>>::spec_extend(&v9, &v26);\n    core::iter::traits::iterator::Iterator::collect(&v1, v22, v22 + v14 * 24);\n    v12 = alloc::str::join_generic_copy(v3, v4);\n    v18 = v13;\n    core::option::Option<T>::filter(a0, &v18);\n    *((a0 + 40) as &i64) = 0;\n    *((a0 + 24) as &i128) = *(&v9.field_0 as &i128);\n    return;\n}\n",
+    "_ZN8uu_chmod6uumain17h3ac108ddb974c541E": "fn uu_chmod::uumain(a0: u32, a1: u32) -> long long {\n    let v0: u64;  // [bp-0x98]\n    let v1: u128;  // [bp-0x58]\n    let v2: u64;  // [bp-0x48]\n    let v3: alloc::string::String;  // [bp-0x38], Other Possible Types: u64\n    let v4: i64;  // [bp-0x30]\n    let v5: u64;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: i64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers());\n    v8 = uu_chmod::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v3 = format!(\"{}\", &v0);\n    v1 = *(&v3.vec.buf.inner.cap as &i128);\n    v2 = v5;\n    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(<alloc::boxed::Box<T,A> as core::fmt::Display>::fmt, v5, 1, 0) {\n        v3 = uucore::util_name();\n        v4 = v9;\n        eprint!(\"{}: \", &v3);\n        eprintln!(\"{}\", &v1);\n    }\n    if !*((v9 + 96) as &i64)(v0) as i8 {\n        return *((v9 + 88) as &i64)(v0) as u32;\n    }\n    v3 = uucore::execution_phrase();\n    v4 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v3);\n    return *((v9 + 88) as &i64)(v0) as u32;\n}\n",
+    "_ZN8uu_chmod6uumain6uumain17hef7bd93be3cedfc8E": "fn uu_chmod::uumain::uumain(a0: i64, a1: i64) -> u64 {\n    let v0: u8;  // [bp-0x70c]\n    let v1: u8;  // [bp-0x70b]\n    let v2: u8;  // [bp-0x70a]\n    let v3: u8;  // [bp-0x709]\n    let v4: i64;  // [bp-0x708]\n    let v5: u64;  // [bp-0x700]\n    let v6: std::io::error::Error;  // [bp-0x6f8]\n    let v7: u32;  // [bp-0x6ec]\n    let v8: alloc::string::String;  // [bp-0x6e8]\n    let v9: u64;  // [bp-0x6e8]\n    let v10: u64;  // [bp-0x6e0]\n    let v11: u64;  // [bp-0x6d8]\n    let v12: void*;  // [bp-0x6d0], Other Possible Types: struct16, struct24\n    let v13: u64;  // [bp-0x6d0]\n    let v14: u64;  // [bp-0x6d0]\n    let v15: u64;  // [bp-0x6c8]\n    let v16: u64;  // [bp-0x6c8]\n    let v17: u64;  // [bp-0x6c8]\n    let v18: void*;  // [bp-0x6c0], Other Possible Types: u64\n    let v19: u8;  // [bp-0x6b8]\n    let v20: iNone;  // [bp-0x6b0]\n    let v21: u64;  // [bp-0x6a0]\n    let v22: u64;  // [bp-0x698]\n    let v23: u64;  // [bp-0x690]\n    let v24: iNone;  // [bp-0x688]\n    let v25: iNone;  // [bp-0x678]\n    let v26: u64;  // [bp-0x668]\n    let v27: u64;  // [bp-0x660]\n    let v28: u128;  // [bp-0x658]\n    let v29: u64;  // [bp-0x648]\n    let v30: alloc::string::String;  // [bp-0x620]\n    let v31: u64;  // [bp-0x610]\n    let v32: Option<struct24>;  // [bp-0x608], Other Possible Types: Result<struct16, struct11>, struct39, struct712, u128\n    let v33: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x608]\n    let v34: u64;  // [bp-0x608]\n    let v35: struct56;  // [bp-0x608]\n    let v36: u64;  // [bp-0x600]\n    let v37: u64;  // [bp-0x5f8]\n    let v38: i8;  // [bp-0x5f0], Other Possible Types: u32\n    let v39: i8;  // [bp-0x5e0]\n    let v40: struct64;  // [bp-0x338]\n    let v41: core::iter::adapters::skip::Skip<core::iter::adapters::zip::Zip<core::slice::iter::Iter<u16>, core::slice::iter::IterMut<u32>>>;  // [bp-0x2f8], Other Possible Types: struct24, u128\n    let v42: u128;  // [bp-0x2f8]\n    let v43: struct712;  // [bp-0x2f8]\n    let v44: u64;  // [bp-0x2e8]\n    let v45: u32;  // [bp-0x2e0]\n    let v47: u64;  // r14\n    let v48: u64;  // r12\n    let v49: u64;  // rbx\n    let v50: i64;  // rbx\n    let v51: u64;  // rdx\n    let v52: u32;  // ebp\n    let v53: u64;  // rax\n    let v54: u64;  // r12\n    let v55: u32;  // ebp\n\n    v41 = core::iter::traits::iterator::Iterator::skip(a0, a1);\n    v32 = uu_chmod::extract_negative_modes(&v41);\n    v47 = v32 as i64;\n    v48 = v36;\n    v28 = *(&v38 as &i128);\n    v29 = *(&v39 as &i64);\n    v32 = uu_chmod::uu_app();\n    v43 = clap_builder::builder::command::Command::after_help(&v32);\n    v12 = clap_builder::builder::command::Command::try_get_matches_from(&v43, &v28);\n    if v12.field_0 == 0x8000000000000000 {\n        v49 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v23);\n    } else {\n        v26 = v21;\n        v25 = v20;\n        v24 = *(&v18 as &i128);\n        v22 = v12.field_0;\n        v23 = v15;\n        v3 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v22, \"changes\");\n        v2 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v22, \"quiet\");\n        v1 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v22, \"verbose\");\n        v0 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v22, \"preserve-root\");\n        clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v32, &v22, \"RFILE\");\n        v50 = clap_builder::parser::error::MatchesError::unwrap(\"RFILE\", &v32);\n        if v50 {\n            v33 = std::fs::metadata(v50, v51);\n            if let Ok(_) = v33 {\n                goto LABEL_459f57;\n            }\n            v6 = v36;\n            v12 = 0;\n            v15 = *((v50 + 8) as &i64);\n            v18 = *((v50 + 16) as &i64);\n            v19 = 1;\n            v30 = format!(\"cannot stat attributes of {}: {}\", &v12, &v6);\n            v45 = 1;\n            v42 = *(&v30.vec.buf.inner.cap as &i128);\n            v44 = v31;\n            v49 = alloc::boxed::Box<T>::new(&v42) as u64;\n        } else {\nLABEL_459f57:\n            clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v34, &v22, \"MODE\");\n            v53 = clap_builder::parser::error::MatchesError::unwrap(\"MODE\", &v34);\n            if v47 == 0x8000000000000000 {\n                core::option::unwrap(v53);\n                v8 = <alloc::string::String as core::clone::Clone>::clone(v53);\n            } else {\n                v9 = v47;\n                v10 = v48;\n                v11 = v37;\n            }\n            v5 = v48;\n            v4 = v47;\n            v32 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v22);\n            v40 = clap_builder::parser::error::MatchesError::unwrap(&v32);\n            if v40.field_0 as i64 {\n                core::iter::traits::iterator::Iterator::collect(&v32, &v40);\n                v41 = *(&v36 as &i128);\n                if v35.field_0 == 0x8000000000000000 {\n                    goto LABEL_45a04d;\n                }\n                v15 = v41;\n                v13 = v35.field_0;\n                v16 = v15;\n                if v50 {\n                    goto LABEL_45a071;\n                }\nLABEL_45a1c1:\n                v54 = v9;\n                v47 = v10;\n                v27 = v11;\n                if v18 {\n                    goto LABEL_45a096;\n                }\nLABEL_45a1e4:\n                v41 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(\"missing operand\");\n                v37 = v44;\n                v32 = *(&v41.field_0 as &i128);\n                v38 = 1;\n                v49 = alloc::boxed::Box<T>::new(&v32) as u64;\n                v47 = v4;\n            } else {\nLABEL_45a04d:\n                v14 = 0;\n                v17 = 8;\n                v18 = 0;\n                v16 = v17;\n                if !v50 {\n                    goto LABEL_45a1c1;\n                }\nLABEL_45a071:\n                vvar_729{stack -1744} = struct24 OrderedDict([(0, \ud835\udf19@64b [((4563021, None), vvar_681{stack -1744}), ((4563366, None), vvar_680{stack -1744})]), (8, \ud835\udf19@64b [((4563021, None), vvar_682{stack -1736}), ((4563366, None), vvar_619{stack -1736})]), (16, \ud835\udf19@64b [((4563021, None), vvar_683{stack -1728}), ((4563366, None), None)])])\n                alloc::vec::Vec<T,A>::push(&v12, &v9);\n                v54 = 0x8000000000000000;\n                if !v18 {\n                    goto LABEL_45a1e4;\n                }\nLABEL_45a096:\n                v32 = uucore::features::perms::configure_symlink_and_recursion(&v22, 1);\n                v49 = v32 as i64;\n                v55 = v36;\n                if let Err(_) = v32 {\n                    v32 = struct39 {\n                        field_0: v54\n                        field_8: v47\n                        field_16: v27\n                        field_24: v52\n                        field_28: v7\n                        field_32: v3\n                        field_33: v2\n                        field_34: v1\n                        field_35: v0\n                        field_36: v55 as u8 & 1\n                        field_37: (v55 >> 8) as u8 & 1\n                        field_38: (v55 >> 16) as u8\n                    };\n                    v49 = uu_chmod::Chmoder::chmod(&v32, v16, v18);\n                    v47 = v4;\n                }\n            }\n        }\n    }\n    return v49;\n}\n",
+    "_ZN8uu_chmod6uu_app17h525988f9a6fd06f1E": "fn uu_chmod::uu_app() -> : struct712 {\n    let a0: u64;  // rdi\n    let v0: struct437;  // [bp-0xab0], Other Possible Types: struct712, struct640\n    let v1: u64;  // [bp-0x7f4]\n    let v2: u32;  // [bp-0x7ec]\n    let v3: struct24;  // [bp-0x7e8], Other Possible Types: struct712, struct640\n    let v4: u64;  // [bp-0x52c]\n    let v5: u32;  // [bp-0x524]\n    let v6: struct24;  // [bp-0x520], Other Possible Types: struct640\n    let v7: struct640;  // [bp-0x2a0]\n    let v10: u64;  // rdx\n\n    v0 = clap_builder::builder::command::Command::new(uucore::util_name(), v10);\n    v3 = clap_builder::builder::command::Command::version(&v0);\n    v0 = clap_builder::builder::command::Command::about(&v3);\n    v6 = uucore::format_usage(\"{} [OPTION]... MODE[,MODE]... FILE...\\n{} [OPTION]... OCTAL-MODE FILE...\\n{} [OPTION]... --reference=RFILE FILE...\");\n    v3 = clap_builder::builder::command::Command::override_usage(&v0, &v6);\n    memcpy(&v0, &v3, 700);\n    v1 = 290482760148582536 | v4;\n    v2 = v5;\n    v3 = clap_builder::builder::arg::Arg::new(\"help\");\n    v6 = clap_builder::builder::arg::Arg::long(&v3, \"help\");\n    v3 = clap_builder::builder::arg::Arg::help(&v6, \"Print help information.\");\n    v6 = clap_builder::builder::arg::Arg::action(&v3, 5);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v6);\n    v0 = clap_builder::builder::arg::Arg::new(\"changes\");\n    v6 = clap_builder::builder::arg::Arg::long(&v0, \"changes\");\n    v0 = clap_builder::builder::arg::Arg::short(&v6, 99);\n    v6 = clap_builder::builder::arg::Arg::help(&v0, \"like verbose but report only when a change is made\");\n    v7 = clap_builder::builder::arg::Arg::action(&v6, 2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v7);\n    v3 = clap_builder::builder::arg::Arg::new(\"quiet\");\n    v6 = clap_builder::builder::arg::Arg::long(&v3, \"quiet\");\n    v3 = clap_builder::builder::arg::Arg::visible_alias(&v6);\n    v6 = clap_builder::builder::arg::Arg::short(&v3, 102);\n    v3 = clap_builder::builder::arg::Arg::help(&v6, \"suppress most error messages\");\n    v6 = clap_builder::builder::arg::Arg::action(&v3, 2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v6);\n    v0 = clap_builder::builder::arg::Arg::new(\"verbose\");\n    v6 = clap_builder::builder::arg::Arg::long(&v0, \"verbose\");\n    v0 = clap_builder::builder::arg::Arg::short(&v6, 118);\n    v6 = clap_builder::builder::arg::Arg::help(&v0, \"output a diagnostic for every file processed\");\n    v7 = clap_builder::builder::arg::Arg::action(&v6, 2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v7);\n    v3 = clap_builder::builder::arg::Arg::new(\"no-preserve-root\");\n    v6 = clap_builder::builder::arg::Arg::long(&v3, \"no-preserve-root\");\n    v3 = clap_builder::builder::arg::Arg::help(&v6, \"do not treat '/' specially (the default)\");\n    v6 = clap_builder::builder::arg::Arg::action(&v3, 2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v6);\n    v0 = clap_builder::builder::arg::Arg::new(\"preserve-root\");\n    v6 = clap_builder::builder::arg::Arg::long(&v0, \"preserve-root\");\n    v0 = clap_builder::builder::arg::Arg::help(&v6, \"fail to operate recursively on '/'\");\n    v6 = clap_builder::builder::arg::Arg::action(&v0, 2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v6);\n    v3 = clap_builder::builder::arg::Arg::new(\"recursive\");\n    v6 = clap_builder::builder::arg::Arg::long(&v3, \"recursive\");\n    v3 = clap_builder::builder::arg::Arg::short(&v6, 82);\n    v6 = clap_builder::builder::arg::Arg::help(&v3, \"change files and directories recursively\");\n    v7 = clap_builder::builder::arg::Arg::action(&v6, 2);\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v7);\n    v0 = clap_builder::builder::arg::Arg::new(\"RFILE\");\n    v6 = clap_builder::builder::arg::Arg::long(&v0, \"reference\");\n    v0 = clap_builder::builder::arg::Arg::value_hint(&v6, 3);\n    v6 = clap_builder::builder::arg::Arg::help(&v0, \"use RFILE's mode instead of MODE values\");\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v6);\n    v3 = clap_builder::builder::arg::Arg::new(\"MODE\");\n    v6 = clap_builder::builder::arg::Arg::required_unless_present(&v3, \"RFILE\");\n    v3 = clap_builder::builder::command::Command::arg(&v0, &v6);\n    v0 = clap_builder::builder::arg::Arg::new(\"FILE\");\n    v6 = clap_builder::builder::arg::Arg::required_unless_present(&v0, \"MODE\");\n    v0 = clap_builder::builder::arg::Arg::action(&v6, 1);\n    v6 = clap_builder::builder::arg::Arg::value_hint(&v0, 2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v6);\n    v3 = uucore::features::perms::common_args();\n    clap_builder::builder::command::Command::args(a0, &v0, &v3);\n    return;\n}\n",
+    "_ZN8uu_chmod7Chmoder5chmod17h92b1b878e45c814bE": "fn uu_chmod::Chmoder::chmod(a0: &struct39, a1: i64, a2: i64) -> u64 {\n    let v0: u8;  // [bp-0x18d]\n    let v1: u8;  // [bp-0x18c]\n    let v2: u8;  // [bp-0x18b]\n    let v3: u8;  // [bp-0x18a]\n    let v4: u8;  // [bp-0x189]\n    let v5: u64;  // [bp-0x188]\n    let v6: u64;  // [bp-0x180]\n    let v7: void*;  // [bp-0x178]\n    let v8: u64;  // [bp-0x170]\n    let v9: u64;  // [bp-0x168]\n    let v10: u8;  // [bp-0x160]\n    let v11: void*;  // [bp-0x158]\n    let v12: struct16;  // [bp-0x150]\n    let v13: struct640;  // [bp-0x140]\n    let v14: i32;  // [bp-0x134]\n    let v15: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x128], Other Possible Types: struct28, u64\n    let v16: core::fmt::rt::Argument;  // [bp-0x128]\n    let v17: core::fmt::rt::Argument;  // [bp-0x128], Other Possible Types: u64\n    let v18: u64;  // [bp-0x128]\n    let v19: u64;  // [bp-0x128]\n    let v20: struct640;  // [bp-0x118]\n    let v21: u32;  // [bp-0x110]\n    let v22: alloc::string::String;  // [bp-0x78]\n    let v23: struct640;  // [bp-0x68]\n    let v24: alloc::string::String;  // [bp-0x60]\n    let v25: struct640;  // [bp-0x50]\n    let v26: alloc::string::String;  // [bp-0x48]\n    let v28: i64;  // r12\n    let v29: u64;  // r15\n    let v30: i64;  // rax\n    let v31: void*;  // rcx\n    let v32: u64;  // r14\n    let v33: u64;  // rbp\n    let v36: i64;  // rdx\n    let v38: u64;  // rbp\n\n    if !a2 {\n        return 0;\n    }\n    v28 = a1;\n    v29 = a1 + a2 * 24;\n    v30 = a1 + 24;\n    v0 = *((a0 + 33) as &i8);\n    v3 = *((a0 + 34) as &i8);\n    v1 = *((a0 + 35) as &i8);\n    v4 = *((a0 + 37) as &i8);\n    v2 = *((a0 + 36) as &i8);\n    v14 = ((*((a0 + 36) as &i8) & 1) ? !*((a0 + 38) as &i8) : *((a0 + 37) as &i8) ^ 1);\n    v31 = 0;\n    loop {\n        v11 = v31;\n        loop {\n            v32 = *((v28 + 8) as &i64);\n            v33 = *((v28 + 16) as &i64);\n            v28 = v30;\n            v15 = std::fs::metadata(v32, v33);\n            if v15 as i64 == 2 {\n                if !std::path::Path::is_symlink(v32, v33) {\n                    v18 = v19;\n                    if !(v0 & 1) {\n                        v7 = 0;\n                        v8 = v32;\n                        v9 = v33;\n                        v10 = 1;\n                        v24 = format!(\"cannot access {}: No such file or directory\", &v7);\n                        v21 = 1;\n                        v17 = *(&v24.vec.buf.inner.cap as &i128);\n                        v20 = v25;\n                        v12 = struct16 {\n                            field_0: alloc::boxed::Box<T>::new(&v17 as u384) as u64\n                            field_8: &g_4eba08\n                        };\n                        uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v12.field_0));\n                        v5 = uucore::util_name();\n                        v6 = v36;\n                        eprintln!(\"{}: {}\", &v5, &v12);\n                        v18 = v17;\n                    }\nLABEL_45e010:\n                    v19 = v18;\n                    uucore::mods::error::set_exit_code(1);\n                } else if !(v14 as i8 & 1) {\n                    v16 = v19;\n                    if !(v0 & 1) {\n                        v7 = 0;\n                        v8 = v32;\n                        v9 = v33;\n                        v10 = 1;\n                        v22 = format!(\"cannot operate on dangling symlink {}\", &v7);\n                        v21 = 1;\n                        v17 = *(&v22.vec.buf.inner.cap as &i128);\n                        v20 = v23;\n                        v12 = struct16 {\n                            field_0: alloc::boxed::Box<T>::new(&v17 as u384) as u64\n                            field_8: &g_4eba08\n                        };\n                        uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v12.field_0));\n                        v5 = uucore::util_name();\n                        v6 = v36;\n                        eprintln!(\"{}: {}\", &v5, &v12);\n                        uucore::mods::error::set_exit_code(1);\n                        v16 = v17;\n                    }\n                    v15 = v16;\n                    v18 = v15;\n                    if (v3 & 1) {\n                        v7 = 0;\n                        v8 = v32;\n                        v9 = v33;\n                        v10 = 1;\n                        println!(\"failed to change mode of {} from 0000 (---------) to 1500 (r-x-----T)\", &v7);\n                        v18 = v17;\n                        goto LABEL_45e010;\n                    }\n                }\n            } else {\n                if (v4 & 1) || !std::path::Path::is_symlink(v32, v33) {\n                    break;\n                }\n            }\n            v30 = v28 + 24;\n            if v28 == v29 {\n                return v11;\n            }\n        }\n        if (v2 & 1) {\n            if (v1 & 1) && <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v32, v33, \"/\") {\n                v7 = 0;\n                v8 = v32;\n                v9 = v33;\n                v10 = 1;\n                v26 = format!(\"it is dangerous to operate recursively on {}\\nchmod: use --no-preserve-root to override this failsafe\", &v7);\n                v15 = struct28 {\n                    field_0: *(&v26.vec.buf.inner.cap as &i128)\n                    field_16: v26.vec.len\n                    field_24: 1\n                };\n                return alloc::boxed::Box<T>::new(&v15) as u64;\n            }\n            v31 = uu_chmod::Chmoder::walk_dir(a0, v32, v33);\n            v38 = v36;\n        } else {\n            v31 = core::result::Result<T,E>::and(uu_chmod::Chmoder::chmod_file(a0, v32, v33), v36, v11, v13);\n            v38 = v36;\n        }\n        v30 = v28 + 24;\n        v13 = v38;\n        if v28 == v29 {\n            v30 = v28;\n            if v28 == v29 {\n                return v31;\n            }\n        } else if v28 == v29 {\n            return v31;\n        }\n    }\n}\n",
+    "_ZN8uu_chmod7Chmoder8walk_dir17ha01070efe2a4054dE": "fn uu_chmod::Chmoder::walk_dir(a0: i64, a1: &[u8]) -> u64 {\n    let v0: u32;  // [bp-0xbc]\n    let v1: struct24;  // [bp-0xb8]\n    let v2: u64;  // [bp-0xb0]\n    let v3: u64;  // [bp-0xa8]\n    let v4: struct16;  // [bp-0x98]\n    let v5: core::result::Result<std::path::PathBuf, std::io::error::Error>;  // [bp-0x88], Other Possible Types: struct40\n    let v6: u64;  // [bp-0x80]\n    let v7: core::option::Option<core::result::Result<std::fs::DirEntry, std::io::error::Error>>;  // [bp-0x60], Other Possible Types: std::path::PathBuf\n    let v8: struct9;  // [bp-0x60]\n    let v9: struct16;  // [bp-0x60]\n    let v10: u64;  // [bp-0x58]\n    let v11: struct40;  // [bp-0x58]\n    let v13: u32;  // rsi\n    let v14: u64;  // rdx\n    let v15: u64;  // r14\n    let v16: u32;  // eax\n    let v17: u8;  // al\n    let v18: u64;  // rax\n    let v19: u64;  // r13\n    let v20: u64;  // r14\n    let v21: u64;  // rbx\n    let v22: i64;  // r13\n\n    v15 = uu_chmod::Chmoder::chmod_file(a0, v13, v14);\n    v16 = *((a0 + 38) as &i8);\n    if v16 {\n        if v16 == 1 {\n            v5 = std::fs::canonicalize(a1);\n            v7 = std::sys::pal::unix::os::split_paths::bytes_to_path(a1);\n            v1 = core::result::Result<T,E>::unwrap_or(&v5, &v7);\n            v0 = <&std::path::Path as core::cmp::PartialEq<std::path::PathBuf>>::eq(a1, v14, v2);\n            v17 = std::path::Path::is_symlink(a1);\n            if v17 == 1 && !v0 as i8 {\n                return v15;\n            }\n        } else {\n            v0 = 1;\n            std::path::Path::is_symlink(a1);\n        }\n    } else {\n        if std::path::Path::is_symlink(a1) {\n            return v15;\n        }\n    }\n    if !std::path::Path::is_dir(a1) {\n        return v15;\n    }\n    v8 = std::fs::read_dir(a1);\n    if v8.field_8 == 2 {\n        v18 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v8.field_0);\n    } else {\n        v4 = v9;\n        loop {\n            v7 = <std::fs::ReadDir as core::iter::traits::iterator::Iterator>::next(&v4);\n            if let None = v7 {\n                return v15;\n            }\n            if !v10 {\n                break;\n            }\n            v5 = v11;\n            v1 = std::fs::DirEntry::path(&v5);\n            v20 = v2;\n            v21 = v3;\n            if !std::path::Path::is_symlink(v20, v21) {\n                v15 = uu_chmod::Chmoder::walk_dir(a0, v20, v21);\n                v22 = v14;\n            } else if !v0 as i8 {\n                v22 = v19;\n            } else {\n                v15 = core::result::Result<T,E>::and(uu_chmod::Chmoder::chmod_file(a0, v20, v21), v14, v15, v19);\n                v22 = v14;\n            }\n            v19 = v22;\n        }\n        v18 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v6);\n    }\n    return v18;\n}\n",
+    "_ZN8uu_chmod7Chmoder10chmod_file17h265d0431d919c569E": "fn uu_chmod::Chmoder::chmod_file(a0: i64, a1: i64, a2: i64) -> u64 {\n    let v0: core::fmt::rt::Argument;  // [bp-0x238], Other Possible Types: u64\n    let v1: core::fmt::rt::Argument;  // [bp-0x238]\n    let v2: Result<struct24, struct12>;  // [bp-0x238]\n    let v3: struct24;  // [bp-0x230], Other Possible Types: u64\n    let v4: struct24;  // [bp-0x230]\n    let v5: struct24;  // [bp-0x22c]\n    let v6: alloc::string::String;  // [bp-0x228], Other Possible Types: core::fmt::rt::Argument, u64\n    let v7: u8;  // [bp-0x220]\n    let v8: Result<struct24, struct12>;  // [bp-0x218], Other Possible Types: core::fmt::rt::Argument, struct28, u128\n    let v9: Result<struct24, struct12>;  // [bp-0x218]\n    let v10: core::fmt::rt::Argument;  // [bp-0x218]\n    let v11: struct24;  // [bp-0x210], Other Possible Types: u64\n    let v12: u64;  // [bp-0x210]\n    let v13: struct24;  // [bp-0x20c]\n    let v14: u64;  // [bp-0x208]\n    let v15: u8;  // [bp-0x200]\n    let v16: alloc::string::String;  // [bp-0x1e0]\n    let v17: alloc::string::String;  // [bp-0x1d8], Other Possible Types: core::fmt::Arguments, struct28, u128\n    let v18: core::fmt::rt::Argument;  // [bp-0x1d0]\n    let v19: core::str::pattern::CharSearcher;  // [bp-0x1c8], Other Possible Types: u64\n    let v20: u32;  // [bp-0x1c0]\n    let v21: core::result::Result<std::fs::Metadata, std::io::error::Error>;  // [bp-0x198]\n    let v22: alloc::string::String;  // [bp-0x184]\n    let v23: core::fmt::rt::Argument;  // [bp-0x178]\n    let v24: core::fmt::rt::Argument;  // [bp-0x170]\n    let v25: u128;  // [bp-0x168]\n    let v26: core::fmt::rt::Argument;  // [bp-0x160]\n    let v27: struct24;  // [bp-0x158], Other Possible Types: u64\n    let v28: alloc::string::String;  // [bp-0x140]\n    let v29: u64;  // [bp-0x130]\n    let v30: alloc::string::String;  // [bp-0x128]\n    let v31: u64;  // [bp-0x118]\n    let v32: alloc::string::String;  // [bp-0x110]\n    let v33: u64;  // [bp-0x100]\n    let v34: struct24;  // [bp-0xf8]\n    let v35: Result<struct176, struct16>;  // [bp-0xe0]\n    let v38: u8;  // al\n    let v39: core::fmt::rt::Argument;  // rbx\n    let v40: struct24;  // ebp\n    let v42: u64;  // rcx\n    let v43: struct24;  // r13d\n    let v44: u64;  // r12\n    let v45: u32;  // rdx\n    let v47: struct24;  // r13d\n    let v48: struct24;  // r13d\n    let v50: u32;  // eax\n    let v54: u64;  // rbx\n    let v55: u64;  // rax\n\n    v35 = uucore::features::perms::get_metadata(a1, a2, *((a0 + 37) as &i8));\n    if v35 as i32 == 2 {\n        v27 = *((&v35 as &char + 8) as &i64);\n        v38 = std::path::Path::is_symlink(a1, a2);\n        if !*((a0 + 37) as &i8) && v38 == 1 {\n            if *((a0 + 34) as &i8) == 1 {\n                v8 = 1;\n                v11 = a1;\n                v14 = a2;\n                v15 = 1;\n                println!(\"neither symbolic link {} nor referent has been changed\", &v8);\n            }\n        } else {\n            if std::io::error::Error::kind(v27) as u8 == 1 {\n                v8 = 1;\n                v11 = a1;\n                v14 = a2;\n                v15 = 1;\n                v28 = format!(\"{}: Permission denied\", &v8);\n                v20 = 1;\n                v17 = *(&v28.vec.buf.inner.cap as &i128);\n                v19 = v29;\n                alloc::boxed::Box<T>::new(&v17);\n            } else {\n                v8 = 1;\n                v11 = a1;\n                v14 = a2;\n                v15 = 1;\n                v30 = format!(\"{}: {}\", &v8, &v27);\n                v20 = 1;\n                v17 = *(&v30.vec.buf.inner.cap as &i128);\n                v19 = v31;\n                alloc::boxed::Box<T>::new(&v17);\n            }\n        }\n        return v39;\n    } else if *((a0 + 24) as &i32) == 1 {\n        return (!(uu_chmod::Chmoder::change_file(a0, 4095 & *((&v35 as &char + 56) as &i32), *((a0 + 28) as &i32), a1, a2) & 1) ? 0 : uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(1));\n    } else {\n        v16 = a2;\n        if !((((0 ^ *(a0 as &i64)) & (0 ^ -(*(a0 as &i64)))) >> 63) as char) {\n            v17 = <alloc::string::String as core::clone::Clone>::clone(a0);\n            v8 = *(&v17.vec.buf.inner.ptr as &i128);\n            if v17.vec.buf.inner.cap.__0 != 0x8000000000000000 {\n                v24 = v17.vec.buf.inner.cap.__0;\n                v25 = v8;\n                v19 = <char as core::str::pattern::Pattern>::into_searcher(v25, v26, v42);\n                v17 = 0;\n                v18 = v26;\n                v21 = 1;\n                v43 = v40;\n                v22 = v40;\n                do {\n                    v3 = v4;\n                    v0 = v1;\n                    v44 = core::str::iter::SplitInternal<P>::next(&v17);\n                    if !v44 {\n                        if (uu_chmod::Chmoder::change_file(a0, v22 as u64, v40 as u64, a1, v16) & 1) {\n                            uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(1);\n                            return v54;\n                        } else if (~(v43) & v40) {\n                            v0 = 1;\n                            v3 = a1;\n                            v6 = v16;\n                            v7 = 0;\n                            v34 = uucore::features::fs::display_permissions_unix(v40 as u64, 0);\n                            v27 = uucore::features::fs::display_permissions_unix(v43 as u64, 0);\n                            v32 = format!(\"{}: new permissions are {}, not {}\", &v0, &v34, &v27);\n                            v17 = struct28 {\n                                field_0: *(&v32.vec.buf.inner.cap as &i128)\n                                field_16: v33\n                                field_24: 1\n                            };\n                            alloc::boxed::Box<T>::new(&v17);\n                        } else {\n                            return 0;\n                        }\n                    }\n                    v8 = v44;\n                    *(&v12 as &core::fmt::rt::Argument) = v8 + v45;\n                    if <core::ops::control_flow::ControlFlow<B,C> as core::cmp::PartialEq>::eq(core::iter::traits::iterator::Iterator::try_fold(&v8), a1) {\n                        v9 = uucore::features::mode::parse_numeric(v40 as u64, v8, v45, std::path::Path::is_dir(a1, v16));\n                        v47 = v11;\n                        v48 = v47;\n                        v43 = v47;\n                        v10 = v8;\n                        if let Ok(_) = v9 {\n                            v23 = v14;\n                            v48 = v47;\n                            v43 = v13;\n                            v10 = v8;\n                        }\n                    } else {\n                        v50 = uucore::features::mode::get_umask();\n                        v2 = uucore::features::mode::parse_symbolic(v40 as u64, v8, v45, v50, std::path::Path::is_dir(a1, v16));\n                        match v2 {\n                            Ok(_) => {\n                                v43 = v5;\n                                v23 = v6;\n                                v48 = v3;\n                                v10 = v0;\n                            },\n                            Err(_) => {\n                                v8 = uucore::features::mode::parse_symbolic(v43 as u64, v8, v45, 0, std::path::Path::is_dir(a1, v16) as u32 as u64);\n                                core::result::Result<T,E>::unwrap(&v8);\n                                v48 = v3;\n                                v10 = v0;\n                            },\n                        }\n                    }\n                    v40 = v48;\n                    v3 = v4;\n                    v0 = v1;\n                } while (v10 == 0x8000000000000000);\n                v0 = v10;\n                v3 = v40;\n                v5 = v43;\n                v6 = v23;\n                if *((a0 + 33) as &i8) {\n                    uucore::mods::error::ExitCode::new(1);\n                    return v54;\n                }\n                v8 = struct28 {\n                    field_0: v0\n                    field_16: v6\n                    field_24: 1\n                };\n                alloc::boxed::Box<T>::new(&v8);\n                v54 = v55;\n                return v54;\n            }\n        }\n        core::option::unwrap_failed(); /* do not return */\n    }\n}\n",
+    "_ZN8uu_chmod7Chmoder11change_file17ha40cda8af2f327daE": "fn uu_chmod::Chmoder::change_file(a0: i64, a1: i32, a2: i32, a3: i64, a4: i64) -> u64 {\n    let v0: u32;  // [bp-0x108]\n    let v1: u32;  // [bp-0x104]\n    let v2: u64;  // [bp-0x100]\n    let v3: u64;  // [bp-0xf8]\n    let v4: u64;  // [bp-0xf0]\n    let v5: u8;  // [bp-0xe8]\n    let v6: u64;  // [bp-0xe0]\n    let v7: u64;  // [bp-0xd8]\n    let v8: u64;  // [bp-0x60]\n    let v9: struct24;  // [bp-0x58]\n    let v10: struct24;  // [bp-0x40]\n    let v12: u64;  // rax\n    let v13: u64;  // rdx\n\n    v0 = a1;\n    v1 = a2;\n    if a1 != a2 {\n        v12 = std::fs::set_permissions(a3, a4, a2);\n        if v12 {\n            v8 = v12;\n            if !*((a0 + 33) as &i8) {\n                v6 = uucore::util_name();\n                v7 = v13;\n                eprint!(\"{}: \", &v6);\n                eprintln!(\"{}\", &v8);\n            }\n            if !*((a0 + 34) as &i8) {\n                return 1;\n            }\n            v2 = 1;\n            v3 = a3;\n            v4 = a4;\n            v5 = 1;\n            v10 = uucore::features::fs::display_permissions_unix(v0, 0);\n            v9 = uucore::features::fs::display_permissions_unix(v1, 0);\n            println!(\"failed to change mode of file {} from {} ({}) to {} ({})\", &v2, &v0, &v10, &v1, &v9);\n            return 1;\n        } else {\n            if !*((a0 + 34) as &i8) && *((a0 + 32) as &i8) != 1 {\n                return 0;\n            }\n            v2 = 1;\n            v3 = a3;\n            v4 = a4;\n            v5 = 1;\n            v10 = uucore::features::fs::display_permissions_unix(a1, 0);\n            v9 = uucore::features::fs::display_permissions_unix(v1, 0);\n            println!(\"mode of {} changed from {} ({}) to {} ({})\", &v2, &v0, &v10, &v1, &v9);\n            return 0;\n        }\n    } else if !*((a0 + 34) as &i8) {\n        return 0;\n    } else if !*((a0 + 32) as &i8) {\n        v2 = 1;\n        v3 = a3;\n        v4 = a4;\n        v5 = 1;\n        v9 = uucore::features::fs::display_permissions_unix(a1, 0);\n        println!(\"mode of {} retained as {} ({})\", &v2, &v0, &v9);\n        return 0;\n    } else {\n        return 0;\n    }\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN8uu_chmod22extract_negative_modes17h96e49cec7b4bfb40E": {
+      "core::option::Option<T>::filter": 1,
+      "alloc::str::join_generic_copy": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "<alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,I>>::spec_extend": 1,
+      "alloc::vec::Vec<T,A>::push": 3,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 2,
+      "<core::iter::adapters::skip::Skip<I> as core::iter::traits::iterator::Iterator>::next": 1,
+      "<alloc::vec::Vec<T,A> as alloc::vec::spec_extend::SpecExtend<T,alloc::vec::into_iter::IntoIter<T>>>::spec_extend": 1,
+      "<alloc::vec::Vec<T,A> as core::iter::traits::collect::IntoIterator>::into_iter": 1,
+      "core::iter::traits::iterator::Iterator::partition": 1
+    },
+    "_ZN8uu_chmod6uumain17h3ac108ddb974c541E": {
+      "uucore::mods::error::get_exit_code": 1,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "uu_chmod::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN8uu_chmod6uumain6uumain17hef7bd93be3cedfc8E": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "alloc::boxed::Box<T>::new": 2,
+      "std::fs::metadata": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "uu_chmod::Chmoder::chmod": 1,
+      "uucore::features::perms::configure_symlink_and_recursion": 1,
+      "alloc::vec::Vec<T,A>::push": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 3,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "<alloc::string::String as core::clone::Clone>::clone": 1,
+      "core::option::unwrap": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 4,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "clap_builder::builder::command::Command::after_help": 1,
+      "uu_chmod::uu_app": 1,
+      "uu_chmod::extract_negative_modes": 1,
+      "core::iter::traits::iterator::Iterator::skip": 1
+    },
+    "_ZN8uu_chmod6uu_app17h525988f9a6fd06f1E": {
+      "clap_builder::builder::command::Command::args": 1,
+      "uucore::features::perms::common_args": 1,
+      "clap_builder::builder::command::Command::arg": 10,
+      "clap_builder::builder::arg::Arg::value_hint": 2,
+      "clap_builder::builder::arg::Arg::action": 8,
+      "clap_builder::builder::arg::Arg::required_unless_present": 2,
+      "clap_builder::builder::arg::Arg::new": 10,
+      "clap_builder::builder::arg::Arg::help": 8,
+      "clap_builder::builder::arg::Arg::long": 8,
+      "clap_builder::builder::arg::Arg::short": 4,
+      "clap_builder::builder::arg::Arg::visible_alias": 1,
+      "memcpy": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN8uu_chmod7Chmoder5chmod17h92b1b878e45c814bE": {
+      "uu_chmod::Chmoder::walk_dir": 1,
+      "alloc::boxed::Box<T>::new": 3,
+      "core::result::Result<T,E>::and": 1,
+      "uu_chmod::Chmoder::chmod_file": 1,
+      "uucore::mods::error::set_exit_code": 4,
+      "uucore::util_name": 2,
+      "<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code": 2,
+      "std::fs::metadata": 1
+    },
+    "_ZN8uu_chmod7Chmoder8walk_dir17ha01070efe2a4054dE": {
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 2,
+      "uu_chmod::Chmoder::walk_dir": 1,
+      "core::result::Result<T,E>::and": 1,
+      "uu_chmod::Chmoder::chmod_file": 2,
+      "std::fs::DirEntry::path": 1,
+      "<std::fs::ReadDir as core::iter::traits::iterator::Iterator>::next": 1,
+      "std::fs::read_dir": 1,
+      "std::path::Path::is_symlink": 2,
+      "<&std::path::Path as core::cmp::PartialEq<std::path::PathBuf>>::eq": 1,
+      "core::result::Result<T,E>::unwrap_or": 1,
+      "std::sys::pal::unix::os::split_paths::bytes_to_path": 1,
+      "std::fs::canonicalize": 1
+    },
+    "_ZN8uu_chmod7Chmoder10chmod_file17h265d0431d919c569E": {
+      "alloc::boxed::Box<T>::new": 4,
+      "std::path::Path::is_symlink": 1,
+      "uu_chmod::Chmoder::change_file": 1,
+      "uucore::mods::error::<impl core::convert::From<i32> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 2,
+      "core::option::unwrap_failed": 1,
+      "uucore::mods::error::ExitCode::new": 1,
+      "uucore::features::mode::parse_numeric": 1,
+      "std::path::Path::is_dir": 3,
+      "core::result::Result<T,E>::unwrap": 1,
+      "uucore::features::mode::parse_symbolic": 2,
+      "uucore::features::mode::get_umask": 1,
+      "uucore::features::fs::display_permissions_unix": 2,
+      "core::str::iter::SplitInternal<P>::next": 1,
+      "<char as core::str::pattern::Pattern>::into_searcher": 1,
+      "<alloc::string::String as core::clone::Clone>::clone": 1,
+      "uucore::features::perms::get_metadata": 1
+    },
+    "_ZN8uu_chmod7Chmoder11change_file17ha40cda8af2f327daE": {
+      "uucore::features::fs::display_permissions_unix": 5,
+      "uucore::util_name": 1,
+      "std::fs::set_permissions": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN8uu_chmod22extract_negative_modes17h96e49cec7b4bfb40E": {},
+    "_ZN8uu_chmod6uumain17h3ac108ddb974c541E": {
+      "eprintln": 2,
+      "eprint": 1,
+      "format": 1
+    },
+    "_ZN8uu_chmod6uumain6uumain17hef7bd93be3cedfc8E": {
+      "format": 1
+    },
+    "_ZN8uu_chmod6uu_app17h525988f9a6fd06f1E": {},
+    "_ZN8uu_chmod7Chmoder5chmod17h92b1b878e45c814bE": {
+      "format": 3,
+      "eprintln": 2,
+      "println": 1
+    },
+    "_ZN8uu_chmod7Chmoder8walk_dir17ha01070efe2a4054dE": {},
+    "_ZN8uu_chmod7Chmoder10chmod_file17h265d0431d919c569E": {
+      "println": 1,
+      "format": 3
+    },
+    "_ZN8uu_chmod7Chmoder11change_file17ha40cda8af2f327daE": {
+      "println": 3,
+      "eprintln": 1,
+      "eprint": 1
+    }
+  },
+  "node_counts": {
+    "_ZN8uu_chmod22extract_negative_modes17h96e49cec7b4bfb40E": 18,
+    "_ZN8uu_chmod6uumain17h3ac108ddb974c541E": 10,
+    "_ZN8uu_chmod6uumain6uumain17hef7bd93be3cedfc8E": 46,
+    "_ZN8uu_chmod6uu_app17h525988f9a6fd06f1E": 62,
+    "_ZN8uu_chmod7Chmoder5chmod17h92b1b878e45c814bE": 34,
+    "_ZN8uu_chmod7Chmoder8walk_dir17ha01070efe2a4054dE": 25,
+    "_ZN8uu_chmod7Chmoder10chmod_file17h265d0431d919c569E": 42,
+    "_ZN8uu_chmod7Chmoder11change_file17ha40cda8af2f327daE": 20
+  },
+  "variable_types": {
+    "_ZN8uu_chmod22extract_negative_modes17h96e49cec7b4bfb40E": {
+      "stack_64": [
+        [
+          "Result",
+          88
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_8": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_chmod6uumain17h3ac108ddb974c541E": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_chmod6uumain6uumain17hef7bd93be3cedfc8E": {
+      "stack_1056": [
+        [
+          "struct",
+          64
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_272": [
+        [
+          "Option",
+          24
+        ],
+        [
+          "Result",
+          200
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          56
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_280": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_296": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_72": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          null
+        ]
+      ],
+      "stack_88": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_14": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_13": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_248": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_1080": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1072": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_992": [
+        [
+          "struct",
+          64
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_44": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN8uu_chmod6uu_app17h525988f9a6fd06f1E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          448
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_720": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_1432": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_708": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_1420": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_716": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1428": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2072": [
+        [
+          "struct",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_chmod7Chmoder5chmod17h92b1b878e45c814bE": {
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_11": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_14": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_15": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_13": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_100": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "Result",
+          200
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_312": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_128": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_328": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_288": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_304": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_336": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_88": [
+        [
+          "struct",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_chmod7Chmoder8walk_dir17ha01070efe2a4054dE": {
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "Result",
+          24
+        ]
+      ],
+      "stack_104": [
+        [
+          "Option",
+          80
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_12": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          40
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_72": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN8uu_chmod7Chmoder10chmod_file17h265d0431d919c569E": {
+      "stack_344": [
+        [
+          "Result",
+          80
+        ]
+      ],
+      "stack_224": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          4
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "Result",
+          80
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "Result",
+          80
+        ]
+      ],
+      "stack_40": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_248": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_112": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_272": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_288": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_88": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_200": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_216": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_160": [
+        [
+          "Result",
+          200
+        ]
+      ],
+      "reg_r13": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_180": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          16
+        ],
+        [
+          "Result",
+          80
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_320": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_296": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_312": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_192": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_44": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_12": [
+        [
+          "struct",
+          24
+        ]
+      ]
+    },
+    "_ZN8uu_chmod7Chmoder11change_file17ha40cda8af2f327daE": {
+      "stack_0": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_4": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_200": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_176": [
+        [
+          "struct",
+          24
+        ]
+      ]
+    }
+  }
+}

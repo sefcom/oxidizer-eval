@@ -1,0 +1,1293 @@
+{
+  "decompilation": {
+    "_ZN7uu_kill6uumain17h931b6cbdba0b998dE": "fn uu_kill::uumain(a0: u64, a1: u64) -> long long {\n    let v0: u64;  // [bp-0x98]\n    let v1: u128;  // [bp-0x58]\n    let v2: u64;  // [bp-0x48]\n    let v3: alloc::string::String;  // [bp-0x38], Other Possible Types: u64\n    let v4: u64;  // [bp-0x30]\n    let v5: u64;  // [bp-0x28]\n    let v8: u64;  // rax\n    let v9: u64;  // rdx\n\n    core::result::Result<T,E>::expect(uucore::disable_rust_signal_handlers());\n    v8 = uu_kill::uumain::uumain(a0, a1);\n    if !v8 {\n        return uucore::mods::error::get_exit_code();\n    }\n    v0 = v8;\n    v3 = format!(\"{}\", &v0);\n    v1 = *(&v3.vec.buf.inner.cap as &i128);\n    v2 = v5;\n    if !<[A] as core::slice::cmp::SlicePartialEq<B>>::equal(<alloc::boxed::Box<T,A> as core::fmt::Display>::fmt, v5, 1, 0) {\n        v3 = uucore::util_name();\n        v4 = v9;\n        eprint!(\"{}: \", &v3);\n        eprintln!(\"{}\", &v1);\n    }\n    if !UnresolvableCallTarget(v0) {\n        return UnresolvableCallTarget(v0);\n    }\n    v3 = uucore::execution_phrase();\n    v4 = v9;\n    eprintln!(\"Try '{} --help' for more information.\", &v3);\n    return UnresolvableCallTarget(v0);\n}\n",
+    "_ZN7uu_kill6uumain6uumain17h6ef9ffba962f0a6aE": "fn uu_kill::uumain::uumain(a0: i64, a1: i64) -> u64 {\n    let v0: u64;  // [bp-0x3e0]\n    let v1: u64;  // [bp-0x3d8]\n    let v2: void*;  // [bp-0x3d0]\n    let v3: struct24;  // [bp-0x3c8], Other Possible Types: struct56\n    let v4: u64;  // [bp-0x3c0]\n    let v5: struct16;  // [bp-0x388]\n    let v6: struct24;  // [bp-0x388], Other Possible Types: struct56\n    let v7: u128;  // [bp-0x388]\n    let v8: struct24;  // [bp-0x350], Other Possible Types: u8\n    let v9: struct64;  // [bp-0x338]\n    let v10: struct56;  // [bp-0x2f8]\n    let v11: Result<struct40, struct16>;  // [bp-0x2f8]\n    let v12: struct16;  // [bp-0x2f8]\n    let v13: u128;  // [bp-0x2f8]\n    let v14: struct712;  // [bp-0x2f8]\n    let v15: &u32;  // [bp-0x2f0]\n    let v16: u64;  // [bp-0x2e8]\n    let v17: u32;  // [bp-0x2e0]\n    let v18: u64;  // [bp-0x30]\n    let v19: u64;  // [bp-0x28]\n    let v20: u64;  // [bp-0x20]\n    let v21: u64;  // [bp-0x18]\n    let v22: u64;  // [bp-0x10]\n    let v24: u64;  // r15\n    let v25: u64;  // r14\n    let v26: u64;  // r13\n    let v27: u64;  // r12\n    let v28: u64;  // rbx\n    let v29: u8;  // al\n    let v30: u64;  // rdx\n    let v31: u64;  // rbx\n    let v32: core::fmt::rt::Argument;  // r14\n    let v33: u64;  // rbp\n    let v34: u64;  // rax\n    let v35: i64;  // rax\n    let v36: void*;  // r12\n    let v37: void*;  // rbx\n\n    v22 = v24;\n    v21 = v25;\n    v20 = v26;\n    v19 = v27;\n    v18 = v28;\n    uucore::Args::collect_ignore(&v8, a0, a1);\n    v29 = uu_kill::handle_obsolete(&v8);\n    v31 = v30;\n    v14 = uu_kill::uu_app();\n    v3 = v8;\n    v5 = clap_builder::builder::command::Command::try_get_matches_from(&v14, &v3);\n    if (((0 ^ v5.field_0) & (0 ^ -(v5.field_0))) >> 63) as char {\n        v32 = uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v4);\n    } else {\n        v3 = v6;\n        v33 = 1;\n        if !clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v3, _ZN7uu_kill7options5TABLE17hf5e406d79938cf60E.field_0, g_4e75e0.field_0) {\n            v33 = clap_builder::parser::matches::arg_matches::ArgMatches::get_flag(&v3, _ZN7uu_kill7options4LIST17h983d52dbeefec214E.field_0, g_4e75d0.field_0) * 2;\n        }\n        v10 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many(&v3, _ZN7uu_kill7options15PIDS_OR_SIGNALS17h74df70473b295d74E.field_0, g_4e75c0.field_0);\n        v9 = clap_builder::parser::error::MatchesError::unwrap(_ZN7uu_kill7options15PIDS_OR_SIGNALS17h74df70473b295d74E.field_0, g_4e75c0.field_0, &v10);\n        if v9.field_0 as i64 {\n            core::iter::traits::iterator::Iterator::collect(&v10, &v9);\n            v34 = v10.field_0;\n            v7 = *(&v10.field_8 as &i128);\n            if v34 == 0x8000000000000000 {\n                goto LABEL_45909b;\n            }\n            v1 = v7;\n            v0 = v34;\n            if v33 {\n                goto LABEL_4590bb;\n            }\nLABEL_45910a:\n            if !(v29 & 1) {\n                v11 = clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one(&v3, _ZN7uu_kill7options6SIGNAL17ha5de88967dceae53E.field_0, g_4e75f0.field_0);\n                v35 = clap_builder::parser::error::MatchesError::unwrap(_ZN7uu_kill7options6SIGNAL17ha5de88967dceae53E.field_0, g_4e75f0.field_0, &v11);\n                if !v35 {\n                    goto LABEL_4591b7;\n                }\n                v13 = uu_kill::parse_signal_value(*((v35 + 8) as &i64), *((v35 + 16) as &i64));\n                v32 = v12.field_0;\n                v31 = v15;\n                if v15 {\n                    goto LABEL_45922e;\n                }\n            }\n            if v31 >= 32 {\n                goto LABEL_4591c5;\n            }\nLABEL_4591b7:\n            v36 = 0;\n            if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(*((\"EXIT\" + v31 * 16) as &i64), *((\"EXIT\" + v31 * 16 + 8) as &i64), \"EXIT\") {\n                goto LABEL_4591e5;\n            }\nLABEL_4591c5:\n            v36 = v30;\n            if (<nix::sys::signal::Signal as core::convert::TryFrom<i32>>::try_from(v31 & 4294967295) & 1) {\n                v32 = uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from(v36 * 0x100000000 | 2);\n            } else {\nLABEL_4591e5:\n                uu_kill::parse_pids(&v13, v1, v2);\n                if v11 as i64 != 0x8000000000000000 {\n                    if v16 {\n                        uu_kill::kill(v36 & 4294967295, v15, v16);\n                    } else {\n                        v6 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(\"no process ID specified\\nTry --help for more information.\");\n                        v16 = v6.field_16;\n                        v13 = v6.field_0;\n                        v17 = 1;\n                        v37 = alloc::boxed::Box<T>::new(&v13) as u64;\n                    }\n                    v32 = v37;\n                }\n            }\n        } else {\nLABEL_45909b:\n            v0 = 0;\n            v1 = 8;\n            v2 = 0;\n            if !v33 {\n                goto LABEL_45910a;\n            }\nLABEL_4590bb:\n            if v33 == 1 {\n                uu_kill::table();\n            } else {\n                uu_kill::list(&v0);\n            }\n        }\n    }\nLABEL_45922e:\n    return v32;\n}\n",
+    "_ZN7uu_kill6uu_app17h67c2defd3341e89eE": "fn uu_kill::uu_app() -> : struct712 {\n    let a0: u64;  // rdi\n    let v0: struct32;  // [bp-0xab8], Other Possible Types: struct712, struct640\n    let v1: u32;  // [bp-0x7fc]\n    let v2: u64;  // [bp-0x7f8]\n    let v3: struct437;  // [bp-0x7f0], Other Possible Types: struct712, struct640\n    let v4: struct712;  // [bp-0x7f0]\n    let v5: struct640;  // [bp-0x7f0]\n    let v6: u32;  // [bp-0x578]\n    let v7: u32;  // [bp-0x534]\n    let v8: u64;  // [bp-0x530]\n    let v9: struct24;  // [bp-0x528], Other Possible Types: struct640\n    let v10: u32;  // [bp-0x2b0]\n    let v11: u32;  // [bp-0x2ac]\n    let v12: struct640;  // [bp-0x2a8]\n    let v13: u64;  // [bp-0x28]\n    let v14: u64;  // [bp-0x20]\n    let v15: u64;  // [bp-0x18]\n    let v16: u64;  // [bp-0x10]\n    let v17: u64;  // [bp-0x8]\n    let v19: u64;  // r15\n    let v20: u64;  // r14\n    let v21: u64;  // r13\n    let v22: u64;  // r12\n    let v23: u64;  // rbx\n    let v25: u64;  // rdx\n\n    v17 = v19;\n    v16 = v20;\n    v15 = v21;\n    v14 = v22;\n    v13 = v23;\n    v3 = clap_builder::builder::command::Command::new(uucore::util_name(), v25);\n    v0 = clap_builder::builder::command::Command::version(&v3);\n    v3 = clap_builder::builder::command::Command::about(&v0);\n    v9 = uucore::format_usage(\"{} [OPTIONS]... PID...\");\n    v0 = clap_builder::builder::command::Command::override_usage(&v3, &v9);\n    memcpy(&v3, &v0, 700);\n    v7 = 132 | v1;\n    v8 = 128 | v2;\n    v0 = clap_builder::builder::arg::Arg::new(\"list\");\n    v9 = clap_builder::builder::arg::Arg::short(&v0, 108);\n    v0 = clap_builder::builder::arg::Arg::long(&v9, \"list\");\n    v9 = clap_builder::builder::arg::Arg::help(&v0, \"Lists signals\");\n    v0 = clap_builder::builder::arg::Arg::conflicts_with(&v9);\n    v9 = clap_builder::builder::arg::Arg::action(&v0, 2);\n    v0 = clap_builder::builder::command::Command::arg(&v3, &v9);\n    v3 = clap_builder::builder::arg::Arg::new(\"table\");\n    v9 = clap_builder::builder::arg::Arg::short(&v3, 116);\n    v3 = clap_builder::builder::arg::Arg::short_alias(&v9, 76);\n    v9 = clap_builder::builder::arg::Arg::long(&v3, \"table\");\n    v3 = clap_builder::builder::arg::Arg::help(&v9, \"Lists table of signals\");\n    v9 = clap_builder::builder::arg::Arg::action(&v3, 2);\n    v4 = clap_builder::builder::command::Command::arg(&v0, &v9);\n    v0 = clap_builder::builder::arg::Arg::new(\"signal\");\n    v9 = clap_builder::builder::arg::Arg::short(&v0, 115);\n    v0 = clap_builder::builder::arg::Arg::short_alias(&v9, 110);\n    v9 = clap_builder::builder::arg::Arg::long(&v0, \"signal\");\n    v0 = clap_builder::builder::arg::Arg::value_name(&v9);\n    v9 = clap_builder::builder::arg::Arg::help(&v0, \"Sends given signal instead of SIGTERM\");\n    v0 = struct32 {\n        field_0: \"list\"\n        field_16: \"table\"\n    };\n    v12 = clap_builder::builder::arg::Arg::conflicts_with_all(&v9, &v0);\n    v0 = clap_builder::builder::command::Command::arg(&v4, &v12);\n    v5 = clap_builder::builder::arg::Arg::new(\"pids_or_signals\");\n    memcpy(&v9, &v5, 632);\n    v10 = v6 | 4;\n    v11 = v6;\n    v3 = clap_builder::builder::arg::Arg::action(&v9, 1);\n    clap_builder::builder::command::Command::arg(a0, &v0, &v3);\n    return;\n}\n",
+    "_ZN7uu_kill15handle_obsolete17h472cae1b62eba817E": "fn uu_kill::handle_obsolete(a0: i64) -> u64 {\n    let v0: core::slice::iter::Iter<u8>;  // [bp-0x30], Other Possible Types: u32\n    let v1: u64;  // [bp-0x18]\n    let v2: u64;  // [bp-0x10]\n    let v3: u64;  // [bp-0x8]\n    let v5: u64;  // r15\n    let v6: u64;  // r14\n    let v7: u64;  // rbx\n    let v8: u64;  // rsi\n    let v9: u64;  // rdx\n    let v11: u64;  // rcx\n    let v12: core::option::Option<&str>;  // rax\n    let v13: u64;  // rax\n    let v14: core::option::Option<u32>;  // rax:rax\n    let v15: &mut [u8];  // rax:rdx\n\n    v3 = v5;\n    v2 = v6;\n    v1 = v7;\n    if *((a0 + 16) as &i64) >= 3 {\n        v0 = 0;\n        v15 = core::char::methods::encode_utf8_raw(&v0 as u32, v8, v9);\n        v12 = <&str as core::str::pattern::Pattern>::strip_prefix_of(v15.data_ptr, *((*((a0 + 8) as &i64) + 32) as &i64), *((*((a0 + 8) as &i64) + 40) as &i64), v11) as u64;\n        if let Some(_) = v12 {\n            v0 = core::slice::iter::Iter<u8> {\n                ptr: core::ptr::non_null::NonNull<u8> {\n                    pointer: v12\n                }\n                end_or_len: v12 + v9\n                _marker: core::marker::PhantomData<&u8> { }\n            };\n            v14 = core::str::validations::next_code_point(&v0) as u128;\n            if (!(v14 as i8 & 1) || v9 as u32 - 97 >= 26 && (v9 as u32 < 128 || !core::unicode::unicode_data::lowercase::lookup(v9 as u32 as u8) as u8)) && uucore::features::signals::signal_by_name_or_value(v0.ptr.pointer, v9) == 1 {\n                alloc::vec::Vec<T,A>::remove(&v0, a0);\n            }\n        }\n    }\n    return v13;\n}\n",
+    "_ZN7uu_kill5table17h9adbfdcf596cda83E": "fn uu_kill::table() -> u64 {\n    let v0: u64;  // [bp-0xa8]\n    let v1: u64;  // [bp-0xa0]\n    let v2: u64;  // [bp-0x98]\n    let v3: u64;  // [bp-0x90]\n    let v4: void*;  // [bp-0x88]\n    let v5: u64;  // [bp-0x30]\n    let v6: u64;  // [bp-0x28]\n    let v7: u64;  // [bp-0x20]\n    let v8: u64;  // [bp-0x18]\n    let v9: u64;  // [bp-0x10]\n    let v11: u64;  // r15\n    let v12: u64;  // r14\n    let v13: u64;  // r13\n    let v14: u64;  // r12\n    let v15: u64;  // rbx\n    let v16: u64;  // rax\n    let v17: u64;  // rdx\n    let v18: u64;  // rdx\n\n    v9 = v11;\n    v8 = v12;\n    v7 = v13;\n    v6 = v14;\n    v5 = v15;\n    v2 = \"EXIT\";\n    v3 = \"/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sync/lazy_lock.rs\";\n    v4 = 0;\n    v16 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v2);\n    if v17 {\n        do {\n            v0 = v16;\n            v1 = v17;\n            println!(\"{} {}\", &v0, &v1);\n            v16 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v2);\n        } while (v18);\n    }\n    return v16;\n}\n",
+    "_ZN7uu_kill12print_signal17hbbda5da3d768aa27E": "fn uu_kill::print_signal(a0: u64, a1: u64) -> long long {\n    let v0: u8;  // [bp-0xe1]\n    let v1: core::fmt::Arguments;  // [bp-0xe0], Other Possible Types: struct24, u8\n    let v2: u64;  // [bp-0xe0]\n    let v4: u64;  // [bp-0xd8]\n    let v5: i64;  // [bp-0xd0], Other Possible Types: u32\n    let v6: void*;  // [bp-0xc0]\n    let v7: alloc::string::String;  // [bp-0xb0], Other Possible Types: struct_0 *, u8\n    let v8: alloc::string::String;  // [bp-0xb0]\n    let v9: u32;  // [bp-0x98]\n    let v10: u64;  // [bp-0x90]\n    let v11: u64;  // [bp-0x88]\n    let v12: void*;  // [bp-0x70], Other Possible Types: u64\n    let v13: u64;  // [bp-0x68]\n    let v14: void*;  // [bp-0x60], Other Possible Types: u64\n    let v15: u8;  // [bp-0x58]\n    let v16: u64;  // [bp-0x50]\n    let v17: core::fmt::Arguments;  // [bp-0x48]\n    let v18: u64;  // [bp-0x40]\n    let v19: u64;  // [bp-0x38]\n    let v20: u64;  // [bp-0x30]\n    let v21: u64;  // [bp-0x28]\n    let v22: u64;  // [bp-0x20]\n    let v23: u64;  // [bp-0x18]\n    let v24: u64;  // [bp-0x10]\n    let v26: u64;  // r15\n    let v27: u64;  // r14\n    let v28: u64;  // r13\n    let v29: u64;  // r12\n    let v30: u64;  // rbx\n    let v31: u64;  // rbp\n    let v32: u64;  // rbx\n    let v33: core::fmt::Arguments;  // rax\n    let v34: i64;  // rdx\n    let v35: i64;  // r15\n    let v36: i64;  // rdx\n    let v37: i64;  // rdx\n    let v41: void*;  // rax\n    let v42: core::result::Result<(), core::fmt::Error>;  // rax\n    let v43: core::result::Result<usize, core::num::error::ParseIntError>;  // rax:rdx\n    let v44: u64;  // [bp-0xa8]\n\n    v24 = v26;\n    v23 = v27;\n    v22 = v28;\n    v21 = v29;\n    v20 = v30;\n    v32 = a0;\n    v43 = core::num::<impl usize>::from_ascii_radix(&v1, a0, a1);\n    v0 = v1;\n    v10 = v4;\n    v12 = \"EXIT\";\n    v13 = \"/home/34r7hm4n/.rustup/toolchains/nightly-2025-05-22-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sync/lazy_lock.rs\";\n    v14 = 0;\n    v33 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v12);\n    if v34 {\n        v16 = v10;\n        v35 = &v7;\n        v11 = a1;\n        do {\n            v37 = v34;\n            v17 = v33;\n            v18 = *(v37 as &i64);\n            v19 = *((v37 + 8) as &i64);\n            if !core::slice::ascii::<impl [u8]>::eq_ignore_ascii_case(*(v37 as &i64), *((v37 + 8) as &i64), v32, v31) {\n                v8 = format!(\"SIG{}\", &v18);\n                if core::slice::ascii::<impl [u8]>::eq_ignore_ascii_case(v8, v32, v31) {\n                    goto LABEL_45d48f;\n                }\n                v42 = core::fmt::num::imp::<impl u64>::_fmt(v33, &v8) as u64;\n                v1 = <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec(*(&v42 as &i64), v34);\n                if <[A] as core::slice::cmp::SlicePartialEq<B>>::equal(v32, v11, 1, v5) || !v0 && (v16 == v33 || v10 == v33 + 128) {\n                    v7 = &v18;\n                    v44 = <&T as core::fmt::Display>::fmt;\n                    v2 = &g_4e7650;\n                    v4 = 2;\n                    v6 = 0;\n                    v5 = &v7;\n                    goto LABEL_45d48f;\n                }\n            } else {\nLABEL_45d48f:\n                vvar_402{stack -224} = core::fmt::Arguments OrderedDict([(0, &[&str] OrderedDict([(0, \ud835\udf19@64b [((4576339, None), vvar_375{stack -224}), ((4576129, None), vvar_369{stack -224})])])), (16, &[core::fmt::rt::Argument] OrderedDict([(8, 0x1<64>)]))])\n                std::io::stdio::_print(&v1);\n            }\n            v33 = <core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next(&v12);\n            v35 = &v8;\n            v31 = v11;\n        } while (v36);\n    }\n    v12 = 0;\n    v13 = v32;\n    v14 = a1;\n    v15 = 1;\n    v7 = format!(\"{}: invalid signal\", &v12);\n    v9 = 1;\n    v41 = alloc::boxed::Box<T>::new(&v7) as u64;\n    return v41;\n}\n",
+    "_ZN7uu_kill13print_signals17h042cfab5aaca8808E": "fn uu_kill::print_signals() -> long long {\n    let v0: u64;  // [bp-0x290]\n    let v1: u64;  // [bp-0x288]\n    let v2: struct16;  // [bp-0x240]\n    let v3: u8;  // [bp-0x230]\n    let v4: u64;  // [bp-0x30]\n    let v5: u64;  // [bp-0x28]\n    let v6: u64;  // [bp-0x20]\n    let v7: u64;  // [bp-0x18]\n    let v8: core::result::Result<usize, core::num::error::ParseIntError>;  // [bp-0x10]\n    let v10: i64;  // r15\n    let v11: u64;  // r14\n    let v12: u64;  // r13\n    let v13: u64;  // r12\n    let v14: u64;  // rbx\n    let v15: u64;  // rax\n    let v16: u64;  // rdx\n\n    v8 = v10;\n    v7 = v11;\n    v6 = v12;\n    v5 = v13;\n    v4 = v14;\n    memcpy(&v3, \"EXIT\", 0x200);\n    v2 = struct16 {\n        field_0: 0\n        field_8: 32\n    };\n    v15 = core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next(&v2);\n    if v15 {\n        do {\n            v0 = v15;\n            v1 = v16;\n            println!(\"{}\", &v0);\n            v15 = core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next(&v2);\n        } while (v15);\n    }\n    return v15;\n}\n",
+    "_ZN7uu_kill4list17h0b8bd48cc010fd8eE": "fn uu_kill::list(a0: i64) {\n    let v0: struct16;  // [bp-0xa0]\n    let v1: u64;  // [bp-0x90]\n    let v2: u64;  // [bp-0x88]\n    let v4: u64;  // r12\n    let v5: void*;  // r13\n    let v6: void*;  // rax\n    let v8: u64;  // rdx\n\n    if !*((a0 + 16) as &i64) {\n        uu_kill::print_signals();\n        return;\n    }\n    v4 = *((a0 + 16) as &i64) * 24;\n    v5 = 0;\n    loop {\n        v6 = uu_kill::print_signal(*((8 + *((a0 + 8) as &i64) + v5 as &u8) as &i64), *((16 + *((a0 + 8) as &i64) + v5 as &u8) as &i64));\n        if !v6 {\n            v5 += 24;\n            if v4 == v5 {\n                return;\n            }\n        } else {\n            v0 = struct16 {\n                field_0: v6\n                field_8: &g_4e76b0\n            };\n            uucore::mods::error::set_exit_code(<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code(v6));\n            v1 = uucore::util_name();\n            v2 = v8;\n            eprintln!(\"{}: {}\", &v1, &v0);\n            v5 += 24;\n            if v4 == v5 {\n                return;\n            }\n        }\n    }\n}\n",
+    "_ZN7uu_kill18parse_signal_value17h198dbdcf792084b2E": "fn uu_kill::parse_signal_value(a1: i64, a2: i64) -> : struct16 {\n    let a0: i64;  // rdi\n    let v0: void*;  // [bp-0x88]\n    let v1: u64;  // [bp-0x80]\n    let v2: u64;  // [bp-0x78]\n    let v3: u8;  // [bp-0x70]\n    let v4: alloc::string::String;  // [bp-0x38]\n    let v5: u32;  // [bp-0x20]\n    let v6: u64;  // [bp-0x18]\n    let v7: u64;  // [bp-0x10]\n    let v8: u64;  // [bp-0x8]\n    let v10: u64;  // r15\n    let v11: u64;  // r14\n    let v12: u64;  // rbx\n    let v13: void*;  // rax\n    let v14: &mut [u8];  // rdx\n\n    v8 = v10;\n    v7 = v11;\n    v6 = v12;\n    if !(uucore::features::signals::signal_by_name_or_value(a1, a2) & 1) {\n        v0 = 0;\n        v1 = a1;\n        v2 = a2;\n        v3 = 1;\n        v4 = format!(\"{}: invalid signal\", &v0);\n        v5 = 1;\n        v13 = alloc::boxed::Box<T>::new(&v4) as u64;\n    }\n    return struct16 {\n        field_0: v13\n        field_8: v14\n    };\n}\n",
+    "_ZN7uu_kill10parse_pids17h21a5e6a2b47128d6E": "fn uu_kill::parse_pids(a0: i64, a1: i64, a2: i64) -> u64 {\n    let v0: u64;  // [bp-0x8]\n    let v2: u64;  // rbx\n\n    v0 = v2;\n    core::iter::traits::iterator::Iterator::collect(a0, a1, a1 + a2 * 24);\n    return a0;\n}\n",
+    "_ZN7uu_kill4kill17hf0ec59056e3b4307E": "fn uu_kill::kill(a0: i32, a1: i64, a2: i64) {\n    let v0: u64;  // [bp-0xa0]\n    let v1: core::result::Result<(), core::fmt::Error>;  // [bp-0x94]\n    let v2: u64;  // [bp-0x90]\n    let v3: u64;  // [bp-0x88]\n    let v4: u64;  // [bp-0x30]\n    let v5: u64;  // [bp-0x28]\n    let v6: u64;  // [bp-0x20]\n    let v7: u64;  // [bp-0x18]\n    let v8: u64;  // [bp-0x10]\n    let v10: u64;  // r15\n    let v11: u64;  // r14\n    let v12: u64;  // r13\n    let v13: u64;  // r12\n    let v14: u64;  // rbx\n    let v15: i64;  // r13\n    let v16: u64;  // rax\n    let v17: u64;  // rdx\n\n    v8 = v10;\n    v7 = v11;\n    v6 = v12;\n    v5 = v13;\n    v4 = v14;\n    if a2 {\n        do {\n            v1 = *((a1 + v15) as &i32);\n            v16 = nix::sys::signal::kill(*((a1 + v15) as &i32), a0);\n            if v16 != 134 {\n                v0 = <std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context(v16 * 0x100000000 | 2, &v1);\n                uucore::mods::error::set_exit_code(1);\n                v2 = uucore::util_name();\n                v3 = v17;\n                eprintln!(\"{}: {}\", &v2, &v0);\n            }\n            v15 += 4;\n        } while (a2 * 4 != v15);\n    }\n    return;\n}\n"
+  },
+  "function_call_counts": {
+    "_ZN7uu_kill6uumain17h931b6cbdba0b998dE": {
+      "uucore::mods::error::get_exit_code": 1,
+      "UnresolvableCallTarget": 2,
+      "uucore::execution_phrase": 1,
+      "uucore::util_name": 1,
+      "uu_kill::uumain::uumain": 1,
+      "core::result::Result<T,E>::expect": 1,
+      "uucore::disable_rust_signal_handlers": 1
+    },
+    "_ZN7uu_kill6uumain6uumain17h6ef9ffba962f0a6aE": {
+      "uucore::mods::error::<impl core::convert::From<clap_builder::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uucore::mods::error::<impl core::convert::From<std::io::error::Error> for alloc::boxed::Box<dyn uucore::mods::error::UError>>::from": 1,
+      "uu_kill::kill": 1,
+      "alloc::boxed::Box<T>::new": 1,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "uu_kill::parse_pids": 1,
+      "uu_kill::parse_signal_value": 1,
+      "clap_builder::parser::error::MatchesError::unwrap": 2,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_one": 1,
+      "core::iter::traits::iterator::Iterator::collect": 1,
+      "uu_kill::table": 1,
+      "uu_kill::list": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::try_get_many": 1,
+      "clap_builder::parser::matches::arg_matches::ArgMatches::get_flag": 1,
+      "clap_builder::builder::command::Command::try_get_matches_from": 1,
+      "uu_kill::uu_app": 1,
+      "uu_kill::handle_obsolete": 1,
+      "uucore::Args::collect_ignore": 1
+    },
+    "_ZN7uu_kill6uu_app17h67c2defd3341e89eE": {
+      "clap_builder::builder::command::Command::arg": 4,
+      "clap_builder::builder::arg::Arg::action": 3,
+      "memcpy": 2,
+      "clap_builder::builder::arg::Arg::new": 4,
+      "clap_builder::builder::arg::Arg::conflicts_with_all": 1,
+      "clap_builder::builder::arg::Arg::help": 3,
+      "clap_builder::builder::arg::Arg::value_name": 1,
+      "clap_builder::builder::arg::Arg::long": 3,
+      "clap_builder::builder::arg::Arg::short_alias": 2,
+      "clap_builder::builder::arg::Arg::short": 3,
+      "clap_builder::builder::arg::Arg::conflicts_with": 1,
+      "clap_builder::builder::command::Command::override_usage": 1,
+      "uucore::format_usage": 1,
+      "clap_builder::builder::command::Command::about": 1,
+      "clap_builder::builder::command::Command::version": 1,
+      "clap_builder::builder::command::Command::new": 1,
+      "uucore::util_name": 1
+    },
+    "_ZN7uu_kill15handle_obsolete17h472cae1b62eba817E": {
+      "alloc::vec::Vec<T,A>::remove": 1,
+      "core::str::validations::next_code_point": 1,
+      "<&str as core::str::pattern::Pattern>::strip_prefix_of": 1,
+      "core::char::methods::encode_utf8_raw": 1
+    },
+    "_ZN7uu_kill5table17h9adbfdcf596cda83E": {
+      "<core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next": 2
+    },
+    "_ZN7uu_kill12print_signal17hbbda5da3d768aa27E": {
+      "alloc::boxed::Box<T>::new": 1,
+      "<core::iter::adapters::enumerate::Enumerate<I> as core::iter::traits::iterator::Iterator>::next": 2,
+      "<T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec": 1,
+      "core::fmt::num::imp::<impl u64>::_fmt": 1,
+      "std::io::stdio::_print": 1,
+      "core::num::<impl usize>::from_ascii_radix": 1
+    },
+    "_ZN7uu_kill13print_signals17h042cfab5aaca8808E": {
+      "core::array::iter::iter_inner::PolymorphicIter<[core::mem::maybe_uninit::MaybeUninit<T>]>::next": 2,
+      "memcpy": 1
+    },
+    "_ZN7uu_kill4list17h0b8bd48cc010fd8eE": {
+      "uu_kill::print_signals": 1,
+      "uucore::util_name": 1,
+      "uucore::mods::error::set_exit_code": 1,
+      "<uucore::mods::error::USimpleError as uucore::mods::error::UError>::code": 1,
+      "uu_kill::print_signal": 1
+    },
+    "_ZN7uu_kill18parse_signal_value17h198dbdcf792084b2E": {
+      "alloc::boxed::Box<T>::new": 1
+    },
+    "_ZN7uu_kill10parse_pids17h21a5e6a2b47128d6E": {
+      "core::iter::traits::iterator::Iterator::collect": 1
+    },
+    "_ZN7uu_kill4kill17hf0ec59056e3b4307E": {
+      "uucore::util_name": 1,
+      "<std::io::error::Error as uucore::mods::error::FromIo<alloc::boxed::Box<uucore::mods::error::UIoError>>>::map_err_context": 1,
+      "uucore::mods::error::set_exit_code": 1,
+      "nix::sys::signal::kill": 1
+    }
+  },
+  "macro_call_counts": {
+    "_ZN7uu_kill6uumain17h931b6cbdba0b998dE": {
+      "eprintln": 2,
+      "eprint": 1,
+      "format": 1
+    },
+    "_ZN7uu_kill6uumain6uumain17h6ef9ffba962f0a6aE": {},
+    "_ZN7uu_kill6uu_app17h67c2defd3341e89eE": {},
+    "_ZN7uu_kill15handle_obsolete17h472cae1b62eba817E": {},
+    "_ZN7uu_kill5table17h9adbfdcf596cda83E": {
+      "println": 1
+    },
+    "_ZN7uu_kill12print_signal17hbbda5da3d768aa27E": {
+      "format": 2
+    },
+    "_ZN7uu_kill13print_signals17h042cfab5aaca8808E": {
+      "println": 1
+    },
+    "_ZN7uu_kill4list17h0b8bd48cc010fd8eE": {
+      "eprintln": 1
+    },
+    "_ZN7uu_kill18parse_signal_value17h198dbdcf792084b2E": {
+      "format": 1
+    },
+    "_ZN7uu_kill10parse_pids17h21a5e6a2b47128d6E": {},
+    "_ZN7uu_kill4kill17hf0ec59056e3b4307E": {
+      "eprintln": 1
+    }
+  },
+  "node_counts": {
+    "_ZN7uu_kill6uumain17h931b6cbdba0b998dE": 10,
+    "_ZN7uu_kill6uumain6uumain17h6ef9ffba962f0a6aE": 39,
+    "_ZN7uu_kill6uu_app17h67c2defd3341e89eE": 34,
+    "_ZN7uu_kill15handle_obsolete17h472cae1b62eba817E": 6,
+    "_ZN7uu_kill5table17h9adbfdcf596cda83E": 4,
+    "_ZN7uu_kill12print_signal17hbbda5da3d768aa27E": 15,
+    "_ZN7uu_kill13print_signals17h042cfab5aaca8808E": 5,
+    "_ZN7uu_kill4list17h0b8bd48cc010fd8eE": 10,
+    "_ZN7uu_kill18parse_signal_value17h198dbdcf792084b2E": 4,
+    "_ZN7uu_kill10parse_pids17h21a5e6a2b47128d6E": 2,
+    "_ZN7uu_kill4kill17hf0ec59056e3b4307E": 6
+  },
+  "variable_types": {
+    "_ZN7uu_kill6uumain17h931b6cbdba0b998dE": {
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_112": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_kill6uumain6uumain17h6ef9ffba962f0a6aE": {
+      "stack_984": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_976": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_968": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_960": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_952": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          1
+        ],
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_240": [
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          56
+        ],
+        [
+          "Result",
+          80
+        ],
+        [
+          "primitive",
+          16
+        ],
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_32": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          16
+        ],
+        [
+          "struct",
+          24
+        ],
+        [
+          "primitive",
+          16
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "struct",
+          64
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_248": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_256": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_264": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_kill6uu_app17h67c2defd3341e89eE": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2736": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2728": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2720": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2712": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2704": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_712": [
+        [
+          "struct",
+          448
+        ],
+        [
+          "struct",
+          8
+        ],
+        [
+          "struct",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "struct",
+          32
+        ]
+      ],
+      "stack_1424": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_1412": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_700": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1416": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_704": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_2064": [
+        [
+          "struct",
+          8
+        ]
+      ],
+      "stack_2056": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_1344": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "stack_2060": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_kill15handle_obsolete17h472cae1b62eba817E": {
+      "stack_48": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rsi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "Option",
+          16
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rcx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_kill5table17h9adbfdcf596cda83E": {
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_kill12print_signal17hbbda5da3d768aa27E": {
+      "stack_216": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_208": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_200": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_192": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_184": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          48
+        ],
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_7": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_88": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "struct",
+          48
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_56": [
+        [
+          "struct",
+          24
+        ],
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_96": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_160": [
+        [
+          "struct",
+          48
+        ]
+      ],
+      "stack_168": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_176": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbp": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_64": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_80": [
+        [
+          "primitive",
+          4
+        ]
+      ]
+    },
+    "_ZN7uu_kill13print_signals17h042cfab5aaca8808E": {
+      "stack_648": [
+        [
+          "Result",
+          16
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_640": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_632": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_624": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_616": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_104": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_88": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_kill4list17h0b8bd48cc010fd8eE": {
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "struct",
+          16
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_kill18parse_signal_value17h198dbdcf792084b2E": {
+      "reg_rdi": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_16": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_40": [
+        [
+          "primitive",
+          1
+        ]
+      ],
+      "stack_96": [
+        [
+          "struct",
+          24
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          4
+        ]
+      ],
+      "reg_rax": [
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "struct",
+          16
+        ]
+      ]
+    },
+    "_ZN7uu_kill10parse_pids17h21a5e6a2b47128d6E": {
+      "stack_0": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    },
+    "_ZN7uu_kill4kill17hf0ec59056e3b4307E": {
+      "stack_152": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r15": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_144": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r14": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_136": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r13": [
+        [
+          "primitive",
+          8
+        ],
+        [
+          "&primitive",
+          8
+        ]
+      ],
+      "stack_128": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_r12": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_120": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rbx": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_20": [
+        [
+          "Result",
+          1
+        ]
+      ],
+      "reg_rax": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_8": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_24": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "stack_32": [
+        [
+          "primitive",
+          8
+        ]
+      ],
+      "reg_rdx": [
+        [
+          "primitive",
+          8
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+long long starship::modules::ocaml::get_opam_switch(struct_0 *a0, void* a1)
+{
+    unsigned long long v0[2];  // [bp-0x68]
+    unsigned long long v1;  // [bp-0x60]
+    char v2;  // [bp-0x58], Other Possible Types: unsigned long long
+    char v3;  // [bp-0x48]
+    int v4;  // [bp-0x38]
+    int v5;  // [bp-0x28]
+    char v6;  // [bp-0x18]
+    int v8;  // xmm0
+    unsigned long long v10;  // rdx
+
+    v0.exec_cmd(a1, "opam$allHOMEUserBare0000koi8CoreTextSlimv150granname", 4, &g_11f56a8, 3);
+    if (!((char)(((0 ^ v0[0]) & (0 ^ -(v0[0]))) >> 63)))
+    {
+        v8 = v0;
+        memcpy(&v6, &v3, 16);
+        *((int128_t *)&v5) = *((int128_t *)&v2);
+        v4 = v8;
+        *((void*)v0) = v4;
+        v2 = (long long)v5;
+        core::ptr::drop_in_place<alloc::string::String>(&(char)v5);
+        starship::modules::ocaml::parse_opam_switch(a0, core::str::<impl str>::trim_matches(v1, v2), v10);
+        return (unsigned long long)core::ptr::drop_in_place<alloc::string::String>(&v0);
+    }
+    a0->field_8 = 0x8000000000000000;
+    return 0x8000000000000000;
+}

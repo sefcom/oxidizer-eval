@@ -1,0 +1,7 @@
+
+  fn ruff_python_formatter::pattern::pattern_match_value::_$LT$impl$u20$ruff_python_formatter..expression..parentheses..NeedsParentheses$u20$for$u20$ruff_python_ast..nodes..PatternMatchValue$GT$::needs_parentheses::h36e0a345340becdd(arg1: *mut i64, arg2: i64) -> i64
+
+{
+    /* tailcall */
+    ruff_python_formatter::expression::_$LT$impl$u20$ruff_python_formatter..expression..parentheses..NeedsParentheses$u20$for$u20$ruff_python_ast..generated..Expr$GT$::needs_parentheses::h692bc84797141513(*arg1, arg2)
+}
