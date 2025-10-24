@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
+from hashlib import sha256
 import os
 from multiprocessing import Pool
 from pathlib import Path
 import logging
 import resource
 import time
+from datetime import datetime
+from urllib.parse import quote
+import pytz
 
 from angr.rust.utils.library import demangle
 
@@ -13,7 +17,7 @@ from eval.decompilers.util import load_function_list
 from eval.metrics.result import FunctionEvalResult, BinaryEvalResult, EvalResult
 from eval.metrics import *
 from eval.metrics.calc import *
-from eval.metrics.ground_truth import BinaryGroundTruth
+from eval.metrics.ground_truth import FunctionGroundTruth
 from eval.decompilers.ida import ida_dec
 from eval.decompilers.oxidizer import oxidizer_dec
 from eval.decompilers.angr import angr_dec
@@ -41,7 +45,7 @@ DEC_OPTIONS = {
 TARGET_RELEASE_DIR = Path("targets/release").absolute()
 TARGET_DEBUG_DIR = Path("targets/debug").absolute()
 TARGET_GROUND_TRUTH_DIR = Path("targets/merged_ground_truth").absolute()
-LOG_PATH = Path("output/eval.log").absolute()
+LOG_DIR = Path("output/log").absolute()
 l = logging.getLogger("oxidizer-eval")
 
 COREUTILS_MODULES = [
@@ -170,14 +174,14 @@ def get_module_from_binary_path(binary_path):
 # }
 
 
-def eval_binary(binary_path, opt_level):
+def eval_binary(binary_path, tag):
     l.info(f"Evaluating binary: {binary_path} ({os.path.getsize(binary_path) / (1024 * 1024):.2f} MB)")
 
     binary_name = os.path.basename(binary_path)
 
     # Load ground truth for <binary_path>
-    ground_truth_path = TARGET_GROUND_TRUTH_DIR / opt_level / f"{binary_name}.json"
-    ground_truth = BinaryGroundTruth.load(ground_truth_path)
+    # ground_truth_path = TARGET_GROUND_TRUTH_DIR / opt_level / f"{binary_name}.json"
+    # ground_truth = BinaryGroundTruth.load(ground_truth_path)
 
     # We only evaluate application functions
     function_list = load_function_list(binary_path, get_module_from_binary_path(binary_path))
@@ -204,7 +208,12 @@ def eval_binary(binary_path, opt_level):
 
         for func_name in function_list:
             # Get ground truth by demangled function name
-            func_ground_truth = ground_truth.get_function_ground_truth(demangle(func_name))
+            ground_truth_path = TARGET_GROUND_TRUTH_DIR / tag / f"{binary_name}" / f"{quote(demangle(func_name))}.json"
+            # Skip if ground truth file does not exist or filename is too long for filesystem
+            if len(ground_truth_path.name) >= 255 or not ground_truth_path.exists():
+                continue
+            # Load function ground truth
+            func_ground_truth = FunctionGroundTruth.load(ground_truth_path)
             if func_ground_truth is None:
                 continue
 
@@ -291,6 +300,11 @@ def eval_binary(binary_path, opt_level):
                     num_matched_macro_calls(result["macro_call_counts"][func_name], func_ground_truth.macros),
                 )
 
+                if decompiler == "Oxidizer":
+                    func_eval_result.record_macro_matching_result(
+                        result["macro_call_counts"][func_name], func_ground_truth.macros
+                    )
+
                 type_eval_result, dwarf_var_to_predicted_types = generate_type_eval_result(
                     result["variable_types"][func_name], func_ground_truth.variable_types
                 )
@@ -306,9 +320,9 @@ def eval_binary(binary_path, opt_level):
     return binary_eval_result
 
 
-def safe_eval_binary(binary_path, opt_level):
+def safe_eval_binary(binary_path, tag):
     try:
-        return eval_binary(binary_path, opt_level)
+        return eval_binary(binary_path, tag)
     except Exception as e:
         l.error(f"Exception: Failed to evaluate binary {binary_path}: {e}")
         l.error(traceback.format_exc())
@@ -321,7 +335,53 @@ def set_memory_limit_gb(limit_gb: int):
     resource.setrlimit(resource.RLIMIT_AS, (soft, hard))
 
 
-def eval(dir_path, opt_level):
+phoenix_tz = pytz.timezone("America/Phoenix")
+
+
+def phoenix_time(*args):
+    return datetime.now(phoenix_tz).timetuple()
+
+
+def init_logger(tag):
+    os.makedirs(LOG_DIR / tag, exist_ok=True)
+    LOG_PATH = LOG_DIR / tag / f"{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}.log"
+    # Create a link to the latest log
+    if (LOG_DIR / tag / "latest.log").exists():
+        os.unlink(LOG_DIR / tag / "latest.log")
+    os.symlink(LOG_PATH, LOG_DIR / tag / "latest.log")
+
+    # Create a named logger
+    logger = logging.getLogger("oxidizer-eval")
+    logger.setLevel(logging.INFO)
+
+    # Create handlers
+    file_handler = logging.FileHandler(LOG_PATH, mode="w")
+    stream_handler = logging.StreamHandler()
+
+    # Create formatter and attach to handlers
+    logging.Formatter.converter = time.localtime
+    formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
+    formatter.converter = phoenix_time
+    file_handler.setFormatter(formatter)
+    stream_handler.setFormatter(formatter)
+
+    # Clean previous handlers
+    if logger.hasHandlers():
+        logger.handlers.clear()
+
+    # Attach handlers to the logger
+    logger.addHandler(file_handler)
+    logger.addHandler(stream_handler)
+
+
+PROCESSES = 20
+
+
+def eval(dir_path, tag):
+    # Initialize logger
+    init_logger(tag)
+
+    l.info(f"Starting evaluation for tag: {tag}")
     # Find all binaries in dir_path (recursively)
     binary_paths = []
 
@@ -333,13 +393,13 @@ def eval(dir_path, opt_level):
 
     binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) in COREUTILS_MODULES]
     # binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) == "printf"]
-    # binary_paths = [binary_path for binary_path in binary_paths if os.path.getsize(binary_path) < 50 * 1024 * 1024]
+    # binary_paths = [binary_path for binary_path in binary_paths if os.path.getsize(binary_path) < 30 * 1024 * 1024]
 
-    with Pool(processes=10, initializer=set_memory_limit_gb, initargs=(64,)) as pool:
+    with Pool(processes=PROCESSES, initializer=set_memory_limit_gb, initargs=(32,)) as pool:
         async_results = []
         results = []
         for binary_path in sorted(binary_paths, key=lambda p: os.path.getsize(p)):
-            async_results.append(pool.apply_async(safe_eval_binary, (binary_path, opt_level)))
+            async_results.append(pool.apply_async(safe_eval_binary, (binary_path, tag)))
         for r in async_results:
             results.append(r.get())
 
@@ -352,29 +412,11 @@ def eval(dir_path, opt_level):
     return eval_result
 
 
-def init_logger():
-    Path(LOG_PATH).unlink(missing_ok=True)
-    # Create a named logger
-    logger = logging.getLogger("oxidizer-eval")
-    logger.setLevel(logging.INFO)
-
-    # Create handlers
-    file_handler = logging.FileHandler(LOG_PATH, mode="w")
-    stream_handler = logging.StreamHandler()
-
-    # Create formatter and attach to handlers
-    logging.Formatter.converter = time.localtime
-    formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
-    file_handler.setFormatter(formatter)
-    stream_handler.setFormatter(formatter)
-
-    # Attach handlers to the logger
-    logger.addHandler(file_handler)
-    logger.addHandler(stream_handler)
-
-
 if __name__ == "__main__":
-    init_logger()
-    l.info("Starting evaluation...")
-    o3_result = eval(TARGET_RELEASE_DIR / "O3", "O3")
-    print(o3_result)
+    # for toolchain in ("nightly-2025-05-22", "nightly-2023-05-22"):
+    #     for opt_level in ("0", "1", "2", "3", "s", "z"):
+    for toolchain in ("nightly-2025-05-22",):
+        for opt_level in ("0",):
+            tag = f"{toolchain}-O{opt_level}"
+            result = eval(TARGET_RELEASE_DIR / f"{tag}", tag)
+            l.info(f"Final result for {tag}:\n{result}")

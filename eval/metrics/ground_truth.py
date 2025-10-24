@@ -19,6 +19,21 @@ class FunctionGroundTruth:
     variable_types: List[Type]
     mcc: int
 
+    @staticmethod
+    def load(path: str) -> "FunctionGroundTruth":
+        with open(path, "r") as fd:
+            data = json.load(fd)
+        return FunctionGroundTruth(
+            loc=data["loc"],
+            nofops=data["nofops"],
+            nvars=len(data["variables"]),
+            string_literals=data["string_literals"],
+            macros=data["macros"],
+            calls=data["calls"],
+            variable_types=[DwarfParser.parse_dict(var_data) for var_data in data["variables"]],
+            mcc=data["mcc"],
+        )
+
 
 class BinaryGroundTruth:
     """Ground truth information for a binary"""

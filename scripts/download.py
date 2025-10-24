@@ -17,7 +17,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 GITHUB_API = "https://api.github.com"
 TOKEN = os.getenv("GITHUB_TOKEN")
 MAX_LOC = 50000  # skip repos with more than this LOC
-MAX_REPO = 100  # number of top repos to fetch
+MAX_REPO = 500  # number of top repos to fetch
 
 HEADERS = {
     "Accept": "application/vnd.github+json",

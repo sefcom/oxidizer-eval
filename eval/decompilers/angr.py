@@ -13,8 +13,6 @@ from ..type_recovery.function_prototype import FunctionPrototype, Type
 
 l = logging.getLogger("oxidizer-eval")
 
-USE_ANGRDB = False
-
 
 def _extract_function_body(output):
     body = []
@@ -102,8 +100,7 @@ def _angr_dec_base(binary_path, function_list, extract_body_func, is_rust_binary
         "variable_types": {},
     }
 
-    bin_name = os.path.basename(binary_path)
-    cached_result = load_cached_result(decompiler_name, bin_name)
+    cached_result = load_cached_result(decompiler_name, binary_path)
     if cached_result:
         result = cached_result
 
@@ -112,16 +109,9 @@ def _angr_dec_base(binary_path, function_list, extract_body_func, is_rust_binary
             function_list.remove(func_name)
 
     if function_list and not cache_only:
-        adb_path = binary_path + ".adb"
-        if os.path.exists(adb_path) and USE_ANGRDB:
-            proj = AngrDB().load(adb_path)
-            cfg = proj.kb.cfgs.get_most_accurate()
-            proj.is_rust_binary = is_rust_binary
-        else:
-            proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=is_rust_binary)
-            cfg = proj.analyses.CFGFast(normalize=True)
-            proj.analyses.CompleteCallingConventions(cfg=cfg)
-            AngrDB(proj).dump(adb_path)
+        proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=is_rust_binary)
+        cfg = proj.analyses.CFGFast(normalize=True)
+        proj.analyses.CompleteCallingConventions(cfg=cfg, max_function_blocks=500)
 
         if proj.is_rust_binary:
             proj.analyses.KnownTypeLoader()
@@ -145,10 +135,10 @@ def _angr_dec_base(binary_path, function_list, extract_body_func, is_rust_binary
                         result["variable_types"][func.name] = _dump_variable_types(decompiler)
 
             except BaseException as e:
-                traceback.print_exception(e)
-                print(f"Failed to decompile functon: {demangle(func.name)}")
+                l.error(f"Failed to decompile function: {demangle(func.name)}: {e}")
+                l.error(traceback.format_exc())
 
-        save_result(decompiler_name, bin_name, result)
+        save_result(decompiler_name, binary_path, result)
     return result
 
 

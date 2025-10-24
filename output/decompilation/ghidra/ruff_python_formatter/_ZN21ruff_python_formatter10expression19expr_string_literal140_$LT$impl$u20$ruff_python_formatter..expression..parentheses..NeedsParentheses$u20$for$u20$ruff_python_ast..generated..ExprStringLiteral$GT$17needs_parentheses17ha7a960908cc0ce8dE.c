@@ -1,7 +1,0 @@
-undefined8
-_ZN21ruff_python_formatter10expression19expr_string_literal140__LT_impl_u20_ruff_python_formatter__expression__parentheses__NeedsParentheses_u20_for_u20_ruff_python_ast__generated__ExprStringLiteral_GT_17needs_parentheses17ha7a960908cc0ce8dE
-          (void)
-
-{
-  return 0;
-}

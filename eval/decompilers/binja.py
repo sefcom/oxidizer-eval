@@ -120,8 +120,7 @@ def _binja_dec_base(binary_path, function_list, is_rust_binary, cache_only=False
         "variable_types": {},
     }
 
-    bin_name = os.path.basename(binary_path)
-    cached_result = load_cached_result(decompiler_name, bin_name)
+    cached_result = load_cached_result(decompiler_name, binary_path)
     if cached_result:
         result = cached_result
 
@@ -147,8 +146,8 @@ def _binja_dec_base(binary_path, function_list, is_rust_binary, cache_only=False
 
                 except BaseException as e:
                     traceback.print_exception(e)
-                    print(f"Failed to decompile functon: {demangle(func.name)}")
-        save_result(decompiler_name, bin_name, result)
+                    print(f"Failed to decompile function: {demangle(func.name)}")
+        save_result(decompiler_name, binary_path, result)
     return result
 
 

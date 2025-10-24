@@ -96,14 +96,23 @@ class DwarfParser:
         self.local_variables = defaultdict(list)
         self.decl_path_to_func_name = {}
         self._variant_structs = set()
+        self._expr_parser = None
+        self._type_cache = {}
+        self._full_name_cache = {}
 
-    @staticmethod
-    def _get_full_name(die, name):
-        full_name = name
+    def _get_full_name_internal(self, die):
+        full_name = self._get_value(die, "DW_AT_name").decode()
         parent = die.get_parent()
-        while parent and parent.tag != "DW_TAG_compile_unit":
-            full_name = DwarfParser._get_value(parent, "DW_AT_name").decode() + "::" + full_name
-            parent = parent.get_parent()
+        if parent and parent.tag != "DW_TAG_compile_unit":
+            full_name = self._get_full_name(parent) + "::" + full_name
+        return full_name
+
+    def _get_full_name(self, die):
+        key = (die.cu.cu_offset, die.offset)
+        if key in self._full_name_cache:
+            return self._full_name_cache[key]
+        full_name = self._get_full_name_internal(die)
+        self._full_name_cache[key] = full_name
         return full_name
 
     @staticmethod
@@ -137,7 +146,7 @@ class DwarfParser:
         assert referred_die or not ensure_existence
         return referred_die
 
-    def _parse_type(self, die):
+    def _parse_type_internal(self, die):
         try:
             if die.tag == "DW_TAG_pointer_type":
                 pointed_to_die = self._get_referred_die(die, "DW_AT_type", ensure_existence=False)
@@ -145,8 +154,9 @@ class DwarfParser:
                     ty = self._parse_type(pointed_to_die)
                     return Pointer(ty)
             elif die.tag == "DW_TAG_structure_type":
-                name = self._get_value(die, "DW_AT_name").decode()
-                full_name = self._get_full_name(die, name)
+                # name = self._get_value(die, "DW_AT_name").decode()
+                # full_name = self._get_full_name(die)
+                full_name = self._get_value(die, "DW_AT_name").decode()
                 size = self._get_value(die, "DW_AT_byte_size")
                 if self._get_child(die, "DW_TAG_variant_part", ensure_existence=False):
                     return Enumeration(full_name, size, size, None)
@@ -169,6 +179,16 @@ class DwarfParser:
             pass
         return None
 
+    def _parse_type(self, die):
+        if die is None:
+            return None
+        key = (die.cu.cu_offset, die.offset)
+        if key in self._type_cache:
+            return self._type_cache[key]
+        result = self._parse_type_internal(die)
+        self._type_cache[key] = result
+        return result
+
     def _parse_member(self, die):
         field_name = self._get_value(die, "DW_AT_name").decode()
         field_offset = self._get_value(die, "DW_AT_data_member_location")
@@ -185,7 +205,7 @@ class DwarfParser:
     def _parse_variant(self, die):
         variant_name = self._get_value(die, "DW_AT_name").decode()
         type_die = self._get_referred_die(die, "DW_AT_type")
-        full_name = self._get_full_name(type_die, variant_name)
+        full_name = self._get_full_name(type_die)
         self._variant_structs.add(full_name)
         variant_fields = []
         for field_die in self._get_children(type_die, "DW_TAG_member", ensure_existence=False):
@@ -216,8 +236,7 @@ class DwarfParser:
         name = self._get_value(die, "DW_AT_name", ensure_existence=False)
         if name is None:
             return
-        name = name.decode()
-        full_name = self._get_full_name(die, name)
+        full_name = self._get_full_name(die)
         size = self._get_value(die, "DW_AT_byte_size", ensure_existence=False)
         if self._get_child(die, "DW_TAG_variant_part", ensure_existence=False):
             self._add_enum(full_name, size, die)
@@ -225,7 +244,6 @@ class DwarfParser:
             self._add_struct(full_name, size, die)
 
     def _parse_local_variables(self, die, func_name):
-        expr_parser = DWARFExprParser(die.cu.dwarfinfo.structs)
         queue = [die]
         while queue:
             child = queue.pop()
@@ -250,7 +268,7 @@ class DwarfParser:
                     if var_location_attr.form.startswith("DW_FORM_sec_offset"):
                         var_category = "location_list"
                     else:
-                        ops = expr_parser.parse_expr(var_location_attr.value)
+                        ops = self._expr_parser.parse_expr(var_location_attr.value)
                         if ops:
                             op = ops[0]
                             if op.op_name.startswith("DW_OP_reg"):
@@ -306,6 +324,9 @@ class DwarfParser:
             decl_path = self._get_decl_path(die, decl_file_idx, decl_line)
 
             if decl_path:
+                # Ignore library functions
+                if ".cargo" in decl_path or ".rustup" in decl_path or "/rustc/" in decl_path or "/rust/" in decl_path:
+                    return
                 self.decl_path_to_func_name[decl_path] = func_name
 
             returnty_die = self._get_referred_die(die, "DW_AT_type", ensure_existence=False)
@@ -323,20 +344,16 @@ class DwarfParser:
         with open(path, "rb") as fd:
             elffile = ELFFile(fd)
             for cu in elffile.get_dwarf_info().iter_CUs():
-                queue = list(cu.iter_DIEs())
-                while queue:
-                    die = queue.pop()
+                self._expr_parser = DWARFExprParser(cu.dwarfinfo.structs)
+                for die in cu.iter_DIEs():
                     try:
-                        if die.tag == "DW_TAG_namespace":
-                            queue += list(die.iter_children())
-                        elif die.tag == "DW_TAG_structure_type":
-                            self._handle_structure(die)
+                        if die.tag == "DW_TAG_structure_type":
+                            pass
+                            # self._handle_structure(die)
                         elif die.tag == "DW_TAG_subprogram":
                             self._handle_subprogram(die)
                     except:
                         pass
-                        # print(f"Skip {die}")
-                        # traceback.print_exc()
         for variant_struct in self._variant_structs:
             if variant_struct in self.structs:
                 del self.structs[variant_struct]

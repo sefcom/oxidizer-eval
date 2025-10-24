@@ -38,7 +38,7 @@ def clean_stale_binaries(allowed_names: set[str]) -> None:
     total_deleted = 0
     for profile in ["debug", "release", "dwarf"]:
         base = Path(__file__).parent.parent / "targets" / profile
-        opt_levels = ["O0", "O1", "O2", "O3"]
+        opt_levels = ["O0", "O1", "O2", "O3", "Os", "Oz"]
 
         for opt in opt_levels:
             dir_path = base / opt

@@ -1,4 +1,0 @@
-char *__fastcall sniffnet::translations::translations_2::mac_address_translation(unsigned __int8 a1)
-{
-  return (char *)dword_18ED208 + dword_18ED208[a1];
-}

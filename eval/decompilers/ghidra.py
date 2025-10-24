@@ -136,8 +136,8 @@ def ghidra_dec(binary_path, function_list, cache_only=False):
         "variable_types": {},
     }
 
-    bin_name = os.path.basename(binary_path)
-    cached_result = load_cached_result("ghidra", bin_name)
+    binary_name = os.path.basename(binary_path)
+    cached_result = load_cached_result("ghidra", binary_path)
     if cached_result:
         result = cached_result
     for func_name in result["decompilation"]:
@@ -172,17 +172,17 @@ def ghidra_dec(binary_path, function_list, cache_only=False):
                 [
                     f"{ghidra_path}",
                     ".",
-                    f"temp_project_{bin_name}",
+                    f"temp_project_{binary_name}",
                     "-import",
-                    os.path.basename(binary_path),
+                    binary_name,
                     "-preScript",
                     f"{pre_dec_script_path}",
                     "-postScript",
                     f"{post_dec_script_path}",
                 ]
             )
-            os.unlink(f"./temp_project_{bin_name}.gpr")
-            shutil.rmtree(f"./temp_project_{bin_name}.rep")
+            os.unlink(f"./temp_project_{binary_name}.gpr")
+            shutil.rmtree(f"./temp_project_{binary_name}.rep")
             with open(result_fd.name, "r") as fd:
                 more_result = json.load(fd)
                 demangled_function_call_counts = {}
@@ -202,6 +202,6 @@ def ghidra_dec(binary_path, function_list, cache_only=False):
             os.unlink(pre_dec_script_path)
             os.unlink(result_fd.name)
             os.unlink(post_dec_script_path)
-        save_result("ghidra", bin_name, result)
+        save_result("ghidra", binary_path, result)
 
     return result

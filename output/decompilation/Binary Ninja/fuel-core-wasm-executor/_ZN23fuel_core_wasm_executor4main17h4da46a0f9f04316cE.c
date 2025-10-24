@@ -1,3 +1,0 @@
-                                                      cc cc cc cc cc cc cc cc cc cc cc cc cc cc                    ..............
-
-  int64_t fuel_core_wasm_executor::main::h4da46a0f9f04316c() __pure

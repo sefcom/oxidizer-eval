@@ -14,9 +14,30 @@ class FunctionEvalResult:
     def __init__(self, func_name):
         self.func_name = func_name
         self.eval_result = defaultdict(dict)
+        # To see what macros are matched/mismatched
+        self.matched_macros = defaultdict(int)
+        self.mismatched_macros = defaultdict(int)
 
     def add_result(self, metric, decompiler, value):
         self.eval_result[decompiler][metric] = value
+
+    def record_macro_matching_result(self, macro_calls: Dict[str, int], gt_macro_calls: Dict[str, int]):
+        # for macro_name, count in macro_calls.items():
+        #     if macro_name in gt_macro_calls:
+        #         matched_count = min(count, gt_macro_calls[macro_name])
+        #         self.matched_macros[macro_name] += matched_count
+        #         if count > matched_count:
+        #             self.mismatched_macros[macro_name] += count - matched_count
+        #     else:
+        #         self.mismatched_macros[macro_name] += count
+        # for macro_name, count in gt_macro_calls.items():
+        #     if macro_name not in macro_calls:
+        #         self.mismatched_macros[macro_name] += count
+        for macro_name, count in gt_macro_calls.items():
+            matched_count = min(count, macro_calls.get(macro_name, 0))
+            self.matched_macros[macro_name] += matched_count
+            if matched_count < count:
+                self.mismatched_macros[macro_name] += count - matched_count
 
     def is_valid_for_all_decompilers(self):
         return (
@@ -31,10 +52,17 @@ class BinaryEvalResult:
     def __init__(self, binary_path):
         self.binary_path = binary_path
         self.func_eval_results: List[FunctionEvalResult] = []
+        # To see what macros are matched/mismatched
+        self.matched_macros = defaultdict(int)
+        self.mismatched_macros = defaultdict(int)
 
     def add_func_eval_result(self, func_eval_result: FunctionEvalResult):
         if func_eval_result.is_valid_for_all_decompilers():
             self.func_eval_results.append(func_eval_result)
+            for macro_name, count in func_eval_result.matched_macros.items():
+                self.matched_macros[macro_name] += count
+            for macro_name, count in func_eval_result.mismatched_macros.items():
+                self.mismatched_macros[macro_name] += count
 
     def _average(self, decompiler, metric):
         values = [func_eval_result.eval_result[decompiler][metric] for func_eval_result in self.func_eval_results]
@@ -58,6 +86,9 @@ class EvalResult:
         self.total_binaries = 0
         self.total_functions = 0
         self.values: Dict[Tuple, List] = defaultdict(list)
+        # To see what macros are matched/mismatched
+        self.matched_macros = defaultdict(int)
+        self.mismatched_macros = defaultdict(int)
 
     def add_binary_eval_result(self, binary_eval_result: BinaryEvalResult):
         self.total_binaries += 1
@@ -66,6 +97,10 @@ class EvalResult:
             for decompiler in DECOMPILERS:
                 for metric, value in func_eval_result.eval_result[decompiler].items():
                     self.values[(decompiler, metric)].append(value)
+            for macro_name, count in func_eval_result.matched_macros.items():
+                self.matched_macros[macro_name] += count
+            for macro_name, count in func_eval_result.mismatched_macros.items():
+                self.mismatched_macros[macro_name] += count
 
     def merge(self, other: "EvalResult"):
         result = EvalResult()
@@ -195,6 +230,29 @@ class EvalResult:
 
         overall_row += " | ".join(overall_results) + "\n"
         output += overall_row
+
+        # Print macro matching summary (sorted by matched count)
+        macro_matching_summary = "Macro Matching Summary:\n"
+        total_matched = sum(self.matched_macros.values())
+        total_mismatched = sum(self.mismatched_macros.values())
+        macro_matching_summary += f"Total Matched Macros: {total_matched}\n"
+        macro_matching_summary += f"Total Mismatched Macros: {total_mismatched}\n"
+        macro_matching_summary += "Matched Macros Detail:\n"
+        for macro_name, count in sorted(self.matched_macros.items(), key=lambda x: x[1], reverse=True):
+            macro_matching_summary += f"  {macro_name}: {count}\n"
+        macro_matching_summary += "Mismatched Macros Detail:\n"
+        for macro_name, count in sorted(self.mismatched_macros.items(), key=lambda x: x[1], reverse=True):
+            macro_matching_summary += f"  {macro_name}: {count}\n"
+        target_macros = ["format", "println", "print", "eprintln", "eprint", "panic"]
+        # Print mismatched counts for target macros
+        macro_matching_summary += "Total Target Macros Mismatched Counts:\n"
+        sum_target_mismatched = sum(self.mismatched_macros.get(macro_name, 0) for macro_name in target_macros)
+        macro_matching_summary += f"  Total: {sum_target_mismatched}\n"
+        macro_matching_summary += "Target Macros Mismatched Counts:\n"
+        for macro_name in target_macros:
+            count = self.mismatched_macros.get(macro_name, 0)
+            macro_matching_summary += f"  {macro_name}: {count}\n"
+        l.info(macro_matching_summary)
 
         return output
 

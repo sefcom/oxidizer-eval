@@ -1,7 +1,0 @@
-
-  fn uu_test::eval::panic_cold_explicit::hc16295f7fbae26fe() -> !
-
-{
-    core::panicking::panic_explicit::h0635912eb87c43ae();
-    /* no return */
-}

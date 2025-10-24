@@ -134,8 +134,7 @@ def ida_dec(binary_path, function_list, cache_only=False):
         "variable_types": {},
     }
 
-    bin_name = os.path.basename(binary_path)
-    cached_result = load_cached_result("ida", bin_name)
+    cached_result = load_cached_result("ida", binary_path)
     if cached_result:
         result = cached_result
     for func_name in result["decompilation"]:
@@ -161,5 +160,5 @@ def ida_dec(binary_path, function_list, cache_only=False):
         os.unlink(result_fd.name)
         os.unlink(script_fd.name)
 
-        save_result("ida", bin_name, result)
+        save_result("ida", binary_path, result)
     return result

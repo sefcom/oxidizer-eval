@@ -14,35 +14,36 @@ from angr.analyses.decompiler.sequence_walker import SequenceWalker
 from angr.ailment import AILBlockWalker, Block, Const
 import cle
 
-from eval.type_recovery.function_prototype import FunctionPrototype
 from eval.metrics.mcc import measure_mcc, measure_rust_decompiler
-
-from ..config import (
-    CACHE_DIR,
-    CACHED_INFERRED_PROTOTYPES_PATH,
-)
+from eval.config import CACHE_DIR
 
 
-def save_result(decompiler, bin_name, result):
+def _extract_tag(binary_path):
+    return Path(binary_path).parent.name
+
+
+def save_result(decompiler, binary_path, result):
+    binary_name = os.path.basename(binary_path)
+    tag = _extract_tag(binary_path)
     result = dict(result)
     for func_name, decompilation in result["decompilation"].items():
-        path = os.path.join(CACHE_DIR, "decompilation", decompiler, bin_name, func_name + ".c")
+        path = os.path.join(CACHE_DIR, "decompilation", tag, decompiler, binary_name, func_name + ".c")
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w", encoding="utf-8") as fd:
             fd.write(decompilation)
-    path = os.path.join(CACHE_DIR, "result", decompiler, bin_name + ".json")
+    path = os.path.join(CACHE_DIR, "result", tag, decompiler, binary_name + ".json")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as fd:
         json.dump(result, fd, indent=2)
 
 
-def load_cached_result(decompiler, bin_name):
-    result = None
-    path = os.path.join(CACHE_DIR, "result", decompiler, bin_name + ".json")
+def load_cached_result(decompiler, binary_path):
+    tag = _extract_tag(binary_path)
+    path = os.path.join(CACHE_DIR, "result", tag, decompiler, os.path.basename(binary_path) + ".json")
     if os.path.exists(path):
         with open(path, "r", encoding="utf-8") as fd:
-            result = json.load(fd)
-    return result
+            return json.load(fd)
+    return None
 
 
 def load_function_list(binary_path, module=None):
@@ -57,7 +58,10 @@ def load_function_list(binary_path, module=None):
     # Filter by module if specified
     if module is not None:
         function_list = [
-            name for name in function_list if demangle(name).startswith(module) and "$closure$" not in name
+            name
+            for name in function_list
+            if (demangle(name).startswith(module) or demangle(name).startswith("<" + module))
+            and "$closure$" not in name
         ]
     return function_list
 

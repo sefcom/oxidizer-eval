@@ -233,9 +233,9 @@ def _normalize_dwarf_type(dwarf_type: Type, recursive=True):
         case Struct():
             return "struct", dwarf_type.size
         case Enumeration(name):
-            if name.startswith("core::result::Result<"):
+            if name.startswith("core::result::Result<") or name.startswith("Result<"):
                 return "Result", dwarf_type.size
-            elif name.startswith("core::option::Option<"):
+            elif name.startswith("core::option::Option<") or name.startswith("Option<"):
                 return "Option", dwarf_type.size
             else:
                 return "enum", dwarf_type.size
