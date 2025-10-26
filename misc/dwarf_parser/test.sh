@@ -1,0 +1,1 @@
+cargo run /home/34r7hm4n/dev/oxidizer/oxidizer-eval/targets/debug/nightly-2025-05-22-O0/just just.json

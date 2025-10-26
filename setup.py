@@ -6,8 +6,6 @@ from pathlib import Path
 from urllib.parse import quote
 import toml
 import os
-import shutil
-import tempfile
 from concurrent.futures import ProcessPoolExecutor, as_completed
 import traceback
 import resource
@@ -19,6 +17,8 @@ l = logging.getLogger("setup")
 TOOLCHAIN = "nightly-2025-05-22"  # For building ground truth parser
 GROUND_TRUTH_PARSER_SRC_DIR = Path("misc/ground_truth_parser").absolute()
 GROUND_TRUTH_PARSER_BIN = Path("misc/ground_truth_parser/target/release/ground_truth_parser").absolute()
+DWARF_PARSER_SRC_DIR = Path("misc/dwarf_parser").absolute()
+DWARF_PARSER_BIN = Path("misc/dwarf_parser/target/release/dwarf_parser").absolute()
 TARGET_SRC_DIR = Path("targets/src").absolute()
 TARGET_RELEASE_DIR = Path("targets/release").absolute()
 TARGET_DEBUG_DIR = Path("targets/debug").absolute()
@@ -30,73 +30,48 @@ MISC_DIR = Path("misc").absolute()
 
 def run(cmd: str, cwd=None) -> None:
     """Run a shell command, exit if it fails."""
-    logging.info(f"[cmd] {cmd}")
+    l.info(f"[cmd] {cmd}")
     subprocess.run(cmd.split(), check=True, cwd=cwd)
 
 
-def extract_single_o_from_rlib(rlib_path: str) -> str:
-    """
-    Extract the single .o file from a .rlib archive, assert there is exactly one .o,
-    copy it to the same folder as the .rlib, rename it to match the .rlib base name
-    (replace .rlib with .o), and return the absolute path to the .o.
-
-    Messages and comments are in English, as requested.
-    """
-    rlib = Path(rlib_path).resolve()
-    if not rlib.exists():
-        raise FileNotFoundError(f".rlib not found: {rlib}")
-
-    if rlib.suffix.lower() != ".rlib":
-        raise ValueError(f"Input file does not have .rlib extension: {rlib}")
-
-    # Ensure 'ar' is available
-    if shutil.which("ar") is None:
-        raise RuntimeError("System 'ar' tool not found. Please install binutils (or ask for a pure-Python fallback).")
-
-    # Create a temporary directory for extraction
-    with tempfile.TemporaryDirectory(prefix="rlib_extract_") as tmpdir:
-        tmp = Path(tmpdir)
-
-        # Extract the archive contents using 'ar x'
-        subprocess.run(["ar", "x", str(rlib)], cwd=tmp, check=True)
-
-        # Find .o files
-        o_files = list(tmp.glob("*.o"))
-        assert len(o_files) == 1, (
-            f"Expected exactly one .o inside {rlib.name}, found {len(o_files)}: " f"{[p.name for p in o_files]}"
-        )
-
-        single_o = o_files[0]
-
-        # Destination: same directory as the .rlib, filename matches .rlib base name but with .o
-        dest_dir = rlib.parent
-        dest_name = rlib.with_suffix(".o").name  # replace .rlib with .o
-        dest_path = dest_dir / dest_name
-
-        # Copy (overwrite if exists)
-        shutil.copyfile(single_o, dest_path)
-
-        return str(dest_path.resolve())
-
-
 def build_ground_truth_parser():
-    logging.info("Checking if ground truth parser is already built...")
+    l.info("Checking if ground truth parser is already built...")
     if GROUND_TRUTH_PARSER_BIN.exists():
-        logging.info(f"Ground truth parser already exists at: {GROUND_TRUTH_PARSER_BIN}")
-        logging.info("    Skipping build.")
+        l.info(f"Ground truth parser already exists at: {GROUND_TRUTH_PARSER_BIN}")
+        l.info("    Skipping build.")
         return
 
-    logging.info("Ground truth parser not found. Setting up toolchain and building...")
+    l.info("Ground truth parser not found. Setting up toolchain and building...")
 
-    logging.info(f"    Installing toolchain {TOOLCHAIN}...")
+    l.info(f"    Installing toolchain {TOOLCHAIN}...")
     run(f"rustup toolchain install {TOOLCHAIN}")
 
-    logging.info("    Adding required components (rustc-dev, llvm-tools)...")
+    l.info("    Adding required components (rustc-dev, llvm-tools)...")
     run(f"rustup component add rustc-dev llvm-tools --toolchain {TOOLCHAIN}")
 
-    logging.info("    Building ground truth parser...")
+    l.info("    Building ground truth parser...")
     run(f"rustup run {TOOLCHAIN} cargo build --release --manifest-path {GROUND_TRUTH_PARSER_SRC_DIR / 'Cargo.toml'}")
-    logging.info(f"Ground truth parser built successfully: {GROUND_TRUTH_PARSER_BIN}")
+    l.info(f"Ground truth parser built successfully: {GROUND_TRUTH_PARSER_BIN}")
+
+
+def build_dwarf_parser():
+    l.info("Checking if dwarf parser is already built...")
+    if DWARF_PARSER_BIN.exists():
+        l.info(f"Dwarf parser already exists at: {DWARF_PARSER_BIN}")
+        l.info("    Skipping build.")
+        return
+
+    l.info("Dwarf parser not found. Setting up toolchain and building...")
+
+    l.info(f"    Installing toolchain {TOOLCHAIN}...")
+    run(f"rustup toolchain install {TOOLCHAIN}")
+
+    l.info("    Adding required components (rustc-dev, llvm-tools)...")
+    run(f"rustup component add rustc-dev llvm-tools --toolchain {TOOLCHAIN}")
+
+    l.info("    Building dwarf parser...")
+    run(f"rustup run {TOOLCHAIN} cargo build --release --manifest-path {DWARF_PARSER_SRC_DIR / 'Cargo.toml'}")
+    l.info(f"Dwarf parser built successfully: {DWARF_PARSER_BIN}")
 
 
 def find_first_edition(project_root: str) -> str:
@@ -128,17 +103,15 @@ def merge_ground_truth_and_dwarf(ground_truth_path: Path, dwarf_path: Path) -> s
         ground_truth = json.load(f)
     with open(dwarf_path, "r", encoding="utf-8") as f:
         dwarf = json.load(f)
-    decl_path_to_func_name = dwarf["decl_path_to_func_name"]
-    merged_ground_truth = {"functions": {}, "structs": dwarf.get("structs", {})}
-    for decl_path in ground_truth:
-        if decl_path not in decl_path_to_func_name:
-            continue
-        func_name = decl_path_to_func_name[decl_path]
+    merged_ground_truth = {"functions": {}, "structs": {}}
+    for decl_path in set(ground_truth.keys()) & set(dwarf.keys()):
+        func_dwarf = dwarf[decl_path]
+        func_name = func_dwarf["name"]
+        variables = func_dwarf["local_variables"]
+        prototype = func_dwarf["prototype"]
         func_ground_truth = ground_truth[decl_path]
-        variables = dwarf.get("variables", {}).get(func_name, [])
-        prototype = dwarf.get("prototypes", {}).get(func_name, None)
-        func_ground_truth["variables"] = variables
         func_ground_truth["prototype"] = prototype
+        func_ground_truth["variables"] = variables
         merged_ground_truth["functions"][func_name] = func_ground_truth
     return merged_ground_truth
 
@@ -149,14 +122,14 @@ def build_target(target, url, commit, output, toolchain, opt_level):
 
     target_dir = Path(target).absolute()
     if not target_dir.exists():
-        logging.info(f"Target {target} not found. Cloning...")
+        l.info(f"Target {target} not found. Cloning...")
         run(f"git clone {url}")
     run("git fetch --all", cwd=target_dir)
     run(f"git checkout {commit}", cwd=target_dir)
     try:
         run("git submodule update --init --recursive", cwd=target_dir)
     except subprocess.CalledProcessError:
-        logging.warning("Warning: git submodule update failed, continuing anyway...")
+        l.warning("Warning: git submodule update failed, continuing anyway...")
     tag = f"{toolchain}-O{opt_level}"
     final_target_release_dir = TARGET_RELEASE_DIR / tag
     final_target_debug_dir = TARGET_DEBUG_DIR / tag
@@ -166,7 +139,7 @@ def build_target(target, url, commit, output, toolchain, opt_level):
         and all(Path(final_target_release_dir / binary).exists() for binary in output)
         and all(Path(final_target_debug_dir / binary).exists() for binary in output)
     ):
-        logging.info(f"All binaries for {target} ({tag}) already exist.")
+        l.info(f"All binaries for {target} ({tag}) already exist.")
     else:
         build_cmd = f"rustup run {toolchain} cargo build --release"
         build_cmd += f" --config profile.release.debug=true"
@@ -204,6 +177,7 @@ def build_target(target, url, commit, output, toolchain, opt_level):
             run(f"cp {target_path} {final_target_release_dir}")
             run(f"strip --strip-debug {final_target_release_dir / binary}")
             run(f"cp {target_path} {final_target_debug_dir}")
+        run(f"rustup run {toolchain} cargo clean", cwd=target_dir)
 
 
 def limit_memory(max_gb: int):
@@ -217,8 +191,8 @@ def safe_parse_binary_ground_truth(target, binary, toolchain, opt_level, edition
     try:
         return parse_binary_ground_truth(target, binary, toolchain, opt_level, edition)
     except MemoryError as e:
-        logging.error(f"Error in parse_binary_ground_truth for {binary}: {e}")
-        logging.error(traceback.format_exc())
+        l.error(f"Error in parse_binary_ground_truth for {binary}: {e}")
+        l.error(traceback.format_exc())
         return target
 
 
@@ -236,9 +210,9 @@ def parse_binary_ground_truth(target, binary, toolchain, opt_level, edition):
     name = Path(binary).stem
     output_path = final_target_ground_truth_dir / (name + ".json")
     if output_path.exists():
-        logging.info(f"Ground truth file already exists: {output_path}")
+        l.info(f"Ground truth file already exists: {output_path}")
     else:
-        logging.info(f"Generating ground truth for {name}...")
+        l.info(f"Generating ground truth for {name}...")
         src_path = target
         if target == "coreutils":
             src_path = Path(target) / "src" / "uu" / name
@@ -248,23 +222,23 @@ def parse_binary_ground_truth(target, binary, toolchain, opt_level, edition):
     target_path = final_target_debug_dir / binary
     output_path = final_target_dwarf_dir / (Path(binary).stem + ".json")
     if output_path.exists():
-        logging.info(f"DWARF file already exists: {output_path}")
+        l.info(f"DWARF file already exists: {output_path}")
     else:
-        logging.info(f"Generating DWARF for {target_path}...")
-        parser = DwarfParser()
-        parser.parse(target_path)
-        parser.dump_json(output_path)
+        l.info(f"Generating DWARF for {target_path}...")
+        run(f"{DWARF_PARSER_BIN} {target_path} {output_path}")
+        if not output_path.exists():
+            l.error(f"DWARF parser failed to produce output for {target_path}")
 
     # Merge source ground truth and dwarf ground truth
     name = Path(binary).stem
     gt_path = final_target_ground_truth_dir / (name + ".json")
     dwarf_path = final_target_dwarf_dir / (name + ".json")
-    logging.info(f"Merging ground truth and DWARF for {name}...")
+    l.info(f"Merging ground truth and DWARF for {name}...")
     merged_gt = merge_ground_truth_and_dwarf(gt_path, dwarf_path)
     # Write function-level ground truth files
     binary_gt_dir = final_target_merged_ground_truth_dir / name
     os.makedirs(binary_gt_dir, exist_ok=True)
-    logging.info(f"Found {len(merged_gt.get('functions', {}))} functions in merged ground truth for {name}.")
+    l.info(f"Found {len(merged_gt.get('functions', {}))} functions in merged ground truth for {name}.")
     for func_name in merged_gt.get("functions", {}):
         func_gt = merged_gt["functions"][func_name]
         func_gt_path = binary_gt_dir / f"{quote(func_name)}.json"
@@ -276,12 +250,12 @@ def parse_binary_ground_truth(target, binary, toolchain, opt_level, edition):
 
 
 def build_evaluation_targets():
-    logging.info("[*] Building evaluation targets...")
+    l.info("Building evaluation targets...")
     os.makedirs(TARGET_SRC_DIR, exist_ok=True)
     os.chdir(TARGET_SRC_DIR)
 
-    opt_levels = ("0", "1", "2", "3", "s", "z")
-    # opt_levels = ("0", "1")
+    # opt_levels = ("0", "1", "2", "3", "s", "z")
+    opt_levels = ("0",)
     toolchains = (
         "nightly-2025-05-22",
         # "nightly-2023-05-22",
@@ -290,7 +264,7 @@ def build_evaluation_targets():
     # toolchains = ("nightly-2025-05-22",)
     for toolchain in toolchains:
         # Stage-1: Build all targets
-        logging.info(f"Setting up toolchain {toolchain}...")
+        l.info(f"Setting up toolchain {toolchain}...")
         run(f"rustup toolchain install {toolchain}")
         eval_targets = toml.load(MISC_DIR / f"targets-{toolchain}.toml")
         for opt_level in opt_levels:
@@ -300,7 +274,7 @@ def build_evaluation_targets():
                     url = eval_targets[target]["url"]
                     commit = eval_targets[target]["commit"]
                     output = eval_targets[target]["output"]
-                    logging.info(
+                    l.info(
                         f"Submitting build for {target} with optimization level {opt_level}... ({i+1}/{len(eval_targets)})"
                     )
                     fut = executor.submit(build_target, target, url, commit, output, toolchain, opt_level)
@@ -310,12 +284,12 @@ def build_evaluation_targets():
                     target, toolchain, opt_level = futures[fut]
                     try:
                         fut.result()
-                        logging.info(
+                        l.info(
                             f"Build finished: {target} (toolchain={toolchain}, opt={opt_level}) ({i + 1}/{len(futures)})"
                         )
                     except Exception as e:
-                        logging.error(f"[!] Build failed for {target} (toolchain={toolchain}, opt={opt_level}): {e}")
-                        logging.error(traceback.format_exc())
+                        l.error(f"[!] Build failed for {target} (toolchain={toolchain}, opt={opt_level}): {e}")
+                        l.error(traceback.format_exc())
 
         # Stage-2: Generate ground truth and DWARF
         for opt_level in opt_levels:
@@ -325,7 +299,7 @@ def build_evaluation_targets():
                     output = eval_targets[target]["output"]
                     edition = find_first_edition(target)
                     for binary in output:
-                        logging.info(f"Submitting ground truth and DWARF generation for {binary} ({len(futures)+1})")
+                        l.info(f"Submitting ground truth and DWARF generation for {binary} ({len(futures)+1})")
                         fut = executor.submit(
                             safe_parse_binary_ground_truth, target, binary, toolchain, opt_level, edition
                         )
@@ -335,39 +309,39 @@ def build_evaluation_targets():
                     target, binary, toolchain, opt_level = futures[fut]
                     try:
                         fut.result()
-                        logging.info(
+                        l.info(
                             f"Ground truth and DWARF generation finished: {binary} (target={target}, toolchain={toolchain}, opt={opt_level}) ({i + 1}/{len(futures)})"
                         )
                     except Exception as e:
-                        logging.error(
+                        l.error(
                             f"Ground truth and DWARF generation failed for {binary} (target={target}, toolchain={toolchain}, opt={opt_level}): {e}"
                         )
-                        logging.error(traceback.format_exc())
+                        l.error(traceback.format_exc())
 
 
 def init_logger():
-    logger = logging.getLogger()
-    logger.setLevel(logging.INFO)
+    l.setLevel(logging.INFO)
     # Clear existing handlers
-    logger.handlers = []
+    l.handlers = []
     # Create console handler
     stream_handler = logging.StreamHandler(sys.stdout)
     stream_handler.setLevel(logging.INFO)
     formatter = logging.Formatter(f"[setup] %(asctime)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
     stream_handler.setFormatter(formatter)
-    logger.addHandler(stream_handler)
+    l.addHandler(stream_handler)
     # Create file handler
     file_handler = logging.FileHandler(f"setup.log", mode="w", encoding="utf-8")
     file_handler.setLevel(logging.INFO)
     file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
+    l.addHandler(file_handler)
 
 
 if __name__ == "__main__":
     init_logger()
     try:
         build_ground_truth_parser()
+        build_dwarf_parser()
         build_evaluation_targets()
     except subprocess.CalledProcessError as e:
-        logging.error(f"Command failed with exit code {e.returncode}")
+        l.error(f"Command failed with exit code {e.returncode}")
         sys.exit(e.returncode)

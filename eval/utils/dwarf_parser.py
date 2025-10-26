@@ -362,22 +362,7 @@ class DwarfParser:
     def _from_dict(data):
         if data is None:
             return None
-        clz = None
-        if "pts_to" in data:
-            clz = "Pointer"
-        elif set(data.keys()) == {"name", "size"}:
-            clz = "Primitive"
-        elif "fields" in data:
-            clz = "Struct"
-        elif "variants" in data:
-            clz = "Enumeration"
-        elif "ele_type" in data:
-            clz = "Array"
-        elif "args" in data:
-            clz = "Prototype"
-        elif "location" in data:
-            clz = "Variable"
-        match clz:
+        match data["kind"]:
             case "Pointer":
                 return Pointer(DwarfParser._from_dict(data["pts_to"]))
             case "Primitive":
@@ -408,10 +393,9 @@ class DwarfParser:
                 )
             case "Variable":
                 return Variable(data["name"], DwarfParser._from_dict(data["type"]), data["category"], data["location"])
+            case "None":
+                return None
             case _:
-                import ipdb
-
-                ipdb.set_trace()
                 assert False
 
     @staticmethod
@@ -447,23 +431,3 @@ class DwarfParser:
             for key in self.decl_path_to_func_name:
                 d["decl_path_to_func_name"][key] = self.decl_path_to_func_name[key]
             json.dump(d, fd, sort_keys=True, indent=2)
-
-
-if __name__ == "__main__":
-    # path = "target/x86_64-unknown-linux-gnu/debug/deps/std-fa2ce7845f8b40af.std.58d5dad5a830f2fb-cgu.07.rcgu.o"
-    path = "fmt"
-    parser = DwarfParser()
-    parser.parse(path)
-    parser.dump_json("output/fmt.json")
-
-    # new_parser = DwarfParser()
-    # new_parser.parse_json("output/structs.json", "output/prototypes.json", "output/variables.json")
-
-    # assert parser.structs == new_parser.structs
-    # assert parser.prototypes == new_parser.prototypes
-    # assert parser.local_variables == new_parser.local_variables
-    # pprint(parser.structs["std::io::error::Error"])
-    # pprint(parser.prototypes["<std::fs::File as std::io::Read>::read_to_string"])
-    import ipdb
-
-    ipdb.set_trace()
