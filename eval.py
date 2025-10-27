@@ -244,14 +244,6 @@ def eval_binary(binary_path, tag):
                 and func_ground_truth is not None
             ):
                 decompilation = result["decompilation"][func_name]
-                # print(
-                #     "Evaluating function:",
-                #     demangle(func_name),
-                #     "with decompiler:",
-                #     decompiler,
-                #     "call counts:",
-                #     num_matched_function_calls(result["function_call_counts"][func_name], func_ground_truth.calls),
-                # )
 
                 # Conciseness Metric-0: Number of lines of code
                 func_eval_result.add_result(MCC, decompiler, mcc(decompilation))

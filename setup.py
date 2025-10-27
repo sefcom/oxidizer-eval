@@ -8,7 +8,6 @@ import toml
 import os
 from concurrent.futures import ProcessPoolExecutor, as_completed
 import traceback
-import resource
 
 from eval.utils.dwarf_parser import *
 
@@ -125,7 +124,7 @@ def build_target(target, url, commit, output, toolchain, opt_level):
         l.info(f"Target {target} not found. Cloning...")
         run(f"git clone {url}")
     run("git fetch --all", cwd=target_dir)
-    run(f"git checkout {commit}", cwd=target_dir)
+    run(f"git checkout -f {commit}", cwd=target_dir)
     try:
         run("git submodule update --init --recursive", cwd=target_dir)
     except subprocess.CalledProcessError:
@@ -162,7 +161,10 @@ def build_target(target, url, commit, output, toolchain, opt_level):
         if target == "typst":
             build_cmd += ' --config profile.release.package."typst-cli".strip=false'
         if target == "meilisearch":
-            build_cmd += " -p meilisearch -p meilitool"
+            if toolchain == "nightly-2025-05-22":
+                build_cmd += " -p meilisearch -p meilitool"
+            else:
+                build_cmd += " -p meilisearch"
         if target == "deno":
             build_cmd += f' --config profile.release.split-debuginfo="packed"'
             build_cmd += " -p deno"
@@ -178,22 +180,6 @@ def build_target(target, url, commit, output, toolchain, opt_level):
             run(f"strip --strip-debug {final_target_release_dir / binary}")
             run(f"cp {target_path} {final_target_debug_dir}")
         run(f"rustup run {toolchain} cargo clean", cwd=target_dir)
-
-
-def limit_memory(max_gb: int):
-    """Limit the total memory per process."""
-    max_bytes = max_gb * 1024**3
-    resource.setrlimit(resource.RLIMIT_AS, (max_bytes, max_bytes))
-
-
-def safe_parse_binary_ground_truth(target, binary, toolchain, opt_level, edition):
-    limit_memory(48)
-    try:
-        return parse_binary_ground_truth(target, binary, toolchain, opt_level, edition)
-    except MemoryError as e:
-        l.error(f"Error in parse_binary_ground_truth for {binary}: {e}")
-        l.error(traceback.format_exc())
-        return target
 
 
 def parse_binary_ground_truth(target, binary, toolchain, opt_level, edition):
@@ -254,11 +240,11 @@ def build_evaluation_targets():
     os.makedirs(TARGET_SRC_DIR, exist_ok=True)
     os.chdir(TARGET_SRC_DIR)
 
-    # opt_levels = ("0", "1", "2", "3", "s", "z")
-    opt_levels = ("0",)
+    opt_levels = ("0", "1", "2", "3", "s", "z")
+    # opt_levels = ("3",)
     toolchains = (
-        "nightly-2025-05-22",
-        # "nightly-2023-05-22",
+        # "nightly-2025-05-22",
+        "nightly-2023-05-22",
     )
     # opt_levels = ("0",)
     # toolchains = ("nightly-2025-05-22",)
@@ -266,7 +252,11 @@ def build_evaluation_targets():
         # Stage-1: Build all targets
         l.info(f"Setting up toolchain {toolchain}...")
         run(f"rustup toolchain install {toolchain}")
+
         eval_targets = toml.load(MISC_DIR / f"targets-{toolchain}.toml")
+        successful_builds = []
+        failed_builds = []
+
         for opt_level in opt_levels:
             with ProcessPoolExecutor(8) as executor:
                 futures = {}
@@ -287,22 +277,32 @@ def build_evaluation_targets():
                         l.info(
                             f"Build finished: {target} (toolchain={toolchain}, opt={opt_level}) ({i + 1}/{len(futures)})"
                         )
+                        successful_builds.append((target, toolchain, opt_level))
                     except Exception as e:
-                        l.error(f"[!] Build failed for {target} (toolchain={toolchain}, opt={opt_level}): {e}")
+                        l.error(
+                            f"[!] Build failed for {target} (toolchain={toolchain}, opt={opt_level}): {e} ({i + 1}/{len(futures)})"
+                        )
                         l.error(traceback.format_exc())
+                        failed_builds.append((target, toolchain, opt_level))
+
+        l.info("Build summary:")
+        l.info(f"  Successful builds: {len(successful_builds)}")
+        for target, toolchain, opt_level in successful_builds:
+            l.info(f"    - {target} (toolchain={toolchain}, opt={opt_level})")
+        l.info(f"  Failed builds: {len(failed_builds)}")
+        for target, toolchain, opt_level in failed_builds:
+            l.info(f"    - {target} (toolchain={toolchain}, opt={opt_level})")
 
         # Stage-2: Generate ground truth and DWARF
         for opt_level in opt_levels:
-            with ProcessPoolExecutor(4) as executor:
+            with ProcessPoolExecutor(16) as executor:
                 futures = {}
                 for i, target in enumerate(eval_targets):
                     output = eval_targets[target]["output"]
                     edition = find_first_edition(target)
                     for binary in output:
                         l.info(f"Submitting ground truth and DWARF generation for {binary} ({len(futures)+1})")
-                        fut = executor.submit(
-                            safe_parse_binary_ground_truth, target, binary, toolchain, opt_level, edition
-                        )
+                        fut = executor.submit(parse_binary_ground_truth, target, binary, toolchain, opt_level, edition)
                         futures[fut] = (target, binary, toolchain, opt_level)
 
                 for i, fut in enumerate(as_completed(futures)):
