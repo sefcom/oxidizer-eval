@@ -1,14 +1,20 @@
 import logging
 import traceback
-from collections import Counter
+from collections import Counter, defaultdict
+import os
 
+import angr
+from angr.ailment.statement import FunctionLikeMacro, Call
+from angr.ailment import AILBlockWalker, Block, Const
+from angr.ailment.expression import StringLiteral
 from angr.rust.sim_type import *
 from angr.sim_variable import SimStackVariable, SimRegisterVariable
 from angr.sim_type import TypeRef, SimTypeChar, SimTypeInt, SimTypeFloat, SimStruct, SimTypePointer, SimType
-from angr.angrdb import AngrDB
+from angr.analyses.decompiler.sequence_walker import SequenceWalker
 
-from .util import *
-from ..type_recovery.function_prototype import FunctionPrototype, Type
+from eval.config import RESULT_DIR
+from eval.result import DecompileResult
+from eval.type_recovery.function_prototype import Type
 
 
 l = logging.getLogger("oxidizer-eval")
@@ -54,17 +60,6 @@ def _normalize_type(ty: SimType) -> Type:
     return Type(name, size)
 
 
-def _normalize_prototype(name, prototype: RustSimTypeFunction) -> FunctionPrototype:
-    args = prototype.args or []
-    return_type = prototype.returnty
-    if prototype.is_arg0_retbuf and args and isinstance(args[0], RustSimTypeReference):
-        return_type = args[0].pts_to
-        args = args[1:]
-    return_type = _normalize_type(return_type)
-    args = [_normalize_type(arg) for arg in args]
-    return FunctionPrototype(name, return_type, args)
-
-
 def _dump_variable_types(decompiler):
     stack_depth = decompiler.clinic.calculate_stack_depth()
     ident_to_types = defaultdict(list)
@@ -84,32 +79,94 @@ def _dump_variable_types(decompiler):
         elif isinstance(var, SimRegisterVariable):
             ident = f"reg_{decompiler.project.arch.register_names.get(var.reg)}"
             ident_to_types[ident] += types
+    # Function arguments and return type
+    for idx, arg_ty in enumerate(func.functy.args):
+        if arg_ty:
+            arg_ty = arg_ty.with_arch(decompiler.project.arch)
+            types = [_normalize_type(arg_ty).to_tuple()]
+            ident = f"arg_{idx}"
+            ident_to_types[ident] += types
+    ret_ty = func.functy.returnty
+    if ret_ty:
+        ret_ty = ret_ty.with_arch(decompiler.project.arch)
+        types = [_normalize_type(ret_ty).to_tuple()]
+        ident = "return_type"
+        ident_to_types[ident] += types
     return ident_to_types
 
 
-def _angr_dec_base(binary_path, function_list, extract_body_func, is_rust_binary, cache_only=False):
+class BlockCallCounter(AILBlockWalker):
+
+    def __init__(self, project):
+        super().__init__()
+        self.project = project
+        self.function_call_counts = defaultdict(int)
+        self.macro_call_counts = defaultdict(int)
+
+    def record_call(self, call: Call):
+        if isinstance(call.target, Const):
+            func_addr = call.target.value
+            if func_addr in self.project.kb.functions:
+                self.function_call_counts[func_addr - self.project.loader.main_object.mapped_base] += 1
+        elif isinstance(call.target, StringLiteral):
+            self.function_call_counts[call.target.data] += 1
+
+    def _handle_stmt(self, stmt_idx, stmt, block):
+        if isinstance(stmt, FunctionLikeMacro):
+            self.macro_call_counts[stmt.name] += 1
+        return super()._handle_stmt(stmt_idx, stmt, block)
+
+    def _handle_expr(self, expr_idx, expr, stmt_idx, stmt, block):
+        if isinstance(expr, FunctionLikeMacro):
+            self.macro_call_counts[expr.name] += 1
+        return super()._handle_expr(expr_idx, expr, stmt_idx, stmt, block)
+
+    def _handle_CallExpr(self, expr_idx, expr, stmt_idx, stmt, block):
+        self.record_call(expr)
+        return super()._handle_CallExpr(expr_idx, expr, stmt_idx, stmt, block)
+
+    def _handle_Call(self, stmt_idx, stmt, block):
+        self.record_call(stmt)
+        return super()._handle_Call(stmt_idx, stmt, block)
+
+
+class CallCounter(SequenceWalker):
+
+    def __init__(self, project):
+        super().__init__()
+        self.project = project
+        self._handlers[Block] = self._handle_AILBlock
+
+        self.function_call_counts = defaultdict(int)
+        self.macro_call_counts = defaultdict(int)
+
+    def _handle_AILBlock(self, node, **kwargs):
+        walker = BlockCallCounter(self.project)
+        walker.walk(node)
+        for func_name in walker.function_call_counts:
+            self.function_call_counts[func_name] += walker.function_call_counts[func_name]
+        for macro_name in walker.macro_call_counts:
+            self.macro_call_counts[macro_name] += walker.macro_call_counts[macro_name]
+
+
+def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, is_rust_binary):
     assert os.path.exists(binary_path)
 
-    decompiler_name = "oxidizer" if is_rust_binary else "angr"
-    function_list = list(function_list)
-    result = {
-        "decompilation": {},
-        "function_call_counts": {},
-        "macro_call_counts": {},
-        "node_counts": {},
-        "variable_types": {},
-    }
+    decompiler_name = "Oxidizer" if is_rust_binary else "angr"
+    binary_name = os.path.basename(binary_path)
+    target_functions = list(target_functions)
 
-    cached_result = load_cached_result(decompiler_name, binary_path)
-    if cached_result:
-        result = cached_result
+    results: Dict[int, DecompileResult] = {}
+    proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=is_rust_binary)
 
-    for func_name in result["decompilation"]:
-        if func_name in function_list:
-            function_list.remove(func_name)
+    result_dir = RESULT_DIR / tag / decompiler_name / binary_name
+    os.makedirs(result_dir, exist_ok=True)
+    for result_path in result_dir.glob("*.json"):
+        func_addr = int(result_path.stem, 16)
+        func_result = DecompileResult.load_json(result_path)
+        results[func_addr] = func_result
 
-    if function_list and not cache_only:
-        proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=is_rust_binary)
+    if not all(func_addr in results for func_addr in target_functions):
         cfg = proj.analyses.CFGFast(normalize=True)
         proj.analyses.CompleteCallingConventions(cfg=cfg, max_function_blocks=500)
 
@@ -117,30 +174,29 @@ def _angr_dec_base(binary_path, function_list, extract_body_func, is_rust_binary
             proj.analyses.KnownTypeLoader()
 
         for func_addr in proj.kb.functions:
-            func = proj.kb.functions[func_addr]
-            try:
-                if func.name in function_list:
+            rebased_func_addr = func_addr - proj.loader.main_object.mapped_base
+            if rebased_func_addr in target_functions:
+                try:
+                    func = proj.kb.functions[func_addr]
                     decompiler = proj.analyses.Decompiler(cfg=cfg, func=func)
                     output = extract_body_func(decompiler.codegen.text.split("\n"))
                     if output:
-                        result["decompilation"][func.name] = output
-                        # Save call counts result
                         call_counter = CallCounter(proj)
                         call_counter.walk(decompiler.seq_node)
-                        result["function_call_counts"][func.name] = call_counter.function_call_counts
-                        result["macro_call_counts"][func.name] = call_counter.macro_call_counts
-                        node_counter = NodeCounter()
-                        node_counter.walk(decompiler.seq_node)
-                        result["node_counts"][func.name] = node_counter.node_counts
-                        result["variable_types"][func.name] = _dump_variable_types(decompiler)
+                        result = DecompileResult(
+                            decompilation=output,
+                            variable_types=_dump_variable_types(decompiler),
+                            function_call_counts=call_counter.function_call_counts,
+                            macro_call_counts=call_counter.macro_call_counts,
+                        )
+                        results[rebased_func_addr] = result
+                        result_path = result_dir / f"{rebased_func_addr:x}.json"
+                        result.save_json(result_path)
+                except BaseException as e:
+                    l.error(f"Failed to decompile function at {rebased_func_addr:x} for {binary_name}: {e}")
+                    l.error(traceback.format_exc())
+    return results
 
-            except BaseException as e:
-                l.error(f"Failed to decompile function: {demangle(func.name)}: {e}")
-                l.error(traceback.format_exc())
 
-        save_result(decompiler_name, binary_path, result)
-    return result
-
-
-def angr_dec(binary_path, function_list, cache_only=False):
-    return _angr_dec_base(binary_path, function_list, _extract_function_body, False, cache_only)
+def angr_dec(binary_path, target_functions, tag):
+    return _angr_dec_base(binary_path, target_functions, tag, _extract_function_body, False)

@@ -254,7 +254,7 @@ def _normalize_dwarf_type(dwarf_type: Type, recursive=True):
     return None, None
 
 
-def generate_type_eval_result(variable_types, ground_truth):
+def generate_type_eval_result(variable_types, ground_truth, prototype: Prototype):
     result = defaultdict(int)
     ident_to_dwarf_vars = defaultdict(list)
     for var in ground_truth:
@@ -270,6 +270,15 @@ def generate_type_eval_result(variable_types, ground_truth):
         else:
             ident = f"unknown"
         ident_to_dwarf_vars[ident].append(var)
+
+    for i, var_ty in enumerate(prototype.args):
+        if var_ty is not None:
+            dummy_arg_var = Variable(f"arg_{i}", var_ty, "argument", None)
+            ident_to_dwarf_vars[f"arg_{i}"].append(dummy_arg_var)
+
+    if prototype.returnty is not None:
+        dummy_ret_var = Variable("ret_var", prototype.returnty, "return", None)
+        ident_to_dwarf_vars["return_type"].append(dummy_ret_var)
 
     ident_to_matched_pred = defaultdict(set)
     dwarf_var_to_predicted_types = defaultdict(list)

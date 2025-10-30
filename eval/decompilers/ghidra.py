@@ -1,16 +1,14 @@
 import os
 import subprocess
 import logging
-from tempfile import TemporaryDirectory, NamedTemporaryFile
+from tempfile import NamedTemporaryFile
 import traceback
 import shutil
 import json
+from typing import Dict
 
-from angr.rust.utils.library import demangle
-
-from eval.decompilers.util import load_cached_result, save_result
-
-from ..config import GHIDRA_PATH
+from eval.result import DecompileResult
+from eval.config import GHIDRA_PATH, RESULT_DIR
 
 l = logging.getLogger(__name__)
 
@@ -38,10 +36,8 @@ def collect_call_counts(decomp_func):
     if decomp_func is not None:
         for op in decomp_func.getHighFunction().pcodeOps:
             if op.getOpcode() == PcodeOp.CALL:
-                called_func_addr = op.inputs[0].getAddress()
-                called_func = currentProgram.getFunctionManager().getFunctionContaining(called_func_addr)
-                if called_func is not None:
-                    called_functions.append(str(called_func.getName(True)))
+                called_func_addr = int(op.inputs[0].getAddress().getOffset()) - image_base
+                called_functions.append(called_func_addr)
     
     out = dict(Counter(called_functions))
     
@@ -72,7 +68,7 @@ def collect_variable_types(high_func):
     local_symbols = high_func.getLocalSymbolMap()
     for symbol in local_symbols.getSymbols():
         datatype = symbol.getDataType()
-        size = datatype.getLength() if datatype else -1
+        size = datatype.getLength() if datatype else None
         ty = classify_type(datatype)
 
         storage = symbol.getStorage()
@@ -91,19 +87,35 @@ def collect_variable_types(high_func):
         if ident is not None:
             variable_types.setdefault(ident, []).append((ty, size))
     
+    proto = high_func.getFunctionPrototype()
+
+    rettype = proto.getReturnType()
+    r_size = rettype.getLength() if rettype else None
+    r_type_str = classify_type(rettype)
+    variable_types["return_type"] = [(r_type_str, r_size)]
+
+    n_params = proto.getNumParams()
+    for i in range(n_params):
+        psym = proto.getParam(i) 
+        if psym is None:
+            variable_types.setdefault("arg_" + str(i), []).append((None, None))
+            continue
+
+        p_dt = psym.getDataType()
+        p_name = psym.getName() if psym.getName() else None
+        p_size = p_dt.getLength() if p_dt else None
+        p_type_str = classify_type(p_dt)
+        variable_types.setdefault("arg_" + str(i), []).append((p_type_str, p_size))
+
     return variable_types
 
-result = {
-    "decompilation": {},
-    "function_call_counts": {},
-    "macro_call_counts": {},
-    "variable_types": {}
-}
+result = {}
+image_base = int(currentProgram.getImageBase().getOffset())
 
 for func in currentProgram.getFunctionManager().getFunctions(True):
     try:
-        func_name = str(func.getName(True))
-        if func_name in %FUNCTION_LIST%:
+        func_addr = int(func.getEntryPoint().getOffset()) - image_base
+        if func_addr in %TARGET_FUNCTIONS%:
             func.setComment(None)
             di = DecompInterface()
             di.openProgram(currentProgram)
@@ -111,10 +123,12 @@ for func in currentProgram.getFunctionManager().getFunctions(True):
             pseudocode = dec_func.getDecompiledFunction().getC().strip()
             pseudocode = "\n".join([line for line in pseudocode.split("\n") if not line.startswith("/*")]).strip()
             function_call_counts = collect_call_counts(dec_func)
-            result["decompilation"][func_name] = pseudocode
-            result["function_call_counts"][func_name] = function_call_counts
-            result["macro_call_counts"][func_name] = {}
-            result["variable_types"][func_name] = collect_variable_types(dec_func.getHighFunction())
+            result[func_addr] = {
+                "decompilation": pseudocode,
+                "function_call_counts": function_call_counts,
+                "macro_call_counts": {},
+                "variable_types": collect_variable_types(dec_func.getHighFunction())
+            }
     except Exception as e:
         traceback.print_exc()
         continue
@@ -124,28 +138,20 @@ with open("%RESULT_PATH%", "w") as fd:
 """
 
 
-def ghidra_dec(binary_path, function_list, cache_only=False):
+def ghidra_dec(binary_path, target_functions, tag):
     assert os.path.exists(binary_path)
     binary_path = os.path.abspath(binary_path)
-
-    function_list = list(function_list)
-    result = {
-        "decompilation": {},
-        "function_call_counts": {},
-        "macro_call_counts": {},
-        "variable_types": {},
-    }
-
     binary_name = os.path.basename(binary_path)
-    cached_result = load_cached_result("ghidra", binary_path)
-    if cached_result:
-        result = cached_result
-    for func_name in result["decompilation"]:
-        if func_name in function_list:
-            function_list.remove(func_name)
 
-    if function_list and not cache_only:
+    results: Dict[int, DecompileResult] = {}
+    result_dir = RESULT_DIR / tag / "Ghidra" / binary_name
+    os.makedirs(result_dir, exist_ok=True)
+    for result_path in result_dir.glob("*.json"):
+        func_addr = int(result_path.stem, 16)
+        func_result = DecompileResult.load_json(result_path)
+        results[func_addr] = func_result
 
+    if not all(func_addr in results for func_addr in target_functions):
         pre_dec_script = GHIDRA_PRE_DEC_SCRIPT
         fd = NamedTemporaryFile("w", suffix=".py", delete=False)
         fd.write(pre_dec_script)
@@ -155,7 +161,7 @@ def ghidra_dec(binary_path, function_list, cache_only=False):
         result_fd = NamedTemporaryFile("w", suffix=".py", delete=False)
         result_fd.close()
 
-        post_dec_script = GHIDRA_POST_DEC_SCRIPT.replace("%FUNCTION_LIST%", str(function_list)).replace(
+        post_dec_script = GHIDRA_POST_DEC_SCRIPT.replace("%TARGET_FUNCTIONS%", str(target_functions)).replace(
             "%RESULT_PATH%", result_fd.name
         )
         fd = NamedTemporaryFile("w", suffix=".py", delete=False)
@@ -184,16 +190,17 @@ def ghidra_dec(binary_path, function_list, cache_only=False):
             os.unlink(f"./temp_project_{binary_name}.gpr")
             shutil.rmtree(f"./temp_project_{binary_name}.rep")
             with open(result_fd.name, "r") as fd:
-                more_result = json.load(fd)
-                demangled_function_call_counts = {}
-                for func_name, counts in more_result["function_call_counts"].items():
-                    new_counts = {}
-                    for callee_name, count in counts.items():
-                        new_counts[demangle(callee_name)] = count
-                    demangled_function_call_counts[func_name] = new_counts
-                more_result["function_call_counts"] = demangled_function_call_counts
-                for key in list(result.keys()):
-                    result[key].update(more_result.get(key, {}))
+                result = json.load(fd)
+                for func_addr in list(result.keys()):
+                    func_result = DecompileResult(
+                        decompilation=result[func_addr]["decompilation"],
+                        variable_types=result[func_addr]["variable_types"],
+                        function_call_counts=result[func_addr]["function_call_counts"],
+                        macro_call_counts=result[func_addr]["macro_call_counts"],
+                    )
+                    results[int(func_addr)] = func_result
+                    result_path = result_dir / f"{int(func_addr):x}.json"
+                    func_result.save_json(result_path)
         except Exception as e:
             l.critical(f"Ghidra decompilation exeception: {e}")
             l.critical("".join(traceback.format_exception(e)))
@@ -202,6 +209,3 @@ def ghidra_dec(binary_path, function_list, cache_only=False):
             os.unlink(pre_dec_script_path)
             os.unlink(result_fd.name)
             os.unlink(post_dec_script_path)
-        save_result("ghidra", binary_path, result)
-
-    return result

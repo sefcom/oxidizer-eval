@@ -1,4 +1,4 @@
-from .angr import _angr_dec_base
+from eval.decompilers.angr import _angr_dec_base
 
 
 def _extract_function_body(output):
@@ -12,5 +12,5 @@ def _extract_function_body(output):
     return "\n".join(body)
 
 
-def oxidizer_dec(binary_path, function_list, cache_only=False):
-    return _angr_dec_base(binary_path, function_list, _extract_function_body, True, cache_only)
+def oxidizer_dec(binary_path, function_list, tag):
+    return _angr_dec_base(binary_path, function_list, tag, _extract_function_body, True)

@@ -49,9 +49,10 @@ class FunctionEvalResult:
 
 class BinaryEvalResult:
 
-    def __init__(self, binary_path):
+    def __init__(self, binary_path, error=None):
         self.binary_path = binary_path
         self.func_eval_results: List[FunctionEvalResult] = []
+        self.error = error
         # To see what macros are matched/mismatched
         self.matched_macros = defaultdict(int)
         self.mismatched_macros = defaultdict(int)
@@ -70,7 +71,9 @@ class BinaryEvalResult:
         return sum(values) / len(values)
 
     def __str__(self) -> str:
-        output = f"Binary: {self.binary_path}\n"
+        output = (
+            f"Binary: {self.binary_path}\n" if not self.error else f"Binary: {self.binary_path} (Error: {self.error})\n"
+        )
         output += f"# Functions evaluated: {len(self.func_eval_results)}\n"
         if len(self.func_eval_results) == 0:
             output += "N/A\n"
@@ -85,6 +88,9 @@ class EvalResult:
     def __init__(self):
         self.total_binaries = 0
         self.total_functions = 0
+        self.total_finished = 0
+        self.total_timed_out = 0
+        self.total_errors = 0
         self.values: Dict[Tuple, List] = defaultdict(list)
         # To see what macros are matched/mismatched
         self.matched_macros = defaultdict(int)
@@ -92,6 +98,13 @@ class EvalResult:
 
     def add_binary_eval_result(self, binary_eval_result: BinaryEvalResult):
         self.total_binaries += 1
+        if binary_eval_result.error is None:
+            self.total_finished += 1
+        else:
+            if binary_eval_result.error == "Timeout":
+                self.total_timed_out += 1
+            else:
+                self.total_errors += 1
         for func_eval_result in binary_eval_result.func_eval_results:
             self.total_functions += 1
             for decompiler in DECOMPILERS:
@@ -131,8 +144,8 @@ class EvalResult:
         return statistics.median(values) if len(values) else -1
 
     def __str__(self) -> str:
-        output = f"General Evaluation Result:\n"
-        output += f"# Binaries: {self.total_binaries}\n"
+        output = f"Evaluation Result:\n"
+        output += f"# Binaries: {self.total_binaries} (Finished: {self.total_finished} Timed Out: {self.total_timed_out} Errors: {self.total_errors})\n"
         output += f"# Functions: {self.total_functions}\n"
         output += "\n"
         for metric in METRICS:

@@ -1,11 +1,14 @@
-use anyhow::anyhow;
 use anyhow::Result;
+use anyhow::anyhow;
 use gimli::read::{Dwarf, UnitOffset as ReadUnitOffset};
 use gimli::{AttributeValue, EndianSlice, LittleEndian, SectionId, Unit, UnitOffset};
+use object::ObjectSymbol;
 use object::{Object, ObjectSection};
 use rustc_demangle::demangle;
 use serde::{Deserialize, Serialize};
+use serde_json::json;
 use std::collections::{BTreeMap, HashMap, HashSet};
+use std::hash::Hash;
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(tag = "kind")]
@@ -52,6 +55,7 @@ pub struct Variable {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Function {
     pub name: String,
+    pub addr: u64,
     pub prototype: TypeRepr,
     pub local_variables: Vec<Variable>,
 }
@@ -60,6 +64,8 @@ pub struct Function {
 pub struct DwarfParser<'a> {
     dwarf: Dwarf<EndianSlice<'a, LittleEndian>>,
     variant_structs: HashSet<String>,
+    name_to_address: HashMap<String, u64>,
+    pub address_to_name: HashMap<u64, String>,
     pub structs: BTreeMap<String, TypeRepr>,
     pub functions: HashMap<String, Function>,
 }
@@ -69,6 +75,17 @@ impl<'a> DwarfParser<'a> {
         // read file & parse object
         let buffer = std::fs::read(path)?;
         let obj = object::File::parse(&*buffer)?;
+        let mut name_to_address: HashMap<String, u64> = HashMap::new();
+        let mut address_to_name: HashMap<u64, String> = HashMap::new();
+        for sym in obj.symbols() {
+            if let Ok(name) = sym.name() {
+                name_to_address.insert(name.to_string(), sym.address());
+                address_to_name.insert(
+                    sym.address(),
+                    DwarfParser::strip_hash(demangle(name).to_string().as_str()),
+                );
+            }
+        }
 
         // loader closure required by gimli::Dwarf::load
         let loader = |id: SectionId| -> Result<EndianSlice<'static, LittleEndian>, gimli::Error> {
@@ -94,6 +111,8 @@ impl<'a> DwarfParser<'a> {
         Ok(DwarfParser {
             dwarf,
             variant_structs: HashSet::new(),
+            name_to_address,
+            address_to_name,
             structs: BTreeMap::new(),
             functions: HashMap::new(),
         })
@@ -131,7 +150,7 @@ impl<'a> DwarfParser<'a> {
         Ok(())
     }
 
-    fn strip_hash(&self, name: &str) -> String {
+    fn strip_hash(name: &str) -> String {
         let mut parts: Vec<&str> = name.split("::").collect();
         if parts.len() > 1
             && let Some(last) = parts.last()
@@ -156,8 +175,12 @@ impl<'a> DwarfParser<'a> {
             return Ok(());
         }
 
-        let func_name = self.string_value(entry, gimli::DW_AT_linkage_name);
-
+        let func_name = self.string_value(entry, gimli::DW_AT_linkage_name)?;
+        let func_addr = if let Some(addr) = self.name_to_address.get(&func_name) {
+            *addr
+        } else {
+            return Ok(());
+        };
         let decl_path = self.resolve_decl_path(entry, unit)?;
 
         // skip library functions
@@ -169,56 +192,55 @@ impl<'a> DwarfParser<'a> {
             return Ok(());
         }
 
-        if let Ok(func_name) = func_name {
-            let func_name = self.strip_hash(&demangle(&func_name).to_string());
-            if func_name.contains("{{closure}}") {
-                return Ok(());
-            }
+        let func_name = DwarfParser::strip_hash(&demangle(&func_name).to_string());
+        if func_name.contains("{{closure}}") {
+            return Ok(());
+        }
 
-            let ret_ty_entry = self.resolve_entry(unit, entry, gimli::DW_AT_type);
-            let ret_ty = if let Ok(ret_ty_entry) = ret_ty_entry {
-                self.parse_type(unit, &ret_ty_entry)
-                    .unwrap_or(TypeRepr::None)
-            } else {
-                TypeRepr::None
-            };
-            let mut arg_tys = Vec::new();
-            if let Ok(mut tree) = unit.entries_tree(Some(entry.offset())) {
-                if let Ok(root) = tree.root() {
-                    let mut children = root.children();
-                    while let Some(child) = children.next()? {
-                        if child.entry().tag() == gimli::DW_TAG_formal_parameter {
-                            let param_entry = child.entry();
-                            let param_ty_entry =
-                                self.resolve_entry(unit, &param_entry, gimli::DW_AT_type);
-                            if let Ok(param_ty_entry) = param_ty_entry {
-                                let param_ty = self
-                                    .parse_type(unit, &param_ty_entry)
-                                    .unwrap_or(TypeRepr::None);
-                                arg_tys.push(param_ty);
-                            } else {
-                                arg_tys.push(TypeRepr::None);
-                            }
+        let ret_ty_entry = self.resolve_entry(unit, entry, gimli::DW_AT_type);
+        let ret_ty = if let Ok(ret_ty_entry) = ret_ty_entry {
+            self.parse_type(unit, &ret_ty_entry)
+                .unwrap_or(TypeRepr::None)
+        } else {
+            TypeRepr::None
+        };
+        let mut arg_tys = Vec::new();
+        if let Ok(mut tree) = unit.entries_tree(Some(entry.offset())) {
+            if let Ok(root) = tree.root() {
+                let mut children = root.children();
+                while let Some(child) = children.next()? {
+                    if child.entry().tag() == gimli::DW_TAG_formal_parameter {
+                        let param_entry = child.entry();
+                        let param_ty_entry =
+                            self.resolve_entry(unit, &param_entry, gimli::DW_AT_type);
+                        if let Ok(param_ty_entry) = param_ty_entry {
+                            let param_ty = self
+                                .parse_type(unit, &param_ty_entry)
+                                .unwrap_or(TypeRepr::None);
+                            arg_tys.push(param_ty);
+                        } else {
+                            arg_tys.push(TypeRepr::None);
                         }
                     }
                 }
             }
-
-            let prototype = TypeRepr::Prototype {
-                args: arg_tys,
-                returnty: Some(Box::new(ret_ty)),
-            };
-            let local_variables = self.parse_local_variables(unit, entry);
-
-            self.functions.insert(
-                decl_path,
-                Function {
-                    name: func_name,
-                    prototype,
-                    local_variables,
-                },
-            );
         }
+
+        let prototype = TypeRepr::Prototype {
+            args: arg_tys,
+            returnty: Some(Box::new(ret_ty)),
+        };
+        let local_variables = self.parse_local_variables(unit, entry);
+
+        self.functions.insert(
+            decl_path,
+            Function {
+                name: func_name,
+                addr: func_addr,
+                prototype,
+                local_variables,
+            },
+        );
 
         Ok(())
     }
@@ -534,7 +556,11 @@ fn main() -> Result<()> {
     parser.parse_all()?;
 
     // dump to json
-    let json = serde_json::to_string_pretty(&parser.functions)?;
+    let result = json!({
+        "symbols": parser.address_to_name,
+        "functions": parser.functions,
+    });
+    let json = serde_json::to_string_pretty(&result)?;
     std::fs::write(&output_path, json)?;
     Ok(())
 }

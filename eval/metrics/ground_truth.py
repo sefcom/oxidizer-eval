@@ -3,7 +3,7 @@ import json
 from typing import Dict, List
 
 from angr.rust.utils.library import demangle
-from eval.utils.dwarf_parser import DwarfParser, Type
+from eval.utils.dwarf_parser import DwarfParser, Prototype, Type
 
 
 @dataclass
@@ -18,20 +18,23 @@ class FunctionGroundTruth:
     calls: Dict[str, int]
     variable_types: List[Type]
     mcc: int
+    prototype: Prototype
 
     @staticmethod
     def load(path: str) -> "FunctionGroundTruth":
         with open(path, "r") as fd:
             data = json.load(fd)
+        variables = data["variables"]
         return FunctionGroundTruth(
             loc=data["loc"],
             nofops=data["nofops"],
-            nvars=len(data["variables"]),
+            nvars=len(variables),
             string_literals=data["string_literals"],
             macros=data["macros"],
             calls=data["calls"],
-            variable_types=[DwarfParser.parse_dict(var_data) for var_data in data["variables"]],
+            variable_types=[DwarfParser.parse_dict(var_data) for var_data in variables],
             mcc=data["mcc"],
+            prototype=DwarfParser.parse_dict(data["prototype"]),
         )
 
 

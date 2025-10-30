@@ -21,9 +21,11 @@ DWARF_PARSER_BIN = Path("misc/dwarf_parser/target/release/dwarf_parser").absolut
 TARGET_SRC_DIR = Path("targets/src").absolute()
 TARGET_RELEASE_DIR = Path("targets/release").absolute()
 TARGET_DEBUG_DIR = Path("targets/debug").absolute()
+TARGET_STRIPPED_DIR = Path("targets/stripped").absolute()
 TARGET_GROUND_TRUTH_DIR = Path("targets/ground_truth").absolute()
 TARGET_DWARF_DIR = Path("targets/dwarf").absolute()
 TARGET_MERGED_GROUND_TRUTH_DIR = Path("targets/merged_ground_truth").absolute()
+TARGET_SYMBOLS_DIR = Path("targets/symbols").absolute()
 MISC_DIR = Path("misc").absolute()
 
 
@@ -102,16 +104,21 @@ def merge_ground_truth_and_dwarf(ground_truth_path: Path, dwarf_path: Path) -> s
         ground_truth = json.load(f)
     with open(dwarf_path, "r", encoding="utf-8") as f:
         dwarf = json.load(f)
-    merged_ground_truth = {"functions": {}, "structs": {}}
-    for decl_path in set(ground_truth.keys()) & set(dwarf.keys()):
-        func_dwarf = dwarf[decl_path]
+        symbols = dwarf.get("symbols", {})
+        functions = dwarf.get("functions", {})
+    merged_ground_truth = {"functions": {}, "symbols": symbols}
+    for decl_path in set(ground_truth.keys()) & set(functions.keys()):
+        func_dwarf = functions[decl_path]
+        func_addr = func_dwarf["addr"]
         func_name = func_dwarf["name"]
         variables = func_dwarf["local_variables"]
         prototype = func_dwarf["prototype"]
         func_ground_truth = ground_truth[decl_path]
+        func_ground_truth["name"] = func_name
+        func_ground_truth["addr"] = func_addr
         func_ground_truth["prototype"] = prototype
         func_ground_truth["variables"] = variables
-        merged_ground_truth["functions"][func_name] = func_ground_truth
+        merged_ground_truth["functions"][func_addr] = func_ground_truth
     return merged_ground_truth
 
 
@@ -132,6 +139,7 @@ def build_target(target, url, commit, output, toolchain, opt_level):
     tag = f"{toolchain}-O{opt_level}"
     final_target_release_dir = TARGET_RELEASE_DIR / tag
     final_target_debug_dir = TARGET_DEBUG_DIR / tag
+    final_target_stripped_dir = TARGET_STRIPPED_DIR / tag
 
     if (
         output
@@ -178,8 +186,16 @@ def build_target(target, url, commit, output, toolchain, opt_level):
                 target_path = Path(f"{target}/build/cargo_target/release/{binary}")
             run(f"cp {target_path} {final_target_release_dir}")
             run(f"strip --strip-debug {final_target_release_dir / binary}")
+
             run(f"cp {target_path} {final_target_debug_dir}")
         run(f"rustup run {toolchain} cargo clean", cwd=target_dir)
+
+    if output and not all(Path(final_target_stripped_dir / binary).exists() for binary in output):
+        os.makedirs(final_target_stripped_dir, exist_ok=True)
+        for binary in output:
+            target_path = final_target_release_dir / binary
+            run(f"cp {target_path} {final_target_stripped_dir}")
+            run(f"strip {final_target_stripped_dir / binary}")
 
 
 def parse_binary_ground_truth(target, binary, toolchain, opt_level, edition):
@@ -225,13 +241,18 @@ def parse_binary_ground_truth(target, binary, toolchain, opt_level, edition):
     binary_gt_dir = final_target_merged_ground_truth_dir / name
     os.makedirs(binary_gt_dir, exist_ok=True)
     l.info(f"Found {len(merged_gt.get('functions', {}))} functions in merged ground truth for {name}.")
-    for func_name in merged_gt.get("functions", {}):
-        func_gt = merged_gt["functions"][func_name]
-        func_gt_path = binary_gt_dir / f"{quote(func_name)}.json"
-        if len(func_gt_path.name) >= 255 or func_gt_path.exists():
+    for func_addr in merged_gt.get("functions", {}):
+        func_gt = merged_gt["functions"][func_addr]
+        func_gt_path = binary_gt_dir / f"{func_addr:x}.json"
+        if func_gt_path.exists():
             continue
         with open(func_gt_path, "w", encoding="utf-8") as fd:
             json.dump(func_gt, fd, indent=2)
+    # Write symbols
+    symbols_path = TARGET_SYMBOLS_DIR / tag / (name + ".json")
+    os.makedirs(os.path.dirname(symbols_path), exist_ok=True)
+    with open(symbols_path, "w", encoding="utf-8") as fd:
+        json.dump(merged_gt.get("symbols", {}), fd, indent=2)
     return target
 
 
@@ -241,10 +262,10 @@ def build_evaluation_targets():
     os.chdir(TARGET_SRC_DIR)
 
     opt_levels = ("0", "1", "2", "3", "s", "z")
-    # opt_levels = ("3",)
+    opt_levels = ("3",)
     toolchains = (
-        # "nightly-2025-05-22",
-        "nightly-2023-05-22",
+        "nightly-2025-05-22",
+        # "nightly-2023-05-22",
     )
     # opt_levels = ("0",)
     # toolchains = ("nightly-2025-05-22",)
