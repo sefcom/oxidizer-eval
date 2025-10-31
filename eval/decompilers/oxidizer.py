@@ -14,3 +14,7 @@ def _extract_function_body(output):
 
 def oxidizer_dec(binary_path, function_list, tag):
     return _angr_dec_base(binary_path, function_list, tag, _extract_function_body, True)
+
+
+def oxidizer_stripped_dec(binary_path, function_list, tag):
+    return _angr_dec_base(binary_path, function_list, tag, _extract_function_body, True, stripped=True)

@@ -8,15 +8,15 @@ import time
 from datetime import datetime
 import pytz
 
-from eval.config import DECOMPILERS, RESULT_DIR
+from eval.config import COREUTILS_MODULES, DECOMPILERS, RESULT_DIR
 from eval.metrics import *
 from eval.metrics.calc import *
 from eval.metrics.ground_truth import FunctionGroundTruth
 from eval.decompilers.ida import ida_dec
-from eval.decompilers.oxidizer import oxidizer_dec
+from eval.decompilers.oxidizer import oxidizer_dec, oxidizer_stripped_dec
 from eval.decompilers.angr import angr_dec
 from eval.decompilers.ghidra import ghidra_dec
-from eval.decompilers.binja import binja_c_dec, binja_rust_dec
+from eval.decompilers.binja import binja_dec
 from eval.result import DecompileResult, FuncEvalResult, EvalResult
 from eval.utils.timeout import run_with_timeout
 
@@ -26,18 +26,18 @@ def dummy_dec(*args, **kwargs):
 
 
 CACHE_ONLY = False  # Debug mode: only use cached results, do not run decompilers
-TIMEOUT = 60 * 120  # 120 minutes per binary
-PROCESSES = 6
+PROCESSES = 16
 MAX_MEMORY_GB = 32
 
 DEC_OPTIONS = {
-    "Source": {"dec_func": dummy_dec, "cache_only": True},
-    "angr": {"dec_func": angr_dec, "cache_only": True or CACHE_ONLY},
-    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True or CACHE_ONLY},
-    "IDA": {"dec_func": ida_dec, "cache_only": True or CACHE_ONLY},
-    "Ghidra": {"dec_func": ghidra_dec, "cache_only": True or CACHE_ONLY},
-    "Binary Ninja": {"dec_func": binja_c_dec, "cache_only": False or CACHE_ONLY},
-    "Binary Ninja (Pseudo Rust)": {"dec_func": binja_rust_dec, "cache_only": False or CACHE_ONLY},
+    "Source": {"dec_func": dummy_dec, "cache_only": True, "timeout": 0},
+    "angr": {"dec_func": angr_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
+    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
+    "Oxidizer (Stripped)": {"dec_func": oxidizer_stripped_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
+    "IDA": {"dec_func": ida_dec, "cache_only": True or CACHE_ONLY, "timeout": 60},
+    "Ghidra": {"dec_func": ghidra_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
+    "Binary Ninja": {"dec_func": binja_dec, "cache_only": False or CACHE_ONLY, "timeout": 150},
+    "Binary Ninja (Pseudo Rust)": {"dec_func": dummy_dec, "cache_only": True or CACHE_ONLY, "timeout": 0},
 }
 
 TARGET_RELEASE_DIR = Path("targets/release").absolute()
@@ -45,6 +45,7 @@ TARGET_DEBUG_DIR = Path("targets/debug").absolute()
 TARGET_GROUND_TRUTH_DIR = Path("targets/merged_ground_truth").absolute()
 TARGET_SYMBOLS_DIR = Path("targets/symbols").absolute()
 LOG_DIR = Path("output/log").absolute()
+EXCLUDED_FUNCTIONS = ["uu_sort::exec"]
 
 l = logging.getLogger("oxidizer-eval")
 
@@ -61,41 +62,26 @@ def load_function_addresses(binary_path, tag):
             yield func_addr
 
 
-def decompile_binary(binary_path, tag):
-    l.info(f"Decompiling binary: {binary_path} ({os.path.getsize(binary_path) / (1024 * 1024):.2f} MB)")
-
+def decompile_binary(binary_path, tag, target_functions, decompiler):
     binary_name = os.path.basename(binary_path)
-    target_functions = list(load_function_addresses(binary_path, tag))
 
-    for decompiler in DECOMPILERS:
-        options = DEC_OPTIONS[decompiler]
-        dec_func = options["dec_func"]
-        cache_only = options["cache_only"]
+    dec_func = DEC_OPTIONS[decompiler]["dec_func"]
 
-        if not cache_only:
-            l.info(f"Decompiling {binary_name} with {decompiler}...")
-            dec_func(binary_path, target_functions, tag)
-        else:
-            l.info(f"Skip decompiling {binary_name} with {decompiler}...")
+    l.info(f"Decompiling {binary_name} with {decompiler}...")
+    dec_func(binary_path, target_functions, tag)
 
 
-def decompile_binary_safe(binary_path, tag):
+def decompile_binary_safe(binary_path, tag, target_functions, decompiler):
     try:
-        return decompile_binary(binary_path, tag)
+        return decompile_binary(binary_path, tag, target_functions, decompiler)
     except Exception as e:
         l.error(f"{type(e)}: Failed to decompile binary {binary_path}: {e}")
         l.error(traceback.format_exc())
 
 
-def compute_binary_eval_result(binary_path, tag):
+def compute_binary_eval_result(binary_path, tag, symbols):
     binary_name = os.path.basename(binary_path)
-    target_functions = list(load_function_addresses(binary_path, tag))
-    symbols_path = TARGET_SYMBOLS_DIR / tag / f"{binary_name}.json"
-    if not symbols_path.exists():
-        l.error(f"Symbols file does not exist: {symbols_path}")
-        return
-    with open(symbols_path, "r", encoding="utf-8") as fd:
-        symbols = json.load(fd)
+    target_functions = set(load_function_addresses(binary_path, tag))
 
     func_eval_results = {}
     for decompiler in DECOMPILERS:
@@ -108,6 +94,19 @@ def compute_binary_eval_result(binary_path, tag):
             l.error(f"Ground truth file does not exist: {ground_truth_path}")
             continue
         func_ground_truth = FunctionGroundTruth.load(ground_truth_path)
+
+        # Debug macro recovery
+        oxidizer_result_path = RESULT_DIR / tag / "Oxidizer" / binary_name / f"{func_addr:x}.json"
+        oxidizer_stripped_result_path = RESULT_DIR / tag / "Oxidizer (Stripped)" / binary_name / f"{func_addr:x}.json"
+        if oxidizer_result_path.exists() and oxidizer_stripped_result_path.exists():
+            func_name = symbols.get(f"{func_addr:x}", f"sub_{func_addr:x}")
+            func_result = DecompileResult.load_json(oxidizer_result_path)
+            l.debug(f"Oxidizer recovered macros for function {func_name}: {func_result.macro_call_counts}")
+            func_stripped_result = DecompileResult.load_json(oxidizer_stripped_result_path)
+            l.debug(
+                f"Oxidizer (Stripped) recovered macros for function {func_name}: {func_stripped_result.macro_call_counts}"
+            )
+            l.debug(f"Ground truth macros for function {func_name}: {func_ground_truth.macros}")
 
         for decompiler in DECOMPILERS:
             # Initialize function eval result if not exists
@@ -133,7 +132,7 @@ def compute_binary_eval_result(binary_path, tag):
                 result_path = RESULT_DIR / tag / decompiler / binary_name / f"{func_addr:x}.json"
                 if not result_path.exists():
                     del func_eval_results[decompiler][func_addr]
-                    l.warning(f"Decompilation result file does not exist: {result_path}")
+                    # l.warning(f"Decompilation result file does not exist: {result_path}")
                     continue
                 func_result = DecompileResult.load_json(result_path)
 
@@ -208,24 +207,43 @@ def compute_binary_eval_result(binary_path, tag):
     for decompiler in func_eval_results:
         keys = keys & set(func_eval_results[decompiler].keys())
     l.info(f"Number of functions evaluated for {binary_path}: {len(keys)}/{len(target_functions)}")
+    for decompiler in DECOMPILERS:
+        l.info(
+            f"Number of functions decompiled by {decompiler}: {len(func_eval_results[decompiler])}/{len(target_functions)}"
+        )
 
     eval_result = EvalResult()
     for decompiler in DECOMPILERS:
         for key in keys:
             eval_result.add_func_eval_result(decompiler, func_eval_results[decompiler][key])
 
-    l.info(f"Finished evaluating binary: {binary_path}")
-    l.info(f"\n{eval_result}")
-
     return eval_result
 
 
 def eval_binary(binary_path, tag):
-    try:
-        run_with_timeout(decompile_binary_safe, binary_path, tag, timeout=TIMEOUT)
-    except TimeoutError as e:
-        l.error(f"TimeoutError: Failed to evaluate binary {binary_path}: {e}")
-    return compute_binary_eval_result(binary_path, tag)
+    """
+    Evaluate a binary by decompiling it with different decompilers and comparing the results against the ground truth.
+    """
+    binary_name = os.path.basename(binary_path)
+    symbols_path = TARGET_SYMBOLS_DIR / tag / f"{binary_name}.json"
+    with open(symbols_path, "r", encoding="utf-8") as fd:
+        symbols = json.load(fd)
+
+    target_functions = load_function_addresses(binary_path, tag)
+    target_functions = set(
+        addr for addr in target_functions if symbols.get(f"{addr:x}", None) not in EXCLUDED_FUNCTIONS
+    )
+    for decompiler in DECOMPILERS:
+        timeout = DEC_OPTIONS[decompiler]["timeout"] * 60
+        cache_only = DEC_OPTIONS[decompiler]["cache_only"]
+        if cache_only:
+            l.info(f"Skipping decompilation for {binary_name} with {decompiler} since cache_only is set to True. ")
+            continue
+        try:
+            run_with_timeout(decompile_binary_safe, binary_path, tag, target_functions, decompiler, timeout=timeout)
+        except TimeoutError:
+            l.error(f"Timeout for decompiling binary {binary_path} with {decompiler}")
+    return compute_binary_eval_result(binary_path, tag, symbols)
 
 
 def set_memory_limit_gb(limit_gb: int):
@@ -251,7 +269,7 @@ def init_logger(tag):
 
     # Create a named logger
     logger = logging.getLogger("oxidizer-eval")
-    logger.setLevel(logging.INFO)
+    logger.setLevel(logging.DEBUG)
 
     # Create handlers
     file_handler = logging.FileHandler(LOG_PATH, mode="w")
@@ -281,24 +299,32 @@ def eval(dir_path, tag):
 
     for dirpath, _, filenames in os.walk(dir_path):
         for filename in filenames:
-            if "." in filename:
-                continue
-            if filename != "fmt":
+            if "." in filename or filename == "sort":
                 continue
             binary_paths.append(os.path.join(dirpath, filename))
 
-    # binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) in COREUTILS_MODULES]
+    binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) in COREUTILS_MODULES]
     # binary_paths = [binary_path for binary_path in binary_paths if os.path.getsize(binary_path) < 30 * 1024 * 1024]
 
     l.info(f"Starting evaluation for tag: {tag} ({len(binary_paths)} binaries)")
 
-    results = []
-    with ProcessPoolExecutor(PROCESSES, initializer=set_memory_limit_gb, initargs=(MAX_MEMORY_GB,)) as executor:
-        future_to_path = {executor.submit(eval_binary, p, tag): p for p in binary_paths}
-        for future in as_completed(future_to_path):
-            results.append(future.result())
+    future_to_path = {}
+    merged_result = EvalResult(0)
 
-    return None
+    def callback(future):
+        result = future.result()
+        merged_result.merge(result)
+        binary_path = future_to_path[future]
+        l.info(f"Binary evaluation result for {binary_path}:\n{result}")
+        l.info(f"Current merged evaluation result:\n{merged_result}")
+
+    with ProcessPoolExecutor(PROCESSES, initializer=set_memory_limit_gb, initargs=(MAX_MEMORY_GB,)) as executor:
+        for binary_path in binary_paths:
+            future = executor.submit(eval_binary, binary_path, tag)
+            future_to_path[future] = binary_path
+            future.add_done_callback(callback)
+
+    return merged_result
 
 
 if __name__ == "__main__":
@@ -308,4 +334,4 @@ if __name__ == "__main__":
         for opt_level in ("3",):
             tag = f"{toolchain}-O{opt_level}"
             result = eval(TARGET_RELEASE_DIR / f"{tag}", tag)
-            l.info(f"Final result for {tag}:\n{result}")
+            l.info(f"Final evaluation:\n{result}")

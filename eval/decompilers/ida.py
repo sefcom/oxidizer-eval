@@ -140,15 +140,12 @@ def ida_dec(binary_path, target_functions, tag):
     assert os.path.exists(binary_path)
 
     binary_name = os.path.basename(binary_path)
-    results: Dict[int, DecompileResult] = {}
     result_dir = RESULT_DIR / tag / "IDA" / binary_name
     os.makedirs(result_dir, exist_ok=True)
-    for result_path in result_dir.glob("*.json"):
-        func_addr = int(result_path.stem, 16)
-        func_result = DecompileResult.load_json(result_path)
-        results[func_addr] = func_result
+    decompiled_functions = set(int(result_path.stem, 16) for result_path in result_dir.glob("*.json"))
 
-    if not all(func_addr in results for func_addr in target_functions):
+    if not decompiled_functions.issuperset(target_functions):
+        target_functions = set(func_addr for func_addr in target_functions if func_addr not in decompiled_functions)
         result_fd = NamedTemporaryFile("w", suffix=".py", delete=False)
         result_fd.close()
         script_fd = NamedTemporaryFile("w", suffix=".py", delete=False)
@@ -170,7 +167,6 @@ def ida_dec(binary_path, target_functions, tag):
                     function_call_counts=result[func_addr]["function_call_counts"],
                     macro_call_counts=result[func_addr]["macro_call_counts"],
                 )
-                results[int(func_addr)] = func_result
                 result_path = result_dir / f"{int(func_addr):x}.json"
                 func_result.save_json(result_path)
 

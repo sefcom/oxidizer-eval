@@ -12,7 +12,7 @@ from angr.sim_variable import SimStackVariable, SimRegisterVariable
 from angr.sim_type import TypeRef, SimTypeChar, SimTypeInt, SimTypeFloat, SimStruct, SimTypePointer, SimType
 from angr.analyses.decompiler.sequence_walker import SequenceWalker
 
-from eval.config import RESULT_DIR
+from eval.config import RESULT_DIR, FLIRT_SIGS_DIR
 from eval.result import DecompileResult
 from eval.type_recovery.function_prototype import Type
 
@@ -149,26 +149,37 @@ class CallCounter(SequenceWalker):
             self.macro_call_counts[macro_name] += walker.macro_call_counts[macro_name]
 
 
-def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, is_rust_binary):
+def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, is_rust_binary, stripped=False):
+    decompiler_name = "Oxidizer" if is_rust_binary else "angr"
+    if stripped:
+        decompiler_name += " (Stripped)"
+        binary_path = binary_path.replace("/release/", "/stripped/")
+        l.info(f"Using stripped binary for decompilation: {binary_path}")
+
     assert os.path.exists(binary_path)
 
-    decompiler_name = "Oxidizer" if is_rust_binary else "angr"
     binary_name = os.path.basename(binary_path)
     target_functions = list(target_functions)
 
-    results: Dict[int, DecompileResult] = {}
     proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=is_rust_binary)
 
     result_dir = RESULT_DIR / tag / decompiler_name / binary_name
     os.makedirs(result_dir, exist_ok=True)
-    for result_path in result_dir.glob("*.json"):
-        func_addr = int(result_path.stem, 16)
-        func_result = DecompileResult.load_json(result_path)
-        results[func_addr] = func_result
+    decompiled_functions = set(int(result_path.stem, 16) for result_path in result_dir.glob("*.json"))
 
-    if not all(func_addr in results for func_addr in target_functions):
+    if not decompiled_functions.issuperset(target_functions):
         cfg = proj.analyses.CFGFast(normalize=True)
         proj.analyses.CompleteCallingConventions(cfg=cfg, max_function_blocks=500)
+
+        if stripped:
+            try:
+                sig_path = str(FLIRT_SIGS_DIR / (tag + ".sig"))
+                l.info(f"Loading FLIRT signature from {sig_path} for {tag}")
+                proj.analyses.Flirt(sig_path)
+                proj.analyses.FlirtSigPropagation(cfg=cfg)
+            except Exception as e:
+                l.error(f"Failed to load FLIRT signatures for {tag}: {e}")
+                l.error(traceback.format_exc())
 
         if proj.is_rust_binary:
             proj.analyses.KnownTypeLoader()
@@ -176,6 +187,8 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
         for func_addr in proj.kb.functions:
             rebased_func_addr = func_addr - proj.loader.main_object.mapped_base
             if rebased_func_addr in target_functions:
+                if rebased_func_addr in decompiled_functions:
+                    continue
                 try:
                     func = proj.kb.functions[func_addr]
                     decompiler = proj.analyses.Decompiler(cfg=cfg, func=func)
@@ -189,14 +202,12 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
                             function_call_counts=call_counter.function_call_counts,
                             macro_call_counts=call_counter.macro_call_counts,
                         )
-                        results[rebased_func_addr] = result
                         result_path = result_dir / f"{rebased_func_addr:x}.json"
                         result.save_json(result_path)
                 except BaseException as e:
                     l.error(f"Failed to decompile function at {rebased_func_addr:x} for {binary_name}: {e}")
                     l.error(traceback.format_exc())
-    return results
 
 
 def angr_dec(binary_path, target_functions, tag):
-    return _angr_dec_base(binary_path, target_functions, tag, _extract_function_body, False)
+    _angr_dec_base(binary_path, target_functions, tag, _extract_function_body, False)

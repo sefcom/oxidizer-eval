@@ -1,7 +1,16 @@
 import os
 from pathlib import Path
 
-DECOMPILERS = ("Source", "Oxidizer", "angr", "IDA", "Ghidra", "Binary Ninja", "Binary Ninja (Pseudo Rust)")
+DECOMPILERS = (
+    "Source",
+    "Oxidizer",
+    "Oxidizer (Stripped)",
+    "angr",
+    "IDA",
+    "Ghidra",
+    "Binary Ninja",
+    "Binary Ninja (Pseudo Rust)",
+)
 # DECOMPILERS = ("Source", "Oxidizer", "angr", "IDA", "Ghidra", "Binary Ninja", "Binary Ninja (Pseudo Rust)")
 
 IDA_PATH = os.path.abspath("tools/idapro-9.0/idat64")
@@ -17,6 +26,7 @@ CACHED_MALWARE_CALLS_PATH = os.path.abspath("output/malware_calls.json")
 CACHED_INFERRED_PROTOTYPES_PATH = os.path.abspath("output/inferred_prototypes")
 
 RESULT_DIR = Path("output/result").absolute()
+FLIRT_SIGS_DIR = Path("targets/flirt-sigs").absolute()
 
 
 COREUTILS_MODULES = [

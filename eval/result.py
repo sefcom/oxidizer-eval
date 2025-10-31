@@ -68,12 +68,9 @@ class EvalResult:
             self.decompiler_and_metric_to_values[(decompiler, metric)].append(value)
 
     def merge(self, other: "EvalResult"):
-        new_result = EvalResult(total_binaries=self.total_binaries + other.total_binaries)
-        for key, values in self.decompiler_and_metric_to_values.items():
-            new_result.decompiler_and_metric_to_values[key].extend(values)
+        self.total_binaries += other.total_binaries
         for key, values in other.decompiler_and_metric_to_values.items():
-            new_result.decompiler_and_metric_to_values[key].extend(values)
-        return new_result
+            self.decompiler_and_metric_to_values[key].extend(values)
 
     def _average(self, decompiler, metric):
         values = self.decompiler_and_metric_to_values.get((decompiler, metric), [])

@@ -119,51 +119,49 @@ def get_variable_types(func: Function):
     return ident_to_types
 
 
-def _binja_dec_base(binary_path, target_functions, tag, is_rust_binary):
+def binja_dec(binary_path, target_functions, tag):
     assert os.path.exists(binary_path)
 
-    decompiler_name = "Binary Ninja (Pseudo Rust)" if is_rust_binary else "Binary Ninja"
+    c_decompiler_name = "Binary Ninja"
+    rust_decompiler_name = "Binary Ninja (Pseudo Rust)"
     binary_name = os.path.basename(binary_path)
-    language_name = "Rust" if is_rust_binary else "C"
 
-    results: Dict[int, DecompileResult] = {}
+    c_result_dir = RESULT_DIR / tag / c_decompiler_name / binary_name
+    os.makedirs(c_result_dir, exist_ok=True)
+    decompiled_c_functions = set(int(result_path.stem, 16) for result_path in c_result_dir.glob("*.json"))
 
-    result_dir = RESULT_DIR / tag / decompiler_name / binary_name
-    os.makedirs(result_dir, exist_ok=True)
-    for result_path in result_dir.glob("*.json"):
-        func_addr = int(result_path.stem, 16)
-        func_result = DecompileResult.load_json(result_path)
-        results[func_addr] = func_result
+    rust_result_dir = RESULT_DIR / tag / rust_decompiler_name / binary_name
+    os.makedirs(rust_result_dir, exist_ok=True)
+    decompiled_rust_functions = set(int(result_path.stem, 16) for result_path in rust_result_dir.glob("*.json"))
 
-    if not all(func_addr in results for func_addr in target_functions):
+    if not decompiled_c_functions.issuperset(target_functions) or not decompiled_rust_functions.issuperset(
+        target_functions
+    ):
         with binaryninja.load(binary_path) as bv:
             for func in bv.functions:
                 try:
-                    # print(func.name, hex(func.start), hex(bv.start))
                     func_addr = func.start - bv.start
                     if func_addr in target_functions:
-                        output = _decompile(bv, func, language_name)
-                        if output:
-                            result = DecompileResult(
-                                decompilation=output,
-                                function_call_counts=count_calls(bv, func),
-                                macro_call_counts={},
-                                variable_types=get_variable_types(func),
-                            )
-                            results[func_addr] = result
-                            result_path = result_dir / f"{func_addr:x}.json"
-                            result.save_json(result_path)
-                        else:
-                            raise Exception("Empty decompilation output")
+                        for language in ("C", "Rust"):
+                            if language == "C" and func_addr in decompiled_c_functions:
+                                continue
+                            if language == "Rust" and func_addr in decompiled_rust_functions:
+                                continue
+                            output = _decompile(bv, func, language)
+                            if output:
+                                result = DecompileResult(
+                                    decompilation=output,
+                                    function_call_counts=count_calls(bv, func),
+                                    macro_call_counts={},
+                                    variable_types=get_variable_types(func),
+                                )
+                                result_path = (
+                                    c_result_dir if language == "C" else rust_result_dir
+                                ) / f"{func_addr:x}.json"
+                                result.save_json(result_path)
+                            else:
+                                raise Exception("Empty decompilation output")
 
                 except BaseException as e:
                     l.error(f"Failed to decompile function: {demangle.demangle_generic(bv.arch, func.name)}")
                     l.error(traceback.format_exc())
-
-
-def binja_c_dec(binary_path, target_functions, tag):
-    return _binja_dec_base(binary_path, target_functions, tag, False)
-
-
-def binja_rust_dec(binary_path, target_functions, tag):
-    return _binja_dec_base(binary_path, target_functions, tag, True)
