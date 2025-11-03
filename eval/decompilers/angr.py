@@ -177,6 +177,7 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
                 l.info(f"Loading FLIRT signature from {sig_path} for {tag}")
                 proj.analyses.Flirt(sig_path)
                 proj.analyses.FlirtSigPropagation(cfg=cfg)
+                proj.analyses.CleanupFunctionIdentification()
             except Exception as e:
                 l.error(f"Failed to load FLIRT signatures for {tag}: {e}")
                 l.error(traceback.format_exc())

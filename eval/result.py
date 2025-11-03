@@ -5,6 +5,7 @@ import statistics
 from typing import Dict, List, Tuple
 
 from eval.metrics import METRICS
+from eval.metrics import *
 from eval.config import DECOMPILERS
 
 
@@ -95,12 +96,12 @@ class EvalResult:
         output += "\n"
         for metric in METRICS:
             output += f'Average {metric}({"/".join(DECOMPILERS)}): {"/".join([f"{self._average(decompiler, metric):.2f}" for decompiler in DECOMPILERS])}\n'
-        output += "\n"
-        for metric in METRICS:
-            output += f'Sum {metric}({"/".join(DECOMPILERS)}): {"/".join([f"{self._sum(decompiler, metric)}" for decompiler in DECOMPILERS])}\n'
-        output += "\n"
-        for metric in METRICS:
-            output += f'Median {metric}({"/".join(DECOMPILERS)}): {"/".join([f"{self._median(decompiler, metric)}" for decompiler in DECOMPILERS])}\n'
+        # output += "\n"
+        # for metric in METRICS:
+        #     output += f'Sum {metric}({"/".join(DECOMPILERS)}): {"/".join([f"{self._sum(decompiler, metric)}" for decompiler in DECOMPILERS])}\n'
+        # output += "\n"
+        # for metric in METRICS:
+        #     output += f'Median {metric}({"/".join(DECOMPILERS)}): {"/".join([f"{self._median(decompiler, metric)}" for decompiler in DECOMPILERS])}\n'
 
         # Type Recovery Metrics
         output += "\nType Recovery Evaluation (per type):\n"
@@ -190,3 +191,219 @@ class EvalResult:
         output += overall_row
 
         return output
+
+    def to_latex(self) -> str:
+        def winner_fmt(value: str, is_best: bool) -> str:
+            return f"\\winner{{{value}}}" if is_best and value else value
+
+        latex = []
+        latex.append("\\begin{table*}[ht]")
+        latex.append("\\centering")
+        latex.append("\\caption{Evaluation results on conciseness and fidelity metrics.}")
+        latex.append("\\label{table:coreutils_eval_result}")
+        latex.append("\\footnotesize")
+        latex.append("\\resizebox{\\textwidth}{!}{%")
+        latex.append("\\begin{tabular}{l" + "rr" * len(DECOMPILERS) + "}")
+        latex.append("\\toprule")
+
+        decompiler_mappings = {
+            "IDA": "Hex-Rays",
+            "Oxidizer": "\dec",
+            "Oxidizer (Stripped)": "\\shortstack{\dec\\\\(Stripped)}",
+            "Binary Ninja": "\\shortstack{\\textbf{Binary Ninja}\\\\\\textbf{(Pseudo C)}}",
+            "Binary Ninja (Pseudo Rust)": "\\shortstack{\\textbf{Binary Ninja}\\\\\\textbf{(Pseudo Rust)}}",
+        }
+
+        # Header rows
+        latex.append(
+            "\\multirow{2}{*}{\\textbf{Metric}} "
+            + "& "
+            + " & ".join(
+                [f"\\multicolumn{{2}}{{c}}{{\\textbf{{{decompiler_mappings.get(d, d)}}}}}" for d in DECOMPILERS]
+            )
+            + " \\\\"
+        )
+        latex.append("\\cmidrule{2-" + str(1 + 2 * len(DECOMPILERS)) + "}")
+        latex.append(
+            "& "
+            + " & ".join(
+                ["\\multicolumn{1}{c}{\\textbf{Avg.}} & \\multicolumn{1}{c}{\\textbf{Med.}}"] * len(DECOMPILERS)
+            )
+            + " \\\\"
+        )
+        latex.append("\\midrule")
+
+        metric_mappings = {
+            MCC: "MCC",
+            LOC: "LoC",
+            NUM_VARIABLES: "NofVar",
+            NUM_OPERATORS: "NofOps",
+            NUM_GOTOS: "Gotos",
+            NUM_MATCHED_STRING_LITERALS: "Matched Strings",
+            NUM_MATCHED_FUNCTION_CALLS: "Matched Calls",
+            NUM_EXTRANEOUS_FUNCTION_CALLS: "Extraneous Calls",
+            NUM_MATCHED_MACRO_CALLS: "Matched Macros",
+        }
+
+        for metric in METRICS:
+            row = [metric_mappings.get(metric, metric)]
+            # Collect all values first for comparison
+            # sums = [self._sum(d, metric) for d in DECOMPILERS]
+            avgs = [self._average(d, metric) for d in DECOMPILERS]
+            meds = [self._median(d, metric) for d in DECOMPILERS]
+
+            best_decompiler = None
+            if metric in [NUM_MATCHED_FUNCTION_CALLS, NUM_MATCHED_MACRO_CALLS]:
+                best_decompiler = max(
+                    DECOMPILERS, key=lambda d: self._average(d, metric) if d != "Source" else 0
+                )  # Higher is better
+            else:
+                best_decompiler = min(
+                    DECOMPILERS, key=lambda d: self._average(d, metric) if d != "Source" else float("inf")
+                )  # Lower is better
+
+            for i in range(len(DECOMPILERS)):
+                decompiler = DECOMPILERS[i]
+
+                # sum_str = winner_fmt(f"{sums[i]:,}", decompiler == best_decompiler)
+
+                if decompiler == "Source":
+                    avg_fmt = f"{avgs[i]:.2f}"
+                else:
+                    avg_fmt = (
+                        f"{avgs[i]:.2f} ({avgs[i] / self._average('Source', metric) * 100:.1f}\\%)"
+                        if self._average("Source", metric) > 0
+                        else f"{avgs[i]:.2f}"
+                    )
+
+                avg_str = winner_fmt(avg_fmt, decompiler == best_decompiler)
+                med_str = winner_fmt(f"{int(meds[i])}", decompiler == best_decompiler)
+
+                row.extend([avg_str, med_str])
+
+            latex.append(" & ".join(row) + " \\\\")
+
+        latex.append("\\bottomrule")
+        latex.append("\\end{tabular}%")
+        latex.append("}")
+        latex.append("\\end{table*}")
+
+        return "\n".join(latex)
+
+    def to_latex_type_eval_table(self) -> str:
+        type_suffixes = [
+            "primitive",
+            "reference",
+            "array",
+            "struct",
+            "Option",
+            "Result",
+            "enum",
+        ]
+        decompilers = [d for d in DECOMPILERS if d not in ["Source", "Binary Ninja (Pseudo Rust)"]]
+
+        def format_percent(x):
+            return f"{x * 100:.2f}\\%"
+
+        def latex_row(label, precisions, recalls, f1s, totals):
+            best_p = max(precisions)
+            best_r = max(recalls)
+            best_f1 = max(f1s)
+            row = [label]
+            for i in range(len(decompilers)):
+                p = (
+                    f"\\winner{{{format_percent(precisions[i])}}}"
+                    if precisions[i] == best_p
+                    else format_percent(precisions[i])
+                )
+                r = f"\\winner{{{format_percent(recalls[i])}}}" if recalls[i] == best_r else format_percent(recalls[i])
+                f = f"\\winner{{{format_percent(f1s[i])}}}" if f1s[i] == best_f1 else format_percent(f1s[i])
+                row.extend([p, r, f])
+            row.append(str(max(totals)))
+            return " & ".join(row) + " \\\\"
+
+        def compute_metrics(t: str):
+            precisions, recalls, f1s, totals = [], [], [], []
+            for decompiler in decompilers:
+                tp = sum(self.values.get((decompiler, f"{t}_TP"), []))
+                fp = sum(self.values.get((decompiler, f"{t}_FP"), []))
+                fn = sum(self.values.get((decompiler, f"{t}_FN"), []))
+                total = sum(self.values.get((decompiler, f"{t}_total"), []))
+
+                totals.append(total)
+
+                precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+                recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+                f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0
+
+                precisions.append(precision)
+                recalls.append(recall)
+                f1s.append(f1)
+            return precisions, recalls, f1s, totals
+
+        def type_label(t):
+            return {
+                "primitive": "Primitive",
+                "reference": "Reference",
+                "struct": "Struct",
+                "enum": "Other Enum",
+                "Option": "Option\\textless{}T\\textgreater{}",
+                "Result": "Result\\textless{}T, E\\textgreater{}",
+                "array": "Array",
+            }.get(t, t)
+
+        latex = []
+        latex.append("\\begin{table*}[bt]")
+        latex.append("\\caption{Type inference evaluation results across decompilers.}")
+        latex.append("\\label{table:type_eval_result}")
+        latex.append("\\centering")
+        latex.append("\\resizebox{\\textwidth}{!}{")
+        latex.append("\\begin{tabular}{lcccccccccccccccc}")
+        latex.append("\\toprule")
+        latex.append(
+            "\\multirow{2}{*}{\\textbf{Category}} "
+            "& \\multicolumn{3}{c}{\\textbf{\dec}} "
+            "& \\multicolumn{3}{c}{\\textbf{angr}} "
+            "& \\multicolumn{3}{c}{\\textbf{Hex-Rays}} "
+            "& \\multicolumn{3}{c}{\\textbf{Ghidra}} "
+            "& \\multicolumn{3}{c}{\\textbf{Binary Ninja}} "
+            "& \\multirow{2}{*}{\\textbf{Total}} \\\\"
+        )
+        latex.append("\\cmidrule(lr){2-16}")
+        latex.append("& \\textbf{Precision} & \\textbf{Recall} & \\textbf{F1} " * 5 + " \\\\")
+        latex.append("\\midrule")
+
+        # Overall row
+        precisions, recalls, f1s, totals = [], [], [], []
+        for decompiler in decompilers:
+            tp = fp = fn = total = 0
+            for t in type_suffixes:
+                tp += sum(self.values.get((decompiler, f"{t}_TP"), []))
+                fp += sum(self.values.get((decompiler, f"{t}_FP"), []))
+                fn += sum(self.values.get((decompiler, f"{t}_FN"), []))
+                total += sum(self.values.get((decompiler, f"{t}_total"), []))
+
+            totals.append(total)
+
+            precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+            recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+            f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0
+
+            precisions.append(precision)
+            recalls.append(recall)
+            f1s.append(f1)
+
+        latex.append(latex_row("Overall", precisions, recalls, f1s, totals))
+        latex.append("\\midrule")
+
+        # Per type row
+        for t in type_suffixes:
+            p, r, f, tot = compute_metrics(t)
+            latex.append(latex_row(type_label(t), p, r, f, tot))
+
+        latex.append("\\bottomrule")
+        latex.append("\\end{tabular}")
+        latex.append("}")
+        latex.append("\\end{table*}")
+
+        return "\n".join(latex)

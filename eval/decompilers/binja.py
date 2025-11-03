@@ -22,6 +22,7 @@ l = logging.getLogger("oxidizer-eval")
 
 
 def _decompile(bv, func, language="C"):
+    func.hlil  # Ensure HLIL is generated
     settings = DisassemblySettings()
     settings.set_option(DisassemblyOption.ShowAddress, False)
     settings.set_option(DisassemblyOption.WaitForIL, True)
@@ -137,7 +138,7 @@ def binja_dec(binary_path, target_functions, tag):
     if not decompiled_c_functions.issuperset(target_functions) or not decompiled_rust_functions.issuperset(
         target_functions
     ):
-        with binaryninja.load(binary_path) as bv:
+        with binaryninja.load(binary_path, options={"analysis.initialAnalysisHold": True}) as bv:
             for func in bv.functions:
                 try:
                     func_addr = func.start - bv.start
@@ -163,5 +164,5 @@ def binja_dec(binary_path, target_functions, tag):
                                 raise Exception("Empty decompilation output")
 
                 except BaseException as e:
-                    l.error(f"Failed to decompile function: {demangle.demangle_generic(bv.arch, func.name)}")
+                    l.error(f'Failed to decompile function: {"::".join(demangle.demangle_generic(bv.arch, func.name))}')
                     l.error(traceback.format_exc())

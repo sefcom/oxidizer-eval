@@ -26,17 +26,17 @@ def dummy_dec(*args, **kwargs):
 
 
 CACHE_ONLY = False  # Debug mode: only use cached results, do not run decompilers
-PROCESSES = 16
+PROCESSES = 8
 MAX_MEMORY_GB = 32
 
 DEC_OPTIONS = {
     "Source": {"dec_func": dummy_dec, "cache_only": True, "timeout": 0},
-    "angr": {"dec_func": angr_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
-    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
-    "Oxidizer (Stripped)": {"dec_func": oxidizer_stripped_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
+    "angr": {"dec_func": angr_dec, "cache_only": False or CACHE_ONLY, "timeout": 150},
+    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False or CACHE_ONLY, "timeout": 150},
+    "Oxidizer (Stripped)": {"dec_func": oxidizer_stripped_dec, "cache_only": False or CACHE_ONLY, "timeout": 150},
     "IDA": {"dec_func": ida_dec, "cache_only": True or CACHE_ONLY, "timeout": 60},
-    "Ghidra": {"dec_func": ghidra_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
-    "Binary Ninja": {"dec_func": binja_dec, "cache_only": False or CACHE_ONLY, "timeout": 150},
+    "Ghidra": {"dec_func": ghidra_dec, "cache_only": False or CACHE_ONLY, "timeout": 180},
+    "Binary Ninja": {"dec_func": binja_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
     "Binary Ninja (Pseudo Rust)": {"dec_func": dummy_dec, "cache_only": True or CACHE_ONLY, "timeout": 0},
 }
 
@@ -73,7 +73,7 @@ def decompile_binary(binary_path, tag, target_functions, decompiler):
 
 def decompile_binary_safe(binary_path, tag, target_functions, decompiler):
     try:
-        return decompile_binary(binary_path, tag, target_functions, decompiler)
+        decompile_binary(binary_path, tag, target_functions, decompiler)
     except Exception as e:
         l.error(f"{type(e)}: Failed to decompile binary {binary_path}: {e}")
         l.error(traceback.format_exc())
@@ -303,7 +303,7 @@ def eval(dir_path, tag):
                 continue
             binary_paths.append(os.path.join(dirpath, filename))
 
-    binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) in COREUTILS_MODULES]
+    # binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) in COREUTILS_MODULES]
     # binary_paths = [binary_path for binary_path in binary_paths if os.path.getsize(binary_path) < 30 * 1024 * 1024]
 
     l.info(f"Starting evaluation for tag: {tag} ({len(binary_paths)} binaries)")
@@ -335,3 +335,4 @@ if __name__ == "__main__":
             tag = f"{toolchain}-O{opt_level}"
             result = eval(TARGET_RELEASE_DIR / f"{tag}", tag)
             l.info(f"Final evaluation:\n{result}")
+            l.info(result.to_latex())
