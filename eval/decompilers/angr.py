@@ -2,6 +2,7 @@ import logging
 import traceback
 from collections import Counter, defaultdict
 import os
+import time
 
 import angr
 from angr.ailment.statement import FunctionLikeMacro, Call
@@ -149,6 +150,19 @@ class CallCounter(SequenceWalker):
             self.macro_call_counts[macro_name] += walker.macro_call_counts[macro_name]
 
 
+def _reachable_functions(proj, target_functions):
+    reachable_functions = set(target_functions)
+    queue = list(reachable_functions)
+
+    while queue:
+        func_addr = queue.pop(0)
+        for callee in proj.kb.callgraph.successors(func_addr):
+            if callee not in reachable_functions:
+                reachable_functions.add(callee)
+                queue.append(callee)
+    return reachable_functions
+
+
 def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, is_rust_binary, stripped=False):
     decompiler_name = "Oxidizer" if is_rust_binary else "angr"
     if stripped:
@@ -169,7 +183,6 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
 
     if not decompiled_functions.issuperset(target_functions):
         cfg = proj.analyses.CFGFast(normalize=True)
-        proj.analyses.CompleteCallingConventions(cfg=cfg, max_function_blocks=500)
 
         if stripped:
             try:
@@ -184,6 +197,13 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
 
         if proj.is_rust_binary:
             proj.analyses.KnownTypeLoader()
+
+        start_time = time.time()
+        ccca = proj.analyses.CompleteCallingConventions(
+            cfg=cfg, target_functions=_reachable_functions(proj, target_functions)
+        )
+        l.info(f"{ccca._total_funcs} functions analyzed for calling conventions in {binary_name}")
+        l.info(f"CompleteCallingConventions took {time.time() - start_time:.2f} seconds for {binary_path}")
 
         for func_addr in proj.kb.functions:
             rebased_func_addr = func_addr - proj.loader.main_object.mapped_base
@@ -205,6 +225,8 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
                         )
                         result_path = result_dir / f"{rebased_func_addr:x}.json"
                         result.save_json(result_path)
+                except MemoryError as e:
+                    raise
                 except BaseException as e:
                     l.error(f"Failed to decompile function at {rebased_func_addr:x} for {binary_name}: {e}")
                     l.error(traceback.format_exc())

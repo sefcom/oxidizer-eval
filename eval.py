@@ -25,16 +25,16 @@ def dummy_dec(*args, **kwargs):
     pass
 
 
-CACHE_ONLY = False  # Debug mode: only use cached results, do not run decompilers
-PROCESSES = 8
+CACHE_ONLY = True  # Debug mode: only use cached results, do not run decompilers
+PROCESSES = 16
 MAX_MEMORY_GB = 32
 
 DEC_OPTIONS = {
     "Source": {"dec_func": dummy_dec, "cache_only": True, "timeout": 0},
-    "angr": {"dec_func": angr_dec, "cache_only": False or CACHE_ONLY, "timeout": 150},
-    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False or CACHE_ONLY, "timeout": 150},
-    "Oxidizer (Stripped)": {"dec_func": oxidizer_stripped_dec, "cache_only": False or CACHE_ONLY, "timeout": 150},
-    "IDA": {"dec_func": ida_dec, "cache_only": True or CACHE_ONLY, "timeout": 60},
+    "angr": {"dec_func": angr_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
+    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
+    "Oxidizer (Stripped)": {"dec_func": oxidizer_stripped_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
+    "IDA": {"dec_func": ida_dec, "cache_only": False or CACHE_ONLY, "timeout": 60},
     "Ghidra": {"dec_func": ghidra_dec, "cache_only": False or CACHE_ONLY, "timeout": 180},
     "Binary Ninja": {"dec_func": binja_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
     "Binary Ninja (Pseudo Rust)": {"dec_func": dummy_dec, "cache_only": True or CACHE_ONLY, "timeout": 0},
@@ -139,7 +139,12 @@ def compute_binary_eval_result(binary_path, tag, symbols):
                 decompilation = func_result.decompilation
 
                 # Conciseness Metric-0: Number of lines of code
-                func_eval_result.add_result(MCC, mcc(decompilation))
+                mcc_value = mcc(decompilation)
+                if mcc_value is None:
+                    l.warning(f"Failed to compute MCC for function {func_addr:x} decompiled by {decompiler}")
+                    del func_eval_results[decompiler][func_addr]
+                    continue
+                func_eval_result.add_result(MCC, mcc_value)
 
                 # Conciseness Metric-1: Number of lines of code
                 func_eval_result.add_result(LOC, LoC(decompilation))
@@ -246,6 +251,15 @@ def eval_binary(binary_path, tag):
     return compute_binary_eval_result(binary_path, tag, symbols)
 
 
+def safe_eval_binary(binary_path, tag):
+    try:
+        return eval_binary(binary_path, tag)
+    except Exception as e:
+        l.error(f"{type(e)}: Failed to evaluate binary {binary_path}: {e}")
+        l.error(traceback.format_exc())
+        return EvalResult(0)
+
+
 def set_memory_limit_gb(limit_gb: int):
     """Set a per-process virtual memory limit in GB."""
     soft, hard = limit_gb * 1024**3, limit_gb * 1024**3
@@ -304,7 +318,15 @@ def eval(dir_path, tag):
             binary_paths.append(os.path.join(dirpath, filename))
 
     # binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) in COREUTILS_MODULES]
-    # binary_paths = [binary_path for binary_path in binary_paths if os.path.getsize(binary_path) < 30 * 1024 * 1024]
+    binary_paths = [binary_path for binary_path in binary_paths if os.path.getsize(binary_path) < 100 * 1024 * 1024]
+    binary_paths_under_30MB = [
+        binary_path for binary_path in binary_paths if os.path.getsize(binary_path) < 30 * 1024 * 1024
+    ]
+    binary_paths_over_30MB = [
+        binary_path
+        for binary_path in binary_paths
+        if 30 * 1024 * 1024 <= os.path.getsize(binary_path) < 100 * 1024 * 1024
+    ]
 
     l.info(f"Starting evaluation for tag: {tag} ({len(binary_paths)} binaries)")
 
@@ -318,11 +340,17 @@ def eval(dir_path, tag):
         l.info(f"Binary evaluation result for {binary_path}:\n{result}")
         l.info(f"Current merged evaluation result:\n{merged_result}")
 
-    with ProcessPoolExecutor(PROCESSES, initializer=set_memory_limit_gb, initargs=(MAX_MEMORY_GB,)) as executor:
-        for binary_path in binary_paths:
-            future = executor.submit(eval_binary, binary_path, tag)
+    with ProcessPoolExecutor(16, initializer=set_memory_limit_gb, initargs=(32,)) as executor:
+        for binary_path in binary_paths_under_30MB:
+            future = executor.submit(safe_eval_binary, binary_path, tag)
             future_to_path[future] = binary_path
             future.add_done_callback(callback)
+
+    # with ProcessPoolExecutor(PROCESSES, initializer=set_memory_limit_gb, initargs=(MAX_MEMORY_GB,)) as executor:
+    #     for binary_path in binary_paths:
+    #         future = executor.submit(safe_eval_binary, binary_path, tag)
+    #         future_to_path[future] = binary_path
+    #         future.add_done_callback(callback)
 
     return merged_result
 
@@ -330,6 +358,8 @@ def eval(dir_path, tag):
 if __name__ == "__main__":
     # for toolchain in ("nightly-2025-05-22", "nightly-2023-05-22"):
     #     for opt_level in ("0", "1", "2", "3", "s", "z"):
+    #         if toolchain == "nightly-2025-05-22" and opt_level == "3":
+    #             continue
     for toolchain in ("nightly-2025-05-22",):
         for opt_level in ("3",):
             tag = f"{toolchain}-O{opt_level}"

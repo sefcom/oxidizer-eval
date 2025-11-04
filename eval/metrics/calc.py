@@ -1,10 +1,13 @@
 from collections import defaultdict
 import json
 import re
+import logging
 
 from angr.rust.utils.library import demangle
 
 from eval.utils.dwarf_parser import *
+
+l = logging.getLogger("oxidizer-eval")
 
 
 def LoC(output):
@@ -409,7 +412,8 @@ class MCCCalculator:
             if line.startswith("}"):
                 break
         else:
-            raise ValueError("No closing bracket found.")
+            return None
+
         last_line = code_lines[-(i + 2)]
         for line in reversed(code_lines[: -(i + 2)]):
             if not line.strip().endswith(";"):

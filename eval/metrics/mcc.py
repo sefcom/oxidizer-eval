@@ -189,8 +189,6 @@ class RustDecompilerMCC:
             for i, line in enumerate(code_lines[::-1]):
                 if line.startswith("}"):
                     break
-            else:
-                raise ValueError("No closing bracket found.")
             last_line = code_lines[-(i + 2)]
 
             # last line has one of the returns?
@@ -209,12 +207,10 @@ class RustDecompilerMCC:
             # formula:
             # C = D + 1
             mcc = decision_points + 1
-        elif exits > 1:
+        else:
             # formula:
             # C = D - E + 2
             mcc = decision_points - exits + 2
-        else:
-            raise ValueError("Invalid number of exits.")
 
         return mcc
 
