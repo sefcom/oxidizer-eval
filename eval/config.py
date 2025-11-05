@@ -3,9 +3,9 @@ from pathlib import Path
 
 DECOMPILERS = (
     "Source",
-    "Oxidizer",
-    "Oxidizer (Stripped)",
-    "angr",
+    # "Oxidizer",
+    # "Oxidizer (Stripped)",
+    # "angr",
     "IDA",
     "Ghidra",
     "Binary Ninja",

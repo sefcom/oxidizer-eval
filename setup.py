@@ -264,7 +264,7 @@ def build_evaluation_targets():
     opt_levels = ("0", "1", "2", "3", "s", "z")
     # opt_levels = ("3",)
     toolchains = (
-        "nightly-2025-05-22",
+        # "nightly-2025-05-22",
         "nightly-2023-05-22",
     )
     # opt_levels = ("0",)
@@ -313,6 +313,8 @@ def build_evaluation_targets():
         l.info(f"  Failed builds: {len(failed_builds)}")
         for target, toolchain, opt_level in failed_builds:
             l.info(f"    - {target} (toolchain={toolchain}, opt={opt_level})")
+
+        continue
 
         # Stage-2: Generate ground truth and DWARF
         for opt_level in opt_levels:

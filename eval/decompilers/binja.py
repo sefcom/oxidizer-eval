@@ -1,7 +1,6 @@
 from collections import defaultdict
 import traceback
 import os
-from typing import Dict
 import logging
 
 import binaryninja
@@ -120,7 +119,7 @@ def get_variable_types(func: Function):
     return ident_to_types
 
 
-def binja_dec(binary_path, target_functions, tag):
+def binja_dec(binary_path, target_functions, tag, symbols):
     assert os.path.exists(binary_path)
 
     c_decompiler_name = "Binary Ninja"
@@ -139,6 +138,9 @@ def binja_dec(binary_path, target_functions, tag):
         target_functions
     ):
         with binaryninja.load(binary_path, options={"analysis.initialAnalysisHold": True}) as bv:
+            for func_addr in symbols:
+                func_addr = int(func_addr) + bv.start
+                bv.create_user_function(func_addr)
             for func in bv.functions:
                 try:
                     func_addr = func.start - bv.start

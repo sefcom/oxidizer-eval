@@ -25,14 +25,14 @@ def dummy_dec(*args, **kwargs):
     pass
 
 
-CACHE_ONLY = True  # Debug mode: only use cached results, do not run decompilers
+CACHE_ONLY = False  # Debug mode: only use cached results, do not run decompilers
 PROCESSES = 16
 MAX_MEMORY_GB = 32
 
 DEC_OPTIONS = {
     "Source": {"dec_func": dummy_dec, "cache_only": True, "timeout": 0},
     "angr": {"dec_func": angr_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
-    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
+    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
     "Oxidizer (Stripped)": {"dec_func": oxidizer_stripped_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
     "IDA": {"dec_func": ida_dec, "cache_only": False or CACHE_ONLY, "timeout": 60},
     "Ghidra": {"dec_func": ghidra_dec, "cache_only": False or CACHE_ONLY, "timeout": 180},
@@ -42,6 +42,7 @@ DEC_OPTIONS = {
 
 TARGET_RELEASE_DIR = Path("targets/release").absolute()
 TARGET_DEBUG_DIR = Path("targets/debug").absolute()
+TARGET_STRIPPED_DIR = Path("targets/stripped").absolute()
 TARGET_GROUND_TRUTH_DIR = Path("targets/merged_ground_truth").absolute()
 TARGET_SYMBOLS_DIR = Path("targets/symbols").absolute()
 LOG_DIR = Path("output/log").absolute()
@@ -62,18 +63,21 @@ def load_function_addresses(binary_path, tag):
             yield func_addr
 
 
-def decompile_binary(binary_path, tag, target_functions, decompiler):
+def decompile_binary(binary_path, tag, target_functions, decompiler, symbols):
     binary_name = os.path.basename(binary_path)
 
     dec_func = DEC_OPTIONS[decompiler]["dec_func"]
 
     l.info(f"Decompiling {binary_name} with {decompiler}...")
-    dec_func(binary_path, target_functions, tag)
+    if decompiler == "Binary Ninja":
+        dec_func(binary_path, target_functions, tag, symbols)
+    else:
+        dec_func(binary_path, target_functions, tag)
 
 
-def decompile_binary_safe(binary_path, tag, target_functions, decompiler):
+def decompile_binary_safe(binary_path, tag, target_functions, decompiler, symbols):
     try:
-        decompile_binary(binary_path, tag, target_functions, decompiler)
+        decompile_binary(binary_path, tag, target_functions, decompiler, symbols)
     except Exception as e:
         l.error(f"{type(e)}: Failed to decompile binary {binary_path}: {e}")
         l.error(traceback.format_exc())
@@ -245,7 +249,9 @@ def eval_binary(binary_path, tag):
             l.info(f"Skipping decompilation for {binary_name} with {decompiler} since cache_only is set to True. ")
             continue
         try:
-            run_with_timeout(decompile_binary_safe, binary_path, tag, target_functions, decompiler, timeout=timeout)
+            run_with_timeout(
+                decompile_binary_safe, binary_path, tag, target_functions, decompiler, symbols, timeout=timeout
+            )
         except TimeoutError:
             l.error(f"Timeout for decompiling binary {binary_path} with {decompiler}")
     return compute_binary_eval_result(binary_path, tag, symbols)
@@ -313,12 +319,12 @@ def eval(dir_path, tag):
 
     for dirpath, _, filenames in os.walk(dir_path):
         for filename in filenames:
-            if "." in filename or filename == "sort":
+            if "." in filename or filename == "fselect":
                 continue
             binary_paths.append(os.path.join(dirpath, filename))
 
     # binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) in COREUTILS_MODULES]
-    binary_paths = [binary_path for binary_path in binary_paths if os.path.getsize(binary_path) < 100 * 1024 * 1024]
+    # binary_paths = [binary_path for binary_path in binary_paths if os.path.getsize(binary_path) < 100 * 1024 * 1024]
     binary_paths_under_30MB = [
         binary_path for binary_path in binary_paths if os.path.getsize(binary_path) < 30 * 1024 * 1024
     ]
@@ -341,7 +347,7 @@ def eval(dir_path, tag):
         l.info(f"Current merged evaluation result:\n{merged_result}")
 
     with ProcessPoolExecutor(16, initializer=set_memory_limit_gb, initargs=(32,)) as executor:
-        for binary_path in binary_paths_under_30MB:
+        for binary_path in binary_paths:
             future = executor.submit(safe_eval_binary, binary_path, tag)
             future_to_path[future] = binary_path
             future.add_done_callback(callback)
@@ -356,13 +362,13 @@ def eval(dir_path, tag):
 
 
 if __name__ == "__main__":
-    # for toolchain in ("nightly-2025-05-22", "nightly-2023-05-22"):
-    #     for opt_level in ("0", "1", "2", "3", "s", "z"):
-    #         if toolchain == "nightly-2025-05-22" and opt_level == "3":
-    #             continue
-    for toolchain in ("nightly-2025-05-22",):
-        for opt_level in ("3",):
+    # for toolchain in ("nightly-2025-05-22",):
+    #     for opt_level in ("0",):
+    for toolchain in ("nightly-2025-05-22", "nightly-2023-05-22"):
+        for opt_level in ("0", "1", "2", "3", "s", "z"):
+            # if toolchain == "nightly-2025-05-22" and opt_level == "3":
+            #     continue
             tag = f"{toolchain}-O{opt_level}"
-            result = eval(TARGET_RELEASE_DIR / f"{tag}", tag)
+            result = eval(TARGET_STRIPPED_DIR / f"{tag}", tag)
             l.info(f"Final evaluation:\n{result}")
             l.info(result.to_latex())

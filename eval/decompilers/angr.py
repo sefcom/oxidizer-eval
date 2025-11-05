@@ -156,10 +156,13 @@ def _reachable_functions(proj, target_functions):
 
     while queue:
         func_addr = queue.pop(0)
-        for callee in proj.kb.callgraph.successors(func_addr):
-            if callee not in reachable_functions:
-                reachable_functions.add(callee)
-                queue.append(callee)
+        try:
+            for callee in proj.kb.callgraph.successors(func_addr):
+                if callee not in reachable_functions:
+                    reachable_functions.add(callee)
+                    queue.append(callee)
+        except Exception:
+            pass
     return reachable_functions
 
 
@@ -200,9 +203,14 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
 
         start_time = time.time()
         ccca = proj.analyses.CompleteCallingConventions(
-            cfg=cfg, target_functions=_reachable_functions(proj, target_functions)
+            cfg=cfg,
+            target_functions=_reachable_functions(
+                proj, [addr + proj.loader.main_object.mapped_base for addr in target_functions]
+            ),
         )
-        l.info(f"{ccca._total_funcs} functions analyzed for calling conventions in {binary_name}")
+        l.info(
+            f"{ccca._total_funcs}/{len(proj.kb.functions)} functions analyzed for calling conventions in {binary_name}"
+        )
         l.info(f"CompleteCallingConventions took {time.time() - start_time:.2f} seconds for {binary_path}")
 
         for func_addr in proj.kb.functions:
