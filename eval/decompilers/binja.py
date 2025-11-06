@@ -17,9 +17,6 @@ from eval.config import RESULT_DIR
 from eval.result import DecompileResult
 
 
-l = logging.getLogger("oxidizer-eval")
-
-
 def _decompile(bv, func, language="C"):
     func.hlil  # Ensure HLIL is generated
     settings = DisassemblySettings()
@@ -119,9 +116,8 @@ def get_variable_types(func: Function):
     return ident_to_types
 
 
-def binja_dec(binary_path, target_functions, tag, symbols):
-    assert os.path.exists(binary_path)
-
+def binja_dec(binary_path, target_functions, tag, symbols, *args, **kwargs):
+    l = logging.getLogger(tag)
     c_decompiler_name = "Binary Ninja"
     rust_decompiler_name = "Binary Ninja (Pseudo Rust)"
     binary_name = os.path.basename(binary_path)
@@ -137,10 +133,14 @@ def binja_dec(binary_path, target_functions, tag, symbols):
     if not decompiled_c_functions.issuperset(target_functions) or not decompiled_rust_functions.issuperset(
         target_functions
     ):
-        with binaryninja.load(binary_path, options={"analysis.initialAnalysisHold": True}) as bv:
-            for func_addr in symbols:
-                func_addr = int(func_addr) + bv.start
-                bv.create_user_function(func_addr)
+        # with binaryninja.load(binary_path, options={"analysis.initialAnalysisHold": True}) as bv:
+        #     for func_addr in symbols:
+        #         func_addr = int(func_addr) + bv.start
+        #         bv.create_user_function(func_addr)
+        with binaryninja.load(binary_path) as bv:
+            # for func_addr in target_functions:
+            #     func_addr = int(func_addr) + bv.start
+            #     bv.create_user_function(func_addr)
             for func in bv.functions:
                 try:
                     func_addr = func.start - bv.start
@@ -165,6 +165,6 @@ def binja_dec(binary_path, target_functions, tag, symbols):
                             else:
                                 raise Exception("Empty decompilation output")
 
-                except BaseException as e:
-                    l.error(f'Failed to decompile function: {"::".join(demangle.demangle_generic(bv.arch, func.name))}')
+                except Exception as e:
+                    l.error(f"Failed to decompile function: {func.start:x} in {binary_name}: {e}")
                     l.error(traceback.format_exc())

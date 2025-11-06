@@ -18,9 +18,6 @@ from eval.result import DecompileResult
 from eval.type_recovery.function_prototype import Type
 
 
-l = logging.getLogger("oxidizer-eval")
-
-
 def _extract_function_body(output):
     body = []
     for idx, line in enumerate(output):
@@ -166,12 +163,9 @@ def _reachable_functions(proj, target_functions):
     return reachable_functions
 
 
-def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, is_rust_binary, stripped=False):
+def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, is_rust_binary):
+    l = logging.getLogger(tag)
     decompiler_name = "Oxidizer" if is_rust_binary else "angr"
-    if stripped:
-        decompiler_name += " (Stripped)"
-        binary_path = binary_path.replace("/release/", "/stripped/")
-        l.info(f"Using stripped binary for decompilation: {binary_path}")
 
     assert os.path.exists(binary_path)
 
@@ -187,7 +181,7 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
     if not decompiled_functions.issuperset(target_functions):
         cfg = proj.analyses.CFGFast(normalize=True)
 
-        if stripped:
+        if proj.is_rust_binary:
             try:
                 sig_path = str(FLIRT_SIGS_DIR / (tag + ".sig"))
                 l.info(f"Loading FLIRT signature from {sig_path} for {tag}")
@@ -197,8 +191,6 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
             except Exception as e:
                 l.error(f"Failed to load FLIRT signatures for {tag}: {e}")
                 l.error(traceback.format_exc())
-
-        if proj.is_rust_binary:
             proj.analyses.KnownTypeLoader()
 
         start_time = time.time()
@@ -240,5 +232,5 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
                     l.error(traceback.format_exc())
 
 
-def angr_dec(binary_path, target_functions, tag):
+def angr_dec(binary_path, target_functions, tag, *args, **kwargs):
     _angr_dec_base(binary_path, target_functions, tag, _extract_function_body, False)

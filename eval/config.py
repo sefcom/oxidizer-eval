@@ -3,9 +3,8 @@ from pathlib import Path
 
 DECOMPILERS = (
     "Source",
-    # "Oxidizer",
-    # "Oxidizer (Stripped)",
-    # "angr",
+    "Oxidizer",
+    "angr",
     "IDA",
     "Ghidra",
     "Binary Ninja",
@@ -14,7 +13,7 @@ DECOMPILERS = (
 # DECOMPILERS = ("Source", "Oxidizer", "angr", "IDA", "Ghidra", "Binary Ninja", "Binary Ninja (Pseudo Rust)")
 
 IDA_PATH = os.path.abspath("tools/idapro-9.0/idat64")
-GHIDRA_PATH = os.path.abspath("../ghidra_11.2.1_PUBLIC/support/analyzeHeadless")
+GHIDRA_PATH = os.path.abspath("tools/ghidra_11.2.1_PUBLIC/support/analyzeHeadless")
 IDA_SCRIPTS_PATH = os.path.abspath("scripts/ida")
 CACHE_DIR = os.path.abspath("output")
 CACHED_DECOMPILED_CODE_PATH = os.path.abspath("output/decompiled_code")
@@ -81,7 +80,7 @@ COREUTILS_MODULES = [
     "chroot",
     "runcon",
     "stty",
-    "sort",
+    # "sort",
     "unexpand",
     "wc",
     "shred",

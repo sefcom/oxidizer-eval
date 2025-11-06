@@ -5,12 +5,9 @@ from tempfile import NamedTemporaryFile
 import traceback
 import shutil
 import json
-from typing import Dict
 
 from eval.result import DecompileResult
 from eval.config import GHIDRA_PATH, RESULT_DIR
-
-l = logging.getLogger(__name__)
 
 GHIDRA_PRE_DEC_SCRIPT = r"""
 options = getCurrentAnalysisOptionsAndValues(currentProgram)
@@ -138,8 +135,8 @@ with open("%RESULT_PATH%", "w") as fd:
 """
 
 
-def ghidra_dec(binary_path, target_functions, tag):
-    assert os.path.exists(binary_path)
+def ghidra_dec(binary_path, target_functions, tag, *args, **kwargs):
+    l = logging.getLogger(tag)
     binary_path = os.path.abspath(binary_path)
     binary_name = os.path.basename(binary_path)
 
