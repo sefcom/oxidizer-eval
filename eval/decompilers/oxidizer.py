@@ -12,5 +12,5 @@ def _extract_function_body(output):
     return "\n".join(body)
 
 
-def oxidizer_dec(binary_path, function_list, tag, *args, **kwargs):
-    return _angr_dec_base(binary_path, function_list, tag, _extract_function_body, True)
+def oxidizer_dec(binary_path, function_list, tag, symbols, *args, **kwargs):
+    return _angr_dec_base(binary_path, function_list, tag, _extract_function_body, True, symbols=symbols)

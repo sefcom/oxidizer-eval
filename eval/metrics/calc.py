@@ -257,7 +257,7 @@ def _normalize_dwarf_type(dwarf_type: Type, recursive=True):
     return None, None
 
 
-def generate_type_eval_result(variable_types, ground_truth, prototype: Prototype):
+def generate_type_eval_result(variable_types, ground_truth, prototype: Prototype, debug=False):
     result = defaultdict(int)
     ident_to_dwarf_vars = defaultdict(list)
     for var in ground_truth:
@@ -298,8 +298,11 @@ def generate_type_eval_result(variable_types, ground_truth, prototype: Prototype
             for j, dwarf_var in enumerate(dwarf_vars):
                 true_type = _normalize_dwarf_type(dwarf_var.type)
                 category = true_type[0]
+                if pred_type[0] == "enum":
+                    if debug:
+                        l.info(f"Predicted enum type: {pred_type} GT {true_type}")
                 if tuple(pred_type) == true_type or (
-                    category == "enum" and pred_type[0] == "struct" and true_type[1] == pred_type[1]
+                    category == "enum" and pred_type[0] in ("Result", "Option") and true_type[1] == pred_type[1]
                 ):
                     matched_gt.add(j)
                     matched_pred.add(i)

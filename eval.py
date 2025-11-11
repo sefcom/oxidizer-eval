@@ -3,6 +3,7 @@ from concurrent.futures import Future, ProcessPoolExecutor, as_completed
 import os
 from pathlib import Path
 import logging
+from pprint import pformat
 import resource
 import time
 from typing import Dict, List
@@ -30,11 +31,11 @@ CACHE_ONLY = False  # Debug mode: only use cached results, do not run decompiler
 
 DEC_OPTIONS = {
     "Source": {"dec_func": dummy_dec, "cache_only": True, "timeout": 0},
-    "angr": {"dec_func": angr_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
-    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
-    "IDA": {"dec_func": ida_dec, "cache_only": False or CACHE_ONLY, "timeout": 60},
-    "Ghidra": {"dec_func": ghidra_dec, "cache_only": False or CACHE_ONLY, "timeout": 150},
-    "Binary Ninja": {"dec_func": binja_dec, "cache_only": False or CACHE_ONLY, "timeout": 60},
+    "angr": {"dec_func": angr_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
+    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False or CACHE_ONLY, "timeout": 180},
+    "IDA": {"dec_func": ida_dec, "cache_only": True or CACHE_ONLY, "timeout": 60},
+    "Ghidra": {"dec_func": ghidra_dec, "cache_only": True or CACHE_ONLY, "timeout": 150},
+    "Binary Ninja": {"dec_func": binja_dec, "cache_only": True or CACHE_ONLY, "timeout": 60},
     "Binary Ninja (Pseudo Rust)": {"dec_func": dummy_dec, "cache_only": True or CACHE_ONLY, "timeout": 0},
 }
 
@@ -95,19 +96,6 @@ def compute_binary_eval_result(binary_path, tag, symbols):
             continue
         func_ground_truth = FunctionGroundTruth.load(ground_truth_path)
 
-        # Debug macro recovery
-        oxidizer_result_path = RESULT_DIR / tag / "Oxidizer" / binary_name / f"{func_addr:x}.json"
-        oxidizer_stripped_result_path = RESULT_DIR / tag / "Oxidizer (Stripped)" / binary_name / f"{func_addr:x}.json"
-        if oxidizer_result_path.exists() and oxidizer_stripped_result_path.exists():
-            func_name = symbols.get(f"{func_addr:x}", f"sub_{func_addr:x}")
-            func_result = DecompileResult.load_json(oxidizer_result_path)
-            l.debug(f"Oxidizer recovered macros for function {func_name}: {func_result.macro_call_counts}")
-            func_stripped_result = DecompileResult.load_json(oxidizer_stripped_result_path)
-            l.debug(
-                f"Oxidizer (Stripped) recovered macros for function {func_name}: {func_stripped_result.macro_call_counts}"
-            )
-            l.debug(f"Ground truth macros for function {func_name}: {func_ground_truth.macros}")
-
         for decompiler in DECOMPILERS:
             # Initialize function eval result if not exists
             if func_addr not in func_eval_results[decompiler]:
@@ -127,6 +115,8 @@ def compute_binary_eval_result(binary_path, tag, symbols):
                 func_eval_result.add_result(NUM_MATCHED_FUNCTION_CALLS, sum(func_ground_truth.calls.values()))
                 func_eval_result.add_result(NUM_EXTRANEOUS_FUNCTION_CALLS, 0)
                 func_eval_result.add_result(NUM_MATCHED_MACRO_CALLS, sum(func_ground_truth.macros.values()))
+                for macro_name, count in func_ground_truth.macros.items():
+                    func_eval_result.add_result(f"macro_call_{macro_name}", count)
             else:
                 # Try to load decompilation result
                 result_path = RESULT_DIR / tag / decompiler / binary_name / f"{func_addr:x}.json"
@@ -200,9 +190,19 @@ def compute_binary_eval_result(binary_path, tag, symbols):
                     NUM_MATCHED_MACRO_CALLS,
                     num_matched_macro_calls(func_result.macro_call_counts, func_ground_truth.macros),
                 )
+                if decompiler == "Oxidizer":
+                    l.info(f"Evaluating on function: {func_addr:x}")
+                    for macro_name, count in func_result.macro_call_counts.items():
+                        func_eval_result.add_result(f"macro_call_{macro_name}", count)
+                #     l.info(f"---Function: {func_addr:x}---")
+                #     l.info(f"Ground truth macro calls: {func_ground_truth.macros}")
+                #     l.info(f"Decompiled macro calls: {func_result.macro_call_counts}")
 
                 type_eval_result, dwarf_var_to_predicted_types = generate_type_eval_result(
-                    func_result.variable_types, func_ground_truth.variable_types, func_ground_truth.prototype
+                    func_result.variable_types,
+                    func_ground_truth.variable_types,
+                    func_ground_truth.prototype,
+                    debug=(decompiler == "Oxidizer"),
                 )
                 for metric in type_eval_result:
                     func_eval_result.add_result(metric, type_eval_result[metric])
@@ -255,9 +255,9 @@ class Scheduler:
             binary_path = TARGET_STRIPPED_DIR / tag / filename
             if not binary_path.is_file() or "." in filename:
                 continue
-            # if filename not in COREUTILS_MODULES:
-            #     continue
-            # if filename != "fmt":
+            if filename not in COREUTILS_MODULES:
+                continue
+            # if filename != "mknod":
             #     continue
             binary_paths.append(str(binary_path.resolve()))
         for binary_path in binary_paths:
@@ -313,7 +313,11 @@ class Scheduler:
 
     def _show_overall_results(self):
         for tag in self._results:
-            l.info(f"Overall evaluation result for tag {tag}:\n{self._results[tag]}")
+            for logger in (l, logging.getLogger(tag)):
+                logger.info(f"================ Overall Evaluation Result for tag {tag} ================")
+                logger.info(f"Overall evaluation result for tag {tag}:\n{self._results[tag]}")
+                logger.info(self._results[tag].to_latex(tag))
+                logger.info(self._results[tag].to_latex_type_eval(tag))
 
     def run(self):
         for tag in self._tag_to_tasks:
@@ -342,13 +346,18 @@ class Scheduler:
 if __name__ == "__main__":
     init_logger("oxidizer-eval")
 
-    toolchains = ("nightly-2025-05-22", "nightly-2023-05-22")
-    optimization_levels = ("0", "1", "2", "3", "s", "z")
+    # toolchains = ("nightly-2025-05-22", "nightly-2023-05-22")
+    # optimization_levels = ("0", "1", "2", "3", "s", "z")
+    toolchains = ("nightly-2023-05-22",)
+    optimization_levels = ("3",)
+    tags = (
+        "nightly-2023-05-22-O3",
+        # "nightly-2025-05-22-O0",
+        # "nightly-2025-05-22-O3",
+    )
 
     scheduler = Scheduler()
 
-    for toolchain in toolchains:
-        for opt_level in optimization_levels:
-            tag = f"{toolchain}-O{opt_level}"
-            scheduler.schedule_tasks(tag)
+    for tag in tags:
+        scheduler.schedule_tasks(tag)
     scheduler.run()
