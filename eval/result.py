@@ -207,6 +207,19 @@ class EvalResult:
         for macro_name, count in sorted(oxidizer_macro_call_counts.items(), key=lambda x: x[1], reverse=True):
             output += f"  {macro_name}: {count}\n"
 
+        target_sum = 0
+        total_sum = 0
+        for key in oxidizer_macro_call_counts:
+            if key not in gt_macro_call_counts:
+                output += f"  {key}: 0\n"
+
+        for key in gt_macro_call_counts:
+            gt_count = gt_macro_call_counts[key]
+            if key in oxidizer_macro_call_counts:
+                target_sum += gt_count
+            total_sum += gt_count
+        output += f"\nOxidizer covered {target_sum} out of {total_sum} macro calls in ground truth.\n"
+
         return output
 
     def to_latex(self, tag) -> str:
@@ -216,7 +229,15 @@ class EvalResult:
         latex = []
         latex.append("\\begin{table*}[ht]")
         latex.append("\\centering")
-        latex.append(f"\\caption{{Evaluation results on conciseness and fidelity metrics for {tag}.}}")
+        latex.append(
+            "\\caption{"
+            f"Evaluation results on conciseness and fidelity metrics for the {tag} dataset. "
+            f"{self.total_functions:,} functions are evaluated across {self.total_binaries:,} binaries. "
+            f"We present average and median values per function for each metric. "
+            f"We also show percentage relative to the source code in parentheses for average values. "
+            f"The best average values per metric are highlighted in \\winner{{bold}}."
+            "}"
+        )
         latex.append(f"\\label{{table:eval_result_{tag}}}")
         latex.append("\\footnotesize")
         latex.append("\\resizebox{\\textwidth}{!}{%")
@@ -266,6 +287,8 @@ class EvalResult:
         }
 
         for metric in METRICS:
+            if metric == NUM_GOTOS:
+                latex.append(f"\\cmidrule{{1-{2 * len(DECOMPILERS) + 1}}}")
             row = [metric_mappings.get(metric, metric)]
             # Collect all values first for comparison
             # sums = [self._sum(d, metric) for d in DECOMPILERS]
@@ -291,13 +314,13 @@ class EvalResult:
                     avg_fmt = f"{avgs[i]:.2f}"
                 else:
                     avg_fmt = (
-                        f"{avgs[i]:.2f} ({avgs[i] / self._average('Source', metric) * 100:.1f}\\%)"
+                        f"{avgs[i]:.2f} ({avgs[i] / self._average('Source', metric) * 100:,.1f}\\%)"
                         if self._average("Source", metric) > 0
                         else f"{avgs[i]:.2f}"
                     )
 
                 avg_str = winner_fmt(avg_fmt, decompiler == best_decompiler)
-                med_str = winner_fmt(f"{int(meds[i])}", decompiler == best_decompiler)
+                med_str = f"{int(meds[i])}"
 
                 row.extend([avg_str, med_str])
 
@@ -375,7 +398,14 @@ class EvalResult:
 
         latex = []
         latex.append("\\begin{table*}[bt]")
-        latex.append(f"\\caption{{Type inference evaluation results across decompilers for {tag}.}}")
+        latex.append(
+            "\\caption{"
+            f"Type inference evaluation results across decompilers for the {tag} dataset. "
+            "The precision, recall, and F1 score are reported per type category, and the best scores are highlighted in \\winner{bold}. "
+            "The total number of types per category is also provided. "
+            "For struct and enum types, \\dec outperforms other decompilers on all scores."
+            "}"
+        )
         latex.append(f"\\label{{table:type_eval_result_{tag}}}")
         latex.append("\\centering")
         latex.append("\\resizebox{\\textwidth}{!}{")

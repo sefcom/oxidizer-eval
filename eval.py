@@ -27,15 +27,15 @@ def dummy_dec(*args, **kwargs):
     pass
 
 
-CACHE_ONLY = False  # Debug mode: only use cached results, do not run decompilers
+CACHE_ONLY = True  # Debug mode: only use cached results, do not run decompilers
 
 DEC_OPTIONS = {
     "Source": {"dec_func": dummy_dec, "cache_only": True, "timeout": 0},
-    "angr": {"dec_func": angr_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
+    "angr": {"dec_func": angr_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
     "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False or CACHE_ONLY, "timeout": 180},
-    "IDA": {"dec_func": ida_dec, "cache_only": True or CACHE_ONLY, "timeout": 60},
-    "Ghidra": {"dec_func": ghidra_dec, "cache_only": True or CACHE_ONLY, "timeout": 150},
-    "Binary Ninja": {"dec_func": binja_dec, "cache_only": True or CACHE_ONLY, "timeout": 60},
+    "IDA": {"dec_func": ida_dec, "cache_only": False or CACHE_ONLY, "timeout": 60},
+    "Ghidra": {"dec_func": ghidra_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
+    "Binary Ninja": {"dec_func": binja_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
     "Binary Ninja (Pseudo Rust)": {"dec_func": dummy_dec, "cache_only": True or CACHE_ONLY, "timeout": 0},
 }
 
@@ -128,6 +128,10 @@ def compute_binary_eval_result(binary_path, tag, symbols):
 
                 decompilation = func_result.decompilation
 
+                if "fn UnresolvableJumpTarget" in decompilation:
+                    del func_eval_results[decompiler][func_addr]
+                    continue
+
                 # Conciseness Metric-0: Number of lines of code
                 mcc_value = mcc(decompilation)
                 if mcc_value is None:
@@ -158,6 +162,9 @@ def compute_binary_eval_result(binary_path, tag, symbols):
                 func_eval_result.add_result(NUM_GOTOS, num_gotos(decompilation))
 
                 # Fidelity Metric-2: Number of matched string literals
+                # l.info(
+                #     f"Evaluating string literals for function {func_addr:x} {binary_name} decompiled by {decompiler}"
+                # )
                 func_eval_result.add_result(
                     NUM_MATCHED_STRING_LITERALS,
                     num_matched_string_literals(decompilation, func_ground_truth.string_literals),
@@ -191,7 +198,6 @@ def compute_binary_eval_result(binary_path, tag, symbols):
                     num_matched_macro_calls(func_result.macro_call_counts, func_ground_truth.macros),
                 )
                 if decompiler == "Oxidizer":
-                    l.info(f"Evaluating on function: {func_addr:x}")
                     for macro_name, count in func_result.macro_call_counts.items():
                         func_eval_result.add_result(f"macro_call_{macro_name}", count)
                 #     l.info(f"---Function: {func_addr:x}---")
@@ -253,11 +259,11 @@ class Scheduler:
         binary_paths = []
         for filename in os.listdir(TARGET_STRIPPED_DIR / tag):
             binary_path = TARGET_STRIPPED_DIR / tag / filename
-            if not binary_path.is_file() or "." in filename:
+            if not binary_path.is_file() or "." in filename.replace(".elf", ""):
                 continue
-            if filename not in COREUTILS_MODULES:
-                continue
-            # if filename != "mknod":
+            # if filename not in COREUTILS_MODULES:
+            #     continue
+            # if filename != "forc-tx":
             #     continue
             binary_paths.append(str(binary_path.resolve()))
         for binary_path in binary_paths:
@@ -351,9 +357,11 @@ if __name__ == "__main__":
     toolchains = ("nightly-2023-05-22",)
     optimization_levels = ("3",)
     tags = (
+        # "malware",
         "nightly-2023-05-22-O3",
         # "nightly-2025-05-22-O0",
         # "nightly-2025-05-22-O3",
+        # "open-source-malware",
     )
 
     scheduler = Scheduler()
