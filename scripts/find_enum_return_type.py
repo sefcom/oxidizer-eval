@@ -1,32 +1,18 @@
-import os
 from pathlib import Path
+import json
 
-DECOMPILERS = (
-    "Source",
-    "Oxidizer",
-    "angr",
-    "IDA",
-    "Ghidra",
-    "Binary Ninja",
-    "Binary Ninja (Pseudo Rust)",
-)
-# DECOMPILERS = ("Source", "Oxidizer", "angr", "IDA", "Ghidra", "Binary Ninja", "Binary Ninja (Pseudo Rust)")
-
-IDA_PATH = os.path.abspath("tools/idapro-9.0/idat64")
-GHIDRA_PATH = os.path.abspath("tools/ghidra_11.2.1_PUBLIC/support/analyzeHeadless")
-IDA_SCRIPTS_PATH = os.path.abspath("scripts/ida")
-CACHE_DIR = os.path.abspath("output")
-CACHED_DECOMPILED_CODE_PATH = os.path.abspath("output/decompiled_code")
-CACHED_CALL_COUNTS_PATH = os.path.abspath("output/call_counts")
-CACHED_OTHER_PATH = os.path.abspath("output/other")
-CACHED_GROUND_TRUTH_PATH = os.path.abspath("output/ground_truth")
-CACHED_DWARF_GROUND_TRUTH_PATH = os.path.abspath("output/dwarf")
-CACHED_MALWARE_CALLS_PATH = os.path.abspath("output/malware_calls.json")
-CACHED_INFERRED_PROTOTYPES_PATH = os.path.abspath("output/inferred_prototypes")
-
-RESULT_DIR = Path("output/result").absolute()
-FLIRT_SIGS_DIR = Path("targets/flirt-sigs").absolute()
-
+# for json_file in Path("/home/ubuntu/workspace/oxidizer-eval/targets/merged_ground_truth/nightly-2025-05-22-O3").glob(
+#     "**/*.json"
+# ):
+#     with open(json_file, "r") as f:
+#         data = json.load(f)
+#         returnty = data["prototype"]["returnty"]
+#         if (
+#             returnty["kind"] == "Enumeration"
+#             and not returnty["name"].startswith("Result")
+#             and not returnty["name"].startswith("Option")
+#         ):
+#             print(f"{json_file}: {returnty}")
 
 COREUTILS_MODULES = [
     "df",
@@ -132,3 +118,19 @@ COREUTILS_MODULES = [
     "logname",
     "arch",
 ]
+
+
+for json_file in Path("/home/ubuntu/workspace/oxidizer-eval/targets/merged_ground_truth/nightly-2025-05-22-O0").glob(
+    "**/*.json"
+):
+    if json_file.parent.name not in COREUTILS_MODULES:
+        continue
+    with open(json_file, "r") as f:
+        data = json.load(f)
+        returnty = data["prototype"]["returnty"]
+        if (
+            returnty["kind"] == "Enumeration"
+            and (returnty["name"].startswith("Result") or returnty["name"].startswith("Option"))
+            and returnty["size"] > 16
+        ):
+            print(f"{json_file}: {returnty}")

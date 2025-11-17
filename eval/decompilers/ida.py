@@ -136,9 +136,7 @@ if __name__ == "__main__":
 """
 
 
-def ida_dec(binary_path, target_functions, tag):
-    assert os.path.exists(binary_path)
-
+def ida_dec(binary_path, target_functions, tag, *args, **kwargs):
     binary_name = os.path.basename(binary_path)
     result_dir = RESULT_DIR / tag / "IDA" / binary_name
     os.makedirs(result_dir, exist_ok=True)

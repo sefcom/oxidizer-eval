@@ -2,6 +2,7 @@ from collections import defaultdict
 import json
 import re
 import logging
+from pprint import pprint, pformat
 
 from angr.rust.utils.library import demangle
 
@@ -203,8 +204,22 @@ def _num_extraneous(d1, d2):
     return result
 
 
+def _normalize_string_literals(string_literals):
+    result = defaultdict(int)
+    for k, v in string_literals.items():
+        result[re.sub(r"\{.+?\}", "{}", k).replace(" ", "").replace("\\\n", "")] += v
+    return dict(result)
+
+
 def num_matched_string_literals(output, ground_truth):
     string_literals = collect_string_literals(output)
+    string_literals = _normalize_string_literals(string_literals)
+    ground_truth = _normalize_string_literals(ground_truth)
+    # l.warning(f"{pformat(string_literals)=}")
+    # l.warning(f"{pformat(ground_truth)=}")
+    # for key in ground_truth:
+    #     if key not in string_literals:
+    #         l.warning(f"Ground truth string literal '{key}' not found in output.")
     return _num_matched(string_literals, ground_truth)
 
 
@@ -257,7 +272,7 @@ def _normalize_dwarf_type(dwarf_type: Type, recursive=True):
     return None, None
 
 
-def generate_type_eval_result(variable_types, ground_truth, prototype: Prototype):
+def generate_type_eval_result(variable_types, ground_truth, prototype: Prototype, debug=False):
     result = defaultdict(int)
     ident_to_dwarf_vars = defaultdict(list)
     for var in ground_truth:
@@ -298,8 +313,11 @@ def generate_type_eval_result(variable_types, ground_truth, prototype: Prototype
             for j, dwarf_var in enumerate(dwarf_vars):
                 true_type = _normalize_dwarf_type(dwarf_var.type)
                 category = true_type[0]
+                if pred_type[0] == "enum":
+                    if debug:
+                        l.info(f"Predicted enum type: {pred_type} GT {true_type}")
                 if tuple(pred_type) == true_type or (
-                    category == "enum" and pred_type[0] == "struct" and true_type[1] == pred_type[1]
+                    category == "enum" and pred_type[0] in ("Result", "Option") and true_type[1] == pred_type[1]
                 ):
                     matched_gt.add(j)
                     matched_pred.add(i)

@@ -17,7 +17,6 @@ from eval.config import RESULT_DIR, FLIRT_SIGS_DIR
 from eval.result import DecompileResult
 from eval.type_recovery.function_prototype import Type
 
-
 l = logging.getLogger("oxidizer-eval")
 
 
@@ -70,7 +69,16 @@ def _dump_variable_types(decompiler):
         count = Counter(vartypes)
         vartypes = sorted(
             count.copy(),
-            key=lambda x, ct=count: (isinstance(x, (SimTypeChar, SimTypeInt, SimTypeFloat)), ct[x], repr(x)),
+            key=lambda x, ct=count: (
+                isinstance(x, (SimTypeChar, SimTypeInt, SimTypeFloat)),
+                ct[x],
+                (
+                    0
+                    if repr(x).startswith("struct")
+                    else (1 if repr(x).startswith("Option") or repr(x).startswith("Result") else 2)
+                ),
+                repr(x),
+            ),
         )
         types = [_normalize_type(ty.with_arch(decompiler.project.arch)).to_tuple() for ty in vartypes][:1]
         if isinstance(var, SimStackVariable):
@@ -166,12 +174,9 @@ def _reachable_functions(proj, target_functions):
     return reachable_functions
 
 
-def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, is_rust_binary, stripped=False):
+def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, is_rust_binary, symbols):
+    ll = logging.getLogger(tag)
     decompiler_name = "Oxidizer" if is_rust_binary else "angr"
-    if stripped:
-        decompiler_name += " (Stripped)"
-        binary_path = binary_path.replace("/release/", "/stripped/")
-        l.info(f"Using stripped binary for decompilation: {binary_path}")
 
     assert os.path.exists(binary_path)
 
@@ -187,19 +192,30 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
     if not decompiled_functions.issuperset(target_functions):
         cfg = proj.analyses.CFGFast(normalize=True)
 
-        if stripped:
+        if proj.is_rust_binary:
             try:
                 sig_path = str(FLIRT_SIGS_DIR / (tag + ".sig"))
-                l.info(f"Loading FLIRT signature from {sig_path} for {tag}")
+                ll.info(f"Loading FLIRT signature from {sig_path} for {tag}")
                 proj.analyses.Flirt(sig_path)
                 proj.analyses.FlirtSigPropagation(cfg=cfg)
                 proj.analyses.CleanupFunctionIdentification()
             except Exception as e:
-                l.error(f"Failed to load FLIRT signatures for {tag}: {e}")
-                l.error(traceback.format_exc())
+                ll.error(f"Failed to load FLIRT signatures for {tag}: {e}")
+                ll.error(traceback.format_exc())
 
-        if proj.is_rust_binary:
-            proj.analyses.KnownTypeLoader()
+            # Debug symbol recovery
+            matches, mismatches = 0, 0
+            for func in proj.kb.functions.values():
+                func_addr = str(func.addr - proj.loader.main_object.mapped_base)
+                symbol = symbols.get(func_addr, None)
+                if symbol is not None:
+                    if func.demangled_name == symbol:
+                        matches += 1
+                    else:
+                        mismatches += 1
+            l.info(
+                f"{matches} matches and {mismatches} mismatches between symbols and function names for {binary_name}"
+            )
 
         start_time = time.time()
         ccca = proj.analyses.CompleteCallingConventions(
@@ -208,10 +224,13 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
                 proj, [addr + proj.loader.main_object.mapped_base for addr in target_functions]
             ),
         )
-        l.info(
+        ll.info(
             f"{ccca._total_funcs}/{len(proj.kb.functions)} functions analyzed for calling conventions in {binary_name}"
         )
-        l.info(f"CompleteCallingConventions took {time.time() - start_time:.2f} seconds for {binary_path}")
+        ll.info(f"CompleteCallingConventions took {time.time() - start_time:.2f} seconds for {binary_path}")
+
+        if proj.is_rust_binary:
+            proj.analyses.KnownTypeLoader()
 
         for func_addr in proj.kb.functions:
             rebased_func_addr = func_addr - proj.loader.main_object.mapped_base
@@ -236,9 +255,9 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
                 except MemoryError as e:
                     raise
                 except BaseException as e:
-                    l.error(f"Failed to decompile function at {rebased_func_addr:x} for {binary_name}: {e}")
-                    l.error(traceback.format_exc())
+                    ll.error(f"Failed to decompile function at {rebased_func_addr:x} for {binary_name}: {e}")
+                    ll.error(traceback.format_exc())
 
 
-def angr_dec(binary_path, target_functions, tag):
-    _angr_dec_base(binary_path, target_functions, tag, _extract_function_body, False)
+def angr_dec(binary_path, target_functions, tag, symbols, *args, **kwargs):
+    _angr_dec_base(binary_path, target_functions, tag, _extract_function_body, False, symbols)

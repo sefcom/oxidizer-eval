@@ -1,52 +1,47 @@
 #!/usr/bin/env python3
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import Future, ProcessPoolExecutor, as_completed
 import os
 from pathlib import Path
 import logging
+from pprint import pformat
 import resource
 import time
-from datetime import datetime
-import pytz
+from typing import Dict, List
 
 from eval.config import COREUTILS_MODULES, DECOMPILERS, RESULT_DIR
 from eval.metrics import *
 from eval.metrics.calc import *
 from eval.metrics.ground_truth import FunctionGroundTruth
 from eval.decompilers.ida import ida_dec
-from eval.decompilers.oxidizer import oxidizer_dec, oxidizer_stripped_dec
+from eval.decompilers.oxidizer import oxidizer_dec
 from eval.decompilers.angr import angr_dec
 from eval.decompilers.ghidra import ghidra_dec
 from eval.decompilers.binja import binja_dec
+
 from eval.result import DecompileResult, FuncEvalResult, EvalResult
 from eval.utils.timeout import run_with_timeout
+from eval.utils.logging import init_logger
 
 
 def dummy_dec(*args, **kwargs):
     pass
 
 
-CACHE_ONLY = False  # Debug mode: only use cached results, do not run decompilers
-PROCESSES = 16
-MAX_MEMORY_GB = 32
+CACHE_ONLY = True  # Debug mode: only use cached results, do not run decompilers
 
 DEC_OPTIONS = {
     "Source": {"dec_func": dummy_dec, "cache_only": True, "timeout": 0},
     "angr": {"dec_func": angr_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
-    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
-    "Oxidizer (Stripped)": {"dec_func": oxidizer_stripped_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
+    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False or CACHE_ONLY, "timeout": 180},
     "IDA": {"dec_func": ida_dec, "cache_only": False or CACHE_ONLY, "timeout": 60},
-    "Ghidra": {"dec_func": ghidra_dec, "cache_only": False or CACHE_ONLY, "timeout": 180},
+    "Ghidra": {"dec_func": ghidra_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
     "Binary Ninja": {"dec_func": binja_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
     "Binary Ninja (Pseudo Rust)": {"dec_func": dummy_dec, "cache_only": True or CACHE_ONLY, "timeout": 0},
 }
 
-TARGET_RELEASE_DIR = Path("targets/release").absolute()
-TARGET_DEBUG_DIR = Path("targets/debug").absolute()
 TARGET_STRIPPED_DIR = Path("targets/stripped").absolute()
 TARGET_GROUND_TRUTH_DIR = Path("targets/merged_ground_truth").absolute()
 TARGET_SYMBOLS_DIR = Path("targets/symbols").absolute()
-LOG_DIR = Path("output/log").absolute()
-EXCLUDED_FUNCTIONS = ["uu_sort::exec"]
 
 l = logging.getLogger("oxidizer-eval")
 
@@ -63,24 +58,26 @@ def load_function_addresses(binary_path, tag):
             yield func_addr
 
 
-def decompile_binary(binary_path, tag, target_functions, decompiler, symbols):
+def decompile_binary(binary_path, tag, decompiler, symbols):
     binary_name = os.path.basename(binary_path)
+    target_functions = set(load_function_addresses(binary_path, tag))
 
     dec_func = DEC_OPTIONS[decompiler]["dec_func"]
+    cache_only = DEC_OPTIONS[decompiler]["cache_only"]
+    timeout = DEC_OPTIONS[decompiler]["timeout"] * 60  # minutes to seconds
+
+    if cache_only:
+        return
 
     l.info(f"Decompiling {binary_name} with {decompiler}...")
-    if decompiler == "Binary Ninja":
-        dec_func(binary_path, target_functions, tag, symbols)
-    else:
-        dec_func(binary_path, target_functions, tag)
-
-
-def decompile_binary_safe(binary_path, tag, target_functions, decompiler, symbols):
+    start = time.time()
     try:
-        decompile_binary(binary_path, tag, target_functions, decompiler, symbols)
+        run_with_timeout(dec_func, binary_path, target_functions, tag, symbols, timeout=timeout)
     except Exception as e:
-        l.error(f"{type(e)}: Failed to decompile binary {binary_path}: {e}")
+        l.error(f"{decompiler}: Failed to decompile binary {binary_path}({e})")
         l.error(traceback.format_exc())
+    end = time.time()
+    l.info(f"Decompiled {binary_name} with {decompiler} in {end - start:.2f} seconds.")
 
 
 def compute_binary_eval_result(binary_path, tag, symbols):
@@ -98,19 +95,6 @@ def compute_binary_eval_result(binary_path, tag, symbols):
             l.error(f"Ground truth file does not exist: {ground_truth_path}")
             continue
         func_ground_truth = FunctionGroundTruth.load(ground_truth_path)
-
-        # Debug macro recovery
-        oxidizer_result_path = RESULT_DIR / tag / "Oxidizer" / binary_name / f"{func_addr:x}.json"
-        oxidizer_stripped_result_path = RESULT_DIR / tag / "Oxidizer (Stripped)" / binary_name / f"{func_addr:x}.json"
-        if oxidizer_result_path.exists() and oxidizer_stripped_result_path.exists():
-            func_name = symbols.get(f"{func_addr:x}", f"sub_{func_addr:x}")
-            func_result = DecompileResult.load_json(oxidizer_result_path)
-            l.debug(f"Oxidizer recovered macros for function {func_name}: {func_result.macro_call_counts}")
-            func_stripped_result = DecompileResult.load_json(oxidizer_stripped_result_path)
-            l.debug(
-                f"Oxidizer (Stripped) recovered macros for function {func_name}: {func_stripped_result.macro_call_counts}"
-            )
-            l.debug(f"Ground truth macros for function {func_name}: {func_ground_truth.macros}")
 
         for decompiler in DECOMPILERS:
             # Initialize function eval result if not exists
@@ -131,6 +115,8 @@ def compute_binary_eval_result(binary_path, tag, symbols):
                 func_eval_result.add_result(NUM_MATCHED_FUNCTION_CALLS, sum(func_ground_truth.calls.values()))
                 func_eval_result.add_result(NUM_EXTRANEOUS_FUNCTION_CALLS, 0)
                 func_eval_result.add_result(NUM_MATCHED_MACRO_CALLS, sum(func_ground_truth.macros.values()))
+                for macro_name, count in func_ground_truth.macros.items():
+                    func_eval_result.add_result(f"macro_call_{macro_name}", count)
             else:
                 # Try to load decompilation result
                 result_path = RESULT_DIR / tag / decompiler / binary_name / f"{func_addr:x}.json"
@@ -141,6 +127,10 @@ def compute_binary_eval_result(binary_path, tag, symbols):
                 func_result = DecompileResult.load_json(result_path)
 
                 decompilation = func_result.decompilation
+
+                if "fn UnresolvableJumpTarget" in decompilation:
+                    del func_eval_results[decompiler][func_addr]
+                    continue
 
                 # Conciseness Metric-0: Number of lines of code
                 mcc_value = mcc(decompilation)
@@ -172,6 +162,9 @@ def compute_binary_eval_result(binary_path, tag, symbols):
                 func_eval_result.add_result(NUM_GOTOS, num_gotos(decompilation))
 
                 # Fidelity Metric-2: Number of matched string literals
+                # l.info(
+                #     f"Evaluating string literals for function {func_addr:x} {binary_name} decompiled by {decompiler}"
+                # )
                 func_eval_result.add_result(
                     NUM_MATCHED_STRING_LITERALS,
                     num_matched_string_literals(decompilation, func_ground_truth.string_literals),
@@ -204,9 +197,18 @@ def compute_binary_eval_result(binary_path, tag, symbols):
                     NUM_MATCHED_MACRO_CALLS,
                     num_matched_macro_calls(func_result.macro_call_counts, func_ground_truth.macros),
                 )
+                if decompiler == "Oxidizer":
+                    for macro_name, count in func_result.macro_call_counts.items():
+                        func_eval_result.add_result(f"macro_call_{macro_name}", count)
+                #     l.info(f"---Function: {func_addr:x}---")
+                #     l.info(f"Ground truth macro calls: {func_ground_truth.macros}")
+                #     l.info(f"Decompiled macro calls: {func_result.macro_call_counts}")
 
                 type_eval_result, dwarf_var_to_predicted_types = generate_type_eval_result(
-                    func_result.variable_types, func_ground_truth.variable_types, func_ground_truth.prototype
+                    func_result.variable_types,
+                    func_ground_truth.variable_types,
+                    func_ground_truth.prototype,
+                    debug=(decompiler == "Oxidizer"),
                 )
                 for metric in type_eval_result:
                     func_eval_result.add_result(metric, type_eval_result[metric])
@@ -229,146 +231,141 @@ def compute_binary_eval_result(binary_path, tag, symbols):
     return eval_result
 
 
-def eval_binary(binary_path, tag):
-    """
-    Evaluate a binary by decompiling it with different decompilers and comparing the results against the ground truth.
-    """
-    binary_name = os.path.basename(binary_path)
-    symbols_path = TARGET_SYMBOLS_DIR / tag / f"{binary_name}.json"
-    with open(symbols_path, "r", encoding="utf-8") as fd:
-        symbols = json.load(fd)
-
-    target_functions = load_function_addresses(binary_path, tag)
-    target_functions = set(
-        addr for addr in target_functions if symbols.get(f"{addr:x}", None) not in EXCLUDED_FUNCTIONS
-    )
-    for decompiler in DECOMPILERS:
-        timeout = DEC_OPTIONS[decompiler]["timeout"] * 60
-        cache_only = DEC_OPTIONS[decompiler]["cache_only"]
-        if cache_only:
-            l.info(f"Skipping decompilation for {binary_name} with {decompiler} since cache_only is set to True. ")
-            continue
-        try:
-            run_with_timeout(
-                decompile_binary_safe, binary_path, tag, target_functions, decompiler, symbols, timeout=timeout
-            )
-        except TimeoutError:
-            l.error(f"Timeout for decompiling binary {binary_path} with {decompiler}")
-    return compute_binary_eval_result(binary_path, tag, symbols)
-
-
-def safe_eval_binary(binary_path, tag):
-    try:
-        return eval_binary(binary_path, tag)
-    except Exception as e:
-        l.error(f"{type(e)}: Failed to evaluate binary {binary_path}: {e}")
-        l.error(traceback.format_exc())
-        return EvalResult(0)
-
-
 def set_memory_limit_gb(limit_gb: int):
     """Set a per-process virtual memory limit in GB."""
     soft, hard = limit_gb * 1024**3, limit_gb * 1024**3
     resource.setrlimit(resource.RLIMIT_AS, (soft, hard))
 
 
-phoenix_tz = pytz.timezone("America/Phoenix")
+@dataclass
+class Task:
+    tag: str
+    decompiler: str
+    binary_path: str
 
 
-def phoenix_time(*args):
-    return datetime.now(phoenix_tz).timetuple()
+class Scheduler:
+    def __init__(self, processes: int = 100, max_memory_gb: int = 32):
+        self.processes = processes
+        self.max_memory_gb = max_memory_gb
 
+        self._tag_to_tasks: Dict[str, List[Task]] = {}
+        self._progress = defaultdict(set)
+        self._results = {}
+        self._future_to_task: Dict[Future, Task] = {}
+        self._binary_path_to_symbols = {}
 
-def init_logger(tag):
-    os.makedirs(LOG_DIR / tag, exist_ok=True)
-    LOG_PATH = LOG_DIR / tag / f"{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}.log"
-    # Create a link to the latest log
-    if (LOG_DIR / tag / "latest.log").exists():
-        os.unlink(LOG_DIR / tag / "latest.log")
-    os.symlink(LOG_PATH, LOG_DIR / tag / "latest.log")
-
-    # Create a named logger
-    logger = logging.getLogger("oxidizer-eval")
-    logger.setLevel(logging.DEBUG)
-
-    # Create handlers
-    file_handler = logging.FileHandler(LOG_PATH, mode="w")
-    stream_handler = logging.StreamHandler()
-
-    # Create formatter and attach to handlers
-    logging.Formatter.converter = time.localtime
-    formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
-    formatter.converter = phoenix_time
-    file_handler.setFormatter(formatter)
-    stream_handler.setFormatter(formatter)
-
-    # Clean previous handlers
-    if logger.hasHandlers():
-        logger.handlers.clear()
-
-    # Attach handlers to the logger
-    logger.addHandler(file_handler)
-    logger.addHandler(stream_handler)
-
-
-def eval(dir_path, tag):
-    init_logger(tag)
-
-    # Find all binaries in dir_path (recursively)
-    binary_paths = []
-
-    for dirpath, _, filenames in os.walk(dir_path):
-        for filename in filenames:
-            if "." in filename or filename == "fselect":
+    def schedule_tasks(self, tag: str):
+        binary_paths = []
+        for filename in os.listdir(TARGET_STRIPPED_DIR / tag):
+            binary_path = TARGET_STRIPPED_DIR / tag / filename
+            if not binary_path.is_file() or "." in filename.replace(".elf", ""):
                 continue
-            binary_paths.append(os.path.join(dirpath, filename))
-
-    # binary_paths = [binary_path for binary_path in binary_paths if os.path.basename(binary_path) in COREUTILS_MODULES]
-    # binary_paths = [binary_path for binary_path in binary_paths if os.path.getsize(binary_path) < 100 * 1024 * 1024]
-    binary_paths_under_30MB = [
-        binary_path for binary_path in binary_paths if os.path.getsize(binary_path) < 30 * 1024 * 1024
-    ]
-    binary_paths_over_30MB = [
-        binary_path
-        for binary_path in binary_paths
-        if 30 * 1024 * 1024 <= os.path.getsize(binary_path) < 100 * 1024 * 1024
-    ]
-
-    l.info(f"Starting evaluation for tag: {tag} ({len(binary_paths)} binaries)")
-
-    future_to_path = {}
-    merged_result = EvalResult(0)
-
-    def callback(future):
-        result = future.result()
-        merged_result.merge(result)
-        binary_path = future_to_path[future]
-        l.info(f"Binary evaluation result for {binary_path}:\n{result}")
-        l.info(f"Current merged evaluation result:\n{merged_result}")
-
-    with ProcessPoolExecutor(16, initializer=set_memory_limit_gb, initargs=(32,)) as executor:
+            # if filename not in COREUTILS_MODULES:
+            #     continue
+            # if filename != "forc-tx":
+            #     continue
+            binary_paths.append(str(binary_path.resolve()))
         for binary_path in binary_paths:
-            future = executor.submit(safe_eval_binary, binary_path, tag)
-            future_to_path[future] = binary_path
-            future.add_done_callback(callback)
+            # Load symbols for the binary
+            binary_name = os.path.basename(binary_path)
+            symbols_path = TARGET_SYMBOLS_DIR / tag / f"{binary_name}.json"
+            if symbols_path.exists():
+                with open(symbols_path, "r") as fd:
+                    symbols = json.load(fd)
+                self._binary_path_to_symbols[binary_path] = symbols
+        tasks = []
+        for binary_path in binary_paths:
+            for decompiler in DECOMPILERS:
+                task = Task(tag=tag, decompiler=decompiler, binary_path=binary_path)
+                tasks.append(task)
+        self._tag_to_tasks[tag] = tasks
 
-    # with ProcessPoolExecutor(PROCESSES, initializer=set_memory_limit_gb, initargs=(MAX_MEMORY_GB,)) as executor:
-    #     for binary_path in binary_paths:
-    #         future = executor.submit(safe_eval_binary, binary_path, tag)
-    #         future_to_path[future] = binary_path
-    #         future.add_done_callback(callback)
+    def _is_finished(self, binary_path: str):
+        return len(self._progress[binary_path]) == len(DECOMPILERS)
 
-    return merged_result
+    def _show_progress(self):
+        for tag, tasks in self._tag_to_tasks.items():
+            l.info(f"Progress for tag {tag}:")
+            binary_paths = set(task.binary_path for task in tasks)
+            finished_binaries = sum(1 for bp in binary_paths if self._is_finished(bp))
+            if finished_binaries > 0:
+                l.info(f"Finished binaries: {finished_binaries}/{len(binary_paths)}")
+                l.info("Ongoing binaries:")
+                for binary_path in binary_paths:
+                    if not self._is_finished(binary_path):
+                        l.info(
+                            f'  Binary {os.path.basename(binary_path)}: {len(self._progress[binary_path])}/{len(DECOMPILERS)} decompilers finished ({", ".join(self._progress[binary_path])}).'
+                        )
+            else:
+                l.info("No binaries finished yet.")
+
+    def _callback(self, future):
+        task = self._future_to_task[future]
+        self._progress[task.binary_path].add(task.decompiler)
+        if self._is_finished(task.binary_path):
+            l.info(f"Completed evaluation for binary {task.binary_path} with all decompilers.")
+            result = compute_binary_eval_result(
+                task.binary_path, task.tag, self._binary_path_to_symbols[task.binary_path]
+            )
+            self._results[task.tag].merge(result)
+            # Log to the task-specific logger
+            logger = logging.getLogger(task.tag)
+            logger.info(f"Task completed: {task.decompiler} on {task.binary_path}")
+            logger.info(result)
+            # Also log to the main logger
+            l.info(f"Updated evaluation result for tag {task.tag}:\n{self._results[task.tag]}")
+            self._show_progress()
+
+    def _show_overall_results(self):
+        for tag in self._results:
+            for logger in (l, logging.getLogger(tag)):
+                logger.info(f"================ Overall Evaluation Result for tag {tag} ================")
+                logger.info(f"Overall evaluation result for tag {tag}:\n{self._results[tag]}")
+                logger.info(self._results[tag].to_latex(tag))
+                logger.info(self._results[tag].to_latex_type_eval(tag))
+
+    def run(self):
+        for tag in self._tag_to_tasks:
+            l.info(
+                f"Starting decompilation tasks for tag {tag}... ({len(self._tag_to_tasks[tag]) // len(DECOMPILERS)} binaries)"
+            )
+        with ProcessPoolExecutor(
+            max_workers=self.processes, initializer=set_memory_limit_gb, initargs=(self.max_memory_gb,)
+        ) as executor:
+            for tag, tasks in self._tag_to_tasks.items():
+                init_logger(tag)
+                self._results[tag] = EvalResult(0)
+                for task in tasks:
+                    future = executor.submit(
+                        decompile_binary,
+                        task.binary_path,
+                        task.tag,
+                        task.decompiler,
+                        self._binary_path_to_symbols[task.binary_path],
+                    )
+                    self._future_to_task[future] = task
+                    future.add_done_callback(self._callback)
+        self._show_overall_results()
 
 
 if __name__ == "__main__":
-    # for toolchain in ("nightly-2025-05-22",):
-    #     for opt_level in ("0",):
-    for toolchain in ("nightly-2025-05-22", "nightly-2023-05-22"):
-        for opt_level in ("0", "1", "2", "3", "s", "z"):
-            # if toolchain == "nightly-2025-05-22" and opt_level == "3":
-            #     continue
-            tag = f"{toolchain}-O{opt_level}"
-            result = eval(TARGET_STRIPPED_DIR / f"{tag}", tag)
-            l.info(f"Final evaluation:\n{result}")
-            l.info(result.to_latex())
+    init_logger("oxidizer-eval")
+
+    # toolchains = ("nightly-2025-05-22", "nightly-2023-05-22")
+    # optimization_levels = ("0", "1", "2", "3", "s", "z")
+    toolchains = ("nightly-2023-05-22",)
+    optimization_levels = ("3",)
+    tags = (
+        # "malware",
+        "nightly-2023-05-22-O3",
+        # "nightly-2025-05-22-O0",
+        # "nightly-2025-05-22-O3",
+        # "open-source-malware",
+    )
+
+    scheduler = Scheduler()
+
+    for tag in tags:
+        scheduler.schedule_tasks(tag)
+    scheduler.run()
