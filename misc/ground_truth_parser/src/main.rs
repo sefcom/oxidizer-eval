@@ -9,7 +9,8 @@ extern crate rustc_middle;
 extern crate rustc_session;
 extern crate rustc_span;
 
-use rustc_ast::token::LitKind;
+use rustc_ast::token::{LitKind, TokenKind};
+use rustc_ast::tokenstream::TokenTree;
 use rustc_ast::visit::{self, Visitor};
 use rustc_ast::{AssocItemKind, BinOpKind::*};
 use rustc_ast::{Expr, ExprKind, Item, ItemKind, MacCall, StmtKind};
@@ -26,6 +27,7 @@ use std::process;
 use walkdir::{DirEntry, WalkDir};
 
 struct Analyzer {
+    ident_to_str: HashMap<String, String>,
     results: HashMap<String, FuncAnalyzer>,
 }
 
@@ -35,9 +37,14 @@ impl Callbacks for Analyzer {
         compiler: &Compiler,
         krate: &mut rustc_ast::Crate,
     ) -> Compilation {
+        let mut const_visitor = ConstVisitor {
+            ident_to_str: &mut self.ident_to_str,
+        };
+        const_visitor.visit_crate(krate);
         let mut visitor = AstFuncVisitor {
             compiler,
             results: &mut self.results,
+            ident_to_str: &const_visitor.ident_to_str,
         };
         visitor.visit_crate(krate);
 
@@ -45,9 +52,30 @@ impl Callbacks for Analyzer {
     }
 }
 
+struct ConstVisitor<'a> {
+    ident_to_str: &'a mut HashMap<String, String>,
+}
+
+impl<'a> Visitor<'a> for ConstVisitor<'a> {
+    fn visit_item(&mut self, item: &'a Item) {
+        if let ItemKind::Static(static_box) = &item.kind {
+            let static_item = static_box.as_ref();
+            let expr = static_item.expr.as_deref().unwrap();
+            if let ExprKind::Lit(lit) = &expr.kind {
+                if let LitKind::Str = lit.kind {
+                    let s = lit.symbol.to_string();
+                    self.ident_to_str.insert(static_item.ident.to_string(), s);
+                }
+            }
+        }
+        visit::walk_item(self, item);
+    }
+}
+
 struct AstFuncVisitor<'a> {
     compiler: &'a Compiler,
     results: &'a mut HashMap<String, FuncAnalyzer>,
+    ident_to_str: &'a HashMap<String, String>,
 }
 
 impl<'a> Visitor<'a> for AstFuncVisitor<'a> {
@@ -72,6 +100,7 @@ impl<'a> Visitor<'a> for AstFuncVisitor<'a> {
                         calls: HashMap::new(),
                         nofops: 0,
                         mcc: 2,
+                        ident_to_str: self.ident_to_str.clone(),
                     };
                     if let Some(last_stmt) = body.stmts.last() {
                         if let StmtKind::Expr(_) = last_stmt.kind {
@@ -112,6 +141,7 @@ impl<'a> Visitor<'a> for AstFuncVisitor<'a> {
                                 calls: HashMap::new(),
                                 nofops: 0,
                                 mcc: 2,
+                                ident_to_str: self.ident_to_str.clone(),
                             };
                             if let Some(last_stmt) = body.stmts.last() {
                                 if let StmtKind::Expr(_) = last_stmt.kind {
@@ -140,11 +170,27 @@ struct FuncAnalyzer {
     calls: HashMap<String, usize>,
     nofops: usize,
     mcc: isize,
+    ident_to_str: HashMap<String, String>,
 }
 
 impl<'a> Visitor<'a> for FuncAnalyzer {
     fn visit_expr(&mut self, expr: &'a Expr) {
         match &expr.kind {
+            ExprKind::Path(_, path) => {
+                let last_segment = path.segments.last();
+                if let Some(last_segment) = last_segment {
+                    let ident = last_segment.ident;
+                    if let Some(replacement) = self.ident_to_str.get(&ident.to_string()) {
+                        *self
+                            .string_literals
+                            .entry(replacement.to_string())
+                            .or_insert(0) += 1;
+                    }
+                }
+            }
+            ExprKind::Closure(_) => {
+                return;
+            }
             ExprKind::Lit(lit) => {
                 if let LitKind::Str = lit.kind {
                     *self
@@ -205,6 +251,25 @@ impl<'a> Visitor<'a> for FuncAnalyzer {
     fn visit_mac_call(&mut self, mac: &'a MacCall) {
         let macro_name = mac.path.segments.last().unwrap().ident.name.to_string();
         *self.macros.entry(macro_name).or_insert(0) += 1;
+        let token_trees = mac.args.tokens.iter();
+        for tree in token_trees {
+            match tree {
+                TokenTree::Token(token, _spacing) => {
+                    match &token.kind {
+                        TokenKind::Literal(lit) => {
+                            if let LitKind::Str = lit.kind {
+                                *self
+                                    .string_literals
+                                    .entry(lit.symbol.to_string())
+                                    .or_insert(0) += 1;
+                            }
+                        }
+                        _ => { /* punctuation, keywords, etc. */ }
+                    }
+                }
+                _ => {}
+            }
+        }
     }
 
     fn visit_stmt(&mut self, stmt: &'a rustc_ast::Stmt) {
@@ -224,6 +289,7 @@ fn parse(file_path: &PathBuf, edition: &str) -> HashMap<String, FuncAnalyzer> {
 
     let caught = panic::catch_unwind(AssertUnwindSafe(|| {
         let mut analyzer = Analyzer {
+            ident_to_str: HashMap::new(),
             results: HashMap::new(),
         };
         run_compiler(&args, &mut analyzer);

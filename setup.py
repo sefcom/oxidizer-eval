@@ -184,6 +184,9 @@ def build_target(target, url, commit, output, toolchain, opt_level):
             if target == "firecracker":
                 # firecracker binary is in a subdirectory
                 target_path = Path(f"{target}/build/cargo_target/release/{binary}")
+            if target == "Auto-Color-Study":
+                # Auto-Color-Study binary is named differently after build
+                target_path = Path(f"{target}/target/x86_64-unknown-linux-gnu/release/{binary}")
             run(f"cp {target_path} {final_target_release_dir}")
             run(f"strip --strip-debug {final_target_release_dir / binary}")
 
@@ -313,8 +316,6 @@ def build_evaluation_targets():
         l.info(f"  Failed builds: {len(failed_builds)}")
         for target, toolchain, opt_level in failed_builds:
             l.info(f"    - {target} (toolchain={toolchain}, opt={opt_level})")
-
-        continue
 
         # Stage-2: Generate ground truth and DWARF
         for opt_level in opt_levels:
