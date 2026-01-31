@@ -68,6 +68,8 @@ pub struct DwarfParser<'a> {
     pub address_to_name: HashMap<u64, String>,
     pub structs: BTreeMap<String, TypeRepr>,
     pub functions: HashMap<String, Function>,
+    /// Maps (unit offset, DIE offset) -> full struct name
+    struct_names: HashMap<(usize, usize), String>,
 }
 
 impl<'a> DwarfParser<'a> {
@@ -115,6 +117,7 @@ impl<'a> DwarfParser<'a> {
             address_to_name,
             structs: BTreeMap::new(),
             functions: HashMap::new(),
+            struct_names: HashMap::new(),
         })
     }
 
@@ -125,28 +128,72 @@ impl<'a> DwarfParser<'a> {
             self.parse_unit(&unit)?;
         }
 
-        // remove variant structs from final map
-        for vs in self.variant_structs.iter() {
-            self.structs.remove(vs);
-        }
-
         Ok(())
     }
 
     fn parse_unit(&mut self, unit: &Unit<EndianSlice<'a, LittleEndian>>) -> Result<()> {
-        let mut entries = unit.entries();
-        while let Some((_, entry)) = entries.next_dfs()? {
-            let tag = entry.tag();
-            match tag {
-                // gimli::DW_TAG_structure_type => {
-                //     self.handle_structure(unit, &entry)?;
-                // }
-                gimli::DW_TAG_subprogram => {
-                    let _ = self.handle_subprogram(unit, &entry);
+        let unit_offset = unit.header.offset().as_debug_info_offset().unwrap().0 as usize;
+
+        // First pass: build struct name mapping
+        {
+            let mut entries = unit.entries();
+            let mut namespace_stack: Vec<String> = Vec::new();
+
+            while let Some((delta_depth, entry)) = entries.next_dfs()? {
+                // Adjust namespace stack based on depth change
+                if delta_depth <= 0 {
+                    for _ in 0..(-delta_depth + 1) {
+                        namespace_stack.pop();
+                    }
                 }
-                _ => {}
+
+                let tag = entry.tag();
+
+                // Record struct full name
+                if tag == gimli::DW_TAG_structure_type {
+                    if let Ok(local_name) = self.string_value(&entry, gimli::DW_AT_name) {
+                        let full_name = {
+                            let mut parts: Vec<&str> = namespace_stack
+                                .iter()
+                                .filter(|s| !s.is_empty())
+                                .map(|s| s.as_str())
+                                .collect();
+                            parts.push(&local_name);
+                            parts.join("::")
+                        };
+                        let key = (unit_offset, entry.offset().0);
+                        self.struct_names.insert(key, full_name);
+                    }
+                }
+
+                // Push to namespace stack
+                let name = match tag {
+                    gimli::DW_TAG_namespace | gimli::DW_TAG_module => {
+                        self.string_value(&entry, gimli::DW_AT_name).ok()
+                    }
+                    _ => None,
+                };
+                namespace_stack.push(name.unwrap_or_default());
             }
         }
+
+        // Second pass: process structs and subprograms
+        {
+            let mut entries = unit.entries();
+            while let Some((_, entry)) = entries.next_dfs()? {
+                let tag = entry.tag();
+                match tag {
+                    gimli::DW_TAG_structure_type => {
+                        let _ = self.handle_structure(unit, &entry);
+                    }
+                    gimli::DW_TAG_subprogram => {
+                        let _ = self.handle_subprogram(unit, &entry);
+                    }
+                    _ => {}
+                }
+            }
+        }
+
         Ok(())
     }
 
@@ -163,6 +210,250 @@ impl<'a> DwarfParser<'a> {
             }
         }
         parts.join("::")
+    }
+
+    fn get_struct_full_name(
+        &self,
+        unit: &Unit<EndianSlice<'a, LittleEndian>>,
+        entry: &gimli::DebuggingInformationEntry<EndianSlice<'a, LittleEndian>>,
+    ) -> Result<String> {
+        let unit_offset = unit.header.offset().as_debug_info_offset().unwrap().0 as usize;
+        let key = (unit_offset, entry.offset().0);
+        match self.struct_names.get(&key) {
+            Some(n) => Ok(n.clone()),
+            None => Err(anyhow!("Cannot find struct name")),
+        }
+    }
+
+    fn handle_structure(
+        &mut self,
+        unit: &Unit<EndianSlice<'a, LittleEndian>>,
+        entry: &gimli::DebuggingInformationEntry<EndianSlice<'a, LittleEndian>>,
+    ) -> Result<()> {
+        // Get full name from struct_names mapping
+        let name = match self.get_struct_full_name(unit, entry) {
+            Ok(n) => n,
+            Err(_) => return Ok(()), // Skip anonymous structs
+        };
+
+        // Get struct size
+        let size = match self.int_value(entry, gimli::DW_AT_byte_size) {
+            Ok(s) => s,
+            Err(_) => return Ok(()), // Skip structs without size (forward declarations)
+        };
+
+        // Try to parse as enum first, then as struct
+        let type_repr = if let Some((discriminant_size, variants)) = self.parse_enum(unit, entry) {
+            self.variant_structs.insert(name.clone());
+            TypeRepr::Enumeration {
+                name: name.clone(),
+                size,
+                discriminant_size,
+                variants: if variants.is_empty() {
+                    None
+                } else {
+                    Some(variants)
+                },
+            }
+        } else {
+            let fields = self.parse_struct_fields(unit, entry);
+            TypeRepr::Struct {
+                name: name.clone(),
+                size,
+                fields: if fields.is_empty() {
+                    None
+                } else {
+                    Some(fields)
+                },
+            }
+        };
+
+        self.structs.insert(name, type_repr);
+        Ok(())
+    }
+
+    /// Parse enum variants from a DW_TAG_variant_part.
+    /// Returns Some((discriminant_size, variants)) if this is an enum, None otherwise.
+    fn parse_enum(
+        &self,
+        unit: &Unit<EndianSlice<'a, LittleEndian>>,
+        entry: &gimli::DebuggingInformationEntry<EndianSlice<'a, LittleEndian>>,
+    ) -> Option<(u64, BTreeMap<String, (i64, Vec<TypeRepr>)>)> {
+        if !entry.has_children() {
+            return None;
+        }
+
+        let mut tree = unit.entries_tree(Some(entry.offset())).ok()?;
+        let root = tree.root().ok()?;
+        let mut children = root.children();
+
+        while let Ok(Some(child)) = children.next() {
+            if child.entry().tag() == gimli::DW_TAG_variant_part {
+                let discriminant_size = self.parse_discriminant_size(unit, child.entry());
+                let variants = self.parse_variants(unit, child);
+                return Some((discriminant_size, variants));
+            }
+        }
+
+        None
+    }
+
+    /// Parse discriminant size from DW_AT_discr attribute.
+    fn parse_discriminant_size(
+        &self,
+        unit: &Unit<EndianSlice<'a, LittleEndian>>,
+        variant_part: &gimli::DebuggingInformationEntry<EndianSlice<'a, LittleEndian>>,
+    ) -> u64 {
+        self.resolve_entry(unit, variant_part, gimli::DW_AT_discr)
+            .and_then(|discr| self.resolve_entry(unit, &discr, gimli::DW_AT_type))
+            .and_then(|discr_type| self.int_value(&discr_type, gimli::DW_AT_byte_size))
+            .unwrap_or(0)
+    }
+
+    /// Parse all variants from a DW_TAG_variant_part node.
+    fn parse_variants(
+        &self,
+        unit: &Unit<EndianSlice<'a, LittleEndian>>,
+        variant_part: gimli::EntriesTreeNode<EndianSlice<'a, LittleEndian>>,
+    ) -> BTreeMap<String, (i64, Vec<TypeRepr>)> {
+        let mut variants = BTreeMap::new();
+        let mut variant_children = variant_part.children();
+
+        while let Ok(Some(variant_node)) = variant_children.next() {
+            if variant_node.entry().tag() != gimli::DW_TAG_variant {
+                continue;
+            }
+
+            let discr_value = self
+                .int_value(variant_node.entry(), gimli::DW_AT_discr_value)
+                .map(|v| v as i64)
+                .unwrap_or(0);
+
+            if let Some((name, fields)) = self.parse_variant_member(unit, variant_node, discr_value)
+            {
+                variants.insert(name, (discr_value, fields));
+            }
+        }
+
+        variants
+    }
+
+    /// Parse a single variant's member (name and fields).
+    fn parse_variant_member(
+        &self,
+        unit: &Unit<EndianSlice<'a, LittleEndian>>,
+        variant_node: gimli::EntriesTreeNode<EndianSlice<'a, LittleEndian>>,
+        discr_value: i64,
+    ) -> Option<(String, Vec<TypeRepr>)> {
+        let mut member_children = variant_node.children();
+
+        while let Ok(Some(member_node)) = member_children.next() {
+            if member_node.entry().tag() != gimli::DW_TAG_member {
+                continue;
+            }
+
+            let variant_name = self
+                .string_value(member_node.entry(), gimli::DW_AT_name)
+                .unwrap_or_else(|_| format!("Variant{}", discr_value));
+
+            let variant_fields = self.parse_variant_fields(unit, member_node.entry());
+            return Some((variant_name, variant_fields));
+        }
+
+        None
+    }
+
+    /// Parse fields inside a variant's type struct.
+    fn parse_variant_fields(
+        &self,
+        unit: &Unit<EndianSlice<'a, LittleEndian>>,
+        member_entry: &gimli::DebuggingInformationEntry<EndianSlice<'a, LittleEndian>>,
+    ) -> Vec<TypeRepr> {
+        let mut fields = Vec::new();
+
+        let member_type = match self.resolve_entry(unit, member_entry, gimli::DW_AT_type) {
+            Ok(t) if t.tag() == gimli::DW_TAG_structure_type => t,
+            _ => return fields,
+        };
+
+        let mut tree = match unit.entries_tree(Some(member_type.offset())) {
+            Ok(t) => t,
+            Err(_) => return fields,
+        };
+
+        let root = match tree.root() {
+            Ok(r) => r,
+            Err(_) => return fields,
+        };
+
+        let mut children = root.children();
+        while let Ok(Some(field_node)) = children.next() {
+            if field_node.entry().tag() != gimli::DW_TAG_member {
+                continue;
+            }
+
+            if let Ok(field_type_entry) =
+                self.resolve_entry(unit, field_node.entry(), gimli::DW_AT_type)
+            {
+                if let Ok(field_type) = self.parse_type(unit, &field_type_entry) {
+                    fields.push(field_type);
+                }
+            }
+        }
+
+        fields
+    }
+
+    /// Parse struct fields from DW_TAG_member children.
+    fn parse_struct_fields(
+        &self,
+        unit: &Unit<EndianSlice<'a, LittleEndian>>,
+        entry: &gimli::DebuggingInformationEntry<EndianSlice<'a, LittleEndian>>,
+    ) -> BTreeMap<u64, (String, TypeRepr)> {
+        let mut fields = BTreeMap::new();
+
+        if !entry.has_children() {
+            return fields;
+        }
+
+        let mut tree = match unit.entries_tree(Some(entry.offset())) {
+            Ok(t) => t,
+            Err(_) => return fields,
+        };
+
+        let root = match tree.root() {
+            Ok(r) => r,
+            Err(_) => return fields,
+        };
+
+        let mut children = root.children();
+        while let Ok(Some(child)) = children.next() {
+            if child.entry().tag() != gimli::DW_TAG_member {
+                continue;
+            }
+
+            let field_name = match self.string_value(child.entry(), gimli::DW_AT_name) {
+                Ok(n) => n,
+                Err(_) => continue,
+            };
+
+            let offset = match self.int_value(child.entry(), gimli::DW_AT_data_member_location) {
+                Ok(o) => o,
+                Err(_) => continue,
+            };
+
+            let field_type_entry = match self.resolve_entry(unit, child.entry(), gimli::DW_AT_type)
+            {
+                Ok(e) => e,
+                Err(_) => continue,
+            };
+
+            if let Ok(field_type) = self.parse_type(unit, &field_type_entry) {
+                fields.insert(offset, (field_name, field_type));
+            }
+        }
+
+        fields
     }
 
     fn handle_subprogram(
@@ -373,7 +664,10 @@ impl<'a> DwarfParser<'a> {
             }
 
             gimli::DW_TAG_structure_type => {
-                let name = self.string_value(entry, gimli::DW_AT_name)?;
+                let name = match self.get_struct_full_name(unit, entry) {
+                    Ok(n) => n,
+                    Err(_) => return Ok(TypeRepr::None), // Skip anonymous structs
+                };
                 let size = self.int_value(entry, gimli::DW_AT_byte_size)?;
                 // Determine whether this structure contains a DW_TAG_variant_part child.
                 let mut is_variant_part = false;
@@ -559,6 +853,7 @@ fn main() -> Result<()> {
     let result = json!({
         "symbols": parser.address_to_name,
         "functions": parser.functions,
+        "structs": parser.structs,
     });
     let json = serde_json::to_string_pretty(&result)?;
     std::fs::write(&output_path, json)?;
