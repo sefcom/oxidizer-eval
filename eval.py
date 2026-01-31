@@ -348,7 +348,6 @@ class Scheduler:
                     future.add_done_callback(self._callback)
         self._show_overall_results()
 
-
 if __name__ == "__main__":
     init_logger("oxidizer-eval")
 
