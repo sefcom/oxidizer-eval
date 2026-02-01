@@ -3,7 +3,7 @@ use anyhow::anyhow;
 use gimli::read::{Dwarf, UnitOffset as ReadUnitOffset};
 use gimli::{AttributeValue, EndianSlice, LittleEndian, SectionId, Unit, UnitOffset};
 use object::ObjectSymbol;
-use object::{Object, ObjectSection};
+use object::{Object, ObjectSection, RelocationTarget};
 use rustc_demangle::demangle;
 use serde::{Deserialize, Serialize};
 use serde_json::json;
@@ -89,17 +89,52 @@ impl<'a> DwarfParser<'a> {
             }
         }
 
+        // Helper to load a section and apply relocations for object files
+        let load_section_with_relocs = |section_name: &str| -> Vec<u8> {
+            let section = match obj.section_by_name(section_name) {
+                Some(s) => s,
+                None => return Vec::new(),
+            };
+            let mut data = match section.uncompressed_data() {
+                Ok(d) => d.into_owned(),
+                Err(_) => return Vec::new(),
+            };
+
+            // Apply relocations for object files
+            for (offset, reloc) in section.relocations() {
+                let target_addr = match reloc.target() {
+                    RelocationTarget::Symbol(sym_idx) => {
+                        if let Some(sym) = obj.symbol_by_index(sym_idx).ok() {
+                            sym.address() as i64 + reloc.addend()
+                        } else {
+                            continue;
+                        }
+                    }
+                    RelocationTarget::Section(sec_idx) => {
+                        if let Some(sec) = obj.section_by_index(sec_idx).ok() {
+                            sec.address() as i64 + reloc.addend()
+                        } else {
+                            continue;
+                        }
+                    }
+                    _ => continue,
+                };
+
+                let offset = offset as usize;
+                let size = (reloc.size() / 8) as usize;
+                if offset + size <= data.len() {
+                    let bytes = (target_addr as u64).to_le_bytes();
+                    data[offset..offset + size].copy_from_slice(&bytes[..size]);
+                }
+            }
+            data
+        };
+
         // loader closure required by gimli::Dwarf::load
         let loader = |id: SectionId| -> Result<EndianSlice<'static, LittleEndian>, gimli::Error> {
-            // get section bytes as Vec<u8> (or empty vec if missing)
-            let data_vec: Vec<u8> = obj
-                .section_by_name(id.name())
-                .and_then(|sec| sec.uncompressed_data().ok())
-                .map(|cow| cow.into_owned())
-                .unwrap_or_else(Vec::new);
+            let data_vec = load_section_with_relocs(id.name());
 
             // Leak the boxed slice to get a &'static [u8].
-            // This is simple and safe for CLI tools; to avoid leak, store all sections in the struct instead.
             let boxed: Box<[u8]> = data_vec.into_boxed_slice();
             let static_slice: &'static [u8] = Box::leak(boxed);
 
@@ -475,13 +510,13 @@ impl<'a> DwarfParser<'a> {
         let decl_path = self.resolve_decl_path(entry, unit)?;
 
         // skip library functions
-        if decl_path.contains(".cargo")
-            || decl_path.contains(".rustup")
-            || decl_path.contains("/rustc/")
-            || decl_path.contains("/rust/")
-        {
-            return Ok(());
-        }
+        // if decl_path.contains(".cargo")
+        //     || decl_path.contains(".rustup")
+        //     || decl_path.contains("/rustc/")
+        //     || decl_path.contains("/rust/")
+        // {
+        //     return Ok(());
+        // }
 
         let func_name = DwarfParser::strip_hash(&demangle(&func_name).to_string());
         if func_name.contains("{{closure}}") {
