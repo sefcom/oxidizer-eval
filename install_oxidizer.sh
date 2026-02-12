@@ -1,8 +1,9 @@
-# !/bin/bash
+#!/bin/bash
 set -e
-pip install -U git+https://github.com/angr/archinfo.git@f7dc7e1a754acbdcfb6966496bd13819419c5a77
-pip install -U git+https://github.com/angr/claripy.git@97a710f82edc737bef82c27898ad235a15a309a9
-pip install -U git+https://github.com/angr/pyvex.git@6327984e4dbd082e62d33d1c7f753e4e5855ddb8
-pip install -U git+https://github.com/angr/cle.git@7f8f1fd11cc8d2b4527e608f43b69a7f37f2dec9
+pip install -U git+https://github.com/angr/archinfo.git@84ad167543028b32e170d3659650707b3866185c
+pip install -U git+https://github.com/angr/claripy.git@8b890bb13fe743bfdbaae119062631db4f10047b
+pip install -U git+https://github.com/angr/pyvex.git@3f92fece7147e91cea401e14a3936f20860a402e
+pip install -U git+https://github.com/angr/cle.git@ce3333d0e1e72936fdbb75eefd70299ead4fb998
 pip install unicorn==2.0.1.post1
-pip install -U --no-build-isolation git+ssh://git@github.com/bluesadi/oxidizer.git
+pip uninstall angr
+pip install --no-build-isolation git+ssh://git@github.com/bluesadi/oxidizer.git

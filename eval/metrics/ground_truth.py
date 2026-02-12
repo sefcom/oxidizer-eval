@@ -2,7 +2,7 @@ from dataclasses import dataclass
 import json
 from typing import Dict, List
 
-from angr.rust.utils.library import demangle
+from angr.rust.utils.demangler import demangle
 from eval.utils.dwarf_parser import DwarfParser, Prototype, Type
 
 

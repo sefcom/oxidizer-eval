@@ -27,15 +27,17 @@ def dummy_dec(*args, **kwargs):
     pass
 
 
-CACHE_ONLY = True  # Debug mode: only use cached results, do not run decompilers
+CACHE_ONLY = False  # Debug mode: only use cached results, do not run decompilers
+MULTIPROCESSING = True  # Use multiprocessing for decompilation tasks
 
 DEC_OPTIONS = {
     "Source": {"dec_func": dummy_dec, "cache_only": True, "timeout": 0},
-    "angr": {"dec_func": angr_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
-    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False or CACHE_ONLY, "timeout": 180},
-    "IDA": {"dec_func": ida_dec, "cache_only": False or CACHE_ONLY, "timeout": 60},
-    "Ghidra": {"dec_func": ghidra_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
-    "Binary Ninja": {"dec_func": binja_dec, "cache_only": False or CACHE_ONLY, "timeout": 120},
+    "angr": {"dec_func": angr_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
+    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False or CACHE_ONLY, "timeout": 300},
+    "Oxidizer.normal": {"dec_func": oxidizer_dec, "cache_only": True or CACHE_ONLY, "timeout": 180},
+    "IDA": {"dec_func": ida_dec, "cache_only": True or CACHE_ONLY, "timeout": 60},
+    "Ghidra": {"dec_func": ghidra_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
+    "Binary Ninja": {"dec_func": binja_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
     "Binary Ninja (Pseudo Rust)": {"dec_func": dummy_dec, "cache_only": True or CACHE_ONLY, "timeout": 0},
 }
 
@@ -44,6 +46,8 @@ TARGET_GROUND_TRUTH_DIR = Path("targets/merged_ground_truth").absolute()
 TARGET_SYMBOLS_DIR = Path("targets/symbols").absolute()
 
 l = logging.getLogger("oxidizer-eval")
+
+logging.getLogger("angr.rust").setLevel(logging.INFO)
 
 
 def load_function_addresses(binary_path, tag):
@@ -72,7 +76,10 @@ def decompile_binary(binary_path, tag, decompiler, symbols):
     l.info(f"Decompiling {binary_name} with {decompiler}...")
     start = time.time()
     try:
-        run_with_timeout(dec_func, binary_path, target_functions, tag, symbols, timeout=timeout)
+        if MULTIPROCESSING:
+            run_with_timeout(dec_func, binary_path, target_functions, tag, symbols, timeout=timeout)
+        else:
+            dec_func(binary_path, target_functions, tag, symbols)
     except Exception as e:
         l.error(f"{decompiler}: Failed to decompile binary {binary_path}({e})")
         l.error(traceback.format_exc())
@@ -245,7 +252,7 @@ class Task:
 
 
 class Scheduler:
-    def __init__(self, processes: int = 100, max_memory_gb: int = 32):
+    def __init__(self, processes: int = 30, max_memory_gb: int = 32):
         self.processes = processes
         self.max_memory_gb = max_memory_gb
 
@@ -263,7 +270,7 @@ class Scheduler:
                 continue
             # if filename not in COREUTILS_MODULES:
             #     continue
-            # if filename != "forc-tx":
+            # if filename != "fmt":
             #     continue
             binary_paths.append(str(binary_path.resolve()))
         for binary_path in binary_paths:
@@ -330,6 +337,40 @@ class Scheduler:
             l.info(
                 f"Starting decompilation tasks for tag {tag}... ({len(self._tag_to_tasks[tag]) // len(DECOMPILERS)} binaries)"
             )
+        if MULTIPROCESSING:
+            self._run_multiprocess()
+        else:
+            self._run_single_process()
+        self._show_overall_results()
+
+    def _run_single_process(self):
+        for tag, tasks in self._tag_to_tasks.items():
+            init_logger(tag)
+            self._results[tag] = EvalResult(0)
+            for task in tasks:
+                try:
+                    decompile_binary(
+                        task.binary_path,
+                        task.tag,
+                        task.decompiler,
+                        self._binary_path_to_symbols[task.binary_path],
+                    )
+                except Exception as e:
+                    l.error(f"Task failed: {task.decompiler} on {task.binary_path}: {e}")
+                self._progress[task.binary_path].add(task.decompiler)
+                if self._is_finished(task.binary_path):
+                    l.info(f"Completed evaluation for binary {task.binary_path} with all decompilers.")
+                    result = compute_binary_eval_result(
+                        task.binary_path, task.tag, self._binary_path_to_symbols[task.binary_path]
+                    )
+                    self._results[task.tag].merge(result)
+                    logger = logging.getLogger(task.tag)
+                    logger.info(f"Task completed: {task.decompiler} on {task.binary_path}")
+                    logger.info(result)
+                    l.info(f"Updated evaluation result for tag {task.tag}:\n{self._results[task.tag]}")
+                    self._show_progress()
+
+    def _run_multiprocess(self):
         with ProcessPoolExecutor(
             max_workers=self.processes, initializer=set_memory_limit_gb, initargs=(self.max_memory_gb,)
         ) as executor:
@@ -346,7 +387,7 @@ class Scheduler:
                     )
                     self._future_to_task[future] = task
                     future.add_done_callback(self._callback)
-        self._show_overall_results()
+
 
 if __name__ == "__main__":
     init_logger("oxidizer-eval")
@@ -357,9 +398,9 @@ if __name__ == "__main__":
     optimization_levels = ("3",)
     tags = (
         # "malware",
-        "nightly-2023-05-22-O3",
+        # "nightly-2023-05-22-O3",
         # "nightly-2025-05-22-O0",
-        # "nightly-2025-05-22-O3",
+        "nightly-2025-05-22-O3",
         # "open-source-malware",
     )
 

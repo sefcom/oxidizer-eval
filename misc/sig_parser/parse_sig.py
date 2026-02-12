@@ -46,11 +46,11 @@ def fix_pat_file(pat_path: Path, err_message):
 def run_ida_with_script(binary_path: Path, script_path: Path, sig_path) -> None:
     binary_path = Path(binary_path).absolute()
     for unwanted_ext in [".id0", ".id1", ".id2", ".nam", ".til"]:
-        unwanted_path = binary_path.with_suffix(unwanted_ext)
+        unwanted_path = Path(str(binary_path) + unwanted_ext)
         unwanted_path.unlink(missing_ok=True)
     cmd = f"{IDA_PATH} -A -S{script_path.absolute()} {binary_path}"
     subprocess.run(cmd.split())
-    pat_path = binary_path.with_suffix(".pat")
+    pat_path = Path(str(binary_path) + ".pat")
     if not pat_path.exists():
         raise FileNotFoundError(f"Pattern file not created at {pat_path}")
     sigmake_cmd = f"{SIGMAKE_PATH} {pat_path} {sig_path}"
@@ -62,7 +62,7 @@ def run_ida_with_script(binary_path: Path, script_path: Path, sig_path) -> None:
             err_message = result.stderr
         else:
             raise RuntimeError(f"Could not fix pattern file: {err_message}")
-    exc_path = binary_path.with_suffix(".exc")
+    exc_path = Path(str(sig_path)[:-4] + ".exc")
     if not sig_path.exists() and exc_path.exists():
         fix_exc_file(exc_path)
         subprocess.run(sigmake_cmd.split(), capture_output=True, text=True)
@@ -81,8 +81,8 @@ if __name__ == "__main__":
         print(f"Usage: {sys.argv[0]} <binary_path>")
         sys.exit(1)
 
-    binary_path = sys.argv[1]
-    sig_path = binary_path.with_suffix(".sig")
+    binary_path = Path(sys.argv[1])
+    sig_path = Path(str(binary_path) + ".sig")
     if parse_sig(Path(binary_path), sig_path):
         print(f"Signature file created at {sig_path}")
     else:

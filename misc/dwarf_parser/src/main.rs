@@ -29,7 +29,7 @@ pub enum TypeRepr {
         name: String,
         size: u64,
         discriminant_size: u64,
-        variants: Option<BTreeMap<String, (i64, Vec<TypeRepr>)>>,
+        variants: Option<BTreeMap<String, (Option<i64>, Vec<(Option<String>, TypeRepr)>)>>,
     },
     Array {
         ele_type: Box<TypeRepr>,
@@ -55,6 +55,7 @@ pub struct Variable {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Function {
     pub name: String,
+    pub decl_path: String,
     pub addr: u64,
     pub prototype: TypeRepr,
     pub local_variables: Vec<Variable>,
@@ -67,7 +68,7 @@ pub struct DwarfParser<'a> {
     name_to_address: HashMap<String, u64>,
     pub address_to_name: HashMap<u64, String>,
     pub structs: BTreeMap<String, TypeRepr>,
-    pub functions: HashMap<String, Function>,
+    pub functions: Vec<Function>,
     /// Maps (unit offset, DIE offset) -> full struct name
     struct_names: HashMap<(usize, usize), String>,
 }
@@ -151,7 +152,7 @@ impl<'a> DwarfParser<'a> {
             name_to_address,
             address_to_name,
             structs: BTreeMap::new(),
-            functions: HashMap::new(),
+            functions: Vec::new(),
             struct_names: HashMap::new(),
         })
     }
@@ -203,7 +204,9 @@ impl<'a> DwarfParser<'a> {
 
                 // Push to namespace stack
                 let name = match tag {
-                    gimli::DW_TAG_namespace | gimli::DW_TAG_module => {
+                    gimli::DW_TAG_namespace
+                    | gimli::DW_TAG_module
+                    | gimli::DW_TAG_structure_type => {
                         self.string_value(&entry, gimli::DW_AT_name).ok()
                     }
                     _ => None,
@@ -284,22 +287,14 @@ impl<'a> DwarfParser<'a> {
                 name: name.clone(),
                 size,
                 discriminant_size,
-                variants: if variants.is_empty() {
-                    None
-                } else {
-                    Some(variants)
-                },
+                variants: Some(variants),
             }
         } else {
             let fields = self.parse_struct_fields(unit, entry);
             TypeRepr::Struct {
                 name: name.clone(),
                 size,
-                fields: if fields.is_empty() {
-                    None
-                } else {
-                    Some(fields)
-                },
+                fields: Some(fields),
             }
         };
 
@@ -313,7 +308,10 @@ impl<'a> DwarfParser<'a> {
         &self,
         unit: &Unit<EndianSlice<'a, LittleEndian>>,
         entry: &gimli::DebuggingInformationEntry<EndianSlice<'a, LittleEndian>>,
-    ) -> Option<(u64, BTreeMap<String, (i64, Vec<TypeRepr>)>)> {
+    ) -> Option<(
+        u64,
+        BTreeMap<String, (Option<i64>, Vec<(Option<String>, TypeRepr)>)>,
+    )> {
         if !entry.has_children() {
             return None;
         }
@@ -350,7 +348,7 @@ impl<'a> DwarfParser<'a> {
         &self,
         unit: &Unit<EndianSlice<'a, LittleEndian>>,
         variant_part: gimli::EntriesTreeNode<EndianSlice<'a, LittleEndian>>,
-    ) -> BTreeMap<String, (i64, Vec<TypeRepr>)> {
+    ) -> BTreeMap<String, (Option<i64>, Vec<(Option<String>, TypeRepr)>)> {
         let mut variants = BTreeMap::new();
         let mut variant_children = variant_part.children();
 
@@ -362,7 +360,7 @@ impl<'a> DwarfParser<'a> {
             let discr_value = self
                 .int_value(variant_node.entry(), gimli::DW_AT_discr_value)
                 .map(|v| v as i64)
-                .unwrap_or(0);
+                .ok();
 
             if let Some((name, fields)) = self.parse_variant_member(unit, variant_node, discr_value)
             {
@@ -378,8 +376,8 @@ impl<'a> DwarfParser<'a> {
         &self,
         unit: &Unit<EndianSlice<'a, LittleEndian>>,
         variant_node: gimli::EntriesTreeNode<EndianSlice<'a, LittleEndian>>,
-        discr_value: i64,
-    ) -> Option<(String, Vec<TypeRepr>)> {
+        discr_value: Option<i64>,
+    ) -> Option<(String, Vec<(Option<String>, TypeRepr)>)> {
         let mut member_children = variant_node.children();
 
         while let Ok(Some(member_node)) = member_children.next() {
@@ -389,7 +387,10 @@ impl<'a> DwarfParser<'a> {
 
             let variant_name = self
                 .string_value(member_node.entry(), gimli::DW_AT_name)
-                .unwrap_or_else(|_| format!("Variant{}", discr_value));
+                .unwrap_or_else(|_| match discr_value {
+                    Some(v) => format!("Variant{}", v),
+                    None => "Variant".to_string(),
+                });
 
             let variant_fields = self.parse_variant_fields(unit, member_node.entry());
             return Some((variant_name, variant_fields));
@@ -403,7 +404,7 @@ impl<'a> DwarfParser<'a> {
         &self,
         unit: &Unit<EndianSlice<'a, LittleEndian>>,
         member_entry: &gimli::DebuggingInformationEntry<EndianSlice<'a, LittleEndian>>,
-    ) -> Vec<TypeRepr> {
+    ) -> Vec<(Option<String>, TypeRepr)> {
         let mut fields = Vec::new();
 
         let member_type = match self.resolve_entry(unit, member_entry, gimli::DW_AT_type) {
@@ -427,11 +428,15 @@ impl<'a> DwarfParser<'a> {
                 continue;
             }
 
+            let field_name = self
+                .string_value(field_node.entry(), gimli::DW_AT_name)
+                .ok();
+
             if let Ok(field_type_entry) =
                 self.resolve_entry(unit, field_node.entry(), gimli::DW_AT_type)
             {
                 if let Ok(field_type) = self.parse_type(unit, &field_type_entry) {
-                    fields.push(field_type);
+                    fields.push((field_name, field_type));
                 }
             }
         }
@@ -558,15 +563,13 @@ impl<'a> DwarfParser<'a> {
         };
         let local_variables = self.parse_local_variables(unit, entry);
 
-        self.functions.insert(
+        self.functions.push(Function {
+            name: func_name,
             decl_path,
-            Function {
-                name: func_name,
-                addr: func_addr,
-                prototype,
-                local_variables,
-            },
-        );
+            addr: func_addr,
+            prototype,
+            local_variables,
+        });
 
         Ok(())
     }

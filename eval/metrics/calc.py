@@ -4,7 +4,7 @@ import re
 import logging
 from pprint import pprint, pformat
 
-from angr.rust.utils.library import demangle
+from angr.rust.utils.demangler import demangle
 
 from eval.utils.dwarf_parser import *
 

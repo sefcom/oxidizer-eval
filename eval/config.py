@@ -4,6 +4,7 @@ from pathlib import Path
 DECOMPILERS = (
     "Source",
     "Oxidizer",
+    "Oxidizer.normal",
     "angr",
     "IDA",
     "Ghidra",
@@ -25,7 +26,7 @@ CACHED_MALWARE_CALLS_PATH = os.path.abspath("output/malware_calls.json")
 CACHED_INFERRED_PROTOTYPES_PATH = os.path.abspath("output/inferred_prototypes")
 
 RESULT_DIR = Path("output/result").absolute()
-FLIRT_SIGS_DIR = Path("targets/flirt-sigs").absolute()
+FLIRT_SIGS_DIR = Path("targets/flirt_sigs").absolute()
 
 
 COREUTILS_MODULES = [

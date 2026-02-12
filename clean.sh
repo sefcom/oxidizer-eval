@@ -1,14 +1,7 @@
-#!/bin/bash
-# remove_adb_files.sh
-# This script removes all .adb files under targets/release/O3
+#!/usr/bin/env bash
+set -euo pipefail
 
-DIR="targets/release/O3"
+TARGET_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/targets"
 
-if [ -d "$DIR" ]; then
-    echo "Removing all .adb files in $DIR..."
-    find "$DIR" -type f -name "*.adb" -exec rm -f {} +
-    echo "Done."
-else
-    echo "Directory $DIR does not exist."
-    exit 1
-fi
+find "$TARGET_DIR" -type f -name "*.adb" -print -delete
+find "$TARGET_DIR" -type d -name "*_rtdb" -print -exec rm -rf {} +

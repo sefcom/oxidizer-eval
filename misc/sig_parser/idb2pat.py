@@ -606,10 +606,7 @@ def make_func_sigs(config):
 
 
 def get_pat_file():
-    logger = logging.getLogger("idb2pat:get_pat_file")
-    name, extension = os.path.splitext(get_input_file_path())
-    name = name + ".pat"
-    return name
+    return get_input_file_path() + ".pat"
     # filename = ask_file(1, name, "Enter the name of the pattern file")
     # if filename is None:
     #     logger.debug("User did not choose a pattern file")

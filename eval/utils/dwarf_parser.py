@@ -7,7 +7,7 @@ import os
 
 from elftools.dwarf.dwarf_expr import DWARFExprParser
 from elftools.elf.elffile import ELFFile
-from angr.rust.utils.library import demangle
+from angr.rust.utils.demangler import demangle
 
 
 class Type:

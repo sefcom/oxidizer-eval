@@ -1,6 +1,6 @@
 import os
 import angr
-from angr.rust.utils.library import demangle
+from angr.rust.utils.demangler import demangle
 
 
 def parse_version(filename):

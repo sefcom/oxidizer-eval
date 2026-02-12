@@ -1,4 +1,5 @@
 import logging
+import shutil
 import traceback
 from collections import Counter, defaultdict
 import os
@@ -6,12 +7,14 @@ import time
 
 import angr
 from angr.ailment.statement import FunctionLikeMacro, Call
-from angr.ailment import AILBlockWalker, Block, Const
+from angr.ailment import AILBlockViewer, Block, Const
 from angr.ailment.expression import StringLiteral
 from angr.rust.sim_type import *
 from angr.sim_variable import SimStackVariable, SimRegisterVariable
 from angr.sim_type import TypeRef, SimTypeChar, SimTypeInt, SimTypeFloat, SimStruct, SimTypePointer, SimType
 from angr.analyses.decompiler.sequence_walker import SequenceWalker
+from angr.rust.utils.demangler import demangle
+from angr.angrdb import AngrDB
 
 from eval.config import RESULT_DIR, FLIRT_SIGS_DIR
 from eval.result import DecompileResult
@@ -104,7 +107,7 @@ def _dump_variable_types(decompiler):
     return ident_to_types
 
 
-class BlockCallCounter(AILBlockWalker):
+class BlockCallCounter(AILBlockViewer):
 
     def __init__(self, project):
         super().__init__()
@@ -123,20 +126,20 @@ class BlockCallCounter(AILBlockWalker):
     def _handle_stmt(self, stmt_idx, stmt, block):
         if isinstance(stmt, FunctionLikeMacro):
             self.macro_call_counts[stmt.name] += 1
-        return super()._handle_stmt(stmt_idx, stmt, block)
+        super()._handle_stmt(stmt_idx, stmt, block)
 
     def _handle_expr(self, expr_idx, expr, stmt_idx, stmt, block):
         if isinstance(expr, FunctionLikeMacro):
             self.macro_call_counts[expr.name] += 1
-        return super()._handle_expr(expr_idx, expr, stmt_idx, stmt, block)
+        super()._handle_expr(expr_idx, expr, stmt_idx, stmt, block)
 
     def _handle_CallExpr(self, expr_idx, expr, stmt_idx, stmt, block):
         self.record_call(expr)
-        return super()._handle_CallExpr(expr_idx, expr, stmt_idx, stmt, block)
+        super()._handle_CallExpr(expr_idx, expr, stmt_idx, stmt, block)
 
     def _handle_Call(self, stmt_idx, stmt, block):
         self.record_call(stmt)
-        return super()._handle_Call(stmt_idx, stmt, block)
+        super()._handle_Call(stmt_idx, stmt, block)
 
 
 class CallCounter(SequenceWalker):
@@ -174,6 +177,11 @@ def _reachable_functions(proj, target_functions):
     return reachable_functions
 
 
+def _clean_rtdb(binary_path):
+    rtdb_dir_path = binary_path + "_angr_rtdb"
+    shutil.rmtree(rtdb_dir_path, ignore_errors=True)
+
+
 def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, is_rust_binary, symbols):
     ll = logging.getLogger(tag)
     decompiler_name = "Oxidizer" if is_rust_binary else "angr"
@@ -183,54 +191,46 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
     binary_name = os.path.basename(binary_path)
     target_functions = list(target_functions)
 
-    proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=is_rust_binary)
+    adb_path = binary_path + ".adb"
+    use_adb = os.path.exists(adb_path)
+
+    if use_adb:
+        proj = AngrDB().load(adb_path)
+    else:
+        proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=is_rust_binary)
 
     result_dir = RESULT_DIR / tag / decompiler_name / binary_name
     os.makedirs(result_dir, exist_ok=True)
     decompiled_functions = set(int(result_path.stem, 16) for result_path in result_dir.glob("*.json"))
 
     if not decompiled_functions.issuperset(target_functions):
-        cfg = proj.analyses.CFGFast(normalize=True)
+        if not use_adb:
+            cfg = proj.analyses.CFGFast(normalize=True)
 
-        if proj.is_rust_binary:
-            try:
-                sig_path = str(FLIRT_SIGS_DIR / (tag + ".sig"))
-                ll.info(f"Loading FLIRT signature from {sig_path} for {tag}")
-                proj.analyses.Flirt(sig_path)
-                proj.analyses.FlirtSigPropagation(cfg=cfg)
-                proj.analyses.CleanupFunctionIdentification()
-            except Exception as e:
-                ll.error(f"Failed to load FLIRT signatures for {tag}: {e}")
-                ll.error(traceback.format_exc())
-
-            # Debug symbol recovery
-            matches, mismatches = 0, 0
-            for func in proj.kb.functions.values():
-                func_addr = str(func.addr - proj.loader.main_object.mapped_base)
-                symbol = symbols.get(func_addr, None)
-                if symbol is not None:
-                    if func.demangled_name == symbol:
-                        matches += 1
-                    else:
-                        mismatches += 1
-            l.info(
-                f"{matches} matches and {mismatches} mismatches between symbols and function names for {binary_name}"
+            start_time = time.time()
+            ccca = proj.analyses.CompleteCallingConventions(
+                cfg=cfg,
+                target_functions=_reachable_functions(
+                    proj, [addr + proj.loader.main_object.mapped_base for addr in target_functions]
+                ),
             )
+            ll.info(
+                f"{ccca._total_funcs}/{len(proj.kb.functions)} functions analyzed for calling conventions in {binary_name}"
+            )
+            ll.info(f"CompleteCallingConventions took {time.time() - start_time:.2f} seconds for {binary_path}")
 
-        start_time = time.time()
-        ccca = proj.analyses.CompleteCallingConventions(
-            cfg=cfg,
-            target_functions=_reachable_functions(
-                proj, [addr + proj.loader.main_object.mapped_base for addr in target_functions]
-            ),
-        )
-        ll.info(
-            f"{ccca._total_funcs}/{len(proj.kb.functions)} functions analyzed for calling conventions in {binary_name}"
-        )
-        ll.info(f"CompleteCallingConventions took {time.time() - start_time:.2f} seconds for {binary_path}")
+            if proj.is_rust_binary:
+                proj.analyses.RustSymbolRecovery()
+                ll.info(
+                    f"[{binary_name}] Rustc version: {proj.rustc_version}, Rustc optimization level: {proj.rustc_optimization_level}"
+                )
+
+            AngrDB(proj).dump(adb_path)
+        else:
+            cfg = proj.kb.cfgs.get_most_accurate()
 
         if proj.is_rust_binary:
-            proj.analyses.KnownTypeLoader()
+            proj.analyses.TypeDBLoader()
 
         for func_addr in proj.kb.functions:
             rebased_func_addr = func_addr - proj.loader.main_object.mapped_base
@@ -239,7 +239,7 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
                     continue
                 try:
                     func = proj.kb.functions[func_addr]
-                    decompiler = proj.analyses.Decompiler(cfg=cfg, func=func)
+                    decompiler = proj.analyses.Decompiler(cfg=cfg, func=func, fail_fast=True)
                     output = extract_body_func(decompiler.codegen.text.split("\n"))
                     if output:
                         call_counter = CallCounter(proj)
@@ -253,10 +253,13 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
                         result_path = result_dir / f"{rebased_func_addr:x}.json"
                         result.save_json(result_path)
                 except MemoryError as e:
+                    _clean_rtdb(binary_path)
                     raise
                 except BaseException as e:
                     ll.error(f"Failed to decompile function at {rebased_func_addr:x} for {binary_name}: {e}")
                     ll.error(traceback.format_exc())
+
+    _clean_rtdb(binary_path)
 
 
 def angr_dec(binary_path, target_functions, tag, symbols, *args, **kwargs):
