@@ -5,11 +5,11 @@ DECOMPILERS = (
     "Source",
     "Oxidizer",
     "Oxidizer.normal",
-    "angr",
-    "IDA",
-    "Ghidra",
-    "Binary Ninja",
-    "Binary Ninja (Pseudo Rust)",
+    # "angr",
+    # "IDA",
+    # "Ghidra",
+    # "Binary Ninja",
+    # "Binary Ninja (Pseudo Rust)",
 )
 # DECOMPILERS = ("Source", "Oxidizer", "angr", "IDA", "Ghidra", "Binary Ninja", "Binary Ninja (Pseudo Rust)")
 

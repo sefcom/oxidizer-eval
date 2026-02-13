@@ -332,6 +332,43 @@ class Scheduler:
                 logger.info(self._results[tag].to_latex(tag))
                 logger.info(self._results[tag].to_latex_type_eval(tag))
 
+            # Save HTML report
+            html_output_dir = Path("output/html") / tag
+            html_output_dir.mkdir(parents=True, exist_ok=True)
+
+            # Generate timestamp for filename
+            from datetime import datetime
+
+            timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            html_file = html_output_dir / f"{tag}_{timestamp}.html"
+            latest_html_file = html_output_dir / "latest.html"
+
+            try:
+                html_content = self._results[tag].to_html(tag)
+
+                # Save with timestamp
+                with open(html_file, "w", encoding="utf-8") as f:
+                    f.write(html_content)
+                l.info(f"HTML report saved to: {html_file}")
+
+                # Save as latest.html
+                with open(latest_html_file, "w", encoding="utf-8") as f:
+                    f.write(html_content)
+                l.info(f"HTML report also saved as: {latest_html_file}")
+
+                # Keep only the 10 most recent HTML files (excluding latest.html)
+                html_files = sorted(
+                    [f for f in html_output_dir.glob(f"{tag}_*.html")], key=lambda x: x.stat().st_mtime, reverse=True
+                )
+
+                # Remove files beyond the 10 most recent
+                for old_file in html_files[10:]:
+                    old_file.unlink()
+                    l.info(f"Removed old HTML report: {old_file}")
+
+            except Exception as e:
+                l.error(f"Failed to save HTML report: {e}")
+
     def run(self):
         for tag in self._tag_to_tasks:
             l.info(

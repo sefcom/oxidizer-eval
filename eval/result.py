@@ -462,3 +462,259 @@ class EvalResult:
         latex.append("\\end{table*}")
 
         return "\n".join(latex)
+
+    def to_html(self, tag) -> str:
+        """Generate an HTML report of evaluation results."""
+        html = []
+
+        # HTML header with CSS styling
+        html.append("<!DOCTYPE html>")
+        html.append("<html lang='en'>")
+        html.append("<head>")
+        html.append("    <meta charset='UTF-8'>")
+        html.append("    <meta name='viewport' content='width=device-width, initial-scale=1.0'>")
+        html.append(f"    <title>Evaluation Results - {tag}</title>")
+        html.append("    <style>")
+        html.append("        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background-color: #f5f5f5; }")
+        html.append("        h1, h2 { color: #333; }")
+        html.append("        .summary { background: white; padding: 20px; border-radius: 5px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }")
+        html.append("        table { border-collapse: collapse; width: 100%; background: white; margin-bottom: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }")
+        html.append("        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }")
+        html.append("        th { background-color: #4CAF50; color: white; font-weight: bold; position: sticky; top: 0; }")
+        html.append("        tr:hover { background-color: #f5f5f5; }")
+        html.append("        .winner { font-weight: bold; color: #4CAF50; }")
+        html.append("        .metric-name { font-weight: bold; }")
+        html.append("        .section { background: white; padding: 20px; border-radius: 5px; margin-bottom: 20px; }")
+        html.append("        .percentage { color: #666; font-size: 0.9em; }")
+        html.append("        .macro-list { max-height: 400px; overflow-y: auto; }")
+        html.append("        .timestamp { color: #999; font-size: 0.9em; }")
+        html.append("    </style>")
+        html.append("</head>")
+        html.append("<body>")
+
+        # Title and summary
+        import datetime
+        html.append(f"    <h1>Evaluation Results: {tag}</h1>")
+        html.append(f"    <p class='timestamp'>Generated on: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>")
+        html.append("    <div class='summary'>")
+        html.append(f"        <h2>Summary</h2>")
+        html.append(f"        <p><strong>Number of Binaries:</strong> {self.total_binaries:,}</p>")
+        html.append(f"        <p><strong>Number of Functions:</strong> {self.total_functions:,}</p>")
+        html.append("    </div>")
+
+        # Main metrics table
+        html.append("    <div class='section'>")
+        html.append("        <h2>Conciseness and Fidelity Metrics</h2>")
+        html.append("        <table>")
+        html.append("            <thead>")
+        html.append("                <tr>")
+        html.append("                    <th>Metric</th>")
+        for decompiler in DECOMPILERS:
+            html.append(f"                    <th colspan='2'>{decompiler}</th>")
+        html.append("                </tr>")
+        html.append("                <tr>")
+        html.append("                    <th></th>")
+        for _ in DECOMPILERS:
+            html.append("                    <th>Average</th>")
+            html.append("                    <th>Median</th>")
+        html.append("                </tr>")
+        html.append("            </thead>")
+        html.append("            <tbody>")
+
+        metric_names = {
+            MCC: "McCabe Cyclomatic Complexity",
+            LOC: "Lines of Code",
+            NUM_VARIABLES: "Number of Variables",
+            NUM_OPERATORS: "Number of Operators",
+            NUM_GOTOS: "Number of Gotos",
+            NUM_MATCHED_STRING_LITERALS: "Matched String Literals",
+            NUM_MATCHED_FUNCTION_CALLS: "Matched Function Calls",
+            NUM_EXTRANEOUS_FUNCTION_CALLS: "Extraneous Function Calls",
+            NUM_MATCHED_MACRO_CALLS: "Matched Macro Calls",
+        }
+
+        for metric in METRICS:
+            avgs = [self._average(d, metric) for d in DECOMPILERS]
+            meds = [self._median(d, metric) for d in DECOMPILERS]
+
+            # Determine best decompiler
+            if metric in [NUM_MATCHED_FUNCTION_CALLS, NUM_MATCHED_MACRO_CALLS, NUM_MATCHED_STRING_LITERALS]:
+                best_decompiler = max(DECOMPILERS, key=lambda d: self._average(d, metric) if d != "Source" else 0)
+            else:
+                best_decompiler = min(DECOMPILERS, key=lambda d: self._average(d, metric) if d != "Source" else float("inf"))
+
+            html.append("                <tr>")
+            html.append(f"                    <td class='metric-name'>{metric_names.get(metric, metric)}</td>")
+
+            for i, decompiler in enumerate(DECOMPILERS):
+                winner_class = ' class="winner"' if decompiler == best_decompiler and decompiler != "Source" else ''
+
+                # Average with percentage
+                if decompiler == "Source":
+                    avg_text = f"{avgs[i]:.2f}"
+                else:
+                    percentage = f" <span class='percentage'>({avgs[i] / self._average('Source', metric) * 100:.1f}%)</span>" if self._average("Source", metric) > 0 else ""
+                    avg_text = f"{avgs[i]:.2f}{percentage}"
+
+                html.append(f"                    <td{winner_class}>{avg_text}</td>")
+                html.append(f"                    <td{winner_class}>{int(meds[i])}</td>")
+
+            html.append("                </tr>")
+
+        html.append("            </tbody>")
+        html.append("        </table>")
+        html.append("    </div>")
+
+        # Type recovery evaluation
+        html.append("    <div class='section'>")
+        html.append("        <h2>Type Recovery Evaluation</h2>")
+        html.append("        <table>")
+        html.append("            <thead>")
+        html.append("                <tr>")
+        html.append("                    <th>Type Category</th>")
+        # Filter out "Source" from decompilers
+        type_decompilers = [d for d in DECOMPILERS if d != "Source"]
+        for decompiler in type_decompilers:
+            html.append(f"                    <th colspan='3' style='text-align: center;'>{decompiler}</th>")
+        html.append("                </tr>")
+        html.append("                <tr>")
+        html.append("                    <th></th>")
+        for _ in type_decompilers:
+            html.append("                    <th>Precision</th>")
+            html.append("                    <th>Recall</th>")
+            html.append("                    <th>F1</th>")
+        html.append("                </tr>")
+        html.append("            </thead>")
+        html.append("            <tbody>")
+
+        type_categories = [
+            "primitive", "struct", "enum", "array", "Result", "Option",
+            "&primitive", "&struct", "&enum", "&Result", "&Option", "&array", "&reference", "reference",
+        ]
+
+        for t in type_categories:
+            html.append("                <tr>")
+            html.append(f"                    <td class='metric-name'>{t}</td>")
+
+            precisions, recalls, f1s = [], [], []
+            for decompiler in type_decompilers:
+                tp = sum(self.decompiler_and_metric_to_values.get((decompiler, f"{t}_TP"), []))
+                fp = sum(self.decompiler_and_metric_to_values.get((decompiler, f"{t}_FP"), []))
+                fn = sum(self.decompiler_and_metric_to_values.get((decompiler, f"{t}_FN"), []))
+
+                precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+                recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+                f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0
+
+                precisions.append(precision)
+                recalls.append(recall)
+                f1s.append(f1)
+
+            best_p = max(precisions) if precisions else 0
+            best_r = max(recalls) if recalls else 0
+            best_f1 = max(f1s) if f1s else 0
+
+            for i in range(len(type_decompilers)):
+                p_class = ' class="winner"' if precisions[i] == best_p and best_p > 0 else ''
+                r_class = ' class="winner"' if recalls[i] == best_r and best_r > 0 else ''
+                f_class = ' class="winner"' if f1s[i] == best_f1 and best_f1 > 0 else ''
+
+                html.append(f"                    <td{p_class}>{precisions[i] * 100:.2f}%</td>")
+                html.append(f"                    <td{r_class}>{recalls[i] * 100:.2f}%</td>")
+                html.append(f"                    <td{f_class}>{f1s[i] * 100:.2f}%</td>")
+
+            html.append("                </tr>")
+
+        # Overall type recovery
+        html.append("                <tr style='background-color: #e8f5e9; font-weight: bold;'>")
+        html.append("                    <td>Overall</td>")
+
+        overall_precisions, overall_recalls, overall_f1s = [], [], []
+        for decompiler in type_decompilers:
+            total_tp = total_fp = total_fn = 0
+            for t in type_categories:
+                total_tp += sum(self.decompiler_and_metric_to_values.get((decompiler, f"{t}_TP"), []))
+                total_fp += sum(self.decompiler_and_metric_to_values.get((decompiler, f"{t}_FP"), []))
+                total_fn += sum(self.decompiler_and_metric_to_values.get((decompiler, f"{t}_FN"), []))
+
+            precision = total_tp / (total_tp + total_fp) if (total_tp + total_fp) > 0 else 0.0
+            recall = total_tp / (total_tp + total_fn) if (total_tp + total_fn) > 0 else 0.0
+            f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0
+
+            overall_precisions.append(precision)
+            overall_recalls.append(recall)
+            overall_f1s.append(f1)
+
+        best_p = max(overall_precisions) if overall_precisions else 0
+        best_r = max(overall_recalls) if overall_recalls else 0
+        best_f1 = max(overall_f1s) if overall_f1s else 0
+
+        for i in range(len(type_decompilers)):
+            p_class = ' class="winner"' if overall_precisions[i] == best_p and best_p > 0 else ''
+            r_class = ' class="winner"' if overall_recalls[i] == best_r and best_r > 0 else ''
+            f_class = ' class="winner"' if overall_f1s[i] == best_f1 and best_f1 > 0 else ''
+
+            html.append(f"                    <td{p_class}>{overall_precisions[i] * 100:.2f}%</td>")
+            html.append(f"                    <td{r_class}>{overall_recalls[i] * 100:.2f}%</td>")
+            html.append(f"                    <td{f_class}>{overall_f1s[i] * 100:.2f}%</td>")
+
+        html.append("                </tr>")
+        html.append("            </tbody>")
+        html.append("        </table>")
+        html.append("    </div>")
+
+        # Macro calls section
+        gt_macro_call_counts = defaultdict(int)
+        oxidizer_macro_call_counts = defaultdict(int)
+        for (decompiler, metric), values in self.decompiler_and_metric_to_values.items():
+            if metric.startswith("macro_call_"):
+                macro_name = metric[len("macro_call_"):]
+                if decompiler == "Oxidizer":
+                    oxidizer_macro_call_counts[macro_name] += sum(values)
+                else:
+                    gt_macro_call_counts[macro_name] += sum(values)
+
+        if gt_macro_call_counts or oxidizer_macro_call_counts:
+            html.append("    <div class='section'>")
+            html.append("        <h2>Macro Call Statistics</h2>")
+
+            target_sum = sum(gt_macro_call_counts[key] for key in gt_macro_call_counts if key in oxidizer_macro_call_counts)
+            total_sum = sum(gt_macro_call_counts.values())
+            coverage_pct = (target_sum / total_sum * 100) if total_sum > 0 else 0
+
+            html.append(f"        <p><strong>Coverage:</strong> Oxidizer covered {target_sum:,} out of {total_sum:,} macro calls in ground truth ({coverage_pct:.2f}%)</p>")
+
+            html.append("        <div style='display: flex; gap: 20px;'>")
+            html.append("            <div style='flex: 1;'>")
+            html.append("                <h3>Ground Truth Macro Calls</h3>")
+            html.append("                <div class='macro-list'>")
+            html.append("                    <table>")
+            html.append("                        <thead><tr><th>Macro Name</th><th>Count</th></tr></thead>")
+            html.append("                        <tbody>")
+            for macro_name, count in sorted(gt_macro_call_counts.items(), key=lambda x: x[1], reverse=True):
+                html.append(f"                            <tr><td>{macro_name}</td><td>{count:,}</td></tr>")
+            html.append("                        </tbody>")
+            html.append("                    </table>")
+            html.append("                </div>")
+            html.append("            </div>")
+
+            html.append("            <div style='flex: 1;'>")
+            html.append("                <h3>Oxidizer Macro Calls</h3>")
+            html.append("                <div class='macro-list'>")
+            html.append("                    <table>")
+            html.append("                        <thead><tr><th>Macro Name</th><th>Count</th></tr></thead>")
+            html.append("                        <tbody>")
+            for macro_name, count in sorted(oxidizer_macro_call_counts.items(), key=lambda x: x[1], reverse=True):
+                in_gt = "✓" if macro_name in gt_macro_call_counts else "✗"
+                html.append(f"                            <tr><td>{macro_name} {in_gt}</td><td>{count:,}</td></tr>")
+            html.append("                        </tbody>")
+            html.append("                    </table>")
+            html.append("                </div>")
+            html.append("            </div>")
+            html.append("        </div>")
+            html.append("    </div>")
+
+        html.append("</body>")
+        html.append("</html>")
+
+        return "\n".join(html)
