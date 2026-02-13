@@ -16,7 +16,7 @@ from angr.analyses.decompiler.sequence_walker import SequenceWalker
 from angr.rust.utils.demangler import demangle
 from angr.angrdb import AngrDB
 
-from eval.config import RESULT_DIR, FLIRT_SIGS_DIR
+from eval.config import FLIRT_SIGS_DIR
 from eval.result import DecompileResult
 from eval.type_recovery.function_prototype import Type
 
@@ -182,9 +182,15 @@ def _clean_rtdb(binary_path):
     shutil.rmtree(rtdb_dir_path, ignore_errors=True)
 
 
-def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, is_rust_binary, symbols):
+def angr_decompile(binary_path, target_functions, tag, symbols, is_rust):
+    if is_rust:
+        from eval.decompilers.oxidizer import _extract_function_body as extract_rust_body
+
+        extract_body_func = extract_rust_body
+    else:
+        extract_body_func = _extract_function_body
+
     ll = logging.getLogger(tag)
-    decompiler_name = "Oxidizer" if is_rust_binary else "angr"
 
     assert os.path.exists(binary_path)
 
@@ -192,75 +198,60 @@ def _angr_dec_base(binary_path, target_functions, tag: str, extract_body_func, i
     target_functions = list(target_functions)
 
     adb_path = binary_path + ".adb"
-    use_adb = os.path.exists(adb_path)
+    use_adb = os.path.exists(adb_path) and is_rust
 
     if use_adb:
         proj = AngrDB().load(adb_path)
     else:
-        proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=is_rust_binary)
+        proj = angr.Project(binary_path, auto_load_libs=False, is_rust_binary=is_rust)
 
-    result_dir = RESULT_DIR / tag / decompiler_name / binary_name
-    os.makedirs(result_dir, exist_ok=True)
-    decompiled_functions = set(int(result_path.stem, 16) for result_path in result_dir.glob("*.json"))
+    if not use_adb:
+        cfg = proj.analyses.CFGFast(normalize=True)
 
-    if not decompiled_functions.issuperset(target_functions):
-        if not use_adb:
-            cfg = proj.analyses.CFGFast(normalize=True)
-
-            start_time = time.time()
-            ccca = proj.analyses.CompleteCallingConventions(
-                cfg=cfg,
-                target_functions=_reachable_functions(
-                    proj, [addr + proj.loader.main_object.mapped_base for addr in target_functions]
-                ),
-            )
-            ll.info(
-                f"{ccca._total_funcs}/{len(proj.kb.functions)} functions analyzed for calling conventions in {binary_name}"
-            )
-            ll.info(f"CompleteCallingConventions took {time.time() - start_time:.2f} seconds for {binary_path}")
-
-            if proj.is_rust_binary:
-                proj.analyses.RustSymbolRecovery()
-                ll.info(
-                    f"[{binary_name}] Rustc version: {proj.rustc_version}, Rustc optimization level: {proj.rustc_optimization_level}"
-                )
-
-            AngrDB(proj).dump(adb_path)
-        else:
-            cfg = proj.kb.cfgs.get_most_accurate()
+        start_time = time.time()
+        ccca = proj.analyses.CompleteCallingConventions(
+            cfg=cfg,
+            target_functions=_reachable_functions(
+                proj, [addr + proj.loader.main_object.mapped_base for addr in target_functions]
+            ),
+        )
+        ll.info(
+            f"{ccca._total_funcs}/{len(proj.kb.functions)} functions analyzed for calling conventions in {binary_name}"
+        )
+        ll.info(f"CompleteCallingConventions took {time.time() - start_time:.2f} seconds for {binary_path}")
 
         if proj.is_rust_binary:
-            proj.analyses.TypeDBLoader()
+            proj.analyses.RustSymbolRecovery()
+        if is_rust and not os.path.exists(adb_path):
+            AngrDB(proj).dump(adb_path)
+    else:
+        cfg = proj.kb.cfgs.get_most_accurate()
 
-        for func_addr in proj.kb.functions:
-            rebased_func_addr = func_addr - proj.loader.main_object.mapped_base
-            if rebased_func_addr in target_functions:
-                if rebased_func_addr in decompiled_functions:
-                    continue
-                try:
-                    func = proj.kb.functions[func_addr]
-                    decompiler = proj.analyses.Decompiler(cfg=cfg, func=func, fail_fast=True)
-                    output = extract_body_func(decompiler.codegen.text.split("\n"))
-                    if output:
-                        call_counter = CallCounter(proj)
-                        call_counter.walk(decompiler.seq_node)
-                        result = DecompileResult(
-                            decompilation=output,
-                            variable_types=_dump_variable_types(decompiler),
-                            function_call_counts=call_counter.function_call_counts,
-                            macro_call_counts=call_counter.macro_call_counts,
-                        )
-                        result_path = result_dir / f"{rebased_func_addr:x}.json"
-                        result.save_json(result_path)
-                except MemoryError as e:
-                    _clean_rtdb(binary_path)
-                    raise
-                except BaseException as e:
-                    ll.error(f"Failed to decompile function at {rebased_func_addr:x} for {binary_name}: {e}")
-                    ll.error(traceback.format_exc())
+    if proj.is_rust_binary:
+        proj.analyses.TypeDBLoader()
+        l.info(
+            f"[{binary_name}] Rustc version: {proj.rustc_version}, Rustc optimization level: {proj.rustc_optimization_level}"
+        )
+
+    for func_addr in proj.kb.functions:
+        rebased_func_addr = func_addr - proj.loader.main_object.mapped_base
+        if rebased_func_addr in target_functions:
+            try:
+                func = proj.kb.functions[func_addr]
+                decompiler = proj.analyses.Decompiler(cfg=cfg, func=func, fail_fast=True)
+                output = extract_body_func(decompiler.codegen.text.split("\n"))
+                if output:
+                    call_counter = CallCounter(proj)
+                    call_counter.walk(decompiler.seq_node)
+                    result = DecompileResult(
+                        decompilation=output,
+                        variable_types=_dump_variable_types(decompiler),
+                        function_call_counts=call_counter.function_call_counts,
+                        macro_call_counts=call_counter.macro_call_counts,
+                    )
+                    yield rebased_func_addr, result
+            except BaseException as e:
+                ll.error(f"Failed to decompile function at {rebased_func_addr:x} for {binary_name}: {e}")
+                ll.error(traceback.format_exc())
 
     _clean_rtdb(binary_path)
-
-
-def angr_dec(binary_path, target_functions, tag, symbols, *args, **kwargs):
-    _angr_dec_base(binary_path, target_functions, tag, _extract_function_body, False, symbols)

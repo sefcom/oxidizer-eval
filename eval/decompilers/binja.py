@@ -13,7 +13,6 @@ from binaryninja.highlevelil import HighLevelILInstruction
 from binaryninja.types import TypeClass, VariableSourceType
 from binaryninja.variable import Variable
 
-from eval.config import RESULT_DIR
 from eval.result import DecompileResult
 
 
@@ -116,55 +115,33 @@ def get_variable_types(func: Function):
     return ident_to_types
 
 
-def binja_dec(binary_path, target_functions, tag, symbols, *args, **kwargs):
+def binja_decompile(binary_path, c_targets, rust_targets, tag, symbols):
     l = logging.getLogger(tag)
-    c_decompiler_name = "Binary Ninja"
-    rust_decompiler_name = "Binary Ninja (Pseudo Rust)"
     binary_name = os.path.basename(binary_path)
+    all_targets = c_targets | rust_targets
 
-    c_result_dir = RESULT_DIR / tag / c_decompiler_name / binary_name
-    os.makedirs(c_result_dir, exist_ok=True)
-    decompiled_c_functions = set(int(result_path.stem, 16) for result_path in c_result_dir.glob("*.json"))
+    with binaryninja.load(binary_path) as bv:
+        for func in bv.functions:
+            try:
+                func_addr = func.start - bv.start
+                if func_addr in all_targets:
+                    for language in ("C", "Rust"):
+                        if language == "C" and func_addr not in c_targets:
+                            continue
+                        if language == "Rust" and func_addr not in rust_targets:
+                            continue
+                        output = _decompile(bv, func, language)
+                        if output:
+                            result = DecompileResult(
+                                decompilation=output,
+                                function_call_counts=count_calls(bv, func),
+                                macro_call_counts={},
+                                variable_types=get_variable_types(func),
+                            )
+                            yield language, func_addr, result
+                        else:
+                            raise Exception("Empty decompilation output")
 
-    rust_result_dir = RESULT_DIR / tag / rust_decompiler_name / binary_name
-    os.makedirs(rust_result_dir, exist_ok=True)
-    decompiled_rust_functions = set(int(result_path.stem, 16) for result_path in rust_result_dir.glob("*.json"))
-
-    if not decompiled_c_functions.issuperset(target_functions) or not decompiled_rust_functions.issuperset(
-        target_functions
-    ):
-        # with binaryninja.load(binary_path, options={"analysis.initialAnalysisHold": True}) as bv:
-        #     for func_addr in symbols:
-        #         func_addr = int(func_addr) + bv.start
-        #         bv.create_user_function(func_addr)
-        with binaryninja.load(binary_path) as bv:
-            # for func_addr in target_functions:
-            #     func_addr = int(func_addr) + bv.start
-            #     bv.create_user_function(func_addr)
-            for func in bv.functions:
-                try:
-                    func_addr = func.start - bv.start
-                    if func_addr in target_functions:
-                        for language in ("C", "Rust"):
-                            if language == "C" and func_addr in decompiled_c_functions:
-                                continue
-                            if language == "Rust" and func_addr in decompiled_rust_functions:
-                                continue
-                            output = _decompile(bv, func, language)
-                            if output:
-                                result = DecompileResult(
-                                    decompilation=output,
-                                    function_call_counts=count_calls(bv, func),
-                                    macro_call_counts={},
-                                    variable_types=get_variable_types(func),
-                                )
-                                result_path = (
-                                    c_result_dir if language == "C" else rust_result_dir
-                                ) / f"{func_addr:x}.json"
-                                result.save_json(result_path)
-                            else:
-                                raise Exception("Empty decompilation output")
-
-                except Exception as e:
-                    l.error(f"Failed to decompile function: {func.start:x} in {binary_name}: {e}")
-                    l.error(traceback.format_exc())
+            except Exception as e:
+                l.error(f"Failed to decompile function: {func.start:x} in {binary_name}: {e}")
+                l.error(traceback.format_exc())

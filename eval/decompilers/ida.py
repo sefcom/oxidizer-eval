@@ -4,7 +4,7 @@ import os
 from tempfile import NamedTemporaryFile
 
 from eval.result import DecompileResult
-from eval.config import IDA_PATH, IDA_SCRIPTS_PATH, RESULT_DIR
+from eval.config import IDA_PATH, IDA_SCRIPTS_PATH
 
 IDAPYTHON_SCRIPT = r"""
 from collections import defaultdict
@@ -136,37 +136,29 @@ if __name__ == "__main__":
 """
 
 
-def ida_dec(binary_path, target_functions, tag, *args, **kwargs):
-    binary_name = os.path.basename(binary_path)
-    result_dir = RESULT_DIR / tag / "IDA" / binary_name
-    os.makedirs(result_dir, exist_ok=True)
-    decompiled_functions = set(int(result_path.stem, 16) for result_path in result_dir.glob("*.json"))
-
-    if not decompiled_functions.issuperset(target_functions):
-        target_functions = set(func_addr for func_addr in target_functions if func_addr not in decompiled_functions)
-        result_fd = NamedTemporaryFile("w", suffix=".py", delete=False)
-        result_fd.close()
-        script_fd = NamedTemporaryFile("w", suffix=".py", delete=False)
-        script_fd.write(
-            IDAPYTHON_SCRIPT.replace("%TARGET_FUNCTIONS%", str(target_functions)).replace(
-                "%RESULT_PATH%", result_fd.name
-            )
+def ida_decompile(binary_path, target_functions, tag):
+    result_fd = NamedTemporaryFile("w", suffix=".py", delete=False)
+    result_fd.close()
+    script_fd = NamedTemporaryFile("w", suffix=".py", delete=False)
+    script_fd.write(
+        IDAPYTHON_SCRIPT.replace("%TARGET_FUNCTIONS%", str(target_functions)).replace(
+            "%RESULT_PATH%", result_fd.name
         )
-        script_fd.close()
-        cmd = f"{IDA_PATH} -A -S{os.path.abspath(os.path.join(IDA_SCRIPTS_PATH, script_fd.name))} {os.path.abspath(binary_path)}"
-        subprocess.run(cmd.split())
+    )
+    script_fd.close()
+    cmd = f"{IDA_PATH} -A -S{os.path.abspath(os.path.join(IDA_SCRIPTS_PATH, script_fd.name))} {os.path.abspath(binary_path)}"
+    subprocess.run(cmd.split())
 
-        with open(result_fd.name, "r") as fd:
-            result = json.load(fd)
-            for func_addr in list(result.keys()):
-                func_result = DecompileResult(
-                    decompilation=result[func_addr]["decompilation"],
-                    variable_types=result[func_addr]["variable_types"],
-                    function_call_counts=result[func_addr]["function_call_counts"],
-                    macro_call_counts=result[func_addr]["macro_call_counts"],
-                )
-                result_path = result_dir / f"{int(func_addr):x}.json"
-                func_result.save_json(result_path)
+    with open(result_fd.name, "r") as fd:
+        result = json.load(fd)
+        for func_addr in list(result.keys()):
+            func_result = DecompileResult(
+                decompilation=result[func_addr]["decompilation"],
+                variable_types=result[func_addr]["variable_types"],
+                function_call_counts=result[func_addr]["function_call_counts"],
+                macro_call_counts=result[func_addr]["macro_call_counts"],
+            )
+            yield func_addr, func_result
 
-        os.unlink(result_fd.name)
-        os.unlink(script_fd.name)
+    os.unlink(result_fd.name)
+    os.unlink(script_fd.name)

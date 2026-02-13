@@ -1,6 +1,3 @@
-from eval.decompilers.angr import _angr_dec_base
-
-
 def _extract_function_body(output):
     body = []
     for line in output:
@@ -10,7 +7,3 @@ def _extract_function_body(output):
         elif len(body):
             body.append(line)
     return "\n".join(body)
-
-
-def oxidizer_dec(binary_path, function_list, tag, symbols, *args, **kwargs):
-    return _angr_dec_base(binary_path, function_list, tag, _extract_function_body, True, symbols=symbols)

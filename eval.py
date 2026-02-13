@@ -1,44 +1,38 @@
 #!/usr/bin/env python3
-from concurrent.futures import Future, ProcessPoolExecutor, as_completed
+import json
 import os
-from pathlib import Path
+import sys
+import traceback
 import logging
-from pprint import pformat
-import resource
 import time
+from collections import defaultdict
+from concurrent.futures import Future, ProcessPoolExecutor
+from dataclasses import dataclass
+from pathlib import Path
 from typing import Dict, List
 
 from eval.config import COREUTILS_MODULES, DECOMPILERS, RESULT_DIR
 from eval.metrics import *
 from eval.metrics.calc import *
 from eval.metrics.ground_truth import FunctionGroundTruth
-from eval.decompilers.ida import ida_dec
-from eval.decompilers.oxidizer import oxidizer_dec
-from eval.decompilers.angr import angr_dec
-from eval.decompilers.ghidra import ghidra_dec
-from eval.decompilers.binja import binja_dec
+from eval.decompilers.decompiler import Decompiler
 
 from eval.result import DecompileResult, FuncEvalResult, EvalResult
 from eval.utils.timeout import run_with_timeout
 from eval.utils.logging import init_logger
+from eval.utils.scheduler import set_memory_limit_gb
 
-
-def dummy_dec(*args, **kwargs):
-    pass
-
-
-CACHE_ONLY = False  # Debug mode: only use cached results, do not run decompilers
-MULTIPROCESSING = True  # Use multiprocessing for decompilation tasks
-
-DEC_OPTIONS = {
-    "Source": {"dec_func": dummy_dec, "cache_only": True, "timeout": 0},
-    "angr": {"dec_func": angr_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
-    "Oxidizer": {"dec_func": oxidizer_dec, "cache_only": False or CACHE_ONLY, "timeout": 300},
-    "Oxidizer.normal": {"dec_func": oxidizer_dec, "cache_only": True or CACHE_ONLY, "timeout": 180},
-    "IDA": {"dec_func": ida_dec, "cache_only": True or CACHE_ONLY, "timeout": 60},
-    "Ghidra": {"dec_func": ghidra_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
-    "Binary Ninja": {"dec_func": binja_dec, "cache_only": True or CACHE_ONLY, "timeout": 120},
-    "Binary Ninja (Pseudo Rust)": {"dec_func": dummy_dec, "cache_only": True or CACHE_ONLY, "timeout": 0},
+CACHE_ONLY = False
+MULTIPROCESSING = True
+DEC_CONFIG = {
+    "Source": {"cache_only": True, "timeout_minutes": 0},
+    "angr": {"cache_only": True, "timeout_minutes": 120},
+    "Oxidizer": {"cache_only": True, "timeout_minutes": 300},
+    "Oxidizer.normal": {"cache_only": True, "timeout_minutes": 180},
+    "IDA": {"cache_only": True, "timeout_minutes": 60},
+    "Ghidra": {"cache_only": True, "timeout_minutes": 120},
+    "Binary Ninja": {"cache_only": False, "timeout_minutes": 120},
+    "Binary Ninja (Pseudo Rust)": {"cache_only": True, "timeout_minutes": 0},
 }
 
 TARGET_STRIPPED_DIR = Path("targets/stripped").absolute()
@@ -66,20 +60,21 @@ def decompile_binary(binary_path, tag, decompiler, symbols):
     binary_name = os.path.basename(binary_path)
     target_functions = set(load_function_addresses(binary_path, tag))
 
-    dec_func = DEC_OPTIONS[decompiler]["dec_func"]
-    cache_only = DEC_OPTIONS[decompiler]["cache_only"]
-    timeout = DEC_OPTIONS[decompiler]["timeout"] * 60  # minutes to seconds
+    cfg = DEC_CONFIG[decompiler]
+    cache_only = cfg["cache_only"] or CACHE_ONLY
+    timeout = cfg["timeout_minutes"] * 60
 
     if cache_only:
         return
 
     l.info(f"Decompiling {binary_name} with {decompiler}...")
     start = time.time()
+    dec = Decompiler(decompiler)
     try:
         if MULTIPROCESSING:
-            run_with_timeout(dec_func, binary_path, target_functions, tag, symbols, timeout=timeout)
+            run_with_timeout(dec.decompile, binary_path, target_functions, tag, symbols, timeout=timeout)
         else:
-            dec_func(binary_path, target_functions, tag, symbols)
+            dec.decompile(binary_path, target_functions, tag, symbols)
     except Exception as e:
         l.error(f"{decompiler}: Failed to decompile binary {binary_path}({e})")
         l.error(traceback.format_exc())
@@ -169,9 +164,6 @@ def compute_binary_eval_result(binary_path, tag, symbols):
                 func_eval_result.add_result(NUM_GOTOS, num_gotos(decompilation))
 
                 # Fidelity Metric-2: Number of matched string literals
-                # l.info(
-                #     f"Evaluating string literals for function {func_addr:x} {binary_name} decompiled by {decompiler}"
-                # )
                 func_eval_result.add_result(
                     NUM_MATCHED_STRING_LITERALS,
                     num_matched_string_literals(decompilation, func_ground_truth.string_literals),
@@ -207,9 +199,6 @@ def compute_binary_eval_result(binary_path, tag, symbols):
                 if decompiler == "Oxidizer":
                     for macro_name, count in func_result.macro_call_counts.items():
                         func_eval_result.add_result(f"macro_call_{macro_name}", count)
-                #     l.info(f"---Function: {func_addr:x}---")
-                #     l.info(f"Ground truth macro calls: {func_ground_truth.macros}")
-                #     l.info(f"Decompiled macro calls: {func_result.macro_call_counts}")
 
                 type_eval_result, dwarf_var_to_predicted_types = generate_type_eval_result(
                     func_result.variable_types,
@@ -238,10 +227,37 @@ def compute_binary_eval_result(binary_path, tag, symbols):
     return eval_result
 
 
-def set_memory_limit_gb(limit_gb: int):
-    """Set a per-process virtual memory limit in GB."""
-    soft, hard = limit_gb * 1024**3, limit_gb * 1024**3
-    resource.setrlimit(resource.RLIMIT_AS, (soft, hard))
+def save_html_report(tag: str, eval_result: EvalResult):
+    """Save HTML report for a tag's evaluation result, keeping last 10 reports."""
+    from datetime import datetime
+
+    html_output_dir = Path("output/html") / tag
+    html_output_dir.mkdir(parents=True, exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    html_file = html_output_dir / f"{tag}_{timestamp}.html"
+    latest_html_file = html_output_dir / "latest.html"
+
+    try:
+        html_content = eval_result.to_html(tag)
+
+        with open(html_file, "w", encoding="utf-8") as f:
+            f.write(html_content)
+        l.info(f"HTML report saved to: {html_file}")
+
+        with open(latest_html_file, "w", encoding="utf-8") as f:
+            f.write(html_content)
+        l.info(f"HTML report also saved as: {latest_html_file}")
+
+        html_files = sorted(
+            [f for f in html_output_dir.glob(f"{tag}_*.html")], key=lambda x: x.stat().st_mtime, reverse=True
+        )
+        for old_file in html_files[10:]:
+            old_file.unlink()
+            l.info(f"Removed old HTML report: {old_file}")
+
+    except Exception as e:
+        l.error(f"Failed to save HTML report: {e}")
 
 
 @dataclass
@@ -261,6 +277,8 @@ class Scheduler:
         self._results = {}
         self._future_to_task: Dict[Future, Task] = {}
         self._binary_path_to_symbols = {}
+        self._completed_tasks = 0
+        self._total_tasks = 0
 
     def schedule_tasks(self, tag: str):
         binary_paths = []
@@ -268,8 +286,8 @@ class Scheduler:
             binary_path = TARGET_STRIPPED_DIR / tag / filename
             if not binary_path.is_file() or "." in filename.replace(".elf", ""):
                 continue
-            # if filename not in COREUTILS_MODULES:
-            #     continue
+            if filename not in COREUTILS_MODULES:
+                continue
             # if filename != "fmt":
             #     continue
             binary_paths.append(str(binary_path.resolve()))
@@ -291,6 +309,22 @@ class Scheduler:
     def _is_finished(self, binary_path: str):
         return len(self._progress[binary_path]) == len(DECOMPILERS)
 
+    def _print_terminal_progress(self, task: Task = None):
+        """Update terminal title bar with real-time progress."""
+        total_binaries = 0
+        finished_binaries = 0
+        for tag, tasks in self._tag_to_tasks.items():
+            binary_paths = set(t.binary_path for t in tasks)
+            total_binaries += len(binary_paths)
+            finished_binaries += sum(1 for bp in binary_paths if self._is_finished(bp))
+
+        title = f"[{self._completed_tasks}/{self._total_tasks}] " f"Binaries: {finished_binaries}/{total_binaries}"
+        if task:
+            title += f" | {task.decompiler} @ {os.path.basename(task.binary_path)}"
+        # Set terminal title using OSC escape sequence
+        sys.stdout.write(f"\033]0;{title}\007")
+        sys.stdout.flush()
+
     def _show_progress(self):
         for tag, tasks in self._tag_to_tasks.items():
             l.info(f"Progress for tag {tag}:")
@@ -307,70 +341,41 @@ class Scheduler:
             else:
                 l.info("No binaries finished yet.")
 
-    def _callback(self, future):
-        task = self._future_to_task[future]
+    def _on_task_done(self, task: Task):
+        """Handle completion of a single decompilation task."""
         self._progress[task.binary_path].add(task.decompiler)
+        self._completed_tasks += 1
+        self._print_terminal_progress(task)
         if self._is_finished(task.binary_path):
             l.info(f"Completed evaluation for binary {task.binary_path} with all decompilers.")
             result = compute_binary_eval_result(
                 task.binary_path, task.tag, self._binary_path_to_symbols[task.binary_path]
             )
             self._results[task.tag].merge(result)
-            # Log to the task-specific logger
             logger = logging.getLogger(task.tag)
             logger.info(f"Task completed: {task.decompiler} on {task.binary_path}")
             logger.info(result)
-            # Also log to the main logger
             l.info(f"Updated evaluation result for tag {task.tag}:\n{self._results[task.tag]}")
             self._show_progress()
 
+    def _callback(self, future):
+        task = self._future_to_task[future]
+        self._on_task_done(task)
+
     def _show_overall_results(self):
-        for tag in self._results:
+        for tag, result in self._results.items():
             for logger in (l, logging.getLogger(tag)):
                 logger.info(f"================ Overall Evaluation Result for tag {tag} ================")
-                logger.info(f"Overall evaluation result for tag {tag}:\n{self._results[tag]}")
-                logger.info(self._results[tag].to_latex(tag))
-                logger.info(self._results[tag].to_latex_type_eval(tag))
-
-            # Save HTML report
-            html_output_dir = Path("output/html") / tag
-            html_output_dir.mkdir(parents=True, exist_ok=True)
-
-            # Generate timestamp for filename
-            from datetime import datetime
-
-            timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-            html_file = html_output_dir / f"{tag}_{timestamp}.html"
-            latest_html_file = html_output_dir / "latest.html"
-
-            try:
-                html_content = self._results[tag].to_html(tag)
-
-                # Save with timestamp
-                with open(html_file, "w", encoding="utf-8") as f:
-                    f.write(html_content)
-                l.info(f"HTML report saved to: {html_file}")
-
-                # Save as latest.html
-                with open(latest_html_file, "w", encoding="utf-8") as f:
-                    f.write(html_content)
-                l.info(f"HTML report also saved as: {latest_html_file}")
-
-                # Keep only the 10 most recent HTML files (excluding latest.html)
-                html_files = sorted(
-                    [f for f in html_output_dir.glob(f"{tag}_*.html")], key=lambda x: x.stat().st_mtime, reverse=True
-                )
-
-                # Remove files beyond the 10 most recent
-                for old_file in html_files[10:]:
-                    old_file.unlink()
-                    l.info(f"Removed old HTML report: {old_file}")
-
-            except Exception as e:
-                l.error(f"Failed to save HTML report: {e}")
+                logger.info(f"Overall evaluation result for tag {tag}:\n{result}")
+                logger.info(result.to_latex(tag))
+                logger.info(result.to_latex_type_eval(tag))
+            save_html_report(tag, result)
 
     def run(self):
+        self._total_tasks = sum(len(tasks) for tasks in self._tag_to_tasks.values())
         for tag in self._tag_to_tasks:
+            init_logger(tag)
+            self._results[tag] = EvalResult(0)
             l.info(
                 f"Starting decompilation tasks for tag {tag}... ({len(self._tag_to_tasks[tag]) // len(DECOMPILERS)} binaries)"
             )
@@ -382,8 +387,6 @@ class Scheduler:
 
     def _run_single_process(self):
         for tag, tasks in self._tag_to_tasks.items():
-            init_logger(tag)
-            self._results[tag] = EvalResult(0)
             for task in tasks:
                 try:
                     decompile_binary(
@@ -394,26 +397,13 @@ class Scheduler:
                     )
                 except Exception as e:
                     l.error(f"Task failed: {task.decompiler} on {task.binary_path}: {e}")
-                self._progress[task.binary_path].add(task.decompiler)
-                if self._is_finished(task.binary_path):
-                    l.info(f"Completed evaluation for binary {task.binary_path} with all decompilers.")
-                    result = compute_binary_eval_result(
-                        task.binary_path, task.tag, self._binary_path_to_symbols[task.binary_path]
-                    )
-                    self._results[task.tag].merge(result)
-                    logger = logging.getLogger(task.tag)
-                    logger.info(f"Task completed: {task.decompiler} on {task.binary_path}")
-                    logger.info(result)
-                    l.info(f"Updated evaluation result for tag {task.tag}:\n{self._results[task.tag]}")
-                    self._show_progress()
+                self._on_task_done(task)
 
     def _run_multiprocess(self):
         with ProcessPoolExecutor(
             max_workers=self.processes, initializer=set_memory_limit_gb, initargs=(self.max_memory_gb,)
         ) as executor:
             for tag, tasks in self._tag_to_tasks.items():
-                init_logger(tag)
-                self._results[tag] = EvalResult(0)
                 for task in tasks:
                     future = executor.submit(
                         decompile_binary,
@@ -437,7 +427,7 @@ if __name__ == "__main__":
         # "malware",
         # "nightly-2023-05-22-O3",
         # "nightly-2025-05-22-O0",
-        "nightly-2025-05-22-O3",
+        "nightly-2025-05-22-O3-inline",
         # "open-source-malware",
     )
 

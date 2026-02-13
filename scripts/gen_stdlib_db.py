@@ -130,8 +130,8 @@ def compile_stdlib_binary(toolchain, opt_level):
     version_parts = tuple(int(x) for x in stable_version.split("."))
 
     rustflags = ""
-    if version_parts >= (1, 65, 0):
-        rustflags = "-Z inline-llvm=off"
+    # if version_parts >= (1, 65, 0):
+    #     rustflags = "-Z inline-llvm=off"
 
     env = os.environ.copy()
     if rustflags:

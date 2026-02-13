@@ -7,7 +7,7 @@ import shutil
 import json
 
 from eval.result import DecompileResult
-from eval.config import GHIDRA_PATH, RESULT_DIR
+from eval.config import GHIDRA_PATH
 
 GHIDRA_PRE_DEC_SCRIPT = r"""
 options = getCurrentAnalysisOptionsAndValues(currentProgram)
@@ -135,70 +135,63 @@ with open("%RESULT_PATH%", "w") as fd:
 """
 
 
-def ghidra_dec(binary_path, target_functions, tag, *args, **kwargs):
+def ghidra_decompile(binary_path, target_functions, tag):
     l = logging.getLogger(tag)
     binary_path = os.path.abspath(binary_path)
     binary_name = os.path.basename(binary_path)
 
-    result_dir = RESULT_DIR / tag / "Ghidra" / binary_name
-    os.makedirs(result_dir, exist_ok=True)
-    decompiled_functions = set(int(result_path.stem, 16) for result_path in result_dir.glob("*.json"))
+    pre_dec_script = GHIDRA_PRE_DEC_SCRIPT
+    fd = NamedTemporaryFile("w", suffix=".py", delete=False)
+    fd.write(pre_dec_script)
+    fd.close()
+    pre_dec_script_path = fd.name
 
-    if not decompiled_functions.issuperset(target_functions):
-        target_functions = set(func_addr for func_addr in target_functions if func_addr not in decompiled_functions)
-        pre_dec_script = GHIDRA_PRE_DEC_SCRIPT
-        fd = NamedTemporaryFile("w", suffix=".py", delete=False)
-        fd.write(pre_dec_script)
-        fd.close()
-        pre_dec_script_path = fd.name
+    result_fd = NamedTemporaryFile("w", suffix=".py", delete=False)
+    result_fd.close()
 
-        result_fd = NamedTemporaryFile("w", suffix=".py", delete=False)
-        result_fd.close()
+    post_dec_script = GHIDRA_POST_DEC_SCRIPT.replace("%TARGET_FUNCTIONS%", str(target_functions)).replace(
+        "%RESULT_PATH%", result_fd.name
+    )
+    fd = NamedTemporaryFile("w", suffix=".py", delete=False)
+    fd.write(post_dec_script)
+    fd.close()
+    post_dec_script_path = fd.name
 
-        post_dec_script = GHIDRA_POST_DEC_SCRIPT.replace("%TARGET_FUNCTIONS%", str(target_functions)).replace(
-            "%RESULT_PATH%", result_fd.name
+    ghidra_path = GHIDRA_PATH
+    original_cwd = os.getcwd()
+    try:
+        dir_path = os.path.dirname(binary_path)
+        os.chdir(dir_path)
+        subprocess.run(
+            [
+                f"{ghidra_path}",
+                ".",
+                f"temp_project_{binary_name}",
+                "-import",
+                binary_name,
+                "-preScript",
+                f"{pre_dec_script_path}",
+                "-postScript",
+                f"{post_dec_script_path}",
+            ]
         )
-        fd = NamedTemporaryFile("w", suffix=".py", delete=False)
-        fd.write(post_dec_script)
-        fd.close()
-        post_dec_script_path = fd.name
-
-        ghidra_path = GHIDRA_PATH
-        original_cwd = os.getcwd()
-        try:
-            dir_path = os.path.dirname(binary_path)
-            os.chdir(dir_path)
-            subprocess.run(
-                [
-                    f"{ghidra_path}",
-                    ".",
-                    f"temp_project_{binary_name}",
-                    "-import",
-                    binary_name,
-                    "-preScript",
-                    f"{pre_dec_script_path}",
-                    "-postScript",
-                    f"{post_dec_script_path}",
-                ]
-            )
-            os.unlink(f"./temp_project_{binary_name}.gpr")
-            shutil.rmtree(f"./temp_project_{binary_name}.rep")
-            with open(result_fd.name, "r") as fd:
-                result = json.load(fd)
-                for func_addr in list(result.keys()):
-                    func_result = DecompileResult(
-                        decompilation=result[func_addr]["decompilation"],
-                        variable_types=result[func_addr]["variable_types"],
-                        function_call_counts=result[func_addr]["function_call_counts"],
-                        macro_call_counts=result[func_addr]["macro_call_counts"],
-                    )
-                    result_path = result_dir / f"{int(func_addr):x}.json"
-                    func_result.save_json(result_path)
-        except Exception as e:
-            l.critical(f"Ghidra decompilation exeception: {e}")
-            l.critical("".join(traceback.format_exception(e)))
-        finally:
-            os.chdir(original_cwd)
-            os.unlink(pre_dec_script_path)
-            os.unlink(result_fd.name)
-            os.unlink(post_dec_script_path)
+        os.unlink(f"./temp_project_{binary_name}.gpr")
+        shutil.rmtree(f"./temp_project_{binary_name}.rep")
+        with open(result_fd.name, "r") as fd:
+            result = json.load(fd)
+            for func_addr in list(result.keys()):
+                func_result = DecompileResult(
+                    decompilation=result[func_addr]["decompilation"],
+                    variable_types=result[func_addr]["variable_types"],
+                    function_call_counts=result[func_addr]["function_call_counts"],
+                    macro_call_counts=result[func_addr]["macro_call_counts"],
+                )
+                yield func_addr, func_result
+    except Exception as e:
+        l.critical(f"Ghidra decompilation exeception: {e}")
+        l.critical("".join(traceback.format_exception(e)))
+    finally:
+        os.chdir(original_cwd)
+        os.unlink(pre_dec_script_path)
+        os.unlink(result_fd.name)
+        os.unlink(post_dec_script_path)

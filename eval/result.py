@@ -488,6 +488,7 @@ class EvalResult:
         html.append("        .percentage { color: #666; font-size: 0.9em; }")
         html.append("        .macro-list { max-height: 400px; overflow-y: auto; }")
         html.append("        .timestamp { color: #999; font-size: 0.9em; }")
+        html.append("        .sep { border-left: 3px solid #333; }")
         html.append("    </style>")
         html.append("</head>")
         html.append("<body>")
@@ -510,12 +511,12 @@ class EvalResult:
         html.append("                <tr>")
         html.append("                    <th>Metric</th>")
         for decompiler in DECOMPILERS:
-            html.append(f"                    <th colspan='2'>{decompiler}</th>")
+            html.append(f"                    <th class='sep' colspan='2'>{decompiler}</th>")
         html.append("                </tr>")
         html.append("                <tr>")
         html.append("                    <th></th>")
         for _ in DECOMPILERS:
-            html.append("                    <th>Average</th>")
+            html.append("                    <th class='sep'>Average</th>")
             html.append("                    <th>Median</th>")
         html.append("                </tr>")
         html.append("            </thead>")
@@ -547,7 +548,9 @@ class EvalResult:
             html.append(f"                    <td class='metric-name'>{metric_names.get(metric, metric)}</td>")
 
             for i, decompiler in enumerate(DECOMPILERS):
-                winner_class = ' class="winner"' if decompiler == best_decompiler and decompiler != "Source" else ''
+                is_winner = decompiler == best_decompiler and decompiler != "Source"
+                classes_avg = " ".join(filter(None, ["sep", "winner" if is_winner else ""]))
+                classes_med = "winner" if is_winner else ""
 
                 # Average with percentage
                 if decompiler == "Source":
@@ -556,8 +559,8 @@ class EvalResult:
                     percentage = f" <span class='percentage'>({avgs[i] / self._average('Source', metric) * 100:.1f}%)</span>" if self._average("Source", metric) > 0 else ""
                     avg_text = f"{avgs[i]:.2f}{percentage}"
 
-                html.append(f"                    <td{winner_class}>{avg_text}</td>")
-                html.append(f"                    <td{winner_class}>{int(meds[i])}</td>")
+                html.append(f"                    <td class='{classes_avg}'>{avg_text}</td>")
+                html.append(f"                    <td class='{classes_med}'>{int(meds[i])}</td>")
 
             html.append("                </tr>")
 
@@ -575,12 +578,12 @@ class EvalResult:
         # Filter out "Source" from decompilers
         type_decompilers = [d for d in DECOMPILERS if d != "Source"]
         for decompiler in type_decompilers:
-            html.append(f"                    <th colspan='3' style='text-align: center;'>{decompiler}</th>")
+            html.append(f"                    <th class='sep' colspan='3' style='text-align: center;'>{decompiler}</th>")
         html.append("                </tr>")
         html.append("                <tr>")
         html.append("                    <th></th>")
         for _ in type_decompilers:
-            html.append("                    <th>Precision</th>")
+            html.append("                    <th class='sep'>Precision</th>")
             html.append("                    <th>Recall</th>")
             html.append("                    <th>F1</th>")
         html.append("                </tr>")
@@ -615,9 +618,12 @@ class EvalResult:
             best_f1 = max(f1s) if f1s else 0
 
             for i in range(len(type_decompilers)):
-                p_class = ' class="winner"' if precisions[i] == best_p and best_p > 0 else ''
-                r_class = ' class="winner"' if recalls[i] == best_r and best_r > 0 else ''
-                f_class = ' class="winner"' if f1s[i] == best_f1 and best_f1 > 0 else ''
+                p_winner = precisions[i] == best_p and best_p > 0
+                r_winner = recalls[i] == best_r and best_r > 0
+                f_winner = f1s[i] == best_f1 and best_f1 > 0
+                p_class = f" class='{' '.join(filter(None, ['sep', 'winner' if p_winner else '']))}'"
+                r_class = ' class="winner"' if r_winner else ''
+                f_class = ' class="winner"' if f_winner else ''
 
                 html.append(f"                    <td{p_class}>{precisions[i] * 100:.2f}%</td>")
                 html.append(f"                    <td{r_class}>{recalls[i] * 100:.2f}%</td>")
@@ -650,9 +656,12 @@ class EvalResult:
         best_f1 = max(overall_f1s) if overall_f1s else 0
 
         for i in range(len(type_decompilers)):
-            p_class = ' class="winner"' if overall_precisions[i] == best_p and best_p > 0 else ''
-            r_class = ' class="winner"' if overall_recalls[i] == best_r and best_r > 0 else ''
-            f_class = ' class="winner"' if overall_f1s[i] == best_f1 and best_f1 > 0 else ''
+            p_winner = overall_precisions[i] == best_p and best_p > 0
+            r_winner = overall_recalls[i] == best_r and best_r > 0
+            f_winner = overall_f1s[i] == best_f1 and best_f1 > 0
+            p_class = f" class='{' '.join(filter(None, ['sep', 'winner' if p_winner else '']))}'"
+            r_class = ' class="winner"' if r_winner else ''
+            f_class = ' class="winner"' if f_winner else ''
 
             html.append(f"                    <td{p_class}>{overall_precisions[i] * 100:.2f}%</td>")
             html.append(f"                    <td{r_class}>{overall_recalls[i] * 100:.2f}%</td>")
