@@ -27,11 +27,11 @@ MULTIPROCESSING = True
 DEC_CONFIG = {
     "Source": {"cache_only": True, "timeout_minutes": 0},
     "angr": {"cache_only": True, "timeout_minutes": 120},
-    "Oxidizer": {"cache_only": True, "timeout_minutes": 300},
+    "Oxidizer": {"cache_only": False, "timeout_minutes": 300},
     "Oxidizer.normal": {"cache_only": True, "timeout_minutes": 180},
     "IDA": {"cache_only": True, "timeout_minutes": 60},
     "Ghidra": {"cache_only": True, "timeout_minutes": 120},
-    "Binary Ninja": {"cache_only": False, "timeout_minutes": 120},
+    "Binary Ninja": {"cache_only": True, "timeout_minutes": 120},
     "Binary Ninja (Pseudo Rust)": {"cache_only": True, "timeout_minutes": 0},
 }
 
@@ -148,12 +148,10 @@ def compute_binary_eval_result(binary_path, tag, symbols):
                 # Conciseness Metric-2: Number of variables
                 func_eval_result.add_result(
                     NUM_VARIABLES,
-                    len(
-                        [
-                            var
-                            for var in func_result.variable_types
-                            if not var.startswith("arg_") and not var.startswith("return_type")
-                        ]
+                    sum(
+                        len(types)
+                        for var, types in func_result.variable_types.items()
+                        if not var.startswith("arg_") and not var.startswith("return_type")
                     ),
                 )
 
@@ -288,7 +286,7 @@ class Scheduler:
                 continue
             if filename not in COREUTILS_MODULES:
                 continue
-            # if filename != "fmt":
+            # if filename != "cksum":
             #     continue
             binary_paths.append(str(binary_path.resolve()))
         for binary_path in binary_paths:

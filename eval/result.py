@@ -209,9 +209,6 @@ class EvalResult:
 
         target_sum = 0
         total_sum = 0
-        for key in oxidizer_macro_call_counts:
-            if key not in gt_macro_call_counts:
-                output += f"  {key}: 0\n"
 
         for key in gt_macro_call_counts:
             gt_count = gt_macro_call_counts[key]
@@ -475,12 +472,20 @@ class EvalResult:
         html.append("    <meta name='viewport' content='width=device-width, initial-scale=1.0'>")
         html.append(f"    <title>Evaluation Results - {tag}</title>")
         html.append("    <style>")
-        html.append("        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background-color: #f5f5f5; }")
+        html.append(
+            "        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background-color: #f5f5f5; }"
+        )
         html.append("        h1, h2 { color: #333; }")
-        html.append("        .summary { background: white; padding: 20px; border-radius: 5px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }")
-        html.append("        table { border-collapse: collapse; width: 100%; background: white; margin-bottom: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }")
+        html.append(
+            "        .summary { background: white; padding: 20px; border-radius: 5px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }"
+        )
+        html.append(
+            "        table { border-collapse: collapse; width: 100%; background: white; margin-bottom: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }"
+        )
         html.append("        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }")
-        html.append("        th { background-color: #4CAF50; color: white; font-weight: bold; position: sticky; top: 0; }")
+        html.append(
+            "        th { background-color: #4CAF50; color: white; font-weight: bold; position: sticky; top: 0; }"
+        )
         html.append("        tr:hover { background-color: #f5f5f5; }")
         html.append("        .winner { font-weight: bold; color: #4CAF50; }")
         html.append("        .metric-name { font-weight: bold; }")
@@ -495,8 +500,11 @@ class EvalResult:
 
         # Title and summary
         import datetime
+
         html.append(f"    <h1>Evaluation Results: {tag}</h1>")
-        html.append(f"    <p class='timestamp'>Generated on: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>")
+        html.append(
+            f"    <p class='timestamp'>Generated on: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>"
+        )
         html.append("    <div class='summary'>")
         html.append(f"        <h2>Summary</h2>")
         html.append(f"        <p><strong>Number of Binaries:</strong> {self.total_binaries:,}</p>")
@@ -542,7 +550,9 @@ class EvalResult:
             if metric in [NUM_MATCHED_FUNCTION_CALLS, NUM_MATCHED_MACRO_CALLS, NUM_MATCHED_STRING_LITERALS]:
                 best_decompiler = max(DECOMPILERS, key=lambda d: self._average(d, metric) if d != "Source" else 0)
             else:
-                best_decompiler = min(DECOMPILERS, key=lambda d: self._average(d, metric) if d != "Source" else float("inf"))
+                best_decompiler = min(
+                    DECOMPILERS, key=lambda d: self._average(d, metric) if d != "Source" else float("inf")
+                )
 
             html.append("                <tr>")
             html.append(f"                    <td class='metric-name'>{metric_names.get(metric, metric)}</td>")
@@ -556,7 +566,11 @@ class EvalResult:
                 if decompiler == "Source":
                     avg_text = f"{avgs[i]:.2f}"
                 else:
-                    percentage = f" <span class='percentage'>({avgs[i] / self._average('Source', metric) * 100:.1f}%)</span>" if self._average("Source", metric) > 0 else ""
+                    percentage = (
+                        f" <span class='percentage'>({avgs[i] / self._average('Source', metric) * 100:.1f}%)</span>"
+                        if self._average("Source", metric) > 0
+                        else ""
+                    )
                     avg_text = f"{avgs[i]:.2f}{percentage}"
 
                 html.append(f"                    <td class='{classes_avg}'>{avg_text}</td>")
@@ -578,7 +592,9 @@ class EvalResult:
         # Filter out "Source" from decompilers
         type_decompilers = [d for d in DECOMPILERS if d != "Source"]
         for decompiler in type_decompilers:
-            html.append(f"                    <th class='sep' colspan='3' style='text-align: center;'>{decompiler}</th>")
+            html.append(
+                f"                    <th class='sep' colspan='3' style='text-align: center;'>{decompiler}</th>"
+            )
         html.append("                </tr>")
         html.append("                <tr>")
         html.append("                    <th></th>")
@@ -591,8 +607,20 @@ class EvalResult:
         html.append("            <tbody>")
 
         type_categories = [
-            "primitive", "struct", "enum", "array", "Result", "Option",
-            "&primitive", "&struct", "&enum", "&Result", "&Option", "&array", "&reference", "reference",
+            "primitive",
+            "struct",
+            "enum",
+            "array",
+            "Result",
+            "Option",
+            "&primitive",
+            "&struct",
+            "&enum",
+            "&Result",
+            "&Option",
+            "&array",
+            "&reference",
+            "reference",
         ]
 
         for t in type_categories:
@@ -622,8 +650,8 @@ class EvalResult:
                 r_winner = recalls[i] == best_r and best_r > 0
                 f_winner = f1s[i] == best_f1 and best_f1 > 0
                 p_class = f" class='{' '.join(filter(None, ['sep', 'winner' if p_winner else '']))}'"
-                r_class = ' class="winner"' if r_winner else ''
-                f_class = ' class="winner"' if f_winner else ''
+                r_class = ' class="winner"' if r_winner else ""
+                f_class = ' class="winner"' if f_winner else ""
 
                 html.append(f"                    <td{p_class}>{precisions[i] * 100:.2f}%</td>")
                 html.append(f"                    <td{r_class}>{recalls[i] * 100:.2f}%</td>")
@@ -660,8 +688,8 @@ class EvalResult:
             r_winner = overall_recalls[i] == best_r and best_r > 0
             f_winner = overall_f1s[i] == best_f1 and best_f1 > 0
             p_class = f" class='{' '.join(filter(None, ['sep', 'winner' if p_winner else '']))}'"
-            r_class = ' class="winner"' if r_winner else ''
-            f_class = ' class="winner"' if f_winner else ''
+            r_class = ' class="winner"' if r_winner else ""
+            f_class = ' class="winner"' if f_winner else ""
 
             html.append(f"                    <td{p_class}>{overall_precisions[i] * 100:.2f}%</td>")
             html.append(f"                    <td{r_class}>{overall_recalls[i] * 100:.2f}%</td>")
@@ -677,7 +705,7 @@ class EvalResult:
         oxidizer_macro_call_counts = defaultdict(int)
         for (decompiler, metric), values in self.decompiler_and_metric_to_values.items():
             if metric.startswith("macro_call_"):
-                macro_name = metric[len("macro_call_"):]
+                macro_name = metric[len("macro_call_") :]
                 if decompiler == "Oxidizer":
                     oxidizer_macro_call_counts[macro_name] += sum(values)
                 else:
@@ -687,11 +715,15 @@ class EvalResult:
             html.append("    <div class='section'>")
             html.append("        <h2>Macro Call Statistics</h2>")
 
-            target_sum = sum(gt_macro_call_counts[key] for key in gt_macro_call_counts if key in oxidizer_macro_call_counts)
+            target_sum = sum(
+                gt_macro_call_counts[key] for key in gt_macro_call_counts if key in oxidizer_macro_call_counts
+            )
             total_sum = sum(gt_macro_call_counts.values())
             coverage_pct = (target_sum / total_sum * 100) if total_sum > 0 else 0
 
-            html.append(f"        <p><strong>Coverage:</strong> Oxidizer covered {target_sum:,} out of {total_sum:,} macro calls in ground truth ({coverage_pct:.2f}%)</p>")
+            html.append(
+                f"        <p><strong>Coverage:</strong> Oxidizer covered {target_sum:,} out of {total_sum:,} macro calls in ground truth ({coverage_pct:.2f}%)</p>"
+            )
 
             html.append("        <div style='display: flex; gap: 20px;'>")
             html.append("            <div style='flex: 1;'>")
