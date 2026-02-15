@@ -5,6 +5,7 @@ from eval.decompilers.ida import ida_decompile
 from eval.decompilers.ghidra import ghidra_decompile
 from eval.decompilers.angr import angr_decompile
 from eval.decompilers.binja import binja_decompile
+from eval.decompilers.ghidrust import ghidrust_decompile
 
 
 class DecompilerCache:
@@ -63,10 +64,12 @@ class Decompiler:
             gen = angr_decompile(binary_path, uncached, tag, symbols, is_rust=False)
         elif self.name == "Oxidizer":
             gen = angr_decompile(binary_path, uncached, tag, symbols, is_rust=True)
+        elif self.name == "GhidRust":
+            gen = ghidrust_decompile(binary_path, uncached, tag)
         elif self.name == "Binary Ninja (Pseudo Rust)":
             return  # Results produced by "Binary Ninja" decompilation
         else:
-            raise ValueError(f"Unknown decompiler: {self.name}")
+            return  # Unsupported decompiler
 
         for func_addr, result in gen:
             cache.save(func_addr, result)

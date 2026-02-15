@@ -3,13 +3,14 @@ from pathlib import Path
 
 DECOMPILERS = (
     "Source",
-    "Oxidizer",
-    # "Oxidizer.normal",
-    "angr",
-    "IDA",
+    # "Oxidizer",
+    # "Oxidizer.ndss",
+    # "angr",
+    # "IDA",
     "Ghidra",
-    "Binary Ninja",
-    "Binary Ninja (Pseudo Rust)",
+    # "Binary Ninja",
+    # "Binary Ninja (Pseudo Rust)",
+    "GhidRust",
 )
 # DECOMPILERS = ("Source", "Oxidizer", "angr", "IDA", "Ghidra", "Binary Ninja", "Binary Ninja (Pseudo Rust)")
 

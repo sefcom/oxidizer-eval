@@ -27,12 +27,13 @@ MULTIPROCESSING = True
 DEC_CONFIG = {
     "Source": {"cache_only": True, "timeout_minutes": 0},
     "angr": {"cache_only": True, "timeout_minutes": 120},
-    "Oxidizer": {"cache_only": False, "timeout_minutes": 300},
-    "Oxidizer.normal": {"cache_only": True, "timeout_minutes": 180},
+    "Oxidizer": {"cache_only": True, "timeout_minutes": 240},
+    "Oxidizer.ndss": {"cache_only": True, "timeout_minutes": 180},
     "IDA": {"cache_only": True, "timeout_minutes": 60},
     "Ghidra": {"cache_only": True, "timeout_minutes": 120},
     "Binary Ninja": {"cache_only": True, "timeout_minutes": 120},
     "Binary Ninja (Pseudo Rust)": {"cache_only": True, "timeout_minutes": 0},
+    "GhidRust": {"cache_only": False, "timeout_minutes": 60},
 }
 
 TARGET_STRIPPED_DIR = Path("targets/stripped").absolute()
@@ -286,7 +287,7 @@ class Scheduler:
                 continue
             if filename not in COREUTILS_MODULES:
                 continue
-            # if filename != "cksum":
+            # if filename != "fmt":
             #     continue
             binary_paths.append(str(binary_path.resolve()))
         for binary_path in binary_paths:
@@ -425,7 +426,7 @@ if __name__ == "__main__":
         # "malware",
         # "nightly-2023-05-22-O3",
         # "nightly-2025-05-22-O0",
-        "nightly-2025-05-22-O3-inline",
+        "nightly-2025-05-22-O3",
         # "open-source-malware",
     )
 
