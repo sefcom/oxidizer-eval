@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import json
 import os
+import shutil
 import sys
 import traceback
 import logging
@@ -22,12 +23,12 @@ from eval.utils.timeout import run_with_timeout
 from eval.utils.logging import init_logger
 from eval.utils.scheduler import set_memory_limit_gb
 
-CACHE_ONLY = True
+CACHE_ONLY = False
 MULTIPROCESSING = True
 DEC_CONFIG = {
     "Source": {"cache_only": True, "timeout_minutes": 0},
     "angr": {"cache_only": True, "timeout_minutes": 120},
-    "Oxidizer": {"cache_only": False, "timeout_minutes": 240},
+    "Oxidizer": {"cache_only": False, "timeout_minutes": 120},
     "Oxidizer.old": {"cache_only": True, "timeout_minutes": 240},
     "Oxidizer_propagation": {"cache_only": False, "timeout_minutes": 240},
     "Oxidizer_no_propagation": {"cache_only": False, "timeout_minutes": 240},
@@ -271,7 +272,7 @@ class Task:
 
 
 class Scheduler:
-    def __init__(self, processes: int = 30, max_memory_gb: int = 32):
+    def __init__(self, processes: int = 16, max_memory_gb: int = 32):
         self.processes = processes
         self.max_memory_gb = max_memory_gb
 
@@ -289,10 +290,27 @@ class Scheduler:
             binary_path = TARGET_STRIPPED_DIR / tag / filename
             if not binary_path.is_file() or "." in filename.replace(".elf", ""):
                 continue
-            if filename not in COREUTILS_MODULES:
-                continue
-            # if filename != "fmt":
+            # if filename not in COREUTILS_MODULES:
             #     continue
+            # if filename != "just":
+            #     continue
+            if filename not in [
+                "alacritty",
+                "bat",
+                "fd",
+                "firecracker",
+                "fish",
+                "fish_key_reader",
+                "just",
+                "meilisearch",
+                "nu",
+                "ruff",
+                "rustdesk",
+                "surreal",
+                "typst",
+                "swc",
+            ]:
+                continue
             binary_paths.append(str(binary_path.resolve()))
         for binary_path in binary_paths:
             # Load symbols for the binary
@@ -387,6 +405,29 @@ class Scheduler:
         else:
             self._run_single_process()
         self._show_overall_results()
+        self._clean_decompiler_cache()
+
+    def _clean_decompiler_cache(self):
+        """Clean up angr rtdb directories and Ghidra workspace/project cache."""
+        for tag, tasks in self._tag_to_tasks.items():
+            binary_dir = TARGET_STRIPPED_DIR / tag
+            if not binary_dir.is_dir():
+                continue
+            for entry in os.listdir(binary_dir):
+                full_path = binary_dir / entry
+                if not full_path.is_dir():
+                    continue
+                # angr rtdb: {binary_name}_angr_rtdb*
+                # Ghidra workspace: temp_project_{binary_name}.rep
+                if "_angr_rtdb" in entry or entry.startswith("temp_project_") or entry == "workspace":
+                    l.info(f"Cleaning up decompiler cache: {full_path}")
+                    shutil.rmtree(full_path, ignore_errors=True)
+            # Also clean Ghidra .gpr files
+            for entry in os.listdir(binary_dir):
+                full_path = binary_dir / entry
+                if full_path.is_file() and entry.startswith("temp_project_") and entry.endswith(".gpr"):
+                    l.info(f"Cleaning up Ghidra project file: {full_path}")
+                    os.unlink(full_path)
 
     def _run_single_process(self):
         for tag, tasks in self._tag_to_tasks.items():
@@ -429,7 +470,7 @@ if __name__ == "__main__":
     tags = (
         # "malware",
         # "nightly-2023-05-22-O3",
-        # "nightly-2025-05-22-O0",
+        # "nightly-2025-05-22-O3",
         "nightly-2025-05-22-O3-inline",
         # "open-source-malware",
     )

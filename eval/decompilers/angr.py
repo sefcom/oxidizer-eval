@@ -1,6 +1,5 @@
 import json
 import logging
-import shutil
 import traceback
 from collections import Counter, defaultdict
 import os
@@ -178,11 +177,6 @@ def _reachable_functions(proj, target_functions):
     return reachable_functions
 
 
-def _clean_rtdb(binary_path):
-    rtdb_dir_path = binary_path + "_angr_rtdb"
-    shutil.rmtree(rtdb_dir_path, ignore_errors=True)
-
-
 def angr_decompile(binary_path, target_functions, tag, symbols, is_rust):
     if is_rust:
         from eval.decompilers.oxidizer import _extract_function_body as extract_rust_body
@@ -267,4 +261,3 @@ def angr_decompile(binary_path, target_functions, tag, symbols, is_rust):
                 ll.error(f"Failed to decompile function at {rebased_func_addr:x} for {binary_name}: {e}")
                 ll.error(traceback.format_exc())
 
-    _clean_rtdb(binary_path)

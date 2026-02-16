@@ -44,6 +44,13 @@ from eval.metrics import *
 logging.basicConfig(level=logging.WARNING)
 l = logging.getLogger("generate_eval_tables")
 
+DISPLAY_NAMES = {"IDA": "Hex-Rays"}
+
+
+def _dn(dec: str) -> str:
+    return DISPLAY_NAMES.get(dec, dec)
+
+
 TARGET_GROUND_TRUTH_DIR = PROJECT_ROOT / "targets" / "merged_ground_truth"
 TARGET_SYMBOLS_DIR = PROJECT_ROOT / "targets" / "symbols"
 RESULT_DIR = PROJECT_ROOT / "output" / "result"
@@ -94,10 +101,7 @@ def evaluate_tag(
 
         # Get function addresses from ground truth
         binary_gt_dir = gt_dir / binary
-        func_addrs = sorted(
-            int(f.stem, 16)
-            for f in binary_gt_dir.glob("*.json")
-        )
+        func_addrs = sorted(int(f.stem, 16) for f in binary_gt_dir.glob("*.json"))
 
         # For each function, compute metrics across all decompilers
         for func_addr in func_addrs:
@@ -155,16 +159,10 @@ def evaluate_tag(
                     metrics_agg[NUM_VARIABLES][dec].append(func_gt.nvars)
                     metrics_agg[NUM_OPERATORS][dec].append(func_gt.nofops)
                     metrics_agg[NUM_GOTOS][dec].append(0)
-                    metrics_agg[NUM_MATCHED_STRING_LITERALS][dec].append(
-                        sum(func_gt.string_literals.values())
-                    )
-                    metrics_agg[NUM_MATCHED_FUNCTION_CALLS][dec].append(
-                        sum(func_gt.calls.values())
-                    )
+                    metrics_agg[NUM_MATCHED_STRING_LITERALS][dec].append(sum(func_gt.string_literals.values()))
+                    metrics_agg[NUM_MATCHED_FUNCTION_CALLS][dec].append(sum(func_gt.calls.values()))
                     metrics_agg[NUM_EXTRANEOUS_FUNCTION_CALLS][dec].append(0)
-                    metrics_agg[NUM_MATCHED_MACRO_CALLS][dec].append(
-                        sum(func_gt.macros.values())
-                    )
+                    metrics_agg[NUM_MATCHED_MACRO_CALLS][dec].append(sum(func_gt.macros.values()))
                     continue
 
                 rp = result_dir / dec / binary / f"{func_addr:x}.json"
@@ -241,11 +239,11 @@ def generate_metrics_table(
 ) -> str:
     """Generate the conciseness & fidelity markdown table."""
     metric_display = [
-        (MCC, "Avg MCC", True),
-        (LOC, "Avg LoC", True),
-        (NUM_VARIABLES, "Avg Variables", True),
-        (NUM_OPERATORS, "Avg Operators", True),
-        (NUM_GOTOS, "Avg Gotos", True),
+        (MCC, "MCC", True),
+        (LOC, "LoC", True),
+        (NUM_VARIABLES, "Variables", True),
+        (NUM_OPERATORS, "Operators", True),
+        (NUM_GOTOS, "Gotos", True),
         (NUM_MATCHED_STRING_LITERALS, "Matched Strings", False),
         (NUM_MATCHED_FUNCTION_CALLS, "Matched Functions", False),
         (NUM_EXTRANEOUS_FUNCTION_CALLS, "Extraneous Calls", True),
@@ -253,7 +251,7 @@ def generate_metrics_table(
     ]
 
     # Header
-    header = "| Metric | " + " | ".join(decompilers) + " |"
+    header = "| Metric | " + " | ".join(_dn(d) for d in decompilers) + " |"
     sep = "|---" * (len(decompilers) + 1) + "|"
 
     rows = []
@@ -276,8 +274,12 @@ def generate_metrics_table(
         cells = []
         for dec in decompilers:
             v = vals[dec]
-            is_best = (dec != "Source" and best_val is not None and v == best_val
-                       and sum(1 for d, vv in non_source.items() if vv == best_val) < len(non_source))
+            is_best = (
+                dec != "Source"
+                and best_val is not None
+                and v == best_val
+                and sum(1 for d, vv in non_source.items() if vv == best_val) < len(non_source)
+            )
             cells.append(fmt_val(v, bold=is_best))
 
         rows.append(f"| {display_name} | " + " | ".join(cells) + " |")
@@ -290,16 +292,11 @@ def generate_type_table(
     decompilers: List[str],
 ) -> str:
     """Generate the type recovery markdown table."""
-    type_categories = [
-        "primitive", "struct", "enum", "array",
-        "Result", "Option",
-        "&primitive", "&struct", "&enum", "&Result", "&Option", "&array",
-        "reference",
-    ]
+    type_categories = ["struct", "Result", "Option"]
 
     # Header
     non_source = [d for d in decompilers if d != "Source"]
-    header = "| Type | " + " | ".join(f"{d} Precision/Recall" for d in non_source) + " |"
+    header = "| Type | " + " | ".join(f"{_dn(d)} Precision/Recall" for d in non_source) + " |"
     sep = "|---" * (len(non_source) + 1) + "|"
 
     def prf(dec: str, cat: str):
@@ -339,7 +336,7 @@ def generate_type_table(
         cells = []
         for d in non_source:
             p, r = vals[d]
-            s = f"{p:.2f}/{r:.2f}"
+            s = f"{p:.2f}%/{r:.2f}%"
             if d == best_d and f1s[best_d] > 0 and len(set(f1s.values())) > 1:
                 s = f"**{s}**"
             cells.append(s)
@@ -357,7 +354,7 @@ def generate_type_table(
     cells = []
     for d in non_source:
         p, r = ovals[d]
-        s = f"{p:.2f}/{r:.2f}"
+        s = f"{p:.2f}%/{r:.2f}%"
         if d == best_d and of1s[best_d] > 0 and len(set(of1s.values())) > 1:
             s = f"**{s}**"
         cells.append(s)
@@ -407,12 +404,7 @@ def generate_html(
     ts = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     non_source = [d for d in decompilers if d != "Source"]
 
-    type_categories = [
-        "primitive", "struct", "enum", "array",
-        "Result", "Option",
-        "&primitive", "&struct", "&enum", "&Result", "&Option", "&array",
-        "reference",
-    ]
+    type_categories = ["struct", "Result", "Option"]
 
     metric_display = [
         (MCC, "McCabe Cyclomatic Complexity", True),
@@ -449,8 +441,12 @@ def generate_html(
         cells = []
         for dec in decompilers:
             avg, med = vals[dec]
-            is_best = (dec != "Source" and best is not None and avg == best
-                       and sum(1 for v in ns_avgs.values() if v == best) < len(ns_avgs))
+            is_best = (
+                dec != "Source"
+                and best is not None
+                and avg == best
+                and sum(1 for v in ns_avgs.values() if v == best) < len(ns_avgs)
+            )
             cls = ' class="winner"' if is_best else ""
 
             if dec == "Source":
@@ -458,9 +454,7 @@ def generate_html(
             else:
                 pct = f"({avg / src_avg * 100:.1f}%)" if src_avg > 0 else ""
                 pct_html = f' <span class="pct">{pct}</span>' if pct else ""
-                cells.append(
-                    f"<td{cls}>{avg:.2f}{pct_html}</td><td>{med:.0f}</td>"
-                )
+                cells.append(f"<td{cls}>{avg:.2f}{pct_html}</td><td>{med:.0f}</td>")
         metrics_rows.append((display_name, cells))
 
     # ── Build type table rows ──
@@ -473,12 +467,19 @@ def generate_html(
         f1s = {d: vals[d][2] for d in non_source}
         best_d = max(f1s, key=f1s.get) if f1s else None
 
+        ps = {d: vals[d][0] for d in non_source}
+        rs = {d: vals[d][1] for d in non_source}
+        best_p = max(ps.values()) if ps else 0
+        best_r = max(rs.values()) if rs else 0
+        best_f1 = max(f1s.values()) if f1s else 0
+
         cells = []
         for d in non_source:
             p, r, f1 = vals[d]
-            is_best = (d == best_d and f1 > 0 and len(set(f1s.values())) > 1)
-            cls = ' class="winner"' if is_best else ""
-            cells.append(f"<td{cls}>{p:.2f}%</td><td{cls}>{r:.2f}%</td><td{cls}>{f1:.2f}%</td>")
+            p_cls = ' class="winner"' if (p == best_p and p > 0 and len(set(ps.values())) > 1) else ""
+            r_cls = ' class="winner"' if (r == best_r and r > 0 and len(set(rs.values())) > 1) else ""
+            f1_cls = ' class="winner"' if (f1 == best_f1 and f1 > 0 and len(set(f1s.values())) > 1) else ""
+            cells.append(f"<td{p_cls}>{p:.2f}%</td><td{r_cls}>{r:.2f}%</td><td{f1_cls}>{f1:.2f}%</td>")
 
         type_rows.append((cat, cells))
 
@@ -486,12 +487,19 @@ def generate_html(
     ovals = {d: _overall_prf(type_agg, d, type_categories) for d in non_source}
     of1s = {d: ovals[d][2] for d in non_source}
     best_d = max(of1s, key=of1s.get) if of1s else None
+    ops = {d: ovals[d][0] for d in non_source}
+    ors = {d: ovals[d][1] for d in non_source}
+    best_op = max(ops.values()) if ops else 0
+    best_or = max(ors.values()) if ors else 0
+    best_of1 = max(of1s.values()) if of1s else 0
+
     overall_cells = []
     for d in non_source:
         p, r, f1 = ovals[d]
-        is_best = (d == best_d and f1 > 0 and len(set(of1s.values())) > 1)
-        cls = ' class="winner"' if is_best else ""
-        overall_cells.append(f"<td{cls}>{p:.2f}%</td><td{cls}>{r:.2f}%</td><td{cls}>{f1:.2f}%</td>")
+        p_cls = ' class="winner"' if (p == best_op and p > 0 and len(set(ops.values())) > 1) else ""
+        r_cls = ' class="winner"' if (r == best_or and r > 0 and len(set(ors.values())) > 1) else ""
+        f1_cls = ' class="winner"' if (f1 == best_of1 and f1 > 0 and len(set(of1s.values())) > 1) else ""
+        overall_cells.append(f"<td{p_cls}>{p:.2f}%</td><td{r_cls}>{r:.2f}%</td><td{f1_cls}>{f1:.2f}%</td>")
 
     # ── Assemble HTML ──
     p = []
@@ -501,16 +509,18 @@ def generate_html(
     p.append(f"<style>{_HTML_CSS}</style></head><body>")
 
     p.append(f"<h1>Evaluation Results</h1>")
-    p.append(f"<p class='subtitle'>Dataset: <b>{escape_html(tag)}</b> &nbsp;|&nbsp; "
-             f"Functions: <b>{total_funcs}</b> &nbsp;|&nbsp; "
-             f"Generated: {ts}</p>")
+    p.append(
+        f"<p class='subtitle'>Dataset: <b>{escape_html(tag)}</b> &nbsp;|&nbsp; "
+        f"Functions: <b>{total_funcs}</b> &nbsp;|&nbsp; "
+        f"Generated: {ts}</p>"
+    )
 
     # Metrics table
     p.append("<h2>Conciseness and Fidelity Metrics</h2>")
     p.append("<table><thead><tr>")
     p.append("<th rowspan='2' class='metric-col'>Metric</th>")
     for dec in decompilers:
-        p.append(f"<th colspan='2' class='sep'>{escape_html(dec)}</th>")
+        p.append(f"<th colspan='2' class='sep'>{escape_html(_dn(dec))}</th>")
     p.append("</tr><tr>")
     for _ in decompilers:
         p.append("<th>Average</th><th>Median</th>")
@@ -526,7 +536,7 @@ def generate_html(
     p.append("<table><thead><tr>")
     p.append("<th rowspan='2' class='metric-col'>Type Category</th>")
     for d in non_source:
-        p.append(f"<th colspan='3' class='sep'>{escape_html(d)}</th>")
+        p.append(f"<th colspan='3' class='sep'>{escape_html(_dn(d))}</th>")
     p.append("</tr><tr>")
     for _ in non_source:
         p.append("<th>Precision</th><th>Recall</th><th>F1</th>")
