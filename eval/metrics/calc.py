@@ -393,7 +393,7 @@ class MCCCalculator:
     ]
 
     # returns:
-    RETURN_REGEX = r"return "
+    RETURN_REGEX = r"return\b"
 
     def _clean_string(self, s: str) -> str:
         s = s.replace("\n", " ").replace("\r", " ")

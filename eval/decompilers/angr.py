@@ -1,3 +1,4 @@
+import json
 import logging
 import shutil
 import traceback
@@ -221,7 +222,7 @@ def angr_decompile(binary_path, target_functions, tag, symbols, is_rust):
         ll.info(f"CompleteCallingConventions took {time.time() - start_time:.2f} seconds for {binary_path}")
 
         if proj.is_rust_binary:
-            proj.analyses.RustSymbolRecovery()
+            proj.analyses.RustSymbolRecovery(inline=True)
         if is_rust and not os.path.exists(adb_path):
             AngrDB(proj).dump(adb_path)
     else:
@@ -232,6 +233,18 @@ def angr_decompile(binary_path, target_functions, tag, symbols, is_rust):
         l.info(
             f"[{binary_name}] Rustc version: {proj.rustc_version}, Rustc optimization level: {proj.rustc_optimization_level}"
         )
+
+    # # Save all function addresses (rebased) and demangled names
+    # symbols_dir = os.path.join("output", "ablation", "symbols", "no_propagation")
+    # os.makedirs(symbols_dir, exist_ok=True)
+    # symbols_map = {}
+    # for func_addr in proj.kb.functions:
+    #     rebased = func_addr - proj.loader.main_object.mapped_base
+    #     func_name = proj.kb.functions[func_addr].name
+    #     demangled_name = demangle(func_name)
+    #     symbols_map[rebased] = demangled_name
+    # with open(os.path.join(symbols_dir, f"{binary_name}.json"), "w") as f:
+    #     json.dump(symbols_map, f, indent=2)
 
     for func_addr in proj.kb.functions:
         rebased_func_addr = func_addr - proj.loader.main_object.mapped_base

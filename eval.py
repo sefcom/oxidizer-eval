@@ -22,18 +22,22 @@ from eval.utils.timeout import run_with_timeout
 from eval.utils.logging import init_logger
 from eval.utils.scheduler import set_memory_limit_gb
 
-CACHE_ONLY = False
+CACHE_ONLY = True
 MULTIPROCESSING = True
 DEC_CONFIG = {
     "Source": {"cache_only": True, "timeout_minutes": 0},
     "angr": {"cache_only": True, "timeout_minutes": 120},
-    "Oxidizer": {"cache_only": True, "timeout_minutes": 240},
+    "Oxidizer": {"cache_only": False, "timeout_minutes": 240},
+    "Oxidizer.old": {"cache_only": True, "timeout_minutes": 240},
+    "Oxidizer_propagation": {"cache_only": False, "timeout_minutes": 240},
+    "Oxidizer_no_propagation": {"cache_only": False, "timeout_minutes": 240},
     "Oxidizer.ndss": {"cache_only": True, "timeout_minutes": 180},
     "IDA": {"cache_only": True, "timeout_minutes": 60},
     "Ghidra": {"cache_only": True, "timeout_minutes": 120},
     "Binary Ninja": {"cache_only": True, "timeout_minutes": 120},
     "Binary Ninja (Pseudo Rust)": {"cache_only": True, "timeout_minutes": 0},
-    "GhidRust": {"cache_only": False, "timeout_minutes": 60},
+    "GhidRust": {"cache_only": True, "timeout_minutes": 60},
+    "Binary Ninja (with Plugin)": {"cache_only": True, "timeout_minutes": 120},
 }
 
 TARGET_STRIPPED_DIR = Path("targets/stripped").absolute()
@@ -426,7 +430,7 @@ if __name__ == "__main__":
         # "malware",
         # "nightly-2023-05-22-O3",
         # "nightly-2025-05-22-O0",
-        "nightly-2025-05-22-O3",
+        "nightly-2025-05-22-O3-inline",
         # "open-source-malware",
     )
 

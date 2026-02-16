@@ -6,6 +6,7 @@ from eval.decompilers.ghidra import ghidra_decompile
 from eval.decompilers.angr import angr_decompile
 from eval.decompilers.binja import binja_decompile
 from eval.decompilers.ghidrust import ghidrust_decompile
+from eval.decompilers.binja_with_plugin import binja_with_plugin_decompile
 
 
 class DecompilerCache:
@@ -66,6 +67,8 @@ class Decompiler:
             gen = angr_decompile(binary_path, uncached, tag, symbols, is_rust=True)
         elif self.name == "GhidRust":
             gen = ghidrust_decompile(binary_path, uncached, tag)
+        elif self.name == "Binary Ninja (with Plugin)":
+            gen = binja_with_plugin_decompile(binary_path, uncached, tag, symbols)
         elif self.name == "Binary Ninja (Pseudo Rust)":
             return  # Results produced by "Binary Ninja" decompilation
         else:

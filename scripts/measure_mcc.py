@@ -159,7 +159,7 @@ class RustDecompilerMCC:
     SWITCH_CASE_REGEX = r"case \d+:"
 
     # returns:
-    RETURN_REGEX = r"return "
+    RETURN_REGEX = r"return\b"
 
     CONTROL_STRUCTURE_REGEXES = [
         IF_REGEX,
