@@ -260,4 +260,3 @@ def angr_decompile(binary_path, target_functions, tag, symbols, is_rust):
             except BaseException as e:
                 ll.error(f"Failed to decompile function at {rebased_func_addr:x} for {binary_name}: {e}")
                 ll.error(traceback.format_exc())
-

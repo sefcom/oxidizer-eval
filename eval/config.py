@@ -4,7 +4,7 @@ from pathlib import Path
 DECOMPILERS = (
     "Source",
     "Oxidizer",
-    "Oxidizer.old",
+    # "Oxidizer.old",
     # "Oxidizer_propagation",
     # "Oxidizer_no_propagation",
     # "Oxidizer.ndss",

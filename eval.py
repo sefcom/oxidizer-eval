@@ -28,7 +28,7 @@ MULTIPROCESSING = True
 DEC_CONFIG = {
     "Source": {"cache_only": True, "timeout_minutes": 0},
     "angr": {"cache_only": True, "timeout_minutes": 120},
-    "Oxidizer": {"cache_only": False, "timeout_minutes": 120},
+    "Oxidizer": {"cache_only": True, "timeout_minutes": 120},
     "Oxidizer.old": {"cache_only": True, "timeout_minutes": 240},
     "Oxidizer_propagation": {"cache_only": False, "timeout_minutes": 240},
     "Oxidizer_no_propagation": {"cache_only": False, "timeout_minutes": 240},
@@ -272,7 +272,7 @@ class Task:
 
 
 class Scheduler:
-    def __init__(self, processes: int = 16, max_memory_gb: int = 32):
+    def __init__(self, processes: int = 30, max_memory_gb: int = 16):
         self.processes = processes
         self.max_memory_gb = max_memory_gb
 
@@ -288,38 +288,27 @@ class Scheduler:
         binary_paths = []
         for filename in os.listdir(TARGET_STRIPPED_DIR / tag):
             binary_path = TARGET_STRIPPED_DIR / tag / filename
-            if not binary_path.is_file() or "." in filename.replace(".elf", ""):
+            if not binary_path.is_file():
+                continue
+            magic = binary_path.read_bytes()[:4]
+            # Accept ELF and Mach-O (64-bit LE, 32-bit LE, fat/universal)
+            if magic not in (b"\x7fELF", b"\xcf\xfa\xed\xfe", b"\xce\xfa\xed\xfe", b"\xca\xfe\xba\xbe"):
                 continue
             # if filename not in COREUTILS_MODULES:
             #     continue
-            # if filename != "just":
+            # if filename != "fmt":
             #     continue
-            if filename not in [
-                "alacritty",
-                "bat",
-                "fd",
-                "firecracker",
-                "fish",
-                "fish_key_reader",
-                "just",
-                "meilisearch",
-                "nu",
-                "ruff",
-                "rustdesk",
-                "surreal",
-                "typst",
-                "swc",
-            ]:
-                continue
             binary_paths.append(str(binary_path.resolve()))
         for binary_path in binary_paths:
-            # Load symbols for the binary
+            # Load symbols for the binary (default to empty dict if no symbols file)
             binary_name = os.path.basename(binary_path)
             symbols_path = TARGET_SYMBOLS_DIR / tag / f"{binary_name}.json"
             if symbols_path.exists():
                 with open(symbols_path, "r") as fd:
                     symbols = json.load(fd)
-                self._binary_path_to_symbols[binary_path] = symbols
+            else:
+                symbols = {}
+            self._binary_path_to_symbols[binary_path] = symbols
         tasks = []
         for binary_path in binary_paths:
             for decompiler in DECOMPILERS:
@@ -420,14 +409,16 @@ class Scheduler:
                 # angr rtdb: {binary_name}_angr_rtdb*
                 # Ghidra workspace: temp_project_{binary_name}.rep
                 if "_angr_rtdb" in entry or entry.startswith("temp_project_") or entry == "workspace":
-                    l.info(f"Cleaning up decompiler cache: {full_path}")
                     shutil.rmtree(full_path, ignore_errors=True)
             # Also clean Ghidra .gpr files
             for entry in os.listdir(binary_dir):
                 full_path = binary_dir / entry
                 if full_path.is_file() and entry.startswith("temp_project_") and entry.endswith(".gpr"):
-                    l.info(f"Cleaning up Ghidra project file: {full_path}")
                     os.unlink(full_path)
+        # Clean top-level workspace directory (created by Ghidra)
+        workspace_dir = Path("workspace").absolute()
+        if workspace_dir.is_dir():
+            shutil.rmtree(workspace_dir, ignore_errors=True)
 
     def _run_single_process(self):
         for tag, tasks in self._tag_to_tasks.items():
@@ -468,10 +459,10 @@ if __name__ == "__main__":
     toolchains = ("nightly-2023-05-22",)
     optimization_levels = ("3",)
     tags = (
-        # "malware",
+        "malware",
         # "nightly-2023-05-22-O3",
         # "nightly-2025-05-22-O3",
-        "nightly-2025-05-22-O3-inline",
+        # "nightly-2025-05-22-O3-inline",
         # "open-source-malware",
     )
 
