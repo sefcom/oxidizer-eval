@@ -177,7 +177,7 @@ def _reachable_functions(proj, target_functions):
     return reachable_functions
 
 
-def angr_decompile(binary_path, target_functions, tag, symbols, is_rust):
+def angr_decompile(binary_path, target_functions, tag, symbols, is_rust, cache=True):
     if is_rust:
         from eval.decompilers.oxidizer import _extract_function_body as extract_rust_body
 
@@ -193,7 +193,7 @@ def angr_decompile(binary_path, target_functions, tag, symbols, is_rust):
     target_functions = list(target_functions)
 
     adb_path = binary_path + ".adb"
-    use_adb = os.path.exists(adb_path) and is_rust
+    use_adb = cache and os.path.exists(adb_path) and is_rust
 
     if use_adb:
         proj = AngrDB().load(adb_path)
@@ -216,8 +216,8 @@ def angr_decompile(binary_path, target_functions, tag, symbols, is_rust):
         ll.info(f"CompleteCallingConventions took {time.time() - start_time:.2f} seconds for {binary_path}")
 
         if proj.is_rust_binary:
-            proj.analyses.RustSymbolRecovery(inline=True)
-        if is_rust and not os.path.exists(adb_path):
+            proj.analyses.RustSymbolRecovery()
+        if cache and is_rust and not os.path.exists(adb_path):
             AngrDB(proj).dump(adb_path)
     else:
         cfg = proj.kb.cfgs.get_most_accurate()

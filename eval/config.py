@@ -10,9 +10,9 @@ DECOMPILERS = (
     # "Oxidizer.ndss",
     # "angr",
     "IDA",
-    # "Ghidra",
-    # "Binary Ninja",
-    # "Binary Ninja (Pseudo Rust)",
+    "Ghidra",
+    "Binary Ninja",
+    "Binary Ninja (Pseudo Rust)",
     # "Binary Ninja (with Plugin)",
     # "GhidRust",
 )

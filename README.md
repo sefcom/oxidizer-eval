@@ -1,2 +1,164 @@
-# Oxidizer-eval
+# Oxidizer-Eval
 
+Evaluation framework for [Oxidizer](https://github.com/sefcom/oxidizer), a Rust decompiler built on top of [angr](https://github.com/angr/angr). This framework benchmarks Oxidizer against state-of-the-art decompilers on real-world Rust binaries, measuring conciseness, fidelity, and type recovery.
+
+It is brought to you by [SEFCOM at Arizona State University](https://sefcom.asu.edu).
+
+## Publication
+
+**Oxidizer: Toward Concise and High-fidelity Rust Decompilation**
+Yibo Liu, Zion Leonahenahe Basque, Arvind S. Raj, Chavin Udomwongsa, Chang Zhu, Jie Hu, Changyu Zhao, Fangzhou Dong, Adam Doupe, Tiffany Bao, Yan Shoshitaishvili, Ruoyu Wang
+*IEEE Symposium on Security and Privacy (S&P), 2026*. (To appear)
+
+```bibtex
+@inproceedings{liu2026oxidizer,
+  title={Oxidizer: Toward Concise and High-fidelity Rust Decompilation},
+  author={Liu, Yibo and Basque, Zion Leonahenahe and Raj, Arvind S. and Udomwongsa, Chavin and Zhu, Chang and Hu, Jie and Zhao, Changyu and Dong, Fangzhou and Doup{\'e}, Adam and Bao, Tiffany and Shoshitaishvili, Yan and Wang, Ruoyu},
+  booktitle={2026 IEEE Symposium on Security and Privacy (SP)},
+  year={2026},
+  organization={IEEE}
+}
+```
+
+## Decompilers
+
+The framework currently evaluates the following decompilers:
+
+| Decompiler | Type | Notes |
+|---|---|---|
+| **Oxidizer** | Rust-specialized | angr fork with Rust-specific analysis passes |
+| **IDA Pro 9.0** | Commercial | Hex-Rays decompiler |
+| **Ghidra 11.2.1** | Open-source | NSA's reverse engineering framework |
+| **Binary Ninja** | Commercial | C and Pseudo-Rust output modes |
+
+Additional (optional) decompilers: vanilla angr, GhidRust (Ghidra + Rust transform), Binary Ninja with Rust plugin.
+
+## Evaluation Targets
+
+Targets are defined in `misc/targets-nightly-2025-05-22.toml` and `misc/targets-nightly-2023-05-22.toml`. The current benchmark suite includes 25+ real-world Rust projects:
+
+| Target | Description |
+|---|---|
+| uv, ruff | Astral Python tooling |
+| sway, fuel-core, fuels-rs | Fuel Labs blockchain ecosystem |
+| alacritty | GPU-accelerated terminal |
+| meilisearch | Search engine |
+| ripgrep, fd, bat | CLI utilities |
+| starship | Cross-shell prompt |
+| helix, lapce | Text editors |
+| nushell, fish-shell | Shells |
+| typst | Typesetting system |
+| vaultwarden | Bitwarden server |
+| firecracker | MicroVM |
+| influxdb | Time-series database |
+| surrealdb | Multi-model database |
+| turborepo, swc | JavaScript tooling |
+| sniffnet, zoxide, just | Various utilities |
+| linera-protocol | Blockchain protocol |
+| coreutils | 87 GNU coreutils reimplemented in Rust |
+
+Each target is compiled at multiple optimization levels (O0-O3, Os, Oz) and stripped before decompilation.
+
+## Metrics
+
+### Conciseness
+- **MCC** -- Modified Cyclomatic Complexity
+- **LoC** -- Lines of Code
+- **# Variables** -- Number of unique variables
+- **# Operators** -- Number of operators
+
+### Fidelity
+- **# Gotos** -- Unstructured control flow (lower is better)
+- **# Matched String Literals** -- Recovered string constants
+- **# Matched Function Calls** -- Correctly identified function calls
+- **# Extraneous Function Calls** -- False positive function calls
+- **# Matched Macro Calls** -- Rust macro identification (e.g., `println!`, `format!`)
+
+### Type Recovery
+- Per-type precision/recall/F1 for primitives, structs, enums, Rust-specific types (`Option`, `Result`), and pointer variants
+
+## Project Structure
+
+```
+oxidizer-eval/
+  eval.py                     # Main evaluation entry point
+  setup.py                    # Build targets and generate ground truth
+  install_oxidizer.sh         # Install Oxidizer and dependencies
+  clean.sh                    # Cleanup script
+  eval/
+    config.py                 # Configuration (decompiler list, paths, targets)
+    result.py                 # Data structures (DecompileResult, EvalResult)
+    decompilers/              # Decompiler adapters (unified interface)
+    metrics/                  # Metric definitions and calculations
+    type_recovery/            # Type recovery and DWARF parsing
+    utils/                    # Timeout, scheduling, logging
+  oxidizer/                   # Oxidizer source (angr fork with Rust passes)
+  targets/
+    src/                      # Target source code
+    stripped/                 # Stripped binaries (decompilation input)
+    symbols/                  # Symbol tables (JSON)
+    ground_truth/             # Source-level ground truth
+    merged_ground_truth/      # Combined source + DWARF ground truth
+    dwarf/                    # Extracted DWARF debug info
+  misc/
+    ground_truth_parser/      # Rust tool: extracts ground truth from source
+    dwarf_parser/             # Rust tool: extracts DWARF info
+    targets-*.toml            # Target definitions per toolchain
+  tools/                      # External decompilers (IDA, Ghidra, Binary Ninja)
+  scripts/                    # Analysis, comparison, and utility scripts
+  output/                     # Evaluation results, cached outputs, HTML reports
+```
+
+## Setup
+
+### Prerequisites
+- Python >= 3.10
+- Rust nightly toolchain (nightly-2025-05-22)
+- External decompilers placed in `tools/` (IDA Pro 9.0, Ghidra 11.2.1, Binary Ninja)
+
+### Install Oxidizer
+
+```bash
+./install_oxidizer.sh
+```
+
+This installs the angr ecosystem with pinned commits and builds Oxidizer from the `oxidizer/` subdirectory.
+
+### Build Evaluation Targets
+
+```bash
+python setup.py
+```
+
+This will:
+1. Install the required Rust toolchain
+2. Build the ground truth parser and DWARF parser
+3. Clone and compile all target projects at each optimization level
+4. Generate per-function ground truth from source code and DWARF info
+5. Strip binaries and extract symbol tables
+
+## Usage
+
+### Run Evaluation
+
+```bash
+python eval.py --tag <toolchain-tag> [options]
+```
+
+The evaluation pipeline:
+1. Loads target functions from ground truth
+2. Schedules decompilation tasks across all binary/decompiler combinations
+3. Runs decompilers in parallel with configurable timeouts and memory limits
+4. Computes metrics by comparing outputs against ground truth
+5. Generates HTML reports and LaTeX tables
+
+Results are saved to `output/result/<tag>/<decompiler>/<binary>/`.
+
+### Configuration
+
+Edit `eval/config.py` to:
+- Enable/disable decompilers in the `DECOMPILERS` tuple
+- Adjust tool paths (`IDA_PATH`, `GHIDRA_PATH`)
+- Modify the coreutils module list
+
+Per-decompiler timeouts and caching behavior are configured in `DEC_CONFIG` in `eval.py`.

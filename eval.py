@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import argparse
 import json
 import os
 import shutil
@@ -24,17 +25,16 @@ from eval.utils.logging import init_logger
 from eval.utils.scheduler import set_memory_limit_gb
 
 CACHE_ONLY = False
-MULTIPROCESSING = True
 DEC_CONFIG = {
     "Source": {"cache_only": True, "timeout_minutes": 0},
     "angr": {"cache_only": True, "timeout_minutes": 120},
-    "Oxidizer": {"cache_only": True, "timeout_minutes": 120},
+    "Oxidizer": {"cache_only": False, "timeout_minutes": 240},
     "Oxidizer.old": {"cache_only": True, "timeout_minutes": 240},
     "Oxidizer_propagation": {"cache_only": False, "timeout_minutes": 240},
     "Oxidizer_no_propagation": {"cache_only": False, "timeout_minutes": 240},
     "Oxidizer.ndss": {"cache_only": True, "timeout_minutes": 180},
     "IDA": {"cache_only": True, "timeout_minutes": 60},
-    "Ghidra": {"cache_only": True, "timeout_minutes": 120},
+    "Ghidra": {"cache_only": True, "timeout_minutes": 180},
     "Binary Ninja": {"cache_only": True, "timeout_minutes": 120},
     "Binary Ninja (Pseudo Rust)": {"cache_only": True, "timeout_minutes": 0},
     "GhidRust": {"cache_only": True, "timeout_minutes": 60},
@@ -62,7 +62,7 @@ def load_function_addresses(binary_path, tag):
             yield func_addr
 
 
-def decompile_binary(binary_path, tag, decompiler, symbols):
+def decompile_binary(binary_path, tag, decompiler, symbols, use_timeout=True):
     binary_name = os.path.basename(binary_path)
     target_functions = set(load_function_addresses(binary_path, tag))
 
@@ -77,7 +77,7 @@ def decompile_binary(binary_path, tag, decompiler, symbols):
     start = time.time()
     dec = Decompiler(decompiler)
     try:
-        if MULTIPROCESSING:
+        if use_timeout:
             run_with_timeout(dec.decompile, binary_path, target_functions, tag, symbols, timeout=timeout)
         else:
             dec.decompile(binary_path, target_functions, tag, symbols)
@@ -272,9 +272,10 @@ class Task:
 
 
 class Scheduler:
-    def __init__(self, processes: int = 30, max_memory_gb: int = 16):
-        self.processes = processes
+    def __init__(self, workers: int = 16, max_memory_gb: int = 32, targets: str = "all"):
+        self.workers = workers
         self.max_memory_gb = max_memory_gb
+        self.targets = targets
 
         self._tag_to_tasks: Dict[str, List[Task]] = {}
         self._progress = defaultdict(set)
@@ -294,10 +295,10 @@ class Scheduler:
             # Accept ELF and Mach-O (64-bit LE, 32-bit LE, fat/universal)
             if magic not in (b"\x7fELF", b"\xcf\xfa\xed\xfe", b"\xce\xfa\xed\xfe", b"\xca\xfe\xba\xbe"):
                 continue
-            # if filename not in COREUTILS_MODULES:
-            #     continue
-            # if filename != "fmt":
-            #     continue
+            if self.targets == "coreutils" and filename not in COREUTILS_MODULES:
+                continue
+            if self.targets not in ("all", "coreutils") and filename != self.targets:
+                continue
             binary_paths.append(str(binary_path.resolve()))
         for binary_path in binary_paths:
             # Load symbols for the binary (default to empty dict if no symbols file)
@@ -389,7 +390,7 @@ class Scheduler:
             l.info(
                 f"Starting decompilation tasks for tag {tag}... ({len(self._tag_to_tasks[tag]) // len(DECOMPILERS)} binaries)"
             )
-        if MULTIPROCESSING:
+        if self.workers > 0:
             self._run_multiprocess()
         else:
             self._run_single_process()
@@ -429,6 +430,7 @@ class Scheduler:
                         task.tag,
                         task.decompiler,
                         self._binary_path_to_symbols[task.binary_path],
+                        use_timeout=False,
                     )
                 except Exception as e:
                     l.error(f"Task failed: {task.decompiler} on {task.binary_path}: {e}")
@@ -436,7 +438,7 @@ class Scheduler:
 
     def _run_multiprocess(self):
         with ProcessPoolExecutor(
-            max_workers=self.processes, initializer=set_memory_limit_gb, initargs=(self.max_memory_gb,)
+            max_workers=self.workers, initializer=set_memory_limit_gb, initargs=(self.max_memory_gb,)
         ) as executor:
             for tag, tasks in self._tag_to_tasks.items():
                 for task in tasks:
@@ -452,21 +454,33 @@ class Scheduler:
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Oxidizer decompilation evaluation")
+    parser.add_argument(
+        "targets",
+        nargs="?",
+        default="all",
+        help="Which targets to decompile: 'all', 'coreutils', or a specific binary name (e.g. 'fmt')",
+    )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=16,
+        help="Number of worker processes (default: 16, <=0 to disable multiprocessing)",
+    )
+    args = parser.parse_args()
+
     init_logger("oxidizer-eval")
 
-    # toolchains = ("nightly-2025-05-22", "nightly-2023-05-22")
-    # optimization_levels = ("0", "1", "2", "3", "s", "z")
-    toolchains = ("nightly-2023-05-22",)
-    optimization_levels = ("3",)
     tags = (
-        "malware",
+        # "malware",
         # "nightly-2023-05-22-O3",
-        # "nightly-2025-05-22-O3",
+        "nightly-2025-05-22-O0",
+        "nightly-2025-05-22-O3",
         # "nightly-2025-05-22-O3-inline",
         # "open-source-malware",
     )
 
-    scheduler = Scheduler()
+    scheduler = Scheduler(workers=args.workers, targets=args.targets)
 
     for tag in tags:
         scheduler.schedule_tasks(tag)
