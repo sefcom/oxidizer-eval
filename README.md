@@ -26,19 +26,19 @@ The framework currently evaluates the following decompilers:
 
 | Decompiler | Type | Notes |
 |---|---|---|
-| **Oxidizer** | Rust-specialized | angr fork with Rust-specific analysis passes |
+| **Oxidizer** | Rust-specialized | Rust-oriented decompiler built on top of angr |
+| **angr** | Open-source | vanilla angrs |
 | **IDA Pro 9.0** | Commercial | Hex-Rays decompiler |
 | **Ghidra 11.2.1** | Open-source | NSA's reverse engineering framework |
-| **Binary Ninja** | Commercial | C and Pseudo-Rust output modes |
-
-Additional (optional) decompilers: vanilla angr, GhidRust (Ghidra + Rust transform), Binary Ninja with Rust plugin.
+| **Binary Ninja 5.3.9117-dev** | Commercial | C and Pseudo-Rust output modes |
 
 ## Evaluation Targets
 
-Targets are defined in `misc/targets-nightly-2025-05-22.toml` and `misc/targets-nightly-2023-05-22.toml`. The current benchmark suite includes 25+ real-world Rust projects:
+Targets are defined in `misc/targets-nightly-2025-05-22.toml`. The current benchmark suite includes 28 real-world Rust projects:
 
 | Target | Description |
 |---|---|
+| rustdesk | Remote desktop software |
 | uv, ruff | Astral Python tooling |
 | sway, fuel-core, fuels-rs | Fuel Labs blockchain ecosystem |
 | alacritty | GPU-accelerated terminal |
@@ -55,14 +55,14 @@ Targets are defined in `misc/targets-nightly-2025-05-22.toml` and `misc/targets-
 | turborepo, swc | JavaScript tooling |
 | sniffnet, zoxide, just | Various utilities |
 | linera-protocol | Blockchain protocol |
-| coreutils | 87 GNU coreutils reimplemented in Rust |
+| coreutils | 104 GNU coreutils reimplemented in Rust |
 
 Each target is compiled at multiple optimization levels (O0-O3, Os, Oz) and stripped before decompilation.
 
 ## Metrics
 
 ### Conciseness
-- **MCC** -- Modified Cyclomatic Complexity
+- **CC** -- Cyclomatic Complexity
 - **LoC** -- Lines of Code
 - **# Variables** -- Number of unique variables
 - **# Operators** -- Number of operators
@@ -71,8 +71,8 @@ Each target is compiled at multiple optimization levels (O0-O3, Os, Oz) and stri
 - **# Gotos** -- Unstructured control flow (lower is better)
 - **# Matched String Literals** -- Recovered string constants
 - **# Matched Function Calls** -- Correctly identified function calls
-- **# Extraneous Function Calls** -- False positive function calls
-- **# Matched Macro Calls** -- Rust macro identification (e.g., `println!`, `format!`)
+- **# Extraneous Function Calls** -- Extraneous function calls
+- **# Matched Macro Calls** -- Correctly identified Rust macro calls (e.g., `println!`, `format!`)
 
 ### Type Recovery
 - Per-type precision/recall/F1 for primitives, structs, enums, Rust-specific types (`Option`, `Result`), and pointer variants
@@ -84,7 +84,6 @@ oxidizer-eval/
   eval.py                     # Main evaluation entry point
   setup.py                    # Build targets and generate ground truth
   install_oxidizer.sh         # Install Oxidizer and dependencies
-  clean.sh                    # Cleanup script
   eval/
     config.py                 # Configuration (decompiler list, paths, targets)
     result.py                 # Data structures (DecompileResult, EvalResult)
@@ -92,21 +91,11 @@ oxidizer-eval/
     metrics/                  # Metric definitions and calculations
     type_recovery/            # Type recovery and DWARF parsing
     utils/                    # Timeout, scheduling, logging
-  oxidizer/                   # Oxidizer source (angr fork with Rust passes)
-  targets/
-    src/                      # Target source code
-    stripped/                 # Stripped binaries (decompilation input)
-    symbols/                  # Symbol tables (JSON)
-    ground_truth/             # Source-level ground truth
-    merged_ground_truth/      # Combined source + DWARF ground truth
-    dwarf/                    # Extracted DWARF debug info
   misc/
     ground_truth_parser/      # Rust tool: extracts ground truth from source
     dwarf_parser/             # Rust tool: extracts DWARF info
     targets-*.toml            # Target definitions per toolchain
-  tools/                      # External decompilers (IDA, Ghidra, Binary Ninja)
   scripts/                    # Analysis, comparison, and utility scripts
-  output/                     # Evaluation results, cached outputs, HTML reports
 ```
 
 ## Setup
