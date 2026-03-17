@@ -80,15 +80,12 @@ Each target is compiled at multiple optimization levels (O0-O3, Os, Oz) and stri
 ```
 oxidizer-eval/
   eval.py                     # Main evaluation entry point
-  setup.py                    # Build targets and generate ground truth
   config.yml                  # Runtime config (decompilers, timeouts, paths)
-  install_oxidizer.sh         # Install Oxidizer and dependencies
   eval/
     config.py                 # Configuration (decompiler list, paths, targets)
     result.py                 # Data structures (DecompileResult, EvalResult)
     decompilers/              # Decompiler adapters (unified interface)
     metrics/                  # Metric definitions and calculations
-    type_recovery/            # Type recovery and DWARF parsing
     utils/                    # Timeout, scheduling, logging
   misc/
     ground_truth_parser/      # Rust tool: extracts ground truth from source
@@ -106,24 +103,10 @@ oxidizer-eval/
 
 ### Install Oxidizer
 
-```bash
-./install_oxidizer.sh
-```
+See instructions on [Oxidizer](https://github.com/sefcom/oxidizer).
 
-This installs the angr ecosystem with pinned commits and builds Oxidizer from the `oxidizer/` subdirectory.
+### Download Evaluation Targets
 
-### Build Evaluation Targets
-
-```bash
-python setup.py
-```
-
-This will:
-1. Install the required Rust toolchain
-2. Build the ground truth parser and DWARF parser
-3. Clone and compile all target projects at each optimization level
-4. Generate per-function ground truth from source code and DWARF info
-5. Strip binaries and extract symbol tables
 
 ## Usage
 
