@@ -99,7 +99,8 @@ oxidizer-eval/
 ### Prerequisites
 - Python >= 3.10
 - Rust nightly toolchain (nightly-2025-05-22)
-- External decompilers placed in `tools/` (IDA Pro 9.0, Ghidra 11.2.1, Binary Ninja)
+- Install Binary Ninja and its APIs
+- External decompilers placed in `tools/` (IDA Pro, Ghidra)
 
 ### Install Oxidizer
 
