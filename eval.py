@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List
 
-from eval.config import COREUTILS_MODULES, DECOMPILERS, RESULT_DIR
+from eval.config import COREUTILS_MODULES, DECOMPILERS, RESULT_DIR, CONFIG
 from eval.metrics import *
 from eval.metrics.calc import *
 from eval.metrics.ground_truth import FunctionGroundTruth
@@ -24,26 +24,14 @@ from eval.utils.timeout import run_with_timeout
 from eval.utils.logging import init_logger
 from eval.utils.scheduler import set_memory_limit_gb
 
-CACHE_ONLY = False
-DEC_CONFIG = {
-    "Source": {"cache_only": True, "timeout_minutes": 0},
-    "angr": {"cache_only": True, "timeout_minutes": 120},
-    "Oxidizer": {"cache_only": False, "timeout_minutes": 240},
-    "Oxidizer.old": {"cache_only": True, "timeout_minutes": 240},
-    "Oxidizer_propagation": {"cache_only": False, "timeout_minutes": 240},
-    "Oxidizer_no_propagation": {"cache_only": False, "timeout_minutes": 240},
-    "Oxidizer.ndss": {"cache_only": True, "timeout_minutes": 180},
-    "IDA": {"cache_only": True, "timeout_minutes": 60},
-    "Ghidra": {"cache_only": True, "timeout_minutes": 180},
-    "Binary Ninja": {"cache_only": True, "timeout_minutes": 120},
-    "Binary Ninja (Pseudo Rust)": {"cache_only": True, "timeout_minutes": 0},
-    "GhidRust": {"cache_only": True, "timeout_minutes": 60},
-    "Binary Ninja (with Plugin)": {"cache_only": True, "timeout_minutes": 120},
-}
+_dec_config_raw = dict(CONFIG.get("decompiler_config", {}))
+CACHE_ONLY = _dec_config_raw.pop("cache_only", False)
+DEC_CONFIG = _dec_config_raw
 
-TARGET_STRIPPED_DIR = Path("targets/stripped").absolute()
-TARGET_GROUND_TRUTH_DIR = Path("targets/merged_ground_truth").absolute()
-TARGET_SYMBOLS_DIR = Path("targets/symbols").absolute()
+_paths = CONFIG["paths"]
+TARGET_STRIPPED_DIR = Path(_paths["target_stripped_dir"]).resolve()
+TARGET_GROUND_TRUTH_DIR = Path(_paths["target_ground_truth_dir"]).resolve()
+TARGET_SYMBOLS_DIR = Path(_paths["target_symbols_dir"]).resolve()
 
 l = logging.getLogger("oxidizer-eval")
 
@@ -68,7 +56,7 @@ def decompile_binary(binary_path, tag, decompiler, symbols, use_timeout=True):
 
     cfg = DEC_CONFIG[decompiler]
     cache_only = cfg["cache_only"] or CACHE_ONLY
-    timeout = cfg["timeout_minutes"] * 60
+    timeout = cfg["timeout"] * 60
 
     if cache_only:
         return
@@ -473,9 +461,9 @@ if __name__ == "__main__":
 
     tags = (
         # "malware",
-        # "nightly-2023-05-22-O3",
-        "nightly-2025-05-22-O0",
-        "nightly-2025-05-22-O3",
+        "nightly-2023-05-22-O3",
+        # "nightly-2025-05-22-O0",
+        # "nightly-2025-05-22-O3",
         # "nightly-2025-05-22-O3-inline",
         # "open-source-malware",
     )

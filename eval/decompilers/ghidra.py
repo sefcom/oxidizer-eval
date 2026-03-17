@@ -157,7 +157,7 @@ def ghidra_decompile(binary_path, target_functions, tag):
     fd.close()
     post_dec_script_path = fd.name
 
-    ghidra_path = GHIDRA_PATH
+    ghidra_path = str(GHIDRA_PATH)
     original_cwd = os.getcwd()
     try:
         dir_path = os.path.dirname(binary_path)

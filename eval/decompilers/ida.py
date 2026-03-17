@@ -4,7 +4,7 @@ import os
 from tempfile import NamedTemporaryFile
 
 from eval.result import DecompileResult
-from eval.config import IDA_PATH, IDA_SCRIPTS_PATH
+from eval.config import IDA_PATH
 
 IDAPYTHON_SCRIPT = r"""
 from collections import defaultdict
@@ -141,12 +141,10 @@ def ida_decompile(binary_path, target_functions, tag):
     result_fd.close()
     script_fd = NamedTemporaryFile("w", suffix=".py", delete=False)
     script_fd.write(
-        IDAPYTHON_SCRIPT.replace("%TARGET_FUNCTIONS%", str(target_functions)).replace(
-            "%RESULT_PATH%", result_fd.name
-        )
+        IDAPYTHON_SCRIPT.replace("%TARGET_FUNCTIONS%", str(target_functions)).replace("%RESULT_PATH%", result_fd.name)
     )
     script_fd.close()
-    cmd = f"{IDA_PATH} -A -S{os.path.abspath(os.path.join(IDA_SCRIPTS_PATH, script_fd.name))} {os.path.abspath(binary_path)}"
+    cmd = f"{IDA_PATH} -A -S{script_fd.name} {os.path.abspath(binary_path)}"
     subprocess.run(cmd.split())
 
     with open(result_fd.name, "r") as fd:

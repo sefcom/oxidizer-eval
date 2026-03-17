@@ -2,8 +2,6 @@
 
 Evaluation framework for [Oxidizer](https://github.com/sefcom/oxidizer), a Rust decompiler built on top of [angr](https://github.com/angr/angr). This framework benchmarks Oxidizer against state-of-the-art decompilers on real-world Rust binaries, measuring conciseness, fidelity, and type recovery.
 
-It is brought to you by [SEFCOM at Arizona State University](https://sefcom.asu.edu).
-
 ## Publication
 
 **Oxidizer: Toward Concise and High-fidelity Rust Decompilation**
@@ -13,7 +11,7 @@ Yibo Liu, Zion Leonahenahe Basque, Arvind S. Raj, Chavin Udomwongsa, Chang Zhu, 
 ```bibtex
 @inproceedings{liu2026oxidizer,
   title={Oxidizer: Toward Concise and High-fidelity Rust Decompilation},
-  author={Liu, Yibo and Basque, Zion Leonahenahe and Raj, Arvind S. and Udomwongsa, Chavin and Zhu, Chang and Hu, Jie and Zhao, Changyu and Dong, Fangzhou and Doup{\'e}, Adam and Bao, Tiffany and Shoshitaishvili, Yan and Wang, Ruoyu},
+  author={Liu, Yibo and Basque, Zion Leonahenahe and Raj, Arvind S and Udomwongsa, Chavin and Zhu, Chang and Hu, Jie and Zhao, Changyu and Dong, Fangzhou and Doup{\'e}, Adam and Bao, Tiffany and Shoshitaishvili, Yan and Wang, Ruoyu},
   booktitle={2026 IEEE Symposium on Security and Privacy (SP)},
   year={2026},
   organization={IEEE}
@@ -26,8 +24,8 @@ The framework currently evaluates the following decompilers:
 
 | Decompiler | Type | Notes |
 |---|---|---|
-| **Oxidizer** | Rust-specialized | Rust-oriented decompiler built on top of angr |
-| **angr** | Open-source | vanilla angrs |
+| **Oxidizer** | Open-source | Rust-oriented decompiler built on top of angr |
+| **angr** | Open-source | Vanilla angr |
 | **IDA Pro 9.0** | Commercial | Hex-Rays decompiler |
 | **Ghidra 11.2.1** | Open-source | NSA's reverse engineering framework |
 | **Binary Ninja 5.3.9117-dev** | Commercial | C and Pseudo-Rust output modes |
@@ -55,7 +53,7 @@ Targets are defined in `misc/targets-nightly-2025-05-22.toml`. The current bench
 | turborepo, swc | JavaScript tooling |
 | sniffnet, zoxide, just | Various utilities |
 | linera-protocol | Blockchain protocol |
-| coreutils | 104 GNU coreutils reimplemented in Rust |
+| coreutils | 102 GNU coreutils reimplemented in Rust |
 
 Each target is compiled at multiple optimization levels (O0-O3, Os, Oz) and stripped before decompilation.
 
@@ -83,6 +81,7 @@ Each target is compiled at multiple optimization levels (O0-O3, Os, Oz) and stri
 oxidizer-eval/
   eval.py                     # Main evaluation entry point
   setup.py                    # Build targets and generate ground truth
+  config.yml                  # Runtime config (decompilers, timeouts, paths)
   install_oxidizer.sh         # Install Oxidizer and dependencies
   eval/
     config.py                 # Configuration (decompiler list, paths, targets)
@@ -131,8 +130,13 @@ This will:
 ### Run Evaluation
 
 ```bash
-python eval.py --tag <toolchain-tag> [options]
+python eval.py [targets] [--workers N]
 ```
+
+| Argument | Default | Description |
+|---|---|---|
+| `targets` | `all` | Which targets to decompile: `all`, `coreutils`, or a specific binary name (e.g. `fmt`) |
+| `--workers N` | `16` | Number of worker processes (`<=0` to disable multiprocessing) |
 
 The evaluation pipeline:
 1. Loads target functions from ground truth
@@ -145,9 +149,6 @@ Results are saved to `output/result/<tag>/<decompiler>/<binary>/`.
 
 ### Configuration
 
-Edit `eval/config.py` to:
-- Enable/disable decompilers in the `DECOMPILERS` tuple
-- Adjust tool paths (`IDA_PATH`, `GHIDRA_PATH`)
-- Modify the coreutils module list
+Edit `config.yml` to configure which decompilers to run, per-decompiler timeouts and caching behavior, and tool paths.
 
-Per-decompiler timeouts and caching behavior are configured in `DEC_CONFIG` in `eval.py`.
+Additional constants (e.g., coreutils module list) can be adjusted in `eval/config.py`.

@@ -1,37 +1,19 @@
-import os
 from pathlib import Path
 
-DECOMPILERS = (
-    "Source",
-    "Oxidizer",
-    # "Oxidizer.old",
-    # "Oxidizer_propagation",
-    # "Oxidizer_no_propagation",
-    # "Oxidizer.ndss",
-    # "angr",
-    "IDA",
-    "Ghidra",
-    "Binary Ninja",
-    "Binary Ninja (Pseudo Rust)",
-    # "Binary Ninja (with Plugin)",
-    # "GhidRust",
-)
-# DECOMPILERS = ("Source", "Oxidizer", "angr", "IDA", "Ghidra", "Binary Ninja", "Binary Ninja (Pseudo Rust)")
+import yaml
 
-IDA_PATH = os.path.abspath("tools/idapro-9.0/idat64")
-GHIDRA_PATH = os.path.abspath("tools/ghidra_11.2.1_PUBLIC/support/analyzeHeadless")
-IDA_SCRIPTS_PATH = os.path.abspath("scripts/ida")
-CACHE_DIR = os.path.abspath("output")
-CACHED_DECOMPILED_CODE_PATH = os.path.abspath("output/decompiled_code")
-CACHED_CALL_COUNTS_PATH = os.path.abspath("output/call_counts")
-CACHED_OTHER_PATH = os.path.abspath("output/other")
-CACHED_GROUND_TRUTH_PATH = os.path.abspath("output/ground_truth")
-CACHED_DWARF_GROUND_TRUTH_PATH = os.path.abspath("output/dwarf")
-CACHED_MALWARE_CALLS_PATH = os.path.abspath("output/malware_calls.json")
-CACHED_INFERRED_PROTOTYPES_PATH = os.path.abspath("output/inferred_prototypes")
+_config_path = Path(__file__).resolve().parent.parent / "config.yml"
+with open(_config_path, "r") as _f:
+    CONFIG = yaml.safe_load(_f)
 
-RESULT_DIR = Path("output/result").absolute()
-FLIRT_SIGS_DIR = Path("targets/flirt_sigs").absolute()
+PROJECT_ROOT = _config_path.parent
+_paths = CONFIG["paths"]
+
+DECOMPILERS = tuple(CONFIG["decompilers"])
+
+IDA_PATH = Path(_paths["ida"]).resolve()
+GHIDRA_PATH = Path(_paths["ghidra"]).resolve()
+RESULT_DIR = Path(_paths["result_dir"]).resolve()
 
 
 COREUTILS_MODULES = [

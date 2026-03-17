@@ -16,7 +16,6 @@ from angr.analyses.decompiler.sequence_walker import SequenceWalker
 from angr.rust.utils.demangler import demangle
 from angr.angrdb import AngrDB
 
-from eval.config import FLIRT_SIGS_DIR
 from eval.result import DecompileResult
 from eval.type_recovery.function_prototype import Type
 

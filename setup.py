@@ -254,7 +254,6 @@ def build_evaluation_targets():
     l.info("Building evaluation targets...")
 
     opt_levels = ("0", "1", "2", "3", "s", "z")
-    # opt_levels = ("3",)
     toolchains = (
         "nightly-2025-05-22",
         # "nightly-2023-05-22",

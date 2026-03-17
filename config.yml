@@ -1,0 +1,44 @@
+decompilers:
+  - Source
+  - Oxidizer
+  - angr
+  - IDA
+  - Ghidra
+  - Binary Ninja
+  - Binary Ninja (Pseudo Rust)
+
+# cache_only: if true, skip decompilation and only use cached results
+# timeout: maximum decompilation time in minutes (0 = no timeout)
+decompiler_config:
+  cache_only: false
+  Source:
+    cache_only: true
+    timeout: 0
+  angr:
+    cache_only: true
+    timeout: 120
+  Oxidizer:
+    cache_only: false
+    timeout: 240
+  IDA:
+    cache_only: true
+    timeout: 60
+  Ghidra:
+    cache_only: true
+    timeout: 180
+  Binary Ninja:
+    cache_only: true
+    timeout: 120
+  Binary Ninja (Pseudo Rust):
+    cache_only: true
+    timeout: 0
+
+paths:
+  ida: tools/idapro-9.0/idat64
+  ghidra: tools/ghidra_11.2.1_PUBLIC/support/analyzeHeadless
+  result_dir: output/result
+  target_stripped_dir: targets/stripped
+  target_ground_truth_dir: targets/merged_ground_truth
+  target_symbols_dir: targets/symbols
+
+
