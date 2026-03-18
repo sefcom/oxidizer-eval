@@ -104,7 +104,7 @@ oxidizer-eval/
 
 ### Install Oxidizer
 
-See instructions on [Oxidizer](https://github.com/sefcom/oxidizer).
+See instructions at [Oxidizer](https://github.com/sefcom/oxidizer).
 
 ### Download Evaluation Targets
 
