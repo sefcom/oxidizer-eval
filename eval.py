@@ -461,9 +461,9 @@ if __name__ == "__main__":
 
     tags = (
         # "malware",
-        "nightly-2023-05-22-O3",
+        # "nightly-2023-05-22-O3",
         # "nightly-2025-05-22-O0",
-        # "nightly-2025-05-22-O3",
+        "nightly-2025-05-22-O3",
         # "nightly-2025-05-22-O3-inline",
         # "open-source-malware",
     )

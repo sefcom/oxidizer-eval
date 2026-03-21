@@ -1,10 +1,10 @@
 """
-Compare cleanup function symbol recovery accuracy between propagation and no_propagation.
+Compare standard library function symbol recovery accuracy between propagation and no_propagation.
 
-A function is considered a cleanup function if its normalized name (with generic parameters stripped)
-matches one of the CLEANUP_FUNCTIONS defined in cleanup_code_remover.py.
+A function is considered a std function if its normalized name (with generic parameters stripped)
+starts with one of the Rust standard library crate prefixes: std::, core::, alloc::.
 
-A recovery is correct if both the ground truth name AND the recovered name are cleanup functions.
+A recovery is correct if the recovered name matches the ground truth name (after stripping generics).
 """
 
 import json
@@ -12,17 +12,7 @@ import os
 import re
 import sys
 
-CLEANUP_FUNCTIONS = {
-    "free",
-    "__rust_dealloc",
-    "__rustc::__rust_dealloc",
-    "close",
-    "_close",
-    "core::ptr::drop_in_place",
-    "core::ops::drop::Drop::drop",
-    "alloc::raw_vec::RawVecInner::deallocate",
-    "smallvec::deallocate",
-}
+STD_PREFIXES = ("std::", "core::", "alloc::", "<std::", "<core::", "<alloc::")
 
 GENERIC_TYPE_PATTERN = re.compile(r"<[^<>]*>")
 
@@ -39,8 +29,9 @@ def strip_generics(name: str) -> str:
     return name
 
 
-def is_cleanup_function(name: str) -> bool:
-    return strip_generics(name) in CLEANUP_FUNCTIONS
+def is_std_function(name: str) -> bool:
+    stripped = strip_generics(name)
+    return stripped.startswith(STD_PREFIXES)
 
 
 def load_json(path: str) -> dict[str, str]:
@@ -49,7 +40,7 @@ def load_json(path: str) -> dict[str, str]:
 
 
 def evaluate(ground_truth_dir: str, recovered_dir: str, allowed_files: set[str] | None = None) -> dict:
-    total_cleanup = 0
+    total_std = 0
     correct = 0
     per_binary = {}
 
@@ -70,11 +61,11 @@ def evaluate(ground_truth_dir: str, recovered_dir: str, allowed_files: set[str] 
         binary_correct = 0
 
         for addr, gt_name in gt.items():
-            if not is_cleanup_function(gt_name):
+            if not is_std_function(gt_name):
                 continue
             binary_total += 1
             rec_name = rec.get(addr)
-            if rec_name and is_cleanup_function(rec_name):
+            if rec_name and strip_generics(rec_name) == strip_generics(gt_name):
                 binary_correct += 1
 
         if binary_total > 0:
@@ -84,13 +75,13 @@ def evaluate(ground_truth_dir: str, recovered_dir: str, allowed_files: set[str] 
                 "accuracy": binary_correct / binary_total,
             }
 
-        total_cleanup += binary_total
+        total_std += binary_total
         correct += binary_correct
 
     return {
-        "total_cleanup": total_cleanup,
+        "total_std": total_std,
         "correct": correct,
-        "accuracy": correct / total_cleanup if total_cleanup > 0 else 0.0,
+        "accuracy": correct / total_std if total_std > 0 else 0.0,
         "per_binary": per_binary,
     }
 
@@ -110,13 +101,17 @@ def main():
     no_prop_result = evaluate(GROUND_TRUTH_DIR, NO_PROPAGATION_DIR, common_files)
 
     print("=" * 70)
-    print("Cleanup Function Symbol Recovery Accuracy")
+    print("Std Function Symbol Recovery Accuracy (std::, core::, alloc::)")
     print("=" * 70)
     print()
     print(f"{'Method':<20} {'Correct':>10} {'Total':>10} {'Accuracy':>10}")
     print("-" * 50)
-    print(f"{'propagation':<20} {prop_result['correct']:>10} {prop_result['total_cleanup']:>10} {prop_result['accuracy']:>10.2%}")
-    print(f"{'no_propagation':<20} {no_prop_result['correct']:>10} {no_prop_result['total_cleanup']:>10} {no_prop_result['accuracy']:>10.2%}")
+    print(
+        f"{'propagation':<20} {prop_result['correct']:>10} {prop_result['total_std']:>10} {prop_result['accuracy']:>10.2%}"
+    )
+    print(
+        f"{'no_propagation':<20} {no_prop_result['correct']:>10} {no_prop_result['total_std']:>10} {no_prop_result['accuracy']:>10.2%}"
+    )
     print()
 
     # Per-binary breakdown

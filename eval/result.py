@@ -8,6 +8,10 @@ from eval.metrics import METRICS
 from eval.metrics import *
 from eval.config import DECOMPILERS
 
+LATEX_DECOMPILERS = tuple(d for d in DECOMPILERS if d in (
+    "Source", "Oxidizer", "angr", "IDA", "Ghidra", "Binary Ninja", "Binary Ninja (Pseudo Rust)",
+))
+
 
 class DecompileResult:
 
@@ -220,6 +224,8 @@ class EvalResult:
         return output
 
     def to_latex(self, tag) -> str:
+        decompilers = LATEX_DECOMPILERS
+
         def winner_fmt(value: str, is_best: bool) -> str:
             return f"\\winner{{{value}}}" if is_best and value else value
 
@@ -238,7 +244,7 @@ class EvalResult:
         latex.append(f"\\label{{table:eval_result_{tag}}}")
         latex.append("\\footnotesize")
         latex.append("\\resizebox{\\textwidth}{!}{%")
-        latex.append("\\begin{tabular}{l" + "rr" * len(DECOMPILERS) + "}")
+        latex.append("\\begin{tabular}{l" + "rr" * len(decompilers) + "}")
         latex.append("\\toprule")
 
         decompiler_mappings = {
@@ -248,7 +254,7 @@ class EvalResult:
             "Binary Ninja (Pseudo Rust)": "Binary Ninja\n(Pseudo Rust)",
         }
 
-        for d in DECOMPILERS:
+        for d in decompilers:
             if d not in decompiler_mappings:
                 decompiler_mappings[d] = d
             mapping = decompiler_mappings[d]
@@ -258,14 +264,14 @@ class EvalResult:
         latex.append(
             "\\multirowcell{3}{\\textbf{Metric}} "
             + "& "
-            + " & ".join([f"\\multicolumn{{2}}{{c}}{{\\makecell{{{decompiler_mappings[d]}}}}}" for d in DECOMPILERS])
+            + " & ".join([f"\\multicolumn{{2}}{{c}}{{\\makecell{{{decompiler_mappings[d]}}}}}" for d in decompilers])
             + " \\\\"
         )
-        latex.append("\\cmidrule{2-" + str(1 + 2 * len(DECOMPILERS)) + "}")
+        latex.append("\\cmidrule{2-" + str(1 + 2 * len(decompilers)) + "}")
         latex.append(
             "& "
             + " & ".join(
-                ["\\multicolumn{1}{c}{\\textbf{Avg.}} & \\multicolumn{1}{c}{\\textbf{Med.}}"] * len(DECOMPILERS)
+                ["\\multicolumn{1}{c}{\\textbf{Avg.}} & \\multicolumn{1}{c}{\\textbf{Med.}}"] * len(decompilers)
             )
             + " \\\\"
         )
@@ -285,27 +291,23 @@ class EvalResult:
 
         for metric in METRICS:
             if metric == NUM_GOTOS:
-                latex.append(f"\\cmidrule{{1-{2 * len(DECOMPILERS) + 1}}}")
+                latex.append(f"\\cmidrule{{1-{2 * len(decompilers) + 1}}}")
             row = [metric_mappings.get(metric, metric)]
-            # Collect all values first for comparison
-            # sums = [self._sum(d, metric) for d in DECOMPILERS]
-            avgs = [self._average(d, metric) for d in DECOMPILERS]
-            meds = [self._median(d, metric) for d in DECOMPILERS]
+            avgs = [self._average(d, metric) for d in decompilers]
+            meds = [self._median(d, metric) for d in decompilers]
 
             best_decompiler = None
             if metric in [NUM_MATCHED_FUNCTION_CALLS, NUM_MATCHED_MACRO_CALLS, NUM_MATCHED_STRING_LITERALS]:
                 best_decompiler = max(
-                    DECOMPILERS, key=lambda d: self._average(d, metric) if d != "Source" else 0
+                    decompilers, key=lambda d: self._average(d, metric) if d != "Source" else 0
                 )  # Higher is better
             else:
                 best_decompiler = min(
-                    DECOMPILERS, key=lambda d: self._average(d, metric) if d != "Source" else float("inf")
+                    decompilers, key=lambda d: self._average(d, metric) if d != "Source" else float("inf")
                 )  # Lower is better
 
-            for i in range(len(DECOMPILERS)):
-                decompiler = DECOMPILERS[i]
-
-                # sum_str = winner_fmt(f"{sums[i]:,}", decompiler == best_decompiler)
+            for i in range(len(decompilers)):
+                decompiler = decompilers[i]
 
                 if decompiler == "Source":
                     avg_fmt = f"{avgs[i]:.2f}"
@@ -340,7 +342,23 @@ class EvalResult:
             "Result",
             "enum",
         ]
-        decompilers = [d for d in DECOMPILERS if d not in ["Source", "Binary Ninja (Pseudo Rust)"]]
+        all_type_categories = [
+            "primitive",
+            "struct",
+            "enum",
+            "array",
+            "Result",
+            "Option",
+            "&primitive",
+            "&struct",
+            "&enum",
+            "&Result",
+            "&Option",
+            "&array",
+            "&reference",
+            "reference",
+        ]
+        decompilers = [d for d in LATEX_DECOMPILERS if d not in ["Source", "Binary Ninja (Pseudo Rust)"]]
 
         def format_percent(x):
             return f"{x * 100:.2f}\\%"
@@ -425,11 +443,11 @@ class EvalResult:
         )
         latex.append("\\midrule")
 
-        # Overall row
+        # Overall row (use all type categories including &-prefixed for correct totals)
         precisions, recalls, f1s, totals = [], [], [], []
         for decompiler in decompilers:
             tp = fp = fn = total = 0
-            for t in type_suffixes:
+            for t in all_type_categories:
                 tp += sum(self.decompiler_and_metric_to_values.get((decompiler, f"{t}_TP"), []))
                 fp += sum(self.decompiler_and_metric_to_values.get((decompiler, f"{t}_FP"), []))
                 fn += sum(self.decompiler_and_metric_to_values.get((decompiler, f"{t}_FN"), []))

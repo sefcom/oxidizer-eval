@@ -1,6 +1,9 @@
 decompilers:
   - Source
   - Oxidizer
+  - Oxidizer_no_propagation
+  - Oxidizer_no_symbol_recovery
+  - Oxidizer_no_prototype_inference
   - angr
   - IDA
   - Ghidra
@@ -16,10 +19,19 @@ decompiler_config:
     timeout: 0
   angr:
     cache_only: true
-    timeout: 120
+    timeout: 180
   Oxidizer:
-    cache_only: false
+    cache_only: true
     timeout: 240
+  Oxidizer_no_symbol_recovery:
+    cache_only: true
+    timeout: 240
+  Oxidizer_no_propagation:
+    cache_only: true
+    timeout: 240
+  Oxidizer_no_prototype_inference:
+    cache_only: false
+    timeout: 180
   IDA:
     cache_only: true
     timeout: 60
@@ -28,7 +40,7 @@ decompiler_config:
     timeout: 180
   Binary Ninja:
     cache_only: true
-    timeout: 120
+    timeout: 180
   Binary Ninja (Pseudo Rust):
     cache_only: true
     timeout: 0

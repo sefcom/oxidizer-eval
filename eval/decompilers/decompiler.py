@@ -65,6 +65,12 @@ class Decompiler:
             gen = angr_decompile(binary_path, uncached, tag, symbols, is_rust=False)
         elif self.name == "Oxidizer":
             gen = angr_decompile(binary_path, uncached, tag, symbols, is_rust=True)
+        elif self.name == "Oxidizer_no_propagation":
+            gen = angr_decompile(binary_path, uncached, tag, symbols, is_rust=True, cache=False)
+        elif self.name == "Oxidizer_no_symbol_recovery":
+            gen = angr_decompile(binary_path, uncached, tag, symbols, is_rust=True, cache=False)
+        elif self.name == "Oxidizer_no_prototype_inference":
+            gen = angr_decompile(binary_path, uncached, tag, symbols, is_rust=True)
         elif self.name == "GhidRust":
             gen = ghidrust_decompile(binary_path, uncached, tag)
         elif self.name == "Binary Ninja (with Plugin)":
