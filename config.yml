@@ -1,14 +1,15 @@
 decompilers:
   - Source
-  - Oxidizer
-  - Oxidizer_no_propagation
-  - Oxidizer_no_symbol_recovery
-  - Oxidizer_no_prototype_inference
-  - angr
-  - IDA
+  # - Oxidizer
+  # - Oxidizer_no_propagation
+  # - Oxidizer_no_symbol_recovery
+  # - Oxidizer_no_prototype_inference
+  # - angr
+  # - IDA
   - Ghidra
-  - Binary Ninja
-  - Binary Ninja (Pseudo Rust)
+  # - Binary Ninja
+  # - Binary Ninja (Pseudo Rust)
+  - LLM4Decompile
 
 # cache_only: if true, skip decompilation and only use cached results
 # timeout: maximum decompilation time in minutes (0 = no timeout)
@@ -30,7 +31,7 @@ decompiler_config:
     cache_only: true
     timeout: 240
   Oxidizer_no_prototype_inference:
-    cache_only: false
+    cache_only: true
     timeout: 180
   IDA:
     cache_only: true
@@ -44,6 +45,9 @@ decompiler_config:
   Binary Ninja (Pseudo Rust):
     cache_only: true
     timeout: 0
+  LLM4Decompile:
+    cache_only: false
+    timeout: 60
 
 paths:
   ida: tools/idapro-9.0/idat64

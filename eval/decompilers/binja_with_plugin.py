@@ -5,12 +5,15 @@ import logging
 
 sys.path.insert(0, os.path.expanduser("~/.binaryninja/plugins"))
 
-import binaryninja
-from rust_string_slicer.binja_plugin.actions import (
-    RustStringSlice,
-    RecoverStringFromReadOnlyDataTask,
-    RecoverStringFromCodeTask,
-)
+try:
+    import binaryninja
+    from rust_string_slicer.binja_plugin.actions import (
+        RustStringSlice,
+        RecoverStringFromReadOnlyDataTask,
+        RecoverStringFromCodeTask,
+    )
+except ImportError:
+    pass
 
 from eval.decompilers.binja import _decompile, count_calls, get_variable_types
 from eval.result import DecompileResult

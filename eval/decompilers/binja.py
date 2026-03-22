@@ -3,15 +3,18 @@ import traceback
 import os
 import logging
 
-import binaryninja
-from binaryninja import lineardisassembly
-from binaryninja import demangle
-from binaryninja.commonil import Constant, Call
-from binaryninja.enums import DisassemblyOption, InstructionTextTokenType
-from binaryninja.function import DisassemblySettings, Function
-from binaryninja.highlevelil import HighLevelILInstruction
-from binaryninja.types import TypeClass, VariableSourceType
-from binaryninja.variable import Variable
+try:
+    import binaryninja
+    from binaryninja import lineardisassembly
+    from binaryninja import demangle
+    from binaryninja.commonil import Constant, Call
+    from binaryninja.enums import DisassemblyOption, InstructionTextTokenType
+    from binaryninja.function import DisassemblySettings, Function
+    from binaryninja.highlevelil import HighLevelILInstruction
+    from binaryninja.types import TypeClass, VariableSourceType
+    from binaryninja.variable import Variable
+except ImportError:
+    pass
 
 from eval.result import DecompileResult
 
@@ -36,7 +39,7 @@ def _decompile(bv, func, language="C"):
     )
 
 
-def count_calls(bv, func: Function):
+def count_calls(bv, func):
     def find_call(i) -> HighLevelILInstruction:
         if isinstance(i, Call):
             return i
@@ -71,7 +74,7 @@ def estimate_frame_size(func):
     return abs(min(offsets))
 
 
-def get_variable_ident(var: Variable, func):
+def get_variable_ident(var, func):
     if var.source_type == VariableSourceType.StackVariableSourceType:
         frame_size = estimate_frame_size(func)
         adjusted_offset = frame_size + var.storage
@@ -88,7 +91,7 @@ def get_variable_ident(var: Variable, func):
     return None  # Ignore other types
 
 
-def get_variable_types(func: Function):
+def get_variable_types(func):
     ident_to_types = defaultdict(list)
 
     hlil = func.hlil
