@@ -260,7 +260,7 @@ class Task:
 
 
 class Scheduler:
-    def __init__(self, workers: int = 16, max_memory_gb: int = 32, targets: str = "all"):
+    def __init__(self, workers: int = 16, max_memory_gb: int = 64, targets: str = "all"):
         self.workers = workers
         self.max_memory_gb = max_memory_gb
         self.targets = targets

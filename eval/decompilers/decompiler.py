@@ -7,6 +7,7 @@ from eval.decompilers.angr import angr_decompile
 from eval.decompilers.binja import binja_decompile
 from eval.decompilers.ghidrust import ghidrust_decompile
 from eval.decompilers.binja_with_plugin import binja_with_plugin_decompile
+from eval.decompilers.llm4decompile import llm4decompile_decompile
 
 
 class DecompilerCache:
@@ -77,6 +78,8 @@ class Decompiler:
             gen = binja_with_plugin_decompile(binary_path, uncached, tag, symbols)
         elif self.name == "Binary Ninja (Pseudo Rust)":
             return  # Results produced by "Binary Ninja" decompilation
+        elif self.name == "LLM4Decompile":
+            gen = llm4decompile_decompile(binary_path, uncached, tag, symbols)
         else:
             return  # Unsupported decompiler
 
