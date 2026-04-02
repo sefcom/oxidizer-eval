@@ -108,6 +108,7 @@ See instructions at [Oxidizer](https://github.com/sefcom/oxidizer).
 
 ### Download Evaluation Targets
 
+Download binaries and ground truth from [DropBox](https://www.dropbox.com/scl/fi/4a0e7kqu8qk1ei3j5fazs/oxidizer-dataset.tar.zst?rlkey=n9ak96e0udpe95qgdb225m4mq&st=3jaxcqse&dl=0).
 
 ## Usage
 
