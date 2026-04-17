@@ -5,7 +5,7 @@ Evaluation framework for [Oxidizer](https://github.com/sefcom/oxidizer), a Rust 
 ## Publication
 
 **Oxidizer: Toward Concise and High-fidelity Rust Decompilation**
-Yibo Liu, Zion Leonahenahe Basque, Arvind S. Raj, Chavin Udomwongsa, Chang Zhu, Jie Hu, Changyu Zhao, Fangzhou Dong, Adam Doupe, Tiffany Bao, Yan Shoshitaishvili, Ruoyu Wang
+Yibo Liu, Zion Leonahenahe Basque, Arvind S Raj, Chavin Udomwongsa, Chang Zhu, Jie Hu, Changyu Zhao, Fangzhou Dong, Adam Doupe, Tiffany Bao, Yan Shoshitaishvili, Ruoyu Wang
 *IEEE Symposium on Security and Privacy (S&P), 2026*. (To appear)
 
 ```bibtex
